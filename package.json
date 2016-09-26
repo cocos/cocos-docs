@@ -1,0 +1,25 @@
+{
+  "name": "cocos-docs",
+  "version": "1.0.0",
+  "description": "Documentation ===============",
+  "main": "index.js",
+  "dependencies": {
+    "del": "^2.2.2",
+    "markdown-styles": "^3.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "make-zh-doc": "node utils/build-doc.js zh && node utils/open-doc.js zh",
+    "make-en-doc": "node utils/build-doc.js en && node utils/open-doc.js en"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chukong/cocos-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chukong/cocos-docs/issues"
+  },
+  "homepage": "https://github.com/chukong/cocos-docs#readme"
+}
