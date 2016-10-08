@@ -10,15 +10,26 @@ Double click the downloaded installer to install Cocos Creator.
 
 ### Windows Instruction
 
-Cocos Creator Windows version uses a "one-click" installer framework, so you can't specify target location during installation. Once completes, the installer will create shortcut for both desktop and startup menu.
+Start from v1.3.0, Cocos Creator for Windows will not support 32bit system. Please consider upgrade your Windows to 64 bit.
 
-The application will be installed to `%USER\AppData\Local\CocosCreator`, different version of Cocos Creator will be put into sub-folders named `app-x.x.x`. It will keep two versions of Cocos Creator maximum. You can switch between two of most recent Cocos Creator versions to make sure your project is in good hand. You can also copy `app-x.x.x` folder to another disk if you prefer not to use your system volumn. But auto update feature will no-longer works from elsewhere.
+The installer for Windows is a `.exe` file, usually named as `CocosCreator_vX.X.X_20XXXXXX_setup.exe`, where `vX.X.X` is Cocos Creator main version number, the series following is the build date version number.
 
-Cocos Creator will take about 1 GB space on your system volumn. Please make sure you have enough space before proceeds. 
+**Notice** The build date version number will be frequently updated during beta testing phase, if the main version number installed on your PC is the same as the installer you won't be able to install it before uninstall the one on your PC first.
 
-**Notice:** If installation fails, please clean up `%USER\AppData\Local\SquirrelTemp` folder and try again. If problem still exists, please contact development team for help.
+The default install location is `C:\CocosCreator`, you can change the target location during installation process.
 
-### Mac Instruction 
+Cocos Creator will take up about 1.25 GB disk space, please prepare for enough disk space before installation.
+
+**Notice** If your installation failed, please try to run the installer with the following command line:
+
+```
+CocosCreator_v1.2.0_2016080301_setup.exe /exelog "exe_log.txt" /L*V "msi_log.txt"
+```
+
+You can execute this command line either by `CMD` program or by creating a shortcut for installer and put it into the `target` property of the shortcut. Then please submit the installation logs (`exe_log.txt` and `msi_log.txt`) to developer team for help.
+
+
+### Mac Instruction
 
 The installer of Cocos Creator Mac version is a DMG image file. Double click it and drag `CocosCreator.app` to the link of your Application folder. You can also drag it anywhere you like. Double click `CocosCreator.app` to get started.
 
@@ -29,7 +40,7 @@ The installer of Cocos Creator Mac version is a DMG image file. Double click it 
 The minimum system requirements are:
 
 - For Mac: OS X 10.9
-- For Windows: Windows 7
+- For Windows: Windows 7 64bit
 
 ## Run Cocos Creator
 

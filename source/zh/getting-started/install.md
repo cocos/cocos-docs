@@ -6,17 +6,27 @@
 
 您可以通过访问 [Cocos Creator 产品首页](http://www.cocos.com/cocoscreator/) 上的下载链接获得 Cocos Creator 的安装包。
 
-下载完成后双击安装包，
+下载完成后双击安装包。
 
 ### Windows 安装说明
 
-从 v1.0.2 版本开始，为了方便日后自动升级，Cocos Creator 的 Windows 版安装器采用一键安装的方式，安装过程中无法指定安装路径或其他参数。安装过程结束后会自动在 **桌面** 和 **开始菜单** 中添加相应的快捷方式。
+从 v1.3.0 开始，Windows 版 Cocos Creator 将不提供 32 位操作系统支持。
 
-应用的安装路径位于 `%USER\AppData\Local\CocosCreator`，其中会包含以 `app-x.x.x` 命名的子目录，用于存储当前应用的版本。当有新版本的 Cocos Creator 时，新版本会被下载到安装路径下，并且放在和之前版本不同的子目录里。Cocos Creator 最多会保留两个版本的应用程序在安装路径下。当您使用新版本发现问题时，可以随时切换回旧版本。您也可以手动将旧版本的子目录删除以节省硬盘空间。
+Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 `CocosCreator_vX.X.X_20XXXXXX_setup.exe`，其中 `vX.X.X` 是 Cocos Creator 的版本号，如 `v1.2.2`，后面的一串数字是版本日期编号。
+
+**注意** 日期编号在使用内测版时会更新的比较频繁，注意如果当前 PC 上已安装的版本号和安装包的版本号相同时，无法自动覆盖安装注意相同版本号的安装包，需要先卸载之前的版本才能继续安装。
+
+应用的安装路径默认选择了 `C:\CocosCreator`，可以在安装过程中进行指定。
 
 Cocos Creator 将会占据系统盘中大约 1.25 GB 的空间，请在安装前整理您的系统盘空间。
 
-**注意**：如果出现安装失败，请清空 `%USER\AppData\Local\SquirrelTemp` 文件夹并重试，或将安装日志提交给开发团队寻求帮助。
+**注意**：如果出现安装失败，请尝试通过命令行执行安装程序：
+
+```
+CocosCreator_v1.2.0_2016080301_setup.exe /exelog "exe_log.txt" /L*V "msi_log.txt"
+```
+
+用以下命令执行，或为安装程序创建一个快捷方式，并将该命令行参数填入快捷方式的 `目标` 属性中。然后将生成的安装日志（`exe_log.txt` 和 `msi_log.txt`）提交给开发团队寻求帮助。
 
 
 ### Mac 安装说明
@@ -32,7 +42,7 @@ Mac 版 Cocos Creator 的安装程序是 DMG 镜像文件，双击 DMG 文件，
 Cocos Creator 所支持的系统环境是：
 
 - Mac OS X 所支持的最低版本是 OS X 10.9。
-- Windows 所支持的最低版本是 Windows 7。
+- Windows 所支持的最低版本是 Windows 7 64位。
 
 ## 运行 Cocos Creator
 
