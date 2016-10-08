@@ -1,0 +1,39 @@
+# 自动图集资源 (Auto Atlas)
+
+**自动图集资源** 作为 Cocos Creator 自带的合图功能，可以将指定的一系列碎图打包成一张大图，具体作用和 Texture Packer 的功能很相近。
+
+## 创建自动图集资源
+
+在 **资源管理器** 中右键，可以在如下菜单中找到 **新建 -> 自动图集配置** 的子菜单，点击菜单将会新建一个类似 **AutoAtlas.pac** 的资源。   
+![create auto atlas](auto-atlas/create-auto-atlas.png)   
+
+**自动图集资源** 将会以当前文件夹下的所有 **SpriteFrame** 作为碎图资源，以后会增加其他的选择碎图资源的方式。   
+如果碎图资源 **SpriteFrame** 有进行配置过，在打包后重新生成的 **SpriteFrame** 将会保留这些配置。
+
+## 配置自动图集资源
+
+在资源管理器中选中一个 **自动图集资源** 后，Inspector 面板将会显示 **自动图集资源** 的所有可配置项。
+
+| 属性 |   功能说明
+| -------------- | ----------- |
+| Max Width | 单张图集最大宽度
+| Max Height | 单张图集最大高度
+| Padding | 图集中碎图之间的间距
+| Allow Rotation | 是否允许旋转碎图
+| Force Squared | 是否强制将图集长宽大小设置成正方形
+| PowerOfTwo | 是否将图集长宽大小设置为二次方倍数
+| Heuristices | 图集打包策略， 可选的策略有 [BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule]
+| Format | 图集图片生成格式，可选的格式有 [png, jpg, webp]
+
+配置完成后可以点击 **预览** 按钮来预览打包的结果，按照当前自动图集配置生成的相关结果将会展示在 Inspector 下面的区域。   
+需要注意的是每次配置过后，需要重新点击 **预览** 才会重新生成预览信息。
+
+结果分为：
+ - Packed Textures, 显示打包后的图集图片以及图片相关的信息，如果会生成的图片有多张，则会往下在 Inspector 中列出来。
+ - Unpacked Textures，显示不能打包进图集的碎图资源，造成的原因有可能是这些碎图资源的大小比图集资源的大小还大导致的，这时候可能需要调整下图集的配置或者碎图的大小了。
+
+## 生成图集
+
+预览项目或者在 Cocos Creator 中使用碎图的时候都是直接使用的碎图资源，在 **构建项目** 这一步才会真正生成图集到项目中。
+生成的大图将会放在 **构建目录** 下的 **res/raw-assets** 相对于项目中 assets 目录结构下的对应的目录中，以 **自动图集-xx.png** 结构命名。   
+生成项目后可以到对应的目录下检查对应的图集资源是否生成成功了。
