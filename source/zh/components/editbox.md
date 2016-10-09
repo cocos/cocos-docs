@@ -17,7 +17,9 @@ EditBox 的脚本接口请参考[EditBox API](../api/classes/EditBox.html)。
 | Keyboard Return Type | 指定移动设备上面回车按钮的样式
 | Input Flag | 指定输入标识：可以指定输入方式为密码或者单词首字母大写
 | Input Mode | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。
-|Font Size| 输入框文本的字体大小
+| Font Size| 输入框文本的字体大小
+| StayOnTop | 输入框总是可见，并且永远在游戏视图的上面
+| TabIndex | 修改 DOM 输入元素的 tabIndex，这个属性只有在 Web 上面修改有意义。
 |Line Height| 输入框文本的行高
 |Font Color| 输入框文本的颜色
 |Placeholder|输入框占位符的文本内容
@@ -58,6 +60,8 @@ EditBox 的脚本接口请参考[EditBox API](../api/classes/EditBox.html)。
 - 如果需要输入密码，则需要把 Input Flag 设置为 password，同时 Input Mode 必须是 Any 之外的选择，一般选择 Single Line。
 - 如果要输入多行，可以把 Input Mode 设置为 Any。
 - 背景图片支持九宫格缩放
+
+注意：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true
 
 <hr>
 

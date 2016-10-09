@@ -350,7 +350,8 @@
             },
             {
                 "name": "EditBox 组件参考",
-                "link": "components/editbox.html"
+                "link": "components/editbox.html",
+                "new": true
             },
             {
                 "name": "Collider 组件参考",

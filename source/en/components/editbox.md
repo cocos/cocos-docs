@@ -18,6 +18,8 @@ For EditBox API reference, please refer to [EditBox API](../api/classes/EditBox.
 | Input Flag | Specify the input flag: password or capitalize word.
 | Input Mode | Specify the input mode: multiline or single line.
 |Font Size| The font size of input label.
+| StayOnTop | The input is always visible and be on top of the game view.
+| TabIndex | Set the tabIndex of the DOM input element, only useful on Web.
 |Line Height| The line height of input label.
 |Font Color| The font color of input label.
 |Placeholder|The content string of placeholder.
@@ -57,3 +59,5 @@ For EditBox API reference, please refer to [EditBox API](../api/classes/EditBox.
 - If you want to input password, you need set `Input Flag` to `PASSWORD` and the `InputMode` mustn't be `ANY`, usually we use `SingleLine`.
 - If you want to enable multiline input support, the flag of `InputMode` should be set to `Any`.
 - The background image of EditBox support slice 9, you could customize the border as you did in Sprite component.
+
+Note: When used in a iframe, you should set `stayOnTop` property to true.

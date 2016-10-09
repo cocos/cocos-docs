@@ -321,7 +321,8 @@
             },
             {
                 "name": "EditBox",
-                "link": "components/editbox.html"
+                "link": "components/editbox.html",
+                "new": true
             },
             {
                 "name": "Collider",
