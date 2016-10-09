@@ -117,6 +117,11 @@
                 "link": "asset-workflow/atlas.html"
             },
             {
+                "name": "自动图集资源（Auto Atlas）",
+                "link": "asset-workflow/auto-atlas.html",
+                "new": true
+            },
+            {
                 "name": "图像资源的自动剪裁",
                 "link": "asset-workflow/trim.html"
             },

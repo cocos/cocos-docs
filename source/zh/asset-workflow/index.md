@@ -47,6 +47,7 @@
 - [场景资源](scene-managing.md)
 - [图像资源](sprite.md)
 - [图集资源（Atlas）](atlas.md)
+- [自动图集资源（Auto Atlas）](auto-atlas.md)
 - [图像资源的自动剪裁](trim.md)
 - [脚本资源](script.md)
 - [字体资源](font.md)
