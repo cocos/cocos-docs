@@ -59,7 +59,7 @@ cc.Class({
                 break;
         }
     }
-}
+});
 ```
 
 ### 设备重力传感事件
@@ -86,7 +86,7 @@ cc.Class({
     onDeviceMotionEvent (event) {
         cc.log(event.acc.x + "   " + event.acc.y);
     },
-}
+});
 ```
 
 大家可以也去看 [官方范例](https://github.com/cocos-creator/example-cases) `cases03_gameplay/01_player_control` 目录下的完整范例（这里包含了，键盘，重力感应，单点触摸，多点触摸的范例）。
