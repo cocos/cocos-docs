@@ -61,4 +61,4 @@ EditBox 的脚本接口请参考[EditBox API](../api/classes/EditBox.html)。
 
 <hr>
 
-继续前往 [Collider 组件参考](collider.md) 说明文档。
+继续前往 [MotionStreak 组件参考](motion-streak.md) 说明文档。

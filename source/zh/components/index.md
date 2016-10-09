@@ -11,6 +11,9 @@
 - [Mask](mask.md)
 - [ScrollView](scrollview.md)
 - [ScrollBar](scrollbar.md)
+- [Slider](slider.md)
+- [PageView](pageviwe.md)
+- [PageViewIndicator](pageviewindicator.md)
 - [Layout](layout.md)
 - [TiledMap](tiledmap.md)
 - [EditBox](editbox.md)
@@ -20,6 +23,9 @@
 - [WebView](webview.md)
 - [Graphics](graphics.md)
 - [RichText](richtext.md)
+- [Toggle](toggle.md)
+- [ToggleGroup](toggleGroup.md)
+- [DragonBones](dragonbones.md)
 
 <hr>
 

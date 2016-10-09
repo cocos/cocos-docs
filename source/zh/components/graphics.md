@@ -31,3 +31,7 @@ Graphics 组件提供了一系列绘画接口，这些接口参考了 canvas 的
 | [fillColor](../graphics/fillColor.md) | 设置或返回填充绘画的颜色
 
 更多关于 **Graphics** 的信息请前往 [绘画](../graphics/index.md)
+
+<hr>
+
+继续前往 [RichText 组件参考](richtext.md) 说明文档。

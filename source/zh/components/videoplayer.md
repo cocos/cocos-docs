@@ -52,4 +52,4 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../api/classes/VideoPlaye
 
 <hr>
 
-继续前往 [Graphics 组件参考](graphics.md) 说明文档。
+继续前往 [WebView 组件参考](webview.md) 说明文档。
