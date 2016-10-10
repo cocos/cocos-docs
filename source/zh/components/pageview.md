@@ -18,6 +18,7 @@ PageView 是一种页面视图容器.
 | Elastic | 布尔值，是否回弹。
 | Bounce Duration | 浮点数，回弹所需要的时间。取值范围是 0-10。
 | indicator | 页面视图指示器组件。
+| autoScrollStopEpsilon| 设置 PageView 页面自动滚动动画结束的阈值，修改此值可以调整 PageView 事件的发送时机。
 | cancelInnerEvents | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件
 
 ## PageView 事件
