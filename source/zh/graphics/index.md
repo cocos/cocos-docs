@@ -19,7 +19,7 @@
 | [close ()](../graphics/close.md) | 创建从当前点回到起始点的路径
 | [stroke ()](../graphics/stroke.md) | 绘制已定义的路径
 | [fill ()](../graphics/fill.md) | 填充当前绘图（路径）
-| [clear ()](../graphics/clear.md) | 清楚所有路径
+| [clear ()](../graphics/clear.md) | 清除所有路径
 
 ### 颜色，样式
 
