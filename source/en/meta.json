@@ -331,7 +331,8 @@
             },
             {
                 "name": "VideoPlayer",
-                "link": "components/videoplayer.html"
+                "link": "components/videoplayer.html",
+                "new": true
             },
             {
                 "name": "WebView",
