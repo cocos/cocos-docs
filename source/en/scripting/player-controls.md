@@ -60,7 +60,7 @@ cc.Class({
                 break;
         }
     }
-}
+});
 ```
 
 ### DEVICE MOTION
@@ -86,7 +86,7 @@ cc.Class({
     onDeviceMotionEvent (event) {
         cc.log(event.acc.x + "   " + event.acc.y);
     },
-}
+});
 ```
 
 You can go to [example-cases](https://github.com/cocos-creator/example-cases) `cases03_gameplay/01_player_control`(This includes the keyboard, accelerometer, single point touch, multitouch examples
