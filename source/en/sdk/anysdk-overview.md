@@ -7,3 +7,8 @@
 **AnySDK Framework** is AnySDK`s client framework, it provides developers with a unified interface to the SDK. Developers only need to call the AnySDK Framework interface, can be realized more access to the SDK.
 
 More details read [AnySDK Framework](anysdk/anysdk-framework.md).
+
+
+## Integrate AnySDK 
+
+More details read  [Integrate AnySDK](anysdk/integrate-anysdk.md) 一节。
