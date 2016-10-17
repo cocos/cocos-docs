@@ -347,7 +347,8 @@
             },
             {
                 "name": "PageView 组件参考",
-                "link": "components/pageview.html"
+                "link": "components/pageview.html",
+                "new": true
             },
             {
                 "name": "PageViewIndicator 组件参考",
@@ -639,7 +640,8 @@
             },
             {
                 "name": "Cocos Package",
-                "link": "sdk/cocos-package-overview.html"
+                "link": "sdk/cocos-package-overview.html",
+                "new": true
             },
             {
                 "name": "AnySDK",
@@ -651,7 +653,8 @@
             },
             {
                 "name": "Cocos Creator 接入 AnySDK 教程",
-                "link": "sdk/anysdk/integrate-anysdk.html"
+                "link": "sdk/anysdk/integrate-anysdk.html",
+                "new": true
             }
         ]
     }
