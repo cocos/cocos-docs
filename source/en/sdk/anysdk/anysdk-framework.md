@@ -1,7 +1,7 @@
 
 # AnySDK Framework
 
-Cocos Creator built-in Cocos engine includes AnySDK Framework libraies. The platform project that built by developer already includes AnySDK Framework. The chapter introduces how to use AnySDK selectivity.
+Cocos Creator built-in Cocos engine includes AnySDK Framework libraries. The platform project that built by developer already includes AnySDK Framework. The chapter introduces how to use AnySDK selectivity.
 
 ## Use AnySDK 
 

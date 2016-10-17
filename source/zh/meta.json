@@ -648,6 +648,10 @@
             {
                 "name": "AnySDK Framework",
                 "link": "sdk/anysdk/anysdk-framework.html"
+            },
+            {
+                "name": "Cocos Creator 接入 AnySDK 教程",
+                "link": "sdk/anysdk/integrate-anysdk.html"
             }
         ]
     }

@@ -41,3 +41,5 @@ WebView 的脚本接口请参考 [WebView API](../api/classes/WebView.html)。
 此控件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
 
 <hr>
+
+继续前往 [Graphics 组件参考](graphics.md) 说明文档。

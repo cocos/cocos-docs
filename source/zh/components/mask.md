@@ -21,4 +21,4 @@ Mask 用于规定子节点可渲染的范围，带有 Mask 的组件的节点会
 
 ---
 
-继续前往 [MotionStreak 组件参考](motion-streak.md)。
+继续前往 [ScrollView 组件参考](scrollview.md)。
