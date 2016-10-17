@@ -37,12 +37,19 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../api/classes/VideoPlaye
 
 ### 事件回调参数
 
-| 名称 |   功能说明
-| -------------- | ----------- |
-|PLAYING| 表示视频正在播放中。
-|PAUSED| 表示视频暂停播放。
-|STOPPED| 表示视频已经停止播放。
-|COMPLETED| 表示视频播放完成。
+| 名称           | 功能说明                                                              |
+| -------------- | -----------                                                           |
+| PLAYING        | 表示视频正在播放中。                                                  |
+| PAUSED         | 表示视频暂停播放。                                                    |
+| STOPPED        | 表示视频已经停止播放。                                                |
+| COMPLETED      | 表示视频播放完成。                                                    |
+| META_LOADED    | 表示视频的元信息已加载完成，你可以调用 getDuration 来获取视频总时长。 |
+| CLICKED        | 表示视频被用户点击了。                                                |
+| READY_TO_PLAY  | 表示视频准备好了，可以开始播放了。                                    |
+
+
+注意：在 iOS 平台上面，全屏模式下面点击视频无法发送 CLICKED 事件，如果需要让 iOS 全屏播放并正确接受 CLICKED 事件，
+可以使用 Widget 组件把视频控件撑满，详情请参考引擎自带的 Example-cases 测试例。
 
 ## 详细说明
 目前此组件只支持Web（PC 和手机）、iOS 和 Android 平台，Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，
