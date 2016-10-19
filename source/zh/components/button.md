@@ -75,9 +75,10 @@ Button 的 Transition 用来指定当用户点击 Button 时的状态表现。�
 Button 目前只支持 Click 事件，即当用户点击并释放 Button 时才会触发相应的回调函数。
 
 
-##### 通过脚本代码添加回调
+#### 通过脚本代码添加回调
 
-1. 方法一
+##### 方法一
+
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
@@ -98,7 +99,7 @@ cc.Class({
     properties: {
     },
 
-    foobar: function(event, customEventData) {
+    callback: function(event, customEventData) {
         //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
         var node = event.target;
         var button = node.getComponent(cc.Button);
@@ -107,15 +108,15 @@ cc.Class({
 });
 ```
 
-2. 方法二
-通过 `node.on('click', ...)` 的方式来添加，这是一种非常简便的方式，但是该方式有一定的局限性，在事件回调里面无法
+##### 方法二
+
+通过 `button.node.on('click', ...)` 的方式来添加，这是一种非常简便的方式，但是该方式有一定的局限性，在事件回调里面无法
 获得当前点击按钮的屏幕坐标点。
 
 ```js
 //假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
 
 cc.Class({
-    name: 'cc.MyComponent'
     extends: cc.Component,
 
 	

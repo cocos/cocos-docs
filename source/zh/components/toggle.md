@@ -20,13 +20,14 @@ Toggle 的脚本接口请参考[Toggle API](../api/classes/toggle.html)。
 
 ## Toggle 事件
 
-| 属性 |   功能说明
-| -------------- | ----------- |
-|Target| 带有脚本组件的节点。
-|Component| 脚本组件名称。
-|Handler| 指定一个回调函数，当 Toggle 的事件发生的时候会调用此函数。
+| 属性            | 功能说明                                                   |
+| --------------  | -----------                                                |
+| Target          | 带有脚本组件的节点。                                       |
+| Component       | 脚本组件名称。                                             |
+| Handler         | 指定一个回调函数，当 Toggle 的事件发生的时候会调用此函数。 |
+| CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。       |
 
-Toggle 的事件回调有两个参数，第一个参数是 event ，第二个参数是 Toggle 本身。
+Toggle 的事件回调有三个参数，第一个参数是 EventCustom ，第二个参数是 Toggle 本身, 最后一个参数是 customEventData。
 
 ## 详细说明
 Toggle 组件的节点树一般为：
@@ -35,6 +36,65 @@ Toggle 组件的节点树一般为：
 
 这里注意的是，checkMark 组件所在的节点需要放在 background 节点的上面。
 
+#### 通过脚本代码添加回调
+
+##### 方法一
+
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
+你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+
+```js
+var checkEventHandler = new cc.Component.EventHandler();
+checkEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+checkEventHandler.component = "cc.MyComponent"
+checkEventHandler.handler = "callback";
+checkEventHandler.customEventData = "foobar";
+
+toggle.checkEvents.push(checkEventHandler);
+
+//here is your component file
+cc.Class({
+    name: 'cc.MyComponent'
+    extends: cc.Component,
+
+    properties: {
+    },
+
+    callback: function(event, toggle, customEventData) {
+        //这里 event 是一个 EventCustom 对象，你可以通过 event.detail 取到 Toggle 组件
+        var toggle = event.detail;
+        // 这里的 event.detail === toggle
+        //这里的 customEventData 参数就等于你之前设置的 "foobar"
+    }
+});
+```
+
+##### 方法二
+
+通过 `toggle.node.on('toggle', ...)` 的方式来添加
+
+```js
+//假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+
+cc.Class({
+    extends: cc.Component,
+
+	
+    properties: {
+       toggle: cc.Toggle
+    },
+    
+    onLoad: function () {
+       this.toggle.node.on('toggle', this.callback, this);
+    },
+    
+    callback: function (event) {
+       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Toggle 组件
+       var toggle = event.detail;
+       //do whatever you want with toggle
+    }
+});
+```
 ---
 
 继续前往 [ToggleGroup 组件参考](toggleGroup.md)。
