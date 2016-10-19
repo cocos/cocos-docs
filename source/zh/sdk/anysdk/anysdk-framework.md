@@ -95,5 +95,4 @@ Cocos Creator 内置 Cocos 引擎中包含了 AnySDK Framework 资源。即开�
 ## 接入常见问题
 - 渠道包出现闪退现象
 	* 产生原因: 构建出的 Cocos 工程中 `frameworks/runtime-src/Classes/SDKManager.cpp` 的 `loadAllPlugins` 方法已经调用了 `init` 方法，用户在 JS 层调用 `init` 方法无法生效。
-	* 解决方案: 将构建出的 Cocos 工程中 `frameworks/runtime-src/Classes/SDKManager.cpp` 的 `loadAllPlugins` 方法注释掉 `init`方法
-	* 在 Cocos Creator 1.3 中会默认注释 `init` 方法
+	* 解决方案: 用户无需再 JS 层调用 'init' 方法，需使用构建出的 Cocos 工程中 `frameworks/runtime-src/Classes/SDKManager.cpp` 的 `loadAllPlugins` 方法 `init`方法，传递 appKey、appSecret、privateKey、oauthLoginServer
