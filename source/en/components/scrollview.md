@@ -1,7 +1,7 @@
 # ScrollView component reference
 
 ScrollView is a container with a scroll function. It provides a way to browse more contents within a limited display area. Generally, ScrollView will be used
-along with the `Task` component and the `ScrollBar` component can also be added to show the location of the browsing content.
+along with the `Mask` component and the `ScrollBar` component can also be added to show the location of the browsing content.
 
 ![scrollview-content](./scrollview/scrollview-content.png)
 
