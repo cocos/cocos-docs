@@ -61,13 +61,13 @@ ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
-var pageViewEventHandler = new cc.Component.EventHandler();
-pageViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-pageViewEventHandler.component = "cc.MyComponent"
-pageViewEventHandler.handler = "callback";
-pageViewEventHandler.customEventData = "foobar";
+var scrollViewEventHandler = new cc.Component.EventHandler();
+scrollViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+scrollViewEventHandler.component = "cc.MyComponent"
+scrollViewEventHandler.handler = "callback";
+scrollViewEventHandler.customEventData = "foobar";
 
-pageView.pageEvents.push(pageViewEventHandler);
+scrollview.scrollEvents.push(scrollViewEventHandler);
 
 //here is your component file
 cc.Class({
@@ -78,9 +78,9 @@ cc.Class({
     },
 
 	//注意参数的顺序和类型是固定的
-    callback: function(pageView, eventType, customEventData) {
-        //这里 pageView 是一个 PageView 组件对象实例
-        // 这里的 eventType === cc.PageView.EventType.PAGE_TURNING
+    callback: function(scrollview, eventType, customEventData) {
+        //这里 scrollview 是一个 Scrollview 组件对象实例
+        // 这里的 eventType === cc.ScrollView.EventType enum 里面的值
         //这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
 });
@@ -88,7 +88,7 @@ cc.Class({
 
 ##### 方法二
 
-通过 `pageView.node.on('page-turning', ...)` 的方式来添加
+通过 `scrollview.node.on('scroll-to-top', ...)` 的方式来添加
 
 ```js
 //假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
@@ -98,21 +98,26 @@ cc.Class({
 
 	
     properties: {
-       pageView: cc.PageView
+       scrollview: cc.ScrollView
     },
     
     onLoad: function () {
-       this.pageView.node.on('click', this.callback, this);
+       this.scrollview.node.on('scroll-to-top', this.callback, this);
     },
     
     callback: function (event) {
-       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 PageView 组件
-       var pageView = event.detail;
-       //do whatever you want with pageView
+       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 ScrollView 组件
+       var scrollview = event.detail;
+       //do whatever you want with scrollview
        //另外，注意这种方式注册的事件，也无法传递 customEventData
     }
 });
 ```
+
+同样的，你也可以注册 'scrolling', 'touch-up' , 'scrolling' 等事件，这些事件的回调函数的参数与 'scroll-to-top' 的参数一致。
+
+关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档。
+
 ---
 
 继续前往 [ScrollBar 组件参考](scrollbar.md)。
