@@ -25,6 +25,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 | Horizontal ScrollBar | 它是一个节点引用，用来创建一个滚动条来显示 content 在水平方向上的位置。                                        |
 | Vertical ScrollBar   | 它是一个节点引用，用来创建一个滚动条来显示 content 在垂直方向上的位置                                          |
 | ScrollView Events    | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见 'Scrollview 事件' 章节  |
+| CancelInnerEvents    | 如果这个属性被设置为 true，那么滚动行为会取消子节点上注册的触摸事件，默认被设置为 true。                       |
 
 ## ScrollView 事件
 ![scrollview-event](./scrollview/scrollview-event.png)
@@ -52,8 +53,66 @@ ScrollView 组件必须有指定的 content 节点才能起作用，通过指定
 
 ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，当然也可以两者都设置。
 
-建立关联可以通过在**层级管理器**里面拖拽一个带有 ScrollBar 组件的节点到ScrollView的相应字段完成。
+建立关联可以通过在**层级管理器**里面拖拽一个带有 ScrollBar 组件的节点到 ScrollView 的相应字段完成。
 
+##### 方法一
+
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
+你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+
+```js
+var pageViewEventHandler = new cc.Component.EventHandler();
+pageViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+pageViewEventHandler.component = "cc.MyComponent"
+pageViewEventHandler.handler = "callback";
+pageViewEventHandler.customEventData = "foobar";
+
+pageView.pageEvents.push(pageViewEventHandler);
+
+//here is your component file
+cc.Class({
+    name: 'cc.MyComponent'
+    extends: cc.Component,
+
+    properties: {
+    },
+
+	//注意参数的顺序和类型是固定的
+    callback: function(pageView, eventType, customEventData) {
+        //这里 pageView 是一个 PageView 组件对象实例
+        // 这里的 eventType === cc.PageView.EventType.PAGE_TURNING
+        //这里的 customEventData 参数就等于你之前设置的 "foobar"
+    }
+});
+```
+
+##### 方法二
+
+通过 `pageView.node.on('page-turning', ...)` 的方式来添加
+
+```js
+//假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+
+cc.Class({
+    extends: cc.Component,
+
+	
+    properties: {
+       pageView: cc.PageView
+    },
+    
+    onLoad: function () {
+       this.pageView.node.on('click', this.callback, this);
+    },
+    
+    callback: function (event) {
+       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 PageView 组件
+       var pageView = event.detail;
+       //do whatever you want with pageView
+       //另外，注意这种方式注册的事件，也无法传递 customEventData
+    }
+});
+```
 ---
 
 继续前往 [ScrollBar 组件参考](scrollbar.md)。
