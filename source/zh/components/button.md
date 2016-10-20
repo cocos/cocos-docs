@@ -14,6 +14,7 @@ Button 组件可以响应用户的点击操作，当用户点击 Button 时，Bu
 
 | 属性                 | 功能说明                                                                                                                      |
 | --------------       | -----------                                                                                                                   |
+| Target               | Node 类型，当 Button 发生 Transition 的时候，会相应地修改 Target 节点的 SpriteFrame，颜色或者 Scale。                         |
 | interactable         | 布尔类型，设为 false 时，则 Button 组件进入禁用状态。                                                                         |
 | enableAutoGrayEffect | 布尔类型，当设置为 true 的时候，如果 button 的 interactable 属性为 false，则 button 的 sprite Target 会使用内置 shader 变灰。 |
 | Transition           | 枚举类型，包括 NONE, COLOR，SPRITE 和 SCALE。每种类型对应不同的 Transition 设置。详情见`Button Transition`章节。              |
@@ -62,7 +63,6 @@ Button 的 Transition 用来指定当用户点击 Button 时的状态表现。�
 ### Button 事件
 
 ![button-event](./button/button-event.png)
-
 
 | 属性            | 功能说明                                                   |
 | --------------  | -----------                                                |
