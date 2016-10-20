@@ -19,14 +19,18 @@
 ![构建发布](integrate-anysdk/build-publish.png)
 
 ## 调用初始化接口
-Creator 1.2 版本的 Android 和 iOS 是在 SDKManager.cpp 的 `loadAllPlugins` 函数里调用 `AgentManager` 的 `init` 函数，可将 `pAgent->init(appKey,appSecret,privateKey,oauthLoginServer);` 注释掉（Creator 1.3 版本已经注释掉该代码），改在游戏的 js 代码里进行初始化（只需游戏启动时初始化一次），初始化代码如下：
-```javascript
-var appKey = "APP_KEY";
-var appSecret = "APP_SERCRET";
-var privateKey = "PRIVATE_KEY";
-var oauthLoginServer = "http://oauth.anysdk.com/api/OauthLoginDemo/Login.php";
-var agent = anysdk.agentManager;
-agent.init(appKey,appSecret,privateKey,oauthLoginServer);
+用户无需手动调用初始化接口，需使用构建出的 Cocos 工程中 `frameworks/runtime-src/Classes/SDKManager.cpp` 的 `loadAllPlugins` 方法 `init`方法，传递 appKey、appSecret、privateKey、oauthLoginServer
+```frameworks/runtime-src/Classes/SDKManager.cpp
+std::string oauthLoginServer = "OAUTH_LOGIN_SERVER";
+std::string appKey = "APP_KEY";
+std::string appSecret = "APP_SERCRET";
+std::string privateKey = "PRIVATE_KEY";
+    
+AgentManager* pAgent = AgentManager::getInstance();
+pAgent->init(appKey,appSecret,privateKey,oauthLoginServer);
+    
+//Initialize plug-ins, including SDKs.
+pAgent->loadAllPlugins();
 ```
 `appKey`、`appSecret`、`privateKey` 填写 AnySDK 客户端创建游戏后生成的参数，`oauthLoginServer` 填写游戏服务端用于登陆验证的地址（如不接入用户则随便填写）。
 
