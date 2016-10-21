@@ -1,32 +1,45 @@
 # About Cocos Creator
 
 - **Q**: Is Cocos Creator a game engine?
-- **A**: It's a complete game development solution, which includes the JavaScript implementation of Cocos2d-x(no need to learn a new engine), and various kinds of visual interface tools that can help you develop games more quickly.
-
+- **A**: It's a complete game development solution, which includes the JavaScript
+ implementation of Cocos2d-x (no need to learn a new engine), and various UI tools 
+ that can help you develop games more quickly.
 
 - **Q**: What kind of editor does Cocos Creator have?
-- **A**: It's completely customized for the engine. It's a all-in-one editor that can serve the whole workflow from design, development, preview, debug and all the way to cross-platform publishing.
-
+- **A**: It's completely customized for the engine. It's an all-in-one editor that 
+  can serve the whole workflow from design, development, preview, debug and all the 
+  way to cross-platform publishing.
 
 - **Q**: Can I use Cocos Creator even if I don't know how to programming?
-- **A**: Of course! Cocos Creator editor provides two kinds of workflows: one design-oriented and one develop-oriented, and a simple and smooth cooperative method(with an appropriate division of labor).
-
+- **A**: Of course! Cocos Creator provides two kinds of workflows: one 
+  design-oriented and one develop-oriented, and a simple and smooth cooperative 
+  method (with an appropriate division of labor).
 
 - **Q**: Which platform can we choose to publish the games developed by Cocos Creator?
-- **A**: Currently, Cocos Creator can publish games to Web, Android, iOS, and desktops ( Mac and PC ). The goal is to develop once and publish to all platforms.
-
+- **A**: Currently, Cocos Creator can publish games to the Web, Android, iOS, and desktops 
+  (Mac and PC). The goal is to develop once and publish to all platforms.
 
 ## Product Positioning
 
-Cocos Creator is a game development tool focused on content creation, which has features like thorough scripting, componentization and data driven, etc. on the basis of Cocos2d-x.
+Cocos Creator is a game development environment focused on content creation, which has 
+features like scripting, componentization and uses a data driven model with the power of 
+Cocos2d-x under the hood.
 
 ## Framework Structure
 
-Cocos Creator contains a whole set of functions needed for game development like a game engine, resource management, scene editing, game preview and release, etc. It has assembled all the functions and tool in a unified application program.
+Cocos Creator contains all the functions needed for game development, including: a game 
+engine, resource management, scene editing, game previewing and game releasing. All of this
+in a single, unifed tool that eases your games development.
 
-It makes data driven and componentization the core game development methods, and seamlessly integrates the mature JavaScript API system of the Cocos engine. It can adapt to the user habits of the Cocos engine developer on one hand, and provide an unprecedented level of content creation and realtime preview&test environment for artworkers and directors on the other.
+It makes data driven design and componentization the core game development methods, and 
+seamlessly integrates the mature JavaScript API system of the Cocos engine. It can adapt 
+to the developers habits and still provide an unprecedented level of content creation and 
+provide a realtime previewing and testing environment for artworkers and directors.
 
-The editor provides not only strong and complete toolchains, but also a open plugin framework. Developers can use generic front end technologies like Html + JavaScript, etc. to conveniently extend functions of the editor and customize personalized workflows.
+The editor provides not only a strong and complete toolchains, but also an open plugin 
+framework. Developers can use generic front end technologies like HTML + JavaScript to 
+conveniently extend the functionality of the editor and provide customized personalized 
+workflows.
 
 ![structure](introduction/structure.jpg)
 
