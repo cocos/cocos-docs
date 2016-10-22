@@ -4,7 +4,8 @@ If you haven't downloaded and started Cocos Creator already, please start it acc
 
 ## Download Cocos Creator
 
-You can visit the download link on [Cocos Creator products homepage](http://cocos2d-x.org/products#creator) to download the installer file of Cocos Creator.
+You can visit the download link on [Cocos Creator products homepage](http://cocos2d-x.org/products#creator) to 
+download the installer for Cocos Creator.
 
 Double click the downloaded installer to install Cocos Creator.
 
@@ -69,4 +70,4 @@ If your game's target platform is Web, you can start game creation now. If you w
 
 ---
 
-Continue on to read about [Dashboard](dashboard.md).
+Continue on to read about the [Dashboard](dashboard.md).
