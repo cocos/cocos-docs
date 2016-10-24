@@ -503,6 +503,11 @@
                 "link": "extension/reference/main-menu-reference.html"
             },
             {
+                "name": "Common IPC Message Reference",
+                "link": "extension/reference/ipc-reference.html",
+                "new": true
+            },
+            {
                 "name": "Advanced Topics",
                 "link": "advanced-topics/index.html",
                 "header": true

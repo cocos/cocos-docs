@@ -606,6 +606,11 @@
                 "link": "extension/reference/custom-element-reference.html"
             },
             {
+                "name": "常用 IPC 消息参考",
+                "link": "extension/reference/ipc-reference.html",
+                "new": true
+            },
+            {
                 "name": "进阶主题",
                 "link": "advanced-topics/index.html",
                 "header": true
