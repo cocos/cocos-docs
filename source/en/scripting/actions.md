@@ -121,6 +121,9 @@ this.jumpAction = cc.sequence(
 ).speed(2).repeat(5);
 ```
 
+Note: In cc.callFunc should not stop its own action, because the action can not be immediately deleted, if the action 
+in the callback pause its own action will lead to a series of traversal problems, leading to more serious bug.
+
 ### Slow motion
 
 Slow motion cannot exist alone; it always exists to modify a basic action. It can be used to alter the time curve of the basic action to give the action fast in/out, ease in or other more complicated special effects. One thing we need to note is that only interval actions support slow motion:
