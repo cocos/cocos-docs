@@ -96,5 +96,4 @@ Steps:
 ## FAQ
 - Crash in channel package 
 	* Reason: `frameworks/runtime-src/Classes/SDKManager.cpp` file`s `loadAllPlugins` function has been invoked `init` function in built-in Cocos project,it has been unable to be taken effect that developers invoked in JS code
-	* Solution:  `frameworks/runtime-src/Classes/SDKManager.cpp` file`s `loadAllPlugins` function annotations `init` function in built-in Cocos project
-	* It annotations `init` function in Cocos Creator 1.3 acquiescently
+	* Solution:  No need to invoke initialize interface,but the developer need to modify the `loadAllPlugins` function of `frameworks/runtime-src/Classes/SDKManager.cpp` file and add appKey、appSecret、privateKey、oauthLoginServer parameters.

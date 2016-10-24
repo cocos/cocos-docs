@@ -157,6 +157,8 @@ var myAction = cc.sequence(cc.moveBy(1, cc.p(0, 100)), cc.fadeOut(1), finished);
 var myAction = cc.sequence(cc.moveTo(1, cc.p(0, 0)), finished1, cc.fadeOut(1), finished2); //finished1, finished2 都是使用 cc.callFunc 定义的回调动作
 ```
 
+注意: 在 cc.callFunc 中不应该停止自身动作，由于动作是不能被立即删除，如果在动作回调中暂停自身动作会引发一系列遍历问题，导致更严重的 bug。
+
 ### 缓动动作
 
 缓动动作不可以单独存在，它永远是为了修饰基础动作而存在的，它可以用来修改基础动作的时间曲线，让动作有快入、缓入、快出或其它更复杂的特效。需要注意的是，只有时间间隔动作才支持缓动：
