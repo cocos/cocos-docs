@@ -15,7 +15,7 @@
 
    - excludedModules: engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
    - title: 项目名
-   - platform: 构建的平台
+   - platform: 构建的平台 [web-mobile, web-desktop, android, win32, ios, mac, runtime]
    - dest: 构建目录
    - startScene: 主场景的 uuid 值
    - debug: 是否为 debug 模式
