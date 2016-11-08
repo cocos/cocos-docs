@@ -1,8 +1,8 @@
 # Editor Extension
 
-Cocos Creator provide several methods to help user customize and extends the editor. The user extensions will be loaded by packages. You can install your own package or third party package by putting it to the right place. You may need to manually reload the editor window or restart the editor to make the installed packages work.
+Cocos Creator provides several methods to help users customize and extend the editor. The user extensions will be loaded by packages. You can install your own package or third party package by putting it to the right place. You may need to manually reload the editor window or restart the editor to make the installed packages work.
 
-Cocos Creator inherit the usage of `package.json` that Node.js community did to manifest the contents and registry in your package.
+Cocos Creator inherits the usage of `package.json` that is used in __Node.js__ to manifest the contents and registry in your package.
 
 ## Content
 
@@ -13,7 +13,7 @@ Cocos Creator inherit the usage of `package.json` that Node.js community did to 
  - [Extends Main Menu](extends-main-menu.md)
  - [Test Your Package](test-your-package.md)
 
-## 参考
+## References
 
  - [package.json reference](reference/package-json-reference.md)
  - [main-menu reference](reference/main-menu-reference.md)

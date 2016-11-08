@@ -1,7 +1,6 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component 
-system) and C++ (custom version of Cocos2d-x). They are both open sourced on GitHub:
+The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and C++ (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
 - Creator-JS engine: https://github.com/cocos-creator/engine
 - Cocos2d-x-lite engine：https://github.com/cocos-creator/cocos2d-x-lite
