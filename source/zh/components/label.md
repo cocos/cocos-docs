@@ -21,7 +21,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 |Line Height| 文本的行高。
 |Overflow| 文本的排版方式，目前支持 CLAMP，SHRINK 和 RESIZE_HEIGHT。详情见`Label 排版`。
 |Enable Wrap Text| 是否开启文本换行。
-|File| 指定文本渲染需要的字体文件，如果使用系统字体，则此属性可以为空。
+|Font| 指定文本渲染需要的字体文件，如果使用系统字体，则此属性可以为空。
 |Use System Font| 布尔值，是否使用系统字体。
 
 ## Label 排版
