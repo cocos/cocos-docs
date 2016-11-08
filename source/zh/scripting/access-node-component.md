@@ -36,10 +36,16 @@
     }
 ```
 
-你也可以为 `getComponent` 传入一个类名。对用户定义的组件而言，类名就是脚本的文件名，并且**区分大小写**。例如 "SinRotate.js" 里声明的组件，类名就是 "SinRotate"。
+你也可以为 `getComponent` 传入一个类名。
 
 ```js
     var label = this.getComponent("cc.Label");
+```
+
+对用户定义的组件而言，类名就是脚本的文件名，并且**区分大小写**。例如 "SinRotate.js" 里声明的组件，类名就是 "SinRotate"。
+
+```js
+    var rotate = this.getComponent("SinRotate");
 ```
 
 在节点上也有一个 `getComponent` 方法，它们的作用是一样的：

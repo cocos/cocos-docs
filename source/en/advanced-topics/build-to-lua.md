@@ -29,12 +29,11 @@ need to download the __Creator-for-Lua plug-in__ and execute the installer:
 - [Creator For Lua v1.1.3 for Windows download](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-win)
 - [Creator For Lua v1.1.3 Mac version download](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-mac)
 
-### First, build the project
+### Build the project for the first time
 
-1. Create a new Lua project. Example:
-    ```sh
-    $ cocos new -l lua GAME-NAME.
-    ```
+1. Create a new Lua project
+
+    Create a Lua project using the command `cocos new -l lua GAME-NAME`.
 
 2. Set up your scene in the Creator. Next, from the main menu, select __Project -> Lua Support -> Setup Target Project__, 
 open the Lua project settings interface

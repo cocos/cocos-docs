@@ -17,3 +17,4 @@ Cocos Creator inherits the usage of `package.json` that is used in __Node.js__ t
 
  - [package.json reference](reference/package-json-reference.md)
  - [main-menu reference](reference/main-menu-reference.md)
+ - [Commonly used IPC messages](reference/ipc-reference.mdipc-reference.md)

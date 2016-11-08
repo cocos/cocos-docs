@@ -43,6 +43,7 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
  - [面板字段参考](reference/panel-json-reference.md)
  - [面板定义参考](reference/panel-reference.md)
  - [自定义界面元素定义参考](reference/custom-element-reference.md)
+ - [常用 ipc 消息参考](reference/ipc-reference.md)
  - UI Kit
    - 控件
      - [ui-button](./reference/ui-button.md)

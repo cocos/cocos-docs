@@ -312,7 +312,8 @@
             },
             {
                 "name": "Button 组件参考",
-                "link": "components/button.html"
+                "link": "components/button.html",
+                "new": true
             },
             {
                 "name": "Mask 组件参考",
@@ -324,7 +325,8 @@
             },
             {
                 "name": "ScrollView 组件参考",
-                "link": "components/scrollview.html"
+                "link": "components/scrollview.html",
+                "new": true
             },
             {
                 "name": "ScrollBar 组件参考",
@@ -374,7 +376,8 @@
             },
             {
                 "name": "WebView 组件参考",
-                "link": "components/webview.html"
+                "link": "components/webview.html",
+                "new": true
             },
             {
                 "name": "Graphics 组件参考",
@@ -601,6 +604,11 @@
             {
                 "name": "自定义界面元素定义参考",
                 "link": "extension/reference/custom-element-reference.html"
+            },
+            {
+                "name": "常用 IPC 消息参考",
+                "link": "extension/reference/ipc-reference.html",
+                "new": true
             },
             {
                 "name": "进阶主题",

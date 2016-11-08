@@ -74,7 +74,7 @@ Editor.Panel.extend({
 Editor.Panel.extend({
   // ...
 
-  listeners: {
+  messages: {
     'foobar:say-hello' ( event ) {
       Editor.log(`Hello ${foobar}`);
     },

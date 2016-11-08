@@ -25,15 +25,18 @@ Click menu ` **project** -> **Built **`，Cocos Creator built-in Cocos engine in
 
 ## Invoke initialize interface
 
- The `loadAllPlugins` function of `frameworks/runtime-src/Classes/SDKManager.cpp` file invoked `pAgent->init(appKey,appSecret,privateKey,oauthLoginServer);` function in built-in Cocos project of Cocos Creator version 1.2.
-you can annotation this code (It annotations `init` function in Cocos Creator 1.3 acquiescently) and invoke this code in JS code.The following code:
-```javascript
-var appKey = "APP_KEY";
-var appSecret = "APP_SERCRET";
-var privateKey = "PRIVATE_KEY";
-var oauthLoginServer = "http://oauth.anysdk.com/api/OauthLoginDemo/Login.php";
-var agent = anysdk.agentManager;
-agent.init(appKey,appSecret,privateKey,oauthLoginServer);
+No need to invoke initialize interface,but the developer need to modify the `loadAllPlugins` function of `frameworks/runtime-src/Classes/SDKManager.cpp` file and add appKey、appSecret、privateKey、oauthLoginServer parameters.
+```frameworks/runtime-src/Classes/SDKManager.cpp
+std::string oauthLoginServer = "OAUTH_LOGIN_SERVER";
+std::string appKey = "APP_KEY";
+std::string appSecret = "APP_SERCRET";
+std::string privateKey = "PRIVATE_KEY";
+    
+AgentManager* pAgent = AgentManager::getInstance();
+pAgent->init(appKey,appSecret,privateKey,oauthLoginServer);
+    
+//Initialize plug-ins, including SDKs.
+pAgent->loadAllPlugins();
 ```
 appKey, appSecret and privateKey are the only three parameters generated after the packing tool client finishes creating the game.The oauthLoginServer parameter is the API address provided by the game serviceo login verification
 
