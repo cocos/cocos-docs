@@ -161,10 +161,10 @@ var anim = this.getComopnent(cc.Animation);
 var animState = anim.play('test');
 
 // set the loop mode as Normal
-animState.wrapeMode = cc.WrapMode.Normal;
+animState.wrapMode = cc.WrapMode.Normal;
 
 // set the loop mode as Loop
-animState.wrapeMode = cc.WrapMode.Loop;
+animState.wrapMode = cc.WrapMode.Loop;
 
 // set the loop count of animation as 2 times
 animState.repeatCount = 2;

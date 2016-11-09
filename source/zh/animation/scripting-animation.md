@@ -160,10 +160,10 @@ var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
 // 设置循环模式为 Normal
-animState.wrapeMode = cc.WrapMode.Normal;
+animState.wrapMode = cc.WrapMode.Normal;
 
 // 设置循环模式为 Loop
-animState.wrapeMode = cc.WrapMode.Loop;
+animState.wrapMode = cc.WrapMode.Loop;
 
 // 设置动画循环次数为2次
 animState.repeatCount = 2;
