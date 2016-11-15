@@ -19,7 +19,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Line Height| Line height of the text.
 |Overflow| Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See `Label Layout` for more detailed information.
 |Enable Wrap Text| Enable or disable the text line feed.
-|File| Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
+|Font | Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
 |Use System Font| Boolean value, choose whether to use the system font or not.
 
 # Label Layout
