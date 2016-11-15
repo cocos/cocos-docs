@@ -13,14 +13,15 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 ## RichText 属性
 
-| 属性 |   功能说明
-| -------------- | ----------- |
-|String| 富文本的内容字符串, 你可以在里面使用 BBCode 来指定特定文本的样式
-|Horizontal Align| 水平对齐方式
-|Font Size| 字体大小, 单位是 point （注意，该字段不会影响 BBCode 里面设置的字体大小）
-|Line Height| 字体行高, 单位是 point
-|Max Width| 富文本的最大宽度, 传 0 的话意味着必须手动换行.
-|Image Atlas|对于 img 标签里面的 src 属性名称，都需要在 imageAtlas 里面找到一个有效的 spriteFrame，否则 img tag 会判定为无效。
+| 属性             | 功能说明                                                                                                          |
+| --------------   | -----------                                                                                                       |
+| String           | 富文本的内容字符串, 你可以在里面使用 BBCode 来指定特定文本的样式                                                  |
+| Horizontal Align | 水平对齐方式                                                                                                      |
+| Font Size        | 字体大小, 单位是 point （注意，该字段不会影响 BBCode 里面设置的字体大小）                                         |
+| Font             | 富文本定制字体，所有的 label 片断都会使用这个定制的 TTF 字体                                                      |
+| Line Height      | 字体行高, 单位是 point                                                                                            |
+| Max Width        | 富文本的最大宽度, 传 0 的话意味着必须手动换行.                                                                    |
+| Image Atlas      | 对于 img 标签里面的 src 属性名称，都需要在 imageAtlas 里面找到一个有效的 spriteFrame，否则 img tag 会判定为无效。 |
 
 ## BBCode 标签格式
 ### 基本格式
