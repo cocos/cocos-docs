@@ -10,17 +10,21 @@ PageView 是一种页面视图容器.
 
 ## PageView 属性
 
-| 属性                   | 功能说明                                                                             |
-| --------------         | -----------                                                                          |
-| Content                | 它是一个节点引用，用来创建 PageView 的可滚动内容。                                   |
-| Direction              | 页面视图滚动方向。                                                                   |
-| ScrollThreshold        | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原。 |
-| Elastic                | 布尔值，是否回弹。                                                                   |
-| pageTurningEventTiming | 设置 PageView PageTurning 事件的发送时机。                                           |
-| Bounce Duration        | 浮点数，回弹所需要的时间。取值范围是 0-10。                                          |
-| indicator              | 页面视图指示器组件。                                                                 |
-| autoScrollStopEpsilon  | 设置 PageView 页面自动滚动动画结束的阈值，修改此值可以调整 PageView 事件的发送时机。 |
-| cancelInnerEvents      | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件                                   |
+| 属性                     | 功能说明                                                                             |
+| --------------           | -----------                                                                          |
+| SizeMode                 | 页面视图中每个页面大小类型                                                          |
+| Content                  | 它是一个节点引用，用来创建 PageView 的可滚动内容。                                   |
+| Direction                | 页面视图滚动方向。                                                                   |
+| ScrollThreshold          | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原。 |
+| AutoPageTurningThreshold | 快速滑动翻页临界值，当用户快速滑动时，会根据滑动开始和结束的距离与时间计算出一个速度值，该值与此临界值相比较，如果大于临界值，则进行自动翻页。 |
+| Inertia                  | 否开启滚动惯性。 |
+| Brake                    | 开启惯性后，在用户停止触摸后滚动多快停止，0表示永不停止，1表示立刻停止。 |
+| Elastic                  | 布尔值，是否回弹。                                                                   |
+| Bounce Duration          | 浮点数，回弹所需要的时间。取值范围是 0-10。                                          |
+| Indicator                | 页面视图指示器组件。                                                                 |
+| PageTurningEventTiming   | 设置 PageView PageTurning 事件的发送时机。                                           |
+| PageEvents               | 数组，滚动视图的事件回调函数                                   |
+| CancelInnerEvents        | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件                                   |
 
 ## PageView 事件
 
@@ -37,7 +41,7 @@ PageView 的事件回调有两个参数，第一个参数是 PageView 本身，�
 
 ## 详细说明
 
-PageView 组件必须有指定的 content 节点才能起作用，conent 中的每个子节点为一个单独页面，该每个页面的大小为 PageView 节点的大小，操作效果分为 2 种：第一种：缓慢滑动，通过拖拽视图中的页面到达指定的 ScrollThreshold 数值（该数值是页面大小的百分比）以后松开会自动滑动到下一页，第二种：快速滑动，快速的向一个方向进行拖动，自动滑倒下一页，每次滑动最多只能一页。
+PageView 组件必须有指定的 content 节点才能起作用，content 中的每个子节点为一个单独页面，该每个页面的大小为 PageView 节点的大小，操作效果分为 2 种：第一种：缓慢滑动，通过拖拽视图中的页面到达指定的 ScrollThreshold 数值（该数值是页面大小的百分比）以后松开会自动滑动到下一页，第二种：快速滑动，快速的向一个方向进行拖动，自动滑倒下一页，每次滑动最多只能一页。
 
 通常一个 PageView 的节点树如下图：
 
@@ -68,6 +72,7 @@ pageView.pageEvents.push(pageViewEventHandler);
 //here is your component file
 cc.Class({
     name: 'cc.MyComponent'
+    
     extends: cc.Component,
 
     properties: {
@@ -92,7 +97,6 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
     properties: {
        pageView: cc.PageView
     },
