@@ -12,11 +12,11 @@ http://fbdemos.avosapps.com/star-catcher/
 
 我们已经为您准备好了制作这款游戏需要的全部资源，下载**初始项目**后，解压到您希望的位置，之后我们就可以开始了：
 
-[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.1.2/start_project.zip)
+[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/start_project.zip)
 
 您也可以下载最终完成的项目，跟随教程制作过程中有任何不明白的地方都可以打开完成版的项目作为参考：
 
-[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.1.2/complete_project.zip)
+[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/complete_project.zip)
 
 
 ## 打开初始项目
@@ -736,7 +736,7 @@ Star Prefab 需要的设置就完成了，现在从**层级管理器**中将`sta
 - 收集星星时加入更华丽的效果
 - 为触屏设备加入输入控制
 
-以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.1.2/polished_project.zip)来参考和学习，这里就不再赘述了。
+以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip)来参考和学习，这里就不再赘述了。
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读[预览和构建](../basics/preview-build.md)一节的内容。
 

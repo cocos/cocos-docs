@@ -105,8 +105,7 @@
             },
             {
                 "name": "创建和管理场景",
-                "link": "asset-workflow/scene-managing.html",
-                "new": true
+                "link": "asset-workflow/scene-managing.html"
             },
             {
                 "name": "图像资源（Texture）",
@@ -147,8 +146,13 @@
                 "new": true
             },
             {
-                "name": "骨骼动画资源（Spine）",
+                "name": "Spine 骨骼动画资源",
                 "link": "asset-workflow/spine.html"
+            },
+            {
+                "name": "DragonBones 骨骼动画资源",
+                "link": "asset-workflow/dragonbones.html",
+                "new": true
             },
             {
                 "name": "瓦片图资源（Tiledmap）",
@@ -266,8 +270,7 @@
             {
                 "name": "绘图系统",
                 "link": "graphics/index.html",
-                "header": true,
-                "new": true
+                "header": true
             },
             {
                 "name": "组件参考",
@@ -287,6 +290,11 @@
                 "link": "components/spine.html"
             },
             {
+                "name": "DragonBones 组件参考",
+                "link": "components/dragonbones.html",
+                "new": true
+            },
+            {
                 "name": "Animation 组件参考",
                 "link": "components/animation.html"
             },
@@ -304,7 +312,8 @@
             },
             {
                 "name": "Button 组件参考",
-                "link": "components/button.html"
+                "link": "components/button.html",
+                "new": true
             },
             {
                 "name": "Mask 组件参考",
@@ -316,7 +325,8 @@
             },
             {
                 "name": "ScrollView 组件参考",
-                "link": "components/scrollview.html"
+                "link": "components/scrollview.html",
+                "new": true
             },
             {
                 "name": "ScrollBar 组件参考",
@@ -334,11 +344,13 @@
             },
             {
                 "name": "Slider 组件参考",
-                "link": "components/slider.html"
+                "link": "components/slider.html",
+                "new": true
             },
             {
                 "name": "PageView 组件参考",
-                "link": "components/pageview.html"
+                "link": "components/pageview.html",
+                "new": true
             },
             {
                 "name": "PageViewIndicator 组件参考",
@@ -359,7 +371,8 @@
             },
             {
                 "name": "VideoPlayer 组件参考",
-                "link": "components/videoplayer.html"
+                "link": "components/videoplayer.html",
+                "new": true
             },
             {
                 "name": "WebView 组件参考",
@@ -368,8 +381,7 @@
             },
             {
                 "name": "Graphics 组件参考",
-                "link": "components/graphics.html",
-                "new": true
+                "link": "components/graphics.html"
             },
             {
                 "name": "RichText 组件参考",
@@ -493,8 +505,7 @@
             },
             {
                 "name": "原生平台调试",
-                "link": "publish/debug-native.html",
-                "new": true
+                "link": "publish/debug-native.html"
             },
             {
                 "name": "命令行发布项目",
@@ -595,6 +606,11 @@
                 "link": "extension/reference/custom-element-reference.html"
             },
             {
+                "name": "常用 IPC 消息参考",
+                "link": "extension/reference/ipc-reference.html",
+                "new": true
+            },
+            {
                 "name": "进阶主题",
                 "link": "advanced-topics/index.html",
                 "header": true
@@ -633,7 +649,8 @@
             },
             {
                 "name": "Cocos Package",
-                "link": "sdk/cocos-package-overview.html"
+                "link": "sdk/cocos-package-overview.html",
+                "new": true
             },
             {
                 "name": "AnySDK",
@@ -642,6 +659,11 @@
             {
                 "name": "AnySDK Framework",
                 "link": "sdk/anysdk/anysdk-framework.html"
+            },
+            {
+                "name": "Cocos Creator 接入 AnySDK 教程",
+                "link": "sdk/anysdk/integrate-anysdk.html",
+                "new": true
             }
         ]
     }

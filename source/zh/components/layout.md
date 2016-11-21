@@ -23,17 +23,20 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 ## Layout 属性
 
-| 属性 |   功能说明
-| -------------- | ----------- |
-| Type| 布局类型，支持 NONE, HORIZONTAL，VERTICAL 和 GRID。
-| ResizeMode | 缩放模式，支持 NONE，CHIDREN 和 CONTAINER。
-| Padding | 排版时，子物体相对于容器边框的距离。NONE 模式无此属性。
-| SpacingX | 水平排版时，子物体与子物体在水平方向上的间距。NONE 模式无此属性。
-| SpacingY | 垂直排版时，子物体与子物体在垂直方向上的间距。NONE 模式无此属性。
-|Horizontal Direction | 指定水平排版时，第一个子节点从容器的左边还是右边开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始水平排列方向。
-|Vertical Direction | 指定垂直排版时，第一个子节点从容器的上面还是下面开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始垂直排列方向。
-|Cell Size| 此属性只在 Grid 布局时存在，指定网格容器里面排版元素的大小。
-|Start Axis| 此属性只在 Grid 布局时存在，指定网格容器里面元素排版指定的起始方向轴。
+| 属性                 | 功能说明                                                                                                                                           |
+| --------------       | -----------                                                                                                                                        |
+| Type                 | 布局类型，支持 NONE, HORIZONTAL，VERTICAL 和 GRID。                                                                                                |
+| ResizeMode           | 缩放模式，支持 NONE，CHIDREN 和 CONTAINER。                                                                                                        |
+| PaddingLeft          | 排版时，子物体相对于容器左边框的距离。                                                                                                            |
+| PaddingRight         | 排版时，子物体相对于容器右边框的距离。                                                                                                            |
+| PaddingTop           | 排版时，子物体相对于容器上边框的距离。                                                                                                            |
+| PaddingBottom        | 排版时，子物体相对于容器下边框的距离。                                                                                                            |
+| SpacingX             | 水平排版时，子物体与子物体在水平方向上的间距。NONE 模式无此属性。                                                                                  |
+| SpacingY             | 垂直排版时，子物体与子物体在垂直方向上的间距。NONE 模式无此属性。                                                                                  |
+| Horizontal Direction | 指定水平排版时，第一个子节点从容器的左边还是右边开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始水平排列方向。 |
+| Vertical Direction   | 指定垂直排版时，第一个子节点从容器的上面还是下面开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始垂直排列方向。 |
+| Cell Size            | 此属性只在 Grid 布局时存在，指定网格容器里面排版元素的大小。                                                                                       |
+| Start Axis           | 此属性只在 Grid 布局时存在，指定网格容器里面元素排版指定的起始方向轴。                                                                             |
 
 ## 详细说明
 

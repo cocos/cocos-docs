@@ -1,95 +1,63 @@
-# Lua 引擎支持
+# Lua engine support
 
-作者：Dualface
+Author: Dualface
 
-## 目标
+## Goals
 
-让 Lua 开发者可以使用 Cocos Creator 来搭建场景和 UI，并在 Lua 游戏中正常显示和操作。
+So that Lua developers can use Cocos Creator to build scenes and UI, to show and interact with in games built with Cocos2d-x Lua engine.
 
-## 主要特征
+## Main features
 
-当前支持的特征：
+The currently supported features are as follows:
 
--   Sprite - 精灵：图像显示
--   Canvas - 画布：主要用于自动布局
--   Widget - 部件：可以配合 Canvas 设置自动布局和各种对齐方式
--   Button - 按钮：响应玩家操作
--   EditBox - 编辑框：用于玩家输入文字
--   ParticleSystem - 粒子系统：显示粒子效果
--   TileMap - 地图：显示使用 Tiled 编辑的地图
--   Animation - 动画：仅支持帧动画
--   Label (System Font) - 文字标签：仅支持系统字体
--   Component with Lifetime events - 组件及其生命周期管理
+- Sprite: Image display
+- Canvas: mainly used for automatic layout
+- Widget: You can set up automatic layouts and various alignments with Canvas
+- Button: Responds to player action
+- EditBox: used for players to enter text
+- ParticleSystem: Displays particle effects
+- TileMap: Displays a map edited using Tiled
+- Animation: only supports frame animation
+- Label (System Font): only supports system fonts
+- Component with Lifetime events: components and their life cycle management
 
+### Some controls are temporarily not supported:
 
-## 目前无法支持的功能
-
-由于 Cocos Creator 使用了一个基于 Cocos2d-x JS 的定制引擎，在 Sprite 的显示上和 Cocos2d-x Lua 有一些区别。所以一些控件暂时无法支持：
-
--   ProgressBar
--   Layout
--   ScrollView
+- ProgressBar
+- Layout
+- ScrollView
 
 
-## 使用说明
+## Workflow
 
-目前，要在 Lua 工程中使用 Creator 创建的场景，需要经过三个步骤。我们会在新版里进一步简化操作，提高开发者的工作效率。
+Starting with Cocos Creator v1.3, Lua support will be added as a plug-in to Creator. First, you will need to download the Creator-for-Lua plug-in and execute the installer:
 
+- [Creator For Lua v1.1.3 for Windows download] (http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-win)
+- [Creator For Lua v1.1.3 Mac version download] (http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-mac)
 
-### 准备工作
+### Build the project for the first time
 
-1. 首先需要下载 creator-lua 的最新版本。
+1. Create a new Lua project
 
-    直接下载 [Creator-Lua 模板工程](http://cocostudio.download.appget.cn/CocosCreator/packages/creator-lua-v1.2.0.zip)。
+    Create a Lua project using the command `cocos new -l lua GAME-NAME`.
 
-    或通过 `git` 下载：
+2. Set up your scene in Cocos Creator, and then from the main menu, select `Project -> Lua Support -> Setup Target Project` to open the Lua project settings interface
 
-    ```bash
-    $ git clone https://github.com/dualface/creator-lua.git
-    ```
+    ! [Lua project] (build-to-lua / lua-project.jpg)
 
-    后文假定下载后的 creator-lua 目录为 `PATH-TO-CREATOR-LUA` 。
-
-2. 新建一个 Lua 工程
-
-    使用命令 `cocos new -l lua GAME-NAME` 新建一个 Lua 工程。
-
-3. 删除 Lua 工程中的 `src` 和 `res` 目录中的所有文件。然后复制 `PATH-TO-CREATOR-LUA/lua-project/src` 中所有文件和子目录到 Lua 工程的 `src` 目录中。
-4. 复制 `PATH-TO-CREATOR-LUA/lua-project/convert-creator-build.sh` 和 `PATH-TO-CREATOR-LUA/lua-project/convert-creator-build.bat` 文件到 Lua 工程目录中。
+3. Click the `...` button next to Project Path to select your Lua project directory
+4. Click the 'Copy Support Library` button (this step only needs to be done once for each new Lua project)
+5. Click the Build button
 
 
-### 第一步：构建场景
+### Automatically build
 
-1. 在 Cocos Creator 中，保存编辑好的场景，然后选择菜单“项目 -> 构建发布”
-2. 发布平台选择为“Lua”
+By default, the automatic build feature is not enabled. To update the scene and prefab resources to Lua format, you need to click the `Build` button again, or select from the main menu `Project -> Lua Support -> Build Now`.
 
-    ![build](build-to-lua/build.png)
+An easier way to do this is to select the `Auto Build` option in the dialog box. So every time you save the scene, it will automatically update the resources to Lua project.
 
-3. 点击“构建”按钮
+### Run game
 
-在完成构建后，发布路径中会包含所有场景及其资源。但这些资源还不能直接供 Lua 工程使用，需要进行一次转换操作。
+After the initial build, or after each rebuild, use the `cocos run` command in your Lua project path to see the scene effect:
 
-
-### 第二步：转换为 Lua 格式
-
-1. 启动终端或者命令行窗口
-2. 在命令行中进入 Lua 工程目录
-3. 执行 `./convert-creator-build.sh ../creator-project/build/lua` 。
-4. 如果是 Windows，执行 `convert-creator-build.bat ..\creator-project\build\web-mobile` 。
-
-    ```bash
-    cd mygame
-    ./convert-creator-build.sh ../creator-project/build/lua
-    ```
-
-4. 如果执行正常，转换后将看到 `done` 提示。
-
-转换完成后，打开工程运行（或者使用 `cocos run` 命令），即可看到场景效果：
-
-![play scene](build-to-lua/play-scene.gif)
-
-
-### 注意事项
-
-每次在 Creator 中修改场景后，都需要做“构建 -> 转换”操作。
-
+! [Play scene] (build-to-lua / play-scene.gif)

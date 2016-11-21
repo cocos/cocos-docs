@@ -331,7 +331,8 @@
             },
             {
                 "name": "VideoPlayer",
-                "link": "components/videoplayer.html"
+                "link": "components/videoplayer.html",
+                "new": true
             },
             {
                 "name": "WebView",
@@ -507,6 +508,11 @@
                 "link": "extension/reference/main-menu-reference.html"
             },
             {
+                "name": "Common IPC Message Reference",
+                "link": "extension/reference/ipc-reference.html",
+                "new": true
+            },
+            {
                 "name": "Advanced Topics",
                 "link": "advanced-topics/index.html",
                 "header": true
@@ -552,6 +558,10 @@
                 "name": "AnySDK Framework",
                 "link": "sdk/anysdk/anysdk-framework.html"
 
+            },
+            {
+                "name": "Integrate AnySDK",
+                "link": "sdk/anysdk/integrate-anysdk.html"
             }
         ]
     }

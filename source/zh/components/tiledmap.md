@@ -22,4 +22,4 @@ TiledMap（地图）用于在游戏中显示 TMX 格式的地图。在节点上�
 
 ---
 
-继续前往下一章 [脚本开发工作流程](../scripting/index.md)。
+继续前往 [EditBox 组件参考](editbox.md) 说明文档。

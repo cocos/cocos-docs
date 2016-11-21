@@ -21,3 +21,5 @@ ToggleGroup 的脚本接口请参考[ToggleGroup API](../api/classes/toggleGroup
 ToggleGroup 一般不会单独使用，它需要与 `Toggle` 配合使用来实现 RadioButton 的单选效果。
 
 ---
+
+继续前往 [DragonBones 组件参考](dragonbones.md) 说明文档。

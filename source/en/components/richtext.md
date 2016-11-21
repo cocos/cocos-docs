@@ -15,14 +15,15 @@ The API reference of RichText is here: [RichText API](../api/classes/RichText.ht
 
 ## RichText attribute
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
-|String| Text of the RichText, you could use BBcode in the string
-|Horizontal Align| Horizontal alignment
-|Font Size| Font size, in points
-|Line Height| Line height, in points
-|Max Width| The maximize width of RichText, pass 0 means not limit the maximize width.
-|Image Atlas|The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas.
+| Properties       | Function Explanation                                                                                                        |
+| --------------   | -----------                                                                                                                 |
+| String           | Text of the RichText, you could use BBcode in the string                                                                    |
+| Horizontal Align | Horizontal alignment                                                                                                        |
+| Font Size        | Font size, in points                                                                                                        |
+| Font             | Custom TTF font of RichText, all the label segment will use the same custom ttf font.                                       |
+| Line Height      | Line height, in points                                                                                                      |
+| Max Width        | The maximize width of RichText, pass 0 means not limit the maximize width.                                                  |
+| Image Atlas      | The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas. |
 
 ## BBCode format
 ### Basics

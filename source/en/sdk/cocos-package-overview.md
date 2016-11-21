@@ -32,7 +32,7 @@ Cocos Package provide a command line tool for developer. Developer can use it in
 
 **AnySDK Framework** is AnySDK`s client framework, AnySDK is a third party solution that offers game developers SDK integration without making changes to the SDK's features or parameters.It can do all of this while remaining invisible to your end user.
 
-Cocos Creator built-in Cocos engine includes AnySDK Framework libraies. The platform project that built by developer already includes AnySDK Framework. According to AnySDK Framework](anysdk/anysdk-framework.md) chapter ，know how to use Cocos Package to integrate AnySDK Framework
+Cocos Creator built-in Cocos engine includes AnySDK Framework libraries. The platform project that built by developer already includes AnySDK Framework. According to AnySDK Framework](anysdk/anysdk-framework.md) chapter ，know how to use Cocos Package to integrate AnySDK Framework
 
 
 

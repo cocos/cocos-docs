@@ -8,3 +8,8 @@
 **AnySDK Framework**为 AnySDK 客户端框架，它为开发者提供了统一的 SDK 接口。开发者只需要调用 AnySDK Framework 的接口，即可实现多 SDK 的接入。
 
 详情请阅读 [AnySDK Framework](anysdk/anysdk-framework.md) 一节。
+
+
+## Cocos Creator 接入 AnySDK 教程
+
+详情请阅读 [Integrate AnySDK](anysdk/integrate-anysdk.md) 一节。

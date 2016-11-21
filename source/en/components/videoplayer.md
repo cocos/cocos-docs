@@ -38,12 +38,20 @@ For more info about VideoPlayer API reference [VideoPlayer API](../api/classes/V
 
 ### Parameter of VideoPlayerEvent
 
-| Name |   Function Explanation
-| -------------- | ----------- |
-|PLAYING| Video is playing.
-|PAUSED| Video is paused.
-|STOPPED| Video is stopped.
-|COMPLETED| Video is completed.
+| Name           | Function Explanation          |
+| -------------- | -----------                   |
+| PLAYING        | Video is playing.             |
+| PAUSED         | Video is paused.              |
+| STOPPED        | Video is stopped.             |
+| COMPLETED      | Video is completed.           |
+| META_LOADED    | Video's meta data is loaded.  |
+| CLICKED        | Video is clicked by the user. |
+| READY_TO_PLAY  | Video is ready to play.       |
+
+
+Note: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode.
+If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component
+to hack the VideoPlayer's size. For more information, please refer to the Example-cases samples bundled with Creator.
 
 ## Detailed Explanation
 Currently this component is only available on Web(Both PC and Mobile), iOS and Android.
