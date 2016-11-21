@@ -129,7 +129,7 @@ in the callback pause its own action will lead to a series of traversal problems
 Slow motion cannot exist alone; it always exists to modify a basic action. It can be used to alter the time curve of the basic action to give the action fast in/out, ease in or other more complicated special effects. One thing we need to note is that only interval actions support slow motion:
 
 ```
-var aciton = cc.scaleTo(0.5, 2, 2);
+var action = cc.scaleTo(0.5, 2, 2);
 action.easing(cc.easeIn(3.0));
 ```
 
