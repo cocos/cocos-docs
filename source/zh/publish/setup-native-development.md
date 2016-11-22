@@ -92,7 +92,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 3. 检查 NDK 版本
 
-    不论使用什么版本的引擎，都需要使用 NDK r9b 以上版本。如果使用了 Cocos2d-x framework, 请使用 NDK r10 以上的版本，推荐 r10e。
+    请使用 NDK r10c 以上的版本，推荐 r10e。
 
 4. Windows 平台需要检查 JAVA_HOME 环境变量
 

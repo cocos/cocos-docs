@@ -61,7 +61,7 @@ We have received lots of feedback about original packing in the public beta, and
 
 2. Check NDK version
 
-    No matter which version's engine is used, you must use versions later than NDK r9b. If Cocos2d-x framework is used, please use versions later than NDK r10, and r10e version is recommended.
+    Please use versions later than NDK r10c, and r10e version is recommended.
 
 3. On Windows platform, JAVA_HOME environmental variables need to be checked
 
