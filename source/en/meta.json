@@ -456,6 +456,11 @@
                 "link": "publish/debug-native.html"
             },
             {
+                "name": "Publish in Command Line",
+                "link": "publish/publish-in-command-line.html",
+                "new": true
+            },
+            {
                 "name": "Editor Extension",
                 "link": "extension/index.html",
                 "header": true

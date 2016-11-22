@@ -4,6 +4,7 @@
 - [Setup Native Development](setup-native-development.md)
 - [Publish -> native](publish-native.md)
 - [Debug on Native Platform](debug-native.md)
+- [Publish in command line.md](publish-in-command-line.md)
 
 <hr>
 
