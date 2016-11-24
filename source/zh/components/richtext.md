@@ -66,4 +66,4 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 ---
 
-继续前往 [Toggle 组件参考](toggle.md) 说明文档。
+继续前往 [Particle System 组件参考](particle-system.md) 说明文档。
