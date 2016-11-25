@@ -46,6 +46,9 @@ Compile end
 3. builder:state-changed
 Compiler status update
 
+4. builder:query-build-options
+Query build options
+
 ### Built-in plug-in Panel monitor messages
 
 #### scene:new-scene
