@@ -250,7 +250,7 @@ anim1.on('lastframe',    this.onLastFrame,      this);
     // frames 这是一个 SpriteFrame 的数组.
     var clip = cc.AnimationClip.createWithSpriteFrames(frames, 17);
     clip.name = "anim_run";
-    clip.warpMode = cc.WarpMode.Loop;
+    clip.wrapMode = cc.WrapMode.Loop;
     
     // 添加帧事件
     clip.events.push({

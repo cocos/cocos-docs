@@ -208,7 +208,7 @@ Animation system will search in all the components of animation root node. If th
     // frames is a SpriteFrame array.
     var clip = cc.AnimationClip.createWidthSpriteFrame(frames, 17);
     clip.name = "anim_run";
-    clip.warpMode = cc.WarpMode.Loop;
+    clip.wrapMode = cc.WrapMode.Loop;
 
     // adds frame event
     clip.events.push({
