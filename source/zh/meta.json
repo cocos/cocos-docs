@@ -29,7 +29,8 @@
             },
             {
                 "name": "配置代码编辑环境",
-                "link": "getting-started/coding-setup.html"
+                "link": "getting-started/coding-setup.html",
+                "new": true
             },
             {
                 "name": "Cocos2d-x 用户上手指南",

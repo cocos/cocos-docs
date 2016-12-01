@@ -4,7 +4,7 @@
 
 ## Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软新 推出的轻量化跨平台IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能，未来还可以直接使用 VS Code 调试原生版本的游戏。
+[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软新 推出的轻量化跨平台IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能，还可以直接使用 VS Code 调试网页和原生版本的游戏。
 
 ### 安装 VS Code
 
@@ -65,6 +65,28 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 ```
 
 上面的字段将为 VS Code 设置搜索时排除的目录，和在文件列表中隐藏的文件类型。由于 `build`, `temp`, `library` 都是编辑器运行时自动生成的路径，而且会包含我们写入的脚本内容，所以应该在搜索中排除。而 `assets` 目录下的每个文件都会生成一个 `.meta` 文件，一般来说我们不需要关心他的内容，只要让编辑器帮我们管理这些文件就可以了。
+
+### 使用 VS Code 调试网页版游戏
+
+VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调试网页版游戏程序。
+
+首先需要安装：
+
+- [Chrome（谷歌浏览器）](https://www.google.com/chrome/)
+- VS Code 插件：Debugger for Chrome
+
+安装 VS Code 插件时，请点击 VS Code 左侧导航栏的 `扩展` 按钮打开扩展面板，并在搜索框中输入 `Debugger for Chrome` 并点击安装继续。安装之后可能需要重启 VS Code 才能生效。
+
+接下来在 Cocos Creator 编辑器主菜单里执行 `VS Code 工作流->添加 Chrome Debug 配置`，这个菜单命令会在你的项目文件夹下添加一个 `.vscode/launch.json` 文件作为调试器的配置，之后你就可以在 VS Code 里点击左侧栏的 `调试` 按钮打开调试面板，并在最上方的调试配置中选择 `Creator Debug: Launch Chrome`，然后点击绿色的开始按钮开始调试。
+
+调试的时候依赖 Cocos Creator 编辑器内置的 Web 服务器，所以需要在编辑器启动状态下才能进行调试。如果编辑器预览游戏时使用的端口不是默认端口，则需要手动修改 `launch.json` 里的 `url` 字段，将正确的端口添加上去。
+
+调试过程中可以在源码文件上直接下断点，进行监控，是比使用 Chrome 内置的 DevTools 调试更方便和友好的工作流程。
+
+### 使用 VS Code 调试原生工程
+
+调试原生工程的工作流程请查阅 [原生平台调试](../publish/debug-native.md)。
+
 
 ### 学习 VS Code 的使用方法
 
