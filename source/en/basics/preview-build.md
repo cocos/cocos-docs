@@ -34,7 +34,11 @@ There are a bunch of control in Preview page:
 
 ![browser](preview-build/browser.png)
 
-#### Use Browser Developer Tools for Debugging
+#### Debugging with VS Code
+
+We can debug our projects with VS Code text editor, please read [Use VS Code to debug web games](../getting-started/coding-setup.md##use-vs-code-to-debug-web-games) for details.
+
+#### Debugging with browser Developer Tools
 
 Take Chrome for example, open menu and choose `More Tools/Dev Tools` to open the Developer Tools. We can inpect source code, add breakpoint, check call stack and step control during debugging.
 
