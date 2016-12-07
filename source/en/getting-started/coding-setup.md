@@ -68,6 +68,28 @@ Choose `Code/Preferences/User Settings` from VS Code main menu. The user setting
 
 The above settings exclude folders generated and managed by Cocos Creator from search and file tree.
 
+### Use VS Code to debug web games
+
+VS Code has excellent debug capability, we can debug the Web version of the game program directly in the source project in VS Code.
+
+First we need to install:
+
+- [Chrome (Google Chrome)] (https://www.google.com/chrome/)
+- VS Code extension: Debugger for Chrome
+
+To install the VS Code extension, click on the 'Extensions' button in the left navigation bar of the VS Code to open the Extensions panel and enter `Debugger for Chrome` in the search box and click `Install` to continue. After installation, you may need to restart VS Code to take effect.
+
+Next, in the Cocos Creator editor main menu, execute the `VS Code Workflow -> Add Chrome Debug Setting`. This menu command adds a `.vscode/launch.json` file to your project folder as the debugger configuration. Then in VS Code you can click `Debug` button on the left sidebar to open the Debug panel, and in the top of the debug configuration, select `Creator Debug: Launch Chrome`, and then click the green start button to start debugging.
+
+Debugging process depends on the Cocos Creator editor built-in Web server, so you need to have the editor running for debug to work. If the editor uses non-default port to preview the game, you need to manually modify the `url` field in `launch.json` to add up the correct port.
+
+We can directly add breakpoint in the source files, make changes, recompile and continue debugging process. This workflow is more convenient and friendly than using the built-in DevTools of Chrome.
+
+### Use VS Code to debug native projects
+
+For debugging the workflow of native projects, please refer to [Native Platform Debugging] (../publish/debug-native.md).
+
+
 ### Learn More About VS Code
 
 Go to the [documentation page of VS Code](https://code.visualstudio.com/Docs), to learn the editing, customization and extensions for VS Code.

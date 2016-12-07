@@ -28,7 +28,8 @@
             },
             {
                 "name": "Setup Coding Environment",
-                "link": "getting-started/coding-setup.html"
+                "link": "getting-started/coding-setup.html",
+                "new": true
             },
             {
                 "name": "Cocos2d-x User Guide",
