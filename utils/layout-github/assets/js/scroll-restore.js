@@ -36,4 +36,4 @@ var toggleNav = function (event) {
 
 var saveScroll = function () {
     sessionStorage.setItem('scrollTop', document.getElementById('main').scrollTop);
-}
+};

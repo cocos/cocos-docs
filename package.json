@@ -4,15 +4,18 @@
   "description": "Documentation ===============",
   "main": "index.js",
   "dependencies": {
+    "algoliasearch": "^3.20.0",
     "del": "^2.2.2",
     "fire-fs": "0.2.3",
-    "markdown-styles": "^3.1.8"
+    "markdown-styles": "^3.1.8",
+    "naml": "^1.0.3"
   },
   "devDependencies": {},
   "scripts": {
     "make-zh-doc": "node utils/build-doc.js zh && node utils/open-doc.js zh",
     "make-en-doc": "node utils/build-doc.js en && node utils/open-doc.js en",
-    "copy-api-doc": "node utils/copy-api.js"
+    "copy-api-doc": "node utils/copy-api.js",
+    "build-search-index": "node utils/build-index.js"
   },
   "repository": {
     "type": "git",
