@@ -58,6 +58,11 @@ Creator 内置的一些组件，或者插件，在某些操作下，会向所有
 
     编译状态更新时，发送的消息
 
+4. builder:query-build-options
+
+    查看构建的选项
+
+
 ## 内置插件 Panel 内监听的消息
 
 ### scene:new-scene
