@@ -5,6 +5,7 @@
 - [Publish -> native](publish-native.md)
 - [Debug on Native Platform](debug-native.md)
 - [Publish in command line.md](publish-in-command-line.md)
+- [Custom Project Build Template](custom-project-build-template.md)
 
 <hr>
 

@@ -462,6 +462,11 @@
                 "new": true
             },
             {
+                "name": "Custom Project Build Template",
+                "link": "publish/custom-project-build-template.html",
+                "new": true
+            },
+            {
                 "name": "Editor Extension",
                 "link": "extension/index.html",
                 "header": true

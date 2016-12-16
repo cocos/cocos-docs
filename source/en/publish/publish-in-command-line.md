@@ -53,6 +53,8 @@ You can also compile project by using `--compile` command, the parameters is the
  
  - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
 
+ - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
+
 
 
 

@@ -514,6 +514,11 @@
                 "new": true
             },
             {
+                "name": "定制项目构建模板",
+                "link": "publish/custom-project-build-template.html",
+                "new": true
+            },
+            {
                 "name": "扩展编辑器",
                 "link": "extension/index.html",
                 "header": true
