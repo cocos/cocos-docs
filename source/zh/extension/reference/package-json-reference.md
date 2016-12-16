@@ -59,3 +59,77 @@
 这样注册完的面板，将会生成两份面板 ID 分别为：`simple-package` 和 `simple-package-02`.
 
 关于面板注册信息可详细阅读[面板字段参考](panel-json-reference.md)。
+
+### reload (Object)
+
+可以通过 `reload` 字段定制扩展包自动重载的文件监控规则，未做声明时的默认规则如下：
+
+```json
+"reload": {
+  "test": [ "test/**/*", "tests/**/*" ],
+  "renderer": [ "renderer/**/*", "panel/**/*" ],
+  "ignore": [],
+  "main": []
+}
+```
+
+### runtime-resource (Object)
+
+插件通过在 `package.json` 文件中配置 `runtime-resource` 字段来 mount runtime 资源到资源管理器中。配置的格式如下：
+
+```json
+"runtime-resource": {
+  "path": "path/to/runtime-resource",
+  "name": "runtime-res-name"
+}
+```
+
+最终在资源管理器中由插件 mount 的文件夹名称为 `[packageName]-[runtime-resource.name]`。且插件导入的资源文件夹为只读的。
+
+需要注意的是，通过配置 `runtime-resource` 字段将扩展包中的文件夹 mount 到项目资源后，本身就具备自动同步的功能，也就是对扩展包中的 `runtime-resource` 进行的修改会自动同步到项目资源中并触发编译等流程，所以应该将 `runtime-resource` 里 `path` 字段指向的路径添加到 `package.json` 中的 `reload.ignore` 中，否则会引起插件的重复加载：
+
+```json
+"runtime-resource": {
+  "path": "my-components",
+  "name": "components"
+},
+"reload": {
+  "ignore": ["my-components/**/*"]
+}
+```
+
+### scene-script (String)
+
+`scene-script` 字段用于声明一个扩展包内的脚本，在该脚本中可以使用引擎 API，并访问当前场景中的节点和组件。
+
+声明形式如下：
+
+```json
+"scene-script": "scene-walker.js"
+```
+
+`scene-walker.js` 需要用这样的形式定义：
+
+```js
+module.exports = {
+    testMessage: function (event) {
+        var canvas = cc.find('Canvas');
+        Editor.log('children length : ' + canvas.children.length);
+
+        if (event.reply) {
+            event.reply(canvas.children.length);
+        }
+    }
+};
+```
+
+接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene-walker.js` 发送消息（假设扩展包名是 `test-package`）：
+
+```js
+Editor.Scene.callSceneScript('test-package', 'testMessage', function (err, length) {
+    console.log(`testMessage callback :  length - ${length}`);
+});
+```
+
+这样就可以在扩展包中获取到场景里的 `Canvas` 根节点有多少子节点，当然还可以用来对场景节点进行更多的查询和操作。
+
