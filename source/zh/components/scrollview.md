@@ -62,26 +62,27 @@ ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
-var scrollViewEventHandler = new cc.Component.EventHandler();
-scrollViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-scrollViewEventHandler.component = "cc.MyComponent"
-scrollViewEventHandler.handler = "callback";
-scrollViewEventHandler.customEventData = "foobar";
 
-scrollview.scrollEvents.push(scrollViewEventHandler);
-
-//here is your component file
+//here is your component file, file name = MyComponent.js 
 cc.Class({
-    name: 'cc.MyComponent'
     extends: cc.Component,
-
-    properties: {
+    properties: {},
+    
+    onLoad: function () {
+        var scrollViewEventHandler = new cc.Component.EventHandler();
+        scrollViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+        scrollViewEventHandler.component = "MyComponent";//这个是代码文件名
+        scrollViewEventHandler.handler = "callback";
+        scrollViewEventHandler.customEventData = "foobar";
+        
+        var scrollview = node.getComponent(cc.ScrollView);
+        scrollview.scrollEvents.push(scrollViewEventHandler);
     },
 
 	//注意参数的顺序和类型是固定的
-    callback: function(scrollview, eventType, customEventData) {
+    callback: function (scrollview, eventType, customEventData) {
         //这里 scrollview 是一个 Scrollview 组件对象实例
-        // 这里的 eventType === cc.ScrollView.EventType enum 里面的值
+        //这里的 eventType === cc.ScrollView.EventType enum 里面的值
         //这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
 });

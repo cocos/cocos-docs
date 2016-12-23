@@ -84,23 +84,23 @@ Button 目前只支持 Click 事件，即当用户点击并释放 Button 时才�
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
-var clickEventHandler = new cc.Component.EventHandler();
-clickEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-clickEventHandler.component = "cc.MyComponent"
-clickEventHandler.handler = "callback";
-clickEventHandler.customEventData = "foobar";
-
-button.clickEvents.push(clickEventHandler);
-
-//here is your component file
+//here is your component file, file name = MyComponent.js 
 cc.Class({
-    name: 'cc.MyComponent'
     extends: cc.Component,
+    properties: {},
+    
+    onLoad: function () {
+        var clickEventHandler = new cc.Component.EventHandler();
+        clickEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+        clickEventHandler.component = "MyComponent";//这个是代码文件名
+        clickEventHandler.handler = "callback";
+        clickEventHandler.customEventData = "foobar";
 
-    properties: {
+        var button = node.getComponent(cc.Button);
+        button.clickEvents.push(clickEventHandler);
     },
 
-    callback: function(event, customEventData) {
+    callback: function (event, customEventData) {
         //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
         var node = event.target;
         var button = node.getComponent(cc.Button);
