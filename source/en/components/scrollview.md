@@ -52,6 +52,72 @@ ScrollBar is optional. You can choose to set either a horizontal or vertical Scr
 
 To build a connection, you can drag a node with the ScrollBar component in the **Node Tree** over to the corresponding field in ScrollView.
 
+#### Add a callback through the script code
+
+##### Method one
+
+This method adds the same event callback as the event callback that is added using the editor，By adding code, you need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
+
+```js
+
+//here is your component file, file name = MyComponent.js 
+cc.Class({
+    extends: cc.Component,
+    properties: {},
+    
+    onLoad: function () {
+        var scrollViewEventHandler = new cc.Component.EventHandler();
+        scrollViewEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
+        scrollViewEventHandler.component = "MyComponent";//This is the code file name
+        scrollViewEventHandler.handler = "callback";
+        scrollViewEventHandler.customEventData = "foobar";
+        
+        var scrollview = node.getComponent(cc.ScrollView);
+        scrollview.scrollEvents.push(scrollViewEventHandler);
+    },
+
+	//Note that the order and type of parameters are fixed
+    callback: function (scrollview, eventType, customEventData) {
+        //here scrollview is a Scrollview component object instance
+        //here the eventType === value in the cc.ScrollView.EventType enum
+        //here the customEventData parameter is equal to you set before the "foobar"
+    }
+});
+```
+
+##### Method two
+
+By `scrollview.node.on ('scroll-to-top', ...)` way to add
+
+```js
+//Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
+
+cc.Class({
+    extends: cc.Component,
+
+	
+    properties: {
+       scrollview: cc.ScrollView
+    },
+    
+    onLoad: function () {
+       this.scrollview.node.on('scroll-to-top', this.callback, this);
+    },
+    
+    callback: function (event) {
+       //here the event is an EventCustom object, you can get through the event.detail ScrollView components
+       var scrollview = event.detail;
+       //do whatever you want with scrollview
+       //in addition, attention to this way registered events, can not pass customEventData
+    }
+});
+```
+
+Similarly, you can register events such as 'scrolling', 'touch-up', 'scrolling', etc. The events of the callback function parameters and 'scroll-to-top' parameters.
+
+For a full list of ScrollView events, refer to the ScrollView API documentation.
+
+---
 
 ---
 
