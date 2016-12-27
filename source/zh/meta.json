@@ -122,6 +122,11 @@
                 "new": true
             },
             {
+                "name": "艺术数字资源（Label Atlas）",
+                "link": "asset-workflow/label-atlas.html",
+                "new": true
+            },
+            {
                 "name": "图像资源的自动剪裁",
                 "link": "asset-workflow/trim.html"
             },

@@ -112,6 +112,11 @@
                 "link": "asset-workflow/atlas.html"
             },
             {
+                "name": "Label Atlas",
+                "link": "asset-workflow/label-atlas.html",
+                "new": true
+            },
+            {
                 "name": "Texture Auto Trim",
                 "link": "asset-workflow/trim.html"
             },
