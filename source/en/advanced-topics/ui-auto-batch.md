@@ -14,5 +14,5 @@ number of merged atlas is minimal. If you could make all the UI elements into on
 
 ## Attention
 1. Because the atlas merge step is done when exporting project, so you need to export your project to test the batch drawing feature.
-2. When export BMFont asset, you need put the associate .fnt file and png file in the same directory.
+2. When import BMFont asset, you need put the associate .fnt file and png file in the same directory.
 3. LabelAtlas is rendered the same as BMFont, so it's ok to batch it with UI elements and BMFont.

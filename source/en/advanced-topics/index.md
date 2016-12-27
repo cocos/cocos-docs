@@ -1,8 +1,9 @@
-# 进阶主题
+# Advanced Topics
 
-- [动态热更新](hot-update.md)
-- [i18n 游戏多语言支持](i18n.md)
-- [存储和读取用户数据](data-storage.md)
+- [Hot update](hot-update.md)
+- [i18n support](i18n.md)
+- [Read and Write user data](data-storage.md)
+- [BMFont and UI auto-batch](ui-auto-batch.md)
 
 <hr>
 

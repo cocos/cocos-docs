@@ -268,7 +268,8 @@
             },
             {
                 "name": "Label",
-                "link": "components/label.html"
+                "link": "components/label.html",
+                "new": true
             },
             {
                 "name": "Spine",
