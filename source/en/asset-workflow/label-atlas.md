@@ -1,29 +1,29 @@
-# 艺术数字资源 (LabelAtlas)
+# LabelAtlas Asset
 
-**艺术数字资源** 是一种用户自定义的资源，它可以用来配置艺术数字字体的属性。
+**LabelAtlas Asset** is a user defined asset, it's used for configuring LabelAtlas.
 
-## 创建艺术数字资源
-
-在 **资源管理器** 中右键，可以在如下菜单中找到 **新建 -> 艺术数字配置** 的子菜单，点击菜单将会新建一个类似 **LabelAtlas.labelatlas** 的资源。
+## Create LabelAtlas Asset
+In **Assets** panel right-click on a folder, and click the following context menu item **New -> LabelAtlas**.
+It will create a **LabelAtlas.labelatlas** asset.
 ![create label atlas](label-atlas/create-label-atlas.jpeg)
 
-**艺术数字资源** 在使用之前需要进行一些配置，比如关联渲染的图片资源，设置每一个字符的宽高和起始字符信息。
+Before using **LabelAtlas asset**, you need some configurations. eg, configure the rendering texture file, the width and height
+of each rendered character and the start char.
 
-## 配置艺术数字资源
+## Configuration of LabelAtlas asset
+After selecting an **LabelAtlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **LabelAtlas asset**.
 
-在资源管理器中选中一个 **艺术数字资源** 后，**属性检查器** 面板将会显示 **艺术数字资源** 的所有可配置项。
+| Properties       | Description                                                                                |
+| --------------   | -----------                                                                                |
+| Raw Texture File | Specify the rendering texture file                                                         |
+| Item Width       | Specify the width of each character                                                        |
+| Item Height      | Specify the height of each character                                                       |
+| Start Char       | Specify the start char, even if the start char is a *space*, you also need insert a space. |
 
-| 属性             | 功能说明                                                                                                       |
-| --------------   | -----------                                                                                                    |
-| Raw Texture File | 指定渲染图片                                                                                                   |
-| Item Width       | 指定每一个字符的宽度                                                                                           |
-| Item Height      | 指定每一个字符的高度                                                                                           |
-| Start Char       | 指定艺术数字字体里面的第一个字符，如果字符是 Space，也需要在这个属性里面输入空格字符                           |
-
-配置完成后需要点击 **属性检查器** 右上角的绿色的打勾按钮来保存设置。
+After the configuration, you need click the green button on the top right corner of **Inspector** panel.
 
 ![save label atlas](label-atlas/save-label-atlas.jpeg)
  
 
-## 使用艺术数字资源
-使用艺术数字资源非常简单，你只需要新建一个 Label 组件，然后把新建好的艺术数字资源拖到 Label 组件的 Font 属性即可。
+## Using LabelAtlas asset
+It's quite simple to use the LabelAtlas asset. You just need setup a new Label component and drag the LabelAtlas asset to the *Font* attribute of the Label component.

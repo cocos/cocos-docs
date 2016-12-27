@@ -552,6 +552,11 @@
                 "new": true
             },
             {
+                "name": "BMFont and UI auto-batch",
+                "link": "advanced-topics/ui-auto-batch.html",
+                "new": true
+            },
+            {
                 "name": "Integrate Third-party SDKs",
                 "link": "sdk/index.html",
                 "header": true,

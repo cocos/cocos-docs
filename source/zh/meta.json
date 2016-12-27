@@ -653,6 +653,11 @@
                 "new": true
             },
             {
+                "name": "BMFont and UI 自动批处理",
+                "link": "advanced-topics/ui-auto-batch.html",
+                "new": true
+            },
+            {
                 "name": "第三方SDK集成",
                 "link": "sdk/index.html",
                 "header": true,
