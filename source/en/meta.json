@@ -112,6 +112,11 @@
                 "link": "asset-workflow/atlas.html"
             },
             {
+                "name": "Label Atlas",
+                "link": "asset-workflow/label-atlas.html",
+                "new": true
+            },
+            {
                 "name": "Texture Auto Trim",
                 "link": "asset-workflow/trim.html"
             },
@@ -263,7 +268,8 @@
             },
             {
                 "name": "Label",
-                "link": "components/label.html"
+                "link": "components/label.html",
+                "new": true
             },
             {
                 "name": "Spine",
@@ -544,6 +550,11 @@
             {
                 "name": "Engine Customization Workflow",
                 "link": "advanced-topics/engine-customization.html",
+                "new": true
+            },
+            {
+                "name": "BMFont and UI auto-batch",
+                "link": "advanced-topics/ui-auto-batch.html",
                 "new": true
             },
             {

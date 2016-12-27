@@ -122,6 +122,11 @@
                 "new": true
             },
             {
+                "name": "艺术数字资源（Label Atlas）",
+                "link": "asset-workflow/label-atlas.html",
+                "new": true
+            },
+            {
                 "name": "图像资源的自动剪裁",
                 "link": "asset-workflow/trim.html"
             },
@@ -645,6 +650,11 @@
             {
             	"name": "脏矩形优化",
                 "link": "advanced-topics/dirty-region.html",
+                "new": true
+            },
+            {
+                "name": "BMFont and UI 自动批处理",
+                "link": "advanced-topics/ui-auto-batch.html",
                 "new": true
             },
             {
