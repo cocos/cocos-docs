@@ -2,6 +2,7 @@
 module.exports = function(from, to){
 	var path = require('path');
 	from = from.replace(/^\\/, '');
+	from = from.replace(/^\//, '');
 	// console.log('current: ' + from);
 	// console.log('dest: ' + to);
 	var rel = path.join(path.relative(path.dirname(from), path.dirname(to)), path.basename(to));

@@ -585,6 +585,21 @@
                 "link": "extension/extends-property.html"
             },
             {
+                "name":"Editor API",
+                "link": "extension/api/index.html",
+                "new": true 
+            },            
+            { 
+                "name":"AssetDB API (main)",
+                "link": "extension/api/asset-db-main.html",
+                "new": true
+            },
+            { 
+                "name":"AssetDB API (renderer)",
+                "link": "extension/api/asset-db-renderer.html",
+                "new": true
+            },                
+            {
                 "name": "自定义 Gizmo",
                 "link": "extension/custom-gizmo.html"
             },

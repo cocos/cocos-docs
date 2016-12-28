@@ -512,6 +512,21 @@
                 "new": true
             },
             {
+                "name":"Editor API",
+                "link": "extension/api/index.html",
+                "new": true     
+            },
+            { 
+                "name":"AssetDB API (main)",
+                "link": "extension/api/asset-db-main.html",
+                "new": true
+            },
+            { 
+                "name":"AssetDB API (renderer)",
+                "link": "extension/api/asset-db-renderer.html",
+                "new": true
+            },            
+            {
                 "name": "package.json Reference",
                 "link": "extension/reference/package-json-reference.html"
             },
