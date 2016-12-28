@@ -1,5 +1,6 @@
 'use strict';
 module.exports = function(from, to){
+	if (!to) return '#';
 	var path = require('path');
 	from = from.replace(/^\\/, '');
 	from = from.replace(/^\//, '');

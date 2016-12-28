@@ -60,11 +60,19 @@
             <div class="inner">
               <ul class="nav nav-list">
                 {{#each menu}}
-                {{#if header}}
-                <li class="sidebar-header-1 {{isActive @root.relative link}}"><h3><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></h3></li>
-                {{else}}
-                <li class="{{isActive @root.relative link}} {{isSub link}}"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
-                {{/if}}
+                <li class="collapsed sidebar-header-1 {{isActive @root.relative link}}"><h3><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></h3><button data-toggle="collapse" data-target="#{{name}}"> +</button></li>
+                  {{#if submenu}}
+                    <ul class="sub-menu collapse" id="{{name}}">
+                    {{#each submenu}}
+                    <li class="{{isActive @root.relative link}} sidebar-header-2"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
+                      {{#if submenu}}
+                        {{#each submenu}}
+                            <li class="{{isActive @root.relative link}} sidebar-header-3"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
+                        {{/each}}
+                      {{/if}}
+                    {{/each}}
+                    </ul>
+                  {{/if}}
                 {{/each}}
               </ul>
             </div>
@@ -133,6 +141,8 @@
   </footer>
   <script src="{{asset 'js/anchor.min.js'}}"></script>
   <script src="{{asset 'js/scroll-restore.js'}}"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="{{asset 'js/bootstrap.min.js'}}"></script>
   <script src="{{asset 'wp-content/themes/cocos/js/zepto.js'}}"></script>
   <script type="text/javascript" src="{{asset 'wp-content/themes/cocos/js/main.js'}}"></script>
   <script type="text/javascript">
