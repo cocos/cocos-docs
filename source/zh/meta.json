@@ -11,8 +11,7 @@
                     },
                     {
                         "name": "安装和启动",
-                        "link": "getting-started/install.html",
-                        "new": true
+                        "link": "getting-started/install.html"
                     },
                     {
                         "name": "使用 Dashboard",
@@ -321,8 +320,7 @@
                     },
                     {
                         "name": "Button 组件参考",
-                        "link": "components/button.html",
-                        "new": true
+                        "link": "components/button.html"
                     },
                     {
                         "name": "Mask 组件参考",
@@ -343,18 +341,15 @@
                     },
                     {
                         "name": "Toggle 组件参考",
-                        "link": "components/toggle.html",
-                        "new": true
+                        "link": "components/toggle.html"
                     },
                     {
                         "name": "ToggleGroup 组件参考",
-                        "link": "components/toggleGroup.html",
-                        "new": true
+                        "link": "components/toggleGroup.html"
                     },
                     {
                         "name": "Slider 组件参考",
-                        "link": "components/slider.html",
-                        "new": true
+                        "link": "components/slider.html"
                     },
                     {
                         "name": "PageView 组件参考",
@@ -371,8 +366,7 @@
                     },
                     {
                         "name": "EditBox 组件参考",
-                        "link": "components/editbox.html",
-                        "new": true
+                        "link": "components/editbox.html"
                     },
                     {
                         "name": "Collider 组件参考",
@@ -380,13 +374,11 @@
                     },
                     {
                         "name": "VideoPlayer 组件参考",
-                        "link": "components/videoplayer.html",
-                        "new": true
+                        "link": "components/videoplayer.html"
                     },
                     {
                         "name": "WebView 组件参考",
-                        "link": "components/webview.html",
-                        "new": true
+                        "link": "components/webview.html"
                     },
                     {
                         "name": "Graphics 组件参考",
@@ -394,8 +386,7 @@
                     },
                     {
                         "name": "RichText 组件参考",
-                        "link": "components/richtext.html",
-                        "new": true
+                        "link": "components/richtext.html"
                     }
                 ]
             },
@@ -441,8 +432,7 @@
                     },
                     {
                         "name": "玩家输入事件",
-                        "link": "scripting/player-controls.html",
-                        "new": true
+                        "link": "scripting/player-controls.html"
                     },
                     {
                         "name": "使用动作系统",
@@ -598,17 +588,23 @@
                     {
                         "name":"Editor API",
                         "new": true,
+                        "link": "extension/api/index.html",
                         "submenu": [
                             { 
-                                "name":"AssetDB API (main)",
-                                "link": "extension/api/asset-db-main.html",
+                                "name":"AssetDB Module (main)",
+                                "link": "extension/api/asset-db/asset-db-main.html",
                                 "new": true
                             },
                             { 
-                                "name":"AssetDB API (renderer)",
-                                "link": "extension/api/asset-db-renderer.html",
+                                "name":"AssetDB Module (renderer)",
+                                "link": "extension/api/asset-db/asset-db-renderer.html",
                                 "new": true
-                            }
+                            },
+                            { 
+                                "name":"Editor Module",
+                                "link": "extension/api/editor-framework/index.html",
+                                "new": true
+                            }                           
                         ]
                     },
                     {
@@ -648,8 +644,7 @@
                             },
                             {
                                 "name": "常用 IPC 消息参考",
-                                "link": "extension/reference/ipc-reference.html",
-                                "new": true
+                                "link": "extension/reference/ipc-reference.html"
                             }
                         ]
                     }
@@ -682,8 +677,7 @@
                     },
                     {
                         "name": "脏矩形优化",
-                        "link": "advanced-topics/dirty-region.html",
-                        "new": true
+                        "link": "advanced-topics/dirty-region.html"
                     },
                     {
                         "name": "BMFont and UI 自动批处理",
@@ -698,8 +692,7 @@
                 "submenu": [
                     {
                         "name": "Cocos Package",
-                        "link": "sdk/cocos-package-overview.html",
-                        "new": true
+                        "link": "sdk/cocos-package-overview.html"
                     },
                     {
                         "name": "AnySDK",
@@ -711,8 +704,7 @@
                     },
                     {
                         "name": "Cocos Creator 接入 AnySDK 教程",
-                        "link": "sdk/anysdk/integrate-anysdk.html",
-                        "new": true
+                        "link": "sdk/anysdk/integrate-anysdk.html"
                     }
                 ]
             }

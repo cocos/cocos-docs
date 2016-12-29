@@ -32,8 +32,8 @@
 
 从 Cocos Creator v1.3 版本开始，Lua 工程支持将以插件形式加入到 Creator 中，首先您需要下载 Creator-for-Lua 插件并执行安装程序：
 
-- [Creator For Lua v1.1.3 Windows 版下载](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-win)
-- [Creator For Lua v1.1.3 Mac 版下载](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.3-mac)
+- [Creator For Lua v1.1.5 Windows 版下载](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.5-win)
+- [Creator For Lua v1.1.5 Mac 版下载](http://cocos2d-x.org/filedown/Creator-Lua-Support-1.1.5-mac)
 
 ### 第一次构建项目
 

@@ -32,9 +32,18 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [自定义 Gizmo](custom-gizmo.md)
 - [自定义 Gizmo 进阶](custom-gizmo-advance.md)
 
+
 ## 其他
 
 - [测试你的扩展包](test-your-package.md)
+
+
+## API
+
+- AssetDB
+ - [AssetDB API Main](api/asset-db/asset-db-main.md)
+ - [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)
+- [Editor](api/editor-framework/index.md)
 
 ## 参考
 

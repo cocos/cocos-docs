@@ -517,12 +517,12 @@
                 "new": true     
             },
             { 
-                "name":"AssetDB API (main)",
+                "name":"AssetDB Module (main)",
                 "link": "extension/api/asset-db-main.html",
                 "new": true
             },
             { 
-                "name":"AssetDB API (renderer)",
+                "name":"AssetDB Module (renderer)",
                 "link": "extension/api/asset-db-renderer.html",
                 "new": true
             },            
