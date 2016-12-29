@@ -9,11 +9,13 @@ var documentation = require('documentation');
 var sources = [
     {
         path: '../fb12/asset-db/page/asset-db.js',
-        name: 'asset-db-renderer'
+        name: 'asset-db-renderer',
+        dest: 'asset-db'
     },
     {
         path: '../fb12/asset-db/lib/interface.js',
-        name: 'asset-db-main'
+        name: 'asset-db-main',
+        dest: 'asset-db'
     }
 
 ];
@@ -36,7 +38,7 @@ sources.map((src) => {
                 return;
             }
             // output is a string of JSON data
-            var destPath = destRoot + src.name + '.md';
+            var destPath = destRoot + src.dest + '/' + src.name + '.md';
             Fs.ensureDirSync(Path.dirname(destPath));
             Fs.writeFileSync(destPath, output, 'utf8');
         });
