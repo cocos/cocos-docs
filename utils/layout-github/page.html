@@ -60,9 +60,9 @@
             <div class="inner">
               <ul class="nav nav-list">
                 {{#each menu}}
-                <li class="collapsed sidebar-header-1 {{isActive @root.relative link}}"><h3><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></h3><button data-toggle="collapse" data-target="#{{name}}"> +</button></li>
+                <li class="collapsed sidebar-header-1 {{isActive @root.relative link}}"><h3><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a>{{#if submenu}}<a href="#" data-toggle="collapse" data-target="#{{{category name}}}">+</a>{{/if}}</h3></li>
                   {{#if submenu}}
-                    <ul class="sub-menu collapse" id="{{name}}">
+                    <ul class="sub-menu collapse" id="{{{category name}}}">
                     {{#each submenu}}
                     <li class="{{isActive @root.relative link}} sidebar-header-2"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
                       {{#if submenu}}
@@ -80,13 +80,21 @@
           <div id="main" class="main col-md-8 col-lg-9">
 
           <ul id="mobile-nav" class="nav nav-list" style="display: none;">
-            {{#each menu}}
-            {{#if header}}
-            <li class="sidebar-header-1 {{isActive @root.relative link}}"><h3><a onclick="saveScroll()" href="{{{linkTo @root.relative link}}}">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></h3></li>
-            {{else}}
-            <li class="{{isActive @root.relative link}} {{isSub link}}"><a onclick="saveScroll()" href="{{{linkTo @root.relative link}}}">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
-            {{/if}}
-            {{/each}}
+                {{#each menu}}
+                <li class="collapsed sidebar-header-1 {{isActive @root.relative link}}"><h3><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a>{{#if submenu}}<a href="#" data-toggle="collapse" data-target="#{{{category name}}}">+</a>{{/if}}</h3></li>
+                  {{#if submenu}}
+                    <ul class="sub-menu collapse" id="{{{category name}}}">
+                    {{#each submenu}}
+                    <li class="{{isActive @root.relative link}} sidebar-header-2"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
+                      {{#if submenu}}
+                        {{#each submenu}}
+                            <li class="{{isActive @root.relative link}} sidebar-header-3"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}{{#if new}}<span class='new-item'> new!</span>{{/if}}</a></li>
+                        {{/each}}
+                      {{/if}}
+                    {{/each}}
+                    </ul>
+                  {{/if}}
+                {{/each}}
           </ul>
           <article class="markdown-body">
               {{~> content}}

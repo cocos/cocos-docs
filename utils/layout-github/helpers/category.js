@@ -1,6 +1,4 @@
 'use strict';
-module.exports = function(link){
-	var path = require('path');
-    var category = link.split('/').shift();
-	return category;
+module.exports = function(name){
+	return name.replace(/\s/g, '_');
 };
