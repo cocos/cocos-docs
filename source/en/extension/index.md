@@ -13,6 +13,11 @@ Cocos Creator inherit the usage of `package.json` that Node.js community did to 
  - [Extends Main Menu](extends-main-menu.md)
  - [Test Your Package](test-your-package.md)
 
+## API
+
+ - [AssetDB API Main](asset-db-main.md)
+ - [AssetDB API Renderer](asset-db-renderer.md)
+
 ## 参考
 
  - [package.json reference](reference/package-json-reference.md)
