@@ -73,21 +73,6 @@ Editor.sendToPackage('simple-demo', 'foo-bar');
 
 如上面的例子，我们可以清楚的了解到，“scene:saved” 这个消息是从 scene 这个内置扩展中发送的。
 
-## 扩展包工作模式
+---
 
-在设计和开发扩展包时，我们总是希望扩展包在我们给予一定的输入时，完成特定的工作并返回结果。这个过程可以由以下几种工作模式来完成：
-
-### 加载插件后入口程序自动完成工作
-
-如果我们的插件不需要任何用户输入，而且只要一次性的执行一些主进程逻辑，我们可以将所有工作放在 `main.js` 的 `load` 生命周期回调里：
-
-```js
-// main.js
-module.exports = {
-  load () {
-    let fs = require('fs');
-    fs.mkdir('');
-
-  }
-}
-```
+继续阅读 [扩展包工作流程模式](extension-workflow.md) 。

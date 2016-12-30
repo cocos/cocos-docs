@@ -27,7 +27,6 @@ Cocos Creator 现已支持导出场景和 UI 到 Lua 引擎，详细信息请参
 
 前往[视频教程](video-tutorial/index.md)页面。
 
-
 ## 演示和范例项目
 
 注意，所有 Github 上的演示和范例项目都会跟随版本进行更新，默认分支对应目前最新的 Cocos Creator 版本，老版本的项目会以 `v0.7` 这样的分支名区分，分支名会和相同版本的 Cocos Creator 对应，下载使用的时候请注意。
