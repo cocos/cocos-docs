@@ -60,7 +60,7 @@ Editor.Panel.extend({
 在这份代码中，我们定义了面板的样式（style）和模板（template），并通过定义选择器 `$` 获得面板元素，最后在
 ready 中对面板元素的事件进行处理。
 
-在完成了上述操作后，我们就可以通过调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。
+在完成了上述操作后，我们就可以通过调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。 关于 `Editor.Panel` 接口的用法请参考 [Panel API](api/editor-framework/main/panel.md)。
 
 更多关于面板定义的选项，请阅读[面板定义参考](reference/panel-reference.md)。
 

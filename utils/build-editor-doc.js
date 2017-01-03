@@ -7,21 +7,28 @@ var destRoot = 'source/en/extension/api/';
 var documentation = require('documentation');
 
 var sources = [
+    // {
+    //     path: ['../fb12/asset-db/page/asset-db.js'],
+    //     name: 'asset-db-renderer',
+    //     dest: 'asset-db'
+    // },
+    // {
+    //     path: ['../fb12/asset-db/lib/interface.js'],
+    //     name: 'asset-db-main',
+    //     dest: 'asset-db'
+    // },
     {
-        path: '../fb12/asset-db/page/asset-db.js',
-        name: 'asset-db-renderer',
-        dest: 'asset-db'
-    },
-    {
-        path: '../fb12/asset-db/lib/interface.js',
-        name: 'asset-db-main',
-        dest: 'asset-db'
+        path: [
+            '../../fbnew/editor/init.js',
+            '../../fbnew/editor/core/editor-init.js'
+        ],
+        name: 'editor-main',
+        dest: 'editor'
     }
-
 ];
 
 sources.map((src) => {
-    documentation.build([src.path], {
+    documentation.build(src.path, {
 
         // only output comments with an explicit @public tag
         inferPrivate:  '^_',

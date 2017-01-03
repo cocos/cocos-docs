@@ -22,6 +22,10 @@ Indicates if the Editor-Framework App is closing.
 
 Indicates the language used in `--lang` option.
 
+### Editor.projectPath
+
+Absolute path for current open project.
+
 ### Editor.logfile
 
 Specify the log file path. By default it is saving in:

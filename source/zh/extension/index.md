@@ -10,6 +10,7 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [安装与分享](install-and-share.md)
 - [IPC （进程间通讯）简介](introduction-to-ipc.md)
 - [入口程序](entry-point.md)
+- [扩展包工作流程模式](extension-workflow.md)
 - [扩展主菜单](extends-main-menu.md)
 - [扩展编辑器面板](extends-panel.md)
 - [定义一份简单的面板窗口](define-simple-panel.md)
