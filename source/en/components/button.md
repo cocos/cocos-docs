@@ -61,11 +61,13 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ![button-event](./button/button-event.png)
 
 
-| Attribute |   Function Explanation
-| -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered when the user clicks and releases the Button.
+| Attribute       | Function Explanation                                                                             |
+| --------------  | -----------                                                                                      |
+| Target          | Node with the script component.                                                                  |
+| Component       | Script component name.                                                                           |
+| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
+| customEventData | A user-defined string value passed as the last event argument of the event callback.             |
+  
 
 #### Detailed explanation
 

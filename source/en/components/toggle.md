@@ -20,13 +20,14 @@ Note: Because Toggle is inherited from Button, so the attributes exists in Butto
 
 ## Toggle Event
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered when the user clicks and releases the Toggle.
+| Properties      | Function Explanation                                                                             |
+| --------------  | -----------                                                                                      |
+| Target          | Node with the script component.                                                                  |
+| Component       | Script component name.                                                                           |
+| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Toggle. |
+| customEventData | A user-defined string value passed as the last event argument of the event callback.             |
 
-The Toggle event callback has two parameters, the first one is the touch event and the second one is the Toggle itself.
+The Toggle event callback has two parameters, the first one is  the Toggle itself and the second argument is the customEventData.
 
 ## Detailed explanation
 The generic node hierarchy of Toggle is as below:
