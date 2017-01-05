@@ -79,6 +79,10 @@ body {
 	list-style: none;
 }
 
+.sidebar ul sub-menu {
+	padding-left: 1em;
+}
+
 .sidebar li {
 	line-height: 1.7em;
 }

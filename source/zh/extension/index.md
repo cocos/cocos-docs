@@ -13,7 +13,14 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [扩展包工作流程模式](extension-workflow.md)
 - [扩展主菜单](extends-main-menu.md)
 - [扩展编辑器面板](extends-panel.md)
+- [进程间通讯工作流程](ipc-workflow.md)
 - [定义一份简单的面板窗口](define-simple-panel.md)
+- [多语言化](i18n.md)
+
+## 管理项目中的场景和资源
+
+- [调用引擎 API 和项目脚本](scene-script.md)
+- [管理项目资源](asset-management.md)
 
 ## 编写和扩展面板 UI
 
