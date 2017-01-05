@@ -27,7 +27,7 @@ Toggle 的脚本接口请参考[Toggle API](../api/classes/toggle.html)。
 | Handler         | 指定一个回调函数，当 Toggle 的事件发生的时候会调用此函数。 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。       |
 
-Toggle 的事件回调有三个参数，第一个参数是 EventCustom ，第二个参数是 Toggle 本身, 最后一个参数是 customEventData。
+Toggle 的事件回调有二个参数，第一个参数是 Toggle 本身, 第二个参数是 customEventData。
 
 ## 详细说明
 Toggle 组件的节点树一般为：
