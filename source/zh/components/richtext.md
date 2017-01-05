@@ -1,7 +1,7 @@
 # RichText 组件参考
 
 RichText 组件用来显示一段带有不同样式效果的文字，你可以通过一些简单的 BBCode 标签来设置文字的样式。
-目前支持的样式有：颜色，字体大小，加粗，斜体，下划线，换行，图片和点击事件，并且不同的 BBCode 标签是可以支持相互嵌套的。
+目前支持的样式有：颜色(color)，字体大小(size)，字体描边(outline)，加粗(b)，斜体(i)，下划线(u)，换行(br)，图片(img)和点击事件(on)，并且不同的 BBCode 标签是可以支持相互嵌套的。
 
 更多关于 BBCode 标签的内容，请参考本文档的 `BBCode 标签格式说明` 小节。
 
@@ -40,6 +40,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | -------|------- | -----|------ |
 |color|指定字体渲染颜色，颜色值可以是内置颜色，比如 white，black 等，也可以使用 16 进制颜色值，比如#ff0000 表示红色| `<color=#ff0000>Red Text</color>` | 内置颜色值参考 [cc.Color](../api/classes/Color.html)
 |size|指定字体渲染大小，大小值必须是一个整数| `<size=30>enlarge me</size>` |  Size 值必须使用等号赋值
+|outline|设置文本的描边颜色和描边宽度 | `<outline color=red width=4>A label with outline</outline>` | 如果你没有指定描边的颜色或者宽度的话，那么默认的颜色是白色(#ffffff),默认的宽度是 1
 |b|指定使用粗体来渲染| `<b>This text will be rendered as bold</b>`| 名字必须是小写，且不能写成 bold
 |i|指定使用斜体来渲染| `<i>This text will be rendered as italic</i>`| 名字必须是小写，且不能写成 italic
 |u|给文本添加下划线|`<u>This text will have a underline</u>`| 名字必须是小写，且不能写成 underline

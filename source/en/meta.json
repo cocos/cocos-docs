@@ -272,6 +272,11 @@
                 "new": true
             },
             {
+                "name": "RichText",
+                "link": "components/richtext.html",
+                "new": true
+            },
+            {
                 "name": "Spine",
                 "link": "components/spine.html"
             },
