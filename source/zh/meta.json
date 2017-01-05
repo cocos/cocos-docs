@@ -386,7 +386,8 @@
                     },
                     {
                         "name": "RichText 组件参考",
-                        "link": "components/richtext.html"
+                        "link": "components/richtext.html",
+                        "new": true
                     }
                 ]
             },
