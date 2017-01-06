@@ -1,6 +1,6 @@
 {
     "*": {
-        "menu":[
+        "menu": [
             {
                 "name": "Cocos Creator 入门",
                 "link": "getting-started/index.html",
@@ -276,7 +276,6 @@
                     }
                 ]
             },
-
             {
                 "name": "绘图系统",
                 "link": "graphics/index.html"
@@ -529,92 +528,139 @@
             {
                 "name": "扩展编辑器",
                 "link": "extension/index.html",
+                "new": true,
                 "submenu": [
                     {
-                        "name": "你的第一个扩展包",
-                        "link": "extension/your-first-extension.html"
-                    },
-                    {
-                        "name": "安装与分享",
-                        "link": "extension/install-and-share.html"
-                    },
-                    {
-                        "name": "IPC 简介",
-                        "link": "extension/introduction-to-ipc.html"
-                    },
-                    {
-                        "name": "入口程序",
-                        "link": "extension/entry-point.html"
-                    },
-                    {
-                        "name": "扩展主菜单",
-                        "link": "extension/extends-main-menu.html"
-                    },
-                    {
-                        "name": "扩展编辑器面板",
-                        "link": "extension/extends-panel.html"
-                    },
-                    {
-                        "name": "定义一份简单的面板窗口",
-                        "link": "extension/define-simple-panel.html"
-                    },
-                    {
-                        "name": "编写面板界面",
-                        "link": "extension/writing-your-panel.html"
-                    },
-                    {
-                        "name": "掌握 UI Kit",
-                        "link": "extension/using-ui-kit.html"
-                    },
-                    {
-                        "name": "扩展 UI Kit",
-                        "link": "extension/extends-ui-kit.html"
-                    },
-                    {
-                        "name": "界面排版",
-                        "link": "extension/layout-ui-element.html"
-                    },
-                    {
-                        "name": "在面板中使用 Vue",
-                        "link": "extension/work-with-vue.html"
-                    },
-                    {
-                        "name": "扩展 Inspector",
-                        "link": "extension/extends-inspector.html"
-                    },
-                    {
-                        "name": "扩展 Property",
-                        "link": "extension/extends-property.html"
-                    },
-                    {
-                        "name":"Editor API",
-                        "new": true,
-                        "link": "extension/api/index.html",
+                        "name": "基本工作流程",
                         "submenu": [
-                            { 
-                                "name":"AssetDB Module (main)",
-                                "link": "extension/api/asset-db/asset-db-main.html",
-                                "new": true
+                            {
+                                "name": "你的第一个扩展包",
+                                "link": "extension/your-first-extension.html"
                             },
-                            { 
-                                "name":"AssetDB Module (renderer)",
-                                "link": "extension/api/asset-db/asset-db-renderer.html",
-                                "new": true
+                            {
+                                "name": "安装与分享",
+                                "link": "extension/install-and-share.html"
                             },
-                            { 
-                                "name":"Editor Module",
-                                "link": "extension/api/editor-framework/index.html",
-                                "new": true
-                            }                           
+                            {
+                                "name": "IPC 简介",
+                                "link": "extension/introduction-to-ipc.html"
+                            },
+                            {
+                                "name": "入口程序",
+                                "link": "extension/entry-point.html"
+                            },
+                            {
+                                "name": "扩展主菜单",
+                                "link": "extension/extends-main-menu.html"
+                            },
+                            {
+                                "name": "扩展编辑器面板",
+                                "link": "extension/extends-panel.html"
+                            },
+                            {
+                                "name": "进程间通讯工作流程",
+                                "link": "extension/ipc-workflow.html"
+                            },
+                            {
+                                "name": "定义一份简单的面板窗口",
+                                "link": "extension/define-simple-panel.html"
+                            },
+                            {
+                                "name": "多语言化",
+                                "link": "extension/i18n.html"
+                            },
+                            {
+                                "name": "工作路径和常用 URL",
+                                "link": "extension/working-directory.html"
+                            }
                         ]
                     },
                     {
-                        "name": "自定义 Gizmo",
-                        "link": "extension/custom-gizmo.html"
+                        "name": "管理场景和资源",
+                        "new": true,
+                        "submenu": [
+                            {
+                                "name": "调用引擎 API 和项目脚本",
+                                "link": "extension/scene-script.html"
+                            },
+                            {
+                                "name": "管理项目资源",
+                                "link": "extension/asset-management.html"
+                            }
+                        ]
                     },
                     {
-                        "name": "自定义 Gizmo 进阶",
-                        "link": "extension/custom-gizmo-advance.html"
+                        "name": "扩展面板 UI",
+                        "submenu": [
+                            {
+                                "name": "编写面板界面",
+                                "link": "extension/writing-your-panel.html"
+                            },
+                            {
+                                "name": "掌握 UI Kit",
+                                "link": "extension/using-ui-kit.html"
+                            },
+                            {
+                                "name": "扩展 UI Kit",
+                                "link": "extension/extends-ui-kit.html"
+                            },
+                            {
+                                "name": "界面排版",
+                                "link": "extension/layout-ui-element.html"
+                            },
+                            {
+                                "name": "在面板中使用 Vue",
+                                "link": "extension/work-with-vue.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "扩展属性面板",
+                        "submenu": [
+                            {
+                                "name": "扩展 Inspector",
+                                "link": "extension/extends-inspector.html"
+                            },
+                            {
+                                "name": "扩展 Property",
+                                "link": "extension/extends-property.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "扩展 Gizmos",
+                        "submenu": [
+                            {
+                                "name": "自定义 Gizmo",
+                                "link": "extension/custom-gizmo.html"
+                            },
+                            {
+                                "name": "自定义 Gizmo 进阶",
+                                "link": "extension/custom-gizmo-advance.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Editor API",
+                        "new": true,
+                        "link": "extension/api/index.html",
+                        "submenu": [
+                            {
+                                "name": "AssetDB Module (main)",
+                                "link": "extension/api/asset-db/asset-db-main.html",
+                                "new": true
+                            },
+                            {
+                                "name": "AssetDB Module (renderer)",
+                                "link": "extension/api/asset-db/asset-db-renderer.html",
+                                "new": true
+                            },
+                            {
+                                "name": "Editor Module",
+                                "link": "extension/api/editor-framework/index.html",
+                                "new": true
+                            }
+                        ]
                     },
                     {
                         "name": "测试你的扩展包",
