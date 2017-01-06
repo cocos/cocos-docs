@@ -31,6 +31,10 @@ body {
 	padding-bottom: 100px;
 }
 
+.markdown-body ul {
+	list-style: disc;
+}
+
 /*@media (max-width: 900px) {
 	.main {
 		margin-left: 300px;
@@ -70,8 +74,8 @@ body {
 	padding-bottom:100px;
 }
 
-.sidebar-header-2 { margin-left: 10px; }
-.sidebar-header-3 { margin-left: 20px; }
+.sidebar-header-2 { margin-left: 10px; font-weight: bold;}
+.sidebar-header-3 { margin-left: 30px; }
 .sidebar-header-4 { margin-left: 40px; }
 .sidebar-header-5 { margin-left: 50px; }
 
@@ -79,8 +83,8 @@ body {
 	list-style: none;
 }
 
-.sidebar ul sub-menu {
-	padding-left: 1em;
+.sidebar ul.sub-menu {
+	padding-left: 0.2em;
 }
 
 .sidebar li {

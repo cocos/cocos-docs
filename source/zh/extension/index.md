@@ -16,6 +16,7 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [进程间通讯工作流程](ipc-workflow.md)
 - [定义一份简单的面板窗口](define-simple-panel.md)
 - [多语言化](i18n.md)
+- [工作路径和常用 URL](working-directory.md)
 
 ## 管理项目中的场景和资源
 
