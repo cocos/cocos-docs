@@ -571,6 +571,10 @@
                             {
                                 "name": "工作路径和常用 URL",
                                 "link": "extension/working-directory.html"
+                            },
+                            {
+                                "name": "提交插件到商店",
+                                "link": "extension/submit-to-store.html"
                             }
                         ]
                     },
