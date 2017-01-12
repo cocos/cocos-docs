@@ -51,8 +51,8 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 ## API
 
 - AssetDB
- - [AssetDB API Main](api/asset-db/asset-db-main.md)
- - [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)
+	- [AssetDB API Main](api/asset-db/asset-db-main.md)
+	- [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)
 - [Editor](api/editor-framework/index.md)
 
 ## 参考
@@ -63,6 +63,7 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [面板定义参考](reference/panel-reference.md)
 - [自定义界面元素定义参考](reference/custom-element-reference.md)
 - [常用 ipc 消息参考](reference/ipc-reference.md)
+- [meta 文件参考](reference/meta-reference.md)
 - UI Kit
   - 控件
     - [ui-button](./reference/ui-button.md)
