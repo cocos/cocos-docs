@@ -30,6 +30,7 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - [插件脚本](plugin-scripts.md)
 - [第三方模块引用](third-party-module.md)
 - [JavaScript 快速入门](javascript-primer.md)
+- [播放声音资源](audio.md)
 
 ## 参考
 
