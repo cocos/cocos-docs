@@ -26,6 +26,7 @@
 - [Toggle](toggle.md)
 - [ToggleGroup](toggleGroup.md)
 - [DragonBones](dragonbones.md)
+- [ParticleSystem](particle-system.md)
 
 <hr>
 
