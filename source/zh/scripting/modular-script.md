@@ -145,8 +145,8 @@ module.exports = cfg;
 
 这样 `player.js` 便能正确输出："speed is 10"。
 
-> 那为什么定义 Component 时可以不用设置 `exports` ？
-  因为 Component 是 Cocos Creator 中的特殊类型，如果一个脚本定义了 Component 却没有声明 `exports`，Cocos Creator 会自动将 `exports` 设置为 Component。
+> `module.exports` 的默认值：<br>
+  当你的 `module.exports` 没有任何定义时，Creator 会自动优先将 `exports` 设置为脚本中定义的 Component。如果脚本没定义 Component 但是定义了别的类型的 [CCClass](./class.md)，则自动把 `exports` 设为定义的 CCClass。如果定义的 CCClass 不止一个，则会设为最后一个。
   
 备注：
 - 在 `module` 上增加的其它变量是不能导出的，也就是说 `exports` 不能替换成其它变量名，系统只会读取 `exports` 这个变量。
