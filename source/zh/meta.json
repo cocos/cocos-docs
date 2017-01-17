@@ -468,6 +468,10 @@
                         "link": "scripting/load-assets.html"
                     },
                     {
+                        "name": "播放声音资源",
+                        "link": "scripting/audio.html"
+                    },
+                    {
                         "name": "模块化脚本",
                         "link": "scripting/modular-script.html"
                     },
