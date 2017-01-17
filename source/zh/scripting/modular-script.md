@@ -23,13 +23,13 @@ Cocos Creator 中的 JavaScript 使用和 Node.js 几乎相同的 CommonJS 标�
 如果你还不太明白，没关系，下面会详细讲解。
 
 > 在本文中，“模块”和“脚本”这两个术语是等价的。所有“备注”都属于进阶内容，一开始不需要了解。  
-> 不论模块如何定义，所有用户代码最终会由 Cocos Creator 编译为原生的 JavaScript，可直接在浏览器中运行。
+> 不论模块如何定义，所有用户代码最终会由 Creator 编译为原生的 JavaScript，可直接在浏览器中运行。
 
 ## <a name="require"></a>引用模块
 
 ### require
 
-除了 Cocos Creator 提供的接口，所有用户定义的模块都需要调用 `require` 来访问。例如我们有一个组件定义在 `Rotate.js`：
+除了 Creator 提供的接口，所有用户定义的模块都需要调用 `require` 来访问。例如我们有一个组件定义在 `Rotate.js`：
 
 ```js
 // Rotate.js
@@ -94,7 +94,7 @@ var Rotate = cc.Class({
 });
 ```
 
-当你在脚本中声明了一个组件，Cocos Creator 会默认把它导出，其它脚本直接 require 这个模块就能使用这个组件。
+当你在脚本中声明了一个组件，Creator 会默认把它导出，其它脚本直接 require 这个模块就能使用这个组件。
 
 ### 定义普通 JavaScript 模块
 
