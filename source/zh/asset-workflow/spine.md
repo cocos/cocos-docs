@@ -8,7 +8,7 @@
 
 - .json 骨骼数据
 - .png  图集纹理
-- .txt  图集数据
+- .txt/.atlas  图集数据
 
 ![spine](spine/import.png)
 

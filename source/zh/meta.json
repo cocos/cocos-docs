@@ -391,6 +391,11 @@
                 ]
             },
             {
+                "name": "Particle System 组件参考",
+                "link": "components/particle-system.html",
+                "new": true
+            },
+            {
                 "name": "脚本开发工作流程",
                 "link": "scripting/index.html",
                 "submenu": [
