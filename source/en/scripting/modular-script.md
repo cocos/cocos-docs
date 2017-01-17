@@ -132,8 +132,8 @@ module.exports = config;
 
 The reason for doing this is because as long as there is another script that requires it, what they actually get will be the `module.exports` object in here.
 
-> So why can we define Component without setting `exports`? 
-  Because Component is a special type in Cocos Creator, if a script defines Component without declaring `exports`, Cocos Creator will set `exports` as Component automatically.
+> The default value of `module.exports`:
+  If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically. If there is more than one CCClass, it will set to the last one.
 
 Complete code is as follows:
 

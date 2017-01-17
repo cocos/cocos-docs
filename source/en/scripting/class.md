@@ -42,8 +42,6 @@ var Sprite = cc.Class({
 });
 ```
 
-> Component is special CCClass, which can't define a constructor. Its construct duty can be replaced by the `onLoad` method.
-
 ## Instance method
 
 ```javascript
