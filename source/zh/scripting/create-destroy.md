@@ -54,9 +54,9 @@ cc.Class({
 });
 ```
 
-## 创建预置节点
+## 创建预制节点
 
-和克隆已有节点相似，你也设置你的预置（prefab）节点并通过 `cc.instantiate` 生成。使用方法如下：
+和克隆已有节点相似，你也设置你的预制（prefab）节点并通过 `cc.instantiate` 生成。使用方法如下：
 
 ```javascript
 cc.Class({
