@@ -184,9 +184,10 @@ contains both player.clip and player.psd), or the need to obtain a "resource" (f
 #### Resource Release
 
 `loadRes` loaded in a single resource if you need to release, You can call `cc.loader.releaseRes`,
-`releaseRes` incoming one with `loadRes` the same path parameter, type parameters are not supported
+`releaseRes` incoming one with `loadRes` the same path and type parameter.
 
 ```javascript
+cc.loader.releaseRes("test assets/image", cc.SpriteFrame);
 cc.loader.releaseRes("test assets/anim");
 ```
 
