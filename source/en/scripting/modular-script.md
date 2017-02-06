@@ -23,13 +23,13 @@ JavaScript in Cocos Creator uses the Common JS standard that is almost the same 
 If you still don't quite understand, don't worry, we will explain it in here.
 
 > In this article, the two terms "module" and "script" are equivalent. All the "comment" parts belong to advanced contents that don't need to be understood at the very start.
-> No matter how we define the module, all user designation codes will eventually be compiled into native JavaScript by Cocos Creator and can be operated directly in the browser.
+> No matter how we define the module, all user designation codes will eventually be compiled into native JavaScript by Creator and can be operated directly in the browser.
 
 ## Reference module
 
 ### require
 
-Other than the interface provided by Cocos Creator, all the user-defined modules will need to call `require` to be accessed. For instance, we have a component defined at `Rotate.js`:
+Other than the interface provided by Creator, all the user-defined modules will need to call `require` to be accessed. For instance, we have a component defined at `Rotate.js`:
 
 ```js
 // Rotate.js
@@ -94,7 +94,7 @@ var Rotate = cc.Class({
 });
 ```
 
-When you declare a component in the script, Cocos Creator will acquiesce to export it so other scripts can use it by requiring this module.
+When you declare a component in the script, Creator will acquiesce to export it so other scripts can use it by requiring this module.
 
 ### Define regular JavaScript module
 

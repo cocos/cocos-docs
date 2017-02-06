@@ -249,7 +249,7 @@ The deleted results will be sent through by ipc message `asset-db:assets-deleted
     ```
 ````
 
-# save
+# saveExists
 
 Save specific asset by sending string data
 The saved results will be sent through by ipc message `asset-db:asset-changed`

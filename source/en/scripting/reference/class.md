@@ -109,7 +109,7 @@ The two parameters passed in should both be constructor function of the class in
 
 ### Instance variable
 
-When a class causes massive performance overhead, you can try to define instance variable inside constructor of the class. These variables defined in constructor cannot be serialized and not visible in **Properties** panel.
+The instance variable defined inside constructor cannot be serialized and not visible in **Properties** panel.
 
 ```javascript
 var Sprite = cc.Class({

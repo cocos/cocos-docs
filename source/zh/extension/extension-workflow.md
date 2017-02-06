@@ -70,6 +70,8 @@ module.exports = {
 
 这个路径下的内容（包括组件和其他资源）可以由项目中的其他场景、组件引用。使用这个工作流程，开发者可以将常用的控件、游戏架构以插件形式封装在一起，并在多个项目之间共享。
 
+更多信息请阅读 [runtime-resource 字段参考](reference/package-json-reference.md#runtime-resource-object-)。
+
 ---
 
 继续阅读 [扩展主菜单](extends-main-menu.md)。

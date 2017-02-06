@@ -108,28 +108,4 @@
 "scene-script": "scene-walker.js"
 ```
 
-`scene-walker.js` 需要用这样的形式定义：
-
-```js
-module.exports = {
-    testMessage: function (event) {
-        var canvas = cc.find('Canvas');
-        Editor.log('children length : ' + canvas.children.length);
-
-        if (event.reply) {
-            event.reply(canvas.children.length);
-        }
-    }
-};
-```
-
-接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene-walker.js` 发送消息（假设扩展包名是 `test-package`）：
-
-```js
-Editor.Scene.callSceneScript('test-package', 'testMessage', function (err, length) {
-    console.log(`testMessage callback :  length - ${length}`);
-});
-```
-
-这样就可以在扩展包中获取到场景里的 `Canvas` 根节点有多少子节点，当然还可以用来对场景节点进行更多的查询和操作。
-
+该字段的值是一个脚本文件的路径，相对于扩展包目录。详细的用法和工作流程请阅读 [调用引擎 API 和项目脚本](../scene-script.md)。

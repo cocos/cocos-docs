@@ -113,7 +113,7 @@ cc.log(cc.isChildClassOf(Texture2D, Texture));   // true
 
 ### 实例变量
 
-当一个类的性能问题成为局部瓶颈时，可以试着直接在构造函数中定义实例变量。这样定义出来的变量不能被序列化，也不能在 **属性检查器** 中查看。
+在构造函数中定义的实例变量不能被序列化，也不能在 **属性检查器** 中查看。
 
 ```javascript
 var Sprite = cc.Class({

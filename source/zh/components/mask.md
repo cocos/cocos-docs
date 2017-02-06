@@ -8,12 +8,17 @@ Mask 用于规定子节点可渲染的范围，带有 Mask 的组件的节点会
 
 遮罩的脚本接口请参考[Mask API](../api/classes/Mask.html)。
 
+![mask.png](./mask/mask.png)
 
 ## Mask 属性
 
-| 属性 |   功能说明
+| 属性  |   功能说明           |
 | -------------- | ----------- |
-| NA |NA
+| Type           | 遮罩类型 [Type API](../api/enums/Mask.Type.html)
+| Inverted       | 布尔值，反向遮罩
+| AlphaThreshold | 浮点数，只有当模板的像素的 alpha 大于 alphaThreshold 时，才会绘制内容，该数值 0 ~ 1 之间的浮点数，1 表示因此禁用 alpha 只在遮罩 IMAGE_STENCIL 类型可用
+| SpriteFrame    | 遮罩所需要的贴图，只在遮罩 IMAGE_STENCIL 类型可用
+| Segements      | 椭圆遮罩的曲线细分数，只在遮罩 ELLIPSE 类型可用
 
 ## 详细说明
 
