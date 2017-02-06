@@ -68,9 +68,9 @@ Note, touch events support multi-touch, each touch spot will send one event to t
 | `getStartLocation` | `Object` | get the location object the where touch spot gets down which includes x and y properties |
 | `getPreviousLocation` | `Object` | get the location object of the touch spot at the last event which includes x and y properties |
 
-## Mouse and touch event bubbles
+## Touch event bubbles
 
-Mouse and touch events all support the event bubbles on the node tree, take the pictures below as an example:
+touch events support the event bubbles on the node tree, take the pictures below as an example:
 
 ![propagation](./internal-events/propagation.png)
 
@@ -78,7 +78,7 @@ In the scene shown in the picture, node A has a child node B which has a child n
 
 When the mouse or finger presses in the node C region, the event will be triggered at node C first and notify the registered event listener at node C. Node C will notify node B of this event, and the logic in node B will check whether the touch spot is in its region. If the answer is yes, it will notify its listener, otherwise, it will do nothing. Node A will receive the event then, since node C is completely in node A, the event listener registered in node A will receive the touch down event. The above process explains the event bubble process and that the logic decides whether to dispatch the event or not based on the node region.
 
-Except for the node region to decide whether to dispatch the event or not, the bubble process of mouse and touch events is no different than the general events. So, the fuction`stopPropagation` to call `event` of `stopPropagation` can stop the bubbling process actively.
+Except for the node region to decide whether to dispatch the event or not, the bubble process of touch events is no different than the general events. So, the fuction`stopPropagation` to call `event` of `stopPropagation` can stop the bubbling process actively.
 
 ## Other events of `cc.Node` 
 
