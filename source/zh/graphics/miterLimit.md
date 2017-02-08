@@ -21,7 +21,7 @@
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.miterLimit = cc.Graphics.miterLimit.ROUND;
+ctx.miterLimit = 10;
 ctx.moveTo(20,20);
 ctx.lineTo(100,50);
 ctx.lineTo(20,100);
