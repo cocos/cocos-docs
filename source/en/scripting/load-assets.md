@@ -184,9 +184,10 @@ contains both player.clip and player.psd), or the need to obtain a "resource" (f
 #### Resource Release
 
 `loadRes` loaded in a single resource if you need to release, You can call `cc.loader.releaseRes`,
-`releaseRes` incoming one with `loadRes` the same path parameter, type parameters are not supported
+`releaseRes` incoming one with `loadRes` the same path and type parameter.
 
 ```javascript
+cc.loader.releaseRes("test assets/image", cc.SpriteFrame);
 cc.loader.releaseRes("test assets/anim");
 ```
 
@@ -226,16 +227,16 @@ var texture = cc.textureCache.addImage(realUrl); // OK!
 
 ### Resource bulk loading
 
-`cc.loader.loadResAll` can load multiple resources under the same path:
+`cc.loader.loadResDir` can load multiple resources under the same path:
 
 ```javascript
 // loading all resource in the test assets directory
-cc.loader.loadResAll("test assets", function (err, assets) {
+cc.loader.loadResDir("test assets", function (err, assets) {
     // ...
 });
 
 // load all SpriteFrame in the sheep.plist atlas
-cc.loader.loadResAll("test assets/sheep", cc.SpriteFrame, function (err, assets) {
+cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets) {
     // assets is a SpriteFrame array already contains all SpriteFrame.
     // and loadRes('test assets/sheep', cc.SpriteAtlas, function (err, atlas) {...}) The entire SpriteAtlas object is obtained.
 });

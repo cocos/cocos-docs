@@ -61,25 +61,78 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ![button-event](./button/button-event.png)
 
 
-| Attribute |   Function Explanation
-| -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered when the user clicks and releases the Button.
+| Attribute       | Function Explanation                                                                             |
+| --------------  | -----------                                                                                      |
+| Target          | Node with the script component.                                                                  |
+| Component       | Script component name.                                                                           |
+| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
+| customEventData | A user-defined string value passed as the last event argument of the event callback.             |
+  
 
 #### Detailed explanation
 
 Button currently only supports the On Click event. This means only when users click and release the Button will the corresponding call-back function be triggered.
 
-There is a *event* parameter in Button's callback, if you want to access the Button component in the callback,
-you could use the following code snippet:
+#### Add a callback through the script code
+
+##### Method one
+
+This method adds the same event callback as the event callback that is added using the editor，By adding code, you need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
 
 ```js
-callback: function(event) {
-    var node = event.target;
-    var button = node.getComponent(cc.Button);
-}
+//here is your component file, file name = MyComponent.js 
+cc.Class({
+    extends: cc.Component,
+    properties: {},
+    
+    onLoad: function () {
+        var clickEventHandler = new cc.Component.EventHandler();
+        clickEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
+        clickEventHandler.component = "MyComponent";//This is the code file name
+        clickEventHandler.handler = "callback";
+        clickEventHandler.customEventData = "foobar";
+
+        var button = node.getComponent(cc.Button);
+        button.clickEvents.push(clickEventHandler);
+    },
+
+    callback: function (event, customEventData) {
+        //here event is a Touch Event object, you can get events sent to the event node node
+        var node = event.target;
+        var button = node.getComponent(cc.Button);
+        //here the customEventData parameter is equal to you set before the "foobar"
+    }
+});
 ```
+
+##### Method two
+
+By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not
+Gets the screen coordinate point of the current click button.
+
+```js
+//Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
+
+cc.Class({
+    extends: cc.Component,
+	
+    properties: {
+       button: cc.Button
+    },
+    
+    onLoad: function () {
+       this.button.node.on('click', this.callback, this);
+    },
+    
+    callback: function (event) {
+       //here the event is an EventCustom object, you can get through the event.detail Button component
+       var button = event.detail;
+       //do whatever you want with button
+       //In addition, attention to this way registered events, can not pass customEventData
+    }
+});
+```
+
 ---
 
 Continue on to read about [ProgressBar Component reference](progress.md).

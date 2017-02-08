@@ -61,9 +61,15 @@ Class name can be any string, but should be identical. You can use  `cc.js.getCl
 
 ### Constructor
 
-For deserialization to work, constructor of CCClass **doesn't allow** parameter.
+#### Declare by `ctor`
+
+Use `ctor` to declare constructor of CCClass, for deserialization to work, constructor of CCClass **does NOT allow** parameter.
 
 > If developer absolutely needs to pass parameter, `arguments` can be used to capture parameters, but do make sure you can finish instance creation process event if no parameter is passed.
+
+#### <a name="__ctor__"></a>Declare by `__ctor__`
+
+`__ctor__` is the same as `ctor`, but it can receive constructor parameters, and will **NOT** call the constructor of parent class automatically, so you can call the constructor of parent by yourself. `__ctor__` is not the standard way to define constructor, always use the `ctor` unless you have a specific need.
 
 ## Type checks
 
@@ -103,7 +109,7 @@ The two parameters passed in should both be constructor function of the class in
 
 ### Instance variable
 
-When a class causes massive performance overhead, you can try to define instance variable inside constructor of the class. These variables defined in constructor cannot be serialized and not visible in **Properties** panel.
+The instance variable defined inside constructor cannot be serialized and not visible in **Properties** panel.
 
 ```javascript
 var Sprite = cc.Class({
@@ -227,6 +233,8 @@ var Sprite = cc.Class({
     }
 });
 ```
+
+> In special cases, arguments of parent's constructor may not compatible with child's constructor. Then you have to call parent's constructor and pass the needed arguments into it manually. At this point you should declare the child's constructor in [`__ctor__`](#__ctor__).
 
 ### Overwrite
 

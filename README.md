@@ -51,13 +51,23 @@ npm run make-en-doc # 生成英文文档
 
 注意链接要写相对路径，也就是文档首页到各个子页面的路径。
 
-菜单内容完全按照 json 里的数据录入顺序生成，对于分类标题，需要加上`header`声明：
+菜单内容完全按照 json 里的数据录入顺序生成，每个对象条目可以嵌套更多对象表示子类别内容，需要使用`submenu`字段标记子类别：
 
 ```json
 	{
-		"name": "Javascript",
-		"link": "scripting/javascript-primer.html",
-		"header": true
+		"name": "Cocos Creator 入门",
+		"link": "getting-started/index.html",
+		"submenu": [
+			{
+				"name": "关于 Cocos Creator",
+				"link": "getting-started/introduction.html"
+			},
+			{
+				"name": "安装和启动",
+				"link": "getting-started/install.html",
+				"new": true
+			}
+		]
 	}
 ```
 

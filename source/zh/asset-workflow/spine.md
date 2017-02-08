@@ -8,7 +8,7 @@
 
 - .json 骨骼数据
 - .png  图集纹理
-- .txt  图集数据
+- .txt/.atlas  图集数据
 
 ![spine](spine/import.png)
 
@@ -28,4 +28,4 @@
 
 <hr>
 
-继续前往下一章 [地图资源](tiledmap.md) 说明文档。
+继续前往下一章 [骨骼动画资源（DragonBones）](dragonbones.md) 说明文档。

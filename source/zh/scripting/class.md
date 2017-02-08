@@ -42,8 +42,6 @@ var Sprite = cc.Class({
 });
 ```
 
-> Component 是特殊的 CCClass，不能定义构造函数，它的构造职能可由 `onLoad` 方法代替。
-
 ## 实例方法
 
 ```javascript
