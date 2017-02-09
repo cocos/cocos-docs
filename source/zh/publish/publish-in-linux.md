@@ -147,6 +147,7 @@ gulp update
 ### 构建 Android 平台的工程
 
 使用命令行方式来构建项目，生成 Android 平台工程。示例命令如下：
+
   ```bash
   xvfb-maybe npm start -- --path path/to/project/ --build 'platform=android;template=default'
   ```
@@ -157,13 +158,14 @@ gulp update
 
 * 首先，需要将 `cocos-creator/cocos2d-x/tools/cocos2d-console/bin` 文件夹添加到系统的 PATH 环境变量中。
 * 然后，在命令行中执行如下命令来编译 Android 工程：
+
   ```bash
-  cocos compile -s /path/to/project/build/jsb-default -p android`
+  cocos compile -s /path/to/project/build/jsb-default -p android
   ```
-* 如果在编译 Android 平台是遇到报错：
-  ```Cannot run program "/path/android-sdk/.../aapt": >error=2, No such file or directory```
+* 如果在编译 Android 平台是遇到报错：`Cannot run program "/path/android-sdk/.../aapt": >error=2, No such file or directory`
 
   参考[网页](http://stackoverflow.com/questions/22701405/aapt-ioexception-error-2-no-such-file-or-directory-why-cant-i-build-my-grad)，执行如下命令来解决：
+
   ```bash
   sudo apt-get install lib32stdc++6 lib32z1
   ```
