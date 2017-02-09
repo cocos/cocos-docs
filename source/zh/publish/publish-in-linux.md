@@ -140,6 +140,10 @@ gulp update
     * 打开 `~/.CocosCreator/settings.json`
     * 修改 `android-sdk-root`, `ant-root` & `ndk-root` 的值（与环境变量一致）。
 
+### 安装 cocos2d-x-lite 仓库
+
+通过 git clone 命令将 [cocos2d-x-lite 仓库](https://github.com/cocos-creator/cocos2d-x-lite) clone 到 `cocos-creator/cocos2d-x` 文件夹。
+
 ### 构建 Android 平台的工程
 
 使用命令行方式来构建项目，生成 Android 平台工程。示例命令如下：
