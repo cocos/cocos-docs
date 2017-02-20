@@ -37,7 +37,7 @@ The icon above represents the currently selected prefab uses Manual Sync mode, c
 ![auto-syncable](prefab/auto-syncable.png)
 
 Pay attention, to keep the engine small and fast, there are limitations of auto-syncable prefab instance:
- - For prefab instance in scene, you can only change the `name`, `active`, `position` or `rotation` properties of its root node, so child nodes and components should keep the same with the originating asset, or the editor will ask if you want to revert modifications or save modifications back to the originating asset.
+ - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
  - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
  - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
 
