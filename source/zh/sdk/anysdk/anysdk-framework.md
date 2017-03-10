@@ -25,7 +25,35 @@ Cocos Creator 内置 Cocos 引擎中包含了 AnySDK Framework 资源。即开�
 	manualanysdkbindings.cpp
 	jsb_anysdk_protocols_auto.cpp 
 	SDKManager.cpp
+	jsb_anysdk_basic_conversions.h
+	manualanysdkbindings.hpp
+	jsb_anysdk_protocols_auto.hpp 
+	SDKManager.h
 ```
+
+- 删除 `main.js` 下的
+``` js
+    // anysdk scripts
+    if (cc.sys.isNative && cc.sys.isMobile) {
+      jsList = jsList.concat(['jsb_anysdk.js', 'jsb_anysdk_constants.js']);
+    }
+```
+在需要定制的项目路径下添加一个 build-templates 目录，里面按照平台路径划分子目录， 将删除代码的 `main.js`拷贝在子目录下
+结构类似：
+
+```
+project-folder
+ |--assets
+ |--build
+ |--build-templates
+      |--web-mobile
+            |--main.js
+      |--jsb-binary
+            |--main.js
+      |--jsb-default
+            |--main.js
+```
+
 - Eclipse 工程
 	* 删除 libs 下的 `libPluginProtocol.jar` 文件
 	* 删除 res 下的
@@ -71,6 +99,18 @@ Cocos Creator 内置 Cocos 引擎中包含了 AnySDK Framework 资源。即开�
 	* 修改 `src/org/cocos2dx/javascript/SDKWrapper.java` 文件中 `private final static boolean PACKAGE_AS = true;`，`true` 修改为 `false`
 - Xcode 工程
 	* 删除 `libPluginProtocol.a` 库
+	* Xcode 删除 `libPluginProtocol.a` 引用
+	* Xcode 删除 `Classes` 下的引用
+	```
+		jsb_anysdk_basic_conversions.cpp
+		manualanysdkbindings.cpp
+		jsb_anysdk_protocols_auto.cpp 
+		SDKManager.cpp
+		jsb_anysdk_basic_conversions.h
+		manualanysdkbindings.hpp
+		jsb_anysdk_protocols_auto.hpp 
+	```
+	* 删除预编译宏 `PACKAGE_AS`
 - Web 工程
 	* 找到 index.html 文件删除
 		```js
