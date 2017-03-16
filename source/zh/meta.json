@@ -743,6 +743,16 @@
                         "name": "BMFont and UI 自动批处理",
                         "link": "advanced-topics/ui-auto-batch.html",
                         "new": true
+                    },
+                    {
+                        "name": "Java 原生反射机制",
+                        "link": "advanced-topics/java-reflection.html",
+                        "new": true
+                    },
+                    {
+                        "name": "Objective-C 原生反射机制",
+                        "link": "advanced-topics/oc-reflection.html",
+                        "new": true
                     }
                 ]
             },
