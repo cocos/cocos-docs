@@ -578,6 +578,16 @@
                 "new": true
             },
             {
+                "name": "JavaScript to Java Reflection",
+                "link": "advanced-topics/java-reflection.html",
+                "new": true
+            },
+            {
+                "name": "JavaScript to Objective-C Reflection",
+                "link": "advanced-topics/oc-reflection.html",
+                "new": true
+            },
+            {
                 "name": "Integrate Third-party SDKs",
                 "link": "sdk/index.html",
                 "header": true,
