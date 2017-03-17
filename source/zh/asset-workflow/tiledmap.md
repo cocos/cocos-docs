@@ -30,4 +30,4 @@
 
 <hr>
 
-继续前往下一章 [骨骼动画资源（DragonBones）](dragonbones.md) 说明文档。
+继续前往下一章 [导入其他编辑器项目](project-import.md) 说明文档。

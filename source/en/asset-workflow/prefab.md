@@ -43,6 +43,10 @@ Pay attention, to keep the engine small and fast, there are limitations of auto-
 
 > These limitations only affects operations in editor, runtime will not be affected.
 
+## Convert Prefab to Ordinary Node
+
+After deleting a prefab from the **Assets** panel, you can convert the corresponding prefab instance in the scene to an ordinary node. To do this, select the prefab instance and click menu `Node Presets > Convert to Ordinary Node`.
+
 <hr>
 
 Continue on to read about [Spine](spine.md).

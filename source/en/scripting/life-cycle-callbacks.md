@@ -1,7 +1,7 @@
-# Life cycle call-back
+# Life cycle callback
 
-Cocos Creator provides the life cycle call-back function for component script. Users can write the script in a specific period by defining a specific function call-back.
-Currently, the life-cycle call-back functions provided for users are:
+Cocos Creator provides the life cycle callback function for component script. As long as the user defines a specific callback function,Creator will execute the script in a specific period, users do not need to manually call them.
+Currently, the life-cycle callback functions provided for users are:
 
  - onLoad
  - start
@@ -13,7 +13,7 @@ Currently, the life-cycle call-back functions provided for users are:
 
 ## onLoad
 
-In the initialization phase of the component script, we provide the `onLoad` call-back function. `onLoad` call-back will be triggered when the scene has this component being loaded.
+In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the scene has this component being loaded.
  The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. Normally,
 we will do some operation associated with initialization in the `onLoad` phase. For example:
 
@@ -35,7 +35,7 @@ cc.Class({
 
 ## start
 
-The `start` call-back function will be triggered before the first activation of the component, which is before executing `update` for the first time.
+The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time.
 `start` is usually used to initialize some intermediate state data which may have changed during update and frequently enables and disables.
 
 ```js
@@ -58,7 +58,7 @@ cc.Class({
 
 ## update
 
-One of the key points for game development is to update an object's behavior, status and orientation before rendering every frame. These update operations are normally put in the `update` call-back.
+One of the key points for game development is to update an object's behavior, status and orientation before rendering every frame. These update operations are normally put in the `update` callback.
 
 ```js
 cc.Class({
@@ -73,7 +73,7 @@ cc.Class({
 ## lateUpdate
 
 `update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or
- want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` call-back.
+ want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
 
 ```js
 cc.Class({
@@ -87,16 +87,16 @@ cc.Class({
 
 ## onEnable
 
-When the `enabled` property of the component turns from `false` to `true`, it will trigger `onEnable` call-back. If the node is created for the first time,
+When the `enabled` property of the component turns from `false` to `true`, it will trigger `onEnable` callback. If the node is created for the first time,
 and `enabled` is `true`, then it will be called after `onLoad` but before `start`.
 
 ## onDisable
 
-When the `enabled` property of the component turns from `true` to `false`, it will activate the `onDisable` call-back.
+When the `enabled` property of the component turns from `true` to `false`, it will activate the `onDisable` callback.
 
 ## onDestroy
 
-When the component calls `destroy()`, they will be collected when this frame is done. By this time, it will call the `onDestroy` call-back.
+When the component calls `destroy()`, they will be collected when this frame is done. By this time, it will call the `onDestroy` callback.
 
 
 ---

@@ -161,10 +161,10 @@ var anim = this.getComopnent(cc.Animation);
 var animState = anim.play('test');
 
 // set the loop mode as Normal
-animState.wrapeMode = cc.WrapMode.Normal;
+animState.wrapMode = cc.WrapMode.Normal;
 
 // set the loop mode as Loop
-animState.wrapeMode = cc.WrapMode.Loop;
+animState.wrapMode = cc.WrapMode.Loop;
 
 // set the loop count of animation as 2 times
 animState.repeatCount = 2;
@@ -208,7 +208,7 @@ Animation system will search in all the components of animation root node. If th
     // frames is a SpriteFrame array.
     var clip = cc.AnimationClip.createWidthSpriteFrame(frames, 17);
     clip.name = "anim_run";
-    clip.warpMode = cc.WarpMode.Loop;
+    clip.wrapMode = cc.WrapMode.Loop;
 
     // adds frame event
     clip.events.push({

@@ -77,7 +77,7 @@ header .nav.tt{
 	width:3rem;
 	background-color: #2B2E34;
 	color:#A3A3A3;
-	height:20rem;
+	height:100%;
 }
 header .nav.tt li{
 	padding:0 .2rem;

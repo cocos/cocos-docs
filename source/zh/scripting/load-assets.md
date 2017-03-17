@@ -173,9 +173,10 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 #### 资源释放
 
-`loadRes` 加载进来的单个资源如果需要释放，可以调用 `cc.loader.releaseRes`，`releaseRes` 只能传入一个和 `loadRes` 相同的路径，不支持类型参数。
+`loadRes` 加载进来的单个资源如果需要释放，可以调用 `cc.loader.releaseRes`，`releaseRes` 可以传入和 `loadRes` 相同的路径和类型参数。
 
 ```javascript
+cc.loader.releaseRes("test assets/image", cc.SpriteFrame);
 cc.loader.releaseRes("test assets/anim");
 ```
 
@@ -211,16 +212,16 @@ var texture = cc.textureCache.addImage(realUrl);
 
 ### 资源批量加载
 
-`cc.loader.loadResAll` 可以加载相同路径下的多个资源：
+`cc.loader.loadResDir` 可以加载相同路径下的多个资源：
 
 ```javascript
 // 加载 test assets 目录下所有资源
-cc.loader.loadResAll("test assets", function (err, assets) {
+cc.loader.loadResDir("test assets", function (err, assets) {
     // ...
 });
 
 // 加载 sheep.plist 图集中的所有 SpriteFrame
-cc.loader.loadResAll("test assets/sheep", cc.SpriteFrame, function (err, assets) {
+cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets) {
     // assets 是一个 SpriteFrame 数组，已经包含了图集中的所有 SpriteFrame。
     // 而 loadRes('test assets/sheep', cc.SpriteAtlas, function (err, atlas) {...}) 获得的则是整个 SpriteAtlas 对象。
 });

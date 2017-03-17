@@ -31,6 +31,10 @@ body {
 	padding-bottom: 100px;
 }
 
+.markdown-body ul {
+	list-style: disc;
+}
+
 /*@media (max-width: 900px) {
 	.main {
 		margin-left: 300px;
@@ -70,13 +74,17 @@ body {
 	padding-bottom:100px;
 }
 
-.sidebar-header-2 { margin-left: 10px; }
-.sidebar-header-3 { margin-left: 20px; }
+.sidebar-header-2 { margin-left: 10px; font-weight: bold;}
+.sidebar-header-3 { margin-left: 30px; }
 .sidebar-header-4 { margin-left: 40px; }
 .sidebar-header-5 { margin-left: 50px; }
 
 .sidebar ol, .sidebar ul {
 	list-style: none;
+}
+
+.sidebar ul.sub-menu {
+	padding-left: 0.2em;
 }
 
 .sidebar li {
@@ -133,4 +141,36 @@ body {
 .doc-index {
 	margin-top: 20px;
 	margin-left: 20px;
+}
+
+/*search input */
+
+.algolia-autocomplete {
+	margin-top: 2px;
+  width: 100%;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+  min-height: 30px;
+  text-indent: 10px;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-top: none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #B2D7FF;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
 }

@@ -72,7 +72,7 @@ cc.Class({
 
 ##### 方法二
 
-通过 `slider.node.on('slider', ...)` 的方式来添加
+通过 `slider.node.on('slide', ...)` 的方式来添加
 
 ```js
 //假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
@@ -86,7 +86,7 @@ cc.Class({
     },
     
     onLoad: function () {
-       this.slider.node.on('slider', this.callback, this);
+       this.slider.node.on('slide', this.callback, this);
     },
     
     callback: function (event) {

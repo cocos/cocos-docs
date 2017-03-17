@@ -19,8 +19,15 @@ Cocos Creator 允许用户定义一份面板窗口做编辑器的 UI 交互。
 }
 ```
 
-通过定义 `panel` 字段，并申明面板 `type` 为 `dockable` 我们即可获得该份面板窗口。通过定义 `main`
-字段我们可以为我们的面板窗口指定一份入口程序。
+目前编辑器扩展系统支持每个插件注册一个面板，面板的信息通过 `panel` 字段对应的对象来申明。其中 `main`
+字段用来标记面板的入口程序，和整个扩展包的入口程序概念类似，`panel.main` 字段指定的文件路径相当于扩展包在渲染进程的入口。
+
+另外值得注意的是 `type` 字段规定了面板的基本类型：
+
+- `dockable`：可停靠面板，打开该面板后，可以通过拖拽面板标签到编辑器里，实现扩展面板嵌入到编辑器中。下面我们介绍的面板入口程序都是按照可停靠面板的要求声明的。
+- `simple`：简单 Web 面板，不可停靠到编辑器主窗口，相当于一份通用的 HTML 前端页面。详细情况请见 [定义简单面板](define-simple-panel.md)。
+
+其他面板定义的说明请参考 [面板字段参考](reference/panel-json-reference.md)。
 
 ## 定义入口程序
 
@@ -57,12 +64,14 @@ Editor.Panel.extend({
 });
 ```
 
-在这份代码中，我们定义了面板的样式（style）和模板（template），并通过定义选择器 `$` 获得面板元素，最后在
-ready 中对面板元素的事件进行处理。
+`Editor.Panel.extend()` 接口传入的参数是一个包括特定字段的对象，用来描述整个面板的外观和功能。
 
-在完成了上述操作后，我们就可以通过调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。
+在这份对象代码中，我们定义了面板的样式（style）和模板（template），并通过定义选择器 `$` 获得面板元素，最后在
+ready 初始化回调函数中中对面板元素的事件进行注册和处理。
 
-更多关于面板定义的选项，请阅读[面板定义参考](reference/panel-reference.md)。
+在完成了上述操作后，我们就可以通过在主进程（入口程序）调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。 关于 `Editor.Panel` 接口的用法请参考 [Panel API](api/editor-framework/main/panel.md)。
+
+更多关于面板定义对象字段的说明，请阅读[面板定义参考](reference/panel-reference.md)。
 
 ## 在主菜单中添加打开面板选项
 
@@ -112,7 +121,7 @@ module.exports = {
 
 ![simple-panel](./assets/simple-panel.png)
 
-更多关于面板注册的选项，请阅读[面板字段参考](reference/panel-json-reference.md)。
+更多关于在 `package.json` 文件中注册面板时的字段描述，请阅读[面板字段参考](reference/panel-json-reference.md)。
 
 ## 窗口面板与主进程交互
 
@@ -129,3 +138,8 @@ module.exports = {
 当你点击按钮时，他将会给插件主进程发送 'say-hello' 消息，并附带对应的参数。你可以用任何你能想得到的前端
 技术编辑你的窗口界面，还可以结合 Electron 的 内置 node 在窗口内 require 你希望的 node 模块，完成
 任何你希望做的操作。
+
+---
+
+更全面和详细的主进程和面板之间的 IPC 通讯交互方法，请继续阅读 [进程间通讯工作流程](ipc-workflow.md)。
+

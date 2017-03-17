@@ -82,4 +82,4 @@ Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与
 <hr>
 
 返回 [资源工作流程](index.md) 说明文档。<br>
-继续前往下一章 [脚本资源](script.md) 说明文档。
+继续前往下一章 [内容创作工作流程](../content-workflow/index.md) 说明文档。

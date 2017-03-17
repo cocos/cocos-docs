@@ -50,7 +50,7 @@ We can add multiple components on one node to add more functions to the node. In
 
 Then set the Button component according to the following picture (the actual color attribute can be set freely according to your own taste):
 
-![button property](node-component/button_property.png)
+![button property](node-component/button_property.jpeg)
 
 Next, click the **operation preview** button on the toolbar ![preview](../basics/toolbar/preview.png) and hover the mouse over the image in the browser operation window. You can then see the color of the image changes which means the adding of the Button component to the node has taken effect!
 

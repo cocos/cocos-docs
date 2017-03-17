@@ -6,7 +6,7 @@ Skeleton animation resource use three main resources：
 
 - .json Skeletal animation data
 - .png  Atlas
-- .txt  Atlas data
+- .txt/.atlas  Atlas data
 
 ![spine](spine/import.png)
 

@@ -1,6 +1,6 @@
 # Label component reference
 
-The Label component is used to show a piece of text in the system font, TrueType font or BMFont. Label also has a composing function.
+The Label component is used to show a piece of text in the system font, TrueType font or BMFont and LabelAtlas. Label also has a composing function.
 
 ![label](./label/label.png)
 
@@ -19,7 +19,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Line Height| Line height of the text.
 |Overflow| Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See `Label Layout` for more detailed information.
 |Enable Wrap Text| Enable or disable the text line feed.
-|File| Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
+|Font | Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
 |Use System Font| Boolean value, choose whether to use the system font or not.
 
 # Label Layout
@@ -33,6 +33,15 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 # Detailed explanation
 
 By dragging the TTF font file and BMFont font file into the `file` attribute in the **Properties** panel the Label component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking `Use System Font`?
+
+If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.html) for more information.
+
+## BMFont and UI auto batch
+From Creator v1.4, BMFont could be batch drawing with UI elements.
+In theory, if you don't use TTF font and System font in your UI scene, and all of your UI elements including BMFont texture and LabelAtlas texture could be packed into one 
+Image Atlas, you UI scene could be rendering with only one Draw Call.
+
+For more info of this feature, please refer to [BMFont and UI auto batch](../advanced-topics/ui-auto-batch.html) topic.
 
 ---`
 

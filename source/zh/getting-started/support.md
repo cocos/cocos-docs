@@ -18,9 +18,10 @@
 - [UI 展示 Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep)：复制 FlappyBird 的简单游戏，不过主角换成了绵羊。
 - [暗黑斩 Cocos Creator 复刻版](https://github.com/cocos-creator/tutorial-dark-slash)：由 Veewo Games 独家授权原版暗黑斩资源素材，在 Cocos Creator 里复刻的演示项目
-- [i18n 游戏多语言支持范例](https://github.com/cocos-creator/i18n-example)：配套的文档教程是 [i18n 游戏多语言支持](../advanced-topics/i18n.md)
+- [i18n 游戏多语言支持范例](https://github.com/cocos-creator/demo-i18n)：配套的文档教程是 [i18n 游戏多语言支持](https://github.com/cocos-creator-packages/i18n#i18n-for-cocos-creator)
 - [响应式 UI Demo](https://github.com/cocos-creator/demo-responsive-ui)：展示了可适配任意屏幕尺寸的 UI 系统
 - [战斗动画 Demo](https://github.com/cocos-creator/demo-combat-animation)：使用强力灵活的动画系统制作战斗动画
+- [组队界面 Demo](https://github.com/cocos-creator/demo-team-build-ui)：展示使用 Prefab 实现数据和表现分离的动态 UI 构建
 
 ## 原生发布代码库
 

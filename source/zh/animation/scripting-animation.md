@@ -160,10 +160,10 @@ var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
 // 设置循环模式为 Normal
-animState.wrapeMode = cc.WrapMode.Normal;
+animState.wrapMode = cc.WrapMode.Normal;
 
 // 设置循环模式为 Loop
-animState.wrapeMode = cc.WrapMode.Loop;
+animState.wrapMode = cc.WrapMode.Loop;
 
 // 设置动画循环次数为2次
 animState.repeatCount = 2;
@@ -250,7 +250,7 @@ anim1.on('lastframe',    this.onLastFrame,      this);
     // frames 这是一个 SpriteFrame 的数组.
     var clip = cc.AnimationClip.createWithSpriteFrames(frames, 17);
     clip.name = "anim_run";
-    clip.warpMode = cc.WarpMode.Loop;
+    clip.wrapMode = cc.WrapMode.Loop;
     
     // 添加帧事件
     clip.events.push({

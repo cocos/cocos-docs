@@ -1,14 +1,11 @@
 'use strict';
-// var curItem = document.getElementsByClassName('active')[0];
+var curItem = document.getElementsByClassName('active')[0];
 
-// if (curItem) {
-  // console.log(curItem.scrollTop);
-	// curItem.scrollIntoView(true, {behavior: "instant", block: "end"});
-  // var scrolledY = window.scrollY;
-  // if (scrolledY) {
-  //   window.scroll(0, scrolledY);
-  // }
-// }
+if (curItem) {
+  if (!curItem.classList.contains('sidebar-header-1')) {
+    curItem.parentElement.classList.add('in');
+  }
+}
 var scroll = sessionStorage.getItem('sidebarScroll');
 if (scroll) {
   document.getElementById('navigation').scrollTop = scroll;
@@ -36,4 +33,4 @@ var toggleNav = function (event) {
 
 var saveScroll = function () {
     sessionStorage.setItem('scrollTop', document.getElementById('main').scrollTop);
-}
+};

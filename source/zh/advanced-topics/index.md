@@ -6,6 +6,7 @@
 - [存储和读取用户数据](data-storage.md)
 - [引擎定制工作流程](engine-customization.md)
 - [脏矩形优化](dirty-region.md)
+- [BMFont 与 UI自动批处理]
 
 <hr>
 

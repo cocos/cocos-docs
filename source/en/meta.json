@@ -28,7 +28,8 @@
             },
             {
                 "name": "Setup Coding Environment",
-                "link": "getting-started/coding-setup.html"
+                "link": "getting-started/coding-setup.html",
+                "new": true
             },
             {
                 "name": "Cocos2d-x User Guide",
@@ -109,6 +110,11 @@
             {
                 "name": "Atlas",
                 "link": "asset-workflow/atlas.html"
+            },
+            {
+                "name": "Label Atlas",
+                "link": "asset-workflow/label-atlas.html",
+                "new": true
             },
             {
                 "name": "Texture Auto Trim",
@@ -262,7 +268,13 @@
             },
             {
                 "name": "Label",
-                "link": "components/label.html"
+                "link": "components/label.html",
+                "new": true
+            },
+            {
+                "name": "RichText",
+                "link": "components/richtext.html",
+                "new": true
             },
             {
                 "name": "Spine",
@@ -456,6 +468,16 @@
                 "link": "publish/debug-native.html"
             },
             {
+                "name": "Publish in Command Line",
+                "link": "publish/publish-in-command-line.html",
+                "new": true
+            },
+            {
+                "name": "Custom Project Build Template",
+                "link": "publish/custom-project-build-template.html",
+                "new": true
+            },
+            {
                 "name": "Editor Extension",
                 "link": "extension/index.html",
                 "header": true
@@ -495,6 +517,21 @@
                 "new": true
             },
             {
+                "name":"Editor API",
+                "link": "extension/api/index.html",
+                "new": true     
+            },
+            { 
+                "name":"AssetDB Module (main)",
+                "link": "extension/api/asset-db-main.html",
+                "new": true
+            },
+            { 
+                "name":"AssetDB Module (renderer)",
+                "link": "extension/api/asset-db-renderer.html",
+                "new": true
+            },            
+            {
                 "name": "package.json Reference",
                 "link": "extension/reference/package-json-reference.html"
             },
@@ -533,6 +570,11 @@
             {
                 "name": "Engine Customization Workflow",
                 "link": "advanced-topics/engine-customization.html",
+                "new": true
+            },
+            {
+                "name": "BMFont and UI auto-batch",
+                "link": "advanced-topics/ui-auto-batch.html",
                 "new": true
             },
             {

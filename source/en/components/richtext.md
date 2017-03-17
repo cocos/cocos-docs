@@ -3,7 +3,7 @@
 RichText component could be used for displaying a string with multiple styles.
 You could customize the text style of  each text segment with a few simple BBCode.
 
-The currently supported tags are: color, size, b, i, u, br, img and on, these tags could also be nested.
+The currently supported tags are: color, size, outline, b, i, u, br, img and on, these tags could also be nested.
 
 For more information about BBCode, please refer to the `BBCode format` section.
 
@@ -15,14 +15,15 @@ The API reference of RichText is here: [RichText API](../api/classes/RichText.ht
 
 ## RichText attribute
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
-|String| Text of the RichText, you could use BBcode in the string
-|Horizontal Align| Horizontal alignment
-|Font Size| Font size, in points
-|Line Height| Line height, in points
-|Max Width| The maximize width of RichText, pass 0 means not limit the maximize width.
-|Image Atlas|The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas.
+| Properties       | Function Explanation                                                                                                        |
+| --------------   | -----------                                                                                                                 |
+| String           | Text of the RichText, you could use BBcode in the string                                                                    |
+| Horizontal Align | Horizontal alignment                                                                                                        |
+| Font Size        | Font size, in points                                                                                                        |
+| Font             | Custom TTF font of RichText, all the label segment will use the same custom ttf font.                                       |
+| Line Height      | Line height, in points                                                                                                      |
+| Max Width        | The maximize width of RichText, pass 0 means not limit the maximize width.                                                  |
+| Image Atlas      | The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas. |
 
 ## BBCode format
 ### Basics
@@ -42,6 +43,7 @@ Note: all tag names should be lower case and the property assignment should use 
 | -------|------- | -----|------ |
 |color|Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../api/classes/Color.html)
 |size|Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` |
+|outline|Specify the font outline, you could customize the outline color and width by using the `color` and `width` attribute. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color and width attribute, the default color value is #ffffff and the default width is 1.
 |b|Render text as bold font| `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported.
 |i|Render text as italic font| `<i>This text will be rendered as italic</i>`| The tag name must be lowercase and tag name `italic` is not supported.
 |u|Add a underline to the text|`<u>This text will have a underline</u>`| The tag name must be lowercase and tag name `underline` is not supported.
