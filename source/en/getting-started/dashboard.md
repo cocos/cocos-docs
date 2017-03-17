@@ -1,6 +1,7 @@
 # Dashboard
 
-After starting Cocos Creator and logging in with your Cocos developer account, the Dashboard interface will open. You can create a new project, open an existing project or obtain helpful information here.
+After starting Cocos Creator and logging in with your Cocos developer account, the Dashboard interface will open. 
+You can create a new project, open an existing project or obtain helpful information here.
 
 ## Overview of the interface
 

@@ -1,6 +1,6 @@
 # Cocos Creator User Manual
 
-Welcome to the Cocos Creator User Manual! This User Manual provides detailed instructions, workflows for users with different roles and a step-by-step guide for beginners, which can help you learn how to use Cocos Creator to develop cross-platform games quickly.
+This User Manual provides detailed instructions and workflows for users with different roles and a step-by-step guide for beginners, which can help you learn how to use Cocos Creator to develop cross-platform games quickly.
 
 In this chapter:
 
@@ -16,4 +16,4 @@ In this chapter:
 
 ---
 
-Let get started now with [Introduction](introduction.md) to learn what is Cocos Creator and what can it do for game developers.
+Let's get started now with an [Introduction](introduction.md) to learn what Cocos Creator is and what can it do for game developers.
