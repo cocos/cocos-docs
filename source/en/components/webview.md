@@ -40,4 +40,66 @@ You can't use it on Mac or Windows which means if you preview WebView on these p
 
 This component doesn't support load HTML file or execute Javascript.
 
+### Add a callback via script
+
+#### Method one
+
+This method uses the same API that editor uses to add an event callback on Button component. You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters.
+
+```js
+var webviewEventHandler = new cc.Component.EventHandler();
+webviewEventHandler.target = this.node; // This node is the one that the component that contains your event handler code belongs to
+webviewEventHandler.component = "cc.MyComponent"
+webviewEventHandler.handler = "callback";
+webviewEventHandler.customEventData = "foobar";
+
+webview.webviewEvents.push(webviewEventHandler);
+
+// here is your component file
+cc.Class({
+    name: 'cc.MyComponent'
+    extends: cc.Component,
+
+    properties: {
+    },
+
+// Note that the order and type of parameters are fixed
+    callback: function (webview, eventType, customEventData) {
+        // here webview is a WebView component instance
+        // here the value of eventType === cc.WebView.EventType enum
+        // The customEventData parameter here is equal to the "foobar"
+    }
+});
+```
+
+#### Method two
+
+Add event callback with `webview.node.on ('loaded', ...)`
+
+```js
+// Suppose we add event handling callbacks in the onLoad method of a component and perform event handling in the callback function:
+
+cc.Class({
+    extends: cc.Component,
+
+	
+    properties: {
+       webview: cc.WebView
+    },
+    
+    onLoad: function () {
+       this.webview.node.on('loaded', this.callback, this);
+    },
+    
+    callback: function (event) {
+       // The event here is an EventCustom object, and you can get the WebView component through event.detail
+       var webview = event.detail;
+       // do whatever you want with webview
+       // Also, note that this way the registered event can not pass customEventData
+    }
+});
+```
+
+Likewise, you can also register 'loading', 'error' events, and the parameters of the callback function for these events are consistent with the 'loaded' parameters.
+
 <hr>

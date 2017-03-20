@@ -34,3 +34,11 @@ var toggleNav = function (event) {
 var saveScroll = function () {
     sessionStorage.setItem('scrollTop', document.getElementById('main').scrollTop);
 };
+
+var updatePlus = function (element) {
+  if (element.getAttribute('aria-expanded') === 'true' ) {
+    element.innerHTML = '+';
+  } else {
+    element.innerHTML = '-';
+  }
+};
