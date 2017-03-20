@@ -40,8 +40,9 @@ WebView 的脚本接口请参考 [WebView API](../api/classes/WebView.html)。
 
 此控件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
 
-#### 通过脚本代码添加回调
-##### 方法一
+### 通过脚本代码添加回调
+
+#### 方法一
 
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
@@ -72,7 +73,7 @@ cc.Class({
 });
 ```
 
-##### 方法二
+#### 方法二
 
 通过 `webview.node.on('loaded', ...)` 的方式来添加
 
