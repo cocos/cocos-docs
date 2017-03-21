@@ -169,13 +169,11 @@ cc.Class({
     extends: cc.Component,
 
     start: function () {
-        this.cannons = [];
-        this.cannons = this.node.getChildren();
+        var cannons = this.node.children;
+        // ...
     }
 });
 ```
-
-这里的 `getChildren` 是 `cc.Node` 原有的一个 API，可以获得一个包含所有子节点的数组。
 
 你还可以使用 `getChildByName`：
 
