@@ -4,7 +4,7 @@
 
 ## 下载 Cocos Creator
 
-您可以通过访问 [Cocos Creator 产品首页](http://www.cocos.com/cocoscreator/) 上的下载链接获得 Cocos Creator 的安装包。
+您可以通过访问 [Cocos Creator 产品首页](http://www.cocos.com/creator/) 上的下载链接获得 Cocos Creator 的安装包。
 
 下载完成后双击安装包。
 
@@ -87,7 +87,7 @@ Cocos Creator 版本升级时，新版本的编辑器可以打开旧版本的项
 
 ## 原生发布相关配置
 
-如果您只想开发 Web 平台的游戏，完成上面的步骤就足够了。如果您希望发布游戏到原生平台，请阅读相关开发环境的设置说明 [安装配置 Cocos Framework](../publish/setup-native-development.md)
+如果您只想开发 Web 平台的游戏，完成上面的步骤就足够了。如果您希望发布游戏到原生平台，请阅读相关开发环境的设置说明 [安装配置原生开发环境](../publish/setup-native-development.md)
 
 ---
 
