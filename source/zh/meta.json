@@ -751,10 +751,6 @@
                 "link": "sdk/index.html",
                 "submenu": [
                     {
-                        "name": "Cocos Package",
-                        "link": "sdk/cocos-package-overview.html"
-                    },
-                    {
                         "name": "AnySDK",
                         "link": "sdk/anysdk-overview.html"
                     },
