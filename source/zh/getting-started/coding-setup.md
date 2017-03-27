@@ -101,7 +101,7 @@ VS Code 还可以为任务配置快捷键，请打开主菜单的 `Code -> 首�
     }
 ```
 
-接下来就可以在 VS Code 里一键完成项目脚本编译了！
+接下来就可以在 VS Code 里一键完成项目脚本编译了！更多关于 VS Code 中配置和执行任务的信息，请参阅 [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) 文档。
 
 ### 使用 VS Code 调试网页版游戏
 
