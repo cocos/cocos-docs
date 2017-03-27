@@ -12,13 +12,18 @@ to help you get started with designing and developing games.
 - [Content Workflow](content-workflow/index.md)
 - [UI](ui/index.md)
 - [Animation](animation/index.md)
+- [Physics](physics/index.md)
+- [Graphics](graphics/index.md)
 - [Components Reference](components/index.md)
 - [Scripting](scripting/index.md)
 - [Publishing](publish/index.md)
 - [Editor Extension](extension/index.md)
 - [Advanced Topics](advanced-topics/index.md)
+- [SDK Integration](sdk/index.md)
 
 ## Example Projects
+
+Please pay attention that demo projects may have different branches for different Cocos Creator version, for example `v1.0` branch should work with Creator v1.0.
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!

@@ -57,7 +57,70 @@ to hack the VideoPlayer's size. For more information, please refer to the Exampl
 Currently this component is only available on Web(Both PC and Mobile), iOS and Android.
 You can't use it on Mac or Windows which means if you preview VideoPlayer on these platforms, there is nothing to show.
 
-The supported video types are determined by the supported OS, in order to make it works across all the supported platforms,
-we suggest to use mp4 format.
+The supported video types are determined by the supported OS, in order to make it works across all the supported platforms, we suggest to use mp4 format.
+
+### Add a callback via script
+
+#### Method one
+
+This method uses the same API that editor uses to add an event callback on Button component. You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters.
+
+```js
+var videoPlayerEventHandler = new cc.Component.EventHandler();
+videoPlayerEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+videoPlayerEventHandler.component = "cc.MyComponent"
+videoPlayerEventHandler.handler = "callback";
+videoPlayerEventHandler.customEventData = "foobar";
+
+videoPlayer.videoPlayerEvent.push(videoPlayerEventHandler);
+
+// here is your component file
+cc.Class({
+    name: 'cc.MyComponent'
+    extends: cc.Component,
+
+    properties: {
+    },
+
+	//the order of parameters should not change
+    callback: function(videoplayer, eventType, customEventData) {
+        //videoplayer is a VideoPlayer component instance
+        //eventType is typed as cc.VideoPlayer.EventType 
+        //customEventData is "foobar"
+    }
+});
+```
+
+#### Method two
+
+Add event callback with `videoplayer.node.on('ready-to-play', ...)`
+
+```js
+// Suppose we add event handling callbacks in the onLoad method of a component and perform event handling in the callback function:
+
+cc.Class({
+    extends: cc.Component,
+
+	
+    properties: {
+       videoplayer: cc.VideoPlayer
+    },
+    
+    onLoad: function () {
+       this.videoplayer.node.on('ready-to-play', this.callback, this);
+    },
+    
+    callback: function (event) {
+       //event is EventCustom, you can use event.detail to get VideoPlayer component
+       var videoplayer = event.detail;
+       //do whatever you want with videoplayer
+       //you can't pass customEventData in this way
+    }
+});
+```
+
+Likewise, you can also register 'meta-loaded', 'clicked' , 'playing' events, and the parameters of the callback function for these events are consistent with the 'read-to-play' parameters.
 
 <hr>
+
+Continue reading [WebView Component](webview.md).
