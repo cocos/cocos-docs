@@ -66,6 +66,43 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 上面的字段将为 VS Code 设置搜索时排除的目录，和在文件列表中隐藏的文件类型。由于 `build`, `temp`, `library` 都是编辑器运行时自动生成的路径，而且会包含我们写入的脚本内容，所以应该在搜索中排除。而 `assets` 目录下的每个文件都会生成一个 `.meta` 文件，一般来说我们不需要关心他的内容，只要让编辑器帮我们管理这些文件就可以了。
 
+### 使用 VS Code 激活脚本编译
+
+使用外部文本编辑器修改项目脚本后，要重新激活 Cocos Creator 窗口才能触发脚本编译，我们在新版本的 Creator 中增加了一个预览服务器的 API，可以通过像特定地址发送请求来激活编辑器的编译。
+
+#### 安装 cURL
+
+首先需要确保你的操作系统中可以运行 [cURL 命令](https://curl.haxx.se/)，如果在 Windows 操作系统的命令行中运行 `curl` 提示找不到命令，则需要先安装 curl 到你的系统：
+
+- 前往 http://www.confusedbycode.com/curl/
+- 点击下图箭头所示的控件，完成人机身份验证
+    ![curl download](coding-setup/curl_download.jpg)
+- 点击 `curl-7.46.0-win64.exe` 开始下载并安装
+
+安装时请使用默认设置，安装完成后可以打开一个命令行窗口，输入 `curl`，如果提示 `curl: try 'curl --help' or 'curl --manual' for more information` 就表示安装成功了。
+
+#### 添加 VS Code 编译任务
+
+要在 VS Code 中激活脚本编译，需要执行以下的工作流程：
+
+1. 在编辑器主菜单里执行 `开发者->VS Code 工作流->添加编译任务`。该操作会在项目的 `.vscode` 文件夹下添加 `tasks.json` 任务配置文件。
+2. 在 VS Code 里按下 <kbd>Cmd/Ctrl+p</kbd>，激活 **快速打开** 输入框，然后输入 `task compile`
+    ![task compile](coding-setup/run_task.jpg)
+3. 任务运行成功的话，会在 VS Code 窗口下方的输出面板中显示如下结果
+    ![task complete](coding-setup/task_output.jpg)
+
+VS Code 还可以为任务配置快捷键，请打开主菜单的 `Code -> 首选项 -> 键盘快捷方式`，并在右侧的 `keybindings.json` 里添加以下条目：
+
+```json
+    {
+        "key": "ctrl+p", //请配置自己习惯的快捷键
+        "command": "workbench.action.tasks.runTask",
+        "args": "compile"
+    }
+```
+
+接下来就可以在 VS Code 里一键完成项目脚本编译了！
+
 ### 使用 VS Code 调试网页版游戏
 
 VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调试网页版游戏程序。
@@ -77,7 +114,7 @@ VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调�
 
 安装 VS Code 插件时，请点击 VS Code 左侧导航栏的 `扩展` 按钮打开扩展面板，并在搜索框中输入 `Debugger for Chrome` 并点击安装继续。安装之后可能需要重启 VS Code 才能生效。
 
-接下来在 Cocos Creator 编辑器主菜单里执行 `VS Code 工作流->添加 Chrome Debug 配置`，这个菜单命令会在你的项目文件夹下添加一个 `.vscode/launch.json` 文件作为调试器的配置，之后你就可以在 VS Code 里点击左侧栏的 `调试` 按钮打开调试面板，并在最上方的调试配置中选择 `Creator Debug: Launch Chrome`，然后点击绿色的开始按钮开始调试。
+接下来在 Cocos Creator 编辑器主菜单里执行 `开发者->VS Code 工作流->添加 Chrome Debug 配置`，这个菜单命令会在你的项目文件夹下添加一个 `.vscode/launch.json` 文件作为调试器的配置，之后你就可以在 VS Code 里点击左侧栏的 `调试` 按钮打开调试面板，并在最上方的调试配置中选择 `Creator Debug: Launch Chrome`，然后点击绿色的开始按钮开始调试。
 
 调试的时候依赖 Cocos Creator 编辑器内置的 Web 服务器，所以需要在编辑器启动状态下才能进行调试。如果编辑器预览游戏时使用的端口不是默认端口，则需要手动修改 `launch.json` 里的 `url` 字段，将正确的端口添加上去。
 
