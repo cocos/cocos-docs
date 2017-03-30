@@ -39,7 +39,3 @@ MyProject
 ## 开发扩展包时的实时改动监控
 
 在开发扩展包的过程中，编辑器进程会对扩展包里的脚本内容进行监控，当有脚本内容发生变化时，会自动对扩展包进行重新载入。文件监控的规则可以在 `package.json` 中定制，详情请阅读 [package.json字段：reload](reference/package-json-reference.md#reload-object-) 。
-
----
-
-继续阅读 [IPC 简介](introduction-to-ipc.md) 。

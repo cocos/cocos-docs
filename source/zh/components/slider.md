@@ -96,6 +96,3 @@ cc.Class({
     }
 });
 ```
----
-
-继续前往 [PageView 组件参考](pageviwe.md)。

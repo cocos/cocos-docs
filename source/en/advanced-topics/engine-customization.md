@@ -37,7 +37,7 @@ This will generated comipled engine to `bin` folder.
 
 ### Use customized engine in Cocos Creator
 
-Goto **Preferences** panel and click [Native Develop Tab](../basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized JavaScript engine.
+Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized JavaScript engine.
 
 
 ## Customized Cocos2d-x C++ Engine
@@ -62,7 +62,7 @@ git submodule update --init
 
 ### Used customized cocos2d-x-lite engine in Cocos Creator
 
-Goto **Preferences** panel and click [Native Develop Tab](../basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x-lite engine.
+Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x-lite engine.
 
 ### Build from Source
 

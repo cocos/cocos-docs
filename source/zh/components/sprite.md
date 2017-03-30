@@ -12,8 +12,8 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 | 属性 |   功能说明
 | -------------- | ----------- |
-| Atlas | Sprite 显示图片资源所属的 [Atlas 图集资源](asset-workflow/atlas.md)
-| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](asset-workflow/sprite.md)
+| Atlas | Sprite 显示图片资源所属的 [Atlas 图集资源](../asset-workflow/atlas.md)
+| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../asset-workflow/sprite.md)
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）渲染四种模式
 | Size Mode | 指定 Sprite 的尺寸，`Trimmed` 会使用原始图片资源裁剪透明像素后的尺寸；`Raw` 会使用原始图片未经裁剪的尺寸；当用户手动修改过 `size` 属性后，`Size Mode` 会被自动设置为 `Custom`，除非再次指定为前两种尺寸。
 | Trimmed Mode | 是否渲染原始图像周围的透明像素区域，详情请参考[图像资源的自动剪裁](../asset-workflow/trim.md)。
@@ -51,8 +51,3 @@ Sprite 组件支持四种渲染模式：
 在 `HORIZONTAL` 和 `VERTICAL` 这两种填充类型下，`Fill Start` 设置的数值将影响填充总量，如果 `Fill Start` 设为 0.5，那么即使 `Fill Range` 设为 1.0，实际填充的范围也仍然只有 Sprite 总大小的一半。
 
 而 `RADIAL` 类型中 `Fill Start` 只决定开始填充的方向，`Fill Start` 为 0 时，从 x 轴正方向开始填充，`Fill Range` 决定填充总量，值为 1 时将填充整个圆形。`Fill Range` 为正值时逆时针填充，为负值时顺时针填充。
-
-
----
-
-继续前往 [Label 组件参考](label.md)。

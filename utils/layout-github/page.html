@@ -64,11 +64,13 @@
                   {{#if submenu}}
                     <ul class="sub-menu collapse" id="{{{category name}}}">
                     {{#each submenu}}
-                    <li class="{{isActive @root.relative link}} sidebar-header-2 {{#if new}}new{{/if}} {{#if submenu}}submenu{{/if}}"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}</a></li>
+                    <li class="collapsed {{isActive @root.relative link}} sidebar-header-2 {{#if new}}new{{/if}} {{#if submenu}}submenu{{/if}}">{{#if submenu}}<a href="#" class="plus" onclick="updatePlus(this)" data-toggle="collapse" data-target="#{{{category name}}}">+</a>{{/if}}<a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}</a></li>
                       {{#if submenu}}
+                      <ul class="sub-menu collapse" id="{{{category name}}}">
                         {{#each submenu}}
                             <li class="{{isActive @root.relative link}} sidebar-header-3 {{#if new}}new{{/if}} {{#if submenu}}submenu{{/if}}"><a href="{{{linkTo @root.relative link}}}" onclick="saveSidebarScroll()">{{name}}</a></li>
                         {{/each}}
+                      </ul>
                       {{/if}}
                     {{/each}}
                     </ul>

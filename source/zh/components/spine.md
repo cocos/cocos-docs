@@ -22,7 +22,3 @@ Spine 的脚本接口请参考[Skeleton API](../api/classes/Skeleton.html)。
 |Debug Bones| 显示骨骼
 
 > 注意：当使用 Spine 组件时，Node 节点上 `Anchor` 与 `Size` 是无效的。
-
-<hr>
-
-继续前往 [Animation 组件参考](animation.md) 说明文档。

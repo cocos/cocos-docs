@@ -25,7 +25,3 @@
    第三种方式：从 **资源管理器** 里将骨骼动画资源拖动到已创建 Spine 组件中 Skeleton Data 属性中：
 
 ![spine](spine/create_3.png)
-
-<hr>
-
-继续前往下一章 [骨骼动画资源（DragonBones）](dragonbones.md) 说明文档。

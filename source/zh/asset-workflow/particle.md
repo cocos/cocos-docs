@@ -34,7 +34,3 @@
     <key>blendFuncSource</key>
     <integer>770</integer>
 ```
-
-<hr>
-
-继续前往 [声音资源](audio-asset.md) 说明文档。

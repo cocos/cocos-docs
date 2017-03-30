@@ -12,8 +12,4 @@ Design Resolution   | 设计分辨率（内容生产者在制作场景时使用�
 Fit Height          | 适配高度（设计分辨率的高度自动撑满屏幕高度）
 Fit Width           | 适配宽度（设计分辨率的宽度自动撑满屏幕宽度）
 
-画布的脚本接口请参考[Canvas API](../api/classes/Button.html)。
-
-<hr>
-
-继续前往 [Widget 组件参考](widget.md) 说明文档。
+画布的脚本接口请参考[Canvas API](../api/classes/Canvas.html)。

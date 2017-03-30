@@ -27,7 +27,7 @@
 	* 当导入完成时，会输出 `Import XXX project finished.` 的 log。（其中 XXX 为项目所用编辑器名称）
 	* 最后输出资源导入后所在的 url。
 
-**备注：**  
+**备注：**
 导入项目所需时间长短取决于项目大小。在导入过程中请勿在 Cocos Creator 中执行其他操作，耐心等待导入完成。
 
 ## Cocos Studio 项目导入说明
@@ -78,8 +78,3 @@ Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与
 * CCControlButton 可以设置不同状态下文本的颜色，Cocos Creator 不支持
 * 不支持渐变色的 Layer 节点
 * 不支持节点的 skew 属性以及动画
-
-<hr>
-
-返回 [资源工作流程](index.md) 说明文档。<br>
-继续前往下一章 [内容创作工作流程](../content-workflow/index.md) 说明文档。

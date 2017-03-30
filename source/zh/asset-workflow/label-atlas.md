@@ -23,7 +23,7 @@
 配置完成后需要点击 **属性检查器** 右上角的绿色的打勾按钮来保存设置。
 
 ![save label atlas](label-atlas/save-label-atlas.jpeg)
- 
 
 ## 使用艺术数字资源
+
 使用艺术数字资源非常简单，你只需要新建一个 Label 组件，然后把新建好的艺术数字资源拖到 Label 组件的 Font 属性即可。

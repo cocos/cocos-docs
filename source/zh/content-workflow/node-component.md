@@ -52,7 +52,7 @@ Cocos Creator 的工作流程是以组件式开发为核心的，组件式架构
 
 ![button property](node-component/button_property.jpeg)
 
-接下来点击工具栏上面的 **运行预览** 按钮 ![preview](../basics/toolbar/preview.png)，并在浏览器运行窗口中将鼠标悬停在图片上，可以看到图片的颜色发生变化，也就是我们为节点添加的 Button 组件行为生效了！
+接下来点击工具栏上面的 **运行预览** 按钮 ![preview](../getting-started/basics/toolbar/preview.png)，并在浏览器运行窗口中将鼠标悬停在图片上，可以看到图片的颜色发生变化，也就是我们为节点添加的 Button 组件行为生效了！
 
 ## 小结
 
@@ -63,7 +63,3 @@ Cocos Creator 的工作流程是以组件式开发为核心的，组件式架构
 ## 参考阅读
 
 - [理解组件-实体系统 - i_dovelemon的博客](http://blog.csdn.net/i_dovelemon/article/details/25798677)
-
-<hr>
-
-继续前往 [坐标系和变换](transform.md) 说明文档。
