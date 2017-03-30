@@ -27,7 +27,3 @@
 ![animation-editor-hierarchy.png](./animation/animation-editor-hierarchy.png)
 
 更多关于 **Animation （动画）**的信息请前往 [动画系统](../animation/index.md)
-
-<hr>
-
-继续前往 [Canvas 组件参考](canvas.md) 说明文档。

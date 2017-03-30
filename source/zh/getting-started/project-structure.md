@@ -41,7 +41,3 @@ ProjectName（项目文件夹）
 `project.json` 文件和 `assets` 文件夹一起，作为验证 Cocos Creator 项目合法性的标志。只有包括了这两个内容的文件夹才能作为 Cocos Creator 项目打开。而 `project.json` 本身目前只用来规定当前使用的引擎类型和插件存储位置，不需要用户关心其内容。
 
 这个文件也应该纳入版本控制。
-
----
-
-继续前往 [获取帮助和支持](support.md)。

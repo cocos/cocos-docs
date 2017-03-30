@@ -49,14 +49,15 @@ ScrollView 组件必须有指定的 content 节点才能起作用，通过指定
 
 这里的 Viewport 用来定义一个可以显示的滚动区域，所以通常 Mask 组件会被添加到 Viewport 上。可以滚动的内容可以直接放到 content 节点或者添加节 content 的子节点上。
 
-## ScrollBar 设置
+### ScrollBar 设置
 
 ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，当然也可以两者都设置。
 
 建立关联可以通过在**层级管理器**里面拖拽一个带有 ScrollBar 组件的节点到 ScrollView 的相应字段完成。
 
-#### 通过脚本代码添加回调
-##### 方法一
+### 通过脚本代码添加回调
+
+#### 方法一
 
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
@@ -88,7 +89,7 @@ cc.Class({
 });
 ```
 
-##### 方法二
+#### 方法二
 
 通过 `scrollview.node.on('scroll-to-top', ...)` 的方式来添加
 
@@ -119,7 +120,3 @@ cc.Class({
 同样的，你也可以注册 'scrolling', 'touch-up' , 'scrolling' 等事件，这些事件的回调函数的参数与 'scroll-to-top' 的参数一致。
 
 关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档。
-
----
-
-继续前往 [ScrollBar 组件参考](scrollbar.md)。

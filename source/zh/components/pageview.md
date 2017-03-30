@@ -113,6 +113,3 @@ cc.Class({
     }
 });
 ```
----
-
-继续前往 [PageViewIndicator 组件参考](pageviewindicator.md)。

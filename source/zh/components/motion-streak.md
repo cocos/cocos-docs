@@ -17,6 +17,3 @@ MotionStreak（拖尾）是 运动条纹，用于游戏对象的运动轨迹上�
 | stroke   | 拖尾的宽度。|
 | texture  | 拖尾的贴图。|
 | fastMode | 是否启用了快速模式。当启用快速模式，新的点会被更快地添加，但精度较低。|
----
-
-继续前往 [Collider 组件参考](collider.md)。

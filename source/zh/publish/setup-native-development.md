@@ -66,7 +66,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 下载安装好开发环境依赖后，让我们回到 Cocos Creator 中配置构建发布原生平台的环境路径。在主菜单中选择 `文件/偏好设置`，打开偏好设置窗口：
 
-![preference](../basics/editor-panels/preferences/native-develop.jpg)
+![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
 我们在这里需要配置以下三个路径：
 

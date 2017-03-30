@@ -23,7 +23,3 @@ ScrollBar 允许用户通过拖动滑块来滚动一张图片（公测版本暂�
 ScrollBar 一般不会单独使用，它需要与`ScrollView`配合使用，另外 ScrollBar 需要指定一个`Sprite`组件，即属性面板里面的`Handle`。
 
 通常我们还会给 ScrollBar 指定一张背景图片，用来指示整个 ScrollBar的长度或者度宽。
-
----
-
-继续前往 [Slider 组件参考](slider.md)。

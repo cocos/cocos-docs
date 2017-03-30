@@ -77,7 +77,3 @@ module.exports = {
 现在你可以打开你的 Cocos Creator，你将会发现你的主菜单中多出了一份 `Packages` 的菜单，点击 `Packages` 菜单中的 `Hello World` 将会发送一个消息 “hello-world:say-hello” 给我们的扩展包的 `main.js`， 它会在 Creator 的控制台中打印出 “Hello World” 的日志信息。
 
 恭喜你完成了第一个简单的编辑器扩展工具。
-
----
-
-继续阅读 [安装与分享](install-and-share.md) 。

@@ -1,6 +1,7 @@
 # 碰撞分组管理
 
 ## 分组管理
+
 分组管理，需要打开 **项目设置** 面板进行设置，位置为 菜单栏 => 项目 => 项目设置。
 
 打开 **项目设置** 面板后，在 **分组管理** 一栏可以看到 **分组列表** 的配置项，如下图   
@@ -22,11 +23,7 @@
 
 根据上面的规则，在这张表里产生的碰撞对有： 
 
-Platform - Bullet   
-Collider - Collider   
-Actor - Wall   
-Actor - Platform   
-
----
-
-继续前往 [碰撞系统脚本控制](collision-manager.md)
+Platform - Bullet
+Collider - Collider
+Actor - Wall
+Actor - Platform

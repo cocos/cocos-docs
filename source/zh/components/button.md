@@ -137,7 +137,3 @@ cc.Class({
     }
 });
 ```
-
----
-
-继续前往 [ProgressBar 组件参考](progress.md) 。

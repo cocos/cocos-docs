@@ -30,7 +30,7 @@ After cutting, don't forget to click the green check mark on the upper right cor
 After preparing the resource that has been cut into a nine rectangle grid, you can modify the display mode of the Sprite. And by modifying `size`, you can create a UI element whose size can be arbitrarily designated.
 
 1. First, choose the Sprite node in the scene, set `Type` property of the Sprite as `Sliced`.
-2. Then drag the controlling point by [rectangle tool](../basics/editor-panels/scene.html#--12) to enlarge the `size` property of the node. You can also modify the `size` property by directly inputting a numeric value into **Properties**. If the image resource is produced in a nine rectangle grid format, then no matter how much the Sprite zooms in, no vagueness or distortion will appear.
+2. Then drag the controlling point by [rectangle tool](../getting-started/basics/editor-panels/scene.html#--12) to enlarge the `size` property of the node. You can also modify the `size` property by directly inputting a numeric value into **Properties**. If the image resource is produced in a nine rectangle grid format, then no matter how much the Sprite zooms in, no vagueness or distortion will appear.
 
 ## Notice
 

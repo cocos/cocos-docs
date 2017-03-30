@@ -11,6 +11,7 @@
 点击**属性检查器**下面的`添加组件`按钮，然后从`添加渲染组件`中选择 `ParticleSystem`，即可添加 Particle System 组件到节点上。
 
 脚本创建：
+
 ```js
 // 创建一个节点
 var node = new cc.Node();
@@ -78,6 +79,3 @@ Particle System 的脚本接口请参考 [Particle System API](../api/classes/Pa
 ## 注意事项
 
 目前由于在 Canvas 中进行的每个粒子纹理 Color 渲染时很耗性能，所以建议在 Canvas 渲染模式下粒子数量不要太多尽量保持在 200 个以内，否则会导致运行时非常卡
-
----
-

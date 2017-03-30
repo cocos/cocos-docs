@@ -36,7 +36,3 @@ SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替�
 ### 性能优化注意事项
 
 使用单独存在的 Texture 作为 Sprite 资源，在预览和发布游戏时，将无法对这些 Sprite 进行批量渲染优化的操作。目前编辑器不支持转换原有的单张 Texture 引用到 Atlas 里的 SpriteFrame 引用，所以在开发正式项目时，应该尽早把需要使用的图片合成 Atlas（图集），并通过 Atlas 里的 SpriteFrame 引用使用。详情请继续阅读下一篇。
-
-<hr>
-
-继续前往 [图集资源（Atlas）](atlas.md) 说明文档。
