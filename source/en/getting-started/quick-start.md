@@ -738,7 +738,7 @@ Next, you can continue to perfect this game. The following are some recommended 
 
 For editions that have been improved in all the above aspects, you can download [evolution edition project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip) for reference and learning, which will not be discussed in detail here.
 
-Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](../basics/preview-build.md) section.
+Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
 Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on Github](https://github.com/cocos-creator/tutorial-first-game).
 

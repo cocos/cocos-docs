@@ -47,10 +47,11 @@
     ```bash
     gulp update
     ```
- - 屏蔽 browserify 的版本过低的 convert-source-map，否则构建时可能会堆栈溢出
+ - （可选）屏蔽 browserify 或 gulp-sourcemaps 的版本过低的 convert-source-map，否则构建时可能会堆栈溢出
  
     ```bash
     mv node_modules/combine-source-map/node_modules/convert-source-map/ node_modules/combine-source-map/node_modules/convert-source-map_origin
+    mv node_modules/gulp-sourcemaps/node_modules/convert-source-map/ node_modules/gulp-sourcemaps/node_modules/convert-source-map_origin
     ```
 
 ## 安装 Headless 依赖环境

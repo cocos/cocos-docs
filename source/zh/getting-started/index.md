@@ -9,9 +9,10 @@
 - [使用 Dashboard](dashboard.md)
 - [Hello World!](hello-world.md)
 - [快速上手: 制作第一个游戏](quick-start.md)
-- [配置代码编辑环境](coding-setup.md)
-- [Cocos2d-x 用户上手指南](cocos2d-x-guide.md)
+- [代码编辑环境配置](coding-setup.md)
 - [项目结构](project-structure.md)
+- [编辑器基础](basics/editor-overview.md)
+- [Cocos2d-x 用户上手指南](cocos2d-x-guide.md)
 - [获取帮助和支持](support.md)
 
 ---

@@ -262,7 +262,3 @@ anim1.on('lastframe',    this.onLastFrame,      this);
     animation.addClip(clip);
     animation.play('anim_run');
 ```
-
----
-
-继续前往下一章 [碰撞系统](../physics/index.md)。

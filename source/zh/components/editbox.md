@@ -164,6 +164,3 @@ cc.Class({
 同样的，你也可以注册 'editing-did-ended', 'text-changed' 和 'editing-return' 事件，这些事件的回调函数的参数与 'editing-did-began' 的参数一致。
 
 ```
-<hr>
-
-继续前往 [MotionStreak 组件参考](motion-streak.md) 说明文档。

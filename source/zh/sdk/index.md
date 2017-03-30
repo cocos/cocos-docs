@@ -5,4 +5,4 @@
 
 <hr>
 
-继续前往 [AnySDK](anysdk.md) 开始了解第三方SDK集成。
+继续前往 [AnySDK](anysdk-overview.md) 开始了解第三方SDK集成。

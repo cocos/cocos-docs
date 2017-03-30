@@ -61,7 +61,3 @@ Cocos Creator 的主菜单是可以自由扩展的。扩展方法为在 `package
 在中文环境的编辑器下就会显示如 `插件/FooBar/Bar` 这样的菜单。
 
 `i18n:MAIN_MENU.package` 是多语言专用的路径表示方法，详情请见 [扩展包多语言化](i18n.md) 文档。
-
----
-
-继续阅读 [扩展编辑器面板](extends-panel.md) 文档。

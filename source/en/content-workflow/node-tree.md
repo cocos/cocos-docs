@@ -5,7 +5,7 @@ We've learnd that by combining Node and Components we can create all kinds of gr
 
 ## Introduce to Node Tree Panel
 
-When creating and positioning nodes in **Scene** panel you get the convenience of WYSIWYG style editing. While **Node Tree** provides an organized tree view where you can easily select and arrange nodes no matter if they are big, small or invisible. Please read [Node Tree](../basics/editor-panels/node-tree.md) to learn the basic instruction of the interface.
+When creating and positioning nodes in **Scene** panel you get the convenience of WYSIWYG style editing. While **Node Tree** provides an organized tree view where you can easily select and arrange nodes no matter if they are big, small or invisible. Please read [Node Tree](../getting-started/basics/editor-panels/node-tree.md) to learn the basic instruction of the interface.
 
 ## Node Tree (Scene Graph)
 

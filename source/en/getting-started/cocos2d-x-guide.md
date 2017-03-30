@@ -49,7 +49,7 @@ Serialization and deserialization supports most public properties in Cocos Creat
 
 What's more, the power of data driven lies in the fact that components edited by users themselves can also make property declarations. These properties can be edited in editor, saved in scene data, and finally deserialized into game scenes when running.
 
-_The source database is presented as [Assets](../basics/editor-panels/assets.md) in the editor._
+_The source database is presented as [Assets](basics/editor-panels/assets.md) in the editor._
 
 ### Understanding workflows of Cocos Creator from the angle of data driven
 
@@ -67,7 +67,7 @@ In Cocos2d-JS, the Render device will traverse the scene's node tree to generate
 
 The most essential difference is: What the logic tree concerns is game logic but not render relation.
 
-Th logic tree will generate the scene's render tree and decide rendering order. But developers don't need to worry about these, they only need to make sure the correctness of the displaying effect in editor. In [Node Tree](../basics/editor-panels/node-tree.md) of editor, developers can adjust the order and parent-child relationship of the logic tree.
+Th logic tree will generate the scene's render tree and decide rendering order. But developers don't need to worry about these, they only need to make sure the correctness of the displaying effect in editor. In [Node Tree](basics/editor-panels/node-tree.md) of editor, developers can adjust the order and parent-child relationship of the logic tree.
 
 ### Scene Management
 

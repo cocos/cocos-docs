@@ -63,7 +63,3 @@
 你可以通过 **帮助** 页面访问 Cocos Creator 用户手册和其他帮助文档。
 
 ![dashboard help](dashboard/help.jpg)
-
----
-
-继续前往 [Hello World!](hello-world.md)，了解如何新建项目和开始使用。

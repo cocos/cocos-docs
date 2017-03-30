@@ -50,9 +50,5 @@ cc.load.load('raw-assets/resources/background.mp3?useDom=1', callback);
 **建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
 
 参考：
-    [音频播放](../scripting/audio.md)
-    
 
-<hr>
-
-继续前往 [预制资源](prefab.md) 说明文档。
+- [音频播放](../audio/audio.md)

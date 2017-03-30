@@ -46,7 +46,7 @@ cc.director.loadScene('SampleScene');
 
 不仅如此，数据驱动的强大之处在于，用户自己编辑的组件也可以进行属性声明。这些属性可以在编辑器中被编辑，也会被保存到场景数据中，最后在运行时被反序列化到游戏场景中。
 
-_资源数据库在编辑器中以[资源管理器](../basics/editor-panels/assets.md)的形式呈现。_
+_资源数据库在编辑器中以[资源管理器](basics/editor-panels/assets.md)的形式呈现。_
 
 ### 从数据驱动的角度理解 Cocos Creator 的工作流
 
@@ -64,7 +64,7 @@ _资源数据库在编辑器中以[资源管理器](../basics/editor-panels/asse
 
 最重要的一点区别是：逻辑树关注的是游戏逻辑而不是渲染关系。
 
-逻辑树会生成场景的渲染树，决定渲染顺序，不过开发者并不需要关心这些，只要在编辑器中保障显示效果正确即可。在编辑器的 [Node Tree 层级管理器](../basics/editor-panels/node-tree.md)中，开发者可以调整逻辑树的顺序和父子关系。
+逻辑树会生成场景的渲染树，决定渲染顺序，不过开发者并不需要关心这些，只要在编辑器中保障显示效果正确即可。在编辑器的 [Node Tree 层级管理器](basics/editor-panels/node-tree.md)中，开发者可以调整逻辑树的顺序和父子关系。
 
 ### 场景管理
 
@@ -96,7 +96,7 @@ Cocos2d-JS 中曾经有一套简陋的组件机制，可以通过向 Node 添加
 
 在 Cocos2d-JS 中可以通过继承来完成对各种节点类型的行为扩展，而在 Cocos Creator 中，请一定不要这样做，所有的扩展都应该通过添加组件的方式来完成。关于继承和组合的优劣之争由来已久，这里不做深入的探讨，但在 Cocos Creator 这样的组件式架构中，组合是最天然的扩展方式。
 
-关于组件系统的更多信息可以参考[节点和组件](../content-workflow/node-component.html)以及[内置组件参考](../components/index.html)等章节。
+关于组件系统的更多信息可以参考[节点和组件](../content-workflow/node-component.md)以及[图像和渲染](../render/index.md)等章节。
 
 ### 坐标系和锚点
 
@@ -161,8 +161,3 @@ Cocos Creator 的坐标系仍然为左下角坐标系，不过在锚点上我们
 ## 4. 下一步
 
 以上以非常概括的方式介绍了 Cocos Creator 的一些设计思路，以及从 Cocos2d-x 过渡过来的一些可能的障碍，无法覆盖到所有的知识点，本篇文档目标也不在于此，旨在让 Cocos2d-x 用户更轻松的上手 Cocos Creator。接下来，请继续阅读 Cocos Creator 用户手册，了解完整的工作流程和编程技巧。
-
----
-
-继续前往 [项目结构](project-structure.md) 介绍文档。
-

@@ -19,7 +19,3 @@ TiledMap（地图）用于在游戏中显示 TMX 格式的地图。在节点上�
 * 添加 TiledMap 组件之后，通过从**资源管理器**中拖拽一个 TiledMap 格式的资源到 tmxAsset 属性上就可以在场景中看到地图的显示了。
 * TiledMap 组件会在节点中添加与地图中的 Layer 对应的节点。这些节点都添加了 TiledLayer 组件。**请勿删除这些 Layer 节点中的 TiledLayer 组件**。
 * 在之前版本的 TiledMap 组件中，只能在 `mapLoaded` 的回调中使用 TiledMap 组件。而新版本的 TiledMap 组件加载机制进行了调整，不再支持 `mapLoaded` 回调，在 `start` 函数中就可以正常使用 TiledMap 组件了。
-
----
-
-继续前往 [EditBox 组件参考](editbox.md) 说明文档。

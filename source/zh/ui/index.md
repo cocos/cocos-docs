@@ -14,4 +14,4 @@
 
 <hr>
 
-继续前往 [使用 Sliced Sprite 制作 UI 图像](sliced-sprite.md) 说明文档。
+继续前往 [制作可任意拉伸的 UI 图像](sliced-sprite.md) 说明文档。

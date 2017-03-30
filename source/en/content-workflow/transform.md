@@ -1,6 +1,6 @@
 # Coordinate system and node transformation attribute
 
-In the [Scene editor](../basics/editor-panels/scene.md) and [Node and component](node-component.md) files, we introduced that we can change a node's display behaviour by using **change tools** and editing the node's attributes in the **Properties** panel. We will learn more about the coordinate system of where the node is and the operating principles of the node's four transformation attributes of Position, Rotation, Scale and Size in this section.
+In the [Scene editor](../getting-started/basics/editor-panels/scene.md) and [Node and component](node-component.md) files, we introduced that we can change a node's display behaviour by using **change tools** and editing the node's attributes in the **Properties** panel. We will learn more about the coordinate system of where the node is and the operating principles of the node's four transformation attributes of Position, Rotation, Scale and Size in this section.
 
 ## Cocos Creator coordinates system
 
@@ -75,7 +75,7 @@ Besides the **Anchor** we introduced above, the node also includes four other ma
 
 The default value of the position property is ‘(0, 0)’ which means that the newly added node will always show up at the parent node's coordinate origin position. The default position of nodes in Cocos Creator is ‘(0, 0)’ and the default anchor is set as ‘(0.5, 0.5)’. Nodes under this setting will be located at the center position of the parent node by default so that all the contents can be taken in when making UI or combining a player's character.
 
-In the scene editor, you can always use [move transform tools](../basics/editor-panels/scene.md#--9) to change a node’s position.
+In the scene editor, you can always use [move transform tools](../getting-started/basics/editor-panels/scene.md#--9) to change a node’s position.
 
 ### Rotation
 
@@ -85,7 +85,7 @@ In the scene editor, you can always use [move transform tools](../basics/editor-
 
 The node hierarchical relationship in the image above is the same as in the previous image only with the **Rotation** attribute of ‘Node’ set as ‘30’ degrees. As well as ‘NodeA’ itself rotating 30 degrees clockwise, its child node ‘NodeC’ also rotates 30 degrees clockwise taking the anchor of ‘NodeA’ as the center.
 
-In the scene editor, you can always use [rotate transform tools](../basics/editor-panels/scene.md#--10) to change the rotation of a node.
+In the scene editor, you can always use [rotate transform tools](../getting-started/basics/editor-panels/scene.md#--10) to change the rotation of a node.
 
 ### Scale
 
@@ -99,7 +99,7 @@ The scale property set on the child node will have additive effects on the paren
 
 The scale property acts on the effects of the properties of position and size among others. When you change the scale property, the node's position and size won't change, but it will multiply the position, size and other properties by a scale before showing the node image; the values from the multiplication are the actual position and size of the node that will appear.
 
-In the scene editor, you can always use [scale transform tools](../basics/editor-panels/scene.md#--11) to change the scale of the node.
+In the scene editor, you can always use [scale transform tools](../getting-started/basics/editor-panels/scene.md#--11) to change the scale of the node.
 
 ### Size
 
@@ -109,7 +109,7 @@ Therefore, the size property can easily be confused with the scale property. The
 
 Meanwhile, the scale property gets the node's width and height after scaling based on the multiplication of the size value. When determining the size of the image, size is the basis while scale is the variable so to speak. Besides, the size property will not influence the size of the child node (but can make an indirect influence through [Widget](../ui/widget-align.md)), which is very different from the scale property.
 
-In the scene editor, you can always use [rectangle transform tools](../basics/editor-panels/scene.md#--11) to change the node size.
+In the scene editor, you can always use [rectangle transform tools](../getting-started/basics/editor-panels/scene.md#--11) to change the node size.
 
 ---
 

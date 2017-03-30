@@ -57,7 +57,3 @@
 - [骨骼动画资源（Spine）](spine.md)
 - [瓦片图资源（TiledMap）](tiledmap.md)
 - [骨骼动画资源（DragonBones）](dragonbones.md)
-
----
-
-继续前往 [导入其他编辑器项目](project-import.md) 说明文档。

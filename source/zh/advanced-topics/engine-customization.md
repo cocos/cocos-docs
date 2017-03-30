@@ -36,7 +36,7 @@ gulp build
 
 ### 在 Cocos Creator 中使用定制版引擎
 
-通过 **偏好设置** 面板的 [原生开发环境](../basics/editor-panels/preferences.md#--8) 分页设置。设置使用您本地定制后的 JS 引擎路径。
+通过 **偏好设置** 面板的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#--8) 分页设置。设置使用您本地定制后的 JS 引擎路径。
 
 
 ## 定制 Cocos2d-x 引擎
@@ -61,7 +61,7 @@ git submodule update --init
 
 ### 在 Cocos Creator 中使用定制版引擎
 
-通过 **偏好设置** 面板的 [原生开发环境](../basics/editor-panels/preferences.md#--8) 分页设置。设置使用您本地定制后的 Cocos2d-x 引擎路径。
+通过 **偏好设置** 面板的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#--8) 分页设置。设置使用您本地定制后的 Cocos2d-x 引擎路径。
 
 ### 修改引擎
 

@@ -131,6 +131,9 @@ body {
 .sidebar .nav li a {
 	padding: 5px 5px;
 	display: inline;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
 }
 
 #mobile-nav li a {

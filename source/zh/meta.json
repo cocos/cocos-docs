@@ -26,75 +26,71 @@
                         "link": "getting-started/quick-start.html"
                     },
                     {
-                        "name": "配置代码编辑环境",
+                        "name": "代码编辑环境配置",
                         "link": "getting-started/coding-setup.html",
                         "new": true
-                    },
-                    {
-                        "name": "Cocos2d-x 用户上手指南",
-                        "link": "getting-started/cocos2d-x-guide.html"
                     },
                     {
                         "name": "项目结构",
                         "link": "getting-started/project-structure.html"
                     },
                     {
+                        "name": "编辑器基础",
+                        "link": "getting-started/basics/index.html",
+                        "submenu": [
+                            {
+                                "name": "编辑器界面介绍",
+                                "link": "getting-started/basics/editor-overview.html"
+                            },
+                            {
+                                "name": "资源管理器",
+                                "link": "getting-started/basics/editor-panels/assets.html"
+                            },
+                            {
+                                "name": "场景编辑器",
+                                "link": "getting-started/basics/editor-panels/scene.html"
+                            },
+                            {
+                                "name": "层级管理器",
+                                "link": "getting-started/basics/editor-panels/node-tree.html"
+                            },
+                            {
+                                "name": "属性检查器",
+                                "link": "getting-started/basics/editor-panels/properties.html"
+                            },
+                            {
+                                "name": "控制台",
+                                "link": "getting-started/basics/editor-panels/console.html"
+                            },
+                            {
+                                "name": "偏好设置",
+                                "link": "getting-started/basics/editor-panels/preferences.html"
+                            },
+                            {
+                                "name": "控件库",
+                                "link": "getting-started/basics/editor-panels/node-library.html"
+                            },
+                            {
+                                "name": "工具栏",
+                                "link": "getting-started/basics/toolbar.html"
+                            },
+                            {
+                                "name": "编辑器布局",
+                                "link": "getting-started/basics/layout.html"
+                            },
+                            {
+                                "name": "预览和构建",
+                                "link": "getting-started/basics/preview-build.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Cocos2d-x 用户上手指南",
+                        "link": "getting-started/cocos2d-x-guide.html"
+                    },
+                    {
                         "name": "获取帮助和支持",
                         "link": "getting-started/support.html"
-                    }
-                ]
-            },
-            {
-                "name": "视频教程",
-                "link": "video-tutorial/index.html"
-            },
-            {
-                "name": "编辑器基础",
-                "link": "basics/index.html",
-                "submenu": [
-                    {
-                        "name": "编辑器界面介绍",
-                        "link": "basics/editor-overview.html"
-                    },
-                    {
-                        "name": "资源管理器",
-                        "link": "basics/editor-panels/assets.html"
-                    },
-                    {
-                        "name": "场景编辑器",
-                        "link": "basics/editor-panels/scene.html"
-                    },
-                    {
-                        "name": "层级管理器",
-                        "link": "basics/editor-panels/node-tree.html"
-                    },
-                    {
-                        "name": "属性检查器",
-                        "link": "basics/editor-panels/properties.html"
-                    },
-                    {
-                        "name": "控制台",
-                        "link": "basics/editor-panels/console.html"
-                    },
-                    {
-                        "name": "偏好设置",
-                        "link": "basics/editor-panels/preferences.html"
-                    },
-                    {
-                        "name": "控件库",
-                        "link": "basics/editor-panels/node-library.html"
-                    },
-                    {
-                        "name": "工具栏",
-                        "link": "basics/toolbar.html"
-                    },
-                    {
-                        "name": "编辑器布局",
-                        "link": "basics/layout.html"
-                    },
-                    {
-                        "name": "预览和构建",
-                        "link": "basics/preview-build.html"
                     }
                 ]
             },
@@ -107,22 +103,20 @@
                         "link": "asset-workflow/scene-managing.html"
                     },
                     {
-                        "name": "图像资源（Texture）",
+                        "name": "贴图资源",
                         "link": "asset-workflow/sprite.html"
                     },
                     {
-                        "name": "图集资源（Atlas）",
+                        "name": "图集资源",
                         "link": "asset-workflow/atlas.html"
                     },
                     {
-                        "name": "自动图集资源（Auto Atlas）",
-                        "link": "asset-workflow/auto-atlas.html",
-                        "new": true
+                        "name": "自动图集资源",
+                        "link": "asset-workflow/auto-atlas.html"
                     },
                     {
-                        "name": "艺术数字资源（Label Atlas）",
-                        "link": "asset-workflow/label-atlas.html",
-                        "new": true
+                        "name": "艺术数字资源",
+                        "link": "asset-workflow/label-atlas.html"
                     },
                     {
                         "name": "图像资源的自动剪裁",
@@ -141,13 +135,12 @@
                         "link": "asset-workflow/particle.html"
                     },
                     {
-                        "name": "声音资源（AudioClip）",
+                        "name": "声音资源",
                         "link": "asset-workflow/audio-asset.html"
                     },
                     {
-                        "name": "预制资源（Prefab）",
-                        "link": "asset-workflow/prefab.html",
-                        "new": true
+                        "name": "预制资源",
+                        "link": "asset-workflow/prefab.html"
                     },
                     {
                         "name": "Spine 骨骼动画资源",
@@ -155,11 +148,10 @@
                     },
                     {
                         "name": "DragonBones 骨骼动画资源",
-                        "link": "asset-workflow/dragonbones.html",
-                        "new": true
+                        "link": "asset-workflow/dragonbones.html"
                     },
                     {
-                        "name": "瓦片图资源（Tiledmap）",
+                        "name": "瓦片图资源",
                         "link": "asset-workflow/tiledmap.html"
                     },
                     {
@@ -169,7 +161,7 @@
                 ]
             },
             {
-                "name": "内容创作工作流程",
+                "name": "场景制作",
                 "link": "content-workflow/index.html",
                 "submenu": [
                     {
@@ -191,13 +183,77 @@
                 ]
             },
             {
+                "name": "图像和渲染",
+                "link": "render/index.html",
+                "new": true,
+                "submenu": [
+                    {
+                        "name": "基本图像渲染",
+                        "link": "render/core-renderer.html"
+                    },
+                    {
+                        "name": "外部资源渲染",
+                        "link": "render/external-renderer.html"
+                    },
+                    {
+                        "name": "绘图系统",
+                        "link": "render/graphics/index.html"
+                    },
+                    {
+                        "name": "渲染组件参考",
+                        "submenu": [
+                            {
+                                "name": "Sprite 组件参考",
+                                "link": "components/sprite.html"
+                            },
+                            {
+                                "name": "Label 组件参考",
+                                "link": "components/label.html"
+                            },
+                            {
+                                "name": "Mask 组件参考",
+                                "link": "components/mask.html"
+                            },
+                            {
+                                "name": "MotionStreak 组件参考",
+                                "link": "components/motion-streak.html"
+                            },
+                            {
+                                "name": "ParticleSystem 组件参考",
+                                "link": "components/particle-system.html"
+                            },
+                            {
+                                "name": "TiledMap 组件参考",
+                                "link": "components/tiledmap.html"
+                            },
+                            {
+                                "name": "Spine 组件参考",
+                                "link": "components/spine.html"
+                            },
+                            {
+                                "name": "DragonBones 组件参考",
+                                "link": "components/dragonbones.html"
+                            },
+                            {
+                                "name": "VideoPlayer 组件参考",
+                                "link": "components/videoplayer.html"
+                            },
+                            {
+                                "name": "WebView 组件参考",
+                                "link": "components/webview.html"
+                            },
+                            {
+                                "name": "Graphics 组件参考",
+                                "link": "components/graphics.html"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "UI 系统",
                 "link": "ui/index.html",
                 "submenu": [
-                    {
-                        "name": "使用 Sliced Sprite 制作 UI 图像",
-                        "link": "ui/sliced-sprite.html"
-                    },
                     {
                         "name": "多分辨率适配方案",
                         "link": "ui/multi-resolution.html"
@@ -207,12 +263,16 @@
                         "link": "ui/widget-align.html"
                     },
                     {
+                        "name": "制作可任意拉伸的 UI 图像",
+                        "link": "ui/sliced-sprite.html"
+                    },                    
+                    {
                         "name": "文字排版",
                         "link": "ui/label-layout.html"
                     },
                     {
-                        "name": "常用 UI 控件",
-                        "link": "ui/ui-components.html"
+                        "name": "UI 动画",
+                        "link": "ui/ui-animation.html"
                     },
                     {
                         "name": "自动布局容器",
@@ -221,6 +281,194 @@
                     {
                         "name": "制作动态生成内容的列表",
                         "link": "ui/list-with-data.html"
+                    },
+                    {
+                        "name": "UI 组件参考",
+                        "link": "ui/ui-components.html",
+                        "submenu": [
+                        {
+                                "name": "Canvas 组件参考",
+                                "link": "components/canvas.html"
+                            },
+                            {
+                                "name": "Widget 组件参考",
+                                "link": "components/widget.html"
+                            },
+                            {
+                                "name": "Button 组件参考",
+                                "link": "components/button.html"
+                            },
+                            {
+                                "name": "Layout 组件参考",
+                                "link": "components/layout.html"
+                            },
+                            {
+                                "name": "EditBox 组件参考",
+                                "link": "components/editbox.html"
+                            },                    
+                            {
+                                "name": "RichText 组件参考",
+                                "link": "components/richtext.html",
+                                "new": true
+                            },                    
+                            {
+                                "name": "ScrollView 组件参考",
+                                "link": "components/scrollview.html",
+                                "new": true
+                            },
+                            {
+                                "name": "ScrollBar 组件参考",
+                                "link": "components/scrollbar.html"
+                            },
+                            {
+                                "name": "ProgressBar 组件参考",
+                                "link": "components/progress.html"
+                            },                    
+                            {
+                                "name": "Toggle 组件参考",
+                                "link": "components/toggle.html"
+                            },
+                            {
+                                "name": "ToggleGroup 组件参考",
+                                "link": "components/toggleGroup.html"
+                            },
+                            {
+                                "name": "Slider 组件参考",
+                                "link": "components/slider.html"
+                            },
+                            {
+                                "name": "PageView 组件参考",
+                                "link": "components/pageview.html",
+                                "new": true
+                            },
+                            {
+                                "name": "PageViewIndicator 组件参考",
+                                "link": "components/pageviewindicator.html"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "脚本开发",
+                "link": "scripting/index.html",
+                "submenu": [
+                    {
+                        "name": "节点和组件",
+                        "submenu": [
+                            {
+                                "name": "创建和使用组件脚本",
+                                "link": "scripting/use-component.html"
+                            },
+                            {
+                                "name": "使用 cc.Class 声明类型",
+                                "link": "scripting/class.html"
+                            },
+                            {
+                                "name": "访问节点和其他组件",
+                                "link": "scripting/access-node-component.html"
+                            },
+                            {
+                                "name": "常用节点和组件接口",
+                                "link": "scripting/basic-node-api.html"
+                            },
+                            {
+                                "name": "生命周期回调",
+                                "link": "scripting/life-cycle-callbacks.html"
+                            },
+                            {
+                                "name": "创建和销毁节点",
+                                "link": "scripting/create-destroy.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "资源管理",
+                        "submenu": [
+                            {
+                                "name": "加载和切换场景",
+                                "link": "scripting/scene-managing.html"
+                            },
+                            {
+                                "name": "获取和加载资源",
+                                "link": "scripting/load-assets.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "事件系统",
+                        "submenu": [
+                            {
+                                "name": "发射和监听事件",
+                                "link": "scripting/events.html"
+                            },
+                            {
+                                "name": "系统内置事件",
+                                "link": "scripting/internal-events.html"
+                            },
+                            {
+                                "name": "玩家输入事件",
+                                "link": "scripting/player-controls.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "使用动作系统",
+                        "link": "scripting/actions.html"
+                    },
+                    {
+                        "name": "动作列表",
+                        "link": "scripting/action-list.html"
+                    },
+                    {
+                        "name": "使用计时器",
+                        "link": "scripting/scheduler.html"
+                    },
+                    {
+                        "name": "脚本执行顺序",
+                        "link": "scripting/execution-order.html"
+                    },
+                    {
+                        "name": "网络接口",
+                        "link": "scripting/network.html"
+                    },
+                    {
+                        "name": "使用对象池",
+                        "link": "scripting/pooling.html"
+                    },
+                    {
+                        "name": "脚本组织模式",
+                        "submenu": [
+                            {
+                                "name": "模块化脚本",
+                                "link": "scripting/modular-script.html"
+                            },
+                            {
+                                "name": "插件脚本",
+                                "link": "scripting/plugin-scripts.html"
+                            },
+                            {
+                                "name": "第三方模块引用",
+                                "link": "scripting/third-party-module.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "JavaScript 快速入门",
+                        "link": "scripting/javascript-primer.html"
+                    },
+                    {
+                        "name": "CCClass参考",
+                        "submenu": [
+                            {
+                                "name": "CCClass 进阶参考",
+                                "link": "scripting/reference/class.html"
+                            },
+                            {
+                                "name": "属性参数参考",
+                                "link": "scripting/reference/attributes.html"
+                            }
+                        ]
                     }
                 ]
             },
@@ -255,11 +503,15 @@
                     {
                         "name": "使用脚本控制动画",
                         "link": "animation/scripting-animation.html"
-                    }
+                    },
+                    {
+                        "name": "Animation 组件参考",
+                        "link": "components/animation.html"
+                    }                    
                 ]
             },
             {
-                "name": "碰撞系统",
+                "name": "物理系统",
                 "link": "physics/index.html",
                 "submenu": [
                     {
@@ -273,232 +525,24 @@
                     {
                         "name": "碰撞系统脚本控制",
                         "link": "physics/collision-manager.html"
-                    }
-                ]
-            },
-            {
-                "name": "绘图系统",
-                "link": "graphics/index.html"
-            },
-            {
-                "name": "组件参考",
-                "link": "components/index.html",
-                "submenu": [
-                    {
-                        "name": "Sprite 组件参考",
-                        "link": "components/sprite.html"
-                    },
-                    {
-                        "name": "Label 组件参考",
-                        "link": "components/label.html"
-                    },
-                    {
-                        "name": "Spine 组件参考",
-                        "link": "components/spine.html"
-                    },
-                    {
-                        "name": "DragonBones 组件参考",
-                        "link": "components/dragonbones.html",
-                        "new": true
-                    },
-                    {
-                        "name": "Animation 组件参考",
-                        "link": "components/animation.html"
-                    },
-                    {
-                        "name": "Canvas 组件参考",
-                        "link": "components/canvas.html"
-                    },
-                    {
-                        "name": "Widget 组件参考",
-                        "link": "components/widget.html"
-                    },
-                    {
-                        "name": "ProgressBar 组件参考",
-                        "link": "components/progress.html"
-                    },
-                    {
-                        "name": "Button 组件参考",
-                        "link": "components/button.html"
-                    },
-                    {
-                        "name": "Mask 组件参考",
-                        "link": "components/mask.html"
-                    },
-                    {
-                        "name": "MotionStreak 组件参考",
-                        "link": "components/motion-streak.html"
-                    },
-                    {
-                        "name": "ScrollView 组件参考",
-                        "link": "components/scrollview.html",
-                        "new": true
-                    },
-                    {
-                        "name": "ScrollBar 组件参考",
-                        "link": "components/scrollbar.html"
-                    },
-                    {
-                        "name": "Toggle 组件参考",
-                        "link": "components/toggle.html"
-                    },
-                    {
-                        "name": "ToggleGroup 组件参考",
-                        "link": "components/toggleGroup.html"
-                    },
-                    {
-                        "name": "Slider 组件参考",
-                        "link": "components/slider.html"
-                    },
-                    {
-                        "name": "PageView 组件参考",
-                        "link": "components/pageview.html",
-                        "new": true
-                    },
-                    {
-                        "name": "PageViewIndicator 组件参考",
-                        "link": "components/pageviewindicator.html"
-                    },
-                    {
-                        "name": "Layout 组件参考",
-                        "link": "components/layout.html"
-                    },
-                    {
-                        "name": "EditBox 组件参考",
-                        "link": "components/editbox.html"
                     },
                     {
                         "name": "Collider 组件参考",
                         "link": "components/collider.html"
-                    },
-                    {
-                        "name": "VideoPlayer 组件参考",
-                        "link": "components/videoplayer.html"
-                    },
-                    {
-                        "name": "WebView 组件参考",
-                        "link": "components/webview.html"
-                    },
-                    {
-                        "name": "Graphics 组件参考",
-                        "link": "components/graphics.html"
-                    },
-                    {
-                        "name": "RichText 组件参考",
-                        "link": "components/richtext.html",
-                        "new": true
-                    },
-                    {
-                        "name": "Particle System 组件参考",
-                        "link": "components/particle-system.html",
-                        "new": true
                     }
                 ]
             },
             {
-                "name": "脚本开发工作流程",
-                "link": "scripting/index.html",
+                "name": "音乐和音效",
+                "link": "audio/index.html",
                 "submenu": [
                     {
-                        "name": "创建和使用组件脚本",
-                        "link": "scripting/use-component.html"
+                        "name": "音频播放",
+                        "link": "audio/audio.html"
                     },
                     {
-                        "name": "使用 cc.Class 声明类型",
-                        "link": "scripting/class.html"
-                    },
-                    {
-                        "name": "访问节点和其他组件",
-                        "link": "scripting/access-node-component.html"
-                    },
-                    {
-                        "name": "常用节点和组件接口",
-                        "link": "scripting/basic-node-api.html"
-                    },
-                    {
-                        "name": "生命周期回调",
-                        "link": "scripting/life-cycle-callbacks.html"
-                    },
-                    {
-                        "name": "创建和销毁节点",
-                        "link": "scripting/create-destroy.html"
-                    },
-                    {
-                        "name": "加载和切换场景",
-                        "link": "scripting/scene-managing.html"
-                    },
-                    {
-                        "name": "发射和监听事件",
-                        "link": "scripting/events.html"
-                    },
-                    {
-                        "name": "系统内置事件",
-                        "link": "scripting/internal-events.html"
-                    },
-                    {
-                        "name": "玩家输入事件",
-                        "link": "scripting/player-controls.html"
-                    },
-                    {
-                        "name": "使用动作系统",
-                        "link": "scripting/actions.html"
-                    },
-                    {
-                        "name": "动作列表",
-                        "link": "scripting/action-list.html"
-                    },
-                    {
-                        "name": "使用计时器",
-                        "link": "scripting/scheduler.html"
-                    },
-                    {
-                        "name": "脚本执行顺序",
-                        "link": "scripting/execution-order.html"
-                    },
-                    {
-                        "name": "网络接口",
-                        "link": "scripting/network.html"
-                    },
-                    {
-                        "name": "使用对象池",
-                        "link": "scripting/pooling.html"
-                    },
-                    {
-                        "name": "获取和加载资源",
-                        "link": "scripting/load-assets.html"
-                    },
-                    {
-                        "name": "播放声音资源",
-                        "link": "scripting/audio.html"
-                    },
-                    {
-                        "name": "模块化脚本",
-                        "link": "scripting/modular-script.html"
-                    },
-                    {
-                        "name": "插件脚本",
-                        "link": "scripting/plugin-scripts.html"
-                    },
-                    {
-                        "name": "第三方模块引用",
-                        "link": "scripting/third-party-module.html"
-                    },
-                    {
-                        "name": "JavaScript 快速入门",
-                        "link": "scripting/javascript-primer.html"
-                    },
-                    {
-                        "name": "CCClass参考",
-                        "submenu": [
-                            {
-                                "name": "CCClass 进阶参考",
-                                "link": "scripting/reference/class.html"
-                            },
-                            {
-                                "name": "属性参数参考",
-                                "link": "scripting/reference/attributes.html"
-                            }
-                        ]
+                        "name": "AudioSource 组件参考",
+                        "link": "components/audiosource.html"
                     }
                 ]
             },
@@ -725,7 +769,8 @@
                     },
                     {
                         "name": "i18n 游戏多语言支持",
-                        "link": "advanced-topics/i18n.html"
+                        "link": "advanced-topics/i18n.html",
+                        "new": true
                     },
                     {
                         "name": "存储和读取用户数据",
@@ -743,6 +788,16 @@
                         "name": "BMFont and UI 自动批处理",
                         "link": "advanced-topics/ui-auto-batch.html",
                         "new": true
+                    },
+                    {
+                        "name": "Java 原生反射机制",
+                        "link": "advanced-topics/java-reflection.html",
+                        "new": true
+                    },
+                    {
+                        "name": "Objective-C 原生反射机制",
+                        "link": "advanced-topics/oc-reflection.html",
+                        "new": true
                     }
                 ]
             },
@@ -750,10 +805,6 @@
                 "name": "第三方SDK集成",
                 "link": "sdk/index.html",
                 "submenu": [
-                    {
-                        "name": "Cocos Package",
-                        "link": "sdk/cocos-package-overview.html"
-                    },
                     {
                         "name": "AnySDK",
                         "link": "sdk/anysdk-overview.html"

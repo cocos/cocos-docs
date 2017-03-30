@@ -7,7 +7,7 @@ to help you get started with designing and developing games.
 ## Index
 
 - [Getting Started](getting-started/index.md)
-- [The Basics](basics/index.md)
+- [The Basics](getting-started/basics/index.md)
 - [Asset Workflow](asset-workflow/index.md)
 - [Content Workflow](content-workflow/index.md)
 - [UI](ui/index.md)

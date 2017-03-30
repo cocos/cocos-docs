@@ -125,7 +125,7 @@ http://fbdemos.avosapps.com/star-catcher/
 
 ### 添加主角
 
-接下来我们的主角小怪兽要登场了，从**资源管理器**拖拽`assets/texture/PurpleMonster`到**层级管理器**中`Canvas`的下面，并确保他的位置在`ground`下面，这样我们的主角会显示在最前面。
+接下来我们的主角小怪兽要登场了，从**资源管理器**拖拽`assets/texture/PurpleMonster`到**层级管理器**中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。 注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
 
 为了让主角的光环在场景节点中非常醒目，我们右键点击刚刚添加的`PurpleMonster`节点，选择`重命名`之后将其改名为`Player`。
 
@@ -133,7 +133,7 @@ http://fbdemos.avosapps.com/star-catcher/
 
 接下来**场景编辑器**中拖拽`Player`，把他放在地面上，效果如下图：
 
-![player position](quick-start/player_position.png)
+![player position](quick-start/player_position.jpg)
 
 这样我们基本的场景美术内容就配置好了。下面一节我们要编写代码让游戏里的内容生动起来。
 
@@ -334,15 +334,15 @@ Accel: 1000
 
 ### 制作Prefab
 
-对于需要重复生成的节点，我们可以将他保存成**Prefab（预制）**资源，作为我们动态生成节点时使用的模板。关于**Prefab**的更多信息，请阅读[预制资源（Prefab）](../asset-workflow/prefab.md)。
+对于需要重复生成的节点，我们可以将他保存成 **Prefab（预制）** 资源，作为我们动态生成节点时使用的模板。关于 **Prefab** 的更多信息，请阅读 [预制资源（Prefab）](../asset-workflow/prefab.md)。
 
-首先从**资源管理器**中拖拽`assets/textures/star`资源到场景中，位置随意，我们只是需要借助场景作为我们制作 Prefab 的工作台，制作完成后会我们把这个节点从场景中删除。
+首先从 **资源管理器** 中拖拽 `assets/textures/star` 资源到场景中，位置随意，我们只是需要借助场景作为我们制作 Prefab 的工作台，制作完成后会我们把这个节点从场景中删除。
 
-我们不需要修改星星的位置或渲染属性，但要让星星能够被主角碰触后消失，我们需要为星星也添加一个专门的组件。按照和添加`Player`脚本相同的方法，添加名叫`Star`的JavaScript脚本到`assets/scripts/`中。
+我们不需要修改星星的位置或渲染属性，但要让星星能够被主角碰触后消失，我们需要为星星也添加一个专门的组件。按照和添加 `Player` 脚本相同的方法，添加名叫 `Star` 的JavaScript脚本到`assets/scripts/`中。
 
 ![star script](quick-start/star_script.png)
 
-接下来双击这个脚本开始编辑，星星组件只需要一个属性用来规定主角距离星星多近时就可以完成收集，修改`properties`，加入以下内容：
+接下来双击这个脚本开始编辑，星星组件只需要一个属性用来规定主角距离星星多近时就可以完成收集，修改 `properties`，加入以下内容：
 
 ```js
 // Star.js
@@ -738,15 +738,6 @@ Star Prefab 需要的设置就完成了，现在从**层级管理器**中将`sta
 
 以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip)来参考和学习，这里就不再赘述了。
 
-此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读[预览和构建](../basics/preview-build.md)一节的内容。
+此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读[预览和构建](basics/preview-build.md)一节的内容。
 
 今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在[Github 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game)提交反馈。
-
----
-
-继续前往 [配置代码编辑环境](coding-setup.md) 说明文档。
-
-
-
-
-

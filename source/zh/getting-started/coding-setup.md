@@ -128,10 +128,3 @@ VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调�
 ### 学习 VS Code 的使用方法
 
 前往 VS Code 官网的[文档页面](https://code.visualstudio.com/Docs)，了解从编辑功能操作、个性化定制、语法高亮设置到插件扩展等各方面的使用方法。
-
-
-<hr>
-
-根据您的引擎使用经验，可以继续前往：
-
-- [Cocos2d-x 用户上手指南](cocos2d-x-guide.md)

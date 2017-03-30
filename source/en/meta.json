@@ -1,604 +1,824 @@
 {
     "*": {
-        "menu":[
+        "menu": [
             {
                 "name": "Getting Started",
                 "link": "getting-started/index.html",
-                "header": true
-            },
-            {
-                "name": "Introduction",
-                "link": "getting-started/introduction.html"
-            },
-            {
-                "name": "Install",
-                "link": "getting-started/install.html"
-            },
-            {
-                "name": "Dashboard",
-                "link": "getting-started/dashboard.html"
-            },
-            {
-                "name": "Hello World!",
-                "link": "getting-started/hello-world.html"
-            },
-            {
-                "name": "Quick Start",
-                "link": "getting-started/quick-start.html"
-            },
-            {
-                "name": "Setup Coding Environment",
-                "link": "getting-started/coding-setup.html",
-                "new": true
-            },
-            {
-                "name": "Cocos2d-x User Guide",
-                "link": "getting-started/cocos2d-x-guide.html"
-            },
-            {
-                "name": "Project Structure",
-                "link": "getting-started/project-structure.html"
-            },
-            {
-                "name": "Help and Support",
-                "link": "getting-started/support.html"
-            },
-            {
-                "name": "The Basics",
-                "link": "basics/index.html",
-                "header": true
-            },
-            {
-                "name": "Editor Overview",
-                "link": "basics/editor-overview.html"
-            },
-            {
-                "name": "Assets",
-                "link": "basics/editor-panels/assets.html"
-            },
-            {
-                "name": "Scene",
-                "link": "basics/editor-panels/scene.html"
-            },
-            {
-                "name": "Node Tree",
-                "link": "basics/editor-panels/node-tree.html"
-            },
-            {
-                "name": "Properties",
-                "link": "basics/editor-panels/properties.html"
-            },
-            {
-                "name": "Console",
-                "link": "basics/editor-panels/console.html"
-            },
-            {
-                "name": "Preferences",
-                "link": "basics/editor-panels/preferences.html"
-            },
-            {
-                "name": "Node Library",
-                "link": "basics/editor-panels/node-library.html",
-                "new": true
-            },
-            {
-                "name": "Toolbar",
-                "link": "basics/toolbar.html"
-            },
-            {
-                "name": "Editor Layout",
-                "link": "basics/layout.html"
-            },
-            {
-                "name": "Preview and Build",
-                "link": "basics/preview-build.html"
+                "submenu": [
+                    {
+                        "name": "Introduction",
+                        "link": "getting-started/introduction.html"
+                    },
+                    {
+                        "name": "Install and Launch",
+                        "link": "getting-started/install.html"
+                    },
+                    {
+                        "name": "Dashboard",
+                        "link": "getting-started/dashboard.html"
+                    },
+                    {
+                        "name": "Hello World!",
+                        "link": "getting-started/hello-world.html"
+                    },
+                    {
+                        "name": "Quick Start",
+                        "link": "getting-started/quick-start.html"
+                    },
+                    {
+                        "name": "Coding Environment",
+                        "link": "getting-started/coding-setup.html",
+                        "new": true
+                    },
+                    {
+                        "name": "Project Structure",
+                        "link": "getting-started/project-structure.html"
+                    },
+                    {
+                        "name": "Using Editor",
+                        "link": "getting-started/basics/index.html",
+                        "submenu": [
+                            {
+                                "name": "Editor Overview",
+                                "link": "getting-started/basics/editor-overview.html"
+                            },
+                            {
+                                "name": "Assets",
+                                "link": "getting-started/basics/editor-panels/assets.html"
+                            },
+                            {
+                                "name": "Scene",
+                                "link": "getting-started/basics/editor-panels/scene.html"
+                            },
+                            {
+                                "name": "Node Tree",
+                                "link": "getting-started/basics/editor-panels/node-tree.html"
+                            },
+                            {
+                                "name": "Properties",
+                                "link": "getting-started/basics/editor-panels/properties.html"
+                            },
+                            {
+                                "name": "Console",
+                                "link": "getting-started/basics/editor-panels/console.html"
+                            },
+                            {
+                                "name": "Preferences",
+                                "link": "getting-started/basics/editor-panels/preferences.html"
+                            },
+                            {
+                                "name": "Project Settings",
+                                "link": "getting-started/basics/editor-panels/project-settings.html"
+                            },                            
+                            {
+                                "name": "Node Library",
+                                "link": "getting-started/basics/editor-panels/node-library.html"
+                            },
+                            {
+                                "name": "Toolbar",
+                                "link": "getting-started/basics/toolbar.html"
+                            },
+                            {
+                                "name": "Editor Layout",
+                                "link": "getting-started/basics/layout.html"
+                            },
+                            {
+                                "name": "Preview and Build",
+                                "link": "getting-started/basics/preview-build.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Cocos2d-x User Guide",
+                        "link": "getting-started/cocos2d-x-guide.html"
+                    },
+                    {
+                        "name": "Help and Support",
+                        "link": "getting-started/support.html"
+                    }
+                ]
             },
             {
                 "name": "Asset Workflow",
                 "link": "asset-workflow/index.html",
-                "header": true,
-                "new": true
+                "submenu": [
+                    {
+                        "name": "Scene Managing",
+                        "link": "asset-workflow/scene-managing.html"
+                    },
+                    {
+                        "name": "Texture",
+                        "link": "asset-workflow/sprite.html"
+                    },
+                    {
+                        "name": "Atlas",
+                        "link": "asset-workflow/atlas.html"
+                    },
+                    {
+                        "name": "Auto Atlas",
+                        "link": "asset-workflow/auto-atlas.html"
+                    },
+                    {
+                        "name": "Label Atlas",
+                        "link": "asset-workflow/label-atlas.html"
+                    },
+                    {
+                        "name": "Texture Auto Trim",
+                        "link": "asset-workflow/trim.html"
+                    },
+                    {
+                        "name": "Script Files",
+                        "link": "asset-workflow/script.html"
+                    },
+                    {
+                        "name": "Font Asset",
+                        "link": "asset-workflow/font.html"
+                    },
+                    {
+                        "name": "Particle Asset",
+                        "link": "asset-workflow/particle.html"
+                    },
+                    {
+                        "name": "Audio Asset",
+                        "link": "asset-workflow/audio-asset.html"
+                    },
+                    {
+                        "name": "Prefab",
+                        "link": "asset-workflow/prefab.html"
+                    },
+                    {
+                        "name": "Spine",
+                        "link": "asset-workflow/spine.html"
+                    },
+                    {
+                        "name": "DragonBones",
+                        "link": "asset-workflow/dragonbones.html"
+                    },
+                    {
+                        "name": "Tiledmap",
+                        "link": "asset-workflow/tiledmap.html"
+                    },
+                    {
+                        "name": "Import Project from other Editor",
+                        "link": "asset-workflow/project-import.html"
+                    }
+                ]
             },
             {
-                "name": "Scene Managing",
-                "link": "asset-workflow/scene-managing.html"
-            },
-            {
-                "name": "Texture",
-                "link": "asset-workflow/sprite.html"
-            },
-            {
-                "name": "Atlas",
-                "link": "asset-workflow/atlas.html"
-            },
-            {
-                "name": "Label Atlas",
-                "link": "asset-workflow/label-atlas.html",
-                "new": true
-            },
-            {
-                "name": "Texture Auto Trim",
-                "link": "asset-workflow/trim.html"
-            },
-            {
-                "name": "Font Asset",
-                "link": "asset-workflow/font.html"
-            },
-            {
-                "name": "Particle",
-                "link": "asset-workflow/particle.html"
-            },
-            {
-                "name": "Audio Asset",
-                "link": "asset-workflow/audio-asset.html"
-            },
-            {
-                "name": "Prefab",
-                "link": "asset-workflow/prefab.html",
-                "new": true
-            },
-            {
-                "name": "Spine",
-                "link": "asset-workflow/spine.html"
-            },
-            {
-                "name": "Tiledmap",
-                "link": "asset-workflow/tiledmap.html"
-            },
-            {
-                "name": "Import Project From Other Editor",
-                "link": "asset-workflow/project-import.html",
-                "new": true
-            },
-            {
-                "name": "Content Workflow",
+                "name": "Scene Building Workflow",
                 "link": "content-workflow/index.html",
-                "header": true
+                "submenu": [
+                    {
+                        "name": "Node and Component",
+                        "link": "content-workflow/node-component.html"
+                    },
+                    {
+                        "name": "Transform",
+                        "link": "content-workflow/transform.html"
+                    },
+                    {
+                        "name": "Node Tree",
+                        "link": "content-workflow/node-tree.html"
+                    },
+                    {
+                        "name": "Scene Editing",
+                        "link": "content-workflow/scene-editing.html"
+                    }
+                ]
             },
             {
-                "name": "Node and Component",
-                "link": "content-workflow/node-component.html"
-            },
-            {
-                "name": "Transform",
-                "link": "content-workflow/transform.html"
-            },
-            {
-                "name": "Node Tree",
-                "link": "content-workflow/node-tree.html"
-            },
-            {
-                "name": "Scene Editing",
-                "link": "content-workflow/scene-editing.html"
+                "name": "Renderer and Graphics",
+                "link": "render/index.html",
+                "new": true,
+                "submenu": [
+                    {
+                        "name": "Core Renderers",
+                        "link": "render/core-renderer.html"
+                    },
+                    {
+                        "name": "External Asset Renderer",
+                        "link": "render/external-renderer.html"
+                    },
+                    {
+                        "name": "Programming Grahpics",
+                        "link": "render/graphics/index.html"
+                    },
+                    {
+                        "name": "Renderer Component Reference",
+                        "submenu": [
+                            {
+                                "name": "Sprite Reference",
+                                "link": "components/sprite.html"
+                            },
+                            {
+                                "name": "Label Reference",
+                                "link": "components/label.html"
+                            },
+                            {
+                                "name": "Mask Reference",
+                                "link": "components/mask.html"
+                            },
+                            {
+                                "name": "MotionStreak Reference",
+                                "link": "components/motion-streak.html"
+                            },
+                            {
+                                "name": "ParticleSystem Reference",
+                                "link": "components/particle-system.html"
+                            },
+                            {
+                                "name": "TiledMap Reference",
+                                "link": "components/tiledmap.html"
+                            },
+                            {
+                                "name": "Spine Reference",
+                                "link": "components/spine.html"
+                            },
+                            {
+                                "name": "DragonBones Reference",
+                                "link": "components/dragonbones.html"
+                            },
+                            {
+                                "name": "VideoPlayer Reference",
+                                "link": "components/videoplayer.html"
+                            },
+                            {
+                                "name": "WebView Reference",
+                                "link": "components/webview.html"
+                            },
+                            {
+                                "name": "Graphics Reference",
+                                "link": "components/graphics.html"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "name": "UI",
                 "link": "ui/index.html",
-                "header": true
-            },
-            {
-                "name": "Sliced Sprite",
-                "link": "ui/sliced-sprite.html"
-            },
-            {
-                "name": "Multi-Resolution",
-                "link": "ui/multi-resolution.html"
-            },
-            {
-                "name": "Widget Align",
-                "link": "ui/widget-align.html"
-            },
-            {
-                "name": "Label Layout",
-                "link": "ui/label-layout.html"
-            },
-            {
-                "name": "UI Components",
-                "link": "ui/ui-components.html"
-            },
-            {
-                "name": "Auto Layout",
-                "link": "ui/auto-layout.html"
-            },
-            {
-                "name": "List With Data",
-                "link": "ui/list-with-data.html"
-            },
-            {
-                "name": "Animation",
-                "link": "animation/index.html",
-                "header": true
-            },
-            {
-                "name": "About Animation",
-                "link": "animation/animation.html"
-            },
-            {
-                "name": "Animation Component and Clip",
-                "link": "animation/animation-clip.html"
-            },
-            {
-                "name": "Animation Curve",
-                "link": "animation/animation-curve.html"
-            },
-            {
-                "name": "Sprite Animation",
-                "link": "animation/sprite-animation.html"
-            },
-            {
-                "name": "Time Curve",
-                "link": "animation/time-curve.html"
-            },
-            {
-                "name": "Animation Event",
-                "link": "animation/animation-event.html"
-            },
-            {
-                "name": "Scripting Animation",
-                "link": "animation/scripting-animation.html"
-            },
-            {
-                "name": "Collider System",
-                "link": "physics/index.html",
-                "header": true
-            },
-            {
-                "name": "Editing Collider Component",
-                "link": "physics/edit-collider-component.html",
-                "new": true
-            },
-            {
-                "name": "Collision Group Management",
-                "link": "physics/collision-group.html",
-                "new": true
-            },
-            {
-                "name": "Scripting Collision",
-                "link": "physics/collision-manager.html",
-                "new": true
-            },
-            {
-                "name": "Components",
-                "link": "components/index.html",
-                "header": true
-            },
-            {
-                "name": "Sprite",
-                "link": "components/sprite.html"
-            },
-            {
-                "name": "Label",
-                "link": "components/label.html",
-                "new": true
-            },
-            {
-                "name": "RichText",
-                "link": "components/richtext.html",
-                "new": true
-            },
-            {
-                "name": "Spine",
-                "link": "components/spine.html"
-            },
-            {
-                "name": "Animation",
-                "link": "components/animation.html"
-            },
-            {
-                "name": "Canvas",
-                "link": "components/canvas.html"
-            },
-            {
-                "name": "Widget",
-                "link": "components/widget.html"
-            },
-            {
-                "name": "ProgressBar",
-                "link": "components/progress.html"
-            },
-            {
-                "name": "Toggle",
-                "link": "components/toggle.html",
-                "new": true
-            },
-            {
-                "name": "ToggleGroup",
-                "link": "components/toggleGroup.html",
-                "new": true
-            },
-            {
-                "name": "Button",
-                "link": "components/button.html"
-            },
-            {
-                "name": "Mask",
-                "link": "components/mask.html"
-            },
-            {
-                "name": "MotionStreak",
-                "link": "components/motion-streak.html",
-                "new": true
-            },
-            {
-                "name": "ScrollView",
-                "link": "components/scrollview.html"
-            },
-            {
-                "name": "ScrollBar",
-                "link": "components/scrollbar.html"
-            },
-            {
-                "name": "Layout",
-                "link": "components/layout.html"
-            },
-            {
-                "name": "EditBox",
-                "link": "components/editbox.html",
-                "new": true
-            },
-            {
-                "name": "Collider",
-                "link": "components/collider.html",
-                "new": true
-            },
-            {
-                "name": "VideoPlayer",
-                "link": "components/videoplayer.html",
-                "new": true
-            },
-            {
-                "name": "WebView",
-                "link": "components/webview.html",
-                "new": true
+                "submenu": [
+                    {
+                        "name": "Multi-Resolution Support",
+                        "link": "ui/multi-resolution.html"
+                    },
+                    {
+                        "name": "Widget Alignment",
+                        "link": "ui/widget-align.html"
+                    },
+                    {
+                        "name": "Stretchable UI Sprites",
+                        "link": "ui/sliced-sprite.html"
+                    },                    
+                    {
+                        "name": "Label Layout",
+                        "link": "ui/label-layout.html"
+                    },
+                    {
+                        "name": "UI Animation",
+                        "link": "ui/ui-animation.html"
+                    },
+                    {
+                        "name": "Layout Container",
+                        "link": "ui/auto-layout.html"
+                    },
+                    {
+                        "name": "List with Data",
+                        "link": "ui/list-with-data.html"
+                    },
+                    {
+                        "name": "UI 组件参考",
+                        "link": "ui/ui-components.html",
+                        "submenu": [
+                        {
+                                "name": "Canvas Reference",
+                                "link": "components/canvas.html"
+                            },
+                            {
+                                "name": "Widget Reference",
+                                "link": "components/widget.html"
+                            },
+                            {
+                                "name": "Button Reference",
+                                "link": "components/button.html"
+                            },
+                            {
+                                "name": "Layout Reference",
+                                "link": "components/layout.html"
+                            },
+                            {
+                                "name": "EditBox Reference",
+                                "link": "components/editbox.html"
+                            },                    
+                            {
+                                "name": "RichText Reference",
+                                "link": "components/richtext.html"
+                            },                    
+                            {
+                                "name": "ScrollView Reference",
+                                "link": "components/scrollview.html"
+                            },
+                            {
+                                "name": "ScrollBar Reference",
+                                "link": "components/scrollbar.html"
+                            },
+                            {
+                                "name": "ProgressBar Reference",
+                                "link": "components/progress.html"
+                            },                    
+                            {
+                                "name": "Toggle Reference",
+                                "link": "components/toggle.html"
+                            },
+                            {
+                                "name": "ToggleGroup Reference",
+                                "link": "components/toggleGroup.html"
+                            },
+                            {
+                                "name": "Slider Reference",
+                                "link": "components/slider.html"
+                            },
+                            {
+                                "name": "PageView Reference",
+                                "link": "components/pageview.html"
+                            },
+                            {
+                                "name": "PageViewIndicator Reference",
+                                "link": "components/pageviewindicator.html"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "name": "Scripting",
                 "link": "scripting/index.html",
-                "header": true
+                "submenu": [
+                    {
+                        "name": "Node and Components",
+                        "submenu": [
+                            {
+                                "name": "Use Component",
+                                "link": "scripting/use-component.html"
+                            },
+                            {
+                                "name": "cc.Class",
+                                "link": "scripting/class.html"
+                            },
+                            {
+                                "name": "Access Node and Component",
+                                "link": "scripting/access-node-component.html"
+                            },
+                            {
+                                "name": "Common Node and Component API",
+                                "link": "scripting/basic-node-api.html"
+                            },
+                            {
+                                "name": "Component Lifecycle",
+                                "link": "scripting/life-cycle-callbacks.html"
+                            },
+                            {
+                                "name": "Create and Destroy",
+                                "link": "scripting/create-destroy.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Asset Management",
+                        "submenu": [
+                            {
+                                "name": "Scene Management",
+                                "link": "scripting/scene-managing.html"
+                            },
+                            {
+                                "name": "Asset Loading",
+                                "link": "scripting/load-assets.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Event",
+                        "submenu": [
+                            {
+                                "name": "Event System",
+                                "link": "scripting/events.html"
+                            },
+                            {
+                                "name": "Builtin Events",
+                                "link": "scripting/internal-events.html"
+                            },
+                            {
+                                "name": "Player Input",
+                                "link": "scripting/player-controls.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Actions",
+                        "link": "scripting/actions.html"
+                    },
+                    {
+                        "name": "Action List",
+                        "link": "scripting/action-list.html"
+                    },
+                    {
+                        "name": "Scheduler",
+                        "link": "scripting/scheduler.html"
+                    },
+                    {
+                        "name": "Execution Order",
+                        "link": "scripting/execution-order.html"
+                    },
+                    {
+                        "name": "Networking",
+                        "link": "scripting/network.html"
+                    },
+                    {
+                        "name": "Pooling",
+                        "link": "scripting/pooling.html"
+                    },
+                    {
+                        "name": "Script Structure",
+                        "submenu": [
+                            {
+                                "name": "Modular Script",
+                                "link": "scripting/modular-script.html"
+                            },
+                            {
+                                "name": "Plugin Scripts",
+                                "link": "scripting/plugin-scripts.html"
+                            },
+                            {
+                                "name": "Third Party Module",
+                                "link": "scripting/third-party-module.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "JavaScript Primer",
+                        "link": "scripting/javascript-primer.html"
+                    },
+                    {
+                        "name": "CCClass Reference",
+                        "submenu": [
+                            {
+                                "name": "Advanced CCClass",
+                                "link": "scripting/reference/class.html"
+                            },
+                            {
+                                "name": "Attributes",
+                                "link": "scripting/reference/attributes.html"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "name": "Use Component",
-                "link": "scripting/use-component.html"
+                "name": "Animation",
+                "link": "animation/index.html",
+                "submenu": [
+                    {
+                        "name": "Introduction",
+                        "link": "animation/animation.html"
+                    },
+                    {
+                        "name": "Animation Component and Clip",
+                        "link": "animation/animation-clip.html"
+                    },
+                    {
+                        "name": "Animation Curve",
+                        "link": "animation/animation-curve.html"
+                    },
+                    {
+                        "name": "Sprite Animation",
+                        "link": "animation/sprite-animation.html"
+                    },
+                    {
+                        "name": "Time Curve",
+                        "link": "animation/time-curve.html"
+                    },
+                    {
+                        "name": "Animation Event",
+                        "link": "animation/animation-event.html"
+                    },
+                    {
+                        "name": "Animation Scripting",
+                        "link": "animation/scripting-animation.html"
+                    },
+                    {
+                        "name": "Animation Component Reference",
+                        "link": "components/animation.html"
+                    }                    
+                ]
             },
             {
-                "name": "Declare class with cc.Class",
-                "link": "scripting/class.html"
+                "name": "Physics",
+                "link": "physics/index.html",
+                "submenu": [
+                    {
+                        "name": "Collider Component",
+                        "link": "physics/edit-collider-component.html"
+                    },
+                    {
+                        "name": "Collision Group",
+                        "link": "physics/collision-group.html"
+                    },
+                    {
+                        "name": "Collision Scripting",
+                        "link": "physics/collision-manager.html"
+                    },
+                    {
+                        "name": "Collider Component Reference",
+                        "link": "components/collider.html"
+                    }
+                ]
             },
             {
-                "name": "Access Node and Component",
-                "link": "scripting/access-node-component.html"
+                "name": "Audio",
+                "link": "audio/index.html",
+                "submenu": [
+                    {
+                        "name": "Play Audio",
+                        "link": "audio/audio.html"
+                    },
+                    {
+                        "name": "AudioSource Component Reference",
+                        "link": "components/audiosource.html"
+                    }
+                ]
             },
             {
-                "name": "Common Node and Component API",
-                "link": "scripting/basic-node-api.html",
-                "new": true
-            },
-            {
-                "name": "Life Cycle Callbacks",
-                "link": "scripting/life-cycle-callbacks.html"
-            },
-            {
-                "name": "Create and Destroy",
-                "link": "scripting/create-destroy.html"
-            },
-            {
-                "name": "Scene Management",
-                "link": "scripting/scene-managing.html"
-            },
-            {
-                "name": "Events",
-                "link": "scripting/events.html"
-            },
-            {
-                "name": "Internal Events",
-                "link": "scripting/internal-events.html"
-            },
-            {
-                "name": "Player Input",
-                "link": "scripting/player-controls.html",
-                "new": true
-            },
-            {
-                "name": "Actions",
-                "link": "scripting/actions.html"
-            },
-            {
-                "name": "Action List",
-                "link": "scripting/action-list.html"
-            },
-            {
-                "name": "Scheduler",
-                "link": "scripting/scheduler.html"
-            },
-            {
-                "name": "Execution Order",
-                "link": "scripting/execution-order.html"
-            },
-            {
-                "name": "Network",
-                "link": "scripting/network.html"
-            },
-            {
-                "name": "Pooling",
-                "link": "scripting/pooling.html"
-            },
-            {
-                "name": "Asset Loading and Accessing",
-                "link": "scripting/load-assets.html"
-            },
-            {
-                "name": "Modular Script",
-                "link": "scripting/modular-script.html"
-            },
-            {
-                "name": "Third Party Module",
-                "link": "scripting/third-party-module.html"
-            },
-            {
-                "name": "JavaScript Primer",
-                "link": "scripting/javascript-primer.html"
-            },
-            {
-                "name": "CCClass Advanced Reference",
-                "link": "scripting/reference/class.html"
-            },
-            {
-                "name": "Attributes",
-                "link": "scripting/reference/attributes.html"
-            },
-            {
-                "name": "Publishing",
+                "name": "Game Publishing",
                 "link": "publish/index.html",
-                "header": true
-            },
-            {
-                "name": "Publish to Web",
-                "link": "publish/publish-web.html"
-            },
-            {
-                "name": "Setup Native Development",
-                "link": "publish/setup-native-development.html"
-            },
-            {
-                "name": "Publish to Native",
-                "link": "publish/publish-native.html"
-            },
-            {
-                "name": "Debug on Native Platform",
-                "link": "publish/debug-native.html"
-            },
-            {
-                "name": "Publish in Command Line",
-                "link": "publish/publish-in-command-line.html",
-                "new": true
-            },
-            {
-                "name": "Custom Project Build Template",
-                "link": "publish/custom-project-build-template.html",
-                "new": true
+                "submenu": [
+                    {
+                        "name": "Publish to Web",
+                        "link": "publish/publish-web.html"
+                    },
+                    {
+                        "name": "Native Development Environment",
+                        "link": "publish/setup-native-development.html"
+                    },
+                    {
+                        "name": "Publish to Native Platforms",
+                        "link": "publish/publish-native.html"
+                    },
+                    {
+                        "name": "Native Platform Debugging",
+                        "link": "publish/debug-native.html"
+                    },
+                    {
+                        "name": "Publish with Command Line",
+                        "link": "publish/publish-in-command-line.html",
+                        "new": true
+                    },
+                    {
+                        "name": "Customize Project Build Template",
+                        "link": "publish/custom-project-build-template.html",
+                        "new": true
+                    }
+                ]
             },
             {
                 "name": "Editor Extension",
                 "link": "extension/index.html",
-                "header": true
-            },
-            {
-                "name": "Your First Extension",
-                "link": "extension/your-first-extension.html"
-            },
-            {
-                "name": "Install And Share",
-                "link": "extension/install-and-share.html"
-            },
-            {
-                "name": "Introduction to IPC",
-                "link": "extension/introduction-to-ipc.html"
-            },
-            {
-                "name": "Entry Point",
-                "link": "extension/entry-point.html"
-            },
-            {
-                "name": "Extends Main Menu",
-                "link": "extension/extends-main-menu.html"
-            },
-            {
-                "name": "Test Your Package",
-                "link": "extension/test-your-package.html"
-            },
-            {
-                "name": "Customize Gizmo",
-                "link": "extension/custom-gizmo.html",
-                "new": true
-            },
-            {
-                "name": "Advanced Gizmo",
-                "link": "extension/custom-gizmo-advance.html",
-                "new": true
-            },
-            {
-                "name":"Editor API",
-                "link": "extension/api/index.html",
-                "new": true     
-            },
-            { 
-                "name":"AssetDB Module (main)",
-                "link": "extension/api/asset-db-main.html",
-                "new": true
-            },
-            { 
-                "name":"AssetDB Module (renderer)",
-                "link": "extension/api/asset-db-renderer.html",
-                "new": true
-            },            
-            {
-                "name": "package.json Reference",
-                "link": "extension/reference/package-json-reference.html"
-            },
-            {
-                "name": "Main Menu Reference",
-                "link": "extension/reference/main-menu-reference.html"
-            },
-            {
-                "name": "Common IPC Message Reference",
-                "link": "extension/reference/ipc-reference.html",
-                "new": true
+                "new": true,
+                "submenu": [
+                    {
+                        "name": "Extension Workflow",
+                        "submenu": [
+                            {
+                                "name": "Your First Extension",
+                                "link": "extension/your-first-extension.html"
+                            },
+                            {
+                                "name": "Install And Share",
+                                "link": "extension/install-and-share.html"
+                            },
+                            {
+                                "name": "Introduction to IPC",
+                                "link": "extension/introduction-to-ipc.html"
+                            },
+                            {
+                                "name": "Entry Point",
+                                "link": "extension/entry-point.html"
+                            },
+                            {
+                                "name": "Extends Main Menu",
+                                "link": "extension/extends-main-menu.html"
+                            },
+                            {
+                                "name": "Build Panel",
+                                "link": "extension/extends-panel.html"
+                            },
+                            {
+                                "name": "IPC Workflow",
+                                "link": "extension/ipc-workflow.html"
+                            },
+                            {
+                                "name": "Work with Simple Panel",
+                                "link": "extension/define-simple-panel.html"
+                            },
+                            {
+                                "name": "i18n",
+                                "link": "extension/i18n.html"
+                            },
+                            {
+                                "name": "Working Directories",
+                                "link": "extension/working-directory.html"
+                            },
+                            {
+                                "name": "Submit Extension to Cocos Store",
+                                "link": "extension/submit-to-store.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Work with Scene and Assets",
+                        "new": true,
+                        "submenu": [
+                            {
+                                "name": "Scene Script",
+                                "link": "extension/scene-script.html"
+                            },
+                            {
+                                "name": "Asset Management",
+                                "link": "extension/asset-management.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Panel UI",
+                        "submenu": [
+                            {
+                                "name": "Create Panel",
+                                "link": "extension/writing-your-panel.html"
+                            },
+                            {
+                                "name": "UI Kit",
+                                "link": "extension/using-ui-kit.html"
+                            },
+                            {
+                                "name": "Extends UI Kit",
+                                "link": "extension/extends-ui-kit.html"
+                            },
+                            {
+                                "name": "Layout UI Element",
+                                "link": "extension/layout-ui-element.html"
+                            },
+                            {
+                                "name": "Work with Vue.js",
+                                "link": "extension/work-with-vue.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Properties Panel Extension",
+                        "submenu": [
+                            {
+                                "name": "Inspector Extension",
+                                "link": "extension/extends-inspector.html"
+                            },
+                            {
+                                "name": "Property Extension",
+                                "link": "extension/extends-property.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Gizmos Extension",
+                        "submenu": [
+                            {
+                                "name": "Customize Gizmo",
+                                "link": "extension/custom-gizmo.html"
+                            },
+                            {
+                                "name": "Advanced Gizmo",
+                                "link": "extension/custom-gizmo-advance.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Editor API",
+                        "new": true,
+                        "link": "extension/api/index.html",
+                        "submenu": [
+                            {
+                                "name": "AssetDB Module (main)",
+                                "link": "extension/api/asset-db/asset-db-main.html",
+                                "new": true
+                            },
+                            {
+                                "name": "AssetDB Module (renderer)",
+                                "link": "extension/api/asset-db/asset-db-renderer.html",
+                                "new": true
+                            },
+                            {
+                                "name": "Editor Module",
+                                "link": "extension/api/editor-framework/index.html",
+                                "new": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Test Your Extension",
+                        "link": "extension/test-your-package.html"
+                    },
+                    {
+                        "name": "Reference",
+                        "submenu": [
+                            {
+                                "name": "package.json Reference",
+                                "link": "extension/reference/package-json-reference.html"
+                            },
+                            {
+                                "name": "Main Menu Reference",
+                                "link": "extension/reference/main-menu-reference.html"
+                            },
+                            {
+                                "name": "Register Panel Reference",
+                                "link": "extension/reference/panel-json-reference.html"
+                            },
+                            {
+                                "name": "Create Panel Reference",
+                                "link": "extension/reference/panel-reference.html"
+                            },
+                            {
+                                "name": "Custom Element Reference",
+                                "link": "extension/reference/custom-element-reference.html"
+                            },
+                            {
+                                "name": "Common IPC Message Reference",
+                                "link": "extension/reference/ipc-reference.html"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "name": "Advanced Topics",
                 "link": "advanced-topics/index.html",
-                "header": true
+                "submenu": [
+                    {
+                        "name": "Lua Engine Support",
+                        "link": "advanced-topics/build-to-lua.html",
+                        "new": true
+                    },
+                    {
+                        "name": "Hot Update",
+                        "link": "advanced-topics/hot-update.html"
+                    },
+                    {
+                        "name": "i18n",
+                        "link": "advanced-topics/i18n.html",
+                        "new": true
+                    },
+                    {
+                        "name": "User Data Storage",
+                        "link": "advanced-topics/data-storage.html"
+                    },
+                    {
+                        "name": "Engine Customization Workflow",
+                        "link": "advanced-topics/engine-customization.html"
+                    },
+                    {
+                        "name": "Dirty Region Optimization",
+                        "link": "advanced-topics/dirty-region.html"
+                    },
+                    {
+                        "name": "Batch Render BMFont and Sprite",
+                        "link": "advanced-topics/ui-auto-batch.html",
+                        "new": true
+                    },
+                    {
+                        "name": "JavaScript to Java Reflection",
+                        "link": "advanced-topics/java-reflection.html",
+                        "new": true
+                    },
+                    {
+                        "name": "JavaScript to Objective-C Reflection",
+                        "link": "advanced-topics/oc-reflection.html",
+                        "new": true
+                    }
+                ]
             },
             {
-                "name": "Lua Engine Support",
-                "link": "advanced-topics/build-to-lua.html",
-                "new": true
-            },
-            {
-                "name": "Hot Update",
-                "link": "advanced-topics/hot-update.html"
-            },
-            {
-                "name": "i18n Multi-language Setup",
-                "link": "advanced-topics/i18n.html"
-            },
-            {
-                "name": "User Data Storage",
-                "link": "advanced-topics/data-storage.html",
-                "new": true
-            },
-            {
-                "name": "Engine Customization Workflow",
-                "link": "advanced-topics/engine-customization.html",
-                "new": true
-            },
-            {
-                "name": "BMFont and UI auto-batch",
-                "link": "advanced-topics/ui-auto-batch.html",
-                "new": true
-            },
-            {
-                "name": "Integrate Third-party SDKs",
+                "name": "Third Party SDK Integration",
                 "link": "sdk/index.html",
-                "header": true,
-                "new": true
-            },
-            {
-                "name": "Cocos Package",
-                "link": "sdk/cocos-package-overview.html"
-            },
-            {
-                "name": "AnySDK",
-                "link": "sdk/anysdk-overview.html"
-            },
-            {
-                "name": "AnySDK Framework",
-                "link": "sdk/anysdk/anysdk-framework.html"
-
-            },
-            {
-                "name": "Integrate AnySDK",
-                "link": "sdk/anysdk/integrate-anysdk.html"
+                "submenu": [
+                    {
+                        "name": "AnySDK",
+                        "link": "sdk/anysdk-overview.html"
+                    },
+                    {
+                        "name": "AnySDK Framework",
+                        "link": "sdk/anysdk/anysdk-framework.html"
+                    },
+                    {
+                        "name": "Integrate AnySDK in Creator",
+                        "link": "sdk/anysdk/integrate-anysdk.html"
+                    }
+                ]
             }
         ]
     }

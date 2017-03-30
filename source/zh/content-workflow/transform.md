@@ -1,6 +1,6 @@
 # 坐标系和节点变换属性
 
-在 [场景编辑器](../basics/editor-panels/scene.md) 和 [节点和组件](node-component.md) 文档中，我们介绍了可以通过 **变换工具** 和编辑 **属性检查器** 中节点的属性来变更节点的显示行为。这一节我们将会深入了解节点所在场景空间的坐标系，以及节点位置（Position）、旋转（Rotation）、缩放（Scale）、尺寸（Size）四大变换属性的工作原理。
+在 [场景编辑器](../getting-started/basics/editor-panels/scene.md) 和 [节点和组件](node-component.md) 文档中，我们介绍了可以通过 **变换工具** 和编辑 **属性检查器** 中节点的属性来变更节点的显示行为。这一节我们将会深入了解节点所在场景空间的坐标系，以及节点位置（Position）、旋转（Rotation）、缩放（Scale）、尺寸（Size）四大变换属性的工作原理。
 
 ## Cocos Creator 坐标系
 
@@ -75,7 +75,7 @@ Cocos Creator 中的 **节点（Node）** 之间可以有父子关系的层级�
 
 位置属性的默认值是 `(0, 0)`，也就是说，新添加节点时，节点总会出现在父节点的坐标系原点位置。Cocos Creator 中节点的默认位置为 `(0, 0)`，默认锚点设为 `(0.5, 0.5)`。这样子节点会默认出现在父节点的中心位置，在制作 UI 或组合玩家角色时都能够对所有内容一览无余。
 
-在场景编辑器中，可以随时使用 [移动变换工具](../basics/editor-panels/scene.md#--9) 来修改节点位置。
+在场景编辑器中，可以随时使用 [移动变换工具](../getting-started/basics/editor-panels/scene.md#--9) 来修改节点位置。
 
 ### 旋转（Rotation）
 
@@ -85,7 +85,7 @@ Cocos Creator 中的 **节点（Node）** 之间可以有父子关系的层级�
 
 上图所示的节点层级关系和前一张图相同，只是节点 `NodeA` 的 **旋转（Rotation）** 属性设为了 `30` 度，可以看到除了 `NodeA` 本身顺时针旋转了 30 度之外，其子节点 `NodeC` 也以 `NodeA` 的锚点为中心，顺时针旋转了 30 度。
 
-在场景编辑器中，可以随时使用 [旋转变换工具](../basics/editor-panels/scene.md#--10) 来修改节点旋转。
+在场景编辑器中，可以随时使用 [旋转变换工具](../getting-started/basics/editor-panels/scene.md#--10) 来修改节点旋转。
 
 ### 缩放（Scale）
 
@@ -99,7 +99,7 @@ Cocos Creator 中的 **节点（Node）** 之间可以有父子关系的层级�
 
 缩放属性是叠加在位置、尺寸等属性上作用的，修改缩放属性时，节点的位置和尺寸不会变化，但显示节点图像时会先将位置和尺寸等属性和缩放相乘，得出的数值才是节点显示的真实位置和大小。
 
-在场景编辑器中，可以随时使用 [缩放变换工具](../basics/editor-panels/scene.md#--11) 来修改节点缩放。
+在场景编辑器中，可以随时使用 [缩放变换工具](../getting-started/basics/editor-panels/scene.md#--11) 来修改节点缩放。
 
 ### 尺寸（Size）
 
@@ -109,8 +109,4 @@ Cocos Creator 中的 **节点（Node）** 之间可以有父子关系的层级�
 
 而缩放属性是在尺寸数值的基础上进行相乘，得到节点经过缩放后的宽度和高度。可以说在决定图像大小时，尺寸是基础，缩放是变量。另外尺寸属性不会直接影响子节点的尺寸（但可以通过 [对齐挂件（Widget）](../ui/widget-align.md)间接影响），这一点和缩放属性有很大区别。
 
-在场景编辑器中，可以随时使用 [矩形变换工具](../basics/editor-panels/scene.md#--11) 来修改节点尺寸。
-
----
-
-继续前往 [管理节点层级和显示顺序](node-tree.md) 说明文档。
+在场景编辑器中，可以随时使用 [矩形变换工具](../getting-started/basics/editor-panels/scene.md#--11) 来修改节点尺寸。

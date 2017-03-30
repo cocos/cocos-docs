@@ -21,7 +21,3 @@ DragonBones 组件在脚本中的操作请参考 example cases 中的 DragonBone
 |Debug Bones| 显示骨骼
 
 > 注意：当使用 DragonBones 组件时，Node 节点上 `Anchor` 与 `Size` 是无效的。
-
-<hr>
-
-继续前往下一章 [脚本开发工作流程](../scripting/index.md)。

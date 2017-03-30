@@ -38,17 +38,18 @@ gulp build
 This will generated a compiled engine to `bin` folder.
 
 ### Use customized engine in Cocos Creator
-Goto **Preferences** panel and click [Native Develop Tab](../basics/editor-panels/preferences.md#--8). Follow the guide to set 
-the path to your customized JavaScript engine.
 
-## Customized Cocos2d-x Engine
-If you need to change any rendering or native API related function. Besides updating JavaScript engine 
-(so that your change can work with component system) you'll need to synchronize your change to the 
-customized Cocos2d-x-lite engine of Cocos Creator. Please make sure you get the Cocos2d-x-lite engine 
-repo from the link on top of this page, it's not the same as the stand alone Cocos2d-x repo 
-(http://github.com/cocos2d/cocos2d-x)!
+Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized JavaScript engine.
+
+
+## Customized Cocos2d-x C++ Engine
+
+If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article, it's not the same as the stand alone cocos2d-x repo (http://github.com/cocos2d/cocos2d-x)!
+
+Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.2.0 please checkout `v1.2` branch.
 
 ### Initialize
+
 Once cloned, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
@@ -60,12 +61,19 @@ python download-deps.py
 git submodule update --init
 ```
 
+
+### Used customized cocos2d-x-lite engine in Cocos Creator
+
+Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x-lite engine.
+
 ### Build from Source
+
 Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your 
 built project you can just choose `default` template in **Build** panel and compile from the source, no 
 extra command line work needed.
 
 ### Build binary library and simulator
+
 If you want to use a `binary` template to build and compile native project (it's much faster since C++ 
 code are already compiled), you'll need to run these commands:
 
@@ -83,6 +91,7 @@ gulp update-simulator-config
 ```
 
 ## JSB Workflow (JavaScript Binding)
+
 If your changes involves JavaScript and C++ changes at the same time. You should read this article:
 
 - [How to bind C++ to JavaScript](http://www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)

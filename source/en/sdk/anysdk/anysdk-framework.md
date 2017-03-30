@@ -26,7 +26,34 @@ Steps:
 	manualanysdkbindings.cpp
 	jsb_anysdk_protocols_auto.cpp 
 	SDKManager.cpp
+	jsb_anysdk_basic_conversions.h
+	manualanysdkbindings.hpp
+	jsb_anysdk_protocols_auto.hpp 
+	SDKManager.h
 ```
+
+- Delete `main.js` file`s
+``` js
+    // anysdk scripts
+    if (cc.sys.isNative && cc.sys.isMobile) {
+      jsList = jsList.concat(['jsb_anysdk.js', 'jsb_anysdk_constants.js']);
+    }
+```
+need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform. Copy `main.js` that deleted code to  sub-folder 
+Folder Structure: 
+	```
+	project-folder
+	 |--assets
+	 |--build
+	 |--build-templates
+	      |--web-mobile
+	            |--main.js
+	      |--jsb-binary
+	            |--main.js
+	      |--jsb-default
+	            |--main.js
+	```
+
 - Eclipse project
 	* Delete libs directory`s `libPluginProtocol.jar` file
 	* Delete res directory`s
@@ -72,8 +99,20 @@ Steps:
 	* Modify `src/org/cocos2dx/javascript/SDKWrapper.java` file`s `private final static boolean PACKAGE_AS = true;`，`true` changes to  `false`
 - Xcode project
 	* Delete `libPluginProtocol.a` library
+	* Xcode delete `libPluginProtocol.a` reference
+	* Xcode delete `Classes` file reference
+	```
+		jsb_anysdk_basic_conversions.cpp
+		manualanysdkbindings.cpp
+		jsb_anysdk_protocols_auto.cpp 
+		SDKManager.cpp
+		jsb_anysdk_basic_conversions.h
+		manualanysdkbindings.hpp
+		jsb_anysdk_protocols_auto.hpp 
+	```
+	* Delete preprocessor `PACKAGE_AS`
 - Web project
-	* Delete index.html file`s 
+	* Manual: delete index.html file`s 
 		```js
 		<script charset="utf-8" id="protocols" type="text/javascript">
 			var protocols = document.createElement("script");
@@ -86,6 +125,7 @@ Steps:
 			document.body.appendChild(protocols);
 		</script>
   	 	```
+	* Auto: no check `AnySDK` option when built-in
 
 ## After the delete AnySDK still need to use
 - Use Cocos Console command to call ` cocos package import -b anysdk -p project-path --anysdk`

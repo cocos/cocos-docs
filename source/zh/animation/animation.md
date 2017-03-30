@@ -119,7 +119,3 @@
  - ctrl / cmd + left：跳转到第 0 帧
  
  - ctrl / cmd + right：跳转到有效的最后一帧
-
----
-
-继续前往 [创建 Animation 组件和动画剪辑](animation-clip.md)。

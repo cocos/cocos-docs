@@ -26,7 +26,7 @@ After opening the `Hello World` scene, we can see all the contents of this templ
 
 ![breakdown](hello-world/breakdown.jpg)
 
-The content of the scene will be respectively available in four core panels **Assets, Node Tree, Scene and Properties** according to workflows. Introductions to the editor interface and main panels will be in the following [Editor Overview](../basics/editor-overview.md) section in detail.
+The content of the scene will be respectively available in four core panels **Assets, Node Tree, Scene and Properties** according to workflows. Introductions to the editor interface and main panels will be in the following [Editor Overview](basics/editor-overview.md) section in detail.
 
 ## Preview Scene
 
