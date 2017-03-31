@@ -16,6 +16,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Horizontal Align| Horizontal alignment pattern of the text. The options are LEFT, CENTER and RIGHT.
 |Vertical Align| Vertical alignment pattern of the text. The options are TOP, CENTER and BOTTOM.
 |Font Size| Font size of the text.
+|SpacingX | The spacing between font characters, only available in BMFont.
 |Line Height| Line height of the text.
 |Overflow| Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See `Label Layout` for more detailed information.
 |Enable Wrap Text| Enable or disable the text line feed.
