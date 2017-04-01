@@ -29,7 +29,7 @@ For further information please read the [Node Tree](editor-panels/node-tree.md) 
 
 ## Properties
 
-![properties](index/inspector.png)
+![properties](index/inspector.jpg)
 
 **Properties** is the working area where we view and edit the currently selected node and component attribute. This panel will display and edit the attribute data defined by the script in the most suitable way.
 

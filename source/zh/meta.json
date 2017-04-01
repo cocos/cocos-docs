@@ -36,7 +36,6 @@
                     },
                     {
                         "name": "编辑器基础",
-                        "link": "getting-started/basics/index.html",
                         "submenu": [
                             {
                                 "name": "编辑器界面介绍",

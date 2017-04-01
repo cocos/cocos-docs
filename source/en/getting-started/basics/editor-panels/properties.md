@@ -1,6 +1,6 @@
 # Properties
 
-![scene-panel](../index/inspector.png)
+![properites-panel](../index/inspector.jpg)
 
 **Properties** panel is the working area where we check and edit the current selected nodes and component attributes. Select the node in **Scene editor** or **Node Tree**, attributes of this node and attributes of all the components of this node will display in **Properties** panel for your inquiry and editing.
 
