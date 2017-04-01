@@ -2,7 +2,7 @@
 
 这一章将会介绍编辑器界面，熟悉组成编辑器的各个面板、菜单和功能按钮。Cocos Creator 编辑器由多个面板组成，面板可以自由移动、组合，以适应不同项目和开发者的需要。我们在这里将会以默认编辑器布局为例，快速浏览各个面板的名称和作用：
 
-<a href="index/editor-overview.png"><img src="index/editor-overview.png" alt="editor overview"></a>
+<a href="index/editor-overview.png"><img src="index/editor-overview.jpg" alt="editor overview"></a>
 
 ## 资源管理器
 
@@ -30,7 +30,7 @@
 
 ## 属性检查器
 
-![properties](index/inspector.png)
+![properties](index/inspector.jpg)
 
 **属性检查器**是我们查看并编辑当前选中节点和组件属性的工作区域，这个面板会以最适合的形式展示和编辑来自脚本定义的属性数据。
 

@@ -1,93 +1,112 @@
 # 主菜单
 
-中文文档即将更新...
-
 ## Cocos Creator
 
-* **About Cocos Creator**
-Display about information and copyrights of Cocos Creator Editor.
-* **Hide Cocos Creator (Shortcut: <kbd>H</kbd> )**
-*mac only* Hide Cocos Creator window.
-* **Hide Others (Shortcut: <kbd>Shift + H</kbd> )**
-*mac only* Hide all other windows except Cocos Creator
-* **Show All**
-*mac only* Show all hidden window.
-* **Quit (Shortcut: <kbd>Ctrl/Command + Q</kbd> )**
-Exit Cocos Creator Editor
+包括软件信息，偏好设置，窗口控制等功能。
 
-## File
+- **关于 Cocos Creator**：显示 Cocos Creator 的版本和版权信息。
+- **偏好设置**：打开 [偏好设置](editor-panels/preferences.md) 面板，设置编辑器的个性化选项。
+- **隐藏 Cocos Creator (<kbd>Ctrl/Command + H</kbd> )**：（Mac 专属）隐藏编辑器窗口。
+- **隐藏其他应用 (<kbd>Shift + Ctrl/Command + H</kbd> )**：（Mac 专属）隐藏 Cocos Creator 之外的其他应用窗口。
+- **显示全部**：（Mac 专属）显示所有窗口。
+- **最小化（<kbd>Ctrl/Command + M</kbd>）**：最小化 Cocos Creator 编辑器窗口。
+- **退出 (<kbd>Ctrl/Command + Q</kbd> )**：退出编辑器。
 
-* **Open Project...**
-Close Cocos Creator Editor and open Dashboard.
-* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd> )**
-Create a new scene in current project.
-A game consists of one or more scenes. You'll need to create new scenes when you indend to make indepent modules such as new stages, main menu, loading screen, setting screen, etc.
-* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd> )**
-Save the current editing scene.
-A save file dialog will pop up if the current scene is never saved before, in which you can determine where to save your scene file (*.fire). If the scene has been saved, Cocos Creator Editor will update the save file directly.
-> It is suggested to place all scene files in a particular directory for management, for example **assets/scenes**.
-* **Build Settings**
-Set the project build parameters.
-Building is a critical step in the deployment process. Cocos Creator Editor will pack and optimize your game files during building process, in order to make it able to be deployed on various platforms fast, safely and correctly. Through Build Settings, you can fine tuning the parameters for certain needs, as well as to preview your game before deployment.
-You will find more information about Build Settings in the [Tool Windows](#tool-windows] section.
+## 文件
 
-## Edit
-* **Undo (Shortcut: <kbd>Z</kbd> )**
-Undo the last operation.
-* **Redo (Shortcut: <kbd>Shift + Z</kbd> )**
-Redo the latest undone operation.
-* **Cut (Shortcut: <kbd>X</kbd> )**
-Cut the selected Entity into the clipboard.
-* **Copy (Shortcut: <kbd>C</kbd> )**
-Copy the selected Entity into the clipboard.
-* **Paste (Shortcut: <kbd>V</kbd> )**
-Paste the Entity in the clipboard into the current scene.
-* **Select All (Shortcut: <kbd>A</kbd> )**
-Select all Entities in the current scene.
-* **Play (Shortcut: <kbd>Ctrl/Command + P</kbd> )**
-Play current scene in browser.
-* **Reload Connected Device (Shortcut: <kbd>Shift + Ctrl/Command + P</kbd>)**
-Reload browser tab that currently playing the current scene.
+包括场景文件的打开和保存，从其他项目导入场景和资源的功能。
 
-## Panel
+- **打开项目...**：关闭当前打开的项目，并打开 Dashboard 的 **最近打开项目** 分页。
+- **新建场景 (<kbd>Ctrl/Command + N</kbd> )**：关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目路径下。
+- **保存场景 (<kbd>Ctrl/Command + S</kbd> )**：保存当前正在编辑的场景，如果是使用 **新建场景** 菜单项创建的场景，在第一次保存时会弹出对话框，选择场景文件保存的位置和文件名。场景文件以 *.fire 作为扩展名。
+- **导入项目**：从其他场景和 UI 编辑工具中导入场景和项目资源，详情请参考 [导入其他编辑器项目](../../asset-workflow/project-import.md)
+  - **导入 Cocos Studio 项目 (*.ccs)**
+  - **导入 Cocos Builder 项目 (*.ccbproj)**
 
-* **Assets (Shortcut: <kbd>Ctrl/Command + 2</kbd>**
-Open or focus **Assets** panel.
-* **Node Tree (Shortcut: <kbd>Ctrl/Command + 4</kbd>**
-Open or focus **Hierarchy** panel.
-* **Properties (Shortcut: <kbd>Ctrl/Command + 3</kbd>**
-Open or focus **Properties** panel.
-* **Scene (Shortcut: <kbd>Ctrl/Command + 1</kbd>**
-Open or focus **Scene** panel.
+## 编辑
 
-## Layout
-* **Default**
-Classic layout with **Assets**, **Properties**, **Node Tree**, **Scene** and **Console** panels open.
-* **Assets**
-A layout designed for asset and data extension developer, with **Assets**, **Properties**, **AssetDB Debugger** and **Console** panel open.
+包括撤销重做、复制粘贴等常用编辑功能。
 
+- **撤销 (<kbd>Ctrl/Command + Z</kbd> )**：撤销上一次对场景的修改。
+- **重做 (<kbd>Shift + Ctrl/Command + Z</kbd> )**：重新执行上一次撤销的对场景的修改。
+- **拷贝 (<kbd>Ctrl/Command + C</kbd> )**：复制当前选中的节点或字符到剪贴板。
+- **粘贴 (<kbd>Ctrl/Command + V</kbd> )**：粘贴剪贴板中的内容到场景或属性输入框中。
+- **选择全部 (<kbd>Ctrl/Command + A</kbd> )**：选择场景中所有的节点。
 
-##Developer
+## 节点
 
-* **Reload (Shortcut: <kbd>Ctrl/Command + R</kbd> )**
-Reload the Cocos Creator Editor.
-* **Compile (Shortcut: <kbd>F7</kbd> )**
-Recompile all scripts in the current scene.
-* **Developer Tools (Shortcut: <kbd>Alt + Ctrl/Command + I</kbd> )**
-Open the **Developer Tools** window.
-Various useful and powerful features are provided in **Developer Tools** for analyzing, debugging and tracing, which are essential for game script developers. 
-* **Run Test**
-Run unit tests.
+通过这个菜单创建节点，并控制节点到预制的转化。
 
+- **关联节点到预制**：同时选中场景中的一个节点和资源管理器中的一个预制（prefab），然后选中此菜单项，即可关联选中的节点和预制。
+- **还原成普通节点**：选中场景中一个预制节点，执行此命令会将预制节点转化成普通节点。
+- **创建空节点**：在场景中创建一个空节点，如果执行命令前场景中已经选中了节点，新建的节点会成为选中节点的子节点。
+- **创建渲染节点**：创建预设好的包含渲染组件的节点，关于渲染组件的使用方法请参考 [图像和渲染](../../render/index.md) 一章。
+- **创建 UI 节点**：创建预设好的包含 UI 组件的节点，详情请参考 [UI 系统](../../ui/index.md) 一章。
 
-##Help
-* **Website**
-Visit the official website of Cocos Creator Engine for more information.
-* **Documentation**
-Visit the documentation site of Cocos Creator Engine for engine manuals and scripting API references.
-* **Forum**
-Visit the forum of Cocos Creator Engine to share ideas with other users and developers.
-* **Submit An Issue On Github**
-Commit an issue in the Cocos Creator Engine Github repository. You can always let us know by committing issues if you encounter bugs or have better ideas about Cocos Creator Engine. Our team will be cheerful and reply you as soon as possible.
-* **Subscribe To Newsletter**
-Subscribe to Cocos Creator Engine news letters for latest news and updates.
+## 组件
+
+通过这个菜单在当前选中的节点上添加各类组件。
+
+- **添加碰撞组件**：详情请参考 [碰撞组件](../../physics/edit-collider-component.md) 一节。
+- **添加其他组件**：包括动画、音源、拖尾等组件。
+- **添加渲染组件**：详情请参考 [图像和渲染](../../render/index.md) 一章。
+- **添加用户脚本组件**：这里可以添加用户在项目中创建的脚本组件。
+- **添加 UI 组件**：详情请参考 [UI 系统](../../ui/index.md) 一章。
+
+## 项目
+
+运行、构建项目，以及项目专用个性化配置。
+
+- **运行预览 (<kbd>Ctrl/Command + P</kbd>)**：在浏览器或模拟器中运行项目。
+- **刷新已运行的预览 (<kbd>Shift + Ctrl/Command + P</kbd>)**：刷新已经打开的预览窗口。
+- **构建发布... (<kbd>Shift + Ctrl/Command + B</kbd>)**：打开 [构建发布](../../publish/index.md) 面板。
+- **项目设置...**：打开 [项目设置](editor-panels/project-settings.md) 面板。
+
+## 面板
+
+- **资源管理器 (<kbd>Ctrl/Command + 2</kbd>**：打开 [资源管理器](editor-panels/assets.md) 面板。
+- **层级管理器 (<kbd>Ctrl/Command + 4</kbd>**：打开 [层级管理器](editor-panels/node-tree.md) 面板。
+- **属性检查器 (<kbd>Ctrl/Command + 3</kbd>**：打开 [属性检查器](editor-panels/properties.md) 面板。
+- **场景编辑器 (<kbd>Ctrl/Command + 1</kbd>**：打开 [场景编辑器](editor-panels/scene.md) 面板。
+- **控件库 (<kbd>Ctrl/Command + 5</kbd>**：打开 [控件库](editor-panels/node-library.md) 面板。
+- **动画编辑器 (<kbd>Ctrl/Command + 6</kbd>**：打开 [动画编辑器](editor-panels/animation.md) 面板。
+- **控制台 (<kbd>Ctrl/Command + 0</kbd>**：打开 [控制台](editor-panels/console.md) 面板。
+
+## 布局
+
+从预设编辑器布局中选择一个。
+
+- **默认布局**
+- **竖屏布局**
+- **经典布局**
+
+## 扩展
+
+和扩展插件相关的菜单项，详情请阅读 [编辑器扩展](../../extension/index.md) 一章。
+
+- **创建新扩展插件...**
+  - **全局扩展**
+  - **项目专用扩展**
+- **扩展商店...**：打开扩展商店，下载官方和社区提供的扩展插件。
+- **AnySDK**：打开 AnySDK 打包界面，详见 [AnySDK](../../sdk/anysdk-overview.md)。
+
+## 开发者
+
+脚本和编辑器扩展开发相关的菜单功能。
+
+- **VS Code 工作流**：[VS Code](http://code.visualstudio.com/) 代码编辑器的工作环境相关功能，详情请阅读 [代码编辑环境配置](../coding-setup.md) 一节。
+  - **更新 VS Code 智能提示数据**
+  - **安装 VS Code 扩展插件**
+  - **添加 Chrome Debug 配置**
+- **重新加载界面**：重新加载编辑器界面。
+- **手动编译脚本**：触发脚本编译流程。
+- **检视页面元素**：在 Chrome 开发者工具里检视编辑器界面元素
+- **开发者工具**：打开 Chrome 开发者工具，用于编辑器界面扩展的开发
+
+## 帮助
+
+- **搜索**：（Mac 专属）搜索特定菜单项。
+- **使用手册**：在浏览器打开手册文档。
+- **API 文档**：在浏览器打开 API 参考文档。
+- **论坛**：在浏览器打开 Cocos Creator 论坛。
+- **登出**：登出帐号。
