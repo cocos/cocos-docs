@@ -4,12 +4,12 @@ ScrollBar allows the user to scroll a picture (not currently supported in the pu
 
 ![scrollbar.png](./scrollbar/scrollbar.png)
 
-Click the ‘add component’ button at the bottom of the **Properties** panel and select ‘ScrollBar’ from ‘add UI component’. You can then add the ScrollBar component to the node.
+Click the ‘Add component’ button at the bottom of the **Properties** panel and select ‘ScrollBar’ from ‘add UI component’. You can then add the ScrollBar component to the node.
 
 
-## ScrollBar attribute
+## ScrollBar property
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | Handle| ScrollBar foreground picture. Its length/width will be calculated according to the content size of ScrollView and the dimensions of the actual display area.
 | Direction | Scroll direction. You can currently select from either horizontal or vertical.

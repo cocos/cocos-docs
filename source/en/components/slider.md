@@ -6,13 +6,13 @@ Slider is a slider component, For the production of UI components such as volume
 
 ![slider-inspector](./slider/slider-inspector.png)
 
-Click the 'add component' slider at the bottom of the **Properties** panel and select 'Slider' from 'add UI component'. You can then add the Slider component to the node.
+Click the 'Add component' slider at the bottom of the **Properties** panel and select 'Slider' from 'Add UI component'. You can then add the Slider component to the node.
 
 Please refer to the script interface of the slider [Slider API](../api/classes/Slider.html)
 
-## Slider attributes
+## Slider property
 
-| Attributes     | Function explanation |
+| Property     | Function explanation |
 | -------------- | ----------- |
 | handle         | Slider button parts can be adjusted through the button to adjust the size of the Slider value |
 | direction      | The direction of the slider is divided into horizontal and vertical |

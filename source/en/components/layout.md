@@ -14,12 +14,12 @@ Layout is a container component. The container can unlock the auto-layout functi
 
 ![grid-layout](./layout/grid-layout.png)
 
-Click `add component` button at the bottom of **Properties** panel and then select `Layout` from `add UI component`, then you add the Layout component to the node.
+Click `Add component` button at the bottom of **Properties** panel and then select `Layout` from `add UI component`, then you add the Layout component to the node.
 
 
-## Layout attribute
+## Layout property
 
-| Attribute            | Function Explanation                                                                                                            |
+| Property            | Function Explanation                                                                                                            |
 | --------------       | -----------                                                                                                                     |
 | Type                 | Layout type, currently has NONE, HORIZONTAL, VERTICAL and Grid.                                                                 |
 | Resize Mode          | Resize strategies, currently has NONE, CHILDREN and CONTAINER.                                                                  |

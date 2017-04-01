@@ -1,16 +1,16 @@
 # PageviewIndicator component reference
 
-The Page View Indicator Component, Used to display the current page number of the PageView and the page where the tag is currently located.
+The PageViewIndicator Component, Used to display the current page number of the PageView and the page where the tag is currently located.
 
 ![pageviewindicator.png](./pageviewindicator/pageviewindicator.png)
 
-Click the 'add component' pageviewIndicator at the bottom of the **Properties** panel and select 'PageviewIndicator' from 'add UI component'. You can then add the PageviewIndicator component to the node.
+Click the 'Add component' pageviewIndicator at the bottom of the **Properties** panel and select 'PageviewIndicator' from 'add UI component'. You can then add the PageviewIndicator component to the node.
 
 Please refer to the script interface of the pageviewIndicator [PageviewIndicator API](../api/classes/PageviewIndicator.html)
 
-## PageviewIndicator attribute
+## PageviewIndicator property
 
-| Attribute   |   Function description |
+| Property    |   Function description |
 | ----------- | ----------- |
 | spriteFrame | The spriteFrame for each element |
 | direction   | The location direction of PageViewIndicator, currently has HORIZONTAL, VERTICAL |

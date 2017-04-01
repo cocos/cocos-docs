@@ -12,7 +12,7 @@ PageView 是一种页面视图容器.
 
 | 属性                     | 功能说明 |
 | --------------           | ----------- |
-| SizeMode                 | 页面视图中每个页面大小类型 |
+| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型 [SizeMove API] (../api/enums/PageView.SizeMode.html)  |
 | Content                  | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
 | Direction                | 页面视图滚动方向 |
 | ScrollThreshold          | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |

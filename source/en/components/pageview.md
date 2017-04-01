@@ -1,21 +1,21 @@
 # PageView component reference
 
-The Page view, Use when you need to switch the entire page.
+PageView component is derived from ScrollView, the difference is that when scrolls it automatically snaps to next page of content.
 
 ![pageview-inspector](./pageview/pageview-inspector.png)
 
-Click the 'add component' pageView at the bottom of the **Properties** panel and select 'PageView' from 'add UI component'. You can then add the PageView component to the node.
+Click the 'Add component' pageView at the bottom of the **Properties** panel and select 'PageView' from 'Add UI Component'. This will add PageView component to the current node.
 
-Please refer to the script interface of the pageView [PageView API](../api/classes/PageView.html)
+Please refer to the script interface of the PageView [PageView API](../api/classes/PageView.html)
 
-## PageView attribute
+## PageView property
 
-| Attribute                | Function description |
+| Property                 | Function description |
 | --------------           | ----------- |
-| SizeMode                 | Specify the size type of each page in PageView |
-| Content                  | It is a node reference that is used to create the contents of the PageView |
+| SizeMode                 | Specify the size type of each page in PageView, currently has Unified, Free Type [SizeMode API] (../api/enums/PageView.SizeMode.html)|
+| Content                  | It is a node reference that is used to contain the contents of the PageView |
 | Direction                | The page view direction |
-| ScrollThreshold          | The scroll threshold value, when drag exceeds this value, release the next page will automatically scroll, less than the restore |
+| ScrollThreshold          | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
 | AutoPageTurningThreshold | Auto page turning velocity threshold. When users swipe the PageView quickly, it will calculate a velocity based on the scroll distance and time, if the calculated velocity is larger than the threshold, then it will trigger page turning. |
 | Inertia                  | When inertia is set, the content will continue to move when touch ended |
 | Brake                    | It determines how quickly the content stop moving. A value of 1 will stop the movement immediately. A value of 0 will never stop the movement until it reaches to the boundary of scrollview. |
@@ -30,7 +30,7 @@ Please refer to the script interface of the pageView [PageView API](../api/class
 
 ![pageview-event](./pageview/pageview-event.png)
 
-| Attribute       | Function description |
+| Property        | Function description |
 | --------------  | -----------                                                  |
 | Target          | Node with script component |
 | Component       | Script component name |
@@ -41,7 +41,7 @@ PageView event callback has two parameters, the first parameter is the PageView 
 
 ## Detailed explanation
 
-The PageView component must have the specified content node to work£¬Each child node in content is a separate page£¬The size of each page is the size of the PageView node£¬The operation effect is divided into two kinds£ºThe first type: slow sliding, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size) after the release will automatically slide to the next page. The second: fast sliding, fast to a direction to drag, automatically slide the next page, each slide up to only one page.
+The PageView component must have the specified content node to work, Each child node in content is a separate page, The size of each page is the size of the PageView node, The operation effect is divided into two kinds: The first type: slow sliding, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size) after the release will automatically slide to the next page. The second: fast sliding, fast to a direction to drag, automatically slide the next page, each slide up to only one page.
 
 Usually a PageView node tree as shown below:
 
