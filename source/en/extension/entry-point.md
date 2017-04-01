@@ -1,13 +1,13 @@
 # Entry Point
 
-Each packages can specify an entry file, the file will be loaded in the main process of Cocos Creator. Usually we do the following tasks in our entry file:
+Each package can specify an entry file, the file will be loaded in the main process of Cocos Creator. Usually we do the following tasks in our entry file:
 
- - Initialize our package
+ - Initialize a package
  - Run background service
  - Call methods in the main process of Cocos Creator
  - Manage package's panels
 
-Here is an example of our entry file:
+Here is an example of an entry file:
 
 ```javascript
 'use strict';
@@ -27,15 +27,15 @@ module.exports = {
 
 ### load
 
-When the package has been loaded, the `load` function will be invoked. This is ideal place for us to do some initialize stuff for the package.
+When the package has been loaded, the `load` function will be invoked. This is the ideal place for us to do some initializing for the package.
 
 ### unload
 
-When the package unloaded, the `unload` function will be invoked. We can clean up memory, unregister functions in here.
+When the package has been unloaded, the `unload` function will be invoked. You can clean up memory and unregister functions here.
 
 ## Register IPC messages
 
-If you want to listen to IPC messages in main process, you can add it in `messages` field. Here is an example:
+If you want to listen to IPC messages in main process, you can add it in `messages` field. Example:
 
 ```javascript
 'use strict';
@@ -48,13 +48,11 @@ module.exports = {
 };
 ```
 
-We can see the two message naming styles in the above code:
-
 ### Short Message
 
-Short message is the message name without `:`. A short message will be extends to `${your-package-name}:${message-name}` during registry. Suppose our package name is "simple-demo", and the "foo-bar" in above example will be extends to "simple-demo:foo-bar" in the end.    
+Short message is the message name without a `:`. A short message will be expanded to `${your-package-name}:${message-name}` during package registration. Suppose our package name is "simple-demo", and the "foo-bar" in above example will be expanded to "simple-demo:foo-bar" in the end.    
 
-In practice, we can send IPC message to theses short registry through `Editor.sendToPackage`:
+In practice, we can send IPC messages to the short registry through `Editor.sendToPackage`:
 
 ```javascript
 Editor.sendToPackage('simple-demo', 'foo-bar');

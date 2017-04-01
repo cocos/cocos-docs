@@ -169,13 +169,11 @@ cc.Class({
     extends: cc.Component,
 
     start: function () {
-        this.cannons = [];
-        this.cannons = this.node.getChildren();
+        var cannons = this.node.children;
+        // ...
     }
 });
 ```
-
-The `getChildren` is the `cc.Node`'s built-in API which returns all children in an array.
 
 You can also use `getChildByName`:
 

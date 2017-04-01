@@ -15,6 +15,9 @@
 - **Q**: 我使用 Cocos Creator 能开发面向哪些平台的游戏？
 - **A**: Cocos Creator 目前支持发布游戏到 Web、Android 和 iOS，以及点开即玩原生性能的 Cocos Play 手机页游平台，真正实现一次开发，全平台运行。
 
+- **Q**: Cocos Creator 能开发Cocos2d-x C++ 或者 Lua 的游戏吗？
+- **A**: Cocos Creator 可以通过安装C++/Lua for Creator插件，在编辑器里编辑UI和场景，导出通用的数据文件，在Cocos2d-x引擎中进行加载运行。
+
 
 ## 产品定位
 
@@ -47,7 +50,7 @@ Cocos Creator 包含游戏引擎、资源管理、场景编辑、游戏预览和
 
 <a href="introduction/cocos-workflow-user.jpg"><img src="introduction/cocos-workflow-user.jpg" alt="Cocos Creator workflow"></a>
 
-Cocos Creator 将 Cocos Play 的整套手机页游解决方案整合在了编辑器工具里，无需在多个软件之间穿梭，只要打开 Cocos Creator 编辑器，各种一键式的自动化流程就能花最少的时间精力，解决上述所有问题。开发者就能够专注于开发阶段，提高产品竞争力和创造力！
+Cocos Creator 将整套手机页游解决方案整合在了编辑器工具里，无需在多个软件之间穿梭，只要打开 Cocos Creator 编辑器，各种一键式的自动化流程就能花最少的时间精力，解决上述所有问题。开发者就能够专注于开发阶段，提高产品竞争力和创造力！
 
 
 ## 功能特性

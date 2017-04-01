@@ -1,23 +1,26 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and C++ (custom version of cocos2d-x). They are both open sourced on github:
+The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and C++ (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
 - Creator-JS engine: https://github.com/cocos-creator/engine
 - Cocos2d-x-lite engine：https://github.com/cocos-creator/cocos2d-x-lite
 
-For the purpose of customize engine, we recommend that you follow the fork workflow of github, please read [github help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn details. More related github workflow can be looked up here: [github help](https://help.github.com).
+If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. 
+Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
 ## Customize JavaScript Engine
 
-If your concern is only Web games, or what you want to change in the engine is not native API related (for example UI and animation components), you just need to follow the workflow here:
+If your concern is only Web based games, or what you want to change in the engine is not native API 
+related (for example UI and animation components), you just need to follow the workflow here:
 
 ### Get JavaScript Engine Repository
-
-First of all you need to clone the engine repository or forked repository. You have to make sure the repo is at the corresponding branch. For example to customize engine for Cocos Creator v1.1.2 you'll need to checkout `v1.1` branch; for Cocos Creator v1.2.1 you'll need to checkout `v1.2` branch. Once clone is completed, go to the repo's folder in your command line tool (or terminal on mac).
+First, you need to clone the engine repository or fork the repo. You have to make sure the repo is 
+at the corresponding branch. For example to customize engine for __Cocos Creator v1.1.2__ you'd need 
+to checkout `v1.1` branch; for __Cocos Creator v1.2.1__ you'd need to checkout `v1.2` branch. 
+Once cloning is completed, go to the repo's folder in command-line shell.
 
 ### Install NPM Dependencies
-
-We use npm and gulp for engine building so let's install those dependencies:
+__npm__ and __gulp__ are core components for engine building. These need to be installed. Example:
 
 ```bash
 npm install -g gulp
@@ -25,7 +28,6 @@ npm install
 ```
 
 ### Change and Build
-
 Now you can do whatever you want to the engine, once you finished:
 
 ```bash
@@ -33,7 +35,7 @@ Now you can do whatever you want to the engine, once you finished:
 gulp build
 ```
 
-This will generated comipled engine to `bin` folder.
+This will generated a compiled engine to `bin` folder.
 
 ### Use customized engine in Cocos Creator
 
@@ -48,7 +50,7 @@ Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on corre
 
 ### Initialize
 
-Once cloned, enter the cocos2d-x-lite engine folder and run:
+Once cloned, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
 # Install NPM dependencies
@@ -66,11 +68,14 @@ Goto **Preferences** panel and click [Native Develop Tab](../getting-started/bas
 
 ### Build from Source
 
-Next you can start working on updating code for cocos2d-x-lite. If you want to use source code in your build project you can just choose `default` template in **Build** panel and compile from the source, no extra command line work needed.
+Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your 
+built project you can just choose `default` template in **Build** panel and compile from the source, no 
+extra command line work needed.
 
 ### Build binary library and simulator
 
-If you want to use `binary` template to build and compile native project (it's much faster since C++ code are already compiled), you'll need to run these commands:
+If you want to use a `binary` template to build and compile native project (it's much faster since C++ 
+code are already compiled), you'll need to run these commands:
 
 ```bash
 # use cocos console to generate prebuilt binary libs
@@ -84,7 +89,6 @@ To generate simulator to preview your changes:
 gulp gen-simulator
 gulp update-simulator-config
 ```
-
 
 ## JSB Workflow (JavaScript Binding)
 

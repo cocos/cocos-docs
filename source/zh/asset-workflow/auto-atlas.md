@@ -16,14 +16,16 @@
 
 | 属性 |   功能说明
 | -------------- | ----------- |
-| Max Width | 单张图集最大宽度
-| Max Height | 单张图集最大高度
-| Padding | 图集中碎图之间的间距
-| Allow Rotation | 是否允许旋转碎图
-| Force Squared | 是否强制将图集长宽大小设置成正方形
-| PowerOfTwo | 是否将图集长宽大小设置为二次方倍数
-| Heuristices | 图集打包策略， 可选的策略有 [BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule]
-| Format | 图集图片生成格式，可选的格式有 [png, jpg, webp]
+| 最大宽度 | 单张图集最大宽度
+| 最大高度 | 单张图集最大高度
+| 间距 | 图集中碎图之间的间距
+| 允许旋转 | 是否允许旋转碎图
+| 输出大小为正方形 | 是否强制将图集长宽大小设置成正方形
+| 输出大小为二次幂 | 是否将图集长宽大小设置为二次方倍数
+| 算法 | 图集打包策略， 可选的策略有 [BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule]
+| 输出格式 | 图集图片生成格式，可选的格式有 [png, jpg, webp]
+| 扩边 | 在碎图的边框为扩展出一像素外框，并复制相邻碎图像素到外框中
+| 不包含未被引用资源 | 在预览中，此选项不会生效，构建后此选项才会生效
 
 配置完成后可以点击 **预览** 按钮来预览打包的结果，按照当前自动图集配置生成的相关结果将会展示在 **属性检查器** 下面的区域。
 需要注意的是每次配置过后，需要重新点击 **预览** 才会重新生成预览信息。
