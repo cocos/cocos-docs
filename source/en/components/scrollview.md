@@ -7,12 +7,12 @@ along with the `Mask` component and the `ScrollBar` component can also be added 
 
 ![scrollview-inspector](./scrollview/scrollview-inspector.png)
 
-Click the `add component` button at the bottom of the **Properties** panel and select `ScrollView` from `add UI component` You can then add the ScrollView component to the node.
+Click the `Add component` button at the bottom of the **Properties** panel and select `ScrollView` from `add UI component` You can then add the ScrollView component to the node.
 
 
-## ScrollView attribute
+## ScrollView property
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | Content| A reference node for creating scrollable content from ScrollView. It could be a node containing a very large picture.
 | Horizontal | Boolean value, whether horizontal scroll is allowed or not.
@@ -28,7 +28,7 @@ Click the `add component` button at the bottom of the **Properties** panel and s
 ## ScrollView Event
 ![scrollview-event](./scrollview/scrollview-event.png)
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.

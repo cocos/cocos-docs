@@ -4,13 +4,13 @@ EditBox is a text input component, you could use this component to gather user i
 
 ![editbox](./editbox/editbox.png)
 
-Click `add component` button at the bottom of **Properties** panel and then select `EditBox` from `add UI component`, then you add the EditBox component to the node.
+Click `Add component` button at the bottom of **Properties** panel and then select `EditBox` from `add UI component`, then you add the EditBox component to the node.
 
 For EditBox API reference, please refer to [EditBox API](../api/classes/EditBox.html).
 
-## Layout attribute
+## Layout property
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | String| The initial input text of EditBox.
 | Background Image | The background image of EditBox.
@@ -32,7 +32,7 @@ For EditBox API reference, please refer to [EditBox API](../api/classes/EditBox.
 ![editbox-event](./editbox/editbox-event.png)
 
 ### Editing Did Began Event
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.
@@ -40,14 +40,14 @@ For EditBox API reference, please refer to [EditBox API](../api/classes/EditBox.
 
 
 ### Text Changed Event
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.
 |Handler| Assign a callback function which will be triggered when user is editing text.
 
 ### Editing Did Ended Event
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.
