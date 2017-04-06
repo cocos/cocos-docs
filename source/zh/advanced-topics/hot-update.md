@@ -2,8 +2,6 @@
 
 ## 前言
 
-**本篇文档基于 Cocos Creator v0.7.1 完成**
-
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
 本篇文档的范例工程可以从 [Github 仓库](https://github.com/cocos-creator/tutorial-hot-update)获取。
@@ -117,7 +115,7 @@ if (cc.sys.isNative) {
 
 以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到[论坛](http://www.cocoachina.com/bbs/thread.php?fid-71.html)中。
 
-## 参考
+## Next Step
 
-1. [资源管理器 Assets Manager 文档](http://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/html5/v3/assets-manager/zh.md)
+1. [热更新管理器文档](assets-manager.md)
 

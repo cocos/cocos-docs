@@ -1,6 +1,8 @@
 # 进阶主题
 
-- [动态热更新](hot-update.md)
+- 热更新管理器
+    + [热更新范例教程](hot-update.md)
+    + [热更新管理器文档](assets-manager.md)
 - [Lua 引擎支持](build-to-lua.md)
 - [i18n 游戏多语言支持](i18n.md)
 - [存储和读取用户数据](data-storage.md)
