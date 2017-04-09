@@ -4,7 +4,7 @@
 
 ## 安装 Cocos-Debug VS Code 插件
 
-首先下载 [Cocos Debug](http://cocostudio.download.appget.cn/CocosCreator/vscode/cocos-debug.zip) VS Code 插件，将解压后的 `cocos-debug` 文件夹拷贝到用户文件夹的 `.vscode/extensions` 路径下，然后启动 VS Code。
+在 Cocos Creator 的开发者菜单中，选择 VS Code 工作流，再选择安装 VS Code 扩展插件，插件就会被自动安装到用户文件夹的 `.vscode/extensions` 路径下，然后启动 VS Code。
 
 安装插件成功后，在 VS Code 左侧 tab 中选择第四个 **Debug**，然后可以点击上面的齿轮选择 `Cocos-JSB` 调试方案。
 
