@@ -51,6 +51,9 @@ When switching font assets the other properties in **Label** component will stay
 
 Another shortcut method to create font asset is to drag TTF or Bitmap font asset from **Assets** panel to **Node Tree** or **Scene** panel. The selected font asset will be automatically assigned to the `File` property of Label component.
 
+## Bitmap font bash renderig
+
+If the texture used by the bitmap font and the other Sprite are the same, and the bitmap font and the Sprite do not have a render object that is inserted with another texture, the bitmap font can merge the rendering batches with the Sprite. When placing a bitmap font resource, place the .fnt file, the .png file, and the texture file used by the Sprite in a folder, and then reference the [Auto-atlas Asset](auto-atlas.md) to put the texture of the bitmap font and the texure used by the Sprite Into an atlas, the bitmap font bash rendering can be active in the native and WebGL environment automatically.
 
 <hr>
 
