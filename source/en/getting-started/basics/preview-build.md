@@ -1,4 +1,4 @@
-# Build and preview
+# Build and Preview
 
 So far we have introduced main panels of the editor so you can manage assets, build scene and tweaking components. Then it's time to preview and build the game to run on your target platform.
 
@@ -51,7 +51,3 @@ The next step is to build your game so it can run on the target platform's devic
 For detailed information of publish your game, please read [Cross-platform Game Publish](../publish/index.md).
 
 **Notice** running your game in simulator may not be the same as running your game on real device. Please always check your game on target platform before releasing it.
-
-<hr>
-
-Continue to read [Asset Workflow](../asset-workflow/index.md).
