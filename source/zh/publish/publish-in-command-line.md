@@ -32,6 +32,9 @@
  - `sourceMaps` - 是否需要加入 source maps
  - `webOrientation` - web mobile 平台下的旋转选项 [landscape, portrait, auto]
  
+ - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
+ - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
+
  - `packageName` - 包名
  - `useDebugKeystore` - 是否使用 debug keystore
  - `keystorePath` - keystore 路径

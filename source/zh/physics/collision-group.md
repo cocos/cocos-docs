@@ -23,7 +23,7 @@
 
 根据上面的规则，在这张表里产生的碰撞对有： 
 
-Platform - Bullet
-Collider - Collider
-Actor - Wall
-Actor - Platform
+Platform - Bullet   
+Collider - Collider   
+Actor - Wall   
+Actor - Platform   

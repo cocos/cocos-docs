@@ -32,6 +32,9 @@ You can also compile project by using `--compile` command, the parameters is the
  - `sourceMaps` - Whether or not need add source maps
  - `webOrientation` - Orientation option on web mobile [landscape, portrait, auto]
  
+ - `inlineSpriteFrames` - Whether or not inline all SpriteFrames
+ - `mergeStartScene` - Whether or not merge all JSON that the Start Scene depends on
+ 
  - `packageName` - Package Name
  - `useDebugKeystore` - Whether or not use debug keystore
  - `keystorePath` - Keystore path
