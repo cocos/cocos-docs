@@ -6,10 +6,12 @@ Apart from the information provided in this guide, you can also obtain informati
 
 - [Cocos2d-x](http://www.cocos2d-x.org/)
 - [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/editors-and-tools/cocos-creator)
-- QQ group：548341746
+- QQ group：577848332
 
 
-## Presentation and example projects
+## Demo and example projects
+
+**Notice:** all demo projects on Github have different branches matching Cocos Creator version. Please use corresponding branch to prevent unmatching engine API. 
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
@@ -17,9 +19,10 @@ Apart from the information provided in this guide, you can also obtain informati
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
-- [i18n Internalization Demo](https://github.com/cocos-creator/i18n-example): Please learn with [i18n Multi-language support](../advanced-topics/i18n.md)
+- [i18n Internalization Demo](https://github.com/nantas/demo-i18n): Please learn with [i18n Multi-language support](../advanced-topics/i18n.md)
 - [Responsive UI Demo](https://github.com/cocos-creator/demo-responsive-ui): Responsive UI system that can fit any device screen size.
 - [Combat Animation Demo](https://github.com/cocos-creator/demo-combat-animation): Use flexible and powerful animation editor to create combat animation.
+- [Team Building UI Demo](https://github.com/cocos-creator/demo-team-build-ui): Showcase how to use prefab and json data to populate dynamic UI contents.
 
 ## Native Development Library
 
@@ -32,6 +35,13 @@ Code libraries needed for zipping and sending to the Android platform:
 - [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
 
 ## Other third-party tools and resources
+
+### Code IDE
+
+- [VS Code](https://code.visualstudio.com/) Recommended coding environment for Cocos Creator.
+- [WebStorm](https://www.jetbrains.com/webstorm/)
+- [Sublime Text](http://www.sublimetext.com/)
+- [Atom](https://atom.io/)
 
 ### Tools for generating texture packer
 
@@ -58,8 +68,3 @@ Code libraries needed for zipping and sending to the Android platform:
 ### Other game development resources
 
 - [Cocos Store](http://store.cocos.com/): various game art assets, extension tools
-
-
----
-
-Continue on to read about [Basics](basics/index.md).

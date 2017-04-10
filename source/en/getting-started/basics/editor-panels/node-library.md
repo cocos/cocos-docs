@@ -8,7 +8,7 @@ When wo use the default layout, the node library will be displayed in the editor
 
 **Node Library** includes two categories, represented by the two tabs:
 
-## Creator
+## Builtin Nodes
 
 As shown in the figure above, this lists all the built-in default nodes in the editor. 
 Drag the control to the scene, you can quickly generate sprite what including default resource, button that contains the background map and text caption and has been configured with good content, as well as scroll view that has already been configured for content and scroll bars. And so on other nodes.
@@ -17,11 +17,11 @@ The contents of the **Node Library** are the same as that of the **Nodes** in th
 
 Along with the subsequent add more functionality, We will continue to add nodes to the control library
 
-## User
+## Custom Nodes
 
 ![custom](node-library/custom-prefab.jpg)
 
-This column can collect the user's own set of [Prefab](../../asset-workflow/prefab.md), convenient repeatedly create。
+This column can collect the user's own set of [Prefab](../../../asset-workflow/prefab.md), convenient repeatedly create。
 
 To add custom prefabricated controls, Only need from the resource manager to drag the corresponding prefabricated resources (Prefab) to the custom control page.
 
