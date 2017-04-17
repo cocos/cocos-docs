@@ -39,12 +39,13 @@ cc.load.load('raw-assets/resources/background.mp3', callback);
 
 #### 强制使用 dom element 加载
 
-音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值。
-这样在 audioDownloader 中，就会强制使用 DOM element 的方式加载播放这个音频。
 
-```
-cc.load.load('raw-assets/resources/background.mp3?useDom=1', callback);
-```
+1. 在资源管理器内选中一个 audio，属性检查器内会有加载模式的选择
+
+2. 音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM element 的方式加载播放这个音频。
+    ```
+    cc.load.load('raw-assets/resources/background.mp3?useDom=1', callback);
+    ```
 
 需要注意的是，如果使用 dom element 加载的音频，在 cc.load 的 cache 中，缓存的 url 也会带有 ?useDom=1
 **建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
