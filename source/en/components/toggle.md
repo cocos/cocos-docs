@@ -4,7 +4,7 @@ The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 
 ![toggle1](./toggle/toggle.png)
 
-Click the ‘Add component’ button at the bottom of the **Properties** panel and select ‘Toggle’ from ‘Add UI component’. You can then add the Toggle component to the node.
+Click the `Add component` button at the bottom of the **Properties** panel and select `Toggle` from `Add UI component`. You can then add the Toggle component to the node.
 
 The API reference of Toggle is here: [Toggle API](../api/classes/toggle.html)。
 
@@ -14,7 +14,7 @@ The API reference of Toggle is here: [Toggle API](../api/classes/toggle.html)。
 |isChecked       | Boolean type，When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled.
 |checkMark       | cc.Sprite type，The image used for the checkmark.
 |toggleGroup     | cc.ToggleGroup type， The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton.
-|Check Events    | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter ‘Button Event’.
+|Check Events    | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
 
 Note: Because Toggle is inherited from Button, so the attributes exists in Button also apply to Toggle, please refer to the Button component manual for more information.
 

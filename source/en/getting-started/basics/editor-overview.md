@@ -7,7 +7,7 @@ This chapter will introduce the editor interface and get familiar with each of t
 
 ![assets](index/assets.png)
 
-**Asset manager** shows all the assets in the project asset file (‘assets’). It will show the folder in a dendritic structure and auto-sync the content changes in the project resource folder from the operating system. You can drag files in or use the menu to import resources.
+**Asset manager** shows all the assets in the project asset file (`assets`). It will show the folder in a dendritic structure and auto-sync the content changes in the project resource folder from the operating system. You can drag files in or use the menu to import resources.
 
 For further information please read the [asset manager](editor-panels/assets.md) section.
 

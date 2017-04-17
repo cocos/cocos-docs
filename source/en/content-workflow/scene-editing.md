@@ -1,6 +1,6 @@
 # Build scene graph with scene editor
 
-This section will introduce the workflow and tips of using **Scene**  panel to create and editing scenes.
+This section will introduce the workflow and tips of using **Scene**  panel to create and editing scene contents.
 
 ## Use Canvas as root node for all renderers
 
@@ -75,7 +75,3 @@ If we have selected 3 Label nodes, the align buttons from left to right will hav
 Be aware that align node function use each node's bounding box for reference, not their position. Below we align 3 Label nodes with different width to the right, and their x position are not considered.
 
 ![align to right](scene-editing/align-to-right.png)
-
-<hr>
-
-Continue on to read about [UI system](../ui/index.md).

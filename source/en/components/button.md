@@ -6,7 +6,7 @@ The button component responds to a click from the user. When the user clicks a B
 
 ![button-color](./button/button-color.png)
 
-Click the ‘Add component’ button at the bottom of the **Properties** panel and select ‘Button’ from ‘add UI component’. You can then add the Button component to the node.
+Click the `Add component` button at the bottom of the **Properties** panel and select `Button` from `add UI component`. You can then add the Button component to the node.
 
 ## Button property
 
@@ -14,8 +14,8 @@ Click the ‘Add component’ button at the bottom of the **Properties** panel a
 | -------------- | ----------- |
 |Interactable| Boolean type, if set to false then the Button component enters the forbidden state.
 |enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false. Don't  take effect when Transition type is SPRITE and the disabledSprite property is exists.
-|Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please check more detailed information in the chapter ‘Button Transition’.
-|Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter ‘Button Event’.
+|Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please check more detailed information in the chapter `Button Transition`.
+|Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
 
 
 ### Button Transition

@@ -10,7 +10,7 @@ Now, let's see its detailed using method:
 
     ```
     component.schedule(function() {
-        // Here ‘this’ is referring to the component
+        // Here `this` is referring to the component
         this.doSomething();
     }, 5);
     ```
@@ -27,7 +27,7 @@ Now, let's see its detailed using method:
     // Start delay
     var delay = 10;
     component.schedule(function() {
-        // Here ‘this’ is referring to the component
+        // Here `this` is referring to the component
         this.doSomething();
     }, interval, repeat, delay);
     ```
@@ -38,7 +38,7 @@ Now, let's see its detailed using method:
 
     ```
     component.scheduleOnce(function() {
-        // Here ‘this’ is referring to the component
+        // Here `this` is referring to the component
         this.doSomething();
     }, 2);
     ```

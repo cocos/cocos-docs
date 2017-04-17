@@ -1,6 +1,6 @@
-# Manage Node Tree and Render Order
+# Node Tree and render order
 
-We've learnd that by combining Node and Components we can create all kinds of graphics, text and interactive elements in the scene. We can use **Node Tree** panel to arrange their render order and hierarchy to make things organized.
+We've learnt that by combining Node and Components we can create all kinds of image, text and interactive elements in the scene. We can use **Node Tree** panel to arrange their render order and hierarchy to make things organized.
 
 
 ## Introduce to Node Tree Panel
@@ -9,9 +9,9 @@ When creating and positioning nodes in **Scene** panel you get the convenience o
 
 ## Node Tree (Scene Graph)
 
-Node tree is a data structure that arranges a graphical scene, it's also called **Scene Graph** in cocos2d-x term.
+**Node tree** is a data structure that arranges the hierarchy of nodes in scene, it's also called **Scene Graph** in cocos2d-x term.
 
-You can read the [Basic concept chapter of cocos2d-x programmer guide](http://www.cocos2d-x.org/docs/programmers-guide/basic_concepts/index.html), it describe the node tree very well with some pictures below.
+You can read the [Basic concept chapter of cocos2d-x programmer guide](http://www.cocos2d-x.org/docs/programmers-guide/basic_concepts/index.html), it describes the node tree very well with some pictures below.
 
 Here's a simple game scene with background image, 3 actors, some text and a start game button:
 
@@ -25,11 +25,11 @@ Each two nodes connected with an arrow have parent-child relationship. We call t
 
 ![in node tree](node-tree/in_hierarchy.png)
 
-We use parent nodes to categorize and put all similar nodes under the same parent. In real projects we have many more options that can fit specific needs. Let's go over the full functions of parent-child relationship and how can we utilize those functions in real project.
+We use parent nodes to hold similar nodes together. In real projects we have many more options that can fit specific needs. Let's go over the details of parent-child relationship and how can we utilize them in real project.
 
 ### Local Coordinate System for Node
 
-In previous section [Local Coordinate System](transform.md#-world-coordinate-local-coordinate-) we understand that one of the key function of parent child relationship is to transform child node within Local Coordinate System.
+In previous section [Local Coordinate System](transform.md#-world-coordinate-local-coordinate-) we understand that one of the key feature of parent child relationship is to transform child node within Local Coordinate System.
 
 The World Coordinate System's origin is at the bottom left of screen. If there's no parent child relationship and all nodes are using World Coordinates, when we want two nodes to be at the center of the background node we will have coordinates like this:
 
@@ -47,9 +47,9 @@ If we want multiple nodes to move/scale/rotate as a whole, the parent child rela
 
 ![transform whole](node-tree/transform_whole.png)
 
-In real game project we will have a lot of character made of combined nodes. Let's see how can we manage our node tree based on logic.
+In real game project we will have a lot of actors made of combined nodes. Let's see how can we manage our node tree based on logic.
 
-### 管理节点逻辑关系
+### Manage nodes by logical category
 
 Below it's a typical hero actor that made of multiple nodes:
 
@@ -62,14 +62,10 @@ This is a typical case of organizing node tree based on logic. We can control `b
 
 ### Managing Render Order
 
-In the above example let's pay attention to `body` and `shadow` node's order in **Node Tree** panel, and their actual render order in **Scene** panel. The engine will render all nodes according to the order in **Node Tree**, from top to bottom. So that the node on bottom will cover the node on top.
+In the above example let's pay attention to `body` and `shadow` node's order in **Node Tree** panel, and their actual render order in **Scene** panel. The engine will render all nodes according to the order in **Node Tree**, from top to bottom. So that the node on bottom will be drawn over the node on top.
 
 In a parent child relationship, the parent node is always on top, so child node will be rendered last. That's why we make a separate `body` node in the example, so that we can specify the exact order of `shadow` and `body`.
 
 ## Node Count Optimization
 
 Please note, although it's convenient to use parent node as container to group up other nodes, but the total node count in a scene will have impact on the node tree initialization time. We should avoid adding unnecessary nodes just for the cause of 'keep things organized'. Try to combine functions of multiple nodes as much as you can.
-
-<hr>
-
-Continue on to read about [build scene graph with scene editor](scene-editing.md).
