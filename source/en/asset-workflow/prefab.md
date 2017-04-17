@@ -47,6 +47,10 @@ Pay attention, to keep the engine small and fast, there are limitations of auto-
 
 After deleting a prefab from the **Assets** panel, you can convert the corresponding prefab instance in the scene to an ordinary node. To do this, select the prefab instance and click menu `Node Presets > Convert to Ordinary Node`.
 
+## Delay to load dependent resources
+
+In the **Explorer**, select the scene files, you can see in the **Property Inspector** "Async Load Assets" option, the default value is false. When selected, the use of **Property Inspector** association, loadRes, etc., when loading the default resources, will delay the load on the dependencies of other resources, to enhance the partial page of the loading speed. For details, please refer to[Change the policy of scene loading](scene-managing.md#async-load-assets).
+
 <hr>
 
 Continue on to read about [Spine](spine.md).

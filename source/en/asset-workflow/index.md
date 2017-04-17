@@ -36,17 +36,26 @@ Any unmatched meta files will be removed from `assets` folder, and will be backe
 
 If you wish to recover the reference to those changed assets, please put the backup meta file to the same folder as the changed asset, and make sure to rename the meta file to share the same name as the changed asset. Please notice that there're probably new meta files generated for changed assets, you can delete those newly created meta files safely after you recover the backup meta files.
 
+## Importing Projects from other Editors
+
+You can now import items from other editors in Cocos Creator. For more information, please refer to: [Importing Projects from other Editors](project-import.md)
+
 ## Common asset workflow
 Next, we will introduce Cocos Creator's main asset types and the related workflows:
 
 - [Scene asset](scene-managing.md)
 - [Image asset](sprite.md)
 - [Atlas](atlas.md)
+- [Auto-atlas asset](auto-atlas.md)
+- [Auto Trim for SpriteFrame](trim.md)
+- [Script asset](script.md)
 - [Font asset](font.md)
 - [Particle asset](particle.md)
 - [Audio asset](audio-asset.md)
 - [Prefab](prefab.md)
 - [Spine](spine.md)
+- [TiledMap](tiledmap.md)
+- [DragonBones](dragonbones.md)
 
 ---
 
