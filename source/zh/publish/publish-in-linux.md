@@ -105,6 +105,14 @@ libasound.so.2 | libasound2
 
      无关警告，可以忽略
 
+   - `Error: Package Watcher Error: watch ... ENOSPC`
+
+     运行
+     ```bash
+     echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+     ```
+     详见 http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
+
 ## 用命令行启动 Creator 并执行构建
 
 使用和其它平台一样的[命令行参数](publish-in-command-line.md)执行构建，其中可执行文件路径需要替换成 `xvfb-maybe npm start --`，例如
