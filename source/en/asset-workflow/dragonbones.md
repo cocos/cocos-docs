@@ -37,6 +37,6 @@ Drag the Atlas data from the **Explorer** to the Dragon Atlas Asset property of 
 
 ![DragonBones](dragonbones/set_atlas.png)
 
-## stored in the project
+## Stored in the project
 
 In order to improve the efficiency of resource management, it is recommended to import the resource file stored in a separate directory, do not mix with other resources.
