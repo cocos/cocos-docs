@@ -1,7 +1,8 @@
 # Life cycle callback
 
 Cocos Creator provides the life cycle callback function for component script. As long as the user defines a specific callback function,Creator will execute the script in a specific period, users do not need to manually call them.
-Currently, the life-cycle callback functions provided for users are:
+
+Currently, the major life-cycle callback functions provided for users are:
 
  - onLoad
  - start
@@ -13,9 +14,7 @@ Currently, the life-cycle callback functions provided for users are:
 
 ## onLoad
 
-In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the scene has this component being loaded.
- The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. Normally,
-we will do some operation associated with initialization in the `onLoad` phase. For example:
+In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the scene has this component being loaded. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
 
 ```js
 cc.Class({
@@ -35,8 +34,7 @@ cc.Class({
 
 ## start
 
-The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time.
-`start` is usually used to initialize some intermediate state data which may have changed during update and frequently enables and disables.
+The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time. `start` is usually used to initialize some intermediate state data which may have changed during update and frequently enables and disables.
 
 ```js
 cc.Class({
@@ -101,4 +99,4 @@ When the component calls `destroy()`, they will be collected when this frame is 
 
 ---
 
-Continue on to read about [create and destroy nodes](create-destroy.md).
+Continue on to read about [Create and destroy nodes](create-destroy.md).

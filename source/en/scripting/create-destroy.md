@@ -19,12 +19,11 @@ cc.Class({
   },
 
   start: function () {
-    var node = new cc.Node('sprite ' + this.count);
+    var node = new cc.Node('Sprite');
     var sp = node.addComponent(cc.Sprite);
 
     sp.spriteFrame = this.sprite;
     node.parent = this.node;
-    node.setPosition(0,0);
   },
 });
 ```
@@ -49,14 +48,14 @@ cc.Class({
     var node = cc.instantiate(this.target);
 
     node.parent = scene;
-    node.setPosition(0,0);
+    node.setPosition(0, 0);
   },
 });
 ```
 
 ## Create preset node
 
-Like cloning the exisiting node, you set your prefab node and create by `cc.instantiate`. Here is how it's done:
+Like cloning the exisiting node, you can set a prefab and create node by `cc.instantiate`. Here is how it's done:
 
 ```javascript
 cc.Class({
@@ -74,16 +73,15 @@ cc.Class({
     var node = cc.instantiate(this.target);
 
     node.parent = scene;
-    node.setPosition(0,0);
+    node.setPosition(0, 0);
   },
 });
 ```
 
 ## Destroy node
 
-Nodes can be destroyed by the function `node.destroy()`. It's worth mentioning that node destroying will not happen immediately, but
-will be executed after the logic update for the present frame is complete. After a node is destroyed, it is in the invalid state. By `cc.isValid`,
-the present node can be judged whether it is destroyed or not.
+Nodes can be destroyed by the function `node.destroy()`. It's worth mentioning that node removing will not happen immediately, but
+will be executed after the logic update for the present frame is complete. After a node is destroyed, it is in the invalid state. By `cc.isValid`, the present node can be judged whether it is destroyed or not.
 
 Here is how to use it:
 
@@ -96,18 +94,16 @@ cc.Class({
   },
 
   start: function () {
+    // destroy target node after 5s
     setTimeout(function () {
       this.target.destroy();
     }.bind(this), 5000);
   },
 
   update: function (dt) {
-    if ( !cc.isValid(this.target) ) {
-      this.enabled = false;
-      return;
+    if (cc.isValid(this.target)) {
+      this.target.rotation += dt * 10.0;
     }
-
-    this.target.rotation += dt * 10.0;
   },
 });
 ```
