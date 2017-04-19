@@ -49,7 +49,7 @@ can be adjusted more easily.
 
 This category is used to set the default open mode for scripts and resources.
 
-### External Script Editor
+### <a name="script-editor"></a>External Script Editor
 
 You can use built-in Code Editor or any external text tool executable file, as in **Assets** opens when you double-click
 a script file. Also available in the drop-down menu select **Internal**,

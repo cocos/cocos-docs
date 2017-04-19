@@ -28,12 +28,11 @@ cc.Class({
 
 ## Editing script
 
-Cocos Creator has installed a lightweight Code Editor for editors to edit script fast. Users can also choose
-their preferred text tool (such as Vim, Sublime Text, Web Storm, Visual Studio...) to edit script according to their
+Cocos Creator has installed a lightweight Code Editor for editors to edit script fast. But we recommend that users choose
+their preferred text tool (such as Vim, Sublime Text, WebStorm, VSCode...) to edit script according to their
 own need.
 
-By double clicking the script asset, users can open the built-in Code Editor to edit. If you need to use the external tools, the first thing you need to do is
-to locate the asset catalog in the file system, then edit it with the help of its own text tool.
+By double clicking the script asset, users can open the built-in Code Editor to edit. If you need to use the external tools, please [modify the settings in **Preferences** panel](../getting-started/basics/editor-panels/preferences.md#script-editor).
 
 Edit the script and save it, and Cocos Creator will automatically detect the alteration of the script and compile it quickly.
 
@@ -55,4 +54,4 @@ If everything goes well, you will see your script shown in **Properties** :
 
 ---
 
-Continue on to read about [property declaration](properties.md).
+Continue on to read about [Declare class with cc.Class](class.md).

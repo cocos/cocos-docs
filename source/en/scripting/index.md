@@ -11,6 +11,7 @@ While writing the component script, you can map the variables needing adjustment
 - [Create and use component script](use-component.md)
 - [Declare class with cc.Class](class.md)
 - [Access node and other component](access-node-component.md)
+- [Basic node and component API](basic-node-api.md)
 - [Life cycle call-back](life-cycle-callbacks.md)
 - [Create and destroy node](create-destroy.md)
 - [Launch and listen to events](events.md)
