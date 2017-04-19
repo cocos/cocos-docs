@@ -1,10 +1,10 @@
-# 提交插件到商店
+# Submit To Store
 
-Cocos Creator 内置了插件商店，可供用户浏览、下载和自动安装第三方插件。插件商店的使用方法可见 [安装与分享](install-and-share.md)。要分享或贩卖编辑器扩展包，需要将插件提交到插件商店，下面是提交流程。
+Cocos Creator provide extension store allow user browser, download and install 3rd extensions. Read the usage of it [Install and Share](install-and-share.md). To share and selling extensions, you need to submit your package to the store:
 
-## 打包插件
+## Package your extension
 
-假设开发完成的插件目录结构如下：
+Suppose your directory structure like this:
 
 ```
 foobar
@@ -14,41 +14,41 @@ foobar
     |--main.js
 ```
 
-插件开发者需要将 `foobar` 文件夹打包成 `foobar.zip` 文件。
+You need to zip the `foobar` to `foobar.zip`.
 
-### NPM 第三方库
+### npm install 3rd library
 
-目前扩展包安装系统中没有包括安装 NPM 等包括管理系统的工作流程，因此使用了第三方库的扩展包应该将 `node_modules` 等文件夹也一起加入到 zip 包中。
+We didn't include the npm piepline, so you have to pre-install the 3rd packages in `node_modules` before zip.
 
-## 登入开发者平台
+## Login to Developer Platform
 
-- 访问 [Cocos 开发者平台](https://open.cocos.com) 并登录
-- 进入 [管理中心](https://open.cocos.com/app)
-- 在 Cocos Store 下面点击 [提交内容](https://open.cocos.com/store/name_list)
+- Access and login to [Cocos Developer](https://open.cocos.com)
+- Go to [Cocos App](https://open.cocos.com/app)
+- Under Cocos Store Click [Submit](https://open.cocos.com/store/name_list)
 
 ![login to cocos open platform](submit-to-store/login.jpg)
 
-## 创建插件
+## Create Extensions
 
-进入 Cocos Store 页面后，点击右上方的 `提交内容` 按钮，进入插件提交页面。
+Enter the Cocos Store page, click `Submit` button at top right, go to the submit page:
 
-- 首先为插件取一个中文名称
-- 选择类别为 `Creator插件`
-- 点击创建，进入信息完善界面
+- Name your extension
+- Choose the category `Creator Extension`
+- Click Create, and fill the information
 
-## 完善插件信息
+## Fill the Information
 
-这里需要填写插件信息表单，其中需要注意的有：
+We need to fill the form:
 
-- **版本号** 书写规范请遵守 [semver 规范](http://semver.org/lang/zh-CN/)
-- **价格** 单位是 RMB，如果免费请填写 `0`
-- **描述** 请填写基本功能和使用方法
-- **下载地址** 可以有两种方式提供插件下载：1. 自己上传到可公开下载的网盘或使用 github 的下载链接 2. 手动上传到 Cocos Store，上传后会自动生成下载链接
-- **图标** 正方形图标，推荐大小 512x512
-- **截图** 最多上传5张，尺寸为 640x960 或者 960x640
-- **支持链接** 填写插件首页的地址，或论坛讨论帖地址，方便用户获取帮助和技术支持
+- **version** Follow the [semver standard](http://semver.org/lang/zh-CN/)
+- **Price** RMB, free is 0.
+- **Description**
+- **Download Address** Two method: 1. Submit to net-driver or github link 2. Manually submit to Cocos Store
+- **Icon** 512x512
+- **Snapshot** Up to 5, size 640x960 or 960x640
+- **Links** You supports link
 
-完成填写后点击 `提交审核` 即可，插件商店的管理人员会在审核插件内容和信息后：
+Once you done, click `Submit to Review`, we will review your packages:
 
-- 如果没有问题，会将插件上架
-- 如果有问题需要修改，会通过 Cocos 开发者平台的注册邮箱和提交者取得联系
+- If nothing wrong, you will see your extensions in the store
+- Any problem we will send you the E-mail
