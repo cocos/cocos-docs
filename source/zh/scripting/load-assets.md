@@ -226,3 +226,8 @@ cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets)
     // 而 loadRes('test assets/sheep', cc.SpriteAtlas, function (err, atlas) {...}) 获得的则是整个 SpriteAtlas 对象。
 });
 ```
+
+
+---
+
+继续前往 [事件系统/发射和监听事件](events.md) 说明文档。

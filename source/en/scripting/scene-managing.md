@@ -59,3 +59,8 @@ cc.loader.loadRes('MyScene.fire', function(err, res) {
     cc.director.runScene(res.scene);
 });
 ```
+
+
+---
+
+Continue on to read about [Asset Loading](load-assets.md).

@@ -61,3 +61,8 @@ cc.loader.loadRes('MyScene.fire', function(err, res) {
     cc.director.runScene(res.scene); 
 });
 ```
+
+
+---
+
+继续前往 [获取和加载资源](load-assets.md) 说明文档。

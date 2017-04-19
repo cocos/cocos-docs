@@ -241,3 +241,8 @@ cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets)
     // and loadRes('test assets/sheep', cc.SpriteAtlas, function (err, atlas) {...}) The entire SpriteAtlas object is obtained.
 });
 ```
+
+
+---
+
+Continue on to read about [Event/Event System](events.md).

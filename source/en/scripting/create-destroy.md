@@ -111,4 +111,4 @@ cc.Class({
 
 ---
 
-Continue on to read about [launch and monitor events](events.md).
+Continue on to read about [Asset Management/Scene Management](scene-managing.md).
