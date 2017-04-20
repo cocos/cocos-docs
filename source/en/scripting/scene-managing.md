@@ -3,7 +3,7 @@
 In Cocos Creator we use scene filename (without extension) to index scenes, and use the following API to load and switch scene:
 
 ```js
-cc.director.loadScene("MyScene";
+cc.director.loadScene("MyScene");
 ```
 
 ## Use persist node to managing multiple scenes and pass information among scenes
