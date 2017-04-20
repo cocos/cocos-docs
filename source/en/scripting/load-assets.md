@@ -35,7 +35,7 @@ cc.Class({
 });
 ```
 
-### Raw Asset
+### <a name="raw-asset"></a>Raw Asset
 
 The object received by the existing API previously in Cocos2d is not the Asset object mentioned above but a URL presented by a string. These former asset types that the API uses are called Raw Assets. `cc.Texture2D`, `cc.Font` and `cc.AudioClip` are all Raw Assets. If you are going to use Raw Assets in the engine, all you have to do is to pass the URL of the asset to the engine API, then the engine interior will automatically load the assets represented by this URL.
 

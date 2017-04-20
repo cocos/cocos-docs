@@ -230,6 +230,7 @@ properties: {
 
 > You can define the get method only, so this is like one property of read only.<br>
 
+
 ---
 
 Continue on to read about [Access node and other component](access-node-component.md) or [CCClass Advanced Reference](reference/class.md).
