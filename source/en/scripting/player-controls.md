@@ -1,27 +1,26 @@
-# Player Controls
+# Global System Events
 
-We will introduce the player input events of Cocos Creator.
+In this section, we will introduce the global system events of Cocos Creator.
 
-目前支持了以下几种事件：
+Global system events are irrelevant with the node hierarchy, so they are dispatched globally by `cc.systemEvent`, currently supported:
 
 - Keyboard
-- Mouse
-- Touch
-- DeviceMotion 
+- DeviceMotion
+
+If you are searching for any information about touch or mouse events, please refer to [Node System Events documentation](./internal-events.md).
+
+** ATTENTION: We strongly discourage any usage of `cc.eventManager` in Cocos Creator, all its functionality can be achieved via
+cc.systemEvent and cc.Node's event API. We no longer guarantee the API of cc.eventManager, it could be refactored any time in the future. **
 
 ## How to define the input events
 
-Keyboard and DeviceMotion please use `cc.systemEvent.on(type, callback, target)` to register,
-If you use Mouse and Touch Event refer to [internal-events](./internal-events.md)。
+You can use `cc.systemEvent.on(type, callback, target)` to register Keyboard and DeviceMotion event listeners.
 
-Event types include:
+Event types included:
+
 1. cc.SystemEvent.EventType.KEY_DOWN
 2. cc.SystemEvent.EventType.KEY_UP
 3. cc.SystemEvent.EventType.DEVICEMOTION
-
-IMPORTANT: From v1.3, we strongly discourage any usage of cc.eventManager, all its functionality can be achieved via
-cc.systemEvent and cc.Node's event API. We no longer guarantee the API of cc.eventManager, it could be refactored 
-any time in the future.
 
 ### Keyboard Events
 
@@ -39,12 +38,12 @@ cc.Class({
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },
-    
+
     destroy () {
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },
-    
+
     onKeyDown: function (event) {
         switch(event.keyCode) {
             case cc.KEY.a:
@@ -52,7 +51,7 @@ cc.Class({
                 break;
         }
     },
-    
+
     onKeyUp: function (event) {
         switch(event.keyCode) {
             case cc.KEY.a:
@@ -78,11 +77,11 @@ cc.Class({
         cc.inputManager.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     },
-    
+
     destroy () {
         cc.systemEvent.off(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     },
-    
+
     onDeviceMotionEvent (event) {
         cc.log(event.acc.x + "   " + event.acc.y);
     },
