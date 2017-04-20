@@ -1,6 +1,8 @@
-# System built-in events
+# Node System Events
 
-As stated in the last file, `cc.Node` has a whole set of [event listener and dispatch mechanisms](./events.md). Based on this mechanism, we will provide some basic system events. This file will introduce how to use these events.
+As stated in the last file, `cc.Node` has a whole set of [event listener and dispatch mechanisms](./events.md). Based on this mechanism, we provide some basic system events. This file will introduce the system events related to Node hierarchy.
+
+Cocos Creator supports four types of system events: mouse, touch, keyboard, device motion. This document will mainly discuss the usage of touch and mouse events which is dispatched by related `cc.Node`. For keyboard and device motion events, they are dispatched as [Global System Events](./player-controls.md) by `cc.systemEvent`.
 
 System events follow the general register method, developers can register event listener not only by using the enumeration type but also by using the event name directly, the definition for the event name follows DOM event standards.
 
@@ -13,7 +15,7 @@ node.on(cc.Node.EventType.MOUSE_DOWN, function (event) {
 node.on('mousedown', function (event) {
   console.log('Mouse down');
 }, this);
-``` 
+```
 
 ## Mouse event type and event object
 
@@ -80,7 +82,7 @@ When the mouse or finger presses in the node C region, the event will be trigger
 
 Except for the node region to decide whether to dispatch the event or not, the bubble process of touch events is no different than the general events. So, the fuction`stopPropagation` to call `event` of `stopPropagation` can stop the bubbling process actively.
 
-## Other events of `cc.Node` 
+## Other events of `cc.Node`
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|

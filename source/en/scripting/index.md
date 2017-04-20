@@ -15,7 +15,8 @@ While writing the component script, you can map the variables needing adjustment
 - [Life cycle call-back](life-cycle-callbacks.md)
 - [Create and destroy node](create-destroy.md)
 - [Launch and listen to events](events.md)
-- [System built-in events](internal-events.md)
+- [Node System Events](./internal-events.md)
+- [Global System Events](./player-controls.md)
 - [Use action system](actions.md)
 - [Action list](action-list.md)
 - [Use timer](scheduler.md)
@@ -29,6 +30,7 @@ While writing the component script, you can map the variables needing adjustment
 - [JavaScript quick-start](javascript-primer.md)
 
 ## Reference
+
 - [Attribute parameter reference](reference/attributes.md)
 - [Recommend coding standards](reference/coding-standards.md)
 - [SizeProvider](reference/size-provider.md)

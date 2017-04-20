@@ -131,4 +131,7 @@ this.node.on('foobar', function (event) {
 
 ## 系统内置事件
 
-以上是通用的事件监听和发射规则，在 Cocos Creator 中为 `cc.Node` 内置了鼠标、触摸等系统事件，可参考[系统内置事件文档](./internal-events.md)。
+以上是通用的事件监听和发射规则，在 Cocos Creator 中，我们默认支持了一些系统内置事件，可以参考我们后续的文档来查看如何使用：
+
+- 鼠标、触摸：可参考[节点系统事件文档](./internal-events.md)
+- 键盘、重力感应：可参考[全局系统事件文档](./player-controls.md)
