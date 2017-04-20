@@ -1,6 +1,6 @@
 # 脚本执行顺序
 
-完善的脚本执行顺序控制将在新版本中添加，目前请使用下面的原则控制脚本执行顺序：
+更完善的脚本执行顺序控制将在 1.5 中添加，目前请使用下面的原则控制脚本执行顺序：
 
 ## 使用统一的控制脚本来初始化其他脚本
 
@@ -55,7 +55,7 @@ cc.Class({
 
 ## 控制同一个节点上的组件执行顺序
 
-在同一个节点上的组件脚本执行顺序，是可以通过组件在 **属性检查器** 里的排列顺序来控制的。排列在上的组件会先于排列在下的组件执行。我们可以通过组件右上角的齿轮按钮里的 `Move Up` 和 `Move Down` 菜单来调整组件的排列顺序和执行顺序。
+在同一个节点上的组件脚本执行顺序，可以通过组件在 **属性检查器** 里的排列顺序来控制。排列在上的组件会先于排列在下的组件执行。我们可以通过组件右上角的齿轮按钮里的 `Move Up` 和 `Move Down` 菜单来调整组件的排列顺序和执行顺序。
 
 假如我们有两个组件 CompA 和 CompB，他们的内容分别是：
 
@@ -64,7 +64,6 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-    // use this for initialization
     onLoad: function () {
         cc.log('CompA onLoad!');
     },
@@ -73,16 +72,15 @@ cc.Class({
         cc.log('CompA start!');
     },
 
-    // called every frame, uncomment this function to activate update callback
     update: function (dt) {
         cc.log('CompA update!');
     },
 });
+
 // CompB.js
 cc.Class({
     extends: cc.Component,
 
-    // use this for initialization
     onLoad: function () {
         cc.log('CompB onLoad!');
     },
@@ -91,7 +89,6 @@ cc.Class({
         cc.log('CompB start!');
     },
 
-    // called every frame, uncomment this function to activate update callback
     update: function (dt) {
         cc.log('CompB update!');
     },
@@ -119,3 +116,8 @@ CompA start!
 CompB update!
 CompA update!
 ```
+
+
+---
+
+继续前往 [网络接口](network.md)。

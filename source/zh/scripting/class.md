@@ -229,6 +229,7 @@ properties: {
 
 > 如果你只定义 get 方法，那相当于属性只读。<br>
 
+
 ---
 
 继续前往 [访问节点和其他组件](access-node-component.md) 或 [CCClass 进阶参考](reference/class.md)。

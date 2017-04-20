@@ -392,3 +392,8 @@ Here are some JavaScript primers:
 
 - [JavaScript standard reference tutorial](http://javascript.ruanyifeng.com/)
 - [JavaScript secret garden](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+
+
+---
+
+Continue on to read about [Advanced CCClass](reference/class.md).
