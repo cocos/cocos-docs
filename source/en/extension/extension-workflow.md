@@ -1,10 +1,10 @@
-# 扩展包工作流程模式
+# Extension Workflow
 
-在设计和开发扩展包时，我们总是希望扩展包在我们给予一定的输入时，完成特定的工作并返回结果。这个过程可以由以下几种工作模式来完成：
+When we developing an extension, usually we would register some callback function and return the results. There are several way to do this:
 
-## 入口程序完成全部工作
+## Did jobs in entry point
 
-如果我们的插件不需要任何用户输入，而且只要一次性的执行一些主进程逻辑，我们可以将所有工作放在 `main.js` 的 `load` 生命周期回调里：
+If we don't need any user input, and the taks did once in loading phase, we can put the code in the `load` callback of `main.js`:
 
 ```js
 // main.js
@@ -12,34 +12,33 @@ module.exports = {
   load () {
     let fs = require('fs');
     let path = require('path');
-    // 插件加载后在项目根目录自动创建指定文件夹
+    // automatically create a folder after package loaded
     fs.mkdirSync(Path.join(Editor.projectPath, 'myNewFolder'));
     Editor.success('New folder created!');
   }
 }
 ```
 
-如果你的插件会自动完成工作，别忘记通过 `Editor.log`, `Editor.success` 接口（上述接口可以在 [Console API](api/editor-framework/main/console.md#) 查看详情），来告诉用户刚刚完成了哪些工作。
+Don't forget to use `Editor.log`, `Editor.success` (Reference at [Console API](api/editor-framework/main/console.md#)) to notify user when you done something automatically.
 
-示例中使用到的 `Editor.projectPath` 接口会返回当前打开项目的绝对路径，详情可以在 [Editor API](api/editor-framework/main/editor.md) 中找到。
+The `Editor.projectPath` in the example above will return the absolute path of current project, you can find the details in [Editor API](api/editor-framework/main/editor.md).
 
-这种工作模式的更推荐的变体是将执行工作的逻辑放在菜单命令后触发，如 [第一个扩展包](your-first-extension.md) 文档所示，我们在 `package.json` 里定义了 `main-menu` 字段和选择菜单项后触发的 IPC 消息，之后就可以在入口程序里监听这个消息并开始实际的业务逻辑：
+An alternative way is put the logic in a menu item instead, For example in [Your First Extension](your-first-extension.md), we define a `main-menu` field and the action for trigering IPC event in `package.json`:
 
 ```js
   messages: {
-    'start' () {
-      //开始工作！
+    start () {
     }
   }
 ```
 
-关于菜单命令的声明，请参考 [扩展主菜单](extends-main-menu.md)。
+Please read [Extends main menu](extends-main-menu.md) for more details.
 
-## 入口程序和编辑器面板配合实现复杂交互功能
+## Did jobs in panel
 
-入口程序除了可以在主进程执行 [Node.js](http://nodejs.org/) 所有标准接口以外，还可以打开编辑器面板、窗口，并通过 IPC 消息在主进程的入口程序和渲染进程的编辑器面板间进行通讯，通过编辑器面板和用户进行复杂的交互，并在相关的进程中完成业务逻辑的处理。
+We've known that we can run [Node.js](http://nodejs.org/) program in main process. For complex operation, sometimes we need user working through user interface in panel, that needs us communicate with user via IPC message.
 
-要通过入口程序打开一个编辑器面板：
+To open a panel, we can write:
 
 ```js
   messages: {
@@ -50,13 +49,13 @@ module.exports = {
   }
 ```
 
-其中 `myPackage` 是面板的 ID，在单面板的扩展程序中，这个面板 ID 和扩展包名是一致的。用户可以通过 `package.json` 里的 `panel` 字段声明自定义的编辑器面板。我们会在下一节的 [扩展编辑器面板](extends-panel.md) 文档中进行详细介绍。
+Here `myPackage` is the panel ID, in single panel extension, this ID is same as package name. User can define it by add `panel` field in `package.json`. We will introduce it in the next session [Extend Panel](extends-panel.md).
 
-启动面板后，在主进程和面板渲染进程间就可以通过 `Editor.Ipc.sendToPanel`，`Editor.Ipc.sendToMain` 等方法来进行进程间通讯，我们会在后面的文章中进行详细介绍。
+After panel opened, we can send or recieve IPC via  `Editor.Ipc.sendToPanel`, `Editor.Ipc.sendToMain`.
 
-## 插件只提供组件和资源
+## Resources and components extensions
 
-由于 Cocos Creator 本身采用的组件系统就有很高的扩展性和复用性，所以一些运行时相关的功能可以通过单纯开发和扩展组件的形式完成，而扩展包可以作为这些组件和相关资源（如 Prefab、贴图、动画等）的载体。通过扩展包声明字段 `runtime-resource` 可以将扩展包目录下的某个文件夹映射到项目路径下，并正确参与构建和编译等流程：
+Cocos Creator use the Entity Component in the engine, it allow us extends the script by developing new Component. The extension package can used as the media for the components and resources. Also, we can define the `rutnime-resource` field, it will mapping the path under extension to project path, this will make the extensions join the build pipeline correctly.
 
 ```json
 //package.json
@@ -66,8 +65,8 @@ module.exports = {
   }
 ```
 
-上述声明会将 `projectPath/packages/myPackage/path/to/runtime-resource` 路径下的全部资源都映射到资源管理器中，显示为 `[myPackage]-[shared-resource]`。
+The above example will mapping the `projectPath/packages/myPackage/path/to/runtime-resource` to our assets path, shows as `[myPackage]-[shared-resource]`.
 
-这个路径下的内容（包括组件和其他资源）可以由项目中的其他场景、组件引用。使用这个工作流程，开发者可以将常用的控件、游戏架构以插件形式封装在一起，并在多个项目之间共享。
+The resources under the path can be used by other components and scenes. Ususally we use this to package our frequently used resources and components, and shares it almong the projects.
 
-更多信息请阅读 [runtime-resource 字段参考](reference/package-json-reference.md#runtime-resource-object-)。
+More details read [Runtime-Resource Reference](reference/package-json-reference.md#runtime-resource-object-).
