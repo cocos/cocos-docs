@@ -89,11 +89,11 @@ cc.Class({
         this.node.selected = false;
         this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
     },
-    
+
     unuse: function () {
         this.node.off(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
     },
-    
+
     reuse: function () {
         this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
     }
