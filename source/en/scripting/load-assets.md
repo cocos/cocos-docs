@@ -3,9 +3,10 @@
 Cocos Creator has a whole set of uniform asset management mechanisms. In this tutorial, we will introduce
 
 - Classification of assets
-- How to set assets in the **Properties** panel 
-- How to dynamically load Asset
-- How to dynamically load Raw Asset
+- How to set assets in the **Properties** panel
+- How to dynamically assets
+- How to load remote assets or device files
+- Assets dependencies and how to release assets
 
 ## Classification of assets
 
@@ -187,7 +188,7 @@ Also, You can also use `cc.loader.releaseAsset` to release the instance of a spe
 cc.loader.releaseAsset(spriteFrame);
 ```
 
-## How to dynamically load Raw Asset
+### How to dynamically load Raw Asset
 
 Raw Asset can be loaded directly from a remote server using a URL, you can also dynamically loaded from the item. In the case of remote loading, The original Cocos2d constant loading method, using cc.loader.load can be. Raw Asset to the project, load the same way as Asset:
 
@@ -228,6 +229,76 @@ cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets)
 });
 ```
 
+## How to load remote assets or files in device
+
+Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `cc.loader.load`. At the same time you can use the same API to load resources on the local device storage. The `loadRes` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local
+device files:
+
+```javascript
+// Remote texture url with file extensions
+var remoteUrl = "http://unknown.org/someres.png";
+cc.loader.load(remoteUrl, function (err, texture) {
+    // Use texture to create sprite frame
+});
+
+// Remote texture url without file extensions, then you need to define the file type explicitly
+remoteUrl = "http://unknown.org/emoji?id=124982374";
+cc.loader.load({url: remoteUrl, type: 'png'}, function () {
+    // Use texture to create sprite frame
+});
+
+// Use absolute path to load files on device storage
+var absolutePath = "/dara/data/some/path/to/image.png"
+cc.loader.load(absolutePath, function () {
+    // Use texture to create sprite frame
+});
+```
+
+There still remains some restrictions currently, the most important are:
+
+1. Remote loading does not support resources other than image files (other type of files already planed in the 1.5 / 1.6)
+2. This loading method only supports the raw assets, does not support SpriteFrame, SpriteAtlas, Tilemap and other resources (requires Assets Bundle support planned in future version)
+3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered, this is due to WebGL security policy restrictions
+
+## Assets dependencies and how to release assets
+
+After resources loaded, they will be cached to the `cc.loader`, in order to avoid sending meaningless http request and repeated loading of resources. Sure thing is that the contents of the cache will consume memory, during game process, some resources may no longer be needed, and you may want to release them, we will cover some important notices for asset releasing here.
+
+** First and most important: Resources depends on each other. **
+
+For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the cc.loader. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, loader do not need to request the existing SpriteFrame and Texture again, it will use the cache directly.
+
+![](load-assets/asset-dep.png)
+
+After making clear how resource depend on each other, the problem is also revealed. When you choose to release a Prefab, we will not automatically release the other resources it relies on, because there may be other resources that depend on them. So some developers ask us why the memory is still high after they released the resources? The reason is that the basic textures that actually consume memory are not released when you release Prefab or SpriteAtlas.
+
+** Next core problem: We can not track object references in JavaScript. **
+
+In scripting language like JavaScript, because of its weak type feature, memory management is delegated to the Garbage Collection mechanism. We can never know when an object is released by the Garbage Collector, nor can we get any notifications, which means that the engine can not use a reference count mechanism to know whether a resource is still needed. The current cc.loader design actually depends on the developer to tell it when to release resources based on game logic. You can decide to release a resource and all resources it relies on, you can also choose to prevent some of the shared resources from being released. Here is some simple demonstrations:
+
+```javascript
+// Release a texture which is no longer need
+cc.loader.release(texture);
+// Release all dependencies of a loaded prefab
+var deps = cc.loader.getDependsRecursively('prefabs/sample');
+cc.loader.release(deps);
+// If there is no instance of this prefab in the scene, the prefab and its dependencies like textures, sprite frames, etc, will be freed up.
+// If you have some other nodes share a texture in this prefab, you can skip it in two ways:
+// 1. Forbid auto release a texture before release
+cc.loader.setAutoRelease(texture2d, false);
+// 2. Remove it from the dependencies array
+var deps = cc.loader.getDependsRecursively('prefabs/sample');
+var index = deps.indexOf(texture2d._uuid);
+if (index !== -1)
+    deps.splice(index, 1);
+cc.loader.release(deps);
+```
+
+** The last thing to keep in mind: JavaScript's garbage collection is not immediate. **
+
+Imagine such scenario, you released the cache of a resource in cc.loader. After that due to some reason, you need it again. At this point garbage collection has not yet begun (you never know when garbage collection will be triggered), or you still hold a reference to this old resource somewhere in your game logic. This means that the resource still exist in memory, but cc.loader have no longer access to it, so it will reload it. This causes the resource to have two copies in the memory, which is wasting. If the same scenario happens to a lot of resources, or resources get loaded even more than once, the pressure on the memory is likely to be high. If you observe such memory usage curve in your game, please carefully check the game logic to see whether there is leaks. If not, the garbage collection mechanism will eventually recover the memory.
+
+The above is resource dependence management in cc.loader and how to release them, this part of the functionality and API design has not yet fully finalized, we are still trying to bring you an API set as easy to use as possible, we will update this document when we enhanced the loader's ability.
 
 ---
 
