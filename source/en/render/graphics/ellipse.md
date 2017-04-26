@@ -13,7 +13,7 @@ Use `ellipse()` method to create an ecllipse.
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.ellipse(100,100, 100,200);
+ctx.ellipse(200,100, 200,100);
 ctx.stroke();
 ```
 
