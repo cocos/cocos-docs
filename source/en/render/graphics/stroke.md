@@ -7,8 +7,8 @@ The `stroke()` method actually draws a path defined by a path method such as `mo
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20,100);
-ctx.stroke(20,20);
-ctx.stroke(70,20);
+ctx.lineTo(20,20);
+ctx.lineTo(70,20);
 ctx.stroke();
 ```
 
