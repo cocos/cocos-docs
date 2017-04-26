@@ -93,15 +93,15 @@ Note cocos2d-x engine used here must be downloaded from the https://github.com/c
 
 ### NDK Path
 
-Set the NDK Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the NDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 ### Android SDK Path
 
-Set the Android SDK Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the Android SDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 ### ANT Path
 
-Set the ANT Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the ANT Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 
 ## Preview Run

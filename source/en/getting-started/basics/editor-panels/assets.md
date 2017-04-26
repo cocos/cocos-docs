@@ -22,7 +22,7 @@ Except for the folders, everything else in the list is asset files. Files in the
 - ![javascript](assets/javascript.png)**script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
 - ![scene](assets/scene.png)**scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
 
-For more common asset types and asset workflows, please read the [asset workflow](../../asset-workflow/index.md) chapter.
+For more common asset types and asset workflows, please read the [asset workflow](../../../asset-workflow/index.md) chapter.
 
 ### Create assets
 
@@ -69,7 +69,7 @@ The right click menu of **asset** also includes the following operations:
 - `rename`: rename the asset.
 - `create`: same function as the **create** button, it will add assets to the currently selected folder. If what is currently selected is an asset file, it will add new assets to the same folder as the currently selected asset.
 - `show in Explorer (Windows) or Finder (Mac)`: open the asset folder in the file manager of the operating system.
-- `Go to the asset location in Library`: open the imported asset location in `Library` of the project folder. Please read [project structure](../project-structure.md) for detailed information.
+- `Go to the asset location in Library`: open the imported asset location in `Library` of the project folder. Please read [project structure](../../project-structure.md) for detailed information.
 - `Show UUID`: show the currently selected asset's UUID in the **console** window.
 - `Refresh`: redo the import operation of the asset.
 

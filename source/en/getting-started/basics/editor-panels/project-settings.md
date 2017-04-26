@@ -4,13 +4,13 @@
 
 ## Group Manager
 
-! [Group](group.jpg)
+![Group](project-settings/group.jpg)
 
-The **Group Manager** tab in **Project Settings** is mainly for [collision system](../../physics/index.md) to provide collision group support. Please refer to [Collision Group](../../physics/collision-group.md).
+The **Group Manager** tab in **Project Settings** is mainly for [collision system](../../../physics/index.md) to provide collision group support. Please refer to [Collision Group](../../../physics/collision-group.md).
 
 ## Module Config
 
-! [Module](module.jpg)
+![Module](project-settings/module.jpg)
 
 The setting here is for building game engine for release version of Web platform, including only modules checked in this page. The unselected module will be cropped.
 
@@ -19,6 +19,8 @@ Crop the unused module here will significantly reduce the engine package size. I
 ## Preview Run
 
 **Preview Run** provides similar options as in the **Preview Run** page in [Preferences Panel](preferences.md), which are used to set the initial preview scene, resolution, etc., but only for the current project.
+
+![preview](project-settings/preview.jpg)
 
 ### Preview Start Scene
 

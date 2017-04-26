@@ -99,7 +99,7 @@ And this leads to the biggst difference between Cocos2d-JS and Cocos Creator: Ho
 
 In Cocos2d-JS, developers can realize behavior extensions for various types of nodes. But in Cocos Creator, such operation is forbidden. All the extensions should be realized by adding components. The contest between inheritance and assembly is long-standing, which will not be discussed in detail here. But in componentized framework like Cocos Creator, assembly is the most natural extension method.
 
-For more information on the component system, please refer to chapters like [Node Component](../content-workflow/node-component.md) and [Components](../components/index.md), etc..
+For more information on the component system, please refer to chapters like [Node Component](../content-workflow/node-component.md).
 
 ### Coordinate System and Anchor Point
 
