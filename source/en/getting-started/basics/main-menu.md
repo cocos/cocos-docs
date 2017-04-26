@@ -88,4 +88,4 @@ Subscribe to the Cocos Creator newsletter for the latest news and updates.
 
 ---
 
-Continue on to read about [Asset workflow](../asset-workflow/index.md).
+Continue on to read about [Asset workflow](../../asset-workflow/index.md).

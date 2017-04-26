@@ -220,7 +220,3 @@ Animation system will search in all the components of animation root node. If th
     animation.addClip(clip);
     animation.play('anim_run');
 ```
-
----
-
-Continue on to read about [Components](../components/index.md).

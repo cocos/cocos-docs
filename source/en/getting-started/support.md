@@ -5,7 +5,7 @@
 Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
 
 - [Cocos2d-x](http://www.cocos2d-x.org/)
-- [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/editors-and-tools/cocos-creator)
+- [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/creator)
 - QQ group：577848332
 
 
@@ -14,7 +14,7 @@ Apart from the information provided in this guide, you can also obtain informati
 **Notice:** all demo projects on Github have different branches matching Cocos Creator version. Please use corresponding branch to prevent unmatching engine API. 
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
-- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
+- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
@@ -56,7 +56,7 @@ Code libraries needed for zipping and sending to the Android platform:
 
 ### 2D skeleton animation tools
 
-- [Spine](esotericsoftware.com)
+- [Spine](http://www.esotericsoftware.com)
 - [Spriter](http://brashmonkey.com/spriter.htm)
 - [DragonBones](http://dragonbones.github.io/)
 

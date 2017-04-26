@@ -17,11 +17,11 @@ You can move and locate the view in **scene editor** by the following operations
 
 There will be a set of scaleplate and grids on the background of the scene view, which indicate the position information of each point in **world coordinate system**. Point reads `(0,0)` is the origin of the world coordinate system in the scene. When using the mouse wheel to zoom out the view display, each scale represents a distance of `100` pixel. Due to the differences in the zooming in/out scale of current view, the number representing the distance from this point to origin will display on different scales, the unit of which is pixel.
 
-Scale and grid in the scene are important reference information for us to place the scene elements. For informations on the relationship between coordinate system and node attributes like position, please read [Transform](../../content-workflow/transform.md) section.
+Scale and grid in the scene are important reference information for us to place the scene elements. For informations on the relationship between coordinate system and node attributes like position, please read [Transform](../../../content-workflow/transform.md) section.
 
 ### Indicator Frame of Design resolution
 
-The purple frame in the view represents the content area that displays in the scene by default. The size of this area is determined by **design resolution**. For settings and effects of deign resolution, please read [Canvas](../../components/canvas.md) section.
+The purple frame in the view represents the content area that displays in the scene by default. The size of this area is determined by **design resolution**. For settings and effects of deign resolution, please read [Canvas](../../../components/canvas.md) section.
 
 ## Select a node
 
@@ -41,7 +41,7 @@ You can see the constraint box(in grey or blue) when hovering on or selecting th
 
 ![bounding box](scene/boundingbox.png)
 
-Node's `size` attribute plays an important role in multiresolution adapt and layout strategy. For more information about usage of node size, please read [multiresolution adapt and elements aligning](../../ui/multi-resolution.md).
+Node's `size` attribute plays an important role in multiresolution adapt and layout strategy. For more information about usage of node size, please read [multiresolution adapt and elements aligning](../../../ui/multi-resolution.md).
 
 ### Multiselect nodes
 
