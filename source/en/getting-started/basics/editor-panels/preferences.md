@@ -49,7 +49,7 @@ can be adjusted more easily.
 
 This category is used to set the default open mode for scripts and resources.
 
-### External Script Editor
+### <a name="script-editor"></a>External Script Editor
 
 You can use built-in Code Editor or any external text tool executable file, as in **Assets** opens when you double-click
 a script file. Also available in the drop-down menu select **Internal**,
@@ -93,15 +93,15 @@ Note cocos2d-x engine used here must be downloaded from the https://github.com/c
 
 ### NDK Path
 
-Set the NDK Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the NDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 ### Android SDK Path
 
-Set the Android SDK Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the Android SDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 ### ANT Path
 
-Set the ANT Path, See [Setup Native Development Environment](../../publish/setup-native-development.md).
+Set the ANT Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
 
 ## Preview Run

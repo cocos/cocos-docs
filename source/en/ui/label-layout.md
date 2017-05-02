@@ -21,7 +21,7 @@ The horizontal/vertical alignment positions in the above pictures are all set as
 
 `Line Height` determines the height occupied by each line when multiple lines of labels display, the unit of which is also Point. The displaying of multiple lines of labels can be carried out by using two methods:
 
-- When inputting labels in the `String` property, manually input ‘\r’ or ‘\n’
+- When inputting labels in the `String` property, manually input `\r` or `\n`
 - Open the `Enable Wrap Text` property, which will be introduced in detail later
 
 Relation of label size and line height:
@@ -58,7 +58,7 @@ Resize height mode will make sure the bounding box of the labels fits the height
 
 ## Enable Wrap Text
 
-The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap acccording to the width of the bounding box without manual input of  ‘\r’ or ‘\n’ when inputting labels.
+The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap acccording to the width of the bounding box without manual input of  `\r` or `\n` when inputting labels.
 
 ### Auto Wrap in Clamp Mode
 

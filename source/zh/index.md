@@ -1,4 +1,4 @@
-# Cocos Creator v1.4.1 用户手册
+# Cocos Creator v1.4.x 用户手册
 
 欢迎使用 Cocos Creator 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 

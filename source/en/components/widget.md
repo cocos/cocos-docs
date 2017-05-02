@@ -6,14 +6,14 @@ Widget is a frequently used UI layout component. It can make the current node au
 
 For API reference please read [Widget API](../api/classes/Widget.html)
 
-## Options
+## Property
 
-Options | Explanation| Note
---      | --         | --
-Top     | Upper border alignment | Once selected, an input field will appear to set the distance between the upper border of the current node and the upper border of the parent object.
-Bottom  | Lower border alignment | Once selected, an input field will appear to set the distance between the lower border of the current node and the lower border of the parent object.
-Left    | Left border alignment  | Once selected, an input field will appear to set the distance between the left border of the current node and the left border of the parent object.
-Right   | Right border alignment | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
+Property           | Explanation                 | Note
+--                 | --                          | --
+Top                | Upper border alignment      | Once selected, an input field will appear to set the distance between the upper border of the current node and the upper border of the parent object.
+Bottom             | Lower border alignment      | Once selected, an input field will appear to set the distance between the lower border of the current node and the lower border of the parent object.
+Left               | Left border alignment       | Once selected, an input field will appear to set the distance between the left border of the current node and the left border of the parent object.
+Right              | Right border alignment      | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
 AlignOnce          | default to `true`, will only make alignment when the component is enabled. If set to `false`, will update Widget's alignment every frame. (Will kill your performance!) |

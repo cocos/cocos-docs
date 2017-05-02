@@ -11,7 +11,7 @@ For the convenience of discussion, the `{ name: 'Sprite' }` object imported here
 
 ### Create an object
 
-Because CCClass is a JavaScript construct function itself. You can use ‘new’ to create an object:
+Because CCClass is a JavaScript construct function itself. You can use `new` to create an object:
 
 ```js
     var obj = new Sprite();

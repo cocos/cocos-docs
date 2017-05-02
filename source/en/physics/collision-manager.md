@@ -1,6 +1,6 @@
 # Collision Manager Scripting
 
-Cocos Creator provides a simple and easy to use built-in Collision Detection System, it will do collision detect according to the added colliders.   
+Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders.   
 When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.   
 
 **Note : The Collider Components in the same node, will not do collision detecsion with each other forever.**   
@@ -120,6 +120,3 @@ cc.eventManager.addListener({
 
 More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 
 
----
-
-Goto the next chapter [Component reference](../components/index.md)。

@@ -4,7 +4,7 @@
 
 ## Introduction to the interface
 
-**Assets** shows the contents of the project assets folder in a tree structure, but note that only the assets put under the ‘assets’ catalogue in the project folder will be shown here. Please read [project structure] for more about the project folder structure (../../getting-started/project-structure.md). Now let’s introduce the factors of each interface:
+**Assets** shows the contents of the project assets folder in a tree structure, but note that only the assets put under the `assets` catalogue in the project folder will be shown here. Please read [project structure] for more about the project folder structure (../../getting-started/project-structure.md). Now let's introduce the factors of each interface:
 
 ![assets overview](assets/overview.png)
 
@@ -19,10 +19,10 @@ An asset list can include any folder structure. Folders in **assets** will be sh
 Except for the folders, everything else in the list is asset files. Files in the asset list will not show their extended names; instead icons will be used to indicate the type of file or asset. For example, the project created by the **HelloWorld** template includes three core assets:
 
 - **image assets**: currently includes image files like `jpg` and `png`, the icon will show as a thumbnail of the image.
-- ![javascript](assets/javascript.png)**script assets**: the JavaScript file compiled by the programmer. It uses ‘js’ as the filename extension. We edit these scripts to add functions and game logic.
+- ![javascript](assets/javascript.png)**script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
 - ![scene](assets/scene.png)**scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
 
-For more common asset types and asset workflows, please read the [asset workflow](../../asset-workflow/index.md) chapter.
+For more common asset types and asset workflows, please read the [asset workflow](../../../asset-workflow/index.md) chapter.
 
 ### Create assets
 
@@ -66,18 +66,18 @@ Since deleting assets is an irreversible operation, there will be a pop up dialo
 
 The right click menu of **asset** also includes the following operations:
 
-- ‘rename’: rename the asset.
-- ‘create’: same function as the **create** button, it will add assets to the currently selected folder. If what is currently selected is an asset file, it will add new assets to the same folder as the currently selected asset.
-- ‘show in Explorer (Windows) or Finder (Mac)`: open the asset folder in the file manager of the operating system.
-- ‘Go to the asset location in Library’: open the imported asset location in ‘Library’ of the project folder. Please read [project structure](../project-structure.md) for detailed information.
-- ‘Show UUID’: show the currently selected asset's UUID in the **console** window.
-- ‘Refresh’: redo the import operation of the asset.
+- `rename`: rename the asset.
+- `create`: same function as the **create** button, it will add assets to the currently selected folder. If what is currently selected is an asset file, it will add new assets to the same folder as the currently selected asset.
+- `show in Explorer (Windows) or Finder (Mac)`: open the asset folder in the file manager of the operating system.
+- `Go to the asset location in Library`: open the imported asset location in `Library` of the project folder. Please read [project structure](../../project-structure.md) for detailed information.
+- `Show UUID`: show the currently selected asset's UUID in the **console** window.
+- `Refresh`: redo the import operation of the asset.
 
 Also, by double clicking on the asset you can enter the editing status for specific asset types such as scene assets and script assets.
 
 ## Filter assets
 
-Enter some text in the search box at the top right of **assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like ‘*.png’ to list all the assets with this specific extension.
+Enter some text in the search box at the top right of **assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like `*.png` to list all the assets with this specific extension.
 
 
 ![search asset](https://cloud.githubusercontent.com/assets/344547/9376761/ffbc3312-4743-11e5-9b3e-d7f5abe64b95.png)

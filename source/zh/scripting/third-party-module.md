@@ -1,10 +1,10 @@
 # 第三方 JavaScript 模块引用
 
-本文已废弃，请使用[插件脚本](plugin-scripts.md)来导入插件。
+本文已不推荐，仅作存档，如需导入插件请使用 [插件脚本](plugin-scripts.md)。
+
+继续前往 [JavaScript 快速入门](javascript-primer.md) 或者返回 [脚本开发](index.md)。
 
 <hr>
-
-以下是原文：
 
 如果你还不了解模块化脚本的知识，你应该先阅读[模块化脚本](./modular-script.md)文档。
 

@@ -1,130 +1,130 @@
-# 管理项目资源
+# Manage project assets
 
-## 管理场景
+## Manage the scene
 
-### 保存当前场景
+### Save the current scene
 
-在上一节 [调用引擎 API 和项目脚本](scene-script.md) 中我们介绍了通过场景脚本访问引擎 API 和用户项目脚本的方法，在对场景数据进行修改后可以使用以下接口保存当前场景。
+In the previous section [Calling Engine APIs and Project Scripts] (scene-script.md), we introduced the method of accessing the engine API and the user project script through the scenario script. After modifying the scene data, you can use the following interface to save the current scene The
 
-`_Scene.save()`
+`_Scene.save ()`
 
-其中 `_Scene` 是一个特殊的单例，用来控制场景编辑器里加载的场景实例。
+Where `_Scene` is a special singleton that controls the scene instance loaded in the scene editor.
 
-### 加载其他场景
+### Load other scenes
 
-我们的扩展包可能需要遍历多个场景并依次操作和保存，要加载新场景，请使用
+Our expansion packs may need to traverse multiple scenes and operate and save them sequentially. To load a new scene, use
 
 ```js
-_Scene.loadSceneByUuid(uuid, function(error) {
-    //do more work
+_Scene.loadSceneByUuid (uuid, function (error) {
+    // do more work
 });
 ```
 
-传入的参数是场景资源的 uuid，可以通过下面介绍的资源管理器接口来获取。
+The incoming parameter is the uuid of the scene asset, which can be obtained by the asset manager interface described below.
 
 
-## 资源 URL 和 UUID 的映射
+## Mapping of asset URL and UUID
 
-在 Cocos Creator 编辑器和扩展中，资源的 url 由形如
+In the Cocos Creator editor and extension, the url of the asset is shaped
 
-`db://assets/path/to/scene.fire`
+`Db: // assets / path / to / scene.fire`
 
-这样的形式表示。其中 `db` 是 AssetDB 的简称。 项目中 `assets` 路径下的全部资源都会被 AssetDB 导入到资源库（library）中，并可以通过 uuid 来引用。
+Such a form. Where `db` is an abbreviation for AssetDB. All assets under the `asset` path in the project are imported into Asset Library and can be referenced by uuid.
 
-在扩展包的主进程中 url 和 uuid 之间可以互相转化：
+In the main process of the expansion package between the url and uuid can be transformed from each other:
 
-- `Editor.assetdb.urlToUuid(url)`
-- `Editor.assetdb.uuidToUrl(uuid)`
+- `Editor.assetdb.urlToUuid (url)`
+- `Editor.assetdb.uuidToUrl (uuid)`
 
-此外如果希望直接使用资源在本地文件系统中的绝对路径，也可以使用 `fspathToUuid` 和 `uuidToFspath` 接口，其中 `fspath` 就表示绝对路径。
+In addition, if you want to use the absolute path of the asset directly in the local file system, you can also use the `fspathToUuid` and` uuidToFspath` interfaces, where `fspath` represents the absolute path.
 
-## 管理资源
+## Manage assets
 
-### 导入资源
+### Import assets
 
-要将新资源导入到项目中，可以使用以下接口
+To import new assets into a project, you can use the following interfaces
 
 ```js
-//main process
-Editor.assetdb.import(['/User/user/foo.js', '/User/user/bar.js'], 'db://assets/foobar', function ( err, results ) {
-    results.forEach(function ( result ) {
-    // result.uuid
-    // result.parentUuid
-    // result.url
-    // result.path
-    // result.type
-    });
+// main process
+Editor.assetdb.import (['/ user / user / foo.js', '/User/user/bar.js'], 'db: // assets / foobar', function (err, results) {
+    Results.forEach (function (result) {
+    // result.uuid
+    // result.parentUuid
+    // result.url
+    // result.path
+    // result.type
+    });
 });
 
 
-//renderer process
-Editor.assetdb.import( [
-    '/file/to/import/01.png',
-    '/file/to/import/02.png',
-    '/file/to/import/03.png',
-], 'db://assets/foobar', callback);
+// renderer process
+Editor.assetdb.import ([
+    '/file/to/import/01.png',
+    '/file/to/import/02.png',
+    '/file/to/import/03.png',
+], 'Db: // assets / foobar', callback);
 ```
 
-### 创建资源
+### Create an asset
 
-使用扩展包管理资源的一个常见误区，就是当扩展包需要创建新资源时直接使用了 Node.js 的 [fs 模块](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html)，这样即使创建文件到了 `assets` 目录，也无法自动被资源管理器导入。正确的工作流程应该是使用 `create` 接口来创建资源。
+A common misuse of using extended package management assets is to use the [fs module] of the Node.js (https://nodejs.org/dist/latest-v6.x/docs/api) when the extension package needs to create new assets /fs.html), so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
 
 ```js
-//main process or renderer process
-Editor.assetdb.create( 'db://assets/foo/bar.js', data, function ( err, results ) {
-    results.forEach(function ( result ) {
-    // result.uuid
-    // result.parentUuid
-    // result.url
-    // result.path
-    // result.type
-    });
+// main process or renderer process
+Editor.assetdb.create ('db: //assets/foo/bar.js', data, function (err, results) {
+    Results.forEach (function (result) {
+    // result.uuid
+    // result.parentUuid
+    // result.url
+    // result.path
+    // result.type
+    });
 });
 ```
 
-传入的 `data` 就是该资源文件内容的字符串。在创建完成后会自动进行该资源的导入操作，回调成功后就可以在资源管理器中看到该资源了。
+The incoming `data` is the string of the contents of the asset file. In the creation is completed automatically after the import operation of the asset, the callback can be successful in the asset manager to see the assets.
 
-### 保存已有资源
+### Save existing assets
 
-要使用新的数据替换原有资源内容，可以使用以下接口
+To replace the original asset using the new data, you can use the following interface
 
 ```js
-//main process or renderer process
-Editor.assetdb.saveExists( 'db://assets/foo/bar.js', data, function ( err, meta ) {
-    // do something
+// main process or renderer process
+Editor.assetdb.saveExists ('db: //assets/foo/bar.js', data, function (err, meta) {
+    // do something
 });
 ```
 
-如果要在保存前检查资源是否存在，可以使用
+If you want to check whether the asset exists before saving, you can use it
 
 ```js
-//main process
-Editor.assetdb.exists(url); //return true or false
+// main process
+Editor.assetdb.exists (url); // return true or false
 ```
 
-在渲染进程，如果给定了一个目标 url，如果该 url 指向的资源不存在则创建，资源存在则保存新数据的话，可以使用
+In the rendering process, if given a target url, if the url points to the assets do not exist to create, the existence of assets to save the new data, you can use
 
 ```js
-//renderer process
-Editor.assetdb.createOrSave( 'db://assets/foo/bar/foobar.js', data, callback);
+// renderer process
+Editor.assetdb.createOrSave ('db: //assets/foo/bar/foobar.js', data, callback);
 ```
 
-### 刷新资源
+### Refresh the asset
 
-当资源文件在 `assets` 中已经修改，而由于某种原因没有进行重新导入的情况下，会出现 `assets` 里的资源数据和数据库里展示的资源数据不一致的情况（如果使用 `fs` 模块直接操作文件内容就会出现），可以通过手动调用资源刷新接口来重新导入资源
+When the asset file has been modified in the `asset` and there is no reintroduction for some reason, the asset data in the` asset` and the asset data displayed in the database are inconsistent (if the `fs` module Direct operation of the contents of the file will appear), you can manually call the asset refresh interface to re-import assets
 
 ```js
-//main process or renderer process
-Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {});
+// main process or renderer process
+Editor.assetdb.refresh ('db: // assets / foo / bar /', function (err, results) {});
 ```
 
-### 移动和删除资源
+### Move and delete assets
 
-由于资源导入后会生成对应的 `meta` 文件，所以单独删除和移动资源文件本身都会造成数据库中数据一致性受损，推荐使用专门的 AssetDB 接口来完成这些工作
+As the assets will be generated after the import of the corresponding `meta` file, so separate delete and move the asset file itself will result in data consistency in the database damage, it is recommended to use a dedicated AssetDB interface to complete these tasks
 
 ```js
-Editor.assetdb.move(srcUrl, destUrl);
-Editor.assetdb.delete([url1, url2]);
+Editor.assetdb.move (srcUrl, destUrl);
+Editor.assetdb.delete ([url1, url2]);
 ```
 
-关于这些接口的详情，请查阅 [AssetDB API Main](api/asset-db/asset-db-main.md) 和 [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)。
+For more information on these interfaces, see [AssetDB API Main] (api / asset-db / asset-db-main.md) and [AssetDB API Renderer] (api / asset-db / asset-db-renderer.md).

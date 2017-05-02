@@ -7,12 +7,12 @@ along with the `Mask` component and the `ScrollBar` component can also be added 
 
 ![scrollview-inspector](./scrollview/scrollview-inspector.png)
 
-Click the `add component` button at the bottom of the **Properties** panel and select `ScrollView` from `add UI component` You can then add the ScrollView component to the node.
+Click the `Add component` button at the bottom of the **Properties** panel and select `ScrollView` from `add UI component` You can then add the ScrollView component to the node.
 
 
-## ScrollView attribute
+## ScrollView property
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | Content| A reference node for creating scrollable content from ScrollView. It could be a node containing a very large picture.
 | Horizontal | Boolean value, whether horizontal scroll is allowed or not.
@@ -23,12 +23,12 @@ Click the `add component` button at the bottom of the **Properties** panel and s
 |Bounce Duration | Floating point number, the time duration for bounce back. The calue range is 0-10.
 |Horizontal ScrollBar| A reference node for creating a scroll bar showing the horizontal position of the contents.
 |Vertical ScrollBar| A reference node for creating a scroll bar showing vertical position of the contents.
-|ScrollView Events| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter ‘ScrollView Event’.
+|ScrollView Events| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `ScrollView Event`.
 
 ## ScrollView Event
 ![scrollview-event](./scrollview/scrollview-event.png)
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.

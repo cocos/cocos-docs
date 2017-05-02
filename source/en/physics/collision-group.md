@@ -26,15 +26,13 @@ In the **Collision Map** section we can control whether collision is allowed for
 
 Each column and row of this table has all the group listed. If you make modification to the **Group List** this table will be updated accordingly. Each checkbox in the table represent whether the group from the column will collide with the group from the row.
 
-So as the checkboxes stated, we have following groups that can collide with each other:
+So as the checkboxes stated, we have following groups that can collide with each other:   
 
-player - enemy
-player - ground
-player - bullet
-player - item
-enemy - ground
-
+Platform - Bullet   
+Collider - Collider   
+Actor - Wall   
+Actor - Platform   
 
 ---
 
-继续前往 [碰撞系统脚本控制](collision-manager.md)
+Go ahead and read [Collision Scripting](collision-manager.md)

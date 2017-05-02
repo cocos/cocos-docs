@@ -1,5 +1,11 @@
 # Third party JavaScript module reference
 
+This article is not recommended, only for archiving, if you want to import third party scripts please use [Plugin Script](plugin-scripts.md).
+
+Continue on to read about [JavaScript Primer](javascript-primer.md) or back to [Scripting](index.md).
+
+<hr>
+
 If you don't know anything about modular script, you should read the [Modular script](./modular-script.md) file first.
 
 Currently, Cocos Creator only supports the third party npm module reference. Of course, if what the script developer has written accords with the Node.js standard, it can also be referenced. You can find further introduction to Node.js and npm on the official documentation page:

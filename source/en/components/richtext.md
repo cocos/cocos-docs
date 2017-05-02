@@ -13,9 +13,9 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 The API reference of RichText is here: [RichText API](../api/classes/RichText.html)。
 
-## RichText attribute
+## RichText property
 
-| Properties       | Function Explanation                                                                                                        |
+| Property         | Function Explanation                                                                                                        |
 | --------------   | -----------                                                                                                                 |
 | String           | Text of the RichText, you could use BBcode in the string                                                                    |
 | Horizontal Align | Horizontal alignment                                                                                                        |

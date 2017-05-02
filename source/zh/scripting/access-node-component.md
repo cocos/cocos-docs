@@ -263,7 +263,7 @@ module.exports = {
 };
 ```
 
-每个脚本都能用 `require` + 文件名(不含路径) 来获取到对方 export 的对象。
+每个脚本都能用 `require` + 文件名(不含路径) 来获取到对方 exports 的对象。
 
 ```js
 // Back.js
@@ -303,4 +303,4 @@ cc.Class({
 
 ---
 
-继续前往 [生命周期回调](life-cycle-callbacks.md)。
+继续前往 [常用节点和组件接口](basic-node-api.md)。

@@ -263,7 +263,7 @@ module.exports = {
 };
 ```
 
-You can use `require` + filename(without paths) everywhere to retreive the object exported by "export" from other scripts.
+You can use `require` + filename(without paths) everywhere to retreive the object exported by "exports" from other scripts.
 
 ```js
 // Back.js
@@ -303,4 +303,4 @@ For details, please refer to [Modular script](modular-script.md).
 
 ---
 
-Continue on to read about [Life cycle callback](life-cycle-callbacks.md).
+Continue on to read about [Basic node and component API](basic-node-api.md).

@@ -68,14 +68,12 @@
 1. 下载 SocketIO：[下载地址](http://socket.io/download/)
 2. 将下载后的文件放入拖入资源管理器中你希望保存的路径
 3. 修改 SocketIO 脚本文件以避免在原生环境中被执行
-    
+
     由于 Web 版本 SocketIO 不能够在 JSB 中被正确解析，因此 Cocos 在原生环境中自带了 SocketIO 实现。所以我们需要一点 hack 的手段让 Web 版本 SocketIO 的脚本在原生环境中不生效，方法就是在 SocketIO 脚本文件中做如下修改：
 
     ```
     if (!cc.sys.isNative) {
- 
         // SocketIO 原始代码
-
     }
     ```
 

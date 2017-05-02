@@ -55,11 +55,11 @@ Hypothetically, the node structure in the scene is as follows:
 
 When our scene contains nodes from different hierarchies, we should take the following steps when we determine the position of each node in the world coordinate system:
 
-1. Process each node from the root level of the scene. ‘NodeA’ in the above image is a root level node. First, determine the display position and coordinate origin position (same as the anchor position) according to the **Position** and **Anchor** attributes of NodeA.
-2. Then process all of the direct child nodes of NodeA, i.e. ‘NodeB’ and its sibling nodes. In NodeA's local coordinate system determine the position of NodeB in the scene space and the position of the origin of the coordinate system.
+1. Process each node from the root level of the scene. `NodeA` in the above image is a root level node. First, determine the display position and coordinate origin position (same as the anchor position) according to the **Position** and **Anchor** attributes of NodeA.
+2. Then process all of the direct child nodes of NodeA, i.e. `NodeB` and its sibling nodes. In NodeA's local coordinate system determine the position of NodeB in the scene space and the position of the origin of the coordinate system.
 3. No matter how many levels that the nodes have, we process them all in order from highest level to the lowest. Each node should use the coordinates of the parent node and its own position anchor attribute to determine position within the scene space.
 
-## Transform property
+## Transform properties
 
 Besides the **Anchor** we introduced above, the node also includes four other main transformation properties which we will introduce next.
 
@@ -67,23 +67,23 @@ Besides the **Anchor** we introduced above, the node also includes four other ma
 
 ### Position
 
-**Position** is composed of ‘x’ and ‘y’ properties which set the node coordinates on the x and y axes of the current coordinates.
+**Position** is composed of `x` and `y` properties which set the node coordinates on the x and y axes of the current coordinates.
 
 ![position](transform/position.png)
 
-‘NodeA’ in the above image is at the root level of the scene. Its position is ‘(507, 354)’ (refer to the scale on the background of the**scene editor**), the position of its child node ‘NodeC’ is ‘(345, 0)’. You can see that the position of the child node migrated based on the parent node's anchor.
+`NodeA` in the above image is at the root level of the scene. Its position is `(507, 354)` (refer to the scale on the background of the**scene editor**), the position of its child node `NodeC` is `(345, 0)`. You can see that the position of the child node migrated based on the parent node's anchor.
 
-The default value of the position property is ‘(0, 0)’ which means that the newly added node will always show up at the parent node's coordinate origin position. The default position of nodes in Cocos Creator is ‘(0, 0)’ and the default anchor is set as ‘(0.5, 0.5)’. Nodes under this setting will be located at the center position of the parent node by default so that all the contents can be taken in when making UI or combining a player's character.
+The default value of the position property is `(0, 0)` which means that the newly added node will always show up at the parent node's coordinate origin position. The default position of nodes in Cocos Creator is `(0, 0)` and the default anchor is set as `(0.5, 0.5)`. Nodes under this setting will be located at the center position of the parent node by default so that all the contents can be taken in when making UI or combining a player's character.
 
-In the scene editor, you can always use [move transform tools](../getting-started/basics/editor-panels/scene.md#--9) to change a node’s position.
+In the scene editor, you can always use [move transform tools](../getting-started/basics/editor-panels/scene.md#--9) to change a node`s position.
 
 ### Rotation
 
-**Rotation** is another important property that will have an effect on a node’s local coordinates. The rotate property only has one value to indicate the current rotation angle of the node. When the angle value is positive, the node rotates clockwise; when the angle value is negative, the node rotates counter clockwise.
+**Rotation** is another important property that will have an effect on a node`s local coordinates. The rotate property only has one value to indicate the current rotation angle of the node. When the angle value is positive, the node rotates clockwise; when the angle value is negative, the node rotates counter clockwise.
 
 ![rotation](transform/rotation.png)
 
-The node hierarchical relationship in the image above is the same as in the previous image only with the **Rotation** attribute of ‘Node’ set as ‘30’ degrees. As well as ‘NodeA’ itself rotating 30 degrees clockwise, its child node ‘NodeC’ also rotates 30 degrees clockwise taking the anchor of ‘NodeA’ as the center.
+The node hierarchical relationship in the image above is the same as in the previous image only with the **Rotation** attribute of `Node` set as `30` degrees. As well as `NodeA` itself rotating 30 degrees clockwise, its child node `NodeC` also rotates 30 degrees clockwise taking the anchor of `NodeA` as the center.
 
 In the scene editor, you can always use [rotate transform tools](../getting-started/basics/editor-panels/scene.md#--10) to change the rotation of a node.
 
@@ -93,9 +93,9 @@ The **Scale** property is a set of multiplication factors which are composed of 
 
 ![scale](transform/scale.png)
 
-The scale property of ‘NodeA’ in the above image is set as ‘(0.5, 1.0)’. This means the node is reduced by factor of 0.5 on the x axis and remains the same on the y axis. You can see the image of its child node `NodeC` is also reduced on the x axis, so the scale property will influence all the child nodes.
+The scale property of `NodeA` in the above image is set as `(0.5, 1.0)`. This means the node is reduced by factor of 0.5 on the x axis and remains the same on the y axis. You can see the image of its child node `NodeC` is also reduced on the x axis, so the scale property will influence all the child nodes.
 
-The scale property set on the child node will have additive effects on the parent node. The child node of a child node will multiply all the scale properties on each hierarchy to get the scale percentage used in the world coordinate system. This is the same case with the position and rotation properties, it’s just that that position and rotation properties have additive effects, while the scale property makes the effects more obvious by multiplication.
+The scale property set on the child node will have additive effects on the parent node. The child node of a child node will multiply all the scale properties on each hierarchy to get the scale percentage used in the world coordinate system. This is the same case with the position and rotation properties, it`s just that that position and rotation properties have additive effects, while the scale property makes the effects more obvious by multiplication.
 
 The scale property acts on the effects of the properties of position and size among others. When you change the scale property, the node's position and size won't change, but it will multiply the position, size and other properties by a scale before showing the node image; the values from the multiplication are the actual position and size of the node that will appear.
 
@@ -103,14 +103,10 @@ In the scene editor, you can always use [scale transform tools](../getting-start
 
 ### Size
 
-The **Size** property is composed of ‘Width’ and ‘Height’ to stipulate the constraint frame's size. For the Sprite node, the size of the constraint frame is the size of the image that will appear.
+The **Size** property is composed of `Width` and `Height` to stipulate the constraint frame's size. For the Sprite node, the size of the constraint frame is the size of the image that will appear.
 
 Therefore, the size property can easily be confused with the scale property. They both can influence the size of the Sprite image, but they influence it in different ways. The size property, along with position and anchor, regulates the four endpoint positions of the node and determines the image display range of the constraints of these four points according to its result. The size property plays a vital role in rendering the [Sliced Sprite](../ui/sliced-sprite.md).
 
 Meanwhile, the scale property gets the node's width and height after scaling based on the multiplication of the size value. When determining the size of the image, size is the basis while scale is the variable so to speak. Besides, the size property will not influence the size of the child node (but can make an indirect influence through [Widget](../ui/widget-align.md)), which is very different from the scale property.
 
 In the scene editor, you can always use [rectangle transform tools](../getting-started/basics/editor-panels/scene.md#--11) to change the node size.
-
----
-
-Continue on to read about [manage node tree and display order](node-tree.md).

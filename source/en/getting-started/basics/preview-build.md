@@ -1,4 +1,4 @@
-# Build and preview
+# Build and Preview
 
 So far we have introduced main panels of the editor so you can manage assets, build scene and tweaking components. Then it's time to preview and build the game to run on your target platform.
 
@@ -36,7 +36,7 @@ There are a bunch of control in Preview page:
 
 #### Debugging with VS Code
 
-We can debug our projects with VS Code text editor, please read [Use VS Code to debug web games](../getting-started/coding-setup.md##use-vs-code-to-debug-web-games) for details.
+We can debug our projects with VS Code text editor, please read [Use VS Code to debug web games](../coding-setup.md##use-vs-code-to-debug-web-games) for details.
 
 #### Debugging with browser Developer Tools
 
@@ -48,10 +48,6 @@ To learn more about using DevTools, please read [Chrome Dev Tools User Guide](ht
 
 The next step is to build your game so it can run on the target platform's device. Open the **Build** panel from main menu's `Project/Build`, you can publish your game to iOS、Android、HTML5、Windows、Mac、Cocos Play with this tool.
 
-For detailed information of publish your game, please read [Cross-platform Game Publish](../publish/index.md).
+For detailed information of publish your game, please read [Cross-platform Game Publish](../../publish/index.md).
 
 **Notice** running your game in simulator may not be the same as running your game on real device. Please always check your game on target platform before releasing it.
-
-<hr>
-
-Continue to read [Asset Workflow](../asset-workflow/index.md).

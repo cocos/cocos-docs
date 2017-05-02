@@ -1,6 +1,6 @@
 # Properties
 
-![properites-panel](../index/inspector.jpg)
+![properites-panel](../index/inspector.png)
 
 **Properties** panel is the working area where we check and edit the current selected nodes and component attributes. Select the node in **Scene editor** or **Node Tree**, attributes of this node and attributes of all the components of this node will display in **Properties** panel for your inquiry and editing.
 
@@ -22,13 +22,13 @@ Next, **Properties** panel will show properties of node, which are listed under 
 
 Other than the transforming attributes like Position, Rotation, Scale and Size, node attributes also include Anchor, Color, Opacity. Generally, modifications of node attributes will immediately reflect in the changes in the appearance or position of node in scene editor.
 
-For more details on node attribute, please read [Transform](../../content-workflow/transform.md) section.
+For more details on node attribute, please read [Transform](../../../content-workflow/transform.md) section.
 
 ## Component attribute
 
 All the components mounted to a node and their attributes will be listed under node attribute. Just like node attribute, you can switch the fold/unfold status of a component attribute by clicking its name. When there are many components mounted to a node, you can get larger working area by folding the component attributes that are not frequently modified.
 
-Users create a component by script, the attribute of which is declared by the script. Different types of attributes have different widget appearances and editing methods in **Properties** panel. The defining method of attribute will be introduced in detail in [Scripting Properties](../../scripting/reference/attributes.md).
+Users create a component by script, the attribute of which is declared by the script. Different types of attributes have different widget appearances and editing methods in **Properties** panel. The defining method of attribute will be introduced in detail in [Scripting Properties](../../../scripting/reference/attributes.md).
 
 ## Edit an attribute
 

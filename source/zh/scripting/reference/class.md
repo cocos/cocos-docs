@@ -6,8 +6,8 @@
 
  - CCClass：使用 `cc.Class` 声明的类。
  - 原型对象：调用 `cc.Class` 时传入的字面量参数。
- - 实例成员：实例成员（"instance member"）包含“成员变量”（member variable）和“成员方法”（instance method）。
- - 静态成员：静态成员包含“静态变量”（static variable）和“类方法”（static method）。
+ - 实例成员：包含“成员变量”和“成员方法”。
+ - 静态成员：包含“静态变量”和“类方法”。
  - 运行时：项目脱离编辑器独立运行时，或者在模拟器和浏览器里预览的时候。
  - 序列化：解析内存中的对象，将它的信息编码为一个特殊的字符串，以便保存到硬盘上或传输到其它地方。
    
@@ -147,8 +147,6 @@ var obj = new Sprite();
 obj.print();
 ```
 
-> 如果是私有的函数，建议在函数名前面添加下划线 `_` 以示区分。
-
 ### 静态变量和静态方法
 
 静态变量或静态方法可以在原型对象的 `statics` 中声明：
@@ -192,10 +190,10 @@ var Sprite = cc.Class({
     extends: Object
 });
 
-cc.log(Sprite.count);   // 结果是 11，因为 count 继承自 Object 类
+cc.log(Sprite.count);    // 结果是 11，因为 count 继承自 Object 类
 
 Sprite.range.w = 200;
-cc.log(Object.range.w);   // 结果是 200，因为 Sprite.range 和 Object.range 指向同一个对象
+cc.log(Object.range.w);  // 结果是 200，因为 Sprite.range 和 Object.range 指向同一个对象
 ```
 
 如果你不需要考虑继承，私有的静态成员也可以直接定义在类的外面：
@@ -326,7 +324,7 @@ var obj = new Rect();
 cc.log(obj.getName());    // "shape (rect)"
 ```
 
-> 如果你想实现继承的父类和子类都不是 CCClass，只是原生的 JavaScript 构造函数，你可以用更底层的 API `cc.js.extend` 来实现。
+> 如果你想实现继承的父类和子类都不是 CCClass，只是原生的 JavaScript 构造函数，你可以用更底层的 API `cc.js.extend` 来实现继承。
 
 ## 属性
 
@@ -350,7 +348,7 @@ var Sprite = cc.Class({
 });
 ```
 
-不过要注意的是，属性被反序列化的过程紧接着发生在构造函数执行**之后**，因此构造函数中只能获得和修改属性的默认值，还无法获得和修改之前保存的值。
+不过要注意的是，属性被反序列化的过程紧接着发生在构造函数执行**之后**，因此构造函数中只能获得和修改属性的默认值，还无法获得和修改之前保存（序列化）的值。
 
 ### 属性参数
 
@@ -445,7 +443,7 @@ temp_url: {
     }
     ```
 
-- 当默认值是一个枚举（cc.Enum）时，由于枚举值本身其实也是一个数字（number），所以要将 type 设置为枚举类型，才能在 **属性检查器** 中显示为枚举下拉框。
+- 当默认值是一个枚举（`cc.Enum`）时，由于枚举值本身其实也是一个数字（number），所以要将 type 设置为枚举类型，才能在 **属性检查器** 中显示为枚举下拉框。
 
     ```javascript
     wrap: {
@@ -526,7 +524,7 @@ name: {
     module.exports = Item;
     ```
 
-上面两个脚本加载时，由于它们在 require 的过程中形成了闭环，因此加载会出现循环引用的错误，循环引用时 type 就会变为 undefined。
+上面两个脚本加载时，由于它们在 require 的过程中形成了闭环，因此加载会出现循环引用的错误，循环引用时 type 就会变为 undefined。<br>
 因此我们提倡使用以下的属性定义方式：
 
  - Game.js
@@ -566,7 +564,6 @@ name: {
 你可以这样来理解箭头函数：
 
 ```
-
 // 箭头函数支持省略掉 `return` 语句，我们推荐的是这种省略后的写法：
 
 properties: () => ({    // <- 箭头右边的括号 "(" 不可省略
@@ -617,7 +614,7 @@ properties: {
 }
 ```
 
-get 方法可以返回任意类型的值。
+get 方法可以返回任意类型的值。<br>
 这个属性同样能显示在 **属性检查器** 中，并且可以在包括构造函数内的所有代码里直接访问。
 
 ```javascript
@@ -696,12 +693,12 @@ width: {
 }
 ```
     
-> 如果没有和 get 一起定义，则 set 自身不能附带任何参数。
+> 如果没有和 get 一起定义，则 set 自身不能附带任何参数。<br>
 > 和 get 一样，设定了 set 以后，这个属性就不能被序列化，也不能指定默认值。
 
 ## editor 参数
 
-`editor` 只能定义在 cc.Component 的子类。
+`editor` 只能定义在 `cc.Component` 的子类。
 
 ```javascript
 cc.Class({
@@ -717,12 +714,12 @@ cc.Class({
     // 默认值：null
     requireComponent: null,
     
-    // 当本组件添加到节点上后，禁止 disallowMultiple 所指定类型（极其子类）的组件再添加到同一个节点，
+    // 当本组件添加到节点上后，禁止同类型（含子类）的组件再添加到同一个节点，
     // 防止逻辑发生冲突。
     // 
-    // 值类型：Function （必须是继承自 cc.Component 的构造函数，如 cc.Sprite）
-    // 默认值：null
-    disallowMultiple: null,
+    // 值类型：Boolean
+    // 默认值：false
+    disallowMultiple: false,
     
     // menu 用来将当前组件添加到组件菜单中，方便用户查找。
     // 
@@ -766,3 +763,8 @@ cc.Class({
   }
 });
 ```
+
+
+---
+
+继续前往 [属性参数参考](attributes.md)。

@@ -5,12 +5,12 @@ Bar Sprite to this component. The Bar Sprite can then be controlled to show prog
 
 ![add-progressbar](./progress/add-progressbar.png)
 
-Click the `add component` button at the bottom of the **Properties** panel and select `ProgressBar` from `add UI component`? You can then add the ProgressBar component to the node.
+Click the `Add component` button at the bottom of the **Properties** panel and select `ProgressBar` from `add UI component`? You can then add the ProgressBar component to the node.
 
 
-## ProgressBar attribute
+## ProgressBar property
 
-| Attribute |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | Bar Sprite | The Sprite component needed for rendering ProgressBar. It can be linked by dragging a node with the `Sprite` component to this attribute.
 | Mode | Currently supports the horizontal and vertical modes. The initial direction can be changed by cooperating with the `Reverse` attribute.
