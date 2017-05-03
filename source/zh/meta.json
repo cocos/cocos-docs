@@ -457,6 +457,11 @@
                         "link": "scripting/javascript-primer.html"
                     },
                     {
+                        "name": "使用 TypeScript 脚本",
+                        "link": "scripting/typescript.html",
+                        "new": true
+                    },                    
+                    {
                         "name": "CCClass参考",
                         "submenu": [
                             {
