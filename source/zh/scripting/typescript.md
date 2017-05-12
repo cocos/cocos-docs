@@ -62,6 +62,37 @@ export default class NewClass extends cc.Component { //ES6 class 声明语法，
 
 装饰器使用 `@` 字符开头作为标记，装饰器主要用于编辑器对组件和属性的识别，而 TypeScript 语法中的类型声明 `myVar: Type` 则允许使用 VS Code 编码时自动识别变量类型并提示其成员。
 
+### 更多属性类型声明方法
+
+声明值类型
+
+```typescript
+@property({
+    default: 0,
+    type: cc.Integer
+})
+myInteger = 0;
+
+@property({
+    default: 0.1,
+    type: cc.Float
+})
+myFloat = 0.1; //数值类型比较特殊，需要指定完整类型和默认值
+
+@property(cc.String)
+public myString: String = '';
+```
+
+声明数组
+
+```typescript
+@property([cc.Node])
+public myNodes: Array<cc.Node> = [];
+
+@property([cc.Color])
+public myColors: Array<cc.Color> = [];
+```
+
 ## 完善的智能提示功能
 
 按照 **使用准备** 里描述的方式创建项目或添加配置后，在 VS Code 里打开项目，就可以享受完善的代码智能提示功能了。
