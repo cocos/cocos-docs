@@ -62,6 +62,37 @@ export default class NewClass extends cc.Component {// ES6 class declaration syn
 
 The decorator uses the `@` character as the marker, the decorator is mainly used for the editor to identify the components and attributes, and the type statement in the TypeScript syntax `myVar: Type` allows automatic identification of the variable type when using VS Code scripting and code intellisense.
 
+### More property declaration example
+
+Declare value types:
+
+```typescript
+@property({
+    default: 0,
+    type: cc.Integer
+})
+myInteger = 0;
+
+@property({
+    default: 0.1,
+    type: cc.Float
+})
+myFloat = 0.1; 
+
+@property(cc.String)
+public myString: String = '';
+```
+
+Declare arrays
+
+```typescript
+@property([cc.Node])
+public myNodes: Array<cc.Node> = [];
+
+@property([cc.Color])
+public myColors: Array<cc.Color> = [];
+```
+
 ## Intellisense
 
 In accordance with the setup described in previous section, open the project in the VS Code and you can enjoy the code intellisense and auto complete in all your TypeScript coding.
