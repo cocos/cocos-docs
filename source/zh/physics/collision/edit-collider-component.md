@@ -17,6 +17,11 @@
 
 <a href="edit-collider-component/delete-polygon-point.png"><img src="edit-collider-component/delete-polygon-point.png"></a>
 
+在 CocosCreator 1.5 中，多边形碰撞组件中添加了一个 **Regenerate Points** 的功能，这个功能可以根据组件依附的节点上的 **Sprite** 组件的贴图的像素点来自动生成相应轮廓的顶点。   
+**Threshold** 指明生成贴图轮廓顶点间的最小距离，值越大则生成的点越少，可根据需求进行调节。
+
+<a href="edit-collider-component/regenerate-points.png"><img src="edit-collider-component/regenerate-points.png"></a>
+
 ## 圆形碰撞组件
 
 如果编辑的是 **圆形碰撞组件** 的话，则会出现类似下图所示的 **圆形编辑区域**   
