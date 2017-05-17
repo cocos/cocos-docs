@@ -244,6 +244,10 @@
                             {
                                 "name": "Graphics 组件参考",
                                 "link": "components/graphics.html"
+                            },
+                            {
+                                "name": "Camera 组件参考",
+                                "link": "components/camera.html"
                             }
                         ]
                     }
