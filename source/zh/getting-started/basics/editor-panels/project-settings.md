@@ -7,7 +7,7 @@
 
 ![group](group.jpg)
 
-目前项目设置中的分组管理主要为 [碰撞体系统](../../physics/index.md) 提供分组支持，详情请参考 [碰撞分组管理](../../physics/collision-group.md)。
+目前项目设置中的分组管理主要为 [碰撞体系统](../../physics/collision/index.md) 提供分组支持，详情请参考 [碰撞分组管理](../../physics/collision/collision-group.md)。
 
 ## 模块设置
 

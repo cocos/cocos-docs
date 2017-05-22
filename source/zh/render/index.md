@@ -2,7 +2,7 @@
 
 - [基本图像渲染](core-renderer.md)
 - [外部资源渲染](external-renderer.md)
-- [嵌入视图渲染](embed-renderer.md)
+- [摄像机](camera.md)
 - [程序绘制图形系统](grahpics/index.md)
 - 渲染组件参考
   - [Sprite 组件参考](../components/sprite.md)

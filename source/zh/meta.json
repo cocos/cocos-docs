@@ -195,6 +195,11 @@
                         "link": "render/external-renderer.html"
                     },
                     {
+                        "name": "摄像机",
+                        "link": "render/camera.html",
+                        "new": true
+                    },
+                    {
                         "name": "绘图系统",
                         "link": "render/graphics/index.html"
                     },
@@ -244,10 +249,6 @@
                             {
                                 "name": "Graphics 组件参考",
                                 "link": "components/graphics.html"
-                            },
-                            {
-                                "name": "Camera 组件参考",
-                                "link": "components/camera.html"
                             }
                         ]
                     }
@@ -519,50 +520,54 @@
                 ]
             },
             {
-                "name": "碰撞系统",
-                "link": "physics/collision/index.html",
-                "submenu": [
-                    {
-                        "name": "编辑碰撞组件",
-                        "link": "physics/collision/edit-collider-component.html"
-                    },
-                    {
-                        "name": "碰撞分组管理",
-                        "link": "physics/collision/collision-group.html"
-                    },
-                    {
-                        "name": "碰撞系统脚本控制",
-                        "link": "physics/collision/collision-manager.html"
-                    },
-                    {
-                        "name": "Collider 组件参考",
-                        "link": "components/collider.html"
-                    }
-                ]
-            },
-            {
                 "name": "物理系统",
-                "link": "physics/physics/index.html",
+                "link": "physics/index.html",
                 "submenu": [
                     {
-                        "name": "物理系统",
-                        "link": "physics/physics/physics-manager.html"
-                    },
-                    {
-                        "name": "刚体组件",
-                        "link": "physics/physics/rigid-body.html"
-                    },
-                    {
-                        "name": "碰撞组件",
-                        "link": "physics/physics/collider-component.html"
-                    },
-                    {
-                        "name": "碰撞回调",
-                        "link": "physics/physics/contact-callback.html"
-                    },
-                    {
-                        "name": "关节组件",
-                        "link": "physics/physics/joint-component.html"
+                        "name": "碰撞系统",
+                        "link": "physics/collision/index.html",
+                        "submenu": [{
+                                "name": "编辑碰撞组件",
+                                "link": "physics/collision/edit-collider-component.html"
+                            },
+                            {
+                                "name": "碰撞分组管理",
+                                "link": "physics/collision/collision-group.html"
+                            },
+                            {
+                                "name": "碰撞系统脚本控制",
+                                "link": "physics/collision/collision-manager.html"
+                            },
+                            {
+                                "name": "Collider 组件参考",
+                                "link": "components/collider.html"
+                            }
+                        ]
+                    }, {
+                        "name": "物理引擎",
+                        "link": "physics/physics/index.html",
+                        "new": true,
+                        "submenu": [{
+                                "name": "物理系统",
+                                "link": "physics/physics/physics-manager.html"
+                            },
+                            {
+                                "name": "刚体组件",
+                                "link": "physics/physics/rigid-body.html"
+                            },
+                            {
+                                "name": "碰撞组件",
+                                "link": "physics/physics/collider-component.html"
+                            },
+                            {
+                                "name": "碰撞回调",
+                                "link": "physics/physics/contact-callback.html"
+                            },
+                            {
+                                "name": "关节组件",
+                                "link": "physics/physics/joint-component.html"
+                            }
+                        ]
                     }
                 ]
             },
