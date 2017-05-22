@@ -61,7 +61,7 @@ class CustomGizmo extends Editor.Gizmo {
 
         // 转换世界坐标到 svg view 上
         // svg view 的坐标体系和节点坐标体系不太一样，这里使用内置函数来转换坐标
-        let viewPosition = this._view.worldToPixel(worldPosition);
+        let viewPosition = this.worldToPixel(worldPosition);
 
         // 对齐坐标，防止 svg 因为精度问题产生抖动
         let p = Editor.GizmosUtils.snapPixelWihVec2( viewPosition );
@@ -111,3 +111,6 @@ module.exports = CustomGizmo;
 这样就将 CustomGizmo 注册到 CustomComponent 上了，当添加一个 CustomComponent 到节点上并选择这个节点时，就可以看到这个 gizmo 了。
 
 请阅读下一篇 [自定义 Gizmo 进阶](custom-gizmo-advance.md)
+
+更多 Gizmo Api 请参考 [Gizmo Api](api/editor-framework/renderer/gizmo.md)
+更多 Gizmo 实例请参考 [Gizmo 实例](https://github.com/2youyou2/gizmo-example)
