@@ -17,6 +17,7 @@
   - [Editor.Protocol](main/protocol.md)
   - [Editor.Window](main/window.md)
   - [Editor.Worker](main/worker.md)
+  - [Editor.Builder](main/builder.md)
 
 ## Modules for the Renderer Process (Web Page)
 
