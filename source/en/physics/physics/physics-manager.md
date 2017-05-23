@@ -1,133 +1,125 @@
-# 物理系统
+# Physics Manager
 
-物理系统将 box2d 作为内部物理系统，并且隐藏了大部分 box2d 实现细节（比如创建刚体，同步刚体信息到节点中等）。
-你可以通过物理系统访问一些 box2d 常用的功能，比如点击测试，射线测试，设置测试信息等。
+The physics system takes Box2d as an internal physics engine and hides most of the Box2d implementation details (such as creating rigidbody, synchronizing rigidbody information to nodes).
+You can access some of the commonly used functions of Box2d through physics manager, such as click test, ray test, set test information, and so on.
 
-## 物理系统相关设置
+## Physics system related settings
 
-### 开启物理系统
+### Enable Physics manager
 
-物理系统默认是关闭的，如果需要使用物理系统，那么首先需要做的事情就是开启物理系统，否则你在编辑器里做的所有物理编辑都不会产生任何效果。
+The physics manager is disabled by default. If you need to use the physics system related functions, the first thing you need to do is enable the physics manager, otherwise all the physics object you setup in the editor will not produce any effect.
 
 ```javascript
 cc.director.getPhysicsManager().enabled = true;
 ```
 
-### 绘制物理调试信息
+### Draw physics debugging information
 
-物理系统默认是不绘制任何调试信息的，如果需要绘制调试信息，请使用 **debugDrawFlags** 。
-物理系统提供了各种各样的调试信息，你可以通过组合这些信息来绘制相关的内容。
+The physics system does not draw any debugging information by default. If you need to draw debugging information, use `debugDrawFlags`.
+The physics system provides a variety of debugging information, you can combine the information to draw the relevant content.
 
 ```javascript
 cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_aabbBit |
-    cc.PhysicsManager.DrawBits.e_pairBit |
-    cc.PhysicsManager.DrawBits.e_centerOfMassBit |
-    cc.PhysicsManager.DrawBits.e_jointBit |
-    cc.PhysicsManager.DrawBits.e_shapeBit
-    ;
+    Cc.PhysicsManager.DrawBits.e_pairBit |
+    Cc.PhysicsManager.DrawBits.e_centerOfMassBit |
+    Cc.PhysicsManager.DrawBits.e_jointBit |
+    Cc.PhysicsManager.DrawBits.e_shapeBit
+    ;
 ```
 
-设置绘制标志位为 **0**，即可以关闭绘制。
+Set the drawing flag to `0` to disable drawing.
 
 ```javascript
-cc.director.getPhysicsManager().debugDrawFlags = 0;
+cc.director.getPhysicsManager().DebugDrawFlags = 0;
 ```
 
-### 物理单位到像素单位的转换
+### Conversion physics units to pixel units
 
-box2d 使用 **米-千克-秒(MDS)** 单位制，box2d 在这样的单位制下运算的表现是最佳的。   
-但是我们在 2D 游戏运算中一般使用 **像素** 来作为长度单位制，所以我们需要一个比率来进行物理单位到像素单位上的相互转换。   
-一般情况下我们把这个比率设置为 32，这个值可以通过 `cc.PhysicsManager.PTM_RATIO` 获取，并且这个值是只读的。   
-通常用户是不需要关心这个值的，物理系统内部会自动对物理单位与像素单位进行转换，用户访问和设置的都是进行 2d 游戏开发中所熟悉的像素单位。
+Box2d uses **meter - kilogram - second (MDS)** unit system, it has the best performance operating under such a unit system.
+But we use **pixel** unit of length in 2D games, so we need a ratio to convert the physics units to the pixel units.
+In general, we set this ratio to `32`, which can be obtained by `cc.PhysicsManager.PTM_RATIO`, and this value is read-only.
+Usually the user does not need to care about this value, the physics system will automatically convert the physics units and pixel units to each other. User can use the familiar pixel units for all the calculations.
 
-### 设置物理重力
+### Set physics gravity
 
-重力是物理表现中非常重要的一点，大部分物理游戏都会使用到重力这一物理特性。
-默认的重力速度是 (0, -320) 像素/秒，按照上面描述的转换规则，即 (0, -10) 米/秒。
+Gravity is a very important thing in physics operation, and most physics games use the gravity as a important feature.
+The default gravity is (0, -320) pixels per second^2, according to the conversion rules described above, that's (0, -10) m / s^2 in physics unit.
 
-如果希望重力速度为 0，可以这样设置：
+If you want the gravity to be 0, you can set like this:
 
 ```javascript
-cc.director.getPhysicsManager().gravity = cc.v2();
+cc.director.getPhysicsManager().gravity = cc.v2 ();
 ```
 
-如果希望修改重力速度为其他值，比如 1 秒降落 640 像素，那么可以这样设置：
+If you want to modify the gravity to other values, such as 640 pixels / second^2, then you can set like this:
 
 ```javascript
-cc.director.getPhysicsManager().gravity = cc.v2(0, -640);
+cc.director.getPhysicsManager().gravity = cc.v2 (0, -640);
 ```
 
-## 查询物体
+## Query physics object
 
-通常你可能想知道在给定的场景中都有哪些实体。
-比如如果一个炸弹爆炸了，在范围内的物体都会受到伤害，或者在策略类游戏中，可能会希望让用户选择一个范围内的单位进行拖动。
+Often you may want to know which physics objects are in a given scene.
+For example, if a bomb explodes, objects in the range will be damaged; or in a strategy game, you may want to let the user drag to move a unit from a certain range.
 
-物理系统提供了几个方法来高效快速地查找某个区域中有哪些物体，每种方法通过不同的方式来检测物体，基本满足游戏所需。
+The physics system provides several ways to efficiently and quickly look for objects in a region, each of which uses different ways to query objects that fit the needs of the game.
 
-### 点测试
+### Point test
 
-点测试将测试指定的一个世界坐标系下的点，如果测试成功，则会返回一个包含这个点的碰撞体。
+The point test will test if there's a collider contains a specific point under the world coordinate system. If the test is successful, it will return the collider. If there're multiple collider that contains the point, a random one will be returned.
 
 ```javascript
 var collider = cc.director.getPhysicsManager().testPoint(point);
 ```
 
-### 矩形测试
+### Rectangle test
 
-矩形测试将测试指定的一个世界坐标系下的矩形，如果一个碰撞体的包围盒与这个矩形有重叠部分，则这个碰撞体会给添加到返回列表中。
+The rectangle test will test if there's a specified rectangle (in world coordinate system) that intersect with the bounding box of a collider. If successful the collider will be added to the return list.
 
 ```javascript
 var colliderList = cc.director.getPhysicsManager().testAABB(rect);
 ```
 
-### 射线测试
+### Ray test
 
-射线检测用来检测给定的线段穿过哪些碰撞体，我们还可以获取到碰撞体在线段穿过碰撞体的那个点的法线向量和其他一些有用的信息。
+Ray detection is used to detect which colliders a given line passes through. We can also obtain the normal vector at the point where the given line passes through and other useful information.
 
 ```javascript
-var results = cc.director.getPhysicsManager().rayCast(p1, p2, type);
+var results = cc.director.getPhysicsManager().rayCast (p1, p2, type);
 
-for (var i = 0; i < results.length; i++) {
-    var result = results[i];
-    var collider = result.collider;
-    var point = result.point;
-    var normal = result.normal;
-    var fraction = result.fraction;
+for (var i = 0; i <results.length; i ++) {
+    var result = results [i];
+    var collider = result.collider;
+    var point = result.point;
+    var normal = result.normal;
+    var fraction = result.fraction;
 }
 ```
 
-射线检测的最后一个参数指定检测的类型，射线检测支持四种类型。
-这是因为 box2d 的射线检测不是从射线起始点最近的物体开始检测的，所以检测结果不能保证结果是按照物体距离射线起始点远近来排序的。
-CocosCreator 物理系统将根据射线检测传入的检测类型来决定是否对 box2d 检测结果进行排序，这个类型会影响到最后返回给用户的结果。
+The last parameter of the `rayCast` function specifies the type of detection, and the ray detection supports four types.
+This is because the ray detection of Box2d is not detected from the nearest object of the ray starting point, so the result of the test can not guarantee that the result is sorted by the distance from the object near the start of the ray.
+Cocos Creator's physics system will determine whether the Box2d test results are sorted based on the type of detection. This type will affect the result return to user.
 
-- cc.RayCastType.Any   
-检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体，最快。
+- `cc.RayCastType.Any`: will detect any collider on the ray path. Once it detects any collider, it will immediately end the detection process and will no longer detect other objects.
 
-- cc.RayCastType.Closest   
-检测射线路径上最近的碰撞体，这是射线检测的默认值，稍慢。
+- `cc.RayCastType.Closest`: will detect the nearest collider on the ray path, which is the default for the `rayCast` detection, slightly slower than above method.
 
-- cc.RayCastType.All   
-检测射线路径上的所有碰撞体，**检测到的结果顺序不是固定的**。**在这种检测类型下一个碰撞体可能会返回多个结果**，这是因为 box2d 是通过检测夹具(fixture)来进行物体检测的，而一个碰撞体中可能由多个夹具(fixture)组成的，慢。更多细节可到 [物理碰撞组件](./collider-component.md) 查看。
+- `cc.RayCastType.All`: will detect all colliders on the ray path, **the order of the detected results is not fixed**. **In this type of detection, a collider may return multiple results** because Box2d run the detection by testing the fixture, and a collider may consist of multiple fixtures. This is a more costly method and will be slower than above methods. More details can be found in the [Physics Collider Component](./collider-component.md) documentation.
 
-- cc.RayCastType.AllClosest   
-检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息，最慢。
+- `cc.RayCastType.AllClosest`: All colliders on the ray path are detected, but the return result is filtered and only the relevant information about the nearest point of each collider is returned, the slowest method of all.
 
-#### 射线检测的结果
+#### The result of ray detection
 
-射线检测的结果包含了许多有用的信息，你可以根据实际情况来选择如何使用这些信息。
+The results of ray detection contain a lot of useful information, you can utilize these info according to the actual need.
 
-- collider   
-指定射线穿过的是哪一个碰撞体。
+- `collider`: Specifies which collider the ray passes through.
 
-- point   
-指定射线与穿过的碰撞体在哪一点相交。
+- `point`: Specifies the point at which the ray intersects the collider.
 
-- normal   
-指定碰撞体在相交点的表面的法线向量。
+- `normal`: Specifies the normal vector of the surface of the collider at the intersection.
 
-- fraction   
-指定相交点在射线上的分数。
+- `fraction`: Specifies the score of the intersection point at the ray.
 
-可以通过下面这张图更好的理解射线检测的结果。
+You can have a better understanding of the result of ray detection with the following figure.
 
-![raycasting-output](image/raycasting-output.png)
+![Raycasting-output](image/raycasting-output.png)

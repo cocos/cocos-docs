@@ -1,35 +1,35 @@
-# Camera 摄像机
+# Camera
 
-摄像机组件在制作卷轴或是其他需要移动屏幕的游戏时比较有用，在没有摄像机组件的情况下，卷轴游戏都是通过移动场景节点或是游戏根节点来实现的，这样将会导致大量节点的矩阵都需要重新计算，效率自然会有所降低，而使用摄像机是直接将摄像机的矩阵信息在渲染阶段统一处理，将会比移动节点来移动屏幕更加高效。
+The camera component is useful when making a scroller game or other game that needs to move the perspective. Before when in the absence of a camera component, the scroller in game is implemented by moving the scene node or the game root node, which will result in a matrix of nodes need to be recalculated. And the performance will naturally drop due to this. The camera renders the scene through camera matrix directly in the rendering process, it will be much more efficient than moving lots of nodes.
 
-摄像机组件提供了两个属性来供用户设置：
+The camera component provides two properties for the user to set:
 
-- targets - 指定摄像机会拍摄哪些节点，即摄像机会影响哪些节点。
-- zoomRatio - 指定摄像机的缩放比例, 值越大显示的图像越大。
+- `targets`: Specifies which nodes the camera will render, including their child nodes.
+- `zoomRatio`: Specifies the zoom ratio of the camera, the larger the value, the larger the image.
 
-摄像机组件将会随着他依附的节点进行移动，可以想象成我们举着摄像机跟随者摄像机的节点移动，而这个摄像机只会拍摄他的 targets 目标，摄像机组件拍摄的范围即是设备屏幕大小。
+The camera component will move along with the node it is attached to, and we can imagine the node is a hand holding the camera, which will only shoot his targets, and the FOV of the camera is the device screen size.
 
-## 实例
+## Example
 
-我们用一个场景实例来解释摄像机组件怎么使用。
+We use a scene instance to explain how the camera components are used.
 
-假设我们在做一个物理游戏，需要 physics 节点，tiled map 做背景，hero 做主角，我们的摄像机需要跟随 hero 来移动。
+Suppose we are making a physics game: we have physics colliders and tiled map as the background, we have `hero` node as player character. Our camera needs to follow the hero's movement so we can see him travel across the scene.
 
-![camera-1](./camera/camera-1.png)
+![Camera-1](./camera/camera-1.png)
 
-这里我们还新建了一个 camera 节点来作为摄像机的载体，使用一个单独的节点作为摄像机节点会更灵活，当然我们也可以直接将摄像机组件添加到 hero 节点上，但是这样摄像机的位置就只能和 hero 节点重叠在一起了，不能做到缓慢跟随之类的效果。
+Here we also created a new node as camera carrier, using a separate node as a camera node will be more flexible. Of course, we can also directly add the camera components to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect. 
 
 <img src="./camera/camera-2.png" style="width:50%;height:50%"></img>
 
-在这里摄像机组件添加了三个节点到 targets 上，即我们需要摄像机拍摄这三个节点。并且我们还添加了一个 **camera-control** 组件，这个组件的作用主要是移动 camera 节点跟随 hero 节点，达到使摄像机跟随 hero 移动的效果。
+Here the camera component adds three nodes to the `targets` property, that is, we need the camera to shoot these three nodes. And we also added a **camera-control** components, the role of this component is mainly to move the camera node to follow the hero node.
 
-实例可在 [物理系统示例](https://github.com/2youyou2/physics-example) 中的 tiled 示例中找到。
+This example can be found in the `tiled` example in the [Physics example](https://github.com/2youyou2/physics-example) project.
 
-**注意** ：
+**Note**:
 
-当我们使用摄像机时，如果使用到了物理系统或者碰撞系统这些会内置渲染节点的系统，需要调用相关的 api 将他们的渲染节点也添加到摄像机上。
+When using camera, if you are using the physics system that have built-in render nodes, you will need to call the associated API to add their render nodes to the camera:
 
 ```javascript
-cc.director.getPhysicsManager().attachDebugDrawToCamera(camera);
-cc.director.getCollisionManager().attachDebugDrawToCamera(camera);
+cc.director.getPhysicsManager().attachDebugDrawToCamera (camera);
+cc.director.getCollisionManager().attachDebugDrawToCamera (camera);
 ```

@@ -21,7 +21,7 @@
 
 <img src="./camera/camera-2.png" style="width:50%;height:50%"></img>
 
-在这里摄像机组件添加了三个节点到 targets 上，即我们需要摄像机拍摄这三个节点。并且我们还添加了一个 **camera-control** 组件，这个组件的作用主要是移动 camera 节点跟随 hero 节点，达到使摄像机跟随 hero 移动的效果。
+在这里摄像机组件添加了三个节点到 targets 上，即我们需要摄像机拍摄这三个节点。并且我们还添加了一个 **camera-control** 组件，这个组件的作用主要是移动 camera 节点跟随 hero 节点。
 
 实例可在 [物理系统示例](https://github.com/2youyou2/physics-example) 中的 tiled 示例中找到。
 

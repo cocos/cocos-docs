@@ -22,13 +22,13 @@ var velocity = rigidbody.linearVelocity;
 rigidbody.linearVelocity = velocity;
 ```
 
-移动速度衰减系数，可以用来模拟空气摩擦力等效果，他会使现有速度越来越慢。
+移动速度衰减系数，可以用来模拟空气摩擦力等效果，它会使现有速度越来越慢。
 
 ```javascript
 // 获取移动速度衰减系数
-var velocity = rigidbody.linearDamping;
+var damping = rigidbody.linearDamping;
 // 设置移动速度衰减系数
-rigidbody.linearDamping = velocity;
+rigidbody.linearDamping = damping;
 ```
 
 有些时候可能会希望获取刚体上某个点的移动速度，比如一个盒子旋转着往前飞，碰到了墙，这时候可能会希望获取盒子在发生碰撞的点的速度，可以通过  `getLinearVelocityFromWorldPoint` 来获取。
