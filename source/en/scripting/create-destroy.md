@@ -108,6 +108,11 @@ cc.Class({
 });
 ```
 
+### destroy and removeFromParent
+
+After calling a node's `removeFromParent`, it does not necessarily be able to completely release from memory, because there may be some logical problems that cause the program to still refer to the object. So if a node is no longer used, please call its `destroy` instead of `removeFromParent`。`destroy` will not only activate the components `onDestroy`, but also reduce the probability of memory leaks, while reducing the consequences of memory leak.
+
+In short, if a node is no longer used, use `destroy`, do not need `removeFromParent`, do not need to set `parent` to `null`.
 
 ---
 

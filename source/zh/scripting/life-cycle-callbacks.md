@@ -70,8 +70,7 @@ cc.Class({
 
 ## lateUpdate
 
-`update` 会在所有动画更新前执行，但如果我们要在动画更新之后才进行一些额外操作，或者希望在所有组件的 `update`
-都执行完之后才进行其它操作，那就需要用到 `lateUpdate` 回调。
+`update` 会在所有动画更新前执行，但如果我们要在动画更新之后才进行一些额外操作，或者希望在所有组件的 `update` 都执行完之后才进行其它操作，那就需要用到 `lateUpdate` 回调。
 
 ```js
 cc.Class({
@@ -85,16 +84,15 @@ cc.Class({
 
 ## onEnable
 
-当组件的 `enabled` 属性从 `false` 变为 `true` 时，会激活 `onEnable` 回调。倘若节点第一次被
-创建且 `enabled` 为 `true`，则会在 `onLoad` 之后，`start` 之前被调用。
+当组件的 `enabled` 属性从 `false` 变为 `true` 时，或者所在节点的 `active` 属性从 `false` 变为 `true` 时，会激活 `onEnable` 回调。倘若节点第一次被创建且 `enabled` 为 `true`，则会在 `onLoad` 之后，`start` 之前被调用。
 
 ## onDisable
 
-当组件的 `enabled` 属性从 `true` 变为 `false` 时，会激活 `onDisable` 回调。
+当组件的 `enabled` 属性从 `true` 变为 `false` 时，或者所在节点的 `active` 属性从 `true` 变为 `false` 时，会激活 `onDisable` 回调。
 
 ## onDestroy
 
-当组件调用了 `destroy()`，会在该帧结束被统一回收，此时会调用 `onDestroy` 回调。
+当组件或者所在节点调用了 `destroy()`，则会调用 `onDestroy` 回调，并在当帧结束时统一回收组件。
 
 
 ---
