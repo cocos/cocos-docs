@@ -1,4 +1,4 @@
-# Cocos Creator v1.4.x User Manual
+# Cocos Creator v1.5.x User Manual
 
 Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platform, 
 game development tool based on Cocos2d-x. This is a comprehensive and detailed guide 
