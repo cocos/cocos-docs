@@ -16,7 +16,7 @@
 
 定义一个碰撞回调函数很简单，只需要在刚体所在的节点上挂一个脚本，脚本中添加上你需要的回调函数即可。
 
-```
+```js
 cc.Class({
     extends: cc.Component,
 
@@ -110,7 +110,9 @@ var points = worldManifold.points;
 var normal = worldManifold.normal;
 ```
 
-- points
+`worldManifold` 具有以下成员：
+
+#### points
 
 碰撞点数组，他们不一定会精确的在碰撞体碰撞的地方上，如下图所示（除非你将刚体设置为子弹类型，但是会比较耗性能），但实际上这些点在使用上一般都是够用的。
 

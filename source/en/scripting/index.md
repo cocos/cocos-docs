@@ -28,6 +28,7 @@ While writing the component script, you can map the variables needing adjustment
 - [Script Execution Order](execution-order.md)
 - [Network interface](network.md)
 - [Use Object Pool](pooling.md)
+- [TypeScript](typescript.md)
 - Script Structure
   - [Modular Script](modular-script.md)
   - [Plugin Scripts](plugin-scripts.md)
