@@ -117,7 +117,7 @@ export class MyModule extends cc.Component {
     myName : string;
 
     @property(cc.Node)
-    myNode: cc.Node;
+    myNode: cc.Node = null;
 }
 ```
 
@@ -131,7 +131,7 @@ import {MyModule} from './MyModule';
 @ccclass
 export class MyUser extends cc.Component {
     @property(MyModule)
-    public myModule: MyModule;
+    public myModule: MyModule = null;
 
     public onLoad() {
         // init logic
