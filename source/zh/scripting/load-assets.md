@@ -123,13 +123,15 @@ cc.Class({
 
 ## 动态加载
 
-所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
+动态加载资源要注意两点，一是所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
 这里的 `image/image`, `prefab`, `anim`, `font` 都是常见的 Asset，而 `image`, `audio` 则是常见的 Raw Asset。
 
 > `resources` 文件夹里面的资源，可以关联依赖到文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，`resources` 文件夹里面的所有资源，连同它们关联依赖的 `resources` 文件夹外部的资源，都会被导出。如果一份资源不需要由脚本**直接**动态加载，那么千万不要放在 `resources` 文件夹里。
+
+第二个要注意的是 Creator 相比之前的 Cocos2d-html5，资源动态加载的时都是**异步**的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
 ### 动态加载 Asset
 

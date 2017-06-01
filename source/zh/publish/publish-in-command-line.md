@@ -34,6 +34,7 @@
  
  - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
+ - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
  - `packageName` - 包名
  - `useDebugKeystore` - 是否使用 debug keystore

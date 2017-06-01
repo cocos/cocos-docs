@@ -70,8 +70,7 @@ cc.Class({
 
 ## lateUpdate
 
-`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or
- want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
+`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
 
 ```js
 cc.Class({
@@ -85,16 +84,15 @@ cc.Class({
 
 ## onEnable
 
-When the `enabled` property of the component turns from `false` to `true`, it will trigger `onEnable` callback. If the node is created for the first time,
-and `enabled` is `true`, then it will be called after `onLoad` but before `start`.
+When the `enabled` property of the component turns from `false` to `true`, or the `active` property of the node turns from `false` to `true`, it will trigger `onEnable` callback. If the node is created for the first time, and `enabled` is `true`, then it will be called after `onLoad` but before `start`.
 
 ## onDisable
 
-When the `enabled` property of the component turns from `true` to `false`, it will activate the `onDisable` callback.
+When the `enabled` property of the component turns from `true` to `false`, or the `active` property of the node turns from `true` to `false`, it will trigger `onEnable` callback, it will activate the `onDisable` callback.
 
 ## onDestroy
 
-When the component calls `destroy()`, they will be collected when this frame is done. By this time, it will call the `onDestroy` callback.
+When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
 
 
 ---

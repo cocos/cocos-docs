@@ -123,7 +123,7 @@ Although it is very straight forward to set assets in the **Properties** panel, 
 
 ## How to dynamically load
 
-All resources that require dynamically loaded via script, must be placed under `resources` folder or its subfolders, `resources` need to be manually created in the assets folder and must be located in the root directory of the assets,
+When loading resources dynamically, pay attention to two points. All resources that require dynamically loaded via script, must be placed under `resources` folder or its subfolders, `resources` need to be manually created in the assets folder and must be located in the root directory of the assets,
 like this:
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
@@ -131,6 +131,8 @@ like this:
 The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `image`, `audio` is a common Raw Asset.
 
 > Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
+
+The second to note is that comparing to previous Cocos2d-html5, dynamic loading resources in Creator are **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
 ## How to dynamically load Asset
 

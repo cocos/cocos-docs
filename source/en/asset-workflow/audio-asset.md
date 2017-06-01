@@ -28,7 +28,7 @@ Sometimes we may not use the automatic loading or preload function of the scene,
 The default way to load is webAudio. The audio element is only used if the browser does not support it.
 
 ```
-cc.load.load('raw-assets/resources/background.mp3', callback);
+cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 ```
 
 #### dom element mode
@@ -38,7 +38,7 @@ cc.load.load('raw-assets/resources/background.mp3', callback);
 2. Audio in the loading process, will read the url get parameter. Which only need to define a useDom parameter.
 
     ```
-    cc.load.load('raw-assets/resources/background.mp3?useDom=1', callback);
+    cc.loader.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
     ```
 It should be noted that if you use the dom element to load the audio, in the cc.load cache, the cache will also have the url? UseDom = 1
 
