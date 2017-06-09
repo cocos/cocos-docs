@@ -36,7 +36,11 @@ Any unmatched meta files will be removed from `assets` folder, and will be backe
 
 If you wish to recover the reference to those changed assets, please put the backup meta file to the same folder as the changed asset, and make sure to rename the meta file to share the same name as the changed asset. Please notice that there're probably new meta files generated for changed assets, you can delete those newly created meta files safely after you recover the backup meta files.
 
-## Importing Projects from other Editors
+## Export assets from one project to another
+
+Since v1.5 Cocos Creator editor allow users to export asset and its dependencies from one project to another. Please read [Import/export assets across projects](import-export.md).
+
+## Importing projects from other Editors
 
 You can now import items from other editors in Cocos Creator. For more information, please refer to: [Importing Projects from other Editors](project-import.md)
 

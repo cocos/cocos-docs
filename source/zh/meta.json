@@ -106,6 +106,10 @@
                         "link": "asset-workflow/sprite.html"
                     },
                     {
+                        "name": "预制资源",
+                        "link": "asset-workflow/prefab.html"
+                    },                    
+                    {
                         "name": "图集资源",
                         "link": "asset-workflow/atlas.html"
                     },
@@ -117,6 +121,11 @@
                         "name": "艺术数字资源",
                         "link": "asset-workflow/label-atlas.html"
                     },
+                    {
+                        "name": "跨项目导入导出资源",
+                        "link": "asset-workflow/import-export.html",
+                        "new": true
+                    },                    
                     {
                         "name": "图像资源的自动剪裁",
                         "link": "asset-workflow/trim.html"
@@ -136,10 +145,6 @@
                     {
                         "name": "声音资源",
                         "link": "asset-workflow/audio-asset.html"
-                    },
-                    {
-                        "name": "预制资源",
-                        "link": "asset-workflow/prefab.html"
                     },
                     {
                         "name": "Spine 骨骼动画资源",
@@ -804,8 +809,14 @@
                     },
                     {
                         "name": "动态热更新",
-                        "link": "advanced-topics/hot-update.html"
+                        "link": "advanced-topics/hot-update.html",
+                        "new": true
                     },
+                    {
+                        "name": "热更新管理器",
+                        "link": "advanced-topics/assets-manager.html",
+                        "new": true
+                    },                    
                     {
                         "name": "i18n 游戏多语言支持",
                         "link": "advanced-topics/i18n.html",
