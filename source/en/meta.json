@@ -111,6 +111,10 @@
                         "link": "asset-workflow/sprite.html"
                     },
                     {
+                        "name": "Prefab",
+                        "link": "asset-workflow/prefab.html"
+                    },                    
+                    {
                         "name": "Atlas",
                         "link": "asset-workflow/atlas.html"
                     },
@@ -121,6 +125,11 @@
                     {
                         "name": "Label Atlas",
                         "link": "asset-workflow/label-atlas.html"
+                    },
+                    {
+                        "name": "Import/export Assets",
+                        "link": "asset-workflow/import-export.html",
+                        "new": true
                     },
                     {
                         "name": "Texture Auto Trim",
@@ -141,10 +150,6 @@
                     {
                         "name": "Audio Asset",
                         "link": "asset-workflow/audio-asset.html"
-                    },
-                    {
-                        "name": "Prefab",
-                        "link": "asset-workflow/prefab.html"
                     },
                     {
                         "name": "Spine",
@@ -804,8 +809,14 @@
                     },
                     {
                         "name": "Hot Update",
-                        "link": "advanced-topics/hot-update.html"
+                        "link": "advanced-topics/hot-update.html",
+                        "new": true
                     },
+                    {
+                        "name": "AssetManager for Hot Update",
+                        "link": "advanced-topics/assets-manager.html",
+                        "new": true
+                    },                       
                     {
                         "name": "i18n",
                         "link": "advanced-topics/i18n.html",

@@ -30,11 +30,13 @@
 
 在编辑器发现有未同步的资源配置文件时，会弹窗警告用户，并列出所有不匹配的 meta 文件。
 
-（配图）
-
 这时无法正确匹配的资源配置文件会从项目资源路径（asset）中移除，并自动备份到 `temp` 路径下。
 
 如果您希望恢复这些资源的引用，请将备份的 meta 文件复制到已经移动过的资源文件同一路径下，并保证资源文件和 meta 文件的文件名相同。注意编辑器在处理资源改名和移动时会生成新的 meta 文件，这些新生成的 meta 文件可以在恢复备份的 meta 后安全删除。
+
+## 跨项目导入导出资源
+
+除了导入基础资源外，从 1.5 版本开始编辑器支持将一个项目中的资源和其依赖完整的导出到另一个项目，详情请阅读 [导入导出资源工作流程](import-export.md)。
 
 ## 导入其他编辑器项目
 
@@ -49,11 +51,12 @@
 - [图集资源（Atlas）](atlas.md)
 - [自动图集资源（Auto Atlas）](auto-atlas.md)
 - [图像资源的自动剪裁](trim.md)
+- [预制资源（Prefab）](prefab.md)
+
 - [脚本资源](script.md)
 - [字体资源](font.md)
 - [粒子资源](particle.md)
 - [声音资源](audio-asset.md)
-- [预制资源（Prefab）](prefab.md)
 - [骨骼动画资源（Spine）](spine.md)
 - [瓦片图资源（TiledMap）](tiledmap.md)
 - [骨骼动画资源（DragonBones）](dragonbones.md)
