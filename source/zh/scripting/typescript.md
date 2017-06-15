@@ -1,16 +1,16 @@
 # 使用 TypeScript 脚本
 
-TypeScript 是一种由微软开发的自由和开源的编程语言。它是JavaScript的一个严格超集，并添加了可选的静态类型和基于类的面向对象编程。 TypeScript设计目标是开发大型应用，然后转译成JavaScript。由于TypeScript是JavaScript的严格超集，任何现有的JavaScript程序都是合法的TypeScript程序。
+TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个严格超集，并添加了可选的静态类型和基于类的面向对象编程。TypeScript 的设计目标是开发大型应用，然后转译成 JavaScript 运行。由于 TypeScript 是 JavaScript 的超集，任何现有的 JavaScript 程序都是合法的 TypeScript 程序。
 
 关于 TypeScript 的详细使用方法，请访问 [TypeScript官方网站](https://www.typescriptlang.org/)。
 
 ## TypeScript 和 Cocos Creator
 
-Cocos Creator 的用户中，很多之前是使用其他强类型语言（如 C++/C#）来编写游戏的，因此在使用 Cocos Creator 开发游戏的时候也希望能够使用强类型语言来增强项目在较大规模团队中的表现。
+Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#）来编写游戏的，因此在使用 Cocos Creator 的时候也希望能够使用强类型语言来增强项目在较大规模团队中的表现。
 
-从 v1.5 版本开始 Cocos Creator 支持在游戏项目中使用 TypeScript 作为脚本代码，用户的源码可以完全使用 TypeScript，或者 TypeScript 和 JavaScript 混合使用。
+从 v1.5 版本开始 Cocos Creator 支持在项目中使用 TypeScript 编写脚本，用户的源码可以完全使用 TypeScript，或者 TypeScript 和 JavaScript 混合使用。
 
-和其他 JavaScript 脚本一样，项目 `assets` 目录下的 TypeScript 脚本（.ts 文件) 在创建或修改后激活编辑器，就会被编译成兼容浏览器标准的 ES5 JavaScript 脚本。编译后的脚本存放在项目目录下的 `library`（还包括其他资源） 和 `temp` 目录。
+和其他 JavaScript 脚本一样，项目 `assets` 目录下的 TypeScript 脚本（.ts 文件) 在创建或修改后激活编辑器，就会被编译成兼容浏览器标准的 ES5 JavaScript 脚本。编译后的脚本存放在项目下的 `library`（还包括其他资源）目录。
 
 ## 使用准备
 
@@ -24,43 +24,41 @@ Cocos Creator 的用户中，很多之前是使用其他强类型语言（如 C+
 
 ### 在已有项目中添加 TypeScript 设置
 
-如果希望在原有项目中添加 TypeScript 脚本，并在 VS Code 中正确识别声明组件时使用的装饰器语法，需要执行主菜单中的 `开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置`，来添加一份 `tsconfig.json` 文件到你的项目根目录中。您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)，来进一步定制你的 TypeScript 项目配置。
-
-### 更新引擎接口声明数据
-
-新版本引擎中针对 TypeScript 优化了引擎接口声明数据，如果要在已有项目中使用 TypeScript 并希望能够正确提示引擎接口，需要更新项目中的 `creator.d.ts` 文件到最新。通过主菜单的 `开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据` 来完成更新。
+如果希望在原有项目中添加 TypeScript 脚本，并获得 VS Code 等 IDE 的完整支持，需要执行主菜单的 `开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据` 和 `开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置`，来添加 `creator.d.ts` 和 `tsconfig.json` 文件到你的项目根目录中。`creator.d.ts` 声明了引擎的所有 API，用于支持 VS Code 的智能提示。`tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
 
 ### 在项目中创建 TypeScript 脚本
 
 和创建 JavaScript 脚本一样，你可以直接在文本编辑器里新建 `.ts` 文件，或通过编辑器的 **资源管理器** 的创建菜单，右键点击一个文件夹，并选择 `新建 -> TypeScript`。
 
-## 使用 TypeScript 声明 cc.Class
+## 使用 TypeScript 声明 CCClass
 
-目前 cc.Class 的声明已经支持使用 ES6 class 的格式，而在 TypeScript 脚本中的声明方式也和 ES6 class 类似。为了编辑器能够正确解析属性检查器里显示的各类属性，我们需要使用引擎内置的装饰器来标注 cc.Class 和 property 的定义。关于装饰器的更多信息请参考 [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html)。
+在 [TypeScript 中 class 的声明方式](https://www.typescriptlang.org/docs/handbook/classes.html) 和 [ES6 Class](http://es6.ruanyifeng.com/#docs/class) 相似。但为了编辑器能够正确解析 **属性检查器** 里显示的各类属性，我们还需要使用引擎内置的一些装饰器，来将普通的 class 声明成 CCClass。这和目前将 JavaScript 中的 ES6 Class 声明为 CCClass 的方法类似。关于装饰器的更多信息请参考 [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html)。
 
 下面是一个基本的 TypeScript 声明组件的实例：
 
 ```typescript
-const {ccclass, property} = cc._decorator; //从 cc._decorator 命名空间中引入 ccclass 和 property 两个装饰器
+const {ccclass, property} = cc._decorator; // 从 cc._decorator 命名空间中引入 ccclass 和 property 两个装饰器
 
-@ccclass //使用装饰器声明 cc.Class
-export default class NewClass extends cc.Component { //ES6 class 声明语法，继承 cc.Component
+@ccclass // 使用装饰器声明 CCClass
+export default class NewClass extends cc.Component { // ES6 Class 声明语法，继承 cc.Component
 
-    @property(cc.Label) //使用 property 装饰器声明属性，括号里是属性类型，装饰器里的类型声明主要用于编辑器展示时
-    label: cc.Label; //这里是 TypeScript 用来声明变量类型的写法，冒号后面是属性类型
+    @property(cc.Label) // 使用 property 装饰器声明属性，括号里是属性类型，装饰器里的类型声明主要用于编辑器展示
+    label: cc.Label; // 这里是 TypeScript 用来声明变量类型的写法，冒号后面是属性类型
 
+    // 也可以使用完整属性定义格式
     @property({
         default: 'hello'
-    }) //也可以使用完整属性定义格式
+    })
     text: string = 'hello';
 
-    onLoad() { //成员方法
+    // 成员方法
+    onLoad() {
         // init logic
     }
 }
 ```
 
-装饰器使用 `@` 字符开头作为标记，装饰器主要用于编辑器对组件和属性的识别，而 TypeScript 语法中的类型声明 `myVar: Type` 则允许使用 VS Code 编码时自动识别变量类型并提示其成员。
+装饰器使用 `@` 字符开头作为标记，装饰器主要用于编辑器对组件和属性的识别，而 TypeScript 语法中的类型声明 `myVar: Type` 则允许 VS Code 编码时自动识别变量类型并提示其成员。
 
 ### 更多属性类型声明方法
 
@@ -68,30 +66,47 @@ export default class NewClass extends cc.Component { //ES6 class 声明语法，
 
 ```typescript
 @property({
-    default: 0,
+    default: 1,
     type: cc.Integer
 })
-myInteger = 0;
+myInteger = 1;
 
-@property({
-    default: 0.1,
-    type: cc.Float
-})
-myFloat = 0.1; //数值类型比较特殊，需要指定完整类型和默认值
+@property(cc.Node)
+myNode: cc.Node = null;
 
-@property(cc.String)
-public myString: String = '';
+@property
+myOffset = new cc.Vec2(100, 100);
 ```
 
 声明数组
 
 ```typescript
 @property([cc.Node])
-public myNodes: Array<cc.Node> = [];
+public myNodes: cc.Node[] = [];
 
 @property([cc.Color])
-public myColors: Array<cc.Color> = [];
+public myColors: cc.Color[] = [];
 ```
+
+声明 getset
+
+```typescript
+@property
+_width = 100;
+
+@property
+get width () {
+    return this._width;
+}
+
+@property
+set width (value) {
+    cc.log('width changed');
+    return this._width = value;
+}
+```
+
+注意：TypeScript 的 public, private 修饰符不影响成员在 **属性检查器** 中的默认可见性，默认的可见性仍然取决于成员变量名是否以下划线开头。
 
 ## 完善的智能提示功能
 
@@ -108,7 +123,7 @@ public myColors: Array<cc.Color> = [];
 首先我们声明一个组件：
 
 ```typescript
-//MyModule.ts
+// MyModule.ts
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -121,10 +136,10 @@ export class MyModule extends cc.Component {
 }
 ```
 
-然后在其他组件中声明一个 `MyModule` 类型的成员：
+然后在其他组件中 import MyModule, 并且声明一个 `MyModule` 类型的成员变量：
 
 ```typescript
-//MyUser.ts
+// MyUser.ts
 const {ccclass, property} = cc._decorator;
 import {MyModule} from './MyModule';
 
@@ -179,7 +194,12 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
 
 这就是在 Creator 里使用 TypeScript 命名空间的完整工作流程。
 
+
+## 更新引擎接口声明数据
+
+Creator 每个新版本都会更新引擎接口声明，建议升级了 Creator 后，通过主菜单的 `开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据` 来更新已有项目的 `creator.d.ts` 文件。
+
 ---
 
-Cocos Creator 中对 TypeScript 的支持参考了很多 [Creator TypeScript Boilerplate](https://github.com/toddlxt/Creator-TypeScript-Boilerplate) 项目的设置和做法，在此特别感谢。另外这个项目中也包含了很多关于使用 TypeScript 项目的工作流程和高级功能，可以参考。
+Cocos Creator 中对 TypeScript 的支持参考了很多 [Creator TypeScript Boilerplate](https://github.com/toddlxt/Creator-TypeScript-Boilerplate) 项目的设置和做法，在此特别感谢。另外这个项目中也包含了很多关于使用 TypeScript 项目的工作流程和高级功能，可供参考。
 
