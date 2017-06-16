@@ -55,6 +55,8 @@
  - `appSecret` - AnySDK App Secret
  - `privateKey` - AnySDK Private Key
 
+ - `includeEruda` - 是否在 web 平台下插入 Eruda 调试插件
+
  - `autoCompile` - 是否在构建完成后自动进行编译项目。默认为 **否**。
 
  - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数
