@@ -46,7 +46,9 @@ parentNode.addChild(this.node);
 
 这两种方法是等价的。
 
-**注意**，通过 [创建和销毁节点](create-destroy.md) 介绍的方法创建出新节点后，要为节点设置一个父节点才能正确完成节点的初始化。
+注意：
+ - `removeFromParent` 通常需要传入一个 `false`，否则默认会清空节点上绑定的事件和 action 等。
+ - 通过 [创建和销毁节点](create-destroy.md) 介绍的方法创建出新节点后，要为节点设置一个父节点才能正确完成节点的初始化。
 
 ### 索引节点的子节点
 
