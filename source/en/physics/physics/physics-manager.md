@@ -30,7 +30,7 @@ cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_aa
 Set the drawing flag to `0` to disable drawing.
 
 ```javascript
-cc.director.getPhysicsManager().DebugDrawFlags = 0;
+cc.director.getPhysicsManager().debugDrawFlags = 0;
 ```
 
 ### Conversion physics units to pixel units
