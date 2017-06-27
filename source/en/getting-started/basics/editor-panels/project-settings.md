@@ -6,7 +6,7 @@
 
 ![Group](project-settings/group.jpg)
 
-The **Group Manager** tab in **Project Settings** is mainly for [collision system](../../../physics/index.md) to provide collision group support. Please refer to [Collision Group](../../../physics/collision-group.md).
+The **Group Manager** tab in **Project Settings** is mainly for [collision system](../../../physics/index.md) to provide collision group support. Please refer to [Collision Group](../../../physics/collision/collision-group.md).
 
 ## Module Config
 
