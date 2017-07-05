@@ -31,11 +31,16 @@
  - `previewHeight` - web desktop 窗口高度
  - `sourceMaps` - 是否需要加入 source maps
  - `webOrientation` - web mobile 平台下的旋转选项 [landscape, portrait, auto]
+ - `renderMode` - 设置渲染类型
+   - 0 - 由引擎自动选择.
+   - 1 - 强制使用 Canvas 渲染模式
+   - 2 - 强制使用 Webgl 渲染模式，但是在移动浏览器中这个选项会被忽略
  
  - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
 
  - `packageName` - 包名
+ - `vsVersion` - 设置使用的 visual studio 版本，只在 windows 上有用，可选的选项有 [auto, 2013, 2015, 2017]
  - `useDebugKeystore` - 是否使用 debug keystore
  - `keystorePath` - keystore 路径
  - `keystorePassword` - keystore 密码
@@ -43,9 +48,15 @@
  - `keystoreAliasPassword` - keystore 别名密码
  - `orientation` - native mobile 平台下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]   
    因为这是一个 object, 所以定义会特殊一些。   
-   - orientation={"landscapeLeft": true} 或   
-   - orientation={"landscapeLeft": true, "portrait": true}
+   - orientation={'landscapeLeft': true} 或   
+   - orientation={'landscapeLeft': true, 'portrait': true}
  - `template` - native 平台下的模板选项 [default, link, binary]
+ 
+ - `apiLevel` - 设置编译 android 使用的 api 版本
+ - `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi, armeabi-v7a, arm64-v8a, x86]   
+   因为这是一个数组类型，数据类型需要像这样定义，注意选项需要用引号括起来
+   - appABIs=['armeabi', 'armeabi-v7a']
+ 
  - `androidStudio` - 是否使用 android studio 来编译 android 项目
  
  - `includeAnySDK` - web 平台下是否加入 AnySDK 代码
