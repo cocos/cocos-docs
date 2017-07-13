@@ -14,7 +14,7 @@ Currently, the major life-cycle callback functions provided for users are:
 
 ## onLoad
 
-In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the scene has this component being loaded. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
+In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the component is first activated, such as when the scene is loaded, or when the node is activated. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
 
 ```js
 cc.Class({
@@ -70,8 +70,7 @@ cc.Class({
 
 ## lateUpdate
 
-`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or
- want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
+`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
 
 ```js
 cc.Class({
@@ -85,16 +84,15 @@ cc.Class({
 
 ## onEnable
 
-When the `enabled` property of the component turns from `false` to `true`, it will trigger `onEnable` callback. If the node is created for the first time,
-and `enabled` is `true`, then it will be called after `onLoad` but before `start`.
+When the `enabled` property of the component turns from `false` to `true`, or the `active` property of the node turns from `false` to `true`, it will trigger `onEnable` callback. If the node is created for the first time, and `enabled` is `true`, then it will be called after `onLoad` but before `start`.
 
 ## onDisable
 
-When the `enabled` property of the component turns from `true` to `false`, it will activate the `onDisable` callback.
+When the `enabled` property of the component turns from `true` to `false`, or the `active` property of the node turns from `true` to `false`, it will trigger `onEnable` callback, it will activate the `onDisable` callback.
 
 ## onDestroy
 
-When the component calls `destroy()`, they will be collected when this frame is done. By this time, it will call the `onDestroy` callback.
+When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
 
 
 ---

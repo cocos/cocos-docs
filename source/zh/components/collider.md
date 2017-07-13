@@ -38,4 +38,4 @@
 | size | 组件的 **长宽**。
 
 
-更多关于 **Collider** 的信息请前往 [碰撞系统](../physics/index.md)
+更多关于 **Collider** 的信息请前往 [碰撞系统](../physics/collision/index.md)

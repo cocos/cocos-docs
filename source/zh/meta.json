@@ -106,6 +106,10 @@
                         "link": "asset-workflow/sprite.html"
                     },
                     {
+                        "name": "预制资源",
+                        "link": "asset-workflow/prefab.html"
+                    },                    
+                    {
                         "name": "图集资源",
                         "link": "asset-workflow/atlas.html"
                     },
@@ -117,6 +121,11 @@
                         "name": "艺术数字资源",
                         "link": "asset-workflow/label-atlas.html"
                     },
+                    {
+                        "name": "跨项目导入导出资源",
+                        "link": "asset-workflow/import-export.html",
+                        "new": true
+                    },                    
                     {
                         "name": "图像资源的自动剪裁",
                         "link": "asset-workflow/trim.html"
@@ -136,10 +145,6 @@
                     {
                         "name": "声音资源",
                         "link": "asset-workflow/audio-asset.html"
-                    },
-                    {
-                        "name": "预制资源",
-                        "link": "asset-workflow/prefab.html"
                     },
                     {
                         "name": "Spine 骨骼动画资源",
@@ -195,6 +200,11 @@
                         "link": "render/external-renderer.html"
                     },
                     {
+                        "name": "摄像机",
+                        "link": "render/camera.html",
+                        "new": true
+                    },
+                    {
                         "name": "绘图系统",
                         "link": "render/graphics/index.html"
                     },
@@ -244,10 +254,6 @@
                             {
                                 "name": "Graphics 组件参考",
                                 "link": "components/graphics.html"
-                            },
-                            {
-                                "name": "Camera 组件参考",
-                                "link": "components/camera.html"
                             }
                         ]
                     }
@@ -519,50 +525,54 @@
                 ]
             },
             {
-                "name": "碰撞系统",
-                "link": "physics/collision/index.html",
-                "submenu": [
-                    {
-                        "name": "编辑碰撞组件",
-                        "link": "physics/collision/edit-collider-component.html"
-                    },
-                    {
-                        "name": "碰撞分组管理",
-                        "link": "physics/collision/collision-group.html"
-                    },
-                    {
-                        "name": "碰撞系统脚本控制",
-                        "link": "physics/collision/collision-manager.html"
-                    },
-                    {
-                        "name": "Collider 组件参考",
-                        "link": "components/collider.html"
-                    }
-                ]
-            },
-            {
                 "name": "物理系统",
-                "link": "physics/physics/index.html",
+                "link": "physics/index.html",
                 "submenu": [
                     {
-                        "name": "物理系统",
-                        "link": "physics/physics/physics-manager.html"
-                    },
-                    {
-                        "name": "刚体组件",
-                        "link": "physics/physics/rigid-body.html"
-                    },
-                    {
-                        "name": "碰撞组件",
-                        "link": "physics/physics/collider-component.html"
-                    },
-                    {
-                        "name": "碰撞回调",
-                        "link": "physics/physics/contact-callback.html"
-                    },
-                    {
-                        "name": "关节组件",
-                        "link": "physics/physics/joint-component.html"
+                        "name": "碰撞系统",
+                        "link": "physics/collision/index.html",
+                        "submenu": [{
+                                "name": "编辑碰撞组件",
+                                "link": "physics/collision/edit-collider-component.html"
+                            },
+                            {
+                                "name": "碰撞分组管理",
+                                "link": "physics/collision/collision-group.html"
+                            },
+                            {
+                                "name": "碰撞系统脚本控制",
+                                "link": "physics/collision/collision-manager.html"
+                            },
+                            {
+                                "name": "Collider 组件参考",
+                                "link": "components/collider.html"
+                            }
+                        ]
+                    }, {
+                        "name": "物理引擎",
+                        "link": "physics/physics/index.html",
+                        "new": true,
+                        "submenu": [{
+                                "name": "物理系统",
+                                "link": "physics/physics/physics-manager.html"
+                            },
+                            {
+                                "name": "刚体组件",
+                                "link": "physics/physics/rigid-body.html"
+                            },
+                            {
+                                "name": "碰撞组件",
+                                "link": "physics/physics/collider-component.html"
+                            },
+                            {
+                                "name": "碰撞回调",
+                                "link": "physics/physics/contact-callback.html"
+                            },
+                            {
+                                "name": "关节组件",
+                                "link": "physics/physics/joint-component.html"
+                            }
+                        ]
                     }
                 ]
             },
@@ -799,8 +809,14 @@
                     },
                     {
                         "name": "动态热更新",
-                        "link": "advanced-topics/hot-update.html"
+                        "link": "advanced-topics/hot-update.html",
+                        "new": true
                     },
+                    {
+                        "name": "热更新管理器",
+                        "link": "advanced-topics/assets-manager.html",
+                        "new": true
+                    },                    
                     {
                         "name": "i18n 游戏多语言支持",
                         "link": "advanced-topics/i18n.html",

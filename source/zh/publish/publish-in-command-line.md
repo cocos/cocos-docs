@@ -38,6 +38,7 @@
  
  - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
+ - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
  - `packageName` - 包名
  - `vsVersion` - 设置使用的 visual studio 版本，只在 windows 上有用，可选的选项有 [auto, 2013, 2015, 2017]
@@ -64,6 +65,8 @@
  - `appKey` - AnySDK App Key
  - `appSecret` - AnySDK App Secret
  - `privateKey` - AnySDK Private Key
+
+ - `includeEruda` - 是否在 web 平台下插入 Eruda 调试插件
 
  - `autoCompile` - 是否在构建完成后自动进行编译项目。默认为 **否**。
 

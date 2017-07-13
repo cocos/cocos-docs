@@ -1,10 +1,8 @@
-# Collision System
+# Physics system
 
-We will introduce the Collision System in Cocos Creator in this chapter.
-Cocos Creator provides a simple and easy to use built-in **Collision Detection System**, which support **Circle**, **Rect** and **Polygon** Collision Detection.
+The physics system in Creator consists of two parts:
 
-We will introduce the Collision System in the chapter below in detail.
+- [Collider component](collision/index.md)
+- [Box2D physics engine](physics/index.md)
 
-- [Edit Collider Component](edit-collider-component.md)
-- [Collision Group](collision-group.md)
-- [Collision Manager](collision-manager.md)
+For games with few physics calculations, we recommend that users use colliders directly, which avoids loading the physics engine and building the physical world during runtime. The physics engine provides a more complete interface for interactive behaviors and rigidbody, joints, and so on. You can choose your own solution as needed.

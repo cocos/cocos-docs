@@ -34,7 +34,7 @@
 音频默认是使用 webAudio 的方式加载并播放的，只有在不支持的浏览器才会使用 dom 元素加载播放。
 
 ```
-cc.load.load('raw-assets/resources/background.mp3', callback);
+cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 ```
 
 #### 强制使用 dom element 加载
@@ -44,7 +44,7 @@ cc.load.load('raw-assets/resources/background.mp3', callback);
 
 2. 音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM element 的方式加载播放这个音频。
     ```
-    cc.load.load('raw-assets/resources/background.mp3?useDom=1', callback);
+    cc.loader.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
     ```
 
 需要注意的是，如果使用 dom element 加载的音频，在 cc.load 的 cache 中，缓存的 url 也会带有 ?useDom=1

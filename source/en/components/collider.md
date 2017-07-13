@@ -34,5 +34,5 @@ We have three collider component types now, they are **Polygon**ï¼Œ**Cirecle**ï¼
 | size | Component size.
 
 
-More information about **Collider** can be find in [Collider System](../physics/index.md)
+More information about **Collider** can be find in [Collider System](../physics/collision/index.md)
 
