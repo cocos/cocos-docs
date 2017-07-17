@@ -413,8 +413,7 @@ properties: {
 
 #### <a name="serializable"></a>`serializable` attribute
 
-指定了 `default` 默认值的属性默认情况下都会被序列化，如果不想序列化，可以设置`serializable: false`。
-Properties that specify the `default` value are serialized by default. If you do not want to serialize, you can set `serializable: false`.
+Properties that specify the `default` value are serialized by default. After serialization, the settings in the editor will be saved to the resource file such as the scene, and automatically restore the previously set value when loading the scene. If you do not want to serialize, you can set `serializable: false`.
 
 ```javascript
 temp_url: {
