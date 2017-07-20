@@ -17,11 +17,11 @@ Cocos Creator 是专注于内容创作的游戏开发工具，在游戏开发过
 
 导出工具会自动检查所选资源的依赖列表并列出在面板里，用户可以手动检查每一项依赖是否必要，并剔除部分依赖的资源。被剔除的资源将不会被导出。
 
-![export](export.jpg)
+![export](import-export/export.jpg)
 
 确认完毕后点击 **导出** 按钮，会弹出文件存储对话框，用户需要指定一个文件夹位置和文件名，点击 **存储**，就会生成 `文件名.zip` 的压缩包文件，包含导出的全部资源。
 
-![save export](save-export.jpg)
+![save export](import-export/save-export.jpg)
 
 ## 资源导入
 
@@ -29,7 +29,7 @@ Cocos Creator 是专注于内容创作的游戏开发工具，在游戏开发过
 
 点击 **Zip 文件路径** 输入框右边的 **选择** 按钮，在文件浏览对话框中选择刚才导出的导出资源压缩包。
 
-![import](import.jpg)
+![import](import-export/import.jpg)
 
 导入过程中也会让用户再次确认导入资源依赖，在这时候也可以取消某些资源的勾选来不导入部分资源。
 
