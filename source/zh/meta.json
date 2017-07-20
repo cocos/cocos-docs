@@ -353,6 +353,10 @@
                             {
                                 "name": "PageViewIndicator 组件参考",
                                 "link": "components/pageviewindicator.html"
+                            },
+                            {
+                                "name": "BlockInputEvents 组件参考",
+                                "link": "components/block-input-events.html"
                             }
                         ]
                     }
