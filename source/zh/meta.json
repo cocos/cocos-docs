@@ -122,8 +122,7 @@
                     },
                     {
                         "name": "跨项目导入导出资源",
-                        "link": "asset-workflow/import-export.html",
-                        "new": true
+                        "link": "asset-workflow/import-export.html"
                     },                    
                     {
                         "name": "图像资源的自动剪裁",
@@ -199,8 +198,7 @@
                     },
                     {
                         "name": "摄像机",
-                        "link": "render/camera.html",
-                        "new": true
+                        "link": "render/camera.html"
                     },
                     {
                         "name": "绘图系统",
@@ -463,8 +461,7 @@
                     },
                     {
                         "name": "使用 TypeScript 脚本",
-                        "link": "scripting/typescript.html",
-                        "new": true
+                        "link": "scripting/typescript.html"
                     },                    
                     {
                         "name": "CCClass参考",
@@ -606,8 +603,7 @@
                     },
                     {
                         "name": "命令行发布项目",
-                        "link": "publish/publish-in-command-line.html",
-                        "new": true
+                        "link": "publish/publish-in-command-line.html"
                     },
                     {
                         "name": "定制项目构建模板",
@@ -637,6 +633,10 @@
                             {
                                 "name": "入口程序",
                                 "link": "extension/entry-point.html"
+                            },
+                            {
+                                "name": "扩展包工作流程模式",
+                                "link": "extension/extension-workflow.html"
                             },
                             {
                                 "name": "扩展主菜单",
@@ -795,13 +795,11 @@
                     },
                     {
                         "name": "动态热更新",
-                        "link": "advanced-topics/hot-update.html",
-                        "new": true
+                        "link": "advanced-topics/hot-update.html"
                     },
                     {
                         "name": "热更新管理器",
-                        "link": "advanced-topics/assets-manager.html",
-                        "new": true
+                        "link": "advanced-topics/assets-manager.html"
                     },                    
                     {
                         "name": "i18n 游戏多语言支持",
