@@ -33,7 +33,7 @@ Parameter name  | Explanation | Type | Default | Remark
 --- | --- |:---:|:---:|---
 default | define default for the property | (Any) | undefined | See [default attribute](class.md#default)
 url | this property is the URL of an assigned asset | `function` <br> (constructor inherited from cc.RawAsset) | undefined | See [Acquire and load asset: Raw Asset](../load-assets.md#raw-asset)
-notify | trigger a specific method when assigning the property | `function (oldValue) {}` | undefined | The default property is needed to define and is not available for array.
+notify | trigger a specific method when assigning the property | `function (oldValue) {}` | undefined | The default property is needed to define and is not available for array.<br>Not support ES6 Classes.
 override | when reloading the super class property, this parameter needs to be defined as true | boolean | false | See [override attribute](class.md#override)
 animatable | whether this property can be altered by animation | boolean | true |
 
