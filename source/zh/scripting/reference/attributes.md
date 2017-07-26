@@ -33,7 +33,7 @@ editorOnly | 在导出项目前剔除该属性 | boolean | false |
 --- | --- |:---:|:---:|---
 default | 定义属性的默认值 | (Any) | undefined | 详见 [default 参数](class.md#default)
 url | 该属性为指定资源的 url | `function` <br> (继承自 cc.RawAsset 的构造函数) | undefined | 详见 [获取和加载资源: Raw Asset](../load-assets.md#raw-asset)
-notify | 当属性被赋值时触发指定方法 | `function (oldValue) {}` | undefined | 需要定义 default 属性并且不能用于数组
+notify | 当属性被赋值时触发指定方法 | `function (oldValue) {}` | undefined | 需要定义 default 属性并且不能用于数组<br>不支持 ES6 定义方式
 override | 当重写父类属性时需要定义该参数为 true | boolean | false | 详见 [override 参数](class.md#override)
 animatable | 该属性是否能被动画修改 | boolean | true |
 
