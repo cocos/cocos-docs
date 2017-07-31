@@ -548,6 +548,8 @@ Then add a new method named `gainScore` to the back of the `update` method:
     },
 ```
 
+### (Don't forgrt to drag the score node into the "Score Display" property in "Canvas" Properties Panel.
+
 ### Invoke the scoring logic of the Game in Star script
 
 Open the `Star` script after saving the `Game` script. Add the invoking of `gainScore` to the `onPicked` method:

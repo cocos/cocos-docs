@@ -351,6 +351,10 @@
                             {
                                 "name": "PageViewIndicator Reference",
                                 "link": "components/pageviewindicator.html"
+                            },
+                            {
+                                "name": "BlockInputEvents Reference",
+                                "link": "components/block-input-events.html"
                             }
                         ]
                     }

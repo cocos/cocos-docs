@@ -412,7 +412,7 @@ properties: {
 
 #### <a name="serializable"></a>serializable 参数
 
-指定了 `default` 默认值的属性默认情况下都会被序列化，如果不想序列化，可以设置`serializable: false`。
+指定了 `default` 默认值的属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的值保存到场景等资源文件中，并且在加载场景时自动还原之前设置好的值。如果不想序列化，可以设置`serializable: false`。
 
 ```javascript
 temp_url: {
