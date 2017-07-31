@@ -1,11 +1,5 @@
 'use strict';
-var curItem = document.getElementsByClassName('active')[0];
 
-if (curItem) {
-  if (!curItem.classList.contains('sidebar-header-1')) {
-    curItem.parentElement.classList.add('in');
-  }
-}
 var scroll = sessionStorage.getItem('sidebarScroll');
 if (scroll) {
   document.getElementById('navigation').scrollTop = scroll;
@@ -36,9 +30,23 @@ var saveScroll = function () {
 };
 
 var updatePlus = function (element) {
+  if (!element) return;
   if (element.getAttribute('aria-expanded') === 'true' ) {
     element.innerHTML = '+';
   } else {
     element.innerHTML = '-';
   }
 };
+
+var curItem = document.getElementsByClassName('active')[0];
+
+if (curItem) {
+  if (!curItem.classList.contains('sidebar-header-1')) {
+    var parent = curItem.parentElement;
+    var grandpa = curItem.parentElement.parentElement;
+    parent.classList.add('in');
+    updatePlus(parent.previousElementSibling.getElementsByClassName('plus')[0]);
+    grandpa.classList.add('in');
+    updatePlus(grandpa.previousElementSibling.getElementsByClassName('plus')[0]);
+  }
+}

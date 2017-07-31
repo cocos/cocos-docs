@@ -27,8 +27,7 @@
                     },
                     {
                         "name": "代码编辑环境配置",
-                        "link": "getting-started/coding-setup.html",
-                        "new": true
+                        "link": "getting-started/coding-setup.html"
                     },
                     {
                         "name": "项目结构",
@@ -123,8 +122,7 @@
                     },
                     {
                         "name": "跨项目导入导出资源",
-                        "link": "asset-workflow/import-export.html",
-                        "new": true
+                        "link": "asset-workflow/import-export.html"
                     },                    
                     {
                         "name": "图像资源的自动剪裁",
@@ -189,7 +187,6 @@
             {
                 "name": "图像和渲染",
                 "link": "render/index.html",
-                "new": true,
                 "submenu": [
                     {
                         "name": "基本图像渲染",
@@ -201,8 +198,7 @@
                     },
                     {
                         "name": "摄像机",
-                        "link": "render/camera.html",
-                        "new": true
+                        "link": "render/camera.html"
                     },
                     {
                         "name": "绘图系统",
@@ -317,13 +313,11 @@
                             },                    
                             {
                                 "name": "RichText 组件参考",
-                                "link": "components/richtext.html",
-                                "new": true
+                                "link": "components/richtext.html"
                             },                    
                             {
                                 "name": "ScrollView 组件参考",
-                                "link": "components/scrollview.html",
-                                "new": true
+                                "link": "components/scrollview.html"
                             },
                             {
                                 "name": "ScrollBar 组件参考",
@@ -347,8 +341,7 @@
                             },
                             {
                                 "name": "PageView 组件参考",
-                                "link": "components/pageview.html",
-                                "new": true
+                                "link": "components/pageview.html"
                             },
                             {
                                 "name": "PageViewIndicator 组件参考",
@@ -472,8 +465,7 @@
                     },
                     {
                         "name": "使用 TypeScript 脚本",
-                        "link": "scripting/typescript.html",
-                        "new": true
+                        "link": "scripting/typescript.html"
                     },                    
                     {
                         "name": "CCClass参考",
@@ -555,7 +547,6 @@
                     }, {
                         "name": "物理引擎",
                         "link": "physics/physics/index.html",
-                        "new": true,
                         "submenu": [{
                                 "name": "物理系统",
                                 "link": "physics/physics/physics-manager.html"
@@ -616,20 +607,17 @@
                     },
                     {
                         "name": "命令行发布项目",
-                        "link": "publish/publish-in-command-line.html",
-                        "new": true
+                        "link": "publish/publish-in-command-line.html"
                     },
                     {
                         "name": "定制项目构建模板",
-                        "link": "publish/custom-project-build-template.html",
-                        "new": true
+                        "link": "publish/custom-project-build-template.html"
                     }
                 ]
             },
             {
                 "name": "扩展编辑器",
                 "link": "extension/index.html",
-                "new": true,
                 "submenu": [
                     {
                         "name": "基本工作流程",
@@ -649,6 +637,10 @@
                             {
                                 "name": "入口程序",
                                 "link": "extension/entry-point.html"
+                            },
+                            {
+                                "name": "扩展包工作流程模式",
+                                "link": "extension/extension-workflow.html"
                             },
                             {
                                 "name": "扩展主菜单",
@@ -682,7 +674,6 @@
                     },
                     {
                         "name": "管理场景和资源",
-                        "new": true,
                         "submenu": [
                             {
                                 "name": "调用引擎 API 和项目脚本",
@@ -747,23 +738,19 @@
                     },
                     {
                         "name": "Editor API",
-                        "new": true,
                         "link": "extension/api/index.html",
                         "submenu": [
                             {
                                 "name": "AssetDB Module (main)",
-                                "link": "extension/api/asset-db/asset-db-main.html",
-                                "new": true
+                                "link": "extension/api/asset-db/asset-db-main.html"
                             },
                             {
                                 "name": "AssetDB Module (renderer)",
-                                "link": "extension/api/asset-db/asset-db-renderer.html",
-                                "new": true
+                                "link": "extension/api/asset-db/asset-db-renderer.html"
                             },
                             {
                                 "name": "Editor Module",
-                                "link": "extension/api/editor-framework/index.html",
-                                "new": true
+                                "link": "extension/api/editor-framework/index.html"
                             }
                         ]
                     },
@@ -808,23 +795,19 @@
                 "submenu": [
                     {
                         "name": "Lua 引擎支持",
-                        "link": "advanced-topics/build-to-lua.html",
-                        "new": true
+                        "link": "advanced-topics/build-to-lua.html"
                     },
                     {
                         "name": "动态热更新",
-                        "link": "advanced-topics/hot-update.html",
-                        "new": true
+                        "link": "advanced-topics/hot-update.html"
                     },
                     {
                         "name": "热更新管理器",
-                        "link": "advanced-topics/assets-manager.html",
-                        "new": true
+                        "link": "advanced-topics/assets-manager.html"
                     },                    
                     {
                         "name": "i18n 游戏多语言支持",
-                        "link": "advanced-topics/i18n.html",
-                        "new": true
+                        "link": "advanced-topics/i18n.html"
                     },
                     {
                         "name": "存储和读取用户数据",
@@ -840,18 +823,15 @@
                     },
                     {
                         "name": "BMFont and UI 自动批处理",
-                        "link": "advanced-topics/ui-auto-batch.html",
-                        "new": true
+                        "link": "advanced-topics/ui-auto-batch.html"
                     },
                     {
                         "name": "Java 原生反射机制",
-                        "link": "advanced-topics/java-reflection.html",
-                        "new": true
+                        "link": "advanced-topics/java-reflection.html"
                     },
                     {
                         "name": "Objective-C 原生反射机制",
-                        "link": "advanced-topics/oc-reflection.html",
-                        "new": true
+                        "link": "advanced-topics/oc-reflection.html"
                     }
                 ]
             },

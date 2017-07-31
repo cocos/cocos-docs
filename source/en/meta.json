@@ -27,8 +27,7 @@
                     },
                     {
                         "name": "Coding Environment",
-                        "link": "getting-started/coding-setup.html",
-                        "new": true
+                        "link": "getting-started/coding-setup.html"
                     },
                     {
                         "name": "Project Structure",
@@ -128,8 +127,7 @@
                     },
                     {
                         "name": "Import/export Assets",
-                        "link": "asset-workflow/import-export.html",
-                        "new": true
+                        "link": "asset-workflow/import-export.html"
                     },
                     {
                         "name": "Texture Auto Trim",
@@ -194,7 +192,6 @@
             {
                 "name": "Renderer and Graphics",
                 "link": "render/index.html",
-                "new": true,
                 "submenu": [
                     {
                         "name": "Core Renderers",
@@ -206,8 +203,7 @@
                     },
                     {
                         "name": "Camera",
-                        "link": "render/camera.html",
-                        "new": true
+                        "link": "render/camera.html"
                     },                    
                     {
                         "name": "Programming Grahpics",
@@ -554,7 +550,6 @@
                     {
                         "name": "Physics Engine",
                         "link": "physics/physics/index.html",
-                        "new": true,
                         "submenu": [{
                                 "name": "Physics Manager",
                                 "link": "physics/physics/physics-manager.html"
@@ -616,20 +611,17 @@
                     },
                     {
                         "name": "Publish with Command Line",
-                        "link": "publish/publish-in-command-line.html",
-                        "new": true
+                        "link": "publish/publish-in-command-line.html"
                     },
                     {
                         "name": "Customize Project Build Template",
-                        "link": "publish/custom-project-build-template.html",
-                        "new": true
+                        "link": "publish/custom-project-build-template.html"
                     }
                 ]
             },
             {
                 "name": "Editor Extension",
                 "link": "extension/index.html",
-                "new": true,
                 "submenu": [
                     {
                         "name": "Extension Workflow",
@@ -650,6 +642,10 @@
                                 "name": "Entry Point",
                                 "link": "extension/entry-point.html"
                             },
+                            {
+                                "name": "Extension Workflow",
+                                "link": "extension/extension-workflow.html"
+                            },                            
                             {
                                 "name": "Extends Main Menu",
                                 "link": "extension/extends-main-menu.html"
@@ -682,7 +678,6 @@
                     },
                     {
                         "name": "Work with Scene and Assets",
-                        "new": true,
                         "submenu": [
                             {
                                 "name": "Scene Script",
@@ -747,23 +742,19 @@
                     },
                     {
                         "name": "Editor API",
-                        "new": true,
                         "link": "extension/api/index.html",
                         "submenu": [
                             {
                                 "name": "AssetDB Module (main)",
-                                "link": "extension/api/asset-db/asset-db-main.html",
-                                "new": true
+                                "link": "extension/api/asset-db/asset-db-main.html"
                             },
                             {
                                 "name": "AssetDB Module (renderer)",
-                                "link": "extension/api/asset-db/asset-db-renderer.html",
-                                "new": true
+                                "link": "extension/api/asset-db/asset-db-renderer.html"
                             },
                             {
                                 "name": "Editor Module",
-                                "link": "extension/api/editor-framework/index.html",
-                                "new": true
+                                "link": "extension/api/editor-framework/index.html"
                             }
                         ]
                     },
@@ -808,23 +799,19 @@
                 "submenu": [
                     {
                         "name": "Lua Engine Support",
-                        "link": "advanced-topics/build-to-lua.html",
-                        "new": true
+                        "link": "advanced-topics/build-to-lua.html"
                     },
                     {
                         "name": "Hot Update",
-                        "link": "advanced-topics/hot-update.html",
-                        "new": true
+                        "link": "advanced-topics/hot-update.html"
                     },
                     {
                         "name": "AssetManager for Hot Update",
-                        "link": "advanced-topics/assets-manager.html",
-                        "new": true
+                        "link": "advanced-topics/assets-manager.html"
                     },                       
                     {
                         "name": "i18n",
-                        "link": "advanced-topics/i18n.html",
-                        "new": true
+                        "link": "advanced-topics/i18n.html"
                     },
                     {
                         "name": "User Data Storage",
@@ -840,18 +827,15 @@
                     },
                     {
                         "name": "Batch Render BMFont and Sprite",
-                        "link": "advanced-topics/ui-auto-batch.html",
-                        "new": true
+                        "link": "advanced-topics/ui-auto-batch.html"
                     },
                     {
                         "name": "JavaScript to Java Reflection",
-                        "link": "advanced-topics/java-reflection.html",
-                        "new": true
+                        "link": "advanced-topics/java-reflection.html"
                     },
                     {
                         "name": "JavaScript to Objective-C Reflection",
-                        "link": "advanced-topics/oc-reflection.html",
-                        "new": true
+                        "link": "advanced-topics/oc-reflection.html"
                     }
                 ]
             },
