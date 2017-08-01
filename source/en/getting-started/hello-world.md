@@ -18,7 +18,7 @@ The core of Cocos Creator is data-driven workflows. When opening a project for t
 
 ![open scene](hello-world/open_scene.jpg)
 
-Double click the `Hello World` scene asset file indicated by the arrow, in **Assets** panel. All the scene assets in Cocos Creator use ![../asset-workflow/index/scene.png] as their icon.
+Double click the `Hello World` scene asset file indicated by the arrow, in **Assets** panel. All the scene assets in Cocos Creator use ![scene](../asset-workflow/index/scene.png) as their icon.
 
 ## Hello World Project Breakdown
 

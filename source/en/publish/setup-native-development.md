@@ -1,38 +1,63 @@
 # Setup Native Development Environment
 
-Apart from the built-in game release function of Web version, Cocos Creator uses the JSB technology based on Cocos2d-x engine for the cross-platform release of original applications and Cocos Play smartphone web-based games. Before using Cocos Creator to zip and send games to original platforms, you need to configure the Cocos Framework and related development environment first.
+Apart from publish game to Web, Cocos Creator uses the JSB technology based on cocos2d-x engine for the cross-platform release of native games. Before using Cocos Creator to bundle and publish games to native platforms, you need to configure related cocos2d-x development environment first.
 
-## Download and install Cocos Framework
+## Android platform dependencies
 
-**Cocos Framework** is the pre-compiled version of Cocos2d-x. Compared to the completed version, it is small, free of compilation and easy to install. The latest version of Cocos2d-x is v3.9. The following are download links for Cocos Framework v3.9:
+To publish to the Android platform, you need to install all of the following development environments.
 
-- [Cocos Framework v3.9 for Windows](http://cocostudio.download.appget.cn/Cocos/CocosStore/CocosFramework-V3.9-Windows.exe)
-- [Cocos Framework v3.9 for Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/CocosFramework-V3.9-Mac.pkg)
+If you do not have a plan to publish to the Android platform, or if your operating system already has a full Android development environment, you can skip this section.
 
-After downloading, run the installation package, follow the instructions, and get it done.
+### Android SDK 10 dependencies
 
-You can choose the target path when installing Cocos Framework for Windows. The Mac version will be installed under `/Applications/Cocos/frameworks` by default. Please confirm the installation path of your Cocos Framework, because it will be configured in Cocos Creator later.
+Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos-creator/cocos2d-x-lite/pull/316).
 
-## Download SDK and NDK, which are needed for the Android platform release
+If you encounter build error like 'not found android-10', you can download `Android SDK API Level 10` according to the description below.
 
-If you have no plan to release your games on Android, or you have already have a complete Android development environment in your operating system, you can skip this section.
+If you need to change the target API Level, you can modify the built project file `cocos/platform/android/java/project.properties`:
 
-Download Android SDK and NDK in accordance with your operating system via the following links:
+```java
+target = android-10
+```
 
-- [Android SDK for Windows](http://cocostudio.download.appget.cn/Cocos/CocosStore/Android-SDK-Windows.zip)
-- [Android SDK for Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
-- [Android NDK for Windows 32 Bit](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
-- [Android NDK for Windows 64 Bit](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
-- [Android NDK for Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+Change `android-10` to the other API Level you need.
 
-Please unzip and drop them anywhere you like after downloading, because we need to set up the path of Android SDK and NDK later. Don't forget where you put the unzipped versions of the documents above.
+### Download and install Android Studio
+
+Starting with v1.5, we support the latest version of Android Studio and companion building tools. We recommend Android Studio as an Android platform build tool and you should download the required SDK and NDK packages in Android Studio. First install [Android Studio](http://www.android-studio.org/).
+
+### Download the SDK and NDK required to publish the Android platform
+
+After installing Android Studio, refer to the official documentation and open the SDK Manager:
+
+[SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager)
+
+1. In the `SDK Platforms` tab page, check the API level you want to install, and choose the minimum compatible API Level 10 (2.3.3) and the mainstream API Level such as 17 (4.2) and 22 (5.1).
+2. In the `SDK Tools` tab page, first check the lower right corner of the `Show package details`, show the version of the tool selection.
+3. In the `Android SDK Build-Tools', select at least build tools version 25.
+4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
+5. Check the `NDK` and ensure that the version is above 14.
+6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
+7. Click `OK` and follow the prompts to complete the installation.
+
+![Sdk manager](setup-native-development/sdk-manager.jpg)
+
+### Download the Java SDK (JDK)
+
+Compile the Android project requires a complete Java SDK tool on your local computer, download it at the following address:
+
+[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+Download and pay attention to select the machine and the operating system and architecture, download the installation can be completed after the installation process.
+
+** Note **: After the installation is complete, please confirm that the `java` command is valid on the command line. Otherwise, please refer to the following section to manually add the `java` executable file to your environment variable.
 
 ## Install C++ compiling environment
 
 The compiling tool Cocos Console in Cocos Framework needs the following running environment:
 
 - Python 2.7.5+, [download page](https://www.python.org/downloads/). Pay attention! Don't download Python 3.x version.
-- In Windows, the installation of Visual Studio 2013 or 2015 Community Edition is needed, [download page](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+- In Windows, the installation of Visual Studio 2015 or 2017 Community Edition is needed, [download page](https://www.visualstudio.com/downloads/download-visual-studio-vs)
 - In Mac, the installation of Xcode and command line tool is needed, [download page](https://developer.apple.com/xcode/download/)
 
 ## Configure path in original release environments
@@ -43,9 +68,9 @@ Next, let's go back to Cocos Creator to configure the environmental path of the 
 
 We need to configure the following three paths here:
 
-- **NDK**, choose the NDK path that has just been downloaded and unzipped. You can skip this if you don't need to compile on Android platform
-- **Android SDK**, choose the Android SDK path that has just been downloaded and unzipped. You can skip this if you don't need to compile the Android platform
-- **ANT**, which will be put in the `tools` directory after installing Cocos Framework, which is at the same hierarchy as `frameworks`. The chosen path should include an executable file named `ant`.
+- **Android SDK**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window. You can skip this if you don't need to compile the Android platform
+- **NDK**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform
+- **ANT**(you can skip it if build with Android Studio), you should choose the downloaded and unzipped Apache Ant folder, The chosen path should include an executable file named `ant`.
 
 Close the window after configuration is completed.
 

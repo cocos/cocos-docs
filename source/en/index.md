@@ -30,3 +30,4 @@ Please pay attention that demo projects may have different branches for differen
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
+- [i18n Multi-language demo](https://github.com/nantas/demo-i18n)

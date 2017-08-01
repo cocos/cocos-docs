@@ -10,14 +10,13 @@ You can designate a release path for the game by inputting a path in the **relea
 
 The default release path is in the `build` under the project folder . If you use version control systems like git and svn, you can ignore the `build` folder in version control.
 
+## Build and preview
 
-## Construct and preview
-
-The construction of Web platform is very easy. Construction process will **zip** scripts and resources in the game project and resource library, and then drop them into the designated release path. If you need test, the **Debug Mode** is there for you. The sourcemap is preserved with versions thus constructed.
+The construction of Web platform is very easy. Construction process will **zip** scripts and resources in the game project and resource library, and then drop them into the designated release path. If you need test, check **Debug Mode** and **Sourcemap** option. The built version will have sourcemap for debugging.
 
 Click the **Build** button, then a progress bar will appear on the top of the panel. When the progress bar reaches 100%, the construction is finished.
 
-Next, you can click the **Play** button to open the constructed game version in the browser for preview and test.
+Next, you can click the **Play** button to open the built game version in the browser for preview and test.
 
 ![web desktop](publish-web/web_desktop.png)
 
@@ -25,7 +24,7 @@ A preview of the Web Desktop mode is shown above. You can see that the resolutio
 
 ## Release a game on Web server
 
-If you want to release or share your games on the Internet, click the **Open** button next to **Build path**. After opening the release path, copy everything in the constructed `web-mobile` or `web-desktop` folders, and drop them into your Web server. Then you can see the game later there.
+If you want to release or share your games on the Internet, click the **Open** button next to **Build path**. After opening the release path, copy everything in the built `web-mobile` or `web-desktop` folders, and drop them into your Web server. Then you can see the game later there.
 
 For the construction of Web server, you can search for solutions such as Apache, Nginx, IIS and Express on your own.
 

@@ -20,7 +20,6 @@ Cocos Creator 的工作流程是以数据驱动和场景为核心的，初次打
 
 在 **资源管理器** 中双击箭头所指的 `helloworld` 场景文件。Cocos Creator 中所有场景文件都以 ![scene](../asset-workflow/index/scene.png) 作为图标。
 
-
 ## Hello World 项目分解
 
 打开 `helloworld` 场景后，我们就可以看到这个模板项目中的全部内容了。
