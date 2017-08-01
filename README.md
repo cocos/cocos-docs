@@ -202,3 +202,5 @@ npm run make-en-doc # 生成英文文档
 
 - [中文文档格式规范](https://github.com/anjuke/coding-style/blob/master/text/chinese.md)
 - [文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)
+
+## Gitbook 说明
