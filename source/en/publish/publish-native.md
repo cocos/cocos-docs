@@ -1,8 +1,8 @@
 # Build and release games on Native platforms
 
-Open `Project/Build...` in the main menu and the constructing release window.
+Open `Project/Build...` in the main menu and open `Build` panel.
 
-Currently, there are five native platforms, which include: Cocos Runtime, Android, iOS, Mac and Windows. The options of release games on Mac and Windows will only appear in concerning operating systems.
+Currently, there are four native platforms, which include: Android, iOS, Mac and Windows. The options of release games on Mac and Windows will only appear in concerning operating systems.
 
 ![native platform](publish-native/native_platform.png)
 
@@ -11,18 +11,19 @@ Currently, there are five native platforms, which include: Cocos Runtime, Androi
 An input field named **package name** will appear in the constructing release window after selecting an native platform, into which you can input the package name of your game (also called Package Name or Bundle ID). The package name is usually arranged in the reverse order of the product's website url, such as: `com.mycompany.myproduct`.
 
 **Notice**:
- - Only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
- - If your Xcode version is less than 7.2, the package name also can not include underscores.
+
+- Only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
+- If your Xcode version is less than 7.2, the package name also can not include underscores.
 
 ![package name](publish-native/package_name.png)
 
-## Construct an Native Project
+## Build a Native Project
 
-After selecting the release platform and setting up the package name and initial scene, the project can now be constructed. Click the **construct** button on the bottom right corner, and start constructing workflow.
+After selecting the release platform and setting up the package name and initial scene, the project can now be built. Click the **Build** button on the bottom right corner, and start building workflow.
 
 ![build progress](publish-native/build_progress.png)
 
-When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the construction of the project in **console** is finished. If it's successful, the diary as showed below will display:
+When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
 
 ```bash
 Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
@@ -38,15 +39,15 @@ Click the **Play** button on the bottom right corner, you can preview games of n
 
 On Mac/iOS/Windows platforms, Cocos Simulator will be used to preview the game on the desktop. While on Android platform, you can preview only after connecting your computer with smartphone via USB port and opening USB test on your computer.
 
-After clicking **Play** button, a part of the constructing work will be continued, the real time progress of which will be seen on the console.
+After clicking **Play** button, a part of the building work will be continued, the real time progress of which will be seen on the console.
 
 ## Use an Native Project
 
 ![open project](publish-native/open_project.png)
 
-Click the **open** button near the release path, the constructing release path will be opened in the document manager of operating system.
+Click the **open** button near the release path, the building release path will be opened in the document manager of operating system.
 
-`jsb` of this path includes all the native constructing projects.
+`jsb` of this path includes all the native build projects.
 
 ![native projects](publish-native/native_projects.png)
 

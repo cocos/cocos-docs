@@ -6,7 +6,7 @@
 
 可以在这里感受一下这款游戏的完成形态：
 
-http://fbdemos.avosapps.com/star-catcher/
+http://fbdemos.leanapp.cn/star-catcher/
 
 ## 准备项目和资源
 
@@ -59,8 +59,10 @@ http://fbdemos.avosapps.com/star-catcher/
 当玩家运行游戏时，就会载入游戏场景，游戏场景加载后就会自动运行所包含组件的游戏脚本，实现各种各样开发者设置的逻辑功能。所以除了资源以外，游戏场景是一切内容创作的基础，让我们现在就新建一个场景。
 
 1. 在资源管理器中点击选中**assets**目录，确保我们的场景会被创建在这个目录下
-2. 点击资源管理器左上角的加号按钮，在弹出的菜单中选择**Scene**
-![create scene](quick-start/create_scene.png)
+2. 点击资源管理器左上角的加号按钮，在弹出的菜单中选择 **Scene**
+
+  ![create scene](quick-start/create_scene.png)
+
 3. 我们创建了一个名叫`New Scene`的场景文件，右键点击它并选择**重命名**，将它改名为`game`。
 4. 双击`game`，就会在**场景编辑器**和**层级编辑器**中打开这个场景。
 
@@ -718,7 +720,11 @@ Star Prefab 需要的设置就完成了，现在从**层级管理器**中将`sta
 
 这样就大功告成了！完成形态的场景层级和各个关键组件的属性如下：
 
-![node tree complete](quick-start/hierarchy_complete.png) ![game complete](quick-start/game_complete.png) ![player complete](quick-start/player_complete.png)
+![node tree complete](quick-start/hierarchy_complete.png) 
+
+![game complete](quick-start/game_complete.png) 
+
+![player complete](quick-start/player_complete.png)
 
 现在我们可以尽情享受刚制作完成的游戏了，您能打到多少分呢？别忘了您可以随时修改`Player`和`Game`组件里的移动控制和星星持续时间等游戏参数，来快速调节游戏的难度。修改组件属性之后需要保存场景，修改后的数值才会被记录下来。
 

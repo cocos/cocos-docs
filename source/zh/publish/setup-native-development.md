@@ -1,6 +1,6 @@
 # 安装配置原生开发环境
 
-除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用和 Cocos Play 手机页游。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 cocos2d-x 相关的开发环境。
+除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 cocos2d-x 相关的开发环境。
 
 ## Android 平台相关依赖
 
@@ -12,37 +12,35 @@
 
 从 v1.2.2 开始，默认的 Android 项目模板将指定 `android-10` sdk platform 版本作为默认的 target，详情可见 [Pull Request Use API Level 10](https://github.com/cocos-creator/cocos2d-x-lite/pull/316)。
 
-如果编译 Android 工程时遇到 '未找到 android-10' 之类的报错，可以下载单独的 Android SDK platform 包 [android-10.zip](http://cocostudio.download.appget.cn/android-sdk/android-10.zip)，并解压到您的 Android SDK 根目录下的 `platforms` 目录里，和其他 `android-xx` 目录并列。
+如果编译 Android 工程时遇到 '未找到 android-10' 之类的报错，可以通过下文介绍的方式下载 Android SDK API Level 10。
 
 如果需要更改 target 的 API Level，可以修改原生引擎目录下 `cocos/platform/android/java/project.properties` 文件中的
 
 ```java
-    target=android-10
+target=android-10
 ```
 
 将 `android-10` 修改为其他您需要的 API Level。
 
+### 下载安装 Android Studio
+
+从 v1.5 开始，我们支持最新版本的 Android Studio 和配套的构建工具，推荐使用 Android Studio 作为安卓平台的构建工具，并在 Android Studio 里下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](http://www.android-studio.org/)。
+
 ### 下载发布 Android 平台所需的 SDK 和 NDK
 
-从以下链接下载和操作系统一致的 Android SDK 和 NDK：
+安装 Android Studio 完成后，参考官方文档，打开 SDK Manager：
 
-- [Android SDK Windows](http://cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
-- [Android SDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
-- [Android NDK Windows 32位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
-- [Android NDK Windows 64位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
-- [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+[SDK Manager 使用说明](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
-下载之后解压到任意位置，我们之后需要设置 Android SDK 和 NDK 的路径，请记住以上文件的解压位置。
+1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择最低兼容的 API Level 10（2.3.3) 和最主流的 API Level 17 (4.2) 以及 API Level 22 (5.1)。
+2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show package details`，显示分版本的工具选择。
+3. 在 `Android SDK Build-Tools` 里，选择 25 以上的 build tools 版本。
+4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
+5. 勾选 `NDK`，确保版本在 14 以上。
+6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
+7. 点击 `OK`，根据提示完成安装。
 
-### 下载 ANT
-
-[Apache Ant](http://ant.apache.org) 是一种用来构建软件的 Java 程序库和可执行文件。我们在构建 Android 平台项目时需要这个软件的支持。
-
-之前前往 Apache Ant 的下载链接：
-
-[Apache Ant 下载](http://ant.apache.org/bindownload.cgi)
-
-选择稳定版的 `.zip` 压缩包并下载，下载完成后解压到任意目录，之后我们在进行设置时需要选择这个目录。
+![sdk manager](setup-native-development/sdk-manager.jpg)
 
 ### 下载 Java SDK （JDK）
 
@@ -59,7 +57,7 @@
 Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 - Python 2.7.5+，[下载页](https://www.python.org/downloads/)，注意不要下载 Python 3.x 版本。
-- Windows 下需要安装 Visual Studio 2013 或 2015 社区版，[下载页](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+- Windows 下需要安装 Visual Studio 2015 或 2017 社区版，[下载页](https://www.visualstudio.com/downloads/download-visual-studio-vs)
 - Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)
 
 ## 配置原生发布环境路径
@@ -70,9 +68,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 我们在这里需要配置以下三个路径：
 
-- **NDK**，选择刚才下载并解压后的 NDK 路径，不需要编译 Android 平台的话这里可以跳过
-- **Android SDK**，选择刚才下载并解压后的 Android SDK 路径，不需要编译 Android 平台的话这里可以跳过
-- **ANT**，请选择前面下载并解压完成的 Apache Ant 路径，选定的路径中应该包括一个名叫 `ant` 的可执行文件。
+- **Android SDK**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径，不需要编译 Android 平台的话这里可以跳过
+- **NDK**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹，不需要编译 Android 平台的话这里可以跳过
+- **ANT**（如使用 Android Studio，这一步可以跳过），请选择下载并解压完成的 Apache Ant 路径，选定的路径中应该包括一个名叫 `ant` 的可执行文件。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
@@ -114,9 +112,31 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
     检查构建发布面板中的包名，包含空格，`-`等都是非法的包名。
 
+7. 不使用 Android Studio
+
+    如果您使用 Cocos Creator v1.5 以前的版本，或由于某些原因无法使用 Android Studio，请安装 Eclipse 并使用旧的流程下载 SDK 和 NDK
+
+    从以下链接下载和操作系统一致的 Android SDK 和 NDK：
+
+    - [Android SDK Windows](http://cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
+    - [Android SDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
+    - [Android NDK Windows 32位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
+    - [Android NDK Windows 64位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
+    - [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+
+    下载之后解压到任意位置，我们之后需要设置 Android SDK 和 NDK 的路径，请记住以上文件的解压位置。
+
+    下载 [Apache Ant](http://ant.apache.org) 是一种用来构建软件的 Java 程序库和可执行文件。我们在构建 Android 平台项目时需要这个软件的支持。
+
+    前往 Apache Ant 的下载链接：
+
+    [Apache Ant 下载](http://ant.apache.org/bindownload.cgi)
+
+    选择稳定版的 `.zip` 压缩包并下载，下载完成后解压到任意目录，之后我们在进行设置时需要选择这个目录。
+
 7. Android 6.0 SDK 的支持问题
 
-    Android 6.0 SDK 去除了 Cocos2d-x 依赖的 HttpClient 库，所以会导致编译失败。目前的解决方案是：
+    Android 6.0 SDK 去除了 Cocos2d-x 依赖的 HttpClient 库，所以会导致 Cocos Creator v1.5 以前的版本编译失败。旧版本用户的解决方案是：
 
     - 找到 Android SDK 目录下的 HttpClient 库：`platforms/android-23/optional/org.apache.http.legacy.jar`。
     - 如果使用源码引擎模版，需要拷贝到原生编译目录下的 `jsb/frameworks/cocos2d-x/cocos/platform/android/java/libs/` 目录下。如果使用预编译库引擎模版，需要拷贝到原生编译目录下的 `jsb/frameworks/runtime-src/proj.android/jars/` 目录下。

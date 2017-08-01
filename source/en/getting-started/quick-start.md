@@ -1,11 +1,12 @@
-# Quick Start：Creating your first game
+# Quick Start：Make your first game
+
 The document you are reading now includes systematic introductions of the editor panel, functions and workflows of Cocos Creator. However, if you want to quickly learn the general flow and method of developing games by Cocos Creator, this chapter will meet your needs. After finishing the tutorial in this chapter, you might obtain enough information for creating games. But we still recommend you to continue reading this guide to understand the details of each functional block and the complete workflows.
 
 Now, let's begin! Following the tutorial, we will create a deceiving game that is named **Pick Up the Stars**. Players of this game need to manipulate an **obtuse** monster that never stops jumping to touch the continuously appearing stars. The dazzling acceleration will bring great challenges to players. Play with your friends and see who can obtain the most stars!
 
 The completed form of this game can be experienced here:
 
-http://fbdemos.avosapps.com/star-catcher/
+http://fbdemos.leanapp.cn/star-catcher/
 
 ## Prepare project and resources
 
@@ -720,7 +721,11 @@ Then choose the `Canvas` node, drag the `assets/audio/score` resource to the `Sc
 
 Now it's done! The scene hierarchy of the completed form and properties of each key component are as follows:
 
-![hierarchy complete](quick-start/hierarchy_complete.png) ![game complete](quick-start/game_complete.png) ![player complete](quick-start/player_complete.png)
+![node tree complete](quick-start/hierarchy_complete.png) 
+
+![game complete](quick-start/game_complete.png) 
+
+![player complete](quick-start/player_complete.png)
 
 Now we can fully enjoy the newly created game. How many scores can you get? Don't forget that you can modify game parameters like movement control and star duration, etc. in the `Player` and `Game` components at anytime to quickly adjust the game's degree of difficulty. The scene needs to be saved after modifications of component properties. Only the saved values can be recorded.
 

@@ -27,8 +27,8 @@ Event types included:
 - Type：`cc.SystemEvent.EventType.KEY_DOWN` 和 `cc.SystemEvent.EventType.KEY_UP`
 - Call Back: Custom Event：callback(event);
 - Call Back Parameter：
-    - KeyCode: [API 传送门](http://cocos.com/docs/creator/api/enums/KEY.html)
-    - Event：[API 传送门](http://cocos.com/docs/creator/api/classes/Event.html)
+    - KeyCode: [API Reference](http://cocos2d-x.org/docs/api-ref/creator/v1.5/enums/KEY.html)
+    - Event：[API Reference](http://cocos2d-x.org/docs/api-ref/creator/v1.5/classes/Event.html)
 
 ```js
 cc.Class({

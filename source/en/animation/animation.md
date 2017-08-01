@@ -30,13 +30,14 @@ But in edit mode, the node can not be added / deleted / renamed operation.
 
 Open edit mode
 
- - Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
+- Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
 
 Close edit mode
 
- - Click the Edit button in the upper left corner of the animation editor. Or click the close button on the top left corner of the scene editor
+- Click the Edit button in the upper left corner of the animation editor. Or click the close button on the top left corner of the scene editor
 
 ## Understanding animation editor
+
 The Animation editor can be divided into 7 parts.
 
 ![main](animation/main.png)
@@ -55,60 +56,73 @@ The Animation editor can be divided into 7 parts.
 
 7. Basic properties of animation clip. After choosing the animation clip, the basic data will display here and can be modified.
 
+### The units of the timeline explained
+
+The representation of the specific frame time on the timeline is `1:05`. The value consists of two parts, the part in front of colon is the current number of seconds, followed by the current number of frames in the next second.
+
+`1:05` indicates that the current frame is at the time past  1 second and 5 more frames from the beginning of the animation.
+
+Because the animation frame rate can be adjusted at any time, the time represented by the same frame will vary with the frame rate.
+
+- When the frame rate is 30, `1:05` means 1 + 5/30 = 1.1667 seconds after the animation starts.
+- When the frame rate is 10, `1:05` means 1 + 5/10 = 1.5 seconds after the animation starts.
+
+Although the time of current frame changes with the frame rate, but the total frames an animation takes going into a key frame is always the same. If we have frame rate set to 30 and add a key frame to the `1:05` time, that key frame is  always the 35th frames from the beginningof the animation. Even if we change the frame rate to 10, the key frame is still the 35th of the whole animation, but the time of the key frame now reads as `3:05`. It is three times the value of the time before.
+
 ## Basic operation
 
 ### Modify the zoom proportion of timeline
 
- - Scroll the mouse wheel in area 2, 4, 6 of the image, and the display percentage of the timeline can be zoomed in/out.
+- Scroll the mouse wheel in area 2, 4, 6 of the image, and the display percentage of the timeline can be zoomed in/out.
 
 ### Modify the display area of timeline
 
- - Press Shift button on the keyboard, left-click area 2, 4, 6 in the image and drag it to the left/right.
+- Press Shift button on the keyboard, left-click area 2, 4, 6 in the image and drag it to the left/right.
 
- - Press down the middle mouse button in area 2, 4, 6 in the image and drag it.
+- Press down the middle mouse button in area 2, 4, 6 in the image and drag it.
 
 ### Modify the currently chosen timeline node
 
- - Click or drag any position in the timeline (area 2) area, you can modify the current time node.
+- Click or drag any position in the timeline (area 2) area, you can modify the current time node.
 
- - Drag the marked red line in area 4.
+- Drag the marked red line in area 4.
 
-### Open/close recording status
+### Enter/exit recording status
 
- - There is a red button on the left side of graph 1. Click it and you will open/close the recording status.
+- There is a red button on the left side of graph 1. Click it and you will open/close the recording status.
 
- - The adding and deletion of the property frame and path will automatically open the recording status.
+- The adding and deletion of the property frame and path will automatically open the recording status.
 
- - The playing of the animation will automatically open the recording status.
+- The playing of the animation will automatically open the recording status.
 
- - When playing, operations like saving the scene, etc., will close the recording status.
+- When playing, operations like saving the scene, etc., will close the recording status.
 
 ### Play/stop animation
 
- - Click the Play button in graph 1, which will automatically turn into Stop. Click the button again and the animation will be stopped.
+- Click the Play button in graph 1, which will automatically turn into Stop. Click the button again and the animation will be stopped.
 
- - When playing, operations like saving the scene, etc. will stop playing.
+- When playing, operations like saving the scene, etc. will stop playing.
 
 ## Shortcut key
 
- - left：previous frame
+- left：previous frame
  
- - right：next frame
+- right：next frame
  
- - up：Jump to the front  key frame
+- up：Jump to the front  key frame
  
- - down：Jump to the behind key frame
+- down：Jump to the behind key frame
  
- - delete：Delete the selected keys
+- delete：Delete the selected keys
  
- - k：Forward the animation
+- k：Forward the animation
  
- - j：Backward animation
+- j：Backward animation
  
- - ctrl / cmd + left：Jump to the first frame
- 
- - ctrl / cmd + right：Jump to the last frame
- 
+- ctrl / cmd + left：Jump to the first frame
+
+- ctrl / cmd + right：Jump to the last frame
+
 ---
 
 Continue on to read about [Creating Animation component and animation clip](animation-clip.md).
