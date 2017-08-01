@@ -1,14 +1,6 @@
-# Cocos Creator 用户手册
+# Cocos Creator User Manual
 
-## 中文手册
-
-文档目录请前往[Index](source/zh/index.md)
-
-## English Manual
-
-For documentation index, please check out [Index](source/en/index.md)
-
-## 环境准备
+## Environment Setting
 
 需要首先准备以下环境：
 

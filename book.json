@@ -1,0 +1,8 @@
+{
+    "plugins": [
+        "-lunr", 
+        "-search",
+        "search-pro",
+        "toggle-chapters"
+    ]
+}

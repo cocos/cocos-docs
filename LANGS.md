@@ -1,2 +1,2 @@
-* [English](source/en/)
-* [中文](source/zh/)
+- [English](/en)
+- [中文](/zh)
