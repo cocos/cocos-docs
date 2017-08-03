@@ -31,7 +31,9 @@
 
 ### 防止特定资源被自动释放
 
-启用了某个场景的资源自动释放后，如果在脚本中保存了该场景的资源引用，当场景切换后，这些资源就会变成非法的，很容易出错。或者如果调用 `cc.game.addPersistRootNode` 方法让某个该场景中的节点保留到了下一个场景，但这个节点及其子节点用到的所有资源也还是会被同时释放，导致下个场景不能再正确访问这些资源。为了让这部分资源在场景切换时不被释放，我们可以使用 [cc.loader.setAutoRelease](http://www.cocos.com/docs/creator/api/classes/loader.html#method_setAutoRelease) 或者 [cc.loader.setAutoReleaseRecursively](http://www.cocos.com/docs/creator/api/classes/loader.html#method_setAutoReleaseRecursively) 来保留这些资源。
+启用了某个场景的资源自动释放后，如果在脚本中保存了对该场景的资源的“特殊引用”，则当场景切换后，由于资源已经被释放，这些引用可能会变成非法的，有可能引起渲染异常等问题。为了让这部分资源在场景切换时不被释放，我们可以使用 [cc.loader.setAutoRelease](http://www.cocos.com/docs/creator/api/classes/loader.html#method_setAutoRelease) 或者 [cc.loader.setAutoReleaseRecursively](http://www.cocos.com/docs/creator/api/classes/loader.html#method_setAutoReleaseRecursively) 来保留这些资源。
+
+> “特殊引用”指的是以全局变量、单例、闭包、“特殊组件”、“动态资源”等形式进行的引用。“特殊组件”是指通过 `cc.game.addPersistRootNode` 方法设置的常驻节点及其子节点上的组件，并且这些组件中包含以字符串 URL 或 UUID，或者以除了数组和字典外的其它容器去保存的资源引用。“动态资源”指的是在脚本中动态创建或动态修改的资源。这些资源如果还引用到场景中的其它资源，则就算动态资源本身不应该释放，其它资源默认还是会被场景自动释放。
 
 ## 修改场景加载策略
 

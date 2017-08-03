@@ -28,7 +28,9 @@ When switching from current scene to the next scene, if current scene disabled t
 
 ### Prevent auto releasing for some specifed assets
 
-With the auto releasing enabled for a scene, if some of the scene assets are referenced in user script, these references will become invalid once scene switched, and is easy to get wrong. Or if you called the `cc.game.addPersistRootNode` method on a scene node to keep it preserved to the next scene, but all the scene assets used by the node or its child nodes will still be released, so these assets can not correctly used in the next scene any more. To prevent these assets from being released automatically, you can use `cc.loader.setAutoRelease` or `cc.loader.setAutoReleaseRecursively` to preserve them.
+With the auto releasing enabled for a scene, if some of the scene's assets are saved in the script as "special reference", these references will become invalid once the scene switched, since the resource has been released, may cause rendering problems. To prevent these assets from being released automatically, we can use `cc.loader.setAutoRelease` or `cc.loader.setAutoReleaseRecursively` to retain them.
+
+> "Special reference" refer to references in the form of global variables, singleton, closures, "special components", "dynamic assets", and so on. A "special component" is a component of a persist node or its child nodes that are set by the `cc.game.addPersistRootNode` method, and these components contain asset references in the form of a string URL or a UUID, or saved in a container object other than an array and a dictionary. "Dynamic assets" refer to assets that are dynamically created or dynamically modified in a script. If these assets also refer to other assets in the scene, even if the dynamic asset itself should not be released, other assets will still be automatically released by default.
 
 ## Change the policy of scene loading
 
