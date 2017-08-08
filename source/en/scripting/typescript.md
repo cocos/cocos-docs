@@ -43,7 +43,7 @@ const {ccclass, property} = cc._decorator; // Introduce ccclass and property fro
 export default class NewClass extends cc.Component { // ES6 Classes declaration syntax, inherited cc.Component
 
     @property (cc.Label) // use property decorator to declare attributes, parentheses are attribute types, decorator type declaration is mainly used for editor display
-    label: cc.Label; // here is the type used to declare the type of statement, the colon is followed by the type of property
+    label: cc.Label = null; // here is the type used to declare the type of statement, the colon is followed by the type of property
 
     // You can also use the full attribute to define the format
     @property ({
@@ -129,7 +129,7 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export class MyModule extends cc.Component {
     @property (cc.String)
-    myName: string;
+    myName: string = "";
 
     @property (cc.Node)
     myNode: cc.Node = null;
