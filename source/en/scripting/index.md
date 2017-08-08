@@ -32,7 +32,6 @@ While writing the component script, you can map the variables needing adjustment
 - Script Structure
   - [Modular Script](modular-script.md)
   - [Plugin Scripts](plugin-scripts.md)
-  - [Third Party Module](third-party-module.md)
 - [JavaScript Quick-start](javascript-primer.md)
 - CCClass Reference
   - [CCClass Advanced Reference](reference/class.md)
