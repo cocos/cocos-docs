@@ -20,10 +20,10 @@ The physics system provides a variety of debugging information, you can combine 
 
 ```javascript
 cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_aabbBit |
-    Cc.PhysicsManager.DrawBits.e_pairBit |
-    Cc.PhysicsManager.DrawBits.e_centerOfMassBit |
-    Cc.PhysicsManager.DrawBits.e_jointBit |
-    Cc.PhysicsManager.DrawBits.e_shapeBit
+    cc.PhysicsManager.DrawBits.e_pairBit |
+    cc.PhysicsManager.DrawBits.e_centerOfMassBit |
+    cc.PhysicsManager.DrawBits.e_jointBit |
+    cc.PhysicsManager.DrawBits.e_shapeBit
     ;
 ```
 
