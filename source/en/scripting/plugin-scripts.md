@@ -7,17 +7,25 @@ In the **Assets**, select any of the script, you can see such a settings interfa
  - For Component script, data logic, the default is to cancel this option, such a script is referred to as **Normal Script**.
  - For third-party script, or the underlying plugin, it may be necessary to select the option, such a script is referred to as **Plugin Script**.
 
-This option is only related to the script, specific aspects of the impact, beginners only need a simple understanding
+This option is only related to the script, specific aspects of the impact, most people only need a simple understanding
 
 Type: | Normal Script | Plugin Script
 ---------- | ----------- | -----------
 Declare components | Support | Not Support
 [Modular](../scripting/modular-script.md) | Support, you can refer to other Normal Script by [require](../scripting/modular-script.md#require), can not require Plugin Script | Not Support, also can not require Normal Script
-Variable scope | The local variables defined within each script are not exposed to global | At runtime, local variables within the script that are not in any function are exposed as global variables
+Variable Declaration | The variables defined within script are not exposed to global | Once published, local variables declared within the script that are not in any function are exposed as global variables. If in the editor, then it is the same as the Normal Script.
 use strict | Forced, undefined variables can not be assigned | Need to manually declare, otherwise once the undefined variable is assigned it will become a global variable
-When the script is imported into the editor | The ES2015 feature in the script is [compiled](../scripting/reference/javascript-support.md) first, and then into a unified modular analysis process | Do not do anything
+When the script is imported into the project | The ES2015 feature in the script is [compiled](../scripting/reference/javascript-support.md) first, and then into a unified modular analysis process | Do not do anything
 During the project building phase | All Normal Scripts will be packaged into a **single** script file, and in the release mode will be further compressed | Not packaged, and in the release mode will be compressed
 SourceMap | Support | Not Support
+
+When the "Import As Plugin" is checked, it is possible to further set up where the plugin script will take effect in **Properties**:
+
+Option | Affected Platform | Remarks
+---------- | ----------- | -----------
+Load In Web | browser,<br>preview on browser,<br>editor | Enabled by default. When disabled, the "Load In Editor" will also disabled.
+Load In Editor | editor | Disabled by default. You should manually turn on this option if other Normal Scripts depend on the current script during loading in the editor.<br>Once enabled, local variables declared within the script that are not in any function **will not** exposed as global variables. So global variable needs to be defined in the form `window.abc = 0` to take effect.
+Load In Native | native,<br>preview on simulator | Enabled by default.
 
 ## Script loading order
 
