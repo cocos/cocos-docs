@@ -457,10 +457,6 @@
                             {
                                 "name": "Plugin Scripts",
                                 "link": "scripting/plugin-scripts.html"
-                            },
-                            {
-                                "name": "Third Party Module",
-                                "link": "scripting/third-party-module.html"
                             }
                         ]
                     },

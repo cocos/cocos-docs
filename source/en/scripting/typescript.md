@@ -42,12 +42,12 @@ const {ccclass, property} = cc._decorator; // Introduce ccclass and property fro
 @ccclass // use decorator to declare CCClass
 export default class NewClass extends cc.Component { // ES6 Classes declaration syntax, inherited cc.Component
 
-    @property (cc.Label) // use property decorator to declare attributes, parentheses are attribute types, decorator type declaration is mainly used for editor display
-    label: cc.Label = null; // here is the type used to declare the type of statement, the colon is followed by the type of property
+    @property (cc.Label)    // use property decorator to declare attributes, parentheses are attribute types, decorator type declaration is mainly used for editor display
+    label: cc.Label = null; // here is the type used to declare the type of statement, the colon is followed by the type of property, the equal sign is followed by the default value.
 
     // You can also use the full attribute to define the format
     @property ({
-        default: 'hello'
+        visible: false
     })
     text: string = 'hello';
 
@@ -66,10 +66,15 @@ Declare value types:
 
 ```typescript
 @property({
-    default: 1,
     type: cc.Integer
 })
 myInteger = 1;
+
+@property
+myNumber = 0;
+
+@property
+myText = "";
 
 @property(cc.Node)
 myNode: cc.Node = null;
