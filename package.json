@@ -4,11 +4,6 @@
   "description": "Documentation ===============",
   "main": "index.js",
   "dependencies": {
-    "algoliasearch": "^3.20.0",
-    "del": "^2.2.2",
-    "fire-fs": "0.2.3",
-    "markdown-styles": "^3.1.8",
-    "naml": "^1.0.3"
   },
   "devDependencies": {},
   "scripts": {

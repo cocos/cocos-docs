@@ -1,3 +1,22 @@
 {
-    "title": "Cocos Creator 用户手册"
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "index.md"
+    },
+    "variables": {
+        "navlinks": [
+            {
+                "name": "Creator Manual",
+                "link": "#"
+            },
+            {
+                "name": "Creator Engine API",
+                "link": "#"
+            },            
+            {
+                "name": "Cocos2d-x Docs",
+                "link": "http://cocos2d-x.org/docs/index.html"
+            }
+        ]
+    }   
 }

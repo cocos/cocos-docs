@@ -1,0 +1,20 @@
+{% extends template.self %}
+{% block book_header %}
+<div class="cocos-navbar" role="navigation">
+    <a href="http://cocos.com" class="btn" target="_blank"><img src="http://forum.cocos.com/images/logo.png" height="30" /></a>
+    <a href="#" class="btn" onclick="toggleLanguage()">English</a>            
+{% for item in book.navlinks %}
+    <a href="{{item.link}}" class="btn autohide"><i class="fa fa-book"></i>{{item.name}}</a>                
+{% endfor %}    
+</div>
+<div class="book-header" role="navigation">
+    {% if glossary.path %}
+    <a href="{{ ('/' + glossary.path)|resolveFile }}" class="btn pull-left" aria-label="{{ "GLOSSARY_OPEN"|t }}"><i class="fa fa-sort-alpha-asc"></i></a>
+    {% endif %}
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="{{ "/"|resolveFile }}" >{{ page.title }}</a>
+    </h1>
+</div>
+{% endblock %}
