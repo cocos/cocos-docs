@@ -31,7 +31,6 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - 脚本组织模式
   - [模块化脚本](modular-script.md)
   - [插件脚本](plugin-scripts.md)
-  - [第三方模块引用](third-party-module.md)
 - [JavaScript 快速入门](javascript-primer.md)
 - [使用 TypeScript 脚本](typescript.md)
 - CCClass 参考

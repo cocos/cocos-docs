@@ -452,10 +452,6 @@
                             {
                                 "name": "插件脚本",
                                 "link": "scripting/plugin-scripts.html"
-                            },
-                            {
-                                "name": "第三方模块引用",
-                                "link": "scripting/third-party-module.html"
                             }
                         ]
                     },
