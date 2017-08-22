@@ -68,15 +68,15 @@ Module.exports = {
 //scene-walker.js
 Module.exports = {
     'Init-module': function (event) {
-        Var myModule = window.require ('MyModule');
+        Var myModule = cc.require ('MyModule');
         MyModule.init ();
     }
 };
 ```
 
-Note that to use the same module reference mechanism as the project script, you must use `window.require` in the scene script.
+Note that to use the same module reference mechanism as the project script, you must use `cc.require` in the scene script.
 
 
-### reference plugin script
+### Reference plugin script
 
 Directly use `window.globalVar` to access the global variables and methods declared in the plugin script.

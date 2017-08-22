@@ -68,13 +68,13 @@ module.exports = {
 //scene-walker.js
 module.exports = {
     'init-module': function (event) {
-        var myModule = window.require('MyModule');
+        var myModule = cc.require('MyModule');
         myModule.init();
     }
 };
 ```
 
-注意，要使用和项目脚本相同的模块引用机制，在场景脚本里必须使用 `window.require` 的写法。
+注意，要使用和项目脚本相同的模块引用机制，在场景脚本里必须使用 `cc.require` 的写法。
 
 
 ### 引用插件脚本

@@ -1,6 +1,6 @@
 # 扩展 Inspector
 
-有时候我们需要对自己书写的 Component 定义一份 Inspector，用自定义的方式对他进行显示。这个时候
+Inspector 是在 **属性检查器** 里展示的组件控件面板，有时候我们需要对自己书写的 Component 定义一份 Inspector，用自定义的方式对他进行显示。这个时候
 我们可以考虑对 Inspector 进行扩展。
 
 扩展的步骤如下：
