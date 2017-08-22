@@ -2,6 +2,7 @@
     "plugins": [
         "-lunr", 
         "-search",
+        "github-issue-feedback-language",
         "search-title",
         "anchorjs",
         "toggle-chapters",
@@ -11,6 +12,10 @@
         "website": "./styles/website.css"
     },  
     "pluginsConfig": {
+        "github-issue-feedback-language": {
+            "repo": "cocos-creator/creator-docs",
+            "branch": "gitbook"
+        },
         "search": {
             "maxIndexSize": 1000000000
         },

@@ -14,16 +14,15 @@
 {% block javascript %}
     {{ super() }}
     <script type="text/javascript">
-console.log('loading custom js');
     function toggleLanguage () {
         var path = location.href;
-        console.log(path);
+        // console.log(path);
         if (path.indexOf('/zh') !== -1) {
             path = path.replace(/\/zh[\/$\s]/i, '/en/');
         } else if (path.indexOf('/en') !== -1) {
             path = path.replace(/\/en[\/$\s]/i, '/zh/');
         }
-        console.log('after: ' + path);    
+        // console.log('after: ' + path);    
         location.assign(path);
     }
     </script>

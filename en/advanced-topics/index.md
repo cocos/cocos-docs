@@ -3,7 +3,7 @@
 - Hot Update
   - [Hot update tutorial](hot-update.md)
   - [AssetManager](assets-manager.md)
-- [Build to lua](build-to-lua.md)
+- [C++ and Lua Support](cpp-lua.md)
 - [i18n support](i18n.md)
 - [Read and Write user data](data-storage.md)
 - [Egnine Customization](engine-customization.md)

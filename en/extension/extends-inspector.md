@@ -1,111 +1,107 @@
-# 扩展 Inspector
+# Extends Inspector
 
-有时候我们需要对自己书写的 Component 定义一份 Inspector，用自定义的方式对他进行显示。这个时候
-我们可以考虑对 Inspector 进行扩展。
+Inspector is a component control interface that is displayed in the Propertes panel. Sometimes we need to define an Inspector for the Component we write, and display it in a custom way.
 
-扩展的步骤如下：
+The steps are as follows:
 
-1. 在 Component 中注明自定义 Inspector 的入口文件
-2. 创建自定义 Inspector 的扩展包
-3. 在扩展包中编写自定义 Inspector 的入口文件
+1. Include the custom Inspector entry file in the component
+2. Create an extension package for the custom Inspector
+3. Write the custom Inspector entry file in the extension package
 
-## 在 Component 中注明自定义 Inspector 的入口文件
+## Register Inspector entry
 
-首先我们需要定义一份 Component 脚本，并且为这个脚本注明使用自定义 Inspector，方法如下：
+First we need to define a Component script, and for this script that use the custom Inspector, as follows:
 
 ```javascript
-cc.Class({
-  name: 'Foobar',
-  extends: cc.Component,
-  editor: {
-    inspector: 'packages://foobar/inspector.js',
-  },
-  properties: {
-    foo: 'Foo',
-    bar: 'Bar'
-  },
+cc.Class ({
+  name: 'Foobar',
+  extends: cc.Component,
+  editor: {
+    inspector: 'packages: //foobar/inspector.js',
+  },
+  properties: {
+    foo: 'Foo',
+    bar: 'Bar'
+  },
 });
 ```
 
-**注意1:** 这里我们定义了一个 `editor` 字段，并在该字段中定义了 `inspector` 入口文件。
+** Note 1: ** Here we define a `editor` field and define the `inspector` entry file in this field.
 
-**注意2:** 在 `inspector` 中我们采用 `packages://` 协议定义入口文件路径。在 Cocos Creator
-中会对 `packages://` 协议做特殊处理，会将 `packages://` 协议后面的分路径名当做扩展包名字进行搜索，
-并根据搜索结果将整个协议替换成扩展包的路径做后续搜索。
+** Note 2: ** In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
 
-## 创建自定义 Inspector 的扩展包
+## Create a custom Inspector extension package
 
-和我们创建一份扩展包没有任何区别，你可以按照 [你的第一个扩展包](your-first-extension.md) 中的
-方式创建一份。这里我们假设我们的扩展包名为 foobar。
+Now we create an extension package in the normal workflow. You can follow the [your first expansion package](your-first-extension.md) guide.
+Let's say our extension package is called `foobar`.
 
-注意，在创建完扩展包后，你需要重启一下 Cocos Creator 以便让他正确读入该扩展包。
+Note that after creating the extension package, you need to restart Cocos Creator so that he can read the Inspector in extension package correctly (not required for other extension functions).
 
-## 在扩展包中编写自定义 Inspector 的入口文件
+## Write a custom Inspector entry file in the extension package
 
-接下来我们就可以在 `foobar` 包中定义 `inspector.js`：
+Next we can define `inspector.js` in the` foobar` package: 
 
 ```javascript
-Vue.component('foobar-inspector', {
-  template: `
-    <ui-prop v-prop="target.foo"></ui-prop>
-    <ui-prop v-prop="target.bar"></ui-prop>
-  `,
+vue.component ('foobar-inspector', {
+  template: `
+    <ui-prop v-prop = "target.foo"> </ ui-prop>
+    <ui-prop v-prop = "target.bar"> </ ui-prop>
+  `
 
-  props: {
-    target: {
-      twoWay: true,
-      type: Object,
-    },
-  },
+  props: {
+    target: {
+      twoWay: true,
+      type: Object,
+    },
+  },
 });
 ```
 
-Cocos Creator 的 Inspector 扩展使用了 [Vue](http://vuejs.org/)。这里我们通过定义一份 Vue
-的组件，并在组件中定义 `props`，使得其包含 `target` 数据来完成整个 Inspector 的数据定义。
+Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/)for UI. Here we define a vue component
+and set `props` in the component so that it contains `target` data to complete the entire Inspector data definition.
 
-该 `target` 就是我们的 `Foobar` Class 在 Inspector 中对应的实例。  
+The `target` is an instance of our `Foobar` class in the Inspector.
 
-## 关于 target
+## About target
 
-上一小节中提到的 `target` 实例是经过 Inspector 处理过的 target。其内部包含了对属性的加工处理。
-在使用的时候，我们不能简单的认为 `target.foo` 就代表 foo 的值。如果你去查看 `target.foo` 你会
-发现他是一个 Object 而不是我们在最开始定义的那样一个 'Foo' 的字符串。该份 Object 中包含了 `attrs`，
-`type`，`value` 等信息。其中的 `value` 才是我们真正的值。
+The `target` instance mentioned in the previous section is the target that has been processed by Inspector. Its internal contains the processing of the properties.
+When using `target`, we can not simply think that `target.foo` on behalf of the value of foo. If you go on in Chrome DevTools and check `target.foo` you will
+find that it's an object rather than a 'Foo' string that we defined at the beginning. The object contains `attrs`,
+`type`, `value` and other information. Where `value` is the value we want to get.
 
-这么做的目的是为了让 Inspector 可以更好的获得数据可视化的各方面信息。例如当你定义了 cc.Class 的属性为：
+The purpose of doing so is to make Inspector better access to all aspects of data visualization information. For example, when you define the properties of cc.Class:
 
 ```javascript
 properties: {
-  foo: {
-    value: 'Foo',
-    readonly: true
-  }
+  foo: {
+    value: 'Foo',
+    readonly: true
+  }
 }
 ```
 
-这个时候在 Inspector 中的 target 里反应出的信息为 `target.foo.value` 为 'Foo'，`target.foo.attrs.readonly` 为 `true`。
-这些信息有助于帮助你创建多变的界面组合。
+This time in the Inspector we can see `target.foo.value` is 'Foo', and `target.foo.attrs.readonly` is `true`.
+This information helps to help you create various interface combinations.
 
-## 关于属性绑定
+## About attribute binding
 
-由于这些信息非常繁琐，Cocos Creator 也对 Vue 的 directive 做了一定的扩展。目前我们扩展了 `v-prop`，`v-value`
-`v-readonly` 和 `v-disable`。
+Because this information is very cumbersome, In Cocos Creator we created some expansion for Vue directives, including `v-prop`, `v-value`, `v-readonly` and `v-disable`.
 
-当你还是想利用 Cocos Creator 的默认方案显示数据段时，你可以使用 `v-prop` 配合 `<ui-prop>` 控件做绑定，如：
+When you still want to use Cocos Creator's default scheme to display the data segment, you can use `v-prop` with the `<ui-prop>` control to do the binding,
 
 ```html
-<ui-prop v-prop="target.foo"></ui-prop>
+<ui-prop v-prop = "target.foo"> </ui-prop>
 ```
 
-当你想使用 `<ui-xxx>` 的原生控件时，你可以使用 `v-value` 来做数据绑定，如：
+When you want to use the native control of `<ui-xxx>`, you can use `v-value` for data binding, such as:
 
 ```html
-<ui-input v-value="target.foo.value"></ui-input>
+<ui-input v-value = "target.foo.value"> </ui-input>
 ```
 
-当你想对控件应用 readonly 或者 disable 行为时，请使用 `v-readonly` 和 `v-disable`。如：
+When you want to apply readonly or disable behavior to a control, use `v-readonly` and `v-disable`. Such as:
 
 ```html
-<ui-button v-readonly="target.foo.attrs.readonly">Foo</ui-button>
-<ui-button v-disable="target.bar.value">Bar</ui-button>
+<ui-button v-readonly = "target.foo.attrs.readonly"> Foo </ui-button>
+<ui-button v-disable = "target.bar.value"> Bar </ui-button>
 ```
