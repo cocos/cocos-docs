@@ -7,11 +7,11 @@
         "navlinks": [
             {
                 "name": "Creator Manual",
-                "link": "#"
+                "link": "http://www.cocos.com/docs/gitbook/creator/manual/en"
             },
             {
                 "name": "Creator Engine API",
-                "link": "#"
+                "link": "http://www.cocos.com/docs/gitbook/creator/api/en"
             },            
             {
                 "name": "Cocos2d-x Docs",

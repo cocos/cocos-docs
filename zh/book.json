@@ -6,16 +6,16 @@
     "variables": {
         "navlinks": [
             {
-                "name": "Creator Manual",
-                "link": "#"
+                "name": "Creator手册文档",
+                "link": "http://www.cocos.com/docs/gitbook/creator/manual/zh"
             },
             {
-                "name": "Creator Engine API",
-                "link": "#"
+                "name": "Creator API",
+                "link": "http://www.cocos.com/docs/gitbook/creator/api/zh"
             },            
             {
                 "name": "Cocos2d-x Docs",
-                "link": "http://cocos2d-x.org/docs/index.html"
+                "link": "http://www.cocos.com/docs/native/"
             }
         ]
     }   
