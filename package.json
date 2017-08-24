@@ -1,32 +1,22 @@
 {
-  "name": "cocos-docs",
-  "version": "1.3.1",
+  "name": "creator-docs",
+  "version": "1.6.1",
   "description": "Documentation ===============",
   "main": "index.js",
   "dependencies": {
-    "algoliasearch": "^3.20.0",
-    "del": "^2.2.2",
-    "documentation": "^4.0.0-beta.17",
-    "fire-fs": "0.2.3",
-    "markdown-styles": "^3.1.8",
-    "naml": "^1.0.3"
   },
   "devDependencies": {},
   "scripts": {
-    "make-zh-doc": "node utils/build-doc.js zh && node utils/open-doc.js zh",
-    "make-en-doc": "node utils/build-doc.js en && node utils/open-doc.js en",
-    "copy-api-doc": "node utils/copy-api.js",
-    "build-search-index": "node utils/build-index.js",
-    "build-editor-doc": "node utils/build-editor-doc.js"
+    "build": "gitbook install && gitbook build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chukong/cocos-docs.git"
+    "url": "git+https://github.com/cocos-creator/creator-docs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chukong/cocos-docs/issues"
+    "url": "https://github.com/cocos-creator/creator-docs/issues"
   },
-  "homepage": "https://github.com/chukong/cocos-docs#readme"
+  "homepage": "https://github.com/cocos-creator/creator-docs#readme"
 }

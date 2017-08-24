@@ -1,0 +1,29 @@
+{% extends template.self %}      
+{% block book_sidebar %}
+    <nav role="navigation" class="autoshow">
+        <ul class="summary">
+        <li><a href="http://cocos.com" class="btn" target="_blank"><img src="http://forum.cocos.com/images/logo.png" height="30" /></a></li>
+        <li><a href="#" class="btn" onclick="toggleLanguage()">English</a></li>        
+        {% for item in book.navlinks %}
+            <li><a href="{{item.link}}" class="btn"><i class="fa fa-book"></i>{{item.name}}</a></li>                
+        {% endfor %}           
+        </ul>
+    </nav>
+    {{ super() }}
+{% endblock %}
+{% block javascript %}
+    {{ super() }}
+    <script type="text/javascript">
+    function toggleLanguage () {
+        var path = location.href;
+        // console.log(path);
+        if (path.indexOf('/zh') !== -1) {
+            path = path.replace(/\/zh[\/$\s]/i, '/en/');
+        } else if (path.indexOf('/en') !== -1) {
+            path = path.replace(/\/en[\/$\s]/i, '/zh/');
+        }
+        // console.log('after: ' + path);    
+        location.assign(path);
+    }
+    </script>
+{% endblock %}

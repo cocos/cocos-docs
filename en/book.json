@@ -1,0 +1,22 @@
+{
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "index.md"
+    },
+    "variables": {
+        "navlinks": [
+            {
+                "name": "Creator Manual",
+                "link": "http://docs.cocos.com/creator/api/en"
+            },
+            {
+                "name": "Creator Engine API",
+                "link": "http://docs.cocos.com/creator/api/en"
+            },            
+            {
+                "name": "Cocos2d-x Docs",
+                "link": "http://cocos2d-x.org/docs/index.html"
+            }
+        ]
+    }   
+}

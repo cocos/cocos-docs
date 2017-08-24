@@ -1,0 +1,22 @@
+{
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "index.md"
+    },
+    "variables": {
+        "navlinks": [
+            {
+                "name": "Creator手册文档",
+                "link": "http://docs.cocos.com/creator/manual/zh"
+            },
+            {
+                "name": "Creator API",
+                "link": "http://docs.cocos.com/creator/api/zh"
+            },            
+            {
+                "name": "Cocos2d-x Docs",
+                "link": "http://www.cocos.com/docs/native/"
+            }
+        ]
+    }   
+}
