@@ -2,7 +2,7 @@
 
 > 属性参数用来给已定义的属性附加元数据，类似于脚本语言的 Decorator 或者 C# 的 Attribute。
 
-### 属性检查器相关属性
+### 属性检查器相关参数
 
 参数名 | 说明 | 类型 | 默认值 | 备注
 --- | --- |:---:|:---:|---
@@ -18,16 +18,17 @@ step | 指定数值在编辑器中调节的步长 | number | undefined |
 range | 一次性设置 min, max, step | [min, max, step] | undefined | step 值可选
 slide | 在 **属性检视器** 面板中显示为滑动条 | boolean | false |
 
-### 序列化相关属性
+### 序列化相关参数
 
-这些属性不能用于 get 方法
+这些参数不能用于 get 方法
 
 参数名 | 说明 | 类型 | 默认值 | 备注
 --- | --- |:---:|:---:|---
 serializable | 序列化该属性 | boolean | true | 详见 [serializable 参数](class.md#serializable)
+formerlySerializedAs | 指定之前序列化所用的字段名 | string | undefined | 重命名属性时，声明这个参数来兼容之前序列化的数据
 editorOnly | 在导出项目前剔除该属性 | boolean | false |
 
-### 其它属性
+### 其它参数
 
 参数名 | 说明 | 类型 | 默认值 | 备注
 --- | --- |:---:|:---:|---

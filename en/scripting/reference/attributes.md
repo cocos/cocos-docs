@@ -25,6 +25,7 @@ These attributes cannot be used for the get method.
 Parameter name  | Explanation | Type | Default | Remarks
 --- | --- |:---:|:---:|---
 serializable | serialize this property | boolean | true | See [serializable attribute](class.md#serializable)
+formerlySerializedAs | specify the name of the field used in formerly serialization | string | undefined | Use this attribute to rename a property without losing its serialized value.
 editorOnly | reject this property before exporting the project | boolean | false |
 
 ### Other attributes
