@@ -10,9 +10,27 @@ You can designate a release path for the game by inputting a path in the **relea
 
 The default release path is in the `build` under the project folder . If you use version control systems like git and svn, you can ignore the `build` folder in version control.
 
-## Build and preview
+## Build settings
 
-The construction of Web platform is very easy. Construction process will **zip** scripts and resources in the game project and resource library, and then drop them into the designated release path. If you need test, check **Debug Mode** and **Sourcemap** option. The built version will have sourcemap for debugging.
+### Inline all SpriteFrames
+
+When merging assets automatically, combine all SpriteFrames and the assets that are being relied on into the same package. It is recommended to enable this option in web. When enabled, it will increase the overall game size slightly, consume a little bit of network traffic, but can significantly reduce the number of network requests. It is recommended to disable this option in native, because it will increase the package size used in hot update.
+
+### Merge all JSON that the Start Scene depends on
+
+When merging assets automatically, all JSON files that the Start Scene depends on are merged into the package that contains the Start Scene. This option is disabled by default. When enabled, it will not increase the overall game size, but if these JSON is also used by other scenes, then CPU overhead may increase slightly when they are loaded again.
+
+### MD5 Cache
+
+Append MD5 value to the exported assets for resolving browser cache issue.
+
+### Eruda
+
+Insert Eruda debug plugin, which similar to DevTools mini version, used to help debug.
+
+If you need test, check **Debug Mode** and **Source Maps** option. The built version will have sourcemap for debugging.
+
+## Build and preview
 
 Click the **Build** button, then a progress bar will appear on the top of the panel. When the progress bar reaches 100%, the construction is finished.
 

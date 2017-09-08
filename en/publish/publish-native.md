@@ -17,6 +17,16 @@ An input field named **package name** will appear in the constructing release wi
 
 ![package name](publish-native/package_name.png)
 
+## Build settings
+
+### Merge SpriteFrames in Atlas
+
+Merge all the SpriteFrames in the same atlas into the same package. This option is disabled by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However, if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extended.
+
+### Inline all SpriteFrames
+
+When merging assets automatically, combine all SpriteFrames and the assets that are being relied on into the same package. It is recommended to enable this option in web. When enabled, it will increase the overall game size slightly, consume a little bit of network traffic, but can significantly reduce the number of network requests. It is recommended to disable this option in native, because it will increase the package size used in hot update.
+
 ## Build a Native Project
 
 After selecting the release platform and setting up the package name and initial scene, the project can now be built. Click the **Build** button on the bottom right corner, and start building workflow.
