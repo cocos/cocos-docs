@@ -50,6 +50,10 @@ types support `Resize Mode`.
 When using Grid layout, the `Start Axis` is very important. When choosing Horizontal, it will fill an entire
 row before a new row is started. When choosing Vertical, it will fill an entire column before a new column is started.
 
+Node:
+1. Scaling and rotation of child nodes are not considered.
+2. After setting the Layout, the results need to be updated until the next frame, unless you manually 'updateLayout' api.
+
 ---
 
 Continue on to read about [Script development workflow](../scripting/index.md).
