@@ -22,6 +22,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | Line Height      | 字体行高, 单位是 point                                                                                            |
 | Max Width        | 富文本的最大宽度, 传 0 的话意味着必须手动换行.                                                                    |
 | Image Atlas      | 对于 img 标签里面的 src 属性名称，都需要在 imageAtlas 里面找到一个有效的 spriteFrame，否则 img tag 会判定为无效。 |
+| BlockInputEvents | 选中此选项后，RichText 将阻止节点边界框中的所有输入事件（鼠标和触摸），从而防止输入事件穿透到底层节点。 |
 
 ## BBCode 标签格式
 ### 基本格式
