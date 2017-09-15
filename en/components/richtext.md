@@ -24,7 +24,7 @@ The API reference of RichText is here: [RichText API](../api/classes/RichText.ht
 | Line Height      | Line height, in points                                                                                                      |
 | Max Width        | The maximize width of RichText, pass 0 means not limit the maximize width.                                                  |
 | Image Atlas      | The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas. |
-| BlockInputEvents | Once checked, the RichText will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
+| Handle Touch Event | Once checked, the RichText will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
 
 ## BBCode format
 ### Basics
