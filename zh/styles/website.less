@@ -44,6 +44,56 @@
         text-decoration: none;
     }    
 
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        li {
+            margin-right: 1px;            
+            position: relative;
+            float: left;
+            a:hover + .hovershow, .hovershow:hover, .hovershow li:hover {
+                display:block;
+            }                  
+            img {
+                margin-top: 3px;
+            }
+            ul {
+                margin: -3px 0 0 0;
+                background: #f5f5f5;
+                display:none;
+                width: 100%;
+                z-index:999;
+                li {
+                    display: block;
+                    float: none;
+                    a {
+                        width: auto;
+                        min-width: 100px;
+                        padding: 0 20px;
+
+                    }
+                }
+            }
+            @media screen and (max-width : 800px){
+                /*Make dropdown links appear inline*/
+                ul {
+                    position: static;
+                    display: none;
+                }
+                /*Create vertical spacing*/
+                li {
+                    margin-bottom: 1px;
+                }
+                /*Make all menu links full width*/
+                ul li, li a {
+                    width: 100%;
+                }
+            }            
+        }
+    }
+
     .btn {
         display: inline-block;
         height: @header-height;
