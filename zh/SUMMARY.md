@@ -183,6 +183,7 @@
     - [自定义界面元素定义参考](extension/reference/custom-element-reference.md)
     - [常用 IPC 消息参考](extension/reference/ipc-reference.md)
 - [进阶主题](advanced-topics/index.md)
+    - [JSB 2.0 使用指南](advanced-topics/jsb/JSB2.0-learning.md)
     - [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)
     - [动态热更新](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/assets-manager.md)
