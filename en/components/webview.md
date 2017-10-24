@@ -47,23 +47,25 @@ This component doesn't support load HTML file or execute Javascript.
 This method uses the same API that editor uses to add an event callback on Button component. You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters.
 
 ```js
-var webviewEventHandler = new cc.Component.EventHandler();
-webviewEventHandler.target = this.node; // This node is the one that the component that contains your event handler code belongs to
-webviewEventHandler.component = "cc.MyComponent"
-webviewEventHandler.handler = "callback";
-webviewEventHandler.customEventData = "foobar";
-
-webview.webviewEvents.push(webviewEventHandler);
 
 // here is your component file
 cc.Class({
-    name: 'cc.MyComponent'
+    name: 'cc.MyComponent',
     extends: cc.Component,
-
     properties: {
+        webview: cc.WebView,
+    },
+    
+    onLoad: function() {
+        var webviewEventHandler = new cc.Component.EventHandler();
+        webviewEventHandler.target = this.node; // This node is the one that the component that contains your event handler code belongs to
+        webviewEventHandler.component = "cc.MyComponent";
+        webviewEventHandler.handler = "callback";
+        webviewEventHandler.customEventData = "foobar";
+        this.webview.webviewEvents.push(webviewEventHandler);
     },
 
-// Note that the order and type of parameters are fixed
+    // Note that the order and type of parameters are fixed
     callback: function (webview, eventType, customEventData) {
         // here webview is a WebView component instance
         // here the value of eventType === cc.WebView.EventType enum
@@ -81,8 +83,6 @@ Add event callback with `webview.node.on ('loaded', ...)`
 
 cc.Class({
     extends: cc.Component,
-
-	
     properties: {
        webview: cc.WebView
     },
@@ -101,5 +101,78 @@ cc.Class({
 ```
 
 Likewise, you can also register 'loading', 'error' events, and the parameters of the callback function for these events are consistent with the 'loaded' parameters.
+
+## How to interact with WebView internal pages
+
+##### Calling the WebView internal page
+
+```js
+cc.Class({
+    extends: cc.Component,
+    properties: {
+        webview: cc.WebView
+    },
+    
+    onLoad: function () {
+        // The Test here is a function defined in the code of your webView's current internal page
+        this.webview.evaluateJS('Test()');
+    }
+});
+```
+##### Note: Cross domain issues need to be addressed by themselves
+
+##### WebView internal pages call external code
+
+At present, the mechanism of Android and IOS is to determine whether the key of URL prefix is the same as that of the URL prefix by intercepting the jump, and then callback if the same.
+
+1. Setting the URL prefix keyword through `setJavascriptInterfaceScheme`
+2. The callback function is set by `setOnJSCallback`, and the function parameter is URL
+
+```js
+cc.Class({
+    extends: cc.Component,
+    
+    properties: {
+        webview: cc.WebView
+    },
+    
+    onLoad: function () {
+        var jsCallback = function (url) {
+            // The return value here is the URL value of the internal page, 
+            // and it needs to parse the data it needs
+        };
+        
+        var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
+        this.webview.setJavascriptInterfaceScheme(scheme);
+        this.webview.setOnJSCallback(jsCallback);
+        
+        // So when you need to interact with WebView through an internal page, 
+        // you should set the internal page URL: TestKey://(the data you want to callback to WebView later) 
+    }
+});
+```
+
+Because of the limitations of HTML5, it can not be implemented by this mechanism, but internal pages can interact with each other
+
+```js
+// WebView internal page code
+<html>
+<body>
+    <dev>
+        <input type="button" value="Method of interactive Webview layer" onclick="onClick()"/>
+    </dev>
+</body>
+<script>
+    function onClick () {
+        // The parent here is actually the window of the WebView layer, 
+        // so that you can access the function defined in CC
+        parent.cc.TestCode();
+        // If TestCode is defined on window, then
+        parent.TestCode();
+    }
+</script>
+</html>
+```
+##### Stressed once: Cross domain issues need to be addressed by themselves
 
 <hr>

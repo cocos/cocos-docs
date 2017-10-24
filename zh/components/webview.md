@@ -50,20 +50,22 @@ WebView 的脚本接口请参考 [WebView API](../api/classes/WebView.html)。
 你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
-var webviewEventHandler = new cc.Component.EventHandler();
-webviewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-webviewEventHandler.component = "cc.MyComponent"
-webviewEventHandler.handler = "callback";
-webviewEventHandler.customEventData = "foobar";
-
-webview.webviewEvents.push(webviewEventHandler);
-
 //here is your component file
 cc.Class({
-    name: 'cc.MyComponent'
+    name: 'cc.MyComponent',
     extends: cc.Component,
-
-    properties: {
+    properties: { 
+       webview: cc.WebView 
+    },
+    
+    onLoad: function() {
+        var webviewEventHandler = new cc.Component.EventHandler();
+        webviewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+        webviewEventHandler.component = "cc.MyComponent";
+        webviewEventHandler.handler = "callback";
+        webviewEventHandler.customEventData = "foobar";
+        
+        this.webview.webviewEvents.push(webviewEventHandler);
     },
 
 	//注意参数的顺序和类型是固定的
@@ -84,23 +86,118 @@ cc.Class({
 
 cc.Class({
     extends: cc.Component,
-
-	
     properties: {
-       webview: cc.WebView
+        webview: cc.WebView
     },
     
     onLoad: function () {
-       this.webview.node.on('loaded', this.callback, this);
+        this.webview.node.on('loaded', this.callback, this);
     },
     
     callback: function (event) {
-       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 WebView 组件
-       var webview = event.detail;
-       //do whatever you want with webview
-       //另外，注意这种方式注册的事件，也无法传递 customEventData
+        //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 WebView 组件
+        var webview = event.detail;
+        //do whatever you want with webview
+        //另外，注意这种方式注册的事件，也无法传递 customEventData
     }
 });
 ```
 
 同样的，你也可以注册 'loading', 'error' 事件，这些事件的回调函数的参数与 'loaded' 的参数一致。
+
+## 如何与 WebView 内部页面进行交互
+
+##### 调用 WebView 内部页面
+
+```js
+cc.Class({
+    extends: cc.Component,
+    properties: {
+        webview: cc.WebView
+    },
+    
+    onLoad: function () {
+        // 这里的 Test 是你 webView 内部页面代码里定义的函数
+        this.webview.evaluateJS('Test()');
+    }
+});
+```
+##### 注意: 需要自行解决跨域问题
+
+##### WebView 内部页面调用外部的代码
+
+目前 Android 与 IOS 用的机制是，通过截获 url 的跳转，判断 url 前缀的关键字是否与之相同，如果相同则进行回调。
+
+1. 通过 `setJavascriptInterfaceScheme` 设置 url 前缀关键字
+2. 通过 `setOnJSCallback` 设置回调函数，函数参数为 url
+
+```js
+cc.Class({
+    extends: cc.Component,
+    
+    properties: {
+        webview: cc.WebView
+    },
+    
+    onLoad: function () {
+        var jsCallback = function (url) {
+            // 这里的返回值是内部页面的 url 数值，
+            // 需要自行解析自己需要的数据
+        };
+        
+        var scheme = "TestKey";// 这里是与内部页面约定的关键字
+        this.webview.setJavascriptInterfaceScheme(scheme);
+        // 当内部页面设置的 url 前缀与该数值相同时，
+        // 则返回回调函数参数为网页页面的 url 并阻断跳转  
+        this.webview.setOnJSCallback(jsCallback);
+        
+        // 因此当你需要通过内部页面交互 WebView 时，
+        // 应当设置内部页面 url 为：TestKey://(后面你想要回调到 WebView 的数据) 
+    }
+});
+
+// WebView 内部页面代码
+<html>
+<body>
+    <dev>
+        <input type="button" value="交互 Webview 层的方法" onclick="onClick()"/>
+    </dev>
+</body>
+<script>
+    function onClick () {
+        // 这里的 parent 其实就是外部的 window
+        // 这样一来就可以访问到定义在 cc 的函数了
+        parent.cc.TestCode();
+        // 如果 TestCode 是定义在 window 上，则
+        parent.TestCode();
+    }
+</script>
+</html>
+
+```
+
+由于 html5 的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
+
+```js
+// WebView 内部页面代码
+<html>
+<body>
+    <dev>
+        <input type="button" value="交互 Webview 层的方法" onclick="onClick()"/>
+    </dev>
+</body>
+<script>
+    function onClick () {
+        // 这里的 parent 其实就是外部的 window
+        // 这样一来就可以访问到定义在 cc 的函数了
+        parent.cc.TestCode();
+        // 如果 TestCode 是定义在 window 上，则
+        parent.TestCode();
+    }
+</script>
+</html>
+```
+
+##### 再强调一遍: 需要自行解决跨域问题
+
+<hr>
