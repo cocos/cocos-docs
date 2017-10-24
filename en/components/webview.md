@@ -114,12 +114,12 @@ cc.Class({
     },
     
     onLoad: function () {
-        // The Test here is a function defined in the code of your webView's current internal page
+        // The Test here is a global function defined in your webView's internal page code
         this.webview.evaluateJS('Test()');
     }
 });
 ```
-##### Note: Cross domain issues need to be addressed by themselves
+##### Note: Cross domain issues need on HTML5 to be resolved by yourself
 
 ##### WebView internal pages call external code
 
@@ -137,19 +137,35 @@ cc.Class({
     },
     
     onLoad: function () {
+        var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
         var jsCallback = function (url) {
             // The return value here is the URL value of the internal page, 
             // and it needs to parse the data it needs
+            var str = url.replace(scheme + '://', '');
+            var data = JSON.stringify(str);
         };
         
-        var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
-        
-        // So when you need to interact with WebView through an internal page, 
-        // you should set the internal page URL: TestKey://(the data you want to callback to WebView later) 
     }
 });
+
+// So when you need to interact with WebView through an internal page, 
+// you should set the internal page URL: TestKey://(the data you want to callback to WebView later)
+// WebView internal page code
+<html>
+<body>
+    <dev>
+        <input type="button" value="Trigger" onclick="onClick()"/>
+    </dev>
+</body>
+<script>
+    function onClick () {
+        // One of them sets up the URL scheme
+        document.location = 'TestKey://{a: 0, b: 1}';
+    }
+</script>
+</html>
 ```
 
 Because of the limitations of HTML5, it can not be implemented by this mechanism, but internal pages can interact with each other
@@ -159,7 +175,7 @@ Because of the limitations of HTML5, it can not be implemented by this mechanism
 <html>
 <body>
     <dev>
-        <input type="button" value="Method of interactive Webview layer" onclick="onClick()"/>
+        <input type="button" value="Trigger" onclick="onClick()"/>
     </dev>
 </body>
 <script>
@@ -173,6 +189,6 @@ Because of the limitations of HTML5, it can not be implemented by this mechanism
 </script>
 </html>
 ```
-##### Stressed once: Cross domain issues need to be addressed by themselves
+##### Stressed once: Cross domain issues on HTML5 need need to be resolved by yourself
 
 <hr>

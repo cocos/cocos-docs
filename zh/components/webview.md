@@ -117,12 +117,12 @@ cc.Class({
     },
     
     onLoad: function () {
-        // 这里的 Test 是你 webView 内部页面代码里定义的函数
+        // 这里的 Test 是你 webView 内部页面代码里定义的全局函数
         this.webview.evaluateJS('Test()');
     }
 });
 ```
-##### 注意: 需要自行解决跨域问题
+##### 注意: HTML5 上的跨域问题需要自行解决
 
 ##### WebView 内部页面调用外部的代码
 
@@ -134,56 +134,51 @@ cc.Class({
 ```js
 cc.Class({
     extends: cc.Component,
-    
     properties: {
         webview: cc.WebView
     },
     
     onLoad: function () {
-        var jsCallback = function (url) {
+        var scheme = "TestKey";// 这里是与内部页面约定的关键字
+        function jsCallback (url) {
             // 这里的返回值是内部页面的 url 数值，
             // 需要自行解析自己需要的数据
-        };
+            var str = url.replace(scheme + '://', '');
+            var data = JSON.stringify(str);// {a: 0, b: 1}
+        }
         
-        var scheme = "TestKey";// 这里是与内部页面约定的关键字
         this.webview.setJavascriptInterfaceScheme(scheme);
-        // 当内部页面设置的 url 前缀与该数值相同时，
-        // 则返回回调函数参数为网页页面的 url 并阻断跳转  
         this.webview.setOnJSCallback(jsCallback);
-        
-        // 因此当你需要通过内部页面交互 WebView 时，
-        // 应当设置内部页面 url 为：TestKey://(后面你想要回调到 WebView 的数据) 
     }
 });
 
+// 因此当你需要通过内部页面交互 WebView 时，
+// 应当设置内部页面 url 为：TestKey://(后面你想要回调到 WebView 的数据) 
 // WebView 内部页面代码
 <html>
 <body>
     <dev>
-        <input type="button" value="交互 Webview 层的方法" onclick="onClick()"/>
+        <input type="button" value="触发" onclick="onClick()"/>
     </dev>
 </body>
 <script>
     function onClick () {
-        // 这里的 parent 其实就是外部的 window
-        // 这样一来就可以访问到定义在 cc 的函数了
-        parent.cc.TestCode();
-        // 如果 TestCode 是定义在 window 上，则
-        parent.TestCode();
+        // 其中一个设置URL方案
+        document.location = 'TestKey://{a: 0, b: 1}';
     }
 </script>
 </html>
 
 ```
 
-由于 html5 的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
+由于 HTML5 的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
 
 ```js
 // WebView 内部页面代码
 <html>
 <body>
     <dev>
-        <input type="button" value="交互 Webview 层的方法" onclick="onClick()"/>
+        <input type="button" value="触发" onclick="onClick()"/>
     </dev>
 </body>
 <script>
@@ -198,6 +193,6 @@ cc.Class({
 </html>
 ```
 
-##### 再强调一遍: 需要自行解决跨域问题
+##### 再强调一遍: HTML5 上的跨域问题需要自行解决
 
 <hr>
