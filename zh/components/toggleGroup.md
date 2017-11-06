@@ -1,5 +1,7 @@
 # ToggleGroup 组件参考
 
+注意：该组件已弃用，请使用 [ToggleContainer](./ToggleContainer.md)
+
 ![toggle-group](./toggle/toggle-group.png)
 
 ToggleGroup 不是一个可见的 UI 组件，它可以用来修改一组 Toggle  组件的行为。当一组 Toggle 属于同一个 ToggleGroup 的时候，
