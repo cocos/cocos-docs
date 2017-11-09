@@ -94,4 +94,10 @@ gulp update-simulator-config
 
 If your changes involves JavaScript and C++ changes at the same time. You should read this article:
 
+Version equal to or higher than 1.7, please refer to:
+
+- [JSB2.0 Binding Tutorial(TBD)](https://)
+
+Version equal to or lower than 1.6, please refer to:
+
 - [How to bind C++ to JavaScript](http://www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)
