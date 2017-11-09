@@ -94,4 +94,10 @@ gulp update-simulator-config
 
 If your changes involves JavaScript and C++ changes at the same time. You should read this article:
 
+Creator >= 1.7, please refer to:
+
+- JSB 2.0 Binding Tutorial (TBD). Before the English version of JSB 2.0 Binding Tutorial is finished, you could read [the Chinese version](https://github.com/cocos-creator/cocos2d-x-lite/blob/v1.7/cocos/scripting/js-bindings/docs/JSB2.0-learning-zh.md) by [Google Translate](https://translate.google.com/#zh-CN/en/s).
+
+Creator <= 1.6, please refer to:
+
 - [How to bind C++ to JavaScript](http://www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)
