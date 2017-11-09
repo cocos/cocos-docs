@@ -68,3 +68,7 @@ To change the content of each page, just edit the markdown source files. There's
 ## Contribution
 
 If you encounters any typo or content problem please report issue in this repo. Pull requests are welcome!
+
+### Style Guide for Chinese documents
+
+[中文文档书写规范](zh/CONTRIBUTING.md)
