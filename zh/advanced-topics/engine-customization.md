@@ -89,11 +89,11 @@ gulp update-simulator-config
 
 如果您需要在 JavaScript 引擎和 C++ 引擎同步修改内容，应该完成 JSB 绑定。
 
-1.7及1.7以上版本请参考
+1.7 及 1.7 以上版本请参考
 
-- [JSB2.0绑定教程](https://github.com/cocos-creator/cocos2d-x-lite/blob/v1.7/cocos/scripting/js-bindings/docs/JSB2.0-learning-zh.md)
+- [JSB 2.0 绑定教程](https://github.com/cocos-creator/cocos2d-x-lite/blob/v1.7/cocos/scripting/js-bindings/docs/JSB2.0-learning-zh.md)
 
-1.6及1.6以下版本请参考
+1.6 及 1.6 以下版本请参考
 
 - [Cocos 中的脚本绑定](https://zhuanlan.zhihu.com/p/20525026)
 - [Cocos 中的自动绑定](https://zhuanlan.zhihu.com/p/20525109)
