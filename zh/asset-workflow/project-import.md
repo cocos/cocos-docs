@@ -65,6 +65,19 @@
 
 Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与测试的。如果要导入旧版本的项目，建议先使用 Cocos Studio 3.10 版本打开项目。这样可以将项目升级到对应版本，然后进行导入操作。
 
+* 关于 csd 相互嵌套导致动画无法解析的解决方案：
+
+    当遇到 csd 嵌套时候，会自动创建一个挂有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代，该组件中的
+    `nestedPrefab` 属性会存储嵌套的 prefab 资源，项目运行中进行替换当前节点来实现（目前不支持编辑器中预览）
+    
+* 新支持动画帧事件：
+
+    统一添加默认的 `triggerAnimationEvent` 事件，参数为下方设置的数据
+    
+   ![animation-frame-event.png](./project-import/animation-frame-event.png)
+  
+
+
 ## Cocos Builder 项目导入说明
 
 ### 实现方案

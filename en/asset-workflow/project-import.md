@@ -59,6 +59,17 @@ The time of importing depends on the size of the project. When it's importing, p
 
 The feature of importing a Cocos Studio project is developed & tested on Cocos Studio __3.10__. If you want to import an old version project, please import it to Cocos Studio 3.10 first. Then import the Cocos Studio 3.10 project to Cocos Creator.
 
+*  Solve CSD nesting makes animation impossible to parse:
+
+    When the CSD is nested node, create a `cc.StudioComponent.PlaceHolder` component node replace it. (Editor preview is not currently supported)
+    
+* New support for animation frame events:
+
+    Unified add default `triggerAnimationEvent` event, The parameter is the data set below
+    
+   ![animation-frame-event.png](./project-import/animation-frame-event.png)
+
+
 ## Details of Importing Cocos Builder Projects
 
 * All `ccb` files will be imported as a __prefab__.
