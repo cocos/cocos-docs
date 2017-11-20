@@ -80,12 +80,15 @@ gulp gen-libs
 
 ```bash
 # 通过 cocos console 生成模拟器
+gulp sign-simulator
 gulp gen-simulator
 gulp update-simulator-config
 ```
 
+`gulp sign-simulator` 是 1.7.0 中的新增命令，只有 Mac 需要运行。详见 [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention)。
 
-## JSB 绑定流程
+
+### JSB 绑定流程
 
 如果您需要在 JavaScript 引擎和 C++ 引擎同步修改内容，应该完成 JSB 绑定。
 
