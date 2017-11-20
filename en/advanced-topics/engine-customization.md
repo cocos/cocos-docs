@@ -86,11 +86,15 @@ To generate simulator to preview your changes:
 
 ```bash
 # use cocos console to generate simulator
+gulp sign-simulator
 gulp gen-simulator
 gulp update-simulator-config
 ```
 
-## JSB Workflow (JavaScript Binding)
+`gulp sign-simulator` is a new command since 1.7.0. Only Mac need to run it. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
+
+
+### JSB Workflow (JavaScript Binding)
 
 If your changes involves JavaScript and C++ changes at the same time. You should read this article:
 
