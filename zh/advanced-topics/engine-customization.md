@@ -91,7 +91,7 @@ gulp update-simulator-config
 
 1.7 及 1.7 以上版本请参考
 
-- [JSB 2.0 绑定教程](https://github.com/cocos-creator/cocos2d-x-lite/blob/v1.7/cocos/scripting/js-bindings/docs/JSB2.0-learning-zh.md)
+- [JSB 2.0 绑定教程](jsb/JSB2.0-learning-zh.md)
 
 1.6 及 1.6 以下版本请参考
 

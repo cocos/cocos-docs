@@ -96,7 +96,7 @@ If your changes involves JavaScript and C++ changes at the same time. You should
 
 Creator >= 1.7, please refer to:
 
-- JSB 2.0 Binding Tutorial (TBD). Before the English version of JSB 2.0 Binding Tutorial is finished, you could read [the Chinese version](https://github.com/cocos-creator/cocos2d-x-lite/blob/v1.7/cocos/scripting/js-bindings/docs/JSB2.0-learning-zh.md) by [Google Translate](https://translate.google.com/#zh-CN/en/s).
+- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning-en.md).
 
 Creator <= 1.6, please refer to:
 
