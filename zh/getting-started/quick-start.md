@@ -362,7 +362,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
 
 ![star prefab](quick-start/prefab_asset.png)
 
-现在可以从场景中删除 `star` 节点了，后续可以直接双击这个 `star` Prefab 进行编辑。
+现在可以从场景中删除 `star` 节点了，后续可以直接双击这个 `star` Prefab 资源进行编辑。
 
 接下去我们会在脚本中动态使用星星的 Prefab 资源生成星星。
 

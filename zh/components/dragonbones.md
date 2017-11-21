@@ -4,7 +4,7 @@ DragonBones 组件对骨骼动画（DragonBones）资源，进行渲染和播放
 
 ![dragonbones](./dragonbones/properties.png)
 
-点击**属性检查器**下面的添加组件按钮，然后从添加渲染组件中选择 DragonBones，即可添加 DragonBones 组件到节点上。
+点击 **属性检查器** 下面的添加组件按钮，然后从添加渲染组件中选择 DragonBones，即可添加 DragonBones 组件到节点上。
 
 DragonBones 组件在脚本中的操作请参考 example cases 中的 DragonBones 测试例。
 

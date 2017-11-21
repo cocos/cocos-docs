@@ -4,7 +4,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 ![add sprite](sprite/sprite_component.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加渲染组件`中选择`Sprite`，即可添加 Sprite 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加渲染组件`中选择`Sprite`，即可添加 Sprite 组件到节点上。
 
 脚本接口请参考[Sprite API](../api/classes/Sprite.html)。
 
@@ -20,7 +20,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 | Src Blend Factor | 当前图像混合模式
 | Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
-添加 Sprite 组件之后，通过从**资源管理器**中拖拽 Texture 或 SpriteFrame 类型的资源到`Sprite Frame`属性引用中，就可以通过 Sprite 组件显示资源图像。
+添加 Sprite 组件之后，通过从 **资源管理器** 中拖拽 Texture 或 SpriteFrame 类型的资源到`Sprite Frame`属性引用中，就可以通过 Sprite 组件显示资源图像。
 
 如果拖拽的 SpriteFrame 资源是包含在一个 Atlas 图集资源中的，那么 Sprite 的`Atlas`属性也会被一起设置。之后可以点击`Atlas`属性旁边的**选择**按钮来从该 Atlas 中挑选另外一个 SpriteFrame 指定给 Sprite。
 

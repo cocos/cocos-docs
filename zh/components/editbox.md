@@ -4,7 +4,7 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 ![editbox](./editbox/editbox.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`EditBox`，即可添加 EditBox 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`EditBox`，即可添加 EditBox 组件到节点上。
 
 EditBox 的脚本接口请参考[EditBox API](../api/classes/EditBox.html)。
 

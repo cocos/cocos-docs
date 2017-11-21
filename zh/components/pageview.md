@@ -4,7 +4,7 @@ PageView 是一种页面视图容器.
 
 ![pageview-inspector](./pageview/pageview-inspector.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`PageView`，即可添加 PageView 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`PageView`，即可添加 PageView 组件到节点上。
 
 页面视图的脚本接口请参考 [PageView API](../api/classes/PageView.html)。
 
@@ -51,7 +51,7 @@ PageView 组件必须有指定的 content 节点才能起作用，content 中的
 
 CCPageViewIndicator 是可选的，该组件是用来显示页面的个数和标记当前显示在哪一页。
 
-建立关联可以通过在**层级管理器**里面拖拽一个带有 PageViewIndicator 组件的节点到 PageView 的相应字段完成。
+建立关联可以通过在 **层级管理器** 里面拖拽一个带有 PageViewIndicator 组件的节点到 PageView 的相应字段完成。
 
 #### 通过脚本代码添加回调
 

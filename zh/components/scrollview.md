@@ -7,7 +7,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 ![scrollview-inspector](./scrollview/scrollview-inspector.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ScrollView`，即可添加 ScrollView 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ScrollView`，即可添加 ScrollView 组件到节点上。
 
 滚动视图的脚本接口请参考[ScrollView API](../api/classes/ScrollView.html)。
 
@@ -53,7 +53,7 @@ ScrollView 组件必须有指定的 content 节点才能起作用，通过指定
 
 ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，当然也可以两者都设置。
 
-建立关联可以通过在**层级管理器**里面拖拽一个带有 ScrollBar 组件的节点到 ScrollView 的相应字段完成。
+建立关联可以通过在 **层级管理器** 里面拖拽一个带有 ScrollBar 组件的节点到 ScrollView 的相应字段完成。
 
 ### 通过脚本代码添加回调
 
