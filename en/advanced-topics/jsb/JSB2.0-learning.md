@@ -1,23 +1,24 @@
-# JSB2.0 绑定教程
+# The Tutorial for JSB 2.0
 
-## 抽象层
+## The Abstraction Layer of Script Engine
 
-### 架构
+### Architecture
 
 ![](JSB2.0-Architecture.png)
 
-### 宏(macro)
+### Macro
 
-抽象层必然会比直接使用JS引擎API的方式多占用一些CPU执行时间，如何把抽象层本身的开销降到最低成为设计的第一目标。
+The abstraction layer is bound to take more CPU execution time than using the JS engine API directly. How to minimize the overhead of the abstraction layer becomes the first goal of the design.
 
-JS绑定的大部分工作其实就是设定JS相关操作的CPP回调，在回调函数中关联CPP对象。其实主要包含如下两种类型：
+Most of work in JS binding is actually setting JS related operations with CPP callbacks and associating CPP object within the callback function. In fact, it mainly contains the following two situation:
 
-* 注册JS函数（包含全局函数，类构造函数、类析构函数、类成员函数，类静态成员函数），绑定一个CPP回调
-* 注册JS对象的属性读写访问器，分别绑定读与写的CPP回调
+* Register JS functions (including global functions, class constructors, class destructors, class member functions, and class static member functions), binding revevant CPP callbacks
 
-如何做到抽象层开销最小而且暴露统一的API供上层使用？
+* Register accessors for JS properties, bind CPP callbacks for reading and writing properties respectively
 
-以注册JS函数的回调定义为例，JavaScriptCore, SpiderMoneky, V8, ChakraCore的定义各不相同，具体如下：
+How to achieve the minimum overhead for the abstract layer and expose the unified API?
+
+For example, to register a JS function in CPP, there are different definitions in JavaScriptCore, SpiderMonkey, V8, ChakraCore as follows:
 
 **JavaScriptCore:**
 
@@ -62,7 +63,7 @@ JsValueRef JSB_foo_func(
 	);
 ```
 
-我们评估了几种方案，最终确定使用`宏`来抹平不同JS引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了lua的回调函数定义方式，抽象层所有的JS到CPP的回调函数的定义为：
+We evaluated several options and eventually decided to use `macros` to reduce the differences between the definition and parameter types of different JS engine callbacks, regardless of which engine is used, and developers could use an unified callback definition. We refer to the definition of Lua callback function. The definition of all JS to CPP callback functions in the abstract layer is defined as:
 
 ```c++
 bool foo(se::State& s)
@@ -70,37 +71,37 @@ bool foo(se::State& s)
 	...
 	...
 }
-SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
+SE_BIND_FUNC(foo) // Binding a JS function as an example
 ```
 
-开发者编写完回调函数后，记住使用`SE_BIND_XXX`系列的宏对回调函数进行包装。目前提供了如下几个宏：
+After a developer has bound a JS function, remember to wrap the callback function with the macros which start with `SE_BIND_`. Currently, we provide the following macros:
 
-* SE\_BIND\_PROP_GET: 包装一个JS对象属性读取的回调函数
-* SE\_BIND\_PROP_SET: 包装一个JS对象属性写入的回调函数
-* SE\_BIND_FUNC: 包装一个JS函数，可用于全局函数、类成员函数、类静态函数
-* SE\_DECLARE_FUNC: 声明一个JS函数，一般在.h头文件中使用
-* SE\_BIND_CTOR: 包装一个JS构造函数
-* SE\_BIND\_SUB\_CLS\_CTOR: 包装一个JS子类的构造函数，此子类使用cc.Class.extend继承Native绑定类
-* SE\_FINALIZE_FUNC: 包装一个JS对象被GC回收后的回调函数
-* SE\_DECLARE\_FINALIZE_FUNC: 声明一个JS对象被GC回收后的回调函数
-* _SE: 包装回调函数的名称，转义为每个JS引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似Windows下用的`_T("xxx")`来包装Unicode或者MultiBytes字符串
+* SE\_BIND\_PROP_GET: Wrap a JS object property read callback function
+* SE\_BIND\_PROP_SET: Wrap a JS object property written callback function
+* SE\_BIND\_FUNC: Wrap a JS function that can be used for global functions, class member functions or class static functions
+* SE\_DECLARE\_FUNC: Declare a JS function, generally used in the header file
+* SE\_BIND\_CTOR: Wrap a JS constructor
+* SE\_BIND\_SUB\_CLS\_CTOR: Wrap the constructor of a JS subclass by using cc.Class.extend.
+* SE\_FINALIZE\_FUNC: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
+* SE\_DECLARE\_FINALIZE\_FUNC: Declares the finalize function of a JS object
+* _SE: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
 
 ## API
 
-### CPP命名空间(namespace)
+### CPP Namespace
 
-CPP抽象层所有的类型都在`se`命名空间下，其为ScriptEngine的缩写。
+All types of the abstraction layer are under the `se` namespace, which is an abbreviation of `ScriptEngine`.
 
-### 类型
+### Types
 
 #### se::ScriptEngine
 
-se::ScriptEngine为JS引擎的管理员，掌管JS引擎初始化、销毁、重启、Native模块注册、加载脚本、强制垃圾回收、JS异常清理、是否启用调试器。
-它是一个单例，可通过se::ScriptEngine::getInstance()得到对应的实例。
+`se::ScriptEngine` is the JS engine administrator, responsible for JS engine initialization, destruction, restart, native module registration, loading scripts, doing garbage collection, JS exception cleanup and whether to enable the debugger.
+It is a singleton that could be accessed via `se::ScriptEngine::getInstance()`.
 
 #### se::Value
 
-se::Value可以被理解为JS变量在CPP层的引用。JS变量有`object`, `number`, `string`, `boolean`, `null`, `undefined`六种类型，因此se::Value使用`union`包含`object`, `number`, `string`, `boolean`4种`有值类型`，`无值类型`: `null`, `undefined`可由`_type`直接表示。
+`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`,` number`, `string`,` boolean`, `null`,` undefined`, so `se::Value` uses an `union` to include ` object`, `number`,` string `,` boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
 
 ```c++
 namespace se {
@@ -131,17 +132,17 @@ namespace se {
 }
 ```
 
-如果se::Value中保存基础数据类型，比如`number`，`string`，`boolean`，其内部是直接存储一份值副本。
-`object`的存储比较特殊，是通过`se::Object*`对JS对象的弱引用(weak reference)。
+If a `se::Value` stores the underlying data types, such as `number`,` string`, `boolean`, which is directly stored by `value copy`.
+The storage of `object` is special because it is a `weak reference` to JS objects via `se::Object*`.
 
 #### se::Object
 
-se::Object继承于se::RefCounter引用计数管理类。目前抽象层中只有se::Object继承于se::RefCounter。
-上一小节我们说到，se::Object是保存了对JS对象的弱引用，这里笔者有必要解释一下为什么是弱引用。
+`se::Object` extends from `se::RefCounter` which is a class for reference count management. Currently, only `se::Object` inherits from `se::RefCounter` in the abstraction layer.
+As we mentioned in the last section, `se::Object` is a weak reference to the JS object, therefore I will explain why it's a weak reference.
 
-* 原因一：JS对象控制CPP对象的生命周期的需要
+* Reason 1: The requirement of controlling the life cycle of CPP objects by JS objects
 
-当在脚本层中通过`var sp = new cc.Sprite("a.png");`创建了一个Sprite后，在构造回调函数绑定中我们会创建一个se::Object并保留在一个全局的map(NativePtrToObjectMap)中，此map用于查询`cocos2d::Sprite*`指针获取对应的JS对象`se::Object*`。
+After creating a Sprite in the script layer via `var sp = new cc.Sprite("a.png");`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `cocos2d::Sprite*` to get the corresponding JS object `se::Object*`.
 
 ```c++
 static bool js_cocos2d_Sprite_finalize(se::State& s)
@@ -158,26 +159,26 @@ SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
 static bool js_cocos2dx_Sprite_constructor(se::State& s)
 {
-    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj将在finalize函数中被释放
-    s.thisObject()->setPrivateData(cobj); // setPrivateData内部会去保存cobj到NativePtrToObjectMap中
+    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj will be released in the finalize callback
+    s.thisObject()->setPrivateData(cobj); // setPrivateData will make a mapping between se::Object* and cobj
     return true;
 }
 SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
 ```
 
-设想如果强制要求se::Object为JS对象的强引用(strong reference)，即让JS对象不受GC控制，由于se::Object一直存在于map中，finalize回调将永远无法被触发，从而导致内存泄露。
+Imagine if you force `se::Object` to be a strong reference to a JS object that leaves JS objects out of GC control and the finalize callback will never be fired because `se::Object` is always present in map which will cause memory leak.
 
-正是由于se::Object保存的是JS对象的弱引用，JS对象控制CPP对象的生命周期才能够实现。以上代码中，当JS对象被释放后，会触发finalize回调，开发者只需要在`js_cocos2d_Sprite_finalize`中释放对应的c++对象即可，se::Object的释放已经被包含在`SE_BIND_FINALIZE_FUNC`宏中自动处理，开发者无需管理在`JS对象控制CPP对象`模式中se::Object的释放，但是在`CPP对象控制JS对象`模式中，开发者需要管理对se::Object的释放，具体下一节中会举例说明。
+It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the` SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in` CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
 
-* 原因二：更加灵活，手动调用root方法以支持强引用
+* Reason 2：More flexible, supporting strong reference by calling the se::Object::root method manually
 
-se::Object中提供了root/unroot方法供开发者调用，root会把JS对象放入到不受GC扫描到的区域，调用root后，se::Object就强引用了JS对象，只有当unroot被调用，或者se::Object被释放后，JS对象才会放回到受GC扫描到的区域。
+`se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
-一般情况下，如果对象是非`cocos2d::Ref`的子类，会采用CPP对象控制JS对象的生命周期的方式去绑定。引擎内spine, dragonbones, box2d，anysdk等第三方库的绑定就是采用此方式。当CPP对象被释放的时候，需要在NativePtrToObjectMap中查找对应的se::Object，然后手动unroot和decRef。以spine中spTrackEntry的绑定为例：
+Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d, anysdk and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
-        // spTrackEntry的销毁回调
+        // The callback of spTrackEntry destruction
         auto cleanup = [entry](){
 
             if (!se::ScriptEngine::getInstance()->isValid())
@@ -191,60 +192,64 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
             {
                 CCLOG("spTrackEntry %p was recycled!", entry);
                 se::Object* seObj = iter->second;
-                seObj->clearPrivateData(); // 解除mapping关系
-                seObj->unroot(); // unroot，使JS对象受GC管理
-                seObj->decRef(); // 释放se::Object
+                seObj->clearPrivateData(); // Remove the mapping
+                seObj->unroot(); // unroot，make JS objects controlled by garbage collector
+                seObj->decRef(); // Decrease the reference of se::Object
             }
         };
 
-        // 确保不再垃圾回收中去操作JS引擎的API
+        // Make sure not to touch JS engine API while garbage collecting.
         if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
         {
             cleanup();
         }
         else
-        { // 如果在垃圾回收，把清理任务放在帧结束中进行
+        { // Put the cleanning task at the end of current game frame if it's in garbage collection.
             CleanupTask::pushTaskToAutoReleasePool(cleanup);
         }
     });
 ```
 
 
-__对象类型__
+__se::Object Types__
 
-绑定对象的创建已经被隐藏在对应的`SE_BIND_CTOR`和`SE_BIND_SUB_CLS_CTOR`函数中，开发者在绑定回调中如果需要用到当前对象对应的se::Object，只需要通过s.thisObject()即可获取。其中s为se::State类型，具体会在后续章节中说明。
+* Native Binding Object
 
-此外，se::Object目前支持以下几种对象的手动创建：
+	The creation of native binding object has been hidden in the `SE_BIND_CTOR` and` SE_BIND_SUB_CLS_CTOR` macros, if developers need to use the `se::Object` in the binding callback, just get it by invoking `s.thisObject()`. Where `s` is `se::State&` which will be described in the following chapters.
 
-* Plain Object : 通过se::Object::createPlainObject创建, 类似JS中的`var a = {};`
-* Array Object : 通过se::Object::createArrayObject创建，类似JS中的`var a = [];`
-* Uint8 Typed Array Object : 通过se::Object::createUint8TypedArray创建，类似JS中的`var a = new Uint8Array(buffer);`
-* Array Buffer Object : 通过se::Object::createArrayBufferObject，类似JS中的`var a = new ArrayBuffer(len);`
+In addition, `se::Object` currently supports the manual creation of the following objects:
 
-__手动创建对象的释放__
+* Plain Object: Created by `se::Object::createPlainObject`, similar to `var a = {};` in JS
+* Array Object: Created by `se::Object::createArrayObject`, similar to `var a = [];` in JS
+* Uint8 Typed Array Object: Created by `se::Object::createUint8TypedArray`, like `var a = new Uint8Array(buffer);` in JS
+* Array Buffer Object: Created by `se::Object::createArrayBufferObject` similar to `var a = new ArrayBuffer(len);` in JS
 
-se::Object::createXXX方法与cocos2d-x中的create方法不同，抽象层是完全独立的一个模块，并不依赖与cocos2d-x的autorelease机制。虽然se::Object也是继承引用计数类，但开发者需要处理**手动创建出来的对象**的释放。
+__The Release of The Objects Created Manually__
+
+`se::Object::createXXX` is unlike the create method in cocos2d-x, the abstraction layer is a completely separate module which does not rely on the autorelease mechanism in cocos2d-x. Although `se::Object` also inherits the reference count class `se::RefCounter`, developers need to handle the release for **objects created manually**.
 
 ```c++
 se::Object* obj = se::Object::createPlainObject();
 ...
 ...
-obj->decRef(); // 释放引用，避免内存泄露
+obj->decRef(); // Decrease the reference count to avoid memory leak
 ```
 
-#### se::HandleObject (推荐的管理手动创建对象的辅助类)
+#### se::HandleObject
 
-* 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理decRef
+`se::HandleObject` is the recommended helper class for managing the objects created manually.
+ 
+* If using manual creation of objects in complex logic, developers often forget to deal with `decRef` in different conditions
 
 ```c++
 bool foo()
 {
 	se::Object* obj = se::Object::createPlainObject();
 	if (var1)
-		return false; // 这里直接返回了，忘记做decRef释放操作
+		return false; // Return directly, forget to do 'decRef' operation
 	
 	if (var2)
-		return false; // 这里直接返回了，忘记做decRef释放操作
+		return false; // Return directly, forget to do 'decRef' operation
 	...
 	...
 	obj->decRef();
@@ -252,14 +257,14 @@ bool foo()
 }
 ```
 
-就算在不同的返回条件分支中加上了decRef也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记decRef。
+Plus adding `decRef` to different return condition branches can result in logically complex and difficult to maintain, and it is easy to forget about `decRef` if you make another return branch later.
 
-* JS引擎在se::Object::createXXX后，如果由于某种原因JS引擎做了GC操作，导致后续使用的se::Object内部引用了一个非法指针，引发程序崩溃
+* If the JS engine did a GC operationJS engine right after `se::Object::createXXX`, which will result in the `se::Object` reference to an illegal pointer, the program may crash.
 
-为了解决上述两个问题，抽象层定义了一个辅助管理**手动创建对象**的类型，即`se::HandleObject`。
+In order to solve the above problems, the abstraction layer defines a type that assists in the management of **manually created objects**, namely `se::HandleObject`.
 
-`se::HandleObject`是一个辅助类，用于更加简单地管理手动创建的se::Object对象的释放、root和unroot操作。
-以下两种代码写法是等价的，使用se::HandleObject的代码量明显少很多，而且更加安全。
+`se::HandleObject` is a helper class for easier management of the `release (decRef)`, `root`, and `unroot` operations of manually created `se::Object` objects.
+The following two code snippets are equivalent, the use of `se::HandleObject` significantly smaller amount of code, and more secure.
 
 ```c++
     {
@@ -268,62 +273,66 @@ bool foo()
         otherObject->setProperty("foo", se::Value(obj));
     }
  
-	等价于：
+	is equal to：
 
     {
         se::Object* obj = se::Object::createPlainObject();
-        obj->root(); // 在手动创建完对象后立马root，防止对象被GC
+        obj->root(); // Root the object immediatelly to prevent the object being garabge collected.
 
         obj->setProperty(...);
         otherObject->setProperty("foo", se::Value(obj));
         
-        obj->unroot(); // 当对象被使用完后，调用unroot
-        obj->decRef(); // 引用计数减一，避免内存泄露
+        obj->unroot(); // Call unroot while the object is needed anymore.
+        obj->decRef(); // Decrease the reference count to avoid memory leak.
     }
 ```
 
-注意：
+**NOTE**
 
-* 不要尝试使用se::HandleObject创建一个native与JS的绑定对象，在JS控制CPP的模式中，绑定对象的释放会被抽象层自动处理，在CPP控制JS的模式中，前一章节中已经有描述了。
-* se::HandleObject对象只能够在栈上被分配，而且栈上构造的时候必须传入一个se::Object指针。
+* Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
+
+* The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
 
 
 #### se::Class
 
-se::Class用于暴露CPP类到JS中，它会在JS中创建一个对应名称的constructor function。
+`se::Class` is used to expose CPP classes to JS, it creates a constructor function in JS that has a corresponding name.
 
-它有如下方法：
+It has the following methods:
 
-* `static se::Class* create(className, obj, parentProto, ctor)`: 创建一个Class，注册成功后，在JS层中可以通过`var xxx = new SomeClass();`的方式创建一个对象
-* `bool defineFunction(name, func)`: 定义Class中的成员函数
-* `bool defineProperty(name, getter, setter)`: 定义Class属性读写器
-* `bool defineStaticFunction(name, func)`: 定义Class的静态成员函数，可通过SomeClass.foo()这种非new的方式访问，与类实例对象无关
-* `bool defineStaticProperty(name, getter, setter)`: 定义Class的静态属性读写器，可通过SomeClass.propertyA直接读写，与类实例对象无关
-* `bool defineFinalizeFunction(func)`: 定义JS对象被GC后的CPP回调
-* `bool install()`: 注册此类到JS虚拟机中
-* `Object* getProto()`: 获取注册到JS中的类(其实是JS的constructor)的prototype对象，类似function Foo(){}的Foo.prototype
-* `const char* getName() const`: 获取当前Class的名称
+* `static se::Class* create(className, obj, parentProto, ctor)`
 
-**注意：**
+	**Creating a Class**. If the registration is successful, we could create an object by `var xxx = new SomeClass ();` in the JS layer.
 
-Class类型创建后，不需要手动释放内存，它会被封装层自动处理。
+* `bool defineFunction(name, func)`: Define a member function for a class.
+* `bool defineProperty(name, getter, setter)`: Define a property accessor for a class.
+* `bool defineStaticFunction(name, func)`: Define a static function for a class, the JS function could be accessed by `SomeClass.foo()` rather than the method of `var obj = new SomeClass(); obj.foo()`, means it' s a class method instead of an instance method.
+* `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`，it's nothing about instance object.
+* `bool defineFinalizeFunction(func)`: Define the finalize callback function after JS object is garbage collected.
+* `bool install()`: Install a class JS engine.
+* `Object* getProto()`: Get the prototype of JS constructor installed, similar to `function Foo(){}` `Foo.prototype` in JS.
+* `const char* getName() const`: Get the class name which is also the name of JS constructor.
 
-更具体API说明可以翻看API文档或者代码注释
+**NOTE**
+
+You do not need to release memory manually after `se::Class` type is created, it will be automatically encapsulated layer.
+
+You could look through the API documentation or code comments for more specific API instructions.
 
 #### se::AutoHandleScope
 
-se::AutoHandleScope对象类型完全是为了解决V8的兼容问题而引入的概念。
-V8中，当有CPP函数中需要触发JS相关操作，比如调用JS函数，访问JS属性等任何调用v8::Local<>的操作，V8强制要求在调用这些操作前必须存在一个v8::HandleScope作用域，否则会引发程序崩溃。
+The `se::AutoHandleScope` object type is purely a concept introduced to address V8 compatibility issues.
+In V8, any action that calls `v8::Local<>` on a CPP function that needs to trigger a JS related operation, such as calling a JS function, accessing a JS property, etc, requires a `v8::HandleScope` function be invoked before calling these operations, otherwise it will cause the program to crash.
 
-因此抽象层中引入了se::AutoHandleScope的概念，其只在V8上有实现，其他JS引擎目前都只是空实现。
+So the concept of `se::AutoHandleScope` was introduced into the abstraction layer, which is implemented only on V8, and the other JS engines are currently just empty implementations.
 
-开发者需要记住，在任何代码执行中，需要调用JS的逻辑前，声明一个se::AutoHandleScope即可，比如：
+Developers need to remember that in any code execution from CPP, you need to declare a `se::AutoHandleScope` before calling JS's logic. For example:
 
 ```c++
 class SomeClass {
 	void update(float dt) {
-		se::ScriptEngine::getInstance()->clearException();
-		se::AutoHandleScope hs;
+		se::ScriptEngine::getInstance()->clearException(); // Clear JS exceptions
+		se::AutoHandleScope hs; // Declare a handle scope, it's needed for V8
 		
 		se::Object* obj = ...;
 		obj->setProperty(...);
@@ -336,33 +345,34 @@ class SomeClass {
 
 #### se::State
 
-之前章节我们有提及State类型，它是绑定回调中的一个环境，我们通过se::State可以取得当前的CPP指针、se::Object对象指针、参数列表、返回值引用。
+In the previous section, we have mentioned the `se::State` type, which is an environment in the binding callback. We can get the current CPP pointer, `se::Object` object pointer, parameter list and return value reference through `se::State` argument.
 
 ```c++
 bool foo(se::State& s)
 {
-	// 获取native对象指针
+	// Get native object pointer bound with the current JS object.
 	SomeClass* cobj = (SomeClass*)s.nativeThisObject();
-	// 获取se::Object对象指针
+	// Get se::Object pointer that represents the current JS object.
 	se::Object* thisObject = s.thisObject();
-	// 获取参数列表
+	// Get argument list of the current function.
 	const se::ValueArray& args = s.args();
-	// 设置返回值
+	// Set return value for current function.
 	s.rval().setInt32(100);
+	// Return true to indicate the function is executed successfully.
 	return true;
 }
 SE_BIND_FUNC(foo)
 ```
 
-## 抽象层依赖Cocos引擎么？
+## Does The Abstraction Layer Depend on Cocos2D-X?
 
-不依赖。
+No.
 
-ScriptEngine这层设计之初就将其定义为一个独立模块，完全不依赖Cocos引擎。开发者完整可以通过copy、paste把cocos/scripting/js-bindings/jswrapper下的所有抽象层源码拷贝到其他项目中直接使用。
+This abstraction layer was originally designed as a stand-alone module which is completely independent of Cocos2D-X engine. Developers can copy the abstraction layer code in `cocos/scripting/js-bindings/jswrapper` directory and paste them to other projects directly.
 
-## 手动绑定
+## Manual Binding
 
-### 回调函数声明
+### Define A Callback Function
 
 ```c++
 static bool Foo_balabala(se::State& s)
@@ -370,8 +380,7 @@ static bool Foo_balabala(se::State& s)
 	const auto& args = s.args();
 	int argc = (int)args.size();
 	
-	if (argc >= 2) // 这里约定参数个数必须大于等于2，否则抛出错误到JS层且返回false
-	{
+	if (argc >= 2) // Limit the number of parameters must be greater than or equal to 2, or throw an error to the JS layer and return false.	{
 		...
 		...
 		return true;
@@ -381,27 +390,27 @@ static bool Foo_balabala(se::State& s)
 	return false;
 }
 
-// 如果是绑定函数，则用SE_BIND_FUNC，构造函数、析构函数、子类构造函数等类似
+// If binding a function, we use SE_BIND_FUNC macro. For binding a constructor, destructor, subclass constructor, please use SE_BIND_balabala macros memtioned above.
 SE_BIND_FUNC(Foo_balabala)
 ```
 
-### 为JS对象设置一个属性值
+### Set A Property Value for JS object
 
 ```c++
-se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // 这里为了演示方便，获取全局对象
-globalObj->setProperty("foo", se::Value(100)); // 给全局对象设置一个foo属性，值为100
+se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // We get the global object just for easiler demenstration.
+globalObj->setProperty("foo", se::Value(100)); // Set a property called `foo` with a value of 100 to the global object.
 ```
 
-在JS中就可以直接使用foo这个全局变量了
+Then, you can use the `foo` global variable in JS directly.
 
 ```js
-cc.log("foo value: " + foo); // 打印出 foo value: 100
+cc.log("foo value: " + foo); // Print `foo value: 100`.
 ```
 
-### 为JS对象定义一个属性读写回调
+### Set A Property Accessor for JS Object
 
 ```c++
-// 全局对象的foo属性的读回调
+// The read callback of `foo` property of the global object
 static bool Global_get_foo(se::State& s)
 {
 	NativeObj* cobj = (NativeObj*)s.nativeThisObject();
@@ -411,7 +420,7 @@ static bool Global_get_foo(se::State& s)
 }
 SE_BIND_PROP_GET(Global_get_foo)
 
-// 全局对象的foo属性的写回调
+// The write callback of `foo` property of the global object
 static bool Global_set_foo(se::State& s)
 {
 	const auto& args = s.args();
@@ -421,7 +430,7 @@ static bool Global_set_foo(se::State& s)
 		NativeObj* cobj = (NativeObj*)s.nativeThisObject();
 		int32_t arg1 = args[0].toInt32();
 		cobj->setValue(arg1);
-		// void类型的函数，无需设置s.rval，未设置默认返回undefined给JS层
+		// Do not need to call `s.rval().set(se::Value::Undefined)` for functions without return value.
 		return true;
 	}
 
@@ -432,12 +441,12 @@ SE_BIND_PROP_SET(Global_set_foo)
 
 void some_func()
 {
-	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // 这里为了演示方便，获取全局对象
-	globalObj->defineProperty("foo", _SE(Global_get_foo), _SE(Global_set_foo)); // 使用_SE宏包装一下具体的函数名称
+	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // We get the global object just for easiler demenstration.
+	globalObj->defineProperty("foo", _SE(Global_get_foo), _SE(Global_set_foo)); // Use _SE macro to package specific function name.
 }
 ```
 
-### 为JS对象设置一个函数
+### Define A Function for JS Object
 
 ```c++
 static bool Foo_function(se::State& s)
@@ -449,13 +458,13 @@ SE_BIND_FUNC(Foo_function)
 
 void some_func()
 {
-	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // 这里为了演示方便，获取全局对象
-	globalObj->defineFunction("foo", _SE(Foo_function)); // 使用_SE宏包装一下具体的函数名称
+	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // We get the global object just for easiler demenstration.
+	globalObj->defineFunction("foo", _SE(Foo_function)); // Use _SE macro to package specific function name.
 }
 
 ```
 
-### 注册一个CPP类到JS虚拟机中
+### Register A CPP Class to JS Virtual Machine
 
 ```c++
 static se::Object* __jsb_ns_SomeClass_proto = nullptr;
@@ -557,42 +566,43 @@ SE_BIND_FUNC(js_SomeClass_static_func)
 
 bool js_register_ns_SomeClass(se::Object* global)
 {
-    // 保证namespace对象存在
+    // Make sure the namespace exists
     se::Value nsVal;
     if (!global->getProperty("ns", &nsVal))
     {
-        // 不存在则创建一个JS对象，相当于 var ns = {};
+        // If it doesn't exist, create one. Similar as `var ns = {};` in JS.
         se::HandleObject jsobj(se::Object::createPlainObject());
         nsVal.setObject(jsobj);
 
-        // 将ns对象挂载到global对象中，名称为ns
+        // Set the object to the global object with the property name `ns`.
         global->setProperty("ns", nsVal);
     }
     se::Object* ns = nsVal.toObject();
 
-    // 创建一个Class对象，开发者无需考虑Class对象的释放，其交由ScriptEngine内部自动处理
-    auto cls = se::Class::create("SomeClass", ns, nullptr, _SE(js_SomeClass_constructor)); // 如果无构造函数，最后一个参数可传入nullptr，则这个类在JS中无法被new SomeClass()出来
+    // Create a se::Class object, developers do not need to consider the release of the se::Class object, which is automatically handled by the ScriptEngine.
+    auto cls = se::Class::create("SomeClass", ns, nullptr, _SE(js_SomeClass_constructor)); // If the registered class doesn't need a  constructor, the last argument can be passed in with nullptr, it will make  `new SomeClass();` illegal.
 
-    // 为这个Class对象定义成员函数、属性、静态函数、析构函数
+    // Define member functions, member properties.
     cls->defineFunction("foo", _SE(js_SomeClass_foo));
     cls->defineProperty("xxx", _SE(js_SomeClass_get_xxx), _SE(js_SomeClass_set_xxx));
 
+	// Define finalize callback function
     cls->defineFinalizeFunction(_SE(js_SomeClass_finalize));
 
-    // 注册类型到JS VirtualMachine的操作
+    // Install the class to JS virtual machine
     cls->install();
 
-    // JSBClassType为Cocos引擎绑定层封装的类型注册的辅助函数，此函数不属于ScriptEngine这层
+    // JSBClassType::registerClass is a helper function in the Cocos2D-X native binding code, which is not a part of the ScriptEngine.
     JSBClassType::registerClass<ns::SomeClass>(cls);
 
-    // 保存注册的结果，便于其他地方使用，比如类继承
+    // Save the result to global variable for easily use in other places, for example class inheritence.
     __jsb_ns_SomeClass_proto = cls->getProto();
     __jsb_ns_SomeClass_class = cls;
 
-    // 为每个此Class实例化出来的对象附加一个属性
+    // Set a property `yyy` with the string value `helloyyy` for each object instantiated by this class.
     __jsb_ns_SomeClass_proto->setProperty("yyy", se::Value("helloyyy"));
 
-    // 注册静态成员变量和静态成员函数
+    // Register static member variables and static member functions
     se::Value ctorVal;
     if (ns->getProperty("SomeClass", &ctorVal) && ctorVal.isObject())
     {
@@ -600,13 +610,13 @@ bool js_register_ns_SomeClass(se::Object* global)
         ctorVal.toObject()->defineFunction("static_func", _SE(js_SomeClass_static_func));
     }
 
-    // 清空异常
+    // Clear JS exceptions
     se::ScriptEngine::getInstance()->clearException();
     return true;
 }
 ```
 
-### 如何绑定CPP接口中的回调函数？
+### How to Bind A CPP Callback Function
 
 ```c++
 static bool js_SomeClass_setCallback(se::State& s)
@@ -628,23 +638,24 @@ static bool js_SomeClass_setCallback(se::State& s)
         {
             assert(jsFunc.isObject() && jsFunc.toObject()->isFunction());
 
-            // 如果当前SomeClass是可以被new出来的类，我们 使用se::Object::attachObject把jsFunc和jsTarget关联到当前对象中
+            // If the current SomeClass is a class that can be created by `new`, we use se::Object::attachObject to associate jsFunc with jsTarget to the current object.
             s.thisObject()->attachObject(jsFunc.toObject());
             s.thisObject()->attachObject(jsTarget.toObject());
 
-            // 如果当前SomeClass类是一个单例类，或者永远只有一个实例的类，我们不能用se::Object::attachObject去关联
-            // 必须使用se::Object::root，开发者无需关系unroot，unroot的操作会随着lambda的销毁触发jsFunc的析构，在se::Object的析构函数中进行unroot操作。
-            // js_cocos2dx_EventDispatcher_addCustomEventListener的绑定代码就是使用此方式，因为EventDispatcher始终只有一个实例，
-            // 如果使用s.thisObject->attachObject(jsFunc.toObject);会导致对应的func和target永远无法被释放，引发内存泄露。
+            // If the current SomeClass class is a singleton, or a class that always has only one instance, we can not associate it with se::Object::attachObject.
+            // Instead, you must use se::Object::root, developers do not need to unroot since unroot operation will be triggered in the destruction of lambda which makes the se::Value jsFunc be destroyed, then se::Object destructor will do the unroot operation automatically.
+            // The binding function `js_cocos2dx_EventDispatcher_addCustomEventListener` implements it in this way because `EventDispatcher` is always a singleton.
+            // Using s.thisObject->attachObject(jsFunc.toObject); for binding addCustomEventListener will cause jsFunc and jsTarget varibales can't be released, which will result in memory leak.
 
             // jsFunc.toObject()->root();
             // jsTarget.toObject()->root();
 
             cobj->setCallback([jsFunc, jsTarget](int counter){
 
-                // CPP回调函数中要传递数据给JS或者调用JS函数，在回调函数开始需要添加如下两行代码。
+                // Add the following two lines of code in CPP callback function before passing data to the JS.
                 se::ScriptEngine::getInstance()->clearException();
                 se::AutoHandleScope hs;
+                //
 
                 se::ValueArray args;
                 args.push_back(se::Value(counter));
@@ -663,7 +674,7 @@ static bool js_SomeClass_setCallback(se::State& s)
 SE_BIND_FUNC(js_SomeClass_setCallback)
 ```
 
-SomeClass类注册后，就可以在JS中这样使用了：
+After SomeClass is registered, you can use it in JS like the following:
 
 ```js
  var myObj = new ns.SomeClass();
@@ -692,10 +703,10 @@ SomeClass类注册后，就可以在JS中这样使用了：
 
  setTimeout(function(){
     myObj.setCallback(null);
- }, 6000); // 6秒后清空callback
+ }, 6000); // Clear callback after 6 seconds.
 ```
 
-Console中会输出：
+There will be some logs outputed in console:
 
 ```
 SomeClass::foo
@@ -714,100 +725,279 @@ Delegate obj, onCallback: 6, this.myVar: 105
 setCallback(nullptr)
 ```
 
-### 
+### How to Use The Helper Functions in Cocos2D-X Binding for Easiler Native<->JS Type Conversions 
 
-## 自动绑定
+The helper functions for native<->JS type conversions are located in `cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp`, it includes:
 
-### 配置模块ini文件
-
-配置方法与1.6中的方法相同，主要注意的是：1.7中废弃了`script_control_cpp`，因为`script_control_cpp`字段会影响到整个模块，如果模块中需要绑定cocos2d::Ref子类和非cocos::Ref子类，原来的绑定配置则无法满足需求。1.7中取而代之的新字段为`classes_owned_by_cpp`，表示哪些类是需要由CPP来控制JS对象的生命周期。
-
-1.7中另外加入的一个配置字段为`persistent_classes`, 用于表示哪些类是在游戏运行中一直存在的，比如：TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
-
-其他字段与1.6一致。
-
-具体可以参考引擎目录下的tools/tojs/cocos2dx.ini等ini配置。
-
-### 理解ini文件中每个字段的意义
+#### Convert se::Value to CPP Type
 
 ```
-# 模块名称
+bool seval_to_int32(const se::Value& v, int32_t* ret);
+bool seval_to_uint32(const se::Value& v, uint32_t* ret);
+bool seval_to_int8(const se::Value& v, int8_t* ret);
+bool seval_to_uint8(const se::Value& v, uint8_t* ret);
+bool seval_to_int16(const se::Value& v, int16_t* ret);
+bool seval_to_uint16(const se::Value& v, uint16_t* ret);
+bool seval_to_boolean(const se::Value& v, bool* ret);
+bool seval_to_float(const se::Value& v, float* ret);
+bool seval_to_double(const se::Value& v, double* ret);
+bool seval_to_long(const se::Value& v, long* ret);
+bool seval_to_ulong(const se::Value& v, unsigned long* ret);
+bool seval_to_longlong(const se::Value& v, long long* ret);
+bool seval_to_ssize(const se::Value& v, ssize_t* ret);
+bool seval_to_std_string(const se::Value& v, std::string* ret);
+bool seval_to_Vec2(const se::Value& v, cocos2d::Vec2* pt);
+bool seval_to_Vec3(const se::Value& v, cocos2d::Vec3* pt);
+bool seval_to_Vec4(const se::Value& v, cocos2d::Vec4* pt);
+bool seval_to_Mat4(const se::Value& v, cocos2d::Mat4* mat);
+bool seval_to_Size(const se::Value& v, cocos2d::Size* size);
+bool seval_to_Rect(const se::Value& v, cocos2d::Rect* rect);
+bool seval_to_Color3B(const se::Value& v, cocos2d::Color3B* color);
+bool seval_to_Color4B(const se::Value& v, cocos2d::Color4B* color);
+bool seval_to_Color4F(const se::Value& v, cocos2d::Color4F* color);
+bool seval_to_ccvalue(const se::Value& v, cocos2d::Value* ret);
+bool seval_to_ccvaluemap(const se::Value& v, cocos2d::ValueMap* ret);
+bool seval_to_ccvaluemapintkey(const se::Value& v, cocos2d::ValueMapIntKey* ret);
+bool seval_to_ccvaluevector(const se::Value& v, cocos2d::ValueVector* ret);
+bool sevals_variadic_to_ccvaluevector(const se::ValueArray& args, cocos2d::ValueVector* ret);
+bool seval_to_blendfunc(const se::Value& v, cocos2d::BlendFunc* ret);
+bool seval_to_std_vector_string(const se::Value& v, std::vector<std::string>* ret);
+bool seval_to_std_vector_int(const se::Value& v, std::vector<int>* ret);
+bool seval_to_std_vector_float(const se::Value& v, std::vector<float>* ret);
+bool seval_to_std_vector_Vec2(const se::Value& v, std::vector<cocos2d::Vec2>* ret);
+bool seval_to_std_vector_Touch(const se::Value& v, std::vector<cocos2d::Touch*>* ret);
+bool seval_to_std_map_string_string(const se::Value& v, std::map<std::string, std::string>* ret);
+bool seval_to_FontDefinition(const se::Value& v, cocos2d::FontDefinition* ret);
+bool seval_to_Acceleration(const se::Value& v, cocos2d::Acceleration* ret);
+bool seval_to_Quaternion(const se::Value& v, cocos2d::Quaternion* ret);
+bool seval_to_AffineTransform(const se::Value& v, cocos2d::AffineTransform* ret);
+//bool seval_to_Viewport(const se::Value& v, cocos2d::experimental::Viewport* ret);
+bool seval_to_Data(const se::Value& v, cocos2d::Data* ret);
+bool seval_to_DownloaderHints(const se::Value& v, cocos2d::network::DownloaderHints* ret);
+bool seval_to_TTFConfig(const se::Value& v, cocos2d::TTFConfig* ret);
+
+//box2d seval to native convertion
+bool seval_to_b2Vec2(const se::Value& v, b2Vec2* ret);
+bool seval_to_b2AABB(const se::Value& v, b2AABB* ret);
+
+template<typename T>
+bool seval_to_native_ptr(const se::Value& v, T* ret);
+
+template<typename T>
+bool seval_to_Vector(const se::Value& v, cocos2d::Vector<T>* ret);
+
+template<typename T>
+bool seval_to_Map_string_key(const se::Value& v, cocos2d::Map<std::string, T>* ret)
+
+```
+
+#### Convert C++ Type to se::Value
+
+```c++
+bool int8_to_seval(int8_t v, se::Value* ret);
+bool uint8_to_seval(uint8_t v, se::Value* ret);
+bool int32_to_seval(int32_t v, se::Value* ret);
+bool uint32_to_seval(uint32_t v, se::Value* ret);
+bool int16_to_seval(uint16_t v, se::Value* ret);
+bool uint16_to_seval(uint16_t v, se::Value* ret);
+bool boolean_to_seval(bool v, se::Value* ret);
+bool float_to_seval(float v, se::Value* ret);
+bool double_to_seval(double v, se::Value* ret);
+bool long_to_seval(long v, se::Value* ret);
+bool ulong_to_seval(unsigned long v, se::Value* ret);
+bool longlong_to_seval(long long v, se::Value* ret);
+bool ssize_to_seval(ssize_t v, se::Value* ret);
+bool std_string_to_seval(const std::string& v, se::Value* ret);
+
+bool Vec2_to_seval(const cocos2d::Vec2& v, se::Value* ret);
+bool Vec3_to_seval(const cocos2d::Vec3& v, se::Value* ret);
+bool Vec4_to_seval(const cocos2d::Vec4& v, se::Value* ret);
+bool Mat4_to_seval(const cocos2d::Mat4& v, se::Value* ret);
+bool Size_to_seval(const cocos2d::Size& v, se::Value* ret);
+bool Rect_to_seval(const cocos2d::Rect& v, se::Value* ret);
+bool Color3B_to_seval(const cocos2d::Color3B& v, se::Value* ret);
+bool Color4B_to_seval(const cocos2d::Color4B& v, se::Value* ret);
+bool Color4F_to_seval(const cocos2d::Color4F& v, se::Value* ret);
+bool ccvalue_to_seval(const cocos2d::Value& v, se::Value* ret);
+bool ccvaluemap_to_seval(const cocos2d::ValueMap& v, se::Value* ret);
+bool ccvaluemapintkey_to_seval(const cocos2d::ValueMapIntKey& v, se::Value* ret);
+bool ccvaluevector_to_seval(const cocos2d::ValueVector& v, se::Value* ret);
+bool blendfunc_to_seval(const cocos2d::BlendFunc& v, se::Value* ret);
+bool std_vector_string_to_seval(const std::vector<std::string>& v, se::Value* ret);
+bool std_vector_int_to_seval(const std::vector<int>& v, se::Value* ret);
+bool std_vector_float_to_seval(const std::vector<float>& v, se::Value* ret);
+bool std_vector_Touch_to_seval(const std::vector<cocos2d::Touch*>& v, se::Value* ret);
+bool std_map_string_string_to_seval(const std::map<std::string, std::string>& v, se::Value* ret);
+bool uniform_to_seval(const cocos2d::Uniform* v, se::Value* ret);
+bool FontDefinition_to_seval(const cocos2d::FontDefinition& v, se::Value* ret);
+bool Acceleration_to_seval(const cocos2d::Acceleration* v, se::Value* ret);
+bool Quaternion_to_seval(const cocos2d::Quaternion& v, se::Value* ret);
+bool ManifestAsset_to_seval(const cocos2d::extension::ManifestAsset& v, se::Value* ret);
+bool AffineTransform_to_seval(const cocos2d::AffineTransform& v, se::Value* ret);
+bool Data_to_seval(const cocos2d::Data& v, se::Value* ret);
+bool DownloadTask_to_seval(const cocos2d::network::DownloadTask& v, se::Value* ret);
+
+template<typename T>
+bool Vector_to_seval(const cocos2d::Vector<T*>& v, se::Value* ret);
+
+template<typename T>
+bool Map_string_key_to_seval(const cocos2d::Map<std::string, T*>& v, se::Value* ret);
+
+template<typename T>
+bool native_ptr_to_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+
+template<typename T>
+bool native_ptr_to_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr)
+
+template<typename T>
+bool native_ptr_to_seval(typename std::enable_if<std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+
+template<typename T>
+bool native_ptr_to_seval(typename std::enable_if<std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr);
+
+template<typename T>
+bool native_ptr_to_rooted_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+
+template<typename T>
+bool native_ptr_to_rooted_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr);
+
+
+// Spine conversions
+bool speventdata_to_seval(const spEventData& v, se::Value* ret);
+bool spevent_to_seval(const spEvent& v, se::Value* ret);
+bool spbonedata_to_seval(const spBoneData& v, se::Value* ret);
+bool spbone_to_seval(const spBone& v, se::Value* ret);
+bool spskeleton_to_seval(const spSkeleton& v, se::Value* ret);
+bool spattachment_to_seval(const spAttachment& v, se::Value* ret);
+bool spslotdata_to_seval(const spSlotData& v, se::Value* ret);
+bool spslot_to_seval(const spSlot& v, se::Value* ret);
+bool sptimeline_to_seval(const spTimeline& v, se::Value* ret);
+bool spanimationstate_to_seval(const spAnimationState& v, se::Value* ret);
+bool spanimation_to_seval(const spAnimation& v, se::Value* ret);
+bool sptrackentry_to_seval(const spTrackEntry& v, se::Value* ret);
+
+// Box2d
+bool b2Vec2_to_seval(const b2Vec2& v, se::Value* ret);
+bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
+bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
+
+```
+
+Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2D-X binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
+Each conversion function returns the type `bool` indicating whether the conversion was successful or not. Developers need to check the return value after calling these interfaces.
+
+You can know the specific usage directly according to interface names. The first parameter in the interface is input, and the second parameter is the output parameter. The usage is as follows:
+
+```c++
+se::Value v;
+bool ok = int32_to_seval(100, &v); // The second parameter is the output parameter, passing in the address of the output parameter
+```
+
+```c++
+int32_t v;
+bool ok = seval_to_int32(args[0], &v); // The second parameter is the output parameter, passing in the address of the output parameter
+```
+
+#### (IMPORTANT) Understand The Difference Between native\_ptr\_to\_seval and native\_ptr\_to\_rooted\_seval
+
+**Developers must understand the difference to make sure these conversion functions not being misused. In that case, JS memory leaks, which is really difficult to fix, could be avoided.**
+
+* `native_ptr_to_seval` is used in `JS control CPP object life cycle` mode. This method can be called when a `se::Value` needs to be obtained from a CPP object pointer at the binding code. Most subclasses in the Cocos2D-X that inherit from `cocos2d::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JS object's life cycle, need to be converted to seval, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
+* `native_ptr_to_rooted_seval` is used in `CPP controlling JS object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according the incoming CPP object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the CPP object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
+
+
+## Automatic Binding
+
+### Configure Module .ini Files
+
+The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cocos2d::Ref` subclass and non- `cocos2d::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
+
+An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `TextureCache`, `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
+
+Other fields are the same as v1.6.
+
+For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini` file.
+
+### Understand The Meaning of Each Field in The .ini file
+
+```
+# Module name
 [cocos2d-x] 
 
-# 绑定回调函数的前缀，也是生成的自动绑定文件的前缀
+# The prefix for callback functions and the binding file name.
 prefix = cocos2dx
 
-# 绑定的类挂载在JS中的哪个对象中，类似命名空间
+# The namspace of the binding class attaches to.
 target_namespace = cc
 
-# 自动绑定工具基于Android编译环境，此处配置Android头文件搜索路径
+# Automatic binding tools is based on the Android NDK. The android_headers field configures the search path of Android header file.
 android_headers = -I%(androidndkdir)s/platforms/android-14/arch-arm/usr/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/include
 
-# 配置Android编译参数
+# Configure building parameters for Android.
 android_flags = -D_SIZE_T_DEFINED_
 
-# 配置clang头文件搜索路径
+# Configure the search path for clang header file.
 clang_headers = -I%(clangllvmdir)s/%(clang_include)s
 
-# 配置clang编译参数
+# Configure building parameters for clang
 clang_flags = -nostdinc -x c++ -std=c++11 -U __SSE__
 
-# 配置引擎的头文件搜索路径
+# Configure the search path for Cocos2D-X header file
 cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/cocos/platform/android -I%(cocosdir)s/external/sources
 
-# 配置引擎编译参数
+# Configure building parameters for Cocos2D-X
 cocos_flags = -DANDROID
 
-# 配置额外的编译参数
+# Configure extra building parameters
 extra_arguments = %(android_headers)s %(clang_headers)s %(cxxgenerator_headers)s %(cocos_headers)s %(android_flags)s %(clang_flags)s %(cocos_flags)s %(extra_flags)s
  
-# 需要自动绑定工具解析哪些头文件
+# Which header files needed to be parsed
 headers = %(cocosdir)s/cocos/cocos2d.h %(cocosdir)s/cocos/scripting/js-bindings/manual/BaseJSAction.h
 
-# 在生成的绑定代码中，重命名头文件
+# Rename the header file in the generated binding code
 replace_headers=CCProtectedNode.h::2d/CCProtectedNode.h,CCAsyncTaskPool.h::base/CCAsyncTaskPool.h
 
-# 需要绑定哪些类，可以使用正则表达式，以空格为间隔
+# Which classes need to be bound, you can use regular expressions, separated by space.
 classes = 
 
-# 哪些类需要在JS层通过cc.Class.extend，以空格为间隔
+# Which classes which use cc.Class.extend to inherit, separated by space.
 classes_need_extend = 
 
-# 需要为哪些类绑定属性，以逗号为间隔
+# Which classes need to bind properties, separated by commas
 field = Acceleration::[x y z timestamp]
 
-# 需要忽略绑定哪些类，以逗号为间隔
+# Which classes need to be skipped, separated by commas
 skip = AtlasNode::[getTextureAtlas],
        ParticleBatchNode::[getTextureAtlas],
 
-# 重命名函数，以逗号为间隔
+# Which functions need to be renamed, separated by commas
 rename_functions = ComponentContainer::[get=getComponent],
                    LayerColor::[initWithColor=init],
 
-# 重命名类，以逗号为间隔
+# Which classes need to be renamed, separated by commas
 rename_classes = SimpleAudioEngine::AudioEngine,
                  SAXParser::PlistParser,
 
 
-# 配置哪些类不需要搜索其父类
+# Which classes do not have parents in JS
 classes_have_no_parents = Node Director SimpleAudioEngine FileUtils TMXMapInfo Application GLViewProtocol SAXParser Configuration
 
-# 配置哪些父类需要被忽略
+# Which C++ base classes need to be skipped
 base_classes_to_skip = Ref Clonable
 
-# 配置哪些类是抽象类，抽象类没有构造函数，即在js层无法通过var a = new SomeClass();的方式构造JS对象
+# Which classes are abstract classes which do not have a constructor in JS
 abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
 
-# 配置哪些类是始终以一个实例的方式存在的，游戏运行过程中不会被销毁
+# Which classes are singleton or always keep alive until game exits
 persistent_classes = TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
 
-# 配置哪些类是需要由CPP对象来控制JS对象生命周期的，未配置的类，默认采用JS控制CPP对象生命周期
+# Which classes use `CPP object controls JS object's life cycle`, the unconfigured classes will use `JS controls CPP object's life cycle`.
 classes_owned_by_cpp = 
 ```
 
-## 远程调试与Profile
+## Remote Debugging and Profile
 
-默认远程调试和Profile是在debug模式中生效的，如果需要在release模式下也启用，需要手动修改cocos/scripting/js-bindings/jswrapper/config.hpp中的宏开关。
+The remote debugging and profile are valid in debug mode, if you need to enable in release mode, you need to manually modify the macro in `cocos/scripting/js-bindings/jswrapper/config.hpp`.
 
 ```c++
 #if defined(COCOS2D_DEBUG) && COCOS2D_DEBUG > 0
@@ -819,10 +1009,10 @@ classes_owned_by_cpp =
 #endif
 ```
 
-改为：
+Change to：
 
 ```c++
-#if 1 // 这里改为1，强制启用调试
+#if 1 // Change to 1 to force enable remote debugging
 #define SE_ENABLE_INSPECTOR 1
 #define SE_DEBUG 2
 #else
@@ -831,17 +1021,17 @@ classes_owned_by_cpp =
 #endif
 ```
 
-### Chrome远程调试V8
+### Remote Debugging V8 in Chrome
 
 #### Windows
 
-* 编译、运行游戏(或在Creator中直接使用模拟器运行)
-* 用Chrome浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* Compile, run the game (or run directly in the Creator simulator)
+* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
-断点调试：
+Breakpoint debugging：
 ![](v8-win32-debug.jpg)
 
-抓取JS Heap
+Catch JS Heap
 ![](v8-win32-memory.jpg)
 
 Profile
@@ -849,46 +1039,48 @@ Profile
 
 #### Android
 
-* 保证Android设备与PC或者Mac在同一个局域网中
-* 编译，运行游戏
-* 用Chrome浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), 其中`xxx.xxx.xxx.xxx`为局域网中Android设备的IP地址
-* 调试界面与Windows相同
+* Make sure your Android device is on the same network as your PC or Mac
+* Compile and run your game
+* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android device
+* The remote debugging interface is the same as debugging Windows.
 
 
-### Safari远程调试JavaScriptCore
+### Remote Debugging JavaScriptCore in Safari
 
 #### macOS
 
-1. 打开Mac上的Safari，偏好设置 -> 高级 -> 显示开发者选项
-2. 为Xcode工程添加entitlements文件，如果entitlements存在则跳过此步骤。如果不存在，则到工程的Capabilities设置中打开App Sandbox，然后再关闭，这时.entitlements文件会自动被添加进工程。![](jsc-entitlements.png)
-3. 打开entitlements文件，添加com.apple.security.get-task-allow，值类型为Boolean，值为true. ![](jsc-security-key.png)
-4. 编译、运行游戏
-5. 如果是直接在Creator的模拟器中运行，则可以跳过第2，3，4步骤
-6. Safari菜单中选择Develop -> 你的Mac设备名称 -> Cocos2d-x JSB 会自动打开Web Inspector页面，然后即可进行设置断点、Timeline profile、console等操作。![](jsc-mac-debug.png) ![](jsc-breakpoint.png) ![](jsc-timeline.png)
+1. Open Safari on your Mac, Preferences -> Advanced -> Show Develop menu in menu bar
+2. Add entitlements file to Xcode project, skip this step if entitlements exist. If it does not exist, open the App Sandbox in the Capabilities setting of the project, and then close again. At this point, the .entitlements file is automatically added to the project.![](jsc-entitlements.png). You also need to make sure the entitlements file is included in the Code Signing Entitlemenets option in the Build Setting. ![](jsc-entitlements-check.png)
+3. Open the entitlements file, add com.apple.security.get-task-allow, the value type is Boolean, the value is YES. ![](jsc-security-key.png)
+4. Signature: General -> Choose your Mac Project -> Signing -> Choose your Developer Certificate
+5. Compile and run your game
+6. If it is run directly in Creator's simulator, you can skip steps 2,3,4,5
+7. Click Safari menu, select Develop -> your Mac device name -> Cocos2d-x JSB will automatically open the Web Inspector page, and then you can set breakpoints, Timeline profile, console and other operations.![](jsc-mac-debug.png) ![](jsc-breakpoint.png) ![](jsc-timeline.png)
 
-**注意**
+**NOTE**
 
-如果开发者有修改引擎源码或者自己合并了一些Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
+If developers have to modify the engine source or merge some patches, they need to recompile the simulator, remember to reset the simulator project certificate.
 
 ![](jsc-mac-simulator-sign.png)
 
-然后再调用`gulp gen-simulator`生成模拟器。
+Then run `gulp gen-simulator` in terminal to generate simulator.
 
 #### iOS
 
-1. 先打开iPhone的设置 -> Safari -> 高级 -> Web检查器
-2. 为Xcode工程添加entitlements文件，如果entitlements存在则跳过此步骤。如果不存在，则到工程的Capabilities设置中打开App Sandbox，然后再关闭，这时.entitlements文件会自动被添加进工程。 (图示与macOS的第2步类似)
-3. 打开entitlements文件，添加com.apple.security.get-task-allow，值类型为Boolean，值为true。(图示与macOS的第3步类似)
-4. 编译、运行游戏
-5. Safari菜单中选择Develop -> 你的iPhone设备名称 -> Cocos2d-x JSB 会自动打开Web Inspector页面，然后即可进行设置断点、Timeline profile、console等操作。(图示与macOS的第6步类似)
+1. Open the iPhone Settings -> Safari -> Advanced -> Web Inspector
+2. Add entitlements file to Xcode project, skip this step if entitlements exist. If it does not exist, open the App Sandbox in the Capabilities setting of the project, and then close again. At this point, the .entitlements file is automatically added to the project. You also need to make sure the entitlements file is included in the Code Signing Entitlemenets option in the Build Setting. (The illustration image is similar to step 2 of macOS)
+3. Open the entitlements file, add com.apple.security.get-task-allow, the value type is Boolean, the value is YES. (The illustration image is similar to step 3 of macOS)
+4. Signature: General -> Choose your iOS project -> Signing -> Choose your developer certificate
+5. Compile and run your game
+6. Click Safari menu, select Develop -> your iOS device name -> Cocos2d-x JSB will automatically open the Web Inspector page, and then you can set breakpoints, Timeline profile, console and other operations.(The illustration image is similar to step 7 of macOS)
 
 ## Q & A
 
-### se::ScriptEngine与ScriptingCore的区别，为什么还要保留ScriptingCore?
+### What's The Difference between se::ScriptEngine and ScriptingCore? Why to keep ScriptingCore?
 
-在1.7中，抽象层被设计为一个与引擎没有关系的独立模块，对JS引擎的管理从ScriptingCore被移动到了se::ScriptEngine类中，ScriptingCore被保留下来是希望通过它把引擎的一些事件传递给封装层，充当适配器的角色。
+In Creator v1.7, the abstraction layer was designed as a stand-alone module that had no relation to the engine. The management of the JS engine was moved from the `ScriptingCore` to `se::ScriptEngine` class. `ScriptingCore` was retained in hopes of passing engine events to the abstraction layer, which acts like a adapter.
 
-ScriptingCore只需要在AppDelegate中被使用一次即可, 之后的所有操作都只需要用到se::ScriptEngine。
+ScriptingCore only needs to be used once in AppDelegate.cpp, and all subsequent operations only require `se::ScriptEngine`.
 
 ```c++
 bool AppDelegate::applicationDidFinishLaunching()
@@ -897,8 +1089,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	...
     director->setAnimationInterval(1.0 / 60);
 
-    // 这两行把ScriptingCore这个适配器设置给引擎，用于传递引擎的一些事件，
-    // 比如Node的onEnter, onExit, Action的update，JS对象的持有与解除持有
+    // These two lines set the ScriptingCore adapter to the engine for passing engine events, such as Node's onEnter, onExit, Action's update
     ScriptingCore* sc = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(sc);
     
@@ -907,34 +1098,35 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
 }
 ```
-### se::Object::root/unroot 与 se::Object::incRef/decRef的区别?
+### What's The Difference between se::Object::root/unroot and se::Object::incRef/decRef?
 
-root/unroot用于控制JS对象是否受GC控制，root表示不受GC控制，unroot则相反，表示交由GC控制，对一个se::Object来说，root和unroot可以被调用多次，se::Object内部有_rootCount变量用于表示root的次数。当unroot被调用，且_rootCount为0时，se::Object关联的JS对象将交由GC管理。还有一种情况，即如果se::Object的析构被触发了，如果_rootCount > 0，则强制把JS对象交由GC控制。
+`root`/`unroot` is used to control whether JS objects are controlled by GC, `root` means JS object should not be controlled by GC, `unroot` means it should be controlled by GC. For a `se::Object`, `root` and `unroot` can be called multiple times, `se::Object`'s internal `_rootCount` variables is used to indicate the count of `root` operation. When `unroot` is called and `_rootCount` reach **0**, the JS object associated with `se::Object` is handed over to the GC. Another situation is that if `se::Object` destructor is triggered and `_rootCount` is still greater than 0, it will force the JS object to be controlled by the GC.
 
-incRef/decRef用于控制se::Object这个`cpp`对象的生命周期，前面章节已经提及，建议用户使用se::HandleObject来控制`手动创建非绑定对象`的方式控制se::Object的生命周期。因此，一般情况下，开发者不需要接触到incRef/decRef。
+`incRef`/`decRef` is used to control the life cycle of `se::Object` CPP object. As mentioned in the previous section, it is recommended that you use `se::HandleObject` to control the manual creation of unbound objects's  life cycle. So, in general, developers do not need to touch `incRef`/`decRef`.
 
 
-### 对象生命周期的关联与解除关联
+### The Association and Disassociation of Object's Life Cycle
 
-se::Object::attachObject/dettachObject
+Use se::Object::attachObject to associate object's life cycle.
+Use se::Object::dettachObject to disassociate object's life cycle.
 
-`objA->attachObject(objB);`类似于JS中执行`objA.__nativeRefs[index] = objB`，只有当objA被GC后，objB才有可能被GC
-`objA->dettachObject(objB);`类似于JS中执行`delete objA.__nativeRefs[index];`，这样objB的生命周期就不受objA控制了
+`objA->attachObject(objB);` is similar as `objA .__ nativeRefs [index] = objB` in JS. Only when `objA` is garbage collected, `objB` will be possible garbage collected.
+`objA->dettachObject(objB);` is similar as `delete objA.__nativeRefs[index];` in JS. After invoking dettachObject, objB's life cycle will not be controlled by objA
 
-### cocos2d::Ref子类与非cocos2d::Ref子类JS/CPP对象生命周期管理有何不同？
+### What's The Difference of Object Life Management between The Subclass of `cocos2d::Ref` and non-`cocos2d::Ref` class?
 
-目前引擎中cocos2d::Ref子类的绑定采用JS对象控制CPP对象生命周期的方式，这样做的好处是，解决了一直以来被诟病的需要在JS层retain，release对象的烦恼。
+The binding of `cocos2d::Ref` subclass in the current engine adopts JS object controls the life cycle of CPP object. The advantage of doing so is to solve the `retain`/`release` problem that has been criticized in the JS layer.
 
-非cocos2d::Ref子类采用CPP对象控制JS对象生命周期的方式。此方式要求，CPP对象销毁后需要通知绑定层去调用对应se::Object的clearPrivateData, unroot, decRef的方法。JS代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用cc.sys.isObjectValid来判断CPP对象是否被释放了。
+Non-`cocos2d::Ref` class takes the way of CPP object controls the life of a JS object. This method requires that after CPP object is destroyed, it needs to notify the binding layer to call the `clearPrivateData`, `unroot`, and `decRef` methods corresponding to `se::Object`. JS code must be careful operation of the object, when there may be illegal object logic, use `cc.sys.isObjectValid` to determine whether the CPP object is released.
 
-### 绑定cocos2d::Ref子类的析构函数需要注意的事项
+### NOTE of Binding The Finalize Function for cocos2d::Ref Subclass
 
-如果在JS对象的finalize回调中调用任何JS引擎的API，可能导致崩溃。因为当前引擎正在进行垃圾回收的流程，无法被打断处理其他操作。
-finalize回调中是告诉CPP层是否对应的CPP对象的内存，不能在CPP对象的析构中又去操作JS引擎API。
+Calling any JS engine's API in a finalize callback can lead to a crash. Because the current engine is in garbage collection process, which can not be interrupted to deal with other operations.
+Finalize callback is to tell the CPP layer to release the memory of the corresponding CPP object, we should not call any JS engine API in the CPP object's destructor either.
 
-那如果必须调用，应该如何处理？
+#### But if that must be called, how should we deal with?
 
-cocos2d-x的绑定中，如果引用计数为1了，我们不使用release，而是使用autorelease延时CPP类的析构到帧结束去执行。
+In Cocos2D-X binding, if the native object's reference count is 1, we do not use the `release`, but using `autorelease` to delay CPP object's destructor to be executed at the end of frame. For instance:
 
 ```c++
 static bool js_cocos2d_Sprite_finalize(se::State& s)
@@ -950,9 +1142,39 @@ static bool js_cocos2d_Sprite_finalize(se::State& s)
 SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 ```
 
-### 如何监听脚本错误
+### Please DO NOT Assign A Subclass of cocos2d::Ref on The Stack
 
-在AppDelegate.cpp中通过se::ScriptEngine::getInstance()->setExceptionCallback(...)设置JS层异常回调。
+Subclasses of `cocos2d::Ref` must be allocated on the heap, via `new`, and then released by` release`. In JS object's finalize callback function, we should use 'autorelease` or `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or` private` in the binding classes that inherit from `cocos2d::Ref`, ensuring that this problem can be found during compilation.
+
+E.g:
+
+```c++
+class CC_EX_DLL EventAssetsManagerEx : public cocos2d::EventCustom
+{
+public:
+    ...
+    ...
+private:
+    virtual ~EventAssetsManagerEx() {}
+    ...
+    ...
+};
+
+EventAssetsManagerEx event(...); // Compilation ERROR
+dispatcher->dispatchEvent(&event);
+
+// Must modify to:
+
+EventAssetsManagerEx* event = new EventAssetsManagerEx(...);
+dispatcher->dispatchEvent(event);
+event->release();
+```
+
+
+
+### How to Observe JS Exception?
+
+In AppDelegate.cpp, using `se::ScriptEngine::getInstance()->setExceptionCallback(...)` to set the callback of JS exception.
 
 ```c++
 bool AppDelegate::applicationDidFinishLaunching()
