@@ -96,7 +96,7 @@ If your changes involves JavaScript and C++ changes at the same time. You should
 
 Creator >= 1.7, please refer to:
 
-- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning-en.md).
+- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning.md).
 
 Creator <= 1.6, please refer to:
 
