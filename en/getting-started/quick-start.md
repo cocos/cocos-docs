@@ -336,7 +336,7 @@ The main character can jump freely now so we need to set up a goal for players. 
 
 As for the nodes that need to be created repeatedly, we can save it as a **Prefab** resource, which can be a template for the dynamic generation of nodes. For more information about **Prefab**, please read [Prefab](../asset-workflow/prefab.md).
 
-Firstly, drag the `assets/textures/star` resource from the **Assets** panel into the scene. Anywhere in the **Node Tree** is fine. We only need the scene to be the operating platform for creating Prefab. After creation we will delete this node from the scene.
+Firstly, drag the `assets/textures/star` texture from the **Assets** panel into the scene. Anywhere in the **Node Tree** is fine. We only need the scene to be the operating platform for creating Prefab. After creation we will delete this node from the scene.
 
 We don't need to modify the position of the stars or its render properties. But to make the stars disappear after being touched by the main character, we need to add a special component to the star. By the same method of adding the `Player` script, add a JavaScript script named `Star` to `assets/scripts/` (in the **Properties** panel of the `star`, select **Add component** and then **Add custom component** and then **`Star`**).
 
@@ -360,7 +360,9 @@ The settings needed by Star Prefab are now finished. Now drag the `star` node fr
 
 ![star prefab](quick-start/prefab_asset.png)
 
-Now the `star` node can be deleted from the scene. We can dynamically use the Prefab resource of stars in the script to generate stars.
+Now the `star` node can be deleted from the scene. We can double click the `star` Prefab resource directly to edit.
+
+We can dynamically use the Prefab resource of stars in the script to generate stars.
 
 ### Adding game control script
 

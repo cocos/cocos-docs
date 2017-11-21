@@ -5,7 +5,7 @@ Bar Sprite 就可以在场景中控制 Bar Sprite 来显示进度了。
 
 ![add-progressbar](./progress/add-progressbar.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ProgressBar`，即可添加 ProgressBar 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ProgressBar`，即可添加 ProgressBar 组件到节点上。
 
 进度条的脚本接口请参考[ProgressBar API](../api/classes/ProgressBar.html)。
 
@@ -21,7 +21,7 @@ Bar Sprite 就可以在场景中控制 Bar Sprite 来显示进度了。
 
 ## 详细说明
 
-添加 ProgressBar 组件之后，通过从**层级管理器**中拖拽一个带有`Sprite`组件的节点到 Bar Sprite 属性上，此时便可以通过拖动 progress 滑块来控制进度条的显示了。
+添加 ProgressBar 组件之后，通过从 **层级管理器** 中拖拽一个带有`Sprite`组件的节点到 Bar Sprite 属性上，此时便可以通过拖动 progress 滑块来控制进度条的显示了。
 
 Bar Sprite 可以是自身节点，子节点，或者任何一个带有`Sprite`组件的节点。另外，Bar Sprite 可以自由选择 Simple、Sliced 和 Filled 渲染模式。
 

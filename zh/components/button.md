@@ -6,7 +6,7 @@ Button 组件可以响应用户的点击操作，当用户点击 Button 时，Bu
 
 ![button-color](./button/button-color.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`Button`，即可添加 Button 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`Button`，即可添加 Button 组件到节点上。
 
 按钮的脚本接口请参考[Button API](../api/classes/Button.html)。
 

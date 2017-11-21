@@ -7,7 +7,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 ![richtext](./richtext/richtext.png)
 
-点击**属性检查器**下面的`添加组件`按钮，然后从`添加渲染组件`中选择 `RichText`，即可添加 RichText 组件到节点上。
+点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加渲染组件`中选择 `RichText`，即可添加 RichText 组件到节点上。
 
 富文本的脚本接口请参考 [RichText API](../api/classes/RichText.html)。
 
