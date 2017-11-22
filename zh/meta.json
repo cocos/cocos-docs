@@ -836,7 +836,7 @@
                 ]
             },
             {
-                "name": "第三方SDK集成",
+                "name": "SDK 集成",
                 "link": "sdk/index.html",
                 "submenu": [
                     {

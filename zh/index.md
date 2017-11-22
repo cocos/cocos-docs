@@ -20,7 +20,7 @@ Cocos Creator 现已支持导出场景和 UI 到 cocos2d-x 引擎，详细信息
 - [发布跨平台游戏](publish/index.md)
 - [扩展编辑器](extension/index.md)
 - [进阶主题](advanced-topics/index.md)
-- [第三方 SDK 集成](sdk/index.md)
+- [SDK 集成](sdk/index.md)
 
 ## 视频教程
 
