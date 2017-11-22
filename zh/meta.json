@@ -576,12 +576,12 @@
                         "link": "audio/audio.html"
                     },
                     {
-                        "name": "兼容性说明",
-                        "link": "audio/compatibility.md"
-                    },
-                    {
                         "name": "AudioSource 组件参考",
                         "link": "components/audiosource.html"
+                    },
+                    {
+                        "name": "兼容性说明",
+                        "link": "audio/compatibility.md"
                     }
                 ]
             },
@@ -836,7 +836,7 @@
                 ]
             },
             {
-                "name": "第三方SDK集成",
+                "name": "SDK 集成",
                 "link": "sdk/index.html",
                 "submenu": [
                     {

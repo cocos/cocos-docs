@@ -149,6 +149,7 @@
 - [音乐和音效](audio/index.md)
     - [音频播放](audio/audio.md)
     - [AudioSource 组件参考](components/audiosource.md)
+    - [兼容性说明](audio/compatibility.md)
 
 ## 进阶使用
 
@@ -194,8 +195,9 @@
     - [BMFont and UI 自动批处理](advanced-topics/ui-auto-batch.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
-- [第三方 SDK 集成](sdk/index.md)
+- [SDK 集成](sdk/index.md)
     - [AnySDK](sdk/anysdk-overview.md)
         - [AnySDK Framework](sdk/anysdk/anysdk-framework.md)
         - [Cocos Creator 接入 AnySDK 教程](sdk/anysdk/integrate-anysdk.md)
     - [SDKBox](sdk/sdkbox.md)
+    - [Cocos 数据统计](sdk/cocos-analytics.md)
