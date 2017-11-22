@@ -149,6 +149,7 @@
 - [音乐和音效](audio/index.md)
     - [音频播放](audio/audio.md)
     - [AudioSource 组件参考](components/audiosource.md)
+    - [兼容性说明](audio/compatibility.md)
 
 ## 进阶使用
 
