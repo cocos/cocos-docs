@@ -576,6 +576,10 @@
                         "link": "audio/audio.html"
                     },
                     {
+                        "name": "兼容性说明",
+                        "link": "audio/compatibility.md"
+                    },
+                    {
                         "name": "AudioSource 组件参考",
                         "link": "components/audiosource.html"
                     }
