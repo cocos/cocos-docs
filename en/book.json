@@ -10,12 +10,12 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "http://docs.cocos.com/creator/manual/zh"
+                        "link": "http://docs.cocos.com/creator/manual/en"
                     },
                     {
                         "name": "API",
-                        "link": "http://docs.cocos.com/creator/api/zh"
-                    }  
+                        "link": "http://docs.cocos.com/creator/api/en"
+                    }
                 ]
             },
             {
@@ -34,7 +34,7 @@
             {
                 "name": "AnySDK",
                 "link": "http://docs.anysdk.com/"
-            }  
+            }
         ]
     }   
 }

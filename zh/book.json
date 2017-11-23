@@ -15,7 +15,7 @@
                     {
                         "name": "API 参考",
                         "link": "http://docs.cocos.com/creator/api/zh"
-                    }  
+                    }
                 ]
             },
             {
@@ -27,14 +27,14 @@
                     },
                     {
                         "name": "API 参考",
-                        "link": "http://www.cocos.com/docs/native/"
+                        "link": "http://api.cocos.org/"
                     }
                 ]
             },
             {
                 "name": "AnySDK",
                 "link": "http://docs.anysdk.com/"
-            }            
+            }
         ]
     }   
 }
