@@ -1,4 +1,4 @@
-# Integrate Third-party SDKs
+# Integrate SDKs
 
 - [Cocos Package](cocos-package-overview.md)
 

@@ -186,7 +186,7 @@
 - [进阶主题](advanced-topics/index.md)
     - [JSB 2.0 使用指南](advanced-topics/jsb/JSB2.0-learning.md)
     - [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)
-    - [动态热更新](advanced-topics/hot-update.md)
+    - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/assets-manager.md)
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
