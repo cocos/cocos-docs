@@ -1,4 +1,4 @@
-# Create and destroy nodes
+# Creating and destroying nodes
 
 ## Creating new nodes
 
