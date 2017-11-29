@@ -71,7 +71,7 @@ Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与
     
    ![animation-frame-event.png](./project-import/animation-frame-event.png)
    
-* 修复 csd 相互嵌套导致动画无法解析：
+* 导入嵌套的 csd：
 
     当 csd 包含嵌套时候，会自动创建一个挂有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代，该组件中的
     `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行目前不支持编辑器中预览）  

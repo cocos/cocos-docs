@@ -66,7 +66,7 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
    ![animation-frame-event.png](./project-import/animation-frame-event.png)
 
 
-* Fix csd nested prefab animation to fail parsing:
+* Import nested csd:
 
     If the csd contains a nested prefab, a dummy node will be auto created with a cc.StudioComponent.PlaceHolder component attached. The `nestedPrefab` attribute of the component will save nested prefab resources, which are replaced by the current node at runtime. (If you need to operate on this node, it must be the runtime of the project, and the editor preview not supported at this time)
 
