@@ -549,7 +549,7 @@ Then add a new method named `gainScore` to the back of the `update` method:
     },
 ```
 
-### (Don't forgrt to drag the score node into the "Score Display" property in "Canvas" Properties Panel.
+Don't forget to drag the score node into the "Score Display" property in "Canvas" properties panel.
 
 ### Invoke the scoring logic of the Game in Star script
 
