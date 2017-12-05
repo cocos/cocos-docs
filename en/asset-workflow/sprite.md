@@ -27,11 +27,11 @@ The API documents for Texture & SpriteFrame:
 
 ## SpriteFrame Usage
 
-You can create a node with **Sprite** component by drag SpriteFrame asset from **Assets Panel** to **Node Tree Panel** or **Scene Panel**.
+You can create a node with **Sprite** component by dragging a SpriteFrame asset from **Assets Panel** to **Node Tree Panel** or **Scene Panel**.
 
-After that, you can change the SpriteFrame by drag a SpriteFrame/Texture asset to the `Sprite Frame` property of **Sprite** componet.
+After that, you can change the SpriteFrame by dragging a SpriteFrame/Texture asset to the `Sprite Frame` property of **Sprite** component.
 
-Also you can drag SpriteFrame asset to an already existed SpriteFrame animation in the **Timeline Panel**. You can reference the usage by [this document](../animation/sprite-animation.md).
+Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in the **Timeline Panel**. You can reference the usage by [this document](../animation/sprite-animation.md).
 
 ### Performance Attentions
 

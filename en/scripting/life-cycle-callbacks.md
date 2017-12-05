@@ -97,4 +97,4 @@ When the component or node calls `destroy()`, it will call the `onDestroy` callb
 
 ---
 
-Continue on to read about [Create and destroy nodes](create-destroy.md).
+Continue on to read about [Creating and Destroying Nodes](create-destroy.md).

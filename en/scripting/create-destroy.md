@@ -1,6 +1,6 @@
-# Creat and destroy nodes
+# Creating and destroying nodes
 
-## Creat new nodes
+## Creating new nodes
 
 Besides creating nodes by using the scene editor, we can create nodes dynamically in script. Add it into the scene by `new cc.Node()`
 to complete the whole constructive process.
@@ -28,7 +28,7 @@ cc.Class({
 });
 ```
 
-## Clone the exisiting node
+## Cloning exisiting node
 
 Sometimes we want to clone the exisiting node dynamically in the scene, it can be done by `cc.instantiate`. Here is how it is done:
 
@@ -53,7 +53,7 @@ cc.Class({
 });
 ```
 
-## Create preset node
+## Creating preset node
 
 Like cloning the exisiting node, you can set a prefab and create node by `cc.instantiate`. Here is how it's done:
 
@@ -78,7 +78,7 @@ cc.Class({
 });
 ```
 
-## Destroy node
+## Destroying node
 
 Nodes can be destroyed by the function `node.destroy()`. It's worth mentioning that node removing will not happen immediately, but
 will be executed after the logic update for the present frame is complete. After a node is destroyed, it is in the invalid state. By `cc.isValid`, the present node can be judged whether it is destroyed or not.
@@ -110,7 +110,7 @@ cc.Class({
 
 ### destroy and removeFromParent
 
-After calling a node's `removeFromParent`, it does not necessarily be able to completely release from memory, because there may be some logical problems that cause the program to still refer to the object. So if a node is no longer used, please call its `destroy` instead of `removeFromParent`。`destroy` will not only activate the components `onDestroy`, but also reduce the probability of memory leaks, while reducing the consequences of memory leak.
+After calling a node's `removeFromParent`, in-memory data is not guaranteed to be released because there may be some logical problems that cause the program to still refer to the object. So if a node is no longer used, please call its `destroy` instead of `removeFromParent`。`destroy` will not only activate the components `onDestroy`, but also reduce the probability of memory leaks, while reducing the consequences of memory leak.
 
 In short, if a node is no longer used, use `destroy`, do not need `removeFromParent`, do not need to set `parent` to `null`.
 
