@@ -14,7 +14,7 @@
     "pluginsConfig": {
         "github-issue-feedback-language": {
             "repo": "cocos-creator/creator-docs",
-            "branch": "gitbook"
+            "branch": "master"
         },
         "search": {
             "maxIndexSize": 1000000000
