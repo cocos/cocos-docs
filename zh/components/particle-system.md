@@ -71,8 +71,6 @@ Particle System 的脚本接口请参考 [Particle System API](../api/classes/Pa
 | EndRadiusVar       | 结束半径变化范围
 | RotatePerS         | 粒子每秒围绕起始点的旋转角度，只有在半径模式下可用
 | RotatePerSVar      | 粒子每秒围绕起始点的旋转角度变化范围
-| rotatePerSVar      | 每个粒子的旋转是否等于其方向，只有在重力模式下可用
-| rotatePerSVar      | 每个粒子的旋转是否等于其方向，只有在重力模式下可用
 | SrcBlendFactor     | 指定原图混合模式 [BlendFactor API](../api/enums/BlendFactor.html)   
 | DstBlendFactor     | 指定目标的混合模式 [BlendFactor API](../api/enums/BlendFactor.html)  
 
