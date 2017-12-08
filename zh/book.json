@@ -4,37 +4,33 @@
         "readme": "index.md"
     },
     "variables": {
-        "products": [
-            {
-                "name": "Cocos Creator",
-                "links": [
-                    {
-                        "name": "手册文档",
-                        "link": "http://docs.cocos.com/creator/manual/zh"
-                    },
-                    {
-                        "name": "API 参考",
-                        "link": "http://docs.cocos.com/creator/api/zh"
-                    }  
-                ]
-            },
-            {
-                "name": "Cocos2d-x",
-                "links": [
-                    {
-                        "name": "手册文档",
-                        "link": "http://www.cocos.com/docs/native/"
-                    },
-                    {
-                        "name": "API 参考",
-                        "link": "http://www.cocos.com/docs/native/"
-                    }
-                ]
-            },
-            {
-                "name": "AnySDK",
-                "link": "http://docs.anysdk.com/"
-            }            
-        ]
-    }   
+      "products": [
+          {
+              "name": "Cocos Creator",
+              "links": [
+                  {
+                      "name": "手册文档",
+                      "link": "http://www.cocos2d-x.org/docs/creator/zh/"
+                  },
+                  {
+                      "name": "API 参考",
+                      "link": "http://www.cocos2d-x.org/docs/creator-api/zh/"
+                  }
+              ]
+          },
+          {
+              "name": "Cocos2d-x",
+              "links": [
+                  {
+                      "name": "手册文档",
+                      "link": "http://www.cocos2d-x.org/docs/cocos2d-x/zh/"
+                  },
+                  {
+                      "name": "API 参考",
+                      "link": "http://www.cocos2d-x.org/docs/api-ref/index.html"
+                  }
+              ]
+          }
+      ]
+    }
 }
