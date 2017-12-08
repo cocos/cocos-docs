@@ -12,12 +12,12 @@ DragonBones 组件在脚本中的操作请参考 example cases 中的 DragonBone
 
 | 属性 |   功能说明
 | -------------- | ----------- |
-|Dragon Asset| DragonBones 导出后的骨骼数据（.json）文件
-|Dragon Atlas Asset| DragonBones 导出后的图集数据（.json）文件
-|Armature| 当前使用的 Armature 名称
-|Animation| 当前播放的动画名称
-|Time Scale| 播放速度
+|Dragon Asset| 骨骼数据包含了骨骼信息（绑定骨骼动作，slots，渲染顺序，attachments，皮肤等等）和动画但不持有任何状态。<br/>多个 ArmatureDisplay 可以共用相同的骨骼数据。
+|Dragon Atlas Asset| 骨骼数据所需的 Atlas Texture 数据。
+|ArmatureName| 当前使用的 Armature 名称
+|AnimationName| 当前播放的动画名称
+|Time Scale| 当前骨骼中所有动画的时间缩放率
 |Play Times| 动画播放次数（-1 表示使用配置文件中的默认值；0 表示无限循环；>0 表示循环次数）
-|Debug Bones| 显示骨骼
+|Debug Bones| 是否显示 bone 的 debug 信息
 
 > 注意：当使用 DragonBones 组件时，Node 节点上 `Anchor` 与 `Size` 是无效的。
