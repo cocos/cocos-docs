@@ -57,7 +57,7 @@
     - [Access Node and Component](scripting/access-node-component.md)
     - [Common Node and Component API](scripting/basic-node-api.md)
     - [Lifecycle Callback](scripting/life-cycle-callbacks.md)
-    - [Create and Destroy](scripting/create-destroy.md)
+    - [Creating and Destroying Nodes](scripting/create-destroy.md)
     - [Scene Management](scripting/scene-managing.md)
     - [Asset Loading](scripting/load-assets.md)
     - [Event System](scripting/events.md)

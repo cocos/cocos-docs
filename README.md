@@ -38,6 +38,8 @@ You can also build the doc for ebook formats (PDF, ePub, mobi), please following
 
 https://toolchain.gitbook.com/ebook.html
 
+If you need to publish to the website, you'd better build it on Mac. If use Windows, some redundant .md file will also generated.
+
 ## Content Editing
 
 The markdown source of this book is in language specific folders [/en](en) and [/zh](zh). Language options are registered in [LANGS.md](LANGS.md) file.
@@ -64,6 +66,12 @@ Will create a toggleable chapter title `Using Editor`. Once clicked all its subs
 ### Page content
 
 To change the content of each page, just edit the markdown source files. There's no specific front matter format, just make sure each page has a `h1` as the title.
+
+### Customize Style and Template
+
+To customize styles, modify [zh/styles/website.css](zh/styles/website.css) and [en/styles/website.css](en/styles/website.css).
+
+To change HTML templates, change the content in [zh/_layouts](zh/_layouts) and [en/_layouts](en/_layouts). Check out [Templating Guide](https://toolchain.gitbook.com/templating/) for gitbook.
 
 ## Contribution
 

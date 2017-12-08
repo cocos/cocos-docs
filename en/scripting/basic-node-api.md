@@ -47,7 +47,7 @@ These two method have equal effect.
 
 Notice:
 - `removeFromParent` usually need to pass a `false`, otherwise it will clear all the events and actions on the node.
- - creating a new node with [Create and destroy node](create-destroy.md) section, you'll need to give the newly created node a parent to initialize it properly.
+ - creating a new node with [Creating and Destroying Nodes](create-destroy.md) section, you'll need to give the newly created node a parent to initialize it properly.
 
 ### Access child node
 

@@ -14,7 +14,7 @@ While writing the component script, you can map the variables needing adjustment
   - [Access Node and Other Component](access-node-component.md)
   - [Common Node and Component API](basic-node-api.md)
   - [Component Life-cycle Callback](life-cycle-callbacks.md)
-  - [Create and Destroy Node](create-destroy.md)
+  - [Creating and Destroying Nodes](create-destroy.md)
 - Asset Management
   - [Scene Management](scene-managing.md)
   - [Acquire and Load Asset](load-assets.md)

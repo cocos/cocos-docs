@@ -17,91 +17,91 @@
 
 | 动作名称 | 简介 | 文档链接 |
 |---------|:---:|:-------:|
-| cc.sequence | 顺序执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_sequence) |
-| cc.spawn | 同步执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_spawn) |
-| cc.repeat | 重复执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_repeat) |
-| cc.repeatForever | 永远重复动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_repeatForever) |
-| cc.speed | 修改动作速率 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_speed) |
+| cc.sequence | 顺序执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#sequence) |
+| cc.spawn | 同步执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#spawn) |
+| cc.repeat | 重复执行动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#repeat) |
+| cc.repeatForever | 永远重复动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#repeatForever) |
+| cc.speed | 修改动作速率 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#speed) |
 
 ## 即时动作
 
 | 动作名称 | 简介 | 文档链接 |
 |---------|:---:|:-------:|
-| cc.show | 立即显示 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_show) |
-| cc.hide | 立即隐藏 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_hide) |
-| cc.toggleVisibility | 显隐状态切换 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_toggleVisibility) |
-| cc.removeSelf | 从父节点移除自身 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_removeSelf) |
-| cc.flipX | X轴翻转 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_flipX) |
-| cc.flipY | Y轴翻转 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_flipY) |
-| cc.place | 放置在目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_place) |
-| cc.callFunc | 执行回调函数 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_callFunc) |
-| cc.targetedAction | 用已有动作和一个新的目标节点创建动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_targetedAction) |
+| cc.show | 立即显示 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#show) |
+| cc.hide | 立即隐藏 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#hide) |
+| cc.toggleVisibility | 显隐状态切换 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#toggleVisibility) |
+| cc.removeSelf | 从父节点移除自身 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#removeSelf) |
+| cc.flipX | X轴翻转 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#flipX) |
+| cc.flipY | Y轴翻转 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#flipY) |
+| cc.place | 放置在目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#place) |
+| cc.callFunc | 执行回调函数 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#callFunc) |
+| cc.targetedAction | 用已有动作和一个新的目标节点创建动作 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#targetedAction) |
 
 ## 时间间隔动作
 
 | 动作名称 | 简介 | 文档链接 |
 |---------|:---:|:-------:|
-| cc.moveTo | 移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_moveTo) |
-| cc.moveBy | 移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_moveBy) |
-| cc.rotateTo | 旋转到目标角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_rotateTo) |
-| cc.rotateBy | 旋转指定的角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_rotateBy) |
-| cc.scaleTo | 将节点大小缩放到指定的倍数 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_scaleTo) |
-| cc.scaleBy | 按指定的倍数缩放节点大小 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_scaleBy) |
-| cc.skewTo | 偏斜到目标角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_skewTo) |
-| cc.skewBy | 偏斜指定的角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_skewBy) |
-| cc.jumpBy | 用跳跃的方式移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_jumpBy) |
-| cc.jumpTo | 用跳跃的方式移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_jumpTo) |
-| cc.follow | 追踪目标节点的位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_follow) |
-| cc.bezierTo | 按贝赛尔曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_bezierTo) |
-| cc.bezierBy | 按贝赛尔曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_bezierBy) |
-| cc.blink | 闪烁（基于透明度） | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_blink) |
-| cc.fadeTo | 修改透明度到指定值 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_fadeTo) |
-| cc.fadeIn | 渐显 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_fadeIn) |
-| cc.fadeOut | 渐隐 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_fadeOut) |
-| cc.tintTo | 修改颜色到指定值 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_tintTo) |
-| cc.tintBy | 按照指定的增量修改颜色 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_tintBy) |
-| cc.delayTime | 延迟指定的时间量 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_delayTime) |
-| cc.reverseTime | 反转目标动作的时间轴 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_reverseTime) |
-| cc.cardinalSplineTo | 按基数样条曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_cardinalSplineTo) |
-| cc.cardinalSplineBy | 按基数样条曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_cardinalSplineBy) |
-| cc.catmullRomTo | 按 Catmull Rom 样条曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_catmullRomTo) |
-| cc.catmullRomBy | 按 Catmull Rom 样条曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_catmullRomBy) |
+| cc.moveTo | 移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#moveTo) |
+| cc.moveBy | 移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#moveBy) |
+| cc.rotateTo | 旋转到目标角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#rotateTo) |
+| cc.rotateBy | 旋转指定的角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#rotateBy) |
+| cc.scaleTo | 将节点大小缩放到指定的倍数 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#scaleTo) |
+| cc.scaleBy | 按指定的倍数缩放节点大小 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#scaleBy) |
+| cc.skewTo | 偏斜到目标角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#skewTo) |
+| cc.skewBy | 偏斜指定的角度 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#skewBy) |
+| cc.jumpBy | 用跳跃的方式移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#jumpBy) |
+| cc.jumpTo | 用跳跃的方式移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#jumpTo) |
+| cc.follow | 追踪目标节点的位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#follow) |
+| cc.bezierTo | 按贝赛尔曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#bezierTo) |
+| cc.bezierBy | 按贝赛尔曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#bezierBy) |
+| cc.blink | 闪烁（基于透明度） | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#blink) |
+| cc.fadeTo | 修改透明度到指定值 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#fadeTo) |
+| cc.fadeIn | 渐显 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#fadeIn) |
+| cc.fadeOut | 渐隐 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#fadeOut) |
+| cc.tintTo | 修改颜色到指定值 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#tintTo) |
+| cc.tintBy | 按照指定的增量修改颜色 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#tintBy) |
+| cc.delayTime | 延迟指定的时间量 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#delayTime) |
+| cc.reverseTime | 反转目标动作的时间轴 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#reverseTime) |
+| cc.cardinalSplineTo | 按基数样条曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#cardinalSplineTo) |
+| cc.cardinalSplineBy | 按基数样条曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#cardinalSplineBy) |
+| cc.catmullRomTo | 按 Catmull Rom 样条曲线轨迹移动到目标位置 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#catmullRomTo) |
+| cc.catmullRomBy | 按 Catmull Rom 样条曲线轨迹移动指定的距离 | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#catmullRomBy) |
 
 ## 缓动动作
 
 | 动作名称 | 文档链接 |
 |---------|:-------:|
-| cc.easeIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeIn) |
-| cc.easeOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeOut) |
-| cc.easeInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeInOut) |
-| cc.easeExponentialIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeExponentialIn) |
-| cc.easeExponentialOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeExponentialOut) |
-| cc.easeExponentialInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeExponentialInOut) |
-| cc.easeSineIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeSineIn) |
-| cc.easeSineOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeSineOut) |
-| cc.easeSineInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeSineInOut) |
-| cc.easeElasticIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeElasticIn) |
-| cc.easeElasticOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeElasticOut) |
-| cc.easeElasticInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeElasticInOut) |
-| cc.easeBounceIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBounceIn) |
-| cc.easeBounceOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBounceOut) |
-| cc.easeBounceInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBounceInOut) |
-| cc.easeBackIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBackIn) |
-| cc.easeBackOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBackOut) |
-| cc.easeBackInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBackInOut) |
-| cc.easeBezierAction | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeBezierAction) |
-| cc.easeQuadraticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuadraticActionIn) |
-| cc.easeQuadraticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuadraticActionOut) |
-| cc.easeQuadraticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuadraticActionInOut) |
-| cc.easeQuarticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuarticActionIn) |
-| cc.easeQuarticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuarticActionOut) |
-| cc.easeQuarticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuarticActionInOut) |
-| cc.easeQuinticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuinticActionIn) |
-| cc.easeQuinticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuinticActionOut) |
-| cc.easeQuinticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeQuinticActionInOut) |
-| cc.easeCircleActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCircleActionIn) |
-| cc.easeCircleActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCircleActionOut) |
-| cc.easeCircleActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCircleActionInOut) |
-| cc.easeCubicActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCubicActionIn) |
-| cc.easeCubicActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCubicActionOut) |
-| cc.easeCubicActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#method_easeCubicActionInOut) |
+| cc.easeIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeIn) |
+| cc.easeOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeOut) |
+| cc.easeInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeInOut) |
+| cc.easeExponentialIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeExponentialIn) |
+| cc.easeExponentialOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeExponentialOut) |
+| cc.easeExponentialInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeExponentialInOut) |
+| cc.easeSineIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeSineIn) |
+| cc.easeSineOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeSineOut) |
+| cc.easeSineInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeSineInOut) |
+| cc.easeElasticIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeElasticIn) |
+| cc.easeElasticOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeElasticOut) |
+| cc.easeElasticInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeElasticInOut) |
+| cc.easeBounceIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBounceIn) |
+| cc.easeBounceOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBounceOut) |
+| cc.easeBounceInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBounceInOut) |
+| cc.easeBackIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBackIn) |
+| cc.easeBackOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBackOut) |
+| cc.easeBackInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBackInOut) |
+| cc.easeBezierAction | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeBezierAction) |
+| cc.easeQuadraticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuadraticActionIn) |
+| cc.easeQuadraticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuadraticActionOut) |
+| cc.easeQuadraticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuadraticActionInOut) |
+| cc.easeQuarticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuarticActionIn) |
+| cc.easeQuarticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuarticActionOut) |
+| cc.easeQuarticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuarticActionInOut) |
+| cc.easeQuinticActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuinticActionIn) |
+| cc.easeQuinticActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuinticActionOut) |
+| cc.easeQuinticActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeQuinticActionInOut) |
+| cc.easeCircleActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCircleActionIn) |
+| cc.easeCircleActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCircleActionOut) |
+| cc.easeCircleActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCircleActionInOut) |
+| cc.easeCubicActionIn | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCubicActionIn) |
+| cc.easeCubicActionOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCubicActionOut) |
+| cc.easeCubicActionInOut | [API 描述](http://cocos.com/docs/creator/api/modules/cc.html#easeCubicActionInOut) |
