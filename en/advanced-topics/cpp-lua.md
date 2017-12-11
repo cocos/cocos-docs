@@ -1,5 +1,5 @@
 # C++ and Lua Support
 
-For now C++ and Lua support in Cocos Creator is provided as an extension package.
+__Cocos Creator__ supports JavaScript, built in. Edit your `Scenes` and source code all from within. However, If you are a C++ or Lua developer, __Cocos Creator__ allows exporting of `Scenes` to sour code for further development. Why isn't C++ built in, you ask? There is no need to re-invent the wheel. There are many really good development environments out there. Writing a text editor is no trivial task. For this reason, it is best to allow developers to edit source code in the editor of their choice.
 
-Please checkout [Creator support for cocos2d-x](https://github.com/cocos2d/creator_to_cocos2dx) for download and guide.
+Please click [Using Cocos Creator With C++ and Lua Projects](http://docs.cocos.com/cocos2d-x/manual/en/editors_and_tools/creator_to_cocos2dx.html) for detail.
