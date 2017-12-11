@@ -1,4 +1,4 @@
-# C++ and Lua Support
+# C++ and Lua 引擎支持
 
 Cocos Creator 可以很高效的编辑场景和 UI，同时内置支持 JavaScript，这对 JavaScript 开发者十分友好。可是对于 C++/Lua 开发者，无法直接利用 Creator 高效的界面编辑功能，可能有一些遗憾。
 
