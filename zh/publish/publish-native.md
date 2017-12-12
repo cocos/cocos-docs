@@ -27,6 +27,16 @@
 
 自动合并资源时，将所有 SpriteFrame 与被依赖的资源合并到同一个包中。建议网页平台开启，启用后会略微增大总包体，多消耗一点点网络流量，但是能显著减少网络请求数量。建议原生平台关闭，因为会增大热更新时的体积。
 
+### MD5 Cache
+
+给构建后的资源加上 md5，解决 Native 资源缓存问题。
+```js
+// 想自行加载资源需要通过下列方式调用 js 层的 transformURL 进行 url 转换
+auto cx = ScriptingCore::getInstance()->getGlobalContext();
+JS::RootedString url(cx);
+ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &url);
+````
+
 ## 选择源码或预编译库模板
 
 接下来在 **模板** 下拉菜单里，我们可以从引擎模板中选择一个，下面是可用的三种选项：

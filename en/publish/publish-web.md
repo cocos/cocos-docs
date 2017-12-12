@@ -24,6 +24,11 @@ When merging assets automatically, all JSON files that the Start Scene depends o
 
 Append MD5 value to the exported assets for resolving browser cache issue.
 
+```js
+// To load a resource through loader, you need to convert URL through the following ways
+cc.loader.md5Pipe.transformURL(url);
+````
+
 ### Eruda
 
 Insert Eruda debug plugin, which similar to DevTools mini version, used to help debug.

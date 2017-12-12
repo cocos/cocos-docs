@@ -23,6 +23,10 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 ### MD5 Cache
 
 给构建后的资源加上 md5，解决浏览器资源缓存问题。
+```js
+// 想自行通过 loader 加载资源需要通过下列方式进行转换 url
+cc.loader.md5Pipe.transformURL(url);
+````
 
 ### Eruda
 
