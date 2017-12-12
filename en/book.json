@@ -4,33 +4,33 @@
         "readme": "index.md"
     },
     "variables": {
-      "products": [
-          {
-              "name": "Cocos Creator",
-              "links": [
-                  {
-                      "name": "Manual",
-                      "link": "http://www.cocos2d-x.org/docs/creator/en/"
-                  },
-                  {
-                      "name": "API Ref",
-                      "link": "http://www.cocos2d-x.org/docs/creator-api/en/"
-                  }
-              ]
-          },
-          {
-              "name": "Cocos2d-x",
-              "links": [
-                  {
-                      "name": "Manual",
-                      "link": "http://www.cocos2d-x.org/docs/cocos2d-x/en/"
-                  },
-                  {
-                      "name": "API Ref",
-                      "link": "http://www.cocos2d-x.org/docs/api-ref/index.html"
-                  }
-              ]
-          }
-      ]
+        "products": [
+            {
+                "name": "Cocos Creator",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "http://www.cocos2d-x.org/docs/creator/en/"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "http://www.cocos2d-x.org/docs/creator-api/en/"
+                    }
+                ]
+            },
+            {
+                "name": "Cocos2d-x",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "http://www.cocos2d-x.org/docs/cocos2d-x/en/"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "http://www.cocos2d-x.org/docs/api-ref/index.html"
+                    }
+                ]
+            }
+        ]
     }
 }
