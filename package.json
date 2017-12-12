@@ -1,13 +1,21 @@
 {
   "name": "creator-docs",
   "version": "1.6.1",
-  "description": "Documentation ===============",
+  "description": "This repo is for hosting Cocos Creator documents.",
   "main": "index.js",
   "dependencies": {
+    "commander": "^2.12.2",
+    "del": "^3.0.0",
+    "globby": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-sequence": "^0.4.6",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {},
   "scripts": {
-    "build": "gitbook install && gitbook build"
+    "build": "gulp prebuild && gitbook build && gulp postbuild",
+    "preview": "gulp prebuild && gitbook serve",
+    "publish": "npm run build && gulp publish --dest /Volumes/creator/manual"
   },
   "repository": {
     "type": "git",
