@@ -18,20 +18,37 @@ Install gitbook plugins:
 gitbook install
 ```
 
-## Preview and Build
+Install gulp and other modules:
+
+```bash
+npm install gulp -g
+npm install
+```
+
+## Preview
 
 To preview the doc, run the following command:
 
 ```bash
-gitbook serve
+npm run preview
 ```
 
 This will build and launch web server to host the site. It will also enable livereload plugin so your changes to the markdown source file will automatically triggers rebuild of the docs.
 
+After generation finished, don't quit server process, run the following command in other terminal context:
+
+```bash
+gulp prune-left-bar
+```
+
+This will remove unused links from left bar.
+
+## Build
+
 If you just want to build the markdown to html, use this command:
 
 ```bash
-gitbook build
+npm run build
 ```
 
 You can also build the doc for ebook formats (PDF, ePub, mobi), please following this guide:
