@@ -13,9 +13,9 @@
                         "link": "http://docs.cocos.com/creator/manual/zh"
                     },
                     {
-                        "name": "API",
+                        "name": "API Ref",
                         "link": "http://docs.cocos.com/creator/api/zh"
-                    }  
+                    }
                 ]
             },
             {
@@ -26,7 +26,7 @@
                         "link": "http://www.cocos.com/docs/native/"
                     },
                     {
-                        "name": "API",
+                        "name": "API Ref",
                         "link": "http://www.cocos.com/docs/native/"
                     }
                 ]
@@ -34,7 +34,7 @@
             {
                 "name": "AnySDK",
                 "link": "http://docs.anysdk.com/"
-            }  
+            }
         ]
     }   
 }

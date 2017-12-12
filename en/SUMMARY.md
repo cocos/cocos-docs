@@ -106,7 +106,6 @@
     - [Widget Alignment](ui/widget-align.md)
     - [Stretchable UI Sprites](ui/sliced-sprite.md)
     - [Label Layout](ui/label-layout.md)
-    - [UI Animation](ui/ui-animation.md)
     - [Layout Container](ui/auto-layout.md)
     - [List with Data](ui/list-with-data.md)
     - [UI Component Reference](ui/ui-components.md)

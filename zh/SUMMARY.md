@@ -106,7 +106,6 @@
     - [对齐策略](ui/widget-align.md)
     - [制作可任意拉伸的 UI 图像](ui/sliced-sprite.md)
     - [文字排版](ui/label-layout.md)
-    - [UI 动画](ui/ui-animation.md)
     - [自动布局容器](ui/auto-layout.md)
     - [制作动态生成内容的列表](ui/list-with-data.md)
     - [UI 组件参考](ui/ui-components.md)
