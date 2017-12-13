@@ -29,12 +29,15 @@ When merging assets automatically, combine all SpriteFrames and the assets that 
 
 ### MD5 Cache
 
-Append MD5 value to the exported assets for resolving native cache issue.
+Solve the CDN cache problem in hot update.
 ```js
-// If you want to load the resource by itself, you need to call the JS layer's transformURL for URL conversion by the following way
+// After opening, all resources are renamed. Therefore, when you need to manually load the resource in C++, you need to convert the filename first.
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
-JS::RootedString url(cx);
-ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &url);
+JS::RootedValue outVal(cx);
+ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &outVal);
+
+string url;
+jsval_to_string(cx, outVal, &url);
 ````
 
 ## Build a Native Project

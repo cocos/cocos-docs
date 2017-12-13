@@ -29,12 +29,15 @@
 
 ### MD5 Cache
 
-给构建后的资源加上 md5，解决 Native 资源缓存问题。
+解决热更新时的 CDN 缓存问题。
 ```js
-// 想自行加载资源需要通过下列方式调用 js 层的 transformURL 进行 url 转换
+// 开启后，所有资源都会被重命名。因此需要在 C++ 中手动加载资源时，需要先对文件名做转换。
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
-JS::RootedString url(cx);
-ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &url);
+JS::RootedValue outVal(cx);
+ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &outVal);
+
+string url;
+jsval_to_string(cx, outVal, &url);
 ````
 
 ## 选择源码或预编译库模板
