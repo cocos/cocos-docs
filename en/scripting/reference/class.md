@@ -707,6 +707,14 @@ cc.Class({
 
   editor: {
 
+    // Allows the current component to run in editor mode.
+    // By default, all components are executed only at runtime, meaning that they will not have
+    // their callback functions executed while the Editor is in edit mode.
+    //
+    // Value type: Boolean
+    // Default: false
+    executeInEditMode: false,
+
     // The requireComponent parameter is used to specify the dependencies of the current component.
     // When a component is added to a node, if the dependent component does not exist,
     // the engine will automatically add the dependency component to the same node to prevent script errors.
@@ -715,6 +723,15 @@ cc.Class({
     // Value type: Function （must be inherited from cc.Component constructor, such as cc.Sprite）
     // Default: null
     requireComponent: null,
+
+    // The execution order of lifecycle methods for Component.
+    // Those less than 0 will execute before while those greater than 0 will execute after.
+    // The order will only affect onLoad, onEnable, start, update and lateUpdate while onDisable and
+    // onDestroy will not be affected.
+    //
+    // Value type: Number
+    // Default：0
+    executionOrder: 0,
 
     // When the component is added to the node，prevents Component of the same type (or subtype) to be
     // added more than once to a Node.
@@ -729,14 +746,6 @@ cc.Class({
     // Value type: String (Such as "Rendering/Camera")
     // Default: ""
     menu: "",
-
-    // Allows the current component to run in editor mode.
-    // By default, all components are executed only at runtime, meaning that they will not have
-    // their callback functions executed while the Editor is in edit mode.
-    //
-    // Value type: Boolean
-    // Default: false
-    executeInEditMode: false,
 
     // When "executeInEditMode" is set, playOnFocus can be used to set the scene refresh rate
     // of the editor when the node of the current component is selected.
