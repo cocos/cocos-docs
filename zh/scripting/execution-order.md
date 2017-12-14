@@ -1,7 +1,5 @@
 # 脚本执行顺序
 
-更完善的脚本执行顺序控制将在 1.5 中添加，目前请使用下面的原则控制脚本执行顺序：
-
 ## 使用统一的控制脚本来初始化其他脚本
 
 一般我都会有一个 `Game.js` 的脚本作为总的控制脚本，假如我还有 `Player.js`, `Enemy.js`, `Menu.js` 三个组件，那么他们的初始化过程是这样的：
@@ -117,6 +115,42 @@ CompB update!
 CompA update!
 ```
 
+## 设置组件执行优先级
+
+如果以上方法还是不能提供所需的控制粒度，还可以直接设置组件的 executionOrder。executionOrder 会影响组件的生命周期回调的执行优先级。设置方法如下：
+
+```js
+// Player.js
+
+cc.Class({
+    extends: cc.Component,
+    editor: {
+        executionOrder: -1
+    },
+
+    onLoad: function () {
+        cc.log('Player onLoad!');
+    }
+});
+```
+
+```js
+// Menu.js
+
+cc.Class({
+    extends: cc.Component,
+    editor: {
+        executionOrder: 1
+    },
+
+    onLoad: function () {
+        cc.log('Menu onLoad!');
+    }
+});
+```
+
+executionOrder 越小，该组件相对其它组件就会越先执行。executionOrder 默认为 0，因此设置为负数的话，就会在其它默认的组件之前执行。
+executionOrder 只对 onLoad, onEnable, start, update 和 lateUpdate 有效，对 onDisable 和 onDestroy 无效。
 
 ---
 
