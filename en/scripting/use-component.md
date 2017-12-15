@@ -27,14 +27,9 @@ cc.Class({
 ```
 
 ## Editing script
+By double clicking the script asset, it is opened in the default editor on your system. We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages.
 
-Cocos Creator has installed a lightweight Code Editor for editors to edit script fast. But we recommend that users choose
-their preferred text tool (such as Vim, Sublime Text, WebStorm, VSCode...) to edit script according to their
-own need.
-
-By double clicking the script asset, users can open the built-in Code Editor to edit. If you need to use the external tools, please [modify the settings in **Preferences** panel](../getting-started/basics/editor-panels/preferences.md#script-editor).
-
-Edit the script and save it, and Cocos Creator will automatically detect the alteration of the script and compile it quickly.
+Edit the scripts and save them. Cocos Creator will automatically detect the alteration of the script and compile it quickly.
 
 ## Adding script into the scene node
 
