@@ -13,3 +13,7 @@ If you plan to apply your package to all your Cocos Creator project, you can cho
 ## Project Packages
 
 Sometimes we only want the package loaded for specific project, in this case we can install package locally in `${your-project}/packages`.
+
+## Uninstall Package
+
+Just delete the package from above directories.
