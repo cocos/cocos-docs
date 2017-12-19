@@ -2,7 +2,7 @@
     "plugins": [
         "-lunr", 
         "-search",
-        "github-issue-feedback-language",
+        "github-issue-feedback-language-custom",
         "search-title",
         "anchorjs",
         "toggle-chapters",
@@ -12,7 +12,7 @@
         "website": "./styles/website.css"
     },  
     "pluginsConfig": {
-        "github-issue-feedback-language": {
+        "github-issue-feedback-language-custom": {
             "repo": "cocos-creator/creator-docs",
             "branch": "master"
         },
