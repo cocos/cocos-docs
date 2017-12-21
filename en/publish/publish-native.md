@@ -29,15 +29,16 @@ When merging assets automatically, combine all SpriteFrames and the assets that 
 
 ### MD5 Cache
 
-Solve the CDN cache problem in hot update.
+Compute MD5 to rename all resources, to resolve the CDN cache problem during hot update.
+After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
+
 ```js
-// After opening, all resources are renamed. Therefore, when you need to manually load the resource in C++, you need to convert the filename first.
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
-JS::RootedValue outVal(cx);
-ScriptingCore::getInstance()->evalString('cc.loader.md5Pipe.transformURL(url);', &outVal);
+JS::RootedValue returnParam(cx);
+ScriptingCore::getInstance()->evalString("cc.loader.md5Pipe.transformURL('url')", &returnParam);
 
 string url;
-jsval_to_string(cx, outVal, &url);
+jsval_to_string(cx, returnParam, &url);
 ````
 
 ## Build a Native Project
