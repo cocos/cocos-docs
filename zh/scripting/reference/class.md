@@ -705,6 +705,13 @@ cc.Class({
   extends: cc.Component,
     
   editor: {
+
+    // 允许当前组件在编辑器模式下运行。
+    // 默认情况下，所有组件都只会在运行时执行，也就是说它们的生命周期回调在编辑器模式下并不会触发。
+    //
+    // 值类型：Boolean
+    // 默认值：false
+    executeInEditMode: false,
                  
     // requireComponent 参数用来指定当前组件的依赖组件。
     // 当组件添加到节点上时，如果依赖的组件不存在，引擎将会自动将依赖组件添加到同一个节点，防止脚本出错。
@@ -713,6 +720,14 @@ cc.Class({
     // 值类型：Function （必须是继承自 cc.Component 的构造函数，如 cc.Sprite）
     // 默认值：null
     requireComponent: null,
+
+    // 脚本生命周期回调的执行优先级。
+    // 小于 0 的脚本将优先执行，大于 0 的脚本将最后执行。
+    // 该优先级只对 onLoad, onEnable, start, update 和 lateUpdate 有效，对 onDisable 和 onDestroy 无效。
+    //
+    // 值类型：Number
+    // 默认值：0
+    executionOrder: 0,
     
     // 当本组件添加到节点上后，禁止同类型（含子类）的组件再添加到同一个节点，
     // 防止逻辑发生冲突。
@@ -726,13 +741,6 @@ cc.Class({
     // 值类型：String （如 "Rendering/Camera"）
     // 默认值：""
     menu: "",
-    
-    // 允许当前组件在编辑器模式下运行。
-    // 默认情况下，所有组件都只会在运行时执行，也就是说它们的生命周期回调在编辑器模式下并不会触发。
-    // 
-    // 值类型：Boolean
-    // 默认值：false
-    executeInEditMode: false,
     
     // 当设置了 "executeInEditMode" 以后，playOnFocus 可以用来设定选中当前组件所在的节点时，
     // 编辑器的场景刷新频率。

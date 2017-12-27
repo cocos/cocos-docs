@@ -27,6 +27,20 @@ Merge all the SpriteFrames in the same atlas into the same package. This option 
 
 When merging assets automatically, combine all SpriteFrames and the assets that are being relied on into the same package. It is recommended to enable this option in web. When enabled, it will increase the overall game size slightly, consume a little bit of network traffic, but can significantly reduce the number of network requests. It is recommended to disable this option in native, because it will increase the package size used in hot update.
 
+### MD5 Cache
+
+Compute MD5 to rename all resources, to resolve the CDN cache problem during hot update.
+After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
+
+```js
+auto cx = ScriptingCore::getInstance()->getGlobalContext();
+JS::RootedValue returnParam(cx);
+ScriptingCore::getInstance()->evalString("cc.loader.md5Pipe.transformURL('url')", &returnParam);
+
+string url;
+jsval_to_string(cx, returnParam, &url);
+````
+
 ## Build a Native Project
 
 After selecting the release platform and setting up the package name and initial scene, the project can now be built. Click the **Build** button on the bottom right corner, and start building workflow.
