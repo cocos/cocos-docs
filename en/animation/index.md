@@ -10,7 +10,7 @@ Animation editors usually have the same standard functionality one would expect:
 - [Sprite Animation](sprite-animation.md)
 - [Time Curves](time-curve.md)
 - [Animation Events](animation-event.md)
-- [Scriting Animations](scripting-animation.md)
+- [Scripting Animations](scripting-animation.md)
 
 
 <hr>
