@@ -12,7 +12,9 @@
 
 与这篇文档搭配的还有一段教学视频，可以结合视频中的操作来理解，更加直观。
 
-
+{% raw %}
+<iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0" allowfullscreen></iframe>
+{% endraw %}
 
 ## 微信小游戏平台
 

@@ -4,7 +4,7 @@
 
 ## 特别推荐
 
- - 从 1.8 开始，Cocos Creator 已支持发布到微信小游戏平台，请参阅 [发布到微信小游戏](publish/publish-wechatgame.html)。
+ - 从 1.8 开始，Cocos Creator 已支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.html)。
  - Cocos Creator 还支持导出场景和 UI 到 Cocos2d-x，请参阅 [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)。
 
 ## 总导读

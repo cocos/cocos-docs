@@ -80,7 +80,7 @@
     - [安装配置原生开发环境](publish/setup-native-development.md)
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台调试](publish/debug-native.md)
-    - [发布到微信小游戏](publish/publish-wechatgame.md)
+    - [发布到微信小游戏平台](publish/publish-wechatgame.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
     - [定制项目构建模板](publish/custom-project-build-template.md)
 
