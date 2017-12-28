@@ -32,7 +32,7 @@
 
 我们从 Cocos Creator v1.8 开始，支持 Cocos Creator 游戏一键发布为微信小游戏，下面是详细的发布步骤：
 
-1. 在[微信公众平台](https://mp.weixin.qq.com/)下载微信开发者工具
+1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
 2. 在 "Creator 偏好设置" > "原生开发环境" 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.jpeg)
@@ -102,6 +102,8 @@
 
 ## 参考
 
+- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
 - [微信公众平台](https://mp.weixin.qq.com/)
 - [小程序 API 文档](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
+- [微信开发者工具](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信开发者工具文档](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
