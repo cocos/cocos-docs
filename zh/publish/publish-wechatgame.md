@@ -109,3 +109,9 @@
 - [小程序 API 文档](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
 - [微信开发者工具](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信开发者工具文档](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+
+## 常见问题
+
+### 微信开发者工具报错“Error: 未找到入口 app.json 文件”
+
+这个是微信平台的权限问题，微信公众平台那边必须设置成小游戏服务类目。也就是说，你的小程序 appid 类别应该是游戏。不过目前微信还不开放注册以及设置游戏类目（预计元旦后开放），开发者可以先选择体验小游戏，进行预览。详见论坛说明： http://forum.cocos.com/t/app-json/54828
