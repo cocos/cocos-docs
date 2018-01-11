@@ -24,7 +24,7 @@ If the following node tree is added:
 Then the hierarchy in the animation editor will show:
 ![animation-editor-hierarchy.png](./animation/animation-editor-hierarchy.png)
 
-For more information about**Animation**, please read [animation system](../animation/index.md).
+For more information about **Animation**, please read [animation system](../animation/index.md).
 
 <hr>
 

@@ -47,9 +47,28 @@ Pay attention, to keep the engine small and fast, there are limitations of auto-
 
 After deleting a prefab from the **Assets** panel, you can convert the corresponding prefab instance in the scene to an ordinary node. To do this, select the prefab instance and click menu `Node Presets > Convert to Ordinary Node`.
 
-## Delay to load dependent resources
+## Prefab Options
 
-In the **Explorer**, select the scene files, you can see in the **Property Inspector** "Async Load Assets" option, the default value is false. When selected, the use of **Property Inspector** association, loadRes, etc., when loading the default resources, will delay the load on the dependencies of other resources, to enhance the partial page of the loading speed. For details, please refer to[Change the policy of scene loading](scene-managing.md#async-load-assets).
+In **Assets** panel, select any of the prefab assets to edit the following options in **Properties** panel.
+
+### 'Optimization Policy' option
+
+The v1.8.0 added an 'Optimization Policy' option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
+ - **Auto adjust** (default)<br>
+   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.
+   When you first create an instance, the behavior is the same as 'For single instance creation'. 'For multiple instance creation' will be automatically used after multiple creation.
+ - **For single instance creation**<br>
+   This option skips code generation for this prefab.
+ - **For multiple instance creation**<br>
+   This option enables code generation for this prefab.
+
+If this prefab requires repeated execution of `cc.instantiate`, select 'For multiple instance creation', otherwise leave as the default 'Auto adjust'.
+
+> In the older version of the engine, the optimization was fixed to 'For multiple instance creation' and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The 'Auto adjust' in the new version is a good solution to this problem.
+
+### 'Async Load Assets' option
+
+The default value is false. When selected, the use of **Properties** association, loadRes, etc., when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
 
 <hr>
 

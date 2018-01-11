@@ -2,7 +2,7 @@
 
 ## Listen to events
 
-Even processing is done in the `cc.Node`. Components can register and monitor events by visiting the node `this.node`. Listen to events
+Event processing is done in the `cc.Node`. Components can register and monitor events by visiting the node `this.node`. Listen to events
 can be registered by the function `this.node.on()`. The methods are as follows:
 
 ```javascript

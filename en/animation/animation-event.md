@@ -28,7 +28,7 @@ You can also right click __Event__ in the animation editor and choose __Delete__
 Double click the white rectangle of the event you want to modify and the event editor
 will open. In the editor, you can manually input the function name that needs to be transmitted. When triggering, the corresponding method will be matched to each component according to this function name.
 
-If you want add imported parameters, you can click ??or ??near Params. Only three types of parameters supported: Boolean, String and Number.
+If you want add imported parameters, you can click `+` or `-` near Params. Only three types of parameters supported: Boolean, String and Number.
 
 ---
 

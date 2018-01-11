@@ -1,7 +1,5 @@
 # Script execution order
 
-A more complete script exection order control will be added in 1.5, currently use the following guidelines to control the script execution order:
-
 ## Use a unified control script to initialize other scripts
 
 In general, I will have a script `Game.js` as the overall control script, and if I have three components, such as` Player.js`, `Enemy.js`,` Menu.js`, then their initialization process is like this of:
@@ -117,6 +115,42 @@ CompB update!
 CompA update!
 ```
 
+## Set execition order for each kind of Component
+
+If the above methods still can not provide the required fine grained control, you can also set the `executionOrder` of the component directly. The `executionOrder` affects the execution priority of the life cycle callbacks for component. Set as follows:
+
+```js
+// Player.js
+
+cc.Class({
+    extends: cc.Component,
+    editor: {
+        executionOrder: -1
+    },
+
+    onLoad: function () {
+        cc.log('Player onLoad!');
+    }
+});
+```
+
+```js
+// Menu.js
+
+cc.Class({
+    extends: cc.Component,
+    editor: {
+        executionOrder: 1
+    },
+
+    onLoad: function () {
+        cc.log('Menu onLoad!');
+    }
+});
+```
+
+The smaller the `executionOrder` is, the earlier the component executes relative to the other components. The `executionOrder` defaults to 0, so if set to negative, it will execute before the other default components.
+The `executionOrder` will only affect onLoad, onEnable, start, update and lateUpdate while onDisable and onDestroy will not be affected.
 
 ---
 

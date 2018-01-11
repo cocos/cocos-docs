@@ -5,7 +5,7 @@ Animation components provide some common animation control functions. If you onl
 
 ### Play
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 
 // if no animation is designated to play and defaultClip is set up, play defaultClip animation
 anim.play();
@@ -26,7 +26,7 @@ If animation is in:
  - **Play** state, then Animation will stop this animation and re-play it
 
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 
 // play the first animation
 anim.playAdditive('position-anim');
@@ -40,7 +40,7 @@ Animation supports playing multiple animations simultaneously. The playing of di
 
 ### Pause Resume Stop
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 
 anim.play('test');
 
@@ -70,7 +70,7 @@ However, **Stop** will stop the playing of the animation. When being played agai
 
 ### set up the current time of animation
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 
 anim.play('test');
 
@@ -94,7 +94,7 @@ The playing state of **Animation** is actually calculated by **AnimationState**,
 
 ### obtain AnimationState
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 // play will return associated AnimationState
 var animState = anim.play('test');
 
@@ -104,7 +104,7 @@ var animState = anim.getAnimationState('test');
 
 ### Obtain animation information
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
 // obtain clip associated with animation
@@ -143,7 +143,7 @@ From **AnimationState**, all the animation information can be obtained. You can 
 
 ### Set up the playing speed of animation
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
 // accelerate the playing speed of animation
@@ -157,7 +157,7 @@ The greater the **speed** value is, the faster the speed is, and vice versa
 
 ### Set up the loop mode and loop count of animation
 ```javascript
-var anim = this.getComopnent(cc.Animation);
+var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
 // set the loop mode as Normal

@@ -15,7 +15,8 @@
   "scripts": {
     "build": "gulp prebuild && gitbook build && gulp postbuild",
     "preview": "gulp prebuild && gitbook serve",
-    "publish": "npm run build && gulp publish --dest /Volumes/creator/manual"
+    "upload": "gulp publish --dest /Volumes/creator/manual",
+    "publish": "npm run build && npm run upload"
   },
   "repository": {
     "type": "git",
