@@ -1,16 +1,16 @@
 {
     "plugins": [
-        "-lunr", 
+        "-lunr",
         "-search",
         "github-issue-feedback-language-custom",
         "search-title",
         "anchorjs",
         "toggle-chapters",
-        "sharing"        
+        "sharing"
     ],
     "styles": {
         "website": "./styles/website.css"
-    },  
+    },
     "pluginsConfig": {
         "github-issue-feedback-language-custom": {
             "repo": "cocos-creator/creator-docs",
@@ -42,8 +42,8 @@
             "whatsapp": false,
             "all": [
                 "facebook", "google", "twitter",
-                "weibo" 
+                "weibo"
             ]
-        }        
-    }    
+        }
+    }
 }
