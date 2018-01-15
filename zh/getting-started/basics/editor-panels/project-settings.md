@@ -5,19 +5,21 @@
 
 ## 分组管理
 
-![group](group.jpg)
+![group](project-settings/group.jpg)
 
 目前项目设置中的分组管理主要为 [碰撞体系统](../../physics/collision/index.md) 提供分组支持，详情请参考 [碰撞分组管理](../../physics/collision/collision-group.md)。
 
 ## 模块设置
 
-![module](module.jpg)
+![module](project-settings/module.jpg)
 
 这里的设置是针对发布 Web 版游戏时引擎中使用的模块进行裁剪，达到减小发布版引擎包体的效果。在列表中选中的模块在打包时将被引擎包括，未选中的模块会被裁剪掉。
 
 在这里设置裁剪能够大幅度的减小引擎包体，建议打包后进行完整的测试，避免在场景和脚本中使用裁剪掉的模块。
 
 ## 预览运行
+
+![preview](project-settings/preview.jpg)
 
 **预览运行** 分页提供的选项和 [偏好设置面板](preferences.md) 里的 **预览运行** 分页类似，用于设置初始预览场景、分辨率等等，但只对当前项目生效。
 
