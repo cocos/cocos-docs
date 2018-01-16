@@ -33,7 +33,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 # Detailed explanation
 
-By dragging the TTF font file and BMFont font file into the `file` attribute in the **Properties** panel the Label component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking `Use System Font`?
+By dragging the TTF font file and BMFont font file into the `Font` attribute in the **Properties** panel the Label component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking `Use System Font`?
 
 If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.html) for more information.
 
