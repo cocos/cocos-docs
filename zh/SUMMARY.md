@@ -16,7 +16,6 @@
         - [层级管理器](getting-started/basics/editor-panels/node-tree.md)
         - [属性检查器](getting-started/basics/editor-panels/properties.md)
         - [控件库](getting-started/basics/editor-panels/node-library.md)
-        - [工具栏](getting-started/basics/editor-panels/toolbar.md)
         - [控制台](getting-started/basics/editor-panels/console.md)
         - [偏好设置](getting-started/basics/editor-panels/preferences.md)
         - [项目设置](getting-started/basics/editor-panels/project-settings.md)
