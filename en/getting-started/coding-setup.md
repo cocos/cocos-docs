@@ -87,7 +87,9 @@ We can directly add breakpoint in the source files, make changes, recompile and 
 
 ### Use VS Code to debug native projects
 
-For debugging the workflow of native projects, please refer to [Native Platform Debugging] (../publish/debug-native.md).
+For debugging the workflow of native projects, please refer to [Native Platform Debugging](../publish/debug-native.md). 
+
+Since Creator v1.7, please refer to [JSB 2.0](./advanced-topics/jsb/JSB2.0-learning.md#remote-debugging-and-profile)
 
 
 ### Learn More About VS Code
