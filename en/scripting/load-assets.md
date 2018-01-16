@@ -128,7 +128,7 @@ like this:
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `image`, `audio` is a common Raw Asset.
+The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
 
 > Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
 
