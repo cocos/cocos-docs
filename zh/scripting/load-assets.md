@@ -127,7 +127,7 @@ cc.Class({
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-这里的 `image/image`, `prefab`, `anim`, `font` 都是常见的 Asset，而 `image`, `audio` 则是常见的 Raw Asset。
+这里的 `image/image`(SpriteFrame), `prefab`, `anim`, `font` 都是常见的 Asset，而 `atom`(particle), `audio` 则是常见的 Raw Asset。
 
 > `resources` 文件夹里面的资源，可以关联依赖到文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，`resources` 文件夹里面的所有资源，连同它们关联依赖的 `resources` 文件夹外部的资源，都会被导出。如果一份资源不需要由脚本**直接**动态加载，那么千万不要放在 `resources` 文件夹里。
 
