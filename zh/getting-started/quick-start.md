@@ -243,33 +243,31 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
     setInputControl: function () {
         var self = this;
         // 添加键盘事件监听
-        cc.eventManager.addListener({
-            event: cc.EventListener.KEYBOARD,
-            // 有按键按下时，判断是否是我们指定的方向控制键，并设置向对应方向加速
-            onKeyPressed: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = true;
-                        self.accRight = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accLeft = false;
-                        self.accRight = true;
-                        break;
-                }
-            },
-            // 松开按键时，停止向该方向的加速
-            onKeyReleased: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accRight = false;
-                        break;
-                }
+        // 有按键按下时，判断是否是我们指定的方向控制键，并设置向对应方向加速
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = true;
+                    self.accRight = false;
+                    break;
+                case cc.KEY.d:
+                    self.accLeft = false;
+                    self.accRight = true;
+                    break;
             }
-        }, self.node);
+        });
+        
+        // 松开按键时，停止向该方向的加速
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = false;
+                    break;
+                case cc.KEY.d:
+                    self.accRight = false;
+                    break;
+            }
+        });
     },
 ```
 
@@ -350,7 +348,12 @@ Accel: 1000
 // Star.js
     properties: {
         // 星星和主角之间的距离小于这个数值时，就会完成收集
-        pickRadius: 0
+        pickRadius: 0,
+        // 暂存 Game 对象的引用
+        game: {
+            default: null,
+            serializable: false
+        }
     },
 ```
 
