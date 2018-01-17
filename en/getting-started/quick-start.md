@@ -241,33 +241,29 @@ A main character that can only jump foolishly up and down on the same spot is no
     setInputControl: function () {
         var self = this;
         // add keyboard event listener
-        cc.eventManager.addListener({
-            event: cc.EventListener.KEYBOARD,
-            // When there is a key being pressed down, judge if it's the designated directional button and set up acceleration in the corresponding direction
-            onKeyPressed: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = true;
-                        self.accRight = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accLeft = false;
-                        self.accRight = true;
-                        break;
-                }
-            },
-            // when releasing the button, stop acceleration in this direction
-            onKeyReleased: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accRight = false;
-                        break;
-                }
+        // When there is a key being pressed down, judge if it's the designated directional button and set up acceleration in the corresponding direction
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = true;
+                    break;
+                case cc.KEY.d:
+                    self.accRight = true;
+                    break;
             }
-        }, self.node);
+        });
+        
+        // when releasing the button, stop acceleration in this direction
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = false;
+                    break;
+                case cc.KEY.d:
+                    self.accRight = false;
+                    break;
+            }
+        });        
     },
 ```
 
@@ -348,7 +344,12 @@ Next, double click this script to start editing. Only one property is needed for
 // Star.js
     properties: {
         // When the distance between the star and main character is less than this value, collection of the point will be completed
-        pickRadius: 0
+        pickRadius: 0,
+        // The game object
+        game: {
+            default: null,
+            serializable: false
+        }
     },
 ```
 
