@@ -248,10 +248,8 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
             switch(event.keyCode) {
                 case cc.KEY.a:
                     self.accLeft = true;
-                    self.accRight = false;
                     break;
                 case cc.KEY.d:
-                    self.accLeft = false;
                     self.accRight = true;
                     break;
             }

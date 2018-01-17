@@ -246,10 +246,8 @@ A main character that can only jump foolishly up and down on the same spot is no
             switch(event.keyCode) {
                 case cc.KEY.a:
                     self.accLeft = true;
-                    self.accRight = false;
                     break;
                 case cc.KEY.d:
-                    self.accLeft = false;
                     self.accRight = true;
                     break;
             }
