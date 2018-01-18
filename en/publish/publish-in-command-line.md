@@ -68,6 +68,15 @@ You can also compile project by using `--compile` command, the parameters is the
 
  - `includeEruda` - Whether or not inject Eruda debug plugin on web platform
 
+ - `md5Cache` - Whether or not enable md5 cache
+ - `encryptJs` - Whether or not encrypt js files when publish native platform
+ - `xxteaKey` - The key used for encrypt js files
+ - `zipCompressJs` - Whether or not compress the files after encrypting js files
+
+ - `wechatgame` - The wechatgame options
+   - `appid`- The wechat game appid
+   - `orientation` - The screen orientation [landscape, portrait]
+
  - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
 
  - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
