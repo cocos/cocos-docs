@@ -65,7 +65,7 @@
 
 在脚本中引用 SocketIO：
 
-1. 下载 SocketIO：[下载地址](http://socket.io/download/)
+1. 下载 SocketIO：[https://socket.io](https://socket.io)
 2. 将下载后的文件放入拖入资源管理器中你希望保存的路径
 3. 修改 SocketIO 脚本文件以避免在原生环境中被执行
 

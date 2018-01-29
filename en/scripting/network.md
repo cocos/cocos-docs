@@ -66,7 +66,7 @@ Beyond these, SocketIO provides packaging based on the WebSocket API which can b
 
 Reference SocketIO in script:
 
-1. Download SocketIO：[Download link](http://socket.io/download/)
+1. Download SocketIO：[https://socket.io](https://socket.io)
 2. Drag the downloaded file into the route you would like to save in explorer
 3. Modify SocketIO script to avoid the execution on native environment
 
