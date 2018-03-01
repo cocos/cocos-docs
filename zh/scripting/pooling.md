@@ -87,15 +87,15 @@ cc.Class({
 
     onLoad: function () {
         this.node.selected = false;
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect, this.node);
     },
 
     unuse: function () {
-        this.node.off(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
+        this.node.off(cc.Node.EventType.TOUCH_END, this.onSelect, this.node);
     },
 
     reuse: function () {
-        this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect.bind(this), this.node);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onSelect, this.node);
     }
 });
 ```

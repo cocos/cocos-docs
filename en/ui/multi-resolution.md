@@ -69,25 +69,11 @@ When creating a new scene, a node including the Canvas component will automatica
 
 ![canvas](multi-resolution/canvas_property.png)
 
-Set the Canvas node as the root node of all the render nodes of the image, then these nodes can automatically use the zooming in/out effect of Canvas's intelligent adaptations to multi-resolution.
+It is recommended to set the Canvas node as the root node of all the render nodes that need to adapt the **design resolution**. Because although **all nodes in the scene can automatically use the zooming in/out effect of Canvas's intelligent adaptations based on design resolution**, but the Canvas node itself also has the following features:
 
-### The features of Canvas when editing the scene
-
-When editing the scene, the `Size` property of the Canvas node will be the same with **design resolution**, which can't be modified manually.
-
-The `Position` property will remain at `(width/2, height/2)`, which is the center of the screen whose resolution is the same with the design resolution.
-
-Because the default value of the `Anchor` property will be set as `(0.5, 0.5)`, the Canvas will remain at the position of the screen center. The subnode of Canvas will make the screen center the origin of its coordinate system, which is different from that in the Cocos engine. Please pay attention to that.
-
-### The features of Canvas when running
-
-Apart from the above features, the Canvas component will have the following changes in features:
-
-- **Scale**: According to the calculating principle of the zooming in/out ratio described above, assign the calculated zooming in/out ratio to the `Scale` property.
-- **Size**: In the mode without black borders, the `Size` property of Canvas will remain the same as the screen resolution. In the mode with black borders, the `Size` property of Canvas will remain the same as the design resolution.
-
-Because Canvas can precisely obtain the size of the visible area of the screen when running, we can set up the alignment strategy of UI elements according to this size, making sure that all the UI elements can be correctly displayed in the visible area of the screen.
-
----
-
-Continue on to read about [Widget alignment](widget-align.md).
+- **Size**
+  - When editing the scene, the `Size` property of the Canvas node will be the same with design resolution, which can't be modified manually.
+  - When the game is running, in the mode without black borders, the `Size` property of Canvas will remain the same as the screen resolution. In the mode with black borders, the `Size` property of Canvas will remain the same as the design resolution.<br>
+  In other words, the size of the Canvas is equal to the visible area of the screen, **we can set sub UI elements automatically aligned to the Canvas border, making sure that UI elements can be correctly distributed in the visible area of the screen**.
+- **Position**: The `Position` property will remain at `(Width / 2, Height / 2)`, which is the center of the screen whose resolution is the same with the design resolution.
+- **Anchor**: The `Anchor` property defaults to `(0.5, 0.5)`. Since Canvas will remain at the position of the screen center, **the subnode of Canvas will make the screen center the origin of its coordinate system**, which is different from that in the Cocos2d-x engine. Please pay attention to that.
