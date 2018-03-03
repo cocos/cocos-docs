@@ -6,7 +6,7 @@ MotionStreak（拖尾）是 运动条纹，用于游戏对象的运动轨迹上�
 
 点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加其他组件` 中选择 `MotionStreak`，即可添加 MotionStreak 组件到节点上。
 
-拖尾的脚本接口请参考[MotionStreak API](../api/classes/MotionStreak.html)。
+拖尾的脚本接口请参考[MotionStreak API](../../../api/zh/classes/MotionStreak.html)。
 
 ## MotionStreak 属性
 

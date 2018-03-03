@@ -22,7 +22,7 @@ var particleSystem = node.addComponent(cc.ParticleSystem);
 // 接下去就可以对 particleSystem 这个对象进行一系列操作了
 ```
 
-Particle System 的脚本接口请参考 [Particle System API](../api/classes/ParticleSystem.html)。
+Particle System 的脚本接口请参考 [Particle System API](../../../api/zh/classes/ParticleSystem.html)。
 
 ## Particle System 属性
 
@@ -55,8 +55,8 @@ Particle System 的脚本接口请参考 [Particle System API](../api/classes/Pa
 | EndSpinVar         | 粒子结束自旋角度变化范围
 | SourcePos          | 发射器位置
 | PosVar             | 发射器位置的变化范围。（横向和纵向）
-| PositionType       | 粒子位置类型 [PositionType API](../api/enums/ParticleSystem.PositionType.html)
-| EmitterMode        | 发射器类型 [EmitterMode API](../api/enums/ParticleSystem.EmitterMode.html)
+| PositionType       | 粒子位置类型 [PositionType API](../../../api/zh/enums/ParticleSystem.PositionType.html)
+| EmitterMode        | 发射器类型 [EmitterMode API](../../../api/zh/enums/ParticleSystem.EmitterMode.html)
 | Gravity            | 重力 
 | Speed              | 速度 
 | SpeedVar           | 速度变化范围 
@@ -71,8 +71,8 @@ Particle System 的脚本接口请参考 [Particle System API](../api/classes/Pa
 | EndRadiusVar       | 结束半径变化范围
 | RotatePerS         | 粒子每秒围绕起始点的旋转角度，只有在半径模式下可用
 | RotatePerSVar      | 粒子每秒围绕起始点的旋转角度变化范围
-| SrcBlendFactor     | 指定原图混合模式 [BlendFactor API](../api/enums/BlendFactor.html)   
-| DstBlendFactor     | 指定目标的混合模式 [BlendFactor API](../api/enums/BlendFactor.html)  
+| SrcBlendFactor     | 指定原图混合模式 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)   
+| DstBlendFactor     | 指定目标的混合模式 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)  
 
 ## 注意事项
 

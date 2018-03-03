@@ -12,7 +12,7 @@ VideoPlayer 是一种视频播放组件，该组件让你可以轻松地播放�
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`VideoPlayer`，即可添加 VideoPlayer 组件到节点上。
 
-VideoPlayer 的脚本接口请参考 [VideoPlayer API](../api/classes/VideoPlayer.html)。
+VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
 
 ## VideoPlayer 属性
 

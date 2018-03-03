@@ -27,8 +27,8 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode: [API 传送门](http://cocos.com/docs/creator/api/enums/KEY.html)
-    - Event：[API 传送门](http://cocos.com/docs/creator/api/classes/Event.html)
+    - KeyCode: [API 传送门](../../../api/zh/enums/KEY.html)
+    - Event：[API 传送门](../../../api/zh/classes/Event.html)
 
 ```js
 cc.Class({
@@ -68,7 +68,7 @@ cc.Class({
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);;
 - 回调参数：
-    - Event：[API 传送门](http://cocos.com/docs/creator/api/classes/Event.html)
+    - Event：[API 传送门](../../../api/zh/classes/Event.html)
 
 ```js
 cc.Class({
