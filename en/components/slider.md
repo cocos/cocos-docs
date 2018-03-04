@@ -8,7 +8,7 @@ Slider is a slider component, For the production of UI components such as volume
 
 Click the 'Add component' slider at the bottom of the **Properties** panel and select 'Slider' from 'Add UI component'. You can then add the Slider component to the node.
 
-Please refer to the script interface of the slider [Slider API](../api/classes/Slider.html)
+Please refer to the script interface of the slider [Slider API](../../../api/en/classes/Slider.html)
 
 ## Slider property
 

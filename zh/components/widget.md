@@ -4,7 +4,7 @@ Widget(对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节�
 
 ![default](widget/widget-default.png)
 
-对齐挂件的脚本接口请参考[Widget API](../api/classes/Widget.html)。
+对齐挂件的脚本接口请参考[Widget API](../../../api/zh/classes/Widget.html)。
 
 ## 选项
 

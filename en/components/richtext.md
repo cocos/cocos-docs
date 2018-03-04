@@ -11,7 +11,7 @@ For more information about BBCode, please refer to the `BBCode format` section.
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select `richtext` from `Add Rendering Component` to add the richtext component to the node.
 
-The API reference of RichText is here: [RichText API](../api/classes/RichText.html)。
+The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html)。
 
 ## RichText property
 
@@ -42,7 +42,7 @@ Note: all tag names should be lower case and the property assignment should use 
 
 |Name|Description|Example|Note
 | -------|------- | -----|------ |
-|color|Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../api/classes/Color.html)
+|color|Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html)
 |size|Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` |
 |outline|Specify the font outline, you could customize the outline color and width by using the `color` and `width` attribute. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color and width attribute, the default color value is #ffffff and the default width is 1.
 |b|Render text as bold font| `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported.

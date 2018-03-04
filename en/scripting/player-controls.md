@@ -67,7 +67,7 @@ cc.Class({
 - Type：`cc.SystemEvent.EventType.DEVICEMOTION`
 - Call Back: Custom Event：callback(event);
 - Call Back Parameter：
-    - Event：[API 传送门](http://cocos.com/docs/creator/api/classes/Event.html)
+    - Event：[API reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({

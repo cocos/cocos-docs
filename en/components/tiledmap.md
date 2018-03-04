@@ -6,7 +6,7 @@ TiledMap is used for render a map with TMX format. Add TiledMap component for a 
 
 Click the button `Add Component` in the **Properties** Panel, then select `TiledMap` in `Add Renderer Component`. The TiledMap component will be added to the node.
 
-API reference: [TiledMap API](../api/classes/TiledMap.html)。
+API reference: [TiledMap API](../../../api/en/classes/TiledMap.html)。
 
 ## TiledMap Attribute
 

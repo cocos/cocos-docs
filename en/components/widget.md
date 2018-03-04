@@ -4,7 +4,7 @@ Widget is a frequently used UI layout component. It can make the current node au
 
 ![default](widget/widget-default.png)
 
-For API reference please read [Widget API](../api/classes/Widget.html)
+For API reference please read [Widget API](../../../api/en/classes/Widget.html)
 
 ## Property
 
