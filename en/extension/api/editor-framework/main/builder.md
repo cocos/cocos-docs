@@ -31,3 +31,7 @@ Emit when build finished
 ### Event: 'compile-finished'
 
 Emit when compile finished
+
+### Event: 'before-change-files'
+
+Emit before editor modifies the build files (e.g, before encryption js files)
