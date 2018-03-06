@@ -80,6 +80,7 @@
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台调试](publish/debug-native.md)
     - [发布到微信小游戏平台](publish/publish-wechatgame.md)
+    - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
     - [定制项目构建模板](publish/custom-project-build-template.md)
 
