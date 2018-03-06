@@ -1,9 +1,6 @@
 # 发布到 QQ「玩一玩」平台
-Cocos Creator 从 v1.9 版本开始就支持游戏内容跨平台发布到 QQ「玩一玩」。
 
-## QQ「玩一玩」
-
-QQ「玩一玩」与微信小游戏类似，内置于 QQ 中，无需下载游戏就能玩转多款热门手游。玩一玩的底层 runtime 并不是真正的 HTML 浏览器内核，而是玩一玩自研的 Bricks 游戏引擎。Cocos Creator 已经完成 QQ「玩一玩」平台的适配，用 Cocos Creator 开发的游戏可以无缝发布到 QQ「玩一玩」平台。
+QQ「玩一玩」与微信小游戏类似，内置于 QQ 中，无需下载游戏就能玩转多款热门手游。玩一玩的底层 runtime 并不是真正的 HTML 浏览器内核，而是玩一玩自研的 Bricks 游戏引擎。Cocos Creator 从 v1.9 版本开始就支持游戏内容跨平台发布到 QQ「玩一玩」。
  
  作为跨平台游戏引擎方，Creator 为用户完成的主要工作包括：
 
@@ -33,7 +30,7 @@ Cocos Creator 可以直接打包出符合 QQ「玩一玩」技术标准的游戏
 
 ![](./publish-qqplay/paste.jpeg)
 
-3、打开 Bricks 引擎中的 Xcode 工程，就可以直接进行玩一玩的编译调试了。具体可查看 Bricks 引擎的官方调试文档：[http://hudong.qq.com/docs/engine/introduce/safari_debug.html](http://hudong.qq.com/docs/engine/introduce/safari_debug.html)
+3、打开 Bricks 引擎中的 Xcode 工程，就可以直接进行玩一玩的编译调试了。具体可查看 [Bricks 引擎官方调试文档](http://hudong.qq.com/docs/engine/introduce/safari_debug.html)。
 
 与这篇文档搭配的还有一段教学视频，可以结合视频中的操作来理解，更加直观。
 
