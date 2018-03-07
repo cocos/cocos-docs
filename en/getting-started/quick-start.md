@@ -33,7 +33,7 @@ If you still don't know how to obtain and start Cocos Creator, please read the [
 
 Our original project has included all the game resources needed, therefore you don't need to import any other resources. For details on importing resources, please read content related to [Asset Workflow](../asset-workflow/index.md).
 
-Next, let's get to know the resources of the project. Please pay attention to a panel named **Assets**, on which all the resource allocation graphs of the project are shown.
+Next, let's get to know the resources of the project. Please pay attention to the **Assets** panel, on which all the resource allocation graphs of the project are shown.
 
 We can see that the root directory of the project resources is named as **assets**, which is in accordance with the `assets` directory in the decompressed original project. Only resources under this directory can be imported by Cocos Creator into the project and be managed.
 
