@@ -1,10 +1,10 @@
 # Quick Start：Make your first game
 
-The document you are reading now includes systematic introductions of the editor panel, functions and workflows of Cocos Creator. However, if you want to quickly learn the general flow and method of developing games by Cocos Creator, this chapter will meet your needs. After finishing the tutorial in this chapter, you might obtain enough information for creating games. But we still recommend you to continue reading this guide to understand the details of each functional block and the complete workflows.
+This document is a systematic introductions of the editor panel and the functions and workflows of Cocos Creator. Completing this chapter will help you quickly learn the general flow and methods for developing games with Cocos Creator. After finishing this tutorial you have enough information to get started creating basic games. It is strongly recommended you continue reading this guide to understand the details of each functional block and the complete workflows. Now, let's begin!
 
-Now, let's begin! Following the tutorial, we will create a deceiving game that is named **Pick Up the Stars**. Players of this game need to manipulate an **obtuse** monster that never stops jumping to touch the continuously appearing stars. The dazzling acceleration will bring great challenges to players. Play with your friends and see who can obtain the most stars!
+Following the tutorial, we will create a deceiving game that is named **Pick Up the Stars**. Players of this game need to manipulate an **obtuse** monster that never stops jumping to touch the continuously appearing stars. The dazzling acceleration will bring great challenges to players. Play with your friends and see who can obtain the most stars!
 
-The completed form of this game can be experienced here:
+The completed form of this game can be played here:
 
 http://fbdemos.leanapp.cn/star-catcher/
 
@@ -23,7 +23,7 @@ You can also download the completed project. If there is any confusion when foll
 
 If you still don't know how to obtain and start Cocos Creator, please read the [Install](install.md) section.
 
-1. Firstly, start Cocos Creator, and choose **Open other projects**
+1. First, start Cocos Creator, and choose **Open other projects**
 2. In the pop up input field for selecting folder, choose `start_project` that has just been downloaded and decompressed, and click the **Open** button
 3. The main window of Cocos Creator editor will be opened, and you will see the project status as follows
 
@@ -31,9 +31,9 @@ If you still don't know how to obtain and start Cocos Creator, please read the [
 
 ## Check game resources
 
-Our original project has included all the game resources needed; therefore, you don't need to import any other resources. For details on importing resources, please read content related to [Asset Workflow](../asset-workflow/index.md).
+Our original project has included all the game resources needed, therefore you don't need to import any other resources. For details on importing resources, please read content related to [Asset Workflow](../asset-workflow/index.md).
 
-Next, let's get to know the resources of the project. Please pay attention to a panel named **Assets**, on which all the resource allocation graphs of the project are shown.
+Next, let's get to know the resources of the project. Please pay attention to the **Assets** panel, on which all the resource allocation graphs of the project are shown.
 
 We can see that the root directory of the project resources is named as **assets**, which is in accordance with the `assets` directory in the decompressed original project. Only resources under this directory can be imported by Cocos Creator into the project and be managed.
 
@@ -252,7 +252,7 @@ A main character that can only jump foolishly up and down on the same spot is no
                     break;
             }
         });
-        
+
         // when releasing the button, stop acceleration in this direction
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function (event){
             switch(event.keyCode) {
@@ -724,9 +724,9 @@ Then choose the `Canvas` node, drag the `assets/audio/score` resource to the `Sc
 
 Now it's done! The scene hierarchy of the completed form and properties of each key component are as follows:
 
-![node tree complete](quick-start/hierarchy_complete.png) 
+![node tree complete](quick-start/hierarchy_complete.png)
 
-![game complete](quick-start/game_complete.png) 
+![game complete](quick-start/game_complete.png)
 
 ![player complete](quick-start/player_complete.png)
 
