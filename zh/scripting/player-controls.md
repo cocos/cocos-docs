@@ -75,7 +75,7 @@ cc.Class({
     extends: cc.Component,
     onLoad () {
         // open Accelerometer
-        cc.inputManager.setAccelerometerEnabled(true);
+        cc.systemEvent.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     },
     
