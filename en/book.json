@@ -10,11 +10,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "http://www.cocos2d-x.org/docs/creator/en/"
+                        "link": "http://www.cocos2d-x.org/docs/creator/manual/en/"
                     },
                     {
                         "name": "API Ref",
-                        "link": "http://www.cocos2d-x.org/docs/creator-api/en/"
+                        "link": "http://www.cocos2d-x.org/docs/creator/api/en/"
                     }
                 ]
             },
