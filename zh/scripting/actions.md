@@ -68,7 +68,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让节点左右来回移动，并重复5次
     var seq = cc.repeat(
                 cc.sequence(
-                    cc.moveBy(2, 200, 0), 
+                    cc.moveBy(2, 200, 0),
                     cc.moveBy(2, -200, 0)
                 ), 5);
     node.runAction(seq);
@@ -79,7 +79,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让节点左右来回移动并一直重复
     var seq = cc.repeatForever(
                 cc.sequence(
-                    cc.moveBy(2, 200, 0), 
+                    cc.moveBy(2, 200, 0),
                     cc.moveBy(2, -200, 0)
                 ));
     ```
@@ -89,7 +89,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让目标动作速度加快一倍，相当于原本2秒的动作在1秒内完成
     var action = cc.speed(
                     cc.spawn(
-                        cc.moveBy(2, 0, 50), 
+                        cc.moveBy(2, 0, 50),
                         cc.scaleTo(2, 0.8, 1.4)
                     ), 0.5);
     node.runAction(action);
