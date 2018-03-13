@@ -79,6 +79,8 @@
     - [Native Development Environment](publish/setup-native-development.md)
     - [Publish to Native Platforms](publish/publish-native.md)
     - [Native Platform Debugging](publish/debug-native.md)
+    - [Publish to Wechat Mini Games](publish/publish-wechatgame.md)
+    - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
     - [Customize Project Build Template](publish/custom-project-build-template.md)
 
