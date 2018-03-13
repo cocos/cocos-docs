@@ -1,10 +1,11 @@
-# Cocos Creator v1.8.x 用户手册
+# Cocos Creator v1.9.x 用户手册
 
 欢迎使用 Cocos Creator 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 
 ## 特别推荐
 
- - 从 1.8 开始，Cocos Creator 已支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.html)。
+ - 从 v1.9 开始，Cocos Creator 支持发布到 [Facebook Instant Games](publish/publish-fb-instantgames.html) 及 [QQ 玩一玩](publish/publish-qqplay.html)。
+ - 从 v1.8 开始，Cocos Creator 支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.html)。
  - Cocos Creator 还支持导出场景和 UI 到 Cocos2d-x，请参阅 [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)。
 
 ## 总导读
