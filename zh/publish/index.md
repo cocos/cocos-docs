@@ -6,6 +6,7 @@
 - [原生平台调试](debug-native.md)
 - [发布到微信小游戏平台](publish-wechatgame.md)
 - [发布到 QQ「玩一玩」平台](publish-qqplay.md)
+- [发布到 Facebook Instant Games 平台](publish-fb-instantgames.md)
 - [命令行发布项目](publish-in-command-line.md)
 - [定制项目构建模板](custom-project-build-template.md)
 
