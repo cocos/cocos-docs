@@ -34,21 +34,25 @@ After the build is complete, a `fb-instant-games` folder will be created in the 
 Create a new application in the background of Facebook, add an **Instant Games** in **Add a Product** , set the game category, and save the changes. (For details, please refer to the [setting application](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=en_US#app-setup))
 
 1. **Enable the https-enabled Web server locally**
+
 - Install http-server package via npm
 ```bash
 $ npm install -g http-server
 ```
+
 - Create the private key and certificate through openssl. The path needs to be assigned to the built `fb-instant-games` directory
 ```bash
 $ cd fb-instant-games/
 $ openssl genrsa 2048 > key.pem
 $ openssl req -x509 -days 1000 -new -key key.pem -out cert.pem
 ```
+
 - Once the private key and certificate are ready, the Web service can be started locally via SSL.
 ```bash
 $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 ```
-- Use the browser to open https://localhost:8080 and skip the security warning displayed by the browser. This step is only to allow the browser to whitelist the above private key and certificate. If you subsequently regenerate the private key and certificate, you will need to turn on the confirmation again. It is not yet possible to preview the game directly at this step, because the preview game needs to initialize the SDK of Facebook Instant Games. You need to use the following method.
+
+- Use the browser to open https://localhost:8080 and skip the security warning displayed by the browser. This step is only to allow the browser to whitelist the above private key and certificate. If you subsequently regenerate the private key and certificate, you will need to turn on the confirmation again. It is not yet possible to preview the game directly at this step, because the preview game needs to initialize the Facebook Instant Games SDK. You need to use the following method.
 
 2. **Preview the game on Facebook**
 If you want to use all the features of the Facebook Instant Games SDK, you need to open:
@@ -64,7 +68,7 @@ Then you can see the game running successfully:
 
 ![](./publish-fb-instant-games/upload.png)
 
-- When the version status changes to Standby, click the ★ button to push the build version to the production environment.
+- When the version status changes to Standby, click the "★" button to push the build version to the production environment.
 
 ![](./publish-fb-instant-games/push.png)
 
@@ -74,7 +78,7 @@ Click on the **Instant Games** tab in the Applications panel, select **Details**
 
 ![](./publish-fb-instant-games/share.png)
 
-For details, refer to [**Testing, Publishing, and Sharing**](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN) [**an Instant Game**](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN).
+For details, refer to [Testing, Publishing, and Sharing an Instant Game](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN).
 
 **Precautions**
 
@@ -85,7 +89,7 @@ There are many limitations to Facebook hosting, the most important of which are:
 
 # Custom Instant Games
 
-Developers can configure these files under `resources/static/``fb-``instant-games/` in the Creator installation directory according to their needs:
+Developers can configure these files under `resources/static/fb-instant-games/` in the Creator installation directory according to their needs:
 
 ![](./publish-fb-instant-games/file.png)
 
@@ -101,7 +105,7 @@ In addition, Facebook also provides the **Facebook SDK for JavaScript**, which c
 
 # Reference link
 
-- The [Instant Games s](https://github.com/cocos-creator/demo-instant-games)[ample project](https://github.com/cocos-creator/demo-instant-games) provided by Cocos Creator contains an Instant Games SDK usage example.
+- The [Instant Games sample project](https://github.com/cocos-creator/demo-instant-games) provided by Cocos Creator contains an Instant Games SDK usage example.
 - [Facebook background](https://developers.facebook.com/)
 - [Facebook Instant Games document](https://developers.facebook.com/docs/games/instant-games?locale=en_US)
 
