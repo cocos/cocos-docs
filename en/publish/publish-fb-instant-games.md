@@ -33,7 +33,7 @@ After the build is complete, a `fb-instant-games` folder will be created in the 
 
 Create a new application in the background of Facebook, add an **Instant Games** in **Add a Product** , set the game category, and save the changes. (For details, please refer to the [setting application](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=en_US#app-setup))
 
-1. **Enable the https-enabled Web server locally**
+### Enable the https-enabled Web server locally
 
 - Install http-server package via npm
 ```bash
@@ -54,7 +54,8 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 
 - Use the browser to open https://localhost:8080 and skip the security warning displayed by the browser. This step is only to allow the browser to whitelist the above private key and certificate. If you subsequently regenerate the private key and certificate, you will need to turn on the confirmation again. It is not yet possible to preview the game directly at this step, because the preview game needs to initialize the Facebook Instant Games SDK. You need to use the following method.
 
-2. **Preview the game on Facebook**
+### Preview the game on Facebook
+
 If you want to use all the features of the Facebook Instant Games SDK, you need to open:
 https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080 in your browser. Pay attention to the `YOUR_GAME_ID` in the link. Replace the application number you created in Facebook.
 
@@ -64,11 +65,11 @@ Then you can see the game running successfully:
 
 ## Third, Upload to Facebook
 
-- Click the **Virtual Hosts** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
+Click the **Virtual Hosts** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
 
 ![](./publish-fb-instant-games/upload.png)
 
-- When the version status changes to Standby, click the "★" button to push the build version to the production environment.
+When the version status changes to Standby, click the "★" button to push the build version to the production environment.
 
 ![](./publish-fb-instant-games/push.png)
 
@@ -93,9 +94,9 @@ Developers can configure these files under `resources/static/fb-instant-games/` 
 
 ![](./publish-fb-instant-games/file.png)
 
-`fbapp-config.json`: This is the configuration of the entire package, go to the [official introduction](https://developers.facebook.com/docs/games/instant-games/bundle-config).
-`index.html`: This will change the version of the Instant Games SDK introduced.
-`main.js`: Here you can modify the SDK initialization and progress bar.
+ - `fbapp-config.json`: This is the configuration of the entire package, go to the [official introduction](https://developers.facebook.com/docs/games/instant-games/bundle-config).
+ - `index.html`: This will change the version of the Instant Games SDK introduced.
+ - `main.js`: Here you can modify the SDK initialization and progress bar.
 
 # SDK Instructions
 
@@ -108,4 +109,3 @@ In addition, Facebook also provides the **Facebook SDK for JavaScript**, which c
 - The [Instant Games sample project](https://github.com/cocos-creator/demo-instant-games) provided by Cocos Creator contains an Instant Games SDK usage example.
 - [Facebook background](https://developers.facebook.com/)
 - [Facebook Instant Games document](https://developers.facebook.com/docs/games/instant-games?locale=en_US)
-

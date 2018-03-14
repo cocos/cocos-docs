@@ -33,7 +33,7 @@
 
 在 Facebook 后台创建一款新应用，在 **添加商品** 中添加 **小游戏** ，设置游戏类别，保存更改。（详情可参考 [设置应用](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=zh_CN#app-setup)）
 
-1、**在本地启用支持 https 的 Web 服务器**
+### 在本地启用支持 https 的 Web 服务器
 
 - 通过 npm 安装 http-server 包；
 ```bash
@@ -52,9 +52,9 @@ $ openssl req -x509 -days 1000 -new -key key.pem -out cert.pem
 $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1 
 ```
 
-- 用浏览器打开 https://localhost:8080， 跳过浏览器显示的安全警告，这一步仅仅是为了让浏览器把上面的私钥和证书加入白名单。如果后续重新生成了私钥和证书，则需要再次打开确认一次。目前还不能在这一步直接预览游戏，因为预览游戏需要初始化 Facebook Instant Games 的 SDK，需要通过下面的方式。
+- 用浏览器打开 [https://localhost:8080](https://localhost:8080)，跳过浏览器显示的安全警告，这一步仅仅是为了让浏览器把上面的私钥和证书加入白名单。如果后续重新生成了私钥和证书，则需要再次打开确认一次。目前还不能在这一步直接预览游戏，因为预览游戏需要初始化 Facebook Instant Games 的 SDK，需要通过下面的方式。
 
-2、**在 Facebook 域名下预览游戏**
+### 在 Facebook 域名下预览游戏
 
 如果要使用 Facebook Instant Games SDK 的所有功能，需要用浏览器打开 https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080， 注意要将链接中的 `YOUR_GAME_ID` 换成你在 Facebook 后台创建的应用编号。
 
@@ -64,11 +64,11 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 
 ## 三、上传到 Facebook
 
-1、点击应用面板左侧的 **虚拟主机** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
+点击应用面板左侧的 **虚拟主机** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
 
 ![](./publish-fb-instant-games/upload.png)
 
-2、当版本状态更改为“待命”时，单击 “★” 按钮将构建版本推送到“生产环境”。
+当版本状态更改为“待命”时，单击 “★” 按钮将构建版本推送到“生产环境”。
 
 ![](./publish-fb-instant-games/push.png)
 
@@ -106,4 +106,3 @@ Creator 已集成 Facebook 提供的 Instant Games SDK，并且在游戏加载�
 - Cocos Creator 提供的 [Instant Games 工程模板](https://github.com/cocos-creator/demo-instant-games)，包含了 Instant Games SDK 使用示例。
 - [Facebook 后台](https://developers.facebook.com/)
 - [Facebook Instant Games 文档](https://developers.facebook.com/docs/games/instant-games?locale=zh_CN)
-
