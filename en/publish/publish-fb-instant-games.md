@@ -23,11 +23,11 @@ Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games 
 
 Using Creator open the project project that needs to be published. Open the Build Publish panel from the Menu bar. Select `Project` and select the Facebook Instant Games platform in the build Publish panel:
 
-![](./publish-fb-instantgames/build.png)
+![](./publish-fb-instant-games/build.png)
 
 After the build is complete, a `fb-instant-games` folder will be created in the specified directory:
 
-![](./publish-fb-instantgames/package.png)
+![](./publish-fb-instant-games/package.png)
 
 ## Second, test the game
 
@@ -56,23 +56,23 @@ https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https:/
 
 Then you can see the game running successfully:
 
-![](./publish-fb-instantgames/game.png)
+![](./publish-fb-instant-games/game.png)
 
 ## Third, Upload to Facebook
 
 - Click the **Virtual Hosts** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
 
-![](./publish-fb-instantgames/upload.png)
+![](./publish-fb-instant-games/upload.png)
 
 - When the version status changes to Standby, click the ★ button to push the build version to the production environment.
 
-![](./publish-fb-instantgames/push.png)
+![](./publish-fb-instant-games/push.png)
 
 ## Fourth, Share your game on Facebook
 
 Click on the **Instant Games** tab in the Applications panel, select **Details**, in the details page to the bottom of the page you can see the following picture, select **share the game**, you can directly share the game to the Facebook news.
 
-![](./publish-fb-instantgames/share.png)
+![](./publish-fb-instant-games/share.png)
 
 For details, refer to [**Testing, Publishing, and Sharing**](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN) [**an Instant Game**](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN).
 
@@ -87,7 +87,7 @@ There are many limitations to Facebook hosting, the most important of which are:
 
 Developers can configure these files under `resources/static/``fb-``instant-games/` in the Creator installation directory according to their needs:
 
-![](./publish-fb-instantgames/file.png)
+![](./publish-fb-instant-games/file.png)
 
 `fbapp-config.json`: This is the configuration of the entire package, go to the [official introduction](https://developers.facebook.com/docs/games/instant-games/bundle-config).
 `index.html`: This will change the version of the Instant Games SDK introduced.

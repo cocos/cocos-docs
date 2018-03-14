@@ -17,17 +17,17 @@
 - 使用 Cocos Creator 构建游戏
 - 测试游戏
 - 上传到 Facebook 后台
-- 在 Facebook ****中分享你的游戏
+- 在 Facebook 中分享你的游戏
 
 ## 一、使用 Cocos Creator 构建游戏
 
 使用 Creator 打开需要发布的项目工程，从 `菜单栏` — `项目` 中打开构建发布面板，在构建发布面板中选择 Facebook Instant Games 平台进行构建：
 
-![](./publish-fb-instantgames/build.png)
+![](./publish-fb-instant-games/build.png)
 
 构建完成后在指定目录下会生成一个 `fb-instant-games` 文件夹：
 
-![](./publish-fb-instantgames/package.png)
+![](./publish-fb-instant-games/package.png)
 
 ## 二、测试游戏
 
@@ -55,22 +55,22 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 
 然后可以看到游戏成功运行：
 
-![](./publish-fb-instantgames/game.png)
+![](./publish-fb-instant-games/game.png)
 
 ## 三、上传到 Facebook
 1. 点击应用面板左侧的 **虚拟主机** 选项卡，单击 **上传版本** ，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
 
-![](./publish-fb-instantgames/upload.png)
+![](./publish-fb-instant-games/upload.png)
 
 2. 当版本状态更改为“待命”时，单击 **“★”** 按钮将构建版本推送到“生产环境”。
 
-![](./publish-fb-instantgames/push.png)
+![](./publish-fb-instant-games/push.png)
 
 ## 四、在 Facebook 中分享你的游戏
 
 点击应用面板中的 **小游戏** 选项卡，选择 **详情** ，在 **详情** 页面中拉到最下方可看到如下图所示部分，选择 **分享游戏** ，即可将小游戏直接分享到 Facebook 动态消息中。
 
-![](./publish-fb-instantgames/share.png)
+![](./publish-fb-instant-games/share.png)
 
 详细的内容，可参考 [测试、发布和分享小游戏](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=zh_CN)。
 
@@ -85,7 +85,7 @@ Facebook 托管存在多项限制，其中最重要的是：
 
 开发者可以根据自身需求在 Creator 安装目录的 `resources/static/``fb-``instant-games/` 下配置这些文件：
 
-![](./publish-fb-instantgames/file.png)
+![](./publish-fb-instant-games/file.png)
 
 - `fbapp-config.json`：这是整个包的配置，可前往[官方介绍](https://developers.facebook.com/docs/games/instant-games/bundle-config)
 - `index.html`：这里可以修改引入的 Facebook Instant Games SDK 版本
