@@ -4,7 +4,7 @@
 
 ## 特别推荐
 
- - 从 v1.9 开始，Cocos Creator 支持发布到 [Facebook Instant Games](publish/publish-fb-instantgames.html) 及 [QQ 玩一玩](publish/publish-qqplay.html)。
+ - 从 v1.9 开始，Cocos Creator 支持发布到 [Facebook Instant Games](publish/publish-fb-instant-games.html) 及 [QQ 玩一玩](publish/publish-qqplay.html)。
  - 从 v1.8 开始，Cocos Creator 支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.html)。
  - Cocos Creator 还支持导出场景和 UI 到 Cocos2d-x，请参阅 [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)。
 
