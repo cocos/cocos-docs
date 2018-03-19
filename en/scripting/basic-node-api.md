@@ -2,29 +2,29 @@
 
 We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](http://www.cocos2d-x.org/docs/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](http://www.cocos2d-x.org/docs/api-ref/creator/v1.3/classes/Component.html) API reference.
 
-
 ## Node active state and hierarchy
 
 Let's assume we are at a component script and use `this.node` to access current node.
 
 ### Activate/Deactivate node
 
-`this.node.active = false;`
-
-This operation will deactivate node, means:
-
-- Hide current node and all child nodes in scene.
-- Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
-- If there's an `onDisable` method in these component, it will be called.
+The node is active by default. In addition to switching the activating state of a node in the editor, you can also use the following code:
 
 `this.node.active = true;`
 
 This operation will activate node, means:
-
 - Show current node and all child nodes in scene, unless child node is deactivated seperately.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
 
+`this.node.active = false;`
+
+If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time. 
+
+If all of the node's parent nodes were previously activated, executing the line code at this point means:
+- Hide current node and all child nodes in scene.
+- Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
+- If there's an `onDisable` method in these component, it will be called.
 
 ### Change node's parent
 
