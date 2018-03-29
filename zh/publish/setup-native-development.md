@@ -78,7 +78,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 - **Android SDK Root**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
 - **NDK Root**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
-- **ANT Path**（如使用 Android Studio，这一步可以跳过），请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。
+- **ANT Path**，请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
