@@ -258,7 +258,7 @@ cc.loader.load(absolutePath, function () {
 
 There still remains some restrictions currently, the most important are:
 
-1. Remote loading does not support resources other than image files (other type of files already planed in the 1.5 / 1.6)
+1. Native platform remote loading does not support resources other than image files
 2. This loading method only supports the raw assets, does not support SpriteFrame, SpriteAtlas, Tilemap and other resources (requires Assets Bundle support planned in future version)
 3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered, this is due to WebGL security policy restrictions
 
