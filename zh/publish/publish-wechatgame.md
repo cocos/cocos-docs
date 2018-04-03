@@ -77,16 +77,9 @@
 具体来说，开发者需要做的是：
 
 1. 构建时，勾选 md5Cache 功能。
-2. 将小游戏发布包中的 res 文件夹完整得上传到服务器。
+2. 将小游戏发布包中的 res 文件夹完整的上传到服务器。
 3. 删除发布包内的 res 文件夹。
-4. 在 main.js 中，找到对应代码段并添加 `REMOTE_SERVER_ROOT` 的设置
-
-    ```
-    require('libs/wx-downloader.js');
-    // 添加这行代码，将 URL 修改为正确的 res 远程路径。
-    wxDownloader.REMOTE_SERVER_ROOT = 'https://www.xxx.com/remote-res/';
-    boot();
-    ```
+4. 在构建发布面板中设置 REMOTE_SERVER_ROOT。
 5. 对于测试阶段来说，可能你无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开详情页面，勾选项目设置中的 `不检验安全域名、TLS 版本以及 HTTPS 证书` 选项。
 
     ![](./publish-wechatgame/detail.jpeg)
