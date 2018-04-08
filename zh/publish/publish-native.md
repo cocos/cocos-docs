@@ -108,5 +108,8 @@ Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
 
 ---
 
-要了解如何在原生平台上调试，请继续前往 [原生平台调试](debug-native.md) 说明文档。
+要了解如何在原生平台上调试：
 
+如果 Creator 版本为 v1.7 以上请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
+
+如果 Creator 版本为 v1.6 以下请参考 [原生平台调试](debug-native.md)。
