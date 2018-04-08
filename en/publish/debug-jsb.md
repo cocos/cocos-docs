@@ -45,7 +45,7 @@ If the game only run on the real machine, or the simulator can not reproduce the
 
 ![](debug-jsb/jsc-entitlements.png)
 
-- Make sure the Code Signing Entitlemenets option contains entitlements files in the Build Setting (**examplecases-mobile.entitlements** this part requires manual input).
+- Make sure the Code Signing Entitlements option contains entitlements files in the Build Setting (**examplecases-mobile.entitlements** this part requires manual input).
 
 ![](debug-jsb/jsc-entitlements-check.png)
 

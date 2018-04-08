@@ -45,7 +45,7 @@
 
 ![](debug-jsb/jsc-entitlements.png)
 
-- 确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
+- 确保 Build Setting 里面 Code Signing Entitlements 选项中包含 entitlements 文件。
 
 ![](debug-jsb/jsc-entitlements-check.png)
 
