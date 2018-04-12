@@ -13,7 +13,7 @@ module.exports = {
     let fs = require('fs');
     let path = require('path');
     // 插件加载后在项目根目录自动创建指定文件夹
-    fs.mkdirSync(Path.join(Editor.projectPath, 'myNewFolder'));
+    fs.mkdirSync(path.join(Editor.projectPath, 'myNewFolder'));
     Editor.success('New folder created!');
   }
 }
