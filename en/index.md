@@ -4,6 +4,12 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 game development tool based on Cocos2d-x. This is a comprehensive and detailed guide
 to help you get started with designing and developing games. 
 
+## What's New
+ <!--
+- Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+  -->
+- Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
+
 ## Index
 
 - [Getting Started](getting-started/index.md)

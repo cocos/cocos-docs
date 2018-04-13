@@ -2,19 +2,18 @@
 
 Cocos Creator has a whole set of uniform asset management mechanisms. In this tutorial, we will introduce
 
-- Classification of assets
+- Declaration of asset properties
 - How to set assets in the **Properties** panel
 - How to dynamically assets
 - How to load remote assets or device files
 - Assets dependencies and how to release assets
 
-## Classification of assets
+> **Attention:**
+> Starting from 1.10, Cocos Creator refactored all `RawAsset` into `Asset`, and the usage is more unified than before. This document is for the latest version only, and if you are using an older version of Creator, check the [older version of the document](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/en/scripting/load-assets.md) please.
 
-Assets currently can be classified into two different types, one type is called **Asset**, the other is called **Raw Asset**.
+## Declaration of asset properties
 
-### Asset
-
-Most assets like `cc.SpriteFrame`, `cc.AnimationClip` and `cc.Prefab` all belong to Asset. The loading of Asset is uniform and automatic. Assets that rely on each other can be preloaded automatically.
+In Creator, all types inherited from `cc.Asset` are collectively called assets, such as `cc.Texture2D`, `cc.SpriteFrame`, `cc.AnimationClip`, `cc.Prefab` and so on. Their loading is uniform and automatic. Assets that rely on each other can be preloaded automatically.
 
 > For example, when the engine is loading the scene, it will first automatically load the assets linked to the scene and if these assets are linked to other assets, then these other assets will also be loaded first. Only when the loading is complete will the loading of the scene be finished.
 
@@ -36,45 +35,9 @@ cc.Class({
 });
 ```
 
-### <a name="raw-asset"></a>Raw Asset
-
-The object received by the existing API previously in Cocos2d is not the Asset object mentioned above but a URL presented by a string. These former asset types that the API uses are called Raw Assets. `cc.Texture2D`, `cc.Font` and `cc.AudioClip` are all Raw Assets. If you are going to use Raw Assets in the engine, all you have to do is to pass the URL of the asset to the engine API, then the engine interior will automatically load the assets represented by this URL.
-
-If you are going to declare a Raw Asset attribute type as `cc.Texture2D` in CCClass, you may want to define it first:
-
-```js
-cc.Class({
-    extends: cc.Component,
-    properties: {
-    
-        textureURL: {
-            default: null,
-            type: cc.Texture2D
-        }
-        
-    }
-});
-```
-
-The problem with writing in this way is that `textureURL` in the code is actually a character string rather than an instance of `cc.Texture2D`. To avoid confusing the two types here, use `url: cc.Texture2D` rather than `type: cc.Texture2D` when declaring the Raw Asset attribute in CCClass.
-
-```js
-cc.Class({
-    extends: cc.Component,
-    properties: {
-    
-        textureURL: {
-            default: "",
-            url: cc.Texture2D
-        }
-        
-    }
-});
-```
-
 ## How to set assets in the **Properties** panel
 
-No matter whether using Assets or Raw Assets, as long as you define the type in the script, you can set assets easily in the **Properties** panel. Hypothetically, we could have a component like this:
+As long as you define the type in the script, you can set assets easily in the **Properties** panel. Hypothetically, we could have a component like this:
 
 ```js
 // NewScript.js
@@ -83,9 +46,9 @@ cc.Class({
     extends: cc.Component,
     properties: {
     
-        textureURL: {
+        texture: {
             default: "",
-            url: cc.Texture2D
+            type: cc.Texture2D
         },
         spriteFrame: {
             default: null,
@@ -113,9 +76,9 @@ In this way you can get the set asset directly from the script:
 ```js
     onLoad: function () {
         var spriteFrame = this.spriteFrame;
-        var textureURL = this.textureURL;
+        var texture = this.texture;
         
-        spriteFrame.setTexture(textureURL);
+        spriteFrame.setTexture(texture);
     }
 ```
 
@@ -128,11 +91,9 @@ like this:
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
-
 > Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
 
-The second to note is that comparing to previous Cocos2d-html5, dynamic loading resources in Creator are **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
+The second to note is that comparing to previous Cocos2d-JS, dynamic loading resources in Creator are **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
 ## How to dynamically load Asset
 
@@ -151,16 +112,7 @@ cc.loader.loadRes("test assets/anim", function (err, clip) {
     self.node.getComponent(cc.Animation).addClip(clip, "anim");
 });
 
-// load SpriteAtlas, and get one of them SpriteFrame
-// Note Atlas resource file (plist) usually of the same name and a picture file (PNG) placed in a directory,
-// So should need to in the second parameter specifies the resource type.
-cc.loader.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
-    var frame = atlas.getSpriteFrame('sheep_down_0');
-    sprite.spriteFrame = frame;
-});
-```
-
-#### Independent of load SpriteFrame
+#### Load SpriteFrame
 
 After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if
 `test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
@@ -174,6 +126,19 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 ```
 
 > If you specify a type parameter, you will find the specified resource type in the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both 'player.clip' and 'player.psd'), or the need to obtain a "sub asset" (for example, gets Texture2D SpriteFrame generated), should need to declare types.
+
+#### Load SpriteFrames from Atlas
+
+For an atlas imported from a third-party tool such as Texturepacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
+
+// load SpriteAtlas, and get one of them SpriteFrame
+// Note Atlas resource file (plist) usually of the same name and a picture file (PNG) placed in a directory,
+// So should need to in the second parameter specifies the resource type.
+cc.loader.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
+    var frame = atlas.getSpriteFrame('sheep_down_0');
+    sprite.spriteFrame = frame;
+});
+```
 
 #### Resource Release
 
@@ -190,30 +155,6 @@ Also, You can also use `cc.loader.releaseAsset` to release the instance of a spe
 cc.loader.releaseAsset(spriteFrame);
 ```
 
-### How to dynamically load Raw Asset
-
-Raw Asset can be loaded directly from a remote server using a URL, you can also dynamically loaded from the item. In the case of remote loading, The original Cocos2d constant loading method, using cc.loader.load can be. Raw Asset to the project, load the same way as Asset:
-
-```javascript
-// load Texture, don't add extension
-cc.loader.loadRes("test assets/image", function (err, texture) {
-    ...
-});
-```
-
-#### cc.url.raw
-
-After the success of Raw Asset loading, if you need to pass some form of URL API, you still need to give the full path. You need to use `cc.url.raw` converted to a URL:
-
-```js
-// The original URL will complain! File not found
-var texture = cc.textureCache.addImage("assets/res/textures/star.png");
-
-// Use cc.url.Raw instead, requiring you to declare resources directory and file name extension
-var realUrl = cc.url.raw("res/textures/star.png");
-var texture = cc.textureCache.addImage(realUrl);
-```
-
 ### Resource bulk loading
 
 `cc.loader.loadResDir` can load multiple resources under the same path:
@@ -224,10 +165,9 @@ cc.loader.loadResDir("test assets", function (err, assets) {
     // ...
 });
 
-// load all SpriteFrame in the sheep.plist atlas
-cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets) {
-    // assets is a SpriteFrame array already contains all SpriteFrame.
-    // and loadRes('test assets/sheep', cc.SpriteAtlas, function (err, atlas) {...}) The entire SpriteAtlas object is obtained.
+// Load all SpriteFrames in the `test assets` directory and get their urls
+cc.loader.loadResDir("test assets", cc.SpriteFrame, function (err, assets, urls) {
+    // ...
 });
 ```
 
@@ -259,7 +199,7 @@ cc.loader.load(absolutePath, function () {
 There still remains some restrictions currently, the most important are:
 
 1. Native platform remote loading does not support resources other than image files
-2. This loading method only supports the raw assets, does not support SpriteFrame, SpriteAtlas, Tilemap and other resources (requires Assets Bundle support planned in future version)
+2. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap (requires AssetBundle support planned in future version)
 3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered, this is due to WebGL security policy restrictions
 
 ## Assets dependencies and how to release assets
@@ -284,11 +224,9 @@ cc.loader.release(texture);
 // Release all dependencies of a loaded prefab
 var deps = cc.loader.getDependsRecursively('prefabs/sample');
 cc.loader.release(deps);
-// If there is no instance of this prefab in the scene, the prefab and its dependencies like textures, sprite frames, etc, will be freed up.
-// If you have some other nodes share a texture in this prefab, you can skip it in two ways:
-// 1. Forbid auto release a texture before release
-cc.loader.setAutoRelease(texture2d, false);
-// 2. Remove it from the dependencies array
+// If there is no instance of this prefab in the scene, the prefab and its dependencies
+// like textures, sprite frames, etc, will be freed up. If you have some other nodes
+// share a texture in this prefab, you can remove it from the dependencies array
 var deps = cc.loader.getDependsRecursively('prefabs/sample');
 var index = deps.indexOf(texture2d._uuid);
 if (index !== -1)
