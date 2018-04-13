@@ -23,7 +23,7 @@ var particleSystem = node.adComponent(cc.ParticleSystem);
 // Next you can particleSystem this object for a series of operations
 ```
 
-Please refer to the script interface of the Particle System [Particle System API](../api/classes/ParticleSystem.html)。
+Please refer to the script interface of the Particle System [Particle System API](../../../api/en/classes/ParticleSystem.html)。
 
 ## Particle System attribute
 
@@ -56,8 +56,8 @@ Please refer to the script interface of the Particle System [Particle System API
 | EndSpinVar         | Variation of end angle.
 | SourcePos          | Source position of the emitter.
 | PosVar             | Variation of source position.
-| PositionType       | Particles movement type. [PositionType API](../api/enums/ParticleSystem.PositionType.html)
-| EmitterMode        | Particles emitter modes. [EmitterMode API](../api/enums/ParticleSystem.EmitterMode.html)
+| PositionType       | Particles movement type. [PositionType API](../../../api/en/enums/ParticleSystem.PositionType.html)
+| EmitterMode        | Particles emitter modes. [EmitterMode API](../../../api/en/enums/ParticleSystem.EmitterMode.html)
 | Gravity            | Gravity of the emitter. 
 | Speed              | Speed of the emitter. 
 | SpeedVar           | Variation of the speed. 
@@ -72,8 +72,8 @@ Please refer to the script interface of the Particle System [Particle System API
 | EndRadiusVar       | Variation of the ending radius.
 | RotatePerS         | Number of degress to rotate a particle around the source pos per second. Only available in 'Radius' mode.
 | RotatePerSVar      | Variation of the degress to rotate a particle around the source pos per second.
-| SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../api/enums/BlendFactor.html)   
-| DstBlendFactor     | Specify the destination Blend Factor. [BlendFactor API](../api/enums/BlendFactor.html)  
+| SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)   
+| DstBlendFactor     | Specify the destination Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)  
 
 ## Note
 

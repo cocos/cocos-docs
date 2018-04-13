@@ -127,7 +127,7 @@ cc.Class({
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-这里的 `image/image`, `prefab`, `anim`, `font` 都是常见的 Asset，而 `image`, `audio` 则是常见的 Raw Asset。
+这里的 `image/image`(SpriteFrame), `prefab`, `anim`, `font` 都是常见的 Asset，而 `atom`(particle), `audio` 则是常见的 Raw Asset。
 
 > `resources` 文件夹里面的资源，可以关联依赖到文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，`resources` 文件夹里面的所有资源，连同它们关联依赖的 `resources` 文件夹外部的资源，都会被导出。如果一份资源不需要由脚本**直接**动态加载，那么千万不要放在 `resources` 文件夹里。
 
@@ -254,7 +254,7 @@ cc.loader.load(absolutePath, function () {
 
 目前的此类手动资源加载还有一些限制，对用户影响比较大的是：
 
-1. 远程加载不支持图片文件以外类型的资源（已在 1.5／1.6 支持计划中）
+1. 原生平台远程加载不支持图片文件以外类型的资源
 2. 这种加载方式只支持 raw asset 资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析（需要后续版本中的 Assets Bundle 支持）
 3. Web 端的远程加载受到浏览器的 [CORS 跨域策略限制](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，如果对方服务器禁止跨域访问，那么会加载失败，而且在 WebGL 渲染模式下，即便对方服务器允许 http 请求成功之后也无法渲染，这是 WebGL 的安全策略的限制
 

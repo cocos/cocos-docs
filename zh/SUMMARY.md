@@ -16,7 +16,6 @@
         - [层级管理器](getting-started/basics/editor-panels/node-tree.md)
         - [属性检查器](getting-started/basics/editor-panels/properties.md)
         - [控件库](getting-started/basics/editor-panels/node-library.md)
-        - [工具栏](getting-started/basics/editor-panels/toolbar.md)
         - [控制台](getting-started/basics/editor-panels/console.md)
         - [偏好设置](getting-started/basics/editor-panels/preferences.md)
         - [项目设置](getting-started/basics/editor-panels/project-settings.md)
@@ -79,8 +78,10 @@
     - [发布到 Web 平台](publish/publish-web.md)
     - [安装配置原生开发环境](publish/setup-native-development.md)
     - [打包发布原生平台](publish/publish-native.md)
-    - [原生平台调试](publish/debug-native.md)
+    - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到微信小游戏平台](publish/publish-wechatgame.md)
+    - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
+    - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
     - [定制项目构建模板](publish/custom-project-build-template.md)
 
@@ -201,3 +202,4 @@
         - [Cocos Creator 接入 AnySDK 教程](sdk/anysdk/integrate-anysdk.md)
     - [SDKBox](sdk/sdkbox.md)
     - [Cocos 数据统计](sdk/cocos-analytics.md)
+

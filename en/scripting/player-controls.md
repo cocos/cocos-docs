@@ -67,14 +67,14 @@ cc.Class({
 - Type：`cc.SystemEvent.EventType.DEVICEMOTION`
 - Call Back: Custom Event：callback(event);
 - Call Back Parameter：
-    - Event：[API 传送门](http://cocos.com/docs/creator/api/classes/Event.html)
+    - Event：[API reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({
     extends: cc.Component,
     onLoad () {
         // open Accelerometer
-        cc.inputManager.setAccelerometerEnabled(true);
+        cc.systemEvent.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     },
 

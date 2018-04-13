@@ -24,7 +24,7 @@ java -version
 
 显示为 JAVA SE 则没有问题，如果系统中使用的是 JRE，则需要安装 [JAVA SE 运行环境](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 
-如果是 Windows 平台则需要检查 JAVA_HOME 环境变量，请确认你的环境变量中包含 JAVA_HOME，可以通过右键点击我的电脑，选择属性，打开高级选项卡中来查看和修改环境变量。Windows 平台可能需要重启电脑才会生效。参考 [如何设置或更改 JAVA 系统环境变量？](https://www.java.com/zh_CN/download/help/path.xml)
+如果是 Windows 系统，请确认你的环境变量中包含 JAVA_HOME。可以通过右键点击我的电脑，选择属性，打开高级选项卡中来查看和修改环境变量。Windows 平台可能需要重启电脑才会生效。参考 [如何设置或更改 JAVA 系统环境变量？](https://www.java.com/zh_CN/download/help/path.xml)
 
 ### 下载安装 Android Studio
 
@@ -76,9 +76,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 我们在这里需要配置以下三个路径：
 
-- **Android SDK**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
-- **NDK**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
-- **ANT**（如使用 Android Studio，这一步可以跳过），请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。
+- **Android SDK Root**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
+- **NDK Root**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
+- **ANT Path**，请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
@@ -90,7 +90,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 1. 检查 Xcode 和 Visual Studio
 
-    打包 Mac 版本和 iOS 版本需要 Xcode 支持。打包 Windows 版本需要安装 Visual Studio，同时在安装 Visual Studio 时，默认并没有勾选 C++ 编译组件。如果没有安装，则需要重新安装并选择 C++ 相关编译组件。
+    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，默认并没有勾选 C++ 编译组件。如果没有安装，则需要重新安装并选择 C++ 相关编译组件。
 
 2. 包名问题
 
@@ -128,9 +128,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 5. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
 
-    请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文章下载的 NDK 和 Android SDK 来测试。
+    请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
 
-最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过[论坛](http://www.cocoachina.com/bbs/thread.php?fid-71.html)反馈给我们。
+最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](http://forum.cocos.com/c/Creator) 反馈给我们。
 
 ---
 

@@ -24,7 +24,8 @@ In the **Collision Map** section we can control whether collision is allowed for
 
 <a href="collision-group/collision-group.png"><img src="collision-group/collision-group.png"></a>
 
-Each column and row of this table has all the group listed. If you make modification to the **Group List** this table will be updated accordingly. Each checkbox in the table represent whether the group from the column will collide with the group from the row.
+Each column and row of this table has all the group listed. If you make modification to the **Group List** this table will be updated accordingly. Each checkbox in the table represent whether the group from the column will collide with the group from the row.<br>
+After the runtime modifies the node's group, it is necessary to invoke collider apply for the modification to take effect.
 
 So as the checkboxes stated, we have following groups that can collide with each other:   
 

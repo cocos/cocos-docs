@@ -42,7 +42,7 @@ node.stopActionByTag(ACTION_TAG);
 
 基础动作就是实现各种形变，位移动画的动作，比如 `cc.moveTo` 用来移动节点到某个位置；`cc.rotateBy` 用来旋转节点一定的角度；`cc.scaleTo` 用来缩放节点。
 
-基础动作中分为时间间隔动作和即时动作，前者是在一定时间间隔内完成的渐变动作，前面提到的都是时间间隔动作，它们全部继承自 [`cc.ActionInterval`](http://cocos.com/docs/creator/api/classes/ActionInterval.html)。后者则是立即发生的，比如用来调用回调函数的 `cc.callFunc`；用来隐藏节点的 `cc.hide`，它们全部继承自 [`cc.ActionInstant`](http://cocos.com/docs/creator/api/classes/ActionInstant.html)。
+基础动作中分为时间间隔动作和即时动作，前者是在一定时间间隔内完成的渐变动作，前面提到的都是时间间隔动作，它们全部继承自 [`cc.ActionInterval`](../../../api/zh/classes/ActionInterval.html)。后者则是立即发生的，比如用来调用回调函数的 `cc.callFunc`；用来隐藏节点的 `cc.hide`，它们全部继承自 [`cc.ActionInstant`](../../../api/zh/classes/ActionInstant.html)。
 
 ### 容器动作
 
@@ -68,7 +68,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让节点左右来回移动，并重复5次
     var seq = cc.repeat(
                 cc.sequence(
-                    cc.moveBy(2, 200, 0), 
+                    cc.moveBy(2, 200, 0),
                     cc.moveBy(2, -200, 0)
                 ), 5);
     node.runAction(seq);
@@ -79,7 +79,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让节点左右来回移动并一直重复
     var seq = cc.repeatForever(
                 cc.sequence(
-                    cc.moveBy(2, 200, 0), 
+                    cc.moveBy(2, 200, 0),
                     cc.moveBy(2, -200, 0)
                 ));
     ```
@@ -89,7 +89,7 @@ node.stopActionByTag(ACTION_TAG);
     // 让目标动作速度加快一倍，相当于原本2秒的动作在1秒内完成
     var action = cc.speed(
                     cc.spawn(
-                        cc.moveBy(2, 0, 50), 
+                        cc.moveBy(2, 0, 50),
                         cc.scaleTo(2, 0.8, 1.4)
                     ), 0.5);
     node.runAction(action);
@@ -168,7 +168,7 @@ var aciton = cc.scaleTo(0.5, 2, 2);
 action.easing(cc.easeIn(3.0));
 ```
 
-基础的缓动动作类是 [`cc.ActionEase`](http://cocos.com/docs/creator/api/classes/ActionEase.html)。各种缓动动作的时间曲线可以参考下图：
+基础的缓动动作类是 [`cc.ActionEase`](../../../api/zh/classes/ActionEase.html)。各种缓动动作的时间曲线可以参考下图：
 
 ![](./actions/tweener.png)
 

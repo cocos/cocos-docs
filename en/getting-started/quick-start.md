@@ -1,10 +1,10 @@
 # Quick Start：Make your first game
 
-The document you are reading now includes systematic introductions of the editor panel, functions and workflows of Cocos Creator. However, if you want to quickly learn the general flow and method of developing games by Cocos Creator, this chapter will meet your needs. After finishing the tutorial in this chapter, you might obtain enough information for creating games. But we still recommend you to continue reading this guide to understand the details of each functional block and the complete workflows.
+This document is a systematic introductions of the editor panel and the functions and workflows of Cocos Creator. Completing this chapter will help you quickly learn the general flow and methods for developing games with Cocos Creator. After finishing this tutorial you have enough information to get started creating basic games. It is strongly recommended you continue reading this guide to understand the details of each functional block and the complete workflows. Now, let's begin!
 
-Now, let's begin! Following the tutorial, we will create a deceiving game that is named **Pick Up the Stars**. Players of this game need to manipulate an **obtuse** monster that never stops jumping to touch the continuously appearing stars. The dazzling acceleration will bring great challenges to players. Play with your friends and see who can obtain the most stars!
+Following the tutorial, we will create a deceiving game that is named **Pick Up the Stars**. Players of this game need to manipulate an **obtuse** monster that never stops jumping to touch the continuously appearing stars. The dazzling acceleration will bring great challenges to players. Play with your friends and see who can obtain the most stars!
 
-The completed form of this game can be experienced here:
+The completed form of this game can be played here:
 
 http://fbdemos.leanapp.cn/star-catcher/
 
@@ -23,7 +23,7 @@ You can also download the completed project. If there is any confusion when foll
 
 If you still don't know how to obtain and start Cocos Creator, please read the [Install](install.md) section.
 
-1. Firstly, start Cocos Creator, and choose **Open other projects**
+1. First, start Cocos Creator, and choose **Open other projects**
 2. In the pop up input field for selecting folder, choose `start_project` that has just been downloaded and decompressed, and click the **Open** button
 3. The main window of Cocos Creator editor will be opened, and you will see the project status as follows
 
@@ -31,9 +31,9 @@ If you still don't know how to obtain and start Cocos Creator, please read the [
 
 ## Check game resources
 
-Our original project has included all the game resources needed; therefore, you don't need to import any other resources. For details on importing resources, please read content related to [Asset Workflow](../asset-workflow/index.md).
+Our original project has included all the game resources needed, therefore you don't need to import any other resources. For details on importing resources, please read content related to [Asset Workflow](../asset-workflow/index.md).
 
-Next, let's get to know the resources of the project. Please pay attention to a panel named **Assets**, on which all the resource allocation graphs of the project are shown.
+Next, let's get to know the resources of the project. Please pay attention to the **Assets** panel, on which all the resource allocation graphs of the project are shown.
 
 We can see that the root directory of the project resources is named as **assets**, which is in accordance with the `assets` directory in the decompressed original project. Only resources under this directory can be imported by Cocos Creator into the project and be managed.
 
@@ -113,7 +113,7 @@ When using **rectangle tool** to modify the size of the background image, we can
 
 Our main character needs a ground that it can jump on. We will add one instantly. By the same method of adding a background image, drag the `assets/textures/ground` resource in the **Assets** panel to `Canvas` in the **Node Tree**. When dragging, we can choose the order relation of newly added nodes and `background` nodes. When in the state of dragging the resource, move the mouse pointer to the bottom of the `background` node until a highlighted orange frame appears on `Canvas` and a green line representing the insert position appears below `background`, and then release the mouse. In this way, `ground` will be put under the `background` in the scene hierarchy, which is also a subnode of `Canvas`.
 
-In the **Node Tree**, the render order of nodes shown below will follow that of nodes shown above. We can see the `ground` object at the bottom is the first to appear in **scene editor**. Besides, the subnode will permanently display before the parent node. We can adjust the hierarchical order and relation of nodes at anytime to control their show order.
+In the **Node Tree**, the rendering order of the nodes displayed below is behind the upper nodes, that is, the lower nodes are drawn after the upper nodes. We can see the `ground` object at the bottom is the first to appear in **scene editor**. Besides, the subnode will permanently display before the parent node. We can adjust the hierarchical order and relation of nodes at anytime to control their show order.
 
 According to the method of modifying the background, we can also use **rectangle tool** to set a suitable size for the ground node. When activating **rectangle tool**, by dragging the vertices and the parts other than the four sides of nodes, we can change the position of nodes. The state of set ground nodes is as illustrated below:
 
@@ -241,33 +241,29 @@ A main character that can only jump foolishly up and down on the same spot is no
     setInputControl: function () {
         var self = this;
         // add keyboard event listener
-        cc.eventManager.addListener({
-            event: cc.EventListener.KEYBOARD,
-            // When there is a key being pressed down, judge if it's the designated directional button and set up acceleration in the corresponding direction
-            onKeyPressed: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = true;
-                        self.accRight = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accLeft = false;
-                        self.accRight = true;
-                        break;
-                }
-            },
-            // when releasing the button, stop acceleration in this direction
-            onKeyReleased: function(keyCode, event) {
-                switch(keyCode) {
-                    case cc.KEY.a:
-                        self.accLeft = false;
-                        break;
-                    case cc.KEY.d:
-                        self.accRight = false;
-                        break;
-                }
+        // When there is a key being pressed down, judge if it's the designated directional button and set up acceleration in the corresponding direction
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = true;
+                    break;
+                case cc.KEY.d:
+                    self.accRight = true;
+                    break;
             }
-        }, self.node);
+        });
+
+        // when releasing the button, stop acceleration in this direction
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function (event){
+            switch(event.keyCode) {
+                case cc.KEY.a:
+                    self.accLeft = false;
+                    break;
+                case cc.KEY.d:
+                    self.accRight = false;
+                    break;
+            }
+        });        
     },
 ```
 
@@ -348,7 +344,12 @@ Next, double click this script to start editing. Only one property is needed for
 // Star.js
     properties: {
         // When the distance between the star and main character is less than this value, collection of the point will be completed
-        pickRadius: 0
+        pickRadius: 0,
+        // The game object
+        game: {
+            default: null,
+            serializable: false
+        }
     },
 ```
 
@@ -723,9 +724,9 @@ Then choose the `Canvas` node, drag the `assets/audio/score` resource to the `Sc
 
 Now it's done! The scene hierarchy of the completed form and properties of each key component are as follows:
 
-![node tree complete](quick-start/hierarchy_complete.png) 
+![node tree complete](quick-start/hierarchy_complete.png)
 
-![game complete](quick-start/game_complete.png) 
+![game complete](quick-start/game_complete.png)
 
 ![player complete](quick-start/player_complete.png)
 

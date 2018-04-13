@@ -13,7 +13,7 @@ Play remote video：
 Click `add component` at the bottom of **Properties** panel and select `VideoPlayer` from `add UI component` popup.
 Then you could add VideoPlayer component to the node.
 
-For more info about VideoPlayer API reference [VideoPlayer API](../api/classes/VideoPlayer.html)。
+For more info about VideoPlayer API reference [VideoPlayer API](../../../api/en/classes/VideoPlayer.html)。
 
 ## VideoPlayer Attribute
 
@@ -23,6 +23,8 @@ For more info about VideoPlayer API reference [VideoPlayer API](../api/classes/V
 | Clip | Displayed when Resource Type is LOCAL，feed it with a local video path.
 | Remote URL | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
 | Current Time | The current time when video start to play.
+| Volume             | The volume of the video. (0.0 ~ 1.0) (Available since v1.9) |
+| Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. (Available since v1.9) |
 | Keep Aspect Ratio | Whether keep the aspect ration of the original video.
 | Is Fullscreen| Whether play video in fullscreen mode.
 | Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section for more details.

@@ -128,7 +128,7 @@ like this:
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `image`, `audio` is a common Raw Asset.
+The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
 
 > Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
 
@@ -258,7 +258,7 @@ cc.loader.load(absolutePath, function () {
 
 There still remains some restrictions currently, the most important are:
 
-1. Remote loading does not support resources other than image files (other type of files already planed in the 1.5 / 1.6)
+1. Native platform remote loading does not support resources other than image files
 2. This loading method only supports the raw assets, does not support SpriteFrame, SpriteAtlas, Tilemap and other resources (requires Assets Bundle support planned in future version)
 3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered, this is due to WebGL security policy restrictions
 

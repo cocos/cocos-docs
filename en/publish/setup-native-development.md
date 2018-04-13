@@ -8,19 +8,23 @@ To publish to the Android platform, you need to install all of the following dev
 
 If you do not have a plan to publish to the Android platform, or if your operating system already has a full Android development environment, you can skip this section.
 
-### Android SDK 10 dependencies
+### Download the Java SDK (JDK)
 
-Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos-creator/cocos2d-x-lite/pull/316).
+Compile the Android project requires a complete Java SDK tool on your local computer, download it at the following address:
 
-If you encounter build error like 'not found android-10', you can download `Android SDK API Level 10` according to the description below.
+[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-If you need to change the target API Level, you can modify the built project file `cocos/platform/android/java/project.properties`:
+Download and pay attention to select the machine and the operating system and architecture, download the installation can be completed after the installation process.
 
-```java
-target = android-10
+After the installation is complete, please confirm that the `java` command is valid on the command line. Input the following code into Mac terminal or Windows command line tool for check:
+
+```
+java -version
 ```
 
-Change `android-10` to the other API Level you need.
+If "JAVA SE" displays, there is no problem. If "JRE" displays, then you need to install [JAVA SE running environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+
+On Windows platform, please confirm if "JAVA_HOME" is included in your environmental variables. By right clicking My Computer, choosing property and opening the advanced tab, you can check and modify environmental variables. For effective running on Windows platform, you might need to restart the computer.
 
 ### Download and install Android Studio
 
@@ -36,21 +40,25 @@ After installing Android Studio, refer to the official documentation and open th
 2. In the `SDK Tools` tab page, first check the lower right corner of the `Show package details`, show the version of the tool selection.
 3. In the `Android SDK Build-Tools', select at least build tools version 25.
 4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
-5. Check the `NDK` and ensure that the version is above 14.
+5. Check the `NDK` and ensure that the version is above 14 (Please use versions later than NDK "r10c", and "r10e" version is recommended).
 6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
 7. Click `OK` and follow the prompts to complete the installation.
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-### Download the Java SDK (JDK)
+### Android SDK 10 dependencies
 
-Compile the Android project requires a complete Java SDK tool on your local computer, download it at the following address:
+Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos-creator/cocos2d-x-lite/pull/316).
 
-[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+If you encounter build error like 'not found android-10', you can download `Android SDK API Level 10` according to the description below.
 
-Download and pay attention to select the machine and the operating system and architecture, download the installation can be completed after the installation process.
+If you need to change the target API Level, you can modify the built project file `cocos/platform/android/java/project.properties`:
 
-** Note **: After the installation is complete, please confirm that the `java` command is valid on the command line. Otherwise, please refer to the following section to manually add the `java` executable file to your environment variable.
+```java
+target = android-10
+```
+
+Change `android-10` to the other API Level you need.
 
 ## Install C++ compiling environment
 
@@ -68,9 +76,9 @@ Next, let's go back to Cocos Creator to configure the environmental path of the 
 
 We need to configure the following three paths here:
 
-- **Android SDK**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window. You can skip this if you don't need to compile the Android platform
-- **NDK**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform
-- **ANT**(you can skip it if build with Android Studio), you should choose the downloaded and unzipped Apache Ant folder, The chosen path should include an executable file named `ant`.
+- **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
+- **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
+- **ANT Path**, you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`. You can skip this if you don't need to compile on Android platform.
 
 Close the window after configuration is completed.
 
@@ -80,37 +88,19 @@ Close the window after configuration is completed.
 
 We have received lots of feedback about original packing in the public beta, and some possible reasons are supplemented here:
 
-1. Check the path
+1. Check Xcode and Visual Studio
 
-    The path set up in preference settings should be guaranteed to be correct, for example: the path of ant should be set under the bin directory in the ant installation directory, the root directory of which is NDK, while the directory of Android SDK should include documents like build-tools, platforms, etc..
+   Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, the C++ compiling component is not ticked off by default. If it wasn't installed, you need to install it and choose compiling components concerning C++.
 
-2. Check NDK version
-
-    Please use versions later than NDK r10c, and r10e version is recommended.
-
-3. On Windows platform, JAVA_HOME environmental variables need to be checked
-
-    If using Windows platform, please confirm if JAVA_HOME is included in your environmental variables. By right clicking My Computer, choosing property and opening the advanced tab, you can check and modify environmental variables. For effective running on Windows platform, you might need to restart the computer.
-
-4. Check JAVA environment
-
-    Input the following code into Mac terminal or Windows command line tool for check:
-
-    ```
-    java -version
-    ```
-
-    If JAVA SE displays, there is no problem. If JRE displays, then you need to install [JAVA SE running environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-
-5. Check if the C++ compiling environment is correctly installed in Visual Studio
-
-    When installing Visual Studio, the C++ compiling component is not ticked off by default. If Visual Studio wasn't installed, you need to install it and choose compiling components concerning C++.
-
-6. Package name issue
+2. Package name issue
 
     Check the package name in the constructing release panel. Package names that include blank space, `-`, etc. are all illegal.
 
-In the end, if zipping still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't be zipped, please send the bug to us by [forum](http://www.cocoachina.com/bbs/thread.php?fid-71.html).
+3. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
+
+    Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
+
+In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](http://discuss.cocos2d-x.org/c/creator).
 
 ---
 

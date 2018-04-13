@@ -16,7 +16,7 @@
                     {
                         "name": "API 参考",
                         "link": "http://docs.cocos.com/creator/api/zh"
-                    }  
+                    }
                 ]
             },
             {
@@ -24,18 +24,18 @@
                 "links": [
                     {
                         "name": "手册文档",
-                        "link": "http://www.cocos.com/docs/native/"
+                        "link": "http://docs.cocos.com/cocos2d-x/manual/zh"
                     },
                     {
                         "name": "API 参考",
-                        "link": "http://www.cocos.com/docs/native/"
+                        "link": "http://www.cocos2d-x.org/docs/api-ref/index.html"
                     }
                 ]
             },
             {
                 "name": "AnySDK",
                 "link": "http://docs.anysdk.com/"
-            }            
+            }
         ]
-    }   
+    }
 }

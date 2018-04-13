@@ -32,6 +32,10 @@ With the auto releasing enabled for a scene, if some of the scene's assets are s
 
 > "Special reference" refer to references in the form of global variables, singleton, closures, "special components", "dynamic assets", and so on. A "special component" is a component of a persist node or its child nodes that are set by the `cc.game.addPersistRootNode` method, and these components contain asset references in the form of a string URL or a UUID, or saved in a container object other than an array and a dictionary. "Dynamic assets" refer to assets that are dynamically created or dynamically modified in a script. If these assets also refer to other assets in the scene, even if the dynamic asset itself should not be released, other assets will still be automatically released by default.
 
+The above content of the automatic release of scene resources can be summed up in the following diagram of several cases:
+
+![](scene-managing/release-resources.png)
+
 ## Change the policy of scene loading
 
 Select the scene in **Assets** panel, you will see the "Async Load Assets" property in **Properties** panel, the property is flase by default.

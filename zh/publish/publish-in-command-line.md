@@ -68,6 +68,15 @@
 
  - `includeEruda` - 是否在 web 平台下插入 Eruda 调试插件
 
+ - `md5Cache` - 是否开启 md5 缓存
+ - `encryptJs` - 是否在发布 native 平台时加密 js 文件
+ - `xxteaKey` - 加密 js 文件时使用的密钥
+ - `zipCompressJs` - 加密 js 文件后是否进一步压缩 js 文件
+
+ - `wechatgame` - 微信小游戏发布选项
+   - `appid`- 发布微信小游戏时需要的 id
+   - `orientation` - 微信小游戏屏幕方向 [landscape, portrait]
+
  - `autoCompile` - 是否在构建完成后自动进行编译项目。默认为 **否**。
 
  - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数

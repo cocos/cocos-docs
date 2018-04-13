@@ -58,7 +58,7 @@ If you want to debug on iOS devices, you should:
 
 - Connect iOS device to Mac via USB cable
 - Run cocos2d-x JSB program on iOS devices
-- Use ip address the iOS device to fill the address section in launch.json
+- Use IP address of the iOS device to fill the address section in launch.json
 
 ![ios launch](debug-native/launch-json-ios.png)
 

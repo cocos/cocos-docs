@@ -7,7 +7,7 @@ WebView 是一种显示网页的组件，该组件让你可以在游戏里面集
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`WebView`，即可添加 WebView 组件到节点上。
 
-WebView 的脚本接口请参考 [WebView API](../api/classes/WebView.html)。
+WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.html)。
 
 ## WebView 属性
 

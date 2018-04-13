@@ -9,7 +9,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ScrollView`，即可添加 ScrollView 组件到节点上。
 
-滚动视图的脚本接口请参考[ScrollView API](../api/classes/ScrollView.html)。
+滚动视图的脚本接口请参考[ScrollView API](../../../api/zh/classes/ScrollView.html)。
 
 ## ScrollView 属性
 

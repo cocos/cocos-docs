@@ -87,8 +87,7 @@ We can directly add breakpoint in the source files, make changes, recompile and 
 
 ### Use VS Code to debug native projects
 
-For debugging the workflow of native projects, please refer to [Native Platform Debugging] (../publish/debug-native.md).
-
+VS Code debugging native engineering please refer to [Native Platform Debugging](../publish/debug-native.md), but only support Creator v1.6 and below. If the Creator version is greater than v1.7, use Chrome or Safari for debugging, refer to [Debug JavaScript on Native Platform](../publish/debug-jsb.md).
 
 ### Learn More About VS Code
 
