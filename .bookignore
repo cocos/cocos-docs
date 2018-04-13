@@ -5,3 +5,4 @@ package.json
 .gitignore
 .bookignore
 /README.md
+*.xlsx
