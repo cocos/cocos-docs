@@ -651,6 +651,8 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
 
 尽管很多人玩手游的时候会无视声音，我们为了教程展示的工作流程尽量完整，还是要补全加入音效的任务。
 
+> 从 1.10 开始，音效用法和原先有点区别。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md)。
+
 ### 跳跃音效
 
 首先加入跳跃音效，打开`Player`脚本，添加引用声音文件资源的`jumpAudio`属性：
@@ -662,7 +664,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
         // 跳跃音效资源
         jumpAudio: {
             default: null,
-            url: cc.AudioClip
+            type: cc.AudioClip
         },
     },
 ```
@@ -699,7 +701,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
         // 得分音效资源
         scoreAudio: {
             default: null,
-            url: cc.AudioClip
+            type: cc.AudioClip
         }
     },
 ```
