@@ -34,15 +34,15 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.Nativeurl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
 
 ```js
-	var url = this.file.nativeUrl || this.file;
+    var url = this.file.nativeUrl || this.file;
 ```
 
  - String convert to Asset
 
 ```js
-	cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
-	    cc.log(typeof audioClip);  // 'object'
-	});
+    cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
+        cc.log(typeof audioClip);  // 'object'
+    });
 ```
 
 ## Upgrade Step
@@ -61,7 +61,7 @@ This is the most common error in the upgrade process. Where FOO is the class nam
 
 This means that you specified the `url` type when declaring the `audio_bgMusic` attribute, and that `url` is no longer supported. By looking for `FOO.js` in your project, you can find a way to define something like this:
 
-```
+```js
     // FOO.js
 
     audio_bgMusic: {
@@ -72,7 +72,7 @@ This means that you specified the `url` type when declaring the `audio_bgMusic` 
 
 Change the URL to type and make sure that default is null.
 
-```
+```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,  // use 'type:' to define Asset object directly
@@ -84,8 +84,8 @@ In this way, after the game scene is loaded, audio_bgMusic will be an AudioClip 
 Attention! If you originally defined the type as `cc.RawAsset`, In addition to modifying the url to type, the associated type should also be changed to `cc.Asset`.<br>
 If it turns out to be:
 
-```
-	// When declaring
+```js
+    // When declaring
     manifest: {
         default: ***,
         url: cc.RawAsset
@@ -97,8 +97,8 @@ If it turns out to be:
 
 Please amend it to:
 
-```
-	// When declaring
+```js
+    // When declaring
     manifest: {
         default: null,
         type: cc.Asset
@@ -112,13 +112,13 @@ Please amend it to:
 
 In addition to the warning messages mentioned earlier, you may also see this warning. What this sentence means is, When you declare the `audio_bgMusic` attribute, you use a convenient form that may cause ambiguity in the future, These abbreviations are temporarily abandoned and will not be re-supported until most of the projects are upgraded smoothly. By looking for `FOO.js` in your project, you can find a way to define something like this:
 
-```
+```js
     audio_bgMusic: cc.AudioClip,
 ```
 
 You need to use the type + default to make a full statement with reference to the previous modification:
 
-```
+```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,
@@ -131,38 +131,38 @@ In this way, after the game scene is loaded, `audio_bgMusic` will be the object 
 
 This warning is usually caused by the following code:
 
-```
-	// Follow the above document to upgrade the wording
+```js
+    // Follow the above document to upgrade the wording
     tex: {
         default: null,
         type: cc.Texture2D,
     },
 
     // Original code to get texture
-	var texture = cc.textureCache.addImage(this.tex);
+    var texture = cc.textureCache.addImage(this.tex);
 ```
 
 This warning means that when you call `addImage`, you are already passing in a Texture2D object, so just use the object directly and not need to load again. Because the upgraded `tex` is already a Texture2D. That means you only have to:
 
-```
-	var texture = this.tex;
+```js
+    var texture = this.tex;
 ```
 
 ### "Since 1.10, `cc.audioEngine.play` accept cc.AudioClip instance directly, not a URL string..."
 
 This warning is usually caused by the following code:
 
-```
-	var url = cc.url.raw('resources/bg.mp3');
-	cc.audioEngine.play(url);
+```js
+    var url = cc.url.raw('resources/bg.mp3');
+    cc.audioEngine.play(url);
 ```
 
 Please amend it to:
 
-```
-	cc.loader.loadRes('resources/bg', cc.AudioClip, function (err, clip) {
-		cc.audioEngine.play(clip);
-	});
+```js
+    cc.loader.loadRes('resources/bg', cc.AudioClip, function (err, clip) {
+        cc.audioEngine.play(clip);
+    });
 ```
 
 ## Other Updates
@@ -171,15 +171,15 @@ Please amend it to:
 
 Starting with 1.10, common text formats such as `.txt, .plist, .xml, .json, .yaml, .ini, .csv, .md` will be imported as `cc.TextAsset`. You can access TextAsset like this:
 
-```
-	// Declaration
+```js
+    // Declaration
     file: {
         default: null,
         type: cc.TextAsset,
     },
 
     // Read
-	var text = this.file.text;
+    var text = this.file.text;
 ```
 
 ### The other unknown types are also all imported as `cc.Asset` by default.

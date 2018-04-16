@@ -33,15 +33,15 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 对于 Texture2D, RawAsset, AudioClip 和 ParticleAsset 类型的资源来说，可以直接通过 `.nativeUrl` 获得原有的 URL。如果无法获取则说明这是其它类型的 Asset 对象，其它类型的对象本来就不用升级，所以不用修改。
 
 ```js
-	var url = this.file.nativeUrl || this.file;
+    var url = this.file.nativeUrl || this.file;
 ```
 
  - 字符串转 Asset
 
 ```js
-	cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
-	    cc.log(typeof audioClip);  // 'object'
-	});
+    cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
+        cc.log(typeof audioClip);  // 'object'
+    });
 ```
 
 ## 升级步骤
@@ -60,7 +60,7 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 这句话的意思是，你在声明 `audio_bgMusic` 属性的时候，指定了 `url` 类型，现在已经不支持使用 `url` 了。通过查找项目中的 `FOO.js`，你能找到原先类似这样的定义方式：
 
-```
+```js
     // FOO.js
 
     audio_bgMusic: {
@@ -71,7 +71,7 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 将 url 改为 type，并且确保 default 为 null。
 
-```
+```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,  // use 'type:' to define Asset object directly
@@ -83,8 +83,8 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 注意：如果你原先定义的类型是 `cc.RawAsset`，除了修改 url 为 type，连带类型也应该改为 `cc.Asset`。<br>
 假如原来是：
 
-```
-	// 声明时
+```js
+    // 声明时
     manifest: {
         default: ***,
         url: cc.RawAsset
@@ -96,8 +96,8 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 请修改为：
 
-```
-	// 声明时
+```js
+    // 声明时
     manifest: {
         default: null,
         type: cc.Asset
@@ -111,13 +111,13 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 除了前面提到的警告信息，你还有可能看这个警告。这句话的意思是，你在声明 `audio_bgMusic` 属性的时候，使用了将来有可能引起歧义的简便形式，这些简写暂时被废弃了，等到大部分项目都平滑升级上去后，才会重新支持。通过查找项目中的 `FOO.js`，你能找到原先类似这样的定义方式：
 
-```
+```js
     audio_bgMusic: cc.AudioClip,
 ```
 
 你需要参照前面的修改方式，使用 type + default 进行完整声明：
 
-```
+```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,
@@ -130,38 +130,38 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 这个警告一般是如下代码引起的：
 
-```
-	// 按照上面的文档升级后的写法
+```js
+    // 按照上面的文档升级后的写法
     tex: {
         default: null,
         type: cc.Texture2D,
     },
 
     // 原先获取 texture 的代码
-	var texture = cc.textureCache.addImage(this.tex);
+    var texture = cc.textureCache.addImage(this.tex);
 ```
 
 这个警告的意思是，当你调用 `addImage` 时，你传入的已经是一个 Texture2D 对象了，所以直接使用这个对象就行，不需要再做加载。因为升级后的 `tex` 就已经是一个 Texture2D 了。也就是说你只要：
 
-```
-	var texture = this.tex;
+```js
+    var texture = this.tex;
 ```
 
 ### "Since 1.10, `cc.audioEngine.play` accept cc.AudioClip instance directly, not a URL string..."
 
 这个警告一般是这种代码引起的：
 
-```
-	var url = cc.url.raw('resources/bg.mp3');
-	cc.audioEngine.play(url);
+```js
+    var url = cc.url.raw('resources/bg.mp3');
+    cc.audioEngine.play(url);
 ```
 
 请改成：
 
-```
-	cc.loader.loadRes('resources/bg', cc.AudioClip, function (err, clip) {
-		cc.audioEngine.play(clip);
-	});
+```js
+    cc.loader.loadRes('resources/bg', cc.AudioClip, function (err, clip) {
+        cc.audioEngine.play(clip);
+    });
 ```
 
 ## 其它更新
@@ -170,15 +170,15 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 从 1.10 开始，常见的文本格式，如 `.txt, .plist, .xml, .json, .yaml, .ini, .csv, .md`，都会导入为 `cc.TextAsset`。可以这样访问 TextAsset：
 
-```
-	// 声明
+```js
+    // 声明
     file: {
         default: null,
         type: cc.TextAsset,
     },
 
     // 读取
-	var text = this.file.text;
+    var text = this.file.text;
 ```
 
 ### 其余未知类型默认也全都导入为 `cc.Asset`
