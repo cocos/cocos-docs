@@ -26,7 +26,7 @@ We can place a Widget below Canvas, and perform the following tests:
 
 ![left-100px](widget/widget-left-100px.png)
 
-#### Bottom alignment, left border distance 50%：
+#### Bottom alignment, bottom border distance 50%：
 
 The percentage will take the width or height of the parent object as a benchmark
 ![bottom-0.5](widget/widget-bottom-0.5.png)
