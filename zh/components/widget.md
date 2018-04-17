@@ -27,7 +27,7 @@ AlignOnce | 默认为 `true`，是否仅在组件初始化时进行一次对齐�
 
 ![left-100px](widget/widget-left-100px.png)
 
-#### 下对齐，左边界距离 50%：
+#### 下对齐，下边界距离 50%：
 
 百分比将以父物体的宽或高作为基准
 ![bottom-0.5](widget/widget-bottom-0.5.png)
