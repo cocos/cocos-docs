@@ -296,13 +296,14 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 可以看到，方法 `moveBy` 一共可以传入三个参数，前两个参数我们已经知道，第三个参数是 `Number` 类型的 `Y` 坐标，我们可以发现第二个参数是可以传入两种类型的，第一种是 `Number` 类型，第二种才是 `Vec2` 类型，如果我们在这里传入的是 `Number` 类型，那么默认这个参数就是 `X` 坐标，此时就要填第三个参数，为 `Y` 坐标。上面的例子中 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight))` 第二个参数传入的是使用 `cc.v2` 方法构建的 `Vec2` 类型对象，这个类型表示的是一个坐标，即有 `X` 坐标也有 `Y` 坐标，因为不需要再传入第三个参数！同时注意官方的一段话 `x and y are relative to the position of the object.`，这句话的意思是传入的 `X`、`Y` 坐标都是相对于节点当前的坐标位置，而不是整个坐标系的绝对坐标。
 
-了解了参数的含义之后，我们再来关注 `moveBy()` 方法的返回值，看官方说明可以知道，这个方法返回的是一个 `ActionInterval` 类型的对象，`ActionInterval` 在 Cocos 中是一个表示时间间隔动作的类，这种动作在一定时间内完成。<!-- 到这里我们就能理解代码 `new cc.EaseCubicActionOut( cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)) )` 中间那一部分的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 jumpDuration 的时间内，移动到相对于当前节点的（0，this.jumpHeight）的坐标位置，简单来说，就是一个向上跳跃的动作。 -->到这里我们就可以理解代码 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **前一部分** 的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 `jumpDuration` 的时间内，移动到相对于当前节点的 `（0，this.jumpHeight）` 的坐标位置，简单来说，就是一个向上跳跃的动作。<br>
+了解了参数的含义之后，我们再来关注 `moveBy()` 方法的返回值，看官方说明可以知道，这个方法返回的是一个 `ActionInterval` 类型的对象，`ActionInterval` 在 Cocos 中是一个表示时间间隔动作的类，这种动作在一定时间内完成。<!-- 到这里我们就能理解代码 `new cc.EaseCubicActionOut( cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)) )` 中间那一部分的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 jumpDuration 的时间内，移动到相对于当前节点的（0，this.jumpHeight）的坐标位置，简单来说，就是一个向上跳跃的动作。 -->到这里我们就可以理解代码 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **前一部分** 的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 `jumpDuration` 的时间内，移动到相对于当前节点的 `（0，this.jumpHeight）` 的坐标位置，简单来说，就是一个向上跳跃的动作。
+
 那么 **后半部分** `easing(cc.easeCubicActionOut())` 的作用是什么呢？`easing` 是 `ActionInterval` 类下的一个方法，这个方法可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个缓动对象，返回一个 `ActionInterval` 类型对象，这里传入的是使用 `easeCubicActionInOut` 方法构建的缓动对象，`EaseCubicInOut` 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： 
 <!-- 那么前半部分 `new cc.EaseCubicActionOut` 的作用是什么呢？`EaseCubicActionOut` 这个 action 可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个 `ActionInterval` 类型对象，ease cubic in / out 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： -->
 
 ![](quick-start/easing.png)
 
-详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout())。
+详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout()。
 
 接下来在 `onLoad` 方法里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
 
@@ -321,7 +322,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 ### 移动控制
 
-只能在原地傻蹦的主角可没前途，让我们为主角添加键盘输入，用 <kbd>A</kbd> 和 <kbd>D</kbd> 来控制他的跳跃方向。在 `setJumpAction` 方法的下面添加键盘事件：
+只能在原地傻蹦的主角可没前途，让我们为主角添加键盘输入，用 <kbd>A</kbd> 和 <kbd>D</kbd> 来控制他的跳跃方向。在 `setJumpAction` 方法的下面添加键盘事件响应函数：
 
 ```js
 // Player.js
@@ -329,7 +330,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
         //...
     },
      
-     onKeyDown (event) {
+    onKeyDown (event) {
         // set a flag when key pressed
         switch(event.keyCode) {
             case cc.macro.KEY.a:
@@ -338,10 +339,10 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
             case cc.macro.KEY.d:
                 this.accRight = true;
                 break;
-            }
-        },
+        }
+    },
     
-     onKeyUp (event) {
+    onKeyUp (event) {
         // unset a flag when key released
         switch(event.keyCode) {
             case cc.macro.KEY.a:
@@ -354,11 +355,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
     },
 ```
 
-有 Android 开发经验的同学比较好理解，这里的监听器实质上就和 Android 里的 `OnClickListener` 差不多，在 cc 中通过 `eventManager` 来管理事件监听器注册和派发系统事件。原始设计中，它支持鼠标、触摸、键盘、陀螺仪和自定义事件。鼠标、触摸和自定义事件的监听和派发的详细内容请参考 [监听和发射事件](http://cocos.com/docs/creator/scripting/events.html)。
-
-总之这里通过向 `eventManager` 注册了一个监听器，这个监听器用来监听键盘输入，通过 switch 判断键盘上的 <kbd>A</kbd> 和 <kbd>D</kbd> 是否被按下或松开，若按下就执行对应的操作。由于事件管理器和监听器比较复杂，这里不过多赘述，想了解的同学请查看官方 API 及文档。
-
-然后修改 `onLoad` 方法，在其中加入向左和向右加速的开关，以及主角当前在水平方向的速度，最后再调用 `cc.systemEvent`，在场景加载后就开始监听键盘输入：
+然后修改 `onLoad` 方法，在其中加入向左和向右加速的开关，以及主角当前在水平方向的速度。最后再调用 `cc.systemEvent`，在场景加载后就开始监听键盘输入：
 
 ```js
 // Player.js
@@ -384,6 +381,8 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },  
 ```
+
+有 Android 开发经验的同学比较好理解，这里的监听器实质上就和 Android 里的 `OnClickListener` 差不多，在 cocos 中通过 `systemEvent` 来监听系统 **全局** 事件。（鼠标、触摸和自定义事件的监听和派发的详细内容请参考 [监听和发射事件](../scripting/events.md)。）这里通过向 `systemEvent` 注册了一个键盘响应函数，在函数中通过 switch 判断键盘上的 <kbd>A</kbd> 和 <kbd>D</kbd> 是否被按下或松开，若按下就执行对应的操作。
 
 最后修改 `update` 方法的内容，添加加速度、速度和主角当前位置的设置：
 
@@ -451,23 +450,23 @@ Accel: 1000
     },
 ```
 
-将这个脚本添加到刚创建的 `star` 节点上，在 **层级管理器** 中选中 `star` 节点，然后在 **属性检查器** 中点击 **添加组件** 按钮，选择 `添加用户脚本组件 -> Star`，该脚本便会添加到刚创建的 `star` 节点上。然后在 **属性检查器** 中把 `Pick Radius` 属性值设为 `60`：
+将这个脚本添加到刚创建的 star 节点上，在 **层级管理器** 中选中 star 节点，然后在 **属性检查器** 中点击 **添加组件** 按钮，选择 `添加用户脚本组件 -> Star`，该脚本便会添加到刚创建的 star 节点上。然后在 **属性检查器** 中把 `Pick Radius` 属性值设为 `60`：
 
 ![star_property](quick-start/star_property.png)
 
-Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `star` 节点拖拽到 **资源管理器** 中的 `assets` 文件夹下，就生成了名叫 `star` 的 Prefab 资源。
+Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 star 节点拖拽到 **资源管理器** 中的 `assets` 文件夹下，就生成了名叫 `star` 的 Prefab 资源。
 
 ![star prefab](quick-start/prefab_asset.png)
 
-现在可以从场景中删除 `star` 节点了，后续可以直接双击这个 `star` Prefab 资源进行编辑。
+现在可以从场景中删除 star 节点了，后续可以直接双击这个 `star` Prefab 资源进行编辑。
 
 接下去我们会在脚本中动态使用星星的 Prefab 资源生成星星。
 
 ### 添加游戏控制脚本
 
-星星的生成是游戏主逻辑的一部分，所以我们要添加一个叫做 `Game` 的脚本作为游戏主逻辑脚本，这个脚本之后还会添加计分、游戏失败和重新开始的相关逻辑。
+星星的生成是游戏主逻辑的一部分，所以我们要添加一个叫做 Game 的脚本作为游戏主逻辑脚本，这个脚本之后还会添加计分、游戏失败和重新开始的相关逻辑。
 
-添加 `Game` 脚本到 `assets/scripts` 文件夹下，双击打开脚本。首先添加生成星星需要的属性：
+添加 Game 脚本到 `assets/scripts` 文件夹下，双击打开脚本。首先添加生成星星需要的属性：
 
 ```js
 // Game.js
@@ -509,12 +508,12 @@ properties: {
 
 下面是常用参数：
 
-`default`: 设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
-`type`: 限定属性的数据类型，详见 CCClass 进阶参考：type 参数<br>
-`visible`: 设为 false 则不在 **属性检查器** 面板中显示该属性<br>
-`serializable`: 设为 false 则不序列化（保存）该属性<br>
-`displayName`: 在 **属性检查器** 面板中显示成指定名字<br>
-`tooltip`: 在 **属性检查器** 面板中添加属性的 Tooltip
+`default`：设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
+`type`：限定属性的数据类型，详见 CCClass 进阶参考：type 参数<br>
+`visible`：设为 false 则不在属性检查器面板中显示该属性<br>
+`serializable`： 设为 false 则不序列化（保存）该属性<br>
+`displayName`：在属性检查器面板中显示成指定名字<br>
+`tooltip`：在属性检查器面板中添加属性的 Tooltip
 
 所以上面的代码:
 
@@ -527,15 +526,17 @@ starPrefab: {
 
 就容易理解了，首先在 Game 组件下声明了 `starPrefab` 属性，这个属性默认值为 `null`，能传入的类型必须是 Prefab 预制资源类型。这样之后的 ground、player 属性也可以理解了。
 
-保存脚本后将 `Game` 组件添加到 **层级管理器** 中的 `Canvas` 节点上（选中 `Canvas` 节点后，拖拽脚本到 **属性检查器** 上，或者点击 **属性检查器** 的 **添加组件** 按钮，并从 `添加用户脚本组件` 中选择 `Game`。）接下来从 **资源管理器** 中拖拽 `star` 的 Prefab 资源到 `Game` 组件的 `Star Prefab` 属性中。这是我们第一次为属性设置引用，只有在属性声明时规定 `type` 为引用类型时（比如我们这里写的 `cc.Prefab` 类型），才能够将资源或节点拖拽到该属性上。
+保存脚本后将 Game 组件添加到 **层级管理器** 中的 Canvas 节点上（选中 Canvas 节点后，拖拽脚本到 **属性检查器** 上，或者点击 **属性检查器** 的 **添加组件** 按钮，并从 `添加用户脚本组件` 中选择 `Game`。）
 
-接下来从 **层级管理器** 中拖拽 `ground` 和 `Player` 节点到 `Canvas` 节点 `Game` 组件中相对应名字的属性上，完成节点引用。
+接下来从 **资源管理器** 中拖拽 `star` 的 Prefab 资源到 Game 组件的 `Star Prefab` 属性中。这是我们第一次为属性设置引用，只有在属性声明时规定 `type` 为引用类型时（比如我们这里写的 `cc.Prefab` 类型），才能够将资源或节点拖拽到该属性上。
+
+接着从 **层级管理器** 中拖拽 ground 和 Player 节点到 Canvas 节点 Game 组件中相对应名字的属性上，完成节点引用。
 
 然后设置 `Min Star Duration` 和 `Max Star Duration` 属性的值为 `3` 和 `5`，之后我们生成星星时，会在这两个之间随机取值，就是星星消失前经过的时间。
 
 ### 在随机位置生成星星
 
-接下来我们继续修改 `Game` 脚本，在 `onLoad` 方法 **后面** 添加生成星星的逻辑：
+接下来我们继续修改 Game 脚本，在 `onLoad` 方法 **后面** 添加生成星星的逻辑：
 
 ```js
 // Game.js
@@ -569,12 +570,10 @@ starPrefab: {
 
 这里需要注意几个问题： 
 1. 节点下的 `y` 属性对应的是锚点所在的 `y` 坐标，因为锚点默认在节点的中心，所以需要加上地面高度的一半才是地面的 `y` 坐标
-2. **instantiate 方法** 的作用是：克隆指定的任意类型的对象，或者从 `Prefab` 实例化出新节点，返回值为 `Node` 或者 `Object` 
-3. `Node` 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上。 
-4. `Node` 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点：
-- 传入两个数值 `x` 和 `y`。
-- 传入 `cc.v2(x, y)` 类型为 `cc.Vec2` 的对象。 
-5. 通过 `Node` 下的 `getComponent` 方法可以得到该节点上挂载的组件引用。
+2. **instantiate** 方法的作用是：克隆指定的任意类型的对象，或者从 Prefab 实例化出新节点，返回值为 Node 或者 Object 
+3. Node 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上 
+4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。第一：传入两个数值 x 和 y，第二：传入 `cc.v2(x, y)` 类型为 `cc.Vec2` 的对象
+5. 通过 Node 下的 `getComponent` 方法可以得到该节点上挂载的组件引用
 
 保存脚本以后点击 **预览游戏** 按钮，在浏览器中可以看到，游戏开始后动态生成了一颗星星！用同样的方法，您可以在游戏中动态生成任何预先设置好的以 `Prefab` 为模板的节点。
 
@@ -584,10 +583,10 @@ starPrefab: {
 
 现在要添加主角收集星星的行为逻辑了，这里的重点在于，星星要随时可以获得主角节点的位置，才能判断他们之间的距离是否小于可收集距离，如何获得主角节点的引用呢？别忘了我们前面做过的两件事：
 
-1. `Game` 组件中有个名叫 `player` 的属性，保存了主角节点的引用。
-2. 每个星星都是在 `Game` 脚本中动态生成的。
+1. Game 组件中有个名叫 `player` 的属性，保存了主角节点的引用。
+2. 每个星星都是在 Game 脚本中动态生成的。
 
-所以我们只要在 `Game` 脚本生成 `Star` 节点实例时，将 `Game` 组件的实例传入星星并保存起来就好了，之后我们可以随时通过 `game.player` 来访问到主角节点。让我们打开 `Game` 脚本，在 `spawnNewStar 方法` 最后面添加一句 `newStar.getComponent('Star').game = this;`，如下所示：
+所以我们只要在 Game 脚本生成 `Star` 节点实例时，将 Game 组件的实例传入星星并保存起来就好了，之后我们可以随时通过 `game.player` 来访问到主角节点。让我们打开 Game 脚本，在 `spawnNewStar` 方法最后面添加一句 `newStar.getComponent('Star').game = this;`，如下所示：
 
 ```js
 // Game.js
@@ -598,7 +597,7 @@ starPrefab: {
     },
 ```
 
-保存后打开 `Star` 脚本，现在我们可以利用 `Game` 组件中引用的 `player` 节点来判断距离了，在 `onLoad` 方法后面添加名为 `getPlayerDistance` 和 `onPicked` 的方法：
+保存后打开 Star 脚本，现在我们可以利用 Game 组件中引用的 player 节点来判断距离了，在 `onLoad` 方法后面添加名为 `getPlayerDistance` 和 `onPicked` 的方法：
 
 ```js
 // Star.js
@@ -617,7 +616,7 @@ starPrefab: {
         this.node.destroy();
     },
 ```
-Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的位置（x, y），即一个 `Vec2` 类型对象。`cc` 下的 `pDistance` 方法很简单，这里不再赘述。同时注意调用 `Node` 下的 `destroy() 方法` 就可以销毁节点。
+Node 下的 `getPosition()` 方法 返回的是节点在父节点坐标系中的位置（x, y），即一个 `Vec2` 类型对象。`cc` 下的 `pDistance` 方法很简单，这里不再赘述。同时注意调用 Node 下的 `destroy()` 方法 就可以销毁节点。
 
 然后在 `update` 方法中添加每帧判断距离，如果距离小于 `pickRadius` 属性规定的收集距离，就执行收集行为：
 
@@ -641,15 +640,15 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 
 ### 添加分数文字（Label）
 
-游戏开始时得分从 0 开始，每收集一个星星分数就会加 1。要显示得分，首先要创建一个 `Label` 节点。在 **层级管理器** 中选中 `Canvas` 节点，右键点击并选择菜单中的 `创建新节点 -> 创建渲染节点 -> Label（文字）`，一个新的 Label 节点会被创建在 `Canvas` 下面，而且顺序在最下面。接下来我们要用如下的步骤配置这个 Label 节点：
+游戏开始时得分从 0 开始，每收集一个星星分数就会加 1。要显示得分，首先要创建一个 Label 节点。在 **层级管理器** 中选中 Canvas 节点，右键点击并选择菜单中的 `创建新节点 -> 创建渲染节点 -> Label（文字）`，一个新的 Label 节点会被创建在 Canvas 节点下面，而且顺序在最下面。接下来我们要用如下的步骤配置这个 Label 节点：
 
 1. 将该节点名字改为 `score`
-2. 将 `score` 节点的位置（`position` 属性）设为 `(0, 180)`。
+2. 将 score 节点的位置（`position` 属性）设为 `(0, 180)`。
 3. 选中该节点，编辑 **属性检查器** 中 Label 组件的 `string` 属性，填入 `Score: 0` 的文字。
 4. 将 Label 组件的 `Font Size` 属性设为 `50`。
 5. 从 **资源管理器** 中拖拽 `assets/mikado_outline_shadow` 位图字体资源（注意图标是 ![bmfont](quick-start/bitmap-font.png)）到 Label 组件的 `Font` 属性中，将文字的字体替换成我们项目资源中的位图字体。
 
-**注意：** `Score: 0` 的文字建议使用英文冒号，因为 `Label` 组件的 `String` 属性加了位图字体后，会无法识别中文的冒号。
+**注意：** `Score: 0` 的文字建议使用英文冒号，因为 Label 组件的 `String` 属性加了位图字体后，会无法识别中文的冒号。
 
 完成后效果如下图所示：
 
@@ -657,7 +656,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 
 ### 在 Game 脚本中添加得分逻辑
 
-我们将会把计分和更新分数显示的逻辑放在 `Game` 脚本里，打开 `Game` 脚本开始编辑，首先在 `properties` 区块的 **最后** 添加分数显示 Label 的引用属性：
+我们将会把计分和更新分数显示的逻辑放在 Game 脚本里，打开 Game 脚本开始编辑，首先在 `properties` 区块的 **最后** 添加分数显示 Label 的引用属性：
 
 ```js
 // Game.js
@@ -693,11 +692,11 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
     },
 ```
 
-保存 `Game` 脚本后，回到 **层级管理器**，选中 `Canvas` 节点，然后把前面添加好的 `score` 节点拖拽到 **属性检查器** 里 `Game` 组件的 `Score Display` 属性中。
+保存 Game 脚本后，回到 **层级管理器**，选中 Canvas 节点，然后把前面添加好的 score 节点拖拽到 **属性检查器** 里 Game 组件的 `Score Display` 属性中。
 
 ### 在 Star 脚本中调用 Game 中的得分逻辑
 
-下面打开 `Star` 脚本，在 `onPicked` 方法中加入 `gainScore` 的调用：
+下面打开 Star 脚本，在 `onPicked` 方法中加入 `gainScore` 的调用：
 
 ```js
 // Star.js
@@ -721,7 +720,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 
 ### 为星星加入计时消失的逻辑
 
-打开 `Game` 脚本，在 `onLoad` 方法的 `spawnNewStar` 调用 **之前** 加入计时需要的变量声明：
+打开 Game 脚本，在 `onLoad` 方法的 `spawnNewStar` 调用 **之前** 加入计时需要的变量声明：
 
 ```js
 // Game.js
@@ -737,7 +736,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
     },
 ```
 
-然后在 `spawnNewStar` 方法最后加入重置计时器的逻辑，其中 `this.minStarDuration` 和 `this.maxStarDuration` 是我们一开始声明的 `Game` 组件属性，用来规定星星消失时间的随机范围：
+然后在 `spawnNewStar` 方法最后加入重置计时器的逻辑，其中 `this.minStarDuration` 和 `this.maxStarDuration` 是我们一开始声明的 Game 组件属性，用来规定星星消失时间的随机范围：
 
 ```js
 // Game.js
@@ -776,7 +775,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 
 这里需要初学者了解的是，`cc.director` 是一个管理你的游戏逻辑流程的单例对象。由于 `cc.director` 是一个单例，你不需要调用任何构造函数或创建函数，使用它的标准方法是通过调用 `cc.director.methodName()`，例如这里的 `cc.director.loadScene('game')` 就是重新加载游戏场景 `game`，也就是游戏重新开始。而节点下的 `stopAllActions` 方法就显而易见了，这个方法会让节点上的所有 `Action` 都失效。
 
-以上，对 `Game` 脚本的修改就完成了，保存脚本，然后打开 `Star` 脚本，我们需要为即将消失的星星加入简单的视觉提示效果，在 `update` 方法最后加入以下代码：
+以上，对 Game 脚本的修改就完成了，保存脚本，然后打开 Star 脚本，我们需要为即将消失的星星加入简单的视觉提示效果，在 `update` 方法最后加入以下代码：
 
 ```js
 // Star.js
@@ -789,7 +788,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
     }
 ```
 
-保存 `Star` 脚本，我们的游戏玩法逻辑就全部完成了！现在点击 **预览游戏** 按钮，我们在浏览器看到的就是一个有核心玩法、激励机制、失败机制的合格游戏了。
+保存 Star 脚本，我们的游戏玩法逻辑就全部完成了！现在点击 **预览游戏** 按钮，我们在浏览器看到的就是一个有核心玩法、激励机制、失败机制的合格游戏了。
 
 ## 加入音效
 
@@ -799,7 +798,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 
 ### 跳跃音效
 
-首先加入跳跃音效，打开 `Player` 脚本，添加引用声音文件资源的 `jumpAudio` 属性：
+首先加入跳跃音效，打开 Player 脚本，添加引用声音文件资源的 `jumpAudio` 属性：
 
 ```js
 // Player.js
@@ -858,11 +857,11 @@ cc.callFunc = function (selector, selectorTarget, data) {
 };
 ```
 
-我们可以看到 `callFunc` 方法可以传入三个参数，第一个参数是方法的 `selector`，我们可以理解为方法名。第二个参数是 `Object` 类型，一般填入 `this`。第三个参数为带回的数据，可以是所有的数据类型，可以不填。我们再注意到这个方法的返回值 —— `ActionInstant`，这是一个瞬间执行的动作类。到这里我们就可以理解了，使用 `callFunc` 调用回调函数可以让函数转变为 `cc` 中的 `Action`（动作），这一用法在 `cc` 的动作系统里非常好用！例如在上面我们将播放声音的函数传入 `callFunc` 赋值给 `callBack`，让 `callBack` 成为了一个播放声音的动作 `Action`，那么我们之后就能通过 `cc.sequence` 将跳跃和播放声音的动作组合起来，实现每跳一次就能播放音效的功能！
+我们可以看到 `callFunc` 方法可以传入三个参数，第一个参数是方法的 `selector`，我们可以理解为方法名。第二个参数是 `Object` 类型，一般填入 `this`。第三个参数为带回的数据，可以是所有的数据类型，可以不填。我们再注意到这个方法的返回值 —— `ActionInstant`，这是一个瞬间执行的动作类。到这里我们就可以理解了，使用 `callFunc` 调用回调函数可以让函数转变为 `cc` 中的 `Action`（动作），这一用法在 `cc` 的动作系统里非常实用！例如在上面我们将播放声音的函数传入 `callFunc` 赋值给 `callBack`，让 `callBack` 成为了一个播放声音的动作 `Action`，那么我们之后就能通过 `cc.sequence` 将跳跃和播放声音的动作组合起来，实现每跳一次就能播放音效的功能！
 
 ### 得分音效
 
-保存 `Player` 脚本以后打开 `Game` 脚本，来添加得分音效，首先仍然是在 `properties` 中添加一个属性来引用声音文件资源：
+保存 Player 脚本以后打开 Game 脚本，来添加得分音效，首先仍然是在 `properties` 中添加一个属性来引用声音文件资源：
 
 ```js
 // Game.js
@@ -889,9 +888,9 @@ cc.callFunc = function (selector, selectorTarget, data) {
     },
 ```
 
-保存脚本，回到 **层级管理器** ，选中 `Player` 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 `Player` 组件的 `Jump Audio` 属性上。
+保存脚本，回到 **层级管理器** ，选中 Player 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 Player 组件的 `Jump Audio` 属性上。
 
-然后选中 `Canvas` 节点，把 `assets/audio/score` 资源拖拽到 `Game` 组件的 `Score Audio` 属性上。
+然后选中 Canvas 节点，把 `assets/audio/score` 资源拖拽到 Game 组件的 `Score Audio` 属性上。
 
 这样就大功告成了！完成形态的场景层级和各个关键组件的属性如下：
 
@@ -901,7 +900,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
 
 ![player complete](quick-start/player_complete.png)
 
-现在我们可以尽情享受刚制作完成的游戏了，您能打到多少分呢？别忘了您可以随时修改 `Player` 和 `Game` 组件里的移动控制和星星持续时间等游戏参数，来快速调节游戏的难度。修改组件属性之后需要保存场景，修改后的数值才会被记录下来。
+现在我们可以尽情享受刚制作完成的游戏了，您能打到多少分呢？别忘了您可以随时修改 Player 和 Game 组件里的移动控制和星星持续时间等游戏参数，来快速调节游戏的难度。修改组件属性之后需要保存场景，修改后的数值才会被记录下来。
 
 ## 总结
 
