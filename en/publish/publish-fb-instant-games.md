@@ -65,7 +65,7 @@ Then you can see the game running successfully:
 
 ## Third, Upload to Facebook
 
-Click the **Virtual Hosts** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
+Click the **Instant Games -> Web Hosting** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
 
 ![](./publish-fb-instant-games/upload.png)
 
