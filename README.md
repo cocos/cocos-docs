@@ -43,6 +43,14 @@ gulp prune-left-bar
 
 This will remove unused links from left bar.
 
+There is also a quick method can let you preview your modification immediately:
+
+```bash
+gulp quick-preview -o file1,file2...
+```
+Please change the file1,file2... to your own file name, then excute preview command.
+This command will help you rebuild the .bookignore file which can let you ignore the files that you didn't change when you rebuild the doc.
+
 ## Build
 
 If you just want to build the markdown to html, use this command:
