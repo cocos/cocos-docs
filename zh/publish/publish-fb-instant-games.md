@@ -64,11 +64,11 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 
 ## 三、上传到 Facebook
 
-点击应用面板左侧的 **虚拟主机** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
+点击应用面板左侧的 **小游戏 -> Web Hosting** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
 
 ![](./publish-fb-instant-games/upload.png)
 
-当版本状态更改为“待命”时，单击 “★” 按钮将构建版本推送到“生产环境”。
+当版本状态更改为 “待命” 时，单击 “★” 按钮将构建版本推送到 “生产环境”。
 
 ![](./publish-fb-instant-games/push.png)
 
