@@ -23,14 +23,14 @@
 
  - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
  - `title` - 项目名
- - `platform` - 构建的平台 [web-mobile, web-desktop, android, win32, ios, mac, runtime]
+ - `platform` - 构建的平台 [web-mobile, web-desktop, android, win32, ios, mac, qqplay, wechatgame, fb-instant-games]
  - `buildPath` - 构建目录
- - `startScene` - 主场景的 uuid 值
+ - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置）
  - `debug` - 是否为 debug 模式
  - `previewWidth` - web desktop 窗口宽度
  - `previewHeight` - web desktop 窗口高度
  - `sourceMaps` - 是否需要加入 source maps
- - `webOrientation` - web mobile 平台下的旋转选项 [landscape, portrait, auto]
+ - `webOrientation` - web mobile 平台（不含微信小游戏）下的旋转选项 [landscape, portrait, auto]
  - `renderMode` - 设置渲染类型
    - 0 - 由引擎自动选择.
    - 1 - 强制使用 Canvas 渲染模式
@@ -47,8 +47,8 @@
  - `keystorePassword` - keystore 密码
  - `keystoreAlias` - keystore 别名
  - `keystoreAliasPassword` - keystore 别名密码
- - `orientation` - native mobile 平台下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]   
-   因为这是一个 object, 所以定义会特殊一些。   
+ - `orientation` - native mobile 平台（不含微信小游戏）下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]
+   因为这是一个 object, 所以定义会特殊一些。
    - orientation={'landscapeLeft': true} 或   
    - orientation={'landscapeLeft': true, 'portrait': true}
  - `template` - native 平台下的模板选项 [default, link, binary]
