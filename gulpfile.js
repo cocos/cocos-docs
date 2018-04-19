@@ -10,11 +10,13 @@ const Difference = require('lodash/difference');
 
 const gulp = require('gulp');
 const program = require('commander');
+    program
+    .option('-o, --only <items>', 'Only build these files, specrated by ","', x => x.split(','))
+    .option('--dest <path>', 'Copy generated document to specified path.')
+    .parse(process.argv);
 
 gulp.task('publish', function (done) {
-    program
-        .option('--dest <path>', 'Copy generated document to specified path.')
-        .parse(process.argv);
+    
     var dest = program.dest;
     if (!dest) {
         return done('dest not supplied');
@@ -32,8 +34,12 @@ gulp.task('publish', function (done) {
         .on('end', done);
 });
 
+const FORBID_IGNORE_ARRAY = ['index.md', 'SUMMARY.md'];
+const allPagesPattern = ['zh/**/*.md', 'en/**/*.md', '!zh/*.md', '!en/*.md'];
 const START_TAG = '\n\n## CC_HIDE_IN_SUMMARY_START';
 const END_TAG = '## CC_HIDE_IN_SUMMARY_END\n';
+const START_TAG_IGNORE = '\n\nCC_IGNORE_START';
+const END_TAG_IGNORE = '\nCC_IGNORE_END';
 const PRUNE_LEFT_BAR_RE = /<[^<>]*>\s*CC_HIDE_IN_SUMMARY_START\s*<\/[^<>]*>(?:\n|.)*<[^<>]*>\s*CC_HIDE_IN_SUMMARY_END\s*<\/[^<>]*>/g;
 const PAGE_TITLE_RE = /^\s*(?:<!--(?:\n|.)*?-->\s*)*#*\s*(.*?)\s*\n/;
 
@@ -86,10 +92,21 @@ function restoreSummary (path) {
     Fs.writeFileSync(path, content, 'utf8');
 }
 
+function restoreIgnore (path) {
+    var re = new RegExp(START_TAG_IGNORE + '(?:\\n|.)*' + END_TAG_IGNORE);
+    var content = Fs.readFileSync(path, 'utf8');
+    content = content.replace(re, '');
+    Fs.writeFileSync(path, content, 'utf8');
+}
+
 // restore SUMMARY.md to keep repo clean
 gulp.task('restore-summary', function () {
     restoreSummary('zh/SUMMARY.md');
     restoreSummary('en/SUMMARY.md');
+});
+
+gulp.task('restore-ignore', function () {
+    restoreIgnore('.bookignore');
 });
 
 function pruneLeftBar (dir) {
@@ -107,6 +124,27 @@ function pruneLeftBar (dir) {
 gulp.task('prune-left-bar', function () {
     pruneLeftBar('_book/zh');
     pruneLeftBar('_book/en');
+});
+
+//only build the target file
+gulp.task('quick-preview', ['restore-ignore'], function (done) {
+    var includeFiles = program.only;   
+    if (includeFiles) {
+        includeFiles = includeFiles.concat(FORBID_IGNORE_ARRAY);
+        var excludePattern = includeFiles.map(x => '!**/' + Path.basename(x, '.md') + '.md');
+        var allIgnorePages = Globby.sync(allPagesPattern.concat(excludePattern), { absolute: true });
+        allIgnorePages = allIgnorePages.map(x => '/' + Path.relative(__dirname,x).replace(/\\/g, '/'));                                      
+        Fs.readFile('.bookignore', 'utf8', function (error, content) {
+            if (error) {
+                return done(error);
+            }
+            const fileContent = `${content}\n${START_TAG_IGNORE}\n${allIgnorePages.join('\n')}${END_TAG_IGNORE}`;
+            Fs.writeFile('.bookignore', fileContent, 'utf8', done);
+        });   
+    } 
+    else {
+        return done('you need emit at least one argument in thie command');
+    }
 });
 
 gulp.task('postbuild', ['restore-summary', 'prune-left-bar']);
