@@ -1,5 +1,7 @@
 # 快速上手：制作第一个游戏
 
+> 从 Creator v1.10 版本开始，API 做了较大的改动。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md)。
+
 您正在阅读的手册文档包括了系统化的介绍 Cocos Creator 的编辑器界面、功能和工作流程，但如果您想快速上手体验使用 Cocos Creator 开发游戏的大体流程和方法，这一章将满足您的好奇心。完成本章教程之后，您应该能获得足够上手制作游戏的信息，不过我们还是推荐您继续阅读本手册来了解各个功能模块的细节和完整的工作流程。
 
 接下来就让我们开始吧，跟随教程我们将会制作一款名叫 **摘星星** 的坑爹小游戏。这款游戏的玩家要操作一个反应 **迟钝** 却蹦跳不停的小怪物来碰触不断出现的星星，难以驾驭的加速度将给玩家带来很大挑战，和您的小伙伴比比谁能拿到更多星星吧！
@@ -44,7 +46,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 每个资源都是一个文件，导入项目后根据扩展名的不同而被识别为不同的资源类型，其图标也会有所区别，下面我们来看看项目中的资源各自的类型和作用：
 
 - ![audioclip](quick-start/audio-clip.png) 声音文件，一般为 mp3 文件，我们将在主角跳跃和得分时播放名为 `jump` 和 `score` 的声音文件。
-- ![bmfont](quick-start/bitmap-font.png) 位图字体，由 `fnt` 文件和同名的 `png 图片` 文件共同组成。**位图字体（Bitmap Font）** 是一种游戏开发中常用的字体资源，详情请阅读 [位图字体资源](../asset-workflow/font.md)
+- ![bmfont](quick-start/bitmap-font.png) 位图字体，由 `fnt` 文件和同名的 `png` 图片文件共同组成。**位图字体（Bitmap Font）** 是一种游戏开发中常用的字体资源，详情请阅读 [位图字体资源](../asset-workflow/font.md)
 - 各式各样的缩略图标，这些都是图像资源，一般是 `png` 或 `jpg` 文件。图片文件导入项目后会经过简单的处理成为 **texture** 类型的资源。之后就可以将这些资源拖拽到场景或组件属性中去使用了。
 
 ## 创建游戏场景
@@ -66,7 +68,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 ### 了解 Canvas
 
-打开场景后， **层级管理器** 中会显示当前场景中的所有节点和他们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点 `Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
+打开场景后， **层级管理器** 中会显示当前场景中的所有节点和他们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点，`Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
 
 ![canvas](quick-start/canvas.png)
 
@@ -196,7 +198,7 @@ cc.Class({
 });
 ```
 
-我们来大概了解一下这些代码的作用。首先我们可以看到一个包裹了全局的 `cc.Class()` 方法，什么是 `cc` 呢？`cc` 是 Cocos 的简称，Cocos 引擎的主要命名空间，引擎代码中所有的类、函数、属性和常量都在这个命名空间中定义。而 `Class()` 就是 `cc 模块` 下的一个方法，这个方法用于声明 Cocos Creator 中的类。为了方便区分，我们把使用 `cc.Class` 声明的类叫做 `CCClass`。`Class()` 方法的参数是一个原型对象，在原型对象中以键值对的形式设定所需的类型参数，就能创建出所需要的类。
+我们来大概了解一下这些代码的作用。首先我们可以看到一个包裹了全局的 `cc.Class()` 方法，什么是 `cc` 呢？`cc` 是 Cocos 的简称，Cocos 引擎的主要命名空间，引擎代码中所有的类、函数、属性和常量都在这个命名空间中定义。而 `Class()` 就是 `cc` 模块下的一个方法，这个方法用于声明 Cocos Creator 中的类。为了方便区分，我们把使用 `cc.Class` 声明的类叫做 `CCClass`。`Class()` 方法的参数是一个原型对象，在原型对象中以键值对的形式设定所需的类型参数，就能创建出所需要的类。
 
 **例如：**
 
@@ -212,7 +214,7 @@ cc.Class({
 
 现在我们回到脚本编辑器看回之前的代码，这些代码就是编写一个组件（脚本）所需的结构。具有这样结构的脚本就是 Cocos Creator 中的 **组件（Component）**，他们能够挂载到场景中的节点上，提供控制节点的各种功能。我们先来设置一些属性，然后看看怎样在场景中调整他们。
 
-找到 `Player` 脚本里的 `properties` 部分，将其改为以下内容并按 <kbd>Ctrl + S</kbd>（Windows）或 <kbd>Cmd + S</kbd>（Mac）保存：
+找到 `Player` 脚本里的 `properties` 部分，将其改为以下内容并保存：
 
 ```js
 // Player.js
@@ -256,9 +258,9 @@ Cocos Creator 规定一个节点具有的属性都需要写在 `properties` 代�
 
     setJumpAction: function () {
         // 跳跃上升
-        var jumpUp = cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
+        var jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
         // 下落
-        var jumpDown = cc.moveBy(this.jumpDuration, cc.p(0, -this.jumpHeight)).easing(cc.easeCubicActionOut());
+        var jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
         // 不断重复
         return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
     },
@@ -285,28 +287,24 @@ Cocos Creator 规定一个节点具有的属性都需要写在 `properties` 代�
  * @return {ActionInterval}
  * @example
  * // example
- * var actionTo = cc.moveBy(2, cc.p(windowSize.width - 40, windowSize.height - 40));
+ * var actionTo = cc.moveBy(2, cc.v2(windowSize.width - 40, windowSize.height - 40));
  */
 cc.moveBy = function (duration, deltaPos, deltaY) {
     return new cc.MoveBy(duration, deltaPos, deltaY);
 };
 ```
 
-可以看到，方法 `moveBy` 一共可以传入三个参数，前两个参数我们已经知道，第三个参数是 `Number` 类型的 `Y` 坐标，我们可以发现第二个参数是可以传入两种类型的，第一种是 `Number` 类型，第二种才是 `Vec2` 类型，如果我们在这里传入的是 `Number` 类型，那么默认这个参数就是 `X` 坐标，此时就要填第三个参数，为 `Y` 坐标。上面的例子中 `cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight))` 第二个参数传入的是使用 `cc.p` 方法构建的 `Vec2` 类型对象，这个类型表示的是一个坐标，即有 `X` 坐标也有 `Y` 坐标，因为不需要再传入第三个参数！同时注意官方的一段话 `x and y are relative to the position of the object.`，这句话的意思是传入的 `X`、`Y` 坐标都是相对于节点当前的坐标位置，而不是整个坐标系的绝对坐标。
+可以看到，方法 `moveBy` 一共可以传入三个参数，前两个参数我们已经知道，第三个参数是 `Number` 类型的 `Y` 坐标，我们可以发现第二个参数是可以传入两种类型的，第一种是 `Number` 类型，第二种才是 `Vec2` 类型，如果我们在这里传入的是 `Number` 类型，那么默认这个参数就是 `X` 坐标，此时就要填第三个参数，为 `Y` 坐标。上面的例子中 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight))` 第二个参数传入的是使用 `cc.v2` 方法构建的 `Vec2` 类型对象，这个类型表示的是一个坐标，即有 `X` 坐标也有 `Y` 坐标，因为不需要再传入第三个参数！同时注意官方的一段话 `x and y are relative to the position of the object.`，这句话的意思是传入的 `X`、`Y` 坐标都是相对于节点当前的坐标位置，而不是整个坐标系的绝对坐标。
 
-了解了参数的含义之后，我们再来关注 `moveBy()` 方法的返回值，看官方说明可以知道，这个方法返回的是一个 `ActionInterval` 类型的对象，`ActionInterval` 在 Cocos 中是一个表示时间间隔动作的类，这种动作在一定时间内完成。<!-- 到这里我们就能理解代码 `new cc.EaseCubicActionOut( cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)) )` 中间那一部分的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 jumpDuration 的时间内，移动到相对于当前节点的（0，this.jumpHeight）的坐标位置，简单来说，就是一个向上跳跃的动作。 -->到这里我们就可以理解代码 `cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **前一部分** 的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 `jumpDuration` 的时间内，移动到相对于当前节点的 `（0，this.jumpHeight）` 的坐标位置，简单来说，就是一个向上跳跃的动作。<br>
+了解了参数的含义之后，我们再来关注 `moveBy()` 方法的返回值，看官方说明可以知道，这个方法返回的是一个 `ActionInterval` 类型的对象，`ActionInterval` 在 Cocos 中是一个表示时间间隔动作的类，这种动作在一定时间内完成。<!-- 到这里我们就能理解代码 `new cc.EaseCubicActionOut( cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)) )` 中间那一部分的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 jumpDuration 的时间内，移动到相对于当前节点的（0，this.jumpHeight）的坐标位置，简单来说，就是一个向上跳跃的动作。 -->到这里我们就可以理解代码 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **前一部分** 的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 `jumpDuration` 的时间内，移动到相对于当前节点的 `（0，this.jumpHeight）` 的坐标位置，简单来说，就是一个向上跳跃的动作。<br>
 那么 **后半部分** `easing(cc.easeCubicActionOut())` 的作用是什么呢？`easing` 是 `ActionInterval` 类下的一个方法，这个方法可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个缓动对象，返回一个 `ActionInterval` 类型对象，这里传入的是使用 `easeCubicActionInOut` 方法构建的缓动对象，`EaseCubicInOut` 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： 
 <!-- 那么前半部分 `new cc.EaseCubicActionOut` 的作用是什么呢？`EaseCubicActionOut` 这个 action 可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个 `ActionInterval` 类型对象，ease cubic in / out 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： -->
 
 ![](quick-start/easing.png)
 
-详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout()。
+详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout())。
 
-接下来看代码的最后一句 `return cc.repeatForever(cc.sequence(jumpUp, jumpDown));`，`repeatForever` 非常好理解，就如其字面意思：永远地重复一个动作（返回 `ActionInterval` ），在这里就是一直重复的跳起来，落下去，这个方法需要传入一个`FiniteTimeAction` 类型的参数，这里传入的参数是使用 `cc.sequence()` 方法返回一个 `ActionInterval` 类型的对象，`sequence()` 方法的作用是根据传入的 Action 对象顺序执行动作，创建的动作将按顺序依次运行，所以 `cc.sequence(jumpUp, jumpDown)` 就是一个先起跳再下降的动作。
-
-这里也用到了一些 Cocos2d-js 引擎中的 Action 来实现主角的跳跃动画，详情可以查询 [Cocos2d-js API](http://www.cocos2d-x.org/reference/html5-js/V3.8/index.html)。
-
-接下来在 `onLoad 方法`里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
+接下来在 `onLoad` 方法里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
 
 ```js
 // Player.js
@@ -317,46 +315,42 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
     },
 ```
 
-`onLoad 方法` 会在场景加载后立刻执行，所以我们会把初始化相关的操作和逻辑都放在这里面。我们首先将循环跳跃的动作传给了 `jumpAction` 变量，之后调用这个组件挂载的节点下的 `runAction` 方法，传入循环跳跃的 Action 从而让节点（主角）一直跳跃。保存脚本，然后我们就可以开始第一次运行游戏了！
+`onLoad` 方法会在场景加载后立刻执行，所以我们会把初始化相关的操作和逻辑都放在这里面。我们首先将循环跳跃的动作传给了 `jumpAction` 变量，之后调用这个组件挂载的节点下的 `runAction` 方法，传入循环跳跃的 Action 从而让节点（主角）一直跳跃。保存脚本，然后我们就可以开始第一次运行游戏了！
 
 点击 Cocos Creator 编辑器上方正中的 **预览游戏** 按钮 ![preview](quick-start/preview_game.png)，Cocos Creator 会自动打开您的默认浏览器并开始在里面运行游戏，现在应该可以看到我们的主角——紫色小怪兽在场景中间活泼的蹦个不停了。
 
 ### 移动控制
 
-只能在原地傻蹦的主角可没前途，让我们为主角添加键盘输入，用 <kbd>A</kbd> 和 <kbd>D</kbd> 来控制他的跳跃方向。在 `setJumpAction` 方法的下面添加 `setInputControl` 方法：
+只能在原地傻蹦的主角可没前途，让我们为主角添加键盘输入，用 <kbd>A</kbd> 和 <kbd>D</kbd> 来控制他的跳跃方向。在 `setJumpAction` 方法的下面添加键盘事件：
 
 ```js
 // Player.js
     setJumpAction: function () {
         //...
     },
-
-    setInputControl: function () {
-        var self = this;
-        // 添加键盘事件监听
-        // 有按键按下时，判断是否是我们指定的方向控制键，并设置向对应方向加速
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function (event){
-            switch(event.keyCode) {
-                case cc.KEY.a:
-                    self.accLeft = true;
-                    break;
-                case cc.KEY.d:
-                    self.accRight = true;
-                    break;
+     
+     onKeyDown (event) {
+        // set a flag when key pressed
+        switch(event.keyCode) {
+            case cc.macro.KEY.a:
+                this.accLeft = true;
+                break;
+            case cc.macro.KEY.d:
+                this.accRight = true;
+                break;
             }
-        });
-        
-        // 松开按键时，停止向该方向的加速
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, function (event){
-            switch(event.keyCode) {
-                case cc.KEY.a:
-                    self.accLeft = false;
-                    break;
-                case cc.KEY.d:
-                    self.accRight = false;
-                    break;
-            }
-        });
+        },
+    
+     onKeyUp (event) {
+        // unset a flag when key released
+        switch(event.keyCode) {
+            case cc.macro.KEY.a:
+                this.accLeft = false;
+                break;
+            case cc.macro.KEY.d:
+                this.accRight = false;
+                break;
+        }
     },
 ```
 
@@ -364,7 +358,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 总之这里通过向 `eventManager` 注册了一个监听器，这个监听器用来监听键盘输入，通过 switch 判断键盘上的 <kbd>A</kbd> 和 <kbd>D</kbd> 是否被按下或松开，若按下就执行对应的操作。由于事件管理器和监听器比较复杂，这里不过多赘述，想了解的同学请查看官方 API 及文档。
 
-然后修改 `onLoad` 方法，在其中加入向左和向右加速的开关，以及主角当前在水平方向的速度，最后再调用我们刚添加的 `setInputControl` 方法，在场景加载后就开始监听键盘输入：
+然后修改 `onLoad` 方法，在其中加入向左和向右加速的开关，以及主角当前在水平方向的速度，最后再调用 `cc.systemEvent`，在场景加载后就开始监听键盘输入：
 
 ```js
 // Player.js
@@ -380,8 +374,15 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
         this.xSpeed = 0;
 
         // 初始化键盘输入监听
-        this.setInputControl();
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
     },
+
+    onDestroy () {
+        // 取消键盘输入监听
+        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
+    },  
 ```
 
 最后修改 `update` 方法的内容，添加加速度、速度和主角当前位置的设置：
@@ -557,12 +558,12 @@ starPrefab: {
     getNewStarPosition: function () {
         var randX = 0;
         // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
-        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
+        var randY = this.groundY + Math.random() * this.player.getComponent('Player').jumpHeight + 50;
         // 根据屏幕宽度，随机得到一个星星 x 坐标
         var maxX = this.node.width/2;
         randX = (Math.random() - 0.5) * 2 * maxX;
         // 返回星星坐标
-        return cc.p(randX, randY);
+        return cc.v2(randX, randY);
     },
 ```
 
@@ -743,7 +744,7 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
     spawnNewStar: function() {
         // ...
         // 重置计时器，根据消失时间范围随机取一个值
-        this.starDuration = this.minStarDuration + cc.random0To1() * (this.maxStarDuration - this.minStarDuration);
+        this.starDuration = this.minStarDuration + Math.random() * (this.maxStarDuration - this.minStarDuration);
         this.timer = 0;
     },
 ```
@@ -818,9 +819,9 @@ Node 下的 `getPosition() 方法` 返回的是节点在父节点坐标系中的
 // Player.js
     setJumpAction: function () {
         // 跳跃上升
-        var jumpUp = cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
+        var jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
         // 下落
-        var jumpDown = cc.moveBy(this.jumpDuration, cc.p(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
+        var jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
         // 添加一个回调函数，用于在动作结束时调用我们定义的其他方法
         var callback = cc.callFunc(this.playJumpSound, this);
         // 不断重复，而且每次完成落地动作后调用回调来播放声音
