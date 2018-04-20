@@ -1,6 +1,6 @@
-# Custom Project Build Template
+# Custom Project Build Process
 
-## Custom Project Build Process
+## Custom Project Build Template
 
 Creator support custom build template to project.    
 You just need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform.   

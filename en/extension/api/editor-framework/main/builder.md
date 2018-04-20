@@ -1,6 +1,6 @@
 # Editor.Builder
 
-This document is just a brief introduction to the API. For a detailed description of the **build**, please refer to [Custom Project Build Template](../publish/custom-project-build-template.md).
+This document is just a brief introduction to the API. For details on its usage, please refer to [Custom Project Build Process](../../../../publish/custom-project-build-template.md).
 
 ## Methods
 

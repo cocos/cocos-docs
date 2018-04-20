@@ -1,6 +1,6 @@
 # Editor.Builder
 
-本文只是对 API 的简要介绍，关于 build 的详细介绍请参考 [定制项目构建流程](../publish/custom-project-build-template.md)。
+本文只是对 API 的简要介绍，关于 Builder 的具体用法请参考 [定制项目构建流程](../../../../publish/custom-project-build-template.md)。
 
 ## Methods
 
