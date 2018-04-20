@@ -1,5 +1,7 @@
 # Editor.Builder
 
+This document is just a brief introduction to the API. For a detailed description of the **build**, please refer to [Custom Project Build Template](../publish/custom-project-build-template.md).
+
 ## Methods
 
 ### Editor.Builder.on(eventName, callback)
