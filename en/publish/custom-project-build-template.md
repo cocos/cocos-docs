@@ -38,14 +38,14 @@ var path = require('path');
 var fs = require('fs');
 
 function onBeforeBuildFinish (options, callback) {
-	Editor.log('Building ' + options.platform + ' to ' + options.dest); // you can display a log in the Console panel
+    Editor.log('Building ' + options.platform + ' to ' + options.dest); // you can display a log in the Console panel
 
     var mainJsPath = path.join(options.dest, 'main.js');  // get path of main.js in build folder
     var script = fs.readFileSync(mainJsPath, 'utf8');     // read main.js
     script += '\n' + 'window.myID = "01234567";';         // append any scripts as you need
     fs.writeFileSync(mainJsPath, script);                 // save main.js
 
-	callback();
+    callback();
 }
 
 module.exports = {
