@@ -3,6 +3,9 @@
 Publish project in command line can help us build auto publish step, we can modify command line parameters to reach different goals.
 
 ## Command Reference
+
+**For example**: Build Android platform with debug mode enabled
+
  - Mac - `/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath --build "platform=android;debug=true"`
  - Windows - `CocosCreator/CocosCreator.exe --path projectPath --build "platform=android;debug=true"`
 
@@ -13,13 +16,11 @@ You can also compile project by using `--compile` command, the parameters is the
  - `--compile "platform=android;debug=true"`
 
 ## Publish Parameters 
- - `path`: Project Path
- - `build`: Pulibsh project Parameters. Will use Build Panel parameters as the default publish parameters. If has specify other parameters, then will use the specified parameters to overlay the default parameters.
- - `compile`: Compile project Parameters. Will use Build Panel parameters as the default publish parameters. If has specify other parameters, then will use the specified parameters to overlay the default parameters.
+ - `--path`: Project Path
+ - `--build`: Pulibsh project Parameters
+ - `--compile`: Compile project Parameters
 
----
-
-`--build` and `--compile` optional parameters:
+If no parameters are specified after **--build** or **--compile**, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
  - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/ engine/blob/master/modules.json)
  - `title` - Project title

@@ -3,6 +3,9 @@
 通过命令行发布项目可以帮助大家构建自己的自动化构建流程，大家可以修改命令行的参数来达到不同的构建需求。
 
 ## 命令行发布参考
+
+**例如**：构建 Android 平台、Debug 模式
+
  - Mac - `/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath --build "platform=android;debug=true"`
  - Windows - `CocosCreator/CocosCreator.exe --path projectPath --build "platform=android;debug=true"`
 
@@ -13,13 +16,12 @@
  - `--compile "platform=android;debug=true"`
 
 ## 构建参数 
- - `path` - 指定项目路径
- - `build` - 指定构建项目使用的参数。这里会使用 Creator 中构建面板当前的参数来作为默认构建参数，如果指定了其他参数，则会使用指定的参数来覆盖默认参数。
- - `compile` - 指定编译项目使用的参数。这里会使用 Creator 中构建面板当前的参数来作为默认构建参数，如果指定了其他参数，则会使用指定的参数来覆盖默认参数。
 
----
+ - `--path` - 指定项目路径
+ - `--build` - 指定构建项目使用的参数
+ - `--compile` - 指定编译项目使用的参数
 
- `--build` 和 `--compile` 可选择的参数有：
+在 `--build` 或 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
  - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
  - `title` - 项目名
