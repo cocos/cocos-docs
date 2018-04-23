@@ -61,6 +61,8 @@
 
 ## SocketIO
 
+> 很抱歉，Creator 并未在 Web 平台上提供 socket.io 的官方支持，需要用户自己在项目中添加，并且原生平台的 socket.io 也已废弃。之前原生平台的 socket.io 是第三方开发者自己实现的，已经很久没有维护了，所以也不推荐使用。
+
 除此之外，SocketIO 提供一种基于 WebSocket API 的封装，可以用于 Node.js 服务端。如果需要使用这个库，开发者可以自己引用 SocketIO。
 
 在脚本中引用 SocketIO：
