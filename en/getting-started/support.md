@@ -6,7 +6,7 @@ Apart from the information provided in this guide, you can also obtain informati
 
 - [Cocos2d-x](http://www.cocos2d-x.org/)
 - [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/creator)
-- QQ group：539131539, 577848332, 548341746, 428196107, 246239860
+- QQ group：539131539
 
 
 ## Demo and example projects

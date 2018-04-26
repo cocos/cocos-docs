@@ -1,6 +1,6 @@
 # Cocos Creator 入门
 
-本章内容将为您介绍 Cocos Creator 的定位、功能和特色，以及如何快速上手使用 Cocos Creator 开发包括 iOS, Android, HTML5 和 PC 客户端的跨平台游戏产品！
+本章内容将为您介绍 Cocos Creator 的定位、功能和特色，以及如何快速上手使用 Cocos Creator 开发包括 iOS、Android、HTML5、PC 客户端和小游戏的跨平台游戏产品！
 
 本章包括以下能够让您用最快速度上手的教程内容：
 
