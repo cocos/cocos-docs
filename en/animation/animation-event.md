@@ -9,7 +9,7 @@ First, choose the position where you want an event to happen. Click the __add ev
 button at the far left side of the button field. A white rectangle will appear on
 the timeline representing the newly added event.
 
-![button](animation-event/button.png)
+![button](animation-event/button.jpg)
 
 ## Deleting an event
 There are two ways to delete and event.
@@ -19,7 +19,7 @@ There are two ways to delete and event.
 A prompt for deleting this event will appear. Click the __Confirm__ button and the
 event will be deleted.
 
-![Delete](animation-event/delete.png)
+![Delete](animation-event/delete.jpg)
 
 You can also right click __Event__ in the animation editor and choose __Delete__.
 

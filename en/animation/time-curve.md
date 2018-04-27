@@ -4,7 +4,7 @@ slow-motion effects like EaseInOut, etc., between two frames. So how can this be
 
 First, we need to create two unequal frames on one path. For example, create two frames on a position which starts from 0,0 to 100,100, then a connecting line between these two frames will appear. Double click the connecting line and the time curve editor will open.
 
-![time curve](time-curve/main.png)
+![time curve](time-curve/main.jpg)
 
 ## Using a pre-set curve
 We can select various pre-set effects from the left-hand side of the curve editor, such as: Ease In, etc. After selecting, some pre-set parameters will appear at the top on the right-hand side. These can be chosen according to your needs.
