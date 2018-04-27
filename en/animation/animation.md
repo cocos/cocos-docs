@@ -38,9 +38,9 @@ Close edit mode
 
 ## Understanding animation editor
 
-The Animation editor can be divided into 7 parts.
+The Animation editor can be divided into 6 parts.
 
-![main](animation/main.png)
+![main](animation/main.jpg)
 
 1. Common button field, which displays some common functional buttons, such as: (from left to right) recording status switch, back to the first frame, last frame, play/stop, next frame, create a new animation clip and insert animation event.
 
@@ -54,20 +54,18 @@ The Animation editor can be divided into 7 parts.
 
 6. Key frame. The frame corresponding to each property will display here.
 
-7. Basic properties of animation clip. After choosing the animation clip, the basic data will display here and can be modified.
-
 ### The units of the timeline explained
 
-The representation of the specific frame time on the timeline is `1:05`. The value consists of two parts, the part in front of colon is the current number of seconds, followed by the current number of frames in the next second.
+The representation of the specific frame time on the timeline is `01-05`. The value consists of two parts, the part in front of colon is the current number of seconds, followed by the current number of frames in the next second.
 
-`1:05` indicates that the current frame is at the time past  1 second and 5 more frames from the beginning of the animation.
+`01-05` indicates that the current frame is at the time past  1 second and 5 more frames from the beginning of the animation.
 
 Because the animation frame rate can be adjusted at any time, the time represented by the same frame will vary with the frame rate.
 
-- When the frame rate is 30, `1:05` means 1 + 5/30 = 1.1667 seconds after the animation starts.
-- When the frame rate is 10, `1:05` means 1 + 5/10 = 1.5 seconds after the animation starts.
+- When the frame rate is 30, `01-05` means 1 + 5/30 = 1.1667 seconds after the animation starts.
+- When the frame rate is 10, `01-05` means 1 + 5/10 = 1.5 seconds after the animation starts.
 
-Although the time of current frame changes with the frame rate, but the total frames an animation takes going into a key frame is always the same. If we have frame rate set to 30 and add a key frame to the `1:05` time, that key frame is  always the 35th frames from the beginningof the animation. Even if we change the frame rate to 10, the key frame is still the 35th of the whole animation, but the time of the key frame now reads as `3:05`. It is three times the value of the time before.
+Although the time of current frame changes with the frame rate, but the total frames an animation takes going into a key frame is always the same. If we have frame rate set to 30 and add a key frame to the `01-05` time, that key frame is  always the 35th frames from the beginningof the animation. Even if we change the frame rate to 10, the key frame is still the 35th of the whole animation, but the time of the key frame now reads as `03-05`. It is three times the value of the time before.
 
 ## Basic operation
 
