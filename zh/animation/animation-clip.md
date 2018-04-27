@@ -8,7 +8,7 @@
  - 选中相应的节点，在属性检查器中点击右上方的`+`，或者下方的`添加组件`，在其他组件中选择 Animation。
  - 打开动画编辑器，然后在层级管理器中选中需要添加动画的节点，在动画编辑器中点击`添加 Animation 组件`按钮。
 
-<a href="animation-clip/add-component.jpg"><img src="animation-clip/add-component.jpg" alt="main"></a>
+![add-component](animation-clip/add-component.jpg)
 
 ## 创建与挂载动画剪辑
 
@@ -20,7 +20,7 @@
  - 如果 Animation 组件中还没有添加动画剪辑文件，则可以在动画编辑器中直接点击 `新建 AnimationClip` 按钮，根据弹出的窗口创建一个新的动画剪辑文件。
  需要注意的是，如果选择覆盖已有的剪辑文件，被覆盖的文件内容会被清空。
 
-<a href="animation-clip/add-clip.jpg"><img src="animation-clip/add-clip.jpg" alt="main"></a>
+![add-clip](animation-clip/add-clip.jpg)
 
 至此我们已经完成了动画制作之前的准备工作，下一步就是要创建动画曲线了。
 
@@ -33,7 +33,7 @@
 动画剪辑通过节点的名字定义数据的位置，本身忽略了根节点，其余的子节点通过与根节点的**相对路径**索引找到对应的数据。
 有时候我们会在制作完成动画后，将节点重命名，这样会造成动画数据所以出现问题，如下图：
 
-<a href="animation-clip/miss-node.jpg"><img src="animation-clip/miss-node.jpg"></a>
+![miss-node](animation-clip/miss-node.jpg)
 
 这时候我们要手动指定数据对应的节点，可以将鼠标移入节点，点击节点右侧出现的更多按钮，并选择 “移动数据”。
 要注意的是，根节点名字是被忽略的，所以根节点名字是固定的，并不能修改，并且一直显示在页面左侧。

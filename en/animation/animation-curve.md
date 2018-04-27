@@ -48,6 +48,8 @@ After choosing a sequence frame, click the ??sign in the property field and the 
 
 ## Copy/paste animation frames
 
+**Support only 1.9.2 and above**
+
 After we select the node, we can press ctrl+c on the keyboard to copy the selected frame.
 Then press ctrl+v in the new area to paste the newly copied frame into the new location.
 Paste is the starting point for the selected position.

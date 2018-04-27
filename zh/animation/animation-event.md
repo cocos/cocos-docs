@@ -6,13 +6,13 @@
 
 首先选中某个位置，然后点击按钮区域最左侧的按钮（add event），这时候在时间轴上会出现一个白色的矩形，这就是我们添加的事件。
 
-<a href="animation-event/button.jpg"><img src="animation-event/button.jpg" alt="button"></a>
+![add-event](animation-event/button.jpg)
 
 ## 删除事件
 
 双击刚刚出现的白色矩形，打开事件编辑器后点击 function 后面的回收图标，会提示是否删除这个 event，点击确认则删除。
 
-<a href="animation-event/delete.jpg"><img src="animation-event/delete.jpg" alt="delete"></a>
+![delete-event](animation-event/delete.jpg)
 
 也可以在动画编辑器中右键点击 event，选择 '删除'。
 

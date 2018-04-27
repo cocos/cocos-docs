@@ -5,7 +5,8 @@
 我们首先了解一下动画属性，动画属性包括了节点自有的`position`,`rotation`等属性，也包含了组件Component中自定义的属性。
 组件包含的属性前会加上组件的名字，比如`cc.Sprite.spriteFrame`。
 比如下图的 position 那条就是属性轨道，而对应的蓝色棱形就是动画帧。
-<a href="animation-curve/main.jpg"><img src="animation-curve/main.jpg" alt="main"></a>
+
+![animation-curve](animation-curve/main.jpg)
 
 ## 添加一个新的属性轨道
 
@@ -20,7 +21,7 @@
 
 直接在属性列表中右键点击对应属性右侧的 “更多” 按钮，点击菜单内的添加属性帧按钮。
 
-<a href="animation-curve/add.jpg"><img src="animation-curve/add.jpg" alt="main"></a>
+![add-key](animation-curve/add.jpg)
 
 也可以在编辑模式下直接更改节点的对应轨道的属性 - 例如直接在场景编辑器中拖动当前选中的节点，`position` 轨道上就会在当前的时间上增加一个关键帧。
 需要注意的是，如果更改的属性轨道不存在，则会忽略此次的操作，所以如果想要修改后自动插入关键帧，需要预先创建好属性轨道。
@@ -29,7 +30,7 @@
 
 点击我们创建的序列帧后序列帧会显示成选中状态，此时关键帧由蓝变白，如果需要多选，可以按住ctrl再次选择其他序列帧。或者直接在属性区域拖拽框选。
 
-<a href="animation-curve/selected.jpg"><img src="animation-curve/selected.jpg" alt="main"></a>
+![select-key](animation-curve/selected.jpg)
 
 ## 移动动画帧
 
@@ -44,6 +45,8 @@
 选中序列帧后，点击属性区域的`-`，此时当前属性被选中的序列帧会被删除。或者直接按下键盘上的 delete 按键，则所有被选中的节点都会被删除。
 
 ## 复制/粘贴 动画帧
+
+**仅支持1.9.2以上版本**
 
 我们在选中节点后，可以按下键盘上的组合键 ctrl+c 复制已经选中的帧。然后在新的区域按下 ctrl+v 可以将刚刚复制的帧，粘贴到新的位置。
 

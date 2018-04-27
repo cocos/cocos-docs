@@ -41,7 +41,7 @@
 
 动画编辑器一共可以划分为 6 个主要部分。
 
-<a href="animation/main.jpg"><img src="animation/main.jpg" alt="main"></a>
+![animation-editor](animation/main.jpg)
 
 1. 常用按钮区域，这里负责显示一些常用功能按钮，从左到右依次为：开关录制状态、返回第一帧、上一帧、播放/暂停、下一帧、新建动画剪辑、插入动画事件
 
