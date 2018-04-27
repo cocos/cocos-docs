@@ -11,7 +11,7 @@ There are 2 methods for creating an animation:
 __Add component__ below in the Properties and choose __Animation__ in “other components”.
 
  - Open the animation editor. Choose the Node that you want to add the animation to in the arrangement manager. Click the __Add Animation component__ button.
-![Add Component](animation-clip/add-component.png)
+![Add Component](animation-clip/add-component.jpg)
 
 ## Create and mount animation clips
 
@@ -27,7 +27,7 @@ Drag the newly created 'New AnimationClip' from the Assets into the newly emerge
 
 You need to pay attention! If you choose to cover the existing clip document, the contents of the covered document will be erased.
 
-![Animation Clip](animation-clip/add-clip.png)
+![Animation Clip](animation-clip/add-clip.jpg)
 ---
 
 Continue on to read about [Animation Curves](animation-curve.md).

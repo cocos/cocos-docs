@@ -8,7 +8,7 @@
  - 选中相应的节点，在属性检查器中点击右上方的`+`，或者下方的`添加组件`，在其他组件中选择 Animation。
  - 打开动画编辑器，然后在层级管理器中选中需要添加动画的节点，在动画编辑器中点击`添加 Animation 组件`按钮。
 
-<a href="animation-clip/add-component.png"><img src="animation-clip/add-component.png" alt="main"></a>
+<a href="animation-clip/add-component.jpg"><img src="animation-clip/add-component.jpg" alt="main"></a>
 
 ## 创建与挂载动画剪辑
 
@@ -20,7 +20,7 @@
  - 如果 Animation 组件中还没有添加动画剪辑文件，则可以在动画编辑器中直接点击 `新建 AnimationClip` 按钮，根据弹出的窗口创建一个新的动画剪辑文件。
  需要注意的是，如果选择覆盖已有的剪辑文件，被覆盖的文件内容会被清空。
 
-<a href="animation-clip/add-clip.png"><img src="animation-clip/add-clip.png" alt="main"></a>
+<a href="animation-clip/add-clip.jpg"><img src="animation-clip/add-clip.jpg" alt="main"></a>
 
 
 至此我们已经完成了动画制作之前的准备工作，下一步就是要创建动画曲线了。
