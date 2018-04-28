@@ -1,5 +1,7 @@
 # v1.10 Resource Upgrade Guide
 
+> This article describes the considerations for migrating the old version Creator project to v1.10 in detail.
+  If you have never used an older version, you do not need to read this article.
 > At present, v1.10 is still not officially released, the beta version can be downloaded to [forum post posts](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534).
 
 In the [Acquire and load asset](../scripting/load-assets.md) document before v1.10, we have mentioned that Creator resources are divided into [Asset](../scripting/load-assets.md#asset) and [RawAsset](../scripting/load-assets.md#raw-asset). At that time this division was mainly to try to reuse the existing Cocos2d-x base modules, and lowering the barriers for Cocos2d-x users. But we still want to replace all the `RawAsset` into the standard `Asset`, with the development of Creator these two years, it is time to do a round of refactoring. Refactoring simplifies the processing of resources by editors and engines, reduces the volume of `settings.js` files after publication, and improves the user's development experience.
@@ -11,14 +13,15 @@ For **programmers**, resources originally represented in the code with a URL str
 
 ## Frequently asked questions
 
-### Do I need to upgrade?
+### Do I need to manually upgrade?
 
 You need to upgrade if you have the following：
  - You declare these types directly in your game code：`cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
- - You have extended the engine or editor. And defines a new class inherited from `cc. RawAsset`.
+ - You have extended the engine or editor. And defines a new class inherited from `cc.RawAsset`.
+ - You have loaded the '.json' suffix file under the `resources` folder through `cc.loader.loadRes`.
 
 Maybe you need to upgrade if you have the following：
- - You call `cc.audioengine` or `cc.texturecache` directly in your game code.
+ - You call `cc.audioEngine` or `cc.textureCache` directly in your game code.
  - You use `cc.loader` to load text and particle on remote server.
 
 ### I'm not really sure what to upgrade?
@@ -31,7 +34,7 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 
  - Asset convert to String<br>
 
-For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.Nativeurl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
+For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.nativeUrl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
 
 ```js
     var url = this.file.nativeUrl || this.file;
@@ -160,7 +163,7 @@ This warning is usually caused by the following code:
 Please amend it to:
 
 ```js
-    cc.loader.loadRes('resources/bg', cc.AudioClip, function (err, clip) {
+    cc.loader.loadRes('bg', cc.AudioClip, function (err, clip) {
         cc.audioEngine.play(clip);
     });
 ```
@@ -180,6 +183,38 @@ Starting with 1.10, common text formats such as `.txt, .plist, .xml, .json, .yam
 
     // Read
     var text = this.file.text;
+```
+
+### Added `cc.JsonAsset` for loading JSON files
+
+Starting with 1.10, all the `.json` files under the project's `assets` folder (excluding the released `imports` directory) are imported as `cc.JsonAsset`. You must adjust the loader related code, otherwise you will get errors at runtime. For example, originally:
+
+```js
+    cc.loader.loadRes('configs/npc', function (err, json) {
+        loadNpc(json);
+    });
+```
+
+Need to change to:
+
+```js
+    cc.loader.loadRes('configs/npc', function (err, asset) {
+        loadNpc(asset.json);
+    });
+```
+
+In addition, you can read directly:
+
+```js
+    // Declaration
+    npcList: {
+        default: null,
+        type: cc.JsonAsset,
+    },
+
+    // Read
+    var json = this.npcList.json;
+    loadNpc(json);
 ```
 
 ### The other unknown types are also all imported as `cc.Asset` by default.
