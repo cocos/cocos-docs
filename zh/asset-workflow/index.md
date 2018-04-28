@@ -52,7 +52,6 @@
 - [自动图集资源（Auto Atlas）](auto-atlas.md)
 - [图像资源的自动剪裁](trim.md)
 - [预制资源（Prefab）](prefab.md)
-
 - [脚本资源](script.md)
 - [字体资源](font.md)
 - [粒子资源](particle.md)
@@ -60,3 +59,5 @@
 - [骨骼动画资源（Spine）](spine.md)
 - [瓦片图资源（TiledMap）](tiledmap.md)
 - [骨骼动画资源（DragonBones）](dragonbones.md)
+- [JSON 资源](json.md)
+- [文本资源](text.md)
