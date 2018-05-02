@@ -1,6 +1,6 @@
 # 控制台（Console）
 
-![console](https://cloud.githubusercontent.com/assets/344547/9423605/021a5b0a-48fe-11e5-93d9-d728d4c81eef.png)
+![console](console/console.png)
 
 **控制台**会显示报错、警告或其他 Cocos Creator 编辑器和引擎生成的日志信息。不同重要级别的信息会以不同颜色显示：
 
@@ -14,7 +14,8 @@
 
 - **清除** ![clear](console/clear.png) 清除控制台面板中的所有当前信息。
 - **过滤输入** ![filter](console/filter.png) 根据输入的文本过滤控制台中的信息，如果勾选了旁边的`Regex`，输入的文本会被当做正则表达式来匹配文本。
-- **信息级别** ![level](console/levels.png) 这个下拉菜单里可以选择某一种信息级别，从日志级到报错级，选择后控制台中将只显示指定级别的信息。默认的选项`All`表示所有级别的信息都会显示。
+- **信息级别** ![level](console/levels.png) 这个下拉菜单里可以选择某一种信息级别，从日志级到报错级，选择后控制台中将只显示指定级别的信息。默认的选项 `All` 表示所有级别的信息都会显示。
+- **切换字体** ![label](console/label.png) 这个下拉菜单可以调整控制台的字体大小。
 - **合并同类信息** ![collapse](console/collapse.png) 该选项处于激活状态时，相同而重复的信息会被合并成一条，在信息旁边会以黄色数字提示有多少条同类信息被合并了。
 
 ---
