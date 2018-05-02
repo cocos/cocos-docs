@@ -10,8 +10,6 @@ Double-click the installation package after the download is complete.
 
 ### Windows installation instructions
 
-> Starting with v1.3.0, Cocos Creator for Windows will not provide 32-bit operating system support.
-
 The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX.X.X_20XXXXXX_setup.exe`, where `vX.XX` is the version number of Cocos Creator, such as `v1.2.2`, followed by the version date series.
 
 **Note** The date series will be updated frequently when using the beta version. If the version number of the current PC is the same as the version number of the installation package, it can not be automatically overwritten. To install package with the same version number as currently installed on your PC, You need to uninstall the current copy before proceeding with the installation.

@@ -10,8 +10,6 @@
 
 ### Windows 安装说明
 
-> 从 v1.3.0 开始，Windows 版 Cocos Creator 将不提供 32 位操作系统支持。
-
 Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 `CocosCreator_vX.X.X_20XXXXXX_setup.exe`，其中 `vX.X.X` 是 Cocos Creator 的版本号，如 `v1.2.2`，后面的一串数字是版本日期编号。
 
 **注意**：日期编号在使用内测版时会更新的比较频繁，如果当前 PC 上已安装的版本号和安装包的版本号相同时，无法自动覆盖安装相同版本号的安装包，需要先卸载之前的版本才能继续安装。
@@ -34,20 +32,20 @@ CocosCreator_v1.2.0_2016080301_setup.exe /exelog "exe_log.txt" /L*V "msi_log.txt
 Mac 版 Cocos Creator 的安装程序是 DMG 镜像文件，双击 DMG 文件，然后将 `CocosCreator.app` 拖拽到您的 **应用程序** 文件夹快捷方式，或任意其他位置。然后双击复制出来的 `CocosCreator.app` 就可以开始使用了。
 
 
-**注意**：如果初次运行时出现下载的应用已损坏的提示，请前往并设置 `系统偏好设置 -> 安全性与隐私 -> 允许任何来源的应用`，首次打开后您可以马上恢复您的安全与隐私设置。
+**注意**：如果下载后无法打开，提示 dmg 或者 app 文件已损坏，或者来自身份不明的开发者。请在 Finder（访达）中右键点击 dmg 或 app 文件，选择 `打开`，接着在弹出对话框中再次点击 `打开` 即可。然后请进入 `系统偏好设置 -> 安全性与隐私`，点击 `仍要打开`，这样以后就可以正常启动了。
 
 ### 操作系统要求
 
 Cocos Creator 所支持的系统环境是：
 
 - Mac OS X 所支持的最低版本是 OS X 10.9。
-- Windows 所支持的最低版本是 Windows 7、64位。
+- Windows 所支持的最低版本是 Windows 7 64位。
 
 ## 运行 Cocos Creator
 
 在 Windows 系统，双击解压后文件夹中的 `CocosCreator.exe` 文件即可启动 Cocos Creator。
 
-在 Mac 系统，双击复制出来的 `CocosCreator.app` 应用图标即可启动 Cocos Creator。
+在 Mac 系统，双击拖动出来的 `CocosCreator.app` 应用图标即可启动 Cocos Creator。
 
 您可以按照习惯为入口文件设置快速启动、Dock 或快捷方式，方便您随时运行使用。
 
