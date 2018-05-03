@@ -17,7 +17,3 @@ When there are too much information in console, you can filter these information
 - **Information levels** ![level](console/levels.png) You can choose one information level from this drop-down menu. From log level to error level, console will only show information in specific level. The default option `All` represents information in all levels will be showed.
 - **Switch Fonts** ![label](console/label.png) This drop-down menu allows you to adjust the font size of the console.
 - **Merge same type information** ![collapse](console/collapse.png) When this selection is being activated, the same and repeat information will be merged into one, but there will be yellow numbers next to the information to prompt how many information of the same type have been merged.
-
----
-
-Continue on to read about [Toolbar](../toolbar.md).

@@ -4,7 +4,7 @@
 
 ## Introduction to the interface
 
-**Assets** shows the contents of the project assets folder in a tree structure, but note that only the assets put under the `assets` catalogue in the project folder will be shown here. Please read [project structure] for more about the project folder structure (../../getting-started/project-structure.md). Now let's introduce the factors of each interface:
+**Assets** shows the contents of the project assets folder in a tree structure, but note that only the assets put under the `assets` catalogue in the project folder will be shown here. Please read [project structure](../../project-structure.md) for more about the project folder structure. Now let's introduce the factors of each interface:
 
 ![assets overview](assets/overview.png)
 
@@ -84,7 +84,3 @@ Also, by double clicking on the asset you can enter the editing status for speci
 Enter some text in the search box at the top right of **assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like `*.png` to list all the assets with this specific extension.
 
 ![search asset](assets/search_asset.png)
-
----
-
-Continue on to read about [Scene editor](scene.md).

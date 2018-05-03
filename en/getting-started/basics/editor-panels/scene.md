@@ -31,7 +31,7 @@ There will be wireframe in blue around the selected node to prompt the constrain
 
 ### The node constraint box
 
-You can see the constraint box(in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component(such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
+You can see the constraint box (in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component (such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
 
 ![bounding box](scene/boundingbox.png)
 
@@ -59,7 +59,7 @@ The core function of **scene editor** is to edit and arrange the visible element
 
 ![move button](scene/move_button.png)
 
-Select any node so you can see the node center(or anchor's position) appears a gizmo composed of red and green arrows and blue cube.
+Select any node so you can see the node center (or anchor's position) appears a gizmo composed of red and green arrows and blue cube.
 
 **Gizmo** refers to a controller that can interactive with mouse and appears in certain editing states in the scene editor. These controllers are only to assist editing without being shown in the game while it is running.
 
@@ -108,7 +108,3 @@ Drag any side on the gizmo so you can change the attributes of `width` and `heig
 ![rect](scene/rect_gizmo.png)
 
 In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
-
----
-
-Continue on to read about [Node Tree](node-tree.md).

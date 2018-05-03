@@ -44,7 +44,3 @@ Right click the node, the popup menu also includes the following operation:
 - **Copy node**：generate node replication exactly the same with the selected node and they are at the same level.
 - **Rename**：rename the node
 - **Show Path**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the node's path in  **console**.
-
----
-
-Continue on to read about [Properties](properties.md) panel.

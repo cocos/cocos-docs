@@ -6,19 +6,19 @@
 
 - **关于 Cocos Creator**：显示 Cocos Creator 的版本和版权信息。
 - **偏好设置**：打开 [偏好设置](editor-panels/preferences.md) 面板，设置编辑器的个性化选项。
-- **隐藏 Cocos Creator (<kbd>Ctrl/Command + H</kbd> )**：（Mac 专属）隐藏编辑器窗口。
-- **隐藏其他应用 (<kbd>Shift + Ctrl/Command + H</kbd> )**：（Mac 专属）隐藏 Cocos Creator 之外的其他应用窗口。
+- **隐藏 Cocos Creator (<kbd>Ctrl/Command + H</kbd>)**：（Mac 专属）隐藏编辑器窗口。
+- **隐藏其他应用 (<kbd>Shift + Ctrl/Command + H</kbd>)**：（Mac 专属）隐藏 Cocos Creator 之外的其他应用窗口。
 - **显示全部**：（Mac 专属）显示所有窗口。
 - **最小化（<kbd>Ctrl/Command + M</kbd>）**：最小化 Cocos Creator 编辑器窗口。
-- **退出 (<kbd>Ctrl/Command + Q</kbd> )**：退出编辑器。
+- **退出 (<kbd>Ctrl/Command + Q</kbd>)**：退出编辑器。
 
 ## 文件
 
 包括场景文件的打开和保存，从其他项目导入场景和资源的功能。
 
 - **打开项目...**：关闭当前打开的项目，并打开 Dashboard 的 **最近打开项目** 分页。
-- **新建场景 (<kbd>Ctrl/Command + N</kbd> )**：关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目路径下。
-- **保存场景 (<kbd>Ctrl/Command + S</kbd> )**：保存当前正在编辑的场景，如果是使用 **新建场景** 菜单项创建的场景，在第一次保存时会弹出对话框，选择场景文件保存的位置和文件名。场景文件以 *.fire 作为扩展名。
+- **新建场景 (<kbd>Ctrl/Command + N</kbd>)**：关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目路径下。
+- **保存场景 (<kbd>Ctrl/Command + S</kbd>)**：保存当前正在编辑的场景，如果是使用 **新建场景** 菜单项创建的场景，在第一次保存时会弹出对话框，选择场景文件保存的位置和文件名。场景文件以 *.fire 作为扩展名。
 - **资源导入**：用于将 Creator 导出的资源导入到当前项目中。
 - **资源导出**：导出项目中的资源
 - **导入项目**：从其他场景和 UI 编辑工具中导入场景和项目资源，详情请参考 [导入其他编辑器项目](../../asset-workflow/project-import.md)。
@@ -29,11 +29,11 @@
 
 包括撤销重做、复制粘贴等常用编辑功能。
 
-- **撤销 (<kbd>Ctrl/Command + Z</kbd> )**：撤销上一次对场景的修改。
-- **重做 (<kbd>Shift + Ctrl/Command + Z</kbd> )**：重新执行上一次撤销的对场景的修改。
-- **拷贝 (<kbd>Ctrl/Command + C</kbd> )**：复制当前选中的节点或字符到剪贴板。
-- **粘贴 (<kbd>Ctrl/Command + V</kbd> )**：粘贴剪贴板中的内容到场景或属性输入框中。
-- **选择全部 (<kbd>Ctrl/Command + A</kbd> )**：选择控制台中的日志信息。
+- **撤销 (<kbd>Ctrl/Command + Z</kbd>)**：撤销上一次对场景的修改。
+- **重做 (<kbd>Shift + Ctrl/Command + Z</kbd>)**：重新执行上一次撤销的对场景的修改。
+- **拷贝 (<kbd>Ctrl/Command + C</kbd>)**：复制当前选中的节点或字符到剪贴板。
+- **粘贴 (<kbd>Ctrl/Command + V</kbd>)**：粘贴剪贴板中的内容到场景或属性输入框中。
+- **选择全部 (<kbd>Ctrl/Command + A</kbd>)**：选择控制台中的日志信息。
 
 ## 节点
 

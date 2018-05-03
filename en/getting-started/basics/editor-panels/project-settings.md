@@ -16,11 +16,11 @@ The setting here is for building game engine for release version of Web platform
 
 Crop the unused module here will significantly reduce the engine package size. It is recommended to completely test published package after build, to avoid the use of cropped module in your script.
 
-## project Preview
+## Project Preview
 
 **Project Preview** provides similar options as in the **Preview Run** page in [Preferences Panel](preferences.md), which are used to set the initial preview scene, resolution, etc., but only for the current project.
 
-![preview](project-settings/preview.jpg)
+![preview](project-settings/preview.png)
 
 ### Preview Start Scene
 
@@ -42,4 +42,4 @@ The above options are the same as those in the [Preferences](preferences.md) pan
 
 ## Service
 
-**Cocos Analytics** allows the game to analyze the player's data. Please refer to [Cocos Analytics](../../../../zh/sdk/cocos-analytics.md?h=%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1).
+**Cocos Analytics** allows the game to analyze the player's data. Please refer to [Cocos Analytics](../../../sdk/cocos-analytics.md?h=%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1).

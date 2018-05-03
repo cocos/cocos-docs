@@ -48,5 +48,5 @@ Here is shown the LAN address of the desktop computer running Cocos Creator. The
 
 ![open project](toolbar/open_project.png)
 
-* **Open Project**: Open the project folder in the operating system explorer or finder.
-* **Open App**: Open the installation path of the program in the operating system's file manager (Explorer or Finder).
+* **Open Project**: Open the project folder.
+* **Open App**: Open the installation path of the program.

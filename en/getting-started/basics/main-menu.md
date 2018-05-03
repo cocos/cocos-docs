@@ -15,10 +15,10 @@ Exit Cocos Creator Editor.
 ## File
 * **Open Project...**
 Close the Cocos Creator and open Dashboard.
-* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd> )**
+* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd>)**
 Create a new scene in the current project.
 A game consists of one or more scenes. You'll need to create new scenes when you intend to make independent modules such as new stages, main menus, loading screens, setting screens, etc.
-* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd> )**
+* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd>)**
 Save the current editing scene.
 A save file dialog will pop up if the current scene has never been saved before, in which you can determine where to save your scene file (*.fire). If the scene has been saved before, Cocos Creator will update the save file directly.
 > It is suggested to place all scene files in a particular directory for management, for example **assets/scenes**.
@@ -124,7 +124,3 @@ Scripts and editors extend development-related menu functionality.
 * **Subscribe To Newsletter**: Subscribe to the Cocos Creator newsletter for the latest news and updates.
 * **User account information**
 * **Log Out**: Log out account.
-
----
-
-Continue on to read about [Asset workflow](../../asset-workflow/index.md).
