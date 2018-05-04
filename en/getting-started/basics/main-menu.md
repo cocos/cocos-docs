@@ -28,18 +28,12 @@ Building is a critical step in the deployment process. Cocos Creator will pack a
 You will find more information about Build Settings in the [Tool Windows](#tool-windows] section.
 
 ## Edit
-* **Undo (Shortcut: <kbd>Z</kbd>)**
-Undo the last operation.
-* **Redo (Shortcut: <kbd>Shift + Z</kbd>)**
-Redo the most recently undone operation.
-* **Cut (Shortcut: <kbd>X</kbd>)**
-Cut the selected Entity into the clipboard.
-* **Copy (Shortcut: <kbd>C</kbd>)**
-Copy the selected Entity into the clipboard.
-* **Paste (Shortcut: <kbd>V</kbd>)**
-Paste the Entity from the clipboard into the current scene.
-* **Select All (Shortcut: <kbd>A</kbd>)**
-Select all Entities in the current scene.
+* **Undo (Shortcut: <kbd>Z</kbd>)**: Undo the last operation.
+* **Redo (Shortcut: <kbd>Shift + Z</kbd>)**: Redo the most recently undone operation.
+* **Cut (Shortcut: <kbd>X</kbd>)**: Cut the selected Entity into the clipboard.
+* **Copy (Shortcut: <kbd>C</kbd>)**: Copy the selected Entity into the clipboard.
+* **Paste (Shortcut: <kbd>V</kbd>)**: Paste the Entity from the clipboard into the current scene.
+* **Select All (Shortcut: <kbd>A</kbd>)**: The focus is selected in the scene editor for all nodes, and the focus is on the console with all log information selected.
 <!-- * **Play (Shortcut: <kbd>Ctrl/Command + P</kbd> )**
 Play the current scene in a browser.
 * **Reload Connected Device (Shortcut: <kbd>Shift + Ctrl/Command + P</kbd>)**

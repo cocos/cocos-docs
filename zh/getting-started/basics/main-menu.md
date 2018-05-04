@@ -33,7 +33,7 @@
 - **重做 (<kbd>Shift + Ctrl/Command + Z</kbd>)**：重新执行上一次撤销的对场景的修改。
 - **拷贝 (<kbd>Ctrl/Command + C</kbd>)**：复制当前选中的节点或字符到剪贴板。
 - **粘贴 (<kbd>Ctrl/Command + V</kbd>)**：粘贴剪贴板中的内容到场景或属性输入框中。
-- **选择全部 (<kbd>Ctrl/Command + A</kbd>)**：选择控制台中的日志信息。
+- **选择全部 (<kbd>Ctrl/Command + A</kbd>)**：焦点在场景编辑器内为选中所有节点，焦点在控制台则选中所有的日志信息。
 
 ## 节点
 

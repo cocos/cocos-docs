@@ -35,22 +35,20 @@ The above two ways to modify the value，The default step size is `0.1`, Spin st
 
 ## Data Editor
 
-![data editing](preferences/data-editing.png)
-
 This category is used to set the default open mode for scripts and resources. Internal script editor is not recommended.
+
+![data editing](preferences/data-editing.png)
 
 * **<a name="script-editor"></a>External Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in `Explorer Explorer`. You can click the `Browse` button to select the preferred text editor executable file. And the built-in script editor is not recommended.
 
-* **External Picture Editor**: 
-
-Similar to the above option, used here to set when Assets,
+* **External Picture Editor**: Similar to the above option, used here to set when Assets,
 double-click the picture file, open the picture with the default application path.
 
 ## Native Develop
 
-![native develop](preferences/native-develop.jpg)
-
 This classification is used to set the build is released to the native platform ( iOS, Android, Mac, Windows), the required development environment path.
+
+![native develop](preferences/native-develop.jpg)
 
 * **Use Builtin JavaScript Engine**: Whether to use Cocos Creator the built-in 'engine' path as JavaScript engine path. This engine is used for Scene to render the scene,
 declarations and other built-in components engine module in the Web environment.
@@ -71,9 +69,9 @@ declarations and other built-in components engine module in the Web environment.
 
 ## Preview Run
 
-![preview](preferences/preview.png)
-
 When using **Play** button directly above the main window, you can set various options.
+
+![preview](preferences/preview.png)
 
 * **Should Auto-refresh Preview?**: When browsers or simulator have when running your scene,
 After you save the scene or recompile the script is whether you should refresh the preview device.
