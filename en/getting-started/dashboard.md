@@ -65,7 +65,3 @@ After clicking **Open Other Projects**, a selective input field of the local fil
 You can visit Cocos Creator User Manual and other helping documents by clicking the **Help** page.
 
 ![dashboard help](dashboard/help.jpg)
-
----
-
-Continue on to read about [Hello World!](hello-world.md).

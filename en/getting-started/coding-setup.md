@@ -92,10 +92,3 @@ VS Code debugging native engineering please refer to [Native Platform Debugging]
 ### Learn More About VS Code
 
 Go to the [documentation page of VS Code](https://code.visualstudio.com/Docs), to learn the editing, customization and extensions for VS Code.
-
-
-<hr>
-
-If you are a cocos2d-x user, please continue to read:
-
-- [Cocos2d-x User Guide](cocos2d-x-guide.md)

@@ -16,17 +16,9 @@ After finish inputting the path, click the **Create a New Project** button at th
 
 The core of Cocos Creator is data-driven workflows. When opening a project for the first time, no scene will open by default. To view the content of the Hello World template, we need to first open a scene asset file.
 
-![open scene](hello-world/open_scene.png)
+![open scene](hello-world/breakdown.png)
 
 Double click the `Hello World` scene asset file indicated by the arrow, in **Assets** panel. All the scene assets in Cocos Creator use ![scene](../asset-workflow/index/scene.png) as their icon.
-
-## Hello World Project Breakdown
-
-After opening the `Hello World` scene, we can see all the contents of this template project.
-
-![breakdown](hello-world/breakdown.png)
-
-The content of the scene will be respectively available in four core panels **Assets, Node Tree, Scene and Properties** according to workflows. Introductions to the editor interface and main panels will be in the following [Editor Overview](basics/editor-overview.md) section in detail.
 
 ## Preview Scene
 
@@ -57,7 +49,3 @@ When running the preview again, we will see that the welcome message has been up
 ## Summary
 
 The content of this section lets us know how to get started with scenes in Cocos Creator. And by customizing the welcome message, it gives a brief introduction to the way data-driven works. Next, we will guide you through building a complete leisure game step by step. You will have a more comprehensive understanding on Cocos Creator's workflows after that.
-
----
-
-Continue on to read about [Quick Start](quick-start.md).

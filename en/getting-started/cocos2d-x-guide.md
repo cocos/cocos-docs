@@ -164,7 +164,3 @@ Henceforth, developers can directly respond to various MOUSE and TOUCH events of
 ## 4. Next step
 
 In a highly generalized way, the text above introduced some of the design ideas behind Cocos Creator and obstructions that may occur when transitioning from Cocos2d-JS. Not all the knowledge points are covered here. That's not the purpose of this document either. The purpose of this document is to help Cocos2d-x users learn how to use Cocos Creator more easily. Please continue reading the Cocos Creator User Guide, getting to learn all of the workflows and coding techniques.
-
----
-
-Continue on to read about [Project Structure](project-structure.md).
