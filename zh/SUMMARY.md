@@ -3,12 +3,10 @@
 ## 新手入门
 
 - [新手上路](getting-started/index.md)
-    - [关于 Cocos Creator](./getting-started/introduction.md)
-    - [安装和启动](./getting-started/install.md)
-    - [使用 Dashboard](./getting-started/dashboard.md)
-    - [Hello World!](./getting-started/hello-world.md)
-    - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
-    - [代码编辑环境配置](getting-started/coding-setup.md)
+    - [关于 Cocos Creator](getting-started/introduction.md)
+    - [安装和启动](getting-started/install.md)
+    - [使用 Dashboard](getting-started/dashboard.md)
+    - [Hello World!](getting-started/hello-world.md)
     - [项目结构](getting-started/project-structure.md)
     - [编辑器基础](getting-started/basics/editor-overview.md)
         - [资源管理器](getting-started/basics/editor-panels/assets.md)
@@ -23,8 +21,10 @@
         - [工具栏](getting-started/basics/toolbar.md)
         - [编辑器布局](getting-started/basics/layout.md)
         - [构建预览](getting-started/basics/preview-build.md)
+    - [代码编辑环境配置](getting-started/coding-setup.md)
+    - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
     - [Cocos2d-x 用户上手指南](getting-started/cocos2d-x-guide.md)
-    - [获取帮助和支持](./getting-started/support.md)
+    - [获取帮助和支持](getting-started/support.md)
 
 ## 基本工作流程
 

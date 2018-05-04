@@ -753,9 +753,3 @@ For editions that have been improved in all the above aspects, you can download 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
 Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on Github](https://github.com/cocos-creator/tutorial-first-game).
-
----
-
-According to your experience of using the engine, you can continue to read:
-
-- [Cocos2d-x User Guide](cocos2d-x-guide.md)

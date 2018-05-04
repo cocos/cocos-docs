@@ -85,7 +85,3 @@ Cocos Creator 版本升级时，新版本的编辑器可以打开旧版本的项
 ## 原生发布相关配置
 
 如果您只想开发 Web 平台的游戏，完成上面的步骤就足够了。如果您希望发布游戏到原生平台，请参考 [安装配置原生开发环境](../publish/setup-native-development.md)
-
----
-
-继续前往 [使用 Dashboard](dashboard.md) 说明文档。

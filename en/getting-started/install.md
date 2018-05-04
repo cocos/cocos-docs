@@ -92,7 +92,3 @@ In addition to contacting the development team to find a solution, you can unins
 ## Setup native development environment
 
 If you only want to develop Web platform games, complete the above steps is sufficient. If you would like to publish the game to your native platform, please read the setup instructions for the development environment [Setup Native Development Environment](../publish/setup-native-development.md)
-
----
-Continue on to read about the [Dashboard](dashboard.md).
-
