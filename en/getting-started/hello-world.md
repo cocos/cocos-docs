@@ -6,7 +6,7 @@ Now that we understand how to use the Dashboard, let's see how to create and ope
 
 In the Dashboard, open the **Create a New Project** tab and choose the `Hello World` project template.
 
-![new project](dashboard/new_project.jpg)
+![new project](hello-world/new_project.png)
 
 Then assign the path of the new project in the project path bar below. The last section of the path is the project folder.
 
@@ -16,7 +16,7 @@ After finish inputting the path, click the **Create a New Project** button at th
 
 The core of Cocos Creator is data-driven workflows. When opening a project for the first time, no scene will open by default. To view the content of the Hello World template, we need to first open a scene asset file.
 
-![open scene](hello-world/open_scene.jpg)
+![open scene](hello-world/open_scene.png)
 
 Double click the `Hello World` scene asset file indicated by the arrow, in **Assets** panel. All the scene assets in Cocos Creator use ![scene](../asset-workflow/index/scene.png) as their icon.
 
@@ -24,7 +24,7 @@ Double click the `Hello World` scene asset file indicated by the arrow, in **Ass
 
 After opening the `Hello World` scene, we can see all the contents of this template project.
 
-![breakdown](hello-world/breakdown.jpg)
+![breakdown](hello-world/breakdown.png)
 
 The content of the scene will be respectively available in four core panels **Assets, Node Tree, Scene and Properties** according to workflows. Introductions to the editor interface and main panels will be in the following [Editor Overview](basics/editor-overview.md) section in detail.
 
@@ -32,11 +32,11 @@ The content of the scene will be respectively available in four core panels **As
 
 To see a preview of the game scene, please click the **Preview** button at the top of the editor window.
 
-![preview button](hello-world/preview_button.jpg)
+![preview button](hello-world/preview_button.png)
 
 Cocos Creator will use your default browser to run the current game scene. The effect is as illustrated below:
 
-![preview](hello-world/preview.jpg)
+![preview](hello-world/preview.png)
 
 Click the drop down menu in the top left corner of the preview window and from here you can choose the preview effects for different device screens.
 
@@ -46,13 +46,13 @@ Let's show you what's data-driven workflow with a simple example. Let's say we n
 
 Firstly click the `Canvas` node in the **Node Tree**, to which our `Hello World` component script is attached.
 
-Next, find the `Hello World` component properties at the bottom of the **Properties**, and change the text in the `Text` property into `Hello, world!`:
+Next, find the `Hello World` component properties at the bottom of the **Properties**, and change the text in the `Text` property into `你好，世界!`:
 
-![change text](hello-world/change_text.jpg)
+![change text](hello-world/change_text.png)
 
 When running the preview again, we will see that the welcome message has been updated:
 
-![update preview](hello-world/update_preview.jpg)
+![update preview](hello-world/update_preview.png)
 
 ## Summary
 

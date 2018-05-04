@@ -1,6 +1,6 @@
 # Cocos2d-x User Guide
 
-Cocos Creator is a new type of game development tool oriented towards content creation that has completely integrated the componentized edition Cocos2d-x WEB, by which you can launch games on platforms like Web, iOS, Android, Mac, Windows, etc.. Moreover, you can use it to directly launch games on Cocos Play platform, grasping the new opportunity brought by the rapid development of the channel for mobile web games. For more introductions to Cocos Creator, please refer to [Introduction](introduction.md).
+Cocos Creator is a new type of game development tool oriented towards content creation that has completely integrated the componentized edition Cocos2d-x WEB, by which you can launch games on platforms like Web、iOS、Android、various "Mini Games", PC client and other platforms. For more introductions to Cocos Creator, please refer to [Introduction](introduction.md).
 
 The aim of this document is to introduce the users of Cocos2d-x to Cocos Creator and help them learn how to use the new editor as soon as possible.
 This document will discuss possible problems that may occur in the transition from Cocos2d-x to Cocos Creator development and offer relative solutions, which will not go deep into framework details but provide links to detailed reference documents of different parts.
@@ -9,11 +9,11 @@ This document will discuss possible problems that may occur in the transition fr
 
 For new Cocos Creator users, some of the following typical misconceptions may occur：
 
-1. __Hoping to use Cocos Creator by coordinating it with Cocos2d-x__：Cocos Creator, having had a complete JavaScript WEB engine internally, can work without relying on Cocos2d-x. However, if you want to launch the original edition, you still need to set up a Cocos2d-x in your computer.
-2. __Building an entire code framework at first and then add in game contents__：Cocos Creator's workflows are content creation oriented, which is very convenient for prototype creation. You can create scenes and write logic code directly into the editor, then you can drive the game scene and run it. The following data driven chapters will introduce changes of workflows in detail
-3. __Directly check the API of Cocos2d-JS when coding__：Cocos Creator has said to be originated from Cocos2d-JS. Their APIs have the same origin and have lots of identical parts. But with entirely new componentized frameworks, their APIs are different and not compatible with each other
-4. __Hoping to directly run the old Cocos2d-JS games on Cocos Creator__：Their APIs are not 100% compatible; therefore, such operation is unavailable.
-5. __Extend functions by way of inheritance_：In Cocos2d-JS, inheritance is a basic method for extending node functions. But in Cocos Creator, inheriting and extending nodes is not recommended. The node is only an entity. The logic of the game should be realized by different components and then be assembled in the node.
+1. **Hoping to use Cocos Creator by coordinating it with Cocos2d-x**：Cocos Creator, having had a complete JavaScript WEB engine internally, can work without relying on Cocos2d-x. However, if you want to launch the original edition, you still need to set up a Cocos2d-x in your computer.
+2. **Building an entire code framework at first and then add in game contents**：Cocos Creator's workflows are content creation oriented, which is very convenient for prototype creation. You can create scenes and write logic code directly into the editor, then you can drive the game scene and run it. The following data driven chapters will introduce changes of workflows in detail.
+3. **Directly check the API of Cocos2d-JS when coding**：Cocos Creator has said to be originated from Cocos2d-JS. Their APIs have the same origin and have lots of identical parts. But with entirely new componentized frameworks, their APIs are different and not compatible with each other.
+4. **Hoping to directly run the old Cocos2d-JS games on Cocos Creator**：Their APIs are not 100% compatible; therefore, such operation is unavailable.
+5. **Extend functions by way of inheritance**：In Cocos2d-JS, inheritance is a basic method for extending node functions. But in Cocos Creator, inheriting and extending nodes is not recommended. The node is only an entity. The logic of the game should be realized by different components and then be assembled in the node.
 
 The reason for mentioning these misconceptions at the beginning of this document is that we hope developers can realize that the workflows and development ideas provided by Cocos Creator are tremendously different from those of Cocos2d-x.
 For a better understanding of how to code correctly in Cocos Creator, the following two chapters will introduce the changes in workflows and API level brought by data driven in more detail.
@@ -27,7 +27,7 @@ In the framework of Cocos Creator, all the scenes will be serialized as pure dat
 
 Why do we call Cocos2d-x a code driven development method? For instance, suppose that there is a character in the scene, who will walk around continuously in one area, then we will code as follows:
 
-```
+```js
 var role = new cc.Sprite('role.png');
 scene.addChild(role);
 role.setPosition(100, 100);
@@ -39,7 +39,7 @@ In this code, scene relationship, position information, action section and anima
 
 But what Cocos Creator provides is a more thorough data driven method. All the information edited in the editor will be serialized into data documents. When running, the engine will directly transform the data into object by deserialization. This procedure is fundamentally different from the procedure described above: the category property in the engines can be directly serialized or deserialized. You don't need to transform it by any mapping relation. Scene graph, position property and animation, etc. in the above example can all be serialized by the editor into data. When loading scenes, no data is needed, developers only need to deserialize the whole scene from scene data:
 
-```
+```js
 cc.director.loadScene('SampleScene');
 ```
 
@@ -73,7 +73,7 @@ Th logic tree will generate the scene's render tree and decide rendering order. 
 
 In Cocos2d-JS, after building scenes with code, developers can switch scenes by 'cc.director.runScene'. In Cocos Creator, when developers have finished building scenes in editor, all the data will be saved as a 'scene-name.fire' document and then be stored in Asset Database. Developers can load a scene resource by using `cc.director.loadScene`. Please refer to the following concrete example:
 
-```
+```js
 var sceneName = 'scene-name';
 var onLaunched = function () {
     console.log('Scene ' + sceneName + ' launched');
@@ -84,7 +84,7 @@ cc.director.loadScene(sceneName, onLaunched);
 
 Besides, interface for visiting scene nodes is provided:
 
-```
+```js
 // To obtain scene nodes of logic tree
 var logicScene = cc.director.getScene();
 ```
@@ -127,12 +127,12 @@ In Cocos Creator, we preserved the behaviors of lots of important categories and
 - Chipmunk physics engine and PhysicsDebugNode
 - Types of basic data
 
-Points to be noted:
+**Points to be noted**:
 
 1. Those types of preserved render nodes listed above can only interact with the render tree and can't be used together with logic nodes and components.
 2. Action system supports not just render nodes, but all the actions operated on Transform support logic nodes too.
-3. `cc.scheduler` supports components, which contain interfaces like `schedule`,`scheduleOnce`,`unschedule`,`unscheduleAllCallbacks`
-4. Though event manager is preserved, logic nodes have a set of new event API. Direct use of event manager is not recommended. For detailed information, please refer to the introduction of the event system that follows
+3. `cc.scheduler` supports components, which contain interfaces like `schedule`,`scheduleOnce`,`unschedule`,`unscheduleAllCallbacks`.
+4. Though event manager is preserved, logic nodes have a set of new event API. Direct use of event manager is not recommended. For detailed information, please refer to the introduction of the event system that follows.
 
 ### Event System
 
@@ -144,7 +144,7 @@ In `cc.Node`, a series of wholly new event APIs are added. From logic nodes, var
 4. `node.once(type, callback, target)`: Monitor  `type` event of `node` once.
 5. `node.off(type, callback, target)`: Cancel the monitoring of all `type` events or cancel a certain monitor of `type` event (appointed by callback and target).
 
-Such an event distribution method has changed from centralized distribution by `cc.eventManager` to distribution by the node which has the event itself. It can be called a transformation from a centralized event system to a discrete event system. In the meantime, Cocos Creator has built in two kinds of system events(i.e., `MOUSE` and `TOUCH`) in nodes:
+Such an event distribution method has changed from centralized distribution by `cc.eventManager` to distribution by the node which has the event itself. It can be called a transformation from a centralized event system to a discrete event system. In the meantime, Cocos Creator has built in two kinds of system events (i.e., `MOUSE` and `TOUCH`) in nodes:
 
 | Definition of enumeration object | Corresponding event name |
 | ---------- |:----------:|

@@ -22,7 +22,7 @@ Next, we will introduce these subpages one by one.
 You can quickly access projects that have been opened recently by using **Recently Opened Projects**. When running Cocos Creator for the first time, this list is blank and a 'Creat a new project' button will appear on the interface. You can come back here after
 having created some projects. And you will see the newly created project appearing on this list.
 
-![recent project hovering](dashboard/recent_project.jpg)
+![recent project hovering](dashboard/recent_project.png)
 
 When you hover your mouse over the article of a recently opened project, the available operations on this article will appear:
 
@@ -43,7 +43,7 @@ In the **Creat a New Project** page, we first need to choose a project template.
 
 Click a template, and you will see descriptions of this template at the bottom of the page.
 
-![choose template](dashboard/new_project.jpg)
+![choose template](dashboard/new_project.png)
 
 At the bottom of the page, you will see the project name and the path that it's going to be saved to. You can manually input the project path and project name in the input field of project path. The last section of the path is project name.
 

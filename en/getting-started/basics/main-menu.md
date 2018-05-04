@@ -1,24 +1,24 @@
 # Main menu
 
 ## Cocos Creator
-* **About Cocos Creator**
-Display information about Cocos Creator.
-* **Hide Cocos Creator (Shortcut: <kbd>H</kbd> )**
+* **About Cocos Creator** Display information about Cocos Creator.
+* **Preference** Open the [Preference](editor-panels/preferences.md) pane and set the editor's personalization options.
+* **Hide Cocos Creator (Shortcut: <kbd>H</kbd>)**
 *mac only* Hide Cocos Creator window.
-* **Hide Others (Shortcut: <kbd>Shift + H</kbd> )**
+* **Hide Others (Shortcut: <kbd>Shift + H</kbd>)**
 *mac only* Hide all other windows except Cocos Creator.
 * **Show All**
 *mac only* Show all hidden windows.
-* **Quit (Shortcut: <kbd>Ctrl/Command + Q</kbd> )**
+* **Quit (Shortcut: <kbd>Ctrl/Command + Q</kbd>)**
 Exit Cocos Creator Editor.
 
 ## File
 * **Open Project...**
 Close the Cocos Creator and open Dashboard.
-* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd> )**
+* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd>)**
 Create a new scene in the current project.
 A game consists of one or more scenes. You'll need to create new scenes when you intend to make independent modules such as new stages, main menus, loading screens, setting screens, etc.
-* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd> )**
+* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd>)**
 Save the current editing scene.
 A save file dialog will pop up if the current scene has never been saved before, in which you can determine where to save your scene file (*.fire). If the scene has been saved before, Cocos Creator will update the save file directly.
 > It is suggested to place all scene files in a particular directory for management, for example **assets/scenes**.
@@ -28,64 +28,93 @@ Building is a critical step in the deployment process. Cocos Creator will pack a
 You will find more information about Build Settings in the [Tool Windows](#tool-windows] section.
 
 ## Edit
-* **Undo (Shortcut: <kbd>Z</kbd> )**
-Undo the last operation.
-* **Redo (Shortcut: <kbd>Shift + Z</kbd> )**
-Redo the most recently undone operation.
-* **Cut (Shortcut: <kbd>X</kbd> )**
-Cut the selected Entity into the clipboard.
-* **Copy (Shortcut: <kbd>C</kbd> )**
-Copy the selected Entity into the clipboard.
-* **Paste (Shortcut: <kbd>V</kbd> )**
-Paste the Entity from the clipboard into the current scene.
-* **Select All (Shortcut: <kbd>A</kbd> )**
-Select all Entities in the current scene.
-* **Play (Shortcut: <kbd>Ctrl/Command + P</kbd> )**
+* **Undo (Shortcut: <kbd>Z</kbd>)**: Undo the last operation.
+* **Redo (Shortcut: <kbd>Shift + Z</kbd>)**: Redo the most recently undone operation.
+* **Cut (Shortcut: <kbd>X</kbd>)**: Cut the selected Entity into the clipboard.
+* **Copy (Shortcut: <kbd>C</kbd>)**: Copy the selected Entity into the clipboard.
+* **Paste (Shortcut: <kbd>V</kbd>)**: Paste the Entity from the clipboard into the current scene.
+* **Select All (Shortcut: <kbd>A</kbd>)**: The focus is selected in the scene editor for all nodes, and the focus is on the console with all log information selected.
+<!-- * **Play (Shortcut: <kbd>Ctrl/Command + P</kbd> )**
 Play the current scene in a browser.
 * **Reload Connected Device (Shortcut: <kbd>Shift + Ctrl/Command + P</kbd>)**
 Reload the browser tab that is playing the current scene.
+-->
+
+## Node Presets
+
+Create nodes through this menu, and Control node to prefab conversion.
+
+* **Connect Node To Prefab**: At the same time select a node in the scene and a prefab in the Explorer, and then select this menu item to associate the selected node and prefab.
+* **Convert to Ordinary Node**: Select a prefab node in the scene. Executing this command will convert the prefab node into a normal node.
+* **Create Empty Node**: Create an empty node in the scene. If the node is selected in the scene before the command is executed, the new node becomes the child of the selected node.
+* **Create Renderer Nodes**: Create a preset node that contains the render component. For details on how to use the render component, please refer to [Renderer and Graphics](../../render/index.md).
+* **Create UI Nodes**: Create a preset node that contains UI components, please refer to [UI system](../../ui/index.md).
+
+## Component
+
+Use this menu to add various components on the currently selected node.
+
+* **Add Collider Component**: Please refer to [Collider Component](../../physics/collision/edit-collider-component.md).
+* **Add Other Component**: Including animation, audio source, trailing and other components.
+* **Add Physics Component**: Add physical related components.
+* **Add Renderer Component**: Please refer to [Renderer and Graphics](../../render/index.md).
+* **Add Custom Component**: Here you can add the script component that the user created in the project.
+* **Add UI Component**: Please refer to [UI system](../../ui/index.md).
+
+## Project
+
+Run, build projects, and project-specific personalization configurations.
+
+* **Play On Device (<kbd>Ctrl/Command + P</kbd>)**：Run the project in a browser or simulator.
+* **Refresh Connected Device (<kbd>Shift + Ctrl/Command + P</kbd>)**：Refreshes the preview window that is already open.
+* **Build... (<kbd>Shift + Ctrl/Command + B</kbd>)**：Open [Build](../../publish/index.md) panel.
+* **Project Setting...**：Open [Project Setting](editor-panels/project-settings.md).
 
 ## Panel
-* **Assets (Shortcut: <kbd>Ctrl/Command + 2</kbd>**
-Open or focus the **Assets** panel.
-* **Node Tree (Shortcut: <kbd>Ctrl/Command + 4</kbd>**
-Open or focus the **Hierarchy** panel.
-* **Properties (Shortcut: <kbd>Ctrl/Command + 3</kbd>**
-Open or focus the **Properties** panel.
-* **Scene (Shortcut: <kbd>Ctrl/Command + 1</kbd>**
-Open or focus the **Scene** panel.
+* **Assets (Shortcut: <kbd>Ctrl/Command + 2</kbd>)**: Open or focus the [Assets](editor-panels/assets.md) panel.
+* **Console (Shortcut: <kbd>Ctrl/Command + 0</kbd>)**：Open or focus the [Console](editor-panels/console.md) panel.
+* **Node Tree (Shortcut: <kbd>Ctrl/Command + 4</kbd>)**: Open or focus the [Node Tree](editor-panels/node-tree.md) panel.
+* **Properties (Shortcut: <kbd>Ctrl/Command + 3</kbd>)**: Open or focus the [Properties](editor-panels/properties.md) panel.
+* **Node Library (Shortcut: <kbd>Ctrl/Command + 5</kbd>)**：Open or focus the [Node Library](editor-panels/node-library.md) panel.
+* **Scene (Shortcut: <kbd>Ctrl/Command + 1</kbd>)**：Open or focus the [Scene](editor-panels/scene.md) panel.
+* **TimeLine (<kbd>Ctrl/Command + 6</kbd>）**：Open or focus the [Timeline](../../animation/animation.md) panel.
 
 ## Layout
-* **Default**
-Classic layout with the **Assets**, **Properties**, **Node Tree**, **Scene** and **Console** panels open.
-* **Assets**
-A layout designed for asset and data extension developers, with the **Assets**, **Properties**, **AssetDB Debugger** and **Console** panels open.
 
+Select one from the preset editor layout.
+
+* **Default**
+* **Portrait**
+* **Classical**
+
+## Extension
+
+For menu items related to extensions, read the [Editor Extension](../../extension/index.md) chapter.
+
+* **Create a new extension...**
+  * **For all Projects (in user profile folder)**
+  * **For current project (in project folder)**
+* **Extension Store...**：Open the extension store and download the official and community-provided extensions.
 
 ## Developer
-* **Reload (Shortcut: <kbd>Ctrl/Command + R</kbd> )**
-Reload the Cocos Creator Editor.
-* **Compile (Shortcut: <kbd>F7</kbd> )**
-Recompile all scripts in the current scene.
-* **Developer Tools (Shortcut: <kbd>Alt + Ctrl/Command + I</kbd> )**
-Open the **Developer Tools** window.
-Various useful and powerful features are provided in **Developer Tools** for analyzing, debugging and tracing, which are essential for game script developers. 
-* **Run Test**
-Run unit tests.
 
+Scripts and editors extend development-related menu functionality.
+
+* **VS Code Workflow**：[VS Code](http://code.visualstudio.com/) Code Editor work environment related functions, please read [Coding Environment Setup](../coding-setup.md) section for details.
+  * **Update VS Code API Source**
+  * **Install VS Code Extension**
+  * **Add TypeScript Config**
+  * **Add Chrome Debug Setting**
+  * **Add Compile Task**
+* **Reload (Shortcut: <kbd>Ctrl/Command + R</kbd>)**：Reload the Cocos Creator Editor.
+* **Compile User Scripts (Shortcut: <kbd>F7</kbd>)**：Recompile all scripts in the current scene.
+* **Inspect Element (Shortcut: <kbd>Ctrl/Command + Shift + C</kbd>)**：View editor interface elements in Chrome Developer Tools
+* **Developer Tools (Shortcut: <kbd>Alt + Ctrl/Command + I</kbd>)**：Open the **Developer Tools** window. Various useful and powerful features are provided in **Developer Tools** for analyzing, debugging and tracing, which are essential for game script developers.
 
 ## Help
-* **Website**
-Visit the official website of Cocos Creator for more information.
-* **Documentation**
-Visit the documentation site of Cocos Creator for engine manuals and scripting API references.
-* **Forum**
-Visit the forum of Cocos Creator to share ideas with other users and developers.
-* **Submit An Issue On Github**
-Submit an issue in the Cocos Creator Github repository. You can let us know at any time by submitting issues if you encounter bugs or have good ideas for the Cocos Creator . Our team is enthusiastic to hear your ideas and will reply to you as soon as possible.
-* **Subscribe To Newsletter**
-Subscribe to the Cocos Creator newsletter for the latest news and updates.
-
----
-
-Continue on to read about [Asset workflow](../../asset-workflow/index.md).
+* **User Manual**: Open the User Manual Document in the browser.
+* **API Reference**: Open API Reference Documentation in the browser.
+* **Forum**: Visit the forum of Cocos Creator to share ideas with other users and developers.
+* **Subscribe To Newsletter**: Subscribe to the Cocos Creator newsletter for the latest news and updates.
+* **User account information**
+* **Log Out**: Log out account.

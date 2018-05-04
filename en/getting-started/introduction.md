@@ -16,8 +16,8 @@
   method (with an appropriate division of labor).
 
 - **Q**: Which platform can we choose to publish the games developed by Cocos Creator?
-- **A**: Currently, Cocos Creator can publish games to the Web, Android, iOS, and desktops 
-  (Mac and PC). The goal is to develop once and publish to all platforms.
+- **A**: Currently, Cocos Creator can publish games to the Web, Android, iOS, desktops 
+  (Mac and windows) and Instant Games. The goal is to develop once and publish to all platforms.
 
 ## Product Positioning
 
