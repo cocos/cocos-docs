@@ -1,54 +1,56 @@
-# 资源导入导出工作流程
+# Resource import and export workflow
 
-Cocos Creator 是专注于内容创作的游戏开发工具，在游戏开发过程中，对于每个项目该项目专用的程序架构和功能以外，我们还会生产大量的场景、角色、动画和 UI 控件等相对独立的元素。对于一个开发团队来说，很多情况下这些内容元素都是可以在一定程度上重复利用的。
+Cocos Creator is a game development tool focused on content creation. In the game development process, in addition to the specific project program architecture and features of each project, we will also generate a large number of relatively independent elements such as scenes, characters, animations, and UI controls. For the development team, in many cases these content elements can be reused to some extent.
 
-在以场景和 Prefab 为内容组织核心的模式下，1.5版本的 Cocos Creator 内置了场景（.fire)和预制(.prefab)资源的导出和导入工具。
+Under the mode of scenes and prefab as the core of content organization, Cocos Creator v1.5 has built-in export and import tools for scene (.fire) and prefab (.prefab) resources.
 
-## 资源导出
+## Export Assets
 
-在主菜单选择 「文件->导出资源」，即可打开资源导出工具面板，接下来可以用以下两种方式选择需要导出的资源：
+From the main menu, select `File -> Export Asset` to open the Resource Export Tool Panel, next, you can select the resources to be exported in the following two ways:
 
-- 将场景或预制文件从 **资源管理器** 中拖拽到导出资源面板的资源栏中
-- 点击资源栏右边的「选择」按钮，打开文件选择对话框，并在项目中选取你要导出的资源
+- Drag a scene or prefab file from **Assets** to the Resources tab of the Export Resource Panel.
+- Click the **Select** button on the right of the resource bar to open the file selection dialog and select the resource you want to export in the project.
 
-可以选择的资源包括 `.fire` 场景文件和 `.prefab` 预制文件。
+Resources that can be selected include `.fire` scene files and `.prefab` files.
 
-### 确认依赖
+### Confirming Dependencies
 
-导出工具会自动检查所选资源的依赖列表并列出在面板里，用户可以手动检查每一项依赖是否必要，并剔除部分依赖的资源。被剔除的资源将不会被导出。
+The export tool automatically checks the list of dependencies of the selected resources and lists them in the panel, The user can manually check if each dependency is necessary and remove some of the dependent resources. The removed resource will not be exported.
 
-![export](export.jpg)
+![export](import-export/export.png)
 
-确认完毕后点击 **导出** 按钮，会弹出文件存储对话框，用户需要指定一个文件夹位置和文件名，点击 **存储**，就会生成 `文件名.zip` 的压缩包文件，包含导出的全部资源。
+After confirmation, click the **Export** button will pop up the file storage dialog, the user needs to specify a folder location and file name. Click the **Save** button will generate a package file of `file name.zip` containing all the exported resources.
 
-![save export](save-export.jpg)
+![save export](import-export/save-export.png)
 
-## 资源导入
 
-有了导出的资源包，就可以在新项目中导入这些现成的资源了，在新项目的主菜单里选择 「文件->导入资源」，即可打开资源导入面板。
+## Import Asset
 
-点击 **Zip 文件路径** 输入框右边的 **选择** 按钮，在文件浏览对话框中选择刚才导出的导出资源压缩包。
+With the exported resource bundles, these ready-made resources can be imported into the new project. 
+In the main menu of the new project, select `File -> Import Asset` to open the Resource Import Tool Panel.
 
-![import](import.jpg)
+Click the **Select** button to the right of the **Zip Path** input box, and in the file browse dialog select the exported resource package you just exported.
 
-导入过程中也会让用户再次确认导入资源依赖，在这时候也可以取消某些资源的勾选来不导入部分资源。
+![import](import-export/import.png)
 
-### 设置导入位置
+During the import process, the user is again asked to confirm the resource dependency at the time of import. At this time, you can also uncheck some resources to not import these resources.
 
-相比导出过程，导入过程中增加了 `导入目标路径` 的设置，用户可以点击旁边的 **选择** 按钮，选择一个项目 `assets` 路径下的某个文件夹作为导入资源的放置位置。由于导出资源时所有资源的路径都是以相对于 `assets` 路径来保存的，导入时如果不希望导入的资源放入 `assets` 根目录下，就可以再指定一层中间目录来隔离不同来源的导入资源。
+### Setting Import Location
 
-设置完成后点击 **导入** 按钮，会弹出确认对话框，确认后就会把列出的资源导入到目标路径下。
+Compared to the export process, the `Import Path` setting was added to the import process, The user can click on the **Select** button next to it to select a folder under the `assets` path of the project as the location for the imported resource. Because all resource paths are saved relative to the `assets` path when exporting resources, if you do not want imported resources to be placed in the `assets` root directory during import, you can specify an intermediate directory to isolate the imported resources from different sources.
 
-### 脚本和资源冲突
+After setting, click the **Import** button will pop up a confirmation dialog. After confirmation, the listed resources will be imported into the target path.
 
-由于 Creator 项目中的脚本不能同名，当导入的资源包含和当前项目里脚本同名的脚本时，将不会导入同名的脚本。如果出现导入资源的 UUID 和项目中现有资源 UUID 冲突的情况，会自动为导入资源生成新的 UUID，并更新在其他资源里的引用。
+### Script and Resource Conflicts
 
-## 工作流应用
+Because the script in the Creator project cannot have the same name, when the imported resource contains a script with the same name as the script in the current project, the script with the same name will not be imported. If there is a conflict between the UUID of the imported resource and the UUID of the existing resource in the project, a new UUID will be automatically generated for the imported resource and the references in other resources will be updated.
 
-有了全新的资源导入/导出功能，我们可以进一步根据项目和团队需要扩展工作流，比如：
+## Workflow Application
 
-- 程序和美术分别使用不同的项目进行开发，美术开发好的 UI、角色、动画可以通过导出资源的方式引入到程序负责的主项目中。避免冲突并进一步加强权限管理。
-- 一个项目开发完成后，可以将可重用的资源导出并导入到一个公共资源库中，在公共资源库项目里对该资源进行优化整理后，可以随时再导出到其他项目，大大节约开发成本。
-- 将一个较为完整的功能做成场景或预制，并上传资源包到扩展商店，方便社区直接取用。
+With the new resource import/export capabilities, we can further extend the workflow based on project and team needs, such as:
 
-在此基础上还可以发展出更多样化的工作流程，开发团队可以发挥想象力，并使用扩展插件系统进一步定制导入导出的数据和行为，满足更复杂的需要。
+- Programs and Art designer use separate projects to development, UI, character, and animation developed by Art designer can be imported into the main project that the programs is responsible for by exporting resources. Avoid conflicts and further strengthen privilege management.
+- After a project is developed, reusable resources can be exported and imported into a common repository, After the resource is optimized in the public resource library project, it can be exported to other projects at any time, which greatly saves development costs.
+- Make a more complete function into a scene or prefabricated, and upload resource packages to the extension store, easy for community users to download and use.
+
+On this basis, a more diversified workflow can be developed. The development team can use their imagination and use the extension plugin system to further customize the imported and exported data and behaviors to meet more complex needs.
