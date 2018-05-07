@@ -18,7 +18,7 @@
     ![](./publish-android-instant/refactor.png)
     
  5. Click **Build** button to build the native android instant project then you can find it in the folder *build/android-instant*
- 6. Open the Android-studio app and open the project we create (path:*build/android-instant/framework/runtime-src/pro.android-studio*)
+ 6. Open the Android-studio app and open the project we create (path:*build/android-instant/framework/runtime-src/proj.android-studio*)
  
     ![](./publish-android-instant/android-studio.png)
  
