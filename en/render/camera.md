@@ -17,11 +17,13 @@ Suppose we are making a physics game: we have physics colliders and tiled map as
 
 ![Camera-1](./camera/camera-1.png)
 
-Here we also created a new node as camera carrier, using a separate node as a camera node will be more flexible. Of course, we can also directly add the camera components to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect. 
+Here we need to create a new empty node, rename it to camera, and use this camera node as a camera carrier. using a separate node as a camera node will be more flexible. Of course, we can also directly add the camera components to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect. 
+
+Select the camera node in the **Node Tree** and click on the `Add Component -> Add Other Component -> Camera` button below the **Properties** to add the camera component to the camera node.
 
 <img src="./camera/camera-2.png" style="width:50%;height:50%"></img>
 
-Here the camera component adds three nodes to the `targets` property, that is, we need the camera to shoot these three nodes. And we also added a **camera-control** components, the role of this component is mainly to move the camera node to follow the hero node.
+Here the camera component adds three nodes to the `targets` property, that is, we need the camera to shoot these three nodes. And we also added a `camera-control` custom components, the role of this component is mainly to move the camera node to follow the hero node.
 
 This example can be found in the `tiled` example in the [Physics example](https://github.com/2youyou2/physics-example) project.
 
