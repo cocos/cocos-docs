@@ -44,6 +44,8 @@
     - [Spine 骨骼动画资源](asset-workflow/spine.md)
     - [DragonBones 骨骼动画资源](asset-workflow/dragonbones.md)
     - [瓦片图资源](asset-workflow/tiledmap.md)
+    - [JSON 资源](asset-workflow/json.md)
+    - [文本资源](asset-workflow/text.md)
     - [导入其他编辑器项目](asset-workflow/project-import.md)
 - [场景制作工作流程](content-workflow/index.md)
     - [节点和组件](content-workflow/node-component.md)

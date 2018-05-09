@@ -44,6 +44,8 @@
     - [Spine](asset-workflow/spine.md)
     - [DragonBones](asset-workflow/dragonbones.md)
     - [Tiledmap](asset-workflow/tiledmap.md)
+    - [JSON](asset-workflow/json.md)
+    - [Text](asset-workflow/text.md)
     - [Import Project from Other Editor](asset-workflow/project-import.md)
 - [Scene Building Workflow](content-workflow/index.md)
     - [Node and Component](content-workflow/node-component.md)

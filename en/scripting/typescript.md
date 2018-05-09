@@ -93,7 +93,7 @@ public myNodes: cc.Node[] = [];
 public myColors: cc.Color[] = [];
 ```
 
-声明 getset
+Declare getset
 
 ```typescript
 @property
