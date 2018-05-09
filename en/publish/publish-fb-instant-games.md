@@ -29,7 +29,9 @@ After the build is complete, a `fb-instant-games` folder will be created in the 
 
 ![](./publish-fb-instant-games/package.png)
 
-## Second, Upload to Facebook
+## Second, upload to Facebook
+
+Create a new application in the background of Facebook, add an **Instant Games** in **Add a Product** , set the game category, and save the changes. (For details, please refer to the [setting application](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=en_US#app-setup))
 
 Click the **Instant Games -> Web Hosting** tab on the left side of the Applications panel, click **Upload Version**, and upload the `.zip` file in the `fb-instant-games` directory to the Facebook hosting service.
 
@@ -40,8 +42,6 @@ When the version status changes to Standby, click the "★" button to push the b
 ![](./publish-fb-instant-games/push.png)
 
 ## Third, test the game
-
-Create a new application in the background of Facebook, add an **Instant Games** in **Add a Product** , set the game category, and save the changes. (For details, please refer to the [setting application](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=en_US#app-setup))
 
 ### Enable the https-enabled Web server locally
 

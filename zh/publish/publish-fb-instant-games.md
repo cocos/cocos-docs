@@ -31,6 +31,8 @@
 
 ## 二、上传到 Facebook
 
+在 Facebook 后台创建一款新应用，在 **添加商品** 中添加 **小游戏** ，设置游戏类别，保存更改。（详情可参考 [设置应用](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=zh_CN#app-setup)）
+
 点击应用面板左侧的 **小游戏 -> 网页托管** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
 
 ![](./publish-fb-instant-games/upload.png)
@@ -40,8 +42,6 @@
 ![](./publish-fb-instant-games/push.png)
 
 ## 三、测试游戏
-
-在 Facebook 后台创建一款新应用，在 **添加商品** 中添加 **小游戏** ，设置游戏类别，保存更改。（详情可参考 [设置应用](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=zh_CN#app-setup)）
 
 ### 在本地启用支持 https 的 Web 服务器
 
