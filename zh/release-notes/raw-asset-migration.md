@@ -166,6 +166,34 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
     });
 ```
 
+## Protobuf 相关更新
+
+如果你之前适配了 protobuf，升级到 1.10 后加载 proto 文件时可能会遇到麻烦，只需要做如下调整即可。下面示范的代码可能和你正使用的 protobuf 不太一样，不过原理是相同的。
+
+假设原先使用这样的代码加载 proto：
+
+```js
+ProtoBuf.loadProtoFile(cc.url.raw('resources/data.proto'), ...);
+```
+
+由于**路径经过 cc.url.raw 的转化后，将无法再用于相对路径的解析**，因此 protobuf 内部加载关联的文件时可能会失败。请改成直接用：
+
+```js
+ProtoBuf.loadProtoFile('data.proto', ...);
+```
+
+然后请修改 loadProtoFile 的实现，将原先使用 cc.loader.load 等方法进行加载的代码调整为：
+
+```js
+ProtoBuf.loadProtoFile = function (filename, callback, builder) {
+    ...
+    cc.loader.loadRes(filename, function (error, res) {
+        ...
+        ProtoBuf.loadProto(res.text, builder, filename);
+    });
+});
+```
+
 ## 其它更新
 
 ### 新增了 `cc.TextAsset` 用于加载文本文件
