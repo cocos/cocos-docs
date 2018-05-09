@@ -16,7 +16,7 @@
 // 创建一个节点
 var node = new cc.Node();
 // 并将节点添加到场景中
-c.director.getScene().addChild(node);
+cc.director.getScene().addChild(node);
 // 并添加粒子组件到 Node 上
 var particleSystem = node.addComponent(cc.ParticleSystem);
 // 接下去就可以对 particleSystem 这个对象进行一系列操作了
