@@ -4,7 +4,7 @@ Animation editors usually have the same standard functionality one would expect:
 
 ![animation cover](index/animation_cover.png)
 
-The editor is suitable for making some simple animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, or nested animations, consider using Spine or DragonBones instead.
+**Attention**: Cocos Creator's own animation editor is suitable for making some less complex animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, or nested animations, consider using Spine or DragonBones instead.
 
 - [About Animations](animation.md)
 - [Animation Clips](animation-clip.md)

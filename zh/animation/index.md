@@ -4,7 +4,7 @@
 
 <a href="index/animation_cover.png"><img src="index/animation_cover.png" alt="animation cover"></a>
 
-该编辑器适用于制作一些比较简单的、需要与逻辑进行联动的动画，例如 UI 动画。如果要制作复杂的特效、角色动画、嵌套动画，可以考虑改用 Spine 或者 DragonBones 进行制作。
+**注意**：Cocos Creator 自带的动画编辑器适用于制作一些不太复杂的、需要与逻辑进行联动的动画，例如 UI 动画。如果要制作复杂的特效、角色动画、嵌套动画，可以考虑改用 Spine 或者 DragonBones 进行制作。
 
 - [关于 Animation](animation.md)
 - [创建 Animation 组件和动画剪辑](animation-clip.md)
