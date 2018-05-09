@@ -15,8 +15,8 @@
 # 发布流程
 
 - 使用 Cocos Creator 构建游戏
-- 测试游戏
 - 上传到 Facebook 后台
+- 测试游戏
 - 在 Facebook 中分享你的游戏
 
 ## 一、使用 Cocos Creator 构建游戏
@@ -29,7 +29,17 @@
 
 ![](./publish-fb-instant-games/package.png)
 
-## 二、测试游戏
+## 二、上传到 Facebook
+
+点击应用面板左侧的 **小游戏 -> 网页托管** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
+
+![](./publish-fb-instant-games/upload.png)
+
+当版本状态更改为 “待命” 时，单击 “★” 按钮将构建版本推送到 “生产” 环境。
+
+![](./publish-fb-instant-games/push.png)
+
+## 三、测试游戏
 
 在 Facebook 后台创建一款新应用，在 **添加商品** 中添加 **小游戏** ，设置游戏类别，保存更改。（详情可参考 [设置应用](https://developers.facebook.com/docs/games/instant-games/getting-started/quickstart?locale=zh_CN#app-setup)）
 
@@ -56,21 +66,11 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 
 ### 在 Facebook 域名下预览游戏
 
-如果要使用 Facebook Instant Games SDK 的所有功能，需要用浏览器打开 https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080， 注意要将链接中的 `YOUR_GAME_ID` 换成你在 Facebook 后台创建的应用编号。
-
+如果要使用 Facebook Instant Games SDK 的所有功能，需要用浏览器打开 [https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080](https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080)，注意要将链接中的 `YOUR_GAME_ID` 换成你在 Facebook 后台创建的应用编号。
+ 
 然后可以看到游戏成功运行：
 
 ![](./publish-fb-instant-games/game.png)
-
-## 三、上传到 Facebook
-
-点击应用面板左侧的 **小游戏 -> Web Hosting** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
-
-![](./publish-fb-instant-games/upload.png)
-
-当版本状态更改为 “待命” 时，单击 “★” 按钮将构建版本推送到 “生产环境”。
-
-![](./publish-fb-instant-games/push.png)
 
 ## 四、在 Facebook 中分享你的游戏
 
