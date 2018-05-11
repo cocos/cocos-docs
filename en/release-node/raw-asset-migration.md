@@ -48,7 +48,7 @@ For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can
     });
 ```
 
-## Upgrade Step
+## Upgrade step
 
  - Rename the directory where the old Cocos Creator is located, and install a new version of Cocos Creator. In this way, old and new versions can coexist.
  - **After backing up the old version of the project**, open the original project with the new Cocos Creator, Creator will re-import impacted resources , it takes a little more time to upgrade for the first time, and the main editor window opens when the import is complete.
@@ -60,7 +60,7 @@ For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can
 
 This is the most common error in the upgrade process. Where FOO is the class name of the CCClass you declare, which is the name of the file, audio_bgMusic is your property name. You need to find the definition of audio_bgMusic in `FOO.js`, and then modify it according to the following information. The following message is assumed to be:
 
-#### "the use of declaring a property in CCClass as a URL has been deprecated..."
+#### "The use of declaring a property in CCClass as a URL has been deprecated..."
 
 This means that you specified the `url` type when declaring the `audio_bgMusic` attribute, and that `url` is no longer supported. By looking for `FOO.js` in your project, you can find a way to define something like this:
 
@@ -168,7 +168,35 @@ Please amend it to:
     });
 ```
 
-## Other Updates
+## Protobuf related adjustments
+
+If you have adapted protobuf before, you may have trouble loading the .proto file after upgrading to 1.10. Just make the following adjustments. The code shown below may not be the same as the protobuf you are using, but the principle is the same.
+
+Assuming that the .proto was originally loaded with such code:
+
+```js
+ProtoBuf.loadProtoFile(cc.url.raw('resources/data.proto'), ...);
+```
+
+Because **paths are converted to `cc.url.raw`, they will no longer be available for relative path parsing**, so protobuf may fail to load associated files internally. Please change to use directly:
+
+```js
+ProtoBuf.loadProtoFile('data.proto', ...);
+```
+
+Then modify the implementation of loadProtoFile, adjust the code that was originally loaded using methods such as cc.loader.load to:
+
+```js
+ProtoBuf.loadProtoFile = function (filename, callback, builder) {
+    ...
+    cc.loader.loadRes(filename, function (error, res) {
+        ...
+        ProtoBuf.loadProto(res.text, builder, filename);
+    });
+});
+```
+
+## Other adjustments
 
 ### Added `cc.TextAsset` for loading text files
 
@@ -221,6 +249,6 @@ In addition, you can read directly:
 
 For an unknown type of file imported from the editor, originally imported as an untyped `cc.RawAsset`, it will now be imported as `cc.Asset`. The declaration method is the same as above, changing `url: cc.RawAsset` to `type: cc.Asset`. The original URL can also be accessed in the same manner as `asset.nativeUrl`. The original url can also be accessed in the same manner as `asset.nativeUrl`.
 
-## Feedback Question
+## Feedback question
 
 If there are other upgrade issues, click `Submit Feedback` in the lower right corner of the page to submit an issue directly to the GitHub repository in this document. Or reply in [Forum Posts](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534).
