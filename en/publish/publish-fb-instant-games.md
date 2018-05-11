@@ -90,7 +90,7 @@ There are many limitations to Facebook hosting, the most important of which are:
 
 # Custom Instant Games
 
-Developers can create the `build-templates/fb-instant-games` directory in the Creator project folder according to their needs, and then copy the published files to this directory and customize them:
+Developers can [create the `build-templates/fb-instant-games` directory](custom-project-build-template.md) in the Creator project folder according to their needs, and then copy the published files to this directory and customize them:
 
 ![](./publish-fb-instant-games/file.png)
 

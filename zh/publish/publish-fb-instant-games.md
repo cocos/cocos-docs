@@ -89,7 +89,7 @@ Facebook 托管存在多项限制，其中最重要的是：
 
 # 自定义 Instant Games
 
-开发者可以根据自身需求在 Creator 项目文件夹下创建 `build-templates/fb-instant-games` 目录，然后将发布后的这几个文件复制到该目录中，即可对它们进行定制：
+开发者可以根据自身需求在 Creator 项目文件夹下[创建 `build-templates/fb-instant-games` 目录](custom-project-build-template.md)，然后将发布后的这几个文件复制到该目录中，即可对它们进行定制：
 
 ![](./publish-fb-instant-games/file.png)
 

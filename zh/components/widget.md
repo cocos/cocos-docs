@@ -1,5 +1,7 @@
 # Widget 组件参考
 
+> 该文档适用于 Creator v1.10 及以上的版本。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/be9d3c69dc5a85b61df060269ac520374ba77c01/zh/components/widget.md)。
+
 Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。
 
 ![default](widget/widget-default.png)
@@ -17,7 +19,7 @@ Right   | 对齐右边界 | 选中后，将在旁边显示一个输入框，用�
 HorizontalCenter   | 水平方向居中 |
 VerticalCenter     | 竖直方向居中 |
 Target  | 对齐目标   | 指定对齐参照的节点，当这里未指定目标时会使用直接父级节点作为对齐目标 
-Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何时更新 | 设置为 ONCE，仅在组件初始化时进行一次对齐。设置为 ON_WINDOWS_RESIZE 时，每次调整窗口尺寸时都进行重新对齐。设置为 ALWAYS 时，每帧都会对当前 Widget 组件执行对齐逻辑（对性能有较大损耗！）。|
+Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何时更新 | 通常设置为 ON_WINDOWS_RESIZE，仅在初始化和每当窗口大小改变时重新对齐。<br>设置为 ONCE 时，仅在组件初始化时进行一次对齐。<br>设置为 ALWAYS 时，每帧都会对当前 Widget 组件执行对齐逻辑。|
 
 ## 对齐边界
 
