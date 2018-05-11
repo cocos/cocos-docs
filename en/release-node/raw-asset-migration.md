@@ -168,6 +168,35 @@ Please amend it to:
     });
 ```
 
+
+## Protobuf Related Updates
+
+If you have adapted protobuf before, you may have trouble loading the proto file after upgrading to 1.10. Just make the following adjustments. The code shown below may not be the same as the protobuf you are using, but the principle is the same.
+
+Assuming that the proto was originally loaded with such code:
+
+```js
+ProtoBuf.loadProtoFile(cc.url.raw('resources/data.proto'), ...);
+```
+
+Because **paths are converted to `cc.url.raw`, they will no longer be available for relative path parsing**, so protobuf may fail to load associated files internally. Please change to use directly:
+
+```js
+ProtoBuf.loadProtoFile('data.proto', ...);
+```
+
+Then modify the implementation of loadProtoFile, adjust the code that was originally loaded using methods such as cc.loader.load to:
+
+```js
+ProtoBuf.loadProtoFile = function (filename, callback, builder) {
+    ...
+    cc.loader.loadRes(filename, function (error, res) {
+        ...
+        ProtoBuf.loadProto(res.text, builder, filename);
+    });
+});
+```
+
 ## Other Updates
 
 ### Added `cc.TextAsset` for loading text files

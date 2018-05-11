@@ -176,7 +176,7 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 ProtoBuf.loadProtoFile(cc.url.raw('resources/data.proto'), ...);
 ```
 
-由于**路径经过 cc.url.raw 的转化后，将无法再用于相对路径的解析**，因此 protobuf 内部加载关联的文件时可能会失败。请改成直接用：
+由于 **路径经过 cc.url.raw 的转化后，将无法再用于相对路径的解析**，因此 protobuf 内部加载关联的文件时可能会失败。请改成直接用：
 
 ```js
 ProtoBuf.loadProtoFile('data.proto', ...);
