@@ -14,7 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
-    "preview": "gulp prebuild && gitbook serve",
+    "preview": "gulp prebuild && gitbook serve --no-watch --open",
     "upload": "gulp publish --dest /Volumes/creator/manual",
     "publish": "npm run build && npm run upload"
   },

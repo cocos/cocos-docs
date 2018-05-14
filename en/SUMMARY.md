@@ -84,8 +84,8 @@
     - [Publish to Wechat Mini Games](publish/publish-wechatgame.md)
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
+    - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
-    - [Customize Project Build Template](publish/custom-project-build-template.md)
 
 ## Systems 
 

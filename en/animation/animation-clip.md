@@ -11,7 +11,7 @@ There are 2 methods for creating an animation:
 __Add component__ below in the Properties and choose __Animation__ in “other components”.
 
  - Open the animation editor. Choose the Node that you want to add the animation to in the arrangement manager. Click the __Add Animation component__ button.
-![Add Component](animation-clip/add-component.png)
+![Add Component](animation-clip/add-component.jpg)
 
 ## Create and mount animation clips
 
@@ -27,7 +27,33 @@ Drag the newly created 'New AnimationClip' from the Assets into the newly emerge
 
 You need to pay attention! If you choose to cover the existing clip document, the contents of the covered document will be erased.
 
-![Animation Clip](animation-clip/add-clip.png)
+![Animation Clip](animation-clip/add-clip.jpg)
+
+## The data in the clip
+
+An animated clip may contain multiple node information.
+
+Multiple animation attributes can be mounted on each node.
+
+The data in each attribute is the actual key frame.
+
+### Node data
+
+The animation clip finds the location of the data through the name of the node.
+
+The child node finds the data through the relative path of the root node.
+
+Sometimes we rename the nodes after the animation is finished.
+This will cause problems with the animation data:
+
+<a href="animation-clip/miss-node.jpg"><img src="animation-clip/miss-node.jpg"></a>
+
+At this point, we manually specify the node for the data:
+1. The mouse move to the missing node. - /New Node/efx_flare 上
+2. Click the button that appears on the right.
+3. Select Migrating data
+4. Change the path to '/New Node/test' and press enter
+
 ---
 
 Continue on to read about [Animation Curves](animation-curve.md).

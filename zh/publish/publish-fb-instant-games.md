@@ -67,7 +67,7 @@ $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 ### 在 Facebook 域名下预览游戏
 
 如果要使用 Facebook Instant Games SDK 的所有功能，需要用浏览器打开 [https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080](https://www.facebook.com/embed/instantgames/YOUR_GAME_ID/player?game_url=https://localhost:8080)，注意要将链接中的 `YOUR_GAME_ID` 换成你在 Facebook 后台创建的应用编号。
- 
+
 然后可以看到游戏成功运行：
 
 ![](./publish-fb-instant-games/game.png)
