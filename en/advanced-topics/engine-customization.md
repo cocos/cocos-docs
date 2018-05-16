@@ -2,7 +2,7 @@
 
 The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and Cocos2d-x (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
-- Creator-JS engine: <https://github.com/cocos-creator/engine>
+- JavaScript engine: <https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
@@ -13,13 +13,13 @@ If your concern is only Web based games, or what you want to change in the engin
 
 ### 1.1 Get JavaScript Engine Repository
 
-First, you need to clone the engine repository or fork the repo. You have to make sure the repo is at the corresponding branch. For example to customize engine for __Cocos Creator v1.6.2__ you'd need to checkout `v1.6` branch; for __Cocos Creator v1.7.1__ you'd need to checkout `v1.7` branch. Once cloning is completed, go to the repo's folder in command-line shell.
-
-![](engine-customization/creator-js.png)
-
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the **engine** directory in the popup to any other local path.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths. Also, you do not need to install the compilation dependency environment, you can skip the 1.2 steps.
 
 ![](engine-customization/open-engine.png)
+
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. For example to customize engine for __Cocos Creator v1.6.2__ you'd need to checkout `v1.6` branch; for __Cocos Creator v1.7.1__ you'd need to checkout `v1.7` branch. Once cloning is completed, go to the repo's folder in command-line shell.
+
+![](engine-customization/download-repo-js.png)
 
 ### 1.2 Install NPM Dependencies
 
@@ -43,7 +43,7 @@ Now you can do whatever you want to do with the engine, once you finished:
 gulp build
 ```
 
-This command will generate a `bin` folder in the Creator-JS engine directory and compile the engine source into the `bin` directory.
+This command will generate a `bin` folder in the engine directory and compile the engine source into the `bin` directory.
 
 ![](engine-customization/bin.png)
 
@@ -55,11 +55,15 @@ Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set 
 
 ## 2 Customized Cocos2d-x Engine
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.0 please checkout `v1.6` branch.
+If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator.
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the **cocos2d-x** directory in the popup to any other local path.
+### 2.1 Get the Cocos2d-x Engine
 
-### 2.1 Initialize
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths. And you can skip the 2.2 steps.
+
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.0 please checkout `v1.6` branch.
+
+### 2.2 Initialize
 
 Once cloned, enter the Cocos2d-x-lite engine folder and run:
 
@@ -72,7 +76,7 @@ npm install
 gulp init
 ```
 
-- If you get an error like the one below, please download the zip file manually. The reason for the error is that a python library version is too low, but the upgrade is cumbersome. The simpler method is to download the zip file and manually put it under the Cocos2d-x engine repo and rename it to `v3-deps-54` (you do not need to unzip the zip file.) and rerun the initialization repo command.
+- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
@@ -82,7 +86,7 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x engine repository under the `cocos2d-x-lite/tools/cocos2d-console` directory and rename it to `creator-console-2` (without unzipping the zip file), and then rerun the initialize repo command.
+- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
 
 ```bash
 > ==> Ready to download 'creator-console-2.zip' from
@@ -92,17 +96,17 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-### 2.2 Used customized cocos2d-x-lite engine in Cocos Creator
+### 2.3 Configure Custom Engine in Cocos Creator
 
 Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set the path to your customized cocos2d-x-lite engine.
 
 ![](engine-customization/setting-2dx.png)
 
-### 2.3 Build from Source
+### 2.4 Build from Source
 
 Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
 
-### 2.4 Build binary library and simulator
+### 2.5 Build binary library and simulator
 
 - If you want to use a `binary` template to build and compile native project (it's much faster since Cocos2d-x code are already compiled), you'll need to run these commands:
 

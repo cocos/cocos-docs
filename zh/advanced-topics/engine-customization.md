@@ -2,24 +2,24 @@
 
 Cocos Creator 的引擎部分包括 JavaScript 和 Cocos2d-x 两个部分。全部都在 github 上开源。地址在：
 
-- Creator-JS 引擎：<https://github.com/cocos-creator/engine>
+- JavaScript 引擎：<https://github.com/cocos-creator/engine>
 - Cocos2d-x 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
 
 我们建议您通过 github 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [github help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 github 相关工作流程请参考 [github help](https://help.github.com)。
 
 ## 1、定制 JavaScript 引擎
 
-如果您仅需要定制 Web 版游戏的引擎功能，或只需要修改纯 JavaScript 层逻辑（如 UI 系统，动画系统），那么您只要按照下面的流程修改 JS 引擎就可以了。
+如果您只需要定制 Web 版游戏的引擎功能，或只需要修改纯 JavaScript 层逻辑（如 UI 系统，动画系统），那么您只要按照下面的流程修改 JS 引擎就可以了。
 
 ### 1.1、获取 JS 引擎
 
-首先您需要从 github 上克隆 Creator-JS 引擎的原始版本（地址见上文）或者 fork 后的版本。根据不同的 Creator 版本，还需要 checkout 不同的分支，例如 Creator 1.6.2 对应的是引擎的 v1.6 分支。下载后存放到任意本地路径。
-
-![](engine-customization/creator-js.png)
-
-如果您仅需要基于当前的版本上做一些调整，那么在 Cocos Creator 内置的引擎基础上修改就可以了。点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将弹窗中的 **engine** 目录拷贝存放到其他任意本地路径。
+如果您仅需基于当前的版本做一些调整，那么在 Cocos Creator 内置的引擎基础上修改就可以了。点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **engine** 目录拷贝到本地其他路径。且不需要安装编译依赖环境，可跳过下面 1.2 的操作步骤。
 
 ![](engine-customization/open-engine.png)
+
+如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。根据不同的 Creator 版本，还需要切换不同的分支，例如 Creator 1.6.2 对应的是引擎的 v1.6 分支，下载后存放到任意本地路径。
+
+![](engine-customization/download-repo-js.png)
 
 ### 1.2、安装编译依赖
 
@@ -40,7 +40,7 @@ npm install
 gulp build
 ```
 
-该命令会在 Creator-JS 引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到 `bin` 目录下。
+该命令会在引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到 `bin` 目录下。
 
 ![](engine-customization/bin.png)
 
@@ -52,17 +52,21 @@ gulp build
 
 ## 2、定制 Cocos2d-x 引擎
 
-如果您需要定制渲染和原生接口相关的引擎功能，在修改 JS 引擎的基础上，还需要同步修改 Cocos2d-x 引擎。注意 Cocos Creator 使用的 Cocos2d-x 引擎是专门定制的，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x 引擎在使用前也请确认当前所在分支，对于 Cocos Creator v1.6.0 版本请使用 `v1.6` 分支。
+如果您需要定制渲染和原生接口相关的引擎功能，在修改 JS 引擎的基础上，还需要同步修改 Cocos2d-x 引擎。
 
-如果您仅需要基于当前的版本上做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将弹窗中的 **cocos2d-x** 目录拷贝存放到其他任意本地路径。
+### 2.1、获取 Cocos2d-x 引擎
 
-### 2.1、初始化
+如果您仅需要基于当前的版本上做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。并且可跳过下面 1.2 的操作步骤。
 
-下载或克隆好 Cocos2d-x 引擎仓库后，在命令行进入引擎路径然后执行：
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x 引擎在使用前也请确认当前所在分支，例如 Cocos Creator v1.6.0 版本请使用 `v1.6` 分支。
+
+### 2.2、初始化
+
+下载或者克隆好 Cocos2d-x 引擎仓库后，在命令行进入引擎路径然后执行：
 
 ```bash
 # 在命令行进入 Cocos2d-x 引擎路径
-cd /Users/yufang/cocos2d-x-lite
+cd /Users/yufang/cocos2d-x-lite  
 # 安装编译依赖
 npm install
 # 安装 gulp 构建工具
@@ -71,7 +75,7 @@ npm install -g gulp
 gulp init
 ```
 
-- 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是一个 python 的库版本太低，但是升级很麻烦，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x 引擎仓库下并重命名为 `v3-deps-54`（不需要解压该 zip 文件），再重新运行初始化仓库命令。
+- 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是您的 python 自带的一个库版本太低，但是不太好升级，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x 引擎仓库下并重命名为 `v3-deps-54.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
@@ -81,7 +85,7 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-- 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x 引擎仓库 `cocos2d-x-lite/tools/cocos2d-console` 目录下并重命名为 `creator-console-2`（不需要解压该 zip 文件），再重新运行初始化仓库命令。
+- 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x 引擎仓库 `tools/cocos2d-console` 目录下并重命名为 `creator-console-2.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
 ```bash
 > ==> Ready to download 'creator-console-2.zip' from
@@ -91,17 +95,17 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-### 2.2、在 Cocos Creator 中使用定制版引擎
+### 2.3、在 Cocos Creator 中配置定制版引擎
 
 通过 `项目 -> 项目设置` 面板的 **自定义引擎** 选项卡，设置使用您本地定制后的 Cocos2d-x 引擎路径。
 
 ![](engine-customization/setting-2dx.png)
 
-### 2.3、修改引擎
+### 2.4、修改引擎
 
 接下来可以对 Cocos2d-x 引擎进行定制修改了，由于只有在 **构建发布** 过程中才会编译代码，所以修改引擎后可以直接打开 **构建发布** 面板，选择 `default` 或者 `link` 模板进行构建和编译。
 
-### 2.4、编译预编译库和模拟器
+### 2.5、编译预编译库和模拟器
 
 - 如果想在 **构建发布** 面板中使用 `binary` 预编译库模板加速编译过程，就需要在 Cocos2d-x 引擎路径下执行：
 
