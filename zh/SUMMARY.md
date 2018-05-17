@@ -279,7 +279,6 @@
 - [ui-text-area 参考](extension/reference/ui-text-area.md)
 - [常见问题（FAQ）](getting-started/faq.md)
 - [原生平台调试](publish/debug-native.md)
-- [在 Linux 上构建项目](publish/publish-in-linux.md)
 - [接入微信小游戏的子域](publish/publish-wechatgame-sub-domain.md)
 - [v1.10 资源升级指南](release-notes/raw-asset-migration.md)
 - [arc](render/graphics/arc.md)
