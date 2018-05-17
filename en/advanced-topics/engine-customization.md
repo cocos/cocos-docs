@@ -13,7 +13,7 @@ If your concern is only Web based games, or what you want to change in the engin
 
 ### 1.1 Get JavaScript Engine Repository
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths. Also, you do not need to install the compilation dependency environment, you can skip the 1.2 steps.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths. 
 
 ![](engine-customization/open-engine.png)
 
@@ -59,9 +59,9 @@ If you need to change stuff of rendering or native API related function. Besides
 
 ### 2.1 Get the Cocos2d-x Engine
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths. And you can skip the 2.2 steps.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.0 please checkout `v1.6` branch.
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
 
 ### 2.2 Initialize
 
