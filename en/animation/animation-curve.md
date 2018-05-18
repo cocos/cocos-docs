@@ -9,7 +9,7 @@ Properties that are included in a component will add the name of the component t
 ![Animation Curve](animation-curve/main.jpg)
 
 For example, in the image above, the position curve is the property path and the
-corresponding blue dots are animation frames.
+corresponding blue dots are keyframes.
 
 ## Adding a new property path
 
@@ -18,47 +18,63 @@ and then clicking `+` in the property field. In the pop up menu, all
 of the addable properties will be listed. Choose the property that you want to add and a corresponding path will be added.
 
 ## Delete a property path
-Right click the property in the property list and choose the delete option in the pop up menu and the property will be deleted from the animation data.
 
-## Add an animation frame
+Move the mouse focus to the property path you want to delete. A ![](animation-curve/more.png) button will appear on the right, Click on the button and choose the `Delete the properties` option in the pop up menu and the property will be deleted from the animation data.
 
-You can also directly click the 'more' button, sign on the right side of the corresponding property in the property list, then a frame will be added to the currently selected point in time.
+![](animation-curve/delete.png)
 
-![add](animation-curve/add.jpg)
+## Add an keyframe
 
-Or modify the corresponding properties of the Node in the recording status.
-It is important to note that if the changed property track does not exist, the operation will be ignored, so if you want to change the key frame automatically, you will need to create the property track in advance.
+Click the ![](animation-curve/more.png) button to the right side of the corresponding property path in the property list, and select the `Insert keyframe` button in the pop up menu. then a frame will be added to the currently selected point in time.
 
-## Choose an animation frame
-Click the created sequence frame and it will be displayed in the selected state. Now the sequence frame will turn from blue to white. If you need to select multiple sequence frames at once, you can hold down the Ctrl key and select the ones you need or directly drag and highlight them in the property field.
+![add](animation-curve/add.png)
+
+Or modify the corresponding properties path of the Node in the edit mode.
+It is important to note that if the changed property path does not exist, the operation will be ignored, so if you want to change the key frame automatically, you will need to create the property path in advance.
+
+## Choose an keyframe
+
+Click the created sequence frame and it will be displayed in the selected state. Now the sequence frame will turn from blue to white. If you need to select multiple sequence frames at once, you can hold down the <kbd>ctrl</kbd> key and select the ones you need or directly drag and highlight them in the property field.
 
 ![selected](animation-curve/selected.jpg)
 
-## Move an animation frame
+## Move an keyframe
+
+If you move the mouse over any selected keyframe, press the left mouse button, the mouse will transform into left and right arrows, this time you can drag all the selected keyframes.
 If you move the mouse to any randomly chosen Node, the mouse will display left and right arrows.
 You can drag all the chosen Nodes while holding down the left mouse button.
 
-## Modify an animation frame
-Click the animation frame that needs to be modified and the selected frame on the
-timeline will jump to this frame. After making sure the recording status is opened,
-you can directly modify the corresponding properties in the Properties.
+## Modify an keyframe
 
-## Delete an animation frame
-After choosing a sequence frame, click the ??sign in the property field and the currently selected sequence frame will be deleted. Or directly press the Delete key on the keyboard and all the selected nodes will be deleted.
+Select the keyframe to be modified on the timeline and modify the corresponding property directly in the **Property inspector** (make sure the Timeline is in record mode). For example, in the properties list, there are three properties path of position, x, and y. After selecting the keyframe, you can modify the position, x, and y properties in the **Property inspector**.
 
-## Copy/paste animation frames
+Or select a location on the timeline that does not have a keyframe, and then modify the corresponding property in the **Properties**, and a keyframe will automatically be inserted.
 
-**Support only 1.9.2 and above**
+## Delete an keyframe
 
-After we select the node, we can press ctrl+c on the keyboard to copy the selected frame.
-Then press ctrl+v in the new area to paste the newly copied frame into the new location.
-Paste is the starting point for the selected position.
+After selecting the keyframe, click the ![](animation-curve/more.png) button of the corresponding property path and select `Delete selected frame`. Or directly press the `Delete` key on the keyboard and all the selected keyframe will be deleted.
+
+## Copy / paste keyframes
+
+> Support only v1.9.2 and above
+
+After we select the node, we can press <kbd>ctrl + c</kbd>（Windows）or <kbd>command + c</kbd> (mac) on the keyboard to copy the selected frame.
+Then press <kbd>ctrl + v</kbd>（Windows）or <kbd>command + v</kbd> (mac) in the new area to paste the newly copied frame to the specified position.
 
 According to the number of selected nodes, there are two ways to index:
 
 1. When you select data from one node, paste it directly onto the current selected node.
 2. If the data is replicated on multiple nodes. The path information of the copied node will also be pasted together.
 
----
+If the copied node does not exist in the pasted node tree, it is displayed as a missing node.
 
-Continue on to read about [Sprite Animations](sprite-animation.md).
+## Node operation
+
+Animations are indexed by the name of the node. Sometimes we change the hierarchical relationship of the node within the **Node Tree**, and the animations in the **Timeline** will not find the corresponding node specified before.<br>
+At this time we need to manually change the search path of the nodes on the animation:
+
+1. Move the mouse to the node that needs to be migrated and click on the menu button that appears on the right
+2. Select mobile node data
+3. Modify the node's path data
+
+The root node data we can not change, we can modify the follow up node path, For example, if we want to move the `/root/New Node` keyframe to the root node, we can delete New Node, leaving `/root/` and carriage return (`/root/` is the path of the root node that cannot be modified). For another example, we want to move the animation data on the `/root` following node to the `/root/New Node`. We just need to change the path to `/root/New Node`.
