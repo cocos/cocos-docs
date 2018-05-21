@@ -26,4 +26,4 @@ When there are too much information in console, you can filter these information
 
 - **Open the log file** ![open](console/open.png) click this button to open the log file
 - **View log information**: if the log contains call stack information or detailed information, a small triangle appears on the left side of the log. Click on the triangle to see hidden information
-- **Copy logs**: press the mouse and drag it to select the log text. At this point, press <kbd>ctrl + c</kbd> (Windows) or <kbd>command + c</kbd> (mac) to copy the selected text so that it can be used elsewhere.
+- **Copy logs**: press the mouse and drag it to select the log text. At this point, press <kbd>ctrl + c</kbd> (Windows) or <kbd>command + c</kbd> (Mac) to copy the selected text so that it can be used elsewhere.

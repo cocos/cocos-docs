@@ -60,7 +60,7 @@ The representation of the specific frame time on the timeline is `01-05`. The va
 
 `01-05` indicates that the current frame is at the time past  1 second and 5 more frames from the beginning of the animation.
 
-Because the keyframe rate can be adjusted at any time, the time represented by the same frame will vary with the frame rate.
+Because the frame rate can be adjusted at any time, the time represented by the same frame will vary with the frame rate.
 
 - When the frame rate is 30, `01-05` means 1 + 5/30 = 1.1667 seconds after the animation starts.
 - When the frame rate is 10, `01-05` means 1 + 5/10 = 1.5 seconds after the animation starts.

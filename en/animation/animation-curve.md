@@ -19,7 +19,7 @@ of the addable properties will be listed. Choose the property that you want to a
 
 ## Delete a property path
 
-Move the mouse focus to the property path you want to delete. A ![](animation-curve/more.png) button will appear on the right, Click on the button and choose the `Delete the properties` option in the pop up menu and the property will be deleted from the animation data.
+Move the mouse focus to the property path you want to delete. A ![](animation-curve/more.png) button will appear on the right. Click on the button and choose the **Delete the properties** option in the pop up menu and the property will be deleted from the animation data.
 
 ![](animation-curve/delete.png)
 
@@ -58,8 +58,8 @@ After selecting the keyframe, click the ![](animation-curve/more.png) button of 
 
 > Support only v1.9.2 and above
 
-After we select the node, we can press <kbd>ctrl + c</kbd>（Windows）or <kbd>command + c</kbd> (mac) on the keyboard to copy the selected frame.
-Then press <kbd>ctrl + v</kbd>（Windows）or <kbd>command + v</kbd> (mac) in the new area to paste the newly copied frame to the specified position.
+After we select the node, we can press <kbd>ctrl + c</kbd>（Windows）or <kbd>command + c</kbd> (Mac) on the keyboard to copy the selected frame.
+Then press <kbd>ctrl + v</kbd>（Windows）or <kbd>command + v</kbd> (Mac) in the new area to paste the newly copied frame to the specified position.
 
 According to the number of selected nodes, there are two ways to index:
 
