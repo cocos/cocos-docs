@@ -130,9 +130,9 @@ like this:
 
 The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
 
-> Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
+> Inside the `resources` folder, resource dependencies can be associated as other resources outside the folder, or a resource reference can also be an external scene. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need to be loaded **dynamically** directly from script, it need not be in the `resources` folder.
 
-The second to note is that comparing to previous Cocos2d-html5, dynamic loading resources in Creator are **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
+The second to note is that compared to previous Cocos2d-html5, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
 ## How to dynamically load Asset
 
