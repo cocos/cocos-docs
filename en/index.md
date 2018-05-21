@@ -22,8 +22,6 @@ to help you get started with designing and developing games.
 
 ## Example Projects
 
-Please pay attention that demo projects may have different branches for different Cocos Creator version, for example `v1.0` branch should work with Creator v1.0.
-
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
@@ -31,3 +29,5 @@ Please pay attention that demo projects may have different branches for differen
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
+
+**Attention**, these projects will be updated with the version from time to time. Their default branch on GitHub is master, which corresponds to the most recent Cocos Creator version. If you are still using an older version of Cocos Creator, these projects may not be open, try switching to the same named branch as the old version.
