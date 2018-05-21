@@ -30,4 +30,4 @@ to help you get started with designing and developing games.
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
-**Attention**, these projects will be updated with the version from time to time. Their default branch on GitHub is master, which corresponds to the most recent Cocos Creator version. If you are still using an older version of Cocos Creator, these projects may not be open, try switching to the same named branch as the old version.
+**Attention**: these projects are updated irregularly with the version, Their default branch on the GitHub is master, which is typically the latest version of Cocos Creator. If you are still using the old version of Cocos Creator, these projects may not open, and you can try to switch to the same named branch as the old version.
