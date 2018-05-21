@@ -43,4 +43,5 @@ Right click the node, the popup menu also includes the following operation:
 - **Copy/paste**：copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
 - **Copy node**：generate node replication exactly the same with the selected node and they are at the same level.
 - **Rename**：rename the node
-- **Show Path**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the node's path in  **console**.
+- **Show Path**：in complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the node's path in  **console**.
+- **Lock node**：move the mouse over the node and there will be a lock button on the left side. After the node is locked, it cannot be selected in the **Scene**.
