@@ -46,7 +46,7 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 在 VS Code 的主菜单中选择 `Code/Preferences/User Settings`，这个操作会打开用户配置文件，在配置文件中加入以下内容：
 
-```js
+```json
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -128,4 +128,4 @@ VS Code 调试原生工程请查阅 [原生平台调试](../publish/debug-native
 
 ### 学习 VS Code 的使用方法
 
-前往 VS Code 官网的[文档页面](https://code.visualstudio.com/Docs)，了解从编辑功能操作、个性化定制、语法高亮设置到插件扩展等各方面的使用方法。
+前往 VS Code 官网的 [文档页面](https://code.visualstudio.com/Docs)，了解从编辑功能操作、个性化定制、语法高亮设置到插件扩展等各方面的使用方法。

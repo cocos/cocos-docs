@@ -46,7 +46,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 Choose `Code/Preferences/User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
 
-```js
+```json
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -105,7 +105,7 @@ VS Code can also configure shortcut keys for tasks, please open the `Code -> Pre
 
 Next, You can compile the project script in VS Code with one click! For more information on configuring and executing tasks in VS Code, see the [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) documentation.
 
-<!-->
+<!--
 ### Use VS Code to debug web games
 
 VS Code has excellent debug capability, we can debug the Web version of the game program directly in the source project in VS Code.

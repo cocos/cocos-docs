@@ -12,11 +12,11 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 We have prepared for you all the resources needed for creating this game. Download **Original Project** and decompress it to the location you want. Then we can start:
 
-[Download the original project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/start_project.zip)
+[Download the original project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/start_project.zip)
 
 You can also download the completed project. If there is any confusion when following the tutorial to create the game, you can open the completed project for reference:
 
-[Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/complete_project.zip)
+[Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/complete_project.zip)
 
 
 ## Open the original project
@@ -98,7 +98,7 @@ Firstly, click the `background` node, and click the fourth **rectangle tool** at
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the fuchsia frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
+By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the purple frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -742,7 +742,7 @@ Next, you can continue to perfect this game. The following are some recommended 
 - Add more gorgeous effects when collecting stars
 - Add input controls for touch screen devices
 
-For editions that have been improved in all the above aspects, you can download [evolution edition project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip) for reference and learning, which will not be discussed in detail here.
+For editions that have been improved in all the above aspects, you can download [evolution edition project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/polished_project.zip) for reference and learning, which will not be discussed in detail here.
 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
