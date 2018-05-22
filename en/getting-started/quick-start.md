@@ -76,7 +76,6 @@ Being provided with the function of adjusting to different resolutions, we will 
 
 For more detailed information, please read [Canvas](../components/canvas.md). Currently, we only need to know that the scene images added next will all be put under the **Canvas** node.
 
-
 ## Setting up a scene image
 
 ### Adding a background
@@ -99,7 +98,7 @@ Firstly, click the `background` node, and click the fourth **rectangle tool** at
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the blue frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
+By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the fuchsia frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -345,11 +344,6 @@ Next, double click this script to start editing. Only one property is needed for
     properties: {
         // When the distance between the star and main character is less than this value, collection of the point will be completed
         pickRadius: 0,
-        // The game object
-        game: {
-            default: null,
-            serializable: false
-        }
     },
 ```
 
@@ -454,7 +448,7 @@ Therefore, we only need to deliver the concrete example in the `Game` component 
 // Game.js
     spawnNewStar: function() {
         // ...
-        // deliver the concrete example of the Game component into the star component
+        // A reference to the game object is temporarily stored on the star component
         newStar.getComponent('Star').game = this;
     },
 ```

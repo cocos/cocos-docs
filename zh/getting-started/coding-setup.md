@@ -4,7 +4,7 @@
 
 ## Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软新推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能，还可以直接使用 VS Code 调试网页和原生版本的游戏。
+[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软新推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能。
 
 ### 安装 VS Code
 
@@ -26,11 +26,11 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 如果希望在代码编写过程中自动提示 Cocos Creator 引擎 API，需要通过菜单生成 API 智能提示数据并自动放进项目路径下。
 
-选择主菜单的 `开发者/更新 VS Code 智能提示数据`。该操作会将根据引擎 API 生成的 ` creator.d.ts` 数据文件复制到项目根目录下（注意是在 `assets` 目录外面），操作成功时会在 **控制台** 显示绿色提示：`API data generated and copied to ...`。
+选择主菜单的 `开发者/更新 VS Code 智能提示数据`。该操作会将根据引擎 API 生成的 `creator.d.ts` 数据文件复制到项目根目录下（注意是在 `assets` 目录外面），操作成功时会在 **控制台** 显示绿色提示：`API data generated and copied to ...`。
 
 对于每个不同的项目都需要运行一次这个命令，如果 Cocos Creator 版本更新了，也需要打开您的项目重新运行一次这个命令，来同步最新引擎的 API 数据。
 
-**注意**：从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起拷贝到您的项目根目录中。
+**注意**：从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起自动拷贝到您的项目根目录中。
 
 ### 使用 VS Code 打开和编辑项目
 
@@ -45,7 +45,8 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 ### 设置文件显示和搜索过滤
 
 在 VS Code 的主菜单中选择 `Code/Preferences/User Settings`，这个操作会打开用户配置文件，在配置文件中加入以下内容：
-```json
+
+```js
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -74,8 +75,8 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 首先需要确保你的操作系统中可以运行 [cURL 命令](https://curl.haxx.se/)，如果在 Windows 操作系统的命令行中运行 `curl` 提示找不到命令，则需要先安装 curl 到你的系统：
 
-- 前往 http://www.confusedbycode.com/curl/
-- 点击下图箭头所示的控件，完成人机身份验证
+- 前往 <http://www.confusedbycode.com/curl/>
+- 点击下图箭头所示的控件，完成人机身份验证（若无法正常显示控件，请科学上网）
     ![curl download](coding-setup/curl_download.jpg)
 - 点击 `curl-7.46.0-win64.exe` 开始下载并安装
 
@@ -103,7 +104,7 @@ VS Code 还可以为任务配置快捷键，请打开主菜单的 `Code -> 首�
 
 接下来就可以在 VS Code 里一键完成项目脚本编译了！更多关于 VS Code 中配置和执行任务的信息，请参阅 [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) 文档。
 
-### 使用 VS Code 调试网页版游戏
+<!--### 使用 VS Code 调试网页版游戏
 
 VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调试网页版游戏程序。
 
@@ -119,6 +120,7 @@ VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调�
 调试的时候依赖 Cocos Creator 编辑器内置的 Web 服务器，所以需要在编辑器启动状态下才能进行调试。如果编辑器预览游戏时使用的端口不是默认端口，则需要手动修改 `launch.json` 里的 `url` 字段，将正确的端口添加上去。
 
 调试过程中可以在源码文件上直接下断点，进行监控，是比使用 Chrome 内置的 DevTools 调试更方便和友好的工作流程。
+-->
 
 ### 使用 VS Code 调试原生工程
 
