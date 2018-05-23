@@ -22,6 +22,7 @@ Apart from the information provided in this guide, you can also obtain informati
 - [Responsive UI Demo](https://github.com/cocos-creator/demo-responsive-ui): Responsive UI system that can fit any device screen size.
 - [Combat Animation Demo](https://github.com/cocos-creator/demo-combat-animation): Use flexible and powerful animation editor to create combat animation.
 - [Team Building UI Demo](https://github.com/cocos-creator/demo-team-build-ui): Showcase how to use prefab and json data to populate dynamic UI contents.
+- [Camera Demo](https://github.com/cocos-creator/demo-camera)：Contains examples of the usage of camera.
 
 ## Native Development Library
 

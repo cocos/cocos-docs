@@ -25,6 +25,8 @@
 
 实例可在 [物理系统示例](https://github.com/2youyou2/physics-example) 中的 tiled 示例中找到。
 
+也可以参考 [Camera Demo](https://github.com/cocos-creator/demo-camera)，包含了 camera 的使用示例。
+
 **注意** ：
 
 当我们使用摄像机时，如果使用到了物理系统或者碰撞系统这些会内置渲染节点的系统，需要调用相关的 api 将他们的渲染节点也添加到摄像机上。

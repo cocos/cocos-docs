@@ -25,6 +25,8 @@ Here the camera component adds three nodes to the `targets` property, that is, w
 
 This example can be found in the `tiled` example in the [Physics example](https://github.com/2youyou2/physics-example) project.
 
+You can also refer to the [Camera Demo](https://github.com/cocos-creator/demo-camera), contains examples of the usage of camera.
+
 **Note**:
 
 When using camera, if you are using the physics system that have built-in render nodes, you will need to call the associated API to add their render nodes to the camera:
