@@ -1,6 +1,6 @@
 # 快速上手：制作第一个游戏
 
-> 从 Creator v1.10 版本开始，API 做了较大的改动。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md)。
+> 从 Creator v2.0 版本开始，API 做了较大的改动。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md)。
 
 您正在阅读的手册文档包括了系统化的介绍 Cocos Creator 的编辑器界面、功能和工作流程，但如果您想快速上手体验使用 Cocos Creator 开发游戏的大体流程和方法，这一章将满足您的好奇心。完成本章教程之后，您应该能获得足够上手制作游戏的信息，不过我们还是推荐您继续阅读本手册来了解各个功能模块的细节和完整的工作流程。
 
@@ -8,18 +8,17 @@
 
 可以在这里感受一下这款游戏的完成形态：
 
-http://fbdemos.leanapp.cn/star-catcher/
+<http://fbdemos.leanapp.cn/star-catcher/>
 
 ## 准备项目和资源
 
 我们已经为您准备好了制作这款游戏需要的全部资源，下载 **初始项目** 后，解压到您希望的位置，之后我们就可以开始了：
 
-[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/start_project.zip)
+[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/start_project.zip)
 
 您也可以下载最终完成的项目，跟随教程制作过程中有任何不明白的地方都可以打开完成版的项目作为参考：
 
-[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/complete_project.zip)
-
+[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/complete_project.zip)
 
 ## 打开初始项目
 
@@ -101,7 +100,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的线框。然后再用同样的方法将 `background` 的右边向右拖拽。
+使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的紫色线框。然后再用同样的方法将 `background` 的右边向右拖拽。
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -442,11 +441,6 @@ Accel: 1000
     properties: {
         // 星星和主角之间的距离小于这个数值时，就会完成收集
         pickRadius: 0,
-        // 暂存 Game 对象的引用
-        game: {
-            default: null,
-            serializable: false
-        }
     },
 ```
 
@@ -592,7 +586,7 @@ starPrefab: {
 // Game.js
     spawnNewStar: function() {
         // ...
-        // 将 Game 组件的实例传入星星组件
+        // 在星星组件上暂存 Game 对象的引用
         newStar.getComponent('Star').game = this;
     },
 ```
@@ -894,9 +888,9 @@ cc.callFunc = function (selector, selectorTarget, data) {
 
 这样就大功告成了！完成形态的场景层级和各个关键组件的属性如下：
 
-![node tree complete](quick-start/hierarchy_complete.png) 
+![node tree complete](quick-start/hierarchy_complete.png)
 
-![game complete](quick-start/game_complete.png) 
+![game complete](quick-start/game_complete.png)
 
 ![player complete](quick-start/player_complete.png)
 
@@ -916,7 +910,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
 - 收集星星时加入更华丽的效果
 - 为触屏设备加入输入控制
 
-以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip) 来参考和学习，这里就不再赘述了。
+以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/polished_project.zip) 来参考和学习，这里就不再赘述了。
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 
