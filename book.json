@@ -6,7 +6,9 @@
         "search-title",
         "anchorjs",
         "toggle-chapters",
-        "sharing"
+        "sharing",
+        "splitter",
+        "expandable-chapters-small"
     ],
     "styles": {
         "website": "./styles/website.css"
