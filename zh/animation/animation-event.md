@@ -6,7 +6,7 @@
 
 首先选中某个位置，然后点击按钮区域最左侧的按钮（add event），这时候在时间轴上会出现一个白色的矩形，这就是我们添加的事件。
 
-![add-event](animation-event/button.jpg)
+![add-event](animation-event/button.png)
 
 ## 删除事件
 
@@ -14,10 +14,10 @@
 
 ![delete-event](animation-event/delete.jpg)
 
-也可以在动画编辑器中右键点击 event，选择 '删除'。
+也可以在动画编辑器中右键点击 event，选择 `删除`。
 
 ## 指定事件触发函数以及传入参数
 
-双击刚刚出现的白色矩形，可以打开事件编辑器，在编辑器内，我们可以手动输入需要出发的function名字，触发的时候会根据这个函数名，去各个组件内匹配相应的方法。
+双击刚刚出现的白色矩形，可以打开事件编辑器，在编辑器内，我们可以手动输入需要触发的 function 名字，触发的时候会根据这个函数名，去各个组件内匹配相应的方法。
 
-如果需要添加传入的参数，则在 Params 旁点击 `+` 或者 `-` ，只支持 Boolean，String，Number 三种类型的参数。
+如果需要添加传入的参数，则在 Params 旁点击 `+` 或者 `-` ，只支持 Boolean、String、Number 三种类型的参数。
