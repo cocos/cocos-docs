@@ -8,7 +8,7 @@ Cocos Creator has a whole set of uniform asset management mechanisms. In this tu
 - How to load remote assets or device files
 - Assets dependencies and how to release assets
 
-> **Attention:**
+> **Attention**:
 > Starting from 1.10, Cocos Creator refactored all `RawAsset` into `Asset`, and the usage is more unified than before. This document is for the latest version only, and if you are using an older version of Creator, check the [older version of the document](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/en/scripting/load-assets.md) please.
 
 ## Declaration of asset properties
@@ -37,7 +37,7 @@ cc.Class({
 
 ## How to set assets in the **Properties** panel
 
-As long as you define the type in the script, you can set assets easily in the **Properties** panel. Hypothetically, we could have a component like this:
+As long as you define the type in the script, you can set assets easily in the **Properties** panel. Suppose we create a script like this:
 
 ```js
 // NewScript.js
@@ -45,7 +45,7 @@ As long as you define the type in the script, you can set assets easily in the *
 cc.Class({
     extends: cc.Component,
     properties: {
-    
+
         texture: {
             default: "",
             type: cc.Texture2D
@@ -54,12 +54,12 @@ cc.Class({
             default: null,
             type: cc.SpriteFrame
         },
-        
+
     }
 });
 ```
 
-Here is how it looks like in the **Properties** panel after adding it into the scene:
+Here is how it looks like in the **Properties** panel after adding it into the node:
 
 ![asset-in-inspector-null](load-assets/asset-in-inspector-null.png)
 
@@ -77,7 +77,7 @@ In this way you can get the set asset directly from the script:
     onLoad: function () {
         var spriteFrame = this.spriteFrame;
         var texture = this.texture;
-        
+
         spriteFrame.setTexture(texture);
     }
 ```
@@ -91,11 +91,11 @@ like this:
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-> Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
+> Inside `resources` folder resources, can be associated with dependence to other resources outside the folder, or resource reference could also be an external scene to. Project build time, but was released in **build** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need directly from the script **dynamic** loading, it mustn't be in the `resources` folder.
 
 The second to note is that comparing to previous Cocos2d-JS, dynamic loading resources in Creator are **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-## How to dynamically load Asset
+### How to dynamically load Asset
 
 Creator provides `cc.loader.loadRes` the API to load specific Asset that is located under the Resources directory. And `cc.loader.load` difference is that loadRes should only load a single Asset. Invoke, you only need to pass a relative path to the resources, and **Not** at the end of the path containing the file name extension.
 
@@ -111,6 +111,7 @@ var self = this;
 cc.loader.loadRes("test assets/anim", function (err, clip) {
     self.node.getComponent(cc.Animation).addClip(clip, "anim");
 });
+```
 
 #### Load SpriteFrame
 
@@ -131,6 +132,7 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 For an atlas imported from a third-party tool such as Texturepacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
 
+```js
 // load SpriteAtlas, and get one of them SpriteFrame
 // Note Atlas resource file (plist) usually of the same name and a picture file (PNG) placed in a directory,
 // So should need to in the second parameter specifies the resource type.
@@ -206,15 +208,15 @@ There still remains some restrictions currently, the most important are:
 
 After resources loaded, they will be cached to the `cc.loader`, in order to avoid sending meaningless http request and repeated loading of resources. Sure thing is that the contents of the cache will consume memory, during game process, some resources may no longer be needed, and you may want to release them, we will cover some important notices for asset releasing here.
 
-** First and most important: Resources depends on each other. **
+**First and most important: Resources depends on each other.**
 
-For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the cc.loader. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, loader do not need to request the existing SpriteFrame and Texture again, it will use the cache directly.
+For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the cc.loader. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, loader do not need to request the existing SpriteFrame and Texture again it will use the cache directly.
 
 ![](load-assets/asset-dep.png)
 
 After making clear how resource depend on each other, the problem is also revealed. When you choose to release a Prefab, we will not automatically release the other resources it relies on, because there may be other resources that depend on them. So some developers ask us why the memory is still high after they released the resources? The reason is that the basic textures that actually consume memory are not released when you release Prefab or SpriteAtlas.
 
-** Next core problem: We can not track object references in JavaScript. **
+**Next core problem: We can not track object references in JavaScript.**
 
 In scripting language like JavaScript, because of its weak type feature, memory management is delegated to the Garbage Collection mechanism. We can never know when an object is released by the Garbage Collector, nor can we get any notifications, which means that the engine can not use a reference count mechanism to know whether a resource is still needed. The current cc.loader design actually depends on the developer to tell it when to release resources based on game logic. You can decide to release a resource and all resources it relies on, you can also choose to prevent some of the shared resources from being released. Here is some simple demonstrations:
 
@@ -234,7 +236,7 @@ if (index !== -1)
 cc.loader.release(deps);
 ```
 
-** The last thing to keep in mind: JavaScript's garbage collection is not immediate. **
+**The last thing to keep in mind: JavaScript's garbage collection is not immediate.**
 
 Imagine such scenario, you released the cache of a resource in cc.loader. After that due to some reason, you need it again. At this point garbage collection has not yet begun (you never know when garbage collection will be triggered), or you still hold a reference to this old resource somewhere in your game logic. This means that the resource still exist in memory, but cc.loader have no longer access to it, so it will reload it. This causes the resource to have two copies in the memory, which is wasting. If the same scenario happens to a lot of resources, or resources get loaded even more than once, the pressure on the memory is likely to be high. If you observe such memory usage curve in your game, please carefully check the game logic to see whether there is leaks. If not, the garbage collection mechanism will eventually recover the memory.
 

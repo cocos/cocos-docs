@@ -8,7 +8,7 @@ Cocos Creator 有一套统一的资源管理机制，在本篇教程，我们将
 - 加载远程资源和设备资源
 - 资源的依赖和释放
 
-> **注意：**
+> **注意**：
 > 从 1.10 开始，Cocos Creator 将所有 RawAsset 重构成为了 Asset，用法比以前更统一了。本文档只针对最新版，如果您使用的是旧版本 Creator，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/scripting/load-assets.md)。
 
 ## 资源属性的声明
@@ -37,7 +37,7 @@ cc.Class({
 
 ## 如何在属性检查器里设置资源
 
-只要在脚本中定义好类型，就能直接在 **属性检查器** 很方便地设置资源。假设我们有这样一个组件：
+只要在脚本中定义好类型，就能直接在 **属性检查器** 很方便地设置资源。假设我们创建了这样一个脚本：
 
 ```javascript
 // NewScript.js
@@ -59,7 +59,7 @@ cc.Class({
 });
 ```
 
-将它添加到场景后，**属性检查器** 里是这样的：
+将它添加到节点后，在 **属性检查器** 中是这样的：
 
 ![asset-in-properties-null](load-assets/asset-in-inspector-null.png)
 
@@ -90,13 +90,13 @@ cc.Class({
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-> `resources` 文件夹里面的资源，可以关联依赖到文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，`resources` 文件夹里面的所有资源，连同它们关联依赖的 `resources` 文件夹外部的资源，都会被导出。如果一份资源不需要由脚本**直接**动态加载，那么千万不要放在 `resources` 文件夹里。
+> `resources` 文件夹里面的资源，可以关联依赖到文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，`resources` 文件夹里面的所有资源，连同它们关联依赖的 `resources` 文件夹外部的资源，都会被导出。如果一份资源不需要由脚本 **直接** 动态加载，那么千万不要放在 `resources` 文件夹里。
 
-第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时都是**异步**的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
+第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
 ### 动态加载 Asset
 
-Creator 提供了 `cc.loader.loadRes` 这个 API 来专门加载那些位于 resources 目录下的 Asset。和 `cc.loader.load` 不同的是，loadRes 一次只能加载单个 Asset。调用时，你只要传入相对 resources 的路径即可，并且路径的结尾处**不能**包含文件扩展名。
+Creator 提供了 `cc.loader.loadRes` 这个 API 来专门加载那些位于 resources 目录下的 Asset。和 `cc.loader.load` 不同的是，loadRes 一次只能加载单个 Asset。调用时，你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
 ```javascript
 // 加载 Prefab
@@ -110,6 +110,7 @@ var self = this;
 cc.loader.loadRes("test assets/anim", function (err, clip) {
     self.node.getComponent(cc.Animation).addClip(clip, "anim");
 });
+```
 
 #### 加载 SpriteFrame
 
@@ -123,12 +124,13 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-> 如果指定了类型参数，就会在路径下查找指定类型的资源。当你在同一个路径下同时包含了多个重名资源（例如同时包含 player.clip 和 player.psd），或者需要获取“子资源”（例如获取 Texture2D 生成的 SpriteFrame），就需要声明类型。
+> 如果指定了类型参数，就会在路径下查找指定类型的资源。当你在同一个路径下同时包含了多个重名资源（例如同时包含 player.clip 和 player.psd），或者需要获取 “子资源”（例如获取 Texture2D 生成的 SpriteFrame），就需要声明类型。
 
 #### 加载图集中的 SpriteFrame
 
 对从 TexturePacker 等第三方工具导入的图集而言，如果要加载其中的 SpriteFrame，则只能先加载图集，再获取其中的 SpriteFrame。这是一种特殊情况。
 
+```js
 // 加载 SpriteAtlas（图集），并且获取其中的一个 SpriteFrame
 // 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下, 所以需要在第二个参数指定资源类型
 cc.loader.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
@@ -202,7 +204,7 @@ cc.loader.load(absolutePath, function () {
 
 在加载完资源之后，所有的资源都会临时被缓存到 `cc.loader` 中，以避免重复加载资源时发送无意义的 http 请求，当然，缓存的内容都会占用内存，有些资源可能用户不再需要了，想要释放它们，这里介绍一下在做资源释放时需要注意的事项。
 
-** 首先最为重要的一点就是：资源之间是互相依赖的。 **
+**首先最为重要的一点就是：资源之间是互相依赖的。**
 
 比如下图，Prefab 资源中的 Node 包含 Sprite 组件，Sprite 组件依赖于 SpriteFrame，SpriteFrame 资源依赖于 Texture 资源，而 Prefab，SpriteFrame 和 Texture 资源都被 cc.loader 缓存起来了。这样做的好处是，有可能有另一个 SpriteAtlas 资源依赖于同样的一个 SpriteFrame 和 Texture，那么当你手动加载这个 SpriteAtlas 的时候，就不需要再重新请求贴图资源了，cc.loader 会自动使用缓存中的资源。
 
@@ -210,7 +212,7 @@ cc.loader.load(absolutePath, function () {
 
 在搞明白资源的相互引用之后，资源释放的问题也就呼之欲出了，当你选择释放一个 Prefab 时，我们是不会自动释放它依赖的其他资源的，因为有可能这些依赖资源还有其他的用处。所以用户在释放资源时经常会问我们，为什么我都把资源释放了，内存占用还是居高不下？原因就是真正占用内存的贴图等基础资源并不会随着你释放 Prefab 或者 SpriteAtlas 而被释放。
 
-** 接下来要介绍问题的另一个核心：JavaScript 中无法跟踪对象引用。 **
+**接下来要介绍问题的另一个核心：JavaScript 中无法跟踪对象引用。**
 
 在 JavaScript 这种脚本语言中，由于其弱类型特性，以及为了代码的便利，往往是不包含内存管理功能的，所有对象的内存都由垃圾回收机制来管理。这就导致 JS 层逻辑永远不知道一个对象会在什么时候被释放，这意味着引擎无法通过类似引用计数的机制来管理外部对象对资源的引用，也无法严谨得统计资源是否不再被需要了。基于以上的原因，目前 cc.loader 的设计实际上是依赖于用户根据游戏逻辑管理资源，用户可以决定在某一时刻不再需要某些资源以及它依赖的资源，立即将它们在 cc.loader 中的缓存释放。也可以选择在释放依赖资源的时候，防止部分共享资源被释放。下面是一个简单的示例：
 
@@ -228,7 +230,7 @@ if (index !== -1)
 cc.loader.release(deps);
 ```
 
-** 最后一个值得关注的要点：JavaScript 的垃圾回收是延迟的。 **
+**最后一个值得关注的要点：JavaScript 的垃圾回收是延迟的。**
 
 想象一种情况，当你释放了 cc.loader 对某个资源的引用之后，由于考虑不周的原因，游戏逻辑再次请求了这个资源。此时垃圾回收还没有开始（垃圾回收的时机不可控），或者你的游戏逻辑某处，仍然持有一个对于这个旧资源的引用，那么意味着这个资源还存在内存中，但是 cc.loader 已经访问不到了，所以会重新加载它。这造成这个资源在内存中有两份同样的拷贝，浪费了内存。如果只是一个资源还好，但是如果类似的资源很多，甚至不止一次被重复加载，这对于内存的压力是有可能很高的。如果观察到游戏使用的内存曲线有这样的异常，请仔细检查游戏逻辑，是否存在泄漏，如果没有的话，垃圾回收机制是会正常回收这些内存的。
 
