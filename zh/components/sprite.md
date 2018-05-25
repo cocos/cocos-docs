@@ -15,8 +15,8 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 | Atlas | Sprite 显示图片资源所属的 [Atlas 图集资源](../asset-workflow/atlas.md)
 | Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../asset-workflow/sprite.md)
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）渲染四种模式
-| Size Mode | 指定 Sprite 的尺寸<br>`Trimmed` 表示会使用原始图片资源裁剪透明像素后的尺寸<br>`Raw` 表示会使用原始图片未经裁剪的尺寸<br> `Custom` 表示会使用自定义尺寸。当用户手动修改过 `Size` 属性后，`Size Mode` 会被自动设置为 `Custom`。
-| Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../asset-workflow/trim.md)。
+| Size Mode | 指定 Sprite 的尺寸<br>`Trimmed` 表示会使用原始图片资源裁剪透明像素后的尺寸<br>`Raw` 表示会使用原始图片未经裁剪的尺寸<br> `Custom` 表示会使用自定义尺寸。当用户手动修改过 `Size` 属性后，`Size Mode` 会被自动设置为 `Custom`
+| Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../asset-workflow/trim.md)
 | Src Blend Factor | 当前图像混合模式
 | Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
