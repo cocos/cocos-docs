@@ -6,12 +6,12 @@ Click to choose node, and the selected node will be highlighted in blue. Current
 
 ![node tree panel](hierarchy/node_tree.png)
 
-- The <kbd>+</kbd> button in the upper left corner is the create button for creating nodes.
-- The upper text input box can be used to search for filter nodes
-- The search button on the left side of the upper right corner is used to filter the type of search. It is divided into two types: `Node` and `Component`.
-- The button in the middle right corner toggles the expanded/collapsed status of the node manager.
-- The refresh button is on the right in the upper right corner.
-- The panel body is a list of nodes, where you can add, delete or modify resources using the right-click menu or drag and drop.
+- The ![](assets/add.png) button in the upper left corner is used to create nodes.
+- The text input box above can be used to search for filtered nodes
+- The ![](hierarchy/search.png) button is used to filter the type of search. It is divided into two types: `Node` and `Component`.
+- The ![](hierarchy/switch.png) button toggles the expanded/collapsed state of the **Node Tree**.
+- The panel body is a list of nodes, where you can add, delete or modify resources using the right click menu or drag and drop.
+- ![](assets/button.png) in front of the node is used to toggle the expand/collapse state of the node tree. When the user presses the Alt/Option and clicks the button, in addition to performing the expand/collapse operation of the node itself, the expand/collapse operation is also performed on all child nodes under that node at the same time.
 
 ## Create node
 
