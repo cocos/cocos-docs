@@ -12,7 +12,7 @@
 - The input box on the top right can be used to search and filter the asset file names that contain some specific text.
 - The **search button** in the upper right corner is used to select the type of asset for the search.
 - The main part of the panel is the asset list of the asset folder where you can add, delete or alter the assets using the context menu or by dragging.
-- The small triangle ![](assets/button.png) in front of the folder is used to toggle the expand/collapse state of the folder. When the user presses the Alt/Option and clicks the button, the same expand/collapse operation is recursively performed on all subfolders of the folder, in addition to performing the expand/collapse operation of the folder itself.
+- The small triangle ![](assets/button.png) in front of the folder is used to toggle the expand/collapse state of the folder. When the user presses the Alt/Option and clicks the button, in addition to performing the expand/collapse operation of the folder itself, the expand/collapse operation is also performed on all subfolders under this folder at the same time.
 
 ## Asset list
 

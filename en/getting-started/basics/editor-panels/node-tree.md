@@ -10,9 +10,8 @@ Click to choose node, and the selected node will be highlighted in blue. Current
 - The text input box above can be used to search for filtered nodes
 - The ![](hierarchy/search.png) button is used to filter the type of search. It is divided into two types: `Node` and `Component`.
 - The ![](hierarchy/switch.png) button toggles the expanded/collapsed state of the **Node Tree**.
-- The ![](hierarchy/refresh.png) button is the refresh button.
 - The panel body is a list of nodes, where you can add, delete or modify resources using the right click menu or drag and drop.
-- ![](assets/button.png) in front of the node is used to toggle the expand/collapse state of the node tree. When the user presses the Alt/Option and clicks the button, in addition to performing the expansion/folding operation of the node itself, all child nodes under that node are recursively performing the same expand/collapse operation.
+- ![](assets/button.png) in front of the node is used to toggle the expand/collapse state of the node tree. When the user presses the Alt/Option and clicks the button, in addition to performing the expand/collapse operation of the node itself, the expand/collapse operation is also performed on all child nodes under that node at the same time.
 
 ## Create node
 
