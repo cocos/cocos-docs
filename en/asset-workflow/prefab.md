@@ -53,7 +53,7 @@ In **Assets** panel, select any of the prefab assets to edit the following optio
 
 ### 'Optimization Policy' option
 
-The v1.8.0 added an 'Optimization Policy' option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
+The v1.10.0 added an 'Optimization Policy' option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
  - **Auto adjust** (default)<br>
    When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.
    When you first create an instance, the behavior is the same as 'For single instance creation'. 'For multiple instance creation' will be automatically used after multiple creation.

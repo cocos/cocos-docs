@@ -3,7 +3,7 @@
 Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders.   
 When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.   
 
-**Note : The Collider Components in the same node, will not do collision detecsion with each other forever.**   
+**Note: The Collider Components in the same node, will not do collision detecsion with each other forever.**   
 
 ## Usage of the Collision Manager
 
@@ -14,28 +14,29 @@ Get the Collision Manager
 var manager = cc.director.getCollisionManager();
 ```
 
-
 Collision Manager is disabled by default, enable it if you need to use it.
 ```javascript
 manager.enabled = true;
 ```
 
-
 Collision Manager Debug Draw is disabled by default, enable it if you need to see the debug info.
 ```javascript
 manager.enabledDebugDraw = true;
 ```
-After enable **Debug Draw**, you can see the Collider area in runtime :    
+
+After enable **Debug Draw**, you can see the Collider area in runtime:
+
 <a href="collision-manager/draw-debug.png"><img src="collision-manager/draw-debug.png"></a>
 
+If you want to display the bounding box of the Collider Component, please set `enabledDrawBoundingBox` to `true`:
 
-If you want to display the bounding box of the Collider Component, please set `enabledDrawBoundingBox` to `true`
 ```javascript
 manager.enabledDrawBoundingBox = true;
 ```
-Result :   
-<a href="collision-manager/draw-bounding-box.png"><img src="collision-manager/draw-bounding-box.png"></a>
 
+Result :   
+
+<a href="collision-manager/draw-bounding-box.png"><img src="collision-manager/draw-bounding-box.png"></a>
 
 ### Collision Manager Callback
 
@@ -56,7 +57,7 @@ onCollisionEnter: function (other, self) {
     // Collider Component aabb bounding box
     var aabb = world.aabb;
 
-    // Last calculated Collider Component aabb bounding box
+    // The position of the aabb collision frame before the node collision
     var preAabb = world.preAabb;
 
     // world transform
@@ -93,7 +94,6 @@ onCollisionExit: function (other, self) {
 }
 ```
 
-
 ### Hittest
 
 ```javascript
@@ -115,8 +115,6 @@ cc.eventManager.addListener({
     },
 }, this.node);
 ```
-
-
 
 More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 
 

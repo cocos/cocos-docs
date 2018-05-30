@@ -4,14 +4,15 @@ This User Manual provides detailed instructions and workflows for users with dif
 
 In this chapter:
 
-- [Introduction](introduction.md)
-- [Installation](install.md)
+- [About Cocos Creator](introduction.md)
+- [Install and Launch](install.md)
 - [Dashboard](dashboard.md)
 - [Hello World!](hello-world.md)
-- [Quick Start: Create Your First Game](quick-start.md)
-- [Coding Environment Setup](coding-setup.md)
-- [Cocos2d-x User Guide](cocos2d-x-guide.md)
 - [Project Structure](project-structure.md)
+- [Using Editor](basics/editor-overview.md)
+- [Coding Environment Setup](coding-setup.md)
+- [Quick Start: Create Your First Game](quick-start.md)
+- [Cocos2d-x User Guide](cocos2d-x-guide.md)
 - [Get Help and Support](support.md)
 
 ---

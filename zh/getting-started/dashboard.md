@@ -1,14 +1,14 @@
 # Dashboard
 
-启动 Cocos Creator 并使用 Cocos 开发者帐号登录以后，就会打开 Dashboard 界面，在这里你可以新建项目、打开已有项目或获得帮助信息。
+启动 Cocos Creator 并使用 Cocos 开发者帐号登录以后，就会打开 Dashboard 界面，在这里你可以新建项目、打开已有项目或者获得帮助信息。
 
 ## 界面总览
 
-<a href="dashboard/overview.png"><img src="dashboard/overview.png" alt="dashboard overview"></a>
+![](dashboard/overview.png)
 
 上图所示的就是 Cocos Creator 的 Dashboard 界面，包括以下几种选项卡：
 
-- **最近打开项目**: 列出最近打开项目，第一次运行 Cocos Creator 时，这个列表是空的，会提示新建项目的按钮。
+- **最近打开项目**: 列出最近打开项目，第一次运行 Cocos Creator 时，这个列表是空的，会提示 **新建项目** 的按钮。
 - **新建项目**: 选择这个选项卡，会进入到 Cocos Creator 新项目创建的指引界面。
 - **打开其他项目**: 如果你的项目没有在最近打开的列表里，你也可以点击这个按钮来浏览和选择你要打开的项目。
 - **帮助**: 帮助信息，一个包括各种新手指引信息和文档的静态页面。
@@ -17,10 +17,9 @@
 
 ### 最近打开项目
 
-你可以通过 **最近打开项目** 选项卡快速访问近期打开过的项目。第一次运行 Cocos Creator 时，这个列表是空的，在界面上会显示 **新建项目** 的按钮。你可以在创建
-了一些项目后回来，并看到你新建的项目出现在列表里。
+你可以通过 **最近打开项目** 选项卡快速访问近期打开过的项目。第一次运行 Cocos Creator 时，这个列表是空的，在界面上会显示 **新建项目** 的按钮。你可以在创建了一些项目后回来，并看到你新建的项目出现在列表里。
 
-![recent project hovering](dashboard/recent_project.jpg)
+![recent project hovering](dashboard/recent_project.png)
 
 当你的鼠标悬停在一个最近打开项目的条目上时，会显示出可以对该项目进行操作的行为：
 
@@ -41,9 +40,9 @@
 
 点击选择一个模板，你可以在页面下方看到该模板的描述。
 
-![choose template](dashboard/new_project.jpg)
+![choose template](dashboard/new_project.png)
 
-在页面下方你可以看到项目名称和将会保存到的地址。你可以在项目路径输入框手动输入项目所在路径和项目名称，路径的最后一节就是项目名称。
+在页面下方你可以看到项目名称和项目存放地址。可以在项目路径输入框手动输入项目存放路径和项目名称，路径的最后一节就是项目名称。
 
 你也可以点击 **浏览** 按钮，打开浏览路径对话框，在你的本地文件系统中选择一个位置来存放新建项目。
 

@@ -17,7 +17,7 @@ Script creation:
 // Create a node
 var node = new cc.Node();
 // And add nodes to the scene
-c.director.getScene().addChild(node);
+cc.director.getScene().addChild(node);
 // And add particle components to Node
 var particleSystem = node.adComponent(cc.ParticleSystem);
 // Next you can particleSystem this object for a series of operations

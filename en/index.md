@@ -4,6 +4,14 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 game development tool based on Cocos2d-x. This is a comprehensive and detailed guide
 to help you get started with designing and developing games. 
 
+## What's New
+ <!--
+ - Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+ -->
+ - Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md). 
+ - Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
+ - Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
+
 ## Index
 
 - [Getting Started](getting-started/index.md)
