@@ -119,7 +119,7 @@ module.exports = {
 
 一切顺利的话，你将可以通过主菜单，打开如下的面板：
 
-![simple-panel](./assets/simple-panel.png)
+![simple-panel](assets/simple-panel.png)
 
 更多关于在 `package.json` 文件中注册面板时的字段描述，请阅读[面板字段参考](reference/panel-json-reference.md)。
 
