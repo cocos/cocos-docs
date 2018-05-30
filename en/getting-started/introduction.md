@@ -25,6 +25,51 @@ Cocos Creator is a game development environment focused on content creation, whi
 features like scripting, componentization and uses a data driven model with the power of 
 Cocos2d-x under the hood.
 
+## Workflow introduction 工作流程说明
+
+In the development phase, Cocos Creator has already been able to greatly improve efficiency 
+and creativity for users. The workflows provided are not limited to a development level. 
+For a successful game, not only workflows that form development and adjustment, 
+but the assembly of commercialized SDKs, multi-platform releases and testing.
+
+![cocos workflow user](introduction/cocos-workflow-user.jpg)
+
+Cocos Creator integrates web-based games of Cocos Play into the editor tools, so there is no 
+need to switch between various software. Just open the Cocos Creator editor, 
+various one-click automatic flows can solve all the above problems with the least time and energy. 
+Developers can focus on the development phase, and improve the competitiveness and creativity of the product!
+
+### Create or import resources
+
+You can complete resource import by dragging resources such as pictures, sounds, and so on to the **Assets** in the editor.
+
+In addition, you can create scenes, prefabs, animations, scripts, particles, and other resources directly in the editor.
+
+### Create scene content
+
+With some basic resources in the project, we can start to build the scene, the scene is the game content most basic organization way, and it is also the basic form of showing the game to the player.
+
+We'll add a variety of nodes through the **Scene**, which is responsible for displaying the game's artistic sound resources as well as the hosting of the subsequent interaction functionality.
+
+### Adding component scripts to enable interactive functionality
+
+We can mount a variety of built-in components and custom scripting components for the nodes in the scene to enable the game logic to run and interact. This includes the most basic animation playback, the button response, the main loop script that drives the entire game logic, and the control of the player role. Almost all of the game logic functions are implemented by mounting scripts to the nodes in the scene.
+
+### One-click preview and publish
+
+In the process of setting up the scene and developing the function, you can click the preview at any time to see how the current scene works. Use mobile phone scan two-dimensional code, you can immediately preview the game on the phone. When development comes to an end, through the **build** panel you can publish the game to include desktop, mobile phone, Web and many other platforms.
+
+## Highlight Features
+
+The highlight features of Cocos Creator include:
+
+- Data properties that can be adjusted in the editor at anytime can be easily declared in the script. The adjustments to parameters can be independently finished by designers.
+- A UI system that supports smart canvas adaptation and spares the alignment of coding elements can perfectly adapt to device screens of any resolution.
+- Animation system that is specially made for 2D games supports animation trajectory preview and editing of complicated curves.
+- Scriptable development supported by a dynamic language makes dynamic adjustment and the remote adjustment of mobile devices amazingly easy.
+- By using the Cocos2d-x engine, when enjoying the convenience of scriptable development, you can also release games on various desktop platforms and mobile terminal platforms with one-click, with their superb features on the original level preserved.
+- Componentization of script and open plugin system provides developers with methods of customizing workflows at different depths. The editor can be adjusted on a large scale to adapt to the needs of different groups and projects.
+
 ## Framework Structure
 
 Cocos Creator contains all the functions needed for game development, including: a game 
@@ -54,57 +99,17 @@ of labor) of designers and programmers:
 - Designers set up all the data and resources using the graphic interface
 - (In this way, from the simple to the complex, all the workflows that you can imagine can be realized)
 
-The development idea that focusing on workflows can help developers, of different duties, quickly find 
-the breakthrough point to maximize their work and smoothly cooperate with other group members.
-
-## Workflow introduction
-
-In the development phase, Cocos Creator has already been able to greatly improve efficiency 
-and creativity for users. The workflows provided are not limited to a development level. 
-For a successful game, not only workflows that form development and adjustment, 
-but the assembly of commercialized SDKs, multi-platform releases and testing.
-
-![cocos workflow user](introduction/cocos-workflow-user.jpg)
-
-Cocos Creator integrates web-based games of Cocos Play into the editor tools, so there is no 
-need to switch between various software. Just open the Cocos Creator editor, 
-various one-click automatic flows can solve all the above problems with the least time and energy. 
-Developers can focus on the development phase, and improve the competitiveness and creativity of the product!
-
-
-## Highlight Features
-
-The highlight features of Cocos Creator include:
-
-- Data properties that can be adjusted in the editor at anytime can be easily declared in the script. The adjustments to parameters can be independently finished by designers.
-- A UI system that supports smart canvas adaptation and spares the alignment of coding elements can perfectly adapt to device screens of any resolution.
-- Animation system that is specially made for 2D games supports animation trajectory preview and editing of complicated curves.
-- Scriptable development supported by a dynamic language makes dynamic adjustment and the remote adjustment of mobile devices amazingly easy.
-- By using the Cocos2d-x engine, when enjoying the convenience of scriptable development, you can also release games on various desktop platforms and mobile terminal platforms with one-click, with their superb features on the original level preserved.
-- Componentization of script and open plugin system provides developers with methods of customizing workflows at different depths. The editor can be adjusted on a large scale to adapt to the needs of different groups and projects.
-
+The development idea that focusing on workflows can help developers, of different duties, quickly find the breakthrough point to maximize their work and smoothly cooperate with other group members.
 
 ## Usage instructions
 
-Cocos Creator supports cross-platform operation between Windows and Mac, with a single one double click. 
-Comparing to traditional Cocos2d-x workflows, it completely spares the requirements of setting up a 
-development environment. After running, developers can immediately start game content creation or 
-functional development.
+Cocos Creator supports cross-platform operation between Windows and Mac, with a single one double click. Comparing to traditional Cocos2d-x workflows, it completely spares the requirements of setting up a development environment. After running, developers can immediately start game content creation or functional development.
 
-On the basis of data driven workflows, the creation and editing of the scene has become the core of 
-game development. The design work and functional development can be done synchronously and seamlessly. 
-Regardless if your teammates are artworkers, directors or programmers, they can all click 
-the Preview button at anytime in the production process to test the lastest form of the game in browsers, 
-mobile device simulators or mobile devices.
+On the basis of data driven workflows, the creation and editing of the scene has become the core of game development. The design work and functional development can be done synchronously and seamlessly. Regardless if your teammates are artworkers, directors or programmers, they can all click the Preview button at anytime in the production process to test the lastest form of the game in browsers, mobile device simulators or mobile devices.
 
-Programmers and designers can realize various kinds of cooperative methods. Whether they are building the 
-scene before adding functionality or creating functional modules to let designers assemble and adjust them, 
-Cocos Creator can always meet the needs of the development group. Features defined in the script can 
-present themselves in the editor with the most suitable visual effects, which provides convenience 
-for content creators.
+Programmers and designers can realize various kinds of cooperative methods. Whether they are building the scene before adding functionality or creating functional modules to let designers assemble and adjust them, Cocos Creator can always meet the needs of the development group. Features defined in the script can present themselves in the editor with the most suitable visual effects, which provides convenience for content creators.
 
-Content resources outside the scene can be imported in, such as: photos, sounds, altases, skeleton 
-animations, etc. Moreover, we are continuously improving the editor's ability of creating resources, 
+Content resources outside the scene can be imported in, such as: photos, sounds, altases, skeleton animations, etc. Moreover, we are continuously improving the editor's ability of creating resources, 
 which includes the animation editor. Designers can use this tool to make very exquisite and vivid 
 animation resources, and preview the animation in the scene at anytime.
 
