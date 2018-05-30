@@ -31,9 +31,11 @@ To preview the doc, run the following command:
 
 ```bash
 npm run preview
+npm run preview -o file1,file2...
 ```
 
-This will build and launch web server to host the site. It will also enable livereload plugin so your changes to the markdown source file will automatically triggers rebuild of the docs.
+First command will build and launch web server to host the site. It will also enable livereload plugin so your changes to the markdown source file will automatically triggers rebuild of the docs.
+Second command allow you to build the page that you assgined straightly. Please change the file1,file2... to your own file name, then excute preview command.And this command will help you rebuild the .bookignore file which can let you ignore the files that you didn't change when you rebuild the doc.
 
 After generation finished, don't quit server process, run the following command in other terminal context:
 
@@ -44,12 +46,6 @@ gulp prune-left-bar
 This will remove unused links from left bar.
 
 There is also a quick method can let you preview your modification immediately:
-
-```bash
-gulp quick-preview -o file1,file2...
-```
-Please change the file1,file2... to your own file name, then excute preview command.
-This command will help you rebuild the .bookignore file which can let you ignore the files that you didn't change when you rebuild the doc.
 
 ## Build
 
