@@ -12,11 +12,11 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 We have prepared for you all the resources needed for creating this game. Download **Original Project** and decompress it to the location you want. Then we can start:
 
-[Download the original project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/start_project.zip)
+[Download the original project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/start_project.zip)
 
 You can also download the completed project. If there is any confusion when following the tutorial to create the game, you can open the completed project for reference:
 
-[Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/complete_project.zip)
+[Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/complete_project.zip)
 
 
 ## Open the original project
@@ -76,7 +76,6 @@ Being provided with the function of adjusting to different resolutions, we will 
 
 For more detailed information, please read [Canvas](../components/canvas.md). Currently, we only need to know that the scene images added next will all be put under the **Canvas** node.
 
-
 ## Setting up a scene image
 
 ### Adding a background
@@ -99,7 +98,7 @@ Firstly, click the `background` node, and click the fourth **rectangle tool** at
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the blue frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
+By using this tool we can conveniently modify the size of the image node. Move the mouse to rest on the left side of `background` in **scene editor**, click and drag it to the left until the left side of `background` exceeds the purple frame that represents the design resolution. Then we can drag the right side of `background` to the right using the same method.
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -345,11 +344,6 @@ Next, double click this script to start editing. Only one property is needed for
     properties: {
         // When the distance between the star and main character is less than this value, collection of the point will be completed
         pickRadius: 0,
-        // The game object
-        game: {
-            default: null,
-            serializable: false
-        }
     },
 ```
 
@@ -454,7 +448,7 @@ Therefore, we only need to deliver the concrete example in the `Game` component 
 // Game.js
     spawnNewStar: function() {
         // ...
-        // deliver the concrete example of the Game component into the star component
+        // A reference to the game object is temporarily stored on the star component
         newStar.getComponent('Star').game = this;
     },
 ```
@@ -652,6 +646,8 @@ Save the `Star` script, and the logic of this game's play method will now be com
 
 Although lots of people will ignore sound when playing smartphone games, for the completeness of the workflow presented in this tutorial, we still have to supplement the task of adding sound effects.
 
+> Starting from 1.10, the AudioClip usage is somewhat different from the original. If you are using an older version of Creator, check the [older version of the document](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md#%E5%8A%A0%E5%85%A5%E9%9F%B3%E6%95%88)。
+
 ### Jumping sound effect
 
 Firstly, add the jumping sound effect. Open the `Player` script and add the `jumpAudio` property that quotes the sound document resource:
@@ -663,7 +659,7 @@ Firstly, add the jumping sound effect. Open the `Player` script and add the `jum
         // jumping sound effect resource
         jumpAudio: {
             default: null,
-            url: cc.AudioClip
+            type: cc.AudioClip
         },
     },
 ```
@@ -700,7 +696,7 @@ After saving the `Player` script, open the `Game` script to add the scoring soun
         // scoring sound effect resource
         scoreAudio: {
             default: null,
-            url: cc.AudioClip
+            type: cc.AudioClip
         }
     },
 ```
@@ -746,14 +742,8 @@ Next, you can continue to perfect this game. The following are some recommended 
 - Add more gorgeous effects when collecting stars
 - Add input controls for touch screen devices
 
-For editions that have been improved in all the above aspects, you can download [evolution edition project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/polished_project.zip) for reference and learning, which will not be discussed in detail here.
+For editions that have been improved in all the above aspects, you can download [evolution edition project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/polished_project.zip) for reference and learning, which will not be discussed in detail here.
 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
 Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on Github](https://github.com/cocos-creator/tutorial-first-game).
-
----
-
-According to your experience of using the engine, you can continue to read:
-
-- [Cocos2d-x User Guide](cocos2d-x-guide.md)

@@ -1,5 +1,7 @@
 # Widget component reference
 
+> This document applies to Creator v1.10 and above. If you are using an older version of Creator, please check the [old document](https://github.com/cocos-creator/creator-docs/blob/be9d3c69dc5a85b61df060269ac520374ba77c01/en/components/widget.md).
+
 Widget is a frequently used UI layout component. It can make the current node automatically align to an optional position of the parent object or restrict dimensions to make your game adaptive to different resolution ratios.
 
 ![default](widget/widget-default.png)
@@ -16,7 +18,7 @@ Left               | Left border alignment       | Once selected, an input field
 Right              | Right border alignment      | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
-AlignOnce          | default to `true`, will only make alignment when the component is enabled. If set to `false`, will update Widget's alignment every frame. (Will kill your performance!) |
+Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to ON_WINDOWS_RESIZE, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
 
 ## Border alignment
 
@@ -64,11 +66,11 @@ Let us look at a demonstration. Place two rectangular Sprites in the scene and t
 
 ## Limitation on node position control
 
-If `alignOnce` property is set to `false`, Widget will set alignment for current node every frame, overriding node's position and width/height setting. Thus user may not effectively change position or size of the node.
+If `Align Mode` property is set to `ALWAYS`, Widget will set alignment for current node every frame, overriding node's position and width/height setting. Thus user may not effectively change position or size of the node.
 
 To make sure you can update node's position or size during runtime:
 
-1. set `alignOnce` to `true`, so it will only align during onEnable process.
+1. set `Align Mode` to `ONCE`, so it will only align during onEnable process.
 2. Use Widget's API to update node's position and size, for example updating Widget's `top`, `bottom`, `left`, `right` instead of node's `x`, `y`, `width`, `height`.
 
 

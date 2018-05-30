@@ -1,6 +1,6 @@
 # Node Library
 
-![node-library](../index/node-library.jpg)
+![node-library](../index/node-library.png)
 
 **Node Library** is a very simple direct visual control of the warehouse, We can drag and drop the preset node to the **Scene** or **Hierarchy**, quickly complete the creation of preset node.
 
@@ -19,12 +19,12 @@ Along with the subsequent add more functionality, We will continue to add nodes 
 
 ## Custom Nodes
 
-![custom](node-library/custom-prefab.jpg)
+![custom](node-library/custom-prefab.png)
 
 This column can collect the user's own set of [Prefab](../../../asset-workflow/prefab.md), convenient repeatedly create。
 
 To add custom prefabricated controls, Only need from the resource manager to drag the corresponding prefabricated resources (Prefab) to the custom control page.
 
-Right click on the elements in the custom control, you can choose to rename or delete the control from the control library.
+Right click on the elements in the custom control, you can choose to rename or delete the control from the control library or change the control icon.
 
 Then you can use drag and drop in the scene in the way you create custom controls.

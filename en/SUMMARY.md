@@ -7,8 +7,6 @@
     - [Install and Launch](./getting-started/install.md)
     - [Dashboard](./getting-started/dashboard.md)
     - [Hello World!](./getting-started/hello-world.md)
-    - [Making Your First Game](getting-started/quick-start.md)
-    - [Coding Environment](getting-started/coding-setup.md)
     - [Project Structure](getting-started/project-structure.md)
     - [Using Editor](getting-started/basics/editor-overview.md)
         - [Assets](getting-started/basics/editor-panels/assets.md)
@@ -23,8 +21,10 @@
         - [Toolbar](getting-started/basics/toolbar.md)
         - [Editor Layout](getting-started/basics/layout.md)
         - [Preview and Build](getting-started/basics/preview-build.md)
+    - [Coding Environment Setup](getting-started/coding-setup.md)
+    - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
-    - [Help and Support](getting-started/support.md)
+    - [Get Help and Support](getting-started/support.md)
 
 ## Workflows
 
@@ -44,6 +44,8 @@
     - [Spine](asset-workflow/spine.md)
     - [DragonBones](asset-workflow/dragonbones.md)
     - [Tiledmap](asset-workflow/tiledmap.md)
+    - [JSON](asset-workflow/json.md)
+    - [Text](asset-workflow/text.md)
     - [Import Project from Other Editor](asset-workflow/project-import.md)
 - [Scene Building Workflow](content-workflow/index.md)
     - [Node and Component](content-workflow/node-component.md)

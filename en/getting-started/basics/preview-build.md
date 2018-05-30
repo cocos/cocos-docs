@@ -28,9 +28,10 @@ There are a bunch of control in Preview page:
 - **Rotate** button to toggle between landscape and portrait view.
 - The third control from the left is for switching between WebGL and Canvas rendering mode.
 - **Debug Mode** let you control the severe level of logs to be shown.
-- **Show FPS** toggle framerate and draw call stats display
+- **Show FPS** toggle framerate and draw call stats display.
 - **FPS** framerate cap.
 - **Pause** to pause game.
+- **Recompile** Recompile the project script.
 
 ![browser](preview-build/browser.png)
 
@@ -40,13 +41,13 @@ We can debug our projects with VS Code text editor, please read [Use VS Code to 
 
 #### Debugging with browser Developer Tools
 
-Take Chrome for example, open menu and choose `More Tools/Dev Tools` to open the Developer Tools. We can inpect source code, add breakpoint, check call stack and step control during debugging.
+Take Chrome for example, open menu and choose `Developer/Developer Tools` to open the Developer Tools. We can inpect source code, add breakpoint, check call stack and step control during debugging.
 
 To learn more about using DevTools, please read [Chrome Dev Tools User Guide](https://developer.chrome.com/devtools), or other browser's developer documentation.
 
 ## Build
 
-The next step is to build your game so it can run on the target platform's device. Open the **Build** panel from main menu's `Project/Build`, you can publish your game to iOS、Android、HTML5、Windows、Mac、Cocos Play with this tool.
+The next step is to build your game so it can run on the target platform's device. Open the **Build** panel from main menu's `Project/Build`, you can publish your game to Web, iOS, Android, various "mini games", PC clients and other platforms.
 
 For detailed information of publish your game, please read [Cross-platform Game Publish](../../publish/index.md).
 

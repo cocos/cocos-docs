@@ -1,14 +1,8 @@
 # Properties
 
-![properites-panel](../index/inspector.png)
-
 **Properties** panel is the working area where we check and edit the current selected nodes and component attributes. Select the node in **Scene editor** or **Node Tree**, attributes of this node and attributes of all the components of this node will display in **Properties** panel for your inquiry and editing.
 
-From top to bottom, the **Properties** panel displays:
-
-- node activating switch and node name
-- node attribute
-- component attribute
+![properites-panel](inspector/properites_panel.png)
 
 ## node name and activating switch
 
@@ -18,15 +12,17 @@ What displays at the right side of the node activating switch is node name, whic
 
 ## Node Properties
 
-Next, **Properties** panel will show properties of node, which are listed under the headline `Node`. By clicking `Node`, one can fold or unfold the attributes of node.
+Next, **Properties** panel will show properties of node, which are listed under the headline `Node`. By clicking `Node`, one can fold or unfold the attributes of node. There is a node setting button on the right side of the `Node` header, which can reset node attributes or reset node attributes and all component attributes, or paste copied components.
 
-Other than the transforming attributes like Position, Rotation, Scale and Size, node attributes also include Anchor, Color, Opacity. Generally, modifications of node attributes will immediately reflect in the changes in the appearance or position of node in scene editor.
+Other than the transforming attributes like Position, Rotation, Scale and Size, node attributes also include Anchor, Color, Opacity, Skew. Generally, modifications of node attributes will immediately reflect in the changes in the appearance or position of node in scene editor.
 
 For more details on node attribute, please read [Transform](../../../content-workflow/transform.md) section.
 
 ## Component attribute
 
 All the components mounted to a node and their attributes will be listed under node attribute. Just like node attribute, you can switch the fold/unfold status of a component attribute by clicking its name. When there are many components mounted to a node, you can get larger working area by folding the component attributes that are not frequently modified.
+
+There are two buttons for help documentation and component settings to the right of the component name. The help document button can jump to the relevant document introduction page of this component. The component settings button can perform component delete, reset, move up, move down, copy and paste functions.
 
 Users create a component by script, the attribute of which is declared by the script. Different types of attributes have different widget appearances and editing methods in **Properties** panel. The defining method of attribute will be introduced in detail in [Scripting Properties](../../../scripting/reference/attributes.md).
 
@@ -55,14 +51,10 @@ Normally we can divide attributes into **value type** and **reference type** acc
 
 The attribute of reference type will show `None` after the initialization. Because users can't use script to set up initialized value for attribute of reference type, they can drag corresponding nodes or assets according to the type of attribute to finish the assignment for reference type.
 
-The attribute column that needs to be assigned value by dragging nodes will show green label. There might display `Node` on the label, which means any node can be dragged into it. Also, the label may display component names like `Sprite`,`Animation`, etc., then users need to drag the nodes to which corresponding components are mounted.
+The attribute column that needs to be assigned value by dragging nodes will show white label. There might display `Node` on the label, which means any node can be dragged into it. Also, the label may display component names like `Sprite`,`Animation`, etc., then users need to drag the nodes to which corresponding components are mounted.
 
-The attribute column that needs to be assigned value by dragging assets will show yellow labels. There might display the asset type on the label, such as `sprite-frame`, `prefab`, `font`, etc.. The assignment can be finished as long as you drag the assets of corresponding type from **Assets**.
+The attribute column that needs to be assigned value by dragging assets will show blue labels. There might display the asset type on the label, such as `sprite-frame`, `prefab`, `font`, etc.. The assignment can be finished as long as you drag the assets of corresponding type from **Assets**.
 
 ![reference types](inspector/reference_type.png)
 
-  Note: that script file is also a type of asset. Therefore the script asset reference attribute used by components shown on the top of the above picture is also represented by a yellow label.
-
----
-
-Continue on to read about [Console](console.md).
+  **Note**: that script file is also a type of asset. Therefore the script asset reference attribute used by components shown on the top of the above picture is also represented by a blue label.

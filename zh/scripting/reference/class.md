@@ -452,19 +452,6 @@ temp_url: {
     }
     ```
 
-#### <a name="url"></a>url 参数
-
-如果属性是用来访问 Raw Asset 资源的 url，为了能在 **属性检查器** 中选取资源，或者能正确序列化，你需要指定 `url` 参数：
-
-```javascript
-texture: {
-    default: "",
-    url: cc.Texture2D
-},
-```
-
-可参考 [获取和加载资源: Raw Asset](../load-assets.md#raw-asset)
-
 #### <a name="override"></a>override 参数
 
 所有属性都将被子类继承，如果子类要覆盖父类同名属性，需要显式设置 override 参数，否则会有重名警告：

@@ -60,6 +60,8 @@ Next, we will introduce Cocos Creator's main asset types and the related workflo
 - [Spine](spine.md)
 - [TiledMap](tiledmap.md)
 - [DragonBones](dragonbones.md)
+- [JSON asset](json.md)
+- [Text asset](text.md)
 
 ---
 
