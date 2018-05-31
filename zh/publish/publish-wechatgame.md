@@ -95,11 +95,11 @@
 5. 媒体：图片、录音、相机等
 6. 其他：位置、设备信息、扫码、NFC、等等
 
-## 接入微信小游戏的子域
+## 接入微信小游戏的开放数据域
 
-微信小游戏为了保护其社交关系链数据，增加了子域的概念，子域又叫 **开放数据域**，是一个单独的游戏执行环境。子域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在子域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
+微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
 
-Cocos Creator 从 v1.9.1 版本开始支持打包到子域。详情请参考 [接入微信小游戏的子域](../publish/publish-wechatgame-sub-domain.md)。
+Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请参考 [接入微信小游戏的开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
 ## 参考
 
