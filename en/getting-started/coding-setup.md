@@ -6,7 +6,6 @@ In quick start tutorial we showed double clicking script file to edit them in bu
 
 [Visual Studio Code](https://code.visualstudio.com/) （refer to as VS Code）is a cross-platform light weight development environment. It has great support for JavaScript editing and debugging. We have created extensions for VS Code so we have API auto-complete and native debugging support.
 
-
 ### Install VS Code
 
 Go to [home page of VS Code](https://code.visualstudio.com/) and click the download button to get the software package.
@@ -31,7 +30,7 @@ Choose `Developer/Update VS Code API Source` from main menu. It will generate a 
 
 This operation is only required when the API source is updated, or for some reason your project does not have a `creator.d.ts` file in it.
 
-**Notice** Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will copy over a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.
+**Notice**: Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will copy over a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.
 
 ### Open Project With VS Code
 
@@ -48,6 +47,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 Choose `Code/Preferences/User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
 
 ```json
+{
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -64,6 +64,7 @@ Choose `Code/Preferences/User Settings` from VS Code main menu. The user setting
         "local/": true,
         "temp/": true
     }
+}
 ```
 
 The above settings exclude folders generated and managed by Cocos Creator from search and file tree.
@@ -92,7 +93,6 @@ VS Code debugging native engineering please refer to [Native Platform Debugging]
 ### Learn More About VS Code
 
 Go to the [documentation page of VS Code](https://code.visualstudio.com/Docs), to learn the editing, customization and extensions for VS Code.
-
 
 <hr>
 

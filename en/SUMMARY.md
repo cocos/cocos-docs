@@ -191,7 +191,6 @@
     - [i18n](advanced-topics/i18n.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [Dirty Region Optimization](advanced-topics/dirty-region.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

@@ -41,7 +41,7 @@ Supposing the screen resolution is `1920x960`, a red frame is also used in the f
 
 When the ratio of width to height of the design resolution is relatively small, the use of this mode will cut down some parts of the background image on the upper/lower sides of the screen.
 
-### No matter how much the ratio of width to height of the screen is, all the contents of design resolution will be completely displayed, and black borders are permitted.
+### No matter how much the ratio of width to height of the screen is, all the contents of design resolution will be completely displayed, and black borders are permitted
 
 In the last example, supposing the screen has a resolution of `640 x 960`. If you want to make sure the background image is completely displayed on the screen, you need to simultaneously open  **Fit Height** and **Fit Width** in the Canvas component. The zooming in/out proportion of the scene image is calculated according to the smaller dimension in the screen resolution. In the example in the following picture, because the ratio of width to height of the screen is less than 1, the calculation of the zooming in/out proportion will be based on width, i.e., 640/800 = **0.8 times**.
 
@@ -49,7 +49,7 @@ In the last example, supposing the screen has a resolution of `640 x 960`. If yo
 
 Under such a displaying mode, there might be black borders on the screen or scene image that exceed the design resolution (goof). Although developers try their best to avoid black borders in general, if you want to make sure all the contents within the scale of design resolution are displayed on the screen, you can use this mode too.
 
-### According to the ratio of width to height, 'Fit Width' or 'Fit Height' will be automatically chosen.
+### According to the ratio of width to height, 'Fit Width' or 'Fit Height' will be automatically chosen
 
 If there are no strict requirements for the content that might be cut down on the four sides of the screen, you don't need to open any fit mode in the Canvas component. Then **Fit Height** or **Fit Width** will be automatically chosen according to the ratio of width to height to avoid black borders. In other words, when the ratio of width to height of the design resolution is larger than that of the screen resolution, 'Fit Height' will be automatically opened (as in the first picture above); when the ratio of width to height of the design resolution is smaller than that of the screen resolution, 'Fit Width' will be automatically opened(as in the second picture above).
 
@@ -57,7 +57,7 @@ If there are no strict requirements for the content that might be cut down on th
 
 In the Cocos engine, there is a fit mode called `ExactFit`, which doesn't have black borders, or cut down the image within the scale of design resolution. But the price is the zooming in/out ratio of the scene image to the direction of the x/y axis  is different, which will distort the image.
 
-If you don't mind distortions of the image, you can use the engine API to realize fit effect without using the Canvas component. For detailed information, you can refer to [Cocos2d-JS's screen adaptation scheme](http://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-4-resolution-policies/zh.md).
+If you don't mind distortions of the image, you can use the engine API to realize fit effect without using the Canvas component. For detailed information, you can refer to [Cocos2d-JS's screen adaptation scheme](http://www.cocos.com/docs/js/4-essential-concepts/4-4-resolution-policies/zh.md).
 
 ## Use Canvas component in the scene
 
