@@ -16,7 +16,7 @@ Windows user can run `VSCodeSetup.exe` to install it.
 
 ### Install Cocos Creator API Extension
 
-Open your project in Cocos Creator, and choose `Developer/Install VS Code Extension` from main menu.
+Open your project in Cocos Creator, and choose `Developer -> VS Code Workflow -> Install VS Code Extension` from main menu.
 
 This will install Cocos Creator API Extension to VS Code's extension library, usually with the path `.vscode/extensions` in your user home folder. You need to install this extension only once unless there's a update with Cocos Creator.
 
@@ -26,7 +26,7 @@ You will see `VS Code extension installed to ...` in **Console** panel.
 
 For syntax highlight and autocomplete you also need to generate API source to your project folder.
 
-Choose `Developer/Update VS Code API Source` from main menu. It will generate a `creator.d.ts` file to the root of your project (same level as `assets` folder). You'll see `API data generated and copied to ...` when it's complete.
+Choose `Developer -> VS Code Workflow -> Update VS Code API Source` from main menu. It will generate a `creator.d.ts` file to the root of your project (same level as `assets` folder). You'll see `API data generated and copied to ...` when it's complete.
 
 This operation is only required when the API source is updated, or for some reason your project does not have a `creator.d.ts` file in it.
 
@@ -34,7 +34,7 @@ This operation is only required when the API source is updated, or for some reas
 
 ### Open Project With VS Code
 
-Let's run VS Code, and choose `File/Open...` from main menu, then select your project's root folder and click `Open`.
+Let's run VS Code, and choose `File -> Open...` from main menu, then select your project's root folder and click `Open`.
 
 Now you can create a new script or edit existing script and enjoy autocomplete and syntax highlight.
 
@@ -44,7 +44,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 ### Setup File Tree and Search Filter
 
-Choose `Code/Preferences/User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
+Choose `Code -> Preferences -> User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
 
 ```json
 {
