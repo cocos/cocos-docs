@@ -62,6 +62,7 @@
 2. 点击 **资源管理器** 左上角的加号按钮，在弹出的菜单中选择 **Scene**
 
   ![create scene](quick-start/create_scene.png)
+  
 3. 我们创建了一个名叫 `New Scene` 的场景文件，创建完成后场景文件 `New Scene` 的名称会处于编辑状态，将它重命名为 `game`。
 4. 双击 `game`，就会在 **场景编辑器** 和 **层级管理器** 中打开这个场景。
 
@@ -562,9 +563,9 @@ starPrefab: {
     },
 ```
 
-这里需要注意几个问题： 
+这里需要注意几个问题：
 1. 节点下的 `y` 属性对应的是锚点所在的 `y` 坐标，因为锚点默认在节点的中心，所以需要加上地面高度的一半才是地面的 `y` 坐标
-2. **instantiate** 方法的作用是：克隆指定的任意类型的对象，或者从 Prefab 实例化出新节点，返回值为 Node 或者 Object 
+2. **instantiate** 方法的作用是：克隆指定的任意类型的对象，或者从 Prefab 实例化出新节点，返回值为 Node 或者 Object
 3. Node 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上 
 4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。第一：传入两个数值 x 和 y，第二：传入 `cc.v2(x, y)` 类型为 `cc.Vec2` 的对象
 5. 通过 Node 下的 `getComponent` 方法可以得到该节点上挂载的组件引用
@@ -610,6 +611,7 @@ starPrefab: {
         this.node.destroy();
     },
 ```
+
 Node 下的 `getPosition()` 方法 返回的是节点在父节点坐标系中的位置（x, y），即一个 `Vec2` 类型对象。`cc` 下的 `pDistance` 方法很简单，这里不再赘述。同时注意调用 Node 下的 `destroy()` 方法 就可以销毁节点。
 
 然后在 `update` 方法中添加每帧判断距离，如果距离小于 `pickRadius` 属性规定的收集距离，就执行收集行为：
@@ -757,7 +759,7 @@ Node 下的 `getPosition()` 方法 返回的是节点在父节点坐标系中的
     },
 ```
 
-最后，在 `update` 方法最后加入 `gameOver` 方法，游戏失败时重新加载场景。
+最后，在 `gainScore` 方法后面加入 `gameOver` 方法，游戏失败时重新加载场景。
 
 ```js
 // Game.js
