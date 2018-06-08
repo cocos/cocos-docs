@@ -4,11 +4,11 @@
 
 我们需要一个方式来获取到这些碰撞信息，物理引擎提供的方式是在碰撞发生时产生回调，在回调里我们可以根据产生碰撞的两个碰撞体的类型信息来判断需要作出什么样的动作。
 
-**注意**
+**注意**：
 
 1. 需要先在 [rigidbody](rigid-body.md) 中 **开启碰撞监听**，才会有相应的回调产生。
 
-2. 回调中的信息在物理引擎都是以缓存的形式存在的，所以信息只有在这个回调中才是有用的，不要在你的脚本里缓存这些信息，但你可以复制这些信息到你自己的缓存中来使用。
+2. 回调中的信息在物理引擎都是以缓存的形式存在的，所以信息只有在这个回调中才是有用的，不要在你的脚本里直接缓存这些信息，但可以缓存这些信息的副本。
 
 3. 在回调中创建的物理物体，比如刚体，关节等，这些不会立刻就创建出 box2d 对应的物体，会在整个物理系统更新完成后再进行这些物体的创建。
 
@@ -40,7 +40,6 @@ cc.Class({
 ```
 
 在上面的代码示例中，我们添加了所有的碰撞回调函数到这个脚本中，一共有四个类型的回调函数，每个回调函数都有三个参数。每种回调函数的作用如注释所示，你可以根据自己的需求来实现相应的回调函数。
-
 
 ## 回调的顺序
 
@@ -95,7 +94,7 @@ cc.Class({
 
 ## 回调的参数
 
-回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数 : **contact**, **selfCollider**, **otherCollider**。
+回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数: **contact**, **selfCollider**, **otherCollider**。
 
 **selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**ohterCollider** 指的是发生碰撞的另一个碰撞体。
 
@@ -118,14 +117,14 @@ var normal = worldManifold.normal;
 
 ![world-manifold-points](./image/world-manifold-points.png)
 
-**注意**：   
+**注意**：
 不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
 
 ![collision-points-1](./image/collision-points-1.png)
 ![collision-points-2](./image/collision-points-2.png)
 ![collision-points-3](./image/collision-points-3.png)
 
-- normal 
+- normal
 
 碰撞点上的法向量，由自身碰撞体指向对方碰撞体，指明解决碰撞最快的方向。
 
@@ -147,7 +146,6 @@ var relativeVelocity = vel1.sub(vel2);
 
 这个代码可以获取到两个碰撞体相互碰撞时在碰撞点上的相对速度。
 
-
 ### 禁用 contact
 
 ```javascript
@@ -166,7 +164,7 @@ contact.disabledOnce = true;
 
 前面有提到我们在 **onPreSolve** 中修改 contact 的信息，因为 **onPreSolve** 是在物理引擎处理碰撞信息前回调的，所以对碰撞信息的修改会影响到后面的碰撞计算。
 
-```
+```js
 // 修改碰撞体间的摩擦力
 contact.setFriction(friction);
 
