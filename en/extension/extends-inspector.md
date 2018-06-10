@@ -1,6 +1,8 @@
 # Extends Inspector
 
-Inspector is a component control interface that is displayed in the Propertes panel. Sometimes we need to define an Inspector for the Component we write, and display it in a custom way.
+Inspector is a component control interface that is displayed in the Propertes panel. Sometimes we need to define an Inspector for the Component we write, and display it in a custom way.For example, the special form of Widget component is desgined through by the inspector extends
+
+![extend inspector](assets/extend-inspector.png)
 
 The steps are as follows:
 
@@ -26,7 +28,7 @@ cc.Class ({
 });
 ```
 
-** Note 1: ** Here we define a `editor` field and define the `inspector` entry file in this field.
+** Note 1: ** Here we define a `editor` field and define the `inspector` entry file in this field. Basis your `inspector.js` editor will generate the correspondence frame.
 
 ** Note 2: ** In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
 
@@ -42,7 +44,7 @@ Note that after creating the extension package, you need to restart Cocos Creato
 Next we can define `inspector.js` in the` foobar` package: 
 
 ```javascript
-vue.component ('foobar-inspector', {
+Vue.component ('foobar-inspector', {
   template: `
     <ui-prop v-prop = "target.foo"> </ ui-prop>
     <ui-prop v-prop = "target.bar"> </ ui-prop>
@@ -57,7 +59,7 @@ vue.component ('foobar-inspector', {
 });
 ```
 
-Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/)for UI. Here we define a vue component
+Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/) for UI. Here we define a vue component.
 and set `props` in the component so that it contains `target` data to complete the entire Inspector data definition.
 
 The `target` is an instance of our `Foobar` class in the Inspector.
@@ -73,10 +75,11 @@ The purpose of doing so is to make Inspector better access to all aspects of dat
 
 ```javascript
 properties: {
-  foo: {
-    value: 'Foo',
-    readonly: true
-  }
+    //There is a Default, Get or Set value need to be assigned.
+    foo: {
+        default: 'Foo',
+        readonly: true
+    }
 }
 ```
 

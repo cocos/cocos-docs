@@ -16,7 +16,7 @@ Windows user can run `VSCodeSetup.exe` to install it.
 
 ### Install Cocos Creator API Extension
 
-Open your project in Cocos Creator, and choose `Developer/Install VS Code Extension` from main menu.
+Open your project in Cocos Creator, and choose `Developer -> VS Code Workflow -> Install VS Code Extension` from main menu.
 
 This will install Cocos Creator API Extension to VS Code's extension library, usually with the path `.vscode/extensions` in your user home folder. You need to install this extension only once unless there's a update with Cocos Creator.
 
@@ -26,7 +26,7 @@ After the installation is successful, a green prompt `VS Code extension installe
 
 For syntax highlight and autocomplete you also need to generate API source to your project folder.
 
-Choose `Developer/Update VS Code API Source` from main menu. It will generate a `creator.d.ts` file to the root of your project (same level as `assets` folder). You'll see `API data generated and copied to ...` when it's complete.
+Choose `Developer -> VS Code Workflow -> Update VS Code API Source` from main menu. It will generate a `creator.d.ts` file to the root of your project (same level as `assets` folder). You'll see `API data generated and copied to ...` when it's complete.
 
 This operation is only required when the API source is updated, or for some reason your project does not have a `creator.d.ts` file in it.
 
@@ -34,7 +34,7 @@ This operation is only required when the API source is updated, or for some reas
 
 ### Open Project With VS Code
 
-Let's run VS Code, and choose `File/Open...` from main menu, then select your project's root folder and click `Open`.
+Let's run VS Code, and choose `File -> Open...` from main menu, then select your project's root folder and click `Open`.
 
 Now you can create a new script or edit existing script and enjoy autocomplete and syntax highlight.
 
@@ -44,9 +44,10 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 ### Setup File Tree and Search Filter
 
-Choose `Code/Preferences/User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
+Choose `Code -> Preferences -> User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
 
 ```json
+{
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -63,6 +64,7 @@ Choose `Code/Preferences/User Settings` from VS Code main menu. The user setting
         "local/": true,
         "temp/": true
     }
+}
 ```
 
 The above settings exclude folders generated and managed by Cocos Creator from search and file tree.
@@ -73,7 +75,7 @@ After modifying the project script by using an external text editor, you need to
 
 #### Install cURL
 
-First you need to make sure your operating system can run the [cURL command](https://curl.haxx.se/), 
+First you need to make sure your operating system can run the [cURL command](https://curl.haxx.se/),
 if you run `curl` on the command line of a Windows operating system and you are prompted that cannot find the command, then you need to first install curl to your system.
 
 - To the <http://www.confusedbycode.com/curl/>
