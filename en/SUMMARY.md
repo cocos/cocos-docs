@@ -25,6 +25,7 @@
     - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
+    - [FAQ](getting-started/faq.md)
 
 ## Workflows
 
