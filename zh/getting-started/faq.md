@@ -4,13 +4,10 @@
 
 把 CocosCreator.app 从 dmg 中拖到应用程序里，再打开。
 
-### 如何配置构建后生成的目录结构？
+### 如何配置构建后生成的目录结构以及自动修改构建后的文件内容？
 
-可以在插件中执行 `Editor.Builder.on(“build-finished”, callback)` 来监听并对文件做出修改。
-
-### 如何对构建后的文件内容做自动修改？
-
-可以在插件中执行 `Editor.Builder.on(“before-change-files”, callback)` 来监听并对文件做出修改。
+可以分别执行 `Editor.Builder.on(“build-finished”, callback)` 和 `Editor.Builder.on(“before-change-files”, callback)` 来监听并对文件做出修改。<br>
+详见 [定制项目构建流程](../publish/custom-project-build-template.md)。
 
 ### 构建后，组件关联的对象找不到，或者警告找不到类型？
 
@@ -34,7 +31,9 @@
 
 ### 图片放大后，边缘白边/黑边问题。
 
-这是由于线性过滤时，颜色通道和背景色做了插值，比较简单的办法是使用预乘。预乘需要将 Sprite 组件的混合模式设置成 `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`，然后对原图做处理。原图有两种处理方式，一种在图片导出时，在颜色通道下面添加黑色背景，透明通道保持不变。另一种是在代码中对 texture 调用 `texture.update({premultiplyAlpha: true})`，如果调用失败，有可能是旧版 Creator，旧版需要改用 `texture.handleLoadedTexture(true)`。
+这是由于线性过滤时，颜色通道和背景色做了插值，比较简单的办法是使用预乘。预乘需要将 Sprite 组件的混合模式设置成 `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`，然后对原图做处理。
+
+原图有两种处理方式，一种在图片导出时，在颜色通道下面添加黑色背景，透明通道保持不变。另一种是在代码中对 texture 调用 `texture.update({premultiplyAlpha: true})`，如果调用失败，有可能是旧版 Creator，旧版需要改用 `texture.handleLoadedTexture(true)`。
 
 ### 如何用插件脚本创建 prefab ？
 

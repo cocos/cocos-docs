@@ -4,13 +4,9 @@
 
 Drag the CocosCreator.app from the DMG into the application, and then open it.
 
-### How do I configure the directory structure generated after Build
+### How do I configure the directory structure generated after build and automatically modify the contents of the built file
 
-`Editor.Builder.on" ("build-finished", callback)` can be executed in the plug-in to monitor and modify the file.
-
-### Automatically modify the contents of the built file
-
-`Editor.Builder.on(“before-change-files”, callback)` can be executed in the plug-in to monitor and modify the file.
+Please refer to [Custom Project Build Process](../publish/custom-project-build-template.md).
 
 ### The object associated with the component cannot be found after the build, or the warning cannot find the type
 
@@ -18,15 +14,15 @@ The specified module may be excluded, please check the **Module Config** in the 
 
 ### Load resources from CDN
 
-Modify `LibraryPath` and `rawassetsbase` parameter in `main.js` to any path.
+Modify `libraryPath` and `rawAssetsBase` parameter in `main.js` to any path.
 
 ### How to take a screenshot in the browser
 
-Screenshot method: monitor `CC.Director.event_after_draw` event, calling `cc._canvas.toDataURL()` In the callback to get a screenshot of the Base64 format.
+Screenshot method: monitor `cc.Director.EVENT_AFTER_DRAW` event, calling `cc._canvas.toDataURL()` In the callback to get a screenshot of the Base64 format.
 
 ### When it touches a third-party Android-brought WebView, the engine has an error.
 
-Locate the call `Cc.view.enableAutoFullScreen` in `main.js` and change the incoming parameters to `false`.
+Locate the call `cc.view.enableAutoFullScreen` in `main.js` and change the incoming parameters to `false`.
 
 ### If frame animations are different in size for each frame, an offset occurs when the animation is played
 
@@ -34,7 +30,9 @@ Please refer to: [Sprite Animation with offset](../asset-workflow/trim.md#sprite
 
 ### After picture enlarged, edge white edge/black edge problem
 
-This is due to the color channel and background colors did the interpolation when bilinear filtering, the simpler way is to use the pre-multiply. Pre-multiplication requires that the blending mode of the Sprite component be set to `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`, and then process the original image. There are two ways to deal with the original, one is to add a black background under the color channel when the picture is exported, and the transparent channel remains unchanged. The other way is to call `texture.update({premultiplyAlpha: true})` to texture in code, if the call fails, it may be an older version of Creator and the old version needs to use `texture.handleLoadedTexture(true)`.
+This is due to the color channel and background colors did the interpolation when bilinear filtering, the simpler way is to use the pre-multiply. Pre-multiplication requires that the blending mode of the Sprite component be set to `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`, and then process the original image.
+
+There are two ways to deal with the original, one is to add a black background under the color channel when the picture is exported, and the transparent channel remains unchanged. The other way is to call `texture.update({premultiplyAlpha: true})` to texture in code, if the call fails, it may be an older version of Creator and the old version needs to use `texture.handleLoadedTexture(true)`.
 
 ### How to create a prefab with a plug-in script
 
