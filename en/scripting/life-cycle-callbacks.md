@@ -70,7 +70,7 @@ cc.Class({
 
 ## lateUpdate
 
-`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
+`update` will execute before all the animations' update, but if we want to perform some extra operations **after the animation update** or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback. Among them, **after the animation update** refers to animation, rendering, particle, physics, etc. after the calculation.
 
 ```js
 cc.Class({
