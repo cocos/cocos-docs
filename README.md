@@ -34,8 +34,9 @@ npm run preview
 npm run preview -o file1,file2...
 ```
 
-First command will build and launch web server to host the site. It will also enable livereload plugin so your changes to the markdown source file will automatically triggers rebuild of the docs.
-Second command allow you to build the page that you assgined straightly. Please change the file1,file2... to your own file name, then excute preview command.And this command will help you rebuild the .bookignore file which can let you ignore the files that you didn't change when you rebuild the doc.
+The first command will build and launch web server to host the site. It will also enable live reload plugin, so your changes to the markdown source file will automatically triggers the rebuild of the docs.
+
+The second command allows you to build the page that you assigned straightly. Please change the file1,file2... to your own file name, then execute preview command. And this command will help you rebuild the .bookignore file which can let you ignore the files that you didn't change when you rebuild the doc.
 
 After generation finished, don't quit server process, run the following command in other terminal context:
 
