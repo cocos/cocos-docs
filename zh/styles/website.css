@@ -13,14 +13,23 @@
 }
 .cocos-navbar {
   overflow: visible;
-  height: 40px;
-  padding: 0px 8px;
+  width: 100%;
+  min-width: 800px;
   z-index: 2;
   font-size: 0.85em;
   color: #7e888b;
   background: #f5f5f5;
   display: flex;
+  position: absolute;
+  top: 0;
 }
+.cocos-navbar::after {
+  clear: both;
+  content: '.';
+  display: block;
+  visibility: hidden;
+  height: 0;
+} 
 .cocos-navbar a,
 .cocos-navbar a:hover {
   color: inherit;
@@ -30,7 +39,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  position: absolute;
+  width: 100%;
 }
 .cocos-navbar ul li {
   margin-right: 1px;
@@ -51,6 +60,7 @@
   display: none;
   width: 100%;
   z-index: 999;
+  position: absolute;
 }
 .cocos-navbar ul li ul li {
   display: block;
@@ -99,11 +109,56 @@
 .cocos-navbar .btn:focus {
   outline: none;
 }
+.cocos-navbar:hover h1 {
+  opacity: 1;
+}
 @media (max-width: 800px) {
-  .cocos-navbar .autohide {
+  .cocos-navbar {
     display: none;
   }
 }
-.cocos-navbar:hover h1 {
-  opacity: 1;
+@media (min-width: 800px) {
+  .page-wrapper {
+    min-width: 800px;
+    padding-top: 40px;
+  }
+}
+@media (max-width: 800px) {
+  .page-wrapper {
+    min-width: 800px;
+    padding-top: 0;
+  }
+}
+@media (min-width: 800px) and (max-width: 1000px) {
+  .cocos-navbar ul .version-link ul {
+    margin-left: 20px;
+  }
+  .cocos-navbar .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 1240px) {
+  .book-body .body-inner {
+      overflow: visible;
+  }
+}
+.cocos-navbar ul .version-link {
+  float: right;
+  z-index: 10;
+  padding-right: 15px;
+  text-align: right;
+  min-width: 180px;
+}
+.version-link ul li .btn {
+  padding-right: 35px;
+  padding-left: 0;
+}
+.version-link a span {
+  padding: 0;
+}
+.book-header {
+  min-width: 800px;
 }
