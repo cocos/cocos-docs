@@ -14,6 +14,7 @@ In this chapter:
 - [Quick Start: Create Your First Game](quick-start.md)
 - [Cocos2d-x User Guide](cocos2d-x-guide.md)
 - [Get Help and Support](support.md)
+- [FAQ](faq.md)
 
 ---
 

@@ -10,7 +10,7 @@ What needs to be noted is that the action system cannot replace the [animation s
 
 The action system is easy to use, supporting the following API in `cc.Node`:
 
-```
+```js
 // create a moving action
 var action = cc.moveTo(2, 100, 100);
 // execute the action
@@ -23,7 +23,7 @@ node.stopActions();
 
 Developers can also set tags for the actions and control the actions by tag.
 
-```
+```js
 // set tag for the action
 var ACTION_TAG = 1;
 action.setTag(ACTION_TAG);
@@ -50,21 +50,26 @@ The container action can organize actions in different ways, below are several o
 
 1. Sequential action `cc.sequence`
     Sequential action makes a series of child actions run one by one in sequence. For example:
-    ```
+
+    ```js
     // make the node move back and forth
     var seq = cc.sequence(cc.moveBy(0.5, 200, 0), cc.moveBy(0.5, -200, 0));
     node.runAction(seq);
     ```
+
 2. Synchronization action `cc.spawn`
     Synchronization action synchronises the execution of a series of child actions. The result of the execution of these child actions will gather together to alter the properties of the node. For example:
-    ```
+
+    ```js
     // make the node zoom while it moves upwards
     var spawn = cc.spawn(cc.moveBy(0.5, 0, 50), cc.scaleTo(0.5, 0.8, 1.4));
     node.runAction(spawn);
     ```
+
 3. Repetitive action `cc.repeat`
     Repetitive action is used to repeat one action several times. For example:
-    ```
+
+    ```js
     // make the node move back and forth 5 times
     var seq = cc.repeat(
                 cc.sequence(
@@ -73,9 +78,11 @@ The container action can organize actions in different ways, below are several o
                 ), 5);
     node.runAction(seq);
     ```
+
 4. Repeat forever action `cc.repeatForever`
     As its name, this action container can make the target action repeat forever until it is stopped manually.
-    ```
+
+    ```js
     // move the node back and forth and keep repeating
     var seq = cc.repeatForever(
                 cc.sequence(
@@ -83,9 +90,11 @@ The container action can organize actions in different ways, below are several o
                     cc.moveBy(2, -200, 0)
                 ));
     ```
+
 5. Speed action `cc.speed`
     Speed action can alter the execution rate of the target action to make it quicker or slower.
-    ```
+
+    ```js
     // double the speed of the target action which means the action that took 2 seconds  before now can be done in 1 second
     var action = cc.speed(
                     cc.spawn(
@@ -95,9 +104,9 @@ The container action can organize actions in different ways, below are several o
     node.runAction(action);
     ```
 
-You can see from the above example, different container types can be combined. Besides, we provide a more convenient link-form API for the container type actions. The action objects support these three API - `repeat`,`repeatForever`,`speed`- which will return to the action object itself and support the continued link-form call. Let's see a more complicated action example:
+You can see from the above example, different container types can be combined. Besides, we provide a more convenient link-form API for the container type actions. The action objects support these three API - `repeat`, `repeatForever`, `speed` - which will return to the action object itself and support the continued link-form call. Let's see a more complicated action example:
 
-```
+```js
 // a complicated jump animation
 this.jumpAction = cc.sequence(
     cc.spawn(
@@ -128,12 +137,12 @@ in the callback pause its own action will lead to a series of traversal problems
 
 Slow motion cannot exist alone; it always exists to modify a basic action. It can be used to alter the time curve of the basic action to give the action fast in/out, ease in or other more complicated special effects. One thing we need to note is that only interval actions support slow motion:
 
-```
+```js
 var action = cc.scaleTo(0.5, 2, 2);
 action.easing(cc.easeIn(3.0));
 ```
 
-The basic slow motion category is[`cc.ActionEase`](http://www.cocos2d-x.org/docs/creator-api/en/classes/ActionInterval.html). You can refer to the picture below for the time curves of different slow motions:
+The basic slow motion category is [`cc.ActionEase`](http://www.cocos2d-x.org/docs/creator-api/en/classes/ActionInterval.html). You can refer to the picture below for the time curves of different slow motions:
 
 ![](./actions/tweener.png)
 

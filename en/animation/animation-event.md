@@ -9,7 +9,7 @@ First, choose the position where you want an event to happen. Click the __add ev
 button at the far left side of the button field. A white rectangle will appear on
 the timeline representing the newly added event.
 
-![button](animation-event/button.jpg)
+![button](animation-event/button.png)
 
 ## Deleting an event
 There are two ways to delete and event.

@@ -25,6 +25,7 @@
     - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
+    - [FAQ](getting-started/faq.md)
 
 ## Workflows
 
@@ -193,7 +194,6 @@
     - [i18n](advanced-topics/i18n.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [Dirty Region Optimization](advanced-topics/dirty-region.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

@@ -5,7 +5,7 @@
 除了本手册里提供的信息，您还可以随时通过下面的渠道获取信息或反馈问题给 Cocos Creator 开发团队：
 
 - [Cocos Creator 首页](http://www.cocos.com/creator/)
-- QQ群：539131539 <!-- 577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
+- QQ群：738190852<!-- 539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
 - [论坛社区](http://forum.cocos.com/c/Creator)
 
 ## 演示和范例项目
@@ -22,6 +22,7 @@
 - [响应式 UI Demo](https://github.com/cocos-creator/demo-responsive-ui)：展示了可适配任意屏幕尺寸的 UI 系统。
 - [战斗动画 Demo](https://github.com/cocos-creator/demo-combat-animation)：使用强力灵活的动画系统制作战斗动画。
 - [组队界面 Demo](https://github.com/cocos-creator/demo-team-build-ui)：展示使用 Prefab 实现数据和表现分离的动态 UI 构建。
+- [Camera Demo](https://github.com/cocos-creator/demo-camera)：包含了 camera 的使用示例。
 
 ## 原生发布代码库
 

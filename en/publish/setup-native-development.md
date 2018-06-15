@@ -70,9 +70,9 @@ The compiling tool Cocos Console in Cocos Framework needs the following running 
 
 ## Configure path in original release environments
 
-Next, let's go back to Cocos Creator to configure the environmental path of the constructing release original platform. Choose `document/preference` in the main menu, and open the preference window:
+Next, let's go back to Cocos Creator to configure the environmental path of the constructing release original platform. Choose `CocosCreator -> preference` in the main menu, and open the preference window:
 
-![preference](../getting-started/basics/editor-panels/preferences/native-develop.png)
+![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
 We need to configure the following three paths here:
 

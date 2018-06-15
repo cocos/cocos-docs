@@ -70,7 +70,7 @@ cc.Class({
 
 ## lateUpdate
 
-`update` will execute before all the animations' update, but if we want to perform some extra operations after the animation update or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
+`update` will execute before all the animations' update, but if we're going to do some extra work after the effects (such as animation, particle, physics, etc.) are updated or want to perform other operations after `update` of all the components are done, then we'll need the `lateUpdate` callback.
 
 ```js
 cc.Class({
@@ -93,7 +93,6 @@ When the `enabled` property of the component turns from `true` to `false`, or th
 ## onDestroy
 
 When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
-
 
 ---
 
