@@ -18,9 +18,23 @@
     <li><a href="{{item.link}}" class="btn autohide"><i class="fa fa-book"></i>{{item.name}}</a></li>
     {% endif %}
 {% endfor %}    
+{% for item in book.version %}
+    {% if item.links %}
+    <li class="version-link">
+        <a class="btn" style="color:#444">Version: <span style="font-weight:bold">{{item.name}}</span></a>
+        <ul class="hovershow">
+            {% for entry in item.links %}
+            <li><a href="{{entry.link}}" class="btn">Version: <span style="font-weight:bold">{{entry.name}}</span></a></li>
+            {% endfor %}
+        </ul>
+    </li>                
+    {% else %}
+    <li><a href="{{item.link}}" class="btn">{{item.name}}</a></li>
+    {% endif %}
+{% endfor %}   
     </ul>
 </div>
-<div class="book-header" role="navigation">
+<div class="book-header" id="book-header" role="navigation">
     {% if glossary.path %}
     <a href="{{ ('/' + glossary.path)|resolveFile }}" class="btn pull-left" aria-label="{{ "GLOSSARY_OPEN"|t }}"><i class="fa fa-sort-alpha-asc"></i></a>
     {% endif %}
