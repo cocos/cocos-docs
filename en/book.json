@@ -10,11 +10,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "http://docs.cocos.com/creator/manual/en"
+                        "link": "http://docs.cocos.com/creator/2.0/manual/en"
                     },
                     {
                         "name": "API Ref",
-                        "link": "http://docs.cocos.com/creator/api/en"
+                        "link": "http://docs.cocos.com/creator/2.0/api/en"
                     }
                 ]
             },
@@ -38,11 +38,15 @@
         ],
         "version": [
             {
-                "name": "1.x",
+                "name": "2.0 Preview",
                 "links": [
                     {
-                        "name": "1.x",
+                        "name": "1.9",
                         "link": "http://docs.cocos.com/creator/manual/en"
+                    },
+                    {
+                        "name": "1.10 Preview",
+                        "link": "http://docs.cocos.com/creator/1.10/manual/en"
                     },
                     {
                         "name": "2.0 Preview",
