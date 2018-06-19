@@ -7,7 +7,7 @@
         "anchorjs",
         "sharing",
         "splitter",
-        "expandable-chapters-small"
+        "expandable-chapters-small@git+https://github.com/cocos-creator/gitbook-plugin-expandable-chapters-small.git"
     ],
     "styles": {
         "website": "./styles/website.css"
