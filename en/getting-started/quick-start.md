@@ -646,8 +646,6 @@ Save the `Star` script, and the logic of this game's play method will now be com
 
 Although lots of people will ignore sound when playing smartphone games, for the completeness of the workflow presented in this tutorial, we still have to supplement the task of adding sound effects.
 
-> Starting from 1.10, the AudioClip usage is somewhat different from the original. If you are using an older version of Creator, check the [older version of the document](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/getting-started/quick-start.md#%E5%8A%A0%E5%85%A5%E9%9F%B3%E6%95%88)。
-
 ### Jumping sound effect
 
 Firstly, add the jumping sound effect. Open the `Player` script and add the `jumpAudio` property that quotes the sound document resource:
