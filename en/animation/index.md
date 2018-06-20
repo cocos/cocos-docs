@@ -1,6 +1,6 @@
 # Animation system
-This chapter will introduce the animation system that comes bundled with Cocos Creator.
-Animation editors usually have the same standard functionality one would expect: standard movement, rotation, scale and sprite animations. Cocos Creator adds to this by providing support for _over-time_ changes of user defined components and custom properties. Also, with a time curve that can be edited arbitrarily and previewing and editing the movement path directly in the scene view, it can help content creators create various exquisite dynamic effects without writing a single line of code.
+
+This chapter will introduce the animation system that comes bundled with Cocos Creator. Animation editors usually have the same standard functionality one would expect: standard movement, rotation, scale and sprite animations. Cocos Creator adds to this by providing support for _over-time_ changes of user defined components and custom properties. Also, with a time curve that can be edited arbitrarily and previewing and editing the movement path directly in the scene view, it can help content creators create various exquisite dynamic effects without writing a single line of code.
 
 ![animation cover](index/animation_cover.jpg)
 
@@ -13,7 +13,6 @@ Animation editors usually have the same standard functionality one would expect:
 - [Time Curves](time-curve.md)
 - [Animation Events](animation-event.md)
 - [Scripting Animations](scripting-animation.md)
-
 
 <hr>
 

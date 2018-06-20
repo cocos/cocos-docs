@@ -8,9 +8,6 @@ Cocos Creator has a whole set of uniform asset management mechanisms. In this tu
 - How to load remote assets or device files
 - Assets dependencies and how to release assets
 
-> **Attention**:
-> Starting from 1.10, Cocos Creator refactored all `RawAsset` into `Asset`, and the usage is more unified than before. This document is for the latest version only, and if you are using an older version of Creator, check the [older version of the document](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/en/scripting/load-assets.md) please.
-
 ## Declaration of asset properties
 
 In Creator, all types inherited from `cc.Asset` are collectively called assets, such as `cc.Texture2D`, `cc.SpriteFrame`, `cc.AnimationClip`, `cc.Prefab` and so on. Their loading is uniform and automatic. Assets that rely on each other can be preloaded automatically.

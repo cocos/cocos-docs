@@ -1,7 +1,5 @@
 # Widget 组件参考
 
-> 该文档适用于 Creator v1.10 及以上的版本。如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/be9d3c69dc5a85b61df060269ac520374ba77c01/zh/components/widget.md)。
-
 Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。
 
 ![default](widget/widget-default.png)

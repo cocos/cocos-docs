@@ -8,9 +8,6 @@ Cocos Creator 有一套统一的资源管理机制，在本篇教程，我们将
 - 加载远程资源和设备资源
 - 资源的依赖和释放
 
-> **注意**：
-> 从 1.10 开始，Cocos Creator 将所有 RawAsset 重构成为了 Asset，用法比以前更统一了。本文档只针对最新版，如果您使用的是旧版本 Creator，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/scripting/load-assets.md)。
-
 ## 资源属性的声明
 
 在 Creator 中，所有继承自 `cc.Asset` 的类型都统称资源，如 `cc.Texture2D`, `cc.SpriteFrame`, `cc.AnimationClip`, `cc.Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。

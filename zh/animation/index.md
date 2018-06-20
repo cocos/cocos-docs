@@ -1,7 +1,5 @@
 # 动画系统
 
-> 从 v1.9.2 版本开始编辑器部分做了较大的改动，如果您使用的 Creator 是旧的版本，请查看 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/animation/index.md)。
-
 本章将介绍 Cocos Creator 的动画系统，除了标准的位移、旋转、缩放动画和序列帧动画以外，这套动画系统还支持任意组件属性和用户自定义属性的驱动，再加上可任意编辑的时间曲线和创新的移动轨迹编辑功能，能够让内容生产人员不写一行代码就制作出细腻的各种动态效果。
 
 ![animation cover](index/animation_cover.jpg)
