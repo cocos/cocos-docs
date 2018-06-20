@@ -47,3 +47,33 @@ Please upgrade to the version after 1.8.2.
 ### WeChat open data prompted wx.request can not find when loading avatar
 
 When you load a picture, the URL is missing such as .png suffix, `cc.loader.load` needs to be changed to incoming `{ url: url, type: "png" }`.
+
+### How to load dragonbones remotely from a server
+
+```js
+let animNode = new cc.Node();
+animNode.parent = cc.find('Canvas');
+let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+
+let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
+let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+cc.loader.load(image, () => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
+            let atlas = new dragonBones.DragonBonesAtlasAsset();
+            atlas.atlasJson = atlasJson;
+            atlas.texture = image;
+
+            let asset = new dragonBones.DragonBonesAsset();
+            asset.dragonBonesJson = dragonBonesJson;
+
+            dragonDisplay.dragonAtlasAsset = atlas;
+            dragonDisplay.dragonAsset = asset;
+
+            dragonDisplay.armatureName = 'eee';
+            dragonDisplay.playAnimation('eee', -1);
+        });
+    });
+});
+```
