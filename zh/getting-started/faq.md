@@ -48,3 +48,33 @@ Editor.Ipc.sendToPanel('scene', 'scene:create-prefab', node.uuid, 'db://assets/x
 ### 微信开放数据加载头像时提示 wx.request 找不到。
 
 加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
+
+### 如何从服务器远程加载 DragonBones ？
+
+```js
+let animNode = new cc.Node();
+animNode.parent = cc.find('Canvas');
+let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+
+let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
+let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+cc.loader.load(image, () => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
+            let atlas = new dragonBones.DragonBonesAtlasAsset();
+            atlas.atlasJson = atlasJson;
+            atlas.texture = image;
+
+            let asset = new dragonBones.DragonBonesAsset();
+            asset.dragonBonesJson = dragonBonesJson;
+
+            dragonDisplay.dragonAtlasAsset = atlas;
+            dragonDisplay.dragonAsset = asset;
+
+            dragonDisplay.armatureName = 'eee';
+            dragonDisplay.playAnimation('eee', -1);
+        });
+    });
+});
+```

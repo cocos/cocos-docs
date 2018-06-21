@@ -1,7 +1,5 @@
 # Widget component reference
 
-> This document applies to Creator v1.10 and above. If you are using an older version of Creator, please check the [old document](https://github.com/cocos-creator/creator-docs/blob/be9d3c69dc5a85b61df060269ac520374ba77c01/en/components/widget.md).
-
 Widget is a frequently used UI layout component. It can make the current node automatically align to an optional position of the parent object or restrict dimensions to make your game adaptive to different resolution ratios.
 
 ![default](widget/widget-default.png)

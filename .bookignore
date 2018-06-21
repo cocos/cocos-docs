@@ -9,3 +9,4 @@ package.json
 *.xlsx
 *.orig
 *.less
+*.ai
