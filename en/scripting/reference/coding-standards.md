@@ -1,7 +1,6 @@
 # Recommended coding standards
 
-The following are the coding standards that the Cocos Creator development team use. They are included in the manual for game developers` and tool developers' reference.
-
+The following are the coding standards that the Cocos Creator development team use. They are included in the manual for game developers and tool developers reference.
 
 ## Naming standards
 
@@ -60,14 +59,17 @@ The following are the coding standards that the Cocos Creator development team u
 
 ## Grammar standards
 
- - Use `{}` to create an object
+ - Use `Object.create(null)` to create an object
 
    ```javascript
    // bad
    var obj = new Object();
 
-   // good
+   // bad
    var obj = {};
+
+   // good
+   var obj = Object.create(null);
    ```
 
  - Use `[]` to create an array
@@ -90,22 +92,22 @@ The following are the coding standards that the Cocos Creator development team u
    var str = 'Hello World';
    ```
 
- - When defining multi-lines string, try your best to use `+` 
+ - When defining multi-lines string, try your best to use `+`
 
    ```javascript
    // bad
-    const errorMessage = 'This is a super long error that was thrown out because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+   const errorMessage = 'This is a super long error that was thrown out because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bad
-    const errorMessage = 'This is a super long error that was thrown out because \
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
+   // bad
+   const errorMessage = 'This is a super long error that was thrown out because \
+   of Batman. When you stop to think about how Batman had anything to do \
+   with this, you would get nowhere \
+   fast.';
 
-    // good
-    const errorMessage = 'This is a super long error that was thrown out because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+   // good
+   const errorMessage = 'This is a super long error that was thrown out because ' +
+     'of Batman. When you stop to think about how Batman had anything to do ' +
+     'with this, you would get nowhere fast.';
    ```
 
  - Use `===` and `!==` rather than `==` and `!=`.
@@ -114,7 +116,7 @@ The following are the coding standards that the Cocos Creator development team u
 
  - Choose quadruple spacing or double spacing for indentation according to your own habits and the primary code writer's format.
 
-   ```javascript
+   ```js
    // bad
    function() {
    ∙var name;
@@ -136,9 +138,56 @@ The following are the coding standards that the Cocos Creator development team u
    }
    ```
 
+ - Do not leave spaces at the end of the line. Leave an empty line at the bottom of the file
+
+   ```js
+   // bad
+   function () {∙
+   ∙∙∙∙var name;∙
+   }
+   /* EOF */
+
+   // good
+   function () {
+   ∙∙∙∙var name;
+   }
+
+   /* EOF */
+   ```
+
+ - Please add `;` at the end of the statement.
+
+   ```js
+   // bad
+   proto.foo = function () {
+   }
+
+   // good
+   proto.foo = function () {
+   };
+
+   // very bad
+   function foo () {
+       return 'test'
+   }
+
+   // good
+   function foo () {
+       return 'test';
+   }
+
+   // bad
+   function foo () {
+   };
+
+   // good, this is not the end of the statement
+   function foo () {
+   }
+   ```
+
  - Try to put `{` and the expression in the same line
 
-   ```javascript
+   ```js
    // bad
    if ( isFoobar )
    {
@@ -173,15 +222,21 @@ The following are the coding standards that the Cocos Creator development team u
 
  - Put a space before `{`
 
-   ```javascript
+   ```js
    // bad
-   function test(){
-       console.log('test');
+   if (isJedi){
+       fight();
+   }
+   else{
+       escape();
    }
 
    // good
-   function test() {
-       console.log('test');
+   if (isJedi) {
+       fight();
+   }
+   else {
+       escape();
    }
 
    // bad
@@ -197,33 +252,106 @@ The following are the coding standards that the Cocos Creator development team u
    });
    ```
 
- - Please put a space before `(` of the logic state expressions ( `if`, `while` )
+ - Please put a space before `(` of the logic state expressions ( `if`, `else`, `while`, `switch`)
 
-   ```javascript
+   ```js
     // bad
     if(isJedi) {
         fight ();
+    }
+    else{
+        escape();
     }
 
     // good
     if (isJedi) {
         fight();
     }
+    else {
+        escape();
+    }
     ```
 
- - Please put a space between operators
+ - Leave one space between the binary ternary operators
 
-   ```javascript
+   ```js
    // bad
    var x=y+5;
+   var left = rotated? y: x;
 
    // good
    var x = y + 5;
+   var left = rotated ? y : x;
+
+   // bad
+   for (let i=0; i< 10; i++) {
+   }
+
+   // good
+   for (let i = 0; i < 10; i++) {
+   }
+   ```
+
+ - The way some functions are declared
+
+   ```js
+   // bad
+   var test = function () {
+       console.log('test');
+   };
+
+   // good
+   function test () {
+       console.log('test');
+   }
+
+   // bad
+   function divisibleFunction () {
+       return DEBUG ? 'foo' : 'bar';
+   }
+
+   // good
+   var divisibleFunction = DEBUG ?
+       function () {
+           return 'foo';
+       } :
+       function () {
+           return 'bar';
+       };
+
+   // bad
+   function test(){
+   }
+
+   // good
+   function test () {
+   }
+
+   // bad
+   var obj = {
+       foo: function () {
+       }
+   };
+
+   // good
+   var obj = {
+       foo () {
+       }
+   };
+
+   // bad
+   array.map(x=>x + 1);
+   array.map(x => {
+       return x + 1;
+   });
+
+   // good
+   array.map(x => x + 1);
    ```
 
  - Put a space between Block definitions
 
-   ```javascript
+   ```js
    // bad
    if (foo) {
        return bar;
@@ -239,6 +367,8 @@ The following are the coding standards that the Cocos Creator development team u
 
    // bad
    const obj = {
+       x: 0,
+       y: 0,
        foo() {
        },
        bar() {
@@ -248,6 +378,9 @@ The following are the coding standards that the Cocos Creator development team u
 
    // good
    const obj = {
+       x: 0,
+       y: 0,
+
        foo() {
        },
 
@@ -256,31 +389,11 @@ The following are the coding standards that the Cocos Creator development team u
    };
 
    return obj;
-
-   // bad
-   const arr = [
-       function foo() {
-       },
-       function bar() {
-       },
-   ];
-   return arr;
-
-   // good
-   const arr = [
-       function foo() {
-       },
-
-       function bar() {
-       },
-   ];
-
-   return arr;
    ```
 
  - Do not use a comma to define
 
-   ```javascript
+   ```js
    // bad
    var story = [
          once
@@ -310,6 +423,29 @@ The following are the coding standards that the Cocos Creator development team u
        birthYear: 1815,
        superPower: 'computers',
    };
+   ```
+
+ - Single line comments, please add a space after the slash
+
+   ```js
+   //bad
+   // good
+   ```
+
+ - Multiline notation
+
+   ```js
+   /*
+    * good
+    */
+   ```
+
+ - A multiline annotation that needs to be exported to the API document
+
+   ```js
+   /**
+    * good
+    */
    ```
 
 ## Reference

@@ -2,7 +2,6 @@
 
 下面是 Cocos Creator 开发团队使用的编码规范，收录在手册里以供游戏开发者和工具开发者参考。
 
-
 ## 命名规范
 
  - 当我们为变量, 函数和实例命名时, 使用 camelCase 命名法.
@@ -60,14 +59,17 @@
 
 ## 语法规范
 
- - 使用 `{}` 创建一个 object
+ - 使用 `Object.create(null)` 创建一个 object
 
    ```javascript
    // bad
    var obj = new Object();
 
-   // good
+   // bad
    var obj = {};
+
+   // good
+   var obj = Object.create(null);
    ```
 
  - 使用 `[]` 创建一个 array
@@ -94,21 +96,21 @@
 
    ```javascript
    // bad
-    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+   const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because \
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
+   // bad
+   const errorMessage = 'This is a super long error that was thrown because \
+   of Batman. When you stop to think about how Batman had anything to do \
+   with this, you would get nowhere \
+   fast.';
 
-    // good
-    const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+   // good
+   const errorMessage = 'This is a super long error that was thrown because ' +
+    'of Batman. When you stop to think about how Batman had anything to do ' +
+    'with this, you would get nowhere fast.';
    ```
-
- - 使用 `===` 和 `!==` 而不是 `==` 和 `!=`.
+    
+ - 使用 `===` 和 `!==` 而不是 `==` 和 `!=`
 
 ## 书写规范
 
@@ -133,6 +135,53 @@
    // good
    function() {
    ∙∙∙∙var name;
+   }
+   ```
+
+ - 行尾不要留有空格，文件底部请留一个空行
+
+   ```js
+   // bad
+   function () {∙
+   ∙∙∙∙var name;∙
+   }
+   /* EOF */
+
+   // good
+   function () {
+   ∙∙∙∙var name;
+   }
+
+   /* EOF */
+   ```
+
+ - 语句结尾请加 `;`
+
+   ```js
+   // bad
+   proto.foo = function () {
+   }
+
+   // good
+   proto.foo = function () {
+   };
+
+   // very bad
+   function foo () {
+       return 'test'
+   }
+
+   // good
+   function foo () {
+       return 'test';
+   }
+
+   // bad
+   function foo () {
+   };
+
+   // good，这里不是语句结尾
+   function foo () {
    }
    ```
 
@@ -173,15 +222,21 @@
 
  - 在 `{` 前请空一格
 
-   ```javascript
+   ```js
    // bad
-   function test(){
-       console.log('test');
+   if (isJedi){
+       fight();
+   }
+   else{
+       escape();
    }
 
    // good
-   function test() {
-       console.log('test');
+   if (isJedi) {
+       fight();
+   }
+   else {
+       escape();
    }
 
    // bad
@@ -197,33 +252,106 @@
    });
    ```
 
- - 在逻辑状态表达式 ( `if`, `while` ) 的 `(` 前请空一格
+ - 在逻辑状态表达式 ( `if`, `else`, `while`, `switch`) 后请空一格
 
-   ```javascript
-    // bad
-    if(isJedi) {
-        fight ();
-    }
+   ```js
+   // bad
+   if(isJedi) {
+       fight ();
+   }
+   else{
+       escape();
+   }
 
-    // good
-    if (isJedi) {
-        fight();
-    }
-    ```
+   // good
+   if (isJedi) {
+       fight();
+   }
+   else {
+       escape();
+   }
+   ```
 
- - operator 之间请空一格
+ - 二元、三元运算符的左右请空一格
 
-   ```javascript
+   ```js
    // bad
    var x=y+5;
+   var left = rotated? y: x;
 
    // good
    var x = y + 5;
+   var left = rotated ? y : x;
+
+   // bad
+   for (let i=0; i< 10; i++) {
+   }
+
+   // good
+   for (let i = 0; i < 10; i++) {
+   }
+   ```
+
+ - 一些函数的声明方式
+
+   ```js
+   // bad
+   var test = function () {
+       console.log('test');
+   };
+
+   // good
+   function test () {
+       console.log('test');
+   }
+
+   // bad
+   function divisibleFunction () {
+       return DEBUG ? 'foo' : 'bar';
+   }
+
+   // good
+   var divisibleFunction = DEBUG ?
+       function () {
+         return 'foo';
+       } :
+       function () {
+       return 'bar';
+       };
+
+   // bad
+   function test(){
+   }
+
+   // good
+   function test () {
+   }
+
+   // bad
+   var obj = {
+       foo: function () {
+       }
+   };
+
+   // good
+   var obj = {
+       foo () {
+       }
+   };
+
+   // bad
+   array.map(x=>x + 1);
+   array.map(x => {
+       return x + 1;
+   });
+
+   // good
+   array.map(x => x + 1);
    ```
 
  - 在 Block 定义之间请空一行
 
-   ```javascript
+   ```js
    // bad
    if (foo) {
        return bar;
@@ -239,6 +367,8 @@
 
    // bad
    const obj = {
+       x: 0,
+       y: 0,
        foo() {
        },
        bar() {
@@ -248,6 +378,9 @@
 
    // good
    const obj = {
+       x: 0,
+       y: 0,
+
        foo() {
        },
 
@@ -256,26 +389,6 @@
    };
 
    return obj;
-
-   // bad
-   const arr = [
-       function foo() {
-       },
-       function bar() {
-       },
-   ];
-   return arr;
-
-   // good
-   const arr = [
-       function foo() {
-       },
-
-       function bar() {
-       },
-   ];
-
-   return arr;
    ```
 
  - 不要使用前置逗号定义
@@ -310,6 +423,29 @@
        birthYear: 1815,
        superPower: 'computers',
    };
+   ```
+
+ - 单行注释请在斜杠后面加一个空格
+
+   ```js
+   //bad
+   // good
+   ```
+
+ - 多行注释写法
+
+   ```js
+   /*
+    * good
+    */
+   ```
+
+ - 需要导出到 API 文档的多行注释写法
+
+   ```js
+   /**
+    * good
+    */
    ```
 
 ## 参考
