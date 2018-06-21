@@ -116,9 +116,9 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 
 - [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小程序 API 文档](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 
 ## 常见问题
 
