@@ -2,9 +2,7 @@
 
 ## Custom Project Build Template
 
-Creator support custom build template to project.    
-You just need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform.   
-Then all the files in the folder will be copied to build path according to the folder structure.
+Creator support custom build template to project. You just need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform. Then all the files in the folder will be copied to build path according to the folder structure.
 
 Folder Structure: 
 
