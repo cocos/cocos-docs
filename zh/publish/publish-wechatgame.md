@@ -103,7 +103,16 @@
 
 Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请参考 [接入微信小游戏的开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
-## 参考
+## 微信小游戏已知问题：
+
+我们对微信小游戏的适配工作还未完全结束，目前仍不支持以下组件：
+
+- VideoPlayer
+- WebView
+
+用户如果有需要，目前可以先自己直接调用微信的 API 来使用。
+
+## 参考链接
 
 - [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
 - [微信公众平台](https://mp.weixin.qq.com/)
