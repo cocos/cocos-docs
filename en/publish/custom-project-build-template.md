@@ -57,9 +57,9 @@ module.exports = {
 };
 ```
 
-In the example above, we are monitoring the events of the Builder `'before-change-files'`, our `onBeforeBuildFinish` handler function is invoked when the event is triggered. The following events are currently being monitored:
+In the example above, we are listening the event `'before-change-files'` on the Builder, our `onBeforeBuildFinish` handler function is invoked when the event is triggered. The following events are currently being supported:
 - `'build-start'`: Trigger at start of build.
-- `'before-change-files'`: Which is triggered **before** the end of the build. In addition to computing the file MD5 and encryption scripts for native platform, most build operations have been completed. We usually do some further work on the files that have been built in this event.
+- `'before-change-files'`: Which is triggered **before** the end of the build. In addition to computing the file MD5, generating settings.js, and encryption scripts for native platform, most build operations have been completed. We usually do some further work on the files that have been built in this event.
 - `'build-finished'`: Triggered when the build is completely finished.
 
 You can register as many processing functions as you want, and when the function is called, two arguments are passed in. The first argument is an object that contains the relevant options for this build, such as the build platform, build directory, debug mode, and so on. The second argument is a callback function that you need to manually invoke after the action of the response function completes, so that the subsequent build process continues, meaning that your response function can be asynchronous.
