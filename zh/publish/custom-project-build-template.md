@@ -55,8 +55,111 @@ module.exports = {
 };
 ```
 
-上面注册的事件是 `'before-change-files'`，这个事件会在构建结束**之前**触发，此时除了计算文件 MD5、原生平台的加密脚本以外，大部分构建操作都已执行完毕。你可以在这个事件中对已经构建好的文件做进一步处理。
+上面例子中，我们监听了 Builder 的 `'before-change-files'` 的事件，当事件触发时就会调用我们的 `onBeforeBuildFinish` 处理函数。目前能监听以下这些事件：
+ - `'build-start'`：构建开始时触发。
+ - `'before-change-files'`：在构建结束**之前**触发，此时除了计算文件 MD5、原生平台的加密脚本以外，大部分构建操作都已执行完毕。我们通常会在这个事件中对已经构建好的文件做进一步处理。
+ - `'build-finished'`：构建完全结束时触发。
 
-上面的 `onBeforeBuildFinish` 是 `'before-change-files'` 的事件响应函数。你可以注册任意多个响应函数，它们会依次执行。该函数被调用时，将传入两个参数。第一个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。第二个参数是一个回调函数，你需要在响应函数所做的操作完全结束后手动调用这个回调，这样后续的其它构建过程才会继续进行，也就是说你的响应函数可以是异步的。
+你可以注册任意多个处理函数，当函数被调用时，将传入两个参数。第一个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。第二个参数是一个回调函数，你需要在响应函数所做的操作完全结束后手动调用这个回调，这样后续的其它构建过程才会继续进行，也就是说你的响应函数可以是异步的。
 
-此外，你可以监听的事件还有 `'build-start'` 和 `'build-finished'`，分别对应的触发时机是构建开始和完全结束，它们的用法也是一样的，这里不再赘述。
+### 获取构建结果
+
+在 `'before-change-files'` 和 `'build-finished'` 事件的处理函数中，你还可以通过 `BuildResults` 对象获取一些构建结果。例子如下：
+
+```js
+function onBeforeBuildFinish (options, callback) {
+    var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
+    var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
+
+    // 通过 options.buildResults 访问 BuildResults
+    var buildResults = options.buildResults;
+    // 获得指定资源依赖的所有资源
+    var depends = buildResults.getDependencies(prefabUuid);
+
+    for (var i = 0; i < depends.length; ++i) {
+        var uuid = depends[i];
+        var url = Editor.assetdb.uuidToUrl(uuid);
+        // 获取资源类型
+        var type = buildResults.getAssetType(uuid);
+        // 获得资源在项目中的绝对路径
+        var path = Editor.assetdb.uuidToFspath(uuid);
+
+        Editor.log(`${prefabUrl} depends on: ${path} (${type})`);
+    }
+
+    callback();
+}
+
+module.exports = {
+    load () {
+        Editor.Builder.on('before-change-files', onBeforeBuildFinish);
+    },
+    unload () {
+        Editor.Builder.removeListener('before-change-files', onBeforeBuildFinish);
+    }
+};
+```
+
+BuildResults 的详细 API 如下：
+
+```js
+class BuildResults {
+    constructor () {
+        this._uuidDependencies = null;
+        this._packedAssets = null;
+    }
+
+    /**
+     * Returns true if the asset contains in the build.
+     *
+     * @returns {boolean}
+     */
+    containsAsset (uuid) {
+        return uuid in this._uuidDependencies;
+    }
+
+    /**
+     * Returns the uuids of all assets included in the build.
+     *
+     * @returns {string[]}
+     */
+    getAssetUuids () {
+        return Object.keys(this._uuidDependencies);
+    }
+
+    /**
+     * Return the uuids of assets which are dependencies of the input, also include all indirect dependencies.
+     * The list returned will not include the input uuid itself.
+     *
+     * @param {string} uuid
+     * @returns {string[]}
+     */
+    getDependencies (uuid) {
+        if (!this.containsAsset(uuid)) {
+            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
+            return [];
+        }
+        var depends = Editor.Utils.getDependsRecursively(this._uuidDependencies, uuid);
+        if (!Array.isArray(depends) || depends.length === 0) {
+            return [];
+        }
+        return _(depends)
+            .uniq()
+            .value();
+    }
+
+    /**
+     * Get type of asset defined in the engine.
+     * You can get the constructor of an asset by using `cc.js.getClassByName(type)`.
+     *
+     * @param {string} uuid
+     * @returns {string}
+     */
+    getAssetType (uuid) {
+        if (!this.containsAsset(uuid)) {
+            Editor.warn(`The bulid not contains an asset with the given uuid "${uuid}".`);
+        }
+        return getAssetType(uuid);
+    }
+}
+```
