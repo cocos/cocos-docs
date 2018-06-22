@@ -57,8 +57,111 @@ module.exports = {
 };
 ```
 
-The event registered above is `'before-change-files'`, which is triggered **before** the end of the build. In addition to computing the file MD5 and encryption scripts for native platform, most build operations have been completed. You can further process the files that have been built in this event.
+In the example above, we are listening the event `'before-change-files'` on the Builder, our `onBeforeBuildFinish` handler function is invoked when the event is triggered. The following events are currently being supported:
+- `'build-start'`: Trigger at start of build.
+- `'before-change-files'`: Which is triggered **before** the end of the build. In addition to computing the file MD5, generating settings.js, and encryption scripts for native platform, most build operations have been completed. We usually do some further work on the files that have been built in this event.
+- `'build-finished'`: Triggered when the build is completely finished.
 
-The `onBeforeBuildFinish` above is the event response function of `'before-change-files'`. You can register any number of response functions, which are executed sequentially. When the function is called, two arguments are passed in. The first argument is an object that contains the relevant options for this build, such as the build platform, build directory, debug mode, and so on. The second argument is a callback function that you need to manually invoke after the action of the response function completes, so that the subsequent build process continues, meaning that your response function can be asynchronous.
+You can register as many processing functions as you want, and when the function is called, two arguments are passed in. The first argument is an object that contains the relevant options for this build, such as the build platform, build directory, debug mode, and so on. The second argument is a callback function that you need to manually invoke after the action of the response function completes, so that the subsequent build process continues, meaning that your response function can be asynchronous.
 
-In addition, the events you can listen to are `'build-start'` and `'build-finished'`. The corresponding triggering time is the start of build and the end of build. Their usage is also the same, and they will not be repeated here.
+### Get the build results
+
+In the `'before-change-files'` and `'build-finished'` event handler, you can also get some build results from the `BuildResults` object. Examples are as follows:
+
+```js
+function onBeforeBuildFinish (options, callback) {
+    var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
+    var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
+
+    // accessing BuildResults via options.buildResults
+    var buildResults = options.buildResults;
+    // Obtain all resources that are dependent on the specified resource
+    var depends = buildResults.getDependencies(prefabUuid);
+
+    for (var i = 0; i < depends.length; ++i) {
+        var uuid = depends[i];
+        var url = Editor.assetdb.uuidToUrl(uuid);
+        // Get resource type
+        var type = buildResults.getAssetType(uuid);
+        // Get the absolute path of a resource in a project
+        var path = Editor.assetdb.uuidToFspath(uuid);
+
+        Editor.log(`${prefabUrl} depends on: ${path} (${type})`);
+    }
+
+    callback();
+}
+
+module.exports = {
+    load () {
+        Editor.Builder.on('before-change-files', onBeforeBuildFinish);
+    },
+    unload () {
+        Editor.Builder.removeListener('before-change-files', onBeforeBuildFinish);
+    }
+};
+```
+
+The detailed API for BuildResults is as follows:
+
+```js
+class BuildResults {
+    constructor () {
+        this._uuidDependencies = null;
+        this._packedAssets = null;
+    }
+
+    /**
+     * Returns true if the asset contains in the build.
+     *
+     * @returns {boolean}
+     */
+    containsAsset (uuid) {
+        return uuid in this._uuidDependencies;
+    }
+
+    /**
+     * Returns the uuids of all assets included in the build.
+     *
+     * @returns {string[]}
+     */
+    getAssetUuids () {
+        return Object.keys(this._uuidDependencies);
+    }
+
+    /**
+     * Return the uuids of assets which are dependencies of the input, also include all indirect dependencies.
+     * The list returned will not include the input uuid itself.
+     *
+     * @param {string} uuid
+     * @returns {string[]}
+     */
+    getDependencies (uuid) {
+        if (!this.containsAsset(uuid)) {
+            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
+            return [];
+        }
+        var depends = Editor.Utils.getDependsRecursively(this._uuidDependencies, uuid);
+        if (!Array.isArray(depends) || depends.length === 0) {
+            return [];
+        }
+        return _(depends)
+            .uniq()
+            .value();
+    }
+
+    /**
+     * Get type of asset defined in the engine.
+     * You can get the constructor of an asset by using `cc.js.getClassByName(type)`.
+     *
+     * @param {string} uuid
+     * @returns {string}
+     */
+    getAssetType (uuid) {
+        if (!this.containsAsset(uuid)) {
+            Editor.warn(`The bulid not contains an asset with the given uuid "${uuid}".`);
+        }
+        return getAssetType(uuid);
+    }
+}
+```
