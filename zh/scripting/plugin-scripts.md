@@ -72,7 +72,7 @@ window.ENABLE_NET_DEBUGGER = true;
 window.V2 = cc.Vec2;
 ```
 
-接下来你就能在任意的**普通**脚本中直接访问它们：
+接下来你就能在任意的**普通**脚本中直接使用它们，像是在声明类型的同时使用 `DEFAULT_IP` 等全局变量：
 
 ```javascript
 /* network.js */
