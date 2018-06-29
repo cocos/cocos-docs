@@ -7,8 +7,6 @@
     - [Install and Launch](./getting-started/install.md)
     - [Dashboard](./getting-started/dashboard.md)
     - [Hello World!](./getting-started/hello-world.md)
-    - [Making Your First Game](getting-started/quick-start.md)
-    - [Coding Environment](getting-started/coding-setup.md)
     - [Project Structure](getting-started/project-structure.md)
     - [Using Editor](getting-started/basics/editor-overview.md)
         - [Assets](getting-started/basics/editor-panels/assets.md)
@@ -23,8 +21,11 @@
         - [Toolbar](getting-started/basics/toolbar.md)
         - [Editor Layout](getting-started/basics/layout.md)
         - [Preview and Build](getting-started/basics/preview-build.md)
+    - [Coding Environment Setup](getting-started/coding-setup.md)
+    - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
-    - [Help and Support](getting-started/support.md)
+    - [Get Help and Support](getting-started/support.md)
+    - [FAQ](getting-started/faq.md)
 
 ## Workflows
 
@@ -44,6 +45,8 @@
     - [Spine](asset-workflow/spine.md)
     - [DragonBones](asset-workflow/dragonbones.md)
     - [Tiledmap](asset-workflow/tiledmap.md)
+    - [JSON](asset-workflow/json.md)
+    - [Text](asset-workflow/text.md)
     - [Import Project from Other Editor](asset-workflow/project-import.md)
 - [Scene Building Workflow](content-workflow/index.md)
     - [Node and Component](content-workflow/node-component.md)
@@ -78,9 +81,12 @@
     - [Publish to Web](publish/publish-web.md)
     - [Native Development Environment](publish/setup-native-development.md)
     - [Publish to Native Platforms](publish/publish-native.md)
-    - [Native Platform Debugging](publish/debug-native.md)
+    - [Debug JavaScript on Native Platform](publish/debug-jsb.md)
+    - [Publish to Wechat Mini Games](publish/publish-wechatgame.md)
+    - [Publish to QQ Play](publish/publish-qqplay.md)
+    - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
+    - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
-    - [Customize Project Build Template](publish/custom-project-build-template.md)
 
 ## Systems 
 
@@ -188,7 +194,6 @@
     - [i18n](advanced-topics/i18n.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [Dirty Region Optimization](advanced-topics/dirty-region.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

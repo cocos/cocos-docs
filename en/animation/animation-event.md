@@ -19,7 +19,7 @@ There are two ways to delete and event.
 A prompt for deleting this event will appear. Click the __Confirm__ button and the
 event will be deleted.
 
-![Delete](animation-event/delete.png)
+![Delete](animation-event/delete.jpg)
 
 You can also right click __Event__ in the animation editor and choose __Delete__.
 

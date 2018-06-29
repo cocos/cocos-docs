@@ -37,7 +37,7 @@ The version file can be part of the contents of the manifest file and do not con
 
 In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
 
-Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](https://github.com/chukong/cocos-docs/blob/v3-unified-documentation/manual/framework/cocos2d-js/4-essential-concepts/4-1-cocos2d-js-project/en.md). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
+Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](http://www.cocos2d-x.org/docs/creator/manual/en/getting-started/project-structure.html). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
 
 Based on this project structure, the hot update process in this tutorial is simple:
 

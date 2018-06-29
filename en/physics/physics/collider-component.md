@@ -1,6 +1,6 @@
 # Physics Collider Component
 
-**Physics Collider Component** inherit from **Collider Component**. You can learn how to setup and edit **Physics Collider Component** by reading [Edit Collider Compnent](../collision/edit-collider-component).
+**Physics Collider Component** inherit from **Collider Component**. You can learn how to setup and edit **Physics Collider Component** by reading [Edit Collider Compnent](../collision/edit-collider-component.md).
 
 ## Physics Collider Properties
 

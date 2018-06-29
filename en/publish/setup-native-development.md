@@ -70,15 +70,15 @@ The compiling tool Cocos Console in Cocos Framework needs the following running 
 
 ## Configure path in original release environments
 
-Next, let's go back to Cocos Creator to configure the environmental path of the constructing release original platform. Choose `document/preference` in the main menu, and open the preference window:
+Next, let's go back to Cocos Creator to configure the environmental path of the constructing release original platform. Choose `CocosCreator -> preference` in the main menu, and open the preference window:
 
-![preference](../getting-started/basics/editor-panels/preferences/native-develop.png)
+![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
 We need to configure the following three paths here:
 
 - **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
-- **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform
-- **ANT Path** (you can skip it if build with Android Studio), you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`.
+- **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
+- **ANT Path**, you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`. You can skip this if you don't need to compile on Android platform.
 
 Close the window after configuration is completed.
 

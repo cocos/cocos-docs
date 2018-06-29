@@ -24,7 +24,7 @@ java -version
 
 显示为 JAVA SE 则没有问题，如果系统中使用的是 JRE，则需要安装 [JAVA SE 运行环境](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 
-如果是 Windows 系统，请确认你的环境变量中包含 JAVA_HOME。可以通过右键点击我的电脑，选择属性，打开高级选项卡中来查看和修改环境变量。Windows 平台可能需要重启电脑才会生效。参考 [如何设置或更改 JAVA 系统环境变量？](https://www.java.com/zh_CN/download/help/path.xml)
+如果是 Windows 系统，请确认你的环境变量中包含 JAVA_HOME。可以通过右键点击我的电脑，选择属性，打开高级选项卡中来查看和修改环境变量。Windows 平台可能需要重启电脑才会生效。参考 [如何设置或更改 JAVA 系统环境变量](https://www.java.com/zh_CN/download/help/path.xml)
 
 ### 下载安装 Android Studio
 
@@ -34,7 +34,7 @@ java -version
 
 安装 Android Studio 完成后，参考官方文档，打开 SDK Manager：
 
-[SDK Manager 使用说明（需翻墙）](https://developer.android.com/studio/intro/update.html#sdk-manager)
+[SDK Manager 使用说明（需要使用 VPN）](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
 1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择最低兼容的 API Level 10（2.3.3) 和最主流的 API Level 17 (4.2) 以及 API Level 22 (5.1)。
 2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show package details`，显示分版本的工具选择。
@@ -70,7 +70,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 ## 配置原生发布环境路径
 
-下载安装好开发环境依赖后，让我们回到 Cocos Creator 中配置构建发布原生平台的环境路径。在主菜单中选择 `文件/偏好设置`，打开偏好设置窗口：
+下载安装好开发环境依赖后，让我们回到 Cocos Creator 中配置构建发布原生平台的环境路径。在主菜单中选择 `CocosCreator -> 偏好设置`，打开偏好设置窗口：
 
 ![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
@@ -78,7 +78,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 - **Android SDK Root**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
 - **NDK Root**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
-- **ANT Path**（如使用 Android Studio，这一步可以跳过），请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。
+- **ANT Path**，请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
@@ -94,7 +94,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 2. 包名问题
 
-    检查构建发布面板中的包名，包含空格，`-`等都是非法的包名。
+    检查构建发布面板中的包名，包含空格，`-` 等都是非法的包名。
 
 3. 不使用 Android Studio
 
@@ -135,6 +135,3 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 ---
 
 现在您已经完成了全部原生开发环境的配置，接下来请继续前往 [打包发布原生平台](publish-native.md) 说明文档。
-
-
-

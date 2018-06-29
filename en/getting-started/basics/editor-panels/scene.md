@@ -29,19 +29,19 @@ When the mouse is hovering on the node in the scene, the constraint frame of the
 
 There will be wireframe in blue around the selected node to prompt the constraint frame for node.
 
+### The node constraint box
+
+You can see the constraint box (in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component (such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
+
+![bounding box](scene/boundingbox.png)
+
+Node's `size` attribute plays an important role in multiresolution adapt and layout strategy. For more information about usage of node size, please read [multiresolution adapt and elements aligning](../../../ui/multi-resolution.md).
+
 ### Node name prompt
 
 When the mouse is hovering on the node, the node name will be displayed together with the node constraint frame. You can decide your target before clicking to confirm your selection according to the suspend prompt at places where nodes are gathering.
 
 About the naming of nodes, please read the introduction in [Node Tree](node-tree.md).
-
-### The node constraint box
-
-You can see the constraint box(in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component(such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
-
-![bounding box](scene/boundingbox.png)
-
-Node's `size` attribute plays an important role in multiresolution adapt and layout strategy. For more information about usage of node size, please read [multiresolution adapt and elements aligning](../../../ui/multi-resolution.md).
 
 ### Multiselect nodes
 
@@ -49,18 +49,17 @@ Press the left mouse button and drag in **scene editor** and you can draw a blue
 
 After selecting multiple nodes, any transform operation will make effects on all the selected nodes.
 
-
 ## Use transform tool to arrange node
 
-The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrage the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar.
+The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrage the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar. When you hover the mouse over the transform tool, the relevant prompts are displayed.
 
 ### Move transform tool
 
-**Move transform tool** is the tranform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar.
+**Move transform tool** is the tranform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar, or press the keyboard shortcut <kbd>W</kbd> in scene editor and you can activate **Move transform tool**.
 
 ![move button](scene/move_button.png)
 
-Select any node so you can see the node center(or anchor's position) appears a gizmo composed of red and green arrows and blue cube.
+Select any node so you can see the node center (or anchor's position) appears a gizmo composed of red and green arrows and blue cube.
 
 **Gizmo** refers to a controller that can interactive with mouse and appears in certain editing states in the scene editor. These controllers are only to assist editing without being shown in the game while it is running.
 
@@ -72,11 +71,9 @@ When the move transform tool is activated:
 - Press green arrow and drag mouse, then the node will be moved on the y axis;
 - Press blue cube and drag mouse, then the node will be moved freely on both the axises.
 
-When the scene editor is activated, press keyboard shortcut <kbd>W</kbd> and you can switch to move tranform tool at any time.
-
 ### Rotate transform tool
 
-Click the second button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>E</kbd> in scene editor and you can activate **rotate transform tool**.
+Click the second button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>E</kbd> in scene editor and you can activate **Rotate transform tool**.
 
 ![rotate](scene/rotate_button.png)
 
@@ -94,9 +91,9 @@ Click the third button on the tool bar located at main window's top left corner 
 - Press green arrow and drag mouse, then the node will be zoomed on the direction of y axis;
 - Press the yellow square in the middle, then the whole node image will be zoomed keeping the aspect ratio.
 
-![scale](scene/scale_gizmo.png)
-
 All the child nodes will be zoomed in the same ratio with the node.
+
+![scale](scene/scale_gizmo.png)
 
 ### Rectangle tranform tool
 
@@ -111,7 +108,3 @@ Drag any side on the gizmo so you can change the attributes of `width` and `heig
 ![rect](scene/rect_gizmo.png)
 
 In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
-
----
-
-Continue on to read about [Node Tree](node-tree.md).

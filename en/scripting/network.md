@@ -62,11 +62,13 @@ Of course, browsers on the Web platform support these two interfaces originally.
 
 ## SocketIO
 
+> Unfortunately, Creator does not provide Socket.io official support on the Web platform, requires users to add them themselves to the project. And the Socket.io of the native platform is discarded. Previously the socket.io for the native platform was implemented by a third-party developer and has not been maintained for a long time. So it is not recommended to use.
+
 Beyond these, SocketIO provides packaging based on the WebSocket API which can be used on the Node.js server. If this library is needed, developers can reference SocketIO on their own.
 
 Reference SocketIO in script:
 
-1. Download SocketIO：[Download link](http://socket.io/download/)
+1. Download SocketIO：[https://socket.io](https://socket.io)
 2. Drag the downloaded file into the route you would like to save in explorer
 3. Modify SocketIO script to avoid the execution on native environment
 

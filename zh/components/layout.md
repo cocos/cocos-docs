@@ -19,14 +19,14 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`Layout`，即可添加 Layout 组件到节点上。
 
-布局的脚本接口请参考[Layout API](../api/classes/Layout.html)。
+布局的脚本接口请参考[Layout API](../../../api/zh/classes/Layout.html)。
 
 ## Layout 属性
 
 | 属性                 | 功能说明                                                                                                                                           |
 | --------------       | -----------                                                                                                                                        |
 | Type                 | 布局类型，支持 NONE, HORIZONTAL，VERTICAL 和 GRID。                                                                                                |
-| ResizeMode           | 缩放模式，支持 NONE，CHIDREN 和 CONTAINER。                                                                                                        |
+| ResizeMode           | 缩放模式，支持 NONE，CHILDREN 和 CONTAINER。                                                                                                        |
 | PaddingLeft          | 排版时，子物体相对于容器左边框的距离。                                                                                                            |
 | PaddingRight         | 排版时，子物体相对于容器右边框的距离。                                                                                                            |
 | PaddingTop           | 排版时，子物体相对于容器上边框的距离。                                                                                                            |

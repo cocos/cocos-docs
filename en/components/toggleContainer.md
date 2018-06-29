@@ -10,7 +10,7 @@ Note: All the first layer child node containing the toggle component will auto b
 
 Click the `Add component` button at the bottom of the **Properties** panel and select `ToggleContainer` from `Add UI component`. You can then add the ToggleContainer component to the node.
 
-The API reference of ToggleContainer is here: [ToggleContainer API](../api/classes/toggleContainer.html)。
+The API reference of ToggleContainer is here: [ToggleContainer API](../../../api/en/classes/toggleContainer.html)。
 
 ## ToggleContainer property
 

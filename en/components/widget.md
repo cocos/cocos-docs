@@ -4,7 +4,7 @@ Widget is a frequently used UI layout component. It can make the current node au
 
 ![default](widget/widget-default.png)
 
-For API reference please read [Widget API](../api/classes/Widget.html)
+For API reference please read [Widget API](../../../api/en/classes/Widget.html)
 
 ## Property
 
@@ -16,7 +16,7 @@ Left               | Left border alignment       | Once selected, an input field
 Right              | Right border alignment      | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
-AlignOnce          | default to `true`, will only make alignment when the component is enabled. If set to `false`, will update Widget's alignment every frame. (Will kill your performance!) |
+Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to ON_WINDOWS_RESIZE, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
 
 ## Border alignment
 
@@ -26,7 +26,7 @@ We can place a Widget below Canvas, and perform the following tests:
 
 ![left-100px](widget/widget-left-100px.png)
 
-#### Bottom alignment, left border distance 50%：
+#### Bottom alignment, bottom border distance 50%：
 
 The percentage will take the width or height of the parent object as a benchmark
 ![bottom-0.5](widget/widget-bottom-0.5.png)
@@ -64,11 +64,11 @@ Let us look at a demonstration. Place two rectangular Sprites in the scene and t
 
 ## Limitation on node position control
 
-If `alignOnce` property is set to `false`, Widget will set alignment for current node every frame, overriding node's position and width/height setting. Thus user may not effectively change position or size of the node.
+If `Align Mode` property is set to `ALWAYS`, Widget will set alignment for current node every frame, overriding node's position and width/height setting. Thus user may not effectively change position or size of the node.
 
 To make sure you can update node's position or size during runtime:
 
-1. set `alignOnce` to `true`, so it will only align during onEnable process.
+1. set `Align Mode` to `ONCE`, so it will only align during onEnable process.
 2. Use Widget's API to update node's position and size, for example updating Widget's `top`, `bottom`, `left`, `right` instead of node's `x`, `y`, `width`, `height`.
 
 

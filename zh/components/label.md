@@ -8,7 +8,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加渲染组件`中选择`Label`，即可添加 Label 组件到节点上。
 
-文字的脚本接口请参考[Label API](../api/classes/Label.html)。
+文字的脚本接口请参考[Label API](../../../api/zh/classes/Label.html)。
 
 ## Label 属性
 

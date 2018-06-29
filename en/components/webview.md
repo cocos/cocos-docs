@@ -7,7 +7,7 @@ WebView is a component for displaying web pages, you could use this component to
 Click `add component` at the bottom of **Properties** panel and select `WebView` from `add UI component` popup.
 Then you could add WebView component to the node.
 
-For more info about WebView API reference [WebView API](../api/classes/WebView.html)。
+For more info about WebView API reference [WebView API](../../../api/en/classes/WebView.html)。
 
 ## WebView Attribute
 

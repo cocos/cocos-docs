@@ -453,19 +453,6 @@ When the `default` can not provide sufficient detailed type information, in orde
     }
     ```
 
-#### <a name="url"></a>`url` attribute
-
-If the attribute is used to access the URL of the Raw Asset, you need to specify the `url` attribute in order to be able to assign the asset in the **Properties** or to serialize correctly.
-
-```javascript
-texture: {
-    default: "",
-    url: cc.Texture2D
-},
-```
-
-Refer to [Acquire and load asset: Raw Asset](../load-assets.md#raw-asset)
-
 #### <a name="override"></a>`override` attribute
 
 All properties will be inherited by subclasses, if the subclass wants to override the parent property with the same name, you need to explicitly set the override attribute, otherwise there will be a warning:

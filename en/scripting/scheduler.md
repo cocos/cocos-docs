@@ -53,7 +53,7 @@ Now, let's see its detailed using method:
     this.count = 0;
     this.callback = function () {
         if (this.count === 5) {
-            // Cancel this timer at the sixth call-back 
+            // Cancel this timer at the sixth call-back
             this.unschedule(this.callback);
         }
         this.doSomething();
@@ -69,8 +69,8 @@ Below are all the functions of the timer in the component:
 - unschedule：cancel a timer
 - unscheduleAllCallbacks：cancel all the timers of this component
 
-These detailed descriptions about API can all be found in [Component API](http://fireball-x.com/api/classes/Component.html).
+These detailed descriptions about API can all be found in [Component API](http://www.cocos2d-x.org/docs/creator-api/en/classes/Component.html).
 
-Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](file:///Users/panda/StudyWork/Cocos/fireball/docs/html/scripting/life-cycle-callbacks.html#update).
+Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md).
 
 ### **Caution: `cc.Node` does not contain Scheduler API**

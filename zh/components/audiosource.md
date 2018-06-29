@@ -11,4 +11,4 @@ Loop                | 是否循环
 Play on load        | 加载完成是否立即播放
 preload             | 是否在未播放的时候预先加载
 
-更多音频接口的脚本接口请参考[AudioSource API](../api/classes/AudioSource.html)。
+更多音频接口的脚本接口请参考[AudioSource API](../../../api/zh/classes/AudioSource.html)。

@@ -3,12 +3,10 @@
 ## 新手入门
 
 - [新手上路](getting-started/index.md)
-    - [关于 Cocos Creator](./getting-started/introduction.md)
-    - [安装和启动](./getting-started/install.md)
-    - [使用 Dashboard](./getting-started/dashboard.md)
-    - [Hello World!](./getting-started/hello-world.md)
-    - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
-    - [代码编辑环境配置](getting-started/coding-setup.md)
+    - [关于 Cocos Creator](getting-started/introduction.md)
+    - [安装和启动](getting-started/install.md)
+    - [使用 Dashboard](getting-started/dashboard.md)
+    - [Hello World!](getting-started/hello-world.md)
     - [项目结构](getting-started/project-structure.md)
     - [编辑器基础](getting-started/basics/editor-overview.md)
         - [资源管理器](getting-started/basics/editor-panels/assets.md)
@@ -23,8 +21,11 @@
         - [工具栏](getting-started/basics/toolbar.md)
         - [编辑器布局](getting-started/basics/layout.md)
         - [构建预览](getting-started/basics/preview-build.md)
+    - [代码编辑环境配置](getting-started/coding-setup.md)
+    - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
     - [Cocos2d-x 用户上手指南](getting-started/cocos2d-x-guide.md)
-    - [获取帮助和支持](./getting-started/support.md)
+    - [获取帮助和支持](getting-started/support.md)
+    - [FAQ](getting-started/faq.md)
 
 ## 基本工作流程
 
@@ -44,6 +45,8 @@
     - [Spine 骨骼动画资源](asset-workflow/spine.md)
     - [DragonBones 骨骼动画资源](asset-workflow/dragonbones.md)
     - [瓦片图资源](asset-workflow/tiledmap.md)
+    - [JSON 资源](asset-workflow/json.md)
+    - [文本资源](asset-workflow/text.md)
     - [导入其他编辑器项目](asset-workflow/project-import.md)
 - [场景制作工作流程](content-workflow/index.md)
     - [节点和组件](content-workflow/node-component.md)
@@ -78,10 +81,12 @@
     - [发布到 Web 平台](publish/publish-web.md)
     - [安装配置原生开发环境](publish/setup-native-development.md)
     - [打包发布原生平台](publish/publish-native.md)
-    - [原生平台调试](publish/debug-native.md)
+    - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到微信小游戏平台](publish/publish-wechatgame.md)
+    - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
+    - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
+    - [定制项目构建流程](publish/custom-project-build-template.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
-    - [定制项目构建模板](publish/custom-project-build-template.md)
 
 ## 子系统介绍
 
@@ -190,7 +195,6 @@
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
-    - [脏矩形优化](advanced-topics/dirty-region.md)
     - [BMFont and UI 自动批处理](advanced-topics/ui-auto-batch.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)

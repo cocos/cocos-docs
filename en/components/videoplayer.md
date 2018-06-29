@@ -13,7 +13,7 @@ Play remote video：
 Click `add component` at the bottom of **Properties** panel and select `VideoPlayer` from `add UI component` popup.
 Then you could add VideoPlayer component to the node.
 
-For more info about VideoPlayer API reference [VideoPlayer API](../api/classes/VideoPlayer.html)。
+For more info about VideoPlayer API reference [VideoPlayer API](../../../api/en/classes/VideoPlayer.html)。
 
 ## VideoPlayer Attribute
 

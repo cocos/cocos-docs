@@ -184,7 +184,7 @@ animState.repeatCount = Infinity;
 
 ### 实例：
 假设在动画的结尾添加了一个帧事件，如下图：
-![animation event](scripting/animation-event.png)
+![animation event](scripting/animation-event.jpg)
 
 那么在脚本中可以这么写：
 ```javascript

@@ -184,7 +184,7 @@ Visually editing the frame event is supported in the animation editor (For the m
 
 ### Concrete example:
 Suppose a frame event is added to the end of animation, which is as illustrated below:
-![animation event](scripting/animation-event.png)
+![animation event](scripting/animation-event.jpg)
 
 Then in the script, you can write like this:
 ```javascript

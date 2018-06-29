@@ -1,5 +1,7 @@
 # Editor.Builder
 
+本文只是对 API 的简要介绍，关于 Builder 的具体用法请参考 [定制项目构建流程](../../../../publish/custom-project-build-template.md)。
+
 ## Methods
 
 ### Editor.Builder.on(eventName, callback)
@@ -31,3 +33,7 @@ Emit when build finished
 ### Event: 'compile-finished'
 
 Emit when compile finished
+
+### Event: 'before-change-files'
+
+Emit before editor modifies the build files (e.g, before encryption js files)

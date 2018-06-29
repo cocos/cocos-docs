@@ -12,7 +12,7 @@ Click the `add component` button at the bottom of the **Properties** panel and s
 
 | Attribute |   Function Explanation
 | -------------- | ----------- |
-| Type           | The mask type [Type API](../api/enums/Mask.Type.html)
+| Type           | The mask type [Type API](../../../api/en/enums/Mask.Type.html)
 | Inverted       | Boolean,The Reverse mask
 | AlphaThreshold | Float, The alpha threshold，The content is drawn only where the stencil have pixel with alpha greater than the alphaThreshold, Only available in IMAGE_STENCIL mode
 | SpriteFrame    | The mask image, Only available in IMAGE_STENCIL mode
