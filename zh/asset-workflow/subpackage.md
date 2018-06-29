@@ -18,7 +18,8 @@ Cocos Creator 的分包是按照文件夹作为单位来进行配置的，当�
 
 例：如果将 cases/01_graphics 文件夹配置为了子包，那么将会项目构建后生成 src/assets/cases/01_graphics.js 文件。这个文件包含了 01_graphics 文件夹下的所有代码，并且会将这些代码从主包中剔除掉。
 
-在小游戏平台的构建中，分包的配置也会按照规则自动生成到小游戏的 game.json 配置文件中。
+在微信小游戏平台的构建中，分包的配置也会按照规则自动生成到小游戏的 game.json 配置文件中。
+微信小游戏需要特定的版本之上才能支持分包功能，具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档
 
 ## 加载分包
 
