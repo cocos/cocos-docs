@@ -88,7 +88,7 @@
 
 ## 微信小游戏分包加载
 
-微信小游戏如何实现分包加载请参考 [代码分包加载](../asset-workflow/subpackage.md)。
+微信小游戏如何实现分包加载请参考 [代码分包加载](../scripting/subpackage.md)。
 
 ## 平台 SDK 接入
 
