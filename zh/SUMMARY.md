@@ -48,6 +48,7 @@
     - [JSON 资源](asset-workflow/json.md)
     - [文本资源](asset-workflow/text.md)
     - [导入其他编辑器项目](asset-workflow/project-import.md)
+    - [代码分包加载](asset-workflow/subpackage.md)
 - [场景制作工作流程](content-workflow/index.md)
     - [节点和组件](content-workflow/node-component.md)
     - [坐标系和变换](content-workflow/transform.md)
