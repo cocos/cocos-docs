@@ -1,39 +1,135 @@
 # Camera 摄像机
 
-摄像机（Camera）组件在制作卷轴或是其他需要移动屏幕的游戏时比较有用，在没有 Camera 组件的情况下，卷轴游戏都是通过移动场景节点或是游戏根节点来实现的，这样将会导致大量节点的矩阵都需要重新计算，效率自然会有所降低，而使用 camera 是直接将 camera 的矩阵信息在渲染阶段统一处理，将会比移动节点来移动屏幕更加高效。
+摄像机是玩家观察游戏世界的窗口，场景中至少需要有一个摄像机，也可以同时存在多个摄像机。创建场景时，Creator 会默认创建一个名为 `Main Camera` 的摄像机，作为这个场景的主摄像机。多摄像机的支持可以让你轻松实现高级的自定义效果，比如双人分屏效果，或者场景小地图的生成。
 
-Camera 组件提供了两个属性来供用户设置：
+## 摄像机属性
 
-- targets - 指定 camera 会拍摄哪些节点，即 camera 会影响哪些节点。
-- zoomRatio - 指定 camera 的缩放比例, 值越大显示的图像越大。
+- cullingMask
 
-Camera 组件将会随着他依附的节点进行移动，可以想象成我们举着摄像机跟随着摄像机的节点移动，而这个摄像机只会拍摄他的 targets 目标，Camera 组件拍摄的范围即是设备屏幕大小。
+`cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在属性编辑器中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
 
-## 实例
-
-我们用一个场景实例来解释 Camera 组件怎么使用。
-
-假设我们在做一个物理游戏，需要 physics 节点和 tiled map 节点做背景，hero 做主角，我们的 camera 需要跟随 hero 来移动。
+例如下图中的 `cullingMask` 设置表示这个摄像机只用来渲染游戏中的 UI 部分，一般游戏中的 UI 部分都是不需要移动的，而游戏节点可能会往屏幕外移动，这时需要另外的一个摄像机去跟随这个游戏节点。
 
 ![camera-1](./camera/camera-1.png)
 
-这里我们需要新建一个空节点，重命名为 camera，将该节点作为摄像机，使用一个单独的节点作为摄像机节点会更灵活。当然我们也可以直接将 Camera 组件添加到 hero 节点上，但是这样 camera 的位置就只能和 hero 节点重叠在一起了，不能做到缓慢跟随之类的效果。
+你可以通过项目设置中的分组管理来添加或者更改分组，这些分组即是对应的 mask。
 
-选择 **层级管理器** 中的 camera 节点，点击 **属性检查器** 下面的 `添加组件 -> 添加其他组件 -> Camera` 按钮，即可添加 Camera 组件到节点上。
 
-<img src="./camera/camera-2.png" style="width:50%;height:50%"></img>
+- zoomRatio 
 
-在这里 Camera 组件添加了三个节点到 targets 上，即我们需要摄像机拍摄这三个节点。并且我们还添加了一个 `camera-control` 脚本组件，这个组件的作用主要是移动 camera 节点跟随 hero 节点。
+指定摄像机的缩放比例, 值越大显示的图像越大。
 
-实例可在 [物理系统示例](https://github.com/2youyou2/physics-example) 中的 tiled 示例中找到。
+- clearFlags
 
-也可以参考 [Camera Demo](https://github.com/cocos-creator/demo-camera)，包含了 camera 的使用示例。
+指定渲染摄像机时需要做的清除操作。
 
-**注意** ：
+![camera-2](./camera/camera-2.png)
 
-当我们使用 camera 时，如果使用到了物理系统或者碰撞系统这些会内置渲染节点的系统，需要调用相关的 api 将他们的渲染节点也添加到camera 上。
+Camera 组件将会随着他依附的节点进行移动，可以想象成我们举着摄像机跟随着摄像机的节点移动，而这个摄像机只会拍摄他的 targets 目标，Camera 组件拍摄的范围即是设备屏幕大小。
+
+- backgroundColor
+
+当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+
+- depth
+
+摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
+
+- targetTexture
+
+如果设置了 `targetTexture`，那么摄像机渲染的内容不会输出到屏幕上，而是会渲染会到 `targetTexture` 上。
+
+如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
+
+具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
+
+## 摄像机方法
+
+- cc.Camera.findCamera
+
+`findCamera` 会通过查找当前所有摄像机的 `cullingMask` 是否包含节点的 `group` 来获取第一个匹配的摄像机。
 
 ```javascript
-cc.director.getPhysicsManager().attachDebugDrawToCamera(camera);
-cc.director.getCollisionManager().attachDebugDrawToCamera(camera);
+cc.Camera.findCamera(node);
+```
+
+- containsNode
+
+检测节点是否被此摄像机影响。
+
+- render
+
+如果你需要立即渲染一次摄像机，可以调用这个方法来手动渲染一次摄像机，比如需要截图的时候。
+
+
+```javascript
+camera.render();
+```
+
+### 坐标转换
+
+一个常见的问题是，当摄像机被移动，旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
+
+因为这时候获取到的点击坐标是摄像机坐标系下的坐标了，我们需要将这个坐标转化到世界坐标系下，才能继续与节点的世界坐标进行运算。
+
+下面是一些摄像机坐标系转换的函数
+
+```javascript
+// 将一个摄像机坐标系下的点转换到世界坐标系下
+camera.getCameraToWorldPoint(point, out);
+// 将一个世界坐标系下的点转换到摄像机坐标系下
+camera.getWorldToCameraPoint(point, out);
+
+// 获取摄像机坐标系到世界坐标系的矩阵
+camera.getCameraToWorldMatrix(out);
+// 获取世界坐标系到摄像机坐标系的矩阵
+camear.getWorldToCameraMatrix(out);
+```
+
+## 截图
+
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。
+
+```javascript
+let node = new cc.Node();
+node.parent = cc.director.getScene();
+let camera = node.addComponent(cc.Camera);
+
+// 设置你想要截图内容的 cullingMask
+camera.cullingMask = 0xffffffff;
+
+// 新建一个 RenderTexture，并且设置 camera 的 targetTexture 为这个新建的 RenderTexture。
+// 这样这个 camera 的内容将会渲染到新建的 RenderTexture 中。
+let texture = new cc.RenderTexture();
+texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height);
+camera.targetTexture = texture;
+
+// 渲染一次摄像机，即更新内容到 RenderTexture 中
+camera.render();
+
+// 这样我们就能从 RenderTexture 中获取到数据了
+let data = texture.readPixels();
+
+// 接下来就可以对这些数据进行操作了
+let canvas = document.createElement('canvas');
+let ctx = canvas.getContext('2d');
+canvas.width = texture.width;
+canvas.height = texture.height;
+
+let rowBytes = width * 4;
+for (let row = 0; row < height; row++) {
+    let srow = height - 1 - row;
+    let imageData = ctx.createImageData(width, 1);
+    let start = srow*width*4;
+    for (let i = 0; i < rowBytes; i++) {
+        imageData.data[i] = data[start+i];
+    }
+
+    ctx.putImageData(imageData, 0, row);
+}
+
+let dataURL = canvas.toDataURL("image/jpeg");
+let img = document.createElement("img");
+img.src = dataURL;
+
 ```
