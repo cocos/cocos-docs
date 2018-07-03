@@ -133,3 +133,5 @@ let img = document.createElement("img");
 img.src = dataURL;
 
 ```
+
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)
