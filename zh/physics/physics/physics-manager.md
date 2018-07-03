@@ -57,6 +57,30 @@ cc.director.getPhysicsManager().gravity = cc.v2();
 cc.director.getPhysicsManager().gravity = cc.v2(0, -640);
 ```
 
+### 设置物理步长
+
+物理系统是按照一个固定的步长来更新物理世界的，默认这个步长即是你的游戏的帧率：`1/framerate`。但是有的游戏可能会不希望按照这么高的频率来更新物理世界，毕竟这个操作是比较消耗时间的，那么你可以通过降低步长来达到这个效果。
+
+```javascript
+var manager = cc.director.getPhysicsManager();
+
+// 开启物理步长的设置
+manager.enabledAccumulator = true;
+
+// 物理步长，默认 FIXED_TIME_STEP 是 1/60
+manager.FIXED_TIME_STEP = 1/30;
+
+// 每次更新物理系统处理速度的迭代次数，默认为 10
+manager.VELOCITY_ITERATIONS = 8;
+
+// 每次更新物理系统处理位置的迭代次数，默认为 10
+manager.POSITION_ITERATIONS = 8;
+
+```
+
+**注意**：降低物理步长和各个属性的迭代次数，都会降低物理的检测频率，所以会更有可能发送刚体穿透的情况，使用时需要考虑到这个情况。
+
+
 ## 查询物体
 
 通常你可能想知道在给定的场景中都有哪些实体。
