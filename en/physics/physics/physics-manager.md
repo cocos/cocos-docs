@@ -57,6 +57,29 @@ If you want to modify the gravity to other values, such as 640 pixels / second^2
 cc.director.getPhysicsManager().gravity = cc.v2 (0, -640);
 ```
 
+### Set physical step
+
+The physical system updates the physical world according to a fixed step size, the default step size is the frame rate of your game: `1/framerate`. But some games may not want to follow such a high frequency to update the physical world, after all, this operation is more time consuming, then you can reduce the step size to achieve this effect.
+
+```javascript
+var manager = cc.director.getPhysicsManager();
+
+// Enable settings for physical step size
+manager.enabledAccumulator = true;
+
+// Physical step, default FIXED_TIME_STEP is 1/60
+manager.FIXED_TIME_STEP = 1/30;
+
+// The number of iterations per update of the physical system processing speed is 10 by default
+manager.VELOCITY_ITERATIONS = 8;
+
+// The number of iterations per update of the physical system processing location is 10 by default
+manager.POSITION_ITERATIONS = 8;
+
+```
+
+**Attention**：Reducing the physical step size and the number of iterations for each property will reduce the physical detection frequency. Therefore, it is more likely to occur rigid body penetration, which needs to be taken into account when using.
+
 ## Query physics object
 
 Often you may want to know which physics objects are in a given scene.
@@ -96,9 +119,7 @@ for (var i = 0; i <results.length; i ++) {
 }
 ```
 
-The last parameter of the `rayCast` function specifies the type of detection, and the ray detection supports four types.
-This is because the ray detection of Box2d is not detected from the nearest object of the ray starting point, so the result of the test can not guarantee that the result is sorted by the distance from the object near the start of the ray.
-Cocos Creator's physics system will determine whether the Box2d test results are sorted based on the type of detection. This type will affect the result return to user.
+The last parameter of the `rayCast` function specifies the type of detection, and the ray detection supports four types. This is because the ray detection of Box2d is not detected from the nearest object of the ray starting point, so the result of the test can not guarantee that the result is sorted by the distance from the object near the start of the ray. Cocos Creator's physics system will determine whether the Box2d test results are sorted based on the type of detection. This type will affect the result return to user.
 
 - `cc.RayCastType.Any`: will detect any collider on the ray path. Once it detects any collider, it will immediately end the detection process and will no longer detect other objects.
 
