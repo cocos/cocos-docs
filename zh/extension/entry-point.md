@@ -59,10 +59,10 @@ module.exports = {
 
 短命名消息是指消息名不带 `:` 的消息。这些消息将被视为该扩展包内的消息，在注册阶段，实际注册是，会被写成 `${你的扩展包名}:${消息名}`。以上面的代码为例，假设我们的扩展包名字为 `simple-demo`，那么 `foo-bar` 这个消息实际注册时，将会扩展成 `simple-demo:foo-bar`。
 
-实际应用中，我们就可以通过 `Editor.sendToPackage` 函数发送 IPC 消息到主进程的指定扩展包的注册函数中。
+实际应用中，我们就可以通过 `Editor.Ipc.sendToPackage` 函数发送 IPC 消息到主进程的指定扩展包的注册函数中。
 
 ```javascript
-Editor.sendToPackage('simple-demo', 'foo-bar');
+Editor.Ipc.sendToPackage('simple-demo', 'foo-bar');
 ```
 
 当然，我们还有更多的消息发送策略，我们会在后续的章节中进行详细介绍。

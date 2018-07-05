@@ -68,7 +68,7 @@ module.exports = {
 
 We use short name `my-message` here to listening messages, actually its full name is `foobar:my-message`, when we sending message, remember we must use the full name for it:
 
-`Editor.sendToPanel('foobar:my-message')`, `Editor.sendToMain('foobar:my-messages')`.
+`Editor.Ipc.sendToPanel('foobar:my-message')`, `Editor.Ipc.sendToMain('foobar:my-messages')`.
 
 ### Other way to listening messages
 
