@@ -6,16 +6,15 @@
 
 - cullingMask
 
-`cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在属性编辑器中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
+`cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在 **属性检查器** 中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
 
-例如下图中的 `cullingMask` 设置表示这个摄像机只用来渲染游戏中的 UI 部分，一般游戏中的 UI 部分都是不需要移动的，而游戏节点可能会往屏幕外移动，这时需要另外的一个摄像机去跟随这个游戏节点。
+例如下图中的 `cullingMask` 设置表示这个摄像机只用来渲染游戏中的 UI 部分，一般游戏中的 UI 部分都是不需要移动的，而游戏节点可能会往屏幕外移动，这时需要另外的一个摄像机去跟随这个游戏节点。
 
 ![camera-1](./camera/camera-1.png)
 
-你可以通过项目设置中的分组管理来添加或者更改分组，这些分组即是对应的 mask。
+你可以通过 **项目设置** 中的 **分组管理** 来添加或者更改分组，这些分组即是对应的 mask。
 
-
-- zoomRatio 
+- zoomRatio
 
 指定摄像机的缩放比例, 值越大显示的图像越大。
 
@@ -25,11 +24,9 @@
 
 ![camera-2](./camera/camera-2.png)
 
-Camera 组件将会随着他依附的节点进行移动，可以想象成我们举着摄像机跟随着摄像机的节点移动，而这个摄像机只会拍摄他的 targets 目标，Camera 组件拍摄的范围即是设备屏幕大小。
-
 - backgroundColor
 
-当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
 
 - depth
 
@@ -37,7 +34,7 @@ Camera 组件将会随着他依附的节点进行移动，可以想象成我们�
 
 - targetTexture
 
-如果设置了 `targetTexture`，那么摄像机渲染的内容不会输出到屏幕上，而是会渲染会到 `targetTexture` 上。
+如果设置了 `targetTexture`，那么摄像机渲染的内容不会输出到屏幕上，而是会渲染到 `targetTexture` 上。
 
 如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
 
@@ -47,7 +44,7 @@ Camera 组件将会随着他依附的节点进行移动，可以想象成我们�
 
 - cc.Camera.findCamera
 
-`findCamera` 会通过查找当前所有摄像机的 `cullingMask` 是否包含节点的 `group` 来获取第一个匹配的摄像机。
+`findCamera` 会通过查找当前所有摄像机的 `cullingMask` 是否包含节点的 `group` 来获取第一个匹配的摄像机。
 
 ```javascript
 cc.Camera.findCamera(node);
@@ -59,8 +56,7 @@ cc.Camera.findCamera(node);
 
 - render
 
-如果你需要立即渲染一次摄像机，可以调用这个方法来手动渲染一次摄像机，比如需要截图的时候。
-
+如果你需要立即渲染摄像机，可以调用这个方法来手动渲染摄像机，比如需要截图的时候。
 
 ```javascript
 camera.render();
@@ -70,7 +66,7 @@ camera.render();
 
 一个常见的问题是，当摄像机被移动，旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
 
-因为这时候获取到的点击坐标是摄像机坐标系下的坐标了，我们需要将这个坐标转化到世界坐标系下，才能继续与节点的世界坐标进行运算。
+因为这时候获取到的点击坐标是摄像机坐标系下的坐标了，我们需要将这个坐标转换到世界坐标系下，才能继续与节点的世界坐标进行运算。
 
 下面是一些摄像机坐标系转换的函数
 
@@ -88,23 +84,22 @@ camear.getWorldToCameraMatrix(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。
 
 ```javascript
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);
 
-// 设置你想要截图内容的 cullingMask
+// 设置你想要的截图内容的 cullingMask
 camera.cullingMask = 0xffffffff;
 
-// 新建一个 RenderTexture，并且设置 camera 的 targetTexture 为这个新建的 RenderTexture。
-// 这样这个 camera 的内容将会渲染到新建的 RenderTexture 中。
+// 新建一个 RenderTexture，并且设置 camera 的 targetTexture 为新建的 RenderTexture，这样 camera 的内容将会渲染到新建的 RenderTexture 中。
 let texture = new cc.RenderTexture();
 texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height);
 camera.targetTexture = texture;
 
-// 渲染一次摄像机，即更新内容到 RenderTexture 中
+// 渲染一次摄像机，即更新一次内容到 RenderTexture 中
 camera.render();
 
 // 这样我们就能从 RenderTexture 中获取到数据了

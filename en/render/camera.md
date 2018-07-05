@@ -1,39 +1,133 @@
 # Camera
 
-The Camera component is useful when making a scroller game or other game that needs to move the perspective. Before when in the absence of a Camera component, the scroller in game is implemented by moving the scene node or the game root node, which will result in a matrix of nodes need to be recalculated. And the performance will naturally drop due to this. The camera renders the scene through camera matrix directly in the rendering process, it will be much more efficient than moving lots of nodes.
+The camera is the window that the player observes the game world, the scene must have at least one camera, also can have multiple cameras at the same time. When creating a scene, Creator creates a camera named `Main Camera` by default as the main camera for this scene. Multi-camera support allows you to easily implement advanced customization effects, such as the two-player split screen effect, or the creation of a small scene map.
 
-The Camera component provides two properties for the user to set:
+## Camera attribute
 
-- `targets`: Specifies which nodes the camera will render, including their child nodes.
-- `zoomRatio`: Specifies the zoom ratio of the camera, the larger the value, the larger the image.
+- cullingMask
 
-The Camera component will move along with the node it is attached to, and we can imagine the node is a hand holding the camera, which will only shoot his targets, and the FOV of the camera is the device screen size.
+`cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the mask options currently available, and you can combine them to generate `cullingMask` by selecting these options.
 
-## Example
+For example, the `cullingMask` setting in the following figure indicates that the camera is used only to render the UI part of the game, that the UI part of the game does not need to be moved, and that the game node may move out of the screen, requiring another camera to follow the game node.
 
-We use a scene instance to explain how the Camera component are used.
+![camera-1](./camera/camera-1.png)
 
-Suppose we are making a physics game: we have physics colliders and tiled map as the background, we have `hero` node as player character. Our camera needs to follow the hero's movement so we can see him travel across the scene.
+You can add or change groupings through **Group Manager** in the **Project Settings**, which is the corresponding mask.
 
-![Camera-1](./camera/camera-1.png)
+- zoomRatio
 
-Here we need to create a new empty node and rename it to camera, use this node as a camera, using a single node as a camera node will be more flexible. Of course, we can also directly add the Camera component to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect. 
+Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
 
-Select the camera node in the **Node Tree** and click on the `Add Component -> Add Other Component -> Camera` button below the **Properties** to add the Camera component to the camera node.
+- clearFlags
 
-<img src="./camera/camera-2.png" style="width:50%;height:50%"></img>
+Specifies the cleanup action that needs to be made when rendering the camera.
 
-Here the Camera component adds three nodes to the `targets` property, that is, we need the camera to shoot these three nodes. And we also added a `camera-control` custom components, the role of this component is mainly to move the camera node to follow the hero node.
+![camera-2](./camera/camera-2.png)
 
-This example can be found in the `tiled` example in the [Physics example](https://github.com/2youyou2/physics-example) project.
+- backgroundColor
 
-You can also refer to the [Camera Demo](https://github.com/cocos-creator/demo-camera), contains examples of the usage of camera.
+When you specify that the camera needs to clear the color, the camera uses the set background color to clear the scene.
 
-**Note**:
+- depth
 
-When using camera, if you are using the physics system that have built-in render nodes, you will need to call the associated API to add their render nodes to the camera:
+Camera depth, used to determine the order in which the camera is rendered. The larger the value, the later the camera is rendered.
+
+- targetTexture
+
+If you set the `targetTexture`, the contents of the camera render will not be printed on the screen, but will be rendered to the `targetTexture`.
+
+If you need to do some of the screen's post-effects, you can first render the screen to `targetTexture`, and then for the `targetTexture` to do the overall processing, finally through a `sprite` to show the `targetTexture`.
+
+Please refer to the [Example](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
+for details.
+
+## Camera methods
+
+- cc.Camera.findCamera
+
+`findCamera` gets the first matching camera by finding whether the `cullingMask` of all current cameras contains a node's `group`.
 
 ```javascript
-cc.director.getPhysicsManager().attachDebugDrawToCamera (camera);
-cc.director.getCollisionManager().attachDebugDrawToCamera (camera);
+cc.Camera.findCamera(node);
 ```
+
+- containsNode
+
+Detect whether the node is affected by this camera
+
+- render
+
+If you need to render the camera immediately, you can call this method to manually render the camera, such as when a screenshot is needed.
+
+```javascript
+camera.render();
+```
+
+### Coordinate translation
+
+A common problem is that when the camera is moved, rotated, or scaled, the coordinates acquired by the click event are used to test the coordinates of the node, which often results in incorrect results.
+
+Because the click coordinates obtained at this time are the coordinates in the camera coordinate system, we need to transform this coordinate into the world coordinate system to continue the operation with the node's world coordinates.
+
+Here are some functions of camera coordinate transformation：
+
+```javascript
+// Transform a point in camera coordinates to world coordinates
+camera.getCameraToWorldPoint(point, out);
+// Transform a point in world coordinates to camera coordinates
+camera.getWorldToCameraPoint(point, out);
+
+// Gets the matrix from the camera coordinate system to the world coordinate system
+camera.getCameraToWorldMatrix(out);
+// Gets the matrix from world coordinate system to the camera coordinate system
+camear.getWorldToCameraMatrix(out);
+```
+
+## Screenshot
+
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function.
+
+```javascript
+let node = new cc.Node();
+node.parent = cc.director.getScene();
+let camera = node.addComponent(cc.Camera);
+
+// Set the CullingMask of the screenshot you want
+camera.cullingMask = 0xffffffff;
+
+// Create a new RenderTexture and set this new RenderTexture to the camera's targetTexture so that the camera content will be rendered to this new RenderTexture
+let texture = new cc.RenderTexture();
+texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height);
+camera.targetTexture = texture;
+
+// Render the camera once, updating the content once into RenderTexture
+camera.render();
+
+// This allows the data to be obtained from the rendertexture.
+let data = texture.readPixels();
+
+// Then you can manipulate the data.
+let canvas = document.createElement('canvas');
+let ctx = canvas.getContext('2d');
+canvas.width = texture.width;
+canvas.height = texture.height;
+
+let rowBytes = width * 4;
+for (let row = 0; row < height; row++) {
+    let srow = height - 1 - row;
+    let imageData = ctx.createImageData(width, 1);
+    let start = srow*width*4;
+    for (let i = 0; i < rowBytes; i++) {
+        imageData.data[i] = data[start+i];
+    }
+
+    ctx.putImageData(imageData, 0, row);
+}
+
+let dataURL = canvas.toDataURL("image/jpeg");
+let img = document.createElement("img");
+img.src = dataURL;
+
+```
+
+Please refer to the [Case](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)
