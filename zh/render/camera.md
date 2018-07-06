@@ -56,7 +56,7 @@ cc.Camera.findCamera(node);
 
 - render
 
-如果你需要立即渲染摄像机，可以调用这个方法来手动渲染摄像机，比如需要截图的时候。
+如果你需要立即渲染摄像机，可以调用这个方法来手动渲染摄像机，比如截图的时候。
 
 ```javascript
 camera.render();

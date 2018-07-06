@@ -6,13 +6,13 @@ The camera is the window that the player observes the game world, the scene must
 
 - cullingMask
 
-`cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the mask options currently available, and you can combine them to generate `cullingMask` by selecting these options.
+`cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the currently available mask options, and you can combine them to generate `cullingMask` by selecting these options.
 
-For example, the `cullingMask` setting in the following figure indicates that the camera is used only to render the UI part of the game, that the UI part of the game does not need to be moved, and that the game node may move out of the screen, requiring another camera to follow the game node.
+For example, the `cullingMask` setting in the following figure indicates that the camera is used only to render the UI part of the game. Generally game UI does not need to be moved, but the player may move out of the screen, then you need another camera to follow the player.
 
 ![camera-1](./camera/camera-1.png)
 
-You can add or change groupings through **Group Manager** in the **Project Settings**, which is the corresponding mask.
+You can add or change groups through **Group Manager** in the **Project Settings**, which is the corresponding mask.
 
 - zoomRatio
 
@@ -26,7 +26,7 @@ Specifies the cleanup action that needs to be made when rendering the camera.
 
 - backgroundColor
 
-When you specify that the camera needs to clear the color, the camera uses the set background color to clear the scene.
+When the camera needs to clear the color， the camera will use the background color to clear the scene。
 
 - depth
 
@@ -45,7 +45,7 @@ for details.
 
 - cc.Camera.findCamera
 
-`findCamera` gets the first matching camera by finding whether the `cullingMask` of all current cameras contains a node's `group`.
+`findCamera` gets the first matching camera by finding whether the camera `cullingMask` contains a node's group.
 
 ```javascript
 cc.Camera.findCamera(node);
@@ -57,7 +57,7 @@ Detect whether the node is affected by this camera
 
 - render
 
-If you need to render the camera immediately, you can call this method to manually render the camera, such as when a screenshot is needed.
+If you need to render the camera immediately, you can call this method to manually render the camera, such as when capturing a screenshot.
 
 ```javascript
 camera.render();
@@ -72,9 +72,9 @@ Because the click coordinates obtained at this time are the coordinates in the c
 Here are some functions of camera coordinate transformation：
 
 ```javascript
-// Transform a point in camera coordinates to world coordinates
+// Transform a point from camera coordinates to world coordinates
 camera.getCameraToWorldPoint(point, out);
-// Transform a point in world coordinates to camera coordinates
+// Transform a point from world coordinates to camera coordinates
 camera.getWorldToCameraPoint(point, out);
 
 // Gets the matrix from the camera coordinate system to the world coordinate system
