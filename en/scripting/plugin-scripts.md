@@ -74,7 +74,7 @@ window.ENABLE_NET_DEBUGGER = true;
 window.V2 = cc.Vec2;
 ```
 
-Then you can access them directly in any **Normal** Script:
+Then you can use them directly in any **Normal** script, such as using global variables like `DEFAULT_IP` when declaring class:
 
 ```javascript
 /* network.js */
