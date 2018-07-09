@@ -52,10 +52,10 @@ module.exports = {
 
 Short message is the message name without a `:`. A short message will be expanded to `${your-package-name}:${message-name}` during package registration. Suppose our package name is "simple-demo", and the "foo-bar" in above example will be expanded to "simple-demo:foo-bar" in the end.    
 
-In practice, we can send IPC messages to the short registry through `Editor.sendToPackage`:
+In practice, we can send IPC messages to the short registry through `Editor.Ipc.sendToPackage`:
 
 ```javascript
-Editor.sendToPackage('simple-demo', 'foo-bar');
+Editor.Ipc.sendToPackage('simple-demo', 'foo-bar');
 ```
 
 ### Full Message

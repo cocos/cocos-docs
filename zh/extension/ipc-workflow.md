@@ -72,7 +72,7 @@ module.exports = {
 }
 ```
 
-注册监听消息时，我们使用的消息名是省略了扩展包名的短命名，上述消息短名 `my-message` 在发送时应该是 `Editor.sendToPanel('foobar:my-message')` 和 `Editor.sendToMain('foobar:my-messages')`。
+注册监听消息时，我们使用的消息名是省略了扩展包名的短命名，上述消息短名 `my-message` 在发送时应该是 `Editor.Ipc.sendToPanel('foobar:my-message')` 和 `Editor.Ipc.sendToMain('foobar:my-messages')`。
 
 可以看到主进程和渲染进程中监听 IPC 消息的函数声明方式是一致的，传入的第一个参数是一个 `event` 对象，我们可以通过这个对象发送回调。
 
