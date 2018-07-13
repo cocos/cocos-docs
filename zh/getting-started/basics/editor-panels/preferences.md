@@ -60,8 +60,6 @@
 
 * **Android SDK 路径**：设置 Android SDK 路径，详情见 [安装配置原生开发环境](../../../publish/setup-native-development.md)。
 
-* **ANT 路径**：设置 ANT 路径，详情见 [安装配置原生开发环境](../../../publish/setup-native-development.md)。
-
 ## 预览运行
 
 使用主窗口正上方的 **运行预览** 按钮时，可以设置的各种选项。

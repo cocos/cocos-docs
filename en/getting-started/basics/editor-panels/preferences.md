@@ -65,8 +65,6 @@ declarations and other built-in components engine module in the Web environment.
 
 * **Android SDK Path**: Set the Android SDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
-* **ANT Path**: Set the ANT Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
-
 ## Preview Run
 
 When using **Play** button directly above the main window, you can set various options.

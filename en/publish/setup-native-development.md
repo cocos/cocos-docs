@@ -28,7 +28,7 @@ On Windows platform, please confirm if "JAVA_HOME" is included in your environme
 
 ### Download and install Android Studio
 
-Starting with v1.5, we support the latest version of Android Studio and companion building tools. We recommend Android Studio as an Android platform build tool and you should download the required SDK and NDK packages in Android Studio. First install [Android Studio](http://www.android-studio.org/).
+Starting with v1.10, we no longer support Eclipse's ANT build, we need to use Android Studio as an Android platform's build tool and you should download the required SDK and NDK packages in Android Studio. First install [Android Studio](http://www.android-studio.org/).
 
 ### Download the SDK and NDK required to publish the Android platform
 
@@ -36,29 +36,15 @@ After installing Android Studio, refer to the official documentation and open th
 
 [SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
-1. In the `SDK Platforms` tab page, check the API level you want to install, and choose the minimum compatible API Level 10 (2.3.3) and the mainstream API Level such as 17 (4.2) and 22 (5.1).
-2. In the `SDK Tools` tab page, first check the lower right corner of the `Show package details`, show the version of the tool selection.
-3. In the `Android SDK Build-Tools', select at least build tools version 25.
+1. In the `SDK Platforms` tab page, check the API level you want to install, and choose the minimum compatible API Level 16 (4.1) and the mainstream API Level such as 22 (5.1) and 25 (7.1).
+2. In the `SDK Tools` tab page, first check the lower right corner of the `Show Package Details`, show the version of the tool selection.
+3. In the `Android SDK Build-Tools`, select the latest build Tools version.
 4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
-5. Check the `NDK` and ensure that the version is above 14 (Please use versions later than NDK "r10c", and "r10e" version is recommended).
+5. Check the `NDK` and ensure that the version is above 14 ("r16" version is recommended).
 6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
 7. Click `OK` and follow the prompts to complete the installation.
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
-
-### Android SDK 10 dependencies
-
-Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos-creator/cocos2d-x-lite/pull/316).
-
-If you encounter build error like 'not found android-10', you can download `Android SDK API Level 10` according to the description below.
-
-If you need to change the target API Level, you can modify the built project file `cocos/platform/android/java/project.properties`:
-
-```java
-target = android-10
-```
-
-Change `android-10` to the other API Level you need.
 
 ## Install C++ compiling environment
 
@@ -74,15 +60,14 @@ Next, let's go back to Cocos Creator to configure the environmental path of the 
 
 ![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
-We need to configure the following three paths here:
+We need to configure the following two paths here:
 
 - **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
 - **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
-- **ANT Path**, you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`. You can skip this if you don't need to compile on Android platform.
 
 Close the window after configuration is completed.
 
-**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: COCOS_CONSOLE_ROOT, ANT_ROOT, NDK_ROOT, ANDROID_SDK_ROOT.
+**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: COCOS_CONSOLE_ROOT, NDK_ROOT, ANDROID_SDK_ROOT.
 
 ## Notes
 
