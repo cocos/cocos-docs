@@ -37,7 +37,7 @@
 1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
 2. 在 "Creator 设置" > "原生开发环境" 中设置微信开发者工具路径
 
-    ![](./publish-wechatgame/preference.jpeg)
+    ![](./publish-wechatgame/preference.jpg)
 3. 登陆微信公众平台，找到 appid
 
     ![](./publish-wechatgame/appid.jpeg)
