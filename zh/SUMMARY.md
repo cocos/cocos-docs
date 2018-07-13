@@ -15,7 +15,7 @@
         - [属性检查器](getting-started/basics/editor-panels/properties.md)
         - [控件库](getting-started/basics/editor-panels/node-library.md)
         - [控制台](getting-started/basics/editor-panels/console.md)
-        - [偏好设置](getting-started/basics/editor-panels/preferences.md)
+        - [设置](getting-started/basics/editor-panels/preferences.md)
         - [项目设置](getting-started/basics/editor-panels/project-settings.md)
         - [主菜单](getting-started/basics/main-menu.md)
         - [工具栏](getting-started/basics/toolbar.md)

@@ -51,13 +51,13 @@ For further information please read the [Node Library](editor-panels/node-librar
 
 Continue on to read about [Toolbar](toolbar.md).
 
-## Preferences
+## Settings
 
 ![preferences](editor-panels/preferences/general.png)
 
-**Preferences** panels provides personalized global settings for various editors, including native development environments, game previews, script editing tools, and so on.
+**Settings** panels provides personalized global settings for various editors, including native development environments, game previews, script editing tools, and so on.
 
-For further information please read the [Preferences](editor-panels/preferences.md) section.
+For further information please read the [Settings](editor-panels/preferences.md) section.
 
 ## Project Settings
 

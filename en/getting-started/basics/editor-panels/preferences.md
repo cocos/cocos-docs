@@ -1,9 +1,9 @@
-# Preferences
+# Settings
 
-**Preferences** the panel provides a variety of personalized global editor settings,
-To Open **Preferences** Window, Please select the main menu `CocosCreator->Preferences`.
+**Settings** the panel provides a variety of personalized global editor settings,
+To Open **Settings** Window, Please select the main menu `CocosCreator -> Settings`.
 
-**Preferences** is composed of several different pages, all settings are divided into the following categories.
+**Settings** is composed of several different pages, all settings are divided into the following categories.
 After modifying the settings, click the **Save** button.
 
 ## General

@@ -2,10 +2,10 @@
 
 ## Cocos Creator
 
-包括软件信息，偏好设置，窗口控制等功能。
+包括软件信息，设置，窗口控制等功能。
 
 - **关于 Cocos Creator**：显示 Cocos Creator 的版本和版权信息。
-- **偏好设置**：打开 [偏好设置](editor-panels/preferences.md) 面板，设置编辑器的个性化选项。
+- **设置**：打开 [设置](editor-panels/preferences.md) 面板，设置编辑器的个性化选项。
 - **隐藏 Cocos Creator (<kbd>Ctrl/Command + H</kbd>)**：（Mac 专属）隐藏编辑器窗口。
 - **隐藏其他应用 (<kbd>Shift + Ctrl/Command + H</kbd>)**：（Mac 专属）隐藏 Cocos Creator 之外的其他应用窗口。
 - **显示全部**：（Mac 专属）显示所有窗口。

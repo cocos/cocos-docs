@@ -15,7 +15,7 @@
         - [Properties](getting-started/basics/editor-panels/properties.md)
         - [Node Library](getting-started/basics/editor-panels/node-library.md)
         - [Console](getting-started/basics/editor-panels/console.md)
-        - [Preferences](getting-started/basics/editor-panels/preferences.md)
+        - [Settings](getting-started/basics/editor-panels/preferences.md)
         - [Project Settings](getting-started/basics/editor-panels/project-settings.md)
         - [Main Menu](getting-started/basics/main-menu.md)
         - [Toolbar](getting-started/basics/toolbar.md)

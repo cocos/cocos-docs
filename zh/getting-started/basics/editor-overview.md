@@ -52,13 +52,13 @@
 
 详情请阅读 [工具栏](toolbar.md) 一节。
 
-## 偏好设置
+## 设置
 
-![preferences](editor-panels/preferences/general.jpg)
+![preferences](editor-panels/preferences/general.png)
 
-**偏好设置** 里提供各种编辑器个性化的全局设置，包括原生开发环境、游戏预览、脚本编辑工具等。
+**设置** 里提供各种编辑器个性化的全局设置，包括原生开发环境、游戏预览、脚本编辑工具等。
 
-详情请阅读 [偏好设置](editor-panels/preferences.md) 一节。
+详情请阅读 [设置](editor-panels/preferences.md) 一节。
 
 ## 项目设置
 
