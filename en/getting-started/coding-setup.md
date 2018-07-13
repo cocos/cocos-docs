@@ -44,7 +44,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 ### Setup File Tree and Search Filter
 
-Choose `Code -> Preferences -> User Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
+Choose `Code -> Preferences -> Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
 
 ```json
 {
@@ -95,7 +95,7 @@ To activate script compilation in VS Code, you need to perform the following wor
 3. If the task runs successfully, the following results will be displayed in the output panel below the VS Code window:
     ![task complete](coding-setup/task_output.jpg)
 
-VS Code can also configure shortcut keys for tasks, please open the `Code -> Preferences -> Keyboard shortcuts` On the main menu and add the following entry in `Keybindings.json` on the right side:
+VS Code can also configure shortcut keys for tasks, please open the `Code -> Settings -> Keyboard shortcuts` On the main menu and add the following entry in `Keybindings.json` on the right side:
 
 ```json
     {

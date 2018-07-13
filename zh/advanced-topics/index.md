@@ -8,6 +8,7 @@
 - [i18n 游戏多语言支持](i18n.md)
 - [存储和读取用户数据](data-storage.md)
 - [引擎定制工作流程](engine-customization.md)
+- [渲染流](render-flow.md)
 - [Java 原生反射机制](java-reflection.md)
 - [Objective-c 原生反射机制](oc-reflection.md)
 - [BMFont 与 UI自动批处理](ui-auto-batch.md)

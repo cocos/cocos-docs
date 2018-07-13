@@ -18,7 +18,7 @@ Crop the unused module here will significantly reduce the engine package size. I
 
 ## Project Preview
 
-**Project Preview** provides similar options as in the **Preview Run** page in [Preferences Panel](preferences.md), which are used to set the initial preview scene, resolution, etc., but only for the current project.
+**Project Preview** provides similar options as in the **Preview Run** page in [Settings](preferences.md), which are used to set the initial preview scene, resolution, etc., but only for the current project.
 
 ![preview](project-settings/preview.png)
 
@@ -32,13 +32,13 @@ Default Canvas Setting include Design Resolution and Fit Width / Fit Height, Use
 
 ### Simulator Setting Type
 
-Use this setting to set the simulator preview resolution and screen orientation. When this option is set to **Global**, the simulator resolution and screen orientation settings in **Preferences** are used. When set to **Project**, the following simulator settings are displayed:
+Use this setting to set the simulator preview resolution and screen orientation. When this option is set to **Global**, the simulator resolution and screen orientation settings in **Settings** are used. When set to **Project**, the following simulator settings are displayed:
 
 - Simulator Device Orientation
 - Simulator Resolution
 - Simulator Custom Resolution
 
-The above options are the same as those in the [Preferences](preferences.md) panel.
+The above options are the same as those in the [Settings](preferences.md) panel.
 
 ## Service
 

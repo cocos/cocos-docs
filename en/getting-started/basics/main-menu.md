@@ -2,7 +2,7 @@
 
 ## Cocos Creator
 * **About Cocos Creator** Display information about Cocos Creator.
-* **Preference** Open the [Preference](editor-panels/preferences.md) pane and set the editor's personalization options.
+* **Settings** Open the [Settings](editor-panels/preferences.md) pane and set the editor's personalization options.
 * **Hide Cocos Creator (Shortcut: <kbd>H</kbd>)**
 *mac only* Hide Cocos Creator window.
 * **Hide Others (Shortcut: <kbd>Shift + H</kbd>)**
