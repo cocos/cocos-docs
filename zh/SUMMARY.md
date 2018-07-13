@@ -92,7 +92,6 @@
 ## 子系统介绍
 
 - [图像和渲染](render/index.md)
-    - [渲染流](render/render-flow.md)
     - [基本图像渲染](render/core-renderer.md)
     - [外部资源渲染](render/external-renderer.md)
     - [摄像机](render/camera.md)
@@ -197,6 +196,7 @@
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
+    - [渲染流](advanced-topics/render-flow.md)
     - [BMFont and UI 自动批处理](advanced-topics/ui-auto-batch.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)

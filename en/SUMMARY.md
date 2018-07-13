@@ -92,7 +92,6 @@
 ## Systems 
 
 - [Renderer and Graphics](render/index.md)
-    - [RenderFlow](render/render-flow.md)
     - [Core Renderers](render/core-renderer.md)
     - [External Asset Renderer](render/external-renderer.md)
     - [Camera](render/camera.md)
@@ -196,6 +195,7 @@
     - [i18n](advanced-topics/i18n.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
+    - [RenderFlow](advanced-topics/render-flow.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

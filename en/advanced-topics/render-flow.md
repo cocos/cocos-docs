@@ -1,6 +1,6 @@
 # RenderFlow
 
-The RenderFlow is a new process in v2.0. Its role is to eliminate useless rendering branches, and only into the predefined rendering branches, which can effectively reduce a number of dynamic judgments.
+The RenderFlow is a new process in v2.0. Its role is to eliminate useless rendering branches, and only into the predefined rendering branches, which can effectively reduce a number of dynamic checks.
 
 ## v1.x Rendering Process
 
