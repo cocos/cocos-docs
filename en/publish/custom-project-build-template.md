@@ -80,13 +80,19 @@ function onBeforeBuildFinish (options, callback) {
 
     for (var i = 0; i < depends.length; ++i) {
         var uuid = depends[i];
+        // Get relative URL of assets in project
+        // (Will return null for auto atlas texture because there is no raw asset associated with it in the project)
         var url = Editor.assetdb.uuidToUrl(uuid);
         // Get resource type
         var type = buildResults.getAssetType(uuid);
-        // Get the absolute path of a resource in a project
-        var path = Editor.assetdb.uuidToFspath(uuid);
+        // Get the absolute path of assets in the project
+        // (Will also return null for auto atlas texture)
+        var rawPath = Editor.assetdb.uuidToFspath(uuid);
+        // Get the exported path of a native asset
+        // (Native assets include texture, audio, and other types. If not native assets will return null)
+        var nativePath = buildResults.getNativeAssetPath(uuid);
 
-        Editor.log(`${prefabUrl} depends on: ${path} (${type})`);
+        Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
     }
 
     callback();
@@ -107,17 +113,22 @@ The detailed API for BuildResults is as follows:
 ```js
 class BuildResults {
     constructor () {
-        this._uuidDependencies = null;
+        this._buildAssets = null;
         this._packedAssets = null;
     }
 
     /**
      * Returns true if the asset contains in the build.
      *
+     * @param {boolean} [assertContains=false]
      * @returns {boolean}
      */
-    containsAsset (uuid) {
-        return uuid in this._uuidDependencies;
+    containsAsset (uuid, assertContains) {
+        var res = uuid in this._buildAssets;
+        if (!res && assertContains) {
+            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
+        }
+        return res;
     }
 
     /**
@@ -126,7 +137,7 @@ class BuildResults {
      * @returns {string[]}
      */
     getAssetUuids () {
-        return Object.keys(this._uuidDependencies);
+        return Object.keys(this._buildAssets);
     }
 
     /**
@@ -137,17 +148,10 @@ class BuildResults {
      * @returns {string[]}
      */
     getDependencies (uuid) {
-        if (!this.containsAsset(uuid)) {
-            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
+        if (!this.containsAsset(uuid, true)) {
             return [];
         }
-        var depends = Editor.Utils.getDependsRecursively(this._uuidDependencies, uuid);
-        if (!Array.isArray(depends) || depends.length === 0) {
-            return [];
-        }
-        return _(depends)
-            .uniq()
-            .value();
+        return Editor.Utils.getDependsRecursively(this._buildAssets, uuid, 'dependUuids');
     }
 
     /**
@@ -158,10 +162,26 @@ class BuildResults {
      * @returns {string}
      */
     getAssetType (uuid) {
-        if (!this.containsAsset(uuid)) {
-            Editor.warn(`The bulid not contains an asset with the given uuid "${uuid}".`);
-        }
+        this.containsAsset(uuid, true);
         return getAssetType(uuid);
+    }
+
+    /**
+     * Get the path of the specified native asset such as texture.
+     * Returns empty string if not found.
+     *
+     * @param {string} uuid
+     * @returns {string}
+     */
+    getNativeAssetPath (uuid) {
+        if (!this.containsAsset(uuid, true)) {
+            return '';
+        }
+        var result = this._buildAssets[uuid];
+        if (typeof result === 'object') {
+            return result.nativePath || '';
+        }
+        return '';
     }
 }
 ```
