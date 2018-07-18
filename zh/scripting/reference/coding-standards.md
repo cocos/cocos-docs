@@ -59,20 +59,20 @@
 
 ## 语法规范
 
- - 使用 `Object.create(null)` 创建一个 object
+ - 使用 `Object.create(null)` 创建一个字典
 
     ```javascript
     // bad
-    var obj = new Object();
+    var map = new Object();
 
     // bad
-    var obj = {};
+    var map = {};
 
     // good
-    var obj = Object.create(null);
+    var map = Object.create(null);
     ```
 
- - 使用 `[]` 创建一个 array
+ - 使用 `[]` 创建一个数组
 
     ```javascript
     // bad
