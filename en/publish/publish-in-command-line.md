@@ -54,9 +54,9 @@ If no parameters are specified after **--build** or **--compile**, then the para
   - orientation={'landscapeLeft': true, 'portrait': true}
 - `template` - Template on native platform [default, link, binary]
 - `apiLevel` - Android api level
-- `appABIs` - Which cpu types android need to support. You can choose more than one type from [armeabi, armeabi-v7a, arm64-v8a, x86]<br>
+- `appABIs` - Which cpu types android need to support. You can choose more than one type from [armeabi-v7a, arm64-v8a, x86]<br>
   Because it's an array type, the option can define like this:
-  - appABIs=['armeabi', 'armeabi-v7a']
+  - appABIs=['armeabi-v7a']
 - `androidStudio` - Whether or not use android studio to compile android project
 - `includeAnySDK` - Whether or not add AnySDK on web platform
 - `oauthLoginServer` - AnySDK oauth login server
