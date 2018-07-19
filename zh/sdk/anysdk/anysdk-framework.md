@@ -54,28 +54,6 @@ project-folder
             |--main.js
 ```
 
-- Eclipse 工程
-	* 删除 libs 下的 `libPluginProtocol.jar` 文件
-	* 删除 res 下的
-	```
-		drawable/plugin_btn_close.png
-		drawable/plugin_ui_ad.png
-		values-en/plugin_string.xml
-		values/plugin_string.xml 
-		layout/plugin_ads.xml
-		layout/plugin_login.xml
-	```
-	* 删除 jni 下的 Android.mk 中 `LOCAL_WHOLE_STATIC_LIBRARIES := PluginProtocolStatic`
-	* 删除 jni 下的 Android.mk 中
-	```
-		LOCAL_SRC_FILES :=  ../../Classes/SDKManager.cpp \ 
-							../../Classes/jsb_anysdk_basic_conversions.cpp \
-							../../Classes/manualanysdkbindings.cpp \
-							../../Classes/jsb_anysdk_protocols_auto.cpp 
-	```
-
-	* 删除 jni 下的 Application.mk 宏定义 `APP_CPPFLAGS :=  -DPACKAGE_AS`
-	* 修改 `src/org/cocos2dx/javascript/SDKWrapper.java` 文件中 `private final static boolean PACKAGE_AS = true;`，`true` 修改为 `false`
 - Android Studio 工程
 	* 删除 libs 下的 `libPluginProtocol.jar` 
 	* 删除 res 下的

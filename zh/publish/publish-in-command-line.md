@@ -58,11 +58,9 @@
 - `template` - native 平台下的模板选项 [default、link、binary]
 
 - `apiLevel` - 设置编译 android 使用的 api 版本
-- `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi、armeabi-v7a、arm64-v8a、x86]<br>
+- `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi-v7a、arm64-v8a、x86]<br>
    因为这是一个数组类型，数据类型需要像这样定义，注意选项需要用引号括起来：
-  - appABIs=['armeabi', 'armeabi-v7a']
-
-- `androidStudio` - 是否使用 android studio 来编译 android 项目
+  - appABIs=['armeabi-v7a','x86']
 
 - `includeAnySDK` - web 平台下是否加入 AnySDK 代码
 - `oauthLoginServer` - AnySDK 验证登陆服务器
