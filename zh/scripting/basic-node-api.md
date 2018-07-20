@@ -99,7 +99,7 @@ parentNode.addChild(this.node);
 ### 更改节点尺寸
 
 `this.node.setContentSize(100, 100);`<br>
-`this.node.setContentSize(cc.v2(100, 100));`
+`this.node.setContentSize(cc.size(100, 100));`
 
 或
 
