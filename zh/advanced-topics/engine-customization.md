@@ -118,12 +118,11 @@ gulp gen-libs
 
 ```bash
 # 通过 cocos console 生成模拟器
-gulp sign-simulator
 gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**注意**：`gulp sign-simulator` 是 v1.7.0 中的新增命令，只有 **Mac** 需要运行。该命令将直接在 XCode 中打开模拟器项目，然后请手动设置签名，并关闭 XCode。如果不想设置签名，请直接关闭 XCode。项目更改后，需要重新运行此命令。详情请见 [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention)。
+**注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention)。
 
 ![](engine-customization/sign.png)
 

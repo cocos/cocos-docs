@@ -99,7 +99,7 @@ If you pass only one parameter to `setScale`, both `scaleX` and `scaleY` will be
 ### Size（width and height）
 
 `this.node.setContentSize(100, 100);`<br>
-`this.node.setContentSize(cc.v2(100, 100));`
+`this.node.setContentSize(cc.size(100, 100));`
 
 or
 

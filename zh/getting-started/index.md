@@ -14,6 +14,7 @@
 - [快速上手: 制作第一个游戏](quick-start.md)
 - [Cocos2d-x 用户上手指南](cocos2d-x-guide.md)
 - [获取帮助和支持](support.md)
+- [v1.10 资源升级指南](../release-notes/raw-asset-migration.md)
 - [FAQ](faq.md)
 
 ---

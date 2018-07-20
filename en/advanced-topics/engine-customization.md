@@ -119,12 +119,11 @@ gulp gen-libs
 
 ```bash
 # use cocos console to generate simulator
-gulp sign-simulator
 gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**Attention**: `gulp sign-simulator` is a new command since 1.7.0. only need to run on **Mac**. It can help you to sign the simulator project in `tools/simulator/frameworks/runtime-src/proj.ios_mac/simulator.xcodeproj`, so you can debug the simulator on Mac. This command will open the simulator project directly in XCode, and then ask you to manually set the signature and close XCode. If you don't want to sign it, just close XCode directly. You need to rerun this command once the project is changed. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
+**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
 
 ![](engine-customization/sign.png)
 

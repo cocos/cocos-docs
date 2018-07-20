@@ -6,7 +6,7 @@
 
 ## 配置方法
 
-Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一个文件夹时，在 **属性检查器** 中会出现文件夹的相关配置选项：
+Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一个文件夹时，在 **属性检查器** 中会出现文件夹的相关配置选项：
 
 ![subpackage](./subpackage/subpackage.png)
 
@@ -14,9 +14,9 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中�
 
 ## 构建
 
-代码分包的作用只会在项目构建后才会体现，预览的时候还是按照整包来进行加载的。项目构建后会在发布包目录下的 `src/assets` 生成对应的分包文件。
+代码分包的作用只会在项目构建后才会体现，预览的时候还是按照整包来进行加载的。项目构建后会在发布包目录下的 `src/assets` 生成对应的分包文件。
 
-**例如**：将 example 工程中的 `cases/01_graphics` 文件夹配置为子包，那么项目构建后将会在发布包目录下的 `src/assets/cases` 生成 `01_graphics.js` 文件，该文件名不随着子包名的更换而更换。`01_graphics.js` 文件包含了 `01_graphics` 文件夹下的所有代码，并且会将这些代码从主包中剔除掉。
+**例如**：将 example 工程中的 `cases/01_graphics` 文件夹配置为子包，那么项目构建后将会在发布包目录下的 `src/assets/cases` 生成 `01_graphics.js` 文件，该文件名不随着子包名的更换而更换。`01_graphics.js` 文件包含了 `01_graphics` 文件夹下的所有代码，并且会将这些代码从主包中剔除掉。
 
 ![package](./subpackage/package.png)
 
@@ -35,7 +35,7 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中�
 
 ## 加载分包
 
-引擎提供了一个统一的 api `cc.loader.downloader.loadSubpackage` 来加载分包代码，适用于所有平台。`loadSubpackage` 需要传入一个分包的名字，这个名字即是之前你在项目中配置的分包名字，默认为分包文件夹的名字。
+引擎提供了一个统一的 api `cc.loader.downloader.loadSubpackage` 来加载分包代码，适用于所有平台。`loadSubpackage` 需要传入一个分包的名字，这个名字即是之前你在项目中配置的分包名字，默认为分包文件夹的名字。
 
 当分包加载完成后，会触发回调，如果加载失败的话，会返回一个错误信息。
 
