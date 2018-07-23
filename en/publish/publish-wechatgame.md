@@ -48,6 +48,7 @@
 6. 点击 play 打开微信开发者工具
 
     ![](./publish-wechatgame/tool.jpeg)
+**注意**：微信开发者工具，在 Mac 上如果没运行过，会报错：`Please ensure that the IDE has been properly installed`。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
 7. 预览部署
 
 按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：game.json 和 project.config.json
