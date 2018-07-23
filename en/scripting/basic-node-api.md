@@ -12,6 +12,8 @@ The node is active by default. In addition to switching the activating state of 
 
 `this.node.active = true;`
 
+If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time.
+
 This operation will activate node, means:
 - Show current node and all child nodes in scene, unless child node is deactivated seperately.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
@@ -19,7 +21,7 @@ This operation will activate node, means:
 
 `this.node.active = false;`
 
-If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time. 
+If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time.
 
 If all of the node's parent nodes were previously activated, executing the line code at this point means:
 - Hide current node and all child nodes in scene.
