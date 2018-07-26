@@ -1,9 +1,15 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and Cocos2d-x (custom version of Cocos2d-x). They are both open sourced on GitHub:
+The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x (custom version of Cocos2d-x) and adapters. They are all open sourced on GitHub:
 
 - JavaScript engine: <https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
+
+There are three adapters:
+
+- `jsb-adapter`: <https://github.com/cocos-creator-packages/jsb-adapter>
+- `weapp-adapter`: <https://github.com/cocos-creator-packages/weapp-adapter>
+- `qqplay-adapter`: <https://github.com/cocos-creator-packages/qqplay-adapter>
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
@@ -13,7 +19,7 @@ If your concern is only Web based games, or what you want to change in the engin
 
 ### 1.1 Get JavaScript Engine Repository
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths. 
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths.
 
 ![](engine-customization/open-engine.png)
 
@@ -53,9 +59,9 @@ Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set 
 
 ![](engine-customization/setting-js.png)
 
-## 2 Customized Cocos2d-x Engine
+## 2 Customize Cocos2d-x Engine
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator.
+If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x engine of Cocos Creator.
 
 ### 2.1 Get the Cocos2d-x Engine
 
@@ -106,16 +112,9 @@ Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set 
 
 Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
 
-### 2.5 Build binary library and simulator
+### 2.5 Build simulator
 
-- If you want to use a `binary` template to build and compile native project (it's much faster since Cocos2d-x code are already compiled), you'll need to run these commands:
-
-```bash
-# use cocos console to generate prebuilt binary libs
-gulp gen-libs
-```
-
-- To generate simulator to preview your changes:
+To generate simulator to preview your changes:
 
 ```bash
 # use cocos console to generate simulator
@@ -127,9 +126,65 @@ gulp update-simulator-config
 
 ![](engine-customization/sign.png)
 
-## 3 JSB Workflow (JavaScript Binding)
+## 3 Customize adapter
 
-If your changes involves JavaScript and Cocos2d-x changes at the same time. You should read this article:
+Cocos Creator in order to achieve cross-platform, in the JavaScript layer needs to do a number of different platform adaptation work. These efforts include:
+
+- Suitable for different platforms with BOM and DOM running environment
+- Some engine-level adaptation  
+
+The current adaptation layer consists of three parts:
+
+- `jsb-adapter`: Suitable for native platforms
+- `weapp-adapter`: Suitable for Wechat Mini Games
+- `qqplay-adapter`: Suitable for QQ Play
+
+### 3.1 Get adapter
+
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin adapter engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and the `jsb-adapter`, `weapp-adapter`, and `qqplay-adapter` directories can be found within the `resources/builtin` directory.
+
+If you want to get the latest version of the official developing, you need to download it from the github repo specified above, Then replace it with the `resources/builtin` directory of the program installation path. Same as JavaScript engine, you need to make sure adapter repo is on correct branch.
+
+### 3.2 Customize jsb-adapter
+
+In the `jsb-adapter` directory, the following two directory structures are included:
+
+- `builtin`：Adapt the runtime of the native platform
+- `engine`：Adapt some APIs of the engine level
+
+The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
+
+#### 3.2.1 Customize and compile builtin
+
+Customization of the `engine` section only requires modification of the code.<br>
+Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
+
+```bash
+cd jsb-adapter/builtin
+npm install
+```
+
+Next, you can customize the code in the `builtin` section. After the modification is complete, continue to execute it on the command line:
+
+```bash
+# jsb-adapter/builtin 目录下
+gulp
+```
+
+When the command completes, a new `jsb-builtin.js` file is generated in the `jsb-adapter/builtin/dist` directory.
+
+After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` file and the `engine` directory together to the `jsb-adapter` folder in the project when you **build** the native platform in the **Build** panel.
+
+### 3.3 Customize weapp-adapter and qqplay-adapter
+
+The adaptation layer code for the **Wechat Mini Games** and **QQ Play** is located in the `weapp-adapter` and `qqplay-adapter` in the `resources/builtin` directory.
+
+- The customization of this part of the code does not require any compilation operations.  
+- Engine-level adaptation work, please complete in the appropriate engine directory.  
+
+## 4 JSB Workflow (JavaScript Binding)
+
+If you need to modify the JavaScript interface provided by the Cocos2d-x engine, you should complete the JSB binding.
 
 Creator >= 1.7, please refer to:
 
