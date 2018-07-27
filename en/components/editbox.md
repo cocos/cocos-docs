@@ -15,7 +15,7 @@ For EditBox API reference, please refer to [EditBox API](../../../api/en/classes
 | String| The initial input text of EditBox.
 | Background Image | The background image of EditBox.
 | Keyboard Return Type | The keyboard return type of EditBox. This is useful for keyboard of mobile device.
-| Input Flag | Specify the input flag: password or capitalize word.
+| Input Flag | Specify the input flag: password or capitalize word. (Only supports Android platform)
 | Input Mode | Specify the input mode: multiline or single line.
 |Font Size| The font size of input label.
 | StayOnTop | The input is always visible and be on top of the game view.
