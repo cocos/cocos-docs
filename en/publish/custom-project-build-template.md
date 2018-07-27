@@ -13,7 +13,7 @@ project-folder
  |--build-templates
       |--web-mobile
             |--index.html
-      |--jsb-binary
+      |--jsb-link
             |--main.js
       |--jsb-default
             |--main.js

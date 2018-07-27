@@ -48,7 +48,7 @@ project-folder
  |--build-templates
       |--web-mobile
             |--main.js
-      |--jsb-binary
+      |--jsb-link
             |--main.js
       |--jsb-default
             |--main.js

@@ -55,7 +55,7 @@
   因为这是一个 object, 所以定义会特殊一些：
   - orientation={'landscapeLeft': true} 或
   - orientation={'landscapeLeft': true, 'portrait': true}
-- `template` - native 平台下的模板选项 [default、link、binary]
+- `template` - native 平台下的模板选项 [default、link]
 
 - `apiLevel` - 设置编译 android 使用的 api 版本
 - `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi-v7a、arm64-v8a、x86]<br>
