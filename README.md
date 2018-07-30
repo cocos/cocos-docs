@@ -46,8 +46,6 @@ gulp prune-left-bar
 
 This will remove unused links from left bar.
 
-There is also a quick method can let you preview your modification immediately:
-
 ## Build
 
 If you just want to build the markdown to html, use this command:
