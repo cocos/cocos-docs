@@ -52,11 +52,12 @@
     }
     (function () {
         // 避免 API 文档开启时文档下滑遮挡导航栏问题 
-        var pageInner = document.getElementsByClassName('page-wrapper')[0]; 
+        var pageWrapper = document.getElementsByClassName('page-wrapper')[0]; 
         var header = document.getElementById('book-header'); 
-        var bar = document.getElementById('navbar'); 
-        pageInner.appendChild(header); 
-        pageInner.appendChild(bar);
+        var bar = document.getElementById('navbar');
+        var pageInner = pageWrapper.firstElementChild;
+        pageWrapper.insertBefore(header, pageInner); 
+        pageWrapper.appendChild(bar);
     })();
     </script>
 {% endblock %}
