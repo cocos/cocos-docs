@@ -46,7 +46,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，下面介�
 
 ## 发布步骤
 
-一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击构建。
+一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
 
 ![](./publish-wechatgame/maintest-build.png)
 
@@ -54,9 +54,9 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，下面介�
 
 ![](./publish-wechatgame/game-json.png)
 
-二、打开开放数据域项目，打开构建发布面板，选择 Wechat Game 平台，**渲染模式** 选择 `Canvas` 模式或者 `自动` 模式，并勾选 [小游戏开放数据域工程]，把当前工程打包成开放数据域可用的文件。
+二、打开开放数据域项目，打开构建发布面板，选择 `Wechat Game Open Data Context` 平台。
 
-三、**发布路径** 设置为主域中填入的 [开放数据域代码目录] 相同路径，即指定到主域项目工程的发布包目录下。
+三、**发布路径** 设置为主域中填入的 [开放数据域代码目录] 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
 
 **注意** ：**游戏名称** 必须和主域项目中设置的 [开放数据域代码目录] 名称一致。
 
@@ -74,4 +74,4 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，下面介�
 
 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
 
-[微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html) 
+[微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
