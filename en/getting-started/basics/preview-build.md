@@ -26,7 +26,6 @@ There are a bunch of control in Preview page:
 
 - On the left are viewport size presets to simulate how your game look on mobile devices.
 - **Rotate** button to toggle between landscape and portrait view.
-- The third control from the left is for switching between WebGL and Canvas rendering mode.
 - **Debug Mode** let you control the severe level of logs to be shown.
 - **Show FPS** toggle framerate and draw call stats display.
 - **FPS** framerate cap.

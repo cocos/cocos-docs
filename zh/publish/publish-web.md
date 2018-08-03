@@ -56,7 +56,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 
 ## Retina 设置
 
-在脚本中通过 `cc.view.enableRetina(true)` 可以控制是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示，在不支持 WebGL 渲染的 Android 平台上，开启 Retina 会对帧率造成较大影响。
+可以在脚本中通过 `cc.view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。
 
 ## 发布到 Web 服务器
 

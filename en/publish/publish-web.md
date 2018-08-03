@@ -47,6 +47,16 @@ Next, you can click the **Play** button to open the built game version in the br
 
 A preview of the Web Desktop mode is shown above. You can see that the resolution of the game image is fixed and the game image doesn't fully cover the browser window.
 
+### Browser compatibility
+
+The desktop browsers tested during the Cocos Creator development process include: Chrome, Firefox, IE11. Other browsers as long as the kernel version is high enough to work properly, for some browsers do not open IE6 compatibility mode.
+
+Browsers tested on mobile devices include: Safari(iOS), Chrome, QQ browser, UC browser, Baidu browser, WeChat built-in Webview.
+
+## Retina setting
+
+You can use `cc.view.enableRetina(true)` to set the high resolution in the script, and the Retina display will be turned on by default when you build to the Web platform.
+
 ## Release a game on Web server
 
 If you want to release or share your games on the Internet, click the **Open** button next to **Build path**. After opening the release path, copy everything in the built `web-mobile` or `web-desktop` folders, and drop them into your Web server. Then you can see the game later there.
