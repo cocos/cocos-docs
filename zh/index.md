@@ -8,6 +8,7 @@
 
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
 - 从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，绝大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](release-notes/raw-asset-migration.md)。
+- 从 v1.10 开始，Cocos Creator 支持微信小游戏平台代码分包，请参阅 [代码分包加载](scripting/subpackage.md)。
 - 从 v1.9 开始，Cocos Creator 支持发布到 [Facebook Instant Games](publish/publish-fb-instant-games.md) 及 [QQ 玩一玩](publish/publish-qqplay.md)。
 - 从 v1.8 开始，Cocos Creator 支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.md)。
 - Cocos Creator 还支持导出场景和 UI 到 Cocos2d-x，请参阅 [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)。
