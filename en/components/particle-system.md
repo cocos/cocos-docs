@@ -74,7 +74,3 @@ Please refer to the script interface of the Particle System [Particle System API
 | RotatePerSVar      | Variation of the degress to rotate a particle around the source pos per second.
 | SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)   
 | DstBlendFactor     | Specify the destination Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)  
-
-## Note
-
-At present, due to the performance of Color rendering for each particle texture in Canvas, it is very expensive. So it is recommended that under Canvas rendering mode, the number of particles should not be too large, and try to keep it within 200, otherwise it will cause runtime very stuck.

@@ -199,7 +199,7 @@ There still remains some restrictions currently, the most important are:
 
 1. Native platform remote loading does not support resources other than image files
 2. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap (requires AssetBundle support planned in future version)
-3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered, this is due to WebGL security policy restrictions
+3. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and due to WebGL security policy restrictions, in WebGL rendering mode, even if the server allows CORS http request, textures loaded can not be rendered.
 
 ## Assets dependencies and how to release assets
 
