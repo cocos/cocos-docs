@@ -2,7 +2,6 @@
 
 > This article describes the considerations for migrating the old version Creator project to v1.10 in detail.
   If you have never used an older version, you do not need to read this article.
-> At present, v1.10 is still not officially released, the beta version can be downloaded to [forum post posts](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534).
 
 In the [Acquire and load asset](../scripting/load-assets.md) document before v1.10, we have mentioned that Creator resources are divided into [Asset](../scripting/load-assets.md#asset) and [RawAsset](../scripting/load-assets.md#raw-asset). At that time this division was mainly to try to reuse the existing Cocos2d-x base modules, and lowering the barriers for Cocos2d-x users. But we still want to replace all the `RawAsset` into the standard `Asset`, with the development of Creator these two years, it is time to do a round of refactoring. Refactoring simplifies the processing of resources by editors and engines, reduces the volume of `settings.js` files after publication, and improves the user's development experience.
 
