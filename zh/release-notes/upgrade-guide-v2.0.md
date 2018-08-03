@@ -183,6 +183,13 @@ EventTarget：
     });
     eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
 
+另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 cc.eventManager 来监听回调，在 2.0 中我们提供了更简单的方式：
+
+    // 设置事件回调
+    assetsManager.setEventCallback(this.updateCallback.bind(this));
+    // 取消事件回调
+    assetsManager.setEventCallback(null);
+
 ## 3.5 适配模式升级
 
 Cocos Creator 支持多种适配模式，开发者可以通过 Canvas 组件中的设置来管理，其中一种适配模式在 2.0 中有一定的调整，就是同时勾选 Fit Width 和 Fit Height 的模式。
