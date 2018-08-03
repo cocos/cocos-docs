@@ -251,4 +251,4 @@ Cocos Creator 支持多种适配模式，开发者可以通过 Canvas 组件中�
 
 大致的路线图规划如下：
 
-![Cocos Creator 2.0 规划路线图](upgrade-guide-v2.0/road-map.png)
+![Cocos Creator 2.0 规划路线图](upgrade-guide-v2.0/roadmap.png)
