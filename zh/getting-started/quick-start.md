@@ -655,7 +655,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
         // 跳跃音效资源
         jumpAudio: {
             default: null,
-            type: cc.AudioClip
+            url: cc.AudioClip
         },
     },
 ```
@@ -692,7 +692,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
         // 得分音效资源
         scoreAudio: {
             default: null,
-            type: cc.AudioClip
+            url: cc.AudioClip
         }
     },
 ```
