@@ -1,5 +1,6 @@
 # Advanced Topics
 
+- [Resource management considerations - meta](meta.md)
 - [JSB 2.0 Guide](jsb/JSB2.0-learning.md)
 - Hot Update
   - [Hot update tutorial](hot-update.md)
