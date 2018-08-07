@@ -1,5 +1,6 @@
 # 进阶主题
 
+- [资源管理注意事项 - meta 文件](meta.md)
 - [JSB 2.0 使用指南](jsb/JSB2.0-learning.md)
 - 热更新
   - [热更新范例教程](hot-update.md)
