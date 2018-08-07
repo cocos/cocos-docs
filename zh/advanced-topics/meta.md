@@ -1,9 +1,7 @@
-# 资源管理注意事项 --- meta 相关
+# 资源管理注意事项 --- meta 文件
 
-> 来源：公众号（奎特尔星球）
-> 作者： ShawnZhang
-> 版权归原作者所有！
-> Creator 已获得作者转载授权
+> 本文全文转载自 [微信公众号：奎特尔星球](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg)，转载前已获得作者授权
+> 作者：ShawnZhang
 
 Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同名的 meta 文件，相信大家一定不会太陌生。理解 Creator 生成 meta 文件的作用和机理，能帮助您和您的团队解决在多人开发时常会遇到的资源冲突、文件丢失、组件属性丢失等问题。那 meta 文件是做什么用的呢？下面我们来了解一下。
 

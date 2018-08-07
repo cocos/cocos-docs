@@ -189,7 +189,7 @@
     - [Custom Element Reference](extension/reference/custom-element-reference.md)
     - [Builtin IPC Message Reference](extension/reference/ipc-reference.md)
 - [Advanced Topics](advanced-topics/index.md)
-    - [Resource management considerations - meta](advanced-topics/meta.md)
+    - [Resource management considerations - meta files](advanced-topics/meta.md)
     - [JSB 2.0 Guide](advanced-topics/jsb/JSB2.0-learning.md)
     - [C++/Lua Support](advanced-topics/cpp-lua.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
