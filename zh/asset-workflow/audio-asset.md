@@ -6,8 +6,7 @@
 
 ## 关于声音的加载模式
 
-**音频的加载方式只影响 Web 平台上的加载效果** <br>
-由于各个 Web 平台实现标准的进度不一致，所以提供了两种声音资源的加载方式。
+在资源管理器内选中一个 audio，属性检查器内会有加载模式的选项。**这个选项只对 Web 平台有效**
 
 ### Web Audio
 
@@ -27,30 +26,27 @@
 
 如果是比较大的音频如背景音乐，建议使用 DOM Audio
 
-## 手动选择按某种解析方式加载音频
+## 动态选择加载模式
 
-有时候我们可能不会使用场景的自动加载或是预加载功能，而是希望自己手动控制 cc.load 资源的加载流程。
-这个时候我们也是可以通过音频资源的 url 来选择加载的方式。
+有时候我们可能不会使用场景的自动加载或是预加载功能，而是希望自己在脚本中通过 cc.loader 进行加载。
 
-### 默认方式加载音频
+### 默认加载模式
 
-音频默认是使用 Web Audio 的方式加载并播放的，只有在不支持的浏览器才会使用 dom 元素加载播放。
+音频默认是使用 Web Audio 的方式加载并播放的，只有在不支持的浏览器才会使用 DOM 模式。
 
 ```js
 cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 ```
 
-### 强制使用 dom element 加载
+### 强制使用 dom 模式加载
 
-1. 在资源管理器内选中一个 audio，属性检查器内会有加载模式的选择
-
-2. 音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM element 的方式加载播放这个音频。
+音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM mode 的方式加载播放这个音频。
 
 ```js
 cc.loader.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
 ```
 
-需要注意的是，如果使用 dom element 加载的音频，在 cc.load 的 cache 中，缓存的 url 也会带有 ?useDom=1。**建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
+需要注意的是，如果是使用 DOM 模式加载的音频，在 cc.loader 的 cache 中，缓存的 url 也会带有 ?useDom=1。**建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
 
 参考：
 
