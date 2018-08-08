@@ -38,7 +38,7 @@
 cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 ```
 
-### 强制使用 dom 模式加载
+### 强制使用 DOM 模式加载
 
 音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM mode 的方式加载播放这个音频。
 

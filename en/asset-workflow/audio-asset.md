@@ -28,7 +28,7 @@ For larger Audio such as background music, DOM Audio is recommended.
 
 ### Dynamically select load mode
 
-Sometimes we may not use the automatic loading or preload function of the scene, but we want to load it through cc.loader in our script.
+Sometimes we may not use the automatic loading or preload function of the scene, but we want to load it through `cc.loader` in our script.
 
 #### default load mode
 
