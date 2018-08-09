@@ -13,19 +13,19 @@
 
  1. Start CocosCreator. 
 
- 2. Open **Projec** t-> **Build panel** , select **Android Instant** platform , and **android-instant** template.
+ 2. Open **Projec** --> **Build panel** , select **Android Instant** platform , and **android-instant** template.
 
- 3. If you don't need to refactor or want to experience the publish process , You can hook the **Skip Record & Refactor **box , then click **Build** , **Compile **, connect android phone to computer and then click **Play** , when process complete you can run instant app on the phone.
+ 3. If you don't need to refactor or want to experience the publish process , You can hook the **Skip Record & Refactor **box , then click **Build** , **Compile **, connect android phone to the computer and then click **Play** button, when process complete you can run instant app on the phone.
 
     ![](./publish-android-instant/open-refactor.png)
 
-    4. If you need  **refactor** , you can click **Record** button and simulator will be opened. The simulation will automatically record the resources used . What we need to do is to play the game according to our game flow and let the simulator record resources information.
+    4. If you need  **refactor** , you can click **Record** button and simulator will be opened. The simulatior will automatically record the resources used . What we need to do is to play the game according to our game flow and let the simulator record resources information.
 
        ![](./publish-android-instant/record.png)
 
     5. After the recording is completed, click on the **Refactor**, the Refactor panel will be opened. In this panel, we can complete the refactor operation.(please see the following introduction  **Refactor** for more detail)
 
-    6. After we do the **Refactor**, we need to select the path of our record in the **record config path**, click the **...** button and select the record we just create.(the records path is in `path_to_your_project/temp/android-instant-games/profiles`, and we delete the record that we don't need by delete the record folder)
+    6. After we do the **Refactor**, we need to select the path of our record in the **record config path**, click the **...** button and select the record we just create.(the records path is in `path_to_your_project/temp/android-instant-games/profiles`, and we delete the record we don't need by deleting the record folder)
 
        ![](publish-android-instant/refactor_record.png)
 
@@ -35,7 +35,7 @@
 
 ## Refactor
 
-The **Refactor** is used to edit the first package of the game and select the resources to be placed in the first package.
+The **Refactor** is used to edit the first package of the game and select the resources to be placed into the first package.
 
 ![](publish-android-instant/refactor_desc.png)
 
@@ -51,7 +51,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
    ![](publish-android-instant/refactor_select.png)
 
-5. If some resources are not in the first package, but we want to put it in the first package, we can click the **+Manual** button to open **Manual** panel, the rest of the resources will be presented here. Check the resources you need to put into the first package and click the **Save** button you will find it add to the first panel.
+5. If some resources are not in the first package, but we want to put it in the first package, we can click the **+Manual** button to open **Manual** panel, the rest of the resources will be presented here. Check the resources you need to put into the first package and click the **Save** button, you will find it add to the Refactor panel.
 
    ![](publish-android-instant/refactor_manual.png)
 
@@ -65,17 +65,17 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 ### Several major configurations description
 
-- **Server Address**: CocosCreator will go to this address to download resources tha are not in the first package. we can put remote_res (resource path:`build/android-instant/remote_res`) on our servers or CDN.
+- **Server Address**: CocosCreator will use this address to download resources that are not in the first package. we can put remote_res (remote_res path:`build/android-instant/remote_res`) on our servers or CDN.
 
-- **Default URL**: Android will load your instant app by this URL.(see more detail: <a href="https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app">Android Instant App Docs</a>)
+- **Default URL**: Android will load your instant app by this URL.(for more information: <a href="https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app">Android Instant App Docs</a>)
 
-- **Record Config Path**: CocosCreator will use this crecord config to generate first package and remote_res folder.
+- **Record Config Path**: CocosCreator will use this record config to generate first package and remote_res folder.
 
   
 
 ## Instant Cookie API
 
-We have provided some APIs to make it easier for developers to call some of Google's features directly, we support Google Cookie API now.(CocosCreator Cookie API Demo: <a href="https://github.com/wuzhiming/AndroidInstantCookieDemo">**AndroidInstantCookieDemo**</a>)
+We have provided some APIs to make it easier for developers to call some of Google's API directly, we now support Google Cookie API.(CocosCreator Cookie API Demo: <a href="https://github.com/wuzhiming/AndroidInstantCookieDemo">**AndroidInstantCookieDemo**</a>)
 
 - cc.androidInstant.showInstallPrompt()   For more information, please visit：<a href="https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)t">showInstallPrompt</a>
 
