@@ -8,11 +8,10 @@ Let's assume we are at a component script and use `this.node` to access current 
 
 ### Activate/Deactivate node
 
-The node is active by default. In addition to switching the activating state of a node in the editor, you can also use the following code:
+The node is active by default. In addition to switching the activating state of a node in the editor, you can also use the following code.
+The code is targeted at the node. If the any **parent node** of the node was previously deactivated, then the node is **inactivated**, executing the line code would not trigger any behavior at this time. If all the **parent nodes** of the node are activated, that is, the **parent nodes** is active, then the node is in an **activatable** state. At this point, it is valid to execute code on the node at this point.
 
 `this.node.active = true;`
-
-If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time.
 
 This operation will activate node, means:
 - Show current node and all child nodes in scene, unless child node is deactivated seperately.
@@ -20,8 +19,6 @@ This operation will activate node, means:
 - If there's an `onEnable` method in these component, it will be called.
 
 `this.node.active = false;`
-
-If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time.
 
 If all of the node's parent nodes were previously activated, executing the line code at this point means:
 - Hide current node and all child nodes in scene.
@@ -34,13 +31,13 @@ Assume the parent node is `parentNode`, child node is `this.node`
 
 You can do:
 
-```
+```js
 this.node.parent = parentNode;
 ```
 
 or
 
-```
+```js
 this.node.removeFromParent(false);
 parentNode.addChild(this.node);
 ```
