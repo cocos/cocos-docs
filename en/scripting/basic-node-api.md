@@ -8,19 +8,26 @@ Let's assume we are at a component script and use `this.node` to access current 
 
 ### Activate/Deactivate node
 
-The node is active by default. In addition to switching the activating state of a node in the editor, you can also use the following code.
-The code is targeted at the node. If the any **parent node** of the node was previously deactivated, then the node is **inactivated**, executing the line code would not trigger any behavior at this time. If all the **parent nodes** of the node are activated, that is, the **parent nodes** is active, then the node is in an **activatable** state. At this point, it is valid to execute code on the node at this point.
+The node is active by default, we can set its activation state in the code by setting the node's `active` property.
+
+`this.node.active = false;`
+
+The effect of setting the `active` property is the same as switching the activation and shutdown status of the node in the editor.  When a node is closed, all of its components are disabled. At the same time, all of its child nodes and the components on the child nodes are also disabled. Note that when the child nodes are disabled, they do not change their `active` properties, so they return to their original state when the parent node is reactivated.
+
+In other words, `active` is actually the activation state of the node itself, and whether the node is currently active depends on its parent node. And if it is not in the current scene, it cannot be activated. We can determine whether it is currently active through the read-only attribute `activeInHierarchy` on the node.
 
 `this.node.active = true;`
 
-This operation will activate node, means:
-- Show current node and all child nodes in scene, unless child node is deactivated seperately.
+If the node was previously in an active state, modifying `active` to true immediately triggers the activation action:
+
+- Reactivate the node in the scene, and all child nodes that are active to true under the node
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
 
 `this.node.active = false;`
 
-If all of the node's parent nodes were previously activated, executing the line code at this point means:
+If the node was previously activated, modifying `active` to false immediately triggers the close action:
+
 - Hide current node and all child nodes in scene.
 - Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
 - If there's an `onDisable` method in these component, it will be called.
