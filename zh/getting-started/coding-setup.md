@@ -44,7 +44,8 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 ### 设置文件显示和搜索过滤
 
-在 VS Code 的主菜单中选择 `文件 -> 首选项 -> 设置`，这个操作会打开用户配置文件，在配置文件中加入以下内容：
+在 VS Code 的主菜单中选择 `文件（Windows）／Code（Mac）-> 首选项 -> 设置`，或者选择左下角 ![gear.png](coding-setup/gear.png) 中的 `Setting`，这个操作会打开用户配置文件 `USER SETTINGS`，在配置文件中加入以下内容：
+
 ```json
 {
     "search.exclude": {
