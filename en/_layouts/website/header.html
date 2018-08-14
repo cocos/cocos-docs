@@ -34,7 +34,7 @@
 {% endfor %}   
     </ul>
 </div>
-<div class="book-header" id="book-header" role="navigation">
+<div class="book-header" role="navigation">
     {% if glossary.path %}
     <a href="{{ ('/' + glossary.path)|resolveFile }}" class="btn pull-left" aria-label="{{ "GLOSSARY_OPEN"|t }}"><i class="fa fa-sort-alpha-asc"></i></a>
     {% endif %}

@@ -7,6 +7,7 @@
         "anchorjs",
         "sharing",
         "splitter",
+        "theme-default-customize@git+https://github.com/cocos-creator/theme-default.git",
         "expandable-chapters-small@git+https://github.com/cocos-creator/gitbook-plugin-expandable-chapters-small.git"
     ],
     "styles": {
