@@ -185,3 +185,9 @@ class BuildResults {
     }
 }
 ```
+
+#### Example - Traverse built textures
+
+Link: <https://github.com/cocos-creator/demo-process-build-textures>
+
+This project contains a build plugin that shows you how to traverse the various types of textures in your project during the build process, and then output the paths they build so that you can further process these built textures.

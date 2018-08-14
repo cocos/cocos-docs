@@ -248,6 +248,6 @@ In addition, you can read directly:
 
 For an unknown type of file imported from the editor, originally imported as an untyped `cc.RawAsset`, it will now be imported as `cc.Asset`. The declaration method is the same as above, changing `url: cc.RawAsset` to `type: cc.Asset`. The original URL can also be accessed in the same manner as `asset.nativeUrl`. The original url can also be accessed in the same manner as `asset.nativeUrl`.
 
-## Feedback question
+### If you need to compress the built textures
 
-If there are other upgrade issues, click `Submit Feedback` in the lower right corner of the page to submit an issue directly to the GitHub repository in this document. Or reply in [Forum Posts](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534).
+Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some tweaking of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.

@@ -246,6 +246,6 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 
 对从编辑器导入的未知类型的文件来说，原先都是导入为无类型的 `cc.RawAsset`，现在会导入为 `cc.Asset`。声明方法和上面一样，将 `url: cc.RawAsset` 改为 `type: cc.Asset`，访问时也同样采用 `asset.nativeUrl` 这样的方式获得原始 url 即可。
 
-## 反馈问题
+### 如果需要对构建后的图片重新进行压缩
 
-如果还有其它升级问题，可点击页面右下角的"提交反馈"，跳转到本文档的 GitHub 仓库提交 issue，或者在 [论坛发布帖](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534) 里回复。
+从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。这需要对你的构建流程做一些调整，请参考范例 <https://github.com/cocos-creator/demo-process-build-textures>。
