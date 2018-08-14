@@ -250,4 +250,4 @@ For an unknown type of file imported from the editor, originally imported as an 
 
 ### If you need to compress the built textures
 
-Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some tweaking of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.
+Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.
