@@ -44,7 +44,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 ### Setup File Tree and Search Filter
 
-Choose `Code -> Preferences -> Settings` from VS Code main menu. The user settings file will be opened for edit. Let's add the following content:
+Choose `Code (Mac) / File (Windows) -> Preferences -> Settings` from VS Code main menu, or in the lower left corner of the ![gear.png](coding-setup/gear.png) selection `Setting`. The `USER SETTINGS` file will be opened for edit. Let's add the following content:
 
 ```json
 {
