@@ -41,7 +41,7 @@ const START_TAG = '\n\n## CC_HIDE_IN_SUMMARY_START';
 const END_TAG = '## CC_HIDE_IN_SUMMARY_END\n';
 const START_TAG_IGNORE = '\n\nCC_IGNORE_START';
 const END_TAG_IGNORE = '\nCC_IGNORE_END';
-const PRUNE_LEFT_BAR_RE = /<[^<>]*>\s*CC_HIDE_IN_SUMMARY_START\s*<\/[^<>]*>(?:\n|.)*<[^<>]*>\s*CC_HIDE_IN_SUMMARY_END\s*<\/[^<>]*>/g;
+const PRUNE_LEFT_BAR_RE = /<[^<>]*>\s*CC_HIDE_IN_SUMMARY_START\s*<\/[^<>]*>(?:\n|\r|.)*<[^<>]*>\s*CC_HIDE_IN_SUMMARY_END\s*<\/[^<>]*>/g;
 const PAGE_TITLE_RE = /^\s*(?:<!--(?:\n|.)*?-->\s*)*#*\s*(.*?)\s*\n/;
 
 function parseListedPages (summaryPath) {
@@ -163,8 +163,13 @@ function pruneLeftBar (dir) {
     for (var i = 0; i < allPages.length; ++i) {
         var path = allPages[i];
         var content = Fs.readFileSync(path, 'utf8');
-        content = content.replace(PRUNE_LEFT_BAR_RE, '');
-        Fs.writeFileSync(path, content, 'utf8');
+        var result = content.replace(PRUNE_LEFT_BAR_RE, '');
+        if (content !== result) {
+            Fs.writeFileSync(path, result, 'utf8');
+        }
+        else {
+            throw 'Prune Summary Failed!';
+        }
     }
 }
 
