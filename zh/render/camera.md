@@ -96,7 +96,9 @@ camera.cullingMask = 0xffffffff;
 
 // 新建一个 RenderTexture，并且设置 camera 的 targetTexture 为新建的 RenderTexture，这样 camera 的内容将会渲染到新建的 RenderTexture 中。
 let texture = new cc.RenderTexture();
-texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height);
+let gl = cc.game._renderContext;
+// 如果截图内容中不包含 Mask 组件，可以不用传递第三个参数
+texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height, gl.STENCIL_INDEX8);
 camera.targetTexture = texture;
 
 // 渲染一次摄像机，即更新一次内容到 RenderTexture 中
@@ -129,4 +131,10 @@ img.src = dataURL;
 
 ```
 
-具体可以参考 [案例](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)
+## 微信中的截图
+
+注意，微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染完出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+
+## 案例
+
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)，从编辑器创建范例合集项目可以看到实际运行效果。
