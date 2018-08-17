@@ -2,18 +2,74 @@
 
 微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
 
-Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，下面介绍使用流程。
-
-## 准备工作
-
 由于开放数据域是一个封闭、独立的 JavaScript 作用域，所以开发者需要创建两个项目：
 
 - 主域项目工程（正常的游戏项目）
 - 开放数据域项目工程（通过微信 API 获取用户数据来做排行榜等功能的项目）
 
+在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的微信 build 包中，就可以作为完整的微信工程在模拟器和真机上进行预览调试了。
+
+Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1 中做了一次重要更新，两个版本之间的使用方式不同，下面分别介绍。
+
+# 新版本开放数据域发布
+
+适用于 v2.0.1 及更高版本，v1.9.1 到 v2.0.0 版本请参考[旧版本开放数据域发布](./publish-wechatgame-sub-domain.md#旧版本开放数据域发布)。
+
 ## 整合方法
 
-- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。
+- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。整个开放数据域项目只应该包含其内容 UI，并且应该将场景中 Canvas 组件的设计分辨率设置为 UI 的完整分辨率，不需要对应主域的分辨率。
+- 主域中创建一个节点作为开放数据域容器，添加 WXSubContextView 组件用于设置开放数据域视窗以及更新开放数据域贴图，这个节点的宽高比应该等于开放数据域设计分辨率的宽高比（否则会出现拉伸）。
+
+与之前版本的不同之处在于：
+
+1. 可以完全自由控制开放数据域的尺寸，降低分辨率提高性能，提高分辨率优化效果，都可以轻松在子域中完成。
+2. 开放数据域的内容将被直接缩放到主域的容器节点区域内，只要宽高比一致就不会产生拉伸。
+3. 开放数据域的事件响应由引擎处理好，用户不需要关心。
+4. 开放数据域的贴图更新由引擎处理，用户不需要关心。
+
+## 发布步骤
+
+一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
+
+![](./publish-wechatgame/maintest-build.png)
+
+该步骤会帮用户自动配置到主域项目 `build -> wechatgame -> game.json` 中，用于辨别开放数据域文件在主域发布包下的所在目录。
+
+![](./publish-wechatgame/game-json.png)
+
+二、打开开放数据域项目，打开构建发布面板，选择 `Wechat Game Open Data Context` 平台。
+
+三、**发布路径** 设置为主域中填入的 [开放数据域代码目录] 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
+
+**注意** ：**游戏名称** 必须和主域项目中设置的 [开放数据域代码目录] 名称一致。
+
+![](./publish-wechatgame/open-data-project-build.png)
+
+或者可以不修改 **发布路径**，在开放数据域项目构建完成后手动将发布包拷贝到主域项目的发布包目录下。如下图所示：
+
+![](./publish-wechatgame/package.png)
+
+四、在主域项目工程中点击 [运行] 调起微信开发者工具，即可按照之前微信小游戏的正常流程进行发布和调试。
+
+![](./publish-wechatgame/preview.png)
+
+**注意：如果先发布开放数据域域再发布主域，那么开放数据域的发布代码会被覆盖，我们会在后续版本优化体验**
+
+## 参考链接
+
+Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
+
+[微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+
+---------------------
+
+# 旧版本开放数据域发布
+
+适用于 v1.9.1 到 v2.0.0 版本。
+
+## 整合方法
+
+- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。子域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
 - 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D ，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
 
 **主域代码范例：**
@@ -72,6 +128,6 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，下面介�
 
 ## 参考链接
 
-Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
+Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) 包含了微信开放数据域的使用示例。
 
 [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
