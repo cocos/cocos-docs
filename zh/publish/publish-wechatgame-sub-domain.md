@@ -27,6 +27,15 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 3. 开放数据域的事件响应由引擎处理好，用户不需要关心。
 4. 开放数据域的贴图更新由引擎处理，用户不需要关心。
 
+## 模块选择
+
+由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置[项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
+
+- Sprite
+- Label
+- Graphics
+- Mask
+
 ## 发布步骤
 
 一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
@@ -71,6 +80,15 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 - 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。子域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
 - 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D ，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
+
+## 模块选择
+
+由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置[项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
+
+- Sprite
+- Label
+- Graphics
+- Mask
 
 **主域代码范例：**
 
