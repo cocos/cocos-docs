@@ -86,6 +86,7 @@
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到微信小游戏平台](publish/publish-wechatgame.md)
+    - [发布到微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
     - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
     - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
     - [定制项目构建流程](publish/custom-project-build-template.md)

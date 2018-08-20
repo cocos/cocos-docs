@@ -27,7 +27,9 @@
 4. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
 5. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
 6. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
-7. 不支持 IE 11。在 2.0.1 中修复。
+7. RichText 暂不支持通过节点颜色修改颜色。
+8. Native 平台暂不支持 VideoPlayer 和 WebView 组件
+9. 不支持 IE 11。在 2.0.1 中修复。
 
 # 2. 编辑器升级
 
@@ -70,7 +72,7 @@
 
 在这个架构下，1.x 那样的使用方式就不再可行了，无法直接指定 Camera 对应的 target，而是通过设置节点 Group 和 Camera 的 culling mask 来设置节点和 Camera 匹配关系。
 
-具体的改动，开发者们可以参考 [2.0 Camera 使用文档](http://docs.cocos.com/creator/2.0/manual/zh/render/camera.html)。
+具体的改动，开发者们可以参考 [2.0 Camera 使用文档](../render/camera.md)。
 
 ## 2.4 构建面板更新
 
@@ -79,6 +81,10 @@
 ![2.0 微信小游戏开放数据域发布面板](upgrade-guide-v2.0/wechat-open-data.png)
 
 可以看到，构建选项比其他平台要简单许多，这是因为开放数据域的环境特殊，去除了不必要的选项。同时，由于开放数据域不支持 WebGL 渲染，所以在引擎模块裁剪上，不论用户怎么设置，WebGL 渲染器都会被剔除，同时依赖于 WebGL 渲染的所有模块都会被剔除。其他模块，仍然需要用户自己选择来尽量争取在打到开放数据域中的最小包体。
+
+同理，在构建其他平台时，请不要勾选 Canvas Renderer，因为 Canvas 渲染器支持的渲染组件不多，意义已经不大了。
+
+从 v2.0.1 开始，我们更新了开放数据域解决方案，具体请参考[接入小游戏开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
 ## 2.5 模块设置
 
@@ -214,7 +220,7 @@ Cocos Creator 支持多种适配模式，开发者可以通过 Canvas 组件中�
 
 ## 3.6 RenderTexture 截图功能
 
-在 1.x 中，开发者一般通过 cc.RenderTexture 来完成截图功能，但是这是属于旧版本渲染树中的一个功能，在我们去除渲染树后，截图功能的使用方式也完全不同了。简单来说，2.0 中 cc.RenderTexture 变成了一个资源类型，继承自贴图（cc.Texture）资源。开发者通过将某个摄像机内容渲染到 cc.RenderTexture 资源上完成截图，具体的使用方式参考 [Camera 文档截图章节](http://docs.cocos.com/creator/2.0/manual/zh/render/camera.html#%E6%88%AA%E5%9B%BE)。
+在 1.x 中，开发者一般通过 cc.RenderTexture 来完成截图功能，但是这是属于旧版本渲染树中的一个功能，在我们去除渲染树后，截图功能的使用方式也完全不同了。简单来说，2.0 中 cc.RenderTexture 变成了一个资源类型，继承自贴图（cc.Texture）资源。开发者通过将某个摄像机内容渲染到 cc.RenderTexture 资源上完成截图，具体的使用方式参考 [Camera 文档截图章节](../render/camera.html#%E6%88%AA%E5%9B%BE)。
 
 ## 3.7 TiledMap 功能简化
 
