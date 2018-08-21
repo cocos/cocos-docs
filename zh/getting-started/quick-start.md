@@ -76,7 +76,6 @@
 
 更详细的信息请阅读 [Canvas 组件参考](../components/canvas.md)。目前我们只要知道接下来添加的场景图像都会放在 `Canvas` 节点下面就可以了。
 
-
 ## 设置场景图像
 
 ### 添加背景
@@ -99,7 +98,7 @@
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的紫色线框。然后再用同样的方法将 `background` 的右边向右拖拽。
+使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的紫色线框。      然后再用同样的方法将 `background` 的右边向右拖拽。
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -149,10 +148,10 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
 
 ### 创建脚本
 
-1. 首先在 **资源管理器** 中右键点击 `assets` 文件夹，选择 `新建->文件夹`
+1. 首先在 **资源管理器** 中右键点击 `assets` 文件夹，选择 `新建 -> 文件夹`
 
     ![new folder](quick-start/new_folder.png)
-2. 生成一个 `New Folder` 文件夹，将其改名为 `scripts`，之后我们所有的脚本都会存放在这里
+2. 右键点击 `New Folder`，选择 `重命名` 将其重命名为 `scripts`，之后我们所有的脚本都会存放在这里
 3. 右键点击 `scripts` 文件夹，选择 `新建 -> JavaScript`，创建一个 `JavaScript` 脚本
 4. 将新建脚本的名字改为 `Player`，双击这个脚本，打开代码编辑器
 
@@ -183,7 +182,6 @@ cc.Class({
         //     }
         // },
     },
-
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
@@ -191,12 +189,11 @@ cc.Class({
     start () {
 
     },
-
     // update (dt) {},
 });
 ```
 
-我们来大概了解一下这些代码的作用。首先我们可以看到一个包裹了全局的 `cc.Class()` 方法，什么是 `cc` 呢？`cc` 是 Cocos 的简称，Cocos 引擎的主要命名空间，引擎代码中所有的类、函数、属性和常量都在这个命名空间中定义。而 `Class()` 就是 `cc` 模块下的一个方法，这个方法用于声明 Cocos Creator 中的类。为了方便区分，我们把使用 `cc.Class` 声明的类叫做 `CCClass`。`Class()` 方法的参数是一个原型对象，在原型对象中以键值对的形式设定所需的类型参数，就能创建出所需要的类。
+我们来大概了解一下这些代码的作用。首先我们可以看到一个全局的 `cc.Class()` 方法，什么是 `cc` 呢？`cc` 是 Cocos 的简称，Cocos 引擎的主要命名空间，引擎代码中所有的类、函数、属性和常量都在这个命名空间中定义。而 `Class()` 就是 `cc` 模块下的一个方法，这个方法用于声明 Cocos Creator 中的类。为了方便区分，我们把使用 `cc.Class` 声明的类叫做 `CCClass`。`Class()` 方法的参数是一个原型对象，在原型对象中以键值对的形式设定所需的类型参数，就能创建出所需要的类。
 
 **例如：**
 
@@ -204,7 +201,7 @@ cc.Class({
     var Sprite = cc.Class({
         name: "sprite"
     });
-``` 
+```
 
 以上代码用 `cc.Class()` 方法创建了一个类型，并且赋给了 `Sprite` 变量。同时还将类名设为 `sprite`。类名用于序列化，一般可以省略。
 
@@ -268,7 +265,7 @@ Cocos Creator 规定一个节点具有的属性都需要写在 `properties` 代�
 
 在 Cocos Creator 中，**动作** 简单来说就是 **节点的位移、缩放和旋转**。
 
-例如在上面的代码中，`moveBy()` 方法的作用是在规定的时间内移动指定的一段距离，第一个参数就是我们之前定义主角属性中的跳跃时间，第二个参数是一个 Vec2（表示 2D 向量和坐标）类型的对象，为了更好的理解，我们可以看看官方给的函数官方说明：
+例如在上面的代码中，`moveBy()` 方法的作用是在规定的时间内移动指定的一段距离，第一个参数就是我们之前定义主角属性中的跳跃时间，第二个参数是一个 Vec2（表示 2D 向量和坐标）类型的对象，为了更好的理解，我们可以看看官方给的函数说明：
 
 ```js
 /**
@@ -327,7 +324,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
     setJumpAction: function () {
         //...
     },
-     
+
     onKeyDown (event) {
         // set a flag when key pressed
         switch(event.keyCode) {
@@ -339,7 +336,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
                 break;
         }
     },
-    
+
     onKeyUp (event) {
         // unset a flag when key released
         switch(event.keyCode) {
@@ -410,7 +407,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 感觉移动起来有点迟缓？主角跳的不够高？希望跳跃时间长一些？没问题，这些都可以随时调整。只要为 `Player` 组件设置不同的属性值，就可以按照您的想法调整游戏。这里有一组设置可供参考：
 
-```
+```js
 Jump Height: 150
 Jump Duration: 0.3
 Max Move Speed: 400
@@ -423,7 +420,7 @@ Accel: 1000
 
 主角现在可以跳来跳去了，我们要给玩家一个目标，也就是会不断出现在场景中的星星，玩家需要引导小怪兽碰触星星来收集分数。被主角碰到的星星会消失，然后马上在随机位置重新生成一个。
 
-### 制作Prefab
+### 制作 Prefab
 
 对于需要重复生成的节点，我们可以将他保存成 **Prefab（预制）** 资源，作为我们动态生成节点时使用的模板。关于 **Prefab** 的更多信息，请阅读 [预制资源（Prefab）](../asset-workflow/prefab.md)。
 
@@ -497,12 +494,12 @@ properties: {
 }
 ```
 
-以上代码为 `score 属性` 设置了三个参数 default、 displayName 和 tooltip。这几个参数分别指定了 `score` 的默认值（default）为 0，在 **属性检查器** 里，其属性名（displayName）将显示为 `Score (player)`，并且当鼠标移到参数上时，显示对应的 `Tooltip`。
+以上代码为 `score` 属性设置了三个参数 default、 displayName 和 tooltip。这几个参数分别指定了 `score` 的默认值（default）为 0，在 **属性检查器** 里，其属性名（displayName）将显示为 `Score (player)`，并且当鼠标移到参数上时，显示对应的 `Tooltip`。
 
 下面是常用参数：
 
 `default`：设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
-`type`：限定属性的数据类型，详见 CCClass 进阶参考：type 参数<br>
+`type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.html#type-%E5%8F%82%E6%95%B0)<br>
 `visible`：设为 false 则不在属性检查器面板中显示该属性<br>
 `serializable`： 设为 false 则不序列化（保存）该属性<br>
 `displayName`：在属性检查器面板中显示成指定名字<br>
@@ -562,10 +559,11 @@ starPrefab: {
 ```
 
 这里需要注意几个问题：
+
 1. 节点下的 `y` 属性对应的是锚点所在的 `y` 坐标，因为锚点默认在节点的中心，所以需要加上地面高度的一半才是地面的 `y` 坐标
 2. **instantiate** 方法的作用是：克隆指定的任意类型的对象，或者从 Prefab 实例化出新节点，返回值为 Node 或者 Object
-3. Node 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上 
-4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。第一：传入两个数值 x 和 y，第二：传入 `cc.v2(x, y)` 类型为 `cc.Vec2` 的对象
+3. Node 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上
+4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。一是传入两个数值 x 和 y，二是传入 `cc.v2(x, y)`（类型为 `cc.Vec2` 的对象)
 5. 通过 Node 下的 `getComponent` 方法可以得到该节点上挂载的组件引用
 
 保存脚本以后点击 **预览游戏** 按钮，在浏览器中可以看到，游戏开始后动态生成了一颗星星！用同样的方法，您可以在游戏中动态生成任何预先设置好的以 `Prefab` 为模板的节点。
@@ -849,7 +847,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
 };
 ```
 
-我们可以看到 `callFunc` 方法可以传入三个参数，第一个参数是方法的 `selector`，我们可以理解为方法名。第二个参数是 `Object` 类型，一般填入 `this`。第三个参数为带回的数据，可以是所有的数据类型，可以不填。我们再注意到这个方法的返回值 —— `ActionInstant`，这是一个瞬间执行的动作类。到这里我们就可以理解了，使用 `callFunc` 调用回调函数可以让函数转变为 `cc` 中的 `Action`（动作），这一用法在 `cc` 的动作系统里非常实用！例如在上面我们将播放声音的函数传入 `callFunc` 赋值给 `callBack`，让 `callBack` 成为了一个播放声音的动作 `Action`，那么我们之后就能通过 `cc.sequence` 将跳跃和播放声音的动作组合起来，实现每跳一次就能播放音效的功能！
+我们可以看到 `callFunc` 方法可以传入三个参数，第一个参数是方法的 `selector`，我们可以理解为方法名。第二个参数是 `Object` 类型，一般填入 `this`。第三个参数为带回的数据，可以是所有的数据类型，可以不填。我们再注意到这个方法的返回值 —— `ActionInstant`，这是一个瞬间执行的动作类。到这里我们就可以理解了，使用 `callFunc` 调用回调函数可以让函数转变为 `cc` 中的 `Action`（动作），这一用法在 `cc` 的动作系统里非常实用！例如在上面我们将播放声音的函数传入 `callFunc` 赋值给 `callback`，让 `callback` 成为了一个播放声音的动作 `Action`，那么我们之后就能通过 `cc.sequence` 将跳跃和播放声音的动作组合起来，实现每跳一次就能播放音效的功能！
 
 ### 得分音效
 
