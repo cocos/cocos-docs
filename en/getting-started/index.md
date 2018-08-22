@@ -14,7 +14,7 @@ In this chapter:
 - [Quick Start: Create Your First Game](quick-start.md)
 - [Cocos2d-x User Guide](cocos2d-x-guide.md)
 - [Get Help and Support](support.md)
-- [v1.10 Resource Upgrade Guide](../release-node/raw-asset-migration.md)
+- [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.md)
 - [FAQ](faq.md)
 
 ---

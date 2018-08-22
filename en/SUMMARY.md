@@ -25,7 +25,7 @@
     - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
-    - [v1.10 Resource Upgrade Guide](release-node/raw-asset-migration.md)
+    - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
     - [FAQ](getting-started/faq.md)
 
 ## Workflows
