@@ -8,7 +8,7 @@
 
 1. 开始一个计时器
 
-    ```
+    ```js
     component.schedule(function() {
         // 这里的 this 指向 component
         this.doSomething();
@@ -19,7 +19,7 @@
 
 2. 更灵活的计时器
 
-    ```
+    ```js
     // 以秒为单位的时间间隔
     var interval = 5;
     // 重复次数
@@ -36,7 +36,7 @@
 
 3. 只执行一次的计时器（快捷方式）
 
-    ```
+    ```js
     component.scheduleOnce(function() {
         // 这里的 this 指向 component
         this.doSomething();
@@ -49,7 +49,7 @@
 
     开发者可以使用回调函数本身来取消计时器：
 
-    ```
+    ```js
     this.count = 0;
     this.callback = function () {
         if (this.count === 5) {
@@ -62,6 +62,8 @@
     component.schedule(this.callback, 1);
     ```
 
+**注意**：组件的计时器调用回调时，会将回调的 `this` 指定为组件本身，因此回调中可以直接使用 `this`。
+
 下面是 Component 中所有关于计时器的函数：
 
 - schedule：开始一个计时器
@@ -69,8 +71,8 @@
 - unschedule：取消一个计时器
 - unscheduleAllCallbacks：取消这个组件的所有计时器
 
-这些 API 的详细描述都可以在 [Component API](../../../api/zh/classes/Component.html) 文档中找到。
+这些 API 的详细描述都可以在 [Component API](http://docs.cocos.com/creator/api/zh/classes/Component.html) 文档中找到。
 
-除此之外，如果需要每一帧都执行一个函数，请直接在 Component 中添加 `update` 函数，这个函数将默认被每帧调用，这在[生命周期文档](life-cycle-callbacks.md#update)中有详细描述。
+除此之外，如果需要每一帧都执行一个函数，请直接在 Component 中添加 `update` 函数，这个函数将默认被每帧调用，这在 [生命周期文档](life-cycle-callbacks.md#update) 中有详细描述。
 
-### **注意：`cc.Node` 不包含计时器相关 API**
+### 注意：`cc.Node` 不包含计时器相关 API
