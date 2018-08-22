@@ -62,7 +62,7 @@ Now, let's see its detailed using method:
     component.schedule(this.callback, 1);
     ```
 
-**Attention**: When the callback is invoked by the scheduler for the component, the `this` in the callback is assigned as the component itself, so you can use `this` directly in the callback.
+**Attention**: When the callback is invoked by the timer of the component, the `this` of the callback is specified as the component itself, so the `this` can be used directly in the callback.
 
 Below are all the functions of the timer in the component:
 
@@ -71,7 +71,7 @@ Below are all the functions of the timer in the component:
 - unschedule：cancel a timer
 - unscheduleAllCallbacks：cancel all the timers of this component
 
-These detailed descriptions about API can all be found in [Component API](../../../api/en/classes/Component.html).
+These detailed descriptions about API can all be found in [Component API](http://docs.cocos.com/creator/api/en/classes/Component.html).
 
 Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
 
