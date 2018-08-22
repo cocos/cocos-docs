@@ -98,7 +98,7 @@
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
-使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的紫色线框。      然后再用同样的方法将 `background` 的右边向右拖拽。
+使用这个工具我们可以方便的修改图像节点的尺寸，将鼠标移动到 **场景编辑器** 中 `background` 的左边，按住并向左拖拽直到 `background` 的左边超出表示设计分辨率的紫色线框。然后再用同样的方法将 `background` 的右边向右拖拽。
 
 ![resize_background](quick-start/resize_background.png)
 
@@ -494,7 +494,7 @@ properties: {
 }
 ```
 
-以上代码为 `score` 属性设置了三个参数 default、 displayName 和 tooltip。这几个参数分别指定了 `score` 的默认值（default）为 0，在 **属性检查器** 里，其属性名（displayName）将显示为 `Score (player)`，并且当鼠标移到参数上时，显示对应的 `Tooltip`。
+以上代码为 `score` 属性设置了三个参数 default、 displayName 和 tooltip。这几个参数分别指定了 `score` 的默认值（default）为 0，在 **属性检查器** 里，其属性名（displayName）将显示为 `Score (player)`，并且当鼠标移到参数上时，显示对应的 `tooltip`。
 
 下面是常用参数：
 
@@ -503,7 +503,7 @@ properties: {
 `visible`：设为 false 则不在属性检查器面板中显示该属性<br>
 `serializable`： 设为 false 则不序列化（保存）该属性<br>
 `displayName`：在属性检查器面板中显示成指定名字<br>
-`tooltip`：在属性检查器面板中添加属性的 Tooltip
+`tooltip`：在属性检查器面板中添加属性的 tooltip
 
 所以上面的代码:
 
@@ -563,7 +563,7 @@ starPrefab: {
 1. 节点下的 `y` 属性对应的是锚点所在的 `y` 坐标，因为锚点默认在节点的中心，所以需要加上地面高度的一半才是地面的 `y` 坐标
 2. **instantiate** 方法的作用是：克隆指定的任意类型的对象，或者从 Prefab 实例化出新节点，返回值为 Node 或者 Object
 3. Node 下的 `addChild 方法` 作用是将新节点建立在该节点的下一级，所以新节点的显示效果在该节点之上
-4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。一是传入两个数值 x 和 y，二是传入 `cc.v2(x, y)`（类型为 `cc.Vec2` 的对象)
+4. Node 下的 `setPosition 方法` 作用是设置节点在父节点坐标系中的位置，可以通过两种方式设置坐标点。一是传入两个数值 x 和 y，二是传入 `cc.v2(x, y)`（类型为 `cc.Vec2` 的对象）
 5. 通过 Node 下的 `getComponent` 方法可以得到该节点上挂载的组件引用
 
 保存脚本以后点击 **预览游戏** 按钮，在浏览器中可以看到，游戏开始后动态生成了一颗星星！用同样的方法，您可以在游戏中动态生成任何预先设置好的以 `Prefab` 为模板的节点。

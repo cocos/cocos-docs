@@ -80,7 +80,7 @@ For more detailed information, please read [Canvas](../components/canvas.md). Cu
 
 ### Adding a background
 
-First, find the background image resource according to the path of `assets/textures/background` in the **Assets** panel. Click and drag this resource to the `Canvas` node in **Node Tree**. Don't release the mouse until the `Canvas` node is highlighted oran ge, which means a subnode using `background` as the image resource will be added.
+First, find the background image resource according to the path of `assets/textures/background` in the **Assets** panel. Click and drag this resource to the `Canvas` node in **Node Tree**. Don't release the mouse until the `Canvas` node is highlighted orange, which means a subnode using `background` as the image resource will be added.
 
 ![drag to canvas](quick-start/drag_to_canvas.png)
 
@@ -114,7 +114,7 @@ Our main character needs a ground that it can jump on. We will add one instantly
 
 ![drag to order](quick-start/drag_order.png)
 
-In the **Node Tree**, the rendering order of the nodes shown below is at the back of the top node, which means that the node below is drawn after the top node. We can see the `ground` node at the bottom of the **Node Tree**, which appears at the front of the hierarchy in the **Scene**. In addition, the child nodes will always appear before the parent node, and we can adjust the hierarchy order and relationship of the nodes at any time to control their display order.
+In the **Node Tree**, the rendering order of the nodes shown below is at the back of the upper node, which means that the node below is drawn after the upper node. We can see the `ground` node at the bottom of the **Node Tree**, which appears at the front of the hierarchy in the **Scene**. In addition, the child nodes will always appear before the parent node, and we can adjust the hierarchy order and relationship of the nodes at any time to control their display order.
 
 According to the method of modifying the `background` node, we can also use **rectangle tool** to set a suitable size for the `ground` node. When using the **rectangle tool**, you can change the position of the node by dragging the node's vertices and the parts outside the edges. The following figure is the ground node state we set up:
 
@@ -149,7 +149,7 @@ Even if you have never written a program before, there's no need to worry. We wi
 1. First, right click the `assets` folder in the **Assets** panel and choose `Create -> Folder`
 
     ![new folder](quick-start/new_folder.png)
-2. Right click `New Folder`, choose `Rename` and rename it as `scripts`, And then all of our scripts will be stored here.
+2. Right click `New Folder`, choose `Rename` and rename it as `scripts`. And then all of our scripts will be stored here.
 3. Right click the `scripts` folder, choose `Create -> JavaScript` and create a `JavaScript` script.
 4. Rename the newly created script as `Player`. Double click this script and open the code editor.
 
@@ -191,7 +191,7 @@ cc.Class({
 });
 ```
 
-Let's take a look at the role of these codes. First we can see a global `cc.Class()` method, what is `cc`? `cc` is the abbreviation for Cocos, the main namespace of the Cocos engine, and all the classes, functions, properties, and constants in the engine code are defined in this namespace. And `Class()` is a method under the `cc` module, which is used to declare classes in the Cocos Creator. To make it easier to differentiate, we call the class declared with `cc.Class` called `CCClass`. The parameter of the `Class()` method is a prototype object, the required class can be created by setting the desired type parameter in the form of a key-value pair in the prototype object.
+Let's take a look at the role of these codes. First we can see a global `cc.Class()` method, what is `cc`? `cc` is the abbreviation for Cocos, the main namespace of the Cocos engine. And all the classes, functions, properties, and constants in the engine code are defined in this namespace. And `Class()` is a method under the `cc` module, which is used to declare classes in the Cocos Creator. To make it easier to differentiate, we call the class declared with `cc.Class` called `CCClass`. The parameter of the `Class()` method is a prototype object, the required class can be created by setting the desired type parameter in the form of a key-value pair in the prototype object.
 
 **Example**:
 
@@ -491,7 +491,7 @@ properties: {
 }
 ```
 
-The above code sets three parameters for the `score` property default, displayName, and tooltip. These parameters specify the default value of `score` as 0, and the property name (displayName) is displayed as `Score (player)` in the **Properties**, and the corresponding `Tooltip` is displayed when the mouse is moved over the parameter.
+The above code sets three parameters for the `score` property default, displayName, and tooltip. These parameters specify the default value of `score` as 0, and the property name (displayName) is displayed as `Score (player)` in the **Properties**, and the corresponding `tooltip` is displayed when the mouse is moved over the parameter.
 
 Here are the common parameters:
 
