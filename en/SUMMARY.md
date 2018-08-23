@@ -85,6 +85,7 @@
     - [Publish to Native Platforms](publish/publish-native.md)
     - [Debug JavaScript on Native Platform](publish/debug-jsb.md)
     - [Publish to Wechat Mini Games](publish/publish-wechatgame.md)
+        - [Wechat Open Data Context](publish/publish-wechatgame-sub-domain.md)
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
