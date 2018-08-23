@@ -20,7 +20,7 @@ TiledTile 组件可以单独对某一个地图块进行操作。
     //-- 然后：把该节点父节点设置为任意的 layer 节点
     node.parent = this.layer.node;  
     //-- 最后：添加 TiledTile 组件到该节点上返回 TiledTile 对象，就可以对他进行一系列操作
-    var tiledTile node.addComponent(cc.TiledTile);  
+    var tiledTile = node.addComponent(cc.TiledTile);  
     ...
     
     --------------------------------------------------------------------
