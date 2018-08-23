@@ -42,7 +42,7 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 | x     | 指定 TiledTile 的横向坐标，以地图块为单位
 | y     | 指定 TiledTile 的纵向坐标，以地图块为单位
 | gid   | 指定 TiledTile 的 gid 值，来切换 TiledTile 的样式
-| layer | 指定 TiledTile 属于哪一个 TiledLayer
+| layer | 获取 TiledTile 属于哪一个 TiledLayer（只读）
 
 ## 可作用到 TiledTile 上的节点属性
 
