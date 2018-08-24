@@ -1,10 +1,10 @@
 # TiledTile Component Reference
 
-The Tiledtile component can operate on a single tile.
+The TiledTile component can operate on a specified tile.
 
-## Creation method
+## How to create
 
-### 1. Created in the editor
+### 1. Create in the editor
 
 Creating a Node under the Layer node, then select Node and click the `Add component` at the bottom of **Properties** and select `TiledTile` from `Add Renderer Component` to add the **TiledTile** component to the Node. And then set the properties on the component to operate the tile.
 
@@ -12,7 +12,7 @@ Creating a Node under the Layer node, then select Node and click the `Add compon
 
 TiledTile API reference [TiledTile API](../../../api/zh/classes/TiledTile.html)
 
-### 2. Created in code
+### 2. Create in code
 
 There are two ways to set up a tile in your code. After you set TILEDTILE in any LAYER, the TILE in the location of LAYER will be replaced.
 
