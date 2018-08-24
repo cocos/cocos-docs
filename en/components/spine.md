@@ -4,7 +4,7 @@ Spine component supports Spine (software) exported data format, and manage and d
 
 ![spine](./spine/spine-properties.png)
 
-Click the `Add component` at the bottom of **Properties** and select `Spine Skeleton` from `Add Renderer Components` in order to add the **Spine** component to the node.
+Click the `Add component` at the bottom of **Properties** and select `Spine Skeleton` from `Add Renderer Component` in order to add the **Spine** component to the node.
 
 About the Spine's scripting interface please refer to [Skeleton API](../../../api/en/classes/Skeleton.html)
 

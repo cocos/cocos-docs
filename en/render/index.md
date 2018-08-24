@@ -11,6 +11,7 @@
   - [MotionStreak](../components/motion-streak.md)
   - [ParticleSystem](../components/particle-system.md)
   - [TiledMap](../components/tiledmap.md)
+      - [TiledTile](../components/tiledtile.md)
   - [Spine](../components/spine.md)
   - [DragonBones](../components/dragonbones.md)
   - [VideoPlayer](../components/videoplayer.md)
