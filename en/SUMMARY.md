@@ -104,6 +104,7 @@
     - [MotionStreak Reference](components/motion-streak.md)
     - [ParticleSystem Reference](components/particle-system.md)
     - [Tiledmap Reference](components/tiledmap.md)
+        - [TiledTile Reference](components/tiledtile.md)
     - [Spine Reference](components/spine.md)
     - [DragonBones Reference](components/dragonbones.md)
     - [VideoPlayer Reference](components/videoplayer.md)
