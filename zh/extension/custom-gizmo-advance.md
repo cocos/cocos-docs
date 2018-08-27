@@ -2,7 +2,6 @@
 
 [上一篇](custom-gizmo.md) 讲了如何自定义一个跟随节点移动并缩放的 Gizmo，这篇我们将实现一个可以编辑的 Gizmo
 
-
 ```javascript
 let ToolType = {
     None: 0,
@@ -18,7 +17,7 @@ class CustomGizmo extends Editor.Gizmo {
 
     onCreateMoveCallbacks () {
         // 创建 gizmo 操作回调
-        
+
         // 申明一些局部变量
         let startOffset;        // 按下鼠标时记录的园偏移量
         let startRadius;        // 按下鼠标时记录的圆半径
@@ -53,9 +52,9 @@ class CustomGizmo extends Editor.Gizmo {
 
                 if (type === ToolType.Center) {
                     // 计算新的偏移量
-                    let t = cc.affineTransformClone( node.getWorldToNodeTransform() );
+                    let t = cc.AffineTransform.clone(node.getWorldMatrix());
                     t.tx = t.ty = 0;
-                    
+
                     let d = cc.v2(cc.pointApplyAffineTransform(dx, dy, t)).add(startOffset);
                     target.offset = d;
                     this.adjustValue(target, 'offset');
