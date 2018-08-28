@@ -52,7 +52,11 @@ class CustomGizmo extends Editor.Gizmo {
 
                 if (type === ToolType.Center) {
                     // 计算新的偏移量
-                    let t = cc.AffineTransform.clone(node.getWorldMatrix());
+                    let t = cc.AffineTransform.create();
+                    let mat4 = cc.vmath.mat4.create();
+                    node.getWorldMatrix(mat4);
+                    cc.vmath.mat4.invert(mat4, mat4);
+                    cc.AffineTransform.fromMat4(t, mat4);
                     t.tx = t.ty = 0;
 
                     let d = cc.v2(cc.pointApplyAffineTransform(dx, dy, t)).add(startOffset);
