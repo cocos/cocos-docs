@@ -6,9 +6,9 @@
 
 ```js
 properties: {
-        //...
-        offset: cc.v2()
-    },
+    //...
+    offset: cc.Vec2
+},
 ```
 
 2、将 `custom-gizmo.js` 改为以下内容并保存：
@@ -20,9 +20,6 @@ let ToolType = {
     Center: 2
 };
 
-let _matrix = cc.vmath.mat4.create();
-
-
 class CustomGizmo extends Editor.Gizmo {
     init () {
         // 初始化一些参数
@@ -32,7 +29,7 @@ class CustomGizmo extends Editor.Gizmo {
         // 创建 gizmo 操作回调
 
         // 申明一些局部变量
-        let startOffset;        // 按下鼠标时记录的园偏移量
+        let startOffset;        // 按下鼠标时记录的圆偏移量
         let startRadius;        // 按下鼠标时记录的圆半径
         let pressx, pressy;     // 按下鼠标时记录的鼠标位置
 
@@ -65,8 +62,9 @@ class CustomGizmo extends Editor.Gizmo {
 
                 if (type === ToolType.Center) {
                     // 计算新的偏移量
-                    node.getWorldMatrix(_matrix);
-                    let t = cc.vmath.mat4.invert(_matrix, _matrix);
+                    let mat4 = cc.vmath.mat4.create();
+                    node.getWorldMatrix(mat4);
+                    let t = cc.vmath.mat4.invert(mat4, mat4);
                     t.m12 = t.m13 = 0;
 
                     let d = cc.v2(dx, dy);
@@ -171,7 +169,6 @@ class CustomGizmo extends Editor.Gizmo {
 }
 
 module.exports = CustomGizmo;
-
 ```
 
 更多 Gizmo Api 请参考 [Gizmo Api](api/editor-framework/renderer/gizmo.md)
