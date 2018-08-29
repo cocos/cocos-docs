@@ -2,13 +2,23 @@
 
 [上一篇](custom-gizmo.md) 讲了如何自定义一个跟随节点移动并缩放的 Gizmo，这篇我们将实现一个可以编辑的 Gizmo
 
+1、在 **资源管理器**的 `CustomComponent` 脚本中定义 offset：
+
+```js
+properties: {
+    //...
+    offset: cc.Vec2
+},
+```
+
+2、将 `custom-gizmo.js` 改为以下内容并保存：
+
 ```javascript
 let ToolType = {
     None: 0,
     Side: 1,
     Center: 2
 };
-
 
 class CustomGizmo extends Editor.Gizmo {
     init () {
@@ -19,7 +29,7 @@ class CustomGizmo extends Editor.Gizmo {
         // 创建 gizmo 操作回调
 
         // 申明一些局部变量
-        let startOffset;        // 按下鼠标时记录的园偏移量
+        let startOffset;        // 按下鼠标时记录的圆偏移量
         let startRadius;        // 按下鼠标时记录的圆半径
         let pressx, pressy;     // 按下鼠标时记录的鼠标位置
 
@@ -52,14 +62,14 @@ class CustomGizmo extends Editor.Gizmo {
 
                 if (type === ToolType.Center) {
                     // 计算新的偏移量
-                    let t = cc.AffineTransform.create();
                     let mat4 = cc.vmath.mat4.create();
                     node.getWorldMatrix(mat4);
-                    cc.vmath.mat4.invert(mat4, mat4);
-                    cc.AffineTransform.fromMat4(t, mat4);
-                    t.tx = t.ty = 0;
+                    let t = cc.vmath.mat4.invert(mat4, mat4);
+                    t.m12 = t.m13 = 0;
 
-                    let d = cc.v2(cc.pointApplyAffineTransform(dx, dy, t)).add(startOffset);
+                    let d = cc.v2(dx, dy);
+                    cc.vmath.vec2.transformMat4(d, d, t);
+                    d.addSelf(startOffset);
                     target.offset = d;
                     this.adjustValue(target, 'offset');
                 }
@@ -146,8 +156,8 @@ class CustomGizmo extends Editor.Gizmo {
         position = Editor.GizmosUtils.snapPixelWihVec2( position );
 
         // 获取世界坐标下圆半径
-        let p1 = node.convertToWorldSpaceAR(cc.p(target.radius, 0));
-        let p2 = node.convertToWorldSpaceAR(cc.p(0, 0));
+        let p1 = node.convertToWorldSpaceAR(cc.v2(target.radius, 0));
+        let p2 = node.convertToWorldSpaceAR(cc.v2(0, 0));
         let radius = p1.sub(p2).mag();
 
         // 对齐坐标，防止 svg 因为精度问题产生抖动
@@ -159,7 +169,6 @@ class CustomGizmo extends Editor.Gizmo {
 }
 
 module.exports = CustomGizmo;
-
 ```
 
 更多 Gizmo Api 请参考 [Gizmo Api](api/editor-framework/renderer/gizmo.md)
