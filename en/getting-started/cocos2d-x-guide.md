@@ -45,7 +45,7 @@ cc.director.loadScene('SampleScene');
 
 ### Serialization
 
-Serialization and deserialization supports most public properties in Cocos Creator. These properties are exposed to developers through the properties panel. Developers can arbitrarily modify and save properties in editor. The procedure of saving is to serialize resources and scene data into Asset Database. In contrast, in the procedure of loading scenes, the deserialization mechanism can instantiate corresponding objects according to scene data, and restore all properties set up in the editor.
+Serialization and deserialization supports most public properties in Cocos Creator. These properties are exposed to developers through the properties panel. Developers can arbitrarily modify and save properties in editor. The procedure of saving is to serialize resources and scene data into Asset Database. In contrast, in the procedure of loading scenes, the deserialization mechanism can instantiate corresponding objects according to scene data, and restore all properties set up in the editor. In other words, serialization is to save these modified properties to the scene. Deserialization is to load these properties each time when the scene is launched.
 
 What's more, the power of data driven lies in the fact that components edited by users themselves can also make property declarations. These properties can be edited in editor, saved in scene data, and finally deserialized into game scenes when running.
 
