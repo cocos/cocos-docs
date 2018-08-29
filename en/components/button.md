@@ -17,8 +17,8 @@ Click the `Add component` button at the bottom of the **Properties** panel and s
 |Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please check more detailed information in the chapter `Button Transition`.
 |Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
 
-
 ### Button Transition
+
 Button Transition is used to indicate the status of the Button when clicked by the user. Currently the types available are NONE, COLOR, SPRITE and SCALE.
 
 ![transition](./button/transition.png)
@@ -68,7 +68,6 @@ Button Transition is used to indicate the status of the Button when clicked by t
 | Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
 | customEventData | A user-defined string value passed as the last event argument of the event callback.             |
   
-
 #### Detailed explanation
 
 Button currently only supports the On Click event. This means only when users click and release the Button will the corresponding call-back function be triggered.
@@ -84,7 +83,7 @@ This method adds the same event callback as the event callback that is added usi
 cc.Class({
     extends: cc.Component,
     properties: {},
-    
+
     onLoad: function () {
         var clickEventHandler = new cc.Component.EventHandler();
         clickEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
@@ -115,18 +114,16 @@ Gets the screen coordinate point of the current click button.
 
 cc.Class({
     extends: cc.Component,
-	
+
     properties: {
        button: cc.Button
     },
-    
+
     onLoad: function () {
        this.button.node.on('click', this.callback, this);
     },
-    
-    callback: function (event) {
-       //here the event is an EventCustom object, you can get through the event.detail Button component
-       var button = event.detail;
+
+    callback: function (button) {
        //do whatever you want with button
        //In addition, attention to this way registered events, can not pass customEventData
     }
