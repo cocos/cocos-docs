@@ -14,7 +14,7 @@ Currently, the major life-cycle callback functions provided for users are:
 
 ## onLoad
 
-In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the component is first activated, such as when the scene is loaded, or when the node is activated. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
+In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the node is first activated, such as when the scene is loaded, or when the node is activated. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
 
 ```js
 cc.Class({
