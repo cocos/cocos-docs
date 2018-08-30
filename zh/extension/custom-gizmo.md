@@ -4,7 +4,9 @@
 
 ## 创建自定义 Gizmo
 
-这里演示创建一个简单的跟着节点移动并缩放的圆
+我们来演示一下如何创建一个简单的可以跟着节点移动并缩放的圆
+
+1、首先在 **资源管理器** 中新建一个名为 **CustomComponent** 的 JavaScript 脚本，加入以下内容：
 
 ```javascript
 // 定义一个简单的 component, 并命名为 CustomComponent
@@ -16,6 +18,10 @@ cc.Class({
     },
 });
 ```
+
+2、在 Creator 菜单栏中选择 **扩展 -> 创建新扩展插件 -> 全局扩展／项目专用扩展** 新建一个扩展包，并命名为 `custom-gizmo`。
+
+3、点击 Creator 右上角的 **工程目录**，在 **package -> custom-gizmo** 目录下新增 `custom-gizmo.js` 文件，加入以下内容：
 
 ```javascript
 class CustomGizmo extends Editor.Gizmo {
@@ -57,7 +63,7 @@ class CustomGizmo extends Editor.Gizmo {
         let radius = target.radius;
 
         // 获取节点世界坐标
-        let worldPosition = node.convertToWorldSpaceAR(cc.p(0, 0));
+        let worldPosition = node.convertToWorldSpaceAR(cc.v2(0, 0));
 
         // 转换世界坐标到 svg view 上
         // svg view 的坐标体系和节点坐标体系不太一样，这里使用内置函数来转换坐标
@@ -67,7 +73,7 @@ class CustomGizmo extends Editor.Gizmo {
         let p = Editor.GizmosUtils.snapPixelWihVec2( viewPosition );
 
         // 获取世界坐标下圆半径
-        let worldPosition2 = node.convertToWorldSpaceAR(cc.p(radius, 0));
+        let worldPosition2 = node.convertToWorldSpaceAR(cc.v2(radius, 0));
         let worldRadius = worldPosition.sub(worldPosition2).mag();
         worldRadius = Editor.GizmosUtils.snapPixel(worldRadius);
 
@@ -86,7 +92,7 @@ class CustomGizmo extends Editor.Gizmo {
 //        return 'scene';
 //    }
 
-// 如果 Gizmo 需要参加 点击测试，重写 rectHitTest 函数即可
+// 如果 Gizmo 需要参加点击测试，重写 rectHitTest 函数即可
 //    rectHitTest (rect, testRectContains) {
 //        return false;
 //    }
@@ -97,7 +103,7 @@ module.exports = CustomGizmo;
 
 ## 注册自定义 Gizmo
 
-在你的自定义 **package** 里的 **package.json** 中定义 **gizmos** 字段, 并注册上你的自定义 Gizmo
+在你的自定义 **package** 里的 **package.json** 中定义 **gizmos** 字段, 并注册上你的自定义 Gizmo，如下所示：
 
 ```json
 "gizmos": {
@@ -105,10 +111,12 @@ module.exports = CustomGizmo;
 }
 ```
 
-**CustomComponent** ：Component 名字   
+**CustomComponent** ：Component 名字
 **packages://custom-gizmo/custom-gizmo.js** ：CustomGizmo 路径
 
-这样就将 CustomGizmo 注册到 CustomComponent 上了，当添加一个 CustomComponent 到节点上并选择这个节点时，就可以看到这个 gizmo 了。
+这样就将 CustomGizmo 注册到 CustomComponent 上了。
+
+然后，在 **层级管理器** 中选择要添加 gizmo 的节点，在 **属性检查器** 中选择 **添加组件 -> 添加用户脚本组件 -> CustomComponent**，就可以看到这个 gizmo 显示在 **场景编辑器** 中。如果无法看到 gizmo 请刷新编辑器或者重启编辑器。
 
 请阅读下一篇 [自定义 Gizmo 进阶](custom-gizmo-advance.md)
 
