@@ -97,7 +97,9 @@ camera.cullingMask = 0xffffffff;
 
 // Create a new RenderTexture and set this new RenderTexture to the camera's targetTexture so that the camera content will be rendered to this new RenderTexture
 let texture = new cc.RenderTexture();
-texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height);
+let gl = cc.game._renderContext;
+// If the Mask component is not included in the screenshot, you don't need to pass the third parameter.
+texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height, gl.STENCIL_INDEX8);
 camera.targetTexture = texture;
 
 // Render the camera once, updating the content once into RenderTexture
@@ -130,4 +132,10 @@ img.src = dataURL;
 
 ```
 
-Please refer to the [Case](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)
+## The screenshot in WeChat
+
+ Because of Wechat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
+
+## Case
+
+Please refer to [example-case](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js) for details, create a sample collection project from the editor to see the actual running effect.
