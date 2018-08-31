@@ -45,19 +45,22 @@
 
 ### 在本地启用支持 https 的 Web 服务器
 
-- 通过 npm 安装 http-server 包；
+- 首先打开命令行窗口，进入构建好的 `fb-instant-games` 目录，通过 npm 安装 http-server 包：
+
 ```bash
+$ cd fb-instant-games
 $ npm install -g http-server
 ```
 
-- 通过 openssl 创建私钥和证书，路径需要指定到构建好的 `fb-instant-games` 目录；
+- 接着通过 openssl 创建私钥和证书：
+
 ```bash
-$ cd fb-instant-games/
 $ openssl genrsa 2048 > key.pem
 $ openssl req -x509 -days 1000 -new -key key.pem -out cert.pem
 ```
 
-- 私钥和证书准备就绪后，可通过 SSL 在本地启动 Web 服务。
+- 当私钥和证书准备就绪后，可通过 SSL 在本地启动 Web 服务：
+
 ```bash
 $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1 
 ```
