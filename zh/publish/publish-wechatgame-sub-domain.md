@@ -165,6 +165,6 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 ## 参考链接
 
-Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
+Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) 包含了微信开放数据域的使用示例。
 
 [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)

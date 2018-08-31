@@ -45,19 +45,22 @@ When the version status changes to Standby, click the "★" button to push the b
 
 ### Enable the https-enabled Web server locally
 
-- Install http-server package via npm
+- First open the command line window, enter the build `fb-instant-games` directory. Install http-server package via npm
+
 ```bash
+$ cd fb-instant-games
 $ npm install -g http-server
 ```
 
-- Create the private key and certificate through openssl. The path needs to be assigned to the built `fb-instant-games` directory
+- Then create the private key and certificate through openssl.
+
 ```bash
-$ cd fb-instant-games/
 $ openssl genrsa 2048 > key.pem
 $ openssl req -x509 -days 1000 -new -key key.pem -out cert.pem
 ```
 
 - Once the private key and certificate are ready, the Web service can be started locally via SSL.
+
 ```bash
 $ http-server --ssl -c-1 -p 8080 -a 127.0.0.1
 ```
