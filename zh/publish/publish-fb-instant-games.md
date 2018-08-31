@@ -45,7 +45,7 @@
 
 ### 在本地启用支持 https 的 Web 服务器
 
-- 首先进入构建好的 `fb-instant-games` 目录，在该目录下打开终端（Mac）/命令窗口（Windows），通过 npm 安装 http-server 包：
+- 首先打开命令行窗口，进入构建好的 `fb-instant-games` 目录，通过 npm 安装 http-server 包：
 
 ```bash
 $ cd fb-instant-games

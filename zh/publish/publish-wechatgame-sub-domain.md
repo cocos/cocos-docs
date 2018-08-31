@@ -93,7 +93,7 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 # 旧版本开放数据域发布
 
-适用于 v2.0.0 版本。v2.0.0 之前的版本请在文档右上方切换到相对应的文档版本，例如 v1.10 版本请参考：[接入微信小游戏的开放数据域]( http://docs.cocos.com/creator/1.10/manual/zh/publish/publish-wechatgame.html#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
+以下方法适用于 v2.0.0，更早的版本请参考 [接入微信小游戏的开放数据域](http://docs.cocos.com/creator/1.10/manual/zh/publish/publish-wechatgame.html#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
 
 ## 整合方法
 
