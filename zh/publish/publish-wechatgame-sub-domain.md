@@ -22,7 +22,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 与之前版本的不同之处在于：
 
-1. 可以完全自由控制开放数据域的尺寸，降低分辨率提高性能，提高分辨率优化效果，都可以轻松在子域中完成。
+1. 可以完全自由控制开放数据域的尺寸，降低分辨率提高性能，提高分辨率优化效果，都可以轻松在开放数据域中完成。
 2. 开放数据域的内容将被直接缩放到主域的容器节点区域内，只要宽高比一致就不会产生拉伸。
 3. 开放数据域的事件响应由引擎处理好，用户不需要关心。
 4. 开放数据域的贴图更新由引擎处理，用户不需要关心。
@@ -33,7 +33,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 1. 视窗更新
 
-    一般情况下，开放数据域的视窗是固定的，但是也存在开放数据域在主域的视窗节点发生更新的情况，比如使用 Widget 去适配父节点，比如场景切换后设计分辨率发生改变的情况，或者是开发者手动调整了视窗的尺寸。这种情况下，开发者必须要调用 `updateSubContextViewport` 接口来更新子域中的视窗参数，以便事件可以被正确映射到子域视窗中
+    一般情况下，开放数据域的视窗是固定的，但是也存在开放数据域在主域的视窗节点发生更新的情况，比如使用 Widget 去适配父节点，比如场景切换后设计分辨率发生改变的情况，或者是开发者手动调整了视窗的尺寸。这种情况下，开发者必须要调用 `updateSubContextViewport` 接口来更新开放数据域中的视窗参数，以便事件可以被正确映射到开放数据域视窗中
 
 2. 手动更新贴图
 
@@ -93,11 +93,11 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 # 旧版本开放数据域发布
 
-适用于 v1.9.1 到 v2.0.0 版本。
+适用于 v2.0.0 版本。v2.0.0 之前的版本请在文档右上方切换到相对应的文档版本，例如 v1.10 版本请参考：[接入微信小游戏的开放数据域]( http://docs.cocos.com/creator/1.10/manual/zh/publish/publish-wechatgame.html#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
 
 ## 整合方法
 
-- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。子域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
+- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。开放数据域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
 - 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D ，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
 
 ## 模块选择
@@ -165,6 +165,6 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 ## 参考链接
 
-Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) 包含了微信开放数据域的使用示例。
+Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
 
 [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
