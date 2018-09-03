@@ -156,13 +156,13 @@ var finished = cc.callFunc(function(target, score) {
 在声明了回调动作 `finished` 后，您可以配合 `cc.sequence` 来执行一整串动作并触发回调：
 
 ```js
-var myAction = cc.sequence(cc.moveBy(1, cc.p(0, 100)), cc.fadeOut(1), finished);
+var myAction = cc.sequence(cc.moveBy(1, cc.v2(0, 100)), cc.fadeOut(1), finished);
 ```
 
 在同一个 sequence 里也可以多次插入回调：
 
 ```js
-var myAction = cc.sequence(cc.moveTo(1, cc.p(0, 0)), finished1, cc.fadeOut(1), finished2); //finished1, finished2 都是使用 cc.callFunc 定义的回调动作
+var myAction = cc.sequence(cc.moveTo(1, cc.v2(0, 0)), finished1, cc.fadeOut(1), finished2); //finished1, finished2 都是使用 cc.callFunc 定义的回调动作
 ```
 
 注意: 在 cc.callFunc 中不应该停止自身动作，由于动作是不能被立即删除，如果在动作回调中暂停自身动作会引发一系列遍历问题，导致更严重的 bug。

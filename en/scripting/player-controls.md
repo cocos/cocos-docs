@@ -46,7 +46,7 @@ cc.Class({
 
     onKeyDown: function (event) {
         switch(event.keyCode) {
-            case cc.KEY.a:
+            case cc.macro.KEY.a:
                 console.log('Press a key');
                 break;
         }
@@ -54,7 +54,7 @@ cc.Class({
 
     onKeyUp: function (event) {
         switch(event.keyCode) {
-            case cc.KEY.a:
+            case cc.macro.KEY.a:
                 console.log('release a key');
                 break;
         }
