@@ -56,7 +56,7 @@ Note: all tag names should be lower case and the property assignment should use 
 Tags could be nested, the rules is the same as normal HTML tags. For example, the following settings will render
 a label with font size 30 and color value green.
 
-`<size=30><color=green>I'm green></color></size>`
+`<size=30><color=green>I'm green</color></size>`
 
 is equal to:
 
