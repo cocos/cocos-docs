@@ -77,3 +77,12 @@ cc.loader.load(image, () => {
     });
 });
 ```
+
+### How to customize or directly disable the uglify process that comes with the editor
+
+After the engine is customized, open the `engine/gulp/util/utils.js` script, at the bottom there is a `uglify` function. You can modify its parameters according to the requirements. If you want to completely skip the `uglify` operation, you can replace the contents of the `uglify` section directly with:
+
+```js
+const Es = require('event-stream');
+return Es.through();
+```
