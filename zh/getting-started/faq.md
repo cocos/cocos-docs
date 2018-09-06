@@ -78,3 +78,12 @@ cc.loader.load(image, () => {
     });
 });
 ```
+
+### 如何自定义或者直接禁用编辑器自带的 uglify？
+
+自定义引擎完成后，打开 `engine/gulp/util/utils.js` 脚本，在最下面有一个 `uglify` 函数，可以根据需求自行修改其中的参数。如果想要完全跳过 `uglify` 操作，可以直接将 `uglify` 部分中的内容替换成：
+
+```js
+const Es = require('event-stream');
+return Es.through();
+```

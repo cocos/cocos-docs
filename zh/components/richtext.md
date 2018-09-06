@@ -52,7 +52,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 标签与标签是支持嵌套的，且嵌套规则跟 HTML 是一样的。比如下面的嵌套标签设置一个文本的渲染大小为 30，且颜色为绿色。
 
-`<size=30><color=green>I'm green></color></size>`
+`<size=30><color=green>I'm green</color></size>`
 
 也可以实现为:
 
