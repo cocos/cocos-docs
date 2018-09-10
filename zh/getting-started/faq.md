@@ -35,10 +35,24 @@
 
 原图有两种处理方式，一种在图片导出时，在颜色通道下面添加黑色背景，透明通道保持不变。另一种是在代码中对 texture 调用 `texture.update({premultiplyAlpha: true})`，如果调用失败，有可能是旧版 Creator，旧版需要改用 `texture.handleLoadedTexture(true)`。
 
-### 如何用插件脚本创建 prefab ？
+### 如何用插件控制 Prefab？
+
+创建 Prefab：
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:create-prefab', node.uuid, 'db://assets/xxx/xxx.prefab');
+```
+
+进入 Prefab 编辑模式：
+
+```js
+Editor.Ipc.sendToAll('scene:enter-prefab-edit-mode', assetUuid);
+```
+
+保存 Prefab：
+
+```js
+Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ```
 
 ### 1.8.2 的版本可能出现 JSC 崩溃问题。
