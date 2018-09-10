@@ -100,8 +100,6 @@ This way, the player property will be set successfully, you can access it in you
 ```js
 // Cannon.js
 
-var Player = require("Player");
-
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -113,8 +111,7 @@ cc.Class({
     },
 
     start: function () {
-        var playerComp = this.player.getComponent(Player);
-        this.checkPlayer(playerComp);
+        cc.log("The player is " + this.player.name);
     },
 
     // ...

@@ -100,8 +100,6 @@ cc.Class({
 ```js
 // Cannon.js
 
-var Player = require("Player");
-
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -113,8 +111,7 @@ cc.Class({
     },
 
     start: function () {
-        var playerComp = this.player.getComponent(Player);
-        this.checkPlayer(playerComp);
+        cc.log("The player is " + this.player.name);
     },
 
     // ...
