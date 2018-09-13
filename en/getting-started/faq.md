@@ -34,10 +34,24 @@ This is due to the color channel and background colors did the interpolation whe
 
 There are two ways to deal with the original, one is to add a black background under the color channel when the picture is exported, and the transparent channel remains unchanged. The other way is to call `texture.update({premultiplyAlpha: true})` to texture in code, if the call fails, it may be an older version of Creator and the old version needs to use `texture.handleLoadedTexture(true)`.
 
-### How to create a prefab with a plug-in script
+### How to control Prefab with plugins
+
+Create Prefab:
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:create-prefab', node.uuid, 'db://assets/xxx/xxx.prefab');
+```
+
+Enter Prefab edit mode:
+
+```js
+Editor.Ipc.sendToAll('scene:enter-prefab-edit-mode', assetUuid);
+```
+
+Save Prefab:
+
+```js
+Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ```
 
 ### 1.8.2 version may have a JSC crash problem
