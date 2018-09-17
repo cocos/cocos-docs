@@ -13,3 +13,4 @@
 - [Java 原生反射机制](java-reflection.md)
 - [Objective-c 原生反射机制](oc-reflection.md)
 - [BMFont 与 UI自动批处理](ui-auto-batch.md)
+- [自动合图](dynamic-atlas.md)
