@@ -39,13 +39,20 @@ An input field named **package name** will appear in the **Build** panel after s
 
 ![package name](publish-native/package_name.png)
 
-### API Level 
+### API Level
 
 API Level：Set up the API version used for compiling Android, with minimal support for android-16.
 
 ### APP ABI
 
 APP ABI：To set up the CPU type that Android needs to support, you can select one or more options, and have a `armeabi-v7a`, `arm64-v8a`, `x86` three types.
+
+**Attention**:
+- After you select an ABI build, build another ABI without Clean, and the two ABI's so files will be packaged into apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after select an ABI build, then execute `Build -> Clean Project` and build another ABI. Only the latter ABI will be packaged into the apk.
+
+- After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build**. If you need to modify the ABI, you can directly modify the **PROP_APP_ABI** property in **gradle.properties**. As shown below:
+
+![modify abi](publish-native/modify_abi.png)
 
 ### Keystore
 
