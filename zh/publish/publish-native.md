@@ -38,13 +38,20 @@ jsval_to_string(cx, returnParam, &url);
 
 ![package name](publish-native/package_name.png)
 
-### API Level 
+### API Level
 
 API Level：设置编译 Android 使用的 api 版本，最低支持 android-16。
 
 ### APP ABI
 
 APP ABI：设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，分别有 `armeabi-v7a`、`arm64-v8a`、`x86` 三种类型。
+
+**注意**：
+- 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 `Build  -> Clean Project` 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
+
+- 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建面板。如果需要修改 ABI，直接修改 **gradle.properties** 中的 **PROP_APP_ABI** 属性即可。
+
+![modify abi](publish-native/modify_abi.png)
 
 ### 密钥库
 
