@@ -201,6 +201,7 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [RenderFlow](advanced-topics/render-flow.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
+    - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
 - [SDK Integration](sdk/index.md)

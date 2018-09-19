@@ -13,3 +13,4 @@
 - [BMFont and UI auto-batch](ui-auto-batch.md)
 - [JavaScript to Java Reflection](java-reflection.md)
 - [JavaScript to Objective-C Reflection](java-reflection.md)
+- [Dynamic Atlas](dynamic-atlas.md)
