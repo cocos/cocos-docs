@@ -196,3 +196,6 @@ gulp
 
 - [Cocos 中的脚本绑定](https://zhuanlan.zhihu.com/p/20525026)
 - [Cocos 中的自动绑定](https://zhuanlan.zhihu.com/p/20525109)
+
+
+如果你有觉得可以合并到官方引擎的自定义引擎修改，请参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
