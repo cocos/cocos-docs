@@ -1,5 +1,7 @@
 # 引擎定制工作流程
 
+如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)
+
 Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x 和 adapter 三个部分。全部都在 github 上开源。地址在：
 
 - JavaScript 引擎：<https://github.com/cocos-creator/engine>
@@ -196,6 +198,3 @@ gulp
 
 - [Cocos 中的脚本绑定](https://zhuanlan.zhihu.com/p/20525026)
 - [Cocos 中的自动绑定](https://zhuanlan.zhihu.com/p/20525109)
-
-
-如果你有觉得可以合并到官方引擎的自定义引擎修改，请参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
