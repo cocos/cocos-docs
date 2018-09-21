@@ -48,7 +48,7 @@ Based on this project structure, the hot update process in this tutorial is simp
 
 The example project used in the tutorial is based on the BlackJack example. To show the hot update process, delete the table scene in the project, set to version 1.0.0. And save the full version of project assets with the table scene in the `remote-assets` directory, set to version 1.1.0. At the beginning of the game it will check whether there is a version of the remote update, if you find a remote version the user is prompted to update. When update is complete, the user re-enter the game to launch the table scene.
 
-! [table](./hot-update/table.png)
+![table](./hot-update/table.png)
 
 **Note**, the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
 
