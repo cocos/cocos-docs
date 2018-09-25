@@ -1,6 +1,6 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x (custom version of Cocos2d-x) and adapters. They are all open sourced on GitHub:
+The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x-lite (custom version of Cocos2d-x-lite) and adapters. They are all open sourced on GitHub:
 
 - JavaScript engine: <https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
@@ -23,9 +23,18 @@ If you only need to make some adjustments based on the current version, Then you
 
 ![](engine-customization/open-engine.png)
 
-If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. For example to customize engine for __Cocos Creator v1.6.2__ you'd need to checkout `v1.6` branch; for __Cocos Creator v1.7.1__ you'd need to checkout `v1.7` branch. Once cloning is completed, go to the repo's folder in command-line shell.
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. Once cloning is completed, go to the repo's folder in command-line shell.
 
 ![](engine-customization/download-repo-js.png)
+
+**Attention**: You have to make sure the repo is at the corresponding branch. For example:
+
+- **master/develop** branch: Branch used for current latest version
+- **vX.Y-release** branch: The branch that corresponds to the x.y version
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
+- **next** branch: Branch for large refactoring, if are document and API warehouse, then used for 2.0 branch
+
+It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch
 
 ### 1.2 Install NPM Dependencies
 
@@ -59,22 +68,29 @@ Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set 
 
 ![](engine-customization/setting-js.png)
 
-## 2 Customize Cocos2d-x Engine
+## 2 Customize Cocos2d-x-lite Engine
 
-If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x engine of Cocos Creator.
+If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x-lite engine of Cocos Creator.
 
-### 2.1 Get the Cocos2d-x Engine
+### 2.1 Get the Cocos2d-x-lite Engine
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x-lite** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For example:
+
+- **master/develop** branch: Branch used for current latest version
+- **vX.Y-release** branch: The branch that corresponds to the x.y version
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
+- **next** branch: Branch for large refactoring, if are document and API warehouse, then used for 2.0 branch
+
+It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch
 
 ### 2.2 Initialize
 
 Once cloned, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
-# Enter the Cocos2d-x engine path from the command line
+# Enter the Cocos2d-x-lite engine path from the command line
 cd /Users/yufang/cocos2d-x-lite
 # Install NPM dependencies
 npm install
@@ -82,7 +98,7 @@ npm install
 gulp init
 ```
 
-- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
+- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x-lite engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
@@ -92,7 +108,7 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
+- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x-lite engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
 
 ```bash
 > ==> Ready to download 'creator-console-2.zip' from
@@ -184,7 +200,7 @@ The adaptation layer code for the **Wechat Mini Games** and **QQ Play** is locat
 
 ## 4 JSB Workflow (JavaScript Binding)
 
-If you need to modify the JavaScript interface provided by the Cocos2d-x engine, you should complete the JSB binding.
+If you need to modify the JavaScript interface provided by the Cocos2d-x-lite engine, you should complete the JSB binding.
 
 Creator >= 1.7, please refer to:
 

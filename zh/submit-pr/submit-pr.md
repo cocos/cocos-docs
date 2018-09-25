@@ -1,21 +1,19 @@
 # 如何向 Cocos 提交代码
 
-和 Cocos2d-x 一样，Cocos Creator 也是一个开源引擎，连同范例、文档都是开源的。<br>
+> 文：薰依
+
+和 Cocos2d-x-lite 一样，Cocos Creator 也是一个开源引擎，连同范例、文档都是开源的。<br>
 在你开发游戏的过程中，当发现了引擎、文档或者范例不够完善的地方，如果仅仅是向官方团队提出建议，官方团队可能会因为人力资源的紧张而无法及时跟进。在此我们欢迎所有用户主动向我们提交 PR，帮助 Cocos 越做越好。引擎有 Bug？提 PR！范例难看？提 PR！API 注释不清晰？提 PR！文档有错别字？提 PR！想要把你的宝贵修改贡献给游戏社区？提 PR！以下几个是目前官方比较常用的开源仓库，这些仓库都可以提交 PR。
 
-[Cocos Creator 文档](https://github.com/cocos-creator/creator-docs)<br>
-[范例集合](https://github.com/cocos-creator/example-cases)<br>
-[Star Catcher](../getting-started/quick-start.md)<br>
-[腾讯合作开发的21点游戏](https://github.com/cocos-creator/tutorial-blackjack)<br>
-[UI 展示 Demo](https://github.com/cocos-creator/demo-ui)<br>
-[暗黑斩 Cocos Creator 复刻版](https://github.com/cocos-creator/tutorial-dark-slash)<br>
-[JavaScript 引擎](https://github.com/cocos-creator/engine)<br>
-[Cocos2d-x 引擎](https://github.com/cocos-creator/cocos2d-x-lite)<br>
-[jsb-adapter](https://github.com/cocos-creator-packages/jsb-adapter)<br>
-[weapp-adapter](https://github.com/cocos-creator-packages/weapp-adapter)<br>
-[qqplay-adapter](https://github.com/cocos-creator-packages/qqplay-adapter)
-
-本文面向的读者：不清楚如何在 GitHub 上提交 PR 的用户。如果知道的话请忽略本篇。
+微信子域范例：<https://github.com/cocos-creator/demo-wechat-subdomain><br>
+腾讯合作开发的21点游戏：<https://github.com/cocos-creator/tutorial-blackjack><br>
+UI 展示 Demo：<https://github.com/cocos-creator/demo-ui><br>
+暗黑斩 Cocos Creator 复刻版：<https://github.com/cocos-creator/tutorial-dark-slash><br>
+JavaScript 引擎：<https://github.com/cocos-creator/engine><br>
+Cocos2d-x-lite 引擎：<https://github.com/cocos-creator/cocos2d-x-lite><br>
+jsb-adapter：<https://github.com/cocos-creator-packages/jsb-adapter><br>
+weapp-adapter：<https://github.com/cocos-creator-packages/weapp-adapter><br>
+qqplay-adapter：<https://github.com/cocos-creator-packages/qqplay-adapter>
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
 
@@ -69,7 +67,7 @@ Sourcetree 是比较常用的 Git 客户端工具。如果不使用 Sourcetree �
 
 配置完成后点击 **确定**。
 
-2、点击 **工具 -> 选项**，在 **验证** 中配置托管账户。点击 **刷新 OAuth 令牌**，等待显示 **认证成功** 后点击 **确定**（默认已登录 GitHub）。如下图所示：
+2、点击 **工具 -> 选项**，在 **验证** 中配置托管账户。点击 **刷新 OAuth 令牌**（默认已登录 GitHub 账号），等待显示 **认证成功** 后点击 **确定**。如下图所示：
 
 ![sourcetree_verify](submit-pr/sourcetree_verify.png)
 
@@ -79,23 +77,19 @@ Sourcetree 是比较常用的 Git 客户端工具。如果不使用 Sourcetree �
 
 ![fork](submit-pr/fork.png)
 
-Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已经生成了 creator-docs 项目，如下图所示：
+Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已经生成了 creator-docs 项目副本，如下图所示：
 
 ![repository](submit-pr/repository.png)
 
-## 将远程仓库克隆到本地仓库。
+## 将远程仓库克隆到本地仓库
 
-1、切换到 Sourcetree 后点击 **Remote** 选项卡，在远程仓库中会显示刚才从官方仓库 fork 下来的在你的 GitHub 账户上的项目 creator-docs。然后右键点击 **Clone**，选择 **克隆**。
-
-![remote](submit-pr/remote.png)
-
-2、跳转到 Clone 页面，会自动填入你的远程仓库项目地址。然后填入相关配置。如果想让本地的文件夹名称和项目名称一样，那么在本地存储路径后添加 `/creator-docs`。配置完成后点击 **克隆**。
-
-![clone repository](submit-pr/clone_repository.png)
-
-如果没有自动填入你的远程仓库项目地址，请到你的仓库项目地址进行拷贝。如下图所示：
+1、首先需要到你的远程仓库复制 **远程仓库项目地址**，如下图所示：
 
 ![copy](submit-pr/copy.png)
+
+2、切换到 Sourcetree 后点击上方的 **Clone** 按钮，跳转到 Clone 页面，粘贴刚才复制的 **远程仓库项目地址**，然后填入相关配置。如果想让本地的文件夹名称和项目名称一样，那么在本地存储路径后添加 `/creator-docs`。配置完成后点击 **克隆**。
+
+![clone repository](submit-pr/clone_repository.png)
 
 克隆完成后就会在本地自动创建 creator-docs 文件夹并且在 Sourcetree 上自动打开项目。
 
@@ -110,6 +104,12 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 可以看到在左侧 **分支** 栏目下已经生成了本地的 next 分支。
 
 ![next](submit-pr/next.png)
+
+**注意**：根据不同的版本，还需要切换不同的分支，例如：
+
+- **vX.Y** 分支：对应 X.Y 版本所用分支
+- **next** 分支： 用于 2.0 分支
+- **master/develop** 分支：当前最新版本所用分支
 
 2、打开本地 creator-doc 项目进行修改，修改完成后查看仓库详情，如下图所示：
 
@@ -135,7 +135,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ![pr](submit-pr/pr.png)
 
-到此 PR 创建完成，若官方合并了这个 PR 就会把你的修改合并到官方仓库中了。
+到此 PR 创建完成，若官方审核通过，就会把这个 PR 的修改合并到官方仓库中了。若官方觉得有需要，也会在该 PR 上展开进一步讨论。请留意 GitHub 相关消息或关注 PR 所在页面，以免错过讨论。如果你需要修改 PR 提交的内容，请重复 **上传本地修改到远程仓库** 中的 2、3、4 步骤。
 
 ![merge](submit-pr/merge.png)
 
@@ -145,7 +145,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ## 添加官方仓库
 
-当你 fork 过仓库之后很久没有更新时，请先从官方仓库获取最新的修改以防与其他人出现文件修改冲突。
+如果距离上次克隆仓库已经挺长时间，那么请在提交 PR 前先从官方仓库获取最新的修改以防和其他人的修改发生冲突。
 
 1、添加官方仓库。点击 Sourcetree 右上方的 **设置 -> 远程仓库 -> 添加**，如下图所示：
 
@@ -163,15 +163,15 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ![upstream](submit-pr/upstream.png)
 
-4、从官方仓库拉取最新更新。选择要拉取的分支，然后点击左上方的 **拉取**，在弹出来的拉取框中选择远程分支 upstream，注意分支一致，然后点击 **确定**。如下图所示：
+4、从官方仓库拉取最新更新。切换到要拉取的分支，然后点击左上方的 **拉取**，在弹出来的对话框中选择远程对应的分支，然后点击 **确定**。如下图所示：
 
 ![pull](submit-pr/pull.png)
 
-接下来我们再来看一下针对文档仓库应该如何正确的提交问题。
+**注意**：在更新官方版本前，如果你完全不熟悉 Git 的操作，建议先确保没有在本地的 Git 仓库中进行任何文件的改动。如果有的话，建议先手动还原，然后等更新完毕后再手动把改动添加回来。
 
-## 如何正确的提交问题
+## 如何反馈文档有关的问题
 
-在提交问题之前请先确认：
+针对文档本身的问题，建议通过 GitHub issue 进行反馈，下面我们简单演示一下。在提交问题之前请先确认：
 
 - 文档版本和 Creator 版本是否一致
 - 操作步骤是否正确
@@ -187,8 +187,8 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 2、或者也可以进入官方仓库 [creator-docs](https://github.com/cocos-creator/creator-docs)，选择 **Issue -> New issue** 进入提交 issue 界面，填写内容并提交。
 
-本次提交 pr 和提交 issue 的教程到这里就结束了，若有不理解或者有误的地方请根据上述如何正确提交问题的步骤向我们反馈。<br>
-有些人可能会问，为什么要这么麻烦的提交问题。其实，正确的提交问题可以节省很多的沟通成本，而且有些问题可能在初步排查的时候就可以解决了，或者会发现只是由于自己粗心大意导致的。而官方省下来的人力就可以更好的去服务于 Creator，让 Creator 能更好地为游戏开发者服务。
+本次提交 pr 和提交 issue 的教程到这里就结束了，若有不理解或者有误的地方请根据上述步骤向我们反馈。<br>
+有些人可能会问，为什么要这么麻烦的提交问题。其实，正确的提交问题可以节省很多的沟通成本，而且有些问题可能在初步排查的时候就可以解决了，或者会发现只是由于自己粗心大意导致的。而官方节省下来的人力就可以更好的去服务于 Creator，让 Creator 能更好地为游戏开发者服务。
 
 <!--
 ### 生成 SSH 密钥
