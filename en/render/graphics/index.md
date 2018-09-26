@@ -37,10 +37,9 @@ This chapter will show the usage of Cocos Creator's graphic drawing component in
 The Graphics component's API is designed according to the [Canvas](http://www.w3school.com.cn/tags/html_ref_canvas.asp) drawing interface, and there are a lot of graphics libraries based on the Canvas drawing interface, such as [paper.js](http://paperjs.org/), [raphael.js](http://dmitrybaranovskiy.github.io/raphael/).
 Using the standard canvas drawing interfaces and thrid party libraries, we can extend a lot of more advanced functions on the Graphics components.
 
+<!--
 Here are some third-party advanced drawing libraries and related demo based on Graphics component extensions.
-
 ### ccc.raphael
-
 - Github: https://github.com/2youyou2/ccc.raphael
 - Demo: https://github.com/2youyou2/raphael-example
 - Feature (continually updated)
@@ -51,4 +50,4 @@ Here are some third-party advanced drawing libraries and related demo based on G
  - Simplify the path   
     <a href="ccc.raphael/simplify.gif"><img src="ccc.raphael/simplify.gif" style="height:180px;margin:5px"></a>
  - Import svg   
-    <a href="ccc.raphael/tiger.png"><img src="ccc.raphael/tiger.png" style="height:180px;margin:5px"></a>
+    <a href="ccc.raphael/tiger.png"><img src="ccc.raphael/tiger.png" style="height:180px;margin:5px"></a>-->
