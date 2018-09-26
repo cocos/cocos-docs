@@ -81,11 +81,6 @@
 
 ## 在 Jenkins 上部署
 
-CocosCreator 命令行运行的时候也是需要 GUI 环境的。
+CocosCreator 命令行运行的时候也是需要 GUI 环境的。如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。详见：<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
 
-- 如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
-
-- 如果你的 Jenkins 在 Windows 下无法编译，一个解决办法是：在 Windows 的 **控制面板 -> 管理工具 -> 服务** 中为 Jenkins 的服务指定一个本地用户，然后重启电脑就可以了。不必单独设置一个 master-slave 模式。
-
-详见 ：
-<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
+如果你的 Jenkins 在 Windows 下无法编译，请在 Windows 的 **控制面板 -> 管理工具 -> 服务** 中为 Jenkins 的服务指定一个本地用户，然后重启电脑就可以了。不必单独设置一个 master-slave 模式。

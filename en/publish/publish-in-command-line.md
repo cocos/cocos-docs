@@ -73,10 +73,6 @@ If no parameters are specified after **--build** or **--compile**, then the para
 
 ## Publish on Jenkins
 
-CocosCreator also need GUI environment when running in command line.
+CocosCreator also need GUI environment when running in command line. If your Jenkins can not run CocosCreator in command line, a solution is running Jenkins on the agent mode, so it can visit the WindowServer. Details: <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
 
-- If your Jenkins can not run CocosCreator in command line, a solution is running Jenkins on the agent mode, so it can visit the WindowServer.
-
-- If your Jenkins can not compile under Windows, a solution is to specify a local user for the Jenkins service in the Windows **Control Panel -> Administrative Tools -> Service**, and then restart the computer. You don't need to set up a master-slave mode separately.
-
-Details : <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
+If your Jenkins can not compile under Windows, specify a local user for the Jenkins service in the Windows **Control Panel -> Administrative Tools -> Service**, and then restart the computer. You don't need to set up a master-slave mode separately.
