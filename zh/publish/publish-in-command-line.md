@@ -7,15 +7,16 @@
 **例如**：构建 Android 平台、Debug 模式
 
  - Mac - `/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath --build "platform=android;debug=true"`
+
  - Windows - `CocosCreator/CocosCreator.exe --path projectPath --build "platform=android;debug=true"`
 
 如果希望在构建完原生项目后自动开始编译的话，可以使用 `autoCompile` 参数：
 
-- `--build "autoCompile=true"`
+ - `--build "autoCompile=true"`
 
 也可以自己开始编译项目，`--compile` 命令的参数和 `--build` 命令的参数一致：
 
-- `--compile "platform=android;debug=true"`
+ - `--compile "platform=android;debug=true"`
 
 ## 构建参数
 
@@ -81,7 +82,10 @@
 ## 在 Jenkins 上部署
 
 CocosCreator 命令行运行的时候也是需要 GUI 环境的。
-如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
+
+- 如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
+
+- 如果你的 Jenkins 在 Windows 下无法编译，一个解决办法是：在 Windows 的 **控制面板 -> 管理工具 -> 服务** 中为 Jenkins 的服务指定一个本地用户，然后重启电脑就可以了。不必单独设置一个 master-slave 模式。
 
 详见 ：
 <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
