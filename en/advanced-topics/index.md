@@ -11,5 +11,6 @@
 - [Egnine Customization](engine-customization.md)
 - [RenderFlow](render-flow.md)
 - [BMFont and UI auto-batch](ui-auto-batch.md)
+- [Dynamic Atlas](dynamic-atlas.md)
 - [JavaScript to Java Reflection](java-reflection.md)
 - [JavaScript to Objective-C Reflection](java-reflection.md)
