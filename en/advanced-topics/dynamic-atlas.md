@@ -1,6 +1,6 @@
 # Dynamic Atlas
 
-> Writer: youyou、Effie
+> Authors: Xunyi, youyou
 
 ## Introduction
 
