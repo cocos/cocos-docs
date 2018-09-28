@@ -1,9 +1,9 @@
 # 引擎定制工作流程
 
-Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x 和 adapter 三个部分。全部都在 github 上开源。地址在：
+Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三个部分。全部都在 github 上开源。地址在：
 
 - JavaScript 引擎：<https://github.com/cocos-creator/engine>
-- Cocos2d-x 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
+- Cocos2d-x-lite 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
 
 Adapter 地址分别在：
 
@@ -11,7 +11,7 @@ Adapter 地址分别在：
 - `weapp-adapter`：<https://github.com/cocos-creator-packages/weapp-adapter>
 - `qqplay-adapter`：<https://github.com/cocos-creator-packages/qqplay-adapter>
 
-我们建议您通过 github 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [github help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 github 相关工作流程请参考 [github help](https://help.github.com)。
+建议你通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 
 ## 1 定制 JavaScript 引擎
 
@@ -23,9 +23,18 @@ Adapter 地址分别在：
 
 ![](engine-customization/open-engine.png)
 
-如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。根据不同的 Creator 版本，还需要切换不同的分支，例如 Creator 1.6.2 对应的是引擎的 v1.6 分支，下载后存放到任意本地路径。
+如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。下载完成后存放到任意本地路径。
 
 ![](engine-customization/download-repo-js.png)
+
+**注意**：根据不同的 Creator 版本，还需要切换不同的分支，例如：
+
+- **master/develop** 分支：当前最新版本所用分支
+- **vX.Y-release** 分支：对应 X.Y 版本所用分支
+- **vX.Y** 分支：和 vX.Y-release 分支相同，主要用于范例工程
+- **next** 分支：大型重构所用分支，如果是文档和 API 仓库，则用于 2.0 分支
+
+通常建议使用和所用 Creator 相同版本的 vX.Y-release 分支，如果找不到的话，则使用 master 分支。
 
 ### 1.2 安装编译依赖
 
@@ -56,22 +65,29 @@ gulp build
 
 ![](engine-customization/setting-js.png)
 
-## 2 定制 Cocos2d-x 引擎
+## 2 定制 Cocos2d-x-lite 引擎
 
 如果您需要定制和原生平台相关的引擎功能，在修改 JS 引擎的基础上，可能还需要同步修改 Cocos2d-x 引擎。
 
-### 2.1 获取 Cocos2d-x 引擎
+### 2.1 获取 Cocos2d-x-lite 引擎
 
-如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。
+如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x-lite 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x-lite** 目录拷贝到本地其他路径。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x 引擎在使用前也请确认当前所在分支，例如 Cocos Creator v1.6.2 版本请使用 `v1.6` 分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支，例如：
+
+- **master/develop** 分支：当前最新版本所用分支
+- **vX.Y-release** 分支：对应 X.Y 版本所用分支
+- **vX.Y** 分支：和 vX.Y-release 分支相同，主要用于范例工程
+- **next** 分支：大型重构所用分支，如果是文档和 API 仓库，则用于 2.0 分支
+
+通常建议使用和所用 Creator 相同版本的 vX.Y-release 分支，如果找不到的话，则使用 master 分支。
 
 ### 2.2 初始化
 
-下载或者克隆好 Cocos2d-x 引擎仓库后，在命令行进入引擎路径然后执行：
+下载或者克隆好 Cocos2d-x-lite 引擎仓库后，在命令行进入引擎路径然后执行：
 
 ```bash
-# 在命令行进入 Cocos2d-x 引擎路径
+# 在命令行进入 Cocos2d-x-lite 引擎路径
 cd /Users/yufang/cocos2d-x-lite  
 # 安装编译依赖
 npm install
@@ -81,7 +97,7 @@ npm install -g gulp
 gulp init
 ```
 
-- 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是您的 python 自带的一个库版本太低，但是不太好升级，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x 引擎仓库下并重命名为 `v3-deps-54.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
+- 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是您的 python 自带的一个库版本太低，但是不太好升级，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x-lite 引擎仓库下并重命名为 `v3-deps-54.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
@@ -91,7 +107,7 @@ gulp init
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
 
-- 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x 引擎仓库 `tools/cocos2d-console` 目录下并重命名为 `creator-console-2.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
+- 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x-lite 引擎仓库 `tools/cocos2d-console` 目录下并重命名为 `creator-console-2.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
 ```bash
 > ==> Ready to download 'creator-console-2.zip' from
@@ -103,13 +119,13 @@ gulp init
 
 ### 2.3 在 Cocos Creator 中配置定制版引擎
 
-通过 `项目 -> 项目设置` 面板的 **自定义引擎** 选项卡，设置使用您本地定制后的 Cocos2d-x 引擎路径。
+通过 `项目 -> 项目设置` 面板的 **自定义引擎** 选项卡，设置使用您本地定制后的 Cocos2d-x-lite 引擎路径。
 
 ![](engine-customization/setting-2dx.png)
 
 ### 2.4 修改引擎
 
-接下来可以对 Cocos2d-x 引擎进行定制修改了，由于只有在 **构建发布** 过程中才会编译代码，所以修改引擎后可以直接打开 **构建发布** 面板，选择 `default` 或者 `link` 模板进行构建和编译。
+接下来可以对 Cocos2d-x-lite 引擎进行定制修改了，由于只有在 **构建发布** 过程中才会编译代码，所以修改引擎后可以直接打开 **构建发布** 面板，选择 `default` 或者 `link` 模板进行构建和编译。
 
 ### 2.5 编译模拟器
 
@@ -186,7 +202,7 @@ gulp
 
 ## 4 JSB 绑定流程
 
-如果您需要修改 Cocos2d-x 引擎提供的 JavaScript 接口，应该完成 JSB 绑定。
+如果您需要修改 Cocos2d-x-lite 引擎提供的 JavaScript 接口，应该完成 JSB 绑定。
 
 1.7 及 1.7 以上版本请参考
 

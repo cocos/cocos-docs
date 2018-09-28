@@ -206,6 +206,7 @@
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
+    - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
 - [SDK 集成](sdk/index.md)
     - [AnySDK](sdk/anysdk-overview.md)
         - [AnySDK Framework](sdk/anysdk/anysdk-framework.md)

@@ -40,7 +40,8 @@ java -version
 2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show Package Details`，显示分版本的工具选择。
 3. 在 `Android SDK Build-Tools` 里，选择最新的 build tools 版本。
 4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
-5. 勾选 `NDK`，确保版本在 14 以上（推荐使用 r16）。
+5. 勾选 `NDK`，确保版本在 14 以上（推荐使用 r16）。<br>
+**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.1 以下的版本 **不要** 将 NDK 更新到 r18，否则会导致编译报错。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 `OK`，根据提示完成安装。
 

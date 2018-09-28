@@ -40,7 +40,8 @@ After installing Android Studio, refer to the official documentation and open th
 2. In the `SDK Tools` tab page, first check the lower right corner of the `Show Package Details`, show the version of the tool selection.
 3. In the `Android SDK Build-Tools`, select the latest build Tools version.
 4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
-5. Check the `NDK` and ensure that the version is above 14 ("r16" version is recommended).
+5. Check the `NDK` and ensure that the version is above 14 ("r16" version is recommended).<br>
+**Attention**: NDK-r18 has removed the GNU compiler. Please do not update the NDK to r18 for versions below Creator v2.1, otherwise it will cause the compile error.
 6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
 7. Click `OK` and follow the prompts to complete the installation.
 
