@@ -106,6 +106,10 @@ Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
 
 图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE （如 Xcode、Eclipse、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
 
+**注意**：在 MIUI 10 系统、debug 模式下运行 Android 平台的任意工程可能会弹出 `Detected problems with API compatibility` 的提示框，是由 MIUI 10 系统导致的问题。
+
+![](publish-native/api-compatibility.png)
+
 ---
 
 要了解如何在原生平台上调试：
