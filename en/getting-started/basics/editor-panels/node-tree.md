@@ -37,7 +37,7 @@ Right click the node, the popup menu also includes the following operation:
 - **Copy/paste**：copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
 - **Copy node**：generate node replication exactly the same with the selected node and they are at the same level.
 - **Rename**：rename the node
-- **Show Path**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the node's path in **console**.
+- **Show UUID and path of node**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the path of the currently selected node and its UUID in the **Console**.
 
 ---
 
