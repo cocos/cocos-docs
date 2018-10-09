@@ -4,9 +4,9 @@
 
 ## Create an auto-atlas asset
 
-In **Assets** panel right-click on a folder, and click the following context menu item **New -> Auto Atlas**. It will create a **AutoAtlas.pac** asset to hold your atlas configuration for current folder.
+In **Assets** panel right-click on a folder, and click the following context menu item **Create -> Auto Atlas**. It will create a **AutoAtlas.pac** asset to hold your atlas configuration for current folder.
 
-! [Create auto atlas](auto-atlas/create-auto-atlas.png)
+![create auto atlas](auto-atlas/create-auto-atlas.png)
 
 With an **Auto-atlas asset** created, all **SpriteFrame** assets in the current folder including sub-folders will be used to generate a sprite sheet atlas during build process.  And all SpriteFrame assets added to the folder or its sub-folder will be added to the atlas automatically in the future.
 
@@ -23,9 +23,11 @@ After selecting an **Auto-atlas asset** in the **Assets** panel, the **Propertie
 | Padding | The spacing between sprites in the atlas
 | Allow Rotation | Allows rotation of the sprites
 | Force Squared | Whether to force the Atlas size to be set to square
-| PowerOfTwo | Whether to set the map size to a power of two number
+| Power Of Two | Whether to set the map size to a power of two number
 | Heuristices | Atlas packaging strategy, the optional strategies are [BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule]
 | Format | Image generation format, available in [png, jpg, webp]
+| Padding Bleed | Padding with one pixel bleed area for each textures in atlas, the bleed area will copy the nearest pixel in the original texture. This feature is also known as "Extrude".
+| Filter Unused Resources | The option will not work in preview process, it only work in build process
 
 After the configuration is complete, you can click the **Preview** button to preview the results of the packaging. The results of the current auto-atlas configuration will be displayed in the area below the **Properties** panel.
 Note that after any configuration change, you need to click **Preview** button again to refresh the preview.
