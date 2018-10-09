@@ -21,7 +21,7 @@ Double click the scene that you want to open in **Assets**.
 
 ## Change the policy of auto releasing assets from previous scene
 
-In a large game where you have many scenes, as the engine continues to load different scenes, the memory usage will continue to increase. Besides using API such as `cc.loader.release` to accurately release unused assets, we can also use scene's auto releasing feature. To enable auto releasing, select the desired scene in **Assets** panel, then change the "Auto Release Assets" property in **Properties** panel, the property is flase by default.<br>
+In a large game where you have many scenes, as the engine continues to load different scenes, the memory usage will continue to increase. Besides using API such as `cc.loader.release` to accurately release unused assets, we can also use scene's auto releasing feature. To enable auto releasing, select the desired scene in **Assets** panel, then change the "Auto Release Assets" property in **Properties** panel, the property is false by default.<br>
 When switching from current scene to the next scene, if current scene disabled the auto releasing, then all assets (directly or indirectly) referenced by current scene (except loaded dynamically in scripts) will not release **by default**. On the other hand, if enable the auto releasing, then these assets will release **by default**.
 
 > Known issues: The texture referenced by the plist of the particle system is not automatically released. If you want to automatically release the particle texture, remove the texture information from the plist and use the Texture property of the particle component to assign the texture.
@@ -38,7 +38,7 @@ The above content of the automatic release of scene resources can be summed up i
 
 ## Change the policy of scene loading
 
-Select the scene in **Assets** panel, you will see the "Async Load Assets" property in **Properties** panel, the property is flase by default.
+Select the scene in **Assets** panel, you will see the "Async Load Assets" property in **Properties** panel, the property is false by default.
 
 ### Disable Async Load Assets
 
