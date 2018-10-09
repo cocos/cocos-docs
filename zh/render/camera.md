@@ -40,6 +40,34 @@
 
 具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
 
+### 高级属性
+
+这些高级属性在摄像机节点变为 3D 节点后才会显示在属性检查器中。
+
+- fov
+
+决定摄像机视角的宽度，当摄像机处于透视投影模式下这个属性才会生效。
+
+- orthoSize
+
+摄像机在正交投影模式下的视窗大小。
+
+- nearClip
+
+摄像机的近剪裁面。
+
+- farClip
+
+摄像机的远剪裁面。
+
+- ortho
+
+设置摄像机的投影模式是正交（true）还是透视（false）模式。
+
+- rect
+
+决定摄像机绘制在屏幕上哪个位置，值为 0-1。
+
 ## 摄像机方法
 
 - cc.Camera.findCamera

@@ -160,6 +160,13 @@
     - [AudioSource 组件参考](components/audiosource.md)
     - [兼容性说明](audio/compatibility.md)
 
+- [3D](3d/index.md)
+    - [导入模型资源](3d/import-model.md)
+    - [网格资源](3d/mesh.md)
+    - [Mesh Renderer 组件参考](3d/mesh-renderer.md)
+    - [Skinned Mesh Renderer 组件参考](3d/skinned-mesh-renderer.md)
+    - [骨骼动画组件参考](3d/skeleton-animation.md)
+
 ## 进阶使用
 
 - [扩展编辑器](extension/index.md)
