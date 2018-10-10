@@ -2,17 +2,21 @@
 
 ## Manage the scene
 
+### New scene
+
+you can use the `Editor.Ipc` module to create the new scene:
+
+`Editor.Ipc.sendToPanel('scene', 'scene:new-scene');`
+
 ### Save the current scene
 
-In the previous section [Calling Engine APIs and Project Scripts] (scene-script.md), we introduced the method of accessing the engine API and the user project script through the scenario script. After modifying the scene data, you can use the following interface to save the current scene The
+After modifying the scene data, you can use the `Editor.Ipc` module to save the current scene:
 
-`_Scene.save ()`
-
-Where `_Scene` is a special singleton that controls the scene instance loaded in the scene editor.
+`Editor.Ipc.sendToPanel('scene', 'scene:stash-and-save');`
 
 ### Load other scenes
 
-Our expansion packs may need to traverse multiple scenes and operate and save them sequentially. To load a new scene, use
+Our expansion packs may need to traverse multiple scenes and operate and save them sequentially. In the previous section [Call the engine API and project script](scene-script.md), we introduced the method of accessing the engine API and the user project script through the scenario script. To load a new scene, use:
 
 ```js
 _Scene.loadSceneByUuid (uuid, function (error) {
@@ -20,8 +24,8 @@ _Scene.loadSceneByUuid (uuid, function (error) {
 });
 ```
 
+Where _Scene is a special singleton that controls the scene instance loaded in the scene editor.<br>
 The incoming parameter is the uuid of the scene asset, which can be obtained by the asset manager interface described below.
-
 
 ## Mapping of asset URL and UUID
 
@@ -67,7 +71,7 @@ Editor.assetdb.import ([
 
 ### Create an asset
 
-A common misuse of using extended package management assets is to use the [fs module] of the Node.js (https://nodejs.org/dist/latest-v6.x/docs/api) when the extension package needs to create new assets /fs.html), so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
+A common misuse of using extended package management assets is to use the [fs module](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html) of the Node.js when the extension package needs to create new assets, so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
 
 ```js
 // main process or renderer process
@@ -111,7 +115,7 @@ Editor.assetdb.createOrSave ('db: //assets/foo/bar/foobar.js', data, callback);
 
 ### Refresh the asset
 
-When the asset file has been modified in the `asset` and there is no reintroduction for some reason, the asset data in the` asset` and the asset data displayed in the database are inconsistent (if the `fs` module Direct operation of the contents of the file will appear), you can manually call the asset refresh interface to re-import assets
+When the asset file has been modified in the `asset` and there is no reintroduction for some reason, the asset data in the` asset` and the asset data displayed in the database are inconsistent (if the `fs` module direct operation of the contents of the file will appear), you can manually call the asset refresh interface to re-import assets
 
 ```js
 // main process or renderer process
@@ -127,4 +131,4 @@ Editor.assetdb.move (srcUrl, destUrl);
 Editor.assetdb.delete ([url1, url2]);
 ```
 
-For more information on these interfaces, see [AssetDB API Main] (api / asset-db / asset-db-main.md) and [AssetDB API Renderer] (api / asset-db / asset-db-renderer.md).
+For more information on these interfaces, see [AssetDB API Main](api/asset-db/asset-db-main.md) and [AssetDB API Renderer](api/asset-db/asset-db-renderer.md).
