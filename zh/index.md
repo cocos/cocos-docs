@@ -29,6 +29,7 @@
 - [扩展编辑器](extension/index.md)
 - [进阶主题](advanced-topics/index.md)
 - [SDK 集成](sdk/index.md)
+- [3D 系统](3d/index.md)
 
 ## 视频教程
 
