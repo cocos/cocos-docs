@@ -32,9 +32,9 @@ List of known issues:
 8. Native platform does not support VideoPlayer and WebView components at this time
 9. IE 11 is not supported. Fixed in 2.0.1.
 
-# 2. 编辑器升级
+# 2. Editor upgrade
 
-首先我们先来了解一下编辑器层面的改动，由于 2.0 的重点更新集中在引擎层面，这方面其实改动不算很多，主要是贴图资源，平台发布，以及部分组件的使用方式。在 2.x 的后续更新中，我们会陆续给大家带来更多编辑器层面的重要升级。
+Let's take a look at the changes at the editor level. Since the focus of v2.0 is focused on the engine level, there are actually not many changes in this area. They are mainly texture resources, platform release, and the use of some components. In future versions of v2.x, editor level upgrades will be released.
 
 ## 2.1 Texture 资源配置
 
