@@ -1,19 +1,20 @@
-# Cocos Creator v2.0 升级文档
+# Cocos Creator v2.0 Upgrade Guide
 
-# 1. 概述
+# 1 Overview
 
-经历了大规模的底层重构和为期两个月的稳定性迭代，Cocos Creator v2.0 终于和大家见面了。这篇文章希望能给 v1.x 的用户完整的升级指引，帮助开发者顺利迁移到全新版本上。
+__Cocos Creator v2.0__ is the result of a large-scale *under the hood* refactoring plus two months of
+stability testing. This article will assist __v1.x__ users in upgrading to __v2.0__.
 
-总体上来说，Cocos Creator v2.0 设计的核心目标有两点：
+In general, the core goals of the Cocos Creator v2.0 design were twofold:
 
-1. 大幅提升引擎基础性能
-2. 提供更高级的渲染能力和更丰富的渲染定制空间
+1. Significantly improve the engine performance
+2. Provide more advanced rendering capabilities and richer rendering customization options
 
-为了完成这个目标，我们彻底重写了底层渲染器，从结构上保障了性能的提升和渲染能力的升级。同时，为了保障用户项目可以更平滑得升级，我们几乎没有改动组件层的 API。当然，这些改动并不是对用户完全透明的，比如引擎加载流程、事件系统、引擎整体 API 的精简和重组，这些都会带来对用户层 API 的影响，我们希望通过升级指南、文档和 deprecation 信息等方式帮助大家升级。
+In order to accomplish this goal, we completely rewrote the underlying renderer, which structurally guarantees performance improvements and rendering capabilities. At the same time, in order to ensure that users project can be upgraded more smoothly, we have almost no changes to the API of the component layer. Of course, these changes are not completely transparent to the user, such as the engine loading process, the event system, the streamlining and reorganization of the engine's overall API, which will have an impact on the user-level API.
 
-如果想快速有一个了解，大家可以先观看 Cocos Creator v2.0 介绍视频。
+If you want to have a quick understanding, you can watch the Cocos Creator v2.0 introduction video first.
 
-当然，升级成功只是开始，Cocos Creator 在 v2.0 中准备了更深入的更新和可能性等待大家挖掘。
+Of course, the upgrade is just the beginning, Cocos Creator has prepared more in-depth updates and features coming in updates to the v2.x version.
 
 ## 2.0.0 已知问题列表
 
