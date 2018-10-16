@@ -16,21 +16,21 @@ If you want to have a quick understanding, you can watch the Cocos Creator v2.0 
 
 Of course, the upgrade is just the beginning, Cocos Creator has prepared more in-depth updates and features coming in updates to the v2.x version.
 
-## 2.0.0 已知问题列表
+## 2.0.0 List of known issues
 
-由于不少用户反馈了从 1.x 升级上来的项目遇到的诸多问题，我们也需要在此强调一下目前升级的风险所在，存在的问题，和我们的修复计划。
+Since many users have feedback on the problems encountered in upgrading from 1.x, we also need to highlight the risks of the current upgrade, the problems, and the plan to fix these issues.
 
-问题列表：
+List of known issues:
 
-1. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
-2. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
-3. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。
-4. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
-5. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
-6. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
-7. RichText 暂不支持通过节点颜色修改颜色。
-8. Native 平台暂不支持 VideoPlayer 和 WebView 组件
-9. 不支持 IE 11。在 2.0.1 中修复。
+1. Particle resources with built-in base64 texture may fail during 1.x upgrade. We will roll back the upgrade of the Particle resource in 2.0.1 and return to the 1.x state to avoid errors. If you encounter a similar problem, you can bypass it by using an external map file.
+2. 1.x RichText upgrade may cause the scene to continue to report error: __can not read property `_worldMatrix` of null__. Will be fixed in 2.0.1. Temporarily you can remove RichText in the old version and then add it again in 2.0 to bypass it.
+3. The remote avatar loaded in the WeChat open data field cannot be displayed, and the camera background color cannot be set. Fixed in 2.0.1.
+4. Playing a release version may be blacked out because the script file name case under libs is overwritten during the release process. Fixed in 2.0.1. If you encounter problems, please use the 1.x version to play.
+5. Some Spine animations are rendered incorrectly after the upgrade. Fixed in 2.0.1.
+6. Using Tilemap with Camera zoom, there will be problems with the map being oversized. Fixed in 2.0.1.
+7. RichText does not support color modification by node color.
+8. Native platform does not support VideoPlayer and WebView components at this time
+9. IE 11 is not supported. Fixed in 2.0.1.
 
 # 2. 编辑器升级
 
