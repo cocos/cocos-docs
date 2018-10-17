@@ -13,6 +13,15 @@ There are three adapters:
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
+In addition, depending on the different version of Creator, you have to make sure the engine repo is at the corresponding branch. For example:
+
+- **master/develop** branch: Branch used for current latest version
+- **vX.Y-release** branch: The branch that corresponds to the x.y version
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
+- **next** branch: Branch for large refactoring, if are document and API repo, then used for version 2.0
+
+It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch.
+
 ## 1 Customize JavaScript Engine
 
 If your concern is only Web based games, or what you want to change in the engine is not native API, related (for example UI and animation components), you just need to follow the workflow here:
@@ -23,18 +32,9 @@ If you only need to make some adjustments based on the current version, Then you
 
 ![](engine-customization/open-engine.png)
 
-If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. Once cloning is completed, go to the repo's folder in command-line shell.
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. Once cloning is completed, go to the repo's folder in command-line shell.
 
 ![](engine-customization/download-repo-js.png)
-
-**Attention**: You have to make sure the repo is at the corresponding branch. For example:
-
-- **master/develop** branch: Branch used for current latest version
-- **vX.Y-release** branch: The branch that corresponds to the x.y version
-- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
-- **next** branch: Branch for large refactoring, if are document and API warehouse, then used for 2.0 branch
-
-It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch
 
 ### 1.2 Install NPM Dependencies
 
@@ -74,16 +74,9 @@ If you need to customize the engine functionality associated with the native pla
 
 ### 2.1 Get the Cocos2d-x-lite Engine
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x-lite** directory to another local paths.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For example:
-
-- **master/develop** branch: Branch used for current latest version
-- **vX.Y-release** branch: The branch that corresponds to the x.y version
-- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
-- **next** branch: Branch for large refactoring, if are document and API warehouse, then used for 2.0 branch
-
-It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
 
 ### 2.2 Initialize
 
