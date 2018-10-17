@@ -38,7 +38,7 @@ If you compile for the first time, you need to open the post-built project with 
 
     ![](publish-android-instant/refactor_record.png)
 
-6. Clicking **Build** in the **Build** panel will use the refactor record to split the first package. Then click **Compile -> Play** and make sure the phone is on the same LAN as the PC, and you can test the Google Play Instant running.
+6. Clicking **Build** in the **Build** panel will use the refactor record to split the first package. Then click **Compile -> Play** and make sure the phone is on the same LAN as the PC, and you can test the Google Play Instant running. If you have already run a game, to run the new project again, you need to close the previous game process on your phone, otherwise the new project will not run on the phone because the port is occupied.
 
 **Attention**：The main configuration notes for Google Play Instant in the **build** panel are as follows:
 - **Server Address**: The download address of the remote resource, can be a CDN address. Put the `build/android-instant/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.

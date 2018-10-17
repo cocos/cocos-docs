@@ -608,7 +608,7 @@ starPrefab: {
     },
 ```
 
-Node 下的 `getPosition()` 方法 返回的是节点在父节点坐标系中的位置（x, y），即一个 `Vec2` 类型对象。`cc` 下的 `pDistance` 方法很简单，这里不再赘述。同时注意调用 Node 下的 `destroy()` 方法 就可以销毁节点。
+Node 下的 `getPosition()` 方法 返回的是节点在父节点坐标系中的位置（x, y），即一个 `Vec2` 类型对象。`cc` 下的 `destroy()` 方法很简单，这里不再赘述。同时注意调用 Node 下的 `destroy()` 方法 就可以销毁节点。
 
 然后在 `update` 方法中添加每帧判断距离，如果距离小于 `pickRadius` 属性规定的收集距离，就执行收集行为：
 

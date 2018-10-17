@@ -100,3 +100,13 @@ After the engine is customized, open the `engine/gulp/util/utils.js` script, at 
 const Es = require('event-stream');
 return Es.through();
 ```
+
+### AssetDB resource creation
+
+Use `Editor.remote.assetdb.create(url, data, callback)`. The first argument is `db://assets/xxx.png`, and the second argument is the buffer read by the .png file.
+
+However, this method is performed in the main process. Unable to determine if `Edtior.remote` is working properly after cross-process, preferably operation in the main.js.
+
+### AssetDB resource refresh
+
+`Editor.assetdb.refresh()` has a way to manually refresh the database. If it is executed on the page, it is `Editor.remote.assetdb.refresh`.
