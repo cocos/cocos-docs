@@ -1,14 +1,14 @@
-# 发布到 Google Instant Games
+# 发布到 Google Play Instant
 
-从 v2.0.4 版本开始，Cocos Creator 正式支持将游戏发布到 Google Instant Games 平台。Google Instant Games 依赖于 Google play 的服务，实现类似于打开网页 URL 的方式来打开小程序。从技术上来说，Google Instant Games 是一种游戏微端方案。它基于 Android Instant App，但又有一些不同：
+从 v2.0.4 版本开始，Cocos Creator 正式支持将游戏发布到 Google Play Instant 平台。Google Play Instant 依赖于 Google Play，并不是一个新的分发渠道，而更接近一种游戏微端方案。它能够实现游戏的免安装即开即玩，有利于游戏的试玩、分享和转化。它和 Android Instant App 的主要区别在于：
 
 - 首包和 APK 附加包都限制在 10MB 以内（而不是 4MB）
 - 可以从第三方 CDN 动态加载不含二进制代码的资源（JS 也可以）
 - APK 附加包只能从 Google Play Store 下载，可以包含二进制代码和资源，可以后台加载，不需要切换 activity。
 
-采用 Cocos Creator 开发的游戏，只需选择 Google Instant Games 作为发布平台，就可以自动完成标准适配工作，输出符合 Google Instant Games 技术标准的游戏。
+采用 Cocos Creator 开发的游戏，只需选择 Google Play Instant 作为发布平台，就可以自动完成标准适配工作，输出符合 Google Play Instant 技术标准的游戏。
 
-## 使用 Cocos Creator 一键发布到 Google Instant Games
+## 使用 Cocos Creator 一键发布到 Google Play Instant
 
 ### 环境配置
 
@@ -23,7 +23,7 @@
 
     ![](publish-android-instant/builder.png)
 
-2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Instant Games 的运行效果。<br>
+2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Play Instant 的运行效果。<br>
 首次编译的话需要用 Android Studio 打开构建后的工程以下载 **Google Play Instant Development SDK（windows 平台）** 支持包（Mac 平台为 Instant Apps Development SDK 支持包）。如果下载不成功的话建议设置一下 Android Studio 的 HTTP 代理。
 
     ![](publish-android-instant/studio_setting.png)
@@ -32,7 +32,7 @@
 
     ![](publish-android-instant/record.png)
 
-4. 录制完成后，点击 **分包**，该操作将会打开分包界面来完成分包操作。具体的分包步骤请查看 [分包器](../publish/publish-android-instant.md#%E5%88%86%E5%8C%85%E5%99%A8) 部分的内容。
+4. 录制完成后，点击 **分包**，该操作将会打开分包界面来完成分包操作。具体的分包步骤请查看下方的 [分包器](../publish/publish-android-instant.md#%E5%88%86%E5%8C%85%E5%99%A8) 介绍。
 
 5. 分包完成后，在 **构建发布** 面板中选择 **分包配置路径 -> ...**，该步骤会打开 **profiles** 文件夹来选择分包记录所在的路径（分包记录保存在 `path_to_your_project/temp/android-instant-games/profiles` 目录下）。用户可以通过删除对应的文件夹来删除不需要的分包记录。
 
@@ -40,9 +40,9 @@
 
 6. 在 **构建发布** 面板中点击 **构建**，就会使用该分包记录进行首包的分割。然后点击 **编译 -> 运行** 并确保手机跟 PC 在同一个局域网内，就可以测试游戏运行的情况了。
 
-**注意**：**构建发布** 面板中关于 Google Instant Games 的几个主要的配置说明如下：
+**注意**：**构建发布** 面板中关于 Google Play Instant 的几个主要的配置说明如下：
 - **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `build/android-instant/remote_res` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
-- **启动 URL**：Google Instant Games 会根据这个协议启动对应的应用和对应的 activity。详情请查看 [Google Instant App 文档](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)。
+- **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。详情请查看 [Google Instant App 文档](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)。
 - **分包配置路径**：Creator 会根据这个分包配置生成首包的资源
 
 ## 分包器

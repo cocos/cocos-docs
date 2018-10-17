@@ -1,21 +1,19 @@
-# Publish to Google Instant Games
+# Publish to Google Play Instant
 
-Starting with Cocos Creator v2.0.4, creating games for the Google Instant Games platform is officially supported. Google Instant Games relies on Google play's services to open small programs in a way similar to opening web page URL.
-
-Technically, Google Instant Games is a game micro-end scenario. It's based on the Android Instant App, but there are some differences:
+Starting with Cocos Creator v2.0.4, creating games for the Google Play Instant platform is officially supported. Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game'demo, sharing and conversion. The main differences between Google Play Instant and the Android Instant App are:
 
 - Both the first package and the APK add-on are limited to 10MB (instead of 4MB)
 - Dynamically load resources without binary code from third-party CDN (JS is also available)
 - APK add-on packages can only be downloaded from the Google Play Store, can contain binary code and resources, can be loaded in the background, do not need to switch activity
 
-With games developed by Cocos Creator, just choose Google Instant Games as the publishing platform, which can automatically complete the standard adaptation work. Developers can quickly publish games that meet the Google Instant Games technical standards
+With games developed by Cocos Creator, just choose Google Play Instant as the publishing platform, which can automatically complete the standard adaptation work. Developers can quickly publish games that meet the Google Play Instant technical standards
 
-## Using Cocos Creator publish to Google Instant Games with one click
+## Using Cocos Creator publish to Google Play Instant with one click
 
 ### Requirement
 
 - Android Studio 3.0+
-- Android Phone 6.0+
+- Android Phone 6.0+<br>
 **Attention**: Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework. And Android 8.0 or higher does not need.
 - NDK r10c +
 
@@ -25,7 +23,7 @@ With games developed by Cocos Creator, just choose Google Instant Games as the p
 
     ![](publish-android-instant/builder.png)
 
-2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Instant Games on the phone.<br>
+2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Play Instant on the phone.<br>
 If you compile for the first time, you need to open the post-built project with Android Studio to download **Google Play Instant Development SDK (windows platform)** Support package, Mac platform is the **Instant Apps Development SDK** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
 
     ![](publish-android-instant/studio_setting.png)
@@ -40,9 +38,9 @@ If you compile for the first time, you need to open the post-built project with 
 
     ![](publish-android-instant/refactor_record.png)
 
-6. Clicking **Build** in the **Build** panel will use the refactor record to split the first package. Then click **Compile -> Play** and make sure the phone is on the same LAN as the PC, and you can test the Google Instant Games running.
+6. Clicking **Build** in the **Build** panel will use the refactor record to split the first package. Then click **Compile -> Play** and make sure the phone is on the same LAN as the PC, and you can test the Google Play Instant running.
 
-**Attention**：The main configuration notes for Google Instant Games in the **build** panel are as follows:
+**Attention**：The main configuration notes for Google Play Instant in the **build** panel are as follows:
 - **Server Address**: The download address of the remote resource, can be a CDN address. Put the `build/android-instant/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
 - **Default URL**: Android will load your instant app by this URL. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
 - **Record config path**: Cocos Creator will use this record config to generate first package and remote_res folder.
@@ -89,7 +87,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
 
-- `cc.androidInstant.showInstallPrompt()` For details, please refer to [showInstallPrompt](https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)
+- `cc.androidInstant.showInstallPrompt()` For details, please refer to [showInstallPrompt](https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String))
 
 - `cc.androidInstant.isInstantApp()` For details, please refer to [isInstantApp](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#isInstantApp())
 
