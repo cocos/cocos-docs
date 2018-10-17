@@ -88,6 +88,7 @@
         - [Wechat Open Data Context](publish/publish-wechatgame-sub-domain.md)
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
+    - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
