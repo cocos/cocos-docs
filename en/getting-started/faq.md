@@ -101,12 +101,10 @@ const Es = require('event-stream');
 return Es.through();
 ```
 
-### AssetDB resource creation
+### How to create an AssetDB resource in a plugin
 
-Use `Editor.remote.assetdb.create(url, data, callback)`. The first argument is `db://assets/xxx.png`, and the second argument is the buffer read by the .png file.
+In the main process, use `Editor.assetdb.create(url, data, callback)`. The first argument is `db://assets/xxx.png`, and the second argument is the buffer read by the .png file.
 
-However, this method is performed in the main process. Unable to determine if `Edtior.remote` is working properly after cross-process, preferably operation in the main.js.
+### How to refresh resources in AssetDB in the plugin
 
-### AssetDB resource refresh
-
-`Editor.assetdb.refresh()` has a way to manually refresh the database. If it is executed on the page, it is `Editor.remote.assetdb.refresh`.
+`Editor.assetdb.refresh()` provides a way to manually refresh the asset database.

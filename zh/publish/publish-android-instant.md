@@ -23,8 +23,9 @@
 
     ![](publish-android-instant/builder.png)
 
-2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Play Instant 的运行效果。<br>
-首次编译的话需要用 Android Studio 打开构建后的工程以下载 **Google Play Instant Development SDK（windows 平台）** 支持包（Mac 平台为 Instant Apps Development SDK 支持包）。如果下载不成功的话建议设置一下 Android Studio 的 HTTP 代理。
+2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Play Instant 的运行效果。
+
+    首次编译的话需要用 Android Studio 打开构建后的工程以下载 **Google Play Instant Development SDK（windows 平台）** 支持包，Mac 平台为 Instant Apps Development SDK 支持包。如果下载不成功的话建议设置一下 Android Studio 的 HTTP 代理。
 
     ![](publish-android-instant/studio_setting.png)
 
@@ -38,9 +39,13 @@
 
     ![](publish-android-instant/refactor_record.png)
 
-6. 在 **构建发布** 面板中点击 **构建**，就会使用该分包记录进行首包的分割。然后点击 **编译 -> 运行** 并确保手机跟 PC 在同一个局域网内，就可以测试游戏运行的情况了。若之前已经运行过游戏，要再次运行新的项目工程，需要在手机上将之前的游戏进程关闭，否则新的项目工程会因为端口被占用而导致无法在手机上运行。
+6. 在 **构建发布** 面板中点击 **构建**，就会使用该分包记录进行首包的分割。然后点击 **编译 -> 运行** 并确保手机跟 PC 在同一个局域网内，就可以测试游戏运行的情况了。
 
-**注意**：**构建发布** 面板中关于 Google Play Instant 的几个主要的配置说明如下：
+    **若之前已经运行过游戏，要再次运行新的项目工程，需要在手机上将之前的游戏进程关闭，否则新的项目工程会因为端口被占用而导致无法在手机上运行。**
+
+### 相关配置说明
+
+**构建发布** 面板中关于发布到 Google Play Instant 的几个主要配置说明如下：
 - **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `build/android-instant/remote_res` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
 - **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。详情请查看 [Google Instant App 文档](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)。
 - **分包配置路径**：Creator 会根据这个分包配置生成首包的资源

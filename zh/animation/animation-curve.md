@@ -4,7 +4,7 @@
 
 我们首先了解一下动画属性，动画属性包括了节点自有的 `position`、`rotation` 等属性，也包含了组件 Component 中自定义的属性。
 组件包含的属性前会加上组件的名字，比如 `cc.Sprite.spriteFrame`。
-比如下图的 position 那条就是属性轨道，而对应的蓝色棱形就是关键帧。
+比如下图的 position 那条就是属性轨道，而对应的蓝色菱形就是关键帧。
 
 ![animation-curve](animation-curve/main.jpg)
 

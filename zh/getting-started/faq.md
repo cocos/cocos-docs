@@ -102,12 +102,10 @@ const Es = require('event-stream');
 return Es.through();
 ```
 
-### AssetDB 资源创建
+### 如何在插件中创建 AssetDB 资源
 
-使用 `Editor.remote.assetdb.create(url, data, callback)`。第一个参数是 `db://assets/xxx.png`，第二个参数是 .png 文件读取出来的 buffer。
+在主进程中，使用 `Editor.assetdb.create(url, data, callback)`。第一个参数是 `db://assets/xxx.png`，第二个参数是 .png 文件读取出来的 buffer。
 
-不过该方法是在主进程里面进行的。无法确定 `Edtior.remote` 跨进程之后是否能正常使用，最好是在 main.js 中操作。
+### 如何在插件中重新刷新 AssetDB 中的资源
 
-### AssetDB 资源刷新
-
-`Editor.assetdb.refresh()` 有提供了一个手动刷新数据库的方法。如果在页面执行的话是 `Editor.remote.assetdb.refresh`。
+`Editor.assetdb.refresh()` 提供了一个手动刷新资源库的方法。
