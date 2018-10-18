@@ -100,3 +100,11 @@ After the engine is customized, open the `engine/gulp/util/utils.js` script, at 
 const Es = require('event-stream');
 return Es.through();
 ```
+
+### How to create an AssetDB resource in a plugin
+
+In the main process, use `Editor.assetdb.create(url, data, callback)`. The first argument is `db://assets/xxx.png`, and the second argument is the buffer read by the .png file.
+
+### How to refresh resources in AssetDB in the plugin
+
+`Editor.assetdb.refresh()` provides a way to manually refresh the asset database.

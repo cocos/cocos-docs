@@ -57,8 +57,6 @@ If there are no strict requirements for the content that might be cut down on th
 
 In the Cocos engine, there is a fit mode called `ExactFit`, which doesn't have black borders, or cut down the image within the scale of design resolution. But the price is the zooming in/out ratio of the scene image to the direction of the x/y axis  is different, which will distort the image.
 
-If you don't mind distortions of the image, you can use the engine API to realize fit effect without using the Canvas component. For detailed information, you can refer to [Cocos2d-JS's screen adaptation scheme](http://www.cocos.com/docs/js/4-essential-concepts/4-4-resolution-policies/zh.html).
-
 ## Use Canvas component in the scene
 
 When creating a new scene, a node including the Canvas component will automatically be added to the root node of the scene. On the Canvas component, the options mentioned above can be set:

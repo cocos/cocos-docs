@@ -609,7 +609,7 @@ Open the `Star` script after saving, now we can use the `player` node referenced
     },
 ```
 
-The `getPosition()` method under the node returns the position（x, y）of the node in the parent node's coordinate system, that is a `Vec2` type object. The `destroy()` method under `CC` is very simple, and there is no more to repeat. At the same time, note that call node under `destroy()` method can destroy the node.
+The `getPosition()` method under the node returns the position（x, y）of the node in the parent node's coordinate system, that is a `Vec2` type object. At the same time, note that call node under `destroy()` method can destroy the node.
 
 Then add the judging distance for each frame in the `update` method. If the distance is less than the collection distance specified by the `pickRadius` property, the collection behavior is performed:
 
