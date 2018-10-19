@@ -33,7 +33,7 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 
     ![](./publish-android-instant/record.png)
 
-4. After the recording is completed, click **Refactor**, and the Refactor panel will be opened to complete the refactor operation. For specific refactor steps, please refer to [Refactor](../publish/publish-android-instant.md#%E5%88%86%E5%8C%85%E5%99%A8).
+4. After the recording is completed, click **Refactor**, and the Refactor panel will be opened to complete the refactor operation. For specific refactor steps, please refer to [Refactor](publish-android-instant.html#refactor).
 
 5. After the refactor is complete, select the **Record config path -> ...** in the **Build** panel. This step will open the **profiles** folder to select the path where the refactor record is located (Refactor records are saved in the `path_to_your_project/temp/android-instant-games/profiles` directory). We can delete unwanted refactor records by deleting the corresponding folder.
 
@@ -74,7 +74,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
     ![](publish-android-instant/refactor_manual.png)
 
-6.  If you need to add other resources to the first package, you can also select resources from the **Assets** panel and drag them into the **Refactor** panel.
+6. If you need to add other resources to the first package, you can also select resources from the **Assets** panel and drag them into the **Refactor** panel.
 
 7. Finally, click **Save** button to save the first package info into record.
 
@@ -92,15 +92,15 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
 
-- `cc.androidInstant.showInstallPrompt()` For details, please refer to [showInstallPrompt](https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String))
+- `cc.androidInstant.showInstallPrompt()` For details, please refer to <a href="https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)">showInstallPrompt</a>
 
-- `cc.androidInstant.isInstantApp()` For details, please refer to [isInstantApp](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#isInstantApp())
+- `cc.androidInstant.isInstantApp()` For details, please refer to [isInstantApp](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#isInstantApp%28%29)
 
-- `cc.androidInstant.getInstantAppCookie()` For details, please refer to [getInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookie())
+- `cc.androidInstant.getInstantAppCookie()` For details, please refer to [getInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat.html#getInstantAppCookie%28%29)
 
-- `cc.androidInstant.setInstantAppCookie()` For details, please refer to [setInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#setInstantAppCookie(byte%5B%5D))
+- `cc.androidInstant.setInstantAppCookie()` For details, please refer to [setInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat.html#setInstantAppCookie%28byte%5B%5D%29)
 
-- `cc.androidInstant.getInstantAppCookieMaxSize()` For details, please refer to [getInstantAppCookieMaxSize](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookieMaxSize())
+- `cc.androidInstant.getInstantAppCookieMaxSize()` For details, please refer to [getInstantAppCookieMaxSize](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat.html#getInstantAppCookieMaxSize%28%29)
 
 ## Related reference links
 

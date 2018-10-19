@@ -33,7 +33,7 @@
 
     ![](publish-android-instant/record.png)
 
-4. 录制完成后，点击 **分包**，该操作将会打开分包界面来完成分包操作。具体的分包步骤请查看下方的 [分包器](../publish/publish-android-instant.md#%E5%88%86%E5%8C%85%E5%99%A8) 介绍。
+4. 录制完成后，点击 **分包**，该操作将会打开分包界面来完成分包操作。具体的分包步骤请查看下方的 <a href="#refactor">分包器</a>。
 
 5. 分包完成后，在 **构建发布** 面板中选择 **分包配置路径 -> ...**，该步骤会打开 **profiles** 文件夹来选择分包记录所在的路径（分包记录保存在 `path_to_your_project/temp/android-instant-games/profiles` 目录下）。用户可以通过删除对应的文件夹来删除不需要的分包记录。
 
@@ -50,7 +50,7 @@
 - **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。详情请查看 [Google Instant App 文档](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)。
 - **分包配置路径**：Creator 会根据这个分包配置生成首包的资源
 
-## 分包器
+## <a name="refactor">分包器</a>
 
 分包器，主要用来编辑游戏的首包，选择放入首包的资源。
 
@@ -90,15 +90,15 @@
 
 我们提供了一些 API 方便开发者直接调用 Google 的一些功能，目前开放了 Instant Google Cookie API，详情请前往谷歌文档查看。同时，我们也提供了 API 相关的 demo：[AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
 
-- `cc.androidInstant.showInstallPrompt()` 请参考 Google 相关文档 [showInstallPrompt](https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String))
+- `cc.androidInstant.showInstallPrompt()` 请参考 Google 相关文档 <a href="https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)">showInstallPrompt</a>
 
-- `cc.androidInstant.isInstantApp()` 请参考 Google 相关文档 [isInstantApp](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#isInstantApp())
+- `cc.androidInstant.isInstantApp()` 请参考 Google 相关文档 [isInstantApp](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#isInstantApp%28%29)
 
-- `cc.androidInstant.getInstantAppCookie()` 请参考 Google 相关文档 [getInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookie())
+- `cc.androidInstant.getInstantAppCookie()` 请参考 Google 相关文档 [getInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookie%28%29)
 
-- `cc.androidInstant.setInstantAppCookie()` 请参考 Google 相关文档 [setInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#setInstantAppCookie(byte%5B%5D))
+- `cc.androidInstant.setInstantAppCookie()` 请参考 Google 相关文档 [setInstantAppCookie](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#setInstantAppCookie%28byte%5B%5D%29)
 
-- `cc.androidInstant.getInstantAppCookieMaxSize()` 请参考 Google 相关文档 [getInstantAppCookieMaxSize](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookieMaxSize())
+- `cc.androidInstant.getInstantAppCookieMaxSize()` 请参考 Google 相关文档 [getInstantAppCookieMaxSize](https://developers.google.com/android/reference/com/google/android/gms/instantapps/PackageManagerCompat#getInstantAppCookieMaxSize%28%29)
 
 ## 相关参考链接
 
