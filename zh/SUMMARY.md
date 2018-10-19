@@ -37,6 +37,7 @@
     - [预制资源](asset-workflow/prefab.md)
     - [图集资源](asset-workflow/atlas.md)
     - [自动图集资源](asset-workflow/auto-atlas.md)
+    - [压缩纹理](asset-workflow/compress-texture.md)
     - [艺术数字资源](asset-workflow/label-atlas.md)
     - [跨项目导入导出资源](asset-workflow/import-export.md)
     - [图像资源的自动剪裁](asset-workflow/trim.md)
