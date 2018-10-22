@@ -63,17 +63,17 @@ In 2.0, we abstracted a new base component class: `RenderComponent`, and all dir
 
 Because of the transformation of the underlying renderer in 2.0, we abstracted the functionality of many render phases for user access and setup. Many of the interfaces to these interfaces are in the RenderComponent. In addition to the blend mode, we also plan to introduce the material system (the engine is built-in, and only the script interface is temporarily available).
 
-## 2.3 Camera 组件使用
+## 2.3 Camera component use
 
-摄像机可能是 1.x 到 2.0 改动最大的一个组件，为了开发者可以顺畅更新，我们尽量保持了组件层 API 的一致性，然而 Camera 的使用方式和 API 却无法做到简单迁移。因为在 2.0 中，Camera 从一个配角变成了主角：
+The camera may be the most changed component from 1.x to 2.0. In order for developers to update smoothly, we tried to maintain the consistency of the component layer API. Here are details of the changes:
 
-1. Canvas 组件会添加一个默认 Main Camera 节点，并挂载 Camera 组件，它将默认对准 Canvas 节点的中心，显示场景中渲染元素
-2. 节点 Group 对应 Camera 的 culling mask，只有 Camera culling mask 包含的 Group 才会被渲染
-3. 可以通过多 Camera 来渲染不同 Group，并且让它们拥有全局层级关系，场景渲染是以 Camera 列表为入口，依次渲染（多 Camera 也可以用不同视角渲染同一个物体）
+  1. The `Canvas` component adds a default *Main Camera* node and mounts the `Camera` component, which will default to the center of the `Canvas` node, showing the rendered elements in the scene.
+  2. `Node` Group corresponds to Camera's culling mask, only the Group contained in Camera culling mask will be rendered.
+  3. You can render different groups through multiple cameras, and let them have a global hierarchical relationship. Scene rendering is based on the Camera list, which is rendered in turn (multi-camera can also render the same object with different perspectives)
 
-在这个架构下，1.x 那样的使用方式就不再可行了，无法直接指定 Camera 对应的 target，而是通过设置节点 Group 和 Camera 的 culling mask 来设置节点和 Camera 匹配关系。
+If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera.
 
-具体的改动，开发者们可以参考 [2.0 Camera 使用文档](../render/camera.md)。
+For specific changes, developers can refer to [2.0 Camera Using Documentation] (../render/camera.md).
 
 ## 2.4 构建面板更新
 
