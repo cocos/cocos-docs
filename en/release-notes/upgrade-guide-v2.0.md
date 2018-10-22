@@ -71,21 +71,21 @@ The camera may be the most changed component from 1.x to 2.0. In order for devel
   2. `Node` Group corresponds to Camera's culling mask, only the Group contained in Camera culling mask will be rendered.
   3. You can render different groups through multiple cameras, and let them have a global hierarchical relationship. Scene rendering is based on the Camera list, which is rendered in turn (multi-camera can also render the same object with different perspectives)
 
-If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera. 
+If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera.
 
 For specific changes, developers can refer to [2.0 Camera Using Documentation] (../render/camera.md).
 
-## 2.4 构建面板更新
+## 2.4 Build Panel Updates
 
-构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 Wechat Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：Wechat Game Open Data Context。
+The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as Wechat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: Wechat Game Open Data Context.
 
-![2.0 微信小游戏开放数据域发布面板](upgrade-guide-v2.0/wechat-open-data.png)
+![2.0 WeChat game open data domain publishing panel] (upgrade-guide-v2.0/wechat-open-data.png)
 
-可以看到，构建选项比其他平台要简单许多，这是因为开放数据域的环境特殊，去除了不必要的选项。同时，由于开放数据域不支持 WebGL 渲染，所以在引擎模块裁剪上，不论用户怎么设置，WebGL 渲染器都会被剔除，同时依赖于 WebGL 渲染的所有模块都会被剔除。其他模块，仍然需要用户自己选择来尽量争取在打到开放数据域中的最小包体。
+As you can see, the build options are much simpler than other platforms because the open data domain has a special environment that removes unnecessary options. At the same time, since the open data domain does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data domain.
 
-同理，在构建其他平台时，请不要勾选 Canvas Renderer，因为 Canvas 渲染器支持的渲染组件不多，意义已经不大了。
+For the same reason, when building other platforms, please don't check the Canvas Renderer, because the Canvas renderer supports a small number of rendering components, meaning little.
 
-从 v2.0.1 开始，我们更新了开放数据域解决方案，具体请参考[接入小游戏开放数据域](../publish/publish-wechatgame-sub-domain.md)。
+Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain] (../publish/publish-wechatgame-sub-domain.md).
 
 ## 2.5 模块设置
 
