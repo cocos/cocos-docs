@@ -71,7 +71,7 @@ The camera may be the most changed component from 1.x to 2.0. In order for devel
   2. `Node` Group corresponds to Camera's culling mask, only the Group contained in Camera culling mask will be rendered.
   3. You can render different groups through multiple cameras, and let them have a global hierarchical relationship. Scene rendering is based on the Camera list, which is rendered in turn (multi-camera can also render the same object with different perspectives)
 
-If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera.
+If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera. 
 
 For specific changes, developers can refer to [2.0 Camera Using Documentation] (../render/camera.md).
 
