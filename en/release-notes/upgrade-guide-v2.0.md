@@ -36,32 +36,32 @@ List of known issues:
 
 Let's take a look at the changes at the editor level. Since the focus of v2.0 is focused on the engine level, there are actually not many changes in this area. They are mainly texture resources, platform release, and the use of some components. In future versions of v2.x, editor level upgrades will be released.
 
-## 2.1 Texture 资源配置
+## 2.1 Texture Resource Configuration
 
-也许有开发者在 Creator 1.x 注意过贴图资源的配置，比如 Wrap Mode 和 Filter Mode，但是其实在 1.x 中不论怎么设置，都是不会影响到运行时的贴图资源的。那么在 2.0 中，我们让这些配置在运行时真正生效，还增加了一个是否预乘贴图的选项：
+Maybe developers have noticed the configuration of texture resources in Creator 1.x, such as Wrap Mode and Filter Mode, but in fact, no matter how you set it in 1.x, it will not affect the runtime texture resources. So in 2.0, we made these configurations take effect at runtime, and we also added an option to prefetch textures:
 
 ![Texture Inspector](upgrade-guide-v2.0/texture.png)
 
-- Wrap Mode：循环模式，它决定了当 uv 超过 1 时如何对贴图采样
-  - Clamp：uv 的取值会自动限定在 0, 1 之间，超出直接取 0 或 1
-  - Repeat：超过时会对 uv 的值取模，使得贴图可以循环呈现
-- Filter Mode：过滤模式，它决定了对贴图像素进行浮点采样时，是否和周围像素进行混合，以达到贴图缩放时的平滑过度效果。结果上来说，Trilinear 平滑程度高于 Bilinear，高于 Point，但是 Point 很适合像素风格的游戏，在缩放贴图时，像素边界不会变得模糊，保持原始的像素画风格。
-  - Point（最近点采样）：直接使用 uv 数值上最接近的像素点
-  - Bilinear（二次线性过滤）：取 uv 对应的像素点以及周围的四个像素点的平均值
-  - Trilinear（三次线性过滤）：会在二次线性过滤的基础上，取相邻两层 mipmap 的二次线性过滤结果，进行均值计算
-- Premultiply Alpha：这是在 2.0 新增的参数，勾选时，引擎会在上传 GPU 贴图的过程中，开启 GL 预乘选项。这对于一些需要预乘的贴图非常有帮助，时常会有一些用户对于贴图周围或者文字周围莫名其妙的白边无法理解，这是贴图周围的半透明像素造成的：
+- __Wrap Mode:__ Loop mode, which determines how the texture is sampled when uv exceeds 1.
+  - __Clamp:__ the value of __uv__ is automatically limited to __0, 1__ and exceeds __0 or 1__ directly.
+  - __Repeat:__ When over, the value of __uv__ is modulo, so that the texture can be rendered in a loop.
+- __Filter Mode:__ Filter mode, which determines whether to blend the surrounding pixels with the surrounding pixels when floating point samples are used to achieve the smoothing effect of texture scaling. In effect, Trilinear smoothness is higher than Bilinear, higher than Point, but Point is very suitable for pixel-style games. When scaling textures, the pixel boundaries will not be blurred, maintaining the original pixel painting style.
+  - __Point (nearest point sampling):__ directly use the nearest pixel on the uv value
+  - __Bilinear (secondary linear filtering):__ take the average of the pixel corresponding to uv and the surrounding four pixels
+  - __Trilinear (triangular linear filtering):__ Based on the quadratic linear filtering, the quadratic linear filtering results of two adjacent mipmaps are taken for the mean calculation.
+- __Premultiply Alpha:__ This is a new parameter in 2.0. When checked, the engine will enable the GL pre-multiply option during the upload of the GPU map. This is very helpful for some textures that need to be pre-multiplied. Often there are some users who can't understand the inexplicable white edges around the texture or around the text, which is caused by the semi-transparent pixels around the texture:
 
-![Spine 骨骼接缝处的奇怪白边](upgrade-guide-v2.0/spine-border.png)
+![Spine's strange white edges at the bone seams] (upgrade-guide-v2.0/spine-border.png)
 
-这在 1.x 都需要使用代码的方式才能够消除，而在 2.0 中你只需要开启贴图的预乘选项。还需要注意的是，如果你发现这样做使得贴图变暗，那么就要将对应的渲染组件的混合模式改为 ONE，ONE_MINUS_SRC_ALPHA 即可。
+This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on the pre-multiply option of the texture. It's also worth noting that if you find that this makes the texture darker, you can change the blending mode of the corresponding rendering component to ONE, ONE_MINUS_SRC_ALPHA.
 
-## 2.2 RenderComponent 组件设置
+## 2.2 RenderComponent component settings
 
-在 2.0 中，我们抽象了一个新的基础组件类：RenderComponent，所有的直接渲染组件都是继承自这个组件，比如：Sprite、Label、Graphics 等。对用户来说，最直观的改变就是，继承自它的渲染组件在属性检查器中都会包含混合模式的设置选项（Src Blend Factor & Dst Blend Factor）：
+In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Property inspector__:
 
-![TiledLayer 的混合模式设置](upgrade-guide-v2.0/render-component.png)
+![TiledLayer's Mixed Mode Settings] (upgrade-guide-v2.0/render-component.png)
 
-因为 2.0 中对基础渲染器的改造，我们将很多渲染阶段的功能都抽象出来，方便用户访问和设置。这些接口的入口很多都在 RenderComponent 中，除了混合模式以外，我们还计划推出材质系统（引擎已经内置，暂时只有脚本接口）。
+Because of the transformation of the underlying renderer in 2.0, we abstracted the functionality of many render phases for user access and setup. Many of the interfaces to these interfaces are in the RenderComponent. In addition to the blend mode, we also plan to introduce the material system (the engine is built-in, and only the script interface is temporarily available).
 
 ## 2.3 Camera 组件使用
 
