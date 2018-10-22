@@ -94,18 +94,18 @@ In addition to the special module settings in the WeChat open data domain, there
   1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data domain, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
   2. The native platform cannot currently remove the Native Network module (which will be adjusted in the future).
 
-## 2.6 自定义引擎 Quick Compile
+## 2.6 Custom Engine Quick Compile
 
-在 2.0 中，我们为需要定制引擎的开发者提供了一种更便捷的开发方式。1.x 在修改定制引擎之后，还需要进行 gulp build 构建才能生效，而且构建时间很长。这个问题的根本原因是，任何小的改动都需要将所有引擎文件进行重新打包，混淆，这个过程的耗时很长。所以 2.0 中我们改为引用自定义引擎中的分散文件，当用户改动发生时，只会更新被修改的文件，开发者也可以手动触发更新。
+In 2.0, we provided a more convenient way for developers who needed a custom engine. 1.x After modifying the custom engine, you also need to build the gulp build to take effect, and the build time is very long. The root cause of this problem is that any minor changes require repackaging and confusing all engine files, which can take a long time. So in 2.0, we instead refer to the scatter file in the custom engine. When the user changes, only the modified file will be updated, and the developer can also manually trigger the update.
 
-![自定义引擎配置](upgrade-guide-v2.0/quick-compile.png)
+![Custom Engine Configuration](upgrade-guide-v2.0/quick-compile.png)
 
-当使用自定义 JS 引擎时：
+When using a custom JS engine:
 
-1. 勾选自动编译 JS 引擎：加载或刷新编辑器时扫描引擎并自动重新编译修改的引擎代码
-2. 不勾选自动编译 JS 引擎：开发者需要在修改完引擎代码之后，手动使用菜单项：”开发者” > “编译引擎” 来触发编译
+  1. Check Automatically compile JS engine: scan engine and automatically recompile modified engine code when loading or refreshing editor
+  2. Uncheck the automatic compilation of the JS engine: the developer needs to manually use the menu item: __developer__ > __compilation engine__ to trigger the compilation after modifying the engine code.
 
-在编译完成后，预览就会直接使用新的引擎代码，构建项目时，也会使用新的引擎代码进行编译构建，当然，这会带来两个副作用：需要编译引擎时构建时间增长；预览时加载引擎脚本很多，所以预览加载时间也会增长。
+After the compilation is complete, the preview will use the new engine code directly. When the project is built, it will also be compiled and built with the new engine code. Of course, this will bring two side effects: the build time needs to be compiled when the engine is compiled; There are a lot of load engine scripts, so the preview load time will also grow.
 
 # 3. 引擎模块升级
 
