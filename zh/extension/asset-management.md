@@ -2,17 +2,21 @@
 
 ## 管理场景
 
+### 新建场景
+
+通过 `Editor.Ipc` 模块新建场景:
+
+`Editor.Ipc.sendToPanel('scene', 'scene:new-scene');`
+
 ### 保存当前场景
 
-在上一节 [调用引擎 API 和项目脚本](scene-script.md) 中我们介绍了通过场景脚本访问引擎 API 和用户项目脚本的方法，在对场景数据进行修改后可以使用以下接口保存当前场景。
+对场景数据修改完成后可以通过 `Editor.Ipc` 模块来保存当前场景:
 
-`_Scene.save()`
-
-其中 `_Scene` 是一个特殊的单例，用来控制场景编辑器里加载的场景实例。
+`Editor.Ipc.sendToPanel('scene', 'scene:stash-and-save');`
 
 ### 加载其他场景
 
-我们的扩展包可能需要遍历多个场景并依次操作和保存，要加载新场景，请使用
+我们的扩展包可能需要遍历多个场景并依次操作和保存，在上一节 [调用引擎 API 和项目脚本](scene-script.md) 中我们介绍了通过场景脚本访问引擎 API 和用户项目脚本的方法，要加载新场景，请使用：
 
 ```js
 _Scene.loadSceneByUuid(uuid, function(error) {
@@ -20,8 +24,8 @@ _Scene.loadSceneByUuid(uuid, function(error) {
 });
 ```
 
+其中 _Scene 是一个特殊的单例，用来控制场景编辑器里加载的场景实例。<br>
 传入的参数是场景资源的 uuid，可以通过下面介绍的资源管理器接口来获取。
-
 
 ## 资源 URL 和 UUID 的映射
 

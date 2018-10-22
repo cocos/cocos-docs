@@ -101,3 +101,11 @@ cc.loader.load(image, (error, texture) => {
 const Es = require('event-stream');
 return Es.through();
 ```
+
+### 如何在插件中创建 AssetDB 资源
+
+在主进程中，使用 `Editor.assetdb.create(url, data, callback)`。第一个参数是 `db://assets/xxx.png`，第二个参数是 .png 文件读取出来的 buffer。
+
+### 如何在插件中重新刷新 AssetDB 中的资源
+
+`Editor.assetdb.refresh()` 提供了一个手动刷新资源库的方法。

@@ -23,8 +23,9 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 
     ![](publish-android-instant/builder.png)
 
-2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Play Instant on the phone.<br>
-If you compile for the first time, you need to open the post-built project with Android Studio to download **Google Play Instant Development SDK (windows platform)** Support package, Mac platform is the **Instant Apps Development SDK** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
+2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Play Instant on the phone.
+
+    If you compile for the first time, you need to open the post-built project with Android Studio to download **Google Play Instant Development SDK (windows platform)** Support package, Mac platform is the **Instant Apps Development SDK** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
 
     ![](publish-android-instant/studio_setting.png)
 
@@ -40,7 +41,11 @@ If you compile for the first time, you need to open the post-built project with 
 
 6. Clicking **Build** in the **Build** panel will use the refactor record to split the first package. Then click **Compile -> Play** and make sure the phone is on the same LAN as the PC, and you can test the Google Play Instant running.
 
-**Attention**：The main configuration notes for Google Play Instant in the **build** panel are as follows:
+    **If you have already run a game, to run the new project again, you need to close the previous game process on your phone, otherwise the new project will not run on the phone because the port is occupied.**
+
+### Related configuration instructions
+
+The main configuration notes in the **Build** panel about publishing to Google Play Instant are as follows:
 - **Server Address**: The download address of the remote resource, can be a CDN address. Put the `build/android-instant/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
 - **Default URL**: Android will load your instant app by this URL. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
 - **Record config path**: Cocos Creator will use this record config to generate first package and remote_res folder.
