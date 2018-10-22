@@ -87,12 +87,12 @@ For the same reason, when building other platforms, please don't check the Canva
 
 Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain] (../publish/publish-wechatgame-sub-domain.md).
 
-## 2.5 模块设置
+## 2.5 Module Settings
 
-除了微信开放数据域中的模块设置比较特殊以外，在其他平台项目的模块设置中还有几点需要注意：
+In addition to the special module settings in the WeChat open data domain, there are several points to note in the module settings of other platform projects:
 
-1. 目前我们已经在非微信开放数据域的其他平台中废弃了 Canvas 渲染模式，所以 Canvas Renderer 模块都可以剔除，但 WebGL Renderer 模块必须保留。
-2. 原生平台目前不可剔除 Native Network 模块（未来会调整）。
+  1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data domain, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
+  2. The native platform cannot currently remove the Native Network module (which will be adjusted in the future).
 
 ## 2.6 自定义引擎 Quick Compile
 
