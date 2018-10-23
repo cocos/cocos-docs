@@ -1,5 +1,7 @@
 # Mesh Renderer 组件参考
 
+> 文： youyou
+
 Mesh Renderer 用于绘制网格资源，如果网格资源中含有多个子网格，那么 Mesh Renderer 中也需要有对应多的贴图才能正确绘制网格。
 
 ## 属性

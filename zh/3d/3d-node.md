@@ -1,5 +1,7 @@
 # 3D Node
 
+> 文： youyou
+
 ## Node Api 升级
 
 由于 CocosCreator 在 2.1 支持了 3D 的特性，所以相应节点的 api 也需要由 2D 升级到支持 3D 的使用。
