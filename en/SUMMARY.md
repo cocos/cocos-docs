@@ -88,6 +88,7 @@
         - [Wechat Open Data Context](publish/publish-wechatgame-sub-domain.md)
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
+    - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
@@ -201,6 +202,7 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [RenderFlow](advanced-topics/render-flow.md)
     - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
+    - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
 - [SDK Integration](sdk/index.md)

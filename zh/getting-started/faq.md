@@ -73,12 +73,12 @@ let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
 let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
 let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
-cc.loader.load(image, () => {
+cc.loader.load(image, (error, texture) => {
     cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
         cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
             let atlas = new dragonBones.DragonBonesAtlasAsset();
             atlas.atlasJson = atlasJson;
-            atlas.texture = image;
+            atlas.texture = texture;
 
             let asset = new dragonBones.DragonBonesAsset();
             asset.dragonBonesJson = dragonBonesJson;
@@ -86,8 +86,8 @@ cc.loader.load(image, () => {
             dragonDisplay.dragonAtlasAsset = atlas;
             dragonDisplay.dragonAsset = asset;
 
-            dragonDisplay.armatureName = 'eee';
-            dragonDisplay.playAnimation('eee', -1);
+            dragonDisplay.armatureName = 'box_anim';
+            dragonDisplay.playAnimation('box_anim', 0);
         });
     });
 });
@@ -101,3 +101,11 @@ cc.loader.load(image, () => {
 const Es = require('event-stream');
 return Es.through();
 ```
+
+### 如何在插件中创建 AssetDB 资源
+
+在主进程中，使用 `Editor.assetdb.create(url, data, callback)`。第一个参数是 `db://assets/xxx.png`，第二个参数是 .png 文件读取出来的 buffer。
+
+### 如何在插件中重新刷新 AssetDB 中的资源
+
+`Editor.assetdb.refresh()` 提供了一个手动刷新资源库的方法。

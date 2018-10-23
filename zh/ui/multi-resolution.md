@@ -57,8 +57,6 @@ Cocos Creator 在设计之初就致力于解决一套资源适配多种分辨率
 
 在 Cocos 引擎中，也存在称为 `ExactFit` 的适配模式，这种模式没有黑边，也不会裁剪设计分辨率范围内的图像。但是代价是场景图像的 x 和 y 方向的缩放倍率不同，图像会产生形变拉伸。
 
-如果不介意图像形变，可以在不使用 Canvas 组件的情况下，使用引擎 API 来实现适配效果，详情可以参考 [Cocos2d-JS 的屏幕适配方案](http://www.cocos.com/docs/js/4-essential-concepts/4-4-resolution-policies/zh.html)。
-
 ## 在场景中使用 Canvas 组件
 
 新建场景时，会自动在场景根节点上添加一个包含 Canvas 组件的节点。在 Canvas 组件上就可以设置上文中提到的选项：

@@ -89,6 +89,7 @@
         - [微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
     - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
     - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
+    - [发布到 Google Play Instant 平台](publish/publish-android-instant.md)
     - [定制项目构建流程](publish/custom-project-build-template.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
 
@@ -211,6 +212,7 @@
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [渲染流](advanced-topics/render-flow.md)
     - [BMFont and UI 自动批处理](advanced-topics/ui-auto-batch.md)
+    - [动态合图](advanced-topics/dynamic-atlas.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)

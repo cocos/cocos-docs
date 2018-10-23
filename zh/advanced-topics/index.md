@@ -12,6 +12,6 @@
 - [渲染流](render-flow.md)
 - [Java 原生反射机制](java-reflection.md)
 - [Objective-c 原生反射机制](oc-reflection.md)
-- [BMFont 与 UI自动批处理](ui-auto-batch.md)
-- [自动合图](dynamic-atlas.md)
+- [BMFont 与 UI 自动批处理](ui-auto-batch.md)
+- [动态合图](dynamic-atlas.md)
 - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
