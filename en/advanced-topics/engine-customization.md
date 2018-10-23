@@ -170,26 +170,23 @@ In the `jsb-adapter` directory, the following two directory structures are inclu
 
 The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
 
-#### 3.2.1 Customize and compile builtin
-
-Customization of the `engine` section only requires modification of the code.<br>
-Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
+First of all, you should install the dependencies. Please execute them on the command line:
 
 ```bash
-cd jsb-adapter/builtin
+cd jsb-adapter/
 npm install
 ```
 
-Next, you can customize the code in the `builtin` section. After the modification is complete, continue to execute it on the command line:
+Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
 
 ```bash
-# jsb-adapter/builtin 目录下
+# in jsb-adapter folder
 gulp
 ```
 
-When the command completes, a new `jsb-builtin.js` file is generated in the `jsb-adapter/builtin/dist` directory.
+The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
 
-After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` file and the `engine` directory together to the `jsb-adapter` folder in the project when you **build** the native platform in the **Build** panel.
+After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
 
 ### 3.3 Customize weapp-adapter and qqplay-adapter
 
