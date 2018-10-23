@@ -47,8 +47,12 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 
 The main configuration notes in the **Build** panel about publishing to Google Play Instant are as follows:
 - **Server Address**: The download address of the remote resource, can be a CDN address. Put the `build/android-instant/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
-- **Default URL**: Android will load your instant app by this URL. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
+- **Default URL**: Android will load your instant app by this URL. This parameter can be empty, if it is not empty, you must ensure that the URL entered is accessible when submitting the package to the Google Store. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
 - **Record config path**: Cocos Creator will use this record config to generate first package and remote_res folder.
+
+**Attention**: If the Google Play Instant package has more permissions than the app on Google Store, it may not install properly when you install the app:
+
+![](publish-android-instant/installation_failed.png)
 
 ## Refactor
 
