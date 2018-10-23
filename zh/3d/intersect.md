@@ -6,7 +6,7 @@ Cocos Creator 提供了一套用于检测 3D 物体碰撞的 api，你可以使�
 
 ## 射线检测
 
-- 基础检测
+- cc.geomUtils.intersect.raycast(rootNode, ray, handler, filter)
 
 ```js
 // 根据点击的点获取一条由屏幕射向屏幕内的摄像
@@ -19,7 +19,7 @@ for (let i = 0; i < results.length; i++) {
 }
 ```
 
-- 如果希望更精确的进行检测，可以传入一个 handler 函数来进行检测
+如果希望更精确的进行检测，可以传入一个 handler 函数来进行检测
 
 ```js
 let handler = function (modelRay, node, distance) {
@@ -37,3 +37,4 @@ let handler = function (modelRay, node, distance) {
 
 let results = cc.geomUtils.intersect.raycast(cc.director.getScene(), ray, handler);
 ```
+
