@@ -157,6 +157,7 @@
         - [碰撞组件](physics/physics/collider-component.md)
         - [碰撞回调](physics/physics/contact-callback.md)
         - [关节组件](physics/physics/joint-component.md)
+        - [高级设置](physics/physics/advanced-settings.md)
 - [音乐和音效](audio/index.md)
     - [音频播放](audio/audio.md)
     - [AudioSource 组件参考](components/audiosource.md)
@@ -169,6 +170,7 @@
     - [Mesh Renderer 组件参考](3d/mesh-renderer.md)
     - [Skinned Mesh Renderer 组件参考](3d/skinned-mesh-renderer.md)
     - [骨骼动画组件参考](3d/skeleton-animation.md)
+    - [碰撞检测](3d/intersect.md)
 
 ## 进阶使用
 
