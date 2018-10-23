@@ -96,7 +96,7 @@ In addition to the special module settings in the WeChat open data domain, there
 
 ## 2.6 Custom Engine Quick Compile
 
-In 2.0, we provided a more convenient way for developers who needed a custom engine. 1.x After modifying the custom engine, you also need to build the gulp build to take effect, and the build time is very long. The root cause of this problem is that any minor changes require repackaging and confusing all engine files, which can take a long time. So in 2.0, we instead refer to the scatter file in the custom engine. When the user changes, only the modified file will be updated, and the developer can also manually trigger the update.
+In 2.0, we provided a more convenient way for developers who needed a custom engine. 1.x After modifying the custom engine, you also need to build the gulp build to take effect, and the build time is very long. The root cause of this problem is that any minor changes require repackaging and confusing all engine files, which can take a long time. So in 2.0, we instead refer to the separated source files in the custom engine. When the user changes, only the modified file will be updated, and the developer can also manually trigger the update.
 
 ![Custom Engine Configuration](upgrade-guide-v2.0/quick-compile.png)
 
