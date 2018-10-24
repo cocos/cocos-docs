@@ -14,13 +14,13 @@
 
 | 属性 | 功能说明 |
 | :---: | :--- |
-| Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道预先乘上Alpha通道传递给WebGL。 |
+| Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道预先乘上Alpha通道。 |
 | Wrap Mode | 寻址模式，包括Clamp\(钳位\)，Repeat\(重复\)两种寻址模式 |
 | Filter Mode | 过滤方式，包括Point\(邻近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
 
 ## Alpha 预乘
 
-
+在渲染的时候
 
 ## 寻址模式
 
