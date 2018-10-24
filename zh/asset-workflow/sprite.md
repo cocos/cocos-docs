@@ -18,6 +18,14 @@
 | Wrap Mode | 寻址模式，包括Clamp\(钳位\)，Repeat\(重复\)两种寻址模式 |
 | Filter Mode | 过滤方式，包括Point\(最近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
 
+## Alpha 预乘
+
+## 寻址模式
+
+
+
+## 过滤方式
+
 ## Texture 和 SpriteFrame 资源类型
 
 在 **资源管理器** 中，图像资源的左边会显示一个和文件夹类似的三角图标，点击就可以展开看到它的子资源（sub asset），每个图像资源导入后编辑器会自动在它下面创建同名的 SpriteFrame 资源。
