@@ -18,9 +18,10 @@
 | Wrap Mode | 寻址模式，包括Clamp\(钳位\)，Repeat\(重复\)两种寻址模式 |
 | Filter Mode | 过滤方式，包括Point\(邻近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
 
-## Alpha 预乘
+## Premultiply Alpha 
 
-在渲染的时候
+* Premultiply Alpha（预乘Alpha）：表示RGB在存储的时候预先将Alpha通道与RGB相乘，比如透明度为50%的红色，RGB为（255, 0, 0），预乘之后存储的颜色值为（127，0，0，0.5）。
+* Non-Premultiply Alpha （非预乘Alpha）：表示RGB不会预先与Alpha通道相乘，那么上面所述的透明度为50%的红色，存储的颜色值为（255，0，0，0.5）。
 
 ## 寻址模式
 
