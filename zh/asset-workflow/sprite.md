@@ -10,6 +10,14 @@
 
 图像资源在 **资源管理器** 中会以自身图片的缩略图作为图标。在 **资源管理器** 中选中图像资源后，**属性检查器** 下方会显示该图片的缩略图。目前图像资源的属性设置功能还没有完善，请不要在 **属性检查器** 手动修改图像资源的属性设置。
 
+## Texture 属性
+
+| 属性 | 说明 |
+| :---: | :--- |
+| Premultiply Alpha |  |
+| Wrap Mode |  |
+| Filter Mode |  |
+
 ## Texture 和 SpriteFrame 资源类型
 
 在 **资源管理器** 中，图像资源的左边会显示一个和文件夹类似的三角图标，点击就可以展开看到它的子资源（sub asset），每个图像资源导入后编辑器会自动在它下面创建同名的 SpriteFrame 资源。
@@ -22,8 +30,8 @@ SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替�
 
 下面是 Texture 和 SpriteFrame 的 API 接口文档：
 
-- [Texture 资源类型](../../../api/zh/classes/Texture2D.html)
-- [SpriteFrame 资源类型](../../../api/zh/classes/SpriteFrame.html)
+* [Texture 资源类型](../../../api/zh/classes/Texture2D.html)
+* [SpriteFrame 资源类型](../../../api/zh/classes/SpriteFrame.html)
 
 ## 使用 SpriteFrame
 
@@ -36,3 +44,4 @@ SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替�
 ### 性能优化注意事项
 
 使用单独存在的 Texture 作为 Sprite 资源，在预览和发布游戏时，将无法对这些 Sprite 进行批量渲染优化的操作。目前编辑器不支持转换原有的单张 Texture 引用到 Atlas 里的 SpriteFrame 引用，所以在开发正式项目时，应该尽早把需要使用的图片合成 Atlas（图集），并通过 Atlas 里的 SpriteFrame 引用使用。详情请继续阅读下一篇。
+
