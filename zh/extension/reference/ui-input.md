@@ -15,14 +15,14 @@
 [`focused`](#`focused,-disabled`-控制状态)| boolean | 控制 `focused` 状态 
 [`disabled`](#`focused,-disabled`-控制状态)| boolean | 控制 `disabled` 状态，设置此属性后不再响应事件
 [`readonly`](#readonly)| boolean | 控制 `readonly` 状态，设置此属性后不再响应事件
-[`password`](#设置-password)| boolean | 控制是否为 `password` 类型，设置此属性后输入值显示为 "."
+[`password`](#设置-password)| boolean | 控制是否为 `password` 类型，设置此属性后输入值显示为 "•"
 `unnavigable`| boolean | 控制是否可导航，组件默认可以通过 tab 键获取焦点，设置此属性后无法通过 tab 获取焦点，并且鼠标获取焦点后不会有 focus 样式
 `placeholder`| string | input 不存在 `value` 值时显示的内容
 
 ## 样式控制
 种类              | 参数值类型 | 功能说明
 ----------------|-----------|-------------
-[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, samll, medium, large, big, huge, massive**" | 控制按钮大小 
+[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, samll, medium, large, big, huge, massive**" | 控制按钮大小
 
 ## event 事件
 事件名称|是否冒泡|触发机制
