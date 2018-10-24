@@ -25,7 +25,13 @@ Texture的Premultiply Alpha属性的勾选表示是否开启Alpha预乘，两种
 * Premultiply Alpha（预乘Alpha）：表示RGB在存储的时候预先将Alpha通道与RGB相乘，比如透明度为50%的红色，RGB为（255, 0, 0），预乘之后存储的颜色值为（127，0，0，0.5）。
 * Non-Premultiply Alpha （非预乘Alpha）：表示RGB不会预先与Alpha通道相乘，那么上面所述的透明度为50%的红色，存储的颜色值为（255，0，0，0.5）。
 
-在图形渲染中的Alpha Blending会对透明图象进行颜色混合，颜色混合
+为什么需要Premultiply Alpha？在图形渲染中的透明图象通过Alpha Blending进行颜色混合，其计算方式一般为：
+
+// 结果颜色 = 源颜色值 \* 源alpha + 目标颜色 \* （1 - 目标alpha）
+
+color  = 
+
+
 
 ## 寻址模式
 
