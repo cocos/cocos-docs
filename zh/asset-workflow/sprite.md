@@ -12,10 +12,10 @@
 
 ## Texture 属性
 
-| 属性 | 说明 |
+| 属性 | 功能说明 |
 | :---: | :--- |
-| Premultiply Alpha |  |
-| Wrap Mode |  |
+| Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道分别乘上Alpha通道。 |
+| Wrap Mode | 寻址模式：包括Clamp\(截取\)，Repeat\(重复\) |
 | Filter Mode |  |
 
 ## Texture 和 SpriteFrame 资源类型
