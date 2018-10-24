@@ -16,15 +16,26 @@
 | :---: | :--- |
 | Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道预先乘上Alpha通道传递给WebGL。 |
 | Wrap Mode | 寻址模式，包括Clamp\(钳位\)，Repeat\(重复\)两种寻址模式 |
-| Filter Mode | 过滤方式，包括Point\(最近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
+| Filter Mode | 过滤方式，包括Point\(邻近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
 
 ## Alpha 预乘
 
 ## 寻址模式
 
+Texture支持两种寻址模式：
 
+* 钳位寻址模式（Clamp）：
+* 重复寻址模式（Repeat）：
 
 ## 过滤方式
+
+当Texture的原始大小与屏幕映射的纹理图像不一致时，通过不同的纹理过滤方式进行texel到pixel的映射会产生不同的效果。Texture支持三种过滤方式（注：目前引擎中的三线性过滤与双线性过滤效果一致）。
+
+* 邻近点采样（Point）：
+* 双线性过滤（Bilinear）：
+* 三线性过滤（Trilinear）：
+
+当纹理被按比例放大或者缩小时，WebGL会在原始图像上寻找最近的点来决定指定点的颜色
 
 ## Texture 和 SpriteFrame 资源类型
 
