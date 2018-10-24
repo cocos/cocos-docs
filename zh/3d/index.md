@@ -6,5 +6,6 @@
 - [Mesh Renderer 组件参考](mesh-renderer.md)
 - [Skinned Mesh Renderer 组件参考](skinned-mesh-renderer.md)
 - [骨骼动画组件参考](skeleton-animation.md)
+- [碰撞检测](intersect.md)
 
 Cocos Creator 在 2.1 版本开始引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。在 Creator 2.1 版本中，支持了 3D 模型渲染、3D Camera、3D 骨骼动画 等 3D 特性，同时编辑器原生支持解析 FBX 格式的 3D 模型文件，不需要额外的导入流程。
