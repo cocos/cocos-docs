@@ -14,9 +14,9 @@
 
 | 属性 | 功能说明 |
 | :---: | :--- |
-| Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道分别乘上Alpha通道。 |
-| Wrap Mode | 寻址模式：包括Clamp\(截取\)，Repeat\(重复\) |
-| Filter Mode |  |
+| Premultiply Alpha | 是否开启Alpha预乘，根据勾选状态设置gl.UNPACK\_PREMULTIPLY\_ALPHA\_WEBGL参数，勾选之后表示将RGB通道预先乘上Alpha通道传递给WebGL。 |
+| Wrap Mode | 寻址模式，包括Clamp\(钳位\)，Repeat\(重复\)两种寻址模式 |
+| Filter Mode | 过滤方式，包括Point\(最近点采样\)，Bilinear\(双线性过滤\)，Trilinear\(三线性过滤\)三种过滤方式。 |
 
 ## Texture 和 SpriteFrame 资源类型
 
