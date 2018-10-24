@@ -1,6 +1,6 @@
 # v1.10 资源升级指南
 
-> 目前 v1.10 仍然未正式发布，测试版可到 [论坛发布帖](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534) 下载
+> 目前 v1.10 仍然未正式发布，测试版可到 [论坛发布帖](https://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534) 下载
 
 在 v1.10 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到过 Creator 的资源分成了 [Asset](../scripting/load-assets.md#asset) 和 [RawAsset](../scripting/load-assets.md#raw-asset) 两种。当时这样划分主要是为了尽量重用已有的 Cocos2d-x 基础模块，并且降低 Cocos2d-x 用户的上手门槛。不过我们一直仍希望把 RawAsset 全部替换成标准的 Asset，随着 Creator 这两年的发展，是时候进行一轮重构了。重构后可以简化编辑器和引擎对资源的处理方式，减小发布后的 settings.js 文件体积，同时提升用户的开发体验。
 
@@ -177,4 +177,4 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 
 ## 反馈问题
 
-如果还有其它升级问题，可点击页面右下角的"提交反馈"，直接到本文档的 GitHub 仓库提交 issue，或者在 [论坛发布帖](http://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534) 里回复。
+如果还有其它升级问题，可点击页面右下角的"提交反馈"，直接到本文档的 GitHub 仓库提交 issue，或者在 [论坛发布帖](https://forum.cocos.com/t/cocos-creator-v1-10-0-4-10/58534) 里回复。
