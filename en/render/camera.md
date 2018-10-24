@@ -41,6 +41,34 @@ If you need to do some of the screen's post-effects, you can first render the sc
 Please refer to the [Example](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
 for details.
 
+### Advanced attribute
+
+These advanced attributes are not displayed in the **Assets** until the camera node becomes a [3D node](../3d/3d-node.md).
+
+- fov
+
+Determines the width of the camera's view angle, this attribute will take effect when the camera is in perspective projection mode.
+
+- orthoSize
+
+The viewport size of the Camera when set to orthographic projection.
+
+- nearClip
+
+The near clipping plane of the camera.
+
+- farClip
+
+The far clipping plane of the camera.
+
+- ortho
+
+Sets whether the projection mode of the camera is orthogonal (true) or perspective (false) mode.
+
+- rect
+
+Determines where the camera is drawn on the screen, with four values (0-1).
+
 ## Camera methods
 
 - cc.Camera.findCamera
