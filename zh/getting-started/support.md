@@ -4,9 +4,9 @@
 
 除了本手册里提供的信息，您还可以随时通过下面的渠道获取信息或反馈问题给 Cocos Creator 开发团队：
 
-- [Cocos Creator 首页](http://www.cocos.com/creator/)
+- [Cocos Creator 首页](https://www.cocos.com/creator/)
 <!-- QQ群：738190852，539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
-- [论坛社区](http://forum.cocos.com/c/Creator)
+- [论坛社区](https://forum.cocos.com/c/Creator)
 
 或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
 
