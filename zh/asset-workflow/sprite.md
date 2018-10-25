@@ -29,19 +29,27 @@ Texture的Premultiply Alpha属性的勾选表示是否开启Alpha预乘，两种
 
 `// 结果颜色 = 源颜色值 * 源alpha值 + 目标颜色值 * (1 - 源alpha值)`
 
-`result  = source.RGB * source.A + dest.RGB * (1 - source.A);`
+`result = source.RGB * source.A + dest.RGB * (1 - source.A);`
 
-即颜色混合函数的设置为gl.blendFunc\(gl.SRC\__ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA_\)，
+即颜色混合函数的设置为gl.blendFunc\(gl.SRC\__ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA_\)。
 
 当使用Alpha预乘之后，上述计算方式简化为：
 
 `// 结果颜色 = 源颜色值 + 目标颜色值 * (1 - 源alpha值)`
 
-`result  = source.RGB + dest.RGB * (1 - source.A);`
+`result = source.RGB + dest.RGB * (1 - source.A);`
 
-对应的颜色混合函数设置为gl.blendFunc\(gl.ONE_, gl.ONE\_MINUS\_SRC\_ALPHA_\)，
+对应的颜色混合函数设置为gl.blendFunc\(gl.ONE_, gl.ONE\_MINUS\_SRC\_ALPHA_\)。
 
-但是使用Alpha预乘的主要原因并不仅仅是为了简化上述计算
+但是使用Alpha预乘并不仅仅是为了简化上述计算提高效率，而是因为Non-Premultiply Alpha的纹理图像不能正确的进行线性插值计算。假设两个相邻顶点的像素颜色，一个顶点颜色为透明度100%的红色（255，0，0，1），另一个顶点颜色为透明度10%的绿色（0，255，0，0.1），那么当图像缩放时这两个顶点之间的颜色就是对它们进行线性插值的结果。如果是Non-Premultiply Alpha，那么结果为：
+
+\(255,0,0,1\) \* 0.5 + \(0,255,0,0.1\) \* \(1 - 0.5\) = \(127,127,0,0.55\)
+
+如果绿色使用了Premultiply Alpha，存储的颜色值变为（0,25,0,0.1），再与红色进行线性插值的结果为：
+
+（255，0，0，1）\*0.5 +（0，25，0，0.1）\*（1-0.5）=（127，25，0，0.55）
+
+对应 的颜色值表现为：![](/zh/asset-workflow/sprite/premultiply_alpha.png)观察上图之后可以看出，Non-Premultiply Alpha的颜色值进行插值之后的颜色偏绿，透明度为10%占的权重反而更多，透明度为100%的红色占
 
 ## 寻址模式
 
