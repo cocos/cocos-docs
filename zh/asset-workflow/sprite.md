@@ -27,25 +27,21 @@ Texture的Premultiply Alpha属性的勾选表示是否开启Alpha预乘，两种
 
 那什么情况下需要使用Premultiply Alpha？在图形渲染中的透明图像通过Alpha Blending进行颜色混合，一般的颜色混合计算公式为：
 
-// 结果颜色 = 源颜色值 \* 源alpha值 + 目标颜色值 \* \(1 - 源alpha值\)
+`// 结果颜色 = 源颜色值 * 源alpha值 + 目标颜色值 * (1 - 源alpha值)`
 
-result  = source.RGB \* source.A + dest.RGB \* \(1 - source.A\);
+`result  = source.RGB * source.A + dest.RGB * (1 - source.A);`
 
-即颜色混合函数需要设置为gl.blendFunc\(gl.SRC\__ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA_\)，
+即颜色混合函数的设置为gl.blendFunc\(gl.SRC\__ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA_\)，
 
 当使用Alpha预乘之后，上述计算方式简化为：
 
-// 结果颜色 = 源颜色值 + 目标颜色值 \* \(1 - 源alpha值\)
+`// 结果颜色 = 源颜色值 + 目标颜色值 * (1 - 源alpha值)`
 
-result  = source.RGB + dest.RGB \* \(1 - source.A\);
+`result  = source.RGB + dest.RGB * (1 - source.A);`
 
 对应的颜色混合函数设置为gl.blendFunc\(gl.ONE_, gl.ONE\_MINUS\_SRC\_ALPHA_\)，
 
-但是使用Alpha预乘的主要原因并不是为了简化上述计算
-
-
-
-
+但是使用Alpha预乘的主要原因并不仅仅是为了简化上述计算
 
 ## 寻址模式
 
