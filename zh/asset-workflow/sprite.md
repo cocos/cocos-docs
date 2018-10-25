@@ -31,7 +31,7 @@ Texture的Premultiply Alpha属性勾选与否表示是否开启Alpha预乘，两
 
 `result = source.RGB * source.A + dest.RGB * (1 - source.A);`
 
-即颜色混合函数的设置为gl.blendFunc\(gl.SRC\__ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA_\)。
+即颜色混合函数的设置为gl.blendFunc\(gl.SRC\_ALPHA, gl.ONE\_MINUS\_SRC\_ALPHA\)。
 
 当使用Alpha预乘之后，上述计算方式简化为：
 
@@ -39,7 +39,7 @@ Texture的Premultiply Alpha属性勾选与否表示是否开启Alpha预乘，两
 
 `result = source.RGB + dest.RGB * (1 - source.A);`
 
-对应的颜色混合函数设置为gl.blendFunc\(gl.ONE_, gl.ONE\_MINUS\_SRC\_ALPHA_\)。
+对应的颜色混合函数设置为gl.blendFunc\(gl.ONE, gl.ONE\_MINUS\_SRC\_ALPHA\)。
 
 但是使用Alpha预乘并不仅仅是为了简化上述计算提高效率，而是因为Non-Premultiply Alpha的纹理图像不能正确的进行线性插值计算。假设两个相邻顶点的像素颜色，一个顶点颜色为透明度100%的红色（255，0，0，1），另一个顶点颜色为透明度10%的绿色（0，255，0，0.1），那么当图像缩放时这两个顶点之间的颜色就是对它们进行线性插值的结果。如果是Non-Premultiply Alpha，那么结果为：
 
@@ -70,6 +70,8 @@ Texture的Premultiply Alpha属性勾选与否表示是否开启Alpha预乘，两
 * 双线性过滤（Bilinear）：使用距离采样点最近的2x2的纹理单元矩阵进行采样，取四个纹理单元颜色值的平均值作为采样点的颜色，像素之间的颜色值过渡更加平滑，但是计算量相比邻近点采样也稍大。
 * 三线性过滤（Trilinear）：基于双线性过滤，对像素大小与纹理单元大小最接近的两层Mipmap Level分别进行双线性过滤，然后再对得到的结果进行线性插值计算采样点的颜色值。最终的采样结果相比邻近点采样和双线性过滤是最好的，但是计算量也最大。
 
+除了在编辑器中直接设置图像资源的过滤方式，引擎中也提供了cc.view.enableAntiAlias接口去动态设置Texture是否开启抗锯齿功能，如果开启了抗锯齿，那么游戏中所有Texture的过滤方式都将使用线性过滤，否则将使用邻近点采样的过滤方式。
+
 ## Texture 和 SpriteFrame 资源类型
 
 在 **资源管理器** 中，图像资源的左边会显示一个和文件夹类似的三角图标，点击就可以展开看到它的子资源（sub asset），每个图像资源导入后编辑器会自动在它下面创建同名的 SpriteFrame 资源。
@@ -78,7 +80,7 @@ Texture的Premultiply Alpha属性勾选与否表示是否开启Alpha预乘，两
 
 SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替换 **Sprite** 组件中的 `spriteFrame` 属性，就可以切换显示的图像。**Sprite** 组件的设置方式请参考[Sprite 组件参考](../components/sprite.md)。
 
-为什么会有 SpriteFrame 这种资源？这样的设置是因为除了每个文件产生一个 SpriteFrame 的图像资源（Texture）之外，我们还有包含多个 SpriteFrame 的图集资源（Atlas）类型。参考[图集资源（Atlas）文档](atlas.md)来了解更多信息。
+为什么会有 SpriteFrame 这种资源？Texture是保存在GPU缓冲中的一张纹理，是原始的图像资源。而SpriteFrame包含两部分内容：记录了Texture及其相关属性的Texture2D对象和纹理的矩形区域，对于相同的Texture可以进行不同的纹理矩形区域设置，然后根据Sprite的填充类型，如SIMPLE，SLICED，TILED等进行不同的顶点数据填充，从而满足Texture填充图像精灵的多样化需求。而SpriteFrame记录的纹理矩形区域数据又可以在资源的属性检查器中根据需求自由定义，这样的设置让资源的开发更为高效和便利。除了每个文件会产生一个 SpriteFrame 的图像资源（Texture）之外，我们还有包含多个 SpriteFrame 的图集资源（Atlas）类型。参考[图集资源（Atlas）文档](atlas.md)来了解更多信息。
 
 下面是 Texture 和 SpriteFrame 的 API 接口文档：
 
@@ -95,5 +97,7 @@ SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替�
 
 ### 性能优化注意事项
 
-使用单独存在的 Texture 作为 Sprite 资源，在预览和发布游戏时，将无法对这些 Sprite 进行批量渲染优化的操作。目前编辑器不支持转换原有的单张 Texture 引用到 Atlas 里的 SpriteFrame 引用，所以在开发正式项目时，应该尽早把需要使用的图片合成 Atlas（图集），并通过 Atlas 里的 SpriteFrame 引用使用。详情请继续阅读下一篇。
+使用单独存在的 Texture 作为 Sprite 资源，在预览和发布游戏时，将无法对这些 Sprite 进行批量渲染优化的操作。目前编辑器不支持转换原有的单张 Texture 引用到 Atlas 里的 SpriteFrame 引用，所以在开发正式项目时，应该尽早把需要使用的图片合成 Atlas（图集），并通过 Atlas 里的 SpriteFrame 引用使用。
+
+另外，cc.macro.CLEANUP\_IMAGE\_CACHE，该字段表示是否将贴图上传至GPU之后删除DOM Image缓存。具体来说，我们通过设置image.src为空字符串来释放这部分内存。正常情况下，可以不需要开启这个选项，因为在web平台，Image对象所占用的内存很小。但是在微信小游戏平台的当前版本，Image对象会缓存解码后的图片数据，它所占用的内存空间很大。所以我们在微信平台默认开启了这个选项，在上传GL贴图之后立即释放Image对象的内存，避免过高的内存占用。
 
