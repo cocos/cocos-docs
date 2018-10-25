@@ -67,4 +67,4 @@ Code libraries needed for zipping and sending to the Android platform:
 
 ### Other game development resources
 
-- [Cocos Store](http://store.cocos.com/): various game art assets, extension tools
+- [Cocos Store](https://store.cocos.com/): various game art assets, extension tools

@@ -27,13 +27,13 @@
                     },
                     {
                         "name": "API Ref",
-                        "link": "https://www.cocos2d-x.org/docs/api-ref/index.html"
+                        "link": "http://docs.cocos2d-x.org/api-ref/index.html"
                     }
                 ]
             },
             {
                 "name": "AnySDK",
-                "link": "https://docs.anysdk.com/"
+                "link": "http://docs.anysdk.com/"
             }
         ],
         "version": [
