@@ -163,7 +163,9 @@ In the `jsb-adapter` directory, the following two directory structures are inclu
 
 The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
 
-#### 3.2.1 Customize and compile builtin
+Some changes have taken place in jsb-adapter customization after **Creator 2.0.5** . Please reference to the different guide below according to the current Creator version you are using.
+
+#### 3.2.1 Customization before Creator 2.0.5
 
 Customization of the `engine` section only requires modification of the code.<br>
 Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
@@ -176,13 +178,33 @@ npm install
 Next, you can customize the code in the `builtin` section. After the modification is complete, continue to execute it on the command line:
 
 ```bash
-# jsb-adapter/builtin 目录下
+# in jsb-adapter/builtin folder
 gulp
 ```
 
 When the command completes, a new `jsb-builtin.js` file is generated in the `jsb-adapter/builtin/dist` directory.
 
 After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` file and the `engine` directory together to the `jsb-adapter` folder in the project when you **build** the native platform in the **Build** panel.
+
+#### 3.2.2 Customization after Creator 2.0.5 (2.0.5 included)
+
+First of all, you should install the dependencies. Please execute them on the command line:
+
+```bash
+cd jsb-adapter/
+npm install
+```
+
+Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
+
+```bash
+# in jsb-adapter folder
+gulp
+```
+
+The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
+
+After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
 
 ### 3.3 Customize weapp-adapter and qqplay-adapter
 

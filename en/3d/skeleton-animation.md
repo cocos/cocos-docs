@@ -1,10 +1,11 @@
-# 骨骼动画组件参考
+# Skeletal Animation Component Reference
 
-> 文： youyou
+> Authors：Xunyi, youyou
 
-`骨骼动画组件` 继承自 `动画组件`，骨骼动画组件的使用方法与动画组件的使用方法没有太大区别，只是骨骼动画组件使用的剪辑只能是骨骼动画剪辑（cc.SkeletonAnimationClip），并且骨骼动画组件提供了搜索骨骼动画剪辑的快捷方法（详见[导入资源](import-model)）。
+**Skeletal animation component** inherits from **animation component**, the use of skeletal animation component is not much different from the use of animation component.
+except that the skeletal animation component uses only the skeletal animation clip `cc.SkeletonAnimationClip`, and the skeletal animation component provides a quick way to search for skeletal animation clips. Please refer to the [Import Model](import-model.md) for details.
 
-骨骼动画组件是在导入模型时自动添加到模型 Prefab 中的，使用时和使用动画组件的接口是一样的。
+The skeletal animation component is automatically added to the model Prefab when the model is imported, and the skeletal animation component uses the same interface as the animation component.
 
 ![skeleton-animation](img/search-skeleton-animation.png)
 

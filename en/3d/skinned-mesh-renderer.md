@@ -1,10 +1,9 @@
-# Skinned Mesh Renderer 组件参考
+# Skinned Mesh Renderer Component Reference
 
-> 文： youyou
+> Authors：Xunyi, youyou
 
-Skinned Mesh Renderer 组件集成自 Mesh Renderer，所以 Skinned Mesh Renderer 组件也可以指定 `mesh` 和 `textures` 属性。
+Skinned Mesh Renderer component inherits from Mesh Renderer, so Skinned Mesh Renderer component can also specify `mesh` and `textures` properties.
 
-Cocos Creator 使用 Skinned Mesh Renderer 组件来渲染骨骼动画，骨骼动画会将网格中的顶点关联到骨架（即一组节点）上，然后骨骼动画会在预先编辑好的动画中驱动这个骨架来使网格变形达到动画的效果。
+Cocos Creator uses Skinned Mesh Renderer component to render skeletal animation, skeletal animation. Skeletal animation will associate vertices in the mesh with the skeleton (a set of nodes), then the skeletal animation will drive the skeletal in a pre-edited animation, to deform the mesh to achieve animation effects
 
-Skinned Mesh Renderer 组件会在模型导入的过程中根据模型是否存在骨骼动画自动添加到生成的 Prefab 中。
-
+When importing a model, if there is a skeletal animation in the model, the editor automatically adds the Skinned Mesh Renderer component to the generated Prefab.

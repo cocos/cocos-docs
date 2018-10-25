@@ -158,13 +158,15 @@
 - [Audio](audio/index.md)
     - [Play Audio](audio/audio.md)
     - [AudioSource Component Reference](components/audiosource.md)
-- [3D](3d/index.md)
+- [3D System](3d/index.md)
     - [3D Node](3d/3d-node.md)
     - [Import Model Resources](3d/import-model.md)
-    - [Grid Resource](3d/mesh.md)
+    - [Mesh Resource](3d/mesh.md)
     - [Mesh Renderer Component](3d/mesh-renderer.md)
     - [Skinned Mesh Renderer Component](3d/skinned-mesh-renderer.md)
     - [Skeleton Animation Component](3d/skeleton-animation.md)
+    - [Collision Detection](3d/intersect.md)
+
 
 ## Advanced Topics
 

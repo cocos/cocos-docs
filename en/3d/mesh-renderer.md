@@ -1,23 +1,26 @@
-# Mesh Renderer 组件参考
+# Mesh Renderer Component Reference
 
-> 文： youyou
+> Authors：Xunyi, youyou
 
-Mesh Renderer 用于绘制网格资源，如果网格资源中含有多个子网格，那么 Mesh Renderer 中也需要有对应多的贴图才能正确绘制网格。
+Mesh Renderer is used to draw mesh resource. If there are multiple submeshes in the mesh resource, then the corresponding number of textures are needed in the Mesh Renderer to correctly draw the mesh.
 
-## 属性
+## Mesh Renderer property
+
+![](img/mesh_renderer.png)
 
 - mesh  
 
-指定渲染所用的网格资源
+Specify the mesh resource used for rendering
 
 - textures  
 
-网格资源允许使用多个贴图资源，所有贴图资源都存在 `textures` 数组中。
-如果网格资源中有多个子网格， 那么 Mesh Renderer 会从 `textures` 数组中获取对应的贴图来渲染此子网格。
+Mesh resource allow for the use of multiple texture resources, and all texture resources are stored in the `textures` array.<br>
 
-## 调试
+If there are multiple submeshes in the mesh resource, the Mesh Renderer will obtain the corresponding texture from the `textures` array to render the submesh.
 
-网格的顶点数据一般都比较抽象，不太容易看出网格里面的三角形是如何分布的。这时候我们可以开启线框模式，用线段按照三角形的分布连接顶点与其他顶点，这样就比较容易看出网格顶点的多少和分布了。
+## Debug
+
+The vertex data of the mesh is generally abstract, and it is hard to see how the triangles are distributed in the mesh. At this time the user can turn on wireframe mode, and use the line segment to connect the vertices and other vertices according to the distribution of the triangles, so that it is easier to see how much and the distribution of the mesh vertices.
 
 ```javascript
 cc.macro.SHOW_MESH_WIREFRAME = true;

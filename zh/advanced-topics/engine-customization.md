@@ -163,7 +163,9 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 
 `builtin` 部分除了适配 BOM 和 DOM 运行环境，还包括了一些相关的 jsb 接口，如 openGL, audioEngine 等。
 
-#### 3.2.1 定制并编译 builtin
+在 **Creator 2.0.5** 版本之后，jsb-adapter 的定制流程发生了一些改变。请根据你当前使用的 Creator 版本，参考以下不同的定制指南。
+
+#### 3.2.1 Creator 2.0.5 版本之前的定制流程
 
 `engine` 部分的定制只要对代码进行修改就可以了。<br>
 `builtin` 部分的定制需要先安装相关依赖，请在命令行中执行：
@@ -183,6 +185,26 @@ gulp
 命令执行完成后，会在 `jsb-adapter/builtin/dist` 目录下生成新的 `jsb-builtin.js` 文件。
 
 定制完 `jsb-adapter` 之后，在编辑器的 **构建面板** 中 **构建** 原生项目时，编辑器会将 `jsb-builtin.js` 文件和 `engine` 目录一起拷贝到对应项目工程里的 `jsb-adapter` 文件夹中。
+
+#### 3.2.2 Creator 2.0.5 版本之后的定制流程（包括 2.0.5）
+
+定制前需要先安装相关依赖，请在命令行中执行：
+
+```bash
+cd jsb-adapter/
+npm install
+```
+
+接下来就可以对 **jsb-adapter** 的代码进行定制修改了，修改完成之后请在命令行中继续执行：
+
+```bash
+# jsb-adapter 目录下
+gulp
+```
+
+`gulp` 命令执行会将 **bultin** 部分的代码打包到 `jsb-builtin.js` 文件，并且将 **engine** 部分的代码从 ES6 转为 ES5。所有这些编译生成的文件会输出到 **dist** 目录下。
+
+定制完 `jsb-adapter` 之后，在编辑器的 **构建面板** 中 **构建** 原生项目时，编辑器会将 **dist** 目录下的文件一起拷贝到对应项目工程里的 `jsb-adapter` 文件夹中。
 
 ### 3.3 定制 weapp-adapter 和 qqplay-adapter
 

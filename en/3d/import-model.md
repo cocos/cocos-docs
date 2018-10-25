@@ -4,12 +4,12 @@
 
 Currently Cocos Creator supports importing 3D models using a very wide range of **.fbx** formats, and basically all 3D modeling software supports exporting this format.
 
-The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, When you import a model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **meshes**, and **skeletal animations**.
+The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, When you import a model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **Meshes**, and **Skeletal animations**.
 
 ![import-model](./img/import-model.png)
 
 - **1** is the model resource
-- **2** is the grid resource
+- **2** is the mesh resource
 - **3** is the prefab resource<br>
     **Attention**: When importing, those automatically generated Prefab resources cannot be modified. If you need to modify them, you can drag the generated prefab into the **Scene** for editing. After editing, drag and drop it into the **Asset** to generate a new Prefab, and use this as your own Prefab.
 - **4** is the skeleton animation resource
@@ -24,7 +24,7 @@ The import system will first search for the corresponding texture from the model
 
 ## Associated skeleton animation resource
 
-The skeletal animation clip can be placed in the model along with the grid resource, or it can be placed separately in another model and named after the **Model name@Animation name** name. A separately stored skeleton animation clip will be named with the specified name when it is imported.
+The skeletal animation clip can be placed in the model along with the mesh resource, or it can be placed separately in another model and named after the **Model name@Animation name** name. A separately stored skeleton animation clip will be named with the specified name when it is imported.
 
 ![skeleton-animation-clip-name](./img/skeleton-animation-clip-name.png)
 
