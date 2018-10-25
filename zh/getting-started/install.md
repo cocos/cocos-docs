@@ -4,7 +4,7 @@
 
 ## 下载 Cocos Creator
 
-您可以通过访问 [Cocos Creator 产品首页](http://www.cocos.com/creator/) 上的下载链接获得 Cocos Creator 最新版本的安装包。
+您可以通过访问 [Cocos Creator 产品首页](https://www.cocos.com/creator/) 上的下载链接获得 Cocos Creator 最新版本的安装包。
 
 下载完成后双击安装包。
 
