@@ -5,7 +5,9 @@
 ![](/zh/advanced-topics/custom-render/render-component.png)新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及Assembler的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义RenderComponent及对应的Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染。下面将介绍如何自定义RenderComponent及Assembler完成自定义渲染。
 
 ## 自定义RenderComponent
+
 我们以渲染一张Texture为例，首先创建自定义渲染组件的脚本，命名为CustomRender.js，并添加类型为cc.Texture2D的属性。
+
 ```js
 //自定义渲染组件
 let CustomRender = cc.Class({
@@ -40,9 +42,11 @@ let CustomRender = cc.Class({
     },
 )}
 ```
+
 添加组件到自定义节点之后，如下图所示：
 
 下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联组件的Assembler用于渲染数据的填充，材质的创建以及纹理UV计算。
+
 ```js
     // 设置组件的Assembler
     _updateAssembler: function () {
@@ -93,7 +97,9 @@ let CustomRender = cc.Class({
         uv[7] = t;
     }
 ```
-最后，在节点激活时依次调用上述回调，完成整个RenderComponent的功能，完成的代码如下：
+
+最后，在节点激活时依次调用上述回调，完成整个RenderComponent的功能，完整的代码如下：
+
 ```js
 const renderEngine = cc.renderer.renderEngine;
 const SpriteMaterial = renderEngine.SpriteMaterial;
@@ -202,7 +208,9 @@ let CustomRender = cc.Class({
     }
 });
 ```
+
 ## 自定义Assembler
+
 在新版本的渲染流中，Assembler是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于自定义扩展及复用，将这部分功能独立出来并可以指定给任意的RenderComponent使用。下面，我们将为我们的自定义RenderComponent添加对应的Assembler文件，Assembler中必须要定义updateRenderData及fillBuffers方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进VetexBuffer和IndiceBuffer中。完整的代码如下：
 
 ```js
@@ -338,8 +346,10 @@ let CustomAssembler = {
 
 module.exports = CustomAssembler;
 ```
-注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为vfmtPosUv和vfmtPosUvColor，具体的定义可以查看引擎中的vertex-format.js文件。这两者的区别是顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为Uniform变量直接设置给Shader，这种情况下buffer的数据格式设定为vfmtPosUv，同时纹理材质material.useColor需要设置为true。另外一种方式是将节点的颜色数据作为attribute变量，通过buffer将数据传递给Shader，这种情况需要设置buffer的数据格式为vfmtPosUvColor，同时将material.useColor设置为false，这样顶点数据的填充就需要修改为：
-```js   
+
+注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为vfmtPosUv和vfmtPosUvColor，具体的定义可以查看引擎中的vertex-format.js文件。这两者的区别主要是顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为Uniform变量直接设置给Shader，这种情况下buffer的数据格式设定为vfmtPosUv，同时纹理材质material.useColor需要设置为true，引擎将自动完成节点颜色的设置。另外一种方式是将节点的颜色数据作为attribute变量，通过buffer将数据传递给Shader，这种情况需要设置buffer的数据格式为vfmtPosUvColor，同时将material.useColor设置为false，这样顶点数据的填充就需要修改为：
+
+```js
     let vbuf = buffer._vData,
         ibuf = buffer._iData,
         uintbuf = buffer._uintVData;;
@@ -354,4 +364,6 @@ module.exports = CustomAssembler;
         uintbuf[vertexOffset++] = color;
     }
 ```
+
 以上就是自定义渲染的简单实现，开发者可以依据自己的需求进行个性化的渲染定制，未来的版本中我们也将开放更多的自定义渲染API，为不同的场景和开发需求提供便利。
+
