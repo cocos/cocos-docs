@@ -47,7 +47,7 @@ let CustomRender = cc.Class({
 
 ![](/zh/advanced-topics/custom-render/render-inspector.png)
 
-继承自 RenderComponent 的组件会默认添加 SrcBlendFactor 和 DstBlendFactor 属性，用于指定颜色混合因子。接着我们来补充自定义组件的功能，自定义的 RenderComponent 需要关联对应的 Assembler 进行渲染数据的填充，还有材质的创建以及纹理UV的计算。
+继承自 RenderComponent 的组件会默认添加 Src Blend Factor 和 Dst Blend Factor 属性，用于指定颜色混合因子。接着我们来补充自定义组件的功能，自定义的 RenderComponent 需要关联对应的 Assembler 进行渲染数据的填充，还有材质的创建以及纹理 UV 的计算。
 
 ```js
     // 设置组件的Assembler
