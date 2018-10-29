@@ -6,5 +6,8 @@
 
 ## 自定义RenderComponent
 
-
+```js
+var s = "JavaScript语法高亮";
+alert(s);
+```
 
