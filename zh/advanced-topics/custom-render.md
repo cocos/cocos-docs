@@ -45,7 +45,7 @@ let CustomRender = cc.Class({
 
 添加组件到自定义节点之后，如下图所示：
 
-![](/zh/advanced-topics/custom-render/render-inspector.png = 200x180)
+![](/zh/advanced-topics/custom-render/render-inspector.png)
 
 下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联对应的Assembler进行渲染数据的填充，还有材质的创建以及纹理UV的计算。
 
