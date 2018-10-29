@@ -1,8 +1,8 @@
 # 自定义渲染
 
-在 v2.0 版本中，我们对引擎框架进行了重构，移除底层 cocos2d-html5 渲染引擎，改为和 3D 引擎共享底层渲染器，同时摒弃渲染树，直接使用节点和渲染组件数据来组装渲染数据。在新的渲染器中，所有的直接渲染组件都继承自cc.RenderComponent这个组件，比如：Sprite、Label、Graphics 等，渲染组件定义组件的颜色混合模式，同时控制组件的渲染状态更新。而每个直接渲染组件都有其对应的Assembler来对其进行渲染数据的组装与填充。具体的流程如下图所示：
+在 v2.0 版本中，我们对引擎框架进行了重构，移除底层 cocos2d-html5 渲染引擎，改为和 3D 引擎共享底层渲染器，同时摒弃渲染树，直接使用节点和渲染组件数据来组装渲染数据。在新的渲染器中，所有的直接渲染组件都继承自cc.RenderComponent这个组件，比如：cc.Sprite、cc.Label、cc.Graphics 等，渲染组件定义组件的颜色混合模式，同时控制组件的渲染状态更新。而每个直接渲染组件都有其对应的Assembler来对其进行渲染数据的组装与填充，具体的流程如下图所示：
 
-![](/zh/advanced-topics/custom-render/render-component.png)新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及Assembler的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义RenderComponent及对应的Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染。下面将介绍如何自定义RenderComponent及Assembler完成自定义渲染。
+![](/zh/advanced-topics/custom-render/render-component.png)新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及Assembler的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义RenderComponent及对应的Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染，下面将介绍如何自定义RenderComponent及Assembler完成自定义渲染。
 
 ## 自定义RenderComponent
 
@@ -14,7 +14,7 @@ let CustomRender = cc.Class({
     //所有渲染组件需要继承自cc.RenderComponent
     extends: cc.RenderComponent,
 
-    ctor() {
+    ctor () {
         //顶点数据装配器
         this._assembler = null;
         //材质
@@ -45,11 +45,13 @@ let CustomRender = cc.Class({
 
 添加组件到自定义节点之后，如下图所示：
 
-下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联组件的Assembler用于渲染数据的填充，材质的创建以及纹理UV计算。
+![](/zh/advanced-topics/custom-render/render-inspector.png)
+
+下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联对应的Assembler进行渲染数据的填充，还有材质的创建以及纹理UV的计算。
 
 ```js
     // 设置组件的Assembler
-    _updateAssembler: function () {
+    _updateAssembler () {
         let assembler = CustomAssembler;
 
         if (this._assembler !== assembler) {
@@ -64,7 +66,7 @@ let CustomRender = cc.Class({
         }
     },
     // 创建用于渲染图片的材质
-    _activateMaterial() {
+    _activateMaterial () {
         let material = this._material;
         if (!material) {
             material = this._material = new SpriteMaterial();
@@ -83,7 +85,7 @@ let CustomRender = cc.Class({
         this._updateMaterial(material);
     },
     // 设置纹理的UV数据
-    _calculateUV() {
+    _calculateUV () {
         let uv = this.uv;
         let l = 0, r = 1, b = 1,t = 0;
 
@@ -109,7 +111,7 @@ let CustomRender = cc.Class({
     //所有渲染组件需要继承自cc.RenderComponent
     extends: cc.RenderComponent,
 
-    ctor() {
+    ctor () {
         //顶点数据装配器
         this._assembler = null;
         //材质
@@ -137,7 +139,7 @@ let CustomRender = cc.Class({
         },
     },
     // 组件激活时链接组件的Assembler，处理UV数据及事件监听。
-    onEnable: function () {
+    onEnable () {
         this._super();
         this._updateAssembler();
         this._activateMaterial();
@@ -147,7 +149,7 @@ let CustomRender = cc.Class({
         this.node.on(cc.Node.EventType.ANCHOR_CHANGED, this._onNodeSizeDirty, this);
     },
     //组件禁用时，取消事件监听
-    onDisable: function () {
+    onDisable () {
         this._super();
 
         this.node.off(cc.Node.EventType.SIZE_CHANGED, this._onNodeSizeDirty, this);
@@ -159,7 +161,7 @@ let CustomRender = cc.Class({
         this.markForUpdateRenderData(true);
     },
     // 设置组件的Assembler
-    _updateAssembler: function () {
+    _updateAssembler () {
         let assembler = CustomAssembler;
 
         if (this._assembler !== assembler) {
@@ -174,7 +176,7 @@ let CustomRender = cc.Class({
         }
     },
     // 创建用于渲染图片的材质
-    _activateMaterial() {
+    _activateMaterial () {
         let material = this._material;
         if (!material) {
             material = this._material = new SpriteMaterial();
@@ -193,7 +195,7 @@ let CustomRender = cc.Class({
         this._updateMaterial(material);
     },
     // 设置纹理的UV数据
-    _calculateUV() {
+    _calculateUV () {
         let uv = this.uv;
         let l = 0, r = 1, b = 1,t = 0;
 
@@ -211,7 +213,7 @@ let CustomRender = cc.Class({
 
 ## 自定义Assembler
 
-在新版本的渲染流中，Assembler是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于自定义扩展及复用，将这部分功能独立出来并可以指定给任意的RenderComponent使用。下面，我们将为我们的自定义RenderComponent添加对应的Assembler文件，Assembler中必须要定义updateRenderData及fillBuffers方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进VetexBuffer和IndiceBuffer中。完整的代码如下：
+在新版本的渲染流中，Assembler是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于扩展及复用，将这部分功能独立出来并可以指定给任意的RenderComponent使用。下面，我们将为我们自定义的RenderComponent添加对应的Assembler文件，Assembler中必须要定义updateRenderData及fillBuffers方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进VetexBuffer和IndiceBuffer中，完整的代码如下：
 
 ```js
 const renderEngine = cc.renderer.renderEngine;
@@ -233,7 +235,7 @@ let vfmtPosUvColor = new gfx.VertexFormat([
 // 自定义Assembler
 let CustomAssembler = {
     // 创建渲染数据
-    createData(comp) {
+    createData (comp) {
         let renderData = comp.requestRenderData();
         renderData.dataLength = 4;
         renderData.vertexCount = 4;
@@ -241,14 +243,14 @@ let CustomAssembler = {
         return renderData;
     },
     // 更新渲染数据
-    updateRenderData(comp) {
+    updateRenderData (comp) {
         let renderData = comp._renderData;
         if (renderData) {
             this.updateVerts(comp);
         }
     },
     // 填充数据buffer
-    fillBuffers(comp, renderer) {
+    fillBuffers (comp, renderer) {
         let renderData = comp._renderData;
         let data = renderData._data;
         // 指定buffer的数据格式，并获取buffer
@@ -284,7 +286,7 @@ let CustomAssembler = {
         }
     },
     // 准备顶点数据
-    updateVerts(comp) {
+    updateVerts (comp) {
         let renderData = comp._renderData,
             node = comp.node,
             data = renderData._data,
@@ -365,5 +367,5 @@ module.exports = CustomAssembler;
     }
 ```
 
-以上就是自定义渲染的简单实现，开发者可以依据自己的需求进行个性化的渲染定制，未来的版本中我们也将开放更多的自定义渲染API，为不同的场景和开发需求提供便利。
+以上就是自定义渲染的简单实现，开发者可以依据自己的需求进行个性化的渲染定制，未来的版本中我们也将开放更多的自定义渲染功能，为不同的场景和开发需求提供便利。
 
