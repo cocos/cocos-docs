@@ -119,17 +119,17 @@ We have completely upgraded the engine framework in 2.0. Here are the most impor
 
 The specific updates are described below.
 
-## 3.1 底层渲染器升级
+## 3.1 Underlay Renderer Upgrade
 
-一般来说用户都是通过渲染组件层级来控制渲染，对于这样的使用方式来说，2.0 和 1.x 几乎没有区别，用户升级后组件层的代码都仍然是能正常运转的。不过如果用户由于优化等需求，项目代码中触碰到 sgNode 的层级，那么就需要注意了，在 1.x 中作为底层渲染器的 _ccsg 模块已经被彻底移除，组件层不再能访问任何 sgNode。下面是 2.0 和 1.x 在节点树层级的差异：
+In general, users control rendering by rendering component levels. For this type of usage, there is almost no difference between 2.0 and 1.x. The code of the component layer after upgrading still works the same. However, if the user touches the __sgNode level__ in their project code due to optimization or other requirements, then it should be noted that the **_ccsg module** as the underlying renderer in 1.x has been completely removed, and the component layer can no longer access any of them. Here are the differences between 2.0 and 1.x at the node tree level:
 
-![v1.x 节点树](upgrade-guide-v2.0/tree-v1.jpg)
+![v1.x node tree](upgrade-guide-v2.0/tree-v1.jpg)
 
-![v2.0 节点树](upgrade-guide-v2.0/tree-v2.jpg)
+![v2.0 node tree](upgrade-guide-v2.0/tree-v2.jpg)
 
-另外很关键的一点是，2.0 除了在微信开放数据域中保留了有限的 Canvas 渲染能力以外，其他平台都移除了 Canvas 渲染，仅支持 WebGL 渲染。
+Another key point is that in addition to retaining limited Canvas rendering capabilities in the WeChat open data domain, other platforms have removed Canvas rendering and only support WebGL rendering.
 
-由于篇幅限制，这里不深入探讨引擎底层框架的更新，详细内容请关注我们后续推出的 v2.0 渲染框架文档。
+Due to space limitations, we do not delve into the update of the underlying framework of the engine. For details, please pay attention to our subsequent v2.0 rendering framework documentation.
 
 ## 3.2 启动流程升级
 
