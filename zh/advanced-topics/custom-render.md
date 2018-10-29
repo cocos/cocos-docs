@@ -1,12 +1,12 @@
 # 自定义渲染
 
-在 v2.0 版本中，我们对引擎框架进行了重构，移除底层 cocos2d-html5 渲染引擎，改为和 3D 引擎共享底层渲染器，同时摒弃渲染树，直接使用节点和渲染组件数据来组装渲染数据。在新的渲染器中，所有的直接渲染组件都继承自cc.RenderComponent这个组件，比如：cc.Sprite、cc.Label、cc.Graphics 等，渲染组件定义组件的颜色混合模式，同时控制组件的渲染状态更新。而每个直接渲染组件都有其对应的Assembler来对其进行渲染数据的组装与填充，具体的流程如下图所示：
+在 v2.0 版本中，我们对引擎框架进行了重构，移除底层 cocos2d-html5 渲染引擎，改为和 3D 引擎共享底层渲染器，同时摒弃渲染树，直接使用节点和渲染组件数据来组装渲染数据。在新的渲染器中，所有的直接渲染组件都继承自 cc.RenderComponent 这个组件，比如：cc.Sprite、cc.Label、cc.Graphics 等，渲染组件定义组件的颜色混合模式，同时控制组件的渲染状态更新。而每个直接渲染组件都有其对应的 Assembler 来对其进行渲染数据的组装与填充，具体的流程如下图所示：
 
 ![](/zh/advanced-topics/custom-render/render-component.png)新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及Assembler的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义RenderComponent及对应的Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染，下面将介绍如何自定义RenderComponent及Assembler完成自定义渲染。
 
 ## 自定义RenderComponent
 
-我们以渲染一张Texture为例，首先创建自定义渲染组件的脚本，命名为CustomRender.js，并添加类型为cc.Texture2D的属性。
+我们以渲染一张 Texture 为例，首先创建自定义渲染组件的脚本，命名为 CustomRender.js ，并添加类型为 cc.Texture2D 的属性。
 
 ```js
 //自定义渲染组件
@@ -47,7 +47,7 @@ let CustomRender = cc.Class({
 
 ![](/zh/advanced-topics/custom-render/render-inspector.png)
 
-下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联对应的Assembler进行渲染数据的填充，还有材质的创建以及纹理UV的计算。
+继承自 RenderComponent 的组件会默认添加 SrcBlendFactor 和 DstBlendFactor 属性，用于指定颜色混合因子。接着我们来补充自定义组件的功能，自定义的 RenderComponent 需要关联对应的Assembler进行渲染数据的填充，还有材质的创建以及纹理UV的计算。
 
 ```js
     // 设置组件的Assembler
@@ -100,7 +100,7 @@ let CustomRender = cc.Class({
     }
 ```
 
-最后，在节点激活时依次调用上述回调，完成整个RenderComponent的功能，完整的代码如下：
+最后，在节点激活时依次调用上述回调，完成整个 RenderComponent 的功能，完整的代码如下：
 
 ```js
 const renderEngine = cc.renderer.renderEngine;
@@ -213,7 +213,7 @@ let CustomRender = cc.Class({
 
 ## 自定义Assembler
 
-在新版本的渲染流中，Assembler是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于扩展及复用，将这部分功能独立出来并可以指定给任意的RenderComponent使用。下面，我们将为我们自定义的RenderComponent添加对应的Assembler文件，Assembler中必须要定义updateRenderData及fillBuffers方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进VetexBuffer和IndiceBuffer中，完整的代码如下：
+在新版本的渲染流中，Assembler 是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于扩展及复用，将这部分功能独立出来并可以指定给任意的 RenderComponent 使用。下面，我们将为自定义的 RenderComponent 添加对应的 Assembler 文件，Assembler 中必须要定义updateRenderData 及 fillBuffers 方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进 VetexBuffer 和 IndiceBuffer 中，完整的代码如下：
 
 ```js
 const renderEngine = cc.renderer.renderEngine;
@@ -349,7 +349,7 @@ let CustomAssembler = {
 module.exports = CustomAssembler;
 ```
 
-注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为vfmtPosUv和vfmtPosUvColor，具体的定义可以查看引擎中的vertex-format.js文件。这两者的区别主要是顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为Uniform变量直接设置给Shader，这种情况下buffer的数据格式设定为vfmtPosUv，同时纹理材质material.useColor需要设置为true，引擎将自动完成节点颜色的设置。另外一种方式是将节点的颜色数据作为attribute变量，通过buffer将数据传递给Shader，这种情况需要设置buffer的数据格式为vfmtPosUvColor，同时将material.useColor设置为false，这样顶点数据的填充就需要修改为：
+注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为 vfmtPosUv 和 vfmtPosUvColor ，具体的定义可以查看引擎中的 vertex-format.js 文件。这两者的区别主要是顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为 Uniform 变量直接设置给 Shader ，这种情况下 buffer 的数据格式设定为 vfmtPosUv ，同时纹理材质material.useColor 需要设置为 true ，引擎将自动完成节点颜色的设置。另外一种方式是将节点的颜色数据作为 attribute 变量，通过 buffer 将数据传递给 Shader ，这种情况需要设置 buffer 的数据格式为 vfmtPosUvColor ，同时将 material.useColor 设置为 false，这样顶点数据的填充就需要修改为：
 
 ```js
     let vbuf = buffer._vData,
