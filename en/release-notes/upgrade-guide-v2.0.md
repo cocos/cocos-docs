@@ -131,27 +131,28 @@ Another key point is that in addition to retaining limited Canvas rendering capa
 
 Due to space limitations, we do not delve into the update of the underlying framework of the engine. For details, please pay attention to our subsequent v2.0 rendering framework documentation.
 
-## 3.2 启动流程升级
+## 3.2 Startup process changes
 
-在 1.x 中，引擎和用户脚本的加载顺序是：
+In 1.x, the order in which the engine and user scripts are loaded is:
 
-- 加载引擎
-- 加载 main.js
-- 初始化引擎
-- 初始化渲染器
-- 加载项目插件脚本
-- 加载项目主脚本
-- 调用 cc.game.onStart
+  - Load the engine
+  - load `main.js`
+  - Initialize the engine
+  - Initialize the renderer
+  - Load project plugin script
+  - Load project main script
+  - Call `cc.game.onStart`
 
-而在 2.0 中，用户脚本将可以干预到初始化逻辑，比如设置 cc.macro.ENABLE_TRANSPARENT_CANVAS（Canvas 背景是否透明）、cc.macro.ENABLE_WEBGL_ANTIALIAS（是否开启 WebGL 抗锯齿），或者对引擎应用一些前置的定制代码。以前这些工作都必须定制 main.js，在 cc.game.onStart 回调中添加，跟引擎默认初始化逻辑混在一起，用户经常有困惑，而且对于版本升级也不友好。所以在 2.0 中我们前置了用户脚本的加载：
+In 2.0, the user script can intervene into the initialization logic, such as setting `cc.macro.ENABLE_TRANSPARENT_CANVAS` (whether the Canvas background is transparent), `cc.macro.ENABLE_WEBGL_ANTIALIAS` (whether to enable WebGL anti-aliasing), or applying some pre-customization to the engine. Code. Previously these jobs had to be customized with `main.js`, added in the `cc.game.onStart` callback, mixed with the engine's default initialization logic, users often confused, and not friendly to version upgrades.
+So in 2.0 we preloaded the loading of user scripts:
 
-- 加载引擎
-- 加载 main.js
-- 加载项目插件脚本
-- 加载项目主脚本
-- 初始化引擎（Animation Manager, Collision Manager, Physics Manager, Widget Manager）
-- 初始化渲染器
-- 调用 cc.game.onStart
+  - Load the engine
+  - load `main.js`
+  - Load project plugin script
+  - Load project main script
+  - Initialization Engine (Animation Manager, Collision Manager, Physics Manager, Widget Manager)
+  - Initialize the renderer
+  - Call `cc.game`.onStart
 
 ## 3.3 平台代码分离和定制
 
