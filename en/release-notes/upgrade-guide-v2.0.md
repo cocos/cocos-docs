@@ -107,17 +107,17 @@ When using a custom JS engine:
 
 After the compilation is complete, the preview will use the new engine code directly. When the project is built, it will also be compiled and built with the new engine code. Of course, this will bring two side effects: the build time needs to be compiled when the engine is compiled; There are a lot of load engine scripts, so the preview load time will also grow.
 
-# 3. 引擎模块升级
+# 3. Engine upgrades
 
-下面将介绍的是 Cocos Creator v2.0 的最重要的引擎部分更新，我们在 2.0 中对引擎框架进行了彻底的升级：
+We have completely upgraded the engine framework in 2.0. Here are the most important pieces:
 
-1. 彻底模块化
-2. 移除底层 cocos2d-html5 渲染引擎，改为和 3D 引擎共享底层渲染器
-3. 摒弃渲染树，直接使用节点和渲染组件数据来组装渲染数据
-4. 逻辑层和渲染层隔离，通过有限的数据类型交互
-5. 渲染流程零垃圾
+  1. Even more modular
+  2. Remove the underlying cocos2d-html5 rendering engine and now share the underlying renderer with the 3D engine
+  3. Discard the render tree and assemble the rendered data directly using nodes and render component data.
+  4. Logic layer and render layer are isolated, interacting through limited data types
+  5. Rendering process zero garbage
 
-下面介绍具体的更新内容。
+The specific updates are described below.
 
 ## 3.1 底层渲染器升级
 
