@@ -5,9 +5,353 @@
 ![](/zh/advanced-topics/custom-render/render-component.png)新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及Assembler的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义RenderComponent及对应的Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染。下面将介绍如何自定义RenderComponent及Assembler完成自定义渲染。
 
 ## 自定义RenderComponent
+我们以渲染一张Texture为例，首先创建自定义渲染组件的脚本，命名为CustomRender.js，并添加类型为cc.Texture2D的属性。
+```js
+//自定义渲染组件
+let CustomRender = cc.Class({
+    //所有渲染组件需要继承自cc.RenderComponent
+    extends: cc.RenderComponent,
+
+    ctor() {
+        //顶点数据装配器
+        this._assembler = null;
+        //材质
+        this._spriteMaterial = null;
+        //纹理UV数据
+        this.uv = [];
+    },
+
+    properties: {
+        //渲染组件使用的Texture
+        _texture: {
+            default: null,
+            type: cc.Texture2D
+        },
+
+        texture: {
+            get: function () {
+                return this._texture;
+            },
+            set: function (value, force) {
+                this._texture = value;
+            },
+            type: cc.Texture2D,
+        },
+    },
+)}
+```
+添加组件到自定义节点之后，如下图所示：
+
+下面就要开始补充自定义组件的功能，自定义的RenderComponent需要关联组件的Assembler用于渲染数据的填充，材质的创建以及纹理UV计算。
+```js
+    // 设置组件的Assembler
+    _updateAssembler: function () {
+        let assembler = CustomAssembler;
+
+        if (this._assembler !== assembler) {
+            this._assembler = assembler;
+            this._renderData = null;
+        }
+
+        if (!this._renderData) {
+            this._renderData = this._assembler.createData(this);
+            this._renderData.material = this._material;
+            this.markForUpdateRenderData(true);
+        }
+    },
+    // 创建用于渲染图片的材质
+    _activateMaterial() {
+        let material = this._material;
+        if (!material) {
+            material = this._material = new SpriteMaterial();
+        }
+        // 是否使用Uniform变量传递节点颜色
+        material.useColor = true;
+        if (this._texture) {
+            material.texture = this._texture;
+            //标记渲染组件的渲染状态
+            this.markForUpdateRenderData(true);
+            this.markForRender(true);
+        } else {
+            this.disableRender();
+        }
+
+        this._updateMaterial(material);
+    },
+    // 设置纹理的UV数据
+    _calculateUV() {
+        let uv = this.uv;
+        let l = 0, r = 1, b = 1,t = 0;
+
+        uv[0] = l;
+        uv[1] = b;
+        uv[2] = r;
+        uv[3] = b;
+        uv[4] = l;
+        uv[5] = t;
+        uv[6] = r;
+        uv[7] = t;
+    }
+```
+最后，在节点激活时依次调用上述回调，完成整个RenderComponent的功能，完成的代码如下：
+```js
+const renderEngine = cc.renderer.renderEngine;
+const SpriteMaterial = renderEngine.SpriteMaterial;
+const CustomAssembler = require('./CustomAssembler');
+//自定义渲染组件
+let CustomRender = cc.Class({
+    //所有渲染组件需要继承自cc.RenderComponent
+    extends: cc.RenderComponent,
+
+    ctor() {
+        //顶点数据装配器
+        this._assembler = null;
+        //材质
+        this._spriteMaterial = null;
+        //纹理UV
+        this.uv = [];
+    },
+
+    properties: {
+        //渲染组件使用的Texture
+        _texture: {
+            default: null,
+            type: cc.Texture2D
+        },
+
+        texture: {
+            get: function () {
+                return this._texture;
+            },
+            set: function (value, force) {
+                this._texture = value;
+                this._activateMaterial();
+            },
+            type: cc.Texture2D,
+        },
+    },
+    // 组件激活时链接组件的Assembler，处理UV数据及事件监听。
+    onEnable: function () {
+        this._super();
+        this._updateAssembler();
+        this._activateMaterial();
+        this._calculateUV();
+
+        this.node.on(cc.Node.EventType.SIZE_CHANGED, this._onNodeSizeDirty, this);
+        this.node.on(cc.Node.EventType.ANCHOR_CHANGED, this._onNodeSizeDirty, this);
+    },
+    //组件禁用时，取消事件监听
+    onDisable: function () {
+        this._super();
+
+        this.node.off(cc.Node.EventType.SIZE_CHANGED, this._onNodeSizeDirty, this);
+        this.node.off(cc.Node.EventType.ANCHOR_CHANGED, this._onNodeSizeDirty, this);
+    },
+    //节点数据变化时需要标记更新组件的渲染状态
+    _onNodeSizeDirty () {
+        if (!this._renderData) return;
+        this.markForUpdateRenderData(true);
+    },
+    // 设置组件的Assembler
+    _updateAssembler: function () {
+        let assembler = CustomAssembler;
+
+        if (this._assembler !== assembler) {
+            this._assembler = assembler;
+            this._renderData = null;
+        }
+
+        if (!this._renderData) {
+            this._renderData = this._assembler.createData(this);
+            this._renderData.material = this._material;
+            this.markForUpdateRenderData(true);
+        }
+    },
+    // 创建用于渲染图片的材质
+    _activateMaterial() {
+        let material = this._material;
+        if (!material) {
+            material = this._material = new SpriteMaterial();
+        }
+        // 是否使用Uniform变量传递节点颜色
+        material.useColor = true;
+        if (this._texture) {
+            material.texture = this._texture;
+            //标记渲染组件的渲染状态
+            this.markForUpdateRenderData(true);
+            this.markForRender(true);
+        } else {
+            this.disableRender();
+        }
+
+        this._updateMaterial(material);
+    },
+    // 设置纹理的UV数据
+    _calculateUV() {
+        let uv = this.uv;
+        let l = 0, r = 1, b = 1,t = 0;
+
+        uv[0] = l;
+        uv[1] = b;
+        uv[2] = r;
+        uv[3] = b;
+        uv[4] = l;
+        uv[5] = t;
+        uv[6] = r;
+        uv[7] = t;
+    }
+});
+```
+## 自定义Assembler
+在新版本的渲染流中，Assembler是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于自定义扩展及复用，将这部分功能独立出来并可以指定给任意的RenderComponent使用。下面，我们将为我们的自定义RenderComponent添加对应的Assembler文件，Assembler中必须要定义updateRenderData及fillBuffers方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进VetexBuffer和IndiceBuffer中。完整的代码如下：
 
 ```js
-var s = "JavaScript语法高亮";
-alert(s);
-```
+const renderEngine = cc.renderer.renderEngine;
+const gfx = renderEngine.gfx;
 
+// 引擎定义的顶点数据的buffer格式, 参考引擎中的vertex-format.js
+// 传递位置及UV
+let vfmtPosUv = new gfx.VertexFormat([
+    { name: gfx.ATTR_POSITION, type: gfx.ATTR_TYPE_FLOAT32, num: 2 },
+    { name: gfx.ATTR_UV0, type: gfx.ATTR_TYPE_FLOAT32, num: 2 }
+]);
+// 传递位置，UV及颜色数据
+let vfmtPosUvColor = new gfx.VertexFormat([
+    { name: gfx.ATTR_POSITION, type: gfx.ATTR_TYPE_FLOAT32, num: 2 },
+    { name: gfx.ATTR_UV0, type: gfx.ATTR_TYPE_FLOAT32, num: 2 },
+    { name: gfx.ATTR_COLOR, type: gfx.ATTR_TYPE_UINT8, num: 4, normalize: true },
+]);
+
+// 自定义Assembler
+let CustomAssembler = {
+    // 创建渲染数据
+    createData(comp) {
+        let renderData = comp.requestRenderData();
+        renderData.dataLength = 4;
+        renderData.vertexCount = 4;
+        renderData.indiceCount = 6;
+        return renderData;
+    },
+    // 更新渲染数据
+    updateRenderData(comp) {
+        let renderData = comp._renderData;
+        if (renderData) {
+            this.updateVerts(comp);
+        }
+    },
+    // 填充数据buffer
+    fillBuffers(comp, renderer) {
+        let renderData = comp._renderData;
+        let data = renderData._data;
+        // 指定buffer的数据格式，并获取buffer
+        let buffer = renderer.getBuffer('mesh', vfmtPosUv),
+            vertexOffset = buffer.byteOffset >> 2,
+            vertexCount = renderData.vertexCount,
+            indiceCount = renderData.indiceCount;
+
+        let indiceOffset = buffer.indiceOffset,
+            vertexId = buffer.vertexOffset;
+        // 通过设定的顶点数量及顶点索引数量获取buffer的数据空间
+        buffer.request(vertexCount, indiceCount);
+
+        let vbuf = buffer._vData,
+            ibuf = buffer._iData;
+        // 填充顶点缓冲
+        for (let i = 0, l = vertexCount; i < l; i++) {
+            let vert = data[i];
+            vbuf[vertexOffset++] = vert.x;
+            vbuf[vertexOffset++] = vert.y;
+            vbuf[vertexOffset++] = vert.u;
+            vbuf[vertexOffset++] = vert.v;
+        }
+        // 填充索引缓冲
+        for (let i = 0, l = indiceCount / 6; i < l; i++) {
+            ibuf[indiceOffset++] = vertexId;
+            ibuf[indiceOffset++] = vertexId + 1;
+            ibuf[indiceOffset++] = vertexId + 2;
+            ibuf[indiceOffset++] = vertexId + 1;
+            ibuf[indiceOffset++] = vertexId + 3;
+            ibuf[indiceOffset++] = vertexId + 2;
+            vertexId += 4;
+        }
+    },
+    // 准备顶点数据
+    updateVerts(comp) {
+        let renderData = comp._renderData,
+            node = comp.node,
+            data = renderData._data,
+            cw = node.width, ch = node.height,
+            appx = node.anchorX * cw, appy = node.anchorY * ch,
+            vl, vb, vr, vt;
+
+        let uv = comp.uv;
+
+        let matrix = node._worldMatrix,
+            a = matrix.m00, b = matrix.m01, c = matrix.m04, d = matrix.m05,
+            tx = matrix.m12, ty = matrix.m13;
+
+        vl = -appx;
+        vb = -appy;
+        vr = cw - appx;
+        vt = ch - appy;
+
+        let al = a * vl,
+            ar = a * vr,
+            bl = b * vl,
+            br = b * vr,
+            cb = c * vb,
+            ct = c * vt,
+            db = d * vb,
+            dt = d * vt;
+
+        let offset = 0;
+
+        // 左下
+        data[offset].x = al + cb + tx;
+        data[offset].y = bl + db + ty;
+        data[offset].u = uv[0];
+        data[offset].v = uv[1];
+        offset++;
+
+        // 右下
+        data[offset].x = ar + cb + tx;
+        data[offset].y = br + db + ty;
+        data[offset].u = uv[2];
+        data[offset].v = uv[3];
+        offset++;
+
+        // 左上
+        data[offset].x = al + ct + tx;
+        data[offset].y = bl + dt + ty;
+        data[offset].u = uv[4];
+        data[offset].v = uv[5];
+        offset++;
+
+        // 右上
+        data[offset].x = ar + ct + tx;
+        data[offset].y = br + dt + ty;
+        data[offset].u = uv[6];
+        data[offset].v = uv[7];
+        offset++;
+    }
+};
+
+module.exports = CustomAssembler;
+```
+注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为vfmtPosUv和vfmtPosUvColor，具体的定义可以查看引擎中的vertex-format.js文件。这两者的区别是顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为Uniform变量直接设置给Shader，这种情况下buffer的数据格式设定为vfmtPosUv，同时纹理材质material.useColor需要设置为true。另外一种方式是将节点的颜色数据作为attribute变量，通过buffer将数据传递给Shader，这种情况需要设置buffer的数据格式为vfmtPosUvColor，同时将material.useColor设置为false，这样顶点数据的填充就需要修改为：
+```js   
+    let vbuf = buffer._vData,
+        ibuf = buffer._iData,
+        uintbuf = buffer._uintVData;;
+    // 填充顶点缓冲
+    for (let i = 0, l = vertexCount; i < l; i++) {
+        let vert = data[i];
+        vbuf[vertexOffset++] = vert.x;
+        vbuf[vertexOffset++] = vert.y;
+        vbuf[vertexOffset++] = vert.u;
+        vbuf[vertexOffset++] = vert.v;
+        //将颜色数据添加到顶点缓冲
+        uintbuf[vertexOffset++] = color;
+    }
+```
+以上就是自定义渲染的简单实现，开发者可以依据自己的需求进行个性化的渲染定制，未来的版本中我们也将开放更多的自定义渲染API，为不同的场景和开发需求提供便利。
