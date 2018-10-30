@@ -247,9 +247,9 @@ We removed the ability to __get and set Tiles__ and set the size and orientation
 
 Of course, we are not simplifying for simplification. On the one hand, this brings about an improvement in performance. On the other hand, this simple framework also lays a good foundation for the upgrade of future tile maps. We plan to support multiple tilesets and nodes. Occlusion control and other capabilities.
 
-## 3.8 物理引擎升级
+## 3.8 Physical Engine Upgrade
 
-物理引擎方面，我们将旧的 box2d 库升级为 [box2d.ts](https://github.com/flyover/box2d.ts)，主要是为了在性能上有所提升，保障物理游戏的稳定性。不过 box2d.ts 内部的接口和以往的接口会有一定的差异，开发者需要留意这些接口的使用。
+For the physics engine, we upgraded the old box2d library to [box2d.ts] (https://github.com/flyover/box2d.ts), mainly to improve the performance and ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
 
 ## 3.9 其他重要更新
 
