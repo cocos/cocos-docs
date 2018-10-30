@@ -4,7 +4,7 @@
 
 Currently Cocos Creator supports importing 3D models using a very wide range of **.fbx** formats, and basically all 3D modeling software supports exporting this format.
 
-The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, When you import a model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **Meshes**, and **Skeletal animations**.
+The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **Meshes**, and **Skeletal animations**.
 
 ![import-model](./img/import-model.png)
 

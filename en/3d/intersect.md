@@ -2,11 +2,11 @@
 
 > Authors：Xunyi, youyou
 
-Cocos Creator offer a set of API use for detection the 3D object collision, the user can use these API to detection the adiographic inspection and so on.
+Cocos Creator offer a set of API use for detection the 3D object collision, the user can use these API to detection the raycast and so on.
 
-Creator provides a set of apis for detecting 3D object collision, and user can use these APIs for detection such as adiographic inspection.
+Creator provides a set of apis for detecting 3D object collision, and user can use these APIs for detection such as raycast.
 
-## Adiographic Inspection
+## Raycast
 
 - `cc.geomUtils.intersect.raycast(rootNode, ray, handler, filter)`
 
