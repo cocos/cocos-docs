@@ -227,25 +227,25 @@ In this adaptation mode, the developer's design resolution ratio will be faithfu
 
 In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots] (../render/camera.html#%E6%88%AA%E5%9B%BE).
 
-## 3.7 TiledMap 功能简化
+## 3.7 TiledMap function simplification
 
-瓦片地图在 2.0 中经过了重新设计，为了提升渲染性能，我们简化了 TiledLayer 的能力，下面是修改或去除的 TiledLayer 功能：
+Tile maps have been redesigned in 2.0. To improve rendering performance, we have simplified the capabilities of TiledLayer. Here are the TiledLayer features that have been modified or removed:
 
-- ~~getTiles~~
-- ~~setTiles~~
-- getTileAt: getTiledTileAt
-- ~~removeTileAt~~
-- setTileGID: setTileGIDAt
-- ~~setMapTileSize~~
-- ~~setLayerSize~~
-- ~~setLayerOrientation~~
-- ~~setContentSize~~
-- ~~setTileOpacity~~
-- ~~releaseMap~~
+  - ~~getTiles~~
+  - ~~setTiles~~
+  - getTileAt: getTiledTileAt
+  - ~~removeTileAt~~
+  - setTileGID: setTileGIDAt
+  - ~~setMapTileSize~~
+  - ~~setLayerSize~~
+  - ~~setLayerOrientation~~
+  - ~~setContentSize~~
+  - ~~setTileOpacity~~
+  - ~~releaseMap~~
 
-我们去除了 Tiles 获取和设置的能力，设置 map 或者 layer 尺寸和朝向的能力，这是因为我们希望这些信息从 tmx 文件中获取之后是稳定的，开发者可以通过 tmx 去调整地图，而不是这些接口。在 1.x 中，getTileAt 和 setTileAt 是通过将一个地图块实例化为一个 Sprite 实现的，这个 Sprite 的渲染在地图的渲染流程中会制造大量的特殊处理逻辑，也会使得瓦片地图渲染性能受到比较大的影响。所以在 2.0 中，我们提供了 getTiledTileAt 接口让开发者可以获取一个挂载 TiledTile 组件的节点，通过这个节点，开发者可以修改 Tile 的位置、旋转、缩放、透明度、颜色等信息，还可以通过 TiledTile 组件来控制地图位置和瓦片 ID，这取代了原本的 setTileOpacity 等独立接口。
+We removed the ability to __get and set Tiles__ and set the size and orientation of the map or layer. This is because we want this information to be stable after getting it from the tmx file. Developers can tmx to adjust the map instead of these interfaces. . In 1.x, `getTileAt` and `setTileAt` are implemented by instantiating a map block into a sprite. The rendering of this sprite will create a lot of special processing logic in the rendering process of the map, which will also make the tile map rendering performance suffer. Biger impact. So in 2.0, we provide the getTiledTileAt interface to allow developers to get a node that mounts the TiledTile component. Through this node, developers can modify the position, rotation, scaling, transparency, color, etc. of the Tile, and also through the `TiledTile` component. To control the map position and tile ID, this replaces the original independent interface such as `setTileOpacity`.
 
-当然，我们不是为了简化而简化，一方面这带来了性能上的提升，另一方面这个简单的框架也为未来瓦片地图的升级打下了很好的基础，我们计划会支持 multiple tilesets、节点遮挡控制等能力。
+Of course, we are not simplifying for simplification. On the one hand, this brings about an improvement in performance. On the other hand, this simple framework also lays a good foundation for the upgrade of future tile maps. We plan to support multiple tilesets and nodes. Occlusion control and other capabilities.
 
 ## 3.8 物理引擎升级
 
