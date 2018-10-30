@@ -215,13 +215,13 @@ It is also worth mentioning that the event monitoring mechanism of the Hot Updat
     assetsManager.setEventCallback(null);
 ```
 
-## 3.5 适配模式升级
+## 3.5 Adaptation mode upgrade
 
-Cocos Creator 支持多种适配模式，开发者可以通过 Canvas 组件中的设置来管理，其中一种适配模式在 2.0 中有一定的调整，就是同时勾选 Fit Width 和 Fit Height 的模式。
+Cocos Creator supports a variety of adaptation modes, which developers can manage through the settings in the Canvas component. One of the adaptation modes has some adjustments in 2.0, which is to check the Fit Width and Fit Height modes.
 
 ![v1.x Fit Width & Fit Height](upgrade-guide-v2.0/show-all.png)
 
-在这种适配模式下，开发者的设计分辨率比例将会忠实地被保留，并缩放场景到所有内容都可见，此时场景长宽比和设备屏幕长宽比一般都存在差距，就会在左右或者上下留下黑边。在 1.x 中，我们将 DOM Canvas 的尺寸直接设置为场景的尺寸，所以超出场景范围的内容都会被剪裁掉，而背景就是 Web 页面。但是这种方式在微信小游戏上遇到了问题，微信会强制将主 Canvas 的尺寸拉伸到全屏范围，导致 1.x 使用这种适配模式在小游戏上往往都会造成严重的失真。2.0 改变了适配策略的实现，保持 DOM Canvas 全屏，通过设置 GL Viewport 来让场景内容居中，并处于正确位置。这样做带来的变化是，微信小游戏中比例完全正确，但是场景范围外的内容仍然是可见的。
+In this adaptation mode, the developer's design resolution ratio will be faithfully preserved, and the scene will be zoomed until all content is visible. At this time, the aspect ratio of the scene and the aspect ratio of the device screen are generally different. Leave a black border on the left or right or up and down. In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in small games. 2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat game are completely correct, but the content outside the scene is still visible.
 
 ## 3.6 RenderTexture 截图功能
 
