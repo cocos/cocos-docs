@@ -2,7 +2,7 @@
 
 - [3D 节点](3d-node.md)
 - [导入模型资源](import-model.md)
-- [网格资源](mesh.md)
+- [网格资源参考](mesh.md)
 - [Mesh Renderer 组件参考](mesh-renderer.md)
 - [Skinned Mesh Renderer 组件参考](skinned-mesh-renderer.md)
 - [骨骼动画组件参考](skeleton-animation.md)

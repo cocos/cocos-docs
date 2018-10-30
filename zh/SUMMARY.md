@@ -162,8 +162,7 @@
     - [音频播放](audio/audio.md)
     - [AudioSource 组件参考](components/audiosource.md)
     - [兼容性说明](audio/compatibility.md)
-
-- [3D](3d/index.md)
+- [3D 系统](3d/index.md)
     - [3D 节点](3d/3d-node.md)
     - [导入模型资源](3d/import-model.md)
     - [网格资源](3d/mesh.md)

@@ -5,12 +5,13 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 **Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.
 
 ## What's New
- - Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
- - Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
- - Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
- - Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
 
-**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.
+- Starting with v2.1, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [3D Node](3d/index.md).
+- Starting with v2.0.4, Cocos Creator support posted to [Google Play Instant](publish/publish-android-instant.md).
+- Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+- Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
+- Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
+- Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
 
 ## Index
 
