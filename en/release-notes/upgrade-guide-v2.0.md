@@ -154,24 +154,24 @@ So in 2.0 we preloaded the loading of user scripts:
   - Initialize the renderer
   - Call `cc.game`.onStart
 
-## 3.3 平台代码分离和定制
+## 3.3 Platform code separation and customization
 
-在 1.x 中，main.js 承载了所有平台的初始化逻辑，但由于平台越来越多，差异也越来越大，所以我们决定将这些平台的启动逻辑尽量分离。
+In 1.x, `main.js` hosts the initialization logic for all platforms, but as the platform grows more and more different, we decided to separate the startup logic of these platforms as much as possible.
 
-1. Web & Facebook Instant Game
-    1. 入口文件：index.html
-    2. 适配文件：无
-2. 微信小游戏
-    1. 入口文件：game.js
-    2. 适配文件：libs/
-3. 原生平台
-    1. 入口文件：main.js
-    2. 适配文件：jsb-adapter/
-4. QQ 轻游戏
-    1. 入口文件：main.js
-    2. 适配文件：libs/
+  1. Web & Facebook Instant Game
+       1. Entry file: `index.html`
+       2. Adaptation file: `none`
+  2. WeChat game
+       1. Entry file: `game.js`
+       2. Adaptation file: `libs/``
+  3. Native platform
+       1. Entry file: `main.js`
+       2. Adaptation file: `jsb-adapter/``
+  4. QQ light game
+       1. Entry file: `main.js`
+       2. Adaptation file: `libs/``
 
-开发者如果需要添加自己的定制代码，可以参考[定制项目文档](http://docs.cocos.com/creator/manual/zh/publish/custom-project-build-template.html)在项目中用自己的版本覆盖原始版本，另外，尽量不要覆盖 main.js。
+Developers who need to add their own custom code can refer to [Custom Project Documentation] (http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 
 ## 3.4 事件系统升级
 
