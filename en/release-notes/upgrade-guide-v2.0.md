@@ -51,7 +51,7 @@ Maybe developers have noticed the configuration of texture resources in Creator 
   - __Trilinear (triangular linear filtering):__ Based on the quadratic linear filtering, the quadratic linear filtering results of two adjacent mipmaps are taken for the mean calculation.
 - __Premultiply Alpha:__ This is a new parameter in 2.0. When checked, the engine will enable the GL pre-multiply option during the upload of the GPU map. This is very helpful for some textures that need to be pre-multiplied. Often there are some users who can't understand the inexplicable white edges around the texture or around the text, which is caused by the semi-transparent pixels around the texture:
 
-![Spine's strange white edges at the bone seams] (upgrade-guide-v2.0/spine-border.png)
+![Spine's strange white edges at the bone seams](upgrade-guide-v2.0/spine-border.png)
 
 This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on the pre-multiply option of the texture. It's also worth noting that if you find that this makes the texture darker, you can change the blending mode of the corresponding rendering component to ONE, ONE_MINUS_SRC_ALPHA.
 
@@ -59,7 +59,7 @@ This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on
 
 In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Property inspector__:
 
-![TiledLayer's Mixed Mode Settings] (upgrade-guide-v2.0/render-component.png)
+![TiledLayer's Mixed Mode Settings](upgrade-guide-v2.0/render-component.png)
 
 Because of the transformation of the underlying renderer in 2.0, we abstracted the functionality of many render phases for user access and setup. Many of the interfaces to these interfaces are in the RenderComponent. In addition to the blend mode, we also plan to introduce the material system (the engine is built-in, and only the script interface is temporarily available).
 
@@ -73,19 +73,19 @@ The camera may be the most changed component from 1.x to 2.0. In order for devel
 
 If you need a more advanced Camera component, it will be necessary to upgrade to v2.0. It is not possible to directly specify the target corresponding to Camera. Instead, set the node and camera matching relationship by setting the culling mask of node Group and Camera.
 
-For specific changes, developers can refer to [2.0 Camera Using Documentation] (../render/camera.md).
+For specific changes, developers can refer to [2.0 Camera Using Documentation](../render/camera.md).
 
 ## 2.4 Build Panel Updates
 
 The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as Wechat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: Wechat Game Open Data Context.
 
-![2.0 WeChat game open data domain publishing panel] (upgrade-guide-v2.0/wechat-open-data.png)
+![2.0 WeChat game open data domain publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
 
 As you can see, the build options are much simpler than other platforms because the open data domain has a special environment that removes unnecessary options. At the same time, since the open data domain does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data domain.
 
 For the same reason, when building other platforms, please don't check the Canvas Renderer, because the Canvas renderer supports a small number of rendering components, meaning little.
 
-Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain] (../publish/publish-wechatgame-sub-domain.md).
+Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain](../publish/publish-wechatgame-sub-domain.md).
 
 ## 2.5 Module Settings
 
@@ -225,7 +225,7 @@ In this adaptation mode, the developer's design resolution ratio will be faithfu
 
 ## 3.6 RenderTexture Screenshot
 
-In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots] (../render/camera.html#%E6%88%AA%E5%9B%BE).
+In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots](../render/camera.html#%E6%88%AA%E5%9B%BE).
 
 ## 3.7 TiledMap function simplification
 
