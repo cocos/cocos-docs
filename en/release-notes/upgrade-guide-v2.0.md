@@ -173,44 +173,47 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
 
 Developers who need to add their own custom code can refer to [Custom Project Documentation] (http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 
-## 3.4 事件系统升级
+## 3.4 Event System Upgrade
 
-事件系统在引擎和用户代码中都被广泛使用，但是为了兼容派发触摸事件的需求（捕获和冒泡），1.x 中它的设计过于复杂，对于普通的简单事件反而性能有些低下。在 2.0 中为了解决这个问题，我们将树形结构中包含捕获和冒泡阶段的事件模型仅实现在了 cc.Node 中，彻底简化了 EventTarget 的设计。下面是关键的 API 对比：
+Event systems are widely used in both engine and user code, but in order to be compatible with the need to dispatch touch events (capture and bubbling), its design in 1.x is too complex, and performance is somewhat slow for ordinary simple events. In order to solve this problem in 2.0, we implemented the event model containing the capture and bubbling phases in the tree structure only in `cc.Node`, which completely simplifies the design of EventTarget. Here are the key API comparisons:
 
-Node：
+Node:
 
-- on (type, callback, target, useCapture)：注册事件监听器，可以选择注册冒泡阶段或者捕获阶段
-- off (type, callback, target, useCapture)：取消注册监听器
-- emit (type, arg1, arg2, arg3, arg4, arg5)：派发简单事件
-- dispatchEvent (event)：以捕获和冒泡事件模型在节点树上派发事件（捕获阶段触发顺序从根节点到目标节点，冒泡阶段再从目标节点上传到根节点）
+  - on (type, callback, target, useCapture): Register the event listener, you can choose to register the bubbling phase or the capture phase.
+  - off (type, callback, target, useCapture): unregister the listener
+  - emit (type, arg1, arg2, arg3, arg4, arg5): dispatch simple events
+  - dispatchEvent (event): dispatches events on the node tree with capture and bubbling event models (the capture phase triggers the order from the root node to the target node, and the bubbling phase then uploads from the target node to the root node)
 
-EventTarget：
+EventTarget:
 
-- on (type, callback, target)：注册事件监听器
-- off (type, callback, target)：取消注册监听器
-- emit (type, arg1, arg2, arg3, arg4, arg5)：派发简单事件
-- dispatchEvent (event)：兼容 API，派发一个简单的事件对象
+  - on (type, callback, target): register event listener
+  - off (type, callback, target): unregister the listener
+  - emit (type, arg1, arg2, arg3, arg4, arg5): dispatch simple events
+  - dispatchEvent (event): compatible API, dispatching a simple event object
 
-可以看到只有 Node 的 `on`/`off` 支持父节点链上的事件捕获和事件冒泡，默认仅有系统事件支持这样的派发模式，用户可以通过 `node.dispatchEvent` 在节点树上以同样的流程派发事件。这点跟 1.x 是一致的。
-但是，Node 上使用 emit 派发的事件和 EventTarget 上的所有事件派发都是简单的事件派发方式，这种方式派发的事件，在事件回调的参数上和 1.x 有区别：
+You can see that only Node's `on`/`off` supports event capture and event bubbling on the parent chain. By default, only system events support such a dispatch mode. Users can use `node.dispatchEvent` on the node tree. The same process distributes events. This is consistent with 1.x.
 
+However, the use of emit dispatch on Node and all event dispatch on EventTarget are simple event dispatch methods. The dispatch event is different from 1.x in the event callback parameters:
+```javascript
     // v1.x
     eventTarget.on(type, function (event) {
-        // 通过 event.detail 获取 emit 时传递的参数
+        // Get the argument passed when emit via event.detail
     });
-    eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
+    eventTarget.emit(type, message); // message will be saved on the detail property of the event parameter of the callback function
     // v2.0
     eventTarget.on(type, function (message, target) {
-        // 直接通过回调参数来获取 emit 时传递的事件参数
+        // Get the event argument passed when emit directly through the callback parameter
     });
-    eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
+    eventTarget.emit(type, message, eventTarget); // emits up to five extra arguments, which are passed flat to the callback function
+```
 
-另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 cc.eventManager 来监听回调，在 2.0 中我们提供了更简单的方式：
-
-    // 设置事件回调
+It is also worth mentioning that the event monitoring mechanism of the Hot Update Manager has also been upgraded. In the old version, AssetsManager needs to listen for callbacks through cc.eventManager. In 2.0, we provide an easier way:
+```javascript
+    / / Set the event callback
     assetsManager.setEventCallback(this.updateCallback.bind(this));
-    // 取消事件回调
+    // cancel event callback
     assetsManager.setEventCallback(null);
+```
 
 ## 3.5 适配模式升级
 
