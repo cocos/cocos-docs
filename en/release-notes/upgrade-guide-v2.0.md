@@ -277,10 +277,10 @@ In addition to the updates to the full modules above, there are some more import
 
 In addition to the above upgrades, for the engine core module, we recorded all API changes in [deprecated.js](https://github.com/cocos-creator/engine/blob/2.0.0/cocos2d/deprecated.js), in the preview or debug mode, the developer will see the relevant API update prompts. Just follow the prompts to upgrade, and then combine this document.
 
-# 4. 后续版本计划
+# 4. Follow-up version plan
 
-2.0 虽然已经完成了底层渲染器的更新，但是我们尚未正式开放高级渲染能力给开发者，在 2.x 后续版本中，我们会逐步用产品化的方式推出这些高渲染能力，让开发者们可以在用 Cocos Creator 制作 2D 游戏时，感受到前所未有的想象空间，释放无限的创作激情。
+Although the update of the underlying renderer has been completed, we have not officially opened the advanced rendering capabilities to developers. In the follow-up version 2.x, we will gradually introduce these high rendering capabilities in a productized way, so that developers can When you create a 2D game with Cocos Creator, you feel the imagination of unprecedented imagination and release unlimited creative passion.
 
-大致的路线图规划如下：
+The approximate roadmap is planned as follows:
 
-![Cocos Creator 2.0 规划路线图](upgrade-guide-v2.0/roadmap.png)
+![Cocos Creator 2.0 Planning Roadmap](upgrade-guide-v2.0/roadmap.png)
