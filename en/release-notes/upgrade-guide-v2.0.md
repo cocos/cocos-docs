@@ -251,31 +251,31 @@ Of course, we are not simplifying for simplification. On the one hand, this brin
 
 For the physics engine, we upgraded the old box2d library to [box2d.ts] (https://github.com/flyover/box2d.ts), mainly to improve the performance and ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
 
-## 3.9 其他重要更新
+## 3.9 Other important updates
 
-除了上面那些完整模块的更新，在引擎的其他方面还有一些比较重要的更新：
+In addition to the updates to the full modules above, there are some more important updates in other aspects of the engine:
 
 1. Node
-    1. 移除了 tag 相关的 API
-    2. 将 transform 获取 API 都更新为 matrix 相关 API，并且获取时需要开发者传递存储结果的对象
-    3. 保留属性风格 API，移除与属性重复的 getter setter API
-    4. 由于遍历流程的改变，节点的渲染顺序也和之前不同，2.0 中所有子节点都会在父节点之后渲染，包含 zIndex 小于 0 的节点
+    1. Removed tag related APIs
+    2. Update the transform get API to the matrix related API, and get the object that the developer needs to pass the stored result when fetching
+    3. Retain the attribute style API and remove the getter setter API that duplicates the attribute
+    4. Due to the change of the traversal process, the rendering order of the nodes is different from before. All child nodes in 2.0 will be rendered after the parent node, including nodes with zIndex less than 0.
 2. Director
-    1. 移除了与视图和渲染相关的 API，比如 getWinSize、getVisibleSize、setDepthTest、setClearColor、setProjection 等
-    2. 废弃 EVENT_BEFORE_VISIT 和 EVENT_AFTER_VISIT 事件类型
-3. Scheduler：除了组件对象以外，需要使用 Scheduler 调度的目标对象，都需要先执行 `scheduler.enableForTarget(target)`
+    1. Removed APIs related to views and rendering, such as getWinSize, getVisibleSize, setDepthTest, setClearColor, setProjection, etc.
+    2. Discard the EVENT_BEFORE_VISIT and EVENT_AFTER_VISIT event types
+3. Scheduler: In addition to the component object, you need to use the Scheduler to dispatch the target object, you need to execute `scheduler.enableForTarget(target)`
 4. value types
-    1. 以前在 cc 命名空间下的 AffineTransform 计算 API 都移到 AffineTransform 下，比如 `cc.affineTransformConcat` 改为 `cc.AffineTransform.concat`
-    2. Rect 和 Point 相关的计算 API 都改为了对象 API，比如 `cc.pAdd(p1, p2)` 改为 `p1.add(p2)`
-    3. 移除了 `cc.rand`、`cc.randomMinus1To1` 等 JS 直接提供的 API
-5. debug：新增 cc.debug 模块，暂时包含 setDisplayStats、isDisplayStats 方法
-6. 移除的部分重要 API
-    1. 所有 _ccsg 命名空间下的 API
+    1. Previously, the AffineTransform calculation API under the cc namespace was moved to AffineTransform, such as `cc.affineTransformConcat` to `cc.AffineTransform.concat`
+    2. The Rect and Point related calculation APIs are changed to the object API, such as `cc.pAdd(p1, p2)` to `p1.add(p2)`
+    3. Removed the API provided by JS directly from `cc.rand`, `cc.randomMinus1To1`, etc.
+5. debug: Added cc.debug module, temporarily including setDisplayStats, isDisplayStats methods
+6. Some important APIs removed
+    1. All APIs under the _ccsg namespace
     2. cc.textureCache
     3. cc.pool
-    4. Spine：Skeleton.setAnimationListener
+    4. Spine: Skeleton.setAnimationListener
 
-除了上面这些升级，对于引擎核心模块来说，我们将所有的 API 变更都记录在了 [deprecated.js](https://github.com/cocos-creator/engine/blob/2.0.0/cocos2d/deprecated.js) 中，在预览或者调试模式中，开发者都会看到相关的 API 更新提示，只要按照提示进行升级，再结合这篇文档，相信就可以解决大部分问题。
+In addition to the above upgrades, for the engine core module, we recorded all API changes in [deprecated.js](https://github.com/cocos-creator/engine/blob/2.0.0/cocos2d/deprecated.js), in the preview or debug mode, the developer will see the relevant API update prompts. Just follow the prompts to upgrade, and then combine this document.
 
 # 4. 后续版本计划
 
