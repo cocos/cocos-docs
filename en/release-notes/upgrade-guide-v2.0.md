@@ -161,7 +161,7 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
   1. Web & Facebook Instant Game
        1. Entry file: `index.html`
        2. Adaptation file: `none`
-  2. WeChat game
+  2. WeChat Mini Games
        1. Entry file: `game.js`
        2. Adaptation file: `libs/``
   3. Native platform
