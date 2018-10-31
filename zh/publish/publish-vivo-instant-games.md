@@ -29,7 +29,7 @@ npm install -g qgame-toolkit
 
 发布平台选择vivo 快游戏，填写应用包名、应用名称、应用图标、应用版本名称、应用版本号、支持的最小引擎平台版本号（根据[vivo文档](https://jerrymoon.github.io/kuai-you-xi-jiao-cheng/idejie-ru-shuo-ming/cocos-creatorjie-ru-shuo-ming.html)修改，当前是填写1020），这些信息为必填项。 构建完成后，点击发布路径后的"打开"按钮，发布路径下的qgame目录就是导出快游戏工程目录，如：默认发布路径是build，快游戏工程目录则为build/qgame。
 如下图是新建的examplecollection(范例集合)可选项和必填项
-  ![](./publish-vivo-instant-games/build_ optional.jpg)
+  ![](./publish-vivo-instant-games/build_optional.jpg)
 
 * 应用图标
   构建时，应用图标将会导出到快游戏的工程里，请确保填写的应用图标路径下的图片真实存在。如：填写的应用图标路径为/assets/image/logo.png，则在creator的资源管理器assets目录下需要存在image目录和logo.png图片。
