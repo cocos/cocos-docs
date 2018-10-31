@@ -249,7 +249,7 @@ Of course, we are not simplifying for simplification. On the one hand, this brin
 
 ## 3.8 Physical Engine Upgrade
 
-For the physics engine, we upgraded the old box2d library to [box2d.ts] (https://github.com/flyover/box2d.ts), mainly to improve the performance and ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
+For the physics engine, we upgraded the old box2d library to [box2d.ts](https://github.com/flyover/box2d.ts), mainly to improve the performance and ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
 
 ## 3.9 Other important updates
 
