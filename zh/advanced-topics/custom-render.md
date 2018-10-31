@@ -215,7 +215,7 @@ let CustomRender = cc.Class({
 });
 ```
 
-## 自定义Assembler
+## 自定义 Assembler
 
 在新版本的渲染流中，Assembler 是指处理渲染组件顶点数据的一系列方法。因为不同的渲染组件会有不同的顶点数据数量以及不同的填充规则，因此在设计整个渲染框架时，为了便于扩展及复用，将这部分功能独立出来并可以指定给任意的 RenderComponent 使用。下面，我们将为自定义的 RenderComponent 添加对应的 Assembler 文件，Assembler 中必须要定义 updateRenderData 及 fillBuffers 方法，前者需要更新准备顶点数据，后者则是将准备好的顶点数据填充进 VetexBuffer 和 IndiceBuffer 中，创建名为 CustomAssembler.js 的文件，并添加如下代码：
 
