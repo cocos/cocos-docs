@@ -279,7 +279,7 @@ In addition to the above upgrades, for the engine core module, we recorded all A
 
 # 4. Follow-up version plan
 
-Although the update of the underlying renderer has been completed, we have not officially opened the advanced rendering capabilities to developers. In the follow-up version 2.x, we will gradually introduce these high rendering capabilities in a productized way, so that developers can When you create a 2D game with Cocos Creator, you feel the imagination of unprecedented imagination and release unlimited creative passion.
+Although the update of the underlying renderer has been completed, we have not officially opened the advanced rendering capabilities to developers. In follow-up versions of 2.x, we will gradually introduce new rendering capabilities so that developers can create a 2D game with Cocos Creator.
 
 The approximate roadmap is planned as follows:
 
