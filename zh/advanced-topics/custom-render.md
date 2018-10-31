@@ -42,6 +42,7 @@ let CustomRender = cc.Class({
             type: cc.Texture2D,
         },
     },
+// ...
 ```
 
 添加组件到自定义节点之后，如下图所示：
