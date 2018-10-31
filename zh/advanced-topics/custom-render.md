@@ -200,6 +200,7 @@ let CustomRender = cc.Class({
     // 设置纹理的 UV 数据
     _calculateUV () {
         let uv = this.uv;
+        // 设置纹理 UV 起始值
         let l = 0, r = 1, b = 1,t = 0;
 
         uv[0] = l;
