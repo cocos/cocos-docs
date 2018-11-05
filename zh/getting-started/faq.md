@@ -21,6 +21,8 @@
 
 截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()` ，就可以获得 base64 格式的截屏。
 
+具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/v2.0) 中 **07_capture_texture** 关于三种不同平台如何截屏并保存的测试例
+
 ### 在安卓第三方 App 自带的 WebView 上触摸时，引擎报错。
 
 找到 `main.js` 中调用 `cc.view.enableAutoFullScreen` 的地方，将传入参数改为 `false`。
@@ -62,6 +64,8 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ### 微信开放数据加载头像时提示 wx.request 找不到。
 
 加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
+
+具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/v2.0) **dragonBones/DragonMesh** 测试例。
 
 ### 如何从服务器远程加载 DragonBones ？
 
