@@ -58,6 +58,7 @@
     C:\Program Files\nodejs
     ```
 - **本地 quickgame-toolkit路径**
+
   **本地 quickgame-toolkit路径**为必填项，这里的quickgame-toolkit路径也需要注意：为解压后的quickgame-toolkit路径， 如quickgame.cmd路径 在mac系统下路径为
 
  
@@ -90,7 +91,7 @@
     在小游戏工程根目录中，添加 **build-templates/jsb-link/sign/release** 目录，然后在release 目录下放置你的私钥文件 **private.pem** 和证书文件 **certificate.pem**。如下图所示：
        
        
-      ![](./publish-OPPO-instant-games/release_sign.jpg)  
+      ![](./publish-oppo-instant-games/release_sign.jpg)  
 
 
 - 如何生成 release 签名
@@ -119,7 +120,7 @@
 二、**构建发布** 
     面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 OPPO 小游戏工程目录和rpk,rpk目录在/build/quickgame/dist 目录下。
 
-![](./publish-OPPO-instant-games/package.png)
+![](./publish-oppo-instant-games/package.png)
 
 三、将打包出来的 rpk 运行到手机上。
    将构建生成的小游戏 rpk 文件（位于小游戏工程 quickgame 目录下的 dist 目录中）拷贝到手机 SD 卡的/sdcard/games/目录。然后在 Android 设备上打开之前已经安装完成的 **快应用**，点击 **快游戏**栏目，然后找到填写游戏名相对应的图标即可，如没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
@@ -133,13 +134,13 @@
 这时需要在sd卡，新建个subPkg目录，然后把/build/quickgame/quickgame/dist目录下所有的文件和文件夹都拷贝到subPkg目录。
 
 
-![](./publish-OPPO-instant-games/subpackage.jpg)
+![](./publish-oppo-instant-games/subpackage.jpg)
   
   
    然后切换到**快应用**的**快游戏**栏目，点击刷新即可看到分包的主应用图标，点击即可跟正常打包一样使用。
 
 
-![](./publish-OPPO-instant-games/run_subpackage.jpg)
+![](./publish-oppo-instant-games/run_subpackage.jpg)
 
 
 ## 相关参考链接
