@@ -120,7 +120,7 @@
 二、**构建发布** 
     面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 OPPO 小游戏工程目录和rpk,rpk目录在/build/quickgame/dist 目录下。
 
-![](./publish-oppo-instant-games/package.png)
+![](./publish-oppo-instant-games/package.jpg)
 
 三、将打包出来的 rpk 运行到手机上。
    将构建生成的小游戏 rpk 文件（位于小游戏工程 quickgame 目录下的 dist 目录中）拷贝到手机 SD 卡的/sdcard/games/目录。然后在 Android 设备上打开之前已经安装完成的 **快应用**，点击 **快游戏**栏目，然后找到填写游戏名相对应的图标即可，如没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
