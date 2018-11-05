@@ -90,7 +90,7 @@
     - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
     - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
     - [发布到 Google Play Instant 平台](publish/publish-android-instant.md)
-    - [发布到 vivo 快游戏平台](publish/publish-vivo-instant-games.md)
+    - [发布到 vivo 小游戏平台](publish/publish-vivo-instant-games.md)
     - [定制项目构建流程](publish/custom-project-build-template.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
 
