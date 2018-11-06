@@ -72,6 +72,9 @@
 2. 不存在则查询本地缓存资源
 3. 如果没有缓存就从远程服务器下载
 4. 下载后保存到小游戏应用缓存内供再次访问时使用
+5. 缓存空间有大小限制，如果超出限制则会保存失败，此时打印提示信息并使用资源下载时的临时文件作为资源
+
+**注意**：需要额外注意的是，一旦缓存空间占满之后，所有需要下载的资源都无法进行保存，只能使用下载保存的临时文件，而微信会在小游戏退出之后自动清理所有临时文件，所以下次再次运行小游戏时，这些资源又会再度下载，然后一直循环往复此过程。另外，缓存空间超出限制导致文件保存失败的问题不会在微信开发者工具上出现，因为微信开发者工具没有限制缓存大小，所以测试缓存时需要真实微信环境进行测试。
 
 同时，当开启引擎的 md5Cache 功能后，文件的 url 会随着文件内容的改变而改变，这样当游戏发布新版本后，旧版本的资源在缓存中就自然失效了，只能从服务器请求新的资源，也就达到了版本控制的效果。
 
@@ -85,7 +88,7 @@
 
     ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏平台下使用 `wx.downloader.cleanAllAssets()` 接口来清除缓存。目前只支持一次清除所有缓存。
+**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏平台下使用 `wx.downloader.cleanAllAssets()` 和 `wx.downloader.cleanOldAssets()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
 
 ## 微信小游戏分包加载
 
@@ -124,6 +127,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 - [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
+- [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)
 
 ## 常见问题
 
