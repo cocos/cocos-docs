@@ -6,7 +6,7 @@
 
 ## 特别推荐
 
-- 从 v2.0.5 开始，Cocos Creator 支持发布到 vivo 小游戏平台，请参阅 [发布到 vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
+- 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏平台](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
 - 从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 [接入小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)。
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
 - 从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，绝大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](release-notes/raw-asset-migration.md)。
