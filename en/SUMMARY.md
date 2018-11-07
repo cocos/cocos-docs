@@ -26,6 +26,7 @@
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
     - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
+    - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
     - [FAQ](getting-started/faq.md)
 
 ## Workflows
@@ -89,10 +90,12 @@
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
+    - [Publish to Oppo Quick Games](publish/publish-oppo-instant-games.md)
+    - [Publish to Vivo Quick Games](publish/publish-vivo-instant-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
-## Systems 
+## Systems
 
 - [Renderer and Graphics](render/index.md)
     - [Core Renderers](render/core-renderer.md)
@@ -159,7 +162,7 @@
     - [Play Audio](audio/audio.md)
     - [AudioSource Component Reference](components/audiosource.md)
 
-## Advanced Topics 
+## Advanced Topics
 
 - [Editor Extension](extension/index.md)
     - [Your First Extension](extension/your-first-extension.md)
