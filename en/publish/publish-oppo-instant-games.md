@@ -102,7 +102,7 @@ Where **game package name**, **game name**,**desktop icon**,**game version name*
     openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
     ```
 
-  **Note**: The openssl tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install the openssl tool and configure system environment variables.
+  **Note**: `openssl` can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
 Second, **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and `rpk`, `rpk` package are in the __/build/quickgame/dist__ directory.
 
