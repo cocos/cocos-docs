@@ -75,7 +75,7 @@
 
 - **构建发布程序包**
 
-  **构建发布程序包** 是选填项。勾选该项的目的是构建出可以直接发布的 rpk 包。但有三个前提是需要填写 **本地 npm 安装路径**、**本地 quickgame-toolkit 路径** 以及添加 release 签名。<br>
+  **构建发布程序包** 是选填项。勾选该项的目的是构建出可以直接发布的 rpk 包。但有三个前提是需要填写 **本地 npm 安装路径**、**本地 quickgame-toolkit 路径** 以及 **添加 release 签名**。<br>
   如果不勾选 **构建发布程序包**，则构建出的是用于测试的 rpk 包。
 
     - 添加 release 签名：
@@ -110,11 +110,11 @@
 分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。若要使用该功能需要在 Creator 中设置 [分包配置](../scripting/subpackage.md)，设置完成后构建时就会自动分包。
 
 构建完成后，分包的目录在 /build/quickgame/quickgame/dist 目录下。<br>
-这时需要在 Android 设备的 **sdcard** 目录下，新建一个 **subPkg** 目录，然后把 /build/quickgame/quickgame/dist 目录下所有的文件和文件夹都拷贝到 subPkg 目录中。
+这时需要在 Android 设备的 **sdcard** 目录下，新建一个 **subPkg** 目录，然后把 /build/quickgame/quickgame/dist 目录下的 **.rpk** 文件拷贝到 subPkg 目录中。
 
 ![](./publish-oppo-instant-games/subpackage.jpg)
   
-然后切换到 **快应用** 的 **分包加载** 栏目，点击右上方的刷新即可看到分包的游戏名称，点击 **秒玩** 即可跟正常打包的 rpk 一样使用。
+然后切换到 **快应用** 的 **分包加载** 栏目，点击右上方的刷新即可看到分包的游戏名称，点击 **秒开** 即可跟正常打包的 rpk 一样使用。
 
 ![](./publish-oppo-instant-games/run_subpackage.jpg)
 
