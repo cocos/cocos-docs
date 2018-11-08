@@ -32,7 +32,7 @@ Where **game package name**, **game name**,**desktop icon**,**game version name*
 
 - **App icon**
 
-  **App icon** is required. When building, the app icon will be built into the __OPPO Quick Game__ project. Please make sure that the image under the app icon path exists. For example, if the application icon path is /assets/image/logo.png, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**.
+  **App icon** is required. When building, the app icon will be built into the __OPPO Mini Game__ project. Please make sure that the image under the app icon path exists. For example, if the application icon path is /assets/image/logo.png, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**.
 
 - **Local npm installation path**
 
@@ -104,7 +104,7 @@ Where **game package name**, **game name**,**desktop icon**,**game version name*
 
   **Note**: The openssl tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install the openssl tool and configure system environment variables.
 
-Second, **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported OPPO. The game project directory and `rpk`, `rpk` package are in the __/build/quickgame/dist__ directory.
+Second, **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and `rpk`, `rpk` package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 
