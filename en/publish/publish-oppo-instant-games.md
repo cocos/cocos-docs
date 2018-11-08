@@ -4,11 +4,11 @@ Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of g
 
 ## Environment Configuration
 
-- Download [Quick Game Debugger] (http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [Quick Game Debugger](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
-- Global installation [nodejs-8.1.4] (https://nodejs.org/zh-cn/download/) or above
+- Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally
 
-- Download [quickgame-toolkit] (http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//0974ab43dc361f148189515ee254ff6d.zip) and unzip it.
+- Download [quickgame-toolkit](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//0974ab43dc361f148189515ee254ff6d.zip) and unzip it.
 
   If you want to reduce the wait time for building `rpk` with __Cocos Creator__ for the first time, you can do the following to install the project dependencies:
 
@@ -20,7 +20,7 @@ Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of g
    npm install
   ```
 
-- Determine whether you need to install [Debugging Tools] (http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip) according to your own development needs.
+- Determine whether you need to install [Debugging Tools](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip) according to your own development needs.
 
 ## Release process
 
