@@ -1,4 +1,4 @@
-# Publishing to Oppo Mini Games
+# Publishing to OPPO Mini Games
 
 Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of games to the __OPPO Mini Game__ platform. It takes just a single click with __Cocos Creator__ to publish to the __OPPO Mini Game__ platform.
 
@@ -82,18 +82,18 @@ Where **game package name**, **game name**,**desktop icon**,**game version name*
 
 - **Build a release package**
 
-  **Build a release package** is optional. The purpose of this check is to build an rpk package that can be published directly. However, there are three prerequisites: ** local npm installation path**, **local quickgame-toolkit path**, and **add release signature**. <br>
-  If you do not check the **Build Release Package**, the rpk package for testing is built.
+  **Build a release package** is optional. The purpose of this check is to build an rpk package that can be published directly. However, there are three prerequisites: **local npm installation path**, **local quickgame-toolkit path**, and **add release signature**. <br>
+  If you do not check the **Build Release Package**, the `rpk` package for testing is built.
 
     - Add release signature:
 
-      In the game project root directory, add the **build-templates/jsb-link/sign/release** directory, then place your private key file **private.pem** and certificate file**certificate in the release directory. .pem**. As shown below:
+      In the game project root directory, add the **build-templates/jsb-link/sign/release** directory, then place your private key file **private.pem** and **certificate.pem** in the release directory. As shown below:
 
       ![](./publish-oppo-instant-games/release_sign.jpg)
 
     - How to generate a release signature
 
-      The user needs to generate the signature file private.pem, certificate.pem through tools such as the openssl command.
+      The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as `openssl`.
 
     ```bash
     # Command line assignment to the release directory just added to the root directory of the game
