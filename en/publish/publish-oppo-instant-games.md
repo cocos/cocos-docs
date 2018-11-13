@@ -10,7 +10,7 @@ Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of g
 
 - Download [quickgame-toolkit](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//0974ab43dc361f148189515ee254ff6d.zip) and unzip it.
 
-  If you want to reduce the wait time for building `rpk` with __Cocos Creator__ for the first time, you can do the following to install the project dependencies:
+  If you want to reduce the wait time for building **rpk** with __Cocos Creator__ for the first time, you can do the following to install the project dependencies:
 
   ```bash
    # Command line is specified in the unpacked quickgame-toolkit directory
@@ -66,7 +66,7 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
 - **local quickgame-toolkit path**
 
-  **Local quickgame-toolkit path** is required. The purpose of this entry is to call the command provided by __quickgame-toolkit__ to build `rpk` and generate `rpk` in the __build/quickgame/dist/ directory__.
+  **Local quickgame-toolkit path** is required. The purpose of this entry is to call the command provided by __quickgame-toolkit__ to build **rpk** and generate **rpk** in the __build/quickgame/dist/ directory__.
 
     **Please note:** Fill in the **local quickgame-toolkit path** for the __quickgame-toolkit__ file path after **extracting**.
 
@@ -83,7 +83,7 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 - **Build a release package**
 
   **Build a release package** is optional. The purpose of this check is to build an rpk package that can be published directly. However, there are three prerequisites: **local npm installation path**, **local quickgame-toolkit path**, and **add release signature**. <br>
-  If you do npsql -U postgres -Wot check the **Build Release Package**, the `rpk` package for testing is built.
+  If you do npsql -U postgres -Wot check the **Build Release Package**, the **rpk** package for testing is built.
 
     - Add release signature:
 
@@ -104,24 +104,24 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
   **Note**: `openssl` can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
-2.  **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and `rpk`, `rpk` package are in the __/build/quickgame/dist__ directory.
+2.  **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 
-3. run the built `rpk` to the phone.
+3. run the built **rpk** to the phone.
 
-Copy the generated mini-game `rpk` file (located in the dist directory of the minigame project's quickgame directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Quick Game Debugger** that has been installed before on the Android device, click the **Quick Game** section, and then find the icon corresponding to the game name. If not found, click on the upper right corner. More button - refresh button to refresh.
+Copy the generated mini-game **rpk** file (located in the dist directory of the minigame project's quickgame directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Quick Game Debugger** that has been installed before on the Android device, click the **Quick Game** section, and then find the icon corresponding to the game name. If not found, click on the upper right corner. More button - refresh button to refresh.
 
 4. Subpackage rpk
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package. Download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subcontracting Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subcontracted when the setting is completed.
 
-After the build is complete, the subpackage directory is in the `/build/quickgame/quickgame/dist` directory. <br> 
+After the build is complete, the subpackage directory is in the `/build/quickgame/quickgame/dist` directory. <br>
 In this case, you need to create a new **subpackage** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/quickgame/dist` directory to the subpackage directory.
 
 ![](./publish-oppo-instant-games/subpackage.jpg)
 
-Then switch to the **Package Load** section of **Quick App**, click Refresh at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged `rpk` .
+Then switch to the **Package Load** section of **Quick App**, click Refresh at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk** .
 
 ![](./publish-oppo-instant-games/run_subpackage.jpg)
 
