@@ -19,6 +19,7 @@ For more info about WebView API reference [WebView API](../../../api/en/classes/
 ## WebView Event
 
 ### WebViewEvents Event
+
 | Attribute |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
@@ -168,7 +169,7 @@ cc.Class({
 </html>
 ```
 
-Because of the limitations of HTML5, it can not be implemented by this mechanism, but internal pages can interact with each other
+Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other
 
 ```js
 // WebView internal page code
@@ -189,6 +190,7 @@ Because of the limitations of HTML5, it can not be implemented by this mechanism
 </script>
 </html>
 ```
+
 ##### Stressed once: Cross domain issues on HTML5 need need to be resolved by yourself
 
 <hr>
