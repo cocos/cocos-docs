@@ -116,7 +116,7 @@ Copy the generated mini-game `rpk` file (located in the dist directory of the mi
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package. Download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subcontracting Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subcontracted when the setting is completed.
 
-After the build is complete, the subpackage directory is in the `/build/quickgame/quickgame/dist` directory. <br>
+After the build is complete, the subpackage directory is in the `/build/quickgame/quickgame/dist` directory. <br> 
 In this case, you need to create a new **subpackage** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/quickgame/dist` directory to the subpackage directory.
 
 ![](./publish-oppo-instant-games/subpackage.jpg)
