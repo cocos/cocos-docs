@@ -122,7 +122,7 @@ Then the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **method one**:
 
-    Generate URLs and QR codes using the __Vivo__ game packer command
+    Generate URLs and QR codes using the __Vivo Mini Game__ game packer command
 
     ```bash
     # First assign the command line to the qgame directory
