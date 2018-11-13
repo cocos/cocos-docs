@@ -131,7 +131,7 @@ Then the rpk package will be generated in the **/build/qgame/dist** directory.
     npm run server
     ```
 
-    Then open the **Quick app & vivo game debugger that was installed before on your Android device**
+    Then open the **Quick App & Vivo Mini Game Debugger** that was installed before on your Android device.
 
     ![](./publish-vivo-instant-games/vivo-instant_scan_install.jpg)
 
