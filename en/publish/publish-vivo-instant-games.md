@@ -105,7 +105,7 @@ Where **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **
 
 ![](./publish-vivo-instant-games/package.png)
 
-3. Generate the rpk package (if you have filled out the **local npm installation path** in the **Build Release** panel, you can skip this step).
+3. Generate the rpk package (if you have filled out the **local npm installation path** in the **Build...** panel, you can skip this step).
 
 ```bash
 # Command line specified to the qgame directory
@@ -142,6 +142,6 @@ Then the rpk package will be generated in the **/build/qgame/dist** directory.
 
     Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
-    Open the **Quick App & Vivo Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
+    Open the **Quick App & Vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
