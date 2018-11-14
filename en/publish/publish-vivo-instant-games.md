@@ -1,4 +1,4 @@
-# Publishing to Vivo Mini Games
+# Publishing to __Vivo Mini Games__
 
 Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of games to the __Vivo Mini Game__ platform. It takes just a single click with __Cocos Creator__ to publish to the __Vivo Mini Game__ platform.
 

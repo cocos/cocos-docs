@@ -1,4 +1,4 @@
-# Publishing to OPPO Mini Games
+# Publishing to __OPPO Mini Games__
 
 Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of games to the __OPPO Mini Game__ platform. It takes just a single click with __Cocos Creator__ to publish to the __OPPO Mini Game__ platform.
 
