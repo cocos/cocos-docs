@@ -24,7 +24,7 @@ Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of g
 
 ## Release Process
 
-1. Use __Cocos Creator__ to open the project project that needs to be released. Select **OPPO Mini Game** in the **Publishing Platform** dropdown of the **Build Release** panel.
+1. Use __Cocos Creator__ to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-oppo-instant-games/build_option.jpg)
 
@@ -78,12 +78,12 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
   2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
 
-  At this point, the `res` directory will no longer be included in the built-up quickgame directory, and the resources in the res directory will be downloaded from the filled **packet mode server address** via the network request.
+  At this point, the **res** directory will no longer be included in the built-up quickgame directory, and the resources in the res directory will be downloaded from the filled **packet mode server address** via the network request.
 
 - **Build a release package**
 
   **Build a release package** is optional. The purpose of this check is to build an rpk package that can be published directly. However, there are three prerequisites: **local npm installation path**, **local quickgame-toolkit path**, and **add release signature**. <br>
-  If you do npsql -U postgres -Wot check the **Build Release Package**, the **rpk** package for testing is built.
+  If you do not check the **Build Release Package**, the **rpk** package for testing is built.
 
     - Add release signature:
 
@@ -93,18 +93,19 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
     - How to generate a release signature
 
-      The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as `openssl`.
+      The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as **openssl**.
 
     ```bash
     # Command line assignment to the release directory just added to the root directory of the game
     cd E:\workspace\YourProject\build-templates\jsb-link\sign\release
+
     # Generate a signature file with the openssl command tool
     openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
     ```
 
-  **Note**: `openssl` can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
+  **Note**: **openssl** can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
-2.  **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open ** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
+2.  **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 
@@ -114,10 +115,10 @@ Copy the generated mini-game **rpk** file (located in the dist directory of the 
 
 4. Subpackage rpk
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package. Download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subcontracting Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subcontracted when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package. Download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `/build/quickgame/quickgame/dist` directory. <br>
-In this case, you need to create a new **subpackage** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/quickgame/dist` directory to the subpackage directory.
+In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/quickgame/dist` directory to the subpackage directory.
 
 ![](./publish-oppo-instant-games/subpackage.jpg)
 
