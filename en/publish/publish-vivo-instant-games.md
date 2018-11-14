@@ -122,11 +122,12 @@ Then the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **method one**:
 
-    Generate URLs and QR codes using the __Vivo Mini Game__ game packer command
+    Generate URLs and QR codes using the __Vivo Mini Game Packer Commands__.
 
     ```bash
     # First assign the command line to the qgame directory
     cd E:\workspace\YourProject\build\qgame
+
     # Generate URL and QR code
     npm run server
     ```
@@ -141,6 +142,6 @@ Then the rpk package will be generated in the **/build/qgame/dist** directory.
 
     Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
-    Open the **Quick App & vivo Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
+    Open the **Quick App & Vivo Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
