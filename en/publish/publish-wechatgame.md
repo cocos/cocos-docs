@@ -1,4 +1,4 @@
-# Publish to __WeChat__ Mini Game Platform
+# Publishing to __WeChat Mini Games__
 
 ![](./publish-__WeChat__game/preview.jpeg)
 
@@ -8,7 +8,7 @@
 <iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0" allowfullscreen></iframe >
 {% endraw %}
 
-## __WeChat__ Mini Game Platform
+## __WeChat Mini Game__ Platform
 __WeChat Mini Game__ is a game product platform used inside the __WeChat__ application. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
 The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the applet environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__, so the two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default, and users are strongly recommended. Do not modify the default configuration.
@@ -63,7 +63,7 @@ In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, a
 
 At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
 
-Specifically, what developers need to do is:
+Specifically, developers need to do:
 
 1. When building, check the md5Cache function.
 2. Upload the res folder in the mini-game distribution package to the server.
