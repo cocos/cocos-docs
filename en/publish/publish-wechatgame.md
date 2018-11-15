@@ -1,12 +1,8 @@
 # Publishing to __WeChat Mini Games__
 
-![](./publish-__WeChat__game/preview.jpeg)
+![](./publish-wechatgame/preview.jpeg)
 
-**Note:** there is also a teaching video that can be used alongside this document.
-
-{% raw %}
-<iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0" allowfullscreen></iframe >
-{% endraw %}
+**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
 
 ## __WeChat Mini Game__ Platform
 __WeChat Mini Game__ is a game product platform used inside the __WeChat__ application. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
