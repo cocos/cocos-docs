@@ -85,7 +85,7 @@
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
-## Systems 
+## Systems
 
 - [Renderer and Graphics](render/index.md)
     - [Core Renderers](render/core-renderer.md)
@@ -149,9 +149,10 @@
         - [Joint](physics/physics/joint-component.md)
 - [Audio](audio/index.md)
     - [Play Audio](audio/audio.md)
+    - [Compatability](audio/compatability.md)
     - [AudioSource Component Reference](components/audiosource.md)
 
-## Advanced Topics 
+## Advanced Topics
 
 - [Editor Extension](extension/index.md)
     - [Your First Extension](extension/your-first-extension.md)
