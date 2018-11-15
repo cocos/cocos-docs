@@ -1,14 +1,6 @@
 # Publishing to __QQ Play__
 
-**Note:** there is also a teaching video that can be used alongside this document.
-
-{% raw %}
-
-<iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=m055288q7cl&tiny=0&auto=0" allowfullscreen></iframe >
-
-{% endraw %}
-
-<br>
+**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=m055288q7cl&tiny=0&auto=0) that can be used alongside this document.
 
 __QQ Play__ is similar to WeChat games, but built for __QQ__. __QQ Play__ allows you to play a variety of popular mobile games *without downloading* them. The underlying runtime of playing is not a real HTML browser kernel, but a self-developed Bricks game engine. __Cocos Creator__ has supported game content cross-platform publishing to __QQ Play__ since v1.9.
 
