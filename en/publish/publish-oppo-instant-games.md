@@ -1,6 +1,6 @@
-# Publishing to __OPPO Mini Games__
+# Publishing to OPPO Mini Games
 
-Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of games to the __OPPO Mini Game__ platform. It takes just a single click with __Cocos Creator__ to publish to the __OPPO Mini Game__ platform.
+Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the OPPO Mini Game platform. It takes just a single click with Cocos Creator to publish to the OPPO Mini Game platform.
 
 ## Environment Configuration
 
@@ -10,7 +10,7 @@ Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of g
 
 - Download [quickgame-toolkit](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//0974ab43dc361f148189515ee254ff6d.zip) and unzip it.
 
-  If you want to reduce the wait time for building **rpk** with __Cocos Creator__ for the first time, you can do the following to install the project dependencies:
+  If you want to reduce the wait time for building **rpk** with Cocos Creator for the first time, you can do the following to install the project dependencies:
 
   ```bash
    # Command line is specified in the unpacked quickgame-toolkit directory
@@ -66,13 +66,17 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
 - **local quickgame-toolkit path**
 
-  **Local quickgame-toolkit path** is required. The purpose of this entry is to call the command provided by __quickgame-toolkit__ to build **rpk** and generate **rpk** in the __build/quickgame/dist/ directory__.
+  **Local quickgame-toolkit path** is required. The purpose of this entry is to call the command provided by __quickgame-toolkit__ to build **rpk** and generate **rpk** in the __build/quickgame/dist/__ directory.
 
-    **Please note:** Fill in the **local quickgame-toolkit path** for the __quickgame-toolkit__ file path after **extracting**.
+  **Please note**:
+
+  1. Fill in the **local quickgame-toolkit path** for the __quickgame-toolkit__ file path after **extracting**.
+
+  2. The decompressed **quickgame-toolkit\lib\bin** directory needs to be configured into the system environment variable, or it may cause the RPK package build to fail. Then execute `quickgame-toolkit -V` on the command line, and if the correct output version number indicates a successful configuration, if the version number is not output correctly, restart your computer and try again.
 
 - **Small package mode and packet mode server path**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small package mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, __Cocos Creator__ has already helped the user. What the user needs to do is the following two steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small package mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
 
   1. When building, check the **packet mode** and fill in the **packet mode server path**. Then click on **Build**.
 
@@ -105,7 +109,7 @@ Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Nam
 
   **Note**: **openssl** can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
-2.  **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
+2. **Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 
