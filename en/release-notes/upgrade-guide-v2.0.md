@@ -57,7 +57,7 @@ This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on
 
 ## 2.2 RenderComponent component settings
 
-In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Property inspector__:
+In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Properties__:
 
 ![TiledLayer's Mixed Mode Settings](upgrade-guide-v2.0/render-component.png)
 
@@ -171,7 +171,7 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
        1. Entry file: `main.js`
        2. Adaptation file: `libs/``
 
-Developers who need to add their own custom code can refer to [Custom Project Documentation] (http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
+Developers who need to add their own custom code can refer to [Custom Project Documentation](http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 
 ## 3.4 Event System Upgrade
 
@@ -194,6 +194,7 @@ EventTarget:
 You can see that only Node's `on`/`off` supports event capture and event bubbling on the parent chain. By default, only system events support such a dispatch mode. Users can use `node.dispatchEvent` on the node tree. The same process distributes events. This is consistent with 1.x.
 
 However, the use of emit dispatch on Node and all event dispatch on EventTarget are simple event dispatch methods. The dispatch event is different from 1.x in the event callback parameters:
+
 ```javascript
     // v1.x
     eventTarget.on(type, function (event) {
@@ -208,6 +209,7 @@ However, the use of emit dispatch on Node and all event dispatch on EventTarget 
 ```
 
 It is also worth mentioning that the event monitoring mechanism of the Hot Update Manager has also been upgraded. In the old version, AssetsManager needs to listen for callbacks through cc.eventManager. In 2.0, we provide an easier way:
+
 ```javascript
     / / Set the event callback
     assetsManager.setEventCallback(this.updateCallback.bind(this));
@@ -221,7 +223,11 @@ Cocos Creator supports a variety of adaptation modes, which developers can manag
 
 ![v1.x Fit Width & Fit Height](upgrade-guide-v2.0/show-all.png)
 
-In this adaptation mode, the developer's design resolution ratio will be faithfully preserved, and the scene will be zoomed until all content is visible. At this time, the aspect ratio of the scene and the aspect ratio of the device screen are generally different. Leave a black border on the left or right or up and down. In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in small games. 2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat game are completely correct, but the content outside the scene is still visible.
+In this adaptation mode, the developer's design resolution ratio will be faithfully preserved, and the scene will be zoomed until all content is visible. At this time, the aspect ratio of the scene and the aspect ratio of the device screen are generally different. Leave a black border on the left or right or up and down.
+
+In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in small games.
+
+2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat game are completely correct, but the content outside the scene is still visible.
 
 ## 3.6 RenderTexture Screenshot
 
