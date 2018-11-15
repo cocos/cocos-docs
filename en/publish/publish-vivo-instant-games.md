@@ -1,6 +1,6 @@
-# Publishing to __Vivo Mini Games__
+# Publishing to Vivo Mini Games
 
-Starting with __v2.0.5__, __Cocos Creator__ officially supports the release of games to the __Vivo Mini Game__ platform. It takes just a single click with __Cocos Creator__ to publish to the __Vivo Mini Game__ platform.
+Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __Vivo Mini Game__ platform. It takes just a single click with Cocos Creator to publish to the Vivo Mini Game platform.
 
 ## Environment Configuration
 
@@ -93,15 +93,15 @@ Where **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **
 
 - **Small package mode and packet mode server path**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small package mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, __Cocos Creator__ has already helped the user. What the user needs to do is the following two steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small package mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
 
   1. When building, check the **packet mode** and fill in the **packet mode server path**. Then click on **Build**.
 
   2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
 
-  At this point, the built-up `qgame` directory will no longer contain the `res` directory, and the resources in the `res` directory will be downloaded from the filled **packet mode server address** via the network request.
+  At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **packet mode server address** via the network request.
 
-2.  **Build...** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
+2. After the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
 
 ![](./publish-vivo-instant-games/package.png)
 
