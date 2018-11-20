@@ -1,170 +1,170 @@
-# 接入微信小游戏的开放数据域
+# Access to the open data domain of WeChat games
 
-微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
+In order to protect its social relationship chain data, **WeChat Games** has added the concept of **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the open data domain are completely isolated from the main game. Developers can access the two `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by WeChat only in the open data domain. For example, the function of the leaderboard. Since the open data field can only be rendered on the offscreen canvas sharedCanvas, we need to draw the sharedCanvas onto the main domain.
 
-由于开放数据域是一个封闭、独立的 JavaScript 作用域，所以开发者需要创建两个项目：
+Since the open data domain is a closed, independent JavaScript scope, developers need to create two projects:
 
-- 主域项目工程（正常的游戏项目）
-- 开放数据域项目工程（通过微信 API 获取用户数据来做排行榜等功能的项目）
+- Main domain project (normal game project)
+- Open Data Domain Project Engineering (projects that use the WeChat API to obtain user data for functions such as leaderboards)
 
-在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的微信 build 包中，就可以作为完整的微信工程在模拟器和真机上进行预览调试了。
+In the open data domain project, it is packaged independently through the open data domain packaging process and placed in the WeChat build package of the main domain project, which can be previewed and debugged on the simulator and real machine as a complete WeChat project.
 
-Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1 中做了一次重要更新，两个版本之间的使用方式不同，下面分别介绍。
+Cocos Creator supports packaging to open data domains since v1.9.1, and an important update in v2.0.1. The two versions are used differently, as described below.
 
-# 新版本开放数据域发布
+#新版Open Data Domain Release
 
-适用于 v2.0.1 及更高版本，v1.9.1 到 v2.0.0 版本请参考[旧版本开放数据域发布](./publish-wechatgame-sub-domain.md#旧版本开放数据域发布)。
+Applicable to v2.0.1 and higher, v1.9.1 to v2.0.0 version please refer to [old version open data domain release] (./publish-wechatgame-sub-domain.md# old version open data domain release).
 
-## 整合方法
+## Integration method
 
-- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。整个开放数据域项目只应该包含其内容 UI，并且应该将场景中 Canvas 组件的设计分辨率设置为 UI 的完整分辨率，不需要对应主域的分辨率。
-- 主域中创建一个节点作为开放数据域容器，添加 WXSubContextView 组件用于设置开放数据域视窗以及更新开放数据域贴图，这个节点的宽高比应该等于开放数据域设计分辨率的宽高比（否则会出现拉伸）。
+- Create an open data domain project to obtain user data through the relevant API, and create a display of ui according to your own needs. The entire open data domain project should only contain its content UI, and the design resolution of the Canvas component in the scene should be set to the full resolution of the UI, without the corresponding primary domain resolution.
+- Create a node in the primary domain as an open data domain container, add the WXSubContextView component to set the open data domain window and update the open data domain map. The aspect ratio of this node should be equal to the aspect ratio of the open data domain design resolution (otherwise Stretching will occur).
 
-与之前版本的不同之处在于：
+The difference from the previous version is:
 
-1. 可以完全自由控制开放数据域的尺寸，降低分辨率提高性能，提高分辨率优化效果，都可以轻松在子域中完成。
-2. 开放数据域的内容将被直接缩放到主域的容器节点区域内，只要宽高比一致就不会产生拉伸。
-3. 开放数据域的事件响应由引擎处理好，用户不需要关心。
-4. 开放数据域的贴图更新由引擎处理，用户不需要关心。
+1. It is completely free to control the size of the open data domain, reduce the resolution and improve the performance, and improve the resolution optimization effect, which can be easily done in the sub-domain.
+2. The contents of the open data field will be directly scaled into the container node area of ​​the primary domain, and no stretch will occur as long as the aspect ratio is consistent.
+3. The event response of the open data domain is handled by the engine, and the user does not need to care.
+4. The texture update of the open data domain is handled by the engine, and the user does not need to care.
 
-## WXSubContextView 技巧
+## WXSubContextView Tips
 
-这是新开放数据域方案的核心组件，通过这个组件除了常规的需求可以满足以外，还有一些小技巧可以方便用户更好地控制开放数据域的表现。
+This is the core component of the new open data domain solution. In addition to the regular requirements that can be met, there are a few tricks that allow users to better control the performance of open data domains.
 
-1. 视窗更新
+Window update
 
-    一般情况下，开放数据域的视窗是固定的，但是也存在开放数据域在主域的视窗节点发生更新的情况，比如使用 Widget 去适配父节点，比如场景切换后设计分辨率发生改变的情况，或者是开发者手动调整了视窗的尺寸。这种情况下，开发者必须要调用 `updateSubContextViewport` 接口来更新子域中的视窗参数，以便事件可以被正确映射到子域视窗中
+    In general, the open data field window is fixed, but there are also cases where the open data field is updated in the window node of the primary domain, such as using the Widget to adapt the parent node, such as the case where the design resolution changes after the scene switch. Or the developer manually adjusted the size of the window. In this case, the developer must call the `updateSubContextViewport` interface to update the window parameters in the subdomain so that the event can be correctly mapped to the subdomain window.
 
-2. 手动更新贴图
+2. Manually update the map
 
-    当开放数据域被唤起后，只要 WXSubContextView 组件 load 成功，开放数据域贴图就开始更新到主域并显示，之后每帧都会更新贴图。但是开放数据域贴图的更新有时可能损耗比较高，开发者设计的开放数据域又是静态界面（比如翻页式的界面），此时就不需要每帧更新贴图，可以尝试通过禁用组件来阻止每帧更新逻辑，并通过手动调用 update 函数来在需要的时候更新：
+    When the open data field is evoked, as soon as the WXSubContextView component load succeeds, the open data domain map begins to update to the main domain and is displayed, after which the texture is updated every frame. However, the update of the open data domain texture may sometimes be relatively high. The open data domain designed by the developer is a static interface (such as a page flip interface). In this case, the texture is not required to be updated every frame. You can try to disable it by disabling the component. Update the logic per frame and update it as needed by manually calling the update function:
 
     ```
     subContextView.enabled = false;
     subContextView.update();
     ```
 
-    这样手动控制是性能最优的方案。
+    This manual control is the best performance solution.
 
-## 模块选择
+## Module selection
 
-由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置[项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
+Since the code and resources of the WeChat open data domain cannot be shared with the primary domain, it is very sensitive to the package. The developer needs to set the [project module culling option] for the open data domain project (../getting-started/basics/editor -panels/project-settings.md). It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data domain projects. The Canvas Renderer must be checked because the open data domain only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
 
 - Sprite
 - Label
 - Graphics
 - Mask
 
-## 发布步骤
+## Release Steps
 
-一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
+1. Open the main domain project, open the build release panel in `Menu Bar` - `Project`, select the `Wechat Game` platform, and fill in the [Open Data Field Code Directory]. This directory is the path where the open data domain is built, and this path needs to be placed in the main domain build directory. Then click on **Build**.
 
 ![](./publish-wechatgame/maintest-build.png)
 
-该步骤会帮用户自动配置到主域项目 `build -> wechatgame -> game.json` 中，用于辨别开放数据域文件在主域发布包下的所在目录。
+This step will automatically configure the user to the main domain project `build -> wechatgame -> game.json` to identify the directory where the open data domain file is located under the main domain distribution package.
 
 ![](./publish-wechatgame/game-json.png)
 
-二、打开开放数据域项目，打开构建发布面板，选择 `Wechat Game Open Data Context` 平台。
+Second, open the open data domain project, open the build release panel, select the `Wechat Game Open Data Context` platform.
 
-三、**发布路径** 设置为主域中填入的 [开放数据域代码目录] 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
+Third, the **release path ** set the same path in the [open data domain code directory] filled in the main domain, that is, assigned to the release package directory of the main domain project. Then click on **Build**.
 
-**注意** ：**游戏名称** 必须和主域项目中设置的 [开放数据域代码目录] 名称一致。
+**Note**: **Game Name** must match the [Open Data Field Code Directory] name set in the main domain project.
 
 ![](./publish-wechatgame/open-data-project-build.png)
 
-或者可以不修改 **发布路径**，在开放数据域项目构建完成后手动将发布包拷贝到主域项目的发布包目录下。如下图所示：
+Or you can modify the **release path** to manually copy the release package to the release package directory of the primary domain project after the open data domain project is built. As shown below:
 
 ![](./publish-wechatgame/package.png)
 
-四、在主域项目工程中点击 [运行] 调起微信开发者工具，即可按照之前微信小游戏的正常流程进行发布和调试。
+4. Click [Run] in the main domain project to launch the WeChat Developer tool, and then publish and debug according to the normal process of the previous WeChat game.
 
 ![](./publish-wechatgame/preview.png)
 
-**注意：如果先发布开放数据域域再发布主域，那么开放数据域的发布代码会被覆盖，我们会在后续版本优化体验**
+**Note: If you publish the open data domain domain and then publish the primary domain, the release code of the open data domain will be overwritten, and we will optimize the experience in subsequent versions**
 
-## 参考链接
+## Reference link
 
-Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) 包含了微信开放数据域的使用示例。
+The [Open Data Domain Sample Project] (https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) provided by Cocos Creator contains examples of the use of WeChat open data fields.
 
-[微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+[WeChat official document: Guide to the use of relational chain data] (https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
 
 ---------------------
 
-# 旧版本开放数据域发布
+#旧版本开放数据域发布
 
-以下方法适用于 v2.0.0，更早的版本请参考 [接入微信小游戏的开放数据域](http://docs.cocos.com/creator/1.10/manual/en/publish/publish-wechatgame.html#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
+The following method is applicable to v2.0.0. For earlier versions, please refer to [Accessing Open Data Domain of WeChat Game] (http://docs.cocos.com/creator/1.10/manual/en/publish/publish-wechatgame. Html#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84 %E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
 
-## 整合方法
+## Integration method
 
-- 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。子域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
-- 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D ，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
+- Create an open data domain project to obtain user data through the relevant API, and create a display of ui according to your own needs. The subdomain must use a full screen window, maintaining the same design resolution and adaptation mode as the primary domain.
+- The main domain creates the Texture2D by acquiring the global object sharedCanvas (Canvas of the open data domain), and then creates the SpriteFrame through the Texture2D, thereby assigning the SpriteFrame to the Sprite to be displayed to the main domain, if the open data field is operational Function (for example, operations such as sliding, dragging, etc.), then the primary domain needs to get the sharedCanvas in real time in the update to refresh the sprite.
 
-## 模块选择
+## Module selection
 
-由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置[项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
+Since the code and resources of the WeChat open data domain cannot be shared with the primary domain, it is very sensitive to the package. The developer needs to set the [project module culling option] for the open data domain project (../getting-started/basics/editor -panels/project-settings.md). It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data domain projects. The Canvas Renderer must be checked because the open data domain only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
 
 - Sprite
 - Label
 - Graphics
 - Mask
 
-**主域代码范例：**
+**Primary domain code example: **
 
 ```js
     cc.Class({
-        extends: cc.Component,
-        properties: {
-            display: cc.Sprite
+        Extends: cc.Component,
+        Properties: {
+            Display: cc.Sprite
         },
-        start () {
-            this.tex = new cc.Texture2D();
+        Start () {
+            This.tex = new cc.Texture2D();
         },
-        // 刷新开放数据域的纹理
+        / / Refresh the texture of the open data domain
         _updateSubDomainCanvas () {
-            if (!this.tex) {
-                return;
+            If (!this.tex) {
+                Return;
             }
-            var openDataContext = wx.getOpenDataContext();
-            var sharedCanvas = openDataContext.canvas;
+            Var openDataContext = wx.getOpenDataContext();
+            Var sharedCanvas = openDataContext.canvas;
             this.tex.initWithElement(sharedCanvas);
             this.tex.handleLoadedTexture();
             this.display.spriteFrame = new cc.SpriteFrame(this.tex);
         },
-        update () {
+        Update () {
             this._updateSubDomainCanvas();
         }
     });
 ```
 
-## 发布步骤
+## Release Steps
 
-一、打开主域项目，在 `菜单栏` - `项目` 中打开构建发布面板，选择 `Wechat Game` 平台，填入 [开放数据域代码目录]。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
+1. Open the main domain project, open the build release panel in `Menu Bar` - `Project`, select the `Wechat Game` platform, and fill in the [Open Data Field Code Directory]. This directory is the path where the open data domain is built, and this path needs to be placed in the main domain build directory. Then click on **Build**.
 
 ![](./publish-wechatgame/maintest-build.png)
 
-该步骤会帮用户自动配置到主域项目 `build -> wechatgame -> game.json` 中，用于辨别开放数据域文件在主域发布包下的所在目录。
+This step will automatically configure the user to the main domain project `build -> wechatgame -> game.json` to identify the directory where the open data domain file is located under the main domain distribution package.
 
 ![](./publish-wechatgame/game-json.png)
 
-二、打开开放数据域项目，打开构建发布面板，选择 `Wechat Game Open Data Context` 平台。
+Second, open the open data domain project, open the build release panel, select the `Wechat Game Open Data Context` platform.
 
-三、**发布路径** 设置为主域中填入的 [开放数据域代码目录] 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
+Third, the **release path ** set the same path in the [open data domain code directory] filled in the main domain, that is, assigned to the release package directory of the main domain project. Then click on **Build**.
 
-**注意** ：**游戏名称** 必须和主域项目中设置的 [开放数据域代码目录] 名称一致。
+**Note**: **Game Name** must match the [Open Data Field Code Directory] name set in the main domain project.
 
 ![](./publish-wechatgame/open-data-project-build.png)
 
-或者可以不修改 **发布路径**，在开放数据域项目构建完成后手动将发布包拷贝到主域项目的发布包目录下。如下图所示：
+Or you can modify the **release path** to manually copy the release package to the release package directory of the primary domain project after the open data domain project is built. As shown below:
 
 ![](./publish-wechatgame/package.png)
 
-四、在主域项目工程中点击 [运行] 调起微信开发者工具，即可按照之前微信小游戏的正常流程进行发布和调试。
+4. Click **Run** in the main domain project to launch the **WeChat Developer** tool, and then publish and debug according to the normal process of the previous **WeChat** game.
 
 ![](./publish-wechatgame/preview.png)
 
-## 参考链接
+## Reference link
 
-Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) 包含了微信开放数据域的使用示例。
+[Open Data Domain Sample Project](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) provided by __Cocos Creator__ contains examples of the use of __WeChat__ open data fields.
 
-[微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+[WeChat official document: Guide to the use of relational chain data](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
