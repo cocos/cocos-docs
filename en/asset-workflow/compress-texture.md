@@ -1,5 +1,9 @@
 # Texture Compression
 
+Cocos Creator allows you to set the compression method required by the texture directly in the editor, and then automatically compress the texture when the project is published. For the Web platform, support for exporting multiple image formats at the same time, and the engine will automatically download the appropriate format according to different browsers.
+
+## Configuring Texture Compression
+
 Cocos Creator supports importing pictures in multiple formats. However, in the actual game running, we do not recommend using the original image as a resource to load.
 
 For example, on the mobile platform may only need the original image 80% or less image quality, or the .png which does not use a Alpha Channel, can be converted into JPG format. This reduces the storage space for a large portion of the image.
@@ -14,6 +18,8 @@ PVR | Unsupport | Support iOS | Unsupport | Unsupport
 By default, Cocos Creator outputs the original image when it is built. If you need to compress an image at build time, you can select this image in the **Assets** and edit the texture format in the **Properties**.
 
 ![compress-texture](compress-texture/compress-texture.png)
+
+## Texture Compression Details
 
 Cocos Creator will find out if the compressed texture is configured when the image is built, if not, continue to find out if the default configuration is made, and if not, output the original image.
 
