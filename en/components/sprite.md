@@ -6,7 +6,8 @@ in the `Scene`.
 
 ![add sprite](sprite/sprite_component.png)
 
-You can add a `Sprite` component to the node by clicking the **Property Inspector** button below the **Add Component** button and selecting **Sprite** from the **Add Rendering Component**.
+
+You can add a `Sprite` component to the node by clicking the **Add Component** button below the **Properties** and selecting **Sprite** from the **Add Renderer Component** menu.
 
 Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script interface.
 
