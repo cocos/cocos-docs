@@ -108,3 +108,13 @@ In the main process, use `Editor.assetdb.create(url, data, callback)`. The first
 ### How to refresh resources in AssetDB in the plugin
 
 `Editor.assetdb.refresh()` provides a way to manually refresh the asset database.
+
+### Creator package APK submitted to Google Play failed, prompt API level minimum 26
+
+The Google Play statement began in August 2018, newly submitted app must be compiled with API level 26 and above. When Android builds, the three version numbers are set as follows:
+
+- `compileSdkVersion` Compile version: The version of the SDK used to compile the Java code, regardless of the minimum supported version. Can be set to 26/27/28.
+- `minSdkVersion` The minimum version supported: Decide to compile the minimum supported Android version of the app. Recommended set to 16 (Correspondence Android 4.0)
+- `targetSdkVersion` Related to the behavior of the runtime. The recommended setting is consistent with `compileSdkVersion`, or it can be set to 22 to avoid [Request App Permissions](https://developer.android.com/training/permissions/requesting).
+
+![](introduction/compile_version.png)
