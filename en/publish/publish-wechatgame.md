@@ -5,7 +5,7 @@
 **Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
 
 ## __WeChat Mini Game__ Platform
-__WeChat Mini Game__ is a game product platform used inside the __WeChat__ application. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
+__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__ platform. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
 The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
 
@@ -20,7 +20,7 @@ In addition, the game submission, review and release process of the __WeChat Min
 ## Using Cocos Creator to publish WeChat games
 We started with __Cocos Creator__ v1.8 and support __WeChat Mini Game__  with just one-click to publish! Here are the detailed release steps:
 
-1. Download WeChat Developer Tools on [WeChat Public Platform](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
+1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 2. Set the WeChat Developer Tools path in __Cocos Creator__, "Settings" > "Native Develop"
 
     ![](./publish-wechatgame/preference.jpeg)
@@ -85,11 +85,12 @@ In order to protect its social relationship chain data, __WeChat__ Games has add
 __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
 
 ## Reading
-- [WeChat Mini Game development documentation](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
-- [WeChat Public Platform](https://mp.weixin.qq.com/)
-- [Small Program API Documentation](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
-- [WeChat Developer Tools Download](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [WeChat Developer Tools Documentation](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html
+)
+- [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
+- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
+- [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
+- [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
 
 ## F.A.Q
 Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.com/t/faq/54828).
