@@ -47,7 +47,7 @@ java -version
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
-**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6** ，否则会导致编译出现问题。
+**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。
 
 ## 安装 C++ 编译环境
 

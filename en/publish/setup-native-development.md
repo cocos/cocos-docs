@@ -47,7 +47,7 @@ After installing Android Studio, refer to the official documentation and open th
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-**Note**: Please do **not** update the **gradle** of Android Studio 3.2 to **4.6**, otherwise it will cause the compile error.
+**Note**: Please do **not** update the **gradle** of Android Studio 3.2 to **4.6**, otherwise it will cause resource packaging to fail.
 
 ## Install C++ compiling environment
 
