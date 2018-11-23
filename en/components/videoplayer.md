@@ -23,8 +23,8 @@ For more info about VideoPlayer API reference [VideoPlayer API](../../../api/en/
 | Clip | Displayed when Resource Type is LOCAL，feed it with a local video path.
 | Remote URL | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
 | Current Time | The current time when video start to play.
-| Volume             | The volume of the video. (0.0 ~ 1.0) (Available since v1.9) |
-| Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. (Available since v1.9) |
+| Volume             | The volume of the video. (0.0 ~ 1.0) (Available since v1.10) |
+| Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. (Available since v1.10) |
 | Keep Aspect Ratio | Whether keep the aspect ration of the original video.
 | Is Fullscreen| Whether play video in fullscreen mode.
 | Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section for more details.
@@ -32,6 +32,7 @@ For more info about VideoPlayer API reference [VideoPlayer API](../../../api/en/
 ## VideoPlayer Event
 
 ### VideoPlayerEvent Event
+
 | Attribute |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
@@ -103,15 +104,15 @@ Add event callback with `videoplayer.node.on('ready-to-play', ...)`
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        videoplayer: cc.VideoPlayer
     },
-    
+
     onLoad: function () {
        this.videoplayer.node.on('ready-to-play', this.callback, this);
     },
-    
+
     callback: function (event) {
        //event is EventCustom, you can use event.detail to get VideoPlayer component
        var videoplayer = event.detail;
