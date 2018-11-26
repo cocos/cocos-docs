@@ -106,7 +106,7 @@ Click the **Compile** button below to enter the compile process, if the template
 
 `Compile native project successfully`
 
-**Attention**: First build Android platform, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, then compile and run.
+**Note: After the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, then compile and run.**
 
 Then click the **Play** button on the bottom right corner, you can preview games of native platforms via the default method provided by Cocos Framework.
 
