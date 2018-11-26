@@ -17,8 +17,8 @@ As an engine, in order to simplify the developer's workload as much as possible,
 
 In addition, the game submission, review and release process of the __WeChat Mini Game__ platform is no different from the __WeChat Mini Program__ platform. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
 
-## Using Cocos Creator to publish WeChat games
-We started with __Cocos Creator__ v1.8 and support __WeChat Mini Game__  with just one-click to publish! Here are the detailed release steps:
+## Using Cocos Creator to publish WeChat Mini Games
+We started with __Cocos Creator__ v1.8 and support __WeChat Mini Games__  with just one-click to publish! Here are the detailed release steps:
 
 1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 2. Set the WeChat Developer Tools path in __Cocos Creator__, "Settings" > "Native Develop"
@@ -80,13 +80,12 @@ In addition to pure game content, the __WeChat Mini Game__ environment also prov
 6. Other: location, device information, scan code, NFC, etc.
 
 ## Access to the subdomain of WeChat Mini Games
-In order to protect its social relationship chain data, __WeChat__ Games has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
+In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
 
 __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
 
 ## Reading
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html
-)
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
 - [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
 - [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
