@@ -61,7 +61,13 @@
 
 - **本地 quickgame-toolkit 路径**
 
-  **本地 quickgame-toolkit 路径** 为必填项，填写该项的目的是调用 quickgame-toolkit 提供的命令去构建 rpk，将 rpk 生成在 build/quickgame/dist/ 目录下。请注意：填写的 **本地 quickgame-toolkit 路径** 为 **解压后** 的 quickgame-toolkit 文件路径。
+  **本地 quickgame-toolkit 路径** 为必填项，填写该项的目的是调用 quickgame-toolkit 提供的命令去构建 rpk，将 rpk 生成在 build/quickgame/dist/ 目录下。
+
+  **请注意**：
+
+  1、填写的 **本地 quickgame-toolkit 路径** 为 **解压后** 的 quickgame-toolkit 文件路径。
+  
+  2、需要将解压后的 **quickgame-toolkit\lib\bin** 目录配置到系统环境变量中，否则可能导致 rpk 包构建失败。然后在命令行中执行 `quickgame-toolkit -V`，若正确输出版本号则表示配置成功，若未正确输出版本号请重启电脑后重试。
 
 - **小包模式和小包模式服务器路径**
 
