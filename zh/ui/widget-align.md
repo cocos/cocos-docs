@@ -11,7 +11,7 @@
 1. 把这些元素在 **层级管理器** 中设为 Canvas 节点的子节点
 2. 在元素节点上添加 Widget 组件
 3. 以对齐左下角为例，开启 `Left` 和 `Bottom` 的对齐。
-4. 然后设置好节点和屏幕边缘的距离，下图中左边距设为 50px，右边距设为 30px。
+4. 然后设置好节点和屏幕边缘的距离，下图中左边距设为 50px，下边距设为 30px。
 
 ![align left bottom](widget-align/align-basic.png)
 
