@@ -10,7 +10,7 @@ __Cocos Creator's__ uses a folder structure when configuring a **sub-package**. 
 
 ![subpackage](./subpackage/subpackage.png)
 
-After checking **Config as subpackage**, click `Apply` at the top right, and the code in this folder will be treated as the contents of the __sub-package__. The __sub-package__ name will be passed as the loaded name when the __sub-package__ is loaded. The name of this folder will be used by default.
+After checking **Subpackage**, click __Apply__ at the top right, and the code in this folder will be treated as the contents of the __sub-package__. The **Subpackage name** will be passed as the loaded name when the __sub-package__ is loaded. The name of this folder will be used by default.
 
 ## Building
 
@@ -18,7 +18,7 @@ The function of **code sub-packaging** will only be avialable after the project 
 
 **For example:** Configuring the `cases/01_graphics` folder in the example project as a **sub-package**. The `01_graphics.js` file will be generated in `src/assets/cases` in the release package directory after the project is built.
 
-then the project will build a `src\assets/cases` generated `01_graphics.js` file in the release package directory. The file name is not replaced with the replacement of the **sub-package** name. The `01_graphics.js` file contains all the code in the `01_graphics` folder and will be removed from the **main package**.
+then the project will build a `src/assets/cases` generated `01_graphics.js` file in the release package directory. The file name is not replaced with the replacement of the **sub-package** name. The `01_graphics.js` file contains all the code in the `01_graphics` folder and will be removed from the **main package**.
 
 ![package](./subpackage/package.png)
 
@@ -43,7 +43,7 @@ When the **sub-package** is completed, a callback is triggered, and if the loadi
 
 ```javascript
 cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
-    If (err) {
+    if (err) {
         return console.error(err);
     }
     console.log('load subpackage successfully.');
