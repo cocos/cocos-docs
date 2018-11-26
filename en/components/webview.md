@@ -35,6 +35,7 @@ For more info about WebView API reference [WebView API](../../../api/en/classes/
 | ERROR| Errors occurred when loading web pages.
 
 ## Details Explanation
+
 Currently this component is only available on Web(Both PC and Mobile), iOS and Android.
 
 You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
@@ -56,7 +57,7 @@ cc.Class({
     properties: {
         webview: cc.WebView,
     },
-    
+
     onLoad: function() {
         var webviewEventHandler = new cc.Component.EventHandler();
         webviewEventHandler.target = this.node; // This node is the one that the component that contains your event handler code belongs to
@@ -87,11 +88,11 @@ cc.Class({
     properties: {
        webview: cc.WebView
     },
-    
+
     onLoad: function () {
        this.webview.node.on('loaded', this.callback, this);
     },
-    
+
     callback: function (event) {
        // The event here is an EventCustom object, and you can get the WebView component through event.detail
        var webview = event.detail;
@@ -101,7 +102,7 @@ cc.Class({
 });
 ```
 
-Likewise, you can also register 'loading', 'error' events, and the parameters of the callback function for these events are consistent with the 'loaded' parameters.
+Likewise, you can also register `loading`, `error` events, and the parameters of the callback function for these events are consistent with the `loaded` parameters.
 
 ## How to interact with WebView internal pages
 
@@ -113,14 +114,15 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
-    
+
     onLoad: function () {
         // The Test here is a global function defined in your webView's internal page code
         this.webview.evaluateJS('Test()');
     }
 });
 ```
-##### Note: Cross domain issues need on HTML5 to be resolved by yourself
+
+##### Note: Cross domain issues on Web platform need to be resolved by yourself
 
 ##### WebView internal pages call external code
 
@@ -132,11 +134,11 @@ At present, the mechanism of Android and IOS is to determine whether the key of 
 ```js
 cc.Class({
     extends: cc.Component,
-    
+
     properties: {
         webview: cc.WebView
     },
-    
+
     onLoad: function () {
         var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
         var jsCallback = function (url) {
@@ -145,7 +147,7 @@ cc.Class({
             var str = url.replace(scheme + '://', '');
             var data = JSON.stringify(str);
         };
-        
+
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
     }
@@ -191,6 +193,6 @@ Because of the limitations of Web platform, it can not be implemented by this me
 </html>
 ```
 
-##### Stressed once: Cross domain issues on HTML5 need need to be resolved by yourself
+##### Stressed once: Cross domain issues on Web platform need to be resolved by yourself
 
 <hr>

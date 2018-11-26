@@ -26,8 +26,7 @@ Let's see what these folders do:
 
 `library` folder is generated once the project is first opened and imported. In this folder, all assets of the game are renamed with their UUID (universal unique identifier) and will be copied over when the game is published. This folder should be ignored by version control system such as in `.gitignore` file.
 
-If your the content of your `library` is damaged or missing, you can safely delete the `library` folder and reopen the project to re-generate it.
-
+If your `library` is damaged or missing, you can safely delete the `library` folder and reopen the project to re-generate it.
 
 ### Local Settings
 
@@ -43,4 +42,4 @@ If your the content of your `library` is damaged or missing, you can safely dele
 
 ### Build Target
 
-A `build` folder will be created once you use main menu `Project->Build...` and publish your game with default build target. If you have built for native platforms, this `build` folder will be very large. So you should not include this folder in version control.
+A `build` folder will be created once you use main menu `Project -> Build...` and publish your game with default build target. If you have built for native platforms, this `build` folder will be very large. So you should not include this folder in version control.
