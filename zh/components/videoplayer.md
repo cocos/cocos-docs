@@ -22,8 +22,8 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 | Clip               | 当 Resource Type 为 LOCAL 时显示的字段，指代一个本地视频的路径  |
 | Remote URL         | 当 Resource Type 为 REMOTE 时显示的字段，指代一个远程视频的路径 |
 | Current Time       | 指定视频播放时的当前时间点  |
-| Volume             | 视频的音量（0.0 ~ 1.0）（v1.9 中新增）|
-| Mute               | 是否静音视频。静音时设置音量为 0，取消静音时恢复原来的音量（v1.9 中新增）|
+| Volume             | 视频的音量（0.0 ~ 1.0）（v1.10 中新增）|
+| Mute               | 是否静音视频。静音时设置音量为 0，取消静音时恢复原来的音量（v1.10 中新增）|
 | Keep Aspect Ratio  | 是否保持视频原来的宽高比  |
 | Is Fullscreen      | 是否全屏播放视频  |
 | Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。 详情见`VideoPlayer 事件`章节 |
@@ -105,15 +105,15 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        videoplayer: cc.VideoPlayer
     },
-    
+
     onLoad: function () {
        this.videoplayer.node.on('ready-to-play', this.callback, this);
     },
-    
+
     callback: function (event) {
        //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 VideoPlayer 组件
        var videoplayer = event.detail;
