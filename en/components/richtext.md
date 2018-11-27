@@ -63,6 +63,10 @@ is equal to:
 
 `<color=green><size=30>I'm green</size></color>`
 
+There are two ways to set the color of RichText (The two cannot be mixed):
+1. Selected the node and set the overall color of RichText in **Node -> Color** of the **Properties**
+2. Use BBCode to set colors on the inside of RichText separately
+
 ## Detailed explanation
 The RichText component is implemented in the Javascript layer and uses the Label node as the rendering part.
 All the layout logic goes also in Javascript layer.
