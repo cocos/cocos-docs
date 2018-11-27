@@ -59,7 +59,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 `<color=green><size=30>I'm green</size></color>`
 
-有以下两种方式可以设置 RichText 的颜色：
+有以下两种方式可以设置 RichText 的颜色（两者不可混用）：
 1. 选中节点，在 **属性检查器** 的 **Node -> Color** 中设置 RichText 的整体颜色
 2. 使用 bbcode 对 RichText 内部分别设置颜色
 
