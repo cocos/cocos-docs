@@ -2,7 +2,6 @@
 
 WebView 是一种显示网页的组件，该组件让你可以在游戏里面集成一个小的浏览器。
 
-
 ![webview](./webview/webview.png)
 
 点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`WebView`，即可添加 WebView 组件到节点上。
@@ -37,8 +36,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 ## 详细说明
 
-目前此组件只支持Web（PC 和手机）、iOS 和 Android 平台，Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，
-那么在 PC 的模拟器里面预览的时候可能看不到效果。
+目前此组件只支持Web（PC 和手机）、iOS 和 Android 平台，Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，那么在 PC 的模拟器里面预览的时候可能看不到效果。
 
 此控件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
 
@@ -46,25 +44,24 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
-你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
 //here is your component file
 cc.Class({
     name: 'cc.MyComponent',
     extends: cc.Component,
-    properties: { 
-       webview: cc.WebView 
+    properties: {
+       webview: cc.WebView
     },
-    
+
     onLoad: function() {
         var webviewEventHandler = new cc.Component.EventHandler();
         webviewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
         webviewEventHandler.component = "cc.MyComponent";
         webviewEventHandler.handler = "callback";
         webviewEventHandler.customEventData = "foobar";
-        
+
         this.webview.webviewEvents.push(webviewEventHandler);
     },
 
@@ -89,11 +86,11 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
-    
+
     onLoad: function () {
         this.webview.node.on('loaded', this.callback, this);
     },
-    
+
     callback: function (event) {
         //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 WebView 组件
         var webview = event.detail;
@@ -103,7 +100,7 @@ cc.Class({
 });
 ```
 
-同样的，你也可以注册 'loading', 'error' 事件，这些事件的回调函数的参数与 'loaded' 的参数一致。
+同样的，你也可以注册 `loading`, `error` 事件，这些事件的回调函数的参数与 `loaded` 的参数一致。
 
 ## 如何与 WebView 内部页面进行交互
 
@@ -115,14 +112,15 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
-    
+
     onLoad: function () {
         // 这里的 Test 是你 webView 内部页面代码里定义的全局函数
         this.webview.evaluateJS('Test()');
     }
 });
 ```
-##### 注意: HTML5 上的跨域问题需要自行解决
+
+##### 注意: Web 平台上的跨域问题需要自行解决
 
 ##### WebView 内部页面调用外部的代码
 
@@ -137,7 +135,7 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
-    
+
     onLoad: function () {
         var scheme = "TestKey";// 这里是与内部页面约定的关键字
         function jsCallback (url) {
@@ -146,7 +144,7 @@ cc.Class({
             var str = url.replace(scheme + '://', '');
             var data = JSON.stringify(str);// {a: 0, b: 1}
         }
-        
+
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
     }
@@ -171,7 +169,7 @@ cc.Class({
 
 ```
 
-由于 HTML5 的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
+由于 Web 平台的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
 
 ```js
 // WebView 内部页面代码
@@ -193,6 +191,6 @@ cc.Class({
 </html>
 ```
 
-##### 再强调一遍: HTML5 上的跨域问题需要自行解决
+##### 再强调一遍: Web 平台上的跨域问题需要自行解决
 
 <hr>
