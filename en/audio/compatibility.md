@@ -1,9 +1,9 @@
 # Audio Compatibility
 
 ## DOM audio
-The average browser supports the **audio** tag to play audio. The __DOM audio__ mode in the engine plays a series of sounds by creating an audio tag. However, the following may occur on some browsers:
+The average browser supports the **Audio** tag to play audio. The __DOM Audio__ mode in the engine plays a series of sounds by creating an audio tag. However, the following may occur on some browsers:
 
-1. In some mobile browsers, the **audio** callback is missing, which will cause a long load time. So we try to recommend __WebAudio__ (see below).
+1. In some mobile browsers, the **Audio** callback is missing, which will cause a long load time. So we try to recommend __WebAudio__ (see below).
 2. The browser on IOS must be in the event trigger function actively operated by the user to play this type of audio. Active playback using javascript may be ignored.
 
 ## WebAudio
