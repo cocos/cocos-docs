@@ -71,7 +71,14 @@ Cocos Creator 包含游戏引擎、资源管理、场景编辑、游戏预览和
 
 编辑器在提供强大完整工具链的同时，提供了开放式的插件架构，开发者能够用 HTML + JavaScript 等前端通用技术轻松扩展编辑器功能，定制个性化的工作流程。
 
-<a href="introduction/structure.png"><img src="introduction/structure.png" alt="Cocos Creator structure"></a>
+以下，是 Cocos Creator 的技术架构图
+
+<a href="introduction/structure-editor.png"><img src="introduction/structure-editor.png" alt="Cocos Creator structure editor"></a>
+<div style="text-align:center"><p>图一</p></div>
+<a href="introduction/structure-engine.png"><img src="introduction/structure-engine.png" alt="Cocos Creator structure engine"></a>
+<div style="text-align:center"><p>图二</p></div>
+
+从图中我们可以看出，编辑器是由 Electron 驱动再结合引擎所搭建的开发环境，引擎则负责提供许多开发上易于使用的组件和适配各平台的统一接口。
 
 引擎和编辑器的结合，带来的是数据驱动和组件化的功能开发方式，以及设计和程序两类人员的完美分工合作：
 

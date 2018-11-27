@@ -7,6 +7,7 @@
 ## 特别推荐
 
 - 从 v2.1 开始，Cocos Creator 引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。请参阅 [3D 节点](3d/index.md)。
+- 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏平台](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
 - 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)。
 - 从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 [接入小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)。
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)

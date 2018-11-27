@@ -46,6 +46,8 @@ java -version
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
+**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。
+
 ## 安装 C++ 编译环境
 
 Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：

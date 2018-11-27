@@ -84,7 +84,7 @@
 
 同理，在构建其他平台时，请不要勾选 Canvas Renderer，因为 Canvas 渲染器支持的渲染组件不多，意义已经不大了。
 
-从 v2.0.1 开始，我们更新了开放数据域解决方案，具体请参考[接入小游戏开放数据域](../publish/publish-wechatgame-sub-domain.md)。
+从 v2.0.1 开始，我们更新了开放数据域解决方案，具体请参考 [接入小游戏开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
 ## 2.5 模块设置
 
@@ -166,7 +166,7 @@
     1. 入口文件：main.js
     2. 适配文件：libs/
 
-开发者如果需要添加自己的定制代码，可以参考[定制项目文档](http://docs.cocos.com/creator/manual/zh/publish/custom-project-build-template.html)在项目中用自己的版本覆盖原始版本，另外，尽量不要覆盖 main.js。
+开发者如果需要添加自己的定制代码，可以参考 [定制项目文档](http://docs.cocos.com/creator/manual/zh/publish/custom-project-build-template.html) 在项目中用自己的版本覆盖原始版本，另外，尽量不要覆盖 main.js。
 
 ## 3.4 事件系统升级
 
