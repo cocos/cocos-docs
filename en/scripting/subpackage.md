@@ -1,43 +1,45 @@
-# 代码分包加载
+# Code Sub-packaging
 
-随着游戏玩法越来越丰富，游戏的代码量也越来越大，开发者对于扩大包大小的需求越来越强烈，同时微信小游戏也支持了分包加载的功能，所以 Cocos Creator 推出了代码分包加载这样一个功能。
+As gameplay becomes more and more rich, the amount of code in the game is increasing and developers are wanting to expand the size of their game package. **Code sub-packaging** provides for these demands.
 
-分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。
+**Sub-package** loading, is the the game content being split into several packages according to certain rules. During the first startup, only the necessary packages are downloaded, also called the **main package**. Other sub-packages are downloaded, as triggered, which can effectively reduce the time spent on the first boot.
 
-## 配置方法
+## Configuration method
 
-Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一个文件夹时，在 **属性检查器** 中会出现文件夹的相关配置选项：
+__Cocos Creator's__ uses a folder structure when configuring a **sub-package**. When a folder is selected, the relevant configuration options for the folder appear in the **Properties** tab:
 
 ![subpackage](./subpackage/subpackage.png)
 
-勾选 **配置为子包** 后，点击右上方的 `应用`，这个文件夹下的代码就会被当做是子包的内容了。子包名会在加载子包时作为加载的名字传入，默认会使用这个文件夹的名字。
+After checking **Subpackage**, click __Apply__ at the top right, and the code in this folder will be treated as the contents of the __sub-package__. The **Subpackage name** will be passed as the loaded name when the __sub-package__ is loaded. The name of this folder will be used by default.
 
-## 构建
+## Building
 
-代码分包的作用只会在项目构建后才会体现，预览的时候还是按照整包来进行加载的。项目构建后会在发布包目录下的 `src/assets` 生成对应的分包文件。
+The function of **code sub-packaging** will only be avialable after the project is built. When previewing, it will be loaded according to the whole package. After the project is built, the corresponding **sub-package** file will be generated in `src/assets` in the release package directory.
 
-**例如**：将 example 工程中的 `cases/01_graphics` 文件夹配置为子包，那么项目构建后将会在发布包目录下的 `src/assets/cases` 生成 `01_graphics.js` 文件，该文件名不随着子包名的更换而更换。`01_graphics.js` 文件包含了 `01_graphics` 文件夹下的所有代码，并且会将这些代码从主包中剔除掉。
+**For example:** Configuring the `cases/01_graphics` folder in the example project as a **sub-package**. The `01_graphics.js` file will be generated in `src/assets/cases` in the release package directory after the project is built.
+
+then the project will build a `src/assets/cases` generated `01_graphics.js` file in the release package directory. The file name is not replaced with the replacement of the **sub-package** name. The `01_graphics.js` file contains all the code in the `01_graphics` folder and will be removed from the **main package**.
 
 ![package](./subpackage/package.png)
 
-在微信小游戏平台的构建中，分包的配置也会按照规则自动生成到微信小游戏发布包的 `game.json` 配置文件中。
+When building for the **WeChat Mini Game Platform**, the configuration of the **sub-package** will be automatically generated into the `game.json` configuration file of the **WeChat Mini Game** release package according to the rules.
 
 ![profile](./subpackage/profile.png)
 
-**注意**：微信小游戏需要特定的版本才能支持分包功能。
-> 微信 6.6.7 客户端，2.1.0 及以上基础库开始支持，请更新至最新客户端版本，开发者工具请使用 1.02.1806120 及以上版本
+**Note:** **WeChat Mini Games** require a specific version to support the **sub-package** feature.
+> WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version *1.02.1806120* and above
 
-更新了开发者工具后不要忘记修改开发者工具中的 `详情 -> 项目设置 -> 调试基础库` 为 2.1.0 及以上：
+After updating the developer tools, don't forget to modify the version of __Details -> Project Settings -> Debug Base library__ to __2.1.0__ and above in the developer tools:
 
 ![subpackage2](./subpackage/subpackage2.png)
 
-具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档。
+Please refer to the [WeChat Sub-Package Loading](https://developers.weixin.qq.com/minigame/en/dev/tutorial/base/subpackages.html) documentation for details.
 
-## 加载分包
+## Loading a Sub-Package
 
-引擎提供了一个统一的 api `cc.loader.downloader.loadSubpackage` 来加载分包代码，适用于所有平台。`loadSubpackage` 需要传入一个分包的名字，这个名字即是之前你在项目中配置的分包名字，默认为分包文件夹的名字。
+The engine provides a unified api `cc.loader.downloader.loadSubpackage` to load the **sub-package** code for all platforms. `loadSubpackage` needs to pass in the name of a **sub-package**. This name is the name of the **sub-package** that you configured in the project before. The default is the name of the **sub-package** folder.
 
-当分包加载完成后，会触发回调，如果加载失败的话，会返回一个错误信息。
+When the **sub-package** is completed, a callback is triggered, and if the loading fails, an error message is returned.
 
 ```javascript
 cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
