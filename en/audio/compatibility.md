@@ -1,6 +1,6 @@
 # Audio Compatibility
 
-## DOM audio
+## DOM Audio
 The average browser supports the **Audio** tag to play audio. The __DOM Audio__ mode in the engine plays a series of sounds by creating an audio tag. However, the following may occur on some browsers:
 
 1. In some mobile browsers, the **Audio** callback is missing, which will cause a long load time. So we try to recommend __WebAudio__ (see below).
