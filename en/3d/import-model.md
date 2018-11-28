@@ -20,9 +20,9 @@ Most models will have texture resources. When importing the model, these texture
 
 The import system will first search for the corresponding texture from the model folder. If it is not found, then go to **textures** or **Textures** under the model folder for look up.
 
-**Attention**: The correct search for the texture needs to satisfy that the texture be imported before imported model, or to be imported with the model at the same time
+**Attention**: The correct search for the texture needs to satisfy that the texture be imported before imported model, or to be imported with the model at the same time
 
-## Associated skeleton animation resource
+## Associated skeleton animation resource
 
 The skeletal animation clip can be placed in the model along with the mesh resource, or it can be placed separately in another model and named after the **Model name@Animation name** name. A separately stored skeleton animation clip will be named with the specified name when it is imported.
 

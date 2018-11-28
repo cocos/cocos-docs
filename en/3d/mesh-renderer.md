@@ -18,7 +18,7 @@ Mesh resource allow for the use of multiple texture resources, and all texture r
 
 If there are multiple submeshes in the mesh resource, the Mesh Renderer will obtain the corresponding texture from the `textures` array to render the submesh.
 
-## Debug
+## Debug
 
 The vertex data of the mesh is generally abstract, and it is hard to see how the triangles are distributed in the mesh. At this time the user can turn on wireframe mode, and use the line segment to connect the vertices and other vertices according to the distribution of the triangles, so that it is easier to see how much and the distribution of the mesh vertices.
 
