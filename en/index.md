@@ -1,8 +1,8 @@
 # Cocos Creator v1.9 User Manual
 
-Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platform, game development tool based on Cocos2d-x. This is a comprehensive and detailed guide to help you get started with designing and developing games.
+Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross-platform, game development tool based on __Cocos2d-x__. This is a comprehensive and detailed guide to help you get started with designing and developing games.
 
-**Note**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.
+**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of __Cocos Creator__ you are using.
 
 ## Index
 
@@ -30,4 +30,4 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
-**Note**: These projects are updated irregularly with the version of Cocos Creator. Their default branches on GitHub are master, which corresponds to the latest Cocos Creator version. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
+**Attention**: These projects are not always brought up to date with the most recent version of __Cocos Creator__. Their default branches on GitHub are `master`, which corresponds to the latest __Cocos Creator version__. If you are still using the old version of __Cocos Creator__, these projects may not be able to open, and you can try to switch to the same named branch as the old version.

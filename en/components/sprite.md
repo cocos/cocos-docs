@@ -1,35 +1,55 @@
-# Sprite component reference
+# Sprite Component Reference
 
-Using Sprites is the most common way to display images in a 2D game. By adding the Sprite component to a node you can display images from the project resources within the scene.
+Using `Sprite` is the most common way to display images in 2D games. By adding a
+`Sprite` component to a `Node`, you can display the images in the project's resources
+in the `Scene`.
 
 ![add sprite](sprite/sprite_component.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select `Sprite` from `Add Rendering Component` to add the Sprite component to the node.
 
-## Sprite attribute
+You can add a `Sprite` component to the node by clicking the **Add Component** button below the **Properties** and selecting **Sprite** from the **Add Renderer Component** menu.
 
-| Attribute |   Function Explanation
+Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script interface.
+
+## Sprite Properties
+
+| Properties | Description
 | -------------- | ----------- |
-| Atlas | [Atlas resource](../asset-workflow/atlas.md) which the Sprite display image resource belongs to.
-| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite.
-| Type | Rendering mode, currently includes Simple and Sliced rendering modes.
-| Use Original Size | Whether to use the original size of the image resource as the Sprite node size.
+| Atlas | Sprite shows the [Atlas Atlas Resource](../asset-workflow/atlas.md) to which the image asset belongs
+| Sprite Frame | Render [SpriteFrame Image Resource](../asset-workflow/sprite.md) used by Sprite
+| Type | Render mode, includes four modes: **Simple**, **Sliced**, **Tiled**, and **Filled**
+| Size Mode | Specify the size of the Sprite, **Trimmed** will use the original image resource to crop the size of the transparent pixel; **Raw** will use the original image uncut size; when the user manually modified the **size** attribute, **Size Mode** will be automatically set to **Custom** unless it is specified again for the first two sizes.
+| Trimmed Mode | Whether to render the transparent pixel area around the original image. For details, please refer to [Auto Clipping of Image Resources](../asset-workflow/trim.md).
+| Src Blend Factor | Current Image Blending Mode
+| Dst Blend Factor | Background image blend mode, combined with the above properties, can blend foreground and background Sprite in different ways. Preview of effect can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
-## Detailed explanation
+After adding the **Sprite** component, you can display the resource image through the Sprite component by dragging a resource of type **Texture** or **SpriteFrame** from the **Explorer** into the **Sprite Frame** property reference.
 
-After adding the Sprite component, drag the Texture or SpriteFrame type resource from the **Assets** to the `Sprite Frame` attribute reference. The resource image can then be displayed through the Sprite component.
+If the dragged **SpriteFrame** resource is contained in an **Atlas** resource, the **Sprite's Atlas** property will also be set together. You can then select another **SpriteFrame** from the **Atlas** and assign it to the **Sprite** by clicking the **Select** button next to the **Atlas** property.
 
-If this SpriteFrame resource is contained within an Atlas resource, then the `Atlas` attribute of the Sprite will be set up along with it. Later you can click the **choose** button next to the `Atlas` attribute to choose another SpriteFrame from this Atlas to assign to the Sprite.
+## Rendering mode
 
+The `Sprite` component supports four rendering modes:
 
-### Rendering mode
+- __Normal mode:__ Render Sprite according to the original image resource. Generally, in this mode, we do not manually modify the size of the node to ensure that the image displayed in the scene is consistent with the image produced by the artist.
+- __Sliced:__ The image will be split into nine squares and scaled to fit the arbitrarily set size (`size`). Usually used for UI elements, or to make a picture that can be infinitely magnified without affecting image quality into a nine-square grid to save game space. For more information, please read the [Using the Sprite Editor to Make a Jiugongge Image](../ui/sliced-sprite.md#-) section.
+- __Tiled mode:__ When the size of the Sprite is increased, the image will not be stretched, but will be repeated according to the size of the original image, just like the tile, the original image will be covered by the entire Sprite. size.
+  ![tiled](sprite/tiled.png)
+- __Filled:__ Draws a portion of the original image in a certain direction and scale according to the settings of the origin and fill mode. Often used for dynamic display of progress bars.
 
-Currently, the Sprite component supports two rendering modes:
+### Filled mode
 
-- Simple mode: rendering the Sprite according to the original image resource. It is normally used along with `Use Original Size` to guarantee the image shown in the scene is in full accordance with the image designed by the graphic designer.
-- Sliced mode: the image is cut up into a nine square grid and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [use Sprite editor to make a Sudoku image](../asset-workflow/sprite.md#-sprite-) for detailed information.
+After the **Type** attribute is selected, the **Fill Mode**, a new set of properties will be available for configuration, the below table explains the properties in detail:
 
+| Properties | Description
+| -------------- | ----------- |
+| Fill Type | Fill type selection, with `HORIZONTAL` (horizontal fill), `VERTICAL` (vertical fill), and `RADIAL` (fan fill).
+| Fill Start | The normalized value of the fill start position (from 0 to 1, the percentage of the total fill). When the horizontal fill is selected, the `Fill Start` is set to 0, and the fill will start from the leftmost edge of the image.
+| Fill Range | The normalized value of the fill range (also from 0 to 1), set to 1, fills up to the entire range of the original image.
+| Fill Center | Fills the center point and this property appears only if the `RADIAL` type is selected. Determining which point on the Sprite will surround the fan fill, the coordinate system is the same as when setting [Anchor Anchor](../content-workflow/transform.md#-anchor-).
 
----
+#### Fill Range Filling Range Supplement
 
-Continue on to read about [Label component reference](label.md).
+Under the two fill types **HORIZONTAL** and **VERTICAL**, the value set by **Fill Start** will affect the total fill. If **Fill Start** is set to **0.5**, then even if **Fill Range** is set to **1.0**, the actual fill The range is still only half the total size of the Sprite.
+
+In the **RADIAL** type, **Fill Start** only determines the direction in which to start filling. When **Fill Start** is **0**, the filling starts from the positive direction of the x-axis, **Fill Range** determines the total amount of filling, and a value of **1** fills the entire circle shape. **Fill Range** is **counterclockwise** filled for **positive** values ​​and **clockwise** for **negative** values.
