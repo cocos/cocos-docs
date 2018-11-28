@@ -47,6 +47,10 @@
                     {
                         "name": "2.0",
                         "link": "http://docs.cocos2d-x.org/creator/manual/en"
+                    },
+                    {
+                        "name": "2.1",
+                        "link": "http://docs.cocos2d-x.org/creator/2.1/manual/en"
                     }
                 ]
             }
