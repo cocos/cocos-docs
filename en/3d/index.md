@@ -1,4 +1,4 @@
-# 3D System
+# 3D System
 
 - [3D Node](3d-node.md)
 - [Import Model Resources](import-model.md)

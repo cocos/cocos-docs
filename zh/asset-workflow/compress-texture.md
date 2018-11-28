@@ -25,13 +25,13 @@ Cocos Creator 在构建图片的时候，会查找当前图片是否进行了压
 
 这些生成的图片不会都被加载到引擎中，引擎会根据 [cc.macro.SUPPORT_TEXTURE_FORMATS](http://docs.cocos.com/creator/api/zh/classes/macro.html#supporttextureformats) 中的配置来选择加载合适格式的图片。`cc.macro.SUPPORT_TEXTURE_FORMATS` 列举了当前平台支持的所有图片格式，引擎加载图片时会从生成的图片中找到在这个列表中 **优先级靠前**（即排列靠前）的格式来加载。
 
-用户可以通过修改 `cc.macro.SUPPORT_TEXTURE_FORMATS` 来自定义平台的图片资源支持情况以及加载顺序的优先级。
+用户可以通过修改 `cc.macro.SUPPORT_TEXTURE_FORMATS` 来自定义平台的图片资源支持情况以及加载顺序的优先级。
 
 ## 示例
 
 ![1](compress-texture/1.png)
 ![2](compress-texture/2.png)
 
-在上面的示例图中，默认平台配置了 png 格式的压缩纹理，web 平台配置了 pvr、png 格式的压缩纹理，而其他平台没有添加任何配置。那么在构建 web 平台的时候这张图片就会被压缩成 pvr，png 两种格式，在构建其他平台的时候则只会生成 png 格式的图片。
+在上面的示例图中，默认平台配置了 png 格式的压缩纹理，web 平台配置了 pvr、png 格式的压缩纹理，而其他平台没有添加任何配置。那么在构建 web 平台的时候这张图片就会被压缩成 pvr，png 两种格式，在构建其他平台的时候则只会生成 png 格式的图片。
 
-而默认设置的 `cc.macro.SUPPORT_TEXTURE_FORMATS` 中只有 ios 平台上才添加了 .pvr 的支持，所以只有在 ios 的浏览器上才会加载 pvr 格式的图片，其他平台上的浏览器则加载 png 格式的图片。
+而默认设置的 `cc.macro.SUPPORT_TEXTURE_FORMATS` 中只有 ios 平台上才添加了 .pvr 的支持，所以只有在 ios 的浏览器上才会加载 pvr 格式的图片，其他平台上的浏览器则加载 png 格式的图片。

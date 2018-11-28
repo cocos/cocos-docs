@@ -1,6 +1,6 @@
 # TiledTile 组件参考
 
-TiledTile 组件可以单独对某一个地图块进行操作。
+TiledTile 组件可以单独对某一个地图块进行操作。
 
 ## 创建方式
 
@@ -47,13 +47,13 @@ Layer 脚本接口相关请参考 [TiledLayer API](../../../api/zh/classes/Tiled
 
 **注意**: 只能使用地图中现有地图块的 gid 来切换块的样式，无法通过自定义 sprite frame 来切换块的样式。
 
-## 可作用到 TiledTile 上的节点属性
+## 可作用到 TiledTile 上的节点属性
 
 | 属性 |   功能说明
 | ------| ----------- |
-| Position | 可对指定的 TiledTile 进行 `平移` 操作
-| Rotation | 可对指定的 TiledTile 进行 `旋转 `操作
-| Scale    | 可对指定的 TiledTile 进行 `缩放` 操作
-| Color    | 可对指定的 TiledTile 进行更改 `颜色` 操作
-| Opacity  | 可对指定的 TiledTile 调整 `不透明度`
-| Skew     | 可对指定的 TiledTile 调整 `倾斜角度`
+| Position | 可对指定的 TiledTile 进行 `平移` 操作
+| Rotation | 可对指定的 TiledTile 进行 `旋转 `操作
+| Scale    | 可对指定的 TiledTile 进行 `缩放` 操作
+| Color    | 可对指定的 TiledTile 进行更改 `颜色` 操作
+| Opacity  | 可对指定的 TiledTile 调整 `不透明度`
+| Skew     | 可对指定的 TiledTile 调整 `倾斜角度`

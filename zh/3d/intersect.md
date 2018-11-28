@@ -11,7 +11,7 @@ Cocos Creator 提供了一套用于检测 3D 物体碰撞的 API，用户可以�
 ```js
 // 根据点击的点获取一条由屏幕射向屏幕内的射线
 let ray = camera.getRay(touchPos);
-// 根据传入的根节点向下检测，并返回检测结果
+// 根据传入的根节点向下检测，并返回检测结果
 // 返回的结果包含了节点和距离
 let results = cc.geomUtils.intersect.raycast(cc.director.getScene(), ray);
 for (let i = 0; i < results.length; i++) {
