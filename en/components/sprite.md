@@ -23,7 +23,7 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | Src Blend Factor | Current Image Blending Mode
 | Dst Blend Factor | Background image blend mode, combined with the above properties, can blend foreground and background Sprite in different ways. Preview of effect can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
-After adding the **Sprite** component, you can display the resource image through the Sprite component by dragging a resource of type **Texture** or **SpriteFrame** from the **Assets Panel** into the **Sprite Frame** property reference.
+After adding the **Sprite** component, you can display the resource image through the Sprite component by dragging a resource of type **Texture** or **SpriteFrame** from the **Assets** panel into the **Sprite Frame** property reference.
 
 If the dragged **SpriteFrame** resource is contained in an **Atlas** resource, the **Sprite's Atlas** property will also be set together. You can then select another **SpriteFrame** from the **Atlas** and assign it to the **Sprite** by clicking the **Select** button next to the **Atlas** property.
 
