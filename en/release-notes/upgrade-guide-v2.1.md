@@ -116,49 +116,44 @@ The compression required by the texture can be set directly in the editor, and _
 
 ### Engine
 
-[Core] Problem with activeInHierarchy being true after fixing node destroy
-[Core] Fix filter in RenderTexture, premultiply alpha setting is invalid
-[Core] Fixed an issue where the scene introduced by the plugin could not be loaded
-[Web] Fixed a problem with white afterimages on Chrome 69, 70. (Since 2.0)[#3357](https://github.com/cocos-creator/engine/pull/3357)
-[UI] Fix Button may have some state invalidation when multiple states are superimposed on each other
-[UI] Fix LabelOutline setting invalid color problem
-[UI] Fixed an issue where setting Toggle.isChecked to be invalid in the start method
-[UI] Fix the problem that the LabelOutline component is not synchronized when the state is modified
-[Animation] Fixed an issue where the parameters of AnimationState might be parsed as a string type
-[QQPlay] Fix the problem that QQ light game does not respond to the background background switching event
-[QQPlay] Fix the problem that the font will become very small if you use italics on QQ light games.
-[QQPlay] Fix the problem that the QQ light game can't replay when the lock screen re-enters or the front and back switches
-\[微信小游戏\] [QQPlay] Fixes the problem of the ended event after the audio setCurrentTime is fixed [#3373](https://github.com/cocos-creator/engine/pull/3373)
-[Native] Fix native platform connection socket.io server may report Bad Request error
-[Native] Fix iOS and Android can't detect gravity sensor
-[Native] Fix iOS call cc.game.restart Restart the game and then enter text will crash
-[Native] Fixing the problem that the opacity attribute of Label on Windows native platform does not work
-[Native] Fixed an issue where Android could not listen to onKeyUp
-[Native] Fix the problem that the Android phone will fail to load if the built-in SSL certificate expires.
-[Native] Fixed an issue where server redirection was not supported when downloading images from Android native platform [#PR](https://github.com/cocos-creator/cocos2d-x-lite/pull/1584)
-[Physics] Fixed an issue where MouseJoint failed to respond to touch cancel
-[Spine] Fixes the problem that textures may be lost when Spine is reloaded under Mask
+  - [Core] Problem with activeInHierarchy being true after fixing node destroy.
+  - [Core] Fix filter in RenderTexture, premultiply alpha setting is invalid.
+  - [Core] Fixed an issue where the scene introduced by the plugin could not be loaded.
+  - [Web] Fixed a problem with white afterimages on Chrome 69, 70. (Since 2.0)[#3357](https://github.com/cocos-creator/engine/pull/3357).
+  - [UI] Fix Button may have some state invalidation when multiple states are superimposed on each other.
+  - [UI] Fix LabelOutline setting invalid color problem.
+  - [UI] Fixed an issue where setting Toggle.isChecked to be invalid in the start method.
+  - [UI] Fix the problem that the LabelOutline component is not synchronized when the state is modified.
+  - [Animation] Fixed an issue where the parameters of AnimationState might be parsed as a string type.
+  - [QQPlay] Fix the problem that QQ light game does not respond to the background background switching event.
+  - [QQPlay] Fix the problem that the font will become very small if you use italics on QQ light games.
+  - [QQPlay] Fix the problem that the QQ light game can't replay when the lock screen re-enters or the front and back switches.
+  - [QQPlay] Fixes the problem of the ended event after the audio setCurrentTime is fixed [#3373](https://github.com/cocos-creator/engine/pull/3373).
+  - [Native] Fix native platform connection socket.io server may report Bad Request error.
+  - [Native] Fix iOS and Android can't detect gravity sensor.
+  - [Native] Fix iOS call cc.game.restart Restart the game and then enter text will crash.
+  - [Native] Fixing the problem that the opacity attribute of Label on Windows native platform does not work.
+  - [Native] Fixed an issue where Android could not listen to onKeyUp.
+  - [Native] Fix the problem that the Android phone will fail to load if the built-in SSL certificate expires.
+  - [Native] Fixed an issue where server redirection was not supported when downloading images from Android native platform [#PR](https://github.com/cocos-creator/cocos2d-x-lite/pull/1584).
+  - [Physics] Fixed an issue where `MouseJoint` failed to respond to touch cancel.
+  - [Spine] Fixes the problem that textures may be lost when Spine is reloaded under Mask.
 
 ## MIGRATION GUIDE
 
-**v2.1 升级注意事项**
+**v2.1 upgrade considerations**
 
+  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
+  - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
-- Node 的 `rotation` 相关 API 已被标记为 deprecated，运行时将提示升级为 `angle`。详见[《3D Node - Node API 升级》](https://docs.cocos.com/creator/2.1/manual/zh/3d/3d-node.html)。
-- 安卓的 NDK 版本需要升级到 r16，否则将编译失败。
+**WeChat game open data domain**
+Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](http://docs.cocos2d-x.org/creator/manual/en/publish/publish- Wechatgame-sub-domain.html).
 
-**微信小游戏开放数据域**
+**v2.0 Upgrade Guide**
+See the [v2.0 Upgrade Guide](http://docs.cocos2d-c.org/creator/manual/en/release-notes/upgrade-guide-v2.0.html).
 
-从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 \[接入小游戏开放数据域\](http://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame-sub-domain.html)。
-
-**v2.0 升级指南**
-
-详见 [v2.0 升级指南](http://docs.cocos.com/creator/manual/zh/release-notes/upgrade-guide-v2.0.html)。
-
-**资源升级**
-
-从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](http://docs.cocos.com/creator/manual/zh/release-notes/raw-asset-migration.html)。
+**Resource upgrade**
+Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](http://docs.cocos2d-x.org/creator/manual/en/release-notes/raw-asset-migration.html).
 
 ----------
-
-以上就是 2.1.0 的更新说明。小伙伴们下载之后，新建一个 example 工程，打开 assets/cases/3d 下的案例即可体验。
+The above is the update description for __v2.1.0__. After downloading, create a new example project and open the case under `assets/cases/3d` to experience it.
