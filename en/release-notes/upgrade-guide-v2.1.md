@@ -34,18 +34,18 @@ You can watch switching to **3D Camera** in action: [3D Camera movie](https://ww
 **3D model import**
 Currently, __Cocos Creator__ supports importing 3D model formats for a very wide range of **.fbx** files. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Explorer**. When importing the model, the editor will automatically parse the content of the model and generate a **Prefab**, a **Grid**, a **Bone Animation** and other resources. See [Import Models](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/import-model.html)
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543326015234_image.png)
+![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543326015234_image.png)
 
 
 **Mesh Renderer Component**
 Mesh Renderer is used to draw grid resources. See [Mesh Renderer](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/mesh-renderer.html).
 
-![](https://github.com/cocos-creator/creator-docs/raw/v2.1/zh/3d/img/mesh_renderer.png)
+![](../3d/img/mesh_renderer.png)
 
 **Bone Animation Component**
 The **Skeletal Animation** component inherits from the **Animation** component. The **Skeletal Animation** component is not much different from the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/skeleton-animation.html) for details.
 
-![](https://github.com/cocos-creator/creator-docs/raw/v2.1/en/3d/img/search-skeleton-animation.png)
+![](../3d/img/search-skeleton-animation.png)
 
 For more 3D instructions, please consult the documentation [3D System](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/index.html).
 
@@ -58,9 +58,9 @@ Between __v2.0__ compared to __v1.x__, there are some cases where the engine doe
 **Add simulator debugging function**
 In the **Project Settings** -> **Preview Run Panel**, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327234476_image.png)
+![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327234476_image.png)
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327279764_image.png)
+![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327279764_image.png)
 
 **Texture Auto Compression**
 The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](https://docs.cocos2d-x.org/creator/2.1/manual/en/asset-workflow/compress-texture.html) for details.
