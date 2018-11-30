@@ -22,7 +22,7 @@ Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D fe
 ## What's New
 
 **3D Node**
-In __v2.1__, newly created `Node` objects are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the `Node` to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
+In __v2.1__, newly created `Node` objects are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the `Node` to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
 
 You can watch converting to **3D Nodes** in action:
 
@@ -36,22 +36,22 @@ You can watch switching to **3D Camera** in action:
 ![](upgrade-guide-v2.1/641.gif).
 
 **3D model import**
-Currently, __Cocos Creator__ supports importing 3D model formats for a very wide range of **.fbx** files. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Explorer**. When importing the model, the editor will automatically parse the content of the model and generate a **Prefab**, a **Grid**, a **Bone Animation** and other resources. See [Import Models](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/import-model.html)
+Currently, __Cocos Creator__ supports importing 3D model formats for a very wide range of **.fbx** files. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Explorer**. When importing the model, the editor will automatically parse the content of the model and generate a **Prefab**, a **Grid**, a **Bone Animation** and other resources. See [Import Models](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/import-model.html)
 
 ![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543326015234_image.png)
 
 
 **Mesh Renderer Component**
-Mesh Renderer is used to draw grid resources. See [Mesh Renderer](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/mesh-renderer.html).
+Mesh Renderer is used to draw grid resources. See [Mesh Renderer](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/mesh-renderer.html).
 
 ![](../3d/img/mesh_renderer.png)
 
 **Bone Animation Component**
-The **Skeletal Animation** component inherits from the **Animation** component. The **Skeletal Animation** component is not much different from the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/skeleton-animation.html) for details.
+The **Skeletal Animation** component inherits from the **Animation** component. The **Skeletal Animation** component is not much different from the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/skeleton-animation.html) for details.
 
 ![](../3d/img/search-skeleton-animation.png)
 
-For more 3D instructions, please consult the documentation [3D System](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/index.html).
+For more 3D instructions, please consult the documentation [3D System](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/index.html).
 
 **Optimize automatic gallery build speed**
 __v2.1__ greatly optimizes the speed of auto-atlas construction. If the atlas has not changed, the results of the last build are used.
@@ -67,7 +67,7 @@ In the **Project Settings** -> **Preview Run Panel**, the **Open simulator debug
 ![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327279764_image.png)
 
 **Texture Auto Compression**
-The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](https://docs.cocos2d-x.org/creator/2.1/manual/en/asset-workflow/compress-texture.html) for details.
+The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](http://docs.cocos2d-x.org/creator/2.1/manual/en/asset-workflow/compress-texture.html) for details.
 
 ## Enhancements
 
@@ -147,7 +147,7 @@ The compression required by the texture can be set directly in the editor, and _
 
 **v2.1 upgrade considerations**
 
-  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
+  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
   - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
 **WeChat game open data domain**
