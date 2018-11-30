@@ -24,12 +24,16 @@ Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D fe
 **3D Node**
 In __v2.1__, newly created `Node` objects are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the `Node` to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
 
-You can watch converting to **3D Nodes** in action: [3D Node movie](https://www.dropbox.com/s/6wq8f0c1b6mm9dt/3D%20Node.mov?dl=0).
+You can watch converting to **3D Nodes** in action:
+
+![](upgrade-guide-v2.1/640.gif).
 
 **3D Camera**
 Like `Node`, `Camera` is also divided into two modes. When you add a `Camera` component to a normal 2D node, it becomes a 2D Camera. When you switch `Node` to **3D mode**, `Camera` will also enter **3D mode**, and then you can edit `Camera's` **FOV** and other parameters in **3D mode**.
 
-You can watch switching to **3D Camera** in action: [3D Camera movie](https://www.dropbox.com/s/gncxmsnw8gkomxl/3D%20Camera.mov?dl=0).
+You can watch switching to **3D Camera** in action:
+
+![](upgrade-guide-v2.1/641.gif).
 
 **3D model import**
 Currently, __Cocos Creator__ supports importing 3D model formats for a very wide range of **.fbx** files. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Explorer**. When importing the model, the editor will automatically parse the content of the model and generate a **Prefab**, a **Grid**, a **Bone Animation** and other resources. See [Import Models](https://docs.cocos2d-x.org/creator/2.1/manual/en/3d/import-model.html)
@@ -147,10 +151,10 @@ The compression required by the texture can be set directly in the editor, and _
   - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
 **WeChat game open data domain**
-Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](http://docs.cocos2d-x.org/creator/manual/en/publish/publish- Wechatgame-sub-domain.html).
+Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](http://docs.cocos2d-x.org/creator/manual/en/publish/publish-Wechatgame-sub-domain.html).
 
 **v2.0 Upgrade Guide**
-See the [v2.0 Upgrade Guide](http://docs.cocos2d-c.org/creator/manual/en/release-notes/upgrade-guide-v2.0.html).
+See the [v2.0 Upgrade Guide](http://docs.cocos2d-x.org/creator/manual/en/release-notes/upgrade-guide-v2.0.html).
 
 **Resource upgrade**
 Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](http://docs.cocos2d-x.org/creator/manual/en/release-notes/raw-asset-migration.html).
