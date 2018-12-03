@@ -2,14 +2,14 @@
 
 Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross-platform, game development tool based on __Cocos2d-x__. This is a comprehensive and detailed guide to help you get started with designing and developing games.
 
-**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of __Cocos Creator__ you are using.
+**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using. The current stable version is still v2.0, and if you are using v2.1, please refer to the [Cocos Creator v2.1 User Manual](../../2.1/manual/en/index.html).
 
 ## What's New
- - Publish to [Vivo Mini Games](publish/)
- - Publish to [OPPO Mini games](publish/)
 
-
-**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of __Cocos Creator__ you are using.
+ - Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+ - Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
+ - Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
+ - Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
 
 ## Index
 
@@ -37,4 +37,8 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
+<<<<<<< HEAD
 **Attention**: These projects are updated regularly with the version of __Cocos Creator__. Their default branches on GitHub are `master`, which corresponds to the latest __Cocos Creator__ version. If you are still using the old version of __Cocos Creator__, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
+=======
+**Note**: These projects are updated irregularly with the version of Cocos Creator. Their default branches on GitHub are master, which corresponds to the latest Cocos Creator version. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
+>>>>>>> d6322dae6d98759d85283b2af198a7964fe12270

@@ -4,7 +4,7 @@ This chapter will introduce the animation system that comes bundled with Cocos C
 
 ![animation cover](index/animation_cover.jpg)
 
-**Attention**: Cocos Creator's own animation editor is suitable for making some less complex animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, or nested animations, consider using Spine or DragonBones instead.
+**Note**: Cocos Creator's own animation editor is suitable for making some less complex animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, or nested animations, consider using Spine or DragonBones instead.
 
 - [About Animations](animation.md)
 - [Animation Clips](animation-clip.md)
