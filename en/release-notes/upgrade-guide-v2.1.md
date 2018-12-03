@@ -3,6 +3,7 @@
 __Cocos Creator__ __v2.1__, adds support for 3D features such as: **3D model rendering**, **3D Camera**, **3D skeletal animation**, and **3D point selection**. The __Cocos Creator__ editor now natively supports parsing 3D model files of type **FBX format**. It's that simple, no additional import workflow is required!
 
 In the previous __v2.0__, __Cocos Creator__ had used a __Cocos3D__ based 3D renderer. With this foundation, 3D support could officially be introduced. The addition of 3D features can greatly enrich the expressiveness of 2D games, reduce the resource overhead of 2D games, and bring more imagination and ideas to expand games.
+
 However, it should be emphasized that the target users of __Cocos Creator__ is still the 2D game development team, and the **2D game is still the core service goal of Cocos Creator 2.x releases**. We will continue to optimize the development experience and basic performance of 2D games, and gradually increase the 3D functions suitable for integration into 2D games. Therefore, __Cocos Creator__ will not become a pure 3D engine, which is the goal of __Cocos3D__. __Cocos Creator's__ roadmap is closer to 2.5D.
 
 This is not the first time __Cocos__ has upgraded the engine from 2D to 3D. A few years ago, __Cocos2d-x__ expanded to the 3D space and accumulated a lot of experience. It also produced a very good game called *Art of Conquest*. However, at that time, 3D functions were piled up on a very heavy 2D renderer. There was also no editor support. It was not widely recognized by the market. This time, __Cocos Creator__ is based on __Cocos3D's__ 3D renderer, which has a lot of 3D stability and guarantees a seamless editor experience.
@@ -15,63 +16,70 @@ __v2.0__ and __v2.1__ will grow together over a period of time.__v2.0__ will con
 
 **v2.1 iterations will be more aggressive**
 
-Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support.Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in the property inspector**. We will be releasing **v2.1.1** in the near future to support 3D scene editing, material systems and optimizing the 3D development process.
+Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support. Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in Properties**. We will be releasing **v2.1.1** in the near future which will support *3D scene editing*, *material systems* and *optimizing the 3D development process*.
 
 # Complete list of changes (compared to v2.0.5)
 
 ## What's New
 
 **3D Node**
-In __v2.1__, newly created `Node` objects are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the `Node` to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
+
+In __v2.1__, newly created **Nodes** are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the **Node** to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](../3d/3d-node.html).
 
 You can watch converting to **3D Nodes** in action:
 
 ![](upgrade-guide-v2.1/640.gif).
 
 **3D Camera**
-Like `Node`, `Camera` is also divided into two modes. When you add a `Camera` component to a normal 2D node, it becomes a 2D Camera. When you switch `Node` to **3D mode**, `Camera` will also enter **3D mode**, and then you can edit `Camera's` **FOV** and other parameters in **3D mode**.
+
+Like **Node**, **Camera** is also divided into two modes. When you add a **Camera** component to a normal 2D node, it becomes a 2D Camera. When you switch **Node** to **3D mode**, **Camera** will also enter **3D mode**, and then you can edit **Camera's** **FOV** and other parameters in **3D mode**.
 
 You can watch switching to **3D Camera** in action:
 
 ![](upgrade-guide-v2.1/641.gif).
 
 **3D model import**
-Currently, __Cocos Creator__ supports importing 3D model formats for a very wide range of **.fbx** files. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Explorer**. When importing the model, the editor will automatically parse the content of the model and generate a **Prefab**, a **Grid**, a **Bone Animation** and other resources. See [Import Models](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/import-model.html)
+
+Currently, __Cocos Creator__ supports importing the **.fbx** format of 3D models. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model resources into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Assets**. When importing the model, the editor will automatically parse the content of the model and generates resources such as __Prefab Meshes__ and __Skeletal Animations__ and so on. See [Import Models](../3d/import-model.html)
 
 ![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543326015234_image.png)
 
-
 **Mesh Renderer Component**
-Mesh Renderer is used to draw grid resources. See [Mesh Renderer](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/mesh-renderer.html).
+
+Mesh Renderer is used to draw grid resources. See [Mesh Renderer](../3d/mesh-renderer.html).
 
 ![](../3d/img/mesh_renderer.png)
 
 **Bone Animation Component**
-The **Skeletal Animation** component inherits from the **Animation** component. The **Skeletal Animation** component is not much different from the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/skeleton-animation.html) for details.
+
+The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](../3d/skeleton-animation.html) for details.
 
 ![](../3d/img/search-skeleton-animation.png)
 
-For more 3D instructions, please consult the documentation [3D System](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/index.html).
+For more 3D instructions, please consult the documentation [3D System](../3d/index.html).
 
 **Optimize automatic gallery build speed**
+
 __v2.1__ greatly optimizes the speed of auto-atlas construction. If the atlas has not changed, the results of the last build are used.
 
 **Further improve rendering performance**
-Between __v2.0__ compared to __v1.x__, there are some cases where the engine does not render batches, resulting in an increase in draw calls. __v2.1__ re-optimized these conditions. If the previous **color** or **opacity** cannot be batch processed, **sliced** and **non-sliced** share the same texture and cannot be batched. The problem that the **opacity** 0 node still occupies the draw call is solved.
+
+Between __v2.0__ compared to __v1.x__, there are some cases where the engine does not render batches, resulting in an increase in Draw Calls. __v2.1__ re-optimized these conditions. For example: the previous **color** or **opacity** cannot be batch processed, **sliced** and **non-sliced** share the same texture and cannot be batched. The problem that the **opacity** 0 node still occupies the Draw Call is solved.
 
 **Add simulator debugging function**
-In the **Project Settings** -> **Preview Run Panel**, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
 
-![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327234476_image.png)
+In the **Project Settings -> Preview Run Panel -> Settings -> Preview Run** panel, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
 
 ![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327279764_image.png)
 
 **Texture Auto Compression**
-The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](http://docs.cocos2d-x.org/creator/2.1/manual/en/asset-workflow/compress-texture.html) for details.
+
+The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](../asset-workflow/compress-texture.html) for details.
 
 ## Enhancements
 
 ### Editor
+
   - *Dashboard* is closed when the project is opened, and automatically opened when the project is closed.
   - *Dashboard* will automatically record the last created project path.
   - Optimize the preview of the Button under the editor.
@@ -87,6 +95,7 @@ The compression required by the texture can be set directly in the editor, and _
   - Added a series of other experience optimizations.
 
 ### Engine
+
   - [UI] Added the affectedByScale property to the Layout component. If the developer wants the scaling of the Layout subnode to affect the layout, you can turn it on manually.
   - [UI] supports fnt files in XML format.
   - [UI] The Content Size of the node will be refreshed immediately when the Label node is onEnable.
@@ -147,17 +156,20 @@ The compression required by the texture can be set directly in the editor, and _
 
 **v2.1 upgrade considerations**
 
-  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](http://docs.cocos2d-x.org/creator/2.1/manual/en/3d/3d-node.html).
+  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](../3d/3d-node.html).
   - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
-**WeChat game open data domain**
-Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](http://docs.cocos2d-x.org/creator/manual/en/publish/publish-Wechatgame-sub-domain.html).
+**WeChat game open data context**
+
+Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](../publish/publish-Wechatgame-sub-domain.html).
 
 **v2.0 Upgrade Guide**
-See the [v2.0 Upgrade Guide](http://docs.cocos2d-x.org/creator/manual/en/release-notes/upgrade-guide-v2.0.html).
+
+See the [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.html).
 
 **Resource upgrade**
-Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](http://docs.cocos2d-x.org/creator/manual/en/release-notes/raw-asset-migration.html).
+
+Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.html).
 
 ----------
 The above is the update description for __v2.1.0__. After downloading, create a new example project and open the case under `assets/cases/3d` to experience it.
