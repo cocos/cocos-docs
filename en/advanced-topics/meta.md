@@ -1,15 +1,15 @@
-# Resource Management Considerations --- meta files
+**meta** files# Resource Management Considerations --- meta files
 
-> **Note:** The full text of this article is reproduced from [WeChat public number: Quetta Planet](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting
+> **Note:** The full text of this article is reproduced from [WeChat Official Account: Quetta Planet](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting
 > **Author:** Shawn Zhang
 
-__Cocos Creator__ will generate a **meta file** with the same name for every file and directory in the **assets** directory. Understanding the role and mechanics of __Cocos Creator's__ generation of **meta files** can help developers solve resource conflicts, file loss, and missing component properties that are often encountered with team development. What is the **meta file** used for? Let's take a look!
+__Cocos Creator__ will generate a **meta** file with the same name for every file and directory in the **assets** directory. Understanding the role and mechanics of __Cocos Creator's__ generation of **meta** files can help developers solve resource conflicts, file loss, and missing component properties that are often encountered with team development. What is the **meta** file used for? Let's take a look!
 
 ![](meta/missingscript.png)
 
 ## The Role of a Meta File
 
-Let's first look at what the **meta file** looks like in the scene:
+Let's first look at what the **meta** file looks like in the scene:
 
 ```js
 {
@@ -21,7 +21,7 @@ Let's first look at what the **meta file** looks like in the scene:
 }
 ```
 
-The **meta file** for the prefab is the same as the scene. Let's take a look at the **meta file** of the png image:
+The **meta** file for the prefab is the same as the scene. Let's take a look at the **meta** file of the png image:
 
 ```js
 {
@@ -56,55 +56,55 @@ The **meta file** for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The png image has more information in the **meta file**. In addition to the basic ver and uuid, it also records the width, height, offset, and nine-square grid of the image. There is a lot of information that is stored. **uuid** is particularly important.
+The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image (also known as a [__Sliced Sprite__](http://docs.cocos2d-x.org/creator/manual/en/ui/sliced-sprite.html#the-nine-rectangle-grid-cutting-of-the-image-resource). There is a lot of information that is stored. **uuid** and it is particularly important.
 
 > uuid : Universally Unique Identifier
 
-**uuid's** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Editor Resource Management**.
+**uuid's** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
 
-## Meta File Updating
+## When will a meta file be updated?
 
-__Cocos Creator__ generates **meta files** the following situations:
+__Cocos Creator__ generates **meta** files the following situations:
 
   **1. when opening the project**
 
-  When you open a project, __Cocos Creator__, scans the `assets` directory first, and if it does not have a **meta file**, one will be generated.
+  When you open a project, __Cocos Creator__, scans the **assets** directory first, and if it does not have a **meta** file, one will be generated.
 
   **2. when updating resources**
 
-  Updating resources also triggers updates to the corresponding **meta files**:
+  Updating resources also triggers updates to the corresponding **meta** files:
 
-  - In **Explorer**, you can modify the file name, change the directory, delete files, add files, etc., please refer to [Explorer](../getting-started/basics/editor-panels/assets.md). You can also drag files directly into the **Explorer** from your desktop or other folder.
+  - In **Assets**, you can modify the file name of a resource, change the directory a resource belongs in, delete resources, and add new resources. You can also drag files directly into **Assets** from your desktop  or the operating system's file manager. Please refer to [Assets](../getting-started/basics/editor-panels/assets.md).
 
   ![](meta/add.png)
 
-  - There is also a case where the files in the `assets` directory are added, deleted, changed, in the **Editor Interface**. Changes here are reflected on your local **file-system**! No need to make these changes twice, once in __Cocos Creator__ and then again on your **file-system**. The **Resource Manager** refreshes with each change.
+  - Files in the `assets` directory can be added, deleted, changed, in the **Assets** interface. Changes made there are reflected on your local **file-system**! There is no need to make these changes twice, once in __Cocos Creator__ and then again on your **file-system**. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
 
   ![](meta/refresh.png)
 
-If a file's **meta file** does not exist, the above two conditions will trigger the engine to generate a new **meta file** automatically.
+If a file's **meta** file does not exist, the above two conditions will trigger the engine to generate a new **meta** file automatically.
 
 ## Meta File Error Cases And Solutions
 
-Let's analyze several possible cases that produce a **meta file** error.
+Let's analyze several possible cases that produce a **meta** file error.
 
-### uuid Conflict
+### UUID Conflict
 
 **uuid** is globally unique. A conflict occurs if, by chance, two files have the same **uuid**. If this problem occurs, the __Cocos Creator__ resource manager directory structure is incompletely loaded. As shown in the figure below, when this happens, the errors look scary:
 
 ![](meta/conflict.png)
 
-**uuid** conflicts can be viewed from the **Console**, and then opened in the built-in file manager or your favorite text editor. Once opened, search for the **uuid**:
+**uuid** conflicts can be viewed from the **Console**, and then searched for on your local file-system or favorite code editor. Once opened, search for the **uuid**:
 
 ![](meta/search_uuid.png)
 
-At this point, close the __Cocos Creator__ built-in editor (or your external text editor), then delete one of the meta files. Next, open the __Cocos Creator__ editor.
+At this point, close the __Cocos Creator__ editor then delete one of the meta files. Next, open the __Cocos Creator__ editor.
 
-Although this method can solve the problem, if there is a resource loss in the editor, where the resource is referenced, it needs to be re-edited or reconfigured again. It is best to restore this **meta file** with the version management tool.
+Even though this method can solve the problem, if the resource is referenced in the editor, a resource loss will occur. This means the resource needs to be re-edited or reconfigured again. It is best to restore this **meta** file with the version management tool.
 
 There are two reasons for this problem:
 
-  - When moving files on the **file-system**, copying and pasting operations also result in the **meta file** also being copied. This causes two identical meta files to appear simultaneously in the project.
+  - When moving files on the **file-system**, copying and pasting operations also result in the **meta** file also being copied. This causes two identical **meta** files to appear simultaneously in the project.
 
   - When you have multi-person collaboration, from the version management tool, when you update the resource, you may encounter that the **uuid** has been generated by someone else as well as by the file on your computer. This is a very rare occurence, but could still happen.
 
@@ -118,24 +118,24 @@ Another situation is when the **uuid** has changed, so that the resources corres
 
 If you can't find the resources corresponding to the old **uuid**, you can see that __Cocos Creator__ gives a very detailed warning message in the **console**. These details include the *scene file name*, *node path*, *component*, *uuid*, etc. The warning message allows you to quickly locate the error.
 
-How is this situation caused exactly? When someone adds a new resource to the project, they forget to switch to the editor interface to generate a **meta file**, and at the same time submit the new file to version management (without the **meta file**). Then, another person updates the resources he/she submitted and switches to the editor interface for editing. At this point, __Cocos Creator__ will check that the new resource is generated without a **meta file**. The **meta file** is also generated when the first person switches to the editor, so that the two people have the same file on the computer, but the **uuid** in the generated **meta file** is different.
+How is this situation caused exactly? When someone adds a new resource to the project, they forget to switch to the editor interface to generate a **meta** file, and at the same time submit the new file to version management (without the **meta** file). Then, another person updates the resources he/she submitted and switches to the editor interface for editing. At this point, __Cocos Creator__ will check that the new resource is generated without a **meta** file. The **meta** file is also generated when the first person switches to the editor, so that the two people have the same file on the computer, but the **uuid** in the generated **meta** file is different.
 
 In this case, those who submit or update resources later will certainly encounter conflicts. If they are unclear, they will forcibly resolve the conflicts, and the problems mentioned above will arise. The following sequence diagram depicts this erroneous workflow:
 
 ![](meta/resources.png)
 
-A classmate forgets to submit the **meta file** to version control. Other classmates then edit the project resulting in everyone havint the file on theur computer, each with a different **uuid**.
+A classmate forgets to submit the **meta** file to version control. Other classmates then edit the project resulting in everyone having the file on their computer, each with a different **uuid**.
 
 To solve this problem, note the following:
 
-  - When submitting resources, pre-check for new files. If there are new documents, pay attention to whether **meta files** need to be submitted together.
+  - When submitting resources, pre-check for new files. If there are new documents, pay attention to whether **meta** files need to be submitted together.
 
-  - When pulling files, pay attention to whether there are new files, and if there are **meta files** in pairs. If not, remind team-mates who submitted the files to submit the files and **meta files** together.
+  - When pulling files, pay attention to whether there are new files, and if there are **meta** files in pairs. If not, remind team-mates who submitted the files to submit the files and **meta** files together.
 
-  - When submitting, if you find that there is only one new **meta file**, then the **meta file** must have been generated by yourself. You need to pay attention to whether the resource corresponding to the **meta file** (the file with the same name) has been used. If you haven't used it, please submit the **meta file** to the first submitter. Never submit this **meta file**.
+  - When submitting, if you find that there is only one new **meta** file, then the **meta** file must have been generated by yourself. You need to pay attention to whether the resource corresponding to the **meta** file (the file with the same name) has been used. If you haven't used it, please submit the **meta** file to the first submitter. Never submit this **meta** file.
 
-Note that the above points can basically eliminate the engineering error caused by the **meta file** **uuid** change.
+Note that the above points can basically eliminate the engineering error caused by the **meta** file **uuid** change.
 
 ## Summary
 
-The **meta file** is an important tool for __Cocos Creator__ to use for resource management. It is easy to generate resource errors when it is slightly inadvertent in a multi-person collaborative development. To solve this problem, you not only need to understand the mechanism that generates the **meta file** but also the cause of the conflict. Proper thought and control of resource submission helps too.
+The **meta** file is an important tool for __Cocos Creator__ to use for resource management. It is easy to generate resource errors when it is slightly inadvertent in a multi-person collaborative development. To solve this problem, you not only need to understand the mechanism that generates the **meta** file but also the cause of the conflict. Proper thought and control of resource submission helps too.
