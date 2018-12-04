@@ -1,4 +1,4 @@
-open data context# Access to the Open Data Context of WeChat Mini Games
+# Access to the Open Data Context of WeChat Mini Games
 
 In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the open data context are completely isolated from the main game. Developers can access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()`, the two APIs provided by __WeChat__, only in the open data context. These API's will help to implement some features, such as leaderboards. Since the open data context can only be rendered on the offscreen canvas, `sharedCanvas`, we need to draw the `sharedCanvas` onto the main context.
 
@@ -55,7 +55,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 - Graphics
 - Mask
 
-## Publish Steps
+## Release Steps
 
 1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **Wechat Game** platform, and fill in the **Open Data Field Code Directory**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
@@ -138,7 +138,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
     });
 ```
 
-## Publish Steps
+## Release Steps
 
 1. Open the main context project, open the build release panel in **Menu Bar --> Project**, select the **Wechat Game** platform, and fill in the **Open Data Field Code Directory**. This directory is the path where the open data context is built, and this path needs to be placed in the main context build directory. Then click on **Build**.
 
