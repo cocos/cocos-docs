@@ -93,7 +93,7 @@ Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-c
 
 # 旧版本开放数据域发布
 
-以下方法适用于 v2.0.0，更早的版本请参考 [接入微信小游戏的开放数据域](../../../1.10/manual/en/publish/publish-wechatgame.html)
+以下方法适用于 v2.0.0，更早的版本请参考 [接入微信小游戏的开放数据域](../../../1.10/manual/zh/publish/publish-wechatgame.html)
 
 ## 整合方法
 
