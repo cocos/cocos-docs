@@ -1,4 +1,4 @@
-**meta** files# Resource Management Considerations --- meta files
+# Resource Management Considerations --- meta files
 
 > **Note:** The full text of this article is reproduced from [WeChat Official Account: Quetta Planet](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting
 > **Author:** Shawn Zhang
@@ -56,11 +56,11 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image (also known as a [__Sliced Sprite__](http://docs.cocos2d-x.org/creator/manual/en/ui/sliced-sprite.html#the-nine-rectangle-grid-cutting-of-the-image-resource). There is a lot of information that is stored. **uuid** and it is particularly important.
+The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image (also known as a __Sliced Sprite__. There is a lot of information that is stored. **uuid** and it is particularly important.
 
 > uuid : Universally Unique Identifier
 
-**uuid's** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
+**uuids** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
 
 ## When will a meta file be updated?
 
@@ -94,7 +94,7 @@ Let's analyze several possible cases that produce a **meta** file error.
 
 ![](meta/conflict.png)
 
-**uuid** conflicts can be viewed from the **Console**, and then searched for on your local file-system or favorite code editor. Once opened, search for the **uuid**:
+**uuid** conflicts can be viewed from the **Console**, and then opened from your local file-system or favorite code editor. Once opened you can search for the conflicting **uuid**:
 
 ![](meta/search_uuid.png)
 
