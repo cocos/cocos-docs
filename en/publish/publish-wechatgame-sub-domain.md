@@ -82,7 +82,7 @@ Or you can not modify the **Build Path** to manually copy the release package to
 
 ![](./publish-wechatgame/preview.png)
 
-**Note: If you publish the open data context domain and then publish the main context, the release code of the open data context will be overwritten, and we will optimize the experience in subsequent versions**
+**Note: If you publish the open data context and then publish the main context, the release code of the open data context will be overwritten, and we will optimize the experience in subsequent versions**
 
 ## Reference link
 
@@ -94,7 +94,7 @@ The [Open Data Context Sample Project](https://github.com/cocos-creator/demo-wec
 
 # Publish to the Open Data Context (version before update)
 
-The following method is applicable to v2.0.0. For earlier versions, please refer to [Accessing Open Data Domain of WeChat Game](../../../1.10/manual/en/publish/publish-wechatgame.html)
+The following method is applicable to v2.0.0. For earlier versions, please refer to [Accessing Open Data Context of WeChat Game](../../../1.10/manual/en/publish/publish-wechatgame.html)
 
 ## Integration method
 
@@ -103,7 +103,7 @@ The following method is applicable to v2.0.0. For earlier versions, please refer
 
 ## Module selection
 
-Since the code and resources of the WeChat open data context cannot be shared with the main context, it is very sensitive to the package. The developer needs to set the [project module cullinghttp://docs.cocos2d-x.org/creator/1.10/manual/en/publish/publish-wechatgame.html option](../getting-started/basics/editor-panels/project-settings.md) for the open data context project. It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data context projects. The Canvas Renderer must be checked because the open data context only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
+Since the code and resources of the WeChat open data context cannot be shared with the main context, it is very sensitive to the package. The developer needs to set the [project module culling option](../getting-started/basics/editor-panels/project-settings.md) for the open data context project. It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data context projects. The Canvas Renderer must be checked because the open data context only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
 
   - Sprite
   - Label
@@ -140,7 +140,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ## Release Steps
 
-1. Open the main context project, open the **Build panel** in **Menu Bar --> Project**, select the **WeChat Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
+1. Open the main context project, open the **Build** panel in **Menu Bar --> Project**, select the **WeChat Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
 ![](./publish-wechatgame/maintest-build.png)
 
@@ -148,24 +148,24 @@ This step will help the user automatically configure the Open Data Context Root 
 
 ![](./publish-wechatgame/game-json.png)
 
-2. Open the open data context project, open the **Build panel**, select the **WeChat Game Open Data Context** platform.
+2. Open the open data context project, open the **Build** panel, select the **WeChat Game Open Data Context** platform.
 
-3. The **Build path ** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
+3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-**Note**: The **Title** in the **Build panel** must match the **Open Data Context Root** name set in the main context project.
+**Note**: The **Title** in the **Build** panel must match the **Open Data Context Root** name set in the main context project.
 
 ![](./publish-wechatgame/open-data-project-build.png)
 
 Or you can modify the **Build path** to manually copy the release package to the release package directory of the main context project after the open data context project is built. As shown below:
 
-![](./publish-we../publish-wechatgame-sub-domain.md#publish-to-the-open-data-context-version-before-updatechatgame/package.png) open data context
+![](./publish-wechatgame/package.png)
 
-4. Click **Run** in the main context project to launch the **WeChat Mini Game Developer** tool, and then publish and debug according to the normal process of the previous **WeChat Mini Game**.
+4. Click **Run** in the main context project to launch the **WeChat Developer Tools**, and then publish and debug according to the normal process of the previous **WeChat Mini Game**.
 
 ![](./publish-wechatgame/preview.png)
 
 ## Reference link
 
-[Open Data Domain Sample Project](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) provided by __Cocos Creator__ contains examples of the use of __WeChat__ open data contexts.
+[Open Data Context Sample Project](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) provided by __Cocos Creator__ contains examples of the use of __WeChat__ open data contexts.
 
-[WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+[WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)
