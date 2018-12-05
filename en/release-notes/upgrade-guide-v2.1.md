@@ -14,7 +14,7 @@ This is not the first time __Cocos__ has upgraded the engine from 2D to 3D. A fe
 
 __v2.0__ and __v2.1__ will grow together over a period of time.__v2.0__ will continue to be maintained, adding more performance optimizations and bug fixes. We will soon be beta testing v2.0.7. In v2.0.7 the rendering performance of the engine has been optimized, especially **Spine** and **DragonBones**. Also, the performance has been greatly improved.
 
-**v2.1 iterations will be more aggressive**
+### v2.1 iterations will be more aggressive
 
 Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support. Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in Properties**. We will be releasing **v2.1.1** in the near future which will support *3D scene editing*, *material systems* and *optimizing the 3D development process*.
 
@@ -22,15 +22,15 @@ Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D fe
 
 ## What's New
 
-**3D Node**
+### 3D Node
 
-In __v2.1__, newly created **Nodes** are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the **Node** to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](../3d/3d-node.html).
+In __v2.1__, newly created **Nodes** are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the **Node** to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](../3d/3d-node.md).
 
 You can watch converting to **3D Nodes** in action:
 
 ![](upgrade-guide-v2.1/640.gif).
 
-**3D Camera**
+### 3D Camera
 
 Like **Node**, **Camera** is also divided into two modes. When you add a **Camera** component to a normal 2D node, it becomes a 2D Camera. When you switch **Node** to **3D mode**, **Camera** will also enter **3D mode**, and then you can edit **Camera's** **FOV** and other parameters in **3D mode**.
 
@@ -38,43 +38,43 @@ You can watch switching to **3D Camera** in action:
 
 ![](upgrade-guide-v2.1/641.gif).
 
-**3D model import**
+### 3D model import
 
-Currently, __Cocos Creator__ supports importing the **.fbx** format of 3D models. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model resources into the **Explorer** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Assets**. When importing the model, the editor will automatically parse the content of the model and generates resources such as __Prefab Meshes__ and __Skeletal Animations__ and so on. See [Import Models](../3d/import-model.html)
+Currently, __Cocos Creator__ supports importing the **.fbx** format of 3D models. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model resources into the **Assets** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Assets**. When importing the model, the editor will automatically parse the content of the model and generates resources such as __Prefab Meshes__ and __Skeletal Animations__ and so on. See [Import Models](../3d/import-model.md)
 
-![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543326015234_image.png)
+![](upgrade-guide-v2.1/import-model.png)
 
-**Mesh Renderer Component**
+### Mesh Renderer Component
 
-Mesh Renderer is used to draw grid resources. See [Mesh Renderer](../3d/mesh-renderer.html).
+Mesh Renderer is used to draw grid resources. See [Mesh Renderer](../3d/mesh-renderer.md).
 
 ![](../3d/img/mesh_renderer.png)
 
-**Bone Animation Component**
+### Skeletal Animation Component
 
-The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](../3d/skeleton-animation.html) for details.
+The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](../3d/skeleton-animation.md) for details.
 
 ![](../3d/img/search-skeleton-animation.png)
 
-For more 3D instructions, please consult the documentation [3D System](../3d/index.html).
+For more 3D instructions, please consult the documentation [3D System](../3d/index.md).
 
-**Optimize automatic gallery build speed**
+###  Optimize Auto-Atlas build speed
 
 __v2.1__ greatly optimizes the speed of auto-atlas construction. If the atlas has not changed, the results of the last build are used.
 
-**Further improve rendering performance**
+### Further improve rendering performance
 
 Between __v2.0__ compared to __v1.x__, there are some cases where the engine does not render batches, resulting in an increase in Draw Calls. __v2.1__ re-optimized these conditions. For example: the previous **color** or **opacity** cannot be batch processed, **sliced** and **non-sliced** share the same texture and cannot be batched. The problem that the **opacity** 0 node still occupies the Draw Call is solved.
 
-**Add simulator debugging function**
+### Add simulator debugging function
 
-In the **Project Settings -> Preview Run Panel -> Settings -> Preview Run** panel, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
+In the **Settings -> Preview Run** panel, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
 
-![](upgrade-guide-v2.1/s_D5EB83DE4EB14ED7F4E0412694594BEA563C6F613AB6CAC04191666891BDD83C_1543327279764_image.png)
+![](upgrade-guide-v2.1/sim-debug.png)
 
-**Texture Auto Compression**
+### Texture Auto Compression
 
-The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](../asset-workflow/compress-texture.html) for details.
+The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](../asset-workflow/compress-texture.md) for details.
 
 ## Enhancements
 
@@ -86,7 +86,7 @@ The compression required by the texture can be set directly in the editor, and _
   - Optimize the way Button Click Event indexes components, avoiding the loss of indexes after scripts are renamed.
   - QQ light game construction allows direct packaging of zip files for uploading servers.
   - The new plug-in mall automatically prompts the user to install after the plug-in download is completed.
-  - When building a WeChat mini-game main domain project, the subdomain will not be emptied again.
+  - When building a WeChat mini-game main context project, the open data context will not be emptied again.
   - Modify the API Level selected by default when building the Android platform to the current highest level (Target API Level).
   - The node path bar in the scene editor is removed, and the node path can be obtained through the node right-click menu of the hierarchy manager.
   - The animation editor defaults to Constant curves for values ​​of type cc.Enum and cc.Integer, without interpolation.
@@ -113,7 +113,7 @@ The compression required by the texture can be set directly in the editor, and _
   - [Web] Increase transparency support for WebView on the web platform.
   - [Web] Optimized display position of WebView components.
   - [Web] Optimizing the performance of VideoPlayer on the X5 browser.
-  - [Wechat] Supports getting the res and referrerInfo parameters passed to the platform when responding to the cc.game.EVENT_SHOW event on WeChat games.
+  - [Wechat] Supports getting the res and referrerInfo parameters passed to the platform when responding to the cc.game.EVENT_SHOW event on WeChat Mini Games.
   - [VideoPlayer] Optimized the performance of VideoPlayer full-screen playback.
 
 ## Bug Fixes
@@ -154,22 +154,22 @@ The compression required by the texture can be set directly in the editor, and _
 
 ## MIGRATION GUIDE
 
-**v2.1 upgrade considerations**
+### v2.1 upgrade considerations
 
-  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](../3d/3d-node.html).
+  - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](../3d/3d-node.md).
   - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
-**WeChat game open data context**
+### WeChat Open Data Context
 
-Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data domain solution, see [Access Game Open Data Domain](../publish/publish-Wechatgame-sub-domain.html).
+Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data context solution, see [Wechat Open Data Context](../publish/publish-Wechatgame-sub-domain.md).
 
-**v2.0 Upgrade Guide**
+### v2.0 Upgrade Guide
 
-See the [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.html).
+See the [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.md).
 
-**Resource upgrade**
+### Resource upgrade
 
-Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.html).
+Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.md).
 
 ----------
 The above is the update description for __v2.1.0__. After downloading, create a new example project and open the case under `assets/cases/3d` to experience it.
