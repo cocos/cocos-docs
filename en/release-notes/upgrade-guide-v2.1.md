@@ -10,7 +10,7 @@ This is not the first time __Cocos__ has upgraded the engine from 2D to 3D. A fe
 
 ## Follow-up Version Notice
 
-**v2.0 will continue to be maintained, native platform performance will be optimized as soon as possible**
+### v2.0 will continue to be maintained
 
 __v2.0__ and __v2.1__ will grow together over a period of time.__v2.0__ will continue to be maintained, adding more performance optimizations and bug fixes. We will soon be beta testing v2.0.7. In v2.0.7 the rendering performance of the engine has been optimized, especially **Spine** and **DragonBones**. Also, the performance has been greatly improved.
 
@@ -52,7 +52,7 @@ Mesh Renderer is used to draw grid resources. See [Mesh Renderer](../3d/mesh-ren
 
 ### Skeletal Animation Component
 
-The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Bone Animation Component](../3d/skeleton-animation.md) for details.
+The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Skeletal Animation Component](../3d/skeleton-animation.md) for details.
 
 ![](../3d/img/search-skeleton-animation.png)
 
