@@ -21,15 +21,16 @@
 
 问题列表：
 
-1. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
-2. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
-3. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。
-4. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
-5. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
-6. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
-7. RichText 暂不支持通过节点颜色修改颜色。
-8. Native 平台暂不支持 VideoPlayer 和 WebView 组件
-9. 不支持 IE 11。在 2.0.1 中修复。
+1. 2.x 原生版本中 Spine & DragonBones 性能不如 1.x。ETC 压缩纹理不支持（1.x 可以 hack 实现）。
+2. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
+3. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
+4. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。
+5. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
+6. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
+7. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
+8. RichText 暂不支持通过节点颜色修改颜色。
+9. Native 平台暂不支持 VideoPlayer 和 WebView 组件
+10. 不支持 IE 11。在 2.0.1 中修复。
 
 # 2. 编辑器升级
 
@@ -192,12 +193,12 @@ EventTarget：
 可以看到只有 Node 的 `on`/`off` 支持父节点链上的事件捕获和事件冒泡，默认仅有系统事件支持这样的派发模式，用户可以通过 `node.dispatchEvent` 在节点树上以同样的流程派发事件。这点跟 1.x 是一致的。
 但是，Node 上使用 emit 派发的事件和 EventTarget 上的所有事件派发都是简单的事件派发方式，这种方式派发的事件，在事件回调的参数上和 1.x 有区别：
 
-    // v1.x
+    // **v1.x**
     eventTarget.on(type, function (event) {
         // 通过 event.detail 获取 emit 时传递的参数
     });
     eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
-    // v2.0
+    // **v2.0**
     eventTarget.on(type, function (message, target) {
         // 直接通过回调参数来获取 emit 时传递的事件参数
     });
