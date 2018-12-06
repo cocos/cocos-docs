@@ -56,7 +56,7 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image (also known as a __Sliced Sprite__. There is a lot of information that is stored. **uuid** and it is particularly important.
+The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image. There is a lot of information that is stored. **uuid** and it is particularly important.
 
 > uuid : Universally Unique Identifier
 
@@ -78,7 +78,7 @@ __Cocos Creator__ generates **meta** files the following situations:
 
   ![](meta/add.png)
 
-  - Files in the `assets` directory can be added, deleted, changed, in the **Assets** interface. Changes made there are reflected on your local **file-system**! There is no need to make these changes twice, meaning once in __Cocos Creator__ and then again on your local **file-system**. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
+  - Files in the `assets` directory can be added, deleted, changed, in the **Assets** interface. Changes made there are synchronous on your local **file-system**! There is no need to make these changes twice, meaning once in __Cocos Creator__ and then again on your local **file-system**. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
 
   ![](meta/refresh.png)
 
