@@ -1,4 +1,4 @@
-# Cocos Creator v2.1 Release Notes
+# Cocos Creator v2.1.0 Release Notes
 
 __Cocos Creator__ __v2.1__, adds support for 3D features such as: **3D model rendering**, **3D Camera**, **3D skeletal animation**, and **3D point selection**. The __Cocos Creator__ editor now natively supports parsing 3D model files of type **FBX format**. It's that simple, no additional import workflow is required!
 
