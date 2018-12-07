@@ -1,4 +1,4 @@
-# Cocos Creator v2.1.0 Release Notes
+# Cocos Creator v2.1 Release Notes
 
 __Cocos Creator__ __v2.1__, adds support for 3D features such as: **3D model rendering**, **3D Camera**, **3D skeletal animation**, and **3D point selection**. The __Cocos Creator__ editor now natively supports parsing 3D model files of type **FBX format**. It's that simple, no additional import workflow is required!
 
@@ -10,19 +10,19 @@ This is not the first time __Cocos__ has upgraded the engine from 2D to 3D. A fe
 
 ## Follow-up Version Notice
 
-### v2.0 will continue to be maintained
+**v2.0 will continue to be maintained, native platform performance will be optimized as soon as possible**
 
 __v2.0__ and __v2.1__ will grow together over a period of time.__v2.0__ will continue to be maintained, adding more performance optimizations and bug fixes. We will soon be beta testing v2.0.7. In v2.0.7 the rendering performance of the engine has been optimized, especially **Spine** and **DragonBones**. Also, the performance has been greatly improved.
 
-### v2.1 iterations will be more aggressive
+**v2.1 iterations will be more aggressive**
 
 Compared with __v2.0__, the upgrade cycle of __v2.1__ will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support. Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in Properties**. We will be releasing **v2.1.1** in the near future which will support *3D scene editing*, *material systems* and *optimizing the 3D development process*.
 
-# Complete list of changes (compared to v2.0.5)
+## Complete list of changes (compared to v2.0.5)
 
-## What's New
+### What's New
 
-### 3D Node
+#### 3D Node
 
 In __v2.1__, newly created **Nodes** are still 2D by default. When needed, you only need to click the 2.5D button at the top right of the **Node** to switch to **3D mode**. After switching, you can edit the **z axis**. See [3D Node](../3d/3d-node.md).
 
@@ -30,7 +30,7 @@ You can watch converting to **3D Nodes** in action:
 
 ![](upgrade-guide-v2.1/640.gif).
 
-### 3D Camera
+#### 3D Camera
 
 Like **Node**, **Camera** is also divided into two modes. When you add a **Camera** component to a normal 2D node, it becomes a 2D Camera. When you switch **Node** to **3D mode**, **Camera** will also enter **3D mode**, and then you can edit **Camera's** **FOV** and other parameters in **3D mode**.
 
@@ -38,19 +38,19 @@ You can watch switching to **3D Camera** in action:
 
 ![](upgrade-guide-v2.1/641.gif).
 
-### 3D model import
+#### 3D Model Import
 
 Currently, __Cocos Creator__ supports importing the **.fbx** format of 3D models. **.fbx** is the de-facto standard in 3D modeling software. The process of importing is very simple, just drag the **.fbx** model resources into the **Assets** and wait a few moments for the import to complete. After the import is completed, you can see that the imported model is a folder that can be expanded in **Assets**. When importing the model, the editor will automatically parse the content of the model and generates resources such as __Prefab Meshes__ and __Skeletal Animations__ and so on. See [Import Models](../3d/import-model.md)
 
 ![](upgrade-guide-v2.1/import-model.png)
 
-### Mesh Renderer Component
+#### Mesh Renderer Component
 
 Mesh Renderer is used to draw grid resources. See [Mesh Renderer](../3d/mesh-renderer.md).
 
 ![](../3d/img/mesh_renderer.png)
 
-### Skeletal Animation Component
+#### Skeletal Animation Component
 
 The **Skeletal Animation** component inherits from the **Animation** component. Using the **Skeletal Animation** component is not much different from how you would use the **Animation** component. The exception is the **Skeletal Animation** component uses a clip that can only be a **Skeletal Animation** clip. The **Skeletal Animation** component is automatically added to the model's Prefab when it is imported. See [Skeletal Animation Component](../3d/skeleton-animation.md) for details.
 
@@ -58,27 +58,27 @@ The **Skeletal Animation** component inherits from the **Animation** component. 
 
 For more 3D instructions, please consult the documentation [3D System](../3d/index.md).
 
-###  Optimize Auto-Atlas build speed
+#### Optimize Auto-Atlas Build Speed
 
 __v2.1__ greatly optimizes the speed of auto-atlas construction. If the atlas has not changed, the results of the last build are used.
 
-### Further improve rendering performance
+#### Further Improve Rendering Performance
 
 Between __v2.0__ compared to __v1.x__, there are some cases where the engine does not render batches, resulting in an increase in Draw Calls. __v2.1__ re-optimized these conditions. For example: the previous **color** or **opacity** cannot be batch processed, **sliced** and **non-sliced** share the same texture and cannot be batched. The problem that the **opacity** 0 node still occupies the Draw Call is solved.
 
-### Add simulator debugging function
+#### Add Simulator Debugging Function
 
 In the **Settings -> Preview Run** panel, the **Open simulator debugger panel** option and the **Wait for debugger connect** option have been added. The purpose of the **Open simulator debugger panel** option is to automatically open the debug window when the simulator previews the project. The **Wait for debugger connect** option is used to suspend the boot process until the debugger connection is complete for debugging the load process.
 
 ![](upgrade-guide-v2.1/sim-debug.png)
 
-### Texture Auto Compression
+#### Texture Auto Compression
 
 The compression required by the texture can be set directly in the editor, and __Cocos Creator__ will automatically compress the texture when the project is published. Exporting multiple image formats simultaneously on the web is supported. The engine will automatically download the appropriate format according to the different browsers. See [Compressed Textures](../asset-workflow/compress-texture.md) for details.
 
-## Enhancements
+### Enhancements
 
-### Editor
+#### Editor
 
   - *Dashboard* is closed when the project is opened, and automatically opened when the project is closed.
   - *Dashboard* will automatically record the last created project path.
@@ -94,7 +94,7 @@ The compression required by the texture can be set directly in the editor, and _
   - The optimization engine automatically compiles the experience.
   - Added a series of other experience optimizations.
 
-### Engine
+#### Engine
 
   - [UI] Added the affectedByScale property to the Layout component. If the developer wants the scaling of the Layout subnode to affect the layout, you can turn it on manually.
   - [UI] supports fnt files in XML format.
@@ -116,9 +116,9 @@ The compression required by the texture can be set directly in the editor, and _
   - [Wechat] Supports getting the res and referrerInfo parameters passed to the platform when responding to the cc.game.EVENT_SHOW event on WeChat Mini Games.
   - [VideoPlayer] Optimized the performance of VideoPlayer full-screen playback.
 
-## Bug Fixes
+### Bug Fixes
 
-### Editor
+#### Editor
 
   - Fix an issue where the animation editor node list may not be updated.
   - Fix the problem of selecting the RichText subnode in the scene editor.
@@ -127,7 +127,7 @@ The compression required by the texture can be set directly in the editor, and _
   - The editor will report an error when repairing an external drag resource to an invalid location in the resource manager.
   - Fixed remote server ip getting error when publishing Android Instant platform.
 
-### Engine
+#### Engine
 
   - [Core] Problem with activeInHierarchy being true after fixing node destroy.
   - [Core] Fix filter in RenderTexture, premultiply alpha setting is invalid.
@@ -152,22 +152,22 @@ The compression required by the texture can be set directly in the editor, and _
   - [Physics] Fixed an issue where `MouseJoint` failed to respond to touch cancel.
   - [Spine] Fixes the problem that textures may be lost when Spine is reloaded under Mask.
 
-## MIGRATION GUIDE
+### MIGRATION GUIDE
 
-### v2.1 upgrade considerations
+#### v2.1 Upgrade Considerations
 
   - Node's `rotation` related API has been marked as deprecated, and the runtime will prompt to upgrade to `angle`. See [3D Node - Node API Upgrade](../3d/3d-node.md).
   - The NDK version of Android needs to be upgraded to `r16` or the compilation will fail.
 
-### WeChat Open Data Context
+#### WeChat Open Data Context
 
 Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data context solution, see [Wechat Open Data Context](../publish/publish-Wechatgame-sub-domain.md).
 
-### v2.0 Upgrade Guide
+#### v2.0 Upgrade Guide
 
 See the [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.md).
 
-### Resource upgrade
+#### Resource Upgrade
 
 Since __v1.10__, __Cocos Creator__ has refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.md).
 
