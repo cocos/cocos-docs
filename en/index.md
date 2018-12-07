@@ -6,9 +6,11 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 
 ## What's New
 
-- Starting with v2.1, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [3D Node](3d/index.md).
+- Starting with v2.1, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
+- Starting with v2.0.5, Cocos Creator support posted to [OPPO Mini Games](publish/publish-oppo-instant-games.md) and [Vivo Mini Games](publish/publish-vivo-instant-games.md).
 - Starting with v2.0.4, Cocos Creator support posted to [Google Play Instant](publish/publish-android-instant.md).
-- Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md) - Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
+- Starting with v1.10, Cocos Creator has refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+- Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
 - Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
 - Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
 
@@ -32,15 +34,10 @@ Welcome to the Cocos Creator User Manual! Cocos Creator is a free, cross-platfor
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md)
-
-- Starting with v1.9, Cocos Creator support posted to [Facebook Instant Games](publish/publish-fb-instant-games.md) and [QQ Play](publish/publish-qqplay.md).
-- Starting with v1.8，Cocos Creator support posted to Wechat Mini Games，please refer to [Wechat Mini Games](publish/publish-wechatgame.md).
-- Cocos Creator also supports exporting scenes and UI to Cocos2d-x, see [C++/Lua Support](advanced-topics/cpp-lua.md).
-/quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
-**Note**: These projects are updated irregularly with the version of Cocos Creator. Their default branches on GitHub are master, which corresponds to the latest Cocos Creator version. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
+**Note**: These projects will be updated irregularly with the version of Cocos Creator. Their default branches on GitHub are master, which corresponds to the latest Cocos Creator version. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
