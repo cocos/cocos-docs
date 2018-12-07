@@ -4,13 +4,14 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 
 **Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using. The current stable version is still v2.0, and if you are using v2.1, please refer to the [Cocos Creator v2.1 User Manual](../../2.1/manual/en/index.html).
 
-
 ## What's New
-  - Starting with __v2.0.5__, __Cocos Creator__ supports publishing to [OPPO Mini Game Platform](publish/publish-oppo-instant-games.md) and [Vivo Mini Game Platform](publish/publish-vivo-instant-games.md).
-  - Starting with __v2.0.1__, __Cocos Creator__ upgraded the open data context solution, see [WeChat Mini Game Open Data Context](publish/publish-wechatgame-sub-domain.md).
-  - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
-  - Starting with __v1.10__, __Cocos Creator__ refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
-  - Starting with __v1.10__, __Cocos Creator__ supports __WeChat Mini Game Platform__ and their code subpackage feature, please refer to [code subpackage](scripting/subpackage.md).
+
+  - Starting with __v2.0.5__, Cocos Creator supports publishing to [OPPO Mini Game Platform](publish/publish-oppo-instant-games.md) and [Vivo Mini Game Platform](publish/publish-vivo-instant-games.md).
+  - Starting with __v2.0.4__, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
+  - Starting with __v2.0.1__, Cocos Creator upgraded the open data context solution, see [WeChat Mini Game Open Data Context](publish/publish-wechatgame-sub-domain.md).
+  - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md).
+  - Starting with __v1.10__, Cocos Creator refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+  - Starting with __v1.10__, Cocos Creator supports __WeChat Mini Game Platform__ and their code subpackage feature, please refer to [code subpackage](scripting/subpackage.md).
 
 ## Index
 
