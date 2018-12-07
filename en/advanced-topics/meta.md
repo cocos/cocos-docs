@@ -56,13 +56,13 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The **meta** file in the *.png* image has more information. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image. There is a lot of information that is stored. **uuid** and it is particularly important.
+The **meta** file for the png image has more information. In addition to the basic ver and uuid, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **uuid** and it is particularly important.
 
 > uuid : Universally Unique Identifier
 
 **uuids** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
 
-## When will a meta file be updated?
+## When will a meta file be updated
 
 __Cocos Creator__ generates **meta** files the following situations:
 
@@ -78,8 +78,8 @@ __Cocos Creator__ generates **meta** files the following situations:
 
   ![](meta/add.png)
 
-  - Files in the `assets` directory can be added, deleted, changed, on your local **file-system**. Changes made there are reflected in **Creator editor interface**! There is no need to make these changes twice, meaning once on your local **file-system** and then again in Creator editor interface. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
-
+  - Files in the `assets` directory can be added, deleted, changed, on your local **file-system**. When the changes are complete, switch to the Creator editor interface, where you can see the process of **Assets** panel refresh. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
+  
   ![](meta/refresh.png)
 
 If a file's **meta** file does not exist, the above two conditions will trigger the engine to generate a new **meta** file automatically.
