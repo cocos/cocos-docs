@@ -27,6 +27,7 @@
     - [Get Help and Support](getting-started/support.md)
     - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
     - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
+    - [v2.1 Upgrade Guide](release-notes/upgrade-guide-v2.1.md)
     - [FAQ](getting-started/faq.md)
 
 ## Workflows
