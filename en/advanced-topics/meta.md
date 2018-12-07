@@ -1,30 +1,30 @@
-# 资源管理注意事项 --- meta 文件
+# Resource Management Considerations --- meta files
 
-> 本文全文转载自 [微信公众号：奎特尔星球](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg)，转载前已获得作者授权
-> 作者：ShawnZhang
+> **Note:** The full text of this article is reproduced from [WeChat Official Account: Quetta Planet](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting
+> **Author:** Shawn Zhang
 
-Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同名的 meta 文件，相信大家一定不会太陌生。理解 Creator 生成 meta 文件的作用和机理，能帮助您和您的团队解决在多人开发时常会遇到的资源冲突、文件丢失、组件属性丢失等问题。那 meta 文件是做什么用的呢？下面我们来了解一下。
+__Cocos Creator__ will generate a **meta** file with the same name for every file and directory in the **assets** directory. Understanding the role and mechanics of __Cocos Creator's__ generation of **meta** files can help developers solve resource conflicts, file loss, and missing component properties that are often encountered with team development. What is the **meta** file used for? Let's take a look!
 
 ![](meta/missingscript.png)
 
-## meta 文件的作用
+## The Role of a Meta File
 
-先来看下场景中的 meta 文件长什么样子：
+Let's first look at what the **meta** file looks like in the scene:
 
 ```js
-{  
-  "ver": "1.0.0",  //版本
-  "uuid": "911560ae-98b2-4f4f-862f-36b7499f7ce3", //全局唯一id
-  "asyncLoadAssets": false,  //异步加载
-  "autoReleaseAssets": false,  //自动释放资源
-  "subMetas": {}  //子元数据
+{
+  "ver": "1.0.0", //version
+  "uuid": "911560ae-98b2-4f4f-862f-36b7499f7ce3", //global unique id
+  "asyncLoadAssets": false, // asynchronous loading
+  "autoReleaseAssets": false, // automatically release resources
+  "subMetas": {} // child metadata
 }
 ```
 
-预制件的 meta 文件与场景是一样的。我们再来看一下 png 图片的 meta 文件：
+The **meta** file for the prefab is the same as the scene. Let's take a look at the **meta** file of the png image:
 
 ```js
-{  
+{
    "ver": "1.0.0",
    "uuid": "19110ebf-4dda-4c90-99d7-34b2aef4d048",
    "type": "sprite",
@@ -56,86 +56,86 @@ Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同�
 }
 ```
 
-png 图片中的 meta 文件信息比较多，除了基本的 ver 和 uuid 外，还记录了图片的宽高、偏移、九宫格等数据。上面这么多信息，我们这里只关心一个：**uuid**。
+The *.png* image has more information in the **meta** file. In addition to the basic *ver* and *uuid*, it also records the *width*, *height*, *offset*, and *borders* of the image. There is a lot of information that is stored. **uuid** and it is particularly important.
 
-> uuid : 通用唯一标识符（Universally Unique Identifier）
+> uuid : Universally Unique Identifier
 
-uuid 是 Creator 用来管理游戏资源的。它会为每个文件分配一个唯一的 id，图集会生成多个。由此可以了解在 Creator 引擎中，识别一个文件不是简单地通过 `路径 + 文件名` 定位，而是通过 uuid 来引用文件。因此可以在编辑器资源管理中，随意删除、移动文件。
+**uuids** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
 
-## meta 文件更新时机
+## When will a meta file be updated?
 
-Creator 生成 meta 文件有以下几种情况：
+__Cocos Creator__ generates **meta** files the following situations:
 
-**1、打开工程时**
+  **1. when opening the project**
 
-打开项目工程时，Creator 会先扫描 assets 目录，如果哪个文件还没有 meta 文件，此时就会生成。
+  When you open a project, __Cocos Creator__, scans the **assets** directory first, and if it does not have a **meta** file, one will be generated.
 
-**2、更新资源时**
+  **2. when updating resources**
 
-更新资源也会引发 meta 文件的更新：
+  Updating resources also triggers updates to the corresponding **meta** files:
 
-- 在 **资源管理器** 中可以对资源进行文件名修改、改变目录、删除文件，添加文件等操作，请参考 [资源管理器](../getting-started/basics/editor-panels/assets.md)。也可以直接从桌面或操作系统的文件管理器中将文件拖入到 **资源管理器** 中。
+  - In **Assets**, you can modify the file name of a resource, change the directory a resource belongs in, delete resources, and add new resources. You can also drag files directly into **Assets** from your desktop  or the operating system's file manager. Please refer to [Assets](../getting-started/basics/editor-panels/assets.md).
 
-![](meta/add.png)
+  ![](meta/add.png)
 
-- 还有一种情况是在操作系统的文件管理器中对 assets 目录中的文件进行增、删、改之后切换到编辑器界面，此时可以看到 **资源管理器** 刷新的过程。
+  - Files in the `assets` directory can be added, deleted, changed, in the **Assets** interface. Changes made there are synchronous on your local **file-system**! There is no need to make these changes twice, meaning once in __Cocos Creator__ and then again on your local **file-system**. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
 
-![](meta/refresh.png)
+  ![](meta/refresh.png)
 
-如果一个文件的 meta 文件不存在，上面两种情况都会触发引擎去生成 meta 文件。
+If a file's **meta** file does not exist, the above two conditions will trigger the engine to generate a new **meta** file automatically.
 
-## meta 文件出错的几种情况及解决方法
+## Meta File Error Cases And Solutions
 
-下面我们分析下 meta 文件出错的几种可能情况。
+Let's analyze several possible cases that produce a **meta** file error.
 
-### uuid 冲突
+### UUID Conflict
 
-uuid 是全局唯一的，产生冲突肯定是有不同的文件的 uuid 相同了，一旦出现这个问题会导致 Cocos Creator 资源管理器目录结构加载不完整。如下图所示，遇到这种情况估计会让你吓出一身冷汗：
+**uuid** is globally unique. A conflict occurs if, by chance, two files have the same **uuid**. If this problem occurs, the __Cocos Creator__ resource manager directory structure is incompletely loaded. As shown in the figure below, when this happens, the errors look scary:
 
 ![](meta/conflict.png)
 
-从提示中可以看到冲突的 uuid 字符串，然后打开操作系统文件管理或代码编辑器，搜索这个 uuid：
+**uuid** conflicts can be viewed from the **Console**, and then opened from your local file-system or favorite code editor. Once opened you can search for the conflicting **uuid**:
 
 ![](meta/search_uuid.png)
 
-此时先关闭 Creator 编辑器，再任意删除其中一个 meta 文件，然后再打开 Creator 编辑器就可以解决。
+At this point, close the __Cocos Creator__ editor then delete one of the meta files. Next, open the __Cocos Creator__ editor.
 
-这种方法虽然可以解决问题，但在编辑器中引用到这个资源的地方将会出现资源丢失，需要重新编辑或者重新配置一次。最好是通过版本管理工具还原此 meta 文件。
+Even though this method can solve the problem, if the resource is referenced in the editor, a resource loss will occur. This means the resource needs to be re-edited or reconfigured again. It is best to restore this **meta** file with the version management tool.
 
-出现这种问题的原因一般有以下两个：
+There are two reasons for this problem:
 
-- 在操作系统的文件管理器中移动文件时，将剪切、粘贴不小心操作成了复制、粘贴，同时也把 meta 文件复制过去了。导致项目中同时出现两个相同的 meta 文件。
+  - When moving files on the **file-system**, copying and pasting operations also result in the **meta** file also being copied. This causes two identical **meta** files to appear simultaneously in the project.
 
-- 在多人协作时，从版本管理工具中，更新资源时碰巧遇到别人生成的 uuid 与你的电脑上某个文件生成的 uuid 一样了，但这种情况非常非常罕见。
+  - When you have multi-person collaboration, from the version management tool, when you update the resource, you may encounter that the **uuid** has been generated by someone else as well as by the file on your computer. This is a very rare occurence, but could still happen.
 
-总的来说，要减少 uuid 冲突发生，最好在引擎资源管理工具中进行添加、移动文件。
+In general, to reduce the occurrence of **uuid** conflicts, it is best to add and move files in the __Cocos Creator__ resource management tool.
 
-### uuid 变化
+### uuid Changes
 
-还有一种情况是 uuid 变了，使得旧的 uuid 对应的资源无法找到，这样的话，你曾经编辑的界面将会出现资源、图片丢失，还可能出现组件属性丢失。
+Another situation is when the **uuid** has changed, so that the resources corresponding to the old **uuid** cannot be found. In this case, the interface you have edited will have the resources, but the pictures may be lost as well as the components properties may also be lost.
 
 ![](meta/lost.png)
 
-如果找不到旧的 uuid 对应的资源，通过 **控制台** 可以看到 Creator 给出了所在的场景文件名、节点路径、组件、uuid 等非常详细的警告信息。通过警告信息可以快速定位出错的地方。
+If you can't find the resources corresponding to the old **uuid**, you can see that __Cocos Creator__ gives a very detailed warning message in the **console**. These details include the *scene file name*, *node path*, *component*, *uuid*, etc. The warning message allows you to quickly locate the error.
 
-这种情况又是怎么造成的呢？当有一个人将新资源添加进项目时，忘记切换到编辑器界面使其生成 meta 文件，同时又将这些新增的文件提交到了版本管理中(不包含 meta 文件)。然后，有另一个人去更新了他所提交的资源，同时切换到了编辑器界面进行编辑，这时 Creator 会检查到新资源没有 meta 文件便会立即生成。而当第一个人切换到编辑器的时候也会生成 meta 文件，这样两个人的电脑上为同一个文件，但是生成的 meta 文件中的 uuid 都不相同。
+How is this situation caused exactly? When someone adds a new resource to the project, they forget to switch to the editor interface to generate a **meta** file, and at the same time submit the new file to version management (without the **meta** file). Then, another person updates the resources he/she submitted and switches to the editor interface for editing. At this point, __Cocos Creator__ will check that the new resource is generated without a **meta** file. The **meta** file is also generated when the first person switches to the editor, so that the two people have the same file on the computer, but the **uuid** in the generated **meta** file is different.
 
-这种情况下，后面进行资源提交或更新的人，肯定也会遇到冲突，如果不明就理就强行解决冲突，就会产生上面所说的问题。下面的时序图就描述了这种错误的工作流程：
+In this case, those who submit or update resources later will certainly encounter conflicts. If they are unclear, they will forcibly resolve the conflicts, and the problems mentioned above will arise. The following sequence diagram depicts this erroneous workflow:
 
 ![](meta/resources.png)
 
-因为第一个 A 同学忘记生成 meta 文件并提交，之后其他人都编辑过项目，但每个人生成的 uuid 都不同，这样就会陷入无限的资源出错中，编辑好的东西，一提交更新又出现冲突了。
+A classmate forgets to submit the **meta** file to version control. Other classmates then edit the project resulting in everyone having the file on their computer, each with a different **uuid**.
 
-要解决这个问题注意下面几点：
+To solve this problem, note the following:
 
-- 提交前检查是否有新增文件，有新增文件时，注意是否有 meta 文件，需要一起提交；
+  - When submitting resources, pre-check for new files. If there are new documents, pay attention to whether **meta** files need to be submitted together.
 
-- 拉取文件时，注意是否有新增文件，并且是有 meta 文件成对，如果没有的话，提醒之前提交文件的同学，把 meta 文件一并提交；
+  - When pulling files, pay attention to whether there are new files, and if there are **meta** files in pairs. If not, remind team-mates who submitted the files to submit the files and **meta** files together.
 
-- 提交时，如果发现只有新增的 meta 文件，那这个 meta 文件肯定是自己生成的，需要注意是否使用过这个 meta 文件对应的资源（同名文件）。如果没用过，那请最早提交者把 meta 文件提交了。千万不能将这个 meta 文件提交上去。
+  - When submitting, if you find that there is only one new **meta** file, then the **meta** file must have been generated by yourself. You need to pay attention to whether the resource corresponding to the **meta** file (the file with the same name) has been used. If you haven't used it, please submit the **meta** file to the first submitter. Never submit this **meta** file.
 
-注意上面几点基本上就可以杜绝 meta 文件 uuid 变化导致的工程出错了。
+Note that the above points can basically eliminate the engineering error caused by the **meta** file **uuid** change.
 
-## 小结
+## Summary
 
-meta 文件是 Creator 用于资源管理的重要手段，但在多人协同开发中稍有不慎就容易产生资源错误。要解决这个问题，不仅需要理解 meta 文件的产生机制和导致冲突的原因，同时还应该规范资源提交流程。
+The **meta** file is an important tool for __Cocos Creator__ to use for resource management. It is easy to generate resource errors when it is slightly inadvertent in a multi-person collaborative development. To solve this problem, you not only need to understand the mechanism that generates the **meta** file but also the cause of the conflict. Proper thought and control of resource submission helps too.
