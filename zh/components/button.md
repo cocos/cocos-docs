@@ -23,6 +23,7 @@ Button 组件可以响应用户的点击操作，当用户点击 Button 时，Bu
 **注意**：当 Transition 为 SPRITE 且 disabledSprite 属性有关联一个 spriteFrame 的时候，此时不会使用内置 shader 来变灰
 
 ### Button Transition
+
 Button 的 Transition 用来指定当用户点击 Button 时的状态表现。目前主要有 NONE，COLOR，SPRITE 和 SCALE。
 
 ![transition](./button/transition.png)
@@ -75,7 +76,6 @@ Button 的 Transition 用来指定当用户点击 Button 时的状态表现。�
 
 Button 目前只支持 Click 事件，即当用户点击并释放 Button 时才会触发相应的回调函数。
 
-
 #### 通过脚本代码添加回调
 
 ##### 方法一
@@ -88,7 +88,7 @@ Button 目前只支持 Click 事件，即当用户点击并释放 Button 时才�
 cc.Class({
     extends: cc.Component,
     properties: {},
-    
+
     onLoad: function () {
         var clickEventHandler = new cc.Component.EventHandler();
         clickEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
@@ -120,18 +120,15 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
     properties: {
        button: cc.Button
     },
-    
+
     onLoad: function () {
        this.button.node.on('click', this.callback, this);
     },
-    
-    callback: function (event) {
-       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Button 组件
-       var button = event.detail;
+
+    callback: function (button) {
        //do whatever you want with button
        //另外，注意这种方式注册的事件，也无法传递 customEventData
     }

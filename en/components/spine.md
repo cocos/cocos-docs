@@ -4,13 +4,15 @@ Spine component supports Spine (software) exported data format, and manage and d
 
 ![spine](./spine/spine-properties.png)
 
-Click the `add component` at the bottom of **Properties** and select `Spine Skeleton` from `add other components` in order to add the **Spine** component to the node.
+Click the `Add component` at the bottom of **Properties** and select `Spine Skeleton` from `Add Renderer Component` in order to add the **Spine** component to the node.
+
+About the Spine's scripting interface please refer to [Skeleton API](../../../api/en/classes/Skeleton.html)
 
 ## Spine attribute
 
 | Attribute |   Function explanation
 | -------------- | ----------- |
-|Skeleton Data| Spine '.json' data format after export
+|Skeleton Data| Spine `.json` data format after export
 |Default Skin| The default skin texture
 |Animation| Current animation playback
 |Loop| Whether animation loop
@@ -19,6 +21,6 @@ Click the `add component` at the bottom of **Properties** and select `Spine Skel
 |Debug Slots| Display picture frame
 |Debug Bones| Display bone
 
-> Note: When using Spine components on Node node `Anchor` and` Size` is invalid.
+**Note**: When using Spine components on Node node `Anchor` and `Size` is invalid.
 
 Continue on to read about [Animation component reference](animation.md).

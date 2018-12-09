@@ -11,11 +11,11 @@
                 "links": [
                     {
                         "name": "手册文档",
-                        "link": "http://docs.cocos.com/creator/manual/zh"
+                        "link": "https://docs.cocos.com/creator/2.1/manual/zh"
                     },
                     {
                         "name": "API 参考",
-                        "link": "http://docs.cocos.com/creator/api/zh"
+                        "link": "https://docs.cocos.com/creator/2.1/api/zh"
                     }
                 ]
             },
@@ -24,17 +24,40 @@
                 "links": [
                     {
                         "name": "手册文档",
-                        "link": "http://docs.cocos.com/cocos2d-x/manual/zh"
+                        "link": "https://docs.cocos.com/cocos2d-x/manual/zh"
                     },
                     {
                         "name": "API 参考",
-                        "link": "http://www.cocos2d-x.org/docs/api-ref/index.html"
+                        "link": "http://docs.cocos2d-x.org/api-ref/index.html"
                     }
                 ]
             },
             {
                 "name": "AnySDK",
                 "link": "http://docs.anysdk.com/"
+            }
+        ],
+        "version": [
+            {
+                "name": "2.1",
+                "links": [
+                    {
+                        "name": "1.9",
+                        "link": "https://docs.cocos.com/creator/1.9/manual/zh"
+                    },
+                    {
+                        "name": "1.10",
+                        "link": "https://docs.cocos.com/creator/1.10/manual/zh"
+                    },
+                    {
+                        "name": "2.0",
+                        "link": "https://docs.cocos.com/creator/manual/zh"
+                    },
+                    {
+                        "name": "2.1",
+                        "link": "https://docs.cocos.com/creator/2.1/manual/zh"
+                    }
+                ]
             }
         ]
     }

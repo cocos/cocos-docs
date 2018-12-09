@@ -1,102 +1,221 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and C++ (custom version of Cocos2d-x). They are both open sourced on GitHub:
+The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x-lite (custom version of Cocos2d-x-lite) and adapters. They are all open sourced on GitHub:
 
-- Creator-JS engine: https://github.com/cocos-creator/engine
-- Cocos2d-x-lite engine：https://github.com/cocos-creator/cocos2d-x-lite
+- JavaScript engine: <https://github.com/cocos-creator/engine>
+- Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
 
-If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. 
-Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
+There are three adapters:
 
-## Customize JavaScript Engine
+- `jsb-adapter`: <https://github.com/cocos-creator-packages/jsb-adapter>
+- `weapp-adapter`: <https://github.com/cocos-creator-packages/weapp-adapter>
+- `qqplay-adapter`: <https://github.com/cocos-creator-packages/qqplay-adapter>
 
-If your concern is only Web based games, or what you want to change in the engine is not native API 
-related (for example UI and animation components), you just need to follow the workflow here:
+If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
-### Get JavaScript Engine Repository
-First, you need to clone the engine repository or fork the repo. You have to make sure the repo is 
-at the corresponding branch. For example to customize engine for __Cocos Creator v1.1.2__ you'd need 
-to checkout `v1.1` branch; for __Cocos Creator v1.2.1__ you'd need to checkout `v1.2` branch. 
-Once cloning is completed, go to the repo's folder in command-line shell.
+In addition, depending on the different version of Creator, you have to make sure the engine repo is at the corresponding branch. For example:
 
-### Install NPM Dependencies
+- **master/develop** branch: Branch used for current latest version
+- **vX.Y-release** branch: The branch that corresponds to the x.y version
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
+- **next** branch: Branch for large refactoring, if are document and API repo, then used for version 2.0
+
+It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch.
+
+## 1 Customize JavaScript Engine
+
+If your concern is only Web based games, or what you want to change in the engine is not native API, related (for example UI and animation components), you just need to follow the workflow here:
+
+### 1.1 Get JavaScript Engine Repository
+
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths.
+
+![](engine-customization/open-engine.png)
+
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. Once cloning is completed, go to the repo's folder in command-line shell.
+
+![](engine-customization/download-repo-js.png)
+
+### 1.2 Install NPM Dependencies
+
 __npm__ and __gulp__ are core components for engine building. These need to be installed. Example:
 
 ```bash
+# Enter the engine path in the command line
+cd /Users/yufang/engine
+# Install the gulp build tool
 npm install -g gulp
+# Install dependent modules
 npm install
 ```
 
-### Change and Build
-Now you can do whatever you want to the engine, once you finished:
+### 1.3 Change and Build
+
+Now you can do whatever you want to do with the engine, once you finished:
 
 ```bash
 # build engine
 gulp build
 ```
 
-This will generated a compiled engine to `bin` folder.
+This command will generate a `bin` folder in the engine directory and compile the engine source into the `bin` directory.
 
-### Use customized engine in Cocos Creator
+![](engine-customization/bin.png)
 
-Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized JavaScript engine.
+### 1.4 Use customized engine in Cocos Creator
 
+Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set the path to your customized JavaScript engine.
 
-## Customized Cocos2d-x C++ Engine
+![](engine-customization/setting-js.png)
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article, it's not the same as the stand alone cocos2d-x repo (http://github.com/cocos2d/cocos2d-x)!
+## 2 Customize Cocos2d-x-lite Engine
 
-Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.2.0 please checkout `v1.2` branch.
+If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x-lite engine of Cocos Creator.
 
-### Initialize
+### 2.1 Get the Cocos2d-x-lite Engine
+
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
+
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
+
+### 2.2 Initialize
 
 Once cloned, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
+# Enter the Cocos2d-x-lite engine path from the command line
+cd /Users/yufang/cocos2d-x-lite
 # Install NPM dependencies
 npm install
-# download binary dependencies, you'll need python working first
-python download-deps.py
-# update submodule repos, you'll need git
-git submodule update --init
+# Initialize repo
+gulp init
 ```
 
-
-### Used customized cocos2d-x-lite engine in Cocos Creator
-
-Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x-lite engine.
-
-### Build from Source
-
-Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your 
-built project you can just choose `default` template in **Build** panel and compile from the source, no 
-extra command line work needed.
-
-### Build binary library and simulator
-
-If you want to use a `binary` template to build and compile native project (it's much faster since C++ 
-code are already compiled), you'll need to run these commands:
+- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x-lite engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
 ```bash
-# use cocos console to generate prebuilt binary libs
-gulp gen-libs
+> ==> Ready to download 'v3-deps-54.zip' from
+> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+> Traceback (most recent call last):
+> ...
+> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
 ```
+
+- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x-lite engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
+
+```bash
+> ==> Ready to download 'creator-console-2.zip' from
+> 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
+> Traceback (most recent call last):
+> ...
+> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+```
+
+### 2.3 Configure Custom Engine in Cocos Creator
+
+Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set the path to your customized cocos2d-x-lite engine.
+
+![](engine-customization/setting-2dx.png)
+
+### 2.4 Build from Source
+
+Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
+
+### 2.5 Build simulator
 
 To generate simulator to preview your changes:
 
 ```bash
 # use cocos console to generate simulator
-gulp sign-simulator
 gulp gen-simulator
 gulp update-simulator-config
 ```
 
-`gulp sign-simulator` is a new command since 1.7.0. Only Mac need to run it. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
+**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
 
+![](engine-customization/sign.png)
 
-### JSB Workflow (JavaScript Binding)
+## 3 Customize adapter
 
-If your changes involves JavaScript and C++ changes at the same time. You should read this article:
+Cocos Creator in order to achieve cross-platform, in the JavaScript layer needs to do a number of different platform adaptation work. These efforts include:
+
+- Suitable for different platforms with BOM and DOM running environment
+- Some engine-level adaptation  
+
+The current adaptation layer consists of three parts:
+
+- `jsb-adapter`: Suitable for native platforms
+- `weapp-adapter`: Suitable for Wechat Mini Games
+- `qqplay-adapter`: Suitable for QQ Play
+
+### 3.1 Get adapter
+
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin adapter engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and the `jsb-adapter`, `weapp-adapter`, and `qqplay-adapter` directories can be found within the `resources/builtin` directory.
+
+If you want to get the latest version of the official developing, you need to download it from the github repo specified above, Then replace it with the `resources/builtin` directory of the program installation path. Same as JavaScript engine, you need to make sure adapter repo is on correct branch.
+
+### 3.2 Customize jsb-adapter
+
+In the `jsb-adapter` directory, the following two directory structures are included:
+
+- `builtin`：Adapt the runtime of the native platform
+- `engine`：Adapt some APIs of the engine level
+
+The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
+
+Some changes have taken place in jsb-adapter customization after **Creator 2.0.5** . Please reference to the different guide below according to the current Creator version you are using.
+
+#### 3.2.1 Customization before Creator 2.0.5
+
+Customization of the `engine` section only requires modification of the code.<br>
+Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
+
+```bash
+cd jsb-adapter/builtin
+npm install
+```
+
+Next, you can customize the code in the `builtin` section. After the modification is complete, continue to execute it on the command line:
+
+```bash
+# in jsb-adapter/builtin folder
+gulp
+```
+
+When the command completes, a new `jsb-builtin.js` file is generated in the `jsb-adapter/builtin/dist` directory.
+
+After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` file and the `engine` directory together to the `jsb-adapter` folder in the project when you **build** the native platform in the **Build** panel.
+
+#### 3.2.2 Customization after Creator 2.0.5 (2.0.5 included)
+
+First of all, you should install the dependencies. Please execute them on the command line:
+
+```bash
+cd jsb-adapter/
+npm install
+```
+
+Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
+
+```bash
+# in jsb-adapter folder
+gulp
+```
+
+The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
+
+After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
+
+### 3.3 Customize weapp-adapter and qqplay-adapter
+
+The adaptation layer code for the **Wechat Mini Games** and **QQ Play** is located in the `weapp-adapter` and `qqplay-adapter` in the `resources/builtin` directory.
+
+- The customization of this part of the code does not require any compilation operations.  
+- Engine-level adaptation work, please complete in the appropriate engine directory.  
+
+## 4 JSB Workflow (JavaScript Binding)
+
+If you need to modify the JavaScript interface provided by the Cocos2d-x-lite engine, you should complete the JSB binding.
 
 Creator >= 1.7, please refer to:
 
@@ -104,4 +223,5 @@ Creator >= 1.7, please refer to:
 
 Creator <= 1.6, please refer to:
 
-- [How to bind C++ to JavaScript](http://www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)
+- [Script binding in Cocos](https://zhuanlan.zhihu.com/p/20525026)
+- [Automatic binding in Cocos](https://zhuanlan.zhihu.com/p/20525109)

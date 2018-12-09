@@ -5,3 +5,8 @@ package.json
 .gitignore
 .bookignore
 /README.md
+/zh/CONTRIBUTING.md
+*.xlsx
+*.orig
+*.less
+*.ai

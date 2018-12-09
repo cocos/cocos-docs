@@ -37,7 +37,7 @@ Manifest 文件中包含以下几个重要信息：
 
 在这篇教程中，将提出一种针对 Cocos Creator 项目可行的热更新方案，我们也在 cocos2d-x 的中开放了 Downloader 的 JavaScript 接口，用户可以自由开发自己的热更新方案。
 
-在开始详细讲解之前，开发者可以看一下 Cocos Creator 发布原生版本后的目录结构，这个目录结构和 Cocos2d-x JS 项目的目录是完全一致的。以前没有接触过 Cocos2d-x 的用户可以参考[项目结构文档](http://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-1-cocos2d-js-project/zh.md)。对于 Cocos Creator 来说，所有 JS 脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 res 目录。
+在开始详细讲解之前，开发者可以看一下 Cocos Creator 发布原生版本后的目录结构，这个目录结构和 Cocos2d-x JS 项目的目录是完全一致的。以前没有接触过 Cocos2d-x 的用户可以参考[项目结构文档](https://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-1-cocos2d-js-project/zh.md)。对于 Cocos Creator 来说，所有 JS 脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 res 目录。
 
 基于这样的项目结构，本篇教程中的热更新思路很简单：
 

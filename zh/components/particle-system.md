@@ -16,7 +16,7 @@
 // 创建一个节点
 var node = new cc.Node();
 // 并将节点添加到场景中
-c.director.getScene().addChild(node);
+cc.director.getScene().addChild(node);
 // 并添加粒子组件到 Node 上
 var particleSystem = node.addComponent(cc.ParticleSystem);
 // 接下去就可以对 particleSystem 这个对象进行一系列操作了
@@ -73,7 +73,3 @@ Particle System 的脚本接口请参考 [Particle System API](../../../api/zh/c
 | RotatePerSVar      | 粒子每秒围绕起始点的旋转角度变化范围
 | SrcBlendFactor     | 指定原图混合模式 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)   
 | DstBlendFactor     | 指定目标的混合模式 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)  
-
-## 注意事项
-
-目前由于在 Canvas 中进行的每个粒子纹理 Color 渲染时很耗性能，所以建议在 Canvas 渲染模式下粒子数量不要太多尽量保持在 200 个以内，否则会导致运行时非常卡

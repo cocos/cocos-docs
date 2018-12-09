@@ -49,6 +49,8 @@ Compiler status update
 4. builder:query-build-options
 Query build options
 
+**Note**: Starting from v1.9.1, points 1 and 2 are not recommended. If necessary please refer to [Custom Project Build Process](../../publish/custom-project-build-template.md).
+
 ### Built-in plug-in Panel monitor messages
 
 #### scene:new-scene

@@ -30,6 +30,7 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - [使用对象池](pooling.md)
 - 脚本组织模式
   - [模块化脚本](modular-script.md)
+  - [代码分包加载](subpackage.md)
   - [插件脚本](plugin-scripts.md)
 - [JavaScript 快速入门](javascript-primer.md)
 - [使用 TypeScript 脚本](typescript.md)
@@ -42,7 +43,6 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - [JavaScript 标准支持](reference/javascript-support.md)
 - [推荐编码规范](reference/coding-standards.md)
 - [SizeProvider](reference/size-provider.md)
-
 
 <hr>
 

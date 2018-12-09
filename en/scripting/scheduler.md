@@ -8,7 +8,7 @@ Now, let's see its detailed using method:
 
 1. Start a timer
 
-    ```
+    ```js
     component.schedule(function() {
         // Here `this` is referring to the component
         this.doSomething();
@@ -19,7 +19,7 @@ Now, let's see its detailed using method:
 
 2. Quicker timer
 
-    ```
+    ```js
     // Time interval in units of seconds
     var interval = 5;
     // Time of repetition
@@ -36,7 +36,7 @@ Now, let's see its detailed using method:
 
 3. Timer only runs once (shortcut)
 
-    ```
+    ```js
     component.scheduleOnce(function() {
         // Here `this` is referring to the component
         this.doSomething();
@@ -49,7 +49,7 @@ Now, let's see its detailed using method:
 
     The developer can use the call-back function itself to cancel the timer:
 
-    ```
+    ```js
     this.count = 0;
     this.callback = function () {
         if (this.count === 5) {
@@ -62,6 +62,8 @@ Now, let's see its detailed using method:
     component.schedule(this.callback, 1);
     ```
 
+**Attention**: When the callback is invoked by the scheduler for the component, the `this` in the callback is assigned as the component itself, so you can use `this` directly in the callback.
+
 Below are all the functions of the timer in the component:
 
 - schedule：start a timer
@@ -69,8 +71,8 @@ Below are all the functions of the timer in the component:
 - unschedule：cancel a timer
 - unscheduleAllCallbacks：cancel all the timers of this component
 
-These detailed descriptions about API can all be found in [Component API](http://www.cocos2d-x.org/docs/creator-api/en/classes/Component.html).
+These detailed descriptions about API can all be found in [Component API](http://docs.cocos2d-x.org/creator-api/en/classes/Component.html).
 
-Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md).
+Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
 
-### **Caution: `cc.Node` does not contain Scheduler API**
+### Caution: `cc.Node` does not contain Scheduler API

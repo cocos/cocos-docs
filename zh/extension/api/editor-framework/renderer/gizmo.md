@@ -4,7 +4,7 @@
 
 ### Editor.Gizmo.prototype.registerMoveSvg(svg, args, opts)
 
-Register a moveable svg element.    
+Register a moveable svg element.
 When the svg element is moved, the callback created from `onCreateMoveCallbacks` will be called.
 
 - `svg` Svg Element - The svg element which can move.
@@ -105,7 +105,7 @@ dirty () {
 }
 ```
 
-### Editor.Gzimo.prototype.onCreateRoot()
+### Editor.Gizmo.prototype.onCreateRoot()
 
 This function will call when create the root svg element for a gizmo.
 You can implement this function to custom your gizmo creation.
@@ -117,7 +117,7 @@ onCreateRoot () {
 }
 ```
 
-### Editor.Gzimo.prototype.onCreateMoveCallbacks()
+### Editor.Gizmo.prototype.onCreateMoveCallbacks()
 
 This callback return from the function will call when the moveable svg element is moved.
 
@@ -153,7 +153,6 @@ onCreateMoveCallbacks () {
     };
 }
 ```
-
 
 ### Editor.Gizmo.prototype.defaultMinDifference()
 
@@ -192,4 +191,3 @@ Whether the gizmo is editing.
 ### Editor.Gizmo.prototype.hovering
 
 Whether the gizmo is hovering.
-

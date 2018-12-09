@@ -48,7 +48,7 @@ Due to some unknown reason on Windows some debug connection will try to use IPv6
 
 Once you build the project for iOS, Android, Windows or Mac, you can debug these native projects with VS Code. Open the project in VS Code, usually the path is:
 
-`myProject/build/myProject/jsb-default` or `myProject/build/myProject/jsb-binary`, depending on your build template.
+`myProject/build/myProject/jsb-default` or `myProject/build/myProject/jsb-link`, depending on your build template.
 
 Once you run the project on the target device or desktop simulator, the workflow is pretty much the same as above, please add your breakpoints in `jsb-default/src/project.dev.js`. Below are tips for debugging on mobile platform.
 

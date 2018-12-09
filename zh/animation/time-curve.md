@@ -6,7 +6,7 @@
 我们首先需要在一条轨道上创建两个不相等的帧，比如在position上创建两帧，从 0,0 到 100,100。
 这时候两帧之间会出现一根连接线（连接俩关键帧之间的蓝色线段），双击连接线，则可以打开时间曲线编辑器。
 
-<a href="time-curve/main.png"><img src="time-curve/main.png" alt="main"></a>
+![time curve](time-curve/main.jpg)
 
 ## 使用预设曲线
 

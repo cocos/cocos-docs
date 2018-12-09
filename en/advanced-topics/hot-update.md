@@ -37,7 +37,7 @@ The version file can be part of the contents of the manifest file and do not con
 
 In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
 
-Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](http://www.cocos2d-x.org/docs/creator/manual/en/getting-started/project-structure.html). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
+Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](http://docs.cocos2d-x.org/creator/manual/en/getting-started/project-structure.html). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
 
 Based on this project structure, the hot update process in this tutorial is simple:
 
@@ -48,7 +48,7 @@ Based on this project structure, the hot update process in this tutorial is simp
 
 The example project used in the tutorial is based on the BlackJack example. To show the hot update process, delete the table scene in the project, set to version 1.0.0. And save the full version of project assets with the table scene in the `remote-assets` directory, set to version 1.1.0. At the beginning of the game it will check whether there is a version of the remote update, if you find a remote version the user is prompted to update. When update is complete, the user re-enter the game to launch the table scene.
 
-! [table](./hot-update/table.png)
+![table](./hot-update/table.png)
 
 **Note**, the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
 

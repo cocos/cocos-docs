@@ -48,7 +48,7 @@
 
 构建发布出原生工程以后，对包括 iOS、Android、Windows、Mac 等原生平台都可以进行调试。首先要用 VS Code 打开构建发布出的原生工程，一般在
 
-`myProject/build/myProject/jsb-default` 或 `myProject/build/myProject/jsb-binary`，根据构建工程时选择的引擎模板而定。
+`myProject/build/myProject/jsb-default` 或 `myProject/build/myProject/jsb-link`，根据构建工程时选择的引擎模板而定。
 
 在真机或桌面模拟器上运行后，流程就和模拟器调试类似了，请在 `jsb-default/src/project.dev.js` 中设置断点和调试。下面是移动设备调试时的注意事项。
 

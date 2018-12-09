@@ -1,6 +1,6 @@
 # Basic Node and Component API
 
-We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](http://www.cocos2d-x.org/docs/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](http://www.cocos2d-x.org/docs/api-ref/creator/v1.3/classes/Component.html) API reference.
+We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Component.html) API reference.
 
 ## Node active state and hierarchy
 
@@ -8,20 +8,24 @@ Let's assume we are at a component script and use `this.node` to access current 
 
 ### Activate/Deactivate node
 
-The node is active by default. In addition to switching the activating state of a node in the editor, you can also use the following code:
+The node is active by default, we can set its activation state in the code by setting the node's `active` property.
+
+`this.node.active = false;`
+
+The effect of setting the `active` property is the same as switching the activation and deactivation status of the node in the editor. When a node is deactivated, all of its components are disabled. At the same time, all of its child nodes and the components on the child nodes are also disabled. Note that this does not change the value of the `active` property on the child nodes, so they will return to their original state once the parent is reactivated.
+
+In other words, `active` is actually the activation state of the node **itself**, and whether the node is **currently** active depends on its parent node. And if it is not in the current scene, it cannot be activated. We can determine whether it is currently active through the read-only property `activeInHierarchy` on the node.
 
 `this.node.active = true;`
 
-This operation will activate node, means:
-- Show current node and all child nodes in scene, unless child node is deactivated seperately.
+If the node was previously in the state that **can be activated**, modifying `active` to true immediately triggers the activation action:
+- Reactivate the node in the scene, and all its child nodes that have the active property set to true.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
 
 `this.node.active = false;`
 
-If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time. 
-
-If all of the node's parent nodes were previously activated, executing the line code at this point means:
+If the node was previously activated, modifying `active` to false immediately triggers the deactivation action:
 - Hide current node and all child nodes in scene.
 - Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
 - If there's an `onDisable` method in these component, it will be called.
@@ -32,13 +36,13 @@ Assume the parent node is `parentNode`, child node is `this.node`
 
 You can do:
 
-```
+```js
 this.node.parent = parentNode;
 ```
 
 or
 
-```
+```js
 this.node.removeFromParent(false);
 parentNode.addChild(this.node);
 ```
@@ -99,7 +103,7 @@ If you pass only one parameter to `setScale`, both `scaleX` and `scaleY` will be
 ### Size（width and height）
 
 `this.node.setContentSize(100, 100);`<br>
-`this.node.setContentSize(cc.v2(100, 100));`
+`this.node.setContentSize(cc.size(100, 100));`
 
 or
 

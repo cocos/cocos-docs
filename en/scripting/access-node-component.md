@@ -36,13 +36,7 @@ You will get other component in the same node frequently, that is where `getComp
     }
 ```
 
-You can also pass in a class name for the `getComponent`. 
-
-```js
-    var label = this.getComponent("cc.Label");
-```
-
-For user defined components, the class name is simply the filename of the script, and **case sensitive**. For example, if a component declared in "SinRotate.js", its class name will be "SinRotate".
+You can also pass in a class name for the `getComponent`. For user defined components, the class name is simply the filename of the script, and **case sensitive**. For example, if a component declared in "SinRotate.js", its class name will be "SinRotate".
 
 ```js
     var rotate = this.getComponent("SinRotate");
@@ -106,8 +100,6 @@ This way, the player property will be set successfully, you can access it in you
 ```js
 // Cannon.js
 
-var Player = require("Player");
-
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -119,8 +111,7 @@ cc.Class({
     },
 
     start: function () {
-        var playerComp = this.player.getComponent(Player);
-        this.checkPlayer(playerComp);
+        cc.log("The player is " + this.player.name);
     },
 
     // ...

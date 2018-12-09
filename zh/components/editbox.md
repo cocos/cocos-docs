@@ -15,7 +15,7 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 | String                 | 输入框的初始输入内容，如果为空则会显示占位符的文本                               |
 | Background Image       | 输入框的背景图片                                                                 |
 | Keyboard Return Type   | 指定移动设备上面回车按钮的样式                                                   |
-| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写                           |
+| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）                           |
 | Input Mode             | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
 | Font Size              | 输入框文本的字体大小                                                             |
 | StayOnTop              | 输入框总是可见，并且永远在游戏视图的上面                                         |

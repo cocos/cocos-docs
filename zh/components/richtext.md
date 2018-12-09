@@ -46,13 +46,14 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 |i|指定使用斜体来渲染| `<i>This text will be rendered as italic</i>`| 名字必须是小写，且不能写成 italic
 |u|给文本添加下划线|`<u>This text will have a underline</u>`| 名字必须是小写，且不能写成 underline
 |on|指定一个点击事件处理函数，当点击该 Tag 所在文本内容时，会调用该事件响应函数| `<on click="handler"> click me! </on>` | 除了 on 标签可以添加 click 属性，color 和 size 标签也可以添加，比如 `<size=10 click="handler2">click me</size>`
+|param|当点击事件触发时，可以在回调函数的第二个参数获取该数值| `<on click="handler" param="test"> click me! </on>`|依赖 click 事件|
 |br|插入一个空行| `<br/>`| 注意：`<br></br>` 和 `<br>` 都是不支持的。
 |img| 给富文本添加图文混排功能，img 的 src 属性必须是 ImageAtlas  图集里面的一个有效的 spriteframe 名称 |`<img src='emoji1' click='handler' />` | 注意: 只有 `<img src='foo' click='bar' />` 这种写法是有效的。如果你指定一张很大的图片，那么该图片创建出来的精灵会被等比缩放，缩放的值等于富文本的行高除以精灵的高度。
 
 
 标签与标签是支持嵌套的，且嵌套规则跟 HTML 是一样的。比如下面的嵌套标签设置一个文本的渲染大小为 30，且颜色为绿色。
 
-`<size=30><color=green>I'm green></color></size>`
+`<size=30><color=green>I'm green</color></size>`
 
 也可以实现为:
 

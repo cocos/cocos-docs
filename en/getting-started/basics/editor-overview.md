@@ -29,16 +29,49 @@ For further information please read the [Node Tree](editor-panels/node-tree.md) 
 
 ## Properties
 
-![properties](index/inspector.jpg)
+![properties](index/inspector.png)
 
 **Properties** is the working area where we view and edit the currently selected node and component attribute. This panel will display and edit the attribute data defined by the script in the most suitable way.
 
 For further information please read the [Properties](editor-panels/properties.md) section.
 
+## Node Library
+
+![node library](index/node-library.png)
+
+**Node Library** Warehouse of preset node, you can add preset node to the scene by dragging and dropping them, and you can add users' own prefab to the node library for easy reuse.
+
+For further information please read the [Node Library](editor-panels/node-library.md) section.
+
 ## Toolbar
 
 ![toolbar](index/toolbar.png)
 
-**Toolbar** includes the scene editing tool and operating button for game preview. The far right side shows the access address for remote testing and debugging and the device number of the connected device.
+**Toolbar** the scene editing tool, operating button for previewing games, shows the access address for remote testing, number of connected devices and the rightmost access project folder and open program installation path.
 
 Continue on to read about [Toolbar](toolbar.md).
+
+## Settings
+
+![preferences](editor-panels/preferences/general.png)
+
+**Settings** panels provides personalized global settings for various editors, including native development environments, game previews, script editing tools, and so on.
+
+For further information please read the [Settings](editor-panels/preferences.md) section.
+
+## Project Settings
+
+![project-settings](editor-panels/project-settings/group.png)
+
+**Project Settings** provides various project specific personalization settings, including grouping settings, module settings, preview runs, and so on.
+
+For further information please read the [Project Settings](editor-panels/project-settings.md) section.
+
+## Other Functions
+
+Other important editor basic features include:
+
+- [Main Menu](main-menu.md)
+- [Toolbar](toolbar.md)
+- [Editor Layout](layout.md)
+- [Preview and Build](preview-build.md)

@@ -20,7 +20,7 @@
 
 微信小游戏是微信小程序下的游戏产品平台，它不仅提供了强大的游戏能力，还和小程序一样，提供了大量的原生接口，比如支付，社交，文件系统，照片，NFC 等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
 
-小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。关于游戏方面，目前小游戏环境提供了 Canvas 以及 WebGL 的渲染接口，所以 Cocos Creator 引擎的两种渲染模式都是可以运行的，不过出于性能的考量，我们默认使用 WebGL 渲染游戏内容，强烈建议用户不要修改默认配置。
+小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。
 
 作为引擎方，为了尽可能简化开发者的工作量，我们为用户完成的主要工作包括：
 
@@ -35,9 +35,9 @@
 我们从 Cocos Creator v1.8 开始，支持 Cocos Creator 游戏一键发布为微信小游戏，下面是详细的发布步骤：
 
 1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
-2. 在 "Creator 偏好设置" > "原生开发环境" 中设置微信开发者工具路径
+2. 在 "Creator 设置" > "原生开发环境" 中设置微信开发者工具路径
 
-    ![](./publish-wechatgame/preference.jpeg)
+    ![](./publish-wechatgame/preference.jpg)
 3. 登陆微信公众平台，找到 appid
 
     ![](./publish-wechatgame/appid.jpeg)
@@ -48,6 +48,7 @@
 6. 点击 play 打开微信开发者工具
 
     ![](./publish-wechatgame/tool.jpeg)
+**注意**：微信开发者工具，在 Mac 上如果没运行过，会报错：`Please ensure that the IDE has been properly installed`。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
 7. 预览部署
 
 按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：game.json 和 project.config.json
@@ -71,6 +72,9 @@
 2. 不存在则查询本地缓存资源
 3. 如果没有缓存就从远程服务器下载
 4. 下载后保存到小游戏应用缓存内供再次访问时使用
+5. 缓存空间有大小限制，如果超出限制则会保存失败，此时打印提示信息并使用资源下载时的临时文件作为资源
+
+**注意**：需要额外注意的是，一旦缓存空间占满之后，所有需要下载的资源都无法进行保存，只能使用下载保存的临时文件，而微信会在小游戏退出之后自动清理所有临时文件，所以下次再次运行小游戏时，这些资源又会再度下载，然后一直循环往复此过程。另外，缓存空间超出限制导致文件保存失败的问题不会在微信开发者工具上出现，因为微信开发者工具没有限制缓存大小，所以测试缓存时需要真实微信环境进行测试。
 
 同时，当开启引擎的 md5Cache 功能后，文件的 url 会随着文件内容的改变而改变，这样当游戏发布新版本后，旧版本的资源在缓存中就自然失效了，只能从服务器请求新的资源，也就达到了版本控制的效果。
 
@@ -82,7 +86,13 @@
 4. 在构建发布面板中设置 `远程服务地址`。
 5. 对于测试阶段来说，可能你无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开详情页面，勾选项目设置中的 `不检验安全域名、TLS 版本以及 HTTPS 证书` 选项。
 
-    ![](./publish-wechatgame/detail.jpeg)
+![](./publish-wechatgame/detail.jpeg)
+
+**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏平台下使用 `wx.downloader.cleanAllAssets()` 和 `wx.downloader.cleanOldAssets()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+
+## 微信小游戏分包加载
+
+微信小游戏如何实现分包加载请参考 [代码分包加载](../scripting/subpackage.md)。
 
 ## 平台 SDK 接入
 
@@ -95,20 +105,30 @@
 5. 媒体：图片、录音、相机等
 6. 其他：位置、设备信息、扫码、NFC、等等
 
-## 接入微信小游戏的子域
+## 接入微信小游戏的开放数据域
 
-微信小游戏为了保护其社交关系链数据，增加了子域的概念，子域又叫 **开放数据域**，是一个单独的游戏执行环境。子域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在子域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
+微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
 
-Cocos Creator 从 v1.9.1 版本开始支持打包到子域。详情请参考 [接入微信小游戏的子域](../publish/publish-wechatgame-sub-domain.md)。
+Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请参考 [接入微信小游戏的开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
-## 参考
+## 微信小游戏已知问题：
+
+我们对微信小游戏的适配工作还未完全结束，目前仍不支持以下组件：
+
+- VideoPlayer
+- WebView
+
+用户如果有需要，目前可以先自己直接调用微信的 API 来使用。
+
+## 参考链接
 
 - [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小程序 API 文档](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
+- [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)
 
 ## 常见问题
 
-小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： http://forum.cocos.com/t/faq/54828
+小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： https://forum.cocos.com/t/faq/54828

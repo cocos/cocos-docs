@@ -1,12 +1,12 @@
 # 发布到 Web 平台
 
-打开主菜单的 `项目/构建发布`，打开构建发布窗口。
+打开主菜单的 `项目 -> 构建发布`，打开构建发布面板。
 
 Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布平台** 的下拉菜单选择 `Web Mobile` 或 `Web Desktop`，他们的区别主要在于 `Web Mobile` 会默认将游戏视图撑满整个浏览器窗口，而 `Web Desktop` 允许在发布时指定一个游戏视图的分辨率，而且之后游戏视图也不会随着浏览器窗口大小变化而变化。
 
 ## 发布路径
 
-通过在 **发布路径** 输入框输入路径或通过 `...` 浏览按钮直接选择，我们可以为游戏指定一个发布路径，后续的多平台发布都会在这个发布路径中的子文件夹中创建资源或工程。
+通过在 **发布路径** 的输入框中输入路径或者通过 `...` 浏览按钮直接选择，我们可以为游戏指定一个发布路径，后续的多平台发布都会在这个发布路径中的子文件夹中创建资源或工程。
 
 默认的发布路径在项目文件夹下的 `build` 文件夹中，如果您使用 git、svn 等版本控制系统，可以将 `build` 文件夹在版本控制中忽略。
 
@@ -27,11 +27,13 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 ```js
 url = cc.loader.md5Pipe.transformURL(url);
-````
+```
 
-### Eruda
+### vConsole
 
-插入 Eruda 调试插件，Eruda 类似 DevTools 的迷你版，用于辅助调试。
+> Creator v1.9 版本之前使用的是 Eruda 调试插件。
+
+插入 vConsole 调试插件，vConsole 类似 DevTools 的迷你版，用于辅助调试。
 
 如果需要调试，也可以开启 **调试模式** 和 **Source Maps** 的选项，这样构建出的版本会保留 sourcemap。
 
@@ -54,8 +56,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 
 ## Retina 设置
 
-在脚本中通过 `cc.view.enableRetina(true)` 可以控制是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示，在不支持 WebGL 渲染的 Android 平台上，开启 Retina 会对帧率造成较大影响。
-
+可以在脚本中通过 `cc.view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。
 
 ## 发布到 Web 服务器
 

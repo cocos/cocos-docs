@@ -27,7 +27,7 @@ cc.Class({
 ```
 
 ## Editing script
-By double clicking the script asset, it is opened in the default editor on your system. We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages.
+We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages. Please set it up in [Settings](../getting-started/basics/editor-panels/preferences.md#script-editor) first.
 
 Edit the scripts and save them. Cocos Creator will automatically detect the alteration of the script and compile it quickly.
 

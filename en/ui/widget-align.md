@@ -1,33 +1,35 @@
-# Alignment strategy
+# Alignment Strategy
 
-To realize a perfect multi-resolution fit effect, presenting UI elements according to the positions stipulated in the design resolution is not enough. When the width and height of the screen change, UI elements must be able to intelligently sense the positions of the borders of the screen to make sure that they are presenting themselves in the visible area of the screen and being distributed in suitable positions. Such an effect can be realized by **Widget**.
+To achieve a perfect multi-resolution fit effect, presenting UI elements according to the positions stipulated in the design resolution is not enough. When the width and height of the screen change, UI elements must be able to intelligently sense the positions of the borders of the screen to make sure that they are presenting themselves in the visible area of the screen and being distributed in suitable positions. We can do this with the **Widget** component.
 
 Next, we categorize different alignment workflows according to the categories of elements that need to be aligned:
 
-## Buttons and small elements that need to be aligned by borders
+## Aligning Buttons and Small Elements with the Border
 
-For elements with relatively small areas like a pause menu, in-game gold coins, etc., normally, aligning them by the borders of the screen would be enough. Then only a few simple steps are needed:
+For elements with relatively small areas like a pause menu, in-game gold coins, etc., normally, aligning them by the borders of the screen would be enough. Only a few simple steps are needed:
 
 1. Set these elements as subnodes of the Canvas node in **Node Tree**
 2. Add the Widget component to element nodes
-3. Taking alignment with the bottom left corner as an example, open the alignment of `Left` and `Bottom`.
-4. Then set up the distance between the node and the borders of the screen. In the picture below, the left margin is set as 50px, right margin is set as 30px.
+3. To align something with the bottom left corner of the screen for example, check the `Left` and `Bottom` tick boxes in the Widget component.
+4. Then set up the distance between the node and the borders of the screen. In the picture below, the left margin is set as 50px, the bottom margin is set as 30px.
 
 ![align left bottom](widget-align/align-basic.png)
 
-After setting up the Widget component like this, no matter what the actual screen resolution is , this node element will remain on the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 50px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
+After setting up the Widget component like this, no matter what the actual screen resolution is, this node element will remain at the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 50px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
 
-Pay attention! The alignment distance provided by the Widget component refers to the border of the bounding box that is located in the same direction as the child node and parent node. For example, `Left` is ticked off in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's (i.e., Canvas node, whose bounding box is constantly the same size as the screen) bounding box is the set value: 50px.
+Pay attention! The alignment distance provided by the Widget component refers to the border of the bounding box that is located in the same direction as the child node and parent node. For example, `Left` is ticked on in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's (i.e., Canvas node, whose bounding box is constantly the same size as the screen) bounding box is the set value: 50px.
 
-## Nest alignment elements
+## Nest Alignment Elements
 
-The method of aligning with the border of the screen is introduced above. Because the default alignment reference of Widget is the parent node, we can add different node hierarchies and make the nodes on every hierarchy use the auto alignment function.
+We just showed how to align something with the border of the screen in the example above.
 
-Next, we will use a simple example to explain it. Supposing we have a node hierarchical relation as follows:
+Because the default alignment reference of Widget is the parent node, we can add different node hierarchies and make the nodes on every hierarchy use the auto alignment function.
+
+Here is a simple example to explain it. Suppose we have a node hierarchy as follows:
 
 ![nested nodes](widget-align/hierarchy.png)
 
-In the example above, `parent` is a panel, and `button` is a button. We can respectively add Widget component to these two nodes, and respectively set their alignment distance.
+In the example above, `parent` is a panel, and `button` is a button. We can add Widget component to both of these nodes, and respectively set their alignment distance.
 
 For the `parent` node, the distance of aligning the top left corner of the `Canvas` node remains at 80px:
 

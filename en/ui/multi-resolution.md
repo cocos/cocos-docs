@@ -1,13 +1,13 @@
 # Auto fit for multi-resolution
 
-Cocos Creator is devoted to solving the problem of adapting to screens with various resolutions with one set of resources from the beginning. Generally speaking, we realize the adaptation scheme for multi-resolution through the following technology:
+Cocos Creator is committed to solving the problem of adapting to screens with various resolutions with one set of resources from the beginning. Generally speaking, we realize the adaptation scheme for multi-resolution through the following technology:
 
 - **Canvas** component immediately obtains the actual resolution of the device screen and appropriately adjusts the size of all the render elements in the scene.
 - **Widget** is put on rendering elements, which can align the element with different referential positions of the parent node according to different needs.
 - **Label** component has a built-in function that provides various dynamic layout modes. When the bounding box of labels change because of the alignment requirement of the Widget, labels will present the perfect layout effect according to your needs.
 - **Sliced Sprite** provides images whose size can be arbitrarily designated. Simultaneously, it can meet various alignment requirements and display images with high definition on screens of any resolution.
 
-Next, we start off by getting to know the concepts of design resolution and screen resolution, then we will go on to make understanding of the zooming in/out function of the **Canvas** component.
+Next, we start off by getting to know the concepts of design resolution and screen resolution, then we will go on to learn the zooming in/out function of the **Canvas** component.
 
 ## Design resolution and screen resolution
 
@@ -56,8 +56,6 @@ If there are no strict requirements for the content that might be cut down on th
 ### Canvas component doesn't provide a fit mode that can respectively zoom in/out of the x axis and the y axis, which will distort the image.
 
 In the Cocos engine, there is a fit mode called `ExactFit`, which doesn't have black borders, or cut down the image within the scale of design resolution. But the price is the zooming in/out ratio of the scene image to the direction of the x/y axis  is different, which will distort the image.
-
-If you don't mind distortions of the image, you can use the engine API to realize fit effect without using the Canvas component. For detailed information, you can refer to [Cocos2d-JS's screen adaptation scheme](http://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-4-resolution-policies/zh.md).
 
 ## Use Canvas component in the scene
 

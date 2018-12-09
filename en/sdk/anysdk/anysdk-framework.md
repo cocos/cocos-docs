@@ -48,34 +48,12 @@ Folder Structure:
 	 |--build-templates
 	      |--web-mobile
 	            |--main.js
-	      |--jsb-binary
+	      |--jsb-link
 	            |--main.js
 	      |--jsb-default
 	            |--main.js
 	```
 
-- Eclipse project
-	* Delete libs directory`s `libPluginProtocol.jar` file
-	* Delete res directory`s
-	```
-		drawable/plugin_btn_close.png
-		drawable/plugin_ui_ad.png
-		values-en/plugin_string.xml
-		values/plugin_string.xml 
-		layout/plugin_ads.xml
-		layout/plugin_login.xml
-	```
-	* Delete jni directory`s Android.mk file`s `LOCAL_WHOLE_STATIC_LIBRARIES := PluginProtocolStatic`
-	* Delete jni directory`s Android.mk file`s
-	```
-		LOCAL_SRC_FILES :=  ../../Classes/SDKManager.cpp \ 
-							../../Classes/jsb_anysdk_basic_conversions.cpp \
-							../../Classes/manualanysdkbindings.cpp \
-							../../Classes/jsb_anysdk_protocols_auto.cpp 
-	```
-
-	* Delete jni directory`s Application.mk file`s macro definition `APP_CPPFLAGS :=  -DPACKAGE_AS`
-	* Modify `src/org/cocos2dx/javascript/SDKWrapper.java` file`s `private final static boolean PACKAGE_AS = true;`，`true` changes to  `false`
 - Android Studio project
 	* Delete libs directory`s `libPluginProtocol.jar` file 
 	* Delete res directory`s
