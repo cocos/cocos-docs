@@ -2,7 +2,7 @@
 
 Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross-platform, game development tool based on __Cocos2d-x__. This is a comprehensive and detailed guide to help you get started with designing and developing games.
 
-**Attention**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using. The current stable version is still v2.0, and if you are using v2.1, please refer to the [Cocos Creator v2.1 User Manual](../../2.1/manual/en/index.html).
+**Note**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using. The current stable version is still v2.0, and if you are using v2.1, please refer to the [Cocos Creator v2.1 User Manual](../../2.1/manual/en/index.html).
 
 ## What's New
 
