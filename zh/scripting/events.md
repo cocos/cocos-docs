@@ -83,7 +83,7 @@ cc.Class({
   this.node.emit('say-hello', msg);
   },
 });
-  ```
+```
 
 ## 派送事件
 
