@@ -1,6 +1,6 @@
 # DragonBones
 
-DragonBones skeleton animation resources are exported by DragonBones editor data format.
+DragonBones skeleton animation resources are data formats that exported by [DragonBones](http://dragonbones.com/) editor (Support for DragonBones v5.6.2 and below).
 
 ## Import DragonBones skeleton animation resources
 
