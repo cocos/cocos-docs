@@ -72,5 +72,4 @@
 
 ## 相关参考链接
 
-- [OPPO 快游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
 
