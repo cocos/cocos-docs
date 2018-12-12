@@ -4,7 +4,7 @@
 
 ## 命名规范
 
- - 当我们为变量, 函数和实例命名时, 使用 camelCase 命名法.
+ - 当我们为变量，函数和实例命名时, 使用 camelCase 命名法。
 
     ```javascript
     // bad
@@ -17,7 +17,7 @@
     function fooBar () {}
     ```
 
- - 当我们为类或者模块命名时, 使用 PascalCase 命名法.
+ - 当我们为类或者模块命名时，使用 PascalCase 命名法。
 
     ```javascript
     // bad
@@ -34,7 +34,40 @@
     });
     var FooBar = require('foo-bar');
     ```
+    
+ - 推荐使用全大写加下划线来命名“常量”。
+ 
+    ```javascript
+    // bad
+    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
+    // bad
+    var THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+    // bad
+    let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+    // ---
+
+    // allowed but does not supply semantic value
+    export const apiKey = 'SOMEKEY';
+
+    // better in most cases
+    export const API_KEY = 'SOMEKEY';
+
+    // ---
+
+    // bad - unnecessarily uppercases key while adding no semantic value
+    export const MAPPING = {
+        KEY: 'value'
+    };
+    
+    // good
+    export const Type = {
+        SIMPLE: 'value'
+    };
+    ```
+    
  - 使用前置下划线 `_` 当我们为私有属性命名
 
     ```javascript
@@ -166,9 +199,17 @@
     proto.foo = function () {
     };
 
-    // very bad
+    // bad
     function foo () {
         return 'test'
+    }
+    
+    // very bad
+    //   returns `undefined` instead of the value on the next line,
+    //   always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
+    function foo () {
+        return 
+            'test'
     }
 
     // good
@@ -448,6 +489,6 @@
      */
     ```
 
-## 参考
+## 推荐阅读
 
-[airbnb/es5](https://github.com/airbnb/javascript/tree/master/es5)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
