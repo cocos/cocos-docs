@@ -4,7 +4,7 @@
 
 - [AnySDK](anysdk-overview.md)
 
-- [Facebook Audience Network & Live Video](fb-an-and-live.md)
+- [Facebook Live Video & Audience Network](fb-an-and-live.md)
 
 <hr>
 

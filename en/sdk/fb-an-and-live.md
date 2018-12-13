@@ -33,7 +33,10 @@ Select the **Facebook Service** and you can see that there are three options bel
 
   If you run the command, the following error occurs:
 
-  ![](fb-an-and-live/error.png)
+  ```bash
+  ERROR:  Could not find a valid gem 'cocoapods' (>= 0), here is why:
+        Unable to download data from https://rubygems.org/ - SSL_connect returned=1 errno=0 state=SSLv2/v3 read server hello A: tlsv1 alert protocol version (https://rubygems.org/latest_specs.4.8.gz)
+  ```
 
   You can run the following command to resolve:
 
@@ -108,9 +111,9 @@ banner_click(event){
 
 `cc.Ads.RewardedVideo` and `cc.Ads.Interstitial` are called in a similar way to `cc.Ads.Banner` and you can refer the [/assets/script/an_scene.js](https://github.com/cocos-creator/facebook_demo/blob/master/assets/script/an_scene.js) file in [Sample Project](https://github.com/cocos-creator/facebook_demo). Or refer to Facebook's official documentation [Audience Network](https://developers.facebook.com/docs/audience-network).
 
-## Reference link
+## Related reference links
 
 - The Facebook Service Integration [Sample Project](https://github.com/cocos-creator/facebook_demo) provided by Cocos Creator contains **Facebook Live Video** and **Facebook Audience Network** usage example.
 - [Facebook Developer Center](https://developers.facebook.com/)
-- [Facebook Audience Network](https://developers.facebook.com/docs/audience-network)
 - [Facebook Live Video](https://developers.facebook.com/docs/videos/live-video)
+- [Facebook Audience Network](https://developers.facebook.com/docs/audience-network)

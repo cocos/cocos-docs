@@ -22,7 +22,7 @@ Cocos Creator 从 v2.0.6 开始支持一键集成 Facebook 服务，包括 **Fac
 - **Facebook Live Video**：将 Facebook Live Video 集成到项目工程中
 - **Facebook Audience Network**：将 Facebook Audience Network 集成到项目工程中
 
-二、在 **项目设置 -> 服务** 中设置好需要集成的 SDK 后，打开 **构建发布** 面板，**发布平台** 选择 **Android／iOS** 平台。Android 平台的 **API Level** 选择 **android-26** 及以上。其他参数用户可根据需要自行配置。配置完成后点击 **构建**。
+二、在 **项目设置 -> 服务** 中设置好需要集成的 SDK 后，打开 **构建发布** 面板，**发布平台** 选择 **Android／iOS** 平台。Android 平台的 **API Level** 选择 **android-26** 或以上。其他参数用户可根据需要自行配置。配置完成后点击 **构建**。
 
 **构建 iOS 平台时有以下两点注意事项**：
 
@@ -35,7 +35,10 @@ Cocos Creator 从 v2.0.6 开始支持一键集成 Facebook 服务，包括 **Fac
 
     若运行该命令时出现如下报错：
 
-    ![](fb-an-and-live/error.png)
+    ```bash
+    ERROR:  Could not find a valid gem 'cocoapods' (>= 0), here is why:
+          Unable to download data from https://rubygems.org/ - SSL_connect returned=1 errno=0 state=SSLv2/v3 read server hello A: tlsv1 alert protocol version (https://rubygems.org/latest_specs.4.8.gz)
+    ```
 
     可运行以下命令解决：
 
@@ -45,7 +48,7 @@ Cocos Creator 从 v2.0.6 开始支持一键集成 Facebook 服务，包括 **Fac
     $ sudo gem install cocoapods
     ```
 
-  - 若点击 **构建** 之后，构建失败并且在 **控制台** 出现 `exec pod install fail with exit code` 的报错，可在 **设置** 面板的 **常规 -> HTTP 代理服务器** 中设置 HTTP 代理（用于下载 Facebook 的 SDK）。
+  - 若点击 **构建** 之后，构建失败并且在 **控制台** 出现 `exec pod install fail with exit code` 的报错，可在 **设置** 面板的 **常规 -> HTTP 代理服务器** 中设置 HTTP 代理（用于下载 Facebook 的 SDK）。
 
     若设置完 HTTP 代理之后仍然构建失败，请尝试执行以下步骤：<br>
 
@@ -121,9 +124,9 @@ banner_click(event){
 
 `cc.Ads.RewardedVideo` 和 `cc.Ads.Interstitial` 的调用方式与 `cc.Ads.Banner` 类似，具体可以参考 [范例工程](https://github.com/cocos-creator/facebook_demo) 中的 [/assets/script/an_scene.js](https://github.com/cocos-creator/facebook_demo/blob/master/assets/script/an_scene.js) 文件。或者参考 Facebook 官方文档 [Audience Network](https://developers.facebook.com/docs/audience-network/)。
 
-## 参考链接
+## 相关参考链接
 
 - Cocos Creator 提供的 [Facebook 服务集成范例工程](https://github.com/cocos-creator/facebook_demo)，包含了 **Facebook Live Video** 和 **Facebook Audience Network** 的使用示例。
 - [Facebook 开发者后台](https://developers.facebook.com/)
-- [Facebook Audience Network 参考文档](https://developers.facebook.com/docs/audience-network/)
 - [Facebook Live Video 参考文档](https://developers.facebook.com/docs/videos/live-video)
+- [Facebook Audience Network 参考文档](https://developers.facebook.com/docs/audience-network/)
