@@ -75,6 +75,7 @@
 ## 常见问题：
 1.快游戏的AppID 哪里申请？
 请移步到华为快游戏网址申请:https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgame.html?page=fastapp_fastgame_prepare_register
+
 2.快游戏测试环境哪里下载？
 https://obs.cn-north-2.myhwclouds.com/hms-ds-wf/sdk/HwFastAPPEngine_Loader.1213_tool.zip
 
