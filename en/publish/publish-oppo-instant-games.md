@@ -16,7 +16,7 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ![](./publish-oppo-instant-games/build_option.jpg)
 
-Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number**, **Platform Version Number**. These parameters are required and filled in according to the user's requirements and the prompt information in the parameter input box. The **Small Packet Mode**, **Small Packet Mode Server Path** is optional. 
+Where **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number**, **Platform Version Number**. These parameters are required and filled in according to the user's requirements and the prompt information in the parameter input box. The **Small Packet Mode**, **Small Packet Mode Server Path** is optional.
 
 For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
 
@@ -32,9 +32,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**. Then click on **Build**.
 
-  2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
+  2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **/quickgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **/build/quickgame/res** directory.
 
-  At this point, the **res** directory will no longer be included in the built-up quickgame directory, and the resources in the res directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
+  At this point, the **res** directory will no longer be included in the built-up rpk, and the resources in the res directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 - **Keystore**
 
@@ -62,7 +62,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **3. Run the built rpk to the phone**
 
-Copy the generated mini-game **rpk** file (located in the dist directory of the OPPO minigame project's quickgame directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Quick Game Debugger** that has been installed before on the Android device, click the **Quick Game** section, and then find the icon corresponding to the game name. If not found, click on the upper right corner. More button - refresh button to refresh.
+Copy the generated mini-game **rpk** file (located in the dist directory of the OPPO minigame project's quickgame directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Quick Game Debugger** that has been installed before on the Android device, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the upper right corner. More button - refresh button to refresh.
+
+![](./publish-oppo-instant-games/rpk_games.jpg)
 
 **4. Subpackage rpk**
 
@@ -74,6 +76,8 @@ In this case, you need to create a new **subPkg** directory in the **sdcard** di
 Then switch to the **Package Load** section of **Quick App**, click Refresh at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk** .
 
 ![](./publish-oppo-instant-games/run_subpackage.jpg)
+
+**Note**: Subpackage rpk needs to be copied to the `/sdcard/subPkg/` directory of Android devices, and non-subpackage rpk needs to be copied to the `/sdcard/games/` directory of Android devices, both of which cannot be mixed.
 
 ## Related Reference Links
 
