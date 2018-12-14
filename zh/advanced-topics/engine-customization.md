@@ -171,7 +171,11 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 `builtin` 部分的定制需要先安装相关依赖，请在命令行中执行：
 
 ```bash
+# 在命令行进入 jsb-adapter/builtin 路径
 cd jsb-adapter/builtin
+# 安装 gulp 构建工具
+npm install -g gulp
+# 安装依赖的模块
 npm install
 ```
 
@@ -191,7 +195,11 @@ gulp
 定制前需要先安装相关依赖，请在命令行中执行：
 
 ```bash
+# 在命令行进入 jsb-adapter 路径
 cd jsb-adapter/
+# 安装 gulp 构建工具
+npm install -g gulp
+# 安装依赖的模块
 npm install
 ```
 
