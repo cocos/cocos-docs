@@ -1,6 +1,6 @@
 # Publishing to OPPO Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the OPPO Mini Game platform. It takes just a single click with Cocos Creator to publish to the OPPO Mini Game platform.
+Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the **OPPO Mini Games**. It takes just a single click with Cocos Creator to publish to the OPPO Mini Game platform. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
 
 ## Environment Configuration
 
