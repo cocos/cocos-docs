@@ -1,6 +1,6 @@
 # Publishing to Vivo Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __Vivo Mini Game__ platform. It takes just a single click with Cocos Creator to publish to the Vivo Mini Game platform.
+Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __Vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the Vivo Mini Game platform. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
 
 ## Environment Configuration
 
@@ -26,99 +26,57 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ## Release Process
 
-1. Use __Cocos Creator__ to open the project that needs to be released. Select **Vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
+**First**, use __Cocos Creator__ to open the project that needs to be released. Select **Vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-vivo-instant-games/build.png)
 
-Where **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Engine Platform Version Number** (Note: Please fill in **1020**) These parameters are required and filled in according to the user's needs and the prompt information in the parameter input box. The **Local npm Installation Path**, **Build Release Package**, **Packet Mode**, **Packet Mode Server Path** are optional. The specific filling rules for the relevant parameter configuration are as follows:
+Where **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number** (Note: Please fill in **1020**) These parameters are required and filled in according to the user's needs and the prompt information in the parameter input box. The **Small Packet Mode**, **Small Packet Mode Server Path** are optional. For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements. <br>
+The specific filling rules for the relevant parameter configuration are as follows:
 
 - **App icon**
 
-  **App icon** is required. When building, the app icon will be built into the project of the __Vivo Mini Game__ game. Please make sure that the image under the app icon path is true. For example, if the application icon path is `/assets/image/logo.png`, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**.
+  **App icon** is required. When building, the app icon will be built into the project of the __Vivo Mini Game__ game. Please make sure that the image under the app icon path is true. For example, if the application icon path is `/assets/image/logo.png`, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**. **App icon** suggest using PNG pictures.
 
-- **Local npm installation path**
+- **Small Packet Mode and Small Packet Mode Server Path**
 
-  **Local npm installation path** is optional. The purpose of filling out the npm installation path is to build a runable mini-game rpk package (the rpk package is located in the dist directory under the qgame directory of the build-generated mini-game project). If you do not fill in the item, __Cocos Creator__ will only export the game project directory and will not generate the **rpk** package.
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
 
-    - Mac system
-
-    ```bash
-    # Get local npm installation path
-    which npm
-
-    # If the output is
-    /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
-
-    # Then the local npm installation path is filled in as:
-    /Users/yourname/.nvm/versions/node/v8.1.4/bin
-    ```
-
-    - Windows system
-
-    ```bash
-    # Get local npm installation path
-    where npm
-
-    # If the output is
-    C:\Program Files\nodejs\npm
-
-    # Then the local npm installation path is filled in as
-    C:\Program Files\nodejs
-    ```
-
-- **Build a release package**
-
-  **Build a release package** is optional. The purpose of this check is to build an **rpk** package that can be published directly. But there are two prerequisites: you need to fill in the **local npm installation path** and add a release signature. <br>
-  If you do not check the **Build Release Package**, the **rpk** package for testing is built.
-
-    - Add release signature:
-
-      In the game project root directory, add the **build-templates/jsb-link/sign/release** directory, then place your private key file **private.pem** and **certificate.pem**. As shown below:
-
-      ![](./publish-vivo-instant-games/sign_release_path.png)
-
-    - How to generate a release signature
-
-      The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as `openssl. The certificate in the **build/qgame/sign/debug** directory is for debugging purposes only.
-
-    ```bash
-    # Command line assignment to the release directory just added to the root directory of the game
-    cd E:\workspace\YourProject\build-templates\jsb-link\sign\release
-
-    # Generate a signature file with the openssl command tool
-    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-    ```
-
-  **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
-
-- **Small package mode and packet mode server path**
-
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small package mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
-
-  1. When building, check the **packet mode** and fill in the **packet mode server path**. Then click on **Build**.
+  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**. Then click on **Build**.
 
   2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
 
-  At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **packet mode server address** via the network request.
+  At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 
-2. After the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
+- **Keystore**
+
+  When you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
+  
+  If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box.
+  
+  **Note**: These two signature files are not recommended to be placed in the build directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
+  
+  The user can generate the signature files from the command line, as follows:
+
+    - How to generate a release signature
+
+      The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as openssl. The certificate in the **build/qgame/sign/debug** directory is for debugging purposes only.
+
+      ```bash
+      # Generate a signature file with the openssl command tool
+      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+      ```
+
+      **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
+
+**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
 
 ![](./publish-vivo-instant-games/package.png)
 
-3. Generate the rpk package (if you have filled out the **local npm installation path** in the **Build...** panel, you can skip this step).
-
-```bash
-# Command line specified to the qgame directory
-cd E:\workspace\YourProject\build\qgame
-npm install
-npm run build
-```
-
-Then the rpk package will be generated in the **/build/qgame/dist** directory.
+And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 ![](./publish-vivo-instant-games/rpk.png)
 
-4. Run the packaged rpk to your phone. There are two ways to run rpk on your phone:
+**Third**, run the packaged rpk to your phone. There are two ways to run rpk on your phone:
 
 - **method one**:
 
