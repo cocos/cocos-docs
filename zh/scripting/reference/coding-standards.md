@@ -151,22 +151,22 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
     ∙var name;
     }
 
     // very bad
-    function() {
+    function () {
     ∙∙<tab>∙∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙∙∙var name;
     }
     ```
@@ -239,12 +239,12 @@
     }
 
     // bad
-    function foobar()
+    function foobar ()
     {
     }
 
     // good
-    function foobar() {
+    function foobar () {
     }
 
     // bad
@@ -351,7 +351,7 @@
         return DEBUG ? 'foo' : 'bar';
     }
 
-    // good
+    // best
     var divisibleFunction = DEBUG ?
         function () {
             return 'foo';
@@ -410,9 +410,9 @@
     const obj = {
         x: 0,
         y: 0,
-        foo() {
+        foo () {
         },
-        bar() {
+        bar () {
         },
     };
     return obj;
@@ -422,10 +422,10 @@
         x: 0,
         y: 0,
 
-        foo() {
+        foo () {
         },
 
-        bar() {
+        bar () {
         },
     };
 
