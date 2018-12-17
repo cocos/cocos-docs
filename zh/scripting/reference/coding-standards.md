@@ -447,6 +447,15 @@
      * good
      */
     ```
+    
+- 除了多语言 API 注释以外，代码中不允许写中文注释
+
+    ```
+    // bad 
+    // 中文注释不利于非中文开发者阅读代码
+    // good
+    // Please write all in file comments in English
+    ```
 
 ## 参考
 
