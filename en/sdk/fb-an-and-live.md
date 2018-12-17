@@ -22,7 +22,7 @@ Select the **Facebook Service** and you can see that there are three options bel
   - **Facebook Live Video**: Integrate Facebook Live Video into Project.
   - **Facebook Audience Network**: Integrate Facebook Audience Network into Project.
 
-**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel and then **Platform**. Select the **Android/iOS** platform. Then select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
+**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel, select **Platform** and then select **Android/iOS** platform. Next, select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
 
   **Note**: **Before you build for iOS**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for details.
 
