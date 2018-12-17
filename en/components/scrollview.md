@@ -59,15 +59,15 @@ This method adds the same event callback as the event callback that is added usi
 
 ```js
 
-//here is your component file, file name = MyComponent.js
+// here is your component file, file name = MyComponent.js
 cc.Class({
     extends: cc.Component,
     properties: {},
 
     onLoad: function () {
         var scrollViewEventHandler = new cc.Component.EventHandler();
-        scrollViewEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
-        scrollViewEventHandler.component = "MyComponent";//This is the code file name
+        scrollViewEventHandler.target = this.node; // This node is the node to which your event handler code component belongs
+        scrollViewEventHandler.component = "MyComponent";// This is the code file name
         scrollViewEventHandler.handler = "callback";
         scrollViewEventHandler.customEventData = "foobar";
 
@@ -75,11 +75,11 @@ cc.Class({
         scrollview.scrollEvents.push(scrollViewEventHandler);
     },
 
-	//Note that the order and type of parameters are fixed
+	// Note that the order and type of parameters are fixed
     callback: function (scrollview, eventType, customEventData) {
-        //here scrollview is a Scrollview component object instance
-        //here the eventType === value in the cc.ScrollView.EventType enum
-        //here the customEventData parameter is equal to you set before the "foobar"
+        // here scrollview is a Scrollview component object instance
+        // here the eventType === value in the cc.ScrollView.EventType enum
+        // here the customEventData parameter is equal to you set before the "foobar"
     }
 });
 ```
@@ -89,7 +89,7 @@ cc.Class({
 By `scrollview.node.on ('scroll-to-top', ...)` way to add
 
 ```js
-//Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
+// Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
 
 cc.Class({
     extends: cc.Component,
@@ -102,11 +102,9 @@ cc.Class({
        this.scrollview.node.on('scroll-to-top', this.callback, this);
     },
 
-    callback: function (event) {
-       //You can get the ScrollView component through the event
-       var scrollview = event;
-       //do whatever you want with scrollview
-       //in addition, attention to this way registered events, can not pass customEventData
+    callback: function (scrollView) {
+       // The parameter of the callback is the ScrollView component.
+       // do whatever you want with scrollview
     }
 });
 ```

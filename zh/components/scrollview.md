@@ -62,15 +62,15 @@ ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加。首先需要构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target、component、handler 和 customEventData 参数。
 
 ```js
-//here is your component file, file name = MyComponent.js
+// here is your component file, file name = MyComponent.js
 cc.Class({
     extends: cc.Component,
     properties: {},
 
     onLoad: function () {
         var scrollViewEventHandler = new cc.Component.EventHandler();
-        scrollViewEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        scrollViewEventHandler.component = "MyComponent";//这个是代码文件名
+        scrollViewEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
+        scrollViewEventHandler.component = "MyComponent";// 这个是代码文件名
         scrollViewEventHandler.handler = "callback";
         scrollViewEventHandler.customEventData = "foobar";
 
@@ -78,11 +78,11 @@ cc.Class({
         scrollview.scrollEvents.push(scrollViewEventHandler);
     },
 
-	//注意参数的顺序和类型是固定的
+	// 注意参数的顺序和类型是固定的
     callback: function (scrollview, eventType, customEventData) {
-        //这里 scrollview 是一个 Scrollview 组件对象实例
-        //这里的 eventType === cc.ScrollView.EventType enum 里面的值
-        //这里的 customEventData 参数就等于你之前设置的 "foobar"
+        // 这里 scrollview 是一个 Scrollview 组件对象实例
+        // 这里的 eventType === cc.ScrollView.EventType enum 里面的值
+        // 这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
 });
 ```
@@ -92,7 +92,7 @@ cc.Class({
 通过 `scrollview.node.on('scroll-to-top', ...)` 的方式来添加
 
 ```js
-//假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
 
 cc.Class({
     extends: cc.Component,
@@ -105,11 +105,9 @@ cc.Class({
        this.scrollview.node.on('scroll-to-top', this.callback, this);
     },
 
-    callback: function (event) {
-       //你可以通过 event 获取 ScrollView 组件
-       var scrollview = event;
-       //do whatever you want with scrollview
-       //另外，注意这种方式注册的事件，也无法传递 customEventData
+    callback: function (scrollView) {
+       // 回调的参数是 ScrollView 组件
+       // do whatever you want with scrollview
     }
 });
 ```
