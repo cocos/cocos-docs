@@ -21,7 +21,7 @@
 
 问题列表：
 
-1. 2.x 原生版本中 Spine & DragonBones 性能不如 1.x。ETC 压缩纹理不支持（1.x 可以 hack 实现）。
+1. 2.x 原生平台中 Spine & DragonBones 的性能不如 1.x。且 ETC 压缩纹理不支持（1.x 可以 hack 实现）。
 2. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
 3. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
 4. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。

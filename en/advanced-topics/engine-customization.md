@@ -171,7 +171,11 @@ Customization of the `engine` section only requires modification of the code.<br
 Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
 
 ```bash
+# Enter the jsb-adapter/builtin engine path from the command line
 cd jsb-adapter/builtin
+# Install the gulp build tool
+npm install -g gulp
+# Install dependent modules
 npm install
 ```
 
@@ -191,7 +195,11 @@ After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` f
 First of all, you should install the dependencies. Please execute them on the command line:
 
 ```bash
+# Enter the jsb-adapter engine path from the command line
 cd jsb-adapter/
+# Install the gulp build tool
+npm install -g gulp
+# Install dependent modules
 npm install
 ```
 

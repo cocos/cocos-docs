@@ -22,15 +22,16 @@ Since many users have feedback on the problems encountered in upgrading from 1.x
 
 List of known issues:
 
-  1. Particle resources with built-in base64 texture may fail during 1.x upgrade. We will roll back the upgrade of the Particle resource in 2.0.1 and return to the 1.x state to avoid errors. If you encounter a similar problem, you can bypass it by using an external map file.
-  2. 1.x RichText upgrade may cause the scene to continue to report error: __can not read property `_worldMatrix` of null__. Will be fixed in 2.0.1. Temporarily you can remove RichText in the old version and then add it again in 2.0 to bypass it.
-  3. The remote avatar loaded in the WeChat open data field cannot be displayed, and the camera background color cannot be set. Fixed in 2.0.1.
-  4. Playing a release version may be blacked out because the script file name case under libs is overwritten during the release process. Fixed in 2.0.1. If you encounter problems, please use the 1.x version to play.
-  5. Some Spine animations are rendered incorrectly after the upgrade. Fixed in 2.0.1.
-  6. Using Tilemap with Camera zoom, there will be problems with the map being oversized. Fixed in 2.0.1.
-  7. RichText does not support color modification by node color.
-  8. Native platform does not support VideoPlayer and WebView components at this time
-  9. IE 11 is not supported. Fixed in 2.0.1.
+  1. The performance of Spine & DragonBones in 2.x native platform is not as good as 1.x. ETC texture compression are not supported (1.x can be implemented by hack).
+  2. Particle resources with built-in base64 texture may fail during 1.x upgrade. We will roll back the upgrade of the Particle resource in 2.0.1 and return to the 1.x state to avoid errors. If you encounter a similar problem, you can bypass it by using an external map file.
+  3. 1.x RichText upgrade may cause the scene to continue to report error: __can not read property `_worldMatrix` of null__. Will be fixed in 2.0.1. Temporarily you can remove RichText in the old version and then add it again in 2.0 to bypass it.
+  4. The remote avatar loaded in the WeChat open data field cannot be displayed, and the camera background color cannot be set. Fixed in 2.0.1.
+  5. Playing a release version may be blacked out because the script file name case under libs is overwritten during the release process. Fixed in 2.0.1. If you encounter problems, please use the 1.x version to play.
+  6. Some Spine animations are rendered incorrectly after the upgrade. Fixed in 2.0.1.
+  7. Using Tilemap with Camera zoom, there will be problems with the map being oversized. Fixed in 2.0.1.
+  8. RichText does not support color modification by node color.
+  9. Native platform does not support VideoPlayer and WebView components at this time
+  10. IE 11 is not supported. Fixed in 2.0.1.
 
 # 2. Editor upgrade
 
