@@ -113,7 +113,7 @@ cc.Class({
 });
 ```
 
-Similarly, you can register events such as 'scrolling', 'touch-up', 'scrolling', etc. The events of the callback function parameters and 'scroll-to-top' parameters.
+Similarly, you can register events such as `scrolling`, `touch-up`, `scroll-began`, etc. The events of the callback function parameters and `scroll-to-top` parameters.
 
 For a full list of ScrollView events, refer to the ScrollView API documentation.
 
