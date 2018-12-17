@@ -32,7 +32,7 @@ onLoad: function () {
     let initCount = 5;
     for (let i = 0; i < initCount; ++i) {
         let enemy = cc.instantiate(this.enemyPrefab); // 创建节点
-        this.enemyPool.put(enemy); // 通过 putInPool 接口放入对象池
+        this.enemyPool.put(enemy); // 通过 put 接口放入对象池
     }
 }
 ```
