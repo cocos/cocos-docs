@@ -32,7 +32,7 @@ onLoad: function () {
     let initCount = 5;
     for (let i = 0; i < initCount; ++i) {
         let enemy = cc.instantiate(this.enemyPrefab); // 创建节点
-        this.enemyPool.put(enemy); // 通过 putInPool 接口放入对象池
+        this.enemyPool.putInPool(enemy); // 通过 putInPool 接口放入对象池
     }
 }
 ```
@@ -69,7 +69,7 @@ createEnemy: function (parentNode) {
 
 onEnemyKilled: function (enemy) {
     // enemy 应该是一个 cc.Node
-    this.enemyPool.put(enemy); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
+    this.enemyPool.putInPool(enemy); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
 }
 ```
 
