@@ -1,10 +1,10 @@
 # Facebook Live Video and Audience Network
 
-Starting with v2.0.6, Cocos Creator officially supports one-click integrated Facebook services, including **Facebook Live video** and **Facebook audience network**. These two SDKs currently support Android and iOS platforms.
+Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS platforms.
 
 **Cocos Creator includes**:
 
-- Provides one-click integration of Facebook Live Video and Facebook Audience Network in the Cocos Creator **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly
+- Provides one-click integration of Facebook Live Video and Facebook Audience Network in the __Cocos Creator__ **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly
 
 **What the user needs to do**:
 
@@ -12,26 +12,26 @@ Starting with v2.0.6, Cocos Creator officially supports one-click integrated Fac
 
 ## Facebook Service Integration Operation Steps
 
-**First**, open the project with Cocos Creator, click on the **Menu bar -> Project -> Project Settings -> Service** and there is a **Facebook Service** in the **Service** tab.
+**First**, open the project with __Cocos Creator__, click on the **Menu bar -> Project -> Project Settings -> Service** and there is a **Facebook Service** in the **Service** tab.
 
 ![](fb-an-and-live/facebook.png)
 
-Select the **Facebook Service** and you can see that there are three options below, namely:
+Select the **Facebook Service** and you can see that there are three options below:
 
   - **AppID**: Create a new app (or an old app you've created before) in the [Facebook Developer Center](https://developers.facebook.com/) **My AppS -> Add New App**. The **APP ID** above when the creation is complete is AppID.
   - **Facebook Live Video**: Integrate Facebook Live Video into Project.
   - **Facebook Audience Network**: Integrate Facebook Audience Network into Project.
 
-**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel and the **Platform** selects the **Android/iOS** platform. The **API Level** of the Android platform selects **android-26** and above. Other parameters the user can configure themselves as needed. When the configuration is complete, click **Build**.
+**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel, select **Platform** and then select **Android/iOS** platform. Next, select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
 
-  **Note**: **Before you build the iOS platform**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for detail.
+  **Note**: **Before you build for iOS**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for details.
 
   ```bash
   # Xcode 8 + 9
   $ sudo gem install cocoapods
   ```
 
-  If you run the command, the following error occurs:
+  If you run the command, and the following error occurs:
 
   ```bash
   ERROR:  Could not find a valid gem 'cocoapods' (>= 0), here is why:
@@ -46,14 +46,14 @@ Select the **Facebook Service** and you can see that there are three options bel
   $ sudo gem install cocoapods
   ```
 
-**Third**, after the build is complete, you can see that **fb-live-stream.js** and **CCAds.js** two files have been generated under the src directory in the build directory. Corresponding to the encapsulation of **Facebook Live Video** and **Facebook Audience Network** by Creator.
+**Third**, after the build is complete, you can see that two files, **fb-live-stream.js** and **CCAds.js**, have been generated under the `src` directory in the `build` directory. These correspond to the encapsulation of **Facebook Live Video** and **Facebook Audience Network** by __Cocos Creator__.
 
 ![](fb-an-and-live/package.png)
 
 **Note**:
 
-- Compiling the Android platform for the first time requires using Android Studio to open the built-after project to download the support packages that Facebook needs. (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio)
-- When you use Xcode to compile the iOS platform, you need to open `.xcworkspace` file instead of `.xcodeproj` file.
+- The first time you compile on Android requires using Android Studio to open the built-after project to download the support packages that Facebook needs. (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio)
+- When you use Xcode to compile for iOS, you need to open `.xcworkspace` file instead of `.xcodeproj` file.
 
   ![](fb-an-and-live/xcode.png)
 
@@ -61,7 +61,7 @@ Select the **Facebook Service** and you can see that there are three options bel
 
 ### Facebook Live Video
 
-You can access Facebook Live Video through the `fb.liveStream` module:
+You can access **Facebook Live Video** through the `fb.liveStream` module:
 
 - `fb.liveStream.startLive();`: Start playing
 - `fb.liveStream.stopLive();`: Stop playing
@@ -72,13 +72,13 @@ For details, please refer to the [/assets/script/live_scene.js](https://github.c
 
 ### Facebook Audience Network
 
-There are three types of Facebook Audience Network:
+There are three types of **Facebook Audience Network**:
 
 - `cc.Ads.Banner`: Pop up banner ad
 - `cc.Ads.RewardedVideo`: Pop up reward video window ad
 - `cc.Ads.Interstitial`：Pop up placard ad
 
-Taking the pop up banner ad `cc.Ads.Banner` as an example, the user can create an instance of a new `cc.Ads.Banner` object and then call it according to your needs.
+Taking the pop up banner ad `cc.Ads.Banner` as an example, the user can create an instance of a new `cc.Ads.Banner` object and then call it according to their needs.
 
 The sample code is as follows:
 
@@ -113,7 +113,7 @@ banner_click(event){
 
 ## Related reference links
 
-- The Facebook Service Integration [Sample Project](https://github.com/cocos-creator/facebook_demo) provided by Cocos Creator contains **Facebook Live Video** and **Facebook Audience Network** usage example.
+- The Facebook Service Integration [Sample Project](https://github.com/cocos-creator/facebook_demo) provided by __Cocos Creator__ contains **Facebook Live Video** and **Facebook Audience Network** usage example.
 - [Facebook Developer Center](https://developers.facebook.com/)
 - [Facebook Live Video](https://developers.facebook.com/docs/videos/live-video)
 - [Facebook Audience Network](https://developers.facebook.com/docs/audience-network)
