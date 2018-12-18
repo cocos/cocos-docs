@@ -39,4 +39,4 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
-**Note**: These projects are updated irregularly with the version of __Cocos Creator__. Their default branches on GitHub are `master`, which corresponds to the latest __Cocos Creator__ version. If you are still using the old version of __Cocos Creator__, these projects may not be able to open. You can then try to switch to the same named branch as the old version.
+**Note**: These projects are not always brought up to date with the most recent version of __Cocos Creator__. Their default branches on GitHub are `master`, which corresponds to the latest __Cocos Creator version__. If you are still using the old version of __Cocos Creator__, these projects may not be able to open, and you can try to switch to the same named branch as the old version.

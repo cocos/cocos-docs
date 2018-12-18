@@ -160,6 +160,7 @@
         - [Joint](physics/physics/joint-component.md)
 - [Audio](audio/index.md)
     - [Play Audio](audio/audio.md)
+    - [Compatability](audio/compatability.md)
     - [AudioSource Component Reference](components/audiosource.md)
 
 ## Advanced Topics
