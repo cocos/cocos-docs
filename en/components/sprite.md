@@ -1,16 +1,16 @@
-# Sprite component reference
+# Sprite Component Reference
 
-Using Sprites is the most common way to display images in a 2D game. By adding the Sprite component to a node you can display images from the project resources within the scene.
+Using `Sprite` is the most common way to display images in 2D games. By adding a `Sprite` component to a `Node`, you can display the images in the project's resources in the `Scene`.
 
 ![add sprite](sprite/sprite_component.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select `Sprite` from `Add Rendering Component` to add the Sprite component to the node.
+You can add a `Sprite` component to the node by clicking the **Add Component** button below the **Properties** and selecting **Sprite** from the **Add Renderer Component** menu.
 
-Script interface please refer to [Sprite API](../../../api/en/classes/Sprite.html).
+Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script interface.
 
-## Sprite attribute
+## Sprite Properties
 
-| Attribute |   Function Explanation
+| Properties | Description
 | -------------- | ----------- |
 | Atlas | [Atlas resource](../asset-workflow/atlas.md) which the Sprite display image resource belongs to.
 | Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite.

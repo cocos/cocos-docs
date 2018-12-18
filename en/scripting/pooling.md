@@ -35,7 +35,7 @@ onLoad: function () {
     let initCount = 5;
     for (let i = 0; i < initCount; ++i) {
         let enemy = cc.instantiate(this.enemyPrefab); // create node instance
-        this.enemyPool.put(enemy); // populate your pool with putInPool method
+        this.enemyPool.putInPool(enemy); // populate your pool with putInPool method
     }
 }
 ```
@@ -77,7 +77,7 @@ When an enemy is killed, we'd want to return the instance to the Node Pool so we
 
 onEnemyKilled: function (enemy) {
     // enemy should be a cc.Node instance
-    this.enemyPool.put(enemy); // using the same put method as inistalizing node pool, this will also call removeFromParent for the node
+    this.enemyPool.putInPool(enemy); // using the same put method as inistalizing node pool, this will also call removeFromParent for the node
 }
 ```
 
