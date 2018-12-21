@@ -86,7 +86,7 @@ In main process:
 require('electron').ipcMain.on('foobar:message', function(event, args) {});
 ```
 
-For more about Electron's IPC methods, read [Electron API: ipcMain](http://electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](http://electron.atom.io/docs/api/ipc-renderer/)。
+For more about Electron's IPC methods, read [Electron API: ipcMain](//electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](//electron.atom.io/docs/api/ipc-renderer/)。
 
 ## Add reply method
 

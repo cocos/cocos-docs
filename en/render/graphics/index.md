@@ -35,7 +35,7 @@ Property | Description
 
 ## Third Party Library
 
-The Graphics component's API is designed according to the [Canvas] (http://www.w3school.com.cn/tags/html_ref_canvas.asp) drawing interface, and there are a lot of graphics libraries based on the Canvas drawing interface, such as [paper.js](http://paperjs.org/), [raphael.js](http://dmitrybaranovskiy.github.io/raphael/).
+The Graphics component's API is designed according to the [Canvas] (//www.w3school.com.cn/tags/html_ref_canvas.asp) drawing interface, and there are a lot of graphics libraries based on the Canvas drawing interface, such as [paper.js](//paperjs.org/), [raphael.js](//dmitrybaranovskiy.github.io/raphael/).
 Using the standard canvas drawing interfaces and thrid party libraries, we can extend a lot of more advanced functions on the Graphics components.
 
 Here are some third-party advanced drawing libraries and related demo based on Graphics component extensions.

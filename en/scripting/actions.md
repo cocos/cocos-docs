@@ -42,7 +42,7 @@ Cocos Creator supports various kinds of actions which can be divided into severa
 
 Basic action is the action to achieve all kinds of deformation and displacement animation, for example using `cc.moveTo` to move the node to a certain location; using `cc.rotateBy` to rotate the node by a certain angle; using `cc.scaleTo` to zoom in and out on the node.
 
-Basic action can be divided into interval action and free action. Interval action is a gradual change action that is done in a certain time interval. The actions mentioned above are all interval actions which are inherited from [`cc.ActionInterval`](http://docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html). Whereas free actions happen immediately and are all inherited from [`cc.ActionInstant`](http://docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html), for instance, `cc.callFunc` is used to call the callback function; `cc.hide` is used to hide the node.
+Basic action can be divided into interval action and free action. Interval action is a gradual change action that is done in a certain time interval. The actions mentioned above are all interval actions which are inherited from [`cc.ActionInterval`](//docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html). Whereas free actions happen immediately and are all inherited from [`cc.ActionInstant`](//docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html), for instance, `cc.callFunc` is used to call the callback function; `cc.hide` is used to hide the node.
 
 ### Container action
 
@@ -142,11 +142,11 @@ var action = cc.scaleTo(0.5, 2, 2);
 action.easing(cc.easeIn(3.0));
 ```
 
-The basic slow motion category is [`cc.ActionEase`](http://docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html). You can refer to the picture below for the time curves of different slow motions:
+The basic slow motion category is [`cc.ActionEase`](//docs.cocos2d-x.org/creator-api/en/classes/ActionInterval.html). You can refer to the picture below for the time curves of different slow motions:
 
 ![](./actions/tweener.png)
 
-_Pictures from http://hosted.zeh.com.br/tweener/docs/en-us/_
+_Pictures from //hosted.zeh.com.br/tweener/docs/en-us/_
 
 ## API reference for specific action
 

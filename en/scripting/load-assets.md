@@ -238,13 +238,13 @@ device files:
 
 ```javascript
 // Remote texture url with file extensions
-var remoteUrl = "http://unknown.org/someres.png";
+var remoteUrl = "//unknown.org/someres.png";
 cc.loader.load(remoteUrl, function (err, texture) {
     // Use texture to create sprite frame
 });
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
-remoteUrl = "http://unknown.org/emoji?id=124982374";
+remoteUrl = "//unknown.org/emoji?id=124982374";
 cc.loader.load({url: remoteUrl, type: 'png'}, function () {
     // Use texture to create sprite frame
 });

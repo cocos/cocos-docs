@@ -2,7 +2,7 @@
 
 We will have a lot of user data to store to the disk, such as music toggle and language preferences. If it's an offline game you will also need to store game progress locally. In Cocos Creator we use `cc.sys.localStorage` API to save and read user data.
 
-`cc.sys.localStorage` API is quite similar to [Web Storage API](http://devdocs.io/dom/storage). When running on Web platform it will call Web Storage API directly, on native platform it will use sqlite to save and read data on disk.
+`cc.sys.localStorage` API is quite similar to [Web Storage API](//devdocs.io/dom/storage). When running on Web platform it will call Web Storage API directly, on native platform it will use sqlite to save and read data on disk.
 
 There's an example project you can see data storage API work in action: [Tutorial Data Storage](https://github.com/cocos-creator/tutorial-storage).
 

@@ -4,7 +4,7 @@ Mobile and desktop native games developed with Cocos Creator are written in Java
 
 ## Install Cocos-Debug VS Code Extension
 
-First download [Cocos Debug](http://7xougr.dl1.z0.glb.clouddn.com/vscode/cocos-debug.zip) VS Code extension and extract `cocos-debug` folder to the `.vscode/extensions` folder under user profile folder. Then let's launch VS Code.
+First download [Cocos Debug](//7xougr.dl1.z0.glb.clouddn.com/vscode/cocos-debug.zip) VS Code extension and extract `cocos-debug` folder to the `.vscode/extensions` folder under user profile folder. Then let's launch VS Code.
 
 Once the Cocos Debug extension is loaded. Click the **Debug** tab on the left sidebar and then click the gear icon to select `Cocos-JSB` debug setting.
 

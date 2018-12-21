@@ -44,7 +44,7 @@ Goto **Preferences** panel and click [Native Develop Tab](../getting-started/bas
 
 ## Customized Cocos2d-x C++ Engine
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article, it's not the same as the stand alone cocos2d-x repo (http://github.com/cocos2d/cocos2d-x)!
+If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article, it's not the same as the stand alone cocos2d-x repo (//github.com/cocos2d/cocos2d-x)!
 
 Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.2.0 please checkout `v1.2` branch.
 
@@ -104,4 +104,4 @@ Creator >= 1.7, please refer to:
 
 Creator <= 1.6, please refer to:
 
-- [How to bind C++ to JavaScript](http://www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)
+- [How to bind C++ to JavaScript](//www.cocos2d-x.org/wiki/How_to_bind_C++_to_Javascript)

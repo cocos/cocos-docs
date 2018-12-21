@@ -36,7 +36,7 @@ Please read [Extends main menu](extends-main-menu.md) for more details.
 
 ## Did jobs in panel
 
-We've known that we can run [Node.js](http://nodejs.org/) program in main process. For complex operation, sometimes we need user working through user interface in panel, that needs us communicate with user via IPC message.
+We've known that we can run [Node.js](//nodejs.org/) program in main process. For complex operation, sometimes we need user working through user interface in panel, that needs us communicate with user via IPC message.
 
 To open a panel, we can write:
 

@@ -19,7 +19,7 @@ We drag the four split lines on the left/right/upper/lower side respectively and
 
 ![sliced](sliced-sprite/editing.png)
 
-And the following picture illustrates the state of zooming in/out in different areas (the picture comes from[Yannick Loriot's Blog](http://yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）:
+And the following picture illustrates the state of zooming in/out in different areas (the picture comes from[Yannick Loriot's Blog](//yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）:
 
 ![scaling](sliced-sprite/scaling.png)
 

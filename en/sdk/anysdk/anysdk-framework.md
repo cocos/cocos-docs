@@ -7,13 +7,13 @@ Cocos Creator built-in Cocos engine includes AnySDK Framework libraries. The pla
 
 ### Native
 
-- According to [ AnySDK Official Documentation ](http://docs.anysdk.com) integrates AnySDK`s relevant interface directly
+- According to [ AnySDK Official Documentation ](//docs.anysdk.com) integrates AnySDK`s relevant interface directly
 
 ### H5
 
 - Check the AnySDK option when you built web-mobile project
 
-- According to [ AnySDK H5 Integrated Documentation ](http://docs.anysdk.com/H5Tutorial) integrates AnySDK H5`s relevant interface directly
+- According to [ AnySDK H5 Integrated Documentation ](//docs.anysdk.com/H5Tutorial) integrates AnySDK H5`s relevant interface directly
 
 
 ## No need to use AnySDK
@@ -121,7 +121,7 @@ Folder Structure:
 				anysdk.agentManager.loadAllPlugins(function (code, msg) {
       			});
 			};
-			protocols.src = "http://statics.h5.anysdk.com/protocols/protocols.js";
+			protocols.src = "//statics.h5.anysdk.com/protocols/protocols.js";
 			document.body.appendChild(protocols);
 		</script>
   	 	```

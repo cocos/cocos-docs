@@ -4,7 +4,7 @@
 
 ### Editor.Menu.popup (template[, x, y])
 
-  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](http://electron.atom.io/docs/api/menu-item/)
+  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](//electron.atom.io/docs/api/menu-item/)
   - `x` number - The position x
   - `y` number - The position y
 

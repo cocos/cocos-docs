@@ -83,4 +83,4 @@ Reference SocketIO in script:
     ```
 
 4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly
-5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
+5. To use SocketIO in the component you can go to [SocketIO official website](//socket.io/) for API and files

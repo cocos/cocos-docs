@@ -2,11 +2,11 @@
 
 如果你已经掌握了 [编写面板界面](writing-your-panel.md) 这章中的界面编写方法，你或许会觉得这样
 编写界面有些繁琐。是否能够使用一些前端界面框架来提升界面编写效率呢？答案是肯定的。Cocos Creator
-支持任何界面框架如 [Vue](http://vuejs.org/)，[React](https://facebook.github.io/react/)，
-[Polymer](http://polymer-project.org/) 等等。
+支持任何界面框架如 [Vue](//vuejs.org/)，[React](https://facebook.github.io/react/)，
+[Polymer](//polymer-project.org/) 等等。
 
-在测试过程中，我们发现 [Vue](http://vuejs.org/) 非常符合 Cocos Creator 的整体设计思路，所以
-我们重点介绍一下如何在 Cocos Creator 中使用 [Vue](http://vuejs.org/) 编写面板界面。
+在测试过程中，我们发现 [Vue](//vuejs.org/) 非常符合 Cocos Creator 的整体设计思路，所以
+我们重点介绍一下如何在 Cocos Creator 中使用 [Vue](//vuejs.org/) 编写面板界面。
 
 ## 部署 Vue
 

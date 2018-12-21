@@ -4,7 +4,7 @@ If you have not downloaded and started Cocos Creator while reading this document
 
 ## Download Cocos Creator
 
-You can obtain the installation package for Cocos Creator by visiting the download link on the [Cocos Creator Products Page](http://www.cocos2d-x.org/products#creator).
+You can obtain the installation package for Cocos Creator by visiting the download link on the [Cocos Creator Products Page](//www.cocos2d-x.org/products#creator).
 
 Double-click the installation package after the download is complete.
 

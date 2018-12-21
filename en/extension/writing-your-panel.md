@@ -61,7 +61,7 @@ Editor.Panel.extend({
 ## 界面排版
 
 界面排版是通过在 `style` 中书写 CSS 来完成的。在上面的例子中，我们已经对界面做了简单的排版。如果
-对 CSS 不熟悉，推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
+对 CSS 不熟悉，推荐大家可以阅读 [W3 School 的 CSS 教程](//www.w3school.com.cn/css/) 来加强。
 
 在界面排版过程中，有时候我们希望更好的表达元素之间的布局关系，比如我们喜欢 Top 和 Bottom 元素的高度固定为 30px，
 而 Middle 元素的高度则撑满剩余空间。这个时候我们就可以使用 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局来制作。

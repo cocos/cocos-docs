@@ -4,8 +4,8 @@
 
 Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
 
-- [Cocos2d-x](http://www.cocos2d-x.org/)
-- [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/creator)
+- [Cocos2d-x](//www.cocos2d-x.org/)
+- [Cocos Creator Forum](//discuss.cocos2d-x.org/c/creator)
 <!-- - QQ group：738190852-->
 
 ## Demo and example projects
@@ -28,11 +28,11 @@ Apart from the information provided in this guide, you can also obtain informati
 
 Code libraries needed for zipping and sending to the Android platform:
 
-- [Android SDK Windows](http://cocostudio.download.appget.cn/Cocos/CocosStore/Android-SDK-Windows.zip)
-- [Android SDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
-- [Android NDK Windows 32bit](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
-- [Android NDK Windows 64bit](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
-- [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+- [Android SDK Windows](//cocostudio.download.appget.cn/Cocos/CocosStore/Android-SDK-Windows.zip)
+- [Android SDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
+- [Android NDK Windows 32bit](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
+- [Android NDK Windows 64bit](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
+- [Android NDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
 
 ## Other third-party tools and resources
 
@@ -40,7 +40,7 @@ Code libraries needed for zipping and sending to the Android platform:
 
 - [VS Code](https://code.visualstudio.com/) Recommended coding environment for Cocos Creator.
 - [WebStorm](https://www.jetbrains.com/webstorm/)
-- [Sublime Text](http://www.sublimetext.com/)
+- [Sublime Text](//www.sublimetext.com/)
 - [Atom](https://atom.io/)
 
 ### Tools for generating texture packer
@@ -52,18 +52,18 @@ Code libraries needed for zipping and sending to the Android platform:
 
 - [Glyph Designer](https://71squared.com/glyphdesigner)
 - [Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)
-- [BMFont (Windows)](http://www.angelcode.com/products/bmfont/)
+- [BMFont (Windows)](//www.angelcode.com/products/bmfont/)
 
 ### 2D skeleton animation tools
 
-- [Spine](http://www.esotericsoftware.com)
-- [Spriter](http://brashmonkey.com/spriter.htm)
-- [DragonBones](http://dragonbones.github.io/)
+- [Spine](//www.esotericsoftware.com)
+- [Spriter](//brashmonkey.com/spriter.htm)
+- [DragonBones](//dragonbones.github.io/)
 
 ### Tools for making special effect particles
 
-- [Particle Designer](http://particledesigner.71squared.com/)
-- [Particle2dx](http://www.effecthub.com/particle2dx): free online tool
+- [Particle Designer](//particledesigner.71squared.com/)
+- [Particle2dx](//www.effecthub.com/particle2dx): free online tool
 
 ### Other game development resources
 

@@ -64,4 +64,4 @@ It's worth mentioning that a single node can only contain one renderer component
 
 ## Reference reading
 
-- [Understand component-entity system - i_dovelemon's blog](http://blog.csdn.net/i_dovelemon/article/details/25798677)
+- [Understand component-entity system - i_dovelemon's blog](//blog.csdn.net/i_dovelemon/article/details/25798677)

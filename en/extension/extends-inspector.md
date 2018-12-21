@@ -59,7 +59,7 @@ Vue.component ('foobar-inspector', {
 });
 ```
 
-Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/) for UI. Here we define a vue component.
+Cocos Creator's Inspector extension uses [vuejs](//vuejs.org/) for UI. Here we define a vue component.
 and set `props` in the component so that it contains `target` data to complete the entire Inspector data definition.
 
 The `target` is an instance of our `Foobar` class in the Inspector.

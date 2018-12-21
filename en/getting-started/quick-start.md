@@ -6,7 +6,7 @@ Following the tutorial, we will create a deceiving game that is named **Pick Up 
 
 The completed form of this game can be played here:
 
-http://fbdemos.leanapp.cn/star-catcher/
+//fbdemos.leanapp.cn/star-catcher/
 
 ## Prepare project and resources
 
@@ -207,7 +207,7 @@ Next we will add a method to make the main character jump. Add a method called `
     },
 ```
 
-Here some Action in the Cocos2d-js engine is used to realize the jumping animation of the main character. For detailed information, please check [Cocos2d-js API](http://www.cocos2d-x.org/reference/html5-js/V3.8/index.html).
+Here some Action in the Cocos2d-js engine is used to realize the jumping animation of the main character. For detailed information, please check [Cocos2d-js API](//www.cocos2d-x.org/reference/html5-js/V3.8/index.html).
 
 Next invoke the newly added `setJumpAction` method in the `onLoad` method and implement `runAction` to start action:
 

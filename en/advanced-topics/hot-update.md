@@ -37,7 +37,7 @@ The version file can be part of the contents of the manifest file and do not con
 
 In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
 
-Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](http://docs.cocos2d-x.org/creator/manual/en/getting-started/project-structure.html). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
+Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. Users who have not previously familiar with cocos2d-x can refer to [Project Structure Document](//docs.cocos2d-x.org/creator/manual/en/getting-started/project-structure.html). For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `res` directory.
 
 Based on this project structure, the hot update process in this tutorial is simple:
 
@@ -57,7 +57,7 @@ The example project used in the tutorial is based on the BlackJack example. To s
 In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) script file, which is a Nodejs script for generating manfiest file. Use as follows:
 
 ```bash
-> node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
+> node version_generator.js -v 1.0.0 -u //your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
 ```
 
 The following is a description of the parameters:
@@ -113,7 +113,7 @@ If everything is alright, you can run the native version of the sample project. 
 
 ## Conclusion
 
-The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](http://discuss.cocos2d-x.org/).
+The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](//discuss.cocos2d-x.org/).
 
 ## Next Step
 

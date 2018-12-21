@@ -40,7 +40,7 @@ Here is a simple example of `package.json`:
 Explanation:
 
  - `name` String - The package name. Make sure your package name is uniqued, it relate to many things in package programming.
- - `version` String - The version number, we highly recommend you use [semver](http://semver.org/) standards for your version.
+ - `version` String - The version number, we highly recommend you use [semver](//semver.org/) standards for your version.
  - `description` String (optional) - Describe your package in one sentence.
  - `author` String (optional) - Author name.
  - `main` String (optional) - Package entry point.

@@ -12,7 +12,7 @@ If you do not have a plan to publish to the Android platform, or if your operati
 
 Compile the Android project requires a complete Java SDK tool on your local computer, download it at the following address:
 
-[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[Java SE Development Kit 8 Downloads](//www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 Download and pay attention to select the machine and the operating system and architecture, download the installation can be completed after the installation process.
 
@@ -22,13 +22,13 @@ After the installation is complete, please confirm that the `java` command is va
 java -version
 ```
 
-If "JAVA SE" displays, there is no problem. If "JRE" displays, then you need to install [JAVA SE running environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+If "JAVA SE" displays, there is no problem. If "JRE" displays, then you need to install [JAVA SE running environment](//www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 On Windows platform, please confirm if "JAVA_HOME" is included in your environmental variables. By right clicking My Computer, choosing property and opening the advanced tab, you can check and modify environmental variables. For effective running on Windows platform, you might need to restart the computer.
 
 ### Download and install Android Studio
 
-Starting with v1.5, we support the latest version of Android Studio and companion building tools. We recommend Android Studio as an Android platform build tool and you should download the required SDK and NDK packages in Android Studio. First install [Android Studio](http://www.android-studio.org/).
+Starting with v1.5, we support the latest version of Android Studio and companion building tools. We recommend Android Studio as an Android platform build tool and you should download the required SDK and NDK packages in Android Studio. First install [Android Studio](//www.android-studio.org/).
 
 ### Download the SDK and NDK required to publish the Android platform
 
@@ -101,7 +101,7 @@ We have received lots of feedback about original packing in the public beta, and
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](http://discuss.cocos2d-x.org/c/creator).
+In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](//discuss.cocos2d-x.org/c/creator).
 
 ---
 

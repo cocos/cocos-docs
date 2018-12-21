@@ -14,7 +14,7 @@ In addition, you may use some exsiting patterns while using Cocos Creator to dev
 
 If you can see this article, then you already have a full-featured JavaScript development environment--I am talking about the browser you are using!
 
-All the examples on this page, you can type them into your browser's console and check their running results. If you don't know how to do this, you can read [Guidance of how to open the console in different browsers](http://webmasters.stackexchange.com/a/77337).
+All the examples on this page, you can type them into your browser's console and check their running results. If you don't know how to do this, you can read [Guidance of how to open the console in different browsers](//webmasters.stackexchange.com/a/77337).
 
 Are you ready? Let's start learning JavaScript!
 
@@ -390,8 +390,8 @@ If you prefer learning by practice like I do, then you may start to learn how to
 
 Here are some JavaScript primers:
 
-- [JavaScript standard reference tutorial](http://javascript.ruanyifeng.com/)
-- [JavaScript secret garden](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript standard reference tutorial](//javascript.ruanyifeng.com/)
+- [JavaScript secret garden](//bonsaiden.github.io/JavaScript-Garden/zh/)
 
 
 ---

@@ -2,7 +2,7 @@
 {% block book_header %}
 <div class="cocos-navbar navbar-collapse" id="navbar" role="navigation">
     <ul class="nav navbar-nav">
-        <li><a href="https://cocos.com" class="btn" target="_blank"><img src="https://forum.cocos.com/images/logo.png" height="30" /></a></li>
+        <li><a href="//www.cocos2d-x.org" class="btn" target="_blank"><img src="https://forum.cocos.com/images/logo.png" height="30" /></a></li>
         <li><a href="#" class="btn autohide" onclick="toggleLanguage()">中文</a></li>
 {% for item in book.products %}
     {% if item.links %}
@@ -27,7 +27,7 @@
             <li><a href="{{entry.link}}" class="btn">Version: <span style="font-weight:bold">{{entry.name}}</span></a></li>
             {% endfor %}
         </ul>
-    </li>                
+    </li>
     {% else %}
     <li><a href="{{item.link}}" class="btn">{{item.name}}</a></li>
     {% endif %}

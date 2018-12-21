@@ -29,7 +29,7 @@ Remove menu item at `path`.
 
   - `path` string - Menu path
   - `options` object
-    - `icon` NativeImage - A [NativeImage](http://electron.atom.io/docs/api/native-image/)
+    - `icon` NativeImage - A [NativeImage](//electron.atom.io/docs/api/native-image/)
     - `enabled` boolean
     - `visible` boolean
     - `checked` boolean - NOTE: You must set your menu-item type to 'checkbox' to make it work

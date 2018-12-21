@@ -21,7 +21,7 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | Size Mode | Specify the size of the Sprite, **Trimmed** will use the original image resource to crop the size of the transparent pixel; **Raw** will use the original image uncut size; when the user manually modified the **size** attribute, **Size Mode** will be automatically set to **Custom** unless it is specified again for the first two sizes.
 | Trimmed Mode | Whether to render the transparent pixel area around the original image. For details, please refer to [Auto Clipping of Image Resources](../asset-workflow/trim.md).
 | Src Blend Factor | Current Image Blending Mode
-| Dst Blend Factor | Background image blend mode, combined with the above properties, can blend foreground and background Sprite in different ways. Preview of effect can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
+| Dst Blend Factor | Background image blend mode, combined with the above properties, can blend foreground and background Sprite in different ways. Preview of effect can refer to [glBlendFunc Tool](//www.andersriggelsen.dk/glblendfunc.php)
 
 After adding the **Sprite** component, you can display the resource image through the Sprite component by dragging a resource of type **Texture** or **SpriteFrame** from the **Assets** panel into the **Sprite Frame** property reference.
 

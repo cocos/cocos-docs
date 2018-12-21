@@ -20,7 +20,7 @@ When running simulator, scripting logs will be shown in **Console** panel.
 
 ### Browser
 
-Choose **Browser** and click **Preview** will launch the game in your default browser. We recommend [Chrome](http://google.com/chrome) as the browser of the choice, since the DevTools of Chrome is most advanced in web debugging and inspecting.
+Choose **Browser** and click **Preview** will launch the game in your default browser. We recommend [Chrome](//google.com/chrome) as the browser of the choice, since the DevTools of Chrome is most advanced in web debugging and inspecting.
 
 There are a bunch of control in Preview page:
 

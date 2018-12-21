@@ -6,7 +6,7 @@ The package name. Make sure your package name is uniqued, it relate to many thin
 
 ### version (String)
 
-The version number, we highly recommend you use [semver](http://semver.org/) standards for your version.
+The version number, we highly recommend you use [semver](//semver.org/) standards for your version.
 
 ### description (String)
 

@@ -1,6 +1,6 @@
 # Basic Node and Component API
 
-We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Component.html) API reference.
+We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](//docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](//docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Component.html) API reference.
 
 ## Node active state and hierarchy
 
