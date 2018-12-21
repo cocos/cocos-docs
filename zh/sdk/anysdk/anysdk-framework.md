@@ -7,13 +7,13 @@ Cocos Creator 内置 Cocos 引擎中包含了 AnySDK Framework 资源。即开�
 
 ### 原生
 
-- 开发者可根据 [ AnySDK 官方文档 ](http://docs.anysdk.com) 直接接入 AnySDK 相关接口
+- 开发者可根据 [ AnySDK 官方文档 ](//docs.anysdk.com) 直接接入 AnySDK 相关接口
 
 ### H5
 
 - 构建时勾选 AnySDK 选项
 
-- 开发者可根据 [ AnySDK H5 接入文档 ](http://docs.anysdk.com/H5Tutorial) 直接接入 AnySDK 相关接口
+- 开发者可根据 [ AnySDK H5 接入文档 ](//docs.anysdk.com/H5Tutorial) 直接接入 AnySDK 相关接口
 
 
 ## 无需使用 AnySDK
@@ -121,7 +121,7 @@ project-folder
 				anysdk.agentManager.loadAllPlugins(function (code, msg) {
       			});
 			};
-			protocols.src = "http://statics.h5.anysdk.com/protocols/protocols.js";
+			protocols.src = "//statics.h5.anysdk.com/protocols/protocols.js";
 			document.body.appendChild(protocols);
 		</script>
   	 	```

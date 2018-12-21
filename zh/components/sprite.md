@@ -18,7 +18,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 | Size Mode | 指定 Sprite 的尺寸，`Trimmed` 会使用原始图片资源裁剪透明像素后的尺寸；`Raw` 会使用原始图片未经裁剪的尺寸；当用户手动修改过 `size` 属性后，`Size Mode` 会被自动设置为 `Custom`，除非再次指定为前两种尺寸。
 | Trimmed Mode | 是否渲染原始图像周围的透明像素区域，详情请参考[图像资源的自动剪裁](../asset-workflow/trim.md)。
 | Src Blend Factor | 当前图像混合模式
-| Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
+| Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](//www.andersriggelsen.dk/glblendfunc.php)
 
 添加 Sprite 组件之后，通过从 **资源管理器** 中拖拽 Texture 或 SpriteFrame 类型的资源到`Sprite Frame`属性引用中，就可以通过 Sprite 组件显示资源图像。
 

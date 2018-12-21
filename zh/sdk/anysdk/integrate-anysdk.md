@@ -2,20 +2,20 @@
 
 ## 概述
 
-从 Creator 1.2 版本起，构建项目的时候就会自动集成 AnySDK 框架，本篇介绍如何接入 AnySDK。更多关于 AnySDK 的资料可以查看 [官方wiki](http://docs.anysdk.com/)。
+从 Creator 1.2 版本起，构建项目的时候就会自动集成 AnySDK 框架，本篇介绍如何接入 AnySDK。更多关于 AnySDK 的资料可以查看 [官方wiki](//docs.anysdk.com/)。
 
 ## 创建游戏
 
-由于目前 AnySDK for Creator 的插件尚未发布，需要从 [官网](http://www.anysdk.com/downloads) 下载独立的 AnySDK 客户端来进行创建游戏和打包。登陆 AnySDK 客户端，创建新游戏，得到三个参数。
+由于目前 AnySDK for Creator 的插件尚未发布，需要从 [官网](//www.anysdk.com/downloads) 下载独立的 AnySDK 客户端来进行创建游戏和打包。登陆 AnySDK 客户端，创建新游戏，得到三个参数。
 
-关于 AnySDK 客户端更多的介绍可以参考 [客户端使用手册](http://docs.anysdk.com/PackageTool)。  
+关于 AnySDK 客户端更多的介绍可以参考 [客户端使用手册](//docs.anysdk.com/PackageTool)。  
 ![创建游戏](integrate-anysdk/create-game.png)
 
 ## 服务端接入
 
 如果游戏接入用户和支付的话，需要游戏服务端处理登陆验证和支付验签相关逻辑，参考以下两篇文档进行接入。  
-[统一登陆验证](http://docs.anysdk.com/OauthLogin)  
-[订单支付通知](http://docs.anysdk.com/PaymentNotice)
+[统一登陆验证](//docs.anysdk.com/OauthLogin)  
+[订单支付通知](//docs.anysdk.com/PaymentNotice)
 
 
 ## 客户端接入
@@ -51,20 +51,20 @@ PS：`init`初始化传的参数如果和打包的游戏的参数不一致，会
 
 根据游戏需求，参考以下文档来调用各个系统的接口。  
 
-* [用户系统](http://docs.anysdk.com/UsersystemJS)  
-* [支付系统](http://docs.anysdk.com/IapsystemJS)  
+* [用户系统](//docs.anysdk.com/UsersystemJS)  
+* [支付系统](//docs.anysdk.com/IapsystemJS)  
 * [统计系统][1]
 * [分享系统][2] 
 * [广告系统][3]
 * [推送系统][4] 
 * [崩溃分析系统][5] 
-* [广告追踪系统](http://docs.anysdk.com/AdTrackingSystemJS)
+* [广告追踪系统](//docs.anysdk.com/AdTrackingSystemJS)
 
-[1]: http://docs.anysdk.com/AnalyticsSystem(JS)
-[2]: http://docs.anysdk.com/ShareSystem(JS)
-[3]: http://docs.anysdk.com/AdsSystem(JS)
-[4]: http://docs.anysdk.com/PushSystem(JS)
-[5]: http://docs.anysdk.com/CrashSystem(JS)
+[1]: //docs.anysdk.com/AnalyticsSystem(JS)
+[2]: //docs.anysdk.com/ShareSystem(JS)
+[3]: //docs.anysdk.com/AdsSystem(JS)
+[4]: //docs.anysdk.com/PushSystem(JS)
+[5]: //docs.anysdk.com/CrashSystem(JS)
 
 
 ## 打包

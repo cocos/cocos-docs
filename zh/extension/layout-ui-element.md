@@ -1,7 +1,7 @@
 # 界面排版
 
 Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。如果对 CSS 不熟悉，
-推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
+推荐大家可以阅读 [W3 School 的 CSS 教程](//www.w3school.com.cn/css/) 来加强。
 
 然而普通的 CSS 排版并不适合界面元素，为此，CSS 最新标准中加入了 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局。
 通过 Flex 布局，我们可以很轻易的对界面元素进行横排和纵排。为了方便开发者使用 CSS Flex，Cocos Creator

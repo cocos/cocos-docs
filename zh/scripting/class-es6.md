@@ -38,7 +38,7 @@ export = ExampleClass; 对应 import ExampleClass = require("...");
 
 ES6 Classes:
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes
-http://es6.ruanyifeng.com/#docs/class
+//es6.ruanyifeng.com/#docs/class
 
 TypeScript Classes:
 https://www.typescriptlang.org/docs/handbook/classes.html

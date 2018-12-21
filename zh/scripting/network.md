@@ -80,4 +80,4 @@
     ```
 
 4. 将 SocketIO 脚本文件设为 [插件脚本](./plugin-scripts.html)，这样在组件中直接使用 window.io 就能访问到 SocketIO
-5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/)查询 API 和文档等
+5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](//socket.io/)查询 API 和文档等

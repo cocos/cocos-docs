@@ -6,7 +6,7 @@
 
 可以在这里感受一下这款游戏的完成形态：
 
-http://fbdemos.leanapp.cn/star-catcher/
+//fbdemos.leanapp.cn/star-catcher/
 
 ## 准备项目和资源
 
@@ -211,7 +211,7 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
     },
 ```
 
-这里用到了一些 Cocos2d-js 引擎中的 Action 来实现主角的跳跃动画，详情可以查询[Cocos2d-js API](http://www.cocos2d-x.org/reference/html5-js/V3.8/index.html).
+这里用到了一些 Cocos2d-js 引擎中的 Action 来实现主角的跳跃动画，详情可以查询[Cocos2d-js API](//www.cocos2d-x.org/reference/html5-js/V3.8/index.html).
 
 接下来在`onLoad`方法里调用刚添加的`setJumpAction`方法，然后执行`runAction`来开始动作：
 

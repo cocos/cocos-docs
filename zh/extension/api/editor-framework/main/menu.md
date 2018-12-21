@@ -4,14 +4,14 @@
 
 ### new Editor.Menu (template[, webContents])
 
-  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](http://electron.atom.io/docs/api/menu-item/)
+  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](//electron.atom.io/docs/api/menu-item/)
     - `path` string - add a menu item by path.
     - `message` string - Ipc message name.
     - `command` string - A global function in main process (e.g. Editor.log).
     - `params` array - The parameters passed through ipc.
     - `panel` string - The panelID, if specified, the message will send to panel.
     - `dev` string - Only show when Menu.showDev is true.
-  - `webContents` object - A [WebContents](http://electron.atom.io/docs/api/web-contents/) object.
+  - `webContents` object - A [WebContents](//electron.atom.io/docs/api/web-contents/) object.
 
 ## Instance Methods
 
@@ -71,7 +71,7 @@ Reset the menu from the template.
 
   - `path` - The menu path
   - `options`
-    - `icon` NativeImage - A [NativeImage](http://electron.atom.io/docs/api/native-image/)
+    - `icon` NativeImage - A [NativeImage](//electron.atom.io/docs/api/native-image/)
     - `enabled` boolean
     - `visible` boolean
     - `checked` boolean -  NOTE: You must set your menu-item type to 'checkbox' to make it work
@@ -93,8 +93,8 @@ Indicate if show dev menu
 
 ### Editor.Menu.convert (template[, webContents])
 
-  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](http://electron.atom.io/docs/api/menu-item/)
-  - `webContents` object - A [WebContents](http://electron.atom.io/docs/api/web-contents/) object.
+  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](//electron.atom.io/docs/api/menu-item/)
+  - `webContents` object - A [WebContents](//electron.atom.io/docs/api/web-contents/) object.
 
 Convert the menu template to process additional keyword we added for Electron.
 If webContents provided, the `template.message` will send to the target webContents.
@@ -115,7 +115,7 @@ If webContents provided, the `template.message` will send to the target webConte
 
 ### Editor.Menu.walk (template, fn)
 
-  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](http://electron.atom.io/docs/api/menu-item/)
+  - `template` array|object - Menu template for initialize. The template take the options of [Electron's Menu Item](//electron.atom.io/docs/api/menu-item/)
   - `fn` function - Function applied to each menu item
 
 Example:

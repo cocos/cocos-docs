@@ -12,7 +12,7 @@
 
 编译 Android 工程需要本地电脑上有完整的 Java SDK 工具，请到以下地址下载：
 
-[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[Java SE Development Kit 8 Downloads](//www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 下载时注意选择和本机匹配的操作系统和架构，下载完成后运行安装程序即可。
 
@@ -22,13 +22,13 @@
 java -version
 ```
 
-显示为 JAVA SE 则没有问题，如果系统中使用的是 JRE，则需要安装 [JAVA SE 运行环境](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+显示为 JAVA SE 则没有问题，如果系统中使用的是 JRE，则需要安装 [JAVA SE 运行环境](//www.oracle.com/technetwork/java/javase/downloads/index.html)。
 
 如果是 Windows 系统，请确认你的环境变量中包含 JAVA_HOME。可以通过右键点击我的电脑，选择属性，打开高级选项卡中来查看和修改环境变量。Windows 平台可能需要重启电脑才会生效。参考 [如何设置或更改 JAVA 系统环境变量](https://www.java.com/zh_CN/download/help/path.xml)
 
 ### 下载安装 Android Studio
 
-从 v1.5 开始，我们支持最新版本的 Android Studio 和配套的构建工具，推荐使用 Android Studio 作为安卓平台的构建工具，并在 Android Studio 里下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](http://www.android-studio.org/)。
+从 v1.5 开始，我们支持最新版本的 Android Studio 和配套的构建工具，推荐使用 Android Studio 作为安卓平台的构建工具，并在 Android Studio 里下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](//www.android-studio.org/)。
 
 ### 下载发布 Android 平台所需的 SDK 和 NDK
 
@@ -103,19 +103,19 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
     从以下链接下载和操作系统一致的 Android SDK 和 NDK：
 
-    - [Android SDK Windows](http://cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
-    - [Android SDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
-    - [Android NDK Windows 32位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
-    - [Android NDK Windows 64位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
-    - [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+    - [Android SDK Windows](//cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
+    - [Android SDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
+    - [Android NDK Windows 32位](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
+    - [Android NDK Windows 64位](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
+    - [Android NDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
 
     下载之后解压到任意位置，我们之后需要设置 Android SDK 和 NDK 的路径，请记住以上文件的解压位置。
 
-    下载 [Apache Ant](http://ant.apache.org) 是一种用来构建软件的 Java 程序库和可执行文件。我们在构建 Android 平台项目时需要这个软件的支持。
+    下载 [Apache Ant](//ant.apache.org) 是一种用来构建软件的 Java 程序库和可执行文件。我们在构建 Android 平台项目时需要这个软件的支持。
 
     前往 Apache Ant 的下载链接：
 
-    [Apache Ant 下载](http://ant.apache.org/bindownload.cgi)
+    [Apache Ant 下载](//ant.apache.org/bindownload.cgi)
 
     选择稳定版的 `.zip` 压缩包并下载，下载完成后解压到任意目录，之后我们在进行设置时需要选择这个目录。
 

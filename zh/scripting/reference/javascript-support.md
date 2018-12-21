@@ -8,5 +8,5 @@ Creator 使用的是标准的 JavaScript，JavaScript 目前常见的标准是�
 
 - 编辑器部分支持到常用的 ES2015。
 
-    > 具体支持程度取决于 Creator 采用的 Node.js 引擎，截至 Creator 1.1，支持到了 Node.js 5.1.1（[详情](http://node.green/)）。<br>
+    > 具体支持程度取决于 Creator 采用的 Node.js 引擎，截至 Creator 1.1，支持到了 Node.js 5.1.1（[详情](//node.green/)）。<br>
     > 在 Creator 的控制台中输入 `process.versions.node` 可以显示当前的 Node.js 版本号。

@@ -1,6 +1,6 @@
 # 骨骼动画资源（Spine）
 
-骨骼动画资源是由 [Spine®](http://zh.esotericsoftware.com/) 所导出的数据格式。
+骨骼动画资源是由 [Spine®](//zh.esotericsoftware.com/) 所导出的数据格式。
 
 ## 导入骨骼动画资源
 

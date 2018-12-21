@@ -2,7 +2,7 @@
 
 我们在游戏中通常需要存储用户数据，如音乐开关、显示语言等，如果是单机游戏还需要存储玩家存档。 Cocos Creator 中我们使用 `cc.sys.localStorage` 接口来进行用户数据存储和读取的操作。
 
-`cc.sys.localStorage` 接口是按照 [Web Storage API](http://devdocs.io/dom/storage) 来实现的，在 Web 平台运行时会直接调用 Web Storage API，在原生平台上会调用 sqlite 的方法来存储数据。一般用户不需要关心内部的实现。
+`cc.sys.localStorage` 接口是按照 [Web Storage API](//devdocs.io/dom/storage) 来实现的，在 Web 平台运行时会直接调用 Web Storage API，在原生平台上会调用 sqlite 的方法来存储数据。一般用户不需要关心内部的实现。
 
 配合本篇文档可以参考 [数据存储范例](https://github.com/cocos-creator/tutorial-storage)。
 

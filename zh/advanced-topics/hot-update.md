@@ -57,7 +57,7 @@ Manifest 文件中包含以下几个重要信息：
 在范例工程中，我们提供了一个 [version_generator.js 文件](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js)，这是一个用于生成 Manfiest 文件的 NodeJS 脚本。使用方式如下：
 
 ```
-> node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
+> node version_generator.js -v 1.0.0 -u //your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
 ```
 
 下面是参数说明：
@@ -113,7 +113,7 @@ if (cc.sys.isNative) {
 
 ## 结语
 
-以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到[论坛](http://www.cocoachina.com/bbs/thread.php?fid-71.html)中。
+以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到[论坛](//www.cocoachina.com/bbs/thread.php?fid-71.html)中。
 
 ## Next Step
 

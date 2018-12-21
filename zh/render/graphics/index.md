@@ -34,7 +34,7 @@
 
 ## 第三方库
 
-绘图组件的 api 是参考的 [Canvas](http://www.w3school.com.cn/tags/html_ref_canvas.asp) 的绘图接口，而市面上已经有很多基于 Canvas 绘图接口实现的绘图库，比如 [paper.js](http://paperjs.org/), [raphael.js](http://dmitrybaranovskiy.github.io/raphael/)。
+绘图组件的 api 是参考的 [Canvas](//www.w3school.com.cn/tags/html_ref_canvas.asp) 的绘图接口，而市面上已经有很多基于 Canvas 绘图接口实现的绘图库，比如 [paper.js](//paperjs.org/), [raphael.js](//dmitrybaranovskiy.github.io/raphael/)。
 利用这些基础绘图接口和市面上的这些绘画库，我们也可以在绘图组件上扩展出很多更高级的库。
 
 这里列举了一些基于绘图组件扩展的第三方高级绘图库和相关 demo 。

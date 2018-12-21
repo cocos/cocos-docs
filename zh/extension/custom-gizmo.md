@@ -1,6 +1,6 @@
 # 自定义 Gizmo
 
-目前 Gizmo 使用 [svg.js](http://svgjs.com/) 作为操作工具, 具体 svg.js 的 api 可以参考 http://documentup.com/wout/svg.js
+目前 Gizmo 使用 [svg.js](//svgjs.com/) 作为操作工具, 具体 svg.js 的 api 可以参考 //documentup.com/wout/svg.js
 
 ## 创建自定义 Gizmo
 
@@ -30,11 +30,11 @@ class CustomGizmo extends Editor.Gizmo {
         // 实例：
 
         // 创建一个 svg 工具
-        // group 函数文档 : http://documentup.com/wout/svg.js#groups
+        // group 函数文档 : //documentup.com/wout/svg.js#groups
         this._tool = this._root.group();
 
         // 画一个的圆
-        // circle 函数文档 : http://documentup.com/wout/svg.js#circle
+        // circle 函数文档 : //documentup.com/wout/svg.js#circle
         let circle = this._tool.circle();
 
         // 为 tool 定义一个绘画函数，可以为其他名字

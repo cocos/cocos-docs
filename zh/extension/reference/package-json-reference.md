@@ -6,7 +6,7 @@
 
 ### version (String)
 
-版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
+版本号，我们推荐使用 [semver](//semver.org/) 格式管理你的包版本。
 
 ### description (String)
 

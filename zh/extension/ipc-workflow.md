@@ -92,7 +92,7 @@ require('electron').ipcRenderer.on('foobar:message', function(event, args) {});
 require('electron').ipcMain.on('foobar:message', function(event, args) {});
 ```
 
-关于 Electron 的 IPC 接口可以参考 [Electron API: ipcMain](http://electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](http://electron.atom.io/docs/api/ipc-renderer/)。
+关于 Electron 的 IPC 接口可以参考 [Electron API: ipcMain](//electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](//electron.atom.io/docs/api/ipc-renderer/)。
 
 ## 向消息来源发送回调
 

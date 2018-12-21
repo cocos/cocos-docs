@@ -49,7 +49,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 
 以谷歌浏览器为例，通过功能菜单的 `更多工具/开发者工具` 可以打开开发者工具界面，如上图所示。在开发者工具中，我们可以查看运行日志、打断点进行调试、在调用堆栈中查看每一步各个变量的值、甚至进行资源加载和性能分析。
 
-要学习使用开发者工具进行调试，请阅读[极客学院的 Chrome Dev Tools 使用指南](http://wiki.jikexueyuan.com/project/chrome-devtools/overview.html)，或其他浏览器的开发者工具帮助。
+要学习使用开发者工具进行调试，请阅读[极客学院的 Chrome Dev Tools 使用指南](//wiki.jikexueyuan.com/project/chrome-devtools/overview.html)，或其他浏览器的开发者工具帮助。
 
 ## 构建发布
 

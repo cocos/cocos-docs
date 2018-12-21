@@ -10,7 +10,7 @@
 
 通过层级管理器或运行时脚本的操作，建立的节点之间的完整逻辑关系，就叫做节点树。
 
-我们用来自 [Cocos2d-x Programmer Guide](http://docs.cocos2d-x.org/cocos2d-x/en/basic_concepts/) 的一组图片来展示什么是节点树：
+我们用来自 [Cocos2d-x Programmer Guide](//docs.cocos2d-x.org/cocos2d-x/en/basic_concepts/) 的一组图片来展示什么是节点树：
 
 下面是一个简单的游戏场景，包括背景图像，三个角色，标题文字，分数文字和开始游戏的按钮：
 

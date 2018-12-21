@@ -77,7 +77,7 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 首先需要确保你的操作系统中可以运行 [cURL 命令](https://curl.haxx.se/)，如果在 Windows 操作系统的命令行中运行 `curl` 提示找不到命令，则需要先安装 curl 到你的系统：
 
-- 前往 <http://www.confusedbycode.com/curl/>
+- 前往 <//www.confusedbycode.com/curl/>
 - 点击下图箭头所示的控件，完成人机身份验证
     ![curl download](coding-setup/curl_download.jpg)
 - 点击 `curl-7.46.0-win64.exe` 开始下载并安装

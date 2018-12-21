@@ -28,7 +28,7 @@ QQ「玩一玩」与微信小游戏类似，内置于 QQ 中，无需下载游�
 
 ![](./publish-qqplay/paste.jpeg)
 
-3、打开 Bricks 引擎中的 Xcode 工程，就可以直接进行玩一玩的编译调试了。具体可查看 [Bricks 引擎官方调试文档](http://hudong.qq.com/docs/engine/introduce/safari_debug.html)。
+3、打开 Bricks 引擎中的 Xcode 工程，就可以直接进行玩一玩的编译调试了。具体可查看 [Bricks 引擎官方调试文档](//hudong.qq.com/docs/engine/introduce/safari_debug.html)。
 
 与这篇文档搭配的还有一段教学视频，可以结合视频中的操作来理解，更加直观。
 

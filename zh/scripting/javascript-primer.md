@@ -14,7 +14,7 @@ JavaScript是一门充满争议的编程语言：它以 Java 命名，但实际�
 
 如果你能看到这篇文章，那么你已经具备了全功能的 JavaScript 开发环境——我说的就是你正在使用的浏览器！
 
-在本页面中读到的所有例子，你都可以把他们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读[如何在不同浏览器中打开控制台的指南](http://webmasters.stackexchange.com/a/77337)。
+在本页面中读到的所有例子，你都可以把他们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读[如何在不同浏览器中打开控制台的指南](//webmasters.stackexchange.com/a/77337)。
 
 准备好了吗？让我们开始学习 JavaScript 吧！
 
@@ -286,7 +286,7 @@ myFunction = function (a, b) {
 
 乍一看好像这样子并没有什么作用，实际上它允许你安全的使用`myObject` 这个变量来指代最初执行函数的对象，而不用担心在后面的代码中 `this` 会变成其他东西。
 
-关于 JavaScript 里 `this` 的详细原理说明，请参考这篇文章 [this 的值到底是什么？一次说清楚](http://zhuanlan.zhihu.com/p/23804247)。
+关于 JavaScript 里 `this` 的详细原理说明，请参考这篇文章 [this 的值到底是什么？一次说清楚](//zhuanlan.zhihu.com/p/23804247)。
 
 
 ## 运算符
@@ -393,8 +393,8 @@ var Comp = cc.Class({
 
 以下是 JavaScript 的一些入门教程:
 
-- [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
-- [JavaScript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript标准参考教程](//javascript.ruanyifeng.com/)
+- [JavaScript秘密花园](//bonsaiden.github.io/JavaScript-Garden/zh/)
 
 
 ---

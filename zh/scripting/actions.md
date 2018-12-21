@@ -180,7 +180,7 @@ action.easing(cc.easeIn(3.0));
 
 ![](./actions/tweener.png)
 
-_图片源自 http://hosted.zeh.com.br/tweener/docs/en-us/_
+_图片源自 //hosted.zeh.com.br/tweener/docs/en-us/_
 
 ## 具体动作 API 参考
 

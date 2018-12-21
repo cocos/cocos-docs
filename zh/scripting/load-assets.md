@@ -234,13 +234,13 @@ cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets)
 
 ```javascript
 // 远程 url 带图片后缀名
-var remoteUrl = "http://unknown.org/someres.png";
+var remoteUrl = "//unknown.org/someres.png";
 cc.loader.load(remoteUrl, function (err, texture) {
     // Use texture to create sprite frame
 });
 
 // 远程 url 不带图片后缀名，此时必须指定远程图片文件的类型
-remoteUrl = "http://unknown.org/emoji?id=124982374";
+remoteUrl = "//unknown.org/emoji?id=124982374";
 cc.loader.load({url: remoteUrl, type: 'png'}, function () {
     // Use texture to create sprite frame
 });

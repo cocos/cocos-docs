@@ -86,7 +86,7 @@ class CustomGizmo extends Editor.Gizmo {
         // 实例：
 
         // 创建一个 svg 工具
-        // group 函数文档 : http://documentup.com/wout/svg.js#groups
+        // group 函数文档 : //documentup.com/wout/svg.js#groups
         this._tool = this._root.group();
 
         // 创建中心拖拽区域，用于操作 offset 属性

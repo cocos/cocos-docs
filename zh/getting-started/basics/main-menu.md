@@ -94,7 +94,7 @@
 
 脚本和编辑器扩展开发相关的菜单功能。
 
-- **VS Code 工作流**：[VS Code](http://code.visualstudio.com/) 代码编辑器的工作环境相关功能，详情请阅读 [代码编辑环境配置](../coding-setup.md) 一节。
+- **VS Code 工作流**：[VS Code](//code.visualstudio.com/) 代码编辑器的工作环境相关功能，详情请阅读 [代码编辑环境配置](../coding-setup.md) 一节。
   - **更新 VS Code 智能提示数据**
   - **安装 VS Code 扩展插件**
   - **添加 Chrome Debug 配置**

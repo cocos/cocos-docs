@@ -5,7 +5,7 @@
 ### new Editor.Window (name[, options])
 
   - `name` string - The window name.
-  - `options` object - The [Electron's BrowserWindow options](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions) with the following additional field  
+  - `options` object - The [Electron's BrowserWindow options](//electron.atom.io/docs/api/browser-window/#new-browserwindowoptions) with the following additional field  
     - `windowType` string - Can be one of the list:
       - `dockable`: Indicate the window contains a dockable panel
       - `float`: Indicate the window is standalone, and float on top.

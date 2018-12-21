@@ -28,11 +28,11 @@
 
 打包发布 Android 平台需要的代码库：
 
-- [Android SDK Windows](http://cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
-- [Android SDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
-- [Android NDK Windows 32位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
-- [Android NDK Windows 64位](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
-- [Android NDK Mac](http://cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
+- [Android SDK Windows](//cocostudio.download.appget.cn/android-sdk/android-sdk-win.zip)
+- [Android SDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android22-sdk-macosx.zip)
+- [Android NDK Windows 32位](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10d-windows-x86.zip)
+- [Android NDK Windows 64位](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-Windows.zip)
+- [Android NDK Mac](//cocostudio.download.appget.cn/Cocos/CocosStore/android-ndk-r10e-macosx.zip)
 
 ## 其他第三方工具和资源
 
@@ -40,7 +40,7 @@
 
 - [VS Code](https://code.visualstudio.com/) 微软推出的轻量级文本编辑器，支持 Cocos Creator 代码提示和语法高亮
 - [WebStorm](https://www.jetbrains.com/webstorm/)
-- [Sublime Text](http://www.sublimetext.com/)
+- [Sublime Text](//www.sublimetext.com/)
 - [Atom](https://atom.io/)
 
 ### 图集生产工具
@@ -52,19 +52,19 @@
 
 - [Glyph Designer](https://71squared.com/glyphdesigner)
 - [Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)
-- [BMFont (Windows)](http://www.angelcode.com/products/bmfont/)
+- [BMFont (Windows)](//www.angelcode.com/products/bmfont/)
 
 ### 2D 骨骼动画工具
 
-- [Spine](http://esotericsoftware.com)
-- [Spriter](http://brashmonkey.com/spriter.htm)
-- [DragonBones](http://dragonbones.github.io/)
+- [Spine](//esotericsoftware.com)
+- [Spriter](//brashmonkey.com/spriter.htm)
+- [DragonBones](//dragonbones.github.io/)
 
 ### 粒子特效制作工具
 
-- [Particle Designer](http://particledesigner.71squared.com/)
-- [Particle2dx](http://www.effecthub.com/particle2dx)：免费在线工具
+- [Particle Designer](//particledesigner.71squared.com/)
+- [Particle2dx](//www.effecthub.com/particle2dx)：免费在线工具
 
 ### 其他游戏开发资源
 
-- [Cocos Store](http://store.cocos.com/)：各类游戏美术资源、扩展工具
+- [Cocos Store](//store.cocos.com/)：各类游戏美术资源、扩展工具
