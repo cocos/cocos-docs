@@ -23,6 +23,8 @@ Cocos Creator 从 v2.0.7 开始在 **菜单栏 -> 面板** 中新增了 **服务
 
 ![](cocos-services/appid.png)
 
+可以通过点击 **还没有 Cocos AppID？点这里创建** 按钮跳转到 Cocos 账户中心创建游戏。
+
 3、AppID 设置完成之后会自动跳转到 **服务** 页面，可以看到页面左上方已经显示了游戏名称以及 AppID。
 
 ![](cocos-services/service.png)
