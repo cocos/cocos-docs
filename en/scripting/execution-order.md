@@ -115,7 +115,7 @@ CompB update!
 CompA update!
 ```
 
-## Set execition order for each kind of Component
+## Set execution order for each kind of Component
 
 If the above methods still can not provide the required fine grained control, you can also set the `executionOrder` of the component directly. The `executionOrder` affects the execution priority of the life cycle callbacks for component. Set as follows:
 
