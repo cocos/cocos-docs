@@ -1,6 +1,6 @@
 # Cocos 数据统计（Cocos Analytics）
 
-Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了数据分析支持。目前支持 Android／iOS／H5 平台。
+Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了数据分析支持。目前支持 Android／iOS／Web 平台。
 
 本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/cocos-analytics.md)。
 
@@ -30,7 +30,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
   - **channel** 和 **version**：分别为渠道 ID 和版本号。这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
 
-6、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需要选择 **Android／iOS／H5** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
+6、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需要选择 **Android／iOS／Web** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
 游戏加载后，统计 SDK 会在项目构建后的 main.js 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 main.js 中修改这些参数。初始化后便可以直接调用统计的 SDK，发送各种统计数据给服务器。
 
@@ -40,7 +40,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 - [Android 平台接入集成](https://analytics.cocos.com/docs/manual_android.html)
 - [iOS 平台接入集成](https://analytics.cocos.com/docs/manual_ios.html)
-- [H5 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)
+- [Web 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)
 
 详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://analytics.cocos.com/docs)
 
@@ -51,4 +51,4 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 - [Cocos Analytics 产品文档](https://analytics.cocos.com/docs)
 - [Android 平台接入集成](https://analytics.cocos.com/docs/manual_android.html)
 - [iOS 平台接入集成](https://analytics.cocos.com/docs/manual_ios.html)
-- [H5 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)
+- [Web 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)

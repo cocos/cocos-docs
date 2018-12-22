@@ -19,11 +19,11 @@ Cocos Creator 从 v2.0.7 开始在 **菜单栏 -> 面板** 中新增了 **服务
 
 ![](cocos-analytics/game.png)
 
-2、游戏创建完成之后，返回 Cocos Creator 的 **服务** 面板，点击 ![](cocos-services/setting.png) 按钮，选择 **设定 AppID**，跳转到 **设定 Cocos AppID** 面板。选择游戏，然后点击 **关联** 按钮。
+2、游戏创建完成之后，返回 Cocos Creator 的 **服务** 面板，点击 ![](cocos-services/setting.png) 按钮，选择 **设定 AppID** 后，跳转到 **设定 Cocos AppID** 面板。选择游戏，然后点击 **关联** 按钮。
 
 ![](cocos-services/appid.png)
 
-可以通过点击 **还没有 Cocos AppID？点这里创建** 按钮跳转到 Cocos 账户中心创建游戏。
+也可以通过点击 **还没有 Cocos AppID？点这里创建** 按钮跳转到 Cocos 账户中心创建游戏。
 
 3、AppID 设置完成之后会自动跳转到 **服务** 页面，可以看到页面左上方已经显示了游戏名称以及 AppID。
 

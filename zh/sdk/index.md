@@ -16,6 +16,6 @@ SDK 可通过以下几种方式集成
 
   ![](fb-an-and-live/facebook.png)
 
-- 通过 **构建发布** 面板勾选 SDKBox 可集成 SDKBox。详情请参考 [SDKBox](sdkbox.md)。
+- 通过在 **构建发布** 面板勾选 SDKBox 可集成 SDKBox。详情请参考 [SDKBox](sdkbox.md)。
 
   ![](sdkbox/sdkbox.png)

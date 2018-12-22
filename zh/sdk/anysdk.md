@@ -1,6 +1,6 @@
 # 接入 AnySDK 服务
 
-**AnySDK** 为 CP 提供了一套第三方 SDK 接入解决方案，整个接入过程，不改变任何 SDK 的功能、特性、参数等，对于最终玩家而言是完全透明无感知的。目的是让 CP 商能有更多时间专注于游戏本身的品质。第三方 SDK 包括了渠道 SDK、用户系统、支付系统、广告系统、统计系统、分享系统等等。目前支持 Android／iOS／H5 平台，**注意**：H5 平台只支持渠道 SDK 接入，并且必须使用 AnySDK 企业版。详情可参考 [AnySDK 企业版](http://docs.anysdk.com/enterprise/overview/)。
+**AnySDK** 为 CP 提供了一套第三方 SDK 接入解决方案，整个接入过程，不改变任何 SDK 的功能、特性、参数等，对于最终玩家而言是完全透明无感知的。目的是让 CP 商能有更多时间专注于游戏本身的品质。第三方 SDK 包括了渠道 SDK、用户系统、支付系统、广告系统、统计系统、分享系统等等。目前支持 Android／iOS／Web 平台，**注意**：Web 平台只支持渠道 SDK 接入，并且必须使用 AnySDK 企业版。详情可参考 [AnySDK 企业版](http://docs.anysdk.com/enterprise/overview/)。
 
 本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/anysdk-overview.md)。
 
@@ -10,7 +10,7 @@
 
 - **通过 Cocos 账户中心创建游戏**
 
-    在 [Cocos 账户中心](https://auth.cocos.com/#/) 点击侧边栏的 **游戏**  标签，在 **游戏列表** 中选择右边公司的标签，然后点击 **创建游戏**。在创建游戏面板根据要求填写必须的参数，参数填写完成后点击 **提交**，游戏就创建成功了。
+    由 Creator 的 **服务** 面板进入 [Cocos 账户中心](https://auth.cocos.com/#/) 创建公司游戏。详情请参考 [服务面板 -> 使用方式](cocos-services.md#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)。
 
     ![](anysdk/game.png)
 
@@ -20,7 +20,7 @@
 
     ![](anysdk/create-game.png)
 
-游戏创建完成后，需要 **开通 AnySDK 服务**。在 [Cocos 账户中心](https://account.cocos.com/#/game/game_list) 的游戏列表中点击游戏或者点击页面上方的 **服务** 标签，跳转到服务面板。在左侧选择对应的游戏，然后找到 AnySDK 服务，点击 **开通服务**，可以看到页面中的 AnySDK 服务显示 **已开通**。
+游戏创建完成后，需要 **开通 AnySDK 服务**。在 [Cocos 账户中心](https://account.cocos.com/#/game/game_list) 的游戏列表中点击游戏或者点击页面上方的 **服务** 标签，跳转到服务面板。在 **服务** 页面左侧选择对应的游戏，然后找到 AnySDK 服务，点击 **开通服务**，可以看到页面中的 AnySDK 服务显示 **已开通**。
 
 ![](anysdk/anysdk_service.png)
 
@@ -49,7 +49,7 @@
 
 - 点击 AnySDK 服务面板中的 **前往控制台**，进入 [AnySDK 开发者管理后台](http://dev.anysdk.com/) 以获取参数，如上图所示。
 - 在 Cocos 账户中心开通 AnySDK 服务后，直接点击 **前往控制台**，进入 [AnySDK 开发者管理后台](http://dev.anysdk.com/) 以获取参数。
-- 在 AnySDK 打包工具的 **配置管理 -> 游戏管理** 中获取参数
+- 在 AnySDK 客户端的 **配置管理 -> 游戏管理** 中获取参数
 
 其中 `OauthLoginURL` 参数是填写游戏服务端用于登录验证的地址（如不接入用户可任意填写）。
 
@@ -76,13 +76,13 @@
 
 ## 打包
 
-使用 AnySDK 客户端打开游戏，为游戏添加渠道以及接入所需的 SDK，配置 SDK 的参数（需要自己上 SDK 的后台申请参数），选择游戏母包即可进行打包。具体内容请参考 [AnySDK 客户端使用手册](http://docs.anysdk.com/tool-using/package-tool/)。
+使用 AnySDK 客户端打开游戏，为游戏添加渠道以及接入所需的 SDK，配置 SDK 的参数（需要自己到 SDK 的后台申请参数），选择游戏母包即可进行打包。具体内容请参考 [AnySDK 客户端使用手册](http://docs.anysdk.com/tool-using/package-tool/)。
 
 - Android 平台 **编译** 生成的 APK 包将作为 AnySDK 客户端打包用的母包。
 - iOS 平台 **构建** 生成的 Xcode 工程直接作为 AnySDK 客户端打包用的母工程。
-- H5 平台无需打包，只需在 AnySDK 客户端添加渠道配置即可。
+- Web 平台无需打包，只需在 AnySDK 客户端添加渠道配置即可。
 
-![配置参数](anysdk/sdk-params.png)
+![](anysdk/sdk-params.png)
 
 ## 相关参考链接
 
