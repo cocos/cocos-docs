@@ -129,7 +129,16 @@ for (let row = 0; row < height; row++) {
 let dataURL = canvas.toDataURL("image/jpeg");
 let img = document.createElement("img");
 img.src = dataURL;
+```
 
+### Save screenshot file
+
+Creator has added the ability to save screenshot files since **v2.0.2**. First take a screenshot, and then use the following method after `readPixels`:
+
+```js
+jsb.saveImageData(data, width, height, filePath)
+var data = renderTexture.readPixels();
+jsb.saveImageData(data, imgWidth, imgHeight, filePath);
 ```
 
 ## The screenshot in WeChat

@@ -128,7 +128,16 @@ for (let row = 0; row < height; row++) {
 let dataURL = canvas.toDataURL("image/jpeg");
 let img = document.createElement("img");
 img.src = dataURL;
+```
 
+### 保存截图文件
+
+Creator 从 **v2.0.2** 开始新增了保存截图文件功能。首先先截图，然后在 `readPixels` 之后使用：
+
+```js
+jsb.saveImageData(data, width, height, filePath)
+var data = renderTexture.readPixels();
+jsb.saveImageData(data, imgWidth, imgHeight, filePath);
 ```
 
 ## 微信中的截图
