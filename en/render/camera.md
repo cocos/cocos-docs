@@ -85,7 +85,7 @@ camear.getWorldToCameraMatrix(out);
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function.
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture_texture).
 
 ```javascript
 let node = new cc.Node();
@@ -129,8 +129,19 @@ for (let row = 0; row < height; row++) {
 let dataURL = canvas.toDataURL("image/jpeg");
 let img = document.createElement("img");
 img.src = dataURL;
-
 ```
+
+### Save screenshot file
+
+Creator has added the ability to save screenshot files since **v2.0.2**. First take a screenshot, and then use the following method after `readPixels`:
+
+```js
+var data = renderTexture.readPixels();
+var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
+jsb.saveImageData(data, imgWidth, imgHeight, filePath)
+```
+
+Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js) for details.
 
 ## The screenshot in WeChat
 
