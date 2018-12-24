@@ -138,21 +138,24 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
-
-    onLoad: function () {
-        var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
-        var jsCallback = function (url) {
-            // The return value here is the URL value of the internal page, 
-            // and it needs to parse the data it needs
-            var str = url.replace(scheme + '://', '');
-            var data = JSON.stringify(str);
+    // Setting in onLoad will make the callback useless, so we must set the cc.WebView callback in the start cycle.
+    start: function () {
+        // Here are the keywords that are agreed with the internal page
+        // Please set the scheme with lower case, the native won't identify the uppercase char scheme.
+        var scheme = "testkey";
+        var jsCallback = function (target, url) {
+            // The return value here is the URL value of the internal page, and it needs to parse the data it needs.
+            var str = url.replace(scheme + '://', ''); // str === 'a=1&b=2'
+            // webview target
+            console.log(target);
         };
 
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
     }
 });
-
+```
+```html
 // So when you need to interact with WebView through an internal page, 
 // you should set the internal page URL: TestKey://(the data you want to callback to WebView later)
 // WebView internal page code
@@ -165,7 +168,7 @@ cc.Class({
 <script>
     function onClick () {
         // One of them sets up the URL scheme
-        document.location = 'TestKey://{a: 0, b: 1}';
+        document.location = 'testkey://a=1&b=2';
     }
 </script>
 </html>

@@ -135,23 +135,26 @@ cc.Class({
     properties: {
         webview: cc.WebView
     },
+    // onLoad 中设置会导致 API 绑定失效，所以请在 start 中设置 webview 回调。
+    start: function () {
+        // 这里是与内部页面约定的关键字，请不要使用大写字符，会导致 location 无法正确识别。
+        var scheme = "testkey";
 
-    onLoad: function () {
-        var scheme = "TestKey";// 这里是与内部页面约定的关键字
-        function jsCallback (url) {
-            // 这里的返回值是内部页面的 url 数值，
-            // 需要自行解析自己需要的数据
-            var str = url.replace(scheme + '://', '');
-            var data = JSON.stringify(str);// {a: 0, b: 1}
+        function jsCallback (target, url) {
+            // 这里的返回值是内部页面的 url 数值，需要自行解析自己需要的数据。
+            var str = url.replace(scheme + '://', ''); // str === 'a=1&b=2'
+            // webview target
+            console.log(target);
         }
 
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
     }
 });
-
+```
+```html
 // 因此当你需要通过内部页面交互 WebView 时，
-// 应当设置内部页面 url 为：TestKey://(后面你想要回调到 WebView 的数据) 
+// 应当设置内部页面 url 为：TestKey://(后面你想要回调到 WebView 的数据)
 // WebView 内部页面代码
 <html>
 <body>
@@ -162,7 +165,7 @@ cc.Class({
 <script>
     function onClick () {
         // 其中一个设置URL方案
-        document.location = 'TestKey://{a: 0, b: 1}';
+        document.location = 'testkey://a=1&b=2';
     }
 </script>
 </html>
