@@ -35,6 +35,39 @@ The following are the coding standards that the Cocos Creator development team u
     var FooBar = require('foo-bar');
     ```
 
+ - It is recommended to use full uppercase underline to name “constant”.
+
+    ```javascript
+    // bad
+    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+
+    // bad
+    var THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+    // bad
+    let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+    // ---
+
+    // allowed but does not supply semantic value
+    export const apiKey = 'SOMEKEY';
+
+    // better in most cases
+    export const API_KEY = 'SOMEKEY';
+
+    // ---
+
+    // bad - unnecessarily uppercases key while adding no semantic value
+    export const MAPPING = {
+        KEY: 'value'
+    };
+
+    // good
+    export const Type = {
+        SIMPLE: 'value'
+    };
+    ```
+
  - Use underscores `_` when naming private attributes
 
     ```javascript
@@ -166,9 +199,17 @@ The following are the coding standards that the Cocos Creator development team u
     proto.foo = function () {
     };
 
-    // very bad
+    // bad
     function foo () {
         return 'test'
+    }
+
+    // very bad
+    //   returns `undefined` instead of the value on the next line,
+    //   always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
+    function foo () {
+        return
+            'test'
     }
 
     // good
@@ -448,6 +489,6 @@ The following are the coding standards that the Cocos Creator development team u
      */
     ```
 
-## Reference
+## Recommended Reading
 
-[airbnb/es5](https://github.com/airbnb/javascript/tree/master/es5)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
