@@ -34,9 +34,9 @@
     });
     var FooBar = require('foo-bar');
     ```
-    
+
  - 推荐使用全大写加下划线来命名“常量”。
- 
+
     ```javascript
     // bad
     const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
@@ -61,13 +61,13 @@
     export const MAPPING = {
         KEY: 'value'
     };
-    
+
     // good
     export const Type = {
         SIMPLE: 'value'
     };
     ```
-    
+
  - 使用前置下划线 `_` 当我们为私有属性命名
 
     ```javascript
@@ -142,7 +142,7 @@
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
-    
+
  - 使用 `===` 和 `!==` 而不是 `==` 和 `!=`
 
 ## 书写规范
@@ -203,12 +203,12 @@
     function foo () {
         return 'test'
     }
-    
+
     // very bad
     //   returns `undefined` instead of the value on the next line,
     //   always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
     function foo () {
-        return 
+        return
             'test'
     }
 
