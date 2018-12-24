@@ -2,7 +2,7 @@
 
 Audio resources are simple audio files.
 
-Gmae engine plays different sound resources for game background music and sound effects through basic interface of various platforms.
+Game engine plays different sound resources for game background music and sound effects through basic interface of various platforms.
 
 ## About the loading mode of sound
 
