@@ -1,4 +1,4 @@
-# Code Sub-packaging
+# Sub-packaging
 
 As gameplay becomes more and more rich, the amount of code in the game is increasing and developers are wanting to expand the size of their game package. **Code sub-packaging** provides for these demands.
 
