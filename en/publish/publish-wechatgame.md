@@ -72,9 +72,9 @@ Specifically, developers need to do:
 
 ![](./publish-wechatgame/detail.jpeg)
 
-## WeChat Mini Game Sub-packaging
+## WeChat Mini Game Subpackage Loading
 
-WeChat mini game how to achieve sub-packaging, please refer to [Subpackage](../scripting/subpackage.md).
+WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
 
 ## Platform SDK Access
 

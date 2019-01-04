@@ -74,7 +74,7 @@
     - [Networking](scripting/network.md)
     - [Pooling](scripting/pooling.md)
     - [Modular Script](scripting/modular-script.md)
-    - [Subpackage](scripting/subpackage.md)
+    - [Subpackage Loading](scripting/subpackage.md)
     - [Plugin Scripts](scripting/plugin-scripts.md)
     - [JavaScript Primer](scripting/javascript-primer.md)
     - [TypeScript Support](scripting/typescript.md)
