@@ -48,10 +48,7 @@ When building for the **WeChat Mini Game** Platform, the configuration of the **
 
 ![profile](./subpackage/profile.png)
 
-**Note**: WeChat Mini Games require a specific version to support the **subpackage** feature.
-> WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version **1.02.1806120** and above
-
-After updating the developer tools, don't forget to modify the version of __Details -> Project Settings -> Debug Base library__ to __2.1.0__ and above in the developer tools:
+**Note**: WeChat Mini Games require a specific version to support the **subpackage** feature. WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version **1.02.1806120** and above. After updating the developer tools, don't forget to modify the version of __Details -> Project Settings -> Debug Base library__ to __2.1.0__ and above in the developer tools:
 
 ![subpackage2](./subpackage/subpackage2.png)
 
