@@ -10,11 +10,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "http://docs.cocos2d-x.org/creator/1.10/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/1.10/manual/en"
                     },
                     {
                         "name": "API Ref",
-                        "link": "http://docs.cocos2d-x.org/creator/1.10/api/en"
+                        "link": "//docs.cocos2d-x.org/creator/1.10/api/en"
                     }
                 ]
             },
@@ -23,11 +23,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "http://docs.cocos2d-x.org/cocos2d-x/en/"
+                        "link": "//docs.cocos2d-x.org/cocos2d-x/en/"
                     },
                     {
                         "name": "API Ref",
-                        "link": "http://docs.cocos2d-x.org/api-ref/index.html"
+                        "link": "//docs.cocos2d-x.org/api-ref/index.html"
                     }
                 ]
             }
@@ -38,19 +38,19 @@
                 "links": [
                     {
                         "name": "1.9",
-                        "link": "http://docs.cocos2d-x.org/creator/1.9/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/1.9/manual/en"
                     },
                     {
                         "name": "1.10",
-                        "link": "http://docs.cocos2d-x.org/creator/1.10/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/1.10/manual/en"
                     },
                     {
                         "name": "2.0",
-                        "link": "http://docs.cocos2d-x.org/creator/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/manual/en"
                     },
                     {
                         "name": "2.1",
-                        "link": "http://docs.cocos2d-x.org/creator/2.1/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/2.1/manual/en"
                     }
                 ]
             }
