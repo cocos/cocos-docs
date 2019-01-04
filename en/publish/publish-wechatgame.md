@@ -72,6 +72,10 @@ Specifically, developers need to do:
 
 ![](./publish-wechatgame/detail.jpeg)
 
+## WeChat Mini Game Subpackage Loading
+
+WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
+
 ## Platform SDK Access
 
 In addition to pure game content, the __WeChat Mini Game__ environment also provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only found in the __WeChat Mini Game__ environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the __WeChat Mini Games__ environment:
