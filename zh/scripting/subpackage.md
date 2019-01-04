@@ -25,19 +25,6 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
   - **代码**：**cases/01_graphics** 文件夹下的所有代码会合并成一个命名为 **01_graphics/game.js** 的入口脚本文件，并且会将这些代码从主包中剔除。
   - **资源**：会把 **cases/01_graphics** 子包资源从发布包目录下的 **res/raw-assets** 文件夹移动到发布包目录下的 **subpackages/01_graphics** 目录下。
 
-在微信小游戏平台的构建中，子包的配置也会按照规则自动生成到微信小游戏发布包目录下的 **game.json** 配置文件中。
-
-![profile](./subpackage/profile.png)
-
-**注意**：微信小游戏需要特定的版本才能支持分包功能。
-> 微信 6.6.7 客户端，2.1.0 及以上基础库开始支持，请更新至最新客户端版本，开发者工具请使用 1.02.1806120 及以上版本
-
-更新了开发者工具后不要忘记修改开发者工具中的 **详情 -> 项目设置 -> 调试基础库** 为 2.1.0 及以上：
-
-![subpackage2](./subpackage/subpackage2.png)
-
-具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档。
-
 ## 加载子包
 
 引擎提供了一个统一的 api `cc.loader.downloader.loadSubpackage` 来加载子包文件里面的资源（包含代码和其他资源）。`loadSubpackage` 需要传入一个子包的名字，这个名字即是之前用户在项目中配置的子包名字，默认为子包文件夹的名字。
@@ -54,3 +41,18 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 ```
 
 如果加载成功，子包中的脚本将被执行，子包的资源加载路径将被添加到引擎中。开发者就可以用和访问主包完全一样的方式访问这个子包中的所有资源，无需关心这些资源原先是在主包还是在子包中。
+
+## 微信小游戏
+
+在微信小游戏平台的构建中，子包的配置也会按照规则自动生成到微信小游戏发布包目录下的 **game.json** 配置文件中。
+
+![profile](./subpackage/profile.png)
+
+**注意**：微信小游戏需要特定的版本才能支持分包功能。
+> 微信 6.6.7 客户端，2.1.0 及以上基础库开始支持，请更新至最新客户端版本，开发者工具请使用 1.02.1806120 及以上版本
+
+更新了开发者工具后不要忘记修改开发者工具中的 **详情 -> 项目设置 -> 调试基础库** 为 2.1.0 及以上：
+
+![subpackage2](./subpackage/subpackage2.png)
+
+具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档。
