@@ -52,8 +52,8 @@ Select the **Facebook Service** and you can see that there are three options bel
 
 **Note**:
 
-- The first time you compile on Android requires using Android Studio to open the built-after project to download the support packages that Facebook needs. (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio)
-- When you use Xcode to compile for iOS, you need to open `.xcworkspace` file instead of `.xcodeproj` file.
+- The first time you compile on Android requires using Android Studio to open the built-after project to download the support packages that Facebook needs (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio). And Android Phone needs to be in version 6.0 or above.
+- When you use Xcode to compile for iOS, you need to open `.xcworkspace` file instead of `.xcodeproj` file. And iOS devices need to be in version 11 or above.
 
   ![](fb-an-and-live/xcode.png)
 

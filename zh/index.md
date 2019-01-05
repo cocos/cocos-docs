@@ -6,6 +6,7 @@
 
 ## 特别推荐
 
+- 从 v2.0.7 开始，Cocos Creator 支持发布到 [华为快游戏平台](publish/publish-huawei-instant-games.md)。
 - 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏平台](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
 - 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)
 - 从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 [接入小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)。
