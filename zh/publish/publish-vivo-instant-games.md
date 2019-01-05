@@ -91,8 +91,8 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 
 - **方法二**：
 
-    将构建生成的小游戏 rpk 文件（位于小游戏工程 qgame 目录下的 dist 目录中）拷贝到手机 SD 卡中
+    将构建生成的小游戏 rpk 文件（位于小游戏工程 qgame 目录下的 dist 目录中）拷贝到手机 sdcard 目录下。
 
-    在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **本地安装**，然后从手机 SD 中找到 rpk 文件，选择打开即可。
+    在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **本地安装**，然后从手机 sdcard 目录中找到 rpk 文件，选择打开即可。
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)

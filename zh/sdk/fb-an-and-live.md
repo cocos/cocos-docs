@@ -67,8 +67,8 @@ Cocos Creator 从 v2.0.6 开始支持一键集成 Facebook 服务，包括 **Fac
 
 **注意**：
 
-- 首次编译 Android 平台需要用 Android Studio 打开构建后的工程以下载 Facebook 所需的支持包。（如果下载失败的话建议切换网络或者设置一下 Android Studio 的 HTTP 代理）
-- 在使用 Xcode 编译 iOS 平台的时候需要打开的是 `.xcworkspace` 文件而不是 `.xcodeproj` 文件。
+- 首次编译 Android 平台需要用 Android Studio 打开构建后的工程以下载 Facebook 所需的支持包（如果下载失败的话建议切换网络或者设置一下 Android Studio 的 HTTP 代理）。且 Android Phone 需要在 6.0 或以上版本。
+- 在使用 Xcode 编译 iOS 平台的时候需要打开的是 `.xcworkspace` 文件而不是 `.xcodeproj` 文件。且 iOS 设备需要在 11 或以上版本。
 
 ![](fb-an-and-live/xcode.png)
 
