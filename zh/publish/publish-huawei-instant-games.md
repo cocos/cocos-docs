@@ -32,7 +32,7 @@
 - **自定义manifest文件路径**
   
   **自定义manifest文件路径** 为选填项。为华为快游戏扩展功能。使用时选择文件需要为json后缀的文件，里面的数据类型要求json格式。
-  注意当josn数据的key值为“package”,"appType","name","versionName","versionCode","icon","minPlatformVersion","config","display"时，不可用，构建时会被上面的**应用包名**，**应用名称**，**应用图标**，**应用版本号**，**应用版本名称**等数据覆盖。
+  注意当json数据的key值为“package”,"appType","name","versionName","versionCode","icon","minPlatformVersion","config","display"时，不可用，构建时会被上面的**应用包名**，**应用名称**，**应用图标**，**应用版本号**，**应用版本名称**等数据覆盖。
   
 - **密钥库**
 
