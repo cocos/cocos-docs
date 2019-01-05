@@ -1,6 +1,6 @@
 # 发布到 huawei 快游戏平台
 
-从 v2.0.6-huawei.3 版本开始，Cocos Creator 支持将游戏发布到 huawei 快游戏平台。我们来看一下如何使用 Cocos Creator 一键发布到 huawei 快游戏平台。
+从 v2.0.7版本开始，Cocos Creator 支持将游戏发布到 huawei 快游戏平台。我们来看一下如何使用 Cocos Creator 一键发布到 huawei 快游戏平台。
 
 ## 环境配置
 
@@ -15,9 +15,12 @@
   ![](./publish-huawei-instant-games/build_option.png)
 
 
-   其中 **应用包名**、**应用名称**、**桌面图标**、**应用版本名称**、**应用版本号**、**支持的最小引擎平台版本号**这些参数为必填项。而 **密钥库**、**小包模式**、**小包模式服务器路径** 为选填项。相关参数配置具体的填写规则如下：
+   其中 **应用包名**、**应用名称**、**桌面图标**、**应用版本名称**、**应用版本号**、**支持的最小引擎平台版本号**这些参数为必填项。而  **自定义manifest文件路径（选填）**、**密钥库**、**小包模式**、**小包模式服务器路径** 为选填项。相关参数配置具体的填写规则如下：
     ![](./publish-huawei-instant-games/build_opt_fill.jpg)
 
+- **应用名称**
+
+  **应用名称** 为必填项。该名称为快游戏的名称。构建上方的**游戏名称**不参与快游戏打包流程。
 - **应用图标**
 
   **应用图标** 为必填项。构建时，应用图标将会构建到 huawei 快游戏的工程中，请确保填写的应用图标路径下的图片真实存在，点击输入框右边的按钮可选择图片。  
@@ -26,11 +29,16 @@
 
   **支持的最小引擎平台版本号** 为必填项。目前这个值必须大于1035。
   
+- **自定义manifest文件路径**
+  
+  **自定义manifest文件路径** 为选填项。为华为快游戏扩展功能。使用时选择文件需要为json后缀的文件，里面的数据类型要求json格式。
+  注意当josn数据的key值为“package”,"appType","name","versionName","versionCode","icon","minPlatformVersion","config","display"时，不可用，构建时会被上面的**应用包名**，**应用名称**，**应用图标**，**应用版本号**，**应用版本名称**等数据覆盖。
+  
 - **密钥库**
 
   **使用调试秘钥库** 是选填项。勾选时，表示用的是 creator 自带默认的证书构建的rpk，仅用于调试时使用。<br>
   如果不勾选 **使用调试秘钥库**，则需要配置 certificate.pem 路径和 private.pem 路径。**注**：rpk提交给华为审核时，此选不勾选。
-  关于 certificate.pem 和 private.pem 证书添加，可以点击“certificate.pem”栏目的最右侧按钮**新建**来新建证书。**注**：在windows系统上需要注意事前安装 openssl 软件和配置环境变量。配置好后需要重启cocos creator。mac系统已自带openssl则不用安装。用户也可以用命令行生成证书，如下：
+  关于 certificate.pem 和 private.pem 证书添加，可以点击“certificate.pem”栏目的最右侧按钮**新建**来新建证书。用户也可以用命令行生成证书，如下：
 
 - 命令如何生成 release 签名
 
@@ -56,7 +64,7 @@
   此时，构建出来的 quickgame 目录下将不再包含 res 目录，res 目录里的资源将通过网络请求从填写的 **小包模式服务器地址** 上下载。
 
 二、**构建发布** 
-    面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 huawei 快游戏工程目录和 rpk,rpk 目录在 /build/huawei/dist 目录下。
+    面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **huawei** 目录，该目录就是导出的 huawei 快游戏工程目录和 rpk,rpk 目录在 /build/huawei/dist 目录下。
 
 三、将打包出来的 rpk 运行到手机上，有两种方式。
 
@@ -68,16 +76,8 @@
 四、分包 rpk
 
 分包 rpk 不是必项的。分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候只下载必要的包，这个必要的包称为 主包，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。开发者根据需求采用这功能。
-在creator设置[配置方法](https://docs.cocos.com/creator/manual/zh/scripting/subpackage.html)后，打包时会自动分包。
-**注意**：目前快应用加载器用本地加载暂不支持分包测试。
-
-构建完成后，生成的分包 rpk在 /build/huawei/dist/[分包名字]目录下。
-## 常见问题：
-1.快游戏的AppID 哪里申请？
-请移步到华为快游戏网址申请:https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgame.html?page=fastapp_fastgame_prepare_register
-
-2.快游戏测试环境哪里下载？
-https://obs.cn-north-2.myhwclouds.com/hms-ds-wf/sdk/HwFastAPPEngine_Loader.1213_tool.zip
+代码分包和资源分包，具体可看这文档里的[**配置方法**和**构建**](https://github.com/cocos-creator/creator-docs/blob/next/zh/scripting/subpackage.md)后，打包时会自动分包，最后只会生成一个rpk。
+构建完成后，生成的分包 rpk在 /build/huawei/dist/目录下。
 
 ## 相关参考链接
 
