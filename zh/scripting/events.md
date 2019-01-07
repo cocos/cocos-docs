@@ -73,14 +73,14 @@ cc.Class({
 
   onLoad () {
     // args are optional param.
-    this.node.on('say-hello', msg: 'Hello, this is Cocos Creator') => {
-    //console.log(`a1: ${args1}, a2: ${args2}, a3: ${args3}, a4: ${args4}, a5: ${args5}`);
-      }, this, false);
+    this.node.on('say-hello', function (msg) {
+      console.log(msg);
+    });
   },
 
   start () {
-  // At most 5 args could be emit.
-  this.node.emit('say-hello', msg);
+    // At most 5 args could be emit.
+    this.node.emit('say-hello', 'Hello, this is Cocos Creator');
   },
 });
 ```

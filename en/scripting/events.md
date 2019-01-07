@@ -2,8 +2,7 @@
 
 ## Listen to events
 
-Event processing is done in the `cc.Node`. Components can register and monitor events by visiting the node `this.node`. Listen to events
-can be registered by the function `this.node.on()`. The methods are as follows:
+Event processing is done in the `cc.Node`. Components can register and monitor events by visiting the node `this.node`. Listen to events can be registered by the function `this.node.on()`. The methods are as follows:
 
 ```javascript
 cc.Class({
@@ -20,8 +19,7 @@ cc.Class({
 });
 ```
 
-What's worth mentioning is that the event listener function `on` can pass to the third parameter target to bind the caller of the response function. The following two calling methods
-have the same effect:
+What's worth mentioning is that the event listener function `on` can pass to the third parameter target to bind the caller of the response function. The following two calling methods have the same effect:
 
 ```javascript
 // bind using the function
@@ -39,8 +37,7 @@ Besides listening with `on`, we can also use the `once` method. The `once` liste
 
 ### Shut listener
 
-We can shut the corresponding event listener using `off` when we don't care about a certain event anymore. One thing to note is that the parameter of
-`off` must be in one-to-one correspondence with the parameter of `on` in order to shut it.
+We can shut the corresponding event listener using `off` when we don't care about a certain event anymore. One thing to note is that the parameter of `off` must be in one-to-one correspondence with the parameter of `on` in order to shut it.
 
 Below are what we recommend you to put in:
 
@@ -67,42 +64,38 @@ cc.Class({
 We can launch an event using two ways: `emit` and `dispatchEvent`. The difference between these two is that the latter can do the event delivery.
 Let's get to know the `emit` event through a simple example：
 
-```javascript
+```js
 cc.Class({
   extends: cc.Component,
 
-  onLoad: function () {
-    this.node.on('say-hello', function (event) {
-      console.log(event.detail.msg);
+  onLoad () {
+    // args are optional param.
+    this.node.on('say-hello', function (msg) {
+      console.log(msg);
     });
   },
 
-  start: function () {
-    this.node.emit('say-hello', {
-      msg: 'Hello, this is Cocos Creator',
-    });
+  start () {
+    // At most 5 args could be emit.
+    this.node.emit('say-hello', 'Hello, this is Cocos Creator');
   },
 });
 ```
 
 ## Event delivery
 
-Events launched by the `dispatchEvent` method mentioned above would enter the event delivery stage. In Cocos Creator's
-event delivery system, we use bubble delivery. Bubble delivery will pass the event from the initiating node continually on to its parent node
-until it gets to the root node or is interruptedly processed by `event.stopPropagation()` in the response function of some node.
+Events launched by the `dispatchEvent` method mentioned above would enter the event delivery stage. In Cocos Creator's event delivery system, we use bubble delivery. Bubble delivery will pass the event from the initiating node continually on to its parent node until it gets to the root node or is interruptedly processed by `event.stopPropagation()` in the response function of some node.
 
 ![bubble-event](assets/bubble-event.png)
 
-As shown in the picture above, when we send the event “foobar” from node c, if both node a and b listen to the event“foobar”,
-the event will pass to node b and a from c. For example:
+As shown in the picture above, when we send the event “foobar” from node c, if both node a and b listen to the event“foobar”, the event will pass to node b and a from c. For example:
 
 ```javascript
 // In the component script of node c
 this.node.dispatchEvent( new cc.Event.EventCustom('foobar', true) );
 ```
 
-If we want to stop the event delivery after node b intercepts the event, we can call the function `event.stopPropagation()`
-to do this. Detailed methods are as follows:
+If we want to stop the event delivery after node b intercepts the event, we can call the function `event.stopPropagation()` to do this. Detailed methods are as follows:
 
 ```javascript
 // In the component script of node b
