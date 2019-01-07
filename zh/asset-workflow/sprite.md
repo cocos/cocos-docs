@@ -53,7 +53,11 @@ Texture 的 Premultiply Alpha 属性勾选与否表示是否开启 Alpha 预乘�
 （255,0,0,1）* 0.5 +（0,25,0,0.1）*（1 - 0.5）=（127,25,0,0.55）
 ```
 
-对应的颜色值表现为：![](/zh/asset-workflow/sprite/premultiply_alpha.png)观察上图之后可以看出，Non-Premultiply Alpha 的颜色值进行插值之后的颜色偏绿，透明度为 10% 的绿色占的权重更多，透明度为100% 的红色占比反而更少，而使用 Premultiply Alpha 得到的插值结果才是正确并且符合预期的。因此，实际项目中可以根据图像的具体使用场景进行合适的选择。
+对应的颜色值表现为：
+
+![Premultiply Alpha Example](sprite/premultiply_alpha.png)
+
+观察上图之后可以看出，Non-Premultiply Alpha 的颜色值进行插值之后的颜色偏绿，透明度为 10% 的绿色占的权重更多，透明度为100% 的红色占比反而更少，而使用 Premultiply Alpha 得到的插值结果才是正确并且符合预期的。因此，实际项目中可以根据图像的具体使用场景进行合适的选择。
 
 ## 寻址模式
 
