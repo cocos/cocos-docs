@@ -17,9 +17,9 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | -------------- | ----------- |
 | Atlas | Sprite shows the [Atlas Atlas Resource](../asset-workflow/atlas.md) to which the image asset belongs
 | Sprite Frame | Render [SpriteFrame Image Resource](../asset-workflow/sprite.md) used by Sprite
-| Type | Render mode, includes four modes: **Simple**, **Sliced**, **Tiled**, and **Filled**
+| Type | Render mode, includes four modes: **Simple**, **Sliced**, **Tiled**, **Filled** and **Mesh**
 | Size Mode | Specify the size of the Sprite, **Trimmed** will use the original image resource to crop the size of the transparent pixel; **Raw** will use the original image uncut size; when the user manually modified the **size** attribute, **Size Mode** will be automatically set to **Custom** unless it is specified again for the first two sizes.
-| Trimmed Mode | Whether to render the transparent pixel area around the original image. For details, please refer to [Auto Clipping of Image Resources](../asset-workflow/trim.md).
+| Trim | Whether to render the transparent pixel area around the original image. For details, please refer to [Auto Clipping of Image Resources](../asset-workflow/trim.md).
 | Src Blend Factor | Current Image Blending Mode
 | Dst Blend Factor | Background image blend mode, combined with the above properties, can blend foreground and background Sprite in different ways. Preview of effect can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
@@ -29,13 +29,14 @@ If the dragged **SpriteFrame** resource is contained in an **Atlas** resource, t
 
 ## Rendering mode
 
-The `Sprite` component supports four rendering modes:
+The `Sprite` component supports five rendering modes:
 
 - __Normal mode:__ Render Sprite according to the original image resource. Generally, in this mode, we do not manually modify the size of the node to ensure that the image displayed in the scene is consistent with the image produced by the artist.
 - __Sliced:__ The image will be split into nine squares and scaled to fit the arbitrarily set size (`size`). Usually used for UI elements, or to make a picture that can be infinitely magnified without affecting image quality into a nine-square grid to save game space. For more information, please read the [Using the Sprite Editor to Make a Jiugongge Image](../ui/sliced-sprite.md#-) section.
 - __Tiled mode:__ When the size of the Sprite is increased, the image will not be stretched, but will be repeated according to the size of the original image, just like the tile, the original image will be covered by the entire Sprite. size.
   ![tiled](sprite/tiled.png)
 - __Filled:__ Draws a portion of the original image in a certain direction and scale according to the settings of the origin and fill mode. Often used for dynamic display of progress bars.
+- __Mesh:__ Only support .plist file which is built by __TexturePacker__ (4.0 or higher version) with ploygon algorithm.
 
 ### Filled mode
 
