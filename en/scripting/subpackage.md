@@ -52,4 +52,11 @@ When building for the **WeChat Mini Game** Platform, the configuration of the **
 
 ![subpackage2](./subpackage/subpackage2.png)
 
-Please refer to the [WeChat SubPackage Loading](https://developers.weixin.qq.com/minigame/en/dev/tutorial/base/subpackages.html) documentation for details.
+### Subpackage Load Packet Size Limit
+
+At present, the size of the WeChat Mini Game subpackage has following restrictions:
+
+- The size of all subpackage of the entire Mini Game can not exceed **8M**
+- The size of single subpackage / main package can not exceed **4M**
+
+Please refer to the [WeChat SubPackage Loading](https://developers.weixin.qq.com/minigame/en/dev/tutorial/base/subpackages.html?t=19010711) documentation for details.

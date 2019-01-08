@@ -52,4 +52,11 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 
 ![subpackage2](./subpackage/subpackage2.png)
 
-具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档。
+### 分包加载包大小的限制
+
+目前微信小游戏分包大小有以下限制：
+
+- 整个微信小游戏所有分包大小不超过 **8M**
+- 单个分包/主包大小不能超过 **4M**
+
+具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html)。
