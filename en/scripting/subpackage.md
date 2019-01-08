@@ -10,7 +10,9 @@ __Cocos Creator's__ uses a folder structure when configuring a **subpackage**. W
 
 ![subpackage](./subpackage/subpackage.png)
 
-After checking **Subpackage**, click __Apply__ at the top right, and the code in this folder will be treated as the contents of the __subpackage__. The **Subpackage name** will be passed as the loaded name when the __subpackage__ is loaded. The name of this folder will be used by default.
+After checking **Subpackage**, click __Apply__ at the top right, and the code in this folder will be treated as the contents of the __subpackage__. The **Subpackage Name** will be passed as the loaded name when the __subpackage__ is loaded. The name of this folder will be used by default.
+
+**Note**: After being configured as a subpackage, only native resources, such as images and audio, will eventually be placed in the subpackage. JSON types of resources such as Prefab, AnimationClip, etc., will still be placed in the main package.
 
 ## Building
 
