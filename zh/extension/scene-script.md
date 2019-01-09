@@ -50,6 +50,7 @@ Editor.Scene.callSceneScript('foobar', 'get-canvas-children', function (err, len
 
 在发送消息时 `callSceneScript` 接受的参数输入和其他 IPC 消息发送接口一致，也可以指定更多传参和 timeout 超时时限。详情请看 [IPC 工作流程](ipc-workflow.md)。
 
+**注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
 
 ## 在场景脚本中引用模块和插件脚本
 
