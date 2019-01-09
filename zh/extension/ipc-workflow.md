@@ -12,7 +12,7 @@
 
 在主进程中，主要使用
 
-`Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout)`
+`Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout])`
 
 接口向特定面板发送消息。对于目前支持的单面板插件来说：
 
