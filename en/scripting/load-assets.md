@@ -46,12 +46,12 @@ If you are going to declare a Raw Asset attribute type as `cc.Texture2D` in CCCl
 cc.Class({
     extends: cc.Component,
     properties: {
-    
+
         textureURL: {
             default: null,
             type: cc.Texture2D
         }
-        
+
     }
 });
 ```
@@ -62,12 +62,12 @@ The problem with writing in this way is that `textureURL` in the code is actuall
 cc.Class({
     extends: cc.Component,
     properties: {
-    
+
         textureURL: {
             default: "",
             url: cc.Texture2D
         }
-        
+
     }
 });
 ```
@@ -82,7 +82,7 @@ No matter whether using Assets or Raw Assets, as long as you define the type in 
 cc.Class({
     extends: cc.Component,
     properties: {
-    
+
         textureURL: {
             default: "",
             url: cc.Texture2D
@@ -91,7 +91,7 @@ cc.Class({
             default: null,
             type: cc.SpriteFrame
         },
-        
+
     }
 });
 ```
@@ -114,7 +114,7 @@ In this way you can get the set asset directly from the script:
     onLoad: function () {
         var spriteFrame = this.spriteFrame;
         var textureURL = this.textureURL;
-        
+
         spriteFrame.setTexture(textureURL);
     }
 ```
@@ -130,7 +130,9 @@ like this:
 
 The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
 
-> Inside the `resources` folder, resource dependencies can be associated as other resources outside the folder, or a resource reference can also be an external scene. Project build time, but was released in ** build ** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported. If a resource does not need to be loaded **dynamically** directly from script, it need not be in the `resources` folder.
+> Inside the `resources` folder, resource dependencies can be associated as other resources outside the folder, or a resource reference can also be an external scene. Project build time, but was released in **Build** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported.
+
+> If a resource only be relied on by other resources in `resources` and does not need to be called directly by `cc.loader.loadRes`, then please don't put it in the `resources` folder. Otherwise, the size of the package and `settings.js` will increase, and useless resources in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
 
 The second to note is that compared to previous Cocos2d-html5, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
@@ -266,7 +268,7 @@ There still remains some restrictions currently, the most important are:
 
 After resources loaded, they will be cached to the `cc.loader`, in order to avoid sending meaningless http request and repeated loading of resources. Sure thing is that the contents of the cache will consume memory, during game process, some resources may no longer be needed, and you may want to release them, we will cover some important notices for asset releasing here.
 
-** First and most important: Resources depends on each other. **
+**First and most important: Resources depends on each other.**
 
 For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the cc.loader. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, loader do not need to request the existing SpriteFrame and Texture again, it will use the cache directly.
 
@@ -274,7 +276,7 @@ For example, in the following graph, the Prefab resource contains the Sprite com
 
 After making clear how resource depend on each other, the problem is also revealed. When you choose to release a Prefab, we will not automatically release the other resources it relies on, because there may be other resources that depend on them. So some developers ask us why the memory is still high after they released the resources? The reason is that the basic textures that actually consume memory are not released when you release Prefab or SpriteAtlas.
 
-** Next core problem: We can not track object references in JavaScript. **
+**Next core problem: We can not track object references in JavaScript.**
 
 In scripting language like JavaScript, because of its weak type feature, memory management is delegated to the Garbage Collection mechanism. We can never know when an object is released by the Garbage Collector, nor can we get any notifications, which means that the engine can not use a reference count mechanism to know whether a resource is still needed. The current cc.loader design actually depends on the developer to tell it when to release resources based on game logic. You can decide to release a resource and all resources it relies on, you can also choose to prevent some of the shared resources from being released. Here is some simple demonstrations:
 
@@ -296,7 +298,7 @@ if (index !== -1)
 cc.loader.release(deps);
 ```
 
-** The last thing to keep in mind: JavaScript's garbage collection is not immediate. **
+**The last thing to keep in mind: JavaScript's garbage collection is not immediate.**
 
 Imagine such scenario, you released the cache of a resource in cc.loader. After that due to some reason, you need it again. At this point garbage collection has not yet begun (you never know when garbage collection will be triggered), or you still hold a reference to this old resource somewhere in your game logic. This means that the resource still exist in memory, but cc.loader have no longer access to it, so it will reload it. This causes the resource to have two copies in the memory, which is wasting. If the same scenario happens to a lot of resources, or resources get loaded even more than once, the pressure on the memory is likely to be high. If you observe such memory usage curve in your game, please carefully check the game logic to see whether there is leaks. If not, the garbage collection mechanism will eventually recover the memory.
 
