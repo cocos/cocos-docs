@@ -131,8 +131,8 @@ like this:
 The `image/image`, `prefab`, `anim`, `font` is a common Asset, and `atom`(particle), `audio` is a common Raw Asset.
 
 > Inside the `resources` folder, resource dependencies can be associated as other resources outside the folder, or a resource reference can also be an external scene. Project build time, but was released in **Build** panel selected scenarios, `resources` all the resources folder, `resources` folders associated with their dependence on external resources are exported.
-
-> If a resource only be relied on by other resources in `resources` and does not need to be called directly by `cc.loader.loadRes`, then please don't put it in the `resources` folder. Otherwise, the size of the package and `settings.js` will increase, and useless resources in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
+>
+> If a resource only be depended on by other resources in `resources` and does not need to be called directly by `cc.loader.loadRes`, then please don't put it in the `resources` folder. Otherwise, the size of the package and `settings.js` will increase, and useless resources in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
 
 The second to note is that compared to previous Cocos2d-html5, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
