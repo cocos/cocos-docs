@@ -1,28 +1,20 @@
 # Facebook Live Video and Audience Network
 
-Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS platforms.
-
-**Cocos Creator includes**:
-
-- Provides one-click integration of Facebook Live Video and Facebook Audience Network in the __Cocos Creator__ **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly
-
-**What the user needs to do**:
-
-- Call the APIs of Facebook Live Video and Facebook Audience Network to access related features
+Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live video** and **Facebook Audience Network**. Currently both the Android and iOS platforms are supported. Everything is done in the **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly.
 
 ## Facebook Service Integration Operation Steps
 
-**First**, open the project with __Cocos Creator__, click on the **Menu bar -> Project -> Project Settings -> Service** and there is a **Facebook Service** in the **Service** tab.
+**First**, open the project with __Cocos Creator__, click on the **Menu bar -> Project -> Project Settings -> Service** tab. **Facebook Service** is a checkbox on this tab.
 
 ![](fb-an-and-live/facebook.png)
 
-Select the **Facebook Service** and you can see that there are three options below:
+After selecting the **Facebook Service** you can see that there are three options below:
 
   - **AppID**: Create a new app (or an old app you've created before) in the [Facebook Developer Center](https://developers.facebook.com/) **My AppS -> Add New App**. The **APP ID** above when the creation is complete is AppID.
   - **Facebook Live Video**: Integrate Facebook Live Video into Project.
   - **Facebook Audience Network**: Integrate Facebook Audience Network into Project.
 
-**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel, select **Platform** and then select **Android/iOS** platform. Next, select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
+**Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service** tab, open the **Build** panel, select **Platform** and then select **Android/iOS** platform. Next, select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
 
   **Note**: **Before you build for iOS**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for details.
 
