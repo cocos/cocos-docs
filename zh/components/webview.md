@@ -52,7 +52,7 @@ cc.Class({
     name: 'cc.MyComponent',
     extends: cc.Component,
     properties: {
-       webview: cc.WebView
+       webview: cc.WebView,
     },
 
     onLoad: function() {
@@ -84,7 +84,7 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
 
     onLoad: function () {
@@ -104,13 +104,13 @@ cc.Class({
 
 ## 如何与 WebView 内部页面进行交互
 
-##### 调用 WebView 内部页面
+### 调用 WebView 内部页面
 
 ```js
 cc.Class({
     extends: cc.Component,
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
 
     onLoad: function () {
@@ -120,9 +120,9 @@ cc.Class({
 });
 ```
 
-##### 注意: Web 平台上的跨域问题需要自行解决
+#### 注意: Web 平台上的跨域问题需要自行解决
 
-##### WebView 内部页面调用外部的代码
+### WebView 内部页面调用外部的代码
 
 目前 Android 与 IOS 用的机制是，通过截获 url 的跳转，判断 url 前缀的关键字是否与之相同，如果相同则进行回调。
 
@@ -133,7 +133,7 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
     // onLoad 中设置会导致 API 绑定失效，所以请在 start 中设置 webview 回调。
     start: function () {
@@ -194,6 +194,6 @@ cc.Class({
 </html>
 ```
 
-##### 再强调一遍: Web 平台上的跨域问题需要自行解决
+#### 再强调一遍: Web 平台上的跨域问题需要自行解决
 
 <hr>

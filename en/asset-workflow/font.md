@@ -39,7 +39,7 @@ You can also create from main menu: `Node Presets/Create Renderer Nodes/Node wit
 
 ### Assign Font Asset
 
-If you create Label from menu, the label will use system font by default, you can drag your font asset from **Assets** panel to the `File` property field of **Label** component.
+If you create Label from menu, the label will use system font by default, you can drag your font asset from **Assets** panel to the `Font` property field of **Label** component.
 
 ![assign font file](font/assign_font_file.png)
 
@@ -49,7 +49,7 @@ When switching font assets the other properties in **Label** component will stay
 
 ### Create Label by Dragging Font Assets
 
-Another shortcut method to create font asset is to drag TTF or Bitmap font asset from **Assets** panel to **Node Tree** or **Scene** panel. The selected font asset will be automatically assigned to the `File` property of Label component.
+Another shortcut method to create font asset is to drag TTF or Bitmap font asset from **Assets** panel to **Node Tree** or **Scene** panel. The selected font asset will be automatically assigned to the `Font` property of Label component.
 
 ## Bitmap font bash renderig
 

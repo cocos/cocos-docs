@@ -86,7 +86,7 @@ Add event callback with `webview.node.on ('loaded', ...)`
 cc.Class({
     extends: cc.Component,
     properties: {
-       webview: cc.WebView
+       webview: cc.WebView,
     },
 
     onLoad: function () {
@@ -112,7 +112,7 @@ Likewise, you can also register `loading`, `error` events, and the parameters of
 cc.Class({
     extends: cc.Component,
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
 
     onLoad: function () {
@@ -136,7 +136,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
     // Setting in onLoad will make the callback useless, so we must set the cc.WebView callback in the start cycle.
     start: function () {
