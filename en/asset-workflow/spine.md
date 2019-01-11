@@ -1,6 +1,6 @@
 # Spine
 
-Spine skeleton animation resources are data formats that exported by [Spine](http://en.esotericsoftware.com/) (Creator 2.0.7 and below version support for Spine v2.5,Creator 2.0.8 and above version support for Spine v3.6).
+Spine skeleton animation resources are data formats that exported by [Spine](http://en.esotericsoftware.com/) (Creator 2.0.7 and below version support for Spine v2.5, Creator 2.0.8 and above version support for Spine v3.6).
 
 # Import skeleton animation resources
 
