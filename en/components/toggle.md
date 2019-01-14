@@ -6,9 +6,10 @@ The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 
 Click the `Add component` button at the bottom of the **Properties** panel and select `Toggle` from `Add UI component`. You can then add the Toggle component to the node.
 
-The API reference of Toggle is here: [Toggle API](../../../api/en/classes/toggle.html)。
+The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html)。
 
 ## Toggle property
+
 | Property       |   Function Explanation
 | -------------- | ----------- |
 |isChecked       | Boolean type，When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled.
@@ -30,6 +31,7 @@ Note: Because Toggle is inherited from Button, so the attributes exists in Butto
 The Toggle event callback has two parameters, the first one is  the Toggle itself and the second argument is the customEventData.
 
 ## Detailed explanation
+
 The generic node hierarchy of Toggle is as below:
 
 ![toggle-node-tree](./toggle/toggle-node-tree.png)

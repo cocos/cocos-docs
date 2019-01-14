@@ -1,16 +1,15 @@
 # ToggleGroup component reference
 
-Node: ToggleGroup is deprecated, please use [ToggleContainer](./ToggleContainer.md) instead.
+Node: ToggleGroup is deprecated, please use [ToggleContainer](../toggleContainer.md) instead.
 
 ToggleGroup is not a visiable UI component but a way to modify the behavior of a set of Toggles.
 Toggles that belong to the same group could only have one of them to be switched on at a time.
 
 ![toggle-group](./toggle/toggle-group.png)
 
-
 Click the `Add component` button at the bottom of the **Properties** panel and select `ToggleGroup` from `Add UI component`. You can then add the ToggleGroup component to the node.
 
-The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/classes/toggleGroup.html)。
+The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/classes/ToggleGroup.html)。
 
 ## ToggleGroup property
 
