@@ -6,7 +6,7 @@ The PageViewIndicator Component, Used to display the current page number of the 
 
 Click the 'Add component' pageviewIndicator at the bottom of the **Properties** panel and select 'PageviewIndicator' from 'add UI component'. You can then add the PageviewIndicator component to the node.
 
-Please refer to the script interface of the pageviewIndicator [PageviewIndicator API](../../../api/en/classes/PageviewIndicator.html)
+Please refer to the script interface of the pageviewIndicator [PageviewIndicator API](../../../api/en/classes/PageViewIndicator.html)
 
 ## PageviewIndicator property
 
