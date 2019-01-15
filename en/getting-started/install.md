@@ -45,7 +45,7 @@ On Windows, double-click the `CocosCreator.exe` file in the installation target 
 
 On Mac, start Cocos Creator by double-clicking the `CocosCreator.app` application icon.
 
-### Reinstall Graphics Card Driver
+### Check Graphics Card Driver
 
 For some Windows operating systems and graphics card models, the following error may be encountered:
 
@@ -53,7 +53,7 @@ For some Windows operating systems and graphics card models, the following error
 This browser does not support WebGL ...
 ```
 
-This is caused by the incorrect support of the graphics card driver to the WebGL rendering mode of the editor. If this occurs, it is recommended that you reinstall the graphics card driver.
+This is due to the editor's reliance on GPU rendering, which is not supported by the graphics card driver. If this happens, it is usually only necessary to ensure that the official driver of the corresponding model of the graphics card has been successfully installed.
 
 ## Sign in with the Cocos developer account
 
