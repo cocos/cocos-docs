@@ -1,10 +1,8 @@
 # Cocos Services
 
-Cocos Creator from **v2.0.7** began to add a **Service** panel to the **Menu bar -> Panel**, through the **Service** panel, users can quickly integrate services for the game.
+Starting with **Cocos Creator v2.0.7**, users can quickly integrate services using the **Service** panel. To get to the **Service** panel by clicking **Menu bar -> Panel -> Service**. The **Service** panel currently supports integrating **AnySDK**. Please refer to the [AnySDK documentation](anysdk.md) for details.
 
 ![](cocos-services/cocos_services.png)
-
-The **Service** panel currently supports integrated AnySDK. Please refer to [AnySDK](anysdk.md) for details.
 
 ## Usage
 
