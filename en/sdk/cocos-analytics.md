@@ -1,18 +1,18 @@
-# Cocos 数据统计（Cocos Analytics）
+# Cocos Statistics (Cocos Analytics)
 
-Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了数据分析支持。Cocos Creator 能一键集成数据统计的 SDK，目前支持网页预览以及发布到 Web，iOS 和安卓平台。
+**Cocos** data statistics are used to record the player's game behavior and provide data analysis in the background. **Cocos Creator** provides one-click integration to get data statistics into your game. Currently, *web page preview* and *publishing to the web*, *iOS* and *Android* platforms are supported.
 
-打开 **项目设置** 面板，位于`菜单栏 - 项目 - 项目设置`。在 **服务** 一栏可以勾选 **Cocos 数据统计** 的配置项：
+Open the **Project Settings** panel, located in **Menu Bar - Projects - Project Settings**. In the **Services** column, you can check the configuration item of **Cocos Data Statistics**:
 
-![cocos-analytics](cocos-analytics/params.png)
+![cocos-analytics](cocos-analytics/analytics_properties.png)
 
- - 打开后台：<br>
-   点击后将跳转到数据统计后台，方便查看统计结果
- - AppID 和 AppSecret：<br>
-   请填入在后台申请的帐号信息，默认为公用帐号
- - channel 和 version：<br>
-   请填入渠道 ID 和版本号。这两个参数可以自己任意设置，只要自己在获取统计结果时能够区分就行。在原生平台上，渠道 ID 如果为空并且由 AnySDK 打包，启动时就会自动读取 AnySDK 打包后的渠道 ID。
+ - Open the background:<br>
+   Click to jump to the data statistics background for easy viewing of statistical results
+ - **AppID** and **AppSecret**:<br>
+   Fill in the account information applied in the background, the default is public account
+ - channel and version:<br>
+   Fill in the **channel ID** and **version number**. These two parameters can be set by themselves, as long as they can distinguish when they get the statistical results. On the native platform, if the **channel ID** is empty and packaged by **AnySDK**, the **channel ID** will be automatically read at startup.
 
-游戏加载后，统计 SDK 会在项目构建后的 main.js 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 main.js 中修改这些参数。初始化后，你就能直接调用统计的 SDK，发送各种统计数据给服务器。
+After the game is loaded, the Statistics SDK will be initialized in the **main.js** file after the project is built, and the parameters set above will be passed in. You can also manually modify these parameters in **main.js** if you need to publish them in batches. After initialization, you can directly call the statistical SDK and send various statistics to the server.
 
-详细的产品和 API 说明，请阅读 [产品文档](https://analytics.cocos.com/docs)
+For detailed product and API instructions, please read the [Product Documentation](https://analytics.cocos.com/docs).
