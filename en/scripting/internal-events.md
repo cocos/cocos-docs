@@ -6,11 +6,12 @@ Cocos Creator supports four types of system events: mouse, touch, keyboard, devi
 
 System events follow the general register method, developers can register event listener not only by using the enumeration type but also by using the event name directly, the definition for the event name follows DOM event standards.
 
-```
+```javascript
 // Use enumeration type to register
 node.on(cc.Node.EventType.MOUSE_DOWN, function (event) {
   console.log('Mouse down');
 }, this);
+
 // Use event name to register
 node.on('mousedown', function (event) {
   console.log('Mouse down');
@@ -70,17 +71,39 @@ Note, touch events support multi-touch, each touch spot will send one event to t
 | `getStartLocation` | `Object` | get the location object the where touch spot gets down which includes x and y properties |
 | `getPreviousLocation` | `Object` | get the location object of the touch spot at the last event which includes x and y properties |
 
-## Touch event bubbles
+## Touch event propagation
+### Touch event bubbles
 
-touch events support the event bubbles on the node tree, take the pictures below as an example:
+Touch events support the event bubbles on the node tree, take the pictures below as an example:
 
 ![propagation](./internal-events/propagation.png)
 
-In the scene shown in the picture, node A has a child node B which has a child node C. Suppose the developer set the touch event listeners for all these three nodes, when the mouse or finger was applied in the node B region, the event will be triggered at node B first and the node B listener will receive the event. Then the node B will pass this event to its parent node, so the node A listener will receive this event. This is a basic event bubble process.
+In the scene shown in the picture, suppose node A has a child node B which has a child node C. The developer set the touch event listeners for all these three nodes ( each node has a touch event listener in examples below by default ).  
 
-When the mouse or finger presses in the node C region, the event will be triggered at node C first and notify the registered event listener at node C. Node C will notify node B of this event, and the logic in node B will check whether the touch spot is in its region. If the answer is yes, it will notify its listener, otherwise, it will do nothing. Node A will receive the event then, since node C is completely in node A, the event listener registered in node A will receive the touch down event. The above process explains the event bubble process and that the logic decides whether to dispatch the event or not based on the node region.
+When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event. Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubble process. It needs to be emphasized that there is no hit test in parent nodes in the process of bubble，which means that the node A and B can receive touch events by event bubbles even though the touch location is out of their node region.
 
-Except for the node region to decide whether to dispatch the event or not, the bubble process of touch events is no different than the general events. So, the fuction`stopPropagation` to call `event` of `stopPropagation` can stop the bubbling process actively.
+The bubble process of touch events is no different than the general events. So, calling `event.stopPropagation()` can stop the bubbling process actively.
+
+### Ownership of touch points among brother nodes
+
+Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
+
+At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechainism.
+
+### Example for touch events
+
+Let's make a summary of touch event propagation with the example below:
+
+![example](./internal-events/example.png)
+
+There are four nodes A, B, C and D in the picture above, where A and B are brother nodes.  
+The specific hierarchical relationship should be like this:
+
+![hierarchy](./internal-events/hierarchy.png)
+
+- If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A - C - D**
+- If the touch location is in node B ( the visible blue area ), the order should be **B - C - D**
+- If the touch location is in node C, the order should be **C - D**
 
 ## Other events of `cc.Node`
 
