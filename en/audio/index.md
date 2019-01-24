@@ -1,4 +1,5 @@
 # Music and effect
 
-- [Audio playback](audio.md)
-- [AudioSource Component](../components/audiosource.md)
+- [Play Audio](audio.md)
+- [AudioSource Reference](../components/audiosource.md)
+- [Compatibility](compatibility.md)
