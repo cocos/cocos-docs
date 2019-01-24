@@ -17,6 +17,7 @@
 如果只需要在游戏加载完成后自动播放音频，那么勾选 AudioSource 组件的 **Play On Load** 即可。如果要更灵活的控制 AudioSource 的播放，可以在自定义脚本中获取 **AudioSource 组件**，然后调用相应的 API，如下所示：
 
 ```js
+// AudioSourceControl.js
 cc.Class({
     extends: cc.Component,
 
@@ -49,6 +50,7 @@ AudioEngine 与 AudioSource 都能播放音频，它们的区别在于 AudioSour
 2. 直接使用 `cc.audioEngine.play(audio, loop, volume);` 播放，如下所示：
 
 ```js
+// AudioEngine.js
 cc.Class({
     extends: cc.Component,
 
