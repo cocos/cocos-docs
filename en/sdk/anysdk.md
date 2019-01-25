@@ -1,6 +1,6 @@
 # AnySDK
 
-  Note: This document is based on **Cocos Creator v2.0.7**. If you are using a version prior to __v2.0.7__, please use the [legacy version](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/en/sdk/anysdk-overview.md) of this document.
+  **Note:** This document is based on **Cocos Creator v2.0.7**. If you are using a version prior to __v2.0.7__, please use the [legacy version](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/en/sdk/anysdk-overview.md) of this document.
   
 **AnySDK** is a third party solution that offers game developers SDK integration without making changes to the SDK's features or parameters. It can do all of this while remaining invisible to your end user. **AnySDK** has the goal of handling all the tedious SDK integration work so that you can use your time to focus on the game itself. No matter if it's an ad network, payments system, ratings and reviews encouragement, crash analytics, reward system or any other type of SDK.
 
@@ -24,19 +24,19 @@ Because the **AnySDK** service only supports companies (i.e not individuals), ga
 
     ![](anysdk/create-game.png)
 
-After the game is created, you need to open the  **AnySDK service**. Click the game in the game list in the [Cocos Account Center](https://account.cocos.com/#/game/game_list) or click the **Service** tab at the top of the page to jump to the service panel. Select the corresponding game on the left side of the service page, then find the **AnySDK** service, click **Open Service**. you can see the **AnySDK** service on the page display **opened**.
+After the game is created, you need to open the **AnySDK service**. Click the game in the game list in the [Cocos Account Center](https://account.cocos.com/#/game/game_list) or click the **Service** tab at the top of the page to jump to the service panel. Select the corresponding game on the left side of the service page, then find the **AnySDK** service, click **Open Service**. you can see the **AnySDK** service on the page display **opened**.
 
 ![](anysdk/anysdk_service.png)
 
 ## Server access
 
-If the developer needs to integrate *User* and/or *IAP* systems, the game server must deal with verification and payment attestation related logic, refer to the [Oauth Login](http://docs.anysdk.com/OauthLogin) and [Payment Notice](http://docs.anysdk.com/PaymentNotice) documents.
+If the developer needs to integrate **User** and/or **IAP** systems, the game server must deal with verification and payment attestation related logic, refer to the [Oauth Login](http://docs.anysdk.com/OauthLogin) and [Payment Notice](http://docs.anysdk.com/PaymentNotice) documents.
 
 ## Client access
 
 ### Built project
 
-**First**, open **Cocos Creator** and click the **Menu bar -> Panel -> Service** to open the **Service** panel. Set up a *Cocos AppID*. Be careful to select a company game. Please refer to the [Cocos service settings](cocos-services.md) document for details. Then select **AnySDK** to enter the **AnySDK** service **Settings** panel.
+**First**, open **Cocos Creator** and click the **Menu bar -> Panel -> Service** to open the **Service** panel. Set up a **Cocos AppID**. Be careful to select a company game. Please refer to the [Cocos service settings](cocos-services.md) document for details. Then select **AnySDK** to enter the **AnySDK** service **Settings** panel.
 
 **Second**, click the *enable* button in the upper-right corner to enable the **AnySDK** service. (If the **AnySDK** service is not opened in the Create game step, then when you enable the **AnySDK** service, it will pop up `whether to open the AnySDK service` prompt box, according to the prompt to operate.）
 
@@ -49,7 +49,7 @@ If the developer needs to integrate *User* and/or *IAP* systems, the game server
 Parameters can be obtained in the following three ways:
 
 - Click **Dashboard** in the **AnySDK** service panel to enter the [AnySDK Developer Center](http://dev.anysdk.com/) to get the parameters, as pictured above.
-- After opening the **AnySDK** service in the **Cocos Account Center**, click **Dashboard** directly to enter the **ANYSDK Developer Admin Background** to get the parameters.
+- After opening the **AnySDK** service in the **Cocos Account Center**, click **Dashboard** directly to enter the [AnySDK Developer Admin Background](http://dev.anysdk.com/) to get the parameters.
 - Get parameters in the **Configuration Management -> Game Management** of the **AnySDK** client.
 
 Where the `OauthLoginURL` parameter is the address that fills in the game server for login verification (Users can fill in any if they are not accessed).
