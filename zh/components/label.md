@@ -1,14 +1,12 @@
 # Label 组件参考
 
-Label 组件用来显示一段文字，文字可以是系统字体，TrueType 字体或者 BMFont 字体和艺术数字，另外，Label 还具有排版功能。
-
-![label](./label/label.png)
+Label 组件用来显示一段文字，文字可以是系统字体，TrueType 字体或者 BMFont 字体和艺术数字。另外，Label 还具有排版功能。
 
 ![label-property](./label/label-property.png)
 
-点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加渲染组件`中选择`Label`，即可添加 Label 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加渲染组件** 中选择 **Label**，即可添加 Label 组件到节点上。
 
-文字的脚本接口请参考[Label API](../../../api/zh/classes/Label.html)。
+文字的脚本接口请参考 [Label API](../../../api/zh/classes/Label.html)。
 
 ## Label 属性
 
@@ -19,11 +17,13 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 |Vertical Align| 文本的垂直对齐方式。可选值有 TOP，CENTER 和 BOTTOM。
 |Font Size| 文本字体大小。
 |Line Height| 文本的行高。
-|Overflow| 文本的排版方式，目前支持 CLAMP，SHRINK 和 RESIZE_HEIGHT。详情见[Label 排版](#label--2)。
+|Overflow| 文本的排版方式，目前支持 CLAMP，SHRINK 和 RESIZE_HEIGHT。详情见下方的 [Label 排版](#label--2)。
 |Enable Wrap Text| 是否开启文本换行。
 |SpacingX| 文本字符之间的间距 （只有 BMFont 字体可以设置）
 |Font| 指定文本渲染需要的字体文件，如果使用系统字体，则此属性可以为空。
 |Use System Font| 布尔值，是否使用系统字体。
+| Src Blend Factor | 当前渲染混合模式
+| Dst Blend Factor | 背景混合模式，和上面的属性共同作用，可以将前景和背景渲染的文本用不同的方式混合，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 
 ## Label 排版
 
@@ -35,11 +35,12 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 ## 详细说明
 
-Label 组件可以通过往`属性检查器`里的 `Font` 属性拖拽 TTF 字体文件和 BMFont 字体文件来修改渲染的字体类型。如果不想继续使用字体文件，可以通过勾选`Use System Font`来重新启用系统字体。
+Label 组件可以通过往 **属性检查器** 里的 **Font** 属性拖拽 TTF 字体文件和 BMFont 字体文件来修改渲染的字体类型。如果不想继续使用字体文件，可以通过勾选 **Use System Font** 来重新启用系统字体。
 
-使用艺术数字字体需要创建[艺术数字资源](../asset-workflow/label-atlas.md)，参考链接中的文档设置好艺术数字资源的属性之后，就可以像使用 BMFont 资源一样来使用艺术数字了。
+使用艺术数字字体需要创建 [艺术数字资源](../asset-workflow/label-atlas.md)，参考链接中的文档设置好艺术数字资源的属性之后，就可以像使用 BMFont 资源一样来使用艺术数字了。
 
 ### BMFont 与 UI 合图自动批处理
+
  从 Creator 1.4 版本开始， BMFont 支持与 UI 一起合图进行批量渲染。
  理论上，如果你的游戏 UI 没有使用系统字体或者 TTF 字体，并且所有的 UI 图片资源都可以合在一张图上，那么 UI 是可以只用一个 Draw Call 来完成的。
  更多关于 BMFont 与 UI 合图自动批处理的内容，请参考 [BMFont 与 UI 合图自动批处理](../advanced-topics/ui-auto-batch.md)

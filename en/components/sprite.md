@@ -12,8 +12,8 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 
 | Properties | Description
 | -------------- | ----------- |
-| Atlas | [Auto Atlas](../asset-workflow/atlas.md) which the Sprite display image resource belongs to.
-| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite.
+| Atlas | [Auto Atlas](../asset-workflow/atlas.md) which the Sprite display image resource belongs to. ( **Select In Atlas** button after Atlas, this feature is temporarily unavailable and we will optimize it as soon as possible)
+| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the nine rectangle grid cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md#-) for details)
 | Type | Rendering mode, currently includes `Simple`, `Sliced`, `Tiled`, `Filled` and `Mesh` five rendering modes.
 | Size Mode | Specify the size of the Sprite<br>`Trimmed` automatically fit to the size of the sprite cropped<br>`Raw` automatic fit for sprite original size<br>`Custom` use the node preset size. When the user manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
 | Trim | Whether the transparent pixel area is included in the node bounding box，please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
@@ -22,7 +22,7 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 
 After adding the Sprite component, drag the Texture or SpriteFrame type resource from the **Assets** to the `Sprite Frame` attribute reference. Then, the resource image can be displayed through the Sprite component.
 
-If this SpriteFrame resource is contained within an Atlas resource, then the `Atlas` attribute of the Sprite will be set up along with it. Later you can click the **choose** button next to the `Atlas` attribute to choose another SpriteFrame from this Atlas to assign to the Sprite.
+If this SpriteFrame resource is contained within an Atlas resource, then the `Atlas` attribute of the Sprite will be set up along with it.
 
 **To dynamically replace spriteframe, you need to dynamically load the picture resource before you replace it, please refer to [Acquire and load asset: how to dynamically load](../scripting/load-assets.md#how-to-dynamically-load).**
 
