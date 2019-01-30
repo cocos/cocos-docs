@@ -110,7 +110,7 @@ onCollisionExit: function (other, self) {
             // return the touch point with world coordinates
             let touchLoc = touch.getLocation();
             // https://docs.cocos.com/creator/api/en/classes/Intersection.html Intersection
-            if(cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
                 console.log("Hit!");
             }
             else {

@@ -117,7 +117,7 @@ onCollisionExit: function (other, self) {
             // 返回世界坐标
             let touchLoc = touch.getLocation();
             // https://docs.cocos.com/creator/api/zh/classes/Intersection.html 检测辅助类
-            if(cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
                 console.log("Hit!");
             }
             else {
