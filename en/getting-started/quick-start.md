@@ -203,7 +203,7 @@ Let's take a look at the role of these codes. First we can see a global `cc.Clas
 
 The above code creates a type with the `cc.Class()` method and assigns it to the `Sprite` variable. The class name is also set to `sprite`. Class names are used for serialization, which can generally be omitted.
 
-For `cc.Class` detailed learning can refer to [Declare class with cc.Class](http://docs.cocos.com/creator/manual/zh/scripting/class.html).
+For `cc.Class` detailed learning can refer to [Declare class with cc.Class](../scripting/class.md).
 
 Now we go back to the code editor and look back at the code, which is the structure needed to write a component script. Scripts of such a structure are the components in Cocos creator, which can be mounted on the nodes in the scene and provide various functions that manipulate nodes. First, we will set up some properties and see how to adjust them in the scene.
 
@@ -295,7 +295,7 @@ So what is the role of the `easing(cc.easeCubicActionOut())` in the second half?
 
 ![](quick-start/easing.png)
 
-For details, please refer to [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout().
+For details, please refer to [API](../../../api/en/modules/cc.html#easecubicactionout).
 
 Next invoke the newly added `setJumpAction` method in the `onLoad` method and implement `runAction` to start action:
 
@@ -496,7 +496,7 @@ The above code sets three parameters for the `score` property default, displayNa
 Here are the common parameters:
 
 `default`：Sets the default value for the property, which is only used when the component is first added to the node<br>
-`type`：To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.html#type-attribute)<br>
+`type`：To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.md#type-attribute)<br>
 `visible`：Set to false to not display this property in the **Properties**<br>
 `serializable`： Set to False to not serialize (save) this property<br>
 `displayName`：Display in the **Properties** as the specified name<br>

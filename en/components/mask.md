@@ -1,4 +1,4 @@
-# Mask component reference
+# Mask Component Reference
 
 Mask is used to specify the range where the child node can perform rendering. Nodes with a component that contains Mask will use a bounding box (which has the range specified by 憇ize? of this node to create a rendered mask.  All of the child nodes of this node will clip according to this mask and the area outside the mask won't be rendered.
 
