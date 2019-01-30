@@ -12,8 +12,8 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 | 属性 |   功能说明
 | -------------- | ----------- |
-| Atlas | Sprite 显示图片资源所属的 [Atlas 图集资源](../asset-workflow/atlas.md)
-| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../asset-workflow/sprite.md)
+| Atlas | Sprite 显示图片资源所属的 [Atlas 图集资源](../asset-workflow/atlas.md)。（Atlas 后面的 **选择** 按钮，该功能暂时不可用，我们会尽快优化）
+| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../asset-workflow/sprite.md)。（Sprite Frame 后面的 **编辑** 按钮用于编辑图像资源的九宫格切分，详情请参考 [使用 Sprite 编辑器制作九宫格图像](../ui/sliced-sprite.md)）
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）、填充（Filled）和网格（Mesh）渲染五种模式
 | Size Mode | 指定 Sprite 的尺寸<br>`Trimmed` 表示会使用原始图片资源裁剪透明像素后的尺寸<br>`Raw` 表示会使用原始图片未经裁剪的尺寸<br> `Custom` 表示会使用自定义尺寸。当用户手动修改过 `Size` 属性后，`Size Mode` 会被自动设置为 `Custom`，除非再次指定为前两种尺寸。
 | Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../asset-workflow/trim.md)
@@ -22,7 +22,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 添加 Sprite 组件之后，通过从 **资源管理器** 中拖拽 Texture 或 SpriteFrame 类型的资源到 `Sprite Frame` 属性引用中，就可以通过 Sprite 组件显示资源图像。
 
-如果拖拽的 SpriteFrame 资源是包含在一个 Atlas 图集资源中的，那么 Sprite 的 `Atlas` 属性也会被一起设置。之后可以点击 `Atlas` 属性旁边的 **选择** 按钮来从该 Atlas 中挑选另外一个 SpriteFrame 指定给 Sprite。
+如果拖拽的 SpriteFrame 资源是包含在一个 Atlas 图集资源中的，那么 Sprite 的 `Atlas` 属性也会被一起设置。
 
 **若要动态更换 SpriteFrame 则需要先动态加载图片资源，然后再进行替换，详情请参考 [获取和加载资源：动态加载](../scripting/load-assets.md#%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD)。**
 

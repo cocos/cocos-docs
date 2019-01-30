@@ -2,9 +2,9 @@
 
 ![](../audio/audio/audiosource.png)
 
-## Attribute
+## Properties
 
-Attribute           | Explain
+Properties          | Explain
 --                  | --
 Clip                | Audio resource object to play
 Volume              | Audio volume, the range is between 0~1
