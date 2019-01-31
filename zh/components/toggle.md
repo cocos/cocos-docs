@@ -4,20 +4,20 @@ Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以
 
 ![toggle1](./toggle/toggle.png)
 
-点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加 UI 组件` 中选择 `Toggle`，即可添加 Toggle 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **Toggle**，即可添加 Toggle 组件到节点上。
 
-Toggle 的脚本接口请参考[Toggle API](../../../api/zh/classes/Toggle.html)。
+Toggle 的脚本接口请参考 [Toggle API](../../../api/zh/classes/Toggle.html)。
 
 ## Toggle 属性
 
 | 属性           | 功能说明     |
 | -------------- | -----------   |
-| isChecked      | 布尔类型，如果这个设置为 true，则 check mark 组件会处于 enabled 状态，否则处于 disabled 状态。 |
+| isChecked      | 布尔类型，如果这个设置为 true，则 check mark 组件会处于 enabled 状态，否则处于 disabled 状态。
 | checkMark      | cc.Sprite 类型，Toggle 处于选中状态时显示的图片  |
 | toggleGroup    | cc.ToggleGroup 类型， Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
 | Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见`Toggle 事件`章节  |
 
-注意：因为 Toggle 继承至 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 Button 组件对应的章节，这里就不再赘述了。
+**注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 Button 组件对应的章节，这里就不再赘述了。
 
 ## Toggle 事件
 
@@ -79,15 +79,15 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        toggle: cc.Toggle
     },
-    
+
     onLoad: function () {
        this.toggle.node.on('toggle', this.callback, this);
     },
-    
+
     callback: function (event) {
        //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Toggle 组件
        var toggle = event.detail;
