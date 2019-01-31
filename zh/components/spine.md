@@ -12,11 +12,11 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 | 属性 |   功能说明
 | ------------------ | ------------------ |
-| Skeleton Data      | 骨骼信息数据，拖拽 Spine 导出后的 **.json** 资源到该属性中使用
+| Skeleton Data      | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
 | Default Skin       | 选择默认的皮肤
 | Animation          | 当前播放的动画名称
 | Loop               | 是否循环播放当前动画
-| Premultiplied Alpha| 图片是否启用贴图预乘，默认为 True。<br>当图片的透明区域出现色块时需要关闭该项。<br>当图片的半透明区域颜色变黑时需要启用该项。
+| Premultiplied Alpha| 图片是否启用贴图预乘，默认为 True。<br>当图片的透明区域出现色块时需要关闭该项，当图片的半透明区域颜色变黑时需要启用该项。
 | Time Scale         | 当前骨骼中所有动画的时间缩放率
 | Debug Slots        | 是否显示 slot 的 debug 信息
 | Debug Bones        | 是否显示骨骼的 debug 信息

@@ -18,15 +18,15 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 
 | 属性                | 功能说明       |
 | ------------------ | ------------------ |
-| Resource Type      | 视频来源的类型，目前支持本地（LOCAL）视频 URL 和远程（REMOTE）视频 URL |
-| Clip               | 当 Resource Type 为 LOCAL 时显示的字段，拖拽本地视频的资源到此处来使用（推荐使用 **mp4** 格式的视频）  |
+| Resource Type      | 视频来源的类型，目前支持本地（LOCAL）视频和远程（REMOTE）视频 URL |
+| Clip               | 当 Resource Type 为 LOCAL 时显示的字段，拖拽本地视频的资源到此处来使用 |
 | Remote URL         | 当 Resource Type 为 REMOTE 时显示的字段，填入远程视频的 URL |
 | Current Time       | 指定从哪个时间点开始播放视频  |
 | Volume             | 视频的音量（0.0 ~ 1.0）|
 | Mute               | 是否静音视频。静音时设置音量为 0，取消静音时恢复原来的音量 |
 | Keep Aspect Ratio  | 是否保持视频原来的宽高比  |
 | Is Fullscreen      | 是否全屏播放视频  |
-| Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。详情见下方的 **VideoPlayer 事件** 章节或者 [VideoPlayerEvent API](../../../api/zh/classes/VideoPlayer.html#videoplayerevent) 。|
+| Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。详情见下方的 **VideoPlayer 事件** 章节或者 [VideoPlayerEvent API](../../../api/zh/classes/VideoPlayer.html#videoplayerevent)。|
 
 **注意**：在 **Video Player Event** 属性的 **cc.Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 VideoPlayer 事件。
 
@@ -58,7 +58,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 **注意**：在 iOS 平台的全屏模式下，点击视频无法发送 CLICKED 事件。如果需要让 iOS 全屏播放并正确接受 CLICKED 事件，
 可以使用 Widget 组件把视频控件撑满。
 
-详情可参考 [VideoPlayer 事件](../../../api/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/next/assets/cases/02_ui/09_videoplayer)。
+详情可参考 [VideoPlayer 事件](../../../api/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/02_ui/09_videoplayer)。
 
 ## 详细说明
 

@@ -6,14 +6,14 @@ The DragonBones component can render and play DragonBones resources.
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **DragonBones** from **Renderer Component** to add the DragonBones component to the node.
 
-The operation of the DragonBones component in the script refer to the [DragonBones test](https://github.com/cocos-creator/example-cases/tree/next/assets/cases/dragonbones) in the [example-cases](https://github.com/cocos-creator/example-cases).<br>About the DragonBones's scripting interface please refer to [DragonBones API](../../../api/en/modules/dragonBones.html)
+The operation of the DragonBones component in the script refer to the [DragonBones test](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/dragonbones) in the [example-cases](https://github.com/cocos-creator/example-cases).<br>About the DragonBones's scripting interface please refer to [DragonBones API](../../../api/en/modules/dragonBones.html)
 
 ## DragonBones Properties
 
 | Properties |   Function Explanation
 | ------------------ | ------------------ |
-| Dragon Asset       | The json data contains the DragonBones information (bind pose bones, slots, draw order,attachments, skins, etc) and animations, but does not hold any state.<br>Multiple ArmatureDisplay can share the same DragonBones data.<br>Drag the json file exported from DragonBones to get started.
-| Dragon Atlas Asset | The json data contains the Texture information, drag the json file exported from DragonBones to get started.
+| Dragon Asset       | The json data contains the DragonBones information (bind pose bones, slots, draw order,attachments, skins, etc) and animations, but does not hold any state.<br>Multiple ArmatureDisplay can share the same DragonBones data.<br>You can drag and drop the bone resources exported from DragonBones here.
+| Dragon Atlas Asset | The json data contains the Texture information. You can drag and drop the Atlas resources exported from DragonBones here.
 | Armature           | The name of current armature.
 | Animation          | The name of current playing animation.
 | Time Scale         | The time scale of this armature.

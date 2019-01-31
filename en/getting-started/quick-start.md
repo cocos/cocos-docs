@@ -295,7 +295,7 @@ So what is the role of the `easing(cc.easeCubicActionOut())` in the second half?
 
 ![](quick-start/easing.png)
 
-For details, please refer to [API](../../../api/en/modules/cc.html#easecubicactionout).
+For details, please refer to [API](../../../api/en/modules/cc.html?h=easecubicactionout).
 
 Next invoke the newly added `setJumpAction` method in the `onLoad` method and implement `runAction` to start action:
 

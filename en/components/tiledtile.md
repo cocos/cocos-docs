@@ -45,7 +45,7 @@ For the Layer script interface, please refer to [TiledLayer API](../../../api/en
 | X     | Specify the TiledTile horizontal coordinate，use tile as the unit
 | Y     | Specify the TiledTile vertical coordinate，use tile as the unit
 | Gid   | Specify the Gid value of the TiledTile to toggle the style of the TiledTile
-| Layer | Get TiledTile belong to which TiledLayer. (Remove this property from v2.0.1)
+| Layer | Get TiledTile belong to which TiledLayer. (This property was removed since v2.0.1)
 
 ### Detailed Explanation
 
