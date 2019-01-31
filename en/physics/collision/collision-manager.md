@@ -97,23 +97,27 @@ onCollisionExit: function (other, self) {
 ### Hittest
 
 ```javascript
-cc.eventManager.addListener({
-    event: cc.EventListener.TOUCH_ONE_BY_ONE,
-    onTouchBegan: (touch, event) => {
-        var touchLoc = touch.getLocation();
-
-        // Get the points in world location of the polygon collider component.
-        // If it's other type colidder component, can also find the test function in cc.Intersection.
-        if (cc.Intersection.pointInPolygon(touchLoc, this.polygonCollider.world.points)) {
-            this.title.string = 'Hit';
-        }
-        else {
-            this.title.string = 'Not hit';
-        }
-
-        return true;
+    properties: {
+        collider: cc.BoxCollider
     },
-}, this.node);
+
+    start () {
+        // Open the collision manager, without this part statement you will not detect any collision.
+        cc.director.getCollisionManager().enabled = true;
+        // cc.director.getCollisionManager().enabledDebugDraw = true;
+
+        this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
+            // return the touch point with world coordinates
+            let touchLoc = touch.getLocation();
+            // https://docs.cocos.com/creator/api/en/classes/Intersection.html Intersection
+            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+                console.log("Hit!");
+            }
+            else {
+                console.log("No hit");
+            }
+        }, this);
+    }
 ```
 
 More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 
