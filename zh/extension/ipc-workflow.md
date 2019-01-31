@@ -12,7 +12,7 @@
 
 在主进程中，主要使用
 
-`Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout)`
+`Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout])`
 
 接口向特定面板发送消息。对于目前支持的单面板插件来说：
 
@@ -39,6 +39,8 @@
 - 任意进程对所有进程广播 `Editor.Ipc.sendToAll`
 
 上述方法在两种进程里写法都是一致的，只要注意消息接收的对象是在渲染进程还是主进程，并选择对应的方法即可。详细的接口用法请参考上文的描述和本文最上面的 IPC 接口文档链接。
+
+**注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
 
 ## 接收消息
 

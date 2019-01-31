@@ -99,23 +99,27 @@ onCollisionExit: function (other, self) {
 ### 点击测试
 
 ```javascript
-cc.eventManager.addListener({
-    event: cc.EventListener.TOUCH_ONE_BY_ONE,
-    onTouchBegan: (touch, event) => {
-        var touchLoc = touch.getLocation();
-
-        // 获取多边形碰撞组件的世界坐标系下的点来进行点击测试
-        // 如果是其他类型的碰撞组件，也可以在 cc.Intersection 中找到相应的测试函数
-        if (cc.Intersection.pointInPolygon(touchLoc, this.polygonCollider.world.points)) {
-            this.title.string = 'Hit';
-        }
-        else {
-            this.title.string = 'Not hit';
-        }
-
-        return true;
+    properties: {
+        collider: cc.BoxCollider
     },
-}, this.node);
+
+    start () {
+        // 开启碰撞检测系统，未开启时无法检测
+        cc.director.getCollisionManager().enabled = true;
+        // cc.director.getCollisionManager().enabledDebugDraw = true;
+
+        this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
+            // 返回世界坐标
+            let touchLoc = touch.getLocation();
+            // https://docs.cocos.com/creator/api/zh/classes/Intersection.html 检测辅助类
+            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+                console.log("Hit!");
+            }
+            else {
+                console.log("No hit");
+            }
+        }, this);
+    }
 ```
 
 更多的范例可以到 [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看

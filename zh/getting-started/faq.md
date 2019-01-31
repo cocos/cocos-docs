@@ -70,21 +70,21 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ### 如何从服务器远程加载 DragonBones ？
 
 ```js
-let animNode = new cc.Node();
+var animNode = new cc.Node();
 animNode.parent = cc.find('Canvas');
-let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 
-let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
-let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
-let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
+var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
 cc.loader.load(image, (error, texture) => {
     cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
         cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
-            let atlas = new dragonBones.DragonBonesAtlasAsset();
+            var atlas = new dragonBones.DragonBonesAtlasAsset();
             atlas.atlasJson = atlasJson;
             atlas.texture = texture;
 
-            let asset = new dragonBones.DragonBonesAsset();
+            var asset = new dragonBones.DragonBonesAsset();
             asset.dragonBonesJson = dragonBonesJson;
 
             dragonDisplay.dragonAtlasAsset = atlas;
@@ -92,6 +92,30 @@ cc.loader.load(image, (error, texture) => {
 
             dragonDisplay.armatureName = 'box_anim';
             dragonDisplay.playAnimation('box_anim', 0);
+        });
+    });
+});
+```
+
+### 如何从服务器远程加载 Spine
+
+```js
+var spineNode = new cc.Node();
+var skeleton = spineNode.addComponent(sp.Skeleton);
+this.node.addChild(spineNode);
+
+var image = "http://localhost/download/spineres/1/1.png";
+var ske = "http://localhost/download/spineres/1/1.json";
+var atlas = "http://localhost/download/spineres/1/1.atlas";
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'txt' }, (error, spineJson) => {
+            var asset = new sp.SkeletonData();
+            asset.skeletonJson = spineJson;
+            asset.atlasText = atlasJson;
+            asset.textures = [texture];
+            asset.textureNames = ['1.png'];
+            skeleton.skeletonData = asset;
         });
     });
 });

@@ -35,7 +35,6 @@ module.exports = {
 
 可以看到场景脚本由一个或多个 IPC 消息监听方法组成，收到相应的 IPC 消息后，我们在函数体内可以使用包括全部引擎 API 和用户组件脚本里声明的方法和属性。
 
-
 ## 从扩展包中向场景脚本发送消息
 
 接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene-walker.js` 发送消息（假设扩展包名是 `foobar`）：
@@ -50,6 +49,7 @@ Editor.Scene.callSceneScript('foobar', 'get-canvas-children', function (err, len
 
 在发送消息时 `callSceneScript` 接受的参数输入和其他 IPC 消息发送接口一致，也可以指定更多传参和 timeout 超时时限。详情请看 [IPC 工作流程](ipc-workflow.md)。
 
+**注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
 
 ## 在场景脚本中引用模块和插件脚本
 

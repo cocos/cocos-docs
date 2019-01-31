@@ -82,7 +82,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 7. Finally, click **Save** button to save the first package info into record.
 
-8. In the **Record config path** option of the **Build** panel, select the record we just edited, and then click the **Build** button, Cococs Creator will use this record to generate the first package and other resources.
+8. In the **Record config path** option of the **Build** panel, select the record we just edited, and then click the **Build** button, Cocos Creator will use this record to generate the first package and other resources.
 
 ## Android Studio support
 

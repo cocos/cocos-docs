@@ -67,20 +67,20 @@ cc.Class({
 我们可以通过两种方式发射事件：`emit` 和 `dispatchEvent`。两者的区别在于，后者可以做事件传递。
 我们先通过一个简单的例子来了解 `emit` 事件：
 
-```javascript
+```js
 cc.Class({
   extends: cc.Component,
 
-  onLoad: function () {
-    this.node.on('say-hello', function (event) {
-      console.log(event.detail.msg);
+  onLoad () {
+    // args are optional param.
+    this.node.on('say-hello', function (msg) {
+      console.log(msg);
     });
   },
 
-  start: function () {
-    this.node.emit('say-hello', {
-      msg: 'Hello, this is Cocos Creator',
-    });
+  start () {
+    // At most 5 args could be emit.
+    this.node.emit('say-hello', 'Hello, this is Cocos Creator');
   },
 });
 ```

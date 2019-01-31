@@ -4,7 +4,6 @@ In Cocos Creator there're three types of font assets supported: System font, Dyn
 
 System font is not include in the project, it's a special asset type that only tells the platform the game is running to provide the default font from operation system (such as Windows, Mac, Android, iOS...). By default all new Labels are using system font, you can make sure it's used by checking **Use System Font** property from [Label Component](../components/label.md).
 
-
 ## Import Font Asset
 
 ### Dynamic Font
@@ -13,7 +12,7 @@ Currently Cocos Creator only supports **TTF** format for dynamic font. Just drag
 
 ### Bitmap Font
 
-Bitmap font asset has two parts: `.fnt` font file and a `.png` image file. You can think of `.png` is a image map and `.fnt` is the index to each character in the map. This file combo can be generated with specific tools, please read [Bitmap font tool](../getting-started/support.md#--7).
+Bitmap font asset has two parts: `.fnt` font file and a `.png` image file. You can think of `.png` is a image map and `.fnt` is the index to each character in the map. This file combo can be generated with specific tools, please read [Bitmap font tool](../getting-started/support.md#tools-for-generating-bitmap-font).
 
 When importing Bitmap font, please make sure `.fnt` and `.png` files are dragged together into **Assets** panel, and they should be put into the same folder.
 
@@ -21,7 +20,7 @@ Imported Bitmap font asset should looks like this in **Assets**:
 
 ![imported font asset](font/imported.png)
 
-**Notice** To make asset loading more effective, we recommend that you create a specific folder for all your Bitmap font assets.
+**Note**: To make asset loading more effective, we recommend that you create a specific folder for all your Bitmap font assets.
 
 ## Using Font Asset
 
@@ -39,7 +38,7 @@ You can also create from main menu: `Node Presets/Create Renderer Nodes/Node wit
 
 ### Assign Font Asset
 
-If you create Label from menu, the label will use system font by default, you can drag your font asset from **Assets** panel to the `File` property field of **Label** component.
+If you create Label from menu, the label will use system font by default, you can drag your font asset from **Assets** panel to the `Font` property field of **Label** component.
 
 ![assign font file](font/assign_font_file.png)
 
@@ -49,7 +48,7 @@ When switching font assets the other properties in **Label** component will stay
 
 ### Create Label by Dragging Font Assets
 
-Another shortcut method to create font asset is to drag TTF or Bitmap font asset from **Assets** panel to **Node Tree** or **Scene** panel. The selected font asset will be automatically assigned to the `File` property of Label component.
+Another shortcut method to create font asset is to drag TTF or Bitmap font asset from **Assets** panel to **Node Tree** or **Scene** panel. The selected font asset will be automatically assigned to the `Font` property of Label component.
 
 ## Bitmap font bash renderig
 

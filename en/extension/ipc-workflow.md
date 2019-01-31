@@ -10,7 +10,7 @@ All the API mentioned in this session can be found in [Editor.Ipc Main Process A
 
 ### Sending message from main process to panel.
 
-In main process, we mainly use `Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout)` method to send message to panel, the parameters:
+In main process, we mainly use `Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout])` method to send message to panel, the parameters:
 
 - `panelID` panel ID
 - `message` the IPC message name
@@ -33,6 +33,8 @@ We also have the following methods to operate IPC:
 - any process to main window: `Editor.Ipc.sendToMainWin`
 - any process to all windows: `Editor.Ipc.sendToWins`
 - any process to all: `Editor.Ipc.sendToAll`
+
+**Note: Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.**
 
 ## Recieve Message
 

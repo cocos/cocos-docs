@@ -34,8 +34,7 @@ This chapter will show the usage of Cocos Creator's graphic drawing component in
 
 ## Third Party Library
 
-The Graphics component's API is designed according to the [Canvas](http://www.w3school.com.cn/tags/html_ref_canvas.asp) drawing interface, and there are a lot of graphics libraries based on the Canvas drawing interface, such as [paper.js](http://paperjs.org/), [raphael.js](http://dmitrybaranovskiy.github.io/raphael/).
-Using the standard canvas drawing interfaces and thrid party libraries, we can extend a lot of more advanced functions on the Graphics components.
+The API of the Graphics component is designed according to the graphics interface of [Canvas](http://www.w3school.com.cn/tags/html_ref_canvas.asp), and there are many graphics libraries based on the Canvas, such as [paper.js](http://paperjs.org/), [raphael.js](http://dmitrybaranovskiy.github.io/raphael/). So if you port the underlying of the graphics libraries to the API of the graphics component, we can use the capabilities of these advanced libraries directly. Note, however, that the graphics component does not fully implement Canvas, and modifying the underlying backend of the graphics library requires a considerable understanding of the graphics library.
 
 <!--
 Here are some third-party advanced drawing libraries and related demo based on Graphics component extensions.

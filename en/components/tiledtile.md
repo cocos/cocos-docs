@@ -2,19 +2,21 @@
 
 The TiledTile component can operate on a specified tile.
 
+![tiledtile-component](tiledtile/tiledtile-component.png)
+
 ## How to create
 
 ### 1. Create in the editor
 
-Creating a Node under the Layer node, then select Node and click the `Add component` at the bottom of **Properties** and select `TiledTile` from `Add Renderer Component` to add the **TiledTile** component to the Node. And then set the properties on the component to operate the tile.
+Create an empty node under the Layer node that was automatically generated during the creation of the [TiledMap Component](tiledmap.md). Then select the empty node and click the **Add Component -> Renderer Component-> TiledTile** below the **properties** panel to add the **TiledTile** component to the node. Then manipulate the tile by setting the properties of the TiledTile component.
 
-![tiledtile-component](./tiledtile/tiledtile-component.png)
+![](tiledtile/add_tiledtile.png)
 
-TiledTile API reference [TiledTile API](../../../api/zh/classes/TiledTile.html)
+TiledTile API reference [TiledTile API](../../../api/en/classes/TiledTile.html)
 
 ### 2. Create in code
 
-There are two ways to set up a tile in your code. After you set TILEDTILE in any LAYER, the TILE in the location of LAYER will be replaced.
+There are two ways to set up a tile in your code. After you set TiledTile in any Layer node, the TiledTile in the location of Layer node will be replaced.
 
 #### Create by adding a TiledTile component to a node
 
@@ -34,27 +36,26 @@ var tiledTile = node.addComponent(cc.TiledTile);
 var tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-For the Layer script interface, please refer to [TiledLayer API](../../../api/zh/classes/TiledLayer.html)
+For the Layer script interface, please refer to [TiledLayer API](../../../api/en/classes/TiledLayer.html)
 
-## TiledTile attribute
+## TiledTile Properties
 
-| Attribute |   Function Explanation
+| Properties |   Function Explanation
 | ------| ----------- |
 | X     | Specify the TiledTile horizontal coordinate，use tile as the unit
 | Y     | Specify the TiledTile vertical coordinate，use tile as the unit
 | Gid   | Specify the Gid value of the TiledTile to toggle the style of the TiledTile
-| Layer | Get TiledTile belong to which TiledLayer
+| Layer | Get TiledTile belong to which TiledLayer. (This property was removed since v2.0.1)
 
-### Detailed explanation
+### Detailed Explanation
 
-TiledTile can control the specified tile. It will apply the node rotation, scale, translate to the tile.
-You can change the TiledTile's gid to change the tile's style.
+TiledTile can control the specified tile. It will apply the node rotation, scale, translate to the tile. You can change the TiledTile's gid to change the tile's style.
 
-**Attention**: You can only use the gid of an existing tile in the map to switch the style of the tile. You cannot switch the style of the tile by customizing the sprite frame.
+**Node**: You can only use the gid of an existing tile in the tile to switch the style of the tile. You cannot switch the style of the tile by customizing the Sprite Frame.
 
 ## Node properties that can be applied to TiledTile
 
-| Attribute |   Function Explanation
+| Properties |   Function Explanation
 | ------| ----------- |
 | Position | `Pans` for the specified TiledTile
 | Rotation | `Rotates` for the specified TiledTile
