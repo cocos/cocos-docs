@@ -20,15 +20,16 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ![](cocos-analytics/enable_analytics.png)
 
-5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项，填入参数。获取参数方式如下：
+5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项，填入参数。
 
 ![](cocos-analytics/analytics_properties.png)
 
-  - **AppID** 和 **AppSecret**：点击 Cocos Analytics 服务面板中的 **前往控制台**，跳转到 [Cocos 数据统计后台](https://analytics.cocos.com/)。然后点击左上方的 **Cocos Analytics** 跳转到首页面，选择相对应的游戏，点击设置按钮，便可以获取 **AppID** 和 **AppSecret** 参数。如下图所示：
+**获取参数方式如下：**
+
+  - **AppID** 和 **AppSecret**：点击 Cocos Analytics 服务面板右上角的 **前往服务中心**，跳转到 [Cocos 账户中心](https://auth.cocos.com/#/)。然后切换到 **账户** 标签，点击游戏右边的 **编辑** 按钮进入游戏编辑窗口，即可获取 **AppID** 和 **AppSecret** 参数。如下图：
 
     ![](cocos-analytics/get_properties.png)
-
-  - **channel** 和 **version**：分别为渠道 ID 和版本号。这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
+  - **channel** 和 **version**：channel 为广告联盟的广告渠道 ID。store 为游戏分发渠道 ID。这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
 
 6、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需要选择 **Android／iOS／Web** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
@@ -38,17 +39,19 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 根据游戏需求，参考以下文档来进行接入集成。  
 
-- [Android 平台接入集成](https://analytics.cocos.com/docs/manual_android.html)
-- [iOS 平台接入集成](https://analytics.cocos.com/docs/manual_ios.html)
-- [Web 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)
+- [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
+- [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
+- [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
 
-详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://analytics.cocos.com/docs)
+详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)
 
 ## 相关参考链接
 
 - [Cocos 账户中心](https://auth.cocos.com/#/)
-- [Cocos 数据统计后台](https://analytics.cocos.com/)
-- [Cocos Analytics 产品文档](https://analytics.cocos.com/docs)
-- [Android 平台接入集成](https://analytics.cocos.com/docs/manual_android.html)
-- [iOS 平台接入集成](https://analytics.cocos.com/docs/manual_ios.html)
-- [Web 平台接入集成](https://analytics.cocos.com/docs/manual_h5.html)
+- [Cocos Analytics 后台](https://n-analytics.cocos.com/#/)
+- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs)
+- [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
+- [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
+- [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
+- [Cocos Analytics 范例工程初始项目](https://github.com/cocos-creator/tutorial-dark-slash)
+- [Cocos Analytics 范例工程完成项目](https://github.com/cocos-creator/tutorial-dark-slash/tree/analytics)
