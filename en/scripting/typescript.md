@@ -146,12 +146,22 @@ And import MyModule and then declare a member variable of the `MyModule` type in
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import {MyModule} from './MyModule';
+import MyModule from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {
     @property (MyModule)
     public myModule: MyModule = null;
+
+    /* Declaring the custom class array
+     * @property(MyModule)
+     * public myModule: MyModule[] = [];
+     *
+     * @property({
+     *     type: MyModule
+     * })
+     * public myModule: MyModule[] = [];
+     */
 
     public onLoad () {
         // init logic
@@ -162,7 +172,24 @@ export class MyUser extends cc.Component {
 
 When you enter `this.myModule.`, you will be prompt the properties declared in `MyModule.ts`.
 
-![Auto complete](assets/auto-complete.gif)
+![Auto complete](assets/auto-complete.gif) <br>
+__If you find that changing a declared property to an array type doesn't take effect in the editor, Please remove the binding component from the current node and rebind.__
+
+## The special type since 1.10 version
+
+The Creator has adjusted inheritance relationship of several basic class after the 1.10 version.
+You need to modify the statement that declares the cc.Texture2D, cc.AudioClip and cc.ParticleAsset as below description
+```typescript
+    @property({
+        type: cc.Texture2D
+    })
+    texture: cc.Texture2D = null;
+    
+    @property({
+        type: cc.Texture2D
+    })
+    textures: cc.Texture2D[] = [];
+```
 
 ## Using namespaces
 
