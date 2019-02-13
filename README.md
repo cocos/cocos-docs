@@ -2,7 +2,7 @@
 
 ## Requirements
 
-This documentation site is powered by [GitBook](https://www.gitbook.com/). You can check out the online version [here](http://docs.cocos.com/creator/manual).
+This documentation site is powered by [GitBook](https://www.gitbook.com/). You can check out the online version [here](https://docs.cocos.com/creator/manual).
 
 You need [Node.js](https://nodejs.org/en/) and npm to be able to build the site.
 

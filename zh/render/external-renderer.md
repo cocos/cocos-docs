@@ -7,4 +7,4 @@
 - [Spine 组件参考](../components/spine.md)
 - [DragonBones 组件参考](../components/dragonbones.md)
 - [VideoPlayer 组件参考](../components/videoplayer.md)
-- [WebView 组件参](../components/webview.md)
+- [WebView 组件参考](../components/webview.md)

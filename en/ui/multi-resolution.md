@@ -1,13 +1,13 @@
 # Auto fit for multi-resolution
 
-Cocos Creator is devoted to solving the problem of adapting to screens with various resolutions with one set of resources from the beginning. Generally speaking, we realize the adaptation scheme for multi-resolution through the following technology:
+Cocos Creator is committed to solving the problem of adapting to screens with various resolutions with one set of resources from the beginning. Generally speaking, we realize the adaptation scheme for multi-resolution through the following technology:
 
 - **Canvas** component immediately obtains the actual resolution of the device screen and appropriately adjusts the size of all the render elements in the scene.
 - **Widget** is put on rendering elements, which can align the element with different referential positions of the parent node according to different needs.
 - **Label** component has a built-in function that provides various dynamic layout modes. When the bounding box of labels change because of the alignment requirement of the Widget, labels will present the perfect layout effect according to your needs.
 - **Sliced Sprite** provides images whose size can be arbitrarily designated. Simultaneously, it can meet various alignment requirements and display images with high definition on screens of any resolution.
 
-Next, we start off by getting to know the concepts of design resolution and screen resolution, then we will go on to make understanding of the zooming in/out function of the **Canvas** component.
+Next, we start off by getting to know the concepts of design resolution and screen resolution, then we will go on to learn the zooming in/out function of the **Canvas** component.
 
 ## Design resolution and screen resolution
 

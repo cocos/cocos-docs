@@ -65,21 +65,21 @@ When you load a picture, the URL is missing such as .png suffix, `cc.loader.load
 ### How to load dragonbones remotely from a server
 
 ```js
-let animNode = new cc.Node();
+var animNode = new cc.Node();
 animNode.parent = cc.find('Canvas');
-let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 
-let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
-let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
-let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
+var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
 cc.loader.load(image, (error, texture) => {
     cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
         cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
-            let atlas = new dragonBones.DragonBonesAtlasAsset();
+            var atlas = new dragonBones.DragonBonesAtlasAsset();
             atlas.atlasJson = atlasJson;
             atlas.texture = texture;
 
-            let asset = new dragonBones.DragonBonesAsset();
+            var asset = new dragonBones.DragonBonesAsset();
             asset.dragonBonesJson = dragonBonesJson;
 
             dragonDisplay.dragonAtlasAsset = atlas;
@@ -87,6 +87,30 @@ cc.loader.load(image, (error, texture) => {
 
             dragonDisplay.armatureName = 'box_anim';
             dragonDisplay.playAnimation('box_anim', 0);
+        });
+    });
+});
+```
+
+### How to load spine remotely from a server
+
+```js
+var spineNode = new cc.Node();
+var skeleton = spineNode.addComponent(sp.Skeleton);
+this.node.addChild(spineNode);
+
+var image = "http://localhost/download/spineres/1/1.png";
+var ske = "http://localhost/download/spineres/1/1.json";
+var atlas = "http://localhost/download/spineres/1/1.atlas";
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'txt' }, (error, spineJson) => {
+            var asset = new sp.SkeletonData();
+            asset.skeletonJson = spineJson;
+            asset.atlasText = atlasJson;
+            asset.textures = [texture];
+            asset.textureNames = ['1.png'];
+            skeleton.skeletonData = asset;
         });
     });
 });
@@ -108,3 +132,13 @@ In the main process, use `Editor.assetdb.create(url, data, callback)`. The first
 ### How to refresh resources in AssetDB in the plugin
 
 `Editor.assetdb.refresh()` provides a way to manually refresh the asset database.
+
+### Creator package APK submitted to Google Play failed, prompt API level minimum 26
+
+The Google Play statement began in August 2018, newly submitted app must be compiled with API level 26 and above. When Android builds, the three version numbers are set as follows:
+
+- `compileSdkVersion` Compile version: The version of the SDK used to compile the Java code, regardless of the minimum supported version. Can be set to 26/27/28.
+- `minSdkVersion` The minimum version supported: Decide to compile the minimum supported Android version of the app. Recommended set to 16 (Correspondence Android 4.0)
+- `targetSdkVersion` Related to the behavior of the runtime. The recommended setting is consistent with `compileSdkVersion`, or it can be set to 22 to avoid [Request App Permissions](https://developer.android.com/training/permissions/requesting).
+
+![](introduction/compile_version.png)

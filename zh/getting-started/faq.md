@@ -21,6 +21,8 @@
 
 截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()` ，就可以获得 base64 格式的截屏。
 
+具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/v2.0) 中 **07_capture_texture** 关于三种不同平台如何截屏并保存的测试例
+
 ### 在安卓第三方 App 自带的 WebView 上触摸时，引擎报错。
 
 找到 `main.js` 中调用 `cc.view.enableAutoFullScreen` 的地方，将传入参数改为 `false`。
@@ -63,24 +65,26 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
 
+具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/v2.0) **dragonBones/DragonMesh** 测试例。
+
 ### 如何从服务器远程加载 DragonBones ？
 
 ```js
-let animNode = new cc.Node();
+var animNode = new cc.Node();
 animNode.parent = cc.find('Canvas');
-let dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 
-let image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
-let ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
-let atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
+var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
 cc.loader.load(image, (error, texture) => {
     cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
         cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
-            let atlas = new dragonBones.DragonBonesAtlasAsset();
+            var atlas = new dragonBones.DragonBonesAtlasAsset();
             atlas.atlasJson = atlasJson;
             atlas.texture = texture;
 
-            let asset = new dragonBones.DragonBonesAsset();
+            var asset = new dragonBones.DragonBonesAsset();
             asset.dragonBonesJson = dragonBonesJson;
 
             dragonDisplay.dragonAtlasAsset = atlas;
@@ -88,6 +92,30 @@ cc.loader.load(image, (error, texture) => {
 
             dragonDisplay.armatureName = 'box_anim';
             dragonDisplay.playAnimation('box_anim', 0);
+        });
+    });
+});
+```
+
+### 如何从服务器远程加载 Spine
+
+```js
+var spineNode = new cc.Node();
+var skeleton = spineNode.addComponent(sp.Skeleton);
+this.node.addChild(spineNode);
+
+var image = "http://localhost/download/spineres/1/1.png";
+var ske = "http://localhost/download/spineres/1/1.json";
+var atlas = "http://localhost/download/spineres/1/1.atlas";
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'txt' }, (error, spineJson) => {
+            var asset = new sp.SkeletonData();
+            asset.skeletonJson = spineJson;
+            asset.atlasText = atlasJson;
+            asset.textures = [texture];
+            asset.textureNames = ['1.png'];
+            skeleton.skeletonData = asset;
         });
     });
 });
@@ -109,3 +137,13 @@ return Es.through();
 ### 如何在插件中重新刷新 AssetDB 中的资源
 
 `Editor.assetdb.refresh()` 提供了一个手动刷新资源库的方法。
+
+### Creator 打包 APK 提交到 Google Play 失败，提示 API 等级最低 26？
+
+Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api level 26 及以上版本编译。Android 构建时三个版本号的设置如下：
+
+- compileSdkVersion 编译版本：编译 Java 代码时使用的 SDK 版本，和支持的最低版本无关。可以设置为 26/27/28。
+- minSdkVersion：支持的最小版本，决定编译出的应用最小支持的 Android 版本。建议设置为 16（对应 Android 4.1）。
+- targetSdkVersion：和运行时的行为有关，建议设置与 compileSdkVersion 一致，也可以设置为 22，避免 [运行时权限的问题](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
+
+![](introduction/compile_version.png)

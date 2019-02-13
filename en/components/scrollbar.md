@@ -4,8 +4,9 @@ ScrollBar allows the user to scroll a picture (not currently supported in the pu
 
 ![scrollbar.png](./scrollbar/scrollbar.png)
 
-Click the `Add component` button at the bottom of the **Properties** panel and select `ScrollBar` from `add UI component`. You can then add the ScrollBar component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **ScrollBar** from **Add UI Component**. You can then add the ScrollBar component to the node.
 
+For the script interface of the ScrollBar, refer to [ScrollBar API](../../../api/en/classes/Scrollbar.html).
 
 ## ScrollBar property
 
@@ -15,7 +16,6 @@ Click the `Add component` button at the bottom of the **Properties** panel and s
 | Direction | Scroll direction. You can currently select from either horizontal or vertical.
 | Enable Auto Hide | Enable or disable auto hide. If it is enabled, then `Auto Hide Time` will hide automatically after the ScrollBar is shown.
 | Auto Hide Time | Auto hide time; need to set `Enable Auto Hide` along with it.
-
 
 ## Detailed explanation
 

@@ -1,4 +1,4 @@
-# Cocos Creator v2.0 用户手册
+# Cocos Creator v2.1 用户手册
 
 欢迎使用 Cocos Creator 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 
@@ -6,13 +6,13 @@
 
 ## 特别推荐
 
-- [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
+- 从 v2.1 开始，Cocos Creator 引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。请参阅 [3D 节点](3d/index.md)。
+- 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏平台](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
+- 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)。
 - 从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 [接入小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)。
+- [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
 - 从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，绝大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](release-notes/raw-asset-migration.md)。
-- 从 v1.10 开始，Cocos Creator 支持微信小游戏平台代码分包，请参阅 [代码分包加载](scripting/subpackage.md)。
-- 从 v1.9 开始，Cocos Creator 支持发布到 [Facebook Instant Games](publish/publish-fb-instant-games.md) 及 [QQ 玩一玩](publish/publish-qqplay.md)。
-- 从 v1.8 开始，Cocos Creator 支持发布到微信小游戏平台，请参阅 [发布到微信小游戏平台](publish/publish-wechatgame.md)。
-- Cocos Creator 还支持导出场景和 UI 到 Cocos2d-x，请参阅 [C++/Lua 引擎支持](advanced-topics/cpp-lua.md)。
+- 从 v1.10 开始，Cocos Creator 支持微信小游戏平台分包加载，请参阅 [分包加载](scripting/subpackage.md)。
 
 ## 总导读
 

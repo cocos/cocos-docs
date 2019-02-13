@@ -163,26 +163,60 @@ In the `jsb-adapter` directory, the following two directory structures are inclu
 
 The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
 
-#### 3.2.1 Customize and compile builtin
+We made some adjustments and optimizations in different versions of Creator. Please reference to the different guide below according to the current Creator version you are using.
+
+#### 3.2.1 Customization before Creator v2.0.5
 
 Customization of the `engine` section only requires modification of the code.<br>
 Customization of the `builtin` section requires installing the dependencies first, please execute them on the command line:
 
 ```bash
+# Enter the jsb-adapter/builtin engine path from the command line
 cd jsb-adapter/builtin
+# Install the gulp build tool
+npm install -g gulp
+# Install dependent modules
 npm install
 ```
 
 Next, you can customize the code in the `builtin` section. After the modification is complete, continue to execute it on the command line:
 
 ```bash
-# jsb-adapter/builtin 目录下
+# in jsb-adapter/builtin folder
 gulp
 ```
 
 When the command completes, a new `jsb-builtin.js` file is generated in the `jsb-adapter/builtin/dist` directory.
 
 After customizing the `jsb-adapter`, the editor will copy the `jsb-builtin.js` file and the `engine` directory together to the `jsb-adapter` folder in the project when you **build** the native platform in the **Build** panel.
+
+#### 3.2.2 Customization on Creator v2.0.5 and v2.0.6
+
+First of all, you should install the dependencies. Please execute them on the command line:
+
+```bash
+# Enter the jsb-adapter engine path from the command line
+cd jsb-adapter/
+# Install the gulp build tool
+npm install -g gulp
+# Install dependent modules
+npm install
+```
+
+Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
+
+```bash
+# in jsb-adapter folder
+gulp
+```
+
+The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
+
+After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
+
+#### 3.2.3 Customization after Creator v2.0.7 (v2.0.7 included)
+
+After Creator v2.0.7, Jsb-adapter abandoned the cumbersome manual compilation operation. You can directly modify the source code in directories **builtin** and **engine**. When the modification is complete, open the editor and the editor will automatically compile this part of the source code at startup.
 
 ### 3.3 Customize weapp-adapter and qqplay-adapter
 

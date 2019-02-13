@@ -46,6 +46,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 |i|指定使用斜体来渲染| `<i>This text will be rendered as italic</i>`| 名字必须是小写，且不能写成 italic
 |u|给文本添加下划线|`<u>This text will have a underline</u>`| 名字必须是小写，且不能写成 underline
 |on|指定一个点击事件处理函数，当点击该 Tag 所在文本内容时，会调用该事件响应函数| `<on click="handler"> click me! </on>` | 除了 on 标签可以添加 click 属性，color 和 size 标签也可以添加，比如 `<size=10 click="handler2">click me</size>`
+|param|当点击事件触发时，可以在回调函数的第二个参数获取该数值| `<on click="handler" param="test"> click me! </on>`|依赖 click 事件|
 |br|插入一个空行| `<br/>`| 注意：`<br></br>` 和 `<br>` 都是不支持的。
 |img| 给富文本添加图文混排功能，img 的 src 属性必须是 ImageAtlas  图集里面的一个有效的 spriteframe 名称 |`<img src='emoji1' click='handler' />` | 注意: 只有 `<img src='foo' click='bar' />` 这种写法是有效的。如果你指定一张很大的图片，那么该图片创建出来的精灵会被等比缩放，缩放的值等于富文本的行高除以精灵的高度。
 
@@ -58,6 +59,12 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 `<color=green><size=30>I'm green</size></color>`
 
+有以下两种方式可以设置 RichText 的颜色：
+1. 选中节点，在 **属性检查器** 的 **Node -> Color** 中设置 RichText 的整体颜色
+2. 使用 bbcode 对 RichText 内部分别设置颜色
+
+注意：两者不可混用，如果混用了，将以第一种方式设置的颜色为准。
+
 ## 详细说明
 富文本组件全部由 JS 层实现，采用底层的 Label 节点拼装而成，并且在上层做排版逻辑。
 这意味着，你新建一个复杂的富文本，底层可能有十几个 label 节点，而这些 label 节点都是采用系统字体渲染的，
@@ -65,3 +72,5 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 所以，一般情况下，你不应该在游戏的主循环里面频繁地修改富文本的文本内容, 这可能会导致性能比较低。
 
 另外，如果能不使用富文本组件，就尽量使用普通的文本组件，并且 BMFont 的效率是最高的。
+
+

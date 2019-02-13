@@ -4,7 +4,7 @@
 
 ## 命名规范
 
- - 当我们为变量, 函数和实例命名时, 使用 camelCase 命名法.
+ - 当我们为变量，函数和实例命名时, 使用 camelCase 命名法。
 
     ```javascript
     // bad
@@ -17,7 +17,7 @@
     function fooBar () {}
     ```
 
- - 当我们为类或者模块命名时, 使用 PascalCase 命名法.
+ - 当我们为类或者模块命名时，使用 PascalCase 命名法。
 
     ```javascript
     // bad
@@ -33,6 +33,39 @@
         bar: 'bar',
     });
     var FooBar = require('foo-bar');
+    ```
+
+ - 推荐使用全大写加下划线来命名“常量”。
+
+    ```javascript
+    // bad
+    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+
+    // bad
+    var THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+    // bad
+    let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+    // ---
+
+    // allowed but does not supply semantic value
+    export const apiKey = 'SOMEKEY';
+
+    // better in most cases
+    export const API_KEY = 'SOMEKEY';
+
+    // ---
+
+    // bad - unnecessarily uppercases key while adding no semantic value
+    export const MAPPING = {
+        KEY: 'value'
+    };
+
+    // good
+    export const Type = {
+        SIMPLE: 'value'
+    };
     ```
 
  - 使用前置下划线 `_` 当我们为私有属性命名
@@ -109,7 +142,7 @@
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
-    
+
  - 使用 `===` 和 `!==` 而不是 `==` 和 `!=`
 
 ## 书写规范
@@ -118,22 +151,22 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
     ∙var name;
     }
 
     // very bad
-    function() {
+    function () {
     ∙∙<tab>∙∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙∙∙var name;
     }
     ```
@@ -166,9 +199,17 @@
     proto.foo = function () {
     };
 
-    // very bad
+    // bad
     function foo () {
         return 'test'
+    }
+
+    // very bad
+    //   returns `undefined` instead of the value on the next line,
+    //   always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
+    function foo () {
+        return
+            'test'
     }
 
     // good
@@ -198,12 +239,12 @@
     }
 
     // bad
-    function foobar()
+    function foobar ()
     {
     }
 
     // good
-    function foobar() {
+    function foobar () {
     }
 
     // bad
@@ -310,7 +351,7 @@
         return DEBUG ? 'foo' : 'bar';
     }
 
-    // good
+    // best
     var divisibleFunction = DEBUG ?
         function () {
             return 'foo';
@@ -369,9 +410,9 @@
     const obj = {
         x: 0,
         y: 0,
-        foo() {
+        foo () {
         },
-        bar() {
+        bar () {
         },
     };
     return obj;
@@ -381,10 +422,10 @@
         x: 0,
         y: 0,
 
-        foo() {
+        foo () {
         },
 
-        bar() {
+        bar () {
         },
     };
 
@@ -448,6 +489,15 @@
      */
     ```
 
-## 参考
+ - 除了多语言 API 注释以外，代码中不允许写中文注释
+
+    ```js
+    // bad
+    // 中文注释不利于非中文开发者阅读代码
+    // good
+    // Please write all in file comments in English
+    ```
+
+## 推荐阅读
 
 [airbnb/es5](https://github.com/airbnb/javascript/tree/master/es5)

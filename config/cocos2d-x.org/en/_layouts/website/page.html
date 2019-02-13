@@ -1,8 +1,8 @@
-{% extends template.self %}      
+{% extends template.self %}
 {% block book_sidebar %}
     <nav role="navigation" class="autoshow">
         <ul class="summary">
-        <li><a href="http://www.cocos2d-x.org/" class="btn" target="_blank"><img src="http://forum.cocos.com/images/logo.png" height="30" /></a></li>
+        <li><a href="//cocos2d-x.org" class="btn" target="_blank"><img src="https://forum.cocos.com/images/logo.png" height="30" /></a></li>
         <li><a href="#" class="btn" onclick="toggleLanguage()">中文</a></li>
         {% for item in book.version %}
         {% if item.links %}
@@ -13,11 +13,11 @@
                 <li><a href="{{entry.link}}" class="btn">Version: <span style="font-weight:bold; display: inline">{{entry.name}}</span></a></li>
                 {% endfor %}
             </ul>
-        </li>                
+        </li>
         {% else %}
         <li><a href="{{item.link}}" class="btn"></i>{{item.name}}</a></li>
         {% endif %}
-        {% endfor %}         
+        {% endfor %}
         {% for item in book.products %}
         {% if item.links %}
         <li>
@@ -27,11 +27,11 @@
                 <li><a href="{{entry.link}}" class="btn">{{entry.name}}</a></li>
                 {% endfor %}
             </ul>
-        </li>                
+        </li>
         {% else %}
         <li><a href="{{item.link}}" class="btn"><i class="fa fa-book"></i>{{item.name}}</a></li>
         {% endif %}
-    {% endfor %}      
+    {% endfor %}
         </ul>
     </nav>
     {{ super() }}
@@ -47,7 +47,7 @@
             } else if (path.indexOf('/en') !== -1) {
                 path = path.replace(/\/en[\/$\s]/i, '/zh/');
             }
-            // console.log('after: ' + path);    
+            // console.log('after: ' + path);
             location.assign(path);
     }
     </script>

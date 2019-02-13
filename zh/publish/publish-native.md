@@ -105,7 +105,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 `Compile native project successfully`
 
-**注意**：首次编译 Android 平台，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。
+**注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
 
 接下来就可以点击右下角的 **运行** 按钮，通过默认方式预览原生平台的游戏。
 

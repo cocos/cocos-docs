@@ -1,76 +1,69 @@
-# Particle System component reference
+# ParticleSystem Component Reference
 
 ## Overview
 
-This component is used to read [Particle Resources](../asset-workflow/particle.md) data and perform a series of operations such as play, temporary, destroy, etc.
+This component is used to read [Particle Resources](../asset-workflow/particle.md) data and perform a series of operations such as play, pause, destroy, etc.
 
+![](pageviewindicator/particlesystem.png)
 
-## Creation method
+## How to create
 
-Editor created:
+ParticleSystem component can be created in the following two ways:
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select `Particle System` from `Add Rendering Component` to add the Particle System component to the node.
+### 1. Create in the editor
 
-Script creation:
+  Click the **Add Component** button at the bottom of the **Properties** panel and select **ParticleSystem** from **Renderer Component** to add the ParticleSystem component to the node.
 
-```js
-// Create a node
-var node = new cc.Node();
-// And add nodes to the scene
-cc.director.getScene().addChild(node);
-// And add particle components to Node
-var particleSystem = node.adComponent(cc.ParticleSystem);
-// Next you can particleSystem this object for a series of operations
-```
+  ![](pageviewindicator/add_particlesystem.png)
 
-Please refer to the script interface of the Particle System [Particle System API](../../../api/en/classes/ParticleSystem.html)。
+### 2. Create in code
 
-## Particle System attribute
+  ```js
+  // Create a node
+  var node = new cc.Node();
+  // And add nodes to the scene
+  cc.director.getScene().addChild(node);
+  // And add particle components to Node
+  var particleSystem = node.adComponent(cc.ParticleSystem);
+  // Next you can particleSystem this object for a series of operations
+  ```
 
-| Attribute |   Function Explanation
+  Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html)。
+
+## ParticleSystem Properties
+
+| Properties |   Function Explanation
 | -------------- | ----------- |
-| Preview            | Play particle in edit mode.
-| PlayOnLoad         | If set to true, the particle system will automatically start playing on onLoad.
-| AutoRemoveOnFinish | Indicate whether the owner node will be auto-removed when it has no particles left.
-| File               | The plist file.
-| Custom             | If set custom to true, then use custom properties insteadof read particle file.
-| Texture            | Texture of Particle System.
-| Duration           | How many seconds the emitter wil run. -1 means 'forever'.
-| EmissionRate       | Emission rate of the particles.
-| Life               | Life of each particle setter.
-| LifeVar            | Variation of life.
-| ParticleCount      | Current quantity of particles that are being simulated.
-| StartColor         | Start color of each particle.
-| StartColorVar      | Variation of the start color.
-| EndColor           | Ending color of each particle.
-| EndColorVar        | Variation of the end color.
-| Angle              | Angle of each particle setter.
-| AngleVar           | Variation of angle of each particle setter.
-| StartSize          | Start size in pixels of each particle.
-| StartSizeVar       | Start size in pixels of each particle.
-| EndSize            | End size in pixels of each particle.
-| EndSizeVar         | Variation of end size in pixels.
-| StartSpin          | Start angle of each particle.
-| StartSpinVar       | Variation of start angle.
-| EndSpin            | End angle of each particle.
-| EndSpinVar         | Variation of end angle.
-| SourcePos          | Source position of the emitter.
-| PosVar             | Variation of source position.
-| PositionType       | Particles movement type. [PositionType API](../../../api/en/enums/ParticleSystem.PositionType.html)
-| EmitterMode        | Particles emitter modes. [EmitterMode API](../../../api/en/enums/ParticleSystem.EmitterMode.html)
-| Gravity            | Gravity of the emitter. 
-| Speed              | Speed of the emitter. 
-| SpeedVar           | Variation of the speed. 
-| TangentialAccel    | Tangential acceleration of each particle. Only available in 'Gravity' mode.
-| TangentialAccelVar | Variation of the tangential acceleration. 
-| RadialAccel        | Acceleration of each particle. Only available in 'Gravity' mode.
-| RadialAccelVar     | Variation of the radial acceleration. 
-| RotationIsDir      | Indicate whether the rotation of each particle equals to its direction. Only available in 'Gravity' mode.
-| StartRadius        | Starting radius of the particles. Only available in 'Radius' mode.
-| StartRadiusVar     | Variation of the starting radius.
-| EndRadius          | Ending radius of the particles. Only available in 'Radius' mode.
-| EndRadiusVar       | Variation of the ending radius.
-| RotatePerS         | Number of degress to rotate a particle around the source pos per second. Only available in 'Radius' mode.
-| RotatePerSVar      | Variation of the degress to rotate a particle around the source pos per second.
-| SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)   
-| DstBlendFactor     | Specify the destination Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)  
+| Preview               | Play particle in edit mode.
+| Play On Load          | If set to true, the particle system will automatically start playing on onLoad.
+| Auto Remove On Finish | Indicate whether the owner node will be auto-removed when it has no particles left.
+| File                  | The plist file.
+| Custom                | If set custom to true, then use custom properties insteadof read particle file. When this property is turned on, you can customize the following part of the particle properties
+| Sprite Frame          | SpriteFrame of Particle System.
+| Duration              | How many seconds the emitter wil run. -1 means `forever`.
+| Emission Rate         | Emission rate of the particles.
+| Life                  | Life and variation of each particle setter.
+| Total Particle        | Maximum particles of the system.
+| Start Color           | Start color of each particle.
+| Start Color Var       | Variation of the start color.
+| End Color             | Ending color of each particle.
+| End Color Var         | Variation of the end color.
+| Angle                 | Angle and variation of each particle setter.
+| Start Size            | Start size and variation in pixels of each particle.
+| End Size              | End size and variation in pixels of each particle.
+| Start Spin            | Start angle and variation of each particle.
+| End Spin              | End angle and variation of each particle.
+| Source Pos            | Source position of the emitter.
+| Pos Var               | Variation of source position.
+| Position Type         | Particles movement type. Including `FREE`, `RELATIVE`, `GROUPED` three types, refer to [PositionType API](../../../api/en/enums/ParticleSystem.PositionType.html) for details.
+| Emitter Mode          | Particles emitter modes. Including `GRAVITY`, `RADIUS` three types, refer to [EmitterMode API](../../../api/en/enums/ParticleSystem.EmitterMode.html) for details.
+| Gravity               | Gravity of the emitter, which takes effect only when the Emitter Mode is set to `GRAVITY`
+| Speed                 | Speed and variation of the emitter.
+| Tangential Accel      | Tangential acceleration and variation of each particle. Only available in `Gravity` mode.
+| Radial Accel          | Acceleration and variation of each particle. Only available in `Gravity` mode.
+| Rotation Is Dir       | Indicate whether the rotation of each particle equals to its direction. Only available in `Gravity` mode.
+| Start Radius          | Starting radius and variation of the particles. Only available in `Radius` mode.
+| End Radius            | Ending radius and variation of the particles. Only available in `Radius` mode.
+| Rotate Per S          | Number of degress to rotate a particle around the source pos per second and variation. Only available in `Radius` mode.
+| Src Blend Factor      | The source image blend mode. Refer to [BlendFactor API](../../../api/en/enums/BlendFactor.html) for details.
+| Dst Blend Factor      | The destination image blend mode. Refer to [BlendFactor API](../../../api/en/enums/BlendFactor.html) for details.

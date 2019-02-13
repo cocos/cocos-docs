@@ -1,43 +1,37 @@
-# 代码分包加载
+# Subpackage Loading
 
-随着游戏玩法越来越丰富，游戏的代码量也越来越大，开发者对于扩大包大小的需求越来越强烈，同时微信小游戏也支持了分包加载的功能，所以 Cocos Creator 推出了代码分包加载这样一个功能。
+As gameplay becomes more and more rich, the amount of code in the game is increasing and developers are wanting to expand the size of their game package. At the same time, WeChat Mini Games also support the function of subpackage loading. So Cocos Creator provides a **subpackage loading** feature that supports subpackage loading of **code** and **resources**. Where **resource subpackage** is supported from **v2.0.7**. Subpackage loading currently only supports all kinds of mini game platforms, such as WeChat Mini Games, OPPO Mini Games and so on.
 
-分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。
+**Subpackage Loading**, is the the game content being split into several packages according to certain rules. During the first startup, only the necessary packages are downloaded, also called the **main package**. Other subpackages are downloaded, as triggered, which can effectively reduce the time spent on the first boot.
 
-## 配置方法
+## Configuration method
 
-Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一个文件夹时，在 **属性检查器** 中会出现文件夹的相关配置选项：
+__Cocos Creator's__ uses a folder structure when configuring a **subpackage**. When a folder is selected, the relevant configuration options for the folder appear in the **Properties** tab:
 
 ![subpackage](./subpackage/subpackage.png)
 
-勾选 **配置为子包** 后，点击右上方的 `应用`，这个文件夹下的代码就会被当做是子包的内容了。子包名会在加载子包时作为加载的名字传入，默认会使用这个文件夹的名字。
+After checking **Subpackage**, click __Apply__ at the top right, and the code in this folder will be treated as the contents of the __subpackage__. The **Subpackage Name** will be passed as the loaded name when the __subpackage__ is loaded. The name of this folder will be used by default.
 
-## 构建
+**Note**: After being configured as a subpackage, only native resources, such as images and audio, will eventually be placed in the subpackage. JSON types of resources such as Prefab, AnimationClip, etc., will still be placed in the main package.
 
-代码分包的作用只会在项目构建后才会体现，预览的时候还是按照整包来进行加载的。项目构建后会在发布包目录下的 `src/assets` 生成对应的分包文件。
+## Building
 
-**例如**：将 example 工程中的 `cases/01_graphics` 文件夹配置为子包，那么项目构建后将会在发布包目录下的 `src/assets/cases` 生成 `01_graphics.js` 文件，该文件名不随着子包名的更换而更换。`01_graphics.js` 文件包含了 `01_graphics` 文件夹下的所有代码，并且会将这些代码从主包中剔除掉。
+The function of **subpackaging** will only be avialable after the project is built. When previewing, it will be loaded according to the whole package. After the project is built, the corresponding **subpackage** file will be generated in **src/assets** in the release package directory.
+
+**For example:** Configuring the **cases/01_graphics** folder in the example project as a **subpackage**. The **01_graphics** folder will be generated in **subpackages** in the release package directory after the project is built.
 
 ![package](./subpackage/package.png)
 
-在微信小游戏平台的构建中，分包的配置也会按照规则自动生成到微信小游戏发布包的 `game.json` 配置文件中。
+When building, all the **code** and **resources** under the **cases/01_graphics** subpackage folder are handled as follows:
 
-![profile](./subpackage/profile.png)
+  - **Code**: All code under the **cases/01_graphics** folder is merged into an entry script file named **01_graphics/game.js**, and the code is removed from the main package.
+  - **Resources**: The **cases/01_graphics** subpackage resources are moved from the **res/raw-assets** folder to the **subpackages/01_graphics** directory under the release package directory.
 
-**注意**：微信小游戏需要特定的版本才能支持分包功能。
-> 微信 6.6.7 客户端，2.1.0 及以上基础库开始支持，请更新至最新客户端版本，开发者工具请使用 1.02.1806120 及以上版本
+## Loading a Subpackage
 
-更新了开发者工具后不要忘记修改开发者工具中的 `详情 -> 项目设置 -> 调试基础库` 为 2.1.0 及以上：
+The engine provides a unified API `cc.loader.downloader.loadSubpackage` to load the resources (including code and other resources) inside the subpackage file. `loadSubpackage` needs to pass in the name of a subpackage. This name is the name of the subpackage that you configured in the project before. The default is the name of the subpackage folder.
 
-![subpackage2](./subpackage/subpackage2.png)
-
-具体请参考 [微信分包加载](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html) 文档。
-
-## 加载分包
-
-引擎提供了一个统一的 api `cc.loader.downloader.loadSubpackage` 来加载分包代码，适用于所有平台。`loadSubpackage` 需要传入一个分包的名字，这个名字即是之前你在项目中配置的分包名字，默认为分包文件夹的名字。
-
-当分包加载完成后，会触发回调，如果加载失败的话，会返回一个错误信息。
+When the subpackage is completed, a callback is triggered, and if the loading fails, an error message is returned.
 
 ```javascript
 cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
@@ -47,3 +41,24 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
     console.log('load subpackage successfully.');
 });
 ```
+
+If the loading is successful, the script in the subpackage will be executed and the resource loading path of the subpackage will be added to the engine. Developers can access all the resources in this subpackage in exactly the same way as accessing the main package, without having to worry about whether the resources were originally in the main package or in the subpackage.
+
+## WeChat Mini Games
+
+When building for the **WeChat Mini Game** Platform, the configuration of the **subpackage** will be automatically generated into the **game.json** configuration file of the **WeChat Mini Games** release package according to the rules.
+
+![profile](./subpackage/profile.png)
+
+**Note**: WeChat Mini Games require a specific version to support the **subpackage** feature. WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version **1.02.1806120** and above. After updating the developer tools, don't forget to modify the version of __Details -> Project Settings -> Debug Base library__ to __2.1.0__ and above in the developer tools:
+
+![subpackage2](./subpackage/subpackage2.png)
+
+### Subpackage Load Packet Size Limit
+
+At present, the size of the WeChat Mini Game subpackage has following restrictions:
+
+- The size of all subpackage of the entire Mini Game can not exceed **8M**
+- The size of single subpackage / main package can not exceed **4M**
+
+Please refer to the [WeChat SubPackage Loading](https://developers.weixin.qq.com/minigame/en/dev/tutorial/base/subpackages.html?t=19010711) documentation for details.

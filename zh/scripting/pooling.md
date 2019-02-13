@@ -32,7 +32,7 @@ onLoad: function () {
     let initCount = 5;
     for (let i = 0; i < initCount; ++i) {
         let enemy = cc.instantiate(this.enemyPrefab); // 创建节点
-        this.enemyPool.put(enemy); // 通过 putInPool 接口放入对象池
+        this.enemyPool.put(enemy); // 通过 put 接口放入对象池
     }
 }
 ```
@@ -74,7 +74,6 @@ onEnemyKilled: function (enemy) {
 ```
 
 这样我们就完成了一个完整的循环，主角需要刷多少怪都不成问题了！将节点放入和从对象池取出的操作不会带来额外的内存管理开销，因此只要是可能，应该尽量去利用。
-
 
 ## 使用组件来处理回收和复用的事件
 

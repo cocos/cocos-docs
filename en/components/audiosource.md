@@ -1,14 +1,16 @@
 # AudioSource Component
 
-## Attribute
+![](../audio/audio/audiosource.png)
 
-Attribute           | Explain
+## Properties
+
+Properties          | Explain
 --                  | --
-Clip                | Audio resource
-Volume              | Audio volume
+Clip                | Audio resource object to play
+Volume              | Audio volume, the range is between 0~1
 Mute                | Whether it is muted
 Loop                | Whether it is loop
-Play on load        | Whether the load is finished playing immediately
-preload             | Whether it is preloaded when not playing
+Play on load        | Whether to play audio automatically after the component is activated
+preload             | Whether to load preloaded when it is not playing
 
 More audio interface to the script interface [AudioSource API](../../../api/en/classes/AudioSource.html).

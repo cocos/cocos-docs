@@ -1,130 +1,106 @@
-# 发布到微信小游戏平台
-
-早在微信官方正式发布小游戏平台之前，Cocos Creator 团队就和微信开发团队合作完成了 Cocos Creator 对微信小游戏平台的支持。在小游戏正式公布之后，我们也在第一时间发布了完美支持小游戏的 Cocos Creator v1.8。这篇文档的初衷也是希望帮助开发者们在第一时间以最顺畅的方式提交游戏到小游戏平台。
+# Publishing to __WeChat Mini Games__
 
 ![](./publish-wechatgame/preview.jpeg)
 
-这篇文档将会覆盖：
+**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
 
-- 小游戏的运行环境介绍
-- 如何使用 Cocos Creator 发布微信小游戏
-- 小游戏资源管理
+## __WeChat Mini Game__ Platform
 
-与这篇文档搭配的还有一段教学视频，可以结合视频中的操作来理解，更加直观。
+__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__ platform. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
-{% raw %}
-<iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0" allowfullscreen></iframe>
-{% endraw %}
+The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
 
-## 微信小游戏平台
+As an engine, in order to simplify the developer's workload as much as possible, the main tasks we have done for our users include:
 
-微信小游戏是微信小程序下的游戏产品平台，它不仅提供了强大的游戏能力，还和小程序一样，提供了大量的原生接口，比如支付，社交，文件系统，照片，NFC 等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
+- The engine framework adapts to the WeChat Mini Game API, pure game logic level, users do not need any additional modifications.
+- __Cocos Creator__ editor provides a fast packaging process, released directly as a __WeChat Mini Game__, and automatically evokes the developer tools of the mini game.
+- Automatic loading of remote resources, cache resources and cache resource versioning.
 
-小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。
+In addition, the game submission, review and release process of the __WeChat Mini Game__ platform is no different from the __WeChat Mini Program__ platform. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
 
-作为引擎方，为了尽可能简化开发者的工作量，我们为用户完成的主要工作包括：
+## Using Cocos Creator to publish WeChat Mini Games
 
-- 引擎框架适配微信小游戏 API，纯游戏逻辑层面，用户不需要任何额外的修改
-- Cocos Creator 编辑器提供了快捷的打包流程，直接发布为微信小游戏，并自动唤起小游戏的开发者工具
-- 自动加载远程资源，缓存资源以及缓存资源版本控制
+We started with __Cocos Creator__ v1.8 and support __WeChat Mini Games__  with just one-click to publish! Here are the detailed release steps:
 
-除此之外，小游戏平台的游戏提交，审核和发布流程和小程序是没有区别的，都需要遵守微信团队的要求和标准流程，具体信息可以参考文末的链接。
+1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
+2. Set the WeChat Developer Tools path in __Cocos Creator__, "Settings" > "Native Develop"
 
-## 使用 Cocos Creator 发布微信小游戏
-
-我们从 Cocos Creator v1.8 开始，支持 Cocos Creator 游戏一键发布为微信小游戏，下面是详细的发布步骤：
-
-1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
-2. 在 "Creator 设置" > "原生开发环境" 中设置微信开发者工具路径
-
-    ![](./publish-wechatgame/preference.jpg)
-3. 登陆微信公众平台，找到 appid
+    ![](./publish-wechatgame/preference.jpeg)
+3. Log in to the WeChat public platform and find the appid
 
     ![](./publish-wechatgame/appid.jpeg)
-4. 在构建面板中设置项目名和 appid
+4. Set the project name and appid in the build panel
 
     ![](./publish-wechatgame/build.jpeg)
-5. 构建发布
-6. 点击 play 打开微信开发者工具
+5. Build
+6. Click play to open the WeChat Developer Tools
 
     ![](./publish-wechatgame/tool.jpeg)
-**注意**：微信开发者工具，在 Mac 上如果没运行过，会报错：`Please ensure that the IDE has been properly installed`。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
-7. 预览部署
+7. Preview deployment
 
-按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：game.json 和 project.config.json
+According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
 
 ![](./publish-wechatgame/package.jpeg)
 
-## 小游戏环境的资源管理
+## Resource Management for WeChat Mini Game Environment
 
-在小游戏环境中，资源管理是最特殊的部分，它和浏览器的不同在于下面四点：
+In a __WeChat Mini Game__ environment, resource management is the most special part. It differs from the browser in the following four points:
 
-1. 小游戏的包内体积不能够超过 4mb，包含所有代码和资源，额外的资源必须通过网络请求下载。
-2. 对于从远程服务器下载的文件，小游戏环境没有浏览器的缓存以及过期更新机制。
-3. 对于小游戏包内资源，小游戏环境内并不是按需加载的，而是一次性加载所有包内资源，然后再启动页面。
-4. 不可以从远程服务器下载脚本文件。
+1. The size of the __WeChat Mini Game's__ package cannot exceed __4mb__, including all the code and resources. Additional resources must be downloaded through the network.
+2. For files downloaded from a remote server, the __WeChat Mini Game__ environment does not have a browser cache and an expired update mechanism.
+3. For the resources in the __WeChat Mini Game__ package, the game environment is not loaded on demand, but all the resources in the package are loaded at one time, and then the page is started.
+4. It is not possible to download script files from a remote server.
 
-这里引出了两个关键的问题，首页面加载速度和远程资源缓存及版本管理。对于首页面加载速度，我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。而远程资源的下载、缓存和版本管理，其实在 Cocos Creator 中，已经帮用户做好了。下面我就来解释一下这部分的逻辑。
+This brings up two key issues, first page loading speed and remote resource caching and version management. For the first page loading speed, we recommend that users only save the script file in the __WeChat Mini Game__ package, and other resources are downloaded from the remote server. The download, cache and version management of remote resources, in __Cocos Creator__, has already helped users. Let me explain the logic of this part.
 
-在小游戏环境中，我们提供了一个 wxDownloader 对象，给它设置了 `REMOTE_SERVER_ROOT` 属性后，引擎下载资源的逻辑就变成：
+In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the `REMOTE_SERVER_ROOT` property, the logic of the engine downloading the resource becomes:
 
-1. 检查资源是否在小游戏包内
-2. 不存在则查询本地缓存资源
-3. 如果没有缓存就从远程服务器下载
-4. 下载后保存到小游戏应用缓存内供再次访问时使用
+1. Check if the resource is in the mini game pack
+2. Query local cache resources if they do not exist
+3. Download from a remote server if there is no cache
+4. After downloading, save it to the game application cache for re-access.
 
-同时，当开启引擎的 md5Cache 功能后，文件的 url 会随着文件内容的改变而改变，这样当游戏发布新版本后，旧版本的资源在缓存中就自然失效了，只能从服务器请求新的资源，也就达到了版本控制的效果。
+At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
 
-具体来说，开发者需要做的是：
+Specifically, developers need to do:
 
-1. 构建时，勾选 md5Cache 功能。
-2. 将小游戏发布包中的 res 文件夹完整的上传到服务器。
-3. 删除发布包内的 res 文件夹。
-4. 在构建发布面板中设置 `远程服务地址`。
-5. 对于测试阶段来说，可能你无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开详情页面，勾选项目设置中的 `不检验安全域名、TLS 版本以及 HTTPS 证书` 选项。
+1. When building, check the md5Cache function.
+2. Upload the res folder in the mini-game distribution package to the server.
+3. Delete the res folder inside the distribution package.
+4. Set `Remote Service Address` in the build release panel.
+5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat Developer tool, check the __Do not verify the security domain name, TLS version and the HTTPS certificate__ option in the project settings .
 
 ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏平台下使用 `wxDownloader.cleanAllAssets()` 接口来清除缓存。目前只支持一次清除所有缓存。
+## WeChat Mini Game Subpackage Loading
 
-## 微信小游戏分包加载
+WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
 
-微信小游戏如何实现分包加载请参考 [代码分包加载](../scripting/subpackage.md)。
+## Platform SDK Access
 
-## 平台 SDK 接入
+In addition to pure game content, the __WeChat Mini Game__ environment also provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only found in the __WeChat Mini Game__ environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the __WeChat Mini Games__ environment:
 
-除了纯游戏内容以外，其实微信小游戏环境还提供了非常强大的原生 SDK 接口，其中最重要的就是用户、社交、支付等，这些接口都是仅存在于微信小游戏环境中的，等同于其他平台的第三方 SDK 接口。这类 SDK 接口的移植工作在现阶段还是需要开发者自己处理。下面列举一些微信小游戏所提供的强大 SDK 能力：
+1. User interface: login, authorization, user information, etc.
+2. WeChat payment
+3. Forward and get forwarding information
+4. File upload and download
+5. Media: pictures, recordings, cameras, etc.
+6. Other: location, device information, scan code, NFC, etc.
 
-1. 用户接口：登陆，授权，用户信息等
-2. 微信支付
-3. 转发以及获得转发信息
-4. 文件上传下载
-5. 媒体：图片、录音、相机等
-6. 其他：位置、设备信息、扫码、NFC、等等
+## Access to the subdomain of WeChat Mini Games
 
-## 接入微信小游戏的开放数据域
+In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
 
-微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
+__Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
 
-Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请参考 [接入微信小游戏的开放数据域](../publish/publish-wechatgame-sub-domain.md)。
+## Reading
 
-## 微信小游戏已知问题：
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
+- [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
+- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
+- [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
+- [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
 
-我们对微信小游戏的适配工作还未完全结束，目前仍不支持以下组件：
+## F.A.Q
 
-- VideoPlayer
-- WebView
-
-用户如果有需要，目前可以先自己直接调用微信的 API 来使用。
-
-## 参考链接
-
-- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
-- [微信公众平台](https://mp.weixin.qq.com/)
-- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
-- [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
-
-## 常见问题
-
-小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： http://forum.cocos.com/t/faq/54828
+Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.com/t/faq/54828).

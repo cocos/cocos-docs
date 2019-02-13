@@ -40,12 +40,13 @@ java -version
 2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show Package Details`，显示分版本的工具选择。
 3. 在 `Android SDK Build-Tools` 里，选择最新的 build tools 版本。
 4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
-5. 勾选 `NDK`，确保版本在 14 以上（推荐使用 r16）。<br>
-**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.1 以下的版本 **不要** 将 NDK 更新到 r18，否则会导致编译报错。
+5. 勾选 `NDK`，确保版本在 r16 及以上。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 `OK`，根据提示完成安装。
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
+
+**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。
 
 ## 安装 C++ 编译环境
 
@@ -94,7 +95,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
     请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
 
-最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](http://forum.cocos.com/c/Creator) 反馈给我们。
+最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.com/c/Creator) 反馈给我们。
 
 ---
 

@@ -4,26 +4,31 @@ WebView is a component for displaying web pages, you could use this component to
 
 ![webview](./webview/webview.png)
 
-Click `add component` at the bottom of **Properties** panel and select `WebView` from `add UI component` popup.
-Then you could add WebView component to the node.
+Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more info about WebView API reference [WebView API](../../../api/en/classes/WebView.html)。
+For more information about WebView API, please refer to [WebView API](../../../api/en/classes/WebView.html) for details.
 
-## WebView Attribute
+## WebView Properties
 
-| Attribute | Function Explanation
+| Properties | Function Explanation
 |-------- | ----------- |
 | Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
-| WebViewEvents | The webview's event callback , it will be triggered when certain webview event occurs.
+| Webview Events | The webview's event callback, it will be triggered when certain webview event occurs.
+
+**Note**：In **cc.Node** of the **Webview Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant WebView event according to the user's needs.
 
 ## WebView Event
 
 ### WebViewEvents Event
-| Attribute |   Function Explanation
+
+| Properties |   Function Explanation
 | -------------- | ----------- |
 |Target| Node with the script component.
 |Component| Script component name.
 |Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
+| CustomEventData | The user specifies that any string is passed in as the last parameter of the event callback. |
+
+For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
 
 ### Parameter of WebViewEvents
 
@@ -33,10 +38,11 @@ For more info about WebView API reference [WebView API](../../../api/en/classes/
 | LOADED| WebView is finished loading.
 | ERROR| Errors occurred when loading web pages.
 
-## Details Explanation
-Currently this component is only available on Web(Both PC and Mobile), iOS and Android.
+For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [10_webview](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/02_ui/10_webview) of the example-cases samples bundled with Creator.
 
-You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
+## Details Explanation
+
+Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
 
 This component doesn't support load HTML file or execute Javascript.
 
@@ -44,7 +50,7 @@ This component doesn't support load HTML file or execute Javascript.
 
 #### Method one
 
-This method uses the same API that editor uses to add an event callback on Button component. You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters.
+This method uses the same API that editor uses to add an event callback on Button component. You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```js
 
@@ -55,7 +61,7 @@ cc.Class({
     properties: {
         webview: cc.WebView,
     },
-    
+
     onLoad: function() {
         var webviewEventHandler = new cc.Component.EventHandler();
         webviewEventHandler.target = this.node; // This node is the one that the component that contains your event handler code belongs to
@@ -84,13 +90,13 @@ Add event callback with `webview.node.on ('loaded', ...)`
 cc.Class({
     extends: cc.Component,
     properties: {
-       webview: cc.WebView
+       webview: cc.WebView,
     },
-    
+
     onLoad: function () {
        this.webview.node.on('loaded', this.callback, this);
     },
-    
+
     callback: function (event) {
        // The event here is an EventCustom object, and you can get the WebView component through event.detail
        var webview = event.detail;
@@ -100,28 +106,29 @@ cc.Class({
 });
 ```
 
-Likewise, you can also register 'loading', 'error' events, and the parameters of the callback function for these events are consistent with the 'loaded' parameters.
+Likewise, you can also register `loading`, `error` events, and the parameters of the callback function for these events are consistent with the `loaded` parameters.
 
 ## How to interact with WebView internal pages
 
-##### Calling the WebView internal page
+### Calling the WebView internal page
 
 ```js
 cc.Class({
     extends: cc.Component,
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
-    
+
     onLoad: function () {
         // The Test here is a global function defined in your webView's internal page code
         this.webview.evaluateJS('Test()');
     }
 });
 ```
-##### Note: Cross domain issues need on HTML5 to be resolved by yourself
 
-##### WebView internal pages call external code
+#### Note: Cross domain issues on Web platform need to be resolved by yourself
+
+### WebView internal pages call external code
 
 At present, the mechanism of Android and IOS is to determine whether the key of URL prefix is the same as that of the URL prefix by intercepting the jump, and then callback if the same.
 
@@ -131,25 +138,29 @@ At present, the mechanism of Android and IOS is to determine whether the key of 
 ```js
 cc.Class({
     extends: cc.Component,
-    
+
     properties: {
-        webview: cc.WebView
+        webview: cc.WebView,
     },
-    
-    onLoad: function () {
-        var scheme = "TestKey";// Here are the keywords that are agreed with the internal page
-        var jsCallback = function (url) {
-            // The return value here is the URL value of the internal page, 
-            // and it needs to parse the data it needs
-            var str = url.replace(scheme + '://', '');
-            var data = JSON.stringify(str);
+    // Setting in onLoad will make the callback useless, so we must set the cc.WebView callback in the start cycle.
+    start: function () {
+        // Here are the keywords that are agreed with the internal page
+        // Please set the scheme with lower case, the native won't identify the uppercase char scheme.
+        var scheme = "testkey";
+        var jsCallback = function (target, url) {
+            // The return value here is the URL value of the internal page, and it needs to parse the data it needs.
+            var str = url.replace(scheme + '://', ''); // str === 'a=1&b=2'
+            // webview target
+            console.log(target);
         };
-        
+
         this.webview.setJavascriptInterfaceScheme(scheme);
         this.webview.setOnJSCallback(jsCallback);
     }
 });
+```
 
+```html
 // So when you need to interact with WebView through an internal page, 
 // you should set the internal page URL: TestKey://(the data you want to callback to WebView later)
 // WebView internal page code
@@ -162,13 +173,13 @@ cc.Class({
 <script>
     function onClick () {
         // One of them sets up the URL scheme
-        document.location = 'TestKey://{a: 0, b: 1}';
+        document.location = 'testkey://a=1&b=2';
     }
 </script>
 </html>
 ```
 
-Because of the limitations of HTML5, it can not be implemented by this mechanism, but internal pages can interact with each other
+Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other
 
 ```js
 // WebView internal page code
@@ -189,6 +200,7 @@ Because of the limitations of HTML5, it can not be implemented by this mechanism
 </script>
 </html>
 ```
-##### Stressed once: Cross domain issues on HTML5 need need to be resolved by yourself
+
+#### Stressed once: Cross domain issues on Web platform need to be resolved by yourself
 
 <hr>

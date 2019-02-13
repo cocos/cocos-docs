@@ -26,6 +26,8 @@
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
     - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
+    - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
+    - [v2.1 Upgrade Guide](release-notes/upgrade-guide-v2.1.md)
     - [FAQ](getting-started/faq.md)
 
 ## Workflows
@@ -36,6 +38,7 @@
     - [Prefab](asset-workflow/prefab.md)
     - [Atlas](asset-workflow/atlas.md)
     - [Auto Atlas](asset-workflow/auto-atlas.md)
+    - [Texture Compression](asset-workflow/compress-texture.md)
     - [Label Atlas](asset-workflow/label-atlas.md)
     - [Import/Export Assets](asset-workflow/import-export.md)
     - [Texture Auto Trim](asset-workflow/trim.md)
@@ -73,7 +76,7 @@
     - [Networking](scripting/network.md)
     - [Pooling](scripting/pooling.md)
     - [Modular Script](scripting/modular-script.md)
-    - [Code Subpackage](scripting/subpackage.md)
+    - [Subpackage Loading](scripting/subpackage.md)
     - [Plugin Scripts](scripting/plugin-scripts.md)
     - [JavaScript Primer](scripting/javascript-primer.md)
     - [TypeScript Support](scripting/typescript.md)
@@ -89,10 +92,12 @@
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
+    - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
+    - [Publish to Vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
-## Systems 
+## Systems
 
 - [Renderer and Graphics](render/index.md)
     - [Core Renderers](render/core-renderer.md)
@@ -155,11 +160,21 @@
         - [Physics Collider](physics/physics/collider-component.md)
         - [Contact Callback](physics/physics/contact-callback.md)
         - [Joint](physics/physics/joint-component.md)
+        - [Advance Settings](physics/physics/advanced-settings.md)
 - [Audio](audio/index.md)
     - [Play Audio](audio/audio.md)
-    - [AudioSource Component Reference](components/audiosource.md)
+    - [AudioSource Reference](components/audiosource.md)
+    - [Compatability](audio/compatibility.md)
+- [3D System](3d/index.md)
+    - [3D Node](3d/3d-node.md)
+    - [Import Model Resources](3d/import-model.md)
+    - [Mesh Resource](3d/mesh.md)
+    - [Mesh Renderer Component](3d/mesh-renderer.md)
+    - [Skinned Mesh Renderer Component](3d/skinned-mesh-renderer.md)
+    - [Skeleton Animation Component](3d/skeleton-animation.md)
+    - [Collision Detection](3d/intersect.md)
 
-## Advanced Topics 
+## Advanced Topics
 
 - [Editor Extension](extension/index.md)
     - [Your First Extension](extension/your-first-extension.md)
@@ -206,7 +221,7 @@
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
 - [SDK Integration](sdk/index.md)
-    - [AnySDK](sdk/anysdk-overview.md)
-        - [AnySDK Framework](sdk/anysdk/anysdk-framework.md)
-        - [Integrate AnySDK in Creator](sdk/anysdk/integrate-anysdk.md)
+    - [Cocos Services](sdk/cocos-services.md)
+    - [AnySDK](sdk/anysdk.md)
     - [SDKBox](sdk/sdkbox.md)
+    - [Facebook Live Video & Audience Network](sdk/fb-an-and-live.md)

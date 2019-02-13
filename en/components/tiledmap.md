@@ -1,25 +1,29 @@
 # TiledMap Component Reference
 
-TiledMap is used for render a map with TMX format. Add TiledMap component for a node and set a TiledMapAsset for property `tmxAsset`, then the map will be shown.
+TiledMap is used for render a map with TMX format.
 
 ![tiledmap-component](./tiledmap/tiledmap-component.png)
 
-Click the button `Add Component` in the **Properties** Panel, then select `TiledMap` in `Add Renderer Component`. The TiledMap component will be added to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **TiledMap** from **Renderer Component** to add the **TiledMap** component to the node.
+
+![](./tiledmap/add_tiledmap.png)
 
 API reference: [TiledMap API](../../../api/en/classes/TiledMap.html)。
 
-## TiledMap Attribute
+## TiledMap Properties
 
-| Attribute |   Details
+| Properties |   Details
 | -------------- | ----------- |
-| tmxAsset | Specify the asset of the TMX format map. |
+| Tmx Asset | Specify the asset of the TMX format map. |
 
 ## Details
 
-* When a TiledMap component is added, you can render a map by drag a TiledMapAsset from **Assets** panel to the property `tmxAsset` of the component.
-* The TiledMap component will add children corresponding to the layers in the map. A TiledLayer component will be added for the children. **Please DO NOT remove the TiledLayer component.**
-* In the versions before v1.1, you can only use TiledMap in/after callback `mapLoaded` is invoked. After the version v1.1 (include v1.1), `mapLoaded` is deprecated. You can use TiledMap in callback `start`.
+- When a TiledMap component is added, you can render a map by drag a TiledMap asset from **Assets** panel to the property **Tmx Asset** of the TiledMap component.
+- After you add the **Tmx Asset** property to the TiledMap component, the TiledMap component will add children node corresponding to the layers in the map. A TiledLayer component will be added for the children node. **Please DO NOT remove the TiledLayer component.**
+
+  ![](./tiledmap/tiledlayer.png)
+- The Tiledmap component does not support `mapLoaded` callback, you can use TiledMap component in callback `start`.
 
 ---
 
-Continue on to read about [ Workflow of script development](../scripting/index.md)。
+Continue on to read about [Workflow of script development](../scripting/index.md)。

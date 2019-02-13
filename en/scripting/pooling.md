@@ -35,7 +35,7 @@ onLoad: function () {
     let initCount = 5;
     for (let i = 0; i < initCount; ++i) {
         let enemy = cc.instantiate(this.enemyPrefab); // create node instance
-        this.enemyPool.put(enemy); // populate your pool with putInPool method
+        this.enemyPool.put(enemy); // populate your pool with put method
     }
 }
 ```
