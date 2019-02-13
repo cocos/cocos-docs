@@ -58,6 +58,11 @@ APP ABI：To set up the CPU type that Android needs to support, you can select o
 
 Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the `Use Debug Keystore` to use the default keystore. If you need to customize the keystore, you can remove the `Use Debug Keystore` checkbox. Please refer to [official documents](https://developer.android.com/studio/publish/app-signing?hl=zh-cn).
 
+
+### App Bundle (Google Play)
+
+Creator now supports App Bundle for Google Play Store When building Android or Android Instant platform. Please refer to [official documents](https://developer.android.com/guide/app-bundle/)).
+
 ### Encrypt JS
 
 Encrypt the published script. After build, the JSC file is generated in the `src` directory, which is encrypted. And JS files will be backed up in the `js backups` directory for debugging, and will not enter the APP when packaged.
