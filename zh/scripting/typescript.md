@@ -153,7 +153,8 @@ export class MyUser extends cc.Component {
     @property(MyModule)
     public myModule: MyModule = null;
 
-    /* 声明自定义类型数组
+    /*
+     * // 声明自定义类型数组
      * @property(MyModule)
      * public myModule: MyModule[] = [];
      *
@@ -172,24 +173,26 @@ export class MyUser extends cc.Component {
 
 输入 `this.myModule.` 时，就可以提示我们在 `MyModule.ts` 中声明的属性了。
 
-![auto complete](assets/auto-complete.gif)<br>
-__若发现修改已声明属性为数组类型编辑器中却未生效，请移除当前物体上绑定组件重新绑定。__
+![auto complete](assets/auto-complete.gif)
 
-## 1.10 之后版本的特殊类型
+__注意：如果将已声明属性修改为数组类型，但是在编辑器中却未生效。那么请通过组件菜单对组件进行重置。__
 
-1.10 版本包含之后版本，Creator 对于底层类型进行了部分调整。
-cc.Texture2D, cc.AudioClip, c.ParticleAsset 类型数据在 ts 中的声明一定要按照以下的格式进行声明：
+![Reset component](assets/reset-component.png)
+
+## 1.10 版本之后的特殊类型
+
+在 v1.10 包括之后的版本，Creator 对资源类型进行了部分调整。`cc.Texture2D`, `cc.AudioClip`, `cc.ParticleAsset` 类型数据在 ts 中的声明一定要按照以下的格式进行声明：
 
 ```typescript
-    @property({
-        type: cc.Texture2D
-    })
-    texture: cc.Texture2D = null;
+@property({
+    type: cc.Texture2D
+})
+texture: cc.Texture2D = null;
 
-    @property({
-        type: cc.Texture2D
-    })
-    textures: cc.Texture2D[] = [];
+@property({
+    type: cc.Texture2D
+})
+textures: cc.Texture2D[] = [];
 ```
 
 ## 使用命名空间

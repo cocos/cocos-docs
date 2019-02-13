@@ -153,7 +153,8 @@ export class MyUser extends cc.Component {
     @property (MyModule)
     public myModule: MyModule = null;
 
-    /* Declaring the custom class array
+    /*
+     * // Declaring the custom class array
      * @property(MyModule)
      * public myModule: MyModule[] = [];
      *
@@ -172,23 +173,26 @@ export class MyUser extends cc.Component {
 
 When you enter `this.myModule.`, you will be prompt the properties declared in `MyModule.ts`.
 
-![Auto complete](assets/auto-complete.gif) <br>
-__If you find that changing a declared property to an array type doesn't take effect in the editor, Please remove the binding component from the current node and rebind.__
+![Auto complete](assets/auto-complete.gif)
 
-## The special type since 1.10 version
+__Node: If the declared property is modified to an Array type, but it does not take effect in the editor. Please Reset the component through the component menu.__
 
-The Creator has adjusted inheritance relationship of several basic class after the 1.10 version.
-You need to modify the statement that declares the cc.Texture2D, cc.AudioClip and cc.ParticleAsset as below description
+![Reset component](assets/reset-component.png)
+
+## The special type since v1.10
+
+Cocos Creator made partial adjustments to the asset types since v1.10. The declaration of data type `cc.Texture2D`, `cc.AudioClip` and `cc.ParticleAsset` etc. in TS must be declared in the following format:
+
 ```typescript
-    @property({
-        type: cc.Texture2D
-    })
-    texture: cc.Texture2D = null;
-    
-    @property({
-        type: cc.Texture2D
-    })
-    textures: cc.Texture2D[] = [];
+@property({
+    type: cc.Texture2D
+})
+texture: cc.Texture2D = null;
+
+@property({
+    type: cc.Texture2D
+})
+textures: cc.Texture2D[] = [];
 ```
 
 ## Using namespaces
@@ -201,8 +205,10 @@ So for typescript scripts that contain namespaces, we can neither compile and mo
 
 ### Name space workflow
 
-1. In the root directory of the project (outside the assets directory), create a new folder to store all of TS scripts containing namespaces, such as `namespaces`.<br>
+1. In the root directory of the project (outside the assets directory), create a new folder to store all of TS scripts containing namespaces, such as `namespaces`.
+
     ![namespace folder](assets/namespace-folder.jpg)
+
 2. Modify the `tsconfig.json` file to add the `namespace` folder you just created to the `include` field, indicating that we will compile this part of the file by Vscode.
 3. In the `compilerOptions` field of `tsconfig.json`, add the `outFile` field and set the file path under a `assets` folder. With these settings, We will compile all the ts files in the `namespace` directory into a js file in the `assets` directory.
 
