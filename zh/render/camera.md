@@ -2,65 +2,69 @@
 
 摄像机是玩家观察游戏世界的窗口，场景中至少需要有一个摄像机，也可以同时存在多个摄像机。创建场景时，Creator 会默认创建一个名为 `Main Camera` 的摄像机，作为这个场景的主摄像机。多摄像机的支持可以让你轻松实现高级的自定义效果，比如双人分屏效果，或者场景小地图的生成。
 
+![](./camera/camera.png)
+
 ## 摄像机属性
 
-- cullingMask
+- **cullingMask**
 
-`cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在 **属性检查器** 中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
+  `cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在 **属性检查器** 中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
 
-例如下图中的 `cullingMask` 设置表示这个摄像机只用来渲染游戏中的 UI 部分，一般游戏中的 UI 部分都是不需要移动的，而游戏节点可能会往屏幕外移动，这时需要另外的一个摄像机去跟随这个游戏节点。
+  例如下图中的 `cullingMask` 设置表示这个摄像机只用来渲染游戏中的 UI 部分，一般游戏中的 UI 部分都是不需要移动的，而游戏节点可能会往屏幕外移动，这时需要另外的一个摄像机去跟随这个游戏节点。
 
-![camera-1](./camera/camera-1.png)
+  ![camera-1](camera/camera-1.png)
 
-你可以通过 **项目设置** 中的 **分组管理** 来添加或者更改分组，这些分组即是对应的 mask。
+  用户可以通过编辑器菜单栏中的 **项目 -> 项目设置 -> 分组管理** 来添加或者更改分组，这些分组即是对应的 mask。
 
-- zoomRatio
+  ![](camera/mask-setting.png)
 
-指定摄像机的缩放比例, 值越大显示的图像越大。
+- **zoomRatio**
 
-- clearFlags
+  指定摄像机的缩放比例, 值越大显示的图像越大。
 
-指定渲染摄像机时需要做的清除操作。
+- **clearFlags**
 
-![camera-2](./camera/camera-2.png)
+  指定渲染摄像机时需要做的清除操作。
 
-- backgroundColor
+  ![camera-2](camera/camera-2.png)
 
-当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+- **backgroundColor**
 
-- depth
+  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
 
-摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
+- **depth**
 
-- targetTexture
+  摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
 
-如果设置了 `targetTexture`，那么摄像机渲染的内容不会输出到屏幕上，而是会渲染到 `targetTexture` 上。
+- **targetTexture**
 
-如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
+  如果设置了 `targetTexture`，那么摄像机渲染的内容不会输出到屏幕上，而是会渲染到 `targetTexture` 上。
 
-具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
+  如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
+
+  具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
 
 ## 摄像机方法
 
-- cc.Camera.findCamera
+- **cc.Camera.findCamera**
 
-`findCamera` 会通过查找当前所有摄像机的 `cullingMask` 是否包含节点的 `group` 来获取第一个匹配的摄像机。
+  `findCamera` 会通过查找当前所有摄像机的 `cullingMask` 是否包含节点的 `group` 来获取第一个匹配的摄像机。
 
-```javascript
-cc.Camera.findCamera(node);
-```
+  ```javascript
+  cc.Camera.findCamera(node);
+  ```
 
-- containsNode
+- **containsNode**
 
-检测节点是否被此摄像机影响。
+  检测节点是否被此摄像机影响。
 
-- render
+- **render**
 
-如果你需要立即渲染摄像机，可以调用这个方法来手动渲染摄像机，比如截图的时候。
+  如果你需要立即渲染摄像机，可以调用这个方法来手动渲染摄像机，比如截图的时候。
 
-```javascript
-camera.render();
-```
+  ```javascript
+  camera.render();
+  ```
 
 ### 坐标转换
 
@@ -145,7 +149,7 @@ https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture
 
 ## 微信中的截图
 
-注意，微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
 
 ## 案例
 
