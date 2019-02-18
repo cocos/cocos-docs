@@ -2,22 +2,26 @@
 
 Graphics 组件提供了一系列绘画接口，这些接口参考了 canvas 的绘画接口来进行实现。
 
+![](../render/graphics/graphics/graphics.png)
+
+新建一个空节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，从 **添加渲染组件** 中选择 **Graphics**，即可添加 Graphics 组件到节点上。
+
 ## 路径
 
 | 方法 |   功能说明
 | -------------- | ----------- |
-| [moveTo (x, y)](../render/graphics/moveTo.md)  | 把路径移动到画布中的指定点，不创建线条
-| [lineTo (x, y)](../render/graphics/lineTo.md) | 添加一个新点，然后在画布中创建从该点到最后指定点的线条
-| [bezierCurveTo (c1x, c1y, c2x, c2y, x, y)](../render/graphics/bezierCurveTo.md) | 创建三次方贝塞尔曲线
-| [quadraticCurveTo (cx, cy, x, y)](../render/graphics/quadraticCurveTo.md) | 创建二次贝塞尔曲线
-| [arc (cx, cy, r, a0, a1, counterclockwise)](../render/graphics/arc.md) | 创建弧/曲线（用于创建圆形或部分圆）
-| [ellipse (cx, cy, rx, ry)](../render/graphics/ellipse.md) | 创建椭圆
-| [circle (cx, cy, r)](../render/graphics/circle.md) | 创建圆形
-| [rect (x, y, w, h)](../render/graphics/rect.md) | 创建矩形
-| [close ()](../render/graphics/close.md) | 创建从当前点回到起始点的路径
-| [stroke ()](../render/graphics/stroke.md) | 绘制已定义的路径
-| [fill ()](../render/graphics/fill.md) | 填充当前绘图（路径）
-| [clear ()](../render/graphics/clear.md) | 清楚所有路径
+| [moveTo](../render/graphics/moveTo.md) (x, y) | 把路径移动到画布中的指定点，不创建线条
+| [lineTo](../render/graphics/lineTo.md) (x, y) | 添加一个新点，然后在画布中创建从该点到最后指定点的线条
+| [bezierCurveTo](../render/graphics/bezierCurveTo.md) (c1x, c1y, c2x, c2y, x, y) | 创建三次方贝塞尔曲线
+| [quadraticCurveTo](../render/graphics/quadraticCurveTo.md) (cx, cy, x, y) | 创建二次贝塞尔曲线
+| [arc](../render/graphics/arc.md) (cx, cy, r, a0, a1, counterclockwise) | 创建弧/曲线（用于创建圆形或部分圆）
+| [ellipse](../render/graphics/ellipse.md) (cx, cy, rx, ry) | 创建椭圆
+| [circle](../render/graphics/circle.md) (cx, cy, r) | 创建圆形
+| [rect](../render/graphics/rect.md) (x, y, w, h) | 创建矩形
+| [close](../render/graphics/close.md) () | 创建从当前点回到起始点的路径
+| [stroke](../render/graphics/stroke.md) () | 绘制已定义的路径
+| [fill](../render/graphics/fill.md) () | 填充当前绘图（路径）
+| [clear](../render/graphics/clear.md) () | 清楚所有路径
 
 ## 颜色，样式
 

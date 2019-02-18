@@ -2,66 +2,69 @@
 
 The camera is the window that the player observes the game world, the scene must have at least one camera, also can have multiple cameras at the same time. When creating a scene, Creator creates a camera named `Main Camera` by default as the main camera for this scene. Multi-camera support allows you to easily implement advanced customization effects, such as the two-player split screen effect, or the creation of a small scene map.
 
-## Camera attribute
+![](camera/camera.png)
 
-- cullingMask
+## Camera Properties
 
-`cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the currently available mask options, and you can combine them to generate `cullingMask` by selecting these options.
+- **cullingMask**
 
-For example, the `cullingMask` setting in the following figure indicates that the camera is used only to render the UI part of the game. Generally game UI does not need to be moved, but the player may move out of the screen, then you need another camera to follow the player.
+  `cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the currently available mask options, and you can combine them to generate `cullingMask` by selecting these options.
 
-![camera-1](./camera/camera-1.png)
+  For example, the `cullingMask` setting in the following figure indicates that the camera is used only to render the UI part of the game. Generally game UI does not need to be moved, but the player may move out of the screen, then you need another camera to follow the player.
 
-You can add or change groups through **Group Manager** in the **Project Settings**, which is the corresponding mask.
+  ![camera-1](camera/camera-1.png)
 
-- zoomRatio
+  You can add or change groups through **Group Manager** in the **Project Settings**, which is the corresponding mask.
 
-Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
+  ![](camera/mask-setting.png)
 
-- clearFlags
+- **zoomRatio**
 
-Specifies the cleanup action that needs to be made when rendering the camera.
+  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
 
-![camera-2](./camera/camera-2.png)
+- **clearFlags**
 
-- backgroundColor
+  Specifies the cleanup action that needs to be made when rendering the camera.
 
-When the camera needs to clear the color， the camera will use the background color to clear the scene。
+  ![camera-2](./camera/camera-2.png)
 
-- depth
+- **backgroundColor**
 
-Camera depth, used to determine the order in which the camera is rendered. The larger the value, the later the camera is rendered.
+  When the camera needs to clear the color， the camera will use the background color to clear the scene。
 
-- targetTexture
+- **depth**
 
-If you set the `targetTexture`, the contents of the camera render will not be printed on the screen, but will be rendered to the `targetTexture`.
+  Camera depth, used to determine the order in which the camera is rendered. The larger the value, the later the camera is rendered.
 
-If you need to do some of the screen's post-effects, you can first render the screen to `targetTexture`, and then for the `targetTexture` to do the overall processing, finally through a `sprite` to show the `targetTexture`.
+- **targetTexture**
 
-Please refer to the [Example](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
-for details.
+  If you set the `targetTexture`, the contents of the camera render will not be printed on the screen, but will be rendered to the `targetTexture`.
+
+  If you need to do some of the screen's post-effects, you can first render the screen to `targetTexture`, and then for the `targetTexture` to do the overall processing, finally through a `sprite` to show the `targetTexture`.
+
+  Please refer to the [Example](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31) for details.
 
 ## Camera methods
 
-- cc.Camera.findCamera
+- **cc.Camera.findCamera**
 
-`findCamera` gets the first matching camera by finding whether the camera `cullingMask` contains a node's group.
+  `findCamera` gets the first matching camera by finding whether the camera `cullingMask` contains a  node's group.
 
-```javascript
-cc.Camera.findCamera(node);
-```
+  ```javascript
+  cc.Camera.findCamera(node);
+  ```
 
-- containsNode
+- **containsNode**
 
-Detect whether the node is affected by this camera
+  Detect whether the node is affected by this camera
 
-- render
+- **render**
 
-If you need to render the camera immediately, you can call this method to manually render the camera, such as when capturing a screenshot.
+  If you need to render the camera immediately, you can call this method to manually render the camera, such as when capturing a screenshot.
 
-```javascript
-camera.render();
-```
+  ```javascript
+  camera.render();
+  ```
 
 ### Coordinate translation
 
@@ -145,7 +148,7 @@ Please refer to [capture_to_native](https://github.com/cocos-creator/example-cas
 
 ## The screenshot in WeChat
 
- Because of Wechat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
+Because of Wechat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
 
 ## Case
 
