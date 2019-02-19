@@ -59,7 +59,7 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 ### 生成 App Bundle (Google Play)
 
-如果选择 Android 或者 Android Instant 平台，支持打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.com/guide/app-bundle/)（需要使用 VPN）
+`2.0.9` 以后的版本，如果选择 Android 或者 Android Instant 平台，支持打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.com/guide/app-bundle/)（需要使用 VPN）
 
 ### 加密脚本
 

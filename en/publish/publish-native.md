@@ -61,7 +61,7 @@ Android requires that all APKs be digitally signed with a certificate before the
 
 ### App Bundle (Google Play)
 
-Creator now supports App Bundle for Google Play Store When building Android or Android Instant platform. Please refer to [official documents](https://developer.android.com/guide/app-bundle/)).
+Creator now (version 2.0.9 or later) supports App Bundle for Google Play Store When building Android or Android Instant platform. Please refer to [official documents](https://developer.android.com/guide/app-bundle/).
 
 ### Encrypt JS
 
