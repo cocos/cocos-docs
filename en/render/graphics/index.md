@@ -1,4 +1,4 @@
-# Graphic system
+# Graphic System
 
 This chapter will show the usage of Cocos Creator's graphic drawing component interface.
 
