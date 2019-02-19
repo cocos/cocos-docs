@@ -1,8 +1,8 @@
-# MotionStreak component reference
+# MotionStreak Component Reference
 
 MotionStreak, used realization trailing fade effect on the node trajectory.
 
-![add motionStreak](motion-streak/motionstreak.png)
+![](motion-streak/motionstreak.png)
 
 Click the **Add Component** at the bottom of **Properties** and select **MotionStreak** from **Add Other Components** in order to add the **MotionStreak** component to the node.
 

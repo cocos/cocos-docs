@@ -1,4 +1,4 @@
-# Graphics component reference
+# Graphics Component Reference
 
 The Graphics component provides a series of drawing interfaces that reference the canvas's drawing interface.
 

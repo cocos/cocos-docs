@@ -1,8 +1,8 @@
 # MotionStreak（拖尾）组件参考
 
-MotionStreak（拖尾）是运动轨迹，用于游戏对象的运动轨迹上实现拖尾渐隐效果。
+MotionStreak（拖尾）是运动轨迹，用于在游戏对象的运动轨迹上实现拖尾渐隐效果。
 
-![add motionStreak](motion-streak/motionstreak.png)
+![](motion-streak/motionstreak.png)
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **其他组件** 中选择 **MotionStreak**，即可添加 MotionStreak 组件到节点上。
 
