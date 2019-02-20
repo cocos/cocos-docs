@@ -72,23 +72,36 @@ Note, touch events support multi-touch, each touch spot will send one event to t
 | `getPreviousLocation` | `Object` | get the location object of the touch spot at the last event which includes x and y properties |
 
 ## Touch event propagation
+
 ### Touch event bubbles
 
 Touch events support the event bubbles on the node tree, take the pictures below as an example:
 
 ![propagation](./internal-events/propagation.png)
 
-In the scene shown in the picture, suppose node A has a child node B which has a child node C. The developer set the touch event listeners for all these three nodes ( each node has a touch event listener in examples below by default ).  
+In the scene shown in the picture, suppose node A has a child node B which has a child node C. The developer set the touch event listeners for all these three nodes (each node has a touch event listener in examples below by default).  
 
-When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event. Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubble process. It needs to be emphasized that there is no hit test in parent nodes in the process of bubble，which means that the node A and B can receive touch events by event bubbles even though the touch location is out of their node region.
+When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event. Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase. It needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that the node A and B can receive touch events even though the touch location is out of their node region.
 
-The bubble process of touch events is no different than the general events. So, calling `event.stopPropagation()` can stop the bubbling process actively.
+The bubbling phase of touch events is no different than the general events. So, calling `event.stopPropagation()` can force to stop the bubbling phase.
 
 ### Ownership of touch points among brother nodes
 
-Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
+Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
 
 At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechainism.
+
+### Register touch or mouse events in the capturing phase
+
+Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.   
+Now the event bubbling can't meet our demand, so that we need to register the parent node event listeners in the capturing phase.  
+To achieve this goal, we can pass the fourth parameter `true` when registering touch or mouse event on node, which means `useCapture`. For example:
+```js
+this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
+```
+When node fires `touchstart` event, the `touchstart` event will be firstly dispatched to all the parent node event listeners registered in the capturing phase, then dispatched to the node itself, and finally comes the event bubbling phase.
+
+Only touch or mouse events can be registered in the capturing phase, while the other events can't be.
 
 ### Example for touch events
 
@@ -101,9 +114,10 @@ The specific hierarchical relationship should be like this:
 
 ![hierarchy](./internal-events/hierarchy.png)
 
-- If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A - C - D**
-- If the touch location is in node B ( the visible blue area ), the order should be **B - C - D**
-- If the touch location is in node C, the order should be **C - D**
+1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A - C - D**
+2. If the touch location is in node B ( the visible blue area ), the order should be **B - C - D**
+3. If the touch location is in node C, the order should be **C - D**
+4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be **D - C - B**
 
 ## Other events of `cc.Node`
 
