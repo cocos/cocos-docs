@@ -84,8 +84,8 @@ cc.Class({
 
 ## Explanation for event arguments
 
-We've made some optimizations for event argument passing since v2.0.  
-When emitting event, you could start passing arguments from the beginning of the second parameter of `emit` function. Meanwhile, you can get the corresponding arguments from the callback registered when calling `on` function.
+We've made some optimizations for passing event arguments since v2.0.  
+When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
 ```js
 cc.Class({
   extends: cc.Component,
