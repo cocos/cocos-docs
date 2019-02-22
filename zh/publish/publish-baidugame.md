@@ -16,19 +16,23 @@ Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游�
 
 ## 使用 Cocos Creator 发布百度小游戏
 
-我们从 Cocos Creator v2.0.9 开始，支持 Cocos Creator 游戏一键发布为百度小游戏，下面是详细的发布步骤：
+### 准备工作
 
-1. 在 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 里下载百度开发者工具
-2. 登录 [智能小程序平台](https://smartprogram.baidu.com/developer/index.html)，找到 appid
+- 在 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 里下载并安装百度开发者工具
+- 在手机平台上的应用商店下载并安装百度应用
+- 登录 [智能小程序平台](https://smartprogram.baidu.com/developer/index.html)，找到 appid
 
     ![](./publish-baidugame/appid.png)
-3. 在 **构建发布** 面板中选择 **发布平台** 为 **百度小游戏**，填入 **appid**，然后点击 **构建**。
+
+### 发布流程
+
+1. 在 **构建发布** 面板中选择 **发布平台** 为 **百度小游戏**，填入 **appid**，然后点击 **构建**。
 
     ![](./publish-baidugame/build.png)
-4. 构建完成后，会在发布包的目录下生成一个 **baidugame** 的百度小游戏工程文件夹，其中已经包含了百度小游戏环境的配置文件：`game.json` 和 `project.swan.json`
+2. 构建完成后，会在发布包的目录下生成一个 **baidugame** 的百度小游戏工程文件夹，其中已经包含了百度小游戏环境的配置文件：`game.json` 和 `project.swan.json`
 
     ![](./publish-baidugame/package.png)
-5. 使用 **百度开发者工具** 打开构建生成的 **baidugame** 文件夹，即可打开百度小游戏项目及预览调试游戏内容。
+3. 使用 **百度开发者工具** 打开构建生成的 **baidugame** 文件夹，即可打开百度小游戏项目及预览调试游戏内容。
 
     ![](./publish-baidugame/preview.png)
 
