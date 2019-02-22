@@ -1,14 +1,6 @@
 # 发布到百度小游戏平台
 
-Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游戏平台。我们来看一下如何使用 Cocos Creator 发布到百度小游戏平台。
-
-这篇文档将会覆盖：
-
-- 百度小游戏的运行环境介绍
-- 如何使用 Cocos Creator 发布百度小游戏
-- 百度小游戏资源管理
-
-## 百度小游戏平台
+Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游戏平台。
 
 百度小游戏是基于手机百度 app 上的智能小程序进行扩展的小游戏平台，它不仅提供了强大的游戏能力，还和智能小程序一样，提供了大量的原生接口，比如支付，文件系统，位置，分享等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
 
@@ -20,24 +12,25 @@ Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游�
 - Cocos Creator 编辑器提供了快捷的打包流程，直接发布为百度小游戏
 - 自动加载远程资源，缓存资源以及缓存资源版本控制
 
-具体百度小游戏平台的申请入驻，开发准备，游戏提交，审核和发布流程可以参考文末的链接。
+具体百度小游戏平台的申请入驻，开发准备，游戏提交，审核和发布流程可以参考 [百度小游戏注册指导文档](https://smartprogram.baidu.com/docs/game/)。
 
 ## 使用 Cocos Creator 发布百度小游戏
 
 我们从 Cocos Creator v2.0.9 开始，支持 Cocos Creator 游戏一键发布为百度小游戏，下面是详细的发布步骤：
 
-1. 在[百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)里下载百度开发者工具
-2. 登录智能小程序平台，找到 appid
+1. 在 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 里下载百度开发者工具
+2. 登录 [智能小程序平台](https://smartprogram.baidu.com/developer/index.html)，找到 appid
 
     ![](./publish-baidugame/appid.png)
-3. 在构建面板中设置项目名和 appid
+3. 在 **构建发布** 面板中选择 **发布平台** 为 **百度小游戏**，填入 **appid**，然后点击 **构建**。
 
     ![](./publish-baidugame/build.png)
-4. 构建发布，构建完成后，会在发布路径的目录里生成一个百度小游戏的工程文件夹，其中已经包含了百度小游戏环境的配置文件：game.json 和 project.swan.json
+4. 构建完成后，会在发布包的目录下生成一个 **baidugame** 的百度小游戏工程文件夹，其中已经包含了百度小游戏环境的配置文件：`game.json` 和 `project.swan.json`
 
     ![](./publish-baidugame/package.png)
-5. 用百度开发者工具打开构建出来的百度项目，即可预览游戏内容
+5. 使用 **百度开发者工具** 打开构建生成的 **baidugame** 文件夹，即可打开百度小游戏项目及预览调试游戏内容。
 
+    ![](./publish-baidugame/preview.png)
 
 ## 百度小游戏环境的资源管理
 
@@ -60,7 +53,11 @@ Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游�
 
 ## 百度小游戏分包加载
 
-百度小游戏的分包加载方式和微信小游戏类似，请参考 [分包加载](../scripting/subpackage.md)。
+百度小游戏的分包加载方式和微信小游戏类似，其包体限制如下：
+1. 所有包的总大小不超过 8 M
+2. 单个分包/主包大小不超过 4 M  
+
+了解具体的分包加载机制，可参考 [分包加载](../scripting/subpackage.md)。
 
 ## 平台 SDK 接入
 
@@ -74,7 +71,7 @@ Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游�
 
 ## 接入百度小游戏的开放数据域
 
-类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`, `swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。
+类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。
 
 详细的百度小游戏开放域发布流程，请参考 [接入百度小游戏的开放数据域](../publish/publish-baidugame-sub-domain.md)。
 
