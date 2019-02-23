@@ -2,33 +2,51 @@
 
 ## Creating component script
 
-In Cocos Creator, script is also a part of the assets. You can add and select JavaScript or TypeScript to create a component script by clicking the **create** button in the **Assets** editor. By this time, you will get a new script in your asset editor:
+In Cocos Creator, script is also a part of the assets. You can add and select JavaScript or TypeScript to create a component script by clicking the **create** button in the **Assets** panel. By this time, you will get a new script in your **Assets** panel:
 
 ![create-script](assets/create-script.png)
 
-A simple component script is as follows:
+There are already some preset blocks of code in the open script, as follows:
 
 ```javascript
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
     },
 
-    // use this for initialization
-    onLoad: function () {
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {},
+
+    start () {
+
     },
 
-    // called every frame, uncomment this function to activate update callback
-    update: function (dt) {
-    },
+    // update (dt) {},
 });
 ```
 
 ## Editing script
-We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages. Please set it up in [Settings](../getting-started/basics/editor-panels/preferences.md#script-editor) first.
 
-Edit the scripts and save them. Cocos Creator will automatically detect the alteration of the script and compile it quickly.
+We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages. Please set it up in [Settings](../getting-started/basics/editor-panels/preferences.md#data-editor) first.
+
+When you finish editing the script and saving it, then returning to the Creator editor interface again, Creator will automatically detect the alteration of the script and compile it quickly.
 
 ## Adding script into the scene node
 
