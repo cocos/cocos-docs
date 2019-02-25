@@ -8,13 +8,13 @@
   - Click the **Game** tab in the sidebar, select the individual/company game as required. 
   - Click **Create Game** . Next, fill in the required parameters as required, then click **Submit**. The game is created.
 
-  ![](cocos-analytics/game.png)
+    ![](cocos-analytics/game.png)
 
 2. Open the **Cocos Analytics** service. 
   - Click on the game or click on the **Services** tab above to jump to the **Services** panel. 
   - Find **Cocos Analytics** and click **Provide Service**,and you can see that the **Cocos Analytics** service on the page shows **Provided**.
 
-![](cocos-analytics/analytics_service.png)
+    ![](cocos-analytics/analytics_service.png)
 
 3. Open **Cocos Creator**
   - click **Menu bar -> Panel -> Services** to open the **Services** panel. 
@@ -24,11 +24,11 @@
 4. Click the **Enable** button in the top right corner to enable the **Cocos Analytics** service. 
     __Note:__ Make sure you performed __2.__, above.
 
-![](cocos-analytics/enable_analytics.png)
+    ![](cocos-analytics/enable_analytics.png)
 
 5. After the startup is completed, you can see the newly added **Parameter Configuration** item in the service panel and fill in the parameters. The parameters are obtained as follows:
 
-![](cocos-analytics/analytics_properties.png)
+    ![](cocos-analytics/analytics_properties.png)
 
   - **AppID** and **AppSecret**: Click **Go to console** in the **Cocos Analytics** service panel to go to [Cocos Analytics Stats](https://analytics.cocos.com/). Then click on **Cocos Analytics** in the top left to jump to the first page, select the corresponding game, and click the **Settings** button to get the **AppID** and **AppSecret** parameters. As shown below:
 
