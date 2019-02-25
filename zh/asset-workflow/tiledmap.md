@@ -1,5 +1,7 @@
 # 瓦片图资源（TiledMap）
 
+瓦片图资源是由 [TiledMap](https://www.mapeditor.org/) 所导出的数据格式（支持 TiledMap v1.0）。
+
 ## 导入地图资源
 
 地图所需资源有：

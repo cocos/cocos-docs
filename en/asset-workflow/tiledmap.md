@@ -1,5 +1,7 @@
 # TiledMap
 
+Tiled map resources are data formats that exported by [TiledMap](https://www.mapeditor.org/) (Support for TiledMap v1.0).
+
 ## Import Assets
 
 Assets required by TiledMap:

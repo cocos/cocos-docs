@@ -1,6 +1,6 @@
 # 打包发布原生平台
 
-打开主菜单的 `项目 -> 构建发布`，打开构建发布窗口。
+点击菜单栏的 **项目 -> 构建发布**，打开构建发布面板。
 
 目前可以选择的原生平台包括 Android、iOS、Mac、Windows 四个，其中发布到 iOS、Mac 和 Windows 的选项只能在相应的操作系统中才会出现。
 
@@ -40,22 +40,27 @@ jsval_to_string(cx, returnParam, &url);
 
 ### API Level
 
-API Level：设置编译 Android 使用的 api 版本，最低支持 android-16。
+设置编译 Android 使用的 api 版本，最低支持 android-16。
 
 ### APP ABI
 
-APP ABI：设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，分别有 `armeabi-v7a`、`arm64-v8a`、`x86` 三种类型。
+设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，分别有 **armeabi-v7a**、**arm64-v8a**、**x86** 三种类型。
 
 **注意**：
-- 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 `Build  -> Clean Project` 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
+
+- 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 **Build  -> Clean Project** 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
 
 - 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建面板。如果需要修改 ABI，直接修改 **gradle.properties** 中的 **PROP_APP_ABI** 属性即可。
 
-![modify abi](publish-native/modify_abi.png)
+    ![modify abi](publish-native/modify_abi.png)
 
 ### 密钥库
 
-Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 `使用调试密钥库` 就是使用默认密钥库，若用户需要自定义密钥库可去掉 `使用调试密钥库` 勾选。具体请参考 [官方文档](https://developer.android.com/studio/publish/app-signing?hl=zh-cn)（需要使用 VPN）
+Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库，若用户需要自定义密钥库可去掉 **使用调试密钥库** 勾选。具体请参考 [官方文档](https://developer.android.com/studio/publish/app-signing?hl=zh-cn)（需要使用 VPN）
+
+### 生成 App Bundle (Google Play)
+
+Creator 在 **v2.0.9** 中新增了 **App Bundle (Google Play)** 选项。如果选择 Android 或者 Android Instant 平台，勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.com/guide/app-bundle/)（需要使用 VPN）
 
 ### 加密脚本
 
