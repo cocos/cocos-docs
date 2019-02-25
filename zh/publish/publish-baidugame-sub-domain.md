@@ -17,6 +17,7 @@ Cocos Creator 从 v2.0.9 版本开始支持打包到开放数据域，下面进�
 
 - 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。整个开放数据域项目只应该包含其内容 UI，并且应该将场景中 Canvas 组件的设计分辨率设置为 UI 的完整分辨率，不需要对应主域的分辨率。
 - 主域中创建一个节点作为开放数据域容器，添加 **SwanSubContextView** 组件用于设置开放数据域视窗以及更新开放数据域贴图，这个节点的宽高比应该等于开放数据域设计分辨率的宽高比（否则会出现拉伸）。
+- 百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
 
 ### SwanSubContextView 技巧
 
@@ -75,4 +76,5 @@ Cocos Creator 从 v2.0.9 版本开始支持打包到开放数据域，下面进�
 
 ## 参考链接
 
+- [Cocos Creator 百度开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
 - [百度官方文档：关系链数据使用指南](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)
