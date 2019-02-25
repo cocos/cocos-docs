@@ -1,6 +1,8 @@
 # Cocos Services
 
-Starting with **Cocos Creator v2.0.7**, users can quickly integrate services using the **Service** panel. To get to the **Service** panel by clicking **Menu bar -> Panel -> Service**. The **Service** panel currently supports integrating **AnySDK**. Please refer to the [AnySDK documentation](anysdk.md) for details.
+Starting with **Cocos Creator v2.0.7**, users can quickly integrate services using the **Service** panel. To get to the **Service** panel by clicking **Menu bar -> Panel -> Service**. The **Service** panel currently supports integrating **AnySDK** and **Cocos Analytics**. Please refer to the [AnySDK documentation](anysdk.md) and [Cocos Analytics](cocos-analytics.md) for details.
+
+<!--Since you have supplemented the **Cocos Analytics** section of the EN document, so you need to add the Analytics service here. Please refer the ZH document https://docs.cocos.com/creator/manual/zh/sdk/cocos-services.html-->
 
 ![](cocos-services/cocos_services.png)
 
