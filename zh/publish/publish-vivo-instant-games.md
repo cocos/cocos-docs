@@ -63,6 +63,46 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 
       **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开，而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量。
 
+ - **自定义npm文件夹路径**
+
+   自定义npm文件夹路径是非必填项。
+
+   npm不填写的话，在 windows系统上默认读取环境变量，在mac上默认读取/usr/bin/local目录。当构建时找不到npm路径时，用户可自行填写npm路径保证构建完成。
+
+   正确的npm安装路径的目的是在creator构建导出可运行的快游戏rpk包，rpk包位于快游戏工程qgame下的dist目录里。如编译时找不到npm路径，则creator只会导出快游戏工程目录。
+
+    - 获取本地的npm的安装路径的命令：
+
+      在mac系统
+      ```
+      which npm
+      ```
+      如果输出结果：
+
+      ```
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
+      ```
+      则本地npm安装路径需要填写为：
+
+      ```
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin
+      ```
+      在windows系统下
+      ```
+      where npm
+      ```
+
+      如果输出结果：
+
+      ```
+      c:\Program Files\nodejs\npm
+      ```
+      则本地npm安装路径需要填写为
+
+      ```
+      c:\Program Files\nodejs
+      ```
+
 二、**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **qgame** 目录，该目录就是导出的 vivo 小游戏工程目录。
 
 ![](./publish-vivo-instant-games/package.png)
@@ -98,4 +138,5 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
 
-
+- **方法三**：
+    在cocos creator 构建页面，点击“运行”按钮，等待二维码界面生成，然后在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **扫码安装** 按钮，最后直接扫描二维码即可打开 rpk。
