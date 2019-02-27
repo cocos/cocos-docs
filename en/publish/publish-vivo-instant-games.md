@@ -30,7 +30,12 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ![](./publish-vivo-instant-games/build.png)
 
-Where **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number** (Note: Please fill in **1020**) These parameters are required and filled in according to the user's needs and the prompt information in the parameter input box. The **Small Packet Mode**, **Small Packet Mode Server Path** are optional. For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements. <br>
+**Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number**.
+
+**Optional parameter items**: Includes **Small Packet Mode**, **Small Packet Mode Server Path** and **Custom npm folder path (New in v2.0.9)**.
+
+For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
+
 The specific filling rules for the relevant parameter configuration are as follows:
 
 - **App icon**
@@ -68,6 +73,35 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
+- **Custom npm folder path**
+
+  This item is optional. The purpose of using npm is to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
+  
+  - If you do not fill out this item, the Creator will read the npm path in the environment variable by default on the Windows system, and the npm in the **/usr/bin/local** directory is read by default on the Mac system to build the exported fast game rpk package that can be run.
+  - If your PC environment does not have npm installed or cannot read the npm path in the system, you will need to fill out the **Custom npm folder path** to build and exported rpk package. Fill in the rules as follows:
+
+    - Windows system
+
+      ```bash
+      # Get local npm folder path
+      where npm
+      # If the output is
+      C:\Program Files\nodejs\npm
+      # Then the local npm folder path is filled in as:
+      C:\Program Files\nodejs
+      ```
+
+    - Mac system
+
+      ```bash
+      # Get local npm folder path
+      which npm
+      # If the output is
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
+      # Then the local npm folder path is filled in as:
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin
+      ```
+
 **Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
 
 ![](./publish-vivo-instant-games/package.png)
@@ -76,9 +110,19 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 ![](./publish-vivo-instant-games/rpk.png)
 
-**Third**, run the packaged rpk to your phone. There are two ways to run rpk on your phone:
+**Third**, run the packaged rpk to your phone. There are three ways to run rpk on your phone:
 
-- **method one**:
+- **Method One**：
+
+    Click the **Run** button in the **Build** panel to wait for the QR Code interface to be generated:
+
+    ![](./publish-vivo-instant-games/qr_code.png)
+
+    Then open the **Quick App & Vivo Mini Game Debugger** that was installed before on your Android device. Click the **Scan code install** button to scan the QR Code to open the **rpk**.
+
+    ![](./publish-vivo-instant-games/vivo-instant_scan_install.jpg)
+
+- **Method Two**:
 
     Generate URLs and QR codes using the __Vivo Mini Game Packer Commands__.
 
@@ -96,10 +140,17 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
     Finally, click the **Scan code install** button to copy the URL generated in the first step to the browser, and then directly scan the QR code on the web page to open the **rpk**.
 
-- **Method Two**:
+- **Method Three**:
 
     Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
     Open the **Quick App & Vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
+
+## Reference link
+
+- [Vivo Mini Games Development Documentation](http://minigame.vivo.com.cn/documents/lesson/debug.html#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95)
+- [Vivo Mini Games API Documentation](https://dev.vivo.com.cn/documentCenter/doc/172)
+- [Quick App & Vivo Mini Game Debugger Download](https://dev.vivo.com.cn/documentCenter/doc/163)
+- [Vivo Mini Game Engine Download](https://dev.vivo.com.cn/documentCenter/doc/163)
