@@ -28,6 +28,10 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the app icon will be built into the __OPPO Mini Game__ project. **Desktop Icon** suggest using PNG picture.
 
+- **Supported Minimum Platform Version Number**
+
+  This item is required. According to the requirements of OPPO, this value must be greater than or equal to **1031** at present.
+
 - **Small Packet Mode and Small Packet Mode Server Path**
 
   This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:

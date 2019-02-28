@@ -42,6 +42,10 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   **App icon** is required. When building, the app icon will be built into the project of the __Vivo Mini Game__ game. Please make sure that the image under the app icon path is true. For example, if the application icon path is `/assets/image/logo.png`, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**. **App icon** suggest using PNG pictures.
 
+- **Supported Minimum Platform Version Number**
+
+  This item is required. According to the requirements of Vivo, this value must be **1020** at present.
+
 - **Small Packet Mode and Small Packet Mode Server Path**
 
   This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
