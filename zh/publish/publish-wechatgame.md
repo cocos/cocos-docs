@@ -27,21 +27,20 @@
 ## 使用 Cocos Creator 发布微信小游戏
 
 1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
-2. 在编辑器菜单栏的 [设置](../getting-started/basics/editor-panels/preferences.html#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中设置微信开发者工具路径
+2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
-    ![](./publish-wechatgame/preference.jpg)
+    ![](./publish-wechatgame/preference.JPG)
 3. 登陆微信公众平台，找到 appid
 
     ![](./publish-wechatgame/appid.jpeg)
-4. 在构建面板中设置项目名和 appid
+4. 在 **构建发布** 面板的 **发布平台** 中选择 **微信小游戏**，填入小游戏 appid，然后点击 **构建**
 
     ![](./publish-wechatgame/build.jpeg)
-5. 构建发布
-6. 点击 play 打开微信开发者工具
+5. 点击 **运行** 打开微信开发者工具
 
     ![](./publish-wechatgame/tool.jpeg)
 **注意**：微信开发者工具，如果之前在 Mac 上没运行过，会出现：`Please ensure that the IDE has been properly installed` 的报错。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
-7. 预览部署
+6. 预览部署
 
 按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包 **wechatgame** 文件夹，其中已经包含了微信小游戏环境的配置文件：`game.json` 和 `project.config.json`
 
@@ -51,7 +50,7 @@
 
 在小游戏环境中，资源管理是最特殊的部分，它和浏览器的不同在于下面四点：
 
-1. 小游戏的包内体积不能够超过 4mb，包含所有代码和资源，额外的资源必须通过网络请求下载。
+1. 小游戏的包内体积不能够超过 4MB，包含所有代码和资源，额外的资源必须通过网络请求下载。
 2. 对于从远程服务器下载的文件，小游戏环境没有浏览器的缓存以及过期更新机制。
 3. 对于小游戏包内资源，小游戏环境内并不是按需加载的，而是一次性加载所有包内资源，然后再启动页面。
 4. 不可以从远程服务器下载脚本文件。
