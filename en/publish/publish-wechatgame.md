@@ -1,8 +1,8 @@
 # Publishing to __WeChat Mini Games__
 
-![](./publish-wechatgame/preview.jpeg)
+Starting with __v1.8__, Cocos Creator officially supports the release of games to the **WeChat Mini Games**.
 
-**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
+![](./publish-wechatgame/preview.jpeg)
 
 ## __WeChat Mini Game__ Platform
 
@@ -20,23 +20,19 @@ In addition, the game submission, review and release process of the __WeChat Min
 
 ## Using Cocos Creator to publish WeChat Mini Games
 
-We started with __Cocos Creator__ v1.8 and support __WeChat Mini Games__  with just one-click to publish! Here are the detailed release steps:
-
 1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
-2. Set the WeChat Developer Tools path in __Cocos Creator__, "Settings" > "Native Develop"
+2. Set the WeChat Developer Tools path in **Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
 
-    ![](./publish-wechatgame/preference.jpeg)
+    ![](./publish-wechatgame/preference.JPG)
 3. Log in to the WeChat public platform and find the appid
 
     ![](./publish-wechatgame/appid.jpeg)
-4. Set the project name and appid in the build panel
-
+4. Select the **WeChat Mini Game** in the **Platform** of the **Build** panel, fill in the mini game appid, and then click **Build**
     ![](./publish-wechatgame/build.jpeg)
-5. Build
-6. Click play to open the WeChat Developer Tools
+5. Click **Play** to open the WeChat Developer Tools
 
     ![](./publish-wechatgame/tool.jpeg)
-7. Preview deployment
+6. Preview deployment
 
 According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
 
@@ -46,14 +42,14 @@ According to this process, a release package of __WeChat Mini Games__ will be ge
 
 In a __WeChat Mini Game__ environment, resource management is the most special part. It differs from the browser in the following four points:
 
-1. The size of the __WeChat Mini Game's__ package cannot exceed __4mb__, including all the code and resources. Additional resources must be downloaded through the network.
+1. The size of the __WeChat Mini Game's__ package cannot exceed __4MB__, including all the code and resources. Additional resources must be downloaded through the network.
 2. For files downloaded from a remote server, the __WeChat Mini Game__ environment does not have a browser cache and an expired update mechanism.
 3. For the resources in the __WeChat Mini Game__ package, the game environment is not loaded on demand, but all the resources in the package are loaded at one time, and then the page is started.
 4. It is not possible to download script files from a remote server.
 
 This brings up two key issues, first page loading speed and remote resource caching and version management. For the first page loading speed, we recommend that users only save the script file in the __WeChat Mini Game__ package, and other resources are downloaded from the remote server. The download, cache and version management of remote resources, in __Cocos Creator__, has already helped users. Let me explain the logic of this part.
 
-In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the `REMOTE_SERVER_ROOT` property, the logic of the engine downloading the resource becomes:
+In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the **REMOTE_SERVER_ROOT** property, the logic of the engine downloading the resource becomes:
 
 1. Check if the resource is in the mini game pack
 2. Query local cache resources if they do not exist
@@ -64,10 +60,10 @@ At the same time, when the md5Cache function of the engine is enabled, the url o
 
 Specifically, developers need to do:
 
-1. When building, check the md5Cache function.
-2. Upload the res folder in the mini-game distribution package to the server.
-3. Delete the res folder inside the distribution package.
-4. Set `Remote Service Address` in the build release panel.
+1. When building, check the md5Cache function in the **Build** panel.
+2. Set **Remote Service Address** in the build release panel. And then click **Build**
+3. When the build is complete, upload the res folder in the mini-game distribution package to the server.
+4. Delete the res folder inside the distribution package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat Developer tool, check the __Do not verify the security domain name, TLS version and the HTTPS certificate__ option in the project settings .
 
 ![](./publish-wechatgame/detail.jpeg)
