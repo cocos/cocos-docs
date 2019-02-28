@@ -148,6 +148,5 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 ## 参考链接
 
 - [vivo 小游戏开发文档](http://minigame.vivo.com.cn/documents/lesson/debug.html#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95)
-- [vivo 小游戏 API 文档](https://dev.vivo.com.cn/documentCenter/doc/172)
-- [快应用 & vivo 小游戏调试器下载](https://dev.vivo.com.cn/documentCenter/doc/163)
-- [vivo 小游戏引擎下载](https://dev.vivo.com.cn/documentCenter/doc/163)
+- [vivo 小游戏 API 文档](http://minigame.vivo.com.cn/documents/api/system/life-cycle.html)
+- [快应用 & vivo 小游戏调试器下载](http://minigame.vivo.com.cn/documents/download/engine.html)

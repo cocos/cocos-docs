@@ -16,7 +16,7 @@ Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游�
 
 **必填参数项**：根据用户的需求及参数输入框的提示信息进行填写，包括：**应用包名**、**应用名称**、**桌面图标**、**应用版本名称**、**应用版本号**、**支持的最小平台版本号**。
 
-**选填参数项**：包括 **自定义 manifest 文件路径**、**小包模式**、**小包模式服务器路径** 和 **自定义 npm 文件夹路径（v2.0.9 中新增）**。
+**选填参数项**：包括 **自定义 manifest 文件路径**、**小包模式**、**小包模式服务器路径** 和 **自定义 node 路径（v2.0.9 中新增）**。
 
 **密钥库** 以及两个签名文件（**certificate.pem 路径** 和 **private.pem 路径**），需要根据用户需求选择勾选 **密钥库** 或者填写两个路径。
 
@@ -68,32 +68,32 @@ Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游�
 
       **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
 
-- **自定义 npm 文件夹路径**
+- **自定义 node 路径**
 
-  该项为选填项。使用 npm 的目的是构建生成可运行的快游戏 rpk 包（rpk 包位于构建生成的发布包 huawei 目录下的 dist 目录）。如果构建时找不到 npm 文件夹路径，则发布包目录下的 dist 目录中不会生成 rpk 包。
+  该项为选填项。
   
-  - 若不填写该项时，Creator 会默认在 Windows 系统上读取环境变量中的 npm 路径，在 Mac 系统上默认读取 **/usr/bin/local** 目录下的 npm 来构建导出可运行的快游戏 rpk 包。
-  - 如果用户的电脑环境未安装 npm 或者读取不到系统中的 npm 路径时，则需要填写 **自定义 npm 文件夹路径** 来构建和导出 rpk 包。填写规则如下：
+  - 若不填写该项时，Creator 会默认在 Windows 系统上读取环境变量中的 node 路径，在 Mac 系统上默认读取 **/usr/bin/local** 目录下的 node 来构建导出可运行的快游戏 rpk 包（rpk 包位于构建生成的发布包 huawei 目录下的 dist 目录）。
+  - 如果用户的电脑环境未安装 node 或者读取不到系统中的 node 路径时，则需要填写 **自定义 node 路径** 来构建和导出 rpk 包。填写规则如下：
 
     - Windows 系统
 
       ```bash
-      # 获取本地 npm 安装路径
-      where npm
+      # 获取本地 node 路径
+      where node
       # 如果输出结果为：
-      C:\Program Files\nodejs\npm
-      # 则自定义 npm 文件夹路径填写为：
+      C:\Program Files\nodejs\node.exe
+      # 则自定义 node 路径填写为：
       C:\Program Files\nodejs
       ```
 
     - Mac 系统
 
       ```bash
-      # 获取本地 npm 安装路径
-      which npm
+      # 获取本地 node 路径
+      which node
       # 如果输出结果为：
-      /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
-      # 则自定义 npm 文件夹路径填写为：
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/node
+      # 则自定义 node 路径填写为：
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 

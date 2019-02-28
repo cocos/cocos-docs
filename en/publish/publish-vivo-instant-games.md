@@ -151,6 +151,5 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 ## Reference link
 
 - [Vivo Mini Games Development Documentation](http://minigame.vivo.com.cn/documents/lesson/debug.html#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95)
-- [Vivo Mini Games API Documentation](https://dev.vivo.com.cn/documentCenter/doc/172)
-- [Quick App & Vivo Mini Game Debugger Download](https://dev.vivo.com.cn/documentCenter/doc/163)
-- [Vivo Mini Game Engine Download](https://dev.vivo.com.cn/documentCenter/doc/163)
+- [Vivo Mini Games API Documentation](http://minigame.vivo.com.cn/documents/api/system/life-cycle.html)
+- [Quick App & Vivo Mini Game Debugger Download](http://minigame.vivo.com.cn/documents/download/engine.html)
