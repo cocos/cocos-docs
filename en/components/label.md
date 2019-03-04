@@ -14,7 +14,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Horizontal Align| Horizontal alignment pattern of the text. The options are LEFT, CENTER and RIGHT.
 |Vertical Align| Vertical alignment pattern of the text. The options are TOP, CENTER and BOTTOM.
 |Font Size| Font size of the text.
-|SpacingX | The spacing between font characters, only available in BMFont. (which takes effect when the typeface is set to BMFont/font)
+|SpacingX | The spacing between font characters, only available in BMFont.
 |Line Height| Line height of the text.
 |Overflow| Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See [Label Layout](#label-layout) below for more detailed information.
 |Enable Wrap Text| Enable or disable the text line feed. (which takes effect when the Overflow is set to CLAMP or SHRINK)
@@ -45,6 +45,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 - Cache Mode has an optimized effect for all platforms.
 - The BITMAP mode replaces the original Batch As Bitmap option, and old projects will automatically migrate to this option if Batch As Bitmap is enabled.
+- The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the CHAR mode.
 
 ## Detailed Explanation
 

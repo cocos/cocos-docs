@@ -28,7 +28,7 @@ Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 
 
   然后将生成的安装日志（`exe_log.txt` 和 `msi_log.txt`）提交给开发团队寻求帮助。如果通过以上命令无法获取安装日志，也可以通过为安装程序创建一个快捷方式，并将该命令行参数填入快捷方式的 **目标** 属性中来获取安装日志。
 
-- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
+- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
 
 ### Mac 安装说明
 
