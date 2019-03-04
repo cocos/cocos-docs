@@ -24,12 +24,12 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.MOUSE_DOWN` | 'mousedown' | trigger once when mouse down |
-| `cc.Node.EventType.MOUSE_ENTER` | 'mouseenter' | when the mouse enters the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_MOVE` | 'mousemove' | when the mouse moves in the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_LEAVE` | 'mouseleave' | when the mouse leaves the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_UP` | 'mouseup' | trigger once when the mouse is released from the down state |
-| `cc.Node.EventType.MOUSE_WHEEL` | 'mousewheel' | when the mouse wheel rolls |
+| `cc.Node.EventType.MOUSE_DOWN` | `mousedown` | trigger once when mouse down |
+| `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | when the mouse enters the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_MOVE` | `mousemove` | when the mouse moves in the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_LEAVE` | `mouseleave` | when the mouse leaves the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_UP` | `mouseup` | trigger once when the mouse is released from the down state |
+| `cc.Node.EventType.MOUSE_WHEEL` | `mousewheel` | when the mouse wheel rolls |
 
 The important APIs of mouse events（`cc.Event.EventMouse`）are as follows（`cc.Event` standard events API excluded）：
 
@@ -48,10 +48,10 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.TOUCH_START` | 'touchstart' | when the finger touches the screen |
-| `cc.Node.EventType.TOUCH_MOVE` | 'touchmove' | when the finger moves in the target node region on screen |
-| `cc.Node.EventType.TOUCH_END` | 'touchend' | when the finger leaves screen in the target node region |
-| `cc.Node.EventType.TOUCH_CANCEL` | 'touchcancel' | when the finger leaves screen outside the target node region |
+| `cc.Node.EventType.TOUCH_START` | `touchstart` | when the finger touches the screen |
+| `cc.Node.EventType.TOUCH_MOVE` | `touchmove` | when the finger moves in the target node region on screen |
+| `cc.Node.EventType.TOUCH_END` | `touchend` | when the finger leaves screen in the target node region |
+| `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel` | when the finger leaves screen outside the target node region |
 
 The important APIs of touch event（`cc.Event.EventTouch`）are as follows（`cc.Event` starndard event API excluded）:
 
@@ -96,9 +96,11 @@ At the same time, if C has a parent node, it will also pass the touch event to i
 Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.   
 Now the event bubbling can't meet our demand, so that we need to register the parent node event listeners in the capturing phase.  
 To achieve this goal, we can pass the fourth parameter `true` when registering touch or mouse event on node, which means `useCapture`. For example:
+
 ```js
 this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 ```
+
 When node fires `touchstart` event, the `touchstart` event will be firstly dispatched to all the parent node event listeners registered in the capturing phase, then dispatched to the node itself, and finally comes the event bubbling phase.
 
 Only touch or mouse events can be registered in the capturing phase, while the other events can't be.
@@ -114,17 +116,17 @@ The specific hierarchical relationship should be like this:
 
 ![hierarchy](./internal-events/hierarchy.png)
 
-1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A - C - D**
-2. If the touch location is in node B ( the visible blue area ), the order should be **B - C - D**
-3. If the touch location is in node C, the order should be **C - D**
-4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be **D - C - B**
+1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A -> C -> D**
+2. If the touch location is in node B ( the visible blue area ), the order should be **B -> C -> D**
+3. If the touch location is in node C, the order should be **C -> D**
+4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be **D -> C -> B**
 
 ## Other events of `cc.Node`
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| null | 'position-changed' | when the location property is changed |
-| null | 'rotation-changed' | when the rotation property is changed |
-| null | 'scale-changed' | when the scale property is changed |
-| null | 'size-changed' | when the size property is changed |
-| null | 'anchor-changed' | when the anchor property is changed |
+| null | `position-changed` | when the location property is changed |
+| null | `rotation-changed` | when the rotation property is changed |
+| null | `scale-changed` | when the scale property is changed |
+| null | `size-changed` | when the size property is changed |
+| null | `anchor-changed` | when the anchor property is changed |

@@ -24,12 +24,12 @@ node.on('mousedown', function (event) {
 
 | 枚举对象定义 | 对应的事件名 | 事件触发的时机 |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.MOUSE_DOWN` | 'mousedown' | 当鼠标在目标节点区域按下时触发一次 |
-| `cc.Node.EventType.MOUSE_ENTER` | 'mouseenter' | 当鼠标移入目标节点区域时，不论是否按下 |
-| `cc.Node.EventType.MOUSE_MOVE` | 'mousemove' | 当鼠标在目标节点在目标节点区域中移动时，不论是否按下 |
-| `cc.Node.EventType.MOUSE_LEAVE` | 'mouseleave' | 当鼠标移出目标节点区域时，不论是否按下 |
-| `cc.Node.EventType.MOUSE_UP` | 'mouseup' | 当鼠标从按下状态松开时触发一次 |
-| `cc.Node.EventType.MOUSE_WHEEL` | 'mousewheel' | 当鼠标滚轮滚动时 |
+| `cc.Node.EventType.MOUSE_DOWN` | `mousedown` | 当鼠标在目标节点区域按下时触发一次 |
+| `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | 当鼠标移入目标节点区域时，不论是否按下 |
+| `cc.Node.EventType.MOUSE_MOVE` | `mousemove` | 当鼠标在目标节点在目标节点区域中移动时，不论是否按下 |
+| `cc.Node.EventType.MOUSE_LEAVE` | `mouseleave` | 当鼠标移出目标节点区域时，不论是否按下 |
+| `cc.Node.EventType.MOUSE_UP` | `mouseup` | 当鼠标从按下状态松开时触发一次 |
+| `cc.Node.EventType.MOUSE_WHEEL` | `mousewheel` | 当鼠标滚轮滚动时 |
 
 鼠标事件（`cc.Event.EventMouse`）的重要 API 如下（`cc.Event` 标准事件 API 之外）：
 
@@ -49,10 +49,10 @@ node.on('mousedown', function (event) {
 
 | 枚举对象定义 | 对应的事件名 | 事件触发的时机 |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.TOUCH_START` | 'touchstart' | 当手指触点落在目标节点区域内时 |
-| `cc.Node.EventType.TOUCH_MOVE` | 'touchmove' | 当手指在屏幕上目标节点区域内移动时 |
-| `cc.Node.EventType.TOUCH_END` | 'touchend' | 当手指在目标节点区域内离开屏幕时 |
-| `cc.Node.EventType.TOUCH_CANCEL` | 'touchcancel' | 当手指在目标节点区域外离开屏幕时 |
+| `cc.Node.EventType.TOUCH_START` | `touchstart` | 当手指触点落在目标节点区域内时 |
+| `cc.Node.EventType.TOUCH_MOVE` | `touchmove` | 当手指在屏幕上目标节点区域内移动时 |
+| `cc.Node.EventType.TOUCH_END` | `touchend` | 当手指在目标节点区域内离开屏幕时 |
+| `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel` | 当手指在目标节点区域外离开屏幕时 |
 
 触摸事件（`cc.Event.EventTouch`）的重要 API 如下（`cc.Event` 标准事件 API 之外）：
 
@@ -94,9 +94,11 @@ node.on('mousedown', function (event) {
 有时候我们需要父节点的触摸或鼠标事件先于他的任何子节点派发，比如 CCScrollView 组件就是这样设计的。  
 这时候事件冒泡已经不能满足我们的需求了，需要将父节点的事件注册在捕获阶段。  
 要实现这个需求，可以在给 node 注册触摸或鼠标事件时，传入第四个参数 `true`，表示 `useCapture`. 例如：
+
 ```js
 this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 ```
+
 当节点触发 `touchstart` 事件时，会先将 `touchstart` 事件派发给所有注册在捕获阶段的父节点监听器，然后派发给节点自身的监听器，最后才到了事件冒泡阶段。  
 
 只有触摸或鼠标事件可以注册在捕获阶段，其他事件不能注册在捕获阶段。
@@ -111,17 +113,17 @@ this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, tru
 
 ![hierarchy](./internal-events/hierarchy.png)
 
-1. 若触点在 A、B 的重叠区域内，此时 B 接收不到触摸事件，事件的传递顺序是 **A - C - D**
-2. 若触点在 B 节点内（可见的蓝色区域），则事件的传递顺序是 **B - C - D**
-3. 若触点在 C 节点内，则事件的传递顺序是 **C - D**
-4. 若以第 2 种情况为前提，同时 C D 节点的触摸事件注册在捕获阶段，则事件的传递顺序是 **D - C - B** 
+1. 若触点在 A、B 的重叠区域内，此时 B 接收不到触摸事件，事件的传递顺序是 **A -> C -> D**
+2. 若触点在 B 节点内（可见的蓝色区域），则事件的传递顺序是 **B -> C -> D**
+3. 若触点在 C 节点内，则事件的传递顺序是 **C -> D**
+4. 若以第 2 种情况为前提，同时 C D 节点的触摸事件注册在捕获阶段，则事件的传递顺序是 **D -> C -> B** 
 
 ## `cc.Node` 的其它事件
 
 | 枚举对象定义 | 对应的事件名 | 事件触发的时机 |
 | ---------- |:----------:|:-----------:|
-| 无 | 'position-changed' | 当位置属性修改时 |
-| 无 | 'rotation-changed' | 当旋转属性修改时 |
-| 无 | 'scale-changed' | 当缩放属性修改时 |
-| 无 | 'size-changed' | 当宽高属性修改时 |
-| 无 | 'anchor-changed' | 当锚点属性修改时 |
+| 无 | `position-changed` | 当位置属性修改时 |
+| 无 | `rotation-changed` | 当旋转属性修改时 |
+| 无 | `scale-changed` | 当缩放属性修改时 |
+| 无 | `size-changed` | 当宽高属性修改时 |
+| 无 | `anchor-changed` | 当锚点属性修改时 |
