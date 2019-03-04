@@ -6,11 +6,12 @@ Cocos Creator supports four types of system events: mouse, touch, keyboard, devi
 
 System events follow the general register method, developers can register event listener not only by using the enumeration type but also by using the event name directly, the definition for the event name follows DOM event standards.
 
-```
+```javascript
 // Use enumeration type to register
 node.on(cc.Node.EventType.MOUSE_DOWN, function (event) {
   console.log('Mouse down');
 }, this);
+
 // Use event name to register
 node.on('mousedown', function (event) {
   console.log('Mouse down');
@@ -23,12 +24,12 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.MOUSE_DOWN` | 'mousedown' | trigger once when mouse down |
-| `cc.Node.EventType.MOUSE_ENTER` | 'mouseenter' | when the mouse enters the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_MOVE` | 'mousemove' | when the mouse moves in the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_LEAVE` | 'mouseleave' | when the mouse leaves the target node region, regardless if it is down |
-| `cc.Node.EventType.MOUSE_UP` | 'mouseup' | trigger once when the mouse is released from the down state |
-| `cc.Node.EventType.MOUSE_WHEEL` | 'mousewheel' | when the mouse wheel rolls |
+| `cc.Node.EventType.MOUSE_DOWN` | `mousedown` | trigger once when mouse down |
+| `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | when the mouse enters the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_MOVE` | `mousemove` | when the mouse moves in the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_LEAVE` | `mouseleave` | when the mouse leaves the target node region, regardless if it is down |
+| `cc.Node.EventType.MOUSE_UP` | `mouseup` | trigger once when the mouse is released from the down state |
+| `cc.Node.EventType.MOUSE_WHEEL` | `mousewheel` | when the mouse wheel rolls |
 
 The important APIs of mouse events（`cc.Event.EventMouse`）are as follows（`cc.Event` standard events API excluded）：
 
@@ -47,10 +48,10 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.TOUCH_START` | 'touchstart' | when the finger touches the screen |
-| `cc.Node.EventType.TOUCH_MOVE` | 'touchmove' | when the finger moves in the target node region on screen |
-| `cc.Node.EventType.TOUCH_END` | 'touchend' | when the finger leaves screen in the target node region |
-| `cc.Node.EventType.TOUCH_CANCEL` | 'touchcancel' | when the finger leaves screen outside the target node region |
+| `cc.Node.EventType.TOUCH_START` | `touchstart` | when the finger touches the screen |
+| `cc.Node.EventType.TOUCH_MOVE` | `touchmove` | when the finger moves in the target node region on screen |
+| `cc.Node.EventType.TOUCH_END` | `touchend` | when the finger leaves screen in the target node region |
+| `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel` | when the finger leaves screen outside the target node region |
 
 The important APIs of touch event（`cc.Event.EventTouch`）are as follows（`cc.Event` starndard event API excluded）:
 
@@ -70,24 +71,62 @@ Note, touch events support multi-touch, each touch spot will send one event to t
 | `getStartLocation` | `Object` | get the location object the where touch spot gets down which includes x and y properties |
 | `getPreviousLocation` | `Object` | get the location object of the touch spot at the last event which includes x and y properties |
 
-## Touch event bubbles
+## Touch event propagation
 
-touch events support the event bubbles on the node tree, take the pictures below as an example:
+### Touch event bubbles
+
+Touch events support the event bubbles on the node tree, take the pictures below as an example:
 
 ![propagation](./internal-events/propagation.png)
 
-In the scene shown in the picture, node A has a child node B which has a child node C. Suppose the developer set the touch event listeners for all these three nodes, when the mouse or finger was applied in the node B region, the event will be triggered at node B first and the node B listener will receive the event. Then the node B will pass this event to its parent node, so the node A listener will receive this event. This is a basic event bubble process.
+In the scene shown in the picture, suppose node A has a child node B which has a child node C. The developer set the touch event listeners for all these three nodes (each node has a touch event listener in examples below by default).  
 
-When the mouse or finger presses in the node C region, the event will be triggered at node C first and notify the registered event listener at node C. Node C will notify node B of this event, and the logic in node B will check whether the touch spot is in its region. If the answer is yes, it will notify its listener, otherwise, it will do nothing. Node A will receive the event then, since node C is completely in node A, the event listener registered in node A will receive the touch down event. The above process explains the event bubble process and that the logic decides whether to dispatch the event or not based on the node region.
+When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event. Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase. It needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that the node A and B can receive touch events even though the touch location is out of their node region.
 
-Except for the node region to decide whether to dispatch the event or not, the bubble process of touch events is no different than the general events. So, the fuction`stopPropagation` to call `event` of `stopPropagation` can stop the bubbling process actively.
+The bubbling phase of touch events is no different than the general events. So, calling `event.stopPropagation()` can force to stop the bubbling phase.
+
+### Ownership of touch points among brother nodes
+
+Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
+
+At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechainism.
+
+### Register touch or mouse events in the capturing phase
+
+Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.   
+Now the event bubbling can't meet our demand, so that we need to register the parent node event listeners in the capturing phase.  
+To achieve this goal, we can pass the fourth parameter `true` when registering touch or mouse event on node, which means `useCapture`. For example:
+
+```js
+this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
+```
+
+When node fires `touchstart` event, the `touchstart` event will be firstly dispatched to all the parent node event listeners registered in the capturing phase, then dispatched to the node itself, and finally comes the event bubbling phase.
+
+Only touch or mouse events can be registered in the capturing phase, while the other events can't be.
+
+### Example for touch events
+
+Let's make a summary of touch event propagation with the example below:
+
+![example](./internal-events/example.png)
+
+There are four nodes A, B, C and D in the picture above, where A and B are brother nodes.  
+The specific hierarchical relationship should be like this:
+
+![hierarchy](./internal-events/hierarchy.png)
+
+1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be **A -> C -> D**
+2. If the touch location is in node B ( the visible blue area ), the order should be **B -> C -> D**
+3. If the touch location is in node C, the order should be **C -> D**
+4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be **D -> C -> B**
 
 ## Other events of `cc.Node`
 
 | enumeration object definition | corresponding event name | event trigger timing |
 | ---------- |:----------:|:-----------:|
-| null | 'position-changed' | when the location property is changed |
-| null | 'rotation-changed' | when the rotation property is changed |
-| null | 'scale-changed' | when the scale property is changed |
-| null | 'size-changed' | when the size property is changed |
-| null | 'anchor-changed' | when the anchor property is changed |
+| null | `position-changed` | when the location property is changed |
+| null | `rotation-changed` | when the rotation property is changed |
+| null | `scale-changed` | when the scale property is changed |
+| null | `size-changed` | when the size property is changed |
+| null | `anchor-changed` | when the anchor property is changed |
