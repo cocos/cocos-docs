@@ -87,6 +87,8 @@
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到微信小游戏平台](publish/publish-wechatgame.md)
         - [微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
+    - [发布到百度小游戏平台](publish/publish-baidugame.md)
+        - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
     - [发布到 QQ「玩一玩」平台](publish/publish-qqplay.md)
     - [发布到 Facebook Instant Games 平台](publish/publish-fb-instant-games.md)
     - [发布到 Google Play Instant 平台](publish/publish-android-instant.md)

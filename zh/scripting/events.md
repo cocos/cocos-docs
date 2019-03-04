@@ -37,7 +37,7 @@ this.node.on('mousedown', function (event) {
 
 除了使用 `on` 监听，我们还可以使用 `once` 方法。`once` 监听在监听函数响应后就会关闭监听事件。
 
-### 关闭监听
+## 关闭监听
 
 当我们不再关心某个事件时，我们可以使用 `off` 方法关闭对应的监听事件。需要注意的是，`off` 方法的
 参数必须和 `on` 方法的参数一一对应，才能完成关闭。
@@ -84,6 +84,29 @@ cc.Class({
   },
 });
 ```
+
+## 事件参数说明
+
+在 2.0 之后，我们优化了事件的参数传递机制。
+在发射事件时，我们可以在 `emit` 函数的第二个参数开始传递我们的事件参数。同时，在 `on` 注册的回调里，可以获取到对应的事件参数。
+```js
+cc.Class({
+  extends: cc.Component,
+
+  onLoad () {
+    this.node.on('foo', function (arg1, arg2, arg3) {
+      console.log(arg1, arg2, arg3);  // print 1, 2, 3
+    });
+  },
+
+  start () {
+    let arg1 = 1, arg2 = 2, arg3 = 3;
+    // At most 5 args could be emit.
+    this.node.emit('foo', arg1, arg2, arg3);
+  },
+});
+```
+需要说明的是，出于底层事件派发的性能考虑，这里最多只支持传递 5 个事件参数。所以在传参时需要注意控制参数的传递个数。
 
 ## 派送事件
 

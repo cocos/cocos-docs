@@ -35,8 +35,8 @@ Parameter name  | Explanation | Type | Default | Remark
 default | define default for the property | (Any) | undefined | See [default attribute](class.md#default)
 notify | trigger a specific method when assigning the property | `function (oldValue) {}` | undefined | The default property is needed to define and is not available for array.<br>Not support ES6 Classes.
 override | when reloading the super class property, this parameter needs to be defined as true | boolean | false | See [override attribute](class.md#override)
-animatable | whether this property can be altered by animation | boolean | true |
-url | this property is the URL of an assigned asset | `function` <br> (constructor inherited from cc.RawAsset) | undefined | See [Acquire and load asset: Raw Asset](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/en/scripting/load-assets.md#raw-asset)<br>(deprecated, use type instead please)
+animatable | whether this property can be altered by the **Timeline** editor | boolean | undefined |
+url(legacy) | this property is the URL of an assigned asset | `function` <br> (constructor inherited from cc.RawAsset) | undefined | See [Acquire and load asset: Raw Asset](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/en/scripting/load-assets.md#raw-asset)<br>(deprecated, use type instead please)
 
 **Note 1:** The default value of `visible` is determined by the property name. When the property name starts with an underscore `_`, then the default is set to hide, otherwise it is by default set to show.
 
