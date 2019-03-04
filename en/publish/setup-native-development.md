@@ -81,9 +81,9 @@ We have received lots of feedback about original packing in the public beta, and
 
 1. Check Xcode and Visual Studio
 
-    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, the C++ compiling component is not ticked off by default. If it wasn't installed, you need to reinstall and choose **Desktop development with C++** and **Game development with C++** two modules.
+    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
 
-    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do not check the installation.
+    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
 2. Package name issue
 
