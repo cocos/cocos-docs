@@ -41,13 +41,16 @@ java -version
 3. 在 `Android SDK Build-Tools` 里，选择最新的 build tools 版本。
 4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
 5. 勾选 `NDK`，确保版本在 14 以上（推荐使用 r16）。<br>
-**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.1 以下的版本 **不要** 将 NDK 更新到 **r18**，否则会导致编译报错。
+**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.0.9 以下的版本 **不要** 将 NDK 更新到 **r18**，否则会导致编译报错。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 `OK`，根据提示完成安装。
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
-**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。
+**注意**：
+
+- Android Studio 3.2 版本的 Gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。(已在 **v2.0.9** 中解决)
+- Android Studio 在 **v2.0.9** 中可配置 Gradle 最高至 **4.10.3**，plugin 最高至 **3.2**
 
 ## 安装 C++ 编译环境
 
@@ -78,7 +81,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 1. 检查 Xcode 和 Visual Studio
 
-    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，默认并没有勾选 C++ 编译组件。如果没有安装，则需要重新安装并选择 C++ 相关编译组件。
+    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
+
+    **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
 
 2. 包名问题
 

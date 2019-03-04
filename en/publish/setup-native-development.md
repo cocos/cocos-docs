@@ -41,13 +41,16 @@ After installing Android Studio, refer to the official documentation and open th
 3. In the `Android SDK Build-Tools`, select the latest build Tools version.
 4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
 5. Check the `NDK` and ensure that the version is above 14 ("r16" version is recommended).<br>
-**Attention**: NDK-r18 has removed the GNU compiler. Please do not update the NDK to r18 for versions below Creator v2.1, otherwise it will cause the compile error.
+**Note**: NDK-r18 has removed the GNU compiler. Please do not update the NDK to r18 for versions below Creator v2.0.9, otherwise it will cause the compile error.
 6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
 7. Click `OK` and follow the prompts to complete the installation.
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-**Note**: Please do **not** update the **gradle** of Android Studio 3.2 to **4.6**, otherwise it will cause resource packaging to fail.
+**Note**:
+
+- Please do **not** update the **gradle** of Android Studio 3.2 to **4.6**, otherwise it will cause resource packaging to fail. (Already resolved in **v2.0.9**)
+- Android Studio can configure Gradle up to **4.10.3** and plugin up to **3.2** in **v2.0.9**
 
 ## Install C++ compiling environment
 
@@ -78,7 +81,9 @@ We have received lots of feedback about original packing in the public beta, and
 
 1. Check Xcode and Visual Studio
 
-   Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, the C++ compiling component is not ticked off by default. If it wasn't installed, you need to install it and choose compiling components concerning C++.
+    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
+
+    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
 2. Package name issue
 
