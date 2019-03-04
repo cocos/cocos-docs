@@ -23,12 +23,19 @@ If you want to auto start compile after build, use `autoCompile` parameter:
 
 - `--build "autoCompile=true"`
 
+You can also to compile the native project of the native platform separately by using `--compile` command, the parameters is the same with `--build`.
+
+- `--compile "platform=android;debug=true"`
+
+**Note**: The Web platform does not need to use `--compile` command, and the `--compile` command is used by the native platform.
+
 ## Publish Parameters
 
  - `--path`: Project Path
  - `--build`: Pulibsh project Parameters
+ - `--compile`: Compile native project Parameters
 
-If no parameters are specified after **--build**, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
+If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
 - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
 - `title` - Project title
