@@ -4,15 +4,15 @@ PageView component is derived from ScrollView, the difference is that when scrol
 
 ![pageview-inspector](./pageview/pageview-inspector.png)
 
-Click the 'Add component' pageView at the bottom of the **Properties** panel and select 'PageView' from 'Add UI Component'. This will add PageView component to the current node.
+Click the **Add Component** pageView at the bottom of the **Properties** panel and select **PageView** from **Add UI Component**. This will add PageView component to the current node.
 
-Please refer to the script interface of the PageView [PageView API](../../../api/en/classes/PageView.html)
+Please refer to the script interface of the [PageView API](../../../api/en/classes/PageView.html)
 
 ## PageView property
 
 | Property                 | Function description |
 | --------------           | ----------- |
-| SizeMode                 | Specify the size type of each page in PageView, currently has Unified, Free Type [SizeMode API] (../../../api/en/enums/PageView.SizeMode.html)|
+| SizeMode                 | Specify the size type of each page in PageView, currently has Unified and Free type [SizeMode API](../../../api/en/enums/PageView.SizeMode.html)|
 | Content                  | It is a node reference that is used to contain the contents of the PageView |
 | Direction                | The page view direction |
 | ScrollThreshold          | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
@@ -24,7 +24,7 @@ Please refer to the script interface of the PageView [PageView API](../../../api
 | Indicator                | The Page View Indicator |
 | PageTurningEventTiming   | Change the PageTurning event timing of PageView |
 | PageEvents               | PageView events callback |
-| CancelInnerEvents        | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes It's set to true by default.|
+| CancelInnerEvents        | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes. It's set to true by default.|
 
 ## PageView event
 
@@ -41,24 +41,26 @@ PageView event callback has two parameters, the first parameter is the PageView 
 
 ## Detailed explanation
 
-The PageView component must have the specified content node to work, Each child node in content is a separate page, The size of each page is the size of the PageView node, The operation effect is divided into two kinds: The first type: slow sliding, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size) after the release will automatically slide to the next page. The second: fast sliding, fast to a direction to drag, automatically slide the next page, each slide up to only one page.
+The PageView component must have the specified content node to work, Each child node in content is a separate page, The size of each page is the size of the PageView node, The operation effect is divided into two kinds:
+
+- The first type: **slow sliding**, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size) after the release will automatically slide to the next page.
+- The second: **fast sliding**, fast to a direction to drag, automatically slide the next page, each slide up to only one page.
 
 Usually a PageView node tree as shown below:
 
 ![pageview-hierarchy](./pageview/pageview-hierarchy.png)
 
-## CCPageViewIndicator Set Up
+### CCPageViewIndicator Set Up
 
 CCPageViewIndicator is optional, the component is used to display the number of pages and the current page.
 
 The association can be done by dragging a node with a PageViewIndicator component into the corresponding field of the PageView in the **Node Tree**.
 
-#### Add callback via script code
+### Add callback via script code
 
-##### One method
+#### Method one
 
-This method adds an event callback and uses the editor to add an event callback that is the same, added by code,
-You need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters¡£
+This method adds an event callback and uses the editor to add an event callback that is the same, added by code, you need to construct a `cc.Component.EventHandler` object first, and then set the corresponding target, component, handler and customEventData parameters.
 
 ```js
 var pageViewEventHandler = new cc.Component.EventHandler();
@@ -72,7 +74,7 @@ pageView.pageEvents.push(pageViewEventHandler);
 // here is your component file
 cc.Class({
     name: 'cc.MyComponent'
-    
+
     extends: cc.Component,
 
     properties: {
@@ -87,7 +89,7 @@ cc.Class({
 });
 ```
 
-##### Method two
+#### Method two
 
 By `pageView.node.on('page-turning', ...)` way to add
 
@@ -100,11 +102,11 @@ cc.Class({
     properties: {
        pageView: cc.PageView
     },
-    
+
     onLoad: function () {
-       this.pageView.node.on('click', this.callback, this);
+       this.pageView.node.on('page-turning', this.callback, this);
     },
-    
+
     callback: function (event) {
        // Here event is a EventCustom object, you can get Slider components through event.detail
        var pageView = event.detail;
