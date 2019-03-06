@@ -6,7 +6,7 @@ The button component responds to a click from the user. When the user clicks a B
 
 ![button-color](./button/button-color.png)
 
-Click the `Add component` button at the bottom of the **Properties** panel and select `Button` from `add UI component`. You can then add the Button component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **Button** from **Add UI Component**. Then you can add the Button component to the node.
 
 ## Button property
 
@@ -14,10 +14,12 @@ Click the `Add component` button at the bottom of the **Properties** panel and s
 | -------------- | ----------- |
 |Interactable| Boolean type, if set to false then the Button component enters the forbidden state.
 |enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false. Don't  take effect when Transition type is SPRITE and the disabledSprite property is exists.
-|Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please check more detailed information in the chapter `Button Transition`.
-|Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
+|Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
+|Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
 
-### Button Transition
+**Note**: When `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
+
+## Button Transition
 
 Button Transition is used to indicate the status of the Button when clicked by the user. Currently the types available are NONE, COLOR, SPRITE and SCALE.
 
@@ -26,7 +28,6 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ### Color Transition
 
 ![color-transition](./button/color-transition.png)
-
 
 | Property |   Function Explanation
 | -------------- | ----------- |
@@ -56,27 +57,26 @@ Button Transition is used to indicate the status of the Button when clicked by t
 |Duration| Time interval needed for Button status switching.
 |ZoomScale| When user press the button, the button will zoom to a scale.The final scale of the button  equals (button original scale * zoomScale), zoomScale could be negative value.
 
-### Button event
+## Button event
 
 ![button-event](./button/button-event.png)
 
-
-| Property       | Function Explanation                                                                             |
-| --------------  | -----------                                                                                      |
-| Target          | Node with the script component.                                                                  |
-| Component       | Script component name.                                                                           |
+| Property       | Function Explanation                        |
+| --------------  | -----------                                |
+| Target          | Node with the script component.            |
+| Component       | Script component name.                     |
 | Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
 | customEventData | A user-defined string value passed as the last event argument of the event callback.             |
   
-#### Detailed explanation
+## Detailed explanation
 
 Button currently only supports the On Click event. This means only when users click and release the Button will the corresponding call-back function be triggered.
 
-#### Add a callback through the script code
+### Add a callback through the script code
 
-##### Method one
+#### Method one
 
-This method adds the same event callback as the event callback that is added using the editor，By adding code, you need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
+The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```js
 //here is your component file, file name = MyComponent.js 
@@ -104,10 +104,9 @@ cc.Class({
 });
 ```
 
-##### Method two
+#### Method two
 
-By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not
-Gets the screen coordinate point of the current click button.
+By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not gets the screen coordinate point of the current click button.
 
 ```js
 //Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
