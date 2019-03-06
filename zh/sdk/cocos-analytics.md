@@ -29,7 +29,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
   - **AppID** 和 **AppSecret**：点击 Cocos Analytics 服务面板右上角的 **前往服务中心**，跳转到 [Cocos 账户中心](https://auth.cocos.com/#/)。然后切换到 **账户** 标签，点击游戏右边的 **编辑** 按钮进入游戏编辑窗口，即可获取 **AppID** 和 **AppSecret** 参数。如下图：
 
     ![](cocos-analytics/get_properties.png)
-  - **channel** 和 **version**：channel 为广告联盟的广告渠道 ID。store 为游戏分发渠道 ID。这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
+  - **channel** 和 **store**：channel 为广告联盟的广告渠道 ID。store 为游戏分发渠道 ID。这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
 
 6、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需要选择 **Android／iOS／Web** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
