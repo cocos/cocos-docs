@@ -6,7 +6,7 @@ Slider is a slider component, For the production of UI components such as volume
 
 ![slider-inspector](./slider/slider-inspector.png)
 
-Click the 'Add component' slider at the bottom of the **Properties** panel and select 'Slider' from 'Add UI component'. You can then add the Slider component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **Slider** from **Add UI Component**. You can then add the Slider component to the node.
 
 Please refer to the script interface of the slider [Slider API](../../../api/en/classes/Slider.html)
 
@@ -20,6 +20,7 @@ Please refer to the script interface of the slider [Slider API](../../../api/en/
 | slideEvents    | Slider component event callback function |
 
 ## Slider event
+
 ![slider-event](./slider/slider-event.png)
 
 | Attributes      | Function explanation |
@@ -39,12 +40,11 @@ Usually a Slider node tree as shown below:
 
 ![slider-hierarchy](./slider/slider-hierarchy.png)
 
-#### Add a callback by script code
+## Add a callback by script code
 
-##### One method
+### Method one
 
-This method adds the event callbacks and the event callbacks that are added to the editor using the same code,
-You need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
+The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```js
 var sliderEventHandler = new cc.Component.EventHandler();
@@ -70,7 +70,7 @@ cc.Class({
 });
 ```
 
-##### Method two
+### Method two
 
 By `slider.node.on('slide', ...)` way to add
 
@@ -80,19 +80,18 @@ By `slider.node.on('slide', ...)` way to add
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        slider: cc.Slider
     },
-    
+
     onLoad: function () {
        this.slider.node.on('slide', this.callback, this);
     },
-    
-    callback: function (event) {
-       // Here event is a EventCustom object, you can get Slider components through event.detail
-       var slider = event.detail;
-       // do whatever you want with the slider
+
+    callback: function (Slider) {
+       // The parameter of the callback is the Slider component.
+       // do whatever you want with Slider
     }
 });
 ```
