@@ -35,7 +35,7 @@ this.node.on('mousedown', function (event) {
 
 Besides listening with `on`, we can also use the `once` method. The `once` listener will shut the event being listened to after the listener function responds.
 
-### Shut listener
+## Shut listener
 
 We can shut the corresponding event listener using `off` when we don't care about a certain event anymore. One thing to note is that the parameter of `off` must be in one-to-one correspondence with the parameter of `on` in order to shut it.
 
@@ -82,6 +82,30 @@ cc.Class({
 });
 ```
 
+## Explanation for event arguments
+
+We've made some optimizations for passing event arguments since v2.0.  
+When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
+```js
+cc.Class({
+  extends: cc.Component,
+
+  onLoad () {
+    this.node.on('foo', function (arg1, arg2, arg3) {
+      console.log(arg1, arg2, arg3);  // print 1, 2, 3
+    });
+  },
+
+  start () {
+    let arg1 = 1, arg2 = 2, arg3 = 3;
+    // At most 5 args could be emit.
+    this.node.emit('foo', arg1, arg2, arg3);
+  },
+});
+```
+What need to be emphasized is that you can only pass 5 event arguments at most for the consideration of event dispatching performance.
+So you need to pay attention to the number of event arguments you pass.
+
 ## Event delivery
 
 Events launched by the `dispatchEvent` method mentioned above would enter the event delivery stage. In Cocos Creator's event delivery system, we use bubble delivery. Bubble delivery will pass the event from the initiating node continually on to its parent node until it gets to the root node or is interruptedly processed by `event.stopPropagation()` in the response function of some node.
@@ -115,7 +139,7 @@ In the call-back of the event listener, the developer will receive an event obje
 | `type` | `String` | type of the event (event name) |
 | `target` | `cc.Node` | primary object received by the event |
 | `currentTarget` | `cc.Node` | current object receiving the event; current object of the event in the bubble stage may be different from the primary object |
-| `getType` | `Funciton` | get the type of the event |
+| `getType` | `Function` | get the type of the event |
 | `stopPropagation` | `Function` | stop the bubble stage, the event will no longer pass on to the parent node while the rest of the listeners of the current node will still receive the event |
 | `stopPropagationImmediate` | `Function` | stop delivering the event. The event will not pass on to the parent node and the rest of the listeners of the current node |
 | `getCurrentTarget` | `Function` | get the target node that is currently receiving the event |

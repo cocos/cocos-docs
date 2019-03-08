@@ -146,12 +146,23 @@ And import MyModule and then declare a member variable of the `MyModule` type in
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import {MyModule} from './MyModule';
+import MyModule from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {
     @property (MyModule)
     public myModule: MyModule = null;
+
+    /*
+     * // Declaring the custom class array
+     * @property(MyModule)
+     * public myModule: MyModule[] = [];
+     *
+     * @property({
+     *     type: MyModule
+     * })
+     * public myModule: MyModule[] = [];
+     */
 
     public onLoad () {
         // init logic
@@ -164,6 +175,26 @@ When you enter `this.myModule.`, you will be prompt the properties declared in `
 
 ![Auto complete](assets/auto-complete.gif)
 
+__Node: If the declared property is modified to an Array type, but it does not take effect in the editor. Please Reset the component through the component menu.__
+
+![Reset component](assets/reset-component.png)
+
+## The special type since v1.10
+
+Cocos Creator made partial adjustments to the asset types since v1.10. The declaration of data type `cc.Texture2D`, `cc.AudioClip` and `cc.ParticleAsset` etc. in TS must be declared in the following format:
+
+```typescript
+@property({
+    type: cc.Texture2D
+})
+texture: cc.Texture2D = null;
+
+@property({
+    type: cc.Texture2D
+})
+textures: cc.Texture2D[] = [];
+```
+
 ## Using namespaces
 
 In typescript, a namespace is an ordinary, named Javascript object that is located under the global namespace. It is commonly used to add namespace restrictions to variables when using global variables to avoid polluting the global space. Namespaces and modularity are completely different concepts, and namespaces cannot be exported or referenced, and are used only to provide global variables and methods that are accessed through namespaces. More detailed explanations of namespaces and modularity please refer to [Namespaces and Modules](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Namespaces%20and%20Modules.html).
@@ -174,8 +205,10 @@ So for typescript scripts that contain namespaces, we can neither compile and mo
 
 ### Name space workflow
 
-1. In the root directory of the project (outside the assets directory), create a new folder to store all of TS scripts containing namespaces, such as `namespaces`.<br>
+1. In the root directory of the project (outside the assets directory), create a new folder to store all of TS scripts containing namespaces, such as `namespaces`.
+
     ![namespace folder](assets/namespace-folder.jpg)
+
 2. Modify the `tsconfig.json` file to add the `namespace` folder you just created to the `include` field, indicating that we will compile this part of the file by Vscode.
 3. In the `compilerOptions` field of `tsconfig.json`, add the `outFile` field and set the file path under a `assets` folder. With these settings, We will compile all the ts files in the `namespace` directory into a js file in the `assets` directory.
 

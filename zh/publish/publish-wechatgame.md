@@ -10,12 +10,6 @@
 - 如何使用 Cocos Creator 发布微信小游戏
 - 小游戏资源管理
 
-与这篇文档搭配的还有一段教学视频，可以结合视频中的操作来理解，更加直观。
-
-{% raw %}
-<iframe frameborder="0" width="100%" height="440" src="https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0" allowfullscreen></iframe>
-{% endraw %}
-
 ## 微信小游戏平台
 
 微信小游戏是微信小程序下的游戏产品平台，它不仅提供了强大的游戏能力，还和小程序一样，提供了大量的原生接口，比如支付，社交，文件系统，照片，NFC 等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
@@ -32,26 +26,23 @@
 
 ## 使用 Cocos Creator 发布微信小游戏
 
-我们从 Cocos Creator v1.8 开始，支持 Cocos Creator 游戏一键发布为微信小游戏，下面是详细的发布步骤：
+1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
+2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
-1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
-2. 在 "Creator 设置" > "原生开发环境" 中设置微信开发者工具路径
-
-    ![](./publish-wechatgame/preference.jpg)
+    ![](./publish-wechatgame/preference.JPG)
 3. 登陆微信公众平台，找到 appid
 
     ![](./publish-wechatgame/appid.jpeg)
-4. 在构建面板中设置项目名和 appid
+4. 在 **构建发布** 面板的 **发布平台** 中选择 **微信小游戏**，填入小游戏 appid，然后点击 **构建**
 
     ![](./publish-wechatgame/build.jpeg)
-5. 构建发布
-6. 点击 play 打开微信开发者工具
+5. 点击 **运行** 打开微信开发者工具
 
     ![](./publish-wechatgame/tool.jpeg)
-**注意**：微信开发者工具，在 Mac 上如果没运行过，会报错：`Please ensure that the IDE has been properly installed`。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
-7. 预览部署
+**注意**：微信开发者工具，如果之前在 Mac 上没运行过，会出现：`Please ensure that the IDE has been properly installed` 的报错。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
+6. 预览部署
 
-按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：game.json 和 project.config.json
+按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包 **wechatgame** 文件夹，其中已经包含了微信小游戏环境的配置文件：`game.json` 和 `project.config.json`
 
 ![](./publish-wechatgame/package.jpeg)
 
@@ -59,7 +50,7 @@
 
 在小游戏环境中，资源管理是最特殊的部分，它和浏览器的不同在于下面四点：
 
-1. 小游戏的包内体积不能够超过 4mb，包含所有代码和资源，额外的资源必须通过网络请求下载。
+1. 小游戏的包内体积不能够超过 4MB，包含所有代码和资源，额外的资源必须通过网络请求下载。
 2. 对于从远程服务器下载的文件，小游戏环境没有浏览器的缓存以及过期更新机制。
 3. 对于小游戏包内资源，小游戏环境内并不是按需加载的，而是一次性加载所有包内资源，然后再启动页面。
 4. 不可以从远程服务器下载脚本文件。
@@ -80,11 +71,11 @@
 
 具体来说，开发者需要做的是：
 
-1. 构建时，勾选 md5Cache 功能。
-2. 将小游戏发布包中的 res 文件夹完整的上传到服务器。
-3. 删除发布包内的 res 文件夹。
-4. 在构建发布面板中设置 `远程服务地址`。
-5. 对于测试阶段来说，可能你无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开详情页面，勾选项目设置中的 `不检验安全域名、TLS 版本以及 HTTPS 证书` 选项。
+1. 构建时，在 **构建发布** 面板中勾选 md5Cache 功能。
+2. 设置 **远程服务器地址**，然后点击 **构建**。
+3. 构建完成后将微信小游戏发布包目录下的 res 文件夹完整的上传到服务器。
+4. 删除本地发布包目录下的 res 文件夹。
+5. 对于测试阶段来说，可能用户无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开 **详情** 页面，勾选项目设置中的 **不检验安全域名、TLS 版本以及 HTTPS 证书** 选项。
 
 ![](./publish-wechatgame/detail.jpeg)
 
@@ -107,7 +98,7 @@
 
 ## 接入微信小游戏的开放数据域
 
-微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 wx.getFriendCloudStorage() 和 wx.getGroupCloudStorage() 两个 API，用于实现一些例如排行榜的功能。
+微信小游戏为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问微信提供的 `wx.getFriendCloudStorage()` 和 `wx.getGroupCloudStorage()` 两个 API，用于实现一些例如排行榜的功能。
 
 Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请参考 [接入微信小游戏的开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 

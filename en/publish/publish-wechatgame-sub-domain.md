@@ -11,11 +11,11 @@ In the open data context project, it is packaged independently through the open 
 
 __Cocos Creator__ supports packaging to open data contexts since v1.9.1, and an important update in v2.0.1. The two versions are used differently, as described below.
 
-# Publish to the Open Data Context (updated version)
+## Publish to the Open Data Context of WeChat Mini Games (updated version)
 
 The updated version is supported in __v2.0.1__ and higher, for __v1.9.1__ to __v2.0.0__ version please refer to [old version open data context release](../publish-wechatgame-sub-domain.md#publish-to-the-open-data-context-version-before-update).
 
-## Integration method
+### Integration method
 
 - Create an open data context project to obtain user data through the relevant API, and create a display of ui according to your own needs. The entire open data context project should only contain its content UI. The design resolution of the Canvas component in the scene should be set to the full resolution of the UI, without the corresponding main context resolution.
 - Create a node in the main context as an open data context container, add the `WXSubContextView` component to set the open data context view and update the open data context texture. The aspect ratio of this node should be equal to the aspect ratio of the open data context design resolution (otherwise stretching happens).
@@ -27,26 +27,26 @@ The difference from the previous version is:
 3. The event response of the open data context is handled by the engine, and the user does not need to care.
 4. The texture update of the open data context is handled by the engine, and the user does not need to care.
 
-## WXSubContextView Tips
+### WXSubContextView Tips
 
 This is the core component of the new open data context solution. In addition to the regular requirements that can be met, there are a few tricks that allow users to better control the performance of open data contexts.
 
-1. View update
+- **View update**
 
-    In general, the open data context view is fixed, but there are also cases where the open data context is updated in the view node of the main context, such as using the Widget to adapt the parent node, such as the case where the design resolution changes after the scene switch. Or the developer manually adjusted the size of the view. In this case, the developer must call the `updateSubContextViewport` interface to update the view parameters in the open data context so that the event can be correctly mapped to the open data context view.
+  In general, the open data context view is fixed, but there are also cases where the open data context is updated in the view node of the main context, such as using the Widget to adapt the parent node, such as the case where the design resolution changes after the scene switch. Or the developer manually adjusted the size of the view. In this case, the developer must call the `updateSubContextViewport` interface to update the view parameters in the open data context so that the event can be correctly mapped to the open data context view.
 
-2. Manually update the texture
+- **Manually update the texture**
 
-    When the open data context is evoked, as soon as the WXSubContextView component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated every frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the update function when needed:
+  When the open data context is evoked, as soon as the WXSubContextView component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated every frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the update function when needed:
 
-    ```javascript
-    subContextView.enabled = false;
-    subContextView.update();
-    ```
+  ```javascript
+  subContextView.enabled = false;
+  subContextView.update();
+  ```
 
-    This manual control is the best performance solution.
+   This manual control is the best performance solution.
 
-## Module selection
+### Module selection
 
 Since the code and resources of the WeChat open data context cannot be shared with the main context, it is very sensitive to the package. The developer needs to set the [project module culling option](../getting-started/basics/editor-panels/project-settings.md) for the open data context project. It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data context projects. The Canvas Renderer must be checked because the open data context only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
 
@@ -55,53 +55,55 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 - Graphics
 - Mask
 
-## Release Steps
+### Release Steps
 
-1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
+1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
-![](./publish-wechatgame/maintest-build.png)
+    ![](./publish-wechatgame/maintest-build.png)
 
-This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context distribution package.
 
-![](./publish-wechatgame/game-json.png)
+    ![](./publish-wechatgame/game-json.png)
 
 2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context** platform.
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-**Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
+    **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
+
+    ![](./publish-wechatgame/open-data-project-build.png)
+
+    Or you can not modify the **Build Path** to manually copy the release package to the release package directory of the main context project after the open data context project is built. As shown below:
+
+    ![](./publish-wechatgame/package.png)
+
+4. Click **Run** in the main context project to launch the WeChat Mini Game Developer tool, and then publish and debug according to the normal process of the previous WeChat Mini Game.
+
+    ![](./publish-wechatgame/preview.png)
+
+**Note:**
+- If you publish the open data context and then publish the main context, the release code of the open data context will be overwritten, and We've fixed the issue in the v2.0.7
+- Because WeChat Mini Games will support WebGL rendering mode for Open Data Context in later versions, so Creator adapted WebGL mode for Open Data Context in v2.0.9. However, it currently cause the project to appear **[GameOpenDataContext] Open Data Context only supports using 2D rendering mode** error message when running in the WeChat developer tool. This error message is due to the use of `document.createElement("canvas").getContext("webgl")` to detect if WeChat mini games support WebGL, it will not affect the normal use of the project, you can ignore it.
 
 
-![](./publish-wechatgame/open-data-project-build.png)
+### Reference link
 
-Or you can not modify the **Build Path** to manually copy the release package to the release package directory of the main context project after the open data context project is built. As shown below:
+- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
 
-![](./publish-wechatgame/package.png)
-
-4. Click **Run** in the main context project to launch the WeChat Mini Game Developer tool, and then publish and debug according to the normal process of the previous WeChat game.
-
-![](./publish-wechatgame/preview.png)
-
-**Note: If you publish the open data context and then publish the main context, the release code of the open data context will be overwritten, and we will optimize the experience in subsequent versions**
-
-## Reference link
-
-The [Open Data Context Sample Project](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) provided by __Cocos Creator__ contains examples of the use of WeChat open data contexts.
-
-[WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)
+- [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)
 
 ---------------------
 
-# Publish to the Open Data Context (version before update)
+## Publish to the Open Data Context of WeChat Mini Games (version before update)
 
-The following method is applicable to v2.0.0. For earlier versions, please refer to [Accessing Open Data Context of WeChat Game](../../../1.10/manual/en/publish/publish-wechatgame.html)
+The following method is applicable to v2.0.0. For earlier versions, please refer to [Accessing Open Data Context of WeChat Mini Games](../../../1.10/manual/en/publish/publish-wechatgame.html)
 
-## Integration method
+### Integration method
 
 - Create an open data context project to obtain user data through the relevant API, and create a display of ui according to your own needs. The open data context must use a full screen window, maintaining the same design resolution and adaptation mode as the main context.
 - The main context creates the Texture2D by acquiring the global object sharedCanvas (Canvas of the open data context), and then creates the SpriteFrame through the Texture2D, thereby assigning the SpriteFrame to the Sprite to be displayed to the main context, if the open data context is operational function (for example, operations such as sliding, dragging, etc.), then the main context needs to get the sharedCanvas in real time in the update to refresh the sprite.
 
-## Module selection
+### Module selection
 
 Since the code and resources of the WeChat open data context cannot be shared with the main context, it is very sensitive to the package. The developer needs to set the [project module culling option](../getting-started/basics/editor-panels/project-settings.md) for the open data context project. It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data context projects. The Canvas Renderer must be checked because the open data context only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
 
@@ -138,34 +140,34 @@ Since the code and resources of the WeChat open data context cannot be shared wi
     });
 ```
 
-## Release Steps
+### Release Steps
 
-1. Open the main context project, open the **Build** panel in **Menu Bar --> Project**, select the **WeChat Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
+1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
-![](./publish-wechatgame/maintest-build.png)
+    ![](./publish-wechatgame/maintest-build.png)
 
-This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context distribution package.
 
-![](./publish-wechatgame/game-json.png)
+    ![](./publish-wechatgame/game-json.png)
 
-2. Open the open data context project, open the **Build** panel, select the **WeChat Game Open Data Context** platform.
+2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context** platform.
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-**Note**: The **Title** in the **Build** panel must match the **Open Data Context Root** name set in the main context project.
+    **Note**: The **Title** in the **Build** panel must match the **Open Data Context Root** name set in the main context project.
 
-![](./publish-wechatgame/open-data-project-build.png)
+    ![](./publish-wechatgame/open-data-project-build.png)
 
-Or you can modify the **Build path** to manually copy the release package to the release package directory of the main context project after the open data context project is built. As shown below:
+    Or you can modify the **Build path** to manually copy the release package to the release package directory of the main context project after the open data context project is built. As shown below:
 
-![](./publish-wechatgame/package.png)
+    ![](./publish-wechatgame/package.png)
 
 4. Click **Run** in the main context project to launch the **WeChat Developer Tools**, and then publish and debug according to the normal process of the previous **WeChat Mini Game**.
 
-![](./publish-wechatgame/preview.png)
+    ![](./publish-wechatgame/preview.png)
 
-## Reference link
+### Reference link
 
-[Open Data Context Sample Project](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) provided by __Cocos Creator__ contains examples of the use of __WeChat__ open data contexts.
+- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip)
 
-[WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)
+- [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)

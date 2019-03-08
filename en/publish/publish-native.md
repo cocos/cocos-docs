@@ -1,8 +1,8 @@
 # Build and release games on Native platforms
 
-Open `Project -> Build...` in the main menu and open `Build` panel.
+Open **Project -> Build...** in the main menu and open **Build** panel.
 
-Currently, there are four native platforms, which include: Android, iOS, Mac and Windows. The options of release games on iOS, Mac and Windows will only appear in concerning operating systems.
+Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options of release games on iOS, Mac and Windows will only appear in concerning operating systems.
 
 ![native platform](publish-native/native_platform.png)
 
@@ -35,28 +35,33 @@ jsval_to_string(cx, returnParam, &url);
 
 An input field named **package name** will appear in the **Build** panel after selecting Android platform, into which you can input the package name of your game (also called Bundle ID). The package name is usually arranged in the reverse order of the product's website url, such as: `com.mycompany.myproduct`.
 
-**Notice**: Only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
+**Note**: Only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
 
 ![package name](publish-native/package_name.png)
 
 ### API Level
 
-API Level：Set up the API version used for compiling Android, with minimal support for android-16.
+Set up the API version used for compiling Android, with minimal support for android-16.
 
 ### APP ABI
 
-APP ABI：To set up the CPU type that Android needs to support, you can select one or more options, and have a `armeabi-v7a`, `arm64-v8a`, `x86` three types.
+To set up the CPU type that Android needs to support, you can select one or more options, and have a **armeabi-v7a**, **arm64-v8a**, **x86** three types.
 
 **Attention**:
-- After you select an ABI build, build another ABI without Clean, and the two ABI's so files will be packaged into apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after select an ABI build, then execute `Build -> Clean Project` and build another ABI. Only the latter ABI will be packaged into the apk.
+
+- After you select an ABI build, build another ABI without Clean, and the two ABI's so files will be packaged into apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after select an ABI build, then execute **Build -> Clean Project** and build another ABI. Only the latter ABI will be packaged into the apk.
 
 - After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build**. If you need to modify the ABI, you can directly modify the **PROP_APP_ABI** property in **gradle.properties**. As shown below:
 
-![modify abi](publish-native/modify_abi.png)
+  ![modify abi](publish-native/modify_abi.png)
 
 ### Keystore
 
-Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the `Use Debug Keystore` to use the default keystore. If you need to customize the keystore, you can remove the `Use Debug Keystore` checkbox. Please refer to [official documents](https://developer.android.com/studio/publish/app-signing?hl=zh-cn).
+Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.com/studio/publish/app-signing?hl=zh-cn) for details.
+
+### App Bundle (Google Play)
+
+Creator added the **App Bundle (Google Play)** option to the **v2.0.9**. If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
 
 ### Encrypt JS
 

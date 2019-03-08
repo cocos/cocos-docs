@@ -46,8 +46,6 @@ After installing Android Studio, refer to the official documentation and open th
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-**Note**: Please do **not** update the **gradle** of Android Studio 3.2 to **4.6**, otherwise it will cause resource packaging to fail.
-
 ## Install C++ compiling environment
 
 The compiling tool Cocos Console in Cocos Framework needs the following running environment:
@@ -77,7 +75,9 @@ We have received lots of feedback about original packing in the public beta, and
 
 1. Check Xcode and Visual Studio
 
-   Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, the C++ compiling component is not ticked off by default. If it wasn't installed, you need to install it and choose compiling components concerning C++.
+    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
+
+    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
 2. Package name issue
 

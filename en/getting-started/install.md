@@ -12,19 +12,23 @@ Double-click the installation package after the download is complete.
 
 The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX.X.X_20XXXXXX_setup.exe`, where `vX.XX` is the version number of Cocos Creator, such as `v1.2.2`, followed by the version date series.
 
-**Note** The date series will be updated frequently when using the beta version. If the version number of the current PC is the same as the version number of the installation package, it can not be automatically overwritten. To install package with the same version number as currently installed on your PC, You need to uninstall the current copy before proceeding with the installation.
+**Note**:
 
-The default installation path for the application is `C:\CocosCreator`, which can be specified during the installation process.
+- The date series will be updated frequently when using the beta version. If the version number of the current PC is the same as the version number of the installation package, it can not be automatically overwritten. To install package with the same version number as currently installed on your PC, You need to uninstall the current copy before proceeding with the installation.
 
-Cocos Creator will take up approximately 1.25 GB of space on your system disk, so you can clean up your system disk space before installation.
+  The default installation path for the application is `C:\CocosCreator`, which can be specified during the installation process.
 
-**Note**: If the installation fails, try executing the installer from the command line:
+  Cocos Creator will take up approximately 1.25 GB of space on your system disk, so you can clean up your system disk space before installation.
 
-```js
-CocosCreator_v1.2.0_2016080301_setup.exe / exelog "exe_log.txt" / L * V "msi_log.txt"
-```
+- If the installation fails, try executing the installer from the command line:
 
-Execute with the following command, or create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute. And then submit the resulting installation logs ( `exe_log.txt` and `msi_log.txt`) to the development team for help.
+  ```js
+  CocosCreator_v1.2.0_2016080301_setup.exe / exelog "exe_log.txt" / L * V "msi_log.txt"
+  ```
+
+  Then submit the resulting installation logs ( `exe_log.txt` and `msi_log.txt`) to the development team for help. If the installation logs cannot be obtained by using the above command, you can also obtain the installation log by create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute.
+
+- For some Windows systems that are very old and have been on the intranet for a long time or have not upgraded the operating system patch for a long time, some errors may be caused by the lack of dll at runtime, you can try to install the system patch to solve: <https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
 
 ### Mac installation instructions
 

@@ -37,7 +37,7 @@ this.node.on('mousedown', function (event) {
 
 除了使用 `on` 监听，我们还可以使用 `once` 方法。`once` 监听在监听函数响应后就会关闭监听事件。
 
-### 关闭监听
+## 关闭监听
 
 当我们不再关心某个事件时，我们可以使用 `off` 方法关闭对应的监听事件。需要注意的是，`off` 方法的
 参数必须和 `on` 方法的参数一一对应，才能完成关闭。
@@ -85,6 +85,29 @@ cc.Class({
 });
 ```
 
+## 事件参数说明
+
+在 2.0 之后，我们优化了事件的参数传递机制。
+在发射事件时，我们可以在 `emit` 函数的第二个参数开始传递我们的事件参数。同时，在 `on` 注册的回调里，可以获取到对应的事件参数。
+```js
+cc.Class({
+  extends: cc.Component,
+
+  onLoad () {
+    this.node.on('foo', function (arg1, arg2, arg3) {
+      console.log(arg1, arg2, arg3);  // print 1, 2, 3
+    });
+  },
+
+  start () {
+    let arg1 = 1, arg2 = 2, arg3 = 3;
+    // At most 5 args could be emit.
+    this.node.emit('foo', arg1, arg2, arg3);
+  },
+});
+```
+需要说明的是，出于底层事件派发的性能考虑，这里最多只支持传递 5 个事件参数。所以在传参时需要注意控制参数的传递个数。
+
 ## 派送事件
 
 上文提到了 `dispatchEvent` 方法，通过该方法发射的事件，会进入事件派送阶段。在 Cocos Creator 的事件派送系统中，我们采用冒泡派送的方式。冒泡派送会将事件从事件发起节点，不断地向上传递给他的父级节点，直到到达根节点或者在某个节点的响应函数中做了中断处理 `event.stopPropagation()`。
@@ -119,7 +142,7 @@ this.node.on('foobar', function (event) {
 | `type` | `String` | 事件的类型（事件名） |
 | `target` | `cc.Node` | 接收到事件的原始对象 |
 | `currentTarget` | `cc.Node` | 接收到事件的当前对象，事件在冒泡阶段当前对象可能与原始对象不同 |
-| `getType` | `Funciton` | 获取事件的类型 |
+| `getType` | `Function` | 获取事件的类型 |
 | `stopPropagation` | `Function` | 停止冒泡阶段，事件将不会继续向父节点传递，当前节点的剩余监听器仍然会接收到事件 |
 | `stopPropagationImmediate` | `Function` | 立即停止事件的传递，事件将不会传给父节点以及当前节点的剩余监听器 |
 | `getCurrentTarget` | `Function` | 获取当前接收到事件的目标节点 |

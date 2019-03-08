@@ -15,9 +15,9 @@ Toggle 的脚本接口请参考 [Toggle API](../../../api/zh/classes/Toggle.html
 | isChecked      | 布尔类型，如果这个设置为 true，则 check mark 组件会处于 enabled 状态，否则处于 disabled 状态。
 | checkMark      | cc.Sprite 类型，Toggle 处于选中状态时显示的图片  |
 | toggleGroup    | cc.ToggleGroup 类型， Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
-| Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见`Toggle 事件`章节  |
+| Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见下方的 **Toggle 事件** 部分  |
 
-**注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 Button 组件对应的章节，这里就不再赘述了。
+**注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 [Button 组件](button.md)。
 
 ## Toggle 事件
 
@@ -36,25 +36,24 @@ Toggle 组件的节点树一般为：
 
 ![toggle-node-tree](./toggle/toggle-node-tree.png)
 
-这里注意的是，checkMark 组件所在的节点需要放在 background 节点的上面。
+这里需要注意的是，checkMark 组件所在的节点需要放在 background 节点的上面。
 
-### 通过脚本代码添加回调
+## 通过脚本代码添加回调
 
-#### 方法一
+### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
-你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```js
 var checkEventHandler = new cc.Component.EventHandler();
-checkEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+checkEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
 checkEventHandler.component = "cc.MyComponent"
 checkEventHandler.handler = "callback";
 checkEventHandler.customEventData = "foobar";
 
 toggle.checkEvents.push(checkEventHandler);
 
-//here is your component file
+// here is your component file
 cc.Class({
     name: 'cc.MyComponent'
     extends: cc.Component,
@@ -63,22 +62,21 @@ cc.Class({
     },
 
     callback: function(toggle, customEventData) {
-        //这里 toggle 是 事件发出的 Toggle 组件
-        //这里的 customEventData 参数就等于你之前设置的 "foobar"
+        // 这里的 toggle 是事件发出的 Toggle 组件
+        // 这里的 customEventData 参数就等于之前设置的 "foobar"
     }
 });
 ```
 
-#### 方法二
+### 方法二
 
 通过 `toggle.node.on('toggle', ...)` 的方式来添加
 
 ```js
-//假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
 
 cc.Class({
     extends: cc.Component,
-
 
     properties: {
        toggle: cc.Toggle
@@ -88,10 +86,9 @@ cc.Class({
        this.toggle.node.on('toggle', this.callback, this);
     },
 
-    callback: function (event) {
-       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 Toggle 组件
-       var toggle = event.detail;
-       //do whatever you want with toggle
+    callback: function (toggle) {
+       // 回调的参数是 toggle 组件
+       // do whatever you want with toggle
     }
 });
 ```

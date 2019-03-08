@@ -46,8 +46,6 @@ java -version
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
-**注意**：Android Studio 3.2 版本的 gradle **不要** 更新到 **4.6**，否则会导致资源打包失败。
-
 ## 安装 C++ 编译环境
 
 Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
@@ -77,7 +75,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 1. 检查 Xcode 和 Visual Studio
 
-    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，默认并没有勾选 C++ 编译组件。如果没有安装，则需要重新安装并选择 C++ 相关编译组件。
+    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
+
+    **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
 
 2. 包名问题
 

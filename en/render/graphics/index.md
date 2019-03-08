@@ -1,6 +1,10 @@
-# Graphic system
+# Graphic System
 
 This chapter will show the usage of Cocos Creator's graphic drawing component interface.
+
+![](../graphics/graphics/graphics.png)
+
+Create a new empty node, and then click the **Add Component** button below the **Properties** panel and select **Graphics** from **Add Renderer Component**. Then you can add the Graphics component to the node.
 
 ## Graphics API
 
@@ -8,29 +12,29 @@ This chapter will show the usage of Cocos Creator's graphic drawing component in
 
 | Method | Function Description
 | -------------- | ----------- |
-| [moveTo (x, y)](../graphics/moveTo.md) | Move the path to a specified point in the canvas without creating a line
-| [lineTo (x, y)](../graphics/lineTo.md) | Add a new point, and then create a line from the point to the last specified point in the canvas
-| [bezierCurveTo (c1x, c1y, c2x, c2y, x, y)](../graphics/bezierCurveTo.md) | Create cubic cubic Bezier curve
-| [quadraticCurveTo (cx, cy, x, y)](../graphics/quadraticCurveTo.md) | Create a second Bezier curve
-| [arc (cx, cy, r, a0, a1, counterclockwise)](../graphics/arc.md) | Create arc / curve (for creating circle or part of a circle)
-| [ellipse (cx, cy, rx, ry)](../graphics/ellipse.md) | create an ellipse
-| [circle (cx, cy, r)](../graphics/circle.md) | create a circle
-| [rect (x, y, w, h)](../graphics/rect.md) | create a rectangle
-| [close ()](../graphics/close.md) | Create a path from the current point back to the starting point
-| [stroke ()](../graphics/stroke.md) | Draw a defined path
-| [fill ()](../graphics/fill.md) | Fill the current drawing (path)
-| [clear ()](../graphics/clear.md) | Clear all paths
+| [moveTo](../graphics/moveTo.md) (x, y)   | Move the path to a specified point in the canvas without creating a line
+| [lineTo](../graphics/lineTo.md) (x, y)   | Add a new point, and then create a line from the point to the last specified point in the canvas
+| [bezierCurveTo](../graphics/bezierCurveTo.md) (c1x, c1y, c2x, c2y, x, y) | Create cubic cubic Bezier curve
+| [quadraticCurveTo](../graphics/quadraticCurveTo.md) (cx, cy, x, y)       | Create a second Bezier curve
+| [arc](../graphics/arc.md) (cx, cy, r, a0, a1, counterclockwise)          | Create arc / curve (for creating circle or part of a circle)
+| [ellipse](../graphics/ellipse.md) (cx, cy, rx, ry)                       | create an ellipse
+| [circle](../graphics/circle.md) (cx, cy, r)                              | create a circle
+| [rect](../graphics/rect.md) (x, y, w, h) | create a rectangle
+| [close](../graphics/close.md) ()         | Create a path from the current point back to the starting point
+| [stroke](../graphics/stroke.md) ()       | Draw a defined path
+| [fill](../graphics/fill.md) ()           | Fill the current drawing (path)
+| [clear](../graphics/clear.md) ()         | Clear all paths
 
 ### Color, Style
 
 | Property | Description
 | -------------- | ----------- |
-| [lineCap](../graphics/lineCap.md) | Set or return the end of the line end style
-| [lineJoin](../graphics/lineJoin.md) | the corner type created when setting or returning two lines intersecting
-| [lineWidth](../graphics/lineWidth.md) | Sets or returns the current line width
-| [miterLimit](../graphics/miterLimit.md) | Set or return the maximum miter length
+| [lineCap](../graphics/lineCap.md)         | Set or return the end of the line end style
+| [lineJoin](../graphics/lineJoin.md)       | the corner type created when setting or returning two lines intersecting
+| [lineWidth](../graphics/lineWidth.md)     | Sets or returns the current line width
+| [miterLimit](../graphics/miterLimit.md)   | Set or return the maximum miter length
 | [strokeColor](../graphics/strokeColor.md) | Sets or returns the color of the stroke
-| [fillColor](../graphics/fillColor.md) | Set or return the color of the fill painting
+| [fillColor](../graphics/fillColor.md)     | Set or return the color of the fill painting
 
 ## Third Party Library
 
