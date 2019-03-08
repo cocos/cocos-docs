@@ -104,7 +104,7 @@ cc.Class({
     },
 
     onLoad: function () {
-       this.pageView.node.on('click', this.callback, this);
+       this.pageView.node.on('page-turning', this.callback, this);
     },
 
     callback: function (pageView) {
