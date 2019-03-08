@@ -1,4 +1,6 @@
-## 中文文档书写规范
+# 中文文档编写规范
+
+## 格式规范
 
 格式规范的目的是为了提供统一的书写准则，并使成品文档有更好的阅读体验。
 
@@ -125,3 +127,7 @@
 - [中文文档格式规范](https://github.com/anjuke/coding-style/blob/master/text/chinese.md)
 - [文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)
 - [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+
+## 文案规范
+
+在文档或界面中，我们需要通过对话的方式与用户产生共鸣。精准、清晰的语言会更容易让用户理解，合适的语气更容易让用户建立信任感。在使用和书写文案时请参考 [Ant Design 设计语言 - 文案](https://ant.design/docs/spec/copywriting-cn)。
