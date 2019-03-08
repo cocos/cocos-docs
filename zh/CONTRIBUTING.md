@@ -52,14 +52,6 @@
 
 > 点击 **创建按钮** 创建新节点
 
-### 编辑器文档中，属性名按照属性检查器里显示的格式书写，两边加 backtick 和空格
-
-正确：
-
-> `Scale` 属性决定了节点的缩放
-
-> `Sprite Frame` 属性是资源引用类型
-
 ### 脚本文档中，属性和方法名按照 API 里显示的格式书写，两边加 backtick 和空格
 
 正确：
@@ -80,7 +72,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 ### 添加图片，同样的与上下文之间需要使用空行隔开
 
-图片格式：`![图片说明，可不填](图片目录)`。使用半角（halfwidth）英文标点，且 !、[]、() 三者之间不要有空格
+图片格式：`![图片说明，可不填](图片路径)`。使用半角（halfwidth）英文标点，且 !、[]、() 三者之间不要有空格
 
 > eg：`![background](quick-start/background.png)`
 

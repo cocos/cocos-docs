@@ -130,7 +130,7 @@ cc.Class({
     },
 
     onLoad: function () {
-       this.editbox.node.on('editbox', this.callback, this);
+       this.editbox.node.on('editing-did-began', this.callback, this);
     },
 
     callback: function (editbox) {
