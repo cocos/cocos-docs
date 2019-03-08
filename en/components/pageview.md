@@ -6,13 +6,13 @@ PageView component is derived from ScrollView, the difference is that when scrol
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **PageView** from **Add UI Component**. This will add PageView component to the current node.
 
-Please refer to the script interface of the PageView [PageView API](../../../api/en/classes/PageView.html)
+Please refer to the script interface of the [PageView API](../../../api/en/classes/PageView.html)
 
 ## PageView property
 
 | Property                 | Function description |
 | --------------           | ----------- |
-| SizeMode                 | Specify the size type of each page in PageView, currently has Unified, Free Type [SizeMode API](../../../api/en/enums/PageView.SizeMode.html)|
+| SizeMode                 | Specify the size type of each page in PageView, currently has Unified type and Free type. Please refer to [SizeMode API](../../../api/en/enums/PageView.SizeMode.html) for detail.|
 | Content                  | It is a node reference that is used to contain the contents of the PageView |
 | Direction                | The page view direction |
 | ScrollThreshold          | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
@@ -24,7 +24,7 @@ Please refer to the script interface of the PageView [PageView API](../../../api
 | Indicator                | The Page View Indicator |
 | PageTurningEventTiming   | Change the PageTurning event timing of PageView |
 | PageEvents               | PageView events callback |
-| CancelInnerEvents        | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes It's set to true by default.|
+| CancelInnerEvents        | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes. It's set to true by default.|
 
 ### CCPageViewIndicator Set Up
 

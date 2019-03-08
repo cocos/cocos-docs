@@ -12,17 +12,17 @@ PageView 是一种页面视图容器.
 
 | 属性                     | 功能说明 |
 | --------------           | ----------- |
-| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型 [SizeMove API](../../../api/zh/enums/PageView.SizeMode.html)  |
+| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。详情可参考 [SizeMove API](../../../api/zh/enums/PageView.SizeMode.html)  |
 | Content                  | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
 | Direction                | 页面视图滚动方向 |
 | ScrollThreshold          | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |
 | AutoPageTurningThreshold | 快速滑动翻页临界值，当用户快速滑动时，会根据滑动开始和结束的距离与时间计算出一个速度值，该值与此临界值相比较，如果大于临界值，则进行自动翻页 |
 | Inertia                  | 否开启滚动惯性 |
-| Brake                    | 开启惯性后，在用户停止触摸后滚动多快停止，0表示永不停止，1表示立刻停止 |
+| Brake                    | 开启惯性后，在用户停止触摸后滚动多快停止，0 表示永不停止，1 表示立刻停止 |
 | Elastic                  | 布尔值，是否回弹 |
 | Bounce Duration          | 浮点数，回弹所需要的时间。取值范围是 0-10 |
 | Indicator                | 页面视图指示器组件 |
-| PageTurningEventTiming   | 设置 PageView PageTurning 事件的发送时机 |
+| PageTurningEventTiming   | 设置 PageView、PageTurning 事件的发送时机 |
 | PageEvents               | 数组，滚动视图的事件回调函数 |
 | CancelInnerEvents        | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件 |
 
