@@ -11,8 +11,8 @@ For EditBox API reference, please refer to [EditBox API](../../../api/en/classes
 ## Upgrade for EditBox component
 
 In v2.1.1, we've made some adjustment and optimization on EditBox component. The change mainly includes:
-- Deprecated `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` properties
-- Add `textLabel`,  `placeholderLabel`, `background` properties, users can configure the style of **CCEditBox** component more flexibly by attaching a custom **CCLabel** or **CCSprite** component.
+- Add `textLabel`,  `placeholderLabel`, `background` properties, users can configure the style of **EditBox** component more flexibly by attaching a custom **Label** or **Sprite** component.
+- Deprecated `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` properties, Cocos Creator will automatically upgrade these properties to the corresponding properties on the attached components.
 - Deprecated the `setFocus()` method, add new methods `focus()` and `blur()`, which provides users with the ability to force ending editing editBox.
 
 ## Layout property
