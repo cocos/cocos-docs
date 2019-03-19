@@ -8,24 +8,27 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.html)。
 
+## EditBox 组件升级
+
+在 v2.1.1 里，我们对 EditBox 组件做了一些调整和优化。主要包括：
+- 新增 `textLabel`,  `placeholderLabel`, `background` 属性, 用户可以通过挂载自定义的 Label 或 Sprite 组件，更灵活的去配置 EditBox 组件的样式
+- 废弃 `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` 属性，Cocos Creator 会自动将这些属性的值升级为所挂载组件上的相应属性
+- 废弃 `setFocus()` 方法，新增 `focus()` 和 `blur()` 方法，为 EditBox 组件提供主动结束输入文本的能力
+
 ## EditBox 属性
 
-| 属性                   | 功能说明                                                              |
-| --------------         | -----------                                                         |
-| String                 | 输入框的初始输入内容，如果为空则会显示占位符的文本                           |
-| Background Image       | 输入框的背景图片                                                       |
-| Keyboard Return Type   | 指定移动设备上面回车按钮的样式                                           |
-| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）   |
-| Input Mode             | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
-| Font Size              | 输入框文本的字体大小                                                    |
-| StayOnTop              | 输入框总是可见，并且永远在游戏视图的上面                                    |
-| TabIndex               | 修改 DOM 输入元素的 tabIndex，这个属性只有在 Web 上面修改有意义。            |
-| Line Height            | 输入框文本的行高                                                        |
-| Font Color             | 输入框文本的颜色                                                        |
-| Placeholder            | 输入框占位符的文本内容                                                   |
-| Placeholder Font Size  | 输入框占位符的字体大小                                                   |
-| Placeholder Font Color | 输入框占位符的字体颜色                                                   |
-| Max Length             | 输入框最大允许输入的字符个数                                              |
+| 属性                   | 功能说明                                                                       |
+| --------------         | -----------                                                                  |
+| String                 | 输入框的初始输入内容，如果为空则会显示占位符的文本                                   |
+| Placeholder            | 输入框占位符的文本内容                                                           |
+| Background             | 输入框背景节点上挂载的 Sprite 组件对象                                            |
+| TextLabel              | 输入框输入文本节点上挂载的 Label 组件对象                                          |
+| PlaceholderLabel       | 输入框占位符节点上挂载的 Label 组件对象                                           |
+| Keyboard Return Type   | 指定移动设备上面回车按钮的样式                                                    |
+| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）           |
+| Input Mode             | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。         |
+| MaxLength              | 输入框最大允许输入的字符个数                                                      |
+| TabIndex               | 修改 DOM 输入元素的 tabIndex，这个属性只有在 Web 上面修改有意义。                    |
 
 ## EditBox 事件
 
@@ -82,8 +85,6 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 - 如果需要输入密码，则需要把 Input Flag 设置为 password，同时 Input Mode 必须是 Any 之外的选择，一般选择 Single Line。
 - 如果要输入多行，可以把 Input Mode 设置为 Any。
 - 背景图片支持九宫格缩放
-
-注意：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true
 
 ## 通过脚本代码添加回调
 
