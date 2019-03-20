@@ -14,7 +14,7 @@ Game developers are very familiar with the pattern that the game has been releas
 
 Hot update in Cocos Creator comes mainly from the `AssetsManager` module in the Cocos engine. It has a very important feature:
 
-**Server and client both keep a full list of the game asset (manifest)**, during hot update process, by comparing server and client asset manifest, the client should know what to download to get the latest content. This can naturally support cross-version updates, such as when client version is A, remote version is C, then we can directly update the assets from A to C. We do not need to generate A to B and B to C update package. Therefore, when we push new asset version to server, we can save new version files discreately on server, and during update the client will download each file needed seprately. 
+**Server and client both keep a full list of the game asset (manifest)**, during hot update process, by comparing server and client asset manifest, the client should know what to download to get the latest content. This can naturally support cross-version updates, such as when client version is A, remote version is C, then we can directly update the assets from A to C. We do not need to generate A to B and B to C update package. Therefore, when we push new asset version to server, we can save new version files discreately on server, and during update the client will download each file needed seprately.
 
 Please be aware that hot update system is for native games only, since Web game would always request assets from web server. So `AssetsManager` class exists only in the jsb namespace, please check runtime environment before implement these API.
 
@@ -91,11 +91,11 @@ After building a successful native version, open the folder of the native publis
 
 ```js
 // Add the following code at the beginning of main.js
-If (cc.sys.isNative) {
-    Var hotUpdateSearchPaths = cc.sys.localStorage.getItem ('HotUpdateSearchPaths');
-    If (hotUpdateSearchPaths) {
-        Jsb.fileUtils.setSearchPaths (JSON.parse (hotUpdateSearchPaths));
-    }
+if (jsb) {
+    var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
+    if (hotUpdateSearchPaths) {
+        jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+    }
 }
 ```
 

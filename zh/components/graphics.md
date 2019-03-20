@@ -21,7 +21,7 @@ Graphics 组件提供了一系列绘画接口，这些接口参考了 canvas 的
 | [close](../render/graphics/close.md) () | 创建从当前点回到起始点的路径
 | [stroke](../render/graphics/stroke.md) () | 绘制已定义的路径
 | [fill](../render/graphics/fill.md) () | 填充当前绘图（路径）
-| [clear](../render/graphics/clear.md) () | 清楚所有路径
+| [clear](../render/graphics/clear.md) () | 清除所有路径
 
 ## 颜色，样式
 

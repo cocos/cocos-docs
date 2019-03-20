@@ -1,8 +1,8 @@
 # ToggleContainer 组件参考
 
-![toggle-container](../toggle/toggle-container.png)
+![toggle-container](toggle/toggle-container.png)
 
-ToggleContainer 不是一个可见的 UI 组件，它可以用来修改一组 Toggle  组件的行为。当一组 Toggle 属于同一个 ToggleContainer 的时候，任何时候只能有一个 Toggle 处于选中状态。
+ToggleContainer 不是一个可见的 UI 组件，它主要是用来修改一组 Toggle 组件的行为。当一组 Toggle 属于同一个 ToggleContainer 的时候，任何时候只能有一个 Toggle 处于选中状态。
 
 **注意**：所有包含 Toggle 组件的一级子节点都会自动被添加到该容器中
 
@@ -14,7 +14,7 @@ ToggleContainer 的脚本接口请参考 [ToggleContainer API](../../../api/zh/c
 
 | 属性 |   功能说明
 | -------------- | ----------- |
-| allowSwitchOff | 如果这个设置为 true， 那么 toggle 按钮在被点击的时候可以反复地被选中和未选中。
+| allowSwitchOff | 如果这个设置为 true，那么 toggle 按钮在被点击的时候可以反复地被选中和未选中。
 
 ## 详细说明
 
