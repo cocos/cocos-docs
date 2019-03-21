@@ -198,7 +198,6 @@
 - [Advanced Topics](advanced-topics/index.md)
     - [Resource management considerations - meta files](advanced-topics/meta.md)
     - [JSB 2.0 Guide](advanced-topics/jsb/JSB2.0-learning.md)
-    - [C++/Lua Support](advanced-topics/cpp-lua.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
     - [AssetManager for Hot Update](advanced-topics/assets-manager.md)
     - [i18n](advanced-topics/i18n.md)

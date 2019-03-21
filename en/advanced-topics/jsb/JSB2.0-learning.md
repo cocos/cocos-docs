@@ -174,7 +174,7 @@ It is precisely because the `se::Object` holds a weak reference to a JS object s
 
 `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
-Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d, anysdk and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
+Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry){

@@ -6,7 +6,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ## 操作流程
 
-1、在 [Cocos 账户中心](https://auth.cocos.com/#/) 点击侧边栏的 **游戏**  标签，根据需要选择个人/公司游戏，然后点击 **创建游戏**。在创建游戏面板根据要求填写必须的参数，然后点击 **提交**，游戏就创建完成了。
+1、在 [Cocos 账户中心](https://auth.cocos.com/#/) 点击侧边栏的 **游戏** 标签，根据需要选择个人/公司游戏，然后点击 **创建游戏**。在创建游戏面板根据要求填写必须的参数，然后点击 **提交**，游戏就创建完成了。
 
 ![](cocos-analytics/game.png)
 
@@ -47,7 +47,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 - [Cocos 账户中心](https://auth.cocos.com/#/)
 - [Cocos Analytics 后台](https://n-analytics.cocos.com/#/)
-- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs)
+- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
 - [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
