@@ -2,7 +2,7 @@
 
 ![toggle-container](toggle/toggle-container.png)
 
-ToggleContainer 不是一个可见的 UI 组件，它主要是用来修改一组 Toggle 组件的行为。当一组 Toggle 属于同一个 ToggleContainer 的时候，任何时候只能有一个 Toggle 处于选中状态。
+ToggleContainer 不是一个可见的 UI 组件，它可以用来修改一组 Toggle 组件的行为。当一组 Toggle 属于同一个 ToggleContainer 的时候，任何时候只能有一个 Toggle 处于选中状态。
 
 **注意**：所有包含 Toggle 组件的一级子节点都会自动被添加到该容器中
 
