@@ -155,3 +155,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ## 文案规范
 
 在文档或界面中，我们需要通过对话的方式与用户产生共鸣。精准、清晰的语言会更容易让用户理解，合适的语气更容易让用户建立信任感。在使用和书写文案时请参考 [Ant Design 设计语言 - 文案](https://ant.design/docs/spec/copywriting-cn)。
+
+## 图片规范
+
+不论中文还是英文文档，所有截图、示意图都不能出现中文，请注意切换至英文版的软件或操作系统进行截图。
