@@ -11,6 +11,7 @@
 | Intensity | 光源光照的强度，值越大光照越亮
 | Range | 光照半径范围（只能给点光源和聚光灯使用）
 | Spot Angle | 光照角度范围（只能给聚光灯使用）
+| Spot Exp | 值越大，光照边缘约柔和
 | Shadow Type | 决定光照阴影的类型，None（不产生阴影）或者 Hard（产生硬边缘阴影）
 | Shadow Resolution | 阴影分辨率，值越大阴影越清晰
 | Shadow Darkness | 阴影暗度，值越大阴影越暗
