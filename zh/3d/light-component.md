@@ -14,8 +14,8 @@
 | Shadow Type | 决定光照阴影的类型，None（不产生阴影）或者 Hard（产生硬边缘阴影）
 | Shadow Resolution | 阴影分辨率，值越大阴影越清晰
 | Shadow Darkness | 阴影暗度，值越大阴影越暗
-| Shadow Min Depth | 光源产生阴影的最小距离，如果物体距离光源的距离小于这个距离则不会产生阴影
-| Shadow Max Depth | 光源产生阴影的最大距离，如果物体距离光源的距离大于这个距离则不会产生阴影
-| Shadow Depth Scale | 光源深度缩放值，值越大阴影越暗
+| Shadow Min Depth | 光源产生阴影的最小距离，如果物体距离光源的距离小于这个距离则不会产生阴影
+| Shadow Max Depth | 光源产生阴影的最大距离，如果物体距离光源的距离大于这个距离则不会产生阴影
+| Shadow Depth Scale | 光源深度缩放值，值越大阴影越暗
 | Shadow Frustum Size | 平行光源视锥体大小，决定平行光源产生光源的范围
 
