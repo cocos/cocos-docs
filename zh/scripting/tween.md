@@ -2,9 +2,9 @@
 
 ## cc.tween 介绍
 
-Cocos Creator 从 cocos2d-x 时代就支持了 [动作系统](./actions.md)，但是动作系统提供的 api 比较繁琐，只支持在节点属性上使用，并且要支持新的属性的时候就需要再添加一个新的动作。针对动作系统繁琐的使用方式，Cocos Creator 在 2.0.9 版本提供了 cc.tween 这套新的 api ，cc.tween 简洁易用，提供了链式创建的方式，可以对任何对象进行操作，并且可以对对象的任意属性进行缓动。
+Cocos Creator 在 2.0.9 版本提供了 `cc.tween` 这套新的 api ，`cc.tween` 能够对对象的任意属性进行缓动， 作用类似于 [动作系统](./actions.md)，但是 `cc.tween` 更加简洁易用，他提供了链式创建的方式，可以对任何对象进行操作，并且可以对对象的任意属性进行缓动。
 
-cc.Action 与 cc.tween 使用对比：
+[动作系统](./actions.md)是从 Cocos2d-x 迁移到 Cocos Creator 迁移过来的，提供的 API 比较繁琐，只支持在节点属性上使用，并且要支持新的属性的时候就需要再添加一个新的动作。为了提供更好的 API， `cc.tween` 在 [动作系统](./actions.md) 的基础上做了一层 API 封装，下面是 `cc.Action` 与 `cc.tween` 使用的对比：
 
 cc.Action：
 ```js
@@ -22,7 +22,7 @@ this.node.runAction(
 cc.tween：
 ```js
 cc.tween(this.node)
-    .to(1, { position: cc.v2(100, 100), rotation: 360 }),
+    .to(1, { position: cc.v2(100, 100), rotation: 360 })
     .to(1, { scale: 2 })
     .start()
 ```
@@ -30,7 +30,7 @@ cc.tween(this.node)
 
 ## 链式 api
 
-cc.tween 每一个 api 都会在内部生成一个 action，并将这个 action 添加到内部队列中，在 api 调用完后会再返回自身实例，这样就可以通用链式调用的方式来组织代码。
+cc.tween 每一个 api 都会在内部生成一个 action，并将这个 action 添加到内部队列中，在 api 调用完后会再返回自身实例，这样就可以通用链式调用的方式来组织代码。
 
 cc.tween 在调用 start 时会将之前生成的 action 队列组合生成一个 cc.sequence 队列，所以 cc.tween 的链式结构是依次执行每一个 api 的，也就是会执行完一个 api 再执行下一个 api。
 
@@ -55,7 +55,7 @@ cc.tween 提供了两个设置属性的 api：
 ```js
 cc.tween(node)
   .to(1, {scale: 2})      // node.scale === 2
-  .by(1, {scale: 2})      // node.scale === 4
+  .by(1, {scale: 2})      // node.scale === 4 (2+2)
   .by(1, {scale: 1})      // node.scale === 5
   .to(1, {scale: 2})      // node.scale === 2
   .start()
@@ -91,7 +91,7 @@ cc.tween(this.node)
 cc.tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
 
 // 使用自定义 easing 函数
-cc.tween().to(1, { scale: 2 }, { easing: (t) => { return t*t; }})
+cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 
 // 只对单个属性使用 easing 函数
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
@@ -104,9 +104,9 @@ cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 's
 
 ```js
 // 对所有属性自定义 process
-cc.tween().to(1, { scale: 2, rotation: 90}, {
-  progress: (start, end, current, t) => {
-    return start + (end - start) * t;
+cc.tween().to(1, { scale: 2, rotation: 90 }, {
+  progress: (start, end, current, ratio) => {
+    return start + (end - start) * ratio;
   }
 })
 
@@ -143,13 +143,13 @@ tween.clone(cc.find('Canvas/cocos2')).start()
 
 ```js
 let scale = cc.tween().to(1, { scale: 2 })
-let rotation = cc.tween().to(1, { rotation: 90})
-let position = cc.tween().to(1, { position: cc.v3(100, 100, 100)})
+let rotate = cc.tween().to(1, { rotation: 90})
+let move = cc.tween().to(1, { position: cc.v3(100, 100, 100)})
 
 // 先缩放再旋转
-cc.tween(this.node).then(scale).then(rotation)
+cc.tween(this.node).then(scale).then(rotate)
 // 先缩放再移动
-cc.tween(this.node).then(scale).then(position)
+cc.tween(this.node).then(scale).then(move)
 ```
 
 ## 并行执行缓动
@@ -160,10 +160,13 @@ cc.tween 的链式执行时按照 sequence 的方式来执行的，但是在编�
 let t = cc.tween;
 t(this.node)
     // 同时执行两个 cc.tween
-    parallel(
-        t().to(1, { scale: 2 })
+    .parallel(
+        t().to(1, { scale: 2 }),
         t().to(2, { position: cc.v2(100, 100) })
     )
+    .call(() => {
+        console.log('All tweens finished.')
+    })
     .start()
 ```
 
