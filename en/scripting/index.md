@@ -24,7 +24,7 @@ While writing the component script, you can map the variables needing adjustment
   - [Player Input](player-controls.md)
 - [Actions](actions.md)
 - [Action List](action-list.md)
-- [Tween](tween.md)
+- [Tweening](tween.md)
 - [Use the Timer](scheduler.md)
 - [Script Execution Order](execution-order.md)
 - [Network interface](network.md)

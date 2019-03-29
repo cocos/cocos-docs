@@ -1,6 +1,6 @@
 # 在 Cocos Creator 中使用缓动系统（cc.tween）
 
-> 文： youyou、薰依
+> 文：youyou、薰依
 
 ## 缓动系统（cc.tween）介绍
 
