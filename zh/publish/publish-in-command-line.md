@@ -69,12 +69,6 @@
    因为这是一个数组类型，数据类型需要像这样定义，注意选项需要用引号括起来：
   - appABIs=['armeabi-v7a','x86']
 
-- `includeAnySDK` - web 平台下是否加入 AnySDK 代码
-- `oauthLoginServer` - AnySDK 验证登陆服务器
-- `appKey` - AnySDK App Key
-- `appSecret` - AnySDK App Secret
-- `privateKey` - AnySDK Private Key
-
 - `embedWebDebugger` - 是否在 web 平台下插入 vConsole 调试插件<br>
 （Creator v1.9 版本之前是 `includeEruda`，使用的是 Eruda 调试插件）
 - `md5Cache` - 是否开启 md5 缓存

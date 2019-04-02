@@ -211,6 +211,5 @@
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
 - [SDK Integration](sdk/index.md)
     - [Cocos Services](sdk/cocos-services.md)
-    - [AnySDK](sdk/anysdk.md)
     - [SDKBox](sdk/sdkbox.md)
     - [Facebook Live Video & Audience Network](sdk/fb-an-and-live.md)

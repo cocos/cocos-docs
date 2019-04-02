@@ -4,10 +4,11 @@ Cocos Creator 从 v2.0.7 开始在 **菜单栏 -> 面板** 中新增了 **服务
 
 ![](cocos-services/cocos_services.png)
 
-**服务** 面板目前支持集成以下两种服务：
+**服务** 面板目前支持集成以下三种服务：
 
-- [AnySDK](anysdk.md)
 - [Cocos 数据统计](cocos-analytics.md)
+- [Matchvs](http://doc.matchvs.com/QuickStart/QuickStart-CocosCreator)
+- [Agora Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
 ## 使用方式
 
@@ -19,7 +20,7 @@ Cocos Creator 从 v2.0.7 开始在 **菜单栏 -> 面板** 中新增了 **服务
 
 ![](cocos-analytics/game.png)
 
-2、游戏创建完成之后，返回 Cocos Creator 的 **服务** 面板，点击 ![](cocos-services/setting.png) 按钮，选择 **设定 AppID** 后，跳转到 **设定 Cocos AppID** 面板。选择游戏，然后点击 **关联** 按钮。
+2、游戏创建完成之后，返回 Cocos Creator 的 **服务** 面板，点击 ![](cocos-services/setting.png) 按钮，选择 **设定 Cocos AppID** 后，跳转到 **设定 Cocos AppID** 面板。选择游戏，然后点击 **关联** 按钮。
 
 ![](cocos-services/appid.png)
 
@@ -35,5 +36,6 @@ Cocos Creator 从 v2.0.7 开始在 **菜单栏 -> 面板** 中新增了 **服务
 
 **注意**：因为各服务的类别不同，在使用方式上也有一定的区别。具体各服务的集成请参考以下文档：
 
-- [AnySDK](anysdk.md)
 - [Cocos 数据统计](cocos-analytics.md)
+- [Matchvs](http://doc.matchvs.com/QuickStart/QuickStart-CocosCreator)
+- [Agora Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
