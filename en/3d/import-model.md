@@ -4,7 +4,7 @@
 
 Currently Cocos Creator supports importing 3D models using a very wide range of **.fbx** formats, and basically all 3D modeling software supports exporting this format.
 
-The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **Meshes**, and **Skeletal animations**.
+The process of importing is simple, just drag the **.fbx** model resource into the **Assets**, and wait a moment to complete the import work. After the import is complete, you can see that the imported model resource is an expandable folder in **Assets**. When importing the model, the editor will automatically parses the contents of the model and generates resources such as **Prefab**, **Meshes**, and **Skeleton animations**.
 
 ![import-model](./img/import-model.png)
 
@@ -24,12 +24,36 @@ The import system will first search for the corresponding texture from the model
 
 ## Associated skeleton animation resource
 
-The skeletal animation clip can be placed in the model along with the mesh resource, or it can be placed separately in another model and named after the **Model name@Animation name** name. A separately stored skeleton animation clip will be named with the specified name when it is imported.
+The skeleton animation clip can be placed in the model along with the mesh resource, or it can be placed separately in another model and named after the **Model name@Animation name** name. A separately stored skeleton animation clip will be named with the specified name when it is imported.
 
 ![skeleton-animation-clip-name](./img/skeleton-animation-clip-name.png)
 
-If there is skeletal animation in the model, the import system will automatically add a [skeleton animation component](skeleton-animation.md) to the Prefab of the model
+If there is skeleton animation in the model, the import system will automatically add a [skeleton animation component](skeleton-animation.md) to the Prefab of the model
 
-When you click the **Search Animation Clips** button in the component, the component will search for the model named after the **Model name@Animation name** format under the current model folder, and associate with the skeletal animation clips in it.
+When you click the **Search Animation Clips** button in the component, the component will search for the model named after the **Model name@Animation name** format under the current model folder, and associate with the skeleton animation clips in it.
 
 ![search-skeleton-animation](./img/search-skeleton-animation.png)
+
+## Configuring model parameters
+
+After importing the model, select the model in the **Assets** and you can see that some parameters are available in the **Properties**. You can adjust the model to the most suitable state by freely setting these parameters.
+
+### Model
+
+![](img/scale.png)
+
+**Scale Factor**: Set the scale of the imported model root node. The default is **1**.
+
+### Animation
+
+![](img/animation.png)
+
+- **Precompute Joint Matrix**
+
+  When loading skeleton animation data, Precompute the matrix of each skeleton at each time point, saving the step of dynamically calculating the skeleton matrix. Can greatly improve efficiency. The default is **Unchecked**.
+
+  **Note: The model with this option turned on must match the model on the SkeletonAnimation component.**
+
+- **Animation Frame Rate**
+
+  Adjusting the animation pre-calculates the frame rate of the generated animation clip, reducing the frame rate can reduce memory consumption. Only takes effect when the **Precompute Joint Matrix** option is checked. The default is **30fps**.
