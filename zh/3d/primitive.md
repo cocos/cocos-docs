@@ -42,7 +42,7 @@ Cocos Creator 可以导入大部分模型制作软件生成的模型文件，然
 
 ## 脚本创建基础 3D 物体
 
-Cocos Creator 提供了 `cc.primitive` 这个脚本接口来创建基础 3D 模型的顶点数据，然后根据这些顶点数据创建出对应的 mesh 给 [Mesh Renderer组件](./mesh-renderer) 使用。
+Cocos Creator 提供了 `cc.primitive` 这个脚本接口来创建基础 3D 模型的顶点数据，然后根据这些顶点数据创建出对应的 mesh 给 [Mesh Renderer组件](./mesh-renderer) 使用。
 
 ```js
 function createMesh (data, color) {
