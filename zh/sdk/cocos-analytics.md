@@ -20,12 +20,10 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ![](cocos-analytics/enable_analytics.png)
 
-5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项。**AppID** 会自动填入当前绑定的游戏 AppID。然后手动填入 **channel** 和 **store**：
+5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项。其中有 **AppID** 和 **store** 两个参数。
 
-- **channel** 为广告联盟的广告渠道 ID。
-- **store** 为游戏分发渠道 ID。
-
-这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
+- **AppID** 会自动填入当前绑定的游戏 AppID。
+- **store** 为游戏分发渠道 ID，长度为 **200**。该项可以任意设置，只要确保在获取统计结果时能够区分即可。
 
 ![](cocos-analytics/analytics_properties.png)
 

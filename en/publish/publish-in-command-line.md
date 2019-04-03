@@ -66,11 +66,6 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `appABIs` - Which cpu types android need to support. You can choose more than one type from [armeabi-v7a, arm64-v8a, x86]<br>
   Because it's an array type, the option can define like this:
   - appABIs=['armeabi-v7a','x86']
-- `includeAnySDK` - Whether or not add AnySDK on web platform
-- `oauthLoginServer` - AnySDK oauth login server
-- `appKey` - AnySDK App Key
-- `appSecret` - AnySDK App Secret
-- `privateKey` - AnySDK Private Key
 - `embedWebDebugger` - Whether or not inject vConsole debug plugin on web platform. <br>
  (Before Creator v1.9 was `includeEruda`, using the Eruda debug plugin)
 - `md5Cache` - Whether or not enable md5 cache
