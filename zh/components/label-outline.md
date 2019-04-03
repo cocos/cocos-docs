@@ -1,6 +1,6 @@
 # LabelOutline 组件参考
 
-描边效果组件，用于字体描边，只能用于系统字体
+描边效果组件，用于字体描边，只能用于系统字体或 ttf 字体
 
 ![label-outline](./label/label-outline.png)
 
