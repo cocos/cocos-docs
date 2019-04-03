@@ -211,6 +211,6 @@
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
 - [SDK Integration](sdk/index.md)
     - [Cocos Services](sdk/cocos-services.md)
-    - [Agore Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
+    - [Agora Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
     - [SDKBox](sdk/sdkbox.md)
     - [Facebook Live Video & Audience Network](sdk/fb-an-and-live.md)

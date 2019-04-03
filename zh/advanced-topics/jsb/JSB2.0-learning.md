@@ -139,7 +139,7 @@ namespace se {
 se::Object 继承于 se::RefCounter 引用计数管理类。目前抽象层中只有 se::Object 继承于 se::RefCounter。
 上一小节我们说到，se::Object 是保存了对 JS 对象的弱引用，这里笔者有必要解释一下为什么是弱引用。
 
-* 原因一：JS 对象控制 CPP 对象的生命周期的需要
+**原因一：JS 对象控制 CPP 对象的生命周期的需要**
 
 当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*` 。
 
@@ -169,7 +169,7 @@ SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_coco
 
 正是由于 se::Object 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `js_cocos2d_Sprite_finalize` 中释放对应的 c++ 对象即可，se::Object 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在`JS 对象控制 CPP 对象`模式中 se::Object 的释放，但是在 `CPP 对象控制 JS 对象` 模式中，开发者需要管理对 se::Object 的释放，具体下一节中会举例说明。
 
-* 原因二：更加灵活，手动调用 root 方法以支持强引用
+**原因二：更加灵活，手动调用 root 方法以支持强引用**
 
 se::Object 中提供了 root/unroot 方法供开发者调用，root 会把 JS 对象放入到不受 GC 扫描到的区域，调用 root 后，se::Object 就强引用了 JS 对象，只有当 unroot 被调用，或者 se::Object 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
 

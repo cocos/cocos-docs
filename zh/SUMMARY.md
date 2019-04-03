@@ -217,6 +217,6 @@
     - [服务面板](sdk/cocos-services.md)
     - [Cocos 数据统计](sdk/cocos-analytics.md)
     - [Matchvs](http://doc.matchvs.com/QuickStart/QuickStart-CocosCreator)
-    - [Agore Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
+    - [Agora Voice](https://docs.agora.io/cn/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
     - [SDKBox](sdk/sdkbox.md)
     - [Facebook 直播和广告](sdk/fb-an-and-live.md)
