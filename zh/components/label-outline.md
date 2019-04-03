@@ -1,4 +1,4 @@
-# Label Outline 组件参考
+# LabelOutline 组件参考
 
 描边效果组件，用于字体描边，只能用于系统字体
 
@@ -8,7 +8,7 @@
 
 描边脚本接口请参考 [LabelOutline API](../../../api/zh/classes/LabelOutline.html)。
 
-## Label Outline 属性
+## LabelOutline 属性
 
 | 属性 |   功能说明
 | -------------- | ----------- |

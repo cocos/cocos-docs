@@ -1,4 +1,4 @@
-# Label Shadow 组件参考
+# LabelShadow 组件参考
 
 用于给 Label 组件添加阴影效果，只能用于系统字体或 ttf 字体
 
@@ -8,7 +8,7 @@
 
 描边脚本接口请参考 [LabelShadow API](../../../api/zh/classes/LabelShadow.html)。
 
-## Label Shadow 属性
+## LabelShadow 属性
 
 | 属性 |   功能说明
 | -------------- | ----------- |
