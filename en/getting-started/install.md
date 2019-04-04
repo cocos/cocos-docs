@@ -20,7 +20,7 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
   Cocos Creator will take up approximately 1.25 GB of space on your system disk, so you can clean up your system disk space before installation.
 
-- If there is a pop-up warning that "The required files cannot be installed because the CAB file does not have the correct digital signature. It may indicate that the CAB file is corrupted", try installing it with administrator privileges.
+- If there is an error about the digital signature of CAB file, try installing it with administrator privileges.
 
 - For some Windows systems that are very old and have been on the intranet for a long time or have not upgraded the operating system patch for a long time, some errors may be caused by the lack of dll at runtime, you can try to install the system patch to solve: <https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
 
