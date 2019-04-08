@@ -1,6 +1,6 @@
 # Lighting
 
-Adding light in the scene can make the **Scene** produce the corresponding shadow and lighting effect. And obtain better visual effects through the strength and range of the light, make the scene rendering more realistic. It is recommended to switch the scene editor to 3D scene mode by clicking the **3D** button at the top left of the editor for better editing of the light, etc.
+Adding light in the 3D scene can make the **Scene** produce the corresponding shadow and lighting effect, and obtain better visual effects. It is recommended to switch the scene editor to 3D scene mode by clicking the **3D** button at the top left of the editor for better editing of the light, etc.
 
 ## Add Lights
 
@@ -18,7 +18,7 @@ There are two ways to add lights:
 
 ### Directional lights
 
-Directional lights are the most common type of lights, and it is very useful for creating effects such as sunlight in your scenes. Behaving in many ways like the sun, unaffected by Position and Scale (In the figure below, you can see that the brightness of the directional lights produced on the plane is the same). However, the rotation will affect the direction of directional lights illumination, and the direction of the illumination affects the range to which the model receives illumination and where the model produces shadows.
+Directional lights are the most common type of lights, and the lighting effect is not affected by the **light position** and **orientation**. Directional lights is suitable for achieving sunlight (In the figure below, you can see that the brightness of the directional lights produced on the plane is the same). However, the rotation will affect the direction of directional lights illumination, and the direction of the illumination affects the range to which the model receives illumination and where the model produces shadows.
 
 The user can adjust the color of the light by modifying the Color property of the Light component in the **Properties**. And adjust the light intensity by modifying the **Indensity** property.
 
@@ -34,9 +34,7 @@ The user can adjust the illumination range of the point light by modifying the R
 
 ### Spot lights
 
-Like a point light, a spot light has a specified location and range over which the light falls off. However, the spot light is constrained to an angle, resulting in a cone-shaped region of illumination, close to the light produced by the flashlight.
-
-The spot light has one more **Spot Angle** property than other types of lights, which allows you to adjust the illumination range of the spot light.
+The spot light is a point emits a beam of light to one direction. And has one more **Spot Angle** property than other types of lights, which allows you to adjust the illumination range of the spot light.
 
 ![Spot Light](img/lighting-6.jpg)
 

@@ -36,7 +36,7 @@ When you click the **Search Animation Clips** button in the component, the compo
 
 ## Configuring model parameters
 
-After importing the model, select the model in the **Assets** and you can see that some parameters are available in the **Properties**. You can adjust the model to the most suitable state by freely setting these parameters.
+After importing the model, you can set the model import parameters in the **Properties** by selecting the model in the **Assets**.
 
 ### Model
 
@@ -56,4 +56,4 @@ After importing the model, select the model in the **Assets** and you can see th
 
 - **Animation Frame Rate**
 
-  Adjusting the animation pre-calculates the frame rate of the generated animation clip, reducing the frame rate can reduce memory consumption. Only takes effect when the **Precompute Joint Matrix** option is checked. The default is **30fps**.
+  Adjusting the animation pre-calculates the frame rate of the generated animation clip, reducing the frame rate can reduce memory consumption. Only takes effect when the **Precompute Joint Matrix** option is checked. The default is **30 FPS**.
