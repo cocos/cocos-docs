@@ -1,6 +1,6 @@
 # LabelOutline Component Reference
 
-LabelOutline component is used for the font outline and can only be used with system fonts or TTF fonts.
+The LabelOutline component will add a outline effect to the Label component on the node, which can only be used for system fonts or TTF fonts.
 
 ![label-outline](label/label-outline.png)
 
