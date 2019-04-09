@@ -177,6 +177,7 @@
     - [碰撞检测](3d/intersect.md)
     - [光照](3d/lighting.md)
     - [光源组件参考](3d/light-component.md)
+    - [基础 3D 物体](3d/primitive.md)
 
 ## 进阶使用
 
