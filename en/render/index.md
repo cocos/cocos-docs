@@ -7,6 +7,8 @@
 - Renderer Components
   - [Sprite](../components/sprite.md)
   - [Label](../components/label.md)
+  - [LabelOutline](../components/label-outline.md)
+  - [LabelShadow](../components/label-shadow.md)
   - [Mask](../components/mask.md)
   - [MotionStreak](../components/motion-streak.md)
   - [ParticleSystem](../components/particle-system.md)

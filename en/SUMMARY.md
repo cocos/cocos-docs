@@ -106,6 +106,8 @@
     - [Programming Grahpics](render/graphics/index.md)
     - [Sprite Reference](components/sprite.md)
     - [Label Reference](components/label.md)
+    - [LabelOutline Reference](components/label-outline.md)
+    - [LabelShadow Reference](components/label-shadow.md)
     - [Mask Reference](components/mask.md)
     - [MotionStreak Reference](components/motion-streak.md)
     - [ParticleSystem Reference](components/particle-system.md)

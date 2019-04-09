@@ -108,6 +108,8 @@
     - [绘图系统](render/graphics/index.md)
     - [Sprite 组件参考](components/sprite.md)
     - [Label 组件参考](components/label.md)
+    - [LabelOutline 组件参考](components/label-outline.md)
+    - [LabelShadow 组件参考](components/label-shadow.md)
     - [Mask 组件参考](components/mask.md)
     - [MotionStreak 组件参考](components/motion-streak.md)
     - [ParticleSystem 组件参考](components/particle-system.md)
