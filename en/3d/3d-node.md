@@ -32,7 +32,7 @@ The difference between them is that 2D nodes are only considered in 2D space whe
 
 The newly created node is a 2D node By default, and there are two ways to set the node to be a 3D node:
 
-- Click the **2.5D** button at the top right of the **Properties** to switch:
+- Click the **3D** button at the top right of the **Properties** to switch:
 
 ![3d-node-inspector](img/3d-node-inspector.png)
 

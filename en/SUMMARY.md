@@ -173,6 +173,8 @@
     - [Skinned Mesh Renderer Component](3d/skinned-mesh-renderer.md)
     - [Skeleton Animation Component](3d/skeleton-animation.md)
     - [Collision Detection](3d/intersect.md)
+    - [Lighting](3d/lighting.md)
+    - [Light Reference](3d/light-component.md)
 
 ## Advanced Topics
 

@@ -175,6 +175,8 @@
     - [Skinned Mesh Renderer 组件参考](3d/skinned-mesh-renderer.md)
     - [骨骼动画组件参考](3d/skeleton-animation.md)
     - [碰撞检测](3d/intersect.md)
+    - [光照](3d/lighting.md)
+    - [光源组件参考](3d/light-component.md)
 
 ## 进阶使用
 
