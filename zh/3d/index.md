@@ -1,6 +1,7 @@
 # 3D 系统
 
 - [3D 节点](3d-node.md)
+- [3D 场景](3d-scene.md)
 - [导入模型资源](import-model.md)
 - [网格资源参考](mesh.md)
 - [Mesh Renderer 组件参考](mesh-renderer.md)

@@ -169,6 +169,7 @@
     - [Compatability](audio/compatibility.md)
 - [3D System](3d/index.md)
     - [3D Node](3d/3d-node.md)
+    - [3D Scene](3d/3d-scene.md)
     - [Import Model Resources](3d/import-model.md)
     - [Mesh Resource](3d/mesh.md)
     - [Mesh Renderer Component](3d/mesh-renderer.md)
