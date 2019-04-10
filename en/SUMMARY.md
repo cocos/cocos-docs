@@ -177,6 +177,7 @@
     - [Collision Detection](3d/intersect.md)
     - [Lighting](3d/lighting.md)
     - [Light Reference](3d/light-component.md)
+    - [Primitive 3D Objects](3d/primitive.md)
 
 ## Advanced Topics
 
