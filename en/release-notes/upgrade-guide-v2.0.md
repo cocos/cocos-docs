@@ -10,7 +10,7 @@ In general, the core goals of the Cocos Creator v2.0 design were twofold:
 1. Significantly improve the engine performance
 2. Provide more advanced rendering capabilities and richer rendering customization options
 
-In order to accomplish this goal, we completely rewrote the underlying renderer, which structurally guarantees performance improvements and rendering capabilities. At the same time, in order to ensure that users project can be upgraded more smoothly, we have almost no changes to the API of the component layer. Of course, these changes are not completely transparent to the user, such as the engine loading process, the event system, the streamlining and reorganization of the engine's overall API, which will have an impact on the user-level API.
+In order to accomplish this goal, we completely rewrote the underlying renderer, which structurally guarantees performance improvements of web and mini games platforms. And rendering capabilities. At the same time, in order to ensure that users project can be upgraded more smoothly, we have almost no changes to the API of the component layer. Of course, these changes are not completely transparent to the user, such as the engine loading process, the event system, the streamlining and reorganization of the engine's overall API, which will have an impact on the user-level API.
 
 If you want to have a quick understanding, you can watch the Cocos Creator v2.0 introduction video first.
 
@@ -32,6 +32,7 @@ List of known issues:
   8. RichText does not support color modification by node color.
   9. Native platform does not support VideoPlayer and WebView components at this time
   10. IE 11 is not supported. Fixed in 2.0.1.
+  11. The current v2.0 has the possibility that the rendering performance of the engine may decline on the native platform, which may have a significant impact on specific games. It is recommended that the native platform project under development be carefully upgraded. We will optimize afterwards.
 
 # 2. Editor upgrade
 
@@ -256,7 +257,7 @@ Of course, we are not simplifying for simplification. On the one hand, this brin
 
 ## 3.8 Physical Engine Upgrade
 
-For the physics engine, we upgraded the old box2d library to [box2d.ts](https://github.com/flyover/box2d.ts), mainly to improve the performance and ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
+For the physics engine, we upgraded the old box2d library to [box2d.ts](https://github.com/flyover/box2d.ts), mainly to improve the performance of web and mini games platforms. And ensure the stability of the physical game. However, the interface inside __box2d.ts__ and the previous interface will have some differences, developers need to pay attention to the use of these interfaces.
 
 ## 3.9 Other important updates
 

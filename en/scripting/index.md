@@ -24,6 +24,7 @@ While writing the component script, you can map the variables needing adjustment
   - [Player Input](player-controls.md)
 - [Actions](actions.md)
 - [Action List](action-list.md)
+- [Tweening](tween.md)
 - [Use the Timer](scheduler.md)
 - [Script Execution Order](execution-order.md)
 - [Network interface](network.md)
@@ -37,6 +38,10 @@ While writing the component script, you can map the variables needing adjustment
 - CCClass Reference
   - [CCClass Advanced Reference](reference/class.md)
   - [Attributes Reference](reference/attributes.md)
+
+## More Reference
+
+- [Recommended coding standards](reference/coding-standards.md)
 
 <hr>
 

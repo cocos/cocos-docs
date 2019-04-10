@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [Github 仓库](https://github.com/cocos-creator/tutorial-hot-update)获取。
+本篇文档的范例工程可以从 [Github 仓库](https://github.com/cocos-creator/tutorial-hot-update) 获取。
 
 ![hot update](./hot-update/title.jpg)
 
@@ -37,7 +37,7 @@ Manifest 文件中包含以下几个重要信息：
 
 在这篇教程中，将提出一种针对 Cocos Creator 项目可行的热更新方案，我们也在 cocos2d-x 的中开放了 Downloader 的 JavaScript 接口，用户可以自由开发自己的热更新方案。
 
-在开始详细讲解之前，开发者可以看一下 Cocos Creator 发布原生版本后的目录结构，这个目录结构和 Cocos2d-x JS 项目的目录是完全一致的。以前没有接触过 Cocos2d-x 的用户可以参考[项目结构文档](https://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-1-cocos2d-js-project/zh.md)。对于 Cocos Creator 来说，所有 JS 脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 res 目录。
+在开始详细讲解之前，开发者可以看一下 Cocos Creator 发布原生版本后的目录结构，这个目录结构和 Cocos2d-x JS 项目的目录是完全一致的。以前没有接触过 Cocos2d-x 的用户可以参考 [项目结构文档](https://www.cocos.com/doc/article/index?type=cocos2d-x&url=/doc/cocos-docs-master/manual/framework/cocos2d-js/4-essential-concepts/4-1-cocos2d-js-project/zh.md)。对于 Cocos Creator 来说，所有 JS 脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 res 目录。
 
 基于这样的项目结构，本篇教程中的热更新思路很简单：
 
@@ -85,14 +85,14 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 打包原生版本
 
-下载完成范例工程后，可以用 Cocos Creator 直接打开这个工程。打开`构建发布`面板，构建原生版本，建议使用 Windows / Mac 来测试。
+下载完成范例工程后，可以用 Cocos Creator 直接打开这个工程。打开 **构建发布** 面板，构建原生版本，建议使用 Windows / Mac 来测试。
 
 构建成功原生版本之后，打开原生发布包的地址，给 `main.js` 附加上搜索路径设置的逻辑：
 
-```
+```js
 // 在 main.js 的开头添加如下代码
-if (cc.sys.isNative) {
-    var hotUpdateSearchPaths = cc.sys.localStorage.getItem('HotUpdateSearchPaths');
+if (jsb) {
+    var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
     if (hotUpdateSearchPaths) {
         jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
     }
@@ -113,9 +113,8 @@ if (cc.sys.isNative) {
 
 ## 结语
 
-以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到[论坛](http://www.cocoachina.com/bbs/thread.php?fid-71.html)中。
+以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到 [论坛](http://www.cocoachina.com/bbs/thread.php?fid-71.html) 中。
 
 ## Next Step
 
 1. [热更新管理器文档](assets-manager.md)
-

@@ -139,7 +139,7 @@ namespace se {
 se::Object 继承于 se::RefCounter 引用计数管理类。目前抽象层中只有 se::Object 继承于 se::RefCounter。
 上一小节我们说到，se::Object 是保存了对 JS 对象的弱引用，这里笔者有必要解释一下为什么是弱引用。
 
-* 原因一：JS 对象控制 CPP 对象的生命周期的需要
+**原因一：JS 对象控制 CPP 对象的生命周期的需要**
 
 当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*` 。
 
@@ -169,11 +169,11 @@ SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_coco
 
 正是由于 se::Object 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `js_cocos2d_Sprite_finalize` 中释放对应的 c++ 对象即可，se::Object 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在`JS 对象控制 CPP 对象`模式中 se::Object 的释放，但是在 `CPP 对象控制 JS 对象` 模式中，开发者需要管理对 se::Object 的释放，具体下一节中会举例说明。
 
-* 原因二：更加灵活，手动调用 root 方法以支持强引用
+**原因二：更加灵活，手动调用 root 方法以支持强引用**
 
 se::Object 中提供了 root/unroot 方法供开发者调用，root 会把 JS 对象放入到不受 GC 扫描到的区域，调用 root 后，se::Object 就强引用了 JS 对象，只有当 unroot 被调用，或者 se::Object 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
 
-一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 spine, dragonbones, box2d，anysdk 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 NativePtrToObjectMap 中查找对应的 se::Object，然后手动 unroot 和 decRef。以 spine 中 spTrackEntry 的绑定为例：
+一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 spine, dragonbones, box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 NativePtrToObjectMap 中查找对应的 se::Object，然后手动 unroot 和 decRef。以 spine 中 spTrackEntry 的绑定为例：
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
@@ -1030,7 +1030,7 @@ classes_owned_by_cpp =
 #### Windows
 
 * 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008)
 
 断点调试：
 ![](v8-win32-debug.jpg)
@@ -1045,25 +1045,35 @@ Profile
 
 * 保证 Android 设备与 PC 或者 Mac 在同一个局域网中
 * 编译，运行游戏
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址
+* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址
 * 调试界面与 Windows 相同
-
 
 ### Safari 远程调试 JavaScriptCore
 
 #### macOS
 
 1. 打开 Mac 上的 Safari，偏好设置 -> 高级 -> 显示开发者选项
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。![](jsc-entitlements.png)，还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。 ![](jsc-entitlements-check.png)
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES. ![](jsc-security-key.png)
-4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书
-5. 编译、运行游戏
-6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤
-7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。![](jsc-mac-debug.png) ![](jsc-breakpoint.png) ![](jsc-timeline.png)
+2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。
 
-**注意**
+  ![](jsc-entitlements.png)
+还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
 
-如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
+  ![](jsc-entitlements-check.png)
+3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES.
+
+  ![](jsc-security-key.png)
+4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书<br>
+5. 编译、运行游戏<br>
+6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤<br>
+7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。
+
+![](jsc-mac-debug.png) 
+
+![](jsc-breakpoint.png) 
+
+![](jsc-timeline.png)
+
+**注意**：如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
 
 ![](jsc-mac-simulator-sign.png)
 

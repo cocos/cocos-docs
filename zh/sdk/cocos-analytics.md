@@ -6,7 +6,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ## 操作流程
 
-1、在 [Cocos 账户中心](https://auth.cocos.com/#/) 点击侧边栏的 **游戏**  标签，根据需要选择个人/公司游戏，然后点击 **创建游戏**。在创建游戏面板根据要求填写必须的参数，然后点击 **提交**，游戏就创建完成了。
+1、在 [Cocos 账户中心](https://auth.cocos.com/#/) 点击侧边栏的 **游戏** 标签，根据需要选择个人/公司游戏，然后点击 **创建游戏**。在创建游戏面板根据要求填写必须的参数，然后点击 **提交**，游戏就创建完成了。
 
 ![](cocos-analytics/game.png)
 
@@ -20,12 +20,10 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ![](cocos-analytics/enable_analytics.png)
 
-5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项。**AppID** 会自动填入当前绑定的游戏 AppID。然后手动填入 **channel** 和 **store**：
+5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项。其中有 **AppID** 和 **store** 两个参数。
 
-- **channel** 为广告联盟的广告渠道 ID。
-- **store** 为游戏分发渠道 ID。
-
-这两个参数用户可以任意设置，只要在获取统计结果时能够区分即可。
+- **AppID** 会自动填入当前绑定的游戏 AppID。
+- **store** 为游戏分发渠道 ID，长度为 **200**。该项可以任意设置，只要确保在获取统计结果时能够区分即可。
 
 ![](cocos-analytics/analytics_properties.png)
 
@@ -47,7 +45,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 - [Cocos 账户中心](https://auth.cocos.com/#/)
 - [Cocos Analytics 后台](https://n-analytics.cocos.com/#/)
-- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs)
+- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
 - [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)

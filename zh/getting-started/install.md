@@ -20,15 +20,17 @@ Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 
 
   Cocos Creator 将会占据系统盘中大约 1.25 GB 的空间，请在安装前整理您的系统盘空间。
 
-- 如果出现安装失败，请尝试通过命令行执行安装程序：
+- 如果出现 “不能安装需要的文件，因为 CAB 文件没有正确的数字签名。可能表明 CAB 文件损坏” 的弹窗警告，请尝试使用管理员权限进行安装。
 
-  ```
+- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
+
+- 如果仍然出现安装失败，请尝试通过命令行执行安装程序：
+
+  ```bash
   CocosCreator_v1.2.0_2016080301_setup.exe /exelog "exe_log.txt" /L*V "msi_log.txt"
   ```
 
   然后将生成的安装日志（`exe_log.txt` 和 `msi_log.txt`）提交给开发团队寻求帮助。如果通过以上命令无法获取安装日志，也可以通过为安装程序创建一个快捷方式，并将该命令行参数填入快捷方式的 **目标** 属性中来获取安装日志。
-
-- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
 
 ### Mac 安装说明
 

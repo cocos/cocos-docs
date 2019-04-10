@@ -47,7 +47,7 @@ let CustomRender = cc.Class({
 
 添加组件到自定义节点之后，如下图所示：
 
-![](/zh/advanced-topics/custom-render/render-inspector.png)
+![](custom-render/render-inspector.png)
 
 继承自 RenderComponent 的组件会默认添加 Src Blend Factor 和 Dst Blend Factor 属性，用于指定颜色混合因子。接着我们来补充自定义组件的功能，自定义的 RenderComponent 需要关联对应的 Assembler 进行渲染数据的填充，还有材质的创建以及纹理 UV 的计算。
 
@@ -373,7 +373,6 @@ module.exports = CustomAssembler;
 
 这样我们就实现了一张纹理在场景中的自定义渲染，最终的效果如下图所示：
 
-![](/zh/advanced-topics/custom-render/render-view.png)
+![](custom-render/render-view.png)
 
 以上就是自定义渲染的简单实现，开发者可以依据自己的需求进行个性化的渲染定制，未来的版本中我们也将开放更多的自定义渲染功能，为不同的场景和开发需求提供便利。
-

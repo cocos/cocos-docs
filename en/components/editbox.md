@@ -38,29 +38,52 @@ In v2.1.1, we've made some adjustment and optimization on EditBox component. The
 
 | Property |   Function Explanation
 | -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered before user starting to input text.
+| Target          | Node with the script component.
+| Component       | Script component name.
+| Handler         | Assign a callback function which will be triggered before user starting to input text.
+| customEventData | A user-defined string value passed as the last event argument of the event callback.
+
+**Note**: This event will be triggered when the user clicks on EditBox.
 
 ### Text Changed Event
 
 | Property |   Function Explanation
 | -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered when user is editing text.
+| Target          | Node with the script component.
+| Component       | Script component name.
+| Handler         | Assign a callback function which will be triggered when user is editing text.
+| customEventData | A user-defined string value passed as the last event argument of the event callback.
+
+**Note**: This event will be triggered each time when the content in EditBox is changed.
 
 ### Editing Did Ended Event
 
 | Property |   Function Explanation
 | -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered after user finished input text. Usually when in single line input mode, it's triggered after user press return key or click the area outside of EditBox. When in multiline input mode, it's triggered only after user click the area outside of EditBox.
+| Target          | Node with the script component.
+| Component       | Script component name.
+| Handler         | Assign a callback function which will be triggered after user finished input text. 
+| customEventData | A user-defined string value passed as the last event argument of the event callback.
+
+**Note**: This event will be triggered when the EditBox loses focus.  
+Usually when in single line input mode, it's triggered after user presses Return key or clicks the area outside of EditBox.  
+When in multiline input mode, it's triggered only after user click the area outside of EditBox.
+
+### Editing Return Event
+
+| Property |   Function Explanation
+| -------------- | ----------- |
+| Target          | Node with the script component.
+| Component       | Script component name.
+| Handler         | Assign a callback function which will be triggered when the user presses Return key.
+| customEventData | A user-defined string value passed as the last event argument of the event callback.
+
+**Note**: This event will be triggered when the user presses the Return key or presses the Done button on soft keyboard on the mobile.  
+In single line mode, EditBox may lose its focus if users press Return.
 
 ## Detailed explanation
 
-- Keyboard Return Type is mainly designed for mobile device input. You could use this option to customize return key style of virtual keyboard.
+- Keyboard Return Type is mainly designed for mobile device input. You could use this option to customize Return key style of virtual keyboard.
 - If you want to input password, you need set **Input Flag** to `PASSWORD` and the **Input Mode** mustn't be `ANY`, usually we use **Single Line**.
 - If you want to enable multiline input support, the flag of `Input Mode` should be set to `Any`.
 - The background image of EditBox support slice 9, you could customize the border as you did in Sprite component.

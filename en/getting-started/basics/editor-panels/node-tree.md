@@ -7,8 +7,11 @@ Click to choose node, and the selected node will be highlighted in blue. Current
 ![node tree panel](hierarchy/node_tree.png)
 
 - The ![](assets/add.png) button in the upper left corner is used to create nodes.
-- The text input box above can be used to search for filtered nodes
-- The ![](hierarchy/search.png) button is used to filter the type of search. It is divided into two types: `Node` and `Component`.
+- ![](hierarchy/search.png) The search button is used to filter the type of search. It is divided into three types: `Node`, `Component` and `UUID used by`.
+- The search bar above can search for the desired Node or Component based on the type of search:
+  - When you select a `Node` type in the search button, you can enter the node name search you want to find in the search bar.
+  - When you select a `Component` type in the search button, the symbol of `t:` appears in the search bar, and you can enter the name of the component you want to find after the symbol (for example, `t:cc.Camera`).
+  - When you select a `UUID used by` type in the search button, the symbol of `used:` appears in the search bar. After entering the UUID to be searched after the symbol, the node using the UUID can be searched.
 - The ![](hierarchy/switch.png) button toggles the expanded/collapsed state of the **Node Tree**.
 - The panel body is a list of nodes, where you can add, delete or modify resources using the right click menu or drag and drop.
 - ![](assets/button.png) in front of the node is used to toggle the expand/collapse state of the node tree. When the user presses the Alt/Option and clicks the button, in addition to performing the expand/collapse operation of the node itself, the expand/collapse operation is also performed on all child nodes under that node at the same time.
