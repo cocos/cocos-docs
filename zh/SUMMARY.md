@@ -171,6 +171,7 @@
     - [兼容性说明](audio/compatibility.md)
 - [3D 系统](3d/index.md)
     - [3D 节点](3d/3d-node.md)
+    - [3D 场景](3d/3d-scene.md)
     - [导入模型资源](3d/import-model.md)
     - [网格资源](3d/mesh.md)
     - [Mesh Renderer 组件参考](3d/mesh-renderer.md)
