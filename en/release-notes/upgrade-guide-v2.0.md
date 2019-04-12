@@ -12,8 +12,6 @@ In general, the core goals of the Cocos Creator v2.0 design were twofold:
 
 In order to accomplish this goal, we completely rewrote the underlying renderer, which structurally guarantees performance improvements of web and mini games platforms. And rendering capabilities. At the same time, in order to ensure that users project can be upgraded more smoothly, we have almost no changes to the API of the component layer. Of course, these changes are not completely transparent to the user, such as the engine loading process, the event system, the streamlining and reorganization of the engine's overall API, which will have an impact on the user-level API.
 
-If you want to have a quick understanding, you can watch the Cocos Creator v2.0 introduction video first.
-
 Of course, the upgrade is just the beginning, Cocos Creator has prepared more in-depth updates and features coming in updates to the v2.x version.
 
 ## 2.0.0 List of known issues
