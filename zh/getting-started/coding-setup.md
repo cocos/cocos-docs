@@ -90,9 +90,9 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 1. 在 Creator 编辑器主菜单里执行 `开发者 -> VS Code 工作流 -> 添加编译任务`。该操作会在项目的 `.vscode` 文件夹下添加 `tasks.json` 任务配置文件。
 2. 在 VS Code 里按下 <kbd>Cmd/Ctrl+p</kbd>，激活 **快速打开** 输入框，然后输入 `task compile`
-    ![task compile](coding-setup/run_task.jpg)
+    ![task compile](coding-setup/run_task.png)
 3. 任务运行成功的话，会在 VS Code 窗口下方的输出面板中显示如下结果
-    ![task complete](coding-setup/task_output.jpg)
+    ![task complete](coding-setup/task_output.png)
 
 VS Code 还可以为任务配置快捷键，请打开主菜单的 `Code -> 首选项 -> 键盘快捷方式`，并在右侧的 `keybindings.json` 里添加以下条目：
 
