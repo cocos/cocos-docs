@@ -29,14 +29,27 @@
 
 - **手动更新贴图**
 
-  当开放数据域被唤起后，只要 **SwanSubContextView** 组件 load 成功，开放数据域贴图就开始更新到主域并显示，之后每帧都会更新贴图。但是开放数据域贴图的更新有时可能损耗比较高，开发者设计的开放数据域又是静态界面（比如翻页式的界面），此时就不需要每帧更新贴图，可以尝试通过禁用组件来阻止每帧更新逻辑，并通过手动调用 update 函数来在需要的时候更新：
+  在 Creator v2.1.1 中，当开放数据域被唤起后，只要 **SwanSubContextView** 组件 load 成功，开放数据域贴图就开始更新到主域并显示，之后每帧都会更新贴图。但是开放数据域贴图的更新有时可能损耗比较高，开发者设计的开放数据域又是静态界面（比如翻页式的界面），此时就不需要每帧更新贴图，可以尝试通过禁用组件来阻止每帧更新逻辑，并通过手动调用 update 函数来在需要的时候更新：
 
   ```js
   subContextView.enabled = false;
   subContextView.update();
   ```
 
-  这样手动控制是性能最优的方案。
+  这样手动控制是性能最优的方案。如需开启自动更新贴图，则启用 **SwanSubContextView** 组件后，开放数据域的主循环会恢复执行。
+
+- **设置贴图更新频率**
+
+  在 Creator v2.1.1 中，**SwanSubContextView** 组件上新增了 **FPS 属性**, 用户可以通过设置 FPS 直接控制开放数据域的帧率。
+
+  ![](./publish-baidugame/subcontext.png)
+
+  FPS 属性有以下两方面的优点：
+
+  - 主域会根据设置的 FPS 计算出一个 update interval, 这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
+  - 通过降低开放数据域的 FPS, 也可以一定程度上减少开放数据域的性能开销。
+
+  **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SwanSubContextView 组件的 FPS 属性。**
 
 ## 开放数据域发布
 
@@ -76,22 +89,6 @@
 四、用百度开发者工具打开构建出来的主域项目，即可按照之前百度小游戏的正常流程进行发布和调试。
 
 ![](./publish-baidugame/open-data-project-preview.png)
-
-### 性能优化
-
-在 Creator v2.1.1 中，我们对百度小游戏的开放数据域做了进一步的优化，主要包括以下两个方面：
-
-1. 禁用 **SwanSubContextView** 组件后，会停止开放数据域的主循环。这样可以在禁用组件后，减少开放数据域在渲染和逻辑上的性能开销。启用组件后，开放数据域的主循环会恢复执行。
-2. 在 **SwanSubContextView** 组件上新增了 **FPS 属性**, 用户可以通过设置 FPS 直接控制开放数据域的帧率。
-
-    ![](./publish-baidugame/subcontext.png)
-
-    FPS 属性有以下两方面的优点：
-
-    - 主域会根据设置的 FPS 计算出一个 update interval, 这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
-    - 通过降低开放数据域的 FPS, 也可以一定程度上减少开放数据域的性能开销。
-
-    **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SwanSubContextView 组件的 FPS 属性。**
 
 ## 参考链接
 

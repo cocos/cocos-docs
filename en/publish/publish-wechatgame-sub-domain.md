@@ -37,14 +37,27 @@ This is the core component of the new open data context solution. In addition to
 
 - **Manually update the texture**
 
-  When the open data context is evoked, as soon as the WXSubContextView component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated every frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the update function when needed:
+  In Creator v2.1.1, when the open data context is evoked, as soon as the WXSubContextView component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated every frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the update function when needed:
 
   ```javascript
   subContextView.enabled = false;
   subContextView.update();
   ```
 
-   This manual control is the best performance solution.
+  This manual control is the best performance solution. If you need to turn on automatic update texture, the main loop of the Open Data Context resumes execution when the **WXSubContextView** component is enabled.
+
+- **Set the texture update frequency**
+
+  In Creator v2.1.1, the **FPS** property has been added to the **WXSubContextView** component, and the user can directly control the frame rate of Open Data Context by setting **FPS**.
+
+  ![](./publish-wechatgame/subcontext.png)
+
+  The **FPS** property has the following two advantages:
+
+  - The Main Context will calculate an **update interval** ​​based on the set **FPS**. This **update interval** prevents the engine from frequently calling **update** to update the Canvas texture of Open Data Context.
+  - By reducing the FPS of Open Data Context, you can also reduce the performance overhead of Open Data Context to some extent.
+
+  **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the WXSubContextView component directly in the Main Context project.**
 
 ### Module selection
 
@@ -85,23 +98,6 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 - If you publish the open data context and then publish the main context, the release code of the open data context will be overwritten, and We've fixed the issue in the v2.0.7
 - Because WeChat Mini Games will support WebGL rendering mode for Open Data Context in later versions, so Creator adapted WebGL mode for Open Data Context in v2.0.9. However, it currently cause the project to appear **[GameOpenDataContext] Open Data Context only supports using 2D rendering mode** error message when running in the WeChat developer tool. This error message is due to the use of `document.createElement("canvas").getContext("webgl")` to detect if WeChat mini games support WebGL, it will not affect the normal use of the project, you can ignore it.
-
-### performance optimization
-
-In Creator v2.1.1, we have further optimized the Open Data Context of WeChat Mini Games, including the following two aspects:
-
-1. When you disable the **WXSubContextView** component, the main loop of Open Data Context is stopped. This reduces the performance overhead in rendering and logic of Open Data Context after disabling the component. When the component is enabled, the main loop of the Open Data Context resumes execution.
-
-2. The **FPS** property has been added to the **WXSubContextView** component, and the user can directly control the frame rate of Open Data Context by setting **FPS**.
-
-    ![](./publish-wechatgame/subcontext.png)
-
-    The **FPS** property has the following two advantages:
-
-    - The Main Context will calculate an **update interval** ​​based on the set **FPS**. This **update interval** prevents the engine from frequently calling **update** to update the Canvas texture of Open Data Context.
-    - By reducing the FPS of Open Data Context, you can also reduce the performance overhead of Open Data Context to some extent.
-
-    **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the WXSubContextView component directly in the Main Context project.**
 
 ### Reference link
 
