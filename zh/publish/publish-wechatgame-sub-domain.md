@@ -82,8 +82,25 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 ![](./publish-wechatgame/preview.png)
 
 **注意：**
+
 - 如果先构建开放数据域再构建主域，那么开放数据域的发布代码会被覆盖。我们已在 v2.0.7 版本中修复该问题
 - 由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它
+
+### 性能优化
+
+在 Creator v2.1.1 中，我们对微信小游戏的开放数据域做了进一步的优化，主要包括以下两个方面：
+
+1. 禁用 **WXSubContextView** 组件后，会停止开放数据域的主循环。这样可以在禁用组件后，减少开放数据域在渲染和逻辑上的性能开销。启用组件后，开放数据域的主循环会恢复执行。
+2. 在 **WXSubContextView** 组件上新增了 **FPS 属性**, 用户可以通过设置 FPS 直接控制开放数据域的帧率。
+
+    ![](./publish-wechatgame/subcontext.png)
+
+    FPS 属性有以下两方面的优点：
+
+    - 主域会根据设置的 FPS 计算出一个 update interval, 这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
+    - 通过降低开放数据域的 FPS, 也可以一定程度上减少开放数据域的性能开销。
+
+    **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 WXSubContextView 组件的 FPS 属性。**
 
 ## 参考链接
 

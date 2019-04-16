@@ -77,6 +77,22 @@
 
 ![](./publish-baidugame/open-data-project-preview.png)
 
+### 性能优化
+
+在 Creator v2.1.1 中，我们对百度小游戏的开放数据域做了进一步的优化，主要包括以下两个方面：
+
+1. 禁用 **SwanSubContextView** 组件后，会停止开放数据域的主循环。这样可以在禁用组件后，减少开放数据域在渲染和逻辑上的性能开销。启用组件后，开放数据域的主循环会恢复执行。
+2. 在 **SwanSubContextView** 组件上新增了 **FPS 属性**, 用户可以通过设置 FPS 直接控制开放数据域的帧率。
+
+    ![](./publish-baidugame/subcontext.png)
+
+    FPS 属性有以下两方面的优点：
+
+    - 主域会根据设置的 FPS 计算出一个 update interval, 这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
+    - 通过降低开放数据域的 FPS, 也可以一定程度上减少开放数据域的性能开销。
+
+    **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SwanSubContextView 组件的 FPS 属性。**
+
 ## 参考链接
 
 - [Cocos Creator 百度小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
