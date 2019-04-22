@@ -2,9 +2,7 @@
 
 ![sdkbox](sdkbox/logo.png)
 
-SDKBOX 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。所有的服务都经过严格的测试与官方认证。请访问 [SDKBox 主页](http://www.sdkbox.com/) 获取更多的信息。
-
-在 Cocos Creator 中使用 SDKBox 的工作流程和详细指南请参阅 [SDKBox 官方文档](http://docs.sdkbox.com/zh/qa/cocos_creator/)。
+SDKBOX 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。所有的服务都经过严格的测试与官方认证。支持苹果和谷歌的 IAP 内购等近 30 种 SDK。请访问 [SDKBox 主页](http://www.sdkbox.com/) 获取更多的信息。
 
 ## 集成 SDKBox
 
@@ -33,7 +31,6 @@ SDKBOX 是免费的让移动游戏开发人员简单轻松集成第三方 SDK �
 ```js
 cc.Class({
     extends: cc.Component,
-    ...
 
     onLoad: function () {
         //Add this line to onLoad
@@ -69,7 +66,7 @@ cc.Class({
 
 ### 添加按钮点击事件
 
-在 **层级管理器** 中选中之前创建的 Button 节点，可以看到在 **属性检查器** 中有一个 Button 组件。然后设置 Click Events 属性，将挂载了 AdMob 脚本组件的 Canvas 节点拖拽到 Click Events 属性的 cc.Node 中，如下图所示。具体的内容可参考 [Button 事件](https://docs.cocos.com/creator/manual/zh/components/button.html#button-%E4%BA%8B%E4%BB%B6)。
+在 **层级管理器** 中选中之前创建的 Button 节点，可以看到在 **属性检查器** 中有一个 Button 组件。然后设置 Click Events 属性，将挂载了 AdMob 脚本组件的 Canvas 节点拖拽到 Click Events 属性的 cc.Node 中，如下图所示。具体的内容可参考 [Button 事件](../components/button.md#button-%E4%BA%8B%E4%BB%B6)。
 
 ![sdkbox](sdkbox/btn-cache.png)
 
@@ -89,19 +86,16 @@ cc.Class({
 
 ### 参考代码
 
-可参考的完整的 AdMob.js 代码如下：
+可参考的完整的 `AdMob.js` 代码如下：
 
- ```js
- cc.Class({
+```js
+cc.Class({
     extends: cc.Component,
-    ...
 
     onLoad: function () {
         //Add this line to onLoad
         this.admobInit();
     },
-
-    ...
 
     admobInit: function() {
         if(cc.sys.isMobile) {
@@ -142,12 +136,11 @@ cc.Class({
         }
     },
 
-    ...
-
 });
 ```
 
 ## 相关参考链接
 
 - [SDKBox 主页](http://www.sdkbox.com/)
-- [SDKBox 官方文档](http://docs.sdkbox.com/zh/qa/cocos_creator/)
+- [开通服务](http://www.sdkbox.com/integrations)
+- 在 Cocos Creator 中使用 SDKBox 的工作流程和详细指南请参阅 [SDKBox 官方文档](http://docs.sdkbox.com/zh/qa/cocos_creator/)。
