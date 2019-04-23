@@ -2,7 +2,7 @@
 
 ![sdkbox](sdkbox/logo.png)
 
-SDKBOX 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。所有的服务都经过严格的测试与官方认证。支持苹果和谷歌的 IAP 内购等近 30 种 SDK。请访问 [SDKBox 主页](http://www.sdkbox.com/) 获取更多的信息。
+SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。支持苹果和谷歌的 IAP 内购等近 30 种 SDK，所有的 SDK 都经过严格的测试与官方认证。SDKBox 目前只支持 Android 和 iOS 平台。请访问 [SDKBox 主页](http://www.sdkbox.com/) 获取更多的信息。
 
 ## 集成 SDKBox
 
@@ -78,9 +78,7 @@ cc.Class({
 
 ### 编译项目
 
-- **iOS 平台**: 使用 Xcode 打开发布包目录 `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` 目录下的 `.xcodeproj` 文件进行编译运行。
-
-- **Android 平台**: 在发布包目录 `./build/jsb-link` 目录下运行 `cocos run -p android` 命令。
+配置完成之后，再次打开 **构建发布** 面板，去掉 SDKBox 的勾选，然后点击面板下方的构建 -> 编译 -> 运行。而 iOS 平台在构建完成之后则需要使用 Xcode 打开发布包目录 `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` 目录下的 `.xcodeproj` 文件进行编译和运行。
 
 运行完成后点击 Cache Interstitial 按钮，然后再点击 Show Interstitial 按钮，即可显示广告。
 
