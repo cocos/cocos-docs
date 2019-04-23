@@ -2,7 +2,7 @@
 
 ![sdkbox](sdkbox/logo.png)
 
-__SDKBox__ is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. All services are rigorously tested and officially certified. Supports nearly 30 types of SDKS such as Apple and Google's IAP purchases. Please visit [SDKBox's Homepage](http://www.sdkbox.com/) for more information.
+__SDKBox__ is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. Support for nearly 30 SDKs such as Apple and Google's IAP In-App Purchases, all SDKs are rigorously tested and officially certified. SDKBox currently only supports Android and iOS. Please visit [SDKBox's Homepage](http://www.sdkbox.com/) for more information.
 
 ## Integration SDKBox
 
@@ -79,9 +79,7 @@ According to AdMob account to configure the release package directory under the 
 
 ### Compile
 
-- **iOS**: Use Xcode to open the `.xcodeproj` file under the `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` directory to compile and run.
-
-- **Android**: Run the `cocos run -p android` command in the release package `./build/jsb-link` directory.
+After the configuration is complete, open the **Build** panel again, uncheck the SDKBox, and then click **Build -> Compile -> Run** below the panel. But the iOS platform, when the buils is complete, you need to use Xcode to open the `.xcodeproj` file in the `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` directory to compile and run.
 
 When you are finished running, click the Cache Interstitial button, and then click the Show Interstitial button to display your ad.
 
