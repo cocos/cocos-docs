@@ -126,6 +126,10 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
 
+## Support platform
+
+Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, and **Android** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
+
 <hr>
 
 Continue reading [WebView Component](webview.md).

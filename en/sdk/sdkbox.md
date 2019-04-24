@@ -79,7 +79,7 @@ According to AdMob account to configure the release package directory under the 
 
 ### Compile
 
-After the configuration is complete, open the **Build** panel again, uncheck the SDKBox, and then click **Build -> Compile -> Run** below the panel. But the iOS platform, when the buils is complete, you need to use Xcode to open the `.xcodeproj` file in the `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` directory to compile and run.
+After the configuration is complete, open the **Build** panel again, uncheck the SDKBox, and then click **Build -> Compile -> Run** below the panel. But the iOS platform, when the build is complete, you need to use Xcode to open the `.xcodeproj` file in the `./build/jsb-link/frameworks/runtime-src/proj.ios_mac` directory to compile and run.
 
 When you are finished running, click the Cache Interstitial button, and then click the Show Interstitial button to display your ad.
 

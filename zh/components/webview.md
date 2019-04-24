@@ -1,6 +1,6 @@
 # WebView 组件参考
 
-WebView 是一种显示网页的组件，该组件让你可以在游戏里面集成一个小的浏览器。
+WebView 是一种显示网页的组件，该组件让你可以在游戏里面集成一个小的浏览器。由于不同平台对于 WebView 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。
 
 ![webview](./webview/webview.png)
 
