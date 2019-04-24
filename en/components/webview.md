@@ -1,6 +1,6 @@
 # WebView Component Reference
 
-WebView is a component for displaying web pages, you could use this component to embed a mini web browser in your games.
+WebView is a component for displaying web pages, you could use this component to embed a mini web browser in your games. Because different platforms have different authorization, API and control methods for WebView component. And have not yet formed a unified standard, only **Web**, **iOS**, and **Android** platforms are currently supported.
 
 ![webview](./webview/webview.png)
 
