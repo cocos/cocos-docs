@@ -49,11 +49,11 @@ In the last example, supposing the screen has a resolution of `640 x 960`. If yo
 
 Under such a displaying mode, there might be black borders on the screen or scene image that exceed the design resolution (goof). Although developers try their best to avoid black borders in general, if you want to make sure all the contents within the scale of design resolution are displayed on the screen, you can use this mode too.
 
-### According to the ratio of width to height, 'Fit Width' or 'Fit Height' will be automatically chosen.
+### According to the ratio of width to height, 'Fit Width' or 'Fit Height' will be automatically chosen
 
-If there are no strict requirements for the content that might be cut down on the four sides of the screen, you don't need to open any fit mode in the Canvas component. Then **Fit Height** or **Fit Width** will be automatically chosen according to the ratio of width to height to avoid black borders. In other words, when the ratio of width to height of the design resolution is larger than that of the screen resolution, 'Fit Height' will be automatically opened (as in the first picture above); when the ratio of width to height of the design resolution is smaller than that of the screen resolution, 'Fit Width' will be automatically opened(as in the second picture above).
+If there are no strict requirements for the content that might be cut down on the four sides of the screen, you can check the **Fit Height** and **Fit Width** mode of the Canvas component at the same time, this is equivalent to turning on the **SHOW_ALL** mode. In this case, the height and width are automatically adapted according to the ratio of width to height of the screen to avoid black borders. In other words, when the ratio of width to height of the design resolution is larger than that of the screen resolution, **Fit Height** will be automatically opened (as in the first picture above); when the ratio of width to height of the design resolution is smaller than that of the screen resolution, **Fit Width** will be automatically opened(as in the second picture above).
 
-### Canvas component doesn't provide a fit mode that can respectively zoom in/out of the x axis and the y axis, which will distort the image.
+### Canvas component doesn't provide a fit mode that can respectively zoom in/out of the x axis and the y axis, which will distort the image
 
 In the Cocos engine, there is a fit mode called `ExactFit`, which doesn't have black borders, or cut down the image within the scale of design resolution. But the price is the zooming in/out ratio of the scene image to the direction of the x/y axis  is different, which will distort the image.
 
