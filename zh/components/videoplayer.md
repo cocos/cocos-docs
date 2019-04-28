@@ -129,3 +129,7 @@ cc.Class({
 同样的，用户也可以注册 `meta-loaded`, `clicked`, `playing` 等事件，这些事件的回调函数的参数与 `read-to-play` 的参数一致。
 
 关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
+
+## 支持平台
+
+由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏平台上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。

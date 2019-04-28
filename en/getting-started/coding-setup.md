@@ -91,9 +91,9 @@ To activate script compilation in VS Code, you need to perform the following wor
 
 1. In the Creator Editor main menu, execute `Developer -> VS Code Workflow -> Add Compile Task`. This operation will add the `tasks.json` task configuration file in the `.vscode` folder of the project.
 2. Press <kbd>Cmd/Ctrl+p</kbd> in VS Code to activate **Quick open** input box, then enter `task compile`.
-    ![task compile](coding-setup/run_task.jpg)
+    ![task compile](coding-setup/run_task.png)
 3. If the task runs successfully, the following results will be displayed in the output panel below the VS Code window:
-    ![task complete](coding-setup/task_output.jpg)
+    ![task complete](coding-setup/task_output.png)
 
 VS Code can also configure shortcut keys for tasks, please open the `Code -> Settings -> Keyboard shortcuts` On the main menu and add the following entry in `Keybindings.json` on the right side:
 
