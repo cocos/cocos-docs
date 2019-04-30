@@ -102,6 +102,33 @@ The specific filling rules for the relevant parameter configuration are as follo
   
   If not, make sure the npm is properly installed and can be started directly in the command line environment. The obtained npm is used to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
 
+  The npm filling rules below **v2.0.10** are as follows:
+  
+  - If you do not fill out this item, the Creator will read the npm path in the environment variable by default on the Windows system, and the npm in the **/usr/bin/local** directory is read by default on the Mac system to build the exported mini game rpk package that can be run.
+  - If your PC environment does not have npm installed or cannot read the npm path in the system, you will need to fill out the **Custom npm folder path** to build and exported rpk package. Fill in the rules as follows:
+
+    - Windows system
+
+      ```bash
+      # Get local npm folder path
+      where npm
+      # If the output is
+      C:\Program Files\nodejs\npm
+      # Then the local npm folder path is filled in as:
+      C:\Program Files\nodejs
+      ```
+
+    - Mac system
+
+      ```bash
+      # Get local npm folder path
+      which npm
+      # If the output is
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
+      # Then the local npm folder path is filled in as:
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin
+      ```
+
 **Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
 
 ![](./publish-vivo-instant-games/package.png)

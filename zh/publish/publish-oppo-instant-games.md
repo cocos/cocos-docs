@@ -84,6 +84,33 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 OPPO 小游�
   - Mac 系统：从 Shell 的配置文件获取环境变量中的路径。
   
   如果获取不到，请确保 npm 已正常安装，并且能够在命令行环境下直接启动。获取到的 npm 将用于构建生成可运行的小游戏 rpk 包（rpk 包位于构建生成的发布包目录 quickgame 目录下的 dist 目录）。如果构建时找不到 npm 文件夹路径，则发布包目录下的 dist 目录中不会生成 rpk 包。
+  
+  **V2.0.10** 以下版本的填写规则如下：
+
+  - 若不填写该项时，Creator 会默认在 Windows 系统上读取环境变量中的 npm 路径，在 Mac 系统上默认读取 **/usr/bin/local** 目录下的 npm 来构建导出可运行的小游戏 rpk 包。
+  - 如果用户的电脑环境未安装 npm 或者读取不到系统中的 npm 路径时，则需要填写 **自定义 npm 文件夹路径** 来构建和导出 rpk 包。填写规则如下：
+
+    - Windows 系统
+
+      ```bash
+      # 获取本地 npm 安装路径
+      where npm
+      # 如果输出结果为：
+      C:\Program Files\nodejs\npm
+      # 则自定义 npm 文件夹路径填写为：
+      C:\Program Files\nodejs
+      ```
+
+    - Mac 系统
+
+      ```bash
+      # 获取本地 npm 安装路径
+      which npm
+      # 如果输出结果为：
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/npm
+      # 则自定义 npm 文件夹路径填写为：
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin
+      ```
 
 二、**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 OPPO 小游戏工程目录和 rpk，rpk 包在 /build/quickgame/dist 目录下。
 

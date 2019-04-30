@@ -82,12 +82,39 @@ Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游�
 
 - **自定义 node 路径**
 
-  该项为选填项，从 **v2.0.10** 开始可以自动获取到操作系统全局的 npm 路径，无需再手动设置。获取方法为：
+  该项为选填项，从 **v2.0.10** 开始可以自动获取到操作系统全局的 node 路径，无需再手动设置。获取方法为：
   
   - Windows 系统：从系统获取环境变量中的路径
   - Mac 系统：从 Shell 的配置文件获取环境变量中的路径。
   
-  如果获取不到，请确保 npm 已正常安装，并且能够在命令行环境下直接启动。获取到的 npm 将用于构建生成可运行的小游戏 rpk 包（rpk 包位于构建生成的小游戏工程 qgame 目录下的 dist 目录）。如果构建时找不到 npm 文件夹路径，则 Creator 只会导出小游戏工程目录，不会生成 rpk 包。
+  如果获取不到，请确保 node 已正常安装，并且能够在命令行环境下直接启动。获取到的 node 将用于构建生成可运行的快游戏 rpk 包。
+
+  **V2.0.10** 以下版本的填写规则如下：
+  
+  - 若不填写该项时，Creator 会默认在 Windows 系统上读取环境变量中的 node 路径，在 Mac 系统上默认读取 **/usr/bin/local** 目录下的 node 来构建导出可运行的快游戏 rpk 包（rpk 包位于构建生成的发布包 huawei 目录下的 dist 目录）。
+  - 如果用户的电脑环境未安装 node 或者读取不到系统中的 node 路径时，则需要填写 **自定义 node 路径** 来构建和导出 rpk 包。填写规则如下：
+
+    - Windows 系统
+
+      ```bash
+      # 获取本地 node 路径
+      where node
+      # 如果输出结果为：
+      C:\Program Files\nodejs\node.exe
+      # 则自定义 node 路径填写为：
+      C:\Program Files\nodejs
+      ```
+
+    - Mac 系统
+
+      ```bash
+      # 获取本地 node 路径
+      which node
+      # 如果输出结果为：
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin/node
+      # 则自定义 node 路径填写为：
+      /Users/yourname/.nvm/versions/node/v8.1.4/bin
+      ```
 
 二、**构建发布**
 
