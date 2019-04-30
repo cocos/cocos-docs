@@ -38,9 +38,25 @@ For the **Keystore** and two signature files (**certificate.pem path** and **pri
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
-- **App icon**
+- **App Package Name**
 
-  **App icon** is required. When building, the app icon will be built into the project of the __Vivo Mini Game__ game. Please make sure that the image under the app icon path is true. For example, if the application icon path is `/assets/image/logo.png`, the image directory and logo.png need to exist in the **Assets** directory of __Cocos Creator__ **Explorer**. **App icon** suggest using PNG pictures.
+  **App Package Name** is required and is filled in according to the user's needs.
+
+- **App Name**
+
+  **App Name** is required. Is the name of the vivo Mini Game. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
+
+- **Desktop Icon**
+
+  **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the Desktop Icon will be built into the __OPPO Mini Game__ project. Desktop Icon suggest using PNG pictures.
+
+- **App Version Name**
+
+  **App Version Name** is required and is filled in according to the user's needs.
+
+- **App Version Number**
+
+  **App Version Number** is required and is filled in according to the user's needs.
 
 - **Supported Minimum Platform Version Number**
 
@@ -79,7 +95,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Custom npm folder path**
 
-  This item is optional. The purpose of using npm is to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
+  This item is optional. Starting with **v2.0.10**, the global npm of the operating system can be automatically obtained. The **Custom npm folder path** has been removed and no longer has to be set manually.
+  
+  The purpose of using npm is to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
   
   - If you do not fill out this item, the Creator will read the npm path in the environment variable by default on the Windows system, and the npm in the **/usr/bin/local** directory is read by default on the Mac system to build the exported fast game rpk package that can be run.
   - If your PC environment does not have npm installed or cannot read the npm path in the system, you will need to fill out the **Custom npm folder path** to build and exported rpk package. Fill in the rules as follows:

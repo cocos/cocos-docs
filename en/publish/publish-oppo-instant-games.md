@@ -14,7 +14,7 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 1. Use __Cocos Creator__ to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
-![](./publish-oppo-instant-games/build_option.jpg)
+![](./publish-oppo-instant-games/build_option.png)
 
 **Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number**, **Platform Version Number**.
 
@@ -24,9 +24,25 @@ For the **Keystore** and two signature files (**certificate.pem path** and **pri
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
+- **Game Package Name**
+
+  **Game Package Name** is required and is filled in according to the user's needs.
+
+- **Game Name**
+
+  **Game Name** is required. Is the name of the OPPO Mini Game. And the **Title** at the top of the **Build** panel does not participate in the OPPO mini game packaging process.
+
 - **Desktop Icon**
 
-  **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the app icon will be built into the __OPPO Mini Game__ project. **Desktop Icon** suggest using PNG picture.
+  **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the Desktop Icon will be built into the __OPPO Mini Game__ project. Desktop Icon suggest using PNG pictures.
+
+- **Game Version Name**
+
+  **Game Version Name** is required and is filled in according to the user's needs.
+
+- **Game Version Number**
+
+  **Game Version Number** is required and is filled in according to the user's needs.
 
 - **Supported Minimum Platform Version Number**
 
@@ -62,7 +78,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Custom npm folder path**
 
-  This item is optional. The purpose of using npm is to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
+  This item is optional. Starting with **v2.0.10**, the global npm of the operating system can be automatically obtained. The **Custom npm folder path** has been removed and no longer has to be set manually.
+  
+  The purpose of using npm is to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
   
   - If you do not fill out this item, the Creator will read the npm path in the environment variable by default on the Windows system, and the npm in the **/usr/bin/local** directory is read by default on the Mac system to build the exported mini game rpk package that can be run.
   - If your PC environment does not have npm installed or cannot read the npm path in the system, you will need to fill out the **Custom npm folder path** to build and exported rpk package. Fill in the rules as follows:
