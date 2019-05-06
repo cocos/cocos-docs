@@ -148,7 +148,7 @@ Please refer to [capture_to_native](https://github.com/cocos-creator/example-cas
 
 ## The screenshot in WeChat
 
-Because of Wechat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
+Because of WeChat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
 
 ## Case
 
