@@ -91,8 +91,8 @@
     - [Publish to QQ Play](publish/publish-qqplay.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
-    - [Publish to Oppo Mini Games](publish/publish-oppo-instant-games.md)
-    - [Publish to Vivo Mini Games](publish/publish-vivo-instant-games.md)
+    - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
+    - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
