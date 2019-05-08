@@ -36,7 +36,7 @@ After installing Android Studio, refer to the official documentation and open th
 
 [SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
-1. In the `SDK Platforms` tab page, check the API level you want to install, and choose the minimum compatible API Level 16 (4.1) and the mainstream API Level such as 22 (5.1) and 25 (7.1).
+1. In the `SDK Platforms` tab page, check the API level you want to install, and it is recommended to select the minimum compatible API Level 16 (4.1) and the required mainstream API Level such as 23 (6.0), 26 (8.0) and 28 (9.0).
 2. In the `SDK Tools` tab page, first check the lower right corner of the `Show Package Details`, show the version of the tool selection.
 3. In the `Android SDK Build-Tools`, select the latest build Tools version.
 4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`

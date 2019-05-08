@@ -83,7 +83,7 @@ camera.getWorldToCameraPoint(point, out);
 // 获取摄像机坐标系到世界坐标系的矩阵
 camera.getCameraToWorldMatrix(out);
 // 获取世界坐标系到摄像机坐标系的矩阵
-camear.getWorldToCameraMatrix(out);
+camera.getWorldToCameraMatrix(out);
 ```
 
 ## 截图

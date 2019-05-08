@@ -36,7 +36,7 @@ java -version
 
 [SDK Manager 使用说明（需要使用 VPN）](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
-1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择最低兼容的 API Level 16（4.1) 和最主流的 API Level 22 (5.1) 以及 API Level 25 (7.1)。
+1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择最低兼容的 API Level 16（4.1) 和所需的主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）。
 2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show Package Details`，显示分版本的工具选择。
 3. 在 `Android SDK Build-Tools` 里，选择最新的 build tools 版本。
 4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
