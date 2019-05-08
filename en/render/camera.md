@@ -83,7 +83,7 @@ camera.getWorldToCameraPoint(point, out);
 // Gets the matrix from the camera coordinate system to the world coordinate system
 camera.getCameraToWorldMatrix(out);
 // Gets the matrix from world coordinate system to the camera coordinate system
-camear.getWorldToCameraMatrix(out);
+camera.getWorldToCameraMatrix(out);
 ```
 
 ## Screenshot
