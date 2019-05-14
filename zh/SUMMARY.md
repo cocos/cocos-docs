@@ -97,6 +97,7 @@
     - [发布到 vivo 小游戏平台](publish/publish-vivo-instant-games.md)
     - [发布到华为快游戏平台](publish/publish-huawei-fast-games.md)
     - [发布到小米快游戏平台](publish/publish-xiaomi-quick-games.md)
+    - [发布到即刻玩小游戏平台](publish/publish-jkw-games.md)
     - [定制项目构建流程](publish/custom-project-build-template.md)
 	- [命令行发布项目](publish/publish-in-command-line.md)
 
