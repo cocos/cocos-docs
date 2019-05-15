@@ -6,15 +6,15 @@
 
 ## 特别推荐
 
-- 从 v2.0.9 开始，Cocos Creator 支持发布到 [小米快游戏平台](publish/publish-xiaomi-quick-games.md) 及 [即刻玩小游戏平台](publish/publish-jkw-games.md)。
-- 从 v2.0.9 开始，Cocos Creator 支持发布到 [百度小游戏平台](publish/publish-baidugame.md)。
-- 从 v2.0.7 开始，Cocos Creator 支持发布到 [华为快游戏平台](publish/publish-huawei-fast-games.md)。
-- 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏平台](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏平台](publish/publish-vivo-instant-games.md)。
+- 从 v2.0.10 开始，Cocos Creator 支持发布到 [小米快游戏](publish/publish-xiaomi-quick-games.md) 及 [即刻玩小游戏](publish/publish-jkw-games.md)。
+- 从 v2.0.9 开始，Cocos Creator 支持发布到 [百度小游戏](publish/publish-baidugame.md)。
+- 从 v2.0.7 开始，Cocos Creator 支持发布到 [华为快游戏](publish/publish-huawei-fast-games.md)。
+- 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏](publish/publish-vivo-instant-games.md)。
 - 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)
 - 从 v2.0.1 开始，Cocos Creator 升级了开放数据域解决方案，请参阅 [接入小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)。
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
 - 从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，绝大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](release-notes/raw-asset-migration.md)。
-- 从 v1.10 开始，Cocos Creator 支持微信小游戏平台分包加载，请参阅 [分包加载](scripting/subpackage.md)。
+- 从 v1.10 开始，Cocos Creator 支持微信小游戏分包加载，请参阅 [分包加载](scripting/subpackage.md)。
 
 ## 总导读
 

@@ -194,7 +194,7 @@ assetsManager.downloadFailedAssets();
 上面是热更新后必须要重启的原因，不过如何启用新的资源呢？那就需要依赖 Cocos 引擎的搜索路径机制了，Cocos 中所有文件的读取都是通过 FileUtils 来读取的，而 FileUtils 会按照搜索路径的优先级顺序查找文件。那么解决方案就很简单了，只要我们将热更新的缓存目录添加到搜索路径中，并且前置，那么就会优先搜索到缓存目录中的资源。下面是示例代码：
 
 ```
-if (cc.sys.isNative) {
+if (jsb) {
     // 创建 AssetsManager
     var assetsManager = new jsb.AssetsManager(manifestUrl, storagePath);
     // 初始化后的 AssetsManager 的 local manifest 就是缓存目录中的 manifest

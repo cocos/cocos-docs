@@ -4,9 +4,9 @@ Starting with __v1.8__, Cocos Creator officially supports the release of games t
 
 ![](./publish-wechatgame/preview.jpeg)
 
-## __WeChat Mini Game__ Platform
+## __WeChat Mini Game__
 
-__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__ platform. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
+__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
 The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
 
@@ -16,7 +16,7 @@ As an engine, in order to simplify the developer's workload as much as possible,
 - __Cocos Creator__ editor provides a fast packaging process, released directly as a __WeChat Mini Game__, and automatically evokes the developer tools of the mini game.
 - Automatic loading of remote resources, cache resources and cache resource versioning.
 
-In addition, the game submission, review and release process of the __WeChat Mini Game__ platform is no different from the __WeChat Mini Program__ platform. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
+In addition, the game submission, review and release process of the __WeChat Mini Game__ is no different from the __WeChat Mini Program__. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
 
 ## Using Cocos Creator to publish WeChat Mini Games
 

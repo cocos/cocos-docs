@@ -132,4 +132,4 @@ cc.Class({
 
 ## 支持平台
 
-由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏平台上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。
+由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。
