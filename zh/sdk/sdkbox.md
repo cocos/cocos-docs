@@ -6,7 +6,7 @@ SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK �
 
 ## 集成 SDKBox
 
-1. 使用 Creator 打开需要集成 SDKBox 的项目工程，从 **菜单栏 — 项目** 中打开 **构建发布** 面板，在 **构建发布** 面板中选择 **iOS/Android** 平台，并勾选 SDKBox，然后点击 **构建**。
+1. 使用 Creator 打开需要集成 SDKBox 的项目工程，从 **菜单栏 — 项目** 中打开 **构建发布** 面板，在 **构建发布** 面板中选择 **iOS/Android**，并勾选 SDKBox，然后点击 **构建**。
 
 2. 构建完成之后会自动弹出一个 **Install SDKBox Plugin？** 的选择框，选择 **Yes** 来打开 SDKBox 窗口，然后点击 import 来导入所需的插件。具体的操作流程可点击 [视频](https://gfycat.com/entirelinearbeetle) 参考。
 

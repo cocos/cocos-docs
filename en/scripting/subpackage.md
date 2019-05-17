@@ -1,6 +1,6 @@
 # Subpackage Loading
 
-As gameplay becomes more and more rich, the amount of code in the game is increasing and developers are wanting to expand the size of their game package. At the same time, WeChat Mini Games also support the function of subpackage loading. So Cocos Creator provides a **subpackage loading** feature that supports subpackage loading of **code** and **resources**. Where **resource subpackage** is supported from **v2.0.7**. Subpackage loading currently only supports all kinds of mini game platforms, such as WeChat Mini Games, OPPO Mini Games and so on.
+As gameplay becomes more and more rich, the amount of code in the game is increasing and developers are wanting to expand the size of their game package. At the same time, WeChat Mini Games also support the function of subpackage loading. So Cocos Creator provides a **subpackage loading** feature that supports subpackage loading of **code** and **resources**. Where **resource subpackage** is supported from **v2.0.7**. Subpackage loading currently only supports all kinds of mini games, such as WeChat Mini Games, OPPO Mini Games and so on.
 
 **Subpackage Loading**, is the the game content being split into several packages according to certain rules. During the first startup, only the necessary packages are downloaded, also called the **main package**. Other subpackages are downloaded, as triggered, which can effectively reduce the time spent on the first boot.
 
@@ -46,7 +46,7 @@ If the loading is successful, the script in the subpackage will be executed and 
 
 ## WeChat Mini Games
 
-When building for the **WeChat Mini Game** Platform, the configuration of the **subpackage** will be automatically generated into the **game.json** configuration file of the **WeChat Mini Games** release package according to the rules.
+When building for the **WeChat Mini Game**, the configuration of the **subpackage** will be automatically generated into the **game.json** configuration file of the **WeChat Mini Games** release package according to the rules.
 
 ![profile](./subpackage/profile.png)
 

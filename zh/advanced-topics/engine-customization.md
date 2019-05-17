@@ -145,8 +145,8 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 目前适配层包括三个部分：
 
 - `jsb-adapter` 适配原生平台
-- `weapp-adapter` 适配微信小游戏平台
-- `qqplay-adapter` 适配 qq 玩一玩平台
+- `weapp-adapter` 适配微信小游戏
+- `qqplay-adapter` 适配 qq 玩一玩
 
 ### 3.1 获取 Adapter
 

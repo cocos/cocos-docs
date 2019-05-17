@@ -1,6 +1,6 @@
 # 发布到 Google Play Instant
 
-从 v2.0.4 版本开始，Cocos Creator 正式支持将游戏发布到 Google Play Instant 平台。Google Play Instant 依赖于 Google Play，并不是一个新的分发渠道，而更接近一种游戏微端方案。它能够实现游戏的免安装即开即玩，有利于游戏的试玩、分享和转化。它和 Android Instant App 的主要区别在于：
+从 v2.0.4 版本开始，Cocos Creator 正式支持将游戏发布到 Google Play Instant。Google Play Instant 依赖于 Google Play，并不是一个新的分发渠道，而更接近一种游戏微端方案。它能够实现游戏的免安装即开即玩，有利于游戏的试玩、分享和转化。它和 Android Instant App 的主要区别在于：
 
 - 首包和 APK 附加包都限制在 10MB 以内（而不是 4MB）
 - 可以从第三方 CDN 动态加载不含二进制代码的资源（JS 也可以）

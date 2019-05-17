@@ -57,7 +57,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ### Release Steps
 
-1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
+1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game** in the **Platform**, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
     ![](./publish-wechatgame/maintest-build.png)
 
@@ -65,7 +65,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/game-json.png)
 
-2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context** platform.
+2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context**.
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
@@ -142,7 +142,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ### Release Steps
 
-1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game** platform, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
+1. Open the main context project, open the **Build** panel in **Menu Bar -> Project**, select the **WeChat Mini Game**, and fill in the **Open Data Context Root**. This directory is the path to the publishing package that is generated after the open data context is built. Then click on **Build**.
 
     ![](./publish-wechatgame/maintest-build.png)
 
@@ -150,7 +150,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/game-json.png)
 
-2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context** platform.
+2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context**.
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
