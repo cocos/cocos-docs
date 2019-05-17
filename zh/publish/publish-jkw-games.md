@@ -32,7 +32,7 @@ Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到即刻玩小
 
 三、**将打包出来的 cpk 运行到手机上**。
 
-打开之前已经安装完成的游戏自测工具，自测工具可以启动游戏并提供游戏登录、支付、对战匹配等功能。通过读取游戏配置参数，确定启动的游戏类型，以及游戏启动方式。开发者必须使用自测工具测试接入没有问题之后，才可以打包提交到平台审核。自测时没有要求包的大小，但如果是要提交审核的话，包的大小不能超过 10M。具体可参考 [自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)。
+打开之前已经安装完成的游戏自测工具，自测工具可以启动游戏并提供游戏登录、支付等功能。通过读取游戏配置参数，确定启动的游戏类型，以及游戏启动方式。开发者必须使用自测工具测试接入没有问题之后，才可以打包提交到平台审核。自测时没有要求包的大小，但如果是要提交审核的话，包的大小不能超过 10M。具体可参考 [自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)。
 
 然后点击自测工具左上方的 **配置游戏** 按钮进入游戏配置页面。根据需求配置参数并保存。
 
@@ -58,7 +58,7 @@ Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到即刻玩小
 
   - 将构建生成的小游戏 cpk 文件（位于小游戏工程 jkw-game 目录下）拷贝到手机目录下。如果是拷贝到 sdcard 目录下，则需要在 sdcard 目录中新建一个文件夹，然后将 cpk 文件拷贝到新建文件夹中。
   - 游戏自测工具参数配置页面中的 **lodeType** 选择 **File**。
-  - **path** 填写刚才拷贝 cpk 文件放置的新建文件夹中。填写如：**/test/game.cpk**。
+  - **path** 填写刚才拷贝 cpk 文件放置的新建文件夹，如：**/test/game.cpk**。
   - 配置完成后点击 **保存**，然后点击 **启动游戏**，即可打开游戏。
   
 **方法二**：以网页方式从指定网址打开游戏（游戏加载类型为 **Url**）
@@ -72,5 +72,6 @@ Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到即刻玩小
 
 - [即刻玩小游戏中心](https://gamebox.cocos.com/)
 - [即刻玩小游戏文档中心](https://gamebox.gitbook.io/project/)
+- [即刻玩小游戏 API 文档](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/ji-chu-neng-li)
 - [即刻玩小游戏自测工具](https://dev.mi.com/console/doc/detail?pId=1704)
 - [即刻玩小游戏自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju)

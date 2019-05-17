@@ -21,7 +21,7 @@ Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games 
 
 ## First, use Cocos Creator to build the game
 
-Using Creator open the project project that needs to be published. Open the Build Publish panel from the Menu bar. Select `Project` and select the Facebook Instant Games in the build Publish panel:
+Using Creator open the project that needs to be published. Open the **Build** panel from the **Menu bar -> Project**. Select the **Facebook Instant Game** in the **Platform** dropdown of the **Build** panel:
 
 ![](./publish-fb-instant-games/build.png)
 

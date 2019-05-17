@@ -52,11 +52,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Version Name**
 
-  **App Version Name** is required and is filled in according to the user's needs.
+  This item is required. **App Version Name** is the real version, such as: 1.0.0.
 
 - **App Version Number**
 
-  **App Version Number** is required and is filled in according to the user's needs.
+  This item is required. **App Version Number** is different from the **App Version Name**, and the **App Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the app version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **App Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **App Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**
 

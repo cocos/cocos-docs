@@ -38,11 +38,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Game Version Name**
 
-  **Game Version Name** is required and is filled in according to the user's needs.
+  This item is required. **Game Version Name** is the real version, such as: 1.0.0.
 
 - **Game Version Number**
 
-  **Game Version Number** is required and is filled in according to the user's needs.
+  This item is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **Game Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**
 
