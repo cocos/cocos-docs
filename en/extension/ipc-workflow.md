@@ -131,7 +131,7 @@ When timeout triggerred, a timeout error will reply:
 
 ```js
 Editor.Ipc.sendToMain('foobar:greeting', function (error, answer) {
-  if ( error.code === 'ETIMEOUT' ) { //check the error code to confirm a timeout
+  if ( error && error.code === 'ETIMEOUT' ) { //check the error code to confirm a timeout
     Editor.error('Timeout for ipc message foobar:greeting');
     return;
   }
