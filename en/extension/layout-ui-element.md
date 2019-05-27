@@ -33,12 +33,12 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-vertical](./assets/layout-vertical.png)
 
-## 对其元素
+## 对齐元素
 
-我们在横排纵排时，会希望对所有子元素进行对其操作。可以通过 `start`，`center` 和 `end` 来进行
-子元素的对其操作。
+我们在横排纵排时，会希望对所有子元素进行对齐操作。可以通过 `start`，`center` 和 `end` 来进行
+子元素的对齐操作。
 
-对于横排元素，他们分别代表上，中，下对其。对于纵排元素，他们分别代表左，中，右对其。
+对于横排元素，他们分别代表上，中，下对齐。对于纵排元素，他们分别代表左，中，右对齐。
 
 让我们以横排为例，来看一组例子：
 
@@ -62,7 +62,7 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-align-items](./assets/layout-align-items.png)
 
-有时候，我们需要对排版容器中的某个元素进行对其调整，这个时候就可以通过 `self-` 关键字来操作。在
+有时候，我们需要对排版容器中的某个元素进行对齐调整，这个时候就可以通过 `self-` 关键字来操作。在
 Cocos Creator 中，我们提供了：`self-start`，`self-center`，`self-end` 和 `self-stretch`
 
 让我们以横排为例，来看看这么做的效果：
