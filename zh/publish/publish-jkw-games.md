@@ -73,5 +73,5 @@ Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到即刻玩小
 - [即刻玩小游戏中心](https://gamebox.cocos.com/)
 - [即刻玩小游戏文档中心](https://gamebox.gitbook.io/project/)
 - [即刻玩小游戏 API 文档](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/ji-chu-neng-li)
-- [即刻玩小游戏自测工具](https://dev.mi.com/console/doc/detail?pId=1704)
+- [即刻玩小游戏自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)
 - [即刻玩小游戏自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju)

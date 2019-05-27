@@ -60,7 +60,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the requirements of vivo Mini Games, this value must be **1020** at present.
+  This item is required. According to the requirements of vivo Mini Games, this value must be **1033** at present. Please refer to [Official Documentation](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) for details.
 
 - **Small Packet Mode and Small Packet Mode Server Path**
 
