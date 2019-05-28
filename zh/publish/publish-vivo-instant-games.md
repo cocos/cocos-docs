@@ -59,7 +59,7 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 
 - **支持的最小平台版本号**
 
-  该项为必填项。根据 vivo 小游戏的要求目前这个值必须填写 **1033**。具体更新记录可查看 vivo 小游戏的 [官方文档](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A)。
+  该项为必填项。具体填写值可通过点击 [更新记录](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) 来查看最新的 vivo 引擎版本号。
 
 - **小包模式和小包模式服务器路径**
 
