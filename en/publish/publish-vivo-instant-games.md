@@ -60,8 +60,8 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the requirements of vivo Mini Games, this value must be **1033** at present. Please refer to [Official Documentation](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) for details.
-
+  This item is required. Please refer to [Official Documentation](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
+  
 - **Small Packet Mode and Small Packet Mode Server Path**
 
   This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
