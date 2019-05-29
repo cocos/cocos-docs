@@ -23,4 +23,53 @@ DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.
 | Debug Bones           | 是否显示 bone 的 debug 信息
 | Enable Batch          | 是否开启动画合批，默认关闭。（v2.0.9 中新增）<br>开启时，能减少 drawcall，适用于大量且简单动画同时播放的情况。关闭时，drawcall 会上升，但能减少 cpu 的运算负担，适用于复杂的动画。
 
+## DragonBones 换装
+
+通过替换插槽的显示对象数据进行换装，如图所示，用红色框中的刀替换机器人绿色框中的武器。
+
+![dragonbones-cloth](./dragonbones/cloth.png)
+
+如图所示，新建空节点knife，添加DragonBones组件，并将刀的资源拖拽至属性框中。
+
+![dragonbones-cloth](./dragonbones/cloth2.png)
+
+如图所示，新建空节点robot，添加DragonBones组件，并将机器人的资源拖拽至属性框中。
+
+![dragonbones-cloth](./dragonbones/cloth3.png)
+
+编写组件脚本，并添加到场景中，脚本代码如下：
+```js
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        robot: {
+            type:dragonBones.ArmatureDisplay,
+            default:null,
+        },
+        knife: {
+            type:dragonBones.ArmatureDisplay,
+            default:null,
+        }
+    },
+
+    start () {
+        let robotArmature = this.robot.armature();
+        let robotSlot = robotArmature.getSlot("weapon_hand_r");
+        let factory = dragonBones.CCFactory.getInstance();
+        factory.replaceSlotDisplay(
+            this.knife.getArmatureKey(), 
+            "weapon", 
+            "weapon_r", 
+            "weapon_1004c_r", 
+            robotSlot
+        );
+    },
+});
+```
+
+启动场景，可以看到机器人右手的刀已经被替换，如图所示。
+
+![dragonbones-cloth](./dragonbones/cloth4.png)
+
 **注意**：当使用 DragonBones 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
