@@ -25,3 +25,49 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 | Enable Batch          | 是否开启动画合批，默认关闭。（v2.0.9 中新增）<br>开启时，能减少 Drawcall，适用于大量且简单动画同时播放的情况。关闭时，Drawcall 会上升，但能减少 CPU 的运算负担，适用于复杂的动画。
 
 **注意**：当使用 Spine 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
+
+## Spine 换装
+
+下面通过一个范例介绍 Spine 如何换装，此方法适用于 v2.2.0 及以上版本。我们将会通过替换插槽的 attachment 对象，将绿色框中的手臂替换为红色框中的手臂。
+
+![spine-cloth](./spine/cloth0.png)
+
+首先新建空节点 goblingirl，添加 Spine 组件，并将资源拖拽至属性框中，设置好你想用于替换的皮肤。
+
+![spine-cloth](./spine/cloth1.png)
+
+再新建空节点 goblin，添加 Spine 组件，并将资源拖拽至属性框中。
+
+![spine-cloth](./spine/cloth2.png)
+
+编写组件脚本，并添加到场景中，脚本代码如下：
+```js
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        goblin: {
+            type: sp.Skeleton,
+            default: null,
+        },
+        goblingirl: {
+            type: sp.Skeleton,
+            default: null,
+        }
+    },
+
+    start () {
+        let parts = ["left-arm", "left-hand", "left-shoulder"];
+        for (let i = 0; i < parts.length; i++) {
+            let goblin = this.goblin.findSlot(parts[i]);
+            let goblingirl = this.goblingirl.findSlot(parts[i]);
+            let attachment = goblingirl.getAttachment();
+            goblin.setAttachment(attachment);
+        }
+    }
+});
+```
+
+设置好脚本属性，启动场景，可以看到绿色框中的手臂已经被替换。
+
+![spine-cloth](./spine/cloth3.png)
