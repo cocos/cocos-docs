@@ -46,12 +46,12 @@ cc.Class({
 
     properties: {
         robot: {
-            type : dragonBones.ArmatureDisplay,
-            default : null,
+            type: dragonBones.ArmatureDisplay,
+            default: null,
         },
         knife: {
-            type : dragonBones.ArmatureDisplay,
-            default : null,
+            type: dragonBones.ArmatureDisplay,
+            default: null,
         }
     },
 
