@@ -23,7 +23,7 @@ DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.
 | Debug Bones           | 是否显示 bone 的 debug 信息
 | Enable Batch          | 是否开启动画合批，默认关闭。（v2.0.9 中新增）<br>开启时，能减少 drawcall，适用于大量且简单动画同时播放的情况。关闭时，drawcall 会上升，但能减少 cpu 的运算负担，适用于复杂的动画。
 
-## DragonBones 换装 （适用于 2.0.10 或者 2.1.1 及以上版本）
+## DragonBones 换装 （适用于 v2.0.10 或者 v2.1.1 及以上版本）
 
 通过替换插槽的显示对象数据进行换装，如图所示，用红色框中的刀替换机器人绿色框中的武器。
 
@@ -68,7 +68,7 @@ cc.Class({
 });
 ```
 
-启动场景，可以看到机器人右手的刀已经被替换，如图所示。
+设置好脚本属性，启动场景，可以看到机器人右手的刀已经被替换，如图所示。
 
 ![dragonbones-cloth](./dragonbones/cloth4.png)
 
