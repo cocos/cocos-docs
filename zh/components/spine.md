@@ -47,12 +47,12 @@ cc.Class({
 
     properties: {
         goblin: {
-            type : sp.Skeleton,
-            default : null,
+            type: sp.Skeleton,
+            default: null,
         },
         goblingirl: {
-            type : sp.Skeleton,
-            default : null,
+            type: sp.Skeleton,
+            default: null,
         }
     },
 
