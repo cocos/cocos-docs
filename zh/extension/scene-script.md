@@ -27,7 +27,7 @@ module.exports = {
         Editor.log('children length : ' + canvas.children.length);
 
         if (event.reply) {
-            event.reply(canvas.children.length);
+            event.reply(null, canvas.children.length);
         }
     }
 };
