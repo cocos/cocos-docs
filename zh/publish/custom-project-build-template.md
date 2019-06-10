@@ -42,7 +42,7 @@ function onBeforeBuildFinish (event, options) {
     fs.writeFileSync(mainJsPath, script);                 // 保存 main.js
 
     event.reply();                                        // 处理完的回调
-    // event.reply(new Error('错误提示'));                    // 处理失败的回调
+    // event.reply(new Error('错误提示'));                 // 处理失败的回调
 }
 
 module.exports = {
