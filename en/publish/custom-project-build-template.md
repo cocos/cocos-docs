@@ -35,7 +35,7 @@ Open the `main.js` script in the package and add an event handler for `Editor.Bu
 var path = require('path');
 var fs = require('fs');
 
-function onBeforeBuildFinish (options, callback) {
+function onBeforeBuildFinish (event, options) {
     Editor.log('Building ' + options.platform + ' to ' + options.dest); // you can display a log in the Console panel
 
     var mainJsPath = path.join(options.dest, 'main.js');  // get path of main.js in build folder
@@ -43,7 +43,8 @@ function onBeforeBuildFinish (options, callback) {
     script += '\n' + 'window.myID = "01234567";';         // append any scripts as you need
     fs.writeFileSync(mainJsPath, script);                 // save main.js
 
-    callback();
+    event.reply();                                        // handle finish callback
+    // event.reply(new Error('fail'));                    // handle finish callback with error
 }
 
 module.exports = {
