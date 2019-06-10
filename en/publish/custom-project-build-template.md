@@ -70,7 +70,7 @@ You can register as many processing functions as you want, and when the function
 In the `'before-change-files'` and `'build-finished'` event handler, you can also get some build results from the `BuildResults` object. Examples are as follows:
 
 ```js
-function onBeforeBuildFinish (options, callback) {
+function onBeforeBuildFinish (event, options) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
@@ -96,7 +96,11 @@ function onBeforeBuildFinish (options, callback) {
         Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
     }
 
-    callback();
+    // handle finish callback 
+    event.reply();
+    
+    // handle finish callback with error
+    // event.reply(new Error('error tips'));
 }
 
 module.exports = {

@@ -68,7 +68,7 @@ module.exports = {
 在 `'before-change-files'` 和 `'build-finished'` 事件的处理函数中，你还可以通过 `BuildResults` 对象获取一些构建结果。例子如下：
 
 ```js
-function onBeforeBuildFinish (options, callback) {
+function onBeforeBuildFinish (event, options) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
@@ -91,7 +91,11 @@ function onBeforeBuildFinish (options, callback) {
         Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
     }
 
-    callback();
+    // 处理完的回调
+    event.reply();
+        
+    // 处理失败的回调
+    // event.reply(new Error('错误提示'));
 }
 
 module.exports = {
