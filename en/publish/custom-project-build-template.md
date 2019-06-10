@@ -44,7 +44,7 @@ function onBeforeBuildFinish (event, options) {
     fs.writeFileSync(mainJsPath, script);                 // save main.js
 
     event.reply();                                        // handle finish callback
-    // event.reply(new Error('fail'));                    // handle finish callback with error
+    // event.reply(new Error('error tips'));                    // handle finish callback with error
 }
 
 module.exports = {
