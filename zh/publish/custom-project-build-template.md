@@ -33,7 +33,7 @@ project-folder
 var path = require('path');
 var fs = require('fs');
 
-function onBeforeBuildFinish (options, callback) {
+function onBeforeBuildFinish (event, options) {
     Editor.log('Building ' + options.platform + ' to ' + options.dest); // 你可以在控制台输出点什么
 
     var mainJsPath = path.join(options.dest, 'main.js');  // 获取发布目录下的 main.js 所在路径
@@ -41,7 +41,8 @@ function onBeforeBuildFinish (options, callback) {
     script += '\n' + 'window.myID = "01234567";';         // 添加一点脚本到
     fs.writeFileSync(mainJsPath, script);                 // 保存 main.js
 
-    callback();
+    event.reply();                                        // 处理完的回调
+    // event.reply(new Error('错误提示'));                 // 处理失败的回调
 }
 
 module.exports = {
@@ -60,14 +61,14 @@ module.exports = {
  - `'before-change-files'`：在构建结束**之前**触发，此时除了计算文件 MD5、生成 settings.js、原生平台的加密脚本以外，大部分构建操作都已执行完毕。我们通常会在这个事件中对已经构建好的文件做进一步处理。
  - `'build-finished'`：构建完全结束时触发。
 
-你可以注册任意多个处理函数，当函数被调用时，将传入两个参数。第一个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。第二个参数是一个回调函数，你需要在响应函数所做的操作完全结束后手动调用这个回调，这样后续的其它构建过程才会继续进行，也就是说你的响应函数可以是异步的。
+你可以注册任意多个处理函数，当函数被调用时，将传入两个参数。第一个参数是一个事件对象，主要用来确认发送方和调用回调，也就是说你的响应函数可以是异步的，当调用完成后，可以调用 `event.reply()` 完成当前流程。第二个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。
 
 ### 获取构建结果
 
 在 `'before-change-files'` 和 `'build-finished'` 事件的处理函数中，你还可以通过 `BuildResults` 对象获取一些构建结果。例子如下：
 
 ```js
-function onBeforeBuildFinish (options, callback) {
+function onBeforeBuildFinish (event, options) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
@@ -90,7 +91,11 @@ function onBeforeBuildFinish (options, callback) {
         Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
     }
 
-    callback();
+    // 处理完的回调
+    event.reply();
+        
+    // 处理失败的回调
+    // event.reply(new Error('错误提示'));
 }
 
 module.exports = {
