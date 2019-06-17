@@ -5,6 +5,7 @@
 **注意**：请在右上角根据您使用的 Cocos Creator 版本选择相应的手册版本。目前稳定版本仍为 2.0 版本，若您使用的是 2.1 版本，请参阅 [v2.1 用户手册](../../2.1/manual/zh/index.html)。
 
 ## 特别推荐
+
 - [DragonBones 换装指南](components/dragonbones.md)
 - 从 v2.0.10 开始，Cocos Creator 支持发布到 [小米快游戏](publish/publish-xiaomi-quick-games.md) 及 [即刻玩小游戏](publish/publish-jkw-games.md)。
 - 从 v2.0.9 开始，Cocos Creator 支持发布到 [百度小游戏](publish/publish-baidugame.md)。
