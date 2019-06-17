@@ -4,9 +4,10 @@ DragonBones 组件可以对骨骼动画（DragonBones）资源进行渲染和播
 
 ![dragonbones](./dragonbones/properties.png)
 
-点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> DragonBones** 按钮，即可添加 DragonBones 组件到节点上。
+在 **层级管理器** 中选中需要添加 DragonBones 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> DragonBones** 按钮，即可添加 DragonBones 组件到节点上。
 
-DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.com/cocos-creator/example-cases) 中的 [DragonBones 测试例](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/dragonbones)。<br>DragonBones 相关的脚本接口请参考 [DragonBones API](../../../api/zh/modules/dragonBones.html)。
+- DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.com/cocos-creator/example-cases) 中的 [DragonBones 测试例](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/dragonbones)。
+- DragonBones 相关的脚本接口请参考 [DragonBones API](../../../api/zh/modules/dragonBones.html)。
 
 ## DragonBones 属性
 
@@ -27,49 +28,54 @@ DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.
 
 ## DragonBones 换装
 
-下面通过一个范例介绍 DragonBones 如何换装，此方法适用于 v2.0.10 或者 v2.1.1 及以上版本。我们将会通过替换插槽的显示对象，将图中的绿色框中的武器替换为红色框中的刀：
+下面通过一个范例介绍 DragonBones 如何换装。通过替换插槽的显示对象，将下图绿色框中的武器替换为红色框中的刀。此方法适用于 **v2.0.10** 或者 **v2.1.1** 及以上版本。
 
 ![dragonbones-cloth](./dragonbones/cloth.png)
 
-首先新建空节点 knife，添加 DragonBones 组件，并将刀的资源拖拽至属性框中。
+1. 首先在 **层级管理器** 中新建一个空节点，重命名为 knife。然后在 **属性检查器** 中添加 DragonBones 组件。并将红色框中的刀的资源拖拽至 DragonBones 组件的属性框中，如下图所示：
 
-![dragonbones-cloth](./dragonbones/cloth2.png)
+    ![dragonbones-cloth](./dragonbones/cloth2.png)
 
-再新建空节点 robot，添加 DragonBones 组件，并将机器人的资源拖拽至属性框中。
+2. 再次新建一个空节点并重命名为 robot，然后在 **属性检查器** 中添加 DragonBones 组件，并将机器人的资源拖拽至 DragonBones 组件的属性框中，如下图所示。可更改 DragonBones 组件的 Animation 属性用于设置用户想要播放的动画。
 
-![dragonbones-cloth](./dragonbones/cloth3.png)
+    ![dragonbones-cloth](./dragonbones/cloth3.png)
 
-编写组件脚本，并添加到场景中，脚本代码如下：
-```js
-cc.Class({
-    extends: cc.Component,
+3. 在 **资源管理器** 中新建一个 JavaScript 脚本，编写组件脚本。脚本代码如下：
 
-    properties: {
-        robot: {
-            type: dragonBones.ArmatureDisplay,
-            default: null,
+    ```js
+    cc.Class({
+        extends: cc.Component,
+
+        properties: {
+            robot: {
+                type: dragonBones.ArmatureDisplay,
+                default: null,
+            },
+            knife: {
+                type: dragonBones.ArmatureDisplay,
+                default: null,
+            }
         },
-        knife: {
-            type: dragonBones.ArmatureDisplay,
-            default: null,
-        }
-    },
 
-    start () {
-        let robotArmature = this.robot.armature();
-        let robotSlot = robotArmature.getSlot("weapon_hand_r");
-        let factory = dragonBones.CCFactory.getInstance();
-        factory.replaceSlotDisplay(
-            this.knife.getArmatureKey(), 
-            "weapon", 
-            "weapon_r", 
-            "weapon_1004c_r", 
-            robotSlot
-        );
-    },
-});
-```
+        start () {
+            let robotArmature = this.robot.armature();
+            let robotSlot = robotArmature.getSlot("weapon_hand_r");
+            let factory = dragonBones.CCFactory.getInstance();
+            factory.replaceSlotDisplay(
+                this.knife.getArmatureKey(), 
+                "weapon", 
+                "weapon_r", 
+                "weapon_1004c_r", 
+                robotSlot
+            );
+        },
+    });
+    ```
 
-设置好脚本属性，启动场景，可以看到机器人右手的刀已经被替换。
+4. 然后将脚本组件挂载到 Canvas 节点上，即将脚本拖拽到 Canvas 节点的 **属性检查器** 中。再将 **层级管理器** 中的 robot 节点和 knife 节点分别拖拽到脚本组件对应的属性框中，并保存场景。
 
-![dragonbones-cloth](./dragonbones/cloth4.png)
+    ![dragonbones-cloth](./dragonbones/dragonbone_jscomponent.png)
+
+5. 点击编辑器上方的预览按钮，可以看到机器人右手的刀已经被替换。
+
+    ![dragonbones-cloth](./dragonbones/cloth4.png)
