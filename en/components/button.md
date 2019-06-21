@@ -79,15 +79,15 @@ There are two ways to add a callback through the script.
 1. The event callback added by this method is the same as the event callback added by the editor, all added by Button component. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
     ```js
-    //here is your component file, file name = MyComponent.js 
+    // here is your component file, file name = MyComponent.js 
     cc.Class({
         extends: cc.Component,
         properties: {},
 
         onLoad: function () {
             var clickEventHandler = new cc.Component.EventHandler();
-            clickEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
-            clickEventHandler.component = "MyComponent";//This is the code file name
+            clickEventHandler.target = this.node; // This node is the node to which your event handler code component belongs
+            clickEventHandler.component = "MyComponent";// This is the code file name
             clickEventHandler.handler = "callback";
             clickEventHandler.customEventData = "foobar";
 
@@ -96,10 +96,10 @@ There are two ways to add a callback through the script.
         },
 
         callback: function (event, customEventData) {
-            //here event is a Touch Event object, you can get events sent to the event node node
+            // here event is a Event object, you can get events sent to the event node node
             var node = event.target;
             var button = node.getComponent(cc.Button);
-            //here the customEventData parameter is equal to you set before the "foobar"
+            // here the customEventData parameter is equal to you set before the "foobar"
         }
     });
     ```
@@ -107,7 +107,7 @@ There are two ways to add a callback through the script.
 2. By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not gets the screen coordinate point of the current click button.
 
     ```js
-    //Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
+    // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
 
     cc.Class({
         extends: cc.Component,
@@ -120,9 +120,9 @@ There are two ways to add a callback through the script.
             this.button.node.on('click', this.callback, this);
         },
 
-        callback: function (event) {
-            //do whatever you want with button
-            //In addition, attention to this way registered events, can not pass customEventData
+        callback: function (button) {
+            // do whatever you want with button
+            // In addition, attention to this way registered events, can not pass customEventData
         }
     });
     ```

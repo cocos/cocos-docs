@@ -82,15 +82,15 @@ Button 可以额外添加 Click 事件，用于响应玩家的点击操作。有
 1. 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过 Button 组件实现。首先需要构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
     ```js
-    //here is your component file, file name = MyComponent.js 
+    // here is your component file, file name = MyComponent.js 
     cc.Class({
         extends: cc.Component,
         properties: {},
 
         onLoad: function () {
             var clickEventHandler = new cc.Component.EventHandler();
-            clickEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-            clickEventHandler.component = "MyComponent";//这个是代码文件名
+            clickEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
+            clickEventHandler.component = "MyComponent";// 这个是代码文件名
             clickEventHandler.handler = "callback";
             clickEventHandler.customEventData = "foobar";
 
@@ -99,10 +99,10 @@ Button 可以额外添加 Click 事件，用于响应玩家的点击操作。有
         },
 
         callback: function (event, customEventData) {
-            //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
+            // 这里 event 是一个 Event 对象，你可以通过 event.target 取到事件的发送节点
             var node = event.target;
             var button = node.getComponent(cc.Button);
-            //这里的 customEventData 参数就等于你之前设置的 "foobar"
+            // 这里的 customEventData 参数就等于你之前设置的 "foobar"
         }
     });
     ```
@@ -111,7 +111,7 @@ Button 可以额外添加 Click 事件，用于响应玩家的点击操作。有
 获得当前点击按钮的屏幕坐标点。
 
     ```js
-    //假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+    // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
 
     cc.Class({
         extends: cc.Component,
@@ -124,9 +124,9 @@ Button 可以额外添加 Click 事件，用于响应玩家的点击操作。有
             this.button.node.on('click', this.callback, this);
         },
 
-        callback: function (event) {
-            //do whatever you want with button
-            //另外，注意这种方式注册的事件，也无法传递 customEventData
+        callback: function (button) {
+            // do whatever you want with button
+            // 另外，注意这种方式注册的事件，也无法传递 customEventData
         }
     });
     ```
