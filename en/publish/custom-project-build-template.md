@@ -25,7 +25,9 @@ If current platform is `web-mobile`, then `build-templates/web-mobile/index.html
 
 ## Extend The Build Process
 
-To extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
+If users wants to extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
+
+This section is based on v2.0.7, and if the user is using a version between v2.0.0 ~ v2.0.6, please refer to the [old version document](https://github.com/cocos-creator/creator-docs/blob/7e50ccd4aab0f1b60fcc8fe029c650b6833e63d3/en/publish/custom-project-build-template.md#extend-the-build-process).
 
 Open the `main.js` script in the package and add an event handler for `Editor.Builder` in the `load` and `unload` method:
 
