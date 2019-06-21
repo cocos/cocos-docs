@@ -2,7 +2,7 @@
 
 ## 自定义发布模版
 
-Creator 支持对每个项目分别定制发布模板，用户如果需要新增文件只需要在项目路径下添加一个 `build-templates` 目录，里面按照平台路径划分子目录。在构建结束的时候，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程里。
+Creator 支持对每个项目分别定制发布模板，用户如果需要新增或者替换文件只需要在项目路径下添加一个 `build-templates` 目录，里面按照平台路径划分子目录。在构建结束的时候，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程里。
 
 结构类似：
 
@@ -12,13 +12,13 @@ project-folder
  |--build
  |--build-templates
       |--web-mobile
-            // 用户需要添加的文件
+            // 用户需要添加的文件，如 index.html
             |--index.html
       |--jsb-link
-            // 用户需要添加的文件
+            // 用户需要添加的文件，如 main.js
             |--main.js
       |--jsb-default
-            // 用户需要添加的文件
+            // 用户需要添加的文件，如 main.js
             |--main.js
 ```
 
@@ -27,7 +27,7 @@ project-folder
 
 ## 扩展构建流程
 
-用户如果想要扩展构建流程的话，可以通过插件来实现，需要使用到 **扩展包**。如果用户对扩展包还不了解，可参考 [这篇文档](../extension/your-first-extension.md) 来快速创建一个扩展包。
+除了以上方法，用户如果想要扩展构建流程的话，可以通过插件来实现，需要使用到 **扩展包**。如果用户对扩展包还不了解，可参考 [这篇文档](../extension/your-first-extension.md) 来快速创建一个扩展包。
 
 本文档基于 v2.0.7 编写。若用户使用的版本是 v2.0.0 ～ v2.0.6，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/7e50ccd4aab0f1b60fcc8fe029c650b6833e63d3/zh/publish/custom-project-build-template.md#%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B)。
 

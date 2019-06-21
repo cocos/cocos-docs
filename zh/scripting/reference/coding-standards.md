@@ -500,4 +500,4 @@
 
 ## 推荐阅读
 
-[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master#table-of-contents)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#table-of-contents)

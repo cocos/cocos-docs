@@ -59,9 +59,9 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 ## Button Click Event
 
-Button supports Button Click event. This means only when users click and release the Button will the corresponding call-back function be triggered. There are two ways to add a callback.
+The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
 
-### Add a callback throught the component.
+### Add a callback throught the Properties.
 
 ![button-event](./button/button-event.png)
 
@@ -69,14 +69,14 @@ Button supports Button Click event. This means only when users click and release
 | --- | -------- | -----------                       |
 |  1  | Target   | Node with the script component.   |
 |  2  | Component | Script component name.           |
-|  3  | Handler  | Assign a callback function which will be triggered when the user clicks and releases the Button. |
+|  3  | Handler  | Assign a callback function which will be triggered when the user clicks the Button. |
 |  4  | customEventData | A user-defined string value passed as the last event argument of the event callback.  |
 
 ### Add a callback through the script.
 
 There are two ways to add a callback through the script.
 
-1. The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
+1. The event callback added by this method is the same as the event callback added by the editor, all added by Button component. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
     ```js
     //here is your component file, file name = MyComponent.js 
@@ -120,7 +120,7 @@ There are two ways to add a callback through the script.
             this.button.node.on('click', this.callback, this);
         },
 
-        callback: function (button) {
+        callback: function (event) {
             //do whatever you want with button
             //In addition, attention to this way registered events, can not pass customEventData
         }

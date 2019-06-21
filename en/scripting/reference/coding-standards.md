@@ -491,4 +491,4 @@ The following are the coding standards that the Cocos Creator development team u
 
 ## Recommended Reading
 
-[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master#table-of-contents)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#table-of-contents)

@@ -2,20 +2,23 @@
 
 ## Custom Project Build Template
 
-Creator support custom build template to project. You just need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform. Then all the files in the folder will be copied to build path according to the folder structure.
+Creator support custom build template to project. If the user needs to add or replace files, they only need to add a folder `build-templates` in the project path, the sub-folder in `build-templates` should named with platform. Then all the files in the folder will be copied to build path according to the folder structure.
 
 Folder Structure: 
 
-```
+```js
 project-folder
  |--assets
  |--build
  |--build-templates
       |--web-mobile
+            // Files that users need to add, such as index.html
             |--index.html
       |--jsb-link
+            // Files that users need to add, such as main.js
             |--main.js
       |--jsb-default
+            // Files that users need to add, such as main.js
             |--main.js
 ```
 
@@ -25,7 +28,7 @@ If current platform is `web-mobile`, then `build-templates/web-mobile/index.html
 
 ## Extend The Build Process
 
-If users wants to extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
+In addition to the above methods, if the user wants to extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
 
 This section is based on v2.0.7, and if the user is using a version between v2.0.0 ~ v2.0.6, please refer to the [old version document](https://github.com/cocos-creator/creator-docs/blob/7e50ccd4aab0f1b60fcc8fe029c650b6833e63d3/en/publish/custom-project-build-template.md#extend-the-build-process).
 
