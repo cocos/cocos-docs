@@ -119,7 +119,3 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)
-
-## 常见问题
-
-小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： https://forum.cocos.com/t/faq/54828

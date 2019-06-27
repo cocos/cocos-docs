@@ -84,3 +84,7 @@ After you save the scene or recompile the script is whether you should refresh t
 
 * **Simulato Custom Resolution**: If the default resolution does not meet the requirements,
 you can manually enter the Height and Width of the screen to set the simulator resolution.
+
+* **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**). 
+
+* **Wait For Debugger Connect**: This option is turned on when **Open Simulator Debugger Panel** is checked, and the effect of this option is to pause simulator until debugger connected (New in **v2.0.7**). 

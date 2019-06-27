@@ -88,7 +88,7 @@ camera.getWorldToCameraMatrix(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture_texture)。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
 
 ```javascript
 let node = new cc.Node();
@@ -145,7 +145,7 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
 详情请参考：[capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js)
-https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture_texture
+https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture
 
 ## 微信中的截图
 
