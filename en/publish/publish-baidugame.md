@@ -1,102 +1,100 @@
-# 发布到百度小游戏
+# Publish to Baidu Mini Games
 
-Cocos Creator 从 v2.0.9 版本开始正式支持将游戏发布到百度小游戏。
+__Cocos Creator v2.0.9+__ officially supports the release of games to __Baidu Mini Games__.
 
-百度小游戏是基于手机百度 app 上的智能小程序进行扩展的小游戏，它不仅提供了强大的游戏能力，还和智能小程序一样，提供了大量的原生接口，比如支付，文件系统，位置，分享等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
+__Baidu Mini Game__ is an extension of the __Baidu Mini Program__ platform, which is provided in the __Baidu App__. This platform not only provides powerful game capabilities, but also provides a large number of native interfaces, such as payment, file system, location, sharing, and smart applets. It is equivalent to combining the advantages of *WEB* for easy propagation and rich *Native* features.
 
-百度小游戏的运行环境和微信小游戏类似，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。百度小游戏在智能小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是百度团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。
+The operating environment of __Baidu's Mini Game__ is similar to that of __WeChat__. The basic idea is to provide the necessary WEB interface to the user, and pursue the same development experience as WEB. __Baidu's Mini Game__ provides a WebGL interface encapsulation based on the smart applet environment, which greatly improves rendering capabilities and performance. However, since these interfaces are encapsulated by the __Baidu__ team through the native implementation of self-research, they are not equivalent to the browser environment.
 
-作为引擎方，为了尽可能简化开发者的工作量，我们为用户完成的主要工作包括：
+As an engine, in order to simplify the developer's workload as much as possible, the main tasks we have done for our users include:
 
-- 引擎框架适配百度小游戏 API，纯游戏逻辑层面，用户不需要任何额外的修改
-- Cocos Creator 编辑器提供了快捷的打包流程，直接发布为百度小游戏
-- 自动加载远程资源，缓存资源以及缓存资源版本控制
+- The engine framework is adapted to the __Baidu Mini Game__ API, pure game logic level, the user does not need any additional modifications
+- __Cocos Creator__ editor provides a fast packaging process, directly released as a small game of __Baidu__
+- Automatic loading of remote resources, cache resources and cache resource versioning
 
-具体百度小游戏的申请入驻，开发准备，游戏提交，审核和发布流程可以参考 [百度小游戏注册指导文档](https://smartprogram.baidu.com/docs/game/)。
+For specific __Baidu Mini Game__ application, station development, game submission, review and release process can refer to [Baidu game registration guidance document](https://smartprogram.baidu.com/docs/game/).
 
-## 使用 Cocos Creator 发布百度小游戏
+## Using __Cocos Creator__ to release Baidu games
 
-### 准备工作
+### Prerequisites
 
-- 在 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 里下载并安装百度开发者工具
-- 在手机的应用商店中下载并安装百度应用
-- 登录 [智能小程序平台](https://smartprogram.baidu.com/developer/index.html)，找到 appid
+- Download and install __Baidu Developer Tools__ in [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
+- Download and install the __Baidu app__ in the app store of your phone
+- Log in to [smart applet platform](https://smartprogram.baidu.com/developer/index.html) and find appid
 
     ![](./publish-baidugame/appid.png)
 
-### 发布流程
+### Release process
 
-1. 在 **构建发布** 面板中选择 **发布平台** 为 **百度小游戏**，填入 **appid**，然后点击 **构建**。
+1. In the **Build Publishing** panel, select **Publishing Platform** for **Baidu Games**, fill in **appid**, then click **Build**.
 
     ![](./publish-baidugame/build.png)
-2. 构建完成后，会在发布包的目录下生成一个 **baidugame** 的百度小游戏工程文件夹，其中已经包含了百度小游戏环境的配置文件：`game.json` 和 `project.swan.json`
+
+2. After the build is completed, a __Baidu game__ project folder of **baidugame** will be generated in the directory of the release package, which already contains the configuration files of )__Baidu Mini Game__ environment: `game.json` and `project.swan.json`
 
     ![](./publish-baidugame/package.png)
-3. 使用 **百度开发者工具** 打开构建生成的 **baidugame** 文件夹，即可打开百度小游戏项目及预览调试游戏内容。**百度开发者工具** 的使用方式请参考 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)。
+
+3. Use the **Baidu Developer Tools** to open the build **baidugame** folder to open the __Baidu game__ project and preview the game content. **How ​​to use Baidu Developer Tools** please refer to [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/).
 
     ![](./publish-baidugame/preview.png)
 
-**注意**：
+  > __Note:__ Please do not upgrade **Baidu Developer Tools** to **2.0.10** version.
+  > __Note:__ **If the developer tool of the current version cannot be released during preview debugging, please update the prompt of the latest developer tool**, indicating that the appid is the appid of the applet, not the appid of the game, please re-apply for a small game appid.
 
-- 请不要升级 **百度开发者工具** 到 **2.0.10** 版本。
-- 预览调试时若出现了 **当前版本的开发者工具无法发布小程序，请更新最新的开发者工具** 的提示，说明填写的 appid 是小程序的 appid，不是小游戏的 appid，请重新申请一个小游戏 appid。
+## Baidu Mini Game environment resource management
 
-## 百度小游戏环境的资源管理
+__Baidu games__ are similar to WeChat games. There are restrictions on the package. More than 4MB of extra resources must be downloaded through the network.
 
-百度小游戏与微信小游戏类似，都存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。
+We recommend that users only save script files in mini game packages, and other resources are downloaded from remote servers. __Cocos Creator__ has helped users download, cache and version their remote resources. The specific implementation logic is similar to the WeChat game. For details, please refer to [WeChat Small Game Resource Management](./publish-wechatgame.md#小游戏环境的资源管理).
 
-我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理。具体的实现逻辑和微信小游戏类似，具体可参考 [微信小游戏资源管理](./publish-wechatgame.md#小游戏环境的资源管理)。
+At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
 
-同时，当开启引擎的 md5Cache 功能后，文件的 url 会随着文件内容的改变而改变，这样当游戏发布新版本后，旧版本的资源在缓存中就自然失效了，只能从服务器请求新的资源，也就达到了版本控制的效果。
+Specifically, what developers need to do:
 
-具体来说，开发者需要做的是：
+1. When building, check the md5Cache feature in the **Build Publishing** panel.
+2. Set **Remote Server Address** and click **Build**.
+3. After the build is complete, upload the res folder under the __Baidu Mini Game__ release package directory to the server.
+4. Delete the `res` folder under the local distribution package directory.
 
-1. 构建时，在 **构建发布** 面板中勾选 md5Cache 功能。
-2. 设置 **远程服务器地址**，然后点击 **构建**。
-3. 构建完成后将百度小游戏发布包目录下的 res 文件夹完整的上传到服务器。
-4. 删除本地发布包目录下的 res 文件夹。
+  > __Note:__ When __Baidu__ loads the resources on the remote server on the real machine, it only supports access via https, so the resource file must be placed on the https server, otherwise the loading of the resource will fail.
+  > __Note:__ If the cache resource exceeds the __Baidu__ environment limit, the user needs to manually clear the resource. You can use the `swanDownloader.cleanAllAssets()` and `swanDownloader.cleanOldAssets()` interfaces to clear the cache in __Baidu__. The former will clear all cache resources in the cache directory, please use it with caution; the latter will clear the cache resources that are not used in the current application in the cache directory.
 
-**注意**：  
+## Baidu Mini Game sub-package loading
 
-- 百度在真机上加载远程服务器上的资源时，目前只支持通过 https 访问，所以必须将资源文件放在 https 服务器上，否则会出现加载资源失败的情况。
-- 如果缓存资源超过百度环境限制，用户需要手动清除资源，可以在百度小游戏中使用 `swanDownloader.cleanAllAssets()` 和 `swanDownloader.cleanOldAssets()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+The sub-package loading method of __Baidu Mini Games__ is similar to the WeChat game. The package restrictions are as follows:
 
-## 百度小游戏分包加载
+ - The total size of all packages does not exceed **8MB**
+ - Single subcontract/main package size does not exceed **4MB**
 
-百度小游戏的分包加载方式和微信小游戏类似，其包体限制如下：
+The specific packet loading mechanism can refer to [sub-package loading](../scripting/subpackage.md).
 
- - 所有包的总大小不超过 **8MB**
- - 单个分包/主包大小不超过 **4MB**
+## Platform SDK Access
 
-具体的分包加载机制可参考 [分包加载](../scripting/subpackage.md)。
+In addition to pure game content, __Baidu's Mini Game__ environment also provides a very powerful native SDK interface, these interfaces are only exist in the __Baidu Mini Game__ environment, equivalent to the third-party SDK interface of other platforms. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities offered by __Baidu's Mini Games__:
 
-## 平台 SDK 接入
+1. User interface: login, authorization, user information, etc.
+2. Baidu cashier payment
+3. Forwarding information
+4. File upload and download
+5. Other: images, locations, ads, device information, etc.
 
-除了纯游戏内容以外，百度小游戏环境还提供了非常强大的原生 SDK 接口，这些接口都是仅存在于百度小游戏环境中的，等同于其他平台的第三方 SDK 接口。这类 SDK 接口的移植工作在现阶段还是需要开发者自己处理。下面列举一些百度小游戏所提供的强大 SDK 能力：
+## Access to the open data domain of __Baidu Mini Games__
 
-1. 用户接口：登陆，授权，用户信息等
-2. 百度收银台支付
-3. 转发信息
-4. 文件上传下载
-5. 其他：图片、位置、广告、设备信息等等
+Similar to WeChat games, in order to protect its social relationship chain data, __Baidu Mini Games__ also implements a **open data domain**, which can get friends information that is both playable and two-way attention. This is a separate game execution environment. The resources, engines, and programs in the open data domain are completely isolated from the main game. Developers can only access the `swan.getUserInfo()`, `swan.getUserCloudStorage()` and `swan.getUserCloudStorage()` provided by __Baidu Mini Games__ in the open data domain. `swan.getFriendCloudStorage()` Three APIs for getting the corresponding user data.
 
-## 接入百度小游戏的开放数据域
+For details about the __Baidu Mini Game__ open domain publishing process, please refer to [Access Baidu Mini Game Open Data Domain](../publish/publish-baidugame-sub-domain.md).
 
-类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。
+## Baidu Mini Game known issues:
 
-详细的百度小游戏开放域发布流程，请参考 [接入百度小游戏的开放数据域](../publish/publish-baidugame-sub-domain.md)。
-
-## 百度小游戏已知问题：
-
-目前 Cocos Creator 对百度小游戏的适配工作还未完全结束，暂时还不支持以下组件：
+At present, the following components are not supported:
 
 - VideoPlayer
 - WebView
 
-用户如果有需要，目前可以先自己直接调用百度的 API 来使用。
+Users can use __Baidu's__ API directly to use it if they need it.
 
-## 参考链接
+## Reference link
 
-- [百度小游戏注册指导文档](https://smartprogram.baidu.com/docs/game/)
-- [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
-- [百度小游戏 API 文档](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/)
+- [Baidu game registration guide document](https://smartprogram.baidu.com/docs/game/)
+- [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
+- [Baidu game API documentation](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/)
