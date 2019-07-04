@@ -33,7 +33,7 @@ project-folder
 var path = require('path');
 var fs = require('fs');
 
-function onBeforeBuildFinish (event, options) {
+function onBeforeBuildFinish (options, callback) {
     Editor.log('Building ' + options.platform + ' to ' + options.dest); // 你可以在控制台输出点什么
 
     var mainJsPath = path.join(options.dest, 'main.js');  // 获取发布目录下的 main.js 所在路径
@@ -41,8 +41,7 @@ function onBeforeBuildFinish (event, options) {
     script += '\n' + 'window.myID = "01234567";';         // 添加一点脚本到
     fs.writeFileSync(mainJsPath, script);                 // 保存 main.js
 
-    event.reply();                                        // 处理完的回调
-    // event.reply(new Error('错误提示'));                 // 处理失败的回调
+    callback();
 }
 
 module.exports = {
@@ -58,6 +57,6 @@ module.exports = {
 
 上面注册的事件是 `'before-change-files'`，这个事件会在构建结束**之前**触发，此时除了计算文件 MD5、原生平台的加密脚本以外，大部分构建操作都已执行完毕。你可以在这个事件中对已经构建好的文件做进一步处理。
 
-上面的 `onBeforeBuildFinish` 是 `'before-change-files'` 的事件响应函数。你可以注册任意多个响应函数，它们会依次执行。该函数被调用时，将传入两个参数。第一个参数是一个 event 对象，主要用来获取发送方和结束回调，你需要在响应函数所做的操作完全结束后手动调用 `event.reply()` 方法，也就是说你的响应函数可以是异步的。第二个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。
+上面的 `onBeforeBuildFinish` 是 `'before-change-files'` 的事件响应函数。你可以注册任意多个响应函数，它们会依次执行。该函数被调用时，将传入两个参数。第一个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。第二个参数是一个回调函数，你需要在响应函数所做的操作完全结束后手动调用这个回调，这样后续的其它构建过程才会继续进行，也就是说你的响应函数可以是异步的。
 
 此外，你可以监听的事件还有 `'build-start'` 和 `'build-finished'`，分别对应的触发时机是构建开始和完全结束，它们的用法也是一样的，这里不再赘述。
