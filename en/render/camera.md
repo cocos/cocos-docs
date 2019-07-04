@@ -88,7 +88,7 @@ camera.getWorldToCameraMatrix(out);
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture_texture).
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
 
 ```javascript
 let node = new cc.Node();

@@ -2,28 +2,34 @@
 
 ## 自定义发布模版
 
-Creator 支持对每个项目分别定制发布模板，只需要在项目路径下添加一个 `build-templates` 目录，里面按照平台路径划分子目录，然后里面的所有文件在构建结束后都会自动按照对应的目录结构复制到构建出的工程里。
+Creator 支持对每个项目分别定制发布模板，用户如果需要新增或者替换文件只需要在项目路径下添加一个 `build-templates` 目录，里面按照平台路径划分子目录。在构建结束的时候，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程里。
 
 结构类似：
 
-```
+```js
 project-folder
  |--assets
  |--build
  |--build-templates
       |--web-mobile
+            // 用户需要添加的文件，如 index.html
             |--index.html
       |--jsb-link
+            // 用户需要添加的文件，如 main.js
             |--main.js
       |--jsb-default
+            // 用户需要添加的文件，如 main.js
             |--main.js
 ```
 
-这样如果当前构建的平台是 `web-mobile` 的话，那么 `build-templates/web-mobile/index.html` 就会在构建后被拷贝到 `build/web-mobile/index.html`。
+这样如果当前构建的平台是 **web-mobile** 的话，那么 `build-templates/web-mobile/index.html` 就会在构建后被拷贝到 `build/web-mobile/index.html`。<br>
+如果当前构建的是 **Android** 平台 **jsb-link** 模版的话，那么 `build-templates/jsb-link/main.js` 就会在构建后被拷贝到 `build/jsb-link/main.js`。
 
 ## 扩展构建流程
 
-要扩展构建流程，需要在 **扩展包** 中实现。如果你对扩展包还不了解，可参考 [这篇文档](../extension/your-first-extension.md) 来快速创建一个扩展包。
+除了以上方法，用户如果想要扩展构建流程的话，可以通过插件来实现，需要使用到 **扩展包**。如果用户对扩展包还不了解，可参考 [这篇文档](../extension/your-first-extension.md) 来快速创建一个扩展包。
+
+本文档基于 v2.0.7 编写。若用户使用的版本是 v2.0.0 ～ v2.0.6，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/7e50ccd4aab0f1b60fcc8fe029c650b6833e63d3/zh/publish/custom-project-build-template.md#%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B)。
 
 打开扩展包中的 `main.js` 脚本，在其中的 `load` 和 `unload` 方法中加入 `Editor.Builder` 的事件处理函数：
 
@@ -57,8 +63,9 @@ module.exports = {
 ```
 
 上面例子中，我们监听了 Builder 的 `'before-change-files'` 的事件，当事件触发时就会调用我们的 `onBeforeBuildFinish` 处理函数。目前能监听以下这些事件：
+
  - `'build-start'`：构建开始时触发。
- - `'before-change-files'`：在构建结束**之前**触发，此时除了计算文件 MD5、生成 settings.js、原生平台的加密脚本以外，大部分构建操作都已执行完毕。我们通常会在这个事件中对已经构建好的文件做进一步处理。
+ - `'before-change-files'`：在构建结束 **之前** 触发，此时除了计算文件 MD5、生成 settings.js、原生平台的加密脚本以外，大部分构建操作都已执行完毕。我们通常会在这个事件中对已经构建好的文件做进一步处理。
  - `'build-finished'`：构建完全结束时触发。
 
 你可以注册任意多个处理函数，当函数被调用时，将传入两个参数。第一个参数是一个事件对象，主要用来确认发送方和调用回调，也就是说你的响应函数可以是异步的，当调用完成后，可以调用 `event.reply()` 完成当前流程。第二个参数是一个对象，包含了此次构建的相关参数，例如构建的平台、构建目录、是否调试模式等。
