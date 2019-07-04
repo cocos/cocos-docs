@@ -28,7 +28,7 @@ If current platform is `web-mobile`, then `build-templates/web-mobile/index.html
 
 ## Extend The Build Process
 
-To extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
+In addition to the above methods, if the user wants to extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
 
 Open the `main.js` script in the package and add an event handler for `Editor.Builder` in the `load` and `unload` method:
 
