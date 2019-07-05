@@ -30,8 +30,6 @@ If current platform is `web-mobile`, then `build-templates/web-mobile/index.html
 
 In addition to the above methods, if the user wants to extend the build process, it needs to be implemented in the **package**. If you are unfamiliar with the package, you can refer to [this document](../extension/your-first-extension.md) to quickly create a new package.
 
-This section is based on v2.0.7, and if the user is using a version between v2.0.0 ~ v2.0.6, please refer to the [old version document](https://github.com/cocos-creator/creator-docs/blob/7e50ccd4aab0f1b60fcc8fe029c650b6833e63d3/en/publish/custom-project-build-template.md#extend-the-build-process).
-
 Open the `main.js` script in the package and add an event handler for `Editor.Builder` in the `load` and `unload` method:
 
 ```js
@@ -40,7 +38,7 @@ Open the `main.js` script in the package and add an event handler for `Editor.Bu
 var path = require('path');
 var fs = require('fs');
 
-function onBeforeBuildFinish (event, options) {
+function onBeforeBuildFinish (options, callback) {
     Editor.log('Building ' + options.platform + ' to ' + options.dest); // you can display a log in the Console panel
 
     var mainJsPath = path.join(options.dest, 'main.js');  // get path of main.js in build folder
@@ -48,8 +46,7 @@ function onBeforeBuildFinish (event, options) {
     script += '\n' + 'window.myID = "01234567";';         // append any scripts as you need
     fs.writeFileSync(mainJsPath, script);                 // save main.js
 
-    event.reply();                                        // handle finish callback
-    // event.reply(new Error('error tips'));              // handle finish callback with error
+    callback();
 }
 
 module.exports = {
@@ -68,14 +65,14 @@ In the example above, we are listening the event `'before-change-files'` on the 
 - `'before-change-files'`: Which is triggered **before** the end of the build. In addition to computing the file MD5, generating settings.js, and encryption scripts for native platform, most build operations have been completed. We usually do some further work on the files that have been built in this event.
 - `'build-finished'`: Triggered when the build is completely finished.
 
-You can register as many processing functions as you want, and when the function is called, two arguments are passed in. The first argument is an event object that you can confirm the sender and you can invoke `event.reply()` after the action of the response function completes, so that the subsequent build process continues, meaning that your response function can be asynchronous. The second argument is an object that contains the relevant options for this build, such as the build platform, build directory, debug mode, and so on. 
+You can register as many processing functions as you want, and when the function is called, two arguments are passed in. The first argument is an object that contains the relevant options for this build, such as the build platform, build directory, debug mode, and so on. The second argument is a callback function that you need to manually invoke after the action of the response function completes, so that the subsequent build process continues, meaning that your response function can be asynchronous.
 
 ### Get the build results
 
 In the `'before-change-files'` and `'build-finished'` event handler, you can also get some build results from the `BuildResults` object. Examples are as follows:
 
 ```js
-function onBeforeBuildFinish (event, options) {
+function onBeforeBuildFinish (options, callback) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
@@ -101,11 +98,7 @@ function onBeforeBuildFinish (event, options) {
         Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
     }
 
-    // handle finish callback 
-    event.reply();
-    
-    // handle finish callback with error
-    // event.reply(new Error('error tips'));
+    callback();
 }
 
 module.exports = {
