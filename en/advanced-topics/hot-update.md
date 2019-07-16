@@ -85,7 +85,7 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 
 ### Publish the original version
 
-After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.
+After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test. **Note**: Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
 
 After building a successful native version, open the folder of the native published package, add the search path logic to `main.js`:
 

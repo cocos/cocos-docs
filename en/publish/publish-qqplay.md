@@ -1,12 +1,12 @@
 # Publishing to __QQ Play__
 
-__QQ Play__ is similar to __WeChat Mini Games__, but built on the __QQ__ platform. __QQ Play__ allows you to play a variety of popular mobile games *without downloading* them. The underlying runtime of **QQ Play** is not a real HTML browser kernel, but a self-developed Bricks game engine. __Cocos Creator__ has supported game content cross-platform publishing to __QQ Play__ since v1.9.
+__QQ Play__ is similar to __WeChat Mini Games__, but built on the __QQ__. __QQ Play__ allows you to play a variety of popular mobile games **without downloading** them. The underlying runtime of **QQ Play** is not a real HTML browser kernel, but a self-developed Bricks game engine. __Cocos Creator__ has supported game content cross-platform publishing to __QQ Play__ since v1.9.
 
  As a cross-platform game engine, __Cocos Creator's__ main tasks for users include:
 
-- The engine is responsible for adapting the __QQ Play__ platform, the user's game logic code does not require any additional modifications.
+- The engine is responsible for adapting the __QQ Play__, the user's game logic code does not require any additional modifications.
 - The __Cocos Creator__ editor provides a packaging process that can be directly published as a game that meets the __QQ Play__ specification.
-- Support remote __QQ__ resource loading, caching, and version control of cache resources for __QQ Play__ platform standard.
+- Support remote __QQ__ resource loading, caching, and version control of cache resources for __QQ Play__ standard.
 
 ## Use __Cocos Creator__ to publish to __QQ Play__ with one-click.
 
@@ -16,7 +16,7 @@ Obtain the Bricks engine project (this project is temporarily unavailable, devel
 
 ### Publishing process
 
-**First**, use __Cocos Creator__ to open the project project you want to publish, and select __QQ Play__ platform in the __Build...__ panel. If necessary, you can set the `Remote server address` option. Then click on **Build**.
+**First**, use __Cocos Creator__ to open the project project you want to publish, and select __QQ Play__ in the **Platform** dropdown of __Build...__ panel. If necessary, you can set the `Remote server address` option. Then click on **Build**.
 
 ![](./publish-qqplay/build.jpeg)
 

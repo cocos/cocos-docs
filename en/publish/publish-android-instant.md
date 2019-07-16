@@ -1,6 +1,6 @@
 # Publish to Google Play Instant
 
-Starting with Cocos Creator v2.0.4, creating games for the Google Play Instant platform is officially supported. Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game'demo, sharing and conversion. The main differences between Google Play Instant and the Android Instant App are:
+Starting with Cocos Creator v2.0.4, creating games for the Google Play Instant is officially supported. Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game'demo, sharing and conversion. The main differences between Google Play Instant and the Android Instant App are:
 
 - Both the first package and the APK add-on are limited to 10MB (instead of 4MB)
 - Dynamically load resources without binary code from third-party CDN (JS is also available)

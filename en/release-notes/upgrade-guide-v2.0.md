@@ -77,7 +77,7 @@ For specific changes, developers can refer to [2.0 Camera Using Documentation](.
 
 ## 2.4 Build Panel Updates
 
-The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as Wechat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: Wechat Game Open Data Context.
+The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as WeChat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: WeChat Game Open Data Context.
 
 ![2.0 WeChat game open data domain publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
 

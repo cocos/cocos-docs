@@ -38,9 +38,9 @@ jsval_to_string(cx, returnParam, &url);
 
 ![package name](publish-native/package_name.png)
 
-### API Level
+### Target API Level
 
-设置编译 Android 使用的 api 版本，最低支持 android-16。
+设置编译 Android 平台所需的 Target API Level。
 
 ### APP ABI
 

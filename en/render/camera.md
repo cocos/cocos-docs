@@ -111,12 +111,12 @@ camera.getWorldToCameraPoint(point, out);
 // Gets the matrix from the camera coordinate system to the world coordinate system
 camera.getCameraToWorldMatrix(out);
 // Gets the matrix from world coordinate system to the camera coordinate system
-camear.getWorldToCameraMatrix(out);
+camera.getWorldToCameraMatrix(out);
 ```
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/07_capture_texture).
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
 
 ```javascript
 let node = new cc.Node();
@@ -176,7 +176,7 @@ Please refer to [capture_to_native](https://github.com/cocos-creator/example-cas
 
 ## The screenshot in WeChat
 
-Because of Wechat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
+Because of WeChat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
 
 ## Case
 
