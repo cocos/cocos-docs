@@ -2,7 +2,7 @@
 
 ## Project Path
 
-- `Editor.projectPath` The absolute path of current project.
+- `Editor.Project.path` The absolute path of current project.
 
 ## Custom Protocols
 

@@ -13,7 +13,7 @@ module.exports = {
     let fs = require('fs');
     let path = require('path');
     // automatically create a folder after package loaded
-    fs.mkdirSync(Path.join(Editor.projectPath, 'myNewFolder'));
+    fs.mkdirSync(Path.join(Editor.Project.path, 'myNewFolder'));
     Editor.success('New folder created!');
   }
 }
@@ -21,7 +21,7 @@ module.exports = {
 
 Don't forget to use `Editor.log`, `Editor.success` (Reference at [Console API](api/editor-framework/main/console.md#)) to notify user when you done something automatically.
 
-The `Editor.projectPath` in the example above will return the absolute path of current project, you can find the details in [Editor API](api/editor-framework/main/editor.md).
+The `Editor.Project.path` in the example above will return the absolute path of current project, you can find the details in [Editor API](api/editor-framework/main/editor.md).
 
 An alternative way is put the logic in a menu item instead, For example in [Your First Extension](your-first-extension.md), we define a `main-menu` field and the action for trigering IPC event in `package.json`:
 
