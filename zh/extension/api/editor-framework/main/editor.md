@@ -22,7 +22,7 @@ Indicates if the Editor-Framework App is closing.
 
 Indicates the language used in `--lang` option.
 
-### Editor.projectPath
+### Editor.Project.path
 
 Absolute path for current open project.
 

@@ -13,7 +13,7 @@ module.exports = {
     let fs = require('fs');
     let path = require('path');
     // 插件加载后在项目根目录自动创建指定文件夹
-    fs.mkdirSync(path.join(Editor.projectPath, 'myNewFolder'));
+    fs.mkdirSync(path.join(Editor.Project.path, 'myNewFolder'));
     Editor.success('New folder created!');
   }
 }
@@ -21,7 +21,7 @@ module.exports = {
 
 如果你的插件会自动完成工作，别忘记通过 `Editor.log`, `Editor.success` 接口（上述接口可以在 [Console API](api/editor-framework/main/console.md#) 查看详情），来告诉用户刚刚完成了哪些工作。
 
-示例中使用到的 `Editor.projectPath` 接口会返回当前打开项目的绝对路径，详情可以在 [Editor API](api/editor-framework/main/editor.md) 中找到。
+示例中使用到的 `Editor.Project.path` 接口会返回当前打开项目的绝对路径，详情可以在 [Editor API](api/editor-framework/main/editor.md) 中找到。
 
 这种工作模式的更推荐的变体是将执行工作的逻辑放在菜单命令后触发，如 [第一个扩展包](your-first-extension.md) 文档所示，我们在 `package.json` 里定义了 `main-menu` 字段和选择菜单项后触发的 IPC 消息，之后就可以在入口程序里监听这个消息并开始实际的业务逻辑：
 
