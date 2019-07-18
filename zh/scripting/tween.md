@@ -94,6 +94,7 @@ cc.tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
 cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 
 // 只对单个属性使用 easing 函数
+// value 必须与 easing 或者 process 配合使用
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
