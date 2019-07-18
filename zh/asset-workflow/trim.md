@@ -8,7 +8,7 @@
 
 和图片裁剪相关的 **Sprite** 组件设置有以下两个：
 
-- `Trim` 勾选后将在渲染 Sprite 图像时去除图像周围的透明像素，我们将看到刚好能把图像包裹住的约束框。取消勾选，Sprite 节点的约束框会包括透明像素的部分。
+- `Trim` 勾选后将在渲染 Sprite 图像时去除图像周围的透明像素，我们将看到刚好能把图像包裹住的约束框。取消勾选，Sprite 节点的约束框会包括透明像素的部分。只在 Type 设置为 Simple 时生效。
 - `Size Mode` 用来将节点的尺寸设置为原图或原图裁剪透明像素后的大小，通常用于在序列帧动画中保证图像显示为正确的尺寸。有以下几种选择：
   - `TRIMMED` 选择这个选项，会将节点的尺寸（size）设置为原始图片裁剪掉透明像素后的大小。
   - `RAW` 选择这个，会将节点尺寸设置为原始图片包括透明像素的大小。
@@ -26,6 +26,6 @@
 
 ## TexturePacker 设置
 
-在制作序列帧动画时，我们通常会使用[TexturePacker](https://www.codeandweb.com/texturepacker)这样的工具将序列帧打包成图集，并在导入后通过图集资源下的 `SpriteFrame` 来使用。在 TexturePacker 中输出图集资源时，Sprites 分类下的 **Trim mode** 请选择 `Trim`，一定不要选择 `Crop, flush position`，否则透明像素剪裁信息会丢失，您在使用图集里的资源时也就无法获得原始图片未剪裁的尺寸和偏移信息了。
+在制作序列帧动画时，我们通常会使用 [TexturePacker](https://www.codeandweb.com/texturepacker) 这样的工具将序列帧打包成图集，并在导入后通过图集资源下的 `SpriteFrame` 来使用。在 TexturePacker 中输出图集资源时，Sprites 分类下的 **Trim mode** 请选择 `Trim`，一定不要选择 `Crop, flush position`，否则透明像素剪裁信息会丢失，您在使用图集里的资源时也就无法获得原始图片未剪裁的尺寸和偏移信息了。
 
 ![trim texturepacker](trim/trim-texturepacker.png)
