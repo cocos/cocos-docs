@@ -140,4 +140,4 @@ Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游�
 
 ## 相关参考链接
 
-[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgame.html?page=fastapp_fastgame_introduction)
+[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_introduction)
