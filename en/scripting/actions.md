@@ -100,7 +100,7 @@ The container action can organize actions in different ways, below are several o
                     cc.spawn(
                         cc.moveBy(2, 0, 50),
                         cc.scaleTo(2, 0.8, 1.4)
-                    ), 0.5);
+                    ), 2);
     node.runAction(action);
     ```
 
