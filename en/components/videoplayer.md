@@ -24,7 +24,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Current Time | The current time when video start to play.
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
 | Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
-| Keep Aspect Ratio | Whether keep the aspect ration of the original video.
+| Keep Aspect Ratio | Whether keep the aspect ratio of the original video.
 | Is Fullscreen| Whether play video in fullscreen mode.
 | Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 

@@ -73,6 +73,6 @@ Below are all the functions of the timer in the component:
 
 These detailed descriptions about API can all be found in [Component API](http://docs.cocos2d-x.org/creator-api/en/classes/Component.html).
 
-Besides this, if every frame needs to run a function, please add function `update` directly in to the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
+Besides this, if every frame needs to run a function, please add function `update` directly into the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
 
 ### Caution: `cc.Node` does not contain Scheduler API

@@ -40,11 +40,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Package Name**
 
-  **App Package Name** is required and is filled in according to the user's needs.
+  **App Package Name** is filled in according to the user's needs. It's require.
 
 - **App Name**
 
-  **App Name** is required. Is the name of the vivo Mini Game. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
+  **App Name**, the name of the vivo Mini Game, is required. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
 
 - **Desktop Icon**
 

@@ -1,6 +1,6 @@
 # Access to the Open Data Context of WeChat Mini Games
 
-In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the open data context are completely isolated from the main game. Developers can access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()`, the two APIs provided by __WeChat__, only in the open data context. These API's will help to implement some features, such as leaderboards. Since the open data context can only be rendered on the offscreen canvas, `sharedCanvas`, we need to draw the `sharedCanvas` onto the main context.
+In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the open data context are completely isolated from the main game. Developers can access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()`, the two APIs provided by __WeChat__, only in the open data context. These APIs will help to implement some features, such as leaderboards. Since the open data context can only be rendered on the offscreen canvas, `sharedCanvas`, we need to draw the `sharedCanvas` onto the main context.
 
 Since the open data context is a closed, independent JavaScript scope, developers need to create two projects:
 
@@ -17,7 +17,7 @@ The updated version is supported in __v2.0.1__ and higher, for __v1.9.1__ to __v
 
 ### Integration method
 
-- Create an open data context project to obtain user data through the relevant API, and create a display of ui according to your own needs. The entire open data context project should only contain its content UI. The design resolution of the Canvas component in the scene should be set to the full resolution of the UI, without the corresponding main context resolution.
+- Create an open data context project to obtain user data through the relevant API, and create a display of UI according to your own needs. The entire open data context project should only contain its content UI. The design resolution of the Canvas component in the scene should be set to the full resolution of the UI, without the corresponding main context resolution.
 - Create a node in the main context as an open data context container, add the `WXSubContextView` component to set the open data context view and update the open data context texture. The aspect ratio of this node should be equal to the aspect ratio of the open data context design resolution (otherwise stretching happens).
 
 The difference from the previous version is:
@@ -100,7 +100,7 @@ The following method is applicable to v2.0.0. For earlier versions, please refer
 
 ### Integration method
 
-- Create an open data context project to obtain user data through the relevant API, and create a display of ui according to your own needs. The open data context must use a full screen window, maintaining the same design resolution and adaptation mode as the main context.
+- Create an open data context project to obtain user data through the relevant API, and create a display of UI according to your own needs. The open data context must use a full screen window, maintaining the same design resolution and adaptation mode as the main context.
 - The main context creates the Texture2D by acquiring the global object sharedCanvas (Canvas of the open data context), and then creates the SpriteFrame through the Texture2D, thereby assigning the SpriteFrame to the Sprite to be displayed to the main context, if the open data context is operational function (for example, operations such as sliding, dragging, etc.), then the main context needs to get the sharedCanvas in real time in the update to refresh the sprite.
 
 ### Module selection
