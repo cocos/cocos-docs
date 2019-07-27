@@ -11,7 +11,7 @@ When creating and positioning nodes in **Scene** panel you get the convenience o
 
 **Node tree** is a data structure that arranges the hierarchy of nodes in scene, it's also called **Scene Graph** in cocos2d-x term.
 
-You can read the [Basic concepts chapter of the Cocos2d-x programmer guide](https://docs.cocos.com/cocos2d-x/manual/zh/basic_concepts/), it describes the node tree very well with some pictures below.
+You can read the [Basic concepts chapter of the Cocos2d-x programmer guide](https://docs.cocos.com/cocos2d-x/manual/en/basic_concepts/), it describes the node tree very well with some pictures below.
 
 Here's a simple game scene with background image, 3 actors, some text and a start game button:
 
