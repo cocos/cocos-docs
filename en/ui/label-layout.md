@@ -110,7 +110,7 @@ Add a **Widget** component to the node with the Label component, then you can ma
 
 In the above picture, two Label subnodes are added to the background nodes. After respectively adding the Widget component to them, set the `Right` property of the Widget for the labels on the left side as `50%`, and set the `Left` property of the Widget for the labels on the right side as `60%`, then the multi-column layout of labels in the picture above can be realized.
 
-And by setting margins on the aWidget, plus the layout type of labels, a flexible and beautiful layout for labels can be easily realized without concrete and minor adjustments to the bounding box.
+And by setting margins on the Widget, plus the layout type of labels, a flexible and beautiful layout for labels can be easily realized without concrete and minor adjustments to the bounding box.
 
 
 ## Reference for checking components

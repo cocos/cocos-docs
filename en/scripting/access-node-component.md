@@ -194,7 +194,7 @@ If you already have the reference of a node or component in somewhere, you can a
 
 > You should use global variable with care and understanding, we do not recommend using it, you had better keep them readonly if really need to do that.
 
-Let's define a global object `window.Global`, it will cantain two properties, `backNode` and `backLabel`.
+Let's define a global object `window.Global`, it will contain two properties, `backNode` and `backLabel`.
 
 ```js
 // Globals.js, this file can have any name
