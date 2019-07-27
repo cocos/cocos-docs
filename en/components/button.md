@@ -13,7 +13,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Property |   Function explanation
 | -------------- | ----------- |
 |Interactable| Boolean type, if set to false then the Button component enters the forbidden state.
-|enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false. Don't  take effect when Transition type is SPRITE and the disabledSprite property is exists.
+|enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false.
 |Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
 |Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
 
@@ -61,7 +61,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
 
-### Add a callback throught the Properties.
+### Add a callback through the Properties.
 
 ![button-event](./button/button-event.png)
 

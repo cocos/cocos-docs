@@ -47,7 +47,10 @@ You can switch the layout container type by altering `Type` in **Properties** pa
 
 When using Grid layout, the **Start Axis** is very important. When choosing **HORIZONTAL**, it will fill an entire row before a new row is started. When choosing **VERTICAL**, it will fill an entire column before a new column is started.
 
-**Node**: After setting the Layout, the results need to be updated until the next frame, unless you manually `updateLayout` API.
+**Node**:
+
+1. Scaling and rotation of child nodes are not considered.
+2. After setting the Layout, the results need to be updated until the next frame, unless you manually call `updateLayout` API.
 
 ---
 

@@ -188,7 +188,7 @@ myProfile.name; // Jare Guo
 myProfile.friends[1].name; // Nantas
 ```
 
-Objects are being largely used in JavaScript, and so is it in the fuction parameter passing. For example, in Cocos Creator, we can define the FireClass object like this:
+Objects are being largely used in JavaScript, and so is it in the function parameter passing. For example, in Cocos Creator, we can define the FireClass object like this:
 
 ```js
 var MyComponent = cc.Class({
@@ -208,7 +208,7 @@ myFunction = function (myArgument) {
 }
 ```
 
-Now let's go over the method of introducing a function as a parameter into other fuctions:
+Now let's go over the method of introducing a function as a parameter into other functions:
 
 ```js
 square = function (a) {
@@ -244,10 +244,10 @@ Now, we will introduce a type of grammar often used in array and character strin
 var myArray = [123, 456];
 myArray.push(789) // 123, 456, 789
 var myString = "abcdef";
-myString.replace("a", "z"); // "zbcdef"
+myString = myString.replace("a", "z"); // "zbcdef"
 ```
 
-The point symbol in the code above means "call `replace` a fuction of the `myString` character string object, and pass `a` and `z` as parameters, then get the returned value".
+The point symbol in the code above means "call `replace` a function of the `myString` character string object, and pass `a` and `z` as parameters, then get the returned value".
 
 The biggest advantage of using point symbol expression is that you can link multiple tasks into one expression, which of course is on the condition of each function being called having the proper returned value. We won't spend too much time on introducing how to define a linkable function, but it's pretty simple to use them as long as you use the following pattern: `something.function1().function2().function3()`
 
