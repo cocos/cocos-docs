@@ -6,6 +6,7 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 
 ## What's New
 
+  - [DragonBones ReplaceTexture](components/dragonbones.md)
   - Starting with __v2.0.5__, Cocos Creator supports publishing to [OPPO Mini Game](publish/publish-oppo-instant-games.md) and [Vivo Mini Game](publish/publish-vivo-instant-games.md).
   - Starting with __v2.0.4__, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
   - Starting with __v2.0.1__, Cocos Creator upgraded the open data context solution, see [WeChat Mini Game Open Data Context](publish/publish-wechatgame-sub-domain.md).

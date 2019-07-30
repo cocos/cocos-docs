@@ -52,7 +52,7 @@ row before a new row is started. When choosing Vertical, it will fill an entire 
 
 Node:
 1. Scaling and rotation of child nodes are not considered.
-2. After setting the Layout, the results need to be updated until the next frame, unless you manually 'updateLayout' api.
+2. After setting the Layout, the results need to be updated until the next frame, unless you manually call `updateLayout` api.
 
 ---
 

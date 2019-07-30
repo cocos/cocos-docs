@@ -10,24 +10,29 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ![](cocos-analytics/game.png)
 
-2、游戏创建完成后，需要 **开通 Cocos Analytics 服务**。点击游戏或者点击上方的 **服务** 标签，跳转到服务面板。找到 Cocos Analytics，点击 **开通服务**，可以看到页面中的 Cocos Analytics 服务显示 **已开通**。
+2、打开 Creator，点击 **菜单栏的 -> 面板 -> 服务** 项，打开 **服务** 面板。设置 Cocos AppID，详情可参考 [Cocos 服务面板设置](cocos-services.md)。然后选择 **Cocos Analytics** 项，进入 Cocos Analytics 服务设置面板。
 
-![](cocos-analytics/analytics_service.png)
-
-3、打开 Creator，点击 **菜单栏的 -> 面板 -> 服务** 项，打开 **服务** 面板。设置 Cocos AppID，详情可参考 [Cocos 服务面板设置](cocos-services.md)。然后选择 **Cocos Analytics** 项，进入 Cocos Analytics 服务设置面板。
-
-4、点击右上角的启用按钮以启用统计服务。（如果之前没有在 Cocos 账户中心开通统计服务，即第 2 个步骤，那么在启用统计服务的时候会弹出是否开通服务的提示框，根据提示进行操作即可。）
+3、点击右上角的启用按钮以启用统计服务：
 
 ![](cocos-analytics/enable_analytics.png)
 
-5、启用完成之后，在服务面板可以看到新增了 **参数配置** 项。其中有 **AppID** 和 **store** 两个参数。
+在弹出的是否开通服务的提示框中点击 **是**，会跳转到 Cocos 账户中心。点击 **确认开通**，可以看到页面中 Cocos Analytics 服务的图标下方显示 **已开通**。
+
+![](cocos-analytics/analytics_service.png)
+
+**注意**：从 **v2.0.10** 开始，启用服务时不需要再跳转到 Cocos 账户中心。直接在 Cocos Analytics 服务面板中点击右上角的启用按钮，然后在弹出的是否开通服务的提示框中点击 **确认开通**，即可开通服务。
+
+![](cocos-analytics/enadle_analytics2.png)
+
+4、启用完成之后，在服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数。以及 **重新加载预览插件** 按钮。
 
 - **AppID** 会自动填入当前绑定的游戏 AppID。
 - **store** 为游戏分发渠道 ID，长度为 **200**。该项可以任意设置，只要确保在获取统计结果时能够区分即可。
+- **重新加载预览插件**：Cocos Analytics 预览插件，用户可以在浏览器预览中使用该 SDK。暂时不支持模拟器。
 
 ![](cocos-analytics/analytics_properties.png)
 
-6、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需求选择 **Android／iOS／Web** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
+5、参数配置完成之后点击 **保存**。然后打开 **构建发布** 面板根据用户需求选择 **Android／iOS／Web** 平台进行构建编译。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
 游戏加载后，统计 SDK 会在项目构建后的 main.js 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 main.js 中修改这些参数。初始化后便可以直接调用统计的 SDK，发送各种统计数据给服务器。
 

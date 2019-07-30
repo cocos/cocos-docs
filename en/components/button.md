@@ -1,4 +1,4 @@
-# Button component reference
+# Button Component Reference
 
 The button component responds to a click from the user. When the user clicks a Button, its status will change. In addition, users can assign a custom behavior to buttons' click event.
 
@@ -8,12 +8,12 @@ The button component responds to a click from the user. When the user clicks a B
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **Button** from **Add UI Component**. Then you can add the Button component to the node.
 
-## Button property
+## Button Property
 
 | Property |   Function explanation
 | -------------- | ----------- |
 |Interactable| Boolean type, if set to false then the Button component enters the forbidden state.
-|enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false. Don't  take effect when Transition type is SPRITE and the disabledSprite property is exists.
+|enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false.
 |Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
 |Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
 
@@ -50,84 +50,82 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 ### Scale Transition
 
-![scaleTransition](./button/scaleTransition.png)
+![scaleTransition](./button/scale-transition.png)
 
 | Property |   Function Explanation
 | -------------- | ----------- |
 |Duration| Time interval needed for Button status switching.
 |ZoomScale| When user press the button, the button will zoom to a scale.The final scale of the button  equals (button original scale * zoomScale), zoomScale could be negative value.
 
-## Button event
+## Button Click Event
+
+The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
+
+### Add a callback through the Properties.
 
 ![button-event](./button/button-event.png)
 
-| Property       | Function Explanation                        |
-| --------------  | -----------                                |
-| Target          | Node with the script component.            |
-| Component       | Script component name.                     |
-| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
-| customEventData | A user-defined string value passed as the last event argument of the event callback.             |
-  
-## Detailed explanation
+| No. | Property | Function Explanation              |
+| --- | -------- | -----------                       |
+|  1  | Target   | Node with the script component.   |
+|  2  | Component | Script component name.           |
+|  3  | Handler  | Assign a callback function which will be triggered when the user clicks the Button. |
+|  4  | customEventData | A user-defined string value passed as the last event argument of the event callback.  |
 
-Button currently only supports the On Click event. This means only when users click and release the Button will the corresponding call-back function be triggered.
+### Add a callback through the script.
 
-### Add a callback through the script code
+There are two ways to add a callback through the script.
 
-#### Method one
+1. The event callback added by this method is the same as the event callback added by the editor, all added by Button component. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
-The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
+    ```js
+    // here is your component file, file name = MyComponent.js 
+    cc.Class({
+        extends: cc.Component,
+        properties: {},
 
-```js
-//here is your component file, file name = MyComponent.js 
-cc.Class({
-    extends: cc.Component,
-    properties: {},
+        onLoad: function () {
+            var clickEventHandler = new cc.Component.EventHandler();
+            clickEventHandler.target = this.node; // This node is the node to which your event handler code component belongs
+            clickEventHandler.component = "MyComponent";// This is the code file name
+            clickEventHandler.handler = "callback";
+            clickEventHandler.customEventData = "foobar";
 
-    onLoad: function () {
-        var clickEventHandler = new cc.Component.EventHandler();
-        clickEventHandler.target = this.node; //This node is the node to which your event handler code component belongs
-        clickEventHandler.component = "MyComponent";//This is the code file name
-        clickEventHandler.handler = "callback";
-        clickEventHandler.customEventData = "foobar";
+            var button = node.getComponent(cc.Button);
+            button.clickEvents.push(clickEventHandler);
+        },
 
-        var button = node.getComponent(cc.Button);
-        button.clickEvents.push(clickEventHandler);
-    },
+        callback: function (event, customEventData) {
+            // here event is a Event object, you can get events sent to the event node node
+            var node = event.target;
+            var button = node.getComponent(cc.Button);
+            // here the customEventData parameter is equal to you set before the "foobar"
+        }
+    });
+    ```
 
-    callback: function (event, customEventData) {
-        //here event is a Touch Event object, you can get events sent to the event node node
-        var node = event.target;
-        var button = node.getComponent(cc.Button);
-        //here the customEventData parameter is equal to you set before the "foobar"
-    }
-});
-```
+2. By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not gets the screen coordinate point of the current click button.
 
-#### Method two
+    ```js
+    // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
 
-By `button.node.on ('click', ...)` way to add, this is a very simple way, but the way there are some limitations in the event callback which can not gets the screen coordinate point of the current click button.
+    cc.Class({
+        extends: cc.Component,
 
-```js
-//Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
+        properties: {    
+            button: cc.Button
+        },
 
-cc.Class({
-    extends: cc.Component,
+        onLoad: function () {
+            this.button.node.on('click', this.callback, this);
+        },
 
-    properties: {
-       button: cc.Button
-    },
-
-    onLoad: function () {
-       this.button.node.on('click', this.callback, this);
-    },
-
-    callback: function (button) {
-       //do whatever you want with button
-       //In addition, attention to this way registered events, can not pass customEventData
-    }
-});
-```
+        callback: function (button) {
+            // do whatever you want with button
+            // In addition, attention to this way registered events, can not pass customEventData
+        }
+    });
+    ```
 
 ---
 

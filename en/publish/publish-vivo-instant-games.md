@@ -4,7 +4,7 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ## Environment Configuration
 
-- Download [Quick App & vivo Mini Game Debugger](https://dev.vivo.com.cn/documentCenter/doc/163) and [vivo Mini Game Engine](https://dev.vivo.com.cn/documentCenter/doc/163) and install it on your Android device (recommended Android Phone 6.0 or above)
+- Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
 - Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally:
 
@@ -40,11 +40,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Package Name**
 
-  **App Package Name** is required and is filled in according to the user's needs.
+  **App Package Name** is filled in according to the user's needs. It's require.
 
 - **App Name**
 
-  **App Name** is required. Is the name of the vivo Mini Game. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
+  **App Name**, the name of the vivo Mini Game, is required. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
 
 - **Desktop Icon**
 
@@ -60,7 +60,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. Please refer to [Official Documentation](http://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
+  This item is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
   
 - **Small Packet Mode and Small Packet Mode Server Path**
 
@@ -179,6 +179,6 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 ## Reference link
 
-- [vivo Mini Games Development Documentation](http://minigame.vivo.com.cn/documents/lesson/debug.html#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95)
-- [vivo Mini Games API Documentation](http://minigame.vivo.com.cn/documents/api/system/life-cycle.html)
-- [Quick App & vivo Mini Game Debugger Download](http://minigame.vivo.com.cn/documents/download/engine.html)
+- [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
+- [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)
+- [Quick App & vivo Mini Game Debugger Download](https://minigame.vivo.com.cn/documents/#/download/debugger)
