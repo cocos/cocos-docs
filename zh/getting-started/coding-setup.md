@@ -69,6 +69,14 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 上面的字段将为 VS Code 设置搜索时排除的目录，和在文件列表中隐藏的文件类型。由于 `build`, `temp`, `library` 都是编辑器运行时自动生成的路径，而且会包含我们写入的脚本内容，所以应该在搜索中排除。而 `assets` 目录下的每个文件都会生成一个 `.meta` 文件，一般来说我们不需要关心他的内容，只要让编辑器帮我们管理这些文件就可以了。
 
+**注意**：新版 VS Code 打开用户配置文件 `USER SETTINGS` 时可能是处于 UI 界面状态：
+
+![vs code](coding-setup/vs_code_1.png)
+
+此时在上方的搜索框中输入 **exclude** 搜索，然后在 `search.exclude` 和 `files.exclude` 模块中点击 **Add Patten** 补充缺少的内容即可。
+
+![vs code](coding-setup/vs_code_2.png)
+
 ### 使用 VS Code 激活脚本编译
 
 使用外部文本编辑器修改项目脚本后，要重新激活 Cocos Creator 窗口才能触发脚本编译，我们在新版本的 Creator 中增加了一个预览服务器的 API，可以通过向特定地址发送请求来激活编辑器的编译。
