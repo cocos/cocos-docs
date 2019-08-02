@@ -13,7 +13,7 @@ Click `add component` button at the bottom of **Properties** panel and then sele
 
 One node can have several collider components, and these collider components can be different type.
 
-We have three collider component types now, they are **Polygon**，**Cirecle**，**Box**. These components all inherit from **Collider** component.
+We have three collider component types now, they are **Polygon**，**Circle**，**Box**. These components all inherit from **Collider** component.
 
 ### Polygon collider component properties
 
