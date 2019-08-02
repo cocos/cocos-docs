@@ -19,7 +19,7 @@ We have an Animation component on the Node, but we don't have the corresponding 
 
  - Click __+__ on the top left corner in the Assets or right click in the blank area and choose __Animation Clip__. A clip document named 'New AnimationClip' will be created.
 
-Creating it is not enough. You need to   click and choose the Node in the arrangement manager again and find __Animation__ in the Properties. The current value of Clips  will be 0. Change it to 1.
+Creating it is not enough. You need to click and choose the Node in the arrangement manager again and find __Animation__ in the Properties. The current value of Clips  will be 0. Change it to 1.
 
 Drag the newly created 'New AnimationClip' from the Assets into the newly emerged __animation-clip choice box__.
 

@@ -1,6 +1,6 @@
 # Extends Editor Panel
 
-Cocos Creator allow user custom the panel UI.
+Cocos Creator allow user customing the panel UI.
 
 ## Register Editor Panel
 
@@ -19,7 +19,7 @@ Define the `panel` field in `package.json`:
 }
 ```
 
-Currently the extension allow user define one panel in the `package.json`. The `main` field is the entry point of the panel, it is similar to the entry point of the package.
+Currently the extension allow user defining one panel in the `package.json`. The `main` field is the entry point of the panel, it is similar to the entry point of the package.
 
 Also you should be known about the `type` field:
 

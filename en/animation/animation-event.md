@@ -12,10 +12,12 @@ the timeline representing the newly added event.
 ![button](animation-event/button.png)
 
 ## Deleting an event
-There are two ways to delete and event.
+
+There are two ways to delete an event.
 
 * Double click the white rectangle that represents the event.
 * Click the __Recycle__ icon behind __Function__ after opening the event editor.
+
 A prompt for deleting this event will appear. Click the __Confirm__ button and the
 event will be deleted.
 
