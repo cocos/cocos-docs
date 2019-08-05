@@ -21,13 +21,13 @@ For instance, when we click "Foo" it will send the message `my-package:foo`.
 
 ## Menu Path
 
-The keys of `main-menu` is the menu path we want to add to main menu. The menu path uses posix path formation, which use `/` as the separator. When Cocos Creator load package's `main-menu`, it start search menu item by the menu path we provide. When the target menu item is not found, Cocos Creator will help us create a sub-menu automatically, otherwise it will use the exists menu and insert the menu in it.
+The keys of `main-menu` is the menu path we want to add to main menu. The menu path uses posix path formation, which use `/` as the separator. When Cocos Creator load package's `main-menu`, it start searching menu item by the menu path we provide. When the target menu item is not found, Cocos Creator will help us create a sub-menu automatically, otherwise it will use the exists menu and insert the menu in it.
 
-We might meed warnings and errors during main menu reigstry:
+We might meet warnings and errors during main menu reigstry:
 
 ### The menu path already exists
 
-This can be happen when several packages uses the same path. The first loaded package will take the path, and the other ones will raise an error when it register.
+This can be happen when several packages uses the same path. The first loaded package will take the path, and the other ones will raise an error when it registers.
 
 ### The ancient path of the menu path already exists, and its type is not a sub-menu
 

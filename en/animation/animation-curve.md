@@ -40,9 +40,7 @@ Click the created sequence frame and it will be displayed in the selected state.
 
 ## Move an keyframe
 
-If you move the mouse over any selected keyframe, press the left mouse button, the mouse will transform into left and right arrows, this time you can drag all the selected keyframes.
-If you move the mouse to any randomly chosen Node, the mouse will display left and right arrows.
-You can drag all the chosen Nodes while holding down the left mouse button.
+If you move the mouse over any selected keyframe, press the left mouse button and drag, the mouse will transform into left and right arrows, this time you can drag all the selected keyframes.
 
 ## Modify an keyframe
 

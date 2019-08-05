@@ -69,6 +69,14 @@ Choose `Code (Mac) / File (Windows) -> Preferences -> Settings` from VS Code mai
 
 The above settings exclude folders generated and managed by Cocos Creator from search and file tree.
 
+**Note**: The new version of VS Code may be in the UI interface state when opening user profile `USER SETTINGS`:
+
+![vs code](coding-setup/vs_code_1.png)
+
+Next, enter the **exclude** in the search box above, and then click the **Add Patten** button in the `search.exclude` and `files.exclude` modules to supplement the content:
+
+![vs code](coding-setup/vs_code_2.png)
+
 ### Use VS Code to activate script compilation
 
 After modifying the project script by using an external text editor, you need to reactivate the Cocos Creator window to trigger script compilation. We have added a preview server API for the new version of Creator, which can be used to activate editor compilation by sending requests to a specific address.

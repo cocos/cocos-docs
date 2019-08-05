@@ -9,7 +9,7 @@
 We introduce the custom protocols to ease the path search in main and renderer process.
 
 - `db://` Introduced in [Asset Management](asset-management.md), will mapping the root direcotry of assets. We can get assets by writing `db://assets/script/MyScript.js`
-- `packages://` The packages installed path. Mapping to local project's `packages` folder and global package folder `$HOME/.CocosCreator/packages` 映射到项目本地的插件目录 `packages` 和全局的插件目录 `$HOME/.CocosCreator/packages`, for example `packages://foobar/package.json` means the `foobar` package's `package.json` file.
+- `packages://` The packages installed path. Mapping to local project's `packages` folder and global package folder `$HOME/.CocosCreator/packages`, this means that any extension packages and files in these two directories can be indexed by this protocol. for example `packages://foobar/package.json` means the `foobar` package's `package.json` file.
 - `unpack://` The unpacked folder in Cocos Creator, including:
   - `unpack://engine` JavaScript Enigne Path
   - `unpack://cocos2d-x` C++ Engine Path
