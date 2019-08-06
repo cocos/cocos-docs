@@ -159,10 +159,9 @@ cc.Class({
 });
 ```
 
+因此当你需要通过内部页面交互 WebView 时，应当设置内部页面 URL：`testkey://(后面你想要回调到 WebView 的数据)`。WebView 内部页面代码如下：
+
 ```html
-// 因此当你需要通过内部页面交互 WebView 时，
-// 应当设置内部页面 URL 为：TestKey://(后面你想要回调到 WebView 的数据)
-// WebView 内部页面代码
 <html>
 <body>
     <dev>
@@ -178,10 +177,9 @@ cc.Class({
 </html>
 ```
 
-由于 Web 平台的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
+由于 Web 平台的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互：
 
-```js
-// WebView 内部页面代码
+```html
 <html>
 <body>
     <dev>

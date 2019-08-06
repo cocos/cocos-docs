@@ -4,33 +4,34 @@ PageView 是一种页面视图容器.
 
 ![pageview-inspector](./pageview/pageview-inspector.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **PageView**，即可添加 PageView 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **PageView**，即可添加 PageView 组件到节点上。
 
 页面视图的脚本接口请参考 [PageView API](../../../api/zh/classes/PageView.html)。
 
 ## PageView 属性
 
-| 属性                     | 功能说明 |
-| --------------           | ----------- |
-| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。详情可参考 [SizeMove API](../../../api/zh/enums/PageView.SizeMode.html)  |
-| Content                  | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
-| Direction                | 页面视图滚动方向 |
-| ScrollThreshold          | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |
-| AutoPageTurningThreshold | 快速滑动翻页临界值，当用户快速滑动时，会根据滑动开始和结束的距离与时间计算出一个速度值，该值与此临界值相比较，如果大于临界值，则进行自动翻页 |
-| Inertia                  | 否开启滚动惯性 |
-| Brake                    | 开启惯性后，在用户停止触摸后滚动多快停止，0 表示永不停止，1 表示立刻停止 |
-| Elastic                  | 布尔值，是否回弹 |
-| Bounce Duration          | 浮点数，回弹所需要的时间。取值范围是 0-10 |
-| Indicator                | 页面视图指示器组件 |
-| PageTurningEventTiming   | 设置 PageView、PageTurning 事件的发送时机 |
-| PageEvents               | 数组，滚动视图的事件回调函数 |
-| CancelInnerEvents        | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件 |
+| 属性                      | 功能说明 |
+| --------------            | ----------- |
+| Content                     | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
+| Size Mode                   | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。详情可参考 [SizeMove API](../../../api/zh/enums/PageView.SizeMode.html)  |
+| Direction                   | 页面视图滚动方向                             |
+| Scroll Threshold            | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |
+| Auto Page Turning Threshold | 快速滑动翻页临界值，当用户快速滑动时，会根据滑动开始和结束的距离与时间计算出一个速度值，该值与此临界值相比较，如果大于临界值，则进行自动翻页 |
+| Inertia                     | 否开启滚动惯性                              |
+| Brake                       | 开启惯性后，在用户停止触摸后滚动多快停止，0 表示永不停止，1 表示立刻停止         |
+| Elastic                     | 布尔值，是否回弹                             |
+| Bounce Duration             | 浮点数，回弹所需要的时间。取值范围是 0-10       |
+| Indicator                   | 页面视图指示器组件，详情可参考下方的 CCPageViewIndicator 设置。              |
+| Page Turning Speed          | 每个页面翻页时所需时间，单位：秒。              |
+| Page Turning Event Timing   | 设置 PageView、PageTurning 事件的发送时机     |
+| Page Events                 | 数组，滚动视图的事件回调函数                   |
+| Cancel Inner Events         | 布尔值，是否在滚动行为时取消子节点上注册的触摸事件 |
 
 ### CCPageViewIndicator 设置
 
-CCPageViewIndicator 是可选的，该组件是用来显示页面的个数和标记当前显示在哪一页。
+CCPageViewIndicator 是可选的，该组件是用来显示页面的个数和标记当前显示在哪一页。详情可参考 [PageviewIndicator 组件](./pageviewindicator.md)
 
-建立关联可以通过在 **层级管理器** 里面拖拽一个带有 PageViewIndicator 组件的节点到 PageView 的相应字段完成。
+建立关联可以通过在 **层级管理器** 里面拖拽一个带有 PageViewIndicator 组件的节点到 PageView 组件的 Indicator 属性中。
 
 ### PageView 事件
 

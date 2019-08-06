@@ -16,4 +16,4 @@ update: function (dt) {
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

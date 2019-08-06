@@ -1,6 +1,6 @@
 # LabelShadow Component Reference
 
-The LabelShadow component can add shadow effects to the Label component, but only for system fonts or TTF fonts.
+The LabelShadow component can add shadow effects to the Label component, but only for system fonts or TTF fonts. And does not take effect when the `Cache Mode` of Label component is set to `CHAR`.
 
 ![label-shadow](label/label-shadow.png)
 

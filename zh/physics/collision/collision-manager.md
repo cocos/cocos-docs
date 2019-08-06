@@ -28,7 +28,7 @@ manager.enabledDebugDraw = true;
 
 开启后在运行时可显示 **碰撞组件** 的 **碰撞检测范围**，如下图：
 
-<a href="collision-manager/draw-debug.png"><img src="collision-manager/draw-debug.png"></a>
+![](collision-manager/draw-debug.png)
 
 如果还希望显示碰撞组件的包围盒，那么可以通过以下接口来进行设置：
 
@@ -38,7 +38,7 @@ manager.enabledDrawBoundingBox = true;
 
 结果如下图所示：  
 
-<a href="collision-manager/draw-bounding-box.png"><img src="collision-manager/draw-bounding-box.png"></a>
+![](collision-manager/draw-bounding-box.png)
 
 ### 碰撞系统回调
 
@@ -99,27 +99,27 @@ onCollisionExit: function (other, self) {
 ### 点击测试
 
 ```javascript
-    properties: {
-        collider: cc.BoxCollider
-    },
+properties: {
+    collider: cc.BoxCollider
+},
 
-    start () {
-        // 开启碰撞检测系统，未开启时无法检测
-        cc.director.getCollisionManager().enabled = true;
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
+start () {
+    // 开启碰撞检测系统，未开启时无法检测
+    cc.director.getCollisionManager().enabled = true;
+    // cc.director.getCollisionManager().enabledDebugDraw = true;
 
-        this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
-            // 返回世界坐标
-            let touchLoc = touch.getLocation();
-            // https://docs.cocos.com/creator/api/zh/classes/Intersection.html 检测辅助类
-            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
-                console.log("Hit!");
-            }
-            else {
-                console.log("No hit");
-            }
-        }, this);
-    }
+    this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
+        // 返回世界坐标
+        let touchLoc = touch.getLocation();
+        // https://docs.cocos.com/creator/api/zh/classes/Intersection.html 检测辅助类
+        if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+            console.log("Hit!");
+        }
+        else {
+            console.log("No hit");
+        }
+    }, this);
+}
 ```
 
-更多的范例可以到 [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看
+更多的范例可以到 [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。

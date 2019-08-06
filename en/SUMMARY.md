@@ -117,7 +117,6 @@
     - [DragonBones Reference](components/dragonbones.md)
     - [VideoPlayer Reference](components/videoplayer.md)
     - [WebView Reference](components/webview.md)
-    - [Programming Grahpics](render/graphics/index.md)
     - [Graphics Reference](components/graphics.md)
 - [UI](ui/index.md)
     - [Multi-Resolution Adaption](ui/multi-resolution.md)

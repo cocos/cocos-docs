@@ -10,23 +10,26 @@ When a Collider Component is enabled, this Collider Component will be auto added
 ### Collision Manager Interface
 
 Get the Collision Manager
+
 ```javascript
 var manager = cc.director.getCollisionManager();
 ```
 
 Collision Manager is disabled by default, enable it if you need to use it.
+
 ```javascript
 manager.enabled = true;
 ```
 
 Collision Manager Debug Draw is disabled by default, enable it if you need to see the debug info.
+
 ```javascript
 manager.enabledDebugDraw = true;
 ```
 
 After enable **Debug Draw**, you can see the Collider area in runtime:
 
-<a href="collision-manager/draw-debug.png"><img src="collision-manager/draw-debug.png"></a>
+![](collision-manager/draw-debug.png)
 
 If you want to display the bounding box of the Collider Component, please set `enabledDrawBoundingBox` to `true`:
 
@@ -36,11 +39,11 @@ manager.enabledDrawBoundingBox = true;
 
 Result :   
 
-<a href="collision-manager/draw-bounding-box.png"><img src="collision-manager/draw-bounding-box.png"></a>
+![](collision-manager/draw-bounding-box.png)
 
 ### Collision Manager Callback
 
-When a collision is detected, Collision Manager will call the callback to notify users. If the script which belong to the same node with the Collider Component implement below functions, Collision will call the functions as the callback.   
+When a collision is detected, Collision Manager will call the callback to notify users. If the script which belong to the same node with the Collider Component implement below functions, Collision will call the functions as the callback.
 
 ```javascript
 /**
@@ -97,28 +100,27 @@ onCollisionExit: function (other, self) {
 ### Hittest
 
 ```javascript
-    properties: {
-        collider: cc.BoxCollider
-    },
+properties: {
+    collider: cc.BoxCollider
+},
 
-    start () {
-        // Open the collision manager, without this part statement you will not detect any collision.
-        cc.director.getCollisionManager().enabled = true;
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
+start () {
+    // Open the collision manager, without this part statement you will not detect any collision.
+    cc.director.getCollisionManager().enabled = true;
+    // cc.director.getCollisionManager().enabledDebugDraw = true;
 
-        this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
-            // return the touch point with world coordinates
-            let touchLoc = touch.getLocation();
-            // https://docs.cocos.com/creator/api/en/classes/Intersection.html Intersection
-            if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
-                console.log("Hit!");
-            }
-            else {
-                console.log("No hit");
-            }
-        }, this);
-    }
+    this.collider.node.on(cc.Node.EventType.TOUCH_START, function (touch, event) {
+        // return the touch point with world coordinates
+        let touchLoc = touch.getLocation();
+        // https://docs.cocos.com/creator/api/en/classes/Intersection.html Intersection
+        if (cc.Intersection.pointInPolygon(touchLoc, this.collider.world.points)) {
+            console.log("Hit!");
+        }
+        else {
+            console.log("No hit");
+        }
+    }, this);
+}
 ```
 
-More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 
-
+More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider).

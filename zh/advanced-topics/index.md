@@ -9,7 +9,6 @@
 - [存储和读取用户数据](data-storage.md)
 - [引擎定制工作流程](engine-customization.md)
 - [渲染流](render-flow.md)
-- [自定义渲染](custom-render.md)
 - [Java 原生反射机制](java-reflection.md)
 - [Objective-c 原生反射机制](oc-reflection.md)
 - [BMFont 与 UI 自动批处理](ui-auto-batch.md)
