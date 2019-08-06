@@ -4,31 +4,35 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 ![editbox](./editbox/editbox.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **EditBox**，即可添加 EditBox 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **EditBox**，即可添加 EditBox 组件到节点上。
 
 EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.html)。
 
 ## EditBox 组件升级
 
-在 v2.1.1 里，我们对 EditBox 组件做了一些调整和优化。主要包括：
+在 **v2.1.1** 里，我们对 EditBox 组件做了一些调整和优化。主要包括：
 - 新增 `textLabel`,  `placeholderLabel`, `background` 属性, 用户可以通过挂载自定义的 Label 或 Sprite 组件，更灵活的去配置 EditBox 组件的样式
 - 废弃 `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` 属性，Cocos Creator 会自动将这些属性的值升级为所挂载组件上的相应属性
 - 废弃 `setFocus()` 方法，新增 `focus()` 和 `blur()` 方法，为 EditBox 组件提供主动结束输入文本的能力
 
 ## EditBox 属性
 
-| 属性                   | 功能说明                                                                       |
-| --------------         | -----------                                                                  |
-| String                 | 输入框的初始输入内容，如果为空则会显示占位符的文本                                   |
-| Placeholder            | 输入框占位符的文本内容                                                           |
-| Background             | 输入框背景节点上挂载的 Sprite 组件对象                                            |
-| TextLabel              | 输入框输入文本节点上挂载的 Label 组件对象                                          |
-| PlaceholderLabel       | 输入框占位符节点上挂载的 Label 组件对象                                           |
-| Keyboard Return Type   | 指定移动设备上面回车按钮的样式                                                    |
-| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）           |
-| Input Mode             | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。         |
-| MaxLength              | 输入框最大允许输入的字符个数                                                      |
-| TabIndex               | 修改 DOM 输入元素的 tabIndex，这个属性只有在 Web 上面修改有意义。                    |
+| 属性                    | 功能说明                                                                            |
+| --------------         | -----------                                                                        |
+| String                 | 输入框的初始输入内容，如果为空则会显示占位符的文本                                         |
+| Placeholder            | 输入框占位符的文本内容                                                                 |
+| Background             | 输入框背景节点上挂载的 Sprite 组件对象                                                  |
+| Text Label             | 输入框输入文本节点上挂载的 Label 组件对象                                                |
+| Placeholder Label      | 输入框占位符节点上挂载的 Label 组件对象                                                  |
+| KeyboardReturnType     | 指定移动设备上面回车按钮的样式                                                           |
+| Input Flag             | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）                  |
+| Input Mode             | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。                |
+| Max Length             | 输入框最大允许输入的字符个数                                                            |
+| Tab Index              | 修改 DOM 输入元素的 tabIndex，这个属性只有在 Web 上面修改有意义。                          |
+| Editing Did Began      | 开始编辑文本输入框触发的事件回调，详情请参考下方的 Editing Did Began 事件。                  |
+| Text Changed           | 编辑文本输入框时触发的事件回调，详情请参考下方的 Text Changed 事件。                         |
+| Editing Did Ended      | 结束编辑文本输入框时触发的事件回调，详情请参考下方的 Editing Did Ended 事件。                 |
+| Editing Return         | 当用户按下回车按键时的事件回调，目前不支持 windows 平台，详情请参考下方的 Editing Return 事件。 |
 
 ## EditBox 事件
 
@@ -43,7 +47,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 | Handler         | 指定一个回调函数，当用户开始输入文本的时候会调用该函数 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。   |
 
- **注意**：该事件在用户点击输入框获取焦点的时候被触发。
+**注意**：该事件在用户点击输入框获取焦点的时候被触发。
 
 ### Text Changed 事件
 

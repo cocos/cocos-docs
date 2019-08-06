@@ -71,7 +71,6 @@ To make sure you can update node's position or size during runtime:
 1. set `Align Mode` to `ONCE`, so it will only align during onEnable process.
 2. Use Widget's API to update node's position and size, for example updating Widget's `top`, `bottom`, `left`, `right` instead of node's `x`, `y`, `width`, `height`.
 
-
 ---
 
 Continue on to read about [Button component preference](button.md).

@@ -50,7 +50,7 @@ After importing the model, you can set the model import parameters in the **Prop
 
 - **Precompute Joint Matrix**
 
-  When loading skeleton animation data, Precompute the matrix of each skeleton at each time point, saving the step of dynamically calculating the skeleton matrix. Can greatly improve efficiency. The default is **Unchecked**.
+  When loading skeleton animation data, the matrix of each skeleton at each time point will be calculated in advance, which saves the steps of dynamically calculating the skeleton matrix and greatly improves the efficiency. The default is **Unchecked**.
 
   **Note: The model with this option turned on must match the model on the SkeletonAnimation component.**
 

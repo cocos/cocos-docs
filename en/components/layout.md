@@ -18,20 +18,21 @@ Click the **Add Component** button at the bottom of **Properties** panel and the
 
 ## Layout property
 
-| Property            | Function Explanation                                                                                                            |
-| --------------       | -----------                                                                                                                     |
-| Type                 | Layout type, currently has NONE, HORIZONTAL, VERTICAL and Grid.                                                                 |
-| Resize Mode          | Resize strategies, currently has NONE, CHILDREN and CONTAINER.                                                                  |
-| PaddingLeft          | The left padding between the sub-object and the container frame in the layout.                                                  |
-| PaddingRight         | The right padding between the sub-object and the container frame in the layout.                                             |
-| PaddingTop           | The top padding between the sub-object and the container frame in the layout.                                               |
-| PaddingBottom        | The bottom padding between the sub-object and the container frame in the layout.                                            |
-| SpacingX             | The separation distance between sub-objects in the horizontal layout. NONE mode doesn't have this attribute.                    |
-| SpacingY             | The separation distance between sub-objects in the vertical layout.NONE mode doesn't have this attribute.                       |
+| Property            | Function Explanation                                                |
+| --------------       | -----------                                                        |
+| Type                 | Layout type, currently has NONE, HORIZONTAL, VERTICAL and Grid.    |
+| Resize Mode          | Resize strategies, currently has NONE, CHILDREN and CONTAINER.     |
+| Padding Left         | The left padding between the sub-object and the container frame in the layout.   |
+| Padding Right        | The right padding between the sub-object and the container frame in the layout.  |
+| Padding Top          | The top padding between the sub-object and the container frame in the layout.    |
+| Padding Bottom       | The bottom padding between the sub-object and the container frame in the layout. |
+| Spacing X            | The separation distance between sub-objects in the horizontal layout. NONE mode doesn't have this attribute.   |
+| Spacing Y            | The separation distance between sub-objects in the vertical layout. NONE mode doesn't have this attribute.     |
 | Horizontal Direction | When it is designated as horizontal layout, which side does the first child node start in the layout? The left or the right?    |
 | Vertical Direction   | When it is designated as vertical layout, which side does the first child node start in the layout? The upside or the downside? |
-| Cell Size            | This option is only available in Grid layout. The size to use for each layout element in the container.                         |
-| Start Axis           | This option is only available is Grid layout. It specifies which primary axis to place elements along.                          |
+| Cell Size            | This option is only available in Grid layout, Children resize mode. The size of each child element.             |
+| Start Axis           | This option is only available in Grid layout, the arrangement direction of children elements.                   |
+| Affected By Scale    | Whether the scaling of the child node affects the layout.           |
 
 ## Detailed explanation
 

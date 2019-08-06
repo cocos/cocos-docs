@@ -227,7 +227,7 @@ Find the `properties` section in the `Player` script, change it to the following
 
 Cocos Creator stipulates that a node has attributes that need to be written in the `properties` code block, which will specify how the protagonist moves, and we don't need to care about what the values are in the code, because we'll set these values directly in the **Properties**. Later in the game production process, we can put the properties that need to be adjusted at any time in `properties`.
 
-Now we can add the `Player` component to the node of the main character. Choose the `Player` node in the **Node Tree**, click the **Add Component** button in the **Properties** panel and choose `Add Custom Component -> Player` to add the `Player` component to the node of the main character.
+Now we can add the `Player` component to the node of the main character. Choose the `Player` node in the **Node Tree**, click the **Add Component** button in the **Properties** panel and choose **Custom Component -> Player** to add the `Player` component to the node of the main character.
 
 ![add player component](quick-start/add_player_component.png)
 
@@ -437,7 +437,7 @@ Next, double click this script to start editing. Only one property is needed for
     },
 ```
 
-After saving the script, add this script to the newly created `star` node. Select the `star` node in the **Node Tree** and click on the **Add component** button in the **Properties** and select `Add Custom Component -> Star`, which is added to the newly created star node. Then set up the property value of `Pick Radius` in the **Properties** as `60`:
+After saving the script, add this script to the newly created `star` node. Select the `star` node in the **Node Tree** and click on the **Add component** button in the **Properties** and select **Custom Component -> Star**, which is added to the newly created star node. Then set up the property value of `Pick Radius` in the **Properties** as `60`:
 
 ![quick start](quick-start/star_property.png)
 
@@ -513,7 +513,7 @@ starPrefab: {
 
 First, the `starPrefab` property is declared under the Game component, the default value is `null`, and the type that can be passed in must be a prefab resource type. After that, the ground, player properties can also be understood.
 
-After saving the script, add the `Game` component to the `Canvas` node in the **Node Tree** (after choosing the `Canvas` node, drag the script to the **Properties** or click the **Add Component** button in the **Properties** and choose `Game` in `Add Custom Component`).
+After saving the script, add the `Game` component to the `Canvas` node in the **Node Tree** (after choosing the `Canvas` node, drag the script to the **Properties** or click the **Add Component** button in the **Properties** and choose `Game` in **Custom Component**).
 
 Next, drag the `star` Prefab resource from the **Assets** into the `Star Prefab` property of the newly created `Game` component. This is the first time we've set a reference to a property, and you can drag a resource or a node onto that property (such as the `cc.Prefab` type written here) only if it is specified as a reference type when the attribute is declared.
 

@@ -127,7 +127,7 @@ cc.Class({
 
 在 `onLoad` 回调方法里，我们依次遍历 `items` 里存储的每个数据，以 `itemPrefab` 为模板生成新节点并添加到 `ItemList.js` 所在节点上。之后调用 `ItemTemplate.js` 里的 `init` 方法，更新每个节点的表现。
 
-现在我们可以为 `ItemList.js` 所在的节点添加一个 **Layout** 组件，通过 **属性检查器** 下方的 `添加组件/添加 UI 组件/Layout`，然后设置 **Layout** 组件的以下属性：
+现在我们可以为 `ItemList.js` 所在的节点添加一个 **Layout** 组件，通过 **属性检查器** 下方的 **添加组件 -> UI 组件 -> Layout**，然后设置 **Layout** 组件的以下属性：
 
 - `Type`: `HORIZONTAL`
 - `Resize Mode`: `CONTAINER`

@@ -36,9 +36,9 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 
 | Properties |   Function Explanation
 | -------------- | ----------- |
-| target| Node with the script component.
-| component| Script component name.
-| handler| Specify a callback，when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.
+| target          | Node with the script component.
+| component       | Script component name.
+| handler         | Specify a callback，when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.
 | customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
 
 For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).

@@ -28,4 +28,4 @@ ctx.stroke();
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to [Graphics Component Reference](../../components/graphics.md).

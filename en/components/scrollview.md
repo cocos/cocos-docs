@@ -6,22 +6,23 @@ ScrollView is a container with a scroll function. It provides a way to browse mo
 
 ![scrollview-inspector](./scrollview/scrollview-inspector.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **ScrollView** from **Add UI Component**. You can then add the ScrollView component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **ScrollView** from **UI Component**. You can then add the ScrollView component to the node.
 
 ## ScrollView property
 
 | Property |   Function Explanation
 | -------------- | ----------- |
-| Content| A reference node for creating scrollable content from ScrollView. It could be a node containing a very large picture.
+| Content    | A reference node for creating scrollable content from ScrollView. It could be a node containing a very large picture.
 | Horizontal | Boolean value, whether horizontal scroll is allowed or not.
-| Vertical | Boolean value, whether vertical scroll is allowed or not.
-| Inertia | Is there an accelerating velocity when scrolling
-| Brake | Floating point number, the deceleration coefficient after scrolling. The value range is 0-1 where if set to 1, then the scroll will stop immediately; if set to 0, then the scroll will continue until the content border.
-|Elastic | Boolean value, whether to bounce back or not.
-|Bounce Duration | Floating point number, the time duration for bounce back. The calue range is 0-10.
-|Horizontal ScrollBar| A reference node for creating a scroll bar showing the horizontal position of the contents.
-|Vertical ScrollBar| A reference node for creating a scroll bar showing vertical position of the contents.
-|ScrollView Events| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **ScrollView Event** section below for details.
+| Vertical   | Boolean value, whether vertical scroll is allowed or not.
+| Inertia    | Is there an accelerating velocity when scrolling
+| Brake      | Floating point number, the deceleration coefficient after scrolling. The value range is 0-1 where if set to 1, then the scroll will stop immediately; if set to 0, then the scroll will continue until the content border.
+| Elastic              | Boolean value, whether to bounce back or not.
+| Bounce Duration      | Floating point number, the time duration for bounce back. The calue range is 0-10.
+| Horizontal ScrollBar | A reference node for creating a scroll bar showing the horizontal position of the contents.
+| Vertical ScrollBar   | A reference node for creating a scroll bar showing vertical position of the contents.
+| Scroll Events        | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **ScrollView Event** section below for details.
+| CancelInnerEvents	   | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes.
 
 ### ScrollView Event
 
@@ -29,9 +30,10 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 | Property |   Function Explanation
 | -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Assign a callback function which will be triggered when the scrollview events emitted.
+| Target          | Node with the script component.  |
+| Component       | Script component name.           |
+| Handler         | Assign a callback function which will be triggered when the scrollview events emitted.     |
+| customEventData | A user-defined string value passed as the last event argument of the event callback.       |
 
 The scrollview event callback will have two parameters, the first one is the ScrollView itself and the second one is the event type.
 
@@ -111,7 +113,7 @@ cc.Class({
 
 Similarly, you can register events such as `scrolling`, `touch-up`, `scroll-began`, etc. The events of the callback function parameters and `scroll-to-top` parameters.
 
-For a full list of ScrollView events, refer to the [ScrollView API](../../../api/en/classes/ScrollView.html) for detail.
+For a full list of ScrollView events, refer to the [ScrollView API](../../../api/en/classes/ScrollView.html) for details.
 
 ---
 

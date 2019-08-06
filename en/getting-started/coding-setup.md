@@ -73,7 +73,7 @@ The above settings exclude folders generated and managed by Cocos Creator from s
 
 ![vs code](coding-setup/vs_code_1.png)
 
-Next, enter the **exclude** in the search box above, and then click the **Add Patten** button in the `search.exclude` and `files.exclude` modules to supplement the content:
+Next, enter the **exclude** in the search box above, and then click the **Add Pattern** button in the `search.exclude` and `files.exclude` modules to supplement the content:
 
 ![vs code](coding-setup/vs_code_2.png)
 

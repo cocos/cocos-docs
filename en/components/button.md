@@ -6,16 +6,16 @@ The button component responds to a click from the user. When the user clicks a B
 
 ![button-color](./button/button-color.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **Button** from **Add UI Component**. Then you can add the Button component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **Button** from **UI Component**. Then you can add the Button component to the node.
 
 ## Button Property
 
 | Property |   Function explanation
 | -------------- | ----------- |
-|Interactable| Boolean type, if set to false then the Button component enters the forbidden state.
-|enableAutoGrayEffect| Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false.
-|Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
-|Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
+| Interactable            | Boolean type, if set to false then the Button component enters the forbidden state.
+| Enable Auto Gray Effect | Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false.
+| Transition              | Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
+| Click Event             | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
 
 **Note**: When `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
 

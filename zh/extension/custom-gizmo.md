@@ -116,7 +116,7 @@ module.exports = CustomGizmo;
 
 这样就将 CustomGizmo 注册到 CustomComponent 上了。
 
-然后，在 **层级管理器** 中选择要添加 gizmo 的节点，在 **属性检查器** 中选择 **添加组件 -> 添加用户脚本组件 -> CustomComponent**，就可以看到这个 gizmo 显示在 **场景编辑器** 中。如果无法看到 gizmo 请刷新编辑器或者重启编辑器。
+然后，在 **层级管理器** 中选择要添加 gizmo 的节点，在 **属性检查器** 中选择 **添加组件 -> 用户脚本组件 -> CustomComponent**，就可以看到这个 gizmo 显示在 **场景编辑器** 中。如果无法看到 gizmo 请刷新编辑器或者重启编辑器。
 
 请阅读下一篇 [自定义 Gizmo 进阶](custom-gizmo-advance.md)
 

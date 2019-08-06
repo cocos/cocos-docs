@@ -65,7 +65,7 @@ Creator added the **App Bundle (Google Play)** option to the **v2.0.9**. If you 
 
 ### SDKBox
 
-SDKBox is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. Support for nearly 30 SDKs such as Apple and Google's IAP In-App Purchases, all SDKs are rigorously tested and officially certified. Please refer to [SDKBox](../sdk/sdkbox.md) for detail.
+SDKBox is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. Support for nearly 30 SDKs such as Apple and Google's IAP In-App Purchases, all SDKs are rigorously tested and officially certified. Please refer to [SDKBox](../sdk/sdkbox.md) for details.
 
 ### Encrypt JS
 

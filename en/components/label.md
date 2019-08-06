@@ -20,10 +20,8 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Enable Wrap Text| Enable or disable the text line feed. (which takes effect when the Overflow is set to CLAMP or SHRINK)
 |Font | Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
 |Font Family| Font family name, takes effect when using system font.
-|Cache Mode| The text cache mode (New in v2.0.9). Takes effect only for **system font** or **ttf** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for detail.
+|Cache Mode| The text cache mode (New in v2.0.9). Takes effect only for **system font** or **ttf** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for details.
 |  Use System Font | Boolean value, choose whether to use the system font or not.
-| Src Blend Factor | Current render blend mode.
-| Dst Blend Factor | the destination blend mode. Together with the above properties, you can mix the foreground and background rendered text in different ways, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
 
 ## Label Layout
 

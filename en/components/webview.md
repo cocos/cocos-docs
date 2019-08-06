@@ -160,10 +160,9 @@ cc.Class({
 });
 ```
 
+So when you need to interact with WebView through an internal page, you should set the internal page URL: `testkey://(the data you want to callback to WebView later)`. WebView internal page code:
+
 ```html
-// So when you need to interact with WebView through an internal page, 
-// you should set the internal page URL: TestKey://(the data you want to callback to WebView later)
-// WebView internal page code
 <html>
 <body>
     <dev>
@@ -179,10 +178,9 @@ cc.Class({
 </html>
 ```
 
-Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other
+Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
 
-```js
-// WebView internal page code
+```html
 <html>
 <body>
     <dev>
