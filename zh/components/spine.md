@@ -71,3 +71,32 @@ cc.Class({
 设置好脚本属性，启动场景，可以看到绿色框中的手臂已经被替换。
 
 ![spine-cloth](./spine/cloth3.png)
+
+## Spine 顶点效果
+下面通过一个范例介绍 Spine 如何设置顶点效果，此方法适用于 v2.2.0 及以上版本。
+
+在场景中新增一个节点并添加 Spine 组件，设置好 Spine 组件属性，然后编写组件脚本，并添加到场景中，脚本代码如下：
+```js
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        skeleton : {
+            type: sp.Skeleton,
+            default: null,
+        }
+    },
+
+    start () {
+        this._jitterEffect = new sp.VertexEffectDelegate();
+        // 设置好抖动参数。
+        this._jitterEffect.initJitter(20, 20);
+        // 调用 Spine 组件的 setVertexEffectDelegate 方法设置效果。
+        this.skeleton.setVertexEffectDelegate(this._jitterEffect);
+    }
+});
+```
+
+设置好脚本属性，启动场景，可以看到 Spine 动画的顶点抖动的效果。代码示例可参考 [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine/SpineMesh.fire)。
+
+**注意**：顶点效果只有当 Spine 处于 REALTIME 模式时有效。
