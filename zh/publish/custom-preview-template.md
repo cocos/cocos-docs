@@ -22,7 +22,7 @@ Cocos Creator 从 v2.2 开始新增了自定义预览模版功能。开发者可
 
 preview-templates 相当于一个普通网页模版，该入口文件为 index.html。目前 index 支持常用的三种类型分别是 **.html**、**.jade**、**.ejs**。
 
-编辑器内置 preview-templates 存放地址如下：
+编辑器内置 preview-templates 存放位置如下：
 
 **Mac**：`./CocosCreator.app/Contents/Resources/static/preview-templates`
 
