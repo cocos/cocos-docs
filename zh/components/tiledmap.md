@@ -68,6 +68,7 @@ cc.Class({
 将 TiledMap 自动生成的 TiledLayer 组件拖拽至自定义脚本组件属性中，并设置好用于实例化节点的预置体。代码示例可参考 [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap)。
 
 启动场景，可看到节点与地图层相互遮挡的效果。
+
 ![](./tiledmap/shieldNode.png)
 
 若想移除地图层中的节点，调用 TiledLayer 的 removeUserNode 方法即可。
