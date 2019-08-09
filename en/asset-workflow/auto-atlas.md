@@ -41,6 +41,4 @@ The results are:
 
 With **Auto-atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with auto-atlas asset in the folder into atlas and update reference to them in the whole project automatically.
 
-The generated atlas texture will be placed in corresponding directory to the auto-atlas asset in build target folder's **res/raw-assets** sub-folder of build target folder. The file will be named as  **AutoAtlas-xx.png**.
-
-You can go to the corresponding directory to check whether the Auto-atlas asset is generated successfully.
+You can go to the **res/raw-assets** of **build release package** directory to check whether the Auto-atlas asset is generated successfully.

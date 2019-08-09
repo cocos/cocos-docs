@@ -73,7 +73,7 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 ![vs code](coding-setup/vs_code_1.png)
 
-此时在上方的搜索框中输入 **exclude** 搜索，然后在 `search.exclude` 和 `files.exclude` 模块中点击 **Add Patten** 补充缺少的内容即可。
+此时在上方的搜索框中输入 **exclude** 搜索，然后在 `search.exclude` 和 `files.exclude` 模块中点击 **Add Pattern** 补充缺少的内容即可。
 
 ![vs code](coding-setup/vs_code_2.png)
 
