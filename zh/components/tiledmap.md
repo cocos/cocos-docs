@@ -31,6 +31,7 @@ TiledLayer 将添加至地图层的节点的坐标转化为地图行列坐标，
 下面通过一个范例介绍 TiledLayer 如何与节点相互遮挡。
 
 在场景中新增一个节点并添加 TiledMap 组件，设置好 TiledMap 组件属性，引擎会自动生成带有 TiledLayer 组件的节点，然后编写组件脚本，并添加到场景中，脚本代码如下：
+
 ```js
 cc.Class({
     extends: cc.Component,
