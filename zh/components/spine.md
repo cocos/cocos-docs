@@ -28,7 +28,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 ## Spine 换装
 
-下面通过一个范例介绍 Spine 如何换装，此方法适用于 v2.2.0 及以上版本。我们将会通过替换插槽的 attachment 对象，将绿色框中的手臂替换为红色框中的手臂。
+下面通过一个范例介绍 Spine 如何换装，我们将会通过替换插槽的 attachment 对象，将绿色框中的手臂替换为红色框中的手臂。
 
 ![spine-cloth](./spine/cloth0.png)
 
@@ -71,3 +71,32 @@ cc.Class({
 设置好脚本属性，启动场景，可以看到绿色框中的手臂已经被替换。
 
 ![spine-cloth](./spine/cloth3.png)
+
+## Spine 顶点效果
+
+顶点效果只有当 Spine 处于 REALTIME 模式时有效，下面通过一个范例介绍 Spine 如何设置顶点效果。
+
+在场景中新增一个节点并添加 Spine 组件，设置好 Spine 组件属性，然后编写组件脚本，并添加到场景中，脚本代码如下：
+
+```js
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        skeleton : {
+            type: sp.Skeleton,
+            default: null,
+        }
+    },
+
+    start () {
+        this._jitterEffect = new sp.VertexEffectDelegate();
+        // 设置好抖动参数。
+        this._jitterEffect.initJitter(20, 20);
+        // 调用 Spine 组件的 setVertexEffectDelegate 方法设置效果。
+        this.skeleton.setVertexEffectDelegate(this._jitterEffect);
+    }
+});
+```
+
+设置好脚本属性，启动场景，可以看到 Spine 动画的顶点抖动的效果。代码示例可参考 [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine)。
