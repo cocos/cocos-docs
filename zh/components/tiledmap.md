@@ -28,7 +28,7 @@ TiledMap 的脚本接口请参考 [TiledMap API](../../../api/zh/classes/TiledMa
 
 TiledLayer 将添加至地图层的节点的坐标转化为地图行列坐标，当按行列顺序渲染地图块时，如果该地图块所处行列中存在节点时，中断地图的渲染，转而渲染节点，当地图块中的节点渲染完毕后，继续地图的渲染，以此实现节点与地图层相互遮挡关系。该遮挡关系只与节点的坐标有关，与节点的大小无关。
 
-下面通过一个范例介绍 TiledLayer 如何与节点相互遮挡，此方法适用于 v2.2.0 及以上版本。
+下面通过一个范例介绍 TiledLayer 如何与节点相互遮挡。
 
 在场景中新增一个节点并添加 TiledMap 组件，设置好 TiledMap 组件属性，引擎会自动生成带有 TiledLayer 组件的节点，然后编写组件脚本，并添加到场景中，脚本代码如下：
 ```js
@@ -64,7 +64,7 @@ cc.Class({
 });
 ```
 
-将 TiledMap 自动生成的 TiledLayer 组件拖拽至自定义脚本组件属性中，并设置好用于实例化节点的预置体。代码示例可参考 [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap/ShieldNode.fire)。
+将 TiledMap 自动生成的 TiledLayer 组件拖拽至自定义脚本组件属性中，并设置好用于实例化节点的预置体。代码示例可参考 [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap)。
 
 启动场景，可看到节点与地图层相互遮挡的效果。
 ![](./tiledmap/shieldNode.png)
