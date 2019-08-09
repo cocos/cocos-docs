@@ -4,8 +4,7 @@ Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到小米快游
 
 ## 环境配置
 
-- 下载 [小米快游戏调试器](https://dev.mi.com/console/doc/detail?pId=1704)，并安装到小米手机上（MIUI 8.5.0 或以上版本）。
-- 下载 [小米快应用服务框架](https://dev.mi.com/console/doc/detail?pId=1704)，并安装到小米手机上。
+- 下载 [小米快游戏调试器和小米快游戏运行环境](https://forum.cocos.com/t/topic/81887)，并安装到小米手机上（MIUI 8.5.0 或以上版本）。
 - 桌面端全局安装 [Node.js](https://nodejs.org/zh-cn/download/) 8.1.4 或以上版本。
 - 确保 Node.js 所带的 npm 版本最低是 **5.2.0**。升级 npm 命令如下：
 
