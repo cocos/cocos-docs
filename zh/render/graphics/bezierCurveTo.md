@@ -18,7 +18,7 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20,20);
 ctx.bezierCurveTo(20,100,200,100,200,20);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/bezierCurveTo.png"><img src="graphics/bezierCurveTo.png"></a>

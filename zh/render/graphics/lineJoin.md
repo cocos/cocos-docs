@@ -16,7 +16,7 @@ ctx.lineJoin = cc.Graphics.LineJoin.ROUND;
 ctx.moveTo(20,20);
 ctx.lineTo(100,50);
 ctx.lineTo(20,100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/lineJoin.png"><img src="graphics/lineJoin.png"></a>

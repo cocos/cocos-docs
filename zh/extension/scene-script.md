@@ -9,9 +9,11 @@
 
 首先在 `package.json` 里添加 `scene-script` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
-```json
-    "name": "foobar",
+```Json
+{
+    "name": "my-plugin-name",
     "scene-script": "scene-walker.js"
+}
 ```
 
 该路径将指向 `packages/foobar/scene-walker.js`，接下来我们看看如何编写场景脚本。
