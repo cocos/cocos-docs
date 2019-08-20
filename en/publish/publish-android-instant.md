@@ -1,6 +1,6 @@
 # Publish to Google Play Instant
 
-Starting with Cocos Creator v2.0.4, creating games for the Google Play Instant platform is officially supported. Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game'demo, sharing and conversion. The main differences between Google Play Instant and the Android Instant App are:
+Starting with Cocos Creator v2.0.4, creating games for the Google Play Instant is officially supported. Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game'demo, sharing and conversion. The main differences between Google Play Instant and the Android Instant App are:
 
 - Both the first package and the APK add-on are limited to 10MB (instead of 4MB)
 - Dynamically load resources without binary code from third-party CDN (JS is also available)
@@ -29,7 +29,7 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 
     ![](publish-android-instant/studio_setting.png)
 
-3. If you need **refactor**, you can click the **Record** button in the **build** panel, and simulator will be opened. The simulatior will automatically record the resources used. What we need to do is to play the game according to the game flow and let the simulator record resources information.
+3. If you need **refactor**, you can click the **Record** button in the **build** panel, and simulator will be opened. The simulator will automatically record the resources used. What we need to do is to play the game according to the game flow and let the simulator record resources information.
 
     ![](./publish-android-instant/record.png)
 
@@ -60,7 +60,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 ![](publish-android-instant/refactor_desc.png)
 
-### Useage
+### Usage
 
 1. When you finish the Record, Click **Refactor** to open Refactor panel.
 

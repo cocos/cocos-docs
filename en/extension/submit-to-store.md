@@ -48,7 +48,7 @@ We need to fill the form:
 - **Snapshot** Up to 5, size 640x960 or 960x640
 - **Links** You supports link
 
-Once you done, click `Submit to Review`, we will review your packages:
+Once you have done, click `Submit to Review`, we will review your packages:
 
-- If nothing wrong, you will see your extensions in the store
-- Any problem we will send you the E-mail
+- If nothing goes wrong, you will see your extensions in the store.
+- If there is any problem, we will send you the E-mail.

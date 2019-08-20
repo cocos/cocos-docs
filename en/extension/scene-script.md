@@ -10,11 +10,13 @@ In the plugin you can declare a special script file (scene script), the script a
 First in the `package.json` add `scene-script` field, the value of the field is a script file path, relative to the expansion package directory:
 
 ```Json
-    "Name": "foobar",
-    "Scene-script": "scene-walker.js"
+{
+    "name": "my-plugin-name",
+    "scene-script": "scene-walker.js"
+}
 ```
 
-The path will point to `packages / foobar / scene-walker.js`, then let's see how to write the scene script.
+The path will point to `packages/foobar/scene-walker.js`, then let's see how to write the scene script.
 
 ## Write the scene script
 
@@ -22,12 +24,12 @@ The path will point to `packages / foobar / scene-walker.js`, then let's see how
 
 ```js
 Module.exports = {
-    'Get-canvas-children': function (event) {
+    'get-canvas-children': function (event) {
         Var canvas = cc.find ('Canvas');
         Editor.log ('children length:' + canvas.children.length);
 
         If (event.reply) {
-            Event.reply (canvas.children.length);
+            Event.reply (null, canvas.children.length);
         }
     }
 };

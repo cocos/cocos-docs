@@ -13,11 +13,11 @@ Parameter | description
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(0,0);
 ctx.lineTo(300,150);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/moveTo.png"><img src="graphics/moveTo.png"></a>
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to [Graphics Component Reference](../../components/graphics.md).

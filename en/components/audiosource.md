@@ -4,7 +4,7 @@
 
 ## Properties
 
-Properties          | Explain
+Properties          | Function Explanation
 --                  | --
 Clip                | Audio resource object to play
 Volume              | Audio volume, the range is between 0~1

@@ -39,7 +39,7 @@ import <Foundation/Foundation.h>
     +(NSString *)callNativeWithReturnString;
 ```
 
-## Useage
+## Usage
 
 - In JS code, for invoking the native method `callNativeUIWithTitle:andContent:` of `NativeOcClass`, we can use `jsb.reflection.callStaticMethod` API like this:
 

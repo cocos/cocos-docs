@@ -3,7 +3,6 @@
 - [Core Renderers](core-renderer.md)
 - [External Asset Renderer](external-renderer.md)
 - [Camera](camera.md)
-- [Programming Grahpics](graphics/index.md)
 - Renderer Components
   - [Sprite](../components/sprite.md)
   - [Label](../components/label.md)

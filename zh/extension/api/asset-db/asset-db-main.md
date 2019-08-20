@@ -2,65 +2,65 @@
 
 # AssetDB
 
-AssetDB singleton class in main process, you can access the instance with `Editor.assetdb`
+AssetDB singleton class in main process, you can access the instance with `Editor.assetdb`.
 
 # urlToUuid
 
-Return uuid by url. if uuid not found, it will return null.
+Return uuid by url. If uuid not found, it will return null.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # fspathToUuid
 
-Return uuid by file path. if uuid not found, it will return null.
+Return uuid by file path. If uuid not found, it will return null.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # uuidToFspath
 
-Return file path by uuid. if file path not found, it will return null.
+Return file path by uuid. If file path not found, it will return null.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # uuidToUrl
 
-Return url by uuid. if url not found, it will return null.
+Return url by uuid. If url not found, it will return null.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # fspathToUrl
 
-Return url by file path. if file path not found, it will return null.
+Return url by file path. If file path not found, it will return null.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # urlToFspath
 
-Return file path by url. if url not found, it will return null.
+Return file path by url. If url not found, it will return null.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
@@ -70,7 +70,7 @@ Check existance by url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
@@ -80,7 +80,7 @@ Check existance by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
@@ -90,7 +90,7 @@ Check existance by path.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
@@ -100,7 +100,7 @@ Check whether asset for a given url is a sub asset.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -110,7 +110,7 @@ Check whether asset for a given uuid is a sub asset.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -120,7 +120,7 @@ Check whether asset for a given path is a sub asset.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -130,7 +130,7 @@ Check whether asset contains sub assets for a given url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -140,7 +140,7 @@ Check whether asset contains sub assets for a given uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -150,8 +150,8 @@ Check whether asset contains sub assets for a given path.
 
 **Parameters**
 
--   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `fspath`  
+- `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath`  
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
@@ -161,9 +161,9 @@ Return asset info by a given url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { uuid, path, url, type, isSubAsset }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {uuid, path, url, type, isSubAsset}
 
 # assetInfoByUuid
 
@@ -171,9 +171,9 @@ Return asset info by a given uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { uuid, path, url, type, isSubAsset }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {uuid, path, url, type, isSubAsset}
 
 # assetInfoByPath
 
@@ -181,9 +181,9 @@ Return asset info by a given file path.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { uuid, path, url, type, isSubAsset }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {uuid, path, url, type, isSubAsset}
 
 # subAssetInfos
 
@@ -191,9 +191,9 @@ Return all sub assets info by url if the url contains sub assets.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{ uuid, path, url, type, isSubAsset }]
+Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{uuid, path, url, type, isSubAsset}]
 
 # subAssetInfosByUuid
 
@@ -201,9 +201,9 @@ Return all sub assets info by uuid if the uuid contains sub assets.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{ uuid, path, url, type, isSubAsset }]
+Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{uuid, path, url, type, isSubAsset}]
 
 # subAssetInfosByPath
 
@@ -211,9 +211,9 @@ Return all sub assets info by path if the path contains sub assets.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{ uuid, path, url, type, isSubAsset }]
+Returns **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** [{uuid, path, url, type, isSubAsset}]
 
 # loadMeta
 
@@ -221,7 +221,7 @@ Return meta instance by a given url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
@@ -231,7 +231,7 @@ Return meta instance by a given uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
@@ -241,152 +241,144 @@ Return meta instance by a given path.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 # isMount
 
-Return whether a given url is reference to a mount
+Return whether a given url is reference to a mount.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 # isMountByPath
 
-Return whether a given path is reference to a mount
+Return whether a given path is reference to a mount.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 # isMountByUuid
 
-Return whether a given uuid is reference to a mount
+Return whether a given uuid is reference to a mount.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 # mountInfo
 
-Return mount info by url
+Return mount info by url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { path, name, type }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {path, name, type}
 
 # mountInfoByUuid
 
-Return mount info by uuid
+Return mount info by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { path, name, type }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {path, name, type}
 
 # mountInfoByPath
 
-Return mount info by path
+Return mount info by path.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { path, name, type }
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** {path, name, type}
 
 # mount
 
-mount a directory to assetdb, and give it a name. if you don't provide a name, it will mount to root.
+Mount a directory to assetdb, and give it a name. If you don't provide a name, it will mount to root.
 
 **Parameters**
 
--   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** file system path
--   `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path)
--   `opts` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** options
-    -   `opts.hide` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** if the mount hide in assets browser
-    -   `opts.virtual` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** if this is a virtual mount point
-    -   `opts.icon` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** icon for the mount
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** a callback function
+- `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** file system path.
+- `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path).
+- `opts` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** options.
+  - `opts.hide` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** if the mount hide in assets browser.
+  - `opts.virtual` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** if this is a virtual mount point.
+  - `opts.icon` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** icon for the mount.
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.mount('path/to/mount', 'assets', function (err) {
-      // mounted, do something ...
-    });
-    ```
-````
+```js
+Editor.assetdb.mount('path/to/mount', 'assets', function (err) {
+  // mounted, do something ...
+});
+```
 
 # attachMountPath
 
-attach the specified mount path
+Attach the specified mount path.
 
 **Parameters**
 
--   `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path)
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** a callback function
+- `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path).
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.attachMountPath('assets', function (err, results) {
-      // mount path attached, do something ...
-      // results are the assets created
-    });
-    ```
-````
+```js
+Editor.assetdb.attachMountPath('assets', function (err, results) {
+  // mount path attached, do something ...
+  // results are the assets created
+});
+```
 
 # unattachMountPath
 
-unattach the specified mount path
+Unattach the specified mount path.
 
 **Parameters**
 
--   `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path)
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** a callback function
+- `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path (relative path).
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.unattachMountPath('assets', function (err, results) {
-      // mount path unattached, do something ...
-      // results are the assets deleted
-    });
-    ```
-````
+```js
+Editor.assetdb.unattachMountPath('assets', function (err, results) {
+  // mount path unattached, do something ...
+  // results are the assets deleted
+});
+```
 
 # unmount
 
-Unmount by name
+Unmount by name.
 
 **Parameters**
 
--   `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `mountPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the mount path.
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.unmount('assets', function (err) {
-      // unmounted, do something ...
-    });
-    ```
-````
+```js
+Editor.assetdb.unmount('assets', function (err) {
+  // unmounted, do something ...
+});
+```
 
 # init
 
@@ -394,64 +386,60 @@ Init assetdb, it will scan the mounted directories, and import unimported assets
 
 **Parameters**
 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.init(function (err, results) {
-      // assets that imported during init
-      results.forEach(function ( result ) {
-        // result.uuid
-        // result.parentUuid
-        // result.url
-        // result.path
-        // result.type
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.init(function (err, results) {
+  // assets that imported during init
+  results.forEach(function (result) {
+    // result.uuid
+    // result.parentUuid
+    // result.url
+    // result.path
+    // result.type
+  });
+});
+```
 
 # refresh
 
-Refresh the assets in url, and return the results
+Refresh the assets in url, and return the results.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {
-      // assets that imported during init
-      results.forEach(function ( result ) {
-        if ( result.command === 'delete' ) {
-          // result.uuid
-          // result.url
-          // result.path
-          // result.type
-        } else if ( result.command === 'change' || result.command === 'create' ) {
-          // result.uuid
-          // result.parentUuid
-          // result.url
-          // result.path
-          // result.type
-        } else if ( result.command === 'uuid-change' ) {
-          // result.oldUuid
-          // result.uuid
-          // result.parentUuid
-          // result.url
-          // result.path
-          // result.type
-        }
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {
+  // assets that imported during init
+  results.forEach(function (result) {
+    if (result.command === 'delete') {
+      // result.uuid
+      // result.url
+      // result.path
+      // result.type
+    } else if (result.command === 'change' || result.command === 'create') {
+      // result.uuid
+      // result.parentUuid
+      // result.url
+      // result.path
+      // result.type
+    } else if (result.command === 'uuid-change') {
+      // result.oldUuid
+      // result.uuid
+      // result.parentUuid
+      // result.url
+      // result.path
+      // result.type
+    }
+  });
+});
+```
 
 # deepQuery
 
@@ -459,24 +447,22 @@ deepQuery
 
 **Parameters**
 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.deepQuery(function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.name
-        // result.extname
-        // result.uuid
-        // result.type
-        // result.isSubAsset
-        // result.children - the array of children result
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.deepQuery(function (err, results) {
+  results.forEach(function (result) {
+    // result.name
+    // result.extname
+    // result.uuid
+    // result.type
+    // result.isSubAsset
+    // result.children - the array of children result
+  });
+});
+```
 
 # queryAssets
 
@@ -484,26 +470,27 @@ queryAssets
 
 **Parameters**
 
--   `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern
--   `assetTypes` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** The asset type(s)
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** The callback function
--   `urlPattern`  
+- `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern.
+- `assetTypes` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** The asset type(s).
+
+  You can use the `Editor.assettype2name[cc.js.getClassName(asset)]` API to get the corresponding resource type. The `asset` in the API is the resource type you want to query, such as `cc.SpriteFrame`, `cc.Texture2D`.
+
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+  - `cb.results` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)**   
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.queryAssets( 'db://assets/**\/*', 'texture', function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.url
-        // result.path
-        // result.uuid
-        // result.type
-        // result.isSubAsset
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.queryAssets('db://assets/**\/*', 'texture', function (err, results) {
+  results.forEach(function (result) {
+    // result.url
+    // result.path
+    // result.uuid
+    // result.type
+    // result.isSubAsset
+  });
+});
+```
 
 # queryMetas
 
@@ -511,23 +498,19 @@ queryMetas
 
 **Parameters**
 
--   `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern
--   `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The asset type
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** The callback function
--   `urlPattern`  
--   `assetType`  
+- `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern.
+- `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The asset type.
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.queryAssets( 'db://assets/**\/*', 'texture', function ( err, results ) {
-      results.forEach(function ( meta ) {
-        // the meta instance
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.queryMetas('db://assets/**\/*', 'texture', function (err, results) {
+  results.forEach(function (meta) {
+    // the meta instance
+  });
+});
+```
 
 # move
 
@@ -535,24 +518,22 @@ move
 
 **Parameters**
 
--   `srcUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `srcUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.move( 'db://assets/foo/foobar.png', 'db://assets/bar/foobar.png', function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.srcPath
-        // result.destPath
-        // result.uuid
-        // result.parentUuid
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.move('db://assets/foo/foobar.png', 'db://assets/bar/foobar.png', function (err, results) {
+  results.forEach(function (result) {
+    // result.srcPath
+    // result.destPath
+    // result.uuid
+    // result.parentUuid
+  });
+});
+```
 
 # delete
 
@@ -560,69 +541,63 @@ delete
 
 **Parameters**
 
--   `urls` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `urls` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.delete( [ 'db://assets/foo/bar.png', 'db://assets/foo/bar.plist' ], function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.srcPath
-        // result.destPath
-        // result.uuid
-        // result.parentUuid
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.delete(['db://assets/foo/bar.png', 'db://assets/foo/bar.plist'], function (err, results) {
+  results.forEach(function (result) {
+    // result.srcPath
+    // result.destPath
+    // result.uuid
+    // result.parentUuid
+  });
+});
+```
 
 # create
 
-Create asset at url with data
+Create asset at url with data.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.create( 'db://assets/foo/bar.js', data, function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.uuid
-        // result.parentUuid
-        // result.url
-        // result.path
-        // result.type
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.create('db://assets/foo/bar.js', data, function (err, results) {
+  results.forEach(function (result) {
+    // result.uuid
+    // result.parentUuid
+    // result.url
+    // result.path
+    // result.type
+  });
+});
+```
 
 # saveExists
 
-Save data to the exists asset at url
+Save data to the exists asset at url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.saveExists( 'db://assets/foo/bar.js', data, function ( err, meta ) {
-      // do something
-    });
-    ```
-````
+```js
+Editor.assetdb.saveExists('db://assets/foo/bar.js', data, function (err, meta) {
+  // do something
+});
+```
 
 # import
 
@@ -630,128 +605,118 @@ Import raw files to url
 
 **Parameters**
 
--   `rawfiles` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `rawfiles` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.import( ['/User/user/foo.js', '/User/user/bar.js'], 'db://assets/foobar', function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.uuid
-        // result.parentUuid
-        // result.url
-        // result.path
-        // result.type
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.import(['/User/user/foo.js', '/User/user/bar.js'], 'db://assets/foobar', function (err, results) {
+  results.forEach(function (result) {
+    // result.uuid
+    // result.parentUuid
+    // result.url
+    // result.path
+    // result.type
+  });
+});
+```
 
 # saveMeta
 
-Overwrite the meta by loading it through uuid
+Overwrite the meta by loading it through uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `jsonString` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `jsonString` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.saveMeta( uuid, jsonString, function ( err, meta ) {
-      // do something
-    });
-    ```
-````
+```js
+Editor.assetdb.saveMeta(uuid, jsonString, function (err, meta) {
+  // do something
+});
+```
 
 # exchangeUuid
 
-Exchange uuid for two assets
+Exchange uuid for two assets.
 
 **Parameters**
 
--   `urlA` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `urlB` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `urlA` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `urlB` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 # clearImports
 
-Clear imports
+Clear imports.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.clearImports( 'db://assets/foo/bar.js', function ( err, results ) {
-      results.forEach(function ( result ) {
-        // result.uuid
-        // result.url
-        // result.path
-        // result.type
-      });
-    });
-    ```
-````
+```js
+Editor.assetdb.clearImports('db://assets/foo/bar.js', function (err, results) {
+  results.forEach (function (result) {
+    // result.uuid
+    // result.url
+    // result.path
+    // result.type
+  });
+});
+```
 
 # register
 
-Register meta type
+Register meta type.
 
 **Parameters**
 
--   `extname` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `folder` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether it's a folder type
--   `metaCtor` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+- `extname` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `folder` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether it's a folder type.
+- `metaCtor` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.register( '.png', false, PngMeta );
-    ```
-````
+```js
+Editor.assetdb.register('.png', false, PngMeta);
+```
 
 # unregister
 
-Unregister meta type
+Unregister meta type.
 
 **Parameters**
 
--   `metaCtor` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+- `metaCtor` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.unregister( PngMeta );
-    ```
-````
+```js
+Editor.assetdb.unregister(PngMeta);
+```
 
 # getRelativePath
 
-Get the relative path from mount path to the asset by fspath
+Get the relative path from mount path to the asset by fspath.
 
 **Parameters**
 
--   `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `fspath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the relative path from mount path to the asset
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the relative path from mount path to the asset.
 
 # getAssetBackupPath
 
-get the backup file path of asset file
+Get the backup file path of asset file.
 
 **Parameters**
 
--   `filePath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** asset file path
+- `filePath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** asset file path.

@@ -4,7 +4,7 @@ Using `Sprite` is the most common way to display images in 2D games. By adding a
 
 ![add sprite](sprite/sprite_component.png)
 
-You can add a `Sprite` component to the node by clicking the **Add Component** button below the **Properties** and selecting **Sprite** from the **Add Renderer Component** menu.
+You can add a `Sprite` component to the node by clicking the **Add Component** button below the **Properties** and selecting **Sprite** from the **Renderer Component** menu.
 
 Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script interface.
 
@@ -16,7 +16,7 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the nine rectangle grid cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md) for details)
 | Type | Rendering mode, currently includes `Simple`, `Sliced`, `Tiled`, `Filled` and `Mesh` five rendering modes.
 | Size Mode | Specify the size of the Sprite<br>`Trimmed` automatically fit to the size of the sprite cropped<br>`Raw` automatic fit for sprite original size<br>`Custom` use the node preset size. When the user manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
-| Trim | Whether the transparent pixel area is included in the node bounding box，please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
+| Trim | Whether the transparent pixel area is included in the node bounding box，which takes effect only when the Type is set to Simple. Please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
 | Src Blend Factor | The source image blend mode.
 | Dst Blend Factor | the destination image blend mode. Together with the above properties, you can mix the foreground and background Sprite in different ways to render, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
 

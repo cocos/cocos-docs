@@ -12,7 +12,7 @@ Because the AnySDK service only supports games under the company account, you ne
 
 - **Create a game through the Cocos Account Center**
 
-    Create a company game by entering the [Cocos Account Center](https://auth.cocos.com/#/) through Creator's **Service** panel. Please refer to the [Service panel -> Useage](cocos-services.md#usage) for details.
+    Create a company game by entering the [Cocos Account Center](https://auth.cocos.com/#/) through Creator's **Service** panel. Please refer to the [Service panel -> Usage](cocos-services.md#usage) for details.
 
     ![](anysdk/game.png)
 

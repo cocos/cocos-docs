@@ -24,7 +24,7 @@ var obj = new Sprite();
 
 ## Judge class
 
-When you need to judget the class of an object, you can use the JavaScript built-in `instanceof`:
+When you need to judge the class of an object, you can use the JavaScript built-in `instanceof`:
 
 ```javascript
 cc.log(obj instanceof Sprite);       // true

@@ -11,11 +11,11 @@ ctx.moveTo(20,20);
 ctx.lineTo(20,100);
 ctx.lineTo(70,100);
 ctx.close();
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/close.png"><img src="graphics/close.png"></a>
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

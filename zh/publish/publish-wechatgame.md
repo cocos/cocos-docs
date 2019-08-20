@@ -1,6 +1,6 @@
-# 发布到微信小游戏平台
+# 发布到微信小游戏
 
-早在微信官方正式发布小游戏平台之前，Cocos Creator 团队就和微信开发团队合作完成了 Cocos Creator 对微信小游戏平台的支持。在小游戏正式公布之后，我们也在第一时间发布了完美支持小游戏的 Cocos Creator v1.8。这篇文档的初衷也是希望帮助开发者们在第一时间以最顺畅的方式提交游戏到小游戏平台。
+早在微信官方正式发布小游戏之前，Cocos Creator 团队就和微信开发团队合作完成了 Cocos Creator 对微信小游戏的支持。在小游戏正式公布之后，我们也在第一时间发布了完美支持小游戏的 Cocos Creator v1.8。这篇文档的初衷也是希望帮助开发者们在第一时间以最顺畅的方式提交游戏到小游戏。
 
 ![](./publish-wechatgame/preview.jpeg)
 
@@ -10,7 +10,7 @@
 - 如何使用 Cocos Creator 发布微信小游戏
 - 小游戏资源管理
 
-## 微信小游戏平台
+## 微信小游戏
 
 微信小游戏是微信小程序下的游戏产品平台，它不仅提供了强大的游戏能力，还和小程序一样，提供了大量的原生接口，比如支付，社交，文件系统，照片，NFC 等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
 
@@ -22,7 +22,7 @@
 - Cocos Creator 编辑器提供了快捷的打包流程，直接发布为微信小游戏，并自动唤起小游戏的开发者工具
 - 自动加载远程资源，缓存资源以及缓存资源版本控制
 
-除此之外，小游戏平台的游戏提交，审核和发布流程和小程序是没有区别的，都需要遵守微信团队的要求和标准流程，具体信息可以参考文末的链接。
+除此之外，小游戏的游戏提交，审核和发布流程和小程序是没有区别的，都需要遵守微信团队的要求和标准流程，具体信息可以参考文末的链接。
 
 ## 使用 Cocos Creator 发布微信小游戏
 
@@ -79,7 +79,7 @@
 
 ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏平台下使用 `wx.downloader.cleanAllAssets()` 和 `wx.downloader.cleanOldAssets()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+**注意**：如果缓存资源超过微信环境限制，用户需要手动清除资源，可以在微信小游戏下使用 `wx.downloader.cleanAllAssets()` 和 `wx.downloader.cleanOldAssets()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
 
 ## 微信小游戏分包加载
 
@@ -119,7 +119,3 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)
-
-## 常见问题
-
-小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： https://forum.cocos.com/t/faq/54828

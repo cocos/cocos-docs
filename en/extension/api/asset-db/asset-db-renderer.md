@@ -2,350 +2,319 @@
 
 # AssetDB
 
-AssetDB singleton class in renderer process, you can access the instance with `Editor.assetdb`
+AssetDB singleton class in renderer process, you can access the instance with `Editor.assetdb`.
 
 ## remote
 
-The remote AssetDB instance of main process, same as `Editor.remote.assetdb`
+The remote AssetDB instance of main process, same as `Editor.remote.assetdb`.
 
 ## library
 
-The library path
+The library path.
 
 # explore
 
-Reveal given url in native file system
+Reveal given url in native file system.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # exploreLib
 
-Reveal given url's library file in native file system
+Reveal given url's library file in native file system.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # queryPathByUrl
 
-Get native file path by url
+Get native file path by url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # queryUuidByUrl
 
-Get uuid by url
+Get uuid by url.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # queryPathByUuid
 
-Get native file path by uuid
+Get native file path by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # queryUrlByUuid
 
-Get asset url by uuid
+Get asset url by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 # queryInfoByUuid
 
-Get asset info by uuid
+Get asset info by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.info` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.info` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.queryInfoByUuid( uuid, function ( err, info ) {
-        // info.path
-        // info.url
-        // info.type
-    });
-    ```
-````
+```js
+Editor.assetdb.queryInfoByUuid(uuid, function (err, info) {
+    // info.path
+    // info.url
+    // info.type
+});
+```
 
 # queryMetaInfoByUuid
 
-Get meta info by uuid
+Get meta info by uuid.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.info` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.info` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.queryMetaInfoByUuid( uuid, function ( err, info ) {
-        // info.assetPath
-        // info.metaPath
-        // info.assetMtime
-        // info.metaMtime
-        // info.json
-    });
-    ```
-````
+```js
+Editor.assetdb.queryMetaInfoByUuid(uuid, function (err, info) {
+    // info.assetPath
+    // info.metaPath
+    // info.assetMtime
+    // info.metaMtime
+    // info.json
+});
+```
 
 # deepQuery
 
-Query all assets from asset-db
+Query all assets from asset-db.
 
 **Parameters**
 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.results` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.results` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.deepQuery(function ( results ) {
-        results.forEach(function ( result ) {
-            // result.name
-            // result.extname
-            // result.uuid
-            // result.type
-            // result.children - the array of children result
-        });
+```js
+Editor.assetdb.deepQuery(function (err, results) {
+    results.forEach(function (result) {
+        // result.name
+        // result.extname
+        // result.uuid
+        // result.type
+        // result.children - the array of children result
     });
-    ```
-````
+});
+```
 
 # queryAssets
 
-Query assets by url pattern and asset-type
+Query assets by url pattern and asset-type.
 
 **Parameters**
 
--   `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern
--   `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The asset type
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function
-    -   `cb.results` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
--   `url`  
--   `assetType`  
+- `pattern` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url pattern.
+- `assetTypes` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** The asset type(s).
+
+    You can use the `Editor.assettype2name[cc.js.getClassName(asset)]` API to get the corresponding resource type. The `asset` in the API is the resource type you want to query, such as `cc.SpriteFrame`, `cc.Texture2D`.
+
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callback function.
+    - `cb.results` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)**  
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.queryAssets( 'db://assets/**\/*', 'texture', function ( results ) {
-        results.forEach(function ( result ) {
-            // result.url
-            // result.path
-            // result.uuid
-            // result.type
-        });
+```js
+Editor.assetdb.queryAssets('db://assets/**\/*', 'texture', function (err, results) {
+    results.forEach(function (result) {
+        // result.url
+        // result.path
+        // result.uuid
+        // result.type
     });
-    ```
-````
+});
+```
 
 # import
 
-Import files outside asset-db to specific url folder.
-The import result will be sent through ipc message `asset-db:assets-created`
+Import files outside asset-db to specific url folder. The import result will be sent through ipc message `asset-db:assets-created`.
 
 **Parameters**
 
--   `rawfiles` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** Rawfile path list
--   `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url of dest folder
--   `showProgress` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Show progress or not
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callbak function
+- `rawfiles` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** Rawfile path list.
+- `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The url of dest folder.
+- `showProgress` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Show progress or not.
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** The callbak function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.import( [
-         '/file/to/import/01.png',
-         '/file/to/import/02.png',
-         '/file/to/import/03.png',
-    ], 'db://assets/foobar' );
-    ```
-````
+```js
+Editor.assetdb.import([
+    '/file/to/import/01.png',
+    '/file/to/import/02.png',
+    '/file/to/import/03.png',
+], 'db://assets/foobar');
+```
 
 # create
 
-Create asset in specific url by sending string data to it.
-The created result will be sent through by ipc message `asset-db:assets-created`
+Create asset in specific url by sending string data to it. The created result will be sent through by ipc message `asset-db:assets-created`.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.create( 'db://assets/foo/bar/foobar.js', 'var foobar = 0;');
-    ```
-````
+```js
+Editor.assetdb.create('db://assets/foo/bar/foobar.js', 'var foobar = 0;');
+```
 
 # move
 
-Move asset from src to dest
-The moved result will be sent through by ipc message `asset-db:assets-moved`
+Move asset from src to dest. The moved result will be sent through by ipc message `asset-db:assets-moved`.
 
 **Parameters**
 
--   `srcUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `showMessageBox`  
+- `srcUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `destUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `showMessageBox`  
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.move( 'db://assets/foo/bar/foobar.js', 'db://assets/foo/bar/foobar02.js');
-    ```
-````
+```js
+Editor.assetdb.move('db://assets/foo/bar/foobar.js', 'db://assets/foo/bar/foobar02.js');
+```
 
 # delete
 
-Delete assets by url list
-The deleted results will be sent through by ipc message `asset-db:assets-deleted`
+Delete assets by url list. The deleted results will be sent through by ipc message `asset-db:assets-deleted`.
 
 **Parameters**
 
--   `urls` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+- `urls` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.delete([
-      'db://assets/foo/bar/foobar.js',
-      'db://assets/foo/bar/foobar02.js',
-    ]);
-    ```
-````
+```js
+Editor.assetdb.delete([
+    'db://assets/foo/bar/foobar.js',
+    'db://assets/foo/bar/foobar02.js',
+]);
+```
 
 # save
 
-Save specific asset by sending string data
-The saved results will be sent through by ipc message `asset-db:asset-changed`
+Save specific asset by sending string data. The saved results will be sent through by ipc message `asset-db:asset-changed`.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.saveExists( 'db://assets/foo/bar/foobar.js', 'var foobar = 0;');
-    ```
-````
+```js
+Editor.assetdb.saveExists('db://assets/foo/bar/foobar.js', 'var foobar = 0;');
+```
 
 # createOrSave
 
-Create or save assets by sending string data
-If the url is already existed, it will be changed with new data. The behavior is same with method saveExists.
-Otherwise, a new asset will be created. The behavior is same with method create
+Create or save assets by sending string data. If the url is already existed, it will be changed with new data. The behavior is same with method saveExists. Otherwise, a new asset will be created. The behavior is same with method create.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.createOrSave( 'db://assets/foo/bar/foobar.js', 'var foobar = 0;');
-    ```
-````
+```js
+Editor.assetdb.createOrSave('db://assets/foo/bar/foobar.js', 'var foobar = 0;');
+```
 
 # saveMeta
 
-Save specific meta by sending meta's json string
-The saved results will be sent through by ipc message `asset-db:asset-changed`
+Save specific meta by sending meta's json string. The saved results will be sent through by ipc message `asset-db:asset-changed`.
 
 **Parameters**
 
--   `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `metaJson` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function
+- `uuid` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `metaJson` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the callback function.
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.saveMeta( meta.uuid, JSON.stringify(meta, null, 2));
-    ```
-````
+```js
+Editor.assetdb.saveMeta(meta.uuid, JSON.stringify(meta, null, 2));
+```
 
 # refresh
 
-Refresh the assets in url, and return the results
+Refresh the assets in url, and return the results.
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `cb` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** 
+- `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `[cb]` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
 
-````javascript
-    ```js
-    Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {
-      // assets that imported during init
-      results.forEach(function ( result ) {
-        if ( result.command === 'delete' ) {
-          // result.uuid
-          // result.url
-          // result.path
-          // result.type
-        } else if ( result.command === 'change' || result.command === 'create' ) {
-          // result.uuid
-          // result.parentUuid
-          // result.url
-          // result.path
-          // result.type
-        } else if ( result.command === 'uuid-change' ) {
-          // result.oldUuid
-          // result.uuid
-          // result.parentUuid
-          // result.url
-          // result.path
-          // result.type
+```js
+Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {
+    // assets that imported during init
+    results.forEach(function (result) {
+        if (result.command === 'delete') {
+            // result.uuid
+            // result.url
+            // result.path
+            // result.type
+        } else if (result.command === 'change' || result.command === 'create') {
+            // result.uuid
+            // result.parentUuid
+            // result.url
+            // result.path
+            // result.type
+        } else if (result.command === 'uuid-change') {
+            // result.oldUuid
+            // result.uuid
+            // result.parentUuid
+            // result.url
+            // result.path
+            // result.type
         }
-      });
     });
-    ```
-````
+});
+```
 
 # Editor
 

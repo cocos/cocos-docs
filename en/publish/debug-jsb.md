@@ -4,17 +4,21 @@ After the game is released to the native platform, because the operating environ
 
 ## Debug Simulator
 
-In general, most of the problems of the original platform can be reproduced in the simulator, we can first test in the simulator, there are problems directly in the simulator debugging. First choose to use the **simulator (debug)** as the preview platform on the top of the editor toolbar, and then click the **Run Preview** button in the editor to run the game in the simulator.
+In general, most of the problems of the original platform can be reproduced in the simulator, we can first test in the simulator, there are problems directly in the simulator debugging. There are two ways to debug the simulator.
+
+### Method One
+
+First choose to use the **simulator (debug)** as the preview platform on the top of the editor toolbar, and then click the **Run Preview** button in the editor to run the game in the simulator.
 
 ![](debug-jsb/simulator-run.png)
 
-### Windows
+#### Windows
 
-After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:6086/ 00010002-0003-4004-8005-000600070008` can be debugged:
+After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/ 00010002-0003-4004-8005-000600070008` can be debugged:
 
 ![](debug-jsb/v8-win32-debug.png)
 
-### Mac
+#### Mac
 
 - After running the simulator, in the Safari browser's **Preferences -> Advanced** tab, Check `Show Develop menu in menu bar`.
 - Safari menu select `Develop -> your Mac device -> Cocos2d-x JSB`.
@@ -25,6 +29,13 @@ After running the simulator, open the address directly with the Chrome browser: 
 
 ![](debug-jsb/jsc-mac-breakpoint.png)
 
+### Method Two
+
+Starting with **v2.0.7**, the [Open Simulator Debugger Panel](../getting-started/basics/editor-panels/preferences.md#preview-run) feature has been added to the **Preview Run** of **Settings** panel. The debugging steps are as follows:
+
+  - Check the **Open Simulator Debugger Panel** in the **Setting -> Preview Run** panel, then click **Save**.
+  - Running the simulator, then you can automatically open simulator debugger panel for debugging when start simulator.
+
 ## Debug on target device
 
 If the game only run on the real machine, or the simulator can not reproduce the problem, it must be the real machine to the packaged game to debug.
@@ -33,7 +44,7 @@ If the game only run on the real machine, or the simulator can not reproduce the
 
 - Make sure that the Android device is on the same LAN as Windows or Mac.
 - Select the Android platform and Debug mode in the build publishing panel of Creator to build a compile-and-run project.
-- Open address with Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={ip}:6086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android device, you can debug it.
+- Open address with Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={ip}:5086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android device, you can debug it. (**Note**: Starting with **v2.0.7**, 5086 needs to be changed to 6086)
 
 ![](debug-jsb/v8-android-debug.png)
 

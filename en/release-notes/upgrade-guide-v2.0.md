@@ -1,6 +1,6 @@
 # Cocos Creator v2.0 Upgrade Guide
 
-# 1 Overview
+# 1. Overview
 
 __Cocos Creator v2.0__ is the result of a large-scale *under the hood* refactoring plus two months of
 stability testing. This article will assist __v1.x__ users in upgrading to __v2.0__.
@@ -55,15 +55,7 @@ Maybe developers have noticed the configuration of texture resources in Creator 
 
 This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on the pre-multiply option of the texture. It's also worth noting that if you find that this makes the texture darker, you can change the blending mode of the corresponding rendering component to ONE, ONE_MINUS_SRC_ALPHA.
 
-## 2.2 RenderComponent component settings
-
-In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Properties__:
-
-![TiledLayer's Mixed Mode Settings](upgrade-guide-v2.0/render-component.png)
-
-Because of the transformation of the underlying renderer in 2.0, we abstracted the functionality of many render phases for user access and setup. Many of the interfaces to these interfaces are in the RenderComponent. In addition to the blend mode, we also plan to introduce the material system (the engine is built-in, and only the script interface is temporarily available).
-
-## 2.3 Camera component use
+## 2.2 Camera component use
 
 The camera may be the most changed component from 1.x to 2.0. In order for developers to update smoothly, we tried to maintain the consistency of the component layer API. Here are details of the changes:
 
@@ -75,9 +67,9 @@ If you need a more advanced Camera component, it will be necessary to upgrade to
 
 For specific changes, developers can refer to [2.0 Camera Using Documentation](../render/camera.md).
 
-## 2.4 Build Panel Updates
+## 2.3 Build Panel Updates
 
-The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as Wechat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: Wechat Game Open Data Context.
+The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as WeChat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: WeChat Game Open Data Context.
 
 ![2.0 WeChat game open data domain publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
 
@@ -87,14 +79,14 @@ For the same reason, when building other platforms, please don't check the Canva
 
 Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain](../publish/publish-wechatgame-sub-domain.md).
 
-## 2.5 Module Settings
+## 2.4 Module Settings
 
 In addition to the special module settings in the WeChat open data domain, there are several points to note in the module settings of other platform projects:
 
   1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data domain, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
   2. The native platform cannot currently remove the Native Network module (which will be adjusted in the future).
 
-## 2.6 Custom Engine Quick Compile
+## 2.5 Custom Engine Quick Compile
 
 In 2.0, we provided a more convenient way for developers who needed a custom engine. 1.x After modifying the custom engine, you also need to build the gulp build to take effect, and the build time is very long. The root cause of this problem is that any minor changes require repackaging and confusing all engine files, which can take a long time. So in 2.0, we instead refer to the separated source files in the custom engine. When the user changes, only the modified file will be updated, and the developer can also manually trigger the update.
 

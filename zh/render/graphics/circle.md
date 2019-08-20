@@ -13,11 +13,11 @@
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.circle(200,200, 200);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/circle.png"><img src="graphics/circle.png"></a>
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

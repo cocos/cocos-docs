@@ -12,6 +12,8 @@
 
 将图集中的全部 SpriteFrame 合并到同一个包中。默认关闭，启用后能够减少热更新时需要下载的 SpriteFrame 文件数量，但如果图集中的 SpriteFrame 数量很多，则可能会延长原生平台上的启动时间。
 
+**注意**：在热更新时，需要确保新旧项目中该功能的开启/关闭状态保持一致，否则会导致热更新之后出现资源引用错误的情况。
+
 ### 内联所有 SpriteFrame
 
 自动合并资源时，将所有 SpriteFrame 与被依赖的资源合并到同一个包中。建议网页平台开启，启用后会略微增大总包体，多消耗一点点网络流量，但是能显著减少网络请求数量。建议原生平台关闭，因为会增大热更新时的体积。
@@ -38,9 +40,9 @@ jsval_to_string(cx, returnParam, &url);
 
 ![package name](publish-native/package_name.png)
 
-### API Level
+### Target API Level
 
-设置编译 Android 使用的 api 版本，最低支持 android-16。
+设置编译 Android 平台所需的 Target API Level。
 
 ### APP ABI
 
@@ -61,6 +63,10 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 ### 生成 App Bundle (Google Play)
 
 Creator 在 **v2.0.9** 中新增了 **App Bundle (Google Play)** 选项。如果选择 Android 或者 Android Instant 平台，勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.com/guide/app-bundle/)（需要使用 VPN）
+
+### SDKBox
+
+SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。支持苹果和谷歌的 IAP 内购等近 30 种 SDK，所有的 SDK 都经过严格的测试与官方认证。详情请参考 [SDKBox](../sdk/sdkbox.md)。
 
 ### 加密脚本
 

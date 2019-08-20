@@ -54,7 +54,7 @@
 
 * **Cocos2d-x 路径**：取消上一项 `使用内置 cocos2d-x 引擎` 的选择后，就可以手动指定 cocos2d-x 路径了。注意这里使用的 cocos2d-x 引擎必须从 [cocos2d-x-lite](https://github.com/cocos-creator/cocos2d-x-lite) 或该仓库的 fork 下载。
 
-* **WechatGame 程序路径**：设置 WechatGame 程序路径，详情见 [发布到微信小游戏平台](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)
+* **WechatGame 程序路径**：设置 WechatGame 程序路径，详情见 [发布到微信小游戏](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)
 
 * **NDK 路径**：设置 NDK 路径，详情见 [安装配置原生开发环境](../../../publish/setup-native-development.md)。
 
@@ -78,6 +78,6 @@
 
 * **模拟器自定义分辨率设置**：如果预设的分辨率不能满足要求，您可以手动输入屏幕宽高来设置模拟器分辨率。
 
-* **开启模拟器调试界面**：在模拟器预览项目时将自动打开调试窗口。
+* **开启模拟器调试界面**：在模拟器预览项目时将自动打开调试窗口（**v2.0.7** 新增）。
 
-* **等待调试器连接**：勾选了 **开启模拟器调试界面** 后会开启该项，该选项的作用是暂停启动过程直至调试器连接完成，用于调试加载过程。
+* **等待调试器连接**：勾选了 **开启模拟器调试界面** 后会开启该项，该选项的作用是暂停启动过程直至调试器连接完成，用于调试加载过程（**v2.0.7** 新增）。

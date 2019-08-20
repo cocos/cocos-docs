@@ -7,9 +7,9 @@ Toggles that belong to the same group could only have one of them to be switched
 
 ![toggle-group](./toggle/toggle-group.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **ToggleGroup** from **Add UI Component**. You can then add the ToggleGroup component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **ToggleGroup** from **UI Component**. You can then add the ToggleGroup component to the node.
 
-The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/classes/ToggleGroup.html)。
+The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/classes/ToggleGroup.html).
 
 ## ToggleGroup property
 

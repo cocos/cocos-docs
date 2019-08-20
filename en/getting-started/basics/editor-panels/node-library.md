@@ -4,7 +4,7 @@
 
 **Node Library** is a very simple direct visual control of the warehouse, We can drag and drop the preset node to the **Scene** or **Hierarchy**, quickly complete the creation of preset node.
 
-When wo use the default layout, the node library will be displayed in the editor. If we use the editor's layout is not included node library, We can open the node library via the main menu `Panel->Node Library`, then drag it to editor.
+When we use the default layout, the node library will be displayed in the editor. If we use the editor's layout is not included node library, We can open the node library via the main menu `Panel->Node Library`, then drag it to editor.
 
 **Node Library** includes two categories, represented by the two tabs:
 

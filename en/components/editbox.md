@@ -4,7 +4,7 @@ EditBox is a text input component, you could use this component to gather user i
 
 ![editbox](./editbox/editbox.png)
 
-Click **Add Component** button at the bottom of **Properties** panel and then select **EditBox** from **Add UI Component**, then you can add the EditBox component to the node.
+Click **Add Component** button at the bottom of **Properties** panel and then select **EditBox** from **UI Component**, then you can add the EditBox component to the node.
 
 For EditBox API reference, please refer to [EditBox API](../../../api/en/classes/EditBox.html).
 
@@ -22,13 +22,17 @@ In v2.1.1, we've made some adjustment and optimization on EditBox component. The
 | String                | The initial input text of EditBox.
 | Placeholder           | The content string of placeholder.
 | Background            | The Sprite component attached to the node for EditBox's background.
-| TextLabel             | The Label component attached to the node for EditBox's input text label.
-| PlaceholderLabel      | The Label component attached to the node for EditBox's placeholder text label.
-| Keyboard Return Type  | The keyboard return type of EditBox. This is useful for keyboard of mobile device.
+| Text Label            | The Label component attached to the node for EditBox's input text label.
+| Placeholder Label     | The Label component attached to the node for EditBox's placeholder text label.
+| KeyboardReturnType    | The keyboard return type of EditBox. This is useful for keyboard of mobile device.
 | Input Flag            | Specify the input flag: password or capitalize word. (Only supports Android platform)
 | Input Mode            | Specify the input mode: multiline or single line.
-| MaxLength             | The maximize input characters.
-| TabIndex              | Set the tabIndex of the DOM input element, only useful on Web.
+| Max Length            | The maximize input characters.
+| Tab Index             | Set the tabIndex of the DOM input element, only useful on Web.
+| Editing Did Began     | The event handler to be called when EditBox began to edit text. Please refer to the Editing Did Began event below for details.                  |
+| Text Changed          | The event handler to be called when EditBox text changes. Please refer to the Text Changed event below for details.                      |
+| Editing Did Ended     | The event handler to be called when EditBox edit ends. Please refer to the Editing Did Ended event below for details.                 |
+| Editing Return        | The event handler to be called when return key is pressed, Currently does not support windows platform. Please refer to the Editing Return event below for details. |
 
 ## EditBox Event
 

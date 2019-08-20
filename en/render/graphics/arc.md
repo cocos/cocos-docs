@@ -17,11 +17,11 @@ Tip: To create a circle with `arc()`, set the start angle to 0 and the end angle
 ```javascript
 Var ctx = node.getComponent(cc.Graphics);
 ctx.arc(100,75,50,0,1.5 * Math.PI);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/arc.png"> <img src = "graphics/arc.png"></a>
 
 <hr>
 
-Return to [Graphics component](index.md)
+Return to [Graphics Component Reference](../../components/graphics.md)

@@ -34,7 +34,7 @@ The developer can get to know the basic API for every action type in these actio
 | cc.flipX | X-axis flip | [API description](../../../api/en/modules/cc.html#flipX) |
 | cc.flipY | Y-axis flip | [API description](../../../api/en/modules/cc.html#flipY) |
 | cc.place | place at the target location | [API description](../../../api/en/modules/cc.html#place) |
-| cc.callFunc | execute callback fuction | [API description](../../../api/en/modules/cc.html#callFunc) |
+| cc.callFunc | execute callback function | [API description](../../../api/en/modules/cc.html#callFunc) |
 | cc.targetedAction | create action with existant action and a new target node | [API description](../../../api/en/modules/cc.html#targetedAction) |
 
 ## Interval action

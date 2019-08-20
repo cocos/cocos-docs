@@ -9,11 +9,10 @@ update: function (dt) {
     var ctx = node.getComponent(cc.Graphics);
     ctx.clear();
     ctx.circle(200,200, 200);
-    ctx.stroke();
+    ctx.fill();
 }
-
 ```
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

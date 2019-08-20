@@ -34,7 +34,7 @@ Edit the scripts and save them. Cocos Creator will automatically detect the alte
 
 Adding the script into the scene node is actually adding a component to this node. Let's rename the new **NewScript.js** to **say-hello.js**. Then select the scene node you would like to add, by this time the property of this node will be shown in **Properties**.
 
-There's an **Add Component** button at the very bottom of **Properties**. Click the button and choose **Add Custom Component -> say-hello** to add a new script component.
+There's an **Add Component** button at the very bottom of **Properties**. Click the button and choose **Custom Component -> say-hello** to add a new script component.
 
 ![add-script](assets/add-script.png)
 

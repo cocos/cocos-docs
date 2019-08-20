@@ -10,7 +10,7 @@ var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 2;
 ctx.strokeColor = cc.hexToColor('#0000ff');
 ctx.rect(20,20,250,200);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/strokeColor.png"><img src="graphics/strokeColor.png"></a>
@@ -18,4 +18,4 @@ ctx.stroke();
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

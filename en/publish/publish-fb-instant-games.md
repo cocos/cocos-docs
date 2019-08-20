@@ -1,6 +1,6 @@
 # Facebook Instant Games 
 
-Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games platform is officially supported. Developers can quickly publish games that meet the Facebook Instant Games technical standards. Facebook Instant Games are a bit different compared to WeChat Mini Games and QQ Play, as Facebook Instant Games runs in a pure HTML5 environment. This means that your games can be run not only on your phone but also in a desktop browser, making development and debugging more convenient.
+Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games is officially supported. Developers can quickly publish games that meet the Facebook Instant Games technical standards. Facebook Instant Games are a bit different compared to WeChat Mini Games and QQ Play, as Facebook Instant Games runs in a pure HTML5 environment. This means that your games can be run not only on your phone but also in a desktop browser, making development and debugging more convenient.
 
 **Cocos Creator includes:**
 
@@ -21,7 +21,7 @@ Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games 
 
 ## First, use Cocos Creator to build the game
 
-Using Creator open the project project that needs to be published. Open the Build Publish panel from the Menu bar. Select `Project` and select the Facebook Instant Games platform in the build Publish panel:
+Using Creator open the project that needs to be published. Open the **Build** panel from the **Menu bar -> Project**. Select the **Facebook Instant Game** in the **Platform** dropdown of the **Build** panel:
 
 ![](./publish-fb-instant-games/build.png)
 

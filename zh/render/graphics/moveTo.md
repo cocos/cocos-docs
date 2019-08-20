@@ -13,11 +13,11 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(0,0);
 ctx.lineTo(300,150);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/moveTo.png"><img src="graphics/moveTo.png"></a>
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [10_webview](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/02_ui/10_webview)。
+详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [10_webview](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)。
 
 ## 详细说明
 
@@ -159,10 +159,9 @@ cc.Class({
 });
 ```
 
+因此当你需要通过内部页面交互 WebView 时，应当设置内部页面 URL：`testkey://(后面你想要回调到 WebView 的数据)`。WebView 内部页面代码如下：
+
 ```html
-// 因此当你需要通过内部页面交互 WebView 时，
-// 应当设置内部页面 URL 为：TestKey://(后面你想要回调到 WebView 的数据)
-// WebView 内部页面代码
 <html>
 <body>
     <dev>
@@ -178,10 +177,9 @@ cc.Class({
 </html>
 ```
 
-由于 Web 平台的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互。
+由于 Web 平台的限制，导致无法通过这种机制去实现，但是内部页面可以通过以下方式进行交互：
 
-```js
-// WebView 内部页面代码
+```html
 <html>
 <body>
     <dev>

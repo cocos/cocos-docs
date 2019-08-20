@@ -10,11 +10,11 @@ ctx.moveTo(20,20);
 ctx.lineTo(20,100);
 ctx.lineTo(70,100);
 ctx.close();
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/close.png"><img src="graphics/close.png"></a>
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to [Graphics Component Reference](../../components/graphics.md).
