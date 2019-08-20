@@ -30,7 +30,10 @@ Choose `Developer -> VS Code Workflow -> Update VS Code API Source` from main me
 
 This operation is only required when the API source is updated, or for some reason your project does not have a `creator.d.ts` file in it.
 
-**Attention**: Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will automatically copy a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.Do not click on `add TypeScript project configuration` for JavaScript projects. This feature generates `tsconfig.json` files in the project root directory, giving the TypeScript code a smart tip, but invalidating the smart tip for a JavaScript project. Delete the `tsconfig.json` when the problem occurs.
+**Note**:
+
+1. Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will automatically copy a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.
+2. If it is a JavaScript project, please do not click the `Add TypeScript Config` option. This feature generates `tsconfig.json` file at the project root, giving the TypeScript code intellisense, but invalidating the JavaScript code intellisense. Delete `tsconfig.json` if the problem occurs.
 
 ### Open Project With VS Code
 

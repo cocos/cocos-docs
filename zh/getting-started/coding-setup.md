@@ -30,7 +30,10 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 对于每个不同的项目都需要运行一次这个命令，如果 Cocos Creator 版本更新了，也需要打开您的项目重新运行一次这个命令，来同步最新引擎的 API 数据。
 
-**注意**：从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起自动拷贝到您的项目根目录中。JavaScript项目请勿点击 `添加TypeScript项目配置` ，该功能会在项目根目录生成 `tsconfig.json` 文件，让TypeScript代码拥有智能提示，但是会使JavaScript项目的智能提示失效。出现该问题时删除 `tsconfig.json` 即可。
+**注意**：
+
+1. 从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起自动拷贝到您的项目根目录中。
+2. JavaScript 项目请勿点击 `添加 TypeScript 项目配置`。该功能会在项目根目录生成 `tsconfig.json` 文件，让 TypeScript 代码拥有智能提示，但是却会导致 JavaScript 代码的智能提示失效。若出现该问题时删除 `tsconfig.json` 即可。
 
 ### 使用 VS Code 打开和编辑项目
 

@@ -14,7 +14,7 @@ Use `ellipse()` method to create an ecllipse.
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.ellipse(200,100, 200,100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/ellipse.png"><img src="graphics/ellipse.png"></a>

@@ -16,7 +16,7 @@ ctx.lineCap = cc.Graphics.LineCap.ROUND;
 ctx.lineWidth = 10;
 ctx.moveTo(100, 100);
 ctx.lineTo(300, 100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/lineCap.png"><img src="graphics/lineCap.png"></a>

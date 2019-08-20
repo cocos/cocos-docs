@@ -17,7 +17,7 @@
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.arc(100,75,50,0,1.5*Math.PI);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/arc.png"><img src="graphics/arc.png"></a>
