@@ -13,7 +13,7 @@
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.circle(200,200, 200);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/circle.png"><img src="graphics/circle.png"></a>

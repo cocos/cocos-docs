@@ -16,7 +16,7 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20,20);
 ctx.quadraticCurveTo(20,100,200,20);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/quadraticCurveTo.png"><img src="graphics/quadraticCurveTo.png"></a>

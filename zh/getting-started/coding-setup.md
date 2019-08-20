@@ -10,15 +10,15 @@
 
 前往 VS Code 的 [官方网站](https://code.visualstudio.com/)，点击首页的下载链接即可下载。
 
-Mac 用户解压下载包后双击 `Visual Studio Code` 即可运行。
+Mac 用户解压下载包后双击 **Visual Studio Code** 即可运行。
 
-Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运行。
+Windows 用户下载后运行 **VSCodeSetup.exe** 按提示完成安装即可运行。
 
 ### 安装 Cocos Creator API 适配插件
 
-在 Cocos Creator 中打开你的项目，然后选择主菜单里的 `开发者 -> VS Code 工作流 -> 安装 VS Code 扩展插件`。
+在 Cocos Creator 中打开你的项目，然后选择主菜单里的 **开发者 -> VS Code 工作流 -> 安装 VS Code 扩展插件**。
 
-该操作会将 Cocos Creator API 适配插件安装到 VS Code 全局的插件文件夹中，一般在用户 Home 文件夹中的 `.vscode/extensions` 目录下。这个操作只需要执行一次，如果 API 适配插件更新了，则需要再次运行来更新插件。
+该操作会将 Cocos Creator API 适配插件安装到 VS Code 全局的插件文件夹中，一般在用户 Home 文件夹中的 **.vscode/extensions** 目录下。这个操作只需要执行一次，如果 API 适配插件更新了，则需要再次运行来更新插件。
 
 安装成功后在 **控制台** 会显示绿色的提示：`VS Code extension installed to ...`。这个插件的主要功能是为 VS Code 编辑状态下注入符合 Cocos Creator 组件脚本使用习惯的语法提示。
 
@@ -26,15 +26,18 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 如果希望在代码编写过程中自动提示 Cocos Creator 引擎 API，需要通过菜单生成 API 智能提示数据并自动放进项目路径下。
 
-选择主菜单的 `开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据`。该操作会将根据引擎 API 生成的 `creator.d.ts` 数据文件复制到项目根目录下（注意是在 `assets` 目录外面），操作成功时会在 **控制台** 显示绿色提示：`API data generated and copied to ...`。
+选择主菜单的 **开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据**。该操作会将根据引擎 API 生成的 `creator.d.ts` 数据文件复制到项目根目录下（注意是在 `assets` 目录外面），操作成功时会在 **控制台** 显示绿色提示：`API data generated and copied to ...`。
 
 对于每个不同的项目都需要运行一次这个命令，如果 Cocos Creator 版本更新了，也需要打开您的项目重新运行一次这个命令，来同步最新引擎的 API 数据。
 
-**注意**：从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起自动拷贝到您的项目根目录中。JavaScript项目请勿点击 `添加TypeScript项目配置` ，该功能会在项目根目录生成 `tsconfig.json` 文件，让TypeScript代码拥有智能提示，但是会使JavaScript项目的智能提示失效。出现该问题时删除 `tsconfig.json` 即可。
+**注意**：
+
+1. 从 VS Code 0.10.11 版开始，需要在项目根目录中添加 `jsconfig.json` 设置文件才能正确的使用包括智能提示在内的 JavaScript 语言功能，在执行上面的命令时，预设的 `jsconfig.json` 文件会和 `creator.d.ts` 一起自动拷贝到您的项目根目录中。
+2. JavaScript 项目请勿点击 **添加 TypeScript 项目配置**。该功能会在项目根目录生成 `tsconfig.json` 文件，让 TypeScript 代码拥有智能提示，但是却会导致 JavaScript 代码的智能提示失效。若出现该问题时删除 `tsconfig.json` 即可。
 
 ### 使用 VS Code 打开和编辑项目
 
-现在可以运行我们之前下载安装好的 VS Code 了，启动后选择主菜单的 `File -> Open...`，在弹出的对话框中选择您的项目根目录，也就是 `assets`, `project.json` 所在的路径。
+现在可以运行我们之前下载安装好的 VS Code 了，启动后选择主菜单的 **File -> Open...**，在弹出的对话框中选择您的项目根目录，也就是 `assets`、`project.json` 所在的路径。
 
 现在新建一个脚本，或者打开原有的脚本编辑时，就可以享受智能语法提示的功能了。
 
@@ -44,7 +47,7 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 ### 设置文件显示和搜索过滤
 
-在 VS Code 的主菜单中选择 `文件（Windows）／Code（Mac）-> 首选项 -> 设置`，或者选择左下角 ![gear.png](coding-setup/gear.png) 中的 `Setting`，这个操作会打开用户配置文件 `USER SETTINGS`，在配置文件中加入以下内容：
+在 VS Code 的主菜单中选择 **文件（Windows）／Code（Mac）-> 首选项 -> 设置**，或者选择左下角 ![gear.png](coding-setup/gear.png) 中的 **Setting**，这个操作会打开用户配置文件 **USER SETTINGS**，在配置文件中加入以下内容：
 
 ```json
 {
@@ -69,7 +72,7 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 上面的字段将为 VS Code 设置搜索时排除的目录，和在文件列表中隐藏的文件类型。由于 `build`, `temp`, `library` 都是编辑器运行时自动生成的路径，而且会包含我们写入的脚本内容，所以应该在搜索中排除。而 `assets` 目录下的每个文件都会生成一个 `.meta` 文件，一般来说我们不需要关心他的内容，只要让编辑器帮我们管理这些文件就可以了。
 
-**注意**：新版 VS Code 打开用户配置文件 `USER SETTINGS` 时可能是处于 UI 界面状态：
+**注意**：新版 VS Code 打开用户配置文件 **USER SETTINGS** 时可能是处于 UI 界面状态：
 
 ![vs code](coding-setup/vs_code_1.png)
 
@@ -96,13 +99,13 @@ Windows 用户下载后运行 `VSCodeSetup.exe` 按提示完成安装即可运�
 
 要在 VS Code 中激活脚本编译，需要执行以下的工作流程：
 
-1. 在 Creator 编辑器主菜单里执行 `开发者 -> VS Code 工作流 -> 添加编译任务`。该操作会在项目的 `.vscode` 文件夹下添加 `tasks.json` 任务配置文件。
+1. 在 Creator 编辑器主菜单里执行 **开发者 -> VS Code 工作流 -> 添加编译任务**。该操作会在项目的 `.vscode` 文件夹下添加 `tasks.json` 任务配置文件。
 2. 在 VS Code 里按下 <kbd>Cmd/Ctrl+p</kbd>，激活 **快速打开** 输入框，然后输入 `task compile`
     ![task compile](coding-setup/run_task.png)
 3. 任务运行成功的话，会在 VS Code 窗口下方的输出面板中显示如下结果
     ![task complete](coding-setup/task_output.png)
 
-VS Code 还可以为任务配置快捷键，请打开主菜单的 `Code -> 首选项 -> 键盘快捷方式`，并在右侧的 `keybindings.json` 里添加以下条目：
+VS Code 还可以为任务配置快捷键，请打开主菜单的 **Code -> 首选项 -> 键盘快捷方式**，并在右侧的 `keybindings.json` 里添加以下条目：
 
 ```json
 [

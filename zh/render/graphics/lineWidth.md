@@ -12,7 +12,7 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 20;
 ctx.rect(20,20,80,100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/lineWidth.png"><img src="graphics/lineWidth.png"></a>

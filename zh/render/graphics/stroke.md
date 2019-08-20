@@ -10,7 +10,7 @@ var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20,100);
 ctx.stroke(20,20);
 ctx.stroke(70,20);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/stroke.png"><img src="graphics/stroke.png"></a>

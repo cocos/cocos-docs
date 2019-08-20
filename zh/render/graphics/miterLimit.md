@@ -21,7 +21,7 @@ ctx.miterLimit = 10;
 ctx.moveTo(20,20);
 ctx.lineTo(100,50);
 ctx.lineTo(20,100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/miterLimit.png"><img src="graphics/miterLimit.png"></a>
