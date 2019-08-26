@@ -8,7 +8,7 @@
 - [i18n support](i18n.md)
 - [Read and Write user data](data-storage.md)
 - [Engine Customization](engine-customization.md)
-- [Preview Template Customization](custom-preview-template.md)
+- [Web Preview Customization](custom-preview-template.md)
 - [RenderFlow](render-flow.md)
 - [BMFont and UI auto-batch](ui-auto-batch.md)
 - [Dynamic Atlas](dynamic-atlas.md)
