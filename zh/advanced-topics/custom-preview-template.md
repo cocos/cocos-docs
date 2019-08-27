@@ -1,6 +1,6 @@
 # 网页预览定制工作流程
 
-Cocos Creator 从 v2.2 开始新增了自定义网页预览功能，开发者可以自定义所需的网页预览效果。
+Cocos Creator 从 v2.2 开始新增了自定义网页预览功能。
 
 ## 自定义网页预览
 
@@ -19,9 +19,9 @@ Cocos Creator 从 v2.2 开始新增了自定义网页预览功能，开发者可
 
   编辑器内置 `preview-templates` 存放位置如下：
 
-  **Mac**：`./CocosCreator.app/Contents/Resources/static/preview-templates`
+  **Mac**：`CocosCreator.app/Contents/Resources/static/preview-templates`
 
-  **Windows**：`./CocosCreator/resources/static/preview-templates`
+  **Windows**：`CocosCreator/resources/static/preview-templates`
 
 ## preview-templates 详情
 
@@ -36,14 +36,14 @@ preview-templates
 
 开发者可以根据需求编写 index 入口文件。目前 index 支持的三种文件类型分别是 **.html**、**.jade** 和 **.ejs**。
 
-同时 Creator 也提供了一个 **html** 类型的自定义网页预览范例，开发者可以在 **Dashboard -> 新建项目** 面板中创建该范例工程以便参考。
+Creator 提供了一个 **html** 类型的自定义网页预览范例，开发者可以在 **Dashboard -> 新建项目** 面板中创建该范例工程以便参考。
 
 ![自定义网页预览范例](./custom-preview-template/create.png)
 
-**注意**：三种文件类型只能选择其中一种进行编写。如果对三种文件类型不了解的，可参考以下基础文档：
+如果对三种文件类型不了解的，可参考以下基础文档：
 
-**html**：<https://developer.mozilla.org/zh-CN/docs/Web/HTML>
-
-**jade**：<http://jade-lang.com/>
-
-**ejs**：<https://ejs.bootcss.com/>
+| 文件类型 |   地址
+| -------------- | ----------- |
+| html | <https://developer.mozilla.org/zh-CN/docs/Web/HTML> |
+| jade | <http://jade-lang.com/>                             |
+| ejs  | <https://ejs.bootcss.com/>                          |
