@@ -51,10 +51,12 @@ This brings up two key issues, first page loading speed and remote resource cach
 
 In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the **REMOTE_SERVER_ROOT** property, the logic of the engine downloading the resource becomes:
 
-1. Check if the resource is in the mini game pack
-2. Query local cache resources if they do not exist
-3. Download from a remote server if there is no cache
-4. After downloading, save it to the game application cache for re-access.
+1. Check if the resource is in local cache storage
+2. Check if the resource is in the mini game pack if there is no cache
+3. Download from a remote server if they do not exist in mini game pack
+4. After downloading to temporary directory, use it directly
+5. Save it to the game application cache slowly in backstage for re-access.
+6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process 
 
 At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
 
