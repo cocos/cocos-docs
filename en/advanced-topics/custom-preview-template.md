@@ -1,6 +1,7 @@
 # Web Preview Customization Workflow
 
 Starting with v2.2, Cocos Creator supports for custom web preview.
+
 ## Custom Web Preview
 
 - Create `preview-templates` folder in the project path.
@@ -35,9 +36,23 @@ The `preview-templates` folder is equivalent to a normal web template, which con
 
 Developers can customize `index` file as needed. You can use **.jade** or **.ejs** rather than **.html**.
 
-Creator provides a custom web preview example of html type that you can create in the **Dashboard -> New Project** panel for reference.
+## Example
+
+Creator provides a sample project in the **Dashboard -> New Project** panel, which comes with a simple example of preview-templates.
 
 ![Custom Preview Template](./custom-preview-template/create.png)
+
+Creator will parse the ejs syntax in the **html** template. And Creator currently supports the following custom variables:
+
+| Variable Name |   Description
+| --------------    | ----------- |
+| title             | CocosCreator + project name      |
+| cocos2d           | The path where the engine script is located     |
+| enableDebugger    | When preview on a mobile browser platform, the value is true |
+
+**Note**: The **html** template in the example uses `<%=title%>` and `<%=cocos2d%>` of the custom variable. If you want to customize other variables, then you need to parse them on your own.
+
+## preview-templates expansion
 
 If you are not familiar with the three file types, you can refer to the following basic documents:
 

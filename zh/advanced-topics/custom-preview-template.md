@@ -27,25 +27,23 @@ Cocos Creator 从 v2.2 开始新增了自定义网页预览功能。
 
 preview-templates 内部相当于一个普通网页模版，该文件夹包含以下内容：
 
-```js
-preview-templates
-  // 必须的入口文件
-  |--index.html
-  // 其他文件可根据想要实现的预览效果进行添加
-  ...
-```
+  ```js
+  preview-templates
+    // 必须的入口文件
+    |--index.html
+    // 其他文件可根据想要实现的预览效果进行添加
+    ...
+  ```
 
 开发者可以根据需求编写 index 入口文件。目前 index 支持的三种文件类型分别是 **.html**、**.jade** 和 **.ejs**。
 
 ## 范例
 
-Creator 在新建项目面板中提供了一个范例工程，该工程自带了 preview-templates 的简单示例。
+Creator 在 **Dashboard -> 新建项目** 面板中提供了一个范例工程，该工程自带了 preview-templates 的简单示例。
 
 ![自定义网页预览范例](./custom-preview-template/create.png)
 
-同时 Creator 也会对 **html** 模版中的 ejs 语法进行解析。
-
-目前 Creator 支持以下自定义变量：
+Creator 会对 **html** 模版中的 ejs 语法进行解析。目前 Creator 支持以下自定义变量：
 
 | 变量名 |   描述
 | --------------    | ----------- |
@@ -53,7 +51,7 @@ Creator 在新建项目面板中提供了一个范例工程，该工程自带了
 | cocos2d           | 引擎脚本所在路径      |
 | enableDebugger    | 当在移动浏览器平台上预览时该变量会为 true      |
 
-其中范例 **html** 模版内使用了自定义变量中的 <%=title%> 与 <%=cocos2d%>，如果开发者还想自定义其它变量则需要自行解析处理。
+**注意**：范例中的 **html** 模版内使用了自定义变量中的 `<%=title%>` 与 `<%=cocos2d%>`，如果开发者还想自定义其它变量则需要自行解析处理。
 
 ## preview-templates 拓展
 
