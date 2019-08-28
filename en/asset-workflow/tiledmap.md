@@ -1,6 +1,6 @@
 # TiledMap
 
-Tiled map resources are data formats that exported by [TiledMap](https://www.mapeditor.org/) (Creator 2.1 and below support for TiledMap v1.0.0, Creator 2.2.0 and above support for TiledMap v1.2.0).
+Tiled map resources are data formats that exported by [TiledMap](https://www.mapeditor.org/) (Creator v2.1 and below support for TiledMap v1.0.0, Creator v2.2.0 and above support for TiledMap v1.2.0).
 
 ## Import Assets
 
