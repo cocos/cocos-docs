@@ -39,19 +39,19 @@
 
 ### 如何用插件控制 Prefab？
 
-创建 Prefab：
+**创建 Prefab**：
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:create-prefab', node.uuid, 'db://assets/xxx/xxx.prefab');
 ```
 
-进入 Prefab 编辑模式：
+**进入 Prefab 编辑模式**：
 
 ```js
 Editor.Ipc.sendToAll('scene:enter-prefab-edit-mode', assetUuid);
 ```
 
-保存 Prefab：
+**保存 Prefab**：
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
