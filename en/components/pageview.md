@@ -4,33 +4,34 @@ PageView component is derived from ScrollView, the difference is that when scrol
 
 ![pageview-inspector](./pageview/pageview-inspector.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **PageView** from **Add UI Component**. This will add PageView component to the current node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **PageView** from **UI Component**. This will add PageView component to the current node.
 
 Please refer to the script interface of the [PageView API](../../../api/en/classes/PageView.html)
 
 ## PageView property
 
-| Property                 | Function description |
-| --------------           | ----------- |
-| SizeMode                 | Specify the size type of each page in PageView, currently has Unified type and Free type. Please refer to [SizeMode API](../../../api/en/enums/PageView.SizeMode.html) for detail.|
-| Content                  | It is a node reference that is used to contain the contents of the PageView |
-| Direction                | The page view direction |
-| ScrollThreshold          | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
-| AutoPageTurningThreshold | Auto page turning velocity threshold. When users swipe the PageView quickly, it will calculate a velocity based on the scroll distance and time, if the calculated velocity is larger than the threshold, then it will trigger page turning. |
-| Inertia                  | When inertia is set, the content will continue to move when touch ended |
-| Brake                    | It determines how quickly the content stop moving. A value of 1 will stop the movement immediately. A value of 0 will never stop the movement until it reaches to the boundary of scrollview. |
-| Elastic                  | When elastic is set, the content will be bounce back when move out of boundary |
-| Bounce Duration          | The elapse time of bouncing back. A value of 0 will bounce back immediately |
-| Indicator                | The Page View Indicator |
-| PageTurningEventTiming   | Change the PageTurning event timing of PageView |
-| PageEvents               | PageView events callback |
-| CancelInnerEvents        | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes. It's set to true by default.|
+| Property                    | Function description |
+| --------------------------- | --------------------------- |
+| Content                     | It is a node reference that is used to contain the contents of the PageView |
+| Size Mode                   | Specify the size type of each page in PageView, currently has Unified type and Free type. Please refer to [SizeMode API](../../../api/en/enums/PageView.SizeMode.html) for details.|
+| Direction                   | The page view direction |
+| Scroll Threshold            | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
+| Auto Page Turning Threshold | Auto page turning velocity threshold. When users swipe the PageView quickly, it will calculate a velocity based on the scroll distance and time, if the calculated velocity is larger than the threshold, then it will trigger page turning. |
+| Inertia                     | When inertia is set, the content will continue to move when touch ended |
+| Brake                       | It determines how quickly the content stop moving. A value of 1 will stop the movement immediately. A value of 0 will never stop the movement until it reaches to the boundary of scrollview. |
+| Elastic                     | When elastic is set, the content will be bounce back when move out of boundary |
+| Bounce Duration             | The elapse time of bouncing back. A value of 0 will bounce back immediately |
+| Indicator                   | The Page View Indicator, please refer to **CCPageViewIndicator Set Up** below for details. |
+| Page Turning Speed          | The time required to turn over a page. |
+| Page Turning Event Timing   | Change the PageTurning event timing of PageView |
+| Page Events                 | PageView events callback |
+| Cancel Inner Events         | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes. It's set to true by default.|
 
 ### CCPageViewIndicator Set Up
 
-CCPageViewIndicator is optional, the component is used to display the number of pages and the current page.
+CCPageViewIndicator is optional, the component is used to display the number of pages and the current page. Please refer to [PageviewIndicator Component](./pageviewindicator.md) for details.
 
-The association can be done by dragging a node with a PageViewIndicator component into the corresponding field of the PageView in the **Node Tree**.
+The association can be done by dragging a node with a PageViewIndicator component into the **Indicator** property of the PageView component in the **Node Tree**.
 
 ### PageView event
 

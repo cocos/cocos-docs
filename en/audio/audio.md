@@ -5,7 +5,7 @@
 ## Use AudioSource component
 
 1. Create an empty node on the **Node Tree**
-2. Select the empty node and click **Add Component -> Add Other Component -> AudioSource** at the bottom of the **Properties** to add the AudioSource component.
+2. Select the empty node and click **Add Component -> Other Component -> AudioSource** at the bottom of the **Properties** to add the AudioSource component.
 3. Drag the audio resources in **Assets** to the **Clip** of the AudioSource component, as follows:
 
 ![](audio/audiosource.png)
@@ -36,7 +36,7 @@ cc.Class({
 });
 ```
 
-Then add the corresponding custom component to the editor's **Properties**. Selecting the corresponding node and add the custom component by clicking **Add Component-> Add Custom Component -> User Script** at the bottom of the **Properties**. Then drag and drop the node with the AudioSource component onto **Audio Source** in the custom component. As shown below:
+Then add the corresponding custom component to the editor's **Properties**. Selecting the corresponding node and add the custom component by clicking **Add Component-> Custom Component -> User Script** at the bottom of the **Properties**. Then drag and drop the node with the AudioSource component onto **Audio Source** in the custom component. As shown below:
 
 ![](audio/audiosourcecontrol.png)
 

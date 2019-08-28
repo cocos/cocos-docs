@@ -1,10 +1,10 @@
-# Publishing to Vivo Mini Games
+# Publishing to vivo Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __Vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the Vivo Mini Game platform. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
+Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the vivo Mini Game. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
 
 ## Environment Configuration
 
-- Download [Quick App & Vivo Mini Game Debugger](https://dev.vivo.com.cn/documentCenter/doc/163) and [Vivo Mini Game Engine](https://dev.vivo.com.cn/documentCenter/doc/163) and install it on your Android device (recommended Android Phone 6.0 or above)
+- Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
 - Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally:
 
@@ -26,7 +26,7 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ## Release Process
 
-**First**, use __Cocos Creator__ to open the project that needs to be released. Select **Vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
+**First**, use __Cocos Creator__ to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-vivo-instant-games/build.png)
 
@@ -40,11 +40,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Package Name**
 
-  **App Package Name** is required and is filled in according to the user's needs.
+  **App Package Name** is filled in according to the user's needs. It's require.
 
 - **App Name**
 
-  **App Name** is required. Is the name of the vivo Mini Game. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
+  **App Name**, the name of the vivo Mini Game, is required. And the **Title** at the top of the **Build** panel does not participate in the vivo mini game packaging process.
 
 - **Desktop Icon**
 
@@ -52,16 +52,16 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Version Name**
 
-  **App Version Name** is required and is filled in according to the user's needs.
+  This item is required. **App Version Name** is the real version, such as: 1.0.0.
 
 - **App Version Number**
 
-  **App Version Number** is required and is filled in according to the user's needs.
+  This item is required. **App Version Number** is different from the **App Version Name**, and the **App Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the app version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **App Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **App Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the requirements of Vivo, this value must be **1020** at present.
-
+  This item is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
+  
 - **Small Packet Mode and Small Packet Mode Server Path**
 
   This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
@@ -78,11 +78,13 @@ The specific filling rules for the relevant parameter configuration are as follo
   
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box.
   
-  **Note**: These two signature files are not recommended to be placed in the build directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
+  **Note**: These two signature files are not recommended to be placed in the **build/qgame** directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
   
-  The user can generate the signature files from the command line, as follows:
+  There are two ways to generate a signature files:
 
-    - How to generate a release signature
+    - Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
+
+    - Generated by the command line.
 
       The user needs to generate the signature file **private.pem**, **certificate.pem** through tools such as openssl. The certificate in the **build/qgame/sign/debug** directory is for debugging purposes only.
 
@@ -129,7 +131,7 @@ The specific filling rules for the relevant parameter configuration are as follo
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __Vivo Mini Game__ project directory.
+**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __vivo Mini Game__ project directory.
 
 ![](./publish-vivo-instant-games/package.png)
 
@@ -145,13 +147,13 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
     ![](./publish-vivo-instant-games/qr_code.png)
 
-    Then open the **Quick App & Vivo Mini Game Debugger** that was installed before on your Android device. Click the **Scan code install** button to scan the QR Code to open the **rpk**.
+    Then open the **Quick App & vivo Mini Game Debugger** that was installed before on your Android device. Click the **Scan code install** button to scan the QR Code to open the **rpk**.
 
     ![](./publish-vivo-instant-games/vivo-instant_scan_install.jpg)
 
 - **Method Two**:
 
-    Generate URLs and QR codes using the __Vivo Mini Game Packer Commands__.
+    Generate URLs and QR codes using the __vivo Mini Game Packer Commands__.
 
     ```bash
     # First assign the command line to the qgame directory
@@ -161,7 +163,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
     npm run server
     ```
 
-    Then open the **Quick App & Vivo Mini Game Debugger** that was installed before on your Android device.
+    Then open the **Quick App & vivo Mini Game Debugger** that was installed before on your Android device.
 
     ![](./publish-vivo-instant-games/vivo-instant_scan_install.jpg)
 
@@ -171,12 +173,12 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
     Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
-    Open the **Quick App & Vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
+    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
 
 ## Reference link
 
-- [Vivo Mini Games Development Documentation](http://minigame.vivo.com.cn/documents/lesson/debug.html#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95)
-- [Vivo Mini Games API Documentation](http://minigame.vivo.com.cn/documents/api/system/life-cycle.html)
-- [Quick App & Vivo Mini Game Debugger Download](http://minigame.vivo.com.cn/documents/download/engine.html)
+- [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
+- [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)
+- [Quick App & vivo Mini Game Debugger Download](https://minigame.vivo.com.cn/documents/#/download/debugger)

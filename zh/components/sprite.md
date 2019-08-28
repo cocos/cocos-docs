@@ -4,7 +4,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 ![add sprite](sprite/sprite_component.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加渲染组件** 中选择 **Sprite**，即可添加 Sprite 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **渲染组件** 中选择 **Sprite**，即可添加 Sprite 组件到节点上。
 
 脚本接口请参考 [Sprite API](../../../api/zh/classes/Sprite.html)。
 
@@ -16,7 +16,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 | Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../asset-workflow/sprite.md)。（Sprite Frame 后面的 **编辑** 按钮用于编辑图像资源的九宫格切分，详情请参考 [使用 Sprite 编辑器制作九宫格图像](../ui/sliced-sprite.md)）
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）、填充（Filled）和网格（Mesh）渲染五种模式
 | Size Mode | 指定 Sprite 的尺寸<br>`Trimmed` 表示会使用原始图片资源裁剪透明像素后的尺寸<br>`Raw` 表示会使用原始图片未经裁剪的尺寸<br> `Custom` 表示会使用自定义尺寸。当用户手动修改过 `Size` 属性后，`Size Mode` 会被自动设置为 `Custom`，除非再次指定为前两种尺寸。
-| Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../asset-workflow/trim.md)
+| Trim | 勾选后将在渲染时去除原始图像周围的透明像素区域，该项仅在 Type 设置为 Simple 时生效。详情请参考 [图像资源的自动剪裁](../asset-workflow/trim.md)
 | Src Blend Factor | 当前图像混合模式
 | Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 

@@ -4,9 +4,9 @@ The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 
 ![toggle1](./toggle/toggle.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **Toggle** from **Add UI Component**. Then you can add the Toggle component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **Toggle** from **UI Component**. Then you can add the Toggle component to the node.
 
-The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html)。
+The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html).
 
 ## Toggle properties
 
@@ -36,7 +36,7 @@ The generic node hierarchy of Toggle is as below:
 
 ![toggle-node-tree](./toggle/toggle-node-tree.png)
 
-**Note**: The checkMark node could be put on top of the background node.
+**Note**: The checkMark node needs to be placed on the upper level of the background node in the **Scene**.
 
 ## Add a callback through the script code
 

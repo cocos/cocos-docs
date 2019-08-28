@@ -12,11 +12,11 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 20;
 ctx.rect(20,20,80,100);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/lineWidth.png"><img src="graphics/lineWidth.png"></a>
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

@@ -94,27 +94,28 @@ cc.tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
 cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 
 // 只对单个属性使用 easing 函数
+// value 必须与 easing 或者 progress 配合使用
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
-## 自定义 process
+## 自定义 progress
 
-相对于 easing，自定义 process 函数可以更自由的控制缓动的过程。
+相对于 easing，自定义 progress 函数可以更自由的控制缓动的过程。
 
 ```js
-// 对所有属性自定义 process
+// 对所有属性自定义 progress
 cc.tween().to(1, { scale: 2, rotation: 90 }, {
   progress: (start, end, current, ratio) => {
     return start + (end - start) * ratio;
   }
 })
 
-// 对单个属性自定义 process
+// 对单个属性自定义 progress
 cc.tween().to(1, {
   scale: 2,
   position: {
     value: cc.v3(),
-    process: (start, end, current, t) => {
+    progress: (start, end, current, t) => {
       // 注意，传入的属性为 cc.Vec3，所以需要使用 Vec3.lerp 进行插值计算
       return start.lerp(end, t, current);
     }

@@ -1,4 +1,4 @@
-# IPC workdflow
+# IPC workflow
 
 Please read [Introduction To Ipc](introduction-to-ipc.md) to understand the basic concept of IPC.
 
@@ -38,7 +38,7 @@ We also have the following methods to operate IPC:
 
 ## Recieve Message
 
-To recieve ipc message in main or renderer process, the easist way is define the `messages` field:
+To recieve ipc message in main or renderer process, the easiest way is define the `messages` field:
 
 ### Listening message in panel
 
@@ -131,7 +131,7 @@ When timeout triggerred, a timeout error will reply:
 
 ```js
 Editor.Ipc.sendToMain('foobar:greeting', function (error, answer) {
-  if ( error.code === 'ETIMEOUT' ) { //check the error code to confirm a timeout
+  if ( error && error.code === 'ETIMEOUT' ) { //check the error code to confirm a timeout
     Editor.error('Timeout for ipc message foobar:greeting');
     return;
   }

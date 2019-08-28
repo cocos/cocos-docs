@@ -14,11 +14,11 @@ var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20,100);
 ctx.lineTo(20,20);
 ctx.lineTo(70,20);
-ctx.stroke();
+ctx.fill();
 ```
 
 <a href="graphics/lineTo.png"><img src="graphics/lineTo.png"></a>
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to [Graphics Component Reference](../../components/graphics.md).

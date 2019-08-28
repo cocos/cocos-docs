@@ -1,6 +1,6 @@
 # 骨骼动画资源（Spine）
 
-骨骼动画资源是由 [Spine](http://zh.esotericsoftware.com/) 所导出的数据格式（Creator v2.0.7 及以下支持 Spine v2.5，Creator v2.0.8 及以上支持 Spine v3.6）。
+骨骼动画资源是由 [Spine](http://zh.esotericsoftware.com/) 所导出的数据格式（Creator v2.0.7 及以下支持 Spine v2.5，Creator v2.0.8 至 v2.1 支持 Spine v3.6，Creator v2.2.0 及以上支持 Spine v3.7）。
 
 ## 导入骨骼动画资源
 

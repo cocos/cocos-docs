@@ -13,7 +13,7 @@ module.exports = {
     let fs = require('fs');
     let path = require('path');
     // automatically create a folder after package loaded
-    fs.mkdirSync(Path.join(Editor.projectPath, 'myNewFolder'));
+    fs.mkdirSync(Path.join(Editor.Project.path, 'myNewFolder'));
     Editor.success('New folder created!');
   }
 }
@@ -21,7 +21,7 @@ module.exports = {
 
 Don't forget to use `Editor.log`, `Editor.success` (Reference at [Console API](api/editor-framework/main/console.md#)) to notify user when you done something automatically.
 
-The `Editor.projectPath` in the example above will return the absolute path of current project, you can find the details in [Editor API](api/editor-framework/main/editor.md).
+The `Editor.Project.path` in the example above will return the absolute path of current project, you can find the details in [Editor API](api/editor-framework/main/editor.md).
 
 An alternative way is put the logic in a menu item instead, For example in [Your First Extension](your-first-extension.md), we define a `main-menu` field and the action for trigering IPC event in `package.json`:
 
@@ -55,7 +55,7 @@ After panel opened, we can send or recieve IPC via  `Editor.Ipc.sendToPanel`, `E
 
 ## Resources and components extensions
 
-Cocos Creator use the Entity Component in the engine, it allow us extends the script by developing new Component. The extension package can used as the media for the components and resources. Also, we can define the `rutnime-resource` field, it will mapping the path under extension to project path, this will make the extensions join the build pipeline correctly.
+Cocos Creator use the Entity Component in the engine, it allow us extending the script by developing new Component. The extension package can used as the media for the components and resources. Also, we can define the `runtime-resource` field, it will mapping the path under extension to project path, this will make the extensions join the build pipeline correctly.
 
 ```json
 //package.json

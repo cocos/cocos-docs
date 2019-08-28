@@ -95,27 +95,28 @@ cc.tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
 cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 
 // Use the easing function only for a single property
+// value must be used with easing or progress
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
-## Custom process
+## Custom progress
 
-Compared to easing, custom process function has more freedom to control the easing process.
+Compared to easing, custom progress function has more freedom to control the easing process.
 
 ```js
-// Customize the process for all properties
+// Customize the progress for all properties
 cc.tween().to(1, { scale: 2, rotation: 90 }, {
   progress: (start, end, current, ratio) => {
     return start + (end - start) * ratio;
   }
 })
 
-// Customize the process for a single property
+// Customize the progress for a single property
 cc.tween().to(1, {
   scale: 2,
   position: {
     value: cc.v3(),
-    process: (start, end, current, t) => {
+    progress: (start, end, current, t) => {
       // Note that the passed in property is cc.Vec3, so you need to use Vec3.lerp for interpolation calculations
       return start.lerp(end, t, current);
     }

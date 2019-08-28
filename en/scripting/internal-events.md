@@ -33,7 +33,7 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 
 The important APIs of mouse events（`cc.Event.EventMouse`）are as follows（`cc.Event` standard events API excluded）：
 
-| fuction name | returned value type | meaning |
+| function name | returned value type | meaning |
 | ------ |:-------:|:----:|
 | `getScrollY` | `Number` | get the y axis distance wheel scrolled, effective only when scrolling  |
 | `getLocation` | `Object` | get mouse location object which includes x and y properties |

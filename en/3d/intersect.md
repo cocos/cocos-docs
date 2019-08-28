@@ -2,9 +2,7 @@
 
 > Authors：Xunyi, youyou
 
-Cocos Creator offer a set of API use for detection the 3D object collision, the user can use these API to detection the raycast and so on.
-
-Creator provides a set of apis for detecting 3D object collision, and user can use these APIs for detection such as raycast.
+Cocos Creator provides a set of API for detecting 3D object collision, and user can use these APIs for detection such as raycast.
 
 ## Raycast
 

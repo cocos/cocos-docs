@@ -145,7 +145,7 @@ Cocos Creator in order to achieve cross-platform, in the JavaScript layer needs 
 The current adaptation layer consists of three parts:
 
 - `jsb-adapter`: Suitable for native platforms
-- `weapp-adapter`: Suitable for Wechat Mini Games
+- `weapp-adapter`: Suitable for WeChat Mini Games
 - `qqplay-adapter`: Suitable for QQ Play
 
 ### 3.1 Get adapter
@@ -220,7 +220,7 @@ After Creator v2.0.7, Jsb-adapter abandoned the cumbersome manual compilation op
 
 ### 3.3 Customize weapp-adapter and qqplay-adapter
 
-The adaptation layer code for the **Wechat Mini Games** and **QQ Play** is located in the `weapp-adapter` and `qqplay-adapter` in the `resources/builtin` directory.
+The adaptation layer code for the **WeChat Mini Games** and **QQ Play** is located in the `weapp-adapter` and `qqplay-adapter` in the `resources/builtin` directory.
 
 - The customization of this part of the code does not require any compilation operations.  
 - Engine-level adaptation work, please complete in the appropriate engine directory.  

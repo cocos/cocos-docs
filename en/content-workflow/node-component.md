@@ -48,11 +48,11 @@ These two properties will multiply with the image of rendering component to dete
 
 ## Add other components
 
-We can add multiple components to one node so that we can extend features to the element. In the example above, we can continue to select the `New Sprite` node, click the **Add component** button at the bottom of the **Properties** panel and select `Add UI component/Button` to add a **Button** component.
+We can add multiple components to one node so that we can extend features to the element. In the example above, we can continue to select the `New Sprite` node, click the **Add component** button at the bottom of the **Properties** panel and select **UI Component -> Button** to add a **Button** component.
 
 Then set the Button component according to the following picture (the actual color attribute can be set freely according to your own taste):
 
-![button property](node-component/button_property.jpeg)
+![button property](node-component/button_property.png)
 
 Next, click the **Preview** button on the toolbar ![preview](../getting-started/basics/toolbar/preview.png) and hover the mouse over the sprite image in the browser window. You can then see the color of the image changes which means the **Button** component on the node has taken effect!
 

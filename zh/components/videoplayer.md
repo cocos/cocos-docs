@@ -58,7 +58,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 **注意**：在 iOS 平台的全屏模式下，点击视频无法发送 CLICKED 事件。如果需要让 iOS 全屏播放并正确接受 CLICKED 事件，
 可以使用 Widget 组件把视频控件撑满。
 
-详情可参考 [VideoPlayer 事件](../../../api/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/v2.0/assets/cases/02_ui/09_videoplayer)。
+详情可参考 [VideoPlayer 事件](../../../api/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer)。
 
 ## 详细说明
 
@@ -132,4 +132,4 @@ cc.Class({
 
 ## 支持平台
 
-由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏平台上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。
+由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。

@@ -54,12 +54,12 @@ Create nodes through this menu, and Control node to prefab conversion.
 
 Use this menu to add various components on the currently selected node.
 
-* **Add Collider Component**: Please refer to [Collider Component](../../physics/collision/edit-collider-component.md).
-* **Add Other Component**: Including animation, audio source, trailing and other components.
-* **Add Physics Component**: Add physical related components.
-* **Add Renderer Component**: Please refer to [Renderer and Graphics](../../render/index.md).
-* **Add Custom Component**: Here you can add the script component that the user created in the project.
-* **Add UI Component**: Please refer to [UI system](../../ui/index.md).
+* **Collider Component**: Please refer to [Collider Component](../../physics/collision/edit-collider-component.md).
+* **Other Component**: Including animation, audio source, trailing and other components.
+* **Physics Component**: Add physical related components.
+* **Renderer Component**: Please refer to [Renderer and Graphics](../../render/index.md).
+* **Custom Component**: Here you can add the script component that the user created in the project.
+* **UI Component**: Please refer to [UI system](../../ui/index.md).
 
 ## Project
 

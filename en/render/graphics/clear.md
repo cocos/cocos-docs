@@ -9,11 +9,12 @@ update: function (dt) {
     var ctx = node.getComponent(cc.Graphics);
     ctx.clear();
     ctx.circle(200,200, 200);
-    ctx.stroke();
+    ctx.fill();
 }
 ```
 
 <hr>
 
-Return to [Graphics component](index.md)
+Return to [Graphics Component Reference](../../components/graphics.md)
+
 

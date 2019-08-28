@@ -62,7 +62,7 @@ The manifest file is a json format that we use to compare local and remote asset
     "engineVersion": engine version
     "assets": all asset lists
         "key": the relative path of the asset (relative to the asset root)
-        "md5": The md5 value represents the version information of the asset file
+        "md5": The md5 hash represents the version information of the asset file
         "compressed": [optional] If the value is true, the file is automatically downloaded after being extracted, currently only supports zip compression format
         "size": [optional] The byte size of the file used to quickly get progress information
     "searchPaths": A list of search paths that need to be added to FileUtils

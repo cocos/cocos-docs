@@ -508,4 +508,4 @@
 
 ## 推荐阅读
 
-[airbnb/es5](https://github.com/airbnb/javascript/tree/master/es5)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#table-of-contents)

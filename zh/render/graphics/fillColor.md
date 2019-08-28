@@ -8,11 +8,11 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.fillColor = new cc.Color().fromHEX('#0000ff');
 ctx.rect(20,20,250,200);
-ctx.stroke();
+ctx.fill();
 ```
 
 ![](graphics/fillColor.png)
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

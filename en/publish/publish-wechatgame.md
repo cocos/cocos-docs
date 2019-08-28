@@ -4,9 +4,9 @@ Starting with __v1.8__, Cocos Creator officially supports the release of games t
 
 ![](./publish-wechatgame/preview.jpeg)
 
-## __WeChat Mini Game__ Platform
+## __WeChat Mini Game__
 
-__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__ platform. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
+__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
 The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
 
@@ -16,7 +16,7 @@ As an engine, in order to simplify the developer's workload as much as possible,
 - __Cocos Creator__ editor provides a fast packaging process, released directly as a __WeChat Mini Game__, and automatically evokes the developer tools of the mini game.
 - Automatic loading of remote resources, cache resources and cache resource versioning.
 
-In addition, the game submission, review and release process of the __WeChat Mini Game__ platform is no different from the __WeChat Mini Program__ platform. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
+In addition, the game submission, review and release process of the __WeChat Mini Game__ is no different from the __WeChat Mini Program__. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
 
 ## Using Cocos Creator to publish WeChat Mini Games
 
@@ -51,10 +51,12 @@ This brings up two key issues, first page loading speed and remote resource cach
 
 In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the **REMOTE_SERVER_ROOT** property, the logic of the engine downloading the resource becomes:
 
-1. Check if the resource is in the mini game pack
-2. Query local cache resources if they do not exist
-3. Download from a remote server if there is no cache
-4. After downloading, save it to the game application cache for re-access.
+1. Check if the resource is in local cache storage
+2. Check if the resource is in the mini game pack if there is no cache
+3. Download from a remote server if they do not exist in mini game pack
+4. After downloading to temporary directory, use it directly
+5. Save it to the game application cache slowly in backstage for re-access.
+6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process 
 
 At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
 
@@ -96,7 +98,3 @@ __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For
 - [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
 - [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 - [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
-
-## F.A.Q
-
-Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.com/t/faq/54828).

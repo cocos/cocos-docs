@@ -1,6 +1,6 @@
 # 扩展主菜单
 
-Cocos Creator 的主菜单是可以自由扩展的。扩展方法为在 `package.json` 文件中的 `main-menu` 字段里，加入自己的菜单路径和菜单设置选项。下面是一份主菜单的配置样例：
+Cocos Creator 的主菜单是可以自由扩展的。扩展方法是在 `package.json` 文件中的 `main-menu` 字段里，加入自己的菜单路径和菜单设置选项。下面是一份主菜单的配置样例：
 
 ```json
 {
@@ -44,20 +44,20 @@ Cocos Creator 的主菜单是可以自由扩展的。扩展方法为在 `package
 }
 ```
 
-在这个例子中，我们先在主菜单中注册了一份菜单路径 “Examples/Foobar”，这之后我们有注册了 “Examples/Foobar/Bar”，而第二个菜单路径的注册要求 Foobar 的类型为一个分级子菜单（submenu），然而由于上一次的注册已经将 Foobar 的类型定义为菜单选项（menu-item），从而导致了注册失败。
+在这个例子中，我们先在主菜单中注册了一份菜单路径 `Examples/Foobar`，这之后我们又注册了 `Examples/Foobar/Bar`，而第二个菜单路径的注册要求 Foobar 的类型为一个分级子菜单（submenu），然而由于上一次的注册已经将 Foobar 的类型定义为菜单选项（menu-item），从而导致了注册失败。
 
 ## 菜单选项
 
-在上面的例子中，我们已经使用了 `message` 菜单选项。菜单注册过程中还有许多其他的可选项，例如：icon、accelerator、type 等。更多选项，请阅读[主菜单字段参考](reference/main-menu-reference.md)。
+在上面的例子中，我们已经使用了 `message` 菜单选项。菜单注册过程中还有许多其他的可选项，例如：icon、accelerator、type 等。更多选项，请阅读 [主菜单字段参考](reference/main-menu-reference.md)。
 
 ## 插件专用菜单分类
 
 为了避免用户安装多个插件时，每个插件随意注册菜单项，降低可用性，我们推荐所有编辑器扩展插件的菜单都放在统一的菜单分类里，并以插件包名对不同插件的菜单项进行划分。
 
-插件专用的菜单分类路径是 `i18n:MAIN_MENU.package`，在中文语言环境会显示为一级菜单 `插件`，接下来的二级菜单路径名应该是插件的包名，最后的三级路径是具体的菜单项功能，如：
+插件专用的菜单分类路径是 `i18n:MAIN_MENU.package.title`，在中文语言环境会显示为一级菜单 `插件`，接下来的二级菜单路径名应该是插件的包名，最后的三级路径是具体的菜单项功能，如：
 
-`i18n:MAIN_MENU.package/FooBar/Bar`
+`i18n:MAIN_MENU.package.title/FooBar/Bar`
 
 在中文环境的编辑器下就会显示如 `插件/FooBar/Bar` 这样的菜单。
 
-`i18n:MAIN_MENU.package` 是多语言专用的路径表示方法，详情请见 [扩展包多语言化](i18n.md) 文档。
+`i18n:MAIN_MENU.package.title` 是多语言专用的路径表示方法，详情请见 [扩展包多语言化](i18n.md) 文档。
