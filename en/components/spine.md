@@ -78,7 +78,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
 
     ![spine-cloth](./spine/cloth3.png)
 
-## Spine Vertex
+## Vertex Effect
 
 Vertex effect is only valid when the Animation Cache Mode property of Spine component is in REALTIME mode. Next we use an example to show how to set the vertex effect of Spine.
 

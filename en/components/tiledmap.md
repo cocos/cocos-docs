@@ -24,17 +24,17 @@ API reference: [TiledMap API](../../../api/en/classes/TiledMap.html).
   ![](./tiledmap/tiledlayer.png)
 - The Tiledmap component does not support `mapLoaded` callback, you can use TiledMap component in callback `start`.
 
-## TiledLayer and Node Occlusion
+## TiledLayer and Node Overlap
 
 The TiledLayer component converts the coordinates of the nodes added to the map layer into the row and column coordinates of the map block.
 
 When rendering a map block in the map layer in row and column order, if there are nodes in the row and column of the map block, the rendering of the map block will be interrupted and the nodes will be rendered instead.
 
-After rendering the nodes in the map block, the map block will continue to be rendered to achieve mutual occlusion between the nodes and the map layer.
+After rendering the nodes in the map block, the map block will continue to be rendered to achieve mutual overlap between the nodes and the map layer.
 
-**Node**: The occlusion relationship is only related to the coordinates of the node, regardless of the size of the node.
+**Node**: The overlap relationship is only related to the coordinates of the node, regardless of the size of the node.
 
-Here is an example of how TiledLayer achieves occlusion with nodes.
+Here is an example of how TiledLayer achieves overlap with nodes.
 
 1. Create a new empty node in Node Tree and add the Spine component in Properties. When the property of the TiledMap component is completed, nodes with the TiledLayer component are automatically generated (that is the map layer).
 
@@ -68,7 +68,7 @@ Here is an example of how TiledLayer achieves occlusion with nodes.
                 // The node's position can be set as random, here only as an example.
                 shieldNode.x = posArr[i].x;
                 shieldNode.y = posArr[i].y;
-                // Calling the addUserNode method of the TiledLayer component to add nodes to the corresponding map layer and create a mutual occlusion relationship with the map layer.
+                // Calling the addUserNode method of the TiledLayer component to add nodes to the corresponding map layer and create a mutual overlap relationship with the map layer.
                 this.tiledLayer.addUserNode(shieldNode); 
             }
         },
@@ -77,7 +77,7 @@ Here is an example of how TiledLayer achieves occlusion with nodes.
 
 4. Mount the script component onto the Canvas, it means dragging and dropping the script into the **Properties** of the node. Then drag and drop the auto-generated node with TiledLayer component in the **Node Tree** and the prefab in the **Assets** to the corresponding property box of script component. And save the Scene.
 
-5. Click the preview button at the top of the editor, we can see the effact that the nodes and the map layer mutual occlusion. About the code, please refer to [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap) for details.
+5. Click the preview button at the top of the editor, we can see the effact that the nodes and the map layer mutual overlap. About the code, please refer to [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap) for details.
 
     ![](./tiledmap/shieldNode.png)
 
