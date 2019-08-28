@@ -26,7 +26,7 @@ TiledMap 的脚本接口请参考 [TiledMap API](../../../api/zh/classes/TiledMa
 
 ## TiledLayer 与节点遮挡
 
-TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列坐标。当按行列顺序渲染地图层中的地图块时，如果该地图块所处行列中存在节点，那么将会中断渲染地图块转而渲染节点。当地图块中的节点渲染完毕后，会继续渲染地图块。以此实现节点与地图层相互遮挡关系。
+TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列坐标。当按行列顺序渲染地图层中的地图块时，如果该地图块的行列中存在节点，那么将会中断渲染地图块转而渲染节点。当地图块中的节点渲染完毕后，会继续渲染地图块。以此实现节点与地图层相互遮挡关系。
 
 **注意**：该遮挡关系只与节点的坐标有关，与节点的大小无关。
 
@@ -43,7 +43,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
         extends: cc.Component,
     
         properties: {
-            // 用于实例化节点的预置体
+            // 用于实例化节点的预制体
             prefab:{
                 type: cc.Prefab,
                 default: null,
@@ -57,11 +57,11 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
         },
     
         start () {
-            // 用户可根据需求设置节点位置
+            // 开发者可根据需求设置节点位置
             let posArr = [cc.v2(-249, 96), cc.v2(-150, 76), cc.v2(-60, 54), cc.v2(-248, -144), cc.v2(-89, -34)];
             for (let i = 0; i < posArr.length; i++) {
                 let shieldNode = cc.instantiate(this.prefab);
-                // 可任意时刻设置节点位置，这里仅作为示范
+                // 可任意设置节点位置，这里仅作为示范
                 shieldNode.x = posArr[i].x;
                 shieldNode.y = posArr[i].y;
                 // 调用 TiledLayer 组件的 addUserNode 方法，可将节点添加到对应的地图层中，并与地图层产生相互遮挡关系。
