@@ -89,7 +89,7 @@ Note that after the fill mode is selected in the progress bar, the unit of `Tota
 
 ## EditBox
 
-The use of input boxes is more direct, please refer to [EditBox Component Reference](../components/editbox.md) for details.
+Please refer to [EditBox Component Reference](../components/editbox.md) for details.
 
 <hr>
 

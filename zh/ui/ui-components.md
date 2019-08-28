@@ -87,4 +87,4 @@ Button 上的点击事件是为了方便设计师在制作 UI 界面时可以自
 
 ## EditBox（输入框）
 
-输入框的使用方式比较直接，请直接参考 [EditBox 组件参考](../components/editbox.md) 文档里每个属性的说明进行设置即可。
+请参考 [EditBox 组件参考](../components/editbox.md) 文档里每个属性的说明进行设置。
