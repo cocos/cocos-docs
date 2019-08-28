@@ -133,7 +133,7 @@
         - [ScrollBar Reference](components/scrollbar.md)
         - [ProgressBar Reference](components/progress.md)
         - [Toggle Reference](components/toggle.md)
-        - [ToggleGroup Reference](components/toggleGroup.md)
+        - [ToggleContainer Reference](components/toggleContainer.md)
         - [Slider Reference](components/slider.md)
         - [PageView Reference](components/pageview.md)
         - [PageViewIndicator Reference](components/pageviewindicator.md)

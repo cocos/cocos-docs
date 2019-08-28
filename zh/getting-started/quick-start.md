@@ -499,7 +499,7 @@ properties: {
 下面是常用参数：
 
 `default`：设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
-`type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.html#type-%E5%8F%82%E6%95%B0)<br>
+`type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.md#type-%E5%8F%82%E6%95%B0)<br>
 `visible`：设为 false 则不在属性检查器面板中显示该属性<br>
 `serializable`： 设为 false 则不序列化（保存）该属性<br>
 `displayName`：在属性检查器面板中显示成指定名字<br>

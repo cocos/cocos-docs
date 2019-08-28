@@ -231,7 +231,7 @@ In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so 
 
 ## 3.6 RenderTexture Screenshot
 
-In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots](../render/camera.html#%E6%88%AA%E5%9B%BE).
+In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots](../render/camera.md#%E6%88%AA%E5%9B%BE).
 
 ## 3.7 TiledMap function simplification
 
