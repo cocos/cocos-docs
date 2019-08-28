@@ -51,7 +51,7 @@ Creator 在新建项目面板中提供了一个范例工程，该工程自带了
 | --------------    | ----------- |
 | title             | CocosCreator + 项目名  |
 | cocos2d           | 引擎脚本所在路径      |
-| enableDebugger    | 当预览在移动浏览器平台上时该变量会为 true      |
+| enableDebugger    | 当在移动浏览器平台上预览时该变量会为 true      |
 
 ## preview-templates 拓展
 
