@@ -19,7 +19,7 @@ Creator 从 1.10 开始正式支持了 JSON 文件。项目 assets 文件夹下�
 也可以动态加载：
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, jsonAsset) {
+    cc.assetManager.loadRes('configs/npc', function (err, jsonAsset) {
         loadNpc(jsonAsset.json);
     });
 ```

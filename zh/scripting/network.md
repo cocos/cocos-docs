@@ -7,6 +7,8 @@
 
 当然，在 Web 平台，浏览器原生就支持这两个接口，之所以说 Cocos Creator 支持，是因为在发布原生版本时，用户使用这两个网络接口的代码也是可以运行的。也就是遵循 Cocos 一直秉承的 “一套代码，多平台运行” 原则。
 
+**注意** ：
+
 ## 使用方法
 
 1. XMLHttpRequest
@@ -24,7 +26,7 @@
     xhr.send();
     ```
 
-    开发者可以直接使用 `new XMLHttpRequest()` 来创建一个连接对象，也可以通过 `cc.loader.getXMLHttpRequest()` 来创建，两者效果一致。
+    开发者可以直接使用 `new XMLHttpRequest()` 来创建一个连接对象。
 
     `XMLHttpRequest` 的标准文档请参考 [MDN 中文文档](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。
 
@@ -81,3 +83,7 @@
 
 4. 将 SocketIO 脚本文件设为 [插件脚本](./plugin-scripts.html)，这样在组件中直接使用 window.io 就能访问到 SocketIO
 5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/)查询 API 和文档等
+
+
+**注意** ：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块:
+[config](network/config.png)

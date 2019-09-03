@@ -18,7 +18,7 @@ Creator 从 1.10 开始正式支持了文本文件。常见的文本格式，如
 也可以动态加载：
 
 ```js
-    cc.loader.loadRes(url, function (err, file) {
+    cc.assetManager.loadRes(path, function (err, file) {
         cc.log(file.text);
     });
 ```
