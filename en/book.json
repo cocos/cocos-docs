@@ -22,12 +22,12 @@
                 "name": "Cocos Creator 3D",
                 "links": [
                     {
-                        "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator3d/manual/zh/"
+                        "name": "Manual",
+                        "link": "https://docs.cocos.com/creator3d/manual/en"
                     },
                     {
-                        "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator3d/api/zh"
+                        "name": "API Ref",
+                        "link": "https://docs.cocos.com/creator3d/api/en"
                     }
                 ]
             },
