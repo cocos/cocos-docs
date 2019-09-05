@@ -49,13 +49,13 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 By dragging the TTF font file and BMFont font file into the `Font` attribute in the **Properties** panel the Label component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking `Use System Font`.
 
-If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.html) for more information.
+If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.md) for more information.
 
 ### BMFont and UI auto batch
 
 From Creator v1.4, BMFont could be batch drawing with UI elements. In theory, if you don't use TTF font and System font in your UI scene, and all of your UI elements including BMFont texture and LabelAtlas texture could be packed into one Image Atlas, you UI scene could be rendering with only one Draw Call.
 
-For more info of this feature, please refer to [BMFont and UI auto batch](../advanced-topics/ui-auto-batch.html) topic.
+For more info of this feature, please refer to [BMFont and UI auto batch](../advanced-topics/ui-auto-batch.md) topic.
 
 ---
 

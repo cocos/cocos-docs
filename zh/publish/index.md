@@ -4,7 +4,6 @@
 - [安装配置原生开发环境](setup-native-development.md)
 - [打包发布原生平台](publish-native.md)
 - [原生平台 JavaScript 调试](debug-jsb.md)
-- [发布到支付宝小游戏](publish-alipay-mini-games.md)
 - [发布到微信小游戏](publish-wechatgame.md)
     - [微信小游戏开放数据域](publish-wechatgame-sub-domain.md)
 - [发布到百度小游戏](publish-baidugame.md)

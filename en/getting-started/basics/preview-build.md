@@ -36,7 +36,7 @@ There are a bunch of control in Preview page:
 
 #### Debugging with VS Code
 
-We can debug our projects with VS Code text editor, please read [Use VS Code to debug web games](../coding-setup.md##use-vs-code-to-debug-web-games) for details.
+We can debug our projects with VS Code text editor, please read [Use VS Code to debug web games](../coding-setup.md#use-vs-code-to-debug-web-games) for details.
 
 #### Debugging with browser Developer Tools
 
