@@ -38,19 +38,19 @@ There are two ways to deal with the original, one is to add a black background u
 
 ### How to control Prefab with plugins
 
-Create Prefab:
+**Create Prefab**:
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:create-prefab', node.uuid, 'db://assets/xxx/xxx.prefab');
 ```
 
-Enter Prefab edit mode:
+**Enter Prefab edit mode**:
 
 ```js
 Editor.Ipc.sendToAll('scene:enter-prefab-edit-mode', assetUuid);
 ```
 
-Save Prefab:
+**Save Prefab**:
 
 ```js
 Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);

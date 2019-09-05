@@ -43,7 +43,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 
 #### 使用 VS Code 调试
 
-您可以使用 VS Code 在项目工程里直接对游戏预览进行调试，详情请参阅 [使用 VS Code 调试网页版游戏](../coding-setup.md##-vs-code--1)。
+您可以使用 VS Code 在项目工程里直接对游戏预览进行调试，详情请参阅 [使用 VS Code 调试网页版游戏](../coding-setup.md#-vs-code--1)。
 
 #### 使用浏览器开发者工具进行调试
 

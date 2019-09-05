@@ -59,54 +59,55 @@ meta 文件是由 Creator 编辑器中的 `AssetDB (asset database)` 模块创�
 
 1. 因为资源及其 meta 文件都是由 AssetDB 模块进行管理的。所以，在插件中，不能通过简单的文件拷贝来导入资源。而需要通过 AssetDB 模块的接口来进行导入。导入资源的接口说明如下：
 
-	```
-   // 在 page 层，使用 Editor.assetdb.import 接口
-   // Import files outside asset-db to specific url folder.
-   // The import result will be sent through ipc message 'asset-db:assets-created'
-   // @method import
-   // @param {array} rawfiles - Rawfile path list
-   // @param {string} destUrl - The url of dest folder
-   // @param {boolean} showProgress - Show progress or not
-   // @param {function} cb - The callbak function
-   // @example
-   // Editor.assetdb.import( [
-   //      '/file/to/import/01.png',
-   //      '/file/to/import/02.png',
-   //      '/file/to/import/03.png',
-   // ], 'db://assets/foobar' );
-   // 
-   Editor.assetdb.import ( rawfiles, destUrl, showProgress, cb );
+    ```js
+    // 在 page 层，使用 Editor.assetdb.import 接口
+    // Import files outside asset-db to specific url folder.
+    // The import result will be sent through ipc message 'asset-db:assets-created'
+    // @method import
+    // @param {array} rawfiles - Rawfile path list
+    // @param {string} destUrl - The url of dest folder
+    // @param {boolean} showProgress - Show progress or not
+    // @param {function} cb - The callbak function
+    // @example
+    // Editor.assetdb.import( [
+    //      '/file/to/import/01.png',
+    //      '/file/to/import/02.png',
+    //      '/file/to/import/03.png',
+    // ], 'db://assets/foobar' );
+    // 
+    Editor.assetdb.import ( rawfiles, destUrl, showProgress, cb );
 
-   // 在 core 层，使用 Editor.Ipc.sendToMain 发消息来实现
-   // 这个是临时方案，后续 Creator 版本会将 core 层与 page 层行为统一，使用 import 接口即可
-   Editor.Ipc.sendToMain('asset-db:import-assets', rawfiles, destUrl, showProgress, cb, -1);
-  ```
+    // 在 core 层，使用 Editor.Ipc.sendToMain 发消息来实现
+    // 这个是临时方案，后续 Creator 版本会将 core 层与 page 层行为统一，使用 import 接口即可
+    Editor.Ipc.sendToMain('asset-db:import-assets', rawfiles, destUrl, showProgress, cb, -1);
+    ```
 
-	需要特别说明的是：
-	* rawfiles 为需要导入的文件绝对路径数组。而且不能是 assets 文件夹中的文件。
-	* destUrl 必须为已经在 assets 中存在的资源文件夹。
+    需要特别说明的是：
 
-2. 目前只能在 page 层获取 meta 数据。可以参考[AssetDB API Render](../api/asset-db/asset-db-renderer.md)。示例代码：
+    * rawfiles 为需要导入的文件绝对路径数组。而且不能是 assets 文件夹中的文件。
+    * destUrl 必须为已经在 assets 中存在的资源文件夹。
 
-	```
-  Editor.assetdb.queryMetaInfoByUuid( uuid, function ( err,info ) {
-    // info 中包含以下属性：
-    // assetType: 资源类型
-    // defaultType: meta 类定义的 defaultType 接口返回值（一般与 assetType 一致）,
-    // assetUrl: 资源的 Url（格式如：db://assets/foobar）,
-    // assetPath: 资源文件在文件系统中的绝对路径,
-    // metaPath: meta 文件在文件系统中的绝对路径,
-    // metaMtime: meta 文件的最后修改时间,
-    // assetMtime: 资源文件的最后修改时间,
-    // isSubMeta: 是否为 subMeta,
-    // json: meta 文件中的内容
+2. 目前只能在 page 层获取 meta 数据。可以参考 [AssetDB API Render](../api/asset-db/asset-db-renderer.md)。示例代码：
 
-    var meta = JSON.parse(info.json);
+    ```js
+    Editor.assetdb.queryMetaInfoByUuid( uuid, function ( err,info ) {
+      // info 中包含以下属性：
+      // assetType: 资源类型
+      // defaultType: meta 类定义的 defaultType 接口返回值（一般与 assetType 一致）,
+      // assetUrl: 资源的 Url（格式如：db://assets/foobar）,
+      // assetPath: 资源文件在文件系统中的绝对路径,
+      // metaPath: meta 文件在文件系统中的绝对路径,
+      // metaMtime: meta 文件的最后修改时间,
+      // assetMtime: 资源文件的最后修改时间,
+      // isSubMeta: 是否为 subMeta,
+      // json: meta 文件中的内容
 
-    // 在这里修改 meta 的属性
+      var meta = JSON.parse(info.json);
 
-    Editor.assetdb.saveMeta(meta.uuid, JSON.stringify(meta), err => {
-        // meta 属性已修改，继续处理
+      // 在这里修改 meta 的属性
+
+      Editor.assetdb.saveMeta(meta.uuid, JSON.stringify(meta), err => {
+          // meta 属性已修改，继续处理
+      });
     });
-  });
-	```
+    ```

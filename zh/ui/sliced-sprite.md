@@ -11,7 +11,7 @@ Cocos Creator 的 UI 系统核心的设计原则就是能够自动适应各种�
 要使用可以无限放大的九宫格图像效果，我们需要先对图像资源进行九宫格切分。有两种方式可以打开 **Sprite 编辑器**来编辑图像资源：
 
 - 在 **资源管理器** 中选中图像资源，然后点击 **属性检查器** 最下面的**编辑**按钮。如果您的窗口高度不够，可能需要向下滚动 **属性检查器** 才能看到下面的按钮。
-- 在 **场景编辑器** 中选中想要九宫格化的图像节点，然后在 **属性检查器** 的 Sprite 组件里，找到并按下`Sprite Frame`属性右侧的**编辑**按钮。
+- 在 **场景编辑器** 中选中想要九宫格化的图像节点，然后在 **属性检查器** 的 Sprite 组件里，找到并按下 `Sprite Frame` 属性右侧的 **编辑** 按钮。
 
 打开 **Sprite 编辑器** 以后，可以看到图像周围有一圈绿色的线条，表示当前九宫格分割线的位置。将鼠标移动到分割线上，可以看到光标形状改变了，这时候就可以按下并拖拽鼠标来更改分割线的位置。
 
@@ -19,7 +19,7 @@ Cocos Creator 的 UI 系统核心的设计原则就是能够自动适应各种�
 
 ![sliced](sliced-sprite/editing.png)
 
-而下图中描述了不同区域缩放时的示意（图片来自[Yannick Loriot的博客](http://yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）：
+而下图中描述了不同区域缩放时的示意（图片来自 [Yannick Loriot的博客](http://yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）：
 
 ![scaling](sliced-sprite/scaling.png)
 
@@ -27,11 +27,11 @@ Cocos Creator 的 UI 系统核心的设计原则就是能够自动适应各种�
 
 ## 设置 Sprite 组件使用 Sliced 模式
 
-准备好九宫格切分的资源后，就可以修改 Sprite 的显示模式并通过修改`size`来制作可任意指定尺寸的 UI 元素了。
+准备好九宫格切分的资源后，就可以修改 Sprite 的显示模式并通过修改 `size` 来制作可任意指定尺寸的 UI 元素了。
 
 1. 首先选中场景中的 Sprite 节点，将 Sprite 的 `Type` 属性设为 `Sliced`。
-2. 然后通过[矩形变换工具](../getting-started/basics/editor-panels/scene.md#--12)拖拽控制点使节点的 `size` 属性变大。您也可以直接在 **属性检查器** 中输入数值来修改 `size` 属性。如果图像资源是用九宫格的形式生产的，那么不管 Sprite 如何放大，都不会产生模糊或变形。
+2. 然后通过 [矩形变换工具](../getting-started/basics/editor-panels/scene.md#--12)拖拽控制点使节点的 `size` 属性变大。您也可以直接在 **属性检查器** 中输入数值来修改 `size` 属性。如果图像资源是用九宫格的形式生产的，那么不管 Sprite 如何放大，都不会产生模糊或变形。
 
 ## 注意事项
 
-在使用**矩形变换工具**或直接修改 Sliced Sprite 的`size`属性时，注意`size`属性值不能为负数，否则不能以 Sliced 模式正常显示。
+在使用 **矩形变换工具** 或直接修改 Sliced Sprite 的 `size` 属性时，注意 `size` 属性值不能为负数，否则不能以 Sliced 模式正常显示。
