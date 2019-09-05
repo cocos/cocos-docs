@@ -140,7 +140,7 @@
         - [ScrollBar 组件参考](components/scrollbar.md)
         - [ProgressBar 组件参考](components/progress.md)
         - [Toggle 组件参考](components/toggle.md)
-        - [ToggleGroup 组件参考](components/toggleGroup.md)
+        - [ToggleContainer 组件参考](components/toggleContainer.md)
         - [Slider 组件参考](components/slider.md)
         - [PageView 组件参考](components/pageview.md)
         - [PageViewIndicator 组件参考](components/pageviewindicator.md)
