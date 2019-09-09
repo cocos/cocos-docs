@@ -84,13 +84,15 @@ Stencil 状态即模板测试，通过模板缓冲来实现特定的效果，在
 
 ![UI 测试例](./ui-auto-batch/ui-mask-creator.png)
 
-运行预览，我们可以在界面左下角的 Profile 信息中看到具体的 Draw call 数值，该测试例的 Draw call 为 8。
+运行预览，我们可以在界面左下角的 Profile 信息中看到具体的 Draw call 数值，该测试例的 Draw call 为 4。
 
 ![UI 测试例预览](./ui-auto-batch/ui-mask.png)
 
 然后我们开启 SpectorJS 打印当前界面的渲染帧，就可以看到每一次 Draw call 调用具体的绘制信息，如下图所示：
 
 ![UI 测试例渲染帧](./ui-auto-batch/ui-mask.png)
+
+通过每一次 drawElements 中间的状态切换，我们即可知道是什么原因导致的不能合批。
 
 ## 注意事项
 
