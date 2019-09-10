@@ -17,6 +17,8 @@
 | Premultiply Alpha | 是否开启 Alpha 预乘，勾选之后表示将 RGB 通道预先乘上 Alpha 通道。 |
 | Wrap Mode | 寻址模式，包括 Clamp （钳位），Repeat （重复）两种寻址模式 |
 | Filter Mode | 过滤方式，包括 Point （邻近点采样），Bilinear （双线性过滤），Trilinear （三线性过滤）三种过滤方式。 |
+| genMipmaps | 是否开启自动生成 mipmap |
+| packable | 是否允许贴图参与合图 |
 
 ## Premultiply Alpha
 
@@ -75,6 +77,18 @@ Texture 的 Premultiply Alpha 属性勾选与否表示是否开启 Alpha 预乘�
 * 三线性过滤（ Trilinear ）：基于双线性过滤，对像素大小与纹理单元大小最接近的两层 Mipmap Level 分别进行双线性过滤，然后再对得到的结果进行线性插值计算采样点的颜色值。最终的采样结果相比邻近点采样和双线性过滤是最好的，但是计算量也最大。
 
 除了在编辑器中直接设置图像资源的过滤方式，引擎中也提供了`cc.view.enableAntiAlias`接口去动态设置 Texture 是否开启抗锯齿功能，如果开启了抗锯齿，那么游戏中所有 Texture 的过滤方式都将使用线性过滤，否则将使用邻近点采样的过滤方式。注意：当前引擎版本中三线性过滤与双线性过滤效果一致。
+
+## genMipmaps
+
+为了加快 3D 场景渲染速度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成的序列，这样的贴图被称为 mipmap。
+mipmap 中每一个层级的小图都是原图的一个特定比例的缩小细节的复制品，当贴图被缩小或者只需要从远距离观看时，mipmap就会转换到适当的层级。
+当贴图过滤方式设置为三线性过滤（trilinear filtering）时，会在两个相近的层级之间插值。
+因为渲染远距离物体时，mipmap 贴图比原图小，提高了显卡采样过程中的缓存命中率，所以渲染的速度得到了提升。同时因为 mipmap 的小图精度较低，从而减少了摩尔纹现象，可以减少画面上的锯齿。
+另外因为额外生成了一些小图，所以 mipmap 需要额外占用约三分之一的内存空间。
+
+## packable
+
+如果引擎开启了 [动态合图](../advanced-topics/dynamic-atlas.md) 功能，动态合图会自动将合适的贴图在开始场景时动态合并到一张大图上来减少 drawcall。但是将贴图合并到大图中会修改原始贴图的 uv 坐标，如果在自定义 effect 中使用了贴图的 uv 坐标，这时 effect 中的 uv 计算将会出错，需要将贴图的 packable 属性设置为 false 来避免贴图被打包到动态合图中。
 
 ## Texture 和 SpriteFrame 资源类型
 
