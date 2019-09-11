@@ -4,6 +4,7 @@
 
 - [Beginner Guide](getting-started/index.md)
     - [About Cocos Creator](./getting-started/introduction.md)
+    - [History](./getting-started/history.md) 
     - [Install and Launch](./getting-started/install.md)
     - [Dashboard](./getting-started/dashboard.md)
     - [Hello World!](./getting-started/hello-world.md)
