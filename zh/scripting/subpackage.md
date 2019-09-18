@@ -62,3 +62,35 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 - 单个分包/主包大小不能超过 **4M**
 
 具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html)。
+
+
+## vivo小游戏
+
+在 vivo 小游戏的构建中，子包的配置也会按照规则自动生成到 vivo 小游戏发布包目录下的 **manifest.json** 配置文件中。
+
+![profile](./subpackage/vivo_profile.png)
+
+**注意**：Cocos Creator 在 2.1.3 版本才开始支持 vivo 小游戏分包。 vivo 小游戏分包功能在游戏引擎版本 1051 才开始支持，对低于 1051 虽然不支持分包功能，但也会兼容。如低于 1051 游戏引擎 不支持，请更新 **快应用&vivo小游戏调试器**。
+
+### 构建后分包的输出目录
+
+项目构建后会在发布包目录 qgame 下的 **src** 生成对应的分包文件夹。
+
+**例如**：将 examplecase 工程中的 **cases/subpackage/First** 文件夹配置为子包，那么项目构建后将会在发布包目录下的 **src** 生成 **First**  文件夹。
+
+  ![package](./subpackage/vivo-subpack-build-path.png)
+
+构建发布时，会对 **cases/subpackage/First** 子包文件夹下所有的 **代码** 和 **资源** 进行以下的相关处理：
+
+  - **代码**：**cases/subpackage/First** 文件夹下的所有代码会合并成一个命名为 **First/game.js** 的入口脚本文件，并且会将这些代码从主包中剔除。
+  - **资源**：会把 **cases/First** 子包资源从发布包目录下的 **res/raw-assets** 文件夹移动到发布包目录下的 **src/First** 目录下。
+
+
+### 分包加载包大小的限制
+
+目前 vivo 小游戏分包大小有以下限制：
+
+- 整个小游戏的所有分包及主包大小不超过 **8M**（整个压缩包包含整包不超过12m）
+- 单个分包/主包大小不能超过 **4M**
+
+具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%80%81%e7%89%88%e6%9c%ac%e5%85%bc%e5%ae%b9)。
