@@ -48,13 +48,19 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This item is required. According to the requirements of OPPO Mini Games, this value must be greater than or equal to **1031** at present.
 
-- **Small Packet Mode and Small Packet Mode Server Path**
+- **Small Packet Mode**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
-  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**. Then click on **Build**.
+  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
-  2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **/quickgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **/build/quickgame/res** directory.
+  2. **First game resource package into the game package**, this item is optional.
+
+      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
+  
+      Developers can choose whether to check this item according to their needs. Then click on **Build**.
+
+  3. After the build is complete, click the **Open** button after the **Publish Path** to upload the **/quickgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **/build/quickgame/res** directory.
 
   At this point, the **res** directory will no longer be included in the built-up rpk, and the resources in the res directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 

@@ -63,25 +63,25 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 
 具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/subpackages.html)。
 
+## vivo 小游戏
 
-## vivo小游戏
-
-在 vivo 小游戏的构建中，子包的配置也会按照规则自动生成到 vivo 小游戏发布包目录下的 **manifest.json** 配置文件中。
+在 vivo 小游戏的构建中，子包的配置也会按照规则自动生成到 vivo 小游戏发布包 qgame/src 目录下的 **manifest.json** 配置文件中。
 
 ![profile](./subpackage/vivo_profile.png)
 
-**注意**：Cocos Creator 在 2.1.3 版本才开始支持 vivo 小游戏分包。 vivo 小游戏分包功能在游戏引擎版本 1051 才开始支持，对低于 1051 虽然不支持分包功能，但也会兼容。如低于 1051 游戏引擎 不支持，请更新 **快应用&vivo小游戏调试器**。
+**注意**：
 
-### 构建后分包的输出目录
+- Creator **v2.1.3** 开始支持 vivo 小游戏分包加载。
+- **快应用 & vivo 小游戏调试器** 从 **1051** 版本开始支持 vivo 小游戏分包加载。低于 1051 的版本虽然不支持分包加载，但是也做了兼容处理，如果勾选了分包也不会影响游戏正常运行。具体可参考 [vivo 分包加载-版本兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%80%81%e7%89%88%e6%9c%ac%e5%85%bc%e5%ae%b9)。
+- 与微信小游戏不同的是，项目构建后分包文件夹是生成在发布包 qgame 目录下的 **src** 目录。
 
-项目构建后会在发布包目录 qgame 下的 **src** 生成对应的分包文件夹。
-
+  ![](./subpackage/vivo_subpackage.png)
 
 ### 分包加载包大小的限制
 
 目前 vivo 小游戏分包大小有以下限制：
 
-- 整个小游戏的所有分包及主包大小不超过 **8M**（整个压缩包包含整包不超过12m）
+- 整个小游戏的所有分包及主包大小不超过 **8M**（整个压缩包包含整包不超过 12M）
 - 单个分包/主包大小不能超过 **4M**
 
-具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%80%81%e7%89%88%e6%9c%ac%e5%85%bc%e5%ae%b9)。
+具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage)。
