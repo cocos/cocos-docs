@@ -54,4 +54,4 @@
 
 如果位图字体使用的贴图和其他 Sprite 使用的贴图是同一张，而且位图字体和 Sprite 之间没有插入使用其他贴图的渲染对象时，位图字体就可以和 Sprite 合并渲染批次。在放置位图字体资源时，请把 `.fnt` 文件、`.png` 文件和 Sprite 所使用的贴图文件放在一个文件夹下，然后参考 [自动图集工作流程](auto-atlas.md) 将位图字体的贴图和 Sprite 使用的贴图打包成一个图集，即可在原生和 WebGL 渲染环境下自动享受位图字体合并渲染的性能提升。
 
-详情请参考 [UI 渲染批次处理指南](../advanced-topics/ui-auto-batch.md)。
+详情请参考 [UI 渲染批次合并指南](../advanced-topics/ui-auto-batch.md)。

@@ -55,6 +55,6 @@ Label 组件可以通过往 **属性检查器** 里的 **Font** 属性拖拽 TTF
 
 使用艺术数字字体需要创建 [艺术数字资源](../asset-workflow/label-atlas.md)，参考链接中的文档设置好艺术数字资源的属性之后，就可以像使用 BMFont 资源一样来使用艺术数字了。
 
-### UI 渲染批次处理指南
+### UI 渲染批次合并指南
 
-更多关于 Label 渲染批次处理的内容请参考 [UI 渲染批次处理指南](../advanced-topics/ui-auto-batch.md)
+更多关于 Label 渲染批次处理的内容请参考 [UI 渲染批次合并指南](../advanced-topics/ui-auto-batch.md)
