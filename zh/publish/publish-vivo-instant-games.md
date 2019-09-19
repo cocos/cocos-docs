@@ -1,7 +1,5 @@
 # 发布到 vivo 小游戏
 
-Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游戏。目前本文档是基于 v2.0.6 编写的，这是推荐使用的最低版本。如果您使用的是 v2.0.5，建议升级到 v2.0.6。下面我们来看一下具体的发布流程。
-
 ## 环境配置
 
 - 下载 [快应用 & vivo 小游戏调试器](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) 和 [vivo 小游戏引擎](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
@@ -34,12 +32,6 @@ Cocos Creator 从 v2.0.5 版本开始正式支持将游戏发布到 vivo 小游�
 一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **vivo 小游戏**。
 
 ![](./publish-vivo-instant-games/build.png)
-
-**必填参数项**：根据用户的需求及参数输入框的提示信息进行填写，包括：**应用包名**、**应用名称**、**应用图标**、**应用版本名称**、**应用版本号**、**支持的最小平台版本号**。
-
-**选填参数项**：包括 **小包模式**、**小包模式服务器路径**、**自定义 npm 文件夹路径（v2.0.9 中新增）**。
-
-而 **密钥库** 以及两个签名文件（**certificate.pem 路径** 和 **private.pem 路径**），需要根据用户需求选择勾选 **密钥库** 或者填写两个路径。相关参数配置具体的填写规则如下：
 
 相关参数配置具体的填写规则如下：
 

@@ -1,7 +1,5 @@
 # 发布到华为快游戏
 
-Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游戏。我们来看一下如何使用 Cocos Creator 发布到华为快游戏。
-
 ## 环境配置
 
 - 下载 [华为快应用加载器](https://obs.cn-north-2.myhwclouds.com/hms-ds-wf/sdk/HwFastAPPEngine_Loader.1213_tool.zip)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
@@ -13,12 +11,6 @@ Cocos Creator 从 v2.0.7 版本开始正式支持将游戏发布到华为快游�
 一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **Huawei Fast Game**。
 
 ![](./publish-huawei-fast-games/build_option.png)
-
-**必填参数项**：根据用户的需求及参数输入框的提示信息进行填写，包括：**应用包名**、**应用名称**、**桌面图标**、**应用版本名称**、**应用版本号**、**支持的最小平台版本号**。
-
-**选填参数项**：包括 **自定义 manifest 文件路径**、**小包模式**、**小包模式服务器路径** 和 **自定义 node 路径（v2.0.9 中新增）**。
-
-**密钥库** 以及两个签名文件（**certificate.pem 路径** 和 **private.pem 路径**），需要根据用户需求选择勾选 **密钥库** 或者填写两个路径。
 
 相关参数配置具体的填写规则如下：
 

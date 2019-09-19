@@ -1,7 +1,5 @@
 # Publishing to OPPO Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the **OPPO Mini Games**. It takes just a single click with Cocos Creator to publish to the OPPO Mini Game. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
-
 ## Environment Configuration
 
 - Download [OPPO Mini Game Debugger](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
@@ -15,12 +13,6 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 1. Use __Cocos Creator__ to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-oppo-instant-games/build_option.png)
-
-**Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number**, **Platform Version Number**.
-
-**Optional parameter items**: Includes **Small Packet Mode**, **Small Packet Mode Server Path** and **Custom npm folder path (New in v2.0.9)**.
-
-For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
 
 The specific filling rules for the relevant parameter configuration are as follows:
 

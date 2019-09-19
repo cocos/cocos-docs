@@ -6,7 +6,7 @@ Some people may think `setTimeout` and `setInterval` are enough. Developers sure
 
 Now, let's see its detailed using method:
 
-First, create a variable named `component` that points to a component. 
+First, create a variable named `component` that refers to a component. 
 
 1. Start a timer
 

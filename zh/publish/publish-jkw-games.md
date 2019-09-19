@@ -1,7 +1,5 @@
 # 发布到即刻玩小游戏
 
-Cocos Creator 从 v2.0.10 版本开始正式支持将游戏发布到即刻玩小游戏，以下是具体的步骤。
-
 ## 环境配置
 
 - 下载 [游戏自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju) 并安装到 Android 设备（建议 Android Phone 6.0 或以上版本）。
