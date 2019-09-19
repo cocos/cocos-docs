@@ -4,6 +4,8 @@ Widget is a frequently used UI layout component. It can make the current node au
 
 ![default](widget/widget-default.png)
 
+Widget will adjust current node's position and size automatically, but the results after adjustment can not be obtained until the next frame unless you call `updateAlignment` manually.
+
 For API reference please read [Widget API](../../../api/en/classes/Widget.html)
 
 ## Property

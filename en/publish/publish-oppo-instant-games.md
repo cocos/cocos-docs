@@ -54,7 +54,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
-  2. **First game resource package into the game package**, this item is optional.
+  2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
 
       In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
   
