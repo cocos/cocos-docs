@@ -71,3 +71,7 @@ Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何
 
 1. 确保 **Widget** 组件的 `Align Mode` 属性设置为 `ONCE`，该属性只会负责在组件初始化（onEnable）时进行一次对齐，而不会每帧再进行一次对齐。可以在初始化时自动完成对齐，然后就可以通过 API 或动画系统对 UI 进行移动变换了。
 2. 通过调用 **Widget** 组件的对齐边距 API，包括 `top`、 `bottom`、 `left`、 `right`，直接修改 Widget 所在节点的位置或某一轴向的拉伸。这些属性也可以在动画编辑器中添加相应关键帧，保证对齐的同时实现各种丰富的 UI 动画。
+
+## 注意
+
+Widget 组件会自动调整当前节点的坐标和宽高，不过目前调整后的结果要到下一帧才能在脚本里获取到，除非你先手动调用 [updateAlignment](../../../api/zh/classes/Widget.html#updatealignment)。

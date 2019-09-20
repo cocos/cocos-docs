@@ -1,7 +1,5 @@
 # Publishing to vivo Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the vivo Mini Game. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
-
 ## Environment Configuration
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
@@ -36,12 +34,6 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ![](./publish-vivo-instant-games/build.png)
 
-**Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number**.
-
-**Optional parameter items**: Includes **Small Packet Mode**, **Small Packet Mode Server Path** and **Custom npm folder path (New in v2.0.9)**.
-
-For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
-
 The specific filling rules for the relevant parameter configuration are as follows:
 
 - **App Package Name**
@@ -74,7 +66,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
-  2. **First game resource package into the game package**, this item is optional.
+  2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
 
       In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
   
