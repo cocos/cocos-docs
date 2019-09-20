@@ -10,11 +10,11 @@ You can import textures by default way, then you can see the textures in **Asset
 
 In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you select a texture in **Assets Panel**, the thumbnail will also be shown at the bottom of **Properties Panel**. Please **DO NOT** modify the properties of texture in **Properties Panel**, unless you know what you are doing.
 
-## Texture Property
+## Texture Properties
 
 | Properties | Function explanation |
 | --- | --- |
-| Premultiply Alpha | Whether to enable Premultiply Alpha. When checked, the RGB channel is multiplied by the alpha channel. |
+| Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
 | Wrap Mode | Wrap modes. Includes two modes: Clamp and Repeat. |
 | Filter Mode | Filter modes. Includes three modes: Point, Bilinear and Trilinear. |
 | genMipmaps | Whether to enable automatic generation of mipmap. |
@@ -22,15 +22,11 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 ## Premultiply Alpha
 
-Whether to select the Premultiply Alpha of the Texture indicates whether to enable Premultiply Alpha.
-
 - Premultiply Alpha: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
 
 - Non-Premultiply Alpha: Indicates that the Alpha channel will not be premultiplied with the RGB channel. Then the red color with transparency of 50% described above, the stored color value is (255, 0, 0, 0.5).
 
-Then why use Premultiply Alpha? 
-
-In texture rendering, transparent textures uses Alpha Blending for blending, and the blending formula is:
+Then why use Premultiply Alpha? In texture rendering, transparent textures uses Alpha Blending for blending, and the blending formula is:
 
 **result = source.RGB * source.A + dest.RGB * (1 - source.A);**
 
@@ -44,13 +40,13 @@ Set the blend function to `gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)`.
 
 But using Premultiply Alpha is not just to simplify the calculations to improve efficiency, but also because the texture of Non-Premultiply Alpha does not correctly perform linear interpolation.
 
-Suppose there are two adjacent vertex pixel colors, one is red with 100% transparency (255, 0, 0, 1), and the other is a green 10% transparency (0, 255, 0, 0.1). Then when the texture is scaled, the color between the two vertices is the result of linear interpolation. If it is Non-Premultiply Alpha, then the result is:
+Suppose there are two adjoining pixel colors, one is red with 100% transparency (255, 0, 0, 1.0), and the other is a green 10% transparency (0, 255, 0, 0.1). Then when the texture is scaled, the color between the two vertices is the result of linear interpolation. If it is Non-Premultiply Alpha, then the result is:
 
-`(255, 0, 0, 1) * 0.5 + (0, 255, 0, 0.1) * (1 - 0.5) = (127, 127, 0, 0.55)`
+`(255, 0, 0, 1.0) * 0.5 + (0, 255, 0, 0.1) * (1 - 0.5) = (127, 127, 0, 0.55)`
 
 If Premultiply Alpha is used, the green's stored value becomes (0, 25, 0, 0.1), and the result of linear interpolation with red is:
 
-`(255, 0, 0, 1) * 0.5 + (0, 25, 0, 0.1) * (1 - 0.5) = (127, 25, 0, 0.55)`
+`(255, 0, 0, 1.0) * 0.5 + (0, 25, 0, 0.1) * (1 - 0.5) = (127, 12, 0, 0.55)`
 
 The corresponding color values are expressed as:
 
@@ -94,7 +90,7 @@ In **Assets Panel**, there is a triangle at the left side of texture. You can se
 
 ![texture spriteframe](sprite/texture_spriteframe.png)
 
-SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `SpriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
+SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
 
 Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for datails.
 
