@@ -4,7 +4,7 @@
 
 - Download [OPPO Mini Game Debugger](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
-- Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally
+- Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally
 
 - Determine whether you need to install [Debugging Tools](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip) according to your own development needs.
 
@@ -52,7 +52,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   
       Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-  3. After the build is complete, click the **Open** button after the **Publish Path** to upload the **/quickgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **/build/quickgame/res** directory.
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **quickgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/quickgame/res** directory.
 
   At this point, the **res** directory will no longer be included in the built-up rpk, and the resources in the res directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
@@ -75,7 +75,7 @@ The specific filling rules for the relevant parameter configuration are as follo
       openssl req -newkey rsa:2048 -nodes -keyout private.pem   -x509 -days 3650 -out certificate.pem
       ```
 
-      **Note**: **openssl** can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
+      **Note**: **openssl** can be opened directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables. Restart Creator after the configuration is complete.
 
 - **Custom npm folder path**
 
@@ -115,7 +115,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-**Build release** After the relevant parameters of the panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Publish Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 
@@ -127,7 +127,7 @@ Copy the generated mini-game **rpk** file (located in the dist directory of the 
 
 **4. Subpackage rpk**
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package. Download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `/build/quickgame/dist` directory. <br>
 In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/dist` directory to the **subPkg** directory.

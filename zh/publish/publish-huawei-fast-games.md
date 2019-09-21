@@ -8,7 +8,7 @@
 
 ## 发布流程
 
-一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **Huawei Fast Game**。
+一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **华为快游戏**。
 
 ![](./publish-huawei-fast-games/build_option.png)
 
