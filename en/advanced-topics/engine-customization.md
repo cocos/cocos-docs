@@ -8,7 +8,7 @@ The game engine in Cocos Creator has three parts: JavaScript engine with ECS (en
 There are three adapters:
 
 - `jsb-adapter`: <https://github.com/cocos-creator-packages/jsb-adapter>
-- `MiniGame-adapter`: <https://github.com/cocos-creator-packages/adapters/>
+- `mini-game-adapters`: <https://github.com/cocos-creator-packages/adapters/>
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
@@ -144,7 +144,7 @@ Cocos Creator in order to achieve cross-platform, in the JavaScript layer needs 
 The current adaptation layer consists of two parts:
 
 - `jsb-adapter`: Suitable for native platforms
-- `MiniGame-adapter`: Suitable for Mini Games
+- `mini-game-adapters`: Suitable for Mini Games
 
 ### 3.1 Get adapter
 

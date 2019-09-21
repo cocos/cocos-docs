@@ -8,7 +8,7 @@ Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三�
 Adapter 地址分别在：
 
 - `jsb-adapter`：<https://github.com/cocos-creator-packages/jsb-adapter>
-- `MiniGame-adapter`：<https://github.com/cocos-creator-packages/adapters/>
+- `Mmini-game-adapters`：<https://github.com/cocos-creator-packages/adapters/>
 
 建议你通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 
@@ -144,7 +144,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 目前适配层包括两个部分：
 
 - `jsb-adapter` 适配原生平台
-- `MiniGame-adapter` 适配各类小游戏
+- `mini-game-adapters` 适配各类小游戏
 
 ### 3.1 获取 Adapter
 
