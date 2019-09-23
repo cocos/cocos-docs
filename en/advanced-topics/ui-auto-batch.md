@@ -45,9 +45,9 @@ The Blend Func of the rendering componentcan be edited in the Creator editor, Sr
 
 ```js
 FinalRed = (RS * RFactor) + (RD * RFactor)
-FinalGreen = (GS * RFactor) + (GD * RFactor)
-FinalBlue = (BS * RFactor) + (BD * RFactor)
-FinalAlpha = (AS * RFactor) + (AD * RFactor)
+FinalGreen = (GS * GFactor) + (GD * GFactor)
+FinalBlue = (BS * BFactor) + (BD * BFactor)
+FinalAlpha = (AS * AFactor) + (AD * AFactor)
 ```
 | Constant | RFactor | GFactor | BFactor | AFactor | Description |
 | ---------|--------|--------|--------|--------|-------------|           

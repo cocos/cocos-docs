@@ -45,9 +45,9 @@ Creator 编辑器中对部分渲染组件可以进行 Blend Func 的编辑，Src
 
 ```js
 FinalRed = (RS * RFactor) + (RD * RFactor)
-FinalGreen = (GS * RFactor) + (GD * RFactor)
-FinalBlue = (BS * RFactor) + (BD * RFactor)
-FinalAlpha = (AS * RFactor) + (AD * RFactor)
+FinalGreen = (GS * GFactor) + (GD * GFactor)
+FinalBlue = (BS * BFactor) + (BD * BFactor)
+FinalAlpha = (AS * AFactor) + (AD * AFactor)
 ```
 
 | Constant | RFactor | GFactor | BFactor | AFactor | Description |
