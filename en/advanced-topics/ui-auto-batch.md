@@ -2,7 +2,7 @@
 
 ## Foreword
 
-In game development, Draw call is a very important performance indicator that directly affects the overall performance of the game. Draw call is the CPU call graphics API, such as OpenGL, command GPU to draw graphics. One Draw call represents one graphics drawing command. Due to the CPU and GPU rendering state switching consumption caused by Draw call, it is often necessary to reduce the number of Draw call calls by batch merging. The essence of batch merging is to ensure that the rendering state of consecutive nodes is consistent during the rendering process of one frame, and merge as many node data as possible into one-time submission. Thereby reducing the number of calls of drawing instructions and reducing the performance consumption caused by graphics API calls, and also avoiding The GPU performs frequent rendering state switching. The rendering state includes: Texture state, Blend state, Stencil state, Depth Test state, and so on.
+In game development, Draw call is a very important performance indicator that directly affects the overall performance of the game. Draw call is the CPU call graphics API, such as OpenGL, command GPU to draw graphics. One Draw call represents one graphics drawing command. Due to the CPU and GPU rendering state switching consumption caused by Draw call, it is often necessary to reduce the number of Draw call calls by batch merging. The essence of batch merging is to ensure that the rendering state of consecutive nodes is consistent during the rendering process of one frame, and merge as many node data as possible into one-time submission. Thereby reducing the number of calls of drawing instructions and reducing the performance consumption caused by graphics API calls, and also avoiding The GPU performs frequent rendering state switching. The rendering state includes: Texture state, Blend mode, Stencil state, Depth Test state, and so on.
 
 ## Texture State
 
@@ -18,7 +18,7 @@ The static texture merge is the automatic atlas provided by the editor, and othe
 
 ***Best practices of static texture merge***
 
-Since the size of the texture is limited by different platforms, the maximum size is preferably controlled within 2048 * 2048. In this way, the space of a single atlas is limited, and in order to avoid the problem that the loading is slow with the large atlas resources when the UI interface is opened. Usually, the image resource used by a single UI interface is put into a same folder and create an automatic atlas for the folder, which ensures that the texture image resources used by the same interface are consistent. The size of the auto atlas is best viewed through the preview function of the editor, and adjusted according to the blank space to use the optimal size, reducing unnecessary space waste to consuming memory. The preview function of the Auto Atlas is as shown below:
+Since the size of the texture is limited by different platforms, the maximum size is preferably controlled within 2048 *2048. In this way, the space of a single atlas is limited, and in order to avoid the problem that the loading is slow with the large atlas resources when the UI interface is opened. Usually, the image resource used by a single UI interface is put into a same folder and create an automatic atlas for the folder, which ensures that the texture image resources used by the same interface are consistent. If the size of Auto Atlas is large, but the current scene actually uses only a small part of the scatter, it may also cause **waste**, resulting in increased game load time and increased memory usage. In this case, static texture merge is not used, and dynamic mapping by the engine may be a better choice. The preview function of the Auto Atlas is as shown below:
 
 ![Auto Atlas Preview](./ui-auto-batch/auto-atlas.png)
 
@@ -30,21 +30,24 @@ In addition to the previously mentioned waste of static drawing space, the limit
 
 ***Best practices of Dynamic Texture Merge***
 
-At present, there are two main types of dynamic atlases for the engine. One is a dynamic atlas for broken images and text using BITMAP mode. The maximum number is 5 and the size is 2048 * 2048. The other one is a character atlas provided for text in CHAR mode. There is only one character atlas with a size of 2048 * 2048. These two dynamic atlases will be cleaned up when switching scenes. Due to the limited space of the dynamic atlas, there is a need for optimal utilization. For some static texts that do not change frequently, such as the title of the UI interface, the fixed text of the property bar, if using system text, can be set to BITMAP mode and will be cached into the dynamic atlas, so that continuous Label nodes can be batched merge. In order to maximize the batch of Labels in the interface, you can put these static text node levels in the interface on the top layer, and ensure that these Label nodes can avoid interrupting the other batch nodes. For some frequently changing texts, such as the countdown commonly used in games, if you use the BITMAP mode, a large amount of numerical text will occupy the dynamic atlas space, but the number of characters used is limited, only the numbers 0 - 9 are 10 characters, in order to avoid frequent drawing, you can set it to CHAR mode, perform character caching, and add single character text to the character map set. After caching once, all subsequent digit combinations can be obtained from the cached characters to improving performance. If consecutive Label nodes use the CHAR mode, because the same character atlas is used, it is also guaranteed that these nodes can be batch merged.
+At present, there are two main types of dynamic atlases for the engine. One is a dynamic atlas for broken images and text using BITMAP mode. The maximum number is 5 and the size is 2048 * 2048. The other one is a character atlas provided for text in CHAR mode. There is only one character atlas with a size of 2048 * 2048. These two dynamic atlases will be cleaned up when switching scenes. Due to the limited space of the dynamic atlas, there is a need for optimal utilization. For some static texts that do not change frequently, such as the title of the UI interface, the fixed text of the property bar, if using system text, can be set to BITMAP mode and will be cached into the dynamic atlas, so that continuous UI nodes can be batched merge. Since the image is generally packaged as a static atlas, and in order to maximize the batch of Labels in the interface, you can put these static text node levels in the interface on the top layer, and ensure that these Label nodes can avoid interrupting the other batch nodes. For some frequently changing texts, such as the countdown commonly used in games, if you use the BITMAP mode, a large amount of numerical text will occupy the dynamic atlas space, but the number of characters used is limited, only the numbers 0 - 9 are 10 characters, in order to avoid frequent drawing, you can set it to CHAR mode, perform character caching, and add single character text to the character map set. After caching once, all subsequent digit combinations can be obtained from the cached characters to improving performance. If consecutive Label nodes use the CHAR mode, because the same character atlas is used, it is also guaranteed that these nodes can be batch merged.
 
 | Cache Mode | Label Texture | Best practices |
 | ---------|--------|-------------|             
 | NONE | A single Label uses a node-sized image | Appropriate text for frequent updates, such as chat |
-| BITMAP  | Add to a dynamic collection with a size of 2048 * 2048 after a single draw | Static text that does not change content, such as: interface title |
-| CHAR | Each character is drawn once and added to a character map of size 2048 * 2048 | For text that is frequently updated and has limited text characters, such as: countdown |
+| BITMAP  | Text modification needs to be redrawed, and will add to the general dynamic atlas of size 2048 * 2048 after drawing | Static text that does not change content, such as: interface title |
+| CHAR | Each character is drawn once and added to a character map of size 2048 * 2048 | For text that is frequently updated and has limited text characters, such as: score, countdown |
 
 
-## Blend State
+## Blend Mode
 
 The Blend Func of the rendering componentcan be edited in the Creator editor, Src Blend Factor and Dst Blend Factor, which represent the source and target color values of the color mixture. The color mixing formula is:
 
 ```js
-color (RGBA) = (sourceColor * srcFactor) + (destinationColor * dstFactor)
+FinalRed = (RS * RFactor) + (RD * RFactor)
+FinalGreen = (GS * RFactor) + (GD * RFactor)
+FinalBlue = (BS * RFactor) + (BD * RFactor)
+FinalAlpha = (AS * RFactor) + (AD * RFactor)
 ```
 | Constant | RFactor | GFactor | BFactor | AFactor | Description |
 | ---------|--------|--------|--------|--------|-------------|           
@@ -59,11 +62,11 @@ color (RGBA) = (sourceColor * srcFactor) + (destinationColor * dstFactor)
 | DST_ALPHA | AD | AD | AD | AD | Multiplies all colors by the destination alpha value. |
 | ONE_MINUS_DST_ALPHA | 1 - AD | 1 - AD | 1 - AD | 1 - AD | Multiplies all colors by 1 minus the destination alpha value. |
 
-In some cases, because the edge portion of the transparent image is sampled to the background color of the transparent area, there will be black edges. Usually, in order to solve the problem, the pre-multiplied state of the picture is set, and setting the Src Blend Factor to ONE, but the Blend state is inconsistent will also interrupt the batch merge.
+In some cases, because the edge portion of the transparent image is sampled to the background color of the transparent area, there will be black edges. Usually, in order to solve the problem, the pre-multiplied state of the picture is set, and setting the Src Blend Factor to ONE, but the Blend mode is inconsistent will also interrupt the batch merge.
 
 ***Best practices of Blend used***
 
-Since the Blend state is inconsistent, the batch merge will be interrupted, so the Blend state change should also be minimized. For example, instead of switching Blend Func, the black border problem of the PNG image can be solved by expanded when the Atlas is packaged. If some performance effects require special settings, you should also ensure that the nodes with the same Blend state are at the same level and continuous, avoiding the cross layout of nodes in different Blend states when setting the UI layout level, thus effectively reducing the Draw call caused by the blend state switch.
+Since the Blend mode is inconsistent, the batch merge will be interrupted, so the Blend mode change should also be minimized. For example, instead of switching Blend Func, the black border problem of the PNG image can be solved by expanded when the Atlas is packaged. If some performance effects require special settings, you should also ensure that the nodes with the same Blend mode are at the same level and continuous, avoiding the cross layout of nodes in different Blend modes when setting the UI layout level, thus effectively reducing the Draw call caused by the Blend mode switch.
 
 ## Stencil State
 
