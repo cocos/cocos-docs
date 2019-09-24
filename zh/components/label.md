@@ -53,8 +53,6 @@ Label 组件可以通过往 **属性检查器** 里的 **Font** 属性拖拽 TTF
 
 使用艺术数字字体需要创建 [艺术数字资源](../asset-workflow/label-atlas.md)，参考链接中的文档设置好艺术数字资源的属性之后，就可以像使用 BMFont 资源一样来使用艺术数字了。
 
-### BMFont 与 UI 合图自动批处理
+### UI 渲染批次合并指南
 
- 从 Creator 1.4 版本开始， BMFont 支持与 UI 一起合图进行批量渲染。
- 理论上，如果你的游戏 UI 没有使用系统字体或者 TTF 字体，并且所有的 UI 图片资源都可以合在一张图上，那么 UI 是可以只用一个 Draw Call 来完成的。
- 更多关于 BMFont 与 UI 合图自动批处理的内容，请参考 [BMFont 与 UI 合图自动批处理](../advanced-topics/ui-auto-batch.md)
+更多关于 Label 渲染批次处理的内容请参考 [UI 渲染批次合并指南](../advanced-topics/ui-auto-batch.md)

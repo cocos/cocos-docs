@@ -225,7 +225,7 @@
     - [存储和读取用户数据](advanced-topics/data-storage.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [渲染流](advanced-topics/render-flow.md)
-    - [BMFont and UI 自动批处理](advanced-topics/ui-auto-batch.md)
+    - [UI 渲染批次合并指南](advanced-topics/ui-auto-batch.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
