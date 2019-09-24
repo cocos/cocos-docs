@@ -51,11 +51,9 @@ By dragging the TTF font file and BMFont font file into the `Font` attribute in 
 
 If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.md) for more information.
 
-### BMFont and UI auto batch
+### UI Rendering Batch Processing Guide
 
-From Creator v1.4, BMFont could be batch drawing with UI elements. In theory, if you don't use TTF font and System font in your UI scene, and all of your UI elements including BMFont texture and LabelAtlas texture could be packed into one Image Atlas, you UI scene could be rendering with only one Draw Call.
-
-For more info of this feature, please refer to [BMFont and UI auto batch](../advanced-topics/ui-auto-batch.md) topic.
+For more info of this feature, please refer to [UI Rendering Batch Processing Guide](../advanced-topics/ui-auto-batch.md) topic.
 
 ---
 

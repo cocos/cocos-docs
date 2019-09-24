@@ -35,7 +35,7 @@ Sometimes we may not use the automatic loading or preload function of the scene,
 Audio is loaded and played by default using Web Audio, and DOM mode is used only in browsers that are not supported.
 
 ```js
-cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
+cc.loader.load('http://example.com/background.mp3', callback);
 ```
 
 #### Force use DOM mode to load
@@ -43,7 +43,7 @@ cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 Audio in the loading process, will read the url get parameter. Which only need to define a useDom parameter.
 
 ```js
-cc.loader.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
+cc.loader.load('http://example.com/background.mp3?useDom=1', callback);
 ```
 
 It should be noted that if you use the DOM mode to load the audio, in the cc.loader cache, the cache will also have the url? UseDom = 1. It is not recommended to fill in the url of the resource directly, try to define an AudioClip in the script, and then define it in the editor.

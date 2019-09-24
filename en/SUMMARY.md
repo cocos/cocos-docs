@@ -222,7 +222,7 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization](advanced-topics/custom-preview-template.md)
     - [RenderFlow](advanced-topics/render-flow.md)
-    - [Batch Render BMFont and Sprite](advanced-topics/ui-auto-batch.md)
+    - [UI Rendering Batch Processing Guide](advanced-topics/ui-auto-batch.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

@@ -1,7 +1,5 @@
 # Publishing to vivo Mini Games
 
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the vivo Mini Game. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
-
 ## Environment Configuration
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
@@ -24,17 +22,17 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
     npm install -g qgame-toolkit
     ```
 
+    **Note**: Starting with **v2.1.3**, there is no need to install `qgame-toolkit`, but you need to install `vivo-minigame/cli`:
+
+    ```
+    npm install -g @vivo-minigame/cli
+    ```
+
 ## Release Process
 
 **First**, use __Cocos Creator__ to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-vivo-instant-games/build.png)
-
-**Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number**.
-
-**Optional parameter items**: Includes **Small Packet Mode**, **Small Packet Mode Server Path** and **Custom npm folder path (New in v2.0.9)**.
-
-For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
@@ -62,13 +60,19 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This item is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
   
-- **Small Packet Mode and Small Packet Mode Server Path**
+- **Small Packet Mode**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
-  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**. Then click on **Build**.
+  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
-  2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
+  2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
+
+      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
+  
+      Developers can choose whether to check this item according to their needs. Then click on **Build**.
+
+  3. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
 
   At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 
@@ -176,6 +180,10 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
     Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
+
+## Subpackage Loading
+
+Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Subpackage Loading](../scripting/subpackage.md) for details.
 
 ## Reference link
 
