@@ -50,6 +50,7 @@ A: 请看下面的 Asset Bundle 嵌套的说明。
 ## 内置 Asset Bundle
 
 从 v2.3 开始，整个系统基于 Asset Bundle ，即使你没有用到任何 Asset Bundle ，任何一个工程在构建后都会存在 3 个内置的 Asset Bundle ，如图所示：
+
 ![builtinBundles](bundle/builtinBundles.png) 。
 
 即是说，从 v2.3 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 scenes 的 Asset Bundle 中。
