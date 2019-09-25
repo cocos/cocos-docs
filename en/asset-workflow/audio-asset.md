@@ -40,10 +40,10 @@ cc.assetManager.loadRes('background', callback);
 
 #### Force use DOM mode to load
 
-You can also use more flexible interface `cc.assetManager.`
+You can also use more flexible interface `cc.assetManager.load` and specify `loadMode` as `DOM_AUDIO` to load dom audio forcibly.
 
 ```js
-cc.assetManager.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
+cc.assetManager.load({ path: 'background' }, { loadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
 ```
 
 It should be noted that if you use the DOM mode to load the audio, in the cc.loader cache, the cache will also have the url? UseDom = 1. It is not recommended to fill in the url of the resource directly, try to define an AudioClip in the script, and then define it in the editor.
