@@ -18,7 +18,7 @@ cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err) {
 
 相关文档可参考：
 
-[获取和加载资源](../scripting/load-assets.md)
+[获取和加载资源](../scripting/load-assets.md)<br>
 [Asset Bundle](../scripting/asset-bundle.md)
 
 所有加载到的资源会被缓存到 `cc.assetManager` 中。
@@ -27,7 +27,7 @@ cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err) {
 
 为了更方便地扩展资源加载流程，Asset Manager 底层使用名为 **管线与任务** ，**下载器与解析器** 的机制来完成资源的加载工作，其带来了巨大的灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
 
-[管线与任务](pipeline-task.md)
+[管线与任务](pipeline-task.md)<br>
 [下载器与解析器](downloader-parser.md)
 
 
