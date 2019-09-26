@@ -34,7 +34,7 @@ First, create a variable named `component` that refers to a component.
     }, interval, repeat, delay);
     ```
 
-    The timer above will start counting after 10 seconds, run call-back once every 5 seconds and repeat 3 times.
+    The timer above will start counting after 10 seconds, run call-back once every 5 seconds and perform 3 + 1 times.
 
 3. Timer only runs once (shortcut)
 

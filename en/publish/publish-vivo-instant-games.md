@@ -4,7 +4,7 @@
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
-- Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally:
+- Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally:
 
     **Note**: After installing nodejs, you need to pay attention to whether the npm source address is https://registry.npmjs.org/
 
@@ -72,7 +72,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   
       Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-  3. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
 
   At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 

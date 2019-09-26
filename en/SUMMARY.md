@@ -95,6 +95,7 @@
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
+    - [Publish to Huawei Fast Games](publish/publish-huawei-fast-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
