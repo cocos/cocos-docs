@@ -20,7 +20,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Name**
 
-  **Game Name**, the name of the Huawei Fast Game, is required. And the **Title** at the top of the **Build** panel does not participate in the Huawei Fast Game packaging process.
+  **App Name**, the name of the Huawei Fast Game, is required. And the **Title** at the top of the **Build** panel does not participate in the Huawei Fast Game packaging process.
 
 - **Desktop Icon**
 
@@ -82,7 +82,6 @@ The specific filling rules for the relevant parameter configuration are as follo
 - **Custom node folder path**
 
   This item is optional. Starting with **v2.0.10**, the global node of the operating system can be automatically obtained and without manual setting. The way to obtain node is:
-
   - **Windows**: Gets the path in the environment variable from the system.
   - **Mac**: Gets the path in the environment variable from the configuration file of Shell.
 
@@ -123,7 +122,7 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 **3. Run the built rpk to the phone**. There are two ways:
 
-  - Click the **Play** button in the bottom right corner of the **Build** panel to bring up a **Fast game debugging** panel. Select the Android device in the **Mobile phone list** column (if multiple Android devices are connected), and then click the **Run** button in the **Fast game debugging platform** column.
+  - Click the **Play** button in the bottom right corner of the **Build** panel to bring up a **QuickGame DevTools** panel. Select the Android device in the **Phone Lists** column (if multiple Android devices are connected), and then click the **Run** button in the **QuickGame DevTools** column.
 
     At this time, rpk will be pushed to the previously installed **Huawei Fast APP Engine** (If there is a permission box, please click allow), and then rpk can be opened on the Android device.
 

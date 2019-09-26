@@ -12,7 +12,7 @@
 
 1. Use __Cocos Creator__ to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
-![](./publish-oppo-instant-games/build_option.png)
+    ![](./publish-oppo-instant-games/build_option.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
