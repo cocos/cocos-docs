@@ -70,6 +70,8 @@ Specifically, developers need to do:
 
 ![](./publish-wechatgame/detail.jpeg)
 
+**Note**: If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `wxDownloader.cleanAllCaches()` and `wxDownloader.cleanOldAssets()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+
 ## WeChat Mini Game Subpackage Loading
 
 WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
@@ -85,11 +87,20 @@ In addition to pure game content, the __WeChat Mini Game__ environment also prov
 5. Media: pictures, recordings, cameras, etc.
 6. Other: location, device information, scan code, NFC, etc.
 
-## Access to the subdomain of WeChat Mini Games
+## Access to the Open Data Context of WeChat Mini Games
 
-In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
+In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by __WeChat__ in the Open Data Context to implement some rankings, for example.
 
-__Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
+__Cocos Creator__ supports packaging to Open Data Context starting with __v1.9.1__. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
+
+## WeChat Mini Games Known issues
+
+In addition, our adaptation of WeChat Mini Games has not been completely completed, and the following modules are still not supported:
+
+- VideoPlayer (Supported in **v2.1.3**)
+- WebView
+
+If you need it, you can currently use it by calling the WeChat's API directly.
 
 ## Reading
 
