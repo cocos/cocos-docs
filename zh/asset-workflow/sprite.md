@@ -29,7 +29,7 @@ Texture 的 Premultiply Alpha 属性勾选与否表示是否开启 Alpha 预乘�
 
 那什么情况下需要使用 Premultiply Alpha ？在图形渲染中透明图像通过 Alpha Blending 进行颜色混合，一般的颜色混合计算公式为：
 
-**结果颜色 = 源颜色值 * 源 alpha 值 + 目标颜色值 * (1 - 源 alpha 值)**
+**结果颜色 =（源颜色值 * 源 alpha 值）+ 目标颜色值 * (1 - 源 alpha 值)**
 
 `result = source.RGB * source.A + dest.RGB * (1 - source.A);`
 
