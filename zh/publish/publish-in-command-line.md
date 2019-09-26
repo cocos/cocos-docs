@@ -39,7 +39,7 @@
 
 - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
 - `title` - 项目名
-- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、qqplay、wechatgame、fb-instant-games]
+- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、wechatgame、wechatgame-subcontext、baidugame、baidugame-subcontext、xiaomi、alipay、qgame、quickgame、huawei、jkw-game、fb-instant-games、android-instant]
 - `buildPath` - 构建目录
 - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置）
 - `debug` - 是否为 debug 模式
@@ -75,13 +75,7 @@
 - `encryptJs` - 是否在发布 native 平台时加密 js 文件
 - `xxteaKey` - 加密 js 文件时使用的密钥
 - `zipCompressJs` - 加密 js 文件后是否进一步压缩 js 文件
-
-- `wechatgame` - 微信小游戏发布选项
-  - `appid`- 发布微信小游戏时需要的 id
-  - `orientation` - 微信小游戏屏幕方向 [landscape、portrait]
-
 - `autoCompile` - 是否在构建完成后自动进行编译项目，默认为 **否**。
-
 - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数
 
 ## 在 Jenkins 上部署
