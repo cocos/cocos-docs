@@ -39,7 +39,7 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 
 - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
 - `title` - Project title
-- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, qqplay, wechatgame, fb-instant-games]
+- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, jkw-game, fb-instant-games, android-instant]
 - `buildPath` - Publish path
 - `startScene` - Start scene uuid
 - `debug` - Whether or not debug mode
@@ -72,9 +72,6 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `encryptJs` - Whether or not encrypt js files when publish native platform
 - `xxteaKey` - The key used for encrypt js files
 - `zipCompressJs` - Whether or not compress the files after encrypting js files
-- `wechatgame` - The wechatgame options
-  - `appid`- The wechat game appid
-  - `orientation` - The screen orientation [landscape, portrait]
 - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
 - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
 
