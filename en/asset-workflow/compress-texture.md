@@ -14,6 +14,9 @@ PNG | Support | Support | Support | Support
 JPG | Support | Support | Support | Support
 WEBP | Android 4.0 above native support<br>Other versions can use the [resolver library](https://github.com/alexey-pelykh/webp-android-backport) | Use [resolver library](https://github.com/carsonmcdonald/WebP-iOS-example) | Unsupport | [resolver library](https://caniuse.com/#feat=webp)
 PVR | Unsupport | Support iOS | Unsupport | Unsupport
+PVR | Unsupport | Support | Support iOS | Support iOS
+ETC1 | Support | Unsupport | Support Android | Support Android
+ETC2 | Only support for generating resources, and the engine needs to be implemented by reference to pr: <https://github.com/cocos-creator/cocos2d-x-lite/pull/1685>
 
 By default, Cocos Creator outputs the original image when it is built. If you need to compress an image at build time, you can select this image in the **Assets** and edit the texture format in the **Properties**.
 
@@ -39,3 +42,11 @@ You can customize the image resource support for the platform and the priority o
 In the example diagram above, the default platform is configured with compressed textures in PNG format, the Web platform is configured with PVR, PNG format, and other platforms do not add any configuration. Then when building a web platform, this image will be compressed into PVR, PNG two formats, and only PNG format images will be generated when building other platforms.
 
 In the default setting of `cc.macro.SUPPORT_TEXTURE_FORMATS`, the support for the .pvr is only added to the iOS platform, so the PVR format image will only be loaded on the iOS browser, and the browser on other platforms will load the PNG format images.
+
+## Separate Alpha
+
+Both the ETC1 and PVR formats use a fixed space to store the color values for each pixel. When you need to store the 4 channels of the RGBA, the display quality of the texture can become very low.
+
+So Creator provides a Separate Alpha option, which extracts the Alpha channels of the texture and merges them under the texture, and then compresses the entire texture in the RGB 3 channels format. This improves the storage space for each channel and the quality of the map improves.
+
+![](compress-texture/separate_alpha.png)

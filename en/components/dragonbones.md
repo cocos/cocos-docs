@@ -40,7 +40,7 @@ Here is an example of how DragonBones replace the textures. By change the displa
 
     ![dragonbones-cloth](./dragonbones/cloth3.png)
 
-3. Create a new JavaScript script in **Assets** and double-click open to write. The sample script code is as follows:
+3. Create a new JavaScript script in **Assets** and double-click to open to write. The sample script code is as follows:
 
     ```js
     cc.Class({

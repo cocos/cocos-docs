@@ -6,6 +6,7 @@ Welcome to the __Cocos Creator User Manual__! __Cocos Creator__ is a free, cross
 
 ## What's New
 
+- [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - __Starting with v2.1__, __Cocos Creator__ introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
 - __Starting with v2.0.5__, __Cocos Creator__ support posted to [OPPO Mini Games](publish/publish-oppo-instant-games.md) and [Vivo Mini Games](publish/publish-vivo-instant-games.md).

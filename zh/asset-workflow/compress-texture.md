@@ -11,7 +11,9 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 PNG | 支持 | 支持 | 支持 | 支持
 JPG | 支持 | 支持 | 支持 | 支持
 WEBP | Android 4.0 以上原生支持<br>其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 不支持 | [部分支持](https://caniuse.com/#feat=webp)
-PVR | 不支持 | iOS 设备上支持 | 不支持 | 不支持
+PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备
+ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备
+ETC2 | 只支持生成资源，引擎部分需要参考 pr 自己实现：<https://github.com/cocos-creator/cocos2d-x-lite/pull/1685>
 
 默认情况下 Cocos Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片进行压缩，可以在 **资源管理器** 中选中这张图片，然后在 **属性管理器** 中对图片的纹理格式进行编辑。
 
@@ -35,3 +37,9 @@ Cocos Creator 在构建图片的时候，会查找当前图片是否进行了压
 在上面的示例图中，默认平台配置了 png 格式的压缩纹理，web 平台配置了 pvr、png 格式的压缩纹理，而其他平台没有添加任何配置。那么在构建 web 平台的时候这张图片就会被压缩成 pvr，png 两种格式，在构建其他平台的时候则只会生成 png 格式的图片。
 
 而默认设置的 `cc.macro.SUPPORT_TEXTURE_FORMATS` 中只有 ios 平台上才添加了 .pvr 的支持，所以只有在 ios 的浏览器上才会加载 pvr 格式的图片，其他平台上的浏览器则加载 png 格式的图片。
+
+## Separate Alpha
+
+ETC1 和 PVR 格式都会用一个固定的空间来存储每个像素的颜色值。当需要存储 RGBA 4 个通道时，图片的显示质量可能会变得非常低。所以提供了一个 Separate Alpha 选项，该选项会将贴图的 Alpha 通道提取出来合并到贴图下方，然后整张贴图按照 RGB 3 个通道的格式来压缩。这样子每个通道的存储空间都得到了提升，贴图的质量也就提升了。
+
+![](compress-texture/separate_alpha.png)

@@ -36,7 +36,7 @@ DragonBones 组件可以对骨骼动画（DragonBones）资源进行渲染和播
 
     ![dragonbones-cloth](./dragonbones/cloth2.png)
 
-2. 再次新建一个空节点并重命名为 robot，然后在 **属性检查器** 中添加 DragonBones 组件，并将机器人的资源拖拽至 DragonBones 组件的属性框中，如下图所示。可更改 DragonBones 组件的 Animation 属性用于设置用户想要播放的动画。
+2. 再次新建一个空节点并重命名为 robot，然后在 **属性检查器** 中添加 DragonBones 组件，并将机器人的资源拖拽至 DragonBones 组件的属性框中，如下图所示。可更改 DragonBones 组件的 Animation 属性用于设置开发者想要播放的动画。
 
     ![dragonbones-cloth](./dragonbones/cloth3.png)
 
