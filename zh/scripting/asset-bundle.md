@@ -24,7 +24,7 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
 
 **注意**：
 1. 不能使用 **Bundle 名称** 作为加载 bundle 时的参数。
-2. 所有的工程都内置了3个 bundle ：resources , internal, scenes ，请不要使用这三个名称作为 **Bundle 名称** 的设置。
+2. 所有的工程都内置了3个 bundle ：resources , internal, main ，请不要使用这三个名称作为 **Bundle 名称** 的设置。
 3. 如果你将 Asset Bundle 勾选为子包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
 
 ## 构建
@@ -85,7 +85,7 @@ cc.assetManager.loadBundle('assets/01_graphics', function (err, bundle) {
 
 ![md5 cache](subpackage/bundle_md5.png)
 
-当你加载 Asset Bundle 时需要额外提供对应的 Hash 值：
+当你加载 Asset Bundle 时你 **不需要** 额外提供对应的 Hash 值， Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整，但如果你想要将相关 Hash 存储在服务器上，动态获取以实现动态更新 asset bundle ，你也可以手动指定一个版本 Hash 值传入到 `loadBundle` 中，此时将会以传入的 Hash 值为准：
 
 ```js
 cc.assetManager.loadBundle('http://examples.com/01_graphics', { ver: 'fbc07' }, function (err, bundle) {

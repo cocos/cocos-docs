@@ -53,9 +53,9 @@ A: 请看下面的 Asset Bundle 嵌套的说明。
 
 ![builtinBundles](bundle/builtinBundles.png) 。
 
-即是说，从 v2.3 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 scenes 的 Asset Bundle 中。
+即是说，从 v2.3 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中。
 
-与其他 Asset Bundle 一样，你可以将内置的 Asset Bundle 放到远程服务器，本地或小游戏平台的子包中。仅需要改动下启动代码中的 resourcesRoot , internalRoot , scenesRoot 为真实的路径即可。
+与其他 Asset Bundle 一样，你可以将内置的 Asset Bundle 放到远程服务器，本地或小游戏平台的子包中。仅需要改动下启动代码中的 resourcesRoot , internalRoot , mainRoot 为真实的路径即可。
 
 ![launch](bundle/launch.png) 
 

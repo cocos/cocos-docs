@@ -120,7 +120,6 @@ interface bundle {
     bundleName: string, // bundle 的名称
     type: string, // bundle 的类型
     scenes: string[], // bundle 中包含的场景
-    scripts: string[], // bundle 中包含的脚本
     isSubpackage: boolean, // bundle 是否勾选作为子包
     buildResults: BuildResults, // bundle 所构建出来的所有资源
     version: string, // bundle 的版本信息，由 config 生成

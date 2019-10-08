@@ -127,7 +127,39 @@ v2.3 中的释放接口与之前版本的释放接口有较大差异，主要体
     }
 ```
 
-你可以在此机制上建立自己的引用计数机制以保证资源能够被正确的释放。
+## 封装自己的资源加载释放机制
+
+需要再次注意的是，上述方案并不能准确地统计所有的引用计数，特别是动态加载的资源。如果你的项目存在大量动态加载的资源，并且使用了类似节点池等功能在不同的场景中复用节点，你需要更加敏感的管理，我们建议你在此基础上实现一套自己的资源管理，保证资源能够正确的释放，例如：
+
+```js
+    retainDynamicSpriteFrame (path, callback) {
+        cc.assetManager.loadRes(path, cc.SpriteFrame, function (err, spriteFrame) {
+            // 在动态加载资源后手动增加对其的引用
+            spriteFrame._addRef();
+            callback(err, spriteFrame);
+        });
+    },
+
+    chanageDynamicSpriteFrame (spriteFrame) {
+        var sprite = self.getComponent(cc.Sprite);
+        if (sprite.spriteFrame) {
+            // 在切换精灵时，移除之前精灵的引用并释放
+            sprite.spriteFrame._removeRef();
+            cc.assetManager.release(sprite.spriteFrame);
+        }
+        this.spriteFrame = spriteFrame;
+        sprite.spriteFrame = spriteFrame;
+    },
+
+    onDestroy () {
+        // 在摧毁该节点时移除当前使用精灵的引用并释放
+        this.spriteFrame._removeRef();
+        cc.assetManager.release(this.spriteFrame);
+    }
+
+```
+
+在实现了类似的上层管理机制后，就可以避免在跨场景复用节点时，资源被其他地方错误释放的问题。
 
 ---
 
