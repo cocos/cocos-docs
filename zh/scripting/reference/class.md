@@ -683,7 +683,7 @@ width: {
 > 如果没有和 get 一起定义，则 set 自身不能附带任何参数。<br>
 > 和 get 一样，设定了 set 以后，这个属性就不能被序列化，也不能指定默认值。
 
-使用 get/set 可以灵活控制读写权限、为抽象做准备以及实现 MVVM 等。更多案例说明可参考 [get/set 案例](https://mp.weixin.qq.com/s/gS6BTdBLTLzAtIUlHbBjtA)。
+使用 get/set 可以更好地封装接口，更多使用案例可参考社区教程 [CocosCreator 开发中为什么 get/set 如此重要？](https://mp.weixin.qq.com/s/gS6BTdBLTLzAtIUlHbBjtA)。
 
 ## editor 参数
 

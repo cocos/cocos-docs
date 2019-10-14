@@ -686,8 +686,6 @@ width: {
 > If there is no definition with get, then set itself can not be attached with any attributes.<br>
 > As get, once set declared, this property can not be serialized, can not specify the default value.
 
-Using get/set can control read and write permission flexibility, prepare for abstractions and implement MVVM, etc. For more case descriptions, please refer to [get/set](https://mp.weixin.qq.com/s/gS6BTdBLTLzAtIUlHbBjtA).
-
 ## `editor` attribute
 
 `editor` can only be defined in subclasses of `cc.Component`.
