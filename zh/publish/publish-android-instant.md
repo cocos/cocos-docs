@@ -15,7 +15,7 @@
 - 需要使用 Android Studio 3.0 版本及以上
 - Android Phone 6.0 及以上<br>
 **注意**：Android SDK 版本在 6.0 到 7.0 之间的设备需要安装 Google 服务框架，SDK 版本在 8.0 以上的则不需要，可直接安装使用。
-- NDK r10c 版本及以上
+- NDK 建议使用的版本为 **r17 - r19**
   
 ### 发布流程
 
