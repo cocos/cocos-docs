@@ -51,7 +51,6 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `mergeStartScene` - Whether or not merge all JSON that the Start Scene depends on
 - `optimizeHotUpdate` - Whether or not merge all the SpriteFrames in the same atlas
 - `packageName` - Package Name
-- `vsVersion` - Visual Studio version，only used on windows. [Auto, VS2015, VS2017]
 - `useDebugKeystore` - Whether or not use debug keystore
 - `keystorePath` - Keystore path
 - `keystorePassword` - Keystore password

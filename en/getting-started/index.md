@@ -15,6 +15,8 @@ In this chapter:
 - [Cocos2d-x User Guide](cocos2d-x-guide.md)
 - [Get Help and Support](support.md)
 - [v1.10 Resource Upgrade Guide](../release-notes/raw-asset-migration.md)
+- [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.md)
+- [v2.1 Upgrade Guide](../release-notes/upgrade-guide-v2.1.md)
 - [FAQ](faq.md)
 
 ---
