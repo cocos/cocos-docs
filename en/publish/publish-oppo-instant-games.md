@@ -4,7 +4,7 @@
 
 - Download [OPPO Mini Game Debugger](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
-- Install [nodejs-10.16.3](https://nodejs.org/en/download/) or above, globally
+- Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally
 
 - Determine whether you need to install [Debugging Tools](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip) according to your own development needs.
 

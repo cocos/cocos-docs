@@ -34,9 +34,9 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
 ### Mac installation instructions
 
-The installer for Cocos Creator for Mac is a .dmg (disk image) file. double-click on the .dmg file, and drag `CocosCreator.app` to your **Application** folder, or any other location. Then double-click the dragged `CocosCreator.app` to get started.
+The installer for Cocos Creator for Mac is a .dmg (disk image) file. Double-click on the .dmg file, and drag `CocosCreator.app` to your **Application** folder shortcut, or any other location. Then double-click the copy of the `CocosCreator.app` to get started.
 
-**Note**: If it doesn't open after download, prompt that the dmg/app file is corrupted, from an unidentified developer, or contains malware, etc.
+**Note**: If it can not open after download, prompt that the dmg/app file is corrupted, from an unidentified developer, or contains malware, etc.
 
 ![](install/tooltip.png)
 

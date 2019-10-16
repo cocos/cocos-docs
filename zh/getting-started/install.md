@@ -34,7 +34,7 @@ Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 
 
 ### Mac 安装说明
 
-Mac 版 Cocos Creator 的安装程序是 dmg 镜像文件，双击 dmg 文件，然后将 `CocosCreator.app` 拖拽到您的 **应用程序** 文件夹中，或任意其他位置。然后双击拖拽出来的 `CocosCreator.app` 就可以开始使用了。
+Mac 版 Cocos Creator 的安装程序是 dmg 镜像文件，双击 dmg 文件，然后将 `CocosCreator.app` 拖拽到您的 **应用程序** 文件夹快捷方式，或任意其他位置。然后双击拖拽出来的 `CocosCreator.app` 就可以开始使用了。
 
 **注意**：如果下载后无法打开，提示 dmg 或者 app 文件已损坏、来自身份不明的开发者或者包含恶意软件等。
 
