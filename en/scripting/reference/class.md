@@ -366,6 +366,7 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
 1. Any value of type, string, or boolean
 2. `null` or `undefined`
 3. Object which instance of subclasses inherited from `cc.ValueType`, such as `cc.Vec2`, `cc.Color` or `cc.Rect`
+
     ```javascript
     properties: {
         pos: {
@@ -373,6 +374,7 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
         }
     }
     ```
+
 4. Empty array `[]` or empty object `{}`
 5. A function that allows you to return any type of value, which is called again each time the class is instantiated and takes the return value as the new default:
     ```javascript
@@ -551,7 +553,7 @@ This is done by specifying properties as an arrow function (lambda expression) o
 
 You can understand the arrow function like this:
 
-```
+```js
 // The arrow function supports omitting the `return` statement, and we recommend this omission:
 
 properties: () => ({    // <- brackets "(" on the right side of the arrows can not be omitted
