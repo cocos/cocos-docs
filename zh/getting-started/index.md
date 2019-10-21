@@ -15,6 +15,7 @@
 - [Cocos2d-x 用户上手指南](cocos2d-x-guide.md)
 - [获取帮助和支持](support.md)
 - [v1.10 资源升级指南](../release-notes/raw-asset-migration.md)
+- [v2.0 升级指南](../release-notes/upgrade-guide-v2.0.md)
 - [FAQ](faq.md)
 
 ---

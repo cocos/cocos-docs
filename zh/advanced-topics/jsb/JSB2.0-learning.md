@@ -909,7 +909,6 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 * `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval` 。
 * `native_ptr_to_rooted_seval`用于`CPP 控制 JS 对象生命周期`的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 住的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
 
-
 ## 自动绑定
 
 ### 配置模块 ini 文件
@@ -1027,10 +1026,10 @@ classes_owned_by_cpp =
 
 ### Chrome 远程调试 V8
 
-#### Windows
+#### Windows/Mac
 
 * 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
 断点调试：
 ![](v8-win32-debug.jpg)
@@ -1041,52 +1040,12 @@ classes_owned_by_cpp =
 Profile
 ![](v8-win32-profile.jpg)
 
-#### Android
+#### Android/iOS
 
-* 保证 Android 设备与 PC 或者 Mac 在同一个局域网中
+* 保证 Android/iOS 设备与 PC 或者 Mac 在同一个局域网中
 * 编译，运行游戏
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址。（**注意**：从 **v2.0.7** 开始，5086 需要改为 6086）
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。
 * 调试界面与 Windows 相同
-
-### Safari 远程调试 JavaScriptCore
-
-#### macOS
-
-1. 打开 Mac 上的 Safari，偏好设置 -> 高级 -> 显示开发者选项
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。
-
-  ![](jsc-entitlements.png)
-还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
-
-  ![](jsc-entitlements-check.png)
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES.
-
-  ![](jsc-security-key.png)
-4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书<br>
-5. 编译、运行游戏<br>
-6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤<br>
-7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。
-
-![](jsc-mac-debug.png) 
-
-![](jsc-breakpoint.png) 
-
-![](jsc-timeline.png)
-
-**注意**：如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
-
-![](jsc-mac-simulator-sign.png)
-
-然后再调用 `gulp gen-simulator` 生成模拟器。
-
-#### iOS
-
-1. 先打开 iPhone 的设置 -> Safari -> 高级 -> Web 检查器
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。 （图示与 macOS 的第 2 步类似）
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES。（图示与 macOS 的第 3 步类似）
-4. 签名 : General -> 选择你的 iOS 工程 -> Signing -> 选择你的开发者证书
-5. 编译、运行游戏
-6. Safari 菜单中选择 Develop -> 你的 iPhone 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。（图示与 macOS 的第 6 步类似）
 
 ## Q & A
 

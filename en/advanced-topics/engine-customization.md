@@ -61,6 +61,12 @@ This command will generate a `bin` folder in the engine directory and compile th
 
 ![](engine-customization/bin.png)
 
+**Note**: If a `JavaScript heap out of memory` error occurs during compilation, you can use the following command to solve it:
+
+```js
+gulp build --max-old-space-size=8192
+```
+
 ### 1.4 Use customized engine in Cocos Creator
 
 Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path to your customized JavaScript engine.

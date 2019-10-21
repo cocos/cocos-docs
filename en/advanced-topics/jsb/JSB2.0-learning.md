@@ -1039,7 +1039,7 @@ Change to：
 
 ### Remote Debugging V8 in Chrome
 
-#### Windows
+#### Windows/Mac
 
 * Compile, run the game (or run directly in the Creator simulator)
 * Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
@@ -1053,42 +1053,12 @@ Catch JS Heap
 Profile
 ![](v8-win32-profile.jpg)
 
-#### Android
+#### Android/iOS
 
-* Make sure your Android device is on the same network as your PC or Mac
+* Make sure your Android/iOS device is on the same network as your PC or Mac
 * Compile and run your game
-* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android device. (**Note**：Starting with **v2.0.7**, 5086 needs to be changed to 6086)
+* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android/iOS device.
 * The remote debugging interface is the same as debugging Windows.
-
-
-### Remote Debugging JavaScriptCore in Safari
-
-#### macOS
-
-1. Open Safari on your Mac, Preferences -> Advanced -> Show Develop menu in menu bar
-2. Add entitlements file to Xcode project, skip this step if entitlements exist. If it does not exist, open the App Sandbox in the Capabilities setting of the project, and then close again. At this point, the .entitlements file is automatically added to the project.![](jsc-entitlements.png). You also need to make sure the entitlements file is included in the Code Signing Entitlemenets option in the Build Setting. ![](jsc-entitlements-check.png)
-3. Open the entitlements file, add com.apple.security.get-task-allow, the value type is Boolean, the value is YES. ![](jsc-security-key.png)
-4. Signature: General -> Choose your Mac Project -> Signing -> Choose your Developer Certificate
-5. Compile and run your game
-6. If it is run directly in Creator's simulator, you can skip steps 2,3,4,5
-7. Click Safari menu, select Develop -> your Mac device name -> Cocos2d-x JSB will automatically open the Web Inspector page, and then you can set breakpoints, Timeline profile, console and other operations.![](jsc-mac-debug.png) ![](jsc-breakpoint.png) ![](jsc-timeline.png)
-
-**NOTE**
-
-If developers have to modify the engine source or merge some patches, they need to recompile the simulator, remember to reset the simulator project certificate.
-
-![](jsc-mac-simulator-sign.png)
-
-Then run `gulp gen-simulator` in terminal to generate simulator.
-
-#### iOS
-
-1. Open the iPhone Settings -> Safari -> Advanced -> Web Inspector
-2. Add entitlements file to Xcode project, skip this step if entitlements exist. If it does not exist, open the App Sandbox in the Capabilities setting of the project, and then close again. At this point, the .entitlements file is automatically added to the project. You also need to make sure the entitlements file is included in the Code Signing Entitlemenets option in the Build Setting. (The illustration image is similar to step 2 of macOS)
-3. Open the entitlements file, add com.apple.security.get-task-allow, the value type is Boolean, the value is YES. (The illustration image is similar to step 3 of macOS)
-4. Signature: General -> Choose your iOS project -> Signing -> Choose your developer certificate
-5. Compile and run your game
-6. Click Safari menu, select Develop -> your iOS device name -> Cocos2d-x JSB will automatically open the Web Inspector page, and then you can set breakpoints, Timeline profile, console and other operations.(The illustration image is similar to step 7 of macOS)
 
 ## Q & A
 

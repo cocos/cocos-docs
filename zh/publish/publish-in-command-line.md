@@ -52,7 +52,6 @@
 - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
 - `packageName` - 包名
-- `vsVersion` - 设置使用的 Visual Studio 版本，只在 windows 上有用，可选的选项有 [Auto、VS2015、VS2017]
 - `useDebugKeystore` - 是否使用 debug keystore
 - `keystorePath` - keystore 路径
 - `keystorePassword` - keystore 密码

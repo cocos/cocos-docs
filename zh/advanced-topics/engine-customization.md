@@ -58,6 +58,12 @@ gulp build
 
 ![](engine-customization/bin.png)
 
+**注意**：如果在编译过程中出现 `JavaScript heap out of memory` 的报错，可执行以下命令解决：
+
+```js
+gulp build --max-old-space-size=8192
+```
+
 ### 1.4 在 Cocos Creator 中使用定制版引擎
 
 通过 **项目 -> 项目设置** 面板的 **自定义引擎** 选项卡，设置本地定制后的 JavaScript 引擎路径。
