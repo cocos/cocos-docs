@@ -8,13 +8,25 @@ There are two ways to add lights:
 
 - Click on the **+** button in the upper left corner of the **Node Tree** and select **Create Light** to create a node containing the **Light component** to your scene.
 
-![](img/add-node-light.png)
+  ![](img/add-node-light.png)
 
 - Add a Light component to the node by selecting the node in the **Node Tree** where you want to add the lights, then clicking the **Add Component** button below the **Properties** and selecting **Light** from the **Renderer Component**.
 
-![](img/add-light.png)
+  ![](img/add-light.png)
 
 ## Types of light
+
+Light types include **DIRECTIONAL**, **POINT**, **SPOT**, **AMBIENT** four types. There are two ways to choose a Light type:
+
+- One is to select the **Create Light -> desired Light type (for example Directional)** directly when creating a node in the **Node Tree**.
+
+  ![](img/add-light-types.png)
+
+  ![](img/light-types.png)
+
+- The other is to set the **Type** property directly after adding the Light component in the **Properties** of the node.
+
+  ![](img/choose-light-types.png)
 
 ### Directional lights
 
@@ -38,6 +50,19 @@ The spot light is a point emits a beam of light to one direction. And has one mo
 
 ![Spot Light](img/lighting-6.jpg)
 
+### Ambient lights
+
+Ambient light can evenly illuminate all objects in the scene, helping to improve the brightness of the scene. This is often used to solve the problem of blackout of the back surface of the model.
+
+Ambient light generally needs to be used with other types of Light. For example, if there is only one directional light in the scene, it will appear very dark at the backlight of the model. Adding ambient light can enhance the brightness of the back of the model.
+
+**Note**:
+
+- Since the ambient light has no direction, no shadow can be produced.
+- Ambient light can be placed anywhere in the scene, regardless of the coordinates.
+
+![Ambient Light](img/lighting-7.jpg)
+
 ## Shadows
 
 If you want to make object shadows, there are a few steps:
@@ -49,10 +74,13 @@ If you want to make object shadows, there are a few steps:
 Suppose we want to display the projection of a model on a plane, then the parameter settings of each node can refer to the following figure:
 
 1. Light component
-![Light Component](img/lighting-1.jpg)
+
+    ![Light Component](img/lighting-1.jpg)
 
 2. The MeshRenderer component of the model
-![Light Component](img/lighting-2.jpg)
+
+    ![Light Component](img/lighting-2.jpg)
 
 3. The MeshRenderer component of the plane
-![Light Component](img/lighting-3.jpg)
+
+    ![Light Component](img/lighting-3.jpg)
