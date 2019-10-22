@@ -12,7 +12,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 | Properties |   Description
 | -------------- | ----------- |
-| Type                | Light type. Including **DIRECTIONAL**, **POINT**, **SPOT** three types. Please refer to [Lighting](lighting.md) for details.
+| Type                | Light type. Including **DIRECTIONAL**, **POINT**, **SPOT**, **AMBIENT** four types. Please refer to [Lighting](lighting.md) for details.
 | Color               | Light color.
 | Intensity           | Light intensity, the greater the value, the brighter the light.
 | Range               | Light radius. Only takes effect when the Type is set to **POINT** and **SPOT**.
