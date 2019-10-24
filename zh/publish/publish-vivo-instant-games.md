@@ -4,7 +4,7 @@
 
 - 下载 [快应用 & vivo 小游戏调试器](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) 和 [vivo 小游戏引擎](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
 
-- 全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
+- 全局安装 [nodejs-8.9.0](https://nodejs.org/zh-cn/download/) 或以上版本
 
     **注意**：安装 nodejs 后，需要注意 npm 源地址是否为 https://registry.npmjs.org/
 

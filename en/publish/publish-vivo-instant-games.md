@@ -4,7 +4,7 @@
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
-- Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally:
+- Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
     **Note**: After installing nodejs, you need to pay attention to whether the npm source address is https://registry.npmjs.org/
 
