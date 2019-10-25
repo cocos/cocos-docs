@@ -8,9 +8,7 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
 - Download [Alipay](https://mobile.alipay.com/index.htm) and install it on your phone.
 
-- The minimum supported version of Alipay on Android is **10.1.75**.
-
-- The minimum supported version of Alipay on iOS is **10.1.78**.
+- The minimum supported version of Alipay on Android is 10.1.75, on iOS is 10.1.78.
 
 ## Release Process
 
