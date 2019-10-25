@@ -88,6 +88,7 @@
     - [Native Development Environment](publish/setup-native-development.md)
     - [Publish to Native Platforms](publish/publish-native.md)
     - [Debug JavaScript on Native Platform](publish/debug-jsb.md)
+    - [Publish to Alipay Mini Games](publish/publish-alipay-mini-games.md)
     - [Publish to WeChat Mini Games](publish/publish-wechatgame.md)
         - [WeChat Open Data Context](publish/publish-wechatgame-sub-domain.md)
     - [Publish to QQ Play](publish/publish-qqplay.md)
@@ -95,7 +96,7 @@
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
-    - [Publish to Huawei Fast Games](publish/publish-huawei-fast-games.md)
+    - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish with Command Line](publish/publish-in-command-line.md)
 
