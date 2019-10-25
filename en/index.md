@@ -8,12 +8,12 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
-- **As of v2.1**, Cocos Creator introduces 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
+- **As of v2.1**, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
 - **As of v2.0.7**, Cocos Creator supports publishing to [Huawei Quick Games](publish/publish-huawei-quick-games.md).
 - **As of v2.0.5**, Cocos Creator supports publishing to [OPPO Mini Games](publish/publish-oppo-instant-games.md) and [vivo Mini Games](publish/publish-vivo-instant-games.md).
 - **As of v2.0.4**, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
 - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md).
-- **As of v1.10**, Cocos Creator refactors the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+- **As of v1.10**, Cocos Creator refactored the underlying resource types, most of which are unaffected, but some projects may receive warnings, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
 
 ## Index
 

@@ -8,7 +8,7 @@ Cocos Creator 从 **v2.1.4** 版本开始正式支持将游戏发布到支付宝
 
 - 下载 [支付宝](https://mobile.alipay.com/index.htm)，并安装到手机设备上。
 
-- Android 支付宝客户端最低支持版本为 10.1.75，iOS 为 10.1.78。
+- 支付宝客户端在 Android 上支持的最低版本为 10.1.75，在 iOS 为 10.1.78。
 
 ## 发布流程
 
