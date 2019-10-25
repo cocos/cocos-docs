@@ -78,6 +78,8 @@
 - `autoCompile` - 是否在构建完成后自动进行编译项目，默认为 **否**。
 - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数
 
+目前支持使用命令行发布的参数不多，如果没传参数的话，将会使用上一次构建的配置。建议在某台电脑上手动打包后，将设置好的构建配置文件（settings 目录中）上传到代码仓库，然后再在打包机上更新这些配置即可。
+
 ## 在 Jenkins 上部署
 
 CocosCreator 命令行运行的时候也是需要 GUI 环境的。如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。详见：<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>

@@ -82,7 +82,7 @@ If you need to customize the engine functionality associated with the native pla
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the cocos2d-x-lite engine from github. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
 
 ### 2.2 Initialize
 
@@ -99,23 +99,31 @@ gulp init
 
 - If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x-lite engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
-```bash
-> ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'v3-deps-54.zip' from
+    > 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
 
 - If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x-lite engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
 
-```bash
-> ==> Ready to download 'creator-console-2.zip' from
-> 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'creator-console-2.zip' from
+    > 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
+
+- If you get an error like the one below, you can execute `git init` and then execute `gulp init` again.
+
+    ```bash
+    fatal: not a git repository (or any of the parent directories): .git
+    [18:19:27] 'init' errored after 54 s
+    [18:19:27] Error: Command failed: git submodule update --init
+    ```
 
 ### 2.3 Configure Custom Engine in Cocos Creator
 
