@@ -10,7 +10,7 @@
 - 从 v2.1 开始，Cocos Creator 引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。请参阅 [3D 节点](3d/index.md)。
 - 从 v2.0.10 开始，Cocos Creator 支持发布到 [小米快游戏](publish/publish-xiaomi-quick-games.md) 及 [即刻玩小游戏](publish/publish-jkw-games.md)。
 - 从 v2.0.9 开始，Cocos Creator 支持发布到 [百度小游戏](publish/publish-baidugame.md)。
-- 从 v2.0.7 开始，Cocos Creator 支持发布到 [华为快游戏](publish/publish-huawei-fast-games.md)。
+- 从 v2.0.7 开始，Cocos Creator 支持发布到 [华为快游戏](publish/publish-huawei-quick-games.md)。
 - 从 v2.0.5 开始，Cocos Creator 支持发布到 [OPPO 小游戏](publish/publish-oppo-instant-games.md) 及 [vivo 小游戏](publish/publish-vivo-instant-games.md)。
 - 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)。
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)

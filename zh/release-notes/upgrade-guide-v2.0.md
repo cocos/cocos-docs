@@ -68,7 +68,7 @@
 
 ## 2.3 构建面板更新
 
-构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Game Open Data Context。
+构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Mini Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Mini Game Open Data Context。
 
 ![2.0 微信小游戏开放数据域发布面板](upgrade-guide-v2.0/wechat-open-data.png)
 

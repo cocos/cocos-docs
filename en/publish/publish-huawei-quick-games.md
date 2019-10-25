@@ -1,16 +1,17 @@
-# Publishing to Huawei Fast Games
+# Publishing to Huawei Quick Games
 
 ## Environment Configuration
 
-- Download [Huawei Fast APP Engine](https://obs.cn-north-2.myhwclouds.com/hms-ds-wf/sdk/HwFastAPPEngine_Loader.1213_tool.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [Huawei Quick APP Loader](
+  https://developer.huawei.com/consumer/en/service/hms/catalog/fastgame.html?page=fastapp_fastgame_devprepare_install_tool) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **Huawei Fast Game** in the **Platform** dropdown of the **Build...** panel.
+1. Use **Cocos Creator** to open the project that needs to be released. Select **Huawei Quick Game** in the **Platform** dropdown of the **Build...** panel.
 
-    ![](./publish-huawei-fast-games/build_option.png)
+    ![](./publish-huawei-quick-games/build_option.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
@@ -20,11 +21,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Name**
 
-  **App Name**, the name of the Huawei Fast Game, is required. And the **Title** at the top of the **Build** panel does not participate in the Huawei Fast Game packaging process.
+  **App Name**, the name of the Huawei Quick Game, is required. And the **Title** at the top of the **Build** panel does not participate in the Huawei Quick Game packaging process.
 
 - **Desktop Icon**
 
-  **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the Desktop Icon will be built into the **Huawei Fast Game** project. Desktop Icon suggest using PNG pictures.
+  **Desktop Icon** is required. Click the **...** button at the back of the input box to select the icon you want. When building, the Desktop Icon will be built into the **Huawei Quick Game** project. Desktop Icon suggest using PNG pictures.
 
 - **App Version Name**
 
@@ -36,15 +37,15 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the requirements of Huawei Fast Games, this value must be greater than or equal to **1035** at present.
+  This item is required. According to the requirements of Huawei Quick Games, this value must be greater than or equal to **1035** at present.
 
 - **Custom manifest file path (optional)**
 
-  This is an optional item, which is the expansion function of Huawei Fast Game. When you use it, you need to select a json file, and the data type in the file is required to be in json format. **Note**: The json data is not available when the key value are `package`, `appType`, `name`, `versionName`, `versionCode`, `icon`, `minPlatformVersion`, `config`, `display`, otherwise it will be overwritten by data such as **App Package Name**, **App Name**, **Desktop Icon**, **App Version Name**, **pp Version Number** during the build.
+  This is an optional item, which is the expansion function of Huawei Quick Game. When you use it, you need to select a json file, and the data type in the file is required to be in json format. **Note**: The json data is not available when the key value are `package`, `appType`, `name`, `versionName`, `versionCode`, `icon`, `minPlatformVersion`, `config`, `display`, otherwise it will be overwritten by data such as **App Package Name**, **App Name**, **Desktop Icon**, **App Version Name**, **pp Version Number** during the build.
 
 - **Small Packet Mode**
 
-  This item is optional. The in-package volume of the fast game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the fast game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The in-package volume of the quick game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the quick game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -89,7 +90,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   The node filling rules below **v2.0.10** are as follows:
 
-  - If you do not fill out this item, the Creator will read the node path in the environment variable by default on the Windows system, and the node in the **/usr/bin/local** directory is read by default on the Mac system to build the exported fast game rpk package that can be run.
+  - If you do not fill out this item, the Creator will read the node path in the environment variable by default on the Windows system, and the node in the **/usr/bin/local** directory is read by default on the Mac system to build the exported quick game rpk package that can be run.
   - If your PC environment does not have node installed or cannot read the node path in the system, you will need to fill out the **Custom node folder path** to build and exported rpk package. Fill in the rules as follows:
 
     - Windows system
@@ -116,19 +117,19 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path build directory, which is the exported **Huawei Fast Game**. The game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path build directory, which is the exported **Huawei Quick Game**. The game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
 
-  ![](./publish-huawei-fast-games/rpk.png)
+  ![](./publish-huawei-quick-games/rpk.png)
 
 **3. Run the built rpk to the phone**. There are two ways:
 
   - Click the **Play** button in the bottom right corner of the **Build** panel to bring up a **QuickGame DevTools** panel. Select the Android device in the **Phone Lists** column (if multiple Android devices are connected), and then click the **Run** button in the **QuickGame DevTools** column.
 
-    At this time, rpk will be pushed to the previously installed **Huawei Fast APP Engine** (If there is a permission box, please click allow), and then rpk can be opened on the Android device.
+    At this time, rpk will be pushed to the previously installed **Huawei Quick APP Loader** (If there is a permission box, please click allow), and then rpk can be opened on the Android device.
 
-    ![](./publish-huawei-fast-games/play.png)
+    ![](./publish-huawei-quick-games/play.png)
 
-  - Copy the rpk package generated by the build to the **sdcard** directory of the Android device. Open the **Huawei Fast APP Engine** that has been installed before, clicking the back button on the Android device will bring up a list, select the **Local Install**, select the path of place rpk, and then you can run the rpk on the Android device.
+  - Copy the rpk package generated by the build to the **sdcard** directory of the Android device. Open the **Huawei Quick APP Loader** that has been installed before, clicking the back button on the Android device will bring up a list, select the **Local Install**, select the path of place rpk, and then you can run the rpk on the Android device.
 
 **4. Subpackage rpk**
 
@@ -140,4 +141,4 @@ After the build is complete, the generated subpackages and main package are merg
 
 ## Related Reference Links
 
-[Huawei Fast Game development documentation](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_introduction)
+[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/service/hms/catalog/fastgame.html?page=fastapp_fastgame_introduction)
