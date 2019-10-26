@@ -4,7 +4,7 @@
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
-- Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally:
+- Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
     **Note**: After installing nodejs, you need to pay attention to whether the npm source address is https://registry.npmjs.org/
 
@@ -27,6 +27,8 @@
     ```
     npm install -g @vivo-minigame/cli
     ```
+
+    If `vivo-minigame/cli` installation fails, it may be caused by too low version of nodejs. Please check the version of node and upgrade.
 
 ## Release Process
 
@@ -62,7 +64,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   
 - **Small Packet Mode**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -175,7 +177,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **Method Three**:
 
-    Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
+    Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
     Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 

@@ -8,13 +8,25 @@
 
 - 在 **层级管理器** 中点击左上角的 **+** 按钮，然后选择 **创建光源**，就可以创建一个包含有 **光源组件** 的节点到场景中。
 
-![](img/add-node-light.png)
+  ![](img/add-node-light.png)
 
 - 在 **层级管理器** 中选择需要添加光源的节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，从 **渲染组件** 中选择 **Light**，即可添加 Light 组件到节点上。
 
-![](img/add-light.png)
+  ![](img/add-light.png)
 
 ## 光源类型
+
+光源类型包括 **平行光**、**点光源**、**聚光灯**、**环境光** 四种。可以通过以下两种方式选择光源类型：
+
+- 一种是在 **层级管理器** 中创建节点时直接选择 **Create Light -> 所需的光源类型（例如 Directional）** 即可。
+
+  ![](img/add-light-types.png)
+
+  ![](img/light-types.png)
+
+- 另一种是在节点的 **属性检查器** 中添加 Light 组件之后，直接设置 Light 组件的 **type** 属性。
+
+  ![](img/choose-light-types.png)
 
 ### 平行光
 
@@ -38,6 +50,17 @@
 
 ![Spot Light](img/lighting-6.jpg)
 
+### 环境光
+
+环境光可以均匀地照亮场景中的所有物体，帮助提升场景亮度，常用于解决模型背光面全黑的问题。环境光一般需要配合其他类型的光源一起使用，例如场景中只有一个平行光，那么在模型的背光源处会显得非常暗，加入环境光则可以提升模型背部的亮度，显得更加美观。
+
+**注意**：
+
+- 由于环境光是没有方向的，所以不能产生阴影。
+- 环境光可以放在场景中的任意节点上，与坐标无关，放在任意位置都可以。
+
+![Ambient Light](img/lighting-7.jpg)
+
 ## 设置阴影
 
 要使物体产生阴影，需要以下几个步骤：
@@ -49,10 +72,13 @@
 假设我们希望在一个平面上显示一个模型的投影，那么各节点的参数设置可以参考下图：
 
 1. 光源组件
-![Light Component](img/lighting-1.jpg)
+
+    ![Light Component](img/lighting-1.jpg)
 
 2. 模型的 MeshRenderer 组件
-![Light Component](img/lighting-2.jpg)
+
+    ![Light Component](img/lighting-2.jpg)
 
 3. 平面的 MeshRenderer 组件
-![Light Component](img/lighting-3.jpg)
+
+    ![Light Component](img/lighting-3.jpg)
