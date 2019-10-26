@@ -2,7 +2,7 @@
 
 ## 环境配置
 
-- 下载 [华为快应用加载器](https://obs.cn-north-2.myhwclouds.com/hms-ds-wf/sdk/HwFastAPPEngine_Loader.1213_tool.zip)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
+- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_devprepare_install_tool)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
 
 - PC 端全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 
@@ -10,7 +10,7 @@
 
 一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **华为快游戏**。
 
-![](./publish-huawei-fast-games/build_option.png)
+![](./publish-huawei-quick-games/build_option.png)
 
 相关参数配置具体的填写规则如下：
 
@@ -117,7 +117,7 @@
 
   **构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **huawei** 目录，该目录就是导出的华为快游戏工程目录和 rpk，rpk 包在 **/build/huawei/dist** 目录下。
 
-  ![](./publish-huawei-fast-games/rpk.png)
+  ![](./publish-huawei-quick-games/rpk.png)
 
 三、**将打包出来的 rpk 运行到手机上**。有以下两种方式：
 
@@ -125,7 +125,7 @@
 
     这时 rpk 会被推送到之前在手机上安装完成的 **华为快应用加载器** 上（如有读写等权限弹出请允许），即可在手机上打开 rpk。
 
-    ![](./publish-huawei-fast-games/play.png)
+    ![](./publish-huawei-quick-games/play.png)
 
   - 将构建生成的 rpk 包（位于快游戏工程 huawei 目录下的 dist 目录中）拷贝到手机 sdcard 目录下。然后在手机上打开 **华为快应用加载器** 后，点击手机的返回键会弹出一个列表，选择第一个选项 **本地安装**，选择路径为放置 rpk 的路径，即可将 rpk 运行到手机上。
 
