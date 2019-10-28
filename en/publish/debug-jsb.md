@@ -1,6 +1,6 @@
 # Debug JavaScript on Native Platform
 
-After the game is released to the native platform, because the operating environment is different, may appear in the browser preview can not reproduce the Bug, then we must directly in the original platform for debugging. However, traditional debugging methods can only be debugged to the C + + section and cannot debug JavaScript code. Cocos Creator introduced JSB 2.0 from v1.7, which makes it easy to remotely debug JavaScript in the native platform. If the Creator version is v1.6 below, please refer to [Native Platform Debugging](../publish/debug-native.md).
+After the game is released to the native platform, because the operating environment is different, may appear in the browser preview can not reproduce the Bug, then we must directly in the original platform for debugging. Cocos Creator makes it easy to debug JavaScript remotely in the native platforms.
 
 ## Debug Simulator
 
