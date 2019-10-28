@@ -1,6 +1,6 @@
 # 引擎定制工作流程
 
-Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三个部分。全部都在 github 上开源。地址在：
+Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三个部分。全部都在 GitHub 上开源。地址在：
 
 - JavaScript 引擎：<https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
@@ -32,7 +32,7 @@ Adapter 地址分别在：
 
 ![](engine-customization/open-engine.png)
 
-如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
+如果您想获得官方正在开发中的最新版本，首先您需要从 GitHub 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
 
 ![](engine-customization/download-repo-js.png)
 
@@ -79,7 +79,7 @@ gulp build --max-old-space-size=8192
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x-lite 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载或者克隆。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载或者克隆。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
 
 ### 2.2 初始化
 
@@ -116,12 +116,10 @@ gulp init
     > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
     ```
 
-- 若遇到类似下方这样的报错，通常是因为该 Cocos2d-x-lite 引擎仓库是直接从 github 下载而不是克隆下来的。可以执行 `git init`，然后再重新运行 `gulp init` 即可。
+- 若遇到类似下方这样的报错，通常是因为该 Cocos2d-x-lite 引擎仓库是直接从 GitHub 下载而不是克隆下来的。可以执行 `git init`，然后再重新运行 `gulp init` 即可。
 
     ```bash
     fatal: not a git repository (or any of the parent directories): .git
-    [18:19:27] 'init' errored after 54 s
-    [18:19:27] Error: Command failed: git submodule update --init
     ```
 
 ### 2.3 在 Cocos Creator 中配置定制版引擎
@@ -166,7 +164,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的相对应平台的 adapter 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，在该目录下的 `resources/builtin` 内就可以找到 `jsb-adapter`、`weapp-adapter` 和 `qqplay-adapter` 目录。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。然后替换到程序安装路径的 `resources/builtin` 目录下。和 JS 引擎类似，adapter 在使用前也请确认当前所在分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载。然后替换到程序安装路径的 `resources/builtin` 目录下。和 JS 引擎类似，adapter 在使用前也请确认当前所在分支。
 
 ### 3.2 定制 jsb-adapter
 
