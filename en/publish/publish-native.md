@@ -147,8 +147,4 @@ The red frames in the picture indicate projects of different native platforms. N
 
 ---
 
-To know how to debug on a native platform:
-
-Since Creator v1.7, please refer to [Debug JavaScript on Native Platform](debug-jsb.md).
-
-If the Creator version is v1.6 below, please refer to [Native Platform Debugging](debug-native.md).
+To know how to debug on a native platform, please refer to [Debug JavaScript on Native Platform](debug-jsb.md).
