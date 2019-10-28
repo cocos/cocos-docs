@@ -79,11 +79,11 @@ gulp build --max-old-space-size=8192
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x-lite 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库上 fork 或者克隆 Cocos2d-x-lite 引擎的原始版本。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载或者克隆。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
 
 ### 2.2 初始化
 
-克隆好 Cocos2d-x-lite 引擎仓库后，在命令行进入引擎路径然后执行：
+下载或者克隆好 Cocos2d-x-lite 引擎仓库后，在命令行进入引擎路径然后执行：
 
 ```bash
 # 在命令行进入 Cocos2d-x-lite 引擎路径
@@ -116,7 +116,7 @@ gulp init
     > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
     ```
 
-- 若遇到类似下方这样的报错，可以执行 `git init`，然后再执行一次 `gulp init` 即可。
+- 若遇到类似下方这样的报错，通常是因为该 Cocos2d-x-lite 引擎仓库是直接从 github 下载而不是克隆下来的。可以执行 `git init`，然后再重新运行 `gulp init` 即可。
 
     ```bash
     fatal: not a git repository (or any of the parent directories): .git
