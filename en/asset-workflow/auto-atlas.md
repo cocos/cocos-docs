@@ -30,10 +30,9 @@ After selecting an **Auto-atlas asset** in the **Assets** panel, the **Propertie
 | Padding Bleed | Padding with one pixel bleed area for each textures in atlas, the bleed area will copy the nearest pixel in the original texture. This feature is also known as "Extrude".
 | Filter Unused Resources | The option will not work in preview process, it only work in build process
 
-For **Premultiply Alpha**, **Filter Mode**, **packable** parameters of the Texture section, please refer to document [Texture](./sprite.md#texture-%E5%B1%9E%E6%80%A7). For the setting of Texture format, please refer to document [Texture Compression](./compress-texture.md).
+For **Premultiply Alpha**, **Filter Mode**, **Packable** parameters of the Texture section, please refer to document [Texture](./sprite.md#texture-%E5%B1%9E%E6%80%A7). For the setting of Texture format, please refer to document [Texture Compression](./compress-texture.md).
 
 After the configuration is complete, you can click the **Preview** button to preview the results of the packaging. The results of the current auto-atlas configuration will be displayed in the area below the **Properties** panel.
-Note that after any configuration change, you need to click **Preview** button again to refresh the preview.
 
 The results are:
 
@@ -43,3 +42,5 @@ The results are:
 ## Generate atlas
 
 With **Auto-atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with auto-atlas asset in the folder into atlas and update reference to them in the whole project automatically.
+
+**Note**: If Premultiply Alpha is enabled on the texture, it will be invalid when generating the atlas. If you need to use the Premultiply Alpha, you can check Premultiply Alpha on the Auto Atlas.
