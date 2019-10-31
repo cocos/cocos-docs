@@ -25,7 +25,6 @@ After selecting an **Auto-atlas asset** in the **Assets** panel, the **Propertie
 | Force Squared | Whether to force the Atlas size to be set to square
 | Power Of Two | Whether to set the map size to a power of two number
 | Heuristices | Atlas packaging strategy, the optional strategies are [BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule]
-| Format | Image generation format, available in [png, jpg, webp]
 | Padding Bleed | Padding with one pixel bleed area for each textures in atlas, the bleed area will copy the nearest pixel in the original texture. This feature is also known as "Extrude".
 | Filter Unused Resources | The option will not work in preview process, it only work in build process
 

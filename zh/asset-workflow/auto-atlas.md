@@ -24,7 +24,6 @@
 | 输出大小为正方形 | 是否强制将图集长宽大小设置成正方形
 | 输出大小为二次幂 | 是否将图集长宽大小设置为二次方倍数
 | 算法 | 图集打包策略， 可选的策略有 [BestShortSideFit、BestLongSideFit、BestAreaFit、BottomLeftRule、ContactPointRule]
-| 输出格式 | 图集图片生成格式，可选的格式有 [png、jpg、webp]
 | 扩边 | 在碎图的边框外扩展出一像素外框，并复制相邻碎图像素到外框中。该功能也称作 “Extrude”。
 | 不包含未被引用资源 | 在预览中，此选项不会生效，构建后此选项才会生效
 
