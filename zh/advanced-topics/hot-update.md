@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [Github 仓库](https://github.com/cocos-creator/tutorial-hot-update) 获取。
+本篇文档的范例工程可以从 [GitHub 仓库](https://github.com/cocos-creator/tutorial-hot-update) 获取。
 
 ![hot update](./hot-update/title.jpg)
 

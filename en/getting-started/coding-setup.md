@@ -137,10 +137,6 @@ Debugging process depends on the Cocos Creator editor built-in Web server, so yo
 We can directly add breakpoint in the source files, make changes, recompile and continue debugging process. This workflow is more convenient and friendly than using the built-in DevTools of Chrome.
 -->
 
-### Use VS Code to debug native projects
-
-VS Code debugging native engineering please refer to [Native Platform Debugging](../publish/debug-native.md), but only support Creator v1.6 and below. If the Creator version is greater than v1.7, use Chrome or Safari for debugging, refer to [Debug JavaScript on Native Platform](../publish/debug-jsb.md).
-
 ### Learn More About VS Code
 
 Go to the [documentation page of VS Code](https://code.visualstudio.com/Docs), to learn the editing, customization and extensions for VS Code.
