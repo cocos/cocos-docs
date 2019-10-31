@@ -92,4 +92,4 @@ __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For
 - [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
 
 ## F.A.Q
-Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.com/t/faq/54828).
+Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.org/t/faq/54828).
