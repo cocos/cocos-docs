@@ -1,6 +1,6 @@
 # 引擎定制工作流程
 
-Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三个部分。全部都在 github 上开源。地址在：
+Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三个部分。全部都在 GitHub 上开源。地址在：
 
 - JavaScript 引擎：<https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
@@ -31,7 +31,7 @@ Adapter 地址分别在：
 
 ![](engine-customization/open-engine.png)
 
-如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
+如果您想获得官方正在开发中的最新版本，首先您需要从 GitHub 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
 
 ![](engine-customization/download-repo-js.png)
 
@@ -78,7 +78,7 @@ gulp build --max-old-space-size=8192
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x-lite 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载或者克隆。和 JS 引擎类似，Cocos2d-x-lite 引擎在使用前也请确认当前所在分支。
 
 ### 2.2 初始化
 
@@ -97,23 +97,29 @@ gulp init
 
 - 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是您的 python 自带的一个库版本太低，但是不太好升级，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x-lite 引擎仓库下并重命名为 `v3-deps-54.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
-```bash
-> ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'v3-deps-54.zip' from
+    > 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
 
 - 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x-lite 引擎仓库 `tools/cocos2d-console` 目录下并重命名为 `creator-console-2.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
-```bash
-> ==> Ready to download 'creator-console-2.zip' from
-> 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'creator-console-2.zip' from
+    > 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
+
+- 若遇到类似下方这样的报错，通常是因为该 Cocos2d-x-lite 引擎仓库是直接从 GitHub 下载而不是克隆下来的。可以执行 `git init`，然后再重新运行 `gulp init` 即可。
+
+    ```bash
+    fatal: not a git repository (or any of the parent directories): .git
+    ```
 
 ### 2.3 在 Cocos Creator 中配置定制版引擎
 
@@ -156,7 +162,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的相对应平台的 adapter 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，在该目录下的 `resources/builtin` 内就可以找到 `jsb-adapter` 和 `adapters` 目录。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。然后替换到程序安装路径的 `resources/builtin` 目录下。和 JS 引擎类似，adapter 在使用前也请确认当前所在分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载。然后替换到程序安装路径的 `resources/builtin` 目录下。和 JS 引擎类似，adapter 在使用前也请确认当前所在分支。
 
 ### 3.2 定制 jsb-adapter
 

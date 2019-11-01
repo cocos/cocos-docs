@@ -137,10 +137,6 @@ VS Code 有着优秀的 debug 能力，我们可以直接在源码工程中调�
 调试过程中可以在源码文件上直接下断点，进行监控，是比使用 Chrome 内置的 DevTools 调试更方便和友好的工作流程。
 -->
 
-### 使用 VS Code 调试原生工程
-
-VS Code 调试原生工程请查阅 [原生平台调试](../publish/debug-native.md)，不过仅支持 Creator v1.6 及以下版本。如果 Creator 版本大于 v1.7，则要借助 Chrome 或 Safari 进行调试，请参考 [原生平台 JavaScript 调试](../publish/debug-jsb.md)。
-
 ### 学习 VS Code 的使用方法
 
 前往 VS Code 官网的 [文档页面](https://code.visualstudio.com/Docs)，了解从编辑功能操作、个性化定制、语法高亮设置到插件扩展等各方面的使用方法。

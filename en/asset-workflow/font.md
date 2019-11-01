@@ -28,11 +28,11 @@ Font assets need **Label** components to render, here's how:
 
 ### Create Node with Label
 
-In **Node Tree** click the top left '+' (Create Node) button and select `Create Renderer Nodes/Node with Label`, this will create a node with **Label** component attached in the scene.
+In **Node Tree** click the top left **+** (Create Node) button and select **Create Renderer Nodes -> Node With Label**, this will create a node with **Label** component attached in the scene.
 
 ![from hierarchy](font/create_label.png)
 
-You can also create from main menu: `Node Presets/Create Renderer Nodes/Node with Label`.
+You can also create from main menu **Node -> Create Renderer Nodes -> Node With Label**.
 
 ![from main menu](font/create_label_main_menu.png)
 
