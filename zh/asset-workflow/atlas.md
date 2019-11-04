@@ -30,8 +30,8 @@
 
 **注意**：
 
-- Zwoptex 不支持最新版 macOS。
-- 若没有什么特殊需求，使用 Creator 的自动图集功能也可以生成图集，具体可参考文档 [自动图集](./auto-atlas.md)。
+- Zwoptex 暂时不支持最新版 macOS。
+- 若没有特殊需求，也可以直接使用 Creator 的 [自动图集](./auto-atlas.md) 功能生成图集。
 
 ## 导入图集资源
 
