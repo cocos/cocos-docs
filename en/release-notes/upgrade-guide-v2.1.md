@@ -58,9 +58,9 @@ The **Skeletal Animation** component inherits from the **Animation** component. 
 
 For more 3D instructions, please consult the documentation [3D System](../3d/index.md).
 
-#### Optimize Auto-Atlas Build Speed
+#### Optimize Auto Atlas Build Speed
 
-__v2.1__ greatly optimizes the speed of auto-atlas construction. If the atlas has not changed, the results of the last build are used.
+__v2.1__ greatly optimizes the speed of Auto Atlas construction. If the atlas has not changed, the results of the last build are used.
 
 #### Further Improve Rendering Performance
 
