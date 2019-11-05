@@ -51,7 +51,7 @@ Next, we will introduce Cocos Creator's main asset types and the related workflo
 - [Scene asset](scene-managing.md)
 - [Image asset](sprite.md)
 - [Atlas](atlas.md)
-- [Auto-atlas asset](auto-atlas.md)
+- [Auto Atlas asset](auto-atlas.md)
 - [Auto Trim for SpriteFrame](trim.md)
 - [Texture Compression](compress-texture.md)
 - [Script asset](script.md)
