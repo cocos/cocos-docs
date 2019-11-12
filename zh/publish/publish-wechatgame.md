@@ -82,13 +82,13 @@
 
 **注意**：如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `wxDownloader.cleanAllCaches()` 和 `wxDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
 
-## 微信小游戏分离引擎
+## 微信小游戏引擎插件
 
-微信小游戏如何使用分离引擎请参考 [分离引擎](./wechatgame_separate_engine.md)。
+请参考 [微信小游戏引擎插件](./wechatgame_separate_engine.md)。
 
 ## 微信小游戏分包加载
 
-微信小游戏如何实现分包加载请参考 [分包加载](../scripting/subpackage.md)。
+请参考 [分包加载](../scripting/subpackage.md)。
 
 ## 平台 SDK 接入
 
