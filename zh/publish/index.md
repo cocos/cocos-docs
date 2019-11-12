@@ -7,6 +7,7 @@
 - [发布到支付宝小游戏](publish-alipay-mini-games.md)
 - [发布到微信小游戏](publish-wechatgame.md)
     - [微信小游戏开放数据域](publish-wechatgame-sub-domain.md)
+    - [启用微信小游戏引擎插件](wechatgame_separate_engine.md)
 - [发布到百度小游戏](publish-baidugame.md)
     - [百度小游戏开放数据域](publish-baidugame-sub-domain.md)
 - [发布到 QQ「玩一玩」](publish-qqplay.md)
