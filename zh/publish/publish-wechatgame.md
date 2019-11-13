@@ -84,7 +84,7 @@
 
 ## 微信小游戏引擎插件
 
-请参考 [微信小游戏引擎插件](./wechatgame_separate_engine.md)。
+请参考 [微信小游戏引擎插件](./wechat-engine-plugin.md)。
 
 ## 微信小游戏分包加载
 
