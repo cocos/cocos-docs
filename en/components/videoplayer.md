@@ -26,7 +26,6 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
 | Keep Aspect Ratio  | Whether keep the aspect ratio of the original video.
 | Is Fullscreen      | Whether play video in fullscreen mode.
-| Stay On Bottom     | Always below the game view (only useful on Web. |
 | Video Player Event | the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
 **Note**：In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
@@ -127,24 +126,9 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
 
-
-## How to support UI rendering on VideoPlayer (Only available on Web at the moment)
-
-Need three steps:
-
-1. Set cc.macro.ENABLE_TRANSPARENT_CANVAS is true. (Set the Canvas background to support the alpha channel.)
-2. Set the alpha of the camera background color to 0.
-3. Open the stayOnBottom property on the VideoPlayer component.
-
-Note: Depending on browser limit, there is no guarantee that all browsers will display the same effect.
-
-Rendering：
-
-![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
-
 ## Support platform
 
-Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, and **Android** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
+Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **Google Play Instant** and **Facebook Instant Games** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
 
 <hr>
 

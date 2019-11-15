@@ -26,7 +26,6 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 | Mute               | 是否静音视频。静音时设置音量为 0，取消静音时恢复原来的音量 |
 | Keep Aspect Ratio  | 是否保持视频原来的宽高比  |
 | Is Fullscreen      | 是否全屏播放视频  |
-| Stay On Bottom     | 永远在游戏视图最底层（这个属性只有在 Web 平台上有效果。|
 | Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。详情见下方的 **VideoPlayer 事件** 章节或者 [VideoPlayerEvent API](../../../api/zh/classes/VideoPlayer.html#videoplayerevent)。|
 
 **注意**：在 **Video Player Event** 属性的 **cc.Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 VideoPlayer 事件。
@@ -131,21 +130,6 @@ cc.Class({
 
 关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
 
-## 如何支持 UI 在 VideoPlayer 上渲染（只支持 Web 平台）
-
-需要三个步骤：
-
-1. 开启 cc.macro.ENABLE_TRANSPARENT_CANVAS = true;（设置 Canvas 背景支持 alpha 通道。）
-2. 设置摄像机的 backgroundColor 的透明度为 0。
-3. 勾选 VideoPlayer 组件上的 stayOnBottom 属性。
-
-即可实现，注意：各个浏览器具体效果无法保证一致，跟浏览器是否支持与限制有关。
-
-效果图：
-
-![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
-
-
 ## 支持平台
 
-由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS 和 Android 平台。用户如果需要在微信小游戏上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。
+由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS、Android、Google Play Instant 以及 Facebook Instant Games 平台。用户如果需要在微信小游戏上使用，可以参考 [微信小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/wx.createVideo.html)。
