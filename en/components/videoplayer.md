@@ -128,7 +128,7 @@ Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and 
 
 ## Support platform
 
-Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **Google Play Instant** and **Facebook Instant Games** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
+Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.
 
 <hr>
 
