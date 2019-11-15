@@ -18,15 +18,16 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 
 | Properties | Function Explanation
 |-------- | ----------- |
-| Resource Type| The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
-| Clip | Displayed when Resource Type is LOCAL，feed it with a local video path.
-| Remote URL | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
-| Current Time | The current time when video start to play.
+| Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
+| Clip               | Displayed when Resource Type is LOCAL，feed it with a local video path.
+| Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
+| Current Time       | The current time when video start to play.
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
 | Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
-| Keep Aspect Ratio | Whether keep the aspect ratio of the original video.
-| Is Fullscreen| Whether play video in fullscreen mode.
-| Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
+| Keep Aspect Ratio  | Whether keep the aspect ratio of the original video.
+| Is Fullscreen      | Whether play video in fullscreen mode.
+| Stay On Bottom     | Always below the game view (only useful on Web. |
+| Video Player Event | the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
 **Note**：In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
@@ -125,6 +126,21 @@ cc.Class({
 ```
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
+
+
+## How to support UI rendering on VideoPlayer (Only available on Web at the moment)
+
+Need three steps:
+
+1. Set cc.macro.ENABLE_TRANSPARENT_CANVAS is true. (Set the Canvas background to support the alpha channel.)
+2. Set the alpha of the camera background color to 0.
+3. Open the stayOnBottom property on the VideoPlayer component.
+
+Note: Depending on browser limit, there is no guarantee that all browsers will display the same effect.
+
+Rendering：
+
+![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
 
 ## Support platform
 
