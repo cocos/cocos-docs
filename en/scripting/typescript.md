@@ -8,8 +8,6 @@ For more information on how to use TypeScript, please visit [TypeScript official
 
 Many of Cocos Creator users used to use other strong type programming language (such as C++ / C#) to write game, so they hope to use strong type language to enhance the project in the larger scale team when developing games with Cocos Creator.
 
-From v1.5 version on, Cocos Creator supports using TypeScript in the project as a script language. User's source code can be all TypeScript, or TypeScript and JavaScript mixed.
-
 As with other JavaScript scripts, the TypeScript file (`.ts`) in the project `assets` directory will be compiled into an ES5 JavaScript script that is compatible with the browser standard once created or modified. The compiled script is stored in the `library` directories in the project folder.
 
 ## Setup
