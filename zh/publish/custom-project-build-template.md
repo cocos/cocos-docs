@@ -174,14 +174,43 @@ class BuildResults {
      * @returns {string}
      */
     getNativeAssetPath (uuid) {
+        return this.getNativeAssetPaths(uuid)[0] || '';
+    }
+
+    /**
+     * Get the paths of the specified native asset such as texture.
+     * Returns empty array if not found.
+     *
+     * @param {string} uuid
+     * @returns {string[]}
+     */
+    getNativeAssetPaths (uuid) {
         if (!this.containsAsset(uuid, true)) {
-            return '';
+            return [];
         }
-        var result = this._buildAssets[uuid];
-        if (typeof result === 'object') {
-            return result.nativePath || '';
+
+        let buildAsset = this._buildAssets[uuid];
+        if (typeof buildAsset !== 'object') {
+            return [];
         }
-        return '';
+
+        let nativePaths = [];
+        if (buildAsset.nativePaths) {
+            nativePaths = buildAsset.nativePaths;
+        }
+        else if (buildAsset.nativePath) {
+            nativePaths = [buildAsset.nativePath];
+        }
+
+        let md5 = this._nativeMd5Map && this._nativeMd5Map[uuid];
+        if (md5) {
+            for (let i = 0; i < nativePaths.length; ++i) {
+                let str = nativePaths[i];
+                let index = str.lastIndexOf('.');
+                nativePaths[i] = str.substr(0, index) + `.${md5}` + str.substr(index, str.length);
+            }
+        }
+        return nativePaths;
     }
 }
 ```
