@@ -111,107 +111,57 @@ module.exports = {
 BuildResults 的详细 API 如下：
 
 ```js
+
 class BuildResults {
-    constructor () {
-        this._buildAssets = null;
-        this._packedAssets = null;
-    }
+    /**
+     * 指定的 uuid 资源是否包含在构建资源中
+     * 
+     * @param {String} uuid 需要检测的资源 uuid
+     * @param {Boolean} [assertContains=false] 不包含时是否打印报错信息
+     * @returns {Boolean}
+     */
+    containsAsset (uuid, assertContains) {}
 
     /**
-     * Returns true if the asset contains in the build.
+     * 返回构建资源中包含的所有资源的 uuid
      *
-     * @param {boolean} [assertContains=false]
-     * @returns {boolean}
+     * @returns {String[]}
      */
-    containsAsset (uuid, assertContains) {
-        var res = uuid in this._buildAssets;
-        if (!res && assertContains) {
-            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
-        }
-        return res;
-    }
+    getAssetUuids () {}
 
     /**
-     * Returns the uuids of all assets included in the build.
+     * 获取指定 uuid 资源中的所有依赖资源，返回的列表中不包含自身
      *
-     * @returns {string[]}
+     * @param {String} uuid - 指定的 uuid 资源
+     * @returns {String[]}
      */
-    getAssetUuids () {
-        return Object.keys(this._buildAssets);
-    }
+    getDependencies (uuid) {}
 
     /**
-     * Return the uuids of assets which are dependencies of the input, also include all indirect dependencies.
-     * The list returned will not include the input uuid itself.
+     * 获取指定 uuid 的资源在引擎中定义的资源类型
+     * 同时可以使用 cc.js.getClassByName(type) 进行获取资源的构造函数
      *
-     * @param {string} uuid
-     * @returns {string[]}
+     * @param {String} uuid - 指定的 uuid 资源
+     * @returns {String}
      */
-    getDependencies (uuid) {
-        if (!this.containsAsset(uuid, true)) {
-            return [];
-        }
-        return Editor.Utils.getDependsRecursively(this._buildAssets, uuid, 'dependUuids');
-    }
+    getAssetType (uuid) {}
 
     /**
-     * Get type of asset defined in the engine.
-     * You can get the constructor of an asset by using `cc.js.getClassByName(type)`.
+     * 获取指定 uuid 资源（例如纹理）的存放路径（如果找不到，则返回空字符串）
      *
-     * @param {string} uuid
-     * @returns {string}
+     * @param {String} uuid - 指定的 uuid 资源
+     * @returns {String}
      */
-    getAssetType (uuid) {
-        this.containsAsset(uuid, true);
-        return getAssetType(uuid);
-    }
+    getNativeAssetPath (uuid) {}
 
     /**
-     * Get the path of the specified native asset such as texture.
-     * Returns empty string if not found.
+     * 获取指定 uuid 资源（例如纹理）的所有存放路径（如果找不到，则返回空数组）
+     * 例如：需要获取纹理多种压缩格式的存放资源路径时，即可使用该函数
      *
-     * @param {string} uuid
-     * @returns {string}
+     * @param {String} uuid - 指定的 uuid 资源
+     * @returns {String[]}
      */
-    getNativeAssetPath (uuid) {
-        return this.getNativeAssetPaths(uuid)[0] || '';
-    }
-
-    /**
-     * Get the paths of the specified native asset such as texture.
-     * Returns empty array if not found.
-     *
-     * @param {string} uuid
-     * @returns {string[]}
-     */
-    getNativeAssetPaths (uuid) {
-        if (!this.containsAsset(uuid, true)) {
-            return [];
-        }
-
-        let buildAsset = this._buildAssets[uuid];
-        if (typeof buildAsset !== 'object') {
-            return [];
-        }
-
-        let nativePaths = [];
-        if (buildAsset.nativePaths) {
-            nativePaths = buildAsset.nativePaths;
-        }
-        else if (buildAsset.nativePath) {
-            nativePaths = [buildAsset.nativePath];
-        }
-
-        let md5 = this._nativeMd5Map && this._nativeMd5Map[uuid];
-        if (md5) {
-            for (let i = 0; i < nativePaths.length; ++i) {
-                let str = nativePaths[i];
-                let index = str.lastIndexOf('.');
-                nativePaths[i] = str.substr(0, index) + `.${md5}` + str.substr(index, str.length);
-            }
-        }
-        return nativePaths;
-    }
+    getNativeAssetPaths (uuid) {}
 }
 ```
 
