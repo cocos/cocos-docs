@@ -115,77 +115,59 @@ The detailed API for BuildResults is as follows:
 
 ```js
 class BuildResults {
-    constructor () {
-        this._buildAssets = null;
-        this._packedAssets = null;
-    }
-
     /**
      * Returns true if the asset contains in the build.
      *
-     * @param {boolean} [assertContains=false]
-     * @returns {boolean}
+     * @param {String} uuid
+     * @param {Boolean} [assertContains=false]
+     * @returns {Boolean}
      */
-    containsAsset (uuid, assertContains) {
-        var res = uuid in this._buildAssets;
-        if (!res && assertContains) {
-            Editor.error(`The bulid not contains an asset with the given uuid "${uuid}".`);
-        }
-        return res;
-    }
+    containsAsset (uuid, assertContains) {}
 
     /**
      * Returns the uuids of all assets included in the build.
      *
-     * @returns {string[]}
+     * @returns {String[]}
      */
-    getAssetUuids () {
-        return Object.keys(this._buildAssets);
-    }
+    getAssetUuids () {}
 
     /**
      * Return the uuids of assets which are dependencies of the input, also include all indirect dependencies.
      * The list returned will not include the input uuid itself.
      *
-     * @param {string} uuid
-     * @returns {string[]}
+     * @param {String} uuid
+     * @returns {String[]}
      */
-    getDependencies (uuid) {
-        if (!this.containsAsset(uuid, true)) {
-            return [];
-        }
-        return Editor.Utils.getDependsRecursively(this._buildAssets, uuid, 'dependUuids');
-    }
+    getDependencies (uuid) {}
 
     /**
      * Get type of asset defined in the engine.
      * You can get the constructor of an asset by using `cc.js.getClassByName(type)`.
      *
-     * @param {string} uuid
-     * @returns {string}
+     * @param {String} uuid
+     * @returns {String}
      */
-    getAssetType (uuid) {
-        this.containsAsset(uuid, true);
-        return getAssetType(uuid);
-    }
+    getAssetType (uuid) {}
 
     /**
      * Get the path of the specified native asset such as texture.
      * Returns empty string if not found.
      *
-     * @param {string} uuid
-     * @returns {string}
+     * @param {String} uuid
+     * @returns {String}
      */
-    getNativeAssetPath (uuid) {
-        if (!this.containsAsset(uuid, true)) {
-            return '';
-        }
-        var result = this._buildAssets[uuid];
-        if (typeof result === 'object') {
-            return result.nativePath || '';
-        }
-        return '';
-    }
+    getNativeAssetPath (uuid) {}
+
+    /**
+     * Get the paths of the specified native asset such as texture.
+     * Returns empty array if not found.
+     * 
+     * This function can be used to get the native asset path stored in all compressed formats of the texture.
+     *
+     * @param {String} uuid
+     * @returns {String[]}
+     */
+    getNativeAssetPaths (uuid) {}
 }
 ```
 
