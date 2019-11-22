@@ -184,6 +184,18 @@
     - [光照](3d/lighting.md)
     - [光源组件参考](3d/light-component.md)
     - [基础 3D 物体](3d/primitive.md)
+- [3D 物理与碰撞系统](physics-3d/index.md)
+    - [碰撞系统](physics-3d/collision/index.md)
+        - [碰撞系统管理器](physics-3d/collision/collision-manager.md) 
+        - [碰撞组件](physics-3d/collision/collision-component.md) 
+        - [碰撞事件](physics-3d/collision/collision-event.md)
+    - [物理系统](physics-3d/physics/index.md)
+        - [物理系统管理器](physics-3d/physics/physics-manager.md)
+        - [刚体组件](physics-3d/physics/physics-rigidbody.md)
+        - [恒力组件](physics-3d/physics/physics-constant-force.md)
+        - [碰撞组件](physics-3d/physics/physics-collider.md)
+        - [物理材质](physics-3d/physics/physics-material.md)
+        - [物理事件](physics-3d/physics/physics-event.md)
 
 ## 进阶使用
 
