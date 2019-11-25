@@ -4,7 +4,15 @@
 
 ![](./camera/camera.png)
 
-## 摄像机属性
+## 2D 摄像机属性
+
+- **backgroundColor**
+
+  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+
+- **depth**
+
+  摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
 
 - **cullingMask**
 
@@ -16,11 +24,7 @@
 
   用户可以通过编辑器菜单栏中的 **项目 -> 项目设置 -> 分组管理** 来添加或者更改分组，这些分组即是对应的 mask。
 
-  ![](camera/mask-setting.png)
-
-- **zoomRatio**
-
-  指定摄像机的缩放比例, 值越大显示的图像越大。
+  ![culling mask](camera/mask-setting.png)
 
 - **clearFlags**
 
@@ -28,13 +32,25 @@
 
   ![camera-2](camera/camera-2.png)
 
-- **backgroundColor**
+- **rect**
 
-  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+  决定摄像机绘制在屏幕上哪个区域，值为 0-1。
 
-- **depth**
+  ![camera-2](camera/camera-rect.jpg)
 
-  摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
+  如图场景中创建了一个用来做小地图显示的 camera ，他的最终显示效果在 Game Preview 窗口的右上角可以看到。
+
+- **zoomRatio**
+
+  指定摄像机的缩放比例, 值越大显示的图像越大。
+
+- **alignWithScreen**
+
+  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小，如果希望能完全自由控制摄像机，则需要将 alignWithScreen 设置为 false。
+
+- **orthoSize**
+
+  摄像机在正交投影模式下的视窗大小，当 alignWithScreen 设置为 false 的时候才能自由修改。
 
 - **targetTexture**
 
@@ -44,33 +60,25 @@
 
   具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
 
-### 高级属性
+### 3D 摄像机属性
 
-这些高级属性在摄像机节点变为 [3D 节点](../3d/3d-node.md) 后才会显示在属性检查器中。
+这些属性在摄像机节点变为 [3D 节点](../3d/3d-node.md) 后才会显示在属性检查器中，2D 摄像机的所有属性在 3D 摄像机里都有。
 
-- fov
+- **fov**
 
-决定摄像机视角的宽度，当摄像机处于透视投影模式下这个属性才会生效。
+  决定摄像机视角的高度，当摄像机处于透视投影模式下这个属性才会生效。
 
-- orthoSize
+- **nearClip**
 
-摄像机在正交投影模式下的视窗大小。
+  摄像机的近剪裁面。
 
-- nearClip
+- **farClip**
 
-摄像机的近剪裁面。
+  摄像机的远剪裁面。
 
-- farClip
+- **ortho**
 
-摄像机的远剪裁面。
-
-- ortho
-
-设置摄像机的投影模式是正交（true）还是透视（false）模式。
-
-- rect
-
-决定摄像机绘制在屏幕上哪个位置，值为 0-1。
+  设置摄像机的投影模式是正交（true）还是透视（false）模式。
 
 ## 摄像机方法
 
@@ -103,15 +111,15 @@
 下面是一些摄像机坐标系转换的函数
 
 ```javascript
-// 将一个摄像机坐标系下的点转换到世界坐标系下
-camera.getCameraToWorldPoint(point, out);
-// 将一个世界坐标系下的点转换到摄像机坐标系下
-camera.getWorldToCameraPoint(point, out);
+// 将一个屏幕坐标系下的点转换到世界坐标系下
+camera.getScreenToWorldPoint(point, out);
+// 将一个世界坐标系下的点转换到屏幕坐标系下
+camera.getWorldToScreenPoint(point, out);
 
-// 获取摄像机坐标系到世界坐标系的矩阵
-camera.getCameraToWorldMatrix(out);
-// 获取世界坐标系到摄像机坐标系的矩阵
-camera.getWorldToCameraMatrix(out);
+// 获取屏幕坐标系到世界坐标系的矩阵，只适用于 2D 摄像机并且 alignWithScreen 为 true 的情况
+camera.getScreenToWorldMatrix2D(out);
+// 获取世界坐标系到屏幕坐标系的矩阵，只适用于 2D 摄像机并且 alignWithScreen 为 true 的情况
+camera.getWorldToScreenMatrix2D(out);
 ```
 
 ## 截图
@@ -160,6 +168,16 @@ for (let row = 0; row < height; row++) {
 let dataURL = canvas.toDataURL("image/jpeg");
 let img = document.createElement("img");
 img.src = dataURL;
+```
+
+### 截取部分区域
+
+**注意**：当摄像机设置了 render texture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果希望截取屏幕中某一块区域的时候，需要设置 **alignWithScreen** 为 **false**，并且根据摄像机**投影方式**调整 **orthoSize** 或者 **fov**。
+
+```js
+camera.alignWithScreen = false;
+camera.orthoSize = 100;
+camera.position = cc.v2(100, 100);
 ```
 
 ### 保存截图文件
