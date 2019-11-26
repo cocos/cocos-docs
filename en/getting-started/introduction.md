@@ -1,122 +1,94 @@
-# About Cocos Creator
+# About __Cocos Creator__
 
-- **Q**: Is Cocos Creator a game engine?
-- **A**: It's a complete game development solution, which includes the JavaScript
- implementation of Cocos2d-x (no need to learn a new engine), and various UI tools 
- that can help you develop games more quickly.
+- **Q**: Is __Cocos Creator__ a game engine?
+- **A**: It's a complete game development solution that includes the JavaScript implementation of the __Cocos2d-x__ engine (no need to learn a new engine), interface builder and the various graphics you need to develop your game faster. 
 
-- **Q**: What kind of editor does Cocos Creator have?
-- **A**: It's completely customized for the engine. It's an all-in-one editor that 
-  can serve the whole workflow from design, development, preview, debug and all the 
-  way to cross-platform publishing.
+- **Q**: What is the editor of __Cocos Creator__?
+- **A**: Fully custom built for the engine, including the full-featured all-in-one editor for the entire workflow from design, development, preview, debugging to release
 
-- **Q**: Can I use Cocos Creator even if I don't know how to programming?
-- **A**: Of course! Cocos Creator provides two kinds of workflows: one 
-  design-oriented and one develop-oriented, and a simple and smooth cooperative 
-  method (with an appropriate division of labor).
+- **Q**: I can't write programs, can I use __Cocos Creator__?
+- **A**: Of course! The __Cocos Creator__ editor provides two workflows for design and development, providing a simple and smooth way of working together.
 
-- **Q**: Which platform can we choose to publish the games developed by Cocos Creator?
-- **A**: Currently, Cocos Creator can publish games to the Web, Android, iOS, desktops 
-  (Mac and windows) and Instant Games. The goal is to develop once and publish to all platforms.
+- **Q**: What platform can __Cocos Creator__ let me develop for?
+- **A**: __Cocos Creator__ currently supports publishing games to the Web, iOS, Android, various "mini game" platforms, PC desktops and other platforms.
 
-## Product Positioning
+## What is Cocos Cretaor?
 
-Cocos Creator is a game development environment focused on content creation, which has 
-features like scripting, componentization and uses a data driven model with the power of 
-Cocos2d-x under the hood.
+__Cocos Creator__ is a game development tool with content creation at its core. It is fully scripted, componentized and data driven. __Cocos Creator__ uses data-driven and component-based game development methods. 
 
-## Workflow introduction 工作流程说明
+## Workflow Description
 
-In the development phase, Cocos Creator has already been able to greatly improve efficiency 
-and creativity for users. The workflows provided are not limited to a development level. 
-For a successful game, not only workflows that form development and adjustment, 
-but the assembly of commercialized SDKs, multi-platform releases and testing.
+In the development phase, __Cocos Creator__ has been able to bring great efficiency and creativity to users. Successful games include development and debugging, commercial SDK integration, multi-platform release, testing, and the online workflow that __Cocos Creator__ has to offer.
 
-![cocos workflow user](introduction/cocos-workflow-user.jpg)
+<a href="introduction/cocos-workflow-user.jpg"><img src="introduction/cocos-workflow-user.jpg" alt="__Cocos Creator__ workflow"></a>
 
-Cocos Creator integrates web-based games of Cocos Play into the editor tools, so there is no 
-need to switch between various software. Just open the Cocos Creator editor, 
-various one-click automatic flows can solve all the above problems with the least time and energy. 
-Developers can focus on the development phase, and improve the competitiveness and creativity of the product!
+__Cocos Creator__ integrates the entire mobile page navigation solution into the editor tool, eliminating the need to shuttle between multiple software applications. With the __Cocos Creator__ editor open, a one-click automated process takes the least amount of time and effort to solve All the above questions. Developers can focus on the development phase and increase product competitiveness and creativity!
 
-### Create or import resources
+### Creating or importing resources
 
-You can complete resource import by dragging resources such as pictures, sounds, and so on to the **Assets** in the editor.
+You can complete resource importing by dragging and dropping resources such as images and sounds into the editor's **Explorer** panel.
 
-In addition, you can create scenes, prefabs, animations, scripts, particles, and other resources directly in the editor.
+In addition, you can create scenes, prefabs, animations, scripts, particles and other resources directly within the __Cocos Creator__ editor.
 
-### Create scene content
+### Building scene content
 
-With some basic resources in the project, we can start to build the scene, the scene is the game content most basic organization way, and it is also the basic form of showing the game to the player.
+After having some basic resources in the project, we can start to set up the scene. The scene is the most basic organization of the game content, and it is also the basic form of showing the game to the player.
 
-We'll add a variety of nodes through the **Scene**, which is responsible for displaying the game's artistic sound resources as well as the hosting of the subsequent interaction functionality.
+We will add various types of nodes through the **Scene Editor**, which is responsible for displaying the game's fine sound effects resources and hosting them as a follow-up interactive function.
 
-### Adding component scripts to enable interactive functionality
+### Add component scripts to implement interactive functions
 
-We can mount a variety of built-in components and custom scripting components for the nodes in the scene to enable the game logic to run and interact. This includes the most basic animation playback, the button response, the main loop script that drives the entire game logic, and the control of the player role. Almost all of the game logic functions are implemented by mounting scripts to the nodes in the scene.
+We can include various built-in components and custom script components for the nodes in the scene. This includes everything from the most basic animation playback and button responses, to the main loop script that drives the entire game logic and the control of the player's character. Almost all game logic functions are implemented by adding scripts to nodes in the scene.
 
-### One-click preview and publish
+### One-click preview and release
 
-In the process of setting up the scene and developing the function, you can click the preview at any time to see how the current scene works. Use mobile phone scan two-dimensional code, you can immediately preview the game on the phone. When development comes to an end, through the **build** panel you can publish the game to include desktop, mobile phone, Web and many other platforms.
+In the process of setting up the scene and developing functions, you can click to preview your work, at any time, to see the current scene running. Use your phone to scan the QR code and instantly preview the game on your phone. When the development comes to an end, the **Build Publish** panel allows you to publish games to multiple platforms, including desktops, mobile phones, and the Web.
 
-## Highlight Features
+## Features
 
-The highlight features of Cocos Creator include:
+Highlights of __Cocos Creator's__ features include:
 
-- Data properties that can be adjusted in the editor at anytime can be easily declared in the script. The adjustments to parameters can be independently finished by designers.
-- A UI system that supports smart canvas adaptation and spares the alignment of coding elements can perfectly adapt to device screens of any resolution.
-- Animation system that is specially made for 2D games supports animation trajectory preview and editing of complicated curves.
-- Scriptable development supported by a dynamic language makes dynamic adjustment and the remote adjustment of mobile devices amazingly easy.
-- By using the Cocos2d-x engine, when enjoying the convenience of scriptable development, you can also release games on various desktop platforms and mobile terminal platforms with one-click, with their superb features on the original level preserved.
-- Componentization of script and open plugin system provides developers with methods of customizing workflows at different depths. The editor can be adjusted on a large scale to adapt to the needs of different groups and projects.
+- Data properties can be adjusted at any time in the editor and can be easily declared in scripts. Designers can even adjust parameters without interferring with code.
+- UI system that support smart canvas adaptation and programming-free element alignment are perfectly adapted to device screens of any resolution.
+- An animation system for 2D games that supports animated track preview and complex curve editing.
+- Scripting development using dynamic language support, making dynamic debugging and remote debugging on mobile devices extremely easy.
+- With the Cocos2d-x engine, you can enjoy the convenience of scripted development, and also publish to all kinds of desktop and mobile platforms with one click, and maintain the super-performance of the native level.
+- Script componentization and an open plugin system provide developers with a way to customize workflows at different depths. The editor can be tuned to fit the needs of different teams and projects.
 
-## Framework Structure
+## Architecture Features
 
-Cocos Creator contains all the functions needed for game development, including: a game 
-engine, resource management, scene editing, game previewing and game releasing. All of this
-in a single, unifed tool that eases your games development.
+__Cocos Creator__ includes the full set of features required for game development such as the game engine, resource management, scene editing, game preview, game publishing, and integrates all functions and toolchains into one unified application.
 
-It makes data driven design and componentization the core game development methods, and 
-seamlessly integrates the mature JavaScript API system of the Cocos engine. It can adapt 
-to the developers habits and still provide an unprecedented level of content creation and 
-provide a realtime previewing and testing environment for artworkers and directors.
+While providing a powerful and complete toolchain, the editor provides an open plug-in architecture that allows developers to easily extend the editor's functionality and allows customizations to personalize workflows using front-end common technologies such as HTML + JavaScript.
 
-The editor provides not only a strong and complete toolchains, but also an open plugin 
-framework. Developers can use generic front end technologies like HTML + JavaScript to 
-conveniently extend the functionality of the editor and provide customized personalized 
-workflows.
+Below is the technical architecture diagram of __Cocos Creator__
 
-![structure](introduction/structure.jpg)
+<a href="introduction/structure-editor.png"><img src="introduction/structure-editor.png" alt="__Cocos Creator__ structure editor"></a>
+<div style="text-align:center"><p>Figure 1</p></div>
+<a href="introduction/structure-engine.png"><img src="introduction/structure-engine.png" alt="__Cocos Creator__ structure engine"></a>
+<div style="text-align:center"><p>Figure 2</p></div>
 
-What the combination of engine and editor brings is the functional development method of 
-data driven and componentization, and the perfect cooperation (with an appropriate division 
-of labor) of designers and programmers:
+As you can see from the figure, the editor is a development environment built on top of the Electron framework. The engine is responsible for providing many easy-to-use components and a unified interface for each platform.
 
-- Designers build the visual presentation of game scenes in the editor
-- Programmers develop functional components that can be mounted to any object in the scene
-- Designers are responsible for mounting components to objects that need to perform a particular action and improving each parameter by adjustment
-- Programmers develop the data structure and resource management needed for the game
-- Designers set up all the data and resources using the graphic interface
-- (In this way, from the simple to the complex, all the workflows that you can imagine can be realized)
+The combination of the engine and the editor brings the data-driven and component-based approach to functional development, as well as the perfect division of labor between the design and the program:
 
-The development idea that focusing on workflows can help developers, of different duties, quickly find the breakthrough point to maximize their work and smoothly cooperate with other group members.
+- The designer's imagines the scene in the scene editor
+- Programmers develop functional components that can be added to any object in the scene
+- The designer is responsible for adding the components for objects that need to exhibit specific behavior and improving the parameters through debugging
+- The data structures and resources that programmers need to develop games
+- Designers configure various data and resources through a graphical interface
+- From simple to complex, all kinds of workflows you can imagine can be implemented
 
-## Usage instructions
+Workflow-centric development concepts allow developers of different functions to quickly find work entry points that maximize their role, and fluently coordinate with other team members.
 
-Cocos Creator supports cross-platform operation between Windows and Mac, with a single one double click. Comparing to traditional Cocos2d-x workflows, it completely spares the requirements of setting up a development environment. After running, developers can immediately start game content creation or functional development.
+## Instructions for use
 
-On the basis of data driven workflows, the creation and editing of the scene has become the core of game development. The design work and functional development can be done synchronously and seamlessly. Regardless if your teammates are artworkers, directors or programmers, they can all click the Preview button at anytime in the production process to test the lastest form of the game in browsers, mobile device simulators or mobile devices.
+__Cocos Creator__ supports Windows and Mac cross-platform applications and can be launched by double-clicking. Compared to the traditional Cocos2d-x workflow, the requirements and configuration of a development environment are completely eliminated, with some game content creation tasks or development functions can be started immediately after launching __Cocos Creator__.
 
-Programmers and designers can realize various kinds of cooperative methods. Whether they are building the scene before adding functionality or creating functional modules to let designers assemble and adjust them, Cocos Creator can always meet the needs of the development group. Features defined in the script can present themselves in the editor with the most suitable visual effects, which provides convenience for content creators.
+The data-driven workflow becomes the creation and editing of the scene becomes the center of game development. The design work and functional development can be carried out simultaneously and seamlessly. Whether it is art, planning or programming, it can all be done in the production process. Always click on the preview button to test the latest state of the game on your browser, mobile device simulator or mobile device.
 
-Content resources outside the scene can be imported in, such as: photos, sounds, altases, skeleton animations, etc. Moreover, we are continuously improving the editor's ability of creating resources, 
-which includes the animation editor. Designers can use this tool to make very exquisite and vivid 
-animation resources, and preview the animation in the scene at anytime.
+Programmers and designers can now implement a wide range of division of labor, whether it is to build the scene first, then add functions, or to first produce functional modules and then combined debugging by designers, __Cocos Creator__ can meet the needs of the development team. The properties defined in the script can be presented in the editor with the most appropriate visual experience to facilitate the content producer.
 
-In the end, the finished game can be released on various platforms by using the on-click in the 
-graph tool. From design and development, to testing and releasing, Cocos Creator can handle everything 
-for you.
+Content resources outside the scene can be imported from outside, such as pictures, sounds, atlas, skeletal animation, etc. In addition, we are constantly improving the editor's production resources, including the currently completed animation editor, art People can use this tool to create very delicate and expressive animation resources, and you can see the preview of the animation in the scene at any time.
 
----
-
-Continue on to read about the [Installation](install.md).
+Finally, the developed game can be published to each platform through a graphical tool, from design development to test release, __Cocos Creator__ will help you.
