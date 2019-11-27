@@ -8,7 +8,7 @@
 
 - **backgroundColor**
 
-  当指定了摄像机需要清除的颜色时，摄像机会使用设定的背景色来清除场景。
+  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
 
 - **depth**
 
@@ -46,11 +46,11 @@
 
 - **zoomRatio**
 
-  指定摄像机的缩放比例，值越大显示的图像越大。该属性在 alignWithScreen 设置为 **true** 的时候开启。
+  指定摄像机的缩放比例，值越大显示的图像越大。该属性在 alignWithScreen 设置为 **true** 的时候生效。
 
 - **orthoSize**
 
-  摄像机在正交投影模式下的视窗大小。该属性在 alignWithScreen 设置为 **false** 时开启。
+  摄像机在正交投影模式下的视窗大小。该属性在 alignWithScreen 设置为 **false** 时生效。
 
 - **targetTexture**
 
@@ -122,7 +122,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.2.1-release/assets/cases/07_capture_texture)。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
 
 ```javascript
 let node = new cc.Node();
@@ -170,7 +170,7 @@ img.src = dataURL;
 
 ### 截取部分区域
 
-**注意**：当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。
+当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。（v2.2.1 新增）
 
 ```js
 camera.alignWithScreen = false;
@@ -178,9 +178,9 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/camera/minimap-with-rendertexture.ts)。
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
 
-### 保存截图文件
+### 在原生平台上保存截图文件
 
 首先先截图，然后在 `readPixels` 之后使用：
 
@@ -190,7 +190,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/07_capture_texture/capture_to_native.js)。
+详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)。
 
 ## 微信中的截图
 
@@ -198,4 +198,4 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 ## 案例
 
-具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/v2.2.1-release/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。

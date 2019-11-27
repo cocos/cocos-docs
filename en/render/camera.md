@@ -8,7 +8,7 @@ The camera is the window that the player observes the game world, the scene must
 
 - **backgroundColor**
 
-  The color with which the screen will be clared.
+  The background color used to clear the scene when camera enables color clearFlags.
 
 - **depth**
 
@@ -46,11 +46,11 @@ The camera is the window that the player observes the game world, the scene must
 
 - **zoomRatio**
 
-  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed. This property is turned on when alignWithScreen is set to **true**.
+  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed. This property takes effect when alignWithScreen is set to **true**.
 
 - **orthoSize**
 
-  The viewport size of the Camera when set to orthographic projection. This property is turned on when alignWithScreen is set to **false**.
+  The viewport size of the Camera when set to orthographic projection. This property takes effect when alignWithScreen is set to **false**.
 
 - **targetTexture**
 
@@ -122,7 +122,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.2.1-release/assets/cases/07_capture_texture).
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
 
 ```javascript
 let node = new cc.Node();
@@ -170,8 +170,8 @@ img.src = dataURL;
 
 ### Capture part of the area
 
-**Note**: When the camera is set to RenderTexture and **alignWithScreen** is 
-**true**, the camera window size will be adjusted to the size of **design resolution**. If you only need to capture a certain area of the screen, set **alignWithScreen** to **false** and adjust **orthoSize** or **fov** according to the projection mode of the camera.
+When the camera is set to RenderTexture and **alignWithScreen** is 
+**true**, the camera window size will be adjusted to the size of **design resolution**. If you only need to capture a certain area of the screen, set **alignWithScreen** to **false** and adjust **orthoSize** or **fov** according to the projection mode of the camera. (New in v2.2.1)
 
 ```js
 camera.alignWithScreen = false;
@@ -179,9 +179,9 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
+Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
 
-### Save screenshot file
+### Save screenshot file on native platform
 
 First take a screenshot, and then use the following method after `readPixels`:
 
@@ -191,7 +191,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.2.1-release/assets/cases/07_capture_texture/capture_to_native.js) for details.
+Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js) for details.
 
 ## The screenshot in WeChat
 
@@ -199,4 +199,4 @@ Because of WeChat Mini Games does not support createImageData, nor does it suppo
 
 ## Case
 
-Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/v2.2.1-release/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.
+Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.
