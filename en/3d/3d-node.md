@@ -34,12 +34,12 @@ The newly created node is a 2D node By default, and there are two ways to set th
 
 - Click the **3D** button at the top right of the **Properties** to switch:
 
-![3d-node-inspector](img/3d-node-inspector.png)
+  ![3d-node-inspector](img/3d-node-inspector.png)
 
-As you can see, when a node is switched to a 3D node, the values that can be set in the rotation, position, and scaling, etc parameters change from two to three，increasing the Z-axis coordinates. This allows us to easily edit the 3D properties of the node in the **Properties**.
+  As you can see, when a node is switched to a 3D node, the values that can be set in the rotation, position, and scaling, etc parameters change from two to three，increasing the Z-axis coordinates. This allows us to easily edit the 3D properties of the node in the **Properties**.
 
 - Toggle in code
 
-```js
-node.is3DNode = true;
-```
+  ```js
+  node.is3DNode = true;
+  ```
