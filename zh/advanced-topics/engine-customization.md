@@ -237,7 +237,7 @@ gulp
 - 这部分代码的定制，不需要任何编译操作。  
 - 引擎层面的适配工作，请在相应的 engine 目录下完成。  
 
-了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/adapter.html)。
+如果开发者想要了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html)。
 
 ## 4 JSB 绑定流程
 

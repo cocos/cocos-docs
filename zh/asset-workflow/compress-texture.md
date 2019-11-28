@@ -25,7 +25,7 @@ Cocos Creator 在构建图片的时候，会查找当前图片是否进行了压
 
 如果查找到了压缩纹理的配置，那么会按照找到的配置对图片进行纹理压缩。在一个平台中可以指定多种纹理格式，每种纹理格式在构建时都会根据原图压缩生成一张指定格式的图片。
 
-这些生成的图片不会都被加载到引擎中，引擎会根据 [cc.macro.SUPPORT_TEXTURE_FORMATS](http://docs.cocos.com/creator/api/zh/classes/macro.html#supporttextureformats) 中的配置来选择加载合适格式的图片。`cc.macro.SUPPORT_TEXTURE_FORMATS` 列举了当前平台支持的所有图片格式，引擎加载图片时会从生成的图片中找到在这个列表中 **优先级靠前**（即排列靠前）的格式来加载。
+这些生成的图片不会都被加载到引擎中，引擎会根据 [cc.macro.SUPPORT_TEXTURE_FORMATS](../../../api/zh/classes/macro.html#supporttextureformats) 中的配置来选择加载合适格式的图片。`cc.macro.SUPPORT_TEXTURE_FORMATS` 列举了当前平台支持的所有图片格式，引擎加载图片时会从生成的图片中找到在这个列表中 **优先级靠前**（即排列靠前）的格式来加载。
 
 用户可以通过修改 `cc.macro.SUPPORT_TEXTURE_FORMATS` 来自定义平台的图片资源支持情况以及加载顺序的优先级。
 

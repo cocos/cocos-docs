@@ -26,7 +26,7 @@
 
 ## 使用 Cocos Creator 发布微信小游戏
 
-1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
+1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
 2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.JPG)
@@ -118,9 +118,8 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 
 ## 参考链接
 
-- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
+- [微信小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/guide/)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)
