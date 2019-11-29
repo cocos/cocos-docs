@@ -91,7 +91,7 @@ There are two ways to add a callback through the script.
             clickEventHandler.handler = "callback";
             clickEventHandler.customEventData = "foobar";
 
-            var button = node.getComponent(cc.Button);
+            var button = this.node.getComponent(cc.Button);
             button.clickEvents.push(clickEventHandler);
         },
 
