@@ -80,4 +80,4 @@ If the game only run on the real machine, or the simulator can not reproduce the
 
 ## Other Platform Debugging
 
-If you need to debug in release mode, or the need to publish to the Windows or Mac platform debugging, or you need to debug a custom native engine, refer to the more detailed [JSB 2.0 Use Guide: Remote Debugging and Profile](../advanced-topics/jsb/JSB2.0-learning.md#remote-debugging-and-profile).
+If you need to debug in release mode, or the need to publish to the Windows or Mac platform debugging, or you need to debug a custom native engine, refer to the more detailed [JSB 2.0 Use Guide: Remote Debugging and Profile](../advanced-topics/JSB2.0-learning.md#remote-debugging-and-profile).

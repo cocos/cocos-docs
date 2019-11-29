@@ -20,7 +20,7 @@ Editor.UI.registerElement('foobar-label', {
 ```
 
 自定义元素是基于 HTML5 的 [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) 和
-[Custom Elements](http://www.html5rocks.com/zh/tutorials/webcomponents/customelements/) 标准。
+[Custom Elements](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/) 标准。
 
 ## 选项
 

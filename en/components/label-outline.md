@@ -6,7 +6,7 @@ The LabelOutline component will add a outline effect to the Label component on t
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **LabelOutline** from **Renderer Component** to add the LabelOutline component to the node.
 
-LabelOutline script interface, please refer to [LabelOutline API](../../../api/zh/classes/LabelOutline.html) for details.
+LabelOutline script interface, please refer to [LabelOutline API](../../../api/en/classes/LabelOutline.html) for details.
 
 ## LabelOutline Properties
 

@@ -245,7 +245,7 @@ If you need to modify the JavaScript interface provided by the Cocos2d-x-lite en
 
 Creator >= 1.7, please refer to:
 
-- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning.md).
+- [JSB 2.0 Binding Tutorial](JSB2.0-learning.md).
 
 Creator <= 1.6, please refer to:
 

@@ -3,7 +3,7 @@
 如果发现 Cocos Creator 内置的界面元素仍然满足不了你的需求，也不必太担心，你可以通过自定义元素
 来对 UI Kit 进行扩展。
 
-UI Kit 的扩展是基于 HTML5 的 [Custom Elements](http://www.html5rocks.com/zh/tutorials/webcomponents/customelements/) 标准。
+UI Kit 的扩展是基于 HTML5 的 [Custom Elements](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/) 标准。
 
 通过 `Editor.UI.registerElement(tagName, prototype)` 我们可以很轻松的注册自定义元素。这里
 有一个简单的范例。
