@@ -172,12 +172,11 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考：[capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js)
-https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture
+详情请参考：[capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)
 
 ## 微信中的截图
 
-**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/api/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
 
 ## 案例
 

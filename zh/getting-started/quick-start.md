@@ -298,7 +298,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 ![](quick-start/easing.png)
 
-详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout()。
+详细内容可参考 [API](../../../api/zh/modules/cc.html#easecubicactionout)。
 
 接下来在 `onLoad` 方法里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
 

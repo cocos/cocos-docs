@@ -104,8 +104,8 @@ If you need it, you can currently use it by calling the WeChat's API directly.
 
 ## Reading
 
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
-- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
-- [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
-- [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
+- [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
+- [WeChat Developer Tools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
+- [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)

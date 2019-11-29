@@ -235,7 +235,9 @@ After Creator v2.0.7, Jsb-adapter abandoned the cumbersome manual compilation op
 The adaptation layer code for the **WeChat Mini Games** and **QQ Play** is located in the `weapp-adapter` and `qqplay-adapter` in the `resources/builtin` directory.
 
 - The customization of this part of the code does not require any compilation operations.  
-- Engine-level adaptation work, please complete in the appropriate engine directory.  
+- Engine-level adaptation work, please complete in the appropriate engine directory.
+
+If you want to learn more about mini game adapter, please refer to [Mini Game Documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/best-practice/adapter.html) for details.
 
 ## 4 JSB Workflow (JavaScript Binding)
 
