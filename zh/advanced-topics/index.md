@@ -2,8 +2,8 @@
 
 - [资源管理注意事项 - meta 文件](meta.md)
 - [JSB 2.0 使用指南](JSB2.0-learning.md)
-- [JSB 手动绑定](jsb-manual-binding.md)
-- [JSB 自动绑定](jsb-auto-binding.md)
+  - [JSB 手动绑定](jsb-manual-binding.md)
+  - [JSB 自动绑定](jsb-auto-binding.md)
 - 热更新
   - [热更新范例教程](hot-update.md)
   - [热更新管理器](assets-manager.md)

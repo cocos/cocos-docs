@@ -76,15 +76,15 @@ SE_BIND_FUNC(foo) // Binding a JS function as an example
 
 After a developer has bound a JS function, remember to wrap the callback function with the macros which start with `SE_BIND_`. Currently, we provide the following macros:
 
-* `SE\_BIND\_PROP_GET`: Wrap a JS object property read callback function
-* `SE\_BIND\_PROP_SET`: Wrap a JS object property written callback function
-* `SE\_BIND\_FUNC`: Wrap a JS function that can be used for global functions, class member functions or class static functions
-* `SE\_DECLARE\_FUNC`: Declare a JS function, generally used in the header file
-* `SE\_BIND\_CTOR`: Wrap a JS constructor
-* `SE\_BIND\_SUB\_CLS\_CTOR`: Wrap the constructor of a JS subclass by using cc.Class.extend.
-* `SE\_FINALIZE\_FUNC`: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
-* `SE\_DECLARE\_FINALIZE\_FUNC`: Declares the finalize function of a JS object
-* `_SE`: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
+* **SE\_BIND\_PROP_GET**: Wrap a JS object property read callback function
+* **SE\_BIND\_PROP_SET**: Wrap a JS object property written callback function
+* **SE\_BIND\_FUNC**: Wrap a JS function that can be used for global functions, class member functions or class static functions
+* **SE\_DECLARE\_FUNC**: Declare a JS function, generally used in the header file
+* **SE\_BIND\_CTOR**: Wrap a JS constructor
+* **SE\_BIND\_SUB\_CLS\_CTOR**: Wrap the constructor of a JS subclass by using cc.Class.extend.
+* **SE\_FINALIZE\_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
+* **SE\_DECLARE\_FINALIZE\_FUNC**: Declares the finalize function of a JS object
+* **_SE**: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
 
 ## API
 

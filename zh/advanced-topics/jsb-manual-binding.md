@@ -355,8 +355,7 @@ static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
             {
                 callback = nullptr;
             }
-        } while(false)
-                ;
+        } while(false);
         SE_PRECONDITION2(ok, false, "js_cocos2dx_network_FileDownloader_download : Error processing arguments");
         cobj->download(url, path, callback);
         return true;

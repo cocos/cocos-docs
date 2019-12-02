@@ -75,15 +75,15 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 开发者编写完回调函数后，记住使用 `SE_BIND_XXX` 系列的宏对回调函数进行包装。目前提供了如下几个宏：
 
-* `SE\_BIND\_PROP_GET`：包装一个 JS 对象属性读取的回调函数
-* `SE\_BIND\_PROP_SET`：包装一个 JS 对象属性写入的回调函数
-* `SE\_BIND_FUNC`：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
-* `SE\_DECLARE_FUNC`：声明一个 JS 函数，一般在 `.h` 头文件中使用
-* `SE\_BIND_CTOR`：包装一个 JS 构造函数
-* `SE\_BIND\_SUB\_CLS\_CTOR`：包装一个 JS 子类的构造函数，此子类使用  `cc.Class.extend` 继承 Native 绑定类
-* `SE\_FINALIZE_FUNC`：包装一个 JS 对象被 GC 回收后的回调函数
-*` SE\_DECLARE\_FINALIZE_FUNC`：声明一个 JS 对象被 GC 回收后的回调函数
-* `_SE`：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串
+* **SE\_BIND\_PROP_GET**：包装一个 JS 对象属性读取的回调函数
+* **SE\_BIND\_PROP_SET**：包装一个 JS 对象属性写入的回调函数
+* **SE\_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
+* **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
+* **SE\_BIND_CTOR**：包装一个 JS 构造函数
+* **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用  `cc.Class.extend` 继承 Native 绑定类
+* **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
+* **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
+* **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串
 
 ## API
 

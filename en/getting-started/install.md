@@ -32,7 +32,7 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
   Then submit the resulting installation logs ( `exe_log.txt` and `msi_log.txt`) to the development team for help. If the installation logs cannot be obtained by using the above command, you can also obtain the installation log by create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute.
 
-- If the "Access Denied" popup appears during the installation process, or the installation fails. Please make sure that the system is an official Microsoft genuine.
+- If the "Access Denied" popup appears during the installation process, or the installation fails. Please make sure that the operating system is an official Microsoft genuine.
 
 ### Mac installation instructions
 
