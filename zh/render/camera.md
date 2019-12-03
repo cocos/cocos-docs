@@ -4,7 +4,7 @@
 
 ![](./camera/camera.png)
 
-## 2D 摄像机属性
+## 摄像机属性
 
 - **backgroundColor**
 
@@ -34,23 +34,23 @@
 
 - **rect**
 
-  决定摄像机绘制在屏幕上哪个区域，值为 0-1。
+  决定摄像机绘制在屏幕上的哪个区域，值为 0～1。
 
-  ![camera-2](camera/camera-rect.jpg)
+  ![camera-2](camera/camera-rect.png)
 
-  如图场景中创建了一个用来做小地图显示的 camera ，他的最终显示效果在 Game Preview 窗口的右上角可以看到。
-
-- **zoomRatio**
-
-  指定摄像机的缩放比例, 值越大显示的图像越大。
+  如上图所示，场景中创建了一个用来显示小地图的 camera，最终显示效果在 **游戏预览** 窗口的右上角可以看到。
 
 - **alignWithScreen**
 
-  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小，如果希望能完全自由控制摄像机，则需要将 alignWithScreen 设置为 false。
+  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小。如果想要完全自由地控制摄像机，则需要将 alignWithScreen 设置为 false。
+
+- **zoomRatio**
+
+  指定摄像机的缩放比例，值越大显示的图像越大。该属性在 alignWithScreen 设置为 **true** 的时候生效。
 
 - **orthoSize**
 
-  摄像机在正交投影模式下的视窗大小，当 alignWithScreen 设置为 false 的时候才能自由修改。
+  摄像机在正交投影模式下的视窗大小。该属性在 alignWithScreen 设置为 **false** 时生效。
 
 - **targetTexture**
 
@@ -58,15 +58,9 @@
 
   如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
 
-  具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
-
 ### 3D 摄像机属性
 
-这些属性在摄像机节点变为 [3D 节点](../3d/3d-node.md) 后才会显示在属性检查器中，2D 摄像机的所有属性在 3D 摄像机里都有。
-
-- **fov**
-
-  决定摄像机视角的高度，当摄像机处于透视投影模式下这个属性才会生效。
+这些属性在摄像机节点设置为 [3D 节点](../3d/3d-node.md) 后才会显示在 **属性检查器** 中。
 
 - **nearClip**
 
@@ -79,6 +73,10 @@
 - **ortho**
 
   设置摄像机的投影模式是正交（true）还是透视（false）模式。
+
+- **fov**
+
+  决定摄像机视角的高度，当 **alignWithScreen** 和 **ortho** 都设置为 **false** 时生效。
 
 ## 摄像机方法
 
@@ -104,11 +102,11 @@
 
 ### 坐标转换
 
-一个常见的问题是，当摄像机被移动，旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
+一个常见的问题是，当摄像机被移动、旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
 
-因为这时候获取到的点击坐标是摄像机坐标系下的坐标了，我们需要将这个坐标转换到世界坐标系下，才能继续与节点的世界坐标进行运算。
+因为这时候获取到的点击坐标是屏幕坐标系下的坐标了，我们需要将这个坐标转换到世界坐标系下，才能继续与节点的世界坐标进行运算。
 
-下面是一些摄像机坐标系转换的函数
+下面是一些坐标系转换的函数
 
 ```javascript
 // 将一个屏幕坐标系下的点转换到世界坐标系下
@@ -172,7 +170,7 @@ img.src = dataURL;
 
 ### 截取部分区域
 
-**注意**：当摄像机设置了 render texture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果希望截取屏幕中某一块区域的时候，需要设置 **alignWithScreen** 为 **false**，并且根据摄像机**投影方式**调整 **orthoSize** 或者 **fov**。
+当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。（v2.2.1 新增）
 
 ```js
 camera.alignWithScreen = false;
@@ -180,9 +178,11 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-### 保存截图文件
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
 
-Creator 从 **v2.0.2** 开始新增了保存截图文件功能。首先先截图，然后在 `readPixels` 之后使用：
+### 在原生平台上保存截图文件
+
+首先先截图，然后在 `readPixels` 之后使用：
 
 ```js
 var data = renderTexture.readPixels();
@@ -190,13 +190,12 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考：[capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js)
-https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture
+详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)。
 
 ## 微信中的截图
 
-**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/api/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
 
 ## 案例
 
-具体可以参考 [案例](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)，从编辑器创建范例合集项目可以看到实际运行效果。
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。
