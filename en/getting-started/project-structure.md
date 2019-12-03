@@ -21,7 +21,9 @@ Let's see what these folders do:
 
 ### assets
 
-`assets` contains all art assets, script files and third party modules. Only files in `assets` folder will be shown in **Assets** panel of editor. Once imported to the project, a `.meta` file will be generated for each file in `assets` folder. Meta files are used to store asset setting and their reference to other assets. Some third party project files such as `.tps` from TexturePacker, or `.psd` from Photoshop should be put outside of `assets` since we won't use them directly in our project.
+`assets` contains all art assets, script files and third party modules. Only files in `assets` folder will be shown in **Assets** panel of editor. Once imported to the project, a `.meta` file with the same name will be generated for each file in `assets` folder. `.meta` files are used to store the corresponding resource configuration and index information. The `.meta` file needs to be submitted to the version control system, please refer to [Resource Management Considerations --- meta files](../advanced-topics/meta.md) for details.
+
+Some third party project files such as `.tps` from TexturePacker, or `.psd` from Photoshop should be put outside of `assets` since we won't use them directly in our project.
 
 ### library
 
@@ -55,4 +57,4 @@ A `build` folder will be created once you use main menu `Project -> Build...` an
 
 ## Version Control
 
-When Cocos Creator creates a new project, it will automatically generate a `.gitignore` file to exclude files that should not be submitted to the git repository. If you use other version control systems, or need to submit project to other places, you should pay attention to only submitting `assets`,` packages`, `settings`,` project.json` files.
+When Cocos Creator creates a new project, it will automatically generate a `.gitignore` file to exclude files that should not be submitted to the git repository. If you use other version control systems, or need to submit project to other places, you should pay attention to only submitting `assets`, `packages`, `settings`, `project.json`, or other manually added association files.
