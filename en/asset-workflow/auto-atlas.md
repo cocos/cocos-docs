@@ -14,6 +14,8 @@ If there're settings for **SpriteFrame** assets (such as trim), they will be pre
 
 ## Configure the Auto Atlas asset
 
+![](auto-atlas/auto_atlas.png)
+
 After selecting an **Auto Atlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **Auto Atlas asset**.
 
 | Properties | Description
@@ -28,16 +30,17 @@ After selecting an **Auto Atlas asset** in the **Assets** panel, the **Propertie
 | Padding Bleed | Padding with one pixel bleed area for each textures in atlas, the bleed area will copy the nearest pixel in the original texture. This feature is also known as "Extrude".
 | Filter Unused Resources | The option will not work in preview process, it only work in build process
 
+For **Premultiply Alpha**, **Filter Mode**, **Packable** parameters of the Texture section, please refer to document [Texture](./sprite.md#texture-%E5%B1%9E%E6%80%A7). For the setting of Texture format, please refer to document [Texture Compression](./compress-texture.md).
+
 After the configuration is complete, you can click the **Preview** button to preview the results of the packaging. The results of the current Auto Atlas configuration will be displayed in the area below the **Properties** panel.
-Note that after any configuration change, you need to click **Preview** button again to refresh the preview.
 
 The results are:
 
-- Packed Textures: display packaged atlas texture and related information, if there're multiple textures, they will be listed in the preview area.
-- Unpacked Textures: showing textures that can not be packed into the Atlas. The cause may be that the size of these sprites are larger than the maximum size of the atlas texture.
+- **Packed Textures**: display packaged atlas texture and related information, if there're multiple textures, they will be listed in the preview area.
+- **Unpacked Textures**: showing textures that can not be packed into the Atlas. The cause may be that the size of these sprites are larger than the maximum size of the atlas texture.
 
 ## Generate atlas
 
 With **Auto Atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with Auto Atlas asset in the folder into atlas and update reference to them in the whole project automatically.
 
-**Note**: Auto Atlas does not support Premultiply Alpha in v2.1.
+**Note**: If Premultiply Alpha is enabled on the texture, it will be invalid when generating the atlas. If you need to use the Premultiply Alpha, you can check Premultiply Alpha on the Auto Atlas.

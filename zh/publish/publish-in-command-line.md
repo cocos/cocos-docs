@@ -34,6 +34,7 @@
  - `--path`：指定项目路径
  - `--build`：指定构建项目使用的参数
  - `--compile`：指定编译项目使用的参数
+ - `--force`：跳过版本升级检测，不弹出升级提示框
 
 在 `--build` 或者 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
@@ -52,7 +53,6 @@
 - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
 - `packageName` - 包名
-- `vsVersion` - 设置使用的 Visual Studio 版本，只在 windows 上有用，可选的选项有 [Auto、VS2015、VS2017]
 - `useDebugKeystore` - 是否使用 debug keystore
 - `keystorePath` - keystore 路径
 - `keystorePassword` - keystore 密码

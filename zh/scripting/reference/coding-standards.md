@@ -345,6 +345,14 @@
     function test () {
         console.log('test');
     }
+    
+    // bad
+    function test () { console.log('test'); };
+
+    // good
+    function test () {
+        console.log('test');
+    }
 
     // bad
     function divisibleFunction () {

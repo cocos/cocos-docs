@@ -222,6 +222,7 @@
     - [i18n](advanced-topics/i18n.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
+    - [Web Preview Customization](advanced-topics/custom-preview-template.md)
     - [RenderFlow](advanced-topics/render-flow.md)
     - [UI Rendering Batch Processing Guide](advanced-topics/ui-auto-batch.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)

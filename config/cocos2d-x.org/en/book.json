@@ -10,11 +10,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "//docs.cocos2d-x.org/creator/manual/en"
+                        "link": "//docs.cocos2d-x.org/creator/2.2/manual/en"
                     },
                     {
                         "name": "API Ref",
-                        "link": "//docs.cocos2d-x.org/creator/api/en"
+                        "link": "//docs.cocos2d-x.org/creator/2.2/api/en"
                     }
                 ]
             },
@@ -34,7 +34,7 @@
         ],
         "version": [
             {
-                "name": "2.1",
+                "name": "2.2",
                 "links": [
                     {
                         "name": "1.9",

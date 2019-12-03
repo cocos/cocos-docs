@@ -80,7 +80,7 @@
 
 ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `wxDownloader.cleanAllCaches()` 和 `wxDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+**注意**：如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `remoteDownloader.cleanAllCaches()` 和 `remoteDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
 
 ## 微信小游戏引擎插件
 

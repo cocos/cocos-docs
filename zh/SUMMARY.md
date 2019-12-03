@@ -228,6 +228,7 @@
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
+    - [自定义网页预览](advanced-topics/custom-preview-template.md)
     - [渲染流](advanced-topics/render-flow.md)
     - [UI 渲染批次合并指南](advanced-topics/ui-auto-batch.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)

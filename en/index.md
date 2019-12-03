@@ -1,4 +1,4 @@
-# Cocos Creator v2.1 User Manual
+# Cocos Creator v2.2 User Manual
 
 Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross-platform, game development tool based on **Cocos2d-x**. This is a comprehensive and detailed guide to help you get started with designing and developing games.
 
@@ -6,6 +6,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
+- [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
 - **As of v2.1**, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).

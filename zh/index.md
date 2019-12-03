@@ -1,4 +1,4 @@
-# Cocos Creator v2.1 用户手册
+# Cocos Creator v2.2 用户手册
 
 欢迎使用 Cocos Creator 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 
@@ -6,6 +6,7 @@
 
 ## 特别推荐
 
+- [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。
 - 从 v2.1.4 开始，Cocos Creator 支持发布到 [支付宝小游戏](publish/publish-alipay-mini-games.md)。
 - 从 v2.1 开始，Cocos Creator 引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。请参阅 [3D 节点](3d/index.md)。

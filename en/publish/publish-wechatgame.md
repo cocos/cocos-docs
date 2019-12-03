@@ -70,7 +70,7 @@ Specifically, developers need to do:
 
 ![](./publish-wechatgame/detail.jpeg)
 
-**Note**: If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `wxDownloader.cleanAllCaches()` and `wxDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+**Note**: If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
 
 ## WeChat Mini Game Subpackage Loading
 

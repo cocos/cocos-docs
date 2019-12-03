@@ -1,6 +1,6 @@
 # Cocos Creator v2.0 Upgrade Guide
 
-# 1 Overview
+# 1. Overview
 
 __Cocos Creator v2.0__ is the result of a large-scale *under the hood* refactoring plus two months of
 stability testing. This article will assist __v1.x__ users in upgrading to __v2.0__.

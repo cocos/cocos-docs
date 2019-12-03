@@ -1029,7 +1029,7 @@ classes_owned_by_cpp =
 
 ### Chrome 远程调试 V8
 
-#### Windows
+#### Windows/Mac
 
 * 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
 * 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
@@ -1046,55 +1046,12 @@ classes_owned_by_cpp =
 
   ![](jsb/v8-win32-profile.jpg)
 
-#### Android
+#### Android/iOS
 
-* 保证 Android 设备与 PC 或者 Mac 在同一个局域网中
+* 保证 Android/iOS 设备与 PC 或者 Mac 在同一个局域网中
 * 编译，运行游戏
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址。（**注意**：从 **v2.0.7** 开始，5086 需要改为 6086）
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。
 * 调试界面与 Windows 相同
-
-### Safari 远程调试 JavaScriptCore
-
-#### macOS
-
-1. 打开 Mac 上的 Safari，偏好设置 -> 高级 -> 显示开发者选项
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。
-
-    ![](jsb/jsc-entitlements.png)
-
-    还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
-
-    ![](jsb/jsc-entitlements-check.png)
-
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES.
-
-    ![](jsb/jsc-security-key.png)
-
-4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书<br>
-5. 编译、运行游戏<br>
-6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤<br>
-7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。
-
-    ![](jsb/jsc-mac-debug.png) 
-
-    ![](jsb/jsc-breakpoint.png) 
-
-    ![](jsb/jsc-timeline.png)
-
-**注意**：如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
-
-![](jsb/jsc-mac-simulator-sign.png)
-
-然后再调用 `gulp gen-simulator` 生成模拟器。
-
-#### iOS
-
-1. 先打开 iPhone 的设置 -> Safari -> 高级 -> Web 检查器
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。 （图示与 macOS 的第 2 步类似）
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES。（图示与 macOS 的第 3 步类似）
-4. 签名 : General -> 选择你的 iOS 工程 -> Signing -> 选择你的开发者证书
-5. 编译、运行游戏
-6. Safari 菜单中选择 Develop -> 你的 iPhone 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。（图示与 macOS 的第 6 步类似）
 
 ## Q & A
 
