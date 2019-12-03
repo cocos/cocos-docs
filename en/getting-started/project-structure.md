@@ -11,6 +11,7 @@ ProjectName（project root）
 ├──assets
 ├──library
 ├──local
+├──packages
 ├──settings
 ├──temp
 └──project.json
@@ -18,23 +19,31 @@ ProjectName（project root）
 
 Let's see what these folders do:
 
-### Assets
+### assets
 
 `assets` contains all art assets, script files and third party modules. Only files in `assets` folder will be shown in **Assets** panel of editor. Once imported to the project, a `.meta` file will be generated for each file in `assets` folder. Meta files are used to store asset setting and their reference to other assets. Some third party project files such as `.tps` from TexturePacker, or `.psd` from Photoshop should be put outside of `assets` since we won't use them directly in our project.
 
-### Library
+### library
 
 `library` folder is generated once the project is first opened and imported. In this folder, all assets of the game are renamed with their UUID (universal unique identifier) and will be copied over when the game is published. This folder should be ignored by version control system such as in `.gitignore` file.
 
 If your `library` is damaged or missing, you can safely delete the `library` folder and reopen the project to re-generate it.
 
-### Local Settings
+### local
 
 `local` folder contains all settings that should not be shared across computer. Most of them are personal preferences such as Editor layout, window size and position. You should not use or modify the content of this folder and neither should your version control system.
 
-### Project Settings
+### Packages
+
+`packages` folder is used to place custom extensions for this project. If you need to install the extension manually, you can create this folder manually. If you need to uninstall the extension, delete the corresponding folder in `packages`. This folder can go into version control.
+
+### settings
 
 `settings` folder contains project related settings such as bundle name, bundle id and target platform settings in **Build** panel. You should keep it under version control so your team can share those settings.
+
+### temp
+
+`temp` is a temporary folder used to cache local temporary files of Cocos Creator. This folder can be deleted manually after closing Cocos Creator, and it should not go into version control, and you don't need to care about what's inside.
 
 ### project.json
 
