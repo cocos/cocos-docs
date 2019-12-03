@@ -142,8 +142,8 @@ let data = texture.readPixels();
 // Then you can manipulate the data.
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
-let width = texture.width;
-let height = texture.height;
+let width = canvas.width = texture.width;
+let height = canvas.height = texture.height;
 
 canvas.width = texture.width;
 canvas.height = texture.height;

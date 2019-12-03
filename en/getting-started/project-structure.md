@@ -25,30 +25,34 @@ Let's see what these folders do:
 
 ### library
 
-`library` folder is generated once the project is first opened and imported. In this folder, all assets of the game are renamed with their UUID (universal unique identifier) and will be copied over when the game is published. This folder should be ignored by version control system such as in `.gitignore` file.
+`library` folder is generated once the project is first opened and imported. In this folder, all assets of the game are renamed with their UUID (universal unique identifier) and will be copied over when the game is published.
 
 If your `library` is damaged or missing, you can safely delete the `library` folder and reopen the project to re-generate it.
 
 ### local
 
-`local` folder contains all settings that should not be shared across computer. Most of them are personal preferences such as Editor layout, window size and position. You should not use or modify the content of this folder and neither should your version control system.
+`local` folder contains all settings that should not be shared across computer. Most of them are personal preferences such as Editor layout, window size and position. You should not use or modify the content of this folder.
 
 ### Packages
 
-`packages` folder is used to place custom extensions for this project. If you need to install the extension manually, you can create this folder manually. If you need to uninstall the extension, delete the corresponding folder in `packages`. This folder can go into version control.
+`packages` folder is used to place custom extensions for this project. If you need to install the extension manually, you can create this folder manually. If you need to uninstall the extension, delete the corresponding folder in `packages`.
 
 ### settings
 
-`settings` folder contains project related settings such as bundle name, bundle id and target platform settings in **Build** panel. You should keep it under version control so your team can share those settings.
+`settings` folder contains project related settings such as bundle name, bundle id and target platform settings in **Build** panel.
 
 ### temp
 
-`temp` is a temporary folder used to cache local temporary files of Cocos Creator. This folder can be deleted manually after closing Cocos Creator, and it should not go into version control, and you don't need to care about what's inside.
+`temp` is a temporary folder used to cache local temporary files of Cocos Creator. This folder can be deleted manually after closing Cocos Creator, and you don't need to care about what's inside.
 
 ### project.json
 
-`project.json`, along with `assets` folder, are the only two necessary requirements for validating a Cocos Creator project. `project.json` only contains current engine id and local editor extension folder. You should not change the file manually.
+`project.json`, along with `assets` folder, are the only two necessary requirements for validating a Cocos Creator project. Only folders containing `project.json` and `assets` can be opened as Cocos Creator projects. You should not change the file manually, and you don't need to care about the contents inside.
 
 ### Build Target
 
-A `build` folder will be created once you use main menu `Project -> Build...` and publish your game with default build target. If you have built for native platforms, this `build` folder will be very large. So you should not include this folder in version control.
+A `build` folder will be created once you use main menu `Project -> Build...` and publish your game with default build target. If you have built for native platforms, this `build` folder will be very large.
+
+## Version Control
+
+When Cocos Creator creates a new project, it will automatically generate a `.gitignore` file to exclude files that should not be submitted to the git repository. If you use other version control systems, or need to submit project to other places, you should pay attention to only submitting `assets`,` packages`, `settings`,` project.json` files.
