@@ -216,7 +216,7 @@
     - [Builtin IPC Message Reference](extension/reference/ipc-reference.md)
 - [Advanced Topics](advanced-topics/index.md)
     - [Resource management considerations - meta files](advanced-topics/meta.md)
-    - [JSB 2.0 Guide](advanced-topics/jsb/JSB2.0-learning.md)
+    - [JSB 2.0 Guide](advanced-topics/JSB2.0-learning.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
     - [AssetManager for Hot Update](advanced-topics/assets-manager.md)
     - [i18n](advanced-topics/i18n.md)

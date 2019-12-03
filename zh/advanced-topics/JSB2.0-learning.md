@@ -4,7 +4,7 @@
 
 ### 架构
 
-![](JSB2.0-Architecture.png)
+![](jsb/JSB2.0-Architecture.png)
 
 ### 宏（Macro）
 
@@ -17,52 +17,52 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 如何做到抽象层开销最小而且暴露统一的 API 供上层使用？
 
-以注册 JS 函数的回调定义为例，JavaScriptCore，SpiderMonkey，V8，ChakraCore 的定义各不相同，具体如下：
+以注册 JS 函数的回调定义为例，JavaScriptCore、SpiderMonkey、V8、ChakraCore 的定义各不相同，具体如下：
 
-**JavaScriptCore:**
+- JavaScriptCore
 
-```c++
-JSValueRef JSB_foo_func(
-		JSContextRef _cx,
-		JSObjectRef _function,
-		JSObjectRef _thisObject,
-		size_t argc,
-		const JSValueRef _argv[],
-		JSValueRef* _exception
-	);
-```
+    ```c++
+    JSValueRef JSB_foo_func(
+            JSContextRef _cx,
+            JSObjectRef _function,
+            JSObjectRef _thisObject,
+            size_t argc,
+            const JSValueRef _argv[],
+            JSValueRef* _exception
+        );
+    ```
 
-**SpiderMonkey:**
+- SpiderMonkey
 
-```c++
-bool JSB_foo_func(
-		JSContext* _cx,
-		unsigned argc,
-		JS::Value* _vp
-	);
-```
+    ```c++
+    bool JSB_foo_func(
+            JSContext* _cx,
+            unsigned argc,
+            JS::Value* _vp
+        );
+    ```
 
-**V8:**
+- V8
 
-```c++
-void JSB_foo_func(
-		const v8::FunctionCallbackInfo<v8::Value>& v8args
-	);
-```
+    ```c++
+    void JSB_foo_func(
+            const v8::FunctionCallbackInfo<v8::Value>& v8args
+        );
+    ```
 
-**ChakraCore:**
+- ChakraCore
 
-```c++
-JsValueRef JSB_foo_func(
-		JsValueRef _callee,
-		bool _isConstructCall,
-		JsValueRef* _argv,
-		unsigned short argc,
-		void* _callbackState
-	);
-```
+    ```c++
+    JsValueRef JSB_foo_func(
+            JsValueRef _callee,
+            bool _isConstructCall,
+            JsValueRef* _argv,
+            unsigned short argc,
+            void* _callbackState
+        );
+    ```
 
-我们评估了几种方案，最终确定使用`宏`来抹平不同 JS 引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了 lua 的回调函数定义方式，抽象层所有的 JS 到 CPP 的回调函数的定义为：
+我们评估了几种方案，最终确定使用 `宏` 来抹平不同 JS 引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了 lua 的回调函数定义方式，抽象层所有的 JS 到 CPP 的回调函数的定义为：
 
 ```c++
 bool foo(se::State& s)
@@ -75,15 +75,15 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 开发者编写完回调函数后，记住使用 `SE_BIND_XXX` 系列的宏对回调函数进行包装。目前提供了如下几个宏：
 
-* SE\_BIND\_PROP_GET：包装一个 JS 对象属性读取的回调函数
-* SE\_BIND\_PROP_SET：包装一个 JS 对象属性写入的回调函数
-* SE\_BIND_FUNC：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
-* SE\_DECLARE_FUNC：声明一个 JS 函数，一般在 .h 头文件中使用
-* SE\_BIND_CTOR：包装一个 JS 构造函数
-* SE\_BIND\_SUB\_CLS\_CTOR：包装一个 JS 子类的构造函数，此子类使用 cc.Class.extend 继承 Native 绑定类
-* SE\_FINALIZE_FUNC：包装一个 JS 对象被 GC 回收后的回调函数
-* SE\_DECLARE\_FINALIZE_FUNC：声明一个 JS 对象被 GC 回收后的回调函数
-* _SE：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的`_T("xxx")`来包装 Unicode 或者 MultiBytes 字符串
+* **SE\_BIND\_PROP_GET**：包装一个 JS 对象属性读取的回调函数
+* **SE\_BIND\_PROP_SET**：包装一个 JS 对象属性写入的回调函数
+* **SE\_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
+* **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
+* **SE\_BIND_CTOR**：包装一个 JS 构造函数
+* **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用  `cc.Class.extend` 继承 Native 绑定类
+* **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
+* **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
+* **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串
 
 ## API
 
@@ -95,12 +95,12 @@ CPP 抽象层所有的类型都在 `se` 命名空间下，其为 ScriptEngine �
 
 #### se::ScriptEngine
 
-se::ScriptEngine 为 JS 引擎的管理员，掌管 JS 引擎初始化、销毁、重启、Native 模块注册、加载脚本、强制垃圾回收、JS 异常清理、是否启用调试器。
-它是一个单例，可通过 se::ScriptEngine::getInstance() 得到对应的实例。
+`se::ScriptEngine` 为 JS 引擎的管理员，掌管 JS 引擎初始化、销毁、重启、Native 模块注册、加载脚本、强制垃圾回收、JS 异常清理、是否启用调试器。
+它是一个单例，可通过 `se::ScriptEngine::getInstance()` 得到对应的实例。
 
 #### se::Value
 
-se::Value 可以被理解为 JS 变量在 CPP 层的引用。JS 变量有 `object`, `number`, `string`, `boolean`, `null`, `undefined` 六种类型，因此 se::Value 使用 `union` 包含 `object`, `number`, `string`, `boolean`4 种`有值类型`，`无值类型`: `null`, `undefined` 可由 `_type` 直接表示。
+`se::Value` 可以被理解为 JS 变量在 CPP 层的引用。JS 变量有 `object`、`number`、`string`、`boolean`、`null`、`undefined` 六种类型。因此 `se::Value` 使用 `union` 包含 `object`、`number`、`string`、`boolean` 4 种 **有值类型**。**无值类型** 包含 `null` 和 `undefined`，可由 `_type` 直接表示。
 
 ```c++
 namespace se {
@@ -131,13 +131,14 @@ namespace se {
 }
 ```
 
-如果 se::Value 中保存基础数据类型，比如 `number`，`string`，`boolean`，其内部是直接存储一份值副本。
-`object` 的存储比较特殊，是通过 `se::Object*` 对 JS 对象的弱引用(weak reference)。
+如果 `se::Value` 中保存基础数据类型，比如 `number`，`string`，`boolean`，其内部是直接存储一份值副本。<br>
+`object` 的存储比较特殊，是通过 `se::Object*` 对 JS 对象的弱引用 (weak reference)。
 
 #### se::Object
 
-se::Object 继承于 se::RefCounter 引用计数管理类。目前抽象层中只有 se::Object 继承于 se::RefCounter。
-上一小节我们说到，se::Object 是保存了对 JS 对象的弱引用，这里笔者有必要解释一下为什么是弱引用。
+`se::Object` 继承于 `se::RefCounter` 引用计数管理类。目前抽象层中只有  `se::Object` 继承于 `se::RefCounter`。
+
+上一小节我们说到，`se::Object` 是保存了对 JS 对象的弱引用，这里笔者有必要解释一下为什么是弱引用。
 
 **原因一：JS 对象控制 CPP 对象的生命周期的需要**
 
@@ -466,7 +467,6 @@ void some_func()
 	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // 这里为了演示方便，获取全局对象
 	globalObj->defineFunction("foo", _SE(Foo_function)); // 使用_SE 宏包装一下具体的函数名称
 }
-
 ```
 
 ### 注册一个 CPP 类到 JS 虚拟机中
@@ -735,7 +735,8 @@ setCallback(nullptr)
 类型转换辅助函数位于`cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp`中，其包含：
 
 #### se::Value 转换为 C++ 类型
-```
+
+```c++
 bool seval_to_int32(const se::Value& v, int32_t* ret);
 bool seval_to_uint32(const se::Value& v, uint32_t* ret);
 bool seval_to_int8(const se::Value& v, int8_t* ret);
@@ -792,7 +793,6 @@ bool seval_to_Vector(const se::Value& v, cocos2d::Vector<T>* ret);
 
 template<typename T>
 bool seval_to_Map_string_key(const se::Value& v, cocos2d::Map<std::string, T>* ret)
-
 ```
 
 #### C++ 类型转换为 se::Value
@@ -884,7 +884,6 @@ bool sptrackentry_to_seval(const spTrackEntry& v, se::Value* ret);
 bool b2Vec2_to_seval(const b2Vec2& v, se::Value* ret);
 bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
 bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
-
 ```
 
 辅助转换函数不属于`Script Engine Wrapper`抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。
@@ -909,6 +908,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 * `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval` 。
 * `native_ptr_to_rooted_seval`用于`CPP 控制 JS 对象生命周期`的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 住的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
 
+更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
 
 ## 自动绑定
 
@@ -999,6 +999,8 @@ persistent_classes = TextureCache SpriteFrameCache FileUtils EventDispatcher Act
 classes_owned_by_cpp = 
 ```
 
+更多关于自动绑定的内容可参考 [使用 JSB 自动绑定](jsb-auto-binding.md)。
+
 ## 远程调试与 Profile
 
 默认远程调试和 Profile 是在 debug 模式中生效的，如果需要在 release 模式下也启用，需要手动修改 cocos/scripting/js-bindings/jswrapper/config.hpp 中的宏开关。
@@ -1030,16 +1032,19 @@ classes_owned_by_cpp =
 #### Windows
 
 * 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
-断点调试：
-![](v8-win32-debug.jpg)
+- 断点调试：
 
-抓取 JS Heap
-![](v8-win32-memory.jpg)
+  ![](jsb/v8-win32-debug.jpg)
 
-Profile
-![](v8-win32-profile.jpg)
+- 抓取 JS Heap：
+
+  ![](jsb/v8-win32-memory.jpg)
+
+- Profile：
+
+  ![](jsb/v8-win32-profile.jpg)
 
 #### Android
 
@@ -1055,27 +1060,30 @@ Profile
 1. 打开 Mac 上的 Safari，偏好设置 -> 高级 -> 显示开发者选项
 2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。
 
-  ![](jsc-entitlements.png)
-还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
+    ![](jsb/jsc-entitlements.png)
 
-  ![](jsc-entitlements-check.png)
+    还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。
+
+    ![](jsb/jsc-entitlements-check.png)
+
 3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES.
 
-  ![](jsc-security-key.png)
+    ![](jsb/jsc-security-key.png)
+
 4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书<br>
 5. 编译、运行游戏<br>
 6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤<br>
 7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。
 
-![](jsc-mac-debug.png) 
+    ![](jsb/jsc-mac-debug.png) 
 
-![](jsc-breakpoint.png) 
+    ![](jsb/jsc-breakpoint.png) 
 
-![](jsc-timeline.png)
+    ![](jsb/jsc-timeline.png)
 
 **注意**：如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
 
-![](jsc-mac-simulator-sign.png)
+![](jsb/jsc-mac-simulator-sign.png)
 
 然后再调用 `gulp gen-simulator` 生成模拟器。
 
@@ -1113,6 +1121,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
 }
 ```
+
 ### se::Object::root/unroot 与 se::Object::incRef/decRef 的区别?
 
 root/unroot 用于控制 JS 对象是否受 GC 控制，root 表示不受 GC 控制，unroot 则相反，表示交由 GC 控制，对一个 se::Object 来说，root 和 unroot 可以被调用多次，se::Object 内部有_rootCount 变量用于表示 root 的次数。当 unroot 被调用，且_rootCount 为 0 时，se::Object 关联的 JS 对象将交由 GC 管理。还有一种情况，即如果 se::Object 的析构被触发了，如果_rootCount > 0，则强制把 JS 对象交由 GC 控制。
@@ -1184,8 +1193,6 @@ dispatcher->dispatchEvent(event);
 event->release();
 ```
 
-
-
 ### 如何监听脚本错误
 
 在 AppDelegate.cpp 中通过 se::ScriptEngine::getInstance()->setExceptionCallback(...)设置 JS 层异常回调。
@@ -1210,7 +1217,3 @@ bool AppDelegate::applicationDidFinishLaunching()
 }
 
 ```
-
-
-
-

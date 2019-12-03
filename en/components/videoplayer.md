@@ -126,7 +126,7 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
 
-About VideoPlayer events, please refer to [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html) for details.
+About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
 
 ## Support platform
 
