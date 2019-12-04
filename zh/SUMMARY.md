@@ -93,7 +93,6 @@
         - [启用微信小游戏引擎插件](publish/wechat-engine-plugin.md)
     - [发布到百度小游戏](publish/publish-baidugame.md)
         - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
-    - [发布到 QQ「玩一玩」](publish/publish-qqplay.md)
     - [发布到 Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [发布到 Google Play Instant](publish/publish-android-instant.md)
     - [发布到 OPPO 小游戏](publish/publish-oppo-instant-games.md)

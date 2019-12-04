@@ -84,7 +84,6 @@ The compression required by the texture can be set directly in the editor, and _
   - *Dashboard* will automatically record the last created project path.
   - Optimize the preview of the Button under the editor.
   - Optimize the way Button Click Event indexes components, avoiding the loss of indexes after scripts are renamed.
-  - QQ light game construction allows direct packaging of zip files for uploading servers.
   - The new plug-in mall automatically prompts the user to install after the plug-in download is completed.
   - When building a WeChat mini-game main context project, the open data context will not be emptied again.
   - Modify the API Level selected by default when building the Android platform to the current highest level (Target API Level).
@@ -138,10 +137,6 @@ The compression required by the texture can be set directly in the editor, and _
   - [UI] Fixed an issue where setting Toggle.isChecked to be invalid in the start method.
   - [UI] Fix the problem that the LabelOutline component is not synchronized when the state is modified.
   - [Animation] Fixed an issue where the parameters of AnimationState might be parsed as a string type.
-  - [QQPlay] Fix the problem that QQ light game does not respond to the background background switching event.
-  - [QQPlay] Fix the problem that the font will become very small if you use italics on QQ light games.
-  - [QQPlay] Fix the problem that the QQ light game can't replay when the lock screen re-enters or the front and back switches.
-  - [QQPlay] Fixes the problem of the ended event after the audio setCurrentTime is fixed [#3373](https://github.com/cocos-creator/engine/pull/3373).
   - [Native] Fix native platform connection socket.io server may report Bad Request error.
   - [Native] Fix iOS and Android can't detect gravity sensor.
   - [Native] Fix iOS call cc.game.restart Restart the game and then enter text will crash.

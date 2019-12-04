@@ -1,6 +1,6 @@
 # Facebook Instant Games 
 
-Starting with Cocos Creator v1.9, creating games for the Facebook Instant Games is officially supported. Developers can quickly publish games that meet the Facebook Instant Games technical standards. Facebook Instant Games are a bit different compared to WeChat Mini Games and QQ Play, as Facebook Instant Games runs in a pure HTML5 environment. This means that your games can be run not only on your phone but also in a desktop browser, making development and debugging more convenient.
+Facebook Instant Games are a bit different compared to WeChat Mini Games, as Facebook Instant Games runs in a pure HTML5 environment. This means that your games can be run not only on your phone but also in a desktop browser, making development and debugging more convenient.
 
 **Cocos Creator includes:**
 

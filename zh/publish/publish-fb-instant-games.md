@@ -1,6 +1,6 @@
 # 发布游戏到 Facebook Instant Games
 
- 从 v1.9 版本开始，Cocos Creator 正式支持将游戏发布到 Facebook Instant Games。开发者可快速发布输出符合 Facebook Instant Games 技术标准的游戏。Facebook Instant Games 跟微信小游戏和 QQ「玩一玩」相比，本质上的区别在于 Facebook Instant Games 运行于纯 HTML5 环境。因此它不仅可以在手机上，还可以在桌面浏览器上运行，开发和调试更加便捷。
+Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Facebook Instant Games 运行于纯 HTML5 环境。因此它不仅可以在手机上，还可以在桌面浏览器上运行，开发和调试更加便捷。
 
 **目前 Cocos Creator 为用户完成的工作包括：**
 
