@@ -34,19 +34,19 @@ The camera is the window that the player observes the game world, the scene must
 
 - **rect**
 
-  Determines where the camera is drawn on the screen, with four values (0-1).
+  Determines where the camera is drawn on the screen, which is convenient for implementing a Viewport such as a mini map. The value is 0 ~ 1.
 
   ![camera-2](camera/camera-rect.png)
 
   As shown in the figure above, a camera for displaying a small map is created in the scene. The final display effect can be seen in the upper right corner of the **Game Preview** panel.
 
-- **alignWithScreen**
-
-  When alignWithScreen is true, the camera will automatically adjust the window size to the entire screen size. If you want complete freedom to control the camera, you need to set alignWithScreen to false.
-
 - **zoomRatio**
 
-  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed. This property takes effect when alignWithScreen is set to **true**.
+  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
+
+- **alignWithScreen**
+
+  When alignWithScreen is true, the camera will automatically adjust the window size to the entire screen size. If you want complete freedom to control the camera, you need to set alignWithScreen to false. (New in v2.2.1)
 
 - **orthoSize**
 

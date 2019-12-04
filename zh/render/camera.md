@@ -34,19 +34,19 @@
 
 - **rect**
 
-  决定摄像机绘制在屏幕上的哪个区域，值为 0～1。
+  决定摄像机绘制在屏幕上的哪个区域，便于实现类似小地图那样的 Viewport，值为 0～1。
 
   ![camera-2](camera/camera-rect.png)
 
   如上图所示，场景中创建了一个用来显示小地图的 camera，最终显示效果在 **游戏预览** 窗口的右上角可以看到。
 
-- **alignWithScreen**
-
-  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小。如果想要完全自由地控制摄像机，则需要将 alignWithScreen 设置为 false。
-
 - **zoomRatio**
 
-  指定摄像机的缩放比例，值越大显示的图像越大。该属性在 alignWithScreen 设置为 **true** 的时候生效。
+  指定摄像机的缩放比例，值越大显示的图像越大。
+
+- **alignWithScreen**
+
+  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小。如果想要完全自由地控制摄像机，则需要将 alignWithScreen 设置为 false。（v2.2.1 新增）
 
 - **orthoSize**
 
