@@ -8,9 +8,7 @@
 JavaScript 引擎：<https://github.com/cocos-creator/engine><br>
 Cocos2d-x-lite 引擎：<https://github.com/cocos-creator/cocos2d-x-lite><br>
 jsb-adapter：<https://github.com/cocos-creator-packages/jsb-adapter><br>
-weapp-adapter：<https://github.com/cocos-creator-packages/weapp-adapter><br>
-qqplay-adapter：<https://github.com/cocos-creator-packages/qqplay-adapter><br>
-微信开放数据域范例：<https://github.com/cocos-creator/demo-wechat-subdomain>
+Mini-game-adapters：<https://github.com/cocos-creator-packages/adapters/>
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
 
