@@ -52,7 +52,7 @@ Another shortcut method to create font asset is to drag TTF or Bitmap font asset
 
 ## Bitmap font bash renderig
 
-If the texture used by the bitmap font and the other Sprite are the same, and the bitmap font and the Sprite do not have a render object that is inserted with another texture, the bitmap font can merge the rendering batches with the Sprite. When placing a bitmap font resource, place the .fnt file, the .png file, and the texture file used by the Sprite in a folder, and then reference the [Auto-atlas Asset](auto-atlas.md) to put the texture of the bitmap font and the texure used by the Sprite Into an atlas, the bitmap font bash rendering can be active in the native and WebGL environment automatically.
+If the texture used by the bitmap font and the other Sprite are the same, and the bitmap font and the Sprite do not have a render object that is inserted with another texture, the bitmap font can merge the rendering batches with the Sprite. When placing a bitmap font resource, place the .fnt file, the .png file, and the texture file used by the Sprite in a folder, and then reference the [Auto Atlas Asset](auto-atlas.md) to put the texture of the bitmap font and the texure used by the Sprite Into an atlas, the bitmap font bash rendering can be active in the native and WebGL environment automatically.
 
 <hr>
 

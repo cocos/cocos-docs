@@ -126,6 +126,8 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
 
+About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
+
 ## Support platform
 
 Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.

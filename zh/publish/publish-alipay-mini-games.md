@@ -52,7 +52,7 @@ Cocos Creator 从 **v2.1.4** 版本开始正式支持将游戏发布到支付宝
 
 由于支付宝小游戏相关的文档目前只对内开放，开发者如果有需要的话可直接联系：
 
-| 联系人 | QQ | Email |
-| ---- | ---- | ---- |
-| 李智 | 3091743137 | lz98684@alibaba-inc.com      |
-| 黄娇 | 2229459044 | huangjiao.hj@alibaba-inc.com |
+| 联系人  | Email |
+| ---- | ---- |
+| 李智 | lz98684@alibaba-inc.com      |
+| 黄娇 | huangjiao.hj@alibaba-inc.com |

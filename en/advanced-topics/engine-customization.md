@@ -233,7 +233,9 @@ After Creator v2.0.7, Jsb-adapter abandoned the cumbersome manual compilation op
 The adaptation layer code for the Mini Games is located in the `adapters` in the `resources/builtin` directory.
 
 - The customization of this part of the code does not require any compilation operations.  
-- Engine-level adaptation work, please complete in the appropriate engine directory.  
+- Engine-level adaptation work, please complete in the appropriate engine directory.
+
+If you want to learn more about mini game adapter, please refer to [Mini Game Documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/best-practice/adapter.html) for details.
 
 ## 4 JSB Workflow (JavaScript Binding)
 
@@ -241,7 +243,7 @@ If you need to modify the JavaScript interface provided by the Cocos2d-x-lite en
 
 Creator >= 1.7, please refer to:
 
-- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning.md).
+- [JSB 2.0 Binding Tutorial](JSB2.0-learning.md).
 
 Creator <= 1.6, please refer to:
 

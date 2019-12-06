@@ -28,7 +28,7 @@ Cocos Creator will find out if the compressed texture is configured when the ima
 
 If the configuration of the compressed texture is found, texture compression is performed according to the configuration found. In one platform you can specify multiple texture formats, and when you build, each texture format generates a image in the specified format based on the original image compression.
 
-These generated images are not all loaded into the engine, and the engine will select load the appropriate format image based on the configuration in [cc.macro.SUPPORT_TEXTURE_FORMATS](http://docs.cocos.com/creator/api/zh/classes/macro.html#supporttextureformats).
+These generated images are not all loaded into the engine, and the engine will select load the appropriate format image based on the configuration in [cc.macro.SUPPORT_TEXTURE_FORMATS](../../../api/en/classes/macro.html#supporttextureformats).
 
 `cc.macro.SUPPORT_TEXTURE_FORMATS` lists all the image formats supported by the current platform, and when the engine loads the image, it will find the format with the highest priority in the list to load from the generated image.
 

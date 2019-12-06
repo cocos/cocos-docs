@@ -1,22 +1,22 @@
-# Auto-atlas Asset
+# Auto Atlas Asset
 
-**Auto-atlas Asset** is a sprite sheet As a Cocos Creator comes with the map function, you can specify a series of broken plans packaged into a large picture, the specific role and Texture Packer function is very similar.
+**Auto Atlas Asset** is a sprite sheet As a Cocos Creator comes with the map function, you can specify a series of broken plans packaged into a large picture, the specific role and Texture Packer function is very similar.
 
-## Create an auto-atlas asset
+## Create an Auto Atlas asset
 
 In **Assets** panel right-click on a folder, and click the following context menu item **Create -> Auto Atlas**. It will create a **AutoAtlas.pac** asset to hold your atlas configuration for current folder.
 
 ![create auto atlas](auto-atlas/create-auto-atlas.png)
 
-With an **Auto-atlas asset** created, all **SpriteFrame** assets in the current folder including sub-folders will be used to generate a sprite sheet atlas during build process.  And all SpriteFrame assets added to the folder or its sub-folder will be added to the atlas automatically in the future.
+With an **Auto Atlas asset** created, all **SpriteFrame** assets in the current folder including sub-folders will be used to generate a sprite sheet atlas during build process.  And all SpriteFrame assets added to the folder or its sub-folder will be added to the atlas automatically in the future.
 
 If there're settings for **SpriteFrame** assets (such as trim), they will be preserved in the **SpriteFrame** assets in the generated atlas.
 
-## Configure the auto-atlas asset
+## Configure the Auto Atlas asset
 
 ![](auto-atlas/auto_atlas.png)
 
-After selecting an **Auto-atlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **Auto-atlas asset**.
+After selecting an **Auto Atlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **Auto Atlas asset**.
 
 | Properties | Description
 | -------------- | ----------- |
@@ -32,7 +32,7 @@ After selecting an **Auto-atlas asset** in the **Assets** panel, the **Propertie
 
 For **Premultiply Alpha**, **Filter Mode**, **Packable** parameters of the Texture section, please refer to document [Texture](./sprite.md#texture-%E5%B1%9E%E6%80%A7). For the setting of Texture format, please refer to document [Texture Compression](./compress-texture.md).
 
-After the configuration is complete, you can click the **Preview** button to preview the results of the packaging. The results of the current auto-atlas configuration will be displayed in the area below the **Properties** panel.
+After the configuration is complete, you can click the **Preview** button to preview the results of the packaging. The results of the current Auto Atlas configuration will be displayed in the area below the **Properties** panel.
 
 The results are:
 
@@ -41,6 +41,6 @@ The results are:
 
 ## Generate atlas
 
-With **Auto-atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with auto-atlas asset in the folder into atlas and update reference to them in the whole project automatically.
+With **Auto Atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with Auto Atlas asset in the folder into atlas and update reference to them in the whole project automatically.
 
 **Note**: If Premultiply Alpha is enabled on the texture, it will be invalid when generating the atlas. If you need to use the Premultiply Alpha, you can check Premultiply Alpha on the Auto Atlas.

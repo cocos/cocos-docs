@@ -8,7 +8,7 @@ Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x-lite 和 adapter 三�
 Adapter 地址分别在：
 
 - `jsb-adapter`：<https://github.com/cocos-creator-packages/jsb-adapter>
-- `Mmini-game-adapters`：<https://github.com/cocos-creator-packages/adapters/>
+- `Mini-game-adapters`：<https://github.com/cocos-creator-packages/adapters/>
 
 建议你通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 
@@ -235,7 +235,7 @@ gulp
 - 这部分代码的定制，不需要任何编译操作。  
 - 引擎层面的适配工作，请在相应的 engine 目录下完成。  
 
-了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/adapter.html)。
+如果开发者想要了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html)。
 
 ## 4 JSB 绑定流程
 
@@ -243,7 +243,7 @@ gulp
 
 1.7 及 1.7 以上版本请参考
 
-- [JSB 2.0 绑定教程](jsb/JSB2.0-learning.md)
+- [JSB 2.0 绑定教程](JSB2.0-learning.md)
 
 1.6 及 1.6 以下版本请参考
 

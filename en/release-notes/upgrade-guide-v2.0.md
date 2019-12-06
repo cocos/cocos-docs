@@ -159,9 +159,6 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
   3. Native platform
        1. Entry file: `main.js`
        2. Adaptation file: `jsb-adapter/``
-  4. QQ light game
-       1. Entry file: `main.js`
-       2. Adaptation file: `libs/``
 
 Developers who need to add their own custom code can refer to [Custom Project Documentation](http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 

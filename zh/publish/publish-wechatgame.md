@@ -26,7 +26,7 @@
 
 ## 使用 Cocos Creator 发布微信小游戏
 
-1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
+1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
 2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.JPG)
@@ -82,9 +82,13 @@
 
 **注意**：如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `remoteDownloader.cleanAllCaches()` 和 `remoteDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
 
+## 微信小游戏引擎插件
+
+请参考 [微信小游戏引擎插件](./wechat-engine-plugin.md)。
+
 ## 微信小游戏分包加载
 
-微信小游戏如何实现分包加载请参考 [分包加载](../scripting/subpackage.md)。
+请参考 [分包加载](../scripting/subpackage.md)。
 
 ## 平台 SDK 接入
 
@@ -114,9 +118,8 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 
 ## 参考链接
 
-- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
+- [微信小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/guide/)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)

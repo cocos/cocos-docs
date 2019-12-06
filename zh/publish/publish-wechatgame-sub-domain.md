@@ -103,7 +103,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 - [Cocos Creator 微信小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
 
-- [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+- [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)
 
 ---------------------
 
@@ -184,4 +184,4 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 - [Cocos Creator 微信小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip)
 
-- [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html)
+- [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)

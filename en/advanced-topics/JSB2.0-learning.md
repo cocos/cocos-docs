@@ -4,7 +4,7 @@
 
 ### Architecture
 
-![](JSB2.0-Architecture.png)
+![](jsb/JSB2.0-Architecture.png)
 
 ### Macro
 
@@ -20,48 +20,48 @@ How to achieve the minimum overhead for the abstract layer and expose the unifie
 
 For example, to register a JS function in CPP, there are different definitions in JavaScriptCore, SpiderMonkey, V8, ChakraCore as follows:
 
-**JavaScriptCore:**
+- JavaScriptCore
 
-```c++
-JSValueRef JSB_foo_func(
-		JSContextRef _cx,
-		JSObjectRef _function,
-		JSObjectRef _thisObject,
-		size_t argc,
-		const JSValueRef _argv[],
-		JSValueRef* _exception
-	);
-```
+    ```c++
+    JSValueRef JSB_foo_func(
+            JSContextRef _cx,
+            JSObjectRef _function,
+            JSObjectRef _thisObject,
+            size_t argc,
+            const JSValueRef _argv[],
+            JSValueRef* _exception
+        );
+    ```
 
-**SpiderMonkey:**
+- SpiderMonkey
 
-```c++
-bool JSB_foo_func(
-		JSContext* _cx,
-		unsigned argc,
-		JS::Value* _vp
-	);
-```
+    ```c++
+    bool JSB_foo_func(
+            JSContext* _cx,
+            unsigned argc,
+            JS::Value* _vp
+        );
+    ```
 
-**V8:**
+- V8
 
-```c++
-void JSB_foo_func(
-		const v8::FunctionCallbackInfo<v8::Value>& v8args
-	);
-```
+    ```c++
+    void JSB_foo_func(
+            const v8::FunctionCallbackInfo<v8::Value>& v8args
+        );
+    ```
 
-**ChakraCore:**
+- ChakraCore
 
-```c++
-JsValueRef JSB_foo_func(
-		JsValueRef _callee,
-		bool _isConstructCall,
-		JsValueRef* _argv,
-		unsigned short argc,
-		void* _callbackState
-	);
-```
+    ```c++
+    JsValueRef JSB_foo_func(
+            JsValueRef _callee,
+            bool _isConstructCall,
+            JsValueRef* _argv,
+            unsigned short argc,
+            void* _callbackState
+        );
+    ```
 
 We evaluated several options and eventually decided to use `macros` to reduce the differences between the definition and parameter types of different JS engine callbacks, regardless of which engine is used, and developers could use an unified callback definition. We refer to the definition of Lua callback function. The definition of all JS to CPP callback functions in the abstract layer is defined as:
 
@@ -76,15 +76,15 @@ SE_BIND_FUNC(foo) // Binding a JS function as an example
 
 After a developer has bound a JS function, remember to wrap the callback function with the macros which start with `SE_BIND_`. Currently, we provide the following macros:
 
-* SE\_BIND\_PROP_GET: Wrap a JS object property read callback function
-* SE\_BIND\_PROP_SET: Wrap a JS object property written callback function
-* SE\_BIND\_FUNC: Wrap a JS function that can be used for global functions, class member functions or class static functions
-* SE\_DECLARE\_FUNC: Declare a JS function, generally used in the header file
-* SE\_BIND\_CTOR: Wrap a JS constructor
-* SE\_BIND\_SUB\_CLS\_CTOR: Wrap the constructor of a JS subclass by using cc.Class.extend.
-* SE\_FINALIZE\_FUNC: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
-* SE\_DECLARE\_FINALIZE\_FUNC: Declares the finalize function of a JS object
-* _SE: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
+* **SE\_BIND\_PROP_GET**: Wrap a JS object property read callback function
+* **SE\_BIND\_PROP_SET**: Wrap a JS object property written callback function
+* **SE\_BIND\_FUNC**: Wrap a JS function that can be used for global functions, class member functions or class static functions
+* **SE\_DECLARE\_FUNC**: Declare a JS function, generally used in the header file
+* **SE\_BIND\_CTOR**: Wrap a JS constructor
+* **SE\_BIND\_SUB\_CLS\_CTOR**: Wrap the constructor of a JS subclass by using cc.Class.extend.
+* **SE\_FINALIZE\_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
+* **SE\_DECLARE\_FINALIZE\_FUNC**: Declares the finalize function of a JS object
+* **_SE**: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
 
 ## API
 
@@ -223,7 +223,6 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
         }
     });
 ```
-
 
 __se::Object Types__
 
@@ -475,7 +474,6 @@ void some_func()
 	se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // We get the global object just for easiler demenstration.
 	globalObj->defineFunction("foo", _SE(Foo_function)); // Use _SE macro to package specific function name.
 }
-
 ```
 
 ### Register A CPP Class to JS Virtual Machine
@@ -747,7 +745,7 @@ The helper functions for native<->JS type conversions are located in `cocos/scri
 
 #### Convert se::Value to CPP Type
 
-```
+```c++
 bool seval_to_int32(const se::Value& v, int32_t* ret);
 bool seval_to_uint32(const se::Value& v, uint32_t* ret);
 bool seval_to_int8(const se::Value& v, int8_t* ret);
@@ -804,7 +802,6 @@ bool seval_to_Vector(const se::Value& v, cocos2d::Vector<T>* ret);
 
 template<typename T>
 bool seval_to_Map_string_key(const se::Value& v, cocos2d::Map<std::string, T>* ret)
-
 ```
 
 #### Convert C++ Type to se::Value
@@ -896,7 +893,6 @@ bool sptrackentry_to_seval(const spTrackEntry& v, se::Value* ret);
 bool b2Vec2_to_seval(const b2Vec2& v, se::Value* ret);
 bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
 bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
-
 ```
 
 Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2D-X binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
@@ -1044,14 +1040,17 @@ Change to：
 * Compile, run the game (or run directly in the Creator simulator)
 * Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
-Breakpoint debugging：
-![](v8-win32-debug.jpg)
+Breakpoint debugging:
 
-Catch JS Heap
-![](v8-win32-memory.jpg)
+![](jsb/v8-win32-debug.jpg)
 
-Profile
-![](v8-win32-profile.jpg)
+Catch JS Heap:
+
+![](jsb/v8-win32-memory.jpg)
+
+Profile:
+
+![](jsb/v8-win32-profile.jpg)
 
 #### Android/iOS
 
@@ -1156,8 +1155,6 @@ dispatcher->dispatchEvent(event);
 event->release();
 ```
 
-
-
 ### How to Observe JS Exception?
 
 In AppDelegate.cpp, using `se::ScriptEngine::getInstance()->setExceptionCallback(...)` to set the callback of JS exception.
@@ -1180,9 +1177,4 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
     return true;
 }
-
 ```
-
-
-
-

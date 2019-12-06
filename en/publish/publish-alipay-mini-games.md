@@ -53,7 +53,7 @@ The above functions are expected to be gradually supported in future updates, an
 
 Since the documents related to Alipay mini games are currently only open to the inside, you can contact them directly if needed:
 
-| Contacts | QQ | Email |
-| ----- | ----- | ----- |
-| LiZhi | 3091743137 | lz98684@alibaba-inc.com      |
-| HuangJiao | 2229459044 | huangjiao.hj@alibaba-inc.com |
+| Contacts | Email |
+| ----- | ----- |
+| LiZhi | lz98684@alibaba-inc.com      |
+| HuangJiao | huangjiao.hj@alibaba-inc.com |
