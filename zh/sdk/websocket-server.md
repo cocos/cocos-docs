@@ -10,7 +10,7 @@
 
 在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`.
 
-![edit-ccconfig](websocket-server/edit-ccConfig-h.png)
+![edit-ccconfig](./websocket-server/edit-ccConfig-h.png)
 
 需要注意上示的修改中包含
 
@@ -29,19 +29,19 @@
 
 编辑 `Vistual Studio`项目属性
 
-![edit vs](websocket-server/vs-add-macro.PNG)
+![edit vs](./websocket-server/vs-add-macro.PNG)
 
 #### Android
 
 编辑 `proj.android-studio/app/jni/Application.mk`
 
-![edit-application-mk](websocket-server/edit-application-mk.png)
+![edit-application-mk](./websocket-server/edit-application-mk.png)
 
 #### Xcode
 
 编辑项目属性
 
-![edit-xcode](websocket-server/edit-xcode-property.jpg)
+![edit-xcode](./websocket-server/edit-xcode-property.jpg)
 
 
 只有通过上面的配置，才能在JS代码中调用 `WebSocketSever`. 
@@ -70,7 +70,7 @@ s.onconnection = function(conn) {
 s.onclose = function() {
   console.log("server is closed!")
 }
-s.listen(8080, (err) => {
+s.listen(8080, (err) => {./
    if(!err) console.log("server booted!");
 });
 ```
