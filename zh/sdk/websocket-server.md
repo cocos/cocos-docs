@@ -10,7 +10,7 @@
 
 在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`.
 
-![edit-ccconfig](./websocket-server/edit-ccConfig-h.png)
+![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
 需要注意上示的修改中包含
 
