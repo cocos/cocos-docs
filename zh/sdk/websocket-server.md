@@ -15,7 +15,7 @@
 需要注意上示的修改中包含
 
 ```c++
-#if USE_WEBSOCKET_SERVER && COCOS2D_DEBUG
+#if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
 #define USE_WEBSOCKET_SERVER 0
 #endif
 ``` 
