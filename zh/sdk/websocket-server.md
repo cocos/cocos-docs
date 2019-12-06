@@ -6,7 +6,7 @@
 
 *WebSocket 服务器* 默认是剔除的，需要设置宏 `USE_WEBSOCKET_SERVER = 1` 以启用。
 
-### 修改默认值
+### I.修改默认值
 
 在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`.
 
@@ -21,7 +21,9 @@
 ``` 
 由于在 `Release` 模式中通常很少有需要保留 *WebSocket 服务器* 的情形，所以建议默认剔除。
 
-### 根据平台开启开启
+修改默认值会影响所有平台。如果不明确是否需要在所有平台启用，可以参考下面的方式，只针对特定平台开启。 
+
+### II.根据平台启用
 
 在一些情况下，只有特定的平台需要开启 *WebSocket 服务器*。 此时需要不同的方式设置 `USE_WEBSOCKET_SERVER`。
 
@@ -44,6 +46,7 @@
 ![edit-xcode](./websocket-server/edit-xcode-property.jpg)
 
 只有通过上面的配置，才能在JS代码中调用 `WebSocketSever`. 
+
 
 ## 如何调用 WebSocket 服务器接口
 
