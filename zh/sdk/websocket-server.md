@@ -37,7 +37,7 @@
 
 编辑 `proj.android-studio/app/jni/Application.mk`，如图
 
-![edit-application-mk](./websocket-server/edit-application-mk.png)
+![edit-application-mk](./websocket-server/edit-application-mk2.png)
 
 #### Xcode
 
