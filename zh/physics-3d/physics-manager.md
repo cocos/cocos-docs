@@ -6,7 +6,7 @@
 
 ### 开启物理系统
 
-物理系统默认是关闭的，如果需要使用物理系统，那么首先需要做的就是开启物理系统，否则运行时不会产生任何效果。
+物理系统默认是关闭的，如需使用物理系统，必须开启物理系统，否则运行时不会产生任何效果。
 
 ```javascript
 cc.director.getPhysics3DManager().enabled = true;
@@ -39,3 +39,4 @@ cc.director.getPhysics3DManager().enabled = true;
 ```
 
 通过 `cc.director.getPhysics3DManager().raycastClosest` 接口，检测所有与射线发生碰撞的距离最短的碰撞盒，若没有检测到任何碰撞盒，则返回 null ，若有，则返回符合要求的碰撞盒，用法与 `raycast` 接口类似，具体内容参考API文档。
+
