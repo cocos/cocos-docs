@@ -11,7 +11,7 @@
 - 触发器不会与其它触发器或者碰撞器做更精细的检测。
 - 碰撞器与碰撞器会做更精细的检测，并会提供因碰撞产生的一些额外的数据，如碰撞点、法线等。
 
-**注：设置一个 PhysicsColliderComponent 组件为触发器，可以通过设置 PhysicsColliderComponent 组件的 isTrigger 属性**。
+**注：设置一个 PhysicsCollider3D 组件为触发器，可以通过设置 PhysicsCollider3D 组件的 isTrigger 属性**。
 
 ## 触发事件和碰撞事件
 
@@ -21,14 +21,14 @@
 
 通过注册事件监听触发事件：
 
-1. 通过 `this.getComponent(cc.PhysicsColliderComponent)` 获取到 `PhysicsColliderComponent`
-2. 通过 `PhysicsColliderComponent` 的 `on` 或者 `once` 方法注册事件回调
+1. 通过 `this.getComponent(cc.PhysicsCollider3D)` 获取到 `PhysicsCollider3D`
+2. 通过 `PhysicsCollider3D` 的 `on` 或者 `once` 方法注册事件回调
 
 代码示例：
 
 ```
 start () {
-    let collider = this.getComponent(cc.PhysicsColliderComponent);
+    let collider = this.getComponent(cc.PhysicsCollider3D);
     collider.on('onTriggerStay', this.onTrigger, this);
 }
 
@@ -43,14 +43,14 @@ onTrigger (event) {
 
 监听碰撞事件，可以通过注册事件的方式来添加碰撞后的回调，以下步骤可以完成碰撞事件的监听：
 
-1. 通过 `this.getComponent(cc.PhysicsColliderComponent)` 获取到 `PhysicsColliderComponent`
-2. 通过 `PhysicsColliderComponent` 的 `on` 或者 `once` 方法注册相应事件的回调
+1. 通过 `this.getComponent(cc.PhysicsCollider3D)` 获取到 `PhysicsCollider3D`
+2. 通过 `PhysicsCollider3D` 的 `on` 或者 `once` 方法注册相应事件的回调
 
 代码示例：
 
 ```
 start () {
-    let collider = this.getComponent(cc.PhysicsColliderComponent);
+    let collider = this.getComponent(cc.PhysicsCollider3D);
     collider.on('onCollisionStay', this.onCollision, this);
 }
 
@@ -59,7 +59,7 @@ onCollision (event) {
 }
 ```
 
-**PhysicsColliderComponent 是物理系统中所有碰撞组件的基类**。
+**PhysicsCollider3D 是物理系统中所有碰撞组件的基类**。
 
 两者的区别
 

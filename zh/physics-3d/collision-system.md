@@ -16,7 +16,7 @@ cc.director.getCollision3DManager().enabled = true;
 
 碰撞系统的碰撞组件与物理系统相比，没有物理材质和触发器属性。
 
-添加盒碰撞组件 (BoxColliderComponent)
+添加盒碰撞组件 (BoxCollider3D)
 
 ![盒碰撞组件](image/collider-box-component.png)
 
@@ -24,7 +24,7 @@ cc.director.getCollision3DManager().enabled = true;
 
 ![盒碰撞组件](image/collider-box-prop.png)
 
-添加球碰撞组件 (SphereColliderComponent)
+添加球碰撞组件 (SphereCollider3D)
 
 ![球碰撞组件](image/collider-sphere-component.png)
 
@@ -36,4 +36,4 @@ cc.director.getCollision3DManager().enabled = true;
 
 碰撞系统的碰撞事件与物理系统相比，只有触发类型的事件，分为三种 onCollisionEnter、onCollisionStay、onCollisionExit，分别表示碰撞开始，碰撞保持，碰撞结束，使用方法与 [物理事件](./physics-event.md) 用法类似。
 
-**ColliderComponent 是碰撞系统中所有碰撞组件的基类**
+**Collider3D 是碰撞系统中所有碰撞组件的基类**

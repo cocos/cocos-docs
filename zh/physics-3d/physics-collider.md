@@ -2,7 +2,7 @@
 
 碰撞组件用于指明游戏对象的形状，不同形状具有不同属性及物理行为，可根据需求选择不同形状的碰撞组件。
 
-### 盒碰撞组件（PhysicsBoxColliderComponent）
+### 盒碰撞组件（PhysicsBoxCollider3D）
 
 添加盒碰撞组件
 
@@ -19,7 +19,7 @@
 **Center**  |  形状的中心点（与所在 Node 中心点的相对位置）
 **Size**  |  盒的大小，即长、宽、高
 
-### 球碰撞组件（PhysicsSphereColliderComponent）
+### 球碰撞组件（PhysicsSphereCollider3D）
 
 添加球碰撞组件
 
