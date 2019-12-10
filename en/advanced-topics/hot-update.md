@@ -85,21 +85,24 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 
 ### Publish the original version
 
-After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test. **Note**: Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
+After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.   
+**Note**: 
+- Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
+- Please make sure to import editor plugin hot-update into the packages folder (the demo project has imported the plugin)
 
-After building a successful native version, open the folder of the native published package, add the search path logic to `main.js`:
+The editor plugin automatically adds the search path logic to `main.js` everytime we build a successful native version:
 
 ```js
 // Add the following code at the beginning of main.js
-if (jsb) {
-    var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
-    if (hotUpdateSearchPaths) {
-        jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+(function () {
+    if (typeof window.jsb === 'object') {
+        var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
+        if (hotUpdateSearchPaths) {
+            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+        }
     }
-}
+})();
 ```
-
-You can also directly copy the `main.js` in the root directory of the project repository to override the published `main.js` in the native package folder. Note that each time you use Cocos Creator to build, you need to re-modify `main.js`. To make sure your `main.js` is correctly overwrite after building, please check [Custom Build Template](../publish/custom-project-build-template.md).
 
 This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage) ) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
