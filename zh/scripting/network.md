@@ -7,15 +7,16 @@
 
 当然，在 Web 平台，浏览器原生就支持这两个接口，之所以说 Cocos Creator 支持，是因为在发布原生版本时，用户使用这两个网络接口的代码也是可以运行的。也就是遵循 Cocos 一直秉承的 “一套代码，多平台运行” 原则。
 
-**注意** ：
+**注意**：如果需要在原生平台使用 `WebSocket`，请确保有在 **项目 -> 项目设置 -> 模块设置** 中勾选了 **Native Socket** 模块。
 
 ## 使用方法
 
-1. XMLHttpRequest
+1. XMLHttpRequest 
+
     简单示例：
 
-    ```
-    var xhr = new XMLHttpRequest();
+    ```js
+    let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
             var response = xhr.responseText;
@@ -34,8 +35,8 @@
 
     简单示例：
 
-    ```
-    ws = new WebSocket("ws://echo.websocket.org");
+    ```js
+    let ws = new WebSocket("ws://echo.websocket.org");
     ws.onopen = function (event) {
         console.log("Send Text WS was opened.");
     };
@@ -75,7 +76,7 @@
 
     由于 Web 版本 SocketIO 不能够在 JSB 中被正确解析，因此 Cocos 在原生环境中自带了 SocketIO 实现。所以我们需要一点 hack 的手段让 Web 版本 SocketIO 的脚本在原生环境中不生效，方法就是在 SocketIO 脚本文件中做如下修改：
 
-    ```
+    ```js
     if (!cc.sys.isNative) {
         // SocketIO 原始代码
     }

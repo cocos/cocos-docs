@@ -7,7 +7,7 @@
 - ProgressBar（进度条）
 - EditBox（输入框）
 
-以下介绍的 UI 控件都可以通过 **层级管理器** 左上角创建节点菜单中的 `创建 UI 节点` 子菜单来创建。
+以下介绍的 UI 控件都可以通过 **层级管理器** 左上角创建节点菜单中的 **创建 UI 节点** 子菜单来创建。
 
 ![create node ui](ui-components/create_node_ui.png)
 
@@ -29,7 +29,7 @@ content 节点可以包括任意数量的子节点，配合 [Layout 组件](auto
 
 ScrollView 中的遮罩是可选的，但我们通常都希望能够隐藏 content 中超出 ScrollView 约束框范围的内容。
 
-[Mask 组件](../components/mask.md)能够隐藏自身约束框范围外的子节点内容，注意 **Mask** 属于渲染组件，因此不能和其他渲染组件（如 Sprite，Label 等）共存于同一个节点上，我们需要额外的一个节点专门用来放置 Mask，否则 ScrollView 将无法设置用于背景的 **Sprite** 组件。
+[Mask 组件](../components/mask.md) 能够隐藏自身约束框范围外的子节点内容，注意 **Mask** 属于渲染组件，因此不能和其他渲染组件（如 Sprite，Label 等）共存于同一个节点上，我们需要额外的一个节点专门用来放置 Mask，否则 ScrollView 将无法设置用于背景的 **Sprite** 组件。
 
 ### ScrollBar（滚动条）节点
 
@@ -69,23 +69,22 @@ Button 上的点击事件是为了方便设计师在制作 UI 界面时可以自
 - VERTICAL 垂直进度条
 - FILLED 填充进度条
 
-其他的基本属性设置请查阅[ProgressBar 组件参考](../components/progress.md)。
+其他的基本属性设置请查阅 [ProgressBar 组件参考](../components/progress.md)。
 
 ### 水平和垂直模式（HORIZONTAL & VERTICAL）
 
-模式选择 `HORIZONTAL` 或 `VERTICAL` 时，进度条通过修改 `Bar Sprite` 引用节点的尺寸（`width` 或 `height` 属性），来改变进度条显示的长度。在这两种模式下 `Bar Sprite` 推荐使用 `Sliced` 九宫格显示模式，这样在节点尺寸产生拉伸的情况下仍能保持高质量的图像渲染结果。
+当模式选择 `HORIZONTAL` 或 `VERTICAL` 时，进度条可以通过修改 `Bar Sprite` 引用节点的尺寸（`width` 或 `height` 属性）来改变进度条显示的长度。在这两种模式下 `Bar Sprite` 推荐使用 `Sliced` 九宫格显示模式，这样在节点尺寸产生拉伸的情况下仍能保持高质量的图像渲染结果。
 
-在这两种模式下，`Total Length` 属性的单位是像素，用来指定进度条在 100% 的状态下（`Progress` 属性值为 1）`Bar Sprite` 的长度。这个属性保证我们在编辑场景时可以自由设置 `Progress` 为小于 1 的值，而 `Bar Sprite` 总是能够记录我们希望的总长度。
+在这两种模式下，`Total Length` 属性的单位是像素，用来指定进度条在 100% 的状态下（`Progress` 属性值为 1）时 `Bar Sprite` 的长度。这个属性保证我们在编辑场景时可以自由设置 `Progress` 为小于 1 的值，而 `Bar Sprite` 总是能够记录我们希望的总长度。
 
 ### 填充模式（FILLED）
 
-和上面两种模式不同，填充模式下的进度条会通过按照一定百分比剪裁 `Bar Sprite` 引用节点来显示不同进度，因此我们需要对 `Bar Sprite` 引用的 **Sprite** 组件进行特定的设置。首先将该 Sprite 的 `Type` 属性设置为 `FILLED`，然后可以选择一个填充方向（HORIZONTAL、VERTICAL、RADIAL），详情请查阅 [Sprite  填充模式](../components/sprite.md#--2)参考文档。
+和上面两种模式不同，填充模式下的进度条会通过按照一定百分比剪裁 `Bar Sprite` 引用节点来显示不同进度，因此我们需要对 `Bar Sprite` 引用的 **Sprite** 组件进行特定的设置。首先将该 Sprite 的 `Type` 属性设置为 `FILLED`，然后选择一个填充方向（HORIZONTAL、VERTICAL、RADIAL），详情请查阅 [Sprite 填充模式](../components/sprite.md#--2) 参考文档。
 
-要注意进度条在选择了填充模式后，`Total Length` 的单位变成了百分比小数，取值范围从 0 ~ 1，设置的 `Total Length` 数值会同步到 `Bar Sprite` 的 `Fill Range` 属性，使之保持一致。下图显示了填充模式进度条当 `Bar Sprite` 的 `Fill Type` 设置为 `RADIAL` 时，不同的 `Total Length` 对显示的影响。
+要注意进度条在选择了填充模式后，`Total Length` 的单位变成了百分比小数，取值范围为 0 ~ 1。设置的 `Total Length` 数值会同步到 `Bar Sprite` 的 `Fill Range` 属性，使之保持一致。下图显示了填充模式进度条当 `Bar Sprite` 的 `Fill Type` 设置为 `RADIAL` 时，不同的 `Total Length` 对显示的影响。
 
 ![filled radial](ui-components/filled_radial.png)
 
-
 ## EditBox（输入框）
 
-输入框的使用方式比较直接，请直接参考 [EditBox 组件参考](../components/editbox.md) 文档里每个属性的说明进行设置即可。
+请参考 [EditBox 组件参考](../components/editbox.md) 文档里每个属性的说明进行设置。

@@ -69,21 +69,21 @@ For specific changes, developers can refer to [2.0 Camera Using Documentation](.
 
 ## 2.3 Build Panel Updates
 
-The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as WeChat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: WeChat Game Open Data Context.
+The biggest change in Build panels is the release of WeChat Mini Game Open Data Context. In 1.x, developers choose to publish the platform as WeChat Mini Game and check the open data context project. In 2.0, we separate the WeChat Mini Game Open Data Context into a platform: WeChat Mini Game Open Data Context.
 
-![2.0 WeChat game open data domain publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
+![2.0 WeChat mini game open data context publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
 
-As you can see, the build options are much simpler than other platforms because the open data domain has a special environment that removes unnecessary options. At the same time, since the open data domain does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data domain.
+As you can see, the build options are much simpler than other platforms because the open data context has a special environment that removes unnecessary options. At the same time, since the open data context does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data context.
 
 For the same reason, when building other platforms, please don't check the Canvas Renderer, because the Canvas renderer supports a small number of rendering components, meaning little.
 
-Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain](../publish/publish-wechatgame-sub-domain.md).
+Starting with v2.0.1, we updated the open data context solution. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
 ## 2.4 Module Settings
 
-In addition to the special module settings in the WeChat open data domain, there are several points to note in the module settings of other platform projects:
+In addition to the special module settings in the WeChat open data context, there are several points to note in the module settings of other platform projects:
 
-  1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data domain, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
+  1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data context, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
   2. The native platform cannot currently remove the Native Network module (which will be adjusted in the future).
 
 ## 2.5 Custom Engine Quick Compile
@@ -159,9 +159,6 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
   3. Native platform
        1. Entry file: `main.js`
        2. Adaptation file: `jsb-adapter/``
-  4. QQ light game
-       1. Entry file: `main.js`
-       2. Adaptation file: `libs/``
 
 Developers who need to add their own custom code can refer to [Custom Project Documentation](http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 
@@ -217,13 +214,13 @@ Cocos Creator supports a variety of adaptation modes, which developers can manag
 
 In this adaptation mode, the developer's design resolution ratio will be faithfully preserved, and the scene will be zoomed until all content is visible. At this time, the aspect ratio of the scene and the aspect ratio of the device screen are generally different. Leave a black border on the left or right or up and down.
 
-In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in small games.
+In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat mini games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in mini games.
 
-2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat game are completely correct, but the content outside the scene is still visible.
+2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat mini game are completely correct, but the content outside the scene is still visible.
 
 ## 3.6 RenderTexture Screenshot
 
-In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots](../render/camera.html#%E6%88%AA%E5%9B%BE).
+In 1.x, developers generally use `cc.RenderTexture` to complete the screenshot function, but this is a feature in the old version of the rendering tree. After we remove the rendering tree, the screenshot function is used in a completely different way. In simple terms, `cc.RenderTexture` in 2.0 becomes a resource type that inherits from the `cc.Texture` resource. The developer completes the screenshot by rendering a camera content to the `cc.RenderTexture` resource. For details, please refer to [Camera Document Screenshots](../render/camera.md#%E6%88%AA%E5%9B%BE).
 
 ## 3.7 TiledMap function simplification
 

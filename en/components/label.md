@@ -36,7 +36,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Properties |   Function Explanation
 | -------------- | ----------- |
 |  NONE  | Defaults, the entire text in label will generate a bitmap
-| BITMAP | After selection, the entire text in the Label will still generate a bitmap, but will try to participate in [Dynamic Atlas](../advanced-topics/dynamic-atlas.md). As long as the requirements of Dynamic Atlas are met, the Draw Call will be merged with the other Sprite or Label in the Dynamic Atlas. Because Dynamic Atlas consume more memory, **this mode can only be used for Label with infrequently updated text**.
+| BITMAP | After selection, the entire text in the Label will still generate a bitmap, but will try to participate in [Dynamic Atlas](../advanced-topics/dynamic-atlas.md). As long as the requirements of Dynamic Atlas are met, the Draw Call will be merged with the other Sprite or Label in the Dynamic Atlas. Because Dynamic Atlas consume more memory, **this mode can only be used for Label with infrequently updated text**. **Note**: Similar to NONE, BITMAP will force a bitmap to be generated for each Label component, regardless of whether the text content is equivalent. If there are a lot of Labels with the same text in the scene, it is recommended to use CHAR to reuse the memory space.
 |  CHAR  | The principle of CHAR is similar to BMFont, Label will cache text to the global shared bitmap in "word" units, each character of the same font style and font size will share a cache globally. Can support frequent modification of text, the most friendly to performance and memory. However, there are currently restrictions on this model, which we will optimize in subsequent releases:<br>1. **This mode can only be used for font style and fixed font size (by recording the fontSize, fontFamily, color, and outline of the font as key information for repetitive use of characters, other users who use special custom text formats need to be aware). And will not frequently appear with a huge amount of unused characters of Label.** This is to save the cache, because the global shared bitmap size is 2048*2048, it will only be cleared when the scene is switched. Once the bitmap is full, the newly appearing characters will not be rendered.<br>2. Overflow does not support SHRINK.<br>3. Cannot participate in dynamic mapping (multiple labels with CHAR mode enabled can still merge Draw Call in the case of without interrupting the rendering sequence).
 
 **Note**：
@@ -49,13 +49,11 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 By dragging the TTF font file and BMFont font file into the `Font` attribute in the **Properties** panel the Label component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking `Use System Font`.
 
-If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.html) for more information.
+If you want to use LabelAtlas, you should create a LabelAtlas font asset at first. Please refer to [LabelAtlas asset](../asset-workflow/label-atlas.md) for more information.
 
-### BMFont and UI auto batch
+### UI Rendering Batch Processing Guide
 
-From Creator v1.4, BMFont could be batch drawing with UI elements. In theory, if you don't use TTF font and System font in your UI scene, and all of your UI elements including BMFont texture and LabelAtlas texture could be packed into one Image Atlas, you UI scene could be rendering with only one Draw Call.
-
-For more info of this feature, please refer to [BMFont and UI auto batch](../advanced-topics/ui-auto-batch.html) topic.
+For more info of this feature, please refer to [UI Rendering Batch Processing Guide](../advanced-topics/ui-auto-batch.md) topic.
 
 ---
 

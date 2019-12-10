@@ -2,7 +2,7 @@
 
 - **Q**: Is Cocos Creator a game engine?
 - **A**: It's a complete game development solution, which includes the JavaScript
- implementation of Cocos2d-x (no need to learn a new engine), and various UI tools 
+ implementation of Cocos2d-x, and various UI tools 
  that can help you develop games more quickly.
 
 - **Q**: What kind of editor does Cocos Creator have?
@@ -49,8 +49,6 @@ In addition, you can create scenes, prefabs, animations, scripts, particles, and
 
 With some basic resources in the project, we can start to build the scene, the scene is the game content most basic organization way, and it is also the basic form of showing the game to the player.
 
-We'll add a variety of nodes through the **Scene**, which is responsible for displaying the game's artistic sound resources as well as the hosting of the subsequent interaction functionality.
-
 ### Adding component scripts to enable interactive functionality
 
 We can mount a variety of built-in components and custom scripting components for the nodes in the scene to enable the game logic to run and interact. This includes the most basic animation playback, the button response, the main loop script that drives the entire game logic, and the control of the player role. Almost all of the game logic functions are implemented by mounting scripts to the nodes in the scene.
@@ -76,17 +74,15 @@ Cocos Creator contains all the functions needed for game development, including:
 engine, resource management, scene editing, game previewing and game releasing. All of this
 in a single, unifed tool that eases your games development.
 
-It makes data driven design and componentization the core game development methods, and 
-seamlessly integrates the mature JavaScript API system of the Cocos engine. It can adapt 
-to the developers habits and still provide an unprecedented level of content creation and 
-provide a realtime previewing and testing environment for artworkers and directors.
-
 The editor provides not only a strong and complete toolchains, but also an open plugin 
 framework. Developers can use generic front end technologies like HTML + JavaScript to 
 conveniently extend the functionality of the editor and provide customized personalized 
 workflows.
 
-![structure](introduction/structure.jpg)
+<a href="introduction/structure-editor.png"><img src="introduction/structure-editor.png" alt="Cocos Creator structure editor"></a>
+<div style="text-align:center"><p>Chart 1</p></div>
+<a href="introduction/structure-engine.png"><img src="introduction/structure-engine.png" alt="Cocos Creator structure engine"></a>
+<div style="text-align:center"><p>Chart 2</p></div>
 
 What the combination of engine and editor brings is the functional development method of 
 data driven and componentization, and the perfect cooperation (with an appropriate division 

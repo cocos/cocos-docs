@@ -19,8 +19,8 @@ After loading the __js sdk__ in WeChat, the `WeixinJSBridgeReady` event, can be 
 
 ```javascript
 document.addEventListener('WeixinJSBridgeReady', function () {
-    cc.assetManager.loadRes('audio/music_logo', cc.AudioClip, function (err, audioClip) {
-        var audioSource = self.addComponent(cc.AudioSource);
+    cc.assetManager.loadRes('audio/music_logo', cc.AudioClip,  (err, audioClip) => {
+        var audioSource = this.addComponent(cc.AudioSource);
         audioSource.clip = audioClip;
         audioSource.play();
     });

@@ -146,8 +146,4 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
 
 ---
 
-要了解如何在原生平台上调试：
-
-如果 Creator 版本为 v1.7 以上请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
-
-如果 Creator 版本为 v1.6 以下请参考 [原生平台调试](debug-native.md)。
+要了解如何在原生平台上调试，请参考 [原生平台 JavaScript 调试](debug-jsb.md)。

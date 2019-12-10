@@ -34,12 +34,13 @@ You can also to compile the native project of the native platform separately by 
  - `--path`: Project Path
  - `--build`: Pulibsh project Parameters
  - `--compile`: Compile native project Parameters
+ - `--force`: Skip version upgrade detection, no upgrade prompt box will pop up
 
 If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
 - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
 - `title` - Project title
-- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, qqplay, wechatgame, fb-instant-games]
+- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, jkw-game, fb-instant-games, android-instant]
 - `buildPath` - Publish path
 - `startScene` - Start scene uuid
 - `debug` - Whether or not debug mode
@@ -51,7 +52,6 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `mergeStartScene` - Whether or not merge all JSON that the Start Scene depends on
 - `optimizeHotUpdate` - Whether or not merge all the SpriteFrames in the same atlas
 - `packageName` - Package Name
-- `vsVersion` - Visual Studio version，only used on windows. [Auto, VS2015, VS2017]
 - `useDebugKeystore` - Whether or not use debug keystore
 - `keystorePath` - Keystore path
 - `keystorePassword` - Keystore password
@@ -72,11 +72,10 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `encryptJs` - Whether or not encrypt js files when publish native platform
 - `xxteaKey` - The key used for encrypt js files
 - `zipCompressJs` - Whether or not compress the files after encrypting js files
-- `wechatgame` - The wechatgame options
-  - `appid`- The wechat game appid
-  - `orientation` - The screen orientation [landscape, portrait]
 - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
 - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
+
+Currently, not many parameters support command-line publishing. If no parameters are passed, the last configured configuration will be used. It is recommended that after manually packaging on a computer, upload the set build configuration files (in the settings directory) to the code repository, and then pull the configuration on the packager.
 
 ## Publish on Jenkins
 

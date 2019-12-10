@@ -94,7 +94,7 @@ Button 可以额外添加 Click 事件，用于响应玩家的点击操作。有
             clickEventHandler.handler = "callback";
             clickEventHandler.customEventData = "foobar";
 
-            var button = node.getComponent(cc.Button);
+            var button = this.node.getComponent(cc.Button);
             button.clickEvents.push(clickEventHandler);
         },
 

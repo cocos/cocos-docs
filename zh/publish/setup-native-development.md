@@ -36,13 +36,13 @@ java -version
 
 [SDK Manager 使用说明（需要使用 VPN）](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
-1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择最低兼容的 API Level 16（4.1) 和所需的主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）。
-2. 在 SDK Tools 分页栏，首先勾选右下角的 `Show Package Details`，显示分版本的工具选择。
-3. 在 `Android SDK Build-Tools` 里，选择最新的 build tools 版本。
-4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
-5. 勾选 `NDK`，确保版本在 r16 及以上。
+1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）等。
+2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
+3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
+4. 勾选 **Android SDK Platform-Tools**, **Android SDK Tools** 和 **Android Support Library**
+5. 勾选 **NDK**，建议使用的版本为 **r17 - r19**。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
-7. 点击 `OK`，根据提示完成安装。
+7. 点击 **OK**，根据提示完成安装。
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
@@ -51,7 +51,7 @@ java -version
 Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 - Python 2.7.5+，[下载页](https://www.python.org/downloads/)，注意不要下载 Python 3.x 版本。
-- Windows 下需要安装 Visual Studio 2015 或 2017 社区版，[下载页](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+- Windows 下需要安装 Visual Studio 2017 社区版，[下载页](https://www.visualstudio.com/downloads/download-visual-studio-vs)
 - Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)
 
 ## 配置原生发布环境路径
@@ -95,7 +95,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
     请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
 
-最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.com/c/Creator) 反馈给我们。
+最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.org/c/Creator) 反馈给我们。
 
 ---
 

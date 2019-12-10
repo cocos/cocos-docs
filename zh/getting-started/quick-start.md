@@ -298,7 +298,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 ![](quick-start/easing.png)
 
-详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout()。
+详细内容可参考 [API](../../../api/zh/modules/cc.html#easecubicactionout)。
 
 接下来在 `onLoad` 方法里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
 
@@ -499,7 +499,7 @@ properties: {
 下面是常用参数：
 
 `default`：设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
-`type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.html#type-%E5%8F%82%E6%95%B0)<br>
+`type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.md#type-%E5%8F%82%E6%95%B0)<br>
 `visible`：设为 false 则不在属性检查器面板中显示该属性<br>
 `serializable`： 设为 false 则不序列化（保存）该属性<br>
 `displayName`：在属性检查器面板中显示成指定名字<br>
@@ -910,4 +910,4 @@ cc.callFunc = function (selector, selectorTarget, data) {
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 
-今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [Github 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。
+今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [GitHub 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。

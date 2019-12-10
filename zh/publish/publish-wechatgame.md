@@ -14,11 +14,11 @@
 
 微信小游戏是微信小程序下的游戏产品平台，它不仅提供了强大的游戏能力，还和小程序一样，提供了大量的原生接口，比如支付，社交，文件系统，照片，NFC 等。相当于同时结合了 WEB 易于传播以及 Native 功能丰富的优势。
 
-小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。
+小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给开发者，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。
 
-作为引擎方，为了尽可能简化开发者的工作量，我们为用户完成的主要工作包括：
+作为引擎方，为了尽可能简化开发者的工作量，我们为开发者完成的主要工作包括：
 
-- 引擎框架适配微信小游戏 API，纯游戏逻辑层面，用户不需要任何额外的修改
+- 引擎框架适配微信小游戏 API，纯游戏逻辑层面，开发者不需要任何额外的修改
 - Cocos Creator 编辑器提供了快捷的打包流程，直接发布为微信小游戏，并自动唤起小游戏的开发者工具
 - 自动加载远程资源，缓存资源以及缓存资源版本控制
 
@@ -26,7 +26,7 @@
 
 ## 使用 Cocos Creator 发布微信小游戏
 
-1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
+1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
 2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.JPG)
@@ -55,7 +55,7 @@
 3. 对于小游戏包内资源，小游戏环境内并不是按需加载的，而是一次性加载所有包内资源，然后再启动页面。
 4. 不可以从远程服务器下载脚本文件。
 
-这里引出了两个关键的问题，首页面加载速度和远程资源缓存及版本管理。对于首页面加载速度，我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。而远程资源的下载、缓存和版本管理，其实在 Cocos Creator 中，已经帮用户做好了。下面我就来解释一下这部分的逻辑。
+这里引出了两个关键的问题，首页面加载速度和远程资源缓存及版本管理。对于首页面加载速度，我们建议开发者只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。而远程资源的下载、缓存和版本管理，其实在 Cocos Creator 中，已经帮开发者做好了。下面我就来解释一下这部分的逻辑。
 
 在小游戏环境中，我们提供了一个 `cc.assetManager.cacheManager` 对象用于管理缓存资源，如果用户设置了 `REMOTE_SERVER_ROOT` 属性后，引擎下载资源的逻辑变为：
 
@@ -83,6 +83,10 @@
 
 **注意**：如果缓存资源超过微信环境限制，除了引擎会自动清理资源之外，你可以在微信小游戏下使用 `cc.assetManager.cacheManager.cleanAllCaches()` 和 `cc.assetManager.cacheManager.cleanCache()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除单个资源。
 
+## 微信小游戏引擎插件
+
+请参考 [微信小游戏引擎插件](./wechat-engine-plugin.md)。
+
 ## 微信小游戏分包加载
 
 微信小游戏如何实现分包加载请参考 [Asset Bundle](../scripting/asset-bundle.md)。
@@ -108,16 +112,15 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 
 我们对微信小游戏的适配工作还未完全结束，目前仍不支持以下组件：
 
-- VideoPlayer
+- VideoPlayer（**v2.1.3** 已支持）
 - WebView
 
-用户如果有需要，目前可以先自己直接调用微信的 API 来使用。
+开发者如果有需要，目前可以通过直接调用微信的 API 来使用。
 
 ## 参考链接
 
-- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
+- [微信小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/guide/)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/wx.createCanvas.html)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://developers.weixin.qq.com/minigame/dev/devtools/devtools.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)

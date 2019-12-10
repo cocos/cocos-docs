@@ -16,6 +16,7 @@ Left               | Left border alignment       | Once selected, an input field
 Right              | Right border alignment      | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
+Target             | Align the target            | Specifies an alignment target that can only be one of the parent nodes of the current node. The default value is null, and when null, indicates the current parent.
 Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to ON_WINDOWS_RESIZE, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
 
 ## Border alignment
@@ -70,6 +71,10 @@ To make sure you can update node's position or size during runtime:
 
 1. set `Align Mode` to `ONCE`, so it will only align during onEnable process.
 2. Use Widget's API to update node's position and size, for example updating Widget's `top`, `bottom`, `left`, `right` instead of node's `x`, `y`, `width`, `height`.
+
+## Note
+
+Widget will adjust current node's position and size automatically, but the results after adjustment can not be obtained until the next frame unless you call [updateAlignment](../../../api/en/classes/Widget.html#updatealignment) manually.
 
 ---
 

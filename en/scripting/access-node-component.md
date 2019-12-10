@@ -16,10 +16,10 @@ In this tutorial, we will introduce how to
 Getting the node which the component belong is easy, just use `this.node` variable in component:
 
 ```js
-    start: function () {
-        var node = this.node;
-        node.x = 100;
-    }
+start: function () {
+    var node = this.node;
+    node.x = 100;
+}
 ```
 
 ## Get other component
@@ -27,41 +27,41 @@ Getting the node which the component belong is easy, just use `this.node` variab
 You will get other component in the same node frequently, that is where `getComponent` comes in, it help you to find the component you need.
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        var text = this.name + ' started';
+start: function () {
+    var label = this.getComponent(cc.Label);
+    var text = this.name + 'started';
 
-        // Change the text in Label Component
-        label.string = text;
-    }
+    // Change the text in Label Component
+    label.string = text;
+}
 ```
 
 You can also pass in a class name for the `getComponent`. For user defined components, the class name is simply the filename of the script, and **case sensitive**. For example, if a component declared in "SinRotate.js", its class name will be "SinRotate".
 
 ```js
-    var rotate = this.getComponent("SinRotate");
+var rotate = this.getComponent("SinRotate");
 ```
 
 There is also a `getComponent` method on node, they are the same thing.
 
 ```js
-    start: function () {
-        cc.log( this.node.getComponent(cc.Label) === this.getComponent(cc.Label) );  // true
-    }
+start: function () {
+    cc.log( this.node.getComponent(cc.Label) === this.getComponent(cc.Label) );  // true
+}
 ```
 
 If the component is not exists in the node, `getComponent` will return null. If you are trying to access a null value at runtime, the "TypeError" exception will be thrown. So always remember to check if you are not sure of it.
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        if (label) {
-            label.string = "Hello";
-        }
-        else {
-            cc.error("Something wrong?");
-        }
+start: function () {
+    var label = this.getComponent(cc.Label);
+    if (label) {
+        label.string = "Hello";
     }
+    else {
+        cc.error("Something wrong?");
+    }
+}
 ```
 
 ## Get other node and their component

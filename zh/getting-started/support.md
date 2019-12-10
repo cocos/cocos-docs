@@ -6,13 +6,13 @@
 
 - [Cocos Creator 首页](https://www.cocos.com/creator/)
 <!-- QQ群：738190852，539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
-- [论坛社区](https://forum.cocos.com/c/Creator)
+- [论坛社区](https://forum.cocos.org/c/Creator)
 
 或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
 
 ## 演示和范例项目
 
-注意，所有 Github 上的演示和范例项目都会跟随版本进行更新，默认分支对应目前最新的 Cocos Creator 版本，老版本的项目会以 `v0.7` 这样的分支名区分，分支名会和相同版本的 Cocos Creator 对应，下载使用的时候请注意。
+注意，所有 GitHub 上的演示和范例项目都会跟随版本进行更新，默认分支对应目前最新的 Cocos Creator 版本，老版本的项目会以 `v0.7` 这样的分支名区分，分支名会和相同版本的 Cocos Creator 对应，下载使用的时候请注意。
 
 - [范例集合](https://github.com/cocos-creator/example-cases)：从基本的组件到交互输入，这个项目里包括了 case by case 的功能点用法介绍。
 - [Star Catcher](https://github.com/cocos-creator/tutorial-first-game)：也就是 [快速上手](quick-start.md) 文档里分步讲解制作的游戏。

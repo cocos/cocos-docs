@@ -34,12 +34,13 @@
  - `--path`：指定项目路径
  - `--build`：指定构建项目使用的参数
  - `--compile`：指定编译项目使用的参数
+ - `--force`：跳过版本升级检测，不弹出升级提示框
 
 在 `--build` 或者 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
 - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
 - `title` - 项目名
-- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、qqplay、wechatgame、fb-instant-games]
+- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、wechatgame、wechatgame-subcontext、baidugame、baidugame-subcontext、xiaomi、alipay、qgame、quickgame、huawei、jkw-game、fb-instant-games、android-instant]
 - `buildPath` - 构建目录
 - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置）
 - `debug` - 是否为 debug 模式
@@ -52,7 +53,6 @@
 - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
 - `packageName` - 包名
-- `vsVersion` - 设置使用的 Visual Studio 版本，只在 windows 上有用，可选的选项有 [Auto、VS2015、VS2017]
 - `useDebugKeystore` - 是否使用 debug keystore
 - `keystorePath` - keystore 路径
 - `keystorePassword` - keystore 密码
@@ -75,14 +75,10 @@
 - `encryptJs` - 是否在发布 native 平台时加密 js 文件
 - `xxteaKey` - 加密 js 文件时使用的密钥
 - `zipCompressJs` - 加密 js 文件后是否进一步压缩 js 文件
-
-- `wechatgame` - 微信小游戏发布选项
-  - `appid`- 发布微信小游戏时需要的 id
-  - `orientation` - 微信小游戏屏幕方向 [landscape、portrait]
-
 - `autoCompile` - 是否在构建完成后自动进行编译项目，默认为 **否**。
-
 - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数
+
+目前支持使用命令行发布的参数不多，如果没传参数的话，将会使用上一次构建的配置。建议在某台电脑上手动打包后，将设置好的构建配置文件（settings 目录中）上传到代码仓库，然后再在打包机上拉取这些配置即可。
 
 ## 在 Jenkins 上部署
 

@@ -7,7 +7,7 @@ Bar Sprite to this component. The Bar Sprite can then be controlled to show prog
 
 Click the **Add component** button at the bottom of the **Properties** panel and select **ProgressBar** from **UI Component**. Then you can add the ProgressBar component to the node.
 
-For the script interface of the ProgressBar, please refer to [ProgressBar API](../../../api/zh/classes/ProgressBar.html).
+For the script interface of the ProgressBar, please refer to [ProgressBar API](../../../api/en/classes/ProgressBar.html).
 
 ## ProgressBar property
 

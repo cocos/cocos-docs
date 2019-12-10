@@ -23,13 +23,12 @@
 2. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
 3. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
 4. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。
-5. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
-6. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
-7. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
-8. RichText 暂不支持通过节点颜色修改颜色。
-9. Native 平台暂不支持 VideoPlayer 和 WebView 组件
-10. 不支持 IE 11。在 2.0.1 中修复。
-11. 目前 2.0 版本存在着原生平台上引擎渲染性能可能下降的情况，对特定的游戏可能会有较明显的影响，建议开发中的原生平台项目谨慎升级。我们后续会进行优化。
+5. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
+6. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
+7. RichText 暂不支持通过节点颜色修改颜色。
+8. Native 平台暂不支持 VideoPlayer 和 WebView 组件
+9. 不支持 IE 11。在 2.0.1 中修复。
+10. 目前 2.0 版本存在着原生平台上引擎渲染性能可能下降的情况，对特定的游戏可能会有较明显的影响，建议开发中的原生平台项目谨慎升级。我们后续会进行优化。
 
 # 2. 编辑器升级
 
@@ -68,7 +67,7 @@
 
 ## 2.3 构建面板更新
 
-构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Game Open Data Context。
+构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Mini Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Mini Game Open Data Context。
 
 ![2.0 微信小游戏开放数据域发布面板](upgrade-guide-v2.0/wechat-open-data.png)
 
@@ -154,9 +153,6 @@
 3. 原生平台
     1. 入口文件：main.js
     2. 适配文件：jsb-adapter/
-4. QQ 轻游戏
-    1. 入口文件：main.js
-    2. 适配文件：libs/
 
 开发者如果需要添加自己的定制代码，可以参考 [定制项目文档](http://docs.cocos.com/creator/manual/zh/publish/custom-project-build-template.html) 在项目中用自己的版本覆盖原始版本，另外，尽量不要覆盖 main.js。
 
@@ -209,7 +205,7 @@ Cocos Creator 支持多种适配模式，开发者可以通过 Canvas 组件中�
 
 ## 3.6 RenderTexture 截图功能
 
-在 1.x 中，开发者一般通过 cc.RenderTexture 来完成截图功能，但是这是属于旧版本渲染树中的一个功能，在我们去除渲染树后，截图功能的使用方式也完全不同了。简单来说，2.0 中 cc.RenderTexture 变成了一个资源类型，继承自贴图（cc.Texture）资源。开发者通过将某个摄像机内容渲染到 cc.RenderTexture 资源上完成截图，具体的使用方式参考 [Camera 文档截图章节](../render/camera.html#%E6%88%AA%E5%9B%BE)。
+在 1.x 中，开发者一般通过 cc.RenderTexture 来完成截图功能，但是这是属于旧版本渲染树中的一个功能，在我们去除渲染树后，截图功能的使用方式也完全不同了。简单来说，2.0 中 cc.RenderTexture 变成了一个资源类型，继承自贴图（cc.Texture）资源。开发者通过将某个摄像机内容渲染到 cc.RenderTexture 资源上完成截图，具体的使用方式参考 [Camera 文档截图章节](../render/camera.md#%E6%88%AA%E5%9B%BE)。
 
 ## 3.7 TiledMap 功能简化
 

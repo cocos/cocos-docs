@@ -6,6 +6,14 @@ The camera is the window that the player observes the game world, the scene must
 
 ## Camera Properties
 
+- **backgroundColor**
+
+  The background color used to clear the scene when camera enables color clearFlags.
+
+- **depth**
+
+  Camera depth, used to determine the order in which the camera is rendered. The larger the value, the later the camera is rendered.
+
 - **cullingMask**
 
   `cullingMask` will determine which parts of the scene the camera is used to render. The `cullingMask` in the camera component in the **Properties** lists the currently available mask options, and you can combine them to generate `cullingMask` by selecting these options.
@@ -14,13 +22,9 @@ The camera is the window that the player observes the game world, the scene must
 
   ![camera-1](camera/camera-1.png)
 
-  You can add or change groups through **Group Manager** in the **Project Settings**, which is the corresponding mask.
+  You can add or change groups through **Group Manager** in the **Project -> Project Settings**, which is the corresponding mask.
 
   ![](camera/mask-setting.png)
-
-- **zoomRatio**
-
-  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
 
 - **clearFlags**
 
@@ -28,13 +32,25 @@ The camera is the window that the player observes the game world, the scene must
 
   ![camera-2](./camera/camera-2.png)
 
-- **backgroundColor**
+- **rect**
 
-  When the camera needs to clear the color， the camera will use the background color to clear the scene。
+  Determines where the camera is drawn on the screen, which is convenient for implementing a Viewport such as a mini map. The value is 0 ~ 1.
 
-- **depth**
+  ![camera-2](camera/camera-rect.png)
 
-  Camera depth, used to determine the order in which the camera is rendered. The larger the value, the later the camera is rendered.
+  As shown in the figure above, a camera for displaying a small map is created in the scene. The final display effect can be seen in the upper right corner of the **Game Preview** panel.
+
+- **zoomRatio**
+
+  Specifies the zoom ratio of the camera, and the larger the value, the larger the image displayed.
+
+- **alignWithScreen**
+
+  When alignWithScreen is true, the camera will automatically adjust the window size to the entire screen size. If you want complete freedom to control the camera, you need to set alignWithScreen to false. (New in v2.2.1)
+
+- **orthoSize**
+
+  The viewport size of the Camera when set to orthographic projection. This property takes effect when alignWithScreen is set to **false**.
 
 - **targetTexture**
 
@@ -42,41 +58,31 @@ The camera is the window that the player observes the game world, the scene must
 
   If you need to do some of the screen's post-effects, you can first render the screen to `targetTexture`, and then for the `targetTexture` to do the overall processing, finally through a `sprite` to show the `targetTexture`.
 
-  Please refer to the [Example](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31) for details.
+### 3D Camera Properties
 
-### Advanced attribute
+These properties do not appear in the **Assets** until the camera node is set to a [3D Node](../3d/3d-node.md).
 
-These advanced attributes are not displayed in the **Assets** until the camera node becomes a [3D node](../3d/3d-node.md).
+- **nearClip**
 
-- fov
+  The near clipping plane of the camera.
 
-Determines the width of the camera's view angle, this attribute will take effect when the camera is in perspective projection mode.
+- **farClip**
 
-- orthoSize
+  The far clipping plane of the camera.
 
-The viewport size of the Camera when set to orthographic projection.
+- **ortho**
 
-- nearClip
+  Sets whether the projection mode of the camera is Orthogonal (true) or Perspective (false) mode.
 
-The near clipping plane of the camera.
+- **fov**
 
-- farClip
-
-The far clipping plane of the camera.
-
-- ortho
-
-Sets whether the projection mode of the camera is orthogonal (true) or perspective (false) mode.
-
-- rect
-
-Determines where the camera is drawn on the screen, with four values (0-1).
+  Determines the width of the camera's view angle. It takes effect when both **alignWithScreen** and **ortho** are set to **false**.
 
 ## Camera methods
 
 - **cc.Camera.findCamera**
 
-  `findCamera` gets the first matching camera by finding whether the camera `cullingMask` contains a  node's group.
+  `findCamera` gets the first matching camera by finding whether the camera `cullingMask` contains a node's `group`.
 
   ```javascript
   cc.Camera.findCamera(node);
@@ -98,20 +104,20 @@ Determines where the camera is drawn on the screen, with four values (0-1).
 
 A common problem is that when the camera is moved, rotated, or scaled, the coordinates acquired by the click event are used to test the coordinates of the node, which often results in incorrect results.
 
-Because the click coordinates obtained at this time are the coordinates in the camera coordinate system, we need to transform this coordinate into the world coordinate system to continue the operation with the node's world coordinates.
+Because the click coordinates obtained at this time are the coordinates in the screen coordinate system, we need to transform this coordinate into the world coordinate system to continue the operation with the node's world coordinates.
 
-Here are some functions of camera coordinate transformation：
+Here are some functions of coordinate transformation：
 
 ```javascript
-// Transform a point from camera coordinates to world coordinates
-camera.getCameraToWorldPoint(point, out);
-// Transform a point from world coordinates to camera coordinates
-camera.getWorldToCameraPoint(point, out);
+// Transform a point from screen coordinates to world coordinates
+camera.getScreenToWorldPoint(point, out);
+// Transform a point from world coordinates to screen coordinates
+camera.getWorldToScreenPoint(point, out);
 
-// Gets the matrix from the camera coordinate system to the world coordinate system
-camera.getCameraToWorldMatrix(out);
-// Gets the matrix from world coordinate system to the camera coordinate system
-camera.getWorldToCameraMatrix(out);
+// Gets the matrix from the screen coordinate system to the world coordinate system. Applies only to 2D cameras and alignWithScreen is true.
+camera.getScreenToWorldMatrix2D(out);
+// Gets the matrix from world coordinate system to the screen coordinate system. Applies only to 2D cameras and alignWithScreen is true.
+camera.getWorldToScreenMatrix2D(out);
 ```
 
 ## Screenshot
@@ -142,6 +148,9 @@ let data = texture.readPixels();
 // Then you can manipulate the data.
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
+let width = canvas.width = texture.width;
+let height = canvas.height = texture.height;
+
 canvas.width = texture.width;
 canvas.height = texture.height;
 
@@ -162,9 +171,22 @@ let img = document.createElement("img");
 img.src = dataURL;
 ```
 
-### Save screenshot file
+### Capture part of the area
 
-Creator has added the ability to save screenshot files since **v2.0.2**. First take a screenshot, and then use the following method after `readPixels`:
+When the camera is set to RenderTexture and **alignWithScreen** is
+**true**, the camera window size will be adjusted to the size of **design resolution**. If you only need to capture a certain area of the screen, set **alignWithScreen** to **false** and adjust **orthoSize** or **fov** according to the projection mode of the camera. (New in v2.2.1)
+
+```js
+camera.alignWithScreen = false;
+camera.orthoSize = 100;
+camera.position = cc.v2(100, 100);
+```
+
+Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
+
+### Save screenshot file on native platform
+
+First take a screenshot, and then use the following method after `readPixels`:
 
 ```js
 var data = renderTexture.readPixels();
@@ -172,12 +194,12 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js) for details.
+Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js) for details.
 
 ## The screenshot in WeChat
 
-Because of WeChat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/document/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
+Because of WeChat Mini Games does not support createImageData, nor does it support creating image with data url, so the above method needs some flexibility. After using Camera to render the desired results, use WeChat's screenshot API: [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/en/dev/api/render/canvas/Canvas.toTempFilePath.html) to save and use the screenshot.
 
 ## Case
 
-Please refer to [example-case](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js) for details, create a sample collection project from the editor to see the actual running effect.
+Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.
