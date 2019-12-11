@@ -182,3 +182,25 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
         }
     });
 ```
+
+## Spine 碰撞检测
+
+通过挂点功能可以对骨骼动画的某个部件做碰撞检测，挂点的方法请参考前面 Spine 挂点一节。下面介绍一个例子，小男孩跑动时，根据脚与地面接触与否，地面动态地改变颜色。
+
+![collider](./spine/collider.png)
+
+1. 首先生成挂点，然后以目标骨骼节点作为父节点，创建一空子节点。
+
+![collider](./spine/collider0.png)
+
+2. 添加碰撞组件至子节点中，并设置好碰撞组件参数，该子节点会随着骨骼一起运动，从而碰撞组件的包围盒也实时地与骨骼保持同步。
+
+![collider](./spine/collider1.png)
+
+3. 创建一节点，并添加 Sprite 和 碰撞组件，作为地面。
+
+4. 设置好碰撞组件所在节点的分组，添加分组的方法请参考 [分组管理](../physics/collision/collision-group)
+
+![collider](./spine/collider2.png)
+
+5. 点击编辑器上方的预览按钮，即可看到效果。代码可参考 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
