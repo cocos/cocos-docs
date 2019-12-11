@@ -70,6 +70,20 @@ There are two ways to set the color of RichText:
 
 **Note**: The two cannot be mixed. If mixed, the color set in the first way will prevail.
 
+## Cache Mode (New in v2.3)
+
+Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, refer to [Cache Mode of the Label component](../label.md)
+
+| Attributes |   Description
+| -------------- | ----------- |
+| NONE | By default, for each Label node created by RichText, set its CacheMode to NONE, that is, generate a bitmap of the entire text of each Label and render it separately.
+|BITMAP| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render.
+| CHAR | After selection, each Label node created by RichText has its CacheMode set to CHAR type, that is, the text of each Label is cached in a globally shared bitmap in "words". Each of the same font style and size is Characters will share a cache globally.
+
+**Note**：
+
+- The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
+
 ## Detailed explanation
 
 The RichText component is implemented in the Javascript layer and uses the Label node as the rendering part. All the layout logic goes also in Javascript layer. This means if you create a very complex RichText which will end up with many label node created under the hook. And all these label node are using system font for rendering.
