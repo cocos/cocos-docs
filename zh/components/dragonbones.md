@@ -82,4 +82,4 @@ DragonBones 组件可以对骨骼动画（DragonBones）资源进行渲染和播
 
 ## DragonBones 挂点、碰撞检测
 
-DragonBones 的挂点、碰撞检测的方法与 Spine 完全相同，请参考 [Spine 挂点](./spine.md)
+DragonBones 的挂点、碰撞检测的方法与 Spine 完全相同，请参考 [Spine 挂点、碰撞检测](./spine.md)
