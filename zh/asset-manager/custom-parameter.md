@@ -51,7 +51,7 @@
 
 ```js
     // 扩展管线
-    cc.assetManager._pipeline.insert(function (task, done) {
+    cc.assetManager.pipeline.insert(function (task, done) {
         var input = task.input;
         for (var i = 0; i < input.length; i++) {
             if (input[i].options.myParam === 'important') {

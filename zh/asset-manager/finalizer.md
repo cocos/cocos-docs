@@ -18,7 +18,7 @@ Asset Manager 中提供了终结器模块，用于管理资源的释放，自动
 
 释放该资源将会销毁该资源的所有内部属性，比如渲染层的相关数据，并移出缓存，从而释放内存和显存。
 
-v2.3 中的释放接口与之前版本的释放接口有较大差异，主要体现在以下几点：
+v2.5 中的释放接口与之前版本的释放接口有较大差异，主要体现在以下几点：
 
 1. `cc.assetManager.release` 接口仅能释放单个资源，且为了方便开发者理解，接口只能通过资源本身进行释放，不能通过资源 uuid , 资源 url 等属性进行释放。
 
@@ -76,7 +76,7 @@ v2.3 中的释放接口与之前版本的释放接口有较大差异，主要体
 
 ## 强制释放
 
-在 Asset Manager 中，资源在释放时会进行一系列的检查，也就是说资源可能释放不成功，在内存告急时或者你不需要做检查时，你可以在释放时指定 `force` 参数为真，此时将会饶过这些检查，强制释放该资源，此时将和 v2.3 之前的释放逻辑是一样的，但可能会因为错误释放资源造成渲染错误等问题。请谨慎使用。
+在 Asset Manager 中，资源在释放时会进行一系列的检查，也就是说资源可能释放不成功，在内存告急时或者你不需要做检查时，你可以在释放时指定 `force` 参数为真，此时将会饶过这些检查，强制释放该资源，此时将和 v2.5 之前的释放逻辑是一样的，但可能会因为错误释放资源造成渲染错误等问题。请谨慎使用。
 
 ## 引用计数统计
 
@@ -86,7 +86,7 @@ v2.3 中的释放接口与之前版本的释放接口有较大差异，主要体
 
 2. js 是动态类型语言，其无法提供赋值运算符的重载，而引用计数的统计是高度依赖于赋值运算符的重载的。
 
-所以，因为这两个问题，在 v2.3 之前， Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，这种方式给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了提升开发者使用的方便程度， Creator 在 v2.3 设计实现了一套静态资源的引用计数，用于帮助开发者在处理资源释放时更加方便。需要说明的是这套方案中引擎仅对静态资源做了准确的计数，但动态资源的计数还需要开发者进行控制以保证资源能够被正确释放。
+所以，因为这两个问题，在 v2.5 之前， Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，这种方式给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了提升开发者使用的方便程度， Creator 在 v2.5 设计实现了一套静态资源的引用计数，用于帮助开发者在处理资源释放时更加方便。需要说明的是这套方案中引擎仅对静态资源做了准确的计数，但动态资源的计数还需要开发者进行控制以保证资源能够被正确释放。
 
 首先需要先说明什么是动态资源的引用和静态资源的引用：
 
@@ -142,23 +142,22 @@ v2.3 中的释放接口与之前版本的释放接口有较大差异，主要体
 需要再次注意的是，上述方案引擎只能统计静态资源的引用关系。如果你的项目存在大量动态加载的资源，并且使用了类似节点池等功能在不同的场景中复用节点，你需要更加敏感的管理，我们建议你在此基础上实现一套自己的资源管理，保证资源能够正确的释放，例如：
 
 ```js
-    retainDynamicSpriteFrame (path, callback) {
+
+    chanageDynamicSpriteFrame (path) {
         cc.assetManager.loadRes(path, cc.SpriteFrame, function (err, spriteFrame) {
             // 在动态加载资源后手动增加对其的引用
-            spriteFrame.addRef();
-            callback(err, spriteFrame);
-        });
-    },
+            
+            var sprite = self.getComponent(cc.Sprite);
+            if (sprite.spriteFrame) {
+                // 在切换精灵时，移除之前精灵的引用并释放
+                sprite.spriteFrame.removeRef();
+                cc.assetManager.release(sprite.spriteFrame);
+            }
 
-    chanageDynamicSpriteFrame (spriteFrame) {
-        var sprite = self.getComponent(cc.Sprite);
-        if (sprite.spriteFrame) {
-            // 在切换精灵时，移除之前精灵的引用并释放
-            sprite.spriteFrame.removeRef();
-            cc.assetManager.release(sprite.spriteFrame);
-        }
-        this.spriteFrame = spriteFrame;
-        sprite.spriteFrame = spriteFrame;
+            this.spriteFrame = spriteFrame;
+            spriteFrame.addRef();
+            sprite.spriteFrame = spriteFrame;
+        });
     },
 
     onDestroy () {

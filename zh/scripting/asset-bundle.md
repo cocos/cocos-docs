@@ -2,7 +2,7 @@
 
 > 文： Santy-Wang
 
-随着游戏玩法越来越丰富，游戏中的资源数量越来越多，开发者对于拆分包体的需求越来越强烈，只将必要的内容放在首包中，减少首包的大小，而其他的内容则放在外部动态获取。所以从 v2.3 开始， Cocos Creator 推出了 **Asset Bundle** 功能，该功能支持 **代码** 和 **资源** , **场景** 的分包加载。
+随着游戏玩法越来越丰富，游戏中的资源数量越来越多，开发者对于拆分包体的需求越来越强烈，只将必要的内容放在首包中，减少首包的大小，而其他的内容则放在外部动态获取。所以从 v2.5 开始， Cocos Creator 推出了 **Asset Bundle** 功能，该功能支持 **代码** 和 **资源** , **场景** 的分包加载。
 
 开发者可将自己的资源包括代码，资源，场景等内容划分到不同的包中，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他 Asset Bundle ，这样可以有效降低首次启动的消耗时间。
 
@@ -237,16 +237,16 @@ Asset Bundle 中的资源可以使用三种方式进行释放，第一种是使�
 
 ## 销毁 Asset Bundle
 
-当加载了 Asset Bundle 之后，此 bundle 会一直存在游戏过程中，除非你手动销毁该 bundle 。你不必重复加载已经加载的 bundle ，你可以到缓存中查找所有已加载的 bundle 。`cc.assetManager._bundles` 缓存了游戏中的所有 bundle 。当你不再需要某个 bundle 时，你可以手动销毁它，则它将被移除缓存，下次使用必须重新加载一次。
+当加载了 Asset Bundle 之后，此 bundle 会一直存在游戏过程中，除非你手动销毁该 bundle 。你不必重复加载已经加载的 bundle ，你可以到缓存中查找所有已加载的 bundle 。`cc.assetManager.bundles` 缓存了游戏中的所有 bundle 。当你不再需要某个 bundle 时，你可以手动销毁它，则它将被移除缓存，下次使用必须重新加载一次。
 
 ```js
-cc.assetManager._bundles.get('bundle1').destroy();
+cc.assetManager.bundles.get('bundle1').destroy();
 ```
 
 **注意** ：销毁 Asset Bundle 并不会释放该 bundle 中已经加载的资源。如果你想释放所有已加载资源，请先使用 `releaseAll`。
 
 ```js
-var bundle = cc.assetManager._bundles.get('bundle1');
+var bundle = cc.assetManager.bundles.get('bundle1');
 bundle.releaseAll();
 bundle.destroy();
 ```

@@ -2,7 +2,7 @@
 
 > 文： Santy-Wang
 
-Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。 Creator v2.3 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
+Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。 Creator v2.5 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
 
 ```js
     cc.assetManager.downloader.download('myasset', 'http://example.com/background.jpg', '.jpg', {}, function (err, file) {

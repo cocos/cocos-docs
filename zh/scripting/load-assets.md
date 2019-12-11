@@ -83,7 +83,7 @@ cc.Class({
 
 ## 动态加载
 
-从 v2.3 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `loadRes` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md) 。 
+从 v2.5 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `loadRes` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md) 。 
 
 使用第一种方式动态加载资源要注意两点，一是所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
 
@@ -91,11 +91,11 @@ cc.Class({
 
 > **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，**resources** 文件夹中的所有资源，连同它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
 >
-> 如果一份资源仅仅是被 resources 中的其它资源所依赖，而不需要直接被 `cc.assetManager.loadRes` 调用，那么 **请不要** 放在 resources 文件夹里。否则会增大包体和 config.json 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能将零碎的 JSON 合并起来。
+> 如果一份资源仅仅是被 resources 中的其它资源所依赖，而不需要直接被 `cc.assetManager.loadRes` 调用，那么 **请不要** 放在 resources 文件夹里。否则会增大 config.json 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能将零碎的 JSON 合并起来。
 
 第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
-**注意** ：从 v2.3 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级](../release-notes/asset-manager-upgrade-guide.md) 。
+**注意** ：从 v2.5 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级](../release-notes/asset-manager-upgrade-guide.md) 。
 
 ### 动态加载 Asset
 
@@ -185,7 +185,7 @@ cc.assetManager.loadScene('test', function (err, scene) {
 
 ## 预加载资源
 
-从 v2.3 开始，除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
+从 v2.5 开始，除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
 `cc.assetManager` 提供了 `preloadRes` , `preloadResDir` 用于预加载资源。  
 
 ```js
@@ -268,7 +268,7 @@ cc.assetManager.loadRemoteTexture(remoteUrl, { isCrossOrigin: true }, function (
 
 在 JavaScript 这种脚本语言中，由于其弱类型特性，以及为了代码的便利，往往是不包含内存管理功能的，所有对象的内存都由垃圾回收机制来管理。这就导致 JS 层逻辑永远不知道一个对象会在什么时候被释放，这意味着引擎无法通过类似引用计数的机制来管理外部对象对资源的引用，也无法严谨得统计资源是否不再被需要了。
 
-在 v2.3 之前， Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，例如如下形式：
+在 v2.5 之前， Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，例如如下形式：
 
 ```javascript
 // 直接释放某个贴图
@@ -286,7 +286,7 @@ cc.loader.release(deps);
 
 这种方案给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了提升开发者使用的方便程度， Creator 设计实现了动态资源与静态资源分别计数的方案，用于帮助开发者在处理资源释放时更加方便。需要说明的是这套方案中引擎仅对静态资源做了准确的计数，但动态资源的计数还需要开发者进行控制以保证资源能够被正确释放。
 
-在 v2.3 ，开发者不再需要关注资源的依赖项，你只需管理资源本身即可， Creator 会尝试自动释放其依赖资源。例如：
+在 v2.5 ，开发者不再需要关注资源的依赖项，你只需管理资源本身即可， Creator 会尝试自动释放其依赖资源。例如：
 
 ```js
 cc.assetManager.release(texture);
@@ -295,9 +295,9 @@ cc.assetManager.release(texture);
 这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef` , `removeRef` ，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
 
 ```js
-cc.assetManager.loadRes('image', (err, texture) => {
-    this.spriteFrame = texture;
-    texture.addRef();
+cc.assetManager.loadRes('image', cc.SpriteFrame, (err, spriteFrame) => {
+    this.spriteFrame = spriteFrame;
+    spriteFrame.addRef();
 });
 ```
 

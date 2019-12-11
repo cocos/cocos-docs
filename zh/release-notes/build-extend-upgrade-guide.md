@@ -1,10 +1,10 @@
-# v2.3 定制项目构建流程升级指南
+# v2.5 定制项目构建流程升级指南
 
 > 文： Santy-Wang
 
-> 本文将详细介绍旧版本 Creator 项目升级到 v2.3 时的注意事项。如果你不是 Creator 旧版本的用户或项目中没有定制项目构建流程，则不需要阅读本文。
+> 本文将详细介绍旧版本 Creator 项目升级到 v2.5 时的注意事项。如果你不是 Creator 旧版本的用户或项目中没有定制项目构建流程，则不需要阅读本文。
 
-在 v2.3 之前的 [定制项目构建流程](../publish/custom-project-build-template.md) 文档中，我们有提到使用扩展包注册 `build-start` ， `before-change-files` ， `build-finished` 事件来定制项目流程，随着 Asset Bundle 功能的推出，项目构建流程进行了调整，事件回调时传入的参数进行了改动。
+在 v2.5 之前的 [定制项目构建流程](../publish/custom-project-build-template.md) 文档中，我们有提到使用扩展包注册 `build-start` ， `before-change-files` ， `build-finished` 事件来定制项目流程，随着 Asset Bundle 功能的推出，项目构建流程进行了调整，事件回调时传入的参数进行了改动。
 
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在需要修改扩展包中注册事件的回调函数 。

@@ -6,7 +6,7 @@
 cc.director.loadScene("MyScene");
 ```
 
-除此之外, v2.3 之后还增加了一种新的加载方式：
+除此之外, v2.5 之后还增加了一种新的加载方式：
 
 ```js
 cc.assetManager.loadScene('MyScene', function (err, scene) {
@@ -14,7 +14,7 @@ cc.assetManager.loadScene('MyScene', function (err, scene) {
 });
 ```
 
-需要注意的是 `cc.assetManager.loadScene` 只能加载在构建面板勾选的场景，而不能加载 Asset Bundle 中的场景，而 `cc.director.loadScene` 会尝试查找所有已加载的 Asset Bundle 中的场景。而且使用 `cc.assetManager.loadScene` 并不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。
+需要注意的是 `cc.assetManager.loadScene` 在预览时与 `cc.director.loadScene` 相同，但在运行时只能加载主包中的场景，即在构建面板所勾选的场景，而不能加载 其他 Asset Bundle 中的场景，而 `cc.director.loadScene` 可以加载所有已加载的 Asset Bundle （包括主包）中的场景。而且使用 `cc.assetManager.loadScene` 并不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。
 
 关于 Asset Bundle 的使用，详细请查看 [Asset Bundle](asset-bundle.md) 。
 
@@ -53,7 +53,7 @@ cc.assetManager.loadScene('MyScene', function (err, scene) {
 
 `cc.director.loadScene` 会在加载场景之后自动切换运行新场景，有些时候我们需要在后台静默加载新场景，并在加载完成后手动进行切换。那就可以预先使用 `cc.assetManager.preloadScene` 接口对场景进行预加载：
 
-**注意** ： v2.3 之前的 `cc.director.preloadScene` 已经被移入 `cc.assetManager` 中。
+**注意** ： v2.5 之前的 `cc.director.preloadScene` 已经被移入 `cc.assetManager` 中。
 
 ```js
 cc.assetManager.preloadScene("table", function () {
