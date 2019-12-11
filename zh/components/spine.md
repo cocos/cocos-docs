@@ -110,3 +110,97 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 3. 然后将脚本组件挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中的节点拖拽到脚本组件对应的属性框中，并保存场景。
 
 4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
+
+## Spine 挂点
+
+使用骨骼动画时，常在动画的某个部位挂节点，以实现节点与骨骼联动的效果。下面介绍如何使用挂点这一功能，把星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
+
+![attach](./spine/attach0.png)
+
+1. 首先在 **层级管理器** 创建节点，并添加 Spine 组件。
+
+![attach](./spine/attach1.png)
+
+2. 选中 **层级管理器** 中 Spine 组件所在节点，在 **属性检查器** 的 Spine 组件下方，点击 **生成挂点** 按钮，编辑器会在 Spine 组件所在节点下方，以节点树的形式生成所有骨骼。
+
+![attach](./spine/attach2.png)
+
+3. 以目标骨骼节点作为父节点，创建子节点。
+
+![attach](./spine/attach3.png)
+
+4. 制作完挂点后，删除无用的骨骼节点，以减少运行时计算开销。
+
+以上是在编辑器中进行挂点的方法，下面介绍如何编写脚本生成挂点，脚本如下：
+
+```js
+    cc.Class({
+        extends: cc.Component,
+
+        properties: {
+            skeleton : {
+                type: sp.Skeleton,
+                default: null,
+            },
+            // 将要添加到骨骼上的预制体
+            targetPrefab : {
+                type: cc.Prefab,
+                default: null,
+            },
+            // 目标骨骼名称
+            boneName: "",
+        },
+
+        generateAllNodes () {
+            // 取得挂点工具
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.generateAllAttachedNodes();
+            // 由于同名骨骼可能不止一个，所以返回数组
+            let boneNodes = attachUtil.getAttachedNodes(this.boneName);
+            // 取第一个骨骼作为挂点
+            let boneNode = boneNodes[0];
+            boneNode.addChild(cc.instantiate(this.targetPrefab));
+        },
+
+        destroyAllNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.destroyAllAttachedNodes();
+        },
+
+        // 生成指定骨骼名称节点树的方法
+        generateSomeNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            let boneNodes = attachUtil.generateAttachedNodes(this.boneName);
+            let boneNode = boneNodes[0];
+            boneNode.addChild(cc.instantiate(this.targetPrefab));
+        },
+
+        // 销毁指定骨骼名称节点的方法
+        destroySomeNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.destroyAttachedNodes(this.boneName);
+        }
+    });
+```
+
+## Spine 碰撞检测
+
+通过挂点功能可以对骨骼动画的某个部件做碰撞检测，挂点的方法请参考前面 Spine 挂点一节。下面介绍一个例子，小男孩跑动时，根据脚与地面接触与否，地面动态地改变颜色。
+
+![collider](./spine/collider.png)
+
+1. 首先生成挂点，然后以目标骨骼节点作为父节点，创建一空子节点。
+
+![collider](./spine/collider0.png)
+
+2. 添加碰撞组件至子节点中，并设置好碰撞组件参数，该子节点会随着骨骼一起运动，从而碰撞组件的包围盒也实时地与骨骼保持同步。
+
+![collider](./spine/collider1.png)
+
+3. 创建一节点，并添加 Sprite 和 碰撞组件，作为地面。
+
+4. 设置好碰撞组件所在节点的分组，添加分组的方法请参考 [分组管理](../physics/collision/collision-group)
+
+![collider](./spine/collider2.png)
+
+5. 点击编辑器上方的预览按钮，即可看到效果。代码可参考 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
