@@ -14,7 +14,7 @@ Skeleton animation resource use three main resources：
 
 ## Create a skeleton animation resources
 
-There are three ways to create a skeleton animation resources:
+You can create a spine node in three ways:
 
 1. Drag the Spine assets directly from **Assets** to **Node Tree**:
 
