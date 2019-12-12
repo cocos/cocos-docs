@@ -154,16 +154,16 @@ v2.5 中的释放接口与之前版本的释放接口有较大差异，主要体
                 cc.assetManager.release(sprite.spriteFrame);
             }
 
-            this.spriteFrame = spriteFrame;
             spriteFrame.addRef();
             sprite.spriteFrame = spriteFrame;
         });
     },
 
     onDestroy () {
+        let sprite = self.getComponent(cc.Sprite);
         // 在摧毁该节点时移除当前使用精灵的引用并释放
-        this.spriteFrame.removeRef();
-        cc.assetManager.release(this.spriteFrame);
+        sprite.spriteFrame.removeRef();
+        cc.assetManager.release(sprite.spriteFrame);
     }
 
 ```

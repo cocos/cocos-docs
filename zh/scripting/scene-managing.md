@@ -16,7 +16,7 @@ cc.assetManager.loadScene('MyScene', function (err, scene) {
 
 需要注意的是 `cc.assetManager.loadScene` 在预览时与 `cc.director.loadScene` 相同，但在运行时只能加载主包中的场景，即在构建面板所勾选的场景，而不能加载 其他 Asset Bundle 中的场景，而 `cc.director.loadScene` 可以加载所有已加载的 Asset Bundle （包括主包）中的场景。而且使用 `cc.assetManager.loadScene` 并不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。
 
-关于 Asset Bundle 的使用，详细请查看 [Asset Bundle](asset-bundle.md) 。
+加载 Asset Bundle 中的场景，详细请查看 [Asset Bundle](asset-bundle.md) 。
 
 ## 通过常驻节点进行场景资源管理和参数传递
 
