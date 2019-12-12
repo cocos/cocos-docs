@@ -1,65 +1,63 @@
 # 使用 WebSocket 服务器
 
-开发者可以在游戏进程中启动一个`WebSocket服务器`，提供 `RPC接口`。 通过完善和调用这些 `RPC接口`，开发者能够对游戏进程内部状态进行监控，增加对游戏进程状态的管理能力。 
+开发者可以在游戏进程中启动一个 **WebSocket 服务器**，提供 **RPC 接口**。通过完善和调用这些 **RPC 接口**，开发者能够对游戏进程内部状态进行监控，增加对游戏进程状态的管理能力。 
 
 ## 如何启用
 
-*WebSocket 服务器* 默认是剔除的，需要设置宏 `USE_WEBSOCKET_SERVER = 1` 以启用。
+**WebSocket 服务器** 默认是剔除的，需要设置宏 `USE_WEBSOCKET_SERVER = 1` 以启用。可以通过以下两种方式启用。
 
-### 方式1: 修改默认值
+### 方式 1：全平台启用——修改默认值
 
-在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`.
+在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`。
 
 ![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
-需要注意上示的修改中包含
+**注意**：修改中应该包含：
 
 ```c++
 #if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
 #define USE_WEBSOCKET_SERVER 0
 #endif
 ``` 
-由于在 `Release` 模式中通常很少有需要保留 *WebSocket 服务器* 的情形，所以建议默认剔除。
 
-修改默认值会影响所有平台。如果不明确是否需要在所有平台启用，可以参考下面的方式，只针对特定平台开启。 
+由于在 **Release** 模式下通常很少有需要保留 **WebSocket 服务器** 的情况，所以建议默认剔除。
 
-### 方式2: 根据平台启用
+修改默认值会影响所有平台，如果不明确是否需要在所有平台启用，可以参考下面的方式 2，只针对特定平台开启。 
 
-在一些情况下，只有特定的平台需要开启 *WebSocket 服务器*。 此时需要不同的方式设置 `USE_WEBSOCKET_SERVER`。
+### 方式 2：特定平台启用
 
-#### Visual Studio
+在一些情况下，只有特定的平台需要开启 **WebSocket 服务器**。此时需要通过不同的方式来设置 `USE_WEBSOCKET_SERVER`。
 
-编辑项目属性， 如图
+- Visual Studio
 
-![edit vs](./websocket-server/vs-add-macro.PNG)
+  编辑项目属性，如下图所示：
 
-#### Android
+  ![edit vs](./websocket-server/edit-vs-origin.jpg)
 
-编辑 `proj.android-studio/app/jni/Application.mk`，如图
+- Android
 
-![edit-application-mk](./websocket-server/edit-application-mk2.png)
+  编辑 `proj.android-studio/app/jni/Application.mk`，如下图所示：
 
-#### Xcode
+  ![edit-application-mk](./websocket-server/edit-application-mk2.png)
 
-编辑项目属性，如图
+- Xcode
 
-![edit-xcode](./websocket-server/edit-xcode-property.jpg)
+  编辑项目属性，如下图所示：
 
-只有通过上面的配置，才能在JS代码中调用 `WebSocketSever`. 
+  ![edit-xcode](./websocket-server/edit-xcode-property.jpg)
 
+只有通过上面的配置，才能在 JS 代码中调用 `WebSocketSever`。
 
 ## 如何调用 WebSocket 服务器接口
 
-通过`Demo`可以快速了解如何使用
+可参考下方实例代码：
 
 ```js
-
-// 在 Native 的 Release 模式下 或者 浏览器/微信小游戏 等平台中， WebSocketServer 没有定义
+// 在原生平台的 Release 模式下或者在 Web/微信小游戏等平台中，WebSocketServer 没有定义
 if(typeof WebSocketServer == "undefined") {
     console.error("WebSocketServer is not enabled!");
     return;
 }
-
 
 let s = new WebSocketServer();
 s.onconnection = function(conn) {
@@ -77,14 +75,11 @@ s.listen(8080, (err) => {./
 });
 ```
 
-
 ## API
 
-接口定义
+接口定义如下：
 
 ```typescript
-
-
 /**
 * 服务器对象
 */
@@ -137,12 +132,8 @@ class WebSocketServerConnection {
 interface WsCallback {
     (err?:string):void
 } 
-
 ```
-
 
 ## 参考链接
 
 - 接口设计参考了 [nodejs-websocket](https://www.npmjs.com/package/nodejs-websocket#server)
-- 原始 [PR](https://github.com/cocos-creator/cocos2d-x-lite/pull/1921)
-

@@ -2,29 +2,31 @@
 
 Spine skeleton animation resources are data formats that exported by [Spine](http://en.esotericsoftware.com/) (Creator v2.0.7 and below support for Spine v2.5, Creator v2.0.8 to v2.1 support for Spine v3.6, Creator v2.2.0 and above support for Spine v3.7).
 
-# Import skeleton animation resources
+## Import skeleton animation resources
 
 Skeleton animation resource use three main resources：
 
-- .json Skeletal animation data
-- .png  Atlas
-- .txt/.atlas  Atlas data
+- `.json` Skeletal animation data
+- `.png`  Atlas
+- `.txt/.atlas` Atlas data
 
-![spine](spine/import.png)
+  ![spine](spine/import.png)
 
-# Create a skeleton animation resources
+## Create a skeleton animation resources
 
-   1. drag Spine assets directly from **assets** to **Node Tree**:
+There are three ways to create a skeleton animation resources:
 
-![spine](spine/create_1.png)
+1. Drag the Spine assets directly from **Assets** to **Node Tree**:
 
-   2. drag Spine assets directly from **assets** to **Scene**:
+    ![spine](spine/create_1.png)
 
-![spine](spine/create_2.png)
+2. Drag the Spine assets directly from **Assets** to **Scene**:
 
-   3. add a **Spine Skeleton** component to the existing node and give Spine assets to the component `Skeleton Data` attribute in **assets**:
+    ![spine](spine/create_2.png)
 
-![spine](spine/create_3.png)
+3. Drag the Spine assets directly from **Assets** to the **Skeleton Data** property of the **Spine Skeleton** component in the **Properties** panel.
+
+   ![spine](spine/create_3.png)
 
 <hr>
 

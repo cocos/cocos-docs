@@ -34,6 +34,8 @@ These generated images are not all loaded into the engine, and the engine will s
 
 You can customize the image resource support for the platform and the priority of the load order by modifying `cc.macro.SUPPORT_TEXTURE_FORMATS`.
 
+**Note**: The simulator may not support texture compression, please test on physical device.
+
 ## Example
 
 ![1](compress-texture/1.png)
