@@ -14,9 +14,10 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 | Properties | Function explanation |
 | --- | --- |
+| Type | Includes two modes: Raw and Sprite. **Raw** means that only texture are generated, and **Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
-| Wrap Mode | Wrap modes. Includes two modes: Clamp and Repeat. |
-| Filter Mode | Filter modes. Includes three modes: Point, Bilinear and Trilinear. |
+| Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
+| Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
 | genMipmaps | Whether to enable automatic generation of mipmap. |
 | packable | Whether this texture is allowed to be packed into Dynamic Atlas. |
 

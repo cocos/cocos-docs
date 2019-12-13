@@ -298,7 +298,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 ![](quick-start/easing.png)
 
-详细内容可参考 [API](http://docs.cocos.com/creator/api/zh/modules/cc.html?h=easecubicactionout()。
+详细内容可参考 [API](../../../api/zh/modules/cc.html#easecubicactionout)。
 
 接下来在 `onLoad` 方法里调用刚添加的 `setJumpAction` 方法，然后执行 `runAction` 来开始动作：
 
@@ -910,4 +910,4 @@ cc.callFunc = function (selector, selectorTarget, data) {
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 
-今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [Github 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。
+今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [GitHub 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。

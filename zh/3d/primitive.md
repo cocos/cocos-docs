@@ -44,7 +44,7 @@ let renderer = this.getComponent(cc.MeshRenderer);
 renderer.mesh = mesh;
 ```
 
-更多关于 `cc.primitive` 的使用请查看 [Primitive API](../../../api/zh/modules/primitive.html)。用户也可以下载 [TheAviator Demo](https://github.com/2youyou2/TheAviator) 来学习如何使用 `cc.primitive`。
+更多关于 `cc.primitive` 的使用请查看 [Primitive API](../../../api/zh/modules/primitive.html)。用户也可以下载 [TheAviator Demo](https://github.com/cocos-creator/demo-the-aviator) 来学习如何使用 `cc.primitive`。
 
 ### 通过编辑器创建
 

@@ -25,7 +25,7 @@ Editor.Panel.extend({
 
 #### style
 
-使用 CSS 定义你的样式。在 Panel 定义中，CSS 样式被定义在 [Shadow DOM](http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom/) 中，
+使用 CSS 定义你的样式。在 Panel 定义中，CSS 样式被定义在 [Shadow DOM](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/) 中，
 所以他遵循 Shadow DOM 的样式定义规范。
 
 使用 `:host` 来表示 Panel 本身的样式。而在 Panel 中的其他样式则遵循 CSS 选择器的书写规则。
@@ -34,9 +34,9 @@ Editor.Panel.extend({
 
 更多的 Shadow DOM 的介绍可以参考：
 
- - http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom/
- - http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-201/
- - http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-301/
+ - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/
+ - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
+ - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/
 
 #### template
 

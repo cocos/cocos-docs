@@ -14,9 +14,10 @@
 
 | 属性 | 功能说明 |
 | --- | --- |
+| Type | 包括 Raw 和 Sprite 两种模式。**Raw** 模式表示只会生成贴图资源，**Sprite** 模式表示还会生成 SpriteFrame 子资源。|
 | Premultiply Alpha | 是否开启 Alpha 预乘，勾选之后会将 RGB 通道预先乘以 Alpha 通道。 |
-| Wrap Mode | 寻址模式，包括 Clamp （钳位），Repeat （重复）两种寻址模式 |
-| Filter Mode | 过滤方式，包括 Point （邻近点采样），Bilinear （双线性过滤），Trilinear （三线性过滤）三种过滤方式。     |
+| Wrap Mode | 寻址模式，包括 **Clamp（钳位）**、**Repeat（重复）** 两种寻址模式 |
+| Filter Mode | 过滤方式，包括 **Point（邻近点采样）**、**Bilinear（双线性过滤）**、**Trilinear（三线性过滤）** 三种过滤方式。     |
 | genMipmaps  | 是否开启自动生成 mipmap  |
 | packable    | 是否允许贴图参与合图      |
 

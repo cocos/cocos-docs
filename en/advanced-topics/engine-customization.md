@@ -31,7 +31,7 @@ If you only need to make some adjustments based on the current version, Then you
 
 ![](engine-customization/open-engine.png)
 
-If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. Once cloning is completed, go to the repo's folder in command-line shell.
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from GitHub. You have to make sure the repo is at the corresponding branch. Once cloning is completed, go to the repo's folder in command-line shell.
 
 ![](engine-customization/download-repo-js.png)
 
@@ -81,11 +81,11 @@ If you need to customize the engine functionality associated with the native pla
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
+If you want to get the latest version that is currently under development, you need to download or clone it from the GitHub repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
 
 ### 2.2 Initialize
 
-Once cloned, enter the Cocos2d-x-lite engine folder and run:
+Once cloned or downloaded, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
 # Enter the Cocos2d-x-lite engine path from the command line
@@ -98,23 +98,29 @@ gulp init
 
 - If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x-lite engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
-```bash
-> ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'v3-deps-54.zip' from
+    > 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
 
 - If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x-lite engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
 
-```bash
-> ==> Ready to download 'creator-console-2.zip' from
-> 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'creator-console-2.zip' from
+    > 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
+
+- If you get an error like the one below, it's usually because the Cocos2d-x-lite engine folder was downloaded, not cloned from GitHub. You can execute `git init` and then rerun `gulp init` again.
+
+    ```bash
+    fatal: not a git repository (or any of the parent directories): .git
+    ```
 
 ### 2.3 Configure Custom Engine in Cocos Creator
 
@@ -156,7 +162,7 @@ The current adaptation layer consists of two parts:
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin adapter engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and the `jsb-adapter` and `adapters` directories can be found within the `resources/builtin` directory.
 
-If you want to get the latest version of the official developing, you need to download it from the github repo specified above, Then replace it with the `resources/builtin` directory of the program installation path. Same as JavaScript engine, you need to make sure adapter repo is on correct branch.
+If you want to get the latest version of the official developing, you need to download it from the GitHub repo specified above, Then replace it with the `resources/builtin` directory of the program installation path. Same as JavaScript engine, you need to make sure adapter repo is on correct branch.
 
 ### 3.2 Customize jsb-adapter
 
@@ -227,7 +233,9 @@ After Creator v2.0.7, Jsb-adapter abandoned the cumbersome manual compilation op
 The adaptation layer code for the Mini Games is located in the `adapters` in the `resources/builtin` directory.
 
 - The customization of this part of the code does not require any compilation operations.  
-- Engine-level adaptation work, please complete in the appropriate engine directory.  
+- Engine-level adaptation work, please complete in the appropriate engine directory.
+
+If you want to learn more about mini game adapter, please refer to [Mini Game Documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/best-practice/adapter.html) for details.
 
 ## 4 JSB Workflow (JavaScript Binding)
 
@@ -235,7 +243,7 @@ If you need to modify the JavaScript interface provided by the Cocos2d-x-lite en
 
 Creator >= 1.7, please refer to:
 
-- [JSB 2.0 Binding Tutorial](jsb/JSB2.0-learning.md).
+- [JSB 2.0 Binding Tutorial](JSB2.0-learning.md).
 
 Creator <= 1.6, please refer to:
 

@@ -29,6 +29,11 @@ Please select plist files for cocos2d-x when export atlas by the tool. Then you 
 
 ![atlas files](atlas/atlas_files.png)
 
+**Note**:
+
+- Zwoptex does not support the latest version of macOS currently.
+- If you don't have any special needs, you can generate atlas by using the [Auto Atlas](./auto-atlas.md).
+
 ## Import Atlas
 
 Drag **plist** & **png** files into **Assets Panel** at the same time. Then you can use it in Cocos Creator.
@@ -41,7 +46,7 @@ In the [Texture Document](sprite.md), we introduced the relationship between Tex
 
 ## Convert separated images to atlas
 
-In the project prototype stage or early production, art content and structure changes will be more frequent, we usually use the separated images to build the scene and make UI. In order to optimize performance and save the package, you need to merge the separated images into a atlas. Creator provides the Auto-atlas Asset to seamlessly merges separated images of a production stage into an atlas when it is released, and automatically updates the resource index. Please see [Auto-atlas Asset](./auto-atlas.md) for detailed usage.
+In the project prototype stage or early production, art content and structure changes will be more frequent, we usually use the separated images to build the scene and make UI. In order to optimize performance and save the package, you need to merge the separated images into a atlas. Creator provides the Auto Atlas Asset to seamlessly merges separated images of a production stage into an atlas when it is released, and automatically updates the resource index. Please see [Auto Atlas Asset](./auto-atlas.md) for detailed usage.
 
 <hr>
 

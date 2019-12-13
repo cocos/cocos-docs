@@ -142,4 +142,4 @@ cc.Class({
 
 - [SDKBox's Homepage](http://www.sdkbox.com/)
 - [Service Provisioning](http://www.sdkbox.com/integrations)
-- For a workflow and detailed guide to using __SDKBox__ in __Cocos Creator__, see the [SDKBox Official Documentation](http://docs.sdkbox.com/zh/qa/cocos_creator/).
+- For a workflow and detailed guide to using __SDKBox__ in __Cocos Creator__, see the [SDKBox Official Documentation](http://docs.sdkbox.com/en/qa/cocos_creator/).

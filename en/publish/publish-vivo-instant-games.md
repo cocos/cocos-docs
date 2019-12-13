@@ -28,6 +28,8 @@
     npm install -g @vivo-minigame/cli
     ```
 
+    If `vivo-minigame/cli` installation fails, it may be caused by too low version of nodejs. Please check the version of node and upgrade.
+
 ## Release Process
 
 **First**, use __Cocos Creator__ to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
@@ -62,7 +64,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   
 - **Small Packet Mode**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -175,7 +177,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **Method Three**:
 
-    Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
+    Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
 
     Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
 

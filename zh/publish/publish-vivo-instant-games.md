@@ -27,6 +27,8 @@
     npm install -g @vivo-minigame/cli
     ```
 
+    若 `vivo-minigame/cli` 安装失败，可能是因为 nodejs 版本过低导致的，请检查 node 版本并升级。
+
 ## 发布流程
 
 一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **vivo 小游戏**。

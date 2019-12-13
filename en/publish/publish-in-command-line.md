@@ -34,6 +34,7 @@ You can also to compile the native project of the native platform separately by 
  - `--path`: Project Path
  - `--build`: Pulibsh project Parameters
  - `--compile`: Compile native project Parameters
+ - `--force`: Skip version upgrade detection, no upgrade prompt box will pop up
 
 If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
@@ -73,6 +74,8 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 - `zipCompressJs` - Whether or not compress the files after encrypting js files
 - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
 - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
+
+Currently, not many parameters support command-line publishing. If no parameters are passed, the last configured configuration will be used. It is recommended that after manually packaging on a computer, upload the set build configuration files (in the settings directory) to the code repository, and then pull the configuration on the packager.
 
 ## Publish on Jenkins
 

@@ -7,4 +7,4 @@
 - [Joint](joint-component.md)
 - [Advance Settings](advanced-settings.md)
 
-For more use, go to the [Physical System Example](https://github.com/2youyou2/physics-example)
+For more use, go to the [Physics System Example](https://github.com/cocos-creator/example-physics).

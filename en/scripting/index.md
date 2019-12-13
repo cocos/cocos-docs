@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cocos Creator's script is mainly developed by the extension component. Currently, Cocos Creator supports two script languages, Javascript and CoffeeScript. By writing the script component and putting it into the scene node, the object in the scene will be driven.
+Cocos Creator's script is mainly developed by the extension component. Currently, Cocos Creator supports two script languages, Javascript and TypeScript. By writing the script component and putting it into the scene node, the object in the scene will be driven.
 
 While writing the component script, you can map the variables needing adjustment onto the **Properties** panel by declaring the properties for the designer and graphic designer to adjust. Meanwhile, you can initialize, update and even destroy nodes by registering a certain call-back function.
 

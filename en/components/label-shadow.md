@@ -6,7 +6,7 @@ The LabelShadow component can add shadow effects to the Label component, but onl
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **LabelShadow** from **Renderer Component** to add the LabelShadow component to the node.
 
-LabelShadow script interface, please refer to [LabelShadow API](../../../api/zh/classes/LabelShadow.html) for details.
+LabelShadow script interface, please refer to [LabelShadow API](../../../api/en/classes/LabelShadow.html) for details.
 
 ## LabelShadow Properties
 

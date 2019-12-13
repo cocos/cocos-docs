@@ -1,6 +1,6 @@
 # 原生平台 JavaScript 调试
 
-游戏发布到原生平台后，由于运行环境不同，可能会出现在浏览器预览时无法重现的 Bug，这时我们就必须直接在原生平台下进行调试。然而传统的调试方法只能调试到 C++ 部分，无法调试 JavaScript 代码。Cocos Creator 从 v1.7 开始就引入了 JSB 2.0，可以很方便地对原生平台中的 JavaScript 进行远程调试。如果 Creator 版本为 v1.6 以下请参考 [原生平台调试](../publish/debug-native.md)。
+游戏发布到原生平台后，由于运行环境不同，可能会出现在浏览器预览时无法重现的 Bug，这时我们就必须直接在原生平台下进行调试。Cocos Creator 可以很方便地对原生平台中的 JavaScript 进行远程调试。
 
 ## 模拟器调试
 
@@ -35,4 +35,4 @@
 
 ## 其它平台调试
 
-如果需要在 Release 模式下调试，或者需要发布到 Windows 或者 Mac 平台上调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](../advanced-topics/jsb/JSB2.0-learning.md#%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E4%B8%8E-profile)。
+如果需要在 Release 模式下调试，或者需要发布到 Windows 或者 Mac 平台上调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](../advanced-topics/JSB2.0-learning.md#%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E4%B8%8E-profile)。

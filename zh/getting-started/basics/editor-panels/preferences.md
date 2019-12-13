@@ -34,8 +34,6 @@
 
 ![data editing](preferences/data-editing.png)
 
-* **自动编译脚本**：是否自动监测项目中脚本文件的变化，并自动触发编译。如果关闭自动编译脚本选项后，可以手动通过菜单 `开发者->手动编译脚本` 或按 <kbd>F7</kbd> 来编译。
-
 * **<a name="script-editor"></a>外部脚本编辑器**：可以选用任意外部文本编辑工具的可执行文件，作为在资源管理器里双击脚本文件时的打开方式。您可以点击 **浏览** 按钮选择偏好的文本编辑器的可执行文件，也可以点击 **移除** 按钮来切换脚本编辑器。不推荐使用内置脚本编辑器。
 
 * **外部图片编辑器**：和上面的选项类似，这里用来设置在资源管理器中双击图片文件时，默认打开图片用的应用程序路径。
@@ -54,7 +52,7 @@
 
 * **Cocos2d-x 路径**：取消上一项 `使用内置 cocos2d-x 引擎` 的选择后，就可以手动指定 cocos2d-x 路径了。注意这里使用的 cocos2d-x 引擎必须从 [cocos2d-x-lite](https://github.com/cocos-creator/cocos2d-x-lite) 或该仓库的 fork 下载。
 
-* **WechatGame 程序路径**：设置 WechatGame 程序路径，详情见 [发布到微信小游戏](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)
+* **WeChatGame 程序路径**：设置 WeChatGame 程序路径，详情见 [发布到微信小游戏](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)
 
 * **NDK 路径**：设置 NDK 路径，详情见 [安装配置原生开发环境](../../../publish/setup-native-development.md)。
 

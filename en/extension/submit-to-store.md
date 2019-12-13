@@ -43,7 +43,7 @@ We need to fill the form:
 - **version** Follow the [semver standard](http://semver.org/lang/zh-CN/)
 - **Price** RMB, free is 0.
 - **Description**
-- **Download Address** Two method: 1. Submit to net-driver or github link 2. Manually submit to Cocos Store
+- **Download Address** Two method: 1. Submit to net-driver or GitHub link 2. Manually submit to Cocos Store
 - **Icon** 512x512
 - **Snapshot** Up to 5, size 640x960 or 960x640
 - **Links** You supports link

@@ -123,4 +123,4 @@ start () {
 }
 ```
 
-More examples can visit [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider).
+More examples can visit [GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider).
