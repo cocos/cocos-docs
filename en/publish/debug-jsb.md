@@ -25,7 +25,7 @@ Starting with **v2.0.7**, the [Open Simulator Debugger Panel](../getting-started
 
 ## Debug on target device
 
-If the game only run on the real machine, or the simulator can not reproduce the problem, it must be the real machine to the packaged game to debug. Debugging steps are as follows:
+If the game only run on the physical device, or the simulator can not reproduce the problem, it must be the physical device to the packaged game to debug. Debugging steps are as follows:
 
 - Make sure that the Android/iOS device is on the same LAN as Windows or Mac.
 - Select the Android/iOS platform and Debug mode in the **Build** panel of Creator to build a compile-and-run project (The iOS platform recommends compiling with the Xcode connection true machine).

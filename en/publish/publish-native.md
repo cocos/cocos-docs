@@ -125,11 +125,11 @@ Then click the **Play** button on the bottom right corner, you can preview games
 
 After clicking **Play** button, a part of the building work will be continued, the real time progress of which will be seen on the console.
 
-The Mac/Windows platform runs the preview directly on the desktop, and the iOS platform calls the simulator to run the preview. Android platform must connect to real machine via USB and the preview can be run after USB debugging is turned on on the real machine.
+The Mac/Windows platform runs the preview directly on the desktop, and the iOS platform calls the simulator to run the preview. Android platform must connect to physical device via USB and the preview can be run after USB debugging is turned on on the physical device.
 
 The iOS platform recommends compiling with the Xcode connection true machine. After the build is complete, use Xcode to open the `frameworks\runtime-src\proj.ios_mac\.xcodeproj` file under the build directory and set the signature in the Xcode panel `General -> Signing`, select the connected device at the top left of Xcode and click the compile button to compile.
 
-![](publish-native/package.png)
+![](publish-native/package.jpg)
 
 ## Use an Native Project
 

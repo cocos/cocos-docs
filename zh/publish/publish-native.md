@@ -128,7 +128,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使用 Xcode 打开构建目录下的 `frameworks\runtime-src\proj.ios_mac\.xcodeproj` 文件，在 Xcode 面板 `General -> Signing` 中设置签名，在 Xcode 左上方选择连接的设备后点击编译按钮进行编译运行。
 
-![](publish-native/package.png)
+![](publish-native/package.jpg)
 
 ## 使用原生工程
 
