@@ -177,23 +177,28 @@ EventTarget：
 可以看到只有 Node 的 `on`/`off` 支持父节点链上的事件捕获和事件冒泡，默认仅有系统事件支持这样的派发模式，用户可以通过 `node.dispatchEvent` 在节点树上以同样的流程派发事件。这点跟 1.x 是一致的。
 但是，Node 上使用 emit 派发的事件和 EventTarget 上的所有事件派发都是简单的事件派发方式，这种方式派发的事件，在事件回调的参数上和 1.x 有区别：
 
-    // **v1.x**
-    eventTarget.on(type, function (event) {
-        // 通过 event.detail 获取 emit 时传递的参数
-    });
-    eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
-    // **v2.0**
-    eventTarget.on(type, function (message, target) {
-        // 直接通过回调参数来获取 emit 时传递的事件参数
-    });
-    eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
+```js
+// **v1.x**
+eventTarget.on(type, function (event) {
+    // 通过 event.detail 获取 emit 时传递的参数
+});
+eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
 
-另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 cc.eventManager 来监听回调，在 2.0 中我们提供了更简单的方式：
+// **v2.0**
+eventTarget.on(type, function (message, target) {
+    // 直接通过回调参数来获取 emit 时传递的事件参数
+});
+eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
+```
+    
+另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 `cc.eventManage`r 来监听回调，在 2.0 中我们提供了更简单的方式：
 
-    // 设置事件回调
-    assetsManager.setEventCallback(this.updateCallback.bind(this));
-    // 取消事件回调
-    assetsManager.setEventCallback(null);
+```js
+// 设置事件回调
+assetsManager.setEventCallback(this.updateCallback.bind(this));
+// 取消事件回调
+assetsManager.setEventCallback(null);
+```
 
 ## 3.5 适配模式升级
 

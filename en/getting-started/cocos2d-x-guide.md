@@ -117,9 +117,7 @@ In Cocos Creator, we preserved the behaviors of lots of important categories and
 - `cc.view`
 - `cc.director`
 - `cc.audioEngine`
-- `cc.eventManager`
 - [`cc.scheduler`](../scripting/scheduler.md)
-- `cc.textureCache`
 - `cc.sys`
 - `cc.visibleRect`
 - [scripting actions](../scripting/actions.md)
