@@ -146,7 +146,7 @@ The red frames in the picture indicate projects of different native platforms. N
 **Note**: 
 
 - Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
-- When packaging the iOS, if you don't use WebView related functions in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to improve the success rate of iOS reviews on the AppStore. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the iOS review fails on the AppStore, you can still try to appeal through email.
+- When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
 
 ---
 
