@@ -44,7 +44,10 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 目前此组件只支持 Web（PC 和手机）、iOS 和 Android 平台（v2.0.0～2.0.6 版本不支持），Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，那么在 PC 的模拟器里面预览的时候可能看不到效果。
 
-此控件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
+**注意**:
+
+- WebView 组件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
+- 如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
 ### 通过脚本代码添加回调
 

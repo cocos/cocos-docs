@@ -44,7 +44,10 @@ For more information, please refer to the [WebView Events](../../../api/en/class
 
 Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
 
-This component doesn't support load HTML file or execute Javascript.
+**Note**:
+
+- This component doesn't support load HTML file or execute Javascript.
+- If you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
 
 ### Add a callback via script
 
