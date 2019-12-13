@@ -12,7 +12,7 @@ In `ccConfig.h`, set `USE_WEBSOCKET_SERVER` to 1.
 
 ![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
-**Note**: Since it is rare to keep the **WebSocket Server** in **Release** mode, it is recommended to include in the modification:
+**Note**: Since it is rare to keep the **WebSocket Server** in **Release** mode, it is recommended to include the following in the modification:
 
 ```c++
 #if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
@@ -135,6 +135,6 @@ interface WsCallback {
 } 
 ```
 
-## Reference linking
+## Reference links
 
 - The interface design refers to the [nodejs-websocket](https://www.npmjs.com/package/nodejs-websocket#server).
