@@ -7,7 +7,7 @@ Since the open data context is a closed, independent JavaScript scope, developer
   - Main context project (normal game project)
   - Open data context project Engineering (projects that use the WeChat API to obtain user data for functions such as leaderboards)
 
-In the open data context project, it is packaged independently through the open data context packaging process and placed in the WeChat build package of the main context project, which can be previewed and debugged on the simulator and real machine as a complete WeChat project.
+In the open data context project, it is packaged independently through the open data context packaging process and placed in the WeChat build package of the main context project, which can be previewed and debugged on the simulator and physical device as a complete WeChat project.
 
 __Cocos Creator__ supports packaging to open data contexts since v1.9.1, and an important update in v2.0.1. The two versions are used differently, as described below.
 
