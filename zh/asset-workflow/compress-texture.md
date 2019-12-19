@@ -29,6 +29,8 @@ Cocos Creator 在构建图片的时候，会查找当前图片是否进行了压
 
 用户可以通过修改 `cc.macro.SUPPORT_TEXTURE_FORMATS` 来自定义平台的图片资源支持情况以及加载顺序的优先级。
 
+**注意**：模拟器可能不支持压缩纹理，请以真机为准。
+
 ## 示例
 
 ![1](compress-texture/1.png)

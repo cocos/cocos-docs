@@ -924,7 +924,7 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 
 The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cocos2d::Ref` subclass and non- `cocos2d::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
 
-An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `TextureCache`, `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
+An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
 
 Other fields are the same as v1.6.
 
@@ -932,7 +932,7 @@ For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini
 
 ### Understand The Meaning of Each Field in The .ini file
 
-```
+```bash
 # Module name
 [cocos2d-x] 
 
@@ -1001,7 +1001,7 @@ base_classes_to_skip = Ref Clonable
 abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
 
 # Which classes are singleton or always keep alive until game exits
-persistent_classes = TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+persistent_classes = SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
 
 # Which classes use `CPP object controls JS object's life cycle`, the unconfigured classes will use `JS controls CPP object's life cycle`.
 classes_owned_by_cpp = 

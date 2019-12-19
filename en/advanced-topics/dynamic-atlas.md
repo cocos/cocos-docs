@@ -20,15 +20,18 @@ cc.dynamicAtlasManager.insertSpriteFrame(spriteFrame);
 
 When a Sprite Frame is added to a dynamic atlas, the texture of the Sprite Frame will be modify to **a larger image in the Dynamic Atlas Manager**. The uv in the Sprite Frame is also recalculated according to the coordinates in the large image.
 
-**Attention**: Before the scene is loaded, the Dynamic Atlas Manager will be reset, and the reference of the Sprite Frame texture and uv will be restored to their initial values.
+**Note**: Before the scene is loaded, the Dynamic Atlas Manager will be reset, and the reference of the Sprite Frame texture and uv will be restored to their initial values.
 
 ## Texture restrictions
 
-The Dynamic Atlas Manager limits the size of the texture that can be packed. and only textures with a width and height less then **512** can enter the manager. Users can modify this restriction based on needs:
+The Dynamic Atlas Manager limits the size of the texture that can be packed. By default, only textures with a width and height greater than **8** and less then **512** can enter the manager. Users can modify this restriction based on needs:
 
 ```js
+cc.dynamicAtlasManager.minFrameSize = 8;
 cc.dynamicAtlasManager.maxFrameSize = 512;
 ```
+
+You can refer to the API docs [DynamicAtlasManager](../../../api/zh/classes/DynamicAtlasManager.html) for details.
 
 ## Debugging
 
