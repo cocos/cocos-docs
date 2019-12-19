@@ -130,3 +130,22 @@ The specific hierarchical relationship should be like this:
 | null | `scale-changed` | when the scale property is changed |
 | null | `size-changed` | when the size property is changed |
 | null | `anchor-changed` | when the anchor property is changed |
+
+## Pause or resume node system events
+
+Pause node system events
+```
+* Pause all node system events registered on the current node. Node system events include touch and mouse events.
+* If recursive is passed as true, then this API will suspend node system events for this node and all nodes in its subtree.
+* Example
+  
+  this.node.pauseSystemEvents(recursive);
+```
+Resume node system events
+```
+* Resume all node system events registered on the current node. Node system events include touch and mouse events.
+* If recursive is passed as true, then this API will recover node system events for this node and all nodes in its subtree.
+* Example
+  
+  this.node.resumeSystemEvents(recursive);
+```

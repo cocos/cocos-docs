@@ -127,3 +127,22 @@ this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, tru
 | 无 | `scale-changed` | 当缩放属性修改时 |
 | 无 | `size-changed` | 当宽高属性修改时 |
 | 无 | `anchor-changed` | 当锚点属性修改时 |
+
+## 暂停或恢复节点系统事件
+
+暂停节点系统事件
+```
+* example
+* 暂停当前节点上注册的所有节点系统事件，节点系统事件包含触摸和鼠标事件。
+* 如果传递 recursive 为 true，那么这个 API 将暂停本节点和它的子树上所有节点的节点系统事件。
+  
+  this.node.pauseSystemEvents(recursive);
+```
+恢复节点系统事件
+```
+* example
+* 恢复当前节点上注册的所有节点系统事件，节点系统事件包含触摸和鼠标事件。
+* 如果传递 recursive 为 true，那么这个 API 将恢复本节点和它的子树上所有节点的节点系统事件。
+  
+  this.node.resumeSystemEvents(recursive);
+```
