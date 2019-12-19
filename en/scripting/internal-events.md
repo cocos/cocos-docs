@@ -135,17 +135,17 @@ The specific hierarchical relationship should be like this:
 
 Pause node system events
 ```
-* Pause all node system events registered on the current node. Node system events include touch and mouse events.
-* If recursive is passed as true, then this API will suspend node system events for this node and all nodes in its subtree.
 * Example
+* Pause all node system events registered on the current node. Node system events include touch and mouse events.
+* If the parameter is passed true, then this API will pause node system events for this node and all nodes in its subtree.
   
-  this.node.pauseSystemEvents(recursive);
+  this.node.pauseSystemEvents();
 ```
 Resume node system events
 ```
-* Resume all node system events registered on the current node. Node system events include touch and mouse events.
-* If recursive is passed as true, then this API will recover node system events for this node and all nodes in its subtree.
 * Example
-  
-  this.node.resumeSystemEvents(recursive);
+* Resume all node system events registered on the current node. Node system events include touch and mouse events.
+* If the parameter is passed true, then this API will resume node system events for this node and all nodes in its subtree.
+
+  this.node.resumeSystemEvents();
 ```
