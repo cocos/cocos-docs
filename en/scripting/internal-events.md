@@ -129,3 +129,4 @@ The specific hierarchical relationship should be like this:
 | null | `rotation-changed` | when the rotation property is changed |
 | null | `scale-changed` | when the scale property is changed |
 | null | `size-changed` | when the size property is changed |
+| null | `anchor-changed` | when the anchor property is changed |

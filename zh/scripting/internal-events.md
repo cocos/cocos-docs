@@ -126,3 +126,4 @@ this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, tru
 | 无 | `rotation-changed` | 当旋转属性修改时 |
 | 无 | `scale-changed` | 当缩放属性修改时 |
 | 无 | `size-changed` | 当宽高属性修改时 |
+| 无 | `anchor-changed` | 当锚点属性修改时 |
