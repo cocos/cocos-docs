@@ -36,7 +36,7 @@ Currently, the Sprite component supports five rendering modes:
 
  ![tiled](sprite/tiled.png)
 
-  Sprites in Tiled mode will be affected by the division of nine grids. At this time, each picture will be cut according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded by the SpriteFrame resource object, and the edges will be stretched and the center tile will be expanded.
+  A Sprite in Tiled mode will be affected by its Sliced config. It will be sliced according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded in the SpriteFrame. The corners will remain unscaled when the Sprite is stretched, while the center sections will be repeated instead of stretched.
 
  ![tiled](sprite/tiled_sliced.png)
  

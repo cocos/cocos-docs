@@ -36,7 +36,7 @@ Sprite 组件支持五种渲染模式：
 
   ![tiled](sprite/tiled.png)
 
-  Tiled 模式下的 Sprite 会受到九宫格分割的影响，此时将分别依据 SpriteFrame 资源对象记录的 `insetTop`、`insetBottom`、`insetLeft`、`insetRight` 属性切割每一张图片，以边缘部分拉伸，中心部分平铺的效果展开。
+  Tiled 模式下的 Sprite 会受到九宫格分割的影响，此时将分别依据 SpriteFrame 资源对象记录的 `insetTop`、`insetBottom`、`insetLeft`、`insetRight` 属性切割每一张图片。在拉伸时将保持边缘部分的尺寸，且对中心部分平铺。
 
   ![tiled](sprite/tiled_sliced.png)
   
