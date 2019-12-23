@@ -134,18 +134,19 @@ The specific hierarchical relationship should be like this:
 ## Pause or resume node system events
 
 Pause node system events
-```
+
+```js
 // Pause all node system events registered on the current node. Node system events include touch and mouse events.
 // If the parameter is passed true, then this API will pause node system events for this node and all nodes in its subtree.
 // Example
-  
   this.node.pauseSystemEvents();
 ```
+
 Resume node system events
-```
+
+```js
 // Resume all node system events registered on the current node. Node system events include touch and mouse events.
 // If the parameter is passed true, then this API will resume node system events for this node and all nodes in its subtree.
 // Example
-
   this.node.resumeSystemEvents();
 ```
