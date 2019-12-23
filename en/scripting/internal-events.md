@@ -131,6 +131,14 @@ The specific hierarchical relationship should be like this:
 | null | `size-changed` | when the size property is changed |
 | null | `anchor-changed` | when the anchor property is changed |
 
+## Multi-touch Event
+
+The engine has added a muting switch for multi-touch events in v2.3. Multi-touch events are enabled by default. For some types of games, in order to prevent multi-touch accidents, multi-touch events need to be shielded, which can be closed by the following code:
+
+```javascript
+cc.macro.ENABLE_MULTI_TOUCH = false;
+```
+
 ## Pause or resume node system events
 
 Pause node system events
