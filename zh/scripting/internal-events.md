@@ -126,12 +126,3 @@ this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, tru
 | 无 | `rotation-changed` | 当旋转属性修改时 |
 | 无 | `scale-changed` | 当缩放属性修改时 |
 | 无 | `size-changed` | 当宽高属性修改时 |
-| 无 | `anchor-changed` | 当锚点属性修改时 |
-
-## 多点触摸事件
-
-引擎在 v2.3 版本中新增了多点触摸事件的屏蔽开关，多点触摸事件默认为开启状态。对于有些类型的项目为了防止多点误触，需要屏蔽多点触摸事件，可以通过以下代码进行关闭：
-
-```javascript
-cc.macro.ENABLE_MULTI_TOUCH = false;
-```
