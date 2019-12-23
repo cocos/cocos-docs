@@ -33,9 +33,13 @@ Sprite 组件支持五种渲染模式：
 - `普通模式（Simple）`：按照原始图片资源样子渲染 Sprite，一般在这个模式下我们不会手动修改节点的尺寸，来保证场景中显示的图像和美术人员生产的图片比例一致。
 - `九宫格模式（Sliced）`：图像将被分割成九宫格，并按照一定规则进行缩放以适应可随意设置的尺寸(`size`)。通常用于 UI 元素，或将可以无限放大而不影响图像质量的图片制作成九宫格图来节省游戏资源空间。详细信息请阅读 [使用 Sprite 编辑器制作九宫格图像](../ui/sliced-sprite.md#-) 一节。
 - `平铺模式（Tiled）`：当 Sprite 的尺寸增大时，图像不会被拉伸，而是会按照原始图片的大小不断重复，就像平铺瓦片一样将原始图片铺满整个 Sprite 规定的大小。
+
   ![tiled](sprite/tiled.png)
+
   Tiled 模式下的 Sprite 会受到九宫格分割的影响，此时将分别依据 SpriteFrame 资源对象记录的 `insetTop`、`insetBottom`、`insetLeft`、`insetRight` 属性切割每一张图片，以边缘部分拉伸，中心部分平铺的效果展开。
+
   ![tiled](sprite/tiled_sliced.png)
+  
 - `填充模式（Filled）`：根据原点和填充模式的设置，按照一定的方向和比例绘制原始图片的一部分。经常用于进度条的动态展示。
 - `网格模式（Mesh）`：必须使用 **TexturePacker 4.x** 以上版本并且设置 ploygon 算法打包出的 plist 文件才能够使用该模式。
 
