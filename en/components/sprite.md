@@ -34,6 +34,8 @@ Currently, the Sprite component supports five rendering modes:
 - `Sliced mode`: the image is cut up into a nine square grid and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [use Sprite editor to make a Sudoku image](../asset-workflow/sprite.md#-sprite-) for detailed information.
 - `Tiled mode`: as the size of the Sprite increases, the image is not stretched, but it Will repeat according to the size of the original picture, paving the original picture to the size of the entire Sprite as tiled tiles.
  ![tiled](sprite/tiled.png)
+  Sprites in Tiled mode will be affected by the division of nine grids. At this time, each picture will be cut according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded by the SpriteFrame resource object, and the edges will be stretched and the center tile will be expanded.
+ ![tiled](sprite/tiled_sliced.png)
 - `Filled mode`: draws a portion of the original picture in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
 - `Mesh mode`: Only support **.plist** file which is built by __TexturePacker__ (4.0 or higher version) with ploygon algorithm.
 
