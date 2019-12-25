@@ -3,6 +3,9 @@
 - [基本图像渲染](core-renderer.md)
 - [外部资源渲染](external-renderer.md)
 - [摄像机](camera.md)
+- 材质
+  - [材质资源](./material.md)
+  - [Effect](./effect.md)
 - 渲染组件参考
   - [Sprite 组件参考](../components/sprite.md)
   - [Label 组件参考](../components/label.md)
