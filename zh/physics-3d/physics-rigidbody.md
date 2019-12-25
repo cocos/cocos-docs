@@ -2,6 +2,8 @@
 
 刚体使节点在物理控制下运动，以真实世界的方式接受作用力。
 
+**注： Builtin 此组件无效**。
+
 ## 添加刚体组件
 
 ![刚体组件](image/rigidbody-component.png)
