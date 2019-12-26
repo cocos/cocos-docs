@@ -72,6 +72,11 @@ A：如果出现插件未授权使用，需要点击添加插件，选择 CocosC
 Q：Cocos Creator v2.1.3 在启用引擎插件后会提示某些 3D 相关函数未定义<br />
 A：这是旧版本的 Cocos Creator 构建插件上的兼容性问题，重新下载最新的 Cocos Creator 构建插件进行替换即可。
 
+Q：提交审核时弹出 “使用的插件有新版本” 的提示框，能否更新？<br />
+A：不能更新，请点击 **确定**。
+    
+  ![](./publish-wechatgame/new_plugin.png)
+
 ## 参考链接
 
 - [微信小游戏引擎插件官方文档](https://developers.weixin.qq.com/minigame/dev/guide/base-ability/game-engine-plugin.html)
