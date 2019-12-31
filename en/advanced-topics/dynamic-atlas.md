@@ -24,10 +24,9 @@ When a Sprite Frame is added to a dynamic atlas, the texture of the Sprite Frame
 
 ## Texture restrictions
 
-The Dynamic Atlas Manager limits the size of the texture that can be packed. By default, only textures with a width and height greater than **8** and less then **512** can enter the manager. Users can modify this restriction based on needs:
+The Dynamic Atlas Manager limits the size of the texture that can be packed. By default, only textures with a width and height less then **512** can enter the manager. Users can modify this restriction based on needs:
 
 ```js
-cc.dynamicAtlasManager.minFrameSize = 8;
 cc.dynamicAtlasManager.maxFrameSize = 512;
 ```
 
