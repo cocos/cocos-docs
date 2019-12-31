@@ -1,6 +1,6 @@
 # Material 材质资源参考
 
-材质资源可以用来控制渲染组件在场景中的视觉效果。简单来说材质用来指定物体的表面或数个面的特性，它决定这些平面在着色时的特性，如颜色，光亮程度，自发光度及不透明度等。
+材质资源可以用来控制渲染组件在场景中的视觉效果。简单来说材质用来指定物体的表面的特性，如颜色，光亮程度，自发光度及不透明度等。
 
 
 ## 创建与使用材质
@@ -39,11 +39,11 @@
 - 创建材质变体需要指定使用的 **共享材质** 和 **材质变体所属的渲染组件**。
   - cc.MaterialVariant.createWithBuiltin (materialName: string, owner: cc.RenderComponent)
   
-  - cc.MaterialVariant.createWithBuiltin (material: cc.Material, owner: cc.RenderComponent)
+  - cc.MaterialVariant.create (material: cc.Material, owner: cc.RenderComponent)
 
 ```js
 // 创建一个共享材质，共享材质的修改将会同步到材质变体上
-let material = cc.Material.createWithBuiltin(cc.Material.BUILTIN_EFFECT_NAME.UNLIT);
+let material = cc.Material.createWithBuiltin('unlit');
 // 材质 material 的修改会影响到 variant1 和 variant2
 material.setProperty('diffuseColor', cc.Color.WHITE);
 
@@ -63,7 +63,7 @@ variant2.setProperty('mainTiling', cc.v2(0.5, 0.5));
 
 ```js
 
-let variant1 = cc.MaterialVariant.createWithBuiltin('2d-sprite');
+let variant1 = cc.MaterialVariant.createWithBuiltin(cc.Material.BUILTIN_NAME.SPRITE);
 
 // 设置材质到指定索引，一般来说 2d 渲染组件的 index 都是 0
 // variant1 由于没有指定 owner render component，所以会直接被 renderComponent1 使用并且设置 owner 为 renderComponent1
