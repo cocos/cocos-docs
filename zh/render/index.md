@@ -3,7 +3,7 @@
 - [基本图像渲染](core-renderer.md)
 - [外部资源渲染](external-renderer.md)
 - [摄像机](camera.md)
-- 材质
+- 材质系统
   - [材质资源](./material.md)
   - [Effect](./effect.md)
 - 渲染组件参考
