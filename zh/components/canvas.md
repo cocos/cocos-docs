@@ -18,6 +18,6 @@ Canvas 在做屏幕适配时，只会对整个游戏的画面进行缩放或拉�
 
 ![widget](canvas/widget.png)
 
-开发者如需固定 Canvas 节点的尺寸为设计分辨率，可以手动移除或禁用 Widget 组件。另外，当旧项目升级到 v2.3 时，编辑器会自动添加 Widget 组件，无需手动添加。
+开发者如需固定 Canvas 节点的尺寸为设计分辨率，可以手动移除或禁用 Widget 组件。另外，当旧项目升级到 v2.3 时，编辑器会自动添加 Widget 组件，开发者无需手动添加。
 
 Canvas 的脚本接口请参考 [Canvas API](../../../api/zh/classes/Canvas.html)。

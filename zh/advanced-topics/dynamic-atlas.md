@@ -27,7 +27,6 @@ cc.dynamicAtlasManager.insertSpriteFrame(spriteFrame);
 动态合图系统限制了能够进行合图的贴图大小，默认只有贴图宽高都小于 **512** 的贴图才可以进入到动态合图系统。用户可以根据需求修改这个限制：
 
 ```js
-cc.dynamicAtlasManager.minFrameSize = 8;
 cc.dynamicAtlasManager.maxFrameSize = 512;
 ```
 
