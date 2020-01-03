@@ -113,42 +113,60 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 ## Spine 挂点
 
-使用骨骼动画时，常在动画的某个部位挂节点，以实现节点与骨骼联动的效果。下面介绍如何使用挂点这一功能，把星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
+在使用骨骼动画时，经常需要在骨骼动画的某个部位上挂载节点，以实现节点与骨骼动画联动的效果。下面用一个范例来介绍 Spine 如何通过编辑器和脚本两种方式使用挂点将星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
 
-![attach](./spine/attach0.png)
+![](./spine/attach0.png)
 
-1. 首先在 **层级管理器** 创建节点，并添加 Spine 组件。
+### 通过编辑器实现 Spine 挂点
 
-![attach](./spine/attach1.png)
+1. 首先在 **层级管理器** 中新建一个空节点并重命名。选中该节点然后在 **属性检查器** 中添加 Spine 组件，并将资源拖拽至 Spine 组件的 Skeleton Data 属性框中，设置好 Spine 组件属性。然后点击 Spine 组件下方的 **生成挂点** 按钮。
 
-2. 选中 **层级管理器** 中 Spine 组件所在节点，在 **属性检查器** 的 Spine 组件下方，点击 **生成挂点** 按钮，编辑器会在 Spine 组件所在节点下方，以节点树的形式生成所有骨骼。
+    ![](./spine/attach1.png)
 
-![attach](./spine/attach2.png)
+2. 点击 **生成挂点** 按钮后，编辑器会在 **层级管理器** 中 Spine 组件所在节点的下方，以节点树的形式生成所有骨骼。
 
-3. 以目标骨骼节点作为父节点，创建子节点。
+    ![](./spine/attach2.png)
 
-![attach](./spine/attach3.png)
+3. 在 **层级管理器** 中选中目标骨骼节点（龙的尾巴）作为父节点，创建一个 Sprite 节点为子节点。
 
-4. 制作完挂点后，删除无用的骨骼节点，以减少运行时计算开销。
+    ![](./spine/attach3.png)
 
-以上是在编辑器中进行挂点的方法，下面介绍如何编写脚本生成挂点，脚本如下：
+    即可看到在 **场景编辑器** 中龙的尾巴上已经挂了一个 Sprite。
 
-```js
+    ![](./spine/attach4.png)
+    
+4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
+
+    Spine 挂点完成后，即可删除 **层级管理器** 中无用的骨骼节点，以减少运行时的计算开销。注意目标骨骼节点的父节点都不可删。
+
+### 通过脚本实现 Spine 挂点
+
+1. 跟通过编辑器实现的步骤类似，首先先创建一个挂有 Spine 组件的节点，并设置好 Spine 组件的属性。
+
+2. 创建要挂载到骨骼动画上的星星预制资源，预制资源相关可参考 [文档](../asset-workflow/prefab.md)。
+
+3. 在 **资源管理器** 中新建一个 JavaScript 脚本，编写组件脚本。脚本代码如下：
+
+    ```js
     cc.Class({
         extends: cc.Component,
 
         properties: {
-            skeleton : {
+            skeleton: {
                 type: sp.Skeleton,
                 default: null,
             },
             // 将要添加到骨骼上的预制体
-            targetPrefab : {
+            targetPrefab: {
                 type: cc.Prefab,
                 default: null,
             },
             // 目标骨骼名称
             boneName: "",
+        },
+
+        onLoad () {
+            this.generateSomeNodes();
         },
 
         generateAllNodes () {
@@ -181,26 +199,70 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
             attachUtil.destroyAttachedNodes(this.boneName);
         }
     });
-```
+    ```
+
+4. 将脚本挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。然后再将对应的节点或者资源拖拽到脚本组件对应的属性框中，并保存场景。
+
+    ![](./spine/attach_script.png)
+
+    若不知道目标骨骼的名称，可点击 Spine 组件中的 **生成挂点** 按钮，然后在 **层级管理器** 中 Spine 节点下生成的骨骼节点树中查找。查找完成后再删除 Spine 节点下的骨骼节点树即可。
 
 ## Spine 碰撞检测
 
-通过挂点功能可以对骨骼动画的某个部件做碰撞检测，挂点的方法请参考前面 Spine 挂点一节。下面介绍一个例子，小男孩跑动时，根据脚与地面接触与否，地面动态地改变颜色。
-
-![collider](./spine/collider.png)
-
-1. 首先生成挂点，然后以目标骨骼节点作为父节点，创建一空子节点。
+通过 Spine 挂点功能可以对骨骼动画的某个部位做碰撞检测，Spine 如何实现挂点请参考前面 Spine 挂点部分章节。下面通过一个范例来介绍 Spine 如何实现碰撞检测，通过判断人物脚与地面接触与否来实现当人物跑动时，动态地改变地面颜色。
 
 ![collider](./spine/collider0.png)
 
-2. 添加碰撞组件至子节点中，并设置好碰撞组件参数，该子节点会随着骨骼一起运动，从而碰撞组件的包围盒也实时地与骨骼保持同步。
+1. 与通过编辑器实现 Spine 挂点的前两个步骤一样，创建好 Spine 节点后，点击 Spine 组件中的 **生成挂点** 按钮。
 
-![collider](./spine/collider1.png)
+2. 然后在 **层级管理器** Spine 节点的骨骼节点树中选中目标骨骼节点（人物的脚）作为父节点，再创建一个空节点（重命名为 FrontFootCollider）作为子节点。
 
-3. 创建一节点，并添加 Sprite 和 碰撞组件，作为地面。
+    ![collider](./spine/collider1.png)
 
-4. 设置好碰撞组件所在节点的分组，添加分组的方法请参考 [分组管理](../physics/collision/collision-group)
+3. 在 **层级管理器** 中选中 FrontFootCollider 节点，在 **属性检查器** 中点击 **添加组件 -> 碰撞组件 -> Polygon Collider**，然后设置好碰撞组件参数。该节点便会随着骨骼动画一起运动，从而碰撞组件的包围盒也会实时地与骨骼动画保持同步。
 
-![collider](./spine/collider2.png)
+    ![collider](./spine/collider2.png)
 
-5. 点击编辑器上方的预览按钮，即可看到效果。代码可参考 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
+4. 在 **层级管理器** 中创建一个 Sprite 节点作为地面。选中该节点，然后在 **属性检查器** 中设置好位置大小等属性，并添加 **BoxCollider** 碰撞组件。
+
+5. 在 **资源管理器** 中新建一个 JavaScript 脚本，然后将脚本挂载到地面节点上。脚本代码可参考：
+
+    ```js    
+    cc.Class({
+        extends: cc.Component,
+
+        properties: {
+            
+        },
+
+        start () {
+            cc.director.getCollisionManager().enabled = true;
+            cc.director.getCollisionManager().enabledDebugDraw = true;
+            this.stayCount = 0;
+        },
+
+        onCollisionEnter (other, self) {
+            this.stayCount++;
+        },
+
+        onCollisionExit (other, self) {
+            this.stayCount--;
+        },
+
+        update () {
+            if (this.stayCount > 0) {
+                this.node.color = cc.color(0, 200, 200);
+            } else {
+                this.node.color = cc.color(255, 255, 255);
+            }
+        }
+    });
+    ```
+
+6. 设置碰撞组件所在节点的分组，添加分组的方法请参考文档 [碰撞分组管理](../physics/collision/collision-group.md)。
+
+    ![collider](./spine/collider_foot.png) ![collider](./spine/collider_ground.png)
+
+    ![collider](./spine/group_setting.png)
+
+7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的  [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
