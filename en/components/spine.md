@@ -70,7 +70,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
     });
     ```
 
-4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the Scene.
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the scene.
 
     ![spine-cloth](./spine/spine-js.png)
 
@@ -107,6 +107,166 @@ Vertex effect is only valid when the Animation Cache Mode property of Spine comp
     });
     ```
 
-3. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the node in **Node Tree** to the corresponding property box of script component, and save the Scene.
+3. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the node in **Node Tree** to the corresponding property box of script component, and save the scene.
 
 4. You can see the vertex jitter effect of the Spine animation by clicking the preview button above the editor. For the code, please refer to [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) for details.
+
+## Spine Attachments
+
+When using skeleton animation, nodes are often mounted on a certain part of the skeleton animation to achieve the effect of linkage between the nodes and the skeleton animation.
+
+We can implement the Spine Attachments by using both the editor and the script. Here is an example of how Spine uses attach node to attach a star to a dragon's tail, and shakes with the dragon's tail.
+
+![](./spine/attach0.png)
+
+### Implement in the editor
+
+1. Create a new empty node in **Node Tree** and rename, then add the Spine component in **Properties**. And drag the spine skeleton animation resources into the Skeleton Data property box of the Spine component, set the Spine component properties. And then click the **Generate Attached Node** button under the Spine component. 
+
+    ![](./spine/attach1.png)
+
+2. After clicking the **Generate Attached Node** button, all skeletons will be generated in the form of a node tree below the node where the Spine component is located in the **Node Tree** panel.
+
+    ![](./spine/attach2.png)
+
+3. Select the target bone node (dragon's tail) as the parent node in the **Node Tree** panel, and create a Sprite node as a child node.
+
+    ![](./spine/attach3.png)
+
+    You can see that a Sprite is already attached to the dragon's tail in the **Scene** panel.
+
+    ![](./spine/attach4.png)
+    
+4. Finally, drag the star resource to the `Sprite Frame` property of the Sprite component. Save the scene and click the **Preview** button above the editor, then you can see a star hanging on the dragon's tail and shaking with the dragon's tail. For details, please refer to the [SpineAttach](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) in example-case.
+
+**Note**: After finish the Spine Attachments, you can delete unused skeleton nodes in the **Node Tree** panel to reduce the computational overhead at runtime. Note that the parent node of the target bone node cannot be deleted.
+
+### Implement in the script
+
+1. Similar to the steps of implement in the editor, first create a node with a Spine component and set the properties of the Spine component.
+
+2. Create the prefab of the star to be mounted on the skeleton animation. About Prefab please refer to [documentation](../asset-workflow/prefab.md) for details.
+
+3. Create a new JavaScript script in **Assets** and double-click to open to write. The sample script code is as follows:
+
+    ```js
+    cc.Class({
+        extends: cc.Component,
+
+        properties: {
+            skeleton: {
+                type: sp.Skeleton,
+                default: null,
+            },
+            // The prefab to be added to the skeleton animation
+            targetPrefab: {
+                type: cc.Prefab,
+                default: null,
+            },
+            // Target bone name
+            boneName: "",
+        },
+
+        onLoad () {
+            this.generateSomeNodes();
+        },
+
+        generateAllNodes () {
+            // Get the attach node tool
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.generateAllAttachedNodes();
+            // Because there may be multiple skeletons with the same name, you need to return an array
+            let boneNodes = attachUtil.getAttachedNodes(this.boneName);
+            // Take the first skeleton as the attaching node
+            let boneNode = boneNodes[0];
+            boneNode.addChild(cc.instantiate(this.targetPrefab));
+        },
+
+        destroyAllNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.destroyAllAttachedNodes();
+        },
+
+        // A method to generate a tree of nodes with the specified skeleton name
+        generateSomeNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            let boneNodes = attachUtil.generateAttachedNodes(this.boneName);
+            let boneNode = boneNodes[0];
+            boneNode.addChild(cc.instantiate(this.targetPrefab));
+        },
+
+        // A method to destroy a tree of nodes with the specified skeleton name
+        destroySomeNodes () {
+            let attachUtil = this.skeleton.attachUtil;
+            attachUtil.destroyAttachedNodes(this.boneName);
+        }
+    });
+    ```
+
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the nodes or resources to the corresponding properties box of script component, and save the scene.
+
+    ![](./spine/attach_script.png)
+
+    If you don't know the target bone name, click the **Generate Attached Node** button in the Spine component, and then search in the skeleton node tree generated under the Spine node in the **Node Tree** panel. After the search is complete, delete the skeleton node tree under the Spine node.
+
+## Spine Collision Detection
+
+The Spine Attachments can be used to perform collision detection on a certain part of the skeleton animation. For how to achieve the Spine Attachments, please refer to the previous chapter. 
+
+Here is an example of Spine how to implement collision detection. And determines whether the character's foot is in contact with the ground to dynamically change the ground color while the character is running.
+
+![collider](./spine/collider0.png)
+
+1. As with the first two steps of implement the Spine Attachments in the editor. After creating the Spine node, click the **Generate Attached Node** button in the Spine component.
+
+2. Then select the target bone node (the character's foot) as the parent node in the skeleton node tree under the Spine node of the **Node Tree** panel, and create an empty node (renamed FrontFootCollider) as a child node.
+
+    ![collider](./spine/collider1.png)
+
+3. Select the FrontFootCollider node in the **Node Tree** panel, click the **Add Component -> Collider Component -> Polygon Collider** button in the **Properties** panel to add a collider component, and then set the Polygon Collider component properties. Then the node will move with the skeleton animation, and the bounding box of the Collider component will be synchronized with the skeleton animation in real time.
+
+    ![collider](./spine/collider2.png)
+
+4. Create a Sprite node in the **Node Tree** panel as the ground. Then select the node, set properties such as `Position` and `Size` in the **Properties** panel, and add **BoxCollider** component.
+
+5. Create a new JavaScript script in **Assets** and double-click to open to write. The sample script code is as follows:
+
+    ```js    
+    cc.Class({
+        extends: cc.Component,
+
+        properties: {
+            
+        },
+
+        start () {
+            cc.director.getCollisionManager().enabled = true;
+            cc.director.getCollisionManager().enabledDebugDraw = true;
+            this.stayCount = 0;
+        },
+
+        onCollisionEnter (other, self) {
+            this.stayCount++;
+        },
+
+        onCollisionExit (other, self) {
+            this.stayCount--;
+        },
+
+        update () {
+            if (this.stayCount > 0) {
+                this.node.color = cc.color(0, 200, 200);
+            } else {
+                this.node.color = cc.color(255, 255, 255);
+            }
+        }
+    });
+    ```
+
+6. Set the group of the node where the collider component is located. For how to set the group, please refer to the document [Collision Group Management](../physics/collision/collision-group.md) for details.
+
+    ![collider](./spine/collider_foot.png) ![collider](./spine/collider_ground.png)
+
+    ![collider](./spine/group_setting.png)
+
+7. You can see the effect by clicking the preview button above the editor. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) in example-case.

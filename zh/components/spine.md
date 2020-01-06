@@ -113,7 +113,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 ## Spine 挂点
 
-在使用骨骼动画时，经常需要在骨骼动画的某个部位上挂载节点，以实现节点与骨骼动画联动的效果。下面用一个范例来介绍 Spine 如何通过编辑器和脚本两种方式使用挂点将星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
+在使用骨骼动画时，经常需要在骨骼动画的某个部位上挂载节点，以实现节点与骨骼动画联动的效果。我们可以通过使用编辑器和脚本两种方式来实现 Spine 挂点，下面用一个范例来介绍 Spine 如何使用挂点将星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
 
 ![](./spine/attach0.png)
 
@@ -123,7 +123,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
     ![](./spine/attach1.png)
 
-2. 点击 **生成挂点** 按钮后，编辑器会在 **层级管理器** 中 Spine 组件所在节点的下方，以节点树的形式生成所有骨骼。
+2. 点击 **生成挂点** 按钮后，**层级管理器** 中 Spine 组件所在节点的下方，会以节点树的形式生成所有骨骼。
 
     ![](./spine/attach2.png)
 
@@ -135,9 +135,9 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
     ![](./spine/attach4.png)
     
-4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
+4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考 example-case 中的 [SpineAttach](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
 
-    Spine 挂点完成后，即可删除 **层级管理器** 中无用的骨骼节点，以减少运行时的计算开销。注意目标骨骼节点的父节点都不可删。
+**注意**：Spine 挂点完成后，即可删除 **层级管理器** 中无用的骨骼节点，以减少运行时的计算开销。注意目标骨骼节点的父节点都不可删。
 
 ### 通过脚本实现 Spine 挂点
 
@@ -156,7 +156,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
                 type: sp.Skeleton,
                 default: null,
             },
-            // 将要添加到骨骼上的预制体
+            // 将要添加到骨骼动画上的预制体
             targetPrefab: {
                 type: cc.Prefab,
                 default: null,
@@ -173,7 +173,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
             // 取得挂点工具
             let attachUtil = this.skeleton.attachUtil;
             attachUtil.generateAllAttachedNodes();
-            // 由于同名骨骼可能不止一个，所以返回数组
+            // 因为同名骨骼可能不止一个，所以需要返回数组
             let boneNodes = attachUtil.getAttachedNodes(this.boneName);
             // 取第一个骨骼作为挂点
             let boneNode = boneNodes[0];
@@ -201,7 +201,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
     });
     ```
 
-4. 将脚本挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。然后再将对应的节点或者资源拖拽到脚本组件对应的属性框中，并保存场景。
+4. 将脚本挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。然后再将对应的节点或者资源拖拽到脚本组件的属性框中，并保存场景。
 
     ![](./spine/attach_script.png)
 
@@ -215,7 +215,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 1. 与通过编辑器实现 Spine 挂点的前两个步骤一样，创建好 Spine 节点后，点击 Spine 组件中的 **生成挂点** 按钮。
 
-2. 然后在 **层级管理器** Spine 节点的骨骼节点树中选中目标骨骼节点（人物的脚）作为父节点，再创建一个空节点（重命名为 FrontFootCollider）作为子节点。
+2. 然后在 **层级管理器** Spine 节点下的骨骼节点树中选中目标骨骼节点（人物的脚）作为父节点，再创建一个空节点（重命名为 FrontFootCollider）作为子节点。
 
     ![collider](./spine/collider1.png)
 
@@ -265,4 +265,4 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
     ![collider](./spine/group_setting.png)
 
-7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的  [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
+7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
