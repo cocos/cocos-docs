@@ -45,7 +45,6 @@ Currently, our adaptation of Alipay Mini Games has not been completely completed
 - VideoPlayer
 - Subpackage Loading
 - Custom Font
-- EditBox: Alipay based on the current content security perspective, temporarily not open the text input control.
 
 The above functions are expected to be gradually supported in future updates, and we will continue to communicate closely with Alipay Mini Games engineers to continuously optimize the adaptation effect.
 
