@@ -6,7 +6,7 @@ DragonBones 骨骼动画资源是由 [DragonBones](http://dragonbones.com/) 编�
 
 DragonBones 骨骼动画资源包括：
 
-- .json 骨骼数据
+- .json/.dbbin 骨骼数据
 - .json 图集数据
 - .png 图集纹理
 

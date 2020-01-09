@@ -69,6 +69,8 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 ### 如何从服务器远程加载 DragonBones ？
 
+#### 加载文本格式的 DragonBones 资源
+
 ```js
 var animNode = new cc.Node();
 animNode.parent = cc.find('Canvas');
@@ -97,7 +99,39 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
+#### 加载二进制格式的 DragonBones 资源
+
+```js
+var animNode = new cc.Node();
+animNode.parent = cc.find('Canvas');
+var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+
+var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.dbbin';
+var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'bin' }, (error, dragonBonesBin) => {
+            var atlas = new dragonBones.DragonBonesAtlasAsset();
+            atlas.atlasJson = atlasJson;
+            atlas.texture = texture;
+
+            var asset = new dragonBones.DragonBonesAsset();
+            asset._nativeAsset = dragonBonesBin;
+
+            dragonDisplay.dragonAtlasAsset = atlas;
+            dragonDisplay.dragonAsset = asset;
+
+            dragonDisplay.armatureName = 'box_anim';
+            dragonDisplay.playAnimation('box_anim', 0);
+        });
+    });
+});
+```
+
 ### 如何从服务器远程加载 Spine
+
+#### 加载文本格式的 Spine 资源
 
 ```js
 var spineNode = new cc.Node();
@@ -112,6 +146,30 @@ cc.loader.load(image, (error, texture) => {
         cc.loader.load({ url: ske, type: 'txt' }, (error, spineJson) => {
             var asset = new sp.SkeletonData();
             asset.skeletonJson = spineJson;
+            asset.atlasText = atlasJson;
+            asset.textures = [texture];
+            asset.textureNames = ['1.png'];
+            skeleton.skeletonData = asset;
+        });
+    });
+});
+```
+
+#### 加载二进制格式的 Spine 资源
+
+```js
+var spineNode = new cc.Node();
+var skeleton = spineNode.addComponent(sp.Skeleton);
+this.node.addChild(spineNode);
+
+var image = "http://localhost/download/spineres/1/1.png";
+var ske = "http://localhost/download/spineres/1/1.skel";
+var atlas = "http://localhost/download/spineres/1/1.atlas";
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'bin' }, (error, spineBin) => {
+            var asset = new sp.SkeletonData();
+            asset._nativeAsset = spineBin;
             asset.atlasText = atlasJson;
             asset.textures = [texture];
             asset.textureNames = ['1.png'];
