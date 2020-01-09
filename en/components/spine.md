@@ -70,7 +70,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
     });
     ```
 
-4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the scene.
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** panel of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the scene.
 
     ![spine-cloth](./spine/spine-js.png)
 
@@ -203,7 +203,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
     });
     ```
 
-4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the nodes or resources to the corresponding properties box of script component, and save the scene.
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the node and resource to the corresponding properties box of script component, and save the scene.
 
     ![](./spine/attach_script.png)
 
@@ -219,11 +219,11 @@ Here is an example of Spine how to implement collision detection. And determines
 
 1. As with the first two steps of implement the Spine Attachments in the editor. After creating the Spine node, click the **Generate Attached Node** button in the Spine component.
 
-2. Then select the target bone node (the character's foot) as the parent node in the skeleton node tree under the Spine node of the **Node Tree** panel, and create an empty node (renamed FrontFootCollider) as a child node.
+2. Then select the target bone node (the character's foot) as the parent node in the skeleton node tree under the Spine node of the **Node Tree** panel, and create a child node names "FrontFootCollider".
 
     ![collider](./spine/collider1.png)
 
-3. Select the FrontFootCollider node in the **Node Tree** panel, click the **Add Component -> Collider Component -> Polygon Collider** button in the **Properties** panel to add a collider component, and then set the Polygon Collider component properties. Then the node will move with the skeleton animation, and the bounding box of the Collider component will be synchronized with the skeleton animation in real time.
+3. Select the FrontFootCollider node in the **Node Tree** panel, click the **Add Component -> Collider Component -> Polygon Collider** button in the **Properties** panel to add a collider component, and then set the Polygon Collider component properties. Then the node will move with the skeleton animation, and the bounding box of the Collider component will be synchronized with the skeleton animation in runtime.
 
     ![collider](./spine/collider2.png)
 
