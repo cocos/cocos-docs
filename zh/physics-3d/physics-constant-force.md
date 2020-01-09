@@ -1,18 +1,22 @@
 # 3D 物理恒力组件
 
-恒力组件向刚体添加恒定力，例如火箭，刚开始速度不大，但会一直加速，需要有持续的力作用在火箭上。
+恒力组件用于向刚体添加恒力。
 
-## 添加恒力组件
+![](image/constant-force-prop.png)
 
-![恒力组件](image/constant-force-component.png)
+点击 **属性检查器** 下方的 **添加组件 -> 物理组件 -> Constant Force 3D** 按钮，即可添加恒力组件到节点上。
 
-## 恒力组件属性
+需要注意的是在添加恒力组件时，会自动添加 [刚体组件](./physics-rigidbody.md)，且不能删除。
 
-![恒力组件](image/constant-force-prop.png)
+![](image/nodelect.png)
 
-属性 | 功能说明
----|---
-**Force** |  设置世界朝向的力
-**Local Force** |  设置本地朝向的力
-**Torque** |  设置世界朝向的扭转力
-**Local Torque** |  设置本地朝向的扭转力
+## 恒力属性
+
+| 属性          | 功能说明              |
+| ------------ | -----------          |
+| Force        | 设置世界坐标系中使用的力 |
+| Local Force  | 设置本地坐标系中使用的力 |
+| Torque       | 对世界朝向施加的扭矩    |
+| Local Torque | 对本地朝向施加的扭矩    |
+
+恒力组件的脚本接口请参考 [ConstantForce](../../../api/zh/classes/ConstantForce.html)。
