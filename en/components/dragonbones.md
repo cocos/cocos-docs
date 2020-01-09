@@ -79,3 +79,8 @@ Here is an example of how DragonBones replace the textures. By change the displa
 5. Click the preview button at the top of the editor, we can see that the knife on the robot's right hand has been replaced.
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
+
+## DragonBones Attach Node and Collision Detection
+
+The methods of DragonBones Attach Node and Collision Detection are exactly the same as Spine, please refer to [Spine Attach Node and Collision Detection](./spine.md) for details.
+
