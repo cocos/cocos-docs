@@ -36,9 +36,9 @@ Currently, the Sprite component supports five rendering modes:
 
 - `Tiled mode`: as the size of the Sprite increases, the image is not stretched, but it Will repeat according to the size of the original picture, paving the original picture to the size of the entire Sprite as tiled tiles.
 
-![tiled](sprite/tiled.png)
+  ![tiled](sprite/tiled.png)
 
-A Sprite in Tiled mode will be affected by its Sliced config. It will be sliced according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded in the SpriteFrame. The corners will remain unscaled when the Sprite is stretched, while the center sections will be repeated instead of stretched.
+  A Sprite in Tiled mode will be affected by its Sliced config. It will be sliced according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded in the SpriteFrame. The corners will remain unscaled when the Sprite is stretched, while the center sections will be repeated instead of stretched.
  
 - `Filled mode`: draws a portion of the original picture in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
 
