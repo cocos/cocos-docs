@@ -21,11 +21,11 @@
 
 触发事件包括以下三种：
 
-| 事件              | 说明             |
-| ---------------- | ---------------- |
-| `onTriggerEnter` | 触发开始          |
-| `onTriggerStay`  | 触发保持          |
-| `onTriggerExit`  | 触发结束          |
+| 事件             | 说明             |
+| --------------- | ---------------- |
+| `trigger-enter` | 触发开始          |
+| `trigger-stay`  | 触发保持          |
+| `trigger-exit`  | 触发结束          |
 
 #### 监听触发事件
 
@@ -39,7 +39,7 @@
   ```js
   start () {
       let collider = this.getComponent(cc.Collider3D);
-      collider.on('onTriggerStay', this.onTrigger, this);
+      collider.on('trigger-stay', this.onTrigger, this);
   },
 
   onTrigger (event) {
@@ -53,11 +53,11 @@
 
 碰撞事件包括以下三种：
 
-| 事件                | 说明             |
-| ------------------ | ---------------- |
-| `onCollisionEnter` | 碰撞开始          |
-| `onCollisionStay`  | 碰撞保持          |
-| `onCollisionExit`  | 碰撞结束          |
+| 事件               | 说明             |
+| ----------------- | ---------------- |
+| `collision-enter` | 碰撞开始          |
+| `collision-stay`  | 碰撞保持          |
+| `collision-exit`  | 碰撞结束          |
 
 #### 监听碰撞事件
 
@@ -71,7 +71,7 @@
   ```js
   start () {
       let collider = this.getComponent(cc.Collider3D);
-      collider.on('onCollisionStay', this.onCollision, this);
+      collider.on('collision-stay', this.onCollision, this);
   },
 
   onCollision (event) {

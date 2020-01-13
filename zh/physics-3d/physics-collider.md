@@ -10,8 +10,6 @@
 
 点击 **属性检查器** 下方的 **添加组件 -> 物理组件 -> Collider -> Box 3D** 按钮，即可添加盒碰撞组件到节点上。
 
-盒碰撞组件的脚本接口请参考 [BoxCollider3D](../../../api/zh/classes/BoxCollider3D.html)。
-
 ### 盒碰撞属性
 
 | 属性        | 功能说明                  |
@@ -21,13 +19,13 @@
 | Center     | 碰撞体在所在节点坐标中的位置  |
 | Size       | 碰撞体的大小，即长、宽、高    |
 
+盒碰撞组件的 API 接口请参考 [BoxCollider3D](../../../api/zh/classes/BoxCollider3D.html)。
+
 ## 球碰撞组件（SphereCollider3D）
 
 ![球碰撞组件](image/sphere-prop.png)
 
 点击 **属性检查器** 下方的 **添加组件 -> 物理组件 -> Collider -> Sphere 3D** 按钮，即可添加球碰撞组件到节点上。
-
-球碰撞组件的脚本接口请参考 [SphereCollider3D](../../../api/zh/classes/SphereCollider3D.html)。
 
 ### 球碰撞属性
 
@@ -37,3 +35,5 @@
 | Is Trigger | 是否可用作触发器。触发器相关可参考 [3D 物理事件](./physics-event.md) |
 | Center     | 碰撞体在所在节点坐标中的位置  |
 | Radius     | 碰撞体的半径               |
+
+球碰撞组件的 API 接口请参考 [SphereCollider3D](../../../api/zh/classes/SphereCollider3D.html)。

@@ -20,7 +20,7 @@ cc.director.getPhysics3DManager().enabled = true;
 | deltaTime  | 物理每步模拟消耗的时间，默认为 1/60 秒  |
 | gravity    | 物理世界的重力值，默认为 (0, -10, 0)  |
 
-脚本接口相关可参考 [Physics3DManager](../../..//api/zh/classes/Physics3DManager.html)。
+API 接口相关可参考 [Physics3DManager](../../..//api/zh/classes/Physics3DManager.html)。
 
 **注意**：Builtin 物理引擎不支持以上与物理模拟相关的属性。
 
