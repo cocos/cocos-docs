@@ -125,6 +125,7 @@ camera.getWorldToScreenMatrix2D(out);
 截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
 
 ```javascript
+// 此段代码仅适用于 web 平台游戏，native 平台的实现请自行参考 example-cases 中的 capture_to_native 场景
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);
