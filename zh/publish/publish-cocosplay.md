@@ -1,4 +1,6 @@
-# 发布到即刻玩小游戏
+# 发布到 Cocos Play
+
+> 从 v2.2.2 开始，即刻玩更名为 Cocos Play。
 
 ## 环境配置
 
@@ -6,15 +8,15 @@
 
 ## 发布流程
 
-一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **即刻玩小游戏**。
+一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **Cocos Play**。
 
-![](publish-jkw-games/build.png)
+![](publish-cocosplay/build.png)
 
 相关参数配置具体的填写规则如下：
 
 - **自定义游戏包路径**
 
-  该项为选填项（v2.1.3 新增），可以自定义构建生成的 cpk 包所存放的目录。如果不设置的话，cpk 包默认生成在发布包 jkw-game 目录下。
+  该项为选填项（v2.1.3 新增），可以自定义构建生成的 cpk 包所存放的目录。如果不设置的话，cpk 包默认生成在发布包 cocos-play 目录下。
 
 - **小包模式**
 
@@ -28,15 +30,15 @@
   
       开发者可以根据自己的需要选择是否勾选该项。然后点击 **构建**。
 
-  3. 构建完成后，点击 **发布路径** 后面的 **打开** 按钮，将发布路径下的 **jkw-game/res** 目录上传到小包模式服务器。例如：默认发布路径是 build，则需要上传 build/jkw-game/res 目录。
+  3. 构建完成后，点击 **发布路径** 后面的 **打开** 按钮，将发布路径下的 **cocos-play/res** 目录上传到小包模式服务器。例如：默认发布路径是 build，则需要上传 build/cocos-play/res 目录。
 
   此时，构建出来的 cpk 将不再包含 res 目录，res 目录里的资源将通过网络请求从填写的 **小包模式服务器地址** 上下载。
 
 二、**构建**
 
-**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **jkw-game** 目录，该目录就是导出的即刻玩小游戏工程目录和 cpk。cpk 包在 **/build/jkw-game** 目录下，如果有设置了 **自定义游戏包路径**，则 cpk 包在所设置的目录下。
+**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **cocos-play** 目录，该目录就是导出的 Cocos Play 工程目录和 cpk。cpk 包在 **/build/cocos-play** 目录下，如果有设置了 **自定义游戏包路径**，则 cpk 包在所设置的目录下。
 
-![](publish-jkw-games/package.png)
+![](publish-cocosplay/package.png)
 
 三、**将打包出来的 cpk 运行到手机上**。
 
@@ -44,7 +46,7 @@
 
 然后点击自测工具左上方的 **配置游戏** 按钮进入游戏配置页面。根据需求配置参数并保存。
 
-![](publish-jkw-games/configuration.png)
+![](publish-cocosplay/configuration.png)
 
 **参数配置**：
 
@@ -64,7 +66,7 @@
 
 **方法一**：以文件方式从指定位置加载游戏包（游戏加载类型为 **File**）
 
-  - 将构建生成的小游戏 cpk 文件（位于小游戏工程 jkw-game 目录下）拷贝到手机目录下。如果是拷贝到 sdcard 目录下，则需要在 sdcard 目录中新建一个文件夹，然后将 cpk 文件拷贝到新建文件夹中。
+  - 将构建生成的小游戏 cpk 文件（位于小游戏工程 cocos-play 目录下）拷贝到手机目录下。如果是拷贝到 sdcard 目录下，则需要在 sdcard 目录中新建一个文件夹，然后将 cpk 文件拷贝到新建文件夹中。
   - 游戏自测工具参数配置页面中的 **lodeType** 选择 **File**。
   - **path** 填写刚才拷贝 cpk 文件放置的新建文件夹，如：**/test/game.cpk**。
   - 配置完成后点击 **保存**，然后点击 **启动游戏**，即可打开游戏。
@@ -78,8 +80,8 @@
 
 ## 相关参考链接
 
-- [即刻玩小游戏中心](https://gamebox.cocos.com/)
-- [即刻玩小游戏文档中心](https://gamebox.gitbook.io/project/)
-- [即刻玩小游戏 API 文档](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/ji-chu-neng-li)
-- [即刻玩小游戏自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)
-- [即刻玩小游戏自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju)
+- [Cocos Play 中心](https://gamebox.cocos.com/)
+- [Cocos Play 文档中心](https://gamebox.gitbook.io/project/)
+- [Cocos Play API 文档](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/ji-chu-neng-li)
+- [Cocos Play 自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)
+- [Cocos Play 自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju)

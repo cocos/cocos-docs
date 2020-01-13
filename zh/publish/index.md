@@ -16,7 +16,7 @@
 - [发布到 vivo 小游戏](publish-vivo-instant-games.md)
 - [发布到华为快游戏](publish-huawei-quick-games.md)
 - [发布到小米快游戏](publish-xiaomi-quick-games.md)
-- [发布到即刻玩小游戏](publish-jkw-games.md)
+- [发布到 Cocos Play](publish-cocosplay.md)
 - [命令行发布项目](publish-in-command-line.md)
 - [定制项目构建模板](custom-project-build-template.md)
 

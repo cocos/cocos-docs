@@ -138,3 +138,23 @@ The engine has added a muting switch for multi-touch events in v2.3. Multi-touch
 ```javascript
 cc.macro.ENABLE_MULTI_TOUCH = false;
 ```
+
+## Pause or resume node system events
+
+Pause node system events
+
+```js
+// Pause all node system events registered on the current node. Node system events include touch and mouse events.
+// If the parameter is passed, then this API will suspend node system events on this node and all its children.
+// Example
+this.node.pauseSystemEvents();
+```
+
+Resume node system events
+
+```js
+// Resume all node system events registered on the current node. Node system events include touch and mouse events.
+// If the parameter is passed, then this API will resume node system events on this node and all its children.
+// Example
+this.node.resumeSystemEvents();
+```
