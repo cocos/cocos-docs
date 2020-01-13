@@ -6,6 +6,7 @@
 
 ## 特别推荐
 
+- [3D 物理与碰撞系统](physics-3d/index.md)。
 - [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。
 - 从 v2.1.4 开始，Cocos Creator 支持发布到 [支付宝小游戏](publish/publish-alipay-mini-games.md)。
