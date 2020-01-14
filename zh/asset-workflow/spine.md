@@ -1,12 +1,12 @@
 # 骨骼动画资源（Spine）
 
-骨骼动画资源是由 [Spine](http://zh.esotericsoftware.com/) 所导出的数据格式（Creator v2.0.7 及以下支持 Spine v2.5，Creator v2.0.8～v2.1 支持 Spine v3.6，Creator v2.2.0 及以上支持 Spine v3.7）。
+骨骼动画资源是由 [Spine](http://zh.esotericsoftware.com/) 所导出的数据格式（Creator v2.0.7 及以下支持 Spine v2.5，Creator v2.0.8～v2.1 支持 Spine v3.6，Creator v2.2 支持 Spine v3.7，Creator v2.3 及以上支持 Spine v3.8）。
 
 ## 导入骨骼动画资源
 
   骨骼动画所需资源有：
 
-- `.json` 骨骼数据
+- `.json/.skel` 骨骼数据
 - `.png`  图集纹理
 - `.txt/.atlas` 图集数据
 
