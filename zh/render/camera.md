@@ -42,7 +42,7 @@
 
 - **zoomRatio**
 
-  指定摄像机的缩放比例，值越大显示的图像越大。
+   指定摄像机的缩放比例。alignWithScreen 为 true 时，zoomRatio 越大显示的图像越大，而 alignWithScreen 为 false 时，zoomRatio 越大显示的图像越小。
 
 - **alignWithScreen**
 
