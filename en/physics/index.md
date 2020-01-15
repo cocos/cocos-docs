@@ -1,6 +1,8 @@
-# Physics system
+# 2D Physics and Collision
 
-The physics system in Creator consists of two parts:
+This section details 2D Physics and Collision. For information about 3D, please refer to [3D Physics and Collision](../physics-3d/index.md).
+
+The 2D Physics and Collision in Creator consists of two parts:
 
 - [Collider component](collision/index.md)
 - [Box2D physics engine](physics/index.md)

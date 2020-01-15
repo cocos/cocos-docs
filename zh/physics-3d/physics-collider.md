@@ -15,7 +15,7 @@
 | 属性        | 功能说明                  |
 | ---------- | -----------              |
 | Material   | 设置碰撞体的材质。具体可参考 [3D 物理材质](./physics-material.md)   |
-| Is Trigger | 是否可用作触发器。触发器相关可参考 [3D 物理事件](./physics-event.md) |
+| Is Trigger | 如果开启，碰撞组件会用作触发器。触发器相关可参考 [3D 物理事件](./physics-event.md) |
 | Center     | 碰撞体在所在节点坐标中的位置  |
 | Size       | 碰撞体的大小，即长、宽、高    |
 

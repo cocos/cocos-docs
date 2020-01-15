@@ -6,6 +6,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
+- [3D Physics and Collision](physics-3d/index.md).
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
