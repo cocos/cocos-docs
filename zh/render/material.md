@@ -28,8 +28,8 @@
 
 #### 使用材质资源
 
-1. 创建材质资源后，在 **资源管理器** 中选中新建的材质，然后在 **属性检查器** 中编辑材质的属性。
-2. 在 **层级管理器** 中选中需要添加材质的渲染组件所在的节点，再将材质拖拽至 **属性检查器** 中渲染组件的 Material 属性框即可。
+1. 创建材质资源后，在 **资源管理器** 中选中新建的材质，然后在 **属性检查器** 中编辑材质的属性。编辑完成后点击右上方的 **应用** 按钮。
+2. 在 **层级管理器** 中选中需要添加材质的渲染组件所在的节点，再将材质拖拽至 **属性检查器** 中渲染组件的 Materials 属性框即可。
 
     ![](./material/set-material.png)
 
@@ -47,9 +47,9 @@
 
 创建材质变体需要指定使用的 **共享材质** 和 **材质变体所属的渲染组件**。
 
-- `cc.MaterialVariant.createWithBuiltin (materialName: string, owner: cc.RenderComponent)`
+- `cc.MaterialVariant.createWithBuiltin(materialName: string, owner: cc.RenderComponent)`
   
-- `cc.MaterialVariant.create (material: cc.Material, owner: cc.RenderComponent)`
+- `cc.MaterialVariant.create(material: cc.Material, owner: cc.RenderComponent)`
 
 代码示例：
 
