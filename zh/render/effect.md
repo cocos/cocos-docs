@@ -1,19 +1,23 @@
 # Effect 参考
 
-## 创建与使用 Effect
+## 创建 Effect
 
-1. 在资源面板右键选择 Create => Effect 创建新的 Effect
+直接点击 **资源管理器** 左上方的 **+** 号按钮，然后选择 **Effect** 即可。
 
-![Create Effect](./material/effect-1.jpg)
+![](./material/create-effect.png)
 
-2. 选择新建的 New Effect，在属性面板上可以预览到编译后的 glsl 代码。
+另外一种方式是在 **资源管理器** 中选中要存放 Effect 的文件夹，然后点击右键，选择 **新建 -> Effect** 即可。
 
-![Create Effect](./material/effect-2.jpg)
+## 使用 Effect
 
-3. 选择材质，在 Effect 下拉框可以看到新建的 New Effect 选项
+1. 创建 Effect 后，在 **资源管理器** 中选中新建的 New Effect，然后在 **属性检查器** 中可以预览到编译后的 glsl 代码。
 
-![Create Effect](./material/effect-3.jpg)
+    ![](./material/effect-preview.png)
 
-## 书写 Effect
+2. 在 **资源管理器** 中选择材质，然后在 **属性检查器** 的 Effect 下拉框中可以看到新建的 New Effect 选项。
 
-Cocos Creator 的 Effect 书写规则基本与 Cocos Creator 3D 一致，详细的规则可以参考 [文档](https://docs.cocos.com/creator3d/manual/zh/material-system/effect-syntax.html)
+    ![](./material/use-effect.png)
+
+## Effect 书写规则
+
+Cocos Creator 的 Effect 书写规则基本与 Cocos Creator 3D 一致，具体可以参考 [文档](https://docs.cocos.com/creator3d/manual/zh/material-system/effect-syntax.html)。

@@ -109,6 +109,8 @@
     - [基本图像渲染](render/core-renderer.md)
     - [外部资源渲染](render/external-renderer.md)
     - [摄像机](render/camera.md)
+    - [材质资源](render/material.md)
+    - [Effect](render/effect.md)
     - [Sprite 组件参考](components/sprite.md)
     - [Label 组件参考](components/label.md)
     - [LabelOutline 组件参考](components/label-outline.md)
