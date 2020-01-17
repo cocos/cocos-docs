@@ -21,6 +21,7 @@ Another way is to select the folder in the **Assets** where you want to store th
 
 ## Usage of the Physics Material
 
-After creating the physics material, set the properties of the physics material in the **Properties** panel. Then select the node where the Collider component is located in the **Node Tree**, and drag the physics material to the Material property box of the Collider component.
+1. After creating the physics material, set the properties of the physics material in the **Properties** panel. After that, click the **Apply** button on the top right.
+2. Then select the node where the Collider component you want to modify is attached to, and drag the physics material to the **Material** property box of the Collider component.
 
-![](image/set-material.png)
+    ![](image/set-material.png)
