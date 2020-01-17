@@ -4,21 +4,7 @@ Material can be used to control the visual effects of Renderer components in the
 
 ![Material](./material/material.png)
 
-## Material Properties
-
-| Properties | Explanation	             |
-| ---------- | ---------------- |
-| Effect     | All effect resources in the current project are listed in the Effect drop-down box, and you can select the effect resource used by the current material. And the other properties will be updated when the Effect is switched. |
-| Technique  | All Techniques in the currently used Effect are listed in the Technique drop-down box.<br>There may be more than one Technique in an Effect, and each Technique may be applicable to different situations. Such as Technique, which is less effective but has better performance, and more suitable for mobile platforms.<br>The Pass list will be updated simultaneously when the Technique is switched. |
-| Pass       | The Pass list lists all Passes in the currently used Technique.<br>Each Pass may have different properties and definitions that you can set separately. If the property is wrapped by a definition, you need to check the definition to see the corresponding property.
-
-## Create and use material
-
-Material can be created and used in both the editor and the code.
-
-### Create and use in the editor
-
-#### Create material
+## Create material
 
 Just click the **+** button at the top left of the **Assets**, and then select the **Material**.
 
@@ -26,19 +12,25 @@ Just click the **+** button at the top left of the **Assets**, and then select t
 
 Another way is to select the folder in the **Assets** panel where you want to store the materials, then right-click and select **Create -> Material**.
 
-#### Use material
+## Material Properties
 
-1. After creating the Material, select the New Material in **Assets** panel, and then set the properties in the **Properties** panel. After editing, click the **Apply** button on the top right.
+| Properties | Explanation	             |
+| ---------- | ---------------- |
+| Effect     | All effect resources in the current project are listed in the Effect drop-down box, and you can select the effect resource used by the current material. And the other properties will be updated when the Effect is switched. |
+| Technique  | All Techniques in the currently used Effect are listed in the Technique drop-down box.<br>There may be more than one Technique in an Effect, and each Technique is suitable for different situations. Such as less effective but better performace Technique is more suitable for mobile platforms.<br>The Pass list will be updated simultaneously when the Technique is switched. |
+| Pass       | The Pass list lists all Passes in the currently used Technique.<br>Each Pass may have different properties and definitions that you can set separately. If the property is wrapped by a definition, you need to check the definition to see the corresponding property.
 
-2. Then select the node where the Renderer component is located in the **Node Tree** panel, and drag the New Material to the **Materials** property box of the Renderer component.
+## Use material
+
+1. After creating the Material, select the New Material in **Assets** panel, and then set the properties in the **Properties** panel. After that, click the **Apply** button on the top right.
+
+2. Then select the node where the Renderer component you want to modify is attached to. And drag the New Material to the **Materials** property box of the Renderer component.
 
     ![](./material/set-material.png)
 
-### Create and use in code
+## Create material in script
 
-The Material created in code are divided into **Shared Material** and **Material Variant**. If you change the Shared Material, it will affect the Material Variant synchronously.
-
-#### Create material
+Materials created in runtime can be divided into **Shared Material** and **Material Variant** types. If you change a Shared Material, it will affect all Material Variants synchronously.
 
 Creating a Shared Material requires specifying the **effect** and **technique** index to use.
 
@@ -69,19 +61,19 @@ let variant2 = cc.MaterialVariant.create(material);
 variant2.setProperty('mainTiling', cc.v2(0.5, 0.5));
 ```
 
-#### Set up and get Material in the Renderer component
+## Set material in script
 
 The Material used in the Renderer component is a Material Variant, and make sure that the Material Variant is only used by itself.<br>
-If the Material set in the Renderer component is a Shared Material or if the Material Variant is already used by another Renderer component, the Renderer component recreates a Material Variant based on the incoming Material during the setup process.
+If the Material set in the Renderer component is a Shared Material or if the Material Variant is already used by another Renderer component, the Renderer component will recreates a Material Variant based on the incoming Material during the setup process.
 
 ```js
 let variant1 = cc.MaterialVariant.createWithBuiltin(cc.Material.BUILTIN_NAME.SPRITE);
 
-// Set the Material to the specified index, and in general the index of the 2d Renderer component is 0.
-// Since variant1 does not specify owner render component, it will be used directly by renderComponent1 and set owner to renderComponent1
+// Set the Material to the specified index, and in general the index of a 2D Renderer component is 0.
+// Since variant1 does not specify it's owner render component, it will be used directly by renderComponent1 and set owner to renderComponent1
 renderComponent1.setMaterial(index, variant1);
 
-// variant1 already has owner, So internal will create a new Material Variant based on variant1
+// Once variant1 already has owner, this will internally create a new Material Variant based on variant1.
 // It's better to create a new variant2 to set it up
 renderComponent2.setMaterial(index, variant1);
 
