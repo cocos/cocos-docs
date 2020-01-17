@@ -1,45 +1,49 @@
-# Material 材质资源参考
+# Material 材质资源
 
-材质资源可以用来控制渲染组件在场景中的视觉效果。简单来说材质用来指定物体的表面的特性，如颜色，光亮程度，自发光度及不透明度等。
+材质资源可以用来控制渲染组件在场景中的视觉效果。简单来说材质就是用来指定物体表面的特性，如颜色、光亮程度、自发光度以及不透明度等。
 
+![Material](./material/material.png)
 
-## 创建与使用材质
+## 创建材质资源
 
-### 通过编辑器设置
+直接点击 **资源管理器** 左上方的 **+** 号按钮，然后选择 **Material** 即可创建新的材质资源。
 
-1. 在资源面板右键选择 Create => Material 创建新的材质
+![](./material/create-material.png)
 
-![Create Material](./material/material-1.jpg)
+另外一种方式是在 **资源管理器** 中选中要存放材质资源的文件夹，然后点击右键，选择 **新建 -> Material** 即可。
 
-2. 选择新建的材质，在属性面板中编辑材质的属性。
+## 材质资源属性
 
-- Effect 下拉框会列出当前项目中所有的 Effect 资源，你可以选择当前材质使用的 Effect 资源。当切换了 Effect 后其他属性也会同步更新。
+| 属性       | 说明             |
+| --------- | ---------------- |
+| Effect    | Effect 下拉框会列出当前项目中所有的 Effect 资源，开发者可以选择当前材质使用的 Effect 资源。<br>当切换了 Effect 后其他属性也会同步更新。|
+| Technique | Technique 下拉框会列出当前使用的 Effect 资源中所有的 Technique。<br>Effect 资源中可能会存在多个 Technique，每个 Technique 适用于不同的情况，比如效果差一点但是性能更好的 Technique 更适合用于手机平台。<br>当切换了 Technique 后 Pass 列表也会同步更新。 |
+| Pass      | Pass 列表会列出当前使用的 Technique 中所有的 Pass。<br>每个 Pass 可能会有不同的属性和定义，开发者可以分别设置这些属性和定义。如果属性是被定义包裹住的，需要先勾上定义才能看到对应的属性。 |
 
-- Effect 中可能会存在多个 Technique，每个 Technique 会适用于不同的情况，比如效果差一点但是性能更好的 Technique 更适合用于手机平台。Technique 下拉框会列出当前 Effect 资源中的所有 Technique，你可以选择使用哪一个 Technique。当切换了 Technique 后 Pass 列表也会同步更新。
+## 使用材质资源
 
-- Pass 列表会列出当前 Technique 中的所有 Pass，每个 Pass 可能会有不同的属性和定义，你可以分别设置这些属性和定义。如果属性是被定义包裹住的，需要先勾上定义才能看到对应的属性。
+1. 创建材质资源后，在 **资源管理器** 中选中新建的材质，然后在 **属性检查器** 中编辑材质的属性。编辑完成后点击右上方的 **应用** 按钮。
+2. 在 **层级管理器** 中选中需要添加材质的渲染组件所在的节点，再将材质拖拽至 **属性检查器** 中渲染组件的 Materials 属性框即可。
 
-![Create Material](./material/material-2.jpg)
+    ![](./material/set-material.png)
 
-3. 将新建的材质设置到渲染组件中。
+## 通过脚本创建材质资源
 
-![Create Material](./material/material-3.jpg)
+通过脚本创建的材质分为 **共享材质** 和 **材质变体**，共享材质的修改会同步影响到材质变体。
 
-### 通过代码设置
+创建共享材质需要指定使用的 effect 和 technique 索引。
 
-材质分为共享材质和材质变体，共享材质的修改会同步影响到材质变体。
+- `cc.Material.createWithBuiltin(effectName: string, techniqueIndex = 0)`
 
-#### 代码创建材质
+- `cc.Material.create(effectAsset: cc.EffectAsset, techniqueIndex = 0)`
 
-- 创建共享材质需要指定使用的 effect 和 technique 索引。
-  - cc.Material.createWithBuiltin(effectName: string, techniqueIndex = 0)
+创建材质变体需要指定使用的 **共享材质** 和 **材质变体所属的渲染组件**。
 
-  - cc.Material.create(effectAsset: cc.EffectAsset, techniqueIndex = 0)
-
-- 创建材质变体需要指定使用的 **共享材质** 和 **材质变体所属的渲染组件**。
-  - cc.MaterialVariant.createWithBuiltin (materialName: string, owner: cc.RenderComponent)
+- `cc.MaterialVariant.createWithBuiltin(materialName: string, owner: cc.RenderComponent)`
   
-  - cc.MaterialVariant.create (material: cc.Material, owner: cc.RenderComponent)
+- `cc.MaterialVariant.create(material: cc.Material, owner: cc.RenderComponent)`
+
+代码示例：
 
 ```js
 // 创建一个共享材质，共享材质的修改将会同步到材质变体上
@@ -56,13 +60,12 @@ let variant2 = cc.MaterialVariant.create(material);
 variant2.setProperty('mainTiling', cc.v2(0.5, 0.5));
 ```
 
-#### 代码设置和获取渲染组件中的材质
+## 在脚本中设置材质资源
 
-渲染组件中使用的材质都是**材质变体**并且会保证这个材质变体**只被自己所使用**。
-如果设置给渲染组件的材质是共享材质或者这个材质变体已经被其他渲染组件使用了，那么设置的过程中渲染组件会根据传入的材质重新创建一个材质变体。
+渲染组件中使用的材质都是 **材质变体**，并且要保证这个材质变体 **只被自己所使用**。<br>
+如果渲染组件中设置的材质是共享材质或者这个材质变体已经被其他渲染组件使用了，那么在设置的过程中渲染组件会根据传入的材质重新创建一个材质变体。
 
 ```js
-
 let variant1 = cc.MaterialVariant.createWithBuiltin(cc.Material.BUILTIN_NAME.SPRITE);
 
 // 设置材质到指定索引，一般来说 2d 渲染组件的 index 都是 0
