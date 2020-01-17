@@ -125,7 +125,7 @@ camera.getWorldToScreenMatrix2D(out);
 Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
 
 ```javascript
-// To use it on native platform, please refer to the capture_to_native scene in example-cases.
+// This code works only on web platform. To use this features on native platform, please refer to the capture_to_native scene in example-cases.
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);
