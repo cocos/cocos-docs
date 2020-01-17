@@ -1,6 +1,6 @@
 # Rigidbody
 
-Rigidbody is the basic object that composite the physics world.
+Rigidbody is the basic object that composite the physical world.
 
 ## Rigidbody properties
 
@@ -186,7 +186,7 @@ rigidbody.getWorldCenter (worldCenter);
 ### Force and impulse
 
 There are two ways to move an object, you can apply a force or impulse to the object. The force will slowly change the velocity of the object over time, and the impulse will immediately modify the velocity of the object.
-Of course, you can also directly modify the location of the object, but this does not give you the real physics simulation, you should try to use force or impulse to move a rigidbody to make the physics world more consistent.
+Of course, you can also directly modify the location of the object, but this does not give you the real physics simulation, you should try to use force or impulse to move a rigidbody to make the physical world more consistent.
 
 
 ```javascript
