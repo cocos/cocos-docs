@@ -42,7 +42,7 @@ The camera is the window that the player observes the game world, the scene must
 
 - **zoomRatio**
 
-  Specifies the zoom ratio of the camera. When align With Screen is true, the larger the Zoom Ratio, the larger the displayed image, and when aligns With Screen is false, the larger the Zoom Ratio, the smaller the displayed imthe larger the displayed imageage.
+  Specifies the zoom ratio of the camera. When alignWithScreen is true, the larger the zoomRatio, the larger the image displayed. While when alignsWithScreen is false, the larger the zoomRatio, the smaller the image displayed.
 
 - **alignWithScreen**
 
