@@ -105,6 +105,8 @@
     - [Core Renderers](render/core-renderer.md)
     - [External Asset Renderer](render/external-renderer.md)
     - [Camera](render/camera.md)
+    - [Material](render/material.md)
+    - [Effect](render/effect.md)
     - [Sprite Reference](components/sprite.md)
     - [Label Reference](components/label.md)
     - [LabelOutline Reference](components/label-outline.md)
