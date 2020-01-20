@@ -1,6 +1,6 @@
 # Label Component Reference
 
-Label components are used to display a piece of text, text can be system fonts, TrueType fonts or BMFont fonts and art numbers, in addition, label also has typesetting function.
+Label component is used to display a piece of text, the text can be **System Font**, **TrueType Font**, **BMFont** and **Atlas Font**. In addition, label also has typesetting function.
 
 ![label-property](./label/label-property.png)
 
@@ -14,14 +14,19 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Horizontal Align| Horizontal alignment pattern of the text. The options are LEFT, CENTER and RIGHT.
 |Vertical Align| Vertical alignment pattern of the text. The options are TOP, CENTER and BOTTOM.
 |Font Size| Font size of the text.
-|SpacingX | The spacing between font characters, only available in BMFont.
 |Line Height| Line height of the text.
+|SpacingX | The spacing between font characters, only available in BMFont.
 |Overflow| Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See [Label Layout](#label-layout) below for more detailed information.
 |Enable Wrap Text| Enable or disable the text line feed. (which takes effect when the Overflow is set to CLAMP or SHRINK)
-|Font | Designate the font file needed for rendering the text. If the system font is used, then this attribute can be set to null.
-|Font Family| Font family name, takes effect when using system font.
-|Cache Mode| The text cache mode (New in v2.0.9). Takes effect only for **system font** or **ttf** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for details.
-|  Use System Font | Boolean value, choose whether to use the system font or not.
+|Font Family| Font family name, takes effect when using **System Font**.
+| Enable Bold      | If enabled, the bold effect is added to the text. Takes effect when using **System Font** or **TTF** font.
+| Enable Ltalic    | If enabled, the ltalic effect is added to the text. Takes effect when using **System Font** or **TTF** font.
+| Enable Underline | If enabled, the underline effect is added to the text. Takes effect when using **System Font** or **TTF** font.
+| Underline Height | Height of underline.
+|Cache Mode| The text cache mode. Takes effect only for **System Font** or **TTF** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for details.
+|  Use System Font | Boolean value. If enabled, **System Font** will be used.
+| Materials  | The Material of Label, see the [Material](../render/material.md) for details.
+|Font | Specify the font file needed for text rendering. If the **System Font** is used, then this attribute can be set to `null`.  |
 
 ## Label Layout
 
@@ -31,7 +36,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |SHRINK| The text size will zoom in or out (it won't zoom out automatically, the maximum size that will show is specified by Font Size) as the Bounding Box size changes. When Wrap Text is enabled, if the width is not enough, it will try to wrap the text to the next line before automatically adapting the Bounding Box's size to make the text show completely. If Wrap Text is disabled, then it will compose according to the current text and zoom automatically if it exceeds the boundaries. **Note**: This mode may takes up more CPU resources when the label is refreshed.
 |RESIZE_HEIGHT| The text Bounding Box will adapt to the layout of the text. The user cannot manually change the height of text in this status; it is automatically calculated by the internal algorithm.
 
-## Cache Mode (New in v2.0.9)
+## Cache Mode
 
 | Properties |   Function Explanation
 | -------------- | ----------- |

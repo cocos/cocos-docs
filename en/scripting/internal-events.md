@@ -144,8 +144,8 @@ cc.macro.ENABLE_MULTI_TOUCH = false;
 Pause node system events
 
 ```js
-// Pause all node system events registered on the current node. Node system events include touch and mouse events.
-// If the parameter is passed, then this API will suspend node system events on this node and all its children.
+// Pause all node system events registered on the current node. Node system events include Touch and Mouse events.
+// If the parameter true is passed, the API will pause node system events on this node and all its children
 // Example
 this.node.pauseSystemEvents();
 ```
@@ -153,8 +153,8 @@ this.node.pauseSystemEvents();
 Resume node system events
 
 ```js
-// Resume all node system events registered on the current node. Node system events include touch and mouse events.
-// If the parameter is passed, then this API will resume node system events on this node and all its children.
+// Resume all node system events registered on the current node. Node system events include Touch and Mouse events.
+// If the parameter true is passed, the API will resume node system events on this node and all its children
 // Example
 this.node.resumeSystemEvents();
 ```

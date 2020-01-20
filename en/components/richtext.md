@@ -10,8 +10,6 @@ For more information about BBCode, please refer to the **BBCode format** section
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **richtext** from **Renderer Component** to add the richtext component to the node.
 
-The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html).
-
 ## RichText property
 
 | Property           | Function Explanation                                                                  |
@@ -26,6 +24,8 @@ The API reference of RichText is here: [RichText API](../../../api/en/classes/Ri
 | Line Height        | Line height, in points                                                                |
 | Image Atlas        | The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas. |
 | Handle Touch Event | Once checked, the RichText will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
+
+The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html).
 
 ## BBCode format
 
@@ -72,7 +72,7 @@ There are two ways to set the color of RichText:
 
 ## Cache Mode (New in v2.3)
 
-Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, refer to [Cache Mode of the Label component](../label.md)
+Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, refer to [Cache Mode of the Label component](./label.md)
 
 | Attributes |   Description
 | -------------- | ----------- |
@@ -80,9 +80,7 @@ Since the RichText component is assembled from multiple Label nodes, the number 
 |BITMAP| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render.
 | CHAR | After selection, each Label node created by RichText has its CacheMode set to CHAR type, that is, the text of each Label is cached in a globally shared bitmap in "words". Each of the same font style and size is Characters will share a cache globally.
 
-**Note**：
-
-- The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
+**Note**: The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
 
 ## Detailed explanation
 
