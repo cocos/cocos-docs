@@ -120,7 +120,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 点击下方的 **编译** 按钮，进入编译流程，如果模板选择了 `default` 的源码版引擎，这个编译的过程将会花费比较久的时间。编译成功后会提示
 
-`Compile native project successfully`
+`Compile native project successfully.`
 
 **注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
 
@@ -155,14 +155,14 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
 - 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
 - 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 - 从 v2.3.0 开始，Android 与 Android Instant 使用同一个构建模板，构建生成的工程都是在 `build\jsb-default\frameworks\runtime-src\proj.android-studio` 目录中。针对该目录请注意：
-  - 如果是 Android 平台单独使用的代码请放入 `app/src` 目录，单独使用的第三方库请放入 `app/libs` 目录（若没有这两个目录可自行创建）。
+  - 如果是 Android 平台单独使用的代码请放入 `app\src` 目录，单独使用的第三方库请放入 `app\libs` 目录（若没有这两个目录可自行创建）。
   - 如果是 Android Instant 单独使用的代码和第三方库请分别放入 `game\src` 和 `game\libs` 目录。
   - 如果是 Android 和 Android Instant 共用的代码和第三方库，请分别放入 `src` 和 `libs` 目录。
   - `proj.android-studio` 目录下的 `jni\CocosAndroid.mk` 和 `jni\CocosApplication.mk` 文件主要用于引擎相关的配置，建议不要修改。开发者如果需要修改配置请参考以下内容：
     - Android 平台请在 `app\jni\Android.mk` 和 `app\jni\Application.mk` 中修改。
     - Android Instant 请在 `game\jni\Android.mk` 和 `game\jni\Application.mk` 中修改。
 
-  在编译 Android 时会默认执行 `assembleRelease/Debug`。在编译 Android Instant 时会默认执行 `instant:assembleRelease/Debug`。
+  通过在 **构建发布** 面板点击 **编译** 按钮来编译 Android 时，会默认执行 `assembleRelease\Debug`，编译 Android Instant 时会默认执行 `instant:assembleRelease\Debug`。
 
 ---
 
