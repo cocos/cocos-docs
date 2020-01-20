@@ -21,7 +21,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Font             | Specify the font file needed for text rendering. If the **System Font** is used, then this attribute can be set to `null`.  |
 | Font Family| Font family name, takes effect when using **System Font**.                                                                        |
 | Enable Bold      | If enabled, the bold effect is added to the text. Takes effect when using **System Font** or **TTF** font.                  |
-| Enable Ltalic    | If enabled, the ltalic effect is added to the text. Takes effect when using **System Font** or **TTF** font.                |
+| Enable Italic    | If enabled, the italic effect is added to the text. Takes effect when using **System Font** or **TTF** font.                |
 | Enable Underline | If enabled, the underline effect is added to the text. Takes effect when using **System Font** or **TTF** font.             |
 | Underline Height | Height of underline.                                                                                                        |
 | Cache Mode       | The text cache mode. Takes effect only for **System Font** or **TTF** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for details.                                                   |

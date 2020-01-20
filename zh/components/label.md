@@ -21,7 +21,7 @@ Label 组件用来显示一段文字，文字可以是系统字体、TrueType �
 | Font             | 指定文本渲染需要的字体文件，如果使用系统字体，则此属性可以为空。                                                   |
 | Font Family      | 文字字体名字，在使用 **系统字体** 时生效。                                                                    |
 | Enable Bold      | 是否启用黑体，在使用 **系统字体** 或 **TTF** 字体时生效。                                                      |
-| Enable Ltalic    | 是否启用斜体，在使用 **系统字体** 或 **TTF** 字体时生效。                                                      |
+| Enable Italic    | 是否启用斜体，在使用 **系统字体** 或 **TTF** 字体时生效。                                                      |
 | Enable Underline | 是否启用下划线，在使用 **系统字体** 或 **TTF** 字体时生效。                                                     |
 | Underline Height | 下划线的高度。                                                                                             |
 | Cache Mode       | 文本缓存类型，仅对 **系统字体** 或 **TTF** 字体有效，BMFont 字体无需进行这个优化。包括 **NONE**、**BITMAP**、**CHAR** 三种模式。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。                                       |
