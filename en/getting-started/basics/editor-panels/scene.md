@@ -25,9 +25,11 @@ The purple frame in the view represents the content area that displays in the sc
 
 ## Select a node
 
-When the mouse is hovering on the node in the scene, the constraint frame of the node will display a grey singlet line. The node will be selected if you left click the mouse. You can only use transform tools (like position, rotation) to set node operations after selecting it.
+When the mouse is hovering on the node in the scene, the constraint frame of the node will display a grey singlet line. The node will be selected if you left click the mouse. There will be wireframe in blue around the selected node to prompt the constraint frame for node. You can only use transform tools (like position, rotation) to set node operations after selecting it.
 
-There will be wireframe in blue around the selected node to prompt the constraint frame for node.
+If you want to quickly focus node in the **Scene** panel, there are two ways:
+- Double click the node in the **Node Tree** panel.
+- Select the node in the **Node Tree** panel and press the **F** shortcut key.
 
 ### The node constraint box
 

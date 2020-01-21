@@ -24,17 +24,19 @@
 - [Cocos Creator 入门](getting-started/index.md)
 - [资源工作流程](asset-workflow/index.md)
 - [场景制作工作流程](content-workflow/index.md)
+- [脚本开发指南](scripting/index.md)
+- [发布跨平台游戏](publish/index.md)
 - [图像和渲染](render/index.md)
 - [UI 系统](ui/index.md)
-- [编程开发指南](scripting/index.md)
 - [动画系统](animation/index.md)
-- [碰撞系统](physics/collision/index.md)
 - [音乐和音效](audio/index.md)
-- [发布跨平台游戏](publish/index.md)
+- [2D 物理和碰撞系统](physics/index.md)
+- [3D 系统](3d/index.md)
+- [3D 物理与碰撞系统](physics-3d/index.md)
 - [扩展编辑器](extension/index.md)
 - [进阶主题](advanced-topics/index.md)
 - [SDK 集成](sdk/index.md)
-- [3D 系统](3d/index.md)
+
 
 ## 视频教程
 
