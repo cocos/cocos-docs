@@ -86,3 +86,11 @@ If you want to remove a node in the map layer, call the `removeUserNode` of Tile
 ---
 
 Continue on to read about [Workflow of script development](../scripting/index.md).
+
+## Disable TiledMap clipping
+
+```js
+    cc.macro.ENABLE_TILEDMAP_CULLING = false;
+```
+
+If you need to rotate the map or place it in the perspective camera, you need to turn off clipping. In addition, if there are not too many map tiles, such as less than 5000, then turning off clipping can also reduce the computing burden of CPU, and the GPU directly uses the cache for rendering.
