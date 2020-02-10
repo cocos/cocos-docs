@@ -58,15 +58,19 @@
 三、**将打包出来的 cpk 运行到手机上**。
 
 - 打开之前已经安装完成趣头条APP，在底部导航栏点击**我的**，下拉到最底部**设置**,点击进入**设置页面**
+
 ![](publish-qutoutiao/setting.png)
 
 - 在设置页标题 **右侧空白区域** 连续点击10次，进入**趣实验**
+
 ![](publish-qutoutiao/click10.png)
 
 - 在**趣实验页面**找到 **cocos实验室**点击进入,可以看到cocos实验室的界面
+
 ![](publish-qutoutiao/golab.png)
 
 - 在 cocos 实验的界面,打开 game 包本地化开关, cpk 包放置到 /sdcard/Android/data/com.jifen.kan/cache/debug/game_debug.cpk 。根据需要打开 debug 开关和 vconsole 开关。
+
 ![](publish-qutoutiao/nativecpk.png)
 
 - 填写申请好的 appid 和 game version
