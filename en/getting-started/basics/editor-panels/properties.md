@@ -1,6 +1,6 @@
 # Properties
 
-**Properties** panel is the working area where we check and edit the current selected nodes, component properties and assets. Select the node in **Scene**, **Node Tree** panel or select asset in **Assets** panel, properties of this node, properties of all the components of this node and properties of assets will display in **Properties** panel for your inquiry and editing.
+**Properties** panel is the working area where we check and edit the current selected nodes, components and assets. Select a node in **Scene**, **Node Tree** panel or select an asset in **Assets** panel, their properties of this node, properties of all the components of this node and properties of assets will display in **Properties** panel for your inquiry and editing.
 
 ![properites-panel](inspector/properites_panel.png)
 
@@ -12,11 +12,11 @@ What displays at the right side of the node activating switch is node name, whic
 
 ## Node Properties
 
-Next, **Properties** panel will show propertieds of node, which are listed under the headline `Node`. By clicking `Node`, one can fold or unfold the properties of node. There is a node setting button on the right side of the `Node` header, which can reset node properties or reset node properties and all component properties, or paste copied components.
+Next, **Properties** panel will show properties of node, which are listed under the headline `Node`. By clicking `Node`, one can fold or unfold the properties of node. There is a node setting button on the right side of the `Node` header, which can reset node properties or reset node properties and all component properties, or paste copied components.
 
-Other than the transforming properties like Position, Rotation, Scale and Size, node properties also include Anchor, Color, Opacity, Skew. Generally, modifications of node properties will immediately reflect in the changes in the appearance or position of node in **Scene** panel.<br>
-If you need to edit several nodes at once, you can press Shift in the **Node Tree** panel to select several nodes, and then set them in the **Properties** panel. 
-The batch setting of node properties is similar to the assets. For details, please refer to the Editing Several Assets at Once section at the bottom of this document.
+Other than the transforming properties like Position, Rotation, Scale and Size, node properties also include Anchor, Color, Opacity, etc. Generally, modifications of node properties will immediately reflect in the changes in the appearance or position of node in **Scene** panel.<br>
+If you need to edit several nodes at once, you can press Shift in the **Node Tree** panel to select them, and make modifications in **Properties** panel.<br>
+The batch setting of node properties is similar to the assets. For details, please refer to Editing Several Assets at Once section at the bottom of this document.
 
 For more details on node properties, please read [Transform](../../../content-workflow/transform.md) section.
 
@@ -63,19 +63,20 @@ The property column that needs to be assigned value by dragging assets will show
 
 ## Editing several assets at once
 
-Selecting an asset in the **Assets** panel displays the properties of the asset in the **Properties** panel for query and editing. Asset settings related, see the [Asset workflow](../../../asset-workflow/index.md#common-asset-workflow) for details.
+Selecting an asset in the **Assets** panel displays the properties of the asset in the **Properties** panel for query and editing. Asset settings related, see documentation on [Asset workflow](../../../asset-workflow/index.md#common-asset-workflow) for details.
 
 When you need to edit several assets properties of the **same type** at once, you can press Shift in the **Assets** panel to select several assets, and then the **Properties** panel will display the number of selected assets and editable asset properties. After that, click the **Apply** button on the top right.
 
 ![](inspector/edit_many_res.png)
 
-If the properties in the **Properties** panel show the following statuses, it means that the property value of the property in the selected several assets is inconsistent. You can choose whether to continue to modify the property in batches as required.
+If a property in **Properties** panel shows the following statuses, it means the property values of the assets are inconsistent. You can choose whether to continue to modify the properties in batches as required.
+
 - Check box is **gray**
-- Input box display **-**
+- Input box is **-**
 - Select box is **blank**
 
 **Note**:
-- Currently, the Material and the Texture Compression of Texture do not support.
-- Several assets of **different types** can be selected at once, but it is not supported to modify properties at the same time. Only the number of currently selected assets will be displayed in the **Properties** panel.
+- Currently, this feature does not support Material properties and Texture Compression properties.
+- Several assets with **different types** can be selected at once, but it is not supported to modify properties at the same time. Only the number of currently selected assets will be displayed in the **Properties** panel.
 
   ![](inspector/different_type_res.png)
