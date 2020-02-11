@@ -69,7 +69,7 @@
 
 ![](publish-qutoutiao/golab.png)
 
-- 在 cocos 实验的界面,打开 game 包本地化开关, cpk 包放置到 /sdcard/Android/data/com.jifen.kan/cache/debug/game_debug.cpk 。根据需要打开 debug 开关和 vconsole 开关。
+- 在 cocos 实验的界面,打开 game 包本地化开关, cpk 包放置到 /sdcard/Android/data/com.jifen.qukan/cache/debug/game_debug.cpk 。根据需要打开 debug 开关和 vconsole 开关。
 
 ![](publish-qutoutiao/nativecpk.png)
 
