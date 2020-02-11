@@ -58,14 +58,16 @@ Note: all tag names should be lower case and the property assignment should use 
 #### Optional attribute of img tag (New in v2.3)
 
 For better typography we have provided additional optional attributes for the img tag. You can use `width`,` height` to specify the size of the spriteframe. This will allow the image to be larger or smaller than the line height (but it will not change the line height )
+When you change the height or width of the spriteframe, you may need to use the `align` attribute to adjust the alignment of the image in the line.
 
 | attribute | Description | Example | Note   |
 | --------- | ----------- | ------- | ------ |
 | height    | Specify the spriteframe height size, the size should be a integer.| `<img src='foo' height=50 />` | If you only assign height the spriteframe will auto keep aspect-ratio
 | width     | Specify the spriteframe width size, the size should be a integer.| `<img src='foo' width=50 />` | You can use both Height and Width `<img src='foo' width=20 height=30 />`
+| align     | Specify the spriteframe alignment in line, the value should be `bottom`, `top` or `center`.| `<img src='foo' align=center />` | Default spriteframe alignment will be bottom 
 | offset    | Specify the spriteframe offset in line, the size should be a integer.| `<img src='foo' offset=5,10 />` | Using offset attribute may make your picture overlap with text
 
-In addition, to facilitate more complex typography requirements, we provide the `<img offset />` attribute for the img tag, which will allow you to fine-tune the position of the specified spriteframe in the RichText component.
+In addition, to facilitate more complex typography requirements, we provide the `offset` attribute for the img tag, which will allow you to fine-tune the position of the specified spriteframe in the RichText component.
 
 | position | Example | Description | Note   |
 | -------- | ------- | ----------- | ------ |
