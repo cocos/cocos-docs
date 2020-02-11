@@ -6,6 +6,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
+- [Material System](render/index.md)。
 - [3D Physics and Collision](physics-3d/index.md).
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).

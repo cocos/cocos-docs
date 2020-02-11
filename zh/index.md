@@ -6,6 +6,7 @@
 
 ## 特别推荐
 
+- [材质系统](render/index.md)。
 - [3D 物理与碰撞系统](physics-3d/index.md)。
 - [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。

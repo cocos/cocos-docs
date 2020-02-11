@@ -65,7 +65,7 @@ Android requires that all APKs be digitally signed with a certificate before the
 
 ### App Bundle (Google Play)
 
-Creator added the **App Bundle (Google Play)** option to the **v2.0.9**. If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
+If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
 
 ### SDKBox
 
@@ -77,9 +77,13 @@ Encrypt the published script. After build, the JSC file is generated in the `src
 
 **JS Encryption Key**: This secret key will be used to encrypt js files. The project will generate the key randomly when created.
 
-**Zip Compress**: You can reduce the size of your scripts by checking them
+**Zip Compress**: You can reduce the size of your scripts by checking them.
 
-![](publish-native/js_secret.PNG)
+![](publish-native/js_secret.png)
+
+### Build Scripts Only
+
+When you build a project, if you only modified some scripts, checking this option will only rebuild the scripts, which can greatly reduce the build time.
 
 ## Select source
 
@@ -108,7 +112,7 @@ After selecting the release platform and initial scene, the project can now be b
 When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
 
 ```bash
-Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
+Built to "\myProject\example\build\jsb-default" successfully
 ```
 
 Next, you can choose to directly open the original preview provided by Cocos Creator, or manually open the constructed native project in IDE of corresponding platform for further preview, adjustment and release.
@@ -117,7 +121,7 @@ Next, you can choose to directly open the original preview provided by Cocos Cre
 
 Click the **Compile** button below to enter the compile process, if the template chooses the `default` source code engine, this compilation process will take a long time. When the compilation is successful, it will prompt:
 
-`Compile native project successfully`
+`Compile native project successfully.`
 
 **Note: After the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, then compile and run.**
 
@@ -139,9 +143,9 @@ The iOS platform recommends compiling with the Xcode connection true machine. Af
 
 Click the **open** button near the release path, the building release path will be opened in the document manager of operating system.
 
-`jsb` of this path includes all the native build projects.
+`jsb-default` or `jsb-link` of this path includes all the native build projects.
 
-![native projects](publish-native/native_projects.jpg)
+![native projects](publish-native/native_projects.png)
 
 The red frames in the picture indicate projects of different native platforms. Next, only by using IDE(such as: Xcode, Visual Studio) that corresponds to the native platform to open these projects, can you make further operations like compilation, preview and release. For the usage instructions for native platform's IDE, please search related information on your own, which will not be discussed in detail here.
 
@@ -149,6 +153,15 @@ The red frames in the picture indicate projects of different native platforms. N
 
 - Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
 - When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
+- Starting from v2.3.0, Android and Android Instant use the same build template, and the built projects are in the `build\jsb-default\frameworks\runtime-src\proj.android-studio` directory. Please note for this directory:
+  - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
+  - For code and third-party library used separately by the Android Instant, place them in the `game\src` and `game\libs` directories, respectively.
+  - For code and third-party library used in common by the Android and Android Instant, place them in the `src` and `libs` directories, respectively.
+  - The `jni\CocosAndroid.mk` and `jni\CocosApplication.mk` files in the `proj.android-studio` directory are mainly used for engine-related configuration and aren't recommended to be modified. If you need to modify the configuration:
+    - For Android, please modify `app\jni\Android.mk` and `app\jni\Application.mk`.
+    - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
+
+  When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.
 
 ---
 
