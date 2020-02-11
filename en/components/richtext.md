@@ -55,8 +55,28 @@ Note: all tag names should be lower case and the property assignment should use 
 | img    |Add image emoji support to your RichText. The emoji name should be a valid spriteframe name in the ImageAtlas property. |`<img src='emoji1' click='handler' />` | Note: Only `<img src='foo' click='bar' />` is a valid img tag. If you specify a large emoji image, it will scale the sprite height to the line height of the RichText together with the sprite width.
 
 
-Tags could be nested, the rules is the same as normal HTML tags. For example, the following settings will render
-a label with font size 30 and color value green.
+#### Optional attribute of img tag (New in v2.3)
+
+For better typography we have provided additional optional attributes for the img tag. You can use `width`,` height` to specify the size of the spriteframe. This will allow the image to be larger or smaller than the line height (but it will not change the line height )
+
+| attribute | Description | Example | Note  |
+| -------- | ----------- | ------- | ------ |
+| height   |Specify the spriteframe height size, the size should be a integer.| `<img src='foo' height=50 />` |If you only assign height the spriteframe will auto keep aspect-ratio
+| width    |Specify the spriteframe width size, the size should be a integer.| `<img src='foo' width=50 />` |You can use both Height and Width `<img src='foo' width=20 height=30 />`
+| offset   |Specify the spriteframe offset in line, the size should be a integer.| `<img src='foo' offset=5,10 />` |Note: Using offset attribute may make your picture overlap with text
+
+In addition, to facilitate more complex typography requirements, we provide the `<img offset />` attribute for the img tag, which will allow you to fine-tune the position of the specified spriteframe in the RichText component.
+
+| position | Example | Description | Note   |
+| -------- | ------- | ----------- | ------ |
+| Y        |`<img src='foo' offset=5 />`|Specify the spriteframe to offset y + 5|If offset only set one Integer value it's will be offset Y
+| Y        |`<img src='foo' offset=-5 />`|Specify the spriteframe to offset y - 5|You can use minus to decrease Y position
+| X, Y     |`<img src='foo' offset=6,5 />`|Specify the spriteframe to offset x + 6 and y + 5|Use `,` to split x and y offset value
+| X, Y     |`<img src='foo' offset=6,-5 />`|Specify the spriteframe to offset x + 6 and y - 5|The offset values should only contains `0-9` and `,` characters
+
+### Nested Tags
+
+Tags could be nested, the rules is the same as normal HTML tags. For example, the following settings will render a label with font size 30 and color value green.
 
 `<size=30><color=green>I'm green</color></size>`
 
