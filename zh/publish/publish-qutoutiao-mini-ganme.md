@@ -1,6 +1,6 @@
-# 发布到 趣头条小游戏
+# 发布到趣头条小游戏
 
-> 从 v2.3.0 开始，Cocos Creator 开始支持 **趣头条小游戏** 平台。
+> Cocos Creator 从 v2.3.0 开始支持 **趣头条小游戏** 平台。
 
 ## 环境配置
 
@@ -57,30 +57,31 @@
 
 三、**将打包出来的 cpk 运行到手机上**。
 
-- 打开之前已经安装完成趣头条APP，在底部导航栏点击**我的**，下拉到最底部**设置**,点击进入**设置页面**
+- 打开之前已经安装完成的趣头条 APP，在底部导航栏点击 **我的**，下拉到最底部 **设置** ,点击进入 **设置页面**
 
 ![](publish-qutoutiao/setting.png)
 
-- 在设置页标题 **右侧空白区域** 连续点击10次，进入**趣实验**
+- 在设置页标题 **右侧空白区域** 连续点击 6 次，进入 **趣实验**
 
 ![](publish-qutoutiao/click10.png)
 
-- 在**趣实验页面**找到 **cocos实验室**点击进入,可以看到cocos实验室的界面
+- 在 **趣实验页面** 找到 **cocos实验室** 点击进入，可以看到 cocos 实验室的界面
 
 ![](publish-qutoutiao/golab.png)
 
-- 在 cocos 实验的界面,打开 game 包本地化开关, cpk 包放置到 /sdcard/Android/data/com.jifen.qukan/cache/debug/game_debug.cpk 。根据需要打开 debug 开关和 vconsole 开关。
+- 在 cocos 实验室界面中打开 **game 包本地化开关**，可以看到下方显示了一个目录。然后将构建生成的 cpk 包重命名为 game_debug.cpk，并放置到该目录下。最后根据需要打开   **debug 开关** 和 **vconsole 开关**。
 
 ![](publish-qutoutiao/nativecpk.png)
 
 - 填写申请好的 appid 和 game version
+
   appid 是申请到的游戏 id, game version 是游戏包的版本特征值，正常是由平台生成的，此处作为调试用，任意一串字母数字组成的字符串即可，但是要保证每更换一次包要重新输入一个新的值。
 
-- 准备完成后,点击**打开游戏**即可.注：每次打开游戏后，再次点击**打开游戏**按钮，需要重新把 cpk 放置到上述所述目录下。
+- 设置完成后，点击下方的 **打开游戏** 按钮即可。注意：如果要再次**打开游戏**，则需要重新把 cpk 放置到上述所述目录下。
 
 
 ## 相关参考链接
 
 -  [趣头条小游戏调试](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app)
 -  [趣头条小游戏文档](https://game.qutoutiao.net/doc/index.html#/)
--  [API文档](https://newidea4-gamecenter-frontend.1sapp.com/sdk/docs/#/sdk/README)
+-  [API 文档](https://newidea4-gamecenter-frontend.1sapp.com/sdk/docs/#/sdk/README)
