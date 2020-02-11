@@ -162,7 +162,7 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
     - Android 平台请在 `app\jni\Android.mk` 和 `app\jni\Application.mk` 中修改。
     - Android Instant 请在 `game\jni\Android.mk` 和 `game\jni\Application.mk` 中修改。
 
-  通过在 **构建发布** 面板点击 **编译** 按钮来编译 Android 时，会默认执行 `assembleRelease\Debug`，编译 Android Instant 时会默认执行 `instant:assembleRelease\Debug`。
+  通过在 **构建发布** 面板点击 **编译** 按钮来编译 Android 时，会默认执行 `assembleRelease/Debug`，编译 Android Instant 时会默认执行 `instant:assembleRelease/Debug`。
 
 ---
 

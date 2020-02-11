@@ -81,7 +81,7 @@ Encrypt the published script. After build, the JSC file is generated in the `src
 
 ### Build Scripts Only
 
-When you build the project, if you only modified some scripts, checking this option will only rebuild the scripts, which can greatly reduce the build time.
+When you build a project, if you only modified some scripts, checking this option will only rebuild the scripts, which can greatly reduce the build time.
 
 ## Select source
 
@@ -159,7 +159,7 @@ The red frames in the picture indicate projects of different native platforms. N
     - For Android, please modify `app\jni\Android.mk` and `app\jni\Application.mk`.
     - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
 
-  When compiling Android in **Build** panel, `assembleRelease\Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease\Debug` is executed by default.
+  When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.
 
 ---
 
