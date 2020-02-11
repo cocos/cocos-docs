@@ -1,6 +1,6 @@
 # Label Component Reference
 
-Label component is used to display a piece of text, the text can be **System Font**, **TrueType Font**, **BMFont** and **Atlas Font**. In addition, label also has typesetting function.
+Label component is used to display a piece of text, the text can be **System Font**, **TrueType Font**, **BMFont** or **Atlas Font**. In addition, label also has typesetting function.
 
 ![label-property](./label/label-property.png)
 
@@ -18,17 +18,17 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | SpacingX         | The spacing between font characters, only available in BMFont.                                                              |
 | Overflow         | Layout pattern of the text. Currently supports CLAMP, SHRINK and RESIZE_HEIGHT. See [Label Layout](#label-layout) below for more detailed information. |
 | Enable Wrap Text | Enable or disable the text line feed. (which takes effect when the Overflow is set to CLAMP or SHRINK)                      |
-| Font             | Specify the font file needed for text rendering. If the **System Font** is used, then this attribute can be set to `null`.  |
-| Font Family| Font family name, takes effect when using **System Font**.                                                                        |
-| Enable Bold      | If enabled, the bold effect is added to the text. Takes effect when using **System Font** or **TTF** font.                  |
-| Enable Italic    | If enabled, the italic effect is added to the text. Takes effect when using **System Font** or **TTF** font.                |
-| Enable Underline | If enabled, the underline effect is added to the text. Takes effect when using **System Font** or **TTF** font.             |
+| Font             | Specify the font file needed for text rendering. If the System Font is used, then this property can be set to `null`.       |
+| Font Family      | Font family name. (Takes effect when using System Font)                                                                     |
+| Enable Bold      | If enabled, bold effect will be added to the text. (Takes effect when using System Font or TTF font)                        |
+| Enable Italic    | If enabled, italic effect will be added to the text. (Takes effect when using System Font or TTF font)                      |
+| Enable Underline | If enabled, underline effect will be added to the text. (Takes effect when using System Font or TTF font)                   |
 | Underline Height | Height of underline.                                                                                                        |
-| Cache Mode       | The text cache mode. Takes effect only for **System Font** or **TTF** font, BMFont do not require this optimization. And includes **NONE**, **BITMAP**, **CHAR** three modes. See [Cache Mode](#cache-mode-new-in-v209) below for details.                                                   |
-| Use System Font  | Boolean value. If enabled, **System Font** will be used.                                                                    |
-| Materials        | The Material of Label, see the document [Material](../render/material.md) for details.                                               |
+| Cache Mode       | Text cache mode includes **NONE**, **BITMAP** or **CHAR**. Takes effect only for System Font or TTF font, BMFont does not require this optimization. See [Cache Mode](#cache-mode-new-in-v209) below for details. |
+| Use System Font  | If enabled, **System Font** will be used.                                                                    |
+| Materials        | Material of Label, see the document [Material](../render/material.md) for details.                                          |
 
-For the API interface of Label, please refer to [Label API](../../../api/en/classes/Label.html).
+For API interface of Label, please refer to [Label API](../../../api/en/classes/Label.html).
 
 ## Label Layout
 

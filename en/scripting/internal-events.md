@@ -33,7 +33,7 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 
 The important APIs of mouse events (`cc.Event.EventMouse`) are as follows (`cc.Event` standard events API excluded):
 
-| Function name  | Returned value type | Meaning |
+| Function name  | Returns value type | Meaning |
 | -------------- | :-----------------: | ------- |
 | `getScrollY`   | `Number` | get the y axis distance wheel scrolled, effective only when scrolling                        |
 | `getLocation`  | `Object` | get mouse location object which includes x and y properties                                  |
@@ -141,8 +141,8 @@ cc.macro.ENABLE_MULTI_TOUCH = false;
 Pause node system events
 
 ```js
-// Pause all node system events registered on the current node. Node system events include Touch and Mouse events.
-// If the parameter true is passed, the API will pause node system events on this node and all its children.
+// Pause all node system events registered on the current node. Node system events include Touch and Mouse Events.
+// If a parameter true is passed, the API will pause node system events on this node and all its children.
 // Example
 this.node.pauseSystemEvents();
 ```
@@ -150,8 +150,8 @@ this.node.pauseSystemEvents();
 Resume node system events
 
 ```js
-// Resume all node system events registered on the current node. Node system events include Touch and Mouse events.
-// If the parameter true is passed, the API will resume node system events on this node and all its children.
+// Resume all node system events registered on the current node. Node system events include Touch and Mouse Events.
+// If a parameter true is passed, the API will resume node system events on this node and all its children.
 // Example
 this.node.resumeSystemEvents();
 ```
