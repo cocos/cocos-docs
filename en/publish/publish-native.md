@@ -12,6 +12,8 @@ Currently, there are four native platforms, which include: **Android**, **iOS**,
 
 Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
 
+If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of `project.manifest`.
+
 **Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
 
 ### Inline all SpriteFrames
