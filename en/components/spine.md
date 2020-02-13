@@ -99,9 +99,9 @@ Vertex effect is only valid when the Animation Cache Mode property of Spine comp
 
         start () {
             this._jitterEffect = new sp.VertexEffectDelegate();
-            // 设置好抖动参数。
+            // Set the jitter parameters
             this._jitterEffect.initJitter(20, 20);
-            // 调用 Spine 组件的 setVertexEffectDelegate 方法设置效果。
+            // Call the setVertexEffectDelegate method of the Spine component to set the effect
             this.skeleton.setVertexEffectDelegate(this._jitterEffect);
         }
     });

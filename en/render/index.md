@@ -3,6 +3,9 @@
 - [Core Renderers](core-renderer.md)
 - [External Asset Renderer](external-renderer.md)
 - [Camera](camera.md)
+- Material System
+  - [Material](./material.md)
+  - [Effect](./effect.md)
 - Renderer Components
   - [Sprite](../components/sprite.md)
   - [Label](../components/label.md)

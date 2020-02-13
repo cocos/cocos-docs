@@ -10,7 +10,7 @@
 
 [cannon.js](https://github.com/cocos-creator/cannon.js) 是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
 
-当选择物理模块为 `cannon.js` 时，需要在节点上添加 [刚体组件](./physics-rigidbody.md) 才能进行物理模拟。然后再根据需求添加 [碰撞组件](./physics-collider.md)，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
+当选择的物理引擎为 `cannon.js` 时，需要在节点上添加 [刚体组件](./physics-rigidbody.md) 才能进行物理模拟。然后再根据需求添加 [碰撞组件](./physics-collider.md)，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
 
 目前 `cannon.js` 支持情况如下：
 
@@ -22,7 +22,7 @@
 
 ## 碰撞检测（Builtin）
 
-Builtin 是只有 **碰撞检测系统** 的物理模块。相对于其它的物理引擎，Builtin 没有物理模拟功能，但它的优势在于更小的包体以及较小的计算量。
+Builtin 是只有 **碰撞检测系统** 的物理引擎。相对于其它的物理引擎，Builtin 没有物理模拟功能，但它的优势在于更小的包体以及较小的计算量。
 
 若使用 Builtin 进行开发，请注意以下几点：
 
@@ -35,4 +35,4 @@ Builtin 是只有 **碰撞检测系统** 的物理模块。相对于其它的物
 - 3D 碰撞组件中的 `attachedRigidbody` 为 `null`，详情请参考 [文档](https://github.com/cocos-creator/engine/blob/master/cocos2d/core/3d/physics/framework/components/collider/collider-component.ts#L143)。
 - [3D 物理刚体组件](./physics-rigidbody.md) 无效。
 
-- [3D 物理恒力组件](./physics-constant-force) 无效。
+- [3D 物理恒力组件](./physics-constant-force.md) 无效。

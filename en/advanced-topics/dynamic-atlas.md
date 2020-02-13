@@ -30,7 +30,7 @@ The Dynamic Atlas Manager limits the size of the texture that can be packed. By 
 cc.dynamicAtlasManager.maxFrameSize = 512;
 ```
 
-You can refer to the API docs [DynamicAtlasManager](../../../api/zh/classes/DynamicAtlasManager.html) for details.
+You can refer to the API docs [DynamicAtlasManager](../../../api/en/classes/DynamicAtlasManager.html) for details.
 
 ## Debugging
 
