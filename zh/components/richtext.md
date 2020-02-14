@@ -56,6 +56,30 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | img     | 给富文本添加图文混排功能，img 的 src 属性必须是 ImageAtlas  图集里面的一个有效的 spriteframe 名称 |`<img src='emoji1' click='handler' />` | 注意: 只有 `<img src='foo' click='bar' />` 这种写法是有效的。如果你指定一张很大的图片，那么该图片创建出来的精灵会被等比缩放，缩放的值等于富文本的行高除以精灵的高度。
 
 
+#### img标签的可选属性
+
+为了更好的排版，我们为img标签类型提供了可选属性，你可以使用`width`及`height`来指定spriteframe的大小，这将允许该图片可以大于或是小于行高 (但此设定不会改变行高)
+当你改变了spriteframe的高度或宽度后，你或许会需要使用`align`来调整该图片在行中的对齐方式。
+
+| 属性       | 描述        | 示例     | 注意事项  |
+| --------- | ----------- | ------- | -------- |
+| height    | 指定spriteframe的渲染高度，大小值必须为整数 | `<img src='foo' height=50 />` | 如果你只使用高度属性，该spriteframe会自动计算宽度以保持图片比例
+| width     | 指定spriteframe的渲染宽度，大小值必须为整数 | `<img src='foo' width=50 />` | 你可以同时使用高度及宽度属性 `<img src='foo' width=20 height=30 />`
+| align     | 指定spriteframe在行中的对齐方式，值必需为 `bottom`、`top`或`center`.| `<img src='foo' align=center />` | 预设对齐方式为bottom
+| offset    | 指定spriteframe的偏移位置，大小值必需为整数 | `<img src='foo' offset=5,10 />` | 使用偏移属性可能会令图片与文字交错，请小心使用
+
+为了一些更为复杂的排版需求，我们提供了额外的`offset`属性，它允许你微调spriteframe在Richtext中的位置
+
+| position | Example | Description | Note   |
+| -------- | ------- | ----------- | ------ |
+| Y        | `<img src='foo' offset=5 />`| 指定spriteframe的y轴加上5 | 当offset只设定一个值的时候，它代表y轴的偏移
+| Y        | `<img src='foo' offset=-5 />`| 指定spriteframe的y轴减少5 | 你可以设定负整数来减少y轴
+| X, Y     | `<img src='foo' offset=6,5 />`| 指定spriteframe的x轴加上6，y轴加上5 | 使用 `,` 号以分隔x轴及y轴偏移值
+| X, Y     | `<img src='foo' offset=6,-5 />`| 指定spriteframe的x轴加上6，y轴减少5 | 偏移属性的值只能包含 `0-9` 及 `-,` 等字元
+
+
+### 标签嵌套
+
 标签与标签是支持嵌套的，且嵌套规则跟 HTML 是一样的。比如下面的嵌套标签设置一个文本的渲染大小为 30，且颜色为绿色。
 
 `<size=30><color=green>I'm green</color></size>`
