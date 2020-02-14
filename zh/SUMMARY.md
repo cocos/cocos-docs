@@ -185,6 +185,7 @@
     - [碰撞检测](3d/intersect.md)
     - [光照](3d/lighting.md)
     - [光源组件参考](3d/light-component.md)
+    - [3D 粒子](3d/particle-system-3d.md)
     - [基础 3D 物体](3d/primitive.md)
 - [3D 物理与碰撞系统](physics-3d/index.md)
     - [设置物理引擎](physics-3d/physics-select.md)

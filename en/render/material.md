@@ -16,7 +16,7 @@ Another way is to select the folder in the **Assets** panel where you want to st
 
 | Properties | Explanation	             |
 | ---------- | ---------------- |
-| Effect     | All effect resources in the current project are listed in the Effect drop-down box, and you can select the effect resource used by the current material. And the other properties will be updated when the Effect is switched. |
+| Effect     | All effect resources in the current project are listed in the Effect drop-down box, and you can select the effect resource used by the current material. And the other properties will be updated when the Effect is switched. Please refer to [Effect](./effect.md) for details. |
 | Technique  | All Techniques in the currently used Effect are listed in the Technique drop-down box.<br>There may be more than one Technique in an Effect, and each Technique is suitable for different situations. Such as less effective but better performace Technique is more suitable for mobile platforms.<br>The Pass list will be updated simultaneously when the Technique is switched. |
 | Pass       | The Pass list lists all Passes in the currently used Technique.<br>Each Pass may have different properties and definitions that you can set separately. If the property is wrapped by a definition, you need to check the definition to see the corresponding property.
 

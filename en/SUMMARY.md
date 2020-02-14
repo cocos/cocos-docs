@@ -181,6 +181,7 @@
     - [Collision Detection](3d/intersect.md)
     - [Lighting](3d/lighting.md)
     - [Light Reference](3d/light-component.md)
+    - [3D Particle System](3d/particle-system-3d.md)
     - [Primitive 3D Objects](3d/primitive.md)
 - [3D Physics and Collision](physics-3d/index.md)
     - [Setting Physics Engine](physics-3d/physics-select.md)

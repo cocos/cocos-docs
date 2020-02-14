@@ -20,4 +20,4 @@
 
 ## Effect 书写规则
 
-Cocos Creator 的 Effect 书写规则基本与 Cocos Creator 3D 一致，具体可以参考 [文档](https://docs.cocos.com/creator3d/manual/zh/material-system/effect-syntax.html)。
+Cocos Creator 的 Effect 书写规则基本与 Cocos Creator 3D 一致，可以使用 VS Code 的 Cocos Effect 插件进行编写，只是内置的一些 shader 变量名字有些区别。具体可以参考 [文档](https://docs.cocos.com/creator3d/manual/zh/material-system/effect-syntax.html)。

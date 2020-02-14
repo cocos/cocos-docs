@@ -6,12 +6,11 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
-- [Material System](render/index.md)。
-- [3D Physics and Collision](physics-3d/index.md).
+- **As of v2.3.0**, Cocos Creator has added support for [3D Physics System](physics-3d/index.md), [3D Collision System](physics-3d/index.md) and [3D Particle System](3d/particle-system-3d.md), while the [Material System](render/index.md) has been upgraded to the official version.
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
-- **As of v2.1**, Cocos Creator introduced 3D support, 3D features can greatly enrich the performance of 2D games, reduce the resource cost of 2D game. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
+- **As of v2.1**, Cocos Creator introduced 3D support. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
 - **As of v2.0.7**, Cocos Creator supports publishing to [Huawei Quick Games](publish/publish-huawei-quick-games.md).
 - **As of v2.0.5**, Cocos Creator supports publishing to [OPPO Mini Games](publish/publish-oppo-instant-games.md) and [vivo Mini Games](publish/publish-vivo-instant-games.md).
 - **As of v2.0.4**, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
