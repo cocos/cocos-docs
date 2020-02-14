@@ -16,7 +16,7 @@
 
 | 属性       | 说明             |
 | --------- | ---------------- |
-| Effect    | Effect 下拉框会列出当前项目中所有的 Effect 资源，开发者可以选择当前材质使用的 Effect 资源。<br>当切换了 Effect 后其他属性也会同步更新。|
+| Effect    | Effect 下拉框会列出当前项目中所有的 Effect 资源，开发者可以选择当前材质使用的 Effect 资源。当切换了 Effect 后其他属性也会同步更新。<br>详情请参考 [Effect](./effect.md)。 |
 | Technique | Technique 下拉框会列出当前使用的 Effect 资源中所有的 Technique。<br>Effect 资源中可能会存在多个 Technique，每个 Technique 适用于不同的情况，比如效果差一点但是性能更好的 Technique 更适合用于手机平台。<br>当切换了 Technique 后 Pass 列表也会同步更新。 |
 | Pass      | Pass 列表会列出当前使用的 Technique 中所有的 Pass。<br>每个 Pass 可能会有不同的属性和定义，开发者可以分别设置这些属性和定义。如果属性是被定义包裹住的，需要先勾上定义才能看到对应的属性。 |
 
