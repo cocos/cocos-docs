@@ -115,7 +115,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path build directory, which is the exported __OPPO Mini Game__. The game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **quickgame** directory is generated under the default release path `build` directory, which is the exported OPPO Mini Game project directory and **rpk**, **rpk** package are in the __/build/quickgame/dist__ directory.
 
 ![](./publish-oppo-instant-games/package.jpg)
 

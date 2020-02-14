@@ -9,6 +9,7 @@
 - [3D 物理与碰撞系统](physics-3d/index.md)。
 - [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。
+- 从 v2.3.0 开始，Cocos Creator 支持发布到 [趣头条小游戏](publish/publish-qutoutiao-mini-games.md)。
 - 从 v2.1.4 开始，Cocos Creator 支持发布到 [支付宝小游戏](publish/publish-alipay-mini-games.md)。
 - 从 v2.1 开始，Cocos Creator 引入了 3D 的支持，3D 特性的加入可以大大丰富 2D 游戏的表现力，减轻 2D 游戏的资源开销。请参阅 [3D 节点](3d/index.md)。
 - 从 v2.0.10 开始，Cocos Creator 支持发布到 [小米快游戏](publish/publish-xiaomi-quick-games.md) 及 [Cocos Play](publish/publish-cocosplay.md)。
