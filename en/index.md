@@ -6,7 +6,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
-- **As of v2.3.0**, Cocos Creator has added support for [3D Physics System](physics-3d/index.md), [3D Collision System](physics-3d/index.md) and [3D Particle System](3d/particle-system-3d.md), while the [Material System](render/index.md) has been upgraded to the official version.
+- **As of v2.3.0**, Cocos Creator has added support for [3D Physics and Collision](physics-3d/index.md) and [3D Particle System](3d/particle-system-3d.md), while the [Material System](render/index.md) has been upgraded to the official version.
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
 - **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).

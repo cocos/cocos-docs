@@ -66,16 +66,14 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | height    | 指定 SpriteFrame 的渲染高度，大小值必须为整数 | `<img src='foo' height=50 />` | 如果你只使用了高度属性，该 SpriteFrame 会自动计算宽度以保持图片比例
 | width     | 指定 SpriteFrame 的渲染宽度，大小值必须为整数 | `<img src='foo' width=50 />` | 你可以同时使用高度及宽度属性 `<img src='foo' width=20 height=30 />`
 | align     | 指定 SpriteFrame 在行中的对齐方式，值必需为 `bottom`、`top` 或 `center` | `<img src='foo' align=center />` | 预设对齐方式为 bottom
-| offset    | 指定 SpriteFrame 的偏移位置，大小值必需为整数 | `<img src='foo' offset=5,10 />` | 使用偏移属性可能会令图片与文字交错，请小心使用
 
-为了一些更为复杂的排版需求，我们提供了额外的 `offset` 属性，可以微调 SpriteFrame  在 RichText 中的位置。
+为了支持定制图片排版，我们还提供了 `offset` 属性，用于微调 SpriteFrame 在 RichText 中的位置。设置 `offset` 时需注意属性值必须为整数，并且如设置不当将导致图片与文字重叠。
 
-| 属性    | 示例    | 描述         | 注意事项 |
+| offset 属性    | 示例    | 描述         | 注意事项 |
 | ------ | ------- | ----------- | ------- |
 | Y      | `<img src='foo' offset=5 />`   | 指定 SpriteFrame 的 y 轴加上 5            | 当 offset 只设定一个值的时候，它代表 y 轴的偏移
 | Y      | `<img src='foo' offset=-5 />`  | 指定 SpriteFrame 的 y 轴减少 5            | 你可以设定负整数来减少 y 轴
-| X, Y   | `<img src='foo' offset=6,5 />` | 指定 SpriteFrame 的 x 轴加上6，y 轴加上 5  | 使用 `,` 号以分隔 x 轴及 y 轴偏移值
-| X, Y   | `<img src='foo' offset=6,-5 />`| 指定 SpriteFrame 的 x 轴加上 6，y 轴减少 5 | 偏移属性的值只能包含 `0-9`、`-` 和 `,` 等字符
+| X, Y   | `<img src='foo' offset=6,-5 />`| 指定 SpriteFrame 的 x 轴加上 6，y 轴减少 5 | 偏移属性的值只能包含 `0-9`、`-` 和 `,` 字符
 
 ### 标签嵌套
 
