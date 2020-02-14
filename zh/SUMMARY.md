@@ -91,6 +91,7 @@
     - [发布到微信小游戏](publish/publish-wechatgame.md)
         - [微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
         - [启用微信小游戏引擎插件](publish/wechat-engine-plugin.md)
+    - [发布到趣头条小游戏](publish/publish-qutoutiao-mini-games.md)
     - [发布到百度小游戏](publish/publish-baidugame.md)
         - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
     - [发布到 Facebook Instant Games](publish/publish-fb-instant-games.md)

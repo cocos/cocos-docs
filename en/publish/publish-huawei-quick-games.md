@@ -116,7 +116,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path build directory, which is the exported **Huawei Quick Game**. The game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path `build` directory, which is the exported Huawei Quick Game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
 
   ![](./publish-huawei-quick-games/rpk.png)
 
