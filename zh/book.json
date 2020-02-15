@@ -73,6 +73,10 @@
                     {
                         "name": "2.2",
                         "link": "https://docs.cocos.com/creator/2.2/manual/zh"
+                    },
+                    {
+                        "name": "2.3",
+                        "link": "https://docs.cocos.com/creator/2.3/manual/zh"
                     }
                 ]
             }
