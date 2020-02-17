@@ -53,7 +53,7 @@ createEnemy: function (parentNode) {
     } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
         enemy = cc.instantiate(this.enemyPrefab);
     }
-    enemy.parent = parentNode; // 将生成的敌人加入节点树
+    parentNode.addChild(enemy); // 将生成的敌人加入节点树
     enemy.getComponent('Enemy').init(); //接下来就可以调用 enemy 身上的脚本进行初始化
 }
 ```
@@ -72,7 +72,7 @@ onEnemyKilled: function (enemy) {
     this.enemyPool.put(enemy); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
 }
 ```
-
+返回节点时,对象池内部会调用结点的`removeFromParent(false)`方法，将对象从父节点中移除，但并不会执行cleanup操作。
 这样我们就完成了一个完整的循环，主角需要刷多少怪都不成问题了！将节点放入和从对象池取出的操作不会带来额外的内存管理开销，因此只要是可能，应该尽量去利用。
 
 ## 使用组件来处理回收和复用的事件
