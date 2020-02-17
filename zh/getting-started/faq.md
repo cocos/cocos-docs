@@ -225,7 +225,7 @@ https://blog.csdn.net/keji_123/article/details/77717849
 
 原因是：v8在编译的时候,对CPU和内存的需求比较大,当文件数量很多的时候,可能会出现内存不足的情况
 目前有一个有效方案是最后build的时候这样输入：
-gulp build --max-old-space-size=8192
+gulp build --max-old-space-size=8192 。
 
 ### 项目打开之后只看见 CocosCreator 图标却看不见编辑器窗体
 
@@ -350,13 +350,13 @@ else if (impl._delegate.inputMode === InputMode.DECIMAL) {
 callBack 必须是与this.schedule中的回调一样，匿名函数不行。
 target则是schedule的环境对象，这两个如有差异都不能正常停止schedule。
 实现可以参考：
-CCScheduler.js -> unschedule
+CCScheduler.js -> unschedule 。
 
 ### 打开 windows 版本 CocosCreator 编辑器失败，或者项目在 web 预览正常但是模拟器上无法正常预览
 
 https://www.weidown.com/xiazai/733.html
-下载这个DLL修复工具使用试试
+下载这个DLL修复工具使用试试。
 
 ### 远程加载图集的方法
 
-参考 demo : https://github.com/Jno1995/load-remote-plist
+参考 demo : https://github.com/Jno1995/load-remote-plist 。
