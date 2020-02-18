@@ -1,6 +1,6 @@
 # 3D Node
 
-> 文： youyou
+> 文：youyou
 
 ## Node Api 升级
 
