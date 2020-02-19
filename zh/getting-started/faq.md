@@ -323,7 +323,7 @@ this.material.setProperty("diffuseTexture", this.goldTexture);
 
 ### 当 Editor 组件的 InputMode 选择为 NUMERIC 时，无法限制 e 或 E 字符的输入
 
-一般在 HTML5 开发过程中都会遇到该问题，因为 `e` 或 `E` 在数学中是具有数值的，会被判定为 `number` 类型。需要找到引擎目录中的 WebEditBoxImpl.js ，它的相对路径是：**./engine/cocos2d/core/components/editbox/WebEditBoxImpl.js**，在 `onInput` 函数定义中加入如下代码：
+一般在 HTML5 开发过程中都会遇到该问题，因为 `e` 或 `E` 在数学中是具有数值的，会被判定为 `number` 类型。需要找到引擎目录中的 WebEditBoxImpl.js，它的相对路径是：**./engine/cocos2d/core/components/editbox/WebEditBoxImpl.js**，在 `onInput` 函数定义中加入如下代码：
 
 ```
 if (impl._delegate.inputMode === InputMode.NUMBERIC || impl._delegate.inputMode === INpitMode.PHONE_NUMBER) {
