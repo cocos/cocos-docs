@@ -59,6 +59,21 @@ var ret = jsb.reflection.callStaticMethod("NativeOcClass",
 
 - 此时，你就可以在 `ret` 中接收到从 OC 传回的返回值（true）了。
 
+## `Object-C` 执行 `JS` 代码
+
+反过来， 我们也可以通过 `evalString` 在 `C++`/`Object-C` 中执行 `JavaScript` 代码。 
+
+比如：
+
+```c++
+Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+            se::ScriptEngine::getInstance()->evalString(script.c_str());
+        });
+``` 
+
+这里需要注意：除非明确当前测线程是*主线程*，否则都需要将函数分发到主线程执行。  
+
+
 ## 注意
 
 在 OC 的实现中，如果方法的参数需要使用 float、int、bool 的，请使用如下类型进行转换：

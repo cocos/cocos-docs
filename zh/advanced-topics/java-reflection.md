@@ -129,6 +129,7 @@ jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAler
 现在我们可以从 JS 调用 Java 了，那么能不能反过来？当然可以！
 在你的项目中包含 Cocos2dxJavascriptJavaBridge，这个类有一个 `evalString` 方法可以执行 JS 代码，它位于 `frameworks\js-bindings\bindings\manual\platform\android\java\src\org\cocos2dx\lib` 文件夹下。我们将会给刚才的 Alert 对话框增加一个按钮，并在它的响应中执行 JS。和上面的情况相反，这次执行 JS 代码必须在 GL 线程中进行。
 
+一般来说，目前引擎并未承诺多线程下的安全性，所以在开发过程中需要避免 JS 代码在其他线程被调用，以避免各种内存错误。
 
 ```
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
@@ -143,5 +144,13 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     }
 });
 ```
+
+如果要在 C++ 中调用 `evalString`, 我们可以参考下面的方式
+```c++
+Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+            se::ScriptEngine::getInstance()->evalString(script.c_str());
+        });
+``` 
+确保 `evalString` 在 JS 引擎所在的线程被执行。 
 
 这样在点击 OK 按钮后，你应该可以在控制台看到正确的输出。evalString 可以执行任何 JS 代码，并且它可以访问到你在 JS 代码中的对象。
