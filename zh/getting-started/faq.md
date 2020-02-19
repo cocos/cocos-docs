@@ -204,32 +204,30 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 - minSdkVersion：支持的最小版本，决定编译出的应用最小支持的 Android 版本。建议设置为 16（对应 Android 4.1）。
 - targetSdkVersion：和运行时的行为有关，建议设置与 compileSdkVersion 一致，也可以设置为 22，避免 [运行时权限的问题](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 
-![](introduction/compile_version.png)
+  ![](introduction/compile_version.png)
 
 ### 物理刚体的速度为什么会被限制
 
-在引擎物理模块的底层实现脚本 box2d.js 中定义参数 b2_maxTranslation 限制刚体的最大速度变化率。可以直接找到引擎目录中的 box2d.js 修改该参数，之后参考 [引擎编译文档](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
+`b2_maxTranslation` 是引擎脚本 box2d.js 中用于限制刚体速度变化率的参数，并且默认值为 2。开发者可以通过修改这个值来改变刚体的最大速度值。box2d.js 在引擎目录中的相对路径是 **./engine/external/box2d/box2d.js**，找到并修改 `b2_maxTranslation` 的参数赋值之后，请参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
 
-### 场景加载报错：typeError: children[i]._onBatchCreated is not a function
+### 场景加载报错：`typeError: children[i]._onBatchCreated is not a function`
 
-这是因为记录场景的 json 文件中某个 _children 中的值变成了 null ，导致场景数据加载出现异常，把 null 改成其它能够正常读取的数值即可。
+这是由于用于记录场景的 json 文件中某个 `_children` 的值变成了 null，将其改成能够正常被读取的数值即可。
 
 ### VideoPlayer 播放视频显示黑屏
 
-这个问题属于Html只支持H.264编码格式的MP4。
-参考文章：
-https://blog.csdn.net/keji_123/article/details/77717849
-建议使用音视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。
+HTML 只支持 H.264 编码格式的 MP4，建议使用音视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。具体可参考文章 https://blog.csdn.net/keji_123/article/details/77717849
 
-### 定制引擎报 JavaScript heap out of memory 内存不足解决方法
+### 定制引擎报 `javaScript heap out of memory` 内存不足解决方法
 
-原因是：v8在编译的时候,对CPU和内存的需求比较大,当文件数量很多的时候,可能会出现内存不足的情况
-目前有一个有效方案是最后build的时候这样输入：
-gulp build --max-old-space-size=8192 。
+原因是：v8 在编译的时候,对 cpu 和内存的需求比较大， 当文件数量很多的时候， 可能会出现内存不足的情况
+目前有一个有效方案是最后 build 的时候这样输入：
+
+`gulp build --max-old-space-size=8192`
 
 ### 项目打开之后只看见 CocosCreator 图标却看不见编辑器窗体
 
-删除项目中 local 文件夹的 local.json ，之后重启项目即可。
+删除项目中 `local` 文件夹的 `local.json` ，之后重启项目即可。
 
 ### CocosCreator 默认的调试信息看不清
 
@@ -247,36 +245,37 @@ gulp build --max-old-space-size=8192 。
 * cc.profiler.setFpsLabelColor(false, { r: 255, g: 0, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 });
 */
 setFpsLabelColor(setAll, fisColor, secColor) {
-     if (!_rootNode && !_rootNode.isValid) return;
+    if (!_rootNode && !_rootNode.isValid) return;
 
-     if (typeof fisColor === "object" || typeof secColor === "object") {
+    if (typeof fisColor === "object" || typeof secColor === "object") {
         let leftNode = _rootNode.getChildByName("LEFT-PANEL");
         let rightNode = _rootNode.getChildByName("RIGHT-PANEL");
         if (leftNode && rightNode) {
-           if (setAll) {
-             leftNode.color = rightNode.color = new cc.Color(fisColor);
-           }
-           else {
-             leftNode.color = new cc.Color(fisColor);
-             rightNode.color = new cc.Color(secColor);
-           }
+            if (setAll) {
+                leftNode.color = rightNode.color = new cc.Color(fisColor);
+            }
+            else {
+                leftNode.color = new cc.Color(fisColor);
+                rightNode.color = new cc.Color(secColor);
+            }
         }
-     }
+    }
 }
 ```
 
-之后 [编译引擎]((https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 即可项目中修改你的调试信息文本了。
+之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可在项目中修改你的调试信息文本了。
 
 ### Widget组件改变的坐标值当前帧不刷新
 
 ```
 widget.updateAlignment();
 ```
+
 调一下这句代码，再打印。
 
 ### 多点触控监听，假设 AB 两点，按住 B 点，重复多次点击 A 点之后，抬起 B 点时不响应 ‘touchend’ 事件
 
-当遇到此类问题时，可以直接修改引擎的全局枚举 cc.macro.TOUCH_TIMEOUT，引擎中的描述如下：
+当遇到此类问题时，可以直接修改引擎的全局枚举 `cc.macro.TOUCH_TIMEOUT`，引擎中的描述如下：
 ```
 /**
     * !#en 
@@ -300,40 +299,32 @@ widget.updateAlignment();
     */
 TOUCH_TIMEOUT: 5000,
 ```
-你可以通过定制引擎或者在项目中添加插件脚本并对 cc.macro.TOUCH_TIMEOUT 赋值来解决这个问题。
 
-### 2.1.1 动态修改material 贴图
-材质贴图接收的是cc.Texture2D对象，所以我们可以自己添加在属性面板一个cc.Texture2D对象。
-例如：
+`TOUCH_TIMEOUT` 的赋值在引擎脚本 CCMacro.js 中。CCMacro.js 在引擎目录中的相对路径是 **./engine/cocos2d/core/platform/CCMacro.js**，找到并修改 `TOUCH_TIMEOUT` 的参数赋值之后请参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎。另外一种方案是在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋值，也能解决这个问题。
+
+### 2.1.1 动态修改 material 贴图
+
+材质贴图接收的是 `cc.Texture2D` 对象，所以我们可以在 **属性检查器** 面板添加一个 `cc.Texture2D` 对象。例如：
+
 ```
 goldTexture: {
     default: null,
     type: cc.Texture2D
 }
+
 ```
-调用 spriteFrame.getTexture() 能够获取精灵的 texture 属性。
-有了贴图，我们直接调用材质系统的api修改贴图：
+然后调用 `spriteFrame.getTexture()` 获取精灵的 `texture` 属性。最后直接调用材质系统的 `setProperty` 来修改贴图：
 
 ```
 this.material.setProperty("diffuseTexture", this.goldTexture);
 ```
-setProperty这个接口是可以修改材质上几乎所有属性的。
 
-测试demo：
-https://github.com/Jno1995/DynamicLoadingMateria
+具体内容可参考 [范例](https://github.com/cocos-creator/example-cases) 工程中的 `custom_material` 场景
 
-### editor 输入框无法限制输入E或e字符
+### 当 Editor 组件的 InputMode 选择为 NUMERIC 时，无法限制 e 或 E 字符的输入
 
-原因是 e 在数学中同样是具有数值的，所以判断他为 number 没有问题。
-所以这不是引擎的问题。
-这应该是 html5 开发过程中都会遇到的问题。
-在 html5 中，我们可以修改 input 标签为如下:
-```
-<input type="text" name="" oninput="this.value=this.value.replace(/[^0-9.]+/,'');" />
-```
+一般在 HTML5 开发过程中都会遇到该问题，因为 `e` 或 `E` 在数学中是具有数值的，会被判定为 `number` 类型。需要找到引擎目录中的 WebEditBoxImpl.js ，它的相对路径是：**./engine/cocos2d/core/components/editbox/WebEditBoxImpl.js**，在 `onInput` 函数定义中加入如下代码：
 
-Cocos Creator 中我们需要自己修改引擎代码，步骤如下：
-找到引擎目录中的 WebEditBoxImpl.js ，定位到 onInput 函数定义，加入如下代码即可：
 ```
 if (impl._delegate.inputMode === InputMode.NUMBERIC || impl._delegate.inputMode === INpitMode.PHONE_NUMBER) {
     this.value = this.value.replace(/[^0-9]/,'');
@@ -341,22 +332,18 @@ if (impl._delegate.inputMode === InputMode.NUMBERIC || impl._delegate.inputMode 
 else if (impl._delegate.inputMode === InputMode.DECIMAL) {
     this.value = this.value.replace(/[^0-9]/,'');
 }
+```
 
-之后 [编译引擎]((https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 重启项目即可。
+完成之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
 
 ### 取消定时器失败，定时器仍然运行
 
-这个问题原因是this.unschedule(callback, target)是需要两个参数来指定需要暂停的定时器对象。
-callBack 必须是与this.schedule中的回调一样，匿名函数不行。
-target则是schedule的环境对象，这两个如有差异都不能正常停止schedule。
-实现可以参考：
-CCScheduler.js -> unschedule 。
+this.unschedule(callBack, target) 接收的参数必须与 this.schedule(callBack, target) 一致。其中 callBack 必须是同一函数对象，而 target 也必须接收同一执行环境对象。如果传入的参数不同那么就不能正常停止 schedule。
 
-### 打开 windows 版本 CocosCreator 编辑器失败，或者项目在 web 预览正常但是模拟器上无法正常预览
+### 打开 Windows 版本的 Creator 编辑器失败，或者项目在 Web 上预览正常而模拟器上预览异常
 
-https://www.weidown.com/xiazai/733.html
-下载这个DLL修复工具使用试试。
+尝试安装该 DLL 修复工具解决：https://www.weidown.com/xiazai/733.html 。
 
-### 远程加载图集的方法
+### 如何远程加载图集
 
-参考 demo : https://github.com/Jno1995/load-remote-plist 。
+参考 [范例](https://github.com/cocos-creator/load-remote-plist) 。
