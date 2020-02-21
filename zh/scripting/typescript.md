@@ -28,7 +28,7 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 
 `tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
 
-在这里分享一份我们默认的`tsconfig-json`配置方案
+在这里分享一份我们常用的`tsconfig-json`配置方案
 ```
 {
   "compilerOptions": {
