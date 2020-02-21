@@ -238,15 +238,17 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
 ```
 {
   "compilerOptions": {
-      ... ...
+
     "outDir": "temp/vscode-dist"
-     ... ...
-    },
-     ... ...
+
+    ......
+  },
+  
+  ......
 }
 ```
 
-- 在 VS Code 中， 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 里输入 选择 `tsc:构建`。让 VS Code 编译项目。
+- 在 VS Code 中， 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 里选择 `tsc:构建`。让 VS Code 编译项目。
 - 然后我们进入`temp/vscode-dist`文件夹，找到一个叫做`ExampleWithNamespace.js`的js文件。把它Copy到`assets`下的任意有效位置。
 - 回到 Creator 编辑器，在资源管理器里选中刚Copy过来的 `ExampleWithNamespace.js` 脚本，在 **属性检查器** 中设置 **导入为插件**。
 
