@@ -145,14 +145,12 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 });
 ```
 
-If you want to call `evalString` in C++, please refer to the following method:
+If you want to call `evalString` in C++, please refer to the following method to ensure that `evalString` is executed in the thread where the JS engine is:
 
 ```c++
 Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ``` 
-
-Make sure that `evalString` is executed in the thread where the JS engine is.
 
 After clicking OK button, you should see the output. `evalString` can run any js code, and can access your js variables.

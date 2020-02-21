@@ -144,14 +144,12 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 });
 ```
 
-如果要在 C++ 中调用 `evalString`, 我们可以参考下面的方式：
+如果要在 C++ 中调用 `evalString`，我们可以参考下面的方式，确保 `evalString` 在 JS 引擎所在的线程被执行：
 
 ```c++
 Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ``` 
-
-确保 `evalString` 在 JS 引擎所在的线程被执行。 
 
 这样在点击 OK 按钮后，你应该可以在控制台看到正确的输出。`evalString` 可以执行任何 JS 代码，并且它可以访问到你在 JS 代码中的对象。
