@@ -12,7 +12,7 @@ var o = jsb.reflection.callStaticMethod(className, methodName, methodSignature, 
 
 参数中的类名必须是包含 Java 包路径的完整类名，例如我们在 `org.cocos2dx.javascript` 这个包下面写了一个 `Test` 类：
 
-```c++
+```java
 package org.cocos2dx.javascript;
 
 public class Test {
@@ -130,7 +130,7 @@ jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAler
 
 一般来说，目前引擎并未承诺多线程下的安全性，所以在开发过程中需要避免 JS 代码在其他线程被调用，以避免各种内存错误。
 
-```c++
+```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
         // 一定要在 GL 线程中执行

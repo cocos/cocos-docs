@@ -12,7 +12,7 @@ In `callStaticMethod` method, we need to pass Java class name, method name, meth
 
 The class name must contain Java package path. For example, we have a class `Test` in the package `org.cocos2dx.javascript`.
 
-```c++
+```java
 package org.cocos2dx.javascript;
 
 public class Test {
@@ -130,7 +130,7 @@ In your project add the `Cocos2dxJavascriptJavaBridge`, this class has a `evalSt
 
 Generally speaking, the engine does not promise security in multi-threaded at present, so you need to avoid JS code being called in other threads during development to avoid various memory errors.
 
-```c++
+```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
 

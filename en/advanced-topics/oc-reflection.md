@@ -60,9 +60,9 @@ import <Foundation/Foundation.h>
   }
   ```
 
-## Object-C execute the JS code
+## Objective-C execute the JS code
 
-Conversely, we can also execute JavaScript code in `C++` / `Object-C` by `evalString`.
+Conversely, we can also execute JavaScript code in C++ / Objective-C by `evalString`.
 
 Example:
 

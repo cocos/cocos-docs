@@ -59,9 +59,9 @@ var result = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, 
 
 - 此时，你就可以在 `ret` 中接收到从 OC 传回的返回值（true）了。
 
-## Object-C 执行 JS 代码
+## Objective-C 执行 JS 代码
 
-反过来， 我们也可以通过 `evalString` 在 `C++` / `Object-C` 中执行 `JavaScript` 代码。 
+反过来，我们也可以通过 `evalString` 在 C++ / Objective-C 中执行 JavaScript 代码。
 
 比如：
 
