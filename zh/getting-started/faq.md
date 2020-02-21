@@ -218,28 +218,16 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 
 HTML 只支持 H.264 编码格式的 MP4，建议使用音视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。具体可参考文章 https://blog.csdn.net/keji_123/article/details/77717849
 
-### 定制引擎报 `javaScript heap out of memory` 内存不足解决方法
-
-原因是：v8 在编译的时候,对 cpu 和内存的需求比较大， 当文件数量很多的时候， 可能会出现内存不足的情况
-目前有一个有效方案是最后 build 的时候这样输入：
-
-`gulp build --max-old-space-size=8192`
-
-### 项目打开之后只看见 CocosCreator 图标却看不见编辑器窗体
+### 打开项目后，未出现编辑器，仅显示 CocosCreator 图标
 
 删除项目中 `local` 文件夹的 `local.json` ，之后重启项目即可。
 
-### CocosCreator 默认的调试信息看不清
+### 运行预览后，Creator 默认的调试信息显示不清晰
 
-这个问题解决方案如下：
-在引擎的 CCProfiler.js 脚本的 cc.profiler 对象中加入如下脚本
+CCProfiler.js 脚本在引擎目录中的相对路径是：**./engine/cocos2d/core/utils/profiler/CCProfiler.js**，找到 `cc.profiler` 对象后在其中加入如下代码，之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
 
 ```
-/**
-* !#en Set the color of debug information text.
-* !#zh 设置调试信息文本的颜色
-* @method setFpsLabelColor
-* @param {Boolean} setAll - Whether to set up left and right text uniformly.
+/*
 * @example
 * cc.profiler.setFpsLabelColor(true, { r: 255, g: 0, b: 0, a: 255 });
 * cc.profiler.setFpsLabelColor(false, { r: 255, g: 0, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 });
@@ -263,44 +251,17 @@ setFpsLabelColor(setAll, fisColor, secColor) {
 }
 ```
 
-之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可在项目中修改你的调试信息文本了。
-
-### Widget组件改变的坐标值当前帧不刷新
+### Widget 组件改变的坐标值当前帧不刷新
 
 ```
 widget.updateAlignment();
 ```
 
-调一下这句代码，再打印。
+在需要立即刷新节点坐标值的地方执行这句代码即可。
 
-### 多点触控监听，假设 AB 两点，按住 B 点，重复多次点击 A 点之后，抬起 B 点时不响应 ‘touchend’ 事件
+### 多点触控监听，假设 A、B 两点，按住 B 点，重复点击 A 点之后，手指离开 B 点时不响应 ‘touchend’ 事件
 
-当遇到此类问题时，可以直接修改引擎的全局枚举 `cc.macro.TOUCH_TIMEOUT`，引擎中的描述如下：
-```
-/**
-* !#en 
-* The timeout to determine whether a touch is no longer active and should be removed.
-* The reason to add this timeout is due to an issue in X5 browser core, 
-* when X5 is presented in wechat on Android, if a touch is glissed from the bottom up, and leave the page area,
-* no touch cancel event is triggered, and the touch will be considered active forever. 
-* After multiple times of this action, our maximum touches number will be reached and all new touches will be ignored.
-* So this new mechanism can remove the touch that should be inactive if it's not updated during the last 5000 milliseconds.
-* Though it might remove a real touch if it's just not moving for the last 5 seconds which is not easy with the sensibility of mobile touch screen.
-* You can modify this value to have a better behavior if you find it's not enough.
-* !#zh
-* 用于甄别一个触点对象是否已经失效并且可以被移除的延时时长
-* 添加这个时长的原因是 X5 内核在微信浏览器中出现的一个 bug。
-* 在这个环境下，如果用户将一个触点从底向上移出页面区域，将不会触发任何 touch cancel 或 touch end 事件，而这个触点会被永远当作停留在页面上的有效触点。
-* 重复这样操作几次之后，屏幕上的触点数量将达到我们的事件系统所支持的最高触点数量，之后所有的触摸事件都将被忽略。
-* 所以这个新的机制可以在触点在一定时间内没有任何更新的情况下视为失效触点并从事件系统中移除。
-* 当然，这也可能移除一个真实的触点，如果用户的触点真的在一定时间段内完全没有移动（这在当前手机屏幕的灵敏度下会很难）。
-* 你可以修改这个值来获得你需要的效果，默认值是 5000 毫秒。
-* @property {Number} TOUCH_TIMEOUT
-*/
-TOUCH_TIMEOUT: 5000,
-```
-
-`TOUCH_TIMEOUT` 的赋值在引擎脚本 CCMacro.js 中。CCMacro.js 在引擎目录中的相对路径是 **./engine/cocos2d/core/platform/CCMacro.js**，找到并修改 `TOUCH_TIMEOUT` 的参数赋值之后请参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎。另外一种方案是在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋值，也能解决这个问题。
+在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题.你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
 
 ### 2.1.1 动态修改 material 贴图
 
@@ -311,8 +272,8 @@ goldTexture: {
     default: null,
     type: cc.Texture2D
 }
-
 ```
+
 然后调用 `spriteFrame.getTexture()` 获取精灵的 `texture` 属性。最后直接调用材质系统的 `setProperty` 来修改贴图：
 
 ```
