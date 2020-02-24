@@ -260,7 +260,7 @@ widget.updateAlignment();
 
 在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题。你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
 
-### 2.1.1 动态修改 material 贴图
+### 动态修改 material 贴图
 
 材质贴图接收的是 `cc.Texture2D` 对象，所以我们可以在 **属性检查器** 面板添加一个 `cc.Texture2D` 对象。例如：
 
