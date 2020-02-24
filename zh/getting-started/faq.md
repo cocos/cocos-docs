@@ -283,10 +283,6 @@ this.material.setProperty("diffuseTexture", this.goldTexture);
 
 this.unschedule(callBack, target) 接收的参数必须与 this.schedule(callBack, target) 一致。其中 callBack 必须是同一函数对象，而 target 也必须接收同一执行环境对象。如果传入的参数不同那么就不能正常停止 schedule。
 
-### 打开 Windows 版本的 Creator 编辑器失败，或者项目在 Web 上预览正常而模拟器上预览异常
-
-通过 cmd 命令工具打开 CocosCreator ，查看是否有报错信息。如果你使用的 windows 版本过低，可以尝试下载使用 [DX 修复工具](https://www.weidown.com/xiazai/733.html) 进行修复。如果你无法解决报错并且问题依旧存在，请你在社区上向我们反馈这个问题。
-
 ### 如何远程加载图集
 
 参考 [范例](https://github.com/cocos-creator/load-remote-plist)。
