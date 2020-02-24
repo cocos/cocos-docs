@@ -228,24 +228,21 @@ CCProfiler.js 脚本在引擎目录中的相对路径是：**./engine/cocos2d/co
 
 ```
 /*
-* @example
-* cc.profiler.setFpsLabelColor(true, { r: 255, g: 0, b: 0, a: 255 });
-* cc.profiler.setFpsLabelColor(false, { r: 255, g: 0, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 });
-*/
-setFpsLabelColor(setAll, fisColor, secColor) {
-    if (!_rootNode && !_rootNode.isValid) return;
-
-    if (typeof fisColor === "object" || typeof secColor === "object") {
+ * @example
+ * cc.profiler.setDebugInfoColor({ r: 255, g: 0, b: 0, a: 255 });
+ */
+setDebugInfoColor(colorObj) {
+    //需要等待 _rootNode 节点激活才能修改调试信息颜色
+    if (!_rootNode) {
+        setTimeout(()=>{
+            this.setDebugInfoColor(colorObj);
+        }, 100)
+    }
+    else {
         let leftNode = _rootNode.getChildByName("LEFT-PANEL");
         let rightNode = _rootNode.getChildByName("RIGHT-PANEL");
-        if (leftNode && rightNode) {
-            if (setAll) {
-                leftNode.color = rightNode.color = new cc.Color(fisColor);
-            }
-            else {
-                leftNode.color = new cc.Color(fisColor);
-                rightNode.color = new cc.Color(secColor);
-            }
+        if (leftNode && rightNode && typeof colorObj === "object") {
+            leftNode.color = rightNode.color = new cc.Color(colorObj);
         }
     }
 }
@@ -261,7 +258,7 @@ widget.updateAlignment();
 
 ### 多点触控监听，假设 A、B 两点，按住 B 点，重复点击 A 点之后，手指离开 B 点时不响应 ‘touchend’ 事件
 
-在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题.你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
+在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题。你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
 
 ### 2.1.1 动态修改 material 贴图
 
@@ -274,7 +271,7 @@ goldTexture: {
 }
 ```
 
-然后调用 `spriteFrame.getTexture()` 获取精灵的 `texture` 属性。最后直接调用材质系统的 `setProperty` 来修改贴图：
+最后直接调用材质系统的 `setProperty` 来修改贴图：
 
 ```
 this.material.setProperty("diffuseTexture", this.goldTexture);
@@ -282,29 +279,14 @@ this.material.setProperty("diffuseTexture", this.goldTexture);
 
 具体内容可参考 [范例](https://github.com/cocos-creator/example-cases) 工程中的 `custom_material` 场景
 
-### 当 Editor 组件的 InputMode 选择为 NUMERIC 时，无法限制 e 或 E 字符的输入
-
-一般在 HTML5 开发过程中都会遇到该问题，因为 `e` 或 `E` 在数学中是具有数值的，会被判定为 `number` 类型。需要找到引擎目录中的 WebEditBoxImpl.js，它的相对路径是：**./engine/cocos2d/core/components/editbox/WebEditBoxImpl.js**，在 `onInput` 函数定义中加入如下代码：
-
-```
-if (impl._delegate.inputMode === InputMode.NUMBERIC || impl._delegate.inputMode === INpitMode.PHONE_NUMBER) {
-    this.value = this.value.replace(/[^0-9]/,'');
-}
-else if (impl._delegate.inputMode === InputMode.DECIMAL) {
-    this.value = this.value.replace(/[^0-9]/,'');
-}
-```
-
-完成之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
-
 ### 取消定时器失败，定时器仍然运行
 
 this.unschedule(callBack, target) 接收的参数必须与 this.schedule(callBack, target) 一致。其中 callBack 必须是同一函数对象，而 target 也必须接收同一执行环境对象。如果传入的参数不同那么就不能正常停止 schedule。
 
 ### 打开 Windows 版本的 Creator 编辑器失败，或者项目在 Web 上预览正常而模拟器上预览异常
 
-尝试安装该 DLL 修复工具解决：https://www.weidown.com/xiazai/733.html 。
+通过 cmd 命令工具打开 CocosCreator ，查看是否有报错信息。如果你使用的 windows 版本过低，可以尝试下载使用 [DX 修复工具](https://www.weidown.com/xiazai/733.html) 进行修复。如果你无法解决报错并且问题依旧存在，请你在社区上向我们反馈这个问题。
 
 ### 如何远程加载图集
 
-参考 [范例](https://github.com/cocos-creator/load-remote-plist) 。
+参考 [范例](https://github.com/cocos-creator/load-remote-plist)。
