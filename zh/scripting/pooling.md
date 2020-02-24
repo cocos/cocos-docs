@@ -72,7 +72,7 @@ onEnemyKilled: function (enemy) {
     this.enemyPool.put(enemy); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
 }
 ```
-
+返还节点时，对象池内部会调用结点的`removeFromParent(false)`方法，将对象从父节点中移除，但并不会执行`cleanup`操作。
 这样我们就完成了一个完整的循环，主角需要刷多少怪都不成问题了！将节点放入和从对象池取出的操作不会带来额外的内存管理开销，因此只要是可能，应该尽量去利用。
 
 ## 使用组件来处理回收和复用的事件
@@ -145,6 +145,11 @@ myPool.clear(); // 调用这个方法就可以清空对象池
 
 对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 [暗黑斩 Demo 中的 PoolMng 脚本](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) 来实现自己的对象池。
 
+## 使用 cc.NodePool 的注意事项
 
+虽然`cc.NodePool`有很多优点，但是它也存在一点小问题，需要我们注意下。
+当我们不断的获取和返还对象时，内部其实会不断的·removeFromParend·和·addChild·对象。
+这会产生一点点的性能问题。虽然通常情况下这并不致命，但是在大批量、频繁的操作对象池时（比如制作射击游戏弹幕），可能会在中低端机器上引起可感知的性能问题。
+除了性能问题，不断的·removeFromParend·和·addChild·操作也会导致对象的默认渲染顺序发生变化，为了避免这种情况，建议用`setSiblingIndex`指定对象的索引。
 
 
