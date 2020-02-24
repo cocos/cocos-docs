@@ -1,7 +1,8 @@
 # Pooling
 
-Creating and destroying node and component instance (with `cc.instantiate` and `node.destroy` during runtime is very inefficient and can cause frame rate to drop if there're too many of those going on. We recommend to only create node and component instance in `onLoad` life cycle callback during scene initialization, and only destroy them at scene switching. If we are making a game with lots of dynamically generated and destroyed enemies and bullets, how can we keep the performance cost of instance creating and destroying from messing up our framerate? It would be a perfect case for node pooling to shine.
+> Proofreader: finscn
 
+Creating and destroying node and component instance (with `cc.instantiate` and `node.destroy`) during runtime is very inefficient and can cause frame rate to drop if there're too many of those going on. We recommend to only create node and component instance in `onLoad` life cycle callback during scene initialization, and only destroy them at scene switching. If we are making a game with lots of dynamically generated and destroyed enemies and bullets, how can we keep the performance cost of instance creating and destroying from messing up our framerate? It would be a perfect case for node pooling to shine.
 
 ## Node Pool
 
@@ -9,8 +10,7 @@ Node Pool is a collection of reusable node object. We can use `new cc.NodePool()
 
 When a node is not needed anymore, we call `put(newNode)` method of our Node Pool instance to return the node to the pool instead of destroy it. This method will also remove the node from its parent, so we don't need to call `removeFromParent` explicitly. Returning nodes to the pool is very important since only this way we can keep the stock of nodes up in our pool for future requesting. If player need to kill 100 enemies to finish the level, but no more than 5 enemies show up at the same time, we can fulfill the design need with a Node Pool that has a total count of 5 and keep recycling enemies.
 
-To learn the detailed API of `cc.NodePool` please read [cc.NodePool API reference](../../../api/en/classes/NodePool.html).
-
+To learn the detailed API of `cc.NodePool`, please read [cc.NodePool API reference](../../../api/en/classes/NodePool.html).
 
 ## Workflow
 
@@ -19,7 +19,6 @@ Here's the workflow to use Node Pool:
 ### Create your prefab
 
 First create the node you want to reuse, and save it as a Prefab asset, you can read [Prefab introduction](../asset-workflow/prefab.md) to learn how.
-
 
 ### Create Node Pool instance
 
@@ -41,7 +40,6 @@ onLoad: function () {
 ```
 
 Don't worry if you don't know the exact number of initial nodes count, we can still spawn nodes if it's short on stock during runtime.
-
 
 ### Requesting node from pool
 
@@ -66,11 +64,9 @@ To use Node Pool safely, the key is to always use `size` method to check if ther
 
 You can also all `cc.NodePool.get()` directly, if no node available it will return `null`, you can check the return value as well.
 
-
 ### Return node to the pool
 
 When an enemy is killed, we'd want to return the instance to the Node Pool so we can reuse them later:
-
 
 ```js
 // ...
@@ -81,12 +77,11 @@ onEnemyKilled: function (enemy) {
 }
 ```
 
-Now we completes the full cycle, and there'll be infinite number of enemy supply without the need to instantiate them over and over. 'Get node from' and 'put node into' operation has very low cost of performance compare to instantiate and destroy. So it's definitely a must-have for most game types.
-
+Now we completes the full cycle, and there'll be infinite number of enemy supply without the need to instantiate them over and over. "Get node from" and "put node into" operation has very low cost of performance compare to instantiate and destroy. So it's definitely a must-have for most game types.
 
 ## Register reuse and unuse callback
 
-When creating a Node Pool instance, we can specify a component as where we want to handle the 'reuse' and 'unuse' callback when we recycling nodes. Let's say we have a group of clickable menu items that we want to get from a Node Pool, each menu item has a `MenuItem.js` component attached:
+When creating a Node Pool instance, we can specify a component as where we want to handle the "reuse" and "unuse callback when we recycling nodes. Let's say we have a group of clickable menu items that we want to get from a Node Pool, each menu item has a `MenuItem.js` component attached:
 
 ```js
 // MenuItem.js
@@ -126,9 +121,7 @@ let myBulletPool = new cc.NodePool('Bullet'); //create a pool for bullet
 ...
 let newBullet = myBulletPool.get(this); // pass the manager instance so we can recycle the bullet in its component
 
-
 // Bullet.js
-
 reuse (bulletManager) {
     this.bulletManager = bulletManager; // store manager reference from argument of get method
 }
@@ -139,7 +132,6 @@ hit () {
 }
 ```
 
-
 ## Clear Node Pool
 
 When we don't need the pool and its nodes anymore, we can clear the pool and destroy every nodes in it:
@@ -148,10 +140,9 @@ When we don't need the pool and its nodes anymore, we can clear the pool and des
 myPool.clear();
 ```
 
-When a Node Pool instance is not referenced anywere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not managable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to clear the pool before switching scenes or doing other types of reset.
+When a Node Pool instance is not referenced anywere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not managable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to manually call the `clear` method to clear the cache node before switching scenes or doing other types of reset.
 
-
-## Advantage of cc.NodePool
+## The advantage of cc.NodePool
 
 `cc.NodePool` can create multiple instances and you can control what nodes to put into each one. So you can use one single Prefab asset for multiple pools, each one with different initialization parameters. `cc.NodePool` also works well with new `cc.Node.on` event register system, users can register and un-register events safely in `reuse` and `unuse` callback.
 
@@ -159,6 +150,8 @@ The old API `cc.pool` is a singleton and cannot handle event register on node co
 
 The basic function of Node Pool is no more than an array to store the reference of a group of instantiated nodes. If you want to customize the behavior of the pool, you can take the example in [Dark Slash PoolMng](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) and make your own pooling mechanics.
 
+## The considerations of cc.NodePool
 
+When you constantly get and return objects, `addChild` and `removeFromParent` will be constantly executed on objects by `cc.NodePool`, which may leading to performance degradations. Although the impact is usually not significant, when operating Node Pools in large quantities and frequently, such as making shooting game danmaku, it can cause serious performance degradations on medium and low-end machines.
 
-
+In addition to performance, continuous execution of `removeFromParent` and `addChild` can also cause the object's default rendering order to change. To avoid this, it is recommended to use `setSiblingIndex` to specify the index of the object.
