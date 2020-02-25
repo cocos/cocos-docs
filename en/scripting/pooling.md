@@ -81,7 +81,7 @@ Now we completes the full cycle, and there'll be infinite number of enemy supply
 
 ## Register reuse and unuse callback
 
-When creating a Node Pool instance, we can specify a component as where we want to handle the "reuse" and "unuse callback when we recycling nodes. Let's say we have a group of clickable menu items that we want to get from a Node Pool, each menu item has a `MenuItem.js` component attached:
+When creating a Node Pool instance, we can specify a component as where we want to handle the "reuse" and "unuse" callback when we recycling nodes. Let's say we have a group of clickable menu items that we want to get from a Node Pool, each menu item has a `MenuItem.js` component attached:
 
 ```js
 // MenuItem.js
@@ -140,7 +140,7 @@ When we don't need the pool and its nodes anymore, we can clear the pool and des
 myPool.clear();
 ```
 
-When a Node Pool instance is not referenced anywere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not managable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to manually call the `clear` method to clear the cache node before switching scenes or doing other types of reset.
+When a Node Pool instance is not referenced anywere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not managable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to manually call the `clear` method to clear the caches before switching scenes or doing other types of reset.
 
 ## The advantage of cc.NodePool
 
@@ -152,6 +152,6 @@ The basic function of Node Pool is no more than an array to store the reference 
 
 ## The considerations of cc.NodePool
 
-When you constantly get and return objects, `addChild` and `removeFromParent` will be constantly executed on objects by `cc.NodePool`, which may leading to performance degradations. Although the impact is usually not significant, when operating Node Pools in large quantities and frequently, such as making shooting game danmaku, it can cause serious performance degradations on medium and low-end machines.
+When you get and return nodes, `addChild` and `removeFromParent` will be constantly executed on nodes by `cc.NodePool`, when operating Node Pools in large quantities and frequently, such as making shooting game danmaku, which may still lead to performance degradation on low-end device.
 
-In addition to performance, continuous execution of `removeFromParent` and `addChild` can also cause the object's default rendering order to change. To avoid this, it is recommended to use `setSiblingIndex` to specify the index of the object.
+In addition to performance, continuous execution of `removeFromParent` and `addChild` can also cause the default rendering order of nodes to change. If necessary, you can call `setSiblingIndex` to modify the index of nodes.
