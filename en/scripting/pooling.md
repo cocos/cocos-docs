@@ -152,6 +152,6 @@ The basic function of Node Pool is no more than an array to store the reference 
 
 ## The considerations of cc.NodePool
 
-When you get and return nodes, `addChild` and `removeFromParent` will be constantly executed on nodes by `cc.NodePool`, when operating Node Pools in large quantities and frequently, such as making shooting game danmaku, which may still lead to performance degradation on low-end device.
+When you get and return nodes, `addChild` and `removeFromParent` will be constantly executed on nodes by `cc.NodePool`, when operating Node Pools in large quantities and frequently, such as making shooting game barrage, which may still lead to performance degradation on low-end device.
 
-In addition to performance, continuous execution of `removeFromParent` and `addChild` can also cause the default rendering order of nodes to change. If necessary, you can call `setSiblingIndex` to modify the index of nodes.
+In addition to performance, continuous execution of `removeFromParent` and `addChild` can also cause the changes of nodes rendering order. If necessary, you can call `setSiblingIndex` to modify the index of nodes.
