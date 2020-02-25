@@ -1,5 +1,7 @@
 # RichText component reference
 
+> Proofreader: RazgrizHsu
+
 RichText component could be used for displaying a string with multiple styles. You could customize the text style of  each text segment with a few simple BBCode.
 
 The currently supported tags are: color, size, outline, b, i, u, br, img and on, these tags could also be nested.

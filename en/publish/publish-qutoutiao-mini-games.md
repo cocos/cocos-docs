@@ -36,7 +36,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Small Packet Mode**
 
-  This item is optional. The in-package volume of the mini game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The in-package volume of the mini game contains code and resources that cannot exceed **6M**, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
 
   - When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 

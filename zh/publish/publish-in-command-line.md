@@ -40,7 +40,7 @@
 
 - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
 - `title` - 项目名
-- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、wechatgame、wechatgame-subcontext、baidugame、baidugame-subcontext、xiaomi、alipay、qgame、quickgame、huawei、jkw-game、fb-instant-games、android-instant]
+- `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、wechatgame、wechatgame-subcontext、baidugame、baidugame-subcontext、xiaomi、alipay、qgame、quickgame、huawei、cocosplay、fb-instant-games、android-instant]
 - `buildPath` - 构建目录
 - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置）
 - `debug` - 是否为 debug 模式

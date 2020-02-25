@@ -40,7 +40,7 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 
 - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
 - `title` - Project title
-- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, jkw-game, fb-instant-games, android-instant]
+- `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
 - `buildPath` - Publish path
 - `startScene` - Start scene uuid
 - `debug` - Whether or not debug mode
