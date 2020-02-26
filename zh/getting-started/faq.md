@@ -204,4 +204,85 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 - minSdkVersion：支持的最小版本，决定编译出的应用最小支持的 Android 版本。建议设置为 16（对应 Android 4.1）。
 - targetSdkVersion：和运行时的行为有关，建议设置与 compileSdkVersion 一致，也可以设置为 22，避免 [运行时权限的问题](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 
-![](introduction/compile_version.png)
+  ![](introduction/compile_version.png)
+
+### 物理刚体的速度为什么会被限制
+
+`b2_maxTranslation` 是引擎脚本 box2d.js 中用于限制刚体速度变化率的参数，并且默认值为 2。开发者可以通过修改这个值来改变刚体的最大速度值。box2d.js 在引擎目录中的相对路径是 **./engine/external/box2d/box2d.js**，找到并修改 `b2_maxTranslation` 的参数赋值之后，请参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
+
+### 场景加载报错：`typeError: children[i]._onBatchCreated is not a function`
+
+这是由于用于记录场景的 json 文件中某个 `_children` 的值变成了 null，将其改成能够正常被读取的数值即可。
+
+### VideoPlayer 播放视频显示黑屏
+
+HTML 只支持 H.264 编码格式的 MP4，建议使用音视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。具体可参考文章 https://blog.csdn.net/keji_123/article/details/77717849
+
+### 打开项目后，未出现编辑器，仅显示 CocosCreator 图标
+
+删除项目中 `local` 文件夹的 `local.json` ，之后重启项目即可。
+
+### 运行预览后，Creator 默认的调试信息显示不清晰
+
+CCProfiler.js 脚本在引擎目录中的相对路径是：**./engine/cocos2d/core/utils/profiler/CCProfiler.js**，找到 `cc.profiler` 对象后在其中加入如下代码，之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
+
+```
+/*
+ * @example
+ * cc.profiler.setDebugInfoColor({ r: 255, g: 0, b: 0, a: 255 });
+ */
+setDebugInfoColor(colorObj) {
+    //需要等待 _rootNode 节点激活才能修改调试信息颜色
+    if (!_rootNode) {
+        setTimeout(()=>{
+            this.setDebugInfoColor(colorObj);
+        }, 100)
+    }
+    else {
+        let leftNode = _rootNode.getChildByName("LEFT-PANEL");
+        let rightNode = _rootNode.getChildByName("RIGHT-PANEL");
+        if (leftNode && rightNode && typeof colorObj === "object") {
+            leftNode.color = rightNode.color = new cc.Color(colorObj);
+        }
+    }
+}
+```
+
+### Widget 组件改变的坐标值当前帧不刷新
+
+```
+widget.updateAlignment();
+```
+
+在需要立即刷新节点坐标值的地方执行这句代码即可。
+
+### 多点触控监听，假设 A、B 两点，按住 B 点，重复点击 A 点之后，手指离开 B 点时不响应 ‘touchend’ 事件
+
+在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题。你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
+
+### 动态修改 material 贴图
+
+材质贴图接收的是 `cc.Texture2D` 对象，所以我们可以在 **属性检查器** 面板添加一个 `cc.Texture2D` 对象。例如：
+
+```
+goldTexture: {
+    default: null,
+    type: cc.Texture2D
+}
+```
+
+最后直接调用材质系统的 `setProperty` 来修改贴图：
+
+```
+this.material.setProperty("diffuseTexture", this.goldTexture);
+```
+
+具体内容可参考 [范例](https://github.com/cocos-creator/example-cases) 工程中的 `custom_material` 场景
+
+### 取消定时器失败，定时器仍然运行
+
+this.unschedule(callBack, target) 接收的参数必须与 this.schedule(callBack, target) 一致。其中 callBack 必须是同一函数对象，而 target 也必须接收同一执行环境对象。如果传入的参数不同那么就不能正常停止 schedule。
+
+### 如何远程加载图集
+
+参考 [范例](https://github.com/cocos-creator/load-remote-plist)。
