@@ -48,11 +48,14 @@ After installing Android Studio, refer to the official documentation and open th
 
 ## Install C++ compiling environment
 
-The compiling tool Cocos Console in Cocos Framework needs the following running environment:
+Please install the following running environment:
 
 - Python 2.7.5+, [download page](https://www.python.org/downloads/). Pay attention! Don't download Python 3.x version.
-- In Windows, the installation of Visual Studio 2017 Community Edition is needed, [download page](https://www.visualstudio.com/downloads/download-visual-studio-vs)
-- In Mac, the installation of Xcode and command line tool is needed, [download page](https://developer.apple.com/xcode/download/)
+- In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
+
+  **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
+
+- In Mac, the installation of Xcode and command line tool is needed, [download page](https://developer.apple.com/xcode/download/).
 
 ## Configure path in original release environments
 
@@ -73,21 +76,15 @@ Close the window after configuration is completed.
 
 We have received lots of feedback about original packing in the public beta, and some possible reasons are supplemented here:
 
-1. Check Xcode and Visual Studio
-
-    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
-
-    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
-
-2. Package name issue
+1. Package name issue
 
     Check the package name in the constructing release panel. Package names that include blank space, `-`, etc. are all illegal.
 
-3. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
+2. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](http://discuss.cocos2d-x.org/c/creator).
+In the end, if building still fails, please send the bug with detailed reproducible steps and error information to us by [forum](http://discuss.cocos2d-x.org/c/creator).
 
 ---
 
