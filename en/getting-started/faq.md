@@ -178,7 +178,7 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
-### How to load Atlas remotely from a server?
+### How to load Atlas remotely from a server
 
 Please refer to this example: <https://github.com/cocos-creator/load-remote-plist>.
 
@@ -209,33 +209,33 @@ The Google Play statement began in August 2018, newly submitted app must be comp
 
   ![](introduction/compile_version.png)
 
-### The speed of physical Rigidbody is limited
+### The maximum speed of a Rigidbody seems to be limited
 
-You can [customize and recompile](../advanced-topics/engine-customization.md) the engine, in the engine `engine/external/box2d/box2d.js` script, the `b2_maxTranslation` parameter is the maximum linear velocity of Rigidbody, and the default value is **2**, which can be modified as needed.
+You can [customize and recompile](../advanced-topics/engine-customization.md)  in the engine script `engine/external/box2d/box2d.js`, the `b2_maxTranslation` parameter is the maximum linear velocity of Rigidbody, and the default value is **2**, which can be modified to your needs.
 
-### If a `TypeError: children[i]._onBatchCreated is not a function` error occurs when loading the scene
+### A `TypeError: children[i]._onBatchCreated is not a function` error results when loading the scene
 
-It is possible that the incorrect scene data was accidentally saved when the editor has an error, resulting in the value of `_children` in the scene file to be incorrectly saved as `null`. You can use the text editing tool to open the `.fire` file corresponding to the scene and change it to `[]`.
+It is possible that an incorrect scene data was accidentally saved when the editor has an error, resulting in the value of `_children` in the scene file to be incorrectly saved as `null`. You can use the any text editor to open the `.fire` file corresponding to the scene and change it to `[]`.
 
-### Show a black screen when video is played by VideoPlayer
+### VideoPlayer displays a black screen on web browsers
 
-HTML only supports MP4 in H.264 encoding format, and it is recommended to use the video format converter to output MP4 video in AVC(H264) encoding format.
+HTML only supports MP4 encoded as H.264 format, please check the video format.
 
-### When running or previewing, Creator's default debugging information color is not displayed clearly
+### When running or previewing, the color of Creator's built-in profile information doesn't display well
 
-You can [customize and recompile](../advanced-topics/engine-customization.md) the engine, to modify the color used in the engine debug information. Find the `generateNode` method in the `engine/cocos2d/core/utils/profiler/CCProfiler.js` script and modify the color of **LEFT-PANEL** and **RIGHT-PANEL** nodes in it.
+You can [customize and recompile](../advanced-topics/engine-customization.md) the engine, to modify the color used in the profiler. Find the `generateNode` method in the `engine/cocos2d/core/utils/profiler/CCProfiler.js` and set the color of **LEFT-PANEL** and **RIGHT-PANEL** nodes to your needs.
 
-### The position modified in the Widget component is not refreshed at the current frame
+### The node position adjusted by Widget is not updated immediately
 
-Note that you need to execute `widget.updateAlignment();` before immediately refreshing the node's position or size.
+Note that you should call `widget.updateAlignment();` to request the Widget refresh immediately.
 
-### Listen to multi-touch events, suppose there are two points A and B, hold down point B, after repeatedly clicking point A, release point B without responding to the `touchend` event
+### Listening to multi-touch events, suppose there are two points A and B, hold down B, after repeatedly clicking A, release B but no "touchend" event received.
 
-Just reassign a larger value to [cc.macro.TOUCH_TIMEOUT](../../../api/en/classes/macro.html#touchtimeout) in the outermost layer of any script in the project. Note that the assignment code is written in the outermost layer of the project script, not in class functions such as `onLoad` / `start`.
+Just set a larger value to [cc.macro.TOUCH_TIMEOUT](../../../api/en/classes/macro.html#touchtimeout) in the outermost scope of any script in the project. Note that the code should place in the outermost scope, not in any class functions such as `onLoad` / `start`.
 
 ### Change a material's texture in script
 
-The texture can be modified by the `setProperty` of the material:
+The diffuse texture can be modified by using `setProperty` in this way:
 
 ```js
 material.setProperty("diffuseTexture", texture);
@@ -243,6 +243,6 @@ material.setProperty("diffuseTexture", texture);
 
 For details, please refer to the [custom_material](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) in the example-cases.
 
-### Scheduler cancel failed, still running
+### Failed to cancel a schedule, still running
 
-The parameters received by `this.unschedule(callBack, target)` must be consistent with those passed by `this.schedule(callBack, target)`. Where the `callBack` must be the same function object, and the `target` must also be the same object. If the parameters passed in are different, the Scheduler cannot be stopped properly.
+The parameters passed in for `this.unschedule(callBack, target)` must be consistent with those passed in for `this.schedule(callBack, target)`. That is, the `callBack` must be the same function object, and the `target` must also be the same object. If the parameters passed in are different, the scheduler cannot be stopped properly.

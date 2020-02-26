@@ -55,7 +55,7 @@ java -version
 
   **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
 
-- 打包 Mac 版本和 iOS 版本时，Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)
+- 打包 Mac 版本和 iOS 版本时，Mac 下需要安装 [Xcode](https://developer.apple.com/xcode/download/) 和命令行工具。
 
 ## 配置原生发布环境路径
 

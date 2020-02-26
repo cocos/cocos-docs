@@ -183,7 +183,7 @@ cc.loader.load(image, (error, texture) => {
 
 可参考这个范例：<https://github.com/cocos-creator/load-remote-plist>。
 
-### 如何自定义或者直接禁用编辑器自带的 uglify？
+### 如何自定义或者直接禁用编辑器自带的 uglify
 
 自定义引擎完成后，打开 `engine/gulp/util/utils.js` 脚本，在最下面有一个 `uglify` 函数，可以根据需求自行修改其中的参数。如果想要完全跳过 `uglify` 操作，可以直接将 `uglify` 部分中的内容替换成：
 
@@ -210,7 +210,7 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 
   ![](introduction/compile_version.png)
 
-### 物理刚体的速度被限制？
+### 物理刚体的最大速度似乎被限制住了
 
 可以对引擎进行 [定制和重编译](../advanced-topics/engine-customization.md)，在引擎 `engine/external/box2d/box2d.js` 脚本中，`b2_maxTranslation` 参数表示刚体的最大线速度，默认值为 **2**，开发者可以按需修改。
 
@@ -218,7 +218,7 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 
 这是由于场景文件中的某个 `_children` 的值错误地保存成了 `null`，有可能是在某次编辑器报错的情况下无意中保存了错误的场景数据导致的。可以用文本编辑工具打开场景对应的 `.fire` 文件，把它改为 `[]` 即可。
 
-### VideoPlayer 播放视频显示黑屏
+### VideoPlayer 在浏览器中播放视频时显示黑屏
 
 HTML 只支持 H.264 编码格式的 MP4，建议使用视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。
 

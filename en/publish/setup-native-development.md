@@ -55,7 +55,7 @@ Please install the following running environment:
 
   **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
-- In Mac, the installation of Xcode and command line tool is needed, [download page](https://developer.apple.com/xcode/download/).
+- In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
 ## Configure path in original release environments
 
@@ -84,7 +84,7 @@ We have received lots of feedback about original packing in the public beta, and
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, please send the bug with detailed reproducible steps and error information to us by [forum](http://discuss.cocos2d-x.org/c/creator).
+In the end, if building still fails, please post the bug with detailed reproducible steps and error information to us in the [forum](https://discuss.cocos2d-x.org/c/creator).
 
 ---
 
