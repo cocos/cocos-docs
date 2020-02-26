@@ -178,6 +178,10 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
+### How to load Atlas remotely from a server
+
+Please refer to this example: <https://github.com/cocos-creator/load-remote-plist>.
+
 ### How to customize or directly disable the uglify process that comes with the editor
 
 After the engine is customized, open the `engine/gulp/util/utils.js` script, at the bottom there is a `uglify` function. You can modify its parameters according to the requirements. If you want to completely skip the `uglify` operation, you can replace the contents of the `uglify` section directly with:
@@ -203,4 +207,42 @@ The Google Play statement began in August 2018, newly submitted app must be comp
 - `minSdkVersion` The minimum version supported: Decide to compile the minimum supported Android version of the app. Recommended set to 16 (Correspondence Android 4.0)
 - `targetSdkVersion` Related to the behavior of the runtime. The recommended setting is consistent with `compileSdkVersion`, or it can be set to 22 to avoid [Request App Permissions](https://developer.android.com/training/permissions/requesting).
 
-![](introduction/compile_version.png)
+  ![](introduction/compile_version.png)
+
+### The maximum speed of a Rigidbody seems to be limited
+
+You can [customize and recompile](../advanced-topics/engine-customization.md)  in the engine script `engine/external/box2d/box2d.js`, the `b2_maxTranslation` parameter is the maximum linear velocity of Rigidbody, and the default value is **2**, which can be modified to your needs.
+
+### A `TypeError: children[i]._onBatchCreated is not a function` error results when loading the scene
+
+It is possible that an incorrect scene data was accidentally saved when the editor has an error, resulting in the value of `_children` in the scene file to be incorrectly saved as `null`. You can use the any text editor to open the `.fire` file corresponding to the scene and change it to `[]`.
+
+### VideoPlayer displays a black screen on web browsers
+
+HTML only supports MP4 encoded as H.264 format, please check the video format.
+
+### When running or previewing, the color of Creator's built-in profile information doesn't display well
+
+You can [customize and recompile](../advanced-topics/engine-customization.md) the engine, to modify the color used in the profiler. Find the `generateNode` method in the `engine/cocos2d/core/utils/profiler/CCProfiler.js` and set the color of **LEFT-PANEL** and **RIGHT-PANEL** nodes to your needs.
+
+### The node position adjusted by Widget is not updated immediately
+
+Note that you should call `widget.updateAlignment();` to request the Widget refresh immediately.
+
+### Listening to multi-touch events, suppose there are two points A and B, hold down B, after repeatedly clicking A, release B but no "touchend" event received.
+
+Just set a larger value to [cc.macro.TOUCH_TIMEOUT](../../../api/en/classes/macro.html#touchtimeout) in the outermost scope of any script in the project. Note that the code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`.
+
+### Change a material's texture in script
+
+The diffuse texture can be modified by using `setProperty` in this way:
+
+```js
+material.setProperty("diffuseTexture", texture);
+```
+
+For details, please refer to the [custom_material](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) in the example-cases.
+
+### Failed to cancel a schedule, still running
+
+The parameters passed in for `this.unschedule(callBack, target)` must be consistent with those passed in for `this.schedule(callBack, target)`. That is, the `callBack` must be the same function object, and the `target` must also be the same object. If the parameters passed in are different, the scheduler cannot be stopped properly.

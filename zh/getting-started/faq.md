@@ -67,7 +67,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) 中的 **dragonBones/DragonMesh** 测试例。
 
-### 如何从服务器远程加载 DragonBones ？
+### 如何从服务器远程加载 DragonBones
 
 #### 加载文本格式的 DragonBones 资源
 
@@ -179,7 +179,11 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
-### 如何自定义或者直接禁用编辑器自带的 uglify？
+### 如何从服务器远程加载图集
+
+可参考这个范例：<https://github.com/cocos-creator/load-remote-plist>。
+
+### 如何自定义或者直接禁用编辑器自带的 uglify
 
 自定义引擎完成后，打开 `engine/gulp/util/utils.js` 脚本，在最下面有一个 `uglify` 函数，可以根据需求自行修改其中的参数。如果想要完全跳过 `uglify` 操作，可以直接将 `uglify` 部分中的内容替换成：
 
@@ -206,83 +210,40 @@ Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api lev
 
   ![](introduction/compile_version.png)
 
-### 物理刚体的速度为什么会被限制
+### 物理刚体的最大速度似乎被限制住了
 
-`b2_maxTranslation` 是引擎脚本 box2d.js 中用于限制刚体速度变化率的参数，并且默认值为 2。开发者可以通过修改这个值来改变刚体的最大速度值。box2d.js 在引擎目录中的相对路径是 **./engine/external/box2d/box2d.js**，找到并修改 `b2_maxTranslation` 的参数赋值之后，请参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
+可以对引擎进行 [定制和重编译](../advanced-topics/engine-customization.md)，在引擎 `engine/external/box2d/box2d.js` 脚本中，`b2_maxTranslation` 参数表示刚体的最大线速度，默认值为 **2**，开发者可以按需修改。
 
-### 场景加载报错：`typeError: children[i]._onBatchCreated is not a function`
+### 加载场景时出现 `TypeError: children[i]._onBatchCreated is not a function` 的报错
 
-这是由于用于记录场景的 json 文件中某个 `_children` 的值变成了 null，将其改成能够正常被读取的数值即可。
+这是由于场景文件中的某个 `_children` 的值错误地保存成了 `null`，有可能是在某次编辑器报错的情况下无意中保存了错误的场景数据导致的。可以用文本编辑工具打开场景对应的 `.fire` 文件，把它改为 `[]` 即可。
 
-### VideoPlayer 播放视频显示黑屏
+### VideoPlayer 在浏览器中播放视频时显示黑屏
 
-HTML 只支持 H.264 编码格式的 MP4，建议使用音视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。具体可参考文章 https://blog.csdn.net/keji_123/article/details/77717849
+HTML 只支持 H.264 编码格式的 MP4，建议使用视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。
 
-### 打开项目后，未出现编辑器，仅显示 CocosCreator 图标
+### 运行或预览时，Creator 默认的调试信息显示的颜色看不清楚
 
-删除项目中 `local` 文件夹的 `local.json` ，之后重启项目即可。
+可以对引擎进行 [定制和重编译](../advanced-topics/engine-customization.md)，修改引擎调试信息所用的颜色。在 `engine/cocos2d/core/utils/profiler/CCProfiler.js` 脚本中找到 `generateNode` 方法，修改其中的 **LEFT-PANEL**、**RIGHT-PANEL** 节点颜色即可。
 
-### 运行预览后，Creator 默认的调试信息显示不清晰
+### Widget 组件改变的坐标值在当前帧不刷新
 
-CCProfiler.js 脚本在引擎目录中的相对路径是：**./engine/cocos2d/core/utils/profiler/CCProfiler.js**，找到 `cc.profiler` 对象后在其中加入如下代码，之后参考 [引擎定制工作流程](https://docs.cocos.com/creator/manual/zh/advanced-topics/engine-customization.html#12-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%9619) 编译引擎即可。
+请注意需要在立即刷新节点坐标或尺寸前执行 `widget.updateAlignment();`。
 
-```
-/*
- * @example
- * cc.profiler.setDebugInfoColor({ r: 255, g: 0, b: 0, a: 255 });
- */
-setDebugInfoColor(colorObj) {
-    //需要等待 _rootNode 节点激活才能修改调试信息颜色
-    if (!_rootNode) {
-        setTimeout(()=>{
-            this.setDebugInfoColor(colorObj);
-        }, 100)
-    }
-    else {
-        let leftNode = _rootNode.getChildByName("LEFT-PANEL");
-        let rightNode = _rootNode.getChildByName("RIGHT-PANEL");
-        if (leftNode && rightNode && typeof colorObj === "object") {
-            leftNode.color = rightNode.color = new cc.Color(colorObj);
-        }
-    }
-}
+### 监听多点触摸，假设有 A、B 两点，按住 B 点，重复点击 A 点之后，松开 B 点时不响应 `touchend` 事件
+
+在项目的任意脚本最外层对 [cc.macro.TOUCH_TIMEOUT](../../../api/zh/classes/macro.html#touchtimeout) 重新赋予一个更大的值即可。注意赋值代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中。
+
+### 动态修改材质的纹理
+
+可以通过材质的 `setProperty` 来修改纹理：
+
+```js
+material.setProperty("diffuseTexture", texture);
 ```
 
-### Widget 组件改变的坐标值当前帧不刷新
+具体内容可参考官方范例中的 [custom_material](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) 测试例。
 
-```
-widget.updateAlignment();
-```
+### Scheduler 取消失败，仍然运行
 
-在需要立即刷新节点坐标值的地方执行这句代码即可。
-
-### 多点触控监听，假设 A、B 两点，按住 B 点，重复点击 A 点之后，手指离开 B 点时不响应 ‘touchend’ 事件
-
-在项目中添加插件脚本并对 `cc.macro.TOUCH_TIMEOUT` 重新赋予一个更大的值即可解决这个问题。你可以通过阅读 [API 文档](https://docs.cocos.com/creator/api/zh/classes/macro.html#touchtimeout) 了解这个参数的定义。
-
-### 动态修改 material 贴图
-
-材质贴图接收的是 `cc.Texture2D` 对象，所以我们可以在 **属性检查器** 面板添加一个 `cc.Texture2D` 对象。例如：
-
-```
-goldTexture: {
-    default: null,
-    type: cc.Texture2D
-}
-```
-
-最后直接调用材质系统的 `setProperty` 来修改贴图：
-
-```
-this.material.setProperty("diffuseTexture", this.goldTexture);
-```
-
-具体内容可参考 [范例](https://github.com/cocos-creator/example-cases) 工程中的 `custom_material` 场景
-
-### 取消定时器失败，定时器仍然运行
-
-this.unschedule(callBack, target) 接收的参数必须与 this.schedule(callBack, target) 一致。其中 callBack 必须是同一函数对象，而 target 也必须接收同一执行环境对象。如果传入的参数不同那么就不能正常停止 schedule。
-
-### 如何远程加载图集
-
-参考 [范例](https://github.com/cocos-creator/load-remote-plist)。
+`this.unschedule(callBack, target)` 接收的参数必须与 `this.schedule(callBack, target)` 传入的一致。其中 callBack 必须是同一函数对象，而 target 也必须是同一个对象。如果传入的参数不同就会导致无法正常停止 Scheduler。
