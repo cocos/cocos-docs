@@ -116,7 +116,7 @@ If everything is alright, you can run the native version of the sample project. 
 
 ## Conclusion
 
-The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](http://discuss.cocos2d-x.org/).
+The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](https://discuss.cocos2d-x.org/c/creator).
 
 ## Next Step
 
