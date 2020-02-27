@@ -51,6 +51,7 @@ After installing Android Studio, refer to the official documentation and open th
 Please install the following running environment:
 
 - Python 2.7.5+, [download page](https://www.python.org/downloads/). Pay attention! Don't download Python 3.x version.
+
 - In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
 
   **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
