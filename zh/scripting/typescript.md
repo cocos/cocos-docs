@@ -28,14 +28,13 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 
 `tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
 
-在这里分享一份我们常用的`tsconfig-json`配置方案
+在这里分享一份我们常用的`tsconfig.json`配置方案
 ```
 {
   "compilerOptions": {
     "module": "commonjs",
     "lib": [ "es2015", "es2017", "dom" ],
     "target": "es5",
-    "allowJs": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "outDir": "temp/vscode-dist"
@@ -50,7 +49,7 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
   ]
 }
 ```
-**注意**，项目中的`tsconfig-json`主要是用来配合 VS Code 进行工作，并不会影响项目最终编译输出的build版本。
+**注意**，项目中的`tsconfig.json`主要是用来配合 VS Code 进行工作，并不会影响项目最终编译输出的build版本。
 
 ### 在项目中创建 TypeScript 脚本
 
@@ -226,13 +225,21 @@ textures: cc.Texture2D[] = [];
 
 Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为每个脚本生成模块化封装，以便脚本之间可以通过 `import` 或 `require` 相互引用。当希望把一个脚本中的变量和方法放置在全局命名空间，而不是放在某个模块中时，我们需要选中这个脚本资源，并在 **属性检查器** 里设置该脚本 `导入为插件`。设为插件的脚本将不会进行模块化封装，也不会进行自动编译。
 
+**注意：**在微信、百度、小米、支付宝小游戏环境当中，需要显式地将局部变量和方法挂载在 window 全局变量上
+
 所以对于包含命名空间的 TypeScript 脚本来说，我们既不能将这些脚本编译并进行模块化封装，也不能将其设为插件脚本（会导致 TS 文件不被编译成 JS）。如果需要使用命名空间，我们需要使用特定的工作流程。
 
 ### 命名空间工作流程
 
 下面我们通过一个示例来说明一下流程。
 
-假设在`assets`文件夹下有一个叫做`ExampleWithNamespace.ts`的文件使用了命名空间。下面我们看一下如何来让它在项目中正确的工作。
+假设在`assets`文件夹下有一个叫做`ExampleWithNamespace.ts`的文件使用了命名空间。内容如下：
+```ts
+namespace Foo {
+    export let bar: number = 1;
+}
+```
+下面我们看一下如何来让它在项目中正确的工作。
 
 - 首先，我们需要在`tsconfig.json`的 `compilerOptions` 字段中 设置`outDir`。 假设设置如下:
 ```
@@ -249,7 +256,15 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
 ```
 
 - 在 VS Code 中， 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 里选择 `tsc:构建`。让 VS Code 编译项目。
-- 然后我们进入`temp/vscode-dist`文件夹，找到一个叫做`ExampleWithNamespace.js`的js文件。把它Copy到`assets`下的任意有效位置。
+- 然后我们进入`temp/vscode-dist`文件夹，找到编译后的文件`ExampleWithNamespace.js`。此时该文件的内容应该是
+```js
+"use strict";
+var Foo;
+(function (Foo) {
+    Foo.bar = 1;
+})(Foo || (Foo = {}));
+```
+- 把`ExampleWithNamespace.js`文件 Copy 到`assets`下的任意有效位置。
 - 回到 Creator 编辑器，在资源管理器里选中刚Copy过来的 `ExampleWithNamespace.js` 脚本，在 **属性检查器** 中设置 **导入为插件**。
 
 此时`ExampleWithNamespace.ts`文件里定义的命名空间就可以正常的工作了。
