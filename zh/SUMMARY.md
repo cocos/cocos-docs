@@ -70,7 +70,6 @@
     - [玩家输入事件](scripting/player-controls.md)
     - [使用缓动系统](scripting/tween.md)
     - [使用动作系统](scripting/actions.md)
-    - [动作列表](scripting/action-list.md)
     - [使用计时器](scripting/scheduler.md)
     - [脚本执行顺序](scripting/execution-order.md)
     - [网络接口](scripting/network.md)

@@ -16,7 +16,7 @@
 ## 容器动作
 
 | 动作名称   | 简介   | 文档链接   |
-| --------- | :---: | :-------: |
+| :-------- | :---- | :-------- |
 | cc.sequence      | 顺序执行动作 | [API 描述](../../../api/zh/modules/cc.html#sequence)      |
 | cc.spawn         | 同步执行动作 | [API 描述](../../../api/zh/modules/cc.html#spawn)         |
 | cc.repeat        | 重复执行动作 | [API 描述](../../../api/zh/modules/cc.html#repeat)        |
@@ -25,8 +25,8 @@
 
 ## 即时动作
 
-| 动作名称   | 简介 | 文档链接    |
-| --------- | :--- | :-------: |
+| 动作名称   | 简介  | 文档链接    |
+| :-------- | :--- | :--------- |
 | cc.show             | 立即显示                        | [API 描述](../../../api/zh/modules/cc.html#show)              |
 | cc.hide             | 立即隐藏                        | [API 描述](../../../api/zh/modules/cc.html#hide)              |
 | cc.toggleVisibility | 显隐状态切换                     | [API 描述](../../../api/zh/modules/cc.html#toggleVisibility)  |
@@ -40,7 +40,7 @@
 ## 时间间隔动作
 
 | 动作名称   | 简介  | 文档链接   |
-| --------- | :--- | :-------: |
+| :-------- | :--- | :------- |
 | cc.moveTo           | 移动到目标位置                         | [API 描述](../../../api/zh/modules/cc.html#moveTo)           |
 | cc.moveBy           | 移动指定的距离                         | [API 描述](../../../api/zh/modules/cc.html#moveBy)           |
 | cc.rotateTo         | 旋转到目标角度                         | [API 描述](../../../api/zh/modules/cc.html#rotateTo)         |
@@ -70,7 +70,7 @@
 ## 缓动动作
 
 | 动作名称   | 文档链接    |
-| --------- | :-------: |
+| :-------- | :-------  |
 | cc.easeIn                   | [API 描述](../../../api/zh/modules/cc.html#easeIn)                   |
 | cc.easeOut                  | [API 描述](../../../api/zh/modules/cc.html#easeOut)                  |
 | cc.easeInOut                | [API 描述](../../../api/zh/modules/cc.html#easeInOut)                |

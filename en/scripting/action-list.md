@@ -16,7 +16,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Container action
 
 | Action name      | Introduction | File link |
-| ---------------- | :---------- | :-------: |
+| :-------------- | :---------- | :------- |
 | cc.sequence      | sequential execution action    | [API description](../../../api/en/modules/cc.html#sequence)      |
 | cc.spawn         | synchronized execution action  | [API description](../../../api/en/modules/cc.html#spawn)         |
 | cc.repeat        | repetitive execution action    | [API description](../../../api/en/modules/cc.html#repeat)        |
@@ -26,7 +26,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Free action
 
 | Action name | Introduction | File link |
-| ----------- | :----------- | :-------: |
+| :---------- | :----------- | :------- |
 | cc.show                | show immediately                                         | [API description](../../../api/en/modules/cc.html#show)              |
 | cc.hide                | hide immediately                                         | [API description](../../../api/en/modules/cc.html#hide)              |
 | cc.toggleVisibility    | show/hide status switch                                  | [API description](../../../api/en/modules/cc.html#toggleVisibility)  |
@@ -40,7 +40,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Interval action
 
 | Action name | Introduction | File link |
-| ----------- | :--- | :-------: |
+| :---------- | :----------- | :-------- |
 | cc.moveTo           | move to the target location                                   | [API description](../../../api/en/modules/cc.html#moveTo)           |
 | cc.moveBy           | move by assigned distance                                     | [API description](../../../api/en/modules/cc.html#moveBy)           |
 | cc.rotateTo         | rotate to the target angle                                    | [API description](../../../api/en/modules/cc.html#rotateTo)         |
@@ -70,7 +70,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Slow motion
 
 | Action name | File link |
-| ----------- | :-------: |
+| :---------- | :------- |
 | cc.easeIn                   | [API description](../../../api/en/modules/cc.html#easeIn)                   |
 | cc.easeOut                  | [API description](../../../api/en/modules/cc.html#easeOut)                  |
 | cc.easeInOut                | [API description](../../../api/en/modules/cc.html#easeInOut)                |

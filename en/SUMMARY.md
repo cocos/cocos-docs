@@ -71,7 +71,6 @@
     - [Player Input](scripting/player-controls.md)
     - [Tweening](scripting/tween.md)
     - [Actions](scripting/actions.md)
-    - [Action List](scripting/action-list.md)
     - [Scheduler](scripting/scheduler.md)
     - [Execution Order](scripting/execution-order.md)
     - [Networking](scripting/network.md)
