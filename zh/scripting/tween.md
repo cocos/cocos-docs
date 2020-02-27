@@ -98,6 +98,8 @@ cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
+Easing 类型说明可参考 [API 文档](../../../api/zh/classes/Easing.html)。
+
 ## 自定义 progress
 
 相对于 easing，自定义 progress 函数可以更自由的控制缓动的过程。
