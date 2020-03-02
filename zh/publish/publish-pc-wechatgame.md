@@ -20,7 +20,7 @@ Cocos Creator 从 v2.3.1 开始支持了微信 PC 小游戏，并完成了鼠标
 
 3. 在微信开发者工具里，通过 **设置 -> 通用设置** 选择 **启动 PC 端自动预览**
 
-    ![](./wechat-pc-end/wechat-devtool-preference.png)
+    ![](./publish-pc-wechatgame/wechat-devtool-preference.png)
 
 4. 在微信开发者工具的工具栏里，点击 **预览** 图标，选择 **自动预览** 选项卡，点击 **编译并预览** 即可预览微信 PC 小游戏
 
