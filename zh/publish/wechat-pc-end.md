@@ -27,7 +27,7 @@ Cocos Creator 从 v2.3.1 开始支持了微信 PC 小游戏，并完成了鼠标
 ## 常见问题
 
 1. 怎么通过引擎接口区分 **微信移动端** 与 **微信 PC 端** ？  
-可以通过 `cc.sys.platform === cc.sys.WECHAT_GAME && cc.sys.isMobile` 来进行判断，PC 端是 `false`，移动端是 `true`。  
+可以通过 `cc.sys.isMobile` 来进行判断，PC 端是 `false`，移动端是 `true`。  
 **注意**：微信开发者工具里的模拟器，模拟的是移动端环境，所以这里返回的是 `true`。
 
 2. 微信 PC 小游戏可以发布到 mac 平台吗？  
