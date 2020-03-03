@@ -67,7 +67,7 @@ Manifest 格式是我们用来比较本地和远程资源差异的一种 json �
 
 Manifest 文件可以通过 Cocos Creator 热更新范例中的 [Version Generator 脚本](https://github.com/cocos-creator/tutorial-hot-update#%E4%BD%BF%E7%94%A8-version-generator-%E6%9D%A5%E7%94%9F%E6%88%90-manifest-%E6%96%87%E4%BB%B6) 来自动生成。
 
-这里需要注意的是，remote 信息（包括 `packageUrl`、`remoteVersionUrl`、`remoteManifestUrl`）是该 Manifest 所指向远程包信息，也就是说，当这个 Manifest 成为本地包或者缓存 Manifest 之后，它们才有意义（偷偷透露个小秘密，更新版本时更改远程包地址也是一种玩法呢）。另外，md5 信息可以不是文件的 md5 码，也可以是某个版本号，这完全是由用户决定的，本地和远程 Manifest 对比时，只要 md5 信息不同，我们就认为这个文件有改动。
+这里需要注意的是，remote 信息（包括 `packageUrl`、`remoteVersionUrl`、`remoteManifestUrl`）是该 manifest 所指向远程包信息，也就是说，当这个 manifest 成为本地包或者缓存 manifest 之后，它们才有意义（偷偷透露个小秘密，更新版本时更改远程包地址也是一种玩法呢）。另外，md5 信息可以不是文件的 md5 码，也可以是某个版本号，这完全是由用户决定的，本地和远程 manifest 对比时，只要 md5 信息不同，我们就认为这个文件有改动。
 
 ### 工程资源和游戏包内资源的区别
 
@@ -160,7 +160,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 由于 Manifest 中的资源版本建议使用 md5 码，那么在校验函数中计算下载文件的 md5 码去和 asset 的 md5 码比对即可判断文件是否正常。除了 md5 信息之外，asset 对象还包含下面的属性：
 
 1. path：            服务器端相对路径
-2. compressed：      是否为压缩文件
+2. compressed：      是否被压缩
 3. size：            文件尺寸
 4. downloadState：   下载状态，包含 UNSTARTED、DOWNLOADING、SUCCESSED、UNMARKED
 
@@ -168,7 +168,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考范例中 [热更新组件的实现](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js#L43)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
 
-最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 UPDATE_FAILED 事件，此时热更新管理器中记录了所有失败的资源列表，开发者可以通过很简单的方式进行失败资源的下载重试：
+最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 `UPDATE_FAILED` 事件。而所有下载失败的资源列表会被记录在热更新管理器中，可以通过以下方式下载重试：
 
 ```js
 assetsManager.downloadFailedAssets();
@@ -182,11 +182,11 @@ assetsManager.downloadFailedAssets();
 
 1. JS 脚本的刷新
     
-    在热更新之前，游戏中的所有脚本已经执行过了，所有的类、组件、对象已经存在 JS context 中。所以热更新之后如果不重启游戏就直接加载脚本，同名的类和对象虽然会被覆盖，但是之前旧的类创建的对象是一直存在的。而被直接覆盖的全局对象，原先的状态也被重置了，就会造成新版本和旧版本的对象混杂在一起。并且对内存也会造成额外开销。
+    在热更新之前，游戏中的所有脚本已经执行过了，所有的类、组件、对象已经存在 JS context 中。所以热更新之后如果不重启游戏就直接加载脚本，同名的类和对象虽然会被覆盖，但是之前旧的类创建的对象是一直存在的。而被直接覆盖的全局对象，原先的状态也被重置了，就会导致新版本和旧版本的对象混杂在一起。并且对内存也会造成额外开销。
 
 2. 资源配置的刷新
 
-    在 Cocos2d-x/JS 中可以不重启游戏就直接使用新的贴图、字体、音效等资源。但是在 Creator 中不可以，因为 Creator 的资源依赖于配置，场景依赖于 settings.js 中的场景列表，而 raw assets 依赖于 settings.js 中的 raw assets 列表。如果 settings.js 没有重新执行，并被 main.js 和 AssetsLibrary 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
+    在 Cocos2d-x/JS 中可以不重启游戏就直接使用新的贴图、字体、音效等资源。但是在 Creator 中不可以，因为 Creator 的场景和资源都依赖于 `settings.js`。如果 settings.js 没有重新执行，并被 main.js 和 AssetsLibrary 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
 
 而如何启用新的资源，就需要依赖 Cocos 引擎的搜索路径机制了。Cocos 中所有文件的读取都是通过 FileUtils，而 FileUtils 会按照搜索路径的优先级顺序查找文件。所以我们只要将热更新的缓存目录添加到搜索路径中并且前置，就会优先搜索到缓存目录中的资源。以下是示例代码：
 
@@ -227,7 +227,7 @@ if (jsb) {
     在游戏包更新过程中，若要彻底清理本地的热更新缓存有很多种做法，比如可以记录当前的游戏版本号，检查与 `cc.sys.localStorage` 中保存的版本是否匹配，如果两者不匹配则执行以下清理操作：
 
     ```js
-    // local Storage 中保存的版本号，如果没有，则认为是旧版本
+    // 之前保存在 local Storage 中的版本号，如果没有，则认为是新版本
     var previousVersion = parseFloat( cc.sys.localStorage.getItem('currentVersion') );
     // game.currentVersion 为当前版本的版本号
     if (previousVersion < game.currentVersion) {
@@ -238,6 +238,6 @@ if (jsb) {
 
 ### 更新引擎
 
-升级游戏使用的引擎版本可能会对热更新产生巨大影响，开发者们可能有注意到在原生项目中存在 `src/jsb_polyfill.js` 文件，这个文件是 JS 引擎编译出来的，包含了对 C++ 引擎的一些接口封装和 `Entity Component` 层的代码。在不同版本的引擎中，它的代码会产生比较大的差异，而 C++ 底层也会随之发生一些改变。这种情况下，如果游戏包内的 C++ 引擎版本和 `src/jsb_polyfill.js` 的引擎版本不一致，可能会导致严重的问题，甚至游戏完全无法运行。
+升级游戏使用的引擎版本可能会对热更新产生巨大影响，开发者们可能有注意到在原生项目中存在 `src/cocos2d-jsb.js` 文件，这个文件是 JS 引擎编译出来的，包含了对 C++ 引擎的一些接口封装和 JS 引擎框架。在不同版本的引擎中，它的代码会产生比较大的差异，而 C++ 底层也会随之发生一些改变。这种情况下，如果游戏包内的 C++ 引擎版本和 `src/cocos2d-jsb.js` 的引擎版本不一致，可能会导致严重的问题，甚至游戏完全无法运行。
 
-建议更新引擎之后，尽量推送大版本到应用商店。如果不想对大版本进行热更新，请一定要仔细完成旧版本更新到新版本的测试。
+建议更新引擎之后，尽量推送大版本到应用商店。如果仍采用热更新方案，请一定要仔细完成各个旧版本更新到新版本的测试。
