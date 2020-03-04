@@ -49,7 +49,7 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 | Enumeration object definition    | Corresponding event name | Event trigger timing |
 | -------------------------------- | ------------------------ | -------------------- |
 | `cc.Node.EventType.TOUCH_START`  | `touchstart`             | when the finger touches the screen                           |
-| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`              | when the finger moves in the target node region on screen    |
+| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`              | when the finger moves on screen                              |
 | `cc.Node.EventType.TOUCH_END`    | `touchend`               | when the finger leaves screen in the target node region      |
 | `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel`            | when the finger leaves screen outside the target node region |
 

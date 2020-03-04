@@ -24,9 +24,9 @@ node.on('mousedown', function (event) {
 
 | 枚举对象定义                      | 对应的事件名   | 事件触发的时机 |
 | ------------------------------- | ------------ | ------------ |
-| `cc.Node.EventType.MOUSE_DOWN`  | `mousedown`  | 当鼠标在目标节点区域按下时触发一次                |
+| `cc.Node.EventType.MOUSE_DOWN`  | `mousedown`  | 当鼠标按下时触发一次                |
 | `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | 当鼠标移入目标节点区域时，不论是否按下             |
-| `cc.Node.EventType.MOUSE_MOVE`  | `mousemove`  | 当鼠标在目标节点在目标节点区域中移动时，不论是否按下 |
+| `cc.Node.EventType.MOUSE_MOVE`  | `mousemove`  | 当鼠标在目标节点区域中移动时，不论是否按下 |
 | `cc.Node.EventType.MOUSE_LEAVE` | `mouseleave` | 当鼠标移出目标节点区域时，不论是否按下             |
 | `cc.Node.EventType.MOUSE_UP`    | `mouseup`    | 当鼠标从按下状态松开时触发一次                    |
 | `cc.Node.EventType.MOUSE_WHEEL` | `mousewheel` | 当鼠标滚轮滚动时                               |
@@ -49,8 +49,8 @@ node.on('mousedown', function (event) {
 
 | 枚举对象定义                       | 对应的事件名    | 事件触发的时机                 |
 | -------------------------------- | ------------- | ---------------------------- |
-| `cc.Node.EventType.TOUCH_START`  | `touchstart`  | 当手指触点落在目标节点区域内时    |
-| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`   | 当手指在屏幕上目标节点区域内移动时 |
+| `cc.Node.EventType.TOUCH_START`  | `touchstart`  | 当手指触摸到屏幕时    |
+| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`   | 当手指在屏幕上移动时 |
 | `cc.Node.EventType.TOUCH_END`    | `touchend`    | 当手指在目标节点区域内离开屏幕时  |
 | `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel` | 当手指在目标节点区域外离开屏幕时  |
 
