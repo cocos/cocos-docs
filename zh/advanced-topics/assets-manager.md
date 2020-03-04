@@ -166,7 +166,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 ### 错误处理和失败重试
 
-在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考范例中 [热更新组件的实现](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js#L43)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
+在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考 [范例](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
 
 最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 `UPDATE_FAILED` 事件。而所有下载失败的资源列表会被记录在热更新管理器中，可以通过以下方式下载重试：
 

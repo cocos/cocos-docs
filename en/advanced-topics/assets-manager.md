@@ -170,7 +170,7 @@ The asset version in manifest is recommended to use md5. You can determine wheth
  
 ### Error message handling and download retry
 
-In the left side of the flowchart, you can see a number of user messages that can be notified through the event listener of the Assets Manager. For details, you can refer to the [Implementation of hot update component](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js) in the example. The flowchart identifies the trigger and cause of all error messages, and you can handle them according to your system design.
+In the left side of the flowchart, you can see a number of user messages that can be notified through the event listener of the Assets Manager. For details, you can refer to the [example](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js). The flowchart identifies the trigger and cause of all error messages, and you can handle them according to your system design.
 
 The most important thing is that when an exception occurs during the download process, such as a failed download, a failed decompression, or a failed verification, the `UPDATE_FAILED` event will be triggered. And a list of all assets that failed to download will be recorded in the Assets Manager and can be downloaded again as follows:
 
@@ -233,11 +233,11 @@ Hot update is a frequent requirement for game developers, and multiple hot updat
     During a package update, there are various ways to thoroughly clean up the local hot update cache, such as recording the current game version number, checking if it matches the saved version in `cc.sys.localStorage`, and performing the following cleanup if they don't match:
 
     ```js
-    // The version number previously saved in local Storage, if not, is considered a new version
+    // The version number previously saved in local Storage, if not, is considered as new version
     var previousVersion = parseFloat(cc.sys.localStorage.getItem('currentVersion'));
     // game.currentVersion is the current version's number.
     if (previousVersion < game.currentVersion) {
-        // The hot update cache directory. If there are multiple in the old version, you may need to record in the list and clean all.
+        // The hot update cache directory. If there are multiple versions, you may need to record in a list and clean all.
         jsb.fileUtils.removeDirectory(storagePath);
     }
     ```
@@ -246,4 +246,4 @@ Hot update is a frequent requirement for game developers, and multiple hot updat
 
 Upgrading the engine version can have a huge impact on the hot update, and you may have noticed that there is a `src/cocos2d-jsb.js` file in the native project, which is compiled by the JS engine and contains some interface encapsulations for the C++ engine and the JS engine framework. In different versions of engine, its code will be quite different, and the bottom layer of C++ will also change simultaneously. Once the C++ engine version in the game pack does not match the engine version in the `src/cocos2d-jsb.js`, it can cause serious problems and even prevent the game from running.
 
-It is recommended to publish the major version to app stores as much as possible after updating the engine. If you still want to use the hot update plan, please carefully complete the test of updating the old version to the new version.
+It is recommended to publish the major version to app stores as much as possible after updating the engine. If you decide to use hot update, please carefully complete the test of updating the old version to the new version.
