@@ -209,12 +209,12 @@ export class MyUser extends cc.Component {
 
 ```typescript
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 texture: cc.Texture2D = null;
 
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 textures: cc.Texture2D[] = [];
 ```

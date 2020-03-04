@@ -184,12 +184,12 @@ Cocos Creator made partial adjustments to the asset types since v1.10. The decla
 
 ```typescript
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 texture: cc.Texture2D = null;
 
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 textures: cc.Texture2D[] = [];
 ```
