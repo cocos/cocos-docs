@@ -30,7 +30,7 @@ If you want to add a TypeScript script to the original project and get the full 
 
 `tsconfig.json` is used to set the TypeScript project configuration and can be further customized by referring to the official [tsconfig.json instructions](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-The following are common configurations of `tsconfig.json`:
+Here is a `tsconfig.json` paradigm:
 
 ```json
 {
@@ -53,7 +53,7 @@ The following are common configurations of `tsconfig.json`:
 }
 ```
 
-**Note**: The `tsconfig.json` file in the project is mainly used to mate with VS Code, and will not affect the `build` release of the final compilation output of the project.
+**Note**: The `tsconfig.json` file in the project is mainly used for VS Code, and will not affect the actual compilation in Cocos Creator.
 
 ### Create a TypeScript script in the project
 
@@ -229,15 +229,15 @@ In TypeScript, a namespace is an ordinary, named Javascript object that is locat
 
 Creator defaults all scripts in the assets directory will be compiled, and a modular package is automatically generated for each script so that the scripts can reference each other via `import` or `require`. When we want to place a script's variables and methods in the global namespace rather than in a module, we need to select this script resource and set the script `import as plugin` in the **Properties**. Scripts that are set up as Plug-ins will not encapsulated in a modularly and are not automatically compiled.
 
-**Note**: In the WeChat, Baidu, Xiaomi, Alipay minigame environments, the local variables and methods need to be explicitly mounted on the Windows global variables.
+**Note**: In the WeChat, Baidu, Xiaomi, Alipay mini game environments, the global variables need to explicitly set properties of `window` to declare successfully, such as `window.data = {};`.
 
 So for TypeScript scripts that contain namespaces, we can neither compile and modularize the scripts nor set them as plugin scripts (which will cause TS files not to be compiled into JS). If you need to use namespaces, we need to work with a specific workflow.
 
-### Name space workflow
+### Namespaces workflow
 
-Here is an example of the name spaces workflow.
+Here is an example of the namespaces workflow.
 
-Suppose you have a **NameSpace.ts** file under the **assets** directory that uses a namespaces.
+Suppose you have a **foo.ts** file under the **assets** directory that uses a namespace.
 
 ```ts
 namespace Foo {
@@ -245,7 +245,7 @@ namespace Foo {
 }
 ```
 
-1. For first time use, you need to install the TypeScript compiler, execute the following command on the command line:
+1. For first time use, you need to install the TypeScript compiler, execute the following command in command line:
 
     ```bash
     npm install -g typescript
@@ -267,7 +267,7 @@ namespace Foo {
 
 3. Press the **Ctrl/Cmd + Shift + P**, enter `task` in the popup input box and select `Tasks: Configure Task`. Then continue to select `tsc: build - tsconfig.json` in the popup options.
 
-4. Press the **Ctrl/Cmd + Shift + B**, enter `tsc` in the popup input box and select `tsc: build - tsconfig.json` to trigger the default build task. Then you can see that a **vscode-dist** folder is generated under the **temp** directory. Open the **temp/vscode-dist/NameSpace.js** file, the contents of the file should be:
+4. Press the **Ctrl/Cmd + Shift + B**, enter `tsc` in the popup input box and select `tsc: build - tsconfig.json` to trigger the default build task. Then you can see that a **vscode-dist** folder is generated under the **temp** directory. Open the **temp/vscode-dist/foo.js** file, the contents of the file should be:
 
     ```js
     var Foo;
@@ -276,9 +276,9 @@ namespace Foo {
     })(Foo || (Foo = {}));
     ```
 
-5. Copy the **NameSpace.js** file to any valid location in the **assets** directory of project.
+5. Copy the **foo.js** file to any valid location in the **assets** directory of project.
 
-6. Go back to the editor and select the **NameSpace.js** file you just copied in the **Assets** panel. Then check **Import As Plugin** in the **Properties** panel and click the **Apply** button in the upper right corner when you're done. The namespaces defined in the **NameSpace.js** file now works fine.
+6. Go back to the editor and select the **foo.js** file you just copied in the **Assets** panel. Then check **Import As Plugin** in the **Properties** panel and click the **Apply** button in the upper right corner when you're done. The namespaces defined in the **foo.js** file now works fine.
 
 That is the complete workflow for using the TypeScript namespace in Creator.
 

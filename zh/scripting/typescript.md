@@ -24,11 +24,11 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 
 ### 在已有项目中添加 TypeScript 设置
 
-如果希望在原有项目中添加 TypeScript 脚本，并获得 VS Code 等 IDE 的完整支持，需要执行主菜单的 **开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据** 和 **开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置**，来添加 `creator.d.ts` 和 `tsconfig.json` 文件到你的项目根目录中。`creator.d.ts` 声明了引擎的所有 API，用于支持 VS Code 的智能提示。
+如果希望在原有项目中添加 TypeScript 脚本，并获得 VS Code 等 IDE 的完整支持，需要执行主菜单的 **开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据** 和 **开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置**，来添加 `creator.d.ts` 和 `tsconfig.json` 文件到您的项目根目录中。`creator.d.ts` 声明了引擎的所有 API，用于支持 VS Code 的智能提示。
 
 ![](assets/setting-vscode.png)
 
-`tsconfig.json` 用于设置 TypeScript 项目环境，请参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
+`tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
 
 以下是常用的 `tsconfig.json` 配置方案：
 
@@ -53,11 +53,11 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 }
 ```
 
-**注意**：项目中的 `tsconfig.json` 主要是用于配合 VS Code，并不会影响项目最终编译输出的 build 版本。
+**注意**：项目中的 `tsconfig.json` 主要是用于配合 VS Code，并不会影响项目在 Creator 中的实际编译。
 
 ### 在项目中创建 TypeScript 脚本
 
-和创建 JavaScript 脚本一样，开发者可以直接在文本编辑器里新建 `.ts` 文件，或通过编辑器的 **资源管理器** 的创建菜单，右键点击一个文件夹，并选择 **新建 -> TypeScript**。
+和创建 JavaScript 脚本一样，您可以直接在文本编辑器里新建 `.ts` 文件，或通过编辑器的 **资源管理器** 的创建菜单，右键点击一个文件夹，并选择 **新建 -> TypeScript**。
 
 ## 使用 TypeScript 声明 CCClass
 
@@ -229,15 +229,15 @@ textures: cc.Texture2D[] = [];
 
 Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为每个脚本生成模块化封装，以便脚本之间可以通过 `import` 或 `require` 相互引用。当希望把一个脚本中的变量和方法放置在全局命名空间，而不是放在某个模块中时，我们需要选中这个脚本资源，并在 **属性检查器** 里设置该脚本 `导入为插件`。设为插件的脚本将不会进行模块化封装，也不会进行自动编译。
 
-**注意**：在微信、百度、小米、支付宝小游戏环境中，需要显式地将局部变量和方法挂载在 Windows 全局变量上。
+**注意**：在微信、百度、小米、支付宝小游戏环境中，全局变量需要显式地给 window 设置属性才能成功声明，如 `window.data = {};`。
 
 所以对于包含命名空间的 TypeScript 脚本来说，我们既不能将这些脚本编译并进行模块化封装，也不能将其设为插件脚本（会导致 TS 文件不被编译成 JS）。如果需要使用命名空间，我们需要使用特定的工作流程。
 
 ### 命名空间工作流程
 
-下面通过一个范例介绍命名空间的工作流程。
+下面我们通过一个范例介绍命名空间的工作流程。
 
-假设在 `assets` 文件夹下有一个 `NameSpace.ts` 文件使用了命名空间：
+假设在 `assets` 文件夹下有一个 `foo.ts` 文件使用了命名空间：
 
 ```ts
 namespace Foo {
@@ -267,7 +267,7 @@ namespace Foo {
 
 3. 按下 **Ctrl/Cmd + Shift + P**，在弹出的 Command Palette 中输入 `task`，并选择 `Tasks: Configure Task`。然后继续在弹出的选项中选择 `tsc: build - tsconfig.json`。
 
-4. 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 中选择 `tsc: build - tsconfig.json` 触发默认构建任务。可以看到在 **temp** 目录下生成了 **vscode-dist** 文件夹。打开 **temp/vscode-dist/NameSpace.js** 文件，此时文件内的内容应该是：
+4. 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 中选择 `tsc: build - tsconfig.json` 触发默认构建任务。可以看到在 **temp** 目录下生成了 **vscode-dist** 文件夹。打开 **temp/vscode-dist/foo.js** 文件，此时文件内的内容应该是：
 
     ```js
     var Foo;
@@ -276,9 +276,9 @@ namespace Foo {
     })(Foo || (Foo = {}));
     ```
 
-5. 将 **NameSpace.js** 文件拷贝到 **assets** 目录下的任意有效位置。
+5. 将 **foo.js** 文件拷贝到 **assets** 目录下的任意有效位置。
 
-6. 回到 Creator 编辑器，在 **资源管理器** 中选中刚才拷贝过来的 **NameSpace.js** 文件，然后在 **属性检查器** 中勾选 **导入为插件**，完成后点击右上角的 **应用**。此时 **NameSpace.js** 文件里定义的命名空间就可以正常的工作了。
+6. 回到 Creator 编辑器，在 **资源管理器** 中选中刚才拷贝过来的 **foo.js** 文件，然后在 **属性检查器** 中勾选 **导入为插件**，完成后点击右上角的 **应用**。此时 **foo.js** 文件里定义的命名空间就可以正常的工作了。
 
 以上就是在 Creator 中使用 TypeScript 命名空间的完整工作流程。
 
