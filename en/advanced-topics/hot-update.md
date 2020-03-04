@@ -85,7 +85,8 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 
 ### Publish the original version
 
-After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.   
+After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.
+
 **Note**: 
 - Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
 - Please make sure to import editor plugin hot-update into the packages folder (the demo project has imported the plugin)
@@ -101,10 +102,10 @@ The editor plugin automatically adds the search path logic to `main.js` everytim
             jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
         }
     }
-})();
+});
 ```
 
-This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage) ) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
+This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
 In addition, if you encounter this warning during the opening of the project, you can ignore: `loader for [.manifest] not exists!`.
 
@@ -116,8 +117,8 @@ If everything is alright, you can run the native version of the sample project. 
 
 ## Conclusion
 
-The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](http://discuss.cocos2d-x.org/).
+The above is a hot update solution, Cocos Creator in the future version to provide more mature hot update process, directly integrated into the editor. Of course, the underlying Downloader API will also be provided to allow users to freely implement their own hot update scheme and to build a complete visual workflow in the editor through the plug-in mechanism. This tutorial and sample project is for your reference and we encourage developers to customize their own workflows. If you have questions and communication also welcome feedback to [Forum](https://discuss.cocos2d-x.org/c/creator).
 
 ## Next Step
 
-1. [AssetManager Document](assets-manager.md)
+[AssetsManager Document](assets-manager.md)

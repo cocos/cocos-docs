@@ -19,7 +19,7 @@ cc.macro.CLEANUP_IMAGE_CACHE = false;
 cc.dynamicAtlasManager.enabled = true;
 ```
 
-> Note that this code is written in the outermost layer of the project script, not in class functions such as `onLoad` / `start`, to ensure that it takes effect immediately during project loading. Otherwise, if you enable Dynamic Atlas once any texture cache has been released, an error may result.
+> Note that the code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`, to ensure that it takes effect immediately during project loading. Otherwise, if you enable Dynamic Atlas once any texture cache has been released, an error may result.
 
 **If you need to force the Dynamic Atlas to be disabled**, you can either uncheck the “Dynamic Atlas” module to reduce the engine package, or execute the following code:
 

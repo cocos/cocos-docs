@@ -48,11 +48,15 @@ java -version
 
 ## 安装 C++ 编译环境
 
-Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
+请安装以下运行环境：
 
 - Python 2.7.5+，[下载页](https://www.python.org/downloads/)，注意不要下载 Python 3.x 版本。
-- Windows 下需要安装 Visual Studio 2017 社区版，[下载页](https://www.visualstudio.com/downloads/download-visual-studio-vs)
-- Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)
+
+- 打包 Windows 版本需要安装 [Visual Studio 2017 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
+
+  **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
+
+- 打包 Mac 版本和 iOS 版本时，Mac 下需要安装 [Xcode](https://developer.apple.com/xcode/download/) 和命令行工具。
 
 ## 配置原生发布环境路径
 
@@ -73,29 +77,15 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 由于在公测版中收到了很多原生打包的问题反馈，这里补充一些可能的问题原因。
 
-1. 检查 Xcode 和 Visual Studio
-
-    打包 Mac 版本和 iOS 版本需要 Xcode 支持，打包 Windows 版本需要安装 Visual Studio。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
-
-    **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
-
-2. 包名问题
+1. 包名问题
 
     检查构建发布面板中的包名，包含空格，`-` 等都是非法的包名。
 
-3. Android 6.0 SDK 的支持问题
-
-    Android 6.0 SDK 去除了 Cocos2d-x 依赖的 HttpClient 库，所以会导致 Cocos Creator v1.5 以前的版本编译失败。旧版本用户的解决方案是：
-
-    - 找到 Android SDK 目录下的 HttpClient 库：`platforms/android-23/optional/org.apache.http.legacy.jar`。
-    - 如果使用源码引擎模版，需要拷贝到原生编译目录下的 `jsb/frameworks/cocos2d-x/cocos/platform/android/java/libs/` 目录下。如果使用预编译库引擎模版，需要拷贝到原生编译目录下的 `jsb/frameworks/runtime-src/proj.android/jars/` 目录下。
-    - 重新编译。
-
-4. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
+2. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
 
     请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
 
-最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.org/c/Creator) 反馈给我们。
+最后，如果依然打包失败，请附上详细的复现步骤及报错信息通过 [论坛](https://forum.cocos.org/c/Creator) 反馈给我们。
 
 ---
 

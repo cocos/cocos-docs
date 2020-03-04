@@ -5,7 +5,7 @@
 Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
 
 - [Cocos2d-x](http://www.cocos2d-x.org/)
-- [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/creator)
+- [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/creator)
 <!-- - QQ group：738190852-->
 
 ## Demo and example projects

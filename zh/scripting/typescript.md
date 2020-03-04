@@ -22,9 +22,34 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 
 ### 在已有项目中添加 TypeScript 设置
 
-如果希望在原有项目中添加 TypeScript 脚本，并获得 VS Code 等 IDE 的完整支持，需要执行主菜单的 **开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据** 和 **开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置**，来添加 `creator.d.ts` 和 `tsconfig.json` 文件到你的项目根目录中。`creator.d.ts` 声明了引擎的所有 API，用于支持 VS Code 的智能提示。`tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
+如果希望在原有项目中添加 TypeScript 脚本，并获得 VS Code 等 IDE 的完整支持，需要执行主菜单的 **开发者 -> VS Code 工作流 -> 更新 VS Code 智能提示数据** 和 **开发者 -> VS Code 工作流 -> 添加 TypeScript 项目配置**，来添加 `creator.d.ts` 和 `tsconfig.json` 文件到你的项目根目录中。`creator.d.ts` 声明了引擎的所有 API，用于支持 VS Code 的智能提示。
 
 ![](assets/setting-vscode.png)
+
+`tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
+
+在这里分享一份我们常用的`tsconfig.json`配置方案
+```
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": [ "es2015", "es2017", "dom" ],
+    "target": "es5",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "outDir": "temp/vscode-dist"
+  },
+  "exclude": [
+    "node_modules",
+    "library",
+    "local",
+    "temp",
+    "build",
+    "settings"
+  ]
+}
+```
+**注意**，项目中的`tsconfig.json`主要是用来配合 VS Code 进行工作，并不会影响项目最终编译输出的build版本。
 
 ### 在项目中创建 TypeScript 脚本
 
@@ -184,12 +209,12 @@ export class MyUser extends cc.Component {
 
 ```typescript
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 texture: cc.Texture2D = null;
 
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 textures: cc.Texture2D[] = [];
 ```
@@ -200,38 +225,51 @@ textures: cc.Texture2D[] = [];
 
 Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为每个脚本生成模块化封装，以便脚本之间可以通过 `import` 或 `require` 相互引用。当希望把一个脚本中的变量和方法放置在全局命名空间，而不是放在某个模块中时，我们需要选中这个脚本资源，并在 **属性检查器** 里设置该脚本 `导入为插件`。设为插件的脚本将不会进行模块化封装，也不会进行自动编译。
 
+**注意**：在微信、百度、小米、支付宝小游戏环境当中，需要显式地将局部变量和方法挂载在 window 全局变量上
+
 所以对于包含命名空间的 TypeScript 脚本来说，我们既不能将这些脚本编译并进行模块化封装，也不能将其设为插件脚本（会导致 TS 文件不被编译成 JS）。如果需要使用命名空间，我们需要使用特定的工作流程。
 
 ### 命名空间工作流程
 
-- 在项目的根目录下（assets 目录外），新建一个文件夹用于存放我们所有包含命名空间的 ts 脚本，比如 `namespaces`。
+下面我们通过一个示例来说明一下流程。
 
-    ![namespace folder](assets/namespace-folder.jpg)
+假设在`assets`文件夹下有一个叫做`ExampleWithNamespace.ts`的文件使用了命名空间。内容如下：
+```ts
+namespace Foo {
+    export let bar: number = 1;
+}
+```
+下面我们看一下如何来让它在项目中正确的工作。
 
-- 修改 `tsconfig.json` 文件，将刚创建的 `namespace` 文件夹加入到 `include` 字段中，表示我们将会通过 VSCode 编译这部分文件。
-- 在 `tsconfig.json` 的 `compilerOptions` 字段中，加入 `outFile` 字段，并设置一个 `assets` 文件夹下的文件路径。通过这些设置，我们会将所有 `namespace` 目录下的 ts 文件编译到 `assets` 目录下的某个 js 文件中。
+- 首先，我们需要在`tsconfig.json`的 `compilerOptions` 字段中 设置`outDir`。 假设设置如下:
+```
+{
+  "compilerOptions": {
 
-    ```json
-    {
-        "compilerOptions": {
-            "module": "commonjs",
-            "lib": [ "dom", "es5", "es2015.promise" ],
-            "target": "es5",
-            "outFile": "./assets/Script/Lib/namespace.js",
-            "experimentalDecorators": true
-        },
-        "include": [
-            "namespaces"
-        ]
-    }
-    ```
+    "outDir": "temp/vscode-dist"
 
-- 按下 **Ctrl/Cmd + Shift + P**，在 Command Palette 里输入 `task`，并选择 `Tasks: Configure Task Runner`。在弹出的对话框里选择 **TypeScript -> tsconfig**。这将在 `.vscode` 文件夹下新建一个 `tasks.json` 配置文件，并根据 `tsconfig.json` 来编译项目中指定的 ts 脚本的任务。
-    ![build task](assets/build-task.jpg)
-- 现在你可以在 `namespace` 目录下书写包含命名空间的 ts 脚本了，编程完成后按下 **Ctrl/Cmd + Shift + B** 触发默认构建任务，就会将 `namespace` 里的脚本内容编译到 `assets` 目录下的指定文件里。每次修改 `namespace` 中的脚本后，都应该执行构建任务来更新编译后的文件。
-- 回到 Creator 编辑器，在资源管理器里选中刚生成的 namespace 脚本 `namespace.js`，在 **属性检查器** 中设置 **导入为插件**。避免编辑器对该脚本进行进一步的编译封装。
+    ......
+  },
+  
+  ......
+}
+```
 
-这就是在 Creator 里使用 TypeScript 命名空间的完整工作流程。
+- 在 VS Code 中， 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 里选择 `tsc:构建`。让 VS Code 编译项目。
+- 然后我们进入`temp/vscode-dist`文件夹，找到编译后的文件`ExampleWithNamespace.js`。此时该文件的内容应该是
+```js
+"use strict";
+var Foo;
+(function (Foo) {
+    Foo.bar = 1;
+})(Foo || (Foo = {}));
+```
+- 把`ExampleWithNamespace.js`文件 Copy 到`assets`下的任意有效位置。
+- 回到 Creator 编辑器，在资源管理器里选中刚Copy过来的 `ExampleWithNamespace.js` 脚本，在 **属性检查器** 中设置 **导入为插件**。
+
+此时`ExampleWithNamespace.ts`文件里定义的命名空间就可以正常的工作了。
+
+以上就是在 Creator 里使用 TypeScript 命名空间的完整工作流程。
 
 ## 更新引擎接口声明数据
 
