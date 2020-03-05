@@ -237,14 +237,6 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
 
 下面我们通过一个范例介绍命名空间的工作流程。
 
-假设在 `assets` 文件夹下有一个 `foo.ts` 文件使用了命名空间：
-
-```ts
-namespace Foo {
-    export let bar: number = 1;
-}
-```
-
 1. 如果是首次使用，需要安装 TypeScript 编译器。在命令行中执行以下命令：
 
     ```bash
@@ -256,19 +248,32 @@ namespace Foo {
     ```json
     {
       "compilerOptions": {
-    
+
         "outDir": "temp/vscode-dist"
 
         ......
       },
 
+      ......
     }
     ```
 
-3. 按下 **Ctrl/Cmd + Shift + P**，在弹出的 Command Palette 中输入 `task`，并选择 `Tasks: Configure Task`。然后继续在弹出的选项中选择 `tsc: build - tsconfig.json`。
 
-4. 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 中选择 `tsc: build - tsconfig.json` 触发默认构建任务。可以看到在 **temp** 目录下生成了 **vscode-dist** 文件夹。打开 **temp/vscode-dist/foo.js** 文件，此时文件内的内容应该是：
+3. 在项目的根目录下（assets 目录外），新建一个文件夹 `namespaces` 用于存放我们所有包含命名空间的 ts 脚本。然后在该文件夹下新建一个脚本 foo.ts，代码如下：
 
+    ```ts
+    namespace Foo {
+        export let bar: number = 1;
+    }
+    ```
+
+4. 在 VS Code 中按下 **Ctrl/Cmd + Shift + P**，在弹出的 Command Palette 中输入 `task`，并选择 `Tasks: Configure Task`。然后继续在弹出的选项中选择 `tsc: build - tsconfig.json`。
+
+5. 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 中选择 `tsc: build - tsconfig.json` 启动 ts 编译任务。可以看到在 **temp** 目录下生成了 **vscode-dist** 文件夹。
+    - 如果项目中只有一个 ts 文件，则会将 **foo.ts** 文件编译输出到 **temp/vscode-dist/foo.js**
+    - 如果项目中有多个 ts 文件，则会将 **foo.ts** 文件编译输出到 **temp/vscode-dist/namespaces/foo.js**  
+
+    此时 **foo.js** 文件的内容应该是：
     ```js
     var Foo;
     (function (Foo) {
@@ -276,9 +281,7 @@ namespace Foo {
     })(Foo || (Foo = {}));
     ```
 
-5. 将 **foo.js** 文件拷贝到 **assets** 目录下的任意有效位置。
-
-6. 回到 Creator 编辑器，在 **资源管理器** 中选中刚才拷贝过来的 **foo.js** 文件，然后在 **属性检查器** 中勾选 **导入为插件**，完成后点击右上角的 **应用**。此时 **foo.js** 文件里定义的命名空间就可以正常的工作了。
+6. 回到 Creator 编辑器，在 **资源管理器** 中导入刚刚编译生成的 **foo.js** 文件，然后在 **属性检查器** 中勾选 **导入为插件**，完成后点击右上角的 **应用**。此时 **foo.js** 文件里定义的命名空间就可以正常的工作了。
 
 以上就是在 Creator 中使用 TypeScript 命名空间的完整工作流程。
 
