@@ -272,3 +272,4 @@ Here is an example of Spine how to implement collision detection. And determines
 7. You can see the effect by clicking the preview button above the editor. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) in example-case.
 
 **Note**: Due to the implementation mechanism of Spine Attachments, there is a delay of one frame in the collision detection based on Spine Attachments.
+

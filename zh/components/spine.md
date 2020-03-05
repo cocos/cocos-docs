@@ -268,3 +268,4 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
 
 **注意**：由于挂点的实现机制导致基于挂点的碰撞检测，存在延迟一帧的问题。
+
