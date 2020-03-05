@@ -237,14 +237,6 @@ So for TypeScript scripts that contain namespaces, we can neither compile and mo
 
 Here is an example of the namespaces workflow.
 
-Suppose you have a **foo.ts** file under the **assets** directory that uses a namespace.
-
-```ts
-namespace Foo {
-    export let bar: number = 1;
-}
-```
-
 1. For first time use, you need to install the TypeScript compiler, execute the following command in command line:
 
     ```bash
@@ -256,18 +248,27 @@ namespace Foo {
     ```json
     {
       "compilerOptions": {
-    
+
         "outDir": "temp/vscode-dist"
 
         ......
       },
 
+      ......
     }
     ```
 
-3. Press the **Ctrl/Cmd + Shift + P**, enter `task` in the popup input box and select `Tasks: Configure Task`. Then continue to select `tsc: build - tsconfig.json` in the popup options.
+3. In the root directory of the project (outside the **assets** directory), create a new folder and name it **namespaces** to store all of `ts` scripts that contain namespace. Then create a new script **foo.ts** under that folder:
 
-4. Press the **Ctrl/Cmd + Shift + B**, enter `tsc` in the popup input box and select `tsc: build - tsconfig.json` to trigger the default build task. Then you can see that a **vscode-dist** folder is generated under the **temp** directory. Open the **temp/vscode-dist/foo.js** file, the contents of the file should be:
+    ```ts
+    namespace Foo {
+        export let bar: number = 1;
+    }
+    ```
+
+4. Press the **Ctrl/Cmd + Shift + P**, enter `task` in the popup input box and select `Tasks: Configure Task`. Then continue to select `tsc: build - tsconfig.json` in the popup options.
+
+5. Press the **Ctrl/Cmd + Shift + B**, enter `tsc` in the popup input box and select `tsc: build - tsconfig.json` to start the `ts` compilation task. You can see that a **vscode-dist** folder has been generated under the **temp** directory, in that folder you can find the compiled generated script **foo.js**, the contents of the script now should be:
 
     ```js
     var Foo;
@@ -276,9 +277,9 @@ namespace Foo {
     })(Foo || (Foo = {}));
     ```
 
-5. Copy the **foo.js** file to any valid location in the **assets** directory of project.
+6. Copy the **foo.js** to any valid location in the **assets** directory of project.
 
-6. Go back to the editor and select the **foo.js** file you just copied in the **Assets** panel. Then check **Import As Plugin** in the **Properties** panel and click the **Apply** button in the upper right corner when you're done. The namespaces defined in the **foo.js** file now works fine.
+7. Go back to the editor and select the **foo.js** you just copied in the **Assets** panel. Then check **Import As Plugin** in the **Properties** panel and click the **Apply** button in the upper right corner when you're done. The namespaces defined in the **foo.js** now works fine.
 
 That is the complete workflow for using the TypeScript namespace in Creator.
 
