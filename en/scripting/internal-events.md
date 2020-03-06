@@ -24,7 +24,7 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 
 | Enumeration object definition   | Corresponding event name | Event trigger timing |
 | ------------------------------- | ------------------------ | -------------------- |
-| `cc.Node.EventType.MOUSE_DOWN`  | `mousedown`  | trigger once when mouse down                                             |
+| `cc.Node.EventType.MOUSE_DOWN`  | `mousedown`  | trigger once when mouse down in the target node region                                          |
 | `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | when the mouse enters the target node region, regardless if it is down   |
 | `cc.Node.EventType.MOUSE_MOVE`  | `mousemove`  | when the mouse moves in the target node region, regardless if it is down |
 | `cc.Node.EventType.MOUSE_LEAVE` | `mouseleave` | when the mouse leaves the target node region, regardless if it is down   |
@@ -48,8 +48,8 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 
 | Enumeration object definition    | Corresponding event name | Event trigger timing |
 | -------------------------------- | ------------------------ | -------------------- |
-| `cc.Node.EventType.TOUCH_START`  | `touchstart`             | when the finger touches the screen                           |
-| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`              | when the finger moves in the target node region on screen    |
+| `cc.Node.EventType.TOUCH_START`  | `touchstart`             | when the finger touches the screen in the target node region                        |
+| `cc.Node.EventType.TOUCH_MOVE`   | `touchmove`              | when the finger moves on screen                              |
 | `cc.Node.EventType.TOUCH_END`    | `touchend`               | when the finger leaves screen in the target node region      |
 | `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel`            | when the finger leaves screen outside the target node region |
 

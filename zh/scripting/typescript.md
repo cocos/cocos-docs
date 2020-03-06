@@ -1,8 +1,10 @@
 # 使用 TypeScript 脚本
 
+> 校对：大城小胖
+
 TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个严格超集，并添加了可选的静态类型和基于类的面向对象编程。TypeScript 的设计目标是开发大型应用，然后转译成 JavaScript 运行。由于 TypeScript 是 JavaScript 的超集，任何现有的 JavaScript 程序都是合法的 TypeScript 程序。
 
-关于 TypeScript 的详细使用方法，请访问 [TypeScript官方网站](https://www.typescriptlang.org/)。
+关于 TypeScript 的详细使用方法，请访问 [TypeScript 官方网站](https://www.typescriptlang.org/)。
 
 ## TypeScript 和 Cocos Creator
 
@@ -26,10 +28,11 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 
 ![](assets/setting-vscode.png)
 
-`tsconfig.json` 用于设置 TypeScript 项目环境，您可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
+`tsconfig.json` 用于设置 TypeScript 项目环境，你可以参考官方的 [tsconfig.json 说明](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 进行定制。
 
-在这里分享一份我们常用的`tsconfig.json`配置方案
-```
+以下是常用的 `tsconfig.json` 配置方案：
+
+```json
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -49,7 +52,8 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
   ]
 }
 ```
-**注意**，项目中的`tsconfig.json`主要是用来配合 VS Code 进行工作，并不会影响项目最终编译输出的build版本。
+
+**注意**：项目中的 `tsconfig.json` 主要是用于配合 VS Code，并不会影响项目在 Creator 中的实际编译。
 
 ### 在项目中创建 TypeScript 脚本
 
@@ -221,55 +225,63 @@ textures: cc.Texture2D[] = [];
 
 ## 使用命名空间
 
-在 TypeScript 里，命名空间是位于全局命名空间下的一个普通的带有名字的JavaScript对象。通常用于在使用全局变量时为变量加入命名空间限制，避免污染全局空间。命名空间和模块化是完全不同的概念，命名空间无法导出或引用，仅用来提供通过命名空间访问的全局变量和方法。关于命名空间和模块化更详细的解释请参阅官方文档 [命名空间和模块](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Namespaces%20and%20Modules.html)。
+在 TypeScript 里，命名空间是位于全局命名空间下的一个普通的带有名字的 JavaScript 对象。通常用于在使用全局变量时为变量加入命名空间限制，避免污染全局空间。命名空间和模块化是完全不同的概念，命名空间无法导出或引用，仅用来提供通过命名空间访问的全局变量和方法。关于命名空间和模块化更详细的解释请参阅官方文档 [命名空间和模块](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Namespaces%20and%20Modules.html)。
 
 Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为每个脚本生成模块化封装，以便脚本之间可以通过 `import` 或 `require` 相互引用。当希望把一个脚本中的变量和方法放置在全局命名空间，而不是放在某个模块中时，我们需要选中这个脚本资源，并在 **属性检查器** 里设置该脚本 `导入为插件`。设为插件的脚本将不会进行模块化封装，也不会进行自动编译。
 
-**注意**：在微信、百度、小米、支付宝小游戏环境当中，需要显式地将局部变量和方法挂载在 window 全局变量上
+**注意**：在微信、百度、小米、支付宝小游戏环境中，全局变量需要显式地给 window 设置属性才能成功声明，如 `window.data = {};`。
 
 所以对于包含命名空间的 TypeScript 脚本来说，我们既不能将这些脚本编译并进行模块化封装，也不能将其设为插件脚本（会导致 TS 文件不被编译成 JS）。如果需要使用命名空间，我们需要使用特定的工作流程。
 
 ### 命名空间工作流程
 
-下面我们通过一个示例来说明一下流程。
+下面我们通过一个范例介绍命名空间的工作流程。
 
-假设在`assets`文件夹下有一个叫做`ExampleWithNamespace.ts`的文件使用了命名空间。内容如下：
-```ts
-namespace Foo {
-    export let bar: number = 1;
-}
-```
-下面我们看一下如何来让它在项目中正确的工作。
+1. 如果是首次使用，需要安装 TypeScript 编译器。在命令行中执行以下命令：
 
-- 首先，我们需要在`tsconfig.json`的 `compilerOptions` 字段中 设置`outDir`。 假设设置如下:
-```
-{
-  "compilerOptions": {
+    ```bash
+    npm install -g typescript
+    ```
 
-    "outDir": "temp/vscode-dist"
+2. 用 VS Code 打开项目根目录中的 **tsconfig.json** 文件，然后在 `compilerOptions` 字段中设置 `outDir`：
 
-    ......
-  },
-  
-  ......
-}
-```
+    ```json
+    {
+      "compilerOptions": {
 
-- 在 VS Code 中， 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 里选择 `tsc:构建`。让 VS Code 编译项目。
-- 然后我们进入`temp/vscode-dist`文件夹，找到编译后的文件`ExampleWithNamespace.js`。此时该文件的内容应该是
-```js
-"use strict";
-var Foo;
-(function (Foo) {
-    Foo.bar = 1;
-})(Foo || (Foo = {}));
-```
-- 把`ExampleWithNamespace.js`文件 Copy 到`assets`下的任意有效位置。
-- 回到 Creator 编辑器，在资源管理器里选中刚Copy过来的 `ExampleWithNamespace.js` 脚本，在 **属性检查器** 中设置 **导入为插件**。
+        "outDir": "temp/vscode-dist"
 
-此时`ExampleWithNamespace.ts`文件里定义的命名空间就可以正常的工作了。
+        ......
+      },
 
-以上就是在 Creator 里使用 TypeScript 命名空间的完整工作流程。
+      ......
+    }
+    ```
+
+3. 在项目的根目录下（assets 目录外），新建一个文件夹并命名为 **namespaces**，用于存放所有包含命名空间的 ts 脚本。然后在该文件夹下新建一个脚本 **foo.ts**，代码如下：
+
+    ```ts
+    namespace Foo {
+        export let bar: number = 1;
+    }
+    ```
+
+4. 在 VS Code 中按下 **Ctrl/Cmd + Shift + P**，在弹出的 Command Palette 中输入 `task`，并选择 `Tasks: Configure Task`。然后继续在弹出的选项中选择 `tsc: build - tsconfig.json`。
+
+5. 按下 **Ctrl/Cmd + Shift + B**，在 Command Palette 中选择 `tsc: build - tsconfig.json` 启动 ts 编译任务。可以看到在 **temp** 目录下生成了 **vscode-dist** 文件夹。进入该文件夹，找到编译后的脚本 **foo.js**，此时脚本内的内容应该是：
+
+    ```js
+    var Foo;
+    (function (Foo) {
+        Foo.bar = 1;
+    })(Foo || (Foo = {}));
+    ```
+
+6. 将 **foo.js** 脚本拷贝到 **assets** 目录下的任意有效位置。
+
+7. 回到 Creator 编辑器，在 **资源管理器** 中选中 **foo.js**，然后在 **属性检查器** 中勾选 **导入为插件**，完成后点击右上角的 **应用**。此时 **foo.js** 中定义的命名空间就可以正常的工作了。
+
+以上就是在 Creator 中使用 TypeScript 命名空间的完整工作流程。
 
 ## 更新引擎接口声明数据
 
