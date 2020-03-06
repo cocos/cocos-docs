@@ -17,11 +17,11 @@
 - 从 v2.0.4 开始，Cocos Creator 支持发布到 [Google Play Instant](publish/publish-android-instant.md)。
 - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
 - 从 v1.10 开始，Cocos Creator 对底层资源类型进行了重构，绝大多数项目不受影响，但有些项目可能会收到一些警告，详情请查阅 [v1.10 资源升级指南](release-notes/raw-asset-migration.md)。
-- 从 v2.5 开始，Cocos Creator 对资源管理模块进行了全部重写，对大部分之前常用的 API 进行了兼容，绝大多数项目依旧可在现有代码下正常运行，但有些项目可能会收到一些警告，两种情况都建议开发者升级到最新的资源管理模块上，详情请查阅 [v2.5 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md)。
-- 从 v2.5 开始，Cocos Creator 支持 Asset Bundle 功能，进一步减小首包的大小，如果开发者之前使用了 v2.5 之前的 **分包加载** 功能，需要对工程进行升级，详情请查阅 [v2.5 分包升级指南](release-notes/subpackage-upgrade-guide.md)。
-- 从 v2.5 开始，Cocos Creator 正式支持 Asset Bundle 功能，进一步减小首包的大小，详情请查阅 [Asset Bundle](scripting/asset-bundle.md)。
-- 从 v2.5 开始，Cocos Creator 正式支持 Asset Bundle 功能，编辑器的构建流程将改为以 Asset Bundle 为基础，如果开发者在 v2.5 之前在编辑器上使用插件扩展了构建流程，则需要对部分 API 的使用进行升级，详情请查阅 [定制构建流程升级指南](release-notes/build-extend-upgrade-guide.md)。
-- 从 v2.5 开始，Cocos Creator 对资源管理模块进行了全部重写，全新的资源管理模块 `AssetManager` 将替代 `cc.loader` 完成所有的加载资源，释放资源，查询资源， Asset Bundle 等功能，详情请查阅 [资源管理模块](asset-manager/index.md)。
+- 从 v2.4 开始，Cocos Creator 对资源管理模块进行了全部重写，对大部分之前常用的 API 进行了兼容，绝大多数项目依旧可在现有代码下正常运行，但有些项目可能会收到一些警告，两种情况都建议开发者升级到最新的资源管理模块上，详情请查阅 [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md)。
+- 从 v2.4 开始，Cocos Creator 支持 Asset Bundle 功能，进一步减小首包的大小，如果开发者之前使用了 v2.4 之前的 **分包加载** 功能，需要对工程进行升级，详情请查阅 [v2.4 分包升级指南](release-notes/subpackage-upgrade-guide.md)。
+- 从 v2.4 开始，Cocos Creator 正式支持 Asset Bundle 功能，进一步减小首包的大小，详情请查阅 [Asset Bundle](scripting/asset-bundle.md)。
+- 从 v2.4 开始，Cocos Creator 正式支持 Asset Bundle 功能，编辑器的构建流程将改为以 Asset Bundle 为基础，如果开发者在 v2.4 之前在编辑器上使用插件扩展了构建流程，则需要对部分 API 的使用进行升级，详情请查阅 [定制构建流程升级指南](release-notes/build-extend-upgrade-guide.md)。
+- 从 v2.4 开始，Cocos Creator 对资源管理模块进行了全部重写，全新的资源管理模块 `AssetManager` 将替代 `cc.loader` 完成所有的加载资源，释放资源，查询资源， Asset Bundle 等功能，详情请查阅 [资源管理模块](asset-manager/index.md)。
 
 ## 总导读
 

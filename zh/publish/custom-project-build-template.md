@@ -109,7 +109,7 @@ module.exports = {
     }
 };
 ```
-**注意** ：从 v2.5 开始， options 中不再提供 buildResults ，而是提供一个 bundles 的数组。
+**注意** ：从 v2.4 开始， options 中不再提供 buildResults ，而是提供一个 bundles 的数组。
 
 `bundles` 是一个数组，其中存储了所有 Asset Bundle 的相关信息，每一个 bundle 的定义如下：
 

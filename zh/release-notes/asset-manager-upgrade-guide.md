@@ -1,16 +1,16 @@
-# v2.5 资源管理模块升级指南
+# v2.4 资源管理模块升级指南
 
 > 文： Santy-Wang
 
-> 本文将详细介绍旧版本 Creator 项目升级到 v2.5 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
+> 本文将详细介绍旧版本 Creator 项目升级到 v2.4 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
-在 v2.5 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。新的资源管理模块能够为开发者提供更好的加载性能，更多的加载功能，以及更人性化的资源管理。大大提升开发者的使用体验。
+在 v2.4 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。新的资源管理模块能够为开发者提供更好的加载性能，更多的加载功能，以及更人性化的资源管理。大大提升开发者的使用体验。
 
 为了带来平滑的升级体验，我们将在一段时间内保留对 `cc.loader` 常用 API 的兼容。也就是说，除个别无法兼容的模块必须进行升级外，其他内容仍旧可以以旧代码运行。考虑到模块改动太大，除个别无法兼容的功能会提示错误之外，其他已不建议使用的 API 将 **不会** 以警告形式提示升级方法，以避免整个控制台被警告填满。我们会在引擎源码中，代码提示中，以及官方 API 文档中提供升级方式。等到 v3.0 以上的某个版本，才会全面移除对 `cc.loader` 的兼容。
 
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在原先在代码中用 `cc.loader` 的系列 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
-**注意**：因为 v2.5 支持 Asset Bundle 功能，工程中的子包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md) 。
+**注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的子包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md) 。
 
 ## 常见问题
 
@@ -31,7 +31,7 @@
 
 ### 将 cc.loader 系列 API 替换为 cc.assetManager 系列 API
 
-从 v2.5 开始，`cc.loader` 已不建议使用，并且会在后续的版本中被彻底移除，请使用新的资源管理模块 `cc.assetManager` 进行替换。
+从 v2.4 开始，`cc.loader` 已不建议使用，并且会在后续的版本中被彻底移除，请使用新的资源管理模块 `cc.assetManager` 进行替换。
 
 #### 加载相关接口替换
 
@@ -341,7 +341,7 @@ cc.assetManager.pipeline.insert(pipe3, 2);
 
 ### 其他更新
 
-`cc.url` 与 `cc.AssetLibrary` 在 v2.5 中被移除，请避免使用 `cc.url` 与 `cc.AssetLibrary` 下的任何方法和属性。
+`cc.url` 与 `cc.AssetLibrary` 在 v2.4 中被移除，请避免使用 `cc.url` 与 `cc.AssetLibrary` 下的任何方法和属性。
 
 `cc.Pipeline` 可由 `cc.AssetManager.Pipeline` 进行替换。
 
@@ -389,6 +389,6 @@ cc.assetManager.preloadScene('scene1', () => {
 cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 
 // 修改后
-cc.assetManager.downloader.limitations[cc.AssetManager.LoadStrategy.NORMAL].maxConcurrent = 10;
+cc.assetManager.downloader.maxConcurrent = 10;
 ```
 详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。 

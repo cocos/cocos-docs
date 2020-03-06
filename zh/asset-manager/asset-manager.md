@@ -2,7 +2,7 @@
 
 > 文： Santy-Wang
 
-`Asset Manager` 是 v2.5 之后， Creator 推出的新的资源管理模块，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。 `Asset Manager` 拥有更好的性能，更易用的 API ，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
+`Asset Manager` 是 v2.4 之后， Creator 推出的新的资源管理模块，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。 `Asset Manager` 拥有更好的性能，更易用的 API ，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
 
 ## 加载资源
 
@@ -79,7 +79,7 @@ cc.assetManager.load('http://example.com/skill.myformat', options, callback);
 
 ## Asset Bundle
 
-从 v2.5 开始， Creator 将支持 Asset Bundle ，开发者可以将自己的场景，资源，代码规划到 Asset Bundle ，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
+从 v2.4 开始， Creator 将支持 Asset Bundle ，开发者可以将自己的场景，资源，代码规划到 Asset Bundle ，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
 
 ```js
 cc.assetManager.loadBundle('http://example.com/scene', function (err, bundle) {
@@ -91,7 +91,7 @@ cc.assetManager.loadBundle('http://example.com/scene', function (err, bundle) {
 
 ## 释放资源
 
-从 v2.5 开始， Creator 提供了更为方便的资源释放机制，开发者在释放资源时只需关注该资源本身而不再需要关注其依赖资源，引擎会尝试对其依赖资源按引用数量进行释放，减少用户管理资源释放的复杂度。例如：
+从 v2.4 开始， Creator 提供了更为方便的资源释放机制，开发者在释放资源时只需关注该资源本身而不再需要关注其依赖资源，引擎会尝试对其依赖资源按引用数量进行释放，减少用户管理资源释放的复杂度。例如：
 
 ```js
 cc.assetManager.loadRes('prefabs/enemy', cc.Prefab, function (err, asset) {
@@ -103,7 +103,7 @@ cc.assetManager.loadRes('prefabs/enemy', cc.Prefab, function (err, asset) {
 
 ## 缓存管理器
 
-在某些平台上，比如微信上，因为存在文件系统，所以可以利用文件系统对一些远程资源进行缓存。此时需要一个缓存管理器对所有缓存资源进行管理。包括缓存资源，清除缓存资源，修改缓存周期等。在 v2.5 上， Creator 在所有存在文件系统的平台上都提供了缓存管理器，能够对缓存进行增删改查操作。例如：
+在某些平台上，比如微信上，因为存在文件系统，所以可以利用文件系统对一些远程资源进行缓存。此时需要一个缓存管理器对所有缓存资源进行管理。包括缓存资源，清除缓存资源，修改缓存周期等。在 v2.4 上， Creator 在所有存在文件系统的平台上都提供了缓存管理器，能够对缓存进行增删改查操作。例如：
 
 ```js
 // 查询是否存在某个资源的缓存

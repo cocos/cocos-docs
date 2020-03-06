@@ -6,7 +6,7 @@
 cc.director.loadScene("MyScene");
 ```
 
-除此之外, v2.5 之后还增加了一种新的加载方式：
+除此之外, v2.4 之后还增加了一种新的加载方式：
 
 ```js
 cc.assetManager.loadScene('MyScene', function (err, scene) {
@@ -53,7 +53,7 @@ cc.assetManager.loadScene('MyScene', function (err, scene) {
 
 `cc.director.loadScene` 会在加载场景之后自动切换运行新场景，有些时候我们需要在后台静默加载新场景，并在加载完成后手动进行切换。那就可以预先使用 `cc.assetManager.preloadScene` 接口对场景进行预加载：
 
-**注意** ： v2.5 之前的 `cc.director.preloadScene` 已经被移入 `cc.assetManager` 中。
+**注意** ： v2.4 之前的 `cc.director.preloadScene` 已经被移入 `cc.assetManager` 中。
 
 ```js
 cc.assetManager.preloadScene("table", function () {

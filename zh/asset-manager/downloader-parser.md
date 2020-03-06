@@ -2,7 +2,7 @@
 
 > 文： Santy-Wang
 
-Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。 Creator v2.5 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
+Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。 Creator v2.4 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
 
 ```js
     cc.assetManager.downloader.download('myasset', 'http://example.com/background.jpg', '.jpg', {}, function (err, file) {
@@ -54,7 +54,16 @@ Asset Manager 底层使用了多条加载管线来加载资源，每条管线中
 
 ### 设置并发数
 
-下载器中可以设置最大下载并发数等限制，你可以通过 `cc.assetManager.downloader.limitations` 进行设置，需要注意的是，对每一种加载策略的限制可以不同，所以 `limitations` 是一个数组，你需要传入加载策略的索引来访问对应的限制，例如：
+下载器中可以设置最大下载并发数等限制，你可以通过 `cc.assetManager.downloader.maxConcurrent` 和 `cc.assetManager.downloader.maxRequestsPerFrame` 进行设置，例如：
+
+```js
+cc.assetManager.downloader.maxConcurrent = 10;
+
+cc.assetManager.downloader.maxRequestsPerFrame = 6;
+```
+`maxConcurrent` ，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；`maxRequestsPerFrame` ，用于控制每帧能发起的连接数，从而将发起请求的消耗均摊在多个帧时间中，避免单帧过多消耗，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。
+
+除此之外，你也可以通过 `cc.assetManager.downloader.limitations` 对每种策略进行设置，需要注意的是，对每一种加载策略的限制可以不同，所以 `limitations` 是一个数组，你需要传入加载策略的索引来访问对应的限制，例如：
 
 ```js
     var limit = cc.assetManager.downloader.limitations[cc.AssetManager.LoadStrategy.NORMAL];
@@ -62,7 +71,7 @@ Asset Manager 底层使用了多条加载管线来加载资源，每条管线中
 
 引擎内置了两种加载策略，一种是正常加载，一种是预加载，预加载因为性能考虑，所以其限制更大，最大并发数更小，你可以自己增加加载策略，并通过可选参数传入。
 
-每一个限制包含了两个属性 `maxConcurrent` ，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；另一个属性是 `maxRequestsPerFrame` ，用于控制每帧能发起的连接数，从而将发起请求的消耗均摊在多个帧时间中，避免单帧过多消耗，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。你可以如下设置：
+每一个策略都包含了 `maxConcurrent` 和 `maxRequestsPerFrame` 你可以如下设置：
 
 ```js
     cc.assetManager.downloader.limitations[cc.AssetManager.LoadStrategy.NORMAL].maxConcurrent = 10;

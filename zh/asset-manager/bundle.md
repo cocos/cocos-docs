@@ -2,7 +2,7 @@
 
 > 文： Santy-Wang
 
-从 v2.5 开始， Creator 正式支持 Asset Bundle 功能。 Asset Bundle 作为模块化资源的工具，能够允许开发者按照项目需求将贴图，脚本，场景等等资源划分在不同的 Asset Bundle 中，在游戏运行过程中，按照需求去加载不同的 Asset Bundle ，尽可能减少启动时需要加载的资源数量。 Asset Bundle 能够按需求随意放置，比如可放在远程服务器上，本地，或者小游戏平台的子包中。
+从 v2.4 开始， Creator 正式支持 Asset Bundle 功能。 Asset Bundle 作为模块化资源的工具，能够允许开发者按照项目需求将贴图，脚本，场景等等资源划分在不同的 Asset Bundle 中，在游戏运行过程中，按照需求去加载不同的 Asset Bundle ，尽可能减少启动时需要加载的资源数量。 Asset Bundle 能够按需求随意放置，比如可放在远程服务器上，本地，或者小游戏平台的子包中。
 
 ## 常见问题 QA
 
@@ -10,7 +10,7 @@ Q: Asset Bundle 所带来的优势是什么？
 
 A: Asset Bundle 主要用于对工程中的资源按照开发者的意愿进行模块划分，可以将不同场景不同需求的资源划分在多个包中，从而可以减少首次下载和加载游戏时所需要的时间。
 
-Q: Asset Bundle 与 v2.5 之前的资源分包有什么区别？
+Q: Asset Bundle 与 v2.4 之前的资源分包有什么区别？
 
 A: 
 1. 资源分包本质上是游戏平台的基础功能，比如微信小游戏支持子包功能，而 Creator 进行了一次封装，帮助用户进行设置，但本质上此功能由对应平台控制，如果对应平台不支持子包功能，则 Creator 也不支持，而 Asset Bundle 完全由 Creator 设计实现，是帮助开发者对资源进行划分的模块化工具，与平台无关，理论上可在所有平台上支持。
@@ -29,7 +29,7 @@ A: 当然可以，可以将子游戏的场景放在 Asset Bundle 中，在需要
 
 Q: Asset Bundle 可以减少 settings.js 的大小么？
 
-A: 当然可以，实际上在 v2.5 之后，打包之后的工程完全是基于 Asset Bundle 的， setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js 。
+A: 当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的， setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js 。
 
 Q: Asset Bundle 还能在细分么？比如我想将单个 Asset Bundle 再拆分成两个部分。
 
@@ -49,11 +49,11 @@ A: 请看下面关于 Asset Bundle 嵌套的说明。
 
 ## 内置 Asset Bundle
 
-从 v2.5 开始，整个系统基于 Asset Bundle ，即使你没有用到任何 Asset Bundle ，任何一个工程在构建后都会存在 3 个内置的 Asset Bundle ，如图所示：
+从 v2.4 开始，整个系统基于 Asset Bundle ，即使你没有用到任何 Asset Bundle ，任何一个工程在构建后都会存在 3 个内置的 Asset Bundle ，如图所示：
 
 ![builtinBundles](bundle/builtinBundles.png) 。
 
-即是说，从 v2.5 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中。
+即是说，从 v2.4 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中。
 
 与其他 Asset Bundle 一样，你可以将内置的 Asset Bundle 放到远程服务器，本地或小游戏平台的子包中。仅需要改动下启动代码中的 resourcesRoot , internalRoot , mainRoot 为真实的路径即可。
 
