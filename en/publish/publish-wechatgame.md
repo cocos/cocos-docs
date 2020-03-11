@@ -34,9 +34,9 @@ In addition, the game submission, review and release process of the __WeChat Min
     ![](./publish-wechatgame/tool.jpeg)
 6. Preview deployment
 
-According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
+    According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
 
-![](./publish-wechatgame/package.jpeg)
+    ![](./publish-wechatgame/package.jpeg)
 
 ## Resource Management for WeChat Mini Game Environment
 

@@ -7,6 +7,7 @@
 - [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to WeChat Mini Games](publish-wechatgame.md)
     - [WeChat Open Data Context](publish-wechatgame-sub-domain.md)
+    - [WeChat PC Mini Games](publish-pc-wechatgame.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)
 - [Publish to Facebook Instant Games](publish-fb-instant-games.md)
 - [Publish to Google Play Instant](publish-android-instant.md)
