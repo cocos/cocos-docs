@@ -1,6 +1,6 @@
 # Access to the WeChat PC Mini Games
 
-WeChat PC mini game is support to open WeChat Mini Game in the WeChat PC Client. The WeChat PC mini game will be compatible with most of the features of Mobile, including but not limited to virtual payment, open data context, touch events, etc. (Ads are not currently supported), and most mini games do not require additional development work for PC mini games. It also provides features for the PC Client, such as keyboard events, mouse events, window customization and so on.
+WeChat PC mini game is support to open WeChat Mini Game in the WeChat PC Client. The WeChat PC mini game will have most of the capabilities of Mobile, including but not limited to virtual payment, open data context, touch events, etc. (Ads are not currently supported). It also provides keyboard events, mouse events, window customization and other features.
 
 Starting with Cocos Creator v2.3.1, creating games for the WeChat PC Mini Games is officially supported. And completes the adaptation of mouse and keyboard related interfaces.
 
@@ -8,7 +8,7 @@ Starting with Cocos Creator v2.3.1, creating games for the WeChat PC Mini Games 
 
 ### Preparatory work
 
-1. Download and install the latest version of [WeChat PC Client](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013) and log in to it by scanning the QR code with the WeChat account bound to the WeChat DevTools.
+1. Download and install the latest version of [WeChat PC Client](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013) and log in to it with the WeChat account bound to the WeChat DevTools.
 
 2. Development permissions, WeChat team has now opened the relevant permissions for all WeChat IDs that bound the development permissions in the mini game background. Newly bound WeChat ID, can be debugged the next day.
 

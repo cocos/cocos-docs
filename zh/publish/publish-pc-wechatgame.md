@@ -1,6 +1,6 @@
 # 接入微信 PC 小游戏
 
-微信 PC 小游戏即支持在 PC 微信客户端打开微信小游戏。PC 小游戏将兼容移动端的大部分功能，包括但不限于虚拟支付、开放数据域、触摸事件等（广告目前暂不支持），大部分小游戏无须针对 PC 小游戏做额外的开发工作。同时也提供了针对 PC 端的功能，如键盘事件、鼠标事件及窗口自定义等。
+微信 PC 小游戏即支持在微信 PC 版打开微信小游戏。PC 小游戏将具备移动端的大部分能力，包括但不限于虚拟支付、开放数据域、触摸事件等（广告目前暂不支持）。同时 PC 小游戏还支持键盘、鼠标事件及自定义窗口等功能。
 
 Cocos Creator 从 v2.3.1 开始支持将游戏发布到微信 PC 小游戏，并完成了鼠标、键盘相关接口的适配工作。下面我们来看看，如何通过 Cocos Creator 将游戏发布到微信 PC 小游戏平台。
 
@@ -8,7 +8,7 @@ Cocos Creator 从 v2.3.1 开始支持将游戏发布到微信 PC 小游戏，并
 
 ### 准备工作
 
-1. 下载并安装最新版本的 [PC 微信客户端](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013)，使用微信开发者工具绑定的微信号扫码登录 PC 微信客户端。
+1. 下载并安装最新版本的 [微信 PC 版](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013)，使用微信开发者工具绑定的微信号登录微信 PC 版。
 
 2. 开发者需要具备开发权限，目前微信团队已经为所有在小游戏后台绑定了开发权限的微信号开通了相关权限。新绑定的微信号，需要第二天才可以调试。
 
@@ -20,7 +20,7 @@ Cocos Creator 从 v2.3.1 开始支持将游戏发布到微信 PC 小游戏，并
 
     ![](./publish-pc-wechatgame/wechat-devtool-preference.png)
 
-3. 点击 **微信开发者工具** 工具栏中的 **预览** 按钮，选择 **自动预览** 选项卡并点击 **编译并预览**，即可在 PC 微信客户端预览并调试小游戏。
+3. 点击 **微信开发者工具** 工具栏中的 **预览** 按钮，选择 **自动预览** 选项卡并点击 **编译并预览**，即可在微信 PC 版预览并调试小游戏。
 
 ## 常见问题
 
@@ -34,4 +34,4 @@ A：暂时不可以。截至 2020-03-09，微信 PC 小游戏正处于开放测�
 ## 相关链接
 
 - [微信 PC 小游戏接入指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/pc-game.html)  
-- [PC 微信客户端下载](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013)
+- [微信 PC 版下载](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013)
