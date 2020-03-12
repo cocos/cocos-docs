@@ -40,7 +40,7 @@ If you really need to use the engine plugin, it is recommended to upgrade to Coc
 
 ### Considerations
 
-1. The **Details -> Local Settings -> Debug Base Library** in the WeChat DevTools needs to be set to **2.9.0** and above.
+1. The **Details -> Local Settings -> Debug Base Library** in the WeChat DevTools needs to be set to **2.9.0** or above.
 
 2. The **Details -> Local Settings -> Use Local plugins** option in the WeChat DevTools is used to set whether or not to disable the engine plugin, which is usually not need to checked. (This option only takes effect in WeChat DevTools)
     - If unchecked, the engine plugin in WeChat public plugin library is used for debugging
