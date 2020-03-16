@@ -5,7 +5,8 @@
 从硅谷一个车库的几行代码开始，一群程序员创立了 [**Agora 声网**](https://www.agora.io/cn/)，期待用实时音视频互动API改变全世界人们的沟通方式。
 
 [**Agora Interactive Gaming SDK**](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms) 是 Agora 针对游戏开发者提供的音视频通话软件开发包。其主要目的是帮助游戏开发者在游戏中快速集成音视频通话的功能。
-###应用场景
+
+### 应用场景
 Agora Interactive Gaming SDK 应用丰富，主要适用于游戏需要实时音视频功能的应用，也可以用 Native SDK 在 iOS 和 Android 上进行原生开发。
 
 | 主要功能 | 功能描述 | 典型适用场景 |
@@ -16,7 +17,8 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于游戏需要实时音
 | 趣味变声 | 支持性别变声，迷惑对手，增加游戏互动趣味性 |  MOBA / 二次元游戏 |
 
 
-##内容
+## 内容
+
 - [快速开始](quick-start.md)
 - [基础使用](basic-user-guide.md)
 - [文档链接](docs-link.md)

@@ -1,6 +1,7 @@
 # 文档链接
 
 请参考 Matchvs 方文档：
+- [**Matchvs 管理后台**](https://www.matchvs.com/manage/)
 - [**Matchvs 游戏云简介**](https://doc.matchvs.com/matchvs)
 - [**基础概念**](https://doc.matchvs.com/QuickStart/concept)
 - [**付费说明**](https://doc.matchvs.com/PaymentHelp)

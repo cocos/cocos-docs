@@ -10,7 +10,7 @@ Cocos Service 目前提供的服务包括：
 
 更多第三方服务还在不断接入中，商务合作请联系 **zhifeng.hu@cocos.com**
 
-##内容
+## 内容
 - [关于 Cocos Service](about-cocos-service.md)
 - [操作指南](user-guide.md)
 - [计费与充值](billing-and-charge.md)

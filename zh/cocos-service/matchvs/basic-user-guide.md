@@ -1,5 +1,5 @@
-#基础使用
-##Matchvs Sample 参考和使用：
+# 基础使用
+## Matchvs Sample 参考和使用
 若用户已有一定 Cocos Creator 基础或者已经完成 [**快速入门**](quick-start.md) 步骤，可以继续参考此篇文档。
 
 Matchvs SDK 接口较多，建议直接参考 Matchvs 提供的 Sample，和使用其封装的方法。
@@ -28,7 +28,7 @@ Project
 
 ``` 
 
-- 可将 **ExamplesData.js** 中的参数替换为自己申请的参数，运行 Sample 工程，点击 **立即体验**，进行调试和服务验证。
+- 可将 **ExamplesData.js** 中的参数替换为 [**Matchvs 管理后台**](https://www.matchvs.com/manage/) 申请的参数，运行 Sample 工程，点击 **立即体验**，进行调试和服务验证。
 - 本地调试需要打开 **两个不同浏览器** 运行 **http://localhost:7456/** 模拟多人联网进行测试使用。
 
 ![w720](image/matchvs-sample.jpg)

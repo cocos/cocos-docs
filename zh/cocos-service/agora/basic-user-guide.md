@@ -1,27 +1,27 @@
-#基础使用
-##Agora Sample 参考和使用：
+# 基础使用
+## Agora Sample 参考和使用
 若用户已有一定 Cocos Creator 基础或者已经完成 [**快速开始**](quick-start.md) 步骤，可以继续参考此篇文档。
 
 - 首先 Clone 或下载 [**Agora 示例代码**](https://github.com/AgoraIO/Voice-Call-for-Mobile-Gaming/tree/master/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora)，并在 Cocos Creator 中打开。
-- 在该工程中执行 [**Cocos AppID 设定**](./../setting-cocos-appid.md) 和 [**一键开通服务**](./../oneclick-provisioning.md) 操作，开通服务操作也会将 Web 所需的预览插件导入工程，然后到 Agora 后台获取 **App ID**。
+- 在该工程中执行 [**Cocos AppID 设定**](../setting-cocos-appid.md) 和 [**一键开通服务**](../oneclick-provisioning.md) 操作，开通服务操作也会将 Web 所需的预览插件导入工程，然后到 [**Agora 后台**](https://staging-dashboard.agora.io/) 获取 **App ID**。
 
 ![w760](image/agora-param.jpg)
 
-- 打开工程中的 **HelloWorld.js** ，在 **initAgora** 方法中修改 **appid** 的值。
-- 可以直接在浏览器中 [预览和构建](./../../getting-started/basics/preview-build.md) 调试该 Sample 工程。
-- 若发现 Web 环境下，Sample 初始化成功，但加入频道没有回调，检查下该工程是否没有执行 [**一键开通服务**](./../oneclick-provisioning.md) 操作。
+- 打开工程中的 ```HelloWorld.js``` ，在 ```initAgora**``` 方法中修改 **appid** 的值。
+- 可以点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [**预览**](../../getting-started/basics/preview-build.md) 按钮，调试该 Sample 工程。
+- 若发现 Web 环境下，Sample 初始化成功，但加入频道没有回调，检查下该工程是否没有执行 [**一键开通服务**](../oneclick-provisioning.md) 操作。
 
 ![w760](image/agora-sample.jpg)
 
-##Sample 调用方法说明
-####初始化 Agora：
+## Sample 调用方法说明
+#### 初始化 Agora
 
 ```
 agora.init(appid)
 ``` 
 注意: 在整个应用全局，开发者只需要对引擎做一次初始化。
 
-####加入频道：
+#### 加入频道
 ```
 agora.joinChannel(token, channelId, [info], [uid])
 ```
@@ -41,7 +41,7 @@ agora.joinChannel('', channelId)
 
 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App ID 的应用程序是不能互通的。如果已在通话中，用户必须调用 agora.leaveChannel() 退出当前通话，才能进入下一个频道。
 
-####离开频道：
+#### 离开频道
 ```
 agora.leaveChannel()
 ```
@@ -51,7 +51,7 @@ joinChannel 后，必须调用 leaveChannel 以结束通话，否则不能进行
 
 leaveChannel 是异步操作，调用返回时并没有真正退出频道。在真正退出频道后，SDK 会触发 onLeaveChannel 回调。
 
-####本地静音：
+#### 本地静音
 ```
 agora.muteLocalAudioStream(mute)
 ```
@@ -64,7 +64,7 @@ agora.muteLocalAudioStream(mute)
 
 该方法绑定在 [**发布流**](https://docs.agora.io/cn/Voice/API%20Reference/web/interfaces/agorartc.client.html#publish) 按钮上，在 Agora SDK 中一般写作 **Publish** 方法。
 
-####远端静音：
+#### 远端静音
 ```
 agora.muteAllRemoteAudioStreams(mute)
 ```
@@ -75,7 +75,7 @@ agora.muteAllRemoteAudioStreams(mute)
 
 该方法绑定在 [**订阅流**](https://docs.agora.io/cn/Voice/API%20Reference/web/interfaces/agorartc.client.html#subscribe) 按钮上，在 Agora SDK 中一般写作 **Subscribe** 方法。
 
-####监听事件信息
+#### 监听事件信息
 ```
 agora.on(event, callback, target)
 ```
