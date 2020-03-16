@@ -100,6 +100,6 @@ Stencil 状态即模板测试，通过模板缓冲来实现特定的效果，在
 1. 由于 Creator 的自动图集功能是在项目导出的时候进行的，所以应该在发布后的项目中进行合批测试。
 2. 在导入 BMFont 的资源的时候，需要把 .fnt 和相应的 png 图片放在同一个目录下面。
 3. LabelAtlas 底层渲染采用的跟 BMFont 一样的机制，所以也可以和 BMFont 及其它 UI 元素一起合图来实现批次渲染。
-4. 微信小游戏平台由于 Image 的内存占用原因，默认禁用了动态图集功能，如果对内存占用要求不高的游戏，可以自行通过 `cc.dynamicAtlasManager.enabled = true` 打开该功能，并且设置 `cc.macro.CLEANUP_IMAGE_CACHE = false` 禁止清理 Image 缓存。
+4. 微信小游戏平台由于 Image 的内存占用原因，默认禁用了动态图集功能，如果对内存占用要求不高的游戏，可以自行通过 `cc.dynamicAtlasManager.enabled = true` 打开该功能，并且设置 `cc.macro.CLEANUP_IMAGE_CACHE = false` 禁止清理 Image 缓存。具体可参考 [启用、禁用动态合图](./dynamic-atlas.md#%E5%90%AF%E7%94%A8%E3%80%81%E7%A6%81%E7%94%A8%E5%8A%A8%E6%80%81%E5%90%88%E5%9B%BE)。
 5. 默认 spine 的合批是关闭的，需要勾选 enableBatch 选项开启，spine 必需是同个 spine 资源创建的对象，且每个 spine 只有一种混合模式，一张贴图，才能进行批次合并，Dragonbones 同理。
 6. 单次 Draw call 的 Buffer 数据有限，当数据超过 Buffer 长度限制时，会重新申请新的 Buffer，不同的 Buffer 也会是不同的批次。

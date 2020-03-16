@@ -12,6 +12,8 @@ Cocos Creator 提供了在项目构建时的静态合图方法—— **自动合
 
 Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [CLEANUP_IMAGE_CACHE](https://docs.cocos.com/creator/api/zh/classes/macro.html#cleanupimagecache) 参数，当禁用 `CLEANUP_IMAGE_CACHE`  时，动态合图就会默认开启。
 
+### 启用动态合图
+
 **若希望强制开启动态合图**，请在代码中加入：
 
 ```js
@@ -19,7 +21,13 @@ cc.macro.CLEANUP_IMAGE_CACHE = false;
 cc.dynamicAtlasManager.enabled = true;
 ```
 
-> 注意这些代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中，才能确保在项目加载过程中即时生效。否则如果在部分贴图缓存已经释放的情况下才启用动态图集，可能会导致报错。
+**注意**：
+
+- 这些代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中，才能确保在项目加载过程中即时生效。否则如果在部分贴图缓存已经释放的情况下才启用动态图集，可能会导致报错。
+
+- 启用动态合图会占用额外的内存，不同平台占用的内存大小不一样。目前在微信小游戏和原生平台上默认禁用动态合图，但如果内存充足的话建议开启。
+
+### 禁用动态合图
 
 **若希望强制禁用动态合图**，可以直接剔除“Dynamic Atlas”模块以减小引擎包体，或者通过代码控制：
 
