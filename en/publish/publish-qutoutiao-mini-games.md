@@ -1,4 +1,4 @@
-# Publishing to QTT Mini Games
+# Publish to QTT Mini Games
 
 Starting with Cocos Creator v2.3.0, creating games for the QTT Mini Games is officially supported.
 

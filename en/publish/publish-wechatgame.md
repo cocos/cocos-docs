@@ -1,4 +1,4 @@
-# Publishing to __WeChat Mini Games__
+# Publish to __WeChat Mini Games__
 
 Starting with __v1.8__, Cocos Creator officially supports the release of games to the **WeChat Mini Games**.
 

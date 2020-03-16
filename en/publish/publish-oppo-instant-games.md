@@ -1,4 +1,4 @@
-# Publishing to OPPO Mini Games
+# Publish to OPPO Mini Games
 
 ## Environment Configuration
 

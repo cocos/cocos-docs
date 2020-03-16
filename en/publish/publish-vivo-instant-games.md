@@ -1,4 +1,4 @@
-# Publishing to vivo Mini Games
+# Publish to vivo Mini Games
 
 ## Environment Configuration
 
