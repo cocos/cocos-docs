@@ -1,4 +1,4 @@
-# Publishing to Huawei Quick Games
+# Publish to Huawei Quick Games
 
 ## Environment Configuration
 

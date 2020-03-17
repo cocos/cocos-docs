@@ -74,13 +74,13 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/maintest-build.png)
 
-    This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context release package.
 
     ![](./publish-wechatgame/game-json.png)
 
 2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context**.
 
-3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
+3. The **Build Path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
     **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
 
@@ -159,7 +159,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/maintest-build.png)
 
-    This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context release package.
 
     ![](./publish-wechatgame/game-json.png)
 
