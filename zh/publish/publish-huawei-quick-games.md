@@ -2,7 +2,7 @@
 
 ## 环境配置
 
-- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_devprepare_install_tool)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
+- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-installtool)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
 
 - PC 端全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 
@@ -137,4 +137,4 @@
 
 ## 相关参考链接
 
-[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_introduction)
+[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickgame-develop-runtime-game)

@@ -2,7 +2,7 @@
 
 ## Environment Configuration
 
-- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_devprepare_install_tool) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickapp-installtool) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
 
@@ -140,4 +140,4 @@ After the build is complete, the generated subpackages and main package are merg
 
 ## Related Reference Links
 
-[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_introduction)
+[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickgame-develop-runtime-game)
