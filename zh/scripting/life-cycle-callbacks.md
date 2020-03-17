@@ -95,13 +95,13 @@ cc.Class({
 
 ## Tips
 
-一个组件从初始化到激活，再到最终销毁的完整生命周期函数调用顺序为：`onLoad` -> `start` -> `update`。
+一个组件从初始化到激活，再到最终销毁的完整生命周期函数调用顺序为：`onLoad` -> `onEnable` -> `start` -> `update` -> `lateUpdate` -> `onDisable` -> `onDestroy`。
 
 其中，`onLoad` 和 `start` 常常用于组件的初始化，只有在节点 `activeInHierarchy` 的情况下才能调用，并且最多只会被调用一次。除了上文提到的内容以及调用顺序的不同，它们还有以下区别：
 
 |         | onLoad | start |
 | ------- | ------ | ----- |
-| 场景激活时                 | 立即调用 | 延迟调用 |
+| 节点激活时                 | 立即调用 | 延迟调用 |
 | 组件 enabled 时才会调用？ |  否     | 是      |
 
 ---

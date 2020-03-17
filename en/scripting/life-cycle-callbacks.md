@@ -98,12 +98,12 @@ When the component or node calls `destroy()`, it will call the `onDestroy` callb
 
 The execution order of lifecycle functions over a component's complete lifetime from initialization to activation and final destruction is: `onLoad` -> `onEnable` -> `start` -> `update` -> `lateUpdate` -> `onDisable` -> `onDestroy`.
 
-Where `onLoad` and `start` are often used for component initialization and can only be executed if the node is `activeInHierarchy`, and only once at most. In addition to the content mentioned above and the execution order, there are the following differences:
+Where `onLoad` and `start` are often used for a component's initialization and will only be executed once when the node become `activeInHierarchy`. In addition to the content mentioned above and the different execution order, there are the following differences:
 
 |        | onLoad  | start  |
 | ------ | ------- | -----  |
-| When the scene is activated           | Calls immediately | Delayed Call |
-| Is it only called when the component is enabled? |  No   | Yes  |
+| When the node is activated           | Calls immediately | Deferred Call |
+| Only called when the component is enabled? |  No   | Yes  |
 
 ---
 
