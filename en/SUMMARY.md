@@ -90,6 +90,8 @@
     - [Publish to Alipay Mini Games](publish/publish-alipay-mini-games.md)
     - [Publish to WeChat Mini Games](publish/publish-wechatgame.md)
         - [WeChat Open Data Context](publish/publish-wechatgame-sub-domain.md)
+        - [WeChat Engine Plugin](publish/wechat-engine-plugin.md)
+        - [WeChat PC Mini Games](publish/publish-pc-wechatgame.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
