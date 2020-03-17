@@ -10,9 +10,8 @@ Dynamic Atlas is according to the rendering order to determine whether the textu
 
 ## Enable, disable Dynamic Atlas
 
-During the initialization process of Cocos Creator, different [CLEANUP_IMAGE_CACHE](https://docs.cocos.com/creator/api/en/classes/macro.html#cleanupimagecache) value will be set according to different platforms. When `CLEANUP_IMAGE_CACHE` is disabled, Dynamic Atlas will be enabled by default.
-
-### Enable Dynamic Atlas
+During the initialization process of Cocos Creator, different [CLEANUP_IMAGE_CACHE](https://docs.cocos.com/creator/api/en/classes/macro.html#cleanupimagecache) value will be set according to different platforms. When `CLEANUP_IMAGE_CACHE` is disabled, Dynamic Atlas will be enabled by default.<br>
+Enable dynamic atlas takes up additional memory, while different platforms consume different memory sizes. Dynamic atlas is currently disabled by default on Mini Games and Native platforms, but is recommended to open if your project still has extra memory space.
 
 **If you need to force the Dynamic Atlas to be enabled**, execute the following code:
 
@@ -21,13 +20,7 @@ cc.macro.CLEANUP_IMAGE_CACHE = false;
 cc.dynamicAtlasManager.enabled = true;
 ```
 
-**Note**:
-
-- The code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`, to ensure that it takes effect immediately during project loading. Otherwise, if you enable Dynamic Atlas once any texture cache has been released, an error may result.
-
-- Enable dynamic atlas takes up additional memory, while different platforms consume different memory sizes. Dynamic atlas is currently disabled by default on WeChat Mini Games and Native platforms, but is recommended to open if memory is sufficient
-
-### Disable Dynamic Atlas
+> Note that the code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`, to ensure that it takes effect immediately during project loading. Otherwise, if you enable Dynamic Atlas once any texture cache has been released, an error may result.
 
 **If you need to force the Dynamic Atlas to be disabled**, you can either uncheck the “Dynamic Atlas” module to reduce the engine package, or execute the following code:
 

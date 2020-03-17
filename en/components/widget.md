@@ -16,7 +16,7 @@ Left               | Left border alignment       | Once selected, an input field
 Right              | Right border alignment      | Once selected, an input field will appear to set the distance between the right border of the current node and the right border of the parent object.
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
-Target             | Align the target            | Specifies an alignment target that can only be one of the parent nodes of the current node. The default value is null, and when null, indicates the current parent.<br>When the parent node is the entire scene, it is aligned to the visible area of the screen (`VisibleRect`), and can be used to dock the UI to the edge of the screen.
+Target             | Align the target            | Specifies an alignment target that can only be one of the parent nodes of the current node. The default value is null, and when null, indicates the current parent.<br>When the parent node is the entire scene, it is aligned to the visible area of the screen (`visibleRect`), and can be used to dock the UI to the edge of the screen.
 Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to ON_WINDOWS_RESIZE, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
 
 ## Border alignment

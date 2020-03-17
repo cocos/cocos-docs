@@ -34,7 +34,7 @@ cc.Class({
 
 ## start
 
-The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time. `start` is usually used to initialize data that needs frequent modification, which may have changed during update and frequently enables and disables.
+The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time. `start` is usually used to initialize data that needs frequent modification, which may have changed during `update`.
 
 ```js
 cc.Class({
@@ -92,15 +92,18 @@ When the `enabled` property of the component turns from `true` to `false`, or th
 
 ## onDestroy
 
-When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
+When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done. When you declare both `onLoad` and `onDestroy`, they will always be called in pairs, which means that from component's initialization to destruction, they will either all be called or none will be called.
 
 ## Tips
 
-| Type       | onLoad  | start  |
-| ---------- | ------- | -----  |
-| The call time                         | Execute before any `start` method call | Execute before any `update` method call |
+The execution order of lifecycle functions over a component's complete lifetime from initialization to activation and final destruction is: `onLoad` -> `onEnable` -> `start` -> `update` -> `lateUpdate` -> `onDisable` -> `onDestroy`.
+
+Where `onLoad` and `start` are often used for component initialization and can only be executed if the node is `activeInHierarchy`, and only once at most. In addition to the content mentioned above and the execution order, there are the following differences:
+
+|        | onLoad  | start  |
+| ------ | ------- | -----  |
 | When the scene is activated           | Calls immediately | Delayed Call |
-| The component must be enabled to be invoked? |  No   | Yes  |
+| Is it only called when the component is enabled? |  No   | Yes  |
 
 ---
 
