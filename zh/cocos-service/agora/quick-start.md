@@ -15,10 +15,10 @@
 ## 新建 Scene 场景文件和绑定脚本文件
 由于 Agora SDK 文件体积较小，Cocos Service 在集成该 SDK 时使用了直接引入，并设为全局变量的方式。而空白项目在保存之前没有 Scene 场景文件，可能造成加载 SDK 时的问题。在一键接入 Agora 服务前，我们需要先在项目中新建一个 Scene 场景文件，并顺便绑定后续需要使用的脚本文件。
 
-- 在 **资源管理器** 中选中 ```assets``` 文件夹，然后点击右键，选择 **新建 -> Scene** ，添加场景文件。
-- 在 **资源管理器** 中选中 ```assets``` 文件夹，然后点击右键，选择 **新建 -> JavaScript** ，添加脚本文件。
-- 在 **资源管理器** 中双击刚才新建的场景 ```New Scene```，然后在 **层级管理器** 中选中 ```Canvas``` 节点。
-- 将 **资源管理器** 中新建的脚本文件 ```NewScript``` 拖拽到 **属性检查器** 面板中。
+- 在 **资源管理器** 中选中 `assets` 文件夹，然后点击右键，选择 **新建 -> Scene** ，添加场景文件。
+- 在 **资源管理器** 中选中 `assets` 文件夹，然后点击右键，选择 **新建 -> JavaScript** ，添加脚本文件。
+- 在 **资源管理器** 中双击刚才新建的场景 `New Scene`，然后在 **层级管理器** 中选中 `Canvas` 节点。
+- 将 **资源管理器** 中新建的脚本文件 `NewScript` 拖拽到 **属性检查器** 面板中。
     
 ![w720](../image/creator-new-file.jpg)
 
@@ -37,7 +37,7 @@ Cocos Creator v2.0.9 以上版本的 **Cocos Service 服务面板** 中，集成
 ## 脚本调试
 
 - Agora 的 SDK 文件直接导入工程，以全局变量方式加载，无需再进行 require 操作
-- 现在我们修改脚本文件，例如在 ```start``` 方法中调用 Agora 的初始化，并将接入参数替换为之前 [**Agora 管理后台**](https://staging-dashboard.agora.io/) 获取的 **App ID** ：
+- 现在我们修改脚本文件，例如在 `start` 方法中调用 Agora 的初始化，并将接入参数替换为之前 [**Agora 管理后台**](https://staging-dashboard.agora.io/) 获取的 **App ID** ：
 
 ```js
 // NewScript.js

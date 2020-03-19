@@ -28,15 +28,15 @@ Cocos Service 将自动开通 Matchvs 服务、联通 Matchvs 账号，并集成
 ## 脚本调试
 完成 Matchvs 服务接入步骤后，我们便可以在场景中添加简单的代码，验证 Matchvs的接入是否成功。
 
-- 在 **资源管理器** 中选中 ```assets``` 文件夹，然后点击右键，选择 **新建 -> Scene** ，添加场景文件。
-- 在 **资源管理器** 中选中 ```assets``` 文件夹，然后点击右键，选择 **新建 -> JavaScript** ，添加脚本文件。
-- 在 **资源管理器** 中双击刚才新建的场景 ```New Scene```，然后在 **层级管理器** 中选中 ```Canvas``` 节点。
-- 将 **资源管理器** 中新建的脚本文件 ```NewScript``` 拖拽到 **属性检查器** 面板中。
+- 在 **资源管理器** 中选中 `assets` 文件夹，然后点击右键，选择 **新建 -> Scene** ，添加场景文件。
+- 在 **资源管理器** 中选中 `assets` 文件夹，然后点击右键，选择 **新建 -> JavaScript** ，添加脚本文件。
+- 在 **资源管理器** 中双击刚才新建的场景 `New Scene`，然后在 **层级管理器** 中选中 `Canvas` 节点。
+- 将 **资源管理器** 中新建的脚本文件 `NewScript` 拖拽到 **属性检查器** 面板中。
     
 ![w720](../image/creator-new-file.jpg)
 
 - Matchvs 的 SDK 已通过 **插件** 形式导入工程，无需再做 require 处理。相关内容可参考 [插件脚本](../../scripting/plugin-scripts.md) 文档。
-- 现在我们修改脚本文件，例如在 ```start``` 方法中调用 Matchvs 的初始化，将接入参数替换为之前 [**Matchvs 管理后台**](https://www.matchvs.com/manage/) 获取的 **GameID** 和 **Appkey**：
+- 现在我们修改脚本文件，例如在 `start` 方法中调用 Matchvs 的初始化，将接入参数替换为之前 [**Matchvs 管理后台**](https://www.matchvs.com/manage/) 获取的 **GameID** 和 **Appkey**：
 
 ```js
 // NewScript.js

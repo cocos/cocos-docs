@@ -8,7 +8,7 @@ Cocos Service 目前提供的服务包括：
 - [**Matchvs 游戏云**](https://www.matchvs.com/) ：专业成熟的移动游戏联网与服务端解决方案。
 - [**Agora Voice**](https://www.agora.io/cn/) ：游戏内置实时音频 SDK。
 
-更多第三方服务还在不断接入中，商务合作请联系 **zhifeng.hu@cocos.com**
+更多第三方服务还在不断接入中。
 
 ## 内容
 - [关于 Cocos Service](about-cocos-service.md)

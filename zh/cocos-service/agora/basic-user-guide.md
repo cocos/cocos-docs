@@ -7,7 +7,7 @@
 
 ![w760](image/agora-param.jpg)
 
-- 打开工程中的 ```HelloWorld.js``` ，在 ```initAgora**``` 方法中修改 **appid** 的值。
+- 打开工程中的 `HelloWorld.js` ，在 `initAgora` 方法中修改 **appid** 的值。
 - 可以点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [**预览**](../../getting-started/basics/preview-build.md) 按钮，调试该 Sample 工程。
 - 若发现 Web 环境下，Sample 初始化成功，但加入频道没有回调，检查下该工程是否没有执行 [**一键开通服务**](../oneclick-provisioning.md) 操作。
 
@@ -39,7 +39,7 @@ agora.joinChannel(token, channelId, [info], [uid])
 agora.joinChannel('', channelId)
 ```
 
-该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App ID 的应用程序是不能互通的。如果已在通话中，用户必须调用 agora.leaveChannel() 退出当前通话，才能进入下一个频道。
+该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App ID 的应用程序是不能互通的。如果已在通话中，用户必须调用 agora.leaveChannel() 退出当前通话，才能进入下一个频道。
 
 #### 离开频道
 ```

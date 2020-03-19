@@ -31,9 +31,8 @@ Cocos Service 对一些通用步骤进行了整合，提供了一键式接入的
 ![w760](image/about-service-intergate.jpg)
 
 ## 支持服务
+
 - [**Cocos 数据统计**](https://n-analytics.cocos.com/docs/) ：精准了解游戏的新增、活跃、留存、付费等数据。
 - [**Matchvs 游戏云**](https://www.matchvs.com/) ：专业成熟的移动游戏联网与服务端解决方案。
 - [**Agora Voice**](https://www.agora.io/cn/) ：游戏内置实时音频 SDK。
-
-更多第三方服务还在不断接入中，商务合作请联系 **zhifeng.hu@cocos.com**
 

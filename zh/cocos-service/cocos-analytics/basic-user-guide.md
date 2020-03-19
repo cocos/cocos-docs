@@ -23,8 +23,10 @@
     ![](image/analytics-console.jpg)
 
 ## Sample 调用方法说明
+
 Creator 插件加载时会调用 Cocos Analytics 初始化，无需再做初始化操作。
-###启用Debug输出模式：
+
+### 启用 Debug 输出模式：
 ```
 cocosAnalytics.enableDebug(true); //启用Debug输出模式，调试完成后可删除
 ```
@@ -53,7 +55,9 @@ cocosAnalytics.CAAccount.loginFailed({
 cocosAnalytics.CAAccount.logout();
 
 ```
+
 ### 付费行为分析模块：
+
 ```
 const paymentInfo = {
   amount: 100,                 // 现金金额或现金等价物的额度。例如1元传入100，100元则传入10000
@@ -85,6 +89,7 @@ cocosAnalytics.CAPayment.payCanceled(paymentInfo);
 ```
 
 ### 自定义事件模块：
+
 ```
 const eventID = "事件1";        //事件ID（必填）可以任意填写, 不得超过30个字符
 
@@ -109,7 +114,6 @@ cocosAnalytics.CACustomEvent.onCancelled(eventID, eventValue);
 cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 
 ```
-
 
 ---
 
