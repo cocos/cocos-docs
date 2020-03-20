@@ -72,6 +72,10 @@ Specifically, developers need to do:
 
 **Note**: If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
 
+**Note**：When you upgrade the engine of your mini game, the assets already cached in the storage of phone or Wechat dev tool will not be cleared automatically. And these cached assets don't match the version of engine.It may cause some issues about rendering or others. The solution is check the option `Md5 Cache` when you build your game. It ensures that the newest asset will be loaded. Or you can clear these outdated assets by yourself. In mobile phone, you can call `remoteDownloader.cleanAllCaches()` to clear all caches. In Wechat dev tool, you can click this button to do same thing：
+
+![](./publish-wechatgame/clear-cache.png)
+
 ## WeChat Mini Game Subpackage Loading
 
 WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
