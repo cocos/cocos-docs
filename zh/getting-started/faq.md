@@ -247,3 +247,7 @@ material.setProperty("diffuseTexture", texture);
 ### Scheduler 取消失败，仍然运行
 
 `this.unschedule(callBack, target)` 接收的参数必须与 `this.schedule(callBack, target)` 传入的一致。其中 callBack 必须是同一函数对象，而 target 也必须是同一个对象。如果传入的参数不同就会导致无法正常停止 Scheduler。
+
+### Mac 版本的 CocosCreator 在程序坞上变小
+
+受 electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
