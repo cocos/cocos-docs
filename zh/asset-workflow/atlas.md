@@ -11,7 +11,7 @@
 - 合成图集时会去除每张图片周围的空白区域，加上可以在整体上实施各种优化算法，合成图集后可以大大减少游戏包体和内存占用
 - 多个 Sprite 如果渲染的是来自同一张图集的图片时，这些 Sprite 可以使用同一个渲染批次来处理，大大减少 CPU 的运算时间，提高运行效率。
 
-更形象生动的解释可以观看来自 CodeAndWeb 的教学视频 [What is a Sprite Sheet（什么是图集）](https://www.codeandweb.com/what-is-a-sprite-sheet)，需要使用 VPN 打开视频。
+更形象生动的解释可以观看来自 CodeAndWeb 的教学视频 [What is a Sprite Sheet（什么是图集）](https://www.codeandweb.com/what-is-a-sprite-sheet)（需要科学上网打开视频）。
 
 ## 制作图集资源
 
