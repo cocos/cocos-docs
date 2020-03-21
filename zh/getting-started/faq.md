@@ -250,4 +250,4 @@ material.setProperty("diffuseTexture", texture);
 
 ### Mac 版本的 CocosCreator 在程序坞上变小
 
-受 electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
+受 Electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
