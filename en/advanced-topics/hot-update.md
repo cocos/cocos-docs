@@ -99,10 +99,12 @@ The editor plugin automatically adds the search path logic to `main.js` everytim
     if (typeof window.jsb === 'object') {
         var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
         if (hotUpdateSearchPaths) {
-            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+            var paths = JSON.parse(hotUpdateSearchPaths);
+            jsb.AssetsManager.checkFinish && jsb.AssetsManager.checkFinish(paths[0]);
+            jsb.fileUtils.setSearchPaths(paths);
         }
     }
-});
+})();
 ```
 
 This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
