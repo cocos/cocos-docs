@@ -32,9 +32,7 @@ Starting with v1.10, we no longer support Eclipse's ANT build, we need to use An
 
 ### Download the SDK and NDK required to publish the Android platform
 
-After installing Android Studio, refer to the official documentation and open the SDK Manager:
-
-[SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager)
+After installing Android Studio, refer to the official documentation and open the SDK Manager: [SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager).
 
 1. In the `SDK Platforms` tab page, check the API level you want to install, and it is recommended to select the required mainstream API Level such as 23 (6.0), 26 (8.0) and 28 (9.0), etc.
 2. In the `SDK Tools` tab page, first check the lower right corner of the `Show Package Details`, show the version of the tool selection.
