@@ -1,6 +1,6 @@
 # Prefab
 
-Prefabs are pre-configured game objects that provide an efficient and flexible workflow that allows designers to confidently create their work without having to worry about time-consuming mistakes.
+Prefabs are pre-configured game objects that provide an efficient and flexible workflow.
 
 ## Creating a prefab
 

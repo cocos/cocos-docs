@@ -14,7 +14,7 @@
 
 ## What is Cocos Cretaor?
 
-Cocos Creator is a open source game development tool centered on content creation. Which realizes the fully scripted, componentized and data-driven on the basis of Cocos2d-x.
+Cocos Creator is an open source game development tool centered on content creation. Which realizes the fully scripted, componentized and data-driven on the basis of Cocos2d-x.
 
 ## Workflow Description
 
@@ -86,7 +86,7 @@ On the basis of data-driven workflow, the creation and editing of the scene beco
 
 Programmers and designers can now implement a wide range of division of labor, whether it is to build the scene first, then add functions, or to first produce functional modules and then combined debugging by designers, Cocos Creator can meet the needs of the development team. The properties defined in the script can be presented in the editor with the most appropriate visual experience to facilitate the content producer.
 
-Content resources outside the scene can be imported from outside, such as images, sounds, atlases, skeletal animations, etc. In addition, we are constantly improving the editor's production resources, including the currently completed animation editor, art People can use this tool to create very delicate and expressive animation resources, and can see the preview of the animation in the scene at any time.
+Content resources outside the scene can be imported from outside, such as images, sounds, atlases, skeletal animations, etc. In addition, we are constantly improving the editor's production resources, including the currently completed animation editor, art people can use this tool to create very delicate and expressive animation resources, and can see the preview of the animation in the scene at any time.
 
 Supports both 2D and 3D game development with features that meet the specific needs of your various game types. Deep optimization of the editor experience and engine performance of pure 2D games and built-in support for middleware such as Spine, DragonBones, TiledMap, Box2D, and Texture Packer.
 
