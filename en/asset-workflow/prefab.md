@@ -1,5 +1,7 @@
 # Prefab
 
+Prefabs are pre-configured game objects that provide an efficient and flexible workflow.
+
 ## Creating a prefab
 
 After editing the Node in the scene, drag it directly from **Node Tree** to **Assets**:
