@@ -86,7 +86,7 @@
 
 - 当小游戏升级引擎版本后，留在用户本地的缓存资源和开发者工具中遗留的缓存资源并不会自动清空，还是之前老版本引擎对应的资源。这可能会造成各类异常或渲染错误。解决方案为构建时勾选 `MD5 Cache` 选项，这将确保使用最新版本的资源。或者手动清空之前缓存的资源，在真机上，你可以使用 `remoteDownloader.cleanAllCaches()` 清空缓存，在开发者工具上，你可以使用此选项清空：
 
-![](./publish-wechatgame/clear-cache.png)
+    ![](./publish-wechatgame/clear-cache.png)
 
 
 ## 微信小游戏引擎插件
