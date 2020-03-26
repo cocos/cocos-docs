@@ -68,7 +68,7 @@ Specifically, developers need to do:
 4. Delete the res folder inside the distribution package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat Developer tool, check the __Do not verify the security domain name, TLS version and the HTTPS certificate__ option in the project settings .
 
-![](./publish-wechatgame/detail.jpeg)
+    ![](./publish-wechatgame/detail.jpeg)
 
 **Note**: 
 
