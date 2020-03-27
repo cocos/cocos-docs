@@ -1,22 +1,20 @@
 # 基础使用
-## Cocos Analytics Sample 参考和使用：
-若用户已有一定 Cocos Creator 基础或者已经完成 [**快速开始**](quick-start.md) 步骤，可以继续参考此篇文档。
 
-- 首先 Clone 或下载 [**Cocos Analytics 示例代码**](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
+## Cocos Analytics Sample 参考和使用
 
-- 在该工程中执行 [**Cocos AppID 设定**](../setting-cocos-appid.md) 和 [**一键开通服务**](../oneclick-provisioning.md) 操作。
+若用户已有一定 Cocos Creator 基础或者已经完成 [快速开始](quick-start.md) 步骤，可以继续参考此篇文档。
 
-- 服务开通后还需要配置 **Store - 游戏分发渠道 ID**，该值可以自定义，只需要在 [**Cocos Analytics 后台**](http://analytics.cocos.com/) 获取统计结果时能够区分即可。设置后点击 **重新加载预览插件** 按钮，导入预览插件，即可完成接入工作。
+- 首先 Clone 或下载 [Cocos Analytics 范例工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
-    ![](image/analytics-params.jpg)
+- 在 **服务** 面板中接入 Cocos Analytics 统计服务，详情可参考 [快速开始 —— 接入 Cocos Analytics 服务](quick-start.md)。
 
-- 可以点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [**预览**](../../getting-started/basics/preview-build.md) 按钮，调试该 Sample 工程。
+- 接入完成后，点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，即可调试该 Sample 工程。
 
-![w760](image/analytics-sample.jpg)
+  ![](image/analytics-sample.jpg)
 
-- Cocos Analytics **不支持模拟器库** 。若需要导出在 Android 或 iOS 平台测试，请使用 **真机调试** 。
+- Cocos Analytics **不支持模拟器库**。若需要导出在 Android 或 iOS 平台测试，请使用 **真机调试**。详情可参考 [打包发布原生平台](../../publish/publish-native.md)。
 
-- 可将 Sample 上所有按钮点击一遍，在 Cocos Analytics 服务面板点击 **前往控制台** 按钮，刷新页面直至 [**Cocos Analytics 后台**](http://analytics.cocos.com/) 刷新数值，数据刷新周期约为10分钟。
+- 可将 Sample 工程上所有按钮点击一遍，然后在 Cocos Analytics 服务设置面板点击 **前往控制台** 按钮前往 **调试游戏** 页面，刷新页面直至更新数值，数据刷新周期约为 **10** 分钟。
 
 - 若在调试状态下，所有数据接口调试完成，则接入成功，可以视情况点击上方 **完成调试** 按钮，转为正式模式。
 
@@ -26,12 +24,14 @@
 
 Creator 插件加载时会调用 Cocos Analytics 初始化，无需再做初始化操作。
 
-### 启用 Debug 输出模式：
+### 启用 Debug 输出模式
+
 ```
 cocosAnalytics.enableDebug(true); //启用Debug输出模式，调试完成后可删除
 ```
 
-### 登录模块方法：
+### 登录模块方法
+
 ```
 // 开始登录
 cocosAnalytics.CAAccount.loginStart({
@@ -53,10 +53,9 @@ cocosAnalytics.CAAccount.loginFailed({
     
 // 退出登录 （我们已经考虑和完善处理玩家异常登出操作）
 cocosAnalytics.CAAccount.logout();
-
 ```
 
-### 付费行为分析模块：
+### 付费行为分析模块
 
 ```
 const paymentInfo = {
@@ -85,10 +84,9 @@ cocosAnalytics.CAPayment.payFailed(paymentInfo);
 
 // 支付取消
 cocosAnalytics.CAPayment.payCanceled(paymentInfo);
-
 ```
 
-### 自定义事件模块：
+### 自定义事件模块
 
 ```
 const eventID = "事件1";        //事件ID（必填）可以任意填写, 不得超过30个字符
@@ -112,13 +110,8 @@ cocosAnalytics.CACustomEvent.onCancelled(eventID, eventValue);
 
 // 事件失败
 cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
-
 ```
 
 ---
 
-继续前往 [**文档链接**](docs-link.md)
-
-
-
-
+继续前往 [文档链接](docs-link.md)
