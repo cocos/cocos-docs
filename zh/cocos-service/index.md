@@ -14,10 +14,13 @@ Cocos Service 目前提供的服务包括：
 
 更多第三方服务还在不断接入中。
 
-## Cocos Service 主要内容
+## Cocos Service 目录
 
 - [关于 Cocos Service](about-cocos-service.md)
-    - [操作指南](user-guide.md)
+    - [Cocos Service 操作指南](user-guide.md)
+    - [设定 Cocos AppID](setting-cocos-appid.md)
+    - [一键开通服务](oneclick-provisioning.md)
+    - [服务面板说明](about-service-panel.md)
     - [计费与充值](billing-and-charge.md)
 - [Cocos Analytics 统计](cocos-analytics/index.md)
 - [Matchvs 游戏云](matchvs/index.md)

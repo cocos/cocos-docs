@@ -2,8 +2,6 @@
 
 ![](image/agora-logo.jpg)
 
-Cocos Creator 从 v2.0.9 版本开始集成了 Agora 声网。
-
 从硅谷一个车库的几行代码开始，一群程序员创立了 [Agora 声网](https://www.agora.io/cn/)，期待用实时音视频互动 API 改变全世界人们的沟通方式。
 
 [Agora Interactive Gaming SDK](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms) 是 Agora 针对游戏开发者提供的音视频通话软件开发包，其主要目的是帮助游戏开发者在游戏中快速集成音视频通话的功能。
@@ -24,7 +22,7 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 ### 开通 Agora 服务
 
 1. 使用 Cocos Creator 打开需要接入 Agora 的项目工程。
-2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Agora Voice，进入 Agora 服务设置面板。然后点击右上方的 **启用** 按钮以开通 Agora 服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
+2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Agora Voice，进入 Agora 服务面板。然后点击右上方的 **启用** 按钮以开通 Agora 服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
 
     ![](image/agora-provisioning.png)
 
@@ -40,22 +38,11 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
     ![](image/agora-param.jpg)
 
-2. 修改脚本文件，例如在 `start` 方法中调用 Agora 的初始化，填入在 1 步骤中从 Agora 后台获取的 **App ID**：
+2. 在脚本中调用 Agora 的初始化，填入在 1 步骤中从 Agora 后台获取的 **App ID**：
 
     ```js
-    cc.Class({
-        extends: cc.Component,
-
-        properties: {
-
-        },
-
-        start: function () {
-            var appid = '从 Agora 后台获取的 App ID';
-            agora && agora.init(appid);
-        },
-
-    });
+    var appid = '从 Agora 后台获取的 App ID';
+    agora && agora.init(appid);
     ```
 
 3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，若能在浏览器控制台中看到初始化日志，即可验证 Agora 接入成功。
@@ -78,7 +65,7 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
   **注意**：若在浏览器中调试时发现 Agora Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora Voice 服务。
 
-## Agore 调用方法说明
+## Agora 调用方法说明
 
 ### 初始化 Agora
 

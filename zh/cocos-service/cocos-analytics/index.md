@@ -2,20 +2,18 @@
 
 ![](image/analytics-logo.jpg)
 
-Cocos Creator 从 v2.0.8 版本开始集成了 [Cocos Analytics](https://www.cocos.com/analytics)。
-
-Cocos Analytics 用于记录玩家的游戏行为，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，让您可以更专注于游戏开发。目前支持 Android／iOS／Web 平台。
+[Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
 ## 一键接入 Cocos Analytics 服务
 
 ### 开通 Cocos Analytics 服务
 
 1. 使用 Cocos Creator 打开需要接入 Cocos Analytics 服务的项目工程。
-2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务设置面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
+2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
 
     ![](image/analytics-panel.png)
 
-3. 开通服务后，在 Cocos Analytics 服务设置面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
+3. 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
 
     - AppID 会自动填入当前绑定的游戏 AppID。
     - store 为游戏分发渠道 ID，长度为 200。该项可以任意设置，只要确保在 [Cocos Analytics 数据中心](http://analytics.cocos.com/) 获取统计结果时能够区分即可。
@@ -27,26 +25,15 @@ Cocos Analytics 用于记录玩家的游戏行为，并且在后台提供了数�
 
 Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简单的代码来验证接入是否成功。
 
-1. 在脚本中调用 Cocos Analytics 的开始登录方法 `loginStart`，例如：
+1. 在脚本中调用 Cocos Analytics 的开始登录方法 `loginStart`：
 
     ```js
-    cc.Class({
-        extends: cc.Component,
-
-        properties: {
-
-        },
-
-        start: function () {
-            // 开启（关闭）本地日志的输出
-            cocosAnalytics.enableDebug(true); 
-            // 开始登录方法
-            cocosAnalytics.CAAccount.loginStart({    
-                // 获客渠道，指获取该客户的广告渠道信息 
-                channel: '99888',
-            });
-        },
-
+    // 开启（关闭）本地日志的输出
+    cocosAnalytics.enableDebug(true); 
+    // 开始登录方法
+    cocosAnalytics.CAAccount.loginStart({    
+        // 获客渠道，指获取该客户的广告渠道信息 
+        channel: '99888',
     });
     ```
 
@@ -54,13 +41,13 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
     ![](image/analytics-debugging.png)
 
-开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web** 平台进行 [构建编译](../../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
+开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
 游戏加载后，Cocos Analytics SDK 会在项目构建后的 `main.js` 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 `main.js` 中修改这些参数。初始化后便可以直接调用 Cocos Analytics SDK，发送各种数据给服务器。
 
 ## Cocos Analytics Sample 的集成调试
 
-- 点击 Cocos Analytics 服务设置面板中的 **Sample 工程** 按钮，Clone 或下载  [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
+- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载  [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中接入 Cocos Analytics 服务，具体可参考上部分章节内容介绍。
 
@@ -68,7 +55,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
   ![](image/analytics-sample.png)
 
-- 可将 Sample 工程中的所有按钮点击一遍，然后在 Cocos Analytics 服务设置面板点击 **前往控制台** 按钮前往 **调试游戏** 页面，刷新页面直至更新数据，数据刷新周期约为 **10** 分钟。请注意检查 **调试游戏** 页面中的 AppID 是否与 **服务** 面板中的一致。
+- 可将 Sample 工程中的所有按钮点击一遍，然后在 Cocos Analytics 服务面板点击 **前往控制台** 按钮前往 **调试游戏** 页面，刷新页面直至更新数据，数据刷新周期约为 **10** 分钟。请注意检查 **调试游戏** 页面中的 AppID 是否与 **服务** 面板中的一致。
 
   若在调试状态下，所有数据接口调试完成，可点击右上方的 **完成调试** 按钮，转为正式模式。**注意**：转为正式模式后无法再回到 **调试游戏** 页面。
 
@@ -177,7 +164,7 @@ cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
-- [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
+- [Web／微信小游戏平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
 
 详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)。
 

@@ -10,7 +10,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ![](cocos-analytics/game.png)
 
-2、打开 Creator，点击 **菜单栏的 -> 面板 -> 服务** 项，打开 **服务** 面板。设置 Cocos AppID，详情可参考 [Cocos 服务面板设置](cocos-services.md)。然后选择 **Cocos Analytics** 项，进入 Cocos Analytics 服务设置面板。
+2、打开 Creator，点击 **菜单栏的 -> 面板 -> 服务** 项，打开 **服务** 面板。设置 Cocos AppID，详情可参考 [Cocos 服务面板设置](cocos-services.md)。然后选择 **Cocos Analytics** 项，进入 Cocos Analytics 服务面板。
 
 3、点击右上角的启用按钮以启用统计服务：
 
