@@ -1,26 +1,12 @@
 # 一键开通服务
-游戏工程设定 Cocos AppID 后，便可以方便的使用一键开通服务。只需要点击一下开通按钮，Cocos Service 将自动完成服务开通、账号联通和SDK集成等工作。
+
+游戏工程设定 Cocos AppID 后，便可以直接一键开通服务。只需要点击一下开通按钮，Cocos Service 将自动完成服务开通、服务商账号联通以及 SDK 集成等工作。
 
 ![](image/about-oneclick.jpg)
 
-下面以Cocos Analytics 为例：
-- 在服务面板中，**点击 Cocos Analytics 面板**。
-- 点击右上角 **开通服务按钮**。
+下面以接入 Cocos Analytics 服务为例：
 
-    ![](image/panel-provisioning.jpg)
+- 在 **服务** 面板中，选择 **Cocos Analytics** 项，进入 Cocos Analytics 服务面板。
+- 点击右上角的 **启用** 按钮以启用统计服务。首次开通会弹出是否开通服务的提示框，点击  **确认开通** 即可开通服务。
 
-- 出现开通说明，同意后点击 **确认开通**。
-
-    ![](image/panel-confirm.jpg)
-    
-Cocos Service 将会开通该服务、联通服务商账号，并自动集成该服务的 SDK 到游戏工程，用户可以开始进行余下的 SDK 调用等工作，请参考对应服务的接入文档。
-
-- [**Cocos 数据统计**](cocos-analytics/basic-user-guide.md) 
-- [**Matchvs 游戏云**](matchvs/basic-user-guide.md) 
-- [**Agora Voice**](agora/basic-user-guide.md) 
-
----
-
-继续前往 [服务面板说明](about-service-panel.md)。
-
-
+  ![](image/panel-confirm.png)

@@ -1,10 +1,12 @@
 # 关于 Cocos Service
+
 ## 产品概述
-Cocos 是一款优秀的开源移动游戏引擎，在全球范围内拥有数量庞大的用户。
 
-如果说我们的目标仅仅停留在不断打造引擎本身，是远远不够的。Cocos 的目标是更好的服务广大游戏开发者，为游戏开发者提供全套的游戏开发解决方案，包括游戏研发中、上线时、上线后游戏变现等过程中所涉及到的一系列的技术和服务。Cocos 力求让游戏开发者的工作变得更加简单而高效。
+Cocos Creator 是一款优秀的开源移动游戏引擎，在全球范围内拥有数量庞大的用户。
 
-Cocos Service 的主要目的有两个，一是尽最大的可能提高从用户端到达各个服务的便利性，以及易用性。我们整合了部分接入流程，带给用户一键式的接入体验；二是为第三方服务接入 Cocos Service 提供规范和依据，以及提供相应的技术支撑。
+如果说我们的目标仅仅停留在不断打造引擎本身，是远远不够的。Cocos Creator 的目标是更好的服务广大游戏开发者，为游戏开发者提供全套的游戏开发解决方案，包括游戏研发中、上线时、上线后游戏变现等过程中所涉及到的一系列的技术和服务。Cocos Creator 力求让游戏开发者的工作变得更加简单而高效。
+
+Cocos Service 的主要目的有两个，一是尽最大的可能提高从用户端到达各个服务的便利性以及易用性。我们整合了部分接入流程，带给开发者一键式的接入体验。二是为第三方服务接入 Cocos Service 提供规范和依据，以及提供相应的技术支撑。
 
 ## 产品优势
 
@@ -16,7 +18,7 @@ Cocos Service 的主要目的有两个，一是尽最大的可能提高从用户
 - 技术支持对接
 - API 接入
 
-![w760](image/about-normal-intergate.jpg)
+![](image/about-normal-intergate.jpg)
 
 Cocos Service 对一些通用步骤进行了整合，提供了一键式接入的方式，用户仅需要处理服务的 API 接入部分。通过 Cocos Service 接入的优势有：
 
@@ -28,11 +30,12 @@ Cocos Service 对一些通用步骤进行了整合，提供了一键式接入的
 - Cocos Service 提供额外的技术支撑，可以处理一些对接过程中，服务商难以解决的问题。
 - 依托广大开发者群体，我们可以通过发放代金券和折扣券，带给开发者更多的实惠。
 
-![w760](image/about-service-intergate.jpg)
+  ![](image/about-service-intergate.jpg)
 
 ## 支持服务
 
-- [**Cocos 数据统计**](https://n-analytics.cocos.com/docs/) ：精准了解游戏的新增、活跃、留存、付费等数据。
-- [**Matchvs 游戏云**](https://www.matchvs.com/) ：专业成熟的移动游戏联网与服务端解决方案。
-- [**Agora Voice**](https://www.agora.io/cn/) ：游戏内置实时音频 SDK。
+Cocos Service 目前支持集成以下三种服务：
 
+- [Cocos 数据统计](cocos-analytics.md)：精准了解游戏的新增、活跃、留存、付费等数据。
+- [Matchvs 游戏云](matchvs.md)：专业成熟的移动游戏联网与服务端解决方案。
+- [Agora Voice](agora.md)：游戏内置实时音频 SDK。
