@@ -1,6 +1,6 @@
 # Cocos 数据统计（Cocos Analytics）
 
-![](image/analytics-logo.jpg)
+![](cocos-analytics/analytics-logo.jpg)
 
 [Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
@@ -11,7 +11,7 @@
 1. 使用 Cocos Creator 打开需要接入 Cocos Analytics 服务的项目工程。
 2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
 
-    ![](image/analytics-panel.png)
+    ![](cocos-analytics/analytics-panel.png)
 
 3. 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
 
@@ -39,7 +39,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 2. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
 
-    ![](image/analytics-debugging.png)
+    ![](cocos-analytics/analytics-debugging.png)
 
 开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
@@ -53,13 +53,13 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 - 接入完成后，点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该工程。
 
-  ![](image/analytics-sample.png)
+  ![](cocos-analytics/analytics-sample.png)
 
 - 可将 Sample 工程中的所有按钮点击一遍，然后在 Cocos Analytics 服务面板点击 **前往控制台** 按钮前往 **调试游戏** 页面，刷新页面直至更新数据，数据刷新周期约为 **10** 分钟。请注意检查 **调试游戏** 页面中的 AppID 是否与 **服务** 面板中的一致。
 
   若在调试状态下，所有数据接口调试完成，可点击右上方的 **完成调试** 按钮，转为正式模式。**注意**：转为正式模式后无法再回到 **调试游戏** 页面。
 
-  ![](image/analytics-console.png)
+  ![](cocos-analytics/analytics-console.png)
 
 ## Cocos Analytics 调用方法说明
 

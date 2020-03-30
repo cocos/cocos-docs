@@ -36,6 +36,6 @@ Cocos Service 对一些通用步骤进行了整合，提供了一键式接入的
 
 Cocos Service 目前支持集成以下三种服务：
 
-- [Cocos 数据统计](cocos-analytics/index.md)：精准了解游戏的新增、活跃、留存、付费等数据。
-- [Matchvs 游戏云](matchvs/index.md)：专业成熟的移动游戏联网与服务端解决方案。
-- [Agora Voice](agora/index.md)：游戏内置实时音频 SDK。
+- [Cocos 数据统计](cocos-analytics.md)：精准了解游戏的新增、活跃、留存、付费等数据。
+- [Matchvs 游戏云](matchvs.md)：专业成熟的移动游戏联网与服务端解决方案。
+- [Agora Voice](agora.md)：游戏内置实时音频 SDK。
