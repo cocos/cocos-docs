@@ -42,4 +42,6 @@ The above options are the same as those in the [Settings](preferences.md) panel.
 
 ## Service
 
-**Cocos Analytics** allows the game to analyze the player's data. Please refer to [Cocos Analytics](../../../sdk/cocos-analytics.md?h=%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1).
+![](../../../sdk/fb-an-and-live/facebook.png)
+
+**Facebook Services**, including **Facebook Live Video** and **Facebook Audience Network**. Please refer to [Facebook Live Video and Audience Network](../../../sdk/fb-an-and-live.md) for details.
