@@ -9,7 +9,7 @@
 ### 开通 Cocos Analytics 服务
 
 1. 使用 Cocos Creator 打开需要接入 Cocos Analytics 服务的项目工程。
-2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
+2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](./user-guide.md)。
 
     ![](cocos-analytics/analytics-panel.png)
 
@@ -37,11 +37,11 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
     });
     ```
 
-2. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
+2. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
 
     ![](cocos-analytics/analytics-debugging.png)
 
-开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
+开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
 游戏加载后，Cocos Analytics SDK 会在项目构建后的 `main.js` 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 `main.js` 中修改这些参数。初始化后便可以直接调用 Cocos Analytics SDK，发送各种数据给服务器。
 
@@ -51,7 +51,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 - 在 **服务** 面板中接入 Cocos Analytics 服务，具体可参考上部分章节内容介绍。
 
-- 接入完成后，点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该工程。
+- 接入完成后，点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该工程。
 
   ![](cocos-analytics/analytics-sample.png)
 
