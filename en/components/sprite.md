@@ -34,11 +34,9 @@ Currently, the Sprite component supports five rendering modes:
 
 - `Sliced mode`: the image is cut up into a nine square grid and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [use Sprite editor to make a Sudoku image](../asset-workflow/sprite.md#-sprite-) for detailed information.
 
-- `Tiled mode`: as the size of the Sprite increases, the image is not stretched, but it Will repeat according to the size of the original picture, paving the original picture to the size of the entire Sprite as tiled tiles.
+- `Tiled mode`: the image will be tiled repeatedly accordingh to the Sprite size. If the SpriteFrame contains [nine rectangle grid configuration](../ui/sliced-sprite.md), the width around the nine grid will be kept unchanged when tiling, and only the center part will be tiled.
 
   ![tiled](sprite/tiled.png)
-
-  A Sprite in Tiled mode will be affected by its Sliced config. It will be sliced according to the `insetTop`, `insetBottom`, `insetLeft`, and `insetRight` properties recorded in the SpriteFrame. The corners will remain unscaled when the Sprite is stretched, while the center sections will be repeated instead of stretched.
  
 - `Filled mode`: draws a portion of the original picture in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
 
