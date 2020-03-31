@@ -14,7 +14,7 @@ Starting with Cocos Creator v2.3.1, creating games for the WeChat PC Mini Games 
 
 ### Release Steps
 
-1. Refer to the process of [Publishing to WeChat Mini Games](./publish-wechatgame.md) and publish the game project to the WeChat Mini Game.
+1. Refer to the process of [Publish to WeChat Mini Games](./publish-wechatgame.md) and publish the game project to the WeChat Mini Game.
 
 2. In the **WeChat DevTools**, click the **Settings -> General Settings** button in the menu bar, and then check the **Launch PC for auto preview**.
 

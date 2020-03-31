@@ -78,9 +78,16 @@
 4. 删除本地发布包目录下的 res 文件夹。
 5. 对于测试阶段来说，可能开发者无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开 **详情** 页面，勾选项目设置中的 **不检验安全域名、TLS 版本以及 HTTPS 证书** 选项。
 
-![](./publish-wechatgame/detail.jpeg)
+    ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `remoteDownloader.cleanAllCaches()` 和 `remoteDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+**注意**：
+
+- 如果缓存资源超过微信环境限制，开发者需要手动清除资源，可以在微信小游戏下使用 `remoteDownloader.cleanAllCaches()` 和 `remoteDownloader.cleanOldCaches()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除缓存目录下目前应用中未使用到的缓存资源。
+
+- 当小游戏升级引擎版本后，留在用户本地的缓存资源和开发者工具中遗留的缓存资源并不会自动清空，还是之前老版本引擎对应的资源。这可能会造成各类异常或渲染错误。解决方案为构建时勾选 `MD5 Cache` 选项，这将确保使用最新版本的资源。或者手动清空之前缓存的资源，在真机上，你可以使用 `remoteDownloader.cleanAllCaches()` 清空缓存，在开发者工具上，你可以使用此选项清空：
+
+    ![](./publish-wechatgame/clear-cache.png)
+
 
 ## 微信小游戏引擎插件
 

@@ -1,6 +1,6 @@
 # Facebook Live Video and Audience Network
 
-Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
+Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live Video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
 
 **Cocos Creator includes**:
 

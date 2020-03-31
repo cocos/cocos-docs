@@ -32,14 +32,12 @@ java -version
 
 ### 下载发布 Android 平台所需的 SDK 和 NDK
 
-安装 Android Studio 完成后，参考官方文档，打开 SDK Manager：
-
-[SDK Manager 使用说明（需要使用 VPN）](https://developer.android.com/studio/intro/update.html#sdk-manager)
+安装 Android Studio 完成后，参考官方文档，打开 SDK Manager：[SDK Manager 使用说明](https://developer.android.google.cn/studio/intro/update.html#sdk-manager)。
 
 1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）等。
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
-4. 勾选 **Android SDK Platform-Tools** 和 **Android SDK Tools**，如需安装 Android 支持库，请参考 [官方文档](https://developer.android.com/topic/libraries/support-library/setup)。
+4. 勾选 **Android SDK Platform-Tools** 和 **Android SDK Tools**，如需安装 Android 支持库，请参考 [官方文档](https://developer.android.google.cn/topic/libraries/support-library/setup)。
 5. 勾选 **NDK**，建议使用的版本为 **r17 - r19**。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
