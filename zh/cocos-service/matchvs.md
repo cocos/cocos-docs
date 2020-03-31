@@ -11,11 +11,11 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
 ### 开通 Matchvs 服务
 
 1. 使用 Cocos Creator 打开需要接入 Matchvs 服务的项目工程。
-2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Matchvs 项，进入 Matchvs 服务面板。然后点击右上方的 **启用** 按钮以开通 Matchvs 服务。详情可参考 [Cocos Service 操作指南](../user-guide.md)。
+2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Matchvs 项，进入 Matchvs 服务面板。然后点击右上方的 **启用** 按钮以开通 Matchvs 服务。详情可参考 [Cocos Service 操作指南](./user-guide.md)。
 
     ![](matchvs/matchvs-provisioning.png)
 
-    **计费**：Matchvs 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](../billing-and-charge.md)。
+    **计费**：Matchvs 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
 
     开通服务后，Cocos Service 将自动开通 Matchvs 服务、联通 Matchvs 账号，并集成 Matchvs SDK 到游戏工程中。
     
@@ -42,7 +42,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
     console.log("init result = " + result);
     ```
 
-3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Matchvs 接入成功。
+3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Matchvs 接入成功。
 
     ![](matchvs/matchvs-debugging.png)
 
@@ -72,7 +72,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
                  |--matchvs.all.js       // Matchvs SDK 文件，通过服务面板一键接入时，会以插件的形式导入，无需再做 require 处理。
     ```
 
-- 点击编辑器窗口正上方的 ![](../image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，在浏览器上运行 Matchvs Sample 工程。点击 **立即体验** 开始调试和服务验证。
+- 点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，在浏览器上运行 Matchvs Sample 工程。点击 **立即体验** 开始调试和服务验证。
 
   ![](matchvs/matchvs-preview.png)
 
