@@ -43,3 +43,5 @@ The newly created node is a 2D node By default, and there are two ways to set th
   ```js
   node.is3DNode = true;
   ```
+
+**Note**: Color and Opacity properties of 3D nodes may not take effect on some renderer components.
