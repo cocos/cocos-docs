@@ -14,6 +14,24 @@ Then you can switch the **Scene** to 3D editing mode. Drag with right mouse butt
 
 **Note**: When working on a 3D project, we usually assign multiple Cameras to UI and scene. In this case, you need to set the Camera's `depth` property correctly, otherwise the occlusion order may be incorrect. Please refer to [Camera Properties](../render/camera.md#camera-properties) for details.
 
+## Scene rendering configuration panel
+
+Some properties are provided in the scene rendering configuration panel of **Scene** to help debug the rendering effect of 3D objects in the scene.
+
+![config](img/rendering-config.png)
+
+- Wire Frame
+
+  Outline the triangles on the surface of the model with lines.
+
+  ![wire frame](img/wire-frame.png)
+
+- Normal
+    
+  Draw the vertex normal information of the model.
+
+  ![normal](img/normal.png)
+
 ## Game Preview
 
 You can open panel by click **Main Menu -> Panel -> Game Preview**.

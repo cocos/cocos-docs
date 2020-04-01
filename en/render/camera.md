@@ -78,6 +78,8 @@ These properties do not appear in the **Assets** until the camera node is set to
 
   Determines the width of the camera's view angle. It takes effect when both **alignWithScreen** and **ortho** are set to **false**.
 
+Some camera properties can be set via the scene camera configuration panel in the **Scene**, please refer to the [Scene Camera Configuration](../content-workflow/camera-config.md) for details.
+
 ## Camera methods
 
 - **cc.Camera.findCamera**
