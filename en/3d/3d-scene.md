@@ -14,7 +14,7 @@ Then you can switch the **Scene** to 3D editing mode. Drag with right mouse butt
 
 **Note**: When working on a 3D project, we usually assign multiple Cameras to UI and scene. In this case, you need to set the Camera's `depth` property correctly, otherwise the occlusion order may be incorrect. Please refer to [Camera Properties](../render/camera.md#camera-properties) for details.
 
-## Scene rendering configuration panel
+## Scene Rendering Configuration
 
 Some properties are provided in the scene rendering configuration panel of **Scene** to help debug the rendering effect of 3D objects in the scene.
 
@@ -28,7 +28,7 @@ Some properties are provided in the scene rendering configuration panel of **Sce
 
 - Normal
     
-  Draw the vertex normal information of the model.
+  Show vertex normals for 3D models.
 
   ![normal](img/normal.png)
 

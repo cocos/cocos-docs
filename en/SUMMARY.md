@@ -57,7 +57,7 @@
     - [Transform](content-workflow/transform.md)
     - [Node Tree](content-workflow/node-tree.md)
     - [Scene Editing](content-workflow/scene-editing.md)
-    - [Scene camera configuration](content-workflow/camera-config.md)
+    - [Scene Camera Configuration](content-workflow/camera-config.md)
 - [Scripting](scripting/index.md)
     - [Use Component](scripting/use-component.md)
     - [cc.Class](scripting/class.md)

@@ -1,6 +1,6 @@
-# Scene camera configuration panel
+# Scene Camera Configuration
 
-The scene camera configuration panel can configure the Camera operation and render properties in the **Scene**.
+The operation and rendering of the built-in camera used to render the scene editor.
 
 - 2D Editor Camera: Configure the camera properties in 2D edit mode.
 - 3D Editor Camera: Configure the camera properties in 3D edit mode.
@@ -9,7 +9,7 @@ The scene camera configuration panel can configure the Camera operation and rend
 
 ## Properties 
 
-- Navigation Speed: The editor moves or scales the speed of the Camera.
+- Navigation Speed: The navigating and zooming speed of the camera
   - Affects **scroll wheel zoom** mode in 2D edit mode.
   - Affects **scroll wheel zoom** and **flythrough** mode in 3D edit mode.
 

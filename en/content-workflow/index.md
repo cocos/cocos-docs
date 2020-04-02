@@ -1,4 +1,4 @@
-# Scene creation workflow
+# Scene Creation Workflow
 
 - [Node and Component](node-component.md)
 - [Coordinate system and transformation](transform.md)
