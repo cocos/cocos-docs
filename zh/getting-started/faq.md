@@ -254,7 +254,7 @@ material.setProperty("diffuseTexture", texture);
 
 ### web-mobile 项目在 ios 系统上播放视频之后播放音频，在手机切换前后台之后，出现音频无法暂停和恢复播放的问题
 
-在 ios 13.4 版本该问题已经修复。在 ios 13.4 之前的系统版本上，Web Audio 的 AudioScheduledSourceNode 在播放视频和音频之后，如果游戏切换前后台，音频将无法正常暂停和恢复播放。可以在项目脚本中加入如下代码修复。
+在 ios 系统上，Web Audio 的 AudioScheduledSourceNode 在播放视频和音频之后，如果游戏切换前后台，音频将无法正常暂停和恢复播放。可以在项目脚本中加入如下代码修复。
 
 ```js
 cc.game.on(cc.game.EVENT_GAME_INITED,()=>{
