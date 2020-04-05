@@ -143,6 +143,7 @@ cc.Class({
 
 - 该功能仅支持 **Web** 平台。
 - 各个浏览器具体效果无法保证一致，跟浏览器是否支持与限制有关。
+- 开启 **stayOnBottom** 之后，将无法在 video 节点上监听 VideoPlayerEvent 事件。
 
 详情可参考引擎自带的 example-cases 测试例中的 [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer)。最终效果如下图所示：
 
