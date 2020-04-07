@@ -35,15 +35,15 @@
 音频默认是使用 Web Audio 的方式加载并播放的，只有在不支持的浏览器才会使用 DOM 模式。
 
 ```js
-cc.assetManager.loadRes('background', callback);
+cc.assetManager.loadRemote('http://example.com/background.mp3', callback);
 ```
 
 ### 强制使用 DOM 模式加载
 
-你可以使用更灵活的接口 `cc.assetManager.load` 并传入 `loadMode` 参数，使其强制使用 DOM 模式加载音频。
+你可以传入 `audioLoadMode` 参数，使其强制使用 DOM 模式加载音频。
 
 ```js
-cc.assetManager.load({ path: 'background' }, { loadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
+cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
 ```
 
 参考：

@@ -1,6 +1,6 @@
 # 缓存管理器
 
-> 文： Santy-Wang
+> 文：Santy-Wang
 
 对于 H5 平台，资源在下载之后由浏览器来管理缓存，不需要由引擎进行管理。但在某些非 H5 平台，比如微信小游戏，这类平台具备文件系统，但没有实现资源的缓存机制，需要由引擎实现一套缓存机制用于管理从网络上下载下来的资源，包括缓存资源，清理缓存资源，查询缓存资源等功能。
 
@@ -61,7 +61,7 @@
 
 ## 清理缓存
 
-缓存管理器提供了三个接口清理缓存资源，分别是 `cleanCache`, `cleanAllCaches` , `cleanLRU` 接口，`cleanCache` 用于清理单个缓存资源， `cleanAllCaches` 用于清理所有缓存资源，请慎重使用，`cleanLRU` 用于清理较早使用的资源，`cleanLRU` 会在存储空间满了后自动调用。
+缓存管理器提供了三个接口清理缓存资源，分别是 `cleanCache`, `cleanAllCaches` , `cleanLRU` 接口，`cleanCache` 用于清理单个缓存资源，`cleanAllCaches` 用于清理所有缓存资源，请慎重使用，`cleanLRU` 用于清理较早使用的资源，`cleanLRU` 会在存储空间满了后自动调用。
 
 `cleanCache` 需要提供资源的原路径进行清除，例如：
 

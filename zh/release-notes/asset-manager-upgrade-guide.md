@@ -1,6 +1,6 @@
 # v2.4 资源管理模块升级指南
 
-> 文： Santy-Wang
+> 文：Santy-Wang
 
 > 本文将详细介绍旧版本 Creator 项目升级到 v2.4 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
@@ -17,10 +17,10 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
- - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`, `cc.loader.loadResDir`, `cc.loader.release` 等等 API 。
+ - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API 。
  - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API 。
  - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw` 。
- - 你在自己的游戏代码中使用了 `cc.Pipeline`, `cc.LoadingItems` 等类型。
+ - 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
  - 你在自己的游戏代码中使用了 `cc.director.preloadScene` API 。
  - 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
@@ -58,7 +58,7 @@
     cc.assetManager.loadRes(['images/a', 'images/b', 'images/c'], cc.Texture2D, (err, assets) => console.log(assets));
 ```
 
-**注意** ：出于简化接口的考虑， `cc.assetManager.loadRes` 的第二个参数 **不再接受** 多个类型，只能接受单一类型，所以使用 `loadRes` 同时加载多个资源时，只能加载同类型的多个资源。如果你的代码中有使用如下形式，请修改为单独使用 `loadRes` 进行加载：
+**注意** ：出于简化接口的考虑，`cc.assetManager.loadRes` 的第二个参数 **不再接受** 多个类型，只能接受单一类型，所以使用 `loadRes` 同时加载多个资源时，只能加载同类型的多个资源。如果你的代码中有使用如下形式，请修改为单独使用 `loadRes` 进行加载：
 
 ```js
     // 修改前
@@ -80,7 +80,7 @@
     cc.assetManager.loadResDir('images', cc.Texture2D, (err, assets) => console.log(assets));
 ```
 
-**注意** ：出于简化接口的考虑， `cc.assetManager.loadResDir` 的加载完成回调将 **不再提供** urls 的列表。请避免如下使用方式：
+**注意**：出于简化接口的考虑，`cc.assetManager.loadResDir` 的加载完成回调将 **不再提供** urls 的列表。请避免如下使用方式：
 
 ```js
     cc.loader.loadResDir('images', cc.Texture2D, (err, assets, urls) => console.log(urls));
@@ -97,7 +97,7 @@
     // 修改后
     cc.assetManager.loadRemoteTexture('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 ```
-**注意** ：如果图片是跨域图片，你可能会需要使用如下形式：
+**注意**：如果图片是跨域图片，你可能会需要使用如下形式：
 
 ```js
     cc.assetManager.loadRemoteTexture('http://example.com/remote.jpg', { isCrossOrigin: true }, (err, texture) => console.log(texture));
@@ -126,7 +126,7 @@
 **注意** ：
 1. 如果你的代码中使用了 `cc.loader.downloader.loadSubpackage` 来加载分包，请参考 [分包升级指南](./subpackage-upgrade-guide.md) 进行升级。
 
-2. 为了避免产生不必要的错误， `cc.loader.onProgress` 在 `cc.assetManager` 中没有对应实现，如果你需要注册全局进度回调，`cc.loader.onProgress`  **仍然有效**，你可以正常使用，但随着后续版本 `cc.loader` 被彻底移除，`cc.loader.onProgress` 也将被移除，你可以自己实现全局回调机制，但建议你将回调传入到每个加载函数中，避免并发加载时互相干扰。
+2. 为了避免产生不必要的错误，`cc.loader.onProgress` 在 `cc.assetManager` 中没有对应实现，如果你需要注册全局进度回调，`cc.loader.onProgress` **仍然有效**，你可以正常使用，但随着后续版本 `cc.loader` 被彻底移除，`cc.loader.onProgress` 也将被移除，你可以自己实现全局回调机制，但建议你将回调传入到每个加载函数中，避免并发加载时互相干扰。
 
 #### 释放相关接口替换
 
@@ -134,7 +134,7 @@
 
 下面是详细的替换方式：
 
-`cc.loader.release` 可用 `cc.assetManager.release` 替换， **注意** ： 为了避免用户关注资源的一些晦涩难懂的属性，`cc.assetManager.release`  **不再接受** 数组，资源 UUID ，资源 URL 进行释放，仅能接受通过资源本身进行释放
+`cc.loader.release` 可用 `cc.assetManager.release` 替换，**注意**： 为了避免用户关注资源的一些晦涩难懂的属性，`cc.assetManager.release` **不再接受** 数组，资源 UUID，资源 URL 进行释放，仅能接受通过资源本身进行释放
 
 ```js
     // 修改前
@@ -166,7 +166,7 @@
     cc.assetManager.release(texture);
 ```
 
-**注意** ：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.release` 内部将会自动去释放相关依赖资源，例如：
+**注意**：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.release` 内部将会自动去释放相关依赖资源，例如：
 
 ```js
     // 修改前
@@ -208,21 +208,21 @@
 ```
 
 **注意** ：
-1. 出于安全考虑， `cc.loader.releaseResDir` 在 `cc.assetManager` 中没有对应实现，请使用 `cc.assetManager.release` 或 `cc.assetManager.releaseRes` 进行单个资源释放。
+1. 出于安全考虑，`cc.loader.releaseResDir` 在 `cc.assetManager` 中没有对应实现，请使用 `cc.assetManager.release` 或 `cc.assetManager.releaseRes` 进行单个资源释放。
 
-2. 因为 `cc.assetManager.release` 中会去自动释放依赖资源，所以你不再需要显式调用 `cc.loader.getDependsRecursively` ，如果你需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API 。
+2. 因为 `cc.assetManager.release` 中会去自动释放依赖资源，所以你不再需要显式调用 `cc.loader.getDependsRecursively`，如果你需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API。
 
-3. 出于安全考虑， `cc.assetManager` 中移除了自动释放的部分功能，仅支持场景上设置的自动释放， `cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`，`cc.loader.setAutoReleaseRecursively`，`cc.loader.isAutoRelease` API，如果你需要自动释放任意资源， `cc.loader` 中的相关 API  **仍然有效** ，你可以正常使用，但在之后的版本中，随着 `cc.loader` 的移除，这部分功能也将完全移除，你可以实现自己的自动释放机制。也可以完全依赖 `cc.assetManager` 中新的资源释放检查机制，详细请参考 [终结器](../asset-manager/finalizer.md);
+3. 出于安全考虑，`cc.assetManager` 中移除了自动释放的部分功能，仅支持场景上设置的自动释放，`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`，`cc.loader.setAutoReleaseRecursively`，`cc.loader.isAutoRelease` API，如果你需要自动释放任意资源，`cc.loader` 中的相关 API **仍然有效**，你可以正常使用，但在之后的版本中，随着 `cc.loader` 的移除，这部分功能也将完全移除，你可以实现自己的自动释放机制。也可以完全依赖 `cc.assetManager` 中新的资源释放检查机制，详细请参考 [终结器](../asset-manager/finalizer.md)；
 
 4. 如果你想阻止某些常用资源被自动释放，你可以使用终结器中的 `lock` 接口锁定资源。
 
 #### 扩展相关接口替换
 
-**注意** ：`cc.assetManager` 中对资源加载的扩展机制与 `cc.loader` 中有较大不同，详情请参考 [管线与任务](../asset-manager/pipeline-task.md) 。
+**注意**：`cc.assetManager` 中对资源加载的扩展机制与 `cc.loader` 中有较大不同，详情请参考 [管线与任务](../asset-manager/pipeline-task.md) 。
 
 如果你的代码中有使用 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe`，`cc.loader.addDownloadHandlers`，`cc.loader.addLoadHandlers` 系列 API 对 `cc.loader` 的加载流程做过扩展，或者直接使用了 `cc.loader.assetLoader`，`cc.loader.md5Pipe`，`cc.loader.downloader`，`cc.loader.loader`，`cc.loader.subPackPipe` 中的方法，下面是详细的替换方式：
 
-因为 `cc.assetManager` 为更通用的模块，不再继承自 `cc.Pipeline` ，所以 `cc.assetManager` 不再实现 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe` 。请使用以下形式替换：
+因为 `cc.assetManager` 为更通用的模块，不再继承自 `cc.Pipeline`，所以 `cc.assetManager` 不再实现 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe` 。请使用以下形式替换：
 
 ```js
 // 修改前
@@ -276,15 +276,15 @@ cc.assetManager.pipeline.insert(pipe3, 2);
 ```
 
 **注意** ：
-1. `cc.assetManager` **不再继承** 自 `Pipeline` ，而是 `cc.assetManager` 下拥有多个 `Pipeline` 的实例。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+1. `cc.assetManager` **不再继承** 自 `Pipeline`，而是 `cc.assetManager` 下拥有多个 `Pipeline` 的实例。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
-2. 出于易用性考虑， Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可，详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+2. 出于易用性考虑，Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可，详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
-3. 为了简化逻辑，提高性能，Pipe 中处理的内容不再是 `item` ，而是 `task` 对象，详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+3. 为了简化逻辑，提高性能，Pipe 中处理的内容不再是 `item`，而是 `task` 对象，详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
-4. 为了降低学习成本， `Pipeline` 中不再支持 `insertPipeAfter` 形式的 API ，请使用 `insert` 插入指定的位置。
+4. 为了降低学习成本，`Pipeline` 中不再支持 `insertPipeAfter` 形式的 API，请使用 `insert` 插入指定的位置。
 
-出于模块化考虑， `cc.assetManager` 中没有实现 `addDownloadHandlers`, `addLoadHandlers`, 请使用以下方式替换：
+出于模块化考虑，`cc.assetManager` 中没有实现 `addDownloadHandlers`，`addLoadHandlers`，请使用以下方式替换：
 
 ```js
     // 修改前
@@ -327,14 +327,14 @@ cc.assetManager.pipeline.insert(pipe3, 2);
 **注意** ：
 1. 因为下载模块与解析模块都是依靠扩展名来匹配对应的处理方式，所以 `register` 所接受的扩展名需以 `.` 作为起始。
 
-2. 出于模块化的考虑，自定义的处理方法将不在传入一个 `item` 对象，而是直接传入与其相关的信息， `downloader` 的自定义处理方法传入的是待下载的 url, `parser` 的自定义处理方法传入的是待解析的文件。下载器与解析器详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。
+2. 出于模块化的考虑，自定义的处理方法将不在传入一个 `item` 对象，而是直接传入与其相关的信息，`downloader` 的自定义处理方法传入的是待下载的 url，`parser` 的自定义处理方法传入的是待解析的文件。下载器与解析器详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。
 
 3. 新的拓展机制提供了一个额外的 `options` 参数，可以增加极大的灵活性，但目前你可以先无视它，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 与 [可选参数](../asset-manager/custom-parameter.md) 。
 
 `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 或对应的 API 文档。
 
 **注意** ：
-1. `cc.loader.downloader.loadSubpackage` API 已被移出 `downloader` ,你可以使用新的加载分包 API `cc.assetManager.loadBundle` 来代替，详细可参考 [分包加载](../scripting/asset-bundle.md) 。
+1. `cc.loader.downloader.loadSubpackage` API 已被移出 `downloader`，你可以使用新的加载分包 API `cc.assetManager.loadBundle` 来代替，详细可参考 [分包加载](../scripting/asset-bundle.md) 。
 
 2. 出于性能，模块化，易读性考虑，`cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免再使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 详细可参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
@@ -364,7 +364,7 @@ var pipe1 = (task, cb) => {
 var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 ```
 
-**注意** ：`cc.LoadingItem` 在 `cc.assetManager` 中已经不再支持，请避免使用这个类型。
+**注意**：`cc.LoadingItem` 在 `cc.assetManager` 中已经不再支持，请避免使用这个类型。
 
 为了提升 Asset Bundle 的易用性，`cc.assetManager` 中也可以加载与预加载场景，如果你的代码中有使用 `cc.director.preloadScene` 方法，请使用 `cc.assetManager.preloadScene` 替换。
 
@@ -382,7 +382,7 @@ cc.assetManager.preloadScene('scene1', () => {
 ```
 详细可参考 [加载与预加载](../asset-manager/preload-load.md)。 
 
-为了支持更多加载策略， `cc.macro.DOWNLOAD_MAX_CONCURRENT` 已被移除 `cc.macro` 中，你可以用以下方式替换：
+为了支持更多加载策略，`cc.macro.DOWNLOAD_MAX_CONCURRENT` 已被移除 `cc.macro` 中，你可以用以下方式替换：
 
 ```js
 // 修改前

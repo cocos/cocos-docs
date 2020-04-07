@@ -1,8 +1,8 @@
 # 下载器与解析器
 
-> 文： Santy-Wang
+> 文：Santy-Wang
 
-Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。 Creator v2.4 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
+Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。Creator v2.4 中的下载器与解析器是独立于加载管线之外的公共模块。其不属于任何一个加载管线。你甚至可以在自己代码中使用下载器与解析器。例如：
 
 ```js
     cc.assetManager.downloader.download('myasset', 'http://example.com/background.jpg', '.jpg', {}, function (err, file) {
@@ -13,7 +13,7 @@ Asset Manager 底层使用了多条加载管线来加载资源，每条管线中
     });
 ```
 
-下载器与解析器的作用是为加载管线提供下载资源和解析资源的功能。下载器与解析器中包括了许多种类资源的处理方式，处理方式的选用根据传入的资源后缀名，例如 `.jpg`, `.mp3` 来进行判断，例如：
+下载器与解析器的作用是为加载管线提供下载资源和解析资源的功能。下载器与解析器中包括了许多种类资源的处理方式，处理方式的选用根据传入的资源后缀名，例如 `.jpg`，`.mp3` 来进行判断，例如：
 
 ```js
     cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', {}, callback);
@@ -22,19 +22,19 @@ Asset Manager 底层使用了多条加载管线来加载资源，每条管线中
 
 ## 下载器
 
-下载器是一个全局单例，`downloader.download` 存在 **失败重试** ， **下载优先级排序** ， **下载数限制**  等功能。
+下载器是一个全局单例，`downloader.download` 存在 **失败重试**， **下载优先级排序**， **下载数限制**  等功能。
 
 ### 失败重试
 
 下载器中下载资源失败时，将会自动进行重试，你可以通过两个属性来控制失败重试机制：
 
-1. 你可以设置 `maxRetryCount` 属性来控制当下载资源失败时，将最多重试多少次后返回错误，默认重试 3 次，如果你不需要进行重试，则可设置为 0 ，则失败时立即返回，例如：
+1. 你可以设置 `maxRetryCount` 属性来控制当下载资源失败时，将最多重试多少次后返回错误，默认重试 3 次，如果你不需要进行重试，则可设置为 0，则失败时立即返回，例如：
 
 ```js
     cc.assetManager.downloader.maxRetryCount = 0;
 ```
 
-2. 你可以设置 `retryInterval` 属性来控制重试间隔，默认为 2000 ms ，也就是当下载失败时将等待 2000 ms 再进行重试。例如： 
+2. 你可以设置 `retryInterval` 属性来控制重试间隔，默认为 2000 ms，也就是当下载失败时将等待 2000 ms 再进行重试。例如： 
 
 ```js
     cc.assetManager.downloader.retryInterval = 4000;
@@ -61,7 +61,7 @@ cc.assetManager.downloader.maxConcurrent = 10;
 
 cc.assetManager.downloader.maxRequestsPerFrame = 6;
 ```
-`maxConcurrent` ，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；`maxRequestsPerFrame` ，用于控制每帧能发起的连接数，从而将发起请求的消耗均摊在多个帧时间中，避免单帧过多消耗，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。
+`maxConcurrent`，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；`maxRequestsPerFrame`，用于控制每帧能发起的连接数，从而将发起请求的消耗均摊在多个帧时间中，避免单帧过多消耗，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。
 
 除此之外，你也可以通过 `cc.assetManager.downloader.limitations` 对每种策略进行设置，需要注意的是，对每一种加载策略的限制可以不同，所以 `limitations` 是一个数组，你需要传入加载策略的索引来访问对应的限制，例如：
 
@@ -94,7 +94,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
     cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { loadStrategy: cc.AssetManager.LoadStrategy.PRELOAD }, callback);
 ```
 
-同时，你也可以在使用 `cc.assetManager.load` ， `cc.assetManager.preload` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
+同时，你也可以在使用 `cc.assetManager.load`，`cc.assetManager.preload` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
 
 ```js
     cc.assetManager.load({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 1, loadStrategy: cc.AssetManager.LoadStrategy.PRELOAD }, callback);
@@ -116,7 +116,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 
 你需要设定一个扩展名，并绑定一个自定义的处理方法。
 
-自定义的处理方法需要定义三个参数，第一个参数为主要内容，在下载器中是 url ，在解析器中是文件；第二个参数是可选参数，可选参数可以在使用加载接口时指定；第三个参数是完成回调，当你完成你的处理方法时，你需要调用该函数，并将错误信息或结果传入。
+自定义的处理方法需要定义三个参数，第一个参数为主要内容，在下载器中是 url，在解析器中是文件；第二个参数是可选参数，可选参数可以在使用加载接口时指定；第三个参数是完成回调，当你完成你的处理方法时，你需要调用该函数，并将错误信息或结果传入。
 
 当注册了处理方式之后，在下载器与加载器遇到对应扩展名类型的请求时，会使用对应的处理方式，这些自定义的处理方式也供加载管线使用。例如：
 

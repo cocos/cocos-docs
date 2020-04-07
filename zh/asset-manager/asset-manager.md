@@ -1,14 +1,14 @@
 # Asset Manager 概览
 
-> 文： Santy-Wang
+> 文：Santy-Wang
 
-`Asset Manager` 是 v2.4 之后， Creator 推出的新的资源管理模块，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。 `Asset Manager` 拥有更好的性能，更易用的 API ，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
+`Asset Manager` 是 v2.4 之后，Creator 推出的新的资源管理模块，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。`Asset Manager` 拥有更好的性能，更易用的 API，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
 
 ## 加载资源
 
 ### 动态加载资源
 
-除了在编辑场景时，将资源应用到对应组件上之外， Creator 还支持在游戏运行过程中动态加载资源并进行设置。Asset Manager 更提供了两种动态加载资源的方式：1. 通过将资源放在 resources 目录下实现动态加载，并配合 `cc.assetManager.loadRes` 等 API 进行加载，2. 开发者可以自己规划资源制作为 Asset Bundle ，再通过 Asset Bundle 的 `loadAsset` 系列 API 进行资源的加载。例如：
+除了在编辑场景时，将资源应用到对应组件上之外，Creator 还支持在游戏运行过程中动态加载资源并进行设置。Asset Manager 更提供了两种动态加载资源的方式：1. 通过将资源放在 resources 目录下实现动态加载，并配合 `cc.assetManager.loadRes` 等 API 进行加载，2. 开发者可以自己规划资源制作为 Asset Bundle，再通过 Asset Bundle 的 `loadAsset` 系列 API 进行资源的加载。例如：
 
 ```js
 cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err) {
@@ -48,14 +48,12 @@ var task = cc.assetManager.preloadRes('images/background', cc.SpriteFrame, funct
 
 ### 可选参数
 
-除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 的大部分加载接口与 Asset Bundle 下的大部分加载接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.assetManager.loadRes` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
+除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.assetManager.loadRes` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
 
 ```js
-var options = { isCrossOrigin: true };
-cc.assetManager.loadRemoteTexture('http://example.com/background.jpg', options, callback);
+cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
 
-options = { ext: '.mp3' };
-cc.assetManager.load({ url: 'http://example.com/music?user=anonymous' }, options, callback);
+bundle.loadScene('test', { priority: 3 }, callback);
 ```
 
 options 中除了可以指定 Creator 内置的参数之外，开发者还可以设计自己的参数配合下载器，解析器，加载管线用于扩展引擎功能。例如：
@@ -70,8 +68,7 @@ cc.assetManager.downloader.register('.myformat', function (url, options, callbac
     }
 });
 
-var options = { user: 'anonymous' };
-cc.assetManager.load('http://example.com/skill.myformat', options, callback);
+cc.assetManager.loadAny('http://example.com/skill.myformat', { user: 'anonymous' }, callback);
 ```
 
 关于可选参数，详细请参考 [可选参数](custom-parameter.md) 。
@@ -79,7 +76,7 @@ cc.assetManager.load('http://example.com/skill.myformat', options, callback);
 
 ## Asset Bundle
 
-从 v2.4 开始， Creator 将支持 Asset Bundle ，开发者可以将自己的场景，资源，代码规划到 Asset Bundle ，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
+从 v2.4 开始，Creator 将支持 Asset Bundle，开发者可以将自己的场景，资源，代码规划到 Asset Bundle，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
 
 ```js
 cc.assetManager.loadBundle('http://example.com/scene', function (err, bundle) {
@@ -91,7 +88,7 @@ cc.assetManager.loadBundle('http://example.com/scene', function (err, bundle) {
 
 ## 释放资源
 
-从 v2.4 开始， Creator 提供了更为方便的资源释放机制，开发者在释放资源时只需关注该资源本身而不再需要关注其依赖资源，引擎会尝试对其依赖资源按引用数量进行释放，减少用户管理资源释放的复杂度。例如：
+从 v2.4 开始，Creator 提供了更为方便的资源释放机制，开发者在释放资源时只需关注该资源本身而不再需要关注其依赖资源，引擎会尝试对其依赖资源按引用数量进行释放，减少用户管理资源释放的复杂度。例如：
 
 ```js
 cc.assetManager.loadRes('prefabs/enemy', cc.Prefab, function (err, asset) {
@@ -103,7 +100,7 @@ cc.assetManager.loadRes('prefabs/enemy', cc.Prefab, function (err, asset) {
 
 ## 缓存管理器
 
-在某些平台上，比如微信上，因为存在文件系统，所以可以利用文件系统对一些远程资源进行缓存。此时需要一个缓存管理器对所有缓存资源进行管理。包括缓存资源，清除缓存资源，修改缓存周期等。在 v2.4 上， Creator 在所有存在文件系统的平台上都提供了缓存管理器，能够对缓存进行增删改查操作。例如：
+在某些平台上，比如微信上，因为存在文件系统，所以可以利用文件系统对一些远程资源进行缓存。此时需要一个缓存管理器对所有缓存资源进行管理。包括缓存资源，清除缓存资源，修改缓存周期等。在 v2.4 上，Creator 在所有存在文件系统的平台上都提供了缓存管理器，能够对缓存进行增删改查操作。例如：
 
 ```js
 // 查询是否存在某个资源的缓存

@@ -95,7 +95,7 @@ cc.Class({
 
 第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
-**注意** ：从 v2.4 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级](../release-notes/asset-manager-upgrade-guide.md) 。
+**注意** ：从 v2.4 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md) 。
 
 ### 动态加载 Asset
 
@@ -246,7 +246,7 @@ cc.assetManager.loadRemoteTexture(remoteUrl, { isCrossOrigin: true }, function (
 });
 ```
 
-**注意** ：我们建议你使用更为简单的 API `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio` ，当然你也可以参考 [AssetManager](../asset-manager/asset-manager.md) 来使用更灵活的用法。
+**注意** ：我们建议你使用更为简单的 API `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio`，当然你也可以参考 [AssetManager](../asset-manager/asset-manager.md) 来使用更灵活的用法。
 
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
@@ -268,7 +268,7 @@ cc.assetManager.loadRemoteTexture(remoteUrl, { isCrossOrigin: true }, function (
 
 在 JavaScript 这种脚本语言中，由于其弱类型特性，以及为了代码的便利，往往是不包含内存管理功能的，所有对象的内存都由垃圾回收机制来管理。这就导致 JS 层逻辑永远不知道一个对象会在什么时候被释放，这意味着引擎无法通过类似引用计数的机制来管理外部对象对资源的引用，也无法严谨得统计资源是否不再被需要了。
 
-在 v2.4 之前， Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，例如如下形式：
+在 v2.4 之前，Creator 很长时间里选择让开发者控制所有资源的释放，包括资源本身和它的依赖项，你必须手动获取资源所有的依赖项并选择需要释放的依赖项，例如如下形式：
 
 ```javascript
 // 直接释放某个贴图
@@ -286,13 +286,13 @@ cc.loader.release(deps);
 
 这种方案给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了提升开发者使用的方便程度， Creator 设计实现了动态资源与静态资源分别计数的方案，用于帮助开发者在处理资源释放时更加方便。需要说明的是这套方案中引擎仅对静态资源做了准确的计数，但动态资源的计数还需要开发者进行控制以保证资源能够被正确释放。
 
-在 v2.4 ，开发者不再需要关注资源的依赖项，你只需管理资源本身即可， Creator 会尝试自动释放其依赖资源。例如：
+在 v2.4，开发者不再需要关注资源的依赖项，你只需管理资源本身即可，Creator 会尝试自动释放其依赖资源。例如：
 
 ```js
 cc.assetManager.release(texture);
 ```
 
-这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef` , `removeRef` ，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
+这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef`，`removeRef`，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
 
 ```js
 cc.assetManager.loadRes('image', cc.SpriteFrame, (err, spriteFrame) => {
@@ -301,7 +301,7 @@ cc.assetManager.loadRes('image', cc.SpriteFrame, (err, spriteFrame) => {
 });
 ```
 
-因为 texture 是动态加载进来的，而不是一开始就被组件所引用，所以这个 texture 是没有记录的，他的引用计数是 0 ，为了避免这个 texture 被其他地方误释放，开发者需要手动执行 `addRef` 操作为其增加一个引用。而在你不再需要使用这个资源是，你需要执行 `removeRef` 为其减少一个引用，并且释放它：
+因为 texture 是动态加载进来的，而不是一开始就被组件所引用，所以这个 texture 是没有记录的，他的引用计数是 0，为了避免这个 texture 被其他地方误释放，开发者需要手动执行 `addRef` 操作为其增加一个引用。而在你不再需要使用这个资源是，你需要执行 `removeRef` 为其减少一个引用，并且释放它：
 
 ```js
     this.spriteFrame.removeRef();

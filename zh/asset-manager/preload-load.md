@@ -1,6 +1,6 @@
 # 加载与预加载
 
-> 文： Santy-Wang
+> 文：Santy-Wang
 
 为了降低下载延时，Asset Manager 中支持两种加载方式，大部分加载接口包括 `load` , `loadRes` , `loadResDir` , `loadAsset` , `loadDir`, `loadScene` 都有其对应的预加载版本。加载接口与预加载接口所用的参数是完全一样的，两者的区别在于：
 
