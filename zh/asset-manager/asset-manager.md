@@ -11,7 +11,7 @@
 除了在编辑场景时，将资源应用到对应组件上之外，Creator 还支持在游戏运行过程中动态加载资源并进行设置。Asset Manager 更提供了两种动态加载资源的方式：1. 通过将资源放在 resources 目录下实现动态加载，并配合 `cc.assetManager.loadRes` 等 API 进行加载，2. 开发者可以自己规划资源制作为 Asset Bundle，再通过 Asset Bundle 的 `loadAsset` 系列 API 进行资源的加载。例如：
 
 ```js
-cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err) {
+cc.assetManager.loadRes('images/background', cc.SpriteFrame, (err, asset) => {
     self.getComponent(cc.Sprite).spriteFrame = asset;
 });
 ```
@@ -36,11 +36,16 @@ cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err) {
 为了降低下载的延迟，`cc.assetManager` 和 Asset Bundle 中除了提供加载资源的接口，每一个加载接口还提供了对应的预加载版本，开发者可在游戏中提前进行预加载工作，而在真正需要时完成加载，而预加载只会去下载必要资源，不会进行反序列化和初始化工作，所以性能消耗更小，适合在游戏过程中使用：
 
 ```js
-var task = cc.assetManager.preloadRes('images/background', cc.SpriteFrame, function (err) {
-    cc.assetManager.loadRes(task, function (err, asset) {
-        self.getComponent(cc.Sprite).spriteFrame = asset;
+start () {
+    cc.assetManager.preloadRes('images/background', cc.SpriteFrame);
+    setTimeOut(this.loadAsset.bind(this), 10000);
+}
+
+loadAsset () {
+    cc.assetManager.loadRes('images/background', cc.SpriteFrame, (err, asset) => {
+        this.getComponent(cc.Sprite).spriteFrame = asset;
     });
-});
+}
 ```
 
 关于预加载更多内容请参考 [预加载与加载](preload-load.md) 。
@@ -76,11 +81,13 @@ cc.assetManager.loadAny('http://example.com/skill.myformat', { user: 'anonymous'
 
 ## Asset Bundle
 
-从 v2.4 开始，Creator 将支持 Asset Bundle，开发者可以将自己的场景，资源，代码规划到 Asset Bundle，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
+开发者可以将自己的场景，资源，代码规划到 Asset Bundle，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
 
 ```js
-cc.assetManager.loadBundle('http://example.com/scene', function (err, bundle) {
-    cc.director.loadScene('test');
+cc.assetManager.loadBundle('http://example.com/test', function (err, bundle) {
+    bundle.load('textures/background', (err, asset) => {
+        // ...
+    });
 });
 ```
 
