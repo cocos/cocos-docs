@@ -252,18 +252,20 @@ material.setProperty("diffuseTexture", texture);
 
 受 Electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
 
-### web-mobile 项目在 ios 系统上播放视频之后播放音频，在手机切换前后台之后，出现音频无法暂停和恢复播放的问题
+### 在 Ios 系统的 Web-Mobile 平台播放 Web Audio 音频，在手机切换前后台之后，大概率出现音频无法暂停和恢复播放的问题
 
-在 ios 系统上，Web Audio 的 AudioScheduledSourceNode 在播放视频和音频之后，如果游戏切换前后台，音频将无法正常暂停和恢复播放。可以在项目脚本中加入如下代码修复。
+在 Ios 系统的 Web-Mobile 平台上，Web Audio 的 AudioScheduledSourceNode 在播放视频和音频之后，如果游戏切换前后台，音频将无法正常暂停和恢复播放。可以在项目脚本中加入如下代码修复。<font color=#dd3c43>因为 WebAudioContext 的 Suspend 接口在 Web-Pc 平台只暂停指定 Audio，但在 Web-Mobile 平台会把所有 Audio 都暂停。故此在引擎上修复该问题过于 Hack 且不够通用，遂不做此修复。建议用户自行添加此修复代码解决问题。</font>
 
 ```js
-cc.game.on(cc.game.EVENT_GAME_INITED,()=>{
-    cc.game.on(cc.game.EVENT_SHOW,()=>{
-        cc.sys.__audioSupport.context.resume();
-    });
+if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
+    cc.game.on(cc.game.EVENT_GAME_INITED,()=>{
+        cc.game.on(cc.game.EVENT_SHOW,()=>{
+            cc.sys.__audioSupport.context.resume();
+        });
 
-    cc.game.on(cc.game.EVENT_HIDE,()=>{
-        cc.sys.__audioSupport.context.suspend();
-    });
-})
+        cc.game.on(cc.game.EVENT_HIDE,()=>{
+            cc.sys.__audioSupport.context.suspend();
+        });
+    })
+}
 ```
