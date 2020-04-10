@@ -27,7 +27,7 @@
 缓存管理器提供了 `cachedFiles` 以查询所有缓存的资源，`cachedFiles` 是一个 `cc.AssetManager.Cache` 类的实例，你可以通过传入资源原路径查询该资源的缓存路径以及最近使用时间，例如：
 
 ```js
-    cc.assetManager.loadRes('images/background', cc.Texture2D, function (err, texture) {
+    cc.resources.load('images/background', cc.Texture2D, function (err, texture) {
         var cache = cc.assetManager.cacheManager.cachedFiles.get(texture.nativeUrl);
         console.log(cache.url);
         console.log(cache.lastTime);

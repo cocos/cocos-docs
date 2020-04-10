@@ -94,10 +94,10 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
     cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { loadStrategy: cc.AssetManager.LoadStrategy.PRELOAD }, callback);
 ```
 
-同时，你也可以在使用 `cc.assetManager.load`，`cc.assetManager.preload` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
+同时，你也可以在使用 `cc.assetManager.loadAny`，`cc.assetManager.preloadAny` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
 
 ```js
-    cc.assetManager.load({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 1, loadStrategy: cc.AssetManager.LoadStrategy.PRELOAD }, callback);
+    cc.assetManager.loadAny({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 1, loadStrategy: cc.AssetManager.LoadStrategy.PRELOAD }, callback);
 ```
 
 ## 自定义处理方法
@@ -121,7 +121,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 当注册了处理方式之后，在下载器与加载器遇到对应扩展名类型的请求时，会使用对应的处理方式，这些自定义的处理方式也供加载管线使用。例如：
 
 ```js
-    cc.assetManager.load({ url: 'http://example.com/myAsset.myformat' }, callback);
+    cc.assetManager.loadAny({ url: 'http://example.com/myAsset.myformat' }, callback);
 ```
 
 需要注意的是，处理方式可以接收到传入的可选参数，你可以利用这些可选参数实现自己的扩展，例如：
@@ -151,7 +151,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
         callback(null, file);
     });
 
-    cc.assetManager.load({ url: 'http://example.com/myAsset.myformat' }, { isCrossOrigin: true }, callback);
+    cc.assetManager.loadAny({ url: 'http://example.com/myAsset.myformat' }, { isCrossOrigin: true }, callback);
 ```
 
 更多关于可选参数的介绍请参考 [可选参数](custom-parameter.md)。

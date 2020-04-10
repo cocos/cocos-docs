@@ -38,49 +38,49 @@
 如果你在自己的游戏代码中使用了 `cc.loader.loadRes`，`cc.loader.loadResArray`，`cc.loader.loadResDir`，请使用 `cc.assetManager` 中的对应 API 进行替换。<br>
 下面是详细的替换方式：
 
-`cc.assetManager.loadRes` 的参数与 `cc.loader.loadRes` 完全相同。替换方式如下：
+`cc.resources.load` 的参数与 `cc.loader.loadRes` 完全相同。替换方式如下：
 
 ```js
     // 修改前
     cc.loader.loadRes('images/a', cc.Texture2D, (err, asset) => console.log(asset));
 
     // 修改后
-    cc.assetManager.loadRes('images/a', cc.Texture2D, (err, asset) => console.log(asset));
+    cc.resources.load('images/a', cc.Texture2D, (err, asset) => console.log(asset));
 ```
 
-`cc.assetManager` 为了降低学习成本，将 `loadResArray` 与 `loadRes` 进行了合并，`cc.assetManager.loadRes` 的第一个参数可支持多个路径，所以可以使用 `cc.assetManager.loadRes` 进行替换：
+`cc.assetManager` 为了降低学习成本，将 `loadResArray` 与 `load` 进行了合并，`cc.resources.load` 的第一个参数可支持多个路径，所以可以使用 `cc.resources.load` 进行替换：
 
 ```js
     // 修改前
     cc.loader.loadResArray(['images/a', 'images/b', 'images/c'], cc.Texture2D, (err, assets) => console.log(assets));
 
     // 修改后
-    cc.assetManager.loadRes(['images/a', 'images/b', 'images/c'], cc.Texture2D, (err, assets) => console.log(assets));
+    cc.resources.load(['images/a', 'images/b', 'images/c'], cc.Texture2D, (err, assets) => console.log(assets));
 ```
 
-**注意** ：出于简化接口的考虑，`cc.assetManager.loadRes` 的第二个参数 **不再接受** 多个类型，只能接受单一类型，所以使用 `loadRes` 同时加载多个资源时，只能加载同类型的多个资源。如果你的代码中有使用如下形式，请修改为单独使用 `loadRes` 进行加载：
+**注意** ：出于简化接口的考虑，`cc.resources.load` 的第二个参数 **不再接受** 多个类型，只能接受单一类型，所以使用 `cc.resources.load` 同时加载多个资源时，只能加载同类型的多个资源。如果你的代码中有使用如下形式，请修改为单独使用 `cc.resources.load` 进行加载：
 
 ```js
     // 修改前
     cc.loader.loadResArray(['images/a', 'images/b', 'prefabs/a'], [cc.Texture2D, cc.SpriteFrame, cc.Prefab], (err, assets) => console.log(assets));
 
     // 修改后
-    cc.assetManager.loadRes('images/a', cc.Texture2D, (err, asset) => console.log(asset));
-    cc.assetManager.loadRes('images/b', cc.SpriteFrame, (err, asset) => console.log(asset));
-    cc.assetManager.loadRes('prefabs/a', cc.Prefab, (err, asset) => console.log(asset));
+    cc.resources.load('images/a', cc.Texture2D, (err, asset) => console.log(asset));
+    cc.resources.load('images/b', cc.SpriteFrame, (err, asset) => console.log(asset));
+    cc.resources.load('prefabs/a', cc.Prefab, (err, asset) => console.log(asset));
 ```
 
-`cc.assetManager.loadResDir` 的参数与 `cc.loader.loadResDir` 完全相同。
+`cc.resources.loadDir` 的参数与 `cc.loader.loadResDir` 完全相同。
 
 ```js
     // 修改前
     cc.loader.loadResDir('images', cc.Texture2D, (err, assets) => console.log(assets));
 
     // 修改后
-    cc.assetManager.loadResDir('images', cc.Texture2D, (err, assets) => console.log(assets));
+    cc.resources.loadDir('images', cc.Texture2D, (err, assets) => console.log(assets));
 ```
 
-**注意**：出于简化接口的考虑，`cc.assetManager.loadResDir` 的加载完成回调将 **不再提供** urls 的列表。请避免如下使用方式：
+**注意**：出于简化接口的考虑，`cc.resources.loadDir` 的加载完成回调将 **不再提供** urls 的列表。请避免如下使用方式：
 
 ```js
     cc.loader.loadResDir('images', cc.Texture2D, (err, assets, urls) => console.log(urls));
@@ -120,7 +120,7 @@
     cc.loader.load('http://example.com/equipment.txt', (err, text) => console.log(text));
 
     // 修改后
-    cc.assetManager.load({ url: 'http://example.com/equipment.txt' }, (err, text) => console.log(text));
+    cc.assetManager.loadAny({ url: 'http://example.com/equipment.txt' }, (err, text) => console.log(text));
 ```
 
 **注意** ：
@@ -134,39 +134,39 @@
 
 下面是详细的替换方式：
 
-`cc.loader.release` 可用 `cc.assetManager.release` 替换，**注意**： 为了避免用户关注资源的一些晦涩难懂的属性，`cc.assetManager.release` **不再接受** 数组，资源 UUID，资源 URL 进行释放，仅能接受通过资源本身进行释放
+`cc.loader.release` 可用 `cc.assetManager.releaseAsset` 替换，**注意**： 为了避免用户关注资源的一些晦涩难懂的属性，`cc.assetManager.releaseAsset` **不再接受** 数组，资源 UUID，资源 URL 进行释放，仅能接受通过资源本身进行释放
 
 ```js
     // 修改前
     cc.loader.release(texture);
 
     // 修改后
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 
     // 修改前
     cc.loader.release([texture1, texture2, texture3]);
     
     // 修改后
-    cc.assetManager.release(texture1);
-    cc.assetManager.release(texture2);
-    cc.assetManager.release(texture3);
+    cc.assetManager.releaseAsset(texture1);
+    cc.assetManager.releaseAsset(texture2);
+    cc.assetManager.releaseAsset(texture3);
 
     // 修改前
     var uuid = texture._uuid;
     cc.loader.release(uuid);
 
     // 修改后
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 
     // 修改前
     var url = texture.url;
-    cc.assetManager.release(url);
+    cc.loader.release(url);
 
     // 修改后
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 ```
 
-**注意**：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.release` 内部将会自动去释放相关依赖资源，例如：
+**注意**：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.releaseAsset` 内部将会自动去释放相关依赖资源，例如：
 
 ```js
     // 修改前
@@ -174,27 +174,27 @@
     cc.loader.release(assets);
 
     // 修改后
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 ```
 
-`cc.loader.releaseAsset` 可直接使用 `cc.assetManager.release` 替换。
+`cc.loader.releaseAsset` 可直接使用 `cc.assetManager.releaseAsset` 替换。
 
 ```js
     // 修改前
     cc.loader.releaseAsset(texture);
 
     // 修改后
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 ```
 
-`cc.loader.releaseRes` 可直接使用 `cc.assetManager.releaseRes` 替换。
+`cc.loader.releaseRes` 可直接使用 `cc.resources.release` 替换。
 
 ```js
     // 修改前
     cc.loader.releaseRes('images/a', cc.Texture2D);
 
     // 修改后
-    cc.assetManager.releaseRes('images/a', cc.Texture2D);
+    cc.resources.release('images/a', cc.Texture2D);
 ```
 
 `cc.loader.releaseAll` 可直接使用 `cc.assetManager.releaseAll` 替换。
@@ -208,9 +208,9 @@
 ```
 
 **注意** ：
-1. 出于安全考虑，`cc.loader.releaseResDir` 在 `cc.assetManager` 中没有对应实现，请使用 `cc.assetManager.release` 或 `cc.assetManager.releaseRes` 进行单个资源释放。
+1. 出于安全考虑，`cc.loader.releaseResDir` 在 `cc.assetManager` 中没有对应实现，请使用 `cc.assetManager.releaseAsset` 或 `cc.resources.release` 进行单个资源释放。
 
-2. 因为 `cc.assetManager.release` 中会去自动释放依赖资源，所以你不再需要显式调用 `cc.loader.getDependsRecursively`，如果你需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API。
+2. 因为 `cc.assetManager.releaseAsset` 中会去自动释放依赖资源，所以你不再需要显式调用 `cc.loader.getDependsRecursively`，如果你需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API。
 
 3. 出于安全考虑，`cc.assetManager` 中移除了自动释放的部分功能，仅支持场景上设置的自动释放，`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`，`cc.loader.setAutoReleaseRecursively`，`cc.loader.isAutoRelease` API，如果你需要自动释放任意资源，`cc.loader` 中的相关 API **仍然有效**，你可以正常使用，但在之后的版本中，随着 `cc.loader` 的移除，这部分功能也将完全移除，你可以实现自己的自动释放机制。也可以完全依赖 `cc.assetManager` 中新的资源释放检查机制，详细请参考 [终结器](../asset-manager/finalizer.md)；
 
@@ -365,22 +365,6 @@ var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 ```
 
 **注意**：`cc.LoadingItem` 在 `cc.assetManager` 中已经不再支持，请避免使用这个类型。
-
-为了提升 Asset Bundle 的易用性，`cc.assetManager` 中也可以加载与预加载场景，如果你的代码中有使用 `cc.director.preloadScene` 方法，请使用 `cc.assetManager.preloadScene` 替换。
-
-```js
-// 修改前
-cc.director.preloadScene('scene1', () => {
-    cc.director.loadScene('scene1');
-});
-
-// 修改后
-cc.assetManager.preloadScene('scene1', () => {
-    cc.director.loadScene('scene1');
-});
-
-```
-详细可参考 [加载与预加载](../asset-manager/preload-load.md)。 
 
 为了支持更多加载策略，`cc.macro.DOWNLOAD_MAX_CONCURRENT` 已被移除 `cc.macro` 中，你可以用以下方式替换：
 

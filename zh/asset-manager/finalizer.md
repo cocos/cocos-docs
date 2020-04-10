@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang
 
-Asset Manager 中提供了终结器模块，用于管理资源的释放，自动释放等功能。你可以通过 `cc.assetManager.finalizer` 访问，考虑到使用习惯的问题，`cc.assetManager` 也对释放接口进行了转发，`cc.assetManager.finalizer.release` 与 `cc.assetManager.release` 接口完全等价。
+Asset Manager 中提供了终结器模块，用于管理资源的释放，自动释放等功能。你可以通过 `cc.assetManager.finalizer` 访问，考虑到使用习惯的问题，`cc.assetManager` 也对释放接口进行了转发，`cc.assetManager.finalizer.release` 与 `cc.assetManager.releaseAsset` 接口完全等价。
 
 ## 释放资源
 
@@ -11,7 +11,7 @@ Asset Manager 中提供了终结器模块，用于管理资源的释放，自动
 例如，你可以如下使用：
 
 ```js
-    cc.assetManager.release(texture);
+    cc.assetManager.releaseAsset(texture);
 
     cc.assetManager.finalizer.release(texture);
 ```
@@ -20,14 +20,14 @@ Asset Manager 中提供了终结器模块，用于管理资源的释放，自动
 
 v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体现在以下几点：
 
-1. `cc.assetManager.release` 接口仅能释放单个资源，且为了方便开发者理解，接口只能通过资源本身进行释放，不能通过资源 uuid，资源 url 等属性进行释放。
+1. `cc.assetManager.releaseAsset` 接口仅能释放单个资源，且为了方便开发者理解，接口只能通过资源本身进行释放，不能通过资源 uuid，资源 url 等属性进行释放。
 
 2. 为了方便开发者使用，在开发者释放资源时不再需要通过 `getDependsRecursively` 获取依赖资源。你只需关注资源本身，而引擎会去尝试释放其依赖资源。
 
-3. 在 `cc.assetManager.release` 内部会先去检查资源是否可释放，也就是说，即使你调用了这个接口，也不一定能够释放该资源。如果你想要强制释放该资源，你可以指定 `release` 接口的 `force` 参数为 `true` 来进行强制释放。例如：
+3. 在 `cc.assetManager.releaseAsset` 内部会先去检查资源是否可释放，也就是说，即使你调用了这个接口，也不一定能够释放该资源。如果你想要强制释放该资源，你可以指定 `release` 接口的 `force` 参数为 `true` 来进行强制释放。例如：
 
 ```js
-    cc.assetManager.release(texture, true);
+    cc.assetManager.releaseAsset(texture, true);
 ```
 
 ## 场景自动释放
@@ -92,7 +92,7 @@ v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体
 
 1. 当你在编辑器中编辑资源时，例如场景，预制体，材质时，此时你会将一些其他资源设置到他们的属性上，例如设置贴图到材质中，将 sprite frame 设置到场景中的 Sprite 组件上，此时这些引用关系将会记录在资源的序列化数据中，引擎可以通过这些数据分析出依赖资源列表，那这些资源就被称为静态资源的引用。除非重新编辑该资源或者场景，否则这些引用关系将是不变的。
 
-2. 第二种情况是，当你在编辑器中编辑资源时没有设置任何属性，而在游戏运行时，用 `cc.assetManager.loadRes` 或者从 asset bundle 中动态加载资源并设置到场景中组件上时，此时的引用关系没有存在序列化数据中，所以引擎是无法统计到这部分的计数情况，这部分叫做动态资源的引用。
+2. 第二种情况是，当你在编辑器中编辑资源时没有设置任何属性，而在游戏运行时，用 `cc.resources.load` 或者从 asset bundle 中动态加载资源并设置到场景中组件上时，此时的引用关系没有存在序列化数据中，所以引擎是无法统计到这部分的计数情况，这部分叫做动态资源的引用。
 
 引擎对静态资源的引用的统计方式为：
 
@@ -113,7 +113,7 @@ v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体
 上述的方式在你的项目中只有静态资源的引用时是正确的，但如果你的工程中使用了动态加载资源来进行赋值，例如：
 
 ```js
-    cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
         self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
     });
 ```
@@ -121,18 +121,17 @@ v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体
 此时，因为资源是动态加载出来，并设置给 Sprite 组件，所以此时的引用计数为 0，因为它在加载时不是任何资源的依赖资源。如果你动态加载出来的资源需要进行长期引用、持有，或者复用时，建议你使用 `addRef` 接口手动对其进行引用计数的增加，例如：
 
 ```js
-    cc.assetManager.loadRes('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
         self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         spriteFrame.addRef();
     });
 ```
 
-增加引用计数后，能够保证该资源不会被自动释放触发时错误释放掉。而在不需要引用该资源时，请 **务必记住** 使用 `removeRef` 移除引用计数，并释放该资源，例如：
+增加引用计数后，能够保证该资源不会被自动释放触发时错误释放掉。而在不需要引用该资源时，请 **务必记住** 使用 `decRef` 移除引用计数，例如：
 
 ```js
     onDestroy () {
-        this.spriteFrame.removeRef();
-        cc.assetManager.release(this.spriteFrame);
+        this.spriteFrame.decRef();
         this.spriteFrame = null;
     }
 ```
@@ -144,14 +143,13 @@ v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体
 ```js
 
     chanageDynamicSpriteFrame (path) {
-        cc.assetManager.loadRes(path, cc.SpriteFrame, function (err, spriteFrame) {
+        cc.resources.load(path, cc.SpriteFrame, function (err, spriteFrame) {
             // 在动态加载资源后手动增加对其的引用
             
             var sprite = self.getComponent(cc.Sprite);
             if (sprite.spriteFrame) {
                 // 在切换精灵时，移除之前精灵的引用并释放
-                sprite.spriteFrame.removeRef();
-                cc.assetManager.release(sprite.spriteFrame);
+                sprite.spriteFrame.decRef();
             }
 
             spriteFrame.addRef();
@@ -161,9 +159,8 @@ v2.4 中的释放接口与之前版本的释放接口有较大差异，主要体
 
     onDestroy () {
         let sprite = self.getComponent(cc.Sprite);
-        // 在摧毁该节点时移除当前使用精灵的引用并释放
-        sprite.spriteFrame.removeRef();
-        cc.assetManager.release(sprite.spriteFrame);
+        // 在摧毁该节点时移除当前使用精灵的引用
+        sprite.spriteFrame.decRef();
     }
 
 ```

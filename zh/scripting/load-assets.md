@@ -83,7 +83,7 @@ cc.Class({
 
 ## 动态加载
 
-从 v2.4 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `loadRes` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md) 。 
+从 v2.4 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md) 。 
 
 使用第一种方式动态加载资源要注意两点，一是所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
 
@@ -91,7 +91,7 @@ cc.Class({
 
 > **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，**resources** 文件夹中的所有资源，连同它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
 >
-> 如果一份资源仅仅是被 resources 中的其它资源所依赖，而不需要直接被 `cc.assetManager.loadRes` 调用，那么 **请不要** 放在 resources 文件夹里。否则会增大 config.json 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能将零碎的 JSON 合并起来。
+> 如果一份资源仅仅是被 resources 中的其它资源所依赖，而不需要直接被 `cc.resources.load` 调用，那么 **请不要** 放在 resources 文件夹里。否则会增大 config.json 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能将零碎的 JSON 合并起来。
 
 第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
@@ -99,18 +99,18 @@ cc.Class({
 
 ### 动态加载 Asset
 
-Creator 提供了 `cc.assetManager.loadRes` 这个 API 来专门加载那些位于 resources 目录下的 Asset。和 `cc.assetManager.load` 不同的是，你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
+Creator 提供了 `cc.resources.load` 这个 API 来专门加载那些位于 resources 目录下的 Asset。和 `cc.assetManager.loadAny` 不同的是，你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
 ```javascript
 // 加载 Prefab
-cc.assetManager.loadRes("test assets/prefab", function (err, prefab) {
+cc.resources.load("test assets/prefab", function (err, prefab) {
     var newNode = cc.instantiate(prefab);
     cc.director.getScene().addChild(newNode);
 });
 
 // 加载 AnimationClip
 var self = this;
-cc.assetManager.loadRes("test assets/anim", function (err, clip) {
+cc.resources.load("test assets/anim", function (err, clip) {
     self.node.getComponent(cc.Animation).addClip(clip, "anim");
 });
 ```
@@ -122,7 +122,7 @@ cc.assetManager.loadRes("test assets/anim", function (err, clip) {
 ```javascript
 // 加载 SpriteFrame
 var self = this;
-cc.assetManager.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFrame) {
+cc.resources.load("test assets/image", cc.SpriteFrame, function (err, spriteFrame) {
     self.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -136,7 +136,7 @@ cc.assetManager.loadRes("test assets/image", cc.SpriteFrame, function (err, spri
 ```js
 // 加载 SpriteAtlas（图集），并且获取其中的一个 SpriteFrame
 // 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下, 所以需要在第二个参数指定资源类型
-cc.assetManager.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
+cc.resources.load("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
     var frame = atlas.getSpriteFrame('sheep_down_0');
     sprite.spriteFrame = frame;
 });
@@ -144,42 +144,32 @@ cc.assetManager.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atla
 
 #### 资源释放
 
-`loadRes` 加载进来的单个资源如果需要释放，可以调用 `cc.assetManager.releaseRes`，`releaseRes` 可以传入和 `loadRes` 相同的路径和类型参数。
+`cc.resources.load` 加载进来的单个资源如果需要释放，可以调用 `cc.assetManager.releaseRes`，`releaseRes` 可以传入和 `cc.resources.load` 相同的路径和类型参数。
 
 ```javascript
 cc.assetManager.releaseRes("test assets/image", cc.SpriteFrame);
 cc.assetManager.releaseRes("test assets/anim");
 ```
 
-此外，你也可以使用 `cc.assetManager.release` 来释放特定的 Asset 实例。
+此外，你也可以使用 `cc.assetManager.releaseAsset` 来释放特定的 Asset 实例。
 
 ```javascript
-cc.assetManager.release(spriteFrame);
+cc.assetManager.releaseAsset(spriteFrame);
 ```
 
 ### 资源批量加载
 
-`cc.assetManager.loadResDir` 可以加载相同路径下的多个资源：
+`cc.resources.loadDir` 可以加载相同路径下的多个资源：
 
 ```javascript
 // 加载 test assets 目录下所有资源
-cc.assetManager.loadResDir("test assets", function (err, assets) {
+cc.resources.loadDir("test assets", function (err, assets) {
     // ...
 });
 
 // 加载 test assets 目录下所有 SpriteFrame，并且获取它们的路径
-cc.assetManager.loadResDir("test assets", cc.SpriteFrame, function (err, assets) {
+cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets) {
     // ...
-});
-```
-
-### 加载场景
-
-`cc.assetManager` 提供了 `loadScene` 方法用于加载场景。与 `cc.director.loadScene` 的区别在于，`cc.assetManager.loadScene` 只能加载构建面板所勾选的场景，而 `cc.director.loadScene` 还会尝试查找所有已加载的 Asset Bundle 中的场景。并且 `cc.assetManager.loadScene` 不会自动运行场景，需要搭配 `cc.director.runScene` 一起使用。
-
-```js
-cc.assetManager.loadScene('test', function (err, scene) {
-    cc.director.runScene(scene);
 });
 ```
 
@@ -189,9 +179,9 @@ cc.assetManager.loadScene('test', function (err, scene) {
 `cc.assetManager` 提供了 `preloadRes` , `preloadResDir` 用于预加载资源。  
 
 ```js
-var task = cc.assetManager.preloadRes('test assets/image', cc.SpriteFrame, function (err) {
+var task = cc.resources.preload('test assets/image', cc.SpriteFrame, function (err) {
     // 传入预加载任务
-    cc.assetManager.loadRes(task, function (err, spriteFrame) {
+    cc.resources.load(task, function (err, spriteFrame) {
         self.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
     })
 })
@@ -203,7 +193,7 @@ var task = cc.assetManager.preloadRes('test assets/image', cc.SpriteFrame, funct
 
 ## 加载远程资源和设备资源
 
-在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio` 或 `cc.assetManager.load` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `loadRes` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
+在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio` 或 `cc.assetManager.loadAny` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `cc.resources.load` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
 
 ```javascript
 // 远程 url 带图片后缀名
@@ -232,7 +222,7 @@ cc.assetManager.loadRemoteAudio(remoteUrl, function (err, audioClip) {
 
 // 远程文本
 remoteUrl = "http://unknown.org/skill.txt";
-cc.assetManager.load({ url: remoteUrl }, function (err, str) {
+cc.assetManager.loadAny({ url: remoteUrl }, function (err, str) {
     // use string to do something
 });
 ```
@@ -289,23 +279,22 @@ cc.loader.release(deps);
 在 v2.4，开发者不再需要关注资源的依赖项，你只需管理资源本身即可，Creator 会尝试自动释放其依赖资源。例如：
 
 ```js
-cc.assetManager.release(texture);
+cc.assetManager.releaseAsset(texture);
 ```
 
-这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef`，`removeRef`，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
+这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef`，`decRef`，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
 
 ```js
-cc.assetManager.loadRes('image', cc.SpriteFrame, (err, spriteFrame) => {
+cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
     this.spriteFrame = spriteFrame;
     spriteFrame.addRef();
 });
 ```
 
-因为 texture 是动态加载进来的，而不是一开始就被组件所引用，所以这个 texture 是没有记录的，他的引用计数是 0，为了避免这个 texture 被其他地方误释放，开发者需要手动执行 `addRef` 操作为其增加一个引用。而在你不再需要使用这个资源时，你需要执行 `removeRef` 为其减少一个引用，并且释放它：
+因为 texture 是动态加载进来的，而不是一开始就被组件所引用，所以这个 texture 是没有记录的，他的引用计数是 0，为了避免这个 texture 被其他地方误释放，开发者需要手动执行 `addRef` 操作为其增加一个引用。而在你不再需要使用这个资源时，你需要执行 `decRef` 为其减少一个引用：
 
 ```js
-    this.spriteFrame.removeRef();
-    cc.assetManager.release(this.spriteFrame);
+    this.spriteFrame.decRef();
     this.spriteFrame = null;
 ```
 

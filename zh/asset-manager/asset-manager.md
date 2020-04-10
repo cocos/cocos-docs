@@ -8,10 +8,10 @@
 
 ### 动态加载资源
 
-除了在编辑场景时，将资源应用到对应组件上之外，Creator 还支持在游戏运行过程中动态加载资源并进行设置。Asset Manager 更提供了两种动态加载资源的方式：1. 通过将资源放在 resources 目录下实现动态加载，并配合 `cc.assetManager.loadRes` 等 API 进行加载，2. 开发者可以自己规划资源制作为 Asset Bundle，再通过 Asset Bundle 的 `loadAsset` 系列 API 进行资源的加载。例如：
+除了在编辑场景时，将资源应用到对应组件上之外，Creator 还支持在游戏运行过程中动态加载资源并进行设置。Asset Manager 更提供了两种动态加载资源的方式：1. 通过将资源放在 resources 目录下实现动态加载，并配合 `cc.resources.load` 等 API 进行加载，2. 开发者可以自己规划资源制作为 Asset Bundle，再通过 Asset Bundle 的 `load` 系列 API 进行资源的加载。例如：
 
 ```js
-cc.assetManager.loadRes('images/background', cc.SpriteFrame, (err, asset) => {
+cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
     self.getComponent(cc.Sprite).spriteFrame = asset;
 });
 ```
@@ -37,12 +37,12 @@ cc.assetManager.loadRes('images/background', cc.SpriteFrame, (err, asset) => {
 
 ```js
 start () {
-    cc.assetManager.preloadRes('images/background', cc.SpriteFrame);
+    cc.resources.preload('images/background', cc.SpriteFrame);
     setTimeOut(this.loadAsset.bind(this), 10000);
 }
 
 loadAsset () {
-    cc.assetManager.loadRes('images/background', cc.SpriteFrame, (err, asset) => {
+    cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
         this.getComponent(cc.Sprite).spriteFrame = asset;
     });
 }
@@ -53,7 +53,7 @@ loadAsset () {
 
 ### 可选参数
 
-除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.assetManager.loadRes` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
+除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.resources.load` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
 
 ```js
 cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
@@ -98,8 +98,8 @@ cc.assetManager.loadBundle('http://example.com/test', function (err, bundle) {
 从 v2.4 开始，Creator 提供了更为方便的资源释放机制，开发者在释放资源时只需关注该资源本身而不再需要关注其依赖资源，引擎会尝试对其依赖资源按引用数量进行释放，减少用户管理资源释放的复杂度。例如：
 
 ```js
-cc.assetManager.loadRes('prefabs/enemy', cc.Prefab, function (err, asset) {
-    cc.assetManager.release(asset);
+cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
+    cc.assetManager.releaseAsset(asset);
 });
 ```
 

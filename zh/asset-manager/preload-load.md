@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang
 
-为了降低下载延时，Asset Manager 中支持两种加载方式，大部分加载接口包括 `load` , `loadRes` , `loadResDir` , `loadAsset` , `loadDir`, `loadScene` 都有其对应的预加载版本。加载接口与预加载接口所用的参数是完全一样的，两者的区别在于：
+为了降低下载延时，Asset Manager 中支持两种加载方式，大部分加载接口包括 `load`，`loadDir`，`loadScene` 都有其对应的预加载版本。加载接口与预加载接口所用的参数是完全一样的，两者的区别在于：
 
 1. 预加载只做了资源的下载，没有对资源进行解析与初始化操作。
 2. 预加载在过程中受到更多限制，例如最大下载并发数会更小。
@@ -14,14 +14,14 @@
 因为预加载没有去解析资源，所以需要在预加载完成后配合加载接口进行资源的解析和初始化操作完成资源加载。例如：
 
 ```js
-    var task = cc.assetManager.preloadRes('images/background', cc.SpriteFrame, function (err) {
-        cc.assetManager.loadRes(task, function (err, spriteFrame) {
+    var task = cc.resources.preload('images/background', cc.SpriteFrame, function (err) {
+        cc.resources.load(task, function (err, spriteFrame) {
             self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         });
     });
 
-    var task = cc.assetManager.preload({ url: 'http://example.com/background.jpg' }, function (err) {
-        cc.assetManager.load(task, function (err, image) {
+    var task = cc.assetManager.preloadAny({ url: 'http://example.com/background.jpg' }, function (err) {
+        cc.assetManager.loadAny(task, function (err, image) {
             var texture = new cc.Texture2D();
             texture.initWithElement(image);
         });
@@ -31,10 +31,10 @@
 需要注意的是，加载任务必须等待预加载完成后才能传入到加载接口中完成加载。例如你不能如此使用：
 
 ```js
-    var task = cc.assetManager.preloadRes('images/background', cc.Texture2D);
+    var task = cc.resources.preload('images/background', cc.Texture2D);
     setTimeOut(() => {
         // 此时预加载任务未完成，无法使用 task
-        cc.assetManager.loadRes(task, function (err, texture) {
+        cc.resources.load(task, function (err, texture) {
 
         });
 
@@ -45,9 +45,9 @@
 如果你迫切需要加载该资源，你依然可以使用正常加载接口加载该资源，例如：
 
 ```js
-    cc.assetManager.preloadRes('images/background', cc.Texture2D);
+    cc.resources.preload('images/background', cc.Texture2D);
     setTimeOut(() => {
-        cc.assetManager.loadRes('images/background', cc.Texture2D, function (err, texture) {
+        cc.resources.load('images/background', cc.Texture2D, function (err, texture) {
 
         });
     }, 10);

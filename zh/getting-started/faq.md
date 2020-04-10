@@ -77,7 +77,7 @@ var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
 var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
 var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
-cc.assetManager.load([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
     cc.assetManager.loadRemoteTexture(image, (error, texture) => {
         var atlas = new dragonBones.DragonBonesAtlasAsset();
         atlas.atlasJson = assets[0];
@@ -105,7 +105,7 @@ this.node.addChild(spineNode);
 var image = "http://localhost/download/spineres/1/1.png";
 var ske = "http://localhost/download/spineres/1/1.json";
 var atlas = "http://localhost/download/spineres/1/1.atlas";
-cc.assetManager.load([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
     cc.assetManager.loadRemoteTexture(image, (error, atlasJson) => {
         var asset = new sp.SkeletonData();
         asset.skeletonJson = assets[1];
