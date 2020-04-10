@@ -171,7 +171,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 - `builtin`：适配原生平台的 runtime<br>
 - `engine`：适配引擎层面的一些 api
 
-`builtin` 部分除了适配 BOM 和 DOM 运行环境，还包括了一些相关的 jsb 接口，如 openGL, audioEngine 等。
+`builtin` 部分除了适配 BOM 和 DOM 运行环境，还包括了一些相关的 jsb 接口，如 openGL、audioEngine 等。
 
 jsb-adapter 的定制流程在不同的 Creator 版本中都做了一些调整和优化。请根据你当前使用的 Creator 版本，参考以下不同的定制指南。
 

@@ -1,7 +1,6 @@
 # v1.10 Resource Upgrade Guide
 
-> This article describes the considerations for migrating the old version Creator project to v1.10 in detail.
-  If you have never used an older version, you do not need to read this article.
+> This article describes the considerations for migrating the old version Creator project to v1.10 in detail. If you have never used an older version, you do not need to read this article.
 
 In the [Acquire and load asset](../scripting/load-assets.md) document before v1.10, we have mentioned that Creator resources are divided into [Asset](../scripting/load-assets.md#asset) and [RawAsset](../scripting/load-assets.md#raw-asset). At that time this division was mainly to try to reuse the existing Cocos2d-x base modules, and lowering the barriers for Cocos2d-x users. But we still want to replace all the `RawAsset` into the standard `Asset`, with the development of Creator these two years, it is time to do a round of refactoring. Refactoring simplifies the processing of resources by editors and engines, reduces the volume of `settings.js` files after publication, and improves the user's development experience.
 
@@ -14,14 +13,14 @@ For **programmers**, resources originally represented in the code with a URL str
 
 ### Do I need to manually upgrade?
 
-You need to upgrade if you have the following：
- - You declare these types directly in your game code：`cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
- - You have extended the engine or editor. And defines a new class inherited from `cc.RawAsset`.
- - You have loaded the '.json' suffix file under the `resources` folder through `cc.loader.loadRes`.
+You need to upgrade if you have the following:
+- You declare these types directly in your game code: `cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
+- You have extended the engine or editor. And defines a new class inherited from `cc.RawAsset`.
+- You have loaded the '.json' suffix file under the `resources` folder through `cc.loader.loadRes`.
 
-Maybe you need to upgrade if you have the following：
- - You call `cc.audioEngine` or `cc.textureCache` directly in your game code.
- - You use `cc.loader` to load text and particle on remote server.
+Maybe you need to upgrade if you have the following: 
+- You call `cc.audioEngine` or `cc.textureCache` directly in your game code.
+- You use `cc.loader` to load text and particle on remote server.
 
 ### I'm not really sure what to upgrade?
 
@@ -31,62 +30,62 @@ Cocos Creator is an engine that attaches great importance to compatibility, and 
 
 RawAsset adjusts to Asset, essentially turning strings from the engine level into objects. Just make sure that you're using an object when interacting with the engine. It is also possible to continue using strings within the original project. All you have to do is after getting the object from the engine, convert the object to a string. And convert the string to an object before passing the string to the engine.
 
- - Asset convert to String<br>
+- Asset convert to String
 
-For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.nativeUrl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
+  For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.nativeUrl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
 
-```js
-    var url = this.file.nativeUrl || this.file;
-```
+  ```js
+  var url = this.file.nativeUrl || this.file;
+  ```
 
- - String convert to Asset
+- String convert to Asset
 
-```js
-    cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
-        cc.log(typeof audioClip);  // 'object'
-    });
-```
+  ```js
+  cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
+      cc.log(typeof audioClip);  // 'object'
+  });
+  ```
 
 ## Upgrade step
 
- - Rename the directory where the old Cocos Creator is located, and install a new version of Cocos Creator. In this way, old and new versions can coexist.
- - **After backing up the old version of the project**, open the original project with the new Cocos Creator, Creator will re-import impacted resources , it takes a little more time to upgrade for the first time, and the main editor window opens when the import is complete.
- - When the project is open, a bunch of yellow warnings may appear, and warnings generally do not affect the preview release of the game, but it is strongly recommended that it be resolved as soon as possible.
+- Rename the directory where the old Cocos Creator is located, and install a new version of Cocos Creator. In this way, old and new versions can coexist.
+- **After backing up the old version of the project**, open the original project with the new Cocos Creator, Creator will re-import impacted resources , it takes a little more time to upgrade for the first time, and the main editor window opens when the import is complete.
+- When the project is open, a bunch of yellow warnings may appear, and warnings generally do not affect the preview release of the game, but it is strongly recommended that it be resolved as soon as possible.
 
-![](raw-asset-migration/warning.png)
+  ![](raw-asset-migration/warning.png)
 
-### "Please change the definition of property 'audio_bgMusic' in class 'FOO'..."
+  - "Please change the definition of property 'audio_bgMusic' in class 'FOO'..."
 
-This is the most common error in the upgrade process. Where FOO is the class name of the CCClass you declare, which is the name of the file, audio_bgMusic is your property name. You need to find the definition of audio_bgMusic in `FOO.js`, and then modify it according to the following information. The following message is assumed to be:
+    This is the most common error in the upgrade process. Where FOO is the class name of the CCClass you declare, which is the name of the file, audio_bgMusic is your property name. You need to find the definition of audio_bgMusic in `FOO.js`, and then modify it according to the following information. The following message is assumed to be:
 
-#### "The use of declaring a property in CCClass as a URL has been deprecated..."
+  - "The use of declaring a property in CCClass as a URL has been deprecated..."
 
-This means that you specified the `url` type when declaring the `audio_bgMusic` attribute, and that `url` is no longer supported. By looking for `FOO.js` in your project, you can find a way to define something like this:
+    This means that you specified the `url` type when declaring the `audio_bgMusic` attribute, and that `url` is no longer supported. By looking for `FOO.js` in your project, you can find a way to define something like this:
 
-```js
+    ```js
     // FOO.js
 
     audio_bgMusic: {
         default: ***,
         url: cc.AudioClip,
     },
-```
+    ```
 
-Change the URL to type and make sure that default is null.
+    Change the URL to type and make sure that default is null.
 
-```js
+    ```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,  // use 'type:' to define Asset object directly
     },
-```
+    ```
 
-In this way, after the game scene is loaded, audio_bgMusic will be an AudioClip type object instead of the original audio string. To ensure that the game logic does not go wrong, continue searching globally for audio_bgMusic in your project. Make sure that you do not make any string-related calls to this variable such as `substring`, `replace`, etc., otherwise please get the real URL through the `audio_bgMusic.nativeUrl` first.
+    In this way, after the game scene is loaded, audio_bgMusic will be an AudioClip type object instead of the original audio string. To ensure that the game logic does not go wrong, continue searching globally for audio_bgMusic in your project. Make sure that you do not make any string-related calls to this variable such as `substring`, `replace`, etc., otherwise please get the real URL through the `audio_bgMusic.nativeUrl` first.
 
-Attention! If you originally defined the type as `cc.RawAsset`, In addition to modifying the url to type, the associated type should also be changed to `cc.Asset`.<br>
-If it turns out to be:
+    Attention! If you originally defined the type as `cc.RawAsset`, In addition to modifying the url to type, the associated type should also be changed to `cc.Asset`.<br>
+    If it turns out to be:
 
-```js
+    ```js
     // When declaring
     manifest: {
         default: ***,
@@ -95,11 +94,11 @@ If it turns out to be:
 
     // On Access
     this._am = new jsb.AssetsManager(this.manifest, storagePath);
-```
+    ```
 
-Please amend it to:
+    Please amend it to:
 
-```js
+    ```js
     // When declaring
     manifest: {
         default: null,
@@ -108,32 +107,32 @@ Please amend it to:
 
     // On Access
     this._am = new jsb.AssetsManager(this.manifest.nativeUrl, storagePath);
-```
+    ```
 
-#### "properties in CCClass can not be abbreviated if they are of type RawAsset"
+  - "properties in CCClass can not be abbreviated if they are of type RawAsset"
 
-In addition to the warning messages mentioned earlier, you may also see this warning. What this sentence means is, When you declare the `audio_bgMusic` attribute, you use a convenient form that may cause ambiguity in the future, These abbreviations are temporarily abandoned and will not be re-supported until most of the projects are upgraded smoothly. By looking for `FOO.js` in your project, you can find a way to define something like this:
+    In addition to the warning messages mentioned earlier, you may also see this warning. What this sentence means is, When you declare the `audio_bgMusic` attribute, you use a convenient form that may cause ambiguity in the future, These abbreviations are temporarily abandoned and will not be re-supported until most of the projects are upgraded smoothly. By looking for `FOO.js` in your project, you can find a way to define something like this:
 
-```js
+    ```js
     audio_bgMusic: cc.AudioClip,
-```
+    ```
 
-You need to use the type + default to make a full statement with reference to the previous modification:
+    You need to use the type + default to make a full statement with reference to the previous modification:
 
-```js
+    ```js
     audio_bgMusic: {
         default: null,
         type: cc.AudioClip,
     },
-```
+    ```
 
-In this way, after the game scene is loaded, `audio_bgMusic` will be the object of a AudioClip type, rather than the original audio string. The relevant attention is consistent with the previous, here no longer repeat.                                    
+    In this way, after the game scene is loaded, `audio_bgMusic` will be the object of a AudioClip type, rather than the original audio string. The relevant attention is consistent with the previous, here no longer repeat.                                    
 
-### "textureCache.addImage(url) - The type of the url should be string, not Texture2D..."
+  - "textureCache.addImage(url) - The type of the url should be string, not Texture2D..."
 
-This warning is usually caused by the following code:
+    This warning is usually caused by the following code:
 
-```js
+    ```js
     // Follow the above document to upgrade the wording
     tex: {
         default: null,
@@ -142,30 +141,30 @@ This warning is usually caused by the following code:
 
     // Original code to get texture
     var texture = cc.textureCache.addImage(this.tex);
-```
+    ```
 
-This warning means that when you call `addImage`, you are already passing in a Texture2D object, so just use the object directly and not need to load again. Because the upgraded `tex` is already a Texture2D. That means you only have to:
+    This warning means that when you call `addImage`, you are already passing in a Texture2D object, so just use the object directly and not need to load again. Because the upgraded `tex` is already a Texture2D. That means you only have to:
 
-```js
+    ```js
     var texture = this.tex;
-```
+    ```
 
-### "Since 1.10, `cc.audioEngine.play` accept cc.AudioClip instance directly, not a URL string..."
+  - "Since 1.10, `cc.audioEngine.play` accept cc.AudioClip instance directly, not a URL string..."
 
-This warning is usually caused by the following code:
+    This warning is usually caused by the following code:
 
-```js
+    ```js
     var url = cc.url.raw('resources/bg.mp3');
     cc.audioEngine.play(url);
-```
+    ```
 
-Please amend it to:
+    Please amend it to:
 
-```js
+    ```js
     cc.loader.loadRes('bg', cc.AudioClip, function (err, clip) {
         cc.audioEngine.play(clip);
     });
-```
+    ```
 
 ## Protobuf related adjustments
 
@@ -202,14 +201,14 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 Starting with 1.10, common text formats such as `.txt, .plist, .xml, .json, .yaml, .ini, .csv, .md` will be imported as `cc.TextAsset`. You can access TextAsset like this:
 
 ```js
-    // Declaration
-    file: {
-        default: null,
-        type: cc.TextAsset,
-    },
+// Declaration
+file: {
+    default: null,
+    type: cc.TextAsset,
+},
 
-    // Read
-    var text = this.file.text;
+// Read
+var text = this.file.text;
 ```
 
 ### Added `cc.JsonAsset` for loading JSON files
@@ -217,31 +216,31 @@ Starting with 1.10, common text formats such as `.txt, .plist, .xml, .json, .yam
 Starting with 1.10, all the `.json` files under the project's `assets` folder (excluding the released `imports` directory) are imported as `cc.JsonAsset`. You must adjust the loader related code, otherwise you will get errors at runtime. For example, originally:
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, json) {
-        loadNpc(json);
-    });
+cc.loader.loadRes('configs/npc', function (err, json) {
+    loadNpc(json);
+});
 ```
 
 Need to change to:
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, asset) {
-        loadNpc(asset.json);
-    });
+cc.loader.loadRes('configs/npc', function (err, asset) {
+    loadNpc(asset.json);
+});
 ```
 
 In addition, you can read directly:
 
 ```js
-    // Declaration
-    npcList: {
-        default: null,
-        type: cc.JsonAsset,
-    },
+// Declaration
+npcList: {
+    default: null,
+    type: cc.JsonAsset,
+},
 
-    // Read
-    var json = this.npcList.json;
-    loadNpc(json);
+// Read
+var json = this.npcList.json;
+loadNpc(json);
 ```
 
 ### The other unknown types are also all imported as `cc.Asset` by default.
@@ -250,4 +249,4 @@ For an unknown type of file imported from the editor, originally imported as an 
 
 ### If you need to compress the built textures
 
-Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.
+Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the [Example](https://github.com/cocos-creator/demo-process-build-textures).

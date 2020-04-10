@@ -13,7 +13,7 @@
 3. 以对齐左下角为例，开启 `Left` 和 `Bottom` 的对齐。
 4. 然后设置好节点和屏幕边缘的距离，下图中左边距设为 50px，下边距设为 30px。
 
-![align left bottom](widget-align/align-basic.png)
+  ![align left bottom](widget-align/align-basic.png)
 
 这样设置好 Widget 组件后，不管实际屏幕分辨率是多少，这个节点元素都会保持在屏幕左下角，而且节点约束框左边和屏幕左边距离保持 50px，节点约束框下边和屏幕下边距离保持 30px。
 
@@ -75,10 +75,10 @@ Widget 在对齐方向开启时输入边距值时，可以按照需要混合像�
 
 Widget 组件一般用于场景在目标设备上初始化时定位每个元素的位置，但一旦场景初始化完毕，很多时候我们就不需要 Widget 组件再进行对齐了。这里有个重要的属性 `alignOnce` 用于确保 Widget 组件只在初始化时执行对齐定位的逻辑，在运行时不再消耗时间来进行对齐。
 
-`alignOnce` 如果被选中，在组件初始化时执行过一次对齐定位后，就会通过将 Widget 组件的 `enabled` 属性设为 `false` 来关闭之后每帧自动更新来避免重复定位。如果需要在运行时实时定位，你需要手动将 `alignOnce` 属性关闭（置为 `false`），或者在运行时需要进行每帧更新对齐时手动遍历需要对齐的 Widget 并将他们的 `enabled` 属性设为 `true`。
+如果选中了 `alignOnce`，且在组件初始化时执行过一次对齐定位，引擎就会自动将 Widget 组件的 `enabled` 属性设为 `false` 来关闭之后每帧自动更新来避免重复定位。如果需要在运行时实时定位，你需要手动将 `alignOnce` 属性关闭（设为 `false`），或者在运行时需要进行每帧更新对齐时手动遍历需要对齐的 Widget， 并将他们的 `enabled` 属性设为 `true`。
 
 对于有很多 UI 元素的场景，确保 Widget 组件的 `alignOnce` 选项打开，可以大幅提高场景运行性能。
 
 ## 对齐组件对节点位置、尺寸的限制
 
-通过 **Widget** 组件开启一个或多个对齐参考后，节点的位置（position）和尺寸（width，height）属性可能会被限制，不能通过 API 或动画系统自由修改。如果需要在运行时修改对齐节点的位置或尺寸，请参考[Widget 组件参考：对节点位置、尺寸的限制](../components/widget.md#--5)相关内容。
+通过 **Widget** 组件开启一个或多个对齐设置后，节点的位置（position）和尺寸（width、height）属性可能会被限制，不能通过 API 或动画系统自由修改。如果需要在运行时修改对齐节点的位置或尺寸，详情请参考 [Widget 组件参考：对节点位置、尺寸的限制](../components/widget.md#%E5%AF%B9%E8%8A%82%E7%82%B9%E4%BD%8D%E7%BD%AE%E3%80%81%E5%B0%BA%E5%AF%B8%E7%9A%84%E9%99%90%E5%88%B6)。

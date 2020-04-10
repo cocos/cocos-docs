@@ -51,7 +51,7 @@ Note: all tag names should be lower case and the property assignment should use 
 | b      |Render text as bold font| `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported.
 | i      |Render text as italic font| `<i>This text will be rendered as italic</i>`| The tag name must be lowercase and tag name `italic` is not supported.
 | u      |Add a underline to the text|`<u>This text will have a underline</u>`| The tag name must be lowercase and tag name `underline` is not supported.
-| on     |Specify a event callback to a text node，when you click the node，the callback will be triggered.| `<on click="handler"> click me! </on>` | Every valid tag could also add another click event attribute. eg. `<size=10 click="handler2">click me</size>`
+| on     |Specify a event callback to a text node, when you click the node, the callback will be triggered.| `<on click="handler"> click me! </on>` | Every valid tag could also add another click event attribute. eg. `<size=10 click="handler2">click me</size>`
 | param  |When the click event is triggered, the value can be obtained in the second parameter of the callback function.| `<on click="handler" param="test"> click me! </on>`|Depends on the click event|
 | br     |Insert a empty line| `<br/>`|`<br></br>` and `<br>` are both invalid tags.
 | img    |Add image emoji support to your RichText. The emoji name should be a valid spriteframe name in the ImageAtlas property. |`<img src='emoji1' click='handler' />` | Only `<img src='foo' click='bar' />` is a valid img tag. If you specify a large emoji image, it will scale the sprite height to the line height of the RichText together with the sprite width.

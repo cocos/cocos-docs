@@ -16,7 +16,7 @@ Cocos Creator 的坐标系和 cocos2d-x 引擎坐标系完全一致，而 cocos2
 
 标准屏幕坐标系使用和 OpenGL 不同的坐标系，和 cocos2d-x 坐标系有很大区别。
 
-在 iOS, Android 等平台用原生 SDK 开发应用时使用的是标准屏幕坐标系，原点为屏幕左上角，x 向右，y 向下。
+在 iOS、Android 等平台用原生 SDK 开发应用时使用的是标准屏幕坐标系，原点为屏幕左上角，x 向右，y 向下。
 
 Cocos2d-x 坐标系和 OpenGL 坐标系一样，原点为屏幕左下角，x 向右，y 向上。
 

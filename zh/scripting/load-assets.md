@@ -10,7 +10,7 @@ Cocos Creator 有一套统一的资源管理机制，在本篇教程，我们将
 
 ## 资源属性的声明
 
-在 Creator 中，所有继承自 `cc.Asset` 的类型都统称资源，如 `cc.Texture2D`, `cc.SpriteFrame`, `cc.AnimationClip`, `cc.Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
+在 Creator 中，所有继承自 `cc.Asset` 的类型都统称资源，如 `cc.Texture2D`、`cc.SpriteFrame`、`cc.AnimationClip`、`cc.Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
 
 > 例如，当引擎在加载场景时，会先自动加载场景关联到的资源，这些资源如果再关联其它资源，其它也会被先被加载，等加载全部完成后，场景加载才会结束。
 
@@ -131,7 +131,7 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 ```js
 // 加载 SpriteAtlas（图集），并且获取其中的一个 SpriteFrame
-// 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下, 所以需要在第二个参数指定资源类型
+// 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下，所以需要在第二个参数指定资源类型
 cc.loader.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
     var frame = atlas.getSpriteFrame('sheep_down_0');
     sprite.spriteFrame = frame;

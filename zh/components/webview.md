@@ -53,7 +53,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`, `component`, `handler` 和 `customEventData` 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```js
 //here is your component file
@@ -109,7 +109,7 @@ cc.Class({
 });
 ```
 
-同样的，你也可以注册 `loading`, `error` 事件，这些事件的回调函数的参数与 `loaded` 的参数一致。
+同样的，你也可以注册 `loading`、`error` 事件，这些事件的回调函数的参数与 `loaded` 的参数一致。
 
 ## 如何与 WebView 内部页面进行交互
 

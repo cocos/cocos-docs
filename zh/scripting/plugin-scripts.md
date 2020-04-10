@@ -16,7 +16,7 @@
 变量声明 | 脚本内声明的局部变量不会暴露到全局 | 发布后，脚本内不在任何函数内声明的局部变量都会暴露成全局变量。编辑器下则和普通脚本相同。(在微信、百度、小米、支付宝小游戏上，局部变量不会被暴露成全局变量。如果想实现同样的效果，请确保将局部变量赋值为全局变量 `window` 的属性)
 use strict | 强制开启，未定义的变量不能赋值 | 需要手动声明，否则未定义的变量一旦赋值就会变成全局变量
 脚本导入项目时 | 脚本中的 ES2015 特性会先 [转译](../scripting/reference/javascript-support.md)，再进入统一的模块化解析 | 不做任何处理
-项目构建阶段时 | 所有普通脚本都会打包成**单个**脚本文件，非“调试模式”下还会压缩 | 不进行打包，非“调试模式”下会被压缩
+项目构建阶段时 | 所有普通脚本都会打包成 **单个** 脚本文件，非“调试模式”下还会压缩 | 不进行打包，非“调试模式”下会被压缩
 SourceMap | 支持 | 不支持
 
 勾选“导入为插件”后，还能够进一步在 **属性检查器** 设置这个插件脚本什么时候才会生效：
@@ -31,9 +31,9 @@ SourceMap | 支持 | 不支持
 
 脚本加载顺序如下：
 
- 1. Cocos2d 引擎
- 1. 插件脚本（有多个的话按项目中的路径字母顺序依次加载）
- 1. 普通脚本（打包后只有一个文件，内部按 require 的依赖顺序依次初始化）
+1. Cocos2d 引擎
+2. 插件脚本（有多个的话按项目中的路径字母顺序依次加载）
+3. 普通脚本（打包后只有一个文件，内部按 require 的依赖顺序依次初始化）
 
 ## 目标平台兼容性
 
@@ -41,19 +41,23 @@ SourceMap | 支持 | 不支持
 
  - **目标平台不提供原生 node.js 支持**<br>
  例如很多 [npm](https://www.npmjs.com/) 模块都直接或间接依赖于 node.js，这样的话发布到原生或网页平台后是不能用的。
+
  - **依赖 DOM API 的插件将无法发布到原生平台**<br>
  网页中可以使用大量的前端插件，例如 jQuery，不过它们有可能依赖于浏览器的 DOM API。依赖这些 API 的插件不能用于原生平台中。
 
 ## 注意事项
 
- - **如果插件包含了多个脚本，则需要把插件用到的所有脚本合并为单个的 js 文件**<br>
- 以 Async（[https://github.com/caolan/async](https://github.com/caolan/async)）为例，这个库包含了非常多的零散的源文件，如果把所有源文件都放到项目里，则每个源文件都要设置一次“导入为插件”，并且 Creator 无法保证这些源文件之间的加载顺序，很容易报错。所以我们要找到插件作者提供的预编译好的单个脚本，例如 async.js 或 async.min.js，这样的文件可以直接用浏览器加载运行，不需要做额外的编译操作，一般可以直接放入 Creator 中使用。如果插件作者没提供打包好的版本，通常也会在文档中说明如何编译出浏览器可执行的脚本，照着操作就行。
+- **如果插件包含了多个脚本，则需要把插件用到的所有脚本合并为单个的 js 文件**
 
- - **如果插件还依赖于其它插件，也需要把多个插件合并为单个 js 文件**<br>
- 以 [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js) 为例，这个库还依赖于 [bytebuffer.js](https://github.com/dcodeIO/bytebuffer.js)，但是插件作者并没有提供整合好的独立运行版本。我们可以先下载到这两个库各自编译后的两个文件 [protobuf.js](https://github.com/dcodeIO/protobuf.js/tree/master/dist/) 和 [bytebuffer.js](https://github.com/dcodeIO/bytebuffer.js/tree/master/dist)，然后使用文本编辑器或类似 `cat` 这样的命令行工具将这两个脚本拼合成一个新的脚本 protobuf_all.js。然后就能在 Creator 中直接使用这个 protobuf_all.js 了。
+  以 Async（[https://github.com/caolan/async](https://github.com/caolan/async)）为例，这个库包含了非常多的零散的源文件，如果把所有源文件都放到项目里，则每个源文件都要设置一次“导入为插件”，并且 Creator 无法保证这些源文件之间的加载顺序，很容易报错。所以我们要找到插件作者提供的预编译好的单个脚本，例如 async.js 或 async.min.js，这样的文件可以直接用浏览器加载运行，不需要做额外的编译操作，一般可以直接放入 Creator 中使用。如果插件作者没提供打包好的版本，通常也会在文档中说明如何编译出浏览器可执行的脚本，照着操作就行。
 
-- **不支持插件主动加载其它脚本**<br>
-以 [lzma 插件](https://github.com/nmrugg/LZMA-JS)为例，这个插件默认提供的 `lzma.js` 脚本会通过浏览器的 Worker 加载另一个工作者脚本，目前 Creator 不支持这样的额外加载。解决方式是 [单独使用 `lzma_worker.js` 就好](https://github.com/nmrugg/LZMA-JS#but-i-dont-want-to-use-web-workers)。其它像是内部采用 `document.createElement("script")` 自行加载依赖项的插件，也需要做类似处理才能导入 Creator。
+- **如果插件还依赖于其它插件，也需要把多个插件合并为单个 js 文件**
+
+  以 [protobuf.js](https://github.com/dcodeIO/ProtoBuf.js) 为例，这个库还依赖于 [bytebuffer.js](https://github.com/dcodeIO/bytebuffer.js)，但是插件作者并没有提供整合好的独立运行版本。我们可以先下载到这两个库各自编译后的两个文件 [protobuf.js](https://github.com/dcodeIO/protobuf.js/tree/master/dist/) 和 [bytebuffer.js](https://github.com/dcodeIO/bytebuffer.js/tree/master/dist)，然后使用文本编辑器或类似 `cat` 这样的命令行工具将这两个脚本拼合成一个新的脚本 protobuf_all.js。然后就能在 Creator 中直接使用这个 protobuf_all.js 了。
+
+- **不支持插件主动加载其它脚本**
+
+  以 [lzma 插件](https://github.com/nmrugg/LZMA-JS)为例，这个插件默认提供的 `lzma.js` 脚本会通过浏览器的 Worker 加载另一个工作者脚本，目前 Creator 不支持这样的额外加载。解决方式是 [单独使用 lzma_worker.js 就好](https://github.com/nmrugg/LZMA-JS#but-i-dont-want-to-use-web-workers)。其它像是内部采用 `document.createElement("script")` 自行加载依赖项的插件，也需要做类似处理才能导入 Creator。
 
 ## 全局变量
 
@@ -125,7 +129,6 @@ else {
 > 你应当很谨慎地使用全局变量，当你要用全局变量时，应该很清楚自己在做什么，我们并不推荐滥用全局变量，即使要用也最好保证全局变量只读。<br>
 > 添加全局变量时，请小心不要和系统已有的全局变量重名。<br>
 > 你可以在插件脚本中自由封装或者扩展 Cocos2d 引擎，但这会提高团队沟通成本，导致脚本难以复用。
-
 
 ---
 

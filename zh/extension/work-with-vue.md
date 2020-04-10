@@ -1,12 +1,8 @@
 # 在面板中使用 Vue
 
-如果你已经掌握了 [编写面板界面](writing-your-panel.md) 这章中的界面编写方法，你或许会觉得这样
-编写界面有些繁琐。是否能够使用一些前端界面框架来提升界面编写效率呢？答案是肯定的。Cocos Creator
-支持任何界面框架如 [Vue](http://vuejs.org/)，[React](https://facebook.github.io/react/)，
-[Polymer](http://polymer-project.org/) 等等。
+如果你已经掌握了 [编写面板界面](writing-your-panel.md) 这章中的界面编写方法，你或许会觉得这样编写界面有些繁琐。是否能够使用一些前端界面框架来提升界面编写效率呢？答案是肯定的。Cocos Creator 支持任何界面框架如 [Vue](http://vuejs.org/)，[React](https://facebook.github.io/react/)、[Polymer](http://polymer-project.org/) 等等。
 
-在测试过程中，我们发现 [Vue](http://vuejs.org/) 非常符合 Cocos Creator 的整体设计思路，所以
-我们重点介绍一下如何在 Cocos Creator 中使用 [Vue](http://vuejs.org/) 编写面板界面。
+在测试过程中，我们发现 [Vue](http://vuejs.org/) 非常符合 Cocos Creator 的整体设计思路，所以我们重点介绍一下如何在 Cocos Creator 中使用 [Vue](http://vuejs.org/) 编写面板界面。
 
 ## 部署 Vue
 
@@ -24,8 +20,7 @@ ready () {
 }
 ```
 
-通过传入 `panel-frame` 的 shadow root 元素，我们可以让 Vue 在该元素节点下生成一份 vm。让我们来
-看一个更详细的使用例子：
+通过传入 `panel-frame` 的 shadow root 元素，我们可以让 Vue 在该元素节点下生成一份 vm。让我们来看一个更详细的使用例子：
 
 ```javascript
 Editor.Panel.extend({
@@ -55,8 +50,7 @@ Editor.Panel.extend({
 
 ## 数据绑定
 
-我们可以在面板的 `template` 关键字中，定义 Vue 的数据绑定规则。然后通过在 Vue 定义的 `data` 关键字
-中写入绑定数据来完成整个操作。
+我们可以在面板的 `template` 关键字中，定义 Vue 的数据绑定规则。然后通过在 Vue 定义的 `data` 关键字中写入绑定数据来完成整个操作。
 
 具体例子如下：
 

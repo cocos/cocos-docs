@@ -73,7 +73,7 @@ node.stopActionByTag(ACTION_TAG);
     重复动作用来多次重复一个动作。示例：
 
     ```js
-    // 让节点左右来回移动，并重复5次
+    // 让节点左右来回移动，并重复 5 次
     var seq = cc.repeat(
                 cc.sequence(
                     cc.moveBy(2, 200, 0),
@@ -97,7 +97,7 @@ node.stopActionByTag(ACTION_TAG);
     速度动作可以改变目标动作的执行速率，让动作更快或者更慢完成。
 
     ```js
-    // 让目标动作速度加快一倍，相当于原本2秒的动作在1秒内完成
+    // 让目标动作速度加快一倍，相当于原本2秒的动作在 1 秒内完成
     var action = cc.speed(
                     cc.spawn(
                         cc.moveBy(2, 0, 50),
@@ -128,7 +128,7 @@ this.jumpAction = cc.sequence(
         cc.scaleTo(0.2, 1, 1),
         cc.moveTo(0.2, 0, 0)
     )
-// 以1/2的速度慢放动画，并重复5次
+// 以 1/2 的速度慢放动画，并重复 5 次
 ).speed(2).repeat(5);
 ```
 
@@ -144,7 +144,7 @@ var finished = cc.callFunc(this.myMethod, this, opt);
 
 ```js
 var finished = cc.callFunc(function () {
-    //doSomething
+    // doSomething
 }, this, opt);
 ```
 
@@ -153,7 +153,7 @@ var finished = cc.callFunc(function () {
 ```js
 var finished = cc.callFunc(function(target, score) {
     this.score += score;
-}, this, 100);//动作完成后会给玩家加100分
+}, this, 100); //动作完成后会给玩家加 100 分
 ```
 
 在声明了回调动作 `finished` 后，您可以配合 `cc.sequence` 来执行一整串动作并触发回调：
@@ -165,10 +165,10 @@ var myAction = cc.sequence(cc.moveBy(1, cc.v2(0, 100)), cc.fadeOut(1), finished)
 在同一个 sequence 里也可以多次插入回调：
 
 ```js
-var myAction = cc.sequence(cc.moveTo(1, cc.v2(0, 0)), finished1, cc.fadeOut(1), finished2); //finished1, finished2 都是使用 cc.callFunc 定义的回调动作
+var myAction = cc.sequence(cc.moveTo(1, cc.v2(0, 0)), finished1, cc.fadeOut(1), finished2); // finished1、finished2 都是使用 cc.callFunc 定义的回调动作
 ```
 
-注意: 在 cc.callFunc 中不应该停止自身动作，由于动作是不能被立即删除，如果在动作回调中暂停自身动作会引发一系列遍历问题，导致更严重的 bug。
+注意：在 `cc.callFunc` 中不应该停止自身动作，由于动作是不能被立即删除，如果在动作回调中暂停自身动作会引发一系列遍历问题，导致更严重的 bug。
 
 ### 缓动动作
 

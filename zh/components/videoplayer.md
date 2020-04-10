@@ -69,7 +69,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的。通过代码添加，首先你需要构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`, `component`, `handler` 和 `customEventData` 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的。通过代码添加，首先你需要构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```js
 var videoPlayerEventHandler = new cc.Component.EventHandler();
@@ -143,6 +143,7 @@ cc.Class({
 
 - 该功能仅支持 **Web** 平台。
 - 各个浏览器具体效果无法保证一致，跟浏览器是否支持与限制有关。
+- 开启 **stayOnBottom** 后，将无法正常监听 `VideoPlayerEvent` 中的 `clicked` 事件。
 
 详情可参考引擎自带的 example-cases 测试例中的 [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer)。最终效果如下图所示：
 

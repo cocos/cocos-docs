@@ -6,11 +6,11 @@
 
 ## Log level
 
-- **Log**：gray text, is normally used to indicate operation on-going.
-- **Info**：blue text, is used to indicate important prompt information.
-- **Success**：green text, is used to indicate that current operation has successfully done.
-- **Warn**：yellow text, is used to warn user to deal with the abnormal situation which won't influence operations if not being dealt with.
-- **Error**：red text, indicates gross error and measures must be took before going on to the next operation or running the game.
+- **Log**: gray text, is normally used to indicate operation on-going.
+- **Info**: blue text, is used to indicate important prompt information.
+- **Success**: green text, is used to indicate that current operation has successfully done.
+- **Warn**: yellow text, is used to warn user to deal with the abnormal situation which won't influence operations if not being dealt with.
+- **Error**: red text, indicates gross error and measures must be took before going on to the next operation or running the game.
 
 ## Console settings and features
 

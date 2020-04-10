@@ -1,6 +1,6 @@
 # Advance Settings
 
-> Authors：Xunyi, youyou
+> Authors: Xunyi, youyou
 
 Box2D provides a lot of parameters to change the physical running state. In addition to `RigidBody`, `Collider`, `Joint`, `World`, there are some parameters that belong to the Box2D internal macro. The parameters of these macros can be found at the beginning of the **box2d.js (web platform)** / **Box2D/Common/b2Settings.h (native platform)** file.
 

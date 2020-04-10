@@ -23,26 +23,26 @@ Align Mode         | Specifies the alignment mode of the Widget, which determine
 
 We can place a Widget below Canvas, and perform the following tests:
 
-#### Left alignment, left border distance 100 px：
+### Left alignment, left border distance 100 px:
 
 ![left-100px](widget/widget-left-100px.png)
 
-#### Bottom alignment, bottom border distance 50%：
+### Bottom alignment, bottom border distance 50%:
 
 The percentage will take the width or height of the parent object as a benchmark
 ![bottom-0.5](widget/widget-bottom-0.5.png)
 
-#### Bottom right alignment, border distance 0 px：
+### Bottom right alignment, border distance 0 px:
 
 ![bottom-right-0px](widget/widget-bottom-right-0px.png)
 
 ## Center alignment
 
-#### Horizontal center alignment:
+### Horizontal center alignment:
 
 ![bottom-right-0px](widget/widget-h-center.png)
 
-#### Vertical center alignment and right border distance 50%:
+### Vertical center alignment and right border distance 50%:
 
 ![v-center-right-0.5](widget/widget-v-center-right-0.5.png)
 
@@ -51,15 +51,15 @@ The percentage will take the width or height of the parent object as a benchmark
 If you align the left and right side at the same time, or align the top and bottom at the same time, then the size will be stretched in the corresponding direction.
 Let us look at a demonstration. Place two rectangular Sprites in the scene and take the bigger one as the dialog box background and the smaller one as the button on the dialog box. Take the button node as the child node of the dialog box and set the button into Sliced mode so that you can observe the stretch effect.
 
-#### Horizontal stretch, left and right margin 10%：
+### Horizontal stretch, left and right margin 10%:
 
 ![h-stretch](widget/widget-h-stretch.png)
 
-#### Vertical stretch, no margins on each end and horizontal center alignment:
+### Vertical stretch, no margins on each end and horizontal center alignment:
 
 ![v-stretch](widget/widget-v-stretch.png)
 
-#### Stretch in the horizontal and vertical directions, margin 50 px：
+### Stretch in the horizontal and vertical directions, margin 50 px:
 
 ![margin-50px](widget/widget-margin-50px.png)
 

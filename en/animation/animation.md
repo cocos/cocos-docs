@@ -13,15 +13,15 @@ path is animation component relative path. So, only one data copy of the same na
 
 ### clip params
 
-**sample**： The number of frames per second data，default 60
+**sample**: The number of frames per second data, default 60
 
-**speed**： Animation speed，default 1
+**speed**: Animation speed, default 1
 
-**duration**： Animation duration ( speed = 1 )
+**duration**: Animation duration ( speed = 1 )
 
-**real time**： Play continued real time
+**real time**: Play continued real time
 
-**wrap mode**： Play Mode
+**wrap mode**: Play Mode
 
 ## Animate Editing Mode
 
@@ -103,19 +103,19 @@ Although the time of current frame changes with the frame rate, but the total fr
 
 ## Shortcut key
 
-- left：previous frame
+- left: previous frame
  
-- right：next frame
+- right: next frame
  
-- delete：Delete the selected keys
+- delete: Delete the selected keys
  
-- k：Forward the animation
+- k: Forward the animation
  
-- j：Backward animation
+- j: Backward animation
  
-- ctrl / cmd + left：Jump to the first frame
+- ctrl / cmd + left: Jump to the first frame
 
-- ctrl / cmd + right：Jump to the last frame
+- ctrl / cmd + right: Jump to the last frame
 
 ---
 

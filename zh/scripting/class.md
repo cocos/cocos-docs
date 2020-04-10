@@ -124,7 +124,7 @@ cc.Class({
     properties: {
         height: 20,       // number
         type: "actor",    // string
-        loaded: false,    // boolean                
+        loaded: false,    // boolean
         target: null,     // object
     }
     ```
@@ -163,7 +163,7 @@ cc.Class({
     }
     ```
 
-**注意**：除了以上几种情况，其他类型我们都需要使用**完整声明**的方式来进行书写。
+**注意**：除了以上几种情况，其他类型我们都需要使用 **完整声明** 的方式来进行书写。
 
 ### 完整声明
 
@@ -179,18 +179,18 @@ properties: {
 }
 ```
 
-以上代码为 `score` 属性设置了三个参数 `default`, `displayName` 和 `tooltip`。这几个参数分别指定了 `score` 的默认值为 0，在 **属性检查器** 里，其属性名将显示为：“Score (player)”，并且当鼠标移到参数上时，显示对应的 Tooltip。
+以上代码为 `score` 属性设置了三个参数 `default`、`displayName` 和 `tooltip`。这几个参数分别指定了 `score` 的默认值为 0，在 **属性检查器** 里，其属性名将显示为：“Score (player)”，并且当鼠标移到参数上时，显示对应的 Tooltip。
 
 下面是常用参数：
 
-- **default**: 设置属性的默认值，这个默认值仅在组件**第一次**添加到节点上时才会用到
+- **default**: 设置属性的默认值，这个默认值仅在组件 **第一次** 添加到节点上时才会用到
 - **type**: 限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](reference/class.md#type)
 - **visible**: 设为 false 则不在 **属性检查器** 面板中显示该属性
 - **serializable**: 设为 false 则不序列化（保存）该属性
 - **displayName**: 在 **属性检查器** 面板中显示成指定名字
 - **tooltip**: 在 **属性检查器** 面板中添加属性的 Tooltip
 
-更多的属性参数，可阅读 [属性参数](reference/attributes.md)
+更多的属性参数，可阅读 [属性参数](reference/attributes.md)。
 
 #### 数组声明
 
@@ -212,7 +212,7 @@ properties: {
 
 ### get/set 声明
 
-在属性中设置了 get 或 set 以后，访问属性的时候，就能触发预定义的 get 或 set 方法。定义方法如下：
+在属性中设置了 `get` 或 `set` 以后，访问属性的时候，就能触发预定义的 `get` 或 `set` 方法。定义方法如下：
 
 ```javascript
 properties: {
@@ -228,7 +228,6 @@ properties: {
 ```
 
 > 如果你只定义 get 方法，那相当于属性只读。<br>
-
 
 ---
 

@@ -10,8 +10,8 @@
 
 You can move and locate the view in **scene editor** by the following operations:
 
-- <kbd>right click to drag</kbd>：horizontally remove the view.
-- <kbd>mouse wheel</kbd>：zoom in/out the view by taking the current mouse hovering position as the center.
+- <kbd>right click to drag</kbd>: horizontally remove the view.
+- <kbd>mouse wheel</kbd>: zoom in/out the view by taking the current mouse hovering position as the center.
 
 ### Coordinate system and grid
 
@@ -97,9 +97,9 @@ All the child nodes will be zoomed in the same ratio with the node.
 
 ![scale](scene/scale_gizmo.png)
 
-### Rectangle tranform tool
+### Rect tranform tool
 
-Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **rectangle tranform tool**.
+Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **Rect tranform tool**.
 
 ![rect](scene/rect_button.png)
 
@@ -109,4 +109,4 @@ Drag any side on the gizmo so you can change the attributes of `width` and `heig
 
 ![rect](scene/rect_gizmo.png)
 
-In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
+In UI elements layout, **Rect Transform Tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
