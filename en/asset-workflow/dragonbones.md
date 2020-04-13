@@ -18,21 +18,21 @@ Using DragonBones skeleton animation resources in a scene requires two steps:
 
 1. Create a node and add the DragonBones component, which can be implemented in three ways:
 
-    - The first way: from the **Explorer** drag the skeleton animation resources to **level manager**:
+    - The first way: from the **Assets** drag the skeleton animation resources to **level manager**:
 
       ![DragonBones](dragonbones/create_1.png)
 
-    - from the **Explorer** drag the skeleton animation resources to **scene**:
+    - from the **Assets** drag the skeleton animation resources to **scene**:
 
       ![DragonBones](dragonbones/create_2.png)
 
-    - Drag the skeletal animation resource from the **Explorer** to the Dragon Asset attribute of the DragonBones component that has been created:
+    - Drag the skeletal animation resource from the **Assets** to the Dragon Asset attribute of the DragonBones component that has been created:
 
       ![DragonBones](dragonbones/create_3.png)
 
 2. Set Atlas for DragonBones Components
 
-    Drag the Atlas data from the **Explorer** to the Dragon Atlas Asset property of the DragonBones component:
+    Drag the Atlas data from the **Assets** to the Dragon Atlas Asset property of the DragonBones component:
 
       ![DragonBones](dragonbones/set_atlas.png)
 

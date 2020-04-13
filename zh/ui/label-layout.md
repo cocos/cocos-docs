@@ -78,7 +78,7 @@ Label 组件中的 `Enable Wrap Text`（自动换行）属性，可以切换文�
 
 以下两幅图都是在 `Clamp` + `Enable Wrap Text` 开启情况下的，区别在于文字约束框的宽度不同：
 
-![](label-layout/clamp_wrap1.png)   ![](label-layout/clamp_wrap2.png)
+![](label-layout/clamp_wrap1.png)    ![](label-layout/clamp_wrap2.png)
 
 在约束框宽度从左图变化到右图的过程中，文字将不断调整换行，最后由于约束框高度不足而产生了截断显示。
 
@@ -108,7 +108,7 @@ Label 组件中的 `Enable Wrap Text`（自动换行）属性，可以切换文�
 
 ![](label-layout/widget.png)
 
-上图中我们在背景节点上添加了两个 Label 子节点，分别为他们添加 Widget 组件后，设置左边文字 Widget 的 `Right` 属性为 `50%`，右边文字 Widget 的 `Left` 属性为 `60%`，就可以实现图中所示的多列布局式文字。
+上图中我们在背景节点上添加了两个 Label 子节点，分别为它们添加 Widget 组件后，设置左边文字 Widget 的 `Right` 属性为 `50%`，右边文字 Widget 的 `Left` 属性为 `60%`，就可以实现图中所示的多列布局式文字。
 
 而且通过 Widget 上设置边距，加上文字本身的排版模式，可以让我们在不需要具体微调文字约束框大小的情况下轻松实现灵活美观的文字排版。
 

@@ -78,9 +78,7 @@ When clamp mode opens auto wrap, labels will be wrapped in the allowable scale o
 
 The following two pictures are taken when `Clamp` + `Enable Wrap Text` are opened, the difference of which is the different width of the bounding boxes of the labels;
 
-![](label-layout/clamp_wrap1.png)
-
-![](label-layout/clamp_wrap2.png)
+![](label-layout/clamp_wrap1.png)    ![](label-layout/clamp_wrap2.png)
 
 When the width of the bounding box is changing from the left picture to the right picture, labels will be continuously adjusted and wrapped. In the end, the clamped display will appear due to the insufficient height of the bounding box.
 

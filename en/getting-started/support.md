@@ -1,12 +1,8 @@
 # Get Help and Support
 
-## Send problems and feedback
+## More tutorials
 
-Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
-
-- [Cocos Creator](https://www.cocos.com/en/creator/)
-- [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/creator)
-<!-- - QQ group: 738190852-->
+More engine dynamics, quality tutorials, and interviews can be viewed at [![](introduction/twitter.png)](https://twitter.com/cocos2dx) or [![](introduction/facebook.png)](https://www.facebook.com/cocos2dx/).
 
 ## Demo and example projects
 
@@ -56,3 +52,11 @@ Apart from the information provided in this guide, you can also obtain informati
 ### Other game development resources
 
 - [Cocos Store](https://store.cocos.com/): Various game art assets, extension tools
+
+## Send problems and feedback
+
+Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
+
+- [Cocos Creator](https://www.cocos.com/en/creator/)
+- [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/creator)
+<!-- - QQ group: 738190852-->

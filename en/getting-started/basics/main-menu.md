@@ -47,7 +47,7 @@ Reload the browser tab that is playing the current scene.
 
 Create nodes through this menu, and Control node to prefab conversion.
 
-* **Connect Node To Prefab**: At the same time select a node in the scene and a prefab in the Explorer, and then select this menu item to associate the selected node and prefab.
+* **Connect Node To Prefab**: At the same time select a node in the scene and a prefab in the **Assets**, and then select this menu item to associate the selected node and prefab.
 * **Convert to Ordinary Node**: Select a prefab node in the scene. Executing this command will convert the prefab node into a normal node.
 * **Create Empty Node**: Create an empty node in the scene. If the node is selected in the scene before the command is executed, the new node becomes the child of the selected node.
 * **Create Renderer Nodes**: Create a preset node that contains the render component. For details on how to use the render component, please refer to [Renderer and Graphics](../../render/index.md).

@@ -8,13 +8,13 @@
 
 JavaScript是一门充满争议的编程语言：它以 Java 命名，但实际上和 Java 毫无关系。JavaScript 的创造 [只用了 10 天时间](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)，但在20年时间里却发展成世界上最流行的 Web 开发语言。如果为 JavaScript 今日的地位和流行程度找一个原因，那毫无疑问是容易上手的语言特性。当然，精通 JavaScript 是一项艰巨的任务，但学会足够开发 Web 应用和游戏的知识却很简单，如果你已经有了一定编程基础，熟悉 JavaScript 语言特性不会花费你多长时间。
 
-另外，在使用 Cocos Creator 开发游戏时你大多数情况下都会重复使用一些固有的模式。根据帕雷托法则（也叫二八定律），掌握一门语言的20%就足够你应付 80% 以上的情况了。现在就让我们来花最短的时间学习足够的 JavaScript 知识，以便我们开始使用 Cocos Creator 开发游戏。
+另外，在使用 Cocos Creator 开发游戏时你大多数情况下都会重复使用一些固有的模式。根据帕雷托法则（也叫二八定律），掌握一门语言的 20% 就足够你应付 80% 以上的情况了。现在就让我们来花最短的时间学习足够的 JavaScript 知识，以便我们开始使用 Cocos Creator 开发游戏。
 
 ## 边读边尝试
 
-如果你能看到这篇文章，那么你已经具备了全功能的 JavaScript 开发环境——我说的就是你正在使用的浏览器！
+如果你能看到这篇文章，那么你已经具备了全功能的 JavaScript 开发环境 —— 我说的就是你正在使用的浏览器！
 
-在本页面中读到的所有例子，你都可以把他们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读 [如何在不同浏览器中打开控制台的指南](http://webmasters.stackexchange.com/a/77337)。
+在本页面中读到的所有例子，你都可以把它们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读文档 [如何在不同浏览器中打开控制台的指南](http://webmasters.stackexchange.com/a/77337)。
 
 准备好了吗？让我们开始学习 JavaScript 吧！
 
@@ -248,7 +248,7 @@ myString.replace("a", "z"); // "zbcdef"
 
 上面代码中的点符号表示“调用 `myString` 字符串对象的 `replace` 函数，并且传递 `a` 和 `z` 作为参数，然后获得返回值。
 
-使用点符号的表达式，最大的优点是你可以把多项任务链接在一个表达式里，当然前提是每个调用的函数必须有合适的返回值。我们不会过多介绍如何定义可链接的函数，但是使用他们是非常简单的，只要使用以下的模式：`something.function1().function2().function3()`
+使用点符号的表达式，最大的优点是你可以把多项任务链接在一个表达式里，当然前提是每个调用的函数必须有合适的返回值。我们不会过多介绍如何定义可链接的函数，但是使用它们是非常简单的，只要使用以下的模式：`something.function1().function2().function3()`
 
 链条中的每个环节都会接到一个初始值，调用一个函数，然后把函数执行结果传递到下一环节：
 
@@ -390,8 +390,8 @@ var Comp = cc.Class({
 
 以下是 JavaScript 的一些入门教程:
 
-- [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
-- [JavaScript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
+- [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
 
 ---
 

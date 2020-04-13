@@ -86,7 +86,3 @@ For scene with many UI elements, ensuring that the `alignOnce` option of the Wid
 ## Limitation on the position and size of node
 
 When the Widget component enables one or more alignment settings, the `position`, `width` and `height` properties of the node may be restricted and cannot be freely modified through the API or **Timeline**. If you need to modify the position or size of the alignment node at runtime, please refer to the [Widget Component: Limitation on node position control](../components/widget.md#limitation-on-node-position-control) for details.
-
----
-
-Continue on to read about [Label Layout](label-layout.md).

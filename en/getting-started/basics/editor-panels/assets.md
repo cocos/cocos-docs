@@ -1,6 +1,6 @@
 # Assets
 
-**Assets** is used for us to access and manage the working area of project assets. Adding assets into here is normally a necessary step when starting to make a game. You can use the **Hello World** template to create a new project and then see there are some basic asset types within **assets**.
+**Assets** is used for us to access and manage the working area of project assets. Adding assets into here is normally a necessary step when starting to make a game. You can use the **Hello World** template to create a new project and then see there are some basic asset types within **Assets**.
 
 ## Introduction to the interface
 
@@ -16,19 +16,19 @@
 
 ## Asset list
 
-An asset list can include any folder structure. Folders in **assets** will be shown by the ![folder](assets/folder.png) icon. Click the arrow to the left of this icon to expand/collapse the contents of a folder.
+An asset list can include any folder structure. Folders in **Assets** will be shown by the ![folder](assets/folder.png) icon. Click the arrow to the left of this icon to expand/collapse the contents of a folder.
 
 Except for the folders, everything else in the list is asset files. Files in the asset list will not show their extended names; instead icons will be used to indicate the type of file or asset. For example, the project created by the **HelloWorld** template includes three core assets:
 
-- **image assets**: currently includes image files like `jpg` and `png`, the icon will show as a thumbnail of the image.
-- ![javascript](assets/javascript.png) **script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
-- ![](../../../asset-workflow/index/scene.png) **scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
+- **Image assets**: Currently includes image files like `jpg` and `png`, the icon will show as a thumbnail of the image.
+- ![javascript](assets/javascript.png) **Script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
+- ![](../../../asset-workflow/index/scene.png) **Scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
 
 For more common asset types and asset workflows, please read the [asset workflow](../../../asset-workflow/index.md) chapter.
 
 ### Create assets
 
-Currently, the assets that can be created in **assets** are the following:
+Currently, the assets that can be created in **Assets** are the following:
 
 - Folder
 - Script file
@@ -68,20 +68,20 @@ Since deleting assets is an irreversible operation, there will be a pop up dialo
 
 ### Other operations
 
-The right click menu of **asset** also includes the following operations:
+The right click menu of **Asset** also includes the following operations:
 
-- `create`: same function as the **create** button, it will add assets to the currently selected folder. If what is currently selected is an asset file, it will add new assets to the same folder as the currently selected asset.
-- `rename`: rename the asset.
+- `Create`: Same function as the **Create** button, it will add assets to the currently selected folder. If what is currently selected is an asset file, it will add new assets to the same folder as the currently selected asset.
+- `Rename`: Rename the asset.
 - `Find Usages`: Find the file that used the resource and filter it in the search box.
-- `Open in Explorer (Windows) or Finder (Mac)`: open the asset folder in the file manager of the operating system.
-- `Open Asset In Library`: Opens the data generated when the selected resource is imported by the Creator.
-- `Reveal In Library`: open the imported asset location in `Library` of the project folder. Please read [project structure](../../project-structure.md) for detailed information.
-- `Show asset UUID and path`: show the currently selected asset's UUID in the **console** window.
+- `Open in Explorer (Windows) or Reveal In Finder (Mac)`: open the asset folder in the file manager of the operating system.
+- `Open Asset In Library`: Open the data generated when the selected resource is imported by the Creator.
+- `Reveal In Library`: Open the imported asset location in `Library` of the project folder. Please read [project structure](../../project-structure.md) for details.
+- `Show asset UUID and path`: Show the currently selected asset's UUID in the **Console** panel.
 
 Also, by double clicking on the asset you can enter the editing status for specific asset types such as scene assets and script assets.
 
 ## Filter assets
 
-Enter some text in the search box at the top right of **assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like `*.png` to list all the assets with this specific extension.
+Enter some text in the search box at the top right of **Assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like `*.png` to list all the assets with this specific extension.
 
 ![search asset](assets/search_asset.png)

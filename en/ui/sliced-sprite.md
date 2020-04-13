@@ -34,4 +34,4 @@ After you have prepared the 9-sliced resources, you can modify the draw mode of 
 
 ## Precautions
 
-When using tools or directly modifying the size attribute of Sliced ​​Sprite, note that the `size` property value cannot be negative, otherwise it cannot be displayed normally in Sliced ​​mode.
+When using **Rect Transform Tool** or directly modifying the size property of Sliced ​​Sprite, note that the `size` property value cannot be negative, otherwise it cannot be displayed normally in Sliced ​​mode.

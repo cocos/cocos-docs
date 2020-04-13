@@ -2,7 +2,7 @@
 
 ![scene-panel](../index/scene.png)
 
-**Scene editor** is the core working area of content creation. You will use it to choose and place the scene image, character, special effet, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's attributes like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
+**Scene** is the core working area of content creation. You will use it to choose and place the scene image, character, special effet, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's properties like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
 
 ## View Introduction
 
@@ -97,9 +97,9 @@ All the child nodes will be zoomed in the same ratio with the node.
 
 ![scale](scene/scale_gizmo.png)
 
-### Rect tranform tool
+### Rect Transform Tool
 
-Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **Rect tranform tool**.
+Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **Rect Transform Tool**.
 
 ![rect](scene/rect_button.png)
 

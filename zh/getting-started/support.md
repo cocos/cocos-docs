@@ -1,10 +1,16 @@
 # 获取帮助和支持
 
-## 更多教程 
+## 更多教程
 
-![](introduction/cocos.jpg)
+- Cocos 引擎官方公众号
 
-> 请关注 Cocos 引擎官方公众号，第一时间为您送上引擎动态、精品教程、达人专访等干货。
+  ![](introduction/cocos.jpg)
+
+  Cocos 引擎官方公众号，第一时间为您送上引擎动态、精品教程、达人专访等干货。
+
+- [哔哩哔哩 — Cocos 官方](https://space.bilibili.com/491120849/dynamic)
+
+  不定期直播、以及官方教程等持续更新中。
 
 ## 演示和范例项目
 

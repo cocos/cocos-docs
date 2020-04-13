@@ -17,7 +17,7 @@ Right              | Right border alignment      | Once selected, an input field
 HorizontalCenter   | Horizontal center alignment |
 VerticalCenter     | Vertical center alignment   |
 Target             | Align the target            | Specifies an alignment target that can only be one of the parent nodes of the current node. The default value is null, and when null, indicates the current parent.<br>If the parent node is the entire scene, it will be aligned to the visible area of the screen (`visibleRect`), and can be used to dock UI elements to the edge of the screen.
-Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to ON_WINDOWS_RESIZE, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
+Align Mode         | Specifies the alignment mode of the Widget, which determines when the widget should refresh at runtime | Normally set to `ON_WINDOWS_RESIZE`, only to be initialized and realigned whenever the window size changes.<br>Set to ONCE, will only make alignment when the component is enabled.<br>Set to ALWAYS, will update Widget's alignment every frame. 
 
 ## Border alignment
 
@@ -30,6 +30,7 @@ We can place a Widget below Canvas, and perform the following tests:
 ### Bottom alignment, bottom border distance 50%:
 
 The percentage will take the width or height of the parent object as a benchmark
+
 ![bottom-0.5](widget/widget-bottom-0.5.png)
 
 ### Bottom right alignment, border distance 0 px:

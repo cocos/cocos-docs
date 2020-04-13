@@ -69,7 +69,7 @@ anim.stop();
 **暂停**、**恢复**、**停止** 几个函数的调用比较接近。
 
 **暂停** 会暂时停止动画的播放，当 **恢复** 动画的时候，动画会继续从当前时间往下播放。  
-而 **停止** 则会终止动画的播放，再次播放这个动画时会重新从头开始播放动画。
+而 **停止** 则会终止动画的播放，再次播放这个动画时会重新播放动画。
 
 ### 设置动画的当前时间
 
@@ -114,7 +114,7 @@ var animState = anim.getAnimationState('test');
 var anim = this.getComponent(cc.Animation);
 var animState = anim.play('test');
 
-// 获取动画关联的clip
+// 获取动画关联的 clip
 var clip = animState.clip;
 
 // 获取动画的名字

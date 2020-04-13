@@ -1,11 +1,8 @@
 # 界面排版
 
-Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。如果对 CSS 不熟悉，
-推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
+Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。如果对 CSS 不熟悉，推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
 
-然而普通的 CSS 排版并不适合界面元素，为此，CSS 最新标准中加入了 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局。
-通过 Flex 布局，我们可以很轻易的对界面元素进行横排和纵排。为了方便开发者使用 CSS Flex，Cocos Creator
-也对他进行了一些封装。本章节主要就是介绍 Cocos Creator 中的界面排版方法。
+然而普通的 CSS 排版并不适合界面元素，为此，CSS 最新标准中加入了 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局。通过 Flex 布局，我们可以很轻易的对界面元素进行横排和纵排。为了方便开发者使用 CSS Flex，Cocos Creator 也对其进行了一些封装。本章节主要就是介绍 Cocos Creator 中的界面排版方法。
 
 ## 横排和纵排
 
@@ -35,10 +32,10 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ## 对齐元素
 
-我们在横排纵排时，会希望对所有子元素进行对齐操作。可以通过 `start`，`center` 和 `end` 来进行
-子元素的对齐操作。
+我们在横排纵排时，会希望对所有子元素进行对齐操作。可以通过 `start`、`center` 和 `end` 来进行子元素的对齐操作。
 
-对于横排元素，他们分别代表上，中，下对齐。对于纵排元素，他们分别代表左，中，右对齐。
+对于横排元素，它们分别代表上，中，下对齐。  
+对于纵排元素，它们分别代表左，中，右对齐。
 
 让我们以横排为例，来看一组例子：
 
@@ -62,8 +59,7 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-align-items](./assets/layout-align-items.png)
 
-有时候，我们需要对排版容器中的某个元素进行对齐调整，这个时候就可以通过 `self-` 关键字来操作。在
-Cocos Creator 中，我们提供了：`self-start`，`self-center`，`self-end` 和 `self-stretch`
+有时候，我们需要对排版容器中的某个元素进行对齐调整，这个时候就可以通过 `self-` 关键字来操作。在 Cocos Creator 中，我们提供了：`self-start`、`self-center`、`self-end` 和 `self-stretch`。
 
 让我们以横排为例，来看看这么做的效果：
 
@@ -80,8 +76,7 @@ Cocos Creator 中，我们提供了：`self-start`，`self-center`，`self-end` 
 
 ## 元素分布
 
-元素分布主要描述元素在排版方向上如何分布。比如所有元素都从排版容器的左边开始排，或者从右边，或者根据
-元素大小散步在排版容器中。
+元素分布主要描述元素在排版方向上如何分布。比如所有元素都从排版容器的左边开始排，或者从右边，或者根据元素大小散布在排版容器中。
 
 我们提供了：`justified`，`around-justified`，`start-justified`，`center-justified` 和 `end-justified`。
 
