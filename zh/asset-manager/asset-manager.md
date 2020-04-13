@@ -102,6 +102,23 @@ cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
     cc.assetManager.releaseAsset(asset);
 });
 ```
+Creator 还提供了引用计数机制来帮助开发者控制资源的引用和释放。例如：
+
+当你需要持有资源时，请调用 `addRef` 来增加引用，这将保证该资源不会被其他引用的地方自动释放。
+
+```js
+cc.resources.load('textures/armor', cc.Texture2D, function (err, texture) {
+    texture.addRef();
+    this.texture = texture;
+});
+```
+
+当你不再需要持有该资源时，请调用 `decRef` 来减少引用，`decRef` 还将根据引用计数尝试自动释放。
+
+```js
+this.texture.decRef();
+this.texture = null;
+```
 
 更多详细内容请参考 [终结器](finalizer.md) 。
 
@@ -110,16 +127,11 @@ cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
 在某些平台上，比如微信上，因为存在文件系统，所以可以利用文件系统对一些远程资源进行缓存。此时需要一个缓存管理器对所有缓存资源进行管理。包括缓存资源，清除缓存资源，修改缓存周期等。在 v2.4 上，Creator 在所有存在文件系统的平台上都提供了缓存管理器，能够对缓存进行增删改查操作。例如：
 
 ```js
-// 查询是否存在某个资源的缓存
-cc.assetManager.cacheManager.cachedFiles.has('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
+// 获取某个资源的缓存
+cc.assetManager.cacheManager.getCache('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
 
 // 清除某个资源的缓存
 cc.assetManager.cacheManager.cleanCache('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
 ```
 
 更多缓存管理器的介绍请参考 [缓存管理器](cache-manager.md) 。
-
----
-
-继续前往 [Asset Bundle](bundle.md) 说明文档。
-

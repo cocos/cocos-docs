@@ -95,12 +95,12 @@
     cc.loader.load('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 
     // 修改后
-    cc.assetManager.loadRemoteTexture('http://example.com/remote.jpg', (err, texture) => console.log(texture));
+    cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 ```
 **注意**：如果图片是跨域图片，你可能会需要使用如下形式：
 
 ```js
-    cc.assetManager.loadRemoteTexture('http://example.com/remote.jpg', { isCrossOrigin: true }, (err, texture) => console.log(texture));
+    cc.assetManager.loadRemote('http://example.com/remote.jpg', { isCrossOrigin: true }, (err, texture) => console.log(texture));
 ```
 
 加载远程音频：
@@ -110,7 +110,7 @@
     cc.loader.load('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
 
     // 修改后
-    cc.assetManager.loadRemoteAudio('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
+    cc.assetManager.loadRemote('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
 ```
 
 如果你代码中加载了远程文本，你会需要如下形式加载远程文本：
@@ -120,7 +120,7 @@
     cc.loader.load('http://example.com/equipment.txt', (err, text) => console.log(text));
 
     // 修改后
-    cc.assetManager.loadAny({ url: 'http://example.com/equipment.txt' }, (err, text) => console.log(text));
+    cc.assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
 ```
 
 **注意** ：

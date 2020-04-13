@@ -27,10 +27,10 @@
     } }, callback);
 
     // 跨域图片
-    cc.assetManager.loadRemoteTexture('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
+    cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
 
     // 使用 web audio 形式加载音频
-    cc.assetManager.loadRemoteAudio('http://example.com/background.mp3', { loadMode: cc.AudioClip.LoadMode.WEB_AUDIO }, callback);
+    cc.assetManager.loadRemote('http://example.com/background.mp3', { loadMode: cc.AudioClip.LoadMode.WEB_AUDIO }, callback);
 ```
 
 **注意** ：想要获取资源的加载进度必须在服务器端做好相关配置；另外，可选参数中的 `onProgress` 与 `cc.assetManager.loadAny` 的第三个参数 `onProgerss` 参数意义不同，前者可传递到处理方法中，在使用 XHR 时下载资源时查询下载进度；而后者则是整个加载过程的进度，与下载和 XHR 无关。
@@ -106,7 +106,3 @@
 ```
 
 此时除了前两个资源本身是优先级 2 之外，他们的依赖资源以及第三个资源都是优先级 3 。
-
----
-
-继续前往 [缓存管理器](cache-manager.md) 说明文档。

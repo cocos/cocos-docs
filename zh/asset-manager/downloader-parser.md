@@ -155,7 +155,3 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 ```
 
 更多关于可选参数的介绍请参考 [可选参数](custom-parameter.md)。
-
----
-
-继续前往 [加载与预加载](preload-load.md) 说明文档。

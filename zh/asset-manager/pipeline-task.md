@@ -104,7 +104,3 @@ function downloadSilently (request, options, onComplete) {
     myPipeline.async(task);
 }
 ```
-
----
-
-继续前往 [可选参数](custom-parameter.md) 说明文档。

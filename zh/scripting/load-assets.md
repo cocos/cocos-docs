@@ -193,30 +193,30 @@ var task = cc.resources.preload('test assets/image', cc.SpriteFrame, function (e
 
 ## 加载远程资源和设备资源
 
-在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio` 或 `cc.assetManager.loadAny` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `cc.resources.load` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
+在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemote` 或 `cc.assetManager.loadRemote` 或 `cc.assetManager.loadAny` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `cc.resources.load` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
 
 ```javascript
 // 远程 url 带图片后缀名
 var remoteUrl = "http://unknown.org/someres.png";
-cc.assetManager.loadRemoteTexture(remoteUrl, function (err, texture) {
+cc.assetManager.loadRemote(remoteUrl, function (err, texture) {
     // Use texture to create sprite frame
 });
 
 // 远程 url 不带图片后缀名，此时必须指定远程图片文件的类型
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-cc.assetManager.loadRemoteTexture(remoteUrl, {ext: '.png'}, function () {
+cc.assetManager.loadRemote(remoteUrl, {ext: '.png'}, function () {
     // Use texture to create sprite frame
 });
 
 // 用绝对路径加载设备存储内的资源，比如相册
 var absolutePath = "/dara/data/some/path/to/image.png"
-cc.assetManager.loadRemoteTexture(absolutePath, function () {
+cc.assetManager.loadRemote(absolutePath, function () {
     // Use texture to create sprite frame
 });
 
 // 远程音频
 remoteUrl = "http://unknown.org/sound.mp3";
-cc.assetManager.loadRemoteAudio(remoteUrl, function (err, audioClip) {
+cc.assetManager.loadRemote(remoteUrl, function (err, audioClip) {
     // play audio clip
 });
 
@@ -231,12 +231,12 @@ cc.assetManager.loadAny({ url: remoteUrl }, function (err, str) {
 
 ```js
 var remoteUrl = "http://unknown.org/someres.png";
-cc.assetManager.loadRemoteTexture(remoteUrl, { isCrossOrigin: true }, function (err, texture) {
+cc.assetManager.loadRemote(remoteUrl, { isCrossOrigin: true }, function (err, texture) {
     // Use texture to create sprite frame
 });
 ```
 
-**注意** ：我们建议你使用更为简单的 API `cc.assetManager.loadRemoteTexture` 或 `cc.assetManager.loadRemoteAudio`，当然你也可以参考 [AssetManager](../asset-manager/asset-manager.md) 来使用更灵活的用法。
+**注意** ：我们建议你使用更为简单的 API `cc.assetManager.loadRemote`，当然你也可以参考 [AssetManager](../asset-manager/asset-manager.md) 来使用更灵活的用法。
 
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
@@ -302,7 +302,7 @@ cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
 
 **最后一个值得关注的要点：JavaScript 的垃圾回收是延迟的。**
 
-想象一种情况，当你释放了 cc.assetManager 对某个资源的引用之后，由于考虑不周的原因，游戏逻辑再次请求了这个资源。此时垃圾回收还没有开始（垃圾回收的时机不可控），或者你的游戏逻辑某处，仍然持有一个对于这个旧资源的引用，那么意味着这个资源还存在内存中，但是 cc.assetManager 已经访问不到了，所以会重新加载它。这造成这个资源在内存中有两份同样的拷贝，浪费了内存。如果只是一个资源还好，但是如果类似的资源很多，甚至不止一次被重复加载，这对于内存的压力是有可能很高的。如果观察到游戏使用的内存曲线有这样的异常，请仔细检查游戏逻辑，是否存在泄漏，如果没有的话，垃圾回收机制是会正常回收这些内存的。
+想象一种情况，当你释放了 cc.assetManager 对某个资源的引用之后，由于考虑不周的原因，游戏逻辑再次请求了这个资源。此时垃圾回收还没有开始（垃圾回收的时机不可控），当出现这个情况时，意味着这个资源还存在内存中，但是 cc.assetManager 已经访问不到了，所以会重新加载它。这造成这个资源在内存中有两份同样的拷贝，浪费了内存。如果只是一个资源还好，但是如果类似的资源很多，甚至不止一次被重复加载，这对于内存的压力是有可能很高的。如果观察到游戏使用的内存曲线有这样的异常，请仔细检查游戏逻辑，避免释放近期内将要复用的资源，如果没有的话，垃圾回收机制是会正常回收这些内存的。
 
 ---
 

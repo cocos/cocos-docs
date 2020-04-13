@@ -4,18 +4,18 @@
 
 从 v2.4 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为模块化资源的工具，能够允许开发者按照项目需求将贴图，脚本，场景等等资源划分在不同的 Asset Bundle 中，在游戏运行过程中，按照需求去加载不同的 Asset Bundle，尽可能减少启动时需要加载的资源数量。Asset Bundle 能够按需求随意放置，比如可放在远程服务器上，本地，或者小游戏平台的子包中。
 
-## 常见问题 QA
+## FQA
 
 Q：Asset Bundle 所带来的优势是什么？
 
-A：Asset Bundle 主要用于对工程中的资源按照开发者的意愿进行模块划分，可以将不同场景不同需求的资源划分在多个包中，从而可以减少首次下载和加载游戏时所需要的时间。
+A：Asset Bundle 主要用于对工程中的资源按照开发者的意愿进行模块划分，可以将不同场景不同需求的资源划分在多个包中，从而可以减少首次下载和加载游戏时所需要的时间，也可以跨项目复用，用于加载子项目中的 Asset Bundle。
 
 Q：Asset Bundle 与 v2.4 之前的资源分包有什么区别？
 
 A：
 1. 资源分包本质上是游戏平台的基础功能，比如微信小游戏支持子包功能，而 Creator 进行了一次封装，帮助用户进行设置，但本质上此功能由对应平台控制，如果对应平台不支持子包功能，则 Creator 也不支持，而 Asset Bundle 完全由 Creator 设计实现，是帮助开发者对资源进行划分的模块化工具，与平台无关，理论上可在所有平台上支持。
 
-2. 资源分包实际上是将一些图片，网格拆分出去单独放在一个包内，但这个包是不完整，无法复用，无逻辑的，而 Asset Bundle 是通过逻辑划分对资源进行模块化，Asset Bundle 中包括资源，元数据，资源目录，所以 Asset Bundle 是完善的，有逻辑的，可复用的，完全可以从 Asset Bundle 中加载出整个场景或其他任何资源，Asset Bundle 通过拆分，可以极大减少首包中的 json 数量以及 settings.js 的大小。
+2. 资源分包实际上是将一些图片，网格拆分出去单独放在一个包内，但这个包是不完整，无法复用，无逻辑的，而 Asset Bundle 是通过逻辑划分对资源进行模块化，Asset Bundle 中包括资源，脚本，元数据，资源清单，所以 Asset Bundle 是完善的，有逻辑的，可复用的，完全可以从 Asset Bundle 中加载出整个场景或其他任何资源，Asset Bundle 通过拆分，可以极大减少首包中的 json 数量以及 settings.js 的大小。
 
 3. 资源分包是跟平台相关的，意味着需要按照平台要求的方式进行设置，比如微信子包是无法放在远程服务器上的，只能放在腾讯的服务器上，而 Asset Bundle 不受这些限制，Asset Bundle 可以放在本地，放在远程服务器上，甚至就放在微信的子包中。
 
@@ -25,19 +25,15 @@ A：在项目中 Asset Bundle 是通过对文件夹进行设置，**文件夹中
 
 Q：Asset Bundle 可以用来做大厅加子游戏的模式么？
 
-A：当然可以，可以将子游戏的场景放在 Asset Bundle 中，在需要时进行加载。
+A：当然可以，可以将子游戏的场景放在 Asset Bundle 中，在需要时进行加载，子游戏甚至可以在其它工程中预先以 Asset Bundle 的形式构建出来，然后在主工程中加载使用。
 
 Q：Asset Bundle 可以减少 settings.js 的大小么？
 
-A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js 。
-
-Q：Asset Bundle 还能在细分么？比如我想将单个 Asset Bundle 再拆分成两个部分。
-
-A：首先，这不符合 Creator 的架构设计，在 Creator 的设计中，Asset Bundle 是最小单位，无法再细分，你可以选择在项目中新建一个 Asset Bundle，再将一部分资源移到另一个 bundle 中从而达到拆分的目的。其次，Creator 在构建时会使用多种优化方式优化包体，而这些优化方式是以 Asset Bundle 为单位的，如果对 Asset Bundle 打包后的内容进行强行拆分，可能导致加载失败。
+A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js 。
 
 Q：Asset Bundle 能跨项目复用么？
 
-A：在某些前提下，可以做到跨项目复用 Asset Bundle。1. 当引擎版本相同，2. Asset Bundle 中用到的自定义脚本都包含在其本身之中，3. Asset Bundle 没有其他外部依赖 bundle 时，确实可以做到跨项目复用。
+A：当然可以，不过需要满足以下条件：1. 引擎版本相同，2. Asset Bundle 中用到的脚本都包含在其本身之中，3. Asset Bundle 没有其他外部依赖 bundle，如果有其他依赖 bundle，你必须也对依赖 bundle 进行加载。
 
 Q：Asset Bundle 可以做到分离首场景么？
 
@@ -102,7 +98,3 @@ Asset Bundle 的两种类型：
 ## 加载 Asset Bundle
 
 在通过 API 加载 Asset Bundle 时，引擎并没有去将该 bundle 中的所有资源加载出来，而只是去加载 Asset Bundle 的资源清单，即 `config.json` 文件以及 Asset Bundle 中的脚本文件。加载完成之后会返回一个使用资源清单构造出来的 `cc.AssetManager.Bundle` 类的实例。你可以用这个实例去加载 Bundle 中的各类资源。
-
----
-
-继续前往 [终结器](finalizer.md) 说明文档。

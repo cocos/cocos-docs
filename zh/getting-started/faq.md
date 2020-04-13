@@ -63,7 +63,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 ### 微信开放数据加载头像时提示 wx.request 找不到。
 
-加载图片时 url 若缺失 .png 之类的后缀，`cc.assetManager.loadRemoteTexture` 需要额外提供 options 参数指定 `{ ext: '.png' }`。
+加载图片时 url 若缺失 .png 之类的后缀，`cc.assetManager.loadRemote` 需要额外提供 options 参数指定 `{ ext: '.png' }`。
 
 具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) 中的 **dragonBones/DragonMesh** 测试例。
 
@@ -78,7 +78,7 @@ var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
 var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
 var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
 cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
-    cc.assetManager.loadRemoteTexture(image, (error, texture) => {
+    cc.assetManager.loadRemote(image, (error, texture) => {
         var atlas = new dragonBones.DragonBonesAtlasAsset();
         atlas.atlasJson = assets[0];
         atlas.texture = texture;
@@ -106,7 +106,7 @@ var image = "http://localhost/download/spineres/1/1.png";
 var ske = "http://localhost/download/spineres/1/1.json";
 var atlas = "http://localhost/download/spineres/1/1.atlas";
 cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
-    cc.assetManager.loadRemoteTexture(image, (error, atlasJson) => {
+    cc.assetManager.loadRemote(image, (error, atlasJson) => {
         var asset = new sp.SkeletonData();
         asset.skeletonJson = assets[1];
         asset.atlasText = assets[0];
