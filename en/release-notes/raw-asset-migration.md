@@ -1,6 +1,7 @@
 # v1.10 Resource Upgrade Guide
 
-> This article describes the considerations for migrating the old version Creator project to v1.10 in detail. If you have never used an older version, you do not need to read this article.
+> This article describes the considerations for migrating the old version Creator project to v1.10 in detail.
+If you have never used an older version, you do not need to read this article.
 
 In the [Acquire and load asset](../scripting/load-assets.md) document before v1.10, we have mentioned that Creator resources are divided into [Asset](../scripting/load-assets.md#asset) and [RawAsset](../scripting/load-assets.md#raw-asset). At that time this division was mainly to try to reuse the existing Cocos2d-x base modules, and lowering the barriers for Cocos2d-x users. But we still want to replace all the `RawAsset` into the standard `Asset`, with the development of Creator these two years, it is time to do a round of refactoring. Refactoring simplifies the processing of resources by editors and engines, reduces the volume of `settings.js` files after publication, and improves the user's development experience.
 
@@ -249,4 +250,4 @@ For an unknown type of file imported from the editor, originally imported as an 
 
 ### If you need to compress the built textures
 
-Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the [Example](https://github.com/cocos-creator/demo-process-build-textures).
+Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.

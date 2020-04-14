@@ -249,4 +249,4 @@ loadNpc(json);
 
 ### 如果需要对构建后的图片重新进行压缩
 
-从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。这需要对你的构建流程做一些定制，请参考 [范例](https://github.com/cocos-creator/demo-process-build-textures)。
+从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。这需要对你的构建流程做一些定制，请参考范例 <https://github.com/cocos-creator/demo-process-build-textures>。

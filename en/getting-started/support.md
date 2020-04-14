@@ -57,6 +57,6 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![](in
 
 Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
 
-- [Cocos Creator](https://www.cocos.com/en/creator/)
 - [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/creator)
+- [Cocos Creator Technical Support](https://www.cocos.com/en/support)
 <!-- - QQ group: 738190852-->

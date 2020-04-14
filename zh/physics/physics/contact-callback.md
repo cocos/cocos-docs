@@ -94,7 +94,7 @@ cc.Class({
 
 ## 回调的参数
 
-回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数: **contact**、**selfCollider**、**otherCollider**。
+回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数：**contact**、**selfCollider**、**otherCollider**。
 
 **selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**ohterCollider** 指的是发生碰撞的另一个碰撞体。
 

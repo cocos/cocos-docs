@@ -1,6 +1,6 @@
 # Use a Sliced Sprite to make a UI image
 
-The core design principle of the UI system is to automatically adapt to different device screen sizes. When developing the UI, we need to correctly set the each node's `size`, and which can be automatically stretched and adapted according to the screen size of the device. To achieve this, we usually use 9-sliced format images to render these nodes. In this way, even if small original images can be used to generate background images that can cover the entire screen. On the one hand, the game package is reduced, and on the other hand, it can be flexibly adapted to different layout requirements.
+The core design principle of the UI system is to automatically adapt to different device screen sizes. When developing the UI, we need to correctly set the each node's `size`, and which can be automatically stretched and adapted according to the screen size of the device. To achieve this, we usually use the 9-sliced images to render these nodes. In this way, even if small original images can be used to generate background images that can cover the entire screen. On the one hand, the game package is reduced, and on the other hand, it can flexibly fit different layout requirements.
 
 ![compare](sliced-sprite/compare.png)
 
@@ -15,7 +15,7 @@ To use a 9-sliced image effect that can be infinitely enlarged, we need to cut t
 
 After opening **Sprite Editor**, you will see there is a green line around the image, which indicates the position of the current 9-sliced split line. Drag the mouse to the split line, you will see the shape of the cursor change, then you can press down and drag the mouse to modify the position of the split line.
 
-We click and drag the four split lines at the top, bottom, and sides respectively and cut the image into a 9-slicing. The nine areas will apply different zooming in/out strategies when the Sprite size changes, which is as illustrated below:
+We click and drag the four split lines at the left/right/upper/lower side respectively and cut the image into a 9-slicing. The nine areas will apply different zooming in/out strategies when the Sprite size changes, which is as illustrated below:
 
 ![sliced](sliced-sprite/editing.png)
 
@@ -32,6 +32,6 @@ After you have prepared the 9-sliced resources, you can modify the draw mode of 
 1. First, select the Sprite node in the **Scene / Node Tree**, set the `Type` property of the Sprite as `Sliced` in the **Properties**.
 2. Then drag the control point with the [Rect Transform Tool](../getting-started/basics/editor-panels/scene.md#--12) to enlarge the `size` property of the node. You can also modify the `size` property value directly in the **Properties**. Because the image resource has been set to 9-slicing, no matter how much the Sprite zooms in, there will be no vagueness or distortion.
 
-## Precautions
+## Cautions
 
-When using **Rect Transform Tool** or directly modifying the size property of Sliced ​​Sprite, note that the `size` property value cannot be negative, otherwise it cannot be displayed normally in Sliced ​​mode.
+When using **Rect Transform Tool** or directly modifying the `size` property of Sliced ​​Sprite, note that the `size` property value cannot be negative, otherwise it cannot be displayed normally in Sliced ​​mode.

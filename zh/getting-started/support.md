@@ -2,11 +2,11 @@
 
 ## 更多教程
 
-- Cocos 引擎官方公众号
+- Cocos 引擎官方微信公众号
 
   ![](introduction/cocos.jpg)
 
-  Cocos 引擎官方公众号，第一时间为您送上引擎动态、精品教程、达人专访等干货。
+  Cocos 引擎官方微信公众号，第一时间为您送上引擎动态、精品教程、达人专访等干货。
 
 - [哔哩哔哩 — Cocos 官方](https://space.bilibili.com/491120849/dynamic)
 
@@ -65,8 +65,8 @@
 
 除了本手册里提供的信息，您还可以随时通过下面的渠道获取信息或反馈问题给 Cocos Creator 开发团队：
 
-- [Cocos Creator 首页](https://www.cocos.com/creator/)
 <!-- QQ群：738190852，539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
-- [论坛社区](https://forum.cocos.org/c/Creator)
+- [Cocos 论坛社区](https://forum.cocos.org/c/Creator)
+- [Cocos 技术支持](https://www.cocos.com/support)
 
 或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。

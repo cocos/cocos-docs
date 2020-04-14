@@ -18,11 +18,11 @@ Using DragonBones skeleton animation resources in a scene requires two steps:
 
 1. Create a node and add the DragonBones component, which can be implemented in three ways:
 
-    - The first way: from the **Assets** drag the skeleton animation resources to **level manager**:
+    - The first way: from the **Assets** drag the skeleton animation resources to **Node Tree**:
 
       ![DragonBones](dragonbones/create_1.png)
 
-    - from the **Assets** drag the skeleton animation resources to **scene**:
+    - from the **Assets** drag the skeleton animation resources to **Scene**:
 
       ![DragonBones](dragonbones/create_2.png)
 

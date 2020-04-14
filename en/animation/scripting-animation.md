@@ -183,10 +183,10 @@ animState.repeatCount = Infinity;
 ```
 
 **AnimationState** permits the dynamic setting up of loop mode. Currently, various loop modes are provided. These loop modes can be obtained from **cc.WrapMode**.  
-If the loop type of animation is **Loop** type, it should be used together with **repeatCount** to achieve the effect.  
-By default, when decoding animation clips, if the loop type of animation is:
-- In the **Loop** type, the **repeatCount** will be set to **Infinity**, which is the infinite loop
-- In the **Normal** type, the **repeatCount** will be set to 1
+If the loop category of animation is **Loop** category, it should be used together with **repeatCount** to achieve the effect.  
+By default, when decoding animation clips, if the loop category of animation is:
+- In the **Loop** mode, the **repeatCount** will be set to **Infinity**, which is the infinite loop
+- In the **Normal** mode, the **repeatCount** will be set to 1
 
 ## Animation event
 

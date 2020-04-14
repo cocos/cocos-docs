@@ -14,7 +14,7 @@ API | v2.0.3 | v2.1 - 2.x | v3.x
 ------------ | ------------- | --------- | --------
 rotationX, rotationY | KEEP `Number` | DEPRECATE,<br>USE `eulerAngles` | DEPRECATE
 rotation | KEEP `Number` | DEPRECATE,<br>USE `angle` | GET `cc.Quat`
-angle | ADD `-rotation` | `-rotation` | `-rotation`
+angle | ADD, = `-rotation` | `-rotation` | `-rotation`
 scale | KEEP `Number` | KEEP `Number` | KEEP `Number`
 getRotation() | KEEP `Number` | DEPRECATE,<br>USE `angle` | GET `cc.Quat`
 getRotation(cc.Quat) | GET `cc.Quat` |  | 

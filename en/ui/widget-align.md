@@ -13,7 +13,7 @@ For elements with relatively small areas like a pause menu, in-game gold coins, 
 3. To align something with the bottom left corner of the screen for example, check the `Left` and `Bottom` tick boxes in the Widget component.
 4. Then set up the distance between the node and the borders of the screen. In the picture below, the left margin is set as 50px, the bottom margin is set as 30px.
 
-  ![align left bottom](widget-align/align-basic.png)
+    ![align left bottom](widget-align/align-basic.png)
 
 After setting up the Widget component like this, no matter what the actual screen resolution is, this node element will remain at the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 50px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
 
@@ -73,15 +73,15 @@ When inputting the margin value when opening alignment direction, Widget can use
 
 Making use of the percentage alignment distance, we can create UI elements that can zoom in/out infinitely according to the size of the screen. Exerting your imagination, fitting a thousand types of Android phones with one set of resources will be a piece of cake!
 
-## Update alignment and optimization strategies for every frame at runtime
+## Update alignment and optimization strategies at runtime
 
-Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget component for alignment. The `alignOnce` property is used to ensure that the Widget component only performs alignment and positioning at initialization, and no longer consumes time for alignment at runtime.
+Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget to update alignment persistently. The [AlignMode.ONCE](../../../api/en/classes/Widget.html#alignmode) property is used to ensure that the Widget component only performs alignment and positioning at initialization, and no longer spends time for alignment at runtime.
 
-If the `alignOnce` is selected, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
+If the `Align Mode` of the Widget component is set to `ONCE` in the **Properties**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
 
-If you need real-time positioning at runtime, you need to manually disable the `alignOnce` (set to `false`). Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
+If you need real-time positioning at runtime, you need to set the `Align Mode` to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
 
-For scene with many UI elements, ensuring that the `alignOnce` option of the Widget component is enabled can greatly improve the running performance of the scene.
+For scene with many UI elements, ensuring that the `Align Mode` property of the Widget component is set to `ONCE` can greatly improve the running performance of the scene.
 
 ## Limitation on the position and size of node
 
