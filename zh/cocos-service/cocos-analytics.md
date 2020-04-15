@@ -31,7 +31,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
     // 开启（关闭）本地日志的输出
     cocosAnalytics.enableDebug(true); 
     // 开始登录方法
-    cocosAnalytics.CAAccount.loginStart({    
+    cocosAnalytics.CAAccount.loginStart({
         // 获客渠道，指获取该客户的广告渠道信息 
         channel: '99888',
     });
@@ -47,7 +47,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 ## Cocos Analytics Sample 的集成调试
 
-- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载  [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
+- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中接入 Cocos Analytics 服务，具体可参考上部分章节内容介绍。
 
@@ -77,7 +77,7 @@ cocosAnalytics.enableDebug(true);
 ```js
 // 开始登录
 cocosAnalytics.CAAccount.loginStart({
-    // 获客渠道，指获取该客户的广告渠道信息  
+    // 获客渠道，指获取该客户的广告渠道信息
     channel: '99999', 
 });
 
@@ -88,12 +88,12 @@ cocosAnalytics.CAAccount.loginSuccess({
     sex: 1,             // 性别：1 为男，2 为女，其它表示未知
     channel: '99999',   // 获客渠道，指获取该客户的广告渠道信息
 });
-    
+
 // 登录失败
 cocosAnalytics.CAAccount.loginFailed({
     reason: '密码错误' // 失败原因
 });
-    
+
 // 退出登录
 cocosAnalytics.CAAccount.logout();
 ```
@@ -160,7 +160,7 @@ cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 
 ## 各平台接入集成
 
-根据游戏需求，参考以下 Cocos Analytics 官方文档来进行各平台接入集成。  
+根据游戏需求，参考以下 Cocos Analytics 官方文档来进行各平台接入集成。
 
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)

@@ -3,27 +3,27 @@ This chapter will introduce the editor interface and get familiar with each of t
 
 ![Editor Overview](index/editor-overview.png)
 
-## Asset manager
+## Assets
 
 ![assets](index/assets.png)
 
-**Asset manager** shows all the assets in the project asset file (`assets`). It will show the folder in a dendritic structure and auto-sync the content changes in the project resource folder from the operating system. You can drag files in or use the menu to import resources.
+**Assets** shows all the assets in the project asset file (`assets`). It will show the folder in a dendritic structure and auto-sync the content changes in the project resource folder from the operating system. You can drag files in or use the menu to import resources.
 
-For further information please read the [asset manager](editor-panels/assets.md) section.
+For further information please read the [Assets](editor-panels/assets.md) section.
 
-## Scene editor
+## Scene
 
 ![scene](index/scene.png)
 
-**Scene editor** is used to show and edit the visible working area in the scene. WYSIWYG scene building work is all done depending on the display in the scene editor.
+**Scene** is used to show and edit the visible working area in the scene. WYSIWYG scene building work is all done depending on the display in the **Scene**.
 
-For further information please read the [scene editor](editor-panels/scene.md) section.
+For further information please read the [Scene](editor-panels/scene.md) section.
 
 ## Node Tree
 
 ![hierarchy](index/hierarchy.png)
 
-**Node Tree** displays all the nodes and their hierarchy in the form of a list tree. For all the content you can see in the **scene editor**, the corresponding node entry can be found in the **Node Tree**. The content in these two panels when editing the scene will synchronize the display and we normally use these two panels at the same time to build the scene.
+**Node Tree** displays all the nodes and their hierarchy in the form of a list tree. For all the content you can see in the **Scene**, the corresponding node entry can be found in the **Node Tree**. The content in these two panels when editing the scene will synchronize the display and we normally use these two panels at the same time to build the scene.
 
 For further information please read the [Node Tree](editor-panels/node-tree.md) section.
 

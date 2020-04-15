@@ -78,6 +78,8 @@
 
   决定摄像机视角的高度，当 **alignWithScreen** 和 **ortho** 都设置为 **false** 时生效。
 
+如需调节在 **场景编辑器** 中所用的摄像机参数，可参考 [场景摄像机配置面板](../content-workflow/camera-config.md)。
+
 ## 摄像机方法
 
 - **cc.Camera.findCamera**

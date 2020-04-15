@@ -56,6 +56,7 @@
     - [坐标系和变换](content-workflow/transform.md)
     - [管理节点层级和显示顺序](content-workflow/node-tree.md)
     - [使用场景编辑器搭建场景图像](content-workflow/scene-editing.md)
+    - [场景摄像机配置面板](content-workflow/camera-config.md)
 - [脚本开发指南](scripting/index.md)
     - [创建和使用组件脚本](scripting/use-component.md)
     - [使用 cc.Class 声明类型](scripting/class.md)

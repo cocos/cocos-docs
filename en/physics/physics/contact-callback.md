@@ -36,7 +36,6 @@ cc.Class({
     onPostSolve: function (contact, selfCollider, otherCollider) {
     }
 });
-
 ```
 
 In the above code example, we added all types of the contact callback functions to this script, a total of four different types. Each callback function has three parameters. The trigger condition of each callback function as shown in the comment.
@@ -97,7 +96,7 @@ The callback parameters contain all the collision contact information, and each 
 
 `selfCollider` and `otherCollider`: It is easy to understand. As the name suggests, `selfCollider` refers to the collider on the node of the callback script, `ohterCollider` refers to the other collider.
 
-The most important information is included in `contact`, which is an instance of the class `cc.PhysicsContact` that can be found in the api documentation.
+The most important information is included in `contact`, which is an instance of the class `cc.PhysicsContact` that can be found in the API documentation.
 
 Some useful information in `contact` object are location of the collision and the normal vector. Contact store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information.
 
@@ -113,42 +112,41 @@ var normal = worldManifold.normal;
 
 `worldManifold` has following members:
 
-#### points
+- points
 
-The array of contact points, they are not necessarily at the exact place where the collision happens as shown below (unless you set the rigidbody to use the `bullet` type, but will be more performance costing). By for general usage these points are accurate enough for us to write game logic upon.
+  The array of contact points, they are not necessarily at the exact place where the collision happens as shown below (unless you set the rigidbody to use the `bullet` type, but will be more performance costing). By for general usage these points are accurate enough for us to write game logic upon.
 
-![World-manifold-points](./image/world-manifold-points.png)
+  ![World-manifold-points](./image/world-manifold-points.png)
 
-**Notice**:
+  **Note**: Not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
 
-Not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
+  ![Collision-points-1](./image/collision-points-1.png)
 
-![Collision-points-1](./image/collision-points-1.png)
-![Collision-points-2](./image/collision-points-2.png)
-![Collision-points-3](./image/collision-points-3.png)
+  ![Collision-points-2](./image/collision-points-2.png)
 
-#### normal
+  ![Collision-points-3](./image/collision-points-3.png)
 
-The normal vector on the contact point is from `selfCollider` to `otherCollider`, indicating the quickest direction to resolve the collision.
+- normal
 
-![World-manifold-normal](./image/world-manifold-normal.png)
+  The normal vector on the contact point is from `selfCollider` to `otherCollider`, indicating the quickest direction to resolve the collision.
 
-The lines shown in the figure is the normal vectors on the contact point. In this collision, the quickest way to solve the collision is to add the impulse to push the triangle to the top and push the box down to the right. It should be noted that the normal vector here is only about the direction, not with the location properties, nor with connection to any of these contact points.
+  ![World-manifold-normal](./image/world-manifold-normal.png)
 
-You also need to understand that the **collision normal vector is not the same as the angle in which two object collides**. It will only be able to point the direction which can solve the two colliders intersecting with each other. For example, in the above example, if the triangle moves a little faster, the intersection will be shown below:
+  The lines shown in the figure is the normal vectors on the contact point. In this collision, the quickest way to solve the collision is to add the impulse to push the triangle to the top and push the box down to the right. It should be noted that the normal vector here is only about the direction, not with the location properties, nor with connection to any of these contact points.
 
-![World-manifold-normal-2](./image/world-manifold-normal-2.png)
+  You also need to understand that the **collision normal vector is not the same as the angle in which two object collides**. It will only be able to point the direction which can solve the two colliders intersecting with each other. For example, in the above example, if the triangle moves a little faster, the intersection will be shown below:
 
-Then the quickest way would be to push the triangle to the right, so using the normal vector as the direction of collision is not a good idea. If you want to know the direction of the collision, you can use the following way:
+  ![World-manifold-normal-2](./image/world-manifold-normal-2.png)
 
-```javascript
-var vel1 = triangleBody.getLinearVelocityFromWorldPoint (worldManifold.points [0]);
-var vel2 = squareBody.getLinearVelocityFromWorldPoint (worldManifold.points [0]);
-var relativeVelocity = vel1.sub (vel2);
-```
+  Then the quickest way would be to push the triangle to the right, so using the normal vector as the direction of collision is not a good idea. If you want to know the direction of the collision, you can use the following way:
 
-This code can obtain the relative velocity at the contact point when the two object collide with each other.
+  ```javascript
+  var vel1 = triangleBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
+  var vel2 = squareBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
+  var relativeVelocity = vel1.sub(vel2);
+  ```
 
+  This code can obtain the relative velocity at the contact point when the two object collide with each other.
 
 ### Disable contact
 
@@ -170,10 +168,10 @@ It is mentioned earlier that we can modify the contact information in `onPreSolv
 
 ```js
 // modify the friction between the collision bodies
-contact.setFriction (friction);
+contact.setFriction(friction);
 
 // Modify the elasticity of the collision body
-contact.setRestitution (restitution);
+contact.setRestitution(restitution);
 ```
 
 Note that these changes will only take effect within the current time step.

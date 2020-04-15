@@ -8,7 +8,7 @@ __SDKBox__ is a free tool for mobile game developers that aids in easily integra
 
 1. Using Creator open the project that needs to integrate SDKBox. Open the **Build** panel from the **Menu bar -> Project**. Select **iOS/Android** in the **Platform** of the **Build** panel, tick SDKBox, and then click **Build**.
 
-2. When the build is complete, a **Install SDKBox Plugin？** selection box automatically pops up, select **Yes** to open the SDKBox window, and then click **Import** to import the desired plugin. There is a [video](https://gfycat.com/entirelinearbeetle) that can be refer.
+2. When the build is complete, a **Install SDKBox Plugin?** selection box automatically pops up, select **Yes** to open the SDKBox window, and then click **Import** to import the desired plugin. There is a [video](https://gfycat.com/entirelinearbeetle) that can be refer.
 
 ![sdkbox](sdkbox/import.png)
 

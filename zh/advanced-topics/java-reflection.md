@@ -65,7 +65,7 @@ public class Test {
 
 我们将会调用上面的 Test 类中的静态方法：
 
-```
+```js
 // 调用 hello 方法
 jsb.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String;)V", "this is a message from js");
 

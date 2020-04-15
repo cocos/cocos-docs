@@ -719,10 +719,10 @@ cc.Class({
     // onDestroy will not be affected.
     //
     // Value type: Number
-    // Default：0
+    // Default: 0
     executionOrder: 0,
 
-    // When the component is added to the node，prevents Component of the same type (or subtype) to be
+    // When the component is added to the node, prevents Component of the same type (or subtype) to be
     // added more than once to a Node.
     // Prevent the logic from conflict.
     //

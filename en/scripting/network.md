@@ -2,8 +2,8 @@
 
 In Cocos Creator, we support the most widely used standard network interface on the Web platform:
 
-- **XMLHttpRequest**：for short connection
-- **WebSocket**：for long connection
+- **XMLHttpRequest**: for short connection
+- **WebSocket**: for long connection
 
 Of course, browsers on the Web platform support these two interfaces originally. The reason why we say Cocos Creator supports it is because when we release the native version, the user can operate it using these two network interface codes which follows the principle of "one set of code for multiple platforms operation" which Cocos honors.
 
@@ -70,8 +70,8 @@ Beyond these, SocketIO provides packaging based on the WebSocket API which can b
 
 Reference SocketIO in script:
 
-1. Download SocketIO：[https://socket.io](https://socket.io)
-2. Drag the downloaded file into the route you would like to save in explorer
+1. Download SocketIO: [https://socket.io](https://socket.io)
+2. Drag the downloaded file into the route you would like to save in Explorer / Finder.
 3. Modify SocketIO script to avoid the execution on native environment
 
     As web SocketIO can not parsed correctly in JSB, the Cocos provides native SocketIO on native environment. So we should hack to make the web SocketIO script not work on native environment, the way to achieve this is to modify the SocketIO script:

@@ -2,7 +2,6 @@
 
 We can build and edit static UI interfaces with **Scene** panel easily, but in real world game project it's not enough. We'll need dynamically generated UI elements with data, such as character selection, inventory and level selection.
 
-
 ## Prepare data
 
 Let's take an inventory interface as example, we need following data structure to generate an item dynamically:
@@ -14,7 +13,6 @@ Let's take an inventory interface as example, we need following data structure t
 - ...
 
 We will introduce how to define a data class and generate those data in **Properties** panel. If you're not familiar with Cocos Creator's component system, please start with [Workflow of script development](../scripting/index.md) chapter.
-
 
 ### Custom data class
 
@@ -52,14 +50,13 @@ Now let's create an empty node and add `ItemList` component. We can find `Items`
 
 We have our data ready for now, you can also type in more data entries as you wish. If you're making a game with lots of data, please consider using more specialized data source like Excel and database. It's easy to convert such data sources to JSON for the engine.
 
-
 ## Make the view for data: Prefab as template
 
 Let's now move on to the 'view' to visualize data, we can use [Prefab](../asset-workflow/prefab.md) to do this job. Let's create a prefab that looks like this:
 
 ![item template](list-with-data/item-template.png)
 
-The children `icon`, `name`, `price` will be used to display icon, item name and price from data.
+The child nodes `icon`, `name`, `price` will be used to display icon, item name and price from data.
 
 ### Data binding
 
@@ -81,7 +78,7 @@ Let's drag all those nodes onto the property fields of `ItemTemplate` component.
 
 ![item binding](list-with-data/item-binding.png)
 
-**Notice** we will assign value for `id` property through script, no data binding needed.
+**Note**: We will assign value for `id` property through script, no data binding needed.
 
 ### Update template display with script
 
@@ -104,7 +101,7 @@ Let's modify `ItemTemplate.js` script to add function to update the render compo
 
 ## Instantiate template with data
 
-Let's go back to `ItemList.js` script and add reference to our Prefab and them instantiate it with data.
+Let's go back to `ItemList.js` script, and add reference to our Prefab and then instantiate it with data.
 
 ```js
     properties: {
@@ -127,14 +124,14 @@ Let's go back to `ItemList.js` script and add reference to our Prefab and them i
     }
 ```
 
-In `onLoad` method we go through each data entry of `items` list, instantiate `itemPrefab` for each data entry and call `init` method of `ItemList` component to update its display.
+In the `onLoad` callback method, we traverse each data stored in `items` in turn, instantiate `itemPrefab` to generate a new node and add it to the node where `ItemList.js` is. Then call the `init` method in `ItemTemplate.js` to update its display.
 
-We can also add a **Layout** component to node that holds `ItemList`, and set the properties like these:
+Now we can add a **Layout** component to the node that holds `ItemList.js` through **Add Component -> UI Component -> Layout** under the **Properties** panel, and set the following properties:
 
 - `Type`: `HORIZONTAL`
 - `Resize Mode`: `CONTAINER`
 
-Don't forget to drag and drag `item` Prefab to `itemPrefab` property field of `ItemList` component. You can also add a **Sprite** component to the node as the background.
+Don't forget to drag and drop `item` Prefab to `itemPrefab` property field of `ItemList` component. You can also add a **Sprite** component to the node as the background.
 
 We have completed all the work. Now `itemList` node should look like this:
 
@@ -146,9 +143,4 @@ Running preview of the scene will get the result like this (the acutal look depe
 
 ![result](list-with-data/result.png)
 
-The **Layout** component added in previous step is not necessary. We can use it to help putting multiple items in a container in order but you can also use your own logic to do that. You can also add a **ScrollView** setup to display large amount of content in a limited space. For details of those layout method please read [Auto Layout Container](auto-layout.md) and [ScrollView Component](ui-components.md#scrollview).
-
-
-<hr>
-
-Continue on to read about [Animation](../animation/index.md).
+The **Layout** component added in previous step is not necessary. We can use it to help putting multiple items in a container in order but you can also use the script program to do that. You can also add a **ScrollView** component together to display a large amount of content in a limited space. For details of those layout method please read [Auto Layout Container](auto-layout.md) and [ScrollView Component](ui-components.md#scrollview).
