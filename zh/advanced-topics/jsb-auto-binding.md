@@ -432,7 +432,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 ## 自动绑定的限制条件
 
-自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 github 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 GitHub 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
 1. 只能够针对类生成绑定，不可以绑定结构体，独立函数等。
 2. 不能够生成 `Delegate` 类型的 API，因为脚本中的对象是无法继承 C++ 中的 `Delegate` 类并重写其中的 `Delegate` 函数的。
 3. 子类中重写了父类的 API 的同时，又重载了这个 API。

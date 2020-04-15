@@ -1,6 +1,6 @@
 # Skinned Mesh Renderer Component Reference
 
-> Authors：Xunyi, youyou
+> Authors: Xunyi, youyou
 
 Skinned Mesh Renderer component inherits from Mesh Renderer, so Skinned Mesh Renderer component can also specify `mesh` and `textures` properties.
 

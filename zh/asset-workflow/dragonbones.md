@@ -22,7 +22,7 @@ DragonBones 骨骼动画资源包括：
 
       ![DragonBones](dragonbones/create_1.png) 
 
-   - 从 **资源管理器** 里将骨骼动画资源拖动到 **场景** 中:
+   - 从 **资源管理器** 里将骨骼动画资源拖动到 **场景编辑器** 中:
 
       ![DragonBones](dragonbones/create_2.png)
 

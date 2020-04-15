@@ -18,7 +18,7 @@ Cocos AppID 用于联通 Cocos 账号、Cocos Creator 游戏工程和第三方�
 - 若 Cocos 账户中心已有游戏，可直接在 **服务** 面板中设置 Cocos AppID。点击 **AppID** 后的 ![](image/panel-button.jpg) 按钮，选择 **设定 Cocos AppID**，进入 **设定 Cocos AppID** 面板。
 
     ![](image/panel-setting-appid.png)
-        
+
     选择需要使用服务的游戏，然后点击 **关联** 按钮
 
     ![](image/panel-setting-game.png)

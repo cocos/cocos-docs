@@ -147,7 +147,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 **Third**, run the packaged rpk to your phone. There are three ways to run rpk on your phone:
 
-- **Method One**：
+- **Method One**:
 
     Click the **Run** button in the **Build** panel to wait for the QR Code interface to be generated:
 

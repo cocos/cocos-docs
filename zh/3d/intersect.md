@@ -37,4 +37,3 @@ let handler = function (modelRay, node, distance) {
 
 let results = cc.geomUtils.intersect.raycast(cc.director.getScene(), ray, handler);
 ```
-

@@ -13,12 +13,12 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | Properties | Description
 | -------------- | ----------- |
 | Atlas | [Auto Atlas](../asset-workflow/atlas.md) which the Sprite display image resource belongs to. ( **Select In Atlas** button after Atlas, this feature is temporarily unavailable and we will optimize it as soon as possible)
-| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the nine rectangle grid cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md) for details)
+| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the 9-sliced cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md) for details)
 | Type | Rendering mode, currently includes `Simple`, `Sliced`, `Tiled`, `Filled` and `Mesh` five rendering modes.
 | Size Mode | Specify the size of the Sprite<br>`Trimmed` automatically fit to the size of the sprite cropped<br>`Raw` automatic fit for sprite original size<br>`Custom` use the node preset size. When the user manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
-| Trim | Whether the transparent pixel area is included in the node bounding box，which takes effect only when the Type is set to Simple. Please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
+| Trim | Whether the transparent pixel area is included in the node bounding box, which takes effect only when the Type is set to Simple. Please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
 | Src Blend Factor | The source image blend mode.
-| Dst Blend Factor | the destination image blend mode. Together with the above properties, you can mix the foreground and background Sprite in different ways to render, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
+| Dst Blend Factor | The destination image blend mode. Together with the above properties, you can mix the foreground and background Sprite in different ways to render, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
 
 After adding the Sprite component, drag the Texture or SpriteFrame type resource from the **Assets** to the `Sprite Frame` attribute reference. Then, the resource image can be displayed through the Sprite component.
 

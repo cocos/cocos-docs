@@ -69,7 +69,7 @@ Here, we define a new component named SinRotate, which is inherited from Rotate,
 
 > This component can also be accessed by other scripts as long as you use `require("SinRotate")`.
 
-Comments：
+Comments:
   - `require` could be called at any place in the script at any time.
   - All of the script will be automatically required when the game is started. At this time, the defined code in each module will be executed once, no matter how many times it is required, the same instance will be returned.
   - When debugging, any module in the project can be required in the **Console** of **Developer Tools**.
@@ -150,7 +150,7 @@ In this way, it can output correctly: "speed is 10".
 > The default value of `module.exports`:<br>
   If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically.
 
-Comments：
+Comments: 
 - The other variables added to `module` can not be exported, that is to say` exports` can not be replaced with other variable names, the system will only read the `exports` variable.
 
 ## More examples

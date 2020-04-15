@@ -62,7 +62,7 @@ Vue.component('foobar-inspector', {
 
 Cocos Creator 的 Inspector 扩展使用了 [Vue](http://vuejs.org/)。这里我们通过定义一份 Vue 的组件，并在组件中定义 `props`，使得其包含 `target` 数据来完成整个 Inspector 的数据定义。
 
-该 `target` 就是我们的 `Foobar` Class 在 Inspector 中对应的实例。  
+该 `target` 就是我们的 `Foobar` Class 在 Inspector 中对应的实例。
 
 ## 关于 target
 

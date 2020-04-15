@@ -48,14 +48,14 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 - **设置贴图更新频率**
 
-  在 Creator v2.1.1 中，**WXSubContextView** 组件上新增了 **FPS 属性**, 用户可以通过设置 FPS 直接控制开放数据域的帧率。
+  在 Creator v2.1.1 中，**WXSubContextView** 组件上新增了 **FPS 属性**，用户可以通过设置 FPS 直接控制开放数据域的帧率。
 
   ![](./publish-wechatgame/subcontext.png)
 
   FPS 属性有以下两方面的优点：
 
-  - 主域会根据设置的 FPS 计算出一个 update interval, 这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
-  - 通过降低开放数据域的 FPS, 也可以一定程度上减少开放数据域的性能开销。
+  - 主域会根据设置的 FPS 计算出一个 update interval，这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
+  - 通过降低开放数据域的 FPS，也可以一定程度上减少开放数据域的性能开销。
 
   **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 WXSubContextView 组件的 FPS 属性。**
 

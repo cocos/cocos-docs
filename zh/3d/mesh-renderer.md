@@ -8,11 +8,11 @@ Mesh Renderer 用于绘制网格资源，如果网格资源中含有多个子网
 
 ![](img/mesh_renderer.png)
 
-- mesh  
+- mesh
 
 指定渲染所用的网格资源
 
-- textures  
+- textures
 
 网格资源允许使用多个贴图资源，所有贴图资源都存在 `textures` 数组中。<br>
 如果网格资源中有多个子网格， 那么 Mesh Renderer 会从 `textures` 数组中获取对应的贴图来渲染此子网格。
