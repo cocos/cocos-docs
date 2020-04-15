@@ -182,7 +182,7 @@ animState.repeatCount = Infinity;
 ```
 
 **AnimationState** 允许动态设置循环模式，目前提供了多种循环模式，这些循环模式可以从 **cc.WrapMode** 中获取到。  
-如果动画的循环类型为 **Loop** 类型的话，需要与 **repeatCount** 配合使用才能达到效果。默认在解析动画剪辑的时候，如果动画循环类型为：
+如果动画的 **WrapMode** 为 **Loop** 的话，需要与 **repeatCount** 配合使用才能达到效果。默认在解析动画剪辑的时候，如果动画循环类型为：
 - **Loop** 类型，**repeatCount** 将被设置为 **Infinity**，即无限循环
 - **Normal** 类型，**repeatCount** 将被设置为 1
 
@@ -253,19 +253,19 @@ anim1.on('lastframe',    this.onLastFrame,      this);
 ## 动态创建 Animation Clip
 
 ```javascript
-    var animation = this.node.getComponent(cc.Animation);
-    // frames 这是一个 SpriteFrame 的数组.
-    var clip = cc.AnimationClip.createWithSpriteFrames(frames, 17);
-    clip.name = "anim_run";
-    clip.wrapMode = cc.WrapMode.Loop;
-    
-    // 添加帧事件
-    clip.events.push({
-        frame: 1,               // 准确的时间，以秒为单位。这里表示将在动画播放到 1s 时触发事件
-        func: "frameEvent",     // 回调函数名称
-        params: [1, "hello"]    // 回调参数
-    });
+var animation = this.node.getComponent(cc.Animation);
+// frames 这是一个 SpriteFrame 的数组.
+var clip = cc.AnimationClip.createWithSpriteFrames(frames, 17);
+clip.name = "anim_run";
+clip.wrapMode = cc.WrapMode.Loop;
 
-    animation.addClip(clip);
-    animation.play('anim_run');
+// 添加帧事件
+clip.events.push({
+    frame: 1,               // 准确的时间，以秒为单位。这里表示将在动画播放到 1s 时触发事件
+    func: "frameEvent",     // 回调函数名称
+    params: [1, "hello"]    // 回调参数
+});
+
+animation.addClip(clip);
+animation.play('anim_run');
 ```

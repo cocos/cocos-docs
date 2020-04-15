@@ -23,9 +23,10 @@ anim.play('test2');
 ```
 
 When playing an animation, Animation will evaluate the former playing state of the animation for next step operation. If animation is in:
- - **Stop** state, then Animation will directly re-play this animation
- - **Pause** state, then Animation will resume the playing of the animation and continue playing it from the current time
- - **Play** state, then Animation will stop this animation and re-play it
+
+- **Stop** state, then Animation will directly re-play this animation
+- **Pause** state, then Animation will resume the playing of the animation and continue playing it from the current time
+- **Play** state, then Animation will stop this animation and re-play it
 
 ```javascript
 var anim = this.getComponent(cc.Animation);
@@ -161,7 +162,7 @@ animState.speed = 2;
 animState.speed = 0.5;
 ```
 
-The greater the **speed** value is, the faster the speed is, and the smaller the value, the slower the speed.
+The greater the value is, the faster the speed is, while the smaller the value is, the slower the speed is
 
 ### Set up the loop mode and loop count of animation
 
@@ -183,7 +184,7 @@ animState.repeatCount = Infinity;
 ```
 
 **AnimationState** permits the dynamic setting up of loop mode. Currently, various loop modes are provided. These loop modes can be obtained from **cc.WrapMode**.  
-If the loop category of animation is **Loop** category, it should be used together with **repeatCount** to achieve the effect.  
+If the **WrapMode** of animation is **Loop**, it should be used together with **repeatCount** to achieve the effect.  
 By default, when decoding animation clips, if the loop category of animation is:
 - In the **Loop** mode, the **repeatCount** will be set to **Infinity**, which is the infinite loop
 - In the **Normal** mode, the **repeatCount** will be set to 1
@@ -215,19 +216,19 @@ Add the above components to the **root node** of animation. When animation is ab
 ## Dynamic Create Animation Clip
 
 ```javascript
-    var animation = this.node.getComponent(cc.Animation);
-    // frames is a SpriteFrame array.
-    var clip = cc.AnimationClip.createWidthSpriteFrame(frames, 17);
-    clip.name = "anim_run";
-    clip.wrapMode = cc.WrapMode.Loop;
+var animation = this.node.getComponent(cc.Animation);
+// frames is a SpriteFrame array.
+var clip = cc.AnimationClip.createWidthSpriteFrame(frames, 17);
+clip.name = "anim_run";
+clip.wrapMode = cc.WrapMode.Loop;
 
-    // adds frame event
-    clip.events.push({
-        frame: 1,               // The exactly time in second. It will trigger event at 1s in this example.
-        func: "frameEvent",     // Callback function name
-        params: [1, "hello"]    // Callback parameters
-    });
+// adds frame event
+clip.events.push({
+    frame: 1,               // The exactly time in second. It will trigger event at 1s in this example.
+    func: "frameEvent",     // Callback function name
+    params: [1, "hello"]    // Callback parameters
+});
 
-    animation.addClip(clip);
-    animation.play('anim_run');
+animation.addClip(clip);
+animation.play('anim_run');
 ```

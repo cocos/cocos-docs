@@ -89,7 +89,7 @@ if (foo) {
 }
 ```
 
-## If/Else
+## If / Else
 
 `if` 后的值如果为 false，会执行 `else` 中的语句：
 
@@ -113,7 +113,7 @@ foo ? function1() : function2();
 var n = foo ? 1 : 2;
 ```
 
-上面的语句可以表述为“当 `foo` 是 true 时，将 `n` 的值赋为 1，否则赋为 2。
+上面的语句可以表述为：当 `foo` 是 true 时，将 `n` 的值赋为 1，否则赋为 2。
 
 当然我们还可以使用 `else if` 来处理更多的判断类型：
 

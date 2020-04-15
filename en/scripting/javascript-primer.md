@@ -108,6 +108,7 @@ An If/Else conditional judgement can also be wrote into one line like this:
 ```js
 foo ? function1() : function2();
 ```
+
 When the value of `foo` is true, the expression will send back the execution result of `function1()`, otherwise it will send back the execution result of `function2()`. When we need to assign variables according to the condition, writing it like this is very convenient:
 
 ```js
@@ -132,7 +133,7 @@ else {
 
 ## JavaScript Array
 
- In JavaScript, declare an array like this:
+In JavaScript, declare an array like this:
 
 ```js
 a = [123, 456, 789];
@@ -339,7 +340,6 @@ At last, the following rules on code style can help us write more specific code:
 - Use camel-case naming: define the variable name like `myRandomVariable`, but not `my_random_variable`
 - Type one `;` at each end of the line, although `;` in the end of a line can be ignored in JavaScript
 - Put spacing before and after each keyword, such as `a = b + 1` rather than `a=b+1`
-
 
 ## Combine the knowledge we have learnt
 

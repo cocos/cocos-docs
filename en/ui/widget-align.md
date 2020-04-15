@@ -75,13 +75,13 @@ Making use of the percentage alignment distance, we can create UI elements that 
 
 ## Update alignment and optimization strategies at runtime
 
-Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget to update alignment persistently. The [AlignMode.ONCE](../../../api/en/classes/Widget.html#alignmode) property is used to ensure that the Widget component only performs alignment and positioning at initialization, and no longer spends time for alignment at runtime.
+Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget to update alignment persistently.
 
-If the `Align Mode` of the Widget component is set to `ONCE` in the **Properties**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
+If the `Align Mode` of the Widget component is set to `ON_WINDOW_RESIZE` or `ONCE` in the **Properties**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
 
 If you need real-time positioning at runtime, you need to set the `Align Mode` to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
 
-For scene with many UI elements, ensuring that the `Align Mode` property of the Widget component is set to `ONCE` can greatly improve the running performance of the scene.
+For scene with many UI elements, it is recommended to keep the default setting of `Align Mode` to `ON_WINDOW_RESIZE`, which can greatly improve the running performance of the scene.
 
 ## Limitation on the position and size of node
 
