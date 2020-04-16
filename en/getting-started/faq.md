@@ -246,3 +246,22 @@ For details, please refer to the [custom_material](https://github.com/cocos-crea
 ### Failed to cancel a schedule, still running
 
 The parameters passed in for `this.unschedule(callBack, target)` must be consistent with those passed in for `this.schedule(callBack, target)`. That is, the `callBack` must be the same function object, and the `target` must also be the same object. If the parameters passed in are different, the scheduler cannot be stopped properly.
+
+### When playing Audio on the iOS browser, if you switch the foreground and background, it is likely that you cannot pause and resume playback normally
+
+This problem is caused by the `AudioScheduledSourceNode` of Web Audio. Because the `suspend` method of `AudioContext` only pauses the **specified** Audio on the Web Desktop, but pauses **all** Audio on the Web Mobile.<br>
+Since fixing this problem on the engine is too hack and not universal enough, it will not be repaired. Developers can fix it by adding the following code to the project script:
+
+```js
+if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
+    cc.game.on(cc.game.EVENT_GAME_INITED, () => {
+        cc.game.on(cc.game.EVENT_SHOW, () => {
+            cc.sys.__audioSupport.context.resume();
+        });
+
+        cc.game.on(cc.game.EVENT_HIDE, () => {
+            cc.sys.__audioSupport.context.suspend();
+        });
+    })
+}
+```
