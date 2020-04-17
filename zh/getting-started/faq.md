@@ -252,10 +252,9 @@ material.setProperty("diffuseTexture", texture);
 
 受 Electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
 
-### Audio 在 iOS 的浏览器上播放时，如果切换前后台，大概率会出现无法正常暂停和恢复播放的问题
+### Web Audio 在 iOS 的浏览器上播放时，如果切换前后台，大概率会出现无法正常暂停和恢复播放的问题
 
-这个问题是 Web Audio 的 `AudioScheduledSourceNode` 引起的。因为 `AudioContext` 的 `suspend` 方法在 Web Desktop 平台只会暂停 **指定的** Audio，而在 Web Mobile 平台会暂停 **所有的** Audio。<br>
-在引擎上修复该问题过于 Hack 且不够通用，便不做修复，开发者可以通过在项目脚本中加入以下代码修复：
+这个问题是 Web Audio 的 `AudioScheduledSourceNode` 引起的。`WebAudioContext` 的 `suspend` 方法在 Web Desktop 平台只会暂停 **指定的** Audio，而在 Web Mobile 平台会暂停 **所有的** Audio。因此在引擎上修复该问题过于 Hack 且不够通用，便不做修复，开发者可以通过在项目脚本中加入以下代码修复：
 
 ```js
 if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
