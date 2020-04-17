@@ -247,10 +247,9 @@ For details, please refer to the [custom_material](https://github.com/cocos-crea
 
 The parameters passed in for `this.unschedule(callBack, target)` must be consistent with those passed in for `this.schedule(callBack, target)`. That is, the `callBack` must be the same function object, and the `target` must also be the same object. If the parameters passed in are different, the scheduler cannot be stopped properly.
 
-### When playing Audio on the iOS browser, if you switch the foreground and background, it is likely that you cannot pause and resume playback normally
+### When playing Web Audio on the iOS browser, if you switch the foreground and background, it is likely that you cannot pause and resume playback normally
 
-This problem is caused by the `AudioScheduledSourceNode` of Web Audio. Because the `suspend` method of `AudioContext` only pauses the **specified** Audio on the Web Desktop, but pauses **all** Audio on the Web Mobile.<br>
-Since fixing this problem on the engine is too hack and not universal enough, it will not be repaired. Developers can fix it by adding the following code to the project script:
+This problem is caused by the `AudioScheduledSourceNode` of Web Audio. The `suspend` method of `WebAudioContext` only pauses the **specified** Audio on the Web Desktop, but pauses **all** Audio on the Web Mobile. Therefore, fixing this problem on the engine is too hack and not universal enough, it will not be repaired. Developers can fix it by adding the following code to the project script:
 
 ```js
 if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
