@@ -102,7 +102,7 @@
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
-    - [Publish with Command Line](publish/publish-in-command-line.md)
+    - [Publish from Command Line](publish/publish-in-command-line.md)
 
 ## Systems
 

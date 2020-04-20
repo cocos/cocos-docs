@@ -2,9 +2,7 @@
 
 Editor layout refers to the position, size and stack of panels in Cocos Creator editor window.
 
-Select the layout menu in the main menu, you can choose one that is most suitable for the current project from the **Default** layout preset by the editor, **Portrait** layout, and **Classical** layout.
-
-You also can adjust the position and size of each panel on the basis of the pre-set layout. Alterations to the layout will be auto-saved to the `local/layout.windows.json` file in the project folder.
+Select the **Layout** menu from the main menu and you can choose the most suitable editor panel layout from the pre-set ones for your current project. You can adjust the position and size of each panel on the basis of the pre-set layout. Alterations to the layout will be auto-saved to the `local/layout.windows.json` file in the project folder.
 
 ## Adjusting panel size
 

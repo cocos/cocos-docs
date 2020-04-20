@@ -17,7 +17,7 @@
 - [Publish to OPPO Mini Games](publish-oppo-instant-games.md)
 - [Publish to vivo Mini Games](publish-vivo-instant-games.md)
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
-- [Publish with Command Line](publish-in-command-line.md)
+- [Publish from Command Line](publish-in-command-line.md)
 - [Custom Project Build Template](custom-project-build-template.md)
 
 <hr>

@@ -1,17 +1,13 @@
 # Main menu
 
-## Cocos Creator
+## Cocos Creator (Mac)
 
-* **About Cocos Creator** Display information about Cocos Creator.
-* **Settings** Open the [Settings](editor-panels/preferences.md) pane and set the editor's personalization options.
-* **Hide Cocos Creator (Shortcut: <kbd>H</kbd>)**
-*mac only* Hide Cocos Creator window.
-* **Hide Others (Shortcut: <kbd>Shift + H</kbd>)**
-*mac only* Hide all other windows except Cocos Creator.
-* **Show All**
-*mac only* Show all hidden windows.
-* **Quit (Shortcut: <kbd>Ctrl/Command + Q</kbd>)**
-Exit Cocos Creator Editor.
+* **About Cocos Creator**: Display information about Cocos Creator.
+* **Preferences**: Open the [Setting](editor-panels/preferences.md) panel and set the editor's personalization options.
+* **Hide Cocos Creator (Shortcut: <kbd>H</kbd>)**: Hide Cocos Creator window.
+* **Hide Others (Shortcut: <kbd>Shift + H</kbd>)**: Hide all other windows except Cocos Creator.
+* **Show All**: Show all hidden windows.
+* **Quit (Shortcut: <kbd>Ctrl/Command + Q</kbd>)**: Exit Cocos Creator Editor.
 
 ## File
 
