@@ -94,13 +94,15 @@
         - [WeChat Engine Plugin](publish/wechat-engine-plugin.md)
         - [WeChat PC Mini Games](publish/publish-pc-wechatgame.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)
+    - [Publish to Baidu Mini Games](publish/publish-baidugame.md)
+        - [Baidu Open Data Context](publish/publish-baidugame-sub-domain.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
-    - [Publish with Command Line](publish/publish-in-command-line.md)
+    - [Publish from Command Line](publish/publish-in-command-line.md)
 
 ## Systems
 

@@ -1,4 +1,4 @@
-# Publish in command line
+# Publish from Command Line
 
 Publish project in command line can help us build auto publish step, we can modify command line parameters to reach different goals.
 

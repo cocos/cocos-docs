@@ -40,7 +40,7 @@ If you need test, check **Debug Mode** and **Source Maps** option. The built ver
 
 ## Build and preview
 
-Click the **Build** button, then a progress bar will appear on the top of the panel. When the progress bar reaches 100%, the construction is finished.
+Click the **Build** button, then a progress bar will appear on the top of the panel. When the progress bar reaches 100%, the build is finished.
 
 Next, you can click the **Play** button to open the built game version in the browser for preview and test.
 
