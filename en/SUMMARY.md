@@ -94,6 +94,8 @@
         - [WeChat Engine Plugin](publish/wechat-engine-plugin.md)
         - [WeChat PC Mini Games](publish/publish-pc-wechatgame.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)
+    - [Publish to Baidu Mini Games](publish/publish-baidugame.md)
+        - [Baidu Open Data Context](publish/publish-baidugame-sub-domain.md)
     - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)

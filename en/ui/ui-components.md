@@ -1,6 +1,6 @@
 # Common UI Controls
 
-This document describes commonly used non - core controls in the UI system, use the core rendering component, and alignment strategy. These controls will constitute the most interactive part of our game UI. You will understand the usage of the following UI control:
+This document describes commonly used controls in the UI system, use the core rendering component, and alignment strategy. These controls will constitute the most interactive part of our game UI. You will understand the usage of the following UI control:
 
 - ScrollView、ScrollBar and Mask
 - Button

@@ -91,6 +91,8 @@ Select one from the preset editor layout.
 * **Portrait**
 * **Classical**
 
+If you want to manually adjust the editor layout, please refer to the [Editor Layout](./layout.md).
+
 ## Extension
 
 For menu items related to extensions, read the [Editor Extension](../../extension/index.md) chapter.
