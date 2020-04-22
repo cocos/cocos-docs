@@ -16,8 +16,8 @@ Adapter 地址分别在：
 
 - **master/develop** 分支：当前最新版本所用分支
 - **vX.Y-release** 分支：对应 X.Y 版本所用分支
-- **vX.Y** 分支：和 vX.Y-release 分支相同，主要用于范例工程
-- **next** 分支：大型重构所用分支，如果是文档和 API 仓库，则用于 2.0 分支
+- **vX.Y** 分支：和 vX.Y-release 分支相同，主要用于版本发布之前的研发工作
+- **next** 分支：大型重构所用分支
 
 通常建议使用和所用 Creator 相同版本的 vX.Y-release 分支，如果找不到的话，则使用 master 分支。
 
@@ -31,27 +31,33 @@ Adapter 地址分别在：
 
 ![](engine-customization/open-engine.png)
 
-如果您想获得官方正在开发中的最新版本，首先您需要从 GitHub 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
+如果您想获得官方正在开发中的最新版本，首先您需要从 GitHub 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。JavaScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径，该教程存放的路径是 `E:/engine`.
 
 ![](engine-customization/download-repo-js.png)
 
-### 1.2 安装编译依赖
+### 1.2 修改 JS 引擎路径
+
+通过 **项目 -> 项目设置** 面板的 **自定义引擎** 选项卡，设置需要定制的 JavaScript 引擎路径。
+
+![](engine-customization/setting-js.png)
+
+### 1.3 安装编译依赖
 
 ```bash
 # 在命令行中进入引擎路径
-cd /Users/yufang/engine
+cd E:/engine
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
 npm install
 ```
 
-### 1.3 进行修改然后编译
+### 1.4 进行修改然后编译
 
 接下来您可以定制引擎修改了，修改之后请在命令行中继续执行：
 
 ```bash
-gulp build
+gulp build-dev
 ```
 
 该命令会在引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到 `bin` 目录下。
@@ -61,14 +67,8 @@ gulp build
 **注意**：如果在编译过程中出现 `JavaScript heap out of memory` 的报错，可执行以下命令解决：
 
 ```js
-gulp build --max-old-space-size=8192
+gulp build-dev --max-old-space-size=8192
 ```
-
-### 1.4 在 Cocos Creator 中使用定制版引擎
-
-通过 **项目 -> 项目设置** 面板的 **自定义引擎** 选项卡，设置本地定制后的 JavaScript 引擎路径。
-
-![](engine-customization/setting-js.png)
 
 ## 2 定制 Cocos2d-x-lite 引擎
 
@@ -86,7 +86,7 @@ gulp build --max-old-space-size=8192
 
 ```bash
 # 在命令行进入 Cocos2d-x-lite 引擎路径
-cd /Users/yufang/cocos2d-x-lite  
+cd E:/cocos2d-x-lite  
 # 安装编译依赖
 npm install
 # 安装 gulp 构建工具
