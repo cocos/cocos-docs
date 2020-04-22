@@ -16,8 +16,8 @@ In addition, depending on the different version of Creator, you have to make sur
 
 - **master/develop** branch: Branch used for current latest version
 - **vX.Y-release** branch: The branch that corresponds to the x.y version
-- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for example projects
-- **next** branch: Branch for large refactoring, if are document and API repo, then used for version 2.0
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for development before publishing engine
+- **next** branch: Branch for large refactoring
 
 It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch.
 
@@ -31,30 +31,37 @@ If you only need to make some adjustments based on the current version, Then you
 
 ![](engine-customization/open-engine.png)
 
-If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from GitHub. You have to make sure the repo is at the corresponding branch. Once cloning is completed, go to the repo's folder in command-line shell.
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from GitHub. You have to make sure the repo is at the corresponding branch. In this tutorial, we clone the engine repo to the path `E:/engine`.
 
 ![](engine-customization/download-repo-js.png)
 
-### 1.2 Install NPM Dependencies
+### 1.2 Setup JS engine path
+
+Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path for the JavaScript engine you want to customize.
+
+![](engine-customization/setting-js.png)
+
+
+### 1.3 Install NPM Dependencies
 
 __npm__ and __gulp__ are core components for engine building. These need to be installed. Example:
 
 ```bash
 # Enter the engine path in the command line
-cd /Users/yufang/engine
+cd E:/engine
 # Install the gulp build tool
-npm install -g gulp
+npm install -g gulp-dev
 # Install dependent modules
 npm install
 ```
 
-### 1.3 Change and Build
+### 1.4 Change and Build
 
 Now you can do whatever you want to do with the engine, once you finished:
 
 ```bash
 # build engine
-gulp build
+gulp build-dev
 ```
 
 This command will generate a `bin` folder in the engine directory and compile the engine source into the `bin` directory.
@@ -66,12 +73,6 @@ This command will generate a `bin` folder in the engine directory and compile th
 ```js
 gulp build --max-old-space-size=8192
 ```
-
-### 1.4 Use customized engine in Cocos Creator
-
-Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path to your customized JavaScript engine.
-
-![](engine-customization/setting-js.png)
 
 ## 2 Customize Cocos2d-x-lite Engine
 
@@ -89,7 +90,7 @@ Once cloned or downloaded, enter the Cocos2d-x-lite engine folder and run:
 
 ```bash
 # Enter the Cocos2d-x-lite engine path from the command line
-cd /Users/yufang/cocos2d-x-lite
+cd E:/cocos2d-x-lite
 # Install NPM dependencies
 npm install
 # Initialize repo
