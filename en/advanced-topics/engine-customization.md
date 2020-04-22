@@ -16,7 +16,7 @@ In addition, depending on the different version of Creator, you have to make sur
 
 - **master/develop** branch: Branch used for current latest version
 - **vX.Y-release** branch: The branch that corresponds to the x.y version
-- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for development before publishing engine
+- **vX.Y** branch: Same as the vX.Y-release branch, mainly used for development before the engine release
 - **next** branch: Branch for large refactoring
 
 It is generally recommended to use the same version of the vX.Y-release branch as the Creator used, and if it is not found, use the master branch.
@@ -40,7 +40,6 @@ If you want to get the latest version that is currently under development, you n
 Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path for the JavaScript engine you want to customize.
 
 ![](engine-customization/setting-js.png)
-
 
 ### 1.3 Install NPM Dependencies
 
