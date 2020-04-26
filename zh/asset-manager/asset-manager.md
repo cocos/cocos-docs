@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang
 
-`Asset Manager` 是 v2.4 之后，Creator 推出的新的资源管理模块，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。`Asset Manager` 拥有更好的性能，更易用的 API，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
+`Asset Manager` 是 Creator 在 v2.4 新推出的资源管理器，其具备加载资源，查找资源，销毁资源，缓存资源，Asset Bundle 等功能。`Asset Manager` 拥有更好的性能，更易用的 API，更强的扩展性。所有函数和方法可通过 `cc.assetManager` 进行访问，所有类型和枚举可通过 `cc.AssetManager` 命名空间进行访问。
 
 ## 加载资源
 
@@ -12,7 +12,7 @@
 
 ```js
 cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
-    self.getComponent(cc.Sprite).spriteFrame = asset;
+    this.getComponent(cc.Sprite).spriteFrame = asset;
 });
 ```
 
@@ -61,22 +61,7 @@ cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin:
 bundle.loadScene('test', { priority: 3 }, callback);
 ```
 
-options 中除了可以指定 Creator 内置的参数之外，开发者还可以设计自己的参数配合下载器，解析器，加载管线用于扩展引擎功能。例如：
-
-```js
-cc.assetManager.downloader.register('.myformat', function (url, options, callback) {
-    if (options.user === 'anonymous') {
-        cc.assetManager.downloader.downloadFile(url + '?user=anonymous', callback);
-    }
-    else {
-        cc.assetManager.downloader.downloadFile(url, callback);
-    }
-});
-
-cc.assetManager.loadAny('http://example.com/skill.myformat', { user: 'anonymous' }, callback);
-```
-
-关于可选参数，详细请参考 [可选参数](custom-parameter.md) 。
+options 中除了可以指定 Creator 内置的参数之外，还可以指定任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线，详细请参考 [可选参数](options.md) 。
 
 
 ## Asset Bundle
@@ -120,7 +105,7 @@ this.texture.decRef();
 this.texture = null;
 ```
 
-更多详细内容请参考 [终结器](finalizer.md) 。
+更多详细内容请参考 [资源释放](release-manager.md) 。
 
 ## 缓存管理器
 

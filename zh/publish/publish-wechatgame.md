@@ -57,7 +57,7 @@
 
 这里引出了两个关键的问题，首页面加载速度和远程资源缓存及版本管理。对于首页面加载速度，我们建议开发者只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。而远程资源的下载、缓存和版本管理，其实在 Cocos Creator 中，已经帮开发者做好了。下面我就来解释一下这部分的逻辑。
 
-在小游戏环境中，我们提供了一个 `cc.assetManager.cacheManager` 对象用于管理缓存资源，如果用户设置了 `REMOTE_SERVER_ROOT` 属性后，引擎下载资源的逻辑变为：
+在小游戏环境中，我们提供了一个 `cc.assetManager.cacheManager` 对象用于管理缓存资源，当用户设置了 `REMOTE_SERVER_ROOT` 属性后，引擎下载资源的逻辑就变为：
 
 1. 查询是否在小游戏包
 2. 如果不在则检查资源是否在本地缓存内
@@ -81,7 +81,7 @@
 
 ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，除了引擎会自动清理资源之外，你可以在微信小游戏下使用 `cc.assetManager.cacheManager.cleanAllCaches()` 和 `cc.assetManager.cacheManager.cleanCache()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者会清除单个资源。
+**注意**：如果缓存资源超过微信环境限制，除了引擎会自动清理资源之外，你可以在微信小游戏下使用 `cc.assetManager.cacheManager.clearCache()` 和 `cc.assetManager.cacheManager.removeCache()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者只会清除指定资源。
 
 ## 微信小游戏引擎插件
 

@@ -49,23 +49,23 @@
 缓存管理器中提供了一些控制参数用于控制资源的缓存：
 
 1. `cacheManager.cacheDir` 控制了缓存资源的存储目录。
-2. `cacheManager.cachePeriod` 控制缓存单个资源的周期，默认为 500 ms 缓存一次。
-3. `cacheManager.saveFile` 控制是否缓存资源，默认为缓存资源。
+2. `cacheManager.cacheInterval` 控制缓存单个资源的周期，默认为 500 ms 缓存一次。
+3. `cacheManager.cacheEnabled` 控制是否缓存资源，默认为缓存资源。
 
-另外，你可以通过指定可选参数 `saveFile` 来覆盖全局设置，例如：
+另外，你可以通过指定可选参数 `cacheEnabled` 来覆盖全局设置，例如：
 
 ```js
-    cc.assetManager.loadRemoteTexture('http://example.com/background.jpg', { saveFile: true }, callback);
+    cc.assetManager.loadRemote('http://example.com/background.jpg', { cacheEnabled: true }, callback);
 ```
 
 ## 清理缓存
 
-缓存管理器提供了三个接口清理缓存资源，分别是 `cleanCache`, `cleanAllCaches` , `cleanLRU` 接口，`cleanCache` 用于清理单个缓存资源，`cleanAllCaches` 用于清理所有缓存资源，请慎重使用，`cleanLRU` 用于清理较早使用的资源，`cleanLRU` 会在小游戏平台存储空间满了后自动调用。
+缓存管理器提供了三个接口清理缓存资源，分别是 `removeCache`, `clearCache` , `clearLRU` 接口，`removeCache` 用于清理单个缓存资源，`clearCache` 用于清理所有缓存资源，请慎重使用，`clearLRU` 用于清理较早使用的资源，`clearLRU` 会在小游戏平台存储空间满了后自动调用。
 
-`cleanCache` 需要提供资源的原路径进行清除，例如：
+`removeCache` 需要提供资源的原路径进行清除，例如：
 
 ```js
-cc.assetManager.loadRemoteTexture('http://example.com/background.jpg', function (err, texture) {
-    cc.assetManager.cacheManager.cleanCache(texture.nativeUrl);
+cc.assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
+    cc.assetManager.cacheManager.removeCache(texture.nativeUrl);
 });
 ```

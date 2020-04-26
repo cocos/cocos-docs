@@ -32,7 +32,7 @@
 
 ### 默认加载模式
 
-音频默认是使用 Web Audio 的方式加载并播放的，只有在不支持的浏览器才会使用 DOM 模式。
+音频默认以编辑器中设定的模式来进行加载，在某些浏览器上不支持 WebAudio 模式，将退化为 DomAudio 模式。
 
 ```js
 cc.assetManager.loadRemote('http://example.com/background.mp3', callback);

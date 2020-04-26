@@ -110,7 +110,7 @@ cc.assetManager.loadBundle('assets/01_graphics', function (err, bundle) {
 当你加载 Asset Bundle 时你 **不需要** 额外提供对应的 Hash 值，Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整，但如果你想要将相关 Hash 存储在服务器上，动态获取以实现动态更新 asset bundle，你也可以手动指定一个版本 Hash 值传入到 `loadBundle` 中，此时将会以传入的 Hash 值为准：
 
 ```js
-cc.assetManager.loadBundle('http://examples.com/01_graphics', { ver: 'fbc07' }, function (err, bundle) {
+cc.assetManager.loadBundle('http://examples.com/01_graphics', { version: 'fbc07' }, function (err, bundle) {
     if (err) {
         return console.error(err);
     }
@@ -230,7 +230,7 @@ Asset Bundle 中的资源可以使用三种方式进行释放，第一种是使�
 
 **注意**：当你释放资源时，Creator 同时会去处理该资源的依赖资源，你不必对依赖项进行管理。
 
-关于释放资源的详细介绍请参考 [终结器](../asset-manager/finalizer.md) 。
+关于释放资源的详细介绍请参考 [资源释放](../asset-manager/release-manager.md) 。
 
 ## 销毁 Asset Bundle
 

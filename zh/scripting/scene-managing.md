@@ -65,7 +65,7 @@ cc.director.preloadScene("table", function () {
 cc.director.loadScene("table");
 ```
 
-就算预加载没完成，你依旧可以调用 `cc.director.loadScene` 或 `cc.assetManager.loadScene`。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
+就算预加载没完成，你依旧可以调用 `cc.director.loadScene`。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
 
 关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md) 。
 

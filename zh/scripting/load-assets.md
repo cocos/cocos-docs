@@ -179,15 +179,15 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets) {
 `cc.assetManager` 提供了 `preloadRes` , `preloadResDir` 用于预加载资源。  
 
 ```js
-var task = cc.resources.preload('test assets/image', cc.SpriteFrame, function (err) {
-    // 传入预加载任务
-    cc.resources.load(task, function (err, spriteFrame) {
-        self.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-    })
-})
+cc.resources.preload('test assets/image', cc.SpriteFrame);
+
+// wait for while
+cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFrame) {
+    self.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+});
 ```
 
-当你使用预加载相关接口时，会返回一个 `cc.AssetManager.Task` 的实例，保存了此次预加载任务的所有数据，你可以等待预加载结束后，使用正常加载接口加载此任务，便可以正常完成加载需求。
+你可以使用预加载相关接口时提前加载资源，不必等到预加载结束，使用正常加载接口进行加载，便可以正常完成加载需求。
 
 关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md) 。
 
@@ -222,7 +222,7 @@ cc.assetManager.loadRemote(remoteUrl, function (err, audioClip) {
 
 // 远程文本
 remoteUrl = "http://unknown.org/skill.txt";
-cc.assetManager.loadAny({ url: remoteUrl }, function (err, str) {
+cc.assetManager.loadRemote({ url: remoteUrl }, function (err, textAsset) {
     // use string to do something
 });
 ```
@@ -298,7 +298,7 @@ cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
     this.spriteFrame = null;
 ```
 
-详细的资源释放机制请参考 [终结器](../asset-manager/finalizer.md) 。
+详细的资源释放机制请参考 [资源释放](../asset-manager/release-manager.md) 。
 
 **最后一个值得关注的要点：JavaScript 的垃圾回收是延迟的。**
 

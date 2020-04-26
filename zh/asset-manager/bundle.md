@@ -37,41 +37,45 @@ A：当然可以，不过需要满足以下条件：1. 引擎版本相同，2. A
 
 Q：Asset Bundle 可以做到分离首场景么？
 
-A：当然可以，你可以在构建面板上只选择首场景，则首场景会被放到内置 Asset Bundle `main` 中，而其他场景你可以拖到其他 Asset Bundle 的文件夹下，在运行时通过 Asset Bundle 动态加载场景出来，从而实现首包只包含首场景。
+A：当然可以，你可以在构建面板上勾选首场景分包，则首场景会被放到内置 Asset Bundle `start-scene` 中，从而实现分离首场景。
 
 Q：Asset Bundle 可以嵌套设置么？比如 A 文件夹中有 B 文件夹，A 和 B 都可以设置为 Asset Bundle 么？
 
-A：请看下面关于 Asset Bundle 嵌套的说明。
+A：Asset Bundle 不支持嵌套，请避免如此使用。
 
 ## 内置 Asset Bundle
 
-从 v2.4 开始，整个系统基于 Asset Bundle，即使你没有用到任何 Asset Bundle，任何一个工程在构建后都会存在 3 个内置的 Asset Bundle，如图所示：
+从 v2.4 开始，Creator 内置了4个 Asset Bundle，如图所示：
 
 ![builtinBundles](bundle/builtinBundles.png) 。
 
-即是说，从 v2.4 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中。
+即是说，从 v2.4 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中，如果你勾选了首场景分包，则首场景将会被构建到 start-scene 中。
 
-与其他 Asset Bundle 一样，你可以将内置的 Asset Bundle 放到远程服务器，本地或小游戏平台的子包中。仅需要改动下启动代码中的 resourcesRoot，internalRoot，mainRoot 为真实的路径即可。
+与其他 Asset Bundle 一样，你也可以设置内置的 Asset Bundle 的压缩类型，甚至将其放到远程服务器上。你可以通过在构建时配置远程服务器地址来设置，也可以通过自定义构建模板功能修改 main.js 代码来控制内置 Asset Bundle 的加载，类似下图所示。
 
 ![launch](bundle/launch.png) 
 
-## Asset Bundle 的类型
+## Asset Bundle 的优先级
 
-当文件夹设置为 Asset Bundle 之后，会将文件夹内以及文件夹外部依赖的资源都合并到 Asset Bundle 中，也就是说可能存在某个资源本身不在 Asset Bundle 文件夹下，但同时被两个 Asset Bundle 所依赖，从而属于两个 Asset Bundle ，如图所示：
+当文件夹设置为 Asset Bundle 之后，会将文件夹内以及文件夹外部依赖的资源都合并到 Asset Bundle 中，也就是说可能存在某个资源本身不在 Asset Bundle 文件夹下，但同时被两个 Asset Bundle 所依赖，从而属于两个 Asset Bundle 的情况，如图所示：
 
 ![shared](bundle/shared.png) 
 
-此时资源 c 既属于 Asset Bundle A，也属于 Asset Bundle B。那资源 c 究竟会存在哪一个 bundle 中呢。此时就需要通过调整 Asset Bundle 的类型来确定资源 c 究竟放在哪一个 bundle 中。
+另一种情况是资源在一个 Asset Bundle 文件夹下，但是又被其他 Asset Bundle 所引用，如图所示：
 
-Asset Bundle 的两种类型：
+![shared2](bundle/shared2.png)
 
-1. Shared bundle，顾名思义就是共享 bundle。当多个 bundle 引用了同一个资源时，该资源会被优先放入 Shared Bundle 中，而其他 bundle 将只会存储一条记录信息。比如上面的例子，如果 Asset Bundle A 设置为 Shared Bundle，则资源 c 将会放在 Asset Bundle A 中，而 Asset Bundle B 中只会存在一个记录信息。你可以通过 Asset Bundle A 直接加载到资源 c, 当然你也可以通过 Asset Bundle B 来加载资源 c，但你需要先加载了 Asset Bundle A 才能加载成功，否则会提示你依赖了其他 Asset Bundle。此类型的 Asset Bundle 多用于包含独立的，与外部无关的资源，比如 Texture、SpriteFrame、Audio 等。比如你可以将所有需要的贴图放在一起，配置为一个 shared bundle，进入游戏之后提前加载这个 Shared Bundle，则后续所有 bundle 都能正常加载。
+两种情况下，资源 c 既属于 Asset Bundle A，也属于 Asset Bundle B。那资源 c 究竟会存在哪一个 bundle 中呢？此时就需要通过调整 Asset Bundle 的优先级来指定资源 c 究竟放在哪一个 bundle 中。
 
-**注意**：Shared bundle 和 Shared bundle 之间不能有资源复用，否则在构建时会提示报错。
+Bundle 可设置不同的优先级，Creator 内置了 10 个优先级可选择，编辑器构建时将会按照优先级从大到小对 bundle 进行依次构建，当同个资源被不同优先级的多个 bundle 引用时，资源会优先放在优先级高的 bundle 中，低优先级的 bundle 只会存储一条记录信息，此时低优先级的 bundle 会依赖高优先级的 bundle，如果你想在低优先级的 bundle 中加载此共享资源，必须在加载低优先级 bundle 之前先加载高优先级 bundle；当同个资源被相同优先级的多个 bundle 引用时，资源会在每个 bundle 中复制一份，此时不同 bundle 没有依赖关系，可用任意顺序加载。所以请尽量让共享的资源，例如 `Texture`、`SpriteFrame`、`Audio` 等资源所在 bundle 的优先级更高，从而让更多的低优先级 bundle 可共享其资源，从而最小化包体。
 
-2. Normal Bundle，当 Normal Bundle 与 Shared Bundle 复用同个资源时，资源会优先放到 Shared Bundle 中，而这个 Shared Bundle 会作为 Normal Bundle 的依赖，你想通过 Normal Bundle 去加载共享资源时，必须先去加载真正包含这个资源的 Shared Bundle；而当 Normal Bundle 与 Normal Bundle 复用同个资源时，资源会复制到每一个 Normal Bundle 中。此时任何一个 Normal Bundle 都可以正常加载该资源，比如上面的例子，如果 Asset Bundle A 与 Asset Bundle B 都设置为 Normal Bundle，则资源 c 会复制出两份存在两个 bundle 中，你可以通过任何一个 bundle 加载到资源 c，而不需要依赖其他 bundle。此类型多用于包含与外部相关的资源，比如 Scene，Prefab 等。
+**注意**：四个内置 Asset Bundle 的优先级分别为：internal 为 11，start-scene 为9，resources 为8，main 为7。当四个内置 bundle 包含相同资源时，资源会优先存储在优先级高的 bundle 中。建议其他自定义的 bundle 优先级不要高过内置的 bundle 优先级，从而尽可能共享内置 bundle 中的资源。
 
-**注意**：如果 Normal Bundle 之间引用了同个资源，该资源会复制多份出来，造成包体增加的问题。所以你必须规划自己的 bundle 内容，将一些公用的资源尽量放在 Shared Bundle 中，这样全局将只会存在一份资源。而一些不复用的资源就没有必要放在 Shared Bundle 下，避免 Shared Bundle 过大，影响加载时间。
+## Asset Bundle 的压缩类型
+
+Bundle 目前还提供了四个压缩选项，用于对 bundle 进行优化，分别是 `无`，`normal`，`合并所有JSON`，`小游戏子包`，**所有 bundle 默认使用 `normal` 类型，开发者可重新设置包括内置 bundle 在内的所有 bundle 的压缩类型**。压缩类型的作用分别是：1. 当选择 `无` 时没有任何压缩操作；2. 当选择 `normal` 时，bundle 会尝试将相互依赖的资源的 JSON 文件合并在一起，从而减少运行时的加载请求数量；3. 当选择 `合并所有JSON` 时，bundle 会将所有资源的 JSON 文件合并为一个，将最大化减少请求数量，但可能会增加单个资源的加载时间；4. 部分游戏平台例如微信小游戏，百度小游戏提供了子包功能，当选择 `小游戏子包` 时，会将这些 bundle 设置为对应平台上的子包。**另外，不同平台可采用不同的压缩类型，构建时将根据对应平台的设置来构建 bundle。**
+
+**注意**：2.4 版本之前，如果你的工程中有文件夹勾选了 `配置为子包` ，在升级到 2.4 之后，Creator 将会自动将其转化为 Asset Bundle，并将其压缩类型在支持的平台上设置为 `小游戏子包` 选项。
 
 ## Asset Bundle 的构造
 
@@ -85,16 +89,28 @@ Asset Bundle 的两种类型：
 
 ![export](bundle/exported.png) 
 
-## Asset Bundle 嵌套问题
-
-当两个文件夹都设置为 Asset Bundle，而两个文件夹是互相包含时，那此时两个 Asset Bundle 会处于嵌套状态，即其中一个 Asset Bundle 是另一个 Asset Bundle 的超集。Creator 并不会对这种情况做任何特殊的处理，只会简单的将其视为两个 Asset Bundle，最后打包出去的内容遵从于两个 Asset Bundle 的类型设定。Creator 不建议将两个 Asset Bundle 进行嵌套，因为这可能会导致多份资源存在，增加包体
-
 ## Asset Bundle 中的脚本
 
 因为 Asset Bundle 是支持脚本分包的，如果你的 Asset Bundle 下有脚本文件，则所有脚本会被合并为一个 js 文件，并从主包中剔除。在加载 Asset Bundle 时，会尝试去加载这个脚本文件。
 
-**注意**：有些平台不允许加载远程的脚本文件，例如微信，在这些平台上，如果你想将代码放到 Asset Bundle 中，请确保你的 Asset Bundle 不要放在远程服务器上。
+**注意**：有些平台不允许加载远程的脚本文件，例如微信，在这些平台上，Creator 会将 Asset Bundle 的代码拷贝到 `src/script` 下，从而保证正常加载。
 
 ## 加载 Asset Bundle
 
-在通过 API 加载 Asset Bundle 时，引擎并没有去将该 bundle 中的所有资源加载出来，而只是去加载 Asset Bundle 的资源清单，即 `config.json` 文件以及 Asset Bundle 中的脚本文件。加载完成之后会返回一个使用资源清单构造出来的 `cc.AssetManager.Bundle` 类的实例。你可以用这个实例去加载 Bundle 中的各类资源。
+AssetManager 提供了 `loadBundle` 用以加载 Asset Bundle，需要注意的是 `loadBundle` 只能通过 Asset Bundle 的 url 进行加载，不支持通过 bundle 名称进行加载，所以你需要如下使用：
+
+```js
+// bundleA 在 cdn 上时
+cc.assetManager.loadBundle('http://mycdn.com/assets/bundleA', (bundle) => {
+  bundle.load('xxx');
+});
+
+// 当 bundleA 在包内时
+cc.assetManager.loadBundle('assets/bundleB', (bundle) => {
+  bundle.load('xxx');
+});
+```
+
+在通过 API 加载 Asset Bundle 时，引擎并没有去将该 bundle 中的所有资源加载出来，而只是去加载 Asset Bundle 的资源清单，以及包含的所有脚本。加载完成之后会返回一个使用资源清单构造出来的 `cc.AssetManager.Bundle` 类的实例。你可以用这个实例去加载 Bundle 中的各类资源。
+
+Bundle 的详细 API 可参考 [Bundle](../../../api/en/classes/Bundle.html)

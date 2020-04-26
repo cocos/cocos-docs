@@ -117,13 +117,14 @@ module.exports = {
 interface bundle {
     root: string,  // bundle 的根目录
     dest: string,  // bundle 的输出目录
-    bundleName: string, // bundle 的名称
-    type: string, // bundle 的类型
+    scriptDest: string, // 脚本的输出目录
+    name: string, // bundle 的名称
+    priority: number, // bundle 的类型
     scenes: string[], // bundle 中包含的场景
-    isSubpackage: boolean, // bundle 是否勾选作为子包
+    compressionType: 'subpackage'|'normal'|'none'|'merge_all_json', // bundle 的压缩类型
     buildResults: BuildResults, // bundle 所构建出来的所有资源
     version: string, // bundle 的版本信息，由 config 生成
-    config: any // bundle 的配置表，存储所有资源的信息 
+    config: any // bundle 的 config.json 文件
 }
 ```
 

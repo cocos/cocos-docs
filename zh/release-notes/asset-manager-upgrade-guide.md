@@ -4,13 +4,15 @@
 
 > 本文将详细介绍旧版本 Creator 项目升级到 v2.4 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
-在 v2.4 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。新的资源管理模块能够为开发者提供更好的加载性能，更多的加载功能，以及更人性化的资源管理。大大提升开发者的使用体验。
+在 v2.4 之前的 [获取和加载资源](../../../../2.3/manual/zh/scripting/load-assets.html) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。在 v2.4，Creator 推出了全新的资源管理模块 `Asset Manager`。相较之前的 `cc.loader`，`Asset Manager` 提供了更好的加载性能，支持 Asset Bundle，支持预加载资源，以及更加方便的资源释放管理，同时 Asset Manager 还拥有强大的扩展性。大大提升开发者的开发效率和使用体验。我们建议所有开发者都进行升级。
 
-为了带来平滑的升级体验，我们将在一段时间内保留对 `cc.loader` 常用 API 的兼容。也就是说，除个别无法兼容的模块必须进行升级外，其他内容仍旧可以以旧代码运行。考虑到模块改动太大，除个别无法兼容的功能会提示错误之外，其他已不建议使用的 API 将 **不会** 以警告形式提示升级方法，以避免整个控制台被警告填满。我们会在引擎源码中，代码提示中，以及官方 API 文档中提供升级方式。等到 v3.0 以上的某个版本，才会全面移除对 `cc.loader` 的兼容。
+为了带来平滑的升级体验，我们仍保留了对 `cc.loader` 相关 API 的兼容，除个别无法兼容的特殊用法必须手动升级外，大部分游戏项目都可以照常运行。之后我们会在时机成熟时才会完全移除对 `cc.loader` 的兼容。如果你由于项目周期等原因暂时不方便升级，你可以在确保测试通过的情况下继续保留原来的写法。
+
+目前在使用那些旧 API 时，引擎会输出警告，并提示升级方法。请你根据警告内容对代码进行调整，升级到新的用法。比较抱歉的是，由于底层经过了升级，我们遗留了个别无法兼容的 API，在运行时会输出错误信息。如果你已经决定好要进行升级，那么下面就是你需要仔细阅读的。
 
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
-对 **程序** 而言，影响主要体现在原先在代码中用 `cc.loader` 的系列 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
-**注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的子包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md) 。
+对 **程序** 而言，影响主要体现在原先在代码中用到的 `cc.loader` 的所有 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
+**注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的子包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
 ## 常见问题
 
@@ -26,8 +28,8 @@
 
 ## 升级步骤
 
- - 重命名旧版本 Cocos Creator 所在目录，然后安装新版本 Cocos Creator。这样新旧两个版本就能共存。
- - **备份好旧版本的工程后**，使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多报错或警告。别担心，请打开代码编辑工具进行代码升级。
+ - **备份好旧版本的工程**
+ - 使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多报错或警告。别担心，请打开代码编辑工具进行代码升级。
 
 ### 将 cc.loader 系列 API 替换为 cc.assetManager 系列 API
 
@@ -212,7 +214,7 @@
 
 2. 因为 `cc.assetManager.releaseAsset` 中会去自动释放依赖资源，所以你不再需要显式调用 `cc.loader.getDependsRecursively`，如果你需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API。
 
-3. 出于安全考虑，`cc.assetManager` 中移除了自动释放的部分功能，仅支持场景上设置的自动释放，`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`，`cc.loader.setAutoReleaseRecursively`，`cc.loader.isAutoRelease` API，如果你需要自动释放任意资源，`cc.loader` 中的相关 API **仍然有效**，你可以正常使用，但在之后的版本中，随着 `cc.loader` 的移除，这部分功能也将完全移除，你可以实现自己的自动释放机制。也可以完全依赖 `cc.assetManager` 中新的资源释放检查机制，详细请参考 [终结器](../asset-manager/finalizer.md)；
+3. 出于安全考虑，`cc.assetManager` 中移除了自动释放的部分功能，仅支持场景上设置的自动释放，`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`，`cc.loader.setAutoReleaseRecursively`，`cc.loader.isAutoRelease` API，如果你需要自动释放任意资源，`cc.loader` 中的相关 API **仍然有效**，你可以正常使用，但在之后的版本中，随着 `cc.loader` 的移除，这部分功能也将完全移除，你可以实现自己的自动释放机制。也可以完全依赖 `cc.assetManager` 中新的资源释放检查机制，详细请参考 [资源释放](../asset-manager/release-manager.md)；
 
 4. 如果你想阻止某些常用资源被自动释放，你可以使用终结器中的 `lock` 接口锁定资源。
 
@@ -329,7 +331,7 @@ cc.assetManager.pipeline.insert(pipe3, 2);
 
 2. 出于模块化的考虑，自定义的处理方法将不在传入一个 `item` 对象，而是直接传入与其相关的信息，`downloader` 的自定义处理方法传入的是待下载的 url，`parser` 的自定义处理方法传入的是待解析的文件。下载器与解析器详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。
 
-3. 新的拓展机制提供了一个额外的 `options` 参数，可以增加极大的灵活性，但目前你可以先无视它，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 与 [可选参数](../asset-manager/custom-parameter.md) 。
+3. 新的拓展机制提供了一个额外的 `options` 参数，可以增加极大的灵活性，但目前你可以先无视它，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 与 [可选参数](../asset-manager/options.md) 。
 
 `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 或对应的 API 文档。
 

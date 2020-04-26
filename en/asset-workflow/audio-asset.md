@@ -32,7 +32,7 @@ Sometimes we may not use the automatic loading or preload function of the scene,
 
 #### default load mode
 
-Audio is loaded and played by default using Web Audio, and DOM mode is used only in browsers that are not supported.
+Audio is loaded and played using the mode you select in the editor by default, but some browser does not support web audio and it will fall back to dom audio.
 
 ```js
 cc.assetManager.loadRemote('http://example.com/background.mp3', callback);
