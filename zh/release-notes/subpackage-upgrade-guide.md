@@ -19,7 +19,7 @@
 ## 升级步骤
 
 - **备份好旧版本的工程**
-- 使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。打开代码编辑器，将所有 `cc.loader.downloader.loadSubpackage` 改为使用 `cc.assetManager.loadBundle`。
+- 在 CocosDashboard 中使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。打开代码编辑器，将所有 `cc.loader.downloader.loadSubpackage` 改为使用 `cc.assetManager.loadBundle`。
 
 ```js
     // 修改前

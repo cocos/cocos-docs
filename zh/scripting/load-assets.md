@@ -99,7 +99,7 @@ cc.Class({
 
 ### 动态加载 Asset
 
-Creator 提供了 `cc.resources.load` 这个 API 来专门加载那些位于 resources 目录下的 Asset。和 `cc.assetManager.loadAny` 不同的是，你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
+Creator 提供了 `cc.resources.load` 这个 API 来专门加载那些位于 resources 目录下的 Asset。你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
 ```javascript
 // 加载 Prefab
@@ -144,11 +144,11 @@ cc.resources.load("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
 
 #### 资源释放
 
-`cc.resources.load` 加载进来的单个资源如果需要释放，可以调用 `cc.assetManager.releaseRes`，`releaseRes` 可以传入和 `cc.resources.load` 相同的路径和类型参数。
+`cc.resources.load` 加载进来的单个资源如果需要释放，可以调用 `cc.resources.release`，`release` 可以传入和 `cc.resources.load` 相同的路径和类型参数。
 
 ```javascript
-cc.assetManager.releaseRes("test assets/image", cc.SpriteFrame);
-cc.assetManager.releaseRes("test assets/anim");
+cc.resources.release("test assets/image", cc.SpriteFrame);
+cc.resources.release("test assets/anim");
 ```
 
 此外，你也可以使用 `cc.assetManager.releaseAsset` 来释放特定的 Asset 实例。
@@ -176,7 +176,7 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets) {
 ## 预加载资源
 
 从 v2.4 开始，除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
-`cc.assetManager` 提供了 `preloadRes` , `preloadResDir` 用于预加载资源。  
+`cc.resources` 提供了 `preload` , `preloadDir` 用于预加载资源。  
 
 ```js
 cc.resources.preload('test assets/image', cc.SpriteFrame);
@@ -193,7 +193,7 @@ cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFram
 
 ## 加载远程资源和设备资源
 
-在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemote` 或 `cc.assetManager.loadRemote` 或 `cc.assetManager.loadAny` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `cc.resources.load` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
+在目前的 Cocos Creator 中，我们支持加载远程贴图资源，这对于加载用户头像等需要向服务器请求的贴图很友好，需要注意的是，这需要开发者直接调用 `cc.assetManager.loadRemote` 方法。同时，如果开发者用其他方式下载了资源到本地设备存储中，也需要用同样的 API 来加载，上文中的 `cc.resources.load` 等 API 只适用于应用包内的资源和热更新的本地资源。下面是这个 API 的用法：
 
 ```javascript
 // 远程 url 带图片后缀名
@@ -222,27 +222,24 @@ cc.assetManager.loadRemote(remoteUrl, function (err, audioClip) {
 
 // 远程文本
 remoteUrl = "http://unknown.org/skill.txt";
-cc.assetManager.loadRemote({ url: remoteUrl }, function (err, textAsset) {
+cc.assetManager.loadRemote(remoteUrl, function (err, textAsset) {
     // use string to do something
 });
 ```
 
-如果图片的域与游戏不在同一个域，你可能还需要添加跨域选项：
+加载远程图片时默认使用跨域方式加载，如果不需要跨域的，你可以如下设置
 
 ```js
 var remoteUrl = "http://unknown.org/someres.png";
-cc.assetManager.loadRemote(remoteUrl, { isCrossOrigin: true }, function (err, texture) {
+cc.assetManager.loadRemote(remoteUrl, { isCrossOrigin: false }, function (err, texture) {
     // Use texture to create sprite frame
 });
 ```
 
-**注意** ：我们建议你使用更为简单的 API `cc.assetManager.loadRemote`，当然你也可以参考 [AssetManager](../asset-manager/asset-manager.md) 来使用更灵活的用法。
-
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
-1. 原生平台远程加载不支持图片文件以外类型的资源
-2. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析
-3. Web 端的远程加载受到浏览器的 [CORS 跨域策略限制](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，如果对方服务器禁止跨域访问，那么会加载失败，而且由于 WebGL 安全策略的限制，即便对方服务器允许 http 请求成功之后也无法渲染。
+1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析
+2. Web 端的远程加载受到浏览器的 [CORS 跨域策略限制](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，如果对方服务器禁止跨域访问，那么会加载失败，而且由于 WebGL 安全策略的限制，即便对方服务器允许 http 请求成功之后也无法渲染。
 
 ## 资源的依赖和释放
 
@@ -274,15 +271,9 @@ if (index !== -1)
 cc.loader.release(deps);
 ```
 
-这种方案给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了提升开发者使用的方便程度， Creator 设计实现了动态资源与静态资源分别计数的方案，用于帮助开发者在处理资源释放时更加方便。需要说明的是这套方案中引擎仅对静态资源做了准确的计数，但动态资源的计数还需要开发者进行控制以保证资源能够被正确释放。
+这种方案给予了开发者最大的控制权力，对于小型项目来说工作良好，但随着 Creator 的发展，项目的规模不断提升，场景所引用的资源不断增加，而其他场景可能也复用了这些资源，这会造成释放资源的复杂度越来越高，开发者需要掌握所有资源的使用非常困难。为了解决这个痛点，Asset Manager 提供了一套基于引用计数的资源释放机制，让开发者可以简单高效地释放资源，不用担心项目规模的急剧膨胀。
 
-在 v2.4，开发者不再需要关注资源的依赖项，你只需管理资源本身即可，Creator 会尝试自动释放其依赖资源。例如：
-
-```js
-cc.assetManager.releaseAsset(texture);
-```
-
-这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试去释放依赖资源。所以这个方案引擎只对静态的依赖资源引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理管理。每一个资源对象都提供了两个方法 `addRef`，`decRef`，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
+这一套方案所做的工作是通过 AssetManager 加载资源时，对资源的依赖资源进行分析记录，并增加引用。而在通过 AssetManager 释放资源时，拿到记录的依赖资源，取消引用，并根据依赖资源的引用数，尝试自动去释放依赖资源。所以这个方案引擎只对资源的静态引用进行了分析，也就是说如果开发者在游戏运行过程中动态加载了资源并设置给场景或其他资源，则这些动态加载出来的资源引擎是没有记录的，这些资源需要开发者进行管理。每一个资源对象都提供了两个方法 `addRef`，`decRef`，你可以使用这两个接口来对动态资源的引用进行控制，比如说：
 
 ```js
 cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {

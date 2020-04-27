@@ -18,6 +18,7 @@
 - [发布到小米快游戏](publish-xiaomi-quick-games.md)
 - [发布到即刻玩小游戏](publish-jkw-games.md)
 - [命令行发布项目](publish-in-command-line.md)
+- [小游戏子包](subpackage.md)
 - [定制项目构建模板](custom-project-build-template.md)
 
 <hr>

@@ -15,7 +15,7 @@
 
 Asset Manager 中内置了三条管线，如图所示：
 
-![builtin-pipeline](pipeline-task/builtin-pipeline.png)
+![builtin-pipeline](pipeline-task/builtin-pipeline.jpg)
 
 1. 第一条管线用于转换资源路径，找到真实资源路径。
 2. 第二条管线是正常加载流程。

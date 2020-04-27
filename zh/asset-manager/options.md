@@ -71,7 +71,7 @@
         // 下载对应资源
         var img = new Image();
         if (options.isCrossOrigin) {
-            img.isCrossOrigin = 'anonymous';
+            img.crossOrigin = 'anonymous';
         }
 
         img.onload = function () {
