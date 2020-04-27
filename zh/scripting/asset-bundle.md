@@ -50,7 +50,7 @@ cc.assetManager.loadBundle('http://examples.com/01_graphics', function (err, bun
     console.log('load bundle successfully.');
 });
 
-// 如果将构造之后的 Asset Bundle 放在本地
+// 如果将构造之后的 Asset Bundle 放在原目录
 cc.assetManager.loadBundle('assets/01_graphics', function (err, bundle) {
     if (err) {
         return console.error(err);
