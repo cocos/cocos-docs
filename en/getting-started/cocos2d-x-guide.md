@@ -7,13 +7,13 @@ This document will discuss possible problems that may occur in the transition fr
 
 ## 1. Typical Misconceptions
 
-For new Cocos Creator users, some of the following typical misconceptions may occur：
+For new Cocos Creator users, some of the following typical misconceptions may occur:
 
-1. **Hoping to use Cocos Creator by coordinating it with Cocos2d-x**：Cocos Creator, having had a complete JavaScript WEB engine internally, can work without relying on Cocos2d-x. However, if you want to launch the original edition, you still need to set up a Cocos2d-x in your computer.
-2. **Building an entire code framework at first and then add in game contents**：Cocos Creator's workflows are content creation oriented, which is very convenient for prototype creation. You can create scenes and write logic code directly into the editor, then you can drive the game scene and run it. The following data driven chapters will introduce changes of workflows in detail.
-3. **Directly check the API of Cocos2d-JS when coding**：Cocos Creator has said to be originated from Cocos2d-JS. Their APIs have the same origin and have lots of identical parts. But with entirely new componentized frameworks, their APIs are different and not compatible with each other.
-4. **Hoping to directly run the old Cocos2d-JS games on Cocos Creator**：Their APIs are not 100% compatible; therefore, such operation is unavailable.
-5. **Extend functions by way of inheritance**：In Cocos2d-JS, inheritance is a basic method for extending node functions. But in Cocos Creator, inheriting and extending nodes is not recommended. The node is only an entity. The logic of the game should be realized by different components and then be assembled in the node.
+1. **Hoping to use Cocos Creator by coordinating it with Cocos2d-x**: Cocos Creator, having had a complete JavaScript WEB engine internally, can work without relying on Cocos2d-x. However, if you want to launch the original edition, you still need to set up a Cocos2d-x in your computer.
+2. **Building an entire code framework at first and then add in game contents**: Cocos Creator's workflows are content creation oriented, which is very convenient for prototype creation. You can create scenes and write logic code directly into the editor, then you can drive the game scene and run it. The following data driven chapters will introduce changes of workflows in detail.
+3. **Directly check the API of Cocos2d-JS when coding**: Cocos Creator has said to be originated from Cocos2d-JS. Their APIs have the same origin and have lots of identical parts. But with entirely new componentized frameworks, their APIs are different and not compatible with each other.
+4. **Hoping to directly run the old Cocos2d-JS games on Cocos Creator**: Their APIs are not 100% compatible; therefore, such operation is unavailable.
+5. **Extend functions by way of inheritance**: In Cocos2d-JS, inheritance is a basic method for extending node functions. But in Cocos Creator, inheriting and extending nodes is not recommended. The node is only an entity. The logic of the game should be realized by different components and then be assembled in the node.
 
 The reason for mentioning these misconceptions at the beginning of this document is that we hope developers can realize that the workflows and development ideas provided by Cocos Creator are tremendously different from those of Cocos2d-x.
 For a better understanding of how to code correctly in Cocos Creator, the following two chapters will introduce the changes in workflows and API level brought by data driven in more detail.
@@ -59,7 +59,7 @@ Being different from Cocos2d-x, workflows of Cocos Creator are content creation 
 
 ## 3. Changes at Framework Level
 
-As is mentioned at the beginning, Cocos Creator has been completely integrated with componentized Cocos2d-JS. This is a highly customized edition. Due to componentization and the needs of data driven, API sets and the standard edition of Cocos2d-JS have the same origin, but the two of which are uncompatible with each other.  The following are detailed introductions of some important API differences:
+As is mentioned at the beginning, Cocos Creator has been completely integrated with componentized Cocos2d-JS. This is a highly customized edition. Due to componentization and the needs of data driven, API sets and the standard edition of Cocos2d-JS have the same origin, but the two of which are uncompatible with each other. The following are detailed introductions of some important API differences:
 
 ### Logic Tree and Render Tree
 
@@ -107,7 +107,7 @@ The coordinate system of Cocos Creator is still a cartesian coordinate system, b
 
 ![coordinate](./cocos2d-x-guide/coordinate.png)
 
-Supposing the anchor point of a context node is (0.5, 0.5). This node has a subnode, the anchor point of which is (0, 0). In Cocos2d-JS, its illustration will be like that in the left diagram. But in Cocos Creator, its illustration will be like that of the right diagram. The reason is that the local coordinate systems of the subnodes are different. In Cocos2d-JS, wherever the anchor point of the parent node is located, the origin of the subnode's coordinate system is at the lower left corner of the parent node. But in Cocos Creator, the origin of the subnode's coordinate system is in the position of the parent node's coordinate position(i.e., its anchor point). Such modification is more compatiable with the editor, which is, in general, very natural for scenes built by the editior. But when developers use code to build nodes, they should pay special attention.
+Supposing the anchor point of a context node is (0.5, 0.5). This node has a subnode, the anchor point of which is (0, 0). In Cocos2d-JS, its illustration will be like that in the left diagram. But in Cocos Creator, its illustration will be like that of the right diagram. The reason is that the local coordinate systems of the child nodes are different. In Cocos2d-JS, wherever the anchor point of the parent node is located, the origin of the subnode's coordinate system is at the lower left corner of the parent node. But in Cocos Creator, the origin of the subnode's coordinate system is in the position of the parent node's coordinate position(i.e., its anchor point). Such modification is more compatiable with the editor, which is, in general, very natural for scenes built by the editior. But when developers use code to build nodes, they should pay special attention.
 
 ### Categories and objects that remain unchanged
 
@@ -139,7 +139,7 @@ In `cc.Node`, a series of wholly new event APIs are added. From logic nodes, var
 1. `node.emit(type, detail)`: Inform all the monitors to monitor `type` event. Capable of sending an additional parameter.
 2. `node.dispatchEvent(event)`: Send an event to its monitor. Support bubbling.
 3. `node.on(type, callback, target)`: Continuously monitor `type` event of `node`.
-4. `node.once(type, callback, target)`: Monitor  `type` event of `node` once.
+4. `node.once(type, callback, target)`: Monitor `type` event of `node` once.
 5. `node.off(type, callback, target)`: Cancel the monitoring of all `type` events or cancel a certain monitor of `type` event (appointed by callback and target).
 
 Such an event distribution method has changed from centralized distribution by `cc.eventManager` to distribution by the node which has the event itself. It can be called a transformation from a centralized event system to a discrete event system. In the meantime, Cocos Creator has built in two kinds of system events (i.e., `MOUSE` and `TOUCH`) in nodes:

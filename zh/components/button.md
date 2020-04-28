@@ -58,7 +58,7 @@ Button 的 Transition 用来指定当用户点击 Button 时的状态表现。�
 | 属性            | 功能                                                                                       |
 | -------------- | -----------                                                                                |
 | Duration       | Button 状态切换需要的时间间隔。                                                                |
-| ZoomScale      | 当用户点击按钮后，按钮会缩放到一个值，这个值等于 Button 原始 scale * zoomScale, zoomScale 可以为负数  |
+| ZoomScale      | 当用户点击按钮后，按钮会缩放到一个值，这个值等于 Button 原始 scale * zoomScale，zoomScale 可以为负数  |
 
 ## Button 点击事件
 

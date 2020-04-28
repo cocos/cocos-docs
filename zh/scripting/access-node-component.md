@@ -291,7 +291,6 @@ cc.Class({
 
 更详细内容，请参考 [模块化](modular-script.md)。
 
-
 ---
 
 继续前往 [常用节点和组件接口](basic-node-api.md)。

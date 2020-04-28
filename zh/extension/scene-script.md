@@ -43,7 +43,7 @@ module.exports = {
 
 ```js
 Editor.Scene.callSceneScript('foobar', 'get-canvas-children', function (err, length) {
-    console.log(`get-canvas-children callback :  length - ${length}`);
+    console.log(`get-canvas-children callback : length - ${length}`);
 });
 ```
 
@@ -77,7 +77,6 @@ module.exports = {
 ```
 
 注意，要使用和项目脚本相同的模块引用机制，在场景脚本里必须使用 `cc.require` 的写法。
-
 
 ### 引用插件脚本
 

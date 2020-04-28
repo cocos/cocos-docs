@@ -3,7 +3,7 @@
 The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x-lite (custom version of Cocos2d-x-lite) and adapters. They are all open sourced on GitHub:
 
 - JavaScript engine: <https://github.com/cocos-creator/engine>
-- Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
+- Cocos2d-x-lite engine: <https://github.com/cocos-creator/cocos2d-x-lite>
 
 There are three adapters:
 
@@ -168,8 +168,8 @@ If you want to get the latest version of the official developing, you need to do
 
 In the `jsb-adapter` directory, the following two directory structures are included:
 
-- `builtin`：Adapt the runtime of the native platform
-- `engine`：Adapt some APIs of the engine level
+- `builtin`: Adapt the runtime of the native platform
+- `engine`: Adapt some APIs of the engine level
 
 The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
 

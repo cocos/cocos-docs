@@ -12,7 +12,7 @@ As an engine, in order to simplify the developer's workload as much as possible,
 
 For specific **Baidu Mini Game** application, station development, game submission, review and release process can refer to [Baidu Mini Game registration guidance document](https://smartprogram.baidu.com/docs/game/).
 
-## ## Using Cocos Creator to release Baidu Mini Games
+## Using Cocos Creator to release Baidu Mini Games
 
 ### Prerequisites
 

@@ -108,6 +108,7 @@ An If/Else conditional judgement can also be wrote into one line like this:
 ```js
 foo ? function1() : function2();
 ```
+
 When the value of `foo` is true, the expression will send back the execution result of `function1()`, otherwise it will send back the execution result of `function2()`. When we need to assign variables according to the condition, writing it like this is very convenient:
 
 ```js
@@ -132,7 +133,7 @@ else {
 
 ## JavaScript Array
 
- In JavaScript, declare an array like this:
+In JavaScript, declare an array like this:
 
 ```js
 a = [123, 456, 789];
@@ -324,7 +325,7 @@ a = 12;
 !!a; // true
 ```
 
-Or：
+Or:
 
 ```js
 a = 0;
@@ -339,7 +340,6 @@ At last, the following rules on code style can help us write more specific code:
 - Use camel-case naming: define the variable name like `myRandomVariable`, but not `my_random_variable`
 - Type one `;` at each end of the line, although `;` in the end of a line can be ignored in JavaScript
 - Put spacing before and after each keyword, such as `a = b + 1` rather than `a=b+1`
-
 
 ## Combine the knowledge we have learnt
 
@@ -370,15 +370,15 @@ This piece of code defines a new component to the engine. This component has a `
 
 Let's go through the function of each sentence (I will highlight useful grammar patterns):
 
-`var Comp = cc.Class({`：Here we use the object `cc` , call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax **, the parameter passing during the call is an anonymous **JavaScript object** （`{}`）.
+`var Comp = cc.Class({`: Here we use the object `cc` , call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax **, the parameter passing during the call is an anonymous **JavaScript object** （`{}`）.
 
-`target: { default: null, type: cc.Entity }`：This pair of key values declare a property named `target` and its value is another JavaScript anonymous object which defines the default value and value type of the target.
+`target: { default: null, type: cc.Entity }`: This pair of key values declare a property named `target` and its value is another JavaScript anonymous object which defines the default value and value type of the target.
 
-`extends: cc.Component`：This pair of key values declare that the parent of this Class is cc.Component. cc.Component is Cocos Creator's built-in type.
+`extends: cc.Component`: This pair of key values declare that the parent of this Class is cc.Component. cc.Component is Cocos Creator's built-in type.
 
-`onStart: function () {`：This pair of key value defines a member method called `onStart` whose value is an anonymous function.
+`onStart: function () {`: This pair of key value defines a member method called `onStart` whose value is an anonymous function.
 
-`this.target = cc.Entity.find('`：In the context of this sentence, `this` stands for the component being created, here we access the `target` property by `this.target`.
+`this.target = cc.Entity.find('`: In the context of this sentence, `this` stands for the component being created, here we access the `target` property by `this.target`.
 
 ## Further study
 

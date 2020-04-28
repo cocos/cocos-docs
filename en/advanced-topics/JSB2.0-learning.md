@@ -170,7 +170,7 @@ Imagine if you force `se::Object` to be a strong reference to a JS object that l
 
 It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
 
-**Reason 2：More flexible, supporting strong reference by calling the se::Object::root method manually**
+**Reason 2: More flexible, supporting strong reference by calling the se::Object::root method manually**
 
 `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
@@ -286,7 +286,7 @@ The following two code snippets are equivalent, the use of `se::HandleObject` si
         otherObject->setProperty("foo", se::Value(obj));
     }
  
-	is equal to：
+	is equal to:
 
     {
         se::Object* obj = se::Object::createPlainObject();
@@ -320,7 +320,7 @@ It has the following methods:
 * `bool defineFunction(name, func)`: Define a member function for a class.
 * `bool defineProperty(name, getter, setter)`: Define a property accessor for a class.
 * `bool defineStaticFunction(name, func)`: Define a static function for a class, the JS function could be accessed by `SomeClass.foo()` rather than the method of `var obj = new SomeClass(); obj.foo()`, means it' s a class method instead of an instance method.
-* `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`，it's nothing about instance object.
+* `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`, it's nothing about instance object.
 * `bool defineFinalizeFunction(func)`: Define the finalize callback function after JS object is garbage collected.
 * `bool install()`: Install a class JS engine.
 * `Object* getProto()`: Get the prototype of JS constructor installed, similar to `function Foo(){}` `Foo.prototype` in JS.
@@ -1021,7 +1021,7 @@ The remote debugging and profile are valid in debug mode, if you need to enable 
 #endif
 ```
 
-Change to：
+Change to:
 
 ```c++
 #if 1 // Change to 1 to force enable remote debugging

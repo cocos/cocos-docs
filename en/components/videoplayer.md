@@ -2,11 +2,11 @@
 
 VideoPlayer is a component for playing videos, you could use this component for playing local video and remote videos.
 
-**Play local video**：
+**Play local video**:
 
 ![videoplayer](./videoplayer/videoplayer.png)
 
-**Play remote video**：
+**Play remote video**:
 
 ![videoplayer-remote](./videoplayer/videoplayer-remote.png)
 
@@ -19,7 +19,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Properties | Function Explanation
 |-------- | ----------- |
 | Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
-| Clip               | Displayed when Resource Type is LOCAL，feed it with a local video path.
+| Clip               | Displayed when Resource Type is LOCAL, feed it with a local video path.
 | Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
 | Current Time       | The current time when video start to play.
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
@@ -29,7 +29,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Stay On Bottom     | Display video below the game view (Only available on web).
 | Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
-**Note**：In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+**Note**: In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
@@ -39,7 +39,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | --------------  | ----------- |
 | target          | Node with the script component.|
 | component       | Script component name.         |
-| handler         | Specify a callback，when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
+| handler         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
 | customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
 
 For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
@@ -138,9 +138,9 @@ You can display a UI upon a video in three steps:
     ![](videoplayer/stayonbutton.png)
 
 **Note**:
-
 - This feature is only supported on Web.
 - The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
+- After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
 For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
 

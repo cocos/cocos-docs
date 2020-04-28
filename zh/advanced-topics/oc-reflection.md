@@ -79,7 +79,7 @@ Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
 
 - **float、int 请使用 NSNumber 类型**
 - **bool 请使用 BOOL 类型**
-- 例如下面代码，我们传入两个浮点数，然后计算他们的合并返回，我们使用 NSNumber 而不是 int、float 去作为参数类型。
+- 例如下面代码，我们传入两个浮点数，然后计算它们的合并返回，我们使用 NSNumber 而不是 int、float 去作为参数类型。
 
   ```
   +(float) addTwoNumber:(NSNumber *)num1 and:(NSNumber *)num2{

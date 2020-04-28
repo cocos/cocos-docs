@@ -59,7 +59,7 @@
 - `keystoreAlias` - keystore 别名
 - `keystoreAliasPassword` - keystore 别名密码
 - `orientation` - native 平台（不含微信小游戏）下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]
-  因为这是一个 object, 所以定义会特殊一些：
+  因为这是一个 object，所以定义会特殊一些：
   - orientation={'landscapeLeft': true} 或
   - orientation={'landscapeLeft': true, 'portrait': true}
 - `template` - native 平台下的模板选项 [default、link]

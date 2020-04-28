@@ -4,7 +4,7 @@ Spine skeleton animation resources are data formats that exported by [Spine](htt
 
 ## Import skeleton animation resources
 
-Skeleton animation resource use three main resources：
+Skeleton animation resource use three main resources:
 
 - `.json/.skel` Skeletal animation data
 - `.png`  Atlas

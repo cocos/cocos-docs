@@ -7,7 +7,7 @@
   骨骼动画所需资源有：
 
 - `.json/.skel` 骨骼数据
-- `.png`  图集纹理
+- `.png` 图集纹理
 - `.txt/.atlas` 图集数据
 
   ![spine](spine/import.png)

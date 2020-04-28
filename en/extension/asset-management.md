@@ -24,7 +24,7 @@ _Scene.loadSceneByUuid (uuid, function (error) {
 });
 ```
 
-Where _Scene is a special singleton that controls the scene instance loaded in the scene editor.<br>
+Where `_Scene` is a special singleton that controls the scene instance loaded in the scene editor.<br>
 The incoming parameter is the uuid of the scene asset, which can be obtained by the asset manager interface described below.
 
 ## Mapping of asset URL and UUID
@@ -60,7 +60,6 @@ Editor.assetdb.import (['/ user / user / foo.js', '/User/user/bar.js'], 'db: // 
     });
 });
 
-
 // renderer process
 Editor.assetdb.import ([
     '/file/to/import/01.png',
@@ -71,7 +70,7 @@ Editor.assetdb.import ([
 
 ### Create an asset
 
-A common misuse of using extended package management assets is to use the [fs module](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html) of the Node.js when the extension package needs to create new assets, so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
+A common misuse of using extended package management assets is to use the [fs module](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html) of the Node.js when the extension package needs to create new assets, so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the **Assets**. The correct workflow should use the `create` interface to create the asset.
 
 ```js
 // main process or renderer process
