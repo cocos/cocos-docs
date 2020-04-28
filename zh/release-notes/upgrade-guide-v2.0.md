@@ -136,7 +136,7 @@
 - 加载 main.js
 - 加载项目插件脚本
 - 加载项目主脚本
-- 初始化引擎（Animation Manager, Collision Manager, Physics Manager, Widget Manager）
+- 初始化引擎（Animation Manager、Collision Manager、Physics Manager、Widget Manager）
 - 初始化渲染器
 - 调用 cc.game.onStart
 

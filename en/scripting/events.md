@@ -61,8 +61,7 @@ cc.Class({
 
 ## Launch event
 
-We can launch an event using two ways: `emit` and `dispatchEvent`. The difference between these two is that the latter can do the event delivery.
-Let's get to know the `emit` event through a simple example：
+We can launch an event using two ways: `emit` and `dispatchEvent`. The difference between these two is that the latter can do the event delivery. Let's get to know the `emit` event through a simple example:
 
 ```js
 cc.Class({
@@ -86,6 +85,7 @@ cc.Class({
 
 We've made some optimizations for passing event arguments since v2.0.  
 When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
+
 ```js
 cc.Class({
   extends: cc.Component,
@@ -103,8 +103,8 @@ cc.Class({
   },
 });
 ```
-What need to be emphasized is that you can only pass 5 event arguments at most for the consideration of event dispatching performance.
-So you need to pay attention to the number of event arguments you pass.
+
+What need to be emphasized is that you can only pass 5 event arguments at most for the consideration of event dispatching performance. So you need to pay attention to the number of event arguments you pass.
 
 ## Event delivery
 

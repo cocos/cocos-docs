@@ -22,7 +22,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 | 属性                  | 功能说明                                                       |
 | --------------       | -----------                                                  |
-| Type                 | 布局类型，支持 NONE, HORIZONTAL，VERTICAL 和 GRID。              |
+| Type                 | 布局类型，支持 NONE、HORIZONTAL、VERTICAL 和 GRID。              |
 | Resize Mode          | 缩放模式，支持 NONE，CHILDREN 和 CONTAINER。                     |
 | Padding Left         | 排版时，子物体相对于容器左边框的距离。                              |
 | Padding Right        | 排版时，子物体相对于容器右边框的距离。                              |
@@ -50,7 +50,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 - 设置为 CONTAINER 则容器的大小会随着子物体的大小变化。
 
-在使用网格布局时，当 **Start Axis** 设置为 HORIZONTAL 时, 将在新行开始之前填充整行。设置为 VERTICAL 时, 它将在新列开始之前填充整个列。
+在使用网格布局时，当 **Start Axis** 设置为 HORIZONTAL 时，将在新行开始之前填充整行。设置为 VERTICAL 时，它将在新列开始之前填充整个列。
 
 **注意**：
 

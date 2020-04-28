@@ -31,7 +31,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
 
     ```js
     // 获取 Matchvs 引擎对象
-    var engine =  new window.MatchvsEngine(); 
+    var engine = new window.MatchvsEngine(); 
     // 创建回调对象，在进行注册、登录、发送消息等操作之后，该对象的方法会被异步调用
     var response = new window.MatchvsResponse();
     var gameid = '从 Matchvs 后台获取的 GameID';

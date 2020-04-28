@@ -224,7 +224,6 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
     });
 ```
 
-
 __对象类型__
 
 绑定对象的创建已经被隐藏在对应的 `SE_BIND_CTOR` 和 `SE_BIND_SUB_CLS_CTOR` 函数中，开发者在绑定回调中如果需要用到当前对象对应的 se::Object，只需要通过 s.thisObject() 即可获取。其中 s 为 se::State 类型，具体会在后续章节中说明。
@@ -251,23 +250,23 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 * 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 decRef
 
-```c++
-bool foo()
-{
-	se::Object* obj = se::Object::createPlainObject();
-	if (var1)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	
-	if (var2)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	...
-	...
-	obj->decRef();
-	return true;
-}
-```
+    ```c++
+    bool foo()
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        if (var1)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        
+        if (var2)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        ...
+        ...
+        obj->decRef();
+        return true;
+    }
+    ```
 
-就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
+  就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
 
 * JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
 

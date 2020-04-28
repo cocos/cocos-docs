@@ -48,6 +48,4 @@ cc.loader.load('http://example.com/background.mp3?useDom=1', callback);
 
 需要注意的是，如果是使用 DOM 模式加载的音频，在 cc.loader 的 cache 中，缓存的 url 也会带有 ?useDom=1。**建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
 
-参考：
-
-- [音频播放](../audio/audio.md)
+参考 [音频播放](../audio/audio.md)

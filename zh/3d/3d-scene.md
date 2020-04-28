@@ -14,6 +14,24 @@
 
 **注意**：在做 3D 项目的时候，通常我们会为 UI 和场景分配多个 Camera。在这种情况下需要正确设置 Camera 的 depth 属性，否则可能导致遮挡顺序不对。具体的内容可参考 [摄像机属性](../render/camera.md#%E6%91%84%E5%83%8F%E6%9C%BA%E5%B1%9E%E6%80%A7)。
 
+## 场景渲染配置面板
+
+在 **场景编辑器** 的场景渲染配置面板中提供了一些参数来帮助调试场景中 3D 物体的渲染效果。
+
+![config](img/rendering-config.png)
+
+- Wire Frame
+
+  按照线条的方式勾勒出模型的三角面
+
+  ![wire frame](img/wire-frame.png)
+
+- Normal
+    
+  绘制模型的顶点法线信息
+
+  ![normal](img/normal.png)
+
 ## 游戏预览面板
 
 用户可以通过点击 **主菜单 -> 面板 -> 游戏预览** 来打开 **游戏预览** 面板。

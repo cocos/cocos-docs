@@ -78,6 +78,8 @@ These properties do not appear in the **Assets** until the camera node is set to
 
   Determines the width of the camera's view angle. It takes effect when both **alignWithScreen** and **ortho** are set to **false**.
 
+If you need to adjust the camera properties used in the **Scene**, please refer to the [Scene Camera Configuration](../content-workflow/camera-config.md) for details.
+
 ## Camera methods
 
 - **cc.Camera.findCamera**
@@ -106,7 +108,7 @@ A common problem is that when the camera is moved, rotated, or scaled, the coord
 
 Because the click coordinates obtained at this time are the coordinates in the screen coordinate system, we need to transform this coordinate into the world coordinate system to continue the operation with the node's world coordinates.
 
-Here are some functions of coordinate transformation：
+Here are some functions of coordinate transformation:
 
 ```javascript
 // Transform a point from screen coordinates to world coordinates

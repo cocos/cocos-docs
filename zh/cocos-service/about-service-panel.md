@@ -3,7 +3,7 @@
 服务面板包括 **主面板**、**通用说明** 和 **插件扩展** 三部分。以 Cocos Analytics 服务为例：
 
 ![](image/panel-analytics-info.png)
-    
+
 ## 主面板
 
 - 使用指南：前往对应服务的官方文档。

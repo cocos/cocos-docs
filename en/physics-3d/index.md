@@ -1,6 +1,6 @@
 # 3D Physics and Collision
 
-Since v2.3.0, Cocos Creator has added support for 3D Physics and Collision。
+Since v2.3.0, Cocos Creator has added support for 3D Physics and Collision.
 
 Cocos Creator’s physics engine is based on `cannon.js` and provides users with an efficient, componentized workflow with convenient usage methods. Currently, supported functionality is: rigid body, Box/Sphere collision components, trigger and collision events, physical materials, ray detection and many other features.
 

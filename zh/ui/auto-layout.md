@@ -38,4 +38,4 @@ Layout 排列子节点时，是以子节点在 **层级管理器** 中显示顺�
 
 我们会在下个版本的文档中更新这部分内容。
 
-其他 Layout 组件的属性请查阅[Layout 组件参考](../components/layout.md)文档。
+其他 Layout 组件的属性请查阅 [Layout 组件参考](../components/layout.md) 文档。

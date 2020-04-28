@@ -1,6 +1,6 @@
 # Collision Detection
 
-> Authors：Xunyi, youyou
+> Authors: Xunyi, youyou
 
 Cocos Creator provides a set of API for detecting 3D object collision, and user can use these APIs for detection such as raycast.
 

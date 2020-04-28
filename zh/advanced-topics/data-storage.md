@@ -12,7 +12,7 @@
 
 上面的方法需要两个参数，用来索引的字符串键值 `key`，和要保存的字符串数据 `value`。
 
-假如我们要保存玩家持有的金钱数，假设键值为 `gold`:
+假如我们要保存玩家持有的金钱数，假设键值为 `gold`：
 
 `cc.sys.localStorage.setItem('gold', 100);`
 
@@ -43,7 +43,6 @@ var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 当我们不再需要一个存储条目时，可以通过下面的接口将其移除：
 
 `cc.sys.localStorage.removeItem(key)`
-
 
 ## 数据加密
 
