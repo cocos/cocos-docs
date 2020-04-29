@@ -25,7 +25,9 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Enable Underline | If enabled, underline effect will be added to the text. (Takes effect when using System Font or TTF font)                   |
 | Underline Height | Height of underline.                                                                                                        |
 | Cache Mode       | Text cache mode includes **NONE**, **BITMAP** or **CHAR**. Takes effect only for System Font or TTF font, BMFont does not require this optimization. See [Cache Mode](#cache-mode-new-in-v209) below for details. |
-| Use System Font  | If enabled, **System Font** will be used.                                                                    |
+| Use System Font  | If enabled, **System Font** will be used.      
+| Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
+| Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](../../../api/zh/enums/BlendFactor.html)                                                              |
 | Materials        | Material of Label, see the document [Material](../render/material.md) for details.                                          |
 
 For API interface of Label, please refer to [Label API](../../../api/en/classes/Label.html).
@@ -45,6 +47,16 @@ For API interface of Label, please refer to [Label API](../../../api/en/classes/
 | NONE       | Defaults, the entire text in label will generate a bitmap. |
 | BITMAP     | After selection, the entire text in the Label will still generate a bitmap, but will try to participate in [Dynamic Atlas](../advanced-topics/dynamic-atlas.md). As long as the requirements of Dynamic Atlas are met, the Draw Call will be merged with the other Sprite or Label in the Dynamic Atlas. Because Dynamic Atlas consume more memory, **this mode can only be used for Label with infrequently updated text**. **Note**: Similar to NONE, BITMAP will force a bitmap to be generated for each Label component, regardless of whether the text content is equivalent. If there are a lot of Labels with the same text in the scene, it is recommended to use CHAR to reuse the memory space.  |
 | CHAR      | The principle of CHAR is similar to BMFont, Label will cache text to the global shared bitmap in "word" units, each character of the same font style and font size will share a cache globally. Can support frequent modification of text, the most friendly to performance and memory. However, there are currently restrictions on this model, which we will optimize in subsequent releases:<br>1. **This mode can only be used for font style and fixed font size (by recording the fontSize, fontFamily, color, and outline of the font as key information for repetitive use of characters, other users who use special custom text formats need to be aware). And will not frequently appear with a huge amount of unused characters of Label.** This is to save the cache, because the global shared bitmap size is 2048*2048, it will only be cleared when the scene is switched. Once the bitmap is full, the newly appearing characters will not be rendered. <br>2. Cannot participate in dynamic mapping (multiple labels with CHAR mode enabled can still merge Draw Call in the case of without interrupting the rendering sequence). |
+
+## Blend Mode Of System Font
+
+For Label components, SrcBlendFactor has two main settings, namely SRC_ALPHA and ONE. The implementation of the engine system font is to first draw the text to the Canvas, and then generate a picture for the Label component to use, which involves a text transparency issue.
+
+When using SRC_ALPHA mode, transparency can be passed to the Shader via vertex data and then pixel transparency can be calculated in the Shader, so the transparency of text does not need to be processed when drawing to the Canvas, and when Label node transparency changes need to be made, there is no need to call updateRenderData frequently to redraw the Canvas, which can reduce the performance consumption caused by API calls and frequent redraw.
+
+When using ONE mode, the transparency of the text image needs to do pre-multiplication processing, so in Canvas drawing the need for transparency processing, in this mode, Label's node transparency changes require frequent calls to updateRenderData, to redraw the text content.
+
+It is important to note that different blend modes can affect the dynamic batching with other nodes. For example, if you use ONE mode, the BITMAP cache mode uses a dynamic atlas, which may cause the dynamic batching to fail. For CHAR cache mode, SRC_ALPHA mode is used by default because the same character atlas is shared globally and different modes are not compatible. In addition, for the native platform, under SRC_ALPHA, in order to eliminate the problem of black edges in the text, it is necessary to do anti-premultiply when the text image data is returned, but for a large number of text nodes or large sections of text using SHRINK mode, doing anti-premultiply will have a lot of performance consumption, developers need to make reasonable choices based on different use scenarios and text content, in order to reduce the performance consumption caused by redrawing in different platforms.
 
 **Note**:
 

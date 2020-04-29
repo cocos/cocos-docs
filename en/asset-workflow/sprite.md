@@ -108,6 +108,16 @@ After that, you can change the SpriteFrame by dragging a SpriteFrame/Texture ass
 
 Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in the **Timeline**. You can reference the usage by [Editing Sprite Animation](../animation/sprite-animation.md).
 
+### The Black Edge Problem of Texture
+
+When importing image resources into the editor, the default filter mode used is Bilinear, while for the Sprite component, the default SrcBlendFactor is SRC_ALPHA. under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images.
+
+1. Filter Mode uses Point Mode. (Recommended)
+2. when the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)
+3. When exporting images, set to a higher resolution to avoid image interpolation and enlargement when displayed to the device. (Not recommended.)
+4. The engine's Auto Atlas provides an option to expand the edges of translucent images, which will automatically expand the edges of translucent images when checked. Other atlas packing tools will generally have similar processing options (recommended)
+5. set Sprite's SrcBlendFactor to ONE to premultiply the images, but this may affect the batch merge of the images, which the developer will need to decide depending on the usage scenario.
+
 ### Performance Attentions
 
 If you are using single Texture assets for Sprite. It can't use batch render at the runtime of the game. Now you can't batch change the SpriteFrame reference from single Texture to Atlas in Cocos Creator. So, please combine textures into atlas as early as possible and use them through the SpriteFrame reference in Atlas.
