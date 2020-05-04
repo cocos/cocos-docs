@@ -45,11 +45,11 @@ cc.Class({
 
         texture: {
             default: null,
-            type: cc.Texture2D
+            type: cc.Texture2D,
         },
         spriteFrame: {
             default: null,
-            type: cc.SpriteFrame
+            type: cc.SpriteFrame,
         },
 
     }

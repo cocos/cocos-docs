@@ -11,8 +11,8 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 ## EditBox 组件升级
 
 在 **v2.1.1** 里，我们对 EditBox 组件做了一些调整和优化。主要包括：
-- 新增 `textLabel`,  `placeholderLabel`, `background` 属性, 用户可以通过挂载自定义的 Label 或 Sprite 组件，更灵活的去配置 EditBox 组件的样式
-- 废弃 `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` 属性，Cocos Creator 会自动将这些属性的值升级为所挂载组件上的相应属性
+- 新增 `textLabel`、`placeholderLabel`、`background` 属性，用户可以通过挂载自定义的 Label 或 Sprite 组件，更灵活的去配置 EditBox 组件的样式
+- 废弃 `fontSize`、`fontColor`、`lineHeight`、`placeholderFontSize`、`placeholderFontColor`、`backgroundImage`、`stayOnTop` 属性，Cocos Creator 会自动将这些属性的值升级为所挂载组件上的相应属性
 - 废弃 `setFocus()` 方法，新增 `focus()` 和 `blur()` 方法，为 EditBox 组件提供主动结束输入文本的能力
 
 ## EditBox 属性
@@ -167,4 +167,4 @@ cc.Class({
 });
 ```
 
-同样的，你也可以注册 `editing-did-ended`, `text-changed` 和 `editing-return` 事件，这些事件的回调函数的参数与 `editing-did-began` 的参数一致。
+同样的，你也可以注册 `editing-did-ended`、`text-changed` 和 `editing-return` 事件，这些事件的回调函数的参数与 `editing-did-began` 的参数一致。

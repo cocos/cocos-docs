@@ -12,7 +12,7 @@ First choose to use the **simulator (debug)** as the preview platform on the top
 
 ![](debug-jsb/simulator-run.png)
 
-After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/ 00010002-0003-4004-8005-000600070008` can be debugged:
+After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/ 00010002-0003-4004-8005-000600070008` can be debugged:
 
 ![](debug-jsb/v8-win32-debug.png)
 
@@ -25,11 +25,11 @@ Starting with **v2.0.7**, the [Open Simulator Debugger Panel](../getting-started
 
 ## Debug on target device
 
-If the game only run on the real machine, or the simulator can not reproduce the problem, it must be the real machine to the packaged game to debug. Debugging steps are as follows:
+If the game only run on the physical device, or the simulator can not reproduce the problem, it must be the physical device to the packaged game to debug. Debugging steps are as follows:
 
 - Make sure that the Android/iOS device is on the same LAN as Windows or Mac.
 - Select the Android/iOS platform and Debug mode in the **Build** panel of Creator to build a compile-and-run project (The iOS platform recommends compiling with the Xcode connection true machine).
-- Open address with Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={ip}:6086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android/iOS device, then you can debug it.
+- Open address with Chrome browser: `chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws={ip}:6086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android/iOS device, then you can debug it.
 
 ![](debug-jsb/v8-android-debug.png)
 

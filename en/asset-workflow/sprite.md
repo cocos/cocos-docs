@@ -71,7 +71,7 @@ it simply uses the color of the texel closest to the pixel center for the pixel 
 - Bilinear filtering: The four nearest texels to the pixel center are sampled (at the closest mipmap level), and their colors are combined by weighted average according to distance. This removes the `blockiness` seen during magnification, as there is now a smooth gradient of color change from one texel to the next, instead of an abrupt jump as the pixel center crosses the texel boundary. But the computation is also slightly larger than the Point filtering.
 - Trilinear filtering: Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
 
-In addition to setting the filter of texture directly in the editor, the engine also provides `cc.view.enableAntiAlias` interface to dynamically set the anti-aliasing of texture. If anti-aliasing is enabled, all Texture filters in the game will be linear, otherwise Point sampling will be used. **Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
+**Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
 
 ## genMipmaps
 

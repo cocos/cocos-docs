@@ -24,6 +24,8 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 1. Using Cocos Creator open the project that needs to be published. Open the **Build** panel from the Menu bar. Select **Android Instant** in the **platform** of the **Build** panel, choose **android-instant** in the **template**, and the **API Level** selects **android-26** and above.
 
     ![](publish-android-instant/builder.png)
+    
+    Starting from v2.3.0, the build template of Android Instant is consistent with the Android. Please refer to the [Build and release games on Native platforms](./publish-native.md#use-an-native-project) for details.
 
 2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Play Instant on the phone.
 
@@ -48,7 +50,7 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 ### Related configuration instructions
 
 The main configuration notes in the **Build** panel about publishing to Google Play Instant are as follows:
-- **Server Address**: The download address of the remote resource, can be a CDN address. Put the `build/android-instant/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
+- **Server Address**: The download address of the remote resource, can be a CDN address. Put the `path_to_your_project/build/jsb-link/remote_res` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
 - **Default URL**: Android will load your instant app by this URL. This parameter can be empty, if it is not empty, you must ensure that the URL entered is accessible when submitting the package to the Google Store. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
 - **Record config path**: Cocos Creator will use this record config to generate first package and remote_res folder.
 
@@ -89,10 +91,10 @@ The **Refactor** is used to edit the first package of the game and select the re
 ## Android Studio support
 
 - Cocos Creator recommends compiling with Android Studio.
-- For other modifications to the Android project, we can use Android Studio to open the project directly and integrate other code for Android project. (The project path: `path_to_your_project/build/android-instant/frameworks/runtime-src/proj.android-studio`)
+- For other modifications to the Android project, we can use Android Studio to open the project directly and integrate other code for Android project. (The project path: `path_to_your_project/build/jsb-link/frameworks/runtime-src/proj.android-studio`)
 - The SDK version can be modified in Android Studio. The modified path and the minimum supported version are as follows:
 
-![](publish-android-instant/sdk_version.png)
+  ![](publish-android-instant/sdk_version.png)
 
 ## Instant Cookie API
 

@@ -1,6 +1,6 @@
 # Mesh Resources Reference
 
-> Authors：Xunyi, youyou
+> Authors: Xunyi, youyou
 
 Mesh resources are the necessary resource for rendering a mesh. The mesh can be obtained in a variety of ways:
 

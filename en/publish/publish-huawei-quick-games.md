@@ -1,8 +1,8 @@
-# Publishing to Huawei Quick Games
+# Publish to Huawei Quick Games
 
 ## Environment Configuration
 
-- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_devprepare_install_tool) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickapp-installtool) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
 
@@ -116,7 +116,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path build directory, which is the exported **Huawei Quick Game**. The game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path `build` directory, which is the exported Huawei Quick Game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
 
   ![](./publish-huawei-quick-games/rpk.png)
 
@@ -140,4 +140,4 @@ After the build is complete, the generated subpackages and main package are merg
 
 ## Related Reference Links
 
-[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/service/hms/catalog/fastgameRuntime.html?page=fastapp_fastgameRuntime_introduction)
+[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickgame-develop-runtime-game)

@@ -38,11 +38,15 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
 The installer for Cocos Creator for Mac is a .dmg (disk image) file. Double-click on the .dmg file, and drag `CocosCreator.app` to your **Application** folder shortcut, or any other location. Then double-click the copy of the `CocosCreator.app` to get started.
 
-**Note**: If it can not open after download, prompt that the dmg/app file is corrupted, from an unidentified developer, or contains malware, etc.
+**Note**: 
 
-![](install/tooltip.png)
+- If it can not open after download, prompt that the dmg/app file is corrupted, from an unidentified developer, or contains malware, etc.
 
-Right-click on the dmg or app file in Finder, select **Open**, and then click **Open** again in the pop-up box. Then go to **System Preferences -> Security & Privacy**, and click **Open Anyway** so you can start normally later. Please refer to <https://support.apple.com/en-us/HT202491> for detail.
+  ![](install/tooltip.png)
+
+  Right-click on the dmg or app file in Finder, select **Open**, and then click **Open** again in the pop-up box. Then go to **System Preferences -> Security & Privacy**, and click **Open Anyway** so you can start normally later. Please refer to <https://support.apple.com/en-us/HT202491> for detail.
+
+- During the installation process, if the "Cocos Creator is corrupted and cannot be opened" popup appears, you need to check whether any software similar to Xcode is occupying the relevant files in the Creator installation directory. If so, exit first, then uninstall Creator and reinstall.
 
 ### Operating system requirements
 

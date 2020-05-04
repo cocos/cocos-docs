@@ -28,7 +28,7 @@ ParticleSystem component can be created in the following two ways:
   // Next you can particleSystem this object for a series of operations
   ```
 
-  Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html)。
+  Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html).
 
 ## ParticleSystem Properties
 

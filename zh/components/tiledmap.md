@@ -78,3 +78,11 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
     ![](./tiledmap/shieldNode.png)
 
 若想移除地图层中的节点，调用 TiledLayer 的 `removeUserNode` 方法即可。
+
+## TiledMap 关闭裁剪
+
+```js
+cc.macro.ENABLE_TILEDMAP_CULLING = false;
+```
+
+如果需要旋转地图或者把地图置于 3D 相机中，则需要关闭裁剪。另外，如果地图块不是非常多，如小于 5000 块，那么关闭裁剪还能减少 CPU 的运算负担，GPU 直接使用缓存进行渲染。

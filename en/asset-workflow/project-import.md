@@ -2,8 +2,8 @@
 
 You can import projects from other editors by the Main Menu __File->Import Project__. Currently supported project types:
 
-  * Cocos Studio Projects (*.ccs)
-  * Cocos Builder Projects (*.ccbproj)
+* Cocos Studio Projects (*.ccs)
+* Cocos Builder Projects (*.ccbproj)
 
 ## Steps
 
@@ -26,7 +26,7 @@ The time of importing depends on the size of the project. When it's importing, p
 
 ## Details of Importing Cocos Studio Projects
 
-* There are 3 kinds of `csd` files in Cocos Studio project：
+* There are 3 kinds of `csd` files in Cocos Studio project:
 	* Scene ---- Imported as a scene (`.fire`)
 	* Layer ---- Imported as a prefab
 	* Node ---- Imported as a prefab

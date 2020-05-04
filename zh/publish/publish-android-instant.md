@@ -23,6 +23,8 @@
 
     ![](publish-android-instant/builder.png)
 
+    Android Instant 的构建模版从 v2.3.0 开始与 Android 平台一致，详情可参考 [打包发布原生平台](./publish-native.md#%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E5%B7%A5%E7%A8%8B)。
+
 2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Play Instant 的运行效果。
 
     首次编译的话需要用 Android Studio 打开构建后的工程以下载 **Google Play Instant Development SDK（windows 平台）** 支持包，Mac 平台为 Instant Apps Development SDK 支持包。如果下载不成功的话建议设置一下 Android Studio 的 HTTP 代理。
@@ -46,8 +48,8 @@
 ### 相关配置说明
 
 **构建发布** 面板中关于发布到 Google Play Instant 的几个主要配置说明如下：
-- **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `build/android-instant/remote_res` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
-- **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。该参数可为空，若不为空，当提交到 Google Store 的时候需要确保输入的 URL 是可以访问的。详情请查看 [Google Instant App 文档](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)。
+- **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `path_to_your_project/build/jsb-link/remote_res` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
+- **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。该参数可为空，若不为空，当提交到 Google Store 的时候需要确保输入的 URL 是可以访问的。详情请查看 [Google Instant App 文档](https://developer.android.google.cn/topic/google-play-instant/getting-started/first-instant-app)。
 - **分包配置路径**：Creator 会根据这个分包配置生成首包的资源
 
 **注意**：如果 Google Play Instant 包的权限大于 Google Store 上 APP 的权限，在安装 APP 的时候可能会导致无法正常安装：
@@ -85,10 +87,10 @@
 ## Android Studio 支持
 
 - Cocos Creator 推荐使用 Android Studio 进行编译
-- 对 Android 工程的其他修改，我们可以使用 Android Studio 直接打开工程，对 Android 工程进行其他代码的集成（工程路径：`path_to_your_project/build/android-instant/frameworks/runtime-src/proj.android-studio`）
+- 对 Android 工程的其他修改，我们可以使用 Android Studio 直接打开工程，对 Android 工程进行其他代码的集成（工程路径：`path_to_your_project/build/jsb-link/frameworks/runtime-src/proj.android-studio`）
 - 在 Android Studio 中可以对 SDK 版本进行修改，修改路径及最低支持版本如下：
 
-![](publish-android-instant/sdk_version.png)
+  ![](publish-android-instant/sdk_version.png)
 
 ## Instant Cookie API
 
@@ -106,7 +108,7 @@
 
 ## 相关参考链接
 
-- [Instant App](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app)
+- [Instant App](https://developer.android.google.cn/topic/google-play-instant/getting-started/first-instant-app)
 
 - [Google InstantApps API](https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps)
 

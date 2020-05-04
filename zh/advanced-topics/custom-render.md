@@ -29,7 +29,7 @@ let CustomRender = cc.Class({
         // 渲染组件使用的 Texture
         _texture: {
             default: null,
-            type: cc.Texture2D
+            type: cc.Texture2D,
         },
 
         texture: {
@@ -127,7 +127,7 @@ let CustomRender = cc.Class({
         // 渲染组件使用的 Texture
         _texture: {
             default: null,
-            type: cc.Texture2D
+            type: cc.Texture2D,
         },
 
         texture: {

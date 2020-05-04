@@ -114,9 +114,7 @@ Cocos Creator 的坐标系仍然为左下角坐标系，不过在锚点上我们
 - `cc.view`
 - `cc.director`
 - `cc.audioEngine`
-- `cc.eventManager`
 - [`cc.scheduler`](../scripting/scheduler.md)
-- `cc.textureCache`
 - `cc.sys`
 - `cc.visibleRect`
 - [动作系统](../scripting/actions.md)
@@ -133,7 +131,7 @@ Cocos Creator 的坐标系仍然为左下角坐标系，不过在锚点上我们
 
 ### 事件系统
 
-在逻辑节点（`cc.Node`）中，我们添加了一系列全新的事件 API，从逻辑节点可以分发多种事件，也允许监听器向自己注册某种事件。监听器可以是一个简单的回调函数，也可以是回调函数和它的调用者组合，重要的API列表：
+在逻辑节点（`cc.Node`）中，我们添加了一系列全新的事件 API，从逻辑节点可以分发多种事件，也允许监听器向自己注册某种事件。监听器可以是一个简单的回调函数，也可以是回调函数和它的调用者组合，重要的 API 列表：
 
 1. `node.emit(type, detail)`：通知所有监听 `type` 事件的监听器，可以发送一个附加参数。
 2. `node.dispatchEvent(event)`：发送一个事件给它的监听器，支持冒泡。

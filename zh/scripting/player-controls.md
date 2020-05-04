@@ -7,9 +7,9 @@
 - 键盘事件
 - 设备重力传感事件
 
-除此之外，鼠标事件与触摸事件请参考[节点系统事件](./internal-events.md)
+除此之外，鼠标事件与触摸事件请参考 [节点系统事件](./internal-events.md)
 
-** 注意：目前已经不建议直接使用 cc.eventManager 来注册任何事件，cc.eventManager 的用法也不保证持续性，有可能随时被修改 **
+**注意：目前已经不建议直接使用 cc.eventManager 来注册任何事件，cc.eventManager 的用法也不保证持续性，有可能随时被修改。**
 
 ## 如何定义输入事件
 
@@ -89,4 +89,4 @@ cc.Class({
 });
 ```
 
-大家可以也去看 [官方范例](https://github.com/cocos-creator/example-cases) `cases03_gameplay/01_player_control` 目录下的完整范例（这里包含了，键盘，重力感应，单点触摸，多点触摸的范例）。
+完整范例可参考 [官方范例](https://github.com/cocos-creator/example-cases) `cases03_gameplay/01_player_control` 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。

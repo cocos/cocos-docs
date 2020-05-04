@@ -27,24 +27,30 @@
 ## 使用 Cocos Creator 发布微信小游戏
 
 1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
-2. 在编辑器菜单栏的 **设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
+
+2. 在编辑器菜单栏的 **Cocos Creator（Mac）/ 文件（Windows）-> 设置 -> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.JPG)
-3. 登陆微信公众平台，找到 appid
+
+3. 登录微信公众平台，找到 appid
 
     ![](./publish-wechatgame/appid.jpeg)
+
 4. 在 **构建发布** 面板的 **发布平台** 中选择 **微信小游戏**，填入小游戏 appid，然后点击 **构建**
 
     ![](./publish-wechatgame/build.jpeg)
+
 5. 点击 **运行** 打开微信开发者工具
 
     ![](./publish-wechatgame/tool.jpeg)
-**注意**：微信开发者工具，如果之前在 Mac 上没运行过，会出现：`Please ensure that the IDE has been properly installed` 的报错。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **play** 调用。
+
+    **注意**：微信开发者工具，如果之前在 Mac 上没运行过，会出现：`Please ensure that the IDE has been properly installed` 的报错。需要手动打开一次微信开发者工具，然后才能在 Creator 里直接点击 **运行** 调用。
+
 6. 预览部署
 
-按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包 **wechatgame** 文件夹，其中已经包含了微信小游戏环境的配置文件：`game.json` 和 `project.config.json`
+    按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包 **wechatgame** 文件夹，其中已经包含了微信小游戏环境的配置文件：`game.json` 和 `project.config.json`
 
-![](./publish-wechatgame/package.jpeg)
+    ![](./publish-wechatgame/package.jpeg)
 
 ## 小游戏环境的资源管理
 
@@ -79,9 +85,15 @@
 4. 删除本地发布包目录下的 Asset 文件夹。
 5. 对于测试阶段来说，可能用户无法部署到正式服务器上，需要用本地服务器来测试，那么请在微信开发者工具中打开 **详情** 页面，勾选项目设置中的 **不检验安全域名、TLS 版本以及 HTTPS 证书** 选项。
 
-![](./publish-wechatgame/detail.jpeg)
+    ![](./publish-wechatgame/detail.jpeg)
 
-**注意**：如果缓存资源超过微信环境限制，除了引擎会自动清理资源之外，你可以在微信小游戏下使用 `cc.assetManager.cacheManager.clearCache()` 和 `cc.assetManager.cacheManager.removeCache()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者只会清除指定资源。
+**注意**：
+
+- 如果缓存资源超过微信环境限制，除了引擎会自动清理资源之外，你可以在微信小游戏下使用 `cc.assetManager.cacheManager.clearCache()` 和 `cc.assetManager.cacheManager.removeCache()` 接口来清除缓存。前者会清除缓存目录下的所有缓存资源，请慎重使用；而后者只会清除指定资源。
+
+- 当小游戏升级引擎版本后，留在用户本地的缓存资源和开发者工具中遗留的缓存资源并不会自动清空，还是之前老版本引擎对应的资源。这可能会造成各类异常或渲染错误。解决方案为构建时勾选 `MD5 Cache` 选项，这将确保使用最新版本的资源。或者手动清空之前缓存的资源，在真机上，你可以使用 `cacheManager.clearCache()` 清空缓存，在开发者工具上，你可以使用此选项清空：
+
+    ![](./publish-wechatgame/clear-cache.png)
 
 ## 微信小游戏引擎插件
 
@@ -95,7 +107,7 @@
 
 除了纯游戏内容以外，其实微信小游戏环境还提供了非常强大的原生 SDK 接口，其中最重要的就是用户、社交、支付等，这些接口都是仅存在于微信小游戏环境中的，等同于其他平台的第三方 SDK 接口。这类 SDK 接口的移植工作在现阶段还是需要开发者自己处理。下面列举一些微信小游戏所提供的强大 SDK 能力：
 
-1. 用户接口：登陆，授权，用户信息等
+1. 用户接口：登录，授权，用户信息等
 2. 微信支付
 3. 转发以及获得转发信息
 4. 文件上传下载
@@ -112,7 +124,6 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 
 我们对微信小游戏的适配工作还未完全结束，目前仍不支持以下组件：
 
-- VideoPlayer（**v2.1.3** 已支持）
 - WebView
 
 开发者如果有需要，目前可以通过直接调用微信的 API 来使用。

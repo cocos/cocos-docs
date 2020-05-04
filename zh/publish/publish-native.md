@@ -10,7 +10,9 @@
 
 ### 合并图集中的 SpriteFrame
 
-将图集中的全部 SpriteFrame 合并到同一个包中。默认关闭，启用后能够减少热更新时需要下载的 SpriteFrame 文件数量，但如果图集中的 SpriteFrame 数量很多，则可能会延长原生平台上的启动时间。
+将图集中的全部 SpriteFrame 合并到同一个包中。默认关闭，启用后能够减少热更新时需要下载的 SpriteFrame 文件数量，但如果图集中的 SpriteFrame 数量很多，则可能会稍微延长原生平台上的启动时间。
+
+如果项目中图集较多，有可能会导致 `project.manifest` 文件过大，建议勾选该项来减小 `project.manifest` 的体积。
 
 **注意**：在热更新时，需要确保新旧项目中该功能的开启/关闭状态保持一致，否则会导致热更新之后出现资源引用错误的情况。
 
@@ -58,11 +60,11 @@ jsval_to_string(cx, returnParam, &url);
 
 ### 密钥库
 
-Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库，若用户需要自定义密钥库可去掉 **使用调试密钥库** 勾选。具体请参考 [官方文档](https://developer.android.com/studio/publish/app-signing?hl=zh-cn)（需要使用 VPN）
+Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库，若用户需要自定义密钥库可去掉 **使用调试密钥库** 勾选。具体请参考 [官方文档](https://developer.android.google.cn/studio/publish/app-signing?hl=zh-cn)。
 
 ### 生成 App Bundle (Google Play)
 
-Creator 在 **v2.0.9** 中新增了 **App Bundle (Google Play)** 选项。如果选择 Android 或者 Android Instant 平台，勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.com/guide/app-bundle/)（需要使用 VPN）
+如果选择构建 Android 或者 Android Instant 平台，勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
 ### SDKBox
 
@@ -78,6 +80,10 @@ SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK �
 
 ![](publish-native/js_secret.png)
 
+### 只构建脚本
+
+再次构建编译项目时，如果只是修改了脚本，那么勾选该项就只会重新构建脚本，可以大大缩短构建时间。
+
 ## 选择源码
 
 在 **模板** 下拉菜单中有两种可用的引擎模板，我们可以从中选择一种：
@@ -87,7 +93,7 @@ SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK �
 
 ### 源码引擎
 
-cocos2d-x 引擎中包括源码引擎。他们适用的范围是：
+cocos2d-x 引擎中包括源码引擎。它们适用的范围是：
 
 - 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
 - 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
@@ -110,13 +116,17 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 构建结束后，我们得到的是一个标准的 cocos2d-x 工程，和使用 Cocos Console 新建的工程有同样的结构。接下来我们可以选择通过 Cocos Creator 编辑器的进程进行编译，以及运行桌面预览，或手动在相应平台的 IDE 中打开构建好的原生工程，进行进一步的预览、调试和发布。
 
-## 通过编辑器编译和预览
+## 通过编辑器编译和运行
+
+### 编译
 
 点击下方的 **编译** 按钮，进入编译流程，如果模板选择了 `default` 的源码版引擎，这个编译的过程将会花费比较久的时间。编译成功后会提示
 
-`Compile native project successfully`
+`Compile native project successfully.`
 
 **注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
+
+### 运行
 
 接下来就可以点击右下角的 **运行** 按钮，通过默认方式预览原生平台的游戏。
 
@@ -128,7 +138,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使用 Xcode 打开构建目录下的 `frameworks\runtime-src\proj.ios_mac\.xcodeproj` 文件，在 Xcode 面板 `General -> Signing` 中设置签名，在 Xcode 左上方选择连接的设备后点击编译按钮进行编译运行。
 
-![](publish-native/package.png)
+![](publish-native/package.jpg)
 
 ## 使用原生工程
 
@@ -138,11 +148,23 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
 
 这个路径中的 `jsb-default` 或 `jsb-link` （根据选择模板不同）里就包含了所有原生构建工程。
 
-![native projects](publish-native/native_projects.jpg)
+![native projects](publish-native/native_projects.png)
 
 图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE （如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
 
-**注意**：在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
+**注意**：
+
+- 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
+- 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
+- 从 v2.3.0 开始，Android 与 Android Instant 使用同一个构建模板，构建生成的工程都是在 `build\jsb-default\frameworks\runtime-src\proj.android-studio` 目录中。针对该目录请注意：
+  - 如果是 Android 平台单独使用的代码请放入 `app\src` 目录，单独使用的第三方库请放入 `app\libs` 目录（若没有这两个目录可自行创建）。
+  - 如果是 Android Instant 单独使用的代码和第三方库请分别放入 `game\src` 和 `game\libs` 目录。
+  - 如果是 Android 和 Android Instant 共用的代码和第三方库，请分别放入 `src` 和 `libs` 目录。
+  - `proj.android-studio` 目录下的 `jni\CocosAndroid.mk` 和 `jni\CocosApplication.mk` 文件主要用于引擎相关的配置，建议不要修改。开发者如果需要修改配置请参考以下内容：
+    - Android 平台请在 `app\jni\Android.mk` 和 `app\jni\Application.mk` 中修改。
+    - Android Instant 请在 `game\jni\Android.mk` 和 `game\jni\Application.mk` 中修改。
+
+  通过在 **构建发布** 面板点击 **编译** 按钮来编译 Android 时，会默认执行 `assembleRelease/Debug`，编译 Android Instant 时会默认执行 `instant:assembleRelease/Debug`。
 
 ---
 

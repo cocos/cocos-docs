@@ -6,36 +6,35 @@ DragonBones skeleton animation resources are data formats that exported by [Drag
 
 DragonBones skeleton animation resources are:
 
-- .json skeletal data
+- .json/.dbbin skeletal data
 - .json Atlas data
 - .png Atlas texture
 
-![DragonBones](dragonbones/import.png)
+  ![DragonBones](dragonbones/import.png)
 
 ## Create skeletal animation resources
-Using DragonBones skeletal animation resources in a scene requires two steps:
 
-**1. Create a node and add the DragonBones component, which can be implemented in three ways:**
+Using DragonBones skeleton animation resources in a scene requires two steps:
 
-    The first way: from the **Explorer** drag the skeleton animation resources to **level manager**:
+1. Create a node and add the DragonBones component, which can be implemented in three ways:
 
+    - The first way: from the **Assets** drag the skeleton animation resources to **Node Tree**:
 
-![DragonBones](dragonbones/create_1.png)
+      ![DragonBones](dragonbones/create_1.png)
 
+    - from the **Assets** drag the skeleton animation resources to **Scene**:
 
-    The second way: from the **Explorer** drag the skeleton animation resources to **scene**:
+      ![DragonBones](dragonbones/create_2.png)
 
-![DragonBones](dragonbones/create_2.png)
+    - Drag the skeletal animation resource from the **Assets** to the Dragon Asset attribute of the DragonBones component that has been created:
 
-    The third way: Drag the skeletal animation resource from the **Explorer** to the Dragon Asset attribute of the DragonBones component that has been created:
+      ![DragonBones](dragonbones/create_3.png)
 
-![DragonBones](dragonbones/create_3.png)
+2. Set Atlas for DragonBones Components
 
-**2. Set Atlas for DragonBones Components**
+    Drag the Atlas data from the **Assets** to the Dragon Atlas Asset property of the DragonBones component:
 
-Drag the Atlas data from the **Explorer** to the Dragon Atlas Asset property of the DragonBones component:
-
-![DragonBones](dragonbones/set_atlas.png)
+      ![DragonBones](dragonbones/set_atlas.png)
 
 ## Stored in the project
 

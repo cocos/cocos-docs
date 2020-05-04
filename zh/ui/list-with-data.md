@@ -12,7 +12,7 @@ UI 界面只有静态页面内容是不够的，我们会遇到很多需要由�
 - 出售价格
 - ...
 
-下面我们将会结合脚本介绍如何定义和使用数据，如果您对 Cocos Creator 的脚本系统还不熟悉，可以先从 [脚本开发工作流程](../scripting/index.md)一章开始学习。
+下面我们将会结合脚本介绍如何定义和使用数据，如果您对 Cocos Creator 的脚本系统还不熟悉，可以先从 [脚本开发工作流程](../scripting/index.md) 一章开始学习。
 
 ### 自定义数据类
 
@@ -40,7 +40,7 @@ cc.Class({
 });
 ```
 
-上面脚本的前半部分我们声明了一个叫做 `Item` 的数据类，用来存放我们展示物品需要的各种数据。注意这个类并没有继承 `cc.Component`，因此他不是一个组件，但可以被组件使用。关于声明自定义类的更多内容，请查阅[自定义 Class](../scripting/class.md)文档。
+上面脚本的前半部分我们声明了一个叫做 `Item` 的数据类，用来存放我们展示物品需要的各种数据。注意这个类并没有继承 `cc.Component`，因此他不是一个组件，但可以被组件使用。关于声明自定义类的更多内容，请查阅 [自定义 Class](../scripting/class.md) 文档。
 
 下半部分是正常的组件声明方式，这个组件中只有一个 `items` 属性，上面的声明方式将会给我们一个由 `Item` 类组成的数组，我们可以在 **属性检查器** 中为每个 `Item` 元素设置数据。
 
@@ -50,14 +50,13 @@ cc.Class({
 
 这样我们最基本的数据就准备好了，如果您在制作有很多内容的游戏，请务必使用 excel、数据库等更专业的系统来管理您的数据，将外部数据格式转化为 Cocos Creator 可以使用的 JavaScript 和 JSON 格式都非常容易。
 
-
 ## 制作表现：Prefab 模板
 
-接下来我们还需要一个可以在运行时用来实例化每个物品的模板资源 —— Prefab 预制。这个 Prefab 的结构如下图所示
+接下来我们还需要一个可以在运行时用来实例化每个物品的模板资源 —— [Prefab 预制](../asset-workflow/prefab.md)。这个 Prefab 的结构如下图所示
 
 ![item template](list-with-data/item-template.png)
 
-`icon`, `name`, `price` 节点之后就会用来展示图标、物品名称和价格的数据。
+`icon`、`name`、`price` 节点之后就会用来展示图标、物品名称和价格的数据。
 
 ### 模板组件绑定
 
@@ -98,7 +97,7 @@ cc.Class({
     }
 ```
 
-`init` 方法接受一个数据对象，并使用这个对象里的数据更新各个负责表现组件的相应属性。现在我们可以将`Item` 节点保存成一个 Prefab 了，这就是我们物品的模板。
+`init` 方法接受一个数据对象，并使用这个对象里的数据更新各个负责表现组件的相应属性。现在我们可以将 `Item` 节点保存成一个 Prefab 了，这就是我们物品的模板。
 
 ## 根据数据生成列表内容
 
@@ -129,8 +128,8 @@ cc.Class({
 
 现在我们可以为 `ItemList.js` 所在的节点添加一个 **Layout** 组件，通过 **属性检查器** 下方的 **添加组件 -> UI 组件 -> Layout**，然后设置 **Layout** 组件的以下属性：
 
-- `Type`: `HORIZONTAL`
-- `Resize Mode`: `CONTAINER`
+- `Type`：`HORIZONTAL`
+- `Resize Mode`：`CONTAINER`
 
 别忘了把 `item` Prefab 拖拽到 `ItemList` 组件的 `itemPrefab` 属性里。您还可以为这个节点添加一个 **Sprite** 组件，作为列表的背景。
 
@@ -144,4 +143,4 @@ cc.Class({
 
 ![result](list-with-data/result.png)
 
-注意前面步骤中添加 **Layout** 组件并不是必须的，**Layout** 能够帮助您自动排列列表中的节点元素，但您也可以用脚本程序来控制节点的排列。我们通常还会配合 **ScrollView** 滚动视图组件一起使用，以便在有限的空间内展示大量内容。可以配合[自动布局](auto-layout.md)和[滚动视图](ui-components.md#scrollview)一起学习。
+注意前面步骤中添加 **Layout** 组件并不是必须的，**Layout** 能够帮助您自动排列列表中的节点元素，但您也可以用脚本程序来控制节点的排列。我们通常还会配合 **ScrollView** 滚动视图组件一起使用，以便在有限的空间内展示大量内容。可以配合 [自动布局](auto-layout.md) 和 [滚动视图](ui-components.md#scrollview) 一起学习。

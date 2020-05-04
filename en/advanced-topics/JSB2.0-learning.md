@@ -170,7 +170,7 @@ Imagine if you force `se::Object` to be a strong reference to a JS object that l
 
 It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
 
-**Reason 2：More flexible, supporting strong reference by calling the se::Object::root method manually**
+**Reason 2: More flexible, supporting strong reference by calling the se::Object::root method manually**
 
 `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
@@ -286,7 +286,7 @@ The following two code snippets are equivalent, the use of `se::HandleObject` si
         otherObject->setProperty("foo", se::Value(obj));
     }
  
-	is equal to：
+	is equal to:
 
     {
         se::Object* obj = se::Object::createPlainObject();
@@ -320,7 +320,7 @@ It has the following methods:
 * `bool defineFunction(name, func)`: Define a member function for a class.
 * `bool defineProperty(name, getter, setter)`: Define a property accessor for a class.
 * `bool defineStaticFunction(name, func)`: Define a static function for a class, the JS function could be accessed by `SomeClass.foo()` rather than the method of `var obj = new SomeClass(); obj.foo()`, means it' s a class method instead of an instance method.
-* `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`，it's nothing about instance object.
+* `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`, it's nothing about instance object.
 * `bool defineFinalizeFunction(func)`: Define the finalize callback function after JS object is garbage collected.
 * `bool install()`: Install a class JS engine.
 * `Object* getProto()`: Get the prototype of JS constructor installed, similar to `function Foo(){}` `Foo.prototype` in JS.
@@ -924,7 +924,7 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 
 The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cocos2d::Ref` subclass and non- `cocos2d::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
 
-An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `TextureCache`, `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
+An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
 
 Other fields are the same as v1.6.
 
@@ -932,7 +932,7 @@ For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini
 
 ### Understand The Meaning of Each Field in The .ini file
 
-```
+```bash
 # Module name
 [cocos2d-x] 
 
@@ -1001,7 +1001,7 @@ base_classes_to_skip = Ref Clonable
 abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
 
 # Which classes are singleton or always keep alive until game exits
-persistent_classes = TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+persistent_classes = SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
 
 # Which classes use `CPP object controls JS object's life cycle`, the unconfigured classes will use `JS controls CPP object's life cycle`.
 classes_owned_by_cpp = 
@@ -1021,7 +1021,7 @@ The remote debugging and profile are valid in debug mode, if you need to enable 
 #endif
 ```
 
-Change to：
+Change to:
 
 ```c++
 #if 1 // Change to 1 to force enable remote debugging
@@ -1038,7 +1038,7 @@ Change to：
 #### Windows/Mac
 
 * Compile, run the game (or run directly in the Creator simulator)
-* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* Open with Chrome: [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
 Breakpoint debugging:
 
@@ -1056,7 +1056,7 @@ Profile:
 
 * Make sure your Android/iOS device is on the same network as your PC or Mac
 * Compile and run your game
-* Open with Chrome: [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android/iOS device.
+* Open with Chrome: [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android/iOS device.
 * The remote debugging interface is the same as debugging Windows.
 
 ## Q & A

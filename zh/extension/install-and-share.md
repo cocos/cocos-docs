@@ -6,7 +6,7 @@
 
 点击主菜单的 `扩展/扩展商店`，即可打开扩展商店。
 
-在扩展商店里可以搜索或浏览不同类别的插件，Cocos Creator 的编辑器扩展插件会归类到 `Creator扩展` 里。
+在扩展商店里可以搜索或浏览不同类别的插件，Cocos Creator 的编辑器扩展插件会归类到 `Creator 扩展` 里。
 
 ## 全局扩展包路径
 
@@ -38,7 +38,6 @@ MyProject
 
 这样我们在编写扩展包逻辑时可以更方便的获取到扩展包所在路径下的文件 url，减少出错的可能。
 
-
 ## 开发扩展包时的实时改动监控
 
-在开发扩展包的过程中，编辑器进程会对扩展包里的脚本内容进行监控，当有脚本内容发生变化时，会自动对扩展包进行重新载入。文件监控的规则可以在 `package.json` 中定制，详情请阅读 [package.json字段：reload](reference/package-json-reference.md#reload-object-) 。
+在开发扩展包的过程中，编辑器进程会对扩展包里的脚本内容进行监控，当有脚本内容发生变化时，会自动对扩展包进行重新载入。文件监控的规则可以在 `package.json` 中定制，详情请阅读 [package.json字段：reload](reference/package-json-reference.md#reload-object-)。

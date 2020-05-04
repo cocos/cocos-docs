@@ -224,7 +224,6 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
     });
 ```
 
-
 __对象类型__
 
 绑定对象的创建已经被隐藏在对应的 `SE_BIND_CTOR` 和 `SE_BIND_SUB_CLS_CTOR` 函数中，开发者在绑定回调中如果需要用到当前对象对应的 se::Object，只需要通过 s.thisObject() 即可获取。其中 s 为 se::State 类型，具体会在后续章节中说明。
@@ -251,23 +250,23 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 * 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 decRef
 
-```c++
-bool foo()
-{
-	se::Object* obj = se::Object::createPlainObject();
-	if (var1)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	
-	if (var2)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	...
-	...
-	obj->decRef();
-	return true;
-}
-```
+    ```c++
+    bool foo()
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        if (var1)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        
+        if (var2)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        ...
+        ...
+        obj->decRef();
+        return true;
+    }
+    ```
 
-就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
+  就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
 
 * JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
 
@@ -906,7 +905,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
 * `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval` 。
-* `native_ptr_to_rooted_seval`用于`CPP 控制 JS 对象生命周期`的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 住的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
+* `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
 
 更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
 
@@ -916,7 +915,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp` ，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 cocos2d::Ref 子类和非 cocos::Ref 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp` ，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
-1.7 中另外加入的一个配置字段为 `persistent_classes` ， 用于表示哪些类是在游戏运行中一直存在的，比如：TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`SpriteFrameCache`、`FileUtils`、`EventDispatcher`、`ActionManager`、`Scheduler`。
 
 其他字段与 1.6 一致。
 
@@ -924,7 +923,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 ### 理解 ini 文件中每个字段的意义
 
-```
+```bash
 # 模块名称
 [cocos2d-x] 
 
@@ -993,7 +992,7 @@ base_classes_to_skip = Ref Clonable
 abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
 
 # 配置哪些类是始终以一个实例的方式存在的，游戏运行过程中不会被销毁
-persistent_classes = TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+persistent_classes = SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
 
 # 配置哪些类是需要由 CPP 对象来控制 JS 对象生命周期的，未配置的类，默认采用 JS 控制 CPP 对象生命周期
 classes_owned_by_cpp = 
@@ -1032,7 +1031,7 @@ classes_owned_by_cpp =
 #### Windows/Mac
 
 * 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
-* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
 - 断点调试：
 
@@ -1050,7 +1049,7 @@ classes_owned_by_cpp =
 
 * 保证 Android/iOS 设备与 PC 或者 Mac 在同一个局域网中
 * 编译，运行游戏
-* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。
 * 调试界面与 Windows 相同
 
 ## Q & A

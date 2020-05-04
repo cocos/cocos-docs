@@ -2,7 +2,7 @@
 
 In Cocos Creator Android build, you can call Java static methods directly in JavaScript. Its usage is very simple:
 
-```
+```js
 var result = jsb.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
 ```
 
@@ -12,7 +12,7 @@ In `callStaticMethod` method, we need to pass Java class name, method name, meth
 
 The class name must contain Java package path. For example, we have a class `Test` in the package `org.cocos2dx.javascript`.
 
-```
+```java
 package org.cocos2dx.javascript;
 
 public class Test {
@@ -51,11 +51,11 @@ Now I think you have understood it. The symbols in brackets represent the type o
 Right now Cocos Creator supports four Java types:
 
 | Java type | signature |
-| ---------- |-----|             
-| int | I |
-| float | F |
-| boolean | Z |
-| String | Ljava/lang/String; |
+| --------- |-----------|             
+| int       | I         |
+| float     | F         |
+| boolean   | Z         |
+| String    | Ljava / lang / String; |
 
 ## Parameters
 
@@ -86,7 +86,7 @@ A very important thing we must pay attention to is thread safe! In cocos android
 
 For example, we will call a Java method which shows an Android AlertDialog.
 
-```
+```c++
 //make some modification in AppActivity class
 public class AppActivity extends Cocos2dxActivity {
     
@@ -112,7 +112,6 @@ public class AppActivity extends Cocos2dxActivity {
         });
     }
 }
-
 ```
 
 Then we call `showAlertDialog` in js:
@@ -127,11 +126,11 @@ You should see a Android native AlertDialog now.
 
 Now we have successfully called Java methods in JavaScript, so can we call js in Java? Of course!
 
-In your project add the `Cocos2dxJavascriptJavaBridge`, this class has a `evalString` method which can evaluate JavaScript. It's in the folder `frameworks\js-bindings\bindings\manual\platform\android\java\src\org\cocos2dx\lib`.
+In your project add the `Cocos2dxJavascriptJavaBridge`, this class has a `evalString` method which can evaluate JavaScript. It's in the folder `frameworks\js-bindings\bindings\manual\platform\android\java\src\org\cocos2dx\lib`. We will add a OK button for the AlertDialog, and use `evalString` in its `OnClickListener`. Note that this time we should run js code in `gl` thread.
 
-We will add a OK button for the AlertDialog, and use `evalString` in its `OnClickListener`. Note that this time we should run js code in `gl` thread.
+Generally speaking, the engine does not promise security in multi-threaded at present, so you need to avoid JS code being called in other threads during development to avoid various memory errors.
 
-```
+```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
 
@@ -145,5 +144,13 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     }
 });
 ```
+
+If you want to call `evalString` in C++, please refer to the following method to ensure that `evalString` is executed in the thread where the JS engine is:
+
+```c++
+Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+    se::ScriptEngine::getInstance()->evalString(script.c_str());
+});
+``` 
 
 After clicking OK button, you should see the output. `evalString` can run any js code, and can access your js variables.
