@@ -90,14 +90,14 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 除了上述的方式之外，你还可以通过 `cc.assetManager.presets` 对每种预设进行设置，需要注意的是，对每一种预设的限制可以不同，所以 `presets` 是一个表，你需要传入预设的名称来访问对应的选项，例如：
 
 ```js
-    let preset = cc.assetManager.presets.normal;
+    let preset = cc.assetManager.presets.default;
 ```
 
 引擎内置了六种预设，如下:
 
 ```js
 {
-    'normal': {
+    'default': {
         priority: 0,
     },
 
@@ -133,7 +133,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 
 ```js
     // 修改内置预设
-    cc.assetManager.presets.normal.maxConcurrency = 10;
+    cc.assetManager.presets.default.maxConcurrency = 10;
 
     // 自定义预设
     cc.assetManager.presets.mypreset = { maxConcurrency: 10, maxRequestsPerFrame: 6 };

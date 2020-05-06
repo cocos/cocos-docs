@@ -3,11 +3,11 @@
 Use `ellipse()` method to create an ecllipse.
 
 | Parameter | Description
-| -------------- | ----------- |
-| cx | 圆的中心的 x 坐标。
-| cy | 圆的中心的 y 坐标。
-| rx | 圆的 x 半径。
-| ry | 圆的 y 半径。
+| --------- | ----------- |
+| cx | The x coordinate of the center of the circle |
+| cy | The y coordinate of the center of the circle |
+| rx | The x radius of the circle.|
+| ry | The y radius of the circle.|
 
 ## Example
 

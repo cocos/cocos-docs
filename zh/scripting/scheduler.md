@@ -68,10 +68,10 @@
 
 下面是 Component 中所有关于计时器的函数：
 
-- schedule：开始一个计时器
-- scheduleOnce：开始一个只执行一次的计时器
-- unschedule：取消一个计时器
-- unscheduleAllCallbacks：取消这个组件的所有计时器
+- `schedule`：开始一个计时器
+- `scheduleOnce`：开始一个只执行一次的计时器
+- `unschedule`：取消一个计时器
+- `unscheduleAllCallbacks`：取消这个组件的所有计时器
 
 这些 API 的详细描述都可以在 [Component API](../../../api/zh/classes/Component.html) 文档中找到。
 

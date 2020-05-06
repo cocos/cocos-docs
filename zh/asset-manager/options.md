@@ -95,33 +95,3 @@
 ```
 
 通过结合管线，自定义处理方法，可选参数可以达到极大的扩展度。Asset Bundle 可以看做使用可选参数扩展的第一个实例。
-
-## load, preload 批量设置可选参数
-
-**特别需要注意** 的是，对于 `load` 与 `preload` 方法而言，可选参数的设置是批量设置的，例如当你如下加载 prefab 时：
-
-```js
-    cc.assetManager.loadAny({ path: 'prefabs/ui' }, { priority: 2 }, callback );
-```
-
-此时，除了 `prefabs/ui` 会以优先级 2 进行下载之外，该 prefab 的所有依赖资源，例如图片，音效等都会设置为优先级 2 。另外，当同时加载多个资源时，可选参数也会应用到所有的资源上，例如：
-
-```js
-    cc.assetManager.loadAny([{ path: 'prefabs/ui' }, { url: 'http://example.com/background.jpg' }], { priority: 2 }, callback);
-```
-
-此时，会同时加载两个资源，且两个资源以及他们的所有依赖资源都会以优先级 2 进行资源下载。
-
-当你不需要将所有可选参数应用到所有资源时，你可以使用如下方式：
-
-```js
-    cc.assetManager.loadAny([{ path: 'prefabs/ui', priority: 2 }, { url: 'http://example.com/background.jpg', priority: 3 }], callback);
-```
-
-当你在该资源请求中设置可选参数时，只会应用到该资源本身。当资源请求中的可选参数与批量可选参数有重叠字段时，会以资源请求中的可选参数为准。例如：
-
-```js
-    cc.assetManager.loadAny([{ path: 'prefabs/ui', priority: 2 }, { url: 'http://example.com/background.jpg', priority: 2 }, { url: 'http://example.com/test.myformat' }], { priority: 3 }, callback);
-```
-
-此时除了前两个资源本身是优先级 2 之外，他们的依赖资源以及第三个资源都是优先级 3 。

@@ -8,12 +8,12 @@ Next, we categorize different alignment workflows according to the categories of
 
 For elements with relatively small areas like a pause menu, in-game gold coins, etc., normally, aligning them by the borders of the screen would be enough. Only a few simple steps are needed:
 
-1. Set these elements as subnodes of the Canvas node in **Node Tree**
+1. Set these elements as child nodes of the Canvas node in **Node Tree**
 2. Add the Widget component to element nodes
 3. To align something with the bottom left corner of the screen for example, check the `Left` and `Bottom` tick boxes in the Widget component.
 4. Then set up the distance between the node and the borders of the screen. In the picture below, the left margin is set as 50px, the bottom margin is set as 30px.
 
-![align left bottom](widget-align/align-basic.png)
+    ![align left bottom](widget-align/align-basic.png)
 
 After setting up the Widget component like this, no matter what the actual screen resolution is, this node element will remain at the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 50px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
 
@@ -63,7 +63,7 @@ What needs to be noted is that because the Canvas node itself has the function o
 
 ## Set up percentage alignment distance
 
-After opening the alignment function of a certain direction on the Widget component, apart from margins whose unit is designated as pixels, we can also input a percentage value. Therefore, Widget will multiply the width or height of the parent node on the corresponding axis by the input percentage to get the value of the actual margin.
+After the alignment in a certain direction is enabled on the Widget component, in addition to specifying the margin in pixels, we can also input a percentage value. Therefore, Widget will multiply the width or height of the parent node on the corresponding axis by the input percentage to get the value of the actual margin.
 
 Let's take a look at a real example. Take a child node that has been directly put under Canvas as an example. We hope this node panel remains on the right side of the screen and constantly covers 60% of the total height of screen. Therefore, setting up the Widget component according to the following picture will realize this effect:
 
@@ -73,7 +73,16 @@ When inputting the margin value when opening alignment direction, Widget can use
 
 Making use of the percentage alignment distance, we can create UI elements that can zoom in/out infinitely according to the size of the screen. Exerting your imagination, fitting a thousand types of Android phones with one set of resources will be a piece of cake!
 
+## Update alignment and optimization strategies at runtime
 
----
+Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget to update alignment persistently.
 
-Continue on to read about [Label Layout](label-layout.md).
+If the `Align Mode` of the Widget component is set to `ON_WINDOW_RESIZE` or `ONCE` in the **Properties**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
+
+If you need real-time positioning at runtime, you need to set the `Align Mode` to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
+
+For scene with many UI elements, it is recommended to keep the default setting of `Align Mode` to `ON_WINDOW_RESIZE`, which can greatly improve the running performance of the scene.
+
+## Limitation on the position and size of node
+
+When the Widget component enables one or more alignment settings, the `position`, `width` and `height` properties of the node may be restricted and cannot be freely modified through the API or **Timeline**. If you need to modify the position or size of the alignment node at runtime, please refer to the [Widget Component: Limitation on node position control](../components/widget.md#limitation-on-node-position-control) for details.

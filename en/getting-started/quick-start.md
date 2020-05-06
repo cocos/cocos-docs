@@ -1,4 +1,4 @@
-# Quick Start：Make your first game
+# Quick Start: Make your first game
 
 This document is a systematic introductions of the editor panel and the functions and workflows of Cocos Creator. Completing this chapter will help you quickly learn the general flow and methods for developing games with Cocos Creator. After finishing this tutorial you have enough information to get started creating basic games. It is strongly recommended you continue reading this guide to understand the details of each functional block and the complete workflows. Now, let's begin!
 
@@ -94,7 +94,7 @@ When we edit and modify the scene, we can promptly save our modifications by mai
 
 In **Scene**, the newly added background images can be seen. Next we will modify the size of the background image to make it cover the whole screen.
 
-Firstly, click the `background` node, and click the fourth **rectangle tool** at the top left corner of the main window:
+Firstly, click the `background` node, and click the fourth **Rect Transform Tool** at the top left corner of the main window:
 
 ![rect gizmo](quick-start/rect_gizmo.png)
 
@@ -106,7 +106,7 @@ Then we need to drag the upper and lower sides to make the size of the backgroun
 
 ![background finish](quick-start/background_finish.png)
 
-When using **rectangle tool** to modify the size of the background image, we can see the `Size` property of **Node** in the **Properties** panel is changing accordingly. After completion, the size of the background image is approximately `(1360, 760)`. You can also directly input a numeric value into the input field of the `Size` property, which will achieve the same effect as that of using **rectangle tool**. A background image of this size can cover the whole screen of all the phones on the market, with no exceptions.
+When using **Rect Transform Tool** to modify the size of the background image, we can see the `Size` property of **Node** in the **Properties** panel is changing accordingly. After completion, the size of the background image is approximately `(1360, 760)`. You can also directly input a numeric value into the input field of the `Size` property, which will achieve the same effect as that of using **Rect Transform Tool**. A background image of this size can cover the whole screen of all the phones on the market, with no exceptions.
 
 ### Add ground
 
@@ -116,11 +116,11 @@ Our main character needs a ground that it can jump on. We will add one instantly
 
 In the **Node Tree**, the rendering order of the nodes shown below is at the back of the upper node, which means that the node below is drawn after the upper node. We can see the `ground` node at the bottom of the **Node Tree**, which appears at the front of the hierarchy in the **Scene**. In addition, the child nodes will always appear before the parent node, and we can adjust the hierarchy order and relationship of the nodes at any time to control their display order.
 
-According to the method of modifying the `background` node, we can also use **rectangle tool** to set a suitable size for the `ground` node. When using the **rectangle tool**, you can change the position of the node by dragging the node's vertices and the parts outside the edges. The following figure is the ground node state we set up:
+According to the method of modifying the `background` node, we can also use **Rect Transform Tool** to set a suitable size for the `ground` node. When using the **Rect Transform Tool**, you can change the position of the node by dragging the node's vertices and the parts outside the edges. The following figure is the ground node state we set up:
 
 ![ground finish](quick-start/ground_finish.png)
 
-Apart from **rectangle tool**, we can also use **move tool** ![translate gizmo](quick-start/translate_gizmo.png) to change the positions of the nodes. Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
+Apart from **Rect Transform Tool**, we can also use **move tool** ![translate gizmo](quick-start/translate_gizmo.png) to change the positions of the nodes. Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
 
 When setting up the position and size of the `background` and `ground`, we don't need precise numeric values and can drag them by guessing. If you prefer whole numbers, you can directly input numeric values of `position` and `size` according to the screenshot.
 
@@ -254,7 +254,7 @@ Next we will add a method to make the main character jump. Add a method called `
         var jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
         // jump down
         var jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
-        //  repeat
+        // repeat
         return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
     },
 ```
@@ -289,7 +289,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 As you can see, the method `moveBy` can be passed in three parameters, the first two parameters we already know, the third parameter is the `Y` coordinate of the `Number` type. We can find that the second parameter can be passed in two types, the first is `Number` type, the second is `Vec2` type, if we pass in here is `Number` type, then the default parameter is `X` coordinate, then fill in the third parameter `Y` coordinate. The second parameter in the above example `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight))` is a type of `cc.v2` object constructed using the `Vec2` method, which represents a coordinate, that is, `X` coordinates also have `Y` coordinates, because you don't need to pass in the third parameter. Also pay attention to the official passage `x and y are relative to the position of the object.`, which means that the incoming `X` and `Y` coordinates are relative to the current coordinate position of the node, rather than the absolute coordinates of the entire coordinate system.
 
-After understanding the meaning of the parameters, let's focus on the return value of the `moveBy()` method, and see the official instructions to know that this method returns an object of type `ActionInterval`, `ActionInterval` in Cocos is a class that represents a time interval action, which is done in a certain amount of time. Here we can understand the code `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **Former part** meaning, it means to construct an object of `ActionInterval` type, which represents the movement of the `(0，this.jumpHeight)` coordinates relative to the current node in the `jumpDuration` time. In short, it's a jump up action.
+After understanding the meaning of the parameters, let's focus on the return value of the `moveBy()` method, and see the official instructions to know that this method returns an object of type `ActionInterval`, `ActionInterval` in Cocos is a class that represents a time interval action, which is done in a certain amount of time. Here we can understand the code `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **Former part** meaning, it means to construct an object of `ActionInterval` type, which represents the movement of the `(0, this.jumpHeight)` coordinates relative to the current node in the `jumpDuration` time. In short, it's a jump up action.
 
 So what is the role of the `easing(cc.easeCubicActionOut())` in the second half? `easing` is a method under the `ActionInterval` class that allows the time interval action to appear as an easing motion, and the incoming parameter is an easing object that returns an object of `ActionInterval` type. Here the incoming is the easing object built with the `easeCubicActionInOut` method. `EaseCubicInOut` is the action of three times function easing to enter and exit, the specific curve can refer to the following figure:
 
@@ -364,14 +364,14 @@ Then modify the `onLoad` method, into which we add the switch of accelerating to
 
         // Initialize the keyboard input listening
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },
 
     onDestroy () {
         // Cancel keyboard input monitoring
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-    },  
+    },
 ```
 
 With Android development experience, it's better to understand that the listener is essentially the same as Android's `OnClickListener`, in Cocos through `systemEvent` to listen the system **Global** events. (For details on the listening and distribution of mouse, touch and custom events, please refer to [Monitor and launch events](../scripting/events.md)). Here registered a keyboard response function to `systemEvent`, in which the switch is used to determine whether the keyboard is <kbd>A</kbd> and <kbd>D</kbd> pressed or not, and if pressed, performs the corresponding operation.
@@ -495,12 +495,12 @@ The above code sets three parameters for the `score` property default, displayNa
 
 Here are the common parameters:
 
-`default`：Sets the default value for the property, which is only used when the component is first added to the node<br>
-`type`：To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.md#type-attribute)<br>
-`visible`：Set to false to not display this property in the **Properties**<br>
-`serializable`： Set to False to not serialize (save) this property<br>
-`displayName`：Display in the **Properties** as the specified name<br>
-`tooltip`：To add a property's tooltip to the **Properties**
+`default`: Sets the default value for the property, which is only used when the component is first added to the node<br>
+`type`: To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.md#type-attribute)<br>
+`visible`: Set to false to not display this property in the **Properties**<br>
+`serializable`:  Set to False to not serialize (save) this property<br>
+`displayName`: Display in the **Properties** as the specified name<br>
+`tooltip`: To add a property's tooltip to the **Properties**
 
 So the code above is easy to understand:
 
@@ -841,7 +841,7 @@ What needs to be emphasized here is the role of the callback function, first we 
  * var finish = cc.callFunc(this.removeSprite, this);
  *
  * // CallFunc with data
- * var finish = cc.callFunc(this.removeFromParentAndCleanup, this._grossini,  true);
+ * var finish = cc.callFunc(this.removeFromParentAndCleanup, this._grossini, true);
  */
 cc.callFunc = function (selector, selectorTarget, data) {
     return new cc.CallFunc(selector, selectorTarget, data);

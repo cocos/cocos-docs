@@ -15,6 +15,17 @@ cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
     this.getComponent(cc.Sprite).spriteFrame = asset;
 });
 ```
+相关的 API 列表如下：
+
+类型 | 支持 | 加载 | 释放 | 预加载 | 获取
+-- | -- | -- | -- | -- | --
+单个资源 | Asset Bundle | load | release | preload | get
+文件夹 | Asset Bundle | loadDir | releaseAsset |  preloadDir  |  N/A
+场景 | Asset Bundle | loadScene |  N/A | preloadScene  |  N/A
+单个资源 | cc.resources | load | release  |  preload  |  get
+文件夹 | cc.resources |  loadDir |  releaseAsset   |  preloadDir  |  N/A
+脚本 | Asset Manager | loadScript | N/A  | N/A   |  N/A
+远程 | Asset Manager | loadRemote  |  releaseAsset  | N/A | N/A
 
 相关文档可参考：
 
@@ -22,14 +33,6 @@ cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
 [Asset Bundle](../scripting/asset-bundle.md)
 
 所有加载到的资源会被缓存到 `cc.assetManager` 中。
-
-### 加载管线
-
-为了更方便地扩展资源加载流程，Asset Manager 底层使用名为 **管线与任务** ，**下载器与解析器** 的机制来完成资源的加载工作，其带来了巨大的灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
-
-[管线与任务](pipeline-task.md)<br>
-[下载器与解析器](downloader-parser.md)
-
 
 ### 预加载
 
@@ -48,21 +51,7 @@ loadAsset () {
 }
 ```
 
-关于预加载更多内容请参考 [预加载与加载](preload-load.md) 。
-
-
-### 可选参数
-
-除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.resources.load` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
-
-```js
-cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
-
-bundle.loadScene('test', { priority: 3 }, callback);
-```
-
-options 中除了可以指定 Creator 内置的参数之外，还可以指定任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线，详细请参考 [可选参数](options.md) 。
-
+关于预加载更多内容请参考 [预加载与加载](preload-load.md)。
 
 ## Asset Bundle
 
@@ -76,7 +65,7 @@ cc.assetManager.loadBundle('http://example.com/test', function (err, bundle) {
 });
 ```
 
-更多 Asset Bundle 的介绍请参考 [bundle](bundle.md) 。
+更多 Asset Bundle 的介绍请参考 [bundle](bundle.md)。
 
 ## 释放资源
 
@@ -105,7 +94,7 @@ this.texture.decRef();
 this.texture = null;
 ```
 
-更多详细内容请参考 [资源释放](release-manager.md) 。
+更多详细内容请参考 [资源释放](release-manager.md)。
 
 ## 缓存管理器
 
@@ -116,7 +105,26 @@ this.texture = null;
 cc.assetManager.cacheManager.getCache('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
 
 // 清除某个资源的缓存
-cc.assetManager.cacheManager.cleanCache('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
+cc.assetManager.cacheManager.removeCache('http://example.com/bundle1/import/9a/9aswe123-dsqw-12xe-123xqawe12.json');
 ```
 
-更多缓存管理器的介绍请参考 [缓存管理器](cache-manager.md) 。
+更多缓存管理器的介绍请参考 [缓存管理器](cache-manager.md)。
+
+### 可选参数
+
+除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.resources.load` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
+
+```js
+cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
+
+bundle.loadScene('test', { priority: 3 }, callback);
+```
+
+options 中除了可以指定 Creator 内置的参数之外，还可以指定任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线，详细请参考 [可选参数](options.md)。
+
+### 加载管线
+
+为了更方便地扩展资源加载流程，Asset Manager 底层使用名为 **管线与任务** ，**下载器与解析器** 的机制来完成资源的加载工作，其带来了巨大的灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
+
+[管线与任务](pipeline-task.md)<br>
+[下载器与解析器](downloader-parser.md)

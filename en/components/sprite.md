@@ -13,12 +13,12 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 | Properties | Description
 | -------------- | ----------- |
 | Atlas | [Auto Atlas](../asset-workflow/atlas.md) which the Sprite display image resource belongs to. ( **Select In Atlas** button after Atlas, this feature is temporarily unavailable and we will optimize it as soon as possible)
-| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the nine rectangle grid cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md) for details)
+| Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the 9-sliced cutting of the image resource, please refer to [Use a Sliced Sprite to make a UI image](../ui/sliced-sprite.md) for details)
 | Type | Rendering mode, currently includes `Simple`, `Sliced`, `Tiled`, `Filled` and `Mesh` five rendering modes.
 | Size Mode | Specify the size of the Sprite<br>`Trimmed` automatically fit to the size of the sprite cropped<br>`Raw` automatic fit for sprite original size<br>`Custom` use the node preset size. When the user manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
-| Trim | Whether the transparent pixel area is included in the node bounding box，which takes effect only when the Type is set to Simple. Please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
+| Trim | Whether the transparent pixel area is included in the node bounding box, which takes effect only when the Type is set to Simple. Please refer to [Auto Trim for SpriteFrame](../asset-workflow/trim.md).
 | Src Blend Factor | The source image blend mode.
-| Dst Blend Factor | the destination image blend mode. Together with the above properties, you can mix the foreground and background Sprite in different ways to render, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
+| Dst Blend Factor | The destination image blend mode. Together with the above properties, you can mix the foreground and background Sprite in different ways to render, and the effect preview can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php).
 
 After adding the Sprite component, drag the Texture or SpriteFrame type resource from the **Assets** to the `Sprite Frame` attribute reference. Then, the resource image can be displayed through the Sprite component.
 
@@ -31,10 +31,15 @@ If this SpriteFrame resource is contained within an Atlas resource, then the `At
 Currently, the Sprite component supports five rendering modes:
 
 - `Simple mode`: rendering the Sprite according to the original image resource. It is normally used along with `Use Original Size` to guarantee the image shown in the scene is in full accordance with the image designed by the graphic designer.
+
 - `Sliced mode`: the image is cut up into a nine square grid and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [use Sprite editor to make a Sudoku image](../asset-workflow/sprite.md#-sprite-) for detailed information.
-- `Tiled mode`: as the size of the Sprite increases, the image is not stretched, but it Will repeat according to the size of the original picture, paving the original picture to the size of the entire Sprite as tiled tiles.
- ![tiled](sprite/tiled.png)
+
+- `Tiled mode`: The image will be repeated to fit the size of the Sprite. If the SpriteFrame is [9-sliced](../ui/sliced-sprite.md), the corners will also remain unscaled while the other areas will be repeated.
+
+  ![tiled](sprite/tiled.png)
+ 
 - `Filled mode`: draws a portion of the original picture in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
+
 - `Mesh mode`: Only support **.plist** file which is built by __TexturePacker__ (4.0 or higher version) with ploygon algorithm.
 
 ### Filled mode

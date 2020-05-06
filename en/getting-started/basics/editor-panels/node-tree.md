@@ -21,7 +21,7 @@ Click to choose node, and the selected node will be highlighted in blue. Current
 There are two ways to create node in Hierarchy:
 
 - Click `+` button on the top left corner or right click the mouse to enter the **create node** submenu in right click menu. In this submenu, you can select different node types including Sprite, Label, Button and other nodes with different functions and expressions.
-- Drag assets like image, font or particle from **explorer** to **Node Tree**. Then you can create corresponding image rendering node with the selected assets.
+- Drag assets like image, font or particle from **Assets** to **Node Tree**. Then you can create corresponding image rendering node with the selected assets.
 
 ## Delete node
 
@@ -43,8 +43,8 @@ The order of nodes in the list determines the rendering order of node in the sce
 
 Right click the node, the popup menu also includes the following operation:
 
-- **Copy/paste**：copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
-- **Copy node**：generate node replication exactly the same with the selected node and they are at the same level.
-- **Rename**：rename the node
-- **Show UUID and path of node**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the path of the currently selected node and its UUID in the **Console**.
-- **Lock node**：move the mouse over the node and there will be a lock button on the left side. After the node is locked, it cannot be selected in the **Scene**.
+- **Copy/paste**: Copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
+- **Copy node**: Generate node replication exactly the same with the selected node and they are at the same level.
+- **Rename**: Rename the node
+- **Show UUID and path of node**: In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the path of the currently selected node and its UUID in the **Console**.
+- **Lock node**: Move the mouse over the node and there will be a lock button on the left side. After the node is locked, it cannot be selected in the **Scene**.

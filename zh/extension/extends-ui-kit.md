@@ -38,17 +38,17 @@ Editor.UI.registerElement('foobar-label', {
 拿上面的例子来说，假设我们希望 `<foobar-label>` 不只是显示 Foobar ，而是根据我们加入的内容进行显示，例如：
 
 ```javascript
-  <foobar-label>Hello World</foobar-label>
+<foobar-label>Hello World</foobar-label>
 ```
 
 这个时候就需要使用内容分发功能。我们可以对之前的范例做一个小小的更改：
 
 ```javascript
-  template: `
-    <div class="text">
-      <content></content>
-    </div>
-  `
+template: `
+  <div class="text">
+    <content></content>
+  </div>
+`
 ```
 
 通过使用 `<content>` 标签告诉样板，我们希望将用户内容放置在这个地方。

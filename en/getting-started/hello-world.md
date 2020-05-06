@@ -34,7 +34,7 @@ Click the drop down menu in the top left corner of the preview window and from h
 
 ## Customize the Welcome Message
 
-Let's show you what's data-driven workflow with a simple example. Let's say we need to change the welcome message of Hello Word, we don't need to edit the script code any more, but can directly modify properties of the words that are saved in the scene.
+Let's show you what's data-driven workflow with a simple example. Let's say we need to change the welcome message of Hello Word, we don't need to edit the script code anymore, but can directly modify properties of the words that are saved in the scene.
 
 Firstly click the `Canvas` node in the **Node Tree**, to which our `Hello World` component script is attached.
 

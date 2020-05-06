@@ -32,14 +32,12 @@ Starting with v1.10, we no longer support Eclipse's ANT build, we need to use An
 
 ### Download the SDK and NDK required to publish the Android platform
 
-After installing Android Studio, refer to the official documentation and open the SDK Manager:
-
-[SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager)
+After installing Android Studio, refer to the official documentation and open the SDK Manager: [SDK Manager Instructions](https://developer.android.com/studio/intro/update.html#sdk-manager).
 
 1. In the `SDK Platforms` tab page, check the API level you want to install, and it is recommended to select the required mainstream API Level such as 23 (6.0), 26 (8.0) and 28 (9.0), etc.
 2. In the `SDK Tools` tab page, first check the lower right corner of the `Show Package Details`, show the version of the tool selection.
 3. In the `Android SDK Build-Tools`, select the latest build Tools version.
-4. Check the `Android SDK Platform-Tools`, `Android SDK Tools` and `Android Support Library`
+4. Check the `Android SDK Platform-Tools` and `Android SDK Tools`. If you need to install the Android Support Library, please refer to the [Official Documentation](https://developer.android.com/topic/libraries/support-library/setup).
 5. Check the `NDK` and the recommended version is **r17 - r19**.
 6. Take note of the path of `Android SDK Location` on top of the SDK Manager window. Later we need to fill in the location of the SDK in Cocos Creator.
 7. Click `OK` and follow the prompts to complete the installation.
@@ -48,11 +46,15 @@ After installing Android Studio, refer to the official documentation and open th
 
 ## Install C++ compiling environment
 
-The compiling tool Cocos Console in Cocos Framework needs the following running environment:
+Please install the following running environment:
 
 - Python 2.7.5+, [download page](https://www.python.org/downloads/). Pay attention! Don't download Python 3.x version.
-- In Windows, the installation of Visual Studio 2017 Community Edition is needed, [download page](https://www.visualstudio.com/downloads/download-visual-studio-vs)
-- In Mac, the installation of Xcode and command line tool is needed, [download page](https://developer.apple.com/xcode/download/)
+
+- In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
+
+  **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
+
+- In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
 ## Configure path in original release environments
 
@@ -73,21 +75,15 @@ Close the window after configuration is completed.
 
 We have received lots of feedback about original packing in the public beta, and some possible reasons are supplemented here:
 
-1. Check Xcode and Visual Studio
-
-    Xcode support is required for building Mac version and iOS version. Building Windows version requires the installation of Visual Studio. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
-
-    **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
-
-2. Package name issue
+1. Package name issue
 
     Check the package name in the constructing release panel. Package names that include blank space, `-`, etc. are all illegal.
 
-3. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
+2. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](http://discuss.cocos2d-x.org/c/creator).
+In the end, if building still fails, please post the bug with detailed reproducible steps and error information to us in the [forum](https://discuss.cocos2d-x.org/c/creator).
 
 ---
 

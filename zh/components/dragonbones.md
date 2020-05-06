@@ -79,3 +79,7 @@ DragonBones 组件可以对骨骼动画（DragonBones）资源进行渲染和播
 5. 点击编辑器上方的预览按钮，可以看到机器人右手的刀已经被替换。
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
+
+## DragonBones 挂点与碰撞检测
+
+DragonBones 挂点和碰撞检测的方法与 Spine 完全相同，详情请参考 [Spine 挂点与碰撞检测](./spine.md)。

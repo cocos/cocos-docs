@@ -7,7 +7,7 @@ Since the open data context is a closed, independent JavaScript scope, developer
   - Main context project (normal game project)
   - Open data context project Engineering (projects that use the WeChat API to obtain user data for functions such as leaderboards)
 
-In the open data context project, it is packaged independently through the open data context packaging process and placed in the WeChat build package of the main context project, which can be previewed and debugged on the simulator and real machine as a complete WeChat project.
+In the open data context project, it is packaged independently through the open data context packaging process and placed in the WeChat build package of the main context project, which can be previewed and debugged on the simulator and physical device as a complete WeChat project.
 
 __Cocos Creator__ supports packaging to open data contexts since v1.9.1, and an important update in v2.0.1. The two versions are used differently, as described below.
 
@@ -74,13 +74,13 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/maintest-build.png)
 
-    This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the __Open Data Context Root__ into the main context project `build -> wechatgame -> game.json` to identify the directory where the open data context file is located under the main context release package.
 
     ![](./publish-wechatgame/game-json.png)
 
 2. Open the open data context project, open the **Build** panel, select the **WeChat Mini Game Open Data Context**.
 
-3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
+3. The **Build Path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
     **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
 
@@ -159,7 +159,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
     ![](./publish-wechatgame/maintest-build.png)
 
-    This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context distribution package.
+    This step will help the user automatically configure the Open Data Context Root into the main context project **build -> wechatgame -> game.json** to identify the directory where the open data context file is located under the main context release package.
 
     ![](./publish-wechatgame/game-json.png)
 

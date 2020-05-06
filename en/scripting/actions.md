@@ -1,5 +1,7 @@
 # Using the action system in Cocos Creator
 
+> The action system is deprecated, and will be gradually removed in the future. It is recommended to use the [cc.tween](./tween.md) instead.
+
 ## Introduction to the action system
 
 The action system that Cocos Creator provides originates from Cocos2d-x with both the API and usage having been inherited. The action system can complete displacement, zoom, rotate and all the other actions of the node within a designated time.
@@ -35,7 +37,8 @@ node.stopActionByTag(ACTION_TAG);
 
 ## Action categories
 
-Cocos Creator supports various kinds of actions which can be divided into several categories:
+Cocos Creator supports various kinds of actions which can be divided into following several categories.
+
 (Since there are too many action categories, we will not describe every action's usage in detail. The developer can check all the actions according to the [action system API list](./action-list.md).)
 
 ### Basic action

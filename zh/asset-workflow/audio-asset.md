@@ -46,6 +46,4 @@ cc.assetManager.loadRemote('http://example.com/background.mp3', callback);
 cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
 ```
 
-参考：
-
-- [音频播放](../audio/audio.md)
+参考 [音频播放](../audio/audio.md)

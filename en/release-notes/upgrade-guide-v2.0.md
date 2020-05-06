@@ -185,25 +185,26 @@ You can see that only Node's `on`/`off` supports event capture and event bubblin
 However, the use of emit dispatch on Node and all event dispatch on EventTarget are simple event dispatch methods. The dispatch event is different from 1.x in the event callback parameters:
 
 ```javascript
-    // v1.x
-    eventTarget.on(type, function (event) {
-        // Get the argument passed when emit via event.detail
-    });
-    eventTarget.emit(type, message); // message will be saved on the detail property of the event parameter of the callback function
-    // v2.0
-    eventTarget.on(type, function (message, target) {
-        // Get the event argument passed when emit directly through the callback parameter
-    });
-    eventTarget.emit(type, message, eventTarget); // emits up to five extra arguments, which are passed flat to the callback function
+// v1.x
+eventTarget.on(type, function (event) {
+    // Get the argument passed when emit via event.detail
+});
+eventTarget.emit(type, message); // message will be saved on the detail property of the event parameter of the callback function
+
+// v2.0
+eventTarget.on(type, function (message, target) {
+    // Get the event argument passed when emit directly through the callback parameter
+});
+eventTarget.emit(type, message, eventTarget); // emits up to five extra arguments, which are passed flat to the callback function
 ```
 
 It is also worth mentioning that the event monitoring mechanism of the Hot Update Manager has also been upgraded. In the old version, AssetsManager needs to listen for callbacks through cc.eventManager. In 2.0, we provide an easier way:
 
 ```javascript
-    / / Set the event callback
-    assetsManager.setEventCallback(this.updateCallback.bind(this));
-    // cancel event callback
-    assetsManager.setEventCallback(null);
+// Set the event callback
+assetsManager.setEventCallback(this.updateCallback.bind(this));
+// cancel event callback
+assetsManager.setEventCallback(null);
 ```
 
 ## 3.5 Adaptation mode upgrade

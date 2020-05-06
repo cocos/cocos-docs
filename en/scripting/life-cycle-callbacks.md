@@ -1,6 +1,6 @@
 # Life cycle callback
 
-Cocos Creator provides the life cycle callback function for component script. As long as the user defines a specific callback function,Creator will execute the script in a specific period, users do not need to manually call them.
+Cocos Creator provides the life cycle callback function for component script. As long as the user defines a specific callback function, Creator will execute the script in a specific period, users do not need to manually call them.
 
 Currently, the major life-cycle callback functions provided for users are:
 
@@ -14,7 +14,7 @@ Currently, the major life-cycle callback functions provided for users are:
 
 ## onLoad
 
-In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the node is first activated, such as when the scene is loaded, or when the node is activated. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. onLoad is always called before any start functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
+In the initialization phase of the component script, we provide the `onLoad` callback function. `onLoad` callback will be triggered when the node is first activated, such as when the scene is loaded, or when the node is activated. The `onLoad` phase guarantees you can get other nodes from the scene and the resource data associated with the node. `onLoad` is always called before any `start` functions, this allows you to order initialization of scripts. Normally, we will do some operation associated with initialization in the `onLoad` phase. For example:
 
 ```js
 cc.Class({
@@ -34,7 +34,7 @@ cc.Class({
 
 ## start
 
-The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time. `start` is usually used to initialize some intermediate state data which may have changed during update and frequently enables and disables.
+The `start` callback function will be triggered before the first activation of the component, which is before executing `update` for the first time. `start` is usually used to initialize data that needs frequent modification, which may have changed during `update`.
 
 ```js
 cc.Class({
@@ -92,7 +92,18 @@ When the `enabled` property of the component turns from `true` to `false`, or th
 
 ## onDestroy
 
-When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
+When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done. When you declare both `onLoad` and `onDestroy`, they will always be called in pairs, which means that from component's initialization to destruction, they will either all be called or none will be called.
+
+## Tips
+
+The execution order of lifecycle functions over a component's complete lifetime from initialization to activation and final destruction is: `onLoad` -> `onEnable` -> `start` -> `update` -> `lateUpdate` -> `onDisable` -> `onDestroy`.
+
+Where `onLoad` and `start` are often used for a component's initialization and will only be executed once when the node become `activeInHierarchy`. In addition to the content mentioned above and the different execution order, there are the following differences:
+
+|        | onLoad  | start  |
+| ------ | ------- | -----  |
+| When the node is activated           | Calls immediately | Deferred Call |
+| Only called when the component is enabled? |  No   | Yes  |
 
 ---
 

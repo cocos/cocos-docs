@@ -1,6 +1,6 @@
 # 模块化脚本
 
-Cocos Creator 允许你将代码拆分成多个脚本文件，并且让它们相互调用。要实现这点，你需要了解如何在 Cocos Creator 中定义和使用模块，这个步骤简称为**模块化**。
+Cocos Creator 允许你将代码拆分成多个脚本文件，并且让它们相互调用。要实现这点，你需要了解如何在 Cocos Creator 中定义和使用模块，这个步骤简称为 **模块化**。
 
 如果你还不确定模块化究竟能做什么，模块化相当于：
 - Java 和 Python 中的 `import`
@@ -8,7 +8,7 @@ Cocos Creator 允许你将代码拆分成多个脚本文件，并且让它们相
 - C/C++ 中的 `include`
 - HTML 中的 `<link>`
 
-模块化使你可以在 Cocos Creator 中引用其它脚本文件：  
+模块化使你可以在 Cocos Creator 中引用其它脚本文件：
 - 访问其它文件导出的参数
 - 调用其它文件导出的方法
 - 使用其它文件导出的类型
@@ -157,46 +157,46 @@ module.exports = cfg;
 
 - `module.exports` 默认是一个空对象（`{}`），可以直接往里面增加新的字段。
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js:
 
-module.exports.foo = function () {
-    cc.log("foo");
-};
-module.exports.bar = function () {
-    cc.log("bar");
-};
-```
+    module.exports.foo = function () {
+        cc.log("foo");
+    };
+    module.exports.bar = function () {
+        cc.log("bar");
+    };
+    ```
 
-```js
-// test.js:
+    ```js
+    // test.js:
 
-var foobar = require("foobar");
-foobar.foo();    // "foo"
-foobar.bar();    // "bar"
-```
+    var foobar = require("foobar");
+    foobar.foo();    // "foo"
+    foobar.bar();    // "bar"
+    ```
 
 - `module.exports` 的值可以是任意 JavaScript 类型。
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js:
 
-module.exports = {
-    FOO: function () {
-        this.type = "foo";
-    },
-    bar: "bar"
-};
-```
+    module.exports = {
+        FOO: function () {
+            this.type = "foo";
+        },
+        bar: "bar"
+    };
+    ```
 
-```js
-// test.js:
+    ```js
+    // test.js:
 
-var foobar = require("foobar");
-var foo = new foobar.FOO();
-cc.log(foo.type);      // "foo"
-cc.log(foobar.bar);    // "bar"
-```
+    var foobar = require("foobar");
+    var foo = new foobar.FOO();
+    cc.log(foo.type);      // "foo"
+    cc.log(foobar.bar);    // "bar"
+    ```
 
 ### 封装私有变量
 
@@ -233,8 +233,7 @@ cc.log(foo.isDirty());           // true
 
 ## 循环引用
 
-请参考[属性延迟定义](reference/class.md#deferred-definition)
-
+请参考 [属性延迟定义](reference/class.md#deferred-definition)
 
 ---
 

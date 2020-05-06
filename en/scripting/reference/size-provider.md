@@ -1,7 +1,7 @@
 # Bind node size with SizeProvider
 
 
-What is SizeProvider？
+What is SizeProvider?
 
 For the convenience of editing, all Nodes in Cocos Creator come with a Content Size property whose behavior is not in full accord when the Nodes have different Components. Some Components need to forbid altering Size and sometimes they need to listen to the modification of Size. However sometimes they need to make Size equal to the value set by itself. So, Node provides a mechanism called SizeProvider to meet these application scenarios.
 
@@ -125,7 +125,7 @@ onDestroy: function () {
 },
 ```
 
-Note：When Node size is changed, it will automatically synchronize the new size to ComponentInSG._sgNode
+Note: When Node size is changed, it will automatically synchronize the new size to ComponentInSG._sgNode
 
 #### Make Node size equal to any size
 

@@ -1,4 +1,4 @@
-# Publishing to __WeChat Mini Games__
+# Publish to __WeChat Mini Games__
 
 Starting with __v1.8__, Cocos Creator officially supports the release of games to the **WeChat Mini Games**.
 
@@ -21,30 +21,39 @@ In addition, the game submission, review and release process of the __WeChat Min
 ## Using Cocos Creator to publish WeChat Mini Games
 
 1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
-2. Set the WeChat Developer Tools path in **Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
+
+2. Set the WeChat Developer Tools path in **Cocos Creator (Mac) / File (Windows) -> Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
 
     ![](./publish-wechatgame/preference.JPG)
+
 3. Log in to the WeChat public platform and find the appid
 
     ![](./publish-wechatgame/appid.jpeg)
+
 4. Select the **WeChat Mini Game** in the **Platform** of the **Build** panel, fill in the mini game appid, and then click **Build**
+
     ![](./publish-wechatgame/build.jpeg)
+
 5. Click **Play** to open the WeChat Developer Tools
 
     ![](./publish-wechatgame/tool.jpeg)
+
 6. Preview deployment
 
-According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
+    According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
 
-![](./publish-wechatgame/package.jpeg)
+    ![](./publish-wechatgame/package.jpeg)
 
 ## Resource Management for WeChat Mini Game Environment
 
 In a __WeChat Mini Game__ environment, resource management is the most special part. It differs from the browser in the following four points:
 
 1. The size of the __WeChat Mini Game's__ package cannot exceed __4MB__, including all the code and resources. Additional resources must be downloaded through the network.
+
 2. For files downloaded from a remote server, the __WeChat Mini Game__ environment does not have a browser cache and an expired update mechanism.
+
 3. For the resources in the __WeChat Mini Game__ package, the game environment is not loaded on demand, but all the resources in the package are loaded at one time, and then the page is started.
+
 4. It is not possible to download script files from a remote server.
 
 This brings up two key issues, first page loading speed and remote resource caching and version management. For the first page loading speed, we recommend that users only save the script file in the __WeChat Mini Game__ package, and other resources are downloaded from the remote server. The download, cache and version management of remote resources, in __Cocos Creator__, has already helped users. Let me explain the logic of this part.
@@ -68,9 +77,15 @@ Specifically, developers need to do:
 4. Delete the res folder inside the distribution package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat Developer tool, check the __Do not verify the security domain name, TLS version and the HTTPS certificate__ option in the project settings .
 
-![](./publish-wechatgame/detail.jpeg)
+    ![](./publish-wechatgame/detail.jpeg)
 
-**Note**: If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+**Note**: 
+
+- If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+
+- When you upgrade the engine of your mini game, the assets already cached in the storage of phone or WeChat DevTools will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. The solution is check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded. Or you can clear these outdated assets by yourself. In mobile phone, you can call `remoteDownloader.cleanAllCaches()` to clear all caches. In WeChat DevTools, you can click this button to do same thing:
+
+  ![](./publish-wechatgame/clear-cache.png)
 
 ## WeChat Mini Game Subpackage Loading
 
@@ -97,7 +112,6 @@ __Cocos Creator__ supports packaging to Open Data Context starting with __v1.9.1
 
 In addition, our adaptation of WeChat Mini Games has not been completely completed, and the following modules are still not supported:
 
-- VideoPlayer (Supported in **v2.1.3**)
 - WebView
 
 If you need it, you can currently use it by calling the WeChat's API directly.

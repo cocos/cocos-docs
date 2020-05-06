@@ -78,6 +78,8 @@
 
   决定摄像机视角的高度，当 **alignWithScreen** 和 **ortho** 都设置为 **false** 时生效。
 
+如需调节在 **场景编辑器** 中所用的摄像机参数，可参考 [场景摄像机配置面板](../content-workflow/camera-config.md)。
+
 ## 摄像机方法
 
 - **cc.Camera.findCamera**
@@ -125,6 +127,7 @@ camera.getWorldToScreenMatrix2D(out);
 截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
 
 ```javascript
+// 此代码仅适用于 web 平台。要在 native 平台中使用这个功能，请参考 example-case 中的 capture_to_native 场景。
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);

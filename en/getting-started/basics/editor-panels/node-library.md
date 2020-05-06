@@ -21,7 +21,7 @@ Along with the subsequent add more functionality, We will continue to add nodes 
 
 ![custom](node-library/custom-prefab.png)
 
-This column can collect the user's own set of [Prefab](../../../asset-workflow/prefab.md), convenient repeatedly create。
+This column can collect the user's own set of [Prefab](../../../asset-workflow/prefab.md), convenient repeatedly create.
 
 To add custom prefabricated controls, Only need from the resource manager to drag the corresponding prefabricated resources (Prefab) to the custom control page.
 
