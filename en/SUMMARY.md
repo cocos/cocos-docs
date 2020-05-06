@@ -87,7 +87,7 @@
     - [Publish to Web](publish/publish-web.md)
     - [Native Development Environment](publish/setup-native-development.md)
     - [Publish to Native Platforms](publish/publish-native.md)
-    - [Debug JavaScript on Native Platform](publish/debug-jsb.md)
+    - [Debuging JavaScript on Native Platforms](publish/debug-jsb.md)
     - [Publish to Alipay Mini Games](publish/publish-alipay-mini-games.md)
     - [Publish to WeChat Mini Games](publish/publish-wechatgame.md)
         - [WeChat Open Data Context](publish/publish-wechatgame-sub-domain.md)

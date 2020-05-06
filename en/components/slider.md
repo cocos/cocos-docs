@@ -34,7 +34,7 @@ Slider event callback has two parameters, the first parameter is the Slider itse
 
 ## Detailed explanation
 
-Slider is usually used to adjust the value of the UI (for example, volume adjustment), it is the main component of a slider button, which is used for user interaction, which can be adjusted by the size of the Slider.
+The Slider is usually used to adjust the value of the UI (for example, volume adjustment), and its main component is a slider button, which is used for user interaction. You can adjust the value of the Slider through this part.
 
 Usually a Slider node tree as shown below:
 

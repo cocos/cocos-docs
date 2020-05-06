@@ -29,7 +29,7 @@ Please refer to the script interface of the [PageView API](../../../api/en/class
 
 ### CCPageViewIndicator Set Up
 
-CCPageViewIndicator is optional, the component is used to display the number of pages and the current page. Please refer to [PageviewIndicator Component](./pageviewindicator.md) for details.
+CCPageViewIndicator is optional, the component is used to display the number of pages and mark the current page. Please refer to [PageviewIndicator Component](./pageviewindicator.md) for details.
 
 The association can be done by dragging a node with a PageViewIndicator component into the **Indicator** property of the PageView component in the **Node Tree**.
 
@@ -41,16 +41,16 @@ The association can be done by dragging a node with a PageViewIndicator componen
 | --------------  | -----------                                                  |
 | Target          | Node with script component |
 | Component       | Script component name |
-| Handler         | Specifies a callback function that will be called when the Slider event occurs |
+| Handler         | Specifies a callback function that will be called when the PageView event occurs |
 | CustomEventData | The user specifies an arbitrary string as the last argument of the event callback |
 
-PageView event callback has two parameters, the first parameter is the PageView itself, the second parameter is CustomEventData
+PageView event callback has two parameters, the first parameter is the PageView itself, the second parameter is the event type of the PageView.
 
 ## Detailed explanation
 
-The PageView component must have the specified content node to work, Each child node in content is a separate page, The size of each page is the size of the PageView node, The operation effect is divided into two kinds: 
+The PageView component must have the specified content node to work, Each child node in content is a separate page. The size of each page is the size of the PageView node, The operation effect is divided into two kinds: 
 
-- Slow sliding, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size) after the release will automatically slide to the next page.
+- Slow sliding, by dragging the page in the view to reach the specified ScrollThreshold value (the value is the percentage of page size), after the release will automatically slide to the next page.
 - Fast sliding, fast to a direction to drag, automatically slide the next page, each slide up to only one page.
 
 Usually a PageView node tree as shown below:

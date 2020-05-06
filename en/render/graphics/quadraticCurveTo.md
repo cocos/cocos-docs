@@ -1,7 +1,8 @@
 # QuadraticCurveTo
 
 The `quadraticCurveTo()` method adds a point to the current path by using the specified control point that represents the Quadratic Bezier curve.
-Tip: The Quadratic Bezier curve requires two points. The first point is for the control point in the second Bessel calculation, and the second point is the end point of the curve. The starting point of the curve is the last point in the current path
+
+**Note**: The Quadratic Bezier curve requires two points. The first point is for the control point in the second Bessel calculation, and the second point is the end point of the curve. The starting point of the curve is the last point in the current path.
 
 | Parameter | Description
 | -------------- | ----------- |

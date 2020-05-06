@@ -1,28 +1,20 @@
-# Publish to __WeChat Mini Games__
+# Publish to WeChat Mini Games
 
-Starting with __v1.8__, Cocos Creator officially supports the release of games to the **WeChat Mini Games**.
+The runtime environment of the WeChat Mini Game is an extension of the WeChat Mini Program, providing a WebGL interface encapsulation based on the mini program environment, greatly improving rendering capabilities and performance. However, since these interfaces are encapsulated by the WeChat team, they are not equivalent to the browser environment.
 
-![](./publish-wechatgame/preview.jpeg)
-
-## __WeChat Mini Game__
-
-__WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
-
-The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
-
-As an engine, in order to simplify the developer's workload as much as possible, the main tasks we have done for our users include:
+As the engine side, in order to make the developers' workload as easy as possible, our main tasks for developers include the following:
 
 - The engine framework adapts to the WeChat Mini Game API, pure game logic level, users do not need any additional modifications.
-- __Cocos Creator__ editor provides a fast packaging process, released directly as a __WeChat Mini Game__, and automatically evokes the developer tools of the mini game.
-- Automatic loading of remote resources, cache resources and cache resource versioning.
+- The **Cocos Creator** editor provides a fast packaging process, released directly as a **WeChat Mini Game**, and automatically evokes the developer tools of the mini game.
+- Automatically load remote resources, cache resources, and cache resource version control.
 
-In addition, the game submission, review and release process of the __WeChat Mini Game__ is no different from the __WeChat Mini Program__. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
+In addition, the game submission, review and release process of the **WeChat Mini Game** is no different from the **WeChat Mini Program**. For details, please refer to the [WeChat Mini Game Developer Document](https://developers.weixin.qq.com/minigame/en/dev/guide/).
 
 ## Using Cocos Creator to publish WeChat Mini Games
 
-1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
+1. Download WeChat DevTools on [WeChat Official Document](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 
-2. Set the WeChat Developer Tools path in **Cocos Creator (Mac) / File (Windows) -> Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
+2. Set the WeChat DevTools path in **Cocos Creator (Mac) / File (Windows) -> Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
 
     ![](./publish-wechatgame/preference.JPG)
 
@@ -34,31 +26,33 @@ In addition, the game submission, review and release process of the __WeChat Min
 
     ![](./publish-wechatgame/build.jpeg)
 
-5. Click **Play** to open the WeChat Developer Tools
+5. Click **Play** to open the WeChat DevTools
 
     ![](./publish-wechatgame/tool.jpeg)
 
+    **Note**: The WeChat DevTools, if it has not been run on a Mac before, will show an error called `Please ensure that the IDE has been properly installed`. You need to manually open the WeChat DevTools once before you can click the **Run** call directly in the Creator.
+
 6. Preview deployment
 
-    According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
+    According to this process, a release package `wechatgame` folder will be generated under the project's build directory, which already contains the configuration files `game.json` and `project.config.json` of the WeChat Mini Games environment.
 
     ![](./publish-wechatgame/package.jpeg)
 
 ## Resource Management for WeChat Mini Game Environment
 
-In a __WeChat Mini Game__ environment, resource management is the most special part. It differs from the browser in the following four points:
+In a **WeChat Mini Game** environment, resource management is the most special part. It differs from the browser in the following four points:
 
-1. The size of the __WeChat Mini Game's__ package cannot exceed __4MB__, including all the code and resources. Additional resources must be downloaded through the network.
+1. The size of the **WeChat Mini Game's** package cannot exceed **4MB**, including all the code and resources. Additional resources must be downloaded through the network.
 
-2. For files downloaded from a remote server, the __WeChat Mini Game__ environment does not have a browser cache and an expired update mechanism.
+2. For files downloaded from a remote server, the **WeChat Mini Game** environment does not have the browser's caching and outdated update mechanism.
 
-3. For the resources in the __WeChat Mini Game__ package, the game environment is not loaded on demand, but all the resources in the package are loaded at one time, and then the page is started.
+3. For the resources in the **WeChat Mini Game** package, they are not loaded on demand in the mini game environment, but rather all the resources in the package are loaded at once, and then the game page is launched.
 
-4. It is not possible to download script files from a remote server.
+4. You cannot download script files from a remote server.
 
-This brings up two key issues, first page loading speed and remote resource caching and version management. For the first page loading speed, we recommend that users only save the script file in the __WeChat Mini Game__ package, and other resources are downloaded from the remote server. The download, cache and version management of remote resources, in __Cocos Creator__, has already helped users. Let me explain the logic of this part.
+This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below.
 
-In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, after setting the **REMOTE_SERVER_ROOT** property, the logic of the engine downloading the resource becomes:
+In the **WeChat Mini Game** environment, we provide a `wxDownloader` object, and after setting the `REMOTE_SERVER_ROOT` property to it, the logic of the engine to download resources becomes:
 
 1. Check if the resource is in local cache storage
 2. Check if the resource is in the mini game pack if there is no cache
@@ -67,15 +61,18 @@ In the __WeChat Mini Game__ environment, we provide a __wxDownloader__ object, a
 5. Save it to the game application cache slowly in backstage for re-access.
 6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process 
 
-At the same time, when the md5Cache function of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only new requests can be requested from the server. Resources also achieve the effect of version control.
+It should be noted that once the cache space is full, all the resources that need to be downloaded cannot be saved, only the temporary files for save download resources can be used, and WeChat will automatically clean up all temporary files after the mini game is exited. So the next time you run the mini game again, those resources are downloaded again and the process keeps looping.  
+In addition, the problem of file saving failure due to cache space exceeding the limit does not occur on the WeChat DevTools, because the WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
+
+At the same time, when the md5Cache function of the engine is enabled, the URL of the file will change with the content of the file, so that when a new version of the game is released, the resources of the old version will naturally fail in the cache, and you can only request new resources from the server, which also achieves the effect of version control.
 
 Specifically, developers need to do:
 
-1. When building, check the md5Cache function in the **Build** panel.
-2. Set **Remote Service Address** in the build release panel. And then click **Build**
-3. When the build is complete, upload the res folder in the mini-game distribution package to the server.
-4. Delete the res folder inside the distribution package.
-5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat Developer tool, check the __Do not verify the security domain name, TLS version and the HTTPS certificate__ option in the project settings .
+1. When building, check the **MD5 Cache** in the **Build** panel.
+2. Set **Remote Service Address**, and then click **Build** button.
+3. When the build is complete, upload the **res** folder in the mini game release package to the server.
+4. Delete the **res** folder inside the release package.
+5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
 
     ![](./publish-wechatgame/detail.jpeg)
 
@@ -87,13 +84,17 @@ Specifically, developers need to do:
 
   ![](./publish-wechatgame/clear-cache.png)
 
+## WeChat Mini Game Engine Plugin
+
+Please refer to the [WeChat mini games engine plugin instructions](./wechat-engine-plugin.md) for details.
+
 ## WeChat Mini Game Subpackage Loading
 
 WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
 
 ## Platform SDK Access
 
-In addition to pure game content, the __WeChat Mini Game__ environment also provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only found in the __WeChat Mini Game__ environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the __WeChat Mini Games__ environment:
+In addition to pure game content, the **WeChat Mini Game** environment actually provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only available in the **WeChat Mini Game** environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the **WeChat Mini Games** environment:
 
 1. User interface: login, authorization, user information, etc.
 2. WeChat payment
@@ -104,9 +105,9 @@ In addition to pure game content, the __WeChat Mini Game__ environment also prov
 
 ## Access to the Open Data Context of WeChat Mini Games
 
-In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by __WeChat__ in the Open Data Context to implement some rankings, for example.
+In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by **WeChat** in the Open Data Context to implement some rankings, for example.
 
-__Cocos Creator__ supports packaging to Open Data Context starting with __v1.9.1__. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
+**Cocos Creator** supports packaging to Open Data Context starting with **v1.9.1**. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
 ## WeChat Mini Games Known issues
 
@@ -118,8 +119,8 @@ If you need it, you can currently use it by calling the WeChat's API directly.
 
 ## Reading
 
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/)
+- [WeChat Mini Game Developer Document](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
 - [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
-- [WeChat Developer Tools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
+- [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
 - [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)

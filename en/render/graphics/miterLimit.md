@@ -1,6 +1,6 @@
 # MiterLimit
 
-`MiterLimit` property sets or returns the maximum miter length.
+The `MiterLimit` property sets or returns the maximum miter length.
 The miter length refers to the distance between the inner and outer corners of the intersection of the two lines.
 
 **Tip**: `miterLimit` is valid only if the `lineJoin` property is "miter".
@@ -9,11 +9,11 @@ The smaller the angle of the corners, the greater the length of the miter.
 To avoid miter length getting too long, we can use the `miterLimit` property.
 If the miter length exceeds the value of miterLimit, the corners are displayed with the "bevel" type of lineJoin
 
-| Parameter | description
+| Parameter | Description |
 | -------------- | ----------- |
-| number | positive number. Specifies the maximum miter length. If the miter length exceeds the value of miterLimit, the corners are displayed with the "bevel" type of lineJoin.
+| number | positive number. Specifies the maximum miter length. If the miter length exceeds the value of miterLimit, the corners are displayed with the "bevel" type of lineJoin |
 
-## example
+## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
