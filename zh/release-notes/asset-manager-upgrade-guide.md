@@ -376,8 +376,8 @@ var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 
 // 修改后
-cc.assetManager.downloader.maxConcurrent = 10;
+cc.assetManager.downloader.maxConcurrency = 10;
 // 或者设置预设值
-cc.assetManager.presets['normal'].maxConcurrent = 10;
+cc.assetManager.presets['normal'].maxConcurrency = 10;
 ```
 详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。 

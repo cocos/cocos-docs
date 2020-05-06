@@ -6,13 +6,13 @@
 
 目前 options 中引擎已使用的参数包括：
 
-`uuid`，`url`，`path`，`dir`，`scene`，`type`，`priority`，`preset`，`audioLoadMode`，`ext`，`bundle`，`onFileProgress`，`maxRetryCount`，`maxConcurrent`, `maxRequestsPerFrame`, `version`，`isCrossOrigin`，`responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`reload`，`cacheAsset`，`cacheEnabled`
+`uuid`，`url`，`path`，`dir`，`scene`，`type`，`priority`，`preset`，`audioLoadMode`，`ext`，`bundle`，`onFileProgress`，`maxRetryCount`，`maxConcurrency`, `maxRequestsPerFrame`, `version`，`isCrossOrigin`，`responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`reload`，`cacheAsset`，`cacheEnabled`
 
 请 **不要** 使用以上的字段作为你自定义的参数名称，避免和引擎功能发生冲突。
 
 可选参数作为上层业务逻辑与底层加载管线的沟通工具，可以实现由上层业务逻辑提供参数来控制底层加载管线的运作：
 
-1. 控制下载器和解析器，`priority`，`maxConcurrent`, `maxRequestsPerFrame`，`maxRetryCount` 参数用于控制下载器对于下载请求的优先级排序，加载并行数限制，每帧能发起的请求限制，最大重试次数。例如你可以如此使用：
+1. 控制下载器和解析器，`priority`，`maxConcurrency`, `maxRequestsPerFrame`，`maxRetryCount` 参数用于控制下载器对于下载请求的优先级排序，加载并行数限制，每帧能发起的请求限制，最大重试次数。例如你可以如此使用：
 
 ```js
     cc.assetManager.loadAny({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 10 }, callback);

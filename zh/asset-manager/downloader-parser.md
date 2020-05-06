@@ -55,14 +55,14 @@ Asset Manager 底层使用了多条加载管线来加载资源，每条管线中
 
 ### 设置并发数
 
-下载器中可以设置最大下载并发数等限制，你可以通过 `cc.assetManager.downloader.maxConcurrent` 和 `cc.assetManager.downloader.maxRequestsPerFrame` 进行设置，例如：
+下载器中可以设置最大下载并发数等限制，你可以通过 `cc.assetManager.downloader.maxConcurrency` 和 `cc.assetManager.downloader.maxRequestsPerFrame` 进行设置，例如：
 
 ```js
-cc.assetManager.downloader.maxConcurrent = 10;
+cc.assetManager.downloader.maxConcurrency = 10;
 
 cc.assetManager.downloader.maxRequestsPerFrame = 6;
 ```
-`maxConcurrent`，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；`maxRequestsPerFrame`，用于控制每帧能发起的请求数，从而均摊发起请求的 CPU 开销，避免单帧过于卡顿，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。
+`maxConcurrency`，用于控制最大并发连接数，当当前连接数超过时，将会进入等待队列；`maxRequestsPerFrame`，用于控制每帧能发起的请求数，从而均摊发起请求的 CPU 开销，避免单帧过于卡顿，如果此帧发起的连接数已经达到上限，将延迟到下一帧发起请求。
 
 ### 通过可选参数进行设置
 
@@ -76,7 +76,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
     cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { priority: 2 }, callback);
 
     // 控制下载并发数限制
-    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { maxConcurrent: 10 }, callback);
+    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { maxConcurrency: 10 }, callback);
 ```
 
 同时，你也可以在使用 `cc.assetManager.loadAny`，`cc.assetManager.preloadAny` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
@@ -102,19 +102,19 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
     },
 
     'preload': {
-        maxConcurrent: 2, 
+        maxConcurrency: 2, 
         maxRequestsPerFrame: 2,
         priority: -1,
     },
 
     'scene': {
-        maxConcurrent: 8, 
+        maxConcurrency: 8, 
         maxRequestsPerFrame: 8,
         priority: 1,
     },
 
     'bundle': {
-        maxConcurrent: 8, 
+        maxConcurrency: 8, 
         maxRequestsPerFrame: 8,
         priority: 2,
     },
@@ -133,10 +133,10 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 
 ```js
     // 修改内置预设
-    cc.assetManager.presets.normal.maxConcurrent = 10;
+    cc.assetManager.presets.normal.maxConcurrency = 10;
 
     // 自定义预设
-    cc.assetManager.presets.mypreset = { maxConcurrent: 10, maxRequestsPerFrame: 6 };
+    cc.assetManager.presets.mypreset = { maxConcurrency: 10, maxRequestsPerFrame: 6 };
     cc.assetManager.loadAny({ 'path': 'image/background' }, { preset: 'mypreset' }, callback);
 ```
 
