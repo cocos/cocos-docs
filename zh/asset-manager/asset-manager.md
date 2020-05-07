@@ -115,8 +115,6 @@ cc.assetManager.cacheManager.removeCache('http://example.com/bundle1/import/9a/9
 除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.resources.load` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
 
 ```js
-cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
-
 bundle.loadScene('test', { priority: 3 }, callback);
 ```
 

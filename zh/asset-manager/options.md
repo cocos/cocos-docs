@@ -6,7 +6,7 @@
 
 目前 options 中引擎已使用的参数包括：
 
-`uuid`，`url`，`path`，`dir`，`scene`，`type`，`priority`，`preset`，`audioLoadMode`，`ext`，`bundle`，`onFileProgress`，`maxRetryCount`，`maxConcurrency`, `maxRequestsPerFrame`, `version`，`isCrossOrigin`，`responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`reload`，`cacheAsset`，`cacheEnabled`
+`uuid`，`url`，`path`，`dir`，`scene`，`type`，`priority`，`preset`，`audioLoadMode`，`ext`，`bundle`，`onFileProgress`，`maxRetryCount`，`maxConcurrency`, `maxRequestsPerFrame`, `version`，`responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`reload`，`cacheAsset`，`cacheEnabled`
 
 请 **不要** 使用以上的字段作为你自定义的参数名称，避免和引擎功能发生冲突。
 
@@ -18,16 +18,13 @@
     cc.assetManager.loadAny({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 10 }, callback);
 ```
 
-2. 控制下载器和解析器的处理方法，下载器与解析器的处理方法可以接收到业务逻辑设置的可选参数，下载器中文本文件，二进制文件等资源的处理方法可接受 `responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`onFileProgress` 的可选参数，用于设置 XHR 的返回类型，头部，下载进度回调等参数；图片格式的处理方法则接受 `isCrossOrigin` 参数，用于确定图片是否跨域；而音频文件的处理方法则接受 `audioLoadMode` 参数，用于控制是否使用 `WebAudio` 的方式来加载音频。你可以如下使用：
+2. 控制下载器和解析器的处理方法，下载器与解析器的处理方法可以接收到业务逻辑设置的可选参数，下载器中文本文件，二进制文件等资源的处理方法可接受 `responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`onFileProgress` 的可选参数，用于设置 XHR 的返回类型，头部，下载进度回调等参数；而音频文件的处理方法则接受 `audioLoadMode` 参数，用于控制是否使用 `WebAudio` 的方式来加载音频。你可以如下使用：
 
 ```js
     // 获取下载进度回调
     cc.assetManager.loadAny({ 'path': 'image/background' }, { onFileProgress: function (loaded, total) {
         console.log(loaded/total);
     } }, callback);
-
-    // 跨域图片
-    cc.assetManager.loadRemote('http://example.com/background.jpg', { isCrossOrigin: true }, callback);
 
     // 使用 web audio 形式加载音频
     cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.WEB_AUDIO }, callback);

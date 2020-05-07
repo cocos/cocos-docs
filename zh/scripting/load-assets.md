@@ -227,15 +227,6 @@ cc.assetManager.loadRemote(remoteUrl, function (err, textAsset) {
 });
 ```
 
-加载远程图片时默认使用跨域方式加载，如果不需要跨域的，你可以如下设置
-
-```js
-var remoteUrl = "http://unknown.org/someres.png";
-cc.assetManager.loadRemote(remoteUrl, { isCrossOrigin: false }, function (err, texture) {
-    // Use texture to create sprite frame
-});
-```
-
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
 1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析

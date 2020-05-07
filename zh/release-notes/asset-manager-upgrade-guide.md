@@ -103,11 +103,6 @@
     // 修改后
     cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 ```
-**注意**：远程图片默认以跨域的方式进行加载，如果图片不是跨域图片，你可能会需要使用如下形式：
-
-```js
-    cc.assetManager.loadRemote('http://example.com/remote.jpg', { isCrossOrigin: false }, (err, texture) => console.log(texture));
-```
 
 加载远程音频：
 
