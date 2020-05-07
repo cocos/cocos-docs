@@ -44,9 +44,9 @@ You can customize the image resource support for the platform and the priority o
 ![1](compress-texture/1.png)
 ![2](compress-texture/2.png)
 
-In the example diagram above, the default platform is configured with compressed textures in PNG format, the Web platform is configured with PVR, PNG format, and other platforms do not add any configuration. Then when building a web platform, this image will be compressed into PVR, PNG two formats, and only PNG format images will be generated when building other platforms.
+In the example diagram above, the default platform is configured with compressed textures in PNG format, the Web platform is configured with PVR, PNG format, and other platforms do not add any configuration. Then when building a Web platform, this image will be compressed into PVR, PNG two formats, and only PNG format images will be generated when building other platforms.
 
-On web platform, only iOS equipment supports to load PVR format image, so the PVR format image will only be loaded on the iOS browser, and the browser on other platforms will load the PNG format images.
+On Web platform, only iOS equipment supports to load PVR format image, so the PVR format image will only be loaded on the iOS browser, and the browser on other platforms will load the PNG format images.
 
 ## Separate Alpha
 
