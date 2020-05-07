@@ -8,8 +8,8 @@ Cocos Creator supports importing pictures in multiple formats. However, in the a
 
 For example, on the mobile platform may only need the original image 80% or less image quality, or the .png which does not use a Alpha Channel, can be converted into JPG format. This reduces the storage space for a large portion of the image.
 
-Before Cocos Creator v2.4, we only support texture compression on **Android**, **iOS**, **Web** and **WeChat Mini Game** platforms.  
-In v2.4, besides WeChat Mini Game, other mini game platforms are also supported.
+Before Cocos Creator v2.4, we only support to configure texture compression on **Android**, **iOS**, **Web** and **WeChat Mini Game** platforms.  
+In v2.4, all the mini game platforms are supported to configure texture compression.
 
 Picture Format | Android | iOS | Mini Game | Web
 ------------ | ------------- | --------- | -------- | --------
