@@ -110,7 +110,7 @@ cc.assetManager.cacheManager.removeCache('http://example.com/bundle1/import/9a/9
 
 更多缓存管理器的介绍请参考 [缓存管理器](cache-manager.md)。
 
-### 可选参数
+## 可选参数
 
 除此之外，为了增加灵活性和扩展空间，`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了一个 `options` 参数。可以利用 options 选项设置一些额外参数，如果你不需要更多的设置，建议你忽略 options 参数以及使用更为简单的 API 接口，比如 `cc.resources.load` 等接口并跳过此部分介绍，如果你需要配置更多选项或者想扩展引擎加载功能，你可以参考如下：
 
@@ -122,7 +122,7 @@ bundle.loadScene('test', { priority: 3 }, callback);
 
 options 中除了可以指定 Creator 内置的参数之外，还可以指定任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线，详细请参考 [可选参数](options.md)。
 
-### 加载管线
+## 加载管线
 
 为了更方便地扩展资源加载流程，Asset Manager 底层使用名为 **管线与任务** ，**下载器与解析器** 的机制来完成资源的加载工作，其带来了巨大的灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
 
