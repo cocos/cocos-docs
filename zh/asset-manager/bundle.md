@@ -47,7 +47,7 @@ A：Asset Bundle 不支持嵌套，请避免如此使用。
 
 从 v2.4 开始，Creator 内置了4个 Asset Bundle，如图所示：
 
-![builtinBundles](bundle/builtinBundles.png) 。
+![builtinBundles](bundle/builtinBundles.png)
 
 即是说，从 v2.4 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中，如果你勾选了首场景分包，则首场景将会被构建到 start-scene 中。
 
@@ -73,7 +73,7 @@ Bundle 可设置不同的优先级，Creator 内置了 10 个优先级可选择�
 
 ## 压缩类型
 
-Bundle 目前还提供了四个压缩选项，用于对 bundle 进行优化，分别是 `无`，`默认`，`合并所有JSON`，`小游戏子包`，**所有 bundle 默认使用 `normal` 类型，开发者可重新设置包括内置 bundle 在内的所有 bundle 的压缩类型**。压缩类型的作用分别是：
+Bundle 目前还提供了四个压缩选项，用于对 bundle 进行优化，分别是 `无`，`默认`，`合并所有JSON`，`小游戏子包`，**所有 bundle 默认使用 `默认` 类型，开发者可重新设置包括内置 bundle 在内的所有 bundle 的压缩类型**。压缩类型的作用分别是：
 1. 当选择 `无` 时没有任何压缩操作；
 2. 当选择 `默认` 时，bundle 会尝试将相互依赖的资源的 JSON 文件合并在一起，从而减少运行时的加载请求数量；
 3. 当选择 `合并所有JSON` 时，bundle 会将所有资源的 JSON 文件合并为一个，将最大化减少请求数量，但可能会增加单个资源的加载时间；
