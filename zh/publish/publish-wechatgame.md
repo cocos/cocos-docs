@@ -14,7 +14,9 @@
 
 1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
 
-2. 在编辑器菜单栏的 **Cocos Creator（Mac）/ 文件（Windows）-> 偏好设置（Mac）/设置（Windows）-> [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径
+2. 在编辑器菜单栏的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中设置微信开发者工具路径。<br>
+    > Mac：Cocos Creator -> 偏好设置 -> 原生开发环境<br>
+    > Windows：文件 -> 设置 -> 原生开发环境
 
     ![](./publish-wechatgame/preference.JPG)
 

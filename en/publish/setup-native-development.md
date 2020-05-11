@@ -56,7 +56,7 @@ Please install the following running environment:
 
 - In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
-## Configure Native Develop environments path
+## Configure Native Develop Environments Path
 
 Next, let's go back to Cocos Creator to configure the environmental path of the native platform. Choose `CocosCreator -> Settings` in the main menu, and open the Settings window:
 
