@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [GitHub 仓库](https://github.com/cocos-creator/tutorial-hot-update) 获取。
+本篇文档的范例工程可以从 [GitHub 仓库](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3) 获取。
 
 ![hot update](./hot-update/title.jpg)
 
@@ -54,7 +54,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
-在范例工程中，我们提供了一个 [version_generator.js 文件](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js)，这是一个用于生成 Manfiest 文件的 NodeJS 脚本。使用方式如下：
+在范例工程中，我们提供了一个 [version_generator.js 文件](https://github.com/cocos-creator/tutorial-hot-update/blob/%3C%3D2.3.3/version_generator.js)，这是一个用于生成 Manfiest 文件的 NodeJS 脚本。使用方式如下：
 
 ```
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -99,10 +99,33 @@ Manifest 文件中包含以下几个重要信息：
     if (typeof window.jsb === 'object') {
         var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
         if (hotUpdateSearchPaths) {
-            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+            var paths = JSON.parse(hotUpdateSearchPaths);
+            jsb.fileUtils.setSearchPaths(paths);
+    
+            var fileList = [];
+            var storagePath = paths[0] || '';
+            var tempPath = storagePath + '_temp/';
+            var baseOffset = tempPath.length;
+            if (jsb.fileUtils.isDirectoryExist(tempPath) && !jsb.fileUtils.isFileExist(tempPath + 'project.manifest.temp')) {
+                jsb.fileUtils.listFilesRecursively(tempPath, fileList);
+                fileList.forEach(srcPath => {
+                    var relativePath = srcPath.substr(baseOffset);
+                    var dstPath = storagePath + relativePath;
+                    if (srcPath[srcPath.length] == '/') {
+                        cc.fileUtils.createDirectory(dstPath)
+                    }
+                    else {
+                        if (cc.fileUtils.isFileExist(dstPath)) {
+                            cc.fileUtils.removeFile(dstPath)
+                        }
+                        cc.fileUtils.renameFile(srcPath, dstPath);
+                    }
+                })
+                cc.fileUtils.removeDirectory(tempPath);
+            }
         }
     }
-});
+})();
 ```
 
 这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos2d-x 的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `cc.sys.localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。

@@ -4,7 +4,7 @@
 
 In current Cocos Creator version, assets hot update workflow has not been fully integrated into the editor. But the engine itself has complete support for hot update system, so with some of the external script and tool the workflow is complete.
 
-The sample project for this document is available from [Github Repo](https://github.com/cocos-creator/tutorial-hot-update).
+The sample project for this document is available from [Github Repo](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3).
 
 ![Hot update](./hot-update/title.jpg)
 
@@ -54,7 +54,7 @@ The example project used in the tutorial is based on the BlackJack example. To s
 
 ### Use the version generator to generate the manifest file
 
-In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) script file, which is a Nodejs script for generating manfiest file. Use as follows:
+In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/%3C%3D2.3.3/version_generator.js) script file, which is a Nodejs script for generating manfiest file. Use as follows:
 
 ```bash
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -99,10 +99,33 @@ The editor plugin automatically adds the search path logic to `main.js` everytim
     if (typeof window.jsb === 'object') {
         var hotUpdateSearchPaths = localStorage.getItem('HotUpdateSearchPaths');
         if (hotUpdateSearchPaths) {
-            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
+            var paths = JSON.parse(hotUpdateSearchPaths);
+            jsb.fileUtils.setSearchPaths(paths);
+    
+            var fileList = [];
+            var storagePath = paths[0] || '';
+            var tempPath = storagePath + '_temp/';
+            var baseOffset = tempPath.length;
+            if (jsb.fileUtils.isDirectoryExist(tempPath) && !jsb.fileUtils.isFileExist(tempPath + 'project.manifest.temp')) {
+                jsb.fileUtils.listFilesRecursively(tempPath, fileList);
+                fileList.forEach(srcPath => {
+                    var relativePath = srcPath.substr(baseOffset);
+                    var dstPath = storagePath + relativePath;
+                    if (srcPath[srcPath.length] == '/') {
+                        cc.fileUtils.createDirectory(dstPath)
+                    }
+                    else {
+                        if (cc.fileUtils.isFileExist(dstPath)) {
+                            cc.fileUtils.removeFile(dstPath)
+                        }
+                        cc.fileUtils.renameFile(srcPath, dstPath);
+                    }
+                })
+                cc.fileUtils.removeDirectory(tempPath);
+            }
         }
     }
-});
+})();
 ```
 
 This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
