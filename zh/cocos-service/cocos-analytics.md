@@ -162,16 +162,16 @@ cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 
 根据游戏需求，参考以下 Cocos Analytics 官方文档来进行各平台接入集成。  
 
-- [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
-- [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
-- [Web／微信小游戏平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
+- [Android 平台接入集成](https://n-analytics.cocos.com/docs/zh/android/init.html)
+- [iOS 平台接入集成](https://n-analytics.cocos.com/docs/zh/ios/init.html)
+- [Web／微信小游戏平台接入集成](https://n-analytics.cocos.com/docs/zh/h5/init.html)
 
-详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)。
+详细的产品和 API 说明，请参考 [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)。
 
 ## 相关参考链接
 
 - [Cocos 账户中心](https://account.cocos.com/#/)
 - [Cocos Analytics 数据中心](http://analytics.cocos.com/)
-- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/)
-- [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/analytics_event.html)
+- [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
+- [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
 - [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)
