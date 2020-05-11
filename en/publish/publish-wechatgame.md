@@ -38,7 +38,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
     ![](./publish-wechatgame/package.jpeg)
 
-## Resource Management for WeChat Mini Game Environment
+## Resource Management for WeChat Mini Game
 
 In a **WeChat Mini Game** environment, resource management is the most special part. It differs from the browser in the following four points:
 
