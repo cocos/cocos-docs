@@ -6,7 +6,7 @@
 
 - 全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 
-- 根据用户自己的开发需求判断是否需要安装 [调试工具](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip)。
+- 根据用户自己的开发需求判断是否需要安装 [调试工具](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)。
 
 ## 发布流程
 

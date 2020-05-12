@@ -2,7 +2,7 @@
 
 The `fillColor` property sets or returns the color used for the fill.
 
-## 实例
+## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);

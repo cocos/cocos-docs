@@ -16,5 +16,3 @@ update: function (dt) {
 <hr>
 
 Return to [Graphics Component Reference](../../components/graphics.md)
-
-

@@ -174,7 +174,7 @@ And import MyModule and then declare a member variable of the `MyModule` type in
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import MyModule from './MyModule';
+import {MyModule} from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {
