@@ -14,8 +14,8 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | -------------- | ----------- |
 | Interactable            | Boolean type, if set to false then the Button component enters the forbidden state.
 | Enable Auto Gray Effect | Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false.
-| Transition              | Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
-| Click Event             | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
+| Transition              | Enumeration type, including NONE, COLOR, SPRITE and SCALE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
+| Click Event             | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Click Event** section below for details.
 
 **Note**: When `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
 
@@ -55,7 +55,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 | Property |   Function Explanation
 | -------------- | ----------- |
 |Duration| Time interval needed for Button status switching.
-|ZoomScale| When user press the button, the button will zoom to a scale.The final scale of the button  equals (button original scale * zoomScale), zoomScale could be negative value.
+|ZoomScale| When user press the button, the button will zoom to a scale. The final scale of the button equals button original `scale * zoomScale`, zoomScale could be negative value.
 
 ## Button Click Event
 
@@ -76,7 +76,7 @@ The Button can additionally add a Click event to respond to the player's click a
 
 There are two ways to add a callback through the script.
 
-1. The event callback added by this method is the same as the event callback added by the editor, all added by Button component. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
+1. The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `cc.Component.EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
     ```js
     // here is your component file, file name = MyComponent.js 

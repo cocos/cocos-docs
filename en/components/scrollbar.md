@@ -15,7 +15,7 @@ For the script interface of the ScrollBar, refer to [ScrollBar API](../../../api
 | Handle           | ScrollBar foreground picture. Its length/width will be calculated according to the content size of ScrollView and the dimensions of the actual display area.
 | Direction        | Scroll direction. You can currently select from either horizontal or vertical.
 | Enable Auto Hide | Enable or disable auto hide. If it is enabled, then `Auto Hide Time` will hide automatically after the ScrollBar is shown.
-| Auto Hide Time   | Auto hide time; need to set `Enable Auto Hide` along with it.
+| Auto Hide Time   | Auto hide time, need to set `Enable Auto Hide` along with it.
 
 ## Detailed explanation
 

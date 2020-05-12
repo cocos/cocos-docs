@@ -50,6 +50,7 @@ The percentage will take the width or height of the parent object as a benchmark
 ## Limit size
 
 If you align the left and right side at the same time, or align the top and bottom at the same time, then the size will be stretched in the corresponding direction.
+
 Let us look at a demonstration. Place two rectangular Sprites in the scene and take the bigger one as the dialog box background and the smaller one as the button on the dialog box. Take the button node as the child node of the dialog box and set the button into Sliced mode so that you can observe the stretch effect.
 
 ### Horizontal stretch, left and right margin 10%:

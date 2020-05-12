@@ -1,4 +1,4 @@
-# Use a Sliced Sprite to make a UI image
+# Use a Sliced Sprite to make an UI image
 
 The core design principle of the UI system is to automatically adapt to different device screen sizes. When developing the UI, we need to correctly set the each node's `size`, and which can be automatically stretched and adapted according to the screen size of the device. To achieve this, we usually use the 9-sliced images to render these nodes. In this way, even if small original images can be used to generate background images that can cover the entire screen. On the one hand, the game package is reduced, and on the other hand, it can flexibly fit different layout requirements.
 

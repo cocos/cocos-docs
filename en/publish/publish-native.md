@@ -2,7 +2,7 @@
 
 Open **Project -> Build...** in the main menu and open **Build** panel.
 
-Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options of release games on iOS, Mac and Windows will only appear in concerning operating systems.
+Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. 
 
 ![native platform](publish-native/native_platform.png)
 
@@ -24,7 +24,7 @@ When merging assets automatically, combine all SpriteFrame and the assets that a
 
 Add MD5 information to all the resource file names after build to resolve the CDN cache problem during hot update.
 
-After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
+After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -165,4 +165,4 @@ The red frames in the picture indicate projects of different native platforms. N
 
 ---
 
-To know how to debug on a native platform, please refer to [Debug JavaScript on Native Platform](debug-jsb.md).
+To know how to debug on a native platform, please refer to [Debuging JavaScript on Native Platforms](debug-jsb.md).

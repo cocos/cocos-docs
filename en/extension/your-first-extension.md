@@ -18,7 +18,7 @@ Now we put the folder to `~/.CocosCreator/packages` (Windows users should use th
 
 ## Editing package.json
 
-Each package **must** have a `package.json` file under the root that describes it and its capabilities. Though the `package.json` is inpired by npm-package in Node.js community, they are very different in purpose. So you can not directly use an npm package in Cocos Creator.
+Each package **must** have a `package.json` file under the root that describes it and its capabilities. Though the `package.json` is inpired by npm-package in Node.js community, they are very different in purpose. So you can not directly use an npm package as the Creator extension, but the Creator extension can reference the npm package.
 
 Here is a simple example of `package.json`:
 
