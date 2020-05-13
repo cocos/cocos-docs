@@ -22,6 +22,8 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
 
 **压缩类型** 选项将决定 Asset Bundle 最后的输出形式，详细选项请参考 [Asset Bundle](../asset-manager/bundle.md#压缩类型)。
 
+**配置为远程包** 选项将决定 Asset Bundle 是否作为远程包，勾选之后，该 Asset Bundle 会在构建后会被放入 remote 文件夹下，你应该将整个 remote 文件夹放到远程服务器上。另外，如果勾选了此选项，在 OPPO, vivo, Huawei 等平台，该 bundle 不会被构建到 rpk 内。
+
 **注意**：
 1. 不能使用 **Bundle 名称** 作为加载 bundle 时的参数，加载参数只能使用 url。
 2. Creator 内置了 4 个 bundle：resources，internal，main，start-scene 请不要使用这四个名称作为 **Bundle 名称** 的设置。
