@@ -177,9 +177,9 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **Method Three**:
 
-    Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
+    Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the `sdcard` directory of the mobile phone.
 
-    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
+    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your mobile phone and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
 

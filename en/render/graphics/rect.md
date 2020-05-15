@@ -6,8 +6,8 @@ Use `rect()` method to create a rectangle.
 | -------------- | ----------- |
 | x | The x coordinate of the lower left point of the rectangle.
 | y | The y coordinate of the center of the lower left point of the rectangle.
-| width | the width of rectangle.
-| height | the height of rectangle.
+| width | The width of rectangle.
+| height | The height of rectangle.
 
 ## Example
 
@@ -22,19 +22,19 @@ ctx.fill();
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 
-// 红色矩形
+// Red rectangle
 ctx.lineWidth = 6;
 ctx.strokeColor = cc.Color.RED;
 ctx.rect(5,5,290,140);
 ctx.fill();
 
-// 绿色矩形
+// Green rectangle
 ctx.lineWidth=4;
 ctx.strokeColor = cc.Color.GREEN;
 ctx.rect(30,30,50,50);
 ctx.fill();
 
-// 蓝色矩形
+// Blue rectangle
 ctx.lineWidth = 10;
 ctx.strokeColor = cc.Color.BLUE;
 ctx.rect(50,50,150,80);

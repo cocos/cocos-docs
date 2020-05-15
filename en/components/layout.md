@@ -4,15 +4,15 @@ Layout is a container component. The container can unlock the auto-layout functi
 
 - Horizontal Layout
 
-![horizontal-layout](./layout/horizontal-layout.png)
+  ![horizontal-layout](./layout/horizontal-layout.png)
 
 - Vertical Layout
 
-![vertical-layout](./layout/vertical-layout.png)
+  ![vertical-layout](./layout/vertical-layout.png)
 
 - Grid Layout
 
-![grid-layout](./layout/grid-layout.png)
+  ![grid-layout](./layout/grid-layout.png)
 
 Click the **Add Component** button at the bottom of **Properties** panel and then select **Layout** from the **UI Component** to add the Layout component to the node.
 

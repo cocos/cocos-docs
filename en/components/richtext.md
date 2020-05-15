@@ -2,9 +2,9 @@
 
 > Proofreader: RazgrizHsu
 
-RichText component could be used for displaying a string with multiple styles. You could customize the text style of  each text segment with a few simple BBCode.
+RichText component could be used for displaying a string with multiple styles. You could customize the text style of each text segment with a few simple BBCode.
 
-The currently supported tags are: color, size, outline, b, i, u, br, img and on, these tags could also be nested.
+The currently supported tags are: `color`, `size`, `outline`, `b`, `i`, `u`, `br`, `img` and `on`, these tags could also be nested with each other.
 
 For more information about BBCode, please refer to the **BBCode format** section below.
 
@@ -33,7 +33,7 @@ The API reference of RichText is here: [RichText API](../../../api/en/classes/Ri
 
 ### Basics
 
-Currently the supported tag list is: size, color, b, i, u, img and on. There are used for customizing the font size, font color, bold, italic, underline, image and click event. Every tag should has a begin tag and an end tag. The tag name and property assignment should be all lower case. It will check the start tag name, but the end tag name restrict is loose, it only requires a </> tag, the end tags name doesn't matter.
+Currently the supported tag list is: `size`, `color`, `b`, `i`, `u`, `img` and `on`. There are used for customizing the font size, font color, bold, italic, underline, image and click event. Every tag should has a start tag and an end tag. The tag name and property assignment should be all lower case. It will check the start tag name, but the end tag name restrict is loose, it only requires a </> tag, the end tags name doesn't matter.
 
 Here is an example of the `size` and `color` tag:
 
@@ -41,20 +41,20 @@ Here is an example of the `size` and `color` tag:
 
 ### Supported tags
 
-Note: all tag names should be lower case and the property assignment should use `=` sign.
+**Note**: All tag names should be lower case and the property assignment should use `=` sign.
 
-| Name | Description | Example | Note
-| ------- | ------- | ----- | ------ |
-| color  |Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html)
-| size   |Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` |
-| outline|Specify the font outline, you could customize the outline color and width by using the `color` and `width` attribute. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color and width attribute, the default color value is #ffffff and the default width is 1.
-| b      |Render text as bold font| `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported.
-| i      |Render text as italic font| `<i>This text will be rendered as italic</i>`| The tag name must be lowercase and tag name `italic` is not supported.
-| u      |Add a underline to the text|`<u>This text will have a underline</u>`| The tag name must be lowercase and tag name `underline` is not supported.
-| on     |Specify a event callback to a text node, when you click the node, the callback will be triggered.| `<on click="handler"> click me! </on>` | Every valid tag could also add another click event attribute. eg. `<size=10 click="handler2">click me</size>`
-| param  |When the click event is triggered, the value can be obtained in the second parameter of the callback function.| `<on click="handler" param="test"> click me! </on>`|Depends on the click event|
-| br     |Insert a empty line| `<br/>`|`<br></br>` and `<br>` are both invalid tags.
-| img    |Add image emoji support to your RichText. The emoji name should be a valid spriteframe name in the ImageAtlas property. |`<img src='emoji1' click='handler' />` | Only `<img src='foo' click='bar' />` is a valid img tag. If you specify a large emoji image, it will scale the sprite height to the line height of the RichText together with the sprite width.
+| Name | Description | Example | Note |
+| ------ | ------- | ----- | ------ |
+| color  | Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html) |
+| size   | Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` | The size assignment should use `=` sign. |
+| outline | Specify the font outline, you could customize the outline color and width by using the `color` and `width` property. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color or width of outline, the default color value is `#ffffff` and the default width is `1`. |
+| b      | Render text as bold font | `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported. |
+| i      | Render text as italic font | `<i>This text will be rendered as italic</i>`| The tag name must be lowercase and tag name `italic` is not supported. |
+| u      | Add a underline to the text |`<u>This text will have a underline</u>`| The tag name must be lowercase and tag name `underline` is not supported. |
+| on     | Specify a event callback to a text node, when you click the node, the callback will be triggered. | `<on click="handler"> click me! </on>` | Every valid tag could also add another click event attribute. eg. `<size=10 click="handler2">click me</size>` |
+| param  | When the click event is triggered, the value can be obtained in the second parameter of the callback function. | `<on click="handler" param="test"> click me! </on>` | Depends on the click event. |
+| br     | Insert a empty line | `<br/>` | `<br></br>` and `<br>` are both invalid tags. |
+| img    | Add image emoji support to your RichText. The emoji name should be a valid spriteframe name in the ImageAtlas. | `<img src='emoji1' click='handler' />` | Only `<img src='foo' click='bar' />` is a valid img tag. If you specify a large emoji image, it will scale the sprite height to the line height of the RichText together with the sprite width. |
 
 #### Optional attribute of img tag (New in v2.3)
 
@@ -87,8 +87,8 @@ is equal to:
 `<color=green><size=30>I'm green</size></color>`
 
 There are two ways to set the color of RichText:
-1. Selected the node and set the overall color of RichText in **Node -> Color** of the **Properties**
-2. Use BBCode to set colors on the inside of RichText separately
+1. Selected the node and set the overall color of RichText in **Node -> Color** of the **Properties**.
+2. Use BBCode to set colors on the inside of RichText separately.
 
 **Note**: The two cannot be mixed. If mixed, the color set in the **second** way will prevail at runtime.
 
@@ -108,4 +108,4 @@ Since the RichText component is assembled from multiple Label nodes, the number 
 
 The RichText component is implemented in the Javascript layer and uses the Label node as the rendering part. All the layout logic goes also in Javascript layer. This means if you create a very complex RichText which will end up with many label node created under the hook. And all these label node are using system font for rendering.
 
-So, you should avoid mutating the RichText content in your game loop. And in most cases, please stick to normal Label component, it's more efficient.
+So, you should avoid modifying the RichText content frequently in your game's main loop, which can lead to lower performance. Also, try to use the normal Label component instead of the RichText component if you can, and BMFont is the most efficient.
