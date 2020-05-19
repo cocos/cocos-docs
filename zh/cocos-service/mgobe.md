@@ -111,6 +111,22 @@
 
 腾讯云 MGOBE 还提供了另一个 TypeScript 版的 Demo 版本，提供了更多功能展示，请参考 [**Cocos 引擎案例**](https://cloud.tencent.com/document/product/1038/40875)。
 
+## 实时服务器面板使用说明
+
+- 若需要使用实时服务器，创建服务后，请在 MGOBE 服务面板下方，点击 **初始化框架** 按钮，选择 JS 或者 TS 语言版本，进行本地框架代码初始化操作。
+
+    ![](mgobe/mgobe-realtime-init.jpg)
+
+- MGOBE 与 TCB 共用云函数面板，若初始化框架后没有出现云函数面板，可以在 **菜单 -> 面板 -> 云函数** 中重新打开。 
+
+- 以 TS 版本为例，初始化后，在云函数面板中会出现 `mgobe-server` ，即为 MGOBE 的实时服务器框架。`src/mgobexs/index.ts` 即为实时服务器主文件。
+
+    ![](mgobe/mgobe-cloud-panel.jpg)
+
+- 修改主文件后，可以在云函数任意层级右键，点击 **立即发布** ，上传代码，进行调试。
+
+    ![](mgobe/mgobe-realtime-upload.jpg)
+
 ## 文档链接
 
 - [**腾讯云 MGOBE 管理后台**](https://console.cloud.tencent.com/mgobe)
