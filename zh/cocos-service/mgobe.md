@@ -56,25 +56,24 @@
 
     ```js
     const gameInfo = {
-    // 替换 为控制台上的“游戏ID”
-    	gameId: '从 MGOBE 后台获取的 游戏 ID',
-    	openId: '玩家 ID ，可自定义',
-    	secretKey: '从 MGOBE 后台获取的 游戏 key',
+        // 替换 为控制台上的“游戏ID”
+        gameId: '从 MGOBE 后台获取的 游戏 ID',
+        secretKey: '从 MGOBE 后台获取的 游戏 key',
+        openId: '玩家 ID ，可自定义',
 	};
 
-	const config = {
-    	// 替换 为控制台上的“域名”
-    	url: '从 MGOBE 后台获取的 域名',
-    	reconnectMaxTimes: 5,
-    	reconnectInterval: 1000,
-    	resendInterval: 1000,
-    	resendTimeout: 10000,
-	};
-	
-	// 实例化 Room 对象
-	const room = new MGOBE.Room();
-	
-	MGOBE.Listener.init(gameInfo, config, event => {
+    const config = {
+        // 替换 为控制台上的“域名”
+        url: '从 MGOBE 后台获取的 域名',
+        reconnectMaxTimes: 5,
+        reconnectInterval: 1000,
+        resendInterval: 1000,
+        resendTimeout: 10000,
+    };
+    
+    // 实例化 Room 对象
+    const room = new MGOBE.Room();
+    MGOBE.Listener.init(gameInfo, config, event => {
         if (event.code === 0) {
             console.log("初始化成功");
             // 初始化成功之后才能调用其他 API
@@ -93,7 +92,6 @@
             });
         }
     });
-	
     ```
 
 3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 MGOBE 接入成功。

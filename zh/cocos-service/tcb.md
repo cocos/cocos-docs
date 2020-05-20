@@ -61,28 +61,25 @@
 1.  在脚本中调用 TCB 的初始化。
 
 	```js
-	
 	// 初始化方法，从配置中读取参数
-    this.app = cc.cloud && cc.cloud.initialize();
-
-    let auth = this.app.auth();
-    auth.signInAnonymously().then(res => {
-      // 需要先做授权才能正常调用。使用匿名登陆方式访问云开发资源
-      // 请到腾讯云后台 -> 云开发 -> 选择当前环境 -> 环境设置/登录授权中，确认已经启用匿名登录
-      // 匿名登录有一定限制，后期请更换为自定义登录等其他方式。
-      	console.log('TCB auth succeed');
-      	this.app.callFunction({
-        	// 云函数名称，要与上传的函数名一致
-        	name: "function",
-        	// 传给云函数的参数
-        	data: {
-          		a: 1
-        	}
-      	}).then(res => {
-        	console.log('function', res);
-      	}).catch(console.error);
-   	});
-   	
+	this.app = cc.cloud && cc.cloud.initialize();
+	let auth = this.app.auth();
+	auth.signInAnonymously().then(res => {
+	   // 需要先做授权才能正常调用。使用匿名登陆方式访问云开发资源
+	   // 请到腾讯云后台 -> 云开发 -> 选择当前环境 -> 环境设置/登录授权中，确认已经启用匿名登录
+	   // 匿名登录有一定限制，后期请更换为自定义登录等其他方式。
+	   console.log('TCB auth succeed');
+	   this.app.callFunction({
+	       // 云函数名称，要与上传的函数名一致
+	       name: "function",
+	       // 传给云函数的参数
+	       data: {
+	           a: 1
+	       }
+	   }).then(res => {
+	       console.log('function', res);
+	   }).catch(console.error);
+	});
 	```
 
 2. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即可验证 TCB 接入成功。

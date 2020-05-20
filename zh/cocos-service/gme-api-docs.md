@@ -2,10 +2,11 @@
 为方便 Cocos Creator 开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于 Cocos Creator 开发，通过 Cocos Service 服务面板的接入腾讯云 GME 的技术文档。
 
 
-* 此文档对应 GME SDK Version：2.5.2 。
+* 此文档对应 GME SDK Version 2.5.2 。
+* 函数原型为 [**GME SDK 接口文档**](https://cloud.tencent.com/document/product/607/32157) 中定义的接口，Cocos Service 接入时设置了一个全局变量 `tencentGME.tencentGMEInst`，可参考示例代码接入。
 
 
-## 使用GME重要事项
+## GME 的重要接口
 
 
 |   重要接口     |   接口含义|  
@@ -21,15 +22,15 @@
 
 - GME 使用前请对工程进行配置，否则 SDK 不生效。
 
-- GME 的接口调用成功后返回值为 AV_OK，数值为 0。
+- GME 的接口调用成功后返回值为 GME SDK 定义的枚举值 AV_OK，数值为 0。
 
-- GME 的接口调用要在同一个线程下。
+- GME 的接口调用要在同一个线程下，任意 JS 线程均可，JSB 层封装和回调的消息均在 JS 线程完成。
 
 - GME 加入房间需要鉴权，请参考文档关于鉴权部分内容。
 
 - GME 需要周期性的调用 poll 接口触发事件回调。
 
-- GME 回调信息参考回调消息列表。
+- GME 回调信息，请参考回调消息列表。
 
 - 设备的操作要在进房成功之后。
 
@@ -71,14 +72,14 @@
 #### 函数原型
 
 ```
-TencentGME.fn.init = function(appId: String, key: String, openId: String) {...}
+TencentGME.fn.init = function(appId: string, key: string, openId: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   appId    	|  String   	|  来自腾讯云控制台的 AppId 号码					|  
-|   key    	|  String   	|  来自腾讯云 [控制台](https://console.cloud.tencent.com/gamegme) 的密钥 	|  
-|   openId    	|  String   	|  openId 只支持 Int64 类型（转为 String 传入），必须大于 10000，用于标识用户 	|  
+|   appId    	|  string   	|  来自腾讯云控制台的 AppId 号码					|  
+|   key    	|  string   	|  来自腾讯云 [控制台](https://console.cloud.tencent.com/gamegme) 的密钥 	|  
+|   openId    	|  string   	|  openId 只支持 Int64 类型（转为 string 传入），必须大于 10000，用于标识用户 	|  
 
 
 #### 示例代码
@@ -86,8 +87,8 @@ TencentGME.fn.init = function(appId: String, key: String, openId: String) {...}
 
 ```
 var appId = '1400089356';
+var key = '1cfbfxxxxx03a53e';
 var openId = '123456';
-var key = '1cfbfd2a1a03a53e';
 tencentGME.tencentGMEInst.init(appId, key, openId);
 ```
 
@@ -193,12 +194,12 @@ tencentGME.tencentGMEInst.uninit();
 #### 函数原型
 
 ```
-TencentGME.fn.enterRoom = function(roomId: String, type: Number) {...}
+TencentGME.fn.enterRoom = function(roomId: string, type: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   roomID			|   String    		|  房间号，最大支持127字符	|  
+|   roomID			|   string    		|  房间号，最大支持127字符	|  
 |   roomType 			|  ITMG_ROOM_TYPE	|  房间音频类型		|  
 
 
@@ -215,7 +216,7 @@ tencentGME.tencentGMEInst.enterRoom(roomId, 1);
 
 ### 判断是否已经进入房间
 
-通过调用此接口可以判断是否已经进入房间，返回值为 `Boolean` 类型。
+通过调用此接口可以判断是否已经进入房间，返回值为 `boolean` 类型。
 
 #### 函数原型
 
@@ -260,7 +261,7 @@ tencentGME.tencentGMEInst.exitRoom();
 #### 函数原型
 
 ```
-TencentGME.fn.changeRoomType = function(roomType: Number) {...}
+TencentGME.fn.changeRoomType = function(roomType: number) {...}
 ```
 
 
@@ -352,12 +353,12 @@ enableMic = enableAudioCaptureDevice + enableAudioSend.
 ####  函数原型  
 
 ```
-TencentGME.fn.enableMic = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableMic = function(bEnabled: boolean) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean     |  如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false		|  
+|   bEnabled    |  boolean     |  如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false		|  
 
 
 #### 示例代码
@@ -398,14 +399,14 @@ var micState = tencentGME.tencentGMEInst.getMicState();
 #### 函数原型
 
 ```
-TencentGME.fn.enableAudioCaptureDevice = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableAudioCaptureDevice = function(bEnabled: boolean) {...}
 ```
 
 
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean     |  如果需要打开采集设备，则传入的参数为 true，如果关闭采集设备，则参数为 false|  
+|   bEnabled    |  boolean     |  如果需要打开采集设备，则传入的参数为 true，如果关闭采集设备，则参数为 false|  
 
 
 #### 示例代码
@@ -443,12 +444,12 @@ var isAudioCaptureDeviceEnabled = tencentGME.tencentGMEInst.isAudioCaptureDevice
 
 
 ```
-TencentGME.fn.enableAudioSend = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableAudioSend = function(bEnabled: boolean) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean     |  如果需要打开音频上行，则传入的参数为 true，如果关闭音频上行，则参数为 false|  
+|   bEnabled    |  boolean     |  如果需要打开音频上行，则传入的参数为 true，如果关闭音频上行，则参数为 false|  
 
 
 #### 示例代码
@@ -479,7 +480,7 @@ var isAudioSendEnabled = tencentGME.tencentGMEInst.isAudioSendEnabled();
 
 ### 获取麦克风实时音量
 
-此接口用于获取麦克风实时音量，返回值为 Number 类型。
+此接口用于获取麦克风实时音量，返回值为 number 类型。
 
 #### 函数原型
 
@@ -497,7 +498,7 @@ var volume = tencentGME.tencentGMEInst.getMicLevel();
 
 ### 获取音频上行实时音量
 
-此接口用于获取音频上行实时音量，返回值为 `Number` 类型，取值范围为 0 到 100 。
+此接口用于获取音频上行实时音量，返回值为 `number` 类型，取值范围为 0 到 100 。
 
 #### 函数原型
 
@@ -522,12 +523,12 @@ var volume = tencentGME.tencentGMEInst.getSendStreamLevel();
 #### 函数原型
 
 ```
-TencentGME.fn.setMicVolume = function(volume: Number) {...}
+TencentGME.fn.setMicVolume = function(volume: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   vol    |  Number      |  设置音量，范围 0 到 200|  
+|   vol    |  number      |  设置音量，范围 0 到 200|  
 
 
 #### 示例代码
@@ -538,7 +539,7 @@ tencentGME.tencentGMEInst.setMicVolume(100);
 
 ### 获取麦克风的音量
 
-此接口用于获取麦克风的音量。返回值为一个 `Number` 类型数值，返回值为 101 代表没调用过接口 `setMicVolume`。
+此接口用于获取麦克风的音量。返回值为一个 `number` 类型数值，返回值为 101 代表没调用过接口 `setMicVolume`。
 
 
 #### 函数原型
@@ -560,12 +561,12 @@ var volume = tencentGME.tencentGMEInst.getMicVolume();
 #### 函数原型
 
 ```
-TencentGME.fn.enableSpeaker = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableSpeaker = function(bEnabled: boolean) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled   		|  Boolean       	|  如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true	|  
+|   bEnabled   		|  boolean       	|  如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true	|  
 
 
 #### 示例代码
@@ -601,12 +602,12 @@ var speakerState = tencentGME.tencentGMEInst.getSpeakerState();
 #### 函数原型
 
 ```
-TencentGME.fn.enableAudioPlayDevice = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableAudioPlayDevice = function(bEnabled: boolean) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean        |  如果需要关闭播放设备，则传入的参数为 false，如果打开播放设备，则参数为 true|  
+|   bEnabled    |  boolean        |  如果需要关闭播放设备，则传入的参数为 false，如果打开播放设备，则参数为 true|  
 
 
 #### 示例代码
@@ -645,13 +646,13 @@ var isAudioPlayDeviceEnabled = tencentGME.tencentGMEInst.isAudioPlayDeviceEnable
 #### 函数原型
 
 ```
-TencentGME.fn.enableAudioRecv = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableAudioRecv = function(bEnabled: boolean) {...}
 
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean     |  如果需要打开音频下行，则传入的参数为 true，如果关闭音频下行，则参数为 false|  
+|   bEnabled    |  boolean     |  如果需要打开音频下行，则传入的参数为 true，如果关闭音频下行，则参数为 false|  
 
 
 #### 示例代码  
@@ -681,7 +682,7 @@ var isAudioRecvEnabled = tencentGME.tencentGMEInst.isAudioRecvEnabled();
 
 ### 获取扬声器实时音量
 
-此接口用于获取扬声器实时音量。返回值为 `Number` 类型数值，表示扬声器实时音量。
+此接口用于获取扬声器实时音量。返回值为 `number` 类型数值，表示扬声器实时音量。
 
 #### 函数原型
 
@@ -699,19 +700,19 @@ var volume = tencentGME.tencentGMEInst.getSpeakerLevel();
 
 ### 获取房间内其他成员下行实时音量
 
-此接口用于获取房间内其他成员下行实时音量，返回值为 `Number` 类型，取值范围为 0 到 100 。
+此接口用于获取房间内其他成员下行实时音量，返回值为 `number` 类型，取值范围为 0 到 100 。
 
 #### 函数原型
 
 ```
-TencentGME.fn.getRecvStreamLevel = function(openId: String) {...}
+TencentGME.fn.getRecvStreamLevel = function(openId: string) {...}
 ```
 
 
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   openId    |  String       |  房间其他成员的openId|  
+|   openId    |  string       |  房间其他成员的openId|  
 
 
 
@@ -735,12 +736,12 @@ var volume = tencentGME.tencentGMEInst.getRecvStreamLevel();
 #### 函数原型
 
 ```
-TencentGME.fn.setSpeakerVolume = function(volume: Number) {...}
+TencentGME.fn.setSpeakerVolume = function(volume: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   volume    |  Number        |  设置音量，范围 0 到 200|  
+|   volume    |  number        |  设置音量，范围 0 到 200|  
 
 
 #### 示例代码
@@ -755,7 +756,7 @@ tencentGME.tencentGMEInst.setSpeakerVolume(100);
 
 
 
-此接口用于获取扬声器的音量。返回值为 `Number` 类型数值，代表扬声器的音量，返回值为 101 代表没调用过接口 `setSpeakerVolume`。
+此接口用于获取扬声器的音量。返回值为 `number` 类型数值，代表扬声器的音量，返回值为 101 代表没调用过接口 `setSpeakerVolume`。
 
 `Level` 是实时音量，`Volume` 是扬声器的音量，最终声音音量相当于 `Level*Volume%`。举个例子：实时音量是数值是 100 的话，此时 `Volume` 的数值是 60 ，那么最终发出来的声音数值也是 60 。
 
@@ -781,12 +782,12 @@ var volume = tencentGME.tencentGMEInst.getSpeakerVolume();
 #### 函数原型
 
 ```
-TencentGME.fn.enableLoopBack = function(bEnabled: Boolean) {...}
+TencentGME.fn.enableLoopBack = function(bEnabled: boolean) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   bEnabled    |  Boolean         |  设置是否启动|  
+|   bEnabled    |  boolean         |  设置是否启动|  
 
 
 #### 示例代码
@@ -876,12 +877,12 @@ tencentGME.tencentGMEInst.applyPTTAuthbuffer();
 
 
 ```
-TencentGME.fn.pttSetMaxMessageLength = function(msTime: Number) {...}
+TencentGME.fn.pttSetMaxMessageLength = function(msTime: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   msTime    |  Number                    |  语音时长，单位 ms|  
+|   msTime    |  number                    |  语音时长，单位 ms|  
 
 
 #### 示例代码 
@@ -897,12 +898,12 @@ tencentGME.tencentGMEInst.pttSetMaxMessageLength();
 ####  函数原型  
 
 ```
-TencentGME.fn.pttStartRecording = function(fileDir: String) {...}
+TencentGME.fn.pttStartRecording = function(fileDir: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   fileDir    |  String                      |  存放的语音路径|  
+|   fileDir    |  string                      |  存放的语音路径|  
 
 
 #### 示例代码
@@ -923,15 +924,15 @@ tencentGME.tencentGMEInst.pttStartRecording(fileDir);
 
 
 ```
-TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileDir: String, [speechLanguage: String, translateLanguage: String]) {...}
+TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileDir: string, [speechLanguage: string, translateLanguage: string]) {...}
 
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   fileDir    	|  String	|  存放的语音路径	|  
-|   speechLanguage (可选)    |  String                     |  识别成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)|  
-|   translateLanguage (可选)    |  String                     |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)（此参数暂不可用,请填写与 speechLanguage 相同的参数)|  
+|   fileDir    	|  string	|  存放的语音路径	|  
+|   speechLanguage (可选)    |  string                     |  识别成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)|  
+|   translateLanguage (可选)    |  string                     |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)（此参数暂不可用,请填写与 speechLanguage 相同的参数)|  
 
 
 #### 示例代码 
@@ -1015,7 +1016,7 @@ tencentGME.tencentGMEInst.pttCancelRecording();
 
 ### 获取离线语音麦克风实时音量
 
-此接口用于获取麦克风实时音量，返回值为 `Number` 类型，值域为 0 到 100 。
+此接口用于获取麦克风实时音量，返回值为 `number` 类型，值域为 0 到 100 。
 
 
 
@@ -1041,12 +1042,12 @@ var volume = tencentGME.tencentGMEInst.pttGetMicLevel();
 ####  函数原型
 
 ```
-TencentGME.fn.pttSetMicVolume = function(volume: Number) {...}
+TencentGME.fn.pttSetMicVolume = function(volume: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   volume    |  Number        |  设置音量，范围 0 到 200|  
+|   volume    |  number        |  设置音量，范围 0 到 200|  
 
 
 #### 示例代码
@@ -1059,7 +1060,7 @@ tencentGME.tencentGMEInst.pttSetMicVolume(100);
 
 ### 获取离线语音录制音量
 
-此接口用于获取离线语音录制音量。返回值为 `Number` 类型，值域为 0 到 100 。
+此接口用于获取离线语音录制音量。返回值为 `number` 类型，值域为 0 到 100 。
 
 
 #### 函数原型
@@ -1076,7 +1077,7 @@ var volume = tencentGME.tencentGMEInst.pttGetMicVolume();
 
 ### 获取扬声器实时音量
 
-此接口用于获取扬声器实时音量。返回值为 `Number` 类型，值域为 0 到 100 。
+此接口用于获取扬声器实时音量。返回值为 `number` 类型，值域为 0 到 100 。
 
 #### 函数原型
 
@@ -1097,12 +1098,12 @@ var volume = tencentGME.tencentGMEInst.pttGetSpeakerLevel();
 #### 函数原型
 
 ```
-TencentGME.fn.pttSetSpeakerVolume = function(volume: Number) {...}
+TencentGME.fn.pttSetSpeakerVolume = function(volume: number) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   volume    |  Number        |  设置音量，范围 0 到 200|  
+|   volume    |  number        |  设置音量，范围 0 到 200|  
 
 
 #### 示例代码
@@ -1115,7 +1116,7 @@ tencentGME.tencentGMEInst.pttSetSpeakerVolume(100);
 
 ### 获取离线语音播放音量
 
-此接口用于获取离线语音播放音量。返回值为 Number 类型，值域为0到100。
+此接口用于获取离线语音播放音量。返回值为 number 类型，值域为0到100。
 
 #### 函数原型
 
@@ -1138,12 +1139,12 @@ var volume = tencentGME.tencentGMEInst.pttGetSpeakerVolume();
 #### 函数原型
 
 ```
-TencentGME.fn.pttUploadRecordedFile = function(filePath: String) {...}
+TencentGME.fn.pttUploadRecordedFile = function(filePath: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   filePath    |  String                       |  上传的语音路径|  
+|   filePath    |  string                       |  上传的语音路径|  
 
 
 #### 示例代码
@@ -1161,20 +1162,20 @@ tencentGME.tencentGMEInst.pttUploadRecordedFile(filePath);
 #### 函数原型
 
 ```
-TencentGME.fn.pttDownloadRecordedFile = function(fileId: String, filePath: String) {...}
+TencentGME.fn.pttDownloadRecordedFile = function(fileId: string, filePath: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   fileId  		|  String   	|  文件的 url 路径，上传文件回调中获取	|  
-|   filePath 	|  String  	|  文件的本地保存路径	|  
+|   fileId  		|  string   	|  文件的 url 路径，上传文件回调中获取	|  
+|   filePath 	|  string  	|  文件的本地保存路径	|  
 
 
 #### 示例代码
 
 ```
 var filePath = '*****';
-var fileId = ''***;
+var fileId = '***';
 tencentGME.tencentGMEInst.pttDownloadRecordedFile(fileId, filePath);
 ```
 
@@ -1185,12 +1186,12 @@ tencentGME.tencentGMEInst.pttDownloadRecordedFile(fileId, filePath);
 #### 函数原型
 
 ```
-TencentGME.fn.pttPlayRecordedFile = function(filePath: String) {...}
+TencentGME.fn.pttPlayRecordedFile = function(filePath: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   filePath    |  String                       |  文件的路径|  
+|   filePath    |  string                       |  文件的路径|  
 
 #### 返回错误码
 
@@ -1229,12 +1230,12 @@ var volume = tencentGME.tencentGMEInst.pttStopPlayFile();
 #### 函数原型
 
 ```
-TencentGME.fn.pttGetFileSize = function(filePath: String) {...}
+TencentGME.fn.pttGetFileSize = function(filePath: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   filePath    |  String                      |  语音文件的路径|  
+|   filePath    |  string                      |  语音文件的路径|  
 
 
 #### 示例代码
@@ -1253,12 +1254,12 @@ tencentGME.tencentGMEInst.pttGetFileSize(filePath);
 #### 函数原型
 
 ```
-TencentGME.fn.pttGetVoiceFileDuration = function(filePath: String) {...}
+TencentGME.fn.pttGetVoiceFileDuration = function(filePath: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   filePath    |  String                      |  语音文件的路径|  
+|   filePath    |  string                      |  语音文件的路径|  
 
 
 #### 示例代码
@@ -1278,14 +1279,14 @@ tencentGME.tencentGMEInst.pttGetVoiceFileDuration(filePath);
 #### 函数原型
 
 ```
-TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileID: String, [speechLanguage: String, translateLanguage: String]) {...}
+TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileID: string, [speechLanguage: string, translateLanguage: string]) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   fileID    |  String                     |  语音文件 url|  
-|   speechLanguage (可选)    |  String                     |  识别出指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)|  
-|   translatelanguage (可选)    |  String                  |  翻译成指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)（此参数暂时无效，填入参数应与 speechLanguage 一致）|  
+|   fileID    |  string                     |  语音文件 url|  
+|   speechLanguage (可选)    |  string                     |  识别出指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)|  
+|   translatelanguage (可选)    |  string                  |  翻译成指定文字的语言参数，参数参考[语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)（此参数暂时无效，填入参数应与 speechLanguage 一致）|  
 
 
 #### 示例代码
@@ -1337,7 +1338,7 @@ var version = tencentGME.tencentGMEInst.getSDKVersion();
 #### 函数原型
 
 ```
-TencentGME.fn.setLogLevel = function(logLevelWrite: Number, logLevelPrint: Number) {...}
+TencentGME.fn.setLogLevel = function(logLevelWrite: number, logLevelPrint: number) {...}
 ```
 
 #### 参数含义
@@ -1345,7 +1346,7 @@ TencentGME.fn.setLogLevel = function(logLevelWrite: Number, logLevelPrint: Numbe
 |  参数|  类型|  含义|  
 |  ---|  ---|  ---|  
 |  levelWrite|  ITMG_LOG_LEVEL|  设置写入日志的等级，TMG_LOG_LEVEL_NONE 表示不写入|  
-|  levelPrNumber|  ITMG_LOG_LEVEL|  设置打印日志的等级，TMG_LOG_LEVEL_NONE 表示不打印|  
+|  levelPrnumber|  ITMG_LOG_LEVEL|  设置打印日志的等级，TMG_LOG_LEVEL_NONE 表示不打印|  
 
 #### 示例代码
 
@@ -1372,14 +1373,14 @@ tencentGME.tencentGMEInst.setLogLevel(4, 4);
 #### 函数原型
 
 ```
-TencentGME.fn.setLogLevel = function(logPath: String) {...}
+TencentGME.fn.setLogLevel = function(logPath: string) {...}
 ```
 
 
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   logDir    		|  String    		|  路径|  
+|   logDir    		|  string    		|  路径|  
 
 
 #### 示例代码
@@ -1402,12 +1403,12 @@ tencentGME.tencentGMEInst.setLogLevel(logPath);
 
 
 ```
-TencentGME.fn.addAudioBlackList = function(openId: String) {...}
+TencentGME.fn.addAudioBlackList = function(openId: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   openId    |  String       |  需添加黑名单的  ID|  
+|   openId    |  string       |  需添加黑名单的  ID|  
 
 
 #### 示例代码 
@@ -1430,12 +1431,12 @@ tencentGME.tencentGMEInst.addAudioBlackList(openId);
 
 
 ```
-TencentGME.fn.removeAudioBlackList = function(openId: String) {...}
+TencentGME.fn.removeAudioBlackList = function(openId: string) {...}
 ```
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   openId    |  String       |  需移除黑名单的 ID|  
+|   openId    |  string       |  需移除黑名单的 ID|  
 
 
 #### 示例代码
