@@ -26,8 +26,8 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Underline Height | Height of underline.                                                                                                        |
 | Cache Mode       | Text cache mode includes **NONE**, **BITMAP** or **CHAR**. Takes effect only for System Font or TTF font, BMFont does not require this optimization. See [Cache Mode](#cache-mode-new-in-v209) below for details. |
 | Use System Font  | If enabled, **System Font** will be used.      
-| Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
-| Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](../../../api/zh/enums/BlendFactor.html)                                                              |
+| Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html) |
+| Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html)                                                              |
 | Materials        | Material of Label, see the document [Material](../render/material.md) for details.                                          |
 
 For API interface of Label, please refer to [Label API](../../../api/en/classes/Label.html).
@@ -58,15 +58,15 @@ For API interface of Label, please refer to [Label API](../../../api/en/classes/
 
 For Label components, SrcBlendFactor has two main settings, namely SRC_ALPHA and ONE. The implementation of the engine system font is to first draw the text to the Canvas, and then generate a picture for the Label component to use, which involves a text transparency issue.
 
-When using SRC_ALPHA mode, transparency can be passed to the Shader via vertex data and then pixel transparency can be calculated in the Shader, so the transparency of text does not need to be processed when drawing to the Canvas, and when Label node transparency changes need to be made, there is no need to call updateRenderData frequently to redraw the Canvas, which can reduce the performance consumption caused by API calls and frequent redraw.
+When using **SRC_ALPHA** mode, transparency can be passed to the Shader via vertex data and then pixel transparency can be calculated in the Shader, so the transparency of text does not need to be processed when drawing to the Canvas, and when Label node transparency changes need to be made, there is no need to call updateRenderData frequently to redraw the Canvas, which can reduce the performance consumption caused by API calls and frequent redraw.
 
-When using ONE mode, the transparency of the text image needs to do pre-multiplication processing, so in Canvas drawing the need for transparency processing, in this mode, Label's node transparency changes require frequent calls to updateRenderData, to redraw the text content.
+When using **ONE** mode, the transparency of the text image needs to do pre-multiplication processing, so in Canvas drawing the need for transparency processing, in this mode, Label's node transparency changes require frequent calls to updateRenderData, to redraw the text content.
 
-It is important to note that different blend modes can affect the dynamic batching with other nodes. For example, if you use ONE mode, the BITMAP cache mode uses a dynamic atlas, which may cause the dynamic batching to fail. For CHAR cache mode, SRC_ALPHA mode is used by default because the same character atlas is shared globally and different modes are not compatible. In addition, for the native platform, under SRC_ALPHA, in order to eliminate the problem of black edges in the text, it is necessary to do anti-premultiply when the text image data is returned, but for a large number of text nodes or large sections of text using SHRINK mode, doing anti-premultiply will have a lot of performance consumption, developers need to make reasonable choices based on different use scenarios and text content, in order to reduce the performance consumption caused by redrawing in different platforms.
+It is important to note that different blend modes can affect the dynamic batching with other nodes. For example, if you use **ONE** mode, the **BITMAP** cache mode uses a dynamic atlas, which may cause the dynamic batching to fail. For **CHAR** cache mode, **SRC_ALPHA** mode is used by default because the same character atlas is shared globally and different modes are not compatible. In addition, for the native platform, under **SRC_ALPHA**, in order to eliminate the problem of black edges in the text, it is necessary to do anti-premultiply when the text image data is returned, but for a large number of text nodes or large sections of text using **SHRINK** mode, doing anti-premultiply will have a lot of performance consumption, developers need to make reasonable choices based on different use scenarios and text content, in order to reduce the performance consumption caused by redrawing in different platforms.
 
-1. If CHAR cache mode is used, only SRC_ALPHA can be used.
-2. If you are only publishing a web platform, it is recommended to use the default SRC_ALPHA mode. Because the transparency changes in ONE mode cause frequent redrawing, the use of BITMAP cache mode and CHAR cache mode does not work.
-3. If you need to publish the Native platform and the text uses a layout mode such as SHRINK, which is frequently redrawn, and the performance consumption is obvious due to the frequent anti-premultiply of the text during the interface creation, you can choose to use ONE to avoid the anti-premultiply caused by the jams.
+1. If **CHAR** cache mode is used, only **SRC_ALPHA** can be used.
+2. If you are only publishing a **Web** platform, it is recommended to use the default **SRC_ALPHA** mode. Because the transparency changes in ONE mode cause frequent redrawing, the use of **BITMAP** cache mode and **CHAR** cache mode does not work.
+3. If you need to publish the **Native** platform and the text uses a layout mode such as **SHRINK**, which is frequently redrawn, and the performance consumption is obvious due to the frequent anti-premultiply of the text during the interface creation, you can choose to use **ONE** to avoid the anti-premultiply caused by the jams.
 
 ## Detailed Explanation
 

@@ -66,7 +66,7 @@ In general, texture coordinates UV's values range is [0, 1]. When the texture co
 
 When the original size of Texture does not match the size of the texture image mapped on the screen, the mapping of the texture unit to the pixel through different texture filtering methods produces a different effect. There are three filter modes:
 
-- Point filtering: 
+- Point filtering:
 it simply uses the color of the texel closest to the pixel center for the pixel color. The advantage is that the algorithm is simple and the computation is small. While simple, this results in a large number of artifacts - texture `blockiness` during magnification, and aliasing and shimmering during minification.
 - Bilinear filtering: The four nearest texels to the pixel center are sampled (at the closest mipmap level), and their colors are combined by weighted average according to distance. This removes the `blockiness` seen during magnification, as there is now a smooth gradient of color change from one texel to the next, instead of an abrupt jump as the pixel center crosses the texel boundary. But the computation is also slightly larger than the Point filtering.
 - Trilinear filtering: Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
@@ -110,13 +110,13 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 
 ### The Black Edge Problem of Texture
 
-When importing image resources into the editor, the default filter mode used is Bilinear, while for the Sprite component, the default SrcBlendFactor is SRC_ALPHA. under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images.
+When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images.
 
-1. Filter Mode uses Point Mode. (Recommended, need to be able to accept the sawtooth problem)
-2. when the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)
+1. Filter Mode uses **Point** Mode. (Recommended, need to be able to accept the sawtooth problem)
+2. When the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)
 3. When exporting images, set to a higher resolution to avoid image interpolation and enlargement when displayed to the device. (Not recommended.)
 4. The engine's Auto Atlas provides an option to expand the edges of translucent images, which will automatically expand the edges of translucent images when checked. Other atlas packing tools will generally have similar processing options. (Recommended)
-5. set Sprite's SrcBlendFactor to ONE to premultiply the images, but this may affect the batch merge of the images, which the developer will need to decide depending on the usage scenario.(The Premultiply Alpha option for texture needs to be checked.)
+5. Set Sprite's SrcBlendFactor to ONE to premultiply the images, but this may affect the batch merge of the images, which the developer will need to decide depending on the usage scenario. (The Premultiply Alpha option for texture needs to be checked.)
 
 ### Performance Attentions
 
