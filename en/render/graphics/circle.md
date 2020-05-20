@@ -6,7 +6,7 @@ Use `circle()` method to create a circle.
 | -------------- | ----------- |
 | cx | The x coordinate of the center of the circle.
 | cy | The y coordinate of the center of the circle.
-| r | radius of the circle.
+| r | Radius of the circle.
 
 ## Example
 

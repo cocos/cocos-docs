@@ -174,7 +174,7 @@ export class MyModule extends cc.Component {
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import MyModule from './MyModule';
+import {MyModule} from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {

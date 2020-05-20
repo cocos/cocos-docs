@@ -1,16 +1,14 @@
 # Publish to Baidu Mini Games
 
-**Baidu Mini Game** is an extension of the **Baidu Mini Program** platform, which is provided in the **Baidu App**. This platform not only provides powerful game capabilities, but also provides a large number of native interfaces, such as payment, file system, location, sharing, etc. like Smart Mini Progame. It is equivalent to combining the advantages of **Web** for easy propagation and rich **Native** features.
+The runtime environment of the **Baidu Mini Game** is an extension of the **Baidu Smart Mini Program**. This provides a WebGL interface encapsulation based on the mini program environment. This greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the Baidu team, they are not equivalent to the browser environment.
 
-The operating environment of **Baidu Mini Game** is similar to that of **WeChat**. The basic idea is to provide the encapsulated necessary WEB interface to the user, and pursue the same development experience as WEB. **Baidu Mini Game** provides a WebGL interface encapsulation based on the Smart Mini Progame environment, which greatly improves rendering capabilities and performance. However, since these interfaces are encapsulated by the **Baidu** team through the native implementation of self-research, they are not equivalent to the browser environment.
-
-As an engine, in order to simplify the developer's workload as much as possible, the main tasks we have done for users include:
+On the engine side, in order to make the developers' workload as easy as possible, our main tasks for developers include the following:
 
 - The engine framework is adapted to the **Baidu Mini Game** API, pure game logic level, users don't need any additional modifications.
 - **Cocos Creator** editor provides a fast packaging process, directly released as a **Baidu Mini Game**.
 - Automatic loading of remote resources, cache resources and cache resource versioning.
 
-For specific **Baidu Mini Game** application, station development, game submission, review and release process can refer to [Baidu Mini Game registration guidance document](https://smartprogram.baidu.com/docs/game/).
+For specific **Baidu Mini Game** application, station development, game submission, review and release process can refer to [Baidu Mini Game Developer Documentation](https://smartprogram.baidu.com/docs/game/).
 
 ## Using Cocos Creator to release Baidu Mini Games
 
@@ -32,19 +30,19 @@ For specific **Baidu Mini Game** application, station development, game submissi
 
     ![](./publish-baidugame/package.png)
 
-3. Use the **Baidu Developer Tools** to open the **baidugame** folder, and you can preview and debug the game content of Baidu mini game project. About how ​​to use Baidu Developer Tools, please refer to [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) for details.
+3. Use the **Baidu Developer Tools** to open the **baidugame** folder to preview and debug the game. About how ​​to use Baidu Developer Tools, please refer to [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) for details.
 
     ![](./publish-baidugame/preview.png)
 
-    **Note**: When preview and debugging, if there is a prompt that **The current version of the developer tool can't publish mini program, please update to the latest developer tools**. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Mini Program**, not the **appid** of the **Baidu Mini Game**, please re-apply for the **appid** of the **Baidu Mini Game**.
+    **Note**: When previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest developer tools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Mini Program**, not the **appid** of the **Baidu Mini Game**, please re-apply for the **appid** of the **Baidu Mini Game**.
 
 ## Resource Management for Baidu Mini Game Environment
 
-Baidu Mini Game is similar to WeChat Mini Game, there are restrictions on the package. Anything more than 4MB of extra resources must be downloaded through the network request.
+**Baidu Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **4MB** must be downloaded via a network request.
 
-We recommend that you only save script files in mini game packages, and other resources are downloaded from remote servers. And the download, cache and version management of remote resources, Cocos Creator has already done it for you. The specific implementation logic is similar to the WeChat Mini Game. For details, please refer to [Resource Management for WeChat Mini Game Environment](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment).
+It is recommended to only save script files in the mini-game packages, while other resources are uploaded to the remote server, and downloaded from the remote server as needed. The download, cache, and version management of remote resources, Cocos Creator has already done it for you. The specific implementation logic is similar to the WeChat Mini Game. Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-At the same time, when the **md5Cache** feature of the engine is enabled, the url of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only the new resources can be requested from the server, which achieves the effect of version control.
+When the **md5Cache** feature of the engine is enabled, the URL of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only the new resources can be requested from the server, which achieves the effect of version control.
 
 Specifically, developers need to do the following:
 
@@ -61,7 +59,7 @@ Specifically, developers need to do the following:
 
 ## Baidu Mini Game Subpackage Loading
 
-The subpackage loading method of Baidu mini game is similar to WeChat, and the package restrictions are as follows:
+The subpackage loading method of **Baidu Mini Game** is similar to WeChat, with the following package restrictions:
 
 - The size of all subpackage of the entire Mini Game can not exceed **8MB**.
 - The size of single subpackage / main package can not exceed **4MB**.
@@ -86,15 +84,15 @@ For details about the Baidu Mini Game Open Data Context process, please refer to
 
 ## Baidu Mini Games known issues
 
-At present, our adaptation work of Baidu Mini Game is not completely finished, and the following components are not supported for the time being:
+Currently, the adaptation work of Baidu Mini Game is not completely finished, and the following components are not supported for the time being:
 
 - VideoPlayer
 - WebView
 
-If needed, you can directly call Baidu's [API](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/) to use.
+If needed, you can directly call Baidu's [API](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/) as needed.
 
 ## Reference link
 
 - [Baidu Mini Game Registration Guide](https://smartprogram.baidu.com/docs/game/)
-- [Baidu Developer Tools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
+- [Baidu Developer Tools documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
 - [Baidu Mini Game API documentation](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/)

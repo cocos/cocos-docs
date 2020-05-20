@@ -4,7 +4,7 @@ The Graphics component provides a series of drawing interfaces that reference th
 
 ![](../render/graphics/graphics/graphics.png)
 
-Create a new empty node, and then click the **Add Component** button below the **Properties** panel and select **Graphics** from **Renderer Component**. Then you can add the Graphics component to the node.
+Select a node in the **Node Tree** panel, and then click the **Add Component** button below the **Properties** panel and select **Graphics** from **Renderer Component**. Then you can add the Graphics component to the node.
 
 ## Graphic Properties
 

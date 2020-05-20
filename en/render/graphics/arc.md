@@ -1,15 +1,16 @@
 # Arc
 
 `arc()` method creates an arc / curve (used to create circles or partial circles).
-Tip: To create a circle with `arc()`, set the start angle to 0 and the end angle to `2 * Math.PI`.
 
-| Parameter | description
+**Note**: To create a circle with `arc()`, set the start angle to `0` and the end angle to `2 * Math.PI`.
+
+| Parameter | Description
 | -------------- | ----------- |
 | x | The x coordinate of the center of the circle.
 | y | The y coordinate of the center of the circle.
-| r | radius of the circle.
-| sAngle | starting angle in radians. (The arc's three o'clock position is 0 degrees).
-| eAngle | end angle in radians.
+| r | Radius of the circle.
+| sAngle | Starting angle in radians. (The arc's three o'clock position is 0 degrees).
+| eAngle | End angle in radians.
 | counterclockwise | Optional. Specifies whether draw the arc counterclockwise or clockwise. False = clockwise, true = counterclockwise.
 
 ## Example

@@ -1,6 +1,6 @@
 # PageviewIndicator component reference
 
-The PageViewIndicator Component, Used to display the current page number of the PageView and the page where the tag is currently located.
+The PageViewIndicator component is used to display the current page number of the PageView and the page where the tag is currently located.
 
 ![pageviewindicator.png](./pageviewindicator/pageviewindicator.png)
 
