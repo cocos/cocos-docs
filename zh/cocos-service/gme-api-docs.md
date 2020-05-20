@@ -348,7 +348,7 @@ var roomType = tencentGME.tencentGMEInst.getRoomType();
 
 此接口用来开启关闭麦克风。加入房间默认不打开麦克风及扬声器。
 
-enableMic = enableAudioCaptureDevice + enableAudioSend.
+调用 enableMic 接口，相当于同时调用 enableAudioCaptureDevice 和 enableAudioSend 两个接口。
 
 ####  函数原型  
 
