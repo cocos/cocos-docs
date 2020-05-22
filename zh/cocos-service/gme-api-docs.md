@@ -82,7 +82,7 @@ tencentGME.tencentGMEInst.init(appId, key, openId);
 
 ### 触发事件回调
 
-通过在 `update` 里面周期的调用 `poll ` 可以触发事件回调。
+通过在 `update` 里面周期的调用 `poll` 可以触发事件回调。
 
 #### 函数原型
 
@@ -146,7 +146,7 @@ tencentGME.tencentGMEInst.uninit();
 
 ## 实时语音房间相关接口
 
-初始化完毕，SDK 调用 `enterRoom` 进入房间后，才可以进行实时语音通话。
+[初始化](#初始化-sdk) 完毕，SDK 调用 `enterRoom` 进入房间后，才可以进行实时语音通话。
 
 使用问题可参考腾讯云官方文档 [实时语音相关问题](https://cloud.tencent.com/document/product/607/30411)。
 
@@ -240,7 +240,7 @@ tencentGME.tencentGMEInst.changeRoomType(4);
 
 ### 获取用户房间音频类型
 
-此接口用于获取用户房间音频类型，返回值为房间音频类型，返回值为 **0** 时代表获取用户房间音频类型发生错误，房间音频类型参考 `EnterRoom` 接口。
+此接口用于获取用户房间音频类型，返回值为房间音频类型，返回值为 **0** 时代表获取用户房间音频类型发生错误，房间音频类型参考 `enterRoom` 接口。
 
 #### 函数原型
 
@@ -256,7 +256,7 @@ var roomType = tencentGME.tencentGMEInst.getRoomType();
 
 ## 实时语音音频接口
 
-初始化 SDK 之后进房，在房间中，才可以调用实时音频语音相关接口。
+[初始化 SDK](#初始化-sdk) 之后进房，在房间中，才可以调用实时音频语音相关接口。
 
 当用户在界面单击开启/关闭麦克风/扬声器的按钮时：
 
@@ -264,7 +264,7 @@ var roomType = tencentGME.tencentGMEInst.getRoomType();
 
 - 其他类型的 **移动端 App**，例如社交类型 App，开启或者关闭采集设备，会伴随整个设备（采集及播放）重启，如果此时 App 正在播放背景音乐，那么背景音乐的播放也会被中断。利用控制上下行的方式来实现开关麦克风效果，不会中断播放设备。具体调用方式为：在进房的时候调用 `enableAudioCaptureDevice(true) && enableAudioPlayDevice(true)` 一次，单击开关麦克风时只调用 `enableAudioSend/enableAudioRecv` 来控制音频流是否发送/接收。
 
-- 如果想单独释放采集或者播放设备，请参考下方的接口介绍 `enableAudioCaptureDevice` 及 `enableAudioPlayDevice`。
+- 如果想单独释放采集或者播放设备，请参考下方的 `enableAudioCaptureDevice` 和 `enableAudioPlayDevice` 接口介绍。
 
 - 调用 `pause` 暂停音频，调用 `resume` 恢复音频。
 
@@ -372,7 +372,7 @@ var isAudioCaptureDeviceEnabled = tencentGME.tencentGMEInst.isAudioCaptureDevice
 
 ### 开启/关闭音频上行
 
-此接口用于开启或关闭音频上行。如果采集设备已经开启，那么会发送采集到的音频数据。如果采集设备没有开启，那么仍旧无声。采集设备的开启/关闭，请参考接口 `EnableAudioCaptureDevice` 。
+此接口用于开启或关闭音频上行。如果采集设备已经开启，那么会发送采集到的音频数据。如果采集设备没有开启，那么仍旧无声。采集设备的开启/关闭，请参考接口 `EnableAudioCaptureDevice`。
 
 #### 函数原型
 
@@ -460,7 +460,7 @@ tencentGME.tencentGMEInst.setMicVolume(100);
 
 ### 获取麦克风音量
 
-此接口用于获取麦克风的音量。返回值为一个 `number` 类型数值，返回值为 101 代表没调用过接口 `setMicVolume`。
+此接口用于获取麦克风的音量。返回值为一个 `number` 类型数值，返回值为 **1～100** 表示正常音量，返回值为 **101** 则表示没调用过接口 `setMicVolume`。
 
 #### 函数原型
 
@@ -554,7 +554,7 @@ var isAudioPlayDeviceEnabled = tencentGME.tencentGMEInst.isAudioPlayDeviceEnable
 
 ### 开启/关闭音频下行
 
-此接口用于开启/关闭音频下行。如果播放设备已经开启，那么会播放房间里其他人的音频数据。如果播放设备没有开启，那么仍旧无声。播放设备的开启关闭请参考接口 `EnableAudioPlayDevice` 。
+此接口用于开启/关闭音频下行。如果播放设备已经开启，那么会播放房间里其他人的音频数据。如果播放设备没有开启，那么仍旧无声。播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice` 。
 
 #### 函数原型
 
@@ -617,7 +617,7 @@ TencentGME.fn.getRecvStreamLevel = function(openId: string) {...}
 
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
-|   openId    |  string       |  房间其他成员的 openId |  
+|   openId    |  string       |  房间内其他成员的 openId |  
 
 #### 示例代码
 
@@ -649,9 +649,9 @@ tencentGME.tencentGMEInst.setSpeakerVolume(100);
 
 ### 获取扬声器音量
 
-此接口用于获取扬声器音量。返回值为 `number` 类型数值，代表扬声器的音量，返回值为 **101** 代表没调用过接口 `setSpeakerVolume`。
+此接口用于获取扬声器音量。返回值为 `number` 类型数值，返回值为 **1～100** 表示正常音量，返回值为 **101**  代表没调用过接口 `setSpeakerVolume`。
 
-`Level` 是实时音量，`Volume` 是扬声器的音量，最终声音音量相当于 `Level * Volume%`。举个例子：实时音量是数值是 100 的话，此时 `Volume` 的数值是 60 ，那么最终发出来的声音数值也是 60 。
+`Level` 是实时音量，`Volume` 是扬声器的音量，最终声音音量相当于 `Level * Volume%`。举个例子：实时音量是数值是 100 的话，此时 `Volume` 的数值是 60 ，那么最终发出来的声音数值也是 60。
 
 #### 函数原型
 
@@ -734,7 +734,7 @@ tencentGME.tencentGMEInst.enableLoopBack(true);
 
 ### 鉴权初始化
 
-在初始化 SDK 之后调用鉴权初始化。
+在 [初始化 SDK](#初始化-sdk) 之后调用鉴权初始化。
 
 #### 函数原型
 
@@ -1219,7 +1219,7 @@ tencentGME.tencentGMEInst.setLogLevel(logPath);
 
 ### 加入音频数据黑名单
 
-将某个 ID 加入音频数据黑名单。返回值为 0 表示调用成功。
+将某个 ID 加入音频数据黑名单。返回值为 **0** 表示调用成功。
 
 #### 函数原型
 

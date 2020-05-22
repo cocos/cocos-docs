@@ -1,6 +1,6 @@
 # 腾讯云 - 小游戏联机对战引擎 MGOBE 简介
 
-  ![](image/tencent-cloud-logo.png)
+![](image/tencent-cloud-logo.png)
 
 [**小游戏联机对战引擎（Mini Game Online Battle Engine，MGOBE）**](https://cloud.tencent.com/product/mgobe) 为游戏提供房间管理、在线匹配、帧同步、状态同步等网络通信服务，帮助开发者快速搭建多人交互游戏。开发者无需关注底层网络架构、网络通信、服务器扩缩容、运维等，即可获得就近接入、低延迟、实时扩容的高性能联机对战服务，让玩家在网络上互通、对战、自由畅玩。MGOBE 适用于回合制、策略类、实时会话（休闲对战、MOBA、FPS）等游戏。
 
@@ -19,14 +19,14 @@
 
 #### 帧同步应用场景
 
-- **适用场景**：实时会话游戏10人以内，棋牌，策略类回合制游戏。
+- **适用场景**：实时会话游戏 10 人以内，棋牌，策略类回合制游戏。
 - **优点**：开发效率高，客户端同步指令给其他客户端。业务逻辑由客户端计算处理。
 
   ![](mgobe/mgobe-framesync.svg)
 
 #### 状态同步应用场景
 
-- **适用场景**：实时会话游戏大于10人，棋牌，策略回合制游戏。
+- **适用场景**：实时会话游戏大于 10 人，棋牌，策略回合制游戏。
 - **优点**：容易防外挂，当人数比较多，客户端渲染压力大时，可以由服务端来处理。
 
   ![](mgobe/mgobe-statussync.svg)
@@ -53,7 +53,7 @@
 
 - 点击 MGOBE 服务设置面板中的 **前往控制台**，跳转到 [腾讯云 MGOBE 后台](https://www.matchvs.com/manage/)，获取接入参数 **游戏 ID**、**游戏 key** 和 **域名**：
 
-    ![](mgobe/mgobe-params.jpg)
+  ![](mgobe/mgobe-params.jpg)
 
 - 在脚本中调用 MGOBE 的初始化，填入之前从 MGOBE 后台获取的 **游戏 ID**、**游戏 key** 和 **域名**：
 
@@ -115,17 +115,21 @@
 
 - 若需要使用实时服务器，创建服务后，请在 MGOBE 服务面板下方，点击 **初始化框架** 按钮，选择 JS 或者 TS 语言版本，进行本地框架代码初始化操作。
 
-    ![](mgobe/mgobe-realtime-init.jpg)
+  ![](mgobe/mgobe-realtime-init.jpg)
 
 - MGOBE 与 TCB 共用云函数面板，若初始化框架后没有出现云函数面板，可以在 **菜单 -> 面板 -> 云函数** 中重新打开。
 
 - 以 TS 版本为例，初始化后，在云函数面板中会出现 `mgobe-server`，即为 MGOBE 的实时服务器框架。`src/mgobexs/index.ts` 即为实时服务器主文件。
 
-    ![](mgobe/mgobe-cloud-panel.jpg)
+  ![](mgobe/mgobe-cloud-panel.jpg)
 
 - 修改主文件后，可以在云函数任意层级点击右键，选择 **立即发布**，即可上传代码进行调试。
 
-    ![](mgobe/mgobe-realtime-upload.jpg)
+  ![](mgobe/mgobe-realtime-upload.jpg)
+    
+## 视频教程
+    
+<iframe src="//player.bilibili.com/player.html?aid=328250967&bvid=BV1VA411q7Ms&cid=193808588&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 文档链接
 

@@ -1,6 +1,6 @@
 # 腾讯云 - 游戏多媒体引擎 GME 简介
 
-  ![](image/tencent-cloud-logo.png)
+![](image/tencent-cloud-logo.png)
 
 [**游戏多媒体引擎（Game Multimedia Engine，GME）**](https://cloud.tencent.com/product/gme) 提供一站式语音解决方案。针对不同场景进行深度优化，覆盖游戏、社交、娱乐等多种泛互联网行业应用场景。提供实时语音、语音消息及转文本、语音分析服务，一次接入即可满足多样化的语音需求。
 
@@ -43,7 +43,7 @@
 
 -  点击 GME 服务面板中的 **前往控制台**，跳转到腾讯云 GME 后台，获取接入参数 **AppID** 和 **权限密钥**：
 
-    ![](gme/gme-param.jpg)
+  ![](gme/gme-param.jpg)
     
 -  在脚本中调用 GME 的初始化，填入之前从腾讯云 GME 后台获取的 **AppID** 和 **权限密钥**：
 
@@ -62,7 +62,7 @@
 
 - 脚本修改完成并保存后，回到编辑器，当前 GME 版本不支持 H5 调试，需要 [**打包发布**](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。我们以 iOS 平台为例，若能在 Xcode 的控制台中看到 GME 进入房间相关日志，即可验证 GME 接入成功。
 
-    ![](gme/gme-debugging.jpg)
+  ![](gme/gme-debugging.jpg)
     
 ## GME Sample 的集成调试
 
@@ -70,7 +70,7 @@
 
 - 在该工程中执行 [**Cocos AppID 设定**](setting-cocos-appid.md) 和 [**一键开通服务**](oneclick-provisioning.md) 操作，开通服务操作也会将 Web 所需的预览插件导入工程，然后到 [**腾讯云 GME 后台**](https://console.cloud.tencent.com/gamegme) 获取 **AppID** 和 **权限密钥**。
 
-    ![](gme/gme-param.jpg)
+  ![](gme/gme-param.jpg)
 
 - 打开工程中的 `assest/Script/index.js`，修改 **appid** 和 **key** 的值。
 - 脚本修改完成并保存后，回到编辑器，[**打包发布**](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。

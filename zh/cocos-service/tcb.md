@@ -1,6 +1,6 @@
 ## 腾讯云 - 云开发 TCB 简介
 
-  ![](image/tencent-cloud-logo.png)
+![](image/tencent-cloud-logo.png)
 
 [**云开发（Tencent Cloud Base，TCB）**](https://cloud.tencent.com/product/tcb) 是腾讯云为移动开发者提供的一站式后端云服务，它帮助开发者统一构建和管理资源，免去了移动应用开发过程中繁琐的服务器搭建及运维、域名注册及备案、数据接口实现等繁琐流程，让开发者可以专注于业务逻辑的实现，而无需理解后端逻辑及服务器运维知识，开发门槛更低，效率更高。
 
@@ -25,7 +25,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择腾讯云 TCB 项，进入 TCB 服务面板。然后点击右上方的 **启用** 按钮以开通 TCB 服务。详情可参考 [Cocos Service 操作指南](user-guide.md)。
 
-	![](tcb/tcb-provisioning.jpg)
+    ![](tcb/tcb-provisioning.jpg)
 
 	**计费**：腾讯云 TCB服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](billing-and-charge.md)。
 
@@ -43,17 +43,17 @@
 
 在 **云开发** 面板中，选择一个环境 ID。若之前没有创建过环境，请点击 **新建环境** 按钮，填写一个自定义 **环境名称**，点击确定。
 
-  ![](tcb/tcb/tcb-env-panel.jpg)
+![](tcb/tcb/tcb-env-panel.jpg)
 
-  ![](tcb/tcb-env-id.jpg)
+![](tcb/tcb-env-id.jpg)
 
 返回 **云函数** 面板，若上方显示的当前环境 ID 正确，点击 ID 后面的 **+** 按钮，或者在 `cloud-function` 上点击右键，点击 **新建云函数 (Node.js)**。默认函数名为 function。若该环境已有云函数，可以点击 **同步云函数列表 -> 下载云函数。**
 
-  ![](tcb/tcb-new-function.jpg)
+![](tcb/tcb-new-function.jpg)
 
 最后在 **云函数** 面板，在方法名上点击右键，选择 **上传云函数**，完成云函数配置。
 
-  ![](tcb/tcb-upload-function.jpg)
+![](tcb/tcb-upload-function.jpg)
 
 #### 脚本调试
 
@@ -85,7 +85,7 @@
 
 - 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即可验证 TCB 接入成功。
 
-    ![](tcb/tcb-debugging.jpg)
+  ![](tcb/tcb-debugging.jpg)
 
 
 ## TCB Sample 的集成调试
@@ -98,23 +98,29 @@
 
 - 在 **云开发** 面板中，选择一个环境 ID。若之前没有创建过环境，请点击 **新建环境** 按钮，填写一个自定义 **环境名称**，点击确定。
 
-    ![](tcb/tcb-env-panel.jpg)
+  ![](tcb/tcb-env-panel.jpg)
 
-    ![](tcb/tcb-env-id.jpg)
+  ![](tcb/tcb-env-id.jpg)
 
-- 打开 Sample 工程目录下的 `serverless/cloud-function/`目录，若还存在 **undefinedenv** 目录，手动将其改为当前的环境名。
+- 打开 Sample 工程目录下的 `serverless/cloud-function/` 目录，若还存在 **undefinedenv** 目录，手动将其改为当前的环境名。
 
 - 打开该环境名目录下的 `function/index.js` 文件，修改环境名。
 
 - 最后回到 **云函数** 面板，在 `function` 方法名上右键，选择 **上传云函数**，完成云函数配置。
 
-    ![](tcb/tcb-upload-function.jpg)
+  ![](tcb/tcb-upload-function.jpg)
 
 - 请到 **腾讯云后台 -> 云开发 -> 选择当前环境 -> 环境设置/登录授权** 中确认该环境已经启用匿名登录。
 
 - 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
 
   ![](tcb/tcb-sample.jpg)
+  
+## 视频教程
+
+<iframe src="//player.bilibili.com/player.html?aid=795849890&bvid=BV1CC4y1p7r7&cid=193808092&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+https://www.bilibili.com/video/BV1CC4y1p7r7
 
 ## 文档链接
 
