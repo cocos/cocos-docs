@@ -21,6 +21,8 @@
 
 ### 开通 TCB 服务
 
+- 需要 Cocos Creator **v2.3.4** 及以上版本。
+
 - 使用 Cocos Creator 打开需要接入 TCB 服务的项目工程。
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择腾讯云 TCB 项，进入 TCB 服务面板。然后点击右上方的 **启用** 按钮以开通 TCB 服务。详情可参考 [Cocos Service 操作指南](user-guide.md)。
@@ -43,7 +45,7 @@
 
 在 **云开发** 面板中，选择一个环境 ID。若之前没有创建过环境，请点击 **新建环境** 按钮，填写一个自定义 **环境名称**，点击确定。
 
-![](tcb/tcb/tcb-env-panel.jpg)
+![](tcb/tcb-env-panel.jpg)
 
 ![](tcb/tcb-env-id.jpg)
 

@@ -25,7 +25,7 @@
 
 - GME 加入房间需要鉴权，请参考文档关于 [鉴权初始化](#鉴权初始化) 内容。
 
-- GME 需要周期性的调用 [poll](#触发事件回调)  接口触发事件回调。
+- GME 需要周期性的调用 [poll](#触发事件回调) 接口触发事件回调。
 
 - GME 回调信息，请参考 [回调消息](#回调消息) 列表。
 
@@ -39,7 +39,7 @@
 
 ## 初始化相关接口
 
-未初始化前，SDK 处于未初始化阶段，需要通过接口 Init 初始化 SDK，才可以使用实时语音及离线语音。
+未初始化前，SDK 处于未初始化阶段，需要通过接口 `init` 初始化 SDK，才可以使用实时语音及离线语音。
 
 使用问题可参考腾讯云官方文档 [一般性问题](https://cloud.tencent.com/document/product/607/30408)。
 
@@ -697,7 +697,6 @@ tencentGME.tencentGMEInst.enableLoopBack(true);
 
 ### 初始化相关接口
 
-
 |  接口     |   接口含义   |  
 |   ------------- |  :-------------:|  
 |  [init](#初始化-sdk) 	|  初始化 SDK  |   
@@ -797,8 +796,8 @@ tencentGME.tencentGMEInst.pttStartRecording(fileDir);
 
 ```
 TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileDir: string, [speechLanguage: string, translateLanguage: string]) {...}
-
 ```
+
 |  参数     |   类型         |  含义|  
 |   ------------- |  :-------------:|  -------------|  
 |   fileDir    	|  string	|  存放的语音路径	|  
@@ -810,7 +809,6 @@ TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileDir: stri
 ```
 var fileDir = '*****';
 tencentGME.tencentGMEInst.pttStartRecordingWithStreamingRecognition(fileDir);
-
 ```
 
 ### 暂停录音

@@ -51,7 +51,7 @@
 
 完成 MGOBE 服务接入步骤后，我们可以通过在脚本中添加简单的代码来验证 MGOBE 的接入是否成功。
 
-- 点击 MGOBE 服务设置面板中的 **前往控制台**，跳转到 [腾讯云 MGOBE 后台](https://www.matchvs.com/manage/)，获取接入参数 **游戏 ID**、**游戏 key** 和 **域名**：
+- 点击 MGOBE 服务设置面板中的 **前往控制台**，跳转到 [腾讯云 MGOBE 后台](https://console.cloud.tencent.com/mgobe)，获取接入参数 **游戏 ID**、**游戏 key** 和 **域名**：
 
   ![](mgobe/mgobe-params.jpg)
 
