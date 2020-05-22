@@ -1,4 +1,4 @@
-# Line Join
+# lineJoin
 
 The `lineJoin()` method sets or returns the style of the line end cap.
 
@@ -13,9 +13,9 @@ The `lineJoin()` method sets or returns the style of the line end cap.
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineJoin = cc.Graphics.LineJoin.ROUND;
-ctx.moveTo(20,20);
-ctx.lineTo(100,50);
-ctx.lineTo(20,100);
+ctx.moveTo(20, 20);
+ctx.lineTo(100, 50);
+ctx.lineTo(20, 100);
 ctx.fill();
 ```
 

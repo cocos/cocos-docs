@@ -1,4 +1,4 @@
-# Arc
+# arc
 
 The `arc()` method creates an arc/curve (used to create circles or partial circles).
 
@@ -17,7 +17,7 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 
 ```javascript
 Var ctx = node.getComponent(cc.Graphics);
-ctx.arc(100,75,50,0,1.5 * Math.PI);
+ctx.arc(100, 75, 50, 0, 1.5 * Math.PI);
 ctx.fill();
 ```
 

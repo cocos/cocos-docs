@@ -1,4 +1,4 @@
-# # Fill
+# fill
 
 The `fill()` method is used to fill the current image (path). The default color is **white**.
 
@@ -8,7 +8,7 @@ The `fill()` method is used to fill the current image (path). The default color 
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.rect (20,20,150,100);
+ctx.rect (20, 20, 150, 100);
 ctx.fillColor = cc.Color.GREEN;
 ctx.fill();
 ```

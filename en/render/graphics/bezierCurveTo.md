@@ -1,4 +1,4 @@
-# BezierCurveTo
+# bezierCurveTo
 
 The `bezierCurveTo()` method adds a point to the current path by using the specified control point that represents the cubic bezier curves.
 

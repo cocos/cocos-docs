@@ -1,6 +1,6 @@
-# Miter Limit
+# miterLimit
 
-The `MiterLimit()` method sets or returns the maximum miter length.  
+The `miterLimit()` method sets or returns the maximum miter length.<br>
 The miter length refers to the distance between the inner and outer corners of the intersection of the two lines.
 
 **Note**: `miterLimit` is valid only if the `lineJoin` property is `miter`.
@@ -18,9 +18,9 @@ If the miter length exceeds the value of `miterLimit`, the corners are displayed
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.miterLimit = 10;
-ctx.moveTo(20,20);
-ctx.lineTo(100,50);
-ctx.lineTo(20,100);
+ctx.moveTo(20, 20);
+ctx.lineTo(100, 50);
+ctx.lineTo(20, 100);
 ctx.fill();
 ```
 

@@ -1,4 +1,4 @@
-# Line To
+# lineTo
 
 The `lineTo()` method is used to add a new point, and then create a line from that point to the last specified point in the canvas.
 
@@ -11,9 +11,9 @@ The `lineTo()` method is used to add a new point, and then create a line from th
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.moveTo(20,100);
-ctx.lineTo(20,20);
-ctx.lineTo(70,20);
+ctx.moveTo(20, 100);
+ctx.lineTo(20, 20);
+ctx.lineTo(70, 20);
 ctx.fill();
 ```
 

@@ -1,13 +1,13 @@
 # fillColor
 
-`fillColor` 属性设置或返回用于填充的颜色。
+`fillColor()` 方法用于设置或返回用于填充的颜色。
 
 ## 实例
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.fillColor = new cc.Color().fromHEX('#0000ff');
-ctx.rect(20,20,250,200);
+ctx.rect(20, 20, 250, 200);
 ctx.fill();
 ```
 

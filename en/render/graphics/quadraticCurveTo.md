@@ -1,4 +1,4 @@
-# Quadratic Curve To
+# quadraticCurveTo
 
 The `quadraticCurveTo()` method adds a point to the current path by using the specified control point that represents the **Quadratic Bezier curve**.
 
@@ -15,8 +15,8 @@ The `quadraticCurveTo()` method adds a point to the current path by using the sp
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.moveTo(20,20);
-ctx.quadraticCurveTo(20,100,200,20);
+ctx.moveTo(20, 20);
+ctx.quadraticCurveTo(20, 100, 200, 20);
 ctx.fill();
 ```
 

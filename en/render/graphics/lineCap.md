@@ -1,4 +1,4 @@
-# Line Cap
+# lineCap
 
 The `lineCap()` method sets or returns the style of the line end cap.
 
