@@ -1,6 +1,6 @@
-# LineJoin
+# Line Join
 
-`lineJoin` property sets or returns the style of the line end cap.
+The `lineJoin()` method sets or returns the style of the line end cap.
 
 | Parameter | description
 | -------------- | ----------- |
@@ -23,4 +23,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

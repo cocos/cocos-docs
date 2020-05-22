@@ -1,6 +1,6 @@
 # Circle
 
-Use `circle()` method to create a circle.
+The `circle()` method is used to create a circle.
 
 | Parameter | Description
 | -------------- | ----------- |
@@ -20,4 +20,4 @@ ctx.stroke ();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

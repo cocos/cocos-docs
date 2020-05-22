@@ -26,4 +26,4 @@ ctx.stroke ();
 
 <Hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

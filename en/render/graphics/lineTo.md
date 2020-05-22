@@ -1,6 +1,6 @@
-# LineTo
+# Line To
 
-Use `lineTo()` method to add a new point, and then create a line from that point to the last specified point in the canvas.
+The `lineTo()` method is used to add a new point, and then create a line from that point to the last specified point in the canvas.
 
 | Parameter | Description
 | -------------- | ----------- |
@@ -21,4 +21,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

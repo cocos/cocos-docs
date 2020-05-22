@@ -1,6 +1,6 @@
 # Clear
 
-Use `clear()` to clear all paths.
+The `clear()` function is used to clear all paths.
 
 ## Example
 
@@ -15,4 +15,4 @@ update: function (dt) {
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

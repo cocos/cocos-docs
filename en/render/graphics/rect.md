@@ -1,6 +1,6 @@
 # Rect
 
-Use `rect()` method to create a rectangle.
+The `rect()` method is used to create a rectangle.
 
 | Parameter | Description
 | -------------- | ----------- |
@@ -45,4 +45,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

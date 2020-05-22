@@ -1,6 +1,6 @@
 # Stroke
 
-The `stroke()` method actually draws a path defined by a path method such as `moveTo()` and `lineTo()`. The default color is black.
+The `stroke()` method draws a path defined by a path method such as `moveTo()` and `lineTo()`. The **default color** is **black**.
 
 ## Example
 
@@ -16,4 +16,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

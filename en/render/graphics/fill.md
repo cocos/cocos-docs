@@ -1,7 +1,8 @@
-# Fill
+# # Fill
 
-The `fill()` method fills the current image (path). The default color is white.
-Note: If the path is not closed, the fill() method adds a line from the end of the path to the start point to close the path and then populate the path.
+The `fill()` method is used to fill the current image (path). The default color is **white**.
+
+**Note**: If the path is not closed, the `fill()` method adds a line from the end of the path to the start point to close the path and then populate the path.
 
 ## Example
 
@@ -16,4 +17,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.
