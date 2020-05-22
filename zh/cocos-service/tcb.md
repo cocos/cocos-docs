@@ -118,7 +118,11 @@
   
 ## 视频教程
 
-<iframe src="//player.bilibili.com/player.html?aid=795849890&bvid=BV1CC4y1p7r7&cid=193808092&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+{% raw %}
+
+<iframe src="https://player.bilibili.com/player.html?aid=795849890&bvid=BV1CC4y1p7r7&cid=193808092&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="480" allowfullscreen="true"> </iframe>
+
+{% endraw %}
 
 https://www.bilibili.com/video/BV1CC4y1p7r7
 

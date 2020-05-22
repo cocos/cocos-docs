@@ -129,7 +129,13 @@
     
 ## 视频教程
     
-<iframe src="//player.bilibili.com/player.html?aid=328250967&bvid=BV1VA411q7Ms&cid=193808588&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+{% raw %}
+
+<iframe src="https://player.bilibili.com/player.html?aid=328250967&bvid=BV1VA411q7Ms&cid=193808588&page=1" scrolling="no" border="0" frameborder="no" width="100%" height="480" framespacing="0" allowfullscreen="true"> </iframe>
+
+{% endraw %}
+
+https://www.bilibili.com/video/BV1VA411q7Ms
 
 ## 文档链接
 
