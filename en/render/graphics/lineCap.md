@@ -1,6 +1,6 @@
-# LineCap
+# lineCap
 
-The `lineCap` property sets or returns the style of the line end cap.
+The `lineCap()` method sets or returns the style of the line end cap.
 
 | Parameter | Description
 | -------------- | ----------- |
@@ -23,4 +23,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

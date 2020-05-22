@@ -1,6 +1,6 @@
-# Ellipse
+# ellipse
 
-Use `ellipse()` method to create an ecllipse.
+The `ellipse()` method is used to create an ecllipse.
 
 | Parameter | Description
 | --------- | ----------- |
@@ -13,7 +13,7 @@ Use `ellipse()` method to create an ecllipse.
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.ellipse(200,100, 200,100);
+ctx.ellipse(200, 100, 200, 100);
 ctx.fill();
 ```
 
@@ -21,4 +21,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

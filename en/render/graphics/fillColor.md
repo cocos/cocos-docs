@@ -1,13 +1,13 @@
 # fillColor
 
-The `fillColor` property sets or returns the color used for the fill.
+The `fillColor()` method sets or returns the color used for the fill.
 
 ## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.fillColor = new cc.Color().fromHEX('#0000ff');
-ctx.rect(20,20,250,200);
+ctx.rect(20, 20, 250, 200);
 ctx.fill();
 ```
 
@@ -15,4 +15,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

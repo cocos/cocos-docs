@@ -1,20 +1,18 @@
 # strokeColor
 
-`strokeColor` 属性设置或返回用于笔触的颜色。
-
+`strokeColor()` 方法用于设置或返回用于笔触的颜色。
 
 ## 实例
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 2;
-ctx.strokeColor = cc.hexToColor('#0000ff');
-ctx.rect(20,20,250,200);
+ctx.strokeColor = new cc.Color().fromHEX('#0000ff');
+ctx.rect(20, 20, 250, 200);
 ctx.fill();
 ```
 
 <a href="graphics/strokeColor.png"><img src="graphics/strokeColor.png"></a>
-
 
 <hr>
 

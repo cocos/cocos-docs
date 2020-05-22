@@ -1,4 +1,4 @@
-# BezierCurveTo
+# bezierCurveTo
 
 The `bezierCurveTo()` method adds a point to the current path by using the specified control point that represents the cubic bezier curves.
 
@@ -26,4 +26,4 @@ ctx.stroke ();
 
 <Hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

@@ -1,6 +1,6 @@
 # clear
 
-`clear()` 清空所有路径。   
+`clear()` 方法用于清空所有路径。   
 
 ## 实例
 
@@ -8,7 +8,7 @@
 update: function (dt) {
     var ctx = node.getComponent(cc.Graphics);
     ctx.clear();
-    ctx.circle(200,200, 200);
+    ctx.circle(200, 200, 200);
     ctx.fill();
 }
 ```
