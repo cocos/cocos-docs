@@ -101,10 +101,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
--** Separate Engine **
-      The game engine plug-in is a new feature added to the vivo 1063 platform version. This plug-in has the official version of the Cocos Creator engine built in. If the plug-in is enabled in the game that the player experiences for the first time, all games that also enable this plug-in do not need to download the Cocos Creator engine again, just use the same from the public plug-in library Version engine, or incremental update engine.
+-**Separate Engine**(New in v2.3.4)
 
-      This option is optional (new in v2.3.4). Check ** Allow Separation Engine **, and then build and release normally, no other manual operation is required.
+  This item is optional. vivo has added game engine plugin feature starting with platform version number 1063. This plugin has the official version of the Cocos Creator engine built in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
+
+  Check **Separate Engine** when using, and then build and release normally in the Build panel, without additional manual operation. You can refer to [the WeChat Engine Plugin Instructions](https://docs.cocos.com/creator/manual/en/publish/wechat-engine-plugin.html) for details.
 
 - **Custom npm folder path**
 
