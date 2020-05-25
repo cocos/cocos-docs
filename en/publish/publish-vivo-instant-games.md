@@ -101,7 +101,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
--**Separate Engine**(New in v2.3.4)
+- **Separate Engine** (New in v2.3.4)
 
   This item is optional. vivo has added **game engine plugin** feature starting with platform version number **1063**. This plugin has the official version of the Cocos Creator engine built in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
 
