@@ -103,7 +103,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Separate Engine** (New in v2.3.4)
 
-  This item is optional. vivo has added **game engine plugin** feature starting with platform version number **1063**. This plugin has the official version of the Cocos Creator engine built in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
+  This item is optional. Vivo has added **game engine plugin** feature since platform version number **1063**. This plugin has the official version of the Cocos Creator engine built-in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
 
   Check **Separate Engine** when using, and then build and release normally in the **Build** panel, without additional manual operation. You can refer to the [WeChat Engine Plugin Instructions](./wechat-engine-plugin.md) for details.
 
