@@ -101,6 +101,8 @@
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
+    - [Publish to Xiaomi Quick Games](publish/publish-xiaomi-quick-games.md)
+    - [Publish to Cocos Play](publish/publish-cocosplay.md)
     - [Customize Project Build Process](publish/custom-project-build-template.md)
     - [Publish from Command Line](publish/publish-in-command-line.md)
 

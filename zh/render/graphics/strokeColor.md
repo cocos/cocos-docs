@@ -1,6 +1,6 @@
 # strokeColor
 
-`strokeColor()` 方法用于设置或返回用于笔触的颜色。
+`strokeColor` 属性用于设置或返回用于笔触的颜色。
 
 ## 实例
 

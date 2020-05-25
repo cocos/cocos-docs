@@ -1,6 +1,6 @@
 # close
 
-The `close()` method is used to create a path from a current point to a beginning point.
+The `close()` method is used to create a path from a current point to the beginning point.
 
 ## Example
 

@@ -44,7 +44,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Small Packet Mode**
 
-  This item is optional. The in-package volume of the quick game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the quick game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The in-package volume of the quick game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the quick game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
 
   1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -136,7 +136,7 @@ Subpackage rpk can be used according to your needs.
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
-After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `/build/quickgame/dist` directory.
+After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `/build/huawei/dist` directory.
 
 ## Related Reference Links
 

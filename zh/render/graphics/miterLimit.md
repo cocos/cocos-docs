@@ -1,9 +1,9 @@
 # miterLimit
 
-`miterLimit()` 方法用于设置或返回最大斜接长度。   
+`miterLimit` 属性用于设置或返回最大斜接长度。   
 斜接长度指的是在两条线交汇处内角和外角之间的距离。   
 
-**注意**：只有当 `lineJoin()` 设置为 `miter` 时，`miterLimit` 才有效。
+**注意**：只有当 `lineJoin` 属性设置为 `miter` 时，`miterLimit` 才有效。
 
 边角的角度越小，斜接长度就会越大。   
 为了避免斜接长度过长，我们可以使用 `miterLimit` 属性。   

@@ -1,12 +1,12 @@
 # lineCap
 
-The `lineCap()` method sets or returns the style of the line end cap.
+The `lineCap` property sets or returns the style of the line end cap.
 
 | Parameter | Description
 | -------------- | ----------- |
-| cc.Graphics.LineCap.BUTT | default. Add a straight edge to each end of the line.
-| cc.Graphics.LineCap.ROUND | Add a circular cap to each end of the line.
-| cc.Graphics.LineCap.SQUARE | Add a square line cap to each end of the line.
+| `cc.Graphics.LineCap.BUTT` | default. Add a straight edge to each end of the line.
+| `cc.Graphics.LineCap.ROUND` | Add a circular cap to each end of the line.
+| `cc.Graphics.LineCap.SQUARE` | Add a square line cap to each end of the line.
 
 ## Example
 
