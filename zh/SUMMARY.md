@@ -90,6 +90,10 @@
         - [服务面板说明](cocos-service/about-service-panel.md)
         - [计费与充值](cocos-service/billing-and-charge.md)
     - [Cocos Analytics 统计](cocos-service/cocos-analytics.md)
+    - [腾讯云 | 云开发](cocos-service/tcb.md)
+    - [腾讯云 | 游戏联机对战引擎](cocos-service/mgobe.md)
+    - [腾讯云 | 游戏多媒体引擎](cocos-service/gme.md)
+        - [接口文档](cocos-service/gme-api-docs.md)
     - [Matchvs 游戏云](cocos-service/matchvs.md)
     - [Agora 声网](cocos-service/agora.md)
 - [发布跨平台游戏](publish/index.md)
@@ -261,3 +265,5 @@
     - [SDKBox](sdk/sdkbox.md)
     - [Facebook 直播和广告](sdk/fb-an-and-live.md)
     - [WebSocket 服务器](sdk/websocket-server.md)
+
+
