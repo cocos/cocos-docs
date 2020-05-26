@@ -4,7 +4,7 @@ Starting with Cocos Creator v2.3.0, creating games for the QTT Mini Games is off
 
 ## Environment Configuration
 
-- Download [QTT APP](https://cdn-qukan.1sapp.com/qukan/cocos/doc/apk/QkHost-online-release.apk) and install it on your Android device (Android Phone 6.0 or above is recommended).
+- Download [QTT APP](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app) and install it on your Android device (Android Phone 6.0 or above is recommended).
 
 ## Release Process
 

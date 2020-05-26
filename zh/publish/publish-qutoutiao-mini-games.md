@@ -4,7 +4,7 @@ Cocos Creator 从 v2.3.0 开始支持将游戏发布到 **趣头条小游戏**�
 
 ## 环境配置
 
-- 下载 [趣头条 APP](https://cdn-qukan.1sapp.com/qukan/cocos/doc/apk/QkHost-online-release.apk) 并安装到 Android 设备（建议 Android Phone 6.0 或以上版本）。
+- 下载 [趣头条 APP](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app) 并安装到 Android 设备（建议 Android Phone 6.0 或以上版本）。
 
 ## 发布流程
 
