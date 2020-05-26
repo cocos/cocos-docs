@@ -37,6 +37,14 @@ Specifically, developers need to:
 3. When the build is complete, upload the **res** folder in the mini-game publish package to the server.
 4. Delete the **res** folder under the local publish package directory.
 
+## Resource Management for Alipay Mini Game Environment
+
+**Alipay Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **4MB** must be downloaded via a network request.
+
+Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+
+**Note**: When Alipay loads the resources on the remote server on the physical device, it only supports access via https, so the resource file must be placed on https, otherwise the loading of the resource will fail.
+
 ## Alipay Mini Games Known issues
 
 Currently, our adaptation of Alipay Mini Games has not been completely completed, and the following modules are still not supported:

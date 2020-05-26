@@ -40,22 +40,9 @@ For specific **Baidu Mini Game** application, station development, game submissi
 
 **Baidu Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **4MB** must be downloaded via a network request.
 
-It is recommended to only save script files in the mini-game packages, while other resources are uploaded to the remote server, and downloaded from the remote server as needed. The download, cache, and version management of remote resources, Cocos Creator has already done it for you. The specific implementation logic is similar to the WeChat Mini Game. Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-When the **md5Cache** feature of the engine is enabled, the URL of the file will change as the content of the file changes. When the game releases a new version, the resources of the old version will naturally become invalid in the cache, and only the new resources can be requested from the server, which achieves the effect of version control.
-
-Specifically, developers need to do the following:
-
-1. When building, check the md5Cache feature in the **Build** panel.
-2. Set **Remote server address** in the **Build** panel and then click **Build**.
-3. After the build is complete, upload the `res` folder under the **Baidu Mini Game** release package directory to the server.
-4. Delete the `res` folder under the local release package directory.
-
-**Note**:
-
-- When Baidu loads the resources on the remote server on the physical device, it only supports access via https, so the resource file must be placed on https, otherwise the loading of the resource will fail.
-
-- If the cache resource exceeds the environment limit of Baidu, you need to manually clear the resource. You can use the `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` interfaces to clear the cache in Baidu mini game. The former will clear all cache resources in the cache directory, please use it with caution. The latter will clear the cache resources that are not used in the current application in the cache directory.
+**Note**: When Baidu loads the resources on the remote server on the physical device, it only supports access via https, so the resource file must be placed on https, otherwise the loading of the resource will fail.
 
 ## Baidu Mini Game Subpackage Loading
 
