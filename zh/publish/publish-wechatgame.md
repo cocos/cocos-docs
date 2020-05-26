@@ -102,6 +102,14 @@
 
         ![](./publish-wechatgame/clear-cache.png)
 
+### 加速初始场景资源加载
+
+有时候我们希望将主包资源放在服务器上，同时希望将初始场景相关的资源放在包内来加快初始场景的加载速度。这时候我们可以在构建面板上，勾选 **初始场景分包**。
+
+![](./publish-wechatgame/start_scene_asset_bundle.png)
+
+构建完成后，`assets` 目录下将生成一个 `start-scene` 的 bundle。该 bundle 不会放在服务器上，引擎在启动阶段将会自动从包内加载这个 bundle，从而加快初始场景的加载速度。
+
 ## 微信小游戏引擎插件
 
 请参考 [微信小游戏引擎插件](./wechat-engine-plugin.md)。
