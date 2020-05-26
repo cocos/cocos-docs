@@ -1,6 +1,6 @@
 # lineWidth
 
-The `lineWidth()` method adds a new point, and then creates a line from that point to the last specified point in the canvas.
+The `lineWidth` property adds a new point, and then creates a line from that point to the last specified point in the canvas.
 
 | Parameter | description
 | -------------- | ----------- |

@@ -36,7 +36,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Small Packet Mode**
 
-  This item is optional. The package size of a mini game depends on the volume of code and static resources contained in the game package. Regardless of whether the small package mode is selected, the volume of the game package cannot exceed 4M after the package is generated. If it is greater than this volume limit, you should consider using the small packet mode. In QTT Mini Games environment, resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following steps:
+  This item is optional. The package size of a mini game depends on the volume of code and static resources contained in the game package. Regardless of whether the small package mode is selected, the volume of the game package cannot exceed 4M after the package is generated. If it is greater than this volume limit, you should consider using the small packet mode. In QTT Mini Games environment, resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
 
   - When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -48,7 +48,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   - After the build is complete, click the **Open** button after the **Build Path** to upload the **qtt-game/res** directory under the release path to the packet mode server. For example, if the default publishing path is `build`, you need to upload the **build/qtt-game/res** directory.
 
-  At this point, the **res** directory will no longer be included in the built-up rpk, and the resources in the res directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  At this point, the **res** folder will no longer be included in the `.rpk` file which is generated after the build, and the resources in the **res** folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 **2. Build**
 

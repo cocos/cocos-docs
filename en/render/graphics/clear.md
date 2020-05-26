@@ -1,6 +1,6 @@
 # clear
 
-The `clear()` function is used to clear all paths.
+The `clear()` function is used to erase any previously drawn content.
 
 ## Example
 

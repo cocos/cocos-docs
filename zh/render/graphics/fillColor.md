@@ -1,6 +1,6 @@
 # fillColor
 
-`fillColor()` 方法用于设置或返回用于填充的颜色。
+`fillColor` 属性用于设置或返回用于填充的颜色。
 
 ## 实例
 

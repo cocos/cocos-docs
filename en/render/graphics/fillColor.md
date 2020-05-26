@@ -1,6 +1,6 @@
 # fillColor
 
-The `fillColor()` method sets or returns the color used for the fill.
+The `fillColor` property sets or returns the color used for the fill.
 
 ## Example
 

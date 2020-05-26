@@ -1,12 +1,12 @@
 # lineJoin
 
-The `lineJoin()` method sets or returns the style of the line end cap.
+The `lineJoin` property determines how two connecting segments (lines, arcs or curves) with non-zero lengths in a shape are joined together.
 
 | Parameter | description
 | -------------- | ----------- |
-| cc.Graphics.LineJoin.BEVEL | Creates a bevel.
-| cc.Graphics.LineJoin.ROUND | Create fillet.
-| cc.Graphics.LineJoin.MITER | Default. Create sharp corners.
+| `cc.Graphics.LineJoin.BEVEL` | Creates a bevel.
+| `cc.Graphics.LineJoin.ROUND` | Create fillet.
+| `cc.Graphics.LineJoin.MITER` | Default. Create sharp corners.
 
 ## Example
 
@@ -23,4 +23,4 @@ ctx.fill();
 
 <hr>
 
-Return to the [Graphics Component Reference](../../components/graphics.md) documentation..
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.
