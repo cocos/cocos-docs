@@ -32,7 +32,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   - After the build is complete, click the **Open** button after the **Build Path** to upload the `build/cocos-play/res` folder under the release path to the small packet mode server.
 
-  At this point, the `res` folder will no longer be included in the built-up `.cpk` file, and the resources in the `res` directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  At this point, the `res` folder will no longer be included in the `.cpk` file which is generated after the build, and the resources in the `res` folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 ### 2. Build
 
@@ -58,24 +58,24 @@ Open the previously installed **Self-test Tools**, then click the **Configure Ga
 | **gameSecret**  | Game secret key, which can be obtained from the background. |
 | **gameType**    | Game type, including **Versus** and **non-Versus**. You can see how to use it in the **Start Game** section below. |
 | **gameMode**    | Game mode, please select **Runtime**.    |
-| **lodeType**    | Game load type, which is how the game starts. Includes both **File** and **Url**. Please refer to the **Start Game** section below. |
-| **path**        | Game load address, needs to be used with **lodeType**. Please refer to the **Start Game** section below.   |
+| **loadType**    | Game load type, which is how the game starts. Includes both **File** and **Url**. Please refer to the **Start Game** section below. |
+| **path**        | Game load address, needs to be used with **loadType**. Please refer to the **Start Game** section below.   |
 
 ### 4. Start Game
 
 There are two ways to start the game through the **Self-test Tools**.
 
-1. Load the game package as a file from the specified location (The game lodeType is **File**).
+1. Load the game package as a file from the specified location (The game loadType is **File**).
 
     - Copy the `.cpk` file generated after the build to the device directory, if it is copied to the `sdcard` directory of device, you need to create a new folder (For example named `cocosplay`) in the `sdcard` directory and copy the `.cpk` file to the `cocosplay` folder.
-    - Select **File** in the **lodeType** of the game configuration page.
+    - Select **File** in the **loadType** of the game configuration page.
     - Fill in the path to the `cocosplay` folder where the `.cpk` file is placed in the **path** option. Such as `cocosplay/game.cpk`.
     - Click on **Save** after the configuration is complete, then click on **Start Game** to open the game.
 
-2. Open the game as a web page from the specified URL (The game lodeType is **Url**).
+2. Open the game as a web page from the specified URL (The game loadType is **Url**).
 
     - Upload the `.cpk` file to the server.
-    - Select **Url** in the **lodeType** of the game configuration page.
+    - Select **Url** in the **loadType** of the game configuration page.
     - Fill in **path**, such as: <http://192.168.0.1:8080/game.cpk>.
     - Click on **Save** after the configuration is complete, then click on **Start Game** to open the game.
 

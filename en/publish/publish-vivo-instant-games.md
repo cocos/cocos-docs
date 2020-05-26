@@ -74,9 +74,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **qgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/qgame/res** directory.
 
-  At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
+  At this point, the **res** folder will no longer be included in the **qgame** directory which is generated after the build, and the resources in the **res** folder will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 
 - **Keystore**
 
@@ -143,7 +143,7 @@ The specific filling rules for the relevant parameter configuration are as follo
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __vivo Mini Game__ project directory.
+**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory.
 
 ![](./publish-vivo-instant-games/package.png)
 
