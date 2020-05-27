@@ -4,7 +4,7 @@
 
 从 v2.4 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为模块化资源的工具，能够允许开发者按照项目需求将贴图，脚本，场景等等资源划分在不同的 Asset Bundle 中，在游戏运行过程中，按照需求去加载不同的 Asset Bundle，尽可能减少启动时需要加载的资源数量。Asset Bundle 能够按需求随意放置，比如可放在远程服务器上，本地，或者小游戏平台的子包中。
 
-## FQA
+## FAQ
 
 Q：Asset Bundle 所带来的优势是什么？
 
