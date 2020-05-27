@@ -139,6 +139,12 @@ There are two ways to start debugging.
       npm run debug -- --print-only
       ```
 
+## Resource Management for Alipay Mini Game Environment
+
+**Xiaomi Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **5MB** must be downloaded via a network request.
+
+Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+
 ## Subpackage rpk
 
 Subpackage rpk can be used according to your needs. 
