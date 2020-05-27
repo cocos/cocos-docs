@@ -28,15 +28,14 @@
     });
 
     // 修改后
-    cc.assetManager.loadBundle('subpackages/sub1', (err, bundle) => {
+    cc.assetManager.loadBundle('sub1', (err, bundle) => {
         // 传入该资源相对 Asset Bundle 根目录的相对路径
         bundle.load('sprite-frames/background', cc.SpriteFrame);
     });
 ```
 
 **注意**：
-1. 加载 Asset Bundle 必须用完整 url 进行加载，而不是包名，所以请根据构建之后的 Asset Bundle 目录进行调整。
-2. 加载 Asset Bundle 中的资源需要使用 Asset Bundle 的相关 API。相关 API 请查看 [Asset Bundle](../../../api/en/classes/Bundle.html)
+1. 加载 Asset Bundle 中的资源需要使用 Asset Bundle 的相关 API。相关 API 请查看 [Asset Bundle](../../../api/en/classes/Bundle.html)
 
 ## 我该如何使用新版本的分包加载？
 

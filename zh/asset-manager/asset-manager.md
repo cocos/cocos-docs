@@ -58,7 +58,7 @@ loadAsset () {
 开发者可以将自己的场景，资源，代码规划到 Asset Bundle，并在运行时动态加载资源，从而实现资源的模块化，仅在需要时加载对应资源。例如：
 
 ```js
-cc.assetManager.loadBundle('http://example.com/test', function (err, bundle) {
+cc.assetManager.loadBundle('testBundle', function (err, bundle) {
     bundle.load('textures/background', (err, asset) => {
         // ...
     });

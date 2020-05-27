@@ -103,16 +103,15 @@ Bundle 目前还提供了五个压缩选项，用于对 bundle 进行优化，�
 
 ## 加载 Asset Bundle
 
-AssetManager 提供了 `loadBundle` 用以加载 Asset Bundle，需要注意的是 `loadBundle` 只能通过 Asset Bundle 的 url 进行加载，不支持通过 bundle 名称进行加载，所以你需要如下使用：
+AssetManager 提供了 `loadBundle` 用以加载 Asset Bundle，`loadBundle` 能通过 Asset Bundle 的名称和 url 进行加载，但当你复用其他项目的 bundle 时，将只能使用 url 进行加载，所以你需要如下使用：
 
 ```js
-// bundleA 在 cdn 上时
-cc.assetManager.loadBundle('http://mycdn.com/assets/bundleA', (bundle) => {
+cc.assetManager.loadBundle('bundleA', (bundle) => {
   bundle.load('xxx');
 });
 
-// 当 bundleA 在包内时
-cc.assetManager.loadBundle('assets/bundleB', (bundle) => {
+// 当复用其他项目 bundle 时
+cc.assetManager.loadBundle('https://othergame.com/remote/bundleB', (bundle) => {
   bundle.load('xxx');
 });
 ```

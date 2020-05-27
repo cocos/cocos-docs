@@ -25,9 +25,8 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
 **配置为远程包** 选项将决定 Asset Bundle 是否作为远程包，勾选之后，该 Asset Bundle 会在构建后会被放入 remote 文件夹下，你应该将整个 remote 文件夹放到远程服务器上。另外，如果勾选了此选项，在 OPPO, vivo, Huawei 等平台，该 bundle 不会被构建到 rpk 内。
 
 **注意**：
-1. 不能使用 **Bundle 名称** 作为加载 bundle 时的参数，加载参数只能使用 url。
-2. Creator 内置了 4 个 bundle：resources，internal，main，start-scene 请不要使用这四个名称作为 **Bundle 名称** 的设置。
-3. 如果你将 Asset Bundle 的压缩类型配置为小游戏子包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
+1. Creator 内置了 4 个 bundle：resources，internal，main，start-scene 请不要使用这四个名称作为 **Bundle 名称** 的设置。
+2. 如果你将 Asset Bundle 的压缩类型配置为小游戏子包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
 
 ## 构建
 
@@ -39,21 +38,24 @@ Asset Bundle 的作用只会在项目构建后才会体现，预览的时候你�
 
 ## 加载 Asset Bundle
 
-引擎提供了一个统一的 api `cc.assetManager.loadBundle` 来加载 Asset Bundle。`loadBundle` 需要传入一个 Asset Bundle 的 url。
+引擎提供了一个统一的 api `cc.assetManager.loadBundle` 来加载 Asset Bundle。`loadBundle` 需要传入一个 Asset Bundle 的名称或者 url。
+
+**注意**：
+1. **Bundle 名称** 和 bundle 的 url 一般情况下都可以作为加载 bundle 时的参数，但当复用其他项目的 bundle 时，仅能通过 url 进行加载。
+2. 如果有 bundle 放在远程服务器上，请在构建时填写 **资源服务器地址**。
 
 当 Asset Bundle 加载完成后，Asset Bundle 中的脚本将被执行，并触发回调，返回错误信息和一个 `cc.AssetManager.Bundle` 类的实例，你可以用这个实例加载该 bundle 中的各类资源。 
 
 ```javascript
-// 如果将构造之后的 Asset Bundle 放在远程服务器上
-cc.assetManager.loadBundle('http://examples.com/01_graphics', function (err, bundle) {
+cc.assetManager.loadBundle('01_graphics', function (err, bundle) {
     if (err) {
         return console.error(err);
     }
     console.log('load bundle successfully.');
 });
 
-// 如果将构造之后的 Asset Bundle 放在原目录
-cc.assetManager.loadBundle('assets/01_graphics', function (err, bundle) {
+// 如果复用其他项目的 bundle
+cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function (err, bundle) {
     if (err) {
         return console.error(err);
     }
@@ -67,10 +69,10 @@ cc.assetManager.loadBundle('assets/01_graphics', function (err, bundle) {
 
 ![md5 cache](subpackage/bundle_md5.png)
 
-当你加载 Asset Bundle 时你 **不需要** 额外提供对应的 Hash 值，Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整，但如果你想要将相关版本信息存储在服务器上，动态获取版本信息以实现热更新，你也可以手动指定一个版本 Hash 值传入到 `loadBundle` 中，此时将会以传入的 Hash 值为准：
+当你加载 Asset Bundle 时你 **不需要** 额外提供对应的 Hash 值，Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整，**但如果你想要将相关版本配置信息存储在服务器上，启动时动态获取版本信息以实现热更新，你也可以手动指定一个版本 Hash 值传入到 `loadBundle` 中**，此时将会以传入的 Hash 值为准：
 
 ```js
-cc.assetManager.loadBundle('http://examples.com/01_graphics', { version: 'fbc07' }, function (err, bundle) {
+cc.assetManager.loadBundle('01_graphics', { version: 'fbc07' }, function (err, bundle) {
     if (err) {
         return console.error(err);
     }
@@ -101,7 +103,7 @@ let bundleA = cc.assetManager.getBundle('bundleA');
 Asset Bundle 中提供了 `load` 方法用于加载位于设置为 Asset Bundle 的目录下的资源，此方法的参数与 `cc.resources.load` 相同，你只要传入资源相对 Asset Bundle 目录的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
 ```js
-cc.assetManager.loadBundle('http://examples.com/bundle1', function (err, bundle) {
+cc.assetManager.loadBundle('bundle1', function (err, bundle) {
     if (err) {
         return console.error(err);
     }
