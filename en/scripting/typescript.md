@@ -53,8 +53,6 @@ Here is a `tsconfig.json` paradigm:
 }
 ```
 
-**Note**: The `tsconfig.json` file in the project is mainly used for VS Code, and will not affect the actual compilation in Cocos Creator.
-
 ### Create a TypeScript script in the project
 
 As with creating a JavaScript script, you can create a new `.ts` file directly in the text editor, or create via Assets panel's context menu, right-click on a folder and select **Create -> TypeScript**.

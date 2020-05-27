@@ -1,21 +1,21 @@
-# LineJoin
+# lineJoin
 
-`lineJoin` property sets or returns the style of the line end cap.
+The `lineJoin` property determines how two connecting segments (lines, arcs or curves) with non-zero lengths in a shape are joined together.
 
 | Parameter | description
 | -------------- | ----------- |
-| cc.Graphics.LineJoin.BEVEL | Creates a bevel.
-| cc.Graphics.LineJoin.ROUND | Create fillet.
-| cc.Graphics.LineJoin.MITER | Default. Create sharp corners.
+| `cc.Graphics.LineJoin.BEVEL` | Creates a bevel.
+| `cc.Graphics.LineJoin.ROUND` | Create fillet.
+| `cc.Graphics.LineJoin.MITER` | Default. Create sharp corners.
 
 ## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineJoin = cc.Graphics.LineJoin.ROUND;
-ctx.moveTo(20,20);
-ctx.lineTo(100,50);
-ctx.lineTo(20,100);
+ctx.moveTo(20, 20);
+ctx.lineTo(100, 50);
+ctx.lineTo(20, 100);
 ctx.fill();
 ```
 
@@ -23,4 +23,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

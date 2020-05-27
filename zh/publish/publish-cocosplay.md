@@ -4,7 +4,7 @@
 
 ## 环境配置
 
-- 下载 [游戏自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju) 并安装到 Android 设备（建议 Android Phone 6.0 或以上版本）。
+- 下载 [游戏自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju) 并安装到 Android 设备（建议 Android Phone 6.0 或以上版本）。
 
 ## 发布流程
 
@@ -16,7 +16,7 @@
 
 - **自定义游戏包路径**
 
-  该项为选填项（v2.1.3 新增），可以自定义构建生成的 cpk 包所存放的目录。如果不设置的话，cpk 包默认生成在发布包 cocos-play 目录下。
+  该项为选填项（v2.1.3 新增），可以自定义构建生成的 cpk 包所存放的目录。如果不设置的话，cpk 包默认生成在发布包 `build/cocos-play` 目录下。
 
 - **小包模式**
 
@@ -57,8 +57,8 @@
 | gameSecret      | 游戏密钥，可由后台获取         |
 | gameType        | 游戏类型，可根据用户需求选择 **对战** 或者 **非对战**  |
 | gameMode        | 游戏模式，选择 **Runtime**      |
-| lodeType        | 游戏加载类型，即游戏启动方式。包括 **File** 和 **Url** 两种。具体使用方式可查看下方 **启动游戏** 部分的介绍    |
-| path            | 游戏加载地址，配合 lodeType 使用。具体使用方式可查看下方 **启动游戏** 部分的介绍   |
+| loadType        | 游戏加载类型，即游戏启动方式。包括 **File** 和 **Url** 两种。具体使用方式可查看下方 **启动游戏** 部分的介绍    |
+| path            | 游戏加载地址，配合 loadType 使用。具体使用方式可查看下方 **启动游戏** 部分的介绍   |
 
 **启动游戏**：
 
@@ -66,16 +66,16 @@
 
 **方法一**：以文件方式从指定位置加载游戏包（游戏加载类型为 **File**）
 
-  - 将构建生成的小游戏 cpk 文件（位于小游戏工程 cocos-play 目录下）拷贝到手机目录下。如果是拷贝到 sdcard 目录下，则需要在 sdcard 目录中新建一个文件夹，然后将 cpk 文件拷贝到新建文件夹中。
-  - 游戏自测工具参数配置页面中的 **lodeType** 选择 **File**。
-  - **path** 填写刚才拷贝 cpk 文件放置的新建文件夹，如：**/test/game.cpk**。
+  - 将构建生成的小游戏 cpk 文件（位于小游戏工程 cocos-play 目录下）拷贝到手机目录下。如果是拷贝到 sdcard 目录下，则需要在 sdcard 目录中新建一个文件夹（命名为 `cocosplay`），然后将 cpk 文件拷贝到 `cocosplay` 文件夹中。
+  - 游戏自测工具参数配置页面中的 **loadType** 选择 **File**。
+  - **path** 填写刚才拷贝 cpk 文件放置的新建文件夹，如：`cocosplay/game.cpk`。
   - 配置完成后点击 **保存**，然后点击 **启动游戏**，即可打开游戏。
   
 **方法二**：以网页方式从指定网址打开游戏（游戏加载类型为 **Url**）
 
   - 将 cpk 文件上传到服务器。
-  - 游戏自测工具参数配置页面中的 **lodeType** 选择 **Url**。
-  - 填写 **path**，如：`http://192.168.0.1:8080/game.cpk`。
+  - 游戏自测工具参数配置页面中的 **loadType** 选择 **Url**。
+  - 填写 **path**，如：<http://192.168.0.1:8080/game.cpk>。
   - 配置完成后点击 **保存**，然后点击 **启动游戏**，即可打开游戏。
 
 ## 相关参考链接
@@ -84,4 +84,4 @@
 - [Cocos Play 文档中心](https://gamebox.gitbook.io/project/)
 - [Cocos Play API 文档](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/ji-chu-neng-li)
 - [Cocos Play 自测工具](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju)
-- [Cocos Play 自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-yuan-xia-zai/zi-ce-gong-ju)
+- [Cocos Play 自测工具下载](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/zi-ce-gong-ju)
