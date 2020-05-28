@@ -1,19 +1,19 @@
-# Ellipse
+# ellipse
 
-Use `ellipse()` method to create an ecllipse.
+The `ellipse()` method is used to create an ecllipse.
 
 | Parameter | Description
 | --------- | ----------- |
-| cx | The x coordinate of the center of the circle |
-| cy | The y coordinate of the center of the circle |
-| rx | The x radius of the circle.|
-| ry | The y radius of the circle.|
+| cx | The x coordinate of the center of the ecllipse. |
+| cy | The y coordinate of the center of the ecllipse. |
+| rx | The x radius of the ecllipse.|
+| ry | The y radius of the ecllipse.|
 
 ## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.ellipse(200,100, 200,100);
+ctx.ellipse(200, 100, 200, 100);
 ctx.fill();
 ```
 
@@ -21,4 +21,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

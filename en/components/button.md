@@ -61,7 +61,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
 
-### Add a callback through the Properties.
+### Add a callback using the Properties.
 
 ![button-event](./button/button-event.png)
 
@@ -72,7 +72,7 @@ The Button can additionally add a Click event to respond to the player's click a
 |  3  | Handler  | Assign a callback function which will be triggered when the user clicks the Button. |
 |  4  | customEventData | A user-defined string value passed as the last event argument of the event callback.  |
 
-### Add a callback through the script.
+### Add a callback using the script.
 
 There are two ways to add a callback through the script.
 

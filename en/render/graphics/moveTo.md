@@ -1,11 +1,11 @@
-# MoveTo
+# moveTo
 
-Use `moveTo` method set the starting point of a path.
+The `moveTo()` method is used to set the starting point of a path.
 
-Parameter | description
+| Parameter | description
 | -------------- | ----------- |
-| X | The x coordinate of the target location of the path
-| Y | The y coordinate of the target position of the path
+| x | The x coordinate of the target location of the path
+| y | The y coordinate of the target position of the path
 
 ## example
 
@@ -20,4 +20,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..
