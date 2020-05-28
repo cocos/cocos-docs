@@ -77,17 +77,18 @@ Starting with v2.4.0, all resources are managed in asset bundles. The engine has
 
 If you need to upload the resource onto your server, configure the asset bundle where the resource is located as a remote bundle. Next, we'll cover exactly how to do it:
 
-1. Configure the asset bundle that needs to be uploaded as a remote bundle.
+1. Rationalize the allocation of your resources, assigning folders that require modular management as asset bundles.
+2. Configure the asset bundle that needs to be uploaded as a remote bundle.
 
     ![](./publish-wechatgame/bundle_is_remote.png)
 
-2. If the main bundle needs to be configured as a remote one, it needs to be set in the build panel.
+3. If the main bundle needs to be configured as a remote one, it needs to be set in the build panel.
 
-3. When building, check the **MD5 Cache** in the **Build** panel.
-4. Set **Remote Server Address**, and then click **Build** button.
-5. When the build is complete, upload the **remote** folder in the mini game release package to the server.
-6. Delete the **remote** folder inside the release package.
-7. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
+4. When building, check the **MD5 Cache** in the **Build** panel.
+5. Set **Remote Server Address**, and then click **Build** button.
+6. When the build is complete, upload the **remote** folder in the mini game release package to the server.
+7. Delete the **remote** folder inside the release package.
+8. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
 
     ![](./publish-wechatgame/detail.jpeg)
 

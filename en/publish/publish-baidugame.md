@@ -38,7 +38,7 @@ For specific **Baidu Mini Game** application, station development, game submissi
 
 ## Resource Management for Baidu Mini Game Environment
 
-**Baidu Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **4MB** must be downloaded via a network request.
+**Baidu Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
 
 Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
