@@ -73,15 +73,14 @@ Starting with v2.4.0, all resources are managed in asset bundles. The engine has
 - resources: resources in `assets://resources`
 - internal: resources in `internal://resources`
 
-If you need to upload the resource onto your server, configure the asset bundle where the resource is located as a remote bundle. Next, we'll cover exactly how to do it:
+If you need to upload the resource onto your server, configure the asset bundle where the resource is located as a remote bundle. Next, let's take a look at the specific operational steps:
 
 1. Rationalize the allocation of your resources, assigning folders that require modular management as asset bundles.
 2. Configure the asset bundle that needs to be uploaded as a remote bundle.
 
     ![](./publish-wechatgame/bundle_is_remote.png)
 
-3. If the main bundle needs to be configured as a remote one, it needs to be set in the build panel.
-
+3. If the main bundle needs to be configured as a remote one, you need to check **Main Bundle Is Remote** in the **Build** panel.
 4. When building, check the **MD5 Cache** in the **Build** panel.
 5. Set **Remote Server Address**, and then click **Build** button.
 6. When the build is complete, upload the **remote** folder in the mini game release package to the server.
@@ -98,14 +97,14 @@ If you need to upload the resource onto your server, configure the asset bundle 
     - The `removeCache(cacheId: number)` method precisely removes a cache records from the cache.
 
 2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. There are two solutions below: 
-    - check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded.
-    - you can clear these outdated assets by yourself. In mobile phone, you can call `cc.assetManager.cacheManager.clearCache()` to clear all caches. In WeChat DevTools, you can click this button to do same thing:
+    - Check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded.
+    - Clear the cache on the mobile phone with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
 
         ![](./publish-wechatgame/clear-cache.png)
 
 ### Speed ​​up start scene loading
 
-Sometimes we want to put resources in main bundle on the server and also want to put the start scene related resources inside the package to speed up the loading of the start scene. At this point we can check **Start Scene Asset Bundle** in the build panel.
+If you want to place the main bunle on the server and place the start scene related resources in the package to speed up the loading of the start scene, you can check **Start Scene Asset Bundle** in the **Build** panel.
 
 ![](./publish-wechatgame/start_scene_asset_bundle.png)
 
