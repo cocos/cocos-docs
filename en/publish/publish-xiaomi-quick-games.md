@@ -139,7 +139,7 @@ There are two ways to start debugging.
       npm run debug -- --print-only
       ```
 
-## Resource Management for Alipay Mini Game Environment
+## Resource Management for Xiaomi Quick Game Environment
 
 **Xiaomi Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **5MB** must be downloaded via a network request.
 
