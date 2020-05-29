@@ -30,7 +30,7 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
 Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-**Note**: When Alipay loads the resources on the remote server on the physical device, it only supports access via https, so the resource file must be placed on https, otherwise the loading of the resource will fail.
+**Note**: At present, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on mobile, so you must put the resource file on a **HTTPS** server, otherwise you will see the resource loading failure.
 
 ## Alipay Mini Games Known issues
 

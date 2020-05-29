@@ -42,7 +42,7 @@ For specific **Baidu Mini Game** application, station development, game submissi
 
 Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-**Note**: When Baidu loads the resources on the remote server on the physical device, it only supports access via https, so the resource file must be placed on https, otherwise the loading of the resource will fail.
+**Note**: At present, Baidu Mini Game only supports loading resources from remote server via **HTTPS** on mobile, so you must put the resource file on a **HTTPS** server, otherwise you will see the resource loading failure.
 
 ## Baidu Mini Game Subpackage Loading
 
