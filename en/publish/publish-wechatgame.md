@@ -52,9 +52,7 @@ In a **WeChat Mini Game** environment, resource management is the most special p
 
 4. You cannot download script files from a remote server.
 
-This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below.
-
-Next, we will describe the resource management process associated with v2.4. To understand the resource management process before v2.4, please refer to the documentation instructions on other branches.
+This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below. Note that this section is updated in v2.4, so if you are using a version before v2.4, please take care to switch to the corresponding documentation branch.
 
 In a mini-game environment, the process of downloading resources from the engine goes like this:
 
