@@ -68,7 +68,7 @@ In addition, the problem of file saving failure due to cache space exceeding the
 
 At the same time, when the md5Cache function of the engine is enabled, the URL of the file will change with the content of the file, so that when a new version of the game is released, the resources of the old version will naturally fail in the cache, and you can only request new resources from the server, which also achieves the effect of version control.
 
-Starting with v2.4.0, all resources are managed in `asset bundles`. The engine has some builtin `bundles`:
+Starting with v2.4.0, all resources are managed in `asset bundles`. The engine has some builtin bundles:
 - main: the main bundle of the game, minus all other `asset bundle` resources, the rest of the resources belong to the main bundle
 - resources: resources in `assets://resources`
 - internal: resources in `internal://resources`
@@ -76,7 +76,7 @@ Starting with v2.4.0, all resources are managed in `asset bundles`. The engine h
 If you need to upload the resource to the server, configure the `asset bundle` where the resource is located as a remote bundle. The operation steps are as follows:
 
 1. Rationalize the allocation of your resources, setting resource folders that require modular management as `asset bundles`.
-2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** panel and configure it in the **inspector** panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
+2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** panel and configure it in the **Properties** panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
 
     ![](./publish-wechatgame/bundle_is_remote.png)
 
@@ -98,7 +98,7 @@ If you need to upload the resource to the server, configure the `asset bundle` w
 
 2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. This may cause problems such as resource loading errors or rendering errors. Solutions include the following two types:
     - Check the option **MD5 Cache** when you build your game. It ensures that the newest asset will be loaded.
-    - Clear the cache on the physics device with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
+    - Clear the cache on the physical device with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
 
         ![](./publish-wechatgame/clear-cache.png)
 
