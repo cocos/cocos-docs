@@ -53,7 +53,7 @@
  - 所有包的总大小不超过 **8MB**
  - 单个分包/主包大小不超过 **4MB**
 
-具体的分包加载机制可参考 [分包加载](../scripting/subpackage.md)。
+具体的分包加载机制可参考 [分包加载](../scripting/asset-bundle.md)。
 
 ## 平台 SDK 接入
 

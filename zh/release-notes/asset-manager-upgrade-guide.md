@@ -12,7 +12,7 @@
 
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在原先在代码中用到的 `cc.loader` 的所有 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
-**注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的子包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
+**注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的分包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
 ## 常见问题
 

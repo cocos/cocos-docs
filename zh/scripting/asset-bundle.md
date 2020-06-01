@@ -26,11 +26,11 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
 
 **注意**：
 1. Creator 内置了 4 个 bundle：resources，internal，main，start-scene 请不要使用这四个名称作为 **Bundle 名称** 的设置。
-2. 如果你将 Asset Bundle 的压缩类型配置为小游戏子包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
+2. 如果你将 Asset Bundle 的压缩类型配置为小游戏分包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
 
 ## 构建
 
-Asset Bundle 的作用只会在项目构建后才会体现，预览的时候你无法加载除内置 Asset Bundle 外的其他还未构建出去的 Asset Bundle。项目构建后会在发布包目录下的 **assets** 生成对应的 Asset Bundle 文件夹。每一个文件夹为一个 Asset Bundle。你可以将 Asset Bundle 的文件夹放在远程服务器上或者本地，以及配置到某些平台比如微信小游戏的子包中。
+Asset Bundle 的作用只会在项目构建后才会体现，预览的时候你无法加载除内置 Asset Bundle 外的其他还未构建出去的 Asset Bundle。项目构建后会在发布包目录下的 **assets** 生成对应的 Asset Bundle 文件夹。每一个文件夹为一个 Asset Bundle。你可以将 Asset Bundle 的文件夹放在远程服务器上或者本地，以及配置到某些平台比如微信小游戏的分包中。
 
 **例如**：将 example 工程中的 **cases/01_graphics** 文件夹配置为 Asset Bundle，那么项目构建后将会在发布包目录下的 **assets** 生成 **01_graphics** 文件夹。
 

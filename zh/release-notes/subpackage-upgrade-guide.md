@@ -4,7 +4,7 @@
 
 > 本文介绍旧版本的资源分包（子包）升级到 v2.4 时的注意事项。如果你不是 Creator 旧版本的用户或项目中没有使用分包功能，则不需要阅读本文。
 
-在 v2.4 之前的 [分包加载](../scripting/subpackage.md) 文档中，我们有提到分包加载，但当时的分包加载功能仅支持具有分包加载的小游戏平台，如微信小游戏、OPPO 小游戏等。Creator 是在平台对应的分包功能上做了一层封装，但随着 Creator 的发展，对于分包的需求不断增加，原有的资源分包功能是远远不够的，所以在 c2.4 上，Creator 正式支持更为完整的 Asset Bundle 功能。需要注意的是，如果你的构成中勾选了 **配置为子包** 选项，升级为 2.4 之后，将自动转变为 Asset Bundle。
+在 v2.4 之前的 [分包加载](../../../../2.3/manual/zh/scripting/subpackage.html) 文档中，我们有提到分包加载，但当时的分包加载功能仅支持具有分包加载的小游戏平台，如微信小游戏、OPPO 小游戏等。Creator 是在平台对应的分包功能上做了一层封装，但随着 Creator 的发展，对于分包的需求不断增加，原有的资源分包功能是远远不够的，所以在 c2.4 上，Creator 正式支持更为完整的 Asset Bundle 功能。需要注意的是，如果你的构成中勾选了 **配置为子包** 选项，升级为 2.4 之后，将自动转变为 Asset Bundle。
 
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在需要修改原先在代码中使用的 `cc.loader.downloader.loadSubpackage` API 为 Asset Manager 中的对应接口。
@@ -14,7 +14,7 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
- - 你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载子包
+ - 你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包
 
 ## 升级步骤
 
