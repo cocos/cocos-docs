@@ -2,27 +2,11 @@
 
 > 文：Santy-Wang
 
-Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。Creator v2.4 中的下载器与解析器是公共模块。你也可以在自己代码中使用下载器与解析器。例如：
-
-```js
-    cc.assetManager.downloader.download('myasset', 'http://example.com/background.jpg', '.jpg', {}, function (err, file) {
-        cc.assetManager.parser.parse('myasset', file, '.jpg', {}, function (err, image) {
-            var texture = new cc.Texture2D();
-            texture.initWithElement(image);
-        });
-    });
-```
-
-下载器与解析器的作用是为加载管线提供下载资源和解析资源的功能。下载器与解析器中包括了许多种类资源的处理方式，处理方式的选用根据传入的资源后缀名，例如 `.jpg`，`.mp3` 来进行判断，例如：
-
-```js
-    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', {}, callback);
-    cc.assetManager.parser.parse('test', file, '.mp3', {}, callback);
-```
+Asset Manager 底层使用了多条加载管线来加载资源，每条管线中都使用了 `downloader` 与 `parser` 两个模块，你可以通过 `cc.assetManager.downloader` 与 `cc.assetManager.parser` 访问。
 
 ## 下载器
 
-下载器是一个全局单例，`downloader.download` 存在 **失败重试**， **下载优先级排序**， **下载数限制**  等功能。
+下载器是一个全局单例，`downloader` 存在 **失败重试**， **下载优先级排序**， **下载数限制**  等功能。
 
 ### 失败重试
 
@@ -69,20 +53,7 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 下载器中的选项都是全局设置，但当你需要对某个资源进行控制时，全局设置的方式会较为麻烦，此时你可以利用可选参数传入对应设置来覆盖全局设置，例如：
 
 ```js
-    // 控制失败之后最多重试次数
-    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { maxRetryCount: 10 }, callback);
-
-    // 控制下载优先级，默认值为 0
-    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { priority: 2 }, callback);
-
-    // 控制下载并发数限制
-    cc.assetManager.downloader.download('test', 'http://example.com/music.mp3', '.mp3', { maxConcurrency: 10 }, callback);
-```
-
-同时，你也可以在使用 `cc.assetManager.loadAny`，`cc.assetManager.preloadAny` 等拥有可选参数的接口中指定这些可选参数，加载管线会将这些参数传递到下载器中，例如：
-
-```js
-    cc.assetManager.loadAny({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 1 }, callback);
+    cc.resources.loadScene('test', { priority: 2, maxRetryCount: 1, maxConcurrency: 10 }, callback);
 ```
 
 ### 通过预设进行设置
@@ -137,12 +108,12 @@ cc.assetManager.downloader.maxRequestsPerFrame = 6;
 
     // 自定义预设
     cc.assetManager.presets.mypreset = { maxConcurrency: 10, maxRequestsPerFrame: 6 };
-    cc.assetManager.loadAny({ 'path': 'image/background' }, { preset: 'mypreset' }, callback);
+    cc.resources.loadScene('test', { preset: 'mypreset' }, callback);
 ```
 
 ## 自定义处理方法
 
-下载器和解析器都拥有一张注册表，当你使用 `downloader.download` 或 `parser.parse` 时，下载器和解析器会根据传入的后缀名称去注册表中查找对应的下载方式和解析方式，并将参数传入对应的处理方式之中，当你需要在项目中增加一个自定义格式，或者修改目前格式的处理方式时，你可以通过注册自定义的处理方式来实现扩展引擎。下载器与解析器都提供了 `register` 接口用于注册处理方法，使用方式如下：
+下载器和解析器都拥有一张注册表，当你使用 `downloader` 或 `parser` 时，下载器和解析器会根据传入的后缀名称去注册表中查找对应的下载方式和解析方式，并将参数传入对应的处理方式之中，当你需要在项目中增加一个自定义格式，或者修改目前格式的处理方式时，你可以通过注册自定义的处理方式来实现扩展引擎。下载器与解析器都提供了 `register` 接口用于注册处理方法，使用方式如下：
 
 ```js
     cc.assetManager.downloader.register('.myformat', function (url, options, callback) {
