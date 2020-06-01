@@ -4,7 +4,7 @@
 
 > 本文将详细介绍旧版本 Creator 项目升级到 v2.4 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
-在 v2.4 之前的 [获取和加载资源](../../../../2.3/manual/zh/scripting/load-assets.html) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。在 v2.4，Creator 推出了全新的资源管理模块 `Asset Manager`。相较之前的 `cc.loader`，`Asset Manager` 提供了更好的加载性能，支持 Asset Bundle，支持预加载资源，以及更加方便的资源释放管理，同时 Asset Manager 还拥有强大的扩展性。大大提升开发者的开发效率和使用体验。我们建议所有开发者都进行升级。
+在 v2.4 之前的 [获取和加载资源](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/load-assets.md) 文档中，我们有提到使用 `cc.loader` 模块包括 `cc.loader.load`，`cc.loader.loadRes`，`cc.loader.loadResDir` 等系列 API 来加载资源。当时的 `cc.loader` 主要作为加载资源的模块来使用，但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，此时原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。在 v2.4，Creator 推出了全新的资源管理模块 `Asset Manager`。相较之前的 `cc.loader`，`Asset Manager` 提供了更好的加载性能，支持 Asset Bundle，支持预加载资源，以及更加方便的资源释放管理，同时 Asset Manager 还拥有强大的扩展性。大大提升开发者的开发效率和使用体验。我们建议所有开发者都进行升级。
 
 为了带来平滑的升级体验，我们仍保留了对 `cc.loader` 相关 API 的兼容，除个别无法兼容的特殊用法必须手动升级外，大部分游戏项目都可以照常运行。之后我们会在时机成熟时才会完全移除对 `cc.loader` 的兼容。如果你由于项目周期等原因暂时不方便升级，你可以在确保测试通过的情况下继续保留原来的写法。
 
