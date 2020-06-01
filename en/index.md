@@ -30,10 +30,9 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 ## Example Projects
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
-- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
+- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game), please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
-- [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
