@@ -26,6 +26,8 @@ Label 组件用来显示一段文字，文字可以是系统字体、TrueType �
 | Underline Height | 下划线的高度。                                                                                             |
 | Cache Mode       | 文本缓存类型包括 **NONE**、**BITMAP**、**CHAR** 三种。仅对系统字体或 TTF 字体有效，BMFont 字体无需进行这个优化。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。                                       |
 | Use System Font  | 是否使用系统字体。                                                                                          |
+| Src Blend Factor      | 混合文本图片时，源图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
+| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
 | Materials        | 材质资源，详情请参考文档 [Material](../render/material.md)。                                                 |
 
 Label 的 API 接口请参考 [Label API](../../../api/zh/classes/Label.html)。
@@ -51,6 +53,27 @@ Label 的 API 接口请参考 [Label API](../../../api/zh/classes/Label.html)。
 - Cache Mode 对所有平台都有优化效果。
 - BITMAP 模式取代了原先的 Batch As Bitmap 选项，旧项目如启用了 Batch As Bitmap 将自动迁移至该选项。
 - 使用缓存模式时不能剔除 **项目 -> 项目设置 -> 模块设置** 面板中的 **RenderTexture** 模块。
+
+## 系统文本的混合模式说明
+
+对于 Label 组件，**SrcBlendFactor** 常用的设置主要有两种，即 **SRC_ALPHA** 和 **ONE**。引擎系统文本的实现是先将文本绘制到 Canvas，然后再生成图片给 Label 组件使用，这里涉及到一个文本透明度的处理问题。
+
+当使用 **SRC_ALPHA** 模式时，可以通过顶点数据将透明度传递到 Shader 中，然后在 Shader 中进行像素透明度的计算，因此文本的透明度就不需要在绘制到 Canvas 时处理，在这种模式下，Label 节点透明度变化时，就不需要频繁的调用 updateRenderData 进行 Canvas 的重新绘制，可以减少 API 调用以及频繁重绘造成的性能消耗。
+
+当使用 **ONE** 模式时，文本图片的透明度需要做预乘处理，所以在 Canvas 绘制时就需要进行透明度的处理，在这种模式下，Label 的节点透明度变化时就需要频繁的调用 updateRenderData，进行文本内容的重绘。
+
+需要注意的是不同的混合模式，会影响与其他节点的动态合批，例如：
+
+- 如果 **SrcBlendFactor** 使用 **ONE** 模式，**Cache Mode** 选择 **BITMAP** 缓存模式，则使用的是动态图集，可能会导致动态合批失效。
+
+- 若 **Cache Mode** 选择 **CHAR** 缓存模式，**Src Blend Factor** 会默认使用 **SRC_ALPHA** 模式，因为是全局共用同一张字符图集，无法进行不同的模式兼容。
+
+对于 **原生平台**，在 **SRC_ALPHA** 模式下，为了消除文本的黑边问题，在文本图片数据返回时，需要做反预乘处理。<br>
+对于使用大量文本节点或者使用 **SHRINK** 模式的大段文本内容来说，做反预乘操作会有不少的性能消耗，开发者需要依据不同的使用场景以及文本内容进行合理的选择，以便在不同的平台能够减少重绘带来的性能消耗。具体的使用场景说明如下：
+
+1. 如果 **Cache Mode** 选择 **CHAR** 缓存模式，只能使用 **SRC_ALPHA**。
+2. 如果只是发布 **Web** 平台，推荐使用默认的 **SRC_ALPHA** 模式即可。因为 **ONE** 模式下，透明度变化会造成频繁的重绘，另外使用 **BITMAP** 缓存模式以及 **CHAR** 缓存模式也无法生效。
+3. 如果需要发布 **Native** 平台，并且文本使用了 **SHRINK** 等会频繁重绘的排版模式，界面创建时会因为文本频繁的反预乘操作导致性能消耗比较明显，可以选择使用 **ONE** 模式避免反预乘带来的卡顿。
 
 ## 详细说明
 

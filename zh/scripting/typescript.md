@@ -53,8 +53,6 @@ Cocos Creator 的很多用户之前是使用其他强类型语言（如 C++/C#�
 }
 ```
 
-**注意**：项目中的 `tsconfig.json` 主要是用于配合 VS Code，并不会影响项目在 Creator 中的实际编译。
-
 ### 在项目中创建 TypeScript 脚本
 
 和创建 JavaScript 脚本一样，你可以直接在文本编辑器里新建 `.ts` 文件，或通过编辑器的 **资源管理器** 的创建菜单，右键点击一个文件夹，并选择 **新建 -> TypeScript**。
@@ -174,7 +172,7 @@ export class MyModule extends cc.Component {
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import MyModule from './MyModule';
+import {MyModule} from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {

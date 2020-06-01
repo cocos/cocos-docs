@@ -3,7 +3,7 @@
 - [Publish to Web](publish-web.md)
 - [Setup Native Development](setup-native-development.md)
 - [Publish to native](publish-native.md)
-- [Debug JavaScript on Native Platform](debug-jsb.md)
+- [Debuging JavaScript on Native Platforms](debug-jsb.md)
 - [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to WeChat Mini Games](publish-wechatgame.md)
     - [WeChat Open Data Context](publish-wechatgame-sub-domain.md)
@@ -17,6 +17,8 @@
 - [Publish to OPPO Mini Games](publish-oppo-instant-games.md)
 - [Publish to vivo Mini Games](publish-vivo-instant-games.md)
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
+- [Publish to Xiaomi Quick Games](publish-xiaomi-quick-games.md)
+- [Publish to Cocos Play](publish-cocosplay.md)
 - [Publish from Command Line](publish-in-command-line.md)
 - [Custom Project Build Template](custom-project-build-template.md)
 

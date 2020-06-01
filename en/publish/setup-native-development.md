@@ -22,9 +22,9 @@ After the installation is complete, please confirm that the `java` command is va
 java -version
 ```
 
-If "JAVA SE" displays, there is no problem. If "JRE" displays, then you need to install [JAVA SE running environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+If `JAVA SE` displays, there is no problem. If `JRE` displays, then you need to install [JAVA SE running environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-On Windows platform, please confirm if "JAVA_HOME" is included in your environmental variables. By right clicking My Computer, choosing property and opening the advanced tab, you can check and modify environmental variables. For effective running on Windows platform, you might need to restart the computer.
+On Windows platform, please confirm if `JAVA_HOME` is included in your environmental variables. By right clicking **Computer** on your computer, choosing **Property -> Advanced system setting -> Environment Variables** to check and modify environmental variables. For effective running on Windows platform, you might need to restart the computer. For details, please refer to the document: [How do I set or change the PATH system variable?](https://www.java.com/en/download/help/path.xml).
 
 ### Download and install Android Studio
 
@@ -56,20 +56,21 @@ Please install the following running environment:
 
 - In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
-## Configure path in original release environments
+## Configure Native Develop Environments Path
 
-Next, let's go back to Cocos Creator to configure the environmental path of the constructing release original platform. Choose `CocosCreator -> Settings` in the main menu, and open the Settings window:
+Next, let's go back to Cocos Creator to configure the environmental path of the native platform. Choose `CocosCreator -> Settings` in the main menu, and open the Settings window:
 
 ![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
 
 We need to configure the following two paths here:
 
-- **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
 - **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
+
+- **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
 
 Close the window after configuration is completed.
 
-**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: COCOS_CONSOLE_ROOT, NDK_ROOT, ANDROID_SDK_ROOT.
+**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
 ## Notes
 
@@ -77,7 +78,7 @@ We have received lots of feedback about original packing in the public beta, and
 
 1. Package name issue
 
-    Check the package name in the constructing release panel. Package names that include blank space, `-`, etc. are all illegal.
+    Check the **Package Name** in the **Build** panel, including blank space, `-`, etc. are all illegal.
 
 2. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 

@@ -1,6 +1,6 @@
-# Clear
+# clear
 
-Use `clear()` to clear all paths.
+The `clear()` function is used to erase any previously drawn content.
 
 ## Example
 
@@ -8,13 +8,11 @@ Use `clear()` to clear all paths.
 update: function (dt) {
     var ctx = node.getComponent(cc.Graphics);
     ctx.clear();
-    ctx.circle(200,200, 200);
+    ctx.circle(200, 200, 200);
     ctx.fill();
 }
 ```
 
 <hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
-
-
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

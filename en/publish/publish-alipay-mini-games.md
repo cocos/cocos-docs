@@ -20,22 +20,17 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
     ![](./publish-alipay-mini-games/build.png)
 
-3. Use Alipay Mini Program Studio to open **alipay** directory, then you can open alipay mini game project, preview and debug game content.
+3. Use **Alipay Mini Program Studio** to open **alipay** directory. Next, you can open alipay mini game project to preview and debug game content.
 
     ![](./publish-alipay-mini-games/preview.png)
 
 ## Resource Management for Alipay Mini Game Environment
 
-Alipay Mini Game is similar to WeChat Mini Game. There are restrictions on the package. More than **4MB** of extra resources must be downloaded through the network request.
+**Alipay Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
 
-We recommend that you only save the script files in the mini game packages, and other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done it for you. The specific implementation logic is similar to the WeChat mini game, please refer to [Resource Management for WeChat Mini Game Environment](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) for details.
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-Specifically, developers need to do:
-
-1. When building, check the **md5Cache** function in the **Build** panel.
-2. Set **Remote URL** in the **Build** panel. And then click build.
-3. When the build is complete, upload the **res** folder in the mini-game publish package to the server.
-4. Delete the **res** folder under the local publish package directory.
+**Note**: Currently, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Alipay Mini Games Known issues
 

@@ -1,8 +1,8 @@
 # WeChat mini games engine plugin instructions
 
-The game engine plugin is a new feature in WeChat 7.0.7 with the official version of the Cocos Creator engine built in. If the plugin is enabled in the game that the player first experienced, all games that also enable the plugin do not need to download the Cocos Creator engine again, just use the same version of the engine in the public plugin library, or incremental update the engine.
+The Game Engine Plugin is a new feature added to WeChat v7.0.7, which has the official version of the Cocos Creator engine built in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
 
-For example, when a player plays game A developed by Cocos Creator v2.2.0, and the plugin is enabled. Then he plays game B, which is also developed by v2.2.0, and if the game B also enabled the plugin, there is no need to redownload the Cocos Creator engine. Even if game B uses Cocos Creator v2.2.1, WeChat only needs to incrementally update the differences between the two engine versions. This allows you to significantly reduce the download counts of mini games, improve the startup speed of mini games 0.5 to 2s, and get a better user experience.
+For example, when a player has played an A game developed using Cocos Creator v2.2.0, and the A game already enabled this plugin. Then he played the B Game, also developed by v2.2.0, and would not have needed to redownload the Cocos Creator engine if the B game had also enabled this plugin. Even if the B Game is developed using Cocos Creator v2.2.1, WeChat only needs to incremental update the difference between the two engine versions. This will drastically reduce the download counts of mini games, and improve the startup speed of mini games by 0.5-2s for a better user experience.
 
 ## How to use
 
