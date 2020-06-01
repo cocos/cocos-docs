@@ -26,16 +26,11 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
 ## Resource Management for Alipay Mini Game Environment
 
-**Alipay Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources more than **4MB** must be downloaded via a network request.
+**Alipay Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
 
-It is recommended to only save script files in the mini-game packages, while other resources are uploaded to the remote server, and downloaded from the remote server as needed. The download, cache, and version management of remote resources, Cocos Creator has already done it for you. The specific implementation logic is similar to the WeChat Mini Game. Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-Specifically, developers need to:
-
-1. When building, check the **md5Cache** function in the **Build** panel.
-2. Set the **Remote URL** in the **Build** panel. And then click build.
-3. When the build is complete, upload the **res** folder in the mini-game publish package to the server.
-4. Delete the **res** folder under the local publish package directory.
+**Note**: Currently, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Alipay Mini Games Known issues
 

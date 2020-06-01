@@ -139,6 +139,12 @@ There are two ways to start debugging.
       npm run debug -- --print-only
       ```
 
+## Resource Management for Xiaomi Quick Game Environment
+
+**Xiaomi Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **5MB** must be downloaded via a network request.
+
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+
 ## Subpackage rpk
 
 Subpackage rpk can be used according to your needs. 

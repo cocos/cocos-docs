@@ -52,9 +52,9 @@ In a **WeChat Mini Game** environment, resource management is the most special p
 
 4. You cannot download script files from a remote server.
 
-This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below.
+This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below. Note that this section is updated in v2.4, so if you are using a version before v2.4, please take care to switch to the corresponding documentation branch.
 
-In the **WeChat Mini Game** environment, we provide a `wxDownloader` object, and after setting the `REMOTE_SERVER_ROOT` property to it, the logic of the engine to download resources becomes:
+In a mini game environment, the process of downloading resources from the engine is as follows:
 
 1. Check if the resource is in local cache storage
 2. Check if the resource is in the mini game pack if there is no cache
@@ -68,23 +68,47 @@ In addition, the problem of file saving failure due to cache space exceeding the
 
 At the same time, when the md5Cache function of the engine is enabled, the URL of the file will change with the content of the file, so that when a new version of the game is released, the resources of the old version will naturally fail in the cache, and you can only request new resources from the server, which also achieves the effect of version control.
 
-Specifically, developers need to do:
+Starting with v2.4.0, all resources are managed in `asset bundles`. The engine has some builtin bundles:
+- main: the main bundle of the game, minus all other `asset bundle` resources, the rest of the resources belong to the main bundle
+- resources: resources in `assets://resources`
+- internal: resources in `internal://resources`
 
-1. When building, check the **MD5 Cache** in the **Build** panel.
-2. Set **Remote Service Address**, and then click **Build** button.
-3. When the build is complete, upload the **res** folder in the mini game release package to the server.
-4. Delete the **res** folder inside the release package.
-5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
+If you need to upload the resource to the server, configure the `asset bundle` where the resource is located as a remote bundle. The operation steps are as follows:
+
+1. Rationalize the allocation of your resources, setting resource folders that require modular management as `asset bundles`.
+2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** panel and configure it in the **Properties** panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
+
+    ![](./publish-wechatgame/bundle_is_remote.png)
+
+3. If the main bundle needs to be configured as a remote one, please check **Main Bundle Is Remote** in the **Build** panel.
+4. Check **MD5 Cache** in the **Build** panel.
+5. Set **Remote Server Address**, and then click **Build** button.
+6. When the build is complete, upload the **remote** folder in the mini game release package to the server.
+7. Delete the `remote` folder inside the release package.
+8. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
 
     ![](./publish-wechatgame/detail.jpeg)
 
 **Note**: 
 
-- If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+1. If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. The exposed methods `clearCache()`, `clearLRU()` and `removeCache(cacheId: number)` in `cc.assetManager.cacheManager` can be used to clear the cache under WeChat Mini Games. The specific differences are as follows:
+    - The `clearCache()` method clears all cache resources from the cache directory, so use it carefully.
+    - The `clearLRU()` method clears the least recently used cache in the cache directory.
+    - The `removeCache(cacheId: number)` method precisely removes a cache records from the cache.
 
-- When you upgrade the engine of your mini game, the assets already cached in the storage of phone or WeChat DevTools will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. The solution is check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded. Or you can clear these outdated assets by yourself. In mobile phone, you can call `remoteDownloader.cleanAllCaches()` to clear all caches. In WeChat DevTools, you can click this button to do same thing:
+2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. This may cause problems such as resource loading errors or rendering errors. Solutions include the following two types:
+    - Check the option **MD5 Cache** when you build your game. It ensures that the newest asset will be loaded.
+    - Clear the cache on the physical device with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
 
-  ![](./publish-wechatgame/clear-cache.png)
+        ![](./publish-wechatgame/clear-cache.png)
+
+### Speed ​​up start scene loading
+
+If you want to place the main bunle on the server and place the start scene related resources in the package to speed up the loading of the start scene, you can check **Start Scene Asset Bundle** in the **Build** panel.
+
+![](./publish-wechatgame/start_scene_asset_bundle.png)
+
+Once the build is complete, a bundle of `start-scene` will be generated in the `assets` directory. This bundle will not be placed on the server, and the engine will automatically load the bundle in package during the game startup phase, thus speeding up the loading of the initial scene.
 
 ## WeChat Mini Game Engine Plugin
 
