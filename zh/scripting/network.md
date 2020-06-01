@@ -86,5 +86,5 @@
 5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/)查询 API 和文档等
 
 
-**注意** ：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块:
+**注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
 [config](network/config.png)

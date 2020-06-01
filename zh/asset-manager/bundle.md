@@ -29,7 +29,7 @@ A：当然可以，可以将子游戏的场景放在 Asset Bundle 中，在需�
 
 Q：Asset Bundle 可以减少 settings.js 的大小么？
 
-A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js 。
+A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js。
 
 Q：Asset Bundle 能跨项目复用么？
 
@@ -45,7 +45,7 @@ A：Asset Bundle 不支持嵌套，请避免如此使用。
 
 ## 内置 Asset Bundle
 
-从 v2.4 开始，Creator 内置了4个 Asset Bundle，如图所示：
+从 v2.4 开始，Creator 内置了 4 个 Asset Bundle，如图所示：
 
 ![builtinBundles](bundle/builtinBundles.png)
 
@@ -69,7 +69,7 @@ A：Asset Bundle 不支持嵌套，请避免如此使用。
 
 Bundle 可设置不同的优先级，Creator 内置了 10 个优先级可选择，编辑器构建时将会按照优先级从大到小对 bundle 进行依次构建，当同个资源被不同优先级的多个 bundle 引用时，资源会优先放在优先级高的 bundle 中，低优先级的 bundle 只会存储一条记录信息，此时低优先级的 bundle 会依赖高优先级的 bundle，如果你想在低优先级的 bundle 中加载此共享资源，必须在加载低优先级 bundle 之前先加载高优先级 bundle；当同个资源被相同优先级的多个 bundle 引用时，资源会在每个 bundle 中复制一份，此时不同 bundle 没有依赖关系，可用任意顺序加载。所以请尽量让共享的资源，例如 `Texture`、`SpriteFrame`、`Audio` 等资源所在 bundle 的优先级更高，从而让更多的低优先级 bundle 可共享其资源，从而最小化包体。
 
-**注意**：四个内置 Asset Bundle 的优先级分别为：internal 为 11，start-scene 为9，resources 为8，main 为7。当四个内置 bundle 包含相同资源时，资源会优先存储在优先级高的 bundle 中。建议其他自定义的 bundle 优先级不要高过内置的 bundle 优先级，从而尽可能共享内置 bundle 中的资源。
+**注意**：四个内置 Asset Bundle 的优先级分别为：internal 为 11，start-scene 为 9，resources 为 8，main 为 7。当四个内置 bundle 包含相同资源时，资源会优先存储在优先级高的 bundle 中。建议其他自定义的 bundle 优先级不要高过内置的 bundle 优先级，从而尽可能共享内置 bundle 中的资源。
 
 ## 压缩类型
 

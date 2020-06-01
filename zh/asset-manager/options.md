@@ -32,7 +32,7 @@
 
 **注意** ：想要获取资源的加载进度必须在服务器端做好相关配置。
 
-更多关于处理方法的介绍请参考 [下载器与解析器](downloader-parser.md) 。
+更多关于处理方法的介绍请参考 [下载器与解析器](downloader-parser.md)。
 
 3. 控制加载流程，加载管线接受 `reload`，`cacheAsset`，`cacheEnabled` 可选参数用于控制是否复用缓存中的资源和是否缓存资源和是否缓存文件。`uuid`，`url`，`path`，`dir`，`scene`，`type`，`ext`，`bundle` 等参数则是用于搜索资源。你可以如下使用：
 

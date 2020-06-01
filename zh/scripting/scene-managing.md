@@ -16,7 +16,7 @@ bundle.loadScene('MyScene', function (err, scene) {
 
 `Bundle.loadScene` 只能加载本 bundle 中的场景，并且不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。`Bundle.loadScene` 可提供更多参数加载控制流程，当你需要控制加载参数或者在加载场景后做一些后处理，你可以使用 `Bundle.loadScene`。
 
-加载 Asset Bundle 中的场景，详细请查看 [Asset Bundle](asset-bundle.md) 。
+加载 Asset Bundle 中的场景，详细请查看 [Asset Bundle](asset-bundle.md)。
 
 ## 通过常驻节点进行场景资源管理和参数传递
 
@@ -68,7 +68,7 @@ cc.director.loadScene("table");
 
 就算预加载没完成，你依旧可以调用 `cc.director.loadScene`。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
 
-关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md) 。
+关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md)。
 
 ---
 

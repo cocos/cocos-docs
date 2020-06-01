@@ -83,7 +83,7 @@ cc.Class({
 
 ## 动态加载
 
-从 v2.4 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md) 。 
+从 v2.4 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md)。 
 
 使用第一种方式动态加载资源要注意两点，一是所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
 
@@ -95,7 +95,7 @@ cc.Class({
 
 第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
-**注意** ：从 v2.4 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md) 。
+**注意** ：从 v2.4 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
 
 ### 动态加载 Asset
 
@@ -189,7 +189,7 @@ cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFram
 
 你可以使用预加载相关接口时提前加载资源，不必等到预加载结束，使用正常加载接口进行加载，便可以正常完成加载需求。
 
-关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md) 。
+关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md)。
 
 ## 加载远程资源和设备资源
 
@@ -280,7 +280,7 @@ cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
     this.spriteFrame = null;
 ```
 
-详细的资源释放机制请参考 [资源释放](../asset-manager/release-manager.md) 。
+详细的资源释放机制请参考 [资源释放](../asset-manager/release-manager.md)。
 
 **最后一个值得关注的要点：JavaScript 的垃圾回收是延迟的。**
 

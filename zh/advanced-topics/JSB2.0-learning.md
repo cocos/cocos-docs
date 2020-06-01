@@ -142,7 +142,7 @@ namespace se {
 
 **原因一：JS 对象控制 CPP 对象的生命周期的需要**
 
-当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*` 。
+当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*`。
 
 ```c++
 static bool js_cocos2d_Sprite_finalize(se::State& s)
@@ -270,7 +270,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 * JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
 
-为了解决上述两个问题，抽象层定义了一个辅助管理**手动创建对象**的类型，即 `se::HandleObject` 。
+为了解决上述两个问题，抽象层定义了一个辅助管理**手动创建对象**的类型，即 `se::HandleObject`。
 
 `se::HandleObject` 是一个辅助类，用于更加简单地管理手动创建的 se::Object 对象的释放、root 和 unroot 操作。
 以下两种代码写法是等价的，使用 se::HandleObject 的代码量明显少很多，而且更加安全。
@@ -904,7 +904,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
-* `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval` 。
+* `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
 * `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
 
 更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。

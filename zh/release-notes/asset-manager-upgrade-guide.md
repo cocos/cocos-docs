@@ -19,11 +19,11 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
- - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API 。
- - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API 。
- - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw` 。
+ - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API。
+ - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
+ - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
  - 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
- - 你在自己的游戏代码中使用了 `cc.director.preloadScene` API 。
+ - 你在自己的游戏代码中使用了 `cc.director.preloadScene` API。
  - 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
 ## 升级步骤
@@ -226,7 +226,7 @@
 
 如果你的代码中有使用 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe`，`cc.loader.addDownloadHandlers`，`cc.loader.addLoadHandlers` 系列 API 对 `cc.loader` 的加载流程做过扩展，或者直接使用了 `cc.loader.assetLoader`，`cc.loader.md5Pipe`，`cc.loader.downloader`，`cc.loader.loader`，`cc.loader.subPackPipe` 中的方法，下面是详细的替换方式：
 
-因为 `cc.assetManager` 为更通用的模块，不再继承自 `cc.Pipeline`，所以 `cc.assetManager` 不再实现 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe` 。请使用以下形式替换：
+因为 `cc.assetManager` 为更通用的模块，不再继承自 `cc.Pipeline`，所以 `cc.assetManager` 不再实现 `cc.loader.insertPipe`，`cc.loader.insertPipeAfter`，`cc.loader.appendPipe`。请使用以下形式替换：
 
 ```js
 // 修改前
@@ -324,9 +324,9 @@ cc.assetManager.pipeline.append(pipe2);
 **注意** ：
 1. 因为下载模块与解析模块都是依靠扩展名来匹配对应的处理方式，所以 `register` 所接受的扩展名需以 `.` 作为起始。
 
-2. 出于模块化的考虑，自定义的处理方法将不在传入一个 `item` 对象，而是直接传入与其相关的信息，`downloader` 的自定义处理方法传入的是待下载的 url，`parser` 的自定义处理方法传入的是待解析的文件。下载器与解析器详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。
+2. 出于模块化的考虑，自定义的处理方法将不在传入一个 `item` 对象，而是直接传入与其相关的信息，`downloader` 的自定义处理方法传入的是待下载的 url，`parser` 的自定义处理方法传入的是待解析的文件。下载器与解析器详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
 
-3. 新的拓展机制提供了一个额外的 `options` 参数，可以增加极大的灵活性，但目前你可以先无视它，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 与 [可选参数](../asset-manager/options.md) 。
+3. 新的拓展机制提供了一个额外的 `options` 参数，可以增加极大的灵活性，但目前你可以先无视它，详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 与 [可选参数](../asset-manager/options.md)。
 
 ##### downloader，loader，md5Pipe，subPackPipe
 
@@ -375,4 +375,4 @@ cc.assetManager.downloader.maxConcurrency = 10;
 // 或者设置预设值
 cc.assetManager.presets['default'].maxConcurrency = 10;
 ```
-详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 。 
+详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。 
