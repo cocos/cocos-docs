@@ -54,7 +54,7 @@ In a **WeChat Mini Game** environment, resource management is the most special p
 
 This brings up two key issues, home page loading speed and remote resource caching and version management. For the home page loading speed, we recommend that developers only save the script file in the **WeChat Mini Game** package, and all other resources are downloaded from the remote server. As for downloading, caching and version management of remote resources, Cocos Creator has done the job for developers. Let's look at the logic of this part below. Note that this section is updated in v2.4, so if you are using a version before v2.4, please take care to switch to the corresponding documentation branch.
 
-In a mini-game environment, the process of downloading resources from the engine goes like this:
+In a mini game environment, the process of downloading resources from the engine is as follows:
 
 1. Check if the resource is in local cache storage
 2. Check if the resource is in the mini game pack if there is no cache
@@ -68,23 +68,23 @@ In addition, the problem of file saving failure due to cache space exceeding the
 
 At the same time, when the md5Cache function of the engine is enabled, the URL of the file will change with the content of the file, so that when a new version of the game is released, the resources of the old version will naturally fail in the cache, and you can only request new resources from the server, which also achieves the effect of version control.
 
-Starting with v2.4.0, all resources are managed in asset bundles. The engine has some builtin bundles:
-- main: the main bundle of the game, minus all other asset bundle resources, the rest of the resources belong to the main bundle
+Starting with v2.4.0, all resources are managed in `asset bundles`. The engine has some builtin `bundles`:
+- main: the main bundle of the game, minus all other `asset bundle` resources, the rest of the resources belong to the main bundle
 - resources: resources in `assets://resources`
 - internal: resources in `internal://resources`
 
-If you need to upload the resource onto your server, configure the asset bundle where the resource is located as a remote bundle. Next, let's take a look at the specific operational steps:
+If you need to upload the resource to the server, configure the `asset bundle` where the resource is located as a remote bundle. The operation steps are as follows:
 
-1. Rationalize the allocation of your resources, assigning folders that require modular management as asset bundles.
-2. Configure the asset bundle that needs to be uploaded as a remote bundle.
+1. Rationalize the allocation of your resources, setting resource folders that require modular management as `asset bundles`.
+2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** Panel and configure it in the **inspector** Panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
 
     ![](./publish-wechatgame/bundle_is_remote.png)
 
-3. If the main bundle needs to be configured as a remote one, you need to check **Main Bundle Is Remote** in the **Build** panel.
-4. When building, check the **MD5 Cache** in the **Build** panel.
+3. If the main bundle needs to be configured as a remote one, please check **Main Bundle Is Remote** in the **Build** panel.
+4. Check **MD5 Cache** in the **Build** panel.
 5. Set **Remote Server Address**, and then click **Build** button.
 6. When the build is complete, upload the **remote** folder in the mini game release package to the server.
-7. Delete the **remote** folder inside the release package.
+7. Delete the `remote` folder inside the release package.
 8. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
 
     ![](./publish-wechatgame/detail.jpeg)
@@ -96,9 +96,9 @@ If you need to upload the resource onto your server, configure the asset bundle 
     - The `clearLRU()` method clears the least recently used cache in the cache directory.
     - The `removeCache(cacheId: number)` method precisely removes a cache records from the cache.
 
-2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. There are two solutions below: 
-    - Check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded.
-    - Clear the cache on the mobile phone with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
+2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. This may cause problems such as resource loading errors or rendering errors. Solutions include the following two types:
+    - Check the option **MD5 Cache** when you build your game. It ensures that the newest asset will be loaded.
+    - Clear the cache on the physics device with `cc.assetManager.cacheManager.clearCache()`. On the developer tool, clear the cache with the following options:
 
         ![](./publish-wechatgame/clear-cache.png)
 

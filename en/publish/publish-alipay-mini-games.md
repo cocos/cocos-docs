@@ -28,9 +28,9 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
 **Alipay Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat game. Please refer to [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-**Note**: At present, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on mobile, so you must put the resource file on a **HTTPS** server, otherwise you will see the resource loading failure.
+**Note**: Currently, Alipay Mini Games only support loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Alipay Mini Games Known issues
 
