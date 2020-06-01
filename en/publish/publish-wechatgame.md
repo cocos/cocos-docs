@@ -76,7 +76,7 @@ Starting with v2.4.0, all resources are managed in `asset bundles`. The engine h
 If you need to upload the resource to the server, configure the `asset bundle` where the resource is located as a remote bundle. The operation steps are as follows:
 
 1. Rationalize the allocation of your resources, setting resource folders that require modular management as `asset bundles`.
-2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** Panel and configure it in the **inspector** Panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
+2. Configure the `asset bundle` that needs to be uploaded as a `remote bundle`. Select the `asset bundle` that needs to be placed on the server in the **Assets** panel and configure it in the **inspector** panel, as shown in the following figure. When the configuration is complete, click the **Apply** button in the upper right corner.
 
     ![](./publish-wechatgame/bundle_is_remote.png)
 

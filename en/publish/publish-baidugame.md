@@ -42,7 +42,7 @@ For specific **Baidu Mini Game** application, station development, game submissi
 
 We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
-**Note**: Currently, Baidu Mini Games only support loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
+**Note**: Currently, Baidu Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Baidu Mini Game Subpackage Loading
 
