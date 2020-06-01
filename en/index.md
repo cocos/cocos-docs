@@ -6,13 +6,13 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 
 ## What's New
 
-  - [DragonBones ReplaceTexture](components/dragonbones.md)
-  - Starting with __v2.0.5__, Cocos Creator supports publishing to [OPPO Mini Game](publish/publish-oppo-instant-games.md) and [Vivo Mini Game](publish/publish-vivo-instant-games.md).
-  - Starting with __v2.0.4__, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
-  - Starting with __v2.0.1__, Cocos Creator upgraded the open data context solution, see [WeChat Mini Game Open Data Context](publish/publish-wechatgame-sub-domain.md).
-  - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md).
-  - Starting with __v1.10__, Cocos Creator refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
-  - Starting with __v1.10__, Cocos Creator supports __WeChat Mini Game__ and their subpackage loading feature, please refer to [Subpackage Loading](scripting/subpackage.md).
+- [DragonBones ReplaceTexture](components/dragonbones.md)
+- Starting with __v2.0.5__, Cocos Creator supports publishing to [OPPO Mini Game](publish/publish-oppo-instant-games.md) and [vivo Mini Game](publish/publish-vivo-instant-games.md).
+- Starting with __v2.0.4__, Cocos Creator supports publishing to [Google Play Instant](publish/publish-android-instant.md).
+- Starting with __v2.0.1__, Cocos Creator upgraded the open data context solution, see [WeChat Mini Game Open Data Context](publish/publish-wechatgame-sub-domain.md).
+- [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md).
+- Starting with __v1.10__, Cocos Creator refactored the underlying resource types. Most projects are not affected, but some projects may receive some warnings. For details, please refer to [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md).
+- Starting with __v1.10__, Cocos Creator supports __WeChat Mini Game__ and their subpackage loading feature, please refer to [Subpackage Loading](scripting/subpackage.md).
 
 ## Index
 
@@ -33,10 +33,9 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 ## Example Projects
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
-- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
+- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game), please read [Quick Start Tutorial](getting-started/quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
-- [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
