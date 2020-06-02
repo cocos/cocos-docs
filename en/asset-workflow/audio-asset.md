@@ -28,22 +28,22 @@ For larger Audio such as background music, DOM Audio is recommended.
 
 ### Dynamically select load mode
 
-Sometimes we may not use the automatic loading or preload function of the scene, but we want to load it through `cc.loader` in our script.
+Sometimes we may not use the automatic loading or preload function of the scene, but we want to load it through `cc.assetManager` in our script.
 
 #### default load mode
 
-Audio is loaded and played by default using Web Audio, and DOM mode is used only in browsers that are not supported.
+Audio is loaded and played using the mode you select in the editor by default, but some browser does not support web audio and it will fall back to dom audio.
 
 ```js
-cc.loader.load('http://example.com/background.mp3', callback);
+cc.assetManager.loadRemote('http://example.com/background.mp3', callback);
 ```
 
 #### Force use DOM mode to load
 
-Audio in the loading process, will read the url get parameter. Which only need to define a useDom parameter.
+You can specify `audioLoadMode` as `DOM_AUDIO` to load dom audio forcibly.
 
 ```js
-cc.loader.load('http://example.com/background.mp3?useDom=1', callback);
+cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
 ```
 
 It should be noted that if you use the DOM mode to load the audio, in the cc.loader cache, the cache will also have the url? UseDom = 1. It is not recommended to fill in the url of the resource directly, try to define an AudioClip in the script, and then define it in the editor.

@@ -69,31 +69,33 @@ module.exports = {
 
 ### 获取构建结果
 
-在 `'before-change-files'` 和 `'build-finished'` 事件的处理函数中，你还可以通过 `BuildResults` 对象获取一些构建结果。例子如下：
+在 `'before-change-files'` 和 `'build-finished'` 事件的处理函数中，你还可以通过 `bundles` 对象获取一些构建结果。例子如下：
 
 ```js
 function onBeforeBuildFinish (options, callback) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
-    // 通过 options.buildResults 访问 BuildResults
-    var buildResults = options.buildResults;
-    // 获得指定资源依赖的所有资源
-    var depends = buildResults.getDependencies(prefabUuid);
+    options.bundles.forEach(bundle => {
+        // 通过 bundle.buildResults 访问 BuildResults
+        var buildResults = bundle.buildResults;
+        // 获得指定资源依赖的所有资源
+        var depends = buildResults.getDependencies(prefabUuid);
 
-    for (var i = 0; i < depends.length; ++i) {
-        var uuid = depends[i];
-        // 获得工程中的资源相对 URL（如果是自动图集生成的图片，由于工程中不存在对应资源，将返回空）
-        var url = Editor.assetdb.uuidToUrl(uuid);
-        // 获取资源类型
-        var type = buildResults.getAssetType(uuid);
-        // 获得工程中的资源绝对路径（如果是自动图集生成的图片，同样将返回空）
-        var rawPath = Editor.assetdb.uuidToFspath(uuid);
-        // 获得构建后的原生资源路径（原生资源有图片、音频等，如果不是原生资源将返回空）
-        var nativePath = buildResults.getNativeAssetPath(uuid);
+        for (var i = 0; i < depends.length; ++i) {
+            var uuid = depends[i];
+            // 获得工程中的资源相对 URL（如果是自动图集生成的图片，由于工程中不存在对应资源，将返回空）
+            var url = Editor.assetdb.uuidToUrl(uuid);
+            // 获取资源类型
+            var type = buildResults.getAssetType(uuid);
+            // 获得工程中的资源绝对路径（如果是自动图集生成的图片，同样将返回空）
+            var rawPath = Editor.assetdb.uuidToFspath(uuid);
+            // 获得构建后的原生资源路径（原生资源有图片、音频等，如果不是原生资源将返回空）
+            var nativePath = buildResults.getNativeAssetPath(uuid);
 
-        Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
-    }
+            Editor.log(`${prefabUrl} depends on: ${rawPath || nativePath} (${type})`);
+        }
+    });
 
     callback();
 }
@@ -106,6 +108,24 @@ module.exports = {
         Editor.Builder.removeListener('before-change-files', onBeforeBuildFinish);
     }
 };
+```
+**注意** ：从 v2.4 开始， options 中不再提供 buildResults ，而是提供一个 bundles 的数组。
+
+`bundles` 是一个数组，其中存储了所有 Asset Bundle 的相关信息，每一个 bundle 的定义如下：
+
+```typescript
+interface bundle {
+    root: string,  // bundle 的根目录
+    dest: string,  // bundle 的输出目录
+    scriptDest: string, // 脚本的输出目录
+    name: string, // bundle 的名称
+    priority: number, // bundle 的类型
+    scenes: string[], // bundle 中包含的场景
+    compressionType: 'subpackage'|'normal'|'none'|'merge_all_json', // bundle 的压缩类型
+    buildResults: BuildResults, // bundle 所构建出来的所有资源
+    version: string, // bundle 的版本信息，由 config 生成
+    config: any // bundle 的 config.json 文件
+}
 ```
 
 BuildResults 的详细 API 如下：

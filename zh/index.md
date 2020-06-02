@@ -6,6 +6,9 @@
 
 ## 特别推荐
 
+- 从 v2.4 开始，Cocos Creator 对资源管理模块进行了全部重写，对大部分之前常用的 API 进行了兼容，绝大多数项目依旧可在现有代码下正常运行，但有些项目可能会收到一些警告，两种情况都建议开发者升级到最新的资源管理模块上，详情请查阅 [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md) 和 [v2.4 分包升级指南](release-notes/subpackage-upgrade-guide.md)。
+- 从 v2.4 开始，Cocos Creator 正式支持 Asset Bundle 功能，提供了更强大的远程资源加载能力、子项目动态加载能力，进一步减小首包的大小，详情请查阅 [Asset Bundle](scripting/asset-bundle.md)。
+- 从 v2.4 开始，编辑器的构建流程将以 Asset Bundle 为基础，如果开发者在 v2.4 之前在编辑器上使用插件扩展了构建流程，则需要对部分 API 的使用进行升级，详情请查阅 [定制构建流程升级指南](release-notes/build-extend-upgrade-guide.md)。
 - 从 v2.3.4 开始，Cocos Creator 新增了对 [腾讯云服务](cocos-service/tcb.md) 的支持。
 - 从 v2.3.0 开始，Cocos Creator 新增了对 [3D 物理与碰撞系统](physics-3d/index.md)、[3D 粒子](3d/particle-system-3d.md) 的支持，同时 [材质系统](render/index.md) 也升级到了正式版。
 - 从 v2.3.0 开始，Cocos Creator 支持发布到 [趣头条小游戏](publish/publish-qutoutiao-mini-games.md)。

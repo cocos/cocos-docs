@@ -554,7 +554,7 @@ var isAudioPlayDeviceEnabled = tencentGME.tencentGMEInst.isAudioPlayDeviceEnable
 
 ### 开启/关闭音频下行
 
-此接口用于开启/关闭音频下行。如果播放设备已经开启，那么会播放房间里其他人的音频数据。如果播放设备没有开启，那么仍旧无声。播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice` 。
+此接口用于开启/关闭音频下行。如果播放设备已经开启，那么会播放房间里其他人的音频数据。如果播放设备没有开启，那么仍旧无声。播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice`。
 
 #### 函数原型
 
@@ -813,7 +813,7 @@ tencentGME.tencentGMEInst.pttStartRecordingWithStreamingRecognition(fileDir);
 
 ### 暂停录音
 
-此接口用于暂停录音。如需恢复录音请调用接口 `ResumeRecording` 。
+此接口用于暂停录音。如需恢复录音请调用接口 `ResumeRecording`。
 
 #### 函数原型 
 

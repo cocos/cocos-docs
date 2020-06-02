@@ -19,7 +19,7 @@ WeChat 内加载 js sdk 之后，会有一个事件 `WeixinJSBridgeReady`，在�
 
 ```javascript
 document.addEventListener('WeixinJSBridgeReady', function () {
-    cc.loader.loadRes('audio/music_logo', (err, audioClip) => {
+    cc.resources.load('audio/music_logo', cc.AudioClip, (err, audioClip) => {
         var audioSource = this.addComponent(cc.AudioSource);
         audioSource.clip = audioClip;
         audioSource.play();

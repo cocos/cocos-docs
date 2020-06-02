@@ -63,7 +63,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 ### 微信开放数据加载头像时提示 wx.request 找不到。
 
-加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
+加载图片时 url 若缺失 .png 之类的后缀，`cc.assetManager.loadRemote` 需要额外提供 options 参数指定 `{ ext: '.png' }`。
 
 具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) 中的 **dragonBones/DragonMesh** 测试例。
 
@@ -79,22 +79,20 @@ var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
 var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
 var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.json';
 var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
-cc.loader.load(image, (error, texture) => {
-    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
-        cc.loader.load({ url: ske, type: 'txt' }, (error, dragonBonesJson) => {
-            var atlas = new dragonBones.DragonBonesAtlasAsset();
-            atlas.atlasJson = atlasJson;
-            atlas.texture = texture;
+cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+    cc.assetManager.loadRemote(image, (error, texture) => {
+        var atlas = new dragonBones.DragonBonesAtlasAsset();
+        atlas.atlasJson = assets[0];
+        atlas.texture = texture;
 
-            var asset = new dragonBones.DragonBonesAsset();
-            asset.dragonBonesJson = dragonBonesJson;
+        var asset = new dragonBones.DragonBonesAsset();
+        asset.dragonBonesJson = assets[1];
 
-            dragonDisplay.dragonAtlasAsset = atlas;
-            dragonDisplay.dragonAsset = asset;
+        dragonDisplay.dragonAtlasAsset = atlas;
+        dragonDisplay.dragonAsset = asset;
 
-            dragonDisplay.armatureName = 'box_anim';
-            dragonDisplay.playAnimation('box_anim', 0);
-        });
+        dragonDisplay.armatureName = 'box_anim';
+        dragonDisplay.playAnimation('box_anim', 0);
     });
 });
 ```
@@ -141,16 +139,14 @@ this.node.addChild(spineNode);
 var image = "http://localhost/download/spineres/1/1.png";
 var ske = "http://localhost/download/spineres/1/1.json";
 var atlas = "http://localhost/download/spineres/1/1.atlas";
-cc.loader.load(image, (error, texture) => {
-    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
-        cc.loader.load({ url: ske, type: 'txt' }, (error, spineJson) => {
-            var asset = new sp.SkeletonData();
-            asset.skeletonJson = spineJson;
-            asset.atlasText = atlasJson;
-            asset.textures = [texture];
-            asset.textureNames = ['1.png'];
-            skeleton.skeletonData = asset;
-        });
+cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+    cc.assetManager.loadRemote(image, (error, atlasJson) => {
+        var asset = new sp.SkeletonData();
+        asset.skeletonJson = assets[1];
+        asset.atlasText = assets[0];
+        asset.textures = [texture];
+        asset.textureNames = ['1.png'];
+        skeleton.skeletonData = asset;
     });
 });
 ```

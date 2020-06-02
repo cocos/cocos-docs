@@ -18,6 +18,8 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - 资源管理
   - [加载和切换场景](scene-managing.md)
   - [获取和加载资源](load-assets.md)
+  - [加载 Asset Bundle](asset-bundle.md)
+  - [资源管理系统](../asset-manager/index.md)
 - 事件系统
   - [发射和监听事件](events.md)
   - [系统内置事件](internal-events.md)
@@ -31,7 +33,6 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - [使用对象池](pooling.md)
 - 脚本组织模式
   - [模块化脚本](modular-script.md)
-  - [分包加载](subpackage.md)
   - [插件脚本](plugin-scripts.md)
 - [JavaScript 快速入门](javascript-primer.md)
 - [使用 TypeScript 脚本](typescript.md)

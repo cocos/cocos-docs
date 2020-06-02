@@ -9,6 +9,7 @@
     - [微信小游戏开放数据域](publish-wechatgame-sub-domain.md)
     - [启用微信小游戏引擎插件](wechat-engine-plugin.md)
     - [接入微信 PC 小游戏](publish-pc-wechatgame.md)
+    - [小游戏分包](subpackage.md)
 - [发布到趣头条小游戏](publish-qutoutiao-mini-games.md)
 - [发布到百度小游戏](publish-baidugame.md)
     - [百度小游戏开放数据域](publish-baidugame-sub-domain.md)
