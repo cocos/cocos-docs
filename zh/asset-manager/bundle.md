@@ -126,4 +126,4 @@ cc.assetManager.loadBundle('https://othergame.com/remote/bundleB', (bundle) => {
 let bundleA = cc.assetManager.getBundle('bundleA');
 ```
 
-Bundle 的详细 API 可参考 [Bundle](../../../api/en/classes/Bundle.html)
+Bundle 的详细 API 可参考 [Bundle](../../../api/zh/classes/Bundle.html)

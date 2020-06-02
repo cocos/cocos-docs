@@ -35,7 +35,7 @@
 ```
 
 **注意**：
-1. 加载 Asset Bundle 中的资源需要使用 Asset Bundle 的相关 API。相关 API 请查看 [Asset Bundle](../../../api/en/classes/Bundle.html)
+1. 加载 Asset Bundle 中的资源需要使用 Asset Bundle 的相关 API。相关 API 请查看 [Asset Bundle](../../../api/zh/classes/Bundle.html)
 
 ## 我该如何使用新版本的分包加载？
 
