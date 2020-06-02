@@ -1,4 +1,4 @@
-# BezierCurveTo
+# bezierCurveTo
 
 The `bezierCurveTo()` method adds a point to the current path by using the specified control point that represents the cubic bezier curves.
 
@@ -6,10 +6,10 @@ The `bezierCurveTo()` method adds a point to the current path by using the speci
 
 | Parameter | Description |
 | -------------- | ----------- |
-| cp1x | The first Bezier control point of the x coordinate. |
-| cp1y | The first Bezier control point of the y coordinate. |
-| cp2x | The second Bezier control point of the x coordinate. |
-| cp2y | The second Bezier control point of the y coordinate. |
+| cp1x | The x coordinate of the first bezier control point. |
+| cp1y | The y coordinate of the first bezier control point. |
+| cp2x | The x coordinate of the second bezier control point. |
+| cp2y | The y coordinate of the second bezier control point. |
 | x | The x coordinate of the end point. |
 | y | The y coordinate of the end point. |
 
@@ -26,4 +26,4 @@ ctx.stroke ();
 
 <Hr>
 
-Return to [Graphics Component Reference](../../components/graphics.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.
