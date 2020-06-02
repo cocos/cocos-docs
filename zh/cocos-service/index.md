@@ -27,7 +27,7 @@ Cocos Service 目前提供的服务包括：
     - [计费与充值](billing-and-charge.md)
 - [Cocos Analytics 统计](cocos-analytics.md)
 - [腾讯云 TCB 云开发](tcb.md)
-- [腾讯云 MGOBE 小游戏联机对战引擎](mgobe.md)
+- [腾讯云 MGOBE 游戏联机对战引擎](mgobe.md)
 - [腾讯云 GME 游戏多媒体引擎](gme.md)
     - [GME 接口文档](gme-api-docs.md)
 - [Matchvs 游戏云](matchvs.md)
