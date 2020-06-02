@@ -1,8 +1,8 @@
-# 腾讯云 - 小游戏联机对战引擎 MGOBE 简介
+# 腾讯云 - 游戏联机对战引擎 MGOBE 简介
 
 ![](image/tencent-cloud-logo.png)
 
-[**小游戏联机对战引擎（Mini Game Online Battle Engine，MGOBE）**](https://cloud.tencent.com/product/mgobe) 为游戏提供房间管理、在线匹配、帧同步、状态同步等网络通信服务，帮助开发者快速搭建多人交互游戏。开发者无需关注底层网络架构、网络通信、服务器扩缩容、运维等，即可获得就近接入、低延迟、实时扩容的高性能联机对战服务，让玩家在网络上互通、对战、自由畅玩。MGOBE 适用于回合制、策略类、实时会话（休闲对战、MOBA、FPS）等游戏。
+[**游戏联机对战引擎（Mobile Game Online Battle Engine，MGOBE）**](https://cloud.tencent.com/product/mgobe) 为游戏提供房间管理、在线匹配、帧同步、状态同步等网络通信服务，帮助开发者快速搭建多人交互游戏。开发者无需关注底层网络架构、网络通信、服务器扩缩容、运维等，即可获得就近接入、低延迟、实时扩容的高性能联机对战服务，让玩家在网络上互通、对战、自由畅玩。MGOBE 适用于回合制、策略类、实时会话（休闲对战、MOBA、FPS）等游戏。
 
 ### 特性
 
@@ -140,11 +140,11 @@ https://www.bilibili.com/video/BV1VA411q7Ms
 ## 文档链接
 
 - [腾讯云 MGOBE 管理后台](https://console.cloud.tencent.com/mgobe)
-- [小游戏联机对战引擎 MGOBE 简介](https://cloud.tencent.com/product/mgobe)
-- [小游戏联机对战引擎产品详细信息](https://cloud.tencent.com/product/mgobe/details)
-- [小游戏联机对战引擎计费概述](https://cloud.tencent.com/document/product/1038/33293)
-- [小游戏联机对战引擎常见问题](https://cloud.tencent.com/document/product/1038/42134)
-- [小游戏联机对战引擎文档与资源](https://cloud.tencent.com/product/mgobe/developer)
+- [游戏联机对战引擎 MGOBE 简介](https://cloud.tencent.com/product/mgobe)
+- [游戏联机对战引擎产品详细信息](https://cloud.tencent.com/product/mgobe/details)
+- [游戏联机对战引擎计费概述](https://cloud.tencent.com/document/product/1038/33293)
+- [游戏联机对战引擎常见问题](https://cloud.tencent.com/document/product/1038/42134)
+- [游戏联机对战引擎文档与资源](https://cloud.tencent.com/product/mgobe/developer)
 
-更多文档可直接在 [腾讯云文档中心 - 小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) 中查阅。
+更多文档可直接在 [腾讯云文档中心 - 游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) 中查阅。
 
