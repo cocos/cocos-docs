@@ -74,9 +74,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **qgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/qgame/res** directory.
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **qgame/remote** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/qgame/remote** directory.
 
-  At this point, the **res** folder will no longer be included in the **qgame** directory which is generated after the build, and the resources in the **res** folder will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
+  At this point, the **remote** folder will no longer be included in the **qgame** directory which is generated after the build, and the resources in the **remote** folder will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 
 - **Keystore**
 
@@ -192,6 +192,12 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 ## Subpackage Loading
 
 Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Subpackage Loading](../scripting/asset-bundle.md) for details.
+
+## Resource Management for vivo Mini Game Environment
+
+**vivo Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
+
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
 ## Reference link
 

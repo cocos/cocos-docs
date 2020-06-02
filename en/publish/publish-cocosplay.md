@@ -26,13 +26,13 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   - **First game resource package into the game package**, this item is optional.
 
-    In the **Small Packet Mode**, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
-  
+    In the **Small Packet Mode**, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game.
+
     You can choose whether to check this item according to your needs. Then click on **Build**.
 
-  - After the build is complete, click the **Open** button after the **Build Path** to upload the `build/cocos-play/res` folder under the release path to the small packet mode server.
+  - After the build is complete, click the **Open** button after the **Build Path** to upload the `build/cocos-play/remote` folder under the release path to the small packet mode server.
 
-  At this point, the `res` folder will no longer be included in the `.cpk` file which is generated after the build, and the resources in the `res` folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  At this point, the `remote` folder will no longer be included in the `.cpk` file which is generated after the build, and the resources in the `remote` folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 ### 2. Build
 
@@ -78,6 +78,12 @@ There are two ways to start the game through the **Self-test Tools**.
     - Select **Url** in the **loadType** of the game configuration page.
     - Fill in **path**, such as: <http://192.168.0.1:8080/game.cpk>.
     - Click on **Save** after the configuration is complete, then click on **Start Game** to open the game.
+
+## Resource Management for Cocos Play Environment
+
+**Cocos Play** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **10MB** must be downloaded via a network request.
+
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
 ## Reference documentation
 

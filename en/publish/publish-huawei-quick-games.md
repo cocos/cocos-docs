@@ -50,13 +50,13 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
 
-      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
-  
+      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game.
+
       Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **huawei/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/huawei/res** directory.
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **huawei/remote** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/huawei/remote** directory.
 
-  At this point, the **res** folder will no longer be included in the `.rpk` file which is generated after the build, and the resources in the **res** folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  At this point, the **remote** folder will no longer be included in the `.rpk` file which is generated after the build, and the resources in the **remote** folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 - **Keystore**
 
@@ -85,7 +85,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   - **Windows**: Gets the path in the environment variable from the system.
   - **Mac**: Gets the path in the environment variable from the configuration file of Shell.
 
-  If not, make sure the node is properly installed and can be started directly in the command line environment. The obtained node is used to provide an environment for building rpk. 
+  If not, make sure the node is properly installed and can be started directly in the command line environment. The obtained node is used to provide an environment for building rpk.
 
   The node filling rules below **v2.0.10** are as follows:
 
@@ -132,11 +132,17 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 **4. Subpackage rpk**
 
-Subpackage rpk can be used according to your needs. 
+Subpackage rpk can be used according to your needs.
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/asset-bundle.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `/build/huawei/dist` directory.
+
+## Resource Management for Huawei Quick Game Environment
+
+**Huawei Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **10MB** must be downloaded via a network request.
+
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
 ## Related Reference Links
 
