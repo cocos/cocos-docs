@@ -21,7 +21,7 @@ A：
 
 Q：Asset Bundle 是以什么形式组织的？
 
-A：在项目中 Asset Bundle 是通过对文件夹进行设置，**文件夹中的资源以及文件夹之外的相关依赖资源** 都会被合并到同个 Asset Bundle 中，而在打包之后，所有的 Asset Bundle 都会放在 `${OUTPUT_PATH}/assets/`，`${OUTPUT_PATH}/remote/` 和 `${OUTPUT_PATH}/subpackages/` 中，其中每一个文件夹为一个 Asset Bundle，你需要将 remote 上传到服务器上。
+A：在项目中 Asset Bundle 是通过对文件夹进行设置，**文件夹中的资源以及文件夹之外的相关依赖资源** 都会被合并到同个 Asset Bundle 中，而在打包之后，所有的 Asset Bundle 都会放在 `${OUTPUT_PATH}/assets/`、`${OUTPUT_PATH}/remote/` 和 `${OUTPUT_PATH}/subpackages/` 中，其中每一个文件夹分别为一个 Asset Bundle，然后你需要将 remote 上传到服务器上。
 
 Q：Asset Bundle 可以用来做大厅加子游戏的模式么？
 
