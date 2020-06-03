@@ -23,7 +23,6 @@
  - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
  - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
  - 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
- - 你在自己的游戏代码中使用了 `cc.director.preloadScene` API。
  - 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
 ## 升级步骤

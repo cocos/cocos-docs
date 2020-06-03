@@ -32,7 +32,7 @@ While writing the component script, you can map the variables needing adjustment
 - [TypeScript](typescript.md)
 - Script Structure
   - [Modular Script](modular-script.md)
-  - [Subpackage Loading](subpackage.md)
+  - [Asset Bundle Loading](asset-bundle.md)
   - [Plugin Scripts](plugin-scripts.md)
 - [JavaScript Quick-start](javascript-primer.md)
 - CCClass Reference
