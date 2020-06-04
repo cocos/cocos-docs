@@ -4,7 +4,7 @@
 
 During the development of the game, there will be a need to use a lot of resources such as pictures, audio, etc. to enrich the entire game. This is why Creator provides the `Asset Manager` module to help developers manage the use of their resources and improve development efficiency.
 
-The `Asset Manager` is a new module from Creator in v2.4, replacing the previous `cc.loader'. The new `Asset Manager` module implements all resource related functions including loading, querying, destruction, caching, and Asset Bundle, and provides great scalability, allowing you to extend the functionality you need with Asset Manager.
+The `Asset Manager` is a new module from Creator in v2.4, replacing the previous `cc.loader`. The new `Asset Manager` module implements all resource related functions including loading, querying, destruction, caching, and Asset Bundle, and provides great scalability, allowing you to extend the functionality you need with Asset Manager.
 
 
 Relevant references.

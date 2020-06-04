@@ -62,7 +62,7 @@ Alternatively, you can override global settings by specifying the optional param
 
 The cache manager provides three interfaces to clean up cache resources: `removeCache`, `clearCache` , `clearLRU` interface, `removeCache` to clean up individual cache resources, `clearCache` to clean up all cache resources, please use carefully, `clearLRU` to clean up older resources, `clearLRU` will be called automatically when the storage space of the mini-game platform is full.
 
-`removeCache' requires the original path of the resource to be provided for removal, for example.
+`removeCache` requires the original path of the resource to be provided for removal, for example.
 
 ```js
 cc.assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {

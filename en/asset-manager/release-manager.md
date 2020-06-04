@@ -64,9 +64,9 @@ The release interface in v2.4 is similar to the release interface in previous ve
 
 1. `cc.assetManager.releaseAsset` The interface can only release a single resource, and for the sake of uniformity, the interface can only be released by the resource itself, not by attributes such as resource uuid, resource url, etc.
 
-2. For the convenience of developers, it is no longer necessary to obtain dependent resources through `getDependsRecursively' when developers release resources. You just have to focus on the resource itself, and the engine will go and try to **automatically release** its dependent resource.
+2. For the convenience of developers, it is no longer necessary to obtain dependent resources through `getDependsRecursively` when developers release resources. You just have to focus on the resource itself, and the engine will go and try to **automatically release** its dependent resource.
 
-**Note**: Resources released through the `releaseAsset` interface do not themselves undergo a release check, only their dependent resources do. Therefore, the `release' and `releaseAsset' interfaces ensure that the resources themselves are released.
+**Note**: Resources released through the `releaseAsset` interface do not themselves undergo a release check, only their dependent resources do. Therefore, the `release` and `releaseAsset` interfaces ensure that the resources themselves are released.
 
 ## Reference count statistics
 
