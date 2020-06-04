@@ -18,6 +18,8 @@ While writing the component script, you can map the variables needing adjustment
 - Asset Management
   - [Scene Management](scene-managing.md)
   - [Acquire and Load Asset](load-assets.md)
+  - [Asset Bundle Loading](asset-bundle.md)
+  - [Asset Manager](../asset-manager/index.md)
 - Event
   - [Launch and Listen to Events](events.md)
   - [System Built-in Events](internal-events.md)
@@ -32,7 +34,6 @@ While writing the component script, you can map the variables needing adjustment
 - [TypeScript](typescript.md)
 - Script Structure
   - [Modular Script](modular-script.md)
-  - [Asset Bundle Loading](asset-bundle.md)
   - [Plugin Scripts](plugin-scripts.md)
 - [JavaScript Quick-start](javascript-primer.md)
 - CCClass Reference

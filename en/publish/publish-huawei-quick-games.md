@@ -134,7 +134,7 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 Subpackage rpk can be used according to your needs. 
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/asset-bundle.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `/build/huawei/dist` directory.
 

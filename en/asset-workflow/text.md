@@ -18,7 +18,7 @@ You can associate a TextAsset directly with a component:
 Or load dynamically:
 
 ```js
-    cc.loader.loadRes(url, function (err, file) {
+    cc.resources.load(url, function (err, file) {
         cc.log(file.text);
     });
 ```

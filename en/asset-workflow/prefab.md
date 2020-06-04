@@ -75,7 +75,7 @@ If this prefab requires repeated execution of `cc.instantiate`, select **For mul
 
 ### Async Load Assets option
 
-The default value is false. When selected, the use of **Properties** association, loadRes, etc., when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
+The default value is false. When selected, the use of **Properties** association when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
 
 <hr>
 

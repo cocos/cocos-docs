@@ -78,7 +78,7 @@ Bundle also currently provides five compression options for bundle optimization,
 1. There is no compression operation when `none` is selected.
 2. When `default` is selected, the bundle attempts to combine JSON files from interdependent resources, thereby reducing the number of runtime load requests.
 3. When `merge all JSON` is selected, the bundle will merge the JSON files for all resources into one, which will minimize the number of requests, but may increase the load time for individual resources.
-4. Some game platforms, such as WeChat and Baidu, provide subpackage, and when you select `mini game subpackage`, these bundles will be set as subpackage on the corresponding platform. For details of the subpackage, please refer to [subpackage] (... /scripting/subpackage.md)
+4. Some game platforms, such as WeChat and Baidu, provide subpackage, and when you select `mini game subpackage`, these bundles will be set as subpackage on the corresponding platform. For details of the subpackage, please refer to [subpackage](../publish/subpackage.md)
 5. On some platforms, bundle supports compression of resource files into a single zip file, reducing the number of runtime load requests
 
 ** In addition, different compression types can be used for different platforms, and the bundle will be built according to the settings of the corresponding platform.**

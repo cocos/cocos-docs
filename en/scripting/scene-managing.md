@@ -6,6 +6,18 @@ In Cocos Creator we use scene filename (without extension) to index scenes, and 
 cc.director.loadScene("MyScene");
 ```
 
+In addition, after v2.4, Asset Bundle has added a new loading way.
+
+ ```js
+bundle.loadScene('MyScene', function (err, scene) {
+    cc.director.runScene(scene);
+});
+```
+
+The `Bundle.loadScene` can only load scenes in this bundle and will not run scenes automatically, it also needs to be used with the `cc.director.runScene`. `Bundle.loadScene` provides more parameter loading control flow when you need to control loading parameters or do some post-processing after loading a scene.
+
+To load the scene in Asset Bundle, see [Asset Bundle](asset-bundle.md) for details.
+
 ## Use persist node to managing multiple scenes and pass information among scenes
 
 There's only one scene running at the same time, when switching scenes the previous scene will be destroyed. To easily store and pass information among scenes we can mark a node as **persist node** to prevent it from being destroyed during scene switch. This way the node and all the component instances attached to it will remain in memory. 
@@ -39,7 +51,7 @@ Since it can only be declared in the same script, it's better to call `loadScene
 
 ## Preload scene
 
-`cc.director.loadScene` will destroy previous scene and run new scene right after the new scene is completely loaded. Sometimes we need to load new scene in the background when still running previous scene, and only switch scene when new scene is loaded. We can use `preloadScene` to do this:
+`cc.director.loadScene` will destroy previous scene and run new scene right after the new scene is completely loaded. Sometimes we need to load new scene in the background when still running previous scene, and only switch scene when new scene is loaded. We can use `cc.director.preloadScene` to do this:
 
 ```js
 cc.director.preloadScene("table", function () {
@@ -53,7 +65,7 @@ Once callback is fired, you can call `loadScene` at any time to immediately swit
 cc.director.loadScene("table");
 ```
 
-It will be totally fine to call `cc.director.loadScene` at any time even if the preloading is not yet finished, the scene will be launched after preloaded automatically. You can take [Black Jack demo](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14) as an example.
+It will be totally fine to call `cc.director.loadScene` at any time even if the preloading is not yet finished. You can take [Black Jack demo](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14) as an example.
 
 **Notice** Using `cc.loader.loadRes` to load assets in next scene and call `runScene` method to switch scene is **deprecated!**
 

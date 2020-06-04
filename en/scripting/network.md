@@ -27,7 +27,7 @@ Of course, browsers on the Web platform support these two interfaces originally.
     xhr.send();
     ```
 
-    Developers can use `new XMLHttpRequest()` directly or use `cc.loader.getXMLHttpRequest()` to create a connecting object. The effect of these two are the same.
+    Developers can use `new XMLHttpRequest()` directly.
 
     For the standard file of `XMLHttpRequest`, please refer to [MDN Chinese file](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest).
 
@@ -86,3 +86,6 @@ Reference SocketIO in script:
 
 4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly
 5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
+
+**注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
+[config](network/config.png)
