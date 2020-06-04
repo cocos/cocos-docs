@@ -75,7 +75,7 @@ The parameters of `cc.resources.loadDir` are equal to those of `cc.loader.loadRe
     cc.resources.loadDir(...);
 ```
 
-**Note**: In the interest of simplifying the interface, the load completion callback for `cc.resources.loadDir' will **no longer provide a list of **paths. Please avoid using the following.
+**Note**: In the interest of simplifying the interface, the load completion callback for `cc.resources.loadDir` will **no longer provide a list of **paths. Please avoid using the following.
 
 ```js
     cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
