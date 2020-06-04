@@ -12,7 +12,7 @@ When a resource is loaded, it is saved in the cache for the next reuse, and this
 
 Creator v2.4 provides an auto-release mechanism, first, the scenario provides an auto-release option, as shown in the figure.
 
-! [auto-release](release-manager/auto-release.png)
+![auto-release](release-manager/auto-release.png)
 
 Once checked, an attempt is made to automatically release all dependent resources for that scene when it is switched.
 
