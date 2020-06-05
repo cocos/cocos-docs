@@ -87,5 +87,5 @@ Reference SocketIO in script:
 4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly
 5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
 
-**注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
+**Note**: If you need to use `WebSocket` or `SocketIO` on native platform, make sure you check the `Native Socket` module.
 [config](network/config.png)
