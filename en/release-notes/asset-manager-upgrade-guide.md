@@ -93,7 +93,7 @@ If you want to query the paths list, you can use the following form.
 
 If you use `cc.loader.load` in your code to load remote pictures or remote audio, for ease of understanding, there will be a special API in `cc.assetManager` for this work, as follows.
 
-Loading remote images.
+Load remote images.
 
 ```js
     // before
@@ -103,7 +103,7 @@ Loading remote images.
     cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 ```
 
-Loading remote audio.
+Load remote audio.
 
 ```js
     // before
@@ -217,7 +217,7 @@ Here are the detailed replacements.
 
 2. Since the `cc.assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `cc.loader.getDependsRecursively`, if you need to find the dependency of the resource, please refer to the relevant API in `cc.assetManager.dependUtil`.
 
-3. For security reasons, the original auto-release function has been removed from `cc.assetManager` and only the auto-release set on the scene is supported, `cc.assetManager` does not implement `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease` API.It is recommended that you use the new auto-release mechanism based on reference counting, see [Release Of Resources](../asset-manager/release-manager.md).
+3. For security reasons, the original auto-release function has been removed from `cc.assetManager` and only the auto-release set on the scene is supported, `cc.assetManager` does not implement `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease`. It is recommended that you use the new auto-release mechanism based on reference counting, see [Release Of Resources](../asset-manager/release-manager.md).
 
 #### Extension-related interface replacement
 
@@ -274,7 +274,7 @@ cc.assetManager.pipeline.append(pipe2);
 ```
 
 **Note**.
-1. `cc.assetManager` ** no longer inherits** from `Pipeline`, but has multiple instances of `Pipeline` under `cc.assetManager`. For details, see [Pipeline and Task](../asset-manager/pipeline-task.md). 
+1. `cc.assetManager` **no longer inherits** from `Pipeline`, but has multiple instances of `Pipeline` under `cc.assetManager`. For details, see [Pipeline and Task](../asset-manager/pipeline-task.md). 
 
 2. For ease of use, the definition of a Pipe no longer requires the definition of an object with a `handle` method and an `id`, only a method, see [Pipeline and Task](../asset-manager/pipeline-task.md). 
 
@@ -334,7 +334,7 @@ Or
 
 For performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline And Tasks](../asset-manager/pipeline-task.md). 
 
-### Other updates
+### Other changes
 
 The `cc.url` and `cc.AssetLibrary` were removed in v2.4, so avoid using any methods and properties under `cc.url` and `cc.AssetLibrary`.
 

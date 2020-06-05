@@ -4,7 +4,7 @@
 
 `Asset Manager` is a new module from Creator in v2.4 with features such as load resources, find resources, destroy resources, cache resources, Asset Bundle and more. `Asset Manager` has better performance, an easier-to-use API, and greater scalability. All functions and methods are accessible via `cc.assetManager` and all types and enumerations are accessible via the `cc.AssetManager` namespace.
 
-## Loading Resources
+## Load Resources
 
 ### Dynamic Loading Of Resources
 
@@ -29,7 +29,7 @@ Remote Asset | Asset Manager | loadRemote  | releaseAsset  | N/A | N/A
 
 References：
 
-[Acquire and load asset](../scripting/load-assets.md)<br>
+[Acquire and load asset](../scripting/load-assets.md)
 [Asset Bundle](../scripting/asset-bundle.md)
 
 All loaded resources are cached in `cc.assetManager`.
@@ -65,7 +65,7 @@ cc.assetManager.loadBundle('testBundle', function (err, bundle) {
 });
 ```
 
-See [bundle](bundle.md) for more information on Asset Bundle.
+See [Asset Bundle](bundle.md) for more information on Asset Bundle.
 
 ## Release of resources
 
@@ -124,5 +124,5 @@ In addition to the parameters built into the Creator, you can also specify any p
 
 To make it easier to extend the resource loading process, the bottom layer of Asset Manager uses mechanisms called **Pipeline And Task** , **Downloader And Parser** to load resources, which offers great flexibility and scalability. If you want to extend the load line or customize the line, you can refer to.
 
-[Pipeline And Task](pipeline-task.md)<br>
+[Pipeline And Task](pipeline-task.md)
 [Downloader And Parser](downloader-parser.md)

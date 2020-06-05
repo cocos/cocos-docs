@@ -175,7 +175,7 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets, urls)
 });
 ```
 
-## Preloaded resources
+## Preload resources
 
  Starting with v2.4, in addition to scenes being able to preload, other resources are also able to preload. The loading parameters are the same as when loading normally, but it only downloads the relevant resources, and does not do the deserialization and initialization of the resources, so the performance consumption is smaller, suitable for use in the game running.
 `cc.resources` provides `preload` , `preloadDir` for preloading resources.  

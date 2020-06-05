@@ -21,7 +21,7 @@ There are three pipelines built into Asset Manager, as shown in the figure.
 2. The second pipeline is a normal loading process.
 3. The third pipeline is used for the preload process.
 
-**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Downloader And Parser] (downloader-parser.md) for details.
+**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Downloader And Parser](downloader-parser.md) for details.
 
 You can extend the built-in pipeline to achieve your own custom needs, for example.
 
@@ -49,7 +49,7 @@ var pipeline = new cc.AssetManager.Pipeline('test', [(task, done) => {
 
 Building the pipeline requires only a series of methods, each accepting a task parameter and a completion callback parameter. You can access everything about the task in the method, just call the completion callback on completion.
 
-A request flowing in the pipeline is called a task, see `cc.AssetManager.Task` type for details, a task will include all its information including inputs, outputs, completion callbacks, [optional parameters](options.md), etc. As the task flows through the pipeline, each stage of the pipeline can take out the input of the task, make certain processing and save it back to the output. For example.
+A request flowing in the pipeline is called a task, see `cc.AssetManager.Task` type for details, a task will include all its information including inputs, outputs, completion callbacks, [Optional Parameters](options.md), etc. As the task flows through the pipeline, each stage of the pipeline can take out the input of the task, make certain processing and save it back to the output. For example.
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {

@@ -8,7 +8,7 @@ The Asset Manager uses multiple loading pipelines to load resources, each of whi
 
 The downloader is a global single instance with **failure retry**, **download priority**, **download limit** and other features.
 
-## Failure retry.
+### Failure retry.
 
 When a download resource fails in the downloader, it will be retried automatically, and you can control the failed retries with two attributes.
 
@@ -132,4 +132,4 @@ When the handler is registered, the corresponding handler is used when the downl
     cc.assetManager.loadAny({ url: 'http://example.com/myAsset.myformat' }, callback);
 ```
 
-Note that the processing can receive incoming optional parameters, which you can use to implement your own extensions, see [optional parameters](options.md#Expansion%20Engine) for details.
+Note that the processing can receive incoming optional parameters, which you can use to implement your own extensions, see [Optional Parameters](options.md#Expansion%20Engine) for details.

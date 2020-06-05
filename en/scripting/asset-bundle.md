@@ -8,13 +8,13 @@ Developers can divide the project's scene, resources, code, etc. into different 
 
 For an introduction to Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md).
 
-## Configuration method
+## Configuration
 
-Cocos Creator's asset bundle are configured in folders, and when we select a folder, the folder-related configuration options appear in the **Property Checker**.
+Cocos Creator's asset bundle are configured in folders, and when we select a folder, the folder-related configuration options appear in the **Properties**.
 
 ![bundle](./subpackage/inspector.png)
 
-After checking the `Is Bundle` option of the folder, click **Apply** at the top right, the resources under this folder (containing code and other resources) and the resources outside the folder on which these resources are associated will be treated as the contents of the bundle. For example, if scene A is placed under the 'a' folder, check a `Is Bundle` and make sure. Then scene A and the resources it relies on are merged into bundle 'a'.
+After checking the `Is Bundle` option of the folder, click **Apply** at the top right, the resources under this folder (containing code and other resources) and the resources outside the folder on which these resources are associated will be treated as the contents of the bundle. For example, if scene A is placed under the 'a' folder, check `Is Bundle` and apply it. Then scene A and the resources it relies on are merged into bundle 'a'.
 
 **Bundle priority** Options are described in [Asset Bundle](../asset-manager/bundle.md#priority) for details.
 
@@ -22,7 +22,7 @@ After checking the `Is Bundle` option of the folder, click **Apply** at the top 
 
 **Compression Type** The option will determine the final output form of the Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md#compression%20type).
 
-**Configure as Remote Bundle** The option will determine whether or not the Asset Bundle is a remote bundle, when checked, the Asset Bundle will be placed under the remote folder after it is built and you should place the entire remote folder on the remote server. Also, if this option is checked, the bundle will not be built into the rpk on platforms like OPPO, vivo, Huawei, etc.
+**Is Remote** The option will determine whether or not the Asset Bundle is a remote bundle, when checked, the Asset Bundle will be placed under the remote folder after it is built and you should place the entire remote folder on the remote server. Also, if this option is checked, the bundle will not be built into the rpk on platforms like OPPO, vivo, Huawei, etc.
 
 **Note**.
 1. 4 bundles are built into the Creator: resources, internal, main, start-scene Please do not use these four names as settings for the **Bundle name**.
@@ -69,7 +69,7 @@ Sometimes you may need to update the Asset Bundle on a remote server, in which c
 
 ![md5 cache](subpackage/bundle_md5.png)
 
-When you load the Asset Bundle you **do not need** to provide an additional Hash value, Creator will look up the corresponding Hash value in `settings.js` and make the adjustment automatically,** but if you want to store the relevant version configuration information on the server and get the version information dynamically at startup for hot updates, you can also manually specify a version Hash value to be passed into `loadBundle`** and the incoming Hash value will prevail.
+When you load the Asset Bundle you do not need to provide an additional Hash value, Creator will look up the corresponding Hash value in `settings.js` and make the adjustment automatically,** but if you want to store the relevant version configuration information on the server and get the version information dynamically at startup for hot updates, you can also manually specify a version Hash value to be passed into `loadBundle`** and the incoming Hash value will prevail.
 
 ```js
 cc.assetManager.loadBundle('01_graphics', { version: 'fbc07' }, function (err, bundle) {
@@ -100,7 +100,7 @@ Suppose an Asset Bundle is configured in the project, as shown in the figure.
 
 ### Dynamically load Asset
 
-The `load` method is provided in Asset Bundle to load resources located in a directory set to Asset Bundle, with the same parameters as `cc.resources.load`, you just need to pass in the path of the resource relative to the Asset Bundle directory, and the end of the path **can not** contain the file extension.
+The `load` method is provided in Asset Bundle to load resources located in a directory set to Asset Bundle, with the same parameters as `cc.resources.load`, you just need to pass in the path of the resource relative to the Asset Bundle directory, and the end of the path **CAN NOT** contain the file extension.
 
 ```js
 cc.assetManager.loadBundle('bundle1', function (err, bundle) {
@@ -128,7 +128,7 @@ As with `cc.resources.load`, the `load` method can provide a type parameter, whi
     });
 ```
 
-### Loading directory
+### Load directory
 
 The `loadDir` method is provided in Asset Bundle for loading multiple resources under the same path. The parameters of this method are similar to those of `cc.resources.loadDir`, you just need to pass the directory path relative to the Asset Bundle directory.
 
@@ -144,7 +144,7 @@ The `loadDir` method is provided in Asset Bundle for loading multiple resources 
     });
 ```
 
-### Loading scenes
+### Load scenes
 
 The `loadScene` method is provided in the Asset Bundle for loading scenes in the Asset Bundle, you just need to pass in the scene name. The difference between `loadScene` and `cc.director.loadScene` is that `loadScene` will only load the scene in this bundle and will not run the scene, you will also need to use `cc.director.runScene` to run the scene.
 
@@ -156,7 +156,7 @@ The `loadScene` method is provided in the Asset Bundle for loading scenes in the
 
 For another way to dynamically load resources, see [Acquire and load asset](load-assets.md). 
 
-## Preloaded resources
+## Preload resources
 
 In addition to scenes being able to preload, other resources are also able to preload. The loading parameters are the same as when loading normally, but it only goes to download the relevant resources and does not do the deserialization and initialization of the resources, so it consumes less performance and is suitable for use during the game. The `preload`, `preloadDir` interface is provided in the Asset Bundle to preload the resources in the bundle. The exact usage is the same as for preloading in cc.assetManager, as detailed in [Loading And Preloading](../asset-manager/preload-load.md).
 

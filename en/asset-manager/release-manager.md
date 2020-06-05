@@ -8,7 +8,7 @@ A release module is provided in Asset Manager to manage the release of resources
 
 When a resource is loaded, it is saved in the cache for the next reuse, and this causes memory and graphics to continue to grow, so what you need to do is release it when you don't need it, thereby moving it out of the cache and freeing up memory and graphics (for textures). creator provides both automatic and manual release.
 
-## Auto release.
+### Auto release.
 
 Creator v2.4 provides an auto-release mechanism, first, the scenario provides an auto-release option, as shown in the figure.
 

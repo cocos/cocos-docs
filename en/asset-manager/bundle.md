@@ -81,7 +81,7 @@ Bundle also currently provides five compression options for bundle optimization,
 4. Some game platforms, such as WeChat and Baidu, provide subpackage, and when you select `mini game subpackage`, these bundles will be set as subpackage on the corresponding platform. For details of the subpackage, please refer to [subpackage](../publish/subpackage.md)
 5. On some platforms, bundle supports compression of resource files into a single zip file, reducing the number of runtime load requests
 
-** In addition, different compression types can be used for different platforms, and the bundle will be built according to the settings of the corresponding platform.**
+**In addition, different compression types can be used for different platforms, and the bundle will be built according to the settings of the corresponding platform.**
 
 **Note**: Before version 2.4, if you had a folder in your project with `Subpackage` checked, after upgrading to 2.4, Creator will automatically convert it to Asset Bundle and set its compression type to the `Mini Game Subpackage` option on a supported platform.
 
@@ -120,7 +120,7 @@ cc.assetManager.loadBundle('https://othergame.com/remote/bundleB', (bundle) => {
 
 When loading an Asset Bundle through the API, the engine does not load all the resources in the bundle, but only the Asset Bundle's resource list, and all the scripts it contains. After loading, an instance of the `cc.AssetManager.Bundle` class, constructed using the resource list, is returned. You can use this instance to load various resources in the Bundle.
 
-##  Asset Bundle
+## Get Asset Bundle
 
 After the Asset Bundle has been loaded, it will be cached down, at which point you can use the name to get the bundle. for example.
 
@@ -128,4 +128,4 @@ After the Asset Bundle has been loaded, it will be cached down, at which point y
 let bundleA = cc.assetManager.getBundle('bundleA');
 ```
 
-The detailed API for Bundle can be found in [Bundle](... /... /... /api/en/classes/Bundle.html)
+The detailed API for Bundle can be found in [Bundle](../../../api/en/classes/Bundle.html)

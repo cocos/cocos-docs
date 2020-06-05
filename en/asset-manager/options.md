@@ -8,7 +8,7 @@ The parameters that are currently used by the engine in OPTIONS include.
 
 `uuid`，`url`，`path`，`dir`，`scene`，`type`，`priority`，`preset`，`audioLoadMode`，`ext`，`bundle`，`onFileProgress`，`maxRetryCount`，`maxConcurrency`, `maxRequestsPerFrame`, `version`，`responseType`，`withCredentials`，`mimeType`，`timeout`，`header`，`reload`，`cacheAsset`，`cacheEnabled`
 
-Please **don't** use the above fields as your custom parameter names to avoid conflicts with engine functions.
+Please **DO NOT** use the above fields as your custom parameter names to avoid conflicts with engine functions.
 
 The optional parameters serve as a communication tool between the upper level business logic and the lower loading line, enabling the upper level business logic to provide parameters to control the operation of the lower loading line.
 
@@ -44,7 +44,7 @@ For more information on how to handler, see [Downloader And Parser](downloader-p
 
 This approach is exactly equivalent to using `cc.resources.load` and `cc.resources.loadDir` directly.
 
-## Expansion Engine
+## Expand Engine
 
 When you need to extend the loading capabilities of the engine, you can use optional parameters in [Pipeline And Task](pipeline-task.md), [Custom handlers](downloader-parser.md#Custom%20handlers). For example.
 
