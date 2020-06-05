@@ -48,11 +48,13 @@
 ### 相关配置说明
 
 **构建发布** 面板中关于发布到 Google Play Instant 的几个主要配置说明如下：
-- **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `path_to_your_project/build/jsb-link/remote_res` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
+- **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `path_to_your_project/build/jsb-link/remote_assets` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
 - **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。该参数可为空，若不为空，当提交到 Google Store 的时候需要确保输入的 URL 是可以访问的。详情请查看 [Google Instant App 文档](https://developer.android.google.cn/topic/google-play-instant/getting-started/first-instant-app)。
 - **分包配置路径**：Creator 会根据这个分包配置生成首包的资源
 
-**注意**：如果 Google Play Instant 包的权限大于 Google Store 上 APP 的权限，在安装 APP 的时候可能会导致无法正常安装：
+**注意**：
+1. 填写资源服务器地址时不用包含 `/remote_assets`。
+2. 如果 Google Play Instant 包的权限大于 Google Store 上 APP 的权限，在安装 APP 的时候可能会导致无法正常安装：
 
 ![](publish-android-instant/installation_failed.png)
 

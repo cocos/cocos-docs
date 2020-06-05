@@ -76,7 +76,7 @@
     - [网络接口](scripting/network.md)
     - [使用对象池](scripting/pooling.md)
     - [模块化脚本](scripting/modular-script.md)
-    - [分包加载](scripting/subpackage.md)
+    - [加载 Asset Bundle](scripting/asset-bundle.md)
     - [插件脚本](scripting/plugin-scripts.md)
     - [JavaScript 快速入门](scripting/javascript-primer.md)
     - [使用 TypeScript 脚本](scripting/typescript.md)
@@ -106,6 +106,7 @@
         - [微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
         - [启用微信小游戏引擎插件](publish/wechat-engine-plugin.md)
         - [接入微信 PC 小游戏](publish/publish-pc-wechatgame.md)
+        - [小游戏分包](publish/subpackage.md)
     - [发布到趣头条小游戏](publish/publish-qutoutiao-mini-games.md)
     - [发布到百度小游戏](publish/publish-baidugame.md)
         - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
@@ -211,6 +212,15 @@
     - [碰撞组件](physics-3d/physics-collider.md)
     - [物理事件](physics-3d/physics-event.md)
     - [物理材质](physics-3d/physics-material.md)
+- [资源管理](asset-manager/index.md)
+    - [Asset Manager 概览](asset-manager/asset-manager.md)
+    - [Asset Bundle](asset-manager/bundle.md)
+    - [资源释放](asset-manager/release-manager.md)
+    - [下载器与解析器](asset-manager/downloader-parser.md)
+    - [加载与预加载](asset-manager/preload-load.md)
+    - [缓存管理器](asset-manager/cache-manager.md)
+    - [可选参数](asset-manager/options.md)
+    - [管线与任务](asset-manager/pipeline-task.md)
 
 ## 进阶使用
 

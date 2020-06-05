@@ -1,4 +1,4 @@
-# Cocos Creator v2.3 用户手册
+# Cocos Creator v2.4 用户手册
 
 欢迎使用 Cocos Creator 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 
@@ -6,6 +6,9 @@
 
 ## 特别推荐
 
+- 从 v2.4 开始，Cocos Creator 重写了资源管理模块，兼容了大部分原有的 API。绝大多数项目依旧可在原有代码下正常运行，但有些项目可能会收到一些警告，建议开发者都升级到最新的资源管理模块。详情请查阅 [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md) 和 [v2.4 资源分包升级指南](release-notes/subpackage-upgrade-guide.md)。
+- 从 v2.4 开始，Cocos Creator 正式支持了 Asset Bundle，提供了更强大的远程资源加载能力、子项目动态加载能力，并进一步减小了首包的大小。详情请查阅 [Asset Bundle](scripting/asset-bundle.md)。
+- 从 v2.4 开始，编辑器的构建流程将以 Asset Bundle 为单元。如果开发者在 v2.4 之前有在编辑器中使用插件扩展了构建流程，则需要对部分 API 的使用进行升级。详情请查阅 [定制构建流程升级指南](release-notes/build-extend-upgrade-guide.md)。
 - 从 v2.3.4 开始，Cocos Creator 新增了对 [腾讯云服务](cocos-service/tcb.md) 的支持。
 - 从 v2.3.0 开始，Cocos Creator 新增了对 [3D 物理与碰撞系统](physics-3d/index.md)、[3D 粒子](3d/particle-system-3d.md) 的支持，同时 [材质系统](render/index.md) 也升级到了正式版。
 - 从 v2.3.0 开始，Cocos Creator 支持发布到 [趣头条小游戏](publish/publish-qutoutiao-mini-games.md)。
@@ -41,15 +44,15 @@
 
 ## 视频教程
 
-前往[视频教程](video-tutorial/index.md)页面。
+前往 [视频教程](video-tutorial/index.md) 页面。
 
 ## 演示和范例项目
 
 - [范例集合](https://github.com/cocos-creator/example-cases)：从基本的组件到交互输入，这个项目里包括了 case by case 的功能点用法介绍。
 - [Star Catcher](https://github.com/cocos-creator/tutorial-first-game)：也就是 [快速上手](getting-started/quick-start.md) 文档里分步讲解制作的游戏。
-- [腾讯合作开发的21点游戏](https://github.com/cocos-creator/tutorial-blackjack)
+- [腾讯合作开发的 21 点游戏](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI 展示 Demo](https://github.com/cocos-creator/demo-ui)
-- [暗黑斩 Cocos Creator 复刻版](https://github.com/cocos-creator/tutorial-dark-slash)：由 Veewo Games 独家授权原版暗黑斩资源素材，在 Cocos Creator 里复刻的演示项目
+- [暗黑斩 Cocos Creator 复刻版](https://github.com/cocos-creator/tutorial-dark-slash)：由 Veewo Games 独家授权原版暗黑斩资源素材，在 Cocos Creator 里复刻的演示项目。
 - [i18n 游戏多语言支持范例](https://github.com/nantas/demo-i18n)
 
-**注意**，这些项目会不定期跟随版本进行更新。它们在 GitHub 上的默认分支是 master，对应的一般是最新的 Cocos Creator 版本。如果仍在使用旧版本的 Cocos Creator，这些项目有可能会打不开，可尝试切换到和旧版本相同命名的分支。
+**注意**：这些项目会不定期跟随版本进行更新。它们在 GitHub 上的默认分支是 master，对应的一般是最新的 Cocos Creator 版本。如果仍在使用旧版本的 Cocos Creator，这些项目有可能会打不开，可尝试切换到和旧版本相同命名的分支。

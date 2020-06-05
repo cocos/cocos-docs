@@ -27,7 +27,7 @@
     xhr.send();
     ```
 
-    开发者可以直接使用 `new XMLHttpRequest()` 来创建一个连接对象，也可以通过 `cc.loader.getXMLHttpRequest()` 来创建，两者效果一致。
+    开发者可以直接使用 `new XMLHttpRequest()` 来创建一个连接对象。
 
     `XMLHttpRequest` 的标准文档请参考 [MDN 中文文档](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。
 
@@ -84,3 +84,7 @@
 
 4. 将 SocketIO 脚本文件设为 [插件脚本](./plugin-scripts.html)，这样在组件中直接使用 window.io 就能访问到 SocketIO
 5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/)查询 API 和文档等
+
+
+**注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
+[config](network/config.png)

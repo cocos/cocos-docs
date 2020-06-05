@@ -24,10 +24,11 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 给构建后的所有资源加上 MD5 信息，解决 CDN 或者浏览器资源缓存问题。
 
-启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
+启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些第三方资源没通过 cc.assetManager 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
 
 ```js
-url = cc.loader.md5Pipe.transformURL(url);
+var uuid = cc.assetManager.utils.getUuidFromURL(url);
+url = cc.assetManager.utils.getUrlWithUuid(uuid);
 ```
 
 ### vConsole

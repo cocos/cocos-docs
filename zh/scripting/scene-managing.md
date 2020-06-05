@@ -6,6 +6,18 @@
 cc.director.loadScene("MyScene");
 ```
 
+除此之外, v2.4 之后 Asset Bundle 还增加了一种新的加载方式：
+
+```js
+bundle.loadScene('MyScene', function (err, scene) {
+    cc.director.runScene(scene);
+});
+```
+
+`Bundle.loadScene` 只能加载本 bundle 中的场景，并且不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。`Bundle.loadScene` 可提供更多参数加载控制流程，当你需要控制加载参数或者在加载场景后做一些后处理，你可以使用 `Bundle.loadScene`。
+
+加载 Asset Bundle 中的场景，详细请查看 [Asset Bundle](asset-bundle.md)。
+
 ## 通过常驻节点进行场景资源管理和参数传递
 
 引擎同时只会运行一个场景，当切换场景时，默认会将场景内所有节点和其他实例销毁。如果我们需要用一个组件控制所有场景的加载，或在场景之间传递参数数据，就需要将该组件所在节点标记为「常驻节点」，使它在场景切换时不被自动销毁，常驻内存。我们使用以下接口：
@@ -40,7 +52,7 @@ cc.game.removePersistRootNode(myNode);
 
 ## 预加载场景
 
-`cc.director.loadScene` 会在加载场景之后自动切换运行新场景，有些时候我们需要在后台静默加载新场景，并在加载完成后手动进行切换。那就可以预先使用 `preloadScene` 接口对场景进行预加载：
+`cc.director.loadScene` 会在加载场景之后自动切换运行新场景，有些时候我们需要在后台静默加载新场景，并在加载完成后手动进行切换。那就可以预先使用 `cc.director.preloadScene` 接口对场景进行预加载：
 
 ```js
 cc.director.preloadScene("table", function () {
@@ -54,16 +66,9 @@ cc.director.preloadScene("table", function () {
 cc.director.loadScene("table");
 ```
 
-就算预加载还没完成，你也可以直接调用 `cc.director.loadScene`，预加载完成后场景就会启动。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
+就算预加载没完成，你依旧可以调用 `cc.director.loadScene`。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
 
-**注意** 使用预加载场景资源配合 `runScene` 的方式进行预加载场景的方法已被废除：
-
-```js
-// 请不要再使用下面的方法预加载场景!
-cc.loader.loadRes('MyScene.fire', function(err, res) {
-    cc.director.runScene(res.scene); 
-});
-```
+关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md)。
 
 ---
 
