@@ -11,7 +11,7 @@
 
 ## 需要手动升级的情况
 
-你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包
+你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包。
 
 ## 升级步骤
 
