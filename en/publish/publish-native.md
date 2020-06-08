@@ -24,7 +24,7 @@ When merging assets automatically, combine all SpriteFrame and the assets that a
 
 Add MD5 information to all the resource file names after build to resolve the CDN cache problem during hot update.
 
-After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by cc.assetManager. If this happens, you can convert the url before loading, to fix the loading problem.
+After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by `cc.assetManager`. If this happens, you can convert the url before loading, to fix the loading problem.
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();

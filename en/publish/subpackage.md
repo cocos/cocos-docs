@@ -1,6 +1,6 @@
 # Mini Game Subpackage
 
-Some mini-game platforms support subpackaging for segmenting resources and scripts, and Creator also integrates subpackaging into Asset Bundle's workflow, where you can set the compression type to **mini game subpackage** in Asset Bundle's compression type option, and Asset Bundle will be built into the mini game subpackage. For details, see [Asset Bundle](../asset-manager/bundle.md#compression%20type)
+Some mini-game platforms support subpackaging for segmenting resources and scripts, and Creator also integrates subpackaging into Asset Bundle's workflow, where you can set the compression type to **mini game subpackage** in Asset Bundle's compression type option, and Asset Bundle will be built into the mini game subpackage. For details, see [Asset Bundle](../scripting/asset-bundle.md)
 
 When building for the **WeChat Mini Game**, the configuration of the **subpackage** will be automatically generated into the **game.json** configuration file of the **WeChat Mini Games** release package according to the rules.
 
@@ -27,9 +27,8 @@ When building for the **vivo Mini Game**, the configuration of the **subpackage*
 
 **Note**:
 
-- Starting with **v2.1.3**, vivo Mini Game supports subpackage loading.
 - Starting with **1051** version, **Quick App & vivo Mini Game Debugger** 
-supports the subpackage loading of vivo Mini Game. Versions lower than 1051 do not support subpackage loading, but they are also compatible. If a subpackage is configured in the editor's **Properties**, it will not affect the normal operation of the game. Please refer to [vivo SubPackage Loading - runtime compatibility](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9) for details.
+supports the subpackage loading of vivo Mini Game. Versions lower than 1051 do not support subpackage loading, but they are also compatible. If a subpackage is configured in the editor's **Properties** panel, it will not affect the normal operation of the game. Please refer to [vivo SubPackage Loading - runtime compatibility](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9) for details.
 - Unlike the WeChat Mini Game, vivo Mini Game after the project is built, the corresponding subpackage file will be generated in the **src** directory of release package **qgame** directory.
 
   ![](./subpackage/vivo_subpackage.png)

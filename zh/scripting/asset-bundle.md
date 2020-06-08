@@ -123,9 +123,9 @@ cc.assetManager.loadBundle('bundle1', function (err, bundle) {
 与 `cc.resources.load` 相同，`load` 方法可以提供一个类型参数，这在存在同名资源或加载 SpriteFrame 时十分有效。例如：
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        console.log(spriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    console.log(spriteFrame);
+});
 ```
 
 ### 批量加载资源
@@ -133,15 +133,15 @@ cc.assetManager.loadBundle('bundle1', function (err, bundle) {
 Asset Bundle 中提供了 `loadDir` 方法用于批量加载相同路径下的多个资源，此方法的参数与 `cc.resources.loadDir` 相似，你只要传入相对 Asset Bundle 目录的目录路径即可。
 
 ```js
-    // 加载 textures 目录下所有资源
-    bundle.loadDir("textures", function (err, assets) {
-        // ...
-    });
+// 加载 textures 目录下所有资源
+bundle.loadDir("textures", function (err, assets) {
+    // ...
+});
 
-    // 加载 textures 目录下所有 Texture 资源
-    bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
-        // ...
-    });
+// 加载 textures 目录下所有 Texture 资源
+bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
+    // ...
+});
 ```
 
 ### 加载场景
@@ -149,9 +149,9 @@ Asset Bundle 中提供了 `loadDir` 方法用于批量加载相同路径下的�
 Asset Bundle 中提供了 `loadScene` 方法用于加载 Asset Bundle 中的场景，你只要传入场景名即可。`loadScene` 与 `cc.director.loadScene` 不同的地方在于 `loadScene` 只会加载本 bundle 内的场景，并且不会运行场景，你还需要使用 `cc.director.runScene` 来运行场景。
 
 ```js
-    bundle.loadScene('test', function (err, scene) {
-        cc.director.runScene(scene);
-    });
+bundle.loadScene('test', function (err, scene) {
+    cc.director.runScene(scene);
+});
 ```
 
 另一种动态加载资源的方式，请参考 [加载 resources 下的资源](load-assets.md)。 
@@ -167,25 +167,25 @@ Asset Bundle 中提供了 `loadScene` 方法用于加载 Asset Bundle 中的场�
 Asset Bundle 中的资源可以使用三种方式进行释放，第一种是使用常规的 `cc.assetManager.releaseAsset` 方法进行释放。
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        cc.assetManager.releaseAsset(spriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    cc.assetManager.releaseAsset(spriteFrame);
+});
 ```
 
 第二种方式是 Asset Bundle 中的 `release` 方法，通过传入路径和类型进行释放，只能释放该 bundle 中的资源, 参数可以使用与 `Bundle.load` 一样的参数。
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        bundle.release(`image`, cc.SpriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    bundle.release(`image`, cc.SpriteFrame);
+});
 ```
 
 第三种方式是 Asset Bundle 中的 `releaseAll` 方法，此方法与 `cc.assetManager.releaseAll` 相似，`releaseAll` 方法会释放该 Asset Bundle 中所有已经被加载的资源，请慎重使用。
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        bundle.releaseAll();
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    bundle.releaseAll();
+});
 ```
 
 **注意**：当你释放资源时，Creator 同时会去处理该资源的依赖资源，你不必对依赖项进行管理。

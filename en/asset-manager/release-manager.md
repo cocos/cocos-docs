@@ -21,26 +21,26 @@ Unless it's some high frequency use, such as the main scene, we recommend that y
 In addition, the engine provides statistical functions for reference count `cc.Asset.addRef` and `cc.Asset.decRef` for increasing and decreasing reference count, respectively. When you call `decRef`, the Creator will also try to auto-release it.
 
 ```js
-    start () {
-        cc.resources.load('images/background', cc.Texture2D, (err, texture) => {
-            this.texture = texture;
-            // Add references to resources when they need to be held
-            texture.addRef();
-            // ...
-        });
-    }
+start () {
+    cc.resources.load('images/background', cc.Texture2D, (err, texture) => {
+        this.texture = texture;
+        // Add references to resources when they need to be held
+        texture.addRef();
+        // ...
+    });
+}
 
-    onDestroy () {
-        // When you don't need to hold resources, reduce their references and Creator will try to auto-release them when calling decRef
-        this.texture.decRef();
-    }
+onDestroy () {
+    // When you don't need to hold resources, reduce their references and Creator will try to auto-release them when calling decRef
+    this.texture.decRef();
+}
 ```
 
 The advantage of auto-release is that you don't have to explicitly call the release interface, you just have to maintain the reference count of the resource and Creator will automatically release based on the reference count. This greatly reduces the likelihood of incorrectly releasing resources, and since you don't need to understand the complex referencing relationships between resources, it's recommended that you try to use an automatic form of release for projects with no special needs.
 
 #### Release check.
 
-In order to avoid rendering or other problems caused by incorrectly releasing a resource that is being used, a series of checks are performed when the Creator attempts to auto-release a resource, and only by doing so will the resource be released. The inspection procedure is as follows.
+In order to avoid rendering or other problems caused by incorrectly releasing a resource that is being used, a series of checks are performed when the Creator attempts to auto-release a resource, and only by doing so will the resource be released. The inspection procedure is as follows:
 
 1. if the reference count for that resource is 0, i.e., there are no references to that resource elsewhere, no follow-up checks are required, the resource is destroyed directly, the cache is removed, and all references to its **direct** dependent resource (without descendants) are reduced by 1, and the release check for the dependent resource is triggered.
 
@@ -52,15 +52,15 @@ After the above check, if the resource can be released, it will destroy the reso
 
 In addition to automatic release, Creator also provides a manual release interface that allows the Asset Manager-related interface to be called to manually release resources when the project has a more complex resource release mechanism.
 
-For example, you could use the following.
+For example, you could use the following:
 
 ```js
-    cc.assetManager.releaseAsset(texture);
+cc.assetManager.releaseAsset(texture);
 ```
 
 Releasing the resource will destroy all internal properties of the resource, such as the data associated with the rendering layer, and move the cache out, freeing up memory and video memory (for textures).
 
-The release interface in v2.4 is similar to the release interface in previous versions, with the following differences.
+The release interface in v2.4 is similar to the release interface in previous versions, with the following differences:
 
 1. `cc.assetManager.releaseAsset` The interface can only release a single resource, and for the sake of uniformity, the interface can only be released by the resource itself, not by attributes such as resource uuid, resource url, etc.
 
@@ -70,7 +70,7 @@ The release interface in v2.4 is similar to the release interface in previous ve
 
 ## Reference count statistics
 
-The first thing to note is that the reference counting statistics in Asset Manager are different from those implemented in the traditional C++ language. Asset Manager only automatically counts static references between resources, and does not reflect how resources are dynamically held in the game. The reasons are.
+The first thing to note is that the reference counting statistics in Asset Manager are different from those implemented in the traditional C++ language. Asset Manager only automatically counts static references between resources, and does not reflect how resources are dynamically held in the game. The reasons are:
 
 1. JavaScript is a language with a garbage collection mechanism that manages its memory, and the upper levels have no way of knowing if a resource is destroyed or referenced.
 
@@ -84,7 +84,7 @@ The first thing that needs to be clarified is what is meant by static and dynami
 
 2. The second scenario is that when you edit a resource in the editor without setting any properties, and when the resource is dynamically loaded in code and set to an in-scene component at game runtime, the reference relationship does not exist in the serialized data at this point, so the engine cannot count this part of the reference relationship, which is called the dynamic reference of the resource.
 
-Static references to resources by the engine are statistically as follows.
+Static references to resources by the engine are statistically as follows:
 
 1. when loading a resource using cc.assetManager or Asset Bundle, record all **direct** dependent resource information for that resource in the underlying load pipeline and add the count of all **direct** dependent resources to 1 and initialize the reference count for that resource to 0.
 
@@ -100,27 +100,27 @@ Because the reference count for that resource needs to be checked to see if it i
 
 The above example shows that when resources are reused, it is possible to ensure that the reused resources are not released by mistake.
 
-If you use dynamically loaded resources for dynamic referencing in your project, for example.
+If you use dynamically loaded resources for dynamic referencing in your project, for example:
 
 ```js
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-    });
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+});
 ```
 
-At this point, although this resource is set to the Sprite component, its reference count will remain at 0 by default and no special processing will be done by the engine. If you dynamically load resources that need to be referenced, held, or reused over time, it is recommended that you manually increase the reference count using the `addRef` interface. For example.
+At this point, although this resource is set to the Sprite component, its reference count will remain at 0 by default and no special processing will be done by the engine. If you dynamically load resources that need to be referenced, held, or reused over time, it is recommended that you manually increase the reference count using the `addRef` interface. For example:
 
 ```js
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-        spriteFrame.addRef();
-    });
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+    spriteFrame.addRef();
+});
 ```
 
-Increasing the reference count ensures that the resource will not be released early by mistake. And when you don't need to cite the resource, **be sure to remember** to use `decRef` to remove the citation count and set the resource reference to null, for example.
+Increasing the reference count ensures that the resource will not be released early by mistake. And when you don't need to cite the resource, **be sure to remember** to use `decRef` to remove the citation count and set the resource reference to null, for example:
 
 ```js
-    this.spriteFrame.decRef();
-    this.spriteFrame = null;
+this.spriteFrame.decRef();
+this.spriteFrame = null;
 ```
 

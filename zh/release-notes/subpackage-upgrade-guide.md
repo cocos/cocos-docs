@@ -22,16 +22,16 @@
 - 在 CocosDashboard 中使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。打开代码编辑器，将所有 `cc.loader.downloader.loadSubpackage` 改为使用 `cc.assetManager.loadBundle`。
 
 ```js
-    // 修改前
-    cc.loader.downloader.loadSubpackage('sub1', (err) => {
-        cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
-    });
+// 修改前
+cc.loader.downloader.loadSubpackage('sub1', (err) => {
+    cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
+});
 
-    // 修改后
-    cc.assetManager.loadBundle('sub1', (err, bundle) => {
-        // 传入该资源相对 Asset Bundle 根目录的相对路径
-        bundle.load('sprite-frames/background', cc.SpriteFrame);
-    });
+// 修改后
+cc.assetManager.loadBundle('sub1', (err, bundle) => {
+    // 传入该资源相对 Asset Bundle 根目录的相对路径
+    bundle.load('sprite-frames/background', cc.SpriteFrame);
+});
 ```
 
 **注意**：

@@ -9,12 +9,9 @@ In the [custom-project-build process](https://github.com/cocos-creator/creator-d
 For **Artist and Game Designer**, all resources in the project, such as scenes, animations, prefab, do not need to be modified or upgraded. <br>
 For the **Programmer**, the impact is mainly in the callback function that needs to be modified for the registration event in the extension package.
 
-## Frequently Asked Questions
+## Situations that require upgrading manually
 
-### Do I need to upgrade manually?
-
-You will need to upgrade if.
- - You registered `before-change-files`, `build-finished` event custom project flow in the code of the extension package.
+You registered `before-change-files`, `build-finished` event custom project flow in the code of the extension package.
 
 ## Upgrade steps
 
@@ -89,4 +86,4 @@ function onBeforeBuildFinish (options, callback) {
 }
 ```
 
-For more details on objects in `bundle`, see [Custom Project Build Process](../publish/custom-project-build-template.md).
+For more details on objects in `bundle`, see [Custom Project Build Process](../publish/custom-project-build-template.md) documentation.

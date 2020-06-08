@@ -15,9 +15,9 @@ Q：Asset Bundle 与 v2.4 之前的资源分包有什么区别？
 A：
 1. 资源分包本质上是游戏平台的基础功能，比如微信小游戏支持分包功能，而 Creator 进行了一次封装，帮助用户进行设置，但本质上此功能由对应平台控制，如果对应平台不支持分包功能，则 Creator 也不支持，而 Asset Bundle 完全由 Creator 设计实现，是帮助开发者对资源进行划分的模块化工具，与平台无关，理论上可在所有平台上支持。
 
-2. 资源分包实际上是将一些图片，网格拆分出去单独放在一个包内，但这个包是不完整，无法复用，无逻辑的，而 Asset Bundle 是通过逻辑划分对资源进行模块化，Asset Bundle 中包括资源，脚本，元数据，资源清单，所以 Asset Bundle 是完善的，有逻辑的，可复用的，完全可以从 Asset Bundle 中加载出整个场景或其他任何资源，Asset Bundle 通过拆分，可以极大减少首包中的 json 数量以及 settings.js 的大小。
+2. 资源分包实际上是将一些图片，网格拆分出去单独放在一个包内，但这个包是不完整，无法复用，无逻辑的，而 Asset Bundle 是通过逻辑划分对资源进行模块化，Asset Bundle 中包括资源，脚本，元数据，资源清单，所以 Asset Bundle 是完善的，有逻辑的，可复用的，完全可以从 Asset Bundle 中加载出整个场景或其他任何资源，Asset Bundle 通过拆分，可以极大减少首包中的 json 数量以及 `settings.js` 的大小。
 
-3. 资源分包是跟平台相关的，意味着需要按照平台要求的方式进行设置，比如微信分包是无法放在远程服务器上的，只能放在腾讯的服务器上，而 Asset Bundle 不受这些限制，Asset Bundle 可以放在本地，放在远程服务器上，甚至就放在微信的分包中。
+3. 资源分包是跟平台相关的，意味着需要按照平台要求的方式进行设置，比如微信分包是无法放在远程服务器上的，只能放在腾讯的服务器上，而 Asset Bundle 不受这些限制，Asset Bundle 可以放在本地，放在远程服务器上，甚至就放在微信小游戏的分包中。
 
 Q：Asset Bundle 是以什么形式组织的？
 
@@ -27,9 +27,9 @@ Q：Asset Bundle 可以用来做大厅加子游戏的模式么？
 
 A：当然可以，可以将子游戏的场景放在 Asset Bundle 中，在需要时进行加载，子游戏甚至可以在其它工程中预先以 Asset Bundle 的形式构建出来，然后在主工程中加载使用。
 
-Q：Asset Bundle 可以减少 settings.js 的大小么？
+Q：Asset Bundle 可以减少 `settings.js` 的大小么？
 
-A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，setting.js 不再存储跟资源相关的任何配置信息。所有的配置关系表以 config.json 的形式存储于每个 Asset Bundle 中。每一个 config.json 只存储本 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单的理解为所有的 config.json 合起来等于以前的 settings.js。
+A：当然可以，实际上在 v2.4 之后，打包之后的工程完全是基于 Asset Bundle 的，`setting.js` 不再存储跟资源相关的任何配置信息。所有的配置关系表以 `config.json` 的形式存储于每个 Asset Bundle 中。每一个 `config.json` 只存储本 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单的理解为所有的 `config.json` 合起来等于以前的 `settings.js`。
 
 Q：Asset Bundle 能跨项目复用么？
 
@@ -51,7 +51,7 @@ A：Asset Bundle 不支持嵌套，请避免如此使用。
 
 即是说，从 v2.4 开始，所有资源都会存在 Asset Bundle 中。 所有 resources 目录下的资源以及其依赖资源将放在 resources 的 Asset Bundle 中，所有内置资源以及其依赖资源将放在 internal 的 Asset Bundle 中，所有在构建面板所勾选的场景以及其依赖资源都将放在 main 的 Asset Bundle 中，如果你勾选了首场景分包，则首场景将会被构建到 start-scene 中。
 
-与其他 Asset Bundle 一样，你也可以设置内置的 Asset Bundle 的压缩类型，甚至将其放到远程服务器上。你可以通过在构建时配置远程服务器地址来设置，也可以通过自定义构建模板功能修改 main.js 代码来控制内置 Asset Bundle 的加载，类似下图所示。
+与其他 Asset Bundle 一样，你也可以设置内置的 Asset Bundle 的压缩类型，甚至将其放到远程服务器上。你可以通过在构建时配置远程服务器地址来设置，也可以通过自定义构建模板功能修改 `main.js` 代码来控制内置 Asset Bundle 的加载，类似下图所示。
 
 ![launch](bundle/launch.png) 
 
@@ -87,9 +87,9 @@ Bundle 目前还提供了五个压缩选项，用于对 bundle 进行优化，�
 
 构建发布时，会对 Asset Bundle 文件夹下所有的 **代码** 和 **资源** 进行以下的相关处理：
 
-  - **代码**：Asset Bundle 文件夹下的所有代码会根据发布平台合并成一个命名为 `index.js` 或 `game.js` 的入口脚本文件，并且会将这些代码从主包中剔除。
-  - **资源**：会把 Asset Bundle 文件夹下的所有资源以及外部所依赖的资源都放在 `import` 或 `native` 目录下。
-  - **资源配置**：会将所有资源的配置信息包括路径，类型，版本信息合并为一个命名为 `config.json` 的文件。
+- **代码**：Asset Bundle 文件夹下的所有代码会根据发布平台合并成一个命名为 `index.js` 或 `game.js` 的入口脚本文件，并且会将这些代码从主包中剔除。
+- **资源**：会把 Asset Bundle 文件夹下的所有资源以及外部所依赖的资源都放在 `import` 或 `native` 目录下。
+- **资源配置**：会将所有资源的配置信息包括路径，类型，版本信息合并为一个命名为 `config.json` 的文件。
 
 构建之后的目录如图所示：
 
@@ -99,7 +99,7 @@ Bundle 目前还提供了五个压缩选项，用于对 bundle 进行优化，�
 
 因为 Asset Bundle 是支持脚本分包的，如果你的 Asset Bundle 下有脚本文件，则所有脚本会被合并为一个 js 文件，并从主包中剔除。在加载 Asset Bundle 时，会尝试去加载这个脚本文件。
 
-**注意**：有些平台不允许加载远程的脚本文件，例如微信，在这些平台上，Creator 会将 Asset Bundle 的代码拷贝到 `src/script` 下，从而保证正常加载。
+**注意**：有些平台不允许加载远程的脚本文件，例如微信小游戏，在这些平台上，Creator 会将 Asset Bundle 的代码拷贝到 `src/script` 下，从而保证正常加载。
 
 ## 加载 Asset Bundle
 

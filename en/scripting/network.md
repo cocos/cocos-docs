@@ -88,4 +88,5 @@ Reference SocketIO in script:
 5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
 
 **Note**: If you need to use `WebSocket` or `SocketIO` on native platform, make sure you check the `Native Socket` module.
+
 [config](network/config.png)

@@ -6,7 +6,7 @@ As gameplay becomes richer and the number of resources in the game increases, th
 
 Developers can divide the project's scene, resources, code, etc. into different Asset Bundles, which are not loaded at game launch but are manually loaded by the developer during the course of the game, thus effectively reducing the time-consuming game launch and making it as on-demand as possible.
 
-For an introduction to Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md).
+For an introduction to Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md) documentation.
 
 ## Configuration
 
@@ -16,15 +16,15 @@ Cocos Creator's asset bundle are configured in folders, and when we select a fol
 
 After checking the `Is Bundle` option of the folder, click **Apply** at the top right, the resources under this folder (containing code and other resources) and the resources outside the folder on which these resources are associated will be treated as the contents of the bundle. For example, if scene A is placed under the 'a' folder, check `Is Bundle` and apply it. Then scene A and the resources it relies on are merged into bundle 'a'.
 
-**Bundle priority** Options are described in [Asset Bundle](../asset-manager/bundle.md#priority) for details.
+**Bundle priority** Options are described in [Asset Bundle](../asset-manager/bundle.md#priority) documentation for details.
 
 **Bundle Name** The option affects the name of the bundle after it is built, and this folder name is used by default.
 
-**Compression Type** The option will determine the final output form of the Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md#compression%20type).
+**Compression Type** The option will determine the final output form of the Asset Bundle, see [Asset Bundle](../asset-manager/bundle.md#compression%20type) documentation.
 
 **Is Remote** The option will determine whether or not the Asset Bundle is a remote bundle, when checked, the Asset Bundle will be placed under the remote folder after it is built and you should place the entire remote folder on the remote server. Also, if this option is checked, the bundle will not be built into the rpk on platforms like OPPO, vivo, Huawei, etc.
 
-**Note**.
+**Note**:
 1. 4 bundles are built into the Creator: resources, internal, main, start-scene Please do not use these four names as settings for the **Bundle name**.
 2. If you have configured Asset Bundle's compression type as a mini-game bundle, please do not remove it from the directory after the build, it will be handled by the corresponding platform such as WeChat.
 
@@ -40,7 +40,7 @@ The Asset Bundle will only work after the project has been built and you will no
 
 The engine provides a unified api `cc.assetManager.loadBundle` to load the Asset Bundle. `loadBundle` requires an Asset Bundle name or url to be passed in.
 
-**Note**.
+**Note**:
 1. **Bundle name** and the bundle's url are generally available as parameters for loading the bundle, but when reuse bundles from other projects, loading can only be done via the url.
 2. if a bundle is placed on a remote server, please fill in **Resource Server Address** during the build.
 
@@ -65,7 +65,7 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function 
 
 ### Version of Asset Bundle
 
-Sometimes you may need to update the Asset Bundle on a remote server, in which case you need a mechanism to bypass the existing cache files, the Asset Bundle continues the MD5 scheme of Cocos Creator on the update, when you need to update the Asset Bundle, check the **MD5 Cache** option in the build panel, then the file name of the `config` file in the constructed Asset Bundle will come with a Hash value. As shown in the figure.
+Sometimes you may need to update the Asset Bundle on a remote server, in which case you need a mechanism to bypass the existing cache files, the Asset Bundle continues the MD5 scheme of Cocos Creator on the update, when you need to update the Asset Bundle, check the **MD5 Cache** option in the build panel, then the file name of the `config` file in the constructed Asset Bundle will come with a Hash value. As shown in the figure:
 
 ![md5 cache](subpackage/bundle_md5.png)
 
@@ -84,7 +84,7 @@ At this point, you can bypass the old version of the file in the cache and re-do
 
 ## Get Asset Bundle
 
-When the Asset Bundle has been loaded, it will be cached and you can use the name to get the bundle. for example.
+When the Asset Bundle has been loaded, it will be cached and you can use the name to get the bundle. for example:
 
 ```js
 let bundleA = cc.assetManager.getBundle('bundleA');
@@ -94,7 +94,7 @@ let bundleA = cc.assetManager.getBundle('bundleA');
 
 By loading Asset Bundle, we will get an instance of the `cc.AssetManager.Bundle` class. You can use this instance to dynamically load various resources in the Asset Bundle. It is loaded in the same way as a resource in the `resources` directory, and in fact `cc.resources` is an instance of an Asset Bundle.
 
-Suppose an Asset Bundle is configured in the project, as shown in the figure.
+Suppose an Asset Bundle is configured in the project, as shown in the figure:
 
 ![bundle1](subpackage/bundle1.png)
 
@@ -120,12 +120,12 @@ cc.assetManager.loadBundle('bundle1', function (err, bundle) {
 });
 ```
 
-As with `cc.resources.load`, the `load` method can provide a type parameter, which is useful when there are resources with the same name or when loading a SpriteFrame. For example.
+As with `cc.resources.load`, the `load` method can provide a type parameter, which is useful when there are resources with the same name or when loading a SpriteFrame. For example:
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        console.log(spriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    console.log(spriteFrame);
+});
 ```
 
 ### Load directory
@@ -133,15 +133,15 @@ As with `cc.resources.load`, the `load` method can provide a type parameter, whi
 The `loadDir` method is provided in Asset Bundle for loading multiple resources under the same path. The parameters of this method are similar to those of `cc.resources.loadDir`, you just need to pass the directory path relative to the Asset Bundle directory.
 
 ```js
-    // Load all resources in the textures directory
-    bundle.loadDir("textures", function (err, assets) {
-        // ...
-    });
+// Load all resources in the textures directory
+bundle.loadDir("textures", function (err, assets) {
+    // ...
+});
 
-    // Load all Texture resources in the textures directory
-    bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
-        // ...
-    });
+// Load all Texture resources in the textures directory
+bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
+    // ...
+});
 ```
 
 ### Load scenes
@@ -149,16 +149,16 @@ The `loadDir` method is provided in Asset Bundle for loading multiple resources 
 The `loadScene` method is provided in the Asset Bundle for loading scenes in the Asset Bundle, you just need to pass in the scene name. The difference between `loadScene` and `cc.director.loadScene` is that `loadScene` will only load the scene in this bundle and will not run the scene, you will also need to use `cc.director.runScene` to run the scene.
 
 ```js
-    bundle.loadScene('test', function (err, scene) {
-        cc.director.runScene(scene);
-    });
+bundle.loadScene('test', function (err, scene) {
+    cc.director.runScene(scene);
+});
 ```
 
-For another way to dynamically load resources, see [Acquire and load asset](load-assets.md). 
+For another way to dynamically load resources, see [Acquire and load asset](load-assets.md) documentation. 
 
 ## Preload resources
 
-In addition to scenes being able to preload, other resources are also able to preload. The loading parameters are the same as when loading normally, but it only goes to download the relevant resources and does not do the deserialization and initialization of the resources, so it consumes less performance and is suitable for use during the game. The `preload`, `preloadDir` interface is provided in the Asset Bundle to preload the resources in the bundle. The exact usage is the same as for preloading in cc.assetManager, as detailed in [Loading And Preloading](../asset-manager/preload-load.md).
+In addition to scenes being able to preload, other resources are also able to preload. The loading parameters are the same as when loading normally, but it only goes to download the relevant resources and does not do the deserialization and initialization of the resources, so it consumes less performance and is suitable for use during the game. The `preload`, `preloadDir` interface is provided in the Asset Bundle to preload the resources in the bundle. The exact usage is the same as for preloading in cc.assetManager, as detailed in [Loading And Preloading](../asset-manager/preload-load.md) documentation.
 
 ## Release resources in Asset Bundle
 
@@ -167,30 +167,30 @@ After loading resources, all resources will be temporarily cached in `cc.assetMa
 Resources in the Asset Bundle can be released in three ways, the first is using the regular `cc.assetManager.releaseAsset` method.
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        cc.assetManager.releaseAsset(spriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    cc.assetManager.releaseAsset(spriteFrame);
+});
 ```
 
 The second way is the `release` method in the Asset Bundle, which releases only the resources in the bundle by means of an incoming path and type, using the same arguments as `Bundle.load`.
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        bundle.release(`image`, cc.SpriteFrame);
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    bundle.release(`image`, cc.SpriteFrame);
+});
 ```
 
 The third method is the `releaseAll` method in the Asset Bundle, which is similar to `cc.assetManager.releaseAll`. The `releaseAll` method will release all resources already loaded in the Asset Bundle.
 
 ```js
-    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-        bundle.releaseAll();
-    });
+bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+    bundle.releaseAll();
+});
 ```
 
 **Note**: When you release a resource, Creator also handles the dependencies for that resource, so you don't have to manage the dependencies.
 
-For a detailed description of releasing resources, see [Release Of Resources](../asset-manager/release-manager.md).
+For a detailed description of releasing resources, see [Release Of Resources](../asset-manager/release-manager.md) documentation.
 
 ## Destroy Asset Bundle
 

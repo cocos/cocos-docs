@@ -11,16 +11,16 @@ Most of the loading interfaces in Asset Manager, including `load`, `loadDir`, an
 
 Compared to previous versions of Creator v2.4, these optimizations reduce the preload performance loss and ensure that the game itself is a smooth experience. Developers can leverage network bandwidth during play to reduce load times for subsequent resources.
 
-Since the preload does not parse the resource, the resource needs to be parsed and initialized with the loading interface to complete the resource loading after the preload. For example.
+Since the preload does not parse the resource, the resource needs to be parsed and initialized with the loading interface to complete the resource loading after the preload. For example:
 
 ```js
-    cc.resources.preload('images/background', cc.SpriteFrame);
+cc.resources.preload('images/background', cc.SpriteFrame);
 
-    // wait for while 
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        spriteFrame.addRef();
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-    });
+// wait for while 
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    spriteFrame.addRef();
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+});
 ```
 
 **Note**: Loading does not have to wait for the preload to complete, you can load at any time, the normal loading interface will directly reuse the content already downloaded in the preload process, reducing the loading time.

@@ -83,7 +83,7 @@ Although it is very straight forward to set assets in the **Properties** panel, 
 
 ## How to dynamically load
 
-Starting from v2.4, the Creator supports Asset Bundle, which means that you can load resources dynamically in two ways: 1. by placing resources in the `resources` directory and loading them dynamically with an interface such as `cc.resources.load`; 2. by loading them dynamically with Asset Bundle. This post focuses only on the first approach; for the second, see [Asset Bundle](asset-bundle.md). 
+Starting from v2.4, the Creator supports Asset Bundle, which means that you can load resources dynamically in two ways: 1. by placing resources in the `resources` directory and loading them dynamically with an interface such as `cc.resources.load`; 2. by loading them dynamically with Asset Bundle. This post focuses only on the first approach; for the second, see [Asset Bundle](asset-bundle.md) documentation. 
 
  There are two things to note about dynamically loading resources using the first method, one is that all resources that need to be dynamically loaded by script must be placed in the `resources` folder or one of its subfolders. `resources` need to be created manually in the assets folder and must be located in the assets root directory, like this.
 
@@ -95,7 +95,7 @@ Starting from v2.4, the Creator supports Asset Bundle, which means that you can 
 
 The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-**Note**: As of v2.4, interfaces such as `cc.loader` are no longer recommended, please use the latest `cc.assetManager` interface. Please refer to [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md)。
+**Note**: As of v2.4, interfaces such as `cc.loader` are no longer recommended, please use the latest `cc.assetManager` interface. Please refer to [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation。
 
 ### How to dynamically load Asset
 
@@ -190,7 +190,7 @@ cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFram
 
 You can load resources ahead of time using the preloaded relevant interface, without waiting for the preload to end, using the normal loading interface to load, you can complete the loading requirements normally.
 
- For instructions on preloading, see [Preloading And Loading](../asset-manager/preload-load.md).
+For instructions on preloading, see [Preloading And Loading](../asset-manager/preload-load.md) documentation.
 
 ## How to load remote assets or files in device
 
@@ -248,7 +248,7 @@ For example, in the following graph, the Prefab resource contains the Sprite com
 
 In a scripting language like JavaScript, memory management is often not included due to its weak typing characteristics, and for code convenience, the memory of all objects is managed by a garbage collection mechanism. This results in JS layer logic never knowing when an object will be released, which means that the engine cannot manage external object references to resources through a mechanism like reference counting, nor can it rigorously count whether a resource is no longer needed.
 
-Prior to v2.4, Creator long chose to give developers control over the release of all resources, including the resource itself and its dependencies, and you had to manually get all the dependencies of the resource and select the dependencies that needed to be released, for example in the following form.
+Prior to v2.4, Creator long chose to give developers control over the release of all resources, including the resource itself and its dependencies, and you had to manually get all the dependencies of the resource and select the dependencies that needed to be released, for example in the following form:
 
 ```javascript
 // Release a texture which is no longer need
@@ -268,7 +268,7 @@ cc.loader.release(deps);
 
 This way gives the developer the most control and works well for smaller projects, but as Creator grows, the project grows in size and the resources referenced by the scene increase, while other scene may also reuse them, which causes the complexity of releasing resources to become more and more complex and the developer needs to master all the resources. To address this pain point, Asset Manager provides a resource release mechanism based on reference counting, allowing developers to simply and efficiently release resources without worrying about dramatic project size inflation.
 
-What new mechanism does is to make an analytical record of resource dependencies and add references when resources are loaded through AssetManager. When releasing a resource through AssetManager, get the recorded dependent resource, dereference it, and try to automatically release the dependent resource based on the number of references. So this mechanism only analyzes static references to resources, which means that if the developer dynamically loads resources during game runtime and sets them to component or other resources, then these dynamically loaded resources are not recorded by the engine and need to be managed by the developer. Each asset provides two methods `addRef` and `decRef` that you can use to control references to dynamic resources, for example.
+What new mechanism does is to make an analytical record of resource dependencies and add references when resources are loaded through AssetManager. When releasing a resource through AssetManager, get the recorded dependent resource, dereference it, and try to automatically release the dependent resource based on the number of references. So this mechanism only analyzes static references to resources, which means that if the developer dynamically loads resources during game runtime and sets them to component or other resources, then these dynamically loaded resources are not recorded by the engine and need to be managed by the developer. Each asset provides two methods `addRef` and `decRef` that you can use to control references to dynamic resources, for example:
 
 ```js
 cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
@@ -280,10 +280,11 @@ cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
 Since the texture is dynamically loaded in and not referenced by the component in the first place, the texture is unrecorded and his reference count is 0. To prevent the texture from being mistakenly released elsewhere, the developer needs to manually perform the `addRef` operation to add a reference to it. And when you no longer need to use this resource, you need to perform `decRef` to reduce it by one reference.
 
 ```js
-    this.spriteFrame.decRef();
-    this.spriteFrame = null;
+this.spriteFrame.decRef();
+this.spriteFrame = null;
 ```
-For a detailed resource release mechanism, see [Release Of Resource](../asset-manager/release-manager.md).
+
+For a detailed resource release mechanism, see [Release Of Resource](../asset-manager/release-manager.md) documentation.
 
 **The last thing to keep in mind: JavaScript's garbage collection is not immediate.**
 

@@ -16,7 +16,7 @@ bundle.loadScene('MyScene', function (err, scene) {
 
 The `Bundle.loadScene` can only load scenes in this bundle and will not run scenes automatically, it also needs to be used with the `cc.director.runScene`. `Bundle.loadScene` provides more parameter loading control flow when you need to control loading parameters or do some post-processing after loading a scene.
 
-To load the scene in Asset Bundle, see [Asset Bundle](asset-bundle.md) for details.
+To load the scene in Asset Bundle, see [Asset Bundle](asset-bundle.md) documentation for details.
 
 ## Use persist node to managing multiple scenes and pass information among scenes
 
