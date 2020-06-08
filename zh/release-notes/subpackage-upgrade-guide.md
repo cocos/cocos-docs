@@ -9,12 +9,9 @@
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在需要修改原先在代码中使用的 `cc.loader.downloader.loadSubpackage` API 为 Asset Manager 中的对应接口。
 
-## 常见问题
+## 需要手动升级的情况
 
-### 我需要手动升级吗？
-
-如果有下列情况，你需要升级：
- - 你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包
+你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包
 
 ## 升级步骤
 

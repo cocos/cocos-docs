@@ -14,16 +14,13 @@ For **Artist and Game Designer**, all resources in the project, such as scenes, 
 For **Programmers**, the impact is mainly in the fact that all APIs that were originally used in the code for `cc.loader` need to be changed to a series of APIs that use `cc.assetManager`, which is described in detail in this article.
 **Note**: Since v2.4 supports Asset Bundle feature, the subpackage settings in the project need to be upgraded, please refer to [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation.
 
-## Frequently Asked Questions
+## Situations that require upgrading manually
 
-### Do I need to upgrade manually?
-
-You will need to upgrade if.
- - You use APIs that start with `cc.loader` in your own game code, such as `cc.loader.loaderRes`, `cc.loader.loadResDir`, `cc.loader.release`, etc.
- - You use APIs that start with `cc.AssetLibrary` in your own game code, such as `cc.AssetLibrary.loadAsset` and others.
- - You use an API that starts with `cc.url` in your own game code, such as `cc.url.raw`.
- - You use types such as `cc.Pipeline`, `cc.LoadingItems` in your own game code.
- - You have used the `cc.macro.DOWNLOAD_MAX_CONCURRENT` property in your own game code.
+- You use APIs that start with `cc.loader` in your own game code, such as `cc.loader.loaderRes`, `cc.loader.loadResDir`, `cc.loader.release`, etc.
+- You use APIs that start with `cc.AssetLibrary` in your own game code, such as `cc.AssetLibrary.loadAsset` and others.
+- You use an API that starts with `cc.url` in your own game code, such as `cc.url.raw`.
+- You use types such as `cc.Pipeline`, `cc.LoadingItems` in your own game code.
+- You have used the `cc.macro.DOWNLOAD_MAX_CONCURRENT` property in your own game code.
 
 ## Upgrade steps
 

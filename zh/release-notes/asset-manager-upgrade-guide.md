@@ -14,16 +14,13 @@
 对 **程序** 而言，影响主要体现在原先在代码中用到的 `cc.loader` 的所有 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
 **注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的分包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
-## 常见问题
+## 需要手动升级的情况
 
-### 我需要手动升级吗？
-
-如果有下列情况，你需要升级：
- - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API。
- - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
- - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
- - 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
- - 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
+- 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API。
+- 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
+- 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
+- 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
+- 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
 ## 升级步骤
 
