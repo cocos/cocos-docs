@@ -82,7 +82,7 @@ If you need to upload the resource to the server, configure the `asset bundle` w
 
 3. If the main bundle needs to be configured as a remote one, please check **Main Bundle Is Remote** in the **Build** panel.
 4. Check **MD5 Cache** in the **Build** panel.
-5. Set **Remote Server Address**, and then click **Build** button.
+5. Set **Resource Server Address**, and then click **Build** button.
 6. When the build is complete, upload the **remote** folder in the mini game release package to the server.
 7. Delete the `remote` folder inside the release package.
 8. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the **Details** page in the WeChat DevTools, check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option in the project settings.
