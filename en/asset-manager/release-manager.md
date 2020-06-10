@@ -10,7 +10,7 @@ When a resource is loaded, it is saved in the cache for the next reuse, and this
 
 ### Auto release.
 
-Creator v2.4 provides an auto-release mechanism, first, the scenario provides an auto-release option, as shown in the figure.
+Creator v2.4 provides an auto-release mechanism, first, the scene asset provides an auto-release option, as shown in the figure.
 
 ![auto-release](release-manager/auto-release.png)
 
@@ -76,7 +76,7 @@ The first thing to note is that the reference counting statistics in Asset Manag
 
 2. JavaScript is a dynamically typed language that does not provide for assignment operator override, and the statistics of reference counts are highly dependent on assignment operator overlays.
 
-So because of these two issues, prior to v2.4, Creator chose for a long time to give the developer control over the release of all resources, both the resource itself and its dependencies, you had to manually get all the dependencies of the resource and select the dependencies that needed to be released, this way gave the developer the most control and worked well for small projects, but as Creator grew and the project grew in size, the resources referenced by the scene grew and other scene may have reused those resources, this caused the complexity of releasing resources to grow and it was very difficult for the developer to master all the resources. To address this pain point, Asset Manager provides a resource release mechanism based on reference counting, allowing developers to simply and efficiently release resources without worrying about dramatic project size inflation. It should be noted that in this scenario the engine only counts the static references to the resources accurately, but the dynamic references to the resources also need to be controlled by the developer to ensure that the resources can be released correctly.
+So because of these two issues, prior to v2.4, Creator chose for a long time to give the developer control over the release of all resources, both the resource itself and its dependencies, you had to manually get all the dependencies of the resource and select the dependencies that needed to be released, this way gave the developer the most control and worked well for small projects, but as Creator grew and the project grew in size, the resources referenced by the scene grew and other scene may have reused those resources, this caused the complexity of releasing resources to grow and it was very difficult for the developer to master all the resources. To address this pain point, Asset Manager provides a resource release mechanism based on reference counting, allowing developers to simply and efficiently release resources without worrying about dramatic project size inflation. It should be noted that in this case the engine only counts the static references to the resources accurately, but the dynamic references to the resources also need to be controlled by the developer to ensure that the resources can be released correctly.
 
 The first thing that needs to be clarified is what is meant by static and dynamic referencing of resources.
 

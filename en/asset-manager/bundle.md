@@ -2,7 +2,7 @@
 
 > Author：Santy-Wang
 
-Starting with v2.4, Creator officially supports Asset Bundle functionality. The Asset Bundle is a modular resource tool that allows developers to divide the resources of textures, scripts, scenarios, etc. into different Asset Bundles according to the requirements of the project, loading different Asset Bundles according to the requirements during the game run, minimizing the number of resources to be loaded at startup.Asset Bundle can be placed on demand, e.g. on a remote server, locally, or in a subpack of a mini gaming platform.
+Starting with v2.4, Creator officially supports Asset Bundle functionality. The Asset Bundle is a modular resource tool that allows developers to divide the resources of textures, scripts, scenes, etc. into different Asset Bundles according to the requirements of the project, loading different Asset Bundles according to the requirements during the game run, minimizing the number of resources to be loaded at startup.Asset Bundle can be placed on demand, e.g. on a remote server, locally, or in a subpack of a mini gaming platform.
 
 ## FAQ
 
@@ -25,7 +25,7 @@ A: In a project Asset Bundle is set up by setting up folders, **Resources in the
 
 Q: Can Asset Bundle be used as a mode for lobby plus sub games?
 
-A: Absolutely, subgame scenarios can be placed in Asset Bundle and loaded when needed, and subgames can even be pre-built as Asset Bundle in other projects and then loaded for use in the main project.
+A: Absolutely, subgame scene can be placed in Asset Bundle and loaded when needed, and subgames can even be pre-built as Asset Bundle in other projects and then loaded for use in the main project.
 
 Q: Can Asset Bundle reduce the size of `settings.js`?
 
@@ -49,7 +49,7 @@ Starting with v2.4, Creator has 4 built-in Asset Bundles, as shown in the figure
 
 ![builtinBundles](bundle/builtinBundles.png)
 
-That is, starting with v2.4, all resources will exist in the Asset Bundle. All resources in the resources directory and their dependencies will be in the Asset Bundle of resources, all internal resources and their dependencies will be in the Asset Bundle of internal, all scenarios checked in the build panel and their dependencies will be in the Asset Bundle of main, and if you check the first scene as asset bundle, the first scene will be built into start-scene.
+That is, starting with v2.4, all resources will exist in the Asset Bundle. All resources in the resources directory and their dependencies will be in the Asset Bundle of resources, all internal resources and their dependencies will be in the Asset Bundle of internal, all scenes checked in the build panel and their dependencies will be in the Asset Bundle of main, and if you check the first scene as asset bundle, the first scene will be built into start-scene.
 
 As with other Asset Bundles, you can also set the compression type of the built-in Asset Bundle and even put it on a remote server. You can set this by configuring the remote server address at build time, or you can control the loading of the built-in Asset Bundle by modifying the `main.js` code through the custom build template feature, similar to the one shown below:
 
@@ -61,11 +61,11 @@ When the folder is set to Asset Bundle, resources that are dependent on the fold
 
 ![shared](bundle/shared.png) 
 
-Another scenario is where the resource is under one Asset Bundle folder, but is referenced by another Asset Bundle, as shown in the figure:
+Another case is where the resource is under one Asset Bundle folder, but is referenced by another Asset Bundle, as shown in the figure:
 
 ![shared2](bundle/shared2.png)
 
-In both cases, resource 'c' belongs to both Asset Bundle 'A' and Asset Bundle 'B'. So which bundle does resource 'c' actually exist in? At this point, it is necessary to specify exactly which bundle the resource 'c' is placed in by adjusting the priority of the Asset Bundle.
+In both cases, `resource c` belongs to both `Asset Bundle A` and `Asset Bundle B`. So which bundle does `resource c` actually exist in? At this point, it is necessary to specify exactly which bundle the `resource c` is placed in by adjusting the priority of the Asset Bundle.
 
 Bundles can be set with different priorities, Creator has 10 built-in priorities to choose from, the editor will build the bundle in order of priority, when the same resource is referenced by multiple bundles of different priorities, the resource will be prioritized in the high priority bundle, the low priority bundle will store only one record information, at this time the low priority bundle will rely on the high priority bundle, if you want to load this shared resource in the low priority bundle, you must load the high priority bundle before the low priority bundle.
 When the same resource is referenced by multiple bundles of the same priority, the resource is copied in each bundle, where different bundles have no dependencies and can be loaded in any order. So try to make shared resources such as `Texture`, `SpriteFrame`, `Audio`, etc in the bundle with higher priority, so that low priority bundles can share their resources and thus minimize the bundle body.

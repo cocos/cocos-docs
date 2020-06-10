@@ -56,7 +56,7 @@ For more on preloading see [Preloading And Loading](preload-load.md) documentati
 
 ## Asset Bundle
 
-Developers can plan their scenarios, resources, code into the Asset Bundle and dynamically load resources at runtime, resulting in modularity of resources, loading corresponding resources only when needed. For example:
+Developers can plan their scenes, resources, code into the Asset Bundle and dynamically load resources at runtime, resulting in modularity of resources, loading corresponding resources only when needed. For example:
 
 ```js
 cc.assetManager.loadBundle('testBundle', function (err, bundle) {
