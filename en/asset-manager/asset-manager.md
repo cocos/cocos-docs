@@ -30,8 +30,8 @@ Remote Asset | Asset Manager | loadRemote  | releaseAsset  | N/A | N/A
 
 References：
 
-[Acquire and load asset](../scripting/load-assets.md)
-[Asset Bundle](../scripting/asset-bundle.md)
+- [Acquire and load asset](../scripting/load-assets.md)
+- [Asset Bundle](../scripting/asset-bundle.md)
 
 All loaded resources are cached in `cc.assetManager`.
 
