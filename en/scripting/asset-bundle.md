@@ -30,7 +30,7 @@ After checking the `Is Bundle` option of the folder, click **Apply** at the top 
 
 ## Construction
 
-The Asset Bundle will only work after the project has been built and you will not be able to load an Asset Bundle other than the built-in Asset Bundle at the time of preview. Each folder is an Asset Bundle, and you can place the Asset Bundle folders on a remote server or locally, as well as configure them in Mini Game Subpackage for certain platforms such as WeChat.
+After the project is built, the asset bundle folder generated will be placed in **assets**, **subpackages** and **remote** in build directory, and each folder is an Asset Bundle.
 
 **Example**: Configure the **cases/01_graphics** folder in the example project as Asset Bundle, and the **01_graphics** folder will be generated in the **assets** folder in the distribution directory after the project is built.
 
