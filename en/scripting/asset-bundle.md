@@ -30,7 +30,7 @@ After checking the `Is Bundle` option of the folder, click **Apply** at the top 
 
 ## Construction
 
-After the project is built, the asset bundle folder generated will be placed in **assets**, **subpackages** and **remote** in build directory, and each folder is an Asset Bundle.
+The project will generate **assets**, **remote**, and **subpackages** folders in the build directory after the project is built, and each folder within these three folders is an Asset Bundle.
 
 **Example**: Configure the **cases/01_graphics** folder in the example project as Asset Bundle, and the **01_graphics** folder will be generated in the **assets** folder in the distribution directory after the project is built.
 

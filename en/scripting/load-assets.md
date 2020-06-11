@@ -83,9 +83,9 @@ Although it is very straight forward to set assets in the **Properties** panel, 
 
 ## How to dynamically load
 
-Starting from v2.4, the Creator supports Asset Bundle, which means that you can load resources dynamically in two ways: 1. by placing resources in the `resources` directory and loading them dynamically with an interface such as `cc.resources.load`; 2. by loading them dynamically with Asset Bundle. This post focuses only on the first approach; for the second, see [Asset Bundle](asset-bundle.md) documentation. 
+Starting from v2.4, the Creator supports Asset Bundle, which means that you can load resources dynamically in two ways: 1. by placing resources in the `resources` directory and loading them dynamically with an interface such as `cc.resources.load`; 2. by loading them dynamically with Asset Bundle. This article focuses only on the first approach; for the second, see [Asset Bundle](asset-bundle.md) documentation. 
 
- There are two things to note about dynamically loading resources using the first method, one is that all resources that need to be dynamically loaded by script must be placed in the `resources` folder or one of its subfolders. `resources` need to be created manually in the assets folder and must be located in the assets root directory, like this.
+ There are two things to note about dynamically loading resources using the first method, one is that all resources that need to be dynamically loaded by script must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the assets folder and must be located in the assets root directory, like this.
 
 ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
@@ -95,11 +95,11 @@ Starting from v2.4, the Creator supports Asset Bundle, which means that you can 
 
 The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-**Note**: As of v2.4, interfaces such as `cc.loader` are no longer recommended, please use the latest `cc.assetManager` interface. Please refer to [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation。
+**Note**: As of v2.4, the `cc.loader` interface is deprecated, please use `cc.assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation for details.
 
 ### How to dynamically load Asset
 
-Creator provides `cc.resources.load` the API to load specific Asset that is located under the Resources directory. Invoke, you only need to pass a relative path to the resources, and **Not** at the end of the path containing the file name extension.
+Creator provides the `cc.resources.load` API to load specific asset that locates under the `resources` directory. You can pass a relative path to the directory to invoke, and **do not** containing the file name extension at the end of the path.
 
 ```javascript
 // load Prefab

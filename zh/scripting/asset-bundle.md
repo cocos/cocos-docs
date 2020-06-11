@@ -30,7 +30,7 @@ Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一
 
 ## 构建
 
-项目构建后会在发布包目录下的 **assets**，**remote**，**subpackages** 生成对应的 Asset Bundle 文件夹。每一个文件夹为一个 Asset Bundle。
+项目构建后会在发布包目录下生成 **assets**，**remote**，**subpackages** 三个文件夹。这三个文件夹中的每一个文件夹为一个 Asset Bundle。
 
 **例如**：将 example 工程中的 **cases/01_graphics** 文件夹配置为 Asset Bundle，那么项目构建后将会在发布包目录下的 **assets** 生成 **01_graphics** 文件夹。
 
