@@ -150,6 +150,28 @@ For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBott
 
 Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.
 
+#### Questions about autoplay
+
+Since Android, IOS mobile browsers and WeChat's own browser for a better user experience. It is specified that the audio video is not played automatically, and needs to be handled separately if the auto-play effect is to be achieved. The user can create a global touch event for video playback by
+
+```js
+cc.Class({
+    extends: cc.Component,
+    properties: {
+       videoplayer: cc.VideoPlayer
+    },
+
+    onStart () {
+       let canvas = cc.find('Canvas');
+       canvas.on('touchstart', this.playVideo, this);
+    },
+    
+    playVideo () {
+      this.videoplayer.play();
+    }
+});
+```
+
 <hr>
 
 Continue reading [WebView Component](webview.md).

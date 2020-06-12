@@ -19,6 +19,8 @@ Bar Sprite 就可以在场景中控制 Bar Sprite 来显示进度了。
 | Progress     | 浮点，取值范围是 0~1，不允许输入该范围之外的数值。
 | Reverse      | 布尔值，默认的填充方向是从左至右/从下到上，开启后变成从右到左/从上到下。
 
+注意：`Mode`、`Total Length`、`Progress`、`Reverse` 属性只作用于 Bar Sprite 对象。
+
 ## 详细说明
 
 添加 ProgressBar 组件之后，通过从 **层级管理器** 中拖拽一个带有 **Sprite** 组件的节点到 Bar Sprite 属性上，此时便可以通过拖动 progress 滑块来控制进度条的显示了。
