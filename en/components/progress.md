@@ -19,7 +19,7 @@ For the script interface of the ProgressBar, please refer to [ProgressBar API](.
 | Progress     | Floating point. The value range is 0~1, and values outside the range are not allowed.
 | Reverse      | Boolean value. The default fill direction is from left to right/bottom to top, and when enable, it becomes right to left/top to bottom.
 
-Note: The `Mode`, `Total Length`, `Progress`, and `Reverse` properties only work on Bar Sprite node.
+**Note**: The `Mode`, `Total Length`, `Progress`, and `Reverse` properties only work on **Bar Sprite** node.
 
 ## Detailed explanation
 

@@ -152,7 +152,7 @@ Because different platforms have different authorization, API and control method
 
 #### Questions about autoplay
 
-Some mobile browsers or WebViews do not allow auto-playing of videos and users need to play the video manually in a touch event.
+Some mobile browsers or **WebView** do not allow auto-playing of videos and users need to play the video manually in a touch event.
 
 ```js
 cc.Class({
