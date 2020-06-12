@@ -1,6 +1,6 @@
 # Coordinate system and node transformation properties
 
-In the [Scene editor](../getting-started/basics/editor-panels/scene.md) and [Node and component](node-component.md) files, we introduced that we can change a node's display behaviour by using **change tools** and editing the node's properties in the **Properties** panel. We will learn more about the coordinate system of where the node is and the operating principles of the node's four transformation properties of Position, Rotation, Scale and Size in this section.
+In the [Scene editor](../getting-started/basics/editor-panels/scene.md) and [Node and component](node-component.md) files, we introduced that we can change a node's display behaviour by using **change tools** and editing the node's properties in the **Properties** panel. We will learn more about the coordinate system of where the node is and the operating principles of the node's four transformation properties of Position, Rotation, Scale and Size in this section. The 3D node has some changes in the API usage of transform properties compared to the 2D node, as described in the [3D Node](../3d/3d-node.md) documentation.
 
 ## Cocos Creator coordinates system
 
@@ -81,12 +81,12 @@ In the **Scene** panel, you can always use [move transform tools](../getting-sta
 ### Rotation
 
 **Rotation** is another important property that will have an effect on a node's local coordinates. The **Rotation** property only has one value to indicate the current rotation angle of the node.
-- When the angle value is **positive**, the node rotates counter **anticlockwise**.
+- When the angle value is **positive**, the node rotates counter **counterclockwise**.
 - When the angle value is **negative**, the node rotates **clockwise**.
 
 ![rotation](transform/rotation.png)
 
-The node hierarchical relationship in the image above is the same as in the previous image only with the **Rotation** property of `NodeA` set as `30` degrees. As well as `NodeA` itself rotating `30` degrees **anticlockwise**, its child node `NodeB` also rotates `30` degrees **anticlockwise** taking the anchor of `NodeA` as the center.
+The node hierarchical relationship in the image above is the same as in the previous image only with the **Rotation** property of `NodeA` set as `30` degrees. As well as `NodeA` itself rotating `30` degrees **counterclockwise**, its child node `NodeB` also rotates `30` degrees **counterclockwise** taking the anchor of `NodeA` as the center.
 
 In the **Scene** panel, you can always use [Rotate transform tools](../getting-started/basics/editor-panels/scene.md#--10) to change the rotation of a node.
 
@@ -100,7 +100,7 @@ The **Scale** property of `NodeA` in the above image is set as `(0.5, 1.0)`. Thi
 
 The **Scale** property set on the child node will have additive effects on the parent node. The children of a child node will **multiply** all the **Scale** properties on each hierarchy to get the scale percentage used in the world coordinate system. This is the same case with the **Position** and **Rotation** properties, it's just that that **Position** and **Rotation** properties have additive effects, while the **Scale** property makes the effects more obvious by multiplication.
 
-The **Scale** property acts on the effects of the properties of **Position** and **Size** among others. When you change the **Scale** property, the node's position and size won't change, but it will **multiply** the position, size and other properties by a scale before showing the node image. The values from the multiplication are the actual position and size of the node that will appear.
+The **Scale** property affects the **Size** of the current node, not the **Position** or **Rotation**. However, it affects the **Position** and **Size** of child nodes.
 
 In the **Scene** panel, you can always use [Scale transform tools](../getting-started/basics/editor-panels/scene.md#--11) to change the scale of the node.
 
