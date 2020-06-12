@@ -152,7 +152,7 @@ Because different platforms have different authorization, API and control method
 
 #### Questions about autoplay
 
-Since Android, IOS mobile browsers and WeChat's own browser for a better user experience. It is specified that the audio video is not played automatically, and needs to be handled separately if the auto-play effect is to be achieved. The user can create a global touch event for video playback by
+Some mobile browsers or WebViews do not allow auto-playing of videos and users need to play the video manually in a touch event.
 
 ```js
 cc.Class({
@@ -161,7 +161,7 @@ cc.Class({
        videoplayer: cc.VideoPlayer
     },
 
-    onStart () {
+    start () {
        let canvas = cc.find('Canvas');
        canvas.on('touchstart', this.playVideo, this);
     },

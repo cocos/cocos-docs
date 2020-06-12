@@ -17,7 +17,7 @@ More audio interface to the script interface [AudioSource API](../../../api/en/c
 
 #### Questions about autoplay
 
-Since Android, IOS mobile browsers and WeChat's own browser for a better user experience. It is specified that the audio is not played automatically, but needs to be handled separately if the auto-play effect is to be achieved. The user can create a global touch event for playing audio by
+Some mobile browsers or WebViews do not allow auto-playing of audio and users need to play the audio manually in a touch event.
 
 ```js
 cc.Class({
@@ -26,7 +26,7 @@ cc.Class({
        audioSource: cc.AudioSource
     },
 
-    onStart () {
+    start () {
        let canvas = cc.find('Canvas');
        canvas.on('touchstart', this.playAudio, this);
     },
