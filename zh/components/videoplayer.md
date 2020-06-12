@@ -103,10 +103,8 @@ cc.Class({
 
 ```js
 //假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
-
 cc.Class({
     extends: cc.Component,
-
 
     properties: {
        videoplayer: cc.VideoPlayer
@@ -152,3 +150,25 @@ cc.Class({
 ## 支持平台
 
 由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS、Android、微信小游戏、Facebook Instant Games 以及 Google Play Instant 平台。
+
+#### 关于自动播放的问题
+
+一些移动端的浏览器或 **WebView** 不允许自动播放视频，用户需要在触摸事件中手动播放视频。
+
+```js
+cc.Class({
+    extends: cc.Component,
+    properties: {
+       videoplayer: cc.VideoPlayer
+    },
+
+    start () {
+       let canvas = cc.find('Canvas');
+       canvas.on('touchstart', this.playVideo, this);
+    },
+    
+    playVideo () {
+      this.videoplayer.play();
+    }
+});
+```
