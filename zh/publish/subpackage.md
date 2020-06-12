@@ -1,6 +1,6 @@
 # 小游戏分包
 
-部分小游戏平台支持分包功能用来对资源和脚本进行划分，Creator 也将分包功能整合到 Asset Bundle 的工作流中，你可以在 Asset Bundle 的压缩类型选项中将压缩类型设置为 **小游戏分包**，则 Asset Bundle 将被构建到小游戏分包中。详细内容请参考 [Asset Bundle](../asset-manager/bundle.md#压缩类型)
+部分小游戏平台支持分包功能用来对资源和脚本进行划分，Creator 也将分包功能整合到 Asset Bundle 的工作流中，你可以在 Asset Bundle 的压缩类型选项中将压缩类型设置为 **小游戏分包**，则 Asset Bundle 将被构建到小游戏分包中。详细内容请参考 [Asset Bundle](../scripting/asset-bundle.md)
 
 如果发布平台支持分包功能，比如在微信小游戏的构建中，分包的配置也会按照规则自动生成到微信小游戏发布包目录下的 **game.json** 配置文件中。
 
@@ -27,8 +27,8 @@
 
 **注意**：
 
-- Creator **v2.1.3** 开始支持 vivo 小游戏分包加载。
 - **快应用 & vivo 小游戏调试器** 从 **1051** 版本开始支持 vivo 小游戏分包加载。低于 1051 的版本虽然不支持分包加载，但是也做了兼容处理，如果勾选了分包也不会影响游戏正常运行。具体可参考 [vivo 分包加载-运行时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9)。
+- 与微信小游戏不同的是，项目构建后分包文件夹是生成在发布包 qgame 目录下的 src 目录。
 
   ![](./subpackage/vivo_subpackage.png)
 

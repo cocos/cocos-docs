@@ -14,17 +14,13 @@
 对 **程序** 而言，影响主要体现在原先在代码中用到的 `cc.loader` 的所有 API，需要都改为使用 `cc.assetManager` 的系列 API。本文将详细介绍有关内容。
 **注意**：因为 v2.4 支持 Asset Bundle 功能，工程中的分包设置需要进行升级，相关内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
-## 常见问题
+## 需要手动升级的情况
 
-### 我需要手动升级吗？
-
-如果有下列情况，你需要升级：
- - 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API。
- - 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
- - 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
- - 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
- - 你在自己的游戏代码中使用了 `cc.director.preloadScene` API。
- - 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
+- 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API ，比如 `cc.loader.loaderRes`，`cc.loader.loadResDir`，`cc.loader.release` 等等 API。
+- 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API ，比如 `cc.AssetLibrary.loadAsset` 等等 API。
+- 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
+- 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
+- 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
 ## 升级步骤
 
@@ -45,11 +41,11 @@
 `cc.resources.load` 的参数与 `cc.loader.loadRes` 完全相同。替换方式如下：
 
 ```js
-    // 修改前
-    cc.loader.loadRes(...);
+// 修改前
+cc.loader.loadRes(...);
 
-    // 修改后
-    cc.resources.load(...);
+// 修改后
+cc.resources.load(...);
 ```
 
 ##### cc.loader.loadResArray
@@ -57,11 +53,11 @@
 `cc.assetManager` 为了降低学习成本，将 `loadResArray` 与 `load` 进行了合并，`cc.resources.load` 的第一个参数可支持多个路径，所以可以使用 `cc.resources.load` 进行替换：
 
 ```js
-    // 修改前
-    cc.loader.loadResArray(...);
+// 修改前
+cc.loader.loadResArray(...);
 
-    // 修改后
-    cc.resources.load(...);
+// 修改后
+cc.resources.load(...);
 ```
 
 ##### cc.loader.loadResDir
@@ -69,25 +65,26 @@
 `cc.resources.loadDir` 的参数与 `cc.loader.loadResDir` 完全相同。
 
 ```js
-    // 修改前
-    cc.loader.loadResDir(...);
+// 修改前
+cc.loader.loadResDir(...);
 
-    // 修改后
-    cc.resources.loadDir(...);
+// 修改后
+cc.resources.loadDir(...);
 ```
 
 **注意**：出于简化接口的考虑，`cc.resources.loadDir` 的加载完成回调将 **不再提供** paths 的列表。请避免如下使用方式：
 
 ```js
-    cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
+cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
 ```
+
 如果你想要查询 paths 列表，可以使用如下形式：
 
 ```js
-    var infos = cc.resources.getDirWithPath('images', cc.Texture2D);
-    let paths = infos.map(function (info) {
-        return info.path;
-    });
+var infos = cc.resources.getDirWithPath('images', cc.Texture2D);
+let paths = infos.map(function (info) {
+    return info.path;
+});
 ```
 
 ##### cc.loader.load
@@ -97,31 +94,31 @@
 加载远程图片：
 
 ```js
-    // 修改前
-    cc.loader.load('http://example.com/remote.jpg', (err, texture) => console.log(texture));
+// 修改前
+cc.loader.load('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 
-    // 修改后
-    cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
+// 修改后
+cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 ```
 
 加载远程音频：
 
 ```js
-    // 修改前
-    cc.loader.load('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
+// 修改前
+cc.loader.load('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
 
-    // 修改后
-    cc.assetManager.loadRemote('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
+// 修改后
+cc.assetManager.loadRemote('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
 ```
 
 加载远程文本：
 
 ```js
-    // 修改前
-    cc.loader.load('http://example.com/equipment.txt', (err, text) => console.log(text));
+// 修改前
+cc.loader.load('http://example.com/equipment.txt', (err, text) => console.log(text));
 
-    // 修改后
-    cc.assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
+// 修改后
+cc.assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
 ```
 
 **注意** ：
@@ -140,53 +137,54 @@
 `cc.loader.release` 可用 `cc.assetManager.releaseAsset` 替换，**注意**： 为了避免用户关注资源的一些晦涩难懂的属性，`cc.assetManager.releaseAsset` **不再接受** 数组，资源 UUID，资源 URL 进行释放，仅能接受通过资源本身进行释放
 
 ```js
-    // 修改前
-    cc.loader.release(texture);
+// 修改前
+cc.loader.release(texture);
 
-    // 修改后
-    cc.assetManager.releaseAsset(texture);
+// 修改后
+cc.assetManager.releaseAsset(texture);
 
-    // 修改前
-    cc.loader.release([texture1, texture2, texture3]);
-    
-    // 修改后
-    [texture1, texture2, texture3].forEach(t => cc.assetManager.releaseAsset(t));
+// 修改前
+cc.loader.release([texture1, texture2, texture3]);
 
-    // 修改前
-    var uuid = texture._uuid;
-    cc.loader.release(uuid);
+// 修改后
+[texture1, texture2, texture3].forEach(t => cc.assetManager.releaseAsset(t));
 
-    // 修改后
-    cc.assetManager.releaseAsset(texture);
+// 修改前
+var uuid = texture._uuid;
+cc.loader.release(uuid);
 
-    // 修改前
-    var url = texture.url;
-    cc.loader.release(url);
+// 修改后
+cc.assetManager.releaseAsset(texture);
 
-    // 修改后
-    cc.assetManager.releaseAsset(texture);
+// 修改前
+var url = texture.url;
+cc.loader.release(url);
+
+// 修改后
+cc.assetManager.releaseAsset(texture);
 ```
 
 **注意**：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.releaseAsset` 内部将会尝试自动去释放相关依赖资源，例如：
 
 ```js
-    // 修改前
-    var assets = cc.loader.getDependsRecursively(texture);
-    cc.loader.release(assets);
+// 修改前
+var assets = cc.loader.getDependsRecursively(texture);
+cc.loader.release(assets);
 
-    // 修改后
-    cc.assetManager.releaseAsset(texture);
+// 修改后
+cc.assetManager.releaseAsset(texture);
 ```
+
 ##### cc.loader.releaseAsset
 
 `cc.loader.releaseAsset` 可直接使用 `cc.assetManager.releaseAsset` 替换。
 
 ```js
-    // 修改前
-    cc.loader.releaseAsset(texture);
+// 修改前
+cc.loader.releaseAsset(texture);
 
-    // 修改后
-    cc.assetManager.releaseAsset(texture);
+// 修改后
+cc.assetManager.releaseAsset(texture);
 ```
 
 ##### cc.loader.releaseRes
@@ -194,11 +192,11 @@
 `cc.loader.releaseRes` 可直接使用 `cc.resources.release` 替换。
 
 ```js
-    // 修改前
-    cc.loader.releaseRes('images/a', cc.Texture2D);
+// 修改前
+cc.loader.releaseRes('images/a', cc.Texture2D);
 
-    // 修改后
-    cc.resources.release('images/a', cc.Texture2D);
+// 修改后
+cc.resources.release('images/a', cc.Texture2D);
 ```
 
 ##### cc.loader.releaseAll
@@ -206,11 +204,11 @@
 `cc.loader.releaseAll` 可直接使用 `cc.assetManager.releaseAll` 替换。
 
 ```js
-    // 修改前
-    cc.loader.releaseAll();
+// 修改前
+cc.loader.releaseAll();
 
-    // 修改后
-    cc.assetManager.releaseAll();
+// 修改后
+cc.assetManager.releaseAll();
 ```
 
 **注意** ：
@@ -288,37 +286,37 @@ cc.assetManager.pipeline.append(pipe2);
 出于模块化考虑，`cc.assetManager` 中没有实现 `addDownloadHandlers`，`addLoadHandlers`，请使用以下方式替换：
 
 ```js
-    // 修改前
-    var customHandler = (item, cb) => {
-        let result = doSomething(item.url);
-        cb(null, result);
-    };
-    cc.loader.addDownloadHandlers({png: customHandler});
+// 修改前
+var customHandler = (item, cb) => {
+    let result = doSomething(item.url);
+    cb(null, result);
+};
+cc.loader.addDownloadHandlers({png: customHandler});
 
-    // 修改后
-    var customHandler = (url, options, cb) => {
-        let result = doSomething(url);
-        cb(null, result);
-    };
-    cc.assetManager.downloader.register('.png', customHandler);
+// 修改后
+var customHandler = (url, options, cb) => {
+    let result = doSomething(url);
+    cb(null, result);
+};
+cc.assetManager.downloader.register('.png', customHandler);
 ```
 
 或
 
 ```js
-    // 修改前
-    var customHandler = (item, cb) => {
-        let result = doSomething(item.content);
-        cb(null, result);
-    };
-    cc.loader.addLoadHandlers({png: customHandler});
+// 修改前
+var customHandler = (item, cb) => {
+    let result = doSomething(item.content);
+    cb(null, result);
+};
+cc.loader.addLoadHandlers({png: customHandler});
 
-    // 修改后
-    var customHandler = (file, options, cb) => {
-        let result = doSomething(file);
-        cb(null, result);
-    };
-    cc.assetManager.parser.register('.png', customHandler);
+// 修改后
+var customHandler = (file, options, cb) => {
+    let result = doSomething(file);
+    cb(null, result);
+};
+cc.assetManager.parser.register('.png', customHandler);
 ```
 
 **注意** ：
@@ -375,4 +373,5 @@ cc.assetManager.downloader.maxConcurrency = 10;
 // 或者设置预设值
 cc.assetManager.presets['default'].maxConcurrency = 10;
 ```
+
 详细请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。 

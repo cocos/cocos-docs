@@ -21,19 +21,19 @@ Creator v2.4 提供了自动释放机制，首先，场景提供了自动释放�
 另外引擎提供了引用计数的统计函数 `cc.Asset.addRef` 以及 `cc.Asset.decRef` 分别用于增加和减少引用计数。当你调用 `decRef` 后，Creator 也会尝试对其进行自动释放。
 
 ```js
-    start () {
-        cc.resources.load('images/background', cc.Texture2D, (err, texture) => {
-            this.texture = texture;
-            // 当需要持有资源时，增加其引用
-            texture.addRef();
-            // ...
-        });
-    }
+start () {
+    cc.resources.load('images/background', cc.Texture2D, (err, texture) => {
+        this.texture = texture;
+        // 当需要持有资源时，增加其引用
+        texture.addRef();
+        // ...
+    });
+}
 
-    onDestroy () {
-        // 当你不需要持有资源时，减少其引用，Creator 会在调用 decRef 尝试对其进行自动释放
-        this.texture.decRef();
-    }
+onDestroy () {
+    // 当你不需要持有资源时，减少其引用，Creator 会在调用 decRef 尝试对其进行自动释放
+    this.texture.decRef();
+}
 ```
 
 自动释放的优势在于不用显式地调用释放接口，你只需维护好资源的引用计数，Creator 会根据引用计数自动进行释放。这大大降低了错误释放资源的可能性，并且你不需要了解资源之间复杂的引用关系，推荐在没有特殊需求的项目中尽量使用自动释放形式。
@@ -55,7 +55,7 @@ Creator v2.4 提供了自动释放机制，首先，场景提供了自动释放�
 例如，你可以如下使用：
 
 ```js
-    cc.assetManager.releaseAsset(texture);
+cc.assetManager.releaseAsset(texture);
 ```
 
 释放该资源将会销毁该资源的所有内部属性，比如渲染层的相关数据，并移出缓存，从而释放内存和显存（对纹理而言）。
@@ -103,24 +103,24 @@ v2.4 中的释放接口与之前版本的释放接口类似，区别有以下几
 如果你的工程中使用了动态加载资源来进行动态引用，例如：
 
 ```js
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-    });
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+});
 ```
 
 此时这个资源虽然设置给 Sprite 组件，但它的引用计数将保持默认为 0，引擎不会进行特殊处理。如果你动态加载出来的资源需要进行长期引用、持有，或者复用时，建议你使用 `addRef` 接口手动增加引用计数。例如：
 
 ```js
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-        spriteFrame.addRef();
-    });
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+    spriteFrame.addRef();
+});
 ```
 
 增加引用计数后，能够保证该资源不会被提前错误释放掉。而在不需要引用该资源时，请 **务必记住** 使用 `decRef` 移除引用计数，并将资源引用设为 null，例如：
 
 ```js
-    this.spriteFrame.decRef();
-    this.spriteFrame = null;
+this.spriteFrame.decRef();
+this.spriteFrame = null;
 ```
 

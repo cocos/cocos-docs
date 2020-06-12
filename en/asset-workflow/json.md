@@ -19,7 +19,7 @@ You can associate a JSON directly with a component:
 Or load dynamically:
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, jsonAsset) {
+    cc.resources.load('configs/npc', function (err, jsonAsset) {
         loadNpc(jsonAsset.json);
     });
 ```
