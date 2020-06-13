@@ -34,21 +34,15 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This item is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the Game Version Number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **Game Version Number** must be a positive integer.
 
-- **Small Packet Mode**
+- **Resource Server Address**
 
-  This item is optional. The package size of a mini game depends on the volume of code and static resources contained in the game package. Regardless of whether the small package mode is selected, the volume of the game package cannot exceed 4M after the package is generated. If it is greater than this volume limit, you should consider using the small packet mode. In QTT Mini Games environment, resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
+  This entry fills in the address at which the resource is stored on the server and is optional:
 
-  - When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
+  - If this entry is not filled, the **remote** folder in the build directory will be packaged in the cpk package.
 
-  - **First game resource package into the game package**
+  - If this entry is filled in, the constructed rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
 
-      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game.
-
-      Developers can choose whether to check this item according to their needs. Then click on **Build**.
-
-  - After the build is complete, click the **Open** button after the **Build Path** to upload the **qtt-game/remote** directory under the release path to the packet mode server. For example, if the default publishing path is `build`, you need to upload the **build/qtt-game/remote** directory.
-
-  At this point, the **remote** folder will no longer be included in the `.rpk` file which is generated after the build, and the resources in the **remote** folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  For specific resource management details, see [Resource Management for QTT Mini Game Environment](#Resource Management for QTT Mini Game Environment).
 
 **2. Build**
 

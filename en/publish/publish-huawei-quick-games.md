@@ -42,21 +42,15 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This is an optional item, which is the expansion function of Huawei Quick Game. When you use it, you need to select a json file, and the data type in the file is required to be in json format. **Note**: The json data is not available when the key value are `package`, `appType`, `name`, `versionName`, `versionCode`, `icon`, `minPlatformVersion`, `config`, `display`, otherwise it will be overwritten by data such as **App Package Name**, **App Name**, **Desktop Icon**, **App Version Name**, **pp Version Number** during the build.
 
-- **Small Packet Mode**
+- **Resource Server Address**
 
-  This item is optional. The in-package volume of the quick game contains code and resources that cannot exceed 10M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the quick game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
+  This entry fills in the address at which the resource is stored on the server and is optional:
 
-  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
+  - If this entry is not filled, the **remote** folder in the build directory will be packaged in the rpk package.
 
-  2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
+  - If this entry is filled in, the constructed rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
 
-      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game.
-
-      Developers can choose whether to check this item according to their needs. Then click on **Build**.
-
-  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **huawei/remote** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/huawei/remote** directory.
-
-  At this point, the **remote** folder will no longer be included in the `.rpk` file which is generated after the build, and the resources in the **remote** folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  For specific resource management details, see [Resource Management for Huawei Quick Game Environment](#Resource Management for Huawei Quick Game Environment).
 
 - **Keystore**
 

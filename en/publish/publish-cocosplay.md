@@ -18,21 +18,15 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This item is optional. You can customize the directory in which the `.cpk` (generated after the build) is stored. If not set, the `.cpk` is generated to the release package `build/cocos-play` directory by default.
 
-- **Small Packet Mode**
+- **Resource Server Address**
 
-  This item is optional. The in-package volume of the mini game contains code and resources that cannot exceed **10M**, and resources can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
+  This entry fills in the address at which the resource is stored on the server and is optional:
 
-  - When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
+  - If this entry is not filled, the **remote** folder in the build directory will be packaged in the cpk package.
 
-  - **First game resource package into the game package**, this item is optional.
+  - If this entry is filled in, the constructed rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
 
-    In the **Small Packet Mode**, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game.
-
-    You can choose whether to check this item according to your needs. Then click on **Build**.
-
-  - After the build is complete, click the **Open** button after the **Build Path** to upload the `build/cocos-play/remote` folder under the release path to the small packet mode server.
-
-  At this point, the `remote` folder will no longer be included in the `.cpk` file which is generated after the build, and the resources in the `remote` folder will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
+  For specific resource management details, see [Resource Management for Cocos Play Environment](#Resource Management for Cocos Play Environment).
 
 ### 2. Build
 
