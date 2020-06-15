@@ -48,7 +48,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   - If this entry is filled in, the constructed rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
 
-  For specific resource management details, see [Resource Management for OPPO Mini Game Environment](#Resource Management for OPPO Mini Game Environment).
+  For specific resource management details, see [Resource Management for OPPO Mini Game Environment](#resource-management-for-oppo-mini-game-environment).
 
 - **Keystore**
 
