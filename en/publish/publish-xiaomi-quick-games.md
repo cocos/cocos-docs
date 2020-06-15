@@ -149,7 +149,7 @@ Subpackage rpk can be used according to your needs.
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
 
-To use this feature, you need to set up [Subpackage Configuration](../scripting/subpackage.md) in the Cocos Creator, and the package will be automatically subpackaged at build time after setting up.
+To use this feature, you need to set up [Subpackage Configuration](../scripting/asset-bundle.md) in the Cocos Creator, and the package will be automatically subpackaged at build time after setting up.
 
 When the build is complete, an `.rpk` file is generated in the `/build/xiaomi/dist` directory.
 

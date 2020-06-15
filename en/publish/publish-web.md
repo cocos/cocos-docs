@@ -24,10 +24,11 @@ When merging assets automatically, all JSON files that the Start Scene depends o
 
 Append MD5 hash to the exported assets for resolving CDN or browser cache issue.
 
-After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources was not loaded by `cc.loader`. If this happens, you can convert the url before loading, to fix the loading problem.
+After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources was not loaded by `cc.assetManager`. If this happens, you can convert the url before loading, to fix the loading problem.
 
 ```js
-url = cc.loader.md5Pipe.transformURL(url);
+var uuid = cc.assetManager.utils.getUuidFromURL(url);
+url = cc.assetManager.utils.getUrlWithUuid(uuid);
 ```
 
 ### vConsole

@@ -276,8 +276,8 @@ cc.resources.load('image', cc.SpriteFrame, (err, spriteFrame) => {
 因为 texture 是动态加载进来的，而不是一开始就被组件所引用，所以这个 texture 是没有记录的，他的引用计数是 0，为了避免这个 texture 被其他地方误释放，开发者需要手动执行 `addRef` 操作为其增加一个引用。而在你不再需要使用这个资源时，你需要执行 `decRef` 为其减少一个引用：
 
 ```js
-    this.spriteFrame.decRef();
-    this.spriteFrame = null;
+this.spriteFrame.decRef();
+this.spriteFrame = null;
 ```
 
 详细的资源释放机制请参考 [资源释放](../asset-manager/release-manager.md)。

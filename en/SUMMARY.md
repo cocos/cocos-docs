@@ -77,7 +77,7 @@
     - [Networking](scripting/network.md)
     - [Pooling](scripting/pooling.md)
     - [Modular Script](scripting/modular-script.md)
-    - [Subpackage Loading](scripting/subpackage.md)
+    - [Asset Bundle Loading](scripting/asset-bundle.md)
     - [Plugin Scripts](scripting/plugin-scripts.md)
     - [JavaScript Primer](scripting/javascript-primer.md)
     - [TypeScript Support](scripting/typescript.md)
@@ -93,6 +93,7 @@
         - [WeChat Open Data Context](publish/publish-wechatgame-sub-domain.md)
         - [WeChat Engine Plugin](publish/wechat-engine-plugin.md)
         - [WeChat PC Mini Games](publish/publish-pc-wechatgame.md)
+        - [Mini Game Subpackage](publish/subpackage.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)
     - [Publish to Baidu Mini Games](publish/publish-baidugame.md)
         - [Baidu Open Data Context](publish/publish-baidugame-sub-domain.md)
@@ -198,6 +199,15 @@
     - [Collider Component Reference](physics-3d/physics-collider.md)
     - [Physics Events](physics-3d/physics-event.md)
     - [Physics Material](physics-3d/physics-material.md)
+- [Asset Manager](asset-manager/index.md)
+    - [Asset Manager Overview](asset-manager/asset-manager.md)
+    - [Asset Bundle](asset-manager/bundle.md)
+    - [Release Of Resources](asset-manager/release-manager.md)
+    - [Downloader And Parser](asset-manager/downloader-parser.md)
+    - [Loading and Preloading](asset-manager/preload-load.md)
+    - [Cache Manager](asset-manager/cache-manager.md)
+    - [Optional Parameters](asset-manager/options.md)
+    - [Pipeline And Task](asset-manager/pipeline-task.md)
 
 ## Advanced Topics
 

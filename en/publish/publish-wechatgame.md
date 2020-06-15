@@ -56,12 +56,13 @@ This brings up two key issues, home page loading speed and remote resource cachi
 
 In a mini game environment, the process of downloading resources from the engine is as follows:
 
-1. Check if the resource is in local cache storage
-2. Check if the resource is in the mini game pack if there is no cache
-3. Download from a remote server if they do not exist in mini game pack
-4. After downloading to temporary directory, use it directly
-5. Save it to the game application cache slowly in backstage for re-access.
-6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process 
+1. Check if the resource is in the mini game pack
+2. Check if the resource is in local cache storage if it's not in game pack
+3. Check if the resource is in the temporary directory if it's not in cache
+4. Download from a remote server if they do not exist in mini game pack
+5. After downloading to temporary directory, use it directly
+6. Save it to the game application cache slowly in backstage for re-access.
+7. Local cache storage has space limitation, if total space of cache exceeds the limit, the LRU algorithm is used to delete older resources.
 
 It should be noted that once the cache space is full, all the resources that need to be downloaded cannot be saved, only the temporary files for save download resources can be used, and WeChat will automatically clean up all temporary files after the mini game is exited. So the next time you run the mini game again, those resources are downloaded again and the process keeps looping.  
 In addition, the problem of file saving failure due to cache space exceeding the limit does not occur on the WeChat DevTools, because the WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
@@ -91,10 +92,10 @@ If you need to upload the resource to the server, configure the `asset bundle` w
 
 **Note**: 
 
-1. If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. The exposed methods `clearCache()`, `clearLRU()` and `removeCache(cacheId: number)` in `cc.assetManager.cacheManager` can be used to clear the cache under WeChat Mini Games. The specific differences are as follows:
+1. If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. The exposed methods `clearCache()`, `clearLRU()` and `removeCache(cacheId: string)` in `cc.assetManager.cacheManager` can be used to clear the cache under WeChat Mini Games. The specific differences are as follows:
     - The `clearCache()` method clears all cache resources from the cache directory, so use it carefully.
     - The `clearLRU()` method clears the least recently used cache in the cache directory.
-    - The `removeCache(cacheId: number)` method precisely removes a cache records from the cache.
+    - The `removeCache(cacheId: string)` method precisely removes a cache records from the cache.
 
 2. When you upgrade the engine of your mini game, the assets already cached in the storage will not be cleared automatically. And these cached assets don't match the version of engine. This may cause problems such as resource loading errors or rendering errors. Solutions include the following two types:
     - Check the option **MD5 Cache** when you build your game. It ensures that the newest asset will be loaded.
@@ -116,7 +117,7 @@ Please refer to the [WeChat mini games engine plugin instructions](./wechat-engi
 
 ## WeChat Mini Game Subpackage Loading
 
-WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/subpackage.md).
+WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/asset-bundle.md).
 
 ## Platform SDK Access
 

@@ -14,3 +14,25 @@ Play on load        | 是否在组件激活后自动播放音频
 preload             | 是否在未播放的时候预先加载
 
 更多音频接口的脚本接口请参考 [AudioSource API](../../../api/zh/classes/AudioSource.html)。
+
+#### 关于自动播放的问题
+
+一些移动端的浏览器或 **WebView** 不允许自动播放音频，用户需要在触摸事件中手动播放音频。
+
+```js
+cc.Class({
+    extends: cc.Component,
+    properties: {
+       audioSource: cc.AudioSource
+    },
+
+    start () {
+       let canvas = cc.find('Canvas');
+       canvas.on('touchstart', this.playAudio, this);
+    },
+    
+    playAudio () {
+      this.audioSource.play();
+    }
+});
+```
