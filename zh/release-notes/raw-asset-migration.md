@@ -1,6 +1,6 @@
 # v1.10 资源升级指南
 
-> 本文将详细介绍旧版本 Creator 项目升级到 v1.10 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
+> 本文将详细介绍旧项目升级到 v1.10 时的注意事项。
 
 在 v1.10 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到过 Creator 的资源分成了 [Asset](../scripting/load-assets.md#asset) 和 [RawAsset](../scripting/load-assets.md#raw-asset) 两种。当时这样划分主要是为了尽量重用已有的 Cocos2d-x 基础模块，并且降低 Cocos2d-x 用户的上手门槛。不过我们仍一直希望把 RawAsset 全部替换成标准的 Asset，随着 Creator 这两年的发展，是时候进行一轮重构了。重构后可以简化编辑器和引擎对资源的处理方式，减小发布后的 settings.js 文件体积，同时提升用户的开发体验。
 

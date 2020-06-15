@@ -2,11 +2,17 @@
 
 > Author：Santy-Wang
 
-> This article will detail the considerations for upgrading older Creators projects to v2.4. If you are not a user of an older version of Creator, there is no need to read this article.
+> This article will detail the considerations for upgrading an older projects to v2.4.
 
-Before v2.4 [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) documentation, we have mention of using the `cc.loader` module including the `cc.loader.load`, `cc.loader.loadRes`, `cc.loader.loadResDir` and other series APIs to load resources. At that time, the `cc.loader` was mainly used as a module to load resources, but as the Creator continued to develop, the demand for resource management increased, and the original `cc.loader` was no longer able to meet a large number of resource management needs, and a new resource management module was called for. In v2.4, Creator launched the new resource management module `Asset Manager`. Compared to the previous `cc.loader`, `Asset Manager` offers better loading performance, support for Asset Bundle, support for preloading resources, and easier resource release management, while Asset Manager also has strong scalability. Dramatically improve the development efficiency and experience for developers. We recommend that all developers upgrade.
+Before v2.4, [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) was implemented through the `cc.loader` module (including the APIs `cc.loader.load`, `cc.loader.loadRes`, `cc.loader.loadResDir`, etc.), which was primarily used to load resources. However, with the continuous development of Creator, developers' demands for resource management have been increasing. The original `cc.loader` module has been unable to meet a large number of resource management needs, and a new resource management module is in the air.
 
-In order to provide a smooth upgrade experience, we have retained compatibility with the `cc.loader` related APIs, and most of the game project can run as usual, except for some special uses that are not compatible and must be manually upgraded. We will then remove full compatibility with `cc.loader` when the time comes. If you are temporarily uncomfortable upgrading due to the project cycle, etc., you can keep the original writing while making sure the test passes.
+Therefore, Creator in **v2.4** introduced a new resource management module -- **Asset Manager**. Compared to the previous `cc.loader` module, **Asset Manager** not only provides better loading performance, but also support **Asset Bundle**, preload resources and more convenient resource release management. And **Asset Manager** also has strong extensibility, which greatly improves the development efficiency and user experience of developers. We recommend that all developers upgrade.
+
+To bring a smooth upgrade experience, we will maintain compatibility with `cc.loader` related APIs, and most of the game project can run as usual, except for a few that use incompatible special usage APIs that must be manually upgraded. And we will then remove full compatibility with `cc.loader` when the time comes. If you are temporarily uncomfortable upgrading due to the project cycle, etc., you can keep the original writing while making sure the test passes.
+
+目前在使用旧的 API 时，引擎会输出警告并提示升级方法。请你根据警告内容和本文的说明对代码进行调整，升级到新的用法。比较抱歉的是，由于底层经过了升级，我们遗留了个别无法兼容的 API，在运行时会输出错误信息。如果你已经决定好要进行升级，那么请仔细阅读以下内容。
+
+Currently when using the old API, the engine outputs a warning and an upgrade method. Please tweak the code according to the warnings and the instructions in this article and upgrade to the new usage. Unfortunately, due to the underlying upgrade, we have left some incompatible APIs, which will output the Error message. If you have decided to make the upgrade, then please read the following carefully.
 
 Currently, when using those old APIs, the engine outputs a warning and suggests an upgrade method. Please adjust the code according to the warnings and upgrade to the new usage. Unfortunately, due to an upgrade of the underlying layer, we have left behind a few incompatible APIs that will output error messages while running. If you've already decided on an upgrade, then the following is what you need to read carefully.
 
@@ -24,8 +30,8 @@ For **Programmers**, the impact is mainly in the fact that all APIs that were or
 
 ## Upgrade steps
 
- - **Back up older versions of the project**
- - Using the new version of Cocos Creator in CocosDashboard to open the original project, Creator will re-import the affected resources, it will take a little more time for the first upgrade, and the main editor window will open after the import. This may result in more errors or warnings. Don't worry, open the code editing tool for a code upgrade.
+- **Back up older versions of the project**
+- Using the new version of Cocos Creator in CocosDashboard to open the original project, Creator will re-import the affected resources, it will take a little more time for the first upgrade, and the main editor window will open after the import. This may result in more errors or warnings. Don't worry, open the code editing tool for a code upgrade.
 
 ### Replace the cc.loader series API with the cc.assetManager series API
 
