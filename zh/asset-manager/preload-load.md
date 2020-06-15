@@ -14,13 +14,13 @@
 因为预加载没有去解析资源，所以需要在预加载完成后配合加载接口进行资源的解析和初始化操作完成资源加载。例如：
 
 ```js
-    cc.resources.preload('images/background', cc.SpriteFrame);
+cc.resources.preload('images/background', cc.SpriteFrame);
 
-    // wait for while 
-    cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
-        spriteFrame.addRef();
-        self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-    });
+// wait for while 
+cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
+    spriteFrame.addRef();
+    self.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+});
 ```
 
 **注意**：加载不须等到预加载完成后调用，你可以在任何时候进行加载，正常加载接口会直接复用预加载过程中已经下载好的内容，缩短加载时间。

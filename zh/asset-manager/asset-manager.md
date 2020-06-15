@@ -15,6 +15,7 @@ cc.resources.load('images/background', cc.SpriteFrame, (err, asset) => {
     this.getComponent(cc.Sprite).spriteFrame = asset;
 });
 ```
+
 相关的 API 列表如下：
 
 类型 | 支持 | 加载 | 释放 | 预加载 | 获取
@@ -76,6 +77,7 @@ cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
     cc.assetManager.releaseAsset(asset);
 });
 ```
+
 Creator 还提供了引用计数机制来帮助开发者控制资源的引用和释放。例如：
 
 当你需要持有资源时，请调用 `addRef` 来增加引用，这将保证该资源不会被其他引用的地方自动释放。

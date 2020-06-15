@@ -9,6 +9,7 @@
     - [WeChat Open Data Context](publish-wechatgame-sub-domain.md)
     - [WeChat Engine Plugin](wechat-engine-plugin.md)
     - [WeChat PC Mini Games](publish-pc-wechatgame.md)
+    - [Mini Game Subpackage](subpackage.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)
 - [Publish to Baidu Mini Games](publish-baidugame.md)
     - [Baidu Open Data Context](publish-baidugame-sub-domain.md)

@@ -9,12 +9,9 @@
 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
 对 **程序** 而言，影响主要体现在需要修改原先在代码中使用的 `cc.loader.downloader.loadSubpackage` API 为 Asset Manager 中的对应接口。
 
-## 常见问题
+## 需要手动升级的情况
 
-### 我需要手动升级吗？
-
-如果有下列情况，你需要升级：
- - 你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包
+你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包。
 
 ## 升级步骤
 
@@ -22,16 +19,16 @@
 - 在 CocosDashboard 中使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。打开代码编辑器，将所有 `cc.loader.downloader.loadSubpackage` 改为使用 `cc.assetManager.loadBundle`。
 
 ```js
-    // 修改前
-    cc.loader.downloader.loadSubpackage('sub1', (err) => {
-        cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
-    });
+// 修改前
+cc.loader.downloader.loadSubpackage('sub1', (err) => {
+    cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
+});
 
-    // 修改后
-    cc.assetManager.loadBundle('sub1', (err, bundle) => {
-        // 传入该资源相对 Asset Bundle 根目录的相对路径
-        bundle.load('sprite-frames/background', cc.SpriteFrame);
-    });
+// 修改后
+cc.assetManager.loadBundle('sub1', (err, bundle) => {
+    // 传入该资源相对 Asset Bundle 根目录的相对路径
+    bundle.load('sprite-frames/background', cc.SpriteFrame);
+});
 ```
 
 **注意**：
