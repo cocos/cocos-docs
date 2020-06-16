@@ -1,41 +1,42 @@
-# v2.4 Subpackage Upgrade Guide
+# v2.4 Subpackage upgrade guide
 
-> Author：Santy-Wang
+> Author：Santy-Wang, Xunyi0
 
-> This article describes the considerations for upgrading older versions of resource subpackage to v2.4. If you are not a user of an older version of Creator or do not use the subpackage feature in your project, you do not need to read this article.
+> This document will detail the considerations for upgrading resource subpackages in older projects to v2.4.
 
-The [subpackage](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/subpackage.md) documentation before v2.4 mentioned subpackage loading, but at that time it only supported mini game platforms with subpackage loading, such as WeChat, OPPO, etc. Creator has made a layer of encapsulation on the corresponding subpackage function of the platform, but with the development of Creator, the demand for subpackage is increasing, and the original resource subpackage function is not enough, so in v2.4, Creator officially supports the more complete Asset Bundle function. Note that if you check the **subpackage** option in your project, it will automatically change to Asset Bundle after upgrading to v2.4.
+Before v2.4, the [Subpackage Loading](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/subpackage.md) only supported various mini game platforms, such as WeChat Mini Games, OPPO Mini Games, etc.. However, with the continuous development of Creator, developers' demands for subpackage have been increasing, such as multi-platform support, and the original subpackage loading is no longer enough. Therefore, starting from **v2.4**, the Creator officially supports the more complete **Asset Bundle**.
 
-For **Artist And Game Designer**, all resources in the project, such as scenes, animations, prefabs, do not need to be modified or upgraded. <br>
-For **Programmer**, the impact is mainly in the need to modify the `cc.loader.downloader.loadSubpackage` API that was originally used in the code to be the corresponding interface in Asset Manager.
+- For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
+
+- For **Programmers**, the `cc.loader.downloader.loadSubpackage` used in the original code needs to be changed to the `cc.assetManager.loadBundle` from **Asset Manager**. The related content will be described in detail in this document.
+
+**Note**: If you used subpackage loading in your old project, that is, if you checked the **Subpackage** option in the **Properties** panel, then when the project is upgraded to the **V2.4**, it will automatically convert to an **Asset Bundle**.
 
 ## Situations that require upgrading manually
 
-You used the `cc.loader.downloader.loadSubpackage` API in your own code to load the subpackage.
+You used the API `cc.loader.downloader.loadSubpackage` in your own code to load the subpackage.
 
 ## Upgrade steps
 
-- **Back up older versions of the project**
-- Using the new version of Cocos Creator in CocosDashboard to open the original project, Creator will re-import the affected resources, it will take a little more time for the first upgrade, and the main editor window will open after the import. Open the code editor and change all `cc.loader.downloader.loadSubpackage` to use `cc.assetManager.loadBundle`.
+- **Back up your old projects**
 
-```js
-// before
-cc.loader.downloader.loadSubpackage('sub1', (err) => {
+- Using Cocos Creator v2.4 to open an old project that needs to upgrade the subpackage, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And then you can open the code editor to replace all `cc.loader.downloader.loadSubpackage` with `cc.assetManager.loadBundle`.
+
+  ```js
+  // before
+  cc.loader.downloader.loadSubpackage('sub1', (err) => {
     cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
-});
+  });
 
-// after
-cc.assetManager.loadBundle('sub1', (err, bundle) => {
+  // after
+  cc.assetManager.loadBundle('sub1', (err, bundle) => {
     // The relative path to the Asset Bundle root
     bundle.load('sprite-frames/background', cc.SpriteFrame);
-});
-```
+  });
+  ```
 
-**Note**
-1. loading resources in Asset Bundle requires the use of the Asset Bundle's associated API. see [Asset Bundle](../../../api/en/classes/Bundle.html) documentation for the associated API.
+  For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle](../../../api/en/classes/Bundle.html) API documentation.
 
-## How do I load with the new version of the subpack?
+## How to use the Asset Bundle
 
-For details on how to use Asset Bundle, see [Asset Bundle](../scripting/asset-bundle.md) documentation.
-
-
+For details on how to use the **Asset Bundle**, please refer to the [Asset Bundle](../scripting/asset-bundle.md) documentation.

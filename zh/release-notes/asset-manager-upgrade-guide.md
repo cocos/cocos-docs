@@ -1,6 +1,6 @@
 # v2.4 资源管理模块升级指南
 
-> 文：Santy-Wang
+> 文：Santy-Wang、Xunyi0
 
 > 本文将详细介绍旧项目升级到 v2.4 时的注意事项。
 
@@ -12,31 +12,33 @@
 
 目前在使用旧的 API 时，引擎会输出警告并提示升级方法。请你根据警告内容和本文的说明对代码进行调整，升级到新的用法。比较抱歉的是，由于底层经过了升级，我们遗留了个别无法兼容的 API，在运行时会输出错误信息。如果你已经决定好要进行升级，那么请仔细阅读以下内容。
 
-- 对 **美术策划** 而言，项目中的所有资源，例如场景、画、Prefab 都不需要修改，也不需要升级。<br>
+- 对 **美术策划** 而言，项目中的所有资源，例如场景、画、Prefab 都不需要修改，也不需要升级。
+
 - 对 **程序** 而言，影响主要体现在原先代码中使用的 `cc.loader` 的所有 API，都需要改为 `cc.assetManager` 的 API。以下将详细介绍这部分内容。
 
 **注意**：因为 v2.4 支持 Asset Bundle，项目中的分包功能也需要进行升级，具体内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
 ## 需要手动升级的情况
 
-- 你在自己的游戏代码中使用了以 `cc.loader` 开头的 API，比如 `cc.loader.loaderRes`、`cc.loader.loadResDir`、`cc.loader.release` 等。
-- 你在自己的游戏代码中使用了以 `cc.AssetLibrary` 开头的 API，比如 `cc.AssetLibrary.loadAsset`。
-- 你在自己的游戏代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
-- 你在自己的游戏代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
-- 你在自己的游戏代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
+- 你在自己的代码中使用了以 `cc.loader` 开头的 API，比如 `cc.loader.loaderRes`、`cc.loader.loadResDir`、`cc.loader.release` 等。
+- 你在自己的代码中使用了以 `cc.AssetLibrary` 开头的 API，比如 `cc.AssetLibrary.loadAsset`。
+- 你在自己的代码中使用了 `cc.url` 开头的 API，比如 `cc.url.raw`。
+- 你在自己的代码中使用了 `cc.Pipeline`，`cc.LoadingItems` 等类型。
+- 你在自己的代码中使用了 `cc.macro.DOWNLOAD_MAX_CONCURRENT` 属性。
 
 ## 升级步骤
 
 - **备份好旧项目**
-- 在 CocosDashboard 中使用新版 Cocos Creator 打开旧项目，Creator 会对有影响的资源重新导入。第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请根据报错或警告信息打开代码编辑工具对代码进行升级。
 
-### 将 `cc.loader` 系列 API 替换为 `cc.assetManager` 系列 API
+- 使用 Cocos Creator v2.4 打开需要升级的旧项目，Creator 会对有影响的资源重新导入。第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请根据报错或警告信息打开代码编辑工具对代码进行升级。
+
+### 将 `cc.loader` 相关的 API 替换为 `cc.assetManager` 相关的 API
 
 从 v2.4 开始，不建议使用 `cc.loader`，并且在后续的版本中也会逐渐被彻底移除，请使用新的资源管理模块 `cc.assetManager` 进行替换。
 
 #### 加载相关接口的替换
 
-如果你在自己的游戏代码中使用了 `cc.loader.loadRes`、`cc.loader.loadResArray`、`cc.loader.loadResDir`，请使用 `cc.assetManager` 中对应的 API 进行替换。可参考下方的替换方式：
+如果你在自己的代码中使用了 `cc.loader.loadRes`、`cc.loader.loadResArray`、`cc.loader.loadResDir`，请使用 `cc.assetManager` 中对应的 API 进行替换。可参考下方的替换方式：
 
 - **cc.loader.loadRes**
 
@@ -74,7 +76,7 @@
   cc.resources.loadDir(...);
   ```
 
-  **注意**：出于简化接口的考虑，`cc.resources.loadDir` 的加载在完成回调后将 **不再提供** `paths` 列表。请避免以下的使用方式：
+  **注意**：为了简化接口，`cc.resources.loadDir` 的加载在完成回调后将 **不再提供** `paths` 列表。请避免以下的使用方式：
 
   ```js
   cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
@@ -91,7 +93,7 @@
 
 - **cc.loader.load**
 
-  如果你在自己的游戏代码中使用了 `cc.loader.load` 来加载远程图片或远程音频，为了方便理解，在 `cc.assetManager` 中将有专门的 API 用于此项工作，如下所示：
+  如果你在自己的代码中使用了 `cc.loader.load` 来加载远程图片或远程音频，为了方便理解，在 `cc.assetManager` 中将有专门的 API 用于此项工作，如下所示：
 
   - 加载远程图片
 
@@ -103,7 +105,7 @@
     cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
     ```
 
-  - 加载远程音频：
+  - 加载远程音频
 
     ```js
     // 替换前
@@ -113,7 +115,7 @@
     cc.assetManager.loadRemote('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
     ```
 
-  - 加载远程文本：
+  - 加载远程文本
 
     ```js
     // 替换前
@@ -125,18 +127,19 @@
 
 **注意**：
 
-1. 如果你在自己的游戏代码中使用了 `cc.loader.downloader.loadSubpackage` 来加载分包，请参考 [分包升级指南](./subpackage-upgrade-guide.md) 进行升级。
+1. 如果你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` 来加载分包，请参考 [分包升级指南](./subpackage-upgrade-guide.md) 进行升级。
 
 2. 为了避免产生不必要的错误，`cc.loader.onProgress` 在 `cc.assetManager` 中没有对应实现。你可以自己实现全局回调机制，但建议将回调传入到每个加载函数中，避免并发加载时互相干扰。
 
 #### 释放相关接口的替换
 
-如果你在自己的游戏代码中使用了 `cc.loader.release`、`cc.loader.releaseAsset`、`cc.loader.releaseRes`、`cc.loader.releaseResDir`，请使用 `cc.assetManager` 中对应的 API 进行替换。可参考下方的替换方式：
+如果你在自己的代码中使用了 `cc.loader.release`、`cc.loader.releaseAsset`、`cc.loader.releaseRes`、`cc.loader.releaseResDir`，请使用 `cc.assetManager` 中对应的 API 进行替换。可参考下方的替换方式：
 
 - **cc.loader.release**
 
-  `cc.loader.release` 可用 `cc.assetManager.releaseAsset` 替换。<br>
-  **注意**：为了避免开发者关注资源一些晦涩难懂的属性，`cc.assetManager.releaseAsset` **不再接受** 数组、资源 UUID、资源 URL 进行释放，仅能通过资源本身进行释放。
+  `cc.loader.release` 可用 `cc.assetManager.releaseAsset` 替换。
+
+  **注意**：为了避免开发者关注资源中一些晦涩难懂的属性，`cc.assetManager.releaseAsset` **不再接受** 数组、资源 UUID、资源 URL 进行释放，仅能通过资源本身进行释放。
 
   ```js
   // 替换前
@@ -213,9 +216,9 @@
 
 1. 出于安全考虑，`cc.loader.releaseResDir` 在 `cc.assetManager` 中没有对应实现，请使用 `cc.assetManager.releaseAsset` 或 `cc.resources.release` 进行单个资源释放。
 
-2. 因为 `cc.assetManager.releaseAsset` 会自动释放依赖资源，所以你不需要再显式调用 `cc.loader.getDependsRecursively`，如果需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中的相关 API。
+2. 因为 `cc.assetManager.releaseAsset` 会自动释放依赖资源，所以你不需要再显式调用 `cc.loader.getDependsRecursively`。如果需要查找资源的相关依赖，请参考 `cc.assetManager.dependUtil` 中相关的 API。
 
-3. 出于安全考虑，`cc.assetManager` 中移除了原先自动释放的部分功能，仅支持场景上设置的自动释放，`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`、`cc.loader.setAutoReleaseRecursively`、`cc.loader.isAutoRelease` API，建议你使用全新的基于引用计数的自动释放机制，详细请参考 [资源释放](../asset-manager/release-manager.md)。
+3. 出于安全考虑，`cc.assetManager` 仅支持在场景中设置的自动释放，其他的已移除。`cc.assetManager` 中没有实现 `cc.loader.setAutoRelease`、`cc.loader.setAutoReleaseRecursively`、`cc.loader.isAutoRelease` 这几个 API，建议你使用全新的基于引用计数的自动释放机制，详细请参考 [资源释放](../asset-manager/release-manager.md)。
 
 #### 扩展相关接口的替换
 
@@ -228,19 +231,19 @@
   ```js
   // 替换前
   var pipe1 = {
-      id: 'pipe1',
-      handle: (item, done) => {
-          let result = doSomething(item.uuid);
-          done(null, result);
-      }
+    id: 'pipe1',
+    handle: (item, done) => {
+      let result = doSomething(item.uuid);
+      done(null, result);
+    }
   };
 
   var pipe2 = {
-      id: 'pipe2',
-      handle: (item, done) => {
-          let result = doSomething(item.content);
-          done(null, result);
-      }
+    id: 'pipe2',
+    handle: (item, done) => {
+      let result = doSomething(item.content);
+      done(null, result);
+    }
   };
 
   cc.loader.insertPipe(pipe1, 1);
@@ -248,26 +251,28 @@
 
   // 替换后
   function pipe1 (task, done) {
-      let output = [];
-      for (var i = 0; i < task.input.length; i++) {
-          let item = task.input[i];
-          item.content = doSomething(item.uuid);
-          output.push(item);
-      }
-      task.output = output;
-      done(null);
-  }
+    let output = [];
+    for (var i = 0; i < task.input.length; i++) {
+      let item = task.input[i];
+      item.content = doSomething(item.uuid);
+      output.push(item);
+    }
+
+    task.output = output;
+    done(null);
+  };
 
   function pipe2 (task, done) {
-      let output = [];
-      for (var i = 0; i < task.input.length; i++) {
-          let item = task.input[i];
-          item.content = doSomething(item.content);
-          output.push(item);
-      }
-      task.output = output;
-      done(null);
-  }
+    let output = [];
+    for (var i = 0; i < task.input.length; i++) {
+      let item = task.input[i];
+      item.content = doSomething(item.content);
+      output.push(item);
+    }
+
+    task.output = output;
+    done(null);
+  };
 
   cc.assetManager.pipeline.insert(pipe1, 1);
   cc.assetManager.pipeline.append(pipe2);
@@ -277,9 +282,9 @@
 
   1. `cc.assetManager` **不再继承** 自 `Pipeline`，而是 `cc.assetManager` 下拥有的多个 `Pipeline` 实例。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
-  2. 出于易用性考虑，Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  2. 为了易用性，Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
-  3. 为了简化逻辑，提高性能，Pipe 中处理的内容不再是 `item`，而是 `task` 对象。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  3. 为了简化逻辑、提高性能，Pipe 中处理的内容不再是 `item`，而是 `task` 对象。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
   4. 为了降低学习成本，`Pipeline` 中不再支持 `insertPipeAfter` 形式的 API，请使用 `insert` 插入指定的位置。
 
@@ -293,6 +298,7 @@
       let result = doSomething(item.url);
       cb(null, result);
   };
+
   cc.loader.addDownloadHandlers({png: customHandler});
 
   // 替换后
@@ -300,6 +306,7 @@
       let result = doSomething(url);
       cb(null, result);
   };
+
   cc.assetManager.downloader.register('.png', customHandler);
   ```
 
@@ -311,6 +318,7 @@
       let result = doSomething(item.content);
       cb(null, result);
   };
+
   cc.loader.addLoadHandlers({png: customHandler});
 
   // 替换后
@@ -318,28 +326,29 @@
       let result = doSomething(file);
       cb(null, result);
   };
+
   cc.assetManager.parser.register('.png', customHandler);
   ```
 
   **注意**：
 
-  1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以 `register` 所接受的扩展名需以 `.` 作为起始。
+  1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以调用 `register` 时，传入的第一个参数需要以 **.** 开头。
  
-  2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 url**。`parser` 的自定义处理方法传入的是 **待解析的文件**。具体的内容请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
+  2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 URL**，`parser` 传入的则是 **待解析的文件**。具体的内容请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
 
-  3. 新的拓展机制提供了一个额外的 `options` 参数，可以极大地增加灵活性。但目前你可以先无视它，具体内容请参考 [下载器与解析器](../asset-manager/downloader-parser.md) 和 [可选参数](../asset-manager/options.md)。
+  3. 新的拓展机制提供了一个额外的 `options` 参数，可以极大地增加灵活性。但如果你不需要配置引擎内置参数或者自定义参数，可以无视它。具体内容请参考文档 [可选参数](../asset-manager/options.md)。
 
 - **downloader，loader，md5Pipe，subPackPipe**
 
-  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载器与解析器](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](https://docs.cocos.com/creator/2.4/api/zh/classes/AssetManager.html#parser)。
+  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载器与解析器](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](../../../api/zh/classes/AssetManager.html#parser)。
 
   **注意**：出于对性能、模块化和易读性的考虑，`cc.loader.assetLoader`、`cc.loader.md5Pipe`、`cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 的具体内容可参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
 ### 其他更新
 
-`cc.url` 与 `cc.AssetLibrary` 在 v2.4 中已经被移除，请避免使用 `cc.url` 与 `cc.AssetLibrary` 中的任何方法和属性。
+`cc.url` 与 `cc.AssetLibrary` 在 **v2.4** 中已经被移除，请避免使用 `cc.url` 与 `cc.AssetLibrary` 中的任何方法和属性。
 
-`cc.Pipeline` 可由 `cc.AssetManager.Pipeline` 进行替换，请参考以下方式替换：
+`cc.Pipeline` 可由 `cc.AssetManager.Pipeline` 进行替换，请参考以下方式进行替换：
 
 ```js
 // 替换前
@@ -350,6 +359,7 @@ var pipe1 = {
         cb(null, result);
     }
 }
+
 var pipeline = new cc.Pipeline([pipe1]);
 
 // 替换后
@@ -357,6 +367,7 @@ function pipe1 (task, cb) {
     task.output = doSomething(task.input);
     cb(null);
 }
+
 var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 ```
 

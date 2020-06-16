@@ -1,6 +1,6 @@
 # v1.10 资源升级指南
 
-> 本文将详细介绍旧项目升级到 v1.10 时的注意事项。
+> 本文将详细介绍旧版本 Creator 项目升级到 v1.10 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
 在 v1.10 之前的 [获取和加载资源](../scripting/load-assets.md) 文档中，我们有提到过 Creator 的资源分成了 [Asset](../scripting/load-assets.md#asset) 和 [RawAsset](../scripting/load-assets.md#raw-asset) 两种。当时这样划分主要是为了尽量重用已有的 Cocos2d-x 基础模块，并且降低 Cocos2d-x 用户的上手门槛。不过我们仍一直希望把 RawAsset 全部替换成标准的 Asset，随着 Creator 这两年的发展，是时候进行一轮重构了。重构后可以简化编辑器和引擎对资源的处理方式，减小发布后的 settings.js 文件体积，同时提升用户的开发体验。
 
@@ -14,12 +14,12 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
-- 你在自己的游戏代码中直接声明了这些类型：`cc.Texture2D`、`cc.RawAsset`、`cc.AudioClip` 和 `cc.ParticleAsset`。
+- 你在自己的代码中直接声明了这些类型：`cc.Texture2D`、`cc.RawAsset`、`cc.AudioClip` 和 `cc.ParticleAsset`。
 - 你扩展了引擎或编辑器，定义了新的直接继承自 `cc.RawAsset` 的类型。
 - 你通过 `cc.loader.loadRes` 加载了 resources 文件夹下的 `.json` 后缀的文件。
 
 如果有下列情况，可能需要升级：
-- 你在自己的游戏代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
+- 你在自己的代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
 - 你使用 `cc.loader` 加载了远程服务器上的文本、粒子。
 
 ### 我其实并不确定要升级哪些东西？
