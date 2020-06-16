@@ -66,9 +66,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This entry fills in the address at which the resource is stored on the server and is optional:
 
-  - If this entry is not filled, the **remote** folder in the build directory will be packaged in the rpk package.
+  - If this entry is not filled, the **remote** folder in the **build** directory will be packaged in the **rpk** package.
 
-  - If this entry is filled in, the built rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
+  - If this entry is filled in, the built **rpk** package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
 
   For specific resource management details, see [Resource Management for vivo Mini Game Environment](#resource-management-for-vivo-mini-game-environment).
 
@@ -189,9 +189,9 @@ Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage
 
 ## Resource Management for vivo Mini Game Environment
 
-**vivo Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
+**vivo Mini Game** is similar to **WeChat Mini Game**. The main package size limit for vivo Mini Game is **4MB**, more than that must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
 ## Reference link
 
