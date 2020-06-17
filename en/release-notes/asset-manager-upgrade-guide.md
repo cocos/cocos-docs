@@ -13,7 +13,6 @@ To bring a smooth upgrade experience, we will maintain compatibility with `cc.lo
 Currently, when using those old APIs, the engine outputs a warning and suggests an upgrade method. Please adjust the code according to the warnings and the instructions in this document and upgrade to the new usage. Unfortunately, due to an upgrade of the underlying layer, we have left behind a few incompatible APIs that will output error messages while running. If you have decided to make the upgrade, then please read the following carefully.
 
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
-
 - For **Programmers**, all APIs in the `cc.loader` module that were used in the original code need to be changed to APIs from `cc.assetManager`. The related content will be described in detail in this document.
 
 **Note**: As v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
@@ -29,8 +28,7 @@ Currently, when using those old APIs, the engine outputs a warning and suggests 
 ## Upgrade steps
 
 - **Back up your old projects**
-
-- Using Cocos Creator v2.4 to open an old project that needs to be updated, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning messages may appear on the **Console** panel, don't worry, open the code editor to update your code based on the error or warning message.
+- Use Cocos Creator **v2.4** in the **Dashboard** to open an old project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning messages may appear on the **Console** panel, don't worry, open the code editor to update your code based on the error or warning message.
 
 ### Replace the `cc.loader` related API with the `cc.assetManager` related API.
 
@@ -76,7 +74,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
   cc.resources.loadDir(...);
   ```
 
-  **Note**: To simplify the interface, the `cc.resources.loadDir` load will **no longer** provide a list of `paths` after the callback is complete. Please avoid using the following:
+  **Note**: To simplify the interface, the load completion callback for `cc.resources.loadDir` will **no longer** provide a list of paths. Please avoid using the following:
 
   ```js
   cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
@@ -258,7 +256,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
     task.output = output;
     done(null);
-  };
+  }
 
   function pipe2 (task, done) {
     let output = [];
@@ -270,7 +268,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
     task.output = output;
     done(null);
-  };
+  }
 
   cc.assetManager.pipeline.insert(pipe1, 1);
   cc.assetManager.pipeline.append(pipe2);
@@ -330,7 +328,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
   **Note**:
 
-  1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with **.**.
+  1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
 
   2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Downloader and Parser](../asset-manager/downloader-parser.md) documentation.
 

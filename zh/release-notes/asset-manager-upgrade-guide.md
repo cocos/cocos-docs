@@ -12,8 +12,7 @@
 
 目前在使用旧的 API 时，引擎会输出警告并提示升级方法。请你根据警告内容和本文的说明对代码进行调整，升级到新的用法。比较抱歉的是，由于底层经过了升级，我们遗留了个别无法兼容的 API，在运行时会输出错误信息。如果你已经决定好要进行升级，那么请仔细阅读以下内容。
 
-- 对 **美术策划** 而言，项目中的所有资源，例如场景、画、Prefab 都不需要修改，也不需要升级。
-
+- 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不需要升级。
 - 对 **程序** 而言，影响主要体现在原先代码中使用的 `cc.loader` 的所有 API，都需要改为 `cc.assetManager` 的 API。以下将详细介绍这部分内容。
 
 **注意**：因为 v2.4 支持 Asset Bundle，项目中的分包功能也需要进行升级，具体内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
@@ -29,8 +28,7 @@
 ## 升级步骤
 
 - **备份好旧项目**
-
-- 使用 Cocos Creator v2.4 打开需要升级的旧项目，Creator 会对有影响的资源重新导入。第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请根据报错或警告信息打开代码编辑工具对代码进行升级。
+- 在 Dashboard 中使用 Cocos Creator v2.4 打开需要升级的旧项目，Creator 将对有影响的资源重新导入，第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请打开代码编辑工具根据报错或警告信息对代码进行升级。
 
 ### 将 `cc.loader` 相关的 API 替换为 `cc.assetManager` 相关的 API
 
@@ -45,10 +43,10 @@
   `cc.resources.load` 的参数与 `cc.loader.loadRes` 完全相同。替换方式如下：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.loadRes(...);
 
-  // 替换后
+  // 修改后
   cc.resources.load(...);
   ```
 
@@ -57,10 +55,10 @@
   `cc.assetManager` 为了降低学习成本，将 `loadResArray` 与 `load` 进行了合并。`cc.resources.load` 的第一个参数可支持多个路径，所以可以使用 `cc.resources.load` 进行替换：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.loadResArray(...);
 
-  // 替换后
+  // 修改后
   cc.resources.load(...);
   ```
 
@@ -69,14 +67,14 @@
   `cc.resources.loadDir` 的参数与 `cc.loader.loadResDir` 完全相同：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.loadResDir(...);
 
-  // 替换后
+  // 修改后
   cc.resources.loadDir(...);
   ```
 
-  **注意**：为了简化接口，`cc.resources.loadDir` 的加载在完成回调后将 **不再提供** `paths` 列表。请避免以下的使用方式：
+  **注意**：为了简化接口，`cc.resources.loadDir` 的加载完成回调将 **不再提供** `paths` 的列表。请避免以下的使用方式：
 
   ```js
   cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
@@ -98,30 +96,30 @@
   - 加载远程图片
 
     ```js
-    // 替换前
+    // 修改前
     cc.loader.load('http://example.com/remote.jpg', (err, texture) => console.log(texture));
 
-    // 替换后
+    // 修改后
     cc.assetManager.loadRemote('http://example.com/remote.jpg', (err, texture) => console.log(texture));
     ```
 
   - 加载远程音频
 
     ```js
-    // 替换前
+    // 修改前
     cc.loader.load('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
 
-    // 替换后
+    // 修改后
     cc.assetManager.loadRemote('http://example.com/remote.mp3', (err, audioClip) => console.log(audioClip));
     ```
 
   - 加载远程文本
 
     ```js
-    // 替换前
+    // 修改前
     cc.loader.load('http://example.com/equipment.txt', (err, text) => console.log(text));
 
-    // 替换后
+    // 修改后
     cc.assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
     ```
 
@@ -142,37 +140,37 @@
   **注意**：为了避免开发者关注资源中一些晦涩难懂的属性，`cc.assetManager.releaseAsset` **不再接受** 数组、资源 UUID、资源 URL 进行释放，仅能通过资源本身进行释放。
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.release(texture);
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAsset(texture);
 
-  // 替换前
+  // 修改前
   cc.loader.release([texture1, texture2, texture3]);
-  // 替换后
+  // 修改后
   [texture1, texture2, texture3].forEach(t => cc.assetManager.releaseAsset(t));
 
-  // 替换前
+  // 修改前
   var uuid = texture._uuid;
   cc.loader.release(uuid);
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAsset(texture);
 
-  // 替换前
+  // 修改前
   var url = texture.url;
   cc.loader.release(url);
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAsset(texture);
   ```
 
   **注意**：为了增加易用性，在 `cc.assetManager` 中释放资源的依赖资源将 **不再需要** 手动获取资源的依赖项，在 `cc.assetManager.releaseAsset` 内部将会尝试自动去释放相关依赖资源，例如：
 
   ```js
-  // 替换前
+  // 修改前
   var assets = cc.loader.getDependsRecursively(texture);
   cc.loader.release(assets);
 
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAsset(texture);
   ```
 
@@ -181,10 +179,10 @@
   `cc.loader.releaseAsset` 可直接使用 `cc.assetManager.releaseAsset` 替换：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.releaseAsset(texture);
 
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAsset(texture);
   ```
 
@@ -193,10 +191,10 @@
   `cc.loader.releaseRes` 可直接使用 `cc.resources.release` 替换：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.releaseRes('images/a', cc.Texture2D);
 
-  // 替换后
+  // 修改后
   cc.resources.release('images/a', cc.Texture2D);
   ```
 
@@ -205,10 +203,10 @@
   `cc.loader.releaseAll` 可直接使用 `cc.assetManager.releaseAll` 替换：
 
   ```js
-  // 替换前
+  // 修改前
   cc.loader.releaseAll();
 
-  // 替换后
+  // 修改后
   cc.assetManager.releaseAll();
   ```
 
@@ -229,7 +227,7 @@
   因为 `cc.assetManager` 是更通用的模块，不再继承自 `cc.Pipeline`，所以 `cc.assetManager` 不再实现 `cc.loader.insertPipe`、`cc.loader.insertPipeAfter`、`cc.loader.appendPipe`。具体的替换方式如下：
 
   ```js
-  // 替换前
+  // 修改前
   var pipe1 = {
     id: 'pipe1',
     handle: (item, done) => {
@@ -249,7 +247,7 @@
   cc.loader.insertPipe(pipe1, 1);
   cc.loader.appendPipe(pipe2);
 
-  // 替换后
+  // 修改后
   function pipe1 (task, done) {
     let output = [];
     for (var i = 0; i < task.input.length; i++) {
@@ -260,7 +258,7 @@
 
     task.output = output;
     done(null);
-  };
+  }
 
   function pipe2 (task, done) {
     let output = [];
@@ -272,7 +270,7 @@
 
     task.output = output;
     done(null);
-  };
+  }
 
   cc.assetManager.pipeline.insert(pipe1, 1);
   cc.assetManager.pipeline.append(pipe2);
@@ -293,7 +291,7 @@
   出于模块化考虑，`cc.assetManager` 中没有实现 `addDownloadHandlers`、`addLoadHandlers`，请参考以下方式替换：
 
   ```js
-  // 替换前
+  // 修改前
   var customHandler = (item, cb) => {
       let result = doSomething(item.url);
       cb(null, result);
@@ -301,7 +299,7 @@
 
   cc.loader.addDownloadHandlers({png: customHandler});
 
-  // 替换后
+  // 修改后
   var customHandler = (url, options, cb) => {
       let result = doSomething(url);
       cb(null, result);
@@ -313,7 +311,7 @@
   或者：
 
   ```js
-  // 替换前
+  // 修改前
   var customHandler = (item, cb) => {
       let result = doSomething(item.content);
       cb(null, result);
@@ -321,7 +319,7 @@
 
   cc.loader.addLoadHandlers({png: customHandler});
 
-  // 替换后
+  // 修改后
   var customHandler = (file, options, cb) => {
       let result = doSomething(file);
       cb(null, result);
@@ -332,7 +330,7 @@
 
   **注意**：
 
-  1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以调用 `register` 时，传入的第一个参数需要以 **.** 开头。
+  1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以调用 `register` 时，传入的第一个参数需要以 `.` 开头。
  
   2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 URL**，`parser` 传入的则是 **待解析的文件**。具体的内容请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
 
@@ -351,7 +349,7 @@
 `cc.Pipeline` 可由 `cc.AssetManager.Pipeline` 进行替换，请参考以下方式进行替换：
 
 ```js
-// 替换前
+// 修改前
 var pipe1 = {
     id: 'pipe1',
     handle: function (item, cb) {
@@ -362,7 +360,7 @@ var pipe1 = {
 
 var pipeline = new cc.Pipeline([pipe1]);
 
-// 替换后
+// 修改后
 function pipe1 (task, cb) {
     task.output = doSomething(task.input);
     cb(null);
@@ -376,20 +374,20 @@ var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 为了支持更多加载策略，`cc.macro.DOWNLOAD_MAX_CONCURRENT` 已经从 `cc.macro` 中移除，你可以用以下方式替换：
 
 ```js
-// 替换前
+// 修改前
 cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 
-// 替换后
+// 修改后
 cc.assetManager.downloader.maxConcurrency = 10;
 ```
 
 或者
 
 ```js
-// 替换前
+// 修改前
 cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 
-// 替换后（设置预设值）
+// 修改后（设置预设值）
 cc.assetManager.presets['default'].maxConcurrency = 10;
 ```
 
