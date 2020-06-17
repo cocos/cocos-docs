@@ -49,7 +49,7 @@ Basic action can be divided into interval action and free action. Interval actio
 
 ### Container action
 
-The container action can organize actions in different ways, below are several of the container action`s usages:
+The container action can organize actions in different ways, below are several of the container action's usages:
 
 1. Sequential action `cc.sequence`
     Sequential action makes a series of child actions run one by one in sequence. For example:
