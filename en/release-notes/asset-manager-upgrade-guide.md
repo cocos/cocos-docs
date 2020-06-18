@@ -6,11 +6,11 @@
 
 Before v2.4, [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) was implemented through the `cc.loader` module (including the APIs `cc.loader.load`, `cc.loader.loadRes`, `cc.loader.loadResDir`, etc.), which was primarily used to load resources. However, with the continuous development of Creator, developers' demands for resource management have been increasing. The original `cc.loader` module has been unable to meet a large number of resource management needs, and a new resource management module is in the air.
 
-Therefore, Creator in **v2.4** introduced a new resource management module -- **Asset Manager**. Compared to the previous `cc.loader` module, **Asset Manager** not only provides better loading performance, but also support **Asset Bundle**, preload resources and more convenient resource release management. And **Asset Manager** also has strong extensibility, which greatly improves the development efficiency and user experience of developers. We recommend that all developers upgrade.
+Therefore, Creator in **v2.4** introduced a new resource management module -- **Asset Manager**. Compared to the previous `cc.loader` module, **Asset Manager** not only provides better loading performance, but also supports **Asset Bundle**, preload resources and more convenient resource release management. And **Asset Manager** also has strong extensibility, which greatly improves the development efficiency and user experience of developers. We recommend that all developers upgrade.
 
-To bring a smooth upgrade experience, we will maintain compatibility with `cc.loader` related APIs, and most of the game project can run as usual, except for a few that use incompatible special usage APIs that must be manually upgraded. And we will then remove full compatibility with `cc.loader` when the time comes. If you are temporarily uncomfortable upgrading due to the project cycle, etc., you can keep the original writing while making sure the test passes.
+To bring a smooth upgrade experience, we will maintain compatibility with `cc.loader` related APIs, and most of the game project can run as usual, except for a few that use incompatible special usage APIs that must be manually upgraded. And we will only remove full compatibility with `cc.loader` when the time comes. If you are temporarily uncomfortable upgrading due to the project cycle, etc., you can keep the original writing while making sure the test passes.
 
-Currently, when using those old APIs, the engine outputs a warning and suggests an upgrade method. Please adjust the code according to the warnings and the instructions in this document and upgrade to the new usage. Unfortunately, due to an upgrade of the underlying layer, we have left behind a few incompatible APIs that will output error messages while running. If you have decided to make the upgrade, then please read the following carefully.
+Currently, when using those old APIs, the engine will output warnings and suggestions for upgradation. Please adjust the code according to the warnings and the instructions in this document and upgrade to the new usage. Unfortunately, due to an upgrade of the underlying layer, we have left behind a few incompatible APIs that will output error messages while running. If you have decided to make the upgrade, then please read the following carefully.
 
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, all APIs in the `cc.loader` module that were used in the original code need to be changed to APIs from `cc.assetManager`. The related content will be described in detail in this document.
@@ -28,7 +28,7 @@ Currently, when using those old APIs, the engine outputs a warning and suggests 
 ## Upgrade steps
 
 - **Back up your old projects**
-- Use Cocos Creator **v2.4** in the **Dashboard** to open an old project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning messages may appear on the **Console** panel, don't worry, open the code editor to update your code based on the error or warning message.
+- Use Cocos Creator **v2.4** in the **Dashboard** to open the project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning may appear on the **Console** panel, don't worry, open the code editor to update your code according to the error or warning message.
 
 ### Replace the `cc.loader` related API with the `cc.assetManager` related API.
 
@@ -40,7 +40,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
 
 - **cc.loader.loadRes**
 
-  The parameters for `cc.resources.load` are exactly equal to `cc.loader.loadRes`. Replace with the following:
+  The parameters of `cc.resources.load` are exactly equal to `cc.loader.loadRes`. Replace with the following:
 
   ```js
   // before
@@ -64,7 +64,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
 
 - **cc.loader.loadResDir**
 
-  The parameters for `cc.resources.loadDir` are equal to `cc.loader.loadResDir`.
+  The parameters of `cc.resources.loadDir` are equal to those of `cc.loader.loadResDir`.
 
   ```js
   // before
@@ -80,7 +80,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
   cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
   ```
 
-  If you want to query the `paths` list, you can use the following form:
+  If you want to query the paths list, you can use the following form:
 
   ```js
   var infos = cc.resources.getDirWithPath('images', cc.Texture2D);
@@ -91,7 +91,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
 
 - **cc.loader.load**
 
-  If you use `cc.loader.load` to load remote images or remote audio in your own code, there is a special API for this in the `cc.assetManager` for ease of understanding, as follows:
+  If you use `cc.loader.load` to load remote images or audios in your own code, there is a special API for this in the `cc.assetManager` for ease of understanding, as follows:
 
   - **Loading remote images**
 
@@ -125,7 +125,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
 
 **Note**:
 
-1. If you using `cc.loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
+1. If you use `cc.loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
 
 2. To avoid unnecessary errors, `cc.loader.onProgress` has no equivalent implementation in `cc.assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
 
@@ -161,7 +161,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
   cc.assetManager.releaseAsset(texture);
   ```
 
-  **Note**: To increase ease of use, releasing resource dependencies in `cc.assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `cc.assetManager.releaseAsset` to automatically release the associated dependencies resource, for example:
+  **Note**: To increase ease of use, releasing resource dependencies in `cc.assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `cc.assetManager.releaseAsset` to automatically release the associated dependencies, for example:
 
   ```js
   // before
@@ -212,11 +212,11 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
 1. For security reasons, `cc.loader.releaseResDir` does not have a corresponding implementation in `cc.assetManager`, please use `cc.assetManager.releaseAsset` or `cc.resources.release` for individual resource releases.
 
-2. Since the `cc.assetManager.releaseAsset` automatically releases the dependency resource, you don't need to explicitly call `cc.loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `cc.assetManager.dependUtil`.
+2. Since the `cc.assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `cc.loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `cc.assetManager.dependUtil`.
 
-3. For security reasons, `cc.assetManager` only supports auto-release set in the scene, the others have been removed. The `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease` APIs are not implemented in `cc.assetManager`. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](../asset-manager/release-manager.md) documentation for details.
+3. For security reasons, `cc.assetManager` only supports the Auto Release property set in the scene, and `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](../asset-manager/release-manager.md) documentation for details.
 
-#### The relevant interface replacement about extensions
+#### Extension-related interface replacements
 
 - **cc.Pipeline**
 
@@ -276,7 +276,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
   **Note**:
 
-  1. `cc.assetManager` **no longer** inherits from `Pipeline`, but from multiple `Pipeline` instances owned by `cc.assetManager`. Please refer to the [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details. 
+  1. `cc.assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `cc.assetManager`. Please refer to the [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details. 
 
   2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details. 
 
@@ -342,9 +342,9 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
 ### Other changes
 
-The `cc.url` and `cc.AssetLibrary` have been removed in **v2.4**, so avoid using any methods and properties of `cc.url` and `cc.AssetLibrary`.
+The `cc.url` and `cc.AssetLibrary` have been removed in v2.4, so avoid using any methods and properties of `cc.url` and `cc.AssetLibrary`.
 
-`Pipeline` can be replaced by `cc.AssetManager.Pipeline`, see below:
+`Pipeline` can be replaced by `cc.AssetManager.Pipeline`:
 
 ```js
 // before

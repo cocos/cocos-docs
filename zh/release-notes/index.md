@@ -1,4 +1,4 @@
-# 升级说明
+# 升级指南
 
 - [v2.4 资源管理模块升级指南](asset-manager-upgrade-guide.md)
 - [v2.4 资源分包升级指南](subpackage-upgrade-guide.md)

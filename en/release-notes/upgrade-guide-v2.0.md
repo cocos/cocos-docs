@@ -14,7 +14,7 @@ In order to accomplish this goal, we completely rewrote the underlying renderer,
 
 Of course, the upgrade is just the beginning, Cocos Creator has prepared more in-depth updates and features coming in updates to the v2.x version.
 
-## v2.0 List of known issues
+## v2.0.0 List of known issues
 
 Since many users have feedback on the problems encountered in upgrading from 1.x, we also need to highlight the risks of the current upgrade, the problems, and the plan to fix these issues.
 
