@@ -25,8 +25,11 @@
     - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
     - [Cocos2d-x 用户上手指南](getting-started/cocos2d-x-guide.md)
     - [获取帮助和支持](getting-started/support.md)
-    - [v1.10 资源升级指南](release-notes/raw-asset-migration.md)
-    - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
+    - [升级指南](release-notes/index.md)
+        - [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md)
+        - [v2.4 资源分包升级指南](release-notes/subpackage-upgrade-guide.md)
+        - [v2.0 升级指南](release-notes/upgrade-guide-v2.0.md)
+        - [v1.10 资源升级指南](release-notes/raw-asset-migration.md)
     - [FAQ](getting-started/faq.md)
 
 ## 基本工作流程

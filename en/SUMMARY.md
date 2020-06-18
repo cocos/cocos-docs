@@ -25,9 +25,12 @@
     - [Quick Start: Create Your First Game](getting-started/quick-start.md)
     - [Cocos2d-x User Guide](getting-started/cocos2d-x-guide.md)
     - [Get Help and Support](getting-started/support.md)
-    - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
-    - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
-    - [v2.1 Upgrade Guide](release-notes/upgrade-guide-v2.1.md)
+    - [Upgrade Guide](release-notes/index.md)
+        - [v2.4 Asset Manager Upgrade Guide](release-notes/asset-manager-upgrade-guide.md)
+        - [v2.4 Subpackage Upgrade Guide](release-notes/subpackage-upgrade-guide.md)
+        - [v2.1 Upgrade Guide](release-notes/upgrade-guide-v2.1.md)
+        - [v2.0 Upgrade Guide](release-notes/upgrade-guide-v2.0.md)
+        - [v1.10 Resource Upgrade Guide](release-notes/raw-asset-migration.md)
     - [FAQ](getting-started/faq.md)
 
 ## Workflows
