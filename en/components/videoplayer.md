@@ -123,9 +123,11 @@ cc.Class({
 });
 ```
 
-Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
+Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `ready-to-play` parameters.
 
 About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
+
+**Note**：Since the VideoPlayer is a special component, it cannot listen to Touch on Node with the Mouse event.
 
 ## How to display a UI upon a video
 
