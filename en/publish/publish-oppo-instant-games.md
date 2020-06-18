@@ -134,7 +134,7 @@ Then switch to the **Package Load** section of **Mini Game Debugger**, click Ref
 
 ## Resource Management for OPPO Mini Game Environment
 
-**OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size.  The main package size limit for OPPO Mini Game is **10MB**, more than that must be downloaded via a network request.
+**OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for OPPO Mini Game is **10MB**, more than that must be downloaded via a network request.
 
 We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 

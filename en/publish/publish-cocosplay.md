@@ -75,7 +75,7 @@ There are two ways to start the game through the **Self-test Tools**.
 
 ## Resource Management for Cocos Play Environment
 
-**Cocos Play** is similar to **WeChat Mini Game**. There are restrictions on the package size.  The main package size limit for Cocos Play is **10MB**, more than that must be downloaded via a network request.
+**Cocos Play** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for Cocos Play is **10MB**, more than that must be downloaded via a network request.
 
 We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
 
