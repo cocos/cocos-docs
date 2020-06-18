@@ -127,7 +127,7 @@ Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and 
 
 About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
 
-**Note**：Since the VideoPlayer is a special component, you can't register `touch` or `mouse` event on node with VideoPlayer component.
+**Note**：Since the VideoPlayer is a special component, you can't register `touch` and `mouse` events on node with VideoPlayer component.
 
 ## How to display a UI upon a video
 

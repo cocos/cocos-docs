@@ -125,7 +125,7 @@ cc.Class({
 
 同样的，用户也可以注册 `meta-loaded`、`clicked`、`playing` 等事件，这些事件的回调函数的参数与 `ready-to-play` 的参数一致。
 
-**注意**：由于 VideoPlayer 是特殊的组件，所以它无法监听节点上的**触摸**和**鼠标**事件。
+**注意**：由于 VideoPlayer 是特殊的组件，所以它无法监听节点上的 **触摸** 和 **鼠标** 事件。
 
 关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
 
