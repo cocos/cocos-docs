@@ -53,7 +53,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 | STOPPED        | Video is stopped.             |
 | COMPLETED      | Video is completed.           |
 | META_LOADED    | Video's meta data is loaded.  |
-| CLICKED        | Video is clicked by the user. (Only Web platform support) |
+| CLICKED        | Video is clicked by the user. (Only supports Web platform.) |
 | READY_TO_PLAY  | Video is ready to play.       |
 
 **Note**: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
@@ -127,7 +127,7 @@ Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and 
 
 About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
 
-**Note**：Since the VideoPlayer is a special component, you can't register Touch or Mouse event on node with VideoPlayer component.
+**Note**：Since the VideoPlayer is a special component, it cannot listen to `touch` and `mouse` events on the node.
 
 ## How to display a UI upon a video
 

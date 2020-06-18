@@ -53,7 +53,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 | STOPPED        | 表示视频已经停止播放。          |
 | COMPLETED      | 表示视频播放完成。             |
 | META_LOADED    | 表示视频的元信息已加载完成，你可以调用 getDuration 来获取视频总时长。 |
-| CLICKED        | 表示视频被用户点击了。（只支持 web 平台）|
+| CLICKED        | 表示视频被用户点击了。（只支持 Web 平台）|
 | READY_TO_PLAY  | 表示视频准备好了，可以开始播放了。|
 
 **注意**：在 iOS 平台的全屏模式下，点击视频无法发送 CLICKED 事件。如果需要让 iOS 全屏播放并正确接受 CLICKED 事件，
@@ -125,7 +125,7 @@ cc.Class({
 
 同样的，用户也可以注册 `meta-loaded`、`clicked`、`playing` 等事件，这些事件的回调函数的参数与 `ready-to-play` 的参数一致。
 
-**注意**：由于 VideoPlayer 是特殊的组件，所有它无法监听 Node 上的 Touch 与 Mouse 事件。
+**注意**：由于 VideoPlayer 是特殊的组件，所以它无法监听节点上的触摸和鼠标事件。
 
 关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
 
