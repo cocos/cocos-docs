@@ -9,8 +9,7 @@ Global system events are irrelevant with the node hierarchy, so they are dispatc
 
 If you are searching for any information about touch or mouse events, please refer to [Node System Events documentation](./internal-events.md).
 
-** ATTENTION: We strongly discourage any usage of `cc.eventManager` in Cocos Creator, all its functionality can be achieved via
-cc.systemEvent and cc.Node's event API. We no longer guarantee the API of cc.eventManager, it could be refactored any time in the future. **
+**ATTENTION: We strongly discourage any usage of `cc.eventManager` in Cocos Creator, all its functionality can be achieved via `cc.systemEvent` and cc.Node's event API. We no longer guarantee the API of `cc.eventManager`, it could be refactored any time in the future.**
 
 ## How to define the input events
 
@@ -25,10 +24,12 @@ Event types included:
 ### Keyboard Events
 
 - Type: `cc.SystemEvent.EventType.KEY_DOWN` 和 `cc.SystemEvent.EventType.KEY_UP`
+
 - Call Back: Custom Event: callback(event);
+
 - Call Back Parameter:
-    - KeyCode: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/enums/KEY.html)
-    - Event: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/classes/Event.html)
+    - KeyCode: [API Reference](../../../api/en/classes/Event.EventKeyboard.html)
+    - Event: [API Reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({
@@ -65,7 +66,9 @@ cc.Class({
 ### DEVICE MOTION
 
 - Type: `cc.SystemEvent.EventType.DEVICEMOTION`
+
 - Call Back: Custom Event: callback(event);
+
 - Call Back Parameter:
     - Event: [API reference](../../../api/en/classes/Event.html)
 

@@ -5,7 +5,7 @@ The game engine in Cocos Creator has three parts: JavaScript engine with ECS (en
 - JavaScript engine: <https://github.com/cocos-creator/engine>
 - Cocos2d-x-lite engine: <https://github.com/cocos-creator/cocos2d-x-lite>
 
-There are three adapters:
+There are two adapters:
 
 - `jsb-adapter`: <https://github.com/cocos-creator-packages/jsb-adapter>
 - `mini-game-adapters`: <https://github.com/cocos-creator-packages/adapters/>

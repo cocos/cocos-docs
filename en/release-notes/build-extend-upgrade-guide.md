@@ -1,26 +1,28 @@
 # v2.4 Custom Project Build Process Upgrade Guide
 
-> Author：Santy-Wang
+> Author：Santy-Wang, Xunyi0
 
-> This article will detail the considerations for upgrading older Creator projects to v2.4. If you are not a user of an older version of Creator or don't have a custom project build process in your project, you don't need to read this article.
+> This document will detail the considerations for upgrading to v2.4 for an older project that has customized the project build process.
 
-In the [custom-project-build process](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/publish/custom-project-build-template.md) documentation prior to v2.4, we have mentioned the use of extensions to register `build-start`, `before-change-files`, `build-finished` events to customize the project flow, and with the introduction of the Asset Bundle feature, the project build flow has been adjusted and the parameters passed in during event callbacks have been changed.
+In the [custom-project-build process](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/publish/custom-project-build-template.md) document before v2.4, we have mentioned that the use of extensions to register the `build-start`, `before-change-files`, `build-finished` events to customize the project build process. However, with the introduction of the **Asset Bundle** feature, we've made some adjustments to the project build process, as well as some changes to the parameters passed in during event callbacks.
 
-For **Artist and Game Designer**, all resources in the project, such as scenes, animations, prefab, do not need to be modified or upgraded. <br>
-For the **Programmer**, the impact is mainly in the callback function that needs to be modified for the registration event in the extension package.
+- For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
+- For **Programmers**, you need to modify the callback function for registration events in the extension package. The related content will be described in detail in this document.
 
 ## Situations that require upgrading manually
 
-You registered `before-change-files`, `build-finished` event custom project flow in the code of the extension package.
+You register the `before-change-files` and `build-finished` events in the code of the expansion package to customize the project build process.
 
 ## Upgrade steps
 
-- Rename older versions of plug-in extension packs. This way the old and new versions can co-exist.
+- Rename the old project's plugin extensions so that the old and new versions can coexist.
+  - The global (all project) plugin extension package is located in the directory `C:\Users\Administrator\.CocosCreator\packages` (Windows) or `Users/.CocosCreator/packages` (Mac).
+  - The single project specific plugin extension package is located in the `packages` directory of the project.
 - Open the code editor and perform code upgrades.
 
 ### Parameter changes 
 
-In the `options` of the parameters passed in the event callback **there is no longer a** `buildResults`, but an array of `bundles`.
+The `options` parameter passed in during the event callback **no longer** has `buildResults` in it, but instead provides an array of `bundles`.
 
 ```js
 // before
@@ -28,7 +30,7 @@ function onBeforeBuildFinish (options, callback) {
     var prefabUrl = 'db://assets/cases/05_scripting/02_prefab/MonsterPrefab.prefab';
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
-    // accessing BuildResults via options.buildResults
+    // Accessing BuildResults via options.buildResults
     var buildResults = options.buildResults;
     // Obtain all resources that are dependent on the specified resource
     var depends = buildResults.getDependencies(prefabUuid);
@@ -59,7 +61,7 @@ function onBeforeBuildFinish (options, callback) {
     var prefabUuid = Editor.assetdb.urlToUuid(prefabUrl);
 
     options.bundles.forEach(bundle => {
-        // accessing BuildResults via bundle.buildResults
+        // Accessing BuildResults via bundle.buildResults
         var buildResults = bundle.buildResults;
         // Obtain all resources that are dependent on the specified resource
         var depends = buildResults.getDependencies(prefabUuid);
@@ -86,4 +88,4 @@ function onBeforeBuildFinish (options, callback) {
 }
 ```
 
-For more details on objects in `bundle`, see [Custom Project Build Process](../publish/custom-project-build-template.md) documentation.
+For more details on objects in `bundle`, please refer to the [Custom Project Build Process](../publish/custom-project-build-template.md) documentation.
