@@ -81,29 +81,23 @@ cc.Class({
 
 在 **属性检查器** 里设置资源虽然很直观，但资源只能在场景里预先设好，没办法动态切换。如果需要动态切换，你需要看看下面的内容。
 
-## 动态加载
+## 动态加载 resources
 
-Creator 提供了两种动态加载资源的方式：
+通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源。使用该方式需要注意以下两点：
 
-- 通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源。使用该方式需要注意以下两点：
+1. 所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 文件夹需要在 **assets 根目录** 下手动创建。如下所示：
 
-  1. 所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 文件夹需要在 **assets 根目录** 下手动创建。如下所示：
+    ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
-      ![asset-in-properties-null](load-assets/resources-file-tree.png)
+    > **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源所引用。项目构建时，除了在 **构建发布** 面板中勾选的场景外，**resources** 文件夹中的所有资源，包括它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
+    >
+    > 如果一份资源仅仅是被 **resources** 中的其它资源所依赖，而不需要直接被 `cc.resources.load` 调用，那么 **请不要** 放在 resources 文件夹中。否则会增大 `config.json` 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能合并零碎的 JSON。
 
-      > **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源所引用。项目构建时，除了在 **构建发布** 面板中勾选的场景外，**resources** 文件夹中的所有资源，包括它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
-      >
-      > 如果一份资源仅仅是被 **resources** 中的其它资源所依赖，而不需要直接被 `cc.resources.load` 调用，那么 **请不要** 放在 resources 文件夹中。否则会增大 `config.json` 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能合并零碎的 JSON。
+2. Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
 
-  2. Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
+    **注意**：从 v2.4 开始，`cc.loader` 等接口不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
 
-      **注意**：从 v2.4 开始，`cc.loader` 等接口不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
-
-- 通过 Asset Bundle 实现动态加载。
-
-  Creator 从 v2.4 开始支持 Asset Bundle，关于如何使用 Asset Bundle 实现动态加载，具体可参考文档 [Asset Bundle](asset-bundle.md)。
-
-### 动态加载 Asset
+下面我们来看一个简单的示例：
 
 Creator 提供了 `cc.resources.load` 这个 API 来专门加载那些位于 resources 目录下的 Asset。你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
@@ -162,6 +156,10 @@ cc.resources.release("test assets/anim");
 ```javascript
 cc.assetManager.releaseAsset(spriteFrame);
 ```
+
+### 动态加载 Asset Bundle
+
+Creator 从 v2.4 开始支持 Asset Bundle，关于如何实现动态加载 Asset Bundle，具体可参考文档 [Asset Bundle](asset-bundle.md)。
 
 ### 资源批量加载
 

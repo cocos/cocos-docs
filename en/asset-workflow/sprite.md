@@ -4,17 +4,17 @@ Textures are used for rendering in games. Generally, textures are created by ima
 
 ## Import Textures
 
-You can import textures by default way, then you can see the textures in **Assets Panel** like this:
+You can import textures by default way, then you can see the textures in **Assets** panel like this:
 
 ![imported texture](sprite/imported_texture.png)
 
-In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you select a texture in **Assets Panel**, the thumbnail will also be shown at the bottom of **Properties Panel**. Please **DO NOT** modify the properties of texture in **Properties Panel**, unless you know what you are doing.
+In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you select a texture in **Assets** panel, the thumbnail will also be shown at the bottom of **Properties** panel. Please **DO NOT** modify the properties of texture in **Properties** panel, unless you know what you are doing.
 
 ## Texture Properties
 
 | Properties | Function explanation |
 | --- | --- |
-| Type | Includes two modes: Raw and Sprite. **Raw** means that only texture are generated, and **Sprite** means that `cc.SpriteFrame` is generated. |
+| Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
 | Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
 | Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
@@ -23,13 +23,13 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 ## Premultiply Alpha
 
-- Premultiply Alpha: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
+- **Premultiply Alpha**: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
 
-- Non-Premultiply Alpha: Indicates that the Alpha channel will not be premultiplied with the RGB channel. Then the red color with transparency of 50% described above, the stored color value is (255, 0, 0, 0.5).
+- **Non-Premultiply Alpha**: Indicates that the Alpha channel will not be premultiplied with the RGB channel. Then the red color with transparency of 50% described above, the stored color value is (255, 0, 0, 0.5).
 
 Then why use Premultiply Alpha? In texture rendering, transparent textures uses Alpha Blending for blending, and the blending formula is:
 
-**result = source.RGB \* source.A + dest.RGB * (1 - source.A);**
+**result = source.RGB \* source.A + dest.RGB \* (1 - source.A);**
 
 Set the blend function to `gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)`.
 
@@ -99,7 +99,7 @@ If the engine enable [Dynamic Atlas](../advanced-topics/dynamic-atlas.md), dynam
 
 ## Texture & SpriteFrame
 
-In **Assets Panel**, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will create a SpriteFrame asset for each Texture when it's imported.
+In **Assets** panel, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will create a SpriteFrame asset for each Texture when it's imported.
 
 ![texture spriteframe](sprite/texture_spriteframe.png)
 
@@ -122,7 +122,7 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 
 ### The Black Edge Problem of Texture
 
-When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images:
+When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. Under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images:
 
 1. Filter Mode uses **Point** Mode. (Recommended, need to be able to accept the sawtooth problem)
 2. When the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)
