@@ -81,25 +81,9 @@ In this way you can get the set asset directly from the script:
 
 Although it is very straight forward to set assets in the **Properties** panel, assets can only be pre-set in the scene without dynamic switching. If you need dynamic switching, you need to check the following contents out.
 
-## How to dynamically load
+## Dynamic loading of resources
 
-Starting from v2.4, the Creator supports Asset Bundle, which means that you can load resources dynamically in two ways: 1. by placing resources in the `resources` directory and loading them dynamically with an interface such as `cc.resources.load`; 2. by loading them dynamically with Asset Bundle. This article focuses only on the first approach; for the second, see [Asset Bundle](asset-bundle.md) documentation. 
-
- There are two things to note about dynamically loading resources using the first method, one is that all resources that need to be dynamically loaded by script must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the assets folder and must be located in the assets root directory, like this.
-
-![asset-in-properties-null](load-assets/resources-file-tree.png)
-
-> The assets in the `resources` folder can refer to other assets outside the folder, and can also be referenced by external scenes or assets. When the project is built, all assets in the `resources` folder, along with assets outside the `resources` folder they are associated with, will be exported, in addition to the scenes that have been checked in the **Build** panel.
->
-> If an asset is only depended on by other assets in the `resources` and does not need to be called directly by `cc.resources.load`, then please don't put it in the `resources` folder. Otherwise, the size of `config.json` will increase, and useless assets in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
-
-The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
-
-**Note**: As of v2.4, the `cc.loader` interface is deprecated, please use `cc.assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation for details.
-
-### How to dynamically load Asset
-
-Creator provides the `cc.resources.load` API to load specific asset that locates under the `resources` directory. You can pass a relative path to the directory to invoke, and **do not** containing the file name extension at the end of the path.
+Usually we will place the resources that need to be dynamically loaded in the project in the `resources` directory, along with interfaces such as `cc.resources.load` to load them dynamically. You just need to pass in the path relative to `resources` directory, and the end of the path **must not** contain the file extension.
 
 ```javascript
 // load Prefab
@@ -115,7 +99,19 @@ cc.resources.load("test assets/anim", function (err, clip) {
 });
 ```
 
-#### Load SpriteFrame
+- All resources that need to be dynamically loaded by **script** must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the `assets` folder and must be located in the `assets` root directory, like this:
+
+  ![asset-in-properties-null](load-assets/resources-file-tree.png)
+
+  > The assets in the `resources` folder can refer to other assets outside the folder, and can also be referenced by external scenes or assets. When the project is built, all assets in the `resources` folder, along with assets outside the `resources` folder they are associated with, will be exported, in addition to the scenes that have been checked in the **Build** panel.
+  >
+  > If an asset is only depended on by other assets in the `resources` and does not need to be called directly by `cc.resources.load`, then please don't put it in the `resources` folder. Otherwise, the size of `config.json` will increase, and useless assets in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
+
+- The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
+
+  **Note**: As of v2.4, the `cc.loader` interface is deprecated, please use `cc.assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation for details.
+
+### Load SpriteFrame
 
 After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if
 `test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
@@ -130,7 +126,7 @@ cc.resources.load("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 > If you specify a type parameter, you will find the specified resource type in the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both 'player.clip' and 'player.psd'), or the need to obtain a "sub asset" (for example, gets Texture2D SpriteFrame generated), should need to declare types.
 
-#### Load SpriteFrames from Atlas
+### Load SpriteFrames from Atlas
 
 For an atlas imported from a third-party tool such as Texturepacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
 
@@ -144,7 +140,7 @@ cc.resources.load("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
 });
 ```
 
-#### Resource Release
+### Resource Release
 
 `cc.resources.load` loaded in a single resource if you need to release, You can call `cc.resources.release`, `release` incoming one with `cc.resources.load` the same path and type parameter.
 
@@ -175,10 +171,15 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets, urls)
 });
 ```
 
+## Dynamic loading of Asset Bundle
+
+As of v2.4, Creator supports the **Asset Bundle**. For details on how the Asset Bundle implements dynamic loading, see [Asset Bundle](asset-bundle.md) documentation.
+
 ## Preload resources
 
- Starting with v2.4, in addition to scenes being able to preload, other resources are also able to preload. The loading parameters are the same as when loading normally, but it only downloads the relevant resources, and does not do the deserialization and initialization of the resources, so the performance consumption is smaller, suitable for use in the game running.
-`cc.resources` provides `preload` , `preloadDir` for preloading resources.  
+Starting with v2.4, in addition to scenes that can be preloaded, other resources can also be preloaded. Preloading has the same loading parameters as normal loading, but it will only download the necessary resources, and will not perform deserialization or initialization. Therefore, it consumes less performance and is suitable for use during the game.
+
+`cc.resources` provides `preload` and `preloadDir` for preloading resources.  
 
 ```js
 cc.resources.preload('test assets/image', cc.SpriteFrame);
@@ -188,9 +189,9 @@ cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-You can load resources ahead of time using the preloaded relevant interface, without waiting for the preload to end, using the normal loading interface to load, you can complete the loading requirements normally.
+You can use the preload related interface to load resources in advance, without waiting for the preload to finish, you can use the normal load interface to load, the normal load interface will directly reuse the content that has been downloaded during the preload process to shorten the load time.
 
-For instructions on preloading, see [Preloading And Loading](../asset-manager/preload-load.md) documentation.
+For more information on preloading, please refer to the [Preloading and Loading](../asset-manager/preload-load.md) documentation.
 
 ## How to load remote assets or files in device
 
