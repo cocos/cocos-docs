@@ -83,23 +83,7 @@ Although it is very straight forward to set assets in the **Properties** panel, 
 
 ## Dynamic loading of resources
 
-By placing resources in the `resources` directory, with interfaces such as `cc.resources.load` to load them dynamically. There are two things to note when using this method:
-
-1. All resources that need to be dynamically loaded by **script** must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the `assets` folder and must be located in the `assets` root directory, like this:
-
-    ![asset-in-properties-null](load-assets/resources-file-tree.png)
-
-    > The assets in the `resources` folder can refer to other assets outside the folder, and can also be referenced by external scenes or assets. When the project is built, all assets in the `resources` folder, along with assets outside the `resources` folder they are associated with, will be exported, in addition to the scenes that have been checked in the **Build** panel.
-    >
-    > If an asset is only depended on by other assets in the `resources` and does not need to be called directly by `cc.resources.load`, then please don't put it in the `resources` folder. Otherwise, the size of `config.json` will increase, and useless assets in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
-
-2. The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
-
-    **Note**: As of v2.4, the `cc.loader` interface is deprecated, please use `cc.assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation for details.
-
-Let's look at a simple example：
-
-Creator provides the `cc.resources.load` API to load specific asset that locates under the `resources` directory. You can pass a relative path to the directory to invoke, and **do not** containing the file name extension at the end of the path.
+Usually we will place the resources that need to be dynamically loaded in the project in the `resources` directory, along with interfaces such as `cc.resources.load` to load them dynamically. You just need to pass in the path relative to `resources` directory, and the end of the path **must not** contain the file extension.
 
 ```javascript
 // load Prefab
@@ -115,7 +99,19 @@ cc.resources.load("test assets/anim", function (err, clip) {
 });
 ```
 
-#### Load SpriteFrame
+- All resources that need to be dynamically loaded by **script** must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the `assets` folder and must be located in the `assets` root directory, like this:
+
+  ![asset-in-properties-null](load-assets/resources-file-tree.png)
+
+  > The assets in the `resources` folder can refer to other assets outside the folder, and can also be referenced by external scenes or assets. When the project is built, all assets in the `resources` folder, along with assets outside the `resources` folder they are associated with, will be exported, in addition to the scenes that have been checked in the **Build** panel.
+  >
+  > If an asset is only depended on by other assets in the `resources` and does not need to be called directly by `cc.resources.load`, then please don't put it in the `resources` folder. Otherwise, the size of `config.json` will increase, and useless assets in the project will not be automatically culled during the build process. At the same time, in the build process, the automatic merge strategy of JSON will also be affected, unable to merge the fragmented JSON as much as possible.
+
+- The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
+
+  **Note**: As of v2.4, the `cc.loader` interface is deprecated, please use `cc.assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](../release-notes/asset-manager-upgrade-guide.md) documentation for details.
+
+### Load SpriteFrame
 
 After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if
 `test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
@@ -130,7 +126,7 @@ cc.resources.load("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 > If you specify a type parameter, you will find the specified resource type in the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both 'player.clip' and 'player.psd'), or the need to obtain a "sub asset" (for example, gets Texture2D SpriteFrame generated), should need to declare types.
 
-#### Load SpriteFrames from Atlas
+### Load SpriteFrames from Atlas
 
 For an atlas imported from a third-party tool such as Texturepacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
 
@@ -144,7 +140,7 @@ cc.resources.load("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
 });
 ```
 
-#### Resource Release
+### Resource Release
 
 `cc.resources.load` loaded in a single resource if you need to release, You can call `cc.resources.release`, `release` incoming one with `cc.resources.load` the same path and type parameter.
 
@@ -158,10 +154,6 @@ Also, You can also use `cc.assetManager.releaseAsset` to release the instance of
 ```javascript
 cc.assetManager.releaseAsset(spriteFrame);
 ```
-
-### Dynamic loading of Asset Bundle
-
-As of v2.4, Creator supports the **Asset Bundle**. For details on how the Asset Bundle implements dynamic loading, see [Asset Bundle](asset-bundle.md) documentation.
 
 ### Resource bulk loading
 
@@ -178,6 +170,10 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets, urls)
     // ...
 });
 ```
+
+## Dynamic loading of Asset Bundle
+
+As of v2.4, Creator supports the **Asset Bundle**. For details on how the Asset Bundle implements dynamic loading, see [Asset Bundle](asset-bundle.md) documentation.
 
 ## Preload resources
 
