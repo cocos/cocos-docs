@@ -54,6 +54,10 @@
                 "name": "2.0",
                 "links": [
                     {
+                        "name": "2.4",
+                        "link": "https://docs.cocos.com/creator/2.4/manual/en"
+                    },
+                    {
                         "name": "2.3",
                         "link": "https://docs.cocos.com/creator/2.3/manual/en"
                     },
