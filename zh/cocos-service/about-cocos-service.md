@@ -42,5 +42,3 @@ Cocos Service 目前支持集成以下服务：
 - [腾讯云 GME 游戏多媒体引擎](gme.md)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [Matchvs 游戏云](matchvs.md)：专业成熟的移动游戏联网与服务端解决方案。
 - [Agora Voice](agora.md)：游戏内置实时音频 SDK。
-
-

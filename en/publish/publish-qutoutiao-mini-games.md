@@ -83,6 +83,7 @@ We recommend that developers save only the script files in the package and downl
 
 ## Related reference links
 
+- [QTT Game Center](http://game.qutoutiao.net/official/home/prod/index.html)
 - [QTT Mini Games Official Documentation](https://game.qutoutiao.net/doc/index.html#/)
 - [QTT Mini Games Debugging Documentation](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app)
 - [QTT Mini Games API Documentation](https://game.qutoutiao.net/doc/index.html#/doc/sdk)

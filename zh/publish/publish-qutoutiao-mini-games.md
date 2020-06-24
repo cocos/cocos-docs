@@ -46,7 +46,7 @@ Cocos Creator 从 v2.3.0 开始支持将游戏发布到 **趣头条小游戏**�
 
 二、**构建**
 
-**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **qtt-game** 目录。该目录就是导出的趣头条小游戏工程目录和 cpk，cpk 包在 **/build/qtt-game** 目录下。
+**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **qtt-game** 目录。该目录就是导出的趣头条小游戏工程目录和 cpk，cpk 包在 `build/qtt-game` 目录下。
 
 ![](publish-qutoutiao/output.png)
 
@@ -56,7 +56,7 @@ Cocos Creator 从 v2.3.0 开始支持将游戏发布到 **趣头条小游戏**�
 
   ![](publish-qutoutiao/setting.png)
 
-- 在 **设置** 页导航栏的 **右侧空白区域** 连续点击 6 次，进入 **趣实验** 页面。
+- 在 **设置** 页导航栏的 **右侧空白区域** 连续点击 **6** 次，进入 **趣实验** 页面。
 
   ![](publish-qutoutiao/click.png)
 
@@ -83,6 +83,7 @@ Cocos Creator 从 v2.3.0 开始支持将游戏发布到 **趣头条小游戏**�
 
 ## 相关参考链接
 
+- [趣头条游戏中心官网](http://game.qutoutiao.net/official/home/prod/index.html)
 - [趣头条小游戏官方文档](https://game.qutoutiao.net/doc/index.html#/)
 - [趣头条小游戏调试文档](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app)
 - [趣头条小游戏 API 文档](https://game.qutoutiao.net/doc/index.html#/doc/sdk)
