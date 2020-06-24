@@ -10,8 +10,6 @@ Click the **Add Component -> UI Component -> SafeArea** button at the bottom of 
 
 ![Renderings](./safearea/widget_nodelete.png)
 
-## Usage
-
 You only need to add the SafeArea component to the node without any other settings, this component will get the safe area of the current iOS or Android device via the API `cc.sys.getSafeAreaRect();` when enabled, and implements the adaptation by using the Widget component and set anchor.
 
 For more details, please refer to the [SafeArea](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/16_safeArea) in the example-cases.

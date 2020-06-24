@@ -8,8 +8,6 @@
 
 ![Renderings](./safearea/widget_nodelete.png)
 
-## 使用方式
-
 开发者只需要将 SafeArea 组件添加到节点上即可，该组件在启用时会通过 `cc.sys.getSafeAreaRect();` 获取当前 iOS 或 Android 设备的安全区域，并通过 Widget 组件实现适配。
 
 具体用法可参考官方范例中的 [SafeArea](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/16_safeArea) 测试例。

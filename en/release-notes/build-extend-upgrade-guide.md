@@ -2,20 +2,14 @@
 
 > Author：Santy-Wang, Xunyi0
 
-> This document will detail the considerations for upgrading to v2.4 for an older project that has customized the project build process.
-
-In the [custom-project-build process](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/publish/custom-project-build-template.md) document before v2.4, we have mentioned that the use of extensions to register the `build-start`, `before-change-files`, `build-finished` events to customize the project build process. However, with the introduction of the **Asset Bundle** feature, we've made some adjustments to the project build process, as well as some changes to the parameters passed in during event callbacks.
+This document will detail the considerations for upgrading to v2.4 for an older project that has customized the project build process. Starting with v2.4, we have made some adjustments to the project build process, and the parameters passed in during event callbacks have also been changed. If you have extended your project before v2.4 according to the [custom-project-build process](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/publish/custom-project-build-template.md) documentation, and registered the `before-change-files`, `build-finished` events to customize the project build process. Then:
 
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
-- For **Programmers**, you need to modify the callback function for registration events in the extension package. The related content will be described in detail in this document.
-
-## Situations that require upgrading manually
-
-You register the `before-change-files` and `build-finished` events in the code of the expansion package to customize the project build process.
+- For **Programmers**, you need to modify the parameters of the callback function for registration events in the extension package. The related content will be described in detail in this document.
 
 ## Upgrade steps
 
-- Rename the old project's plugin extensions so that the old and new versions can coexist.
+- Back up the old project's plugin extension package.
   - The global (all project) plugin extension package is located in the directory `C:\Users\Administrator\.CocosCreator\packages` (Windows) or `Users/.CocosCreator/packages` (Mac).
   - The single project specific plugin extension package is located in the `packages` directory of the project.
 - Open the code editor and perform code upgrades.
