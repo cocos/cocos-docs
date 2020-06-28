@@ -94,7 +94,6 @@
     - [腾讯云 | 游戏联机对战引擎](cocos-service/mgobe.md)
     - [腾讯云 | 游戏多媒体引擎](cocos-service/gme.md)
         - [接口文档](cocos-service/gme-api-docs.md)
-    - [Matchvs 游戏云](cocos-service/matchvs.md)
     - [Agora 声网](cocos-service/agora.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
