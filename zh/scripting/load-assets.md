@@ -81,25 +81,9 @@ cc.Class({
 
 在 **属性检查器** 里设置资源虽然很直观，但资源只能在场景里预先设好，没办法动态切换。如果需要动态切换，你需要看看下面的内容。
 
-## 动态加载
+## 动态加载 resources
 
-从 v2.4 开始， Creator 支持 Asset Bundle 功能，即可以支持两种动态加载资源的方式：1. 通过将资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载资源；2. 通过 Asset Bundle 实现动态加载。本篇仅关注第一种方式，第二种方式请参考 [Asset Bundle](asset-bundle.md)。 
-
-使用第一种方式动态加载资源要注意两点，一是所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 需要在 assets 文件夹中手工创建，并且必须位于 assets 的根目录，就像这样：
-
-![asset-in-properties-null](load-assets/resources-file-tree.png)
-
-> **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源引用到。项目构建时，除了已在 **构建发布** 面板勾选的场景外，**resources** 文件夹中的所有资源，连同它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
->
-> 如果一份资源仅仅是被 resources 中的其它资源所依赖，而不需要直接被 `cc.resources.load` 调用，那么 **请不要** 放在 resources 文件夹里。否则会增大 config.json 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能将零碎的 JSON 合并起来。
-
-第二个要注意的是 Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
-
-**注意** ：从 v2.4 开始，`cc.loader` 等接口已经不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
-
-### 动态加载 Asset
-
-Creator 提供了 `cc.resources.load` 这个 API 来专门加载那些位于 resources 目录下的 Asset。你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
+通常我们会把项目中需要动态加载的资源放在 `resources` 目录下，配合 `cc.resources.load` 等接口动态加载。你只要传入相对 resources 的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
 
 ```javascript
 // 加载 Prefab
@@ -115,7 +99,19 @@ cc.resources.load("test assets/anim", function (err, clip) {
 });
 ```
 
-#### 加载 SpriteFrame
+- 所有需要通过脚本动态加载的资源，都必须放置在 `resources` 文件夹或它的子文件夹下。`resources` 文件夹需要在 **assets 根目录** 下手动创建。如下所示：
+
+  ![asset-in-properties-null](load-assets/resources-file-tree.png)
+
+  > **resources** 文件夹中的资源，可以引用文件夹外部的其它资源，同样也可以被外部场景或资源所引用。项目构建时，除了在 **构建发布** 面板中勾选的场景外，**resources** 文件夹中的所有资源，包括它们关联依赖的 **resources** 文件夹外部的资源，都会被导出。
+  >
+  > 如果一份资源仅仅是被 **resources** 中的其它资源所依赖，而不需要直接被 `cc.resources.load` 调用，那么 **请不要** 放在 resources 文件夹中。否则会增大 `config.json` 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能合并零碎的 JSON。
+
+- Creator 相比之前的 Cocos2d-JS，资源动态加载的时候都是 **异步** 的，需要在回调函数中获得载入的资源。这么做是因为 Creator 除了场景关联的资源，没有另外的资源预加载列表，动态加载的资源是真正的动态加载。
+
+  **注意**：从 v2.4 开始，`cc.loader` 等接口不再建议使用，请使用最新的 `cc.assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
+
+### 加载 SpriteFrame
 
 图片设置为 Sprite 后，将会在 **资源管理器** 中生成一个对应的 SpriteFrame。但如果直接加载 `test assets/image`，得到的类型将会是 cc.Texture2D。你必须指定第二个参数为资源的类型，才能加载到图片生成的 cc.SpriteFrame：
 
@@ -129,7 +125,7 @@ cc.resources.load("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 > 如果指定了类型参数，就会在路径下查找指定类型的资源。当你在同一个路径下同时包含了多个重名资源（例如同时包含 player.clip 和 player.psd），或者需要获取 “子资源”（例如获取 Texture2D 生成的 SpriteFrame），就需要声明类型。
 
-#### 加载图集中的 SpriteFrame
+### 加载图集中的 SpriteFrame
 
 对从 TexturePacker 等第三方工具导入的图集而言，如果要加载其中的 SpriteFrame，则只能先加载图集，再获取其中的 SpriteFrame。这是一种特殊情况。
 
@@ -142,7 +138,7 @@ cc.resources.load("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
 });
 ```
 
-#### 资源释放
+### 资源释放
 
 `cc.resources.load` 加载进来的单个资源如果需要释放，可以调用 `cc.resources.release`，`release` 可以传入和 `cc.resources.load` 相同的路径和类型参数。
 
@@ -173,10 +169,15 @@ cc.resources.loadDir("test assets", cc.SpriteFrame, function (err, assets) {
 });
 ```
 
+## 动态加载 Asset Bundle
+
+Creator 从 v2.4 开始支持 Asset Bundle，关于如何实现动态加载 Asset Bundle，具体可参考文档 [Asset Bundle](asset-bundle.md)。
+
 ## 预加载资源
 
-从 v2.4 开始，除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
-`cc.resources` 提供了 `preload` , `preloadDir` 用于预加载资源。  
+从 v2.4 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
+
+`cc.resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。  
 
 ```js
 cc.resources.preload('test assets/image', cc.SpriteFrame);
@@ -187,7 +188,7 @@ cc.resources.load('test assets/image', cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-你可以使用预加载相关接口时提前加载资源，不必等到预加载结束，使用正常加载接口进行加载，便可以正常完成加载需求。
+开发者可以使用预加载相关接口提前加载资源，不需要等到预加载结束即可使用正常加载接口进行加载，正常加载接口会直接复用预加载过程中已经下载好的内容，缩短加载时间。
 
 关于预加载的说明，请参考 [预加载与加载](../asset-manager/preload-load.md)。
 

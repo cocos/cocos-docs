@@ -4,17 +4,17 @@ Textures are used for rendering in games. Generally, textures are created by ima
 
 ## Import Textures
 
-You can import textures by default way, then you can see the textures in **Assets Panel** like this:
+You can import textures by default way, then you can see the textures in **Assets** panel like this:
 
 ![imported texture](sprite/imported_texture.png)
 
-In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you select a texture in **Assets Panel**, the thumbnail will also be shown at the bottom of **Properties Panel**. Please **DO NOT** modify the properties of texture in **Properties Panel**, unless you know what you are doing.
+In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you select a texture in **Assets** panel, the thumbnail will also be shown at the bottom of **Properties** panel. Please **DO NOT** modify the properties of texture in **Properties** panel, unless you know what you are doing.
 
 ## Texture Properties
 
 | Properties | Function explanation |
 | --- | --- |
-| Type | Includes two modes: Raw and Sprite. **Raw** means that only texture are generated, and **Sprite** means that `cc.SpriteFrame` is generated. |
+| Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
 | Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
 | Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
@@ -23,13 +23,13 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 ## Premultiply Alpha
 
-- Premultiply Alpha: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
+- **Premultiply Alpha**: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
 
-- Non-Premultiply Alpha: Indicates that the Alpha channel will not be premultiplied with the RGB channel. Then the red color with transparency of 50% described above, the stored color value is (255, 0, 0, 0.5).
+- **Non-Premultiply Alpha**: Indicates that the Alpha channel will not be premultiplied with the RGB channel. Then the red color with transparency of 50% described above, the stored color value is (255, 0, 0, 0.5).
 
 Then why use Premultiply Alpha? In texture rendering, transparent textures uses Alpha Blending for blending, and the blending formula is:
 
-**result = source.RGB * source.A + dest.RGB * (1 - source.A);**
+**result = source.RGB \* source.A + dest.RGB \* (1 - source.A);**
 
 Set the blend function to `gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)`.
 
@@ -59,19 +59,31 @@ As can be seen from the figure above that the color after the interpolation usin
 
 In general, texture coordinates UV's values range is [0, 1]. When the texture coordinates in the passed vertex data exceed the range of [0, 1], the texture coordinates of out of range can be processed through different wrap modes. There are two wrap modes:
 
-- Clamp mode: Intercept texture coordinates between 0 and 1 and copy texture coordinates [0, 1] only once. For texture coordinates beyond the [0, 1] range, will use the texture coordinates content at the edge to extend.
-- Repeat mode: For texture coordinates beyond the [0, 1] range, will use the texture coordinates [0, 1] to repeat.
+- **Clamp mode**
+
+  Intercept texture coordinates between 0 and 1 and copy texture coordinates [0, 1] only once. For texture coordinates beyond the [0, 1] range, will use the texture coordinates content at the edge to extend.
+
+- **Repeat mode**
+
+  For texture coordinates beyond the [0, 1] range, will use the texture coordinates [0, 1] to repeat.
 
 ## Filter Mode
 
 When the original size of Texture does not match the size of the texture image mapped on the screen, the mapping of the texture unit to the pixel through different texture filtering methods produces a different effect. There are three filter modes:
 
-- Point filtering:
-it simply uses the color of the texel closest to the pixel center for the pixel color. The advantage is that the algorithm is simple and the computation is small. While simple, this results in a large number of artifacts - texture `blockiness` during magnification, and aliasing and shimmering during minification.
-- Bilinear filtering: The four nearest texels to the pixel center are sampled (at the closest mipmap level), and their colors are combined by weighted average according to distance. This removes the `blockiness` seen during magnification, as there is now a smooth gradient of color change from one texel to the next, instead of an abrupt jump as the pixel center crosses the texel boundary. But the computation is also slightly larger than the Point filtering.
-- Trilinear filtering: Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
+- **Point filtering**
 
-**Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
+  It simply uses the color of the texel closest to the pixel center for the pixel color. The advantage is that the algorithm is simple and the computation is small. While simple, this results in a large number of artifacts - texture `blockiness` during magnification, and aliasing and shimmering during minification.
+
+- **Bilinear filtering**
+
+  The four nearest texels to the pixel center are sampled (at the closest mipmap level), and their colors are combined by weighted average according to distance. This removes the `blockiness` seen during magnification, as there is now a smooth gradient of color change from one texel to the next, instead of an abrupt jump as the pixel center crosses the texel boundary. But the computation is also slightly larger than the Point filtering.
+
+- **Trilinear filtering**
+
+  Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
+
+  **Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
 
 ## genMipmaps
 
@@ -87,7 +99,7 @@ If the engine enable [Dynamic Atlas](../advanced-topics/dynamic-atlas.md), dynam
 
 ## Texture & SpriteFrame
 
-In **Assets Panel**, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will create a SpriteFrame asset for each Texture when it's imported.
+In **Assets** panel, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will create a SpriteFrame asset for each Texture when it's imported.
 
 ![texture spriteframe](sprite/texture_spriteframe.png)
 
@@ -97,8 +109,8 @@ Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another 
 
 The API documents for Texture & SpriteFrame:
 
-- [Texture](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/Texture2D.html)
-- [SpriteFrame](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/SpriteFrame.html)
+- [Texture](../../../api/en/classes/Texture2D.html)
+- [SpriteFrame](../../../api/en/classes/SpriteFrame.html)
 
 ## SpriteFrame Usage
 
@@ -110,7 +122,7 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 
 ### The Black Edge Problem of Texture
 
-When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images.
+When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. Under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images:
 
 1. Filter Mode uses **Point** Mode. (Recommended, need to be able to accept the sawtooth problem)
 2. When the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)

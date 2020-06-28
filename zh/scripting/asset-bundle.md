@@ -158,7 +158,7 @@ bundle.loadScene('test', function (err, scene) {
 
 ## 预加载资源
 
-除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以消耗的性能更小，适合在游戏过程中使用。 Asset Bundle 中提供了 `preload`，`preloadDir` 接口用于预加载 bundle 中的资源。具体的使用方式和 cc.assetManager 中的预加载一样，详见 [预加载与加载](../asset-manager/preload-load.md)。
+除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以消耗的性能更小，适合在游戏过程中使用。Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 bundle 中的资源。具体的使用方式和 cc.assetManager 中的预加载一样，详见 [预加载与加载](../asset-manager/preload-load.md)。
 
 ## 释放 Asset Bundle 中的资源
 

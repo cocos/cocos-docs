@@ -1,41 +1,40 @@
 # v2.4 资源分包升级指南
 
-> 文：Santy-Wang
+> 文：Santy-Wang、Xunyi0
 
-> 本文介绍旧版本的资源分包（子包）升级到 v2.4 时的注意事项。如果你使用的不是 Creator 旧版本或者项目中没有使用分包功能，则不需要阅读本文。
+> 本文将详细介绍旧项目中的资源分包升级到 v2.4 时的注意事项。
 
-在 v2.4 之前的 [分包加载](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/subpackage.md) 功能仅支持各类小游戏平台，如微信小游戏、OPPO 小游戏等。Creator 是在平台对应的分包功能上做了一层封装，但随着 Creator 的发展，对于分包的需求不断增加，原有的资源分包功能是远远不够的，所以在 v2.4 上，Creator 正式支持更为完整的 Asset Bundle 功能。需要注意的是，如果你在项目中勾选了 **配置为子包** 选项，升级为 v2.4 之后，将自动转变为 Asset Bundle。
+在 v2.4 之前，[分包加载](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/subpackage.md) 功能仅支持各类小游戏平台，如微信小游戏、OPPO 小游戏等。但随着 Creator 的发展，开发者对分包的需求不断增加，例如多平台支持，原有的分包加载已经远远不能满足了。所以，Creator 从 v2.4 开始正式支持功能更为完整的 **Asset Bundle**。
 
-对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
-对 **程序** 而言，影响主要体现在需要修改原先在代码中使用的 `cc.loader.downloader.loadSubpackage` API 为 Asset Manager 中的对应接口。
+- 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。
+- 对 **程序** 而言，影响主要体现在原先代码中使用的 `cc.loader.downloader.loadSubpackage` 需要改为 Asset Manager 中的 `cc.assetManager.loadBundle`。以下将详细介绍这部分内容。
+
+**注意**：如果你在旧项目中使用了分包功能，也就是在 **属性检查器** 中勾选了 **配置为子包** 选项，那么当项目升级到 v2.4 之后，将自动转变为 Asset Bundle。
 
 ## 需要手动升级的情况
 
-你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` API 来加载分包。
+你在自己的代码中使用了 `cc.loader.downloader.loadSubpackage` 来加载分包。
 
 ## 升级步骤
 
-- **备份好旧版本的工程**
-- 在 CocosDashboard 中使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。打开代码编辑器，将所有 `cc.loader.downloader.loadSubpackage` 改为使用 `cc.assetManager.loadBundle`。
+- **备份好旧项目**
+- 在 Dashboard 中使用 Cocos Creator v2.4 打开需要升级分包的旧项目，Creator 会对有影响的资源重新导入。第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。然后使用代码编辑器将所有 `cc.loader.downloader.loadSubpackage` 替换为 `cc.assetManager.loadBundle`。
 
-```js
-// 修改前
-cc.loader.downloader.loadSubpackage('sub1', (err) => {
+  ```js
+  // 修改前
+  cc.loader.downloader.loadSubpackage('sub1', (err) => {
     cc.loader.loadRes('sub1/sprite-frames/background', cc.SpriteFrame);
-});
+  });
 
-// 修改后
-cc.assetManager.loadBundle('sub1', (err, bundle) => {
+  // 修改后
+  cc.assetManager.loadBundle('sub1', (err, bundle) => {
     // 传入该资源相对 Asset Bundle 根目录的相对路径
     bundle.load('sprite-frames/background', cc.SpriteFrame);
-});
-```
+  });
+  ```
 
-**注意**：
-1. 加载 Asset Bundle 中的资源需要使用 Asset Bundle 的相关 API。相关 API 请查看 [Asset Bundle](../../../api/zh/classes/Bundle.html)
+  **注意**：加载 Asset Bundle 中的资源需要使用 Asset Bundle 相关的 API，具体请查看 API 文档 [Asset Bundle](../../../api/zh/classes/Bundle.html)。
 
-## 我该如何使用新版本的分包加载？
+## Asset Bundle 的使用方式
 
-关于 Asset Bundle 的详细使用方式请参考 [Asset Bundle](../scripting/asset-bundle.md)。
-
-
+关于 Asset Bundle 的具体使用方式，请参考文档 [Asset Bundle](../scripting/asset-bundle.md)。

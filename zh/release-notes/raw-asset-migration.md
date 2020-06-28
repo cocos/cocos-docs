@@ -14,12 +14,12 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
-- 你在自己的游戏代码中直接声明了这些类型：`cc.Texture2D`、`cc.RawAsset`、`cc.AudioClip` 和 `cc.ParticleAsset`。
+- 你在自己的代码中直接声明了这些类型：`cc.Texture2D`、`cc.RawAsset`、`cc.AudioClip` 和 `cc.ParticleAsset`。
 - 你扩展了引擎或编辑器，定义了新的直接继承自 `cc.RawAsset` 的类型。
 - 你通过 `cc.loader.loadRes` 加载了 resources 文件夹下的 `.json` 后缀的文件。
 
 如果有下列情况，可能需要升级：
-- 你在自己的游戏代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
+- 你在自己的代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
 - 你使用 `cc.loader` 加载了远程服务器上的文本、粒子。
 
 ### 我其实并不确定要升级哪些东西？
