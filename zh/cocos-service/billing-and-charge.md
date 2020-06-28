@@ -23,8 +23,6 @@ Cocos Service 的服务使用 **预付费** 模式，当用户的服务使用超
 
 ## 服务商计费说明
 
-各服务商具体的计费说明请参考：
-
-- [Matchvs 官方计费说明](https://www.matchvs.com/price)
+服务商具体的计费说明请参考：
 
 - [Agora 官方计费说明](https://docs.agora.io/cn/Voice/billing_audio?platform=All%20Platforms)
