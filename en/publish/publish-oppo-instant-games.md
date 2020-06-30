@@ -2,7 +2,7 @@
 
 ## Environment Configuration
 
-- Download [OPPO Mini Game Debugger](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [OPPO Mini Game Debugger](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) and install it on your OPPO device.
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally
 
@@ -10,7 +10,7 @@
 
 ## Release Process
 
-1. Use __Cocos Creator__ to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
+1. Use Cocos Creator to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
     ![](./publish-oppo-instant-games/build_option.png)
 
@@ -38,7 +38,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the requirements of OPPO Mini Games, this value must be greater than or equal to **1031** at present.
+  This item is required. According to the suggestions of OPPO Mini Game, this value is currently recommended for **1060**. Please refer to the [OPPO Mini Game Instructions](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) for details.
 
 - **Small Packet Mode**
 
@@ -121,13 +121,15 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 **3. Run the built rpk to the phone**
 
-Copy the generated mini-game **rpk** file (located in the dist directory of the OPPO minigame project's quickgame directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the Android device, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the "More -> Refresh" button in the upper right corner to refresh.
+Copy the generated mini-game **rpk** file (located in the dist directory of the OPPO minigame project's `quickgame` directory) to the `/sdcard/games/` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the Android device, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the "More -> Refresh" button in the upper right corner to refresh.
+
+**Note**: For Mini Game Debugger **v3.2** and above, you need to copy **rpk** to the `sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone. If there is no `games` directory, you need to create a new one.
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
 **4. Subpackage rpk**
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/subpackage.md) in Cocos Creator, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `/build/quickgame/dist` directory. <br>
 In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/dist` directory to the **subPkg** directory.
