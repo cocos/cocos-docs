@@ -205,7 +205,6 @@
     - [Physics Events](physics-3d/physics-event.md)
     - [Physics Material](physics-3d/physics-material.md)
 - [Asset Manager](asset-manager/index.md)
-    - [Asset Manager Overview](asset-manager/asset-manager.md)
     - [Asset Bundle](asset-manager/bundle.md)
     - [Release Of Resources](asset-manager/release-manager.md)
     - [Downloader And Parser](asset-manager/downloader-parser.md)
