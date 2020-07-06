@@ -18,7 +18,7 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 - 资源管理
   - [加载和切换场景](scene-managing.md)
   - [获取和加载资源](load-assets.md)
-  - [加载 Asset Bundle](asset-bundle.md)
+  - [配置和加载 Asset Bundle](asset-bundle.md)
   - [资源管理系统](../asset-manager/index.md)
 - 事件系统
   - [发射和监听事件](events.md)

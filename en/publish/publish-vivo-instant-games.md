@@ -185,7 +185,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 ## Subpackage Loading
 
-Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Subpackage Loading](../scripting/asset-bundle.md) for details.
+Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Mini Game Subpackage](subpackage.md#vivo-mini-games) for details.
 
 ## Resource Management for vivo Mini Game Environment
 

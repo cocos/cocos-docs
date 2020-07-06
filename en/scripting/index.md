@@ -18,7 +18,7 @@ While writing the component script, you can map the variables needing adjustment
 - Asset Management
   - [Scene Management](scene-managing.md)
   - [Acquire and Load Asset](load-assets.md)
-  - [Asset Bundle Loading](asset-bundle.md)
+  - [Asset Bundle Configuration and Loading](asset-bundle.md)
   - [Asset Manager](../asset-manager/index.md)
 - Event
   - [Launch and Listen to Events](events.md)

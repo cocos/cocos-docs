@@ -81,7 +81,7 @@
     - [Networking](scripting/network.md)
     - [Pooling](scripting/pooling.md)
     - [Modular Script](scripting/modular-script.md)
-    - [Asset Bundle Loading](scripting/asset-bundle.md)
+    - [Asset Bundle Configuration and Loading](scripting/asset-bundle.md)
     - [Plugin Scripts](scripting/plugin-scripts.md)
     - [JavaScript Primer](scripting/javascript-primer.md)
     - [TypeScript Support](scripting/typescript.md)

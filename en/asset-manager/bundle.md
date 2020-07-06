@@ -122,4 +122,4 @@ The Asset Bundle supports script subpackaging. If your Asset Bundle includes the
 - **Q**: Does the Asset Bundle support nesting? For example, if there is a folder B in folder A, can both A and B be set as Asset Bundle?<br>
   **A**: Asset Bundle does not support nesting, please avoid using it as such.
 
-For more information on how to configure, load, and fetch the Asset Bundle, please refer to the [Asset Bundle Loading](../scripting/asset-bundle.md) documentation.
+For more information on how to configure, load, and fetch the Asset Bundle, please refer to the [Asset Bundle Configuration and Loading](../scripting/asset-bundle.md) documentation.

@@ -1,4 +1,4 @@
-# 加载 Asset Bundle
+# 配置和加载 Asset Bundle
 
 > 文：Santy-Wang、Xunyi
 
@@ -17,16 +17,16 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **层�
 | 配置项 | 功能说明|
 | :---  | :---- |
 | Bundle 名称   | Asset Bundle 构建后的名称，默认会使用这个文件夹的名字，可根据需要修改。 |
-| Bundle 优先级 | Creator 提供了 10 个优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle -- 优先级](../asset-manager/bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
+| Bundle 优先级 | Creator 提供了 10 个优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle - 优先级](../asset-manager/bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
 | 目标平台      | 不同平台可使用不同的配置，构建时将根据对应平台的设置来构建 Asset Bundle。|
-| 压缩类型      | 决定 Asset Bundle 最后的输出形式，包括 **默认**、**无压缩**、**合并所有 JSON**、**小游戏子包**、**Zip** 5 种压缩类型。具体内容请参考 [Asset Bundle -- 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B) |
+| 压缩类型      | 决定 Asset Bundle 最后的输出形式，包括 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 5 种压缩类型。具体内容请参考 [Asset Bundle - 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B) |
 | 配置为远程包  | 是否将 Asset Bundle 配置为远程包，不支持 Web 平台。<br>若勾选了该项，则 Asset Bundle 在构建后会被放到 **remote** 文件夹，你需要将整个 **remote** 文件夹放到远程服务器上。<br>构建 OPPO、vivo、华为等小游戏平台时，若勾选了该项，则不会将 Asset Bundle 打包到 rpk 中。 |
 
 配置完成后点击右上方的 **应用** 按钮，这个文件夹就被配置为 Asset Bundle 了，然后在 **构建发布** 面板选择对应的平台进行构建。
 
 **注意**：
 1. Creator 有 4 个 [内置 Asset Bundle](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**internal**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这四个名称。
-2. 小游戏分包只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏子包** 时，**配置为远程包** 项不可勾选。
+2. [小游戏分包](../publish/subpackage.md) 只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
 3. Zip 压缩类型主要是为了降低网络请求数量，如果放在本地，不用网络请求，则没什么必要。所以要求与 **配置为远程包** 搭配使用。
 
 ## 构建
@@ -35,7 +35,7 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **层�
 
 构建完成后，这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **assets** 文件夹中。但有以下两种特殊情况：
 - 配置 Asset Bundle 时，若勾选了 **配置为远程包**，则这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **remote** 文件夹中。
-- 配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏子包**，则这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **subpackages** 文件夹中。
+- 配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏分包**，则这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **subpackages** 文件夹中。
 
 **assets**、**remote**、**subpackages** 这三个文件夹中包含的每个文件夹都是一个 Asset Bundle。
 
@@ -43,7 +43,7 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **层�
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
-**注意**：在配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏子包**，那么请不要将构建后生成在 **subpackages** 文件夹中的 Asset Bundle 移出，对应平台比如微信小游戏会自行做相关处理。
+**注意**：在配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏分包**，那么请不要将构建后生成在 **subpackages** 文件夹中的 Asset Bundle 移出，对应平台比如微信小游戏会自行做相关处理。
 
 ## 加载 Asset Bundle
 

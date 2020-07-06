@@ -121,7 +121,7 @@ Copy the generated mini-game **rpk** file (located in the dist directory of the 
 
 **4. Subpackage rpk**
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/asset-bundle.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Mini Game Subpackage](subpackage.md) in Cocos Creator, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `/build/quickgame/dist` directory. <br>
 In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/dist` directory to the **subPkg** directory.

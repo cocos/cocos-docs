@@ -116,7 +116,7 @@
 
 ## 微信小游戏分包加载
 
-微信小游戏如何实现分包加载请参考 [Asset Bundle](../scripting/asset-bundle.md)。
+微信小游戏如何实现分包加载请参考 [小游戏分包](subpackage.md#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)。
 
 ## 平台 SDK 接入
 

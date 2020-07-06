@@ -80,7 +80,7 @@
     - [网络接口](scripting/network.md)
     - [使用对象池](scripting/pooling.md)
     - [模块化脚本](scripting/modular-script.md)
-    - [加载 Asset Bundle](scripting/asset-bundle.md)
+    - [配置和加载 Asset Bundle](scripting/asset-bundle.md)
     - [插件脚本](scripting/plugin-scripts.md)
     - [JavaScript 快速入门](scripting/javascript-primer.md)
     - [使用 TypeScript 脚本](scripting/typescript.md)
