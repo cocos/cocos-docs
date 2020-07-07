@@ -85,7 +85,7 @@ If you want to get the latest version that is currently under development, you n
 
 ### 2.2 Initialize
 
-Once cloned or downloaded, enter the Cocos2d-x-lite engine folder and run:
+If you are not getting the Cocos2d-x-lite engine repository by **downloading** or **cloning** it, you can skip this step. If you are, you will need to enter the Cocos2d-x-lite engine path at the command line and run:
 
 ```bash
 # Enter the Cocos2d-x-lite engine path from the command line
