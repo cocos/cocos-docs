@@ -61,7 +61,7 @@ To set up the CPU type that Android needs to support, you can select one or more
 
 ### Keystore
 
-Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.com/studio/publish/app-signing?hl=zh-cn) for details.
+Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.google.cn/studio/publish/app-signing) for details.
 
 ### App Bundle (Google Play)
 

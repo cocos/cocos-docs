@@ -22,7 +22,7 @@ Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 
 
 - 如果出现 “不能安装需要的文件，因为 CAB 文件没有正确的数字签名。可能表明 CAB 文件损坏” 的弹窗警告，请尝试使用管理员权限进行安装。
 
-- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
+- 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows>
 
 - 如果仍然出现安装失败，请尝试通过命令行执行安装程序：
 
@@ -91,7 +91,7 @@ Cocos Creator 版本升级时，新版本的编辑器可以打开旧版本的项
 
 在发现这种版本升级造成的问题时，除了联系开发团队寻求解决办法，您也可以卸载新版本的 Cocos Creator 并重新安装旧版本。安装旧版本过程中可能遇到的问题有：
 
-- **Windows**：您可能会遇到安装旧版本时提示「已经有一个更新版本的应用程序已安装」的情况，如果确定已经通过控制面板正确卸载了新版本的 Cocos Creator 还不能安装旧版本，可以访问 [微软官方解决无法安装或卸载程序](https://support.microsoft.com/en-us/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed) 的帮助页，按照提示下载小工具并修复损坏的安装信息，即可继续安装旧版本了。
+- **Windows**：您可能会遇到安装旧版本时提示「已经有一个更新版本的应用程序已安装」的情况，如果确定已经通过控制面板正确卸载了新版本的 Cocos Creator 还不能安装旧版本，可以访问 [微软官方解决无法安装或卸载程序](https://support.microsoft.com/zh-cn/help/17588/windows-fix-problems-that-block-programs-being-installed-or-removed) 的帮助页，按照提示下载小工具并修复损坏的安装信息，即可继续安装旧版本了。
 - 使用新版本 Cocos Creator 打开过的项目，在旧版本 Cocos Creator 中打开可能会遇到编辑器面板无法显示内容的问题，可以尝试选择主菜单中的 **布局 -> 恢复默认布局** 来进行修复。
 
 ## 原生发布相关配置
