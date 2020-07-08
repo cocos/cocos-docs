@@ -121,5 +121,5 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，详情请�
 - [微信公众平台](https://mp.weixin.qq.com/)
 - [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信小游戏性能评测标准](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
+- [微信小游戏性能优化](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
 - [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)

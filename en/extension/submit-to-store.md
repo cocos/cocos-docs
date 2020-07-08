@@ -1,6 +1,8 @@
 # Submit Extension Packages to the Store
 
-Cocos Creator provides a built-in [Extension Store](install-and-share.md) for users to browse, download and automatically install third-party resources. Users can also submit their own extensions, code, music, sound effects and other resources to the Extension Store for sharing or selling. Next, we will take a look at the submission process for the extension plugin as an example.
+Cocos Creator provides a built-in [Extension Store](install-and-share.md) for users to browse, download and automatically install official or third-party plugins and resources.
+
+Users can also submit their own extensions, code, music, sound effects and other resources to the Extension Store for sharing or selling. Next, we will take a look at the submission process for the extension plugin as an example.
 
 ## Package your plugin extensions
 
@@ -61,7 +63,7 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and log in, then g
 
   - **Package**: **Zip** format, up to **100MB**.
   - **Extension Name**: The name of the plugin extension package, defined in the `package.json` file of the extension package.
-  - **Version Number**: Plugin version number, defined in the `package.json` file of the extension package. Follow the [semver specification](http://semver.org/lang/zh-CN/) for writing conventions.
+  - **Version Number**: Plugin version number, defined in the `package.json` file of the extension package. Follow the [semver specification [zh]](http://semver.org/lang/zh-CN/) for writing conventions.
   - **Creator Version Requirements**: The plugin's requirements for the Creator version.
 
   Click **Next** to enter the **Submit for review** page after completing the filling.
@@ -70,7 +72,9 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and log in, then g
 
   ![](submit-to-store/submit-for-review.png)
   
-  After submitting for review, the Extension Store admin will review the plugin content and information, and then:
+- After submitting for review, the Extension Store admin will review the plugin content and information within **3** business days.
 
-  - If there are no problems, you'll see your plugin in the Extension Store.
-  - If there are problems that need to be corrected, the submitter will be contacted through the registered email address on the Cocos Developer Center.
+  - If there are no problems, then the plugin is approved and you will see your plugin in the Extension Store.
+  - If there are problems that need to be corrected, the plugin will not be approved and the reason will be noted.
+  
+  The above results will be sent to the registered email address of your Cocos developer account, so please check the email in time.

@@ -125,5 +125,5 @@ If you need it, you can currently use it by calling the WeChat's API directly.
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
 - [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
-- [WeChat Mini Game Performance Evaluation Criteria](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
+- [WeChat Mini Game Performance Optimization [zh]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
 - [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)
