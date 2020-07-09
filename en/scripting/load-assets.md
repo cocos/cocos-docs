@@ -232,7 +232,7 @@ cc.assetManager.loadRemote(remoteUrl, function (err, textAsset) {
 
 There still remains some restrictions currently, the most important are:
 
-1. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap (requires AssetBundle support planned in future version)
+1. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap. (If you want to load all resources remotely, you can use the [Asset Bundle](asset-bundle.md#dynamically-load-resources-via-asset-bundle))
 2. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and due to WebGL security policy restrictions, even if the server allows CORS http request, textures loaded can not be rendered.
 
 ## Assets dependencies and how to release assets

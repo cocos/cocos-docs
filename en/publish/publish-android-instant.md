@@ -100,7 +100,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 ## Instant Cookie API
 
-We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
+We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/cocos-creator/AndroidInstantCookieDemo)
 
 - `cc.androidInstant.showInstallPrompt()` For details, please refer to <a href="https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)">showInstallPrompt</a>
 
@@ -120,4 +120,4 @@ We have provided some APIs to make it easier for developers to call some of Goog
 
 3. [Google Instant App Samples](https://github.com/googlesamples/android-instant-apps)
 
-4. [CocosCreator AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
+4. [CocosCreator AndroidInstantCookieDemo](https://github.com/cocos-creator/AndroidInstantCookieDemo)

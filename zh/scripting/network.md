@@ -60,7 +60,7 @@
     }, 3);
     ```
 
-    `WebSocket` 的标准文档请参考 [MDN 中文文档](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)。
+    `WebSocket` 的标准文档请参考文档 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)。
 
 ## SocketIO
 

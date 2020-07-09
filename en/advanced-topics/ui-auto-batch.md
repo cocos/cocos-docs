@@ -120,3 +120,7 @@ With each state transition in the middle of drawElements, we can see what is cau
 4. WeChat mini-game platform disables the dynamic atlas function by default due to the memory usage of Image. If the game requires less memory, you can open it by `cc.dynamicAtlasManager.enabled = true`. And set `cc.macro.CLEANUP_IMAGE_CACHE = false` to prevent image cache from being cleaned up. For details, please refer to the [Enable, disable Dynamic Atlas](./dynamic-atlas.md#enable-disable-dynamic-atlas).
 5. The default spine batch is closed, you need to enable the enableBatch option. The Spine must be the same object created by the same Spine resource, and each Spine has only one mixed mode and one texture can be batch merge. Dragonbones have the same reason.
 6. The Buffer data of a single Draw call is limited. When the data exceeds the Buffer length limit, the new Buffer will be re-applied, of course the different Buffers will be different batches.
+
+## Reference
+
+[Cocos Creator Performance Optimization: DrawCall [zh]](https://mp.weixin.qq.com/s/2fKhBciXoxZ85XuUL01iyg)
