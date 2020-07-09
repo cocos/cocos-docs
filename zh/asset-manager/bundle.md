@@ -13,9 +13,9 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
 
 | 内置 Asset Bundle | 功能说明 | 配置 |
 | :--------------- | :-- | :-------- |
-| `internal`    | 存放所有内置资源以及其依赖资源 | 通过配置 **层级管理器** 中的 `internal -> resources` 文件夹 |
+| `internal`    | 存放所有内置资源以及其依赖资源 | 通过配置 **资源管理器** 中的 `internal -> resources` 文件夹 |
 | `main`        | 存放所有在 **构建发布** 面板的 **参与构建场景** 中勾选的场景以及其依赖资源  | 通过配置 **构建发布** 面板的 **主包压缩类型** 和 **配置主包为远程包** 两项 |
-| `resources`   | 存放 `resources` 目录下的所有资源以及其依赖资源  | 通过配置 **层级管理器** 中的 `resources` 文件夹 |
+| `resources`   | 存放 `resources` 目录下的所有资源以及其依赖资源  | 通过配置 **资源管理器** 中的 `assets -> resources` 文件夹 |
 | `start-scene` | 如果在 **构建发布** 面板中勾选了 **初始场景分包**，则首场景将会被构建到 `start-scene` 中  | 无法进行配置 |
 
 在构建完成后，内置 Asset Bundle 会根据配置决定它所生成的位置，具体的配置方法以及生成规则请参考 [配置 Asset Bundle](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
@@ -40,7 +40,7 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
 ![shared2](bundle/shared2.png)
 
 在这两种情况下，资源 c 既属于 Asset Bundle A，也属于 Asset Bundle B。那资源 c 究竟存在于哪一个 Asset Bundle 中呢？此时就需要通过调整 Asset Bundle 的优先级来指定了。<br>
-Creator 提供了 **10** 个优先级，编辑器在构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。
+Creator 开放了 10 个可供配置的优先级，编辑器在构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。
 
 - 当同个资源被 **不同优先级** 的多个 Asset Bundle 引用时，资源会优先放在优先级高的 Asset Bundle 中，低优先级的 Asset Bundle 只会存储一条记录信息。此时低优先级的 Asset Bundle 会依赖高优先级的 Asset Bundle。<br>
 如果你想在低优先级的 Asset Bundle 中加载此共享资源，必须在加载低优先级的 Asset Bundle **之前** 先加载高优先级的 Asset Bundle。
@@ -59,7 +59,7 @@ Creator 提供了 **10** 个优先级，编辑器在构建时将会按照优先�
 
 ## 压缩类型
 
-Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这 **5** 种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可在 **构建发布** 面板 **重新设置** 包括内置 Asset Bundle 在内的所有 Asset Bundle 的压缩类型。
+Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这几种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可 **重新设置** 包括内置 Asset Bundle 在内的所有 Asset Bundle 的压缩类型。
 
 | 压缩类型 | 功能说明 |
 | :------ | ------ |
@@ -77,15 +77,15 @@ Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**�
 
 在构建时，配置为 Asset Bundle 的文件夹中的所有 **代码** 和 **资源**，会进行以下处理：
 
-- **代码**：文件夹中的所有代码会根据构建发布的平台合并成一个 `index.js` 或 `game.js` 的入口脚本文件，并从主包中剔除。
-- **资源**：文件夹中的所有资源以及文件夹外的相关依赖资源都会被合并到 `import` 或 `native` 目录下。
-- **资源配置**：所有资源的配置信息包括 **路径**、**类型**、**版本信息** 都会被合并成一个 `config.json` 文件。
+- **代码**：文件夹中的所有代码会根据发布平台合并成一个 `index.js` 或 `game.js` 的入口脚本文件，并从主包中剔除。
+- **资源**：文件夹中的所有资源以及文件夹外的相关依赖资源都会放到 `import` 或 `native` 目录下。
+- **资源配置**：所有资源的配置信息包括路径、类型、版本信息都会被合并成一个 `config.json` 文件。
 
 构建后生成的 Asset Bundle 目录结构如下图所示：
 
 ![export](bundle/exported.png)
 
-## Asset Bundle 中的脚本
+### Asset Bundle 中的脚本
 
 Asset Bundle 支持脚本分包。如果开发者的 Asset Bundle 中包含脚本文件，则所有脚本会被合并为一个 js 文件，并从主包中剔除。在加载 Asset Bundle 时，就会去加载这个 js 文件。
 
@@ -122,4 +122,4 @@ Asset Bundle 支持脚本分包。如果开发者的 Asset Bundle 中包含脚�
 - **Q**：Asset Bundle 支持嵌套设置吗？比如 A 文件夹中有 B 文件夹，A 和 B 都可以设置为 Asset Bundle？<br>
   **A**：Asset Bundle 不支持嵌套。
 
-更多关于 Asset Bundle 的配置、加载、获取等内容，可参考文档 [加载 Asset Bundle](../scripting/asset-bundle.md)。
+更多关于 Asset Bundle 的配置方法、加载、获取等内容，可参考文档 [加载 Asset Bundle](../scripting/asset-bundle.md)。

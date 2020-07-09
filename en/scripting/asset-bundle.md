@@ -17,7 +17,7 @@ The Asset Bundle is configured in **folders**. When we select a folder in the **
 | Configuration Options | Function Explanation |
 | :---  | :---- |
 | Bundle Name      | The name of the Asset Bundle after it is built, which will use the name of this folder by default, can be modified as needed.  |
-| Bundle Priority  | Creator provides 10 priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](../asset-manager/bundle.md#priority) documentation. |
+| Bundle Priority  | Creator opens up 10 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](../asset-manager/bundle.md#priority) documentation. |
 | Target Platform  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
 | Compression Type | Determines the final output form of the Asset Bundle, including the five compression types **Default**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](../asset-manager/bundle.md#compression-type) documentation. |
 | Is Remote Bundle | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
@@ -89,7 +89,7 @@ The Asset Bundle continues the MD5 scheme of the Creator for updates. When you n
 ![md5 cache](subpackage/bundle_md5.png)
 
 It is not necessary to provide an additional Hash value when loading the Asset Bundle, Creator will search for the corresponding Hash value in the `settings.js` and make adjustments automatically.<br>
-However, if you want to store the relevant version configuration information on the server and dynamically fetch the version information at startup for hot updates, you can manually specify a version Hash value and pass in the `loadBundle`, and the Asset Bundle will be built based on that incoming Hash value:
+However, if you want to store the relevant version configuration information on the server and dynamically fetch the version information at startup for hot updates, you can manually specify a version Hash value and pass in the `loadBundle`, and the Asset Bundle will be built based on the incoming Hash value:
 
 ```js
 cc.assetManager.loadBundle('01_graphics', {version: 'fbc07'}, function (err, bundle) {
@@ -146,8 +146,8 @@ bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
 
 ### Load scenes
 
-The Asset Bundle provides `loadScene` methods for loading scenes in the Asset Bundle, you just need to pass in the **scene name**.<br>
-The difference between `loadScene` and `cc.director.loadScene` is that `loadScene` will only load the scene in the Asset Bundle and will not run the scene, you also need to use `cc.director.runScene` to run the scene.
+The Asset Bundle provides `loadScene` methods for loading scenes from the specified bundle, you just need to pass in the **scene name**.<br>
+The difference between `loadScene` and `cc.director.loadScene` is that `loadScene` will only load the scene from the specified bundle and will not run the scene, you also need to use `cc.director.runScene` to run the scene.
 
 ```js
 bundle.loadScene('test', function (err, scene) {
@@ -202,15 +202,15 @@ After loading the resources, all the resources are temporarily cached in `cc.ass
 
 For more information about releasing resources, see [Release of Resources](../asset-manager/release-manager.md) documentation.
 
-## Destroy the Asset Bundle
+## Remove the Asset Bundle
 
-After the Asset Bundle is loaded, it will remain in the entire gameplay, unless you manually remove it from the game. When an unneeded Asset Bundle is manually removed, the cache for that Asset Bundle is also removed. If you need to use it again, you must reload it again.
+After the Asset Bundle is loaded, it will remain in the entire gameplay, unless you manually remove it from the game. When an unneeded Asset Bundle is manually removed, the cache for the bundle is also removed. If you need to use it again, you must reload it again.
 
 ```js
 cc.assetManager.removeBundle(bundle);
 ```
 
-**Note**: When you destroy an Asset Bundle, the resources already loaded in that Asset Bundle are not released. If you need to release it, use the Asset Bundle's `release` / `releaseAll` method first.
+**Note**: When you destroy an Asset Bundle, the resources already loaded in the bundle are not released. If you need to release it, use the Asset Bundle's `release` / `releaseAll` method first.
 
 ```js
 let bundle = cc.assetManager.getBundle('bundle1');
@@ -223,5 +223,3 @@ let bundle = cc.assetManager.getBundle('bundle1');
 bundle.releaseAll();
 cc.assetManager.removeBundle(bundle);
 ```
-
-For more information on releasing resources, see the previous section [Release resources in the Asset Bundle](../scripting/asset-bundle.md#release-resources-in-the-asset-bundle).

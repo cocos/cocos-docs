@@ -14,7 +14,7 @@ bundle.loadScene('MyScene', function (err, scene) {
 });
 ```
 
-The `loadScene` provided by the Asset Bundle will only load scenes in that Asset Bundle and will not automatically run the scenes, you also need to use `cc.director.runScene` to run the scenes.<br>
+The `loadScene` provided by the Asset Bundle will only load scenes from the specified bundle and will not automatically run the scenes, you also need to use `cc.director.runScene` to run the scenes.<br>
 `loadScene` also provides more parameters to control the loading process, so developers can control the loading parameters themselves or do some processing after the loading scene.
 
 For more information about loading scenes in the Asset Bundle, you can refer to the [Asset Bundle](asset-bundle.md) documentation.

@@ -77,7 +77,7 @@ Please refer to the [Asset Bundle](bundle.md) documentation for more information
 
 ## Release of resources
 
-Starting with v2.4, Creator provides a more convenient mechanism for releasing resources. When releasing a resource, you only need to focus on the resource itself and no longer on its dependent resources. The engine attempts to release its dependent resources based on the number of references, to reduce the complexity of managing resource releases for users. For example:
+Asset Manager provides a more convenient mechanism for releasing resources. When releasing a resource, you only need to focus on the resource itself and no longer on its dependent resources. The engine attempts to release its dependent resources based on the number of references, to reduce the complexity of managing resource releases for users. For example:
 
 ```js
 cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
@@ -121,13 +121,15 @@ Please refer to the [Cache Manager](cache-manager.md) documentation for more inf
 
 ## Optional Parameters
 
-Some of the interfaces for `cc.assetManager` and Asset Bundle have an additional `options` parameter, which greatly increase the flexibility and extend the space, but if you don't need to configure the engine's built-in parameters or custom parameters to extend the engine's functionality, you can ignore it and use the simpler API interfaces, such as `cc.resources.load`. Go ahead and check out the following if you need to.
+Some of the interfaces for `cc.assetManager` and Asset Bundle have an additional `options` parameter, which greatly increase the flexibility and extend the space. In addition to configuring the builtin parameters of Creator, you can also customize any of the parameters in `options`, and these parameters will be provided to the custom downloader, parser, and loading pipeline.
 
 ```js
 bundle.loadScene('test', {priority: 3}, callback);
 ```
 
 For more information on `options` parameter, please refer to the [Optional Parameters](options.md) documentation.
+
+But if you don't need to configure the engine's builtin parameters or custom parameters to extend the engine's functionality, you can ignore it and use the simpler API interfaces, such as `cc.resources.load`.
 
 ## Loading Pipeline
 

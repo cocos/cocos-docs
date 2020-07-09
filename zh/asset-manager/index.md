@@ -1,4 +1,4 @@
-# Asset Manager 概览
+# Asset Manager 概述
 
 > 文：Santy-Wang、Xunyi
 
@@ -77,7 +77,7 @@ cc.assetManager.loadBundle('testBundle', function (err, bundle) {
 
 ## 释放资源
 
-从 v2.4 开始，Creator 提供了更为方便的资源释放机制，在释放资源时开发者只需要关注该资源本身而不再需要关注其依赖资源。引擎会尝试对其依赖资源根据引用数量进行释放，以减少用户管理资源释放的复杂度。例如：
+Asset Manager 提供了更为方便的资源释放机制，在释放资源时开发者只需要关注该资源本身而不再需要关注其依赖资源。引擎会尝试对其依赖资源根据引用数量进行释放，以减少用户管理资源释放的复杂度。例如：
 
 ```js
 cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
@@ -121,17 +121,19 @@ cc.assetManager.cacheManager.removeCache('http://example.com/bundle1/import/9a/9
 
 ## 可选参数
 
-`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了 `options` 参数，可以极大地增加灵活性以及扩展空间，但如果你不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，并且改用更简单的 API 接口，比如 `cc.resources.load`。如果你需要的话，请继续参考以下内容：
+`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了 `options` 参数，可以极大地增加灵活性以及扩展空间。`options` 中除了可以配置 Creator 内置的参数之外，还可以自定义任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线。
 
 ```js
 bundle.loadScene('test', { priority: 3 }, callback);
 ```
 
-`options` 中除了可以配置 Creator 内置的参数之外，还可以自定义任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线，具体内容可参考文档 [可选参数](options.md)。
+更多关于 `options` 的内容可参考文档 [可选参数](options.md)。
+
+但如果你不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
 
 ## 加载管线
 
-为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载器与解析器** 的机制来完成资源的加载工作，极大地增加了灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考下方的文档：
+为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载器与解析器** 的机制来完成资源的加载工作，极大地增加了灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
 
 - [管线与任务](pipeline-task.md)
 - [下载器与解析器](downloader-parser.md)

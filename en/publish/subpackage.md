@@ -11,10 +11,6 @@ The Asset Bundle is configured in **folders**. When we select a folder in the **
 Set the **Target Platform** to the mini game platform that you want to subpackage, set the **Compression Type** to the **Mini Game Subpackage**, and then click the **Apply** button at the top right to configure the folder as a Asset Bundle.<br>
 The **Bundle Name** will be passed as the loaded name when the Asset Bundle is loaded. The name of this folder will be used by default.
 
-**Note**:
-1. There are four [built-in Asset Bundles](../asset-manager/bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **internal**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these four names.
-2. The mini game subpackages can only be placed locally and cannot be configured as remote packages, so the **Is Remote Bundle** option cannot be checked.
-
 For more information on configuration, see the documentation [Asset Bundle - Configuration](../scripting/asset-bundle.md#configuration).
 
 ## Build

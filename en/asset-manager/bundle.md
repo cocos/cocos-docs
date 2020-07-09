@@ -15,7 +15,7 @@ Starting with v2.4, all resources in the project will be placed in the Creator's
 | :--------------- | :--------- | :-------- |
 | `internal`    | Store all built-in resources and their dependent resources | By configuring the `internal -> resources` folder in the **Assets** panel. |
 | `main`        | Store all scenes checked in the **Included Scenes** selection box of the **Build** panel and their dependent resources  | By configuring the **Main Bundle Compress Type** and **Main Bundle Is Remote** options of the **Build** panel. |
-| `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `resources` folder in the **Assets** panel. |
+| `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `assets -> resources` folder in the **Assets** panel. |
 | `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder  | Cannot be configured. |
 
 After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](../scripting/asset-bundle.md#configuration) documentation for the configuration methods and generation rules.
@@ -40,7 +40,7 @@ Another possibility is that a resource is in one Asset Bundle folder, but is als
 ![shared2](bundle/shared2.png)
 
 In both cases, `resource c` belongs to both `Asset Bundle A` and `Asset Bundle B`. So which Asset Bundle does `resource c` actually exist in? This needs to be specified by adjusting the priority of the Asset Bundle.<br>
-Creator provides **10** levels of priority, and the editor will build the Asset Bundle in **descending order** of priority at build time.
+Creator opens up 10 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
 
 - When the same resource is referenced by multiple Asset Bundles with **different priorities**, the resource will be placed in the high-priority Asset Bundle, while the lower-priority Asset Bundle stores only one record message. In this case the lower-priority Asset Bundle relies on the higher-priority Asset Bundle.<br>
 If you want to load this shared resource in a lower-priority Asset Bundle, you must load the higher-priority Asset Bundle before loading the lower-priority Asset Bundle.
@@ -59,7 +59,7 @@ When the four built-in Asset Bundles contain the same resources, the resources a
 
 ## Compression Type
 
-Creator currently offers five compression types, **Default**, **None**, **Merge All Json**, **Mini Game Subpackage**, and **Zip**, for optimizing the Asset Bundle. All Asset Bundles use the **Default** compression type by default, and you can reset the compression type for all Asset Bundles including the built-in Asset Bundle in the **Build** panel.
+Creator currently offers five compression types, **Default**, **None**, **Merge All Json**, **Mini Game Subpackage**, and **Zip**, for optimizing the Asset Bundle. All Asset Bundles use the **Default** compression type by default, and you can reset the compression type for all Asset Bundles including the built-in Asset Bundle.
 
 | Compression Type | Function Explanation |
 | :------ | ------ |
@@ -77,15 +77,15 @@ If you used Subpackage Loading in your old project, that is, if you checked the 
 
 At build time, all the **code** and **resources** in the folder configured as the Asset Bundle are treated as follows.
 
-- **Code**: All the code in the folder is merged into an entry script file named `index.js` or `game.js`, depending on the build platform, and removed from the main package.
+- **Code**: All the code in the folder is merged into an entry script file named `index.js` or `game.js`, depending on the release platform, and removed from the main package.
 - **Resources**: All resources in the folder and the related dependent resources outside the folder are placed in the `import` or `native` directory.
-- **Resource Configuration**: All resource configuration information including **path**, **type**, and **version information** is merged into a file named `config.json`.
+- **Resource Configuration**: All resource configuration information including path, type, and version information is merged into a file named `config.json`.
 
 The structure of the Asset Bundle directory generated after build is shown below：
 
 ![export](bundle/exported.png) 
 
-## Scripts in the Asset Bundle
+### Scripts in the Asset Bundle
 
 The Asset Bundle supports script subpackaging. If your Asset Bundle includes the script files, then all the scripts will be merged into a single **js** file and removed from the main package. When loading the Asset Bundle, this **js** file will be attempted to be loaded.
 
@@ -122,4 +122,4 @@ The Asset Bundle supports script subpackaging. If your Asset Bundle includes the
 - **Q**: Does the Asset Bundle support nesting? For example, if there is a folder B in folder A, can both A and B be set as Asset Bundle?<br>
   **A**: Asset Bundle does not support nesting, please avoid using it as such.
 
-For more information on how to configure, load, and fetch the Asset Bundle, please refer to the [Asset Bundle Configuration and Loading](../scripting/asset-bundle.md) documentation.
+For more information on the configuration, loading, and fetching of the Asset Bundle, see the [Asset Bundle Configuration and Loading](../scripting/asset-bundle.md) documentation.

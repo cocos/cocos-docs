@@ -14,7 +14,7 @@ bundle.loadScene('MyScene', function (err, scene) {
 });
 ```
 
-Asset Bundle 提供的 `loadScene` 只会加载该 Asset Bundle 中的场景，并不会自动运行场景，还需要使用 `cc.director.runScene` 来运行场景。<br>`loadScene` 还提供了更多参数来控制加载流程，开发者可以自行控制加载参数或者在加载完场景后做一些处理。
+Asset Bundle 提供的 `loadScene` 只会加载指定 bundle 中的场景，并不会自动运行场景，还需要使用 `cc.director.runScene` 来运行场景。<br>`loadScene` 还提供了更多参数来控制加载流程，开发者可以自行控制加载参数或者在加载完场景后做一些处理。
 
 更多关于加载 Asset Bundle 中的场景，可参考文档 [Asset Bundle](asset-bundle.md)。
 

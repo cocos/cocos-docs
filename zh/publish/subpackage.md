@@ -4,18 +4,14 @@
 
 ## 配置方法
 
-Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **层级管理器** 中选中一个文件夹时，**属性检查器** 中就会出现一个 **配置为 Bundle** 的选项，勾选后会出现如下图的配置项：
+Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资源管理器** 中选中一个文件夹时，**属性检查器** 中就会出现一个 **配置为 Bundle** 的选项，勾选后会出现如下图的配置项：
 
 ![](subpackage/configuration.png)
 
 将 **目标平台** 设置成需要分包的小游戏平台，**压缩类型** 设置为 **小游戏分包**，然后点击右上方的 **应用** 按钮，这个文件夹就被配置成 Asset Bundle 了。<br>
 **Bundle 名称** 会在加载 Asset Bundle 时作为加载的名字传入，默认会使用这个文件夹的名字。
 
-**注意**：
-1. Creator 有 4 个 [内置 Asset Bundle](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**internal**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这四个名称。
-2. 小游戏分包只能放在本地，不能配置为远程包，所以 **配置为远程包** 项不可勾选。
-
-更多关于配置的具体说明可参考文档 [Asset Bundle - 配置](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
+更多关于配置的具体说明，可参考文档 [Asset Bundle - 配置](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
 ## 构建
 
