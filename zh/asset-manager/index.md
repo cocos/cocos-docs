@@ -129,7 +129,7 @@ bundle.loadScene('test', { priority: 3 }, callback);
 
 更多关于 `options` 的内容可参考文档 [可选参数](options.md)。
 
-但如果你不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
+如果你不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
 
 ## 加载管线
 

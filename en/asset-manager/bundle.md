@@ -59,7 +59,7 @@ When the four built-in Asset Bundles contain the same resources, the resources a
 
 ## Compression Type
 
-Creator currently offers five compression types, **Default**, **None**, **Merge All Json**, **Mini Game Subpackage**, and **Zip**, for optimizing the Asset Bundle. All Asset Bundles use the **Default** compression type by default, and you can reset the compression type for all Asset Bundles including the built-in Asset Bundle.
+Creator currently provides **Default**, **None**, **Merge All Json**, **Mini Game Subpackage**, and **Zip** compression types for optimizing the Asset Bundle. All Asset Bundles use the **Default** compression type by default, and you can reset the compression type for all Asset Bundles including the built-in Asset Bundle.
 
 | Compression Type | Function Explanation |
 | :------ | ------ |

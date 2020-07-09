@@ -8,16 +8,17 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资�
 
 ![](subpackage/configuration.png)
 
-将 **目标平台** 设置成需要分包的小游戏平台，**压缩类型** 设置为 **小游戏分包**，然后点击右上方的 **应用** 按钮，这个文件夹就被配置成 Asset Bundle 了。<br>
-**Bundle 名称** 会在加载 Asset Bundle 时作为加载的名字传入，默认会使用这个文件夹的名字。
+除了通用的 [Asset Bundle 配置](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95) 之外，小游戏分包主要要关注的设置有：
+- 将 **目标平台** 设置成需要分包的小游戏平台，**压缩类型** 设置为 **小游戏分包**。
+- 小游戏分包只能放在本地，不能配置为远程包，所以 **配置为远程包** 项不可勾选。
 
-更多关于配置的具体说明，可参考文档 [Asset Bundle - 配置](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
+配置完成后点击右上方的 **应用** 按钮，这个文件夹就被配置成 Asset Bundle 了。
 
 ## 构建
 
 项目构建完成后，这个 Asset Bundle 文件夹会被打包到小游戏平台发布包目录下的 **subpackages** 文件夹中。该文件夹中包含的每个文件夹都是一个 Asset Bundle。
 
-例如：将 example 工程中的 `cases/01_graphics` 文件夹在 **微信小游戏** 平台配置为 Asset Bundle，那么项目构建后将会在微信小游戏发布包目录下的 **subpackages** 生成 **01_graphics** 文件夹。**01_graphics** 文件夹就是一个 Asset Bundle。
+例如：将 example 工程中的 `cases/01_graphics` 文件夹在微信小游戏平台配置为 Asset Bundle，那么项目构建后将会在微信小游戏发布包目录下的 **subpackages** 生成 **01_graphics** 文件夹。**01_graphics** 文件夹就是一个 Asset Bundle。
 
 ![](subpackage/subpackage.png)
 

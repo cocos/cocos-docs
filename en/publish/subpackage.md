@@ -8,10 +8,11 @@ The Asset Bundle is configured in **folders**. When we select a folder in the **
 
 ![](subpackage/configuration.png)
 
-Set the **Target Platform** to the mini game platform that you want to subpackage, set the **Compression Type** to the **Mini Game Subpackage**, and then click the **Apply** button at the top right to configure the folder as a Asset Bundle.<br>
-The **Bundle Name** will be passed as the loaded name when the Asset Bundle is loaded. The name of this folder will be used by default.
+In addition to the general [Asset Bundle Configuration](../scripting/asset-bundle.md#configuration), the main settings to focus on for the mini game subpackages are:
+- Set the **Target Platform** to the mini game platform that you want to subpackage, and set the **Compression Type** to the **Mini Game Subpackage**.
+- The mini game subpackages can only be placed locally and cannot be configured as remote packages, so the **Is Remote Bundle** option cannot be checked.
 
-For more information on configuration, see the documentation [Asset Bundle - Configuration](../scripting/asset-bundle.md#configuration).
+Once configured, click the **Apply** button at the top right and the folder will be configured as a Asset Bundle.
 
 ## Build
 
@@ -23,11 +24,11 @@ After the project is built, this Asset Bundle folder is packaged into the **subp
 
 ## WeChat Mini Games
 
-When building for the **WeChat Mini Game**, the configuration of the Asset Bundle will be automatically generated into the **game.json** configuration file of the **WeChat Mini Games** release package directory according to the rules.
+When building for the WeChat Mini Game, the configuration of the Asset Bundle will be automatically generated into the **game.json** configuration file of the WeChat Mini Games release package directory according to the rules.
 
 ![profile](./subpackage/profile.png)
 
-**Note**: WeChat Mini Games require a specific version to support the **subpackage** feature. WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version **1.02.1806120** and above. After updating the developer tools, don't forget to modify the version of **Details -> Local Settings -> Debug Base library** to __2.1.0__ and above in the WeChat DevTools:
+**Note**: WeChat Mini Games require a specific version to support the Subpackage feature. WeChat 6.6.7 Client, 2.1.0 and above base library support, please update to the latest client version, developer tools please use version **1.02.1806120** and above. After updating the developer tools, don't forget to modify the version of **Details -> Local Settings -> Debug Base library** to 2.1.0 and above in the WeChat DevTools:
 
 ![subpackage2](./subpackage/subpackage2.png)
 
@@ -42,7 +43,7 @@ Please refer to the [WeChat Subpackage Loading](https://developers.weixin.qq.com
 
 ## vivo Mini Games
 
-When building for the **vivo Mini Game**, the configuration of the Asset Bundle will be automatically generated into the **manifest.json** configuration file in the `qgame/src` directory of the **vivo Mini Game** release package according to the rules.
+When building for the vivo Mini Game, the configuration of the Asset Bundle will be automatically generated into the **manifest.json** configuration file in the `qgame/src` directory of the vivo Mini Game release package according to the rules.
 
 ![profile](./subpackage/vivo_profile.png)
 

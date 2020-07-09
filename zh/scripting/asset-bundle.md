@@ -43,19 +43,21 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资�
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
+<!--
 **注意**：在配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏分包**，那么请不要将构建后生成在 **subpackages** 文件夹中的 Asset Bundle 移出，对应平台比如微信小游戏会自行做相关处理。
+-->
 
 ## 加载 Asset Bundle
 
 引擎提供了一个统一的 API `cc.assetManager.loadBundle` 来加载 Asset Bundle，加载时需要传入 Asset Bundle 配置面板中的 **Bundle 名称** 或者 Asset Bundle 的 **url**。但当你复用其他项目的 Asset Bundle 时，则只能通过 **url** 进行加载。使用方法如下：
 
 ```js
-cc.assetManager.loadBundle('01_graphics', (bundle) => {
+cc.assetManager.loadBundle('01_graphics', (err, bundle) => {
     bundle.load('xxx');
 });
 
 // 当复用其他项目的 Asset Bundle 时
-cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (bundle) => {
+cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bundle) => {
     bundle.load('xxx');
 });
 ```

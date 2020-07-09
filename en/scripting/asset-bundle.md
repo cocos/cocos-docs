@@ -43,19 +43,21 @@ Each folder contained within these three folders **assets**, **remote** and **su
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
+<!-->
 **Note**: If you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after the build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
+-->
 
 ## Load the Asset Bundle
 
 The engine provides a unified API `cc.assetManager.loadBundle` to load the Asset Bundle, which you need to pass in either the Asset Bundle's **URL** or the **Bundle Name** set in the Asset Bundle configuration panel, but if you want to reuse Asset Bundles from other projects, you can only do so through the **URL**. The usage is as follows:
 
 ```js
-cc.assetManager.loadBundle('01_graphics', (bundle) => {
+cc.assetManager.loadBundle('01_graphics', (err, bundle) => {
     bundle.load('xxx');
 });
 
 // Reuse Asset Bundles from other projects
-cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (bundle) => {
+cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bundle) => {
     bundle.load('xxx');
 });
 ```
@@ -207,6 +209,7 @@ For more information about releasing resources, see [Release of Resources](../as
 After the Asset Bundle is loaded, it will remain in the entire gameplay, unless you manually remove it from the game. When an unneeded Asset Bundle is manually removed, the cache for the bundle is also removed. If you need to use it again, you must reload it again.
 
 ```js
+let bundle = cc.assetManager.getBundle('bundle1');
 cc.assetManager.removeBundle(bundle);
 ```
 

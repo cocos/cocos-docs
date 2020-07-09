@@ -129,7 +129,7 @@ bundle.loadScene('test', {priority: 3}, callback);
 
 For more information on `options` parameter, please refer to the [Optional Parameters](options.md) documentation.
 
-But if you don't need to configure the engine's builtin parameters or custom parameters to extend the engine's functionality, you can ignore it and use the simpler API interfaces, such as `cc.resources.load`.
+If you don't need to configure the engine's builtin parameters or custom parameters to extend the engine's functionality, you can ignore it and use the simpler API interfaces, such as `cc.resources.load`.
 
 ## Loading Pipeline
 

@@ -59,7 +59,7 @@ Creator 开放了 10 个可供配置的优先级，编辑器在构建时将会�
 
 ## 压缩类型
 
-Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这几种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可 **重新设置** 包括内置 Asset Bundle 在内的所有 Asset Bundle 的压缩类型。
+Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这几种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可重新设置包括内置 Asset Bundle 在内的所有 Asset Bundle 的压缩类型。
 
 | 压缩类型 | 功能说明 |
 | :------ | ------ |
