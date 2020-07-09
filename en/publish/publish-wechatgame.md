@@ -117,7 +117,7 @@ Please refer to the [WeChat mini games engine plugin instructions](./wechat-engi
 
 ## WeChat Mini Game Subpackage Loading
 
-WeChat Mini Game how to achieve subpackage loading, please refer to [Subpackage Loading](../scripting/asset-bundle.md).
+WeChat Mini Game how to achieve subpackage loading, please refer to [Mini Game Subpackage](subpackage.md#wechat-mini-games).
 
 ## Platform SDK Access
 

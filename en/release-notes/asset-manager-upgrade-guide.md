@@ -1,6 +1,6 @@
 # v2.4 Asset Manager Upgrade Guide
 
-> Author：Santy-Wang, Xunyi0
+> Author：Santy-Wang, Xunyi
 
 > This document will detail the considerations for upgrading an older project to v2.4.
 

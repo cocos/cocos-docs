@@ -1,6 +1,6 @@
 # v2.4 Custom Project Build Process Upgrade Guide
 
-> Author：Santy-Wang, Xunyi0
+> Author：Santy-Wang, Xunyi
 
 This document will detail the considerations for upgrading to v2.4 for an older project that has customized the project build process. Starting with v2.4, we have made some adjustments to the project build process, and the parameters passed in during event callbacks have also been changed. If you have extended your project before v2.4 according to the [custom-project-build process](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/publish/custom-project-build-template.md) documentation, and registered the `before-change-files`, `build-finished` events to customize the project build process. Then:
 

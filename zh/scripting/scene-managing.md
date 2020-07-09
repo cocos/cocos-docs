@@ -6,7 +6,7 @@
 cc.director.loadScene("MyScene");
 ```
 
-除此之外, v2.4 之后 Asset Bundle 还增加了一种新的加载方式：
+除此之外，从 v2.4 开始 Asset Bundle 还增加了一种新的加载方式：
 
 ```js
 bundle.loadScene('MyScene', function (err, scene) {
@@ -14,9 +14,9 @@ bundle.loadScene('MyScene', function (err, scene) {
 });
 ```
 
-`Bundle.loadScene` 只能加载本 bundle 中的场景，并且不会自动运行场景，还需要配合 `cc.director.runScene` 进行使用。`Bundle.loadScene` 可提供更多参数加载控制流程，当你需要控制加载参数或者在加载场景后做一些后处理，你可以使用 `Bundle.loadScene`。
+Asset Bundle 提供的 `loadScene` 只会加载指定 bundle 中的场景，并不会自动运行场景，还需要使用 `cc.director.runScene` 来运行场景。<br>`loadScene` 还提供了更多参数来控制加载流程，开发者可以自行控制加载参数或者在加载完场景后做一些处理。
 
-加载 Asset Bundle 中的场景，详细请查看 [Asset Bundle](asset-bundle.md)。
+更多关于加载 Asset Bundle 中的场景，可参考文档 [Asset Bundle](asset-bundle.md)。
 
 ## 通过常驻节点进行场景资源管理和参数传递
 

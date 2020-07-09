@@ -6,7 +6,7 @@ In Cocos Creator we use scene filename (without extension) to index scenes, and 
 cc.director.loadScene("MyScene");
 ```
 
-In addition, after v2.4, Asset Bundle has added a new loading way.
+In addition, as of v2.4, the Asset Bundle has added a new loading method:
 
  ```js
 bundle.loadScene('MyScene', function (err, scene) {
@@ -14,9 +14,10 @@ bundle.loadScene('MyScene', function (err, scene) {
 });
 ```
 
-The `Bundle.loadScene` can only load scenes in this bundle and will not run scenes automatically, it also needs to be used with the `cc.director.runScene`. `Bundle.loadScene` provides more parameter loading control flow when you need to control loading parameters or do some post-processing after loading a scene.
+The `loadScene` provided by the Asset Bundle will only load scenes from the specified bundle and will not automatically run the scenes, you also need to use `cc.director.runScene` to run the scenes.<br>
+`loadScene` also provides more parameters to control the loading process, so developers can control the loading parameters themselves or do some processing after the loading scene.
 
-To load the scene in Asset Bundle, see [Asset Bundle](asset-bundle.md) documentation for details.
+For more information about loading scenes in the Asset Bundle, you can refer to the [Asset Bundle](asset-bundle.md) documentation.
 
 ## Use persist node to managing multiple scenes and pass information among scenes
 

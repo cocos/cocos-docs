@@ -71,12 +71,12 @@ cc.Class({
 这样就能在脚本里直接拿到设置好的资源：
 
 ```javascript
-    onLoad: function () {
-        var spriteFrame = this.spriteFrame;
-        var texture = this.texture;
+onLoad: function () {
+    var spriteFrame = this.spriteFrame;
+    var texture = this.texture;
 
-        spriteFrame.setTexture(texture);
-    }
+    spriteFrame.setTexture(texture);
+}
 ```
 
 在 **属性检查器** 里设置资源虽然很直观，但资源只能在场景里预先设好，没办法动态切换。如果需要动态切换，你需要看看下面的内容。

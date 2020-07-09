@@ -1,50 +1,71 @@
-# 加载 Asset Bundle
+# 配置和加载 Asset Bundle
 
-> 文：Santy-Wang
+> 文：Santy-Wang、Xunyi
 
-随着游戏玩法越来越丰富，游戏中的资源数量越来越多，开发者对于拆分包体的需求越来越强烈，只将必要的内容放在首包中，减少首包的大小，而其他的内容则放在外部动态获取。所以从 v2.4 开始，Cocos Creator 推出了 **Asset Bundle** 功能，该功能支持 **代码** 和 **资源**，**场景** 的分包加载。
+随着游戏玩法越来越丰富，游戏中的资源数量越来越多，开发者对于拆分包体的需求也越来越强烈。所以从 v2.4 开始，Cocos Creator 推出了 **Asset Bundle** 功能，支持 **代码**、**资源** 和 **场景** 的分包加载。
 
-开发者可将项目中场景、资源、代码等内容划分到不同的 Asset Bundle 中，这些 bundle 不会在游戏启动时加载，而是交由开发者在游戏过程中手动加载，从而有效降低游戏启动的耗时，尽可能做到按需加载。
+开发者可将项目中的部分场景、资源、代码等内容划分到不同的 Asset Bundle 中，这些 Asset Bundle 不会在游戏启动时加载，而是由开发者在游戏过程中手动调用 `loadBundle` 进行加载，从而有效降低游戏启动的时间，尽可能做到按需加载。
 
-关于 Asset Bundle 的介绍，详细请参考 [Asset Bundle](../asset-manager/bundle.md)。
+关于 Asset Bundle 的更多介绍，请参考 [Asset Bundle](../asset-manager/bundle.md)。
 
 ## 配置方法
 
-Cocos Creator 的分包是以文件夹为单位来配置的，当我们选中一个文件夹时，在 **属性检查器** 中会出现文件夹的相关配置选项：
+Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资源管理器** 中选中一个文件夹时，**属性检查器** 中就会出现一个 **配置为 Bundle** 的选项，勾选后会出现如下图的配置项：
 
 ![bundle](./subpackage/inspector.png)
 
-勾选文件夹的 `Is Bundle` 选项后，点击右上方的 **应用**，这个文件夹下的资源（包含代码和其他资源）以及这些资源关联依赖的文件夹外部的资源都会被当做是 bundle 的内容了。比如场景 A 放在 a 文件夹下，将 a 勾选 `Is Bundle` 并确定。则场景 A 以及他依赖的资源都会被合并到 bundle a 中。
+| 配置项 | 功能说明|
+| :---  | :---- |
+| Bundle 名称   | Asset Bundle 构建后的名称，默认会使用这个文件夹的名字，可根据需要修改。 |
+| Bundle 优先级 | Creator 开放了 10 个可供配置的优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle - 优先级](../asset-manager/bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
+| 目标平台      | 不同平台可使用不同的配置，构建时将根据对应平台的设置来构建 Asset Bundle。|
+| 压缩类型      | 决定 Asset Bundle 最后的输出形式，包括 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 5 种压缩类型。具体内容请参考 [Asset Bundle - 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B) |
+| 配置为远程包  | 是否将 Asset Bundle 配置为远程包，不支持 Web 平台。<br>若勾选了该项，则 Asset Bundle 在构建后会被放到 **remote** 文件夹，你需要将整个 **remote** 文件夹放到远程服务器上。<br>构建 OPPO、vivo、华为等小游戏平台时，若勾选了该项，则不会将 Asset Bundle 打包到 rpk 中。 |
 
-**Bundle 优先级** 选项请参考 [Asset Bundle](../asset-manager/bundle.md#优先级) 中的详细说明。
-
-**Bundle 名称** 选项影响 bundle 构建后的名称，默认会使用这个文件夹的名字。
-
-**压缩类型** 选项将决定 Asset Bundle 最后的输出形式，详细选项请参考 [Asset Bundle](../asset-manager/bundle.md#压缩类型)。
-
-**配置为远程包** 选项将决定 Asset Bundle 是否作为远程包，勾选之后，该 Asset Bundle 会在构建后会被放入 remote 文件夹下，你应该将整个 remote 文件夹放到远程服务器上。另外，如果勾选了此选项，在 OPPO, vivo, Huawei 等平台，该 bundle 不会被构建到 rpk 内。
+配置完成后点击右上方的 **应用** 按钮，这个文件夹就被配置为 Asset Bundle 了，然后在 **构建发布** 面板选择对应的平台进行构建。
 
 **注意**：
-1. Creator 内置了 4 个 bundle：resources，internal，main，start-scene 请不要使用这四个名称作为 **Bundle 名称** 的设置。
-2. 如果你将 Asset Bundle 的压缩类型配置为小游戏分包后，在构建后请不要将其移出目录，对应平台比如微信小游戏会做相关处理。
+1. Creator 有 4 个 [内置 Asset Bundle](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**internal**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这四个名称。
+2. [小游戏分包](../publish/subpackage.md) 只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
+3. Zip 压缩类型主要是为了降低网络请求数量，如果放在本地，不用网络请求，则没什么必要。所以要求与 **配置为远程包** 搭配使用。
 
 ## 构建
 
-项目构建后会在发布包目录下生成 **assets**，**remote**，**subpackages** 三个文件夹。这三个文件夹中的每一个文件夹为一个 Asset Bundle。
+在构建时，配置为 Asset Bundle 的文件夹中的资源（包含场景、代码和其他资源）以及文件夹外的相关依赖资源都会被合并到同一个 Asset Bundle 文件夹中。比如场景 A 放在 a 文件夹中，当 a 文件夹配置为 Asset Bundle 后，场景 A 以及它所依赖的资源都会被合并到 Asset Bundle a 文件夹中。
 
-**例如**：将 example 工程中的 **cases/01_graphics** 文件夹配置为 Asset Bundle，那么项目构建后将会在发布包目录下的 **assets** 生成 **01_graphics** 文件夹。
+构建完成后，这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **assets** 文件夹中。但有以下两种特殊情况：
+- 配置 Asset Bundle 时，若勾选了 **配置为远程包**，则这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **remote** 文件夹中。
+- 配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏分包**，则这个 Asset Bundle 文件夹会被打包到对应平台发布包目录下的 **subpackages** 文件夹中。
 
-  ![asset-bundle](./subpackage/asset-bundle.png)
+**assets**、**remote**、**subpackages** 这三个文件夹中包含的每个文件夹都是一个 Asset Bundle。
+
+例如：将 example 工程中的 **cases/01_graphics** 文件夹在 Web Mobile 平台配置为 Asset Bundle，那么项目构建后将会在发布包目录下的 **assets** 中生成 **01_graphics** 文件夹，**01_graphics** 文件夹就是一个 Asset Bundle。
+
+![asset-bundle](./subpackage/asset-bundle.png)
+
+<!--
+**注意**：在配置 Asset Bundle 时，若设置了 **压缩类型** 为 **小游戏分包**，那么请不要将构建后生成在 **subpackages** 文件夹中的 Asset Bundle 移出，对应平台比如微信小游戏会自行做相关处理。
+-->
 
 ## 加载 Asset Bundle
 
-引擎提供了一个统一的 api `cc.assetManager.loadBundle` 来加载 Asset Bundle。`loadBundle` 需要传入一个 Asset Bundle 的名称或者 url。
+引擎提供了一个统一的 API `cc.assetManager.loadBundle` 来加载 Asset Bundle，加载时需要传入 Asset Bundle 配置面板中的 **Bundle 名称** 或者 Asset Bundle 的 **url**。但当你复用其他项目的 Asset Bundle 时，则只能通过 **url** 进行加载。使用方法如下：
 
-**注意**：
-1. **Bundle 名称** 和 bundle 的 url 一般情况下都可以作为加载 bundle 时的参数，但当复用其他项目的 bundle 时，仅能通过 url 进行加载。
-2. 如果有 bundle 放在远程服务器上，请在构建时填写 **资源服务器地址**。
+```js
+cc.assetManager.loadBundle('01_graphics', (err, bundle) => {
+    bundle.load('xxx');
+});
 
-当 Asset Bundle 加载完成后，Asset Bundle 中的脚本将被执行，并触发回调，返回错误信息和一个 `cc.AssetManager.Bundle` 类的实例，你可以用这个实例加载该 bundle 中的各类资源。 
+// 当复用其他项目的 Asset Bundle 时
+cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bundle) => {
+    bundle.load('xxx');
+});
+```
+
+**注意**：在配置 Asset Bundle 时，若勾选了 **配置为远程包**，那么构建时请在 **构建发布** 面板中填写 **资源服务器地址**。
+
+在通过 API 加载 Asset Bundle 时，引擎并没有加载 Asset Bundle 中的所有资源，而是加载 Asset Bundle 的 **资源清单**，以及包含的 **所有脚本**。<br>
+当 Asset Bundle 加载完成后，会触发回调并返回错误信息和 `cc.AssetManager.Bundle` 类的实例，这个实例就是 Asset Bundle API 的主要入口，开发者可以使用它去加载 Asset Bundle 中的各类资源。
 
 ```javascript
 cc.assetManager.loadBundle('01_graphics', function (err, bundle) {
@@ -54,7 +75,7 @@ cc.assetManager.loadBundle('01_graphics', function (err, bundle) {
     console.log('load bundle successfully.');
 });
 
-// 如果复用其他项目的 bundle
+// 如果复用其他项目的 Asset Bundle
 cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function (err, bundle) {
     if (err) {
         return console.error(err);
@@ -65,14 +86,15 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function 
 
 ### Asset Bundle 的版本
 
-有时你可能需要更新远程服务器上的 Asset Bundle，此时需要机制能够绕过已存在的缓存文件，Asset Bundle 在更新上延续了 Cocos Creator 的 MD5 方案，当你需要对 Asset Bundle 进行更新时，请在构建面板勾选 **MD5 Cache** 选项，此时构建出来的 Asset Bundle 中的 `config` 文件的文件名会附带 Hash 值。如图所示：
+Asset Bundle 在更新上延续了 Creator 的 MD5 方案。当你需要更新远程服务器上的 Asset Bundle 时，请在 **构建发布** 面板中勾选 **MD5 Cache** 选项，此时构建出来的 Asset Bundle 中的 `config.json` 文件名会附带 Hash 值。如图所示：
 
 ![md5 cache](subpackage/bundle_md5.png)
 
-当你加载 Asset Bundle 时你 **不需要** 额外提供对应的 Hash 值，Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整，**但如果你想要将相关版本配置信息存储在服务器上，启动时动态获取版本信息以实现热更新，你也可以手动指定一个版本 Hash 值传入到 `loadBundle` 中**，此时将会以传入的 Hash 值为准：
+在加载 Asset Bundle 时 **不需要** 额外提供对应的 Hash 值，Creator 会在 `settings.js` 中查询对应的 Hash 值，并自动做出调整。<br>
+但如果你想要将相关版本配置信息存储在服务器上，启动时动态获取版本信息以实现热更新，你也可以手动指定一个版本 Hash 值并传入 `loadBundle` 中，此时将会以传入的 Hash 值为准：
 
 ```js
-cc.assetManager.loadBundle('01_graphics', { version: 'fbc07' }, function (err, bundle) {
+cc.assetManager.loadBundle('01_graphics', {version: 'fbc07'}, function (err, bundle) {
     if (err) {
         return console.error(err);
     }
@@ -80,49 +102,29 @@ cc.assetManager.loadBundle('01_graphics', { version: 'fbc07' }, function (err, b
 });
 ```
 
-此时就能绕过缓存中的老版本文件，重新下载最新版本的 Asset Bundle。
+这样就能绕过缓存中的老版本文件，重新下载最新版本的 Asset Bundle。
 
-## 获取 Asset Bundle
+## 加载 Asset Bundle 中的资源
 
-当 Asset Bundle 已经被加载过之后，将被缓存下来，此时你可以使用名称来获取该 bundle。例如：
-
-```js
-let bundleA = cc.assetManager.getBundle('bundleA');
-```
-
-## 通过 Asset Bundle 动态加载资源
-
-通过加载 Asset Bundle，我们将获得一个 `cc.AssetManager.Bundle` 类的实例。你可以通过这个实例去动态加载 Asset Bundle 中的各类资源。加载方式与加载 `resources` 目录下的资源方式相同，实际上 `cc.resources` 就是一个 Asset Bundle 的实例。
-
-假设在工程中配置了一个 Asset Bundle，如图所示：
-
-![bundle1](subpackage/bundle1.png)
-
-### 动态加载 Asset
-
-Asset Bundle 中提供了 `load` 方法用于加载位于设置为 Asset Bundle 的目录下的资源，此方法的参数与 `cc.resources.load` 相同，你只要传入资源相对 Asset Bundle 目录的路径即可，并且路径的结尾处 **不能** 包含文件扩展名。
+在 Asset Bundle 加载完成后，返回了一个 `cc.AssetManager.Bundle` 类的实例。我们可以通过实例上的 `load` 方法来加载 Asset Bundle 中的资源，此方法的参数与 `cc.resources.load` 相同，只需要传入资源相对 Asset Bundle 的路径即可。但需要注意的是，路径的结尾处 **不能** 包含文件扩展名。
 
 ```js
-cc.assetManager.loadBundle('bundle1', function (err, bundle) {
-    if (err) {
-        return console.error(err);
-    }
-    // 加载 prefab
-    bundle.load(`prefab`, cc.Prefab, function (err, prefab) {
-        var newNode = cc.instantiate(prefab);
-        cc.director.getScene().addChild(newNode);
-    });
+// 加载 Prefab
+bundle.load(`prefab`, cc.Prefab, function (err, prefab) {
+    let newNode = cc.instantiate(prefab);
+    cc.director.getScene().addChild(newNode);
+});
 
-    // 加载 texture
-    bundle.load(`image`, cc.Texture2D, function (err, texture) {
-        console.log(texture)
-    });
+// 加载 Texture
+bundle.load(`image`, cc.Texture2D, function (err, texture) {
+    console.log(texture)
 });
 ```
 
-与 `cc.resources.load` 相同，`load` 方法可以提供一个类型参数，这在存在同名资源或加载 SpriteFrame 时十分有效。例如：
+与 `cc.resources.load` 相同，`load` 方法也提供了一个类型参数，这在加载同名资源或者加载 SpriteFrame 时十分有效。
 
 ```js
+// 加载 SpriteFrame
 bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
     console.log(spriteFrame);
 });
@@ -130,15 +132,15 @@ bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
 
 ### 批量加载资源
 
-Asset Bundle 中提供了 `loadDir` 方法用于批量加载相同路径下的多个资源，此方法的参数与 `cc.resources.loadDir` 相似，你只要传入相对 Asset Bundle 目录的目录路径即可。
+Asset Bundle 提供了 `loadDir` 方法来批量加载相同目录下的多个资源。此方法的参数与 `cc.resources.loadDir` 相似，只需要传入该目录相对 Asset Bundle 的路径即可。
 
 ```js
-// 加载 textures 目录下所有资源
+// 加载 textures 目录下的所有资源
 bundle.loadDir("textures", function (err, assets) {
     // ...
 });
 
-// 加载 textures 目录下所有 Texture 资源
+// 加载 textures 目录下的所有 Texture 资源
 bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
     // ...
 });
@@ -146,7 +148,8 @@ bundle.loadDir("textures", cc.Texture2D, function (err, assets) {
 
 ### 加载场景
 
-Asset Bundle 中提供了 `loadScene` 方法用于加载 Asset Bundle 中的场景，你只要传入场景名即可。`loadScene` 与 `cc.director.loadScene` 不同的地方在于 `loadScene` 只会加载本 bundle 内的场景，并且不会运行场景，你还需要使用 `cc.director.runScene` 来运行场景。
+Asset Bundle 提供了 `loadScene` 方法用于加载指定 bundle 中的场景，你只需要传入 **场景名** 即可。<br>
+`loadScene` 与 `cc.director.loadScene` 不同的地方在于 `loadScene` 只会加载指定 bundle 中的场景，而不会运行场景，你还需要使用 `cc.director.runScene` 来运行场景。
 
 ```js
 bundle.loadScene('test', function (err, scene) {
@@ -154,60 +157,71 @@ bundle.loadScene('test', function (err, scene) {
 });
 ```
 
-另一种动态加载资源的方式，请参考 [加载 resources 下的资源](load-assets.md)。 
+## 获取 Asset Bundle
+
+当 Asset Bundle 被加载过之后，会被缓存下来，此时开发者可以使用 Asset Bundle 名称来获取该 bundle。例如：
+
+```js
+let bundle = cc.assetManager.getBundle('01_graphics');
+```
 
 ## 预加载资源
 
-除了场景能够预加载之外，其他资源也能够进行预加载。加载参数与正常加载时一样，但其只会去下载相关资源，并不会进行资源的反序列化和初始化工作，所以消耗的性能更小，适合在游戏过程中使用。Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 bundle 中的资源。具体的使用方式和 cc.assetManager 中的预加载一样，详见 [预加载与加载](../asset-manager/preload-load.md)。
+除了场景，其他资源也可以进行预加载。预加载的加载参数和正常加载时一样，不过因为预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，更适合在游戏过程中使用。
+
+Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 Asset Bundle 中的资源。具体的使用方式和 `cc.assetManager` 一致，详情可参考文档 [预加载与加载](../asset-manager/preload-load.md)。
 
 ## 释放 Asset Bundle 中的资源
 
-在加载完资源之后，所有的资源都会临时被缓存到 `cc.assetManager` 中，以避免重复加载资源，当然，缓存的内容都会占用内存，有些资源可能用户不再需要了，想要释放它们，这里介绍一下在做资源释放时需要注意的事项。
+在资源加载完成后，所有的资源都会被临时缓存到 `cc.assetManager` 中，以避免重复加载。当然，缓存中的资源也会占用内存，有些资源如果不再需要用到，可以通过以下三种方式进行释放：
 
-Asset Bundle 中的资源可以使用三种方式进行释放，第一种是使用常规的 `cc.assetManager.releaseAsset` 方法进行释放。
+1. 使用常规的 `cc.assetManager.releaseAsset` 方法进行释放。
+
+    ```js
+    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+        cc.assetManager.releaseAsset(spriteFrame);
+    });
+    ```
+
+2. 使用 Asset Bundle 提供的 `release` 方法，通过传入路径和类型进行释放，只能释放在 Asset Bundle 中的单个资源。参数可以与 Asset Bundle 的 `load` 方法中使用的参数一致。
+
+    ```js
+    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+        bundle.release(`image`, cc.SpriteFrame);
+    });
+    ```
+
+3. 使用 Asset Bundle 提供的 `releaseAll` 方法，此方法与 `cc.assetManager.releaseAll` 相似，`releaseAll` 方法会释放所有属于该 bundle 的资源（包括在 Asset Bundle 中的资源以及其外部的相关依赖资源），请慎重使用。
+
+    ```js
+    bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
+        bundle.releaseAll();
+    });
+    ```
+
+**注意**：在释放资源时，Creator 会自动处理该资源的依赖资源，开发者不需要对其依赖资源进行管理。
+
+更多资源释放相关的内容，可参考文档 [资源释放](../asset-manager/release-manager.md)。
+
+## 移除 Asset Bundle
+
+在加载了 Asset Bundle 之后，此 bundle 会一直存在整个游戏过程中，除非开发者手动移除。当手动移除了某个不需要的 bundle，那么此 bundle 的缓存也会被移除，如果需要再次使用，则必须再重新加载一次。
 
 ```js
-bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-    cc.assetManager.releaseAsset(spriteFrame);
-});
-```
-
-第二种方式是 Asset Bundle 中的 `release` 方法，通过传入路径和类型进行释放，只能释放该 bundle 中的资源, 参数可以使用与 `Bundle.load` 一样的参数。
-
-```js
-bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-    bundle.release(`image`, cc.SpriteFrame);
-});
-```
-
-第三种方式是 Asset Bundle 中的 `releaseAll` 方法，此方法与 `cc.assetManager.releaseAll` 相似，`releaseAll` 方法会释放该 Asset Bundle 中所有已经被加载的资源，请慎重使用。
-
-```js
-bundle.load(`image`, cc.SpriteFrame, function (err, spriteFrame) {
-    bundle.releaseAll();
-});
-```
-
-**注意**：当你释放资源时，Creator 同时会去处理该资源的依赖资源，你不必对依赖项进行管理。
-
-关于释放资源的详细介绍请参考 [资源释放](../asset-manager/release-manager.md)。
-
-## 销毁 Asset Bundle
-
-当加载了 Asset Bundle 之后，此 bundle 会一直存在游戏过程中，除非你手动销毁该 bundle。当你不再需要某个 bundle 时，你可以手动销毁它，则它将被移除缓存，下次使用必须重新加载一次。
-
-```js
+let bundle = cc.assetManager.getBundle('bundle1');
 cc.assetManager.removeBundle(bundle);
 ```
 
-**注意**：销毁 Asset Bundle 并不会释放该 bundle 中已经加载的资源。如果你想释放所有已加载资源，请先使用 `Bundle.releaseAll`。
+**注意**：在移除 Asset Bundle 时，并不会释放该 bundle 中被加载过的资源。如果需要释放，请先使用 Asset Bundle 的 `release` / `releaseAll` 方法：
 
 ```js
-var bundle = cc.assetManager.getBundle('bundle1');
+let bundle = cc.assetManager.getBundle('bundle1');
+// 释放在 Asset Bundle 中的单个资源
+bundle.release(`image`, cc.SpriteFrame);
+cc.assetManager.removeBundle(bundle);
+
+let bundle = cc.assetManager.getBundle('bundle1');
+// 释放所有属于 Asset Bundle 的资源
 bundle.releaseAll();
 cc.assetManager.removeBundle(bundle);
 ```
-
----
-
-继续前往 [插件脚本](plugin-scripts.md) 说明文档。

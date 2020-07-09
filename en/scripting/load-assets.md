@@ -32,7 +32,7 @@ cc.Class({
 });
 ```
 
-## How to set assets in the **Properties** panel
+## How to set assets in the Properties panel
 
 As long as you define the type in the script, you can set assets easily in the **Properties** panel. Suppose we create a script like this:
 
@@ -71,12 +71,12 @@ The result is as follows:
 In this way you can get the set asset directly from the script:
 
 ```js
-    onLoad: function () {
-        var spriteFrame = this.spriteFrame;
-        var texture = this.texture;
+onLoad: function () {
+    var spriteFrame = this.spriteFrame;
+    var texture = this.texture;
 
-        spriteFrame.setTexture(texture);
-    }
+    spriteFrame.setTexture(texture);
+}
 ```
 
 Although it is very straight forward to set assets in the **Properties** panel, assets can only be pre-set in the scene without dynamic switching. If you need dynamic switching, you need to check the following contents out.
