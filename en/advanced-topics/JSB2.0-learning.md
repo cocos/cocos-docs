@@ -1037,27 +1037,31 @@ Change to:
 
 #### Windows/Mac
 
-* Compile, run the game (or run directly in the Creator simulator)
-* Open with Chrome: [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+- Compile, run the game (or run directly in the Creator simulator)
 
-Breakpoint debugging:
+- Open with Chrome: <devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008>. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 
-![](jsb/v8-win32-debug.jpg)
+- Breakpoint debugging:
 
-Catch JS Heap:
+  ![](jsb/v8-win32-debug.jpg)
 
-![](jsb/v8-win32-memory.jpg)
+- Catch JS Heap:
 
-Profile:
+  ![](jsb/v8-win32-memory.jpg)
 
-![](jsb/v8-win32-profile.jpg)
+- Profile:
+
+  ![](jsb/v8-win32-profile.jpg)
 
 #### Android/iOS
 
-* Make sure your Android/iOS device is on the same network as your PC or Mac
-* Compile and run your game
-* Open with Chrome: [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), `xxx.xxx.xxx.xxx` is the IP address of Android/iOS device.
-* The remote debugging interface is the same as debugging Windows.
+- Make sure your Android/iOS device is on the same network as your PC or Mac
+
+- Compile and run your game
+
+- Open with Chrome: <devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008>, `xxx.xxx.xxx.xxx` is the IP address of Android/iOS device. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
+
+- The remote debugging interface is the same as debugging Windows.
 
 ## Q & A
 
