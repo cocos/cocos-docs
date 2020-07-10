@@ -1030,8 +1030,9 @@ classes_owned_by_cpp =
 
 #### Windows/Mac
 
-* 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
-* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
+- 编译、运行游戏（或在 Creator 中直接使用模拟器运行）
+
+- 用 Chrome 浏览器打开 <devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008>。（若使用的是旧版 Chrome，则需要将地址开头的 `devtools` 改成 `chrome-devtools`）
 
 - 断点调试：
 
@@ -1047,10 +1048,13 @@ classes_owned_by_cpp =
 
 #### Android/iOS
 
-* 保证 Android/iOS 设备与 PC 或者 Mac 在同一个局域网中
-* 编译，运行游戏
-* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。
-* 调试界面与 Windows 相同
+- 保证 Android/iOS 设备与 PC 或者 Mac 在同一个局域网中
+
+- 编译，运行游戏
+
+- 用 Chrome 浏览器打开 <devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008>，其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。（若使用的是旧版 Chrome，则需要将地址开头的 `devtools` 改成 `chrome-devtools`）
+
+- 调试界面与 Windows 相同
 
 ## Q & A
 
