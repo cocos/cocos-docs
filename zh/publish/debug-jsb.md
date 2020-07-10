@@ -12,9 +12,11 @@
 
 ![](debug-jsb/simulator-run.png)
 
-运行模拟器后，直接用 Chrome 浏览器打开地址：`chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008` 即可进行调试：
+运行模拟器后，直接用 Chrome 浏览器打开地址：[chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008) 即可进行调试：
 
 ![](debug-jsb/v8-win32-debug.png)
+
+**注意**：如果打开地址无法跳转到调试页面，可能是因为新版的 Chrome 浏览器不支持使用 `chrome-devtools`，请更换地址为：[devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)。
 
 ### 方法二
 
@@ -32,9 +34,11 @@
 
 - 在 Creator 的 **构建发布** 面板选择 Android/iOS 平台、Debug 模式，构建编译运行工程（iOS 平台建议通过 Xcode 连接真机进行编译运行）。
 
-- 用 Chrome 浏览器打开地址：`chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。其中 `{IP}` 为 Android/iOS 设备的本地 IP。
+- 用 Chrome 浏览器打开地址：[chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008) 即可进行调试。其中 `{IP}` 为 Android/iOS 设备的本地 IP。
 
   ![](debug-jsb/v8-android-debug.png)
+
+  **注意**：如果打开地址无法跳转到调试页面，可能是因为新版的 Chrome 浏览器不支持使用 `chrome-devtools`，请更换地址为：[devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008](devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008)。
 
 ## 其它平台调试
 
