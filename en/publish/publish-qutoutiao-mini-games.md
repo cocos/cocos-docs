@@ -46,11 +46,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qtt-game** directory is generated under the default release path `build` directory, which is the exported QTT Mini Game project directory and **rpk**, the **rpk** package is in the **/build/qtt-game** directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qtt-game** directory is generated under the default release path `build` directory, which is the exported QTT Mini Game project directory and **cpk**, the **cpk** package is in the **/build/qtt-game** directory.
 
 ![](publish-qutoutiao/output.png)
 
-**3. Run the built rpk to the phone**
+**3. Run the built cpk to the phone**
 
 - Open the QTT APP that has been installed before on your Android device, click **我的** in the bottom navigation bar. Then drag the page down to the bottom and click **设置** to enter the Settings page.
 
