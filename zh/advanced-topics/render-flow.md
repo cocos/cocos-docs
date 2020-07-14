@@ -19,3 +19,7 @@
 RenderFlow 在渲染这个节点的时候就会根据节点的 `node._renderFlag` 状态进入到 **transform => render** 分支，而不需要再进行多余的状态判断。
 
 ![v2.x 流程](./render-flow/render-flow-2.png)
+
+## 参考链接
+
+[自定义渲染 Assembler](https://forum.cocos.org/t/demo/95087)
