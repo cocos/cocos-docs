@@ -2,7 +2,7 @@
 
 Starting with Cocos Creator v2.4.1, creating games for the LinkSure Mini Games is officially supported. LinkSure Mini Game is a mini game application platform of WiFi Master Key, which is convenient, lightweight and without installation.
 
-The LinkSure Mini Game runs as a **cpk** game package in the mini game environment, but instead of the Browser or Webview environment, it runs on the JavaSript runtime environment based on V8. The game package is hosted in the cloud, put and run in the APP, safe, reliable and experience smooth, users can tap to play, without installation.
+The LinkSure Mini Game runs as a **cpk** game package in the mini game environment, which is similar to the WeChat Mini Game. The game package is hosted in the cloud, put and run in the APP, safe, reliable and experience smooth, users can tap to play, without installation.
 
 ## Environment Configuration
 
