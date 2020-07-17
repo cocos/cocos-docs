@@ -70,7 +70,7 @@ This command will generate a `bin` folder in the engine directory and compile th
 **Note**: If a `JavaScript heap out of memory` error occurs during compilation, you can use the following command to solve it:
 
 ```js
-gulp build --max-old-space-size=8192
+gulp build-dev --max-old-space-size=8192
 ```
 
 ## 2 Customize Cocos2d-x-lite Engine
