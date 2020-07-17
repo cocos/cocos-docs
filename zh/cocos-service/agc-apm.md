@@ -41,7 +41,7 @@ Creator 2.4.2 以下版本，请参照以下步骤：
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 性能管理**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示）。即可验证服务接入成功。
 
-![](agc-apm/apm-open.png)
+![](agc-apm/apm-console.jpeg)
 
 ## Sample 工程
 

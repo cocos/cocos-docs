@@ -13,7 +13,11 @@
         - [游戏联机对战引擎](mgobe.md)
         - [游戏多媒体引擎](gme.md)
             - [接口文档](gme-api-docs.md)
+        - [性能管理](agc-apm.md)
+        - [定位服务](hms-location.md)
+        - [分析服务](hms-analytics.md)
         - [SDKHub](sdkhub.md)
             - [HUAWEI HMS](sdkhub-plugins/sdkhub-hms.md)
+            
 
 

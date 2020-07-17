@@ -1,8 +1,8 @@
 # HUAWEI HMS 插件
 
-目前 SDKHub 提供的华为 HMS SDK 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-introduction-v4)、[应用内支付服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-service-introduction-v4)、[广告服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-introduction) 和部分 [账号服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-introduction-v4) 功能，用户需在 JS 层调用 SDKHub 接口，处理回调。
+目前 SDKHub 提供的华为 HMS SDK 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit) 和 [推送服务](https://developer.huawei.com/consumer/cn/hms/huawei-pushkit) 功能，用户需在 JS 层调用 SDKHub 接口，处理回调。
 
-插件中的 **账号 & 游戏服务**、**支付服务**、**广告服务** 三大功能均可独立使用。
+插件中的 **账号 & 游戏服务**、**支付服务**、**广告服务** 和 **推送服务** 均可独立使用。
 
 SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口。华为 HMS SDK 插件中在支付情况下，做了本地验证，但用户需要登录或支付服务端验证（可选）时，请使用回调中的信息，自行到服务端进行验证。
 
@@ -469,4 +469,21 @@ var params = {
 this.ads.showAds(params);
 ```
 
+### 推送系统
+
+HMS 的推送系统 **不支持** `setAlias` 与 `delAlias` 功能，另外由于 HMS 对应 `setTags` 与 `delTags` 接口，只能传 **一个** Tag，若在 SDKHub 一次传入多个 Tag，会有对应的多次回调。建议用户一次只传一个 Tag。
+
+#### 扩展方法
+
+##### 设置是否显示通知栏消息
+
+`turnOnPush` 与 `turnOffPush`，对应 [推送服务-客户端开发指导-设置是否显示通知栏消息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-client-dev-0000001050042041#ZH-CN_TOPIC_0000001050042041__section1897912161216) 文档。开发者如果想控制应用是否允许显示通知栏消息，可以调用该方法。如果开发者不调用此方法，系统默认是允许显示通知栏消息。
+
+注：该开关状态无法获取，请用户在需要的情况下直接调用。
+
+```
+this.push.callFuncWithParam("turnOnPush");
+
+this.push.callFuncWithParam("turnOffPush");
+```
 

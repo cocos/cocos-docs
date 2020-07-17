@@ -497,4 +497,87 @@ this.ads.hideAds(params);
 | kAdsOnAdImpression | 16 | 广告曝光回调 |
 | kAdsExtension | 40000 | 广告扩展回调值 |
 
+### 推送系统
+
+假定我们将系统对象设置为 `this.push`，下同。
+
+```
+this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
+```
+
+#### 术语说明
+
+**别名（Alias）**
+
+为安装了应用程序的用户，取个别名来标识。以后给该用户 Push 消息时，就可以用此别名来指定。
+
+- 每个用户只能指定一个别名。
+- 同一个应用程序内，对不同的用户，建议取不同的别名。这样，尽可能根据别名来唯一确定用户。
+- 系统不限定一个别名只能指定一个用户。如果一个别名被指定到了多个用户，当给指定这个别名发消息时，服务器端 API 会同时给这多个用户发送消息。
+
+举例：在一个用户要登录的游戏中，可能设置别名为 userid。游戏运营时，发现该用户 3 天没有玩游戏了，则根据 userid 调用服务器端 API 发通知到客户端提醒用户。
+
+**标签（Tag）**
+
+为安装了应用程序的用户，打上标签。其目的主要是方便开发者根据标签，来批量下发 Push 消息。
+
+- 可为每个用户打多个标签。
+- 不同应用程序、不同的用户，可以打同样的标签。
+
+举例： game, old_page, women
+
+#### 开始推送 startPush
+
+```
+this.push.startPush();
+```
+
+#### 关闭推送 closePush
+
+```
+this.push.closePush();
+```
+
+#### 设置别名 setAlias
+
+```
+this.push.setAlias("SDKHub");
+```
+
+#### 删除别名 delAlias
+
+```
+this.push.delAlias("SDKHub");
+```
+
+#### 设置标签 setTags
+
+```
+this.push.setTags(["tag1", "tag2"...]);
+```
+
+#### 删除标签 delTags
+
+```
+this.push.delAlias(["tag1", "tag2"...]);
+```
+
+#### 回调列表
+
+| 状态码 SDKHub.PushReturnCode. | 对应 int 值 | 描述 |
+| --- | --- | --- |
+| kPushReceiveMessage | 0 | 接受到推送消息 |
+| kStartPushSucceed | 1 | 开始推送成功 |
+| kStartPushFailed | 2 | 开始推送失败 |
+| kClosePushSucceed | 3 | 关闭推送成功 |
+| kClosePushFailed | 4 | 关闭推送失败 |
+| kSetAliasSucceed | 5 | 设置别名成功 |
+| kSetAliasFailed | 6 | 设置别名失败 |
+| kDelAliasSucceed | 7 | 删除别名成功 |
+| kDelAliasFailed | 8 | 删除别名失败 |
+| kSetTagsSucceed | 9 | 设置标签成功 |
+| kSetTagsFailed | 10 | 设置标签失败 |
+| kDelTagSucceed | 11 | 删除标签成功 |
+| kDelTagsFailed | 12 | 删除标签失败 |
+| kPushExtension | 50000 | 推送扩展回调值 |
 
