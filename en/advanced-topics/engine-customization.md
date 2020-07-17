@@ -49,7 +49,7 @@ __npm__ and __gulp__ are core components for engine building. These need to be i
 # Enter the engine path in the command line
 cd E:/engine
 # Install the gulp build tool
-npm install -g gulp-dev
+npm install -g gulp
 # Install dependent modules
 npm install
 ```
