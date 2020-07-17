@@ -22,23 +22,23 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 SDKHub，进入 SDKHub 服务面板。然后点击右上方的 **启用** 按钮以开通 SDKHub 服务。详情可参考 [Cocos Service 操作指南](https://docs.cocos.com/creator/manual/zh/cocos-service/user-guide.html)。
 
-    ![w250](sdkhub-hms/hms-provisioning.png) 
+    ![](sdkhub-hms/hms-provisioning.png) 
 
 - 在 SDKHub 服务面板上添加一个新配置集
     
-    ![w250](sdkhub-hms/hms-config-group1.jpeg)
+    ![](sdkhub-hms/hms-config-group1.jpeg)
 
-    ![w250](sdkhub-hms/hms-config-group2.png)
+    ![](sdkhub-hms/hms-config-group2.png)
 
 - 添加后点击 **配置插件** 按钮，勾选 **HUAWEI HMS** 所需相关服务插件。
  
-    ![w250](sdkhub-hms/hms-config-group3.png)
+    ![](sdkhub-hms/hms-config-group3.png)
 
 - 点击 **插件** 下的配置按钮，填写所需的配置。
 
-    ![w250](sdkhub-hms/hms-config-group4.jpeg)
+    ![](sdkhub-hms/hms-config-group4.jpeg)
 
-    ![w250](sdkhub-hms/hms-params.jpg)
+    ![](sdkhub-hms/hms-params.jpg)
 
 - `agconnect-services.json` 配置文件，创建项目后在开发者后台获取。
 
@@ -67,101 +67,13 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ## 接口文档
 
-考虑过去苹果 IAP 审核方面等的问题经验，我们将支付关键字设为 `fee`。
-
-### 公共部分
-
-#### 获取对象
-
-`getSupportPlugin` ：获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads` 或 `Custom` 字段来判断是否存在该系统对象。
-
-```
-var plugins = SDKHub.AgentManager.getInstance().getSupportPlugin();
-```
-
-- `getUserPlugin` ：获取用户（账号和游戏）系统对象
-- `getFeePlugin` ：获取支付系统对象
-- `getAdsPlugin` ：获取广告系统对象
-
-```
-this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
-this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
-this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
-```
-
-`setListener`：设置该系统的统一回调，回调值和返回信息说明请参考下方各系统部分
-
-一些提示性的回调，`msg` 中为 String 形式，仅供参考。而若是回调 `msg` 格式为 JSON，可能需要解析 JSON 内容，获取需要的参数。若回调值为失败情况，且存在 `rtnCode` 参数，则该参数为华为提供的回调值，可在华为文档中查找该回调值说明，个别接口可能需要做特殊处理。
-
-```
-this.user.setListener(this.onUserResult, this);
-
-onUserResult:function(code, msg){ 
-}
-```
-
-#### 扩展方法调用
-
-`callFuncWithParam` 非框架原有的接口，使用该方法调用，需要传入的参数和方法名，请参考下方各系统说明文档。
-
-```
-// var params = 0; //若参数值需要单个数字或字符串等情况，也可能用此写法。
-var params = {
-    "id1" : "value1",
-    "id2" : "value2",
-    ······
-};
-this.xxx.callFuncWithParam("functionName", params);
-```
-
-例如华为 HMS 的 `getGamePlayerStats` 方法：
-
-```
-var params = 0;
-this.user.callFuncWithParam("getGamePlayerStats", params);
-```
-
-#### 其他公共方法
-
-`getPluginId` 获取系统对象 ID
-
-```
-var userPluginId = this.user.getPluginId();
-var feePluginId = this.fee.getPluginId();
-```
-
-`getPluginVersion` 获取插件版本，例如 "1.0.0_4.0.3"，下划线前为插件的版本号，下划线后为接入平台 SDK 的版本号。
-
-```
-var userPluginVersion = this.user.getPluginVersion()
-```
-
 ### 用户 & 游戏系统
 
-华为系统的方法较多，大部分接口需要使用扩展方法调用，并大量返回扩展回调。需要配合参考华为官方对应的文档进行调用。
+华为系统的方法较多，部分接口需要使用扩展方法调用，并返回扩展回调。需要配合参考华为官方对应的文档进行调用。
 
 假定我们将该系统对象设置为 `this.user`，下同。
 
 ```this.user = SDKHub.AgentManager.getInstance().getUserPlugin();```
-
-#### 回调
-
-各系统回调中，若返回的 msg 为 JSON 格式，且有需要的返回值，请参考华为文档，在 msg 中解析 JSON 格式，获取所需的参数。
-
-```
-this.user.setListener(this.onUserResult, this);
-
-onUserResult:function(code, msg){ 
-    console.log("on user result action.");
-    console.log("code: " + code);
-    console.log("msg: " + msg);
-    switch(code) {
-        case 20000:
-        //todo
-        break;
-    }
-}
-```
 
 #### 登录
 
@@ -410,28 +322,11 @@ this.user.callFuncWithParam("getGamePlayerStats", params)
 
 ### 支付系统
 
+考虑过去苹果 IAP 审核方面等的问题经验，我们将支付关键字设为 `fee`。
+
 假定我们将支付系统对象设置为 `this.fee`，下同。
 
 `this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();`
-
-#### 回调
-
-该系统回调中，若返回的 msg 为 JSON 格式，且有需要的返回值，请参考华为文档，在 msg 中解析 JSON 格式，获取所需的参数。
-
-```
-this.fee.setListener(this.onFeeResult, this);
-
-onFeeResult:function(code, msg){ 
-    console.log("on fee result action.");
-    console.log("code: " + code);
-    console.log("msg: " + msg);
-    switch(code) {
-        case 30000:
-        //todo
-        break;
-    }
-}
-```
 
 #### 发起购买
 
@@ -538,25 +433,6 @@ this.fee.callFuncWithParam("startIapActivity", params);
 假定我们将广告系统对象设置为 `this.ads`，下同。
 
 `this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();`
-
-#### 回调
-
-该系统回调中，若返回的 msg 为 JSON 格式，且有需要的返回值，请参考华为文档，在 msg 中解析 JSON 格式，获取所需的参数。
-
-```
-this.ads.setListener(this.onAdsResult, this);
-
-onAdsResult:function(code, msg){ 
-    console.log("on ads result action.");
-    console.log("code: " + code);
-    console.log("msg: " + msg);
-    switch(code) {
-        case 40000:
-        //todo
-        break;
-    }
-}
-```
 
 #### 预加载广告 
 

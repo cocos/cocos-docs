@@ -2,7 +2,7 @@
 
 SDKHub 是一套帮助 Cocos Creator 用户快速接入原生平台 SDK 的接入框架。
 
-游戏在开发完成准备发布到渠道进行上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这将让开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的“超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，但是后来由于一些原因 AnySDK 不再维护和更新了。
+游戏在开发完成准备发布到渠道进行上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这将让开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的 ”超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，但是后来由于一些原因 AnySDK 不再维护和更新了。
 
 SDKHub 是引擎团队针对解决这一问题而为 Creator 而专门开发的功能，可以完全用来替代 AnySDK。
 
@@ -100,8 +100,6 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
       
     - 需要在安装了 HMS 服务的华为或荣耀品牌手机上测试。
 
-
-
 - 在 **服务** 面板中开通 SDKHub 服务，具体可参考上文 — 开通服务。
 
 - 在 SDKHub 服务面板上添加一个新配置集。
@@ -128,12 +126,11 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
 - 若需要删减服务插件配置（例如去掉支付功能），建议删除工程下的 `/build` 目录，重新构建。
 
-
 ## API 文档
 
 ### AgentManager 对象
 
-#### getSupportPlugin 方法
+#### getSupportPlugin
 
 获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 字段来判断是否存在该系统对象。
 
@@ -141,8 +138,7 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 var plugins = SDKHub.AgentManager.getInstance().getSupportPlugin();
 ```
 
-
-#### getUserPlugin 方法
+#### getUserPlugin
 
 获取用户（账号和游戏）系统对象
 
@@ -150,30 +146,45 @@ var plugins = SDKHub.AgentManager.getInstance().getSupportPlugin();
 this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
 ```
 
-若存在多个相同系统对象，可以通过插件 ID 获取该对象。
+若存在多个相同系统对象，可以通过插件 ID 获取该对象，下同。
 
 ```
-this.hwUser = SDKHub.AgentManager.getInstance().getUserPlugin("UserHuawei")
+this.hwUser = SDKHub.AgentManager.getInstance().getUserPlugin("UserHuawei");
 ```
 
-#### getFeePlugin 方法
+#### getFeePlugin
 
-获取支付系统对象
+获取支付系统对象，支持多个支付系统。
 
-#### getAdsPlugin 方法
+```
+this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
+```
 
-获取广告系统对象
+#### getAdsPlugin
 
-#### getPushPlugin 方法
+获取广告系统对象。
 
-获取推送系统对象
+```
+this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
+```
 
-#### getCustomPlugin 方法
+#### getPushPlugin
 
-获取自定义系统对象
+获取推送系统对象。
 
+```
+this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
+```
 
-### IPluginProtocol 接口
+#### getCustomPlugin
+
+获取自定义系统对象，支持多个自定义系统。
+
+```
+this.custom = SDKHub.AgentManager.getInstance().getCustomPlugin();
+```
+
+### pluginProtocol 接口
 
 #### 回调
 
@@ -267,15 +278,14 @@ this.user.showToolBar(SDKHub.ToolBarPlace place);
 
 place：int 型，部分插件需要，浮动工具栏初始位置，仅第一次进入时有效,之后工具栏会显示在用户最后一次停留的位置。
 
-
-| 对应的状态码 | 描述 |
-| --- | --- |
-| ToolBarPlace.kToolBarTopLeft | 	value=1;左上角 |
-| ToolBarPlace.kToolBarTopRight	 | value=2;右上角 |
-| ToolBarPlace.kToolBarMidLeft	 | value=3;左边中间 |
-| ToolBarPlace.kToolBarMidRight	 | value=4;右边中间 |
-| ToolBarPlace.kToolBarBottomLeft	 | value=5;左下角 |
-| ToolBarPlace.kToolBarBottomRight	| value=6;右下角 |
+| 对应的状态码 | 对应 int 值 | 描述 |
+| --- | --- | --- |
+| ToolBarPlace.kToolBarTopLeft | 	1 | 左上角 |
+| ToolBarPlace.kToolBarTopRight	 | 2 | 右上角 |
+| ToolBarPlace.kToolBarMidLeft	 | 3 | 左边中间 |
+| ToolBarPlace.kToolBarMidRight	 | 4 | 右边中间 |
+| ToolBarPlace.kToolBarBottomLeft	 | 5 | 左下角 |
+| ToolBarPlace.kToolBarBottomRight	| 6 | 右下角 |
 
 #### 隐藏浮标 hideToolBar
 
@@ -295,6 +305,8 @@ this.user.setUserInfo("userInfo");
 ```
 
 #### 获取用户信息 getUserInfo
+
+若 SDK 可以在客户端完成登录验证并获取到用户唯一 ID，可通过该方法获取登录信息。
 
 ```
 var userInfo = this.user.getUserInfo();
@@ -346,7 +358,7 @@ this.user.submitScore(params);
 
 #### 回调列表
 
-| 状态码 SDKHub.UserReturnCode | 对应 int 值 | 描述 |
+| 状态码 SDKHub.UserReturnCode. | 对应 int 值 | 描述 |
 | --- | --- | --- |
 | kInitSucceed | 0 | 初始化成功 |
 | kInitFailed | 1 | 初始化失败 |
@@ -407,7 +419,7 @@ this.fee.feeForProduct(params);
 
 #### 回调列表
 
-| 状态码 SDKHub.FeeReturnCode | 对应 int 值 | 描述 |
+| 状态码 SDKHub.FeeReturnCode. | 对应 int 值 | 描述 |
 | --- | --- | --- |
 | kFeeSucceed | 0 | 支付成功回调 |
 | kFeeFailed | 1 | 支付失败回调 |
@@ -430,6 +442,8 @@ this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
 
 #### 预加载广告 preloadAds
 
+部分类型广告显示前，需要做预加载。回调成功后才能调用显示广告方法。
+
 ```
 var params = { "adType": "Interstitial", "adId": "testb4znbuh3n2" };
 
@@ -440,11 +454,11 @@ this.ads.preloadAds(params);
 
 Banner 等类型广告，可能使用到 pos 方位参数，也可以直接传 int 值：
 
-| 对应的状态码 | 描述 |
-| --- | --- |
-| AdsPos.kPosBottom | 	value=0;下方 |
-| AdsPos.kPosCenter | value=1;正中 |
-| AdsPos.kPosTop	 | value=2;上方 |
+| 对应的状态码 | 对应 int 值 | 描述 |
+| --- | --- | --- |
+| AdsPos.kPosBottom | 0 | 下方 |
+| AdsPos.kPosCenter | 1 | 正中 |
+| AdsPos.kPosTop	 | 2 | 上方 |
 
 ```
 var params = { "adType": "Banner", "adId": "testx9dtjwj8hp", pos : SDKHub.AdsPos.kPosBottom};
@@ -459,6 +473,7 @@ var params = { "adType": "Reward", "adId": "testw6vs28auh3" };
 
 this.ads.hideAds(params);
 ```
+
 #### 回调列表
 
 | 状态码 SDKHub.AdsReturnCode | 对应 int 值 | 描述 |
@@ -481,65 +496,5 @@ this.ads.hideAds(params);
 | kAdsOnLeave | 15 | 广告离开回调 |
 | kAdsOnAdImpression | 16 | 广告曝光回调 |
 | kAdsExtension | 40000 | 广告扩展回调值 |
-
-### 推送系统
-
-假定我们将系统对象设置为 `this.push` ，下同。
-
-```
-this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
-```
-
-#### 术语说明
-
-**别名（Alias）**
-
-为安装了应用程序的用户，取个别名来标识。以后给该用户 Push 消息时，就可以用此别名来指定。
-
-- 每个用户只能指定一个别名。
-- 同一个应用程序内，对不同的用户，建议取不同的别名。这样，尽可能根据别名来唯一确定用户。
-- 系统不限定一个别名只能指定一个用户。如果一个别名被指定到了多个用户，当给指定这个别名发消息时，服务器端 API 会同时给这多个用户发送消息。
-
-举例：在一个用户要登录的游戏中，可能设置别名为 userid。游戏运营时，发现该用户 3 天没有玩游戏了，则根据 userid 调用服务器端 API 发通知到客户端提醒用户。
-
-**标签（Tag）**
-
-为安装了应用程序的用户，打上标签。其目的主要是方便开发者根据标签，来批量下发 Push 消息。
-
-- 可为每个用户打多个标签。
-- 不同应用程序、不同的用户，可以打同样的标签。
-
-举例： game, old_page, women
-
-#### 开始推送 startPush
-
-```
-this.push.startPush();
-```
-
-#### 关闭推送 closePush
-
-```
-this.push.closePush();
-```
-
-#### 设置别名 setAlias
-
-```
-this.push.setAlias("SDKHub");
-```
-
-#### 删除别名 delAlias
-
-```
-this.push.delAlias("SDKHub");
-```
-
-#### 回调列表
-
-| 状态码 SDKHub.PushReturnCode | 对应 int 值 | 描述 |
-| --- | --- | --- |
-| kPushReceiveMessage | 0 | 接受到推送消息 |
-| kPushExtension | 50000 | 推送扩展回调值 |
 
 
