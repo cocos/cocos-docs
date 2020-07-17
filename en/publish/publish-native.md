@@ -8,6 +8,10 @@ Currently, there are four native platforms, which include: **Android**, **iOS**,
 
 ## Build Options
 
+### Main Bundle Compression Type
+
+Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
 ### Merge SpriteFrames in Atlas
 
 Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  

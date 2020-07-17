@@ -8,6 +8,10 @@
 
 ## 构建选项
 
+### 主包压缩类型
+
+设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+
 ### 合并图集中的 SpriteFrame
 
 将图集中的全部 SpriteFrame 合并到同一个包中。默认关闭，启用后能够减少热更新时需要下载的 SpriteFrame 文件数量，但如果图集中的 SpriteFrame 数量很多，则可能会稍微延长原生平台上的启动时间。
