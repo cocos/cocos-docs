@@ -2,6 +2,8 @@
 
 Open main menu's `Project -> Build...` open the build panel.
 
+![](publish-web/web.png)
+
 Cocos Creator provides page templates for two kinds of Web platforms. From the pop up menu of **release platform**, you can choose `Web Mobile` or `Web Desktop`. The major difference is that in `Web Mobile`, the image will cover the whole browser window by default, while in `Web Desktop`, you are allowed to designate the resolution of image, which doesn't change when you zoom on the browser window.
 
 ## Build Path
@@ -12,13 +14,21 @@ The default release path is in the `build` under the project folder. If you use 
 
 ## Build settings
 
+### Main Bundle Compression Type
+
+Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
 ### Inline all SpriteFrames
 
 When merging assets automatically, combine all SpriteFrames and the assets that are being relied on into the same package. It is recommended to enable this option in web. When enabled, it will increase the overall game size slightly, consume a little bit of network traffic, but can significantly reduce the number of network requests. It is recommended to disable this option in native, because it will increase the package size used in hot update.
 
-### Merge all JSON that the Start Scene depends on
+### vConsole
 
-When merging assets automatically, all JSON files that the Start Scene depends on are merged into the package that contains the Start Scene. This option is disabled by default. When enabled, it will not increase the overall game size, but if these JSON is also used by other scenes, then CPU overhead may increase slightly when they are loaded again.
+> Before Creator v1.9, the Eruda debug plugin was used.
+
+Insert vConsole debug plugin, which similar to DevTools mini version, used to help debug.
+
+If you need test, check **Debug** and **Source Maps** option. The built version will have sourcemap for debugging.
 
 ### MD5 Cache
 
@@ -30,14 +40,6 @@ After being enabled, if any resource fails to load, it is because the renamed ne
 var uuid = cc.assetManager.utils.getUuidFromURL(url);
 url = cc.assetManager.utils.getUrlWithUuid(uuid);
 ```
-
-### vConsole
-
-> Before Creator v1.9, the Eruda debug plugin was used.
-
-Insert vConsole debug plugin, which similar to DevTools mini version, used to help debug.
-
-If you need test, check **Debug Mode** and **Source Maps** option. The built version will have sourcemap for debugging.
 
 ## Build and preview
 

@@ -17,11 +17,27 @@
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **Xiaomi Quick Game** in the **Platform** dropdown of the **Build** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **Xiaomi Quick Game** in the **Platform** dropdown.
 
-    ![](./publish-xiaomi-quick-games/build.png)
+![](./publish-xiaomi-quick-games/build.png)
+
+### Configuration Options
 
 The specific filling rules for the relevant parameter configuration are as follows:
+
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+- **Main Bundle Is Remote**
+
+  This option is optional and needs to be used with the **Resource Server Address** option.<br>
+  When checked, the main package is configured as a remote package and is built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+
+- **Start Scene Asset Bundle**
+
+  This option is optional.<br>
+  When checked, the start scene is built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **App Package Name**: the format of the **App Package Name** is `com.yourcompany.projectname`. This option is required and will be filled in according to the developer's needs. 
   
@@ -49,17 +65,19 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Resource Server Address**
 
-  This entry fills in the address at which the resource is stored on the server and is optional:
-  - If this entry is not filled, the **remote** folder in the build directory will be packaged in the rpk package.
-  - If this entry is filled in, the constructed rpk package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
 
-  For specific resource management details, see [Resource Management for Xiaomi Quick Game Environment](#Resource-Management-for-Xiaomi-Quick-Game-Environment).
+  - If this option is left blank, the `build/xiaomi/remote` folder in the release package directory will be packaged into the **rpk** package.
+
+  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after the build.
+
+  Refer to the Resource Management section at the bottom of the document for more details.
 
 - **Keystore**
 
   This item is optional. When you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Cocos Creator, which is used only for **debugging**. **Note**: When the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
   
-  If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The developer can configure two signature files by using the **search icon** button to the right of the input box.<br>
+  If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can publish directly. The developer can configure two signature files by using the **search icon** button to the right of the input box.<br>
   
   > **Note**: These two signature files are not recommended to be placed in the `build/xiaomi` directory of the release package, otherwise the `build` directory will be emptied each time when it is built, resulting in file loss.
 
@@ -80,15 +98,15 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       > **Note**: **openssl** can be used directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables. Restart Creator after the configuration is complete.
 
-**2. Build**
+### Build
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **xiaomi** directory is generated under the default release path `build` directory, which is the exported Xiaomi Quick Game project directory and **rpk**, the **rpk** package is in the **/build/xiaomi/dist** directory.
+After the relevant options of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **xiaomi** directory is generated under the default release path `build` directory, which is the exported Xiaomi Quick Game project directory and **rpk**, the **rpk** package is in the `build/xiaomi/dist` directory.
 
-  ![](./publish-xiaomi-quick-games/rpk.png)
+![](./publish-xiaomi-quick-games/rpk.png)
 
-**3. Run the built rpk to the phone**
+### Run the built rpk to the phone
 
-There are three ways to run rpk on your phone:
+There are two ways to run rpk on your phone:
 
 - **Method One**
 
@@ -102,9 +120,9 @@ There are three ways to run rpk on your phone:
   
 - **Method Two**
 
-  - First open **Settings-> Additional settings-> Developer options** on Xiaomi device, turn on **Developer options** and **USB debugging**.
+  - First open **Settings -> Additional settings -> Developer options** on Xiaomi device, turn on **Developer options** and **USB debugging**.
   - Use a USB cable to connect your computer to your Xiaomi device.
-  - Copy the generated quick game **rpk** file (located in the `build/xiaomi/dist` directory) to the `sdcard` directory of the Xiaomi device.
+  - Copy the generated quick game **rpk** file to the `sdcard` directory of the Xiaomi device.
   - Open the **Xiaomi Quick Game Debugger** that has been installed before on your Xiaomi device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your Xiaomi device and select **Open**.
     
     ![](./publish-xiaomi-quick-games/play2.png)
@@ -141,7 +159,7 @@ There are two ways to start debugging.
 
 **Xiaomi Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. Resources over **5MB** must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
 ## Subpackage rpk
 
@@ -151,6 +169,6 @@ Subpackage loading, that is, splitting the game content into several packages ac
 
 To use this feature, you need to set up [Subpackage Configuration](subpackage.md) in the Cocos Creator, and the package will be automatically subpackaged at build time after setting up.
 
-When the build is complete, an `.rpk` file is generated in the `/build/xiaomi/dist` directory.
+When the build is complete, an `.rpk` file is generated in the `build/xiaomi/dist` directory.
 
 About the subpackage load packet size limit, please refer to the [Xiaomi Quick Game Subpackage Rules](https://forum.cocos.org/t/topic/81887).

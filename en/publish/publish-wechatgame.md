@@ -22,7 +22,7 @@ In addition, the game submission, review and release process of the WeChat Mini 
 
 ## Release Process
 
-Use Cocos Creator to open the project that needs to be released. Select WeChat Mini Game in the **Platform** dropdown of the **Build** panel, fill in the mini game appid, and then click **Build**.
+Use Cocos Creator to open the project that needs to be released. Select **WeChat Mini Game** in the **Platform** dropdown of the **Build** panel, fill in the mini game appid, and then click **Build**.
 
 ![](./publish-wechatgame/build-wechat.png)
 
@@ -30,10 +30,14 @@ Use Cocos Creator to open the project that needs to be released. Select WeChat M
 
 The specific filling rules for the relevant options configuration are as follows:
 
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
 - **Main Bundle Is Remote**
 
   This option is optional and needs to be used with the **Resource Server Address** option.<br>
-  When checked, the main package is configured as a remote package and is built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server, so that the main package is not packaged into the **cpk**.
+  When checked, the main package is configured as a remote package and is built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
 
 - **Start Scene Asset Bundle**
 
@@ -48,11 +52,11 @@ The specific filling rules for the relevant options configuration are as follows
 
 - **Resource Server Address**
 
-  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after the build. 
+  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after the build.
 
 - **Open Data Context Root**
 
-  This option is optional and used to access the [Open Data Context](publish-wechatgame-sub-domain.md).
+  This option is optional and used to access the [Open Data Context of WeChat Mini Games](publish-wechatgame-sub-domain.md).
 
 ### Run the Preview
 
@@ -106,13 +110,13 @@ If you need to upload the resource to the remote server, configure the Asset Bun
 3. Check **MD5 Cache**.
 4. Set the **Resource Server Address**, and then click **Build**.
 
-  ![](./publish-wechatgame/builder_config.png)
+    ![](./publish-wechatgame/builder_config.png)
 
 5. After building, upload the complete **remote** folder from the release package directory to the remote server you filled in the previous step.
 6. Delete the **remote** folder in the local release package directory.
 7. During the testing phase, you may not be able to deploy your project to the official server, so you will need to test it on the local server, please open the **Tools -> Project Details -> Local Settings** page in the menu bar of the WeChat DevTools and check **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option.
 
-  ![](./publish-wechatgame/details.png)
+    ![](./publish-wechatgame/details.png)
 
 ### Clear Cache Resources
 
@@ -144,7 +148,7 @@ WeChat Mini Game how to achieve subpackage loading, please refer to [Mini Game S
 
 ## Platform SDK Access
 
-In addition to pure game content, the WeChat Mini Game environment actually provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only available in the WeChat Mini Game environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the **WeChat Mini Games** environment:
+In addition to pure game content, the WeChat Mini Game environment actually provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only available in the WeChat Mini Game environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the WeChat Mini Games environment:
 
 1. User interface: login, authorization, user information, etc.
 2. WeChat payment
@@ -155,7 +159,7 @@ In addition to pure game content, the WeChat Mini Game environment actually prov
 
 ## Access to the Open Data Context of WeChat Mini Games
 
-In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by the WeChat in the Open Data Context to implement features such as leaderboards. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
+In order to protect its social relationship chain data, WeChat Mini Games has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by the WeChat in the Open Data Context to implement features such as leaderboards. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
 ## WeChat Mini Games Known issues
 

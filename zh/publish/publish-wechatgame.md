@@ -30,10 +30,14 @@
 
 相关参数配置具体的填写规则如下：
 
+- **主包压缩类型**
+
+  设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+
 - **配置主包为远程包**
 
   该项为可选项，需要与 **资源服务器地址** 选项配合使用。<br>
-  勾选后，主包会配置为远程包，并且会被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器，这样主包就不会被打包到 cpk 中。
+  勾选后，主包会配置为远程包，并且会被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
 
 - **初始场景分包**
 
