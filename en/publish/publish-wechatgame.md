@@ -12,7 +12,7 @@ In addition, the game submission, review and release process of the WeChat Mini 
 
 ## Environment Configuration
 
-- Download [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html) on the PC and install it.
+- Download [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html) and install it.
 
 - Set the WeChat DevTools path in the [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop) window.<br>
     > Mac: Cocos Creator -> Preferences -> Native Develop<br>
@@ -37,22 +37,22 @@ The specific filling rules for the relevant options configuration are as follows
 - **Main Bundle Is Remote**
 
   This option is optional and needs to be used with the **Resource Server Address** option.<br>
-  When checked, the main package is configured as a remote package and is built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
 
 - **Start Scene Asset Bundle**
 
   This option is optional.<br>
-  When checked, the start scene is built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
 
 - **appid**
 
-  The appid that is filled in by default in the **Build** panel is only for testing. If you want to use it for publishing, log in to the [WeChat Official Accounts Platform](https://mp.weixin.qq.com/?lang=en_US) and find the appid.
+  The appid that is filled in by default in the **Build** panel is only for testing. If you want to use it for publishing, login to the [WeChat Official Accounts Platform](https://mp.weixin.qq.com/?lang=en_US) and find the appid.
 
   ![](./publish-wechatgame/appid.jpeg)
 
 - **Resource Server Address**
 
-  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after the build.
+  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after build.
 
 - **Open Data Context Root**
 
@@ -60,7 +60,7 @@ The specific filling rules for the relevant options configuration are as follows
 
 ### Run the Preview
 
-- After building, click the **Open** button behind the **Build Path**. You can see that the WeChat Mini Game's project folder **wechatgame** is generated in the **build** directory of the release package, which has included the WeChat Mini Games environment configuration file `game.json` and `project.config.json`.
+- After building, click the **Open** button behind the **Build Path**. You can see that the WeChat Mini Game's project folder **wechatgame** is generated in the **build** directory of the release package, which includes the WeChat Mini Games environment configuration file `game.json` and `project.config.json`.
 
   ![](./publish-wechatgame/package-wechat.png)
 
@@ -68,18 +68,17 @@ The specific filling rules for the relevant options configuration are as follows
 
   ![](./publish-wechatgame/tool.png)
 
-  **Note**: If you have not run the WeChat DevTools on your Mac before, an `Please ensure that the IDE has been properly installed` error will appear. You need to manually open the WeChat DevTools once before you can click the **Play** directly in the **Build** panel to invoke it.
+  **Note**: If you have not run the WeChat DevTools on your Mac before, an `Please ensure that the IDE has been properly installed` error will result. You need to manually open the WeChat DevTools once before you can click the **Play** directly in the **Build** panel to enable it.
 
 ## Resource Management for the WeChat Mini Games
 
-In the WeChat Mini Game environment, resource management is the most special part, and it differs from the browser in the following four points:
+In the WeChat Mini Game environment, resource management is the most special part, and it differs from the browser in the following points:
 
-1. The size of the WeChat Mini Game package must not exceed **4MB**, including all the code and resources, and additional resources must be downloaded via a network request.
-2. For files downloaded from a remote server, the WeChat Mini Game environment does not have the browser's caching and outdated update mechanism.
-3. For the resources in the WeChat Mini Game package, they are not loaded on demand in the mini game environment, but rather all the resources in the package are loaded at once, and then the game page is launched.
-4. You cannot download script files from a remote server.
+1. The main package size of the WeChat Mini Game must not exceed **4MB**, including all the code and resources, and additional resources must be downloaded via a network request.
+2. For the resources in the WeChat Mini Game package, they are not downloaded on demand in the mini game environment, but rather all the resources in the package are downloaded at once, and then the game page is launched.
+3. You cannot download script files from a remote server.
 
-This brings up two key issues, one is the downloading, caching and versioning of remote resources, and the other is the loading speed of the start scene. Let's look at the logic of this part below, note that this section is updated in v2.4, so if you are using a version before v2.4, please take care to switch to the corresponding documentation branch.
+This brings up two key issues, one is the downloading, caching and versioning of remote resources, and the other is the loading speed of the start scene. Let's look at the logic of this part below, note that this section is updated in v2.4, so if you are using a version before v2.4, please switch to the corresponding documentation branch.
 
 ### Downloading, Caching and Versioning of Remote Resources
 
@@ -90,13 +89,13 @@ As of v2.4.0, all resources are managed in an [Asset Bundle](../asset-manager/bu
 3. If not, check if the resource is in the temporary file
 4. If not, download the resource from the remote server
 5. After downloading the resource to the temporary file, use it directly
-6. The background slowly saves the resource from the temporary file to the mini game application cache for reuse
-7. The local cache space is limited in size, and if the limit is exceeded, the resource fails to be saved, and the LRU algorithm is used to delete older resources.
+6. Slowly save the resource from the temporary file to the local cache for reuse in the background.
+7. The local cache space is limited in size, and if the limit is exceeded, the resource will not be saved directly, instead an LRU algorithm is used to delete the oldest resources.
 
 Once the cache space is full, all the resources that need to be downloaded cannot be saved, only the resources saved in the temporary files can be used. And when exiting the mini game, all the temporary files will be cleared, and when you run the mini game again, those resources will be downloaded again. And the cycle goes on and on.<br>
-In addition, the problem of file saving failures due to cache space exceeding the limit does not occur on the WeChat DevTools, because the WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
+In addition, the problem that file saving failures due to cache limitation does not occur on the WeChat DevTools, because the WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
 
-When the md5Cache feature of the engine is enabled, the URL of the file will change with the change of the file content, so that when a new version of the game is released, the resources of the old version in the cache will be invalidated, and the new resources can only be requested from the server, which also achieves the effect of version control.
+When the building's md5Cache option is set, the URL of the file will change with the change of the file content, so that when a new version of the game is released, the old resources in the cache will be invalidated, so the new resources will be requested from the server, which also achieves the effect of version control.
 
 #### Upload Resources to the Remote Server
 
@@ -121,13 +120,13 @@ If you need to upload the resource to the remote server, configure the Asset Bun
 ### Clear Cache Resources
 
 If the cache resources exceed the WeChat Mini Game environment limits, you need to clear the resources manually, by using the methods `clearCache()`, `clearLRU()` and `removeCache(cacheId: string)` provided by `cc.assetManager.cacheManager` to clear the cache.
-  - `clearCache()` -- Clear all cache resources in the cache directory, please use with caution.
-  - `clearLRU()` -- Clear the least recently used cache in the cache directory for the application.
-  - `removeCache(cacheId: string)` -- Remove the record of a resource from the cache with precision.
+  - `clearCache()` -- Clears all cache resources in the cache directory, please use with caution.
+  - `clearLRU()` -- Clears the least recently used cache in the cache directory for the application.
+  - `removeCache(cacheId: string)` -- Removes the record of a resource from the cache with precision.
 
-When the WeChat Mini Game upgrades the engine version, the resources in the local cache are still the same from the previous old version of the engine and will not be emptied automatically. This may cause problems such as resource loading errors or rendering errors. There are several solutions:
+When you upgrade the engine version, the resources in the local cache are still the same from the previous old version of the engine and will not be emptied automatically. This may cause problems such as resource loading errors or rendering errors. There are two solutions:
 
-  - Check the **MD5 Cache** option in the **Build** panel when building, this will ensure that the latest resources will be loaded.
+  - Check the **MD5 Cache** option in the **Build** panel when building, this will ensure that the correct resources will be loaded.
   - Clear the previously cached resources manually.
     - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the physical device.
     - Click **Tools -> Clear Cache -> Clear All** option in the menu bar of the WeChat DevTools to clear the cache.
@@ -135,8 +134,7 @@ When the WeChat Mini Game upgrades the engine version, the resources in the loca
 ### Speed up the loading of the start scene
 
 To improve the loading speed of the start scene when the main package resources are uploaded to the remote server, you can check the **Start Scene Asset Bundle** option in the **Build** panel during the build.<br>
-
-After building, the start scene will be built into the `assets/start-scene` folder of the release package directory, which is a bundle. Instead of uploading to a remote server, the bundle is placed locally, and the engine will automatically load it from the local package at startup, to speed up the loading of the start scene.
+After building, the start scene and its related dependent resources will be built into the `assets/start-scene` bundle of the release package directory. Instead of uploading to a remote server, the bundle is placed locally, and the engine will automatically load it from the local package at startup, to speed up the loading of the start scene.
 
 ## WeChat Mini Game Engine Plugin
 

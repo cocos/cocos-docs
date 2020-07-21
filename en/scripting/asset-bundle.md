@@ -10,7 +10,7 @@ For more information about the Asset Bundle, please refer to the [Asset Bundle](
 
 ## Configuration
 
-The Asset Bundle is configured in **folders**. When we select a folder in the **Assets** panel, the **Properties** panel will show a **Is Bundle** option, when checked, the folder-related configuration options will appear:
+The Asset Bundle is configured in **folders**. When we select a folder in the **Assets** panel, the **Properties** panel will show a **Is Bundle** option, if set, the folder-related configuration options will appear:
 
 ![bundle](./subpackage/inspector.png)
 
@@ -44,7 +44,7 @@ Each folder contained within these three folders **assets**, **remote** and **su
 ![asset-bundle](./subpackage/asset-bundle.png)
 
 <!-->
-**Note**: If you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after the build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
+**Note**: If you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
 -->
 
 ## Load the Asset Bundle

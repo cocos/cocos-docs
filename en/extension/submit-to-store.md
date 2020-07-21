@@ -26,7 +26,7 @@ The current extension package installation system does not install workflows suc
 
 ## Submit your plugin extension package
 
-Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and log in, then go to the [Store](https://store-my.cocos.com/#/seller/resources/) and click on the **Create new resource** button in the top right.
+Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to the [Store](https://store-my.cocos.com/#/seller/resources/) and click on the **Create new resource** button in the top right.
 
   ![](submit-to-store/create.png)
 

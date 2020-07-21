@@ -25,12 +25,12 @@
 - **配置主包为远程包**
 
   该项为可选项，需要与 **资源服务器地址** 选项配合使用。<br>
-  勾选后，主包会配置为远程包，并且会被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
+  勾选后，主包会配置为远程包，并且与其相关依赖资源一起被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
 
 - **初始场景分包**
 
   该项为可选项。<br>
-  勾选后，首场景会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
+  勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
 
 - **游戏包名**
 
@@ -60,9 +60,8 @@
 
   该项为选填项，用于填写资源存放在服务器上的地址。
 
-  - 若 **不填写** 该项，则发布包目录下的 `build/quickgame/remote` 文件夹将 **会** 被打包到构建出来的 rpk 包中。
-
-  - 若 **填写** 该项，则 remote 文件夹 **不会** 被打包到 rpk 包中。开发者需要在构建后手动将 remote 文件夹上传到所填写的资源服务器地址上。
+  - 若 **不填写** 该项，则发布包目录下的 `build/quickgame/remote` 文件夹将会被打包到构建出来的 rpk 包中。
+  - 若 **填写** 该项，则 remote 文件夹不会被打包到 rpk 包中。开发者需要在构建后手动将 remote 文件夹上传到所填写的资源服务器地址上。
 
   具体的资源管理细节，请参考文档下方的资源管理部分。
 

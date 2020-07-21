@@ -25,12 +25,12 @@ The specific filling rules for the relevant parameter configuration are as follo
 - **Main Bundle Is Remote**
 
   This option is optional and needs to be used with the **Resource Server Address** option.<br>
-  When checked, the main package is configured as a remote package and is built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
 
 - **Start Scene Asset Bundle**
 
   This option is optional.<br>
-  When checked, the start scene is built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **Game Package Name**
 
@@ -61,8 +61,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   This option is optional and used to fill in the address of the remote server where the resources are stored.
 
   - If this option is left blank, the `build/quickgame/remote` folder in the release package directory will be packaged into the **rpk** package.
-
-  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after the build.
+  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
   Refer to the Resource Management section at the bottom of the document for more details.
 
