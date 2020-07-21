@@ -6,6 +6,7 @@
 - [Debuging JavaScript on Native Platforms](debug-jsb.md)
 - [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
+- [Publish to LinkSure Mini Game](publish-linksure.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)
 - [Publish to Baidu Mini Games](publish-baidugame.md)
     - [Baidu Open Data Context](publish-baidugame-sub-domain.md)

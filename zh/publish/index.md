@@ -7,6 +7,7 @@
 - [发布到支付宝小游戏](publish-alipay-mini-games.md)
 - [发布到趣头条小游戏](publish-qutoutiao-mini-games.md)
 - [发布到华为快游戏](publish-huawei-quick-games.md)
+- [发布到连尚小游戏](publish-linksure.md)
 - [发布到百度小游戏](publish-baidugame.md)
     - [百度小游戏开放数据域](publish-baidugame-sub-domain.md)
 - [发布到 Facebook Instant Games](publish-fb-instant-games.md)
