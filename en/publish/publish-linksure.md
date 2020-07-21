@@ -10,7 +10,7 @@ The LinkSure Mini Game runs as a **cpk** game package in the mini game environme
 
 ## Release Process
 
-Use Cocos Creator to open the project that needs to be released. Select LinkSure Mini Game in the **Platform** dropdown of the **Build...** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
   ![](publish-linksure/build.png)
 
@@ -24,23 +24,20 @@ The specific filling rules for the relevant options configuration are as follows
 
 - **Main Bundle Is Remote**
 
-  This option is optional and needs to be used with **Resource Server Address** option.<br>
-  When checked, the main package is configured as a remote package and placed in the **remote** folder of the release package directory after built. The developer needs to place the entire **remotse** folder on the remote server, so that the main package is not packaged into the **cpk**.
-  
-  Refer to the Resource Management section at the bottom of the document for more details.
+  This option is optional and needs to be used with the **Resource Server Address** option.<br>
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server, so that the main package is not packaged into the **cpk**.
 
 - **Start Scene Asset Bundle**
 
   This option is optional.<br>
-  When checked, the start scene is built into the [built-in Asset Bundle — `start-scene`](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-%E2%80%8B%E2%80%8Bup-start-scene-loading) for details.
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **Resource Server Address**
 
-  This option is used to fill in the address of the server where the resources are stored, optional.
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
 
   - If this option is left blank, the `build/linksure/remote` folder in the release package directory will be packaged into the **cpk** package.
-
-  - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after the build.
+  - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
   Refer to the Resource Management section at the bottom of the document for more details.
 
@@ -73,7 +70,7 @@ For more information, please refer to the [LinkSure Mini Game Development Proces
 
 LinkSure Mini Game is similar to the WeChat Mini Game. There are restrictions on the package size. The main package size limit for LinkSure Mini Game is **10MB**, more than that must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for the WeChat Mini Game](publish-wechatgame.md#resource-management-for-wechat-mini-game) documentation for details.
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for the WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
 ## Related Reference Links
 
