@@ -16,7 +16,7 @@ Starting with v2.4, all resources in the project will be placed in the Creator's
 | `internal`    | Store all built-in resources and their dependent resources | By configuring the `internal -> resources` folder in the **Assets** panel. |
 | `main`        | Store all scenes checked in the **Included Scenes** selection box of the **Build** panel and their dependent resources  | By configuring the **Main Bundle Compress Type** and **Main Bundle Is Remote** options of the **Build** panel. |
 | `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `assets -> resources` folder in the **Assets** panel. |
-| `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder  | Cannot be configured. |
+| `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder. Please refer to the [Start Scene Loading](../publish/publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.  | Cannot be configured. |
 
 After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](../scripting/asset-bundle.md#configuration) documentation for the configuration methods and generation rules.
 
