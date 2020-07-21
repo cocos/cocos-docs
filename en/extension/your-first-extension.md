@@ -42,7 +42,7 @@ Explanation:
  - `name` String - The package name. Make sure your package name is unique. It's related to many things in package programming.
  - `version` String - The version number. We highly recommend you use [semver](http://semver.org/) standard for your version.
  - `description` String (optional) - Describe your package in one sentence.
- - `author` String (optional) - Author' name.
+ - `author` String (optional) - Author's name.
  - `main` String (optional) - Package entry point.
  - `main-menu` Object (optional) - Main menu registry.
 
