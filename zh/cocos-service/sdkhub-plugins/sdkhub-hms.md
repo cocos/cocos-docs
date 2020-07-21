@@ -77,7 +77,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 **登录方法**，对应 [游戏服务 - 游戏登录](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-login-v4) 文档。
 
-华为 HMS SDK 登录成功后，插件中会再调用华为 HMS SDK 的 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/game-login-0000001050121526-V5#ZH-CN_TOPIC_0000001051062343__section20387552101519) 方法，获取当前玩家信息，通过回调返回给用户，用户也可以主动调用 `getUserInfo` 方法获取登录信息。此时可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
+华为 HMS SDK 登录成功后，插件中会再调用华为 HMS SDK 的 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/game-login-0000001050121526-V5#ZH-CN_TOPIC_0000001051062343__section20387552101519) 方法，获取当前玩家信息，通过回调返回给用户，用户也可以主动调用 `getUserInfo` 方法获取登录信息。可读取 **userID** （SDKHub 统一）参数作为用户唯一 ID。此时也可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
 
 #### logout
 
@@ -85,7 +85,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### getUserInfo
 
-**获取用户信息方法**，调用 `login` 并完成登录后，插件中会再调用华为 HMS SDK 的 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/game-login-0000001050121526-V5#ZH-CN_TOPIC_0000001051062343__section20387552101519)  方法，获取当前玩家信息，通过回调返回给用户，也可以调用本方法主动获取用户信息。可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
+**获取用户信息方法**，HMS 插件将返回登录方法中的回调信息。
 
 #### showToolBar / hideToolBar
 
@@ -170,7 +170,6 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 `submitPlayerEventStart` 和 `getPlayerExtraInfo` 如果回调中 retCode 返回 7002 或 7006 错误码，需进行如下处理：
 
     - 7002：需判断是否为网络问题，如果不是网络问题则表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
-
     - 7006：表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
 
 **回调说明：**
@@ -217,7 +216,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 | 扩展回调值 SDKHub.kUserExtension | msg 类型 | msg 说明 |
 | --- | --- | --- |
-| + 114 | JSON | 获取事件数据成功，可获取参数 eventId |
+| + 114 | JSON | 获取事件数据成功，可获取参数 eventId。 |
 | + 115 | JSON / String | 获取事件数据失败描述 |
 
 ##### getGamePlayerStats

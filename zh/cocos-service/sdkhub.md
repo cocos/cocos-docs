@@ -66,7 +66,7 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
 ![](sdkhub/sdkhub-panel3.jpeg)
 
-- 添加插件：添加所需功能的插件，目前支持 **账号 & 游戏**、**支付** 和 **广告** 等类型插件。
+- 添加插件：添加所需功能的插件，目前支持 **账号 & 游戏**、**支付** 、**广告** 和 **推送** 等类型插件。
 - 更新所有插件：若有已下载的插件有线上更新版本，点此全部更新。
 - 编辑参数按钮：填写该平台 SDK 所需的参数。若填写不完整无法正常构建。
 - 删除参数按钮：删除当前填写的参数配置。
@@ -128,55 +128,158 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
 ## API 文档
 
-### SDKHub.AgentManager.getInstance
+### SDKHub
 
-获取 SDKHub 的 AgentManager 对象，SDKHub 各方法均在此对象下调用。
+SDKHub 的命名空间，全局变量。代码中所有的类，函数，属性和常量都在这个命名空间中定义。
 
-#### getSupportPlugin
+#### 索引
 
-获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 字段来判断是否存在该系统对象。
+**类型**：
 
-**示例**:
+- [AgentManager](#agentmanager)
+- [PluginProtocol](#pluginprotocol)
+- [ProtocolUser](#protocoluser)
+- [ProtocolFee](#protocolfee)
+- [ProtocolAds](#protocolads)
+- [ProtocolPush](#protocolpush)
+- [ProtocolCustom](#protocolcustom)
+
+**枚举**：
+
+- [UserResultCode](#userresultcode)
+- [FeeResultCode](#feeresultcode)
+- [AdsResultCode](#adsresultcode)
+- [PushResultCode](#pushresultcode)
+- [ToolBarPlace](#toolbarplace)
+- [AdsPos](#adspos)
+
+**接口**：
+
+- [PluginResultListener](#pluginresultlistener)
+
+### AgentManager
+
+AgentManager 类型，管理各系统的的单例类。
+
+**模块**：[SDKHub](#sdkhub)
+
+#### 索引
+
+**方法**：
+
+- `Static` [getInstance](#getinstance)
+- [getSupportPluginIds](#getsupportpluginids)
+- [getUserPlugin](#getuserplugin)
+- [getUserPlugins](#getuserplugins)
+- [getFeePlugin](#getfeeplugin)
+- [getFeePlugins](#getfeeplugins)
+- [getAdsPlugin](#getadsplugin)
+- [getPushPlugin](#getpushplugin)
+- [getCustomPlugin](#getcustomplugin)
+- [getCustomPlugins](#getcustomplugins)
+- [getChannelId](#getchannelid)
+- [getFrameworkVersion](#getframeworkversion)
+- [getPluginMethods](#getpluginmethods)
+
+#### getInstance
+
+`getInstance(): AgentManager`
+
+静态方法，获取 AgentManager 单例对象。
+
+**返回**：
+
+- *[AgentManager](#agentmanager)* 实例对象。
+
+#### getSupportPluginIds
+
+`getSupportPluginIds(): string`
+
+获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 等字段来判断是否存在该系统对象。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)*，支持的插件 ID。
+
+**示例**：
 
 ```
-var plugins = SDKHub.AgentManager.getInstance().getSupportPlugin();
+var plugins = SDKHub.AgentManager.getInstance().getSupportPluginIds();
 ```
 
 #### getUserPlugin
 
-获取用户（账号和游戏）系统对象。若存在多个相同系统对象，可以通过插件 ID 获取该对象。
+`getUserPlugin(pluginId?: string): ProtocolUser`
 
-参数列表：
+通过插件 ID 获取对应的用户（账号和游戏）系统插件对象类。若需要获取第一个用户插件，或只有单个用户插件，则可以不填入 pluginId 参数。
 
-- `pluginName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，对象名称，可选。
+**参数**：
 
-**示例**:
+- `pluginId`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，插件 ID，可选。
+
+**返回**：
+
+- *[ProtocolUser](#protocoluser)*，若用户系统插件存在，返回用户插件对象类，否则返回空。
+
+**示例**：
 
 ```
 this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
 this.hwUser = SDKHub.AgentManager.getInstance().getUserPlugin("UserHuawei");
 ```
 
+#### getUserPlugins
+
+`getUserPlugins(): ProtocolUser[]`
+
+获取所有的用户插件对象类。
+
+**返回**：
+
+- *[ProtocolUser](#protocoluser)*[]，所有用户插件对象类。
+
 #### getFeePlugin
 
-获取支付系统对象。若存在多个相同系统对象，可以通过插件 ID 获取该对象。
+`getFeePlugin(pluginId?: string): ProtocolFee`
 
-参数列表：
+通过插件 ID 获取对应的支付系统对象类。若需要获取第一个支付插件，或只有单个支付插件，则可以不填入 pluginId 参数。
 
-- `pluginName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，对象名称，可选。
+**参数**：
 
-**示例**:
+- `pluginId`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，插件 ID，可选。
+
+**返回**：
+
+- *[ProtocolFee](#protocolfee)*，若支付系统插件存在，返回支付插件对象类，否则返回空。
+
+**示例**：
 
 ```
 this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
 this.hwFee = SDKHub.AgentManager.getInstance().getUserPlugin("FeeHuawei");
 ```
 
+#### getFeePlugins
+
+`getFeePlugins(): ProtocolFee[]`
+
+获取所有的支付系统对象类。
+
+**返回**：
+
+- *[ProtocolFee](#protocolfee)*[]，所有支付系统对象类。
+
 #### getAdsPlugin
 
-获取广告系统对象。
+`getAdsPlugin(): ProtocolAds`
 
-**示例**:
+获取广告系统对象类。广告和推送系统只支持单个插件。
+
+**返回**：
+
+- *[ProtocolAds](#protocolads)*，若广告系统插件存在，返回广告插件对象类，否则返回空。
+
+**示例**：
 
 ```
 this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
@@ -184,9 +287,15 @@ this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
 
 #### getPushPlugin
 
-获取推送系统对象。
+`getPushPlugin(): ProtocolPush`
 
-**示例**:
+获取推送系统对象类。广告和推送系统只支持单个插件。
+
+**返回**：
+
+- *[ProtocolPush](#protocolpush)*，若推送系统插件存在，返回推送插件对象类，否则返回空。
+
+**示例**：
 
 ```
 this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
@@ -194,34 +303,118 @@ this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
 
 #### getCustomPlugin
 
-获取自定义系统对象，支持多个自定义系统。
+`getCustomPlugin(pluginId?: string): ProtocolCustom`
 
-参数列表：
+通过插件 ID 获取对应的自定义系统对象类。若需要获取第一个自定义插件，或只有单个自定义插件，则可以不填入 pluginId 参数。
 
-- `pluginName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，对象名称，可选。
+**参数**：
 
-**示例**:
+- `pluginId`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，插件 ID，可选。
+
+**返回**：
+
+- *[ProtocolCustom](#protocolcustom)*，若自定义系统插件存在，返回自定义插件对象类，否则返回空。
+
+**示例**：
 
 ```
 this.custom = SDKHub.AgentManager.getInstance().getCustomPlugin();
 this.hwCustom = SDKHub.AgentManager.getInstance().getCustomPlugin("CustomHuawei");
 ```
 
-### SDKHub.AgentManager.getInstance.pluginProtocol
+#### getCustomPlugins
+
+`getCustomPlugins(): ProtocolCustom[]`
+
+获取所有的自定义系统对象类。
+
+**返回**：
+
+- *[ProtocolCustom](#protocolcustom)*[]，所有自定义系统对象类。
+
+
+#### getChannelId
+
+`getChannelId(): string`
+
+获取渠道 ID。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 渠道 ID。
+
+#### getFrameworkVersion
+
+`getFrameworkVersion(): string`
+
+获取 SDKHub 框架版本号。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* SDKHub 框架版本号。
+
+#### getPluginMethods
+
+`getPluginMethods(plugin: PluginProtocol): string`
+
+获取插件支持的方法。
+
+**参数**：
+
+- `plugin`：[PluginProtocol](#pluginprotocol)，插件对象。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)*，插件支持的方法。
+
+### PluginProtocol
 
 各系统对象均继承于此模块，提供各系统的公用方法。
 
+**模块**：[SDKHub](#sdkhub)
+
+**层级**：
+
+- PluginProtocol
+    - [ProtocolUser](#protocoluser) 
+    - [ProtocolFee](#protocolfee)
+    - [ProtocolAds](#protocolads)
+    - [ProtocolPush](#protocolpush)
+    - [ProtocolCustom](#protocolcustom)
+
+#### 索引
+
+- [setListener](#setlistener)
+- [removeListener](#removelistener)
+- [callFuncWithParam](#callfuncwithparam)
+- [callStringFuncWithParam](#callstringfuncwithparam)
+- [callIntFuncWithParam](#callintfuncwithparam)
+- [callBoolFuncWithParam](#callboolfuncwithparam)
+- [callFloatFuncWithParam](#callfloatfuncwithparam)
+- [getPluginId](#getpluginid)
+- [getPluginName](#getpluginname)
+- [getPluginVersion](#getpluginversion)
+- [getSDKVersion](#getsdkversion)
+- [isFunctionSupported](#isfunctionsupported)
+- [setPluginName](#setpluginname)
+
 #### setListener
 
-`setListener`：**设置该系统的统一回调**，回调值和返回信息说明请参考下方各系统部分
+`setListener(listeners: PluginResultListener, _this: any): void`
+
+**设置该系统的回调监听**，回调值和返回信息说明请参考 [枚举值定义](#枚举值定义)
 
 由于不同的插件在不同的功能回调情况下，可能会使用到相同的扩展回调值，使用 **扩展回调值** 时 **请加上插件 ID** 进行判断。
 
-回调 Code 和说明请参考各系统回调列表。
+**参数**：
 
-**示例**:
+- `listeners`：[PluginResultListener](#pluginresultlistener)，监听方法。
+- `_this`：any，this 对象。
+
+**示例**：
 
 ```
+this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
 this.user.setListener(this.onUserResult, this);
 onUserResult:function(code, msg){ 
     console.log("on user result action.");
@@ -238,32 +431,26 @@ onUserResult:function(code, msg){
         break;
     }
 }
-
-this.user.removeListener();
 ```
 
 #### removeListener
 
-**移除该系统回调**，可选。
+`removeListener(): void`
 
-示例:
-
-```
-this.user.removeListener();
-```
+**移除该系统回调监听**，可选。
 
 #### callFuncWithParam
 
-**扩展方法调用**。非框架原有的接口，使用该方法调用，需要传入的参数和方法名，请参考各 SDK 插件说明文档和 Sample 中的调用方式。
+`callFuncWithParam(funcName: string, params?: any): void`
 
-若插件有直接对应类型返回值，可以通过 `callStringFuncWithParam`、`callIntFuncWithParam`、`callBoolFuncWithParam`、`callFloatFuncWithParam` 方法调用。
+**扩展方法调用**。插件中非框架原有的接口，并无直接返回值的情况，使用该方法调用，需要传入的参数和方法名，请参考各 SDK 插件说明文档和 Sample 中的调用方式。
 
-参数列表：
+**参数**：
 
-- `functionName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+- `params`：any，可选，需要传入的参数。
 
-**示例**:
+**示例**：
 
 ```
 // var params = 0; //若参数值需要单个数字或字符串等情况，也可能用此写法。
@@ -275,54 +462,625 @@ var params = {
 this.xxx.callFuncWithParam("functionName", params);
 ```
 
-#### isFunctionSupported
+#### callStringFuncWithParam
 
-**判断插件是否支持该方法**，需要传入方法名。
+`callStringFuncWithParam(funcName: string, params?: any): string`
 
-参数列表：
+需要直接返回 **String** 情况的 **[扩展方法调用](#callfuncwithparam)**。
 
-- `functionName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+**参数**：
 
-**示例**:
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+- `params`：any，可选，需要传入的参数。
 
-```
-boolean bSupported = this.user.isFunctionSupported("getGamePlayerStats");
-```
+**返回**：
 
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 插件调用方法的返回值。
+
+#### callIntFuncWithParam
+
+`callIntFuncWithParam(funcName: string, params?: any): number`
+
+需要直接返回 **Number** 整数（对应 C++ 侧为 Int 型）情况的 **[扩展方法调用](#callfuncwithparam)**。
+
+**参数**：
+
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+- `params`：any，可选，需要传入的参数。
+
+**返回**：
+
+- *[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)* 插件调用方法的返回值。
+
+#### callBoolFuncWithParam
+
+callBoolFuncWithParam(funcName: string, params?: any): boolean
+
+需要直接返回 **Boolean** 情况的 **[扩展方法调用](#callfuncwithparam)**。
+
+**参数**：
+
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+- `params`：any，可选，需要传入的参数。
+
+**返回**：
+
+- *[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)* 插件调用方法的返回值。
+
+#### callFloatFuncWithParam
+
+`callFloatFuncWithParam(funcName: string, params?: any): number`
+
+需要直接返回 **Number** 浮点数（对应 C++ 侧为 Float 型）情况的 **[扩展方法调用](#callfuncwithparam)**。
+
+**参数**：
+
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+- `params`：any，可选，需要传入的参数。
+
+**返回**：
+
+- *[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)* 插件调用方法的返回值。
 
 #### getPluginId
 
-**获取插件 ID**。
+`getPluginId(): string`
 
-**示例**:
+获取插件 ID。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 插件 ID。
+
+**示例**：
 
 ```
 var userId = this.user.getPluginId();
 ```
 
+#### getPluginName
+
+`getPluginName(): string`
+
+获取插件名称。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 插件名称。
+
 #### getPluginVersion
 
-**获取插件版本**，例如 "1.0.0_4.0.3"，下划线前为插件的版本号，下划线后为接入平台 SDK 的版本号。
+`getPluginVersion(): string`
 
-只获取 SDK 版本号可调用 `getSDKVersion`。
+**获取插件版本号**，例如 "1.0.0_4.0.3"，下划线前为插件的版本号，下划线后为接入平台 SDK 的版本号。
 
-**示例**:
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 插件版本号。
+
+#### getSDKVersion
+
+`getSDKVersion(): string`
+
+**获取插件对应 SDK 版本号**，例如 "4.0.3"，平台 SDK 的版本号。
+
+**返回**：
+
+- *[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)* 插件对应 SDK 版本号。
+
+#### isFunctionSupported
+
+`isFunctionSupported(funcName: string): boolean`
+
+**判断插件是否支持该方法**，需要传入方法名。
+
+**参数**：
+
+- `funcName`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，方法名。
+
+**返回**：
+
+- *[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)*，是否支持该方法。
+
+**示例**：
 
 ```
-var userPluginVersion = this.user.getPluginVersion();
+boolean bSupported = this.user.isFunctionSupported("getGamePlayerStats");
 ```
 
-### UserPlugin 用户 & 游戏系统
+#### setPluginName
 
-以设定 `this.user` 为 `UserPlugin` 对象为例，下同。
+`setPluginName(name: string): void`
+
+设置插件名称。
+
+**参数**：
+
+- `name`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，要设置的插件名。
+
+### ProtocolUser
+
+用户插件对象类，继承于 [PluginProtocol](#pluginprotocol)，可使用其相关方法。
+
+回调枚举值请参考 [UserResultCode](#userresultcode)
+
+示例代码以设定 `this.user` 为 `ProtocolUser` 对象类为例，下同。
 
 ```
 this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
 ```
 
-#### 回调列表
+**模块**：[SDKHub](#sdkhub)
 
-提供 User 系统的统一回调方法，代码示例请参考 [统一回调](#统一回调)。
+**层级**：
+
+- [PluginProtocol](#pluginprotocol)
+    - ProtocolUser
+    
+#### 索引
+
+- [login](#login)
+- [logout](#logout)
+- [showToolBar](#showtoolbar)
+- [hideToolBar](#hidetoolbar)
+- [setUserInfo](#setuserinfo)
+- [getUserInfo](#getuserinfo)
+- [showAchievements](#showachievements)
+- [unlockAchievement](#unlockachievement)
+- [showLeaderBoard](#showleaderboard)
+- [submitScore](#submitscore)
+
+#### login
+
+`login(): void`
+
+调用 SDK 的 **登录** 方法。需要游戏自己对登录后的信息做处理，和判断登录状态。
+
+**示例**：
+
+```
+this.user.login();
+``` 
+
+#### logout
+
+`logout(): void`
+
+调用 SDK 的 **登出** 方法。
+
+**示例**：
+
+```
+this.user.logout();
+```
+
+#### showToolBar
+
+`showToolBar(toolPlace: ToolBarPlace): void`
+
+调用 SDK 的 **显示浮标** 方法。
+
+**参数**：
+
+- `toolPlace`：[ToolBarPlace](#toolbarplace)，部分插件需要该参数作为浮动工具栏初始位置，仅第一次进入时有效，之后工具栏会显示在用户最后一次停留的位置。
+
+**示例**：
+
+```
+this.user.showToolBar(SDKHub.ToolBarPlace.kToolBarTopLeft);
+```
+
+#### hideToolBar
+
+`hideToolBar(): void`
+
+调用 SDK 的 **隐藏浮标** 方法。
+
+**示例**：
+
+```
+this.user.hideToolBar();
+```
+
+#### setUserInfo
+
+`setUserInfo(info: any): void`
+
+**设置用户登录信息**。一些 SDK 可能在用户做完服务端登录验证，获取用户唯一 ID 后，需要在 SDKHub 端设置登录信息，插件才能返回登录成功回调。可参考具体 SDK 使用文档是否要求调用该方法。
+
+**参数**：
+
+- `info`：any，需要传入的用户信息。
+
+**示例**：
+
+```
+var userInfo = {
+    "userID" : "123456"
+}
+this.user.setUserInfo("userInfo");
+```
+
+#### getUserInfo
+
+`getUserInfo(): any`
+
+**获取用户登录信息**。若 SDK 可以在客户端完成登录验证并获取到用户唯一 ID，可通过该方法获取登录信息。可以读取 **userID** 参数作为用户唯一 ID。
+
+- *any* 用户登录信息。
+
+**示例**：
+
+```
+var userInfo = this.user.getUserInfo();
+console.log("userInfo", JSON.stringify(userInfo));
+```
+
+#### showAchievements
+
+`showAchievements(params: any): void`
+
+**展示成就列表**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = { "type": "0" }; 
+this.user.showAchievements(params);
+```
+
+#### unlockAchievement
+
+`unlockAchievement(params: any): void`
+
+**解锁成就事件**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = {
+    "type": "visualizeWithResult",
+    "achievementId": "5D9580837D32CB59CFEC89DAD39470CDF9B672033A2D6F14689BC01335818444"
+};
+this.user.unlockAchievement(params);
+```
+
+#### showLeaderBoard
+
+`showLeaderBoard(params: any): void`
+
+**展示排行榜**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = {
+    "type": "getRankingsIntent",
+};
+this.user.showLeaderBoard(params);
+```
+
+#### submitScore
+
+`submitScore(params: any): void`
+
+**提交分数**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = {
+    "type": "getRankingSwitchStatus",
+};
+this.user.submitScore(params);
+```
+
+### ProtocolFee
+
+支付插件对象类，继承于 [PluginProtocol](#pluginprotocol)，可使用其相关方法。
+
+考虑过去苹果 iAP 审核方面等的问题，我们将支付关键字设为 `fee`。
+
+回调枚举值请参考 [FeeResultCode](#feeresultcode)
+
+示例代码以设定 `this.fee` 为 `ProtocolFee` 对象类为例，下同。
+
+```
+this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
+```
+
+**模块**：[SDKHub](#sdkhub)
+
+**层级**：
+
+- [PluginProtocol](#pluginprotocol)
+    - ProtocolFee
+
+#### feeForProduct
+
+`feeForProduct(params: any): void`
+
+传入支付参数，调用 SDK 的 **支付方法**。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params =
+{
+    "Product_Id": "2",          // 商品 ID
+    "Product_Name": "10元宝",    // 商品名称
+    "Product_Price": "1",       // 商品价格
+    "Product_Count": "1",       // 商品数量
+    // 所需额外参数请参考 SDK 相关文档
+    ······
+}
+
+this.fee.feeForProduct(params);
+```
+
+### ProtocolAds
+
+广告插件对象类，继承于 [PluginProtocol](#pluginprotocol)，可使用其相关方法。
+
+回调枚举值请参考 [AdsResultCode](#adsresultcode)
+
+示例代码以设定 `this.ads` 为 `ProtocolAds` 对象类为例，下同。
+
+```
+this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
+```
+
+**模块**：[SDKHub](#sdkhub)
+
+**层级**：
+
+- [PluginProtocol](#pluginprotocol)
+    - ProtocolAds
+
+#### preloadAds
+
+`preloadAds(params: any): void`
+
+**预加载广告**。部分类型广告显示前，需要做预加载。回调成功后才能调用显示广告方法。
+
+**参数**：
+
+- `params` any，需要传入的参数。
+
+**示例**：
+
+```
+var params = { "adType": "Interstitial", "adId": "testb4znbuh3n2" };
+this.ads.preloadAds(params);
+```
+
+#### showAds
+
+`showAds(params: any): void`
+
+**显示广告**。若需要显示 Banner 等类型广告，可能使用到 pos 方位 [AdsPos](#adspos)：
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = { "adType": "Banner", "adId": "testx9dtjwj8hp", pos : SDKHub.AdsPos.kPosBottom};
+this.ads.showAds(params);
+```
+
+#### hideAds
+
+`hideAds(params: any): void`
+
+**隐藏广告**。通过插件实现，或者调用 SDK 中的隐藏广告方法。
+
+**参数**：
+
+- `params`：any，需要传入的参数。
+
+**示例**：
+
+```
+var params = { "adType": "Reward", "adId": "testw6vs28auh3" };
+this.ads.hideAds(params);
+```
+
+### ProtocolPush
+
+推送插件对象类，继承于 [PluginProtocol](#pluginprotocol)，可使用其相关方法。
+
+回调枚举值请参考 [PushResultCode](#pushresultcode)
+
+示例代码以设定 `this.push` 为 `ProtocolPush` 对象类为例，下同。
+
+```
+this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
+```
+
+**模块**：[SDKHub](#sdkhub)
+
+**层级**：
+
+- [PluginProtocol](#pluginprotocol)
+    - ProtocolPush
+
+#### 索引
+
+- [术语说明](#术语说明)
+    - [别名（Alias）](#别名（alias）)
+    - [标签（Tag）](#标签（tag）)
+- [startPush](#startpush)
+- [closePush](#closepush)
+- [setAlias](#setalias)
+- [delAlias](#delalias)
+- [setTags](#settags)
+- [delTags](#deltags)
+
+#### 术语说明
+
+##### 别名（Alias）
+
+为安装了应用程序的用户，取个别名来标识。以后给该用户 Push 消息时，就可以用此别名来指定。
+
+- 每个用户只能指定一个别名。
+- 同一个应用程序内，对不同的用户，建议取不同的别名。这样，尽可能根据别名来唯一确定用户。
+- 系统不限定一个别名只能指定一个用户。如果一个别名被指定到了多个用户，当给指定这个别名发消息时，服务器端 API 会同时给这多个用户发送消息。
+
+举例：在一个用户要登录的游戏中，可能设置别名为 userid。游戏运营时，发现该用户 3 天没有玩游戏了，则根据 userid 调用服务器端 API 发通知到客户端提醒用户。
+
+##### 标签（Tag）
+
+为安装了应用程序的用户，打上标签。其目的主要是方便开发者根据标签，来批量下发 Push 消息。
+
+- 可为每个用户打多个标签。
+- 不同应用程序、不同的用户，可以打同样的标签。
+
+举例： game, old_page, women
+
+#### startPush
+
+`startPush(): void`
+
+调用 SDK 中的 **开始推送** 方法。
+
+**示例**：
+
+```
+this.push.startPush();
+```
+
+#### closePush
+
+`closePush(): void`
+
+调用 SDK 中的 **关闭推送** 方法。
+
+**示例**：
+
+```
+this.push.closePush();
+```
+
+#### setAlias
+
+`setAlias(alias: string): void`
+
+**设置别名**。请参考 [术语说明](#术语说明)。
+
+**参数**：
+
+- `alias`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，别名。
+
+**示例**：
+
+```
+this.push.setAlias("SDKHub");
+```
+
+#### delAlias
+
+`delAlias(alias: string): void`
+
+**删除别名**。请参考 [术语说明](#术语说明)。
+
+**参数**：
+
+- `alias`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，别名。
+
+**示例**：
+
+```
+this.push.delAlias("SDKHub");
+```
+
+#### setTags
+
+`setTags(tags: any): void`
+
+**设置标签**。请参考 [术语说明](#术语说明)。
+
+**参数**：
+
+- `tags`：any，标签名称字符串。
+
+**示例**：
+
+```
+this.push.setTags(["tag1", "tag2"...]);
+```
+
+#### delTags
+
+`delTags(tags: any): void`
+
+**删除标签**。可参考 [术语说明](#术语说明)。
+
+**参数**：
+
+- `tags`：any，标签名称字符串。
+
+**示例**：
+
+```
+this.push.delAlias(["tag1", "tag2"...]);
+```
+
+### ProtocolCustom
+
+自定义插件对象类，继承于 [PluginProtocol](#pluginprotocol)，可使用其相关方法。
+
+自定义类型所有方法以 [callFuncWithParam](#callfuncwithparam) 及其相关扩展方法调用。
+
+回调值全部以扩展回调值 **10000** 开始。
+
+**模块**：[SDKHub](#sdkhub)
+
+**层级**：
+
+- [PluginProtocol](#pluginprotocol)
+    - ProtocolCustom
+    
+### PluginResultListener
+
+统一回调监听接口。
+
+#### __call
+
+`__call(code: number, msg: string): void`
+
+**参数**：
+
+- `code`：[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) 回调值。
+- `msg`：[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) 回调信息。
+
+### 枚举值定义
+
+#### UserResultCode
+
+[ProtocolUser](#protocoluser) 的统一回调枚举值，代码示例请参考 [setListener](#setlistener)。
 
 | 状态码 SDKHub.UserReturnCode. | 对应 Number 值 | 描述 |
 | --- | --- | --- |
@@ -357,165 +1115,10 @@ this.user = SDKHub.AgentManager.getInstance().getUserPlugin();
 | kServerVerify | 28 | 返回登录信息，需要做服务端验证 |
 | kUserExtension | 20000 | 用户扩展回调值 |
 
-#### login
 
-调用 SDK 的 **登录** 方法。需要游戏自己对登录后的信息做处理，和判断登录状态。
+#### FeeResultCode
 
-**示例**:
-
-```js
-this.user.login();
-``` 
-
-#### logout
-
-调用 SDK 的 **登出** 方法。
-
-**示例**:
-
-```
-this.user.logout();
-```
-
-#### showToolBar
-
-调用 SDK 的 **显示浮标** 方法。
-
-参数列表：
-
-- `place` [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)，部分插件需要该参数作为浮动工具栏初始位置，仅第一次进入时有效，之后工具栏会显示在用户最后一次停留的位置。
-
-| 对应的状态码 | 对应 Number 值 | 描述 |
-| --- | --- | --- |
-| ToolBarPlace.kToolBarTopLeft | 	1 | 左上角 |
-| ToolBarPlace.kToolBarTopRight	 | 2 | 右上角 |
-| ToolBarPlace.kToolBarMidLeft	 | 3 | 左边中间 |
-| ToolBarPlace.kToolBarMidRight	 | 4 | 右边中间 |
-| ToolBarPlace.kToolBarBottomLeft	 | 5 | 左下角 |
-| ToolBarPlace.kToolBarBottomRight	| 6 | 右下角 |
-
-**示例**:
-
-```
-this.user.showToolBar(SDKHub.ToolBarPlace.kToolBarTopLeft);
-```
-
-#### hideToolBar
-
-调用 SDK 的 **隐藏浮标** 方法。
-
-**示例**:
-
-```
-this.user.hideToolBar();
-```
-
-#### setUserInfo
-
-**设置用户信息**。一些 SDK 可能在用户做完服务端登录验证，获取用户唯一 ID 后，需要在 SDKHub 端设置登录信息，插件才能返回登录成功回调。可参考具体 SDK 使用文档是否要求调用该方法。
-
-- `userInfo` [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的用户信息。
-
-**示例**:
-
-```
-var userInfo = {
-    "userId" : "123456"
-}
-this.user.setUserInfo("userInfo");
-```
-
-#### getUserInfo
-
-**获取用户信息**。若 SDK 可以在客户端完成登录验证并获取到用户唯一 ID，可通过该方法获取登录信息。
-
-**示例**:
-
-```
-var userInfo = this.user.getUserInfo();
-console.log("userInfo", JSON.stringify(userInfo));
-```
-
-#### showAchievements
-
-**展示成就列表**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = { "type": "0" }; 
-this.user.showAchievements(params);
-```
-
-#### unlockAchievement
-
-**解锁成就事件**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = {
-    "type": "visualizeWithResult",
-    "achievementId": "5D9580837D32CB59CFEC89DAD39470CDF9B672033A2D6F14689BC01335818444"
-};
-this.user.unlockAchievement(params);
-```
-
-#### showLeaderBoard
-
-**展示排行榜**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = {
-    "type": "getRankingsIntent",
-};
-this.user.showLeaderBoard(params);
-```
-
-#### submitScore
-
-**提交分数**。游戏系统方法，若需要调用，传入参数需参考对应 SDK 文档。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = {
-    "type": "getRankingSwitchStatus",
-};
-this.user.submitScore(params);
-```
-
-### FeePlugin 支付系统
-
-考虑过去苹果 iAP 审核方面等的问题，我们将支付关键字设为 `fee`。
-
-以设定 `this.fee` 为 `FeePlugin` 对象为例，下同。
-
-```
-this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
-```
-
-#### 回调列表
-
-提供支付系统的统一回调方法，代码示例请参考 [统一回调](#统一回调)。
+[ProtocolFee](#protocolfee) 的统一回调枚举值，代码示例请参考 [setListener](#setlistener)。
 
 | 状态码 SDKHub.FeeReturnCode. | 对应 Number 值 | 描述 |
 | --- | --- | --- |
@@ -530,41 +1133,10 @@ this.fee = SDKHub.AgentManager.getInstance().getFeePlugin();
 | kFeeRechargeSucceed | 8 | 已购商品重新发送成功 |
 | kFeeExtension | 30000 | 支付扩展回调值 |
 
-#### feeForProduct
 
-传入支付参数，调用 SDK 的 **支付方法**。
+#### AdsResultCode
 
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params =
-{
-    "Product_Id": "2",          // 商品 ID
-    "Product_Name": "10元宝",    // 商品名称
-    "Product_Price": "1",       // 商品价格
-    "Product_Count": "1",       // 商品数量
-    // 所需额外参数请参考 SDK 相关文档
-    ······
-}
-
-this.fee.feeForProduct(params);
-```
-
-### AdsPlugin 广告系统
-
-以设定 `this.ads` 为 `AdsPlugin` 对象为例，下同。
-
-```
-this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
-```
-
-#### 回调列表
-
-提供广告系统的统一回调方法，代码示例请参考 [统一回调](#统一回调)。
+[ProtocolAds](#protocolads) 的统一回调枚举值，代码示例请参考 [setListener](#setlistener)。
 
 | 状态码 SDKHub.AdsReturnCode | 对应 Number 值 | 描述 |
 | --- | --- | --- |
@@ -587,89 +1159,9 @@ this.ads = SDKHub.AgentManager.getInstance().getAdsPlugin();
 | kAdsOnAdImpression | 16 | 广告曝光回调 |
 | kAdsExtension | 40000 | 广告扩展回调值 |
 
-#### preloadAds
+#### PushResultCode
 
-**预加载广告**。部分类型广告显示前，需要做预加载。回调成功后才能调用显示广告方法。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = { "adType": "Interstitial", "adId": "testb4znbuh3n2" };
-this.ads.preloadAds(params);
-```
-
-#### ShowAds
-
-**显示广告**。Banner 等类型广告，可能使用到 pos 方位参数，也可以直接传 Number 值：
-
-| 对应的状态码 | 对应 Number 值 | 描述 |
-| --- | --- | --- |
-| AdsPos.kPosBottom | 0 | 下方 |
-| AdsPos.kPosCenter | 1 | 正中 |
-| AdsPos.kPosTop	 | 2 | 上方 |
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = { "adType": "Banner", "adId": "testx9dtjwj8hp", pos : SDKHub.AdsPos.kPosBottom};
-this.ads.showAds(params);
-```
-
-#### hideAds
-
-**隐藏广告**。通过插件实现，或者调用 SDK 中的隐藏广告方法。
-
-参数列表：
-
-- `params` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), 需要传入的参数。
-
-**示例**:
-
-```
-var params = { "adType": "Reward", "adId": "testw6vs28auh3" };
-this.ads.hideAds(params);
-```
-
-### PushPlugin 推送系统
-
-以设定 `this.push` 为 `PushPlugin` 对象为例，下同。
-
-```
-this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
-```
-
-#### 术语说明
-
-**别名（Alias）**
-
-为安装了应用程序的用户，取个别名来标识。以后给该用户 Push 消息时，就可以用此别名来指定。
-
-- 每个用户只能指定一个别名。
-- 同一个应用程序内，对不同的用户，建议取不同的别名。这样，尽可能根据别名来唯一确定用户。
-- 系统不限定一个别名只能指定一个用户。如果一个别名被指定到了多个用户，当给指定这个别名发消息时，服务器端 API 会同时给这多个用户发送消息。
-
-举例：在一个用户要登录的游戏中，可能设置别名为 userid。游戏运营时，发现该用户 3 天没有玩游戏了，则根据 userid 调用服务器端 API 发通知到客户端提醒用户。
-
-**标签（Tag）**
-
-为安装了应用程序的用户，打上标签。其目的主要是方便开发者根据标签，来批量下发 Push 消息。
-
-- 可为每个用户打多个标签。
-- 不同应用程序、不同的用户，可以打同样的标签。
-
-举例： game, old_page, women
-
-#### 回调列表
-
-提供推送系统的统一回调方法，代码示例请参考 [统一回调](#统一回调)。
+[ProtocolPush](#protocolpush) 的统一回调枚举值，代码示例请参考 [setListener](#setlistener)。
 
 | 状态码 SDKHub.PushReturnCode. | 对应 Number 值 | 描述 |
 | --- | --- | --- |
@@ -688,77 +1180,26 @@ this.push = SDKHub.AgentManager.getInstance().getPushPlugin();
 | kDelTagsFailed | 12 | 删除标签失败 |
 | kPushExtension | 50000 | 推送扩展回调值 |
 
-#### startPush
+#### ToolBarPlace
 
-调用 SDK 中的 **开始推送** 方法。
+[showToolBar](#showtoolbar) 方法使用的位置枚举值。
 
-**示例**:
+| 状态码 SDKHub.ToolBarPlace | 对应 Number 值 | 描述 |
+| --- | --- | --- |
+| kToolBarTopLeft | 1 | 左上角 |
+| kToolBarTopRight | 2 | 右上角 |
+| kToolBarMidLeft	 | 3 | 左边中间 |
+| kToolBarMidRight | 4 | 右边中间 |
+| kToolBarBottomLeft | 5 | 左下角 |
+| kToolBarBottomRight | 6 | 右下角 |
 
-```
-this.push.startPush();
-```
+#### AdsPos
 
-#### closePush
+[showAds](#showads) 方法使用的位置枚举值。
 
-调用 SDK 中的 **关闭推送** 方法。
-
-**示例**:
-
-```
-this.push.closePush();
-```
-
-#### setAlias
-
-**设置别名**。请参考 [术语说明](#术语说明)。
-
-参数列表：
-
-- `aliasName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，别名。
-
-**示例**:
-
-```
-this.push.setAlias("SDKHub");
-```
-
-#### delAlias
-
-**删除别名**。请参考 [术语说明](#术语说明)。
-
-参数列表：
-
-- `aliasName` [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)，别名。
-
-**示例**:
-
-```
-this.push.delAlias("SDKHub");
-```
-
-#### setTags
-
-**设置标签**。请参考 [术语说明](#术语说明)。
-
-- `tagNames` [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)，标签名称字符串。
-
-**示例**:
-
-```
-this.push.setTags(["tag1", "tag2"...]);
-```
-
-#### delTags
-
-**删除标签**。请参考 [术语说明](#术语说明)。
-
-- `tagNames` [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)，标签名称字符串。
-
-**示例**:
-
-```
-this.push.delAlias(["tag1", "tag2"...]);
-```
-
-
+| 状态码 SDKHub.AdsPos | 对应 Number 值 | 描述 |
+| --- | --- | --- |
+| AdsPos.kPosBottom | 0 | 下方 |
+| AdsPos.kPosCenter | 1 | 正中 |
+| AdsPos.kPosTop	 | 2 | 上方 |
 
