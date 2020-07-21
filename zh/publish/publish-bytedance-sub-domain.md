@@ -75,7 +75,7 @@
 
 四、 使用 **字节开发者工具** 打开主域项目构建生成的 **bytedance** 文件夹，即可打开字节小游戏项目及预览调试游戏内容。
 
-    ![](./publish-bytedancegame/open-data-preview.png)
+![](./publish-bytedancegame/open-data-preview.png)
 
 ### 参考链接
 
