@@ -31,6 +31,5 @@ Cocos Service 目前提供的服务包括：
     - [GME 接口文档](gme-api-docs.md)
 - [Agora 声网](agora.md)
 - [SDKHub](sdkhub.md)
-    - [HUAWEI HMS 插件](sdkhub-plugins/sdkhub-hms.md)
-
-
+    - [SDKHub API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)
+    - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

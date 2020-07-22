@@ -16,7 +16,7 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 - **框架层** 实现了 JSB 绑定文件、插件和回调统一管理接口、各插件系统接口的统一封装定义和原生平台实现部分。
 - **插件层** 实现了框架层定义的各接口，和原生平台 SDK 所需的各种其他接口，将原生平台 SDK 的回调进行统一封装。在构建工程时，调用安装脚本，对原生工程进行原生平台 SDK 所需的工程配置。
 
-开发者在游戏层，仅需调用 JSSDK 中的方法和处理统一封装的回调，极大的简化了开发者接入原生平台 SDK 的工作量。
+开发者在游戏层，仅需调用 SDKHub 中的方法和处理统一封装的回调，极大的简化了开发者接入原生平台 SDK 的工作量。
 
 ![](sdkhub/sdkhub-intro.png)
 
@@ -90,7 +90,7 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
 - 点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
-- 下面我们以集成 **华为 HMS SDK** 为例。需要完成以下前提：
+- 下面我们以集成 **HUAWEI HMS Core** 为例。需要完成以下前提：
 
     - 已在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，并创建游戏应用，在该游戏应用的 **API 管理** 页面中开通了 **Account Kit**、**In-App Purchases**、**Game Service** 、**Push Kit** 服务。
       
@@ -108,7 +108,7 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
     ![](sdkhub/sdkhub-config-group2.png)
     
-- 添加后点击 **配置插件** 按钮，勾选 **HUAWEI HMS** 相关服务插件。
+- 添加后点击 **配置插件** 按钮，勾选 **HUAWEI HMS Core** 相关服务插件。
 
     ![](sdkhub/sdkhub-config-group3.png)
     
@@ -122,11 +122,10 @@ SDKHub 主要分为框架层和插件层两大部分，由 SDKHub 服务面板�
 
     ![](sdkhub/sdkhub-config-group6.jpg)
 
-- 若修改工程参数配置或者 JS 代码层，在构建发布面板重新构建，即可在 Android Studio 继续编译发布操作。
+- 若需要修改工程参数配置或者 JS 代码层，修改完成后，在构建发布面板重新构建即可。
 
-- 若需要删减服务插件配置（例如去掉支付功能），建议删除工程下的 `/build` 目录，重新构建。
+- 若需要删减服务插件配置（例如去掉支付功能），建议删除工程构建后生成的发布包 `build/jsb-link` 或者 `build/jsb-default` 目录，然后重新构建。
 
 ## API 文档
 
-请参考 [API 文档]()。
-
+请参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
