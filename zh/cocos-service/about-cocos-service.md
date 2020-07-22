@@ -41,3 +41,6 @@ Cocos Service 目前支持集成以下服务：
 - [腾讯云 MGOBE 游戏联机对战引擎](mgobe.md)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
 - [腾讯云 GME 游戏多媒体引擎](gme.md)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [Agora Voice](agora.md)：游戏内置实时音频 SDK。
+- [SDKHub](sdkhub.md)：快速接入原生平台 SDK。
+
+
