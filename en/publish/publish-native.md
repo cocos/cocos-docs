@@ -8,32 +8,21 @@ Currently, there are four native platforms, which include: **Android**, **iOS**,
 
 ## Build Options
 
-### Merge SpriteFrames in Atlas
+### Main Bundle Compression Type
 
-Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
-
-If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of `project.manifest`.
-
-**Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
+Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
 
 ### Inline all SpriteFrames
 
 When merging assets automatically, combine all SpriteFrame and the assets that are being relied on into the same package. It is recommended to enable this option in web. When enable, it will increase the overall game size slightly, consume a little bit of network traffic, but can significantly reduce the number of network requests. It is recommended to disable this option in native, because it will increase the package size used in hot update.
 
-### MD5 Cache
+### Merge SpriteFrames in Atlas
 
-Add MD5 information to all the resource file names after build to resolve the CDN cache problem during hot update.
+Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
 
-After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by `cc.assetManager`. If this happens, you can convert the url before loading, to fix the loading problem.
+If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of it.
 
-```cpp
-auto cx = ScriptingCore::getInstance()->getGlobalContext();
-JS::RootedValue returnParam(cx);
-ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
-
-string url;
-jsval_to_string(cx, returnParam, &url);
-```
+**Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
 
 ### Package Name
 
@@ -61,7 +50,7 @@ To set up the CPU type that Android needs to support, you can select one or more
 
 ### Keystore
 
-Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.google.cn/studio/publish/app-signing) for details.
+Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.com/studio/publish/app-signing) for details.
 
 ### App Bundle (Google Play)
 
@@ -80,6 +69,21 @@ Encrypt the published script. After build, the JSC file is generated in the `src
 **Zip Compress**: You can reduce the size of your scripts by checking them.
 
 ![](publish-native/js_secret.png)
+
+### MD5 Cache
+
+Add MD5 information to all the resource file names after build to resolve the CDN cache problem during hot update.
+
+After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by `cc.assetManager`. If this happens, you can convert the url before loading, to fix the loading problem.
+
+```cpp
+auto cx = ScriptingCore::getInstance()->getGlobalContext();
+JS::RootedValue returnParam(cx);
+ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
+
+string url;
+jsval_to_string(cx, returnParam, &url);
+```
 
 ### Build Scripts Only
 

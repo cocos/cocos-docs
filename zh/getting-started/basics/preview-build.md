@@ -8,7 +8,7 @@
 
 ![select platform](preview-build/select-platform.png)
 
-**注意**：必须有当前打开的场景才能预览游戏内容，在没有打开任何场景，或者新建了一个空场景的情况下预览是看不到任何内容的。
+**注意**：必须双击打开场景才能预览游戏内容，在没有打开任何场景，或者新建了一个空场景的情况下预览是看不到任何内容的。
 
 ### 模拟器
 
@@ -34,12 +34,11 @@
 
 ![browser](preview-build/browser.png)
 
-### 浏览器兼容性
+#### 浏览器兼容性
 
-Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox（火狐），IE11
-其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE6 兼容模式。
+Cocos Creator 开发过程中测试的桌面浏览器包括：Chrome、Firefox（火狐）、IE11，其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE 兼容模式。
 
-移动设备上测试的浏览器包括：Safari (iOS)，Chrome，QQ 浏览器，UC 浏览器，百度浏览器，微信内置 Webview。
+移动设备上测试的浏览器包括：Safari、Chrome、QQ 浏览器、UC 浏览器、百度浏览器、微信内置 WebView。
 
 #### 使用 VS Code 调试
 

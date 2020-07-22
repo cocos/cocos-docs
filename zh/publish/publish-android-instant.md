@@ -8,22 +8,18 @@
 
 采用 Cocos Creator 开发的游戏，只需选择 Google Play Instant 作为发布平台，就可以自动完成标准适配工作，输出符合 Google Play Instant 技术标准的游戏。
 
-## 使用 Cocos Creator 一键发布到 Google Play Instant
-
-### 环境配置
+## 环境配置
 
 - 需要使用 Android Studio 3.0 版本及以上
 - Android Phone 6.0 及以上<br>
 **注意**：Android SDK 版本在 6.0 到 7.0 之间的设备需要安装 Google 服务框架，SDK 版本在 8.0 以上的则不需要，可直接安装使用。
 - NDK 建议使用的版本为 **r17 - r19**
   
-### 发布流程
+## 发布流程
 
-1. 使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **Android Instant**，**模板** 选择 **android-instant**，**API Level** 选择 **android-26** 及以上。
+1. 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **Android Instant**，**API Level** 选择 **android-26** 及以上。
 
     ![](publish-android-instant/builder.png)
-
-    Android Instant 的构建模版从 v2.3.0 开始与 Android 平台一致，详情可参考 [打包发布原生平台](./publish-native.md#%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E5%B7%A5%E7%A8%8B)。
 
 2. 如果希望直接打包而不使用分包功能的话，可以勾选 **跳过录制和分包**，然后直接点击 **构建 -> 编译 -> 运行**，连接手机之后即可看到 Google Play Instant 的运行效果。
 
@@ -48,17 +44,32 @@
 ### 相关配置说明
 
 **构建发布** 面板中关于发布到 Google Play Instant 的几个主要配置说明如下：
-- **服务器地址**：远端资源的下载地址，可以是 CDN 地址，将 `path_to_your_project/build/jsb-link/remote_assets` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源
-- **启动 URL**：Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。该参数可为空，若不为空，当提交到 Google Store 的时候需要确保输入的 URL 是可以访问的。详情请查看 [Google Instant App 文档](https://developer.android.google.cn/topic/google-play-instant/getting-started/first-instant-app)。
-- **分包配置路径**：Creator 会根据这个分包配置生成首包的资源
 
-**注意**：
-1. 填写资源服务器地址时不用包含 `/remote_assets`。
-2. 如果 Google Play Instant 包的权限大于 Google Store 上 APP 的权限，在安装 APP 的时候可能会导致无法正常安装：
+- **主包压缩类型**
+
+  设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+
+- **资源服务器地址**
+
+  远端资源的下载地址，可以是 CDN 地址，将 `path_to_your_project/build/jsb-link/remote_assets` 文件夹放入服务器或者 CDN 中即可，Creator 会去这个地址下载没有在首包当中的资源。**注意**：填写资源服务器地址时不用包含 `/remote_assets`。
+
+- **启动 URL**
+
+  Google Play Instant 会根据这个协议启动对应的应用和对应的 activity。该参数可为空，若不为空，当提交到 Google Store 的时候需要确保输入的 URL 是可以访问的。详情请查看 [Google Instant App 文档](https://developer.android.google.cn/topic/google-play-instant/getting-started/first-instant-app)。
+
+- **分包配置路径**
+
+  Creator 会根据这个分包配置生成首包的资源。
+
+- **生成 App Bundle (Google Play)**
+
+  勾选该项后，即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
+
+**注意**：如果 Google Play Instant 包的权限大于 Google Store 上 APP 的权限，在安装 APP 的时候可能会导致无法正常安装：
 
 ![](publish-android-instant/installation_failed.png)
 
-## <a name="refactor">分包器</a>
+## 分包器
 
 分包器，主要用来编辑游戏的首包，选择放入首包的资源。
 

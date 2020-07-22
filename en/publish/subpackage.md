@@ -4,7 +4,7 @@ Some mini game platforms support subpackaging to divide resources, scenes, and s
 
 ## Configuration
 
-The Asset Bundle is configured in **folders**. When we select a folder in the **Assets** panel, the **Properties** panel will show a **Is Bundle** option, when checked, the folder-related configuration options will appear:
+The Asset Bundle is configured in **folders**. When we select a folder in the **Assets** panel, the **Properties** panel will show a **Is Bundle** option, if set, the folder-related configuration options will appear:
 
 ![](subpackage/configuration.png)
 
