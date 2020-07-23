@@ -15,6 +15,8 @@ The specific use method of baidu Baidu Mini Game Open Data Context, please refer
 
 Create a node in the main context as an open data context container, add the `SubContextView` component to set the open data context view and update the open data context texture. The aspect ratio of this node should be equal to the aspect ratio of the open data context design resolution (otherwise stretching happens).
 
+**Note**: As of **v2.4.1**, the `SwanSubContextView` is deprecated, please use `SubContextView`.
+
 ## Open data context project
 
 Create an open data context project to obtain user data through the relevant API, and create a display of UI according to your own needs. The entire open data context project should only contain its content UI, and the design resolution of the Canvas component in the scene should be set to the full resolution of the UI, not the resolution corresponding to the main context.
