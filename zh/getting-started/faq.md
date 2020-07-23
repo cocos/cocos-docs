@@ -35,7 +35,7 @@
 
 这是由于线性过滤时，颜色通道和背景色做了插值，比较简单的办法是使用预乘。预乘需要将 Sprite 组件的混合模式设置成 `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`，然后对原图做处理。
 
-原图有两种处理方式，一种在图片导出时，在颜色通道下面添加黑色背景，透明通道保持不变。另一种是在代码中对 texture 调用 `texture.update({premultiplyAlpha: true})`，如果调用失败，有可能是旧版 Creator，旧版需要改用 `texture.handleLoadedTexture(true)`。
+原图的处理一般可以通过在编辑器的图片资源上勾选 **预乘**；或者由美术在图片导出时，在颜色通道下面添加黑色背景，透明通道保持不变。
 
 ### 如何用插件控制 Prefab？
 

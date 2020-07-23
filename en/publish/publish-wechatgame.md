@@ -159,13 +159,9 @@ In addition to pure game content, the WeChat Mini Game environment actually prov
 
 In order to protect its social relationship chain data, WeChat Mini Games has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the Open Data Context are completely isolated from the main game. Developers can only access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()` APIs provided by the WeChat in the Open Data Context to implement features such as leaderboards. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
-## WeChat Mini Games Known issues
+## Limitations of the WeChat Mini Games
 
-In addition, our adaptation of WeChat Mini Games has not been completely completed, and the following modules are still not supported:
-
-- WebView
-
-If you need it, you can currently use it by calling the WeChat's API directly.
+The WeChat Mini Game does not support WebView.
 
 ## Reading
 

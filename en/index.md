@@ -6,6 +6,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 ## What's New
 
+- **As of v2.4.1**, Cocos Creator supports publishing to [LinkSure Mini Games](publish/publish-linksure.md).
 - **As of v2.4.0**, Cocos Creator has completely rewritten the Resource Management module and is compatible with most of the original APIs. Most of the projects will still work fine with the original code, except for a few projects that use incompatible special usage APIs that must be upgraded manually. We recommend that all developers upgrade. See both [v2.4 Asset Manager Upgrade Guide](release-notes/asset-manager-upgrade-guide.md) and [v2.4 Subpackage upgrade guide](release-notes/subpackage-upgrade-guide.md) for details.
 - **As of v2.4.0**, Cocos Creator officially supports **Asset Bundle**, providing more powerful remote resource loading capabilities, dynamic subproject loading capabilities, and further reducing the size of the first package. See [Asset Bundle](scripting/asset-bundle.md) documentation for details.
 - **As of v2.4.0**, the build process of the editor will be in **Asset Bundle**, and if you have extended the build process with plugins in the editor prior to v2.4, you will need to upgrade some of the API's usage. See [Custom Build Process Upgrade Guide](release-notes/build-extend-upgrade-guide.md) documentation for details.

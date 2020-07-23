@@ -56,16 +56,13 @@ Cocos Creator already helps developers with downloading, caching and version man
 
 **Note**: Currently, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
-## Alipay Mini Games Known issues
+## Limitations of the Alipay Mini Games
 
-Currently, our adaptation of Alipay Mini Games has not been completely completed, and the following modules are still not supported:
+The following modules are still not supported:
 
 - WebView
 - VideoPlayer
-- Subpackage Loading
 - Custom Font
-
-The above functions are expected to be gradually supported in future updates, and we will continue to communicate closely with Alipay Mini Games engineers to continuously optimize the adaptation effect.
 
 ## About Documentation
 
