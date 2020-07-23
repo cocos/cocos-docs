@@ -49,7 +49,6 @@
   - `sourceMaps` - 是否需要加入 source maps
   - `webOrientation` - web mobile 平台（不含微信小游戏）下的旋转选项 [landscape、portrait、auto]
   - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
-  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
   - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
 
   - `packageName` - 包名

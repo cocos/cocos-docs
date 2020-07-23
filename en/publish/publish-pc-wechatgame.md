@@ -8,7 +8,7 @@ Starting with Cocos Creator v2.3.1, creating games for the WeChat PC Mini Games 
 
 ### Preparatory work
 
-1. Download and install the latest version of [WeChat PC Client](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013) and log in to it with the WeChat account bound to the WeChat DevTools.
+1. Download and install the latest version of [WeChat PC Client](https://developers.weixin.qq.com/community/minigame/article/doc/0002ce5cc94270784ef9a591c50013) and login to it with the WeChat account bound to the WeChat DevTools.
 
 2. Development permissions, WeChat team has now opened the relevant permissions for all WeChat IDs that bound the development permissions in the mini game background. Newly bound WeChat ID, can be debugged the next day.
 

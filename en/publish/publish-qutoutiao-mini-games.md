@@ -8,11 +8,27 @@ Starting with Cocos Creator v2.3.0, creating games for the QTT Mini Games is off
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **QTT Mini Game** in the **Platform** dropdown of the **Build...** panel.
+Use **Cocos Creator** to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **QTT Mini Game** in the **Platform** dropdown.
 
-    ![](publish-qutoutiao/build.png)
+![](publish-qutoutiao/build.png)
+
+### Configuration Options
 
 The specific filling rules for the relevant parameter configuration are as follows:
+
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+- **Main Bundle Is Remote**
+
+  This option is optional and needs to be used with the **Resource Server Address** option.<br>
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+
+- **Start Scene Asset Bundle**
+
+  This option is optional.<br>
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **Game Package Name**
 
@@ -36,21 +52,20 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Resource Server Address**
 
-  This entry fills in the address at which the resource is stored on the server and is optional:
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
 
-  - If this entry is not filled, the **remote** folder in the **build** directory will be packaged in the **cpk** package.
+  - If this option is left blank, the `build/qtt-game/remote` folder in the release package directory will be packaged into the **cpk** package.
+  - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
-  - If this entry is filled in, the built **cpk** package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
+  Refer to the Resource Management section at the bottom of the document for more details.
 
-  For specific resource management details, see [Resource Management for QTT Mini Game Environment](#resource-management-for-qtt-mini-game-environment).
+### Build
 
-**2. Build**
-
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qtt-game** directory is generated under the default release path `build` directory, which is the exported QTT Mini Game project directory and **rpk**, the **rpk** package is in the **/build/qtt-game** directory.
+After the relevant options of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qtt-game** directory is generated under the default release path `build` directory, which is the exported QTT Mini Game project directory and **cpk**, the **cpk** package is in the **/build/qtt-game** directory.
 
 ![](publish-qutoutiao/output.png)
 
-**3. Run the built rpk to the phone**
+### Run the built cpk to the phone
 
 - Open the QTT APP that has been installed before on your Android device, click **我的** in the bottom navigation bar. Then drag the page down to the bottom and click **设置** to enter the Settings page.
 
@@ -79,7 +94,7 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 **QTT Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for QTT Mini Game is **4MB**, more than that must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
 ## Related reference links
 
