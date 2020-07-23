@@ -13,13 +13,13 @@ The specific use method of baidu Baidu Mini Game Open Data Context, please refer
 
 ## Main context project
 
-Create a node in the main context as an open data context container, add the `SwanSubContextView` component to set the open data context view and update the open data context texture. The aspect ratio of this node should be equal to the aspect ratio of the open data context design resolution (otherwise stretching happens).
+Create a node in the main context as an open data context container, add the `SubContextView` component to set the open data context view and update the open data context texture. The aspect ratio of this node should be equal to the aspect ratio of the open data context design resolution (otherwise stretching happens).
 
 ## Open data context project
 
 Create an open data context project to obtain user data through the relevant API, and create a display of UI according to your own needs. The entire open data context project should only contain its content UI, and the design resolution of the Canvas component in the scene should be set to the full resolution of the UI, not the resolution corresponding to the main context.
 
-## SwanSubContextView Tips
+## SubContextView Tips
 
 This is the core component of the open data context solution. In addition to the regular requirements, there are a few tricks that allow users to better control the performance of open data contexts.
 
@@ -29,18 +29,18 @@ This is the core component of the open data context solution. In addition to the
 
 - **Manually update the texture**
 
-  In Creator v2.1.1, when the open data context is evoked, as soon as the **SwanSubContextView** component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated for each frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the `update` function when needed:
+  In Creator v2.1.1, when the open data context is evoked, as soon as the **SubContextView** component load succeeds, the open data context texture begins to update to the main context and is displayed, after which the texture is updated for each frame. However, the update of the open data context texture may sometimes be costly, and the open data contexts designed by developer is a static interfaces (such as page-turning interfaces), in this case, you do not need to update the texture per frame, you can try to prevent each frame updating logic by disabling components and update it by manually calling the `update` function when needed:
 
   ```js
   subContextView.enabled = false;
   subContextView.update();
   ```
 
-  This manual control is the best performance solution. If you need to enable automatic update texture, the main loop of the Open Data Context resumes execution when the **SwanSubContextView** component is enabled.
+  This manual control is the best performance solution. If you need to enable automatic update texture, the main loop of the Open Data Context resumes execution when the **SubContextView** component is enabled.
 
 - **Set the texture update frequency**
 
-  In Creator v2.1.1, the **FPS** property has been added to the **SwanSubContextView** component, and the user can directly control the frame rate of Open Data Context by setting FPS.
+  In Creator v2.1.1, the **FPS** property has been added to the **SubContextView** component, and the user can directly control the frame rate of Open Data Context by setting FPS.
 
   ![](./publish-baidugame/subcontext.png)
 
@@ -49,7 +49,7 @@ This is the core component of the open data context solution. In addition to the
   - The Main Context will calculate an `update interval` ​​based on the **FPS** you set. This `update interval` prevents the engine from frequently calling `update` to update the Canvas texture of Open Data Context. 
   - By reducing the **FPS** of Open Data Context, you can also reduce the performance overhead of Open Data Context to some extent.
 
-  **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the `SwanSubContextView` component directly in the Main Context project.**
+  **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the `SubContextView` component directly in the Main Context project.**
 
 ## Release Process
 
