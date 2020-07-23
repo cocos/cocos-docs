@@ -99,6 +99,9 @@
     - [腾讯云 | 游戏多媒体引擎](cocos-service/gme.md)
         - [接口文档](cocos-service/gme-api-docs.md)
     - [Agora 声网](cocos-service/agora.md)
+    - [SDKHub](cocos-service/sdkhub.md)
+        - [SDKHub API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)
+        - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
     - [安装配置原生开发环境](publish/setup-native-development.md)
@@ -279,5 +282,3 @@
     - [SDKBox](sdk/sdkbox.md)
     - [Facebook 直播和广告](sdk/fb-an-and-live.md)
     - [WebSocket 服务器](sdk/websocket-server.md)
-
-
