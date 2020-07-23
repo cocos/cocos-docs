@@ -33,7 +33,7 @@
   勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
 
 - **资源服务器地址**
-  
+
   该项为选填项，用于填写资源存放在服务器上的地址。
 
   - 若 **不填写** 该项，则发布包目录下的 `build/linksure/remote` 文件夹将会被打包到构建出来的 cpk 包中。

@@ -71,14 +71,9 @@
 
 详细的百度小游戏开放域发布流程，请参考 [接入百度小游戏的开放数据域](../publish/publish-baidugame-sub-domain.md)。
 
-## 百度小游戏已知问题：
+## 百度小游戏的限制
 
-目前 Cocos Creator 对百度小游戏的适配工作还未完全结束，暂时还不支持以下组件：
-
-- VideoPlayer
-- WebView
-
-开发者如果有需要，目前可以先自己直接调用百度的 API 来使用。
+百度小游戏不支持 WebView。
 
 ## 参考链接
 

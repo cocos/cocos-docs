@@ -69,14 +69,9 @@ Similar to WeChat Mini Game, in order to protect its social relationship chain d
 
 For details about the Baidu Mini Game Open Data Context process, please refer to [Access Baidu Mini Game Open Data Context](./publish-baidugame-sub-domain.md).
 
-## Baidu Mini Games known issues
+## Limitations of the Baidu Mini Games
 
-Currently, the adaptation work of Baidu Mini Game is not completely finished, and the following components are not supported for the time being:
-
-- VideoPlayer
-- WebView
-
-If needed, you can directly call Baidu's [API](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/) as needed.
+The Baidu Mini Game does not support WebView.
 
 ## Reference link
 

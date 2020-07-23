@@ -136,13 +136,9 @@ In order to protect its social relationship chain data, **WeChat Mini Games** ha
 
 **Cocos Creator** supports packaging to Open Data Context starting with **v1.9.1**. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
-## WeChat Mini Games Known issues
+## Limitations of the WeChat Mini Games
 
-In addition, our adaptation of WeChat Mini Games has not been completely completed, and the following modules are still not supported:
-
-- WebView
-
-If you need it, you can currently use it by calling the WeChat's API directly.
+The WeChat Mini Game does not support WebView.
 
 ## Reading
 
