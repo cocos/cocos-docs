@@ -20,7 +20,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 - 使用 Cocos Creator 打开需要接入 SDKHub 的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 SDKHub，进入 SDKHub 服务面板。然后点击右上方的 **启用** 按钮以开通 SDKHub 服务。详情可参考 [Cocos Service 操作指南](https://docs.cocos.com/creator/manual/zh/cocos-service/user-guide.html)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 SDKHub，进入 SDKHub 服务面板。然后点击右上方的 **启用** 按钮以开通 SDKHub 服务。详情可参考 [Cocos Service 操作指南](user-guide.md)。
 
     ![](sdkhub-hms/hms-provisioning.png) 
 
@@ -54,7 +54,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
     - 如果您的应用需要设置只支持某些特定语言，填写格式为 **"en", "zh-rCN", "需要支持的其他语言"** 。
     - HMS Core SDK 支持的语言列表请参考 [HMS SDK 支持的语言](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/hmssdk_supported_language)。
 
-- 配置完成并接入相关接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考文档 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- 配置完成并接入相关接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在构建发布面板重新构建即可。
 
@@ -72,13 +72,13 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### login
 
-**登录方法**，可参考文档 [游戏服务 - 游戏登录](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-login-v4) 文档。
+**登录方法**，可参考 [游戏服务 - 游戏登录](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-login-v4) 文档。
 
 华为 HMS Core SDK 登录成功后，插件中会再调用华为 HMS Core SDK 的 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/game-login-0000001050121526-V5#ZH-CN_TOPIC_0000001051062343__section20387552101519) 方法，获取当前玩家信息，通过回调返回给用户，用户也可以主动调用 `getUserInfo` 方法获取登录信息。可读取 **userID** 参数作为用户唯一 ID。此时也可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
 
 #### logout
 
-**登出方法**，可参考文档 [账号服务 - 登出华为账号](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573729918116) 文档。HMS SDK 会清理华为帐号登录信息，游戏端需要自行判断登录状态。
+**登出方法**，可参考 [账号服务 - 登出华为账号](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573729918116) 文档。HMS SDK 会清理华为帐号登录信息，游戏端需要自行判断登录状态。
 
 #### getUserInfo
 
@@ -86,11 +86,11 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### showToolBar / hideToolBar
 
-**浮标方法**，可参考文档 [游戏服务 - 浮标](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-buoy-v4#h1-1576589973315) 文档。由于插件中已经在生命周期 `onResume` 和 `onPause` 调用这两个方法，**用户无需再做主动调用**。
+**浮标方法**，可参考 [游戏服务 - 浮标](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-buoy-v4#h1-1576589973315) 文档。由于插件中已经在生命周期 `onResume` 和 `onPause` 调用这两个方法，**用户无需再做主动调用**。
 
 #### showAchievement
 
-**显示成就方法**，可参考文档 [游戏服务 - 成就](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-achievement) 文档。
+**显示成就方法**，可参考 [游戏服务 - 成就](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-achievement) 文档。
 
 **参数说明：**
 
@@ -101,7 +101,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### unlockAchievement
 
-**解锁成就方法**，可参考文档 [游戏服务 - 成就](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-achievement) 文档。
+**解锁成就方法**，可参考 [游戏服务 - 成就](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-achievement) 文档。
 
 **参数说明：**
 
@@ -113,7 +113,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### showLeaderBoard
 
-**显示排行榜方法**，可参考文档 [游戏服务 - 排行榜](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-leaderboards-development) 功能文档。
+**显示排行榜方法**，可参考 [游戏服务 - 排行榜](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-leaderboards-development) 文档。
 
 **参数说明：**
 
@@ -129,7 +129,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### submitScore
 
-**提交分数方法**，可参考文档 [游戏服务 - 排行榜](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-leaderboards-development) 功能文档。
+**提交分数方法**，可参考 [游戏服务 - 排行榜](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-leaderboards-development) 文档。
 
 **参数说明：**
 
@@ -147,7 +147,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### cancelAuthorization
 
-**华为帐号取消授权**，可参考文档文档 [账号服务开发指南 - 华为帐号取消授权](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730230709) 为了提升应用隐私安全，应用可以提供入口，供用户取消对应用的授权。
+**华为帐号取消授权**，可参考 [账号服务开发指南 - 华为帐号取消授权](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730230709) 文档，为了提升应用隐私安全，应用可以提供入口，供用户取消对应用的授权。
 
 **回调说明：**
 
@@ -158,7 +158,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### submitPlayerEventStart / submitPlayerEventEnd / getPlayerExtraInfo
 
-**防沉迷相关方法**，可参考文档文档 [游戏服务 - 防沉迷](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-anti-indulgence-v4)，中国大陆发布的游戏需要开发者按照上述通知结合游戏自身完成游戏防沉迷功能的开发。
+**防沉迷相关方法**，可参考 [游戏服务 - 防沉迷](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-anti-indulgence-v4) 文档，中国大陆发布的游戏需要开发者按照上述通知结合游戏自身完成游戏防沉迷功能的开发。
 
 - 当玩家登录游戏或从后台切到游戏前台时，调用 `submitPlayerEventStart`。游戏定期调用`getPlayerExtraInfo` 方法查询玩家附加信息。服务器允许的最高频率为10分钟查询一次，一般建议15分钟查询一次。当玩家退出游戏、从前台切到后台或游戏异常退出（进程终止、手机重启等）时，应用调用 `submitPlayerEventEnd` 上报玩家退出游戏事件。
 
@@ -182,7 +182,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### submitEvent
 
-**事件上报方法**，可参考文档文档 [游戏服务 - 事件上报](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-events)。事件上报为开发者提供了收集玩家在游戏过程中产生的特定数据，上报并存储至华为游戏服务器，随后在 AppGallery Connect 上进行归纳分析的能力。
+**事件上报方法**，可参考 [游戏服务 - 事件上报](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-events) 文档。事件上报为开发者提供了收集玩家在游戏过程中产生的特定数据，上报并存储至华为游戏服务器，随后在 AppGallery Connect 上进行归纳分析的能力。
 
 **参数说明：**
 
@@ -199,7 +199,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### getEvent
 
-**获取玩家事件的数据**，可参考文档文档 [游戏服务 - 事件上报](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-events)。
+**获取玩家事件的数据**，可参考 [游戏服务 - 事件上报](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-events) 文档。
 
 **参数说明：**
 
@@ -217,7 +217,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### getGamePlayerStats
 
-**玩家信息统计方法**，可参考文档文档 [游戏服务 - 玩家信息统计](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-playerinfo-development)，玩家信息统计是指开发者可以从华为游戏服务器获取当前玩家在游戏中的多种统计信息，帮助开发者更深度了解玩家的游戏习惯，以便根据玩家的游戏进度、支付能力等构建更适合该玩家的游戏体验。
+**玩家信息统计方法**，可参考 [游戏服务 - 玩家信息统计](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-playerinfo-development) 文档，玩家信息统计是指开发者可以从华为游戏服务器获取当前玩家在游戏中的多种统计信息，帮助开发者更深度了解玩家的游戏习惯，以便根据玩家的游戏进度、支付能力等构建更适合该玩家的游戏体验。
 
 **参数说明：**
 
@@ -234,7 +234,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### getGameSummary
 
-**获取游戏基本信息方法**，可参考文档文档 [游戏服务 - 游戏基本信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-baseinfo-development)，游戏基本信息是指游戏应用的相关信息，例如游戏的应用ID、游戏名称、游戏描述、游戏分类等。当开发者需要在游戏中使用游戏应用的信息时，可以从华为游戏服务器获取游戏基本信息。
+**获取游戏基本信息方法**，可参考 [游戏服务 - 游戏基本信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-baseinfo-development) 文档，游戏基本信息是指游戏应用的相关信息，例如游戏的应用ID、游戏名称、游戏描述、游戏分类等。当开发者需要在游戏中使用游戏应用的信息时，可以从华为游戏服务器获取游戏基本信息。
 
 **参数说明：**
 
@@ -251,7 +251,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### ReadSmsManager
 
-**自动读取短信方法**，可选，可参考文档 [账号服务 - 自动读取短信验证码](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730317319)。本插件在 User 系统初始化时调用了请求开启短信读取服务，用户无需调用代码，**仅需处理回调**。
+**自动读取短信方法**，可选，可参考 [账号服务 - 自动读取短信验证码](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730317319) 文档。本插件在 User 系统初始化时调用了请求开启短信读取服务，用户无需调用代码，**仅需处理回调**。
 
 **回调说明：**
 
@@ -267,7 +267,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 #### feeForProduct
 
-`feeForProduct` **支付方法**，可参考文档 [应用内支付服务 - 发起购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554485195) 文档。由于华为现在要求商品都在后台配置，仅需要传以下参数。
+`feeForProduct` **支付方法**，可参考 [应用内支付服务 - 发起购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554485195) 文档。由于华为现在要求商品都在后台配置，仅需要传以下参数。
 
 **参数说明：**
 
@@ -283,7 +283,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### isEnvReady
 
-**判断是否支持应用内支付方法**，在使用应用内支付之前，您的应用需要向华为 IAP 发送 isEnvReady 请求，以此判断用户当前登录的华为帐号所在的服务地，是否在华为 IAP 支持结算的国家或地区中。可参考文档 [应用内支付服务 - 判断是否支持应用内支付](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554507764) 文档。
+**判断是否支持应用内支付方法**，在使用应用内支付之前，您的应用需要向华为 IAP 发送 isEnvReady 请求，以此判断用户当前登录的华为帐号所在的服务地，是否在华为 IAP 支持结算的国家或地区中。可参考 [应用内支付服务 - 判断是否支持应用内支付](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554507764) 文档。
 
 **回调说明：**
 
@@ -294,7 +294,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### obtainProductInfo
 
-**展示商品信息方法**，若您使用在华为 AppGallery Connect 网站上配置的商品，则需要在您的应用中使用 `obtainProductInfo` 接口来获取此类商品的详细信息。可参考文档 [应用内支付服务 - 展示商品信息方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554496306) 文档。
+**展示商品信息方法**，若您使用在华为 AppGallery Connect 网站上配置的商品，则需要在您的应用中使用 `obtainProductInfo` 接口来获取此类商品的详细信息。可参考 [应用内支付服务 - 展示商品信息方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554496306) 文档。
 
 **参数说明：**
 
@@ -312,7 +312,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### obtainOwnedPurchases
 
-**获取用户已购未发货的消耗型商品的购买信息**，可参考文档 [应用内支付服务 - 消耗型商品的补单机制](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554449972) 文档。获取用户已购未发货的消耗型商品的购买信息，若有存在用户已购未发货商品，会在回调中包含用商品购买信息及其签名数据。可使用公钥进行签名验证并做补发。
+**获取用户已购未发货的消耗型商品的购买信息**，可参考 [应用内支付服务 - 消耗型商品的补单机制](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554449972) 文档。获取用户已购未发货的消耗型商品的购买信息，若有存在用户已购未发货商品，会在回调中包含用商品购买信息及其签名数据。可使用公钥进行签名验证并做补发。
 
 建议在游戏开始时调用，获取用户还有哪些购买商品没有发货并做处理。
 
@@ -331,9 +331,9 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### consumeOwnedPurchase
 
-**对已发货商品进行消耗**，可参考文档 [应用内支付服务 - 消耗型商品的补单机制](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554449972) 文档。确认商品已发货后，使用该接口消耗所有已发货商品，以此通知华为服务器更新商品的发货状态。对于消耗型商品，应用成功执行消耗之后，华为服务器会将相应商品重新设置为可购买状态，用户即可再次购买该商品。
+**对已发货商品进行消耗**，可参考 [应用内支付服务 - 消耗型商品的补单机制](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554449972) 文档。确认商品已发货后，使用该接口消耗所有已发货商品，以此通知华为服务器更新商品的发货状态。对于消耗型商品，应用成功执行消耗之后，华为服务器会将相应商品重新设置为可购买状态，用户即可再次购买该商品。
 
-该接口也可以通过服务端调用，可参考 [Order 服务确认购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/iap-api-confirm-purchase-for-order-service-v4)。
+该接口也可以通过服务端调用，可参考 [Order 服务确认购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/iap-api-confirm-purchase-for-order-service-v4) 文档。
 
 **回调说明：**
 
@@ -344,7 +344,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### obtainOwnedPurchaseRecord
 
-**查看用户购买历史**，可参考文档 [应用内支付服务 - 查看用户购买历史](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554422714) 文档。对于消耗型商品，可使用该接口获取用户所有已消耗即已发货的商品信息。
+**查看用户购买历史**，可参考 [应用内支付服务 - 查看用户购买历史](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554422714) 文档。对于消耗型商品，可使用该接口获取用户所有已消耗即已发货的商品信息。
 
 **参数说明：**
 
@@ -361,7 +361,7 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 
 ##### startIapActivity
 
-**提供订阅管理的页面跳转**，可参考文档 [订阅专用功能说明 - 提供订阅管理的页面跳转](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-subscription-functions-v4#h1-1576566818427) 文档。开发者的应用可以通过该接口跳转到华为IAP的管理订阅页面和编辑订阅页面。
+**提供订阅管理的页面跳转**，可参考 [订阅专用功能说明 - 提供订阅管理的页面跳转](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-subscription-functions-v4#h1-1576566818427) 文档。开发者的应用可以通过该接口跳转到华为IAP的管理订阅页面和编辑订阅页面。
 
 **参数说明：**
 
@@ -404,4 +404,4 @@ SDKHub 框架和插件中基本不涉及当前状态处理和服务端接口，�
 | adType | "Interstitial"<br>"Reward"<br>"Banner"  | 广告类型 |
 | adId | "testx9dtjwj8hp" | 广告 ID |
 | pos | "0" | 广告位置，Banner 情况下可选，默认为 "0"，"0"：正下方，"1"：正中，"2"：正上方。 |
-| adSize | "BANNER_SIZE_360_144" | 广告尺寸，Banner 情况下可选，默认为 "BANNER_SIZE_360_57"，传入值可参考 [广告尺寸](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576047688608)。 |
+| adSize | "BANNER_SIZE_360_144" | 广告尺寸，Banner 情况下可选，默认为 "BANNER_SIZE_360_57"，传入值可参考 [广告尺寸](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576047688608) 文档。 |
