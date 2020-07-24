@@ -567,7 +567,7 @@ var isAudioPlayDeviceEnabled = tencentGME.tencentGMEInst.isAudioPlayDeviceEnable
 - 如果播放设备已经开启，那么会播放房间里其他人的音频数据。
 - 如果播放设备没有开启，那么仍旧无声。
 
-播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice` 。
+播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice`。
 
 #### 函数原型
 

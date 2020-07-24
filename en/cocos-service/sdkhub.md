@@ -8,7 +8,7 @@ The SDKHub is a feature developed by the engine team for Cocos Creators to solve
 
 The SDKHub allows Cocos Creator developers to quickly access native channel SDKs including: **Account & Game**, **IAP**, **Advertising**, **Push** and **Custom**. Developers would only need to turn on and integrate the SDKHub in Cocos Service panel, configure it via the Services panel, build the project, and then the required native SDKs can be quickly access.
 
-## Product principles 
+## Product Principles 
 
 The SDKHub is divided into two main parts: the framework layer and the plug-in layer, which are controlled and configured by the SDKHub service panel.
 
@@ -19,7 +19,7 @@ At the game play layer, developers only need to call the methods in the SDKHub a
 
 ![](sdkhub/sdkhub-intro.png)
 
-## Service activation
+## Enable SDKHub Service
 
 Use Cocos Creator to open the project that needs to be connected to SDKHub. Click on **Panel -> Service** on the menu bar to open the **Service** panel, go to the SDKHub service detail panel, and click on the **Enable** button at the top right. Refer to [Cocos Service Operation Guide](index.md).
 
@@ -37,7 +37,7 @@ Once the service is turned on, the Cocos Service will automatically integrate th
     },2);
     ```
 
-- After the script is finished and saved, go back to the editor. SDKHub debug, you need [publish to Android platform](./publish/publish-native.md). If you can see the login window in debug mode on your device, you can verify that the SDKHub is integrated.
+- After the script is finished and saved, go back to the editor. SDKHub debug, you need [publish to Android platform](../publish/publish-native.md). If you can see the login window in debug mode on your device, you can verify that the SDKHub is integrated.
 
     ![](sdkhub/sdkhub-debugging.jpg)
     
@@ -64,7 +64,9 @@ The specific filling rules for the relevant parameter configuration are as follo
       ![](sdkhub/sdkhub-panel5.png)
 
     - **Config Set Name**: Usually the platform name can be used directly, you can also use a name that’s more recognizable.
+
     - **Release Platform**: Used to set the platform for the config set to take effect, currently only HUAWEI AppGallery Connect is supported.
+
     - **Channel**: The target channel you need to build and release, SDKHub will usually add the SDK (plug-in) required by the channel for you automatically.
 
 - **Plugin Management**
@@ -81,7 +83,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   - **Delete parameter button**: Delete the currently filled parameter configuration.
 
-## Build and compile
+## Build and Compile
 
 After creating the config set and configuring the plugins and parameters for the set, we need to select the corresponding config set when building the game in order to finally compile the game project with the SDK.
 
@@ -91,7 +93,7 @@ Open **Project -> Build...** in the top menu of Cocos Creator, when you select *
 
 Tips: If you are having problems with your builds, probably due to your Creator native compilation environment being incorrectly configured, try compiling the project directly in **Android Studio** or **Xcode** to get more debugging information.
 
-## Sample project
+## Sample Project
 
 You can get a quick taste of the SDKHub with the sample Project.
 
@@ -135,6 +137,6 @@ You can get a quick taste of the SDKHub with the sample Project.
 
 - If you need to delete the service plug-in configuration (e.g. remove the IAP function), it is recommended to delete the release package `build/jsb-link` or `build/jsb-default` directory generated after the project is built, and then rebuild.
 
-## API documentation
+## API Documentation
 
 Please refer to the [API documentation](https://docs.cocos.com/service/api/en/modules/_sdkhub_.sdkhub.html).

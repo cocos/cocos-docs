@@ -46,7 +46,7 @@ Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect �
 
 - 版本号：根据需要填写。
 
-- APK 路径：选择之前构建编译生成的发布包目录下的 APK。
+- APK 路径：选择之前构建编译生成的 APK。
 
 - 登录方式：包括 **OAuth** 和 **API 客户端** 两种。
 
@@ -58,17 +58,17 @@ Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect �
 
   - **API 客户端**
 
-    - 首次使用 **API 客户端** 登录方式，需要登录 AppGallery Connect 后台获取相关配置信息。
+    - 若首次使用 **API 客户端** 登录方式，需要登录 AppGallery Connect 后台获取相关配置信息。
 
       ![](./publish-huawei-agc/upload-api.png)
 
-    - 选择 **用户与访问 -> Connect API -> 创建**，创建一个 API 客户端密钥，并根据需要选择 [权限](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-team_account_mgt#appendix)，然后点击 **确认**。
+    - 选择 **用户与访问 -> Connect API -> 创建**，创建一个 API 客户端，并根据需要选择 [权限](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-team_account_mgt#appendix)，然后点击 **确认**。
 
       ![](./publish-huawei-agc/create-api-key.png)
 
-    - 将密钥的 **客户端 ID** 和 **密钥** 填入 Creator **上传** 面板中的对应输入框。
+    - 将 API 客户端的 **客户端 ID** 和 **密钥** 填入 Creator **上传** 面板中的对应输入框。
 
-    - 配置完成后点击 **上传** 即可。
+    - 配置完成后点击 **确认上传** 即可。
 
   两种登录方式的详细说明可参考文档 [AppGallery Connect 使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted)。
 

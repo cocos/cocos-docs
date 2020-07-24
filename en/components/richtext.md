@@ -74,7 +74,7 @@ To support custom image layout, we also provide the `offset` attribute for fine-
 | --------- | ------- | ----------- | ------ |
 | Y         | `<img src='foo' offset=5 />`    | Specify the SpriteFrame to offset y + 5           | If offset only set one Integer value it's will be offset Y
 | Y         | `<img src='foo' offset=-5 />`   | Specify the SpriteFrame to offset y - 5           | You can use minus to decrease Y position
-| X, Y      | `<img src='foo' offset=6,-5 />` | Specify the SpriteFrame to offset x + 6 and y - 5 | The offset values should only contains `0-9` , `-` and `,` characters
+| X, Y      | `<img src='foo' offset=6,-5 />` | Specify the SpriteFrame to offset x + 6 and y - 5 | The offset values should only contains `0-9`, `-` and `,` characters
 
 ### Nested Tags
 
