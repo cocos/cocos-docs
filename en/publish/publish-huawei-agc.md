@@ -12,7 +12,7 @@ Starting with Cocos Creator v2.4.1, creating games for HUAWEI AppGallery Connect
 
 ## Release Process
 
-Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **HUAWEI AppGallery Connect** in the **Platform** dropdown of the **Build...** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **HUAWEI AppGallery Connect** in the **Platform** dropdown of the **Build** panel.
 
 ![](./publish-huawei-agc/agc-builder.png)
 
@@ -20,7 +20,7 @@ For the settings of the general options, please refer to the [Build Options](pub
 
 **SDKHub Configuration**: This option is used to help the game quickly intergrate the channel SDK. Please select the SDKHub service that you have previously enabled in the Cocos Services panel.
 
-  ![](./publish-huawei-agc/sdkhub.png)
+![](./publish-huawei-agc/sdkhub.png)
 
 ### Build and Compile
 
@@ -41,7 +41,7 @@ Click the **Upload** button in the bottom right of the **Build** panel to open t
 
 ![](./publish-huawei-agc/agc-upload-panel.png)
 
-- APP ID: Fill in the APP ID for your app. Log in to the AppGallery Connect and click **My apps -> App information** to get the APP ID.
+- APP ID: Fill in the APP ID for your app. Login to the AppGallery Connect and click **My apps -> App information** to get the APP ID.
 
 - Version: Fill in as required.
 

@@ -155,7 +155,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 ### Build
 
-After the relevant options of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory, and the **rpk** package will be generated in the `build/qgame/dist` directory.
+After the relevant options of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory, and the **rpk** package will be generated in the `build/qgame/dist` directory.
 
 ![](./publish-vivo-instant-games/rpk.png)
 

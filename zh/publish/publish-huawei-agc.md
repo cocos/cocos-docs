@@ -20,7 +20,7 @@
 
 **SDKHub 配置**：该项用于帮助游戏快速集成渠道。请选择之前在 Cocos Service 服务面板开通好的 SDKHub 服务。
 
-  ![](./publish-huawei-agc/sdkhub.png)
+![](./publish-huawei-agc/sdkhub.png)
 
 ### 构建编译
 
