@@ -36,11 +36,11 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
  
   ![](sdkhub-hms/hms-config-group3.png)
 
-- 点击 **插件** 行对应的编辑参数按钮，填写所需的配置。
+- 点击 **插件** 行对应的编辑参数按钮。
 
   ![](sdkhub-hms/hms-config-group4.jpeg)
 
-  进入 **参数配置** 页面，填写所需的参数配置。
+  进入 **参数配置** 页面，配置所需的参数。
 
   ![](sdkhub-hms/hms-params.jpg)
 
@@ -65,7 +65,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 ## 获取测试用例
 
-点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。使用方法可参考文档 [SDKHub Simple 工程](sdkhub.md#sample-%E5%B7%A5%E7%A8%8B)。
+点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。使用方法可参考文档 [SDKHub Simple 工程](../sdkhub.md#sample-%E5%B7%A5%E7%A8%8B)。
 
 ## 各系统 API 接口说明
 
@@ -154,7 +154,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kUserExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 122 | String | 取消登录授权成功描述 |
   | + 123 | String | 取消登录授权失败描述 |
@@ -171,7 +171,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kUserExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 106 | JSON | 上报玩家进入游戏事件成功，可获取参数 transactionId |
   | + 107 | JSON / String | 上报玩家进入游戏事件失败 |
@@ -193,7 +193,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kUserExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 SDKHub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 112 | String | 调用事件上报回调，无成功或失败情况返回 |
 
@@ -210,7 +210,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kUserExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 114 | JSON | 获取事件数据成功，可获取参数 eventId。 |
   | + 115 | JSON / String | 获取事件数据失败描述 |
@@ -227,7 +227,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kUserExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 116 | JSON | 获取事件数据成功，可获取参数 averageOnLineMinutes、daysFromLastGame、paymentTimes、onlineTimes、totalPurchasesAmountRange |
   | + 117 | JSON / String | 获取事件数据失败描述 |
@@ -244,7 +244,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kUserExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 SDKHub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 118 | JSON | 获取事件数据成功，可获取参数 achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
   | + 119 | JSON / String | 获取事件数据失败描述 |
@@ -255,7 +255,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 **回调说明**：
 
-| 扩展回调值 SDKHub.kUserExtension | msg 类型 | msg 说明 |
+| 扩展回调值 SDKHub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 102 | String | 自动读取短信验证码初始化回调 |
 | + 103 | String | 自动读取短信验证码超时回调 |
@@ -287,7 +287,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kFeeExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 100 | JSON | 支持应用内支付情况描述 |
   | + 101 | JSON / String | 不支持应用内支付情况描述 |
@@ -305,7 +305,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kFeeExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 102 | JSONArray | 返回商品信息成功，可解析 msg 展示商品 |
   | + 103 | JSON / String | 返回商品信息失败 |
@@ -324,7 +324,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kFeeExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 106 | JSONArray | 可解析 Array，调用 consumeOwnedPurchase 方法  |
   | + 107 | JSON / String | 操作失败描述 |
@@ -337,7 +337,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kFeeExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 104 | String | 消耗品确认交易成功描述 |
   | + 105 | JSON / String | 消耗品确认交易失败描述 |
@@ -354,7 +354,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 `SDKHub.kFeeExtension` | msg 类型 | msg 说明 |
+  | 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 118 | JSONArray | 返回购买历史信息 |
   | + 109 | JSON / String | 返回购买历史信息失败 |
@@ -371,7 +371,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
   **回调说明**：
 
-  | 扩展回调值 SDKHub.kFeeExtension | msg 类型 | msg 说明 |
+  | 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
   | :--- | :--- | :--- |
   | + 110 | JSON | 打开页面成功描述 |
   | + 111 | JSON / String | 打开页面失败描述 |
