@@ -10,7 +10,7 @@
 
 - 通过 Cocos Service 面板接入所需的 HUAWEI AppGallery Connect 相关服务。目前 SDK 仅支持 **Android** 平台，具体的操作步骤可参考文档 [HUAWEI HMS Core](../cocos-service/sdkhub-plugins/sdkhub-hms.md)。
 
-## 构建发布
+## 发布流程
 
 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 项选择 **HUAWEI AppGallery Connect**。
 
@@ -35,13 +35,12 @@
 
 有以下两种方式可以将 APK 上传到 AppGallery Connect。
 
-#### 通过构建发布面板上传
+#### 1. 通过构建发布面板上传
 
-Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect 后台。
+Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect 后台。<br>
+在 **构建发布** 面板点击右下方的 **上传** 按钮，即可打开 **上传** 面板，然后填写相关信息。
 
-1. 在 **构建发布** 面板点击右下方的 **上传** 按钮，即可打开 **上传** 面板，然后填写相关信息。
-
-    ![](./publish-huawei-agc/agc-upload-panel.png)
+![](./publish-huawei-agc/agc-upload-panel.png)
 
 - APP ID：填写应用的 APP ID。登录 AppGallery Connect 后台，选择 **我的应用 -> 应用信息**，即可获取应用的 APP ID。
 
@@ -68,11 +67,12 @@ Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect �
       ![](./publish-huawei-agc/create-api-key.png)
 
     - 将密钥的 **客户端 ID** 和 **密钥** 填入 Creator **上传** 面板中的对应输入框。
+
     - 配置完成后点击 **上传** 即可。
 
   两种登录方式的详细说明可参考文档 [AppGallery Connect 使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted)。
 
-#### 通过 AppGallery Connect 后台上传
+#### 2. 通过 AppGallery Connect 后台上传
 
 在 AppGallery Connect 后台进入 **我的应用**，选择应用，切换到 **分发** 栏。然后点击左侧的 **版本信息 -> 准备提交**，找到软件版本，点击 **软件包管理**，然后点击 **上传**。
 

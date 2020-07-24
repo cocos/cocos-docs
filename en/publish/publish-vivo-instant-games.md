@@ -83,6 +83,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   This option is optional and used to fill in the address of the remote server where the resources are stored.
 
   - If this option is left blank, the `build/qgame/remote` folder in the release package directory will be packaged into the **rpk** package.
+
   - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
   Refer to the Resource Management section at the bottom of the document for more details.
