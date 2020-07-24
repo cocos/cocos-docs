@@ -5,6 +5,7 @@
 - [Setup Native Development](setup-native-development.md)
 - [Publish to native](publish-native.md)
 - [Debuging JavaScript on Native Platforms](debug-jsb.md)
+- [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [Publish to Google Play Instant](publish-android-instant.md)
 - [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)

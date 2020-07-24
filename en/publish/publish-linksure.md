@@ -10,7 +10,7 @@ The LinkSure Mini Game runs as a **cpk** game package in the mini game environme
 
 ## Release Process
 
-Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build...** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build** panel.
 
   ![](publish-linksure/build.png)
 
