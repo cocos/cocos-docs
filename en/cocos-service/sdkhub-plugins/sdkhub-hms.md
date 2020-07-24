@@ -20,49 +20,53 @@ The SDKHub framework and plug-ins basically do not involve current state process
 
 - Use Cocos Creator to open the project that needs to be connected to SDKHub.
 
-- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select SDKHub to enter the SDKHub service panel. Then click the **Enable** button on the upper right to activate the SDKHub service. For details, please refer to [Cocos Service Operation Guide](../user-guide.md).
+- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select SDKHub to enter the SDKHub service panel. Then click the **Enable** button on the upper right to activate the SDKHub service. For details, please refer to [Cocos Service Operation Guide](../../cocos-service/index.md).
 
-    ![](sdkhub-hms/hms-provisioning.png)
+  ![](sdkhub-hms/hms-provisioning.png)
 
 - Add a new config set on the SDKHub service panel
     
-    ![](sdkhub-hms/hms-config-group1.jpeg)
+  ![](sdkhub-hms/hms-config-group1.png)
 
-    ![](sdkhub-hms/hms-config-group2.png)
+  Enter the **Add Config Set** page, fill in the relevant parameters, and then click **OK**.
+
+  ![](sdkhub-hms/hms-config-group2.png)
 
 - After adding, click the **Config Plugin** button and check **HUAWEI HMS Core** related service plugins.
  
-    ![](sdkhub-hms/hms-config-group3.png)
+  ![](sdkhub-hms/hms-config-group3.png)
 
-- Click the configuration button under **Plugins** and fill in the required configuration.
+- Click the **Edit Parameters** button under the **Params** list.
 
-    ![](sdkhub-hms/hms-config-group4.jpeg)
+  ![](sdkhub-hms/hms-config-group4.png)
 
-    ![](sdkhub-hms/hms-params.jpg)
+  Enter the **Parameter Config** panel to configure the required parameters.
 
-- `agconnect-services.json` configuration file, which can be obtained in the developer background after creating the project.
+  ![](sdkhub-hms/hms-params.png)
 
-    ![](sdkhub-hms/hms-configfile.jpg)
+  - **HMS Config file**: `agconnect-services.json` configuration file, which can be obtained in the developer background after creating the project.
+
+    ![](sdkhub-hms/hms-configfile.png)
     
-- [Payment public key](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/appgallery_querypaymentinfo), which is required when checking IAP service.
+  - [Payment public key](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/appgallery_querypaymentinfo), which is required when checking IAP service.
 
-    ![](sdkhub-hms/hms-paykey.jpg)
+    ![](sdkhub-hms/hms-paykey.png)
     
-- [Language configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/game-preparation-v4)
+  - [Support Languages](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/game-preparation-v4)
 
-   - This parameter is not required. If your application does not need to be set to only support certain specific languages, this parameter can be set to empty, and the application will support all languages ​​supported by HMS Core SDK by default.
-    - If your application needs to be set to only support certain specific languages, fill in the format as **"en", "zh-rCN", "other languages ​​to be supported"**.
-    - For the list of languages ​​supported by HMS Core SDK, please refer to [Language Supported by HMS SDK](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/hmssdk_supported_language).
+    - This parameter is optional. If your application does not need to be set to only support certain specific languages, this parameter can be set to empty, and the application will support all languages ​​supported by HMS Core SDK by default.
+      - If your application needs to be set to only support certain specific languages, fill in the format as **"en", "zh-rCN", "other languages ​​to be supported"**.
+      - For the list of languages ​​supported by HMS Core SDK, please refer to [Language Supported by HMS SDK](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/hmssdk_supported_language).
 
 - After the configuration is completed and the relevant interface is connected, you can use the **Project -> Build...** in the menu bar of the Creator editor to open the **Build** panel to build the project. For Creator 2.4.1 and above, please refer to [Publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md). Users of older versions can build and publish to the Android platform.
 
 - If you need to modify the project parameter configuration or JS code layer, after the modification is completed, just rebuild it in the build panel.
 
-- If you need to delete the service plug-in configuration (for example, remove the IAP function), it is recommended to delete the released `build/jsb-link` or `build/jsb-default` directory generated after the project is built, and then rebuild.
+- If you need to delete the service plug-in configuration (for example, remove the IAP function), it is recommended to delete the release package `build/jsb-link` or `build/jsb-default` directory generated after the project is built, and then rebuild.
 
 ## Get test cases
 
-Click the **Sample** button in the SDKHub service panel, clone or download, and open the project in Cocos Creator.
+Click the **Sample** button in the SDKHub service panel, clone or download, and open the project in Cocos Creator. You can refer to document [SDKHub Simple project](../sdkhub.md#sample-project) for the usage of the **Sample** project.
 
 ## API interface description of each system
 
@@ -149,9 +153,9 @@ Need to call the interface description through the extension method:
 
 **Huawei account revoking authorization**, please refer to [Account Kit - Revoking HUAWEI ID Authorization](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4#h1-5-canceling-huawei-id-authorization) document, in order to improve the privacy and security of the application, the application can provide an entry for the user to cancel the authorization of the application.
 
- **Callback Description:**
+**Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 122 | String | Description of successful cancellation of login authorization |
 | + 123 | String | Description of failed login authorization cancellation |
@@ -170,7 +174,7 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSON | Report the player's successful entry into the game event, and obtain the parameter transactionId |
 | + 107 | JSON / String | Report failure of player entering game event |
@@ -193,7 +197,7 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 112 | String | Call event report callback, return without success or failure |
 
@@ -210,7 +214,7 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 114 | JSON | If the event data is successfully obtained, the parameter eventId can be obtained. |
 | + 115 | JSON / String | Description of failure to obtain event data |
@@ -227,7 +231,7 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 116 | JSON | Get the event data successfully, you can get the parameters averageOnLineMinutes, daysFromLastGame, paymentTimes, onlineTimes, totalPurchasesAmountRange |
 | + 117 | JSON / String | Description of failure to obtain event data |
@@ -244,7 +248,7 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSON | Get the event data successfully, you can get the parameters achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | Description of failure to obtain event data |
@@ -255,13 +259,13 @@ In `submitPlayerEventStart` and `getPlayerExtraInfo`, if retCode returns 7002 or
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kUserExtension | msg type | msg description |
+| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | String | Automatically read SMS verification code initialization callback |
 | + 103 | String | Automatically read SMS verification code timeout callback |
 | + 104 | String | Return the read SMS verification code information |
 
- ### FeePlugin payment system
+### FeePlugin payment system
 
 Considering the past experience of Apple’s IAP review and other issues, we set the payment keyword as `fee`.
 
@@ -287,7 +291,7 @@ Need to call the interface description through the extension method:
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 100 | JSON | Support in-app payment description |
 | + 101 | JSON / String | Does not support in-app payment description |
@@ -305,7 +309,7 @@ Need to call the interface description through the extension method:
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | JSONArray | Return product information successfully, parseable msg Display product |
 | + 103 | JSON / String | Failed to return product information |
@@ -324,7 +328,7 @@ It is recommended to call it at the beginning of the game to get the user's othe
 
 **Callback Description:**
 
-| Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSONArray | Parsable Array, call consumeOwnedPurchase method |
 | + 107 | JSON / String | Operation failure description |
@@ -337,7 +341,7 @@ This interface can also be called through the server, please refer to [Purchase 
 
 **Callback Description:**
 
- | Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 104 | String | Description of consumable confirmation transaction success |
 | + 105 | JSON / String | Description of consumables confirmation transaction failure |
@@ -354,7 +358,7 @@ This interface can also be called through the server, please refer to [Purchase 
 
 **Callback description:**
 
-| Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSONArray | Return to purchase history information |
 | + 109 | JSON / String | Failed to return purchase history information |
@@ -371,7 +375,7 @@ This interface can also be called through the server, please refer to [Purchase 
 
 **Callback description:**
 
-| Extension callback value SDKHub.kFeeExtension | msg type | msg description |
+| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 110 | JSON | Description of successful page opening |
 | + 111 | JSON / String | Description of failed page opening |
