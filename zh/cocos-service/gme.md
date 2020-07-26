@@ -1,7 +1,5 @@
 # 腾讯云 - 游戏多媒体引擎 GME 简介
 
-![](image/tencent-cloud-logo.png)
-
 [**游戏多媒体引擎（Game Multimedia Engine，GME）**](https://cloud.tencent.com/product/gme) 提供一站式语音解决方案。针对不同场景进行深度优化，覆盖游戏、社交、娱乐等多种泛互联网行业应用场景。提供实时语音、语音消息及转文本、语音分析服务，一次接入即可满足多样化的语音需求。
 
 ### 特性
@@ -87,3 +85,5 @@
 - [腾讯云 GME 文档与资源](https://cloud.tencent.com/product/gme/developer)
 
 更多文档可直接在 [腾讯云文档中心 - 游戏多媒体引擎](https://cloud.tencent.com/document/product/607) 中查阅。
+
+

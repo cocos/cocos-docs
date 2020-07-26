@@ -407,3 +407,5 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 | adId | "testx9dtjwj8hp" | 广告 ID |
 | pos | "0" | 广告位置，Banner 情况下可选，默认为 "0"。<br>"0"：正下方<br>"1"：正中<br>"2"：正上方。 |
 | adSize | "BANNER_SIZE_360_144" | 广告尺寸，Banner 情况下可选，默认为 "BANNER_SIZE_360_57"，传入值可参考 [广告尺寸](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576047688608) 文档。 |
+
+

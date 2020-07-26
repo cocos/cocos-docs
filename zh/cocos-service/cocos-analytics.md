@@ -1,7 +1,5 @@
 # Cocos 数据统计（Cocos Analytics）
 
-![](cocos-analytics/analytics-logo.jpg)
-
 [Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
 ## 一键接入 Cocos Analytics 服务
@@ -175,3 +173,5 @@ cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 - [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
 - [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
 - [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)
+
+
