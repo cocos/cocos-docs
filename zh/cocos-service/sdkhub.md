@@ -19,7 +19,7 @@ SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub �
 
 ![](sdkhub/sdkhub-intro.png)
 
-## 开通 SDKHub 服务
+## 开通服务
 
 使用 Cocos Creator 打开需要接入 SDKHub 服务的游戏工程。点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 SDKHub 服务详情页，然后点击右上方的 **启用** 按钮即可。详情请参考 [一键开通服务](./oneclick-provisioning.md)。
 

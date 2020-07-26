@@ -16,7 +16,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 - 若需要使用支付功能，请提前准备好注册开发者本人的银行卡，填写相关收款信息。提交后审核可能需要 1~2 个工作日。
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
-## 开通 SDKHub
+## 开通服务
 
 - 使用 Cocos Creator 打开需要接入 SDKHub 的项目工程。
 
@@ -63,7 +63,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 - 若需要删减服务插件配置（例如去掉支付功能），建议删除工程构建后生成的发布包 `build/jsb-link` 或者 `build/jsb-default` 目录，然后重新构建。
 
-## 获取测试用例
+## Sample 工程
 
 点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。使用方法可参考文档 [SDKHub Simple 工程](../sdkhub.md#sample-%E5%B7%A5%E7%A8%8B)。
 
