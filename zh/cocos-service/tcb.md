@@ -1,7 +1,5 @@
 ## 腾讯云 - 云开发 TCB 简介
 
-![](image/tencent-cloud-logo.png)
-
 [**云开发（Tencent Cloud Base，TCB）**](https://cloud.tencent.com/product/tcb) 是腾讯云为移动开发者提供的一站式后端云服务，它帮助开发者统一构建和管理资源，免去了移动应用开发过程中繁琐的服务器搭建及运维、域名注册及备案、数据接口实现等繁琐流程，让开发者可以专注于业务逻辑的实现，而无需理解后端逻辑及服务器运维知识，开发门槛更低，效率更高。
 
 -  **一站式后端云服务**：为移动开发者提供了数据库、存储等基础设施服务，开发者无需再为此搭建及运维服务器，可以专注于业务逻辑实现，轻松开始移动开发之旅。
@@ -136,3 +134,5 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 - [云开发 TCB 文档与资源](https://cloud.tencent.com/product/tcb/developer)
 
 更多文档可直接在 [腾讯云文档中心 - 云开发 TCB](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，请参考 **Web** 版 SDK。
+
+

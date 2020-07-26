@@ -30,9 +30,6 @@ Cocos Service 目前提供的服务包括：
 - [腾讯云 GME 游戏多媒体引擎](gme.md)
     - [GME 接口文档](gme-api-docs.md)
 - [Agora 声网](agora.md)
-- [华为 AGC 性能管理](agc-apm.md)
-- [华为 HMS 定位服务](hms-location.md)
-- [华为 HMS 分析服务](hms-analytics.md)
 - [SDKHub](sdkhub.md)
-    - [HUAWEI HMS](sdkhub-plugins/sdkhub-hms.md)
-
+    - [SDKHub API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)
+    - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)
