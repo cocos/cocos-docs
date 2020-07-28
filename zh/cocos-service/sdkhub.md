@@ -1,6 +1,6 @@
 # SDKHub 快速入门
 
-SDKHub 是一套帮助 Cocos Creator 用户快速接入原生平台 SDK 的接入框架。
+SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。
 
 游戏在开发完成准备发布到渠道上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这会使开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的 “超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，不过后来由于一些原因 AnySDK 不再维护和更新了。
 
@@ -29,11 +29,13 @@ SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub �
 
 ### 验证服务是否接入成功
 
-- 完成 SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 SDKHub 的接入是否成功。SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 SDKHub 用户系统的登录方法。
+- 完成 SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 SDKHub 的接入是否成功。SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 SDKHub 账号 & 游戏对象的登录方法。
 
-  ```js
+  **示例：**
+
+```js
   this.scheduleOnce(function(){
-      SDKHub.AgentManager.getInstance().getUserPlugin().login();
+      sdkHub.getUserPlugin().login();
   },2);
   ```
 
@@ -97,83 +99,65 @@ SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub �
 
 - 点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载 SDKHub Sample 工程，并在 Cocos Creator 中打开。
 
-- 下面我们以集成 **HUAWEI HMS Core** 为例。需要完成以下前提：
-
-  - 在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，创建游戏应用。在该游戏应用的 **我的项目 -> 项目设置 -> API 管理** 页面中开通 **Account Kit**、**In-App Purchases**、**Game Service**、**Push Kit** 服务。
-      
-    ![](sdkhub/sdkhub-hms-config.png)
-      
-  - 在 **项目设置** 页面中配置包名、生成并配置 SHA256 证书指纹，以及获得配置文件 `agconnect-services.json`。详情可参考文档 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903)。
-      
-  - 需要在安装了 **HMS Core 服务** 的华为或荣耀品牌手机上测试。
-
-- 在 **服务** 面板中开通 SDKHub 服务。然后在 **构建配置** 中新建配置集。
-
-  ![](sdkhub/sdkhub-panel2.jpeg)
-
-- 进入 **添加配置集** 页面，填写相关参数，填写完成后点击 **确定** 即可。
-
-  ![](sdkhub/sdkhub-config-group2.png)
-    
-- 添加完成后点击 **配置插件** 按钮，勾选 **HUAWEI HMS Core** 相关服务插件。
-
-  ![](sdkhub/sdkhub-config-group3.png)
-
-- 点击 **插件** 行对应的编辑参数按钮
-
-  ![](sdkhub/sdkhub-config-group4.jpeg)
-
-  填写所需的参数配置。
-
-  ![](sdkhub/sdkhub-config-group5.jpeg)
-    
-- 配置完成后，即可构建到 **HUAWEI AppGallery Connect** 平台。在 **构建发布** 面板的 **平台** 项选择 **HUAWEI AppGallery Connect**，**SDKHub 配置** 选择刚才创建的配置集，然后构建编译工程，并运行到设备上进行测试。
-
-  ![](sdkhub/sdkhub-config-group6.jpg)
+- 若以集成 **HUAWEI HMS Core** 为例，可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。 
 
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在 **构建发布** 面板重新构建即可。
 
 - 若需要删减服务插件配置（例如去掉支付功能），建议删除工程构建后生成的发布包 `build/jsb-link` 或者 `build/jsb-default` 目录，然后重新构建。
 
-## 使用说明
+## 开发指南
 
-### 获取系统对象
+### 获取插件对象
 
-SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型系统，获取插件系统对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
+SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型，获取插件对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
 
-其中 **广告** 和 **推送** 系统只支持单个插件。以广告系统为例，获取广告系统对象方法为：
+其中 **广告** 和 **推送** 对象只支持单个插件。以广告对象为例，获取广告对象方法为：
+
+**示例：**
 
 ```js
 var ads = sdkHub.getAdsPlugin();
 ```
 
-**账号 & 游戏**、**支付** 与 **自定义** 系统可支持接入多个插件，以账号 & 游戏系统为例，若只接入了单个插件，可直接使用 `getUserPlugin` 方法获取对象：
+**账号 & 游戏**、**支付** 与 **自定义** 对象可支持接入多个插件，以账号 & 游戏对象为例，若只接入了单个插件，可直接使用 `getUserPlugin` 方法获取对象：
+
+**示例：**
 
 ```js
 var user = sdkHub.getUserPlugin();
 ```
 
-若接入了多个账号 & 游戏系统，可以通过传入 `pluginId` 获取所需对象：
+若接入了多个账号 & 游戏插件，可以通过传入 `pluginId` 获取所需对象：
+
+**示例：**
 
 ```js
 var hwUser = sdkHub.getUserPlugin('HuaweiUser');
 ```
 
-也可以通过 `getUserPlugins` 方法，直接获取该系统对象 Array，再做处理。
+也可以通过 `getUserPlugins` 方法，直接获取该类型对象 Array，再做处理。
+
+**示例：**
 
 ```js
 var users = sdkHub.getUserPlugins();
 ```
 
-### 标准接口调用
+### 插件方法调用与回调
 
-SDKHub 框架中已经对各系统归纳并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏系统中的 **登录** 方法 `login()`，支付系统中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
+#### 专有方法调用
+
+SDKHub 框架中已经归纳了各类型方法，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
+
+**示例：**
 
 ```js
 sdkHub.getUserPlugin().login();
 ```
 
 一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，以华为 HMS Core `showAchievement` 方法为例：
+
+**示例：**
 
 ```js
 var params = {
@@ -183,7 +167,9 @@ var params = {
 sdkHub.getUserPlugin().showAchievements(params);
 ```
 
-各系统方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
+各类型方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
+
+**示例：**
 
 ```js
 if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
@@ -192,11 +178,13 @@ if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
 }
 ```
 
-### 扩展接口调用
+#### 扩展方法调用
 
 若接入的 SDK 中的所需方法，不在 SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
 
 - 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
+
+**示例：**
 
 ```js
 sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
@@ -206,12 +194,16 @@ sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 
 - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
 
+**示例：**
+
 ```js
 var params = 0;
 sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 ```
 
 - 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
+
+**示例：**
 
 ```js
 var params = {
@@ -224,13 +216,17 @@ sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
 `callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
+**示例：**
+
 ```js
 Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 ```
 
-### 统一回调
+#### 统一回调
 
-SDKHub 将原生平台 SDK 的回调进行统一封装，用户需要在各系统设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以用户系统为例：
+SDKHub 将原生平台 SDK 的回调进行统一封装，开发者需要在各类型设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以账号 & 游戏对象为例：
+
+**示例：**
 
 ```js
 sdkHub.getUserPlugin().setListener(this.onUserResult, this);
@@ -244,20 +240,473 @@ console.log("kLoginSucceed", msg);
 }
 ```
 
-各系统回调值可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
+各类型回调值可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
 
-通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付系统的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkHub.FeeResultCode.kFeeExtension + 106`。
+通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付对象的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkHub.FeeResultCode.kFeeExtension + 106`。
 
-由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 + 106 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件回调逻辑正确。
+由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 `sdkHub.FeeResultCode.kFeeExtension + 106` 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件获得回调逻辑正确。
+
+**示例：**
 
 ```js
 case sdkHub.FeeResultCode.kFeeExtension + 106:
 // Recommended to check the Plugin ID when using extended callbacks
-    if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei"){
+    if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei") {
         console.log("HMS obtainOwnedPurchases");
+    }
+    else if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei") {
     }
     break;
 ```
+
+若需要移除回调，可以调用 `removeListener` 方法。
+
+**示例：**
+
+```js
+sdkHub.getUserPlugin().removeListener();
+```
+
+### 插件公用方法
+
+对应 [pluginProtocol](http://docs.cocos.com/api/zh/classes/_sdkhub_.sdkhub.pluginprotocol.html)，各类型插件对象均继承于此模块。
+
+#### 获取插件 ID
+
+`getPluginId(): string`
+
+接入 SDKHub 的游戏工程，可能接入多个渠道或多个相同系统的 SDK 插件，需要在代码中通过插件 ID 进行判断。
+
+**示例：**
+
+```js
+var feePluginId = sdkHub.getFeePlugin().getPluginId();
+```
+
+#### 设置插件 ID
+
+`setPluginName(name: string): void`
+
+重新设置插件 ID 的值，可选方法。
+
+**示例：**
+
+```js
+sdkHub.getFeePlugin().setPluginName("IAPHuawei");
+```
+
+#### 获取插件名称
+
+`getPluginName(): string`
+
+获取该插件的正式名称，一般不作为判断依据。
+
+**示例：**
+
+```js
+var pluginName = sdkHub.getFeePlugin().getPluginName();
+```
+
+#### 获取插件版本号
+
+`getPluginVersion(): string`
+
+获取该插件完整的版本号，例如 "1.0.0_4.0.3"，下划线前为插件部分的版本号，下划线后为接入平台 SDK 的版本号。
+
+同一个插件中，不同类型的 SDK 版本号也可能存在差异，所以不同类型插件获取的后半部分 **SDK 版本号** 的值也可能不同。例如在同一个华为插件中，通过账号 & 游戏类型插件获取的版本号为 `1.1.5_5.0.0.300`，通过支付类型插件获取的版本号为 `1.1.5_4.0.4.301`。
+
+**示例：**
+
+```js
+var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
+```
+
+#### 获取 SDK 版本号
+
+`getSDKVersion(): string`
+
+获取插件对应 SDK 版本号，例如 "4.0.3"，平台 SDK 的版本号。
+
+同一个插件中，不同插件的 SDK 版本号也可能存在差异，可参考上文。
+
+**示例：**
+
+```js
+var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
+```
+
+#### 
+
+#### 判断插件是否支持该方法
+
+`isFunctionSupported(funcName: string): boolean`
+
+调用各类型方法前，可以先调用本方法，检查插件是否支持该方法，再做调用。
+
+由于 JS 层调用不存在的方法名，也不会导致崩溃，该方法可选。
+
+**示例：**
+
+```js
+if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
+    var params = {"type": "getShowAchievementListIntent"};
+    sdkHub.getUserPlugin().showAchievements(params);
+}
+```
+
+### 账号与游戏插件
+
+#### 登录
+
+`login(): void`
+
+调用 SDK 的登录方法。
+
+若 SDK 可以在客户端完成登录验证并获取唯一用户 ID，也会再执行验证方法。否则用户需要通过登录回调信息，自行进行服务端验证，并将验证后所需的登录信息通过 `setUserInfo` 回传给 SDKHub，完成登录流程。
+
+SDKHub 框架和插件，基本不涉及当前登录状态处理和服务端验证接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏插件其他接口导致崩溃。
+
+**示例：**
+
+```js
+sdkHub.getUserPlugin().login();
+```
+
+#### 登出
+
+`logout(): void`
+
+调用 SDK 的登出方法。游戏端需要在回调中判断当前登录状态。
+
+一些 SDK 将用户登出功能放在平台悬浮窗上，没有主动调用的登出方法，但存在登出回调，需要注意处理。
+
+**示例：**
+
+```js
+sdkHub.getUserPlugin().logout();
+```
+
+#### 获取用户登录信息
+
+`getUserInfo(): any`
+
+若 SDK 可以在客户端完成登录验证并获取到用户唯一 ID，可通过该方法获取登录信息。可以获取 `userID` 参数作为用户唯一 ID。
+
+若 SDK 需要服务端验证后才能获得唯一用户 ID，则需要通过调用 `setUserInfo` 方法后，再调用本方法才能获取到登录信息。
+
+**示例：**
+
+```js
+var userInfo = sdkHub.getUserPlugin().getUserInfo();
+```
+
+#### 设置用户登录信息
+
+`setUserInfo(info: any): void`
+
+若 SDK 需要服务端验证后才能获得唯一用户 ID，需要将插件所需的登录信息回传给 SDKHub。
+
+**示例：**
+
+```js
+var params = {
+    userID : "890839221",
+    userName : "test_name"
+};
+sdkHub.getUserPlugin().setUserInfo(params);
+```
+
+#### 显示浮标
+
+`showToolBar(toolPlace: ToolBarPlace): void`
+
+调用 SDK 显示浮标方法。若 SDK 有需要，插件接入时会在会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
+
+部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
+
+```
+sdkHub.getUserPlugin().showToolBar(sdkHub.ToolBarPlace.kToolBarTopLeft);
+```
+
+#### 隐藏浮标
+
+`hideToolBar(): void`
+
+调用 SDK 隐藏浮标方法。若 SDK 有需要，插件接入时会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
+
+```
+sdkHub.getUserPlugin().hideToolBar();
+```
+
+#### 展示排行榜
+
+`showLeaderBoard(params: any): void`
+
+排行榜相关方法。传入参数需参考对应 SDK 插件文档。
+
+**示例：**
+
+```js
+var params = {"type": "getRankingsIntent"};
+sdkHub.getUserPlugin().showLeaderBoard(params);
+```
+
+#### 提交分数
+
+`submitScore(params: any): void`
+
+排行榜相关方法。传入参数需参考对应 SDK 插件文档。
+
+**示例：**
+
+```js
+var params = {"type": "getRankingSwitchStatus"};                         
+sdkHub.getUserPlugin().submitScore(params);
+```
+
+#### 展示成就
+
+`showAchievements(params: any): void`
+
+成就相关方法，传入参数需参考对应 SDK 插件文档。
+
+**示例：**
+
+```js
+var params = {"type": "getShowAchievementListIntent"};
+sdkHub.getUserPlugin().showAchievements(params);
+```
+
+#### 解锁成就
+
+`unlockAchievement(params: any): void`
+
+成就相关方法，传入参数需参考对应 SDK 插件文档。
+
+**示例：**
+
+```js
+var params = {
+    "type": "reachWithResult",
+    "achievementId": "5D9580837D32CB59CFEC89DAD39470CDF9B672033A2D6F14689BC01335818444"
+};
+sdkHub.getUserPlugin().unlockAchievement(params);
+```
+
+#### 回调值
+
+请参考 [API文档 - UserResultCode](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.userresultcode.html)。
+
+### 支付插件
+
+考虑过去苹果 AppStore 审核方面等的问题，我们将支付关键字设为 `fee`。
+
+#### 支付商品
+
+`feeForProduct(params: any): void`
+
+调用 SDK 的支付方法。我们对大部分的渠道 SDK 进行了归纳，建议开发者调用时传入以下参数：
+
+| 传入参数 | 参数说明 |
+| --- | --- |
+| Product_Id | 商品 ID，一些渠道要与后台配置一致。 |
+| Product_Name | 商品名 |
+| Product_Price | 商品价格（元），部分渠道只支持整数，集成时会做转换 |
+| Product_Count | 商品份数（除非游戏需要支持一次购买多份商品，否则传 1 即可） |
+| Product_Desc | 商品描述 |
+| Coin_Name | 虚拟币名称（如金币、元宝） |
+| Coin_Rate | 虚拟币兑换比例（例如 100，表示 1 元购买 100 虚拟币） |
+| Role_Id | 游戏角色 ID |
+| Role_Name | 游戏角色名 |
+| Role_Grade | 游戏角色等级 |
+| Role_Balance | 用户游戏内虚拟币余额，如元宝，金币，符石 |
+| Vip_Level | VIP 等级 |
+| Party_Name | 帮派、公会等 |
+| Server_Id | 	服务器 ID，若无填 "1" |
+| Server_Name | 服务器名 |
+| EXT | 扩展字段，用于支付透传参数 |
+
+**示例：**
+
+```js
+ var params = {
+    "Product_Id": "2",
+    "Product_Name": "10元宝",
+    "Product_Price": "1",
+    "Product_Count": "1",
+    "Product_Desc": "gold",
+    "Coin_Name": "元宝",
+    "Coin_Rate": "10",
+    "Role_Id": "123456",
+    "Role_Name": "test",
+    "Role_Grade": "1",
+    "Role_Balance": "1",
+    "Vip_Level": "1",
+    "Party_Name": "test",
+    "Server_Id": "1",
+    "Server_Name": "test",
+    "EXT": "test",
+}
+sdkHub.getFeePlugin().feeForProduct(params);
+```
+
+#### 回调值
+
+请参考 [API文档 - FeeResultCode](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.feeresultcode.html)。
+
+### 广告插件
+
+#### 显示广告
+
+`showAds(params: any): void`
+
+调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds` 。回调成功后才能调用显示广告方法。
+
+**示例：**
+
+```js
+var params = {"adType": "Banner", "adId": "testw6vs28auh3", "pos": "0", "adSize": "BANNER_SIZE_360_144" };
+sdkHub.getAdsPlugin().showAds(params);
+```
+
+#### 隐藏广告
+
+`hideAds(params: any): void`
+
+调用 SDK 的隐藏广告方法。或者通过插件实现。
+
+**示例：**
+
+```js
+var params = {"adType": "Banner"};
+sdkHub.getAdsPlugin().hideAds(params);
+```
+
+#### 预加载广告
+
+调用 SDK 的预加载广告方法。部分类型广告显示前，需要先调用本方法。回调成功后才能调用显示广告方法 `showAds`。
+
+**示例：**
+
+```js
+var params = { "adType": "Reward", "adId": "testx9dtjwj8hp" };
+sdkHub.getAdsPlugin().preloadAds(params);
+```
+
+#### 回调值
+
+请参考 [API文档 - AdsResultCode](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.adsresultcode.html)。
+
+### 推送插件
+
+推送需要用到 **别名（Alias）** 和 **标签（Tag）** 两个概念。
+
+- 别名（Alias）
+
+    为安装了应用程序的用户，取个别名来标识。以后给该用户 Push 消息时，就可以用此别名来指定。
+    
+    - 每个用户只能指定一个别名。
+    - 同一个应用程序内，对不同的用户，建议取不同的别名。这样，尽可能根据别名来唯一确定用户。
+    - 系统不限定一个别名只能指定一个用户。如果一个别名被指定到了多个用户，当给指定这个别名发消息时，服务器端 API 会同时给这多个用户发送消息。
+    
+    举例：在一个用户要登录的游戏中，可能设置别名为 userid。游戏运营时，发现该用户 3 天没有玩游戏了，则根据 userid 调用服务器端 API 发通知到客户端提醒用户。
+
+- 标签（Tag）
+
+    为安装了应用程序的用户，打上标签。其目的主要是方便开发者根据标签，来批量下发 Push 消息。
+    
+    - 可为每个用户打多个标签。
+    - 不同应用程序、不同的用户，可以打同样的标签。
+
+    举例： game, old_page, women
+    
+#### 开始推送
+
+`startPush(): void`
+
+调用 SDK 的开始或注册推送方法。
+
+**示例：**
+
+```js
+sdkHub.getPushPlugin().startPush();
+```
+
+#### 关闭推送
+
+`closePush(): void`
+
+调用 SDK 的关闭推送方法。
+
+**示例：**
+
+```js
+sdkHub.getPushPlugin().closePush();
+```
+
+#### 设置别名
+
+`setAlias(alias: string): void`
+
+调用 SDK 的设置别名方法。
+
+**示例：**
+
+```js
+var params = "alias1";
+sdkHub.getPushPlugin().setAlias(params);
+```
+
+#### 删除别名
+
+`delAlias(alias: string): void`
+
+调用 SDK 的删除别名方法。
+
+**示例：**
+
+```js
+var params = "alias1";
+sdkHub.getPushPlugin().delAlias(params);
+```
+
+#### 设置标签
+
+`setTags(tags: any): void`
+
+调用 SDK 的设置标签方法，需要传入字符串数组。
+
+**示例：**
+
+```js
+var params = ["tag1", "tag2"];
+sdkHub.getPushPlugin().setTags(params)
+```
+
+#### 删除标签
+
+`delTags(tags: any): void`
+
+调用 SDK 的删除标签方法，需要传入字符串数组。
+
+**示例：**
+
+```js
+var params = ["tag1", "tag2"];
+sdkHub.getPushPlugin().delTags(params)
+```
+
+#### 回调值
+
+请参考 [API文档 - PushResultCode](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.pushresultcode.html)。
+
+### 自定义插件
+
+自定义插件所有方法均需要通过 [扩展方法调用](#扩展方法调用)。请参考对应 SDK 插件文档。
+
+#### 回调值
+
+自定义插件回调值全部走扩展回调，扩展回调初始值为 `10000`。
 
 ### 调试信息输出
 
