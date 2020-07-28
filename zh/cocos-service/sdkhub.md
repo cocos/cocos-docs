@@ -163,42 +163,6 @@ if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
 }
 ```
 
-#### 扩展方法调用
-
-若接入的 SDK 中的所需方法，不在 SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
-
-- 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
-
-```js
-sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
-```
-
-若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，传入参数可能为数字、字符串，或者 JSON 对象。
-
-- 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
-
-```js
-var params = 0;
-sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
-```
-
-- 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
-
-```js
-var params = {
-    "eventId": conf.eventId,
-    "growAmount": "20"
-};
-sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
-```
-
-若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
-`callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
-
-```js
-Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
-```
-
 #### 统一回调
 
 SDKHub 将原生平台 SDK 的回调进行统一封装，开发者需要在各类型设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以账号 & 游戏对象为例：
@@ -241,6 +205,43 @@ sdkHub.getUserPlugin().removeListener();
 ### 插件公用方法
 
 对应 [pluginProtocol](http://docs.cocos.com/api/zh/classes/_sdkhub_.sdkhub.pluginprotocol.html)，各类型插件对象均继承于此模块。
+
+#### 扩展方法调用
+
+若接入的 SDK 中的所需方法，不在 SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
+
+- 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
+
+```js
+sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
+```
+
+若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，传入参数可能为数字、字符串，或者 JSON 对象。
+
+- 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
+
+```js
+var params = 0;
+sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+```
+
+- 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
+
+```js
+var params = {
+    "eventId": conf.eventId,
+    "growAmount": "20"
+};
+sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
+```
+
+若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
+`callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
+
+```js
+Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
+```
+
 
 #### 获取插件 ID
 
