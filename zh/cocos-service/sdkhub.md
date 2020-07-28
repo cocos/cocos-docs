@@ -183,7 +183,7 @@ var params = {
 sdkHub.getUserPlugin().showAchievements(params);
 ```
 
-各系统非必需方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
+各系统方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
 
 ```js
 if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
@@ -215,13 +215,13 @@ sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 
 ```js
 var params = {
-    "conf.eventId": conf.eventId,
+    "eventId": conf.eventId,
     "growAmount": "20"
 };
 sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
 ```
 
-若通过扩展方式调用的 SDK 方法有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
+若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
 `callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
 ```js
@@ -230,14 +230,14 @@ Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 
 ### 统一回调
 
-SDKHub 将原生平台 SDK 的回调进行统一封装，用户需要在各系统设置监听并绑定方法，在绑定方法中做统一处理。以用户系统为例：
+SDKHub 将原生平台 SDK 的回调进行统一封装，用户需要在各系统设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以用户系统为例：
 
 ```js
 sdkHub.getUserPlugin().setListener(this.onUserResult, this);
 
 onUserResult: function (code, msg) {
     switch (code) {
-      case sdkHub.UserResultCode.kLoginSucceed:
+        case sdkHub.UserResultCode.kLoginSucceed:
 console.log("kLoginSucceed", msg);
         break;
     }
@@ -246,9 +246,20 @@ console.log("kLoginSucceed", msg);
 
 各系统回调值可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
 
-通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付系统的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension`
+通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付系统的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkHub.FeeResultCode.kFeeExtension + 106`。
 
-### 调试信息
+由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 + 106 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件回调逻辑正确。
+
+```js
+case sdkHub.FeeResultCode.kFeeExtension + 106:
+// Recommended to check the Plugin ID when using extended callbacks
+    if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei"){
+        console.log("HMS obtainOwnedPurchases");
+    }
+    break;
+```
+
+### 调试信息输出
 
 SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。若需要查看一些相关调试信息，可以在 **Logcat** 或者 **Xcode** 中筛选。
 
