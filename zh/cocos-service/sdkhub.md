@@ -31,13 +31,12 @@ SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub �
 
 - 完成 SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 SDKHub 的接入是否成功。SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 SDKHub 账号 & 游戏对象的登录方法。
 
-  **示例：**
 
 ```js
-  this.scheduleOnce(function(){
-      sdkHub.getUserPlugin().login();
-  },2);
-  ```
+this.scheduleOnce(function(){
+    sdkHub.getUserPlugin().login();
+},2);
+```
 
 - 脚本修改完成并保存后，回到编辑器。SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即可验证 SDKHub 接入成功。
 
