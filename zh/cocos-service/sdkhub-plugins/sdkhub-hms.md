@@ -2,9 +2,9 @@
 
 目前 SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 SDKHub 接口，处理回调。
 
-插件中的 **账号 & 游戏服务**、**支付服务** 和 **广告服务** 均可独立使用。
+插件中的 **账号 & 游戏服务**、**支付服务** **广告服务** 和 **推送服务** 均可独立使用。
 
-SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口。华为 HMS Core 插件在支付情况下做了本地验证，但如果用户需要登录或支付服务端验证（可选），请使用回调中的信息，自行到服务端进行验证。
+SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口导致崩溃。华为 HMS Core 插件在支付成功情况下也做了本地验证。但如果用户需要登录或支付服务端验证（可选），请使用回调中的信息，自行到服务端进行验证。
 
 - [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature)
 - [Order 服务购买 Token 校验](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
@@ -65,31 +65,19 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 ## Sample 工程
 
-点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。使用方法可参考文档 [SDKHub Simple 工程](../sdkhub.md#sample-%E5%B7%A5%E7%A8%8B)。
+点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
-## 各系统 API 接口说明
+请在工程中的 `Config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在后台配置生成。
+
+## 参数传入与扩展回调说明
 
 ### UserPlugin 用户 & 游戏系统
 
 华为系统的方法较多，部分接口需要使用扩展方法调用，并返回扩展回调。可能需要配合参考 SDKHub Sample 工程中的代码与华为官方对应的文档进行调用。
 
-#### login
+#### 登录
 
-登录方法，可参考 [游戏服务 - 游戏登录](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-login-v4) 文档。
-
-华为 HMS Core SDK 登录成功后，插件中会再调用华为 HMS Core SDK 的 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/game-login-0000001050121526-V5#ZH-CN_TOPIC_0000001051062343__section20387552101519) 方法，获取当前玩家信息，通过回调返回给用户，用户也可以主动调用 `getUserInfo` 方法获取登录信息。可读取 **userID** 参数作为用户唯一 ID。此时也可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
-
-#### logout
-
-登出方法，可参考 [账号服务 - 登出华为账号](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573729918116) 文档。HMS SDK 会清理华为帐号登录信息，游戏端需要自行判断登录状态。
-
-#### getUserInfo
-
-获取用户信息方法，HMS 插件将返回登录方法中的回调信息。
-
-#### showToolBar / hideToolBar
-
-浮标方法，可参考 [游戏服务 - 浮标](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-buoy-v4#h1-1576589973315) 文档。由于插件中已经在生命周期 `onResume` 和 `onPause` 调用这两个方法，**用户无需再做主动调用**。
+华为的登录回调中，可读取 **userID** 参数作为用户唯一 ID。此时也可以根据获取的登录签名，调用 [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature) 对玩家信息进行验签。
 
 #### showAchievement
 

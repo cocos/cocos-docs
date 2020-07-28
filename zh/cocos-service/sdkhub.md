@@ -12,7 +12,7 @@ SDKHub 是一套帮助 Cocos Creator 用户快速接入原生平台 SDK 的接�
 
 SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub 服务面板控制和配置。
 
-- 框架层：实现了 JSB 绑定文件、插件和回调统一管理接口、各插件系统接口的统一封装定义和原生平台实现。
+- 框架层：实现了 JSB 绑定文件、插件和统一回调管理接口、各插件系统接口的统一封装定义和原生平台实现。
 - 插件层：实现了框架层定义的各接口和原生平台 SDK 所需的各种其他接口，将原生平台 SDK 的回调进行统一封装，以及在构建工程时，调用安装脚本，对原生工程的原生平台 SDK 进行配置。
 
 开发者在游戏层，仅需调用 SDKHub 中的方法以及处理统一封装的回调，极大的简化了开发者接入原生平台 SDK 的工作量。
@@ -134,6 +134,129 @@ SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub �
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在 **构建发布** 面板重新构建即可。
 
 - 若需要删减服务插件配置（例如去掉支付功能），建议删除工程构建后生成的发布包 `build/jsb-link` 或者 `build/jsb-default` 目录，然后重新构建。
+
+## 使用说明
+
+### 获取系统对象
+
+SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型系统，获取插件系统对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
+
+其中 **广告** 和 **推送** 系统只支持单个插件。以广告系统为例，获取广告系统对象方法为：
+
+```js
+var ads = sdkHub.getAdsPlugin();
+```
+
+**账号 & 游戏**、**支付** 与 **自定义** 系统可支持接入多个插件，以账号 & 游戏系统为例，若只接入了单个插件，可直接使用 `getUserPlugin` 方法获取对象：
+
+```js
+var user = sdkHub.getUserPlugin();
+```
+
+若接入了多个账号 & 游戏系统，可以通过传入 `pluginId` 获取所需对象：
+
+```js
+var hwUser = sdkHub.getUserPlugin('HuaweiUser');
+```
+
+也可以通过 `getUserPlugins` 方法，直接获取该系统对象 Array，再做处理。
+
+```js
+var users = sdkHub.getUserPlugins();
+```
+
+### 标准接口调用
+
+SDKHub 框架中已经对各系统归纳并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏系统中的 **登录** 方法 `login()`，支付系统中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
+
+```js
+sdkHub.getUserPlugin().login();
+```
+
+一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，以华为 HMS Core `showAchievement` 方法为例：
+
+```js
+var params = {
+    "type": "getAchievementList",
+    "forceReload": "1"
+};
+sdkHub.getUserPlugin().showAchievements(params);
+```
+
+各系统非必需方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
+
+```js
+if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
+    var params = {"type": "getShowAchievementListIntent"};
+    sdkHub.getUserPlugin().showAchievements(params);
+}
+```
+
+### 扩展接口调用
+
+若接入的 SDK 中的所需方法，不在 SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
+
+- 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
+
+```js
+sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
+```
+
+若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，传入参数可能为数字、字符串，或者 JSON 对象。
+
+- 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
+
+```js
+var params = 0;
+sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+```
+
+- 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
+
+```js
+var params = {
+    "conf.eventId": conf.eventId,
+    "growAmount": "20"
+};
+sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
+```
+
+若通过扩展方式调用的 SDK 方法有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
+`callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
+
+```js
+Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
+```
+
+### 统一回调
+
+SDKHub 将原生平台 SDK 的回调进行统一封装，用户需要在各系统设置监听并绑定方法，在绑定方法中做统一处理。以用户系统为例：
+
+```js
+sdkHub.getUserPlugin().setListener(this.onUserResult, this);
+
+onUserResult: function (code, msg) {
+    switch (code) {
+      case sdkHub.UserResultCode.kLoginSucceed:
+console.log("kLoginSucceed", msg);
+        break;
+    }
+}
+```
+
+各系统回调值可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
+
+通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付系统的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension`
+
+### 调试信息
+
+SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。若需要查看一些相关调试信息，可以在 **Logcat** 或者 **Xcode** 中筛选。
+
+![](sdkhub/sdkhub-debugmode.png)
+
+调试模式下可能会打印一些参数信息，产品上线时需关闭面板中的 **调试模式** 选项，以免一些参数信息泄露。
+
+![](sdkhub/sdkhub-debuginfo.png)
 
 ## API 文档
 
