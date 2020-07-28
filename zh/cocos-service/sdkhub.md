@@ -112,15 +112,11 @@ SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义�
 
 其中 **广告** 和 **推送** 对象只支持单个插件。以广告对象为例，获取广告对象方法为：
 
-**示例：**
-
 ```js
 var ads = sdkHub.getAdsPlugin();
 ```
 
 **账号 & 游戏**、**支付** 与 **自定义** 对象可支持接入多个插件，以账号 & 游戏对象为例，若只接入了单个插件，可直接使用 `getUserPlugin` 方法获取对象：
-
-**示例：**
 
 ```js
 var user = sdkHub.getUserPlugin();
@@ -128,15 +124,11 @@ var user = sdkHub.getUserPlugin();
 
 若接入了多个账号 & 游戏插件，可以通过传入 `pluginId` 获取所需对象：
 
-**示例：**
-
 ```js
 var hwUser = sdkHub.getUserPlugin('HuaweiUser');
 ```
 
 也可以通过 `getUserPlugins` 方法，直接获取该类型对象 Array，再做处理。
-
-**示例：**
 
 ```js
 var users = sdkHub.getUserPlugins();
@@ -148,15 +140,11 @@ var users = sdkHub.getUserPlugins();
 
 SDKHub 框架中已经归纳了各类型方法，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
 
-**示例：**
-
 ```js
 sdkHub.getUserPlugin().login();
 ```
 
 一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，以华为 HMS Core `showAchievement` 方法为例：
-
-**示例：**
 
 ```js
 var params = {
@@ -167,8 +155,6 @@ sdkHub.getUserPlugin().showAchievements(params);
 ```
 
 各类型方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
-
-**示例：**
 
 ```js
 if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
@@ -183,8 +169,6 @@ if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
 
 - 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
 
-**示例：**
-
 ```js
 sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
 ```
@@ -193,16 +177,12 @@ sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 
 - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
 
-**示例：**
-
 ```js
 var params = 0;
 sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 ```
 
 - 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
-
-**示例：**
 
 ```js
 var params = {
@@ -215,8 +195,6 @@ sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
 `callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
-**示例：**
-
 ```js
 Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 ```
@@ -224,8 +202,6 @@ Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 #### 统一回调
 
 SDKHub 将原生平台 SDK 的回调进行统一封装，开发者需要在各类型设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以账号 & 游戏对象为例：
-
-**示例：**
 
 ```js
 sdkHub.getUserPlugin().setListener(this.onUserResult, this);
@@ -245,8 +221,6 @@ console.log("kLoginSucceed", msg);
 
 由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 `sdkHub.FeeResultCode.kFeeExtension + 106` 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件获得回调逻辑正确。
 
-**示例：**
-
 ```js
 case sdkHub.FeeResultCode.kFeeExtension + 106:
 // Recommended to check the Plugin ID when using extended callbacks
@@ -259,8 +233,6 @@ case sdkHub.FeeResultCode.kFeeExtension + 106:
 ```
 
 若需要移除回调，可以调用 `removeListener` 方法。
-
-**示例：**
 
 ```js
 sdkHub.getUserPlugin().removeListener();
@@ -333,8 +305,6 @@ var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
 ```js
 var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
 ```
-
-#### 
 
 #### 判断插件是否支持该方法
 
