@@ -255,30 +255,6 @@ Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 var feePluginId = sdkHub.getFeePlugin().getPluginId();
 ```
 
-#### 设置插件 ID
-
-`setPluginName(name: string): void`
-
-重新设置插件 ID 的值，可选方法。
-
-**示例：**
-
-```js
-sdkHub.getFeePlugin().setPluginName("IAPHuawei");
-```
-
-#### 获取插件名称
-
-`getPluginName(): string`
-
-获取该插件的正式名称，一般不作为判断依据。
-
-**示例：**
-
-```js
-var pluginName = sdkHub.getFeePlugin().getPluginName();
-```
-
 #### 获取插件版本号
 
 `getPluginVersion(): string`
