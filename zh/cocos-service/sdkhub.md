@@ -138,13 +138,13 @@ var users = sdkHub.getUserPlugins();
 
 #### 专有方法调用
 
-SDKHub 框架中已经归纳了各类型方法，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
+SDKHub 框架中已经对大部分的渠道 SDK 的类型方法进行了归纳，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
 
 ```js
 sdkHub.getUserPlugin().login();
 ```
 
-一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，以华为 HMS Core `showAchievement` 方法为例：
+一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，以华为 HMS Core `showAchievement` 方法为例：
 
 ```js
 var params = {
@@ -216,7 +216,7 @@ sdkHub.getUserPlugin().removeListener();
 sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
 ```
 
-若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **参数传入与扩展回调说明**，传入参数可能为数字、字符串，或者 JSON 对象。
+若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
 
 - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
 
@@ -390,7 +390,7 @@ sdkHub.getUserPlugin().setUserInfo(params);
 
 `showToolBar(toolPlace: ToolBarPlace): void`
 
-调用 SDK 显示浮标方法。若 SDK 有需要，插件接入时会在会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
+调用 SDK 显示浮标方法。若 SDK 有需要，插件接入时会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
 
 部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
 

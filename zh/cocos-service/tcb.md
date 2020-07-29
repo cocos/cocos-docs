@@ -88,7 +88,7 @@
     ![](tcb/tcb-debugging.jpg)
 
 
-## TCB Sample 的集成调试
+## Sample 工程
 
 - 点击 TCB 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [TCB Sample 工程](https://github.com/CocosService/tcbDemo)，并在 Cocos Creator 中打开。
 
