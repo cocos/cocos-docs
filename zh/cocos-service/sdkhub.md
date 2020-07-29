@@ -88,7 +88,7 @@ this.scheduleOnce(function(){
 
 打开 Cocos Creator 顶部菜单的 **项目 -> 构建发布**，当选择 **Android**、**iOS**、**HUAWEI AppGallery Connect** 等平台时（目前 SDKHub 暂时只支持这些原生平台），会显示 **SDKHub 配置** 项，并列出您在服务面板中创建的配置集（Creator v2.4.1 新增，之前的旧版本会默认使用 **服务** 面板中 SDKHub 面板选择的配置集），然后选择对应的配置集即可。
 
-![](sdkhub/sdkhub-build1.png)
+![](sdkhub/sdkhub-build.png)
 
 如果在编译时出现问题，可能是由于 Creator 原生编译环境配置不正确，可尝试在 **Android Studio** 或 **Xcode** 中直接编译工程，以便获得更多的调试信息。
 

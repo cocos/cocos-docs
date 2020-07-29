@@ -15,7 +15,7 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 - 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，创建游戏应用。在该游戏应用的 **我的项目 -> 项目设置 -> API 管理** 页面中开通 **Account Kit**、**In-App Purchases**、**Game Service**、**Push Kit** 服务。华为文档中的集成 HMS Core SDK 部分，SDKHub 会在构建时 **自动完成**，无需开发者手动操作。
 
-    ![](sdkhub-hms/sdkhub-hms-config.png) 
+    ![](sdkhub-hms/hms-config.png) 
 
 - 若需要使用支付服务，请提前准备好注册开发者本人的银行卡，填写相关收款信息。提交后审核可能需要 1~2 个工作日。开通 **In-App Purchases** 服务后到后台 [配置商品信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-product-0000001050033076)。支付服务支持 [沙盒测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/sandbox-testing-0000001050035039-V5)。请注意配置后的商品是否为 **有效** 状态。
     
@@ -70,6 +70,10 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 - 请在工程中的 `Config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在后台 [配置生成](#准备工作)。
 
 - 配置完成并接入相关 API 接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+
+    ![](sdkhub-hms/hms-build.png)
+    
+    ![](sdkhub-hms/hms-sample.jpg)
 
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在构建发布面板重新构建即可。
 
