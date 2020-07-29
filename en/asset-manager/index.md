@@ -25,7 +25,7 @@ In addition to applying resources to the corresponding components while editing 
 
 The relevant APIs are listed below:
 
-| Type | Support | Loading | Releasing | Preloading | Querying | Search 
+| Type | Support | Loading | Releasing | Preloading | Querying | Search |
 | :-- | :-- | :-- | :-- | :-- | :-- |:-- |
 | Single Asset | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
 | Directory    | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |

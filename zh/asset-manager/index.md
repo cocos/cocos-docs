@@ -25,7 +25,7 @@
 
 相关的 API 列表如下：
 
-| 类型 | 支持 | 加载 | 释放 | 预加载 | 获取 | 查询资源信息
+| 类型 | 支持 | 加载 | 释放 | 预加载 | 获取 | 查询资源信息 |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
 | 单个资源 | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
 | 文件夹   | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
