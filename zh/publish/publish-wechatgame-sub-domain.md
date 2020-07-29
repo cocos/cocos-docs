@@ -93,6 +93,6 @@
 
 ## 参考链接
 
-- [Cocos Creator 微信小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
+- [Cocos Creator 小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
 
 - [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)

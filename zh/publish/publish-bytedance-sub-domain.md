@@ -1,6 +1,6 @@
 # 接入字节跳动小游戏的开放数据域
 
-字节跳动小游戏为了保护其社交关系链数据，支持了 **开放数据域**。这是一个单独的游戏执行环境，开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问字节提供的 `tt.getCloudStorageByRelation()` 和 `tt.getUserCloudStorage()` 这两个 API，用于实现一些例如排行榜的功能。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
+字节跳动小游戏为了保护其社交关系链数据，开辟了 **开放数据域**，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问字节提供的 `tt.getCloudStorageByRelation()` 和 `tt.getUserCloudStorage()` 这两个 API，用于实现一些例如排行榜的功能。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
 
 由于开放数据域是一个封闭、独立的 JavaScript 作用域，所以开发者需要创建两个项目：
 
@@ -79,6 +79,6 @@
 
 ### 参考链接
 
-- [Cocos Creator 字节跳动小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
-- [字节跳动官方文档：关系链数据使用指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game#%E5%85%B3%E7%B3%BB%E9%93%BE%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8)
+- [Cocos Creator 小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
+- [字节跳动官方文档 — 关系链数据使用指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game#%E5%85%B3%E7%B3%BB%E9%93%BE%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8)
 - [字节开放能力 — 开放数据 API 文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/open-capacity/open-data/tt-get-cloud-storage-by-relation)

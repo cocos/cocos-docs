@@ -88,6 +88,8 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 - WebView
 - 分包加载
 
+另外，通过网络加载的音频资源，字节跳动小游戏是采用流式播放的，无法获取到音频的 duration，请尽量将音频资源放在项目内进行加载或者通过 Asset Bundle 进行加载。
+
 ## 参考链接
 
 - [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration)
