@@ -25,15 +25,15 @@ In addition to applying resources to the corresponding components while editing 
 
 The relevant APIs are listed below:
 
-| Type | Support | Loading | Releasing | Preloading | Querying |
-| :-- | :-- | :-- | :-- | :-- | :-- |
-| Single Asset | Asset Bundle   | load       | release      | preload      | get |
-| Directory    | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A |
-| Scene        | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A |
-| Single Asset | `cc.resources` | load       | release      | preload      | get |
-| Directory    | `cc.resources` | loadDir    | releaseAsset | preloadDir   | N/A |
-| Script       | Asset Manager  | loadScript | N/A          | N/A          | N/A |
-| Remote Asset | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A |
+| Type | Support | Loading | Releasing | Preloading | Querying | Search 
+| :-- | :-- | :-- | :-- | :-- | :-- |:-- |
+| Single Asset | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
+| Directory    | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| Scene        | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
+| Single Asset | `cc.resources` | load       | release      | preload      | get | getInfoWithPath |
+| Directory    | `cc.resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| Script       | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
+| Remote Asset | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
 
 References documentations：
 

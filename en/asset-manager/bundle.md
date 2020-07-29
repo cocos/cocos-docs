@@ -89,7 +89,9 @@ The structure of the Asset Bundle directory generated after build is shown below
 
 The Asset Bundle supports script subpackaging. If your Asset Bundle includes the script files, then all the scripts will be merged into a single **js** file and removed from the main package. When loading the Asset Bundle, this **js** file will be attempted to be loaded.
 
-**Note**: Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/scripts` directory to ensure normal loading.
+**Note**: 
+1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/scripts` directory to ensure normal loading.
+2. Scripts in different Asset Bundles can not be inter-referenced (including `import` and `require`), or they will not be found at runtime. If you need to share certain classes or properties between scripts in different Asset Bundles, you can do so by exposing the classes and properties to your own global namespace.
 
 ## FAQ
 
