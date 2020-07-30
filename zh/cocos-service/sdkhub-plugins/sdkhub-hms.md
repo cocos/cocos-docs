@@ -2,18 +2,18 @@
 
 ## 插件介绍
 
-目前 SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 SDKHub 接口，处理回调。
+目前 Cocos SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 Cocos SDKHub 接口，处理回调。
 
 插件中的 **账号 & 游戏服务**、**支付服务** **广告服务** 和 **推送服务** 均可独立使用。
 
-SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口导致崩溃。华为 HMS Core 插件在支付成功情况下也做了本地验证。但如果用户需要登录或支付服务端验证（可选），请使用回调中的信息，自行到服务端进行验证。
+Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口导致崩溃。华为 HMS Core 插件在支付成功情况下也做了本地验证。但如果用户需要登录或支付服务端验证（可选），请使用回调中的信息，自行到服务端进行验证。
 
 - [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature)
 - [Order 服务购买 Token 校验](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
 
 ## 准备工作
 
-- 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，创建游戏应用。在该游戏应用的 **我的项目 -> 项目设置 -> API 管理** 页面中开通 **Account Kit**、**In-App Purchases**、**Game Service**、**Push Kit** 服务。华为文档中的集成 HMS Core SDK 部分，SDKHub 会在构建时 **自动完成**，无需开发者手动操作。
+- 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，创建游戏应用。在该游戏应用的 **我的项目 -> 项目设置 -> API 管理** 页面中开通 **Account Kit**、**In-App Purchases**、**Game Service**、**Push Kit** 服务。华为文档中的集成 HMS Core SDK 部分，Cocos SDKHub 会在构建时 **自动完成**，无需开发者手动操作。
 
     ![](sdkhub-hms/hms-config.png) 
 
@@ -25,15 +25,15 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验 SDKHub。若开发者需要在自己的游戏工程中接入 HMS Core SDK，也可参考此流程。请先确保 [准备工作](#准备工作) 部分已经完成，并且已获取到所需参数。
+您可以通过 Sample 工程快速体验 Cocos SDKHub。若开发者需要在自己的游戏工程中接入 HMS Core SDK，也可参考此流程。请先确保 [准备工作](#准备工作) 部分已经完成，并且已获取到所需参数。
 
-- 点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
+- 点击 Cocos SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 SDKHub，进入 SDKHub 服务面板。然后点击右上方的 **启用** 按钮以开通 SDKHub 服务。详情可参考 [Cocos Service 操作指南](../../../user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos SDKHub，进入 Cocos SDKHub 服务面板。然后点击右上方的 **启用** 按钮以开通 Cocos SDKHub 服务。详情可参考 [Cocos Service 操作指南](../../../user-guide.md)。
 
   ![](sdkhub-hms/hms-provisioning.png) 
 
-- 在 SDKHub 服务面板上添加一个新配置集
+- 在 Cocos SDKHub 服务面板上添加一个新配置集
     
   ![](sdkhub-hms/hms-config-group1.jpeg)
 
@@ -83,19 +83,21 @@ SDKHub 框架和插件基本不涉及当前状态处理和服务端接口，例�
 
 ## 开发指南
 
-开发时请先参考 [SDKHub - 开发指南](../sdkhub.md/#开发指南)，本章节作为 HMS Core SDK 插件特性的补充部分。
+开发时请先参考 [Cocos SDKHub - 开发指南](../sdkhub.md/#开发指南)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
-华为 HMS Core SDK 提供的方法较多，部分接口需要使用扩展方法调用，并返回扩展回调。需要配合参考 SDKHub Sample 工程中的代码与华为官方对应的文档进行调用。
+华为 HMS Core SDK 提供的方法较多，部分接口需要使用扩展方法调用，并返回扩展回调。需要配合参考 Cocos SDKHub Sample 工程中的代码与华为官方对应的文档进行调用。
 
 ### 调试与回调说明
 
-SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。可参考 [SDKHub - 调试信息输出](../sdkhub.md/#调试信息输出)。
+Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。可参考 [Cocos SDKHub - 调试信息输出](../sdkhub.md/#调试信息输出)。
 
 接入 HMS Core SDK 后，在统一回调中需要判断返回的 msg 格式是否为 JSON 对象，JSON 对象中是否有 **retCode** 信息。该值为华为返回的错误码，可以通过该值到华为文档中查询错误信息。
 
 ![](sdkhub-hms/hms-errorcode.png)
 
 ### 账号与游戏插件
+
+开发时请先参考 [Cocos SDKHub - 账号与游戏插件](../sdkhub.md/#账号与游戏插件)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
 当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏服务其他接口导致崩溃。
 
@@ -127,7 +129,7 @@ var params = {
     "type": "getAchievementList",
     "forceReload": "0"
 };
-sdkHub.getUserPlugin().showAchievements(params);
+sdkhub.getUserPlugin().showAchievements(params);
 ```
 
 ##### 解锁成就
@@ -148,7 +150,7 @@ var params = {
     "achievementId": "5D9580837D32CB59CFEC89DAD39470CDF9B672033A2D6F14689BC01335818444",
     "stepsNum": "50"
 };
-sdkHub.getUserPlugin().unlockAchievement(params);
+sdkhub.getUserPlugin().unlockAchievement(params);
 ```
 
 #### 排行榜
@@ -180,7 +182,7 @@ var params = {
     "pageDirection": "0",
     "timeDimension": "2"
 };
-sdkHub.getUserPlugin().showLeaderBoard(params);
+sdkhub.getUserPlugin().showLeaderBoard(params);
 ```
 
 ##### 提交分数
@@ -216,12 +218,12 @@ sdkHub.getUserPlugin().showLeaderBoard(params);
 **示例：**
 
 ```js
-sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");
+sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 122 | String | 取消登录授权成功描述 |
 | + 123 | String | 取消登录授权失败描述 |
@@ -250,14 +252,14 @@ sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 **示例：**
 
 ```js
-sdkHub.getUserPlugin().callFuncWithParam("submitPlayerEventStart");
-sdkHub.getUserPlugin().callFuncWithParam("submitPlayerEventEnd");
-sdkHub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
+sdkhub.getUserPlugin().callFuncWithParam("submitPlayerEventStart");
+sdkhub.getUserPlugin().callFuncWithParam("submitPlayerEventEnd");
+sdkhub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 106 | JSON | `submitPlayerEventStart` 上报玩家进入游戏事件成功，可获取参数 transactionId |
 | + 107 | JSON / String | 上报玩家进入游戏事件失败 |
@@ -290,12 +292,12 @@ var params = {
     "eventId": "A29DB82609936BE9DBB44CF7AFBBAECD5D2B7F14A05FB2B37EF543E7622F7B7F",
     "growAmount": "20"
 };
-sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
+sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 SDKHub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
+| 扩展回调值 sdkhub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 112 | String | 调用事件上报回调，无成功或失败情况返回 |
 
@@ -319,12 +321,12 @@ var params = {
     "eventId": "A29DB82609936BE9DBB44CF7AFBBAECD5D2B7F14A05FB2B37EF543E7622F7B7F,2008EE56BB773FA325FFB1349D0D206A8B0EC3E9E2F0D32E786E574ADD10E7A1",
     "foreReload": "0"
 };
-sdkHub.getUserPlugin().callFuncWithParam("getEvent", params);
+sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 114 | JSON | 获取事件数据成功，可获取参数 eventId。 |
 | + 115 | JSON / String | 获取事件数据失败描述 |
@@ -347,12 +349,12 @@ sdkHub.getUserPlugin().callFuncWithParam("getEvent", params);
 
 ```js
 var params = 0;
-sdkHub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
+sdkhub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 116 | JSON | 获取事件数据成功，可获取参数 averageOnLineMinutes、daysFromLastGame、paymentTimes、onlineTimes、totalPurchasesAmountRange |
 | + 117 | JSON / String | 获取事件数据失败描述 |
@@ -375,12 +377,12 @@ sdkHub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
 
 ```js
 var params = 0;
-sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 118 | JSON | 获取事件数据成功，可获取参数 achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | 获取事件数据失败描述 |
@@ -391,13 +393,15 @@ sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 102 | String | 自动读取短信验证码初始化回调 |
 | + 103 | String | 自动读取短信验证码超时回调 |
 | + 104 | String | 返回读取的短信验证码信息 |
 
 ### 支付插件
+
+开发时请先参考 [Cocos SDKHub - 支付插件](../sdkhub.md/#支付插件)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
 HMS Core SDK 在 V3.0 后便不再支持支付服务端通知模式。目前支付流程是将支付回执先发给客户端，与苹果的 AppStore 的 In-App Purchase 较为接近。若用户从旧版本升级上来，请注意流程上的改动。
 
@@ -409,7 +413,7 @@ HMS Core SDK 在 V3.0 后便不再支持支付服务端通知模式。目前支�
 
 支付服务支持 [沙盒测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/sandbox-testing-0000001050035039-V5)。
 
-HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。SDKHub 插件也封装了客户端层的 [对返回结果验签](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/verifying-signature-returned-result-0000001050033088-V5)。若用户还需要再做服务端验证，请参考 [Order 服务购买 Token 校验](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)。
+HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。Cocos SDKHub 插件也封装了客户端层的 [对返回结果验签](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/verifying-signature-returned-result-0000001050033088-V5)。若用户还需要再做服务端验证，请参考 [Order 服务购买 Token 校验](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)。
 
 由于 HMS Core SDK 现在要求商品都在后台配置，通过商品 ID 调用支付方法，仅需要传以下参数。
 
@@ -440,12 +444,12 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。S
 **示例：**
 
 ```js
-sdkHub.getFeePlugin().callFuncWithParam("isEnvReady");
+sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 100 | JSON | 支持应用内支付情况描述 |
 | + 101 | JSON / String | 不支持应用内支付情况描述 |
@@ -472,12 +476,12 @@ var params = {
     "productIdList": conf.obtainProductIdList,
     "priceType": 0
 };
-sdkHub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
+sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
+| 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 102 | JSONArray | 返回商品信息成功，可解析 msg 展示商品 |
 | + 103 | JSON / String | 返回商品信息失败 |
@@ -518,12 +522,12 @@ sdkHub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 
 ```js
 var params = 0;
-sdkHub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
+sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
+| 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 106 | JSONArray | 可解析 Array 中的，调用 consumeOwnedPurchase 方法  |
 | + 107 | JSON / String | 操作失败描述 |
@@ -546,12 +550,12 @@ sdkHub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
 
 ```js
 params = conf.paymentReceipt[0]["inAppPurchaseData"];
-sdkHub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
+sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 104 | String | 消耗品确认交易成功描述 |
 | + 105 | JSON / String | 消耗品确认交易失败描述 |
@@ -574,12 +578,12 @@ sdkHub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 
 ```js
 var params = 0;
-sdkHub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
+sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 118 | JSONArray | 返回购买历史信息 |
 | + 109 | JSON / String | 返回购买历史信息失败 |
@@ -602,17 +606,19 @@ sdkHub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 
 ```js
 var params = {"reqType": "TYPE_SUBSCRIBE_MANAGER_ACTIVITY"};
-sdkHub.getFeePlugin().callFuncWithParam("startIapActivity", params);
+sdkhub.getFeePlugin().callFuncWithParam("startIapActivity", params);
 ```
 
 **回调说明：**
 
-| 扩展回调值 SDKHub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
+| 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 110 | JSON | 打开页面成功描述 |
 | + 111 | JSON / String | 打开页面失败描述 |
 
 ### 广告插件
+
+开发时请先参考 [Cocos SDKHub - 广告插件](../sdkhub.md/#广告插件)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
 目前广告系统接入的是 [流量变现服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-introduction) 部分。接入广告形式为 [Banner](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner)，[激励广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-reward) 和 [插屏广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-interstitial)。开屏广告若有需要用户可自己直接在工程中接入。
 
@@ -631,7 +637,7 @@ Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 
 
 ```js
 var params = { "adType": "Reward", "adId": "testx9dtjwj8hp" };
-sdkHub.getAdsPlugin().preloadAds(params);
+sdkhub.getAdsPlugin().preloadAds(params);
 ```
 
 #### 显示广告
@@ -649,10 +655,12 @@ sdkHub.getAdsPlugin().preloadAds(params);
 
 ```js
 var params = { "adType": "Banner", "adId": "testw6vs28auh3", "pos": "0", "adSize": "BANNER_SIZE_360_144" };
-sdkHub.getAdsPlugin().showAds(params);
+sdkhub.getAdsPlugin().showAds(params);
 ```
 
 ### 推送插件
+
+开发时请先参考 [Cocos SDKHub - 推送插件](../sdkhub.md/#推送插件)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
 调试推送功能时，需要调用 [开始推送](../sdkhub.md/#开始推送) `startPush` 方法，成功回调 msg 信息即为 `Push Token`，再到后台进行推送操作。
 
@@ -683,12 +691,12 @@ HMS Core SDK 的 [设置标签](../sdkhub.md/#设置标签) 和 [删除标签](.
 **示例：**
 
 ```js
-sdkHub.getPushPlugin().callFuncWithParam("turnOnPush");
+sdkhub.getPushPlugin().callFuncWithParam("turnOnPush");
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 100 | String | 打开显示通知栏消息方法调用成功描述 |
 | + 101 | JSON / String | 打开显示通知栏消息方法调用失败描述 |
@@ -706,12 +714,12 @@ sdkHub.getPushPlugin().callFuncWithParam("turnOnPush");
 **示例：**
 
 ```js
-sdkHub.getPushPlugin().callFuncWithParam("turnOffPush");
+sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 ```
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 102 | String | 关闭显示通知栏消息方法调用成功描述 |
 | + 103 | JSON / String | 关闭显示通知栏消息方法调用失败描述 |
@@ -752,11 +760,11 @@ sdkHub.getPushPlugin().callFuncWithParam("turnOffPush");
     "key2": "value2",
     "key3": "value3"
 }
-sdkHub.getPushPlugin().callFuncWithParam("sendMessage", params);
+sdkhub.getPushPlugin().callFuncWithParam("sendMessage", params);
 
 **回调说明：**
 
-| 扩展回调值 `SDKHub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 104 | String | 消息发送成功，返回 msgId |
 | + 105 | String | 消息发送时发生错误，返回失败描述 |

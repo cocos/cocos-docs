@@ -16,7 +16,7 @@
         - [性能管理](agc-apm.md)
         - [定位服务](hms-location.md)
         - [分析服务](hms-analytics.md)
-        - [SDKHub](sdkhub.md)
+        - [Cocos SDKHub](sdkhub.md)
             - [HUAWEI HMS](sdkhub-plugins/sdkhub-hms.md)
             
 

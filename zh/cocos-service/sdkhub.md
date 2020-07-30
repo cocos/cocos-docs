@@ -1,50 +1,50 @@
-# SDKHub 快速入门
+# Cocos SDKHub 快速入门
 
-SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。
+Cocos SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。
 
 游戏在开发完成准备发布到渠道上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这会使开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的 “超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，不过后来由于一些原因 AnySDK 不再维护和更新了。
 
-引擎团队为解决这一问题专门开发了 SDKHub 功能，可以完全用来替代 AnySDK。
+引擎团队为解决这一问题专门开发了 Cocos SDKHub，可以完全用来替代 AnySDK。
 
-使用 SDKHub 可以让开发者更快速地接入原生平台 SDK，例如 **账号 & 游戏**、**支付**、**广告**、**推送** 和 **自定义** 等 SDK。开发者只需要在 Cocos Service 服务面板中开通并集成 SDKHub 服务，然后通过 **构建发布** 面板构建工程，就可以快速的接入所需的原生 SDK。
+使用 Cocos SDKHub 可以让开发者更快速地接入原生平台 SDK，例如 **账号 & 游戏**、**支付**、**广告**、**推送** 和 **自定义** 等 SDK。开发者只需要在 Cocos Service 服务面板中开通并集成 Cocos SDKHub 服务，然后通过 **构建发布** 面板构建工程，就可以快速的接入所需的原生 SDK。
 
 ## 产品原理
 
-SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 SDKHub 服务面板控制和配置。
+Cocos SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 Cocos SDKHub 服务面板控制和配置。
 
 - 框架层：实现了 JSB 绑定文件、插件和统一回调管理接口、各插件系统接口的统一封装定义和原生平台实现。
 - 插件层：实现了框架层定义的各接口和原生平台 SDK 所需的各种其他接口，将原生平台 SDK 的回调进行统一封装，以及在构建工程时，调用安装脚本，对原生工程的原生平台 SDK 进行配置。
 
-开发者在游戏层，仅需调用 SDKHub 中的方法以及处理统一封装的回调，极大的简化了开发者接入原生平台 SDK 的工作量。
+开发者在游戏层，仅需调用 Cocos SDKHub 中的方法以及处理统一封装的回调，极大的简化了开发者接入原生平台 SDK 的工作量。
 
 ![](sdkhub/sdkhub-intro.png)
 
 ## 开通服务
 
-使用 Cocos Creator 打开需要接入 SDKHub 服务的游戏工程。点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 SDKHub 服务详情页，然后点击右上方的 **启用** 按钮即可。详情请参考 [一键开通服务](./oneclick-provisioning.md)。
+使用 Cocos Creator 打开需要接入 Cocos SDKHub 服务的游戏工程。点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos SDKHub 服务详情页，然后点击右上方的 **启用** 按钮即可。详情请参考 [一键开通服务](./oneclick-provisioning.md)。
 
 ![](sdkhub/sdkhub-provisioning.png)
 
-开通服务后，Cocos Service 将自动集成 SDKHub 框架到游戏工程中。
+开通服务后，Cocos Service 将自动集成 Cocos SDKHub 框架到游戏工程中。
 
 ### 验证服务是否接入成功
 
-- 完成 SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 SDKHub 的接入是否成功。SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 SDKHub 账号 & 游戏对象的登录方法。
+- 完成 Cocos SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 Cocos SDKHub 的接入是否成功。Cocos SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 Cocos SDKHub 账号 & 游戏对象的登录方法。
 
 
 ```js
 this.scheduleOnce(function(){
-    sdkHub.getUserPlugin().login();
+    sdkhub.getUserPlugin().login();
 },2);
 ```
 
-- 脚本修改完成并保存后，回到编辑器。SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即可验证 SDKHub 接入成功。
+- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即可验证 Cocos SDKHub 接入成功。
 
   ![](sdkhub/sdkhub-debugging.jpg)
     
 ## 平台 SDK 配置
 
-上述操作只是将 SDKHub 的抽象层框架集成到游戏中，但并没有实质地集成我们所说的第三方 SDK。游戏需要发布到哪家渠道，需要集成哪些 SDK，都需要我们通过 SDKHub 服务详情页中的 **构建配置** 进行添加。
+上述操作只是将 Cocos SDKHub 的抽象层框架集成到游戏中，但并没有实质地集成我们所说的第三方 SDK。游戏需要发布到哪家渠道，需要集成哪些 SDK，都需要我们通过 Cocos SDKHub 服务详情页中的 **构建配置** 进行添加。
 
 ![](sdkhub/sdkhub-panel1.jpeg)
 
@@ -52,7 +52,7 @@ this.scheduleOnce(function(){
 
 - **配置集**
 
-  配置集是 SDKHub 的一项重要功能。当我们需要将游戏发布到不同渠道，为不同渠道集成不同的 SDK 时，我们可以创建不同的 **配置集**。我们甚至可以为同一渠道创建多个配置集，以便管理多套不同的参数。然后在构建发布时，通过在构建发布面板的 **SDKHub 配置** 项中指定对应的配置集，即可构建出集成了不同 SDK 的游戏包。这让我们的游戏集成 SDK 工作妙不可言。
+  配置集是 Cocos SDKHub 的一项重要功能。当我们需要将游戏发布到不同渠道，为不同渠道集成不同的 SDK 时，我们可以创建不同的 **配置集**。我们甚至可以为同一渠道创建多个配置集，以便管理多套不同的参数。然后在构建发布时，通过在构建发布面板的 **Cocos SDKHub 配置** 项中指定对应的配置集，即可构建出集成了不同 SDK 的游戏包。这让我们的游戏集成 SDK 工作妙不可言。
 
   创建配置集包括以下几个步骤：
 
@@ -66,11 +66,11 @@ this.scheduleOnce(function(){
 
     - 配置集名称：通常直接使用渠道名称即可，也可以使用一个比较方便自已识记的名称。
     - 发布平台：用于设置配置集生效的平台，目前仅支持 **HUAWEI AppGallery Connect** 平台。
-    - 渠道：需要构建发布的目标渠道，SDKHub 通常会自动添加渠道方要求的 SDK（插件）。
+    - 渠道：需要构建发布的目标渠道，Cocos SDKHub 通常会自动添加渠道方要求的 SDK（插件）。
 
 - **插件管理**
 
-  开发者在创建完配置集后，需要选择并配置该配置集中所需集成的 SDK（插件），并填写原生平台 SDK 所需的参数，才能在构建发布后的工程中使用该平台 SDK 的功能。若不配置插件，则构建出的工程并没有太大实质意义，在调用 SDKHub 框架相关接口时将自动切换到 Debug 模式。
+  开发者在创建完配置集后，需要选择并配置该配置集中所需集成的 SDK（插件），并填写原生平台 SDK 所需的参数，才能在构建发布后的工程中使用该平台 SDK 的功能。若不配置插件，则构建出的工程并没有太大实质意义，在调用 Cocos SDKHub 框架相关接口时将自动切换到 Debug 模式。
 
   ![](sdkhub/sdkhub-panel3.jpeg)
 
@@ -86,7 +86,7 @@ this.scheduleOnce(function(){
 
 在创建好配置集，并为配置集配置好插件和参数后，我们需要在构建发布时，选择对应的配置集，才能最终编译出集成有 SDK 的游戏包。
 
-打开 Cocos Creator 顶部菜单的 **项目 -> 构建发布**，当选择 **Android**、**iOS**、**HUAWEI AppGallery Connect** 等平台时（目前 SDKHub 暂时只支持这些原生平台），会显示 **SDKHub 配置** 项，并列出您在服务面板中创建的配置集（Creator v2.4.1 新增，之前的旧版本会默认使用 **服务** 面板中 SDKHub 面板选择的配置集），然后选择对应的配置集即可。
+打开 Cocos Creator 顶部菜单的 **项目 -> 构建发布**，当选择 **Android**、**iOS**、**HUAWEI AppGallery Connect** 等平台时（目前 Cocos SDKHub 暂时只支持这些原生平台），会显示 **Cocos SDKHub 配置** 项，并列出您在服务面板中创建的配置集（Creator v2.4.1 新增，之前的旧版本会默认使用 **服务** 面板中 Cocos SDKHub 面板选择的配置集），然后选择对应的配置集即可。
 
 ![](sdkhub/sdkhub-build.png)
 
@@ -94,9 +94,9 @@ this.scheduleOnce(function(){
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验 SDKHub。
+您可以通过 Sample 工程快速体验 Cocos SDKHub。
 
-- 点击 SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载 SDKHub Sample 工程，并在 Cocos Creator 中打开。
+- 点击 Cocos SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载 Cocos SDKHub Sample 工程，并在 Cocos Creator 中打开。
 
 - 若以集成 **HUAWEI HMS Core** 为例，可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。 
 
@@ -108,40 +108,40 @@ this.scheduleOnce(function(){
 
 ### 获取插件对象
 
-SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型，获取插件对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
+Cocos SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型，获取插件对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
 
 其中 **广告** 和 **推送** 对象只支持单个插件。以广告对象为例，获取广告对象方法为：
 
 ```js
-var ads = sdkHub.getAdsPlugin();
+var ads = sdkhub.getAdsPlugin();
 ```
 
 **账号 & 游戏**、**支付** 与 **自定义** 对象可支持接入多个插件，以账号 & 游戏对象为例，若只接入了单个插件，可直接使用 `getUserPlugin` 方法获取对象：
 
 ```js
-var user = sdkHub.getUserPlugin();
+var user = sdkhub.getUserPlugin();
 ```
 
 若接入了多个账号 & 游戏插件，可以通过传入 `pluginId` 获取所需对象：
 
 ```js
-var hwUser = sdkHub.getUserPlugin('HuaweiUser');
+var hwUser = sdkhub.getUserPlugin('HuaweiUser');
 ```
 
 也可以通过 `getUserPlugins` 方法，直接获取该类型对象 Array，再做处理。
 
 ```js
-var users = sdkHub.getUserPlugins();
+var users = sdkhub.getUserPlugins();
 ```
 
 ### 插件方法调用与回调
 
 #### 专有方法调用
 
-SDKHub 框架中已经对大部分的渠道 SDK 的类型方法进行了归纳，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
+Cocos SDKHub 框架中已经对大部分的渠道 SDK 的类型方法进行了归纳，并封装定义了一些常用方法。例如公用方法中的 **获取插件 ID** `getPluginId`，账号 & 游戏对象中的 **登录** 方法 `login()`，支付对象中的 **支付商品** 方法 `feeForProduct` 等。以登录方法为例：
 
 ```js
-sdkHub.getUserPlugin().login();
+sdkhub.getUserPlugin().login();
 ```
 
 一些方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，以华为 HMS Core `showAchievement` 方法为例：
@@ -151,28 +151,28 @@ var params = {
     "type": "getAchievementList",
     "forceReload": "1"
 };
-sdkHub.getUserPlugin().showAchievements(params);
+sdkhub.getUserPlugin().showAchievements(params);
 ```
 
 各类型方法调用前，可以先调用 `isFunctionSupported` 检查插件是否支持该方法，再做调用。例如一些 SDK 没有游戏类型的 `showAchievements` 方法，我们可以通过代码先做判断。
 
 ```js
-if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
+if (sdkhub.getUserPlugin().isFunctionSupported("showAchievements")) {
     var params = {"type": "getShowAchievementListIntent"};
-    sdkHub.getUserPlugin().showAchievements(params);
+    sdkhub.getUserPlugin().showAchievements(params);
 }
 ```
 
 #### 统一回调
 
-SDKHub 将原生平台 SDK 的回调进行统一封装，开发者需要在各类型设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以账号 & 游戏对象为例：
+Cocos SDKHub 将原生平台 SDK 的回调进行统一封装，开发者需要在各类型设置监听并绑定方法，在绑定方法中统一处理回调逻辑。以账号 & 游戏对象为例：
 
 ```js
-sdkHub.getUserPlugin().setListener(this.onUserResult, this);
+sdkhub.getUserPlugin().setListener(this.onUserResult, this);
 
 onUserResult: function (code, msg) {
     switch (code) {
-        case sdkHub.UserResultCode.kLoginSucceed:
+        case sdkhub.UserResultCode.kLoginSucceed:
 console.log("kLoginSucceed", msg);
         break;
     }
@@ -181,17 +181,17 @@ console.log("kLoginSucceed", msg);
 
 各类型回调值可参考 [API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)。
 
-通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付对象的扩展回调值为 `sdkHub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkHub.FeeResultCode.kFeeExtension + 106`。
+通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付对象的扩展回调值为 `sdkhub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkhub.FeeResultCode.kFeeExtension + 106`。
 
-由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 `sdkHub.FeeResultCode.kFeeExtension + 106` 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件获得回调逻辑正确。
+由于不同 SDK 插件的不同方法，可能使用相同的回调值（例如上面的 `sdkhub.FeeResultCode.kFeeExtension + 106` 回调）。如果一个游戏工程接入了不同的多个渠道，或者多个同类型插件，在处理扩展回调时，建议添加插件 ID 判断，保证该插件获得回调逻辑正确。
 
 ```js
-case sdkHub.FeeResultCode.kFeeExtension + 106:
+case sdkhub.FeeResultCode.kFeeExtension + 106:
 // Recommended to check the Plugin ID when using extended callbacks
-    if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei") {
+    if (sdkhub.getFeePlugin().getPluginId() == "FeeHuawei") {
         console.log("HMS obtainOwnedPurchases");
     }
-    else if (sdkHub.getFeePlugin().getPluginId() == "FeeHuawei") {
+    else if (sdkhub.getFeePlugin().getPluginId() == "FeeHuawei") {
     }
     break;
 ```
@@ -199,7 +199,7 @@ case sdkHub.FeeResultCode.kFeeExtension + 106:
 若需要移除回调，可以调用 `removeListener` 方法。
 
 ```js
-sdkHub.getUserPlugin().removeListener();
+sdkhub.getUserPlugin().removeListener();
 ```
 
 ### 插件公用方法
@@ -208,12 +208,12 @@ sdkHub.getUserPlugin().removeListener();
 
 #### 扩展方法调用
 
-若接入的 SDK 中的所需方法，不在 SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
+若接入的 SDK 中的所需方法，不在 Cocos SDKHub 框架的封装定义中，则我们需要通过 **扩展接口调用** `callFuncWithParam` 方式，通过传入方法名与所需参数进行调用。
 
 - 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
 
 ```js
-sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
+sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
 ```
 
 若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
@@ -222,7 +222,7 @@ sdkHub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 
 ```js
 var params = 0;
-sdkHub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 ```
 
 - 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
@@ -232,14 +232,14 @@ var params = {
     "eventId": conf.eventId,
     "growAmount": "20"
 };
-sdkHub.getUserPlugin().callFuncWithParam("submitEvent", params);
+sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 ```
 
 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
 `callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
 ```js
-Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
+Boolean isTrue = sdkhub.getUserPlugin().callBoolFuncWithParam("functionName");
 ```
 
 
@@ -247,12 +247,12 @@ Boolean isTrue = sdkHub.getUserPlugin().callBoolFuncWithParam("functionName");
 
 `getPluginId(): string`
 
-接入 SDKHub 的游戏工程，可能接入多个渠道或多个相同系统的 SDK 插件，需要在代码中通过插件 ID 进行判断。
+接入 Cocos SDKHub 的游戏工程，可能接入多个渠道或多个相同系统的 SDK 插件，需要在代码中通过插件 ID 进行判断。
 
 **示例：**
 
 ```js
-var feePluginId = sdkHub.getFeePlugin().getPluginId();
+var feePluginId = sdkhub.getFeePlugin().getPluginId();
 ```
 
 #### 获取插件版本号
@@ -266,7 +266,7 @@ var feePluginId = sdkHub.getFeePlugin().getPluginId();
 **示例：**
 
 ```js
-var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
+var pluginVersion = sdkhub.getUserPlugin().getPluginVersion();
 ```
 
 #### 获取 SDK 版本号
@@ -280,7 +280,7 @@ var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
 **示例：**
 
 ```js
-var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
+var sdkVersion = sdkhub.getUserPlugin().getSDKVersion();
 ```
 
 #### 判断插件是否支持该方法
@@ -294,9 +294,9 @@ var pluginVersion = sdkHub.getUserPlugin().getPluginVersion();
 **示例：**
 
 ```js
-if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
+if (sdkhub.getUserPlugin().isFunctionSupported("showAchievements")) {
     var params = {"type": "getShowAchievementListIntent"};
-    sdkHub.getUserPlugin().showAchievements(params);
+    sdkhub.getUserPlugin().showAchievements(params);
 }
 ```
 
@@ -308,14 +308,14 @@ if (sdkHub.getUserPlugin().isFunctionSupported("showAchievements")) {
 
 调用 SDK 的登录方法。
 
-若 SDK 可以在客户端完成登录验证并获取唯一用户 ID，也会再执行验证方法。否则用户需要通过登录回调信息，自行进行服务端验证，并将验证后所需的登录信息通过 `setUserInfo` 回传给 SDKHub，完成登录流程。
+若 SDK 可以在客户端完成登录验证并获取唯一用户 ID，也会再执行验证方法。否则用户需要通过登录回调信息，自行进行服务端验证，并将验证后所需的登录信息通过 `setUserInfo` 回传给 Cocos SDKHub，完成登录流程。
 
-SDKHub 框架和插件，基本不涉及当前登录状态处理和服务端验证接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏插件其他接口导致崩溃。
+Cocos SDKHub 框架和插件，基本不涉及当前登录状态处理和服务端验证接口，例如当前用户是否登录等情况，需要游戏端进行判断，避免在用户未登录下，调用账号和游戏插件其他接口导致崩溃。
 
 **示例：**
 
 ```js
-sdkHub.getUserPlugin().login();
+sdkhub.getUserPlugin().login();
 ```
 
 #### 登出
@@ -329,7 +329,7 @@ sdkHub.getUserPlugin().login();
 **示例：**
 
 ```js
-sdkHub.getUserPlugin().logout();
+sdkhub.getUserPlugin().logout();
 ```
 
 #### 获取用户登录信息
@@ -343,14 +343,14 @@ sdkHub.getUserPlugin().logout();
 **示例：**
 
 ```js
-var userInfo = sdkHub.getUserPlugin().getUserInfo();
+var userInfo = sdkhub.getUserPlugin().getUserInfo();
 ```
 
 #### 设置用户登录信息
 
 `setUserInfo(info: any): void`
 
-若 SDK 需要服务端验证后才能获得唯一用户 ID，需要将插件所需的登录信息回传给 SDKHub。
+若 SDK 需要服务端验证后才能获得唯一用户 ID，需要将插件所需的登录信息回传给 Cocos SDKHub。
 
 **示例：**
 
@@ -359,7 +359,7 @@ var params = {
     userID : "890839221",
     userName : "test_name"
 };
-sdkHub.getUserPlugin().setUserInfo(params);
+sdkhub.getUserPlugin().setUserInfo(params);
 ```
 
 #### 显示浮标
@@ -371,7 +371,7 @@ sdkHub.getUserPlugin().setUserInfo(params);
 部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
 
 ```
-sdkHub.getUserPlugin().showToolBar(sdkHub.ToolBarPlace.kToolBarTopLeft);
+sdkhub.getUserPlugin().showToolBar(sdkhub.ToolBarPlace.kToolBarTopLeft);
 ```
 
 #### 隐藏浮标
@@ -381,7 +381,7 @@ sdkHub.getUserPlugin().showToolBar(sdkHub.ToolBarPlace.kToolBarTopLeft);
 调用 SDK 隐藏浮标方法。若 SDK 有需要，插件接入时会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
 
 ```
-sdkHub.getUserPlugin().hideToolBar();
+sdkhub.getUserPlugin().hideToolBar();
 ```
 
 #### 展示排行榜
@@ -394,7 +394,7 @@ sdkHub.getUserPlugin().hideToolBar();
 
 ```js
 var params = {"type": "getRankingsIntent"};
-sdkHub.getUserPlugin().showLeaderBoard(params);
+sdkhub.getUserPlugin().showLeaderBoard(params);
 ```
 
 #### 提交分数
@@ -407,7 +407,7 @@ sdkHub.getUserPlugin().showLeaderBoard(params);
 
 ```js
 var params = {"type": "getRankingSwitchStatus"};                         
-sdkHub.getUserPlugin().submitScore(params);
+sdkhub.getUserPlugin().submitScore(params);
 ```
 
 #### 展示成就
@@ -420,7 +420,7 @@ sdkHub.getUserPlugin().submitScore(params);
 
 ```js
 var params = {"type": "getShowAchievementListIntent"};
-sdkHub.getUserPlugin().showAchievements(params);
+sdkhub.getUserPlugin().showAchievements(params);
 ```
 
 #### 解锁成就
@@ -436,7 +436,7 @@ var params = {
     "type": "reachWithResult",
     "achievementId": "5D9580837D32CB59CFEC89DAD39470CDF9B672033A2D6F14689BC01335818444"
 };
-sdkHub.getUserPlugin().unlockAchievement(params);
+sdkhub.getUserPlugin().unlockAchievement(params);
 ```
 
 #### 回调值
@@ -493,7 +493,7 @@ sdkHub.getUserPlugin().unlockAchievement(params);
     "Server_Name": "test",
     "EXT": "test",
 }
-sdkHub.getFeePlugin().feeForProduct(params);
+sdkhub.getFeePlugin().feeForProduct(params);
 ```
 
 #### 回调值
@@ -508,11 +508,13 @@ sdkHub.getFeePlugin().feeForProduct(params);
 
 调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds` 。回调成功后才能调用显示广告方法。
 
+若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://test-docs.cocos.com/api/zh/enums/_sdkhub_.sdkhub.adspos.html) 方位。
+
 **示例：**
 
 ```js
-var params = {"adType": "Banner", "adId": "testw6vs28auh3", "pos": "0", "adSize": "BANNER_SIZE_360_144" };
-sdkHub.getAdsPlugin().showAds(params);
+var params = {"adType": "Banner", "adId": "testw6vs28auh3", "pos": sdkhub.AdsPos.kPosBottom, "adSize": "BANNER_SIZE_360_144" };
+sdkhub.getAdsPlugin().showAds(params);
 ```
 
 #### 隐藏广告
@@ -525,7 +527,7 @@ sdkHub.getAdsPlugin().showAds(params);
 
 ```js
 var params = {"adType": "Banner"};
-sdkHub.getAdsPlugin().hideAds(params);
+sdkhub.getAdsPlugin().hideAds(params);
 ```
 
 #### 预加载广告
@@ -536,7 +538,7 @@ sdkHub.getAdsPlugin().hideAds(params);
 
 ```js
 var params = { "adType": "Reward", "adId": "testx9dtjwj8hp" };
-sdkHub.getAdsPlugin().preloadAds(params);
+sdkhub.getAdsPlugin().preloadAds(params);
 ```
 
 #### 回调值
@@ -570,12 +572,12 @@ sdkHub.getAdsPlugin().preloadAds(params);
 
 `startPush(): void`
 
-调用 SDK 的开始或注册推送方法。
+调用 SDK 的开始或注册推送方法，在成功回调中获取推送 Token。
 
 **示例：**
 
 ```js
-sdkHub.getPushPlugin().startPush();
+sdkhub.getPushPlugin().startPush();
 ```
 
 #### 关闭推送
@@ -587,7 +589,7 @@ sdkHub.getPushPlugin().startPush();
 **示例：**
 
 ```js
-sdkHub.getPushPlugin().closePush();
+sdkhub.getPushPlugin().closePush();
 ```
 
 #### 设置别名
@@ -600,7 +602,7 @@ sdkHub.getPushPlugin().closePush();
 
 ```js
 var params = "alias1";
-sdkHub.getPushPlugin().setAlias(params);
+sdkhub.getPushPlugin().setAlias(params);
 ```
 
 #### 删除别名
@@ -613,7 +615,7 @@ sdkHub.getPushPlugin().setAlias(params);
 
 ```js
 var params = "alias1";
-sdkHub.getPushPlugin().delAlias(params);
+sdkhub.getPushPlugin().delAlias(params);
 ```
 
 #### 设置标签
@@ -626,7 +628,7 @@ sdkHub.getPushPlugin().delAlias(params);
 
 ```js
 var params = ["tag1", "tag2"];
-sdkHub.getPushPlugin().setTags(params)
+sdkhub.getPushPlugin().setTags(params)
 ```
 
 #### 删除标签
@@ -639,7 +641,7 @@ sdkHub.getPushPlugin().setTags(params)
 
 ```js
 var params = ["tag1", "tag2"];
-sdkHub.getPushPlugin().delTags(params)
+sdkhub.getPushPlugin().delTags(params)
 ```
 
 #### 回调值
@@ -656,7 +658,7 @@ sdkHub.getPushPlugin().delTags(params)
 
 ### 调试信息输出
 
-SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。若需要查看一些相关调试信息，可以在 **Logcat** 或者 **Xcode** 中筛选。
+Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中的 **调试模式** 选项 **打开** 的情况下才会输出。若需要查看一些相关调试信息，可以在 **Logcat** 或者 **Xcode** 中筛选。
 
 ![](sdkhub/sdkhub-debugmode.png)
 
