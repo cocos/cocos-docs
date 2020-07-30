@@ -1,5 +1,7 @@
 # Cocos SDKHub 快速入门
 
+## 服务介绍
+
 Cocos SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。
 
 游戏在开发完成准备发布到渠道上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这会使开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的 “超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，不过后来由于一些原因 AnySDK 不再维护和更新了。
@@ -19,7 +21,9 @@ Cocos SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 Coc
 
 ![](sdkhub/sdkhub-intro.png)
 
-## 开通服务
+## 一键接入 Cocos SDKHub 服务
+
+### 开通服务
 
 使用 Cocos Creator 打开需要接入 Cocos SDKHub 服务的游戏工程。点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos SDKHub 服务详情页，然后点击右上方的 **启用** 按钮即可。详情请参考 [一键开通服务](./oneclick-provisioning.md)。
 
@@ -133,6 +137,38 @@ var hwUser = sdkhub.getUserPlugin('HuaweiUser');
 ```js
 var users = sdkhub.getUserPlugins();
 ```
+
+### 其他框架方法
+
+#### 获取插件列表
+
+`getSupportPluginIds(): string`
+
+获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 开头的字段来判断是否存在该类型插件，也可通过其中的插件名，获取指定的插件对象。
+
+**示例：**
+
+`var pluginids = sdkhub.getSupportPluginIds();`
+
+#### 获取框架版本号
+
+`getFrameworkVersion(): string`
+
+获取 Cocos SDKHub 框架版本号
+
+**示例：**
+
+`var version = sdkhub.getFrameworkVersion();`
+
+#### 获取插件支持的方法
+
+`getPluginMethods(plugin: PluginProtocol): string`
+
+获取插件支持的方法
+
+**示例：**
+
+`var methods = sdkhub.getPluginMethods(sdkhub.getUserPlugin());`
 
 ### 插件方法调用与回调
 

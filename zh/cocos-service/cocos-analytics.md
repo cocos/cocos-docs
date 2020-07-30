@@ -1,10 +1,12 @@
 # Cocos 数据统计（Cocos Analytics）
 
+## 服务介绍
+
 [Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
 ## 一键接入 Cocos Analytics 服务
 
-### 开通 Cocos Analytics 服务
+### 开通服务
 
 1. 使用 Cocos Creator 打开需要接入 Cocos Analytics 服务的项目工程。
 2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Cocos Analytics 项，进入 Cocos Analytics 服务面板。然后点击右上方的 **启用** 按钮以开通服务。详情可参考 [Cocos Service 操作指南](./user-guide.md)。
@@ -19,7 +21,7 @@
 
     参数配置完成后点击 **重新加载预览插件** 按钮，导入预览插件，即可完成接入工作。
 
-### 验证 Cocos Analytics 接入是否成功
+### 验证服务是否接入成功
 
 Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简单的代码来验证接入是否成功。
 
@@ -43,7 +45,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 游戏加载后，Cocos Analytics SDK 会在项目构建后的 `main.js` 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 `main.js` 中修改这些参数。初始化后便可以直接调用 Cocos Analytics SDK，发送各种数据给服务器。
 
-## Cocos Analytics Sample 的集成调试
+## Sample 工程
 
 - 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
