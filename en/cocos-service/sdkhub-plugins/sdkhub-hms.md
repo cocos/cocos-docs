@@ -151,7 +151,7 @@ Need to call the interface description through the extension method:
 
 #### `cancelAuthorization`
 
-**Huawei account revoking authorization**, please refer to the [Account Kit - Revoking HUAWEI ID Authorization](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4#h1-5-canceling-huawei-id-authorization) document, in order to improve the privacy and security of the application, the application can provide an entry for the user to cancel the authorization of the application.
+Huawei account revoking authorization, please refer to the [Account Kit - Revoking HUAWEI ID Authorization](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-guide-v4#h1-5-canceling-huawei-id-authorization) document, in order to improve the privacy and security of the application, the application can provide an entry for the user to cancel the authorization of the application.
 
 **Callback Description**:
 
