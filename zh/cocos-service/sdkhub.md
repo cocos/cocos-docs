@@ -113,7 +113,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ### 获取插件对象
 
-Cocos SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型，获取插件对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/docs/modules/sdkhub.html)。
+Cocos SDKHub 框架目前支持账号 & 游戏、支付、广告、推送和自定义五种类型，获取插件对象方法，可参考 [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
 
 其中 **广告** 和 **推送** 对象只支持单个插件。以广告对象为例，获取广告对象方法为：
 
@@ -216,7 +216,7 @@ console.log("kLoginSucceed", msg);
 }
 ```
 
-各类型回调值可参考 [API 文档](https://docs.cocos.com/service/api/docs/modules/sdkhub.html)。
+各类型回调值可参考 [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
 
 通过扩展接口调用的方法，可能需要使用扩展回调值。例如支付对象的扩展回调值为 `sdkhub.FeeResultCode.kFeeExtension = 30000`，华为 HMS Core `obtainOwnedPurchases` 方法成功的回调值为 `sdkhub.FeeResultCode.kFeeExtension + 106`。
 
@@ -405,7 +405,7 @@ sdkhub.getUserPlugin().setUserInfo(params);
 
 调用 SDK 显示浮标方法。若 SDK 有需要，插件接入时会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
 
-部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/docs/enums/sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
+部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/enums/sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
 
 ```
 sdkhub.getUserPlugin().showToolBar(sdkhub.ToolBarPlace.kToolBarTopLeft);
@@ -478,7 +478,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 #### 回调值
 
-请参考 [API文档 - UserResultCode](https://docs.cocos.com/api/docs/enums/sdkhub.userresultcode.html)。
+请参考 [API文档 - UserResultCode](https://docs.cocos.com/api/enums/sdkhub.userresultcode.html)。
 
 ### 支付插件
 
@@ -582,7 +582,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 #### 回调值
 
-请参考 [API文档 - AdsResultCode](https://docs.cocos.com/api/docs/enums/sdkhub.adsresultcode.html)。
+请参考 [API文档 - AdsResultCode](https://docs.cocos.com/api/enums/sdkhub.adsresultcode.html)。
 
 ### 推送插件
 
@@ -685,7 +685,7 @@ sdkhub.getPushPlugin().delTags(params)
 
 #### 回调值
 
-请参考 [API文档 - PushResultCode](https://docs.cocos.com/api/docs/enums/sdkhub.pushresultcode.html)。
+请参考 [API文档 - PushResultCode](https://docs.cocos.com/api/enums/sdkhub.pushresultcode.html)。
 
 ### 自定义插件
 
@@ -707,6 +707,6 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/docs/modules/sdkhub.html)。
+详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
 
 
