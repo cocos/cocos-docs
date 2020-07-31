@@ -32,5 +32,3 @@ Cocos Service 中提供的服务既有免费的，也有一些收费的，具体
 服务商具体的计费说明请参考：
 
 - [Agora 官方计费说明](https://docs.agora.io/cn/Voice/billing_audio?platform=All%20Platforms)
-
-

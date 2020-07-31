@@ -136,5 +136,3 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 - [云开发 TCB 文档与资源](https://cloud.tencent.com/product/tcb/developer)
 
 更多文档可直接在 [腾讯云文档中心 - 云开发 TCB](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，请参考 **Web** 版 SDK。
-
-

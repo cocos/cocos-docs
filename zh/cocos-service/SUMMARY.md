@@ -19,5 +19,3 @@
         - [Cocos SDKHub](sdkhub.md)
             - [HUAWEI HMS](sdkhub-plugins/sdkhub-hms.md)
             
-
-
