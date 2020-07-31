@@ -1,14 +1,20 @@
 # Cocos Analytics 快速入门
 
+## 服务介绍
+
 [Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
-## 开通服务
+## 一键接入 Cocos Analytics 服务
 
-* 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos Analytics 服务详情页，然后点击右上方的 **启用** 按钮即可。参考 [一键开通服务](./user-guide.md#3、一键开通服务)。
+### 开通服务
+
+- 使用 Cocos Creator 打开需要接入 Cocos Analytics 的项目工程。
+
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos Analytics 服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
 
 ![](cocos-analytics/analytics-panel.png)
 
-* 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
+- 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
 
     - AppID 会自动填入当前绑定的游戏 AppID。
     - store 为游戏分发渠道 ID，长度为 200。该项可以任意设置，只要确保在 [Cocos Analytics 数据中心](http://analytics.cocos.com/) 获取统计结果时能够区分即可。
@@ -16,11 +22,11 @@
 
     参数配置完成后点击 **重新加载预览插件** 按钮，导入预览插件，即可完成接入工作。
 
-## 验证服务是否接入成功
+### 验证服务是否接入成功
 
-Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简单的代码来验证接入是否成功。
+Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
-1. 在脚本中调用 Cocos Analytics 的开始登录方法 `loginStart`：
+- 在脚本中调用 Cocos Analytics 的开始登录方法 `loginStart`：
 
     ```js
     // 开启（关闭）本地日志的输出
@@ -32,7 +38,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
     });
     ```
 
-2. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
 
     ![](cocos-analytics/analytics-debugging.png)
 
@@ -71,3 +77,5 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 - [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
 - [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
 - [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)
+
+

@@ -1,6 +1,8 @@
-# 腾讯云 - 游戏联机对战引擎 MGOBE 简介
+# 游戏联机对战引擎（腾讯云）快速入门
 
-[**游戏联机对战引擎（Mobile Game Online Battle Engine，MGOBE）**](https://cloud.tencent.com/product/mgobe) 为游戏提供房间管理、在线匹配、帧同步、状态同步等网络通信服务，帮助开发者快速搭建多人交互游戏。开发者无需关注底层网络架构、网络通信、服务器扩缩容、运维等，即可获得就近接入、低延迟、实时扩容的高性能联机对战服务，让玩家在网络上互通、对战、自由畅玩。MGOBE 适用于回合制、策略类、实时会话（休闲对战、MOBA、FPS）等游戏。
+## 服务介绍
+
+[**游戏联机对战引擎（Mobile Game Online Battle Engine，MGOBE）**](https://cloud.tencent.com/product/mgobe) 为游戏提供房间管理、在线匹配、帧同步、状态同步等网络通信服务，帮助开发者快速搭建多人交互游戏。开发者无需关注底层网络架构、网络通信、服务器扩缩容、运维等，即可获得就近接入、低延迟、实时扩容的高性能联机对战服务，让玩家在网络上互通、对战、自由畅玩。游戏联机对战引擎适用于回合制、策略类、实时会话（休闲对战、MOBA、FPS）等游戏。
 
 ### 特性
 
@@ -29,41 +31,41 @@
 
   ![](mgobe/mgobe-statussync.svg)
 
-## 一键接入 MGOBE 服务
+## 一键接入游戏联机对战引擎服务
 
-### 开通 MGOBE 服务
+### 开通服务
 
-- 使用 Cocos Creator 打开需要接入 MGOBE 服务的项目工程。
+- 使用 Cocos Creator 打开需要接入游戏联机对战引擎服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 **小游戏联机对战引擎**，进入 MGOBE 服务面板。然后点击右上方的 **启用** 按钮以开通 MGOBE 服务。详情可参考 [Cocos Service 操作指南](user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入游戏联机对战引擎服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
 
     ![](mgobe/mgobe-provisioning.jpg)
 
-    **计费**：腾讯云 MGOBE 服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](billing-and-charge.md)。
+    **计费**：游戏联机对战引擎服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](billing-and-charge.md)。
 
-    开通服务后，Cocos Service 将自动开通 MGOBE 服务、联通腾讯云账号，并集成 MGOBE SDK 到游戏工程中。
+    开通服务后，Cocos Service 将自动开通游戏联机对战引擎服务、联通腾讯云账号，并集成游戏联机对战引擎 SDK 到游戏工程中。
     
     若之前没有在 Cocos Service 服务面板开通过腾讯云服务，那么在跳转后登录的腾讯云控制台子账号的账号名，是您的 Cocos 账号邮箱，初始密码会发到该邮箱和 Cocos 后台站内信。建议登录后，将该子账号与微信绑定，之后便可使用微信扫码登录。
     
-### 验证 MGOBE 接入是否成功
+### 验证服务是否接入成功
 
-完成 MGOBE 服务接入步骤后，我们可以通过在脚本中添加简单的代码来验证 MGOBE 的接入是否成功。
+游戏联机对战引擎服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
-- 点击 MGOBE 服务设置面板中的 **前往控制台**，跳转到 [腾讯云 MGOBE 后台](https://console.cloud.tencent.com/mgobe)，获取接入参数 **游戏 ID**、**游戏 key** 和 **域名**：
+- 点击游戏联机对战引擎服务设置面板中的 **前往控制台**，跳转到 [游戏联机对战引擎后台](https://console.cloud.tencent.com/mgobe)，获取接入参数 **游戏 ID**、**游戏 key** 和 **域名**：
 
   ![](mgobe/mgobe-params.jpg)
 
-- 在脚本中调用 MGOBE 的初始化，填入之前从 MGOBE 后台获取的 **游戏 ID**、**游戏 key** 和 **域名**：
+- 在脚本中调用游戏联机对战引擎的初始化，填入之前从游戏联机对战引擎后台获取的 **游戏 ID**、**游戏 key** 和 **域名**：
 
     ```js
     const gameInfo = {
-        gameId: '从 MGOBE 后台获取的游戏 ID',
-        secretKey: '从 MGOBE 后台获取的游戏 key',
+        gameId: '从游戏联机对战引擎后台获取的游戏 ID',
+        secretKey: '从游戏联机对战引擎后台获取的游戏 key',
         openId: '玩家 ID，可自定义',
 	};
 
     const config = {
-        url: '从 MGOBE 后台获取的域名',
+        url: '从游戏联机对战引擎后台获取的域名',
         reconnectMaxTimes: 5,
         reconnectInterval: 1000,
         resendInterval: 1000,
@@ -93,31 +95,31 @@
     });
     ```
     
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 MGOBE 接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证游戏联机对战引擎接入成功。
 
   ![](mgobe/mgobe-debugging.jpg)
     
-## MGOBE Sample 的集成调试
+## Sample 工程
 
-- 点击 MGOBE 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [MGOBE Sample 工程](https://github.com/CocosService/mgobeDemo)，并在 Cocos Creator 中打开。
+- 点击游戏联机对战引擎服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
-- 在 **服务** 面板中接入 MGOBE 服务，具体可参考上部分章节内容介绍。
+- 在 **服务** 面板中接入游戏联机对战引擎服务，具体可参考上部分章节内容介绍。
 
 - 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
 
   ![](mgobe/mgobe-sample.jpg)
 
-腾讯云 MGOBE 还提供了 TypeScript 版本的 Demo，展示了更多功能，具体请参考腾讯云官方文档 [Cocos 引擎案例](https://cloud.tencent.com/document/product/1038/40875)。
+游戏联机对战引擎还提供了 TypeScript 版本的 Demo，展示了更多功能，具体请参考腾讯云官方文档 [Cocos 引擎案例](https://cloud.tencent.com/document/product/1038/40875)。
 
 ## 实时服务器面板使用说明
 
-- 若需要使用实时服务器，创建服务后，请在 MGOBE 服务面板下方，点击 **初始化框架** 按钮，选择 JavaScript 或者 TypeScript 语言版本，进行本地框架代码初始化操作。
+- 若需要使用实时服务器，创建服务后，请在游戏联机对战引擎服务面板下方，点击 **初始化框架** 按钮，选择 JavaScript 或者 TypeScript 语言版本，进行本地框架代码初始化操作。
 
   ![](mgobe/mgobe-realtime-init.jpg)
 
-- MGOBE 与 TCB 共用云函数面板，若初始化框架后没有出现云函数面板，可以在 **菜单 -> 面板 -> 云函数** 中重新打开。
+- **游戏联机对战引擎** 与 **云开发** 共用 **云函数** 面板，若初始化框架后没有出现云函数面板，可以在 **菜单 -> 面板 -> 云函数** 中重新打开。
 
-- 以 TS 版本为例，初始化后，在云函数面板中会出现 `mgobe-server`，即为 MGOBE 的实时服务器框架。`src/mgobexs/index.ts` 即为实时服务器主文件。
+- 以 TS 版本为例，初始化后，在云函数面板中会出现 `mgobe-server`，即为游戏联机对战引擎的实时服务器框架。`src/mgobexs/index.ts` 即为实时服务器主文件。
 
   ![](mgobe/mgobe-cloud-panel.jpg)
 
@@ -137,11 +139,13 @@ https://www.bilibili.com/video/BV1VA411q7Ms
 
 ## 文档链接
 
-- [腾讯云 MGOBE 管理后台](https://console.cloud.tencent.com/mgobe)
-- [游戏联机对战引擎 MGOBE 简介](https://cloud.tencent.com/product/mgobe)
+- [游戏联机对战引擎管理后台](https://console.cloud.tencent.com/mgobe)
+- [游戏联机对战引擎简介](https://cloud.tencent.com/product/mgobe)
 - [游戏联机对战引擎产品详细信息](https://cloud.tencent.com/product/mgobe/details)
 - [游戏联机对战引擎计费概述](https://cloud.tencent.com/document/product/1038/33293)
 - [游戏联机对战引擎常见问题](https://cloud.tencent.com/document/product/1038/42134)
 - [游戏联机对战引擎文档与资源](https://cloud.tencent.com/product/mgobe/developer)
 
 更多文档可直接在 [腾讯云文档中心 - 游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) 中查阅。
+
+

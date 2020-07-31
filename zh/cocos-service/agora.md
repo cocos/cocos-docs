@@ -1,10 +1,12 @@
 # 声网（Agora Voice）
 
+## 服务介绍
+
 从硅谷一个车库的几行代码开始，一群程序员创立了 [Agora 声网](https://www.agora.io/cn/)，期待用实时音视频互动 API 改变全世界人们的沟通方式。
 
 [Agora Interactive Gaming SDK](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms) 是 Agora 针对游戏开发者提供的音视频通话软件开发包，其主要目的是帮助游戏开发者在游戏中快速集成音视频通话的功能。
 
-## 应用场景
+### 应用场景
 
 Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频功能的应用，也可以用 Native SDK 在 iOS 和 Android 上进行原生开发。
 
@@ -17,39 +19,40 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
 ## 一键接入 Agora 服务
 
-### 开通 Agora 服务
+### 开通服务
 
-1. 使用 Cocos Creator 打开需要接入 Agora 的项目工程。
-2. 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 Agora Voice，进入 Agora 服务面板。然后点击右上方的 **启用** 按钮以开通 Agora 服务。详情可参考 [Cocos Service 操作指南](./user-guide.md)。
+- 使用 Cocos Creator 打开需要接入 Agora 的项目工程。
+
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Agora 服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
 
     ![](agora/agora-provisioning.png)
 
     **计费**：Agora 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
 
-    开通服务后，Cocos Service 将自动开通 Agora 服务、联通 Agora 账号，并集成 Agora SDK 和所需预览插件到游戏工程中。
+开通服务后，Cocos Service 将自动开通 Agora 服务、联通 Agora 账号，并集成 Agora SDK 和所需预览插件到游戏工程中。
 
-### 验证 Agora 接入是否成功
+### 验证服务是否接入成功
 
-完成 Agora 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 Agora 的接入是否成功。
+Agora 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
-1. 点击 Agora 服务设置面板中的 **前往控制台**，跳转到 [Agora 管理后台](https://staging-dashboard.agora.io/) 来获取参数 **App ID**。具体获取步骤可参考 [文档](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms)。
+- 点击 Agora 服务设置面板中的 **前往控制台**，跳转到 [Agora 管理后台](https://staging-dashboard.agora.io/) 来获取参数 **App ID**。具体获取步骤可参考 [文档](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms)。
 
     ![](agora/agora-param.jpg)
 
-2. 在脚本中调用 Agora 的初始化，填入在 1 步骤中从 Agora 后台获取的 **App ID**：
+- 在脚本中调用 Agora 的初始化，填入在从 Agora 后台获取的 **App ID**：
 
     ```js
     var appid = '从 Agora 后台获取的 App ID';
     agora && agora.init(appid);
     ```
 
-3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在浏览器控制台中看到初始化日志，即可验证 Agora 接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在浏览器控制台中看到初始化日志，即可验证 Agora 接入成功。
 
     ![](agora/agora-debugging.png)
 
-## Agora Sample 的集成调试
+## Sample 工程
 
-- 点击 Agora 服务设置面板中的 **Sample 工程** 跳转到 [Agora Sample 工程](https://github.com/AgoraIO/Voice-Call-for-Mobile-Gaming) 页面，然后 Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
+- 点击 Agora 服务设置面板中的 **Sample 工程**，跳转到 [Agora Sample 工程](https://github.com/AgoraIO/Voice-Call-for-Mobile-Gaming) 页面，然后 Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
   - 加入通话和离开通话
   - 发布音频流和订阅音频流
 
@@ -63,14 +66,18 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
   **注意**：若在浏览器中调试时发现 Agora Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora Voice 服务。
 
-## Agora 调用方法说明
+## 开发指南
 
-### 初始化 Agora
+### 初始化
 
 ```js
 agora.init(appid)
 ``` 
+
+Agora 初始化方法，需传入从 Agora 后台获取的 App ID。
+
 **注意**：在整个应用全局，开发者只需要对引擎做一次初始化。
+
 
 ### 加入频道
 
@@ -148,3 +155,5 @@ agora.on(event, callback, target)
 - [Agora API 文档](https://docs.agora.io/cn/Interactive%20Gaming/game_coco?platform=Cocos%20Creator)
 - [Agora 校验用户权限 — 获取 App ID](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms) 
 - [Agora Sample 工程](https://github.com/AgoraIO/Voice-Call-for-Mobile-Gaming/tree/master/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora)
+
+
