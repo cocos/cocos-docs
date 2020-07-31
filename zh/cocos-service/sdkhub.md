@@ -535,7 +535,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 #### 回调值
 
-请参考 [API文档 - FeeResultCode](https://docs.cocos.com/service/api/zh/enums/sdkhub.feeresultcode.html)。
+请参考 [API文档 - FeeResultCode](https://docs.cocos.com/service/api/enums/sdkhub.feeresultcode.html)。
 
 ### 广告插件
 
