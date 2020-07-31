@@ -1,6 +1,6 @@
 # v2.4 Subpackage upgrade guide
 
-> Author：Santy-Wang, Xunyi0
+> Author：Santy-Wang, Xunyi
 
 > This document will detail the considerations for upgrading resource subpackages in older projects to v2.4.
 
@@ -9,7 +9,7 @@ Before v2.4, the [Subpackage Loading](https://github.com/cocos-creator/creator-d
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, the `cc.loader.downloader.loadSubpackage` needs to be changed to the `cc.assetManager.loadBundle` from **Asset Manager**. The related content will be described in detail in this document.
 
-**Note**: If you used subpackage loading in your old project, that is, if you checked the **Subpackage** option in the **Properties** panel, then when the project is upgraded to the v2.4, it will automatically convert to an **Asset Bundle**.
+**Note**: If you used Subpackage Loading in your old project, that is, if you checked the **Subpackage** option in the **Properties** panel, then when the project is upgraded to the v2.4, it will automatically convert to an **Asset Bundle**.
 
 ## Situations that require upgrading manually
 

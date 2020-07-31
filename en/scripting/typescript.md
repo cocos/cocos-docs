@@ -59,7 +59,7 @@ As with creating a JavaScript script, you can create a new `.ts` file directly i
 
 ## Declare CCClass with TypeScript
 
-The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
+The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
 
 The following is an example of a basic TypeScript component declaration:
 

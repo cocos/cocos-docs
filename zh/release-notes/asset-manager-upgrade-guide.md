@@ -1,6 +1,6 @@
 # v2.4 资源管理模块升级指南
 
-> 文：Santy-Wang、Xunyi0
+> 文：Santy-Wang、Xunyi
 
 > 本文将详细介绍旧项目升级到 v2.4 时的注意事项。
 

@@ -1,54 +1,80 @@
-# Submit To Store
+# Submit Extension Packages to the Store
 
-Cocos Creator provide extension store allow user browser, download and install 3rd extensions. Read the usage of it [Install and Share](install-and-share.md). To share and selling extensions, you need to submit your package to the store:
+Cocos Creator provides a built-in [Extension Store](install-and-share.md) for users to browse, download and automatically install official or third-party plugins and resources.
 
-## Package your extension
+Users can also submit their own extensions, code, music, sound effects and other resources to the Extension Store for sharing or selling. Next, we will take a look at the submission process for the extension plugin as an example.
 
-Suppose your directory structure like this:
+## Package your plugin extensions
+
+Suppose your completed plugin extension package directory structure is as follows:
 
 ```
 foobar
     |--panel
-    |    |--index.js
+        |--index.js
     |--package.json
     |--main.js
 ```
 
-You need to zip the `foobar` to `foobar.zip`.
+You need to package the `foobar` folder into the `foobar.zip` file and submit it to the Cocos Developer Center.
 
-### npm install 3rd library
+For more information on the plugin extensions, please refer to the [Create Extension Packages](your-first-extension.md) documentation.
 
-We didn't include the npm piepline, so you have to pre-install the 3rd packages in `node_modules` before zip.
+### The third-party library
 
-## Login to Developer Platform
+The current extension package installation system does not install workflows such as NPM that include management systems, so the extension packages that use third-party libraries should package folders such as `node_modules` into the **zip** package as well.
 
-- Access and login to [Cocos Developer](https://open.cocos.com)
-- Go to [Cocos App](https://open.cocos.com/app)
-- Under Cocos Store Click [Submit](https://open.cocos.com/store/name_list)
+## Submit your plugin extension package
 
-![login to cocos open platform](submit-to-store/login.jpg)
+Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to the [Store](https://store-my.cocos.com/#/seller/resources/) and click on the **Create new resource** button in the top right.
 
-## Create Extensions
+  ![](submit-to-store/create.png)
 
-Enter the Cocos Store page, click `Submit` button at top right, go to the submit page:
+- Then enter the **Category** page, fill in the **Name** and **Category**, and check "I have read and agreed to the Agreement".
 
-- Name your extension
-- Choose the category `Creator Extension`
-- Click Create, and fill the information
+  ![](submit-to-store/category.png)
 
-## Fill the Information
+  - **Name**: The name of the plugin displayed in the Extension Store. Please note that the **Name** cannot be changed once it is confirmed, so please fill it in carefully.
+  - **Category**: For the resource category to submit, we select **Creator Extension -> Plugins** here.
 
-We need to fill the form:
+  When the settings are complete, click **Next** to enter the resource **Introduction** page.
 
-- **version** Follow the [semver standard](http://semver.org/lang/zh-CN/)
-- **Price** RMB, free is 0.
-- **Description**
-- **Download Address** Two method: 1. Submit to net-driver or GitHub link 2. Manually submit to Cocos Store
-- **Icon** 512x512
-- **Snapshot** Up to 5, size 640x960 or 960x640
-- **Links** You supports link
+- Fill in the relevant information on the **Introduction** page.
 
-Once you have done, click `Submit to Review`, we will review your packages:
+  ![](submit-to-store/introduction.png)
 
-- If nothing goes wrong, you will see your extensions in the store.
-- If there is any problem, we will send you the E-mail.
+  - **Keyword**: Easier for users to search for your plugin faster, supports multiple keywords.
+  - **Support Platform**: Including Android, iOS, HTML5.
+  - **Icon**: The icon size is **256 * 256** and no more than **500KB**, **png** format.
+  - **Screenshot**: Upload up to **5** screenshots in **jpg**/**png** format. The size limit for each screenshot is minimum **640px** and maximum **2048px**, and no more than **1000KB**.
+  - **Description**: Include **Chinese** and **English**, fill in the basic functions and usage of the plugin. The plugin will be displayed in the Extension Store of the corresponding language version only after both languages are filled in. For example, the plugin will only appear in the English Extension Store if you fill in the English name and description.
+  
+  Click **Next** to enter the **Pricing** page after completing the filling.
+
+- Set the sale price of the plugin on the **Pricing** page, including **CNY** and **USD**, and if it is free please fill in **0**.
+
+  ![](submit-to-store/pricing.png)
+
+  Click **Next** to enter the **Upload** page after completing the filling.
+
+- On the **Upload** page, upload the plugin extension package and fill in the relevant information.
+
+  ![](submit-to-store/upload.png)
+
+  - **Package**: **Zip** format, up to **100MB**.
+  - **Extension Name**: The name of the plugin extension package, defined in the `package.json` file of the extension package.
+  - **Version Number**: Plugin version number, defined in the `package.json` file of the extension package. Follow the [semver specification [zh]](http://semver.org/lang/zh-CN/) for writing conventions.
+  - **Creator Version Requirements**: The plugin's requirements for the Creator version.
+
+  Click **Next** to enter the **Submit for review** page after completing the filling.
+
+- You can click the **Submit review** button on the **Submit for review** page, or click the **View** button to review/reedit the information for this plugin resource.
+
+  ![](submit-to-store/submit-for-review.png)
+  
+- After submitting for review, the Extension Store admin will review the plugin content and information within **3** business days.
+
+  - If there are no problems, then the plugin is approved and you will see your plugin in the Extension Store.
+  - If there are problems that need to be corrected, the plugin will not be approved and the reason will be noted.
+  
+  The above results will be sent to the registered email address of your Cocos developer account, so please check the email in time.

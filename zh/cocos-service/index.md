@@ -33,5 +33,3 @@ Cocos Service 目前提供的服务包括：
 - [Cocos SDKHub](sdkhub.md)
     - [Cocos SDKHub API 文档](https://docs.cocos.com/service/api/zh/modules/_sdkhub_.sdkhub.html)
     - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)
-
-

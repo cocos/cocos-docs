@@ -19,3 +19,7 @@ For example, if a node needs to update the matrix in the current frame and needs
 When rendering this node, RenderFlow will enter the **transform => render** branch according to the `node._renderFlag` state of the node, and without any additional state judgment.
 
 ![v2.x process](./render-flow/render-flow-2.png)
+
+## Reference Link
+
+[Custom Rendering Assembler [zh]](https://forum.cocos.org/t/demo/95087)

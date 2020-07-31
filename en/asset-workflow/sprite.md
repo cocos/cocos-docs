@@ -15,7 +15,7 @@ In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you s
 | Properties | Function explanation |
 | --- | --- |
 | Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. |
-| Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
+| Premultiply Alpha | If set, the RGB channel is multiplied by the alpha channel. |
 | Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
 | Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
 | genMipmaps | Whether to enable automatic generation of mipmap. |

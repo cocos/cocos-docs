@@ -197,8 +197,6 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 | score | "10000" | submitRankingScore 情况需要传入，要提交到排行榜的分数，Java 侧为 `long` 型。|
 | scoreTips | "金币" | submitRankingScore 情况可选，有自定义单位情况下需要传入。 |
 
-
-
 #### 扩展方法调用
 
 以下方法需要通过 [扩展方法调用](../sdkhub.md/#扩展方法调用)。
@@ -769,4 +767,3 @@ sdkhub.getPushPlugin().callFuncWithParam("sendMessage", params);
 | + 104 | String | 消息发送成功，返回 msgId |
 | + 105 | String | 消息发送时发生错误，返回失败描述 |
 | + 106 | String | 消息已经送达，返回 msgId |
-

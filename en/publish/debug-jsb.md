@@ -12,7 +12,7 @@ First choose to use the **simulator (debug)** as the preview platform on the top
 
 ![](debug-jsb/simulator-run.png)
 
-After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/ 00010002-0003-4004-8005-000600070008` can be debugged:
+After running the simulator, open the address <devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008> directly with the Chrome browser to debug. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 
 ![](debug-jsb/v8-win32-debug.png)
 
@@ -32,7 +32,7 @@ If a game can only run on a physical device, or the simulator can not reproduce 
 
 - Select the **Android / iOS** platform and **Debug** mode in the **Build** panel of Cocos Creator to build, compile and run a project (The iOS platform recommends connecting to the physical device via Xcode to compile and run).
 
-- Open address with Chrome browser: `chrome-devtools://devtools/bundled/js_app.html?v8only=true&ws={ip}:6086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android/iOS device, then you can debug it.
+- Open address with Chrome browser: <devtools://devtools/bundled/js_app.html?v8only=true&ws={ip}:6086/00010002-0003-4004-8005-000600070008>, where `{IP}` is the local IP of the Android/iOS device, then you can debug it. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 
   ![](debug-jsb/v8-android-debug.png)
 
