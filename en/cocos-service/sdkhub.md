@@ -33,7 +33,7 @@ Once the service is turned on, the Cocos Service will automatically integrate th
 
     ```js
     this.scheduleOnce(function(){
-        SDKHub.AgentManager.getInstance().getUserPlugin().login();
+        sdkhub.getUserPlugin().login();
     },2);
     ```
 
@@ -139,4 +139,6 @@ You can get a quick taste of the SDKHub with the sample Project.
 
 ## API Documentation
 
-Please refer to the [API documentation](https://docs.cocos.com/service/api/en/modules/_sdkhub_.sdkhub.html).
+Please refer to the [API documentation](https://docs.cocos.com/service/api/modules/sdkhub.html).
+
+

@@ -90,7 +90,7 @@
 - [Access to Third Party Services](cocos-service/index.md)
     - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
     - [SDKHub](cocos-service/sdkhub.md)
-        - [SDKHub API](https://docs.cocos.com/service/api/en/modules/_sdkhub_.sdkhub.html)
+        - [SDKHub API](https://docs.cocos.com/service/api/modules/sdkhub.html)
         - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [Publish Game](publish/index.md)
     - [Publish to Web](publish/publish-web.md)

@@ -155,7 +155,7 @@ Huawei account revoking authorization, please refer to the [Account Kit - Revoki
 
 **Callback Description**:
 
-| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
+| Extension callback value sdkhub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 122 | String | Description of successful cancellation of login authorization |
 | + 123 | String | Description of failed login authorization cancellation |
@@ -174,7 +174,7 @@ For game addiction prevention methods, please refer to the [Game Service - Game 
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSON | Report the player's successful entry into the game event, and obtain the parameter transactionId |
 | + 107 | JSON / String | Report failure of player entering game event |
@@ -196,7 +196,7 @@ Event reporting method, please refer to the [Game Service - Game Events](https:/
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 112 | String | Call event report callback, return without success or failure |
 
@@ -213,7 +213,7 @@ To obtain player event data, please refer to the [Game Service - Game Events](ht
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 114 | JSON | If the event data is successfully obtained, the parameter eventId can be obtained. |
 | + 115 | JSON / String | Description of failure to obtain event data |
@@ -230,7 +230,7 @@ For player information statistics method, please refer to the [Game Service - Pl
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 116 | JSON | Get the event data successfully, you can get the parameters averageOnLineMinutes, daysFromLastGame, paymentTimes, onlineTimes, totalPurchasesAmountRange |
 | + 117 | JSON / String | Description of failure to obtain event data |
@@ -247,7 +247,7 @@ How ​​to get basic game information, please refer to the [Game Service - Bas
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSON | Get the event data successfully, you can get the parameters achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | Description of failure to obtain event data |
@@ -258,7 +258,7 @@ Automatically read SMS method, optional, please refer to the [Account Kit - Auto
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | String | Automatically read SMS verification code initialization callback |
 | + 103 | String | Automatically read SMS verification code timeout callback |
@@ -290,7 +290,7 @@ Determine whether the in-app payment method is supported, before using in-app pa
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 100 | JSON | Support in-app payment description |
 | + 101 | JSON / String | Does not support in-app payment description |
@@ -308,7 +308,7 @@ Method of displaying product information, if you use the product configured on t
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | JSONArray | Return product information successfully, parseable msg Display product |
 | + 103 | JSON / String | Failed to return product information |
@@ -327,7 +327,7 @@ It is recommended to call it at the beginning of the game to get the user's othe
 
 **Callback Description**:
 
-| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
+| Extension callback value sdkhub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSONArray | Parsable Array, call consumeOwnedPurchase method |
 | + 107 | JSON / String | Operation failure description |
@@ -340,7 +340,7 @@ This interface can also be called through the server, please refer to the [Purch
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 104 | String | Description of consumable confirmation transaction success |
 | + 105 | JSON / String | Description of consumables confirmation transaction failure |
@@ -357,7 +357,7 @@ View user purchase history, please refer to the [In-App Purchases - Viewing the 
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSONArray | Return to purchase history information |
 | + 109 | JSON / String | Failed to return purchase history information |
@@ -374,7 +374,7 @@ Provide subscription management page redirection, please refer to the [Subscript
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 110 | JSON | Description of successful page opening |
 | + 111 | JSON / String | Description of failed page opening |
@@ -408,3 +408,5 @@ Display Advertising Method.
 | adId | "testx9dtjwj8hp" | Ad ID |
 | pos | "0" | Ad position, optional in the case of Banner, default is "0".<br>"0": directly below.<br>"1": center.<br>"2": directly above. |
 | adSize | "BANNER_SIZE_360_144" | Ad size, optional in the case of Banner, the default is "BANNER_SIZE_360_57", the input value can refer to [Ad Sizes](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576067654264) document. |
+
+
