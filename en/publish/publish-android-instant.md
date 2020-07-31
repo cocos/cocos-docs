@@ -10,22 +10,18 @@ It can realize the game to be played without installing, which is useful for gam
 
 With games developed by Cocos Creator, just choose Google Play Instant as the publishing platform, which can automatically complete the standard adaptation work. Developers can quickly publish games that meet the Google Play Instant technical standards
 
-## Using Cocos Creator publish to Google Play Instant with one click
-
-### Requirement
+## Environment Configuration
 
 - Android Studio 3.0+
 - Android Phone 6.0+<br>
 **Attention**: Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework. And Android 8.0 or higher does not need.
 - The recommended NDK version is **r17 - r19**.
 
-### Instant Games Publish Process
+## Release Process
 
-1. Using Cocos Creator open the project that needs to be published. Open the **Build** panel from the Menu bar. Select **Android Instant** in the **platform** of the **Build** panel, choose **android-instant** in the **template**, and the **API Level** selects **android-26** and above.
+1. Using Cocos Creator open the project that needs to be published. Open the **Build** panel from the **Menu bar -> Project**, select **Android Instant** in the **platform**, and the **API Level** selects **android-26** and above.
 
     ![](publish-android-instant/builder.png)
-    
-    Starting from v2.3.0, the build template of Android Instant is consistent with the Android. Please refer to the [Build and release games on Native platforms](./publish-native.md#use-an-native-project) for details.
 
 2. If you want to package directly without using the refactor feature, you can hook the **Skip Record & Refactor** box, then click **Build -> Compile**, connect android phone to the computer and then click the **Play** button, when process complete you can run Google Play Instant on the phone.
 
@@ -50,13 +46,28 @@ With games developed by Cocos Creator, just choose Google Play Instant as the pu
 ### Related configuration instructions
 
 The main configuration notes in the **Build** panel about publishing to Google Play Instant are as follows:
-- **Server Address**: The download address of the remote resource, can be a CDN address. Put the `path_to_your_project/build/jsb-link/remote_assets` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
-- **Default URL**: Android will load your instant app by this URL. This parameter can be empty, if it is not empty, you must ensure that the URL entered is accessible when submitting the package to the Google Store. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
-- **Record config path**: Cocos Creator will use this record config to generate first package and remote_res folder.
 
-**Attention**:
-1. Server Address should not contain `/remote_assets`.
-2. If the Google Play Instant package has more permissions than the app on Google Store, it may not install properly when you install the app:
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+- **Resource Server Address**
+
+  The download address of the remote resource, can be a CDN address. Put the `path_to_your_project/build/jsb-link/remote_assets` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package. **Note**: Server Address should not contain `/remote_assets`.
+
+- **Default URL**
+
+  Android will load your instant app by this URL. This parameter can be empty, if it is not empty, you must ensure that the URL entered is accessible when submitting the package to the Google Store. See [Google Instant App documentation](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app) for details.
+
+- **Record config path**
+
+  Cocos Creator will use this record config to generate first package and remote_res folder.
+
+- **Generate App Bundle (Google Play)**
+
+  When this option is checked, the game will be packeaged into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
+
+**Note**: If the Google Play Instant package has more permissions than the app on Google Store, it may not install properly when you install the app:
 
 ![](publish-android-instant/installation_failed.png)
 
@@ -100,7 +111,7 @@ The **Refactor** is used to edit the first package of the game and select the re
 
 ## Instant Cookie API
 
-We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
+We have provided some APIs to make it easier for developers to call some of Google's API directly. At the same time, we also provide Cocos Creator Cookie API Demo: [AndroidInstantCookieDemo](https://github.com/cocos-creator/AndroidInstantCookieDemo)
 
 - `cc.androidInstant.showInstallPrompt()` For details, please refer to <a href="https://developers.google.com/android/reference/com/google/android/gms/instantapps/InstantApps.html#showInstallPrompt(android.app.Activity,%20android.content.Intent,%20int,%20java.lang.String)">showInstallPrompt</a>
 
@@ -120,4 +131,4 @@ We have provided some APIs to make it easier for developers to call some of Goog
 
 3. [Google Instant App Samples](https://github.com/googlesamples/android-instant-apps)
 
-4. [CocosCreator AndroidInstantCookieDemo](https://github.com/wuzhiming/AndroidInstantCookieDemo)
+4. [CocosCreator AndroidInstantCookieDemo](https://github.com/cocos-creator/AndroidInstantCookieDemo)

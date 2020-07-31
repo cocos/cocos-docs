@@ -32,11 +32,27 @@
 
 ## Release Process
 
-**First**, use __Cocos Creator__ to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **vivo Mini Game** in the **Platform** dropdown.
 
 ![](./publish-vivo-instant-games/build.png)
 
+### Configuration Options
+
 The specific filling rules for the relevant parameter configuration are as follows:
+
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+- **Main Bundle Is Remote**
+
+  This option is optional and needs to be used with the **Resource Server Address** option.<br>
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+
+- **Start Scene Asset Bundle**
+
+  This option is optional.<br>
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **App Package Name**
 
@@ -64,13 +80,13 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Resource Server Address**
 
-  This entry fills in the address at which the resource is stored on the server and is optional:
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
 
-  - If this entry is not filled, the **remote** folder in the **build** directory will be packaged in the **rpk** package.
+  - If this option is left blank, the `build/qgame/remote` folder in the release package directory will be packaged into the **rpk** package.
 
-  - If this entry is filled in, the built **rpk** package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
+  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
-  For specific resource management details, see [Resource Management for vivo Mini Game Environment](#resource-management-for-vivo-mini-game-environment).
+  Refer to the Resource Management section at the bottom of the document for more details.
 
 - **Keystore**
 
@@ -137,17 +153,17 @@ The specific filling rules for the relevant parameter configuration are as follo
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory.
+### Build
 
-![](./publish-vivo-instant-games/package.png)
-
-And the rpk package will be generated in the **/build/qgame/dist** directory.
+After the relevant options of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory, and the **rpk** package will be generated in the `build/qgame/dist` directory.
 
 ![](./publish-vivo-instant-games/rpk.png)
 
-**Third**, run the packaged rpk to your phone. There are three ways to run rpk on your phone:
+### Run the built rpk to the phone
 
-- **Method One**:
+There are three ways to run rpk on your phone:
+
+- **Method One**
 
     Click the **Run** button in the **Build** panel to wait for the QR Code interface to be generated:
 
@@ -157,7 +173,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
     ![](./publish-vivo-instant-games/vivo-instant_scan_install.jpg)
 
-- **Method Two**:
+- **Method Two**
 
     Generate URLs and QR codes using the __vivo Mini Game Packer Commands__.
 
@@ -175,7 +191,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
     Finally, click the **Scan code install** button to copy the URL generated in the first step to the browser, and then directly scan the QR code on the web page to open the **rpk**.
 
-- **Method Three**:
+- **Method Three**
 
     Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the `sdcard` directory of the mobile phone.
 
@@ -185,13 +201,13 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 ## Subpackage Loading
 
-Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Subpackage Loading](../scripting/asset-bundle.md) for details.
+Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to the [Mini Game Subpackage](subpackage.md#vivo-mini-games) for details.
 
 ## Resource Management for vivo Mini Game Environment
 
-**vivo Mini Game** is similar to **WeChat Mini Game**. The main package size limit for vivo Mini Game is **4MB**, more than that must be downloaded via a network request.
+**vivo Mini Game** is similar to the **WeChat Mini Game**. The main package size limit for vivo Mini Game is **4MB**, more than that must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
 ## Reference link
 

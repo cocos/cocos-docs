@@ -49,7 +49,7 @@ Maybe developers have noticed the configuration of texture resources in Creator 
   - __Point (nearest point sampling):__ directly use the nearest pixel on the uv value
   - __Bilinear (secondary linear filtering):__ take the average of the pixel corresponding to uv and the surrounding four pixels
   - __Trilinear (triangular linear filtering):__ Based on the quadratic linear filtering, the quadratic linear filtering results of two adjacent mipmaps are taken for the mean calculation.
-- __Premultiply Alpha:__ This is a new parameter in 2.0. When checked, the engine will enable the GL pre-multiply option during the upload of the GPU map. This is very helpful for some textures that need to be pre-multiplied. Often there are some users who can't understand the inexplicable white edges around the texture or around the text, which is caused by the semi-transparent pixels around the texture:
+- __Premultiply Alpha:__ This is a new parameter in 2.0. If set, the engine will enable the GL pre-multiply option during the upload of the GPU map. This is very helpful for some textures that need to be pre-multiplied. Often there are some users who can't understand the inexplicable white edges around the texture or around the text, which is caused by the semi-transparent pixels around the texture:
 
 ![Spine's strange white edges at the bone seams](upgrade-guide-v2.0/spine-border.png)
 

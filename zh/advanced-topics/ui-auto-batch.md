@@ -120,3 +120,7 @@ Stencil 状态即模板测试，通过模板缓冲来实现特定的效果，在
 4. 微信小游戏平台由于 Image 的内存占用原因，默认禁用了动态图集功能，如果对内存占用要求不高的游戏，可以自行通过 `cc.dynamicAtlasManager.enabled = true` 打开该功能，并且设置 `cc.macro.CLEANUP_IMAGE_CACHE = false` 禁止清理 Image 缓存。具体可参考 [启用、禁用动态合图](./dynamic-atlas.md#%E5%90%AF%E7%94%A8%E3%80%81%E7%A6%81%E7%94%A8%E5%8A%A8%E6%80%81%E5%90%88%E5%9B%BE)。
 5. 默认 Spine 的合批是关闭的，需要勾选 **enableBatch** 选项开启，Spine 必须是同个 Spine 资源创建的对象，且每个 Spine 只有一种混合模式、一张贴图，才能进行批次合并，Dragonbones 同理。
 6. 单次 Draw call 的 Buffer 数据有限，当数据超过 Buffer 长度限制时，会重新申请新的 Buffer，不同的 Buffer 也会是不同的批次。
+
+## 参考链接
+
+[Cocos Creator 性能优化：DrawCall](https://mp.weixin.qq.com/s/2fKhBciXoxZ85XuUL01iyg)

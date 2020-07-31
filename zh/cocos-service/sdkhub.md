@@ -33,14 +33,15 @@ Cocos SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 Coc
 
 ### 验证服务是否接入成功
 
-- 完成 Cocos SDKHub 服务接入步骤后，我们便可以通过在脚本中添加简单的代码来验证 Cocos SDKHub 的接入是否成功。Cocos SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 Cocos SDKHub 账号 & 游戏对象的登录方法。
+Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
+- Cocos SDKHub 会自动初始化，但初始化需要时间。我们在脚本中使用 `scheduleOnce` 延时调用方法，调用 Cocos SDKHub 账号 & 游戏对象的登录方法。
 
-```js
-this.scheduleOnce(function(){
-    sdkhub.getUserPlugin().login();
-},2);
-```
+    ```js
+    this.scheduleOnce(function(){
+        sdkhub.getUserPlugin().login();
+    },2);
+    ```
 
 - 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即可验证 Cocos SDKHub 接入成功。
 
@@ -60,11 +61,11 @@ this.scheduleOnce(function(){
 
   创建配置集包括以下几个步骤：
 
-  1. 如下图所示点击 **新建配置集**
+  - 如下图所示点击 **新建配置集**
 
       ![](sdkhub/sdkhub-panel2.jpeg)
 
-  2. 进入 **添加配置集** 页面，填写相关参数，填写完成后点击 **确定** 即可
+  - 进入 **添加配置集** 页面，填写相关参数，填写完成后点击 **确定** 即可
 
       ![](sdkhub/sdkhub-panel5.jpg)
 
@@ -265,7 +266,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 
 ```js
 var params = {
-    "eventId": conf.eventId,
+    "eventId": "A123456",
     "growAmount": "20"
 };
 sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
@@ -404,7 +405,7 @@ sdkhub.getUserPlugin().setUserInfo(params);
 
 调用 SDK 显示浮标方法。若 SDK 有需要，插件接入时会在生命周期调用该方法。除特别说明情况下，无需主动调用本接口。
 
-部分插件支持 [ToolBarPlace](https://docs.cocos.com/api/enums/sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
+部分插件支持 [ToolBarPlace](https://docs.cocos.com/service/api/enums/sdkhub.toolbarplace.html) 参数，作为浮动工具栏初始位置。
 
 ```
 sdkhub.getUserPlugin().showToolBar(sdkhub.ToolBarPlace.kToolBarTopLeft);
@@ -477,7 +478,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 #### 回调值
 
-请参考 [API文档 - UserResultCode](https://docs.cocos.com/api/enums/sdkhub.userresultcode.html)。
+请参考 [API文档 - UserResultCode](https://docs.cocos.com/service/api/enums/sdkhub.userresultcode.html)。
 
 ### 支付插件
 
@@ -534,7 +535,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 #### 回调值
 
-请参考 [API文档 - FeeResultCode](https://docs.cocos.com/api/zh/enums/sdkhub.feeresultcode.html)。
+请参考 [API文档 - FeeResultCode](https://docs.cocos.com/service/api/enums/sdkhub.feeresultcode.html)。
 
 ### 广告插件
 
@@ -544,7 +545,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds` 。回调成功后才能调用显示广告方法。
 
-若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://test-docs.cocos.com/api/enums/sdkhub.adspos.html) 方位。
+若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://test-docs.cocos.com/api/docs/enums/sdkhub.adspos.html) 方位。
 
 **示例：**
 
@@ -568,6 +569,8 @@ sdkhub.getAdsPlugin().hideAds(params);
 
 #### 预加载广告
 
+`preloadAds(params: any): void`
+
 调用 SDK 的预加载广告方法。部分类型广告显示前，需要先调用本方法。回调成功后才能调用显示广告方法 `showAds`。
 
 **示例：**
@@ -579,7 +582,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 #### 回调值
 
-请参考 [API文档 - AdsResultCode](https://docs.cocos.com/api/enums/sdkhub.adsresultcode.html)。
+请参考 [API文档 - AdsResultCode](https://docs.cocos.com/service/api/enums/sdkhub.adsresultcode.html)。
 
 ### 推送插件
 
@@ -682,7 +685,7 @@ sdkhub.getPushPlugin().delTags(params)
 
 #### 回调值
 
-请参考 [API文档 - PushResultCode](https://docs.cocos.com/api/enums/sdkhub.pushresultcode.html)。
+请参考 [API文档 - PushResultCode](https://docs.cocos.com/service/api/enums/sdkhub.pushresultcode.html)。
 
 ### 自定义插件
 
@@ -704,5 +707,6 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 
 ## API 文档
 
-请参考 [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
+详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
+
 

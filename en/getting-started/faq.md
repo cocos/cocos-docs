@@ -34,7 +34,7 @@ Please refer to: [Sprite Animation with offset](../asset-workflow/trim.md#sprite
 
 This is due to the color channel and background colors did the interpolation when bilinear filtering, the simpler way is to use the pre-multiply. Pre-multiplication requires that the blending mode of the Sprite component be set to `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`, and then process the original image.
 
-There are two ways to deal with the original, one is to add a black background under the color channel when the picture is exported, and the transparent channel remains unchanged. The other way is to call `texture.update({premultiplyAlpha: true})` to texture in code, if the call fails, it may be an older version of Creator and the old version needs to use `texture.handleLoadedTexture(true)`.
+The original image can generally be processed by checking **Premultiply Alpha** on the  image resource in the editor. Or by adding a black background under the color channel when the image is exported by the artist, and the transparent channel remains unchanged.
 
 ### How to control Prefab with plugins
 
@@ -137,7 +137,7 @@ var image = "http://localhost/download/spineres/1/1.png";
 var ske = "http://localhost/download/spineres/1/1.json";
 var atlas = "http://localhost/download/spineres/1/1.atlas";
 cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
-    cc.assetManager.loadRemote(image, (error, atlasJson) => {
+    cc.assetManager.loadRemote(image, (error, texture) => {
         var asset = new sp.SkeletonData();
         asset.skeletonJson = assets[1];
         asset.atlasText = assets[0];
@@ -159,7 +159,7 @@ var image = "http://localhost/download/spineres/1/1.png";
 var ske = "http://localhost/download/spineres/1/1.skel";
 var atlas = "http://localhost/download/spineres/1/1.atlas";
 cc.assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.bin' }], (error, assets) => {
-    cc.assetManager.loadRemote(image, (error, atlasJson) => {
+    cc.assetManager.loadRemote(image, (error, texture) => {
         var asset = new sp.SkeletonData();
         asset._nativeAsset = assets[1];
         asset.atlasText = assets[0];

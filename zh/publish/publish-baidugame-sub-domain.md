@@ -1,6 +1,6 @@
 # 接入百度小游戏的开放数据域
 
-类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
+类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域**，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()` 这三个 API，用于获取相应的用户数据。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
 
 由于开放数据域是一个封闭、独立的 JavaScript 作用域，所以开发者需要创建两个项目：
 
@@ -9,19 +9,21 @@
 
 在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的百度发布包中，就可以作为完整的百度小游戏工程在模拟器和真机上进行预览调试了。
 
-百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
+百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
 
 ## 主域项目工程
 
-主域中创建一个节点作为开放数据域容器，添加 **SwanSubContextView** 组件用于设置开放数据域视窗以及更新开放数据域贴图，这个节点的宽高比应该等于开放数据域设计分辨率的宽高比（否则会出现拉伸）。
+主域中创建一个节点作为开放数据域容器，添加 **SubContextView** 组件用于设置开放数据域视窗以及更新开放数据域贴图，这个节点的宽高比应该等于开放数据域设计分辨率的宽高比（否则会出现拉伸）。
+
+**注意**：从 v2.4.1 开始，**SwanSubContextView** 已废弃，请使用 **SubContextView**。
 
 ## 开放数据域项目工程
 
 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。整个开放数据域项目只应该包含其内容 UI，并且应该将场景中 Canvas 组件的设计分辨率设置为 UI 的完整分辨率，不需要对应主域的分辨率。
 
-## SwanSubContextView 技巧
+## SubContextView 技巧
 
-这是开放数据域方案的核心组件，通过这个组件除了常规的需求可以满足以外，还有一些小技巧可以方便用户更好地控制开放数据域的表现。
+这是开放数据域方案的核心组件，通过这个组件除了可以满足常规的需求，还有一些小技巧可以方便用户更好地控制开放数据域的表现。
 
 - **视窗更新**
 
@@ -29,18 +31,18 @@
 
 - **手动更新贴图**
 
-  在 Creator v2.1.1 中，当开放数据域被唤起后，只要 **SwanSubContextView** 组件 load 成功，开放数据域贴图就开始更新到主域并显示，之后每帧都会更新贴图。但是开放数据域贴图的更新有时可能损耗比较高，开发者设计的开放数据域又是静态界面（比如翻页式的界面），此时就不需要每帧更新贴图，可以尝试通过禁用组件来阻止每帧更新逻辑，并通过手动调用 update 函数来在需要的时候更新：
+  在 Creator v2.1.1 中，当开放数据域被唤起后，只要 **SubContextView** 组件 load 成功，开放数据域贴图就开始更新到主域并显示，之后每帧都会更新贴图。但是开放数据域贴图的更新有时可能损耗比较高，开发者设计的开放数据域又是静态界面（比如翻页式的界面），此时就不需要每帧更新贴图，可以尝试通过禁用组件来阻止每帧更新逻辑，并通过手动调用 update 函数来在需要的时候更新：
 
   ```js
   subContextView.enabled = false;
   subContextView.update();
   ```
 
-  这样手动控制是性能最优的方案。如需开启自动更新贴图，则启用 **SwanSubContextView** 组件后，开放数据域的主循环会恢复执行。
+  这样手动控制是性能最优的方案。如需开启自动更新贴图，则启用 **SubContextView** 组件后，开放数据域的主循环会恢复执行。
 
 - **设置贴图更新频率**
 
-  在 Creator v2.1.1 中，**SwanSubContextView** 组件上新增了 **FPS 属性**，用户可以通过设置 FPS 直接控制开放数据域的帧率。
+  在 Creator v2.1.1 中，**SubContextView** 组件上新增了 **FPS 属性**，用户可以通过设置 FPS 直接控制开放数据域的帧率。
 
   ![](./publish-baidugame/subcontext.png)
 
@@ -49,9 +51,9 @@
   - 主域会根据设置的 FPS 计算出一个 update interval，这个 interval 可以防止引擎频繁调用 update 更新开放数据域的 canvas 贴图。
   - 通过降低开放数据域的 FPS，也可以一定程度上减少开放数据域的性能开销。
 
-  **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SwanSubContextView 组件的 FPS 属性。**
+  **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SubContextView 组件的 FPS 属性。**
 
-## 开放数据域发布
+## 开放数据域发布流程
 
 ### 模块选择
 
@@ -92,5 +94,5 @@
 
 ## 参考链接
 
-- [Cocos Creator 百度小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
+- [Cocos Creator 小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
 - [百度官方文档：关系链数据使用指南](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)

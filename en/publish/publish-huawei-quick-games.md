@@ -8,11 +8,27 @@
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **Huawei Quick Game** in the **Platform** dropdown of the **Build...** panel.
+Use **Cocos Creator** to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **Huawei Quick Game** in the **Platform** dropdown.
 
-    ![](./publish-huawei-quick-games/build_option.png)
+![](./publish-huawei-quick-games/build_option.png)
+
+### Configuration Options
 
 The specific filling rules for the relevant parameter configuration are as follows:
+
+- **Main Bundle Compression Type**
+
+  Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+- **Main Bundle Is Remote**
+
+  This option is optional and needs to be used with the **Resource Server Address** option.<br>
+  If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+
+- **Start Scene Asset Bundle**
+
+  This option is optional.<br>
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.
 
 - **App Package Name**
 
@@ -44,19 +60,19 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Resource Server Address**
 
-  This entry fills in the address at which the resource is stored on the server and is optional:
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
 
-  - If this entry is not filled, the **remote** folder in the **build** directory will be packaged in the **rpk** package.
+  - If this option is left blank, the `build/huawei/remote` folder in the release package directory will be packaged into the **rpk** package.
 
-  - If this entry is filled in, the built **rpk** package will not include the **remote** folder and you will need to manually upload the **remote** folder to the filled in resource server address.
+  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
-  For specific resource management details, see [Resource Management for Huawei Quick Game Environment](#resource-management-for-huawei-quick-game-environment).
+  Refer to the Resource Management section at the bottom of the document for more details.
 
 - **Keystore**
 
   When you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**. **Note**: When the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
 
-  If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box. **Note**: These two signature files are not recommended to be placed in the **build/huawei** directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
+  If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box. **Note**: These two signature files are not recommended to be placed in the `build/huawei` directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
 
   There are two ways to generate a signature files:
 
@@ -108,13 +124,15 @@ The specific filling rules for the relevant parameter configuration are as follo
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-**2. Build**
+### Build
 
-After the relevant parameters of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path `build` directory, which is the exported Huawei Quick Game project directory and **rpk**, **rpk** package are in the **/build/huawei/dist** directory.
+After the relevant options of the **Build** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **huawei** directory is generated under the default release path `build` directory, which is the exported Huawei Quick Game project directory and **rpk**, **rpk** package are in the `build/huawei/dist` directory.
 
   ![](./publish-huawei-quick-games/rpk.png)
 
-**3. Run the built rpk to the phone**. There are two ways:
+### Run the built rpk to the phone
+
+There are two ways:
 
   - Click the **Play** button in the bottom right corner of the **Build** panel to bring up a **QuickGame DevTools** panel. Select the Android device in the **Phone Lists** column (if multiple Android devices are connected), and then click the **Run** button in the **QuickGame DevTools** column.
 
@@ -124,19 +142,19 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
   - Copy the rpk package generated by the build to the **sdcard** directory of the Android device. Open the **Huawei Quick APP Loader** that has been installed before, clicking the back button on the Android device will bring up a list, select the **Local Install**, select the path of place rpk, and then you can run the rpk on the Android device.
 
-**4. Subpackage rpk**
+## Subpackage rpk
 
 Subpackage rpk can be used according to your needs.
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../scripting/asset-bundle.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Mini Game Subpackage](subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
-After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `/build/huawei/dist` directory.
+After the build is complete, the generated subpackages and main package are merged into one rpk, which is in the `build/huawei/dist` directory.
 
 ## Resource Management for Huawei Quick Game Environment
 
 **Huawei Quick Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for Huawei Quick Game is **10MB**, more than that must be downloaded via a network request.
 
-We recommend that developers save only the script files in the package and download all other resources from the remote server. Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-wechat-mini-game-environment) documentation for details.
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini Game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
 ## Related Reference Links
 

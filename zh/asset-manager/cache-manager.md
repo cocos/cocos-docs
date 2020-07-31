@@ -60,7 +60,7 @@ cc.assetManager.loadRemote('http://example.com/background.jpg', { cacheEnabled: 
 
 ## 清理缓存
 
-缓存管理器提供了三个接口清理缓存资源，分别是 `removeCache`, `clearCache` , `clearLRU` 接口，`removeCache` 用于清理单个缓存资源，`clearCache` 用于清理所有缓存资源，请慎重使用，`clearLRU` 用于清理较早使用的资源，`clearLRU` 会在小游戏平台存储空间满了后自动调用。
+缓存管理器提供了三个接口清理缓存资源，分别是 `removeCache`, `clearCache`, `clearLRU` 接口，`removeCache` 用于清理单个缓存资源，`clearCache` 用于清理所有缓存资源，请慎重使用，`clearLRU` 用于清理较早使用的资源，`clearLRU` 会在小游戏平台存储空间满了后自动调用。
 
 `removeCache` 需要提供资源的原路径进行清除，例如：
 

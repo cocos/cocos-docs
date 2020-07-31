@@ -58,6 +58,6 @@ If you are not familiar with the three file types, you can refer to the followin
 
 | File types |   Link
 | -------------- | ----------- |
-| html | <https://developer.mozilla.org/zh-CN/docs/Web/HTML> |
+| html | <https://developer.mozilla.org/en-US/docs/Web/HTML> |
 | jade | <http://jade-lang.com/>                             |
 | ejs  | <https://ejs.bootcss.com/>  

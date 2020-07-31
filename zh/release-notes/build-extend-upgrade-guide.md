@@ -1,6 +1,6 @@
 # v2.4 定制项目构建流程升级指南
 
-> 文：Santy-Wang、Xunyi0
+> 文：Santy-Wang、Xunyi
 
 本文将详细介绍定制过项目构建流程的旧项目升级到 v2.4 时的注意事项。从 v2.4 开始，我们对项目构建流程做出了一些调整，事件回调时传入的参数也做了一定的改动。如果开发者在 v2.4 之前，有根据文档 [定制项目构建流程](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/publish/custom-project-build-template.md) 对项目进行过扩展，注册了 `before-change-files`、`build-finished` 事件来定制项目构建流程，那么：
 

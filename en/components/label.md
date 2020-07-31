@@ -72,7 +72,7 @@ For a large number of text nodes or large sections of text using **SHRINK** mode
 
 1. If **Cache Mode** selects the **CHAR** cache mode, only **SRC_ALPHA** can be used.
 2. If you are only publishing the **Web** platform, it is recommended to use the default **SRC_ALPHA** mode. Because the transparency changes in **ONE** mode cause frequent redrawing, the use of **BITMAP** cache mode and **CHAR** cache mode does not work.
-3. If you need to publish the **Native** platform and the text uses a layout mode such as **SHRINK** that redraws frequently, and the performance consumption is obvious due to the frequent anti-premultiply of the text during the interface creation, you can choose to use **ONE** mode to avoid the anti-premultiply caused by the jams.
+3. If you need to publish the **Native** platform and the text uses a layout mode such as **SHRINK** that redraws frequently, and the performance consumption is obvious due to the frequent anti-premultiply of the text during the interface creation, you can choose to use **ONE** mode to avoid the jams caused by the anti-premultiply.
 
 ## Detailed Explanation
 

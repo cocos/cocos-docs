@@ -82,7 +82,8 @@ gulp build-dev --max-old-space-size=8192
 
 ### 2.2 初始化
 
-下载或者克隆好 Cocos2d-x-lite 引擎仓库后，在命令行进入引擎路径然后执行：
+下载或者克隆好 Cocos2d-x-lite 引擎仓库后，在命令行进入引擎路径然后执行以下命令。<br>
+**注意**：如果是从编辑器拷贝出来的内置 **cocos2d-x-lite** 目录，可以跳过该步骤。
 
 ```bash
 # 在命令行进入 Cocos2d-x-lite 引擎路径

@@ -50,7 +50,7 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 ## Upgrade step
 
 - Rename the directory where the old Cocos Creator is located, and install a new version of Cocos Creator. In this way, old and new versions can coexist.
-- **After backing up the old version of the project**, open the original project with the new Cocos Creator, Creator will re-import impacted resources , it takes a little more time to upgrade for the first time, and the main editor window opens when the import is complete.
+- **After backing up the old version of the project**, open the original project with the new Cocos Creator, Creator will re-import impacted resources, it takes a little more time to upgrade for the first time, and the main editor window opens when the import is complete.
 - When the project is open, a bunch of yellow warnings may appear, and warnings generally do not affect the preview release of the game, but it is strongly recommended that it be resolved as soon as possible.
 
   ![](raw-asset-migration/warning.png)
