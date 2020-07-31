@@ -1,10 +1,10 @@
 # HUAWEI HMS Core Plug-in User Guide
 
-Currently, the Huawei HMS Core plug-in provided by SDKHub includes [Game Service](https://developer.huawei.com/consumer/en/hms/huawei-game), [In-App Purchases](https://developer.huawei.com/consumer/en/hms/huawei-iap), [Ads Kit](https://developer.huawei.com/consumer/en/hms/huawei-adskit), and some [Account Kit](https://developer.huawei.com/consumer/en/hms/huawei-accountkit) function, the user needs to call the SDKHub interface at the JS layer to handle the callback.
+Currently, the Huawei HMS Core plug-in provided by Cocos SDKHub includes [Game Service](https://developer.huawei.com/consumer/en/hms/huawei-game), [In-App Purchases](https://developer.huawei.com/consumer/en/hms/huawei-iap), [Ads Kit](https://developer.huawei.com/consumer/en/hms/huawei-adskit), and some [Account Kit](https://developer.huawei.com/consumer/en/hms/huawei-accountkit) function, the user needs to call the Cocos SDKHub interface at the JS layer to handle the callback.
 
 **Account & Game Service**, **In-App Purchases** and **Ads Kit** in the plug-in can be used independently.
 
-The SDKHub framework and plug-ins basically do not involve current state processing and server-side interfaces, such as whether the current user is logged in, etc., the game side needs to judge to avoid calling accounts and other game service interfaces when the user is not logged in. In the case of payment, the HUAWEI HMS Core plug-in does local verification, but when the user needs to log in or pay server verification (optional), please use the information in the callback to verify by yourself on the server.
+The Cocos SDKHub framework and plug-ins basically do not involve current state processing and server-side interfaces, such as whether the current user is logged in, etc., the game side needs to judge to avoid calling accounts and other game service interfaces when the user is not logged in. In the case of payment, the HUAWEI HMS Core plug-in does local verification, but when the user needs to log in or pay server verification (optional), please use the information in the callback to verify by yourself on the server.
 
 - [Verifying the Sign-in Signature](https://developer.huawei.com/consumer/en/doc/development/HMS-References/verify-login-signature)
 - [Verifying the Purchase Token for the Order Service](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
@@ -12,19 +12,19 @@ The SDKHub framework and plug-ins basically do not involve current state process
 ## Preparation Work
 
 - Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, generation and configuring the Signing Certificate Fingerprint and enabling required services.
-- Integrate the work of HMS Core SDK, SDKHub will **automatically complete** when building, no need to pay attention.
+- Integrate the work of HMS Core SDK, Cocos SDKHub will **automatically complete** when building, no need to pay attention.
 - If you need to use the IAP function, please prepare the bank card of the registered developer in advance, and fill in the relevant payment information. It may take 1-2 business days for review after submission.
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
-## Enable SDKHub
+## Enable Cocos SDKHub
 
-- Use Cocos Creator to open the project that needs to be connected to SDKHub.
+- Use Cocos Creator to open the project that needs to be connected to Cocos SDKHub.
 
-- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select SDKHub to enter the SDKHub service panel. Then click the **Enable** button on the upper right to activate the SDKHub service. For details, please refer to the [Cocos Service Operation Guide](../../cocos-service/index.md) documentation.
+- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select Cocos SDKHub to enter the Cocos SDKHub service panel. Then click the **Enable** button on the upper right to activate the Cocos SDKHub service. For details, please refer to the [Cocos Service Operation Guide](../../cocos-service/index.md) documentation.
 
   ![](sdkhub-hms/hms-provisioning.png)
 
-- Add a new config set on the SDKHub service panel
+- Add a new config set on the Cocos SDKHub service panel
     
   ![](sdkhub-hms/hms-config-group1.png)
 
@@ -66,7 +66,7 @@ The SDKHub framework and plug-ins basically do not involve current state process
 
 ## Get Simple Project
 
-Click the **Sample** button in the SDKHub service panel, clone or download, and open the project in Cocos Creator. You can refer to document [SDKHub Simple project](../sdkhub.md#sample-project) for the usage of the **Sample** project.
+Click the **Sample** button in the Cocos SDKHub service panel, clone or download, and open the project in Cocos Creator. You can refer to document [Cocos SDKHub Simple project](../sdkhub.md#sample-project) for the usage of the **Sample** project.
 
 ## API interface description of each system
 
