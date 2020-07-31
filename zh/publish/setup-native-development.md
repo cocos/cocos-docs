@@ -60,7 +60,7 @@ java -version
 
 下载安装好开发环境依赖后，让我们回到 Cocos Creator 中配置构建发布原生平台的环境路径。在主菜单中选择 `CocosCreator -> 设置`，打开设置窗口：
 
-![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
+![preference](setup-native-development/preference.png)
 
 我们在这里需要配置以下两个路径：
 

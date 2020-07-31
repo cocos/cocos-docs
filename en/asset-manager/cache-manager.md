@@ -60,7 +60,7 @@ cc.assetManager.loadRemote('http://example.com/background.jpg', { cacheEnabled: 
 
 ## Clear the cache.
 
-The cache manager provides three interfaces to clean up cache resources: `removeCache`, `clearCache` , `clearLRU` interface, `removeCache` to clean up individual cache resources, `clearCache` to clean up all cache resources, please use carefully, `clearLRU` to clean up older resources, `clearLRU` will be called automatically when the storage space of the mini-game platform is full.
+The cache manager provides three interfaces to clean up cache resources: `removeCache`, `clearCache`, `clearLRU` interface, `removeCache` to clean up individual cache resources, `clearCache` to clean up all cache resources, please use carefully, `clearLRU` to clean up older resources, `clearLRU` will be called automatically when the storage space of the mini-game platform is full.
 
 `removeCache` requires the original path of the resource to be provided for removal, for example:
 

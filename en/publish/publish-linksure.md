@@ -10,7 +10,7 @@ The LinkSure Mini Game runs as a **cpk** game package in the mini game environme
 
 ## Release Process
 
-Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build...** panel.
+Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build** panel.
 
   ![](publish-linksure/build.png)
 
@@ -37,6 +37,7 @@ The specific filling rules for the relevant options configuration are as follows
   This option is optional and used to fill in the address of the remote server where the resources are stored.
 
   - If this option is left blank, the `build/linksure/remote` folder in the release package directory will be packaged into the **cpk** package.
+
   - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
   Refer to the Resource Management section at the bottom of the document for more details.
@@ -50,7 +51,7 @@ After the build is complete, click the **Open** button behind the **Build Path**
 
 ### Run the built cpk to the phone
 
-- You need to first contact the [LinkSure Mini Game business](https://www.wjminiapp.com/docs/minigame/guide/flow.html) to become a mini game developer.
+- You need to first contact the [LinkSure Mini Game business [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) to become a mini game developer.
 
 - Enter LinkSure Mini Program Management Platform, click **Mini Program Management -> My Mini Program -> Create Mini Program**, fill in the relevant information, submit and wait for review.
 
@@ -62,9 +63,9 @@ After the build is complete, click the **Open** button behind the **Build Path**
 
   ![](publish-linksure/upload.png)
 
-- Click the **View QR Code** after uploaded, then open the LinkSure Mini Game Debugger already installed on your phone to scan the code. You can now preview the game on the physical device. If you need to debug the game, refer to the official documentation [LinkSure Mini Game debugging](https://www.wjminiapp.com/docs/minigame/guide/debug.html).
+- Click the **View QR Code** after uploaded, then open the LinkSure Mini Game Debugger already installed on your phone to scan the code. You can now preview the game on the physical device. If you need to debug the game, refer to the official documentation [LinkSure Mini Game debugging [zh]](https://www.wjminiapp.com/docs/minigame/guide/debug.html).
 
-For more information, please refer to the [LinkSure Mini Game Development Process](https://www.wjminiapp.com/docs/minigame/guide/flow.html) documentation.
+For more information, please refer to the [LinkSure Mini Game Development Process [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) documentation.
 
 ## Resource Management for the LinkSure Mini Game
 
@@ -74,8 +75,8 @@ Cocos Creator already helps developers with downloading, caching and version man
 
 ## Related Reference Links
 
-- [LinkSure Mini Game Guide](https://www.wjminiapp.com/docs/minigame/guide/)
-- [LinkSure Mini Game Development Process](https://www.wjminiapp.com/docs/minigame/guide/flow.html)
-- [LinkSure Mini Game Debugging Documentation](https://www.wjminiapp.com/docs/minigame/guide/debug.html)
-- [LinkSure Mini Game API Documentation](https://www.wjminiapp.com/docs/minigame/api/)
-- [LinkSure Mini Game Debugger Download](https://www.wjminiapp.com/docs/minigame/guide/download_apk.html)
+- [LinkSure Mini Game Guide [zh]](https://www.wjminiapp.com/docs/minigame/guide/)
+- [LinkSure Mini Game Development Process [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html)
+- [LinkSure Mini Game Debugging Documentation [zh]](https://www.wjminiapp.com/docs/minigame/guide/debug.html)
+- [LinkSure Mini Game API Documentation [zh]](https://www.wjminiapp.com/docs/minigame/api/)
+- [LinkSure Mini Game Debugger Download [zh]](https://www.wjminiapp.com/docs/minigame/guide/download_apk.html)

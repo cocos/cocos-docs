@@ -30,9 +30,8 @@
 
 ### panel (Object)
 
-面板注册，面板注册的键值（Key）是一个以 `panel` 开头的字符串，字符串后面可跟上后缀名用于多面板的注册。
-注册完的面板，将会生成以 `${包名}${面板后缀名}` 为组合的面板 ID，如果没有后缀名（通常我们如果注册一个面板就不会带后缀），
-则面板 ID 直接等于插件包的名字。
+用于面板注册。面板注册的键值（Key）是一个以 `panel` 开头的字符串，字符串后面可跟上后缀名用于多面板的注册。<br>
+注册完成的面板，将会生成以 `${包名}${面板后缀名}` 为组合的面板 ID。通常情况下如果我们只注册一个面板，就不需要带后缀名，面板 ID 默认就是插件包的名字。但如果是注册多个面板，就需要带后缀名，以便区分。
 
 关于多面板注册，这里我们提供了一个简单的例子，在 `package.json` 中：
 
@@ -46,8 +45,8 @@
     "width": 400,
     "height": 300
   },
-  "panel-02": {
-    "main": "panel-02/index.js",
+  "panel.02": {
+    "main": "panel.02/index.js",
     "type": "dockable",
     "title": "Simple Panel 02",
     "width": 400,
@@ -56,9 +55,9 @@
 }
 ```
 
-这样注册完的面板，将会生成两份面板 ID 分别为：`simple-package` 和 `simple-package-02`.
+这样注册完的面板，将会生成两份面板 ID：`simple-package` 和 `simple-package.02`。
 
-关于面板注册信息可详细阅读[面板字段参考](panel-json-reference.md)。
+关于面板注册信息可详细阅读 [面板字段参考](panel-json-reference.md)。
 
 ### reload (Object)
 
@@ -66,8 +65,8 @@
 
 ```json
 "reload": {
-  "test": [ "test/**/*", "tests/**/*" ],
-  "renderer": [ "renderer/**/*", "panel/**/*" ],
+  "test": ["test/**/*", "tests/**/*"],
+  "renderer": ["renderer/**/*", "panel/**/*"],
   "ignore": [],
   "main": []
 }
@@ -75,7 +74,7 @@
 
 ### runtime-resource (Object)
 
-插件通过在 `package.json` 文件中配置 `runtime-resource` 字段来 mount runtime 资源到资源管理器中。配置的格式如下：
+插件通过在 `package.json` 文件中配置 `runtime-resource` 字段 mount runtime 资源到资源管理器中。配置的格式如下：
 
 ```json
 "runtime-resource": {
@@ -84,7 +83,7 @@
 }
 ```
 
-最终在资源管理器中由插件 mount 的文件夹名称为 `[packageName]-[runtime-resource.name]`。且插件导入的资源文件夹为只读的。
+最终在资源管理器中由插件 mount 的文件夹名称为 `[packageName]-[runtime-resource.name]`，且插件导入的资源文件夹为只读状态。
 
 需要注意的是，通过配置 `runtime-resource` 字段将扩展包中的文件夹 mount 到项目资源后，本身就具备自动同步的功能，也就是对扩展包中的 `runtime-resource` 进行的修改会自动同步到项目资源中并触发编译等流程，所以应该将 `runtime-resource` 里 `path` 字段指向的路径添加到 `package.json` 中的 `reload.ignore` 中，否则会引起插件的重复加载：
 

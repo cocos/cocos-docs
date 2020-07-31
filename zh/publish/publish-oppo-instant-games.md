@@ -10,11 +10,27 @@
 
 ## 发布流程
 
-一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **OPPO Mini Game**。
+使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **OPPO Mini Game**。
 
 ![](./publish-oppo-instant-games/build_option.png)
 
+### 参数项配置
+
 相关参数配置具体的填写规则如下：
+
+- **主包压缩类型**
+
+  设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+
+- **配置主包为远程包**
+
+  该项为可选项，需要与 **资源服务器地址** 选项配合使用。<br>
+  勾选后，主包会配置为远程包，并且与其相关依赖资源一起被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
+
+- **初始场景分包**
+
+  该项为可选项。<br>
+  勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
 
 - **游戏包名**
 
@@ -44,11 +60,11 @@
 
   该项为选填项，用于填写资源存放在服务器上的地址。
 
-  - 若不填写该项，则发布包目录下的 **build/quickgame/remote** 文件夹将会被打包到 **rpk** 包内。
+  - 若 **不填写** 该项，则发布包目录下的 `build/quickgame/remote` 文件夹将会被打包到构建出来的 rpk 包中。
 
-  - 若填写该项，则构建出来的 **rpk** 包将不包括 **remote** 文件夹，你需要手动将 **remote** 文件夹上传到所填写的资源服务器地址上。
+  - 若 **填写** 该项，则 remote 文件夹不会被打包到 rpk 包中。开发者需要在构建后手动将 remote 文件夹上传到所填写的资源服务器地址上。
 
-  具体的资源管理细节，请参考 [OPPO 小游戏环境的资源管理](#oppo-%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)。
+  具体的资源管理细节，请参考文档下方的资源管理部分。
 
 - **密钥库**
 
@@ -107,19 +123,21 @@
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-二、**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 OPPO 小游戏工程目录和 rpk，rpk 包在 `build/quickgame/dist` 目录下。
+### 构建
 
-![](./publish-oppo-instant-games/package.jpg)
+**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **quickgame** 目录，该目录就是导出的 OPPO 小游戏工程目录和 rpk，rpk 包在 `build/quickgame/dist` 目录下。
 
-三、将构建出来的 rpk 运行到手机上。
+![](./publish-oppo-instant-games/package.png)
 
-将构建生成的小游戏 rpk 包（`build/quickgame/dist` 目录中）拷贝到手机 SD 卡的 `/sdcard/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，找到填写游戏名相对应的图标即可，若没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
+### 将构建出来的 rpk 运行到手机上。
+
+将构建生成的小游戏 rpk 包拷贝到手机 SD 卡的 `/sdcard/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，找到填写游戏名相对应的图标即可，若没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
 
 **注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的需要将 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) 查看。
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
-四、分包 rpk
+## 分包 rpk
 
 分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。若要使用该功能需要在 Creator 中设置 [小游戏分包](subpackage.md)，设置完成后构建时就会自动分包。
 
@@ -137,7 +155,7 @@
 
 OPPO 小游戏与微信小游戏类似，都存在着包体限制。不过 OPPO 的主包包体限制是 **10MB**，超过的部分必须通过网络请求下载。
 
-我们建议开发者在小游戏包内只保存脚本文件，其他的资源都从远程服务器下载。Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理。具体的实现逻辑和操作步骤都与微信小游戏类似，请参考 [微信小游戏资源的管理](./publish-wechatgame.md#%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)。
+Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理。具体的实现逻辑和操作步骤都与微信小游戏类似，请参考 [微信小游戏资源的管理](./publish-wechatgame.md#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)。
 
 ## 相关参考链接
 

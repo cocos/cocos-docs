@@ -1,6 +1,6 @@
-## 腾讯云 - 云开发 TCB 简介
+## 云开发（腾讯云）快速入门
 
-![](image/tencent-cloud-logo.png)
+## 服务介绍
 
 [**云开发（Tencent Cloud Base，TCB）**](https://cloud.tencent.com/product/tcb) 是腾讯云为移动开发者提供的一站式后端云服务，它帮助开发者统一构建和管理资源，免去了移动应用开发过程中繁琐的服务器搭建及运维、域名注册及备案、数据接口实现等繁琐流程，让开发者可以专注于业务逻辑的实现，而无需理解后端逻辑及服务器运维知识，开发门槛更低，效率更高。
 
@@ -17,51 +17,51 @@
 - **静态加速**：提供了强大的 CDN 加速分发能力，极大缩短了应用响应时间，可实现复杂内容的快速加载，有效解决跨运营商、跨地域高延迟访问问题，显著提升用户访问体验。
 - **身份认证**：提供了端到端身份验证解决方案，支持微信、QQ 等多种登录方式。只需要简单的配置及短短数行代码，即可轻松构建安全的身份验证系统。
 
-## 一键接入腾讯云 TCB 服务
+## 一键接入云开发服务
 
-### 开通 TCB 服务
+### 开通服务
 
 - 需要 Cocos Creator **v2.3.4** 及以上版本。
 
-- 使用 Cocos Creator 打开需要接入 TCB 服务的项目工程。
+- 使用 Cocos Creator 打开需要接入云开发服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板。设定 Cocos AppID 后，选择 **云开发** 项，进入云开发 TCB 服务面板。然后点击右上方的 **启用** 按钮以开通 TCB 服务。详情可参考 [Cocos Service 操作指南](user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入云开发服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
 
     ![](tcb/tcb-provisioning.jpg)
 
-	**计费**：腾讯云 TCB 服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](billing-and-charge.md)。
+	**计费**：云开发服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](billing-and-charge.md)。
 
-	开通服务后，Cocos Service 将自动开通 TCB 服务、联通腾讯云账号，并集成 TCB SDK 到游戏工程中。
+	开通服务后，Cocos Service 将自动开通云开发服务、联通腾讯云账号，并集成云开发 SDK 到游戏工程中。
     
 	**注意**：若之前没有在 Cocos Service 服务面板开通过腾讯云服务，那么在跳转后登录的腾讯云控制台子账号的账号名，是您的 Cocos 账号邮箱，初始密码会发送到该邮箱和 Cocos 后台的站内信。建议登录后，将该子账号与微信绑定，之后便可使用微信扫码登录。
 
-### 验证 TCB 接入是否成功
+### 验证服务是否接入成功
 
 #### 云函数环境的配置
 
-现在我们创建和调用一个简单的云函数，来验证 TCB 云开发接入是否成功。TCB 服务面板对云函数管理流程做了一些整合，大部分操作可以直接在 Cocos Creator 进行。
+现在我们创建和调用一个简单的云函数，来验证云开发接入是否成功。TCB 服务面板对云函数管理流程做了一些整合，大部分操作可以直接在 Cocos Creator 进行。
 
-1. 使用 Creator 打开已经开通 TCB 服务的项目，然后在菜单栏中选择 **面板 -> 云函数** 来打开 **云函数** 面板。
+- 使用 Creator 打开已经开通云开发服务的项目，然后在菜单栏中选择 **面板 -> 云函数** 来打开 **云函数** 面板。
 
-2. 在 **云函数** 面板中，选择一个 **环境 ID**。若之前没有创建过环境，请点击 **新建环境** 按钮，填写一个自定义的 **环境名称**，然后点击确定。
+- 在 **云函数** 面板中，选择一个 **环境 ID**。若之前没有创建过环境，请点击 **新建环境** 按钮，填写一个自定义的 **环境名称**，然后点击确定。
 
     ![](tcb/tcb-env-panel.jpg)
 
     ![](tcb/tcb-env-id.jpg)
 
-3. 返回 **云函数** 面板，若上方显示的当前环境 ID 正确，点击 ID 后面的 **+** 按钮，或者在 `cloud-function` 上点击右键，点击 **新建云函数 (Node.js)**。默认函数名为 `function`。若该环境已有云函数，可以点击 **同步云函数列表 -> 下载云函数**。
+- 返回 **云函数** 面板，若上方显示的当前环境 ID 正确，点击 ID 后面的 **+** 按钮，或者在 `cloud-function` 上点击右键，点击 **新建云函数 (Node.js)**。默认函数名为 `function`。若该环境已有云函数，可以点击 **同步云函数列表 -> 下载云函数**。
 
     ![](tcb/tcb-new-function.jpg)
 
-4. 在 **云函数** 面板的方法名上（`function`）点击右键，选择 **上传云函数**，完成云函数配置。
+- 在 **云函数** 面板的方法名上（`function`）点击右键，选择 **上传云函数**，完成云函数配置。
 
     ![](tcb/tcb-upload-function.jpg)
 
 #### 脚本调试
 
-完成 TCB 服务接入和云函数创建上传步骤后，我们可以通过在脚本中添加简单的代码来验证 TCB 的接入是否成功。
+完成云开发服务接入和云函数创建上传步骤后，我们可以通过在脚本中添加简单的代码来验证云开发的接入是否成功。
 
-- 在脚本中调用 TCB 的初始化。
+- 在脚本中调用云开发的初始化。
 
 	```js
 	// 初始化方法，从配置中读取参数
@@ -85,16 +85,15 @@
 	});
 	```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即可验证 TCB 接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即可验证云开发接入成功。
 
     ![](tcb/tcb-debugging.jpg)
 
+## Sample 工程
 
-## TCB Sample 的集成调试
+- 点击云开发服务面板中的 **Sample 工程** 按钮，Clone 或下载 [TCB Sample 工程](https://github.com/CocosService/tcbDemo)，并在 Cocos Creator 中打开。
 
-- 点击 TCB 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [TCB Sample 工程](https://github.com/CocosService/tcbDemo)，并在 Cocos Creator 中打开。
-
-- 在 **服务** 面板中开通 TCB 服务，具体可参考上部分章节内容介绍。开通服务操作会将 Web 所需的预览插件导入工程。
+- 在 **服务** 面板中开通云开发服务，具体可参考上部分章节内容介绍。开通服务操作会将 Web 所需的预览插件导入工程。
 
 - 然后在菜单栏中点击 **面板 -> 云函数** 来打开 **云函数** 面板。
 
@@ -130,9 +129,9 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 
 ## 文档链接
 
-- [云开发 TCB 简介](https://cloud.tencent.com/document/product/876/18431)
-- [云开发 TCB 计费模式](https://cloud.tencent.com/document/product/876/18864)
-- [云开发 TCB 常见问题](https://cloud.tencent.com/product/tcb/faqs)
-- [云开发 TCB 文档与资源](https://cloud.tencent.com/product/tcb/developer)
+- [云开发简介](https://cloud.tencent.com/document/product/876/18431)
+- [云开发计费模式](https://cloud.tencent.com/document/product/876/18864)
+- [云开发常见问题](https://cloud.tencent.com/product/tcb/faqs)
+- [云开发文档与资源](https://cloud.tencent.com/product/tcb/developer)
 
-更多文档可直接在 [腾讯云文档中心 - 云开发 TCB](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，请参考 **Web** 版 SDK。
+更多文档可直接在 [腾讯云文档中心 - 云开发](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，请参考 **Web** 版 SDK。

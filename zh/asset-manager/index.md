@@ -25,15 +25,15 @@
 
 相关的 API 列表如下：
 
-| 类型 | 支持 | 加载 | 释放 | 预加载 | 获取 | 
-| :-- | :-- | :-- | :-- | :-- | :-- | 
-| 单个资源 | Asset Bundle   | load       | release      | preload      | get | 
-| 文件夹   | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | 
-| 场景     | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | 
-| 单个资源 | `cc.resources` | load       | release      | preload      | get | 
-| 文件夹   | `cc.resources` | loadDir    | releaseAsset | preloadDir   | N/A | 
-| 脚本    | Asset Manager  | loadScript | N/A          | N/A          | N/A | 
-| 远程    | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | 
+| 类型 | 支持 | 加载 | 释放 | 预加载 | 获取 | 查询资源信息 |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| 单个资源 | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
+| 文件夹   | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| 场景     | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
+| 单个资源 | `cc.resources` | load       | release      | preload      | get | getInfoWithPath |
+| 文件夹   | `cc.resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| 脚本     | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
+| 远程     | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
 
 相关文档可参考：
 

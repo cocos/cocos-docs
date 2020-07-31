@@ -16,7 +16,7 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
 | `internal`    | 存放所有内置资源以及其依赖资源 | 通过配置 **资源管理器** 中的 `internal -> resources` 文件夹 |
 | `main`        | 存放所有在 **构建发布** 面板的 **参与构建场景** 中勾选的场景以及其依赖资源  | 通过配置 **构建发布** 面板的 **主包压缩类型** 和 **配置主包为远程包** 两项 |
 | `resources`   | 存放 `resources` 目录下的所有资源以及其依赖资源  | 通过配置 **资源管理器** 中的 `assets -> resources` 文件夹 |
-| `start-scene` | 如果在 **构建发布** 面板中勾选了 **初始场景分包**，则首场景将会被构建到 `start-scene` 中  | 无法进行配置 |
+| `start-scene` | 如果在 **构建发布** 面板中勾选了 **初始场景分包**，则首场景将会被构建到 `start-scene` 中。具体内容可参考 [初始场景的资源加载](../publish/publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。  | 无法进行配置 |
 
 在构建完成后，内置 Asset Bundle 会根据配置决定它所生成的位置，具体的配置方法以及生成规则请参考 [配置 Asset Bundle](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
@@ -89,7 +89,9 @@ Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**�
 
 Asset Bundle 支持脚本分包。如果开发者的 Asset Bundle 中包含脚本文件，则所有脚本会被合并为一个 js 文件，并从主包中剔除。在加载 Asset Bundle 时，就会去加载这个 js 文件。
 
-**注意**：有些平台不允许加载远程的脚本文件，例如微信小游戏，在这些平台上，Creator 会将 Asset Bundle 的代码拷贝到 `src/scripts` 目录下，从而保证正常加载。
+**注意**：
+1. 有些平台不允许加载远程的脚本文件，例如微信小游戏，在这些平台上，Creator 会将 Asset Bundle 的代码拷贝到 `src/scripts` 目录下，从而保证正常加载。
+2. 不同 Asset Bundle 中的脚本是无法互相引用的（包括 `import` 和 `require`），否则在运行时会找不到对应脚本。如果你在不同 Asset Bundle 的脚本之间需要手工引用某些类或变量，可以将该类和变量暴露在一个你自己的全局命名空间中，从而实现共享。
 
 ## FAQ
   
