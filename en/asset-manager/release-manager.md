@@ -1,106 +1,108 @@
 # Release Of Resources
 
-> Author：Santy-Wang
+> Author：Santy-Wang, Xunyi
 
-A release module is provided in Asset Manager to manage the release of resources, automatic release and other functions.
+A resource release module is provided in Asset Manager to manage the release of resources.
 
-## Release resource
+When a resource is loaded, it is temporarily cached in `cc.assetManager` for the next reuse. However, this also causes a constant growth in memory and video memory, so some resources can be released either by **Auto Release** or **Manual Release** if you don't need to use them.<br>
+Releasing a resource will destroy all internal properties of the resource, such as data associated with the rendering layer, and move out of the cache, thus freeing up memory and video memory (for textures).
 
-When a resource is loaded, it is saved in the cache for the next reuse, and this causes memory and graphics to continue to grow, so what you need to do is release it when you don't need it, thereby moving it out of the cache and freeing up memory and graphics (for textures). creator provides both automatic and manual release.
+## Auto Release
 
-### Auto release.
-
-Creator v2.4 provides an auto-release mechanism, first, the scene asset provides an auto-release option, as shown in the figure.
+The automatic release of a scene can be set directly in the editor. When you select the scene in the **Assets** panel, the **Auto Release Assets** option appears in the **Properties** panel.
 
 ![auto-release](release-manager/auto-release.png)
 
-Once checked, an attempt is made to automatically release all dependent resources for that scene when it is switched.
+Once checked, click the **Apply** button on the top right, and then all dependent resources of the scene will be automatically released when you switch the scene. It is recommended to check the **Auto Release Assets** option for all scenes to ensure low memory consumption, except for some high usage scenes (such as the main scene).
 
-Unless it's some high frequency use, such as the main scene, we recommend that you try to check the auto-release option all the way to ensure a low memory footprint.
-
-In addition, the engine provides statistical functions for reference count `cc.Asset.addRef` and `cc.Asset.decRef` for increasing and decreasing reference count, respectively. When you call `decRef`, the Creator will also try to auto-release it.
+In addition, the engine provides statistics functions `cc.Asset.addRef` and `cc.Asset.decRef` for increasing and decreasing reference counts, respectively. When `decRef` is called, Creator will automatically release the resource (it needs to pass a release check first, see the following section for details)
 
 ```js
 start () {
     cc.resources.load('images/background', cc.Texture2D, (err, texture) => {
         this.texture = texture;
-        // Add references to resources when they need to be held
+        // Add references to resources when you need to use them.
         texture.addRef();
         // ...
     });
 }
 
 onDestroy () {
-    // When you don't need to hold resources, reduce their references and Creator will try to auto-release them when calling decRef
+    // Reduce references to resources when you don't need to use them. Creator will try to auto-release them after calling decRef.
     this.texture.decRef();
 }
 ```
 
-The advantage of auto-release is that you don't have to explicitly call the release interface, you just have to maintain the reference count of the resource and Creator will automatically release based on the reference count. This greatly reduces the likelihood of incorrectly releasing resources, and since you don't need to understand the complex referencing relationships between resources, it's recommended that you try to use an automatic form of release for projects with no special needs.
+The advantage of auto-release is that you don't have to explicitly call the release interface, you just need to maintain the reference count of the resource and Creator will release it automatically based on the reference count. This greatly reduces the possibility of releasing resources by mistake, and you don't need to understand the complex referencing relationships between resources. For projects with no special requirements, it is recommended that you use automatic release to release resources as much as possible.
 
-#### Release check.
+#### Release Check
 
-In order to avoid rendering or other problems caused by incorrectly releasing a resource that is being used, a series of checks are performed when the Creator attempts to auto-release a resource, and only by doing so will the resource be released. The inspection procedure is as follows:
+To prevent rendering or other problems caused by incorrectly releasing resources being used, Creator will perform a series of checks before auto-releasing resources:
 
-1. if the reference count for that resource is 0, i.e., there are no references to that resource elsewhere, no follow-up checks are required, the resource is destroyed directly, the cache is removed, and all references to its **direct** dependent resource (without descendants) are reduced by 1, and the release check for the dependent resource is triggered.
+- If the reference count of the resource is **0**, that is, there are no references to it elsewhere, then no follow-up check is required, the resource is destroyed directly and the cache is removed. The reference counts of the resource's all **direct dependent resources** (excluding descendants) are then reduced by 1, and the release check for its dependent resources is triggered.
 
-2. if the resource's citation count is not 0 and there are references to it elsewhere, a circular reference check is required at this point to avoid having its own offspring refer to it. If the reference count is still not 0 after the loop reference check, terminate the release, otherwise destroy the resource directly, remove the cache, and subtract 1 for all references to its **direct** dependent resource (excluding progeny), and trigger the release check for the dependent resource.
+- If the reference count of the resource is **not 0**, that is, there are references to it elsewhere, a circular reference check is required at this point to avoid having its own offspring refer to it. If the reference count is still not 0 after the cyclic reference check, terminate the release. Otherwise, destroy the resource directly and remove the cache, then reduce the reference counts of the resource's all **direct dependent resources** (excluding descendants) by 1, and trigger the release check for its dependent resources.
 
-After the above check, if the resource can be released, it will destroy the resource, remove the cache, and trigger a release check for its dependent resource.
+### Manual Release
 
-### Manual release.
-
-In addition to automatic release, Creator also provides a manual release interface that allows the Asset Manager-related interface to be called to manually release resources when the project has a more complex resource release mechanism.
-
-For example, you could use the following:
+When a more complex resource release mechanism is used in a project, you can call the relevant interfaces of the Asset Manager to manually release resources. For example:
 
 ```js
 cc.assetManager.releaseAsset(texture);
 ```
 
-Releasing the resource will destroy all internal properties of the resource, such as the data associated with the rendering layer, and move the cache out, freeing up memory and video memory (for textures).
+Since the resource management module was upgraded in v2.4, the release interface differs slightly from the previous version:
 
-The release interface in v2.4 is similar to the release interface in previous versions, with the following differences:
+1. The `cc.assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource uuid, resource url, etc. 
 
-1. `cc.assetManager.releaseAsset` The interface can only release a single resource, and for the sake of uniformity, the interface can only be released by the resource itself, not by attributes such as resource uuid, resource url, etc.
+2. When releasing a resource, you only need to focus on the resource itself and the engine will automatically release its dependent resources instead of fetching them manually via the `getDependsRecursively`.
 
-2. For the convenience of developers, it is no longer necessary to obtain dependent resources through `getDependsRecursively` when developers release resources. You just have to focus on the resource itself, and the engine will go and try to **automatically release** its dependent resource.
+**Note**: The `release` series interfaces will release the resource directly without a release check, only resource's dependent resources will have a release check. So when the `release` series interfaces are called explicitly, you can be sure that the resource itself will always be released.
 
-**Note**: Resources released through the `releaseAsset` interface do not themselves undergo a release check, only their dependent resources do. Therefore, the `release` and `releaseAsset` interfaces ensure that the resources themselves are released.
+## Reference Count Statistics
 
-## Reference count statistics
+The reference count statistics in the Asset Manager are different from those implemented in the traditional C++ language. The Asset Manager only automatically counts static references between resources and does not truly reflect how the resources are dynamically referenced in the game. The reasons are as follows:
 
-The first thing to note is that the reference counting statistics in Asset Manager are different from those implemented in the traditional C++ language. Asset Manager only automatically counts static references between resources, and does not reflect how resources are dynamically held in the game. The reasons are:
+1. JavaScript is a language with a garbage collection mechanism that manages its memory, and the upper levels have no way of knowing if a resource has been destroyed or referenced.
 
-1. JavaScript is a language with a garbage collection mechanism that manages its memory, and the upper levels have no way of knowing if a resource is destroyed or referenced.
+2. JavaScript is a dynamically typed language that does not provide the assignment operator overloading, which the reference count statistics are highly dependent on.
 
-2. JavaScript is a dynamically typed language that does not provide for assignment operator override, and the statistics of reference counts are highly dependent on assignment operator overlays.
+Therefore, before v2.4, Creator chose to give the developer control over the release of all resources, both the resource itself and its dependencies, and the developer had to manually obtain all the dependencies of the resource and select the dependencies to be released. This way gave the developer the most control, and worked well for small projects. But as Creator grows, the size of the project grows, the resources referenced by the scene grows, and other scenes may reuse those resources, which causes increasing complexity in releasing resources and it is very difficult for the developer to master the usage of all resources.
 
-So because of these two issues, prior to v2.4, Creator chose for a long time to give the developer control over the release of all resources, both the resource itself and its dependencies, you had to manually get all the dependencies of the resource and select the dependencies that needed to be released, this way gave the developer the most control and worked well for small projects, but as Creator grew and the project grew in size, the resources referenced by the scene grew and other scene may have reused those resources, this caused the complexity of releasing resources to grow and it was very difficult for the developer to master all the resources. To address this pain point, Asset Manager provides a resource release mechanism based on reference counting, allowing developers to simply and efficiently release resources without worrying about dramatic project size inflation. It should be noted that in this case the engine only counts the static references to the resources accurately, but the dynamic references to the resources also need to be controlled by the developer to ensure that the resources can be released correctly.
+To address this pain point, the Asset Manager provides a set of resource release mechanism based on the reference counting, so that developers can release resources simply and efficiently, without worrying about rapid expansion of the project size. It should be noted that in this solution the engine only counts the static references of resources accurately, and dynamic references need to be controlled by the developer to ensure that the resources can be released correctly.
 
-The first thing that needs to be clarified is what is meant by static and dynamic referencing of resources.
+### Static Referencing of Resources
 
-1. when you edit resources in the editor, such as scene, prefab, material, you will set some other resources to their properties, such as set the texture to the material, set the SpriteFrame to the Sprite component in the scene, then these reference relationships will be recorded in the resource serialization data, the engine can analyze the list of dependent resources from this data, then the reference relationships between them are static.
+When you edit the resources in the editor (such as the scene, prefab, material, etc.), you need to configure some other resources in the properties of those resources, such as setting the texture in the materials, setting the SpriteFrame on the Sprite component of the scene. Then these references will be recorded in the serialized data of the resources, which the engine can use to analyze the list of dependent resources, and a reference relationship like this is the static reference.
 
-2. The second scenario is that when you edit a resource in the editor without setting any properties, and when the resource is dynamically loaded in code and set to an in-scene component at game runtime, the reference relationship does not exist in the serialized data at this point, so the engine cannot count this part of the reference relationship, which is called the dynamic reference of the resource.
+The statistics for the static references of resources by the engine are as follows:
 
-Static references to resources by the engine are statistically as follows:
+1. When loading a resource using `cc.assetManager` or Asset Bundle, the engine records all **direct dependent resources** for the resource in the underlying load pipe, adds 1 to the reference count of all **direct dependent resources**, and then initializes the reference count to 0 for the resource.
 
-1. when loading a resource using cc.assetManager or Asset Bundle, record all **direct** dependent resource information for that resource in the underlying load pipeline and add the count of all **direct** dependent resources to 1 and initialize the reference count for that resource to 0.
+2. When releasing a resource, obtain all the **direct dependent resources** information recorded previous for the resource, and subtract the reference count of all dependent resources by 1.
 
-2. obtain **direct** dependent resource information recorded prior to the release of the resource, subtracting the count of all dependent resources by 1.
+This is because a resource can only be auto-released if its reference count is 0 in the release check. So the above steps ensure that the dependent resources of the resource cannot be released before the resource itself, because the reference count of the dependent resources is definitely not 0. That is, as long as a resource itself is not released, its dependent resources will not be released, thus ensuring that the release will not be done incorrectly when reusing the resource. For example:
 
-Because the reference count for that resource needs to be checked to see if it is 0 during the release check, the above step ensures that the child resource cannot be released before the parent resource because its count is certainly not 0. That is, as long as a resource itself is not released, the resource it depends on will not be released, thus ensuring that the release is not made incorrectly when reusing resources. The following are examples.
+1. Suppose you now have a Prefab A that depends on both Material a and Material b. Material a references Texture α, and Material b references Texture β. After loading Prefab A, the reference count for both Material a and Material b are 1, and the reference count for both Texture α and Texture β are also 1.
 
-1. there is an A prefab that depends on two resources: a material, b material, a material that references the texture α, and b material that references the texture β. After loading the A prefab, the counts of a, b material are both 1, and the counts of texture α and β are also 1.
+    ![](release-manager/pica.png)
 
-2. there is now a B prefab that also relies on two resources: b material, c material. After loading, the count of material b is 2 because it is referenced by both preforms, the count of material c is 1, and the count of paste α and β is still 1.
+2. Suppose you now add a Prefab B that depends on both Material b and Material c. After you load the Prefab B, the reference count to Material b is 2, because it is referenced by both the Prefab A and B. The reference count to Material c is 1, and the reference counts for Textures α and β are still 1.
 
-3. At this point, if the prefab A is released, the counts of material a and b are each minus 1. And the count of material a becomes 0, the material a is released, the count of material b becomes 1, and the material b is retained. The count of texture β is still 1 and retained.
+    ![](release-manager/picb.png)
 
-The above example shows that when resources are reused, it is possible to ensure that the reused resources are not released by mistake.
+3. When the Prefab A is released, the reference count for the Materials a and b each decreases by 1.
+    - The reference count of the Material a changes to 0 and is released; so the reference count of the Texture α minus 1 changes to 0 and is also released.
+    - The reference count of the Material b changes to 1 and is retained, so the reference count of the Texture β is still 1 and is also retained.
+    - Because the Prefab B is not released, the reference count for the Material c remains at 1 and is retained.
+    
+    ![](release-manager/picc.png)
 
-If you use dynamically loaded resources for dynamic referencing in your project, for example:
+### Dynamic Referencing of Resources
+
+When you do not make any settings for a resource in the editor, but instead dynamically load the resource and set it to the component of the scene via code, the reference relationships of the resource are not recorded in the serialization data, and the engine cannot count this part of the reference relationships, which are dynamic references.
+
+If you are using dynamically loaded resources in your project for dynamic referencing, for example:
 
 ```js
 cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
@@ -108,7 +110,7 @@ cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-At this point, although this resource is set to the Sprite component, its reference count will remain at 0 by default and no special processing will be done by the engine. If you dynamically load resources that need to be referenced, held, or reused over time, it is recommended that you manually increase the reference count using the `addRef` interface. For example:
+At this point, the SpriteFrame resource is set to the Sprite component and the engine does not do anything special, the reference count of the SpriteFrame remains 0. If the dynamically loaded resources need to be referenced, held, or reused over time, it is recommended to use the `addRef` interface to manually increase the reference count. For example:
 
 ```js
 cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFrame) {
@@ -117,10 +119,9 @@ cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-Increasing the reference count ensures that the resource will not be released early by mistake. And when you don't need to cite the resource, **be sure to remember** to use `decRef` to remove the citation count and set the resource reference to null, for example:
+Increasing the reference count ensures that the resource will not be released early by mistake. Always remember to use `decRef` to remove the reference count and set the resource reference to `null` if you do not need to reference the resource. For example:
 
 ```js
 this.spriteFrame.decRef();
 this.spriteFrame = null;
 ```
-
