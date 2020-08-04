@@ -98,6 +98,7 @@
         - [游戏多媒体引擎（腾讯云）](cocos-service/gme.md)
             - [游戏多媒体引擎（腾讯云）接口文档](cocos-service/gme-api-docs.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
+            - [Cocos SDKHub API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
             - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
