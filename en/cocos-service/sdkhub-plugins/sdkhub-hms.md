@@ -408,5 +408,3 @@ Display Advertising Method.
 | adId | "testx9dtjwj8hp" | Ad ID |
 | pos | "0" | Ad position, optional in the case of Banner, default is "0".<br>"0": directly below.<br>"1": center.<br>"2": directly above. |
 | adSize | "BANNER_SIZE_360_144" | Ad size, optional in the case of Banner, the default is "BANNER_SIZE_360_57", the input value can refer to [Ad Sizes](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576067654264) document. |
-
-

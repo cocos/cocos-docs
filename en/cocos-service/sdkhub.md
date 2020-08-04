@@ -140,5 +140,3 @@ You can get a quick taste of the SDKHub with the sample Project.
 ## API Documentation
 
 Please refer to the [API documentation](https://docs.cocos.com/service/api/modules/sdkhub.html).
-
-
