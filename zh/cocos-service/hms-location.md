@@ -1,4 +1,6 @@
-# 华为 HMS - 定位服务
+# 定位服务（华为 HMS Core）
+
+## 服务介绍
 
 华为定位服务（HUAWEI Location Kit）采用 GPS、Wi-Fi、基站等多途径的混合定位模式进行定位，赋予应用开发者快速、精准地获取用户位置信息的能力，构建全球定位服务能力，助力开发者发展全球业务。当前华为定位服务的主要能力包含三个部分：融合定位、活动识别和地理围栏，开发者可以根据自己的需求，调用相应的能力。
 
@@ -8,7 +10,7 @@
 
 - 地理围栏：应用开发者通过 API 设置感兴趣的位置区域，在指定操作（如离开、进入、驻留）发生时，即可及时收到一个通知。
 
-## 主要功能
+### 主要功能
 
 #### 请求位置更新
 
@@ -24,9 +26,13 @@
 
 地理围栏同时支持页面操作，通过基于地图的拖拽和参数填写创建地理围栏，详情参见服务端开发。
 
-## 开通服务
+## 一键接入定位服务
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 **定位服务** 服务详情页，然后点击右上方的 **启用** 按钮即可。参考 [一键开通服务](./user-guide.md#3、一键开通服务)。
+### 开通服务
+
+- 使用 Cocos Creator 打开需要接入定位服务的项目工程。
+
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入定位服务服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
 
 ![](hms-location/loc-provisioning.jpeg)
 
@@ -34,20 +40,20 @@
 
 - 定位服务可以直接使用，不需要在华为后台额外开通 API。
 
-## 配置华为参数文件
+### 配置华为参数文件
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录，Creator 2.4.2 以上版本可在 **构建** 面板直接配置该文件。
+我们将该文件统一放在工程下的 `/setting` 目录，Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
 
-Creator 2.4.2 以下版本，请参照以下步骤：
+Creator 2.4.3 以下版本，请参照以下步骤：
 
-1. 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-2. 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
-3. 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
-4. 将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
+- 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
+- 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
+- 将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
 
-## 验证服务是否接入成功
+### 验证服务是否接入成功
 
 - 完成 **定位服务** 接入步骤后，我们便可以通过在脚本中添加简单的代码来验证接入是否成功。
 
@@ -70,7 +76,9 @@ huawei.HMS.locationService.requestLocationPermission();
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验定位服务 。
+您可以通过 Sample 工程快速体验定位服务。
+
+- 点击定位服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
 ## 开发指南
 
@@ -78,11 +86,17 @@ huawei.HMS.locationService.requestLocationPermission();
 
 ### 定位服务
 
+`huawei.HMS.locationService`
+
 对应 [华为 HMS 文档 - 定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
 
 #### 检查应用权限
 
+`checkLocationSettings(): void`
+
 检查位置设置各开关是否可用。
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_SETTINGS, (result) => {
@@ -100,7 +114,11 @@ huawei.HMS.locationService.checkLocationSettings();
 
 #### 指定应用权限
 
+`requestLocationPermission(): void`
+
 动态申请位置权限方法。
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
@@ -118,7 +136,11 @@ huawei.HMS.locationService.requestLocationPermission();
 
 #### 持续获取位置信息
 
+`requestLocationUpdates(): void`
+
 如果您希望应用可以持续获取设备位置，需调用该方法。
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REQUEST_LOCATION_UPDATE, (result) => {
@@ -136,6 +158,8 @@ huawei.HMS.locationService.requestLocationUpdates();
 
 当您的应用程序不再需要接收位置更新时，应当停止位置更新，以便于降低功耗。
 
+**示例：**
+
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_LOCATION_UPDATE, (result) => {
     if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
@@ -152,7 +176,11 @@ huawei.HMS.locationService.removeLocationUpdates();
 
 #### 获取最后的已知位置
 
+`getLastLocation(): void`
+
 使用华为定位服务 API，您的应用程序可以获取设备最后的已知位置，大多情况下，该位置即为设备的当前位置。
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LAST_LOCATION, (location) => {
@@ -180,7 +208,19 @@ android:name="android.permission.ACCESS_MOCK_LOCATION"
 tools:ignore="MockLocation,ProtectedPermissions" />
 ```
 
-设置 mock 模式：
+**设置 mock 模式：**
+
+`setMockMode(mockMode: boolean): void`
+
+设置位置提供者是否使用位置模拟模式。为 true 时，将不再使用 GPS 或网络位置，最终直接返回通过 `setMockLocation` 设置的位置信息。
+
+**传入参数：**
+
+| 参数 | 含义 |  
+| :---------- | :------------- |  
+| mockMode | 是否打开 mock 模式 | 
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_MODE, (result) => {
@@ -196,7 +236,20 @@ huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_
 huawei.HMS.locationService.setMockMode(true);
 ```
 
-设置模拟位置信息：
+**设置模拟位置信息**
+
+`setMockLocation(latitude: string, longitude: string): void`
+
+设置具体的模拟位置。必须在调用此方法之前调用 `setMockMode` 并设置为 true。
+
+**参数说明：**
+
+| 参数 | 说明 |  
+| :---------- | :------------- |  
+| latitude | 经度值 | 
+| longitude | 纬度值 |
+
+**示例：**
 
 ```
 huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_LOCATION, (result) => {
@@ -215,17 +268,35 @@ huawei.HMS.locationService.setMockLocation(24.4813889,118.1590724);
 
 ### 活动识别服务
 
+`huawei.HMS.locationActivityService`
+
 对应 [华为 HMS 文档 - 活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
 
 #### 指定应用权限
 
-该权限属于危险权限，使用时需要动态申请。
+`requestRecognitionPermission(): void`
+
+[该权限](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)属于危险权限，使用时需要动态申请。
+
+**示例：**
 
 ```
 huawei.HMS.locationActivityService.requestRecognitionPermission();
 ```
 
 #### 注册活动识别更新
+
+`createActivityIdentificationUpdates(intervalMillis: number): void`
+
+[注册活动识别更新](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397)。
+
+**参数说明：**
+
+| 参数 | 说明 |  
+| :---------- | :------------- |  
+| intervalMillis | 活动检测更新间隔，对应 Java 侧 long 型。以毫秒为单位，值越大，活动检测越少，值越小，活动检测越频繁。 | 
+
+**示例：**
 
 ```
 huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
@@ -243,6 +314,10 @@ huawei.HMS.locationActivityService.createActivityIdentificationUpdates(parseInt(
 
 #### 设置活动识别更新监听
 
+需要设置监听来获取活动识别更新时的返回信息，无主动调用方法。
+
+**示例：**
+
 ```
 huawei.HMS.locationActivityService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_ACTIVITY_UPDATES, (result) => {
     //todo
@@ -256,6 +331,12 @@ huawei.HMS.locationActivityService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAM
 ```
 
 #### 移除活动识别更新
+
+`deleteActivityIdentificationUpdates(): void`
+
+移除所有活动识别更新。
+
+**示例：**
 
 ```
 huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_DELETE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
@@ -273,6 +354,12 @@ huawei.HMS.locationActivityService.deleteActivityIdentificationUpdates();
 
 #### 活动过渡更新
 
+`createActivityConversionUpdates(params: any): void`
+
+接口提供检测活动转换条件（进入、退出）的功能，例如需要检测用户从走路变为骑自行车的状态等。
+
+**示例：**
+
 ```
 huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_CONVERSION_UPDATES, (result) => {
     if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
@@ -285,15 +372,21 @@ huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_N
 });
 let cls = huawei.HMS.HMSConversionInfo;
 let type = huawei.HMS.ACTIVITY_IDENTIFICATION_ENUM;
-let infoList = [
+let params = [
     new cls(type.STILL, type.ENTER),
     new cls(type.STILL, type.LEAVE),
 ];
 
-huawei.HMS.locationActivityService.createActivityConversionUpdates(infoList);
+huawei.HMS.locationActivityService.createActivityConversionUpdates(param);
 ```
 
 #### 移除活动过渡更新
+
+`removeActivityConversionUpdates(): void`
+
+移除活动过渡更新。
+
+**示例：**
 
 ```
 huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
@@ -311,9 +404,13 @@ huawei.HMS.locationActivityService.removeActivityConversionUpdates();
 
 ### 地理围栏服务
 
+`huawei.HMS.locationGeofenceService`
+
 对应 [华为 HMS 文档 - 地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
 
 #### 设置地理围栏监听
+
+**示例：**
 
 ```
 huawei.HMS.locationGeofenceService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_RECEIVE_GEOFENCE_DATA, (result) => {
@@ -323,6 +420,8 @@ huawei.HMS.locationGeofenceService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAM
 ```
 
 #### 创建添加地理围栏的请求
+
+**示例：**
 
 ```
 huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_GEOFENCE_LIST, (result) => {
@@ -355,6 +454,10 @@ huawei.HMS.locationGeofenceService.createGeofenceList(list, initType);
 
 #### 移除地理围栏
 
+`removeWithIntent(): void`
+
+**示例：**
+
 ```
 huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_INTENT, (result) => {
     if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
@@ -371,6 +474,10 @@ huawei.HMS.locationGeofenceService.removeWithIntent();
 
 #### 通过 ID 移除地理围栏
 
+`removeWithID(removeID: string): void`
+
+**示例：**
+
 ```
 huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_ID, (result) => {
     if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
@@ -385,4 +492,6 @@ huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_N
 var removeID = "ID1";
 huawei.HMS.locationGeofenceService.removeWithID(removeID);
 ```
+
+## API 文档
 

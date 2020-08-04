@@ -98,7 +98,7 @@
         - [游戏多媒体引擎](cocos-service/gme.md)
             - [接口文档](cocos-service/gme-api-docs.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
-            - [HUAWEI HMS](cocos-service/sdkhub-plugins/sdkhub-hms.md)
+            - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
         - [发布到 Facebook Instant Games](publish/publish-fb-instant-games.md)

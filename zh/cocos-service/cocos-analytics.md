@@ -77,5 +77,3 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 - [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
 - [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
 - [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)
-
-

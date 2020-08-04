@@ -1317,5 +1317,3 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_PLAY_COMPLETE 	          |  result; file_path  			|  {"file_path":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_SPEECH2TEXT<br>_COMPLETE	|  result; text; <br>file_id		|  {"file_id":"","text":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT<br>_STREAMINGRECOGNITION<br>_COMPLETE |  result; file_path; <br>text;file_id		|  {"file_id":"","file_path":","text":"","result":0}|  
-
-
