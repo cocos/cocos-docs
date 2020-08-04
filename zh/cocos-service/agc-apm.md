@@ -1,8 +1,8 @@
-# 性能管理（华为 AGC）
+# 性能管理（AppGallery Connect）
 
 ## 服务介绍
 
-华为 AppGallery Connect（简称 AGC）性能管理（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 查看和分析 APM 收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。
+华为 AppGallery Connect（简称 AGC）[性能管理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 查看和分析 APM 收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。
 
 ### 主要功能
 
@@ -30,14 +30,14 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录，Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-
-Creator 2.4.3 以下版本，请参照以下步骤：
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
 - 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
 - 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
-- 将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+
+我们将该文件统一放在工程下的 `/setting` 目录。
+
+- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
+- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
 
 ### 验证服务是否接入成功
 
@@ -49,9 +49,13 @@ Creator 2.4.3 以下版本，请参照以下步骤：
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验性能管理服务。
+您可以通过 Sample 工程快速体验定位服务。
 
-- 点击性能管理服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击性能服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+
+- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **APM** 按钮，进入该功能界面进行测试。
 
 ## 开发指南
 
@@ -87,9 +91,9 @@ huawei.AGC.apms.enableCollection(true);
 
 **参数说明：**
 
-|  参数     |   类型         |  含义 |  
-|  :---------- |  :------- |  :------------- |  
-|  name    |  string  |  自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
+| 参数 | 说明 |  
+| :---------- | :------------- |  
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。| 
 
 **示例：**
 
@@ -105,7 +109,7 @@ huawei.AGC.apms.enableCollection(true);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
 
 **示例：**
 
@@ -121,9 +125,9 @@ huawei.AGC.apms.enableCollection(true);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过40字符。| 
-| propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过100字符。| 
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
+| propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 100 字符。| 
 
 **示例：**
 
@@ -145,8 +149,8 @@ huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过40字符。| 
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
 
 **示例：**
 
@@ -167,8 +171,8 @@ huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过40字符。| 
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
 
 **示例：**
 
@@ -189,7 +193,7 @@ console.log("pValue = ", propertValue);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 | measureName | 自定义跟踪记录指标名称。| 
 | measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
 
@@ -213,7 +217,7 @@ huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 | measureName | 自定义跟踪记录指标名称。| 
 
 **示例：**
@@ -234,7 +238,7 @@ console.log("mValue = ", measureValue);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 | measureName | 自定义跟踪记录指标名称。| 
 | measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
 
@@ -258,7 +262,7 @@ huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过100字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 
 **示例：**
 
@@ -283,7 +287,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | url | 网络请求 URL 地址 | 
-| httpMethod | 请求方法，仅支持 GET、PUT、POST、DELETE、HEAD、PATCH、OPTIONS、TRACE 或 CONNECT 方法 | 
+| httpMethod | 请求方法，仅支持 GET、PUT、POST、DELETE、HEAD、PATCH、OPTIONS、TRACE 或 CONNECT 方法。 | 
 
 **示例：**
 
@@ -302,7 +306,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
 **示例：**
 
@@ -318,7 +322,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
 **示例：**
 
@@ -334,7 +338,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | statusCode | 请求的响应码 | 
 
 **示例：**
@@ -351,8 +355,8 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
-| bytesSent | 请求体大小，对应 Java 侧 long 型数值 | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
+| bytesSent | 请求体大小，对应 Java 侧 long 型数值。 | 
 
 **示例：**
 
@@ -368,8 +372,8 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
-| bytesReceived | 响应体大小，对应 Java 侧 long 型数值 | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
+| bytesReceived | 响应体大小，对应 Java 侧 long 型数值。 | 
 
 **示例：**
 
@@ -385,7 +389,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | contentType | 响应体 contentType 类型 | 
 
 **示例：**
@@ -396,15 +400,15 @@ console.log("createNetworkMeasure, id = ", id);
 
 `putNetworkMeasureProperty(id: string, propertyName: string, propertyValue: string): void`
 
-[设置网络请求的自定义属性名称和属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#putProperty)。每个NetworkMeasure实例最多只能设置5个自定义属性。
+[设置网络请求的自定义属性名称和属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#putProperty)。每个 NetworkMeasure 实例最多只能设置 5 个自定义属性。
 
 **参数说明：**
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过40字符 | 
-| propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过100字符。 | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
+| propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 100 字符。 | 
 
 **示例：**
 
@@ -418,14 +422,14 @@ huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
 
 `removeNetworkMeasureProperty(id: string, propertyName: string): void`
 
-[从NetworkMeasure实例中移除已存在属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#removeProperty)。
+[从 NetworkMeasure 实例中移除已存在属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#removeProperty)。
 
 **参数说明：**
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过40字符 | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
 
 **示例：**
 
@@ -444,8 +448,8 @@ huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
-| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过40字符 | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
+| propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
 
 **示例：**
 
@@ -465,7 +469,7 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id | 
+| id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
 **示例：**
 

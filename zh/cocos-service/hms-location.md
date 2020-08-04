@@ -1,8 +1,8 @@
-# 定位服务（华为 HMS Core）
+# 定位服务（HMS Core）
 
 ## 服务介绍
 
-华为定位服务（HUAWEI Location Kit）采用 GPS、Wi-Fi、基站等多途径的混合定位模式进行定位，赋予应用开发者快速、精准地获取用户位置信息的能力，构建全球定位服务能力，助力开发者发展全球业务。当前华为定位服务的主要能力包含三个部分：融合定位、活动识别和地理围栏，开发者可以根据自己的需求，调用相应的能力。
+[华为定位服务](https://developer.huawei.com/consumer/cn/hms/huawei-locationkit)（HUAWEI Location Kit）采用 GPS、Wi-Fi、基站等多途径的混合定位模式进行定位，赋予应用开发者快速、精准地获取用户位置信息的能力，构建全球定位服务能力，助力开发者发展全球业务。当前华为定位服务的主要能力包含三个部分：融合定位、活动识别和地理围栏，开发者可以根据自己的需求，调用相应的能力。
 
 - 融合定位：结合 GPS、Wi-Fi 和基站位置数据，为应用开发者提供一套简单易用的 API，方便开发者快速获取设备位置信息。
 
@@ -44,14 +44,14 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录，Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-
-Creator 2.4.3 以下版本，请参照以下步骤：
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
 - 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
 - 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
-- 将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+
+我们将该文件统一放在工程下的 `/setting` 目录。
+
+- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
+- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
 
 ### 验证服务是否接入成功
 
@@ -79,6 +79,12 @@ huawei.HMS.locationService.requestLocationPermission();
 您可以通过 Sample 工程快速体验定位服务。
 
 - 点击定位服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+
+- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Location** 按钮，进入该功能界面进行测试。
+
+    ![](hms-location/loc-sample.jpg)
 
 ## 开发指南
 
