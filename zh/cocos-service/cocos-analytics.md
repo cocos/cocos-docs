@@ -1,8 +1,6 @@
 # Cocos Analytics 快速入门
 
-## 服务介绍
-
-[Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为您提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
+[Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为开发者提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
 ## 一键接入 Cocos Analytics 服务
 
@@ -10,9 +8,9 @@
 
 - 使用 Cocos Creator 打开需要接入 Cocos Analytics 的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos Analytics 服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Cocos Analytics**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-![](cocos-analytics/analytics-panel.png)
+  ![](cocos-analytics/analytics-panel.png)
 
 - 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
 
@@ -45,7 +43,8 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验 Cocos Analytics 。
+开发者可以通过 Sample 工程快速体验 Cocos Analytics。
+
 - 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中接入 Cocos Analytics 服务，具体可参考上部分章节内容介绍。
@@ -60,15 +59,15 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
   ![](cocos-analytics/analytics-console.png)
 
+  游戏加载后，Cocos Analytics SDK 会在项目构建后的 `main.js` 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 `main.js` 中修改这些参数。初始化后便可以直接调用 Cocos Analytics SDK，发送各种数据给服务器。
+
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [Cocos Analytics SDK 文档](https://n-analytics.cocos.com/docs/zh/h5/interface_h5.html)。
+Cocos Analytics 插件加载时会调用 Cocos Analytics 初始化，无需再做初始化操作。具体的功能接口和说明，请参考 [Cocos Analytics SDK 文档](https://n-analytics.cocos.com/docs/zh/h5/interface_h5.html)。
 
 ## 跨平台发布
 
 开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
-
-游戏加载后，Cocos Analytics SDK 会在项目构建后的 `main.js` 文件中初始化，并且传入上面设置的参数。如果有批量发布的需要，也可以手动在 `main.js` 中修改这些参数。初始化后便可以直接调用 Cocos Analytics SDK，发送各种数据给服务器。
 
 ## 相关参考链接
 

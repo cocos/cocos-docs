@@ -13,7 +13,7 @@ Cocos Service 目前提供的服务包括：
 - [游戏联机对战引擎（腾讯云）](https://cloud.tencent.com/product/mgobe)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
 - [游戏多媒体引擎（腾讯云）](https://cloud.tencent.com/product/gme)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [Agora Voice](https://www.agora.io/cn/)：游戏内置实时音频 SDK。
-- Cocos SDKHub：快速接入第三方原生 SDK。
+- [Cocos SDKHub](sdkhub.md)：快速接入第三方原生 SDK。
 
 更多第三方服务还在不断接入中。
 
@@ -29,8 +29,8 @@ Cocos Service 目前提供的服务包括：
 - [云开发（腾讯云）](tcb.md)
 - [游戏联机对战引擎（腾讯云）](mgobe.md)
 - [游戏多媒体引擎（腾讯云）](gme.md)
-    - [游戏多媒体引擎（腾讯云）接口文档](gme-api-docs.md)
+    - [接口文档](gme-api-docs.md)
 - [Agora 声网](agora.md)
 - [Cocos SDKHub](sdkhub.md)
-    - [Cocos SDKHub API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
+    - [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
     - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

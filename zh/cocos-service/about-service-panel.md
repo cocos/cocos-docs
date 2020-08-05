@@ -16,7 +16,7 @@
 ## 通用说明
 
 - 计费：目前只有 [Agora 声网](agora.md) 有该项，详情可参考 [计费与充值](billing-and-charge.md)。
-- 支持平台：包括 Android、iOS、HTML5、微信小游戏（Cocos Analytics）。
+- 支持平台：包括 Android、iOS、HTML5、微信小游戏，各服务支持的平台有所不同。
 
 ## 插件扩展
 
