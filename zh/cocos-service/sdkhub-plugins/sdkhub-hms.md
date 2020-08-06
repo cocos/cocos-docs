@@ -1,7 +1,5 @@
 # HUAWEI HMS Core 插件使用指南
 
-## 插件介绍
-
 目前 Cocos SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 Cocos SDKHub 接口，处理回调。
 
 插件中的 **账号 & 游戏服务**、**支付服务**、**广告服务** 和 **推送服务** 均可独立使用。
@@ -62,8 +60,8 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
     ![](sdkhub-hms/hms-paykey.jpg)
     
   - [语言支持](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-preparation-v4) 
-    - 此参数为选填项。如果您的应用不需要设置只支持某些特定语言，该参数可以设置为空，应用将默认支持所有 HMS Core SDK 支持的语言。
-    - 如果您的应用需要设置只支持某些特定语言，填写格式为 **"en", "zh-rCN", "需要支持的其他语言"**。
+    - 此参数为选填项。如果开发者的应用不需要设置只支持某些特定语言，该参数可以设置为空，应用将默认支持所有 HMS Core SDK 支持的语言。
+    - 如果开发者的应用需要设置只支持某些特定语言，填写格式为 **"en", "zh-rCN", "需要支持的其他语言"**。
     - HMS Core SDK 支持的语言列表请参考文档 [HMS SDK 支持的语言](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/hmssdk_supported_language)。
 
 
@@ -415,7 +413,7 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 
 #### 判断是否支持应用内支付
 
-判断是否支持应用内支付方法，在使用应用内支付之前，您的应用需要向华为 IAP 发送 isEnvReady 请求，以此判断用户当前登录的华为帐号所在的服务地，是否在华为 IAP 支持结算的国家或地区中。可参考 [应用内支付服务 - 判断是否支持应用内支付](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554507764) 文档。
+判断是否支持应用内支付方法，在使用应用内支付之前，开发者的应用需要向华为 IAP 发送 isEnvReady 请求，以此判断用户当前登录的华为帐号所在的服务地，是否在华为 IAP 支持结算的国家或地区中。可参考 [应用内支付服务 - 判断是否支持应用内支付](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554507764) 文档。
 
 **方法名：**`isEnvReady`
 
@@ -436,7 +434,7 @@ sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 
 #### 展示商品信息 
 
-展示商品信息方法，若您使用在华为 AppGallery Connect 网站上配置的商品，则需要在您的应用中使用 `obtainProductInfo` 接口来获取此类商品的详细信息。可参考 [应用内支付服务 - 展示商品信息方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554496306) 文档。
+展示商品信息方法，若开发者使用在华为 AppGallery Connect 网站上配置的商品，则需要在开发者的应用中使用 `obtainProductInfo` 接口来获取此类商品的详细信息。可参考 [应用内支付服务 - 展示商品信息方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554496306) 文档。
 
 **方法名：**`obtainProductInfo`
 

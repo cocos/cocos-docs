@@ -44,7 +44,7 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
     agora && agora.init(appid);
     ```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在浏览器控制台中看到初始化日志，即可验证 Agora Voice 服务接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在浏览器控制台中看到初始化日志，即为接入成功。
 
     ![](agora/agora-debugging.png)
 
@@ -54,7 +54,7 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
   - 加入通话和离开通话
   - 发布音频流和订阅音频流
 
-- 在 **服务** 面板中接入 Agora Voice 服务，可参考上文 [开通服务](#开通服务)。
+- 在 **服务** 面板中开通 Agora Voice 服务。
 
 - 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为你从 Agora 后台获取的 App ID。
 

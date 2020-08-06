@@ -36,7 +36,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
     });
     ```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Cocos Analytics 接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
 
     ![](cocos-analytics/analytics-debugging.png)
 
@@ -47,7 +47,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 - 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
 
-- 在 **服务** 面板中接入 Cocos Analytics 服务，具体可参考上部分章节内容介绍。
+- 在 **服务** 面板中开通 Cocos Analytics 服务。
 
 - 接入完成后，点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该工程。
 

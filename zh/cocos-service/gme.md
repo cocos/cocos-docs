@@ -33,7 +33,7 @@
 
 	开通服务后，Cocos Service 将自动开通游戏多媒体引擎服务、联通腾讯云账号，并集成游戏多媒体引擎 SDK 到游戏工程中。
     
-	若之前没有在 Cocos Service 服务面板开通过腾讯云服务，跳转登录腾讯云控制台子账号的账号名，是您的 Cocos 账号的邮箱，初始密码会发到该邮箱和 Cocos 后台站内信。建议登录后，将该子账号与微信绑定，之后便可使用微信扫码登录。
+	若之前没有在 Cocos Service 服务面板开通过腾讯云服务，跳转登录腾讯云控制台子账号的账号名，是开发者的 Cocos 账号的邮箱，初始密码会发到该邮箱和 Cocos 后台站内信。建议登录后，将该子账号与微信绑定，之后便可使用微信扫码登录。
 
 ### 验证服务是否接入成功
 
@@ -58,7 +58,7 @@
 	tencentGME && tencentGME.enterRoom(channelid, 1);
 	```
 
-- 脚本修改完成并保存后，回到编辑器，当前游戏多媒体引擎版本不支持 H5 调试，需要 [**打包发布**](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。我们以 iOS 平台为例，若能在 Xcode 的控制台中看到游戏多媒体引擎进入房间相关日志，即可验证游戏多媒体引擎接入成功。
+- 脚本修改完成并保存后，回到编辑器，当前游戏多媒体引擎版本不支持 H5 调试，需要 [**打包发布**](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。我们以 iOS 平台为例，若能在 Xcode 的控制台中看到游戏多媒体引擎进入房间相关日志，即为接入成功。
 
   ![](gme/gme-debugging.jpg)
     
@@ -66,11 +66,14 @@
 
 - 点击游戏多媒体引擎服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
-- 在 **服务** 面板中开通游戏多媒体引擎服务，具体可参考上部分章节内容介绍。开通服务操作会将 Web 所需的预览插件导入工程，然后到 [游戏多媒体引擎后台](https://console.cloud.tencent.com/gamegme) 获取 **AppID** 和 **权限密钥**。
+- 在 **服务** 面板中开通游戏多媒体引擎服务。
+
+- 在 [游戏多媒体引擎后台](https://console.cloud.tencent.com/gamegme) 获取 **AppID** 和 **权限密钥**。
 
   ![](gme/gme-param.jpg)
 
 - 打开工程中的 `assest/Script/index.js`，修改 **appid** 和 **key** 的值。
+
 - 脚本修改完成并保存后，回到编辑器，[打包发布](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。
 
   ![](gme/gme-sample.jpg)
