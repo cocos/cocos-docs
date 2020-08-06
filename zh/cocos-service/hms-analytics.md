@@ -1,6 +1,6 @@
 # 分析服务（HMS Core）
 
-[华为分析服务](https://developer.huawei.com/consumer/cn/hms/huawei-analyticskit)（HUAWEI Analytics Kit）预置大量分析模型，可帮助您清晰地了解用户的行为方式，从而实现用户、产品、内容的深度洞察，让您实现基于数据驱动的运营，可以就应用营销和产品优化制定明智的决策。
+[华为分析服务](https://developer.huawei.com/consumer/cn/hms/huawei-analyticskit)（HUAWEI Analytics Kit）预置大量分析模型，可帮助开发者清晰地了解用户的行为方式，从而实现用户、产品、内容的深度洞察，让开发者实现基于数据驱动的运营，可以就应用营销和产品优化制定明智的决策。
 
 端侧数据采集 SDK，提供了如下能力：
 
@@ -12,7 +12,7 @@
 
 - 预定义事件 + 自定义事件，灵活支撑用户行为分析。
 - 基于对用户行为的洞察，使用受众群体构建能力，对受众群体开展相应的营销活动。
-- 通过概览和通用的分析能力，有效衡量营销活动是否达到预期效果；并帮助您轻松获取常用指标和常见问题的答案。
+- 通过概览和通用的分析能力，有效衡量营销活动是否达到预期效果；并帮助开发者轻松获取常用指标和常见问题的答案。
 
 ## 一键接入分析服务
 
@@ -20,7 +20,7 @@
 
 - 使用 Cocos Creator 打开需要接入分析服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入分析服务服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **分析服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
 ![](hms-analytics/ana-provisioning.jpeg)
 
@@ -31,7 +31,7 @@
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
+- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
 - 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
 
 我们将该文件统一放在工程下的 `/setting` 目录。
@@ -43,15 +43,15 @@
 
 - 完成分析服务接入步骤后，无需改动代码，便可以 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 30 分钟内显示）。即可验证服务接入成功。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 30 分钟内显示），即为接入成功。
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验定位服务。
 
 - 点击分析服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Analytics** 按钮，进入该功能界面进行测试。
 
@@ -120,9 +120,9 @@ huawei.HMS.analytics.setAnalyticsEnabled(true);
 
 `setUserId(userId: string): void`
 
-调用该接口时，如果旧 userId 不为空字符串且和新 userId 不同，会重新生成新的 Session 会话。若您不希望使用 `setUserId` 标识用户（如用户退出时），必须将 userId 设为 null。
+调用该接口时，如果旧 userId 不为空字符串且和新 userId 不同，会重新生成新的 Session 会话。若开发者不希望使用 `setUserId` 标识用户（如用户退出时），必须将 userId 设为 null。
 
-用于应用标识用户的 ID，在分析的服务侧通过此标识进行关联用户数据。使用 userId 需要遵守相关隐私规范，请在您应用的隐私声明中进行声明。
+用于应用标识用户的 ID，在分析的服务侧通过此标识进行关联用户数据。使用 userId 需要遵守相关隐私规范，请在开发者应用的隐私声明中进行声明。
 
 **参数说明：**
 
@@ -162,7 +162,7 @@ this.console.log('setUserProfile', name, value);
 
 `setPushToken(token: string): void`
 
-您可以在通过 Push Kit 获取到 Push Token 后，通过此方法保存 Push Token，以便支撑您使用Analytics Kit 定义的受众创建 HCM 通知任务。
+开发者可以在通过 Push Kit 获取到 Push Token 后，通过此方法保存 Push Token，以便支撑开发者使用Analytics Kit 定义的受众创建 HCM 通知任务。
 
 若通过 [SDKHub](./sdkhub.md) 接入 HMS Core 推送功能，调用 `startPush` 方法返回的回调即为所需的 **Push Token**。
 
