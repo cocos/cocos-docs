@@ -90,7 +90,7 @@
     - [Cocos Service 简介](cocos-service/about-cocos-service.md)
         - [服务面板操作指南](cocos-service/user-guide.md)
         - [计费和充值](cocos-service/billing-and-charge.md)
-    - [服务](cocos-service/service-index.md)
+    - [服务列表](cocos-service/service-index.md)
         - [Cocos Analytics](cocos-service/cocos-analytics.md)
         - [Agora Voice](cocos-service/agora.md)
         - [云开发（腾讯云）](cocos-service/tcb.md)
