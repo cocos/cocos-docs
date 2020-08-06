@@ -41,7 +41,7 @@ To prevent rendering or other problems caused by incorrectly releasing resources
 
 1. If the reference count of the resource is 0, that is, there are no references to it elsewhere, then no follow-up check is required, the resource is destroyed directly and the cache is removed.
 
-2. Once the resource is removed, a release check for its dependent resources is triggered synchronously, and the reference counts of all direct dependent resources (excluding descendants) of the resource after the cache is removed are recursively reduced by 1.
+2. Once the resource is removed, a release check for its dependent resources is triggered synchronously, and the reference counts of all direct dependent resources (excluding descendants) of the resource after the cache is removed are reduced by 1, and a release check is triggered synchronously.
 
 3. If the reference count of the resource is not 0, that is, there are references to it elsewhere, a circular reference check is required at this point to avoid having its own offspring refer to it. If the reference count is still not 0 after the cyclic reference check, terminate the release. Otherwise, destroy the resource directly, remove the cache, and trigger a release check for its dependent resources (as in step 2).
 
