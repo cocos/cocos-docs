@@ -27,7 +27,7 @@ Cocos SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 Coc
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Cocos SDKHub**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-![](sdkhub/sdkhub-provisioning.png)
+  ![](sdkhub/sdkhub-provisioning.png)
 
 开通服务后，Cocos Service 将自动集成 Cocos SDKHub 框架到游戏工程中。
 
@@ -43,7 +43,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
     },2);
     ```
 
-- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，说即为接入成功。
+- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即为接入成功。
 
   ![](sdkhub/sdkhub-debugging.jpg)
     
@@ -249,31 +249,30 @@ sdkhub.getUserPlugin().removeListener();
   sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
   ```
 
-若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
+- 若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
 
-- 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
+  - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
 
-  ```js
-  var params = 0;
-  sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
-  ```
+    ```js
+    var params = 0;
+    sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+    ```
 
-- 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
+  - 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
 
-  ```js
-  var params = {
-      "eventId": "A123456",
-      "growAmount": "20"
-  };
-  sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
-  ```
+    ```js
+    var params = {
+        "eventId": "A123456",
+        "growAmount": "20"
+    };
+    sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
+    ```
 
-- 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
-`callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
+  - 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、`callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
-  ```js
-  Boolean isTrue = sdkhub.getUserPlugin().callBoolFuncWithParam("functionName");
-  ```
+    ```js
+    Boolean isTrue = sdkhub.getUserPlugin().callBoolFuncWithParam("functionName");
+    ```
 
 #### 获取插件 ID
 
@@ -473,7 +472,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 #### 回调值
 
-请参考 [API文档 - UserResultCode](https://docs.cocos.com/service/api/enums/sdkhub.userresultcode.html)。
+请参考 [API 文档 - UserResultCode](https://docs.cocos.com/service/api/enums/sdkhub.userresultcode.html)。
 
 ### 支付插件
 
@@ -515,7 +514,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 ```js
  var params = {
     "Product_Id": "2",
-    "Product_Name": "10元宝",
+    "Product_Name": "10 元宝",
     "Product_Price": "1",
     "Product_Count": "1",
     "Product_Desc": "gold",
@@ -536,7 +535,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 #### 回调值
 
-请参考 [API文档 - FeeResultCode](https://docs.cocos.com/service/api/enums/sdkhub.feeresultcode.html)。
+请参考 [API 文档 - FeeResultCode](https://docs.cocos.com/service/api/enums/sdkhub.feeresultcode.html)。
 
 ### 广告插件
 
@@ -583,7 +582,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 #### 回调值
 
-请参考 [API文档 - AdsResultCode](https://docs.cocos.com/service/api/enums/sdkhub.adsresultcode.html)。
+请参考 [API 文档 - AdsResultCode](https://docs.cocos.com/service/api/enums/sdkhub.adsresultcode.html)。
 
 ### 推送插件
 
@@ -606,7 +605,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
     - 可为每个用户打多个标签。
     - 不同应用程序、不同的用户，可以打同样的标签。
 
-    举例： game, old_page, women
+    举例：game、old_page、women
     
 #### 开始推送
 
@@ -686,7 +685,7 @@ sdkhub.getPushPlugin().delTags(params)
 
 #### 回调值
 
-请参考 [API文档 - PushResultCode](https://docs.cocos.com/service/api/enums/sdkhub.pushresultcode.html)。
+请参考 [API 文档 - PushResultCode](https://docs.cocos.com/service/api/enums/sdkhub.pushresultcode.html)。
 
 ### 自定义插件
 

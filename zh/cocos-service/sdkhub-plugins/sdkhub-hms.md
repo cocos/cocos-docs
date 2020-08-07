@@ -1,6 +1,6 @@
 # HUAWEI HMS Core 插件使用指南
 
-目前 Cocos SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 Cocos SDKHub 接口，处理回调。
+目前 Cocos SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、[推送服务](https://developer.huawei.com/consumer/cn/hms/huawei-pushkit)、和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 Cocos SDKHub 接口，处理回调。
 
 插件中的 **账号 & 游戏服务**、**支付服务**、**广告服务** 和 **推送服务** 均可独立使用。
 
@@ -65,7 +65,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
     - HMS Core SDK 支持的语言列表请参考文档 [HMS SDK 支持的语言](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/hmssdk_supported_language)。
 
 
-- 请在工程中的 `config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在 AppGallery Connect 后台 [配置生成](#准备工作)。
+- 请在工程中的 `config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在 AppGallery Connect 后台 配置生成，可参考 [配置商品信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-product-0000001050033076) 与 [配置成就和事件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/config-agc-0000001050166285-V5#ZH-CN_TOPIC_0000001051142256__section122826183710)。
 
 - 配置完成并接入相关 API 接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
@@ -111,14 +111,14 @@ HMS Core SDK 插件已在生命周期内调用 SDK 的浮标接口。**无需** 
 
 **展示成就**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | type | "getShowAchievementListIntent"<br>"getAchievementList" | 直接跳转或执行展示成就列表 |
 | forceReload | "1" | "getAchievementList" 情况可选参数：<br>"0"：不联网，表示从本地缓存获取<br>"1"：联网，表示直接从游戏服务器获取。<br>默认为 "1" |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -130,7 +130,7 @@ sdkhub.getUserPlugin().showAchievements(params);
 
 **解锁成就**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -138,7 +138,7 @@ sdkhub.getUserPlugin().showAchievements(params);
 | achievementId | "5D9580837D32CB59Cxxx" | 后台配置后生成的成就 ID |
 | stepsNum | "50" | 当前成就的步长，growWithResult 和 makeStepsWithResult 情况需要该参数 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -155,7 +155,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 **显示排行榜**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -167,7 +167,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 | offsetPlayerRank | "1" | "getMoreRankingScores" 必传，"getPlayerCenteredRankingScores" 与 "getRankingTopScores" 可选，从 offsetPlayerRank 指定的位置，根据 pageDirection 指定的数据获取方向获取一页数据，offsetPlayerRank 取值必须为大于等于 0 的整数。<br>例如 offsetPlayerRank 取值为 5，pageDirection 取值为 0，表示从排行榜的第 5 位分数向下获取一页数据。 |
 | pageDirection | "0" | "getRankingTopScores"、"getPlayerCenteredRankingScores" 可选，数据获取方向。<br>"0"：下一页<br>"1"：上一页，默认为 "0" |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -183,7 +183,7 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 
 **提交分数**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -201,17 +201,17 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 
 可参考 [账号服务开发指南 - 华为帐号取消授权](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730230709) 文档，为了提升应用隐私安全，应用可以提供入口，供用户取消对应用的授权。
 
-**方法名：**`cancelAuthorization`
+**方法名**：`cancelAuthorization`
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -224,22 +224,20 @@ sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 
 - 当玩家登录游戏或从后台切到游戏前台时，调用 `submitPlayerEventStart`。游戏定期调用 `getPlayerExtraInfo` 方法查询玩家附加信息。服务器允许的最高频率为 10 分钟查询一次，一般建议 15 分钟查询一次。当玩家退出游戏、从前台切到后台或游戏异常退出（进程终止、手机重启等）时，会调用 `submitPlayerEventEnd` 上报玩家退出游戏事件。
 
-- **注意：**`submitPlayerEventStart` 和 `getPlayerExtraInfo` 如果回调中 `retCode` 返回 7002 或 7006 错误码，需进行如下处理：
+- **注意**：`submitPlayerEventStart` 和 `getPlayerExtraInfo` 如果回调中 `retCode` 返回 7002 或 7006 错误码，需进行如下处理：
 
   - 7002：需判断是否为网络问题，如果不是网络问题则表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
   - 7006：表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
 
-**方法名：**
+**方法名**：
 
     - `submitPlayerEventStart` 上报玩家进入游戏事件
     - `submitPlayerEventEnd`上报玩家退出游戏事件
     - `getPlayerExtraInfo` 查询玩家附加信息
 
-**参数说明：**
+**参数说明**：无需参数。
 
-无需参数。
-
-**示例：**
+**示例**：
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("submitPlayerEventStart");
@@ -247,7 +245,7 @@ sdkhub.getUserPlugin().callFuncWithParam("submitPlayerEventEnd");
 sdkhub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -264,16 +262,16 @@ sdkhub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
 
 **上报事件方法**
 
-**方法名：**`submitEvent`
+**方法名**：`submitEvent`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | eventId | "5D9580837D32CB59Cxxx" | 当前事件的 ID，在配置事件时生成，后台获取。 |
 | growAmount | "20" | 在已有事件数值的基础上要增量增加的数值。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -283,7 +281,7 @@ var params = {
 sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 sdkhub.UserResultCode.kUserExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -291,16 +289,16 @@ sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 
 #### 获取玩家事件的数据
 
-**方法名：**`getEvent`
+**方法名**：`getEvent`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | forceReload | "1" | 可选，默认为 "1"。<br>"0"：不联网，表示从本地缓存获取。<br>"1"：联网，表示直接从游戏服务器获取。 |
 | eventIds | "eventId1, eventId2" | 可选，传入事件 ID，获取特定事件数据，通过逗号分隔。不传则返回所有事件数据。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -310,7 +308,7 @@ var params = {
 sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -321,22 +319,22 @@ sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 
 玩家信息统计方法，可参考 [游戏服务 - 玩家信息统计](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-playerinfo-development) 文档。玩家信息统计是指开发者可以从华为游戏服务器获取当前玩家在游戏中的多种统计信息，帮助开发者更深度了解玩家的游戏习惯，以便根据玩家的游戏进度、支付能力等构建更适合该玩家的游戏体验。
 
-**方法名：**`getGamePlayerStats`
+**方法名**：`getGamePlayerStats`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | isRealTime | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。本地缓存时间为5分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = 0;
 sdkhub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -347,22 +345,22 @@ sdkhub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
 
 获取游戏基本信息方法，可参考 [游戏服务 - 游戏基本信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/game-baseinfo-development) 文档。游戏基本信息是指游戏应用的相关信息，例如游戏的应用ID、游戏名称、游戏描述、游戏分类等。当开发者需要在游戏中使用游戏应用的信息时，可以从华为游戏服务器获取游戏基本信息。
 
-**方法名：**`getGameSummary`
+**方法名**：`getGameSummary`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | isLocal | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = 0;
 sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -373,7 +371,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 
 自动读取短信验证码方法，可选，可参考 [账号服务 - 自动读取短信验证码](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730317319) 文档。本插件在 User 系统初始化时调用了请求开启短信读取服务，用户无需调用代码，**仅需处理回调**。
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -399,7 +397,7 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 
 由于 HMS Core SDK 现在要求商品都在后台配置，通过商品 ID 调用支付方法，仅需要传以下参数。
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -415,17 +413,17 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 
 判断是否支持应用内支付方法，在使用应用内支付之前，开发者的应用需要向华为 IAP 发送 isEnvReady 请求，以此判断用户当前登录的华为帐号所在的服务地，是否在华为 IAP 支持结算的国家或地区中。可参考 [应用内支付服务 - 判断是否支持应用内支付](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554507764) 文档。
 
-**方法名：**`isEnvReady`
+**方法名**：`isEnvReady`
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
 ```js
 sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -436,16 +434,16 @@ sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 
 展示商品信息方法，若开发者使用在华为 AppGallery Connect 网站上配置的商品，则需要在开发者的应用中使用 `obtainProductInfo` 接口来获取此类商品的详细信息。可参考 [应用内支付服务 - 展示商品信息方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554496306) 文档。
 
-**方法名：**`obtainProductInfo`
+**方法名**：`obtainProductInfo`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | productIdList | "item1,item2" | 后台配置商品的商品 ID，若需传入多个以逗号分隔。 |
 | priceType | "0" | 可选，0/1/2 分别对应消耗型商品，非消耗型商品和订阅型商品，不传则默认为 0。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {
@@ -455,7 +453,7 @@ var params = {
 sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -484,22 +482,22 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 
 **查询用户所有已订购商品信息**
 
-**方法名：**`obtainOwnedPurchases`
+**方法名**：`obtainOwnedPurchases`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | type | 0 |  Number 型，0/1/2 分别对应消耗型商品、非消耗型商品、订阅商品。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = 0;
 sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -508,20 +506,20 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
 
 **对已发货商品进行消耗**
 
-**方法名：**`consumeOwnedPurchase`
+**方法名**：`consumeOwnedPurchase`
 
-**参数说明：**
+**参数说明**：
 
 支付成功回调的 msg 转为 JSON 对象后，获取其中的 `inAppPurchaseData`。可参考 Sample 工程写法。
 
-**示例：**
+**示例**：
 
 ```js
 params = conf.paymentReceipt[0]["inAppPurchaseData"];
 sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -532,22 +530,22 @@ sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 
 查看用户购买历史方法，可参考 [应用内支付服务 - 查看用户购买历史](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554422714) 文档。对于消耗型商品，可使用该接口获取用户所有已消耗即已发货的商品信息。
 
-**方法名：**`obtainOwnedPurchaseRecord`
+**方法名**：`obtainOwnedPurchaseRecord`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | type | 0 |  Number 型，0/1/2 分别对应消耗型商品、非消耗型商品和订阅型商品。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = 0;
 sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -558,22 +556,22 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 
 提供订阅管理的页面跳转方法，可参考 [订阅专用功能说明 - 提供订阅管理的页面跳转](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-subscription-functions-v4#h1-1576566818427) 文档。开发者的应用可以通过该接口跳转到华为 IAP 的管理订阅页面和编辑订阅页面。
 
-**方法名：**`startIapActivity`
+**方法名**：`startIapActivity`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | reqType | "TYPE_SUBSCRIBE_EDIT_ACTIVITY" | 若传入"TYPE_SUBSCRIBE_EDIT_ACTIVITY" 显示编辑订阅页面<br>若传入 "TYPE_SUBSCRIBE_MANAGER_ACTIVITY" 显示管理订阅页面。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = {"reqType": "TYPE_SUBSCRIBE_MANAGER_ACTIVITY"};
 sdkhub.getFeePlugin().callFuncWithParam("startIapActivity", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -590,14 +588,14 @@ Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 
 
 #### 预加载广告
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | adType | "Interstitial"<br>"Reward"  | 广告类型 |
 | adId | "testb4znbuh3n2" | 广告 ID |
 
-**示例：**
+**示例**：
 
 ```js
 var params = { "adType": "Reward", "adId": "testx9dtjwj8hp" };
@@ -606,7 +604,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 #### 显示广告
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -615,7 +613,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 | pos | "0" | 广告位置，Banner 情况下可选，默认为 "0"。<br>"0"：正下方<br>"1"：正中<br>"2"：正上方 |
 | adSize | "BANNER_SIZE_360_144" | 广告尺寸，Banner 情况下可选，默认为 "BANNER_SIZE_360_57"，传入值可参考 [广告尺寸](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576047688608) 文档。 |
 
-**示例：**
+**示例**：
 
 ```js
 var params = { "adType": "Banner", "adId": "testw6vs28auh3", "pos": "0", "adSize": "BANNER_SIZE_360_144" };
@@ -644,17 +642,17 @@ HMS Core SDK 的 [设置标签](../sdkhub.md/#设置标签) 和 [删除标签](.
 
 **打开显示通知栏消息**
 
-**方法名：**`turnOnPush`
+**方法名**：`turnOnPush`
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
 ```js
 sdkhub.getPushPlugin().callFuncWithParam("turnOnPush");
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -663,17 +661,17 @@ sdkhub.getPushPlugin().callFuncWithParam("turnOnPush");
 
 **关闭显示通知栏消息**
 
-**方法名：**`turnOffPush`
+**方法名**：`turnOffPush`
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
 ```js
 sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -684,9 +682,9 @@ sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 
 发送上行消息功能，可参考 [推送服务 - 发送上行消息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/push-upstreammessagesending) 文档。该方法仅提供客户端接口，若用户需要接入，需要参考文档完成服务端部分。
 
-**方法名：**`sendMessage`
+**方法名**：`sendMessage`
 
-**参数说明：**
+**参数说明**：
 
 仅有 `messageId` 为必传，部分参数可对应文档 [RemoteMessage.Builder](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5)，传入指定参数便会调用相关方法。传入其他 Key 和 Value 值，便可用来上行给服务端。
 
@@ -700,7 +698,7 @@ sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 | ttl | "10000" | 可选，设置消息的最大缓存时间，单位秒，支持设置最大15天 [0, 1296000]。 |
 | 其他 key 值 | 其他 Value 值 | 可传任意多组，上行给服务端的信息。 |
 
-**示例：**
+**示例**：
 
 ```js
  var params = {
@@ -717,7 +715,7 @@ sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 sdkhub.getPushPlugin().callFuncWithParam("sendMessage", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
