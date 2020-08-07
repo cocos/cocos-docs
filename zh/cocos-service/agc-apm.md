@@ -1,4 +1,4 @@
-# 性能管理（AppGallery Connect）
+# 性能管理（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[性能管理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 查看和分析 APM 收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。
 
@@ -7,8 +7,8 @@
 | 功能 | 说明 |
 | --- | --- |
 | 自动采集应用启动、应用屏幕、HTTP/HTTPS 网络请求等方面的性能数据 | APM SDK 能够自动采集应用启动、应用屏幕、HTTP/HTTPS 网络请求等关键性能数据。<br><br>1. 应用启动性能数据：记录应用启动（冷启动和热启动）时间。<br><br>2. 应用屏幕性能数据：记录应用屏幕渲染缓慢帧和冻结帧数量。<br><br>3. HTTP/HTTPS网络性能数据：SDK记录响应时长，成功率，响应大小等指标数据。 |
-| 支持查看和分析应用性能数据，精准发现应用性能在哪些方面有改进空间 | APM 通过多个维度（版本号、国家/地区、手机类型、一级区域、系统版本、运营商、网络）向您展示应用的性能指标，帮助您快速了解应用在哪些方面可优化改进。 |
-| 支持创建自定义跟踪记录，监控应用在特定场景下的性能 |  借助APM SDK，您可以：<br><br>1. 创建自定义跟踪记录来监控应用在特定场景，如用户登录或者屏幕加载场景下的性能。<br><br>2. 为自定义跟踪记录添加指标（如登录次数）和属性（如登录是否成功）。|
+| 支持查看和分析应用性能数据，精准发现应用性能在哪些方面有改进空间 | APM 通过多个维度（版本号、国家/地区、手机类型、一级区域、系统版本、运营商、网络）向开发者展示应用的性能指标，帮助开发者快速了解应用在哪些方面可优化改进。 |
+| 支持创建自定义跟踪记录，监控应用在特定场景下的性能 |  借助APM SDK，开发者可以：<br><br>1. 创建自定义跟踪记录来监控应用在特定场景，如用户登录或者屏幕加载场景下的性能。<br><br>2. 为自定义跟踪记录添加指标（如登录次数）和属性（如登录是否成功）。|
 
 ## 一键接入性能管理服务
 
@@ -16,11 +16,11 @@
 
 - 使用 Cocos Creator 打开需要接入性能管理服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入性能管理服务详情页，然后点击右上方的 **启用** 按钮即可。可参考 [一键开通服务](./user-guide.md#一键开通服务)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **性能管理**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
     ![](agc-apm/apm-provisioning.jpeg)
 
-- 如果华为后台的 **APM 性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**，进入 **质量 -> 性能管理**。如果 **性能管理 APM** 服务未开通，请点击 **立即开通** 按钮，开通服务。
+- 如果华为后台的 **APM 性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**，进入 **质量 -> 性能管理 -> **立即开通** 按钮，开通服务。
 
     ![](agc-apm/apm-open.png)
 
@@ -29,7 +29,7 @@
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。
+- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
 - 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
 
 我们将该文件统一放在工程下的 `/setting` 目录。
@@ -41,17 +41,17 @@
 
 - 完成 **APM 性能管理** 服务接入步骤后，无需改动代码，便可以 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 性能管理**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示）。即可验证服务接入成功。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 性能管理**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
 
 ![](agc-apm/apm-console.jpeg)
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验定位服务。
 
 - 点击性能服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **APM** 按钮，进入该功能界面进行测试。
 
@@ -79,7 +79,7 @@ huawei.AGC.apms.enableCollection(true);
 
 ### 添加自定义跟踪记录（可选）
 
-对应 [华为 AGC - 添加自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addtrace)。自定义跟踪记录可用于监控您的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。性能管理插件封装后的方法，比起 SDK 原型方法，需要加入 `name` 参数，用于获取对象调用。若当前名称的对象不存在，则会再新建一个对象。
+对应 [华为 AGC - 添加自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addtrace)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。性能管理插件封装后的方法，比起 SDK 原型方法，需要加入 `name` 参数，用于获取对象调用。若当前名称的对象不存在，则会再新建一个对象。
 
 #### 启动自定义跟踪记录
 
@@ -272,7 +272,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### 添加针对特定网络请求的监控指标（可选）
 
-对应 [华为 AGC 文档 - 添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure)。自定义跟踪记录可用于监控您的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。
+对应 [华为 AGC 文档 - 添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。
 
 #### 创建网络请求指标实例
 

@@ -1,7 +1,5 @@
 # Cocos SDKHub 快速入门
 
-## 服务介绍
-
 Cocos SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。
 
 游戏在开发完成准备发布到渠道上架时，通常需要接入渠道的 SDK，集成渠道的账户、支付、广告、游戏服务等功能。如果游戏同时要发布到多个渠道，由于同样的功能各家渠道的 SDK 接口却不尽相同，这会使开发者苦不堪言，需要编写很多兼容性代码来维护 SDK 集成工作。因此市面上出现了很多用来抽象这些 SDK 的 “超级 SDK”，例如 Cocos 官方之前推出的 AnySDK，不过后来由于一些原因 AnySDK 不再维护和更新了。
@@ -25,7 +23,9 @@ Cocos SDKHub 主要分为 **框架层** 和 **插件层** 两大部分，由 Coc
 
 ### 开通服务
 
-使用 Cocos Creator 打开需要接入 Cocos SDKHub 服务的游戏工程。点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，进入 Cocos SDKHub 服务详情页，然后点击右上方的 **启用** 按钮即可。详情请参考 [一键开通服务](./oneclick-provisioning.md)。
+- 使用 Cocos Creator 打开需要接入 Cocos SDKHub 服务的项目工程。
+
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Cocos SDKHub**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
 ![](sdkhub/sdkhub-provisioning.png)
 
@@ -43,7 +43,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
     },2);
     ```
 
-- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即可验证 Cocos SDKHub 接入成功。
+- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，说即为接入成功。
 
   ![](sdkhub/sdkhub-debugging.jpg)
     
@@ -91,7 +91,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
 
 在创建好配置集，并为配置集配置好插件和参数后，我们需要在构建发布时，选择对应的配置集，才能最终编译出集成有 SDK 的游戏包。
 
-打开 Cocos Creator 顶部菜单的 **项目 -> 构建发布**，当选择 **Android**、**iOS**、**HUAWEI AppGallery Connect** 等平台时（目前 Cocos SDKHub 暂时只支持这些原生平台），会显示 **Cocos SDKHub 配置** 项，并列出您在服务面板中创建的配置集（Creator v2.4.1 新增，之前的旧版本会默认使用 **服务** 面板中 Cocos SDKHub 面板选择的配置集），然后选择对应的配置集即可。
+打开 Cocos Creator 顶部菜单的 **项目 -> 构建发布**，当选择 **Android**、**iOS**、**HUAWEI AppGallery Connect** 等平台时（目前 Cocos SDKHub 暂时只支持这些原生平台），会显示 **Cocos SDKHub 配置** 项，并列出开发者在服务面板中创建的配置集（Creator v2.4.1 新增，之前的旧版本会默认使用 **服务** 面板中 Cocos SDKHub 面板选择的配置集），然后选择对应的配置集即可。
 
 ![](sdkhub/sdkhub-build.png)
 
@@ -99,11 +99,11 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## Sample 工程
 
-您可以通过 Sample 工程快速体验 Cocos SDKHub。
+开发者可以通过 Sample 工程快速体验 Cocos SDKHub。
 
 - 点击 Cocos SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载 Cocos SDKHub Sample 工程，并在 Cocos Creator 中打开。
 
-- 若以集成 **HUAWEI HMS Core** 为例，可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。 
+- 以集成 **HUAWEI HMS Core** 为例，具体内容可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。 
 
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在 **构建发布** 面板重新构建即可。
 
@@ -145,7 +145,7 @@ var users = sdkhub.getUserPlugins();
 
 `getSupportPluginIds(): string`
 
-获取插件列表，可在判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 开头的字段来判断是否存在该类型插件，也可通过其中的插件名，获取指定的插件对象。
+可通过判断是否含有 `User`、`Fee`、`Ads`、`Push` 或 `Custom` 开头的字段来判断是否存在该类型插件，也可通过其中的插件名，获取指定的插件对象。
 
 **示例：**
 
@@ -155,8 +155,6 @@ var users = sdkhub.getUserPlugins();
 
 `getFrameworkVersion(): string`
 
-获取 Cocos SDKHub 框架版本号
-
 **示例：**
 
 `var version = sdkhub.getFrameworkVersion();`
@@ -164,8 +162,6 @@ var users = sdkhub.getUserPlugins();
 #### 获取插件支持的方法
 
 `getPluginMethods(plugin: PluginProtocol): string`
-
-获取插件支持的方法
 
 **示例：**
 
@@ -249,36 +245,35 @@ sdkhub.getUserPlugin().removeListener();
 
 - 若调用方法不需要传入参数，以华为 HMS Core `cancelAuthorization` 方法为例：
 
-```js
-sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
-```
+  ```js
+  sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");    
+  ```
 
 若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
 
 - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
 
-```js
-var params = 0;
-sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
-```
+  ```js
+  var params = 0;
+  sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
+  ```
 
 - 以传入参数为 JSON 对象的华为 HMS Core `submitEvent` 方法为例：
 
-```js
-var params = {
-    "eventId": "A123456",
-    "growAmount": "20"
-};
-sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
-```
+  ```js
+  var params = {
+      "eventId": "A123456",
+      "growAmount": "20"
+  };
+  sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
+  ```
 
-若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
+- 若通过扩展方式调用的 SDK 方法，有直接返回值，则可调用 `callBoolFuncWithParam`、`callFloatFuncWithParam`、`callIntFuncWithParam`、
 `callStringFuncWithParam` 等方法代替 `callFuncWithParam`：
 
-```js
-Boolean isTrue = sdkhub.getUserPlugin().callBoolFuncWithParam("functionName");
-```
-
+  ```js
+  Boolean isTrue = sdkhub.getUserPlugin().callBoolFuncWithParam("functionName");
+  ```
 
 #### 获取插件 ID
 
@@ -714,5 +709,3 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
-
-

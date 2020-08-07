@@ -2,7 +2,7 @@
 
 为方便 Cocos Creator 开发者调试和接入游戏多媒体引擎（腾讯云）产品 API，本文为通过 Cocos Service 服务面板，接入游戏多媒体引擎的接口文档。
 
-- 此文档对应游戏多媒体引擎 GME SDK 的版本为 **2.5.2**。
+- 此文档对应游戏多媒体引擎 SDK 的版本为 **2.5.2**。
 - 函数原型为 [游戏多媒体引擎 Cocos SDK 接口文档](https://cloud.tencent.com/document/product/607/15218) 中定义的接口，Cocos Service 接入时设置了一个全局变量 `tencentGME.tencentGMEInst`，可参考示例代码接入。
 
 ## 游戏多媒体引擎的重要接口
