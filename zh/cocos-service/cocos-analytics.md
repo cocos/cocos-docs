@@ -45,7 +45,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 开发者可以通过 Sample 工程快速体验 Cocos Analytics。
 
-- 点击游戏多媒体引擎服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
+- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中开通 Cocos Analytics 服务。
 
