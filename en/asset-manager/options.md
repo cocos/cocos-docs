@@ -15,19 +15,19 @@ The optional parameters serve as a communication tool between the upper level bu
 1. The parameters `priority`, `maxConcurrency`, `maxRequestsPerFrame`, `maxRetryCount` are used to control the downloader's prioritization of download requests, the limit on the number of parallel loads, the limit on the number of requests that can be initiated per frame and the maximum number of retries. For example, you could use the following:
 
     ```js
-    cc.assetManager.loadAny({ 'path': 'image/background' }, { priority: 2, maxRetryCount: 10 }, callback);
+    cc.assetManager.loadAny({'path': 'image/background'}, {priority: 2, maxRetryCount: 10}, callback);
     ```
 
 2. Control the processing of the downloader and parser, the handler of the downloader and parser can receive optional parameters set by the business logic, the handler of resources such as text files and binaries in the downloader can accept `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `onFileProgress` optional parameters to set the XHR return type, header, download progress callback and other parameters, while the processing of audio files can accept `audioLoadMode` parameter to control whether to use `WebAudio` to load audio. You can use the following:
 
     ```js
     // Get download progress
-    cc.assetManager.loadAny({ 'path': 'image/background' }, { onFileProgress: function (loaded, total) {
+    cc.assetManager.loadAny({'path': 'image/background'}, {onFileProgress: function (loaded, total) {
         console.log(loaded/total);
     } }, callback);
 
     // Loading audio using web audio form
-    cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.WEB_AUDIO }, callback);
+    cc.assetManager.loadRemote('http://example.com/background.mp3', {audioLoadMode: cc.AudioClip.LoadMode.WEB_AUDIO}, callback);
     ```
 
     **Note**: The loading progress of the resource must be configured on the server side if you want to access it.
@@ -37,9 +37,9 @@ The optional parameters serve as a communication tool between the upper level bu
 3. To control the loading process, the loading pipeline accepts `reload`, `cacheAsset`, `cacheEnabled` optional parameters to control whether to reuse resources in the cache and whether to cache resources and whether to cache files. Parameters such as `uuid`, `url`, `path`, `dir`, `scene`, `type`, `ext`, `bundle` are used to search resources. You can use the following:
 
     ```js
-    cc.assetManager.loadAny({ path: 'images/background', type: cc.SpriteFrame, bundle: 'resources' }, callback);
+    cc.assetManager.loadAny({'path': 'images/background', type: cc.SpriteFrame, bundle: 'resources'}, callback);
 
-    cc.assetManager.loadAny({ dir: 'images', type: cc.SpriteFrame, bundle: 'resources' }, callback);
+    cc.assetManager.loadAny({'dir': 'images', type: cc.SpriteFrame, bundle: 'resources'}, callback);
     ```
 
     This approach is exactly equivalent to using `cc.resources.load` and `cc.resources.loadDir` directly.
@@ -61,7 +61,7 @@ cc.assetManager.pipeline.insert(function (task, done) {
     done();
 }, 1);
 
-cc.assetManager.loadAny({ path: 'images/background'}, { myParam: 'important' }, callback);
+cc.assetManager.loadAny({'path': 'images/background'}, {myParam: 'important'}, callback);
 
 // Register handler
 cc.assetManager.downloader.register('.myformat', function (url, options, callback) {
@@ -88,7 +88,7 @@ cc.assetManager.parser.register('.myformat', function (file, options, callback) 
     callback(null, file);
 });
 
-cc.assetManager.loadAny({ url: 'http://example.com/myAsset.myformat' }, { isCrossOrigin: true }, callback);
+cc.assetManager.loadAny({'url': 'http://example.com/myAsset.myformat'}, {isCrossOrigin: true}, callback);
 ```
 
 By combining pipelines, customized handler and the optional parameters, the engine can be greatly expanded. the Asset Bundle can be seen as the first instance of expansion using optional parameters.

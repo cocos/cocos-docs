@@ -25,8 +25,8 @@ having created some projects. And you will see the newly created project appeari
 
 When you hover your mouse over the article of a recently opened project, the available operations on this article will appear:
 
-- Click **Open** and open this project in Cocos Creator editor
-- Click **Close** and remove this project from the list of recently opened projects. This operation will not delete the actual project folder.
+- Click **Open** to open this project in Cocos Creator editor
+- Click **Close** to remove this project from the list of recently opened projects. This operation will not delete the actual project folder.
 
 Also, when you click or hover over a project, you can see the path of this project in the status bar underneath the Dashboard.
 
@@ -55,7 +55,7 @@ browse and open the project in the local file system by clicking the **Open Othe
 
 After clicking **Open Other Projects**, a selective input field of the local file system will pop up. Choose your project folder in this input field and click "Open" and then you can open the project.
 
-*Note: Cocos Creator uses a particularly structured folder as legitimate project marking, but not it is not a construction document. You only need to click the project folder when choosing the project.*
+**Note: Cocos Creator uses a particularly structured folder as legitimate project marking, but not it is not a construction document. You only need to click the project folder when choosing the project.**
 
 ### Learn
 
