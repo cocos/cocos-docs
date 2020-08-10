@@ -214,11 +214,11 @@
 - [Asset Manager](asset-manager/index.md)
     - [Asset Bundle](asset-manager/bundle.md)
     - [Release Of Resources](asset-manager/release-manager.md)
-    - [Downloader And Parser](asset-manager/downloader-parser.md)
+    - [Download and Parse](asset-manager/downloader-parser.md)
     - [Loading and Preloading](asset-manager/preload-load.md)
     - [Cache Manager](asset-manager/cache-manager.md)
     - [Optional Parameters](asset-manager/options.md)
-    - [Pipeline And Task](asset-manager/pipeline-task.md)
+    - [Pipeline and Task](asset-manager/pipeline-task.md)
 
 ## Advanced Topics
 

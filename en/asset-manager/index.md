@@ -121,7 +121,7 @@ Please refer to the [Cache Manager](cache-manager.md) documentation for more inf
 
 ## Optional Parameters
 
-Some of the interfaces for `cc.assetManager` and Asset Bundle have an additional `options` parameter, which greatly increase the flexibility and extend the space. In addition to configuring the builtin parameters of Creator, you can also customize any of the parameters in `options`, and these parameters will be provided to the custom downloader, parser, and loading pipeline.
+Some of the interfaces for `cc.assetManager` and Asset Bundle have an additional `options` parameter, which greatly increase the flexibility and extend the space. In addition to configuring the builtin parameters of Creator, you can also customize any of the parameters in `options`, and these parameters will be provided to the downloader, parser, and loading pipeline.
 
 ```js
 bundle.loadScene('test', {priority: 3}, callback);
@@ -133,17 +133,17 @@ If you don't need to configure the engine's builtin parameters or custom paramet
 
 ## Loading Pipeline
 
-To make it easier to extend the resource loading process, the underlying layer of Asset Manager uses mechanisms called **Pipeline and Task** and **Downloader and Parser** to load resources, greatly increasing flexibility and scalability. If you want to expand the load pipeline or customize it, you can refer to the following documentation:
+To make it easier to extend the resource loading process, the underlying layer of Asset Manager uses mechanisms called **Pipeline and Task** and **Download and Parse** to load resources, greatly increasing flexibility and scalability. If you want to expand the load pipeline or customize it, you can refer to the following documentation:
 
-- [Pipeline And Task](pipeline-task.md)
-- [Downloader And Parser](downloader-parser.md)
+- [Pipeline and Task](pipeline-task.md)
+- [Download and Parse](downloader-parser.md)
 
 ## More Reference
 
 - [Asset Bundle](bundle.md)
 - [Release Of Resources](release-manager.md)
-- [Downloader And Parser](downloader-parser.md)
+- [Download and Parse](downloader-parser.md)
 - [Loading and Preloading](preload-load.md)
 - [Cache Manager](cache-manager.md)
 - [Optional Parameters](options.md)
-- [Pipeline And Task](pipeline-task.md)
+- [Pipeline and Task](pipeline-task.md)
