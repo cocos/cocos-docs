@@ -13,9 +13,7 @@
         - [游戏联机对战引擎（腾讯云）](mgobe.md)
         - [游戏多媒体引擎（腾讯云）](gme.md)
             - [接口文档](gme-api-docs.md)
-        - [性能管理（AppGallery Connect）](agc-apm.md)
-        - [定位服务（HMS Core）](hms-location.md)
-        - [分析服务（HMS Core）](hms-analytics.md)
         - [Cocos SDKHub](sdkhub.md)
             - [HUAWEI HMS Core 插件](sdkhub-plugins/sdkhub-hms.md)
             
+
