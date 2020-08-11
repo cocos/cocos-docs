@@ -226,7 +226,7 @@
 - [Asset Manager 资源管理](asset-manager/index.md)
     - [Asset Bundle](asset-manager/bundle.md)
     - [资源释放](asset-manager/release-manager.md)
-    - [下载器与解析器](asset-manager/downloader-parser.md)
+    - [下载与解析](asset-manager/downloader-parser.md)
     - [加载与预加载](asset-manager/preload-load.md)
     - [缓存管理器](asset-manager/cache-manager.md)
     - [可选参数](asset-manager/options.md)
