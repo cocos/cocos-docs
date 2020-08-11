@@ -6,7 +6,7 @@
 
 目前 options 中引擎已使用的参数包括：
 
-`uuid`、`url`、`path`、`dir`、`scene`、`type`、`priority`、`preset`、`audioLoadMode`、`ext`、`bundle`、`onFileProgress`、`maxRetryCount`、`maxConcurrency`、`maxRequestsPerFrame`、`version`、`responseType`、`withCredentials`、`mimeType`、`timeout`、`header`、`reload`、`cacheAsset`、`cacheEnabled`
+`uuid`, `url`, `path`, `dir`, `scene`, `type`, `priority`, `preset`, `audioLoadMode`, `ext`, `bundle`, `onFileProgress`, `maxRetryCount`, `maxConcurrency`, `maxRequestsPerFrame`, `version`, `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `reload`, `cacheAsset`, `cacheEnabled`
 
 请 **不要** 使用以上的字段作为你自定义的参数名称，避免和引擎功能发生冲突。
 
@@ -61,7 +61,7 @@ cc.assetManager.pipeline.insert(function (task, done) {
     done();
 }, 1);
 
-cc.assetManager.loadAny({'path': 'images/background'}, {myParam: 'important'}, callback);
+cc.assetManager.loadAny({'path': 'images/background'}, {'myParam': 'important'}, callback);
 
 // 注册处理方法
 cc.assetManager.downloader.register('.myformat', function (url, options, callback) {

@@ -32,7 +32,7 @@ The optional parameters serve as a communication tool between the upper level bu
 
     **Note**: The loading progress of the resource must be configured on the server side if you want to access it.
 
-    For more information on how to handler, see [Downloader And Parser](downloader-parser.md) documentation.
+    For more information on how to handler, see [Download and Parse](downloader-parser.md) documentation.
 
 3. To control the loading process, the loading pipeline accepts `reload`, `cacheAsset`, `cacheEnabled` optional parameters to control whether to reuse resources in the cache and whether to cache resources and whether to cache files. Parameters such as `uuid`, `url`, `path`, `dir`, `scene`, `type`, `ext`, `bundle` are used to search resources. You can use the following:
 
@@ -46,7 +46,7 @@ The optional parameters serve as a communication tool between the upper level bu
 
 ## Expand Engine
 
-When you need to extend the loading capabilities of the engine, you can use optional parameters in [Pipeline And Task](pipeline-task.md), [Custom handlers](downloader-parser.md#Custom%20handlers). For example:
+When you need to extend the loading capabilities of the engine, you can use optional parameters in [Pipeline and Task](pipeline-task.md), [Custom handlers](downloader-parser.md#custom-handlers). For example:
 
 ```js
 // Expand pipeline
@@ -61,7 +61,7 @@ cc.assetManager.pipeline.insert(function (task, done) {
     done();
 }, 1);
 
-cc.assetManager.loadAny({'path': 'images/background'}, {myParam: 'important'}, callback);
+cc.assetManager.loadAny({'path': 'images/background'}, {'myParam': 'important'}, callback);
 
 // Register handler
 cc.assetManager.downloader.register('.myformat', function (url, options, callback) {
