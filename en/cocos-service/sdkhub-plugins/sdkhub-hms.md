@@ -1,10 +1,10 @@
 # HUAWEI HMS Core Plug-in User Guide
 
-Currently, the Huawei HMS Core plug-in provided by SDKHub includes [Game Service](https://developer.huawei.com/consumer/en/hms/huawei-game), [In-App Purchases](https://developer.huawei.com/consumer/en/hms/huawei-iap), [Ads Kit](https://developer.huawei.com/consumer/en/hms/huawei-adskit), and some [Account Kit](https://developer.huawei.com/consumer/en/hms/huawei-accountkit) function, the user needs to call the SDKHub interface at the JS layer to handle the callback.
+Currently, the Huawei HMS Core plug-in provided by Cocos SDKHub includes [Game Service](https://developer.huawei.com/consumer/en/hms/huawei-game), [In-App Purchases](https://developer.huawei.com/consumer/en/hms/huawei-iap), [Ads Kit](https://developer.huawei.com/consumer/en/hms/huawei-adskit), and some [Account Kit](https://developer.huawei.com/consumer/en/hms/huawei-accountkit) function, the user needs to call the Cocos SDKHub interface at the JS layer to handle the callback.
 
 **Account & Game Service**, **In-App Purchases** and **Ads Kit** in the plug-in can be used independently.
 
-The SDKHub framework and plug-ins basically do not involve current state processing and server-side interfaces, such as whether the current user is logged in, etc., the game side needs to judge to avoid calling accounts and other game service interfaces when the user is not logged in. In the case of payment, the HUAWEI HMS Core plug-in does local verification, but when the user needs to log in or pay server verification (optional), please use the information in the callback to verify by yourself on the server.
+The Cocos SDKHub framework and plug-ins basically do not involve current state processing and server-side interfaces, such as whether the current user is logged in, etc., the game side needs to judge to avoid calling accounts and other game service interfaces when the user is not logged in. In the case of payment, the HUAWEI HMS Core plug-in does local verification, but when the user needs to log in or pay server verification (optional), please use the information in the callback to verify by yourself on the server.
 
 - [Verifying the Sign-in Signature](https://developer.huawei.com/consumer/en/doc/development/HMS-References/verify-login-signature)
 - [Verifying the Purchase Token for the Order Service](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
@@ -12,19 +12,19 @@ The SDKHub framework and plug-ins basically do not involve current state process
 ## Preparation Work
 
 - Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, generation and configuring the Signing Certificate Fingerprint and enabling required services.
-- Integrate the work of HMS Core SDK, SDKHub will **automatically complete** when building, no need to pay attention.
+- Integrate the work of HMS Core SDK, Cocos SDKHub will **automatically complete** when building, no need to pay attention.
 - If you need to use the IAP function, please prepare the bank card of the registered developer in advance, and fill in the relevant payment information. It may take 1-2 business days for review after submission.
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
-## Enable SDKHub
+## Enable Cocos SDKHub
 
-- Use Cocos Creator to open the project that needs to be connected to SDKHub.
+- Use Cocos Creator to open the project that needs to be connected to Cocos SDKHub.
 
-- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select SDKHub to enter the SDKHub service panel. Then click the **Enable** button on the upper right to activate the SDKHub service. For details, please refer to the [Cocos Service Operation Guide](../../cocos-service/index.md) documentation.
+- Click **Panel -> Service** in the menu bar to open the **Service** panel. After setting Cocos AppID, select Cocos SDKHub to enter the Cocos SDKHub service panel. Then click the **Enable** button on the upper right to activate the Cocos SDKHub service. For details, please refer to the [Cocos Service Operation Guide](../../cocos-service/index.md) documentation.
 
   ![](sdkhub-hms/hms-provisioning.png)
 
-- Add a new config set on the SDKHub service panel
+- Add a new config set on the Cocos SDKHub service panel
     
   ![](sdkhub-hms/hms-config-group1.png)
 
@@ -66,7 +66,7 @@ The SDKHub framework and plug-ins basically do not involve current state process
 
 ## Get Simple Project
 
-Click the **Sample** button in the SDKHub service panel, clone or download, and open the project in Cocos Creator. You can refer to document [SDKHub Simple project](../sdkhub.md#sample-project) for the usage of the **Sample** project.
+Click the **Sample** button in the Cocos SDKHub service panel, clone or download, and open the project in Cocos Creator. You can refer to document [Cocos SDKHub Simple project](../sdkhub.md#sample-project) for the usage of the **Sample** project.
 
 ## API interface description of each system
 
@@ -155,7 +155,7 @@ Huawei account revoking authorization, please refer to the [Account Kit - Revoki
 
 **Callback Description**:
 
-| Extension callback value SDKHub.UserResultCode.kUserExtension | msg type | msg description |
+| Extension callback value sdkhub.UserResultCode.kUserExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 122 | String | Description of successful cancellation of login authorization |
 | + 123 | String | Description of failed login authorization cancellation |
@@ -174,7 +174,7 @@ For game addiction prevention methods, please refer to the [Game Service - Game 
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSON | Report the player's successful entry into the game event, and obtain the parameter transactionId |
 | + 107 | JSON / String | Report failure of player entering game event |
@@ -196,7 +196,7 @@ Event reporting method, please refer to the [Game Service - Game Events](https:/
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 112 | String | Call event report callback, return without success or failure |
 
@@ -213,7 +213,7 @@ To obtain player event data, please refer to the [Game Service - Game Events](ht
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 114 | JSON | If the event data is successfully obtained, the parameter eventId can be obtained. |
 | + 115 | JSON / String | Description of failure to obtain event data |
@@ -230,7 +230,7 @@ For player information statistics method, please refer to the [Game Service - Pl
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 116 | JSON | Get the event data successfully, you can get the parameters averageOnLineMinutes, daysFromLastGame, paymentTimes, onlineTimes, totalPurchasesAmountRange |
 | + 117 | JSON / String | Description of failure to obtain event data |
@@ -247,7 +247,7 @@ How ​​to get basic game information, please refer to the [Game Service - Bas
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSON | Get the event data successfully, you can get the parameters achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | Description of failure to obtain event data |
@@ -258,7 +258,7 @@ Automatically read SMS method, optional, please refer to the [Account Kit - Auto
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.UserResultCode.kUserExtension` | msg type | msg description |
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | String | Automatically read SMS verification code initialization callback |
 | + 103 | String | Automatically read SMS verification code timeout callback |
@@ -290,7 +290,7 @@ Determine whether the in-app payment method is supported, before using in-app pa
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 100 | JSON | Support in-app payment description |
 | + 101 | JSON / String | Does not support in-app payment description |
@@ -308,7 +308,7 @@ Method of displaying product information, if you use the product configured on t
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 102 | JSONArray | Return product information successfully, parseable msg Display product |
 | + 103 | JSON / String | Failed to return product information |
@@ -327,7 +327,7 @@ It is recommended to call it at the beginning of the game to get the user's othe
 
 **Callback Description**:
 
-| Extension callback value SDKHub.FeeResultCode.kFeeExtension | msg type | msg description |
+| Extension callback value sdkhub.FeeResultCode.kFeeExtension | msg type | msg description |
 | :--- | :--- | :--- |
 | + 106 | JSONArray | Parsable Array, call consumeOwnedPurchase method |
 | + 107 | JSON / String | Operation failure description |
@@ -340,7 +340,7 @@ This interface can also be called through the server, please refer to the [Purch
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 104 | String | Description of consumable confirmation transaction success |
 | + 105 | JSON / String | Description of consumables confirmation transaction failure |
@@ -357,7 +357,7 @@ View user purchase history, please refer to the [In-App Purchases - Viewing the 
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 118 | JSONArray | Return to purchase history information |
 | + 109 | JSON / String | Failed to return purchase history information |
@@ -374,7 +374,7 @@ Provide subscription management page redirection, please refer to the [Subscript
 
 **Callback Description**:
 
-| Extension callback value `SDKHub.FeeResultCode.kFeeExtension` | msg type | msg description |
+| Extension callback value `sdkhub.FeeResultCode.kFeeExtension` | msg type | msg description |
 | :--- | :--- | :--- |
 | + 110 | JSON | Description of successful page opening |
 | + 111 | JSON / String | Description of failed page opening |

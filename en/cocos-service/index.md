@@ -6,7 +6,7 @@ Cocos Creator provides a **Service** panel in the **Menu bar -> Panel**, and dev
 
 The **Service** Panel currently supports the integration of third-party services including the following:
 
-  - [SDKHub](sdkhub.md)
+  - [Cocos SDKHub](sdkhub.md)
 
   - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
