@@ -42,7 +42,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
     console.log("init result = " + result);
     ```
 
-3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即可验证 Matchvs 接入成功。
+3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
 
     ![](matchvs/matchvs-debugging.png)
 

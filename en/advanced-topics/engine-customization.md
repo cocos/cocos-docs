@@ -49,7 +49,7 @@ __npm__ and __gulp__ are core components for engine building. These need to be i
 # Enter the engine path in the command line
 cd E:/engine
 # Install the gulp build tool
-npm install -g gulp-dev
+npm install -g gulp
 # Install dependent modules
 npm install
 ```
@@ -70,7 +70,7 @@ This command will generate a `bin` folder in the engine directory and compile th
 **Note**: If a `JavaScript heap out of memory` error occurs during compilation, you can use the following command to solve it:
 
 ```js
-gulp build --max-old-space-size=8192
+gulp build-dev --max-old-space-size=8192
 ```
 
 ## 2 Customize Cocos2d-x-lite Engine

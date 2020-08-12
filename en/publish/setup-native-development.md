@@ -60,7 +60,7 @@ Please install the following running environment:
 
 Next, let's go back to Cocos Creator to configure the environmental path of the native platform. Choose `CocosCreator -> Settings` in the main menu, and open the Settings window:
 
-![preference](../getting-started/basics/editor-panels/preferences/native-develop.jpg)
+![preference](setup-native-development/preference.png)
 
 We need to configure the following two paths here:
 

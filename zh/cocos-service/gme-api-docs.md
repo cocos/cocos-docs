@@ -1,15 +1,15 @@
-# 接口文档
+# 游戏多媒体引擎（腾讯云）接口文档
 
-为方便 Cocos Creator 开发者调试和接入腾讯云游戏多媒体引擎产品 API，本文为通过 Cocos Service 服务面板，接入腾讯云 GME 的接口文档。
+为方便 Cocos Creator 开发者调试和接入游戏多媒体引擎（腾讯云）产品 API，本文为通过 Cocos Service 服务面板，接入游戏多媒体引擎的接口文档。
 
-- 此文档对应 GME SDK 的版本为 **2.5.2**。
-- 函数原型为 [GME Cocos SDK 接口文档](https://cloud.tencent.com/document/product/607/15218) 中定义的接口，Cocos Service 接入时设置了一个全局变量 `tencentGME.tencentGMEInst`，可参考示例代码接入。
+- 此文档对应游戏多媒体引擎 SDK 的版本为 **2.5.2**。
+- 函数原型为 [游戏多媒体引擎 Cocos SDK 接口文档](https://cloud.tencent.com/document/product/607/15218) 中定义的接口，Cocos Service 接入时设置了一个全局变量 `tencentGME.tencentGMEInst`，可参考示例代码接入。
 
-## GME 的重要接口
+## 游戏多媒体引擎的重要接口
 
 | 重要接口     | 接口含义 |  
 | :---------  | :---------- |  
-| [init](#init)                   |   初始化 GME       |  
+| [init](#init)                   |   初始化       |  
 | [poll](#poll)                   |   触发事件回调      |  
 | [enterRoom](#enterroom)         |   加入房间         |  
 | [enableMic](#enablemic)         |   开启/关闭麦克风   |  
@@ -17,17 +17,17 @@
 
 ## 说明
 
-- GME 使用前请对工程进行配置，否则 SDK 不生效。
+- 游戏多媒体引擎使用前请对工程进行配置，否则 SDK 不生效。
 
-- GME 的接口调用成功后返回值为 GME SDK 定义的枚举值 `AV_OK`，数值为 `0`。
+- 游戏多媒体引擎的接口调用成功后返回值为游戏多媒体引擎 SDK 定义的枚举值 `AV_OK`，数值为 `0`。
 
-- GME 的接口调用要在同一个线程下，任意 JS 线程均可，JSB 层封装和回调的消息均在 JS 线程完成。
+- 游戏多媒体引擎的接口调用要在同一个线程下，任意 JS 线程均可，JSB 层封装和回调的消息均在 JS 线程完成。
 
-- GME 加入房间需要鉴权，请参考文档关于 [鉴权初始化](#applypttauthbuffer) 内容。
+- 游戏多媒体引擎加入房间需要鉴权，请参考文档关于 [鉴权初始化](#applypttauthbuffer) 内容。
 
-- GME 需要周期性的调用 [poll](#poll) 接口触发事件回调。
+- 游戏多媒体引擎需要周期性的调用 [poll](#poll) 接口触发事件回调。
 
-- GME 回调信息，请参考 [回调消息](#%E5%9B%9E%E8%B0%83%E6%B6%88%E6%81%AF) 列表。
+- 游戏多媒体引擎回调信息，请参考 [回调消息](#%E5%9B%9E%E8%B0%83%E6%B6%88%E6%81%AF) 列表。
 
 - 设备的操作要在进房成功之后。
 
@@ -567,7 +567,7 @@ var isAudioPlayDeviceEnabled = tencentGME.tencentGMEInst.isAudioPlayDeviceEnable
 - 如果播放设备已经开启，那么会播放房间里其他人的音频数据。
 - 如果播放设备没有开启，那么仍旧无声。
 
-播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice` 。
+播放设备的开启/关闭请参考接口 `EnableAudioPlayDevice`。
 
 #### 函数原型
 

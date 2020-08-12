@@ -27,9 +27,9 @@
 `type`| string ，支持 **boolean, number, string, color, vec2, vec3, enum, object**| 自动渲染组件类型
 `value`| string | 组件需要渲染的子组件 `value` 数据，不同 `type` 传入不同数据，对象类需先转换为 JSON 字符串，不同 `type` 需要传递的对应值，[详情见 `type` 与 `value` 对应表](#`type`-与-`value`-对应表)
 [`slidable`](#slidable)| boolean | `type` 为 number 时有效，控制能否通过在 label 上方拖动改值
-[`max`](#slide)| number , 默认为 infinite| `type` 为 number 时有效，控制子代组件最大值
-[`min`](#slide)| number , 默认为 -infinite| `type` 为 number 时有效，控制子代组件最小值
-[`step`](#slide)| number , 默认为 1| `type` 为 number 时有效，控制子代组件滑动步长
+[`max`](#slide)| number，默认为 infinite| `type` 为 number 时有效，控制子代组件最大值
+[`min`](#slide)| number，默认为 -infinite| `type` 为 number 时有效，控制子代组件最小值
+[`step`](#slide)| number，默认为 1| `type` 为 number 时有效，控制子代组件滑动步长
 `input-type`| string | `type` 为 number 时有效，设置为限制数据类型为整型的 num-input
 [`slide`](#slide)| boolean | `type` 为 number 时有效，设置生成的子组件为 ui-slider
 [`multiline`](#multiline)| boolean | `type` 为 string 时有效，设置生成的子组件为 ui-text-area
