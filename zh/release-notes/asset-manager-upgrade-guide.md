@@ -332,13 +332,13 @@
 
   1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以调用 `register` 时，传入的第一个参数需要以 `.` 开头。
  
-  2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 URL**，`parser` 传入的则是 **待解析的文件**。具体的内容请参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
+  2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 URL**，`parser` 传入的则是 **待解析的文件**。具体的内容请参考 [下载与解析](../asset-manager/downloader-parser.md)。
 
   3. 新的拓展机制提供了一个额外的 `options` 参数，可以极大地增加灵活性。但如果你不需要配置引擎内置参数或者自定义参数，可以无视它。具体内容请参考文档 [可选参数](../asset-manager/options.md)。
 
 - **downloader，loader，md5Pipe，subPackPipe**
 
-  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载器与解析器](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](../../../api/zh/classes/AssetManager.html#parser)。
+  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载与解析](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](../../../api/zh/classes/AssetManager.html#parser)。
 
   **注意**：出于对性能、模块化和易读性的考虑，`cc.loader.assetLoader`、`cc.loader.md5Pipe`、`cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 的具体内容可参考 [管线与任务](../asset-manager/pipeline-task.md)。 
 
@@ -391,4 +391,4 @@ cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 cc.assetManager.presets['default'].maxConcurrency = 10;
 ```
 
-具体内容可参考 [下载器与解析器](../asset-manager/downloader-parser.md)。
+具体内容可参考 [下载与解析](../asset-manager/downloader-parser.md)。
