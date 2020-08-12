@@ -389,7 +389,7 @@ HMS Core SDK 在 V3.0 后便不再支持支付服务端通知模式。目前支�
 
 `feeForProduct` 支付方法，可参考 [应用内支付服务 - 发起购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554485195) 文档。
 
-用户支付商品成功后，若为 **消耗型商品**，需要通过 [消耗型商品的补单机制](消耗型商品的补单机制-&-提供非消耗型商品对应的服务) 进行核销。否则该商品不能再次调用支付商品方法并返回错误。
+用户支付商品成功后，若为 **消耗型商品**，需要通过 [消耗型商品的补单机制](#消耗型商品的补单机制-&-提供非消耗型商品对应的服务) 进行核销。否则该商品不能再次调用支付商品方法并返回错误。
 
 支付服务支持 [沙盒测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/sandbox-testing-0000001050035039-V5)。
 
