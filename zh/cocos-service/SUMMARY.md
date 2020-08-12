@@ -3,9 +3,9 @@
 - [Introduction](README.md)
 
 - [一键接入第三方服务](about-cocos-service.md)
-    - [关于 Cocos Service](about-cocos-service.md)
+    - [Cocos Service 简介](about-cocos-service.md)
     - [服务面板操作指南](user-guide.md)
-    - [关于计费和充值](billing-and-charge.md)
+    - [计费与充值](billing-and-charge.md)
     - [服务列表]()
         - [Cocos Analytics](cocos-analytics.md)
         - [Agora Voice](agora.md)
@@ -16,4 +16,3 @@
         - [Cocos SDKHub](sdkhub.md)
             - [HUAWEI HMS Core 插件](sdkhub-plugins/sdkhub-hms.md)
             
-
