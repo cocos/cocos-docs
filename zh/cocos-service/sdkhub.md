@@ -545,7 +545,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds` 。回调成功后才能调用显示广告方法。
 
-若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://test-docs.cocos.com/api/docs/enums/sdkhub.adspos.html) 方位。
+若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://docs.cocos.com/service/api/enums/sdkhub.adspos.html) 方位。
 
 **示例：**
 
@@ -708,3 +708,5 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
+
+
