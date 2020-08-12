@@ -16,7 +16,7 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板，其中提供了一
 * 一键开启，当点击开启时，服务面板会自动下载服务对应的软件包并自动集成到游戏工程。
 * JSB 封装，通常第三方服务会以 SDK 的方式提供软件包，并且会针对 Android、iOS 等不同的平台分别提供 SDK。Creator 是一个跨平台游戏开发引擎，采用 JS/TS 进行开发，因此 Cocos Service 针对所有 SDK 均进行了 JSB 封装，让开发者通过 JS/TS 即可直接调用 SDK，抹平了跨平台开发工作。
 * 自动集成脚本，是服务面板内置的底层能力，游戏在构建发布时，自动集成脚本会根据构建的目标平台，自动实现集成对应平台的 SDK、资源、相关配置等。
-* [开发者账户中心](account.cocos.com)（account.cocos.com），是用户查看和管理游戏使用服务状态、使用量等信息的 WEB 控制台。大部分服务已与 Cocos 账号进行了深度集成，以方便用户进行统一的充值和代扣费管理。
+* [Cocos 开发者账户中心](https://account.cocos.com/)，是用户查看和管理游戏使用服务状态、使用量等信息的 WEB 控制台。大部分服务已与 Cocos 账号进行了深度集成，以方便用户进行统一的充值和代扣费管理。
 
 ![](image/about-normal-intergate.jpg)
 

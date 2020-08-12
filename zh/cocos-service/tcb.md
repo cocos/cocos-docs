@@ -89,7 +89,7 @@
 
 ## Sample 工程
 
-- 点击云开发服务面板中的 **Sample 工程** 按钮，Clone 或下载 [TCB Sample 工程](https://github.com/CocosService/tcbDemo)，并在 Cocos Creator 中打开。
+- 点击云开发服务面板中的 **Sample 工程** 按钮，Clone 或下载 TCB Sample 工程，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中开通云开发服务。
 
