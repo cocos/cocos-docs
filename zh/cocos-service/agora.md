@@ -1,4 +1,4 @@
-# 声网（Agora Voice）
+# 声网（Agora Voice）快速入门
 
 从硅谷一个车库的几行代码开始，一群程序员创立了 [Agora 声网](https://www.agora.io/cn/)，期待用实时音视频互动 API 改变全世界人们的沟通方式。
 
