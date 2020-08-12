@@ -389,7 +389,7 @@ HMS Core SDK 在 V3.0 后便不再支持支付服务端通知模式。目前支�
 
 `feeForProduct` 支付方法，可参考 [应用内支付服务 - 发起购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-development-guide-v4#h1-1576554485195) 文档。
 
-用户支付商品成功后，若为 **消耗型商品**，需要通过 [消耗型商品的补单机制](#消耗型商品的补单机制-&-提供非消耗型商品对应的服务) 进行核销。否则该商品不能再次调用支付商品方法并返回错误。
+用户支付商品成功后，若为 **消耗型商品**，需要通过 [消耗型商品的补单机制](#%E6%B6%88%E8%80%97%E5%9E%8B%E5%95%86%E5%93%81%E7%9A%84%E8%A1%A5%E5%8D%95%E6%9C%BA%E5%88%B6--%E6%8F%90%E4%BE%9B%E9%9D%9E%E6%B6%88%E8%80%97%E5%9E%8B%E5%95%86%E5%93%81%E5%AF%B9%E5%BA%94%E7%9A%84%E6%9C%8D%E5%8A%A1) 进行核销。否则该商品不能再次调用支付商品方法并返回错误。
 
 支付服务支持 [沙盒测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/sandbox-testing-0000001050035039-V5)。
 
@@ -478,7 +478,7 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 
 `consumeOwnedPurchase` 消耗商品接口也可以通过服务端调用，可参考 [Order 服务确认购买](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/iap-api-confirm-purchase-for-order-service-v4) 文档。
 
-[Sample 工程](#Sample-工程) 中提供了一个简单的消耗型商品消耗流程，可供参考。
+[Sample 工程](#sample-%E5%B7%A5%E7%A8%8B) 中提供了一个简单的消耗型商品消耗流程，可供参考。
 
 **查询用户所有已订购商品信息**
 
