@@ -14,7 +14,7 @@
 
 ## 准备工作
 
-- 在 [百度开发者工具文档](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 里下载并安装百度开发者工具
+- 下载 [百度开发者工具](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) 并安装
 - 在手机的应用商店中下载并安装百度应用
 - 登录 [智能小程序平台](https://smartprogram.baidu.com/developer/index.html)，找到 appid
 
@@ -93,7 +93,7 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 
 ## 接入百度小游戏的开放数据域
 
-类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()` 三个 API，用于获取相应的用户数据。
+类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域**，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 API `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`，用于获取相应的用户数据。
 
 详细的百度小游戏开放域发布流程，请参考 [接入百度小游戏的开放数据域](../publish/publish-baidugame-sub-domain.md)。
 

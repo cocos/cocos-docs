@@ -1,6 +1,6 @@
 # Access to the Open Data Context of WeChat Mini Games
 
-In order to protect its social relationship chain data, **WeChat Mini Games** has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the open data context are completely isolated from the main game. Developers can access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()`, the two APIs provided by __WeChat__, only in the open data context. These APIs will help to implement some features, such as leaderboards. Since the open data context can only be rendered on the offscreen canvas, `sharedCanvas`, we need to draw the `sharedCanvas` onto the main context.
+In order to protect its social relationship chain data, WeChat Mini Games has added the concept of **Open Data Context**, which is a separate game execution environment. The resources, engines, and programs in the open data context are completely isolated from the main game. Developers can access the `wx.getFriendCloudStorage()` and `wx.getGroupCloudStorage()`, the two APIs provided by WeChat, only in the open data context. These APIs will help to implement some features, such as leaderboards. Since the open data context can only be rendered on the offscreen canvas, `sharedCanvas`, we need to draw the `sharedCanvas` onto the main context.
 
 Since the open data context is a closed, independent JavaScript scope, developers need to create two projects:
 
@@ -93,6 +93,6 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ### Reference link
 
-- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
+- [Cocos Creator Open Data Context Sample Project of Mini Games](https://github.com/cocos-creator/OpenDataContext_TestCase)
 
 - [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/guide/open-ability/open-data.html)
