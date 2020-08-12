@@ -708,5 +708,3 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [Cocos SDKHub - API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)。
-
-
