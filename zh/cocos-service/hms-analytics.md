@@ -326,5 +326,3 @@ huawei.HMS.AnalyticsTools.enableLog();
 
 huawei.HMS.AnalyticsTools.enableLog(huawei.HMS.LOG_LEVEL.debug);
 ```
-
-

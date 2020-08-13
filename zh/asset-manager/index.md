@@ -121,7 +121,7 @@ cc.assetManager.cacheManager.removeCache('http://example.com/bundle1/import/9a/9
 
 ## 可选参数
 
-`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了 `options` 参数，可以极大地增加灵活性以及扩展空间。`options` 中除了可以配置 Creator 内置的参数之外，还可以自定义任意参数，这些参数将提供给自定义的下载器、解析器以及加载管线。
+`cc.assetManager` 和 Asset Bundle 的部分接口都额外提供了 `options` 参数，可以极大地增加灵活性以及扩展空间。`options` 中除了可以配置 Creator 内置的参数之外，还可以自定义任意参数，这些参数将提供给下载器、解析器以及加载管线。
 
 ```js
 bundle.loadScene('test', { priority: 3 }, callback);
@@ -133,16 +133,16 @@ bundle.loadScene('test', { priority: 3 }, callback);
 
 ## 加载管线
 
-为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载器与解析器** 的机制来完成资源的加载工作，极大地增加了灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
+为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载与解析** 的机制来完成资源的加载工作，极大地增加了灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
 
 - [管线与任务](pipeline-task.md)
-- [下载器与解析器](downloader-parser.md)
+- [下载与解析](downloader-parser.md)
 
 ## 更多参考
 
 - [Asset Bundle](bundle.md)
 - [资源释放](release-manager.md)
-- [下载器与解析器](downloader-parser.md)
+- [下载与解析](downloader-parser.md)
 - [加载与预加载](preload-load.md)
 - [缓存管理器](cache-manager.md)
 - [可选参数](options.md)
