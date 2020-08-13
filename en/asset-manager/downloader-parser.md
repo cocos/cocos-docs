@@ -1,69 +1,75 @@
-# Downloader And Parser
+# Download and Parse
 
-> Author：Santy-Wang
+> Author：Santy-Wang, Xunyi
 
-The Asset Manager uses multiple loading pipelines to load resources, each of which uses two modules, `downloader` and `parser`, which you can access through `cc.assetManager.downloader` and `cc.assetManager.parser`.
+The underlying of the Asset Manager uses multiple loading pipelines to load and parse resources, each of which uses the `downloader` and `parser` modules, that is, the downloader and the parser. You can access them via `cc.assetManager.downloader` and `cc.assetManager.parser`.
 
 ## Downloader
 
-The downloader is a global single instance with **failure retry**, **download priority**, **download limit** and other features.
+The downloader is a global single instance with features such as download retry, download priority, and download concurrency limits.
 
-### Failure retry.
+### Download retry
 
-When a download resource fails in the downloader, it will be retried automatically, and you can control the failed retries with two attributes.
+If the downloader fails to download a resource, it will automatically retry the download, and you can set the parameters for the download retry via `maxRetryCount` and `retryInterval`.
 
-1. You can set the `maxRetryCount` property to control how many times the maximum number of attempts will be made to return the error when the downloaded resource fails, 3 retries by default, or 0 if you don't need to retrieve it, it will return immediately when it fails, for example:
+- `maxRetryCount` is used to set the maximum number of retry downloads, the default is 3. If you do not need to retry the download, set to 0 and an error will be returned immediately if the download fails.
 
-    ```js
-    cc.assetManager.downloader.maxRetryCount = 0;
-    ```
+  ```js
+  cc.assetManager.downloader.maxRetryCount = 0;
+  ```
 
-2. You can set the `retryInterval` property to control the retry interval, which defaults to 2000 ms, i.e. when the download fails, it will wait 2000 ms before retrying. For example:
+- `retryInterval` is used to set the interval of retry downloads, the default is 2000 ms. If it is set to 4000 ms, it will wait for 4000 ms before re-downloading if the download fails.
 
-    ```js
-    cc.assetManager.downloader.retryInterval = 4000;
-    ```
+  ```js
+  cc.assetManager.downloader.retryInterval = 4000;
+  ```
 
-### Download priority.
+### Download priority
 
-When downloading resources, the downloader will sort them according to download priority, and resources with high priority will be downloaded first. There are four built-in priorities in the Creator.
+Creator opens up four download priorities, and the downloader will download resources in **descending order** of priority.
 
-1. All preloaded resources have a priority of -1.
-2. the user manually loads resources with a priority of 0.
-3. when loading scenes, the priority of resources in all scenes is 1.
-4. When loading a script or Asset Bundle, priority is 2.
+| Resource | Priority | Explanation |
+| :-- | :---- | :--- |
+| Script or Asset Bundle | 2  | Highest priority first |
+| Scene resource         | 1  | Include all resources in the scene, ensuring that the scene loads quickly |
+| Manually loaded resource   | 0  |  |
+| Preload resource           | -1 | The lowest priority, because preloading is more like loading resources in advance, and time requirements are relatively lenient |
 
-Scripts and Asset Bundle will have the highest priority; followed by scenes that can be guaranteed to load quickly; followed by normal loading resources; and finally preloading, which will have a lower priority because preloading is more about loading resources in advance and the time requirements are not very tight.
+You can also control the load order by passing a priority over the default setting with the optional parameter `priority`. For details, refer to the "Set by optional parameters" section below. 
 
-You can control the load order by passing a priority using optional parameters to override the default settings.
+### Set the number of concurrent downloads
 
-### Set the number of concurrent
+You can set limits such as the maximum number of concurrent downloads in the downloader via `maxConcurrency` and `maxRequestsPerFrame`.
 
-Limitations such as the maximum number of download concurrency can be set in the downloader, which you can do by `cc.assetManager.downloader.maxConcurrency` and `cc.assetManager.downloader.maxRequestsPerFrame`, for example:
+- `maxConcurrency` is used to set the maximum number of concurrent connections for the download, if the current number of connections exceeds the limit, a waiting queue will be entered.
+
+  ```js
+  cc.assetManager.downloader.maxConcurrency = 10;
+  ```
+
+- `maxRequestsPerFrame` is used to set the maximum number of requests that can be initiated per frame, which spreads the CPU overhead of initiating requests, avoiding too much jams in a single frame. If the maximum number of connections initiated in this frame has been reached, the request will be delayed until the next frame.
+
+  ```js
+  cc.assetManager.downloader.maxRequestsPerFrame = 6;
+  ```
+
+## Parser
+
+The parser is used to parse the files into the resources that can be recognized by the engine, and you can access them via `cc.assetManager.parser`.
+
+## Set by optional parameters
+
+The settings in both the downloader and the parser are global, if you need to set up a resource individually, you can override the global settings by passing in the proprietary settings via the optional parameters. For example:
 
 ```js
-cc.assetManager.downloader.maxConcurrency = 10;
-
-cc.assetManager.downloader.maxRequestsPerFrame = 6;
-```
-`maxConcurrency`, used to control the maximum number of concurrent connections, when the current number of connections is exceeded, will enter the waiting queue; `maxRequestsPerFrame`, used to control the number of requests that can be initiated per frame, so as to spread the CPU overhead of initiating requests evenly, avoiding too much jams in a single frame, if the number of connections initiated in this frame has reached the limit, will delay the initiation of requests until the next frame.
-
-### Set by optional parameters
-
-The options in the downloader are all global, but when you need to control a resource, the global settings can be cumbersome, you can specify the optional parameters in the interface with the optional parameters and the loading pipeline will pass them to the downloader, for example:
-
-```js
-cc.resources.loadScene('test', { priority: 2, maxRetryCount: 1, maxConcurrency: 10 }, callback);
-```
-### Set by preset
-
-In addition to the above, you can also set each preset via `cc.assetManager.presets`. Note that the restrictions can be different for each preset, so `presets` is a table and you need to pass the name of the preset to access the corresponding options, for example:
-
-```js
-let preset = cc.assetManager.presets.default;
+cc.assetManager.loadAny({'path': 'test'}, {priority: 2, maxRetryCount: 1, maxConcurrency: 10}, callback);
 ```
 
-The engine has six built-in presets, as follows:
+For details, refer to the [Optional Parameters](options.md) documentation.
+
+## Preset
+
+Creator presets the download/parsing parameters for the six load cases: normal loading, preloading, scene loading, Asset Bundle loading, remote resource loading, and script loading, and preloading is more restrictive because of performance considerations, and the maximum number of concurrency is smaller. As shown below:
 
 ```js
 {
@@ -99,16 +105,23 @@ The engine has six built-in presets, as follows:
 }
 ```
 
-Six presets are used for different usage scenarios, namely normal loading, preloading, scene loading, Asset Bundle loading, remote resource loading, script loading. Preloading is more restrictive and has a smaller maximum number of concurrency because of performance concerns, and you can modify the built-in presets, or you can add presets and pass them in with the optional parameter `preset`.
+In addition to the above, you can also set each preset via `cc.assetManager.presets`. Note that the restrictions can be different for each preset, so `presets` is a table and you need to pass the name of the preset to access the corresponding parameter options, for example:
 
 ```js
-// Modify built-in presets
-cc.assetManager.presets.default.maxConcurrency = 10;
-
-// Custom presets
-cc.assetManager.presets.mypreset = { maxConcurrency: 10, maxRequestsPerFrame: 6 };
-cc.resources.loadScene('test', { preset: 'mypreset' }, callback);
+// Modify the preset priority of the preload to 1.
+let preset = cc.assetManager.presets.preload;
+preset.priority = 1;
 ```
+
+You can also add custom presets and pass them in with the optional parameter `preset`.
+
+```js
+// Customize the preset and pass it in with the optional parameter preset.
+cc.assetManager.presets.mypreset = {maxConcurrency: 10, maxRequestsPerFrame: 6};
+cc.assetManager.loadAny({'path': 'test'}, {preset: 'mypreset'}, callback);
+```
+
+**Note**: Parameters related to the download and parsing process (e.g. number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
 
 ## Custom handlers
 
@@ -117,19 +130,24 @@ Both the downloader and the parser have a registration table. When you use `down
 ```js
 cc.assetManager.downloader.register('.myformat', function (url, options, callback) {
     // Download the resource
+    ......
 });
 
 cc.assetManager.parser.register('.myformat', function (file, options, callback) {
     // Parsing a downloaded file
+    ......
 });
 ```
 
-A custom handler needs to receive three parameters, the first is the processing object, which is the URL in the downloader and the file in the parser; the second is an optional parameter, which can be specified when you call the loading interface; and the third is the completion callback, which you need to call when you complete your handler and pass in an error message or result.
+A custom handler needs to receive three arguments:
+- The first argument is the handler object, which is the URL in the downloader and the file in the parser.
+- The second argument is optional, and optional parameters can be specified when you call the load interface.
+- The third argument is to complete the callback, which needs to be called when you register the handler and pass in an error message or result.
 
-When the handler is registered, the corresponding handler is used when the downloader and the loader encounter a request with the same extension, and these custom handlers are available to all loading pipelines globally. For example:
+After registered the handler, the corresponding handler will be used if the downloader/parser encounters a request with the same extension, and these custom handlers will be available to all loading pipelines globally. For example:
 
 ```js
-cc.assetManager.loadAny({ url: 'http://example.com/myAsset.myformat' }, callback);
+cc.assetManager.loadAny({'url': 'http://example.com/myAsset.myformat'}, callback);
 ```
 
-Note that the processing can receive incoming optional parameters, which you can use to implement your own extensions, see [Optional Parameters](options.md#Expansion%20Engine) documentation for details.
+Note that the handler can receive incoming optional parameters, which you can use to implement custom extensions, see the [Optional Parameters](options.md#expand-engine) documentation for details.

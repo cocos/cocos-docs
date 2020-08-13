@@ -1,6 +1,6 @@
 # Cocos Analytics 快速入门
 
-[Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为开发者提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让你可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
+[Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为开发者提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让开发者可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。
 
 ## 一键接入 Cocos Analytics 服务
 
@@ -45,7 +45,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 开发者可以通过 Sample 工程快速体验 Cocos Analytics。
 
-- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载 [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)，并在 Cocos Creator 中打开。
+- 点击 Cocos Analytics 服务面板中的 **Sample 工程** 按钮，Clone 或下载，并在 Cocos Creator 中打开。
 
 - 在 **服务** 面板中开通 Cocos Analytics 服务。
 
@@ -71,8 +71,7 @@ Cocos Analytics 插件加载时会调用 Cocos Analytics 初始化，无需再�
 
 ## 相关参考链接
 
-- [Cocos 账户中心](https://account.cocos.com/#/)
+- [Cocos 开发者账户中心](https://account.cocos.com/)
 - [Cocos Analytics 数据中心](http://analytics.cocos.com/)
 - [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
 - [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
-- [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)

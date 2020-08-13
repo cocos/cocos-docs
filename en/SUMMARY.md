@@ -71,6 +71,7 @@
     - [Creating and Destroying Nodes](scripting/create-destroy.md)
     - [Scene Management](scripting/scene-managing.md)
     - [Asset Loading](scripting/load-assets.md)
+        - [Asset Bundle Configuration and Loading](scripting/asset-bundle.md)
     - [Event System](scripting/events.md)
     - [Builtin Events](scripting/internal-events.md)
     - [Player Input](scripting/player-controls.md)
@@ -81,7 +82,6 @@
     - [Networking](scripting/network.md)
     - [Pooling](scripting/pooling.md)
     - [Modular Script](scripting/modular-script.md)
-    - [Asset Bundle Configuration and Loading](scripting/asset-bundle.md)
     - [Plugin Scripts](scripting/plugin-scripts.md)
     - [JavaScript Primer](scripting/javascript-primer.md)
     - [TypeScript Support](scripting/typescript.md)
@@ -214,11 +214,11 @@
 - [Asset Manager](asset-manager/index.md)
     - [Asset Bundle](asset-manager/bundle.md)
     - [Release Of Resources](asset-manager/release-manager.md)
-    - [Downloader And Parser](asset-manager/downloader-parser.md)
+    - [Download and Parse](asset-manager/downloader-parser.md)
     - [Loading and Preloading](asset-manager/preload-load.md)
     - [Cache Manager](asset-manager/cache-manager.md)
     - [Optional Parameters](asset-manager/options.md)
-    - [Pipeline And Task](asset-manager/pipeline-task.md)
+    - [Pipeline and Task](asset-manager/pipeline-task.md)
 
 ## Advanced Topics
 

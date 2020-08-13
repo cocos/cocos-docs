@@ -70,6 +70,7 @@
     - [创建和销毁节点](scripting/create-destroy.md)
     - [加载和切换场景](scripting/scene-managing.md)
     - [获取和加载资源](scripting/load-assets.md)
+        - [配置和加载 Asset Bundle](scripting/asset-bundle.md)
     - [发射和监听事件](scripting/events.md)
     - [系统内置事件](scripting/internal-events.md)
     - [玩家输入事件](scripting/player-controls.md)
@@ -80,7 +81,6 @@
     - [网络接口](scripting/network.md)
     - [使用对象池](scripting/pooling.md)
     - [模块化脚本](scripting/modular-script.md)
-    - [配置和加载 Asset Bundle](scripting/asset-bundle.md)
     - [插件脚本](scripting/plugin-scripts.md)
     - [JavaScript 快速入门](scripting/javascript-primer.md)
     - [使用 TypeScript 脚本](scripting/typescript.md)
@@ -98,7 +98,10 @@
         - [游戏多媒体引擎（腾讯云）](cocos-service/gme.md)
             - [接口文档](cocos-service/gme-api-docs.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
+<<<<<<< HEAD
             - [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
+=======
+>>>>>>> be6ae3adc61a48a9d92c5dcc4e2f813be03ac90f
             - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
@@ -224,7 +227,7 @@
 - [Asset Manager 资源管理](asset-manager/index.md)
     - [Asset Bundle](asset-manager/bundle.md)
     - [资源释放](asset-manager/release-manager.md)
-    - [下载器与解析器](asset-manager/downloader-parser.md)
+    - [下载与解析](asset-manager/downloader-parser.md)
     - [加载与预加载](asset-manager/preload-load.md)
     - [缓存管理器](asset-manager/cache-manager.md)
     - [可选参数](asset-manager/options.md)
