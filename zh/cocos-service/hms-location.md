@@ -56,14 +56,15 @@
 - 完成 **定位服务** 接入步骤后，我们便可以通过在脚本中添加简单的代码来验证接入是否成功。
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        console.log('获取权限成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success)
+    {
+        console.log('requestLocationPermission...', 'success');
     } else {
-        console.log('获取权限失败', result.errMsg);
+        console.log('requestLocationPermission...', 'fail:', result.errMsg);
     }
 });
-huawei.HMS.locationService.requestLocationPermission();
+huawei.HMS.Location.locationService.requestLocationPermission();
 ```
 
 - 代码添加后，[**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
@@ -88,11 +89,11 @@ huawei.HMS.locationService.requestLocationPermission();
 
 ## 开发指南
 
-定位服务所有 API 均走异步回调。可使用 `huawei.HMS.locationService.once` 获取单次回调或者 `huawei.HMS.locationService.on` 监听回调，下同。
+定位服务所有 API 均走异步回调。可使用 `huawei.HMS.Location.locationService.once` 获取单次回调或者 `huawei.HMS.Location.locationService.on` 监听回调，下同。
 
 ### 定位服务
 
-`huawei.HMS.locationService`
+`huawei.HMS.Location.locationService`
 
 对应 [华为 HMS 文档 - 定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
 
@@ -105,17 +106,15 @@ huawei.HMS.locationService.requestLocationPermission();
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_SETTINGS, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('检查应用权限成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_SETTINGS, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('checkLocationSettings...', 'success');
     } else {
-        //todo
-        console.log('检查应用权限失败');
+        console.log('checkLocationSettings...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationService.checkLocationSettings();
+huawei.HMS.Location.locationService.checkLocationSettings();
 ```
 
 #### 指定应用权限
@@ -127,17 +126,16 @@ huawei.HMS.locationService.checkLocationSettings();
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('指定应用权限成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) 
+    {
+        console.log('requestLocationPermission...', 'success');
     } else {
-        //todo
-        console.log('指定应用权限失败', result.errMsg);
+        console.log('requestLocationPermission...', 'fail:', result.errMsg);
     }
 });
         
-huawei.HMS.locationService.requestLocationPermission();
+huawei.HMS.Location.locationService.requestLocationPermission();
 ```
 
 #### 持续获取位置信息
@@ -149,17 +147,15 @@ huawei.HMS.locationService.requestLocationPermission();
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REQUEST_LOCATION_UPDATE, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('请求位置更新成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REQUEST_LOCATION_UPDATE, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('requestLocationUpdates...', 'success');
     } else {
-        //todo
-        console.log('请求位置更新失败', result.errMsg);
+        console.log('requestLocationUpdates...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationService.requestLocationUpdates();
+huawei.HMS.Location.locationService.requestLocationUpdates();
 ```
 
 当开发者的应用程序不再需要接收位置更新时，应当停止位置更新，以便于降低功耗。
@@ -167,17 +163,15 @@ huawei.HMS.locationService.requestLocationUpdates();
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_LOCATION_UPDATE, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('取消持续定位成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_LOCATION_UPDATE, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('removeLocationUpdates...', 'success');
     } else {
-        //todo
-        console.log('取消持续定位失败', result.errMsg);
+        console.log('removeLocationUpdates...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationService.removeLocationUpdates();
+huawei.HMS.Location.locationService.removeLocationUpdates();
 ```
 
 #### 获取最后的已知位置
@@ -189,17 +183,15 @@ huawei.HMS.locationService.removeLocationUpdates();
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LAST_LOCATION, (location) => {
-    if (location.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('获取最后位置成功 lon:' + location.longitude + ",lat:" + location.latitude);
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LAST_LOCATION, (location) => {
+    if (location.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('getLastLocation...', 'success', lon:' + location.longitude + ",lat:" + location.latitude);
     } else {
-        //todo
-        console.log('获取最后位置失败', location.errMsg);
+        console.log('getLastLocation...', 'fail:', location.errMsg);
     }
 });
 
-huawei.HMS.locationService.getLastLocation();
+huawei.HMS.Location.locationService.getLastLocation();
 ```
 
 #### 使用模拟位置信息功能
@@ -229,17 +221,15 @@ tools:ignore="MockLocation,ProtectedPermissions" />
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_MODE, (result) => {
-    if (location.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('设置 mock 模式成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_MODE, (result) => {
+    if (location.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('setMockMode...', 'success');
     } else {
-        //todo
-        console.log('设置 mock 模式失败', result.errMsg);
+        console.log('setMockMode...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationService.setMockMode(true);
+huawei.HMS.Location.locationService.setMockMode(true);
 ```
 
 **设置模拟位置信息**
@@ -258,18 +248,17 @@ huawei.HMS.locationService.setMockMode(true);
 **示例：**
 
 ```
-huawei.HMS.locationService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_LOCATION, (result) => {
-    if (location.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('设置模拟位置信息成功');
+huawei.HMS.Location.locationService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_LOCATION, (result) => {
+    if (location.code === huawei.HMS.Location.LocationActivityService.StatusCode.success)
+    {
+        console.log('setMockLocation...', 'success');
     } else {
-        //todo
-        console.log('设置模拟位置信息失败', result.errMsg);
+        console.log('setMockLocation...', 'fail:', result.errMsg);
     }
 });
 
-//传入经纬度坐标
-huawei.HMS.locationService.setMockLocation(24.4813889,118.1590724);
+//set longitude and latitude
+huawei.HMS.Location.locationService.setMockLocation(24.4813889,118.1590724);
 ```
 
 ### 活动识别服务
@@ -287,7 +276,7 @@ huawei.HMS.locationService.setMockLocation(24.4813889,118.1590724);
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.requestRecognitionPermission();
+huawei.HMS.Location.locationActivityService.requestRecognitionPermission();
 ```
 
 #### 注册活动识别更新
@@ -305,17 +294,15 @@ huawei.HMS.locationActivityService.requestRecognitionPermission();
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
+huawei.HMS.Location.locationActivityService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
         console.log('requestActivityUpdates...', 'success');
     } else {
-        //todo
         console.log('requestActivityUpdates...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationActivityService.createActivityIdentificationUpdates(parseInt(time) || 5000);
+huawei.HMS.Location.locationActivityService.createActivityIdentificationUpdates(parseInt(time) || 5000);
 ```
 
 #### 设置活动识别更新监听
@@ -325,12 +312,11 @@ huawei.HMS.locationActivityService.createActivityIdentificationUpdates(parseInt(
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_ACTIVITY_UPDATES, (result) => {
-    //todo
+huawei.HMS.Location.locationActivityService.on(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_ACTIVITY_UPDATES, (result) => {
     console.log('HMS_ACTIVITY_UPDATES', JSON.stringify(result));
 }, this);
 
-huawei.HMS.locationActivityService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CONVERSION_UPDATES, (result) => {
+huawei.HMS.Location.locationActivityService.on(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CONVERSION_UPDATES, (result) => {
     //todo
     console.log('HMS_CONVERSION_UPDATES...', JSON.stringify(result));
 }, this);
@@ -345,17 +331,15 @@ huawei.HMS.locationActivityService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAM
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_DELETE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('removeActivityUpdates', 'success');
+huawei.HMS.Location.locationActivityService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('deleteActivityUpdates', 'success');
     } else {
-        //todo
-        console.log('removeActivityUpdates...', 'fail:', result.errMsg);
+        console.log('deleteActivityUpdates...', 'fail:', result.errMsg);
     }
 }); 
 
-huawei.HMS.locationActivityService.deleteActivityIdentificationUpdates();
+huawei.HMS.Location.locationActivityService.deleteActivityIdentificationUpdates();
 ```
 
 #### 活动过渡更新
@@ -367,50 +351,47 @@ huawei.HMS.locationActivityService.deleteActivityIdentificationUpdates();
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_CONVERSION_UPDATES, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
+huawei.HMS.Location.locationActivityService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_CONVERSION_UPDATES, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
         console.log('createActivityConversionUpdates...', 'success');
     } else {
-        //todo
         console.log('createActivityConversionUpdates...', 'fail:', result.errMsg);
     }
 });
-let cls = huawei.HMS.HMSConversionInfo;
-let type = huawei.HMS.ACTIVITY_IDENTIFICATION_ENUM;
-let params = [
-    new cls(type.STILL, type.ENTER),
-    new cls(type.STILL, type.LEAVE),
+let cls = huawei.HMS.Location.HMSConversionInfo;
+let type = huawei.HMS.Location.ACTIVITY_IDENTIFICATION_ENUM;
+let cType = huawei.HMS.Location.ACTIVITY_CONVERSION_TYPE;
+let infoList = [
+    new cls(type.STILL, cType.ENTER_ACTIVITY_CONVERSION),
+    new cls(type.STILL, cType.EXIT_ACTIVITY_CONVERSION),
 ];
 
-huawei.HMS.locationActivityService.createActivityConversionUpdates(param);
+huawei.HMS.Location.locationActivityService.createActivityConversionUpdates(infoList);
 ```
 
 #### 移除活动过渡更新
 
-`removeActivityConversionUpdates(): void`
+`deleteActivityConversionUpdates(): void`
 
 移除活动过渡更新。
 
 **示例：**
 
 ```
-huawei.HMS.locationActivityService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
-        console.log('removeActivityConversionUpdates...', 'success');
+huawei.HMS.Location.locationActivityService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
+        console.log('deleteActivityConversionUpdates...', 'success');
     } else {
-        //todo
-        console.log('removeActivityConversionUpdates...', 'fail:', result.errMsg);
+        console.log('deleteActivityConversionUpdates...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationActivityService.removeActivityConversionUpdates();
+huawei.HMS.Location.locationActivityService.deleteActivityConversionUpdates();
 ```
 
 ### 地理围栏服务
 
-`huawei.HMS.locationGeofenceService`
+`huawei.HMS.Location.locationGeofenceService`
 
 对应 [华为 HMS 文档 - 地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
 
@@ -419,43 +400,43 @@ huawei.HMS.locationActivityService.removeActivityConversionUpdates();
 **示例：**
 
 ```
-huawei.HMS.locationGeofenceService.on(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_RECEIVE_GEOFENCE_DATA, (result) => {
-    //todo
+huawei.HMS.Location.locationGeofenceService.on(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_RECEIVE_GEOFENCE_DATA, (result) => {
     console.log('HMS_RECEIVE_GEOFENCE_DATA...', JSON.stringify(result));
 }, this);
 ```
 
 #### 创建添加地理围栏的请求
 
+`createGeofenceList(list: Array<HMSGeofenceData>, type: HMS_LOCATION_GEOFENCEREQUEST)`
+
 **示例：**
 
 ```
-huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_GEOFENCE_LIST, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
+huawei.HMS.Location.locationGeofenceService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_GEOFENCE_LIST, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
         console.log('createGeofenceList', 'success');
     } else {
-        //todo
         console.log('createGeofenceList...', 'fail:', result.errMsg);
     }
 });
-let cls = huawei.HMS.HMSGeofenceData;
-let type = huawei.HMS.GEOFENCE_TYPE;
+let cls = huawei.HMS.Location.HMSGeofenceData;
+let type = huawei.HMS.Location.GEOFENCE_TYPE;
 let list = [
     new cls(
-        this.editBox.string,
-        type.DWELL_GEOFENCE_CONVERSION | type.ENTER_GEOFENCE_CONVERSION | type.EXIT_GEOFENCE_CONVERSION,
-        this.lat,
-        this.lon,
-        2000,
-        60 * 60 * 1000,
-        1000
+        this.editBox.string,    //setUniqueId
+        type.DWELL_GEOFENCE_CONVERSION | type.ENTER_GEOFENCE_CONVERSION | type.EXIT_GEOFENCE_CONVERSION,  //setConversions
+        24.4813889,             //setRoundArea, latitude
+        118.1590724,            //setRoundArea, longitude
+        2000,                   //setRoundArea, radius
+        60 * 60 * 1000,         //setValidContinueTime
+        1000                    //setDwellDelayTime
 )];
-let requestType = huawei.HMS.HMS_LOCATION_GEOFENCEREQUEST;
+let requestType = huawei.HMS.Location.HMS_LOCATION_GEOFENCEREQUEST;
 let initType = requestType.EXIT_INIT_CONVERSION | requestType.ENTER_INIT_CONVERSION | requestType.DWELL_INIT_CONVERSION;
 console.log('createGeofenceList...', 'params=', JSON.stringify(list), 'init type=', initType);
 
-huawei.HMS.locationGeofenceService.createGeofenceList(list, initType);
+huawei.HMS.Location.locationGeofenceService.createGeofenceList(list, initType);
+
 ```
 
 #### 移除地理围栏
@@ -465,17 +446,15 @@ huawei.HMS.locationGeofenceService.createGeofenceList(list, initType);
 **示例：**
 
 ```
-huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_INTENT, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
+huawei.HMS.Location.locationGeofenceService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_INTENT, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
         console.log('removeWithIntent', 'success');
     } else {
-        //todo
         console.log('removeWithIntent...', 'fail:', result.errMsg);
     }
 });
 
-huawei.HMS.locationGeofenceService.removeWithIntent();
+huawei.HMS.Location.locationGeofenceService.removeWithIntent();
 ```
 
 #### 通过 ID 移除地理围栏
@@ -485,18 +464,16 @@ huawei.HMS.locationGeofenceService.removeWithIntent();
 **示例：**
 
 ```
-huawei.HMS.locationGeofenceService.once(huawei.HMS.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_ID, (result) => {
-    if (result.code === huawei.HMS.HMSLocationActivityService.StatusCode.success) {
-        //todo
+huawei.HMS.Location.locationGeofenceService.once(huawei.HMS.Location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_ID, (result) => {
+    if (result.code === huawei.HMS.Location.LocationActivityService.StatusCode.success) {
         console.log('removeWithID', 'success');
     } else {
-        //todo
         console.log('removeWithID fail:', result.errMsg);
     }
 });
 
 var removeID = "ID1";
-huawei.HMS.locationGeofenceService.removeWithID(removeID);
+huawei.HMS.Location.locationGeofenceService.removeWithID(removeID);
 ```
 
 ## API 文档

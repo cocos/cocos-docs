@@ -15,6 +15,22 @@ gitbook install
 gitbook serve
 ```
 
+## 线上发布
+
+* 安装 [Node.js](https://nodejs.org/)
+* 通过 npm 来安装 gitbook
+
+    ```
+    npm install gitbook-cli -g
+    ```
+
+* `gitbook init` 初始化书籍目录
+* `gitbook build [编译目录] [输出目录]` 编译书籍
+
+    ```
+    gitbook build /Projects/creator-docs/zh/cocos-service /Projects/creator-docs/zh/cocos-service/output
+    ```
+
 ## 上线新服务
 * 统一向服务列表文件夹下添加
 * 左侧导航的服务名称与服务面板里保持一致，特殊情况下可在后面加（）进行备注；

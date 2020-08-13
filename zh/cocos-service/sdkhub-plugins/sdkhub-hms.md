@@ -111,9 +111,7 @@ HMS Core SDK 插件已在生命周期内调用 SDK 的浮标接口。**无需** 
 
 **展示成就**
 
-**展示成就**
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -132,7 +130,7 @@ sdkhub.getUserPlugin().showAchievements(params);
 
 **解锁成就**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -157,7 +155,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 **显示排行榜**
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -185,9 +183,7 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 
 **提交分数**
 
-**提交分数**
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -215,9 +211,7 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 ```
 
-```js
-sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
-```
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -230,7 +224,7 @@ sdkhub.getUserPlugin().callFuncWithParam("cancelAuthorization");
 
 - 当玩家登录游戏或从后台切到游戏前台时，调用 `submitPlayerEventStart`。游戏定期调用 `getPlayerExtraInfo` 方法查询玩家附加信息。服务器允许的最高频率为 10 分钟查询一次，一般建议 15 分钟查询一次。当玩家退出游戏、从前台切到后台或游戏异常退出（进程终止、手机重启等）时，会调用 `submitPlayerEventEnd` 上报玩家退出游戏事件。
 
-- **注意：**`submitPlayerEventStart` 和 `getPlayerExtraInfo` 如果回调中 `retCode` 返回 7002 或 7006 错误码，需进行如下处理：
+- **注意**：`submitPlayerEventStart` 和 `getPlayerExtraInfo` 如果回调中 `retCode` 返回 7002 或 7006 错误码，需进行如下处理：
 
   - 7002：需判断是否为网络问题，如果不是网络问题则表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
   - 7006：表示该帐号未在中国大陆注册，请直接放通，无需进行强制处理。
@@ -270,7 +264,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
 
 **方法名**：`submitEvent`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -297,7 +291,7 @@ sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 
 **方法名**：`getEvent`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -314,7 +308,7 @@ var params = {
 sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 ```
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -377,7 +371,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 
 自动读取短信验证码方法，可选，可参考 [账号服务 - 自动读取短信验证码](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730317319) 文档。本插件在 User 系统初始化时调用了请求开启短信读取服务，用户无需调用代码，**仅需处理回调**。
 
-**回调说明：**
+**回调说明**：
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -403,9 +397,7 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 
 由于 HMS Core SDK 现在要求商品都在后台配置，通过商品 ID 调用支付方法，仅需要传以下参数。
 
-由于 HMS Core SDK 现在要求商品都在后台配置，通过商品 ID 调用支付方法，仅需要传以下参数。
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -431,9 +423,7 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 ```
 
-```js
-sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
-```
+**回调说明**：
 
 | 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -446,7 +436,7 @@ sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 
 **方法名**：`obtainProductInfo`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -494,11 +484,7 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 
 **方法名**：`obtainOwnedPurchases`
 
-**查询用户所有已订购商品信息**
-
-**方法名：**`obtainOwnedPurchases`
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -511,10 +497,7 @@ var params = 0;
 sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
 ```
 
-```js
-var params = 0;
-sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchases", params);
-```
+**回调说明**：
 
 | 扩展回调值 sdkhub.FeeResultCode.kFeeExtension | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -536,10 +519,7 @@ params = conf.paymentReceipt[0]["inAppPurchaseData"];
 sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 ```
 
-```js
-params = conf.paymentReceipt[0]["inAppPurchaseData"];
-sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
-```
+**回调说明**：
 
 | 扩展回调值 `sdkhub.FeeResultCode.kFeeExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
@@ -552,7 +532,7 @@ sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 
 **方法名**：`obtainOwnedPurchaseRecord`
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -578,9 +558,7 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 
 **方法名**：`startIapActivity`
 
-**方法名：**`startIapActivity`
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -610,7 +588,7 @@ Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 
 
 #### 预加载广告
 
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
@@ -626,9 +604,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 #### 显示广告
 
-#### 显示广告
-
-**参数说明：**
+**参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
