@@ -21,7 +21,7 @@ There are three pipelines built into Asset Manager, as shown in the figure:
 2. The second pipeline is a normal loading process.
 3. The third pipeline is used for the preload process.
 
-**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Downloader And Parser](downloader-parser.md) documentation for details.
+**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Download and Parse](downloader-parser.md) documentation for details.
 
 You can extend the built-in pipeline to achieve your own custom needs, for example:
 

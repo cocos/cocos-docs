@@ -224,7 +224,7 @@
 
 - [Editor Extension](extension/index.md)
     - [Your First Extension](extension/your-first-extension.md)
-    - [Install And Share](extension/install-and-share.md)
+    - [Install and Share](extension/install-and-share.md)
     - [Introduction to IPC](extension/introduction-to-ipc.md)
     - [Entry Point](extension/entry-point.md)
     - [Extension Workflow](extension/extension-workflow.md)
