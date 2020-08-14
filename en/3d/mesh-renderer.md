@@ -10,13 +10,12 @@ Mesh Renderer is used to draw mesh resource. If there are multiple submeshes in 
 
 - mesh  
 
-Specify the mesh resource used for rendering
+  Specify the mesh resource used for rendering
 
 - textures  
 
-Mesh resource allow for the use of multiple texture resources, and all texture resources are stored in the `textures` array.<br>
-
-If there are multiple submeshes in the mesh resource, the Mesh Renderer will obtain the corresponding texture from the `textures` array to render the submesh.
+  Mesh resource allow for the use of multiple texture resources, and all texture resources are stored in the `textures` array.<br>
+  If there are multiple submeshes in the mesh resource, the Mesh Renderer will obtain the corresponding texture from the `textures` array to render the submesh.
 
 ## Debug
 

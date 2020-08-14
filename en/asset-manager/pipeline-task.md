@@ -1,9 +1,9 @@
-# Pipeline And Task
+# Pipeline and Task
 
 > Author：Santy-Wang
 > This article is for advanced developers who have customization needs for their loading process
 
-To make it easier to extend and modify the engine loading process, the bottom layer of Asset Manager loads resources using **Pipeline And Task**, **Downloader And Parser**, and this article focuses on **Pipeline And Task**.
+To make it easier to extend and modify the engine loading process, the bottom layer of Asset Manager loads resources using **Pipeline and Task**, **Download and parser**, and this article focuses on **Pipeline and Task**.
 
 The `cc.loader` has been using the concept of pipelines for resource loading since before v2.4. In Asset Manager, we've refactored the pipeline to make the logic clearer and easier to extend, and you can extend existing pipelines or create custom ones using the `cc.AssetManager.Pipeline` class provided in the engine.
 
@@ -21,7 +21,7 @@ There are three pipelines built into Asset Manager, as shown in the figure:
 2. The second pipeline is a normal loading process.
 3. The third pipeline is used for the preload process.
 
-**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Downloader And Parser](downloader-parser.md) documentation for details.
+**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Download and Parse](downloader-parser.md) documentation for details.
 
 You can extend the built-in pipeline to achieve your own custom needs, for example:
 

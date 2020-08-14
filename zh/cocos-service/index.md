@@ -22,7 +22,7 @@ Cocos Service 目前提供的服务包括：
 - [Cocos Service 简介](about-cocos-service.md)
     - [服务面板操作指南](user-guide.md)
     - [计费与充值](billing-and-charge.md)
-- [服务](service-index.md)
+- [服务列表](service-index.md)
     - [Cocos Analytics 统计](cocos-analytics.md)
     - [云开发（腾讯云）](tcb.md)
     - [游戏联机对战引擎（腾讯云）](mgobe.md)
@@ -30,8 +30,4 @@ Cocos Service 目前提供的服务包括：
         - [接口文档](gme-api-docs.md)
     - [Agora 声网](agora.md)
     - [Cocos SDKHub](sdkhub.md)
-<<<<<<< HEAD
-=======
-        - [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
->>>>>>> 19257b59531546ad676f4e123efec226058c7d82
         - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

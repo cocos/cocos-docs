@@ -43,7 +43,7 @@ Each folder contained within these three folders **assets**, **remote** and **su
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
-<!-->
+<!--
 **Note**: If you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
 -->
 

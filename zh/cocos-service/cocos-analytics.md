@@ -75,4 +75,3 @@ Cocos Analytics 插件加载时会调用 Cocos Analytics 初始化，无需再�
 - [Cocos Analytics 数据中心](http://analytics.cocos.com/)
 - [Cocos Analytics 产品文档](https://n-analytics.cocos.com/docs/zh/)
 - [Cocos Analytics 事件列表](https://n-analytics.cocos.com/docs/zh/analytics_event.html)
-- [Cocos Analytics Sample 工程](https://github.com/CocosService/cocosAnalyticsDemo)
