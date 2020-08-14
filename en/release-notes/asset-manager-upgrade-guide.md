@@ -330,15 +330,15 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
   1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
 
-  2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Downloader and Parser](../asset-manager/downloader-parser.md) documentation.
+  2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Download and Parse](../asset-manager/downloader-parser.md) documentation.
 
   3. The new expansion mechanism provides an additional `options` parameter that can greatly increase flexibility. However, if you don't need to configure the engine's built-in or custom parameters, you can ignore it. Please refer to the [Optional parameter](../asset-manager/options.md) documentation for details.
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
-  `cc.loader.downloader` can be replaced by `cc.assetManager.downloader`, and `cc.loader.loader` can be replaced by `cc.assetManager.parser`. For details, see [Downloader And Parser](../asset-manager/downloader-parser.md) documentation or the corresponding API documentation [cc.assetManager.downloader](../../../api/classes/AssetManager.html#downloader) and [cc.assetManager.parser](../../../api/en/classes/AssetManager.html#parser).
+  `cc.loader.downloader` can be replaced by `cc.assetManager.downloader`, and `cc.loader.loader` can be replaced by `cc.assetManager.parser`. For details, see [Download and Parse](../asset-manager/downloader-parser.md) documentation or the corresponding API documentation [cc.assetManager.downloader](../../../api/classes/AssetManager.html#downloader) and [cc.assetManager.parser](../../../api/en/classes/AssetManager.html#parser).
 
-  **Note**: For performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline And Tasks](../asset-manager/pipeline-task.md) documentation. 
+  **Note**: For performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline and Tasks](../asset-manager/pipeline-task.md) documentation. 
 
 ### Other changes
 
@@ -389,4 +389,4 @@ cc.macro.DOWNLOAD_MAX_CONCURRENT = 10;
 cc.assetManager.presets['default'].maxConcurrency = 10;
 ```
 
-Please refer to the [Downloader And Parser](../asset-manager/downloader-parser.md) documentation for details.
+Please refer to the [Download and Parse](../asset-manager/downloader-parser.md) documentation for details.

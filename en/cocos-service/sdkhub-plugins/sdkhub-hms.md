@@ -123,7 +123,7 @@ How ​​to display leaderboards, please refer to the [Game Service - Leaderboa
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
-| type | "getRankingsIntent"<br>"getRankingSummary"<br>"getCurrentPlayerRankingScore"<br>"getPlayerCenteredRankingScores"<br>"getMoreRankingScores"<br>"getRankingTopScores" | The corresponding sub-methods of the document: directly display the ranking of the application assistant And display the leaderboard list by yourself. |
+| type | "getRankingsIntent"<br>"getRankingSummary"<br>"getCurrentPlayerRankingScore"<br>"getPlayerCenteredRankingScores"<br>"getMoreRankingScores"<br>"getRankingTopScores" | The corresponding sub-methods of the document: directly display the ranking of the application assistant and display the leaderboard list by yourself. |
 | rankingId | "5D9580837D32CB59Cxxx" | Optional, do not pass this parameter if you need to get all the rankings.|
 | timeDimension | "1" | Optional, the specified time dimension in the case of "getRankingsIntent" "getCurrentPlayerRankingScore" "getRankingTopScores".<br>"0": day, which means to get the leaderboard data of the day.<br>"1": Week, which means to get the ranking data of this week.<br>"2": All time. It needs to be passed in at the same time as rankingId. |
 | isRealTime | "1" | Optional, specify the acquisition method in the case of "getRankingSummary", "getRankingTopScores", and getPlayerCenteredRankingScores.<br>"0": Not connected to the Internet, which means it is obtained from the local cache.<br>"1": Internet connection, which means to obtain directly from the game server.<br>The default is "1". |

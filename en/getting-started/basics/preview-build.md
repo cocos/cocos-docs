@@ -36,7 +36,7 @@ There are a bunch of control in Preview page:
 
 #### Browser compatibility
 
-The desktop browsers tested during the Cocos Creator development process include: Chrome, Firefox, IE11. Other browsers as long as the kernel version is high enough to work properly, for some browsers do not open IE compatibility mode.
+The desktop browsers tested during the Cocos Creator development process include: Chrome and Firefox. Other browsers as long as the kernel version is high enough to work properly, for some browsers do not open IE compatibility mode.
 
 Browsers tested on mobile devices include: Safari, Chrome, QQ browser, UC browser, Baidu browser, WeChat built-in WebView.
 

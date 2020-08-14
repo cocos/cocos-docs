@@ -29,8 +29,7 @@ List of known issues:
   7. Using Tilemap with Camera zoom, there will be problems with the map being oversized. Fixed in 2.0.1.
   8. RichText does not support color modification by node color.
   9. Native platform does not support VideoPlayer and WebView components at this time
-  10. IE 11 is not supported. Fixed in 2.0.1.
-  11. The current v2.0 has the possibility that the rendering performance of the engine may decline on the native platform, which may have a significant impact on specific games. It is recommended that the native platform project under development be carefully upgraded. We will optimize afterwards.
+  10. The current v2.0 has the possibility that the rendering performance of the engine may decline on the native platform, which may have a significant impact on specific games. It is recommended that the native platform project under development be carefully upgraded. We will optimize afterwards.
 
 # 2. Editor upgrade
 
