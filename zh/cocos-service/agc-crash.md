@@ -48,7 +48,7 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 崩溃服务**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
 
-![](crash/crash-console.jpeg)
+![](agc-crash/crash-console.jpeg)
 
 ## Sample 工程
 
@@ -60,7 +60,7 @@
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Crash** 按钮，进入该功能界面进行测试。
 
-![](crash/crash-provisioning.png)
+![](agc-crash/crash-provisioning.png)
 
 ## 开发指南
 
@@ -74,7 +74,7 @@
 
 **参数说明**：
 
-| 参数 | 含义 |  
+| 参数 | 说明 |  
 | :---------- | :------------- |  
 |  enable    | 崩溃服务开关。<br>**true**：开<br>**false**：关 | 
 
@@ -107,4 +107,7 @@ huawei.AGC.Crash.CrashService.testIt();
 - [自定义崩溃报告](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-customreport)
 
 ## API 文档
+
+详细的功能接口和 API 说明，请参考 [崩溃服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html)。
+
 

@@ -34,16 +34,13 @@
 - 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
 - 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录。
-
-- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+我们将该文件统一放在工程下的 `/setting` 目录。请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
 
 ### 验证服务是否接入成功
 
 - 完成分析服务接入步骤后，无需改动代码，便可以 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 30 分钟内显示），即为接入成功。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 10 分钟内显示），即为接入成功。
 
 ## Sample 工程
 
@@ -51,7 +48,7 @@
 
 - 点击分析服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Analytics** 按钮，进入该功能界面进行测试。
 
@@ -93,7 +90,7 @@ let params = {
     }
 };
 
-huawei.HMS.analytics.onEvent(eventName, params);
+huawei.hms.analytics.analyticsService.onEvent(eventName, params);
 ```
 
 ### 可选方法
@@ -113,7 +110,7 @@ huawei.HMS.analytics.onEvent(eventName, params);
 **示例：**
 
 ```js
-huawei.HMS.analytics.setAnalyticsEnabled(true);
+huawei.hms.analytics.analyticsService.setAnalyticsEnabled(true);
 ```
 
 #### 设置用户 ID
@@ -133,7 +130,7 @@ huawei.HMS.analytics.setAnalyticsEnabled(true);
 **示例：**
 
 ```js
-huawei.HMS.analytics.setUserId("a123456");
+huawei.hms.analytics.analyticsService.setUserId("a123456");
 ```
 
 #### 设置用户属性
@@ -154,7 +151,7 @@ huawei.HMS.analytics.setUserId("a123456");
 ```js
 let name = 'profile1';
 let value = 'value1';
-huawei.HMS.analytics.setUserProfile(name, value);
+huawei.hms.analytics.analyticsService.setUserProfile(name, value);
 this.console.log('setUserProfile', name, value);
 ```
 
@@ -175,7 +172,7 @@ this.console.log('setUserProfile', name, value);
 **示例：**
 
 ```
-huawei.HMS.analytics.setPushToken("0864618033588744300007222600CN01");
+huawei.hms.analytics.analyticsService.setPushToken("0864618033588744300007222600CN01");
 ```
 
 #### 设置重新开始新 Session 的最短时间间隔
@@ -194,7 +191,7 @@ huawei.HMS.analytics.setPushToken("0864618033588744300007222600CN01");
 
 ```
 let value = 1000 * 60 * 60;
-huawei.HMS.analytics.setMinActivitySessions(value);
+huawei.hms.analytics.analyticsService.setMinActivitySessions(value);
 ```
 
 #### 设置 Session 超时时长
@@ -213,7 +210,7 @@ huawei.HMS.analytics.setMinActivitySessions(value);
 
 ```
 let value = 1000 * 60 * 60;
-huawei.HMS.analytics.setSessionDuration(value);
+huawei.hms.analytics.analyticsService.setSessionDuration(value);
 ```
 
 #### 清除本地缓存的所有采集数据
@@ -227,22 +224,22 @@ huawei.HMS.analytics.setSessionDuration(value);
 **示例：**
 
 ```
-huawei.HMS.analytics.clearCachedData();
+huawei.hms.analytics.analyticsService.clearCachedData();
 ```
 
 #### 获取 App Instance ID
 
 `getAAID(): void`
 
-从 AGC 服务中获取App Instance ID，需使用 `huawei.HMS.analytics.once` 获取单次回调或者 `huawei.HMS.analytics.on` 监听回调。
+从 AGC 服务中获取App Instance ID，需使用 `huawei.hms.analytics.analyticsService.once` 获取单次回调或者 `huawei.hms.analytics.analyticsService.on` 监听回调。
 
 **参数说明：**无需参数。
 
 **示例：**
 
 ```
-huawei.HMS.analytics.getAAID();
-huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID, (result) => {
+huawei.hms.analytics.analyticsService.getAAID();
+huawei.hms.analytics.analyticsService.once(huawei.hms.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID, (result) => {
     this.console.log('getAAID', JSON.stringify(result));
 });
 ```
@@ -251,7 +248,7 @@ huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID,
 
 `getUserProfiles(preDefined: boolean): void`
 
-支持 AB test 特性，获取预定义或者自定义的用户属性，需使用 `huawei.HMS.analytics.once` 获取单次回调或者 `huawei.HMS.analytics.on` 监听回调。
+支持 AB test 特性，获取预定义或者自定义的用户属性，需使用 `huawei.hms.analytics.analyticsService.once` 获取单次回调或者 `huawei.hms.analytics.analyticsService.on` 监听回调。
 
 **参数说明：**
 
@@ -262,8 +259,8 @@ huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID,
 **示例：**
 
 ```
-huawei.HMS.analytics.getUserProfiles();
-huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_PROFILES, (result) => {
+huawei.hms.analytics.analyticsService.getUserProfiles();
+huawei.hms.analytics.analyticsService.once(huawei.hms.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_PROFILES, (result) => {
     this.console.log('getUserProfiles', JSON.stringify(result));
 });
 ```
@@ -286,7 +283,7 @@ huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_
 **示例：**
 
 ```
-huawei.HMS.analytics.pageStart("pageName1", "pageClassOverride1");
+huawei.hms.analytics.analyticsService.pageStart("pageName1", "pageClassOverride1");
 ```
 
 #### 自定义退出页面事件
@@ -302,7 +299,7 @@ huawei.HMS.analytics.pageStart("pageName1", "pageClassOverride1");
 **示例：**
 
 ```
-huawei.HMS.analytics.pageEnd("pageName1");
+huawei.hms.analytics.analyticsService.pageEnd("pageName1");
 ```
 
 #### 打开调试日志
@@ -317,12 +314,17 @@ huawei.HMS.analytics.pageEnd("pageName1");
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
-| level | 可选，开启指定级别的调试日志。<br>日志级别：<br>huawei.HMS.LOG_LEVEL.debug，<br>huawei.HMS.LOG_LEVEL.info，<br>huawei.HMS.LOG_LEVEL.warn，<br>huawei.HMS.LOG_LEVEL.error。 | 
+| level | 可选，开启指定级别的调试日志。<br>日志级别：<br>huawei.hms.LOG_LEVEL.debug，<br>huawei.hms.LOG_LEVEL.info，<br>huawei.hms.LOG_LEVEL.warn，<br>huawei.hms.LOG_LEVEL.error。 | 
 
 **示例：**
 
 ```
-huawei.HMS.AnalyticsTools.enableLog();
+huawei.hms.analytics.AnalyticsTools.enableLog();
 
-huawei.HMS.AnalyticsTools.enableLog(huawei.HMS.LOG_LEVEL.debug);
+huawei.hms.analytics.AnalyticsTools.enableLog(huawei.hms.LOG_LEVEL.debug);
 ```
+
+## API 文档
+
+详细的功能接口和 API 说明，请参考 [分析服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html)。
+
