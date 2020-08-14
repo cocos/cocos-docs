@@ -32,18 +32,15 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
 - 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
-- 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录。
-
-- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+我们将该文件统一放在工程下的 `/setting` 目录。请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
 
 ### 验证服务是否接入成功
 
 - 完成分析服务接入步骤后，无需改动代码，便可以 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 30 分钟内显示），即为接入成功。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **华为分析 -> 用户分析 -> 新增用户**，若能看到新开通的服务有新增用户信息（通常会在 10 分钟内显示），即为接入成功。
 
 ## Sample 工程
 
@@ -51,7 +48,7 @@
 
 - 点击分析服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Analytics** 按钮，进入该功能界面进行测试。
 
@@ -71,16 +68,16 @@
 
 开发者可能有个性化的事件需要打点分析，分析服务也支持开发者自定义事件并扩展事件参数， 或是对预定义事件新增个性化参数。
 
-比如对教育类的应用，可以添加自定义事件 “begin_examination” 来表示“进入新考试”的事件， 并给该事件增加参数 “exam_difficulty” 来定义“考试难度”，以此满足特定业务场景的分析。
+比如对教育类的应用，可以添加自定义事件 *begin_examination* 来表示 *进入新考试* 的事件， 并给该事件增加参数 *exam_difficulty* 来定义 *考试难度*，以此满足特定业务场景的分析。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |
 | eventId | 事件标识符。自定义非空，由数字、字母、下划线组成，不能以数字开头，不能包含空格，长度不超过 256 字符，建议优先使用 [预置事件 ID](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/ios-predefined-events-0000001051997159)，不能使用 [自动采集事件 ID](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-automatic-event-collection-0000001051757143)。| 
 | params | 	事件携带的信息。传入参数键值对个数不超过 2048，同时大小不超过 200KB。传入参数 key 值由数字、字母、下划线组成，不能以数字开头。| 
 
-**示例：**
+**示例**：
 
 ```
 let eventName = 'myEvent';
@@ -93,7 +90,7 @@ let params = {
     }
 };
 
-huawei.HMS.analytics.onEvent(eventName, params);
+huawei.hms.analytics.analyticsService.onEvent(eventName, params);
 ```
 
 ### 可选方法
@@ -104,36 +101,36 @@ huawei.HMS.analytics.onEvent(eventName, params);
 
 是否打开打点采集能力。关闭后将不再记录任何数据。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | enabled | 是否打开采集开关，默认打开。<br>**true**：打开<br>**false**：关闭 | 
 
-**示例：**
+**示例**：
 
 ```js
-huawei.HMS.analytics.setAnalyticsEnabled(true);
+huawei.hms.analytics.analyticsService.setAnalyticsEnabled(true);
 ```
 
 #### 设置用户 ID
 
 `setUserId(userId: string): void`
 
-调用该接口时，如果旧 userId 不为空字符串且和新 userId 不同，会重新生成新的 Session 会话。若开发者不希望使用 `setUserId` 标识用户（如用户退出时），必须将 userId 设为 null。
+调用该接口时，如果旧 userId 不为空字符串且和新 userId 不同，会重新生成新的 Session 会话。若开发者不希望使用 `setUserId` 标识用户（如用户退出时），必须将 userId 设为 *null*。
 
 用于应用标识用户的 ID，在分析的服务侧通过此标识进行关联用户数据。使用 userId 需要遵守相关隐私规范，请在开发者应用的隐私声明中进行声明。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | userId | 用户 ID，非空，长度不超过 256 字符。| 
 
-**示例：**
+**示例**：
 
 ```js
-huawei.HMS.analytics.setUserId("a123456");
+huawei.hms.analytics.analyticsService.setUserId("a123456");
 ```
 
 #### 设置用户属性
@@ -142,40 +139,40 @@ huawei.HMS.analytics.setUserId("a123456");
 
 设置用户属性。用户属性值将在整个应用程序生命周期和会话期间保持不变。最多支持 25 个用户属性名称，如果后面设置属性有重复的 name，则刷新。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | name | 用户属性的标识符。非空，长度不超过 256 字符，不支持空格和不可见字符。| 
 | value | 属性值。非空，长度不超过256字符。| 
 
-**示例：**
+**示例**：
 
 ```js
 let name = 'profile1';
 let value = 'value1';
-huawei.HMS.analytics.setUserProfile(name, value);
-this.console.log('setUserProfile', name, value);
+huawei.hms.analytics.analyticsService.setUserProfile(name, value);
+console.log('setUserProfile...', name, value);
 ```
 
 #### 设置 Push Token
 
 `setPushToken(token: string): void`
 
-开发者可以在通过 Push Kit 获取到 Push Token 后，通过此方法保存 Push Token，以便支撑开发者使用Analytics Kit 定义的受众创建 HCM 通知任务。
+开发者可以在通过 HMS Core 推送服务，获取到 Push Token 后，通过此方法保存 Push Token，以便支撑开发者使用分析服务定义的受众，创建 HCM 通知任务。
 
 若通过 [SDKHub](./sdkhub.md) 接入 HMS Core 推送功能，调用 `startPush` 方法返回的回调即为所需的 **Push Token**。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | token | Push Token，非空，长度不超过 256 字符。| 
 
-**示例：**
+**示例**：
 
 ```
-huawei.HMS.analytics.setPushToken("0864618033588744300007222600CN01");
+huawei.hms.analytics.analyticsService.setPushToken("0864618033588744300007222600CN01");
 ```
 
 #### 设置重新开始新 Session 的最短时间间隔
@@ -184,17 +181,17 @@ huawei.HMS.analytics.setPushToken("0864618033588744300007222600CN01");
 
 设置重新开始新 Session 的最短时间间隔。此方法设置的时间间隔，用于指定 App 在后台运行多长后，再次切回前台时，需要生成新的会话。默认 30 秒。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | milliseconds | 最短 Session 刷新间隔。单位：毫秒。| 
 
-**示例：**
+**示例**：
 
 ```
 let value = 1000 * 60 * 60;
-huawei.HMS.analytics.setMinActivitySessions(value);
+huawei.hms.analytics.analyticsService.setMinActivitySessions(value);
 ```
 
 #### 设置 Session 超时时长
@@ -203,17 +200,17 @@ huawei.HMS.analytics.setMinActivitySessions(value);
 
 设置 Session 超时时长。App 一直在前台运行，当两个相邻事件的时间间隔超过此方法设置的阈值时，将生成一个新的会话。默认 30 分钟。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | milliseconds | 最短 Session 刷新间隔。单位：毫秒。| 
 
-**示例：**
+**示例**：
 
 ```
 let value = 1000 * 60 * 60;
-huawei.HMS.analytics.setSessionDuration(value);
+huawei.hms.analytics.analyticsService.setSessionDuration(value);
 ```
 
 #### 清除本地缓存的所有采集数据
@@ -222,28 +219,28 @@ huawei.HMS.analytics.setSessionDuration(value);
 
 清除本地缓存的所有采集数据，包括发送失败的缓存数据。
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
 ```
-huawei.HMS.analytics.clearCachedData();
+huawei.hms.analytics.analyticsService.clearCachedData();
 ```
 
 #### 获取 App Instance ID
 
 `getAAID(): void`
 
-从 AGC 服务中获取App Instance ID，需使用 `huawei.HMS.analytics.once` 获取单次回调或者 `huawei.HMS.analytics.on` 监听回调。
+从 AGC 服务中获取 App Instance ID，需使用 `huawei.hms.analytics.analyticsService.once` 获取单次回调或者 `huawei.hms.analytics.analyticsService.on` 监听回调。
 
-**参数说明：**无需参数。
+**参数说明**：无需参数。
 
-**示例：**
+**示例**：
 
-```
-huawei.HMS.analytics.getAAID();
-huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID, (result) => {
-    this.console.log('getAAID', JSON.stringify(result));
+```js
+huawei.hms.analytics.analyticsService.getAAID();
+huawei.hms.analytics.analyticsService.once(huawei.hms.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID, (result) => {
+    console.log('getAAID...', JSON.stringify(result));
 });
 ```
 
@@ -251,20 +248,20 @@ huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_AAID,
 
 `getUserProfiles(preDefined: boolean): void`
 
-支持 AB test 特性，获取预定义或者自定义的用户属性，需使用 `huawei.HMS.analytics.once` 获取单次回调或者 `huawei.HMS.analytics.on` 监听回调。
+支持 AB test 特性，获取预定义或者自定义的用户属性，需使用 `huawei.hms.analytics.analyticsService.once` 获取单次回调或者 `huawei.hms.analytics.analyticsService.on` 监听回调。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | preDefined | 是否获取预定义用户属性，默认打开。<br>**true**：获取预定义用户属性<br>**false**：获取开发者自定义用户属性 | 
 
-**示例：**
+**示例**：
 
-```
-huawei.HMS.analytics.getUserProfiles();
-huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_PROFILES, (result) => {
-    this.console.log('getUserProfiles', JSON.stringify(result));
+```js
+huawei.hms.analytics.analyticsService.getUserProfiles();
+huawei.hms.analytics.analyticsService.once(huawei.hms.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_PROFILES, (result) => {
+    console.log('getUserProfiles...', JSON.stringify(result));
 });
 ```
 
@@ -276,33 +273,33 @@ huawei.HMS.analytics.once(huawei.HMS.HMS_ANALYTICS_EVENT_LISTENER_NAME.GET_USER_
 
 需要在调用本方法后调用 pageEnd 方法配对使用。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | pageName | 当前页面名称，长度不超过 256 字符，不可为空。 | 
 | pageClassOverride | 当前页面类名，长度不超过 256 字符，不可为空。 | 
 
-**示例：**
+**示例**：
 
 ```
-huawei.HMS.analytics.pageStart("pageName1", "pageClassOverride1");
+huawei.hms.analytics.analyticsService.pageStart("pageName1", "pageClassOverride1");
 ```
 
 #### 自定义退出页面事件
 
 `pageEnd(pageName: string): void`
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
 | pageName | 当前结束的页面名称，长度不超过 256 字符，不可为空，需要和对应 pageStart 内传入的 pageName 相同。 | 
 
-**示例：**
+**示例**：
 
 ```
-huawei.HMS.analytics.pageEnd("pageName1");
+huawei.hms.analytics.analyticsService.pageEnd("pageName1");
 ```
 
 #### 打开调试日志
@@ -313,18 +310,21 @@ huawei.HMS.analytics.pageEnd("pageName1");
 
 该方法在 `AnalyticsTools` 类中，请注意调用写法。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :---------- |  
-| level | 可选，开启指定级别的调试日志。<br>日志级别：<br>huawei.HMS.LOG_LEVEL.debug，<br>huawei.HMS.LOG_LEVEL.info，<br>huawei.HMS.LOG_LEVEL.warn，<br>huawei.HMS.LOG_LEVEL.error。 | 
+| level | 可选，开启指定级别的调试日志。<br>日志级别：<br>huawei.hms.LOG_LEVEL.debug，<br>huawei.hms.LOG_LEVEL.info，<br>huawei.hms.LOG_LEVEL.warn，<br>huawei.hms.LOG_LEVEL.error。 | 
 
-**示例：**
+**示例**：
 
 ```
-huawei.HMS.AnalyticsTools.enableLog();
+huawei.hms.analytics.AnalyticsTools.enableLog();
 
-huawei.HMS.AnalyticsTools.enableLog(huawei.HMS.LOG_LEVEL.debug);
+huawei.hms.analytics.AnalyticsTools.enableLog(huawei.hms.LOG_LEVEL.debug);
 ```
 
+## API 文档
+
+详细的功能接口和 API 说明，请参考 [分析服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html)。
 
