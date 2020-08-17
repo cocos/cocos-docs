@@ -1,20 +1,18 @@
 # 碰撞系统脚本控制
 
-Cocos Creator 中内置了一个简单易用的碰撞检测系统，他会根据添加的碰撞组件进行碰撞检测。   
-当一个碰撞组件被启用时，这个碰撞组件会被自动添加到碰撞检测系统中，并搜索能够与他进行碰撞的其他已添加的碰撞组件来生成一个碰撞对。   
-需要注意的是，一个节点上的碰撞组件，无论如何都是不会相互进行碰撞检测的。   
+Cocos Creator 中内置了一个简单易用的碰撞检测系统，它会根据添加的碰撞组件进行碰撞检测。当一个碰撞组件被启用时，这个碰撞组件会被自动添加到碰撞检测系统中，并搜索能与之进行碰撞的其他已添加的碰撞组件来生成一个碰撞对。需要注意的是，一个节点上的碰撞组件，无论如何都是不会相互进行碰撞检测的。
 
 ## 碰撞检测系统的使用
 
 ### 碰撞系统接口
 
-获取碰撞检测系统
+获取碰撞检测系统：
 
 ```javascript
 var manager = cc.director.getCollisionManager();
 ```
 
-默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
+默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统：
 
 ```javascript
 manager.enabled = true;
@@ -122,4 +120,4 @@ start () {
 }
 ```
 
-更多的范例可以到 [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。
+更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。

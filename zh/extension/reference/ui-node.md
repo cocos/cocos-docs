@@ -13,7 +13,7 @@
 `values`| array | 返回存储资源 uuid 的数组
 `droppable`| string | 支持接收的元素名称，多种元素用逗号隔开
 `typename`| string | 显示的资源类型名称
-`empty`| boolean ，只读| 是否内部已有资源数据
+`empty`| boolean，只读| 是否内部已有资源数据
 `highlighted`| boolean | 是否高亮
 `invalid`| boolean | 是否有效
 `multi-values`| boolean | 是否允许接收多个资源数据

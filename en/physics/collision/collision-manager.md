@@ -1,7 +1,6 @@
 # Collision Manager Scripting
 
-Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders.   
-When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.   
+Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders. When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.   
 
 **Note: The Collider Components in the same node, will not do collision detecsion with each other forever.**   
 
@@ -9,19 +8,19 @@ When a Collider Component is enabled, this Collider Component will be auto added
 
 ### Collision Manager Interface
 
-Get the Collision Manager
+Get the Collision Manager:
 
 ```javascript
 var manager = cc.director.getCollisionManager();
 ```
 
-Collision Manager is disabled by default, enable it if you need to use it.
+Collision Manager is disabled by default, enable it if you need to use it:
 
 ```javascript
 manager.enabled = true;
 ```
 
-Collision Manager Debug Draw is disabled by default, enable it if you need to see the debug info.
+Collision Manager Debug Draw is disabled by default, enable it if you need to see the debug info:
 
 ```javascript
 manager.enabledDebugDraw = true;
@@ -37,7 +36,7 @@ If you want to display the bounding box of the Collider Component, please set `e
 manager.enabledDrawBoundingBox = true;
 ```
 
-Result :   
+Result:   
 
 ![](collision-manager/draw-bounding-box.png)
 

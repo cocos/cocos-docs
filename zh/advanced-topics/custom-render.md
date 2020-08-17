@@ -4,11 +4,11 @@
 
 ![](custom-render/render-component.png)
 
-新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及 Assembler 的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义 RenderComponent 及对应的 Assembler ，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染，下面将介绍如何自定义 RenderComponent 及 Assembler 完成自定义渲染。
+新的渲染流程不仅大大提升了底层的渲染效率，同时渲染组件及 Assembler 的模块化也使得自定义渲染变得更加方便，有特殊需求的开发者只需要自定义 RenderComponent 及对应的 Assembler，然后添加渲染组件到场景中的节点上，引擎的渲染流程将按照自定义的渲染组件自动完成节点的渲染，下面将介绍如何自定义 RenderComponent 及 Assembler 完成自定义渲染。
 
 ## 自定义 RenderComponent
 
-我们以渲染一张 Texture 为例，首先创建自定义渲染组件的脚本，命名为 CustomRender.js ，并添加类型为 cc.Texture2D 的属性。
+我们以渲染一张 Texture 为例，首先创建自定义渲染组件的脚本，命名为 CustomRender.js，并添加类型为 cc.Texture2D 的属性。
 
 ```js
 // 自定义渲染组件
@@ -353,7 +353,7 @@ let CustomAssembler = {
 module.exports = CustomAssembler;
 ```
 
-注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为 vfmtPosUv 和 vfmtPosUvColor ，具体的定义可以查看引擎中的 vertex-format.js 文件。这两者的区别主要在于顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为 Uniform 变量直接设置给 Shader ，这种情况下 buffer 的数据格式设定为 vfmtPosUv ，同时纹理材质 material.useColor 需要设置为  true ，引擎将自动完成节点颜色的设置。另外一种方式是将节点的颜色数据作为 attribute 变量，通过 buffer 将数据传递给 Shader ，这种情况需要设置 buffer 的数据格式为 vfmtPosUvColor ，同时将 material.useColor 设置为 false，这样顶点数据的填充就需要修改为：
+注意：在引擎中定义了几种顶点数据的格式，常用的两种数据格式为 vfmtPosUv 和 vfmtPosUvColor，具体的定义可以查看引擎中的 vertex-format.js 文件。这两者的区别主要在于顶点颜色数据的传递，现在有两种方式传递节点的颜色数据，一种是将颜色数据作为 Uniform 变量直接设置给 Shader，这种情况下 buffer 的数据格式设定为 vfmtPosUv，同时纹理材质 material.useColor 需要设置为 true，引擎将自动完成节点颜色的设置。另外一种方式是将节点的颜色数据作为 attribute 变量，通过 buffer 将数据传递给 Shader，这种情况需要设置 buffer 的数据格式为 vfmtPosUvColor，同时将 material.useColor 设置为 false，这样顶点数据的填充就需要修改为：
 
 ```js
     let vbuf = buffer._vData,

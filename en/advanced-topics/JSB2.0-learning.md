@@ -920,7 +920,7 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 
 ## Automatic Binding
 
-### Configure Module .ini Files
+### Configure Module `.ini` Files
 
 The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cocos2d::Ref` subclass and non- `cocos2d::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
 
@@ -930,7 +930,7 @@ Other fields are the same as v1.6.
 
 For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini` file.
 
-### Understand The Meaning of Each Field in The .ini file
+### Understand The Meaning of Each Field in The `.ini` file
 
 ```bash
 # Module name
@@ -1096,11 +1096,11 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 ### The Association and Disassociation of Object's Life Cycle
 
-Use se::Object::attachObject to associate object's life cycle.
-Use se::Object::dettachObject to disassociate object's life cycle.
+Use `se::Object::attachObject` to associate object's life cycle.<br>
+Use `se::Object::dettachObject` to disassociate object's life cycle.
 
-`objA->attachObject(objB);` is similar as `objA .__ nativeRefs [index] = objB` in JS. Only when `objA` is garbage collected, `objB` will be possible garbage collected.
-`objA->dettachObject(objB);` is similar as `delete objA.__nativeRefs[index];` in JS. After invoking dettachObject, objB's life cycle will not be controlled by objA
+`objA->attachObject(objB);` is similar as `objA.__ nativeRefs[index] = objB` in JS. Only when `objA` is garbage collected, `objB` will be possible garbage collected.<br>
+`objA->dettachObject(objB);` is similar as `delete objA.__nativeRefs[index];` in JS. After invoking dettachObject, objB's life cycle will not be controlled by objA.
 
 ### What's The Difference of Object Life Management between The Subclass of `cocos2d::Ref` and non-`cocos2d::Ref` class?
 

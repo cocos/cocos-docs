@@ -68,7 +68,7 @@ anim.stop();
 
 **暂停**、**恢复**、**停止** 几个函数的调用比较接近。
 
-**暂停** 会暂时停止动画的播放，当 **恢复** 动画的时候，动画会继续从当前时间往下播放。  
+**暂停** 会暂时停止动画的播放，当 **恢复** 动画的时候，动画会继续从当前时间往下播放。<br>
 而 **停止** 则会终止动画的播放，再次播放这个动画时会重新播放动画。
 
 ### 设置动画的当前时间
@@ -93,8 +93,8 @@ anim.setCurrentTime(1);
 
 ### AnimationState 是什么？
 
-如果说 **AnimationClip** 是作为动画数据的承载，那么 **AnimationState** 则是 **AnimationClip** 在运行时的实例，它将动画数据解析为方便程序中做计算的数值。  
-**Animation** 在播放一个 **AnimationClip** 的时候，会将 **AnimationClip** 解析成 **AnimationState**。  
+如果说 **AnimationClip** 是作为动画数据的承载，那么 **AnimationState** 则是 **AnimationClip** 在运行时的实例，它将动画数据解析为方便程序中做计算的数值。<br>
+**Animation** 在播放一个 **AnimationClip** 的时候，会将 **AnimationClip** 解析成 **AnimationState**。<br>
 **Animation** 的播放状态实际都是由 **AnimationState** 来计算的，包括动画是否循环、怎么循环、播放速度等。
 
 ### 获取 AnimationState
@@ -181,10 +181,11 @@ animState.repeatCount = 2;
 animState.repeatCount = Infinity;
 ```
 
-**AnimationState** 允许动态设置循环模式，目前提供了多种循环模式，这些循环模式可以从 **cc.WrapMode** 中获取到。  
+**AnimationState** 允许动态设置循环模式，目前提供了多种循环模式，这些循环模式可以从 **cc.WrapMode** 中获取到。
+
 如果动画的 **WrapMode** 为 **Loop** 的话，需要与 **repeatCount** 配合使用才能达到效果。默认在解析动画剪辑的时候，如果动画循环类型为：
-- **Loop** 类型，**repeatCount** 将被设置为 **Infinity**，即无限循环
-- **Normal** 类型，**repeatCount** 将被设置为 1
+- **Loop** 类型，**repeatCount** 将被设置为 **Infinity**，即无限循环。
+- **Normal** 类型，**repeatCount** 将被设置为 1。
 
 ## 动画事件
 
