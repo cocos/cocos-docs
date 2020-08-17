@@ -14,7 +14,7 @@ The `rect()` method is used to create a rectangle.
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.rect(20, 20, 150, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
 <a href="graphics/rect.png"><img src="graphics/rect.png"></a>
@@ -26,19 +26,19 @@ var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 6;
 ctx.strokeColor = cc.Color.RED;
 ctx.rect(5, 5, 290, 140);
-ctx.fill();
+ctx.stroke();
 
 // Green rectangle
 ctx.lineWidth = 4;
 ctx.strokeColor = cc.Color.GREEN;
 ctx.rect(30, 30, 50, 50);
-ctx.fill();
+ctx.stroke();
 
 // Blue rectangle
 ctx.lineWidth = 10;
 ctx.strokeColor = cc.Color.BLUE;
 ctx.rect(50, 50, 150, 80);
-ctx.fill();
+ctx.stroke();
 ```
 
 <a href="graphics/rect2.png"><img src="graphics/rect2.png"></a>

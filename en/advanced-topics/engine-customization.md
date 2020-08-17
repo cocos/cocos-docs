@@ -214,7 +214,7 @@ npm install -g gulp
 npm install
 ```
 
-Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
+Next, you can customize the code in **jsb-adapter**. After the modification is complete, continue to execute it on the command line:
 
 ```bash
 # in jsb-adapter folder

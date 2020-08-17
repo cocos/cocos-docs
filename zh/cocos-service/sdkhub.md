@@ -103,7 +103,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
 
 - 点击 Cocos SDKHub 服务面板中的 **Sample 工程** 按钮，Clone 或下载 Cocos SDKHub Sample 工程，并在 Cocos Creator 中打开。
 
-- 以集成 **HUAWEI HMS Core** 为例，具体内容可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。 
+- 以集成 **HUAWEI HMS Core** 为例，具体内容可参考 [HMS Core - Sample 工程](./sdkhub-plugins/sdkhub-hms.md#sample-工程) 文档。
 
 - 若需要修改工程参数配置或者 JS 代码层，修改完成后，在 **构建发布** 面板重新构建即可。
 
@@ -543,7 +543,7 @@ sdkhub.getFeePlugin().feeForProduct(params);
 
 `showAds(params: any): void`
 
-调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds` 。回调成功后才能调用显示广告方法。
+调用 SDK 的显示广告方法。部分类型广告显示前，需要调用预加载方法 `preloadAds`。回调成功后才能调用显示广告方法。
 
 若需要显示 Banner 等类型广告，可能使用到 [AdsPos](https://docs.cocos.com/service/api/enums/sdkhub.adspos.html) 方位。
 
