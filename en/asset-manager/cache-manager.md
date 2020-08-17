@@ -2,7 +2,7 @@
 
 > Author: Santy-Wang, Xunyi
 
-For Web platforms, after a resource is downloaded, the cache is managed by the browser, not the engine.<br>
+For Web platforms, resources cache are managed by the browser after download, not the engine.<br>
 However, on some non-Web platforms, such as WeChat Mini Game, these platforms have a file system, which can be used to cache some remote resources, but do not implement a caching mechanism for resources. In this case, the engine needs to implement a set of caching mechanisms for managing resources downloaded from the network, including caching resources, cleaning cached resources, querying cached resources and other features.
 
 As of v2.4, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `cc.assetManager.cacheManager`.
@@ -11,15 +11,15 @@ As of v2.4, Creator provides a Cache Manager on all platforms where file systems
 
 The logic of the engine downloading resources is as follows:
 
-1. Check if the resource is in the game package, if so, use it directly.
+1. Determine if the resource is in the game package, if so, use it directly;
 
-2. If not, check if the resource is in the cache, and if it is, use it directly.
+2. If not, check if the resource is in the cache, and if it is, use it directly;
 
-3. If not, check if the resource is in a temporary directory, and if it is, use it directly (the native platform does not have the temporary directory and skips this step).
+3. If not, check if the resource is in a temporary directory, and if it is, use it directly (the native platform does not have the temporary directory and skips this step);
 
-4. If not, download the resources from the remote server and use them directly after downloading them to the temporary directory (the native platform downloads the resources to the cache directory).
+4. If not, download the resources from the remote server and use them directly after downloading them to the temporary directory (the native platform downloads the resources to the cache directory);
 
-5. Slowly save the resources from the temporary directory to the local cache directory in the background (the native platform skips this step).
+5. Slowly save the resources from the temporary directory to the local cache directory in the background (the native platform skips this step);
 
 6. When the cache space is full, the older resources will be deleted using the LRU algorithm at this point (there is no size limit on the native platform's cache space, so skip this step, you can call manually for cleanup if needed).
 
@@ -56,7 +56,7 @@ A number of parameters are provided in the Cache Manager to control the caching 
 3. `cacheManager.cacheEnabled` -- Controls whether or not to cache resources, which defaults to caching. Alternatively, you can override the global settings by specifying the optional parameter `cacheEnabled`, for example:
 
   ```js
-  cc.assetManager.loadRemote('http://example.com/background.jpg', { cacheEnabled: true }, callback);
+  cc.assetManager.loadRemote('http://example.com/background.jpg', {cacheEnabled: true}, callback);
   ```
 
 ## Clear cache

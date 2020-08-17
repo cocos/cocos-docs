@@ -11,7 +11,7 @@
 
 引擎下载资源的逻辑如下：
 
-1. 查询资源是否在游戏包内，如果在则直接使用；
+1. 判断资源是否在游戏包内，如果在则直接使用；
 
 2. 如果不在则查询资源是否在缓存中，如果在缓存中则直接使用；
 
@@ -56,7 +56,7 @@ cc.assetManager.loadRemote('http://example.com/background.jpg', function (err, t
 - `cacheManager.cacheEnabled` —— 控制是否要缓存资源，默认为缓存。另外，开发者也可以通过指定可选参数 `cacheEnabled` 来覆盖全局设置，例如：
 
   ```js
-  cc.assetManager.loadRemote('http://example.com/background.jpg', { cacheEnabled: true }, callback);
+  cc.assetManager.loadRemote('http://example.com/background.jpg', {cacheEnabled: true}, callback);
   ```
 
 ## 清理缓存
