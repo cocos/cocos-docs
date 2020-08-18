@@ -26,6 +26,7 @@ Cocos Service 目前提供的服务包括：
     - [计费与充值](billing-and-charge.md)
 - [服务列表](service-index.md)
     - [Cocos Analytics 统计](cocos-analytics.md)
+    - [Agora 声网](agora.md)
     - [云开发（腾讯云）](tcb.md)
     - [游戏联机对战引擎（腾讯云）](mgobe.md)
     - [游戏多媒体引擎（腾讯云）](gme.md)

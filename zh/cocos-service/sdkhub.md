@@ -251,7 +251,7 @@ sdkhub.getUserPlugin().removeListener();
 
 - 若调用方法需要按 SDK 要求传入参数，请参考对应插件文档的 **开发指南**，传入参数可能为数字、字符串，或者 JSON 对象。
 
-  - 以传入参数为 `Number` 的华为 HMS Core `cancelAuthorization` 方法为例：
+  - 以传入参数为 `Number` 的华为 HMS Core `getGameSummary` 方法为例：
 
     ```js
     var params = 0;
