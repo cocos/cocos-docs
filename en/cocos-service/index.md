@@ -8,6 +8,10 @@ The **Service** Panel currently supports the integration of third-party services
 
   - [Cocos SDKHub](sdkhub.md)
 
+  - [Location Kit（HMS Core）](https://developer.huawei.com/consumer/en/hms/huawei-locationkit)
+
+  - [Analytics Kit（HMS Core）](https://developer.huawei.com/consumer/en/hms/huawei-analyticskit)
+
   - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
 ## Usage

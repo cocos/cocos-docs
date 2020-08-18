@@ -10,7 +10,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Cocos Analytics**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-  ![](cocos-analytics/analytics-panel.png)
+    ![](cocos-analytics/analytics-panel.png)
 
 - 开通服务后，在 Cocos Analytics 服务面板可以看到新增了 **参数配置** 项，包括 **AppID** 和 **store** 两个参数，以及 **重新加载预览插件** 按钮：
 
