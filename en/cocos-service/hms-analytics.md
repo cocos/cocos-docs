@@ -18,19 +18,19 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 - Use Cocos Creator to open the project that needs to be connected to Analytics Kit.
 
-- Click on **Panel -> Service** on the menu bar to open the Service panel, go to the **Analytics Kit** service detail panel, and click on the **Enable** button at the top right. Refer to Cocos Service [Operation Guide](./user-guide.md).
+- Click on **Panel -> Service** on the menu bar to open the service panel, go to the **Analytics Kit** service detail panel, and click on the **Enable** button at the top right. Refer to Cocos Service [Operation Guide](./index.md#usage).
 
   ![](hms-analytics/ana-provisioning.jpeg)
 
-- Refer to [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815), Complete the following steps: Registering as a Developer, Creating an App, Generating a Signing Certificate Fingerprint and Configuring the Signing Certificate Fingerprint.
+- Refer to the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) documentation to complete developer registration, app creation, enable Huawei Analysis Service parameter configuration, and enable the API.
 
-### Config HUAWEI params file
+### Configs AGC Config file
 
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) and select **My projects**.
 - Find your project from the project list and click the app on the project card.
-- On the **Project Setting** page, download the configuration file **agconnect-services.json**.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it.
 
   ![](hms-analytics/ana-configfile.png)
 
@@ -38,23 +38,25 @@ The `agconnect-services.json` file needs to be placed in the `/settings` directo
 
 ### Verify whether the service is integrated successfully
 
-- Once the Analytics Kit service is integrated, without changing the code, you can [publish](../publish/publish-native.md) and run on the **Android** platform. Please make sure that the package name on the publish panel is consistent with the package name set in the HUAWEI console.
+- Once the Analytics Kit service is integrated, you can [publish to the Android platform](../publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
 - Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **HUAWEI Analytics -> User Analysis -> New Users**. If you can see new user information (usually displayed within 10 minutes), which means the access is successful.
 
 ## Sample Project
 
-Developer can get a quick taste of the Analytics Kit with the sample Project.
+Developer can get a quick taste of the Analytics Kit with the sample project.
 
-- Click on the **Sample** button in the Analytics Kit Service Panel, clone or Download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Analytics Kit service panel, clone or download, and open the project in Cocos Creator.
 
-- After [Enable Analytics Kit Service](#enable-analytics-kit-service) and [Config HUAWEI params file](#config-huawei-params-file), open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above version, please refer to [Publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Other version can build to the Android platform.
+- After **Enable Analytics Kit Service** and **Config AGC params file**, open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above, please refer to [Publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 version could [publish to the Android platform](../publish/publish-native.md).
 
-- Need to test on Huawei or Honor brand phones with HMS Core service installed. Press the **Analytics** button on homepage for testing.
+- Need to test on Huawei or Honor brand phones with HMS Core service installed.
+
+- Press the **Analytics**  button on homepage for testing.
 
     ![](hms-analytics/ana-sample.jpg)
 
-## Developer guide
+## Developer Guide
 
 Analytics kit provide some [Automatically Collected Events](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-automatic-event-collection-0000001051757143). Such events can be automatically collected without extra coding, and the only requirement is that the function of collecting system events is enabled. (The function is automatically enabled during initiation.)
 
@@ -68,14 +70,13 @@ Such events can be used to meet personalized analysis requirements that cannot b
 
 You may need personalized events for logging and analytics. Analytics Kit allows you to customize events and extend event parameters, or add personalized parameters for predefined events.
 
-For example, you can add custom event 
-`begin_examination` to indicate the event of entering a new exam and add the `exam_difficulty` parameter to define the exam difficulty.
+For example, you can add custom event `begin_examination` to indicate the event of entering a new exam and add the `exam_difficulty` parameter to define the exam difficulty.
 
 **Parameter Description**：
 
 | Parameter | Description | 
 | :---------- | :---------- |
-| eventId | Event ID, a string containing a maximum of 256 characters. The value cannot be empty. It can consist of digits, letters, and underscores (_) but cannot contain spaces or start with a digit. The ID of an 【automatically collected event](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/android-automatic-event-collection-0000001051757143-V5) cannot be used.<br>Example: *event_description10* | 
+| eventId | Event ID, a string containing a maximum of 256 characters excluding spaces and invisible characters. The value cannot be empty or the ID of an [automatically collected event](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/android-automatic-event-collection-0000001051757143-V5). | 
 | params | Information carried in the event. The number of built-in key-value pairs in the Bundle cannot exceed 2048 and the size cannot exceed 200 KB. The key value in the Bundle can consist of digits, letters, and underscores (_) but cannot start with a digit. | 
 
 **Example**：
@@ -106,8 +107,7 @@ Specifies whether to enable event collection. If the function is disabled, no da
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| enabled | 	
-Indicates whether to enable automatic event collection. The options are as follows. The default value is **true**.<br>**true**：Enable the function<br>**false**：Not enable the function | 
+| enabled | Indicates whether to enable automatic event collection. The options are as follows. The default value is **true**.<br>**true**：Enable the function<br>**false**：Close the function | 
 
 **Example**：
 
@@ -119,9 +119,9 @@ huawei.hms.analytics.analyticsService.setAnalyticsEnabled(true);
 
 `setUserId(userId: string): void`
 
-When the API is called, a new session is generated if the old value of **id** is not empty and is different from the new value. If you do not want to use **id** to identify a user (for example, when a user signs out), you must set id to `null`.
+When the API is called, a new session is generated if the old value of **userId* is not empty and is different from the new value. If you do not want to use **userId** to identify a user (for example, when a user signs out), you must set id to `null`.
 
-**id** is used by Analytics Kit to associate user data. The use of **id** must comply with related privacy regulations. You need to declare the use of such information in the privacy statement of your app.
+The **userId** is used by Analytics Kit to associate user data. The use of **userId** must comply with related privacy regulations. You need to declare the use of such information in the privacy statement of your app.
 
 **Parameter Description**：
 
@@ -145,7 +145,7 @@ Sets user attributes. The values of user attributes remain unchanged throughout 
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| name | Name of the user attribute, a string containing a maximum of 256 characters. The value cannot be empty. It can consist of digits, letters, and underscores (_) but cannot start with a digit or underscore (_). | 
+| name | Name of the user attribute, a string containing a maximum of 256 characters excluding spaces and invisible characters. The value cannot be empty. | 
 | value | Value of the user attribute, a string containing a maximum of 256 characters. The value cannot be empty.| 
 
 **Example**：
@@ -162,6 +162,8 @@ console.log('setUserProfile...', name, value);
 `setPushToken(token: string): void`
 
 Sets the push token. After obtaining a push token through Push Kit, call this method to save the push token so that you can use the audience defined by HUAWEI Analytics to create HCM notification tasks.
+
+If the HMS Core Push Kit is integrated through [SDKHub](./sdkhub.md), the callback returned by calling the `startPush` function is the **Push Token**.
 
 **Parameter Description**：
 
@@ -185,8 +187,7 @@ Sets the minimum interval for starting a new session. A new session is generated
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| milliseconds | 	
-Minimum interval for updating a session, in milliseconds.| 
+| milliseconds | Minimum interval for updating a session, in milliseconds. | 
 
 **Example**：
 
@@ -230,7 +231,7 @@ huawei.hms.analytics.analyticsService.clearCachedData();
 
 `getAAID(): void`
 
-Obtains the app instance ID from AppGallery Connect. Call the function with `huawei.hms.analytics.analyticsService.once` for callback once or `huawei.hms.analytics.analyticsService.on` lintener for callback.
+Obtains the app instance ID from AppGallery Connect. Call the function with `huawei.hms.analytics.analyticsService.once` to get a single callback, or use `huawei.hms.analytics.analyticsService.on` lintener to listen for callbacks.
 
 **Example**：
 
@@ -245,14 +246,13 @@ huawei.hms.analytics.analyticsService.once(huawei.hms.HMS_ANALYTICS_EVENT_LISTEN
 
 `getUserProfiles(preDefined: boolean): void`
 
-Obtains predefined and custom user attributes in A/B Testing. Call the function with `huawei.hms.analytics.analyticsService.once` for callback once or `huawei.hms.analytics.analyticsService.on` lintener for callback.
+Obtains predefined and custom user attributes in A/B Testing. Call the function with `huawei.hms.analytics.analyticsService.once` to get a single callback, or use `huawei.hms.analytics.analyticsService.on` lintener to listen for callbacks.
 
 **Parameter Description**：
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| preDefined | 	
-Indicates whether to obtain predefined user attributes. <br>**true**：Obtains predefined user attributes<br>**false**：Obtains custom user attributes | 
+| preDefined | Indicates whether to obtain predefined user attributes. <br>**true**：Obtains predefined user attributes<br>**false**：Obtains custom user attributes | 
 
 **Example**：
 
@@ -275,8 +275,7 @@ After this API is called, the `pageEnd()` API must be called.
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| pageName | 	
-Name of the current page, a string containing a maximum of 256 characters. The value cannot be empty. | 
+| pageName | Name of the current page, a string containing a maximum of 256 characters. The value cannot be empty. | 
 | pageClassOverride | Class name of the current page, a string containing a maximum of 256 characters. The value cannot be empty. | 
 
 **Example**：
@@ -311,7 +310,7 @@ Enables the debug log function
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| level | Enables the debug log function and sets the minimum log level.<br>Debug log:<br>huawei.hms.LOG_LEVEL.debug, <br>huawei.hms.LOG_LEVEL.info, <br>huawei.hms.LOG_LEVEL.warn, <br>huawei.hms.LOG_LEVEL.error. | 
+| level | Enables the debug log function and specify the level of the debug log.<br>Debug log level:<br>huawei.hms.LOG_LEVEL.debug, <br>huawei.hms.LOG_LEVEL.info, <br>huawei.hms.LOG_LEVEL.warn, <br>huawei.hms.LOG_LEVEL.error. | 
 
 **Example**：
 
