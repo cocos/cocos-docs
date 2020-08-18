@@ -46,7 +46,7 @@ Developer can get a quick taste of the Analytics Kit with the sample Project.
 
 - Click on the **Sample** button in the Analytics Kit Service Panel, clone or Download, and open the project in Cocos Creator.
 
-- After [Enable Analytics Kit Service](#enable-analytics-kit-service) and [Config HUAWEI params file](#config-huawei-params-file), open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above version, please refer to [Publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md). Old version can build to the Android platform.
+- After [Enable Analytics Kit Service](#enable-analytics-kit-service) and [Config HUAWEI params file](#config-huawei-params-file), open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above version, please refer to [Publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Other version can build to the Android platform.
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed. Press the **Analytics** button on homepage for testing.
 
