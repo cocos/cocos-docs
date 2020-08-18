@@ -10,7 +10,7 @@
 
 ### 主要功能
 
-#### 请求位置更新
+#### 融合定位
 
 如果应用需要请求设备位置信息，开发者可以为应用申请位置权限，然后调用 HMS Core 的请求位置更新接口，设置不同的请求参数，根据需要指定定位方式，获取持续的位置信息回调。如果获取位置信息后，想取消位置信息回调，可以调用移除位置更新接口，达到取消回调的目的。
 
@@ -32,11 +32,11 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **定位服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-![](hms-location/loc-provisioning.jpeg)
+  ![](hms-location/loc-provisioning.jpeg)
 
-- 参考 [AppGallery Connect配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，完成开发者注册、创建应用、生成和配置签名证书指纹和打开相关服务步骤。
+- 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，完成开发者注册、创建应用、生成/配置签名证书指纹以及打开相关服务。
 
-- 定位服务可以直接使用，不需要在华为后台额外开通 API。
+- 定位服务可以直接使用，无需在 AppGallery Connect 后台额外操作。
 
 ### 配置华为参数文件
 
@@ -46,13 +46,13 @@
 - 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
-我们将该文件统一放在工程下的 `/setting` 目录。请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+`agconnect-services.json` 文件需要统一放在工程目录中的 `/settings` 目录，该文件下载或更新后，请手动拷贝覆盖。
 
 ### 验证服务是否接入成功
 
 - 完成 **定位服务** 接入步骤后，我们便可以通过在脚本中添加简单的代码来验证接入是否成功。
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
     {
@@ -61,12 +61,13 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
         console.log('requestLocationPermission...', 'fail:', result.errMsg);
     }
 });
+
 huawei.hms.location.locationService.requestLocationPermission();
 ```
 
-- 代码添加后，[**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
+- 代码添加完成后，即可 [打包发布](../publish/publish-native.md) 到 **Android** 平台，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 第一次运行一般会弹出申请位置权限对话框（见下图）即为接入成功。
+- 第一次在手机上运行时，若弹出申请位置权限的对话框（见下图），即表示接入成功。
 
   ![](hms-location/loc-debugging.png)
 
@@ -78,31 +79,33 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 - 点击定位服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，Creator v2.4.1 以下的版本可构建发布到 Android 平台。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Location** 按钮，进入该功能界面进行测试。
+- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
-    ![](hms-location/loc-sample.jpg)
+- Sample 工程运行到手机后，点击首页的 **Location** 按钮，即可进入功能界面进行测试。
+
+  ![](hms-location/loc-sample.jpg)
 
 ## 开发指南
 
-定位服务所有 API 均走异步回调。可使用 `huawei.hms.location.locationService.once` 获取单次回调或者 `huawei.hms.location.locationService.on` 监听回调，下同。
+定位服务所有的 API 均是异步回调。可使用 `huawei.hms.location.locationService.once` 获取单次回调，或者使用 `huawei.hms.location.locationService.on` 监听回调，下同。
 
 ### 定位服务
 
 `huawei.hms.location.locationService`
 
-对应 [华为 HMS 文档 - 定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
+可参考华为 HMS 文档 - [定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
 
 #### 检查应用权限
 
 `checkLocationSettings(): void`
 
-检查位置设置各开关是否可用。
+检查位置服务相关应用权限。
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_SETTINGS, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('checkLocationSettings...', 'success');
@@ -118,11 +121,11 @@ huawei.hms.location.locationService.checkLocationSettings();
 
 `requestLocationPermission(): void`
 
-动态申请位置权限方法。
+该方法用于动态申请位置权限。
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) 
     {
@@ -139,11 +142,11 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 `requestLocationUpdates(): void`
 
-如果开发者希望应用可以持续获取设备位置，需调用该方法。
+该方法用于在应用中持续获取设备的位置。
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REQUEST_LOCATION_UPDATE, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('requestLocationUpdates...', 'success');
@@ -155,11 +158,13 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 huawei.hms.location.locationService.requestLocationUpdates();
 ```
 
-当开发者的应用程序不再需要接收位置更新时，应当停止位置更新，以便于降低功耗。
+`removeLocationUpdates(): void`
+
+当开发者的应用程序不再需要接收位置更新时，应当停止位置更新，以便降低功耗。
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_LOCATION_UPDATE, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('removeLocationUpdates...', 'success');
@@ -179,7 +184,7 @@ huawei.hms.location.locationService.removeLocationUpdates();
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LAST_LOCATION, (location) => {
     if (location.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('getLastLocation...', 'success', lon:' + location.longitude + ",lat:" + location.latitude);
@@ -193,7 +198,7 @@ huawei.hms.location.locationService.getLastLocation();
 
 #### 使用模拟位置信息功能
 
-该功能为测试情况使用。若需用到该功能，具体操作步骤：打开 **设置 -> 系统和更新 -> 开发人员选项 -> 选择模拟位置信息应用 -> 选择要 mock 的应用**（如果没有发现 “开发人员选项”，请执行如下操作：“设置 -> 关于手机 -> 版本号”，连续点击 “版本号” 7次，“开发人员选项” 会出现在 “系统与更新” 页面，再重复上述操作）。
+该功能用于测试环境<br>。打开 Android 手机的 **设置** 页面，点击 **系统和更新 -> 开发人员选项 -> 选择模拟位置信息应用 -> 选择要 mock 的应用** 即可开启该功能。如果没有找到 “开发人员选项”，请在 **设置** 页面的 **关于手机 -> 版本号** 上连续点击 7 次，“开发人员选项” 便会出现在 “系统和更新” 页面中。
 
 在 AndroidManifest.xml 文件中配置模拟定位权限。
 
@@ -207,7 +212,7 @@ tools:ignore="MockLocation,ProtectedPermissions" />
 
 `setMockMode(mockMode: boolean): void`
 
-设置位置提供者是否使用位置模拟模式。为 true 时，将不再使用 GPS 或网络位置，最终直接返回通过 `setMockLocation` 设置的位置信息。
+设置为 true 时，将不再使用 GPS 或网络位置，直接返回通过 `setMockLocation` 设置的位置信息（`setMockLocation` 的设置见下方）。
 
 **传入参数**：
 
@@ -217,7 +222,7 @@ tools:ignore="MockLocation,ProtectedPermissions" />
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_MODE, (result) => {
     if (location.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('setMockMode...', 'success');
@@ -233,7 +238,7 @@ huawei.hms.location.locationService.setMockMode(true);
 
 `setMockLocation(latitude: string, longitude: string): void`
 
-设置具体的模拟位置。必须在调用此方法之前调用 `setMockMode` 并设置为 true。
+调用此方法之前必须先调用 `setMockMode` 并设置为 `true`。
 
 **参数说明**：
 
@@ -244,7 +249,7 @@ huawei.hms.location.locationService.setMockMode(true);
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_LOCATION, (result) => {
     if (location.code === huawei.hms.location.LocationActivityService.StatusCode.success)
     {
@@ -262,17 +267,17 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 `huawei.hms.location.locationActivityService`
 
-对应 [华为 HMS 文档 - 活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
+可参考华为 HMS 文档 - [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
 
 #### 指定应用权限
 
 `requestRecognitionPermission(): void`
 
-[该权限](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110) 属于危险权限，使用时需要动态申请。
+[该权限](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110#ZH-CN_TOPIC_0000001050706110__section12461453154011) 属于危险权限，使用时需要动态申请。
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.requestRecognitionPermission();
 ```
 
@@ -280,7 +285,7 @@ huawei.hms.location.locationActivityService.requestRecognitionPermission();
 
 `createActivityIdentificationUpdates(intervalMillis: number): void`
 
-[注册活动识别更新](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397)。
+可参考华为 HMS 文档 — [注册活动识别更新](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397)。
 
 **参数说明**：
 
@@ -290,7 +295,7 @@ huawei.hms.location.locationActivityService.requestRecognitionPermission();
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('requestActivityUpdates...', 'success');
@@ -308,7 +313,7 @@ huawei.hms.location.locationActivityService.createActivityIdentificationUpdates(
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.on(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_ACTIVITY_UPDATES, (result) => {
     console.log('HMS_ACTIVITY_UPDATES...', JSON.stringify(result));
 }, this);
@@ -327,7 +332,7 @@ huawei.hms.location.locationActivityService.on(huawei.hms.location.HMS_LOCATION_
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('deleteActivityUpdates...', 'success');
@@ -347,7 +352,7 @@ huawei.hms.location.locationActivityService.deleteActivityIdentificationUpdates(
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_CONVERSION_UPDATES, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('createActivityConversionUpdates...', 'success');
@@ -374,7 +379,7 @@ huawei.hms.location.locationActivityService.createActivityConversionUpdates(info
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('deleteActivityConversionUpdates...', 'success');
@@ -390,13 +395,13 @@ huawei.hms.location.locationActivityService.deleteActivityConversionUpdates();
 
 `huawei.hms.location.locationGeofenceService`
 
-对应 [华为 HMS 文档 - 地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
+可参考华为 HMS 文档 - [地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
 
 #### 设置地理围栏监听
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationGeofenceService.on(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_RECEIVE_GEOFENCE_DATA, (result) => {
     console.log('HMS_RECEIVE_GEOFENCE_DATA...', JSON.stringify(result));
 }, this);
@@ -408,7 +413,7 @@ huawei.hms.location.locationGeofenceService.on(huawei.hms.location.HMS_LOCATION_
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_GEOFENCE_LIST, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('createGeofenceList...', 'success');
@@ -433,7 +438,6 @@ let initType = requestType.EXIT_INIT_CONVERSION | requestType.ENTER_INIT_CONVERS
 console.log('createGeofenceList...', 'params=', JSON.stringify(list), 'init type=', initType);
 
 huawei.hms.location.locationGeofenceService.createGeofenceList(list, initType);
-
 ```
 
 #### 移除地理围栏
@@ -442,7 +446,7 @@ huawei.hms.location.locationGeofenceService.createGeofenceList(list, initType);
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_INTENT, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('removeWithIntent...', 'success');
@@ -460,7 +464,7 @@ huawei.hms.location.locationGeofenceService.removeWithIntent();
 
 **示例**：
 
-```
+```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_ID, (result) => {
     if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success) {
         console.log('removeWithID...', 'success');
