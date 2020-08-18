@@ -46,7 +46,9 @@
 - 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
-`agconnect-services.json` 文件需要统一放在工程目录中的 `/settings` 目录，该文件下载或更新后，请手动拷贝覆盖。
+  ![](hms-location/loc-configfile.png)
+
+`agconnect-services.json` 文件需要统一放在工程目录中的 `/settings` 目录，该文件下载或更新后，**请手动拷贝覆盖**。
 
 ### 验证服务是否接入成功
 

@@ -32,7 +32,9 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 - Find your project from the project list and click the app on the project card.
 - On the **Project Setting** page, download the configuration file **agconnect-services.json**.
 
-The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, please manually copy and overwrite it.
+  ![](hms-analytics/ana-configfile.png)
+
+The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, **please manually copy and overwrite it**.
 
 ### Verify whether the service is integrated successfully
 
