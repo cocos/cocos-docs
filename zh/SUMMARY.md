@@ -92,16 +92,14 @@
         - [计费和充值](cocos-service/billing-and-charge.md)
     - [服务列表](cocos-service/service-index.md)
         - [Cocos Analytics](cocos-service/cocos-analytics.md)
-        - [Agora Voice](cocos-service/agora.md)
+        - [声网（Agora Voice）](cocos-service/agora.md)
         - [云开发（腾讯云）](cocos-service/tcb.md)
         - [游戏联机对战引擎（腾讯云）](cocos-service/mgobe.md)
         - [游戏多媒体引擎（腾讯云）](cocos-service/gme.md)
             - [接口文档](cocos-service/gme-api-docs.md)
+        - [定位服务（HMS Core）](cocos-service/hms-location.md)
+        - [分析服务（HMS Core）](cocos-service/hms-analytics.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
-<<<<<<< HEAD
-            - [API 文档](https://docs.cocos.com/service/api/modules/sdkhub.html)
-=======
->>>>>>> be6ae3adc61a48a9d92c5dcc4e2f813be03ac90f
             - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
     - [发布到 Web 平台](publish/publish-web.md)
