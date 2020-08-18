@@ -61,6 +61,7 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
         console.log('requestLocationPermission...', 'fail:', result.errMsg);
     }
 });
+
 huawei.hms.location.locationService.requestLocationPermission();
 ```
 
