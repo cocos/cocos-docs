@@ -35,7 +35,7 @@ Editor.UI.registerElement('foobar-label', {
 有时候我们会在自定义元素内加入内容，为了能够让自定义元素正确处理内容，需要在模板中通过 `<content>` 标签加以说明。
 这个过程我们称作“内容分布”。
 
-拿上面的例子来说，假设我们希望 `<foobar-label>` 不只是显示 Foobar ，而是根据我们加入的内容进行显示，例如：
+拿上面的例子来说，假设我们希望 `<foobar-label>` 不只是显示 Foobar，而是根据我们加入的内容进行显示，例如：
 
 ```javascript
 <foobar-label>Hello World</foobar-label>

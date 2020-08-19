@@ -278,11 +278,11 @@
 
   **注意**：
 
-  1. `cc.assetManager` **不再继承** 自 `Pipeline`，而是 `cc.assetManager` 下拥有的多个 `Pipeline` 实例。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  1. `cc.assetManager` **不再继承** 自 `Pipeline`，而是 `cc.assetManager` 下拥有的多个 `Pipeline` 实例。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。
 
-  2. 为了易用性，Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  2. 为了易用性，Pipe 的定义不再需要定义一个拥有 `handle` 方法和 `id` 的对象，只需要一个方法即可。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。
 
-  3. 为了简化逻辑、提高性能，Pipe 中处理的内容不再是 `item`，而是 `task` 对象。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  3. 为了简化逻辑、提高性能，Pipe 中处理的内容不再是 `item`，而是 `task` 对象。详情请参考 [管线与任务](../asset-manager/pipeline-task.md)。
 
   4. 为了降低学习成本，`Pipeline` 中不再支持 `insertPipeAfter` 形式的 API，请使用 `insert` 插入指定的位置。
 
@@ -340,7 +340,7 @@
 
   `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载与解析](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](../../../api/zh/classes/AssetManager.html#parser)。
 
-  **注意**：出于对性能、模块化和易读性的考虑，`cc.loader.assetLoader`、`cc.loader.md5Pipe`、`cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 的具体内容可参考 [管线与任务](../asset-manager/pipeline-task.md)。 
+  **注意**：出于对性能、模块化和易读性的考虑，`cc.loader.assetLoader`、`cc.loader.md5Pipe`、`cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 的具体内容可参考 [管线与任务](../asset-manager/pipeline-task.md)。
 
 ### 其他更新
 

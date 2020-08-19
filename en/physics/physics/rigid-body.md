@@ -96,7 +96,7 @@ rigidbody.enabledContactListener = true;
 
 There are three types of Box2d's native rigidbody: **Static**, **Dynamic** and **Kinematic**. We added a forth type in Cocos Creator's physics system: **Animated**.
 
-`Animated` is derived from the `Kinematic` type, the general rigidbody type changes **Rotate** or **Position** by setting the properties directly, but `Animated` type will lerp the property values between current property and target property values.
+`Animated` is derived from the `Kinematic` type, the general rigidbody type changes **Rotate** or **Position** by setting the properties directly, but `Animated` type will lerp the property values between current property and target property, and assign it to the corresponding property.<br>
 `Animated` type is invented mainly to prevent the weird behavior such as penetration when making movement animation on rigidbody node.
 
 - `cc.RigidBodyType.Static`: Static rigidbody, zero mass, zero velocity, that is not affected by gravity or force, but can set its position to move.

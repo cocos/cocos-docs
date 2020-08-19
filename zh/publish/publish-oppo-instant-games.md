@@ -2,11 +2,9 @@
 
 ## 环境配置
 
-- 下载 [OPPO 小游戏调试器](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)，并安装到 OPPO 手机上（建议使用 Android 6.0 或以上版本）。
+- 下载 [OPPO 小游戏调试器](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a)，并安装到 OPPO 手机上（建议使用 Android 6.0 或以上版本）。
 
 - 全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本。
-
-- 根据用户自己的开发需求判断是否需要安装 [调试工具](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)。
 
 ## 发布流程
 
@@ -54,7 +52,7 @@
 
 - **支持的最小平台版本号**
 
-  该项为必填项，推荐使用 **1060**。具体内容可点击 [使用说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) 查看。
+  该项为必填项，推荐使用 **1060**。具体内容可点击 [使用说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) 查看。
 
 - **资源服务器地址**
 
@@ -133,7 +131,7 @@
 
 将构建生成的小游戏 rpk 包拷贝到手机 SD 卡的 `/sdcard/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，找到填写游戏名相对应的图标即可，若没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
 
-**注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的需要将 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) 查看。
+**注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的需要将 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明 — 新建目录](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) 查看。
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
@@ -159,6 +157,7 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 
 ## 相关参考链接
 
-- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
+- [OPPO 开放平台](https://open.oppomobile.com/wiki/doc#id=10445)
+- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)

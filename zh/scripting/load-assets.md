@@ -177,7 +177,7 @@ Creator 从 v2.4 开始支持 Asset Bundle，关于如何实现动态加载 Asse
 
 从 v2.4 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
 
-`cc.resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。  
+`cc.resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。
 
 ```js
 cc.resources.preload('test assets/image', cc.SpriteFrame);

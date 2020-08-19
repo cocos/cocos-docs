@@ -10,7 +10,7 @@
 属性名  | 参数值类型 | 功能说明
 ------|--------------|-------------  
 [`color`](#`color`-控制遮罩颜色)| color，十六进制、rgba、rgb等常见颜色值 | 控制 `mask` 遮罩颜色
-[`indeterminate`](#`indeterminate`)| boolean | 控制组件 `loader` 的旋转方向为逆时针， 未指定默认为顺时针
+[`indeterminate`](#`indeterminate`)| boolean | 控制组件 `loader` 的旋转方向为逆时针，未指定默认为顺时针
 
 ## 样式控制
 种类              | 参数值类型 | 功能说明

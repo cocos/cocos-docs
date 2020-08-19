@@ -231,10 +231,10 @@ gulp
 
 ### 3.3 定制小游戏 adapter
 
-**小游戏** 的适配层代码位于 `resources/builtin` 目录下的 `adapters`。  
+**小游戏** 的适配层代码位于 `resources/builtin` 目录下的 `adapters`。
 
-- 这部分代码的定制，不需要任何编译操作。  
-- 引擎层面的适配工作，请在相应的 engine 目录下完成。  
+- 这部分代码的定制，不需要任何编译操作。
+- 引擎层面的适配工作，请在相应的 engine 目录下完成。
 
 如果开发者想要了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html)。
 

@@ -10,7 +10,7 @@ For more information about BBCode, please refer to the **BBCode format** section
 
 ![richtext](./richtext/richtext.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **richtext** from **Renderer Component** to add the richtext component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **RichText** from **Renderer Component** to add the RichText component to the node.
 
 ## RichText property
 
@@ -33,7 +33,9 @@ The API reference of RichText is here: [RichText API](../../../api/en/classes/Ri
 
 ### Basics
 
-Currently the supported tag list is: `size`, `color`, `b`, `i`, `u`, `img` and `on`. There are used for customizing the font size, font color, bold, italic, underline, image and click event. Every tag should has a start tag and an end tag. The tag name and property assignment should be all lower case. It will check the start tag name, but the end tag name restrict is loose, it only requires a </> tag, the end tags name doesn't matter.
+Currently the supported tag list is: `size`, `color`, `b`, `i`, `u`, `img` and `on`. There are used for customizing the font size, font color, bold, italic, underline, image and click event.
+
+Every tag should has a start tag and an end tag. The tag name and property assignment should be all lower case. It will check the start tag name, but the end tag name restrict is loose, it only requires a `</>` tag, the end tags name doesn't matter.
 
 Here is an example of the `size` and `color` tag:
 
