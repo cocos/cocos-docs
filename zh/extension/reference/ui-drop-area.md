@@ -11,4 +11,4 @@
 ------|--------------|-------------  
 `droppable`| string | 支持拖拽的元素名称，多种元素用逗号隔开
 `multi`| boolean | 支持同时拖拽多个元素
-`canDrop`| boolean ，只读| 是否可拖拽
+`canDrop`| boolean，只读| 是否可拖拽

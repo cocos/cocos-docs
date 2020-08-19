@@ -913,7 +913,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 ### 配置模块 ini 文件
 
-配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp` ，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 cocos2d::Ref 子类和非 cocos::Ref 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp` ，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
+配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 cocos2d::Ref 子类和非 cocos::Ref 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
 1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`SpriteFrameCache`、`FileUtils`、`EventDispatcher`、`ActionManager`、`Scheduler`。
 
@@ -1088,13 +1088,13 @@ root/unroot 用于控制 JS 对象是否受 GC 控制，root 表示不受 GC 控
 
 incRef/decRef 用于控制 se::Object 这个 `cpp` 对象的生命周期，前面章节已经提及，建议用户使用 se::HandleObject 来控制`手动创建非绑定对象`的方式控制 se::Object 的生命周期。因此，一般情况下，开发者不需要接触到 incRef/decRef。
 
-
 ### 对象生命周期的关联与解除关联
 
-se::Object::attachObject/dettachObject
+使用 `se::Object::attachObject` 关联对象的生命周期<br>
+使用 `se::Object::dettachObject` 解除对象的生命周期。
 
-`objA->attachObject(objB);`类似于 JS 中执行`objA.__nativeRefs[index] = objB`，只有当 objA 被 GC 后，objB 才有可能被 GC
-`objA->dettachObject(objB);`类似于 JS 中执行`delete objA.__nativeRefs[index];`，这样 objB 的生命周期就不受 objA 控制了
+`objA->attachObject(objB);` 类似于 JS 中执行 `objA.__nativeRefs[index] = objB`，只有当 objA 被 GC 后，objB 才有可能被 GC<br>
+`objA->dettachObject(objB);` 类似于 JS 中执行 `delete objA.__nativeRefs[index];`，这样 objB 的生命周期就不受 objA 控制了
 
 ### cocos2d::Ref 子类与非 cocos2d::Ref 子类 JS/CPP 对象生命周期管理有何不同？
 
@@ -1127,7 +1127,7 @@ SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
 ### 请不要在栈（Stack）上分配 cocos2d::Ref 的子类对象
 
-Ref 的子类必须在堆（Heap）上分配，即通过 `new` ，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release` ，其内部会调用 `delete` ，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 cocos2d::Ref 的绑定类中，标识析构函数为 `protected` 或者 `private` ，保证在编译阶段就能发现这个问题。
+Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 cocos2d::Ref 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
 
 例如：
 

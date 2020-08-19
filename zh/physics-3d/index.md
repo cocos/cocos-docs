@@ -16,7 +16,7 @@ Creator 的 3D 物理引擎基于 cannon.js 实现，提供了高效的组件化
 - [物理事件](physics-event.md)
 - [物理材质](physics-material.md)
 
-3D 物理与碰撞系统的分组管理与 2D 完全一致，详情请参考 [分组管理](../physics/collision/collision-group.md)。  
+3D 物理与碰撞系统的分组管理与 2D 完全一致，详情请参考 [分组管理](../physics/collision/collision-group.md)。<br>
 2D 相关的部分请参考 [2D 物理与碰撞系统](../physics/index.md)。
 
 更多使用方法请参考 [物理系统范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/3d_physics)。
