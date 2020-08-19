@@ -28,22 +28,11 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-<<<<<<< HEAD
-- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) and select **My projects**.
-- Find your project from the project list and click the app on the project card.
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it.
-
-  ![](hms-analytics/ana-configfile.png)
-
-The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, **please manually copy and overwrite it**.
-
-=======
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), find your project from the project list and click the app on the project card.
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, **please manually copy and overwrite it**.
 
   ![](hms-analytics/ana-configfile.png)
 
->>>>>>> e411c52487873dd1106fbd9823c07556cce5eb47
 ### Verify whether the service is integrated successfully
 
 - Once the Analytics Kit service is integrated, you can [publish to the Android platform](../publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
