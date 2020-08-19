@@ -95,9 +95,9 @@ Tips: If you are having problems with your builds, probably due to your Creator 
 
 ## Sample Project
 
-You can get a quick taste of the Cocos SDKHub with the sample Project.
+You can get a quick taste of the Cocos SDKHub with the sample project.
 
-- Click on the **Sample** button in the Cocos SDKHub Service Panel, clone or Download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Cocos SDKHub service panel, clone or download, and open the project in Cocos Creator.
 
 - Let's take the example of integrating **HUAWEI HMS Core**. The following prerequisites need to be completed:
 
