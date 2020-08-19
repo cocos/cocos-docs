@@ -1,4 +1,4 @@
-# Analytics Kit (HMS Core）
+# Analytics Kit (HMS Core)
 
 [HUAWEI Analytics Kit](https://developer.huawei.com/consumer/en/hms/huawei-analyticskit) (hereinafter referred to as Analytics Kit or Kit) offers a rich array of preset analytics models that help you gain a deeper insight into your users, products, and content. With this insight, you can then take a data-driven approach to market your apps and optimize your products.
 
@@ -48,7 +48,7 @@ Developer can get a quick taste of the Analytics Kit with the sample project.
 
 - Click on the **Sample** button in the Analytics Kit service panel, clone or download, and open the project in Cocos Creator.
 
-- After enabling the Analytics Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, please refer to [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After enabling the Analytics Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
