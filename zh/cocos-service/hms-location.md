@@ -54,7 +54,7 @@
 
 - 完成 **定位服务** 接入步骤后，我们便可以通过在脚本中添加简单的代码来验证接入是否成功。
 
-```js
+  ```js
   huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
       if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
       {
@@ -65,7 +65,7 @@
   });
 
   huawei.hms.location.locationService.requestLocationPermission();
-```
+  ```
 
 - 代码添加完成后，即可 [打包发布](../publish/publish-native.md) 到 **Android** 平台，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
