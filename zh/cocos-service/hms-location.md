@@ -34,7 +34,7 @@
 
   ![](hms-location/loc-provisioning.jpeg)
 
-- 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，完成开发者注册、创建应用、生成/配置签名证书指纹以及打开相关服务。
+- 参考 [华为定位服务开发准备](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/location-preparation) 文档，完成开发者注册、创建应用、**生成/配置签名证书指纹以及打开相关服务**。
 
 - 定位服务可以直接使用，无需在 AppGallery Connect 后台额外操作。
 
@@ -55,16 +55,16 @@
 - 完成 **定位服务** 接入步骤后，我们便可以通过在脚本中添加简单的代码来验证接入是否成功。
 
 ```js
-huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
-    if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
-    {
-        console.log('requestLocationPermission...', 'success');
-    } else {
-        console.log('requestLocationPermission...', 'fail:', result.errMsg);
-    }
-});
+  huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
+      if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
+      {
+          console.log('requestLocationPermission...', 'success');
+      } else {
+          console.log('requestLocationPermission...', 'fail:', result.errMsg);
+      }
+  });
 
-huawei.hms.location.locationService.requestLocationPermission();
+  huawei.hms.location.locationService.requestLocationPermission();
 ```
 
 - 代码添加完成后，即可 [打包发布](../publish/publish-native.md) 到 **Android** 平台，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
@@ -81,7 +81,7 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 - 点击定位服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，Creator v2.4.1 以下的版本可构建发布到 Android 平台。
+- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
@@ -91,7 +91,7 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 ## 开发指南
 
-定位服务所有的 API 均是异步回调。可使用 `huawei.hms.location.locationService.once` 获取单次回调，或者使用 `huawei.hms.location.locationService.on` 监听回调，下同。
+定位服务所有的 API 均是异步回调。可使用 `huawei.hms.location.locationService.once` 获取单次回调，或者使用 `huawei.hms.location.locationService.on` 监听回调。
 
 ### 定位服务
 
@@ -119,7 +119,7 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 huawei.hms.location.locationService.checkLocationSettings();
 ```
 
-#### 指定应用权限
+#### 动态申请位置权限
 
 `requestLocationPermission(): void`
 
@@ -182,7 +182,15 @@ huawei.hms.location.locationService.removeLocationUpdates();
 
 `getLastLocation(): void`
 
-使用华为定位服务 API，开发者的应用程序可以获取设备最后的已知位置，大多情况下，该位置即为设备的当前位置。
+返回最后一次请求的可用位置。该接口并不会主动请求位置，将使用上一次请求的缓存位置。
+
+以下场景可能导致返回 null：
+
+- 从未使用过定位功能。
+- 位置开关关闭。
+- 恢复出厂设置。
+
+如果对位置的实时性有较高要求，推荐主动调用 `requestLocationUpdates` 替代调用 `getLastLocation`。如果只想收到一次位置信息，可以将 `LocationRequest` 中 **numUpdates** 参数设置为 **1**。
 
 **示例**：
 
@@ -200,7 +208,7 @@ huawei.hms.location.locationService.getLastLocation();
 
 #### 使用模拟位置信息功能
 
-该功能用于测试环境<br>。打开 Android 手机的 **设置** 页面，点击 **系统和更新 -> 开发人员选项 -> 选择模拟位置信息应用 -> 选择要 mock 的应用** 即可开启该功能。如果没有找到 “开发人员选项”，请在 **设置** 页面的 **关于手机 -> 版本号** 上连续点击 7 次，“开发人员选项” 便会出现在 “系统和更新” 页面中。
+该功能用于测试环境。<br>打开 Android 手机的 **设置** 页面，点击 **系统和更新 -> 开发人员选项 -> 选择模拟位置信息应用 -> 选择要 mock 的应用** 即可开启该功能。如果没有找到 “开发人员选项”，请在 **设置** 页面的 **关于手机 -> 版本号** 上连续点击 7 次，“开发人员选项” 便会出现在 “系统和更新” 页面中。
 
 在 AndroidManifest.xml 文件中配置模拟定位权限。
 
@@ -220,7 +228,7 @@ tools:ignore="MockLocation,ProtectedPermissions" />
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-| mockMode | 是否打开 mock 模式 | 
+| mockMode | 若调用该方法并设置为 **true**，则打开 mock 模式。若不再需要使用 mock 模式，则需要设置为 **false**。 | 
 
 **示例**：
 
@@ -271,11 +279,11 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 可参考华为 HMS 文档 - [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
 
-#### 指定应用权限
+#### 动态申请活动识别权限
 
 `requestRecognitionPermission(): void`
 
-[该权限](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110#ZH-CN_TOPIC_0000001050706110__section12461453154011) 属于危险权限，使用时需要动态申请。
+[活动识别权限](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110#ZH-CN_TOPIC_0000001050706110__section12461453154011) 属于危险权限，使用时需要动态申请。
 
 **示例**：
 
