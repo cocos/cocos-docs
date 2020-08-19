@@ -28,21 +28,21 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 - Use Cocos Creator to open the project that needs to be connected to Location Kit.
 
-- Click on **Panel -> Service** on the menu bar to open the Service panel, go to the **Location Kit** service detail panel, and click on the **Enable** button at the top right. Refer to Cocos Service [Operation Guide](./user-guide.md).
+- Click on **Panel -> Service** on the menu bar to open the service panel, go to the **Location Kit** service detail panel, and click on the **Enable** button at the top right. Refer to Cocos Service [Operation Guide](./index.md#usage).
 
   ![](hms-location/loc-provisioning.jpeg)
 
-- Refer to [HUAWEI Development Preparations](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903), Complete the following steps: Registering as a Developer, Creating an App, Generating a Signing Certificate Fingerprint and Configuring the Signing Certificate Fingerprint.
+- Refer to [HUAWEI Location Kit Development Preparation](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/location-preparation) document to complete developer registration, app creation, **generation and configuring the Signing Certificate Fingerprint**.
 
 - Location Kit can be used directly, without additional operations in the AppGallery Connect console.
 
-### Config HUAWEI params file
+### Configs AGC Config file
 
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) and select **My projects**.
 - Find your project from the project list and click the app on the project card.
-- On the **Project Setting** page, download the configuration file **agconnect-services.json**.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it.
 
   ![](hms-location/loc-configfile.png)
 
@@ -53,19 +53,19 @@ The `agconnect-services.json` file needs to be placed in the `/settings` directo
 - Once the Location Kit is integrated, we can verify the success of the Location Kit integration by adding simple code to the script.
 
 ```js
-huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
-    if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
-    {
-        console.log('requestLocationPermission...', 'success');
-    } else {
-        console.log('requestLocationPermission...', 'fail:', result.errMsg);
-    }
-});
+  huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
+      if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
+      {
+          console.log('requestLocationPermission...', 'success');
+      } else {
+          console.log('requestLocationPermission...', 'fail:', result.errMsg);
+      }
+  });
 
-huawei.hms.location.locationService.requestLocationPermission();
+  huawei.hms.location.locationService.requestLocationPermission();
 ```
 
-- After the code is added, [**publish**](../publish/publish-native.md) and run on the **Android** platform. Please make sure that the package name on the publish panel is consistent with the package name set in the HUAWEI console.
+- You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
 - The first time you run it on a phone, the dialog box for applying for location permission will pop up (see the figure below), which means the access is successful.
 
@@ -75,19 +75,23 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 ## Sample project
 
-Developer can get a quick taste of the Location Kit with the sample Project.
+Developer can get a quick taste of the Location Kit with the sample project.
 
-- Click on the **Sample** button in the Location Kit Service Panel, clone or Download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Location Kit service panel, clone or download, and open the project in Cocos Creator.
 
-- After [Enable Location Kit Service](#enable-location-kit-service) and [Config HUAWEI params file](#config-huawei-params-file), open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above version, please refer to [Publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md). Other version can build to the Android platform.
+- After **Enable Location Kit Service** and **Config AGC params file**, open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above, please refer to [Publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 version could [publish to the Android platform](../publish/publish-native.md).
 
-- Need to test on Huawei or Honor brand phones with HMS Core service installed. Press the **Location** button on homepage for testing.
+- After the Sample project runs on the phone, click the **Location** button on the homepage to enter the functional interface for testing
+
+- Need to test on Huawei or Honor brand phones with HMS Core service installed.
+
+- Press the **Location** button on homepage for testing.
 
     ![](hms-location/loc-sample.jpg)
 
-## Developer guide
+## Developer Guide
 
-All functions of Location Kit within async callback. Call all functions with `huawei.hms.analytics.analyticsService.once` for callback once or `huawei.hms.analytics.analyticsService.on` lintener for callback.
+All functions of Location Kit within async callback. Call the function with `huawei.hms.location.locationService.once` to get a single callback, or use `huawei.hms.location.locationService.on` lintener to listen for callbacks.
 
 ### Location Service
 
@@ -180,13 +184,13 @@ huawei.hms.location.locationService.removeLocationUpdates();
 
 Instead of proactively requesting a location, this method uses the location cached during the last request.
 
-The value `null` may be returned in the following scenarios:
+The value **null** may be returned in the following scenarios:
 
 - The location function has never been used.
 - The location function is disabled.
 - The device is restored to factory settings.
 
-If real-time location is required, you are advised to proactively call [requestLocationUpdates](#requests-location-updates) instead of `getLastLocation`.
+If real-time location is required, you are advised to proactively call `requestLocationUpdates` instead of `getLastLocation`. To receive a location once only, you can set **numUpdates** in `LocationRequest` to **1**.
 
 **Example**：
 
@@ -204,7 +208,7 @@ huawei.hms.location.locationService.getLastLocation();
 
 #### Using the Mock Location Function
 
-To use the mock location function, go to **Settings > System & updates > Developer options > Select mock location app and select the desired app**. (If Developer options is unavailable, go to Settings > About phone and tap Build number for seven consecutive times. Then, Developer options will be displayed on System & updates.)
+This function is used for a test environment. Open Android Settings menu, go to **System & updates > Developer options > Select mock location app and select the desired app**. If Developer options is unavailable, open Android Settings menu, go to **About phone** and tap **Build number** for seven consecutive times. Then, **Developer options** will be displayed on **System & updates**.
 
 Apply for the mock location permission in the AndroidManifest.xml file.
 
@@ -218,13 +222,13 @@ tools:ignore="MockLocation,ProtectedPermissions" />
 
 `setMockMode(mockMode: boolean): void`
 
-Sets whether to use the location mock mode. If the value *true* is passed, the GPS or network location is not used and the location set through `setMockLocation` is directly returned.
+Sets whether to use the location mock mode. If the value **true** is passed, the GPS or network location is not used and the location set through `setMockLocation` is directly returned (see below for the reference of `setMockLocation`).
 
 **Parameter Description**：
 
 | Parameter | Description |  
 | :---------- | :------------- |  
-| mockMode | If this parameter is set to true, the mock mode will be used. If this parameter is set to false, the mock mode will not be used. | 
+| mockMode | If this parameter is set to **true**, the mock mode will be enabled. Can be set to **false** when mock mode is no longer needed. | 
 
 **Example**：
 
@@ -244,7 +248,7 @@ huawei.hms.location.locationService.setMockMode(true);
 
 `setMockLocation(latitude: string, longitude: string): void`
 
-You must call the [setMockMode(boolean)](#set-mock-mode) method and set the flag to true before calling this method.
+You must call the [setMockMode (boolean)](#set-mock-mode) method and set it to true before calling this method.
 
 **Parameter Description**：
 
@@ -273,13 +277,13 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 `huawei.hms.location.locationActivityService`
 
-Refer to [HMS - Developing the Activity Identification Service](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110).
+Refer to [HMS - Developing the Activity Identification Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110).
 
 #### Assigning App Permissions
 
 `requestRecognitionPermission(): void`
 
-[The preceding permissions](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)  are dangerous permissions and need to be dynamically applied.
+[The preceding permissions](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110) are dangerous permissions and need to be dynamically applied.
 
 **Example**：
 
