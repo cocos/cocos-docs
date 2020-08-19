@@ -1,6 +1,6 @@
-# Location Kit（HMS Core）
+# Location Kit (HMS Core)
 
-[HUAWEI Location Kit](https://developer.huawei.com/consumer/en/hms/huawei-locationkit)（HUAWEI Location Kit）combines the GPS, Wi-Fi, and base station location functionalities into your app to build up global positioning capabilities, allowing you to provide flexible location-based services targeted at users around the globe. Currently, it provides three main capabilities: fused location, activity identification, and geofence. You can call one or more of these capabilities as needed.
+[HUAWEI Location Kit](https://developer.huawei.com/consumer/en/hms/huawei-locationkit) combines the GPS, Wi-Fi, and base station location functionalities into your app to build up global positioning capabilities, allowing you to provide flexible location-based services targeted at users around the globe. Currently, it provides three main capabilities: fused location, activity identification, and geofence. You can call one or more of these capabilities as needed.
 
 - Fused location: Provides a set of simple and easy-to-use APIs for your app to quickly obtain the device location based on the GPS, Wi-Fi, and base station location data.
 
@@ -28,7 +28,7 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 - Use Cocos Creator to open the project that needs to be connected to Location Kit.
 
-- Click on **Panel -> Service** on the menu bar to open the service panel, go to the **Location Kit** service detail panel, and click on the **Enable** button at the top right. Refer to Cocos Service [Operation Guide](./index.md#usage).
+Click on **Panel -> Service** in the menu bar to open the Service panel, select Location Kit service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
   ![](hms-location/loc-provisioning.jpeg)
 
@@ -36,7 +36,7 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 - Location Kit can be used directly, without additional operations in the AppGallery Connect console.
 
-### Configs AGC Config file
+### Configs HUAWEI Config file
 
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -73,19 +73,17 @@ The `agconnect-services.json` file needs to be placed in the `/settings` directo
 
 - If you have already applied for permission, you can view the log in Logcat.
 
-## Sample project
+## Sample Project
 
 Developer can get a quick taste of the Location Kit with the sample project.
 
 - Click on the **Sample** button in the Location Kit service panel, clone or download, and open the project in Cocos Creator.
 
-- After **Enable Location Kit Service** and **Config AGC params file**, open **Project -> Build...** in the top menu of Cocos Creator. Cocos Creator 2.4.1 and above, please refer to [Publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 version could [publish to the Android platform](../publish/publish-native.md).
-
-- After the Sample project runs on the phone, click the **Location** button on the homepage to enter the functional interface for testing
+- After enabling the Location Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, please refer to [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
-- Press the **Location** button on homepage for testing.
+- Once the Sample project is running on the phone, click the **Location** button on the homepage for testing.
 
     ![](hms-location/loc-sample.jpg)
 
@@ -105,7 +103,7 @@ Refer to [HMS - Developing the Location Service](https://developer.huawei.com/co
 
 Checks whether relevant location settings are valid.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_SETTINGS, (result) => {
@@ -125,7 +123,7 @@ huawei.hms.location.locationService.checkLocationSettings();
 
 Dynamic application location permission method.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
@@ -146,7 +144,7 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 Requests location updates using the callback on the specified looper thread. This method can be called back continuously only when your process exists.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REQUEST_LOCATION_UPDATE, (result) => {
@@ -164,7 +162,7 @@ huawei.hms.location.locationService.requestLocationUpdates();
 
 Removes location updates.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_LOCATION_UPDATE, (result) => {
@@ -192,7 +190,7 @@ The value **null** may be returned in the following scenarios:
 
 If real-time location is required, you are advised to proactively call `requestLocationUpdates` instead of `getLastLocation`. To receive a location once only, you can set **numUpdates** in `LocationRequest` to **1**.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LAST_LOCATION, (location) => {
@@ -218,19 +216,19 @@ android:name="android.permission.ACCESS_MOCK_LOCATION"
 tools:ignore="MockLocation,ProtectedPermissions" />
 ```
 
-**Set mock mode**：
+**Set mock mode**:
 
 `setMockMode(mockMode: boolean): void`
 
 Sets whether to use the location mock mode. If the value **true** is passed, the GPS or network location is not used and the location set through `setMockLocation` is directly returned (see below for the reference of `setMockLocation`).
 
-**Parameter Description**：
+**Parameter Description**:
 
 | Parameter | Description |  
 | :---------- | :------------- |  
 | mockMode | If this parameter is set to **true**, the mock mode will be enabled. Can be set to **false** when mock mode is no longer needed. | 
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_MODE, (result) => {
@@ -250,14 +248,14 @@ huawei.hms.location.locationService.setMockMode(true);
 
 You must call the [setMockMode (boolean)](#set-mock-mode) method and set it to true before calling this method.
 
-**Parameter Description**：
+**Parameter Description**:
 
 | Parameter | Description |  
 | :---------- | :------------- |  
 | latitude | value of latitude | 
 | longitude | value of longitude |
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_MOCK_LOCATION, (result) => {
@@ -285,7 +283,7 @@ Refer to [HMS - Developing the Activity Identification Service](https://develope
 
 [The preceding permissions](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110) are dangerous permissions and need to be dynamically applied.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.requestRecognitionPermission();
@@ -297,13 +295,13 @@ huawei.hms.location.locationActivityService.requestRecognitionPermission();
 
 [Registers activity identification updates](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397).
 
-**Parameter Description**：
+**Parameter Description**:
 
 | Parameter | Description |  
 | :---------- | :------------- |  
 | intervalMillis | Interval for detecting activity updates, in milliseconds. Larger values will result in fewer activity detections. Smaller values will result in more activity detections. | 
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_IDENTIFICATION_UPDATES, (result) => {
@@ -319,7 +317,7 @@ huawei.hms.location.locationActivityService.createActivityIdentificationUpdates(
 
 #### Set listener for location activity service update
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.on(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_ACTIVITY_UPDATES, (result) => {
@@ -336,7 +334,7 @@ huawei.hms.location.locationActivityService.on(huawei.hms.location.HMS_LOCATION_
 
 `deleteActivityIdentificationUpdates(): void`
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
@@ -356,7 +354,7 @@ huawei.hms.location.locationActivityService.deleteActivityIdentificationUpdates(
 
 Detects activity conversions (entering and exit), for example, detecting user status change from walking to bicycling.
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_ACTIVITY_CONVERSION_UPDATES, (result) => {
@@ -381,7 +379,7 @@ huawei.hms.location.locationActivityService.createActivityConversionUpdates(info
 
 `deleteActivityConversionUpdates(): void`
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationActivityService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_ACTIVITY_CONVERSION_UPDATES, (result) => {
@@ -403,7 +401,7 @@ refer to [HMS - Developing the Geofence Service](https://developer.huawei.com/co
 
 #### Set listener for geofence service
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationGeofenceService.on(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_RECEIVE_GEOFENCE_DATA, (result) => {
@@ -415,7 +413,7 @@ huawei.hms.location.locationGeofenceService.on(huawei.hms.location.HMS_LOCATION_
 
 `createGeofenceList(list: Array<GeofenceData>, type: HMS_LOCATION_GEOFENCEREQUEST)`
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_CREATE_GEOFENCE_LIST, (result) => {
@@ -448,7 +446,7 @@ huawei.hms.location.locationGeofenceService.createGeofenceList(list, initType);
 
 `removeWithIntent(): void`
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_INTENT, (result) => {
@@ -466,7 +464,7 @@ huawei.hms.location.locationGeofenceService.removeWithIntent();
 
 `removeWithID(removeID: string): void`
 
-**Example**：
+**Example**:
 
 ```js
 huawei.hms.location.locationGeofenceService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_REMOVE_GEOFENCE_WITH_ID, (result) => {
