@@ -66,7 +66,7 @@
 
 ### 了解 Canvas
 
-打开场景后， **层级管理器** 中会显示当前场景中的所有节点和它们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点，`Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
+打开场景后，**层级管理器** 中会显示当前场景中的所有节点和它们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点，`Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
 
 ![canvas](quick-start/canvas.png)
 
@@ -126,7 +126,7 @@
 
 ### 添加主角
 
-接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。 注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
+接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
 
 为了让主角的光环在场景节点中非常醒目，我们右键点击刚刚添加的 `PurpleMonster` 节点，选择 `重命名` 之后将其改名为 `Player`。
 
@@ -878,7 +878,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
     },
 ```
 
-保存脚本，回到 **层级管理器** ，选中 Player 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 Player 组件的 `Jump Audio` 属性上。
+保存脚本，回到 **层级管理器**，选中 Player 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 Player 组件的 `Jump Audio` 属性上。
 
 然后选中 Canvas 节点，把 `assets/audio/score` 资源拖拽到 Game 组件的 `Score Audio` 属性上。
 

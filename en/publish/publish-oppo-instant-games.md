@@ -2,11 +2,9 @@
 
 ## Environment Configuration
 
-- Download [OPPO Mini Game Debugger](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) and install it on your OPPO phone (Android 6.0 or above is recommended).
+- Download [OPPO Mini Game Debugger [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a) and install it on your OPPO phone (Android 6.0 or above is recommended).
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
-
-- Determine whether you need to install [Debugging Tools](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) according to your own development needs.
 
 ## Release Process
 
@@ -54,7 +52,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the suggestions of OPPO Mini Game, this value is currently recommended for **1060**. Please refer to the [OPPO Mini Game Instructions](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) for details.
+  This item is required. According to the suggestions of OPPO Mini Game, this value is currently recommended for **1060**. Please refer to the [OPPO Mini Game Instructions [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) for details.
 
 - **Resource Server Address**
 
@@ -133,7 +131,7 @@ After the relevant options of the **Build** panel are set, click **Build**. Afte
 
 Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the OPPO phone, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the "More -> Refresh" button in the upper right corner to refresh.
 
-**Note**: For Mini Game Debugger **v3.2** and above, you need to copy **rpk** to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone. If there is no **games** directory, you need to create a new one. Please refer to the [Official Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) for details.
+**Note**: For Mini Game Debugger **v3.2** and above, you need to copy **rpk** to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone. If there is no **games** directory, you need to create a new one. Please refer to the [Official Documentation [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
@@ -160,6 +158,7 @@ Cocos Creator already helps developers with downloading, caching and version man
 
 ## Related Reference Links
 
-- [OPPO Mini Game Tutorial](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO Mini Game API Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO Mini Game Tool Download](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
+- [OPPO Developer Guides](https://developers.oppomobile.com/wiki/doc/index#id=88)
+- [OPPO Mini Game Tutorial [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO Mini Game API Documentation [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO Mini Game Tool Download [zh]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)

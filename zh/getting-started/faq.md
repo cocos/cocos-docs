@@ -19,7 +19,7 @@
 
 ### 浏览器里如何截屏？
 
-截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()` ，就可以获得 base64 格式的截屏。
+截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()`，就可以获得 base64 格式的截屏。
 
 具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) 中 **07_capture_texture** 关于三种不同平台如何截屏并保存的测试例。
 

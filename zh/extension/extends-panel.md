@@ -69,14 +69,13 @@ Editor.Panel.extend({
 在这份对象代码中，我们定义了面板的样式（style）和模板（template），并通过定义选择器 `$` 获得面板元素，最后在
 ready 初始化回调函数中中对面板元素的事件进行注册和处理。
 
-在完成了上述操作后，我们就可以通过在主进程（入口程序）调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。 关于 `Editor.Panel` 接口的用法请参考 [Panel API](api/editor-framework/main/panel.md)。
+在完成了上述操作后，我们就可以通过在主进程（入口程序）调用 `Editor.Panel.open('simple-package')` 激活我们的面板窗口。关于 `Editor.Panel` 接口的用法请参考 [Panel API](api/editor-framework/main/panel.md)。
 
-更多关于面板定义对象字段的说明，请阅读[面板定义参考](reference/panel-reference.md)。
+更多关于面板定义对象字段的说明，请阅读 [面板定义参考](reference/panel-reference.md)。
 
 ## 在主菜单中添加打开面板选项
 
-为了方便我们打开窗口，通常我们会将打开窗口的方法注册到主菜单中，并通过发消息给我们的插件主进程代码来完成。
-要做到这些事情，我们需要在我们的 package.json 中注册主进程入口函数和主菜单选项:
+为了方便打开窗口，通常我们会将打开窗口的方法注册到主菜单中，并通过发消息给插件主进程代码来完成。要做到这些事情，我们需要在 `package.json` 中注册主进程入口函数和主菜单选项：
 
 ```json
 {
@@ -121,13 +120,11 @@ module.exports = {
 
 ![simple-panel](./assets/simple-panel.png)
 
-更多关于在 `package.json` 文件中注册面板时的字段描述，请阅读[面板字段参考](reference/panel-json-reference.md)。
+更多关于在 `package.json` 文件中注册面板时的字段描述，请阅读 [面板字段参考](reference/panel-json-reference.md)。
 
 ## 窗口面板与主进程交互
 
-通常我们需要在窗口面板中设置一些 UI，然后通过发送 IPC 消息将任务交给主进程处理。这里我们可以通过
-`Editor.Ipc` 模块来完成。在我们上面定义的 index.js 中，我们可以通过在 `ready()` 函数中处理
-按钮消息来达成。
+通常我们需要在窗口面板中设置一些 UI，然后通过发送 IPC 消息将任务交给主进程处理。这里我们可以使用 `Editor.Ipc` 模块来完成，在上面定义的 `index.js` 的 `ready()` 函数中处理按钮消息来达成。
 
 ```javascript
   this.$btn.addEventListener('confirm', () => {
@@ -135,11 +132,8 @@ module.exports = {
   });
 ```
 
-当你点击按钮时，他将会给插件主进程发送 'say-hello' 消息，并附带对应的参数。你可以用任何你能想得到的前端
-技术编辑你的窗口界面，还可以结合 Electron 的 内置 node 在窗口内 require 你希望的 node 模块，完成
-任何你希望做的操作。
+当点击按钮时，它将会给插件主进程发送 'say-hello' 消息，并附带对应的参数。你可以用任何你能想得到的前端技术编辑你的窗口界面，还可以结合 Electron 的 内置 node 在窗口内 require 你希望的 node 模块，完成任何你希望做的操作。
 
 ---
 
 更全面和详细的主进程和面板之间的 IPC 通讯交互方法，请继续阅读 [进程间通讯工作流程](ipc-workflow.md)。
-

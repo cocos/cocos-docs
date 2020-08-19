@@ -84,12 +84,12 @@ This brings up two key issues, one is the downloading, caching and versioning of
 
 As of v2.4.0, all resources are managed in an [Asset Bundle](../asset-manager/bundle.md). For downloading, caching, and versioning of remote resources, Creator has already done that for you. Let's look at the process of the engine downloading resources in the mini game environment:
 
-1. Check if the resource is in the mini game package
-2. If not, check if the resource is in the local cache
-3. If not, check if the resource is in the temporary file
-4. If not, download the resource from the remote server
-5. After downloading the resource to the temporary file, use it directly
-6. Slowly save the resource from the temporary file to the local cache for reuse in the background.
+1. Determine if the resource is in the mini game package;
+2. If not, check if the resource is in the local cache;
+3. If not, check if the resource is in the temporary file;
+4. If not, download the resource from the remote server;
+5. After downloading the resource to the temporary file, use it directly;
+6. Slowly save the resource from the temporary file to the local cache for reuse in the background;
 7. The local cache space is limited in size, and if the limit is exceeded, the resource will not be saved directly, instead an LRU algorithm is used to delete the oldest resources.
 
 Once the cache space is full, all the resources that need to be downloaded cannot be saved, only the resources saved in the temporary files can be used. And when exiting the mini game, all the temporary files will be cleared, and when you run the mini game again, those resources will be downloaded again. And the cycle goes on and on.<br>

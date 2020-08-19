@@ -33,7 +33,7 @@ _Scene.loadSceneByUuid(uuid, function(error) {
 
 `db://assets/path/to/scene.fire`
 
-这样的形式表示。其中 `db` 是 AssetDB 的简称。 项目中 `assets` 路径下的全部资源都会被 AssetDB 导入到资源库（library）中，并可以通过 uuid 来引用。
+这样的形式表示。其中 `db` 是 AssetDB 的简称。项目中 `assets` 路径下的全部资源都会被 AssetDB 导入到资源库（library）中，并可以通过 uuid 来引用。
 
 在扩展包的主进程中 url 和 uuid 之间可以互相转化：
 

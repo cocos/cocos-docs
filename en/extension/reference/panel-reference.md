@@ -112,8 +112,7 @@ Editor.Panel.extend({
 
 #### dependencies
 
-`dependencies` 为一个数组，其内部元素为 url 或 文件路径。 有时候我们会需要用到一些第三方库，通过
-指定 dependencies 会在 Panel 初始化前，就先将第三方库读入。
+`dependencies` 为一个数组，其内部元素为 url 或 文件路径。有时候我们会需要用到一些第三方库，通过指定 dependencies 会在 Panel 初始化前，就先将第三方库读入。
 
 使用方法如下：
 
@@ -159,7 +158,7 @@ Editor.Panel.extend({
 
 #### run ( argv )
 
-当 Panel 第一次载入 ready 结束后，或者当 Panel 被 `Editor.Panel.open` 调用激活。 其中，通过
+当 Panel 第一次载入 ready 结束后，或者当 Panel 被 `Editor.Panel.open` 调用激活。其中，通过
 `Editor.Panel.open` 的方式调用是可以传递参数 argv 给 `run` 函数。
 
 #### close ()
