@@ -31,11 +31,9 @@
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
-- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件需要统一放在工程目录中的 `/settings` 目录，该文件下载或更新后，**请手动拷贝覆盖**。
 
   ![](hms-analytics/ana-configfile.png)
-
-`agconnect-services.json` 文件需要统一放在工程目录中的 `/settings` 目录，该文件下载或更新后，**请手动拷贝覆盖**。
 
 ### 验证服务是否接入成功
 
@@ -45,7 +43,7 @@
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验分析服务。
 
 - 点击分析服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
