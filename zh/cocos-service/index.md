@@ -15,6 +15,9 @@ Cocos Service 目前提供的服务包括：
 - [游戏多媒体引擎（腾讯云）](https://cloud.tencent.com/product/gme)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [定位服务（HMS Core）](https://developer.huawei.com/consumer/cn/hms/huawei-locationkit)：采用 GPS、Wi-Fi、基站等多种混合定位模式进行定位，赋予您的应用程序快速、精准地获取用户位置信息的能力。
 - [分析服务（HMS Core）](https://developer.huawei.com/consumer/cn/hms/huawei-analyticskit)：基于开发者上报的用户行为和属性数据，提供多种分析能力。
+- [性能管理（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)：实时性能报告，帮助改善应用性能。
+- [崩溃服务（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-introduction)：实时数据报告，多维度分析，快速解决崩溃问题。
+- [远程配置服务（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction)：无需升级引用，也可灵活修改应用的行为和外观。
 - [Cocos SDKHub](sdkhub.md)：快速接入第三方原生 SDK。
 
 更多第三方服务还在不断接入中。
@@ -33,5 +36,8 @@ Cocos Service 目前提供的服务包括：
         - [接口文档](gme-api-docs.md)
     - [定位服务（HMS Core）](hms-location.md)
     - [分析服务（HMS Core）](hms-analytics.md)
+    - [性能管理（AppGallery Connect）](agc-apm.md)
+    - [崩溃服务（AppGallery Connect）](agc-crash.md)
+    - [远程配置服务（AppGallery Connect）](agc-remote.md)
     - [Cocos SDKHub](sdkhub.md)
         - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)
