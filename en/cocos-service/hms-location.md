@@ -52,7 +52,7 @@ The `agconnect-services.json` file needs to be placed in the `/settings` directo
 
 - Once the Location Kit is integrated, we can verify the success of the Location Kit integration by adding simple code to the script.
 
-```js
+  ```js
   huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_LOCATION_PERMISSION, (result) => {
       if (result.code === huawei.hms.location.LocationActivityService.StatusCode.success)
       {
@@ -63,7 +63,7 @@ The `agconnect-services.json` file needs to be placed in the `/settings` directo
   });
 
   huawei.hms.location.locationService.requestLocationPermission();
-```
+  ```
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
