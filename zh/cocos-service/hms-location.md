@@ -12,17 +12,17 @@
 
 #### 融合定位
 
-如果应用需要请求设备位置信息，开发者可以为应用申请位置权限，然后调用 HMS Core 的请求位置更新接口，设置不同的请求参数，根据需要指定定位方式，获取持续的位置信息回调。如果获取位置信息后，想取消位置信息回调，可以调用移除位置更新接口，达到取消回调的目的。
+如果应用需要请求设备位置信息，开发者可以为应用申请位置权限，然后调用 HMS Core 的请求位置更新接口 [requestLocationUpdates()](#持续获取位置信息)，根据需要指定定位方式，获取持续的位置信息回调。如果获取位置信息后，想取消位置信息回调，可以调用移除位置更新接口 [removeLocationUpdates()](#持续获取位置信息)，达到取消回调的目的。
 
 #### 活动识别
 
-如果应用需要获取设备的运动状态，例如：步行、跑步、骑自行车等，或者应用需要检测用户的运动状态变化，那么开发者可以为应用申请活动状态识别权限，通过调用活动状态识别更新接口，获取当前用户的活动状态。 如果需要检测用户的运动状态变化，那么可以调用活动状态转换接口，通过此接口可以监听当前设备的活动状态转换。
+如果应用需要获取设备的运动状态，例如：步行、跑步、骑自行车等，或者应用需要检测用户的运动状态变化，那么开发者可以为应用申请活动状态识别权限，通过调用活动状态识别更新接口 [createActivityIdentificationUpdates()](#注册活动识别更新)，获取当前用户的活动状态，移除活动识别更新只需要调用 [deleteActivityIdentificationUpdates()](#移除活动识别更新) 接口即可。如果需要检测用户的运动状态变化，那么可以调用活动状态转换接口 [createActivityConversionUpdates()](#活动过渡更新)，通过此接口可以监听当前设备的活动状态转换，移除监听时，只需要调用  [deleteActivityConversionUpdates()](#移除活动过渡更新) 接口即可。
 
 #### 地理围栏
 
-如果开发者对某些地点比较关注，可以根据关注地点的位置，创建地理围栏，地理围栏可以感知当前设备所在位置和关注目标之间的距离，当用户进入围栏区域时，会向应用发起通知。同时，开发者可以检测用户在围栏内的停留时间，当用户在围栏内停留一段时间之后，再发起通知。
+如果开发者对某些地点比较关注，可以根据关注地点的位置，创建地理围栏 [createGeofenceList()](#创建添加地理围栏的请求)，地理围栏可以感知当前设备所在位置和关注目标之间的距离，当用户进入围栏区域时，会向应用发起通知。同时，开发者可以检测用户在围栏内的停留时间，当用户在围栏内停留一段时间之后，再发起通知。
 
-地理围栏同时支持页面操作，通过基于地图的拖拽和参数填写创建地理围栏，详情参见服务端开发。
+地理围栏同时支持页面操作，通过基于地图的拖拽和参数填写创建地理围栏，详情参见 [服务端开发](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/server-dev-0000001050170474-V5)。
 
 ## 一键接入定位服务
 
@@ -42,8 +42,7 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
   ![](hms-location/loc-configfile.png)
@@ -65,7 +64,7 @@
   });
 
   huawei.hms.location.locationService.requestLocationPermission();
-  ```
+ ```
 
 - 代码添加完成后，即可 [打包发布](../publish/publish-native.md) 到 **Android** 平台，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
@@ -190,7 +189,7 @@ huawei.hms.location.locationService.removeLocationUpdates();
 - 位置开关关闭。
 - 恢复出厂设置。
 
-如果对位置的实时性有较高要求，推荐主动调用 `requestLocationUpdates` 替代调用 `getLastLocation`。如果只想收到一次位置信息，可以将 `LocationRequest` 中 **numUpdates** 参数设置为 **1**。
+如果对位置的实时性有较高要求，推荐主动调用 `requestLocationUpdates` 替代调用 `getLastLocation`。
 
 **示例**：
 
