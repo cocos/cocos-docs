@@ -38,7 +38,7 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 
 ## 各平台接入集成
 
-根据游戏需求，参考以下文档来进行接入集成。  
+根据游戏需求，参考以下文档来进行接入集成。
 
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)

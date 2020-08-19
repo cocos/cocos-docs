@@ -12,7 +12,7 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板，其中提供了一
 
 ![](image/service.png)
 
-* 服务，是向游戏提供特定功能或能力的软件包或平台。例如 Cocos Analytics ，它提供了游戏运营数据分析能力，让开发者方便快捷地获取到游戏上线后的新增、活跃、留存、付费等数据。再比如 Agora Voice，能让你轻松地在游戏中实现语音连麦功能。
+* 服务，是向游戏提供特定功能或能力的软件包或平台。例如 Cocos Analytics，它提供了游戏运营数据分析能力，让开发者方便快捷地获取到游戏上线后的新增、活跃、留存、付费等数据。再比如 Agora Voice，能让你轻松地在游戏中实现语音连麦功能。
 * 一键开启，当点击开启时，服务面板会自动下载服务对应的软件包并自动集成到游戏工程。
 * JSB 封装，通常第三方服务会以 SDK 的方式提供软件包，并且会针对 Android、iOS 等不同的平台分别提供 SDK。Creator 是一个跨平台游戏开发引擎，采用 JS/TS 进行开发，因此 Cocos Service 针对所有 SDK 均进行了 JSB 封装，让开发者通过 JS/TS 即可直接调用 SDK，抹平了跨平台开发工作。
 * 自动集成脚本，是服务面板内置的底层能力，游戏在构建发布时，自动集成脚本会根据构建的目标平台，自动实现集成对应平台的 SDK、资源、相关配置等。
@@ -48,8 +48,10 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板，其中提供了一
 Cocos Service 目前支持集成以下服务：
 
 - [Cocos Analytics](cocos-analytics.md)：精准了解游戏的新增、活跃、留存、付费等数据。
-- [Agora Voice](agora.md)：游戏内置实时音频 SDK。
+- [声网（Agora Voice）](agora.md)：游戏内置实时音频 SDK。
 - [云开发（腾讯云）](tcb.md)：Serverless 云端一体化产品方案，助力小程序、Web 应用、移动应用成功。
 - [游戏联机对战引擎（腾讯云）](mgobe.md)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
 - [游戏多媒体引擎（腾讯云）](gme.md)：一站式语音解决方案，助力开发者快速实现各类语音功能。
+- [定位服务（HMS Core）](hms-location.md)：采用 GPS、Wi-Fi、基站等多种混合定位模式进行定位，赋予您的应用程序快速、精准地获取用户位置信息的能力。
+- [分析服务（HMS Core）](hms-analytics.md)：基于开发者上报的用户行为和属性数据，提供多种分析能力。
 - [Cocos SDKHub](sdkhub.md)：快速接入原生平台 SDK。

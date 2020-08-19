@@ -199,7 +199,7 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 
 ### Added `cc.TextAsset` for loading text files
 
-Starting with 1.10, common text formats such as `.txt, .plist, .xml, .json, .yaml, .ini, .csv, .md` will be imported as `cc.TextAsset`. You can access TextAsset like this:
+Starting with 1.10, common text formats such as `.txt`, `.plist`, `.xml`, `.json`, `.yaml`, `.ini`, `.csv`, `.md` will be imported as `cc.TextAsset`. You can access TextAsset like this:
 
 ```js
 // Declaration
