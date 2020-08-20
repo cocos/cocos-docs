@@ -42,7 +42,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
     console.log("init result = " + result);
     ```
 
-3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
+3. 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
 
     ![](matchvs/matchvs-debugging.png)
 
@@ -72,7 +72,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
                  |--matchvs.all.js       // Matchvs SDK 文件，通过服务面板一键接入时，会以插件的形式导入，无需再做 require 处理。
     ```
 
-- 点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，在浏览器上运行 Matchvs Sample 工程。点击 **立即体验** 开始调试和服务验证。
+- 点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，在浏览器上运行 Matchvs Sample 工程。点击 **立即体验** 开始调试和服务验证。
 
   ![](matchvs/matchvs-preview.png)
 
