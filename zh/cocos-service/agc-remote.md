@@ -2,7 +2,7 @@
 
 华为 AppGallery Connect（简称 AGC）[远程配置服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 提供了在线的配置项管理能力，可以实现应用在线更改行为和外观，而无需用户下载应用更新。
 
-远程配置服务提供云端，管理台和客户端 SDK，应用集成客户端 SDK后可以定期获取云端管理台配置的配置项和配置参数值，实现客户端应用行为和 UI 的修改。
+远程配置服务提供云端，管理台和客户端 SDK，应用集成客户端 SDK 后可以定期获取云端管理台配置的配置项和配置参数值，实现客户端应用行为和 UI 的修改。
 
 ### 主要功能
 
@@ -37,15 +37,15 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **远程配置服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-    ![](agc-apm/apm-provisioning.jpeg)
+  ![](agc-apm/apm-provisioning.jpeg)
     
--  登录 AppGallery Connect，点击 **我的项目**。在项目下的应用列表中点击需要启动远程配置功能的应用。
+- 登录 AppGallery Connect，点击 **我的项目**。在项目下的应用列表中点击需要启动远程配置功能的应用。
 
 - 在左侧导航栏选择 **增长 > 远程配置**。如果首次使用远程配置服务，请点击 **立即开通** 开通服务。
 
   ![](agc-remote/remote-open.png)
 
-- 系统默认在开通远程配置服务时将自动开通远程配置 API，如果需要手动开通，请参见 “开通服务” 打开远程配置的 API 权限。
+- 系统默认在开通远程配置服务时将自动开通远程配置 API，如果需要手动开通，请参见 **开通服务** 打开远程配置的 API 权限。
 
   ![](agc-remote/remote-console.png)
 
@@ -53,49 +53,47 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
-- 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
-我们将该文件统一放在工程下的 `/setting` 目录。
-
-- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+  ![](agc-remote/remote-configfile.png)
 
 ### 验证服务是否接入成功
 
-**远程配置服务** 接入时在 Android 工程中，添加了一个 `/res/xml/remote_config.xml` 本地配置文件，用于测试和指导用户使用。我们可通过在脚本中添加简单的代码，来验证接入是否成功。
+**远程配置服务** 接入时在 Android 工程中，添加了一个 `/res/xml/remote_config.xml` 本地配置文件，并预设了一对键值，用于测试和指导用户使用。可以通过调用方法获取该键值，来判断服务是否介入成功。
 
-![](agc-remote/remote-configfile.png)
+- 在脚本中添加代码。
 
-```js
-let value = huawei.AGC.remoteConfig.getValueAsString('test');
-console.log('Get config by key : test, value :' + value);{
-```
+  ```js
+  let value = huawei.AGC.remoteConfig.getValueAsString('test');
+  console.log('Get config by key : test, value :' + value);
+  ```
 
-代码添加后，[**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。若能看到 Logcat 中，取到的值为 **testValue**，即为 SDK 接入成功。
+- [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
+
+- 若能看到 Logcat 中，取到的值为 **testValue**，即为 SDK 接入成功。
 
 ![](agc-remote/remote-logcat.png)
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验远程配置服务。
 
-- 点击性能服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击远程配置服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通分析服务](./hms-analytics.md#开通服务)、[开通远程配置服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- 参照上文开通远程配置服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Remote** 按钮，进入该功能界面进行测试。
 
-![](agc-crash/crash-provisioning.png)
+![](agc-remote/remote-provisioning.png)
 
 ## 开发指南
 
 本文档对应 [AppGallery Connect - 接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide) 。
 
-由于 Java 层的 `apply` 方法返回的是参数对象，无法在 JS 层传递。插件舍弃了 Java 层的 `applyDefault` 和 `apply` 方法。并封装了 `applyLastFetched` 和 `fetchAndApply` 两个方法代替。
+由于 Java 层的 `apply` 方法返回的是参数对象，无法在 JS 层传递。插件封装时，舍弃了 Java 层的 `applyDefault` 和 `apply` 方法。并封装了 `applyLastFetched` 和 `fetchAndApply` 两个方法代替。
 
-JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules//huawei.agc.remoteconfig.html) 为准。
+JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.remoteconfig.html) 为准。
 
 ### 设置应用内默认值
 
@@ -121,7 +119,7 @@ JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/m
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.fetchAndApply();
 ```
 
@@ -139,7 +137,7 @@ huawei.AGC.remoteConfig.fetchAndApply();
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.fetch();
 ```
 
@@ -155,13 +153,13 @@ huawei.AGC.remoteConfig.fetch();
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.fetch();
 ```
 
 ### 获取参数值
 
-```
+```js
 getValueAsBoolean(key: String): Boolean { return false; }
 
 getValueAsDouble(key: String): Number { return 0; }
@@ -183,16 +181,16 @@ getValueAsString(key: String): String { return ""; }
 
 **示例**：
 
-```
+```js
 let values = huawei.AGC.remoteConfig.getMergedAll();
 console.log('Get all configs : ' + JSON.stringify(values));
 ```
 
 可通过 `getSource` 方法获取 Value 值的来源。数据可能有如下三种来源：
 
-- huawei.AGC.remoteConfig.RemoteConfigSource.STATIC = 0: 获取的值是类型默认值
-- huawei.AGC.remoteConfig.RemoteConfigSource.DEFAULT = 1: 获取的值是传入的本地默认值
-- huawei.AGC.remoteConfig.RemoteConfigSource.REMOTE = 2: 获取的值是云端同步下来的值
+- `huawei.AGC.remoteConfig.RemoteConfigSource.STATIC = 0`: 获取的值是类型默认值
+- `huawei.AGC.remoteConfig.RemoteConfigSource.DEFAULT = 1`: 获取的值是传入的本地默认值
+- `huawei.AGC.remoteConfig.RemoteConfigSource.REMOTE = 2`: 获取的值是云端同步下来的值
 
 ### 获取全部参数值
 
@@ -202,7 +200,7 @@ console.log('Get all configs : ' + JSON.stringify(values));
 
 **示例**：
 
-```
+```js
 let values = huawei.AGC.remoteConfig.getMergedAll();
 console.log('Get all configs : ' + JSON.stringify(values));
 ```
@@ -211,11 +209,11 @@ console.log('Get all configs : ' + JSON.stringify(values));
 
 `clearAll(): void`
 
-清除所有的缓存数据，包括从云测拉取的数据和传入的默认值
+清除所有的缓存数据，包括从云测拉取的数据和传入的默认值。
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.clearAll();
 ```
 
@@ -239,7 +237,7 @@ huawei.AGC.remoteConfig.clearAll();
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.applyLastFetched();
 ```
 
@@ -257,12 +255,12 @@ huawei.AGC.remoteConfig.applyLastFetched();
 
 **示例**：
 
-```
+```js
 huawei.AGC.remoteConfig.setDeveloperMode(true);
 ```
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [崩溃服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.remoteconfig.html)。
+详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.remoteconfig.html)。
 
 

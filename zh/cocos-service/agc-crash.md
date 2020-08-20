@@ -14,37 +14,35 @@
 
 - 使用 Cocos Creator 打开需要接入崩溃服务的项目工程。
 
-- 由于崩溃服务上报崩溃事件时，使用了华为分析服务的能力，集成崩溃服务前，请先开通 [分析服务](./hms-analytics.md#开通服务)。
+- 由于崩溃服务上报崩溃事件时，使用了华为分析服务的能力，集成崩溃服务前，请先开通 [分析服务（HMS Core）](./hms-analytics.md)。
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **崩溃服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-    ![](agc-apm/apm-provisioning.jpeg)
+  ![](agc-crash/crash-provisioning.jpeg)
 
 ### 配置华为参数文件
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
-- 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
-我们将该文件统一放在工程下的 `/setting` 目录。
-
-- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+  ![](agc-crash/crash-configfile.png)
 
 ### 验证服务是否接入成功
 
-**崩溃服务** 可以 **零代码** 快速集成，但通常应用程序崩溃出现的概率较小，没必要等待崩溃出现来确定崩溃服务是否正常工作。崩溃服务 SDK 提供了手动制造崩溃的方法，我们通过添加代码调用该方法来判断服务是否介入成功。
+**崩溃服务** 可以 **零代码** 快速集成，但通常应用程序崩溃出现的概率较小，没必要等待崩溃出现来确定崩溃服务是否正常工作。崩溃服务 SDK 提供了手动制造崩溃的方法，可以通过调用该方法来判断服务是否介入成功。
 
-```js
-    cc.log("Call crash method after 2 seconds.");
-    this.scheduleOnce(function(){
-        huawei.AGC.Crash.CrashService.testIt();
-    },5);
-```
+- 在脚本中添加代码。
 
-- 脚本修改完成并保存后，回到编辑器。崩溃服务调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
+  ```js
+  console.log("Call crash method after 5 seconds.");
+  this.scheduleOnce(function(){
+      huawei.AGC.Crash.CrashService.testIt();
+  },5);
+  ```
+
+- [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 崩溃服务**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
 
@@ -52,13 +50,15 @@
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验崩溃服务。
 
-- 点击性能服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击崩溃服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通分析服务](./hms-analytics.md#开通服务)、[开通崩溃服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- 参照上文开通崩溃服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Crash** 按钮，进入该功能界面进行测试。
+- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
+
+- Sample 工程运行到手机后，点击首页的 **Crash** 按钮，即可进入功能界面进行测试。
 
 ![](agc-crash/crash-provisioning.png)
 
@@ -76,7 +76,7 @@
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  enable    | 崩溃服务开关。<br>**true**：开<br>**false**：关 | 
+|  enable    | 若调用该方法并设置为 **false**，则关闭崩溃服务收集上报功能。若要继续使用崩溃服务收集上报功能，则需要设置为 **true**。 | 
 
 **示例**：
 
@@ -88,7 +88,7 @@ huawei.AGC.Crash.CrashService.enableCrashCollection(false);
 
 `testIt(): void`
 
-此方法用于创建一个测试用的崩溃。本方法仅供开发者在测试崩溃实现时调试使用，正式发布的应用中请勿使用。
+此方法用于创建一个测试用的崩溃。本方法仅供开发者在测试崩溃实现时调试使用，**正式发布的应用中请勿使用**。
 
 **示例**：
 
@@ -98,7 +98,7 @@ huawei.AGC.Crash.CrashService.testIt();
 
 ## 服务使用
 
-应用集成崩溃服务后，可以在应用崩溃时自动上报崩溃数据到 AppGallery Connect，开发者可以根据具体的崩溃信息，前往 AppGallery Connect 后台，分析崩溃问题原因。
+应用集成崩溃服务后，可以在应用崩溃时自动上报崩溃数据到 AppGallery Connect，开发者可以根据具体的崩溃信息，前往 AppGallery Connect 后台，分析崩溃问题原因。可参考以下 AGC 文档链接。
 
 - [分析崩溃问题](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [接收崩溃提醒](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-notice)
