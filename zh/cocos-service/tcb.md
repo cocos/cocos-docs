@@ -130,6 +130,5 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 - [云开发简介](https://cloud.tencent.com/document/product/876/18431)
 - [云开发计费模式](https://cloud.tencent.com/document/product/876/18864)
 - [云开发常见问题](https://cloud.tencent.com/product/tcb/faqs)
-- [Web SDK API 参考](https://docs.cloudbase.net/api-reference/web/initialization.html)，目前 Cocos Service 提供的云开发版本正在更新中，线上用户请先参考本链接提供的旧版文档。
 
-更多文档可在 [腾讯云文档中心 - 云开发](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，目前以 [Web SDK API 参考](https://docs.cloudbase.net/api-reference/web/initialization.html) 为准。
+更多文档可在 [腾讯云文档中心 - 云开发](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信开发者工具提供的版本不相通。目前 Cocos Service 提供的云开发版本正在更新中，文档请以 [Web SDK API 参考](https://docs.cloudbase.net/api-reference/web/initialization.html) 这篇为准。
