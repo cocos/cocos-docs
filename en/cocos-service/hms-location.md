@@ -12,15 +12,15 @@
 
 #### Fused location
 
-If your app needs to obtain the device location, you can apply for the location permission for your app, call the [requestLocationUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section1210118391289) API of HMS Core Location Kit, set request parameters in [LocationRequest](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationrequest-0000001050986189-V5), and specify a location mode as needed. To cancel obtaining location information, call the [removeLocationUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section14923192365816) API.
+If your app needs to obtain the device location, you can apply for the location permission for your app, call the [requestLocationUpdates()](#requests-location-updates) API of HMS Core Location Kit, and specify a location mode as needed. To cancel obtaining location information, call the [removeLocationUpdates()](#requests-location-updates) API.
 
 #### Activity Identification
 
-If your app needs to obtain the activity status of a user (for example, walking, running, or bicycling) or detect activity status change of a user, you can apply for the activity identification permission for your app and call the [createActivityIdentificationUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#EN-US_TOPIC_0000001050986183__section177364246397) API. To cancel activity identification update, call the [deleteActivityIdentificationUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#EN-US_TOPIC_0000001050986183__section18411141614334) API. If you want to detect user activity status change, call the [createActivityConversionUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#EN-US_TOPIC_0000001050986183__section461610311343) API to listen for activity status changes of the current device. To cancel listening for activity status changes, call the [deleteActivityConversionUpdates()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#EN-US_TOPIC_0000001050986183__section17434718321) API.
+If your app needs to obtain the activity status of a user (for example, walking, running, or bicycling) or detect activity status change of a user, you can apply for the activity identification permission for your app and call the [createActivityIdentificationUpdates()](#registers-activity-identification-updates) API. To cancel activity identification update, call the [deleteActivityIdentificationUpdates()](#removes-activity-identification-updates-associated) API. If you want to detect user activity status change, call the [createActivityConversionUpdates()](#detects-activity-conversions) API to listen for activity status changes of the current device. To cancel listening for activity status changes, call the [deleteActivityConversionUpdates()](#removes-activity-conversion-updates) API.
 
 #### Geofence
 
-You can call the [createGeofenceList()](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofenceservice-0000001050986187-V5#EN-US_TOPIC_0000001050986187__section9254532817) API to create a geofence based on the location that may be of interest to users. Then, Location Kit can sense the distance between the current device location and the geofence. When the device enters the geofence, a notification will be sent to your app. In addition, Location Kit can detect the duration during which the device stays in the geofence, and send a notification to your app if the stay duration reaches your preset limit.
+You can call the [createGeofenceList()](#adds-geofences) API to create a geofence based on the location that may be of interest to users. Then, Location Kit can sense the distance between the current device location and the geofence. When the device enters the geofence, a notification will be sent to your app. In addition, Location Kit can detect the duration during which the device stays in the geofence, and send a notification to your app if the stay duration reaches your preset limit.
 
 You can also create a geofence by dragging to select an area on the map and setting relevant parameters. For details, please refer to [Server Development](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides-V5/server-dev-0000001050170474-V5).
 
@@ -40,13 +40,10 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) and select **My projects**.
-- Find your project from the project list and click the app on the project card.
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it.
+- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), find your project from the project list and select the app on the project card.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](hms-location/loc-configfile.png)
-
-The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, **please manually copy and overwrite it**.
 
 ### Verify whether the service is integrated successfully
 
@@ -188,7 +185,7 @@ The value **null** may be returned in the following scenarios:
 - The location function is disabled.
 - The device is restored to factory settings.
 
-If real-time location is required, you are advised to proactively call `requestLocationUpdates` instead of `getLastLocation`. To receive a location once only, you can set **numUpdates** in `LocationRequest` to **1**.
+If real-time location is required, you are advised to proactively call `requestLocationUpdates` instead of `getLastLocation`.
 
 **Example**:
 
@@ -246,7 +243,7 @@ huawei.hms.location.locationService.setMockMode(true);
 
 `setMockLocation(latitude: string, longitude: string): void`
 
-You must call the [setMockMode (boolean)](#set-mock-mode) method and set it to true before calling this method.
+You must call the `setMockMode (boolean)` method and set it to true before calling this method.
 
 **Parameter Description**:
 
