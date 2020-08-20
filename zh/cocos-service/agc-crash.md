@@ -46,7 +46,7 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 崩溃服务**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
 
-![](agc-crash/crash-console.jpg)
+  ![](agc-crash/crash-console.jpg)
 
 ## Sample 工程
 
