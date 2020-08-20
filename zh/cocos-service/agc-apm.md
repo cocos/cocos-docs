@@ -1,6 +1,6 @@
 # 性能管理（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[性能管理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 查看和分析 APM 收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。
+华为 AppGallery Connect（简称 AGC）[性能管理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 后台查看和分析性能管理服务收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。
 
 ### 主要功能
 
@@ -8,7 +8,7 @@
 | --- | --- |
 | 自动采集应用启动、应用屏幕、HTTP/HTTPS 网络请求等方面的性能数据 | 性能管理 APM SDK 能够自动采集应用启动、应用屏幕、HTTP/HTTPS 网络请求等关键性能数据。<br><br>1. 应用启动性能数据：记录应用启动（冷启动和热启动）时间。<br><br>2. 应用屏幕性能数据：记录应用屏幕渲染缓慢帧和冻结帧数量。<br><br>3. HTTP/HTTPS网络性能数据：SDK记录响应时长，成功率，响应大小等指标数据。 |
 | 支持查看和分析应用性能数据，精准发现应用性能在哪些方面有改进空间 | 性能管理 APM 通过多个维度（版本号、国家/地区、手机类型、一级区域、系统版本、运营商、网络）向开发者展示应用的性能指标，帮助开发者快速了解应用在哪些方面可优化改进。 |
-| 支持创建自定义跟踪记录，监控应用在特定场景下的性能 |  借助 性能管理 APM SDK，开发者可以：<br><br>1. 创建自定义跟踪记录来监控应用在特定场景，如用户登录或者屏幕加载场景下的性能。<br><br>2. 为自定义跟踪记录添加指标（如登录次数）和属性（如登录是否成功）。|
+| 支持创建自定义跟踪记录，监控应用在特定场景下的性能 |  借助性能管理 APM SDK，开发者可以：<br><br>1. 创建自定义跟踪记录来监控应用在特定场景，如用户登录或者屏幕加载场景下的性能。<br><br>2. 为自定义跟踪记录添加指标（如登录次数）和属性（如登录是否成功）。|
 
 ## 一键接入性能管理服务
 
@@ -18,7 +18,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **性能管理**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-  ![](agc-apm/apm-provisioning.jpeg)
+  ![](agc-apm/apm-panel.png)
 
 - 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**，进入 **质量 -> 性能管理 -> **立即开通** 按钮，开通服务。
 
@@ -28,32 +28,30 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**。
-- 在项目列表中找到对应的项目，在项目下的应用列表中选择对应应用。
-- 在 **项目设置** 页面的 **应用**区域，点击 `agconnect-services.json` 下载配置文件。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
-我们将该文件统一放在工程下的 `/setting` 目录。
-
-- Creator 2.4.3 以上版本可在 **构建** 面板直接配置该文件。
-- Creator 2.4.3 以下版本，请将 `agconnect-services.json` 文件拷贝到工程目录下的 `/settings` 目录。
+  ![](agc-apm/apm-configfile.png)
 
 ### 验证服务是否接入成功
 
-- 完成 **性能管理** 服务接入步骤后，无需改动代码，便可以 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台上运行，请确保发布的包名与华为后台设置的包名一致。
+- 完成 **性能管理** 服务接入步骤后，无需改动代码，即可 [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，打开对应项目， 进入 **质量 -> 性能管理**，确认应用性能数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目， 进入 **质量 -> 性能管理**，若能看到应用性能数据正常显示（通常会在 15 分钟内显示），即为接入成功。
 
-  ![](agc-apm/apm-console.jpeg)
+  ![](agc-apm/apm-console.jpg)
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验定位服务。
+开发者可以通过 Sample 工程快速体验性能管理服务。
 
-- 点击性能服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击性能管理服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#开通服务) 并 [配置华为参数文件](#配置华为参数文件) 后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.3 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
+- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **APM** 按钮，进入该功能界面进行测试。
+- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
+
+- Sample 工程运行到手机后，点击首页的 **APM** 按钮，即可进入功能界面进行测试。
 
   ![](agc-apm/apm-sample.png)
 
@@ -63,39 +61,39 @@
 
 `enableCollection (enable: boolean): void`
 
-对应 [华为 AGC 文档 - 在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111)。开关的默认值为打开 (true)，表示启用性能管理服务应用性能数据采集。如果需要停用应用性能数据采集，可将开关值设为关闭 (false)。
+可参考 AGC 文档 - [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111)。开关的默认值为打开 (true)，表示启用性能管理服务应用性能数据采集。如果需要停用应用性能数据采集，可将开关值设为关闭 (false)。
 
 应用客户端停用级别 **高于** AGC 远程配置停用。如用户在应用客户端停用性能监控，即使通过 AGC 远程配置打开性能监控开关，性能管理服务也不会进行性能数据采集。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
-|  enable    | APM 服务开关。<br>**true**：打开，性能管理服务会采集性能监控数据。<br>**false**：关闭，性能管理服务不会采集性能监控数据。| 
+|  enable | APM 服务开关。<br>**true**：打开，性能管理服务会采集性能监控数据。<br>**false**：关闭，性能管理服务不会采集性能监控数据。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 huawei.AGC.apms.enableCollection(true);
 ```
 
 ### 添加自定义跟踪记录（可选）
 
-对应 [华为 AGC - 添加自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addtrace)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。性能管理插件封装后的方法，比起 SDK 原型方法，需要加入 `name` 参数，用于获取对象调用。若当前名称的对象不存在，则会再新建一个对象。
+可参考 AGC 文档 - [添加自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addtrace)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。性能管理插件封装后的方法，比起 SDK 原型方法，需要加入 `name` 参数，用于获取对象调用。若当前名称的对象不存在，则会再新建一个对象。
 
 #### 启动自定义跟踪记录
 
 `startCustomTrace(name: string): void`
 
-[启动自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#start)。
+可参考 AGC 文档 - [启动自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#start)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。| 
 
-**示例：**
+**示例**：
 
 `huawei.AGC.apms.startCustomTrace("traceID");`
 
@@ -103,15 +101,15 @@ huawei.AGC.apms.enableCollection(true);
 
 `stopCustomTrace(name: string): void`
 
-[停止自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#stop)。
+可参考 AGC 文档 - [停止自定义跟踪记录](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#stop)。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
 
-**示例：**
+**示例**：
 
 `huawei.AGC.apms.stopCustomTrace("traceID");`
 
@@ -121,7 +119,7 @@ huawei.AGC.apms.enableCollection(true);
 
 设置自定义跟踪记录属性名称和属性值。每个 CustomTrace 实例最多只能设置 5 个自定义属性。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
@@ -129,9 +127,9 @@ huawei.AGC.apms.enableCollection(true);
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
 | propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 100 字符。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
@@ -145,16 +143,16 @@ huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
 
 从 CustomTrace 实例中移除已存在属性。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let pName = "product";
 
@@ -165,18 +163,18 @@ huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
 
 `getCustomTraceProperty (name: string, propertyName: string): string`
 
-[获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getProperty)。
+可参考 AGC 文档 - [获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getProperty)。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 | 
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不超过 40 字符。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let pName = "product";
 let propertValue = huawei.AGC.apms.getCustomTraceProperty(traceID, pName);
@@ -189,7 +187,7 @@ console.log("pValue = ", propertValue);
 
 添加自定义跟踪记录指标。如果指标已经存在，则更新指标的值。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
@@ -197,9 +195,9 @@ console.log("pValue = ", propertValue);
 | measureName | 自定义跟踪记录指标名称。| 
 | measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
@@ -211,18 +209,18 @@ huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
 
 `getCustomTraceMeasure (name: string, measureName: string): string`
 
-[获取自定义跟踪记录指标值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getMeasure)。
+可参考 AGC 文档 - [获取自定义跟踪记录指标值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getMeasure)。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 | measureName | 自定义跟踪记录指标名称。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let mName = "MeasureName";
 
@@ -234,7 +232,7 @@ console.log("mValue = ", measureValue);
 
 `putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
@@ -242,9 +240,9 @@ console.log("mValue = ", measureValue);
 | measureName | 自定义跟踪记录指标名称。| 
 | measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
@@ -256,17 +254,17 @@ huawei.AGC.apms.putCustomTraceMeasure (traceID, mName, mValue);
 
 `getCustomTraceProperties: (name: string): string`
 
-获取自定义跟踪记录的所有属性。返回值为存放所有属性的键值对，JSON 对象。
+获取自定义跟踪记录的所有属性。返回值为 JSON 对象，存放所有属性的键值对。
 
-**参数说明：**
+**参数说明**：
 
 |  参数  |  说明  |  
 | :---------- | :------------- |  
 | name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
 
-**示例：**
+**示例**：
 
-```
+```js
 let traceID = "testTrace";
 let tProp = huawei.AGC.apms.getCustomTraceProperties(traceID);
 console.log("tProp = ", JSON.stringify(tProp));
@@ -274,7 +272,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### 添加针对特定网络请求的监控指标（可选）
 
-对应 [华为 AGC 文档 - 添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。
+可参考 AGC 文档 - [添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure)。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。
 
 #### 创建网络请求指标实例
 
@@ -282,16 +280,16 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 针对每个网络请求，[创建网络请求指标实例]((https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/apms#createNetworkMeasure))，用于采集网络性能数据。**返回值即为下方各方法所需的 id 参数**。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | url | 网络请求 URL 地址 | 
 | httpMethod | 请求方法，仅支持 GET、PUT、POST、DELETE、HEAD、PATCH、OPTIONS、TRACE 或 CONNECT 方法。 | 
 
-**示例：**
+**示例**：
 
-```
+```js
 let id = huawei.AGC.apms.initNetworkMeasure(url, "POST");
 console.log("createNetworkMeasure, id = ", id);
 ```
@@ -300,109 +298,121 @@ console.log("createNetworkMeasure, id = ", id);
 
 `startNetworkMeasure(id: string): void`
 
-[设置请求开始时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#start)。
+可参考 AGC 文档 - [设置请求开始时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#start)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.startNetworkMeasure(id);`
+```js
+huawei.AGC.apms.startNetworkMeasure(id);
+```
 
 #### 设置请求结束时间
 
 `stopNetworkMeasure(id: string): void`
 
-[设置请求结束时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#stop)，并上报网络请求指标及自定义属性数据。
+可参考 AGC 文档 - [设置请求结束时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#stop)，并上报网络请求指标及自定义属性数据。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.stopNetworkMeasure(id);`
+```js
+huawei.AGC.apms.stopNetworkMeasure(id);
+```
 
 #### 设置请求的响应码
 
 `setNetworkMeasureStatusCode(id: string, statusCode: number): void`
 
-[设置请求的响应码](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode)。
+可参考 AGC 文档 - [设置请求的响应码](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | statusCode | 请求的响应码 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);`
+```js
+huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
+```
 
 #### 设置请求体大小
 
 `setNetworkMeasureBytesSent(id: string, length: number): void`
 
-[设置请求体大小](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent)。
+可参考 AGC 文档 - [设置请求体大小](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | length | 请求体大小，对应 Java 侧 long 型数值。 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);`
+```js
+huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
+```
 
 #### 设置响应体大小
 
 `setNetworkMeasureBytesReceived(id: string, length: number): void`
 
-[设置响应体大小](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived)。
+可参考 AGC 文档 - [设置响应体大小](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | length | 响应体大小，对应 Java 侧 long 型数值。 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);`
+```js
+huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
+```
 
 #### 设置响应体 contentType 类型
 
 `setNetworkMeasureContentType(id: string, contentType: string): void`
 
-[设置响应体 contentType 类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setContentType)。
+可参考 AGC 文档 - [设置响应体 contentType 类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#setContentType)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | contentType | 响应体 contentType 类型 | 
 
-**示例：**
+**示例**：
 
-`huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");`
+```js
+huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
+```
 
 #### 设置网络请求的自定义属性名称和属性值
 
 `putNetworkMeasureProperty(id: string, propertyName: string, propertyValue: string): void`
 
-[设置网络请求的自定义属性名称和属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#putProperty)。每个 NetworkMeasure 实例最多只能设置 5 个自定义属性。
+可参考 AGC 文档 - [设置网络请求的自定义属性名称和属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#putProperty)。每个 NetworkMeasure 实例最多只能设置 5 个自定义属性。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
@@ -410,9 +420,9 @@ console.log("createNetworkMeasure, id = ", id);
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
 | propertyValue | 自定义属性值，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 100 字符。 | 
 
-**示例：**
+**示例**：
 
-```
+```js
 let pName = "propName";
 let pValue = "12000";
 huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
@@ -422,18 +432,18 @@ huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
 
 `removeNetworkMeasureProperty(id: string, propertyName: string): void`
 
-[从 NetworkMeasure 实例中移除已存在属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#removeProperty)。
+可参考 AGC 文档 - [从 NetworkMeasure 实例中移除已存在属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#removeProperty)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
 
-**示例：**
+**示例**：
 
-```
+```js
 let pName = "propName";
 huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 ```
@@ -442,18 +452,18 @@ huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 
 `getNetworkMeasureProperty(id: string, propertyName: string): string`
 
-[从 NetworkMeasure 实例中获取所有属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperties)，返回 JSON 对象。
+可参考 AGC 文档 - [从 NetworkMeasure 实例中获取所有属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperties)，返回 JSON 对象。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 | propertyName | 自定义属性名称，只能由中文、字母（不区分大小写）、数字和下划线组成，且长度不能超过 40 字符。 | 
 
-**示例：**
+**示例**：
 
-```
+```js
 let pName = "propName";
 let nMeasure = huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
@@ -463,17 +473,17 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 
 `getNetworkMeasureProperties(id: string): string`
 
-[获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperty)。
+可参考 AGC 文档 - [获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperty)。
 
-**参数说明：**
+**参数说明**：
 
 | 参数 | 含义 |  
 | :---------- | :------------- |  
 | id | `initNetworkMeasure` 方法返回的对象 id，同时可能有多个 id 对象存在。其他方法均需要传入此 id。 | 
 
-**示例：**
+**示例**：
 
-```
+```js
 let mProp = huawei.AGC.apms.getNetworkMeasureProperties(id);
 console.log("mProp = ", mProp);
 ```
