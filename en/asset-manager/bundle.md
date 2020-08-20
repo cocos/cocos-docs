@@ -1,6 +1,6 @@
 # Asset Bundle Overview
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.<br>
 The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in subprojects.
@@ -81,7 +81,7 @@ At build time, all the **code** and **resources** in the folder configured as th
 - **Resources**: All resources in the folder and the related dependent resources outside the folder are placed in the `import` or `native` directory.
 - **Resource Configuration**: All resource configuration information including path, type, and version information is merged into a file named `config.json`.
 
-The structure of the Asset Bundle directory generated after build is shown below：
+The structure of the Asset Bundle directory generated after build is shown below:
 
 ![export](bundle/exported.png) 
 

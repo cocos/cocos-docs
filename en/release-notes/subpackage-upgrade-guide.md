@@ -1,6 +1,6 @@
 # v2.4 Subpackage upgrade guide
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 > This document will detail the considerations for upgrading resource subpackages in older projects to v2.4.
 

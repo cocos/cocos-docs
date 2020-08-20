@@ -1,6 +1,6 @@
 # Asset Manager Overview
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 During the development of the game, it is generally necessary to use a large number of images, audio and other resources to enrich the entire game, and a large number of resources can cause management difficulties. That's why Creator provides the **Asset Manager** resource management module to help developers manage the use of their resources and greatly improve the development efficiency and experience.
 
@@ -35,7 +35,7 @@ The relevant APIs are listed below:
 | Script       | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
 | Remote Asset | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
 
-References documentations：
+References documentations:
 
 - [Acquire and load asset](../scripting/load-assets.md)
 - [Asset Bundle](../scripting/asset-bundle.md)

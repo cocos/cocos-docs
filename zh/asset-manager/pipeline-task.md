@@ -30,7 +30,7 @@ Asset Manager 中内置了三条管线：
 
 ### 自定义管线
 
-开发者可以对内置管线进行自定义扩展以实现自己的定制需求，例如：
+开发者可以对内置管线进行自定义扩展以实现自己的定制需求：
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {
@@ -58,7 +58,7 @@ var pipeline = new cc.AssetManager.Pipeline('test', [(task, done) => {
 
 ## 任务
 
-**任务** 就是在管线中流动的请求，一个任务中包括输入、输出、完成回调、[可选参数](options.md) 等内容。当任务在管线中流动时，管线的每个阶段会取出任务的输入，做出一定的处理后存回到输出中。例如：
+**任务** 就是在管线中流动的请求，一个任务中包括输入、输出、完成回调、[可选参数](options.md) 等内容。当任务在管线中流动时，管线的各个阶段会取出任务的输入，做出一定的处理后存回到输出中。
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {

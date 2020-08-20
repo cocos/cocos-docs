@@ -30,7 +30,7 @@ There are three pipelines built into the Asset Manager, as shown in the figure:
 
 ### Custom Pipeline
 
-You can extend the built-in pipeline to achieve your own customization needs, for example:
+You can extend the built-in pipeline to achieve your own customization needs:
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {
@@ -42,10 +42,10 @@ cc.assetManager.pipeline.insert(function (task, done) {
 }, 1);
 ```
 
-You can also build a new pipeline, for example:
+You can also build a new pipeline:
 
 ```js
-var pipeline = new cc.assetManager.pipeline('test', [(task, done) => {
+var pipeline = new cc.AssetManager.Pipeline('test', [(task, done) => {
     console.log('first stage');
     done();
 }, (task, done) => {
