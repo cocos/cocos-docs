@@ -67,7 +67,7 @@
 - 在脚本中添加代码。
 
   ```js
-  let value = huawei.AGC.remoteConfig.getValueAsString('test');
+  let value = huawei.agc.rc.rcService.getValueAsString('test');
   console.log('Get config by key : test, value :' + value);
   ```
 
@@ -95,7 +95,7 @@
 
 由于 Java 层的 `apply` 方法返回的是参数对象，无法在 JS 层传递。插件封装时，舍弃了 Java 层的 `applyDefault` 和 `apply` 方法。并封装了 `applyLastFetched` 和 `fetchAndApply` 两个方法代替。
 
-JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.remoteconfig.html) 为准。
+JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html) 为准。
 
 ### 设置应用内默认值
 
@@ -122,7 +122,7 @@ JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/m
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.fetchAndApply();
+huawei.agc.rc.rcService.fetchAndApply();
 ```
 
 #### fetch
@@ -140,7 +140,7 @@ huawei.AGC.remoteConfig.fetchAndApply();
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.fetch();
+huawei.agc.rc.rcService.fetch();
 ```
 
 #### setRemoteConfigListener
@@ -156,7 +156,7 @@ huawei.AGC.remoteConfig.fetch();
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.fetch();
+huawei.agc.rc.rcService.fetch();
 ```
 
 ### 获取参数值
@@ -184,15 +184,15 @@ getValueAsString(key: String): String { return ""; }
 **示例**：
 
 ```js
-let values = huawei.AGC.remoteConfig.getMergedAll();
+let values = huawei.agc.rc.rcService.getMergedAll();
 console.log('Get all configs : ' + JSON.stringify(values));
 ```
 
 可通过 `getSource` 方法获取 Value 值的来源。数据可能有如下三种来源：
 
-- `huawei.AGC.remoteConfig.RemoteConfigSource.STATIC = 0`: 获取的值是类型默认值
-- `huawei.AGC.remoteConfig.RemoteConfigSource.DEFAULT = 1`: 获取的值是传入的本地默认值
-- `huawei.AGC.remoteConfig.RemoteConfigSource.REMOTE = 2`: 获取的值是云端同步下来的值
+- `huawei.agc.rc.rcService.RemoteConfigSource.STATIC = 0`: 获取的值是类型默认值
+- `huawei.agc.rc.rcService.RemoteConfigSource.DEFAULT = 1`: 获取的值是传入的本地默认值
+- `huawei.agc.rc.rcService.RemoteConfigSource.REMOTE = 2`: 获取的值是云端同步下来的值
 
 ### 获取全部参数值
 
@@ -203,7 +203,7 @@ console.log('Get all configs : ' + JSON.stringify(values));
 **示例**：
 
 ```js
-let values = huawei.AGC.remoteConfig.getMergedAll();
+let values = huawei.agc.rc.rcService.getMergedAll();
 console.log('Get all configs : ' + JSON.stringify(values));
 ```
 
@@ -216,7 +216,7 @@ console.log('Get all configs : ' + JSON.stringify(values));
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.clearAll();
+huawei.agc.rc.rcService.clearAll();
 ```
 
 ### 加载流程
@@ -240,7 +240,7 @@ huawei.AGC.remoteConfig.clearAll();
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.applyLastFetched();
+huawei.agc.rc.rcService.applyLastFetched();
 ```
 
 ### 设置开发者模式
@@ -258,11 +258,11 @@ huawei.AGC.remoteConfig.applyLastFetched();
 **示例**：
 
 ```js
-huawei.AGC.remoteConfig.setDeveloperMode(true);
+huawei.agc.rc.rcService.setDeveloperMode(true);
 ```
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.remoteconfig.html)。
+详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html)。
 
 
