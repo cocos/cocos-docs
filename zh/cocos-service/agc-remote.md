@@ -37,7 +37,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **远程配置服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-  ![](agc-apm/apm-provisioning.jpeg)
+  ![](agc-remote/remote-panel.png)
     
 - 登录 AppGallery Connect，点击 **我的项目**。在项目下的应用列表中点击需要启动远程配置功能的应用。
 
@@ -60,7 +60,9 @@
 
 ### 验证服务是否接入成功
 
-**远程配置服务** 接入时在 Android 工程中，添加了一个 `/res/xml/remote_config.xml` 本地配置文件，并预设了一对键值，用于测试和指导用户使用。可以通过调用方法获取该键值，来判断服务是否介入成功。
+**远程配置服务** 接入时在 Android 工程中，添加了本地配置文件 `/res/xml/remote_config.xml`，并预设了一对键值，用于测试和指导用户使用。可以通过调用方法 `getValueAsString` 获取该键值，来判断服务是否介入成功。
+
+![](agc-remote/remote-configxml.png)
 
 - 在脚本中添加代码。
 
@@ -85,7 +87,7 @@
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Remote** 按钮，进入该功能界面进行测试。
 
-![](agc-remote/remote-provisioning.png)
+![](agc-remote/remote-sample.png)
 
 ## 开发指南
 
@@ -127,7 +129,7 @@ huawei.AGC.remoteConfig.fetchAndApply();
 
 `fetch(intervalSeconds: number): void`
 
-开发者也可只调用 `fetch` 方法，通过监听器 [setRemoteConfigListener](#setRemoteConfigListener) 的回调，再调用 [applyLastFetched](#加载流程) 方法，实现更新参数流程。
+开发者也可调用 `fetch` 方法，获取 [setRemoteConfigListener](#setRemoteConfigListener) 回调，再调用 [applyLastFetched](#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%90%8E%E4%B8%8B%E6%AC%A1%E5%90%AF%E5%8A%A8%E7%94%9F%E6%95%88) 方法，实现更新参数流程。
 
 **参数说明**：
 
@@ -147,9 +149,9 @@ huawei.AGC.remoteConfig.fetch();
 
 `fetch` 相关方法监听器，可选。
 
-若使用 `fetchAndApply` 方法，**仅失败** 情况下，会通过该监听器给出回调。
+若使用 `fetchAndApply` 方法，**仅失败** 情况下，会通过该监听器给出回调。开发者可以考虑是否需要监听和处理该回调。
 
-若使用 `fetch` 方法，成功或失败情况下，会通过该监听器给出回调。开发者可在成功回调中，再调用 `applyLastFetched` 方法，更新云端参数值。
+若使用 `fetch` 方法，成功或失败都会通过该监听器给出回调。开发者可在成功回调后，调用 `applyLastFetched` 方法，更新云端参数值。
 
 **示例**：
 
@@ -169,9 +171,9 @@ getValueAsLong(key: String): Number { return 0; }
 getValueAsString(key: String): String { return ""; }
 ```
 
-在设置默认值和更新云端参数值后，就可以调用接口来获取参数值进行使用，插件提供了四种数据类型的接口，可根据需求进行使用。
+在设置默认值和更新云端参数值后，就可以调用该接口获取参数值。插件封装时，提供了四种数据类型的接口，可根据需求进行使用。
 
-由于 JS 层限制，插件不支持 Java 层 `getValueAsBytArray` 方法。
+由于 JS 层限制，插件不支持对应 Java 层的 `getValueAsBytArray` 方法。
 
 **参数说明**：
 
@@ -219,7 +221,7 @@ huawei.AGC.remoteConfig.clearAll();
 
 ### 加载流程
 
-可对照文档 [AppGallery Connect - 加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)
+可参考 AGC 文档 - [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)
 
 #### 获取数据后立刻生效
 
@@ -227,7 +229,7 @@ huawei.AGC.remoteConfig.clearAll();
 
 #### 获取数据后下次启动生效
 
-开发者可以在任何时候 fetch 数据，但是此次运行并不使其生效，在下次应用启动时，才使上次 fetch 的数据生效。这种方式可以无需异步等待即可使用最新的值。
+开发者可以在任何时候 `fetch` 数据，但是此次运行并不使其生效，在下次应用启动时，才使上次 `fetch` 的数据生效。这种方式可以无需异步等待即可使用最新的值。
 
 该情况对应 [fetch](#fetch) 方法，在 [setRemoteConfigListener](#setRemoteConfigListener) 成功回调时，调用 `applyLastFetched` 方法更新云端参数值。
 

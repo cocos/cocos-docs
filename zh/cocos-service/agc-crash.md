@@ -18,7 +18,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **崩溃服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-  ![](agc-crash/crash-provisioning.jpeg)
+  ![](agc-crash/crash-panel.png)
 
 ### 配置华为参数文件
 

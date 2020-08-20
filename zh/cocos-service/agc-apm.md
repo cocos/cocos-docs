@@ -18,7 +18,7 @@
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **性能管理**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-  ![](agc-apm/apm-provisioning.jpeg)
+  ![](agc-apm/apm-panel.png)
 
 - 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**，进入 **质量 -> 性能管理 -> **立即开通** 按钮，开通服务。
 
@@ -39,7 +39,7 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目， 进入 **质量 -> 性能管理**，若能看到应用性能数据正常显示（通常会在 15 分钟内显示），即为接入成功。
 
-  ![](agc-apm/apm-console.jpeg)
+  ![](agc-apm/apm-console.jpg)
 
 ## Sample 工程
 
