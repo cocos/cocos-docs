@@ -36,7 +36,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
     });
     ```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，若能在控制台中看到初始化和登录日志，即为接入成功。
 
     ![](cocos-analytics/analytics-debugging.png)
 
@@ -49,7 +49,7 @@ Cocos Analytics 服务接入完成后，我们可以通过在脚本中添加简�
 
 - 在 **服务** 面板中开通 Cocos Analytics 服务。
 
-- 接入完成后，点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该工程。
+- 接入完成后，点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，即可在浏览器中调试该工程。
 
   ![](cocos-analytics/analytics-sample.png)
 
@@ -67,7 +67,7 @@ Cocos Analytics 插件加载时会调用 Cocos Analytics 初始化，无需再�
 
 ## 跨平台发布
 
-开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](../publish/publish-native.md)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
+开发者可以通过 **构建发布** 面板根据需求选择 **Android／iOS／Web／微信小游戏** 平台进行 [构建编译](https://docs.cocos.com/creator/manual/zh/publish/publish-native.html)。构建出来的发布包已经自动集成了 Cocos Analytics 服务。
 
 ## 相关参考链接
 
