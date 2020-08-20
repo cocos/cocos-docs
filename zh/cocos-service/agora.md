@@ -58,7 +58,7 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 - 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为你从 Agora 后台获取的 App ID。
 
-- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
+- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，即可在浏览器中调试该项目工程。
 
   ![](agora/agora-sample.png)
 
