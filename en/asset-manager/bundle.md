@@ -27,7 +27,35 @@ The built-in Asset Bundle can be loaded in two ways:
 - Configure the **Resource Server Address** in the **Build** panel at build time.
 - Modify the code in `main.js` through the custom build template feature, as follows:
 
-  ![launch](bundle/launch.png) 
+  ```js
+  // ...
+
+  let bundleRoot = [];
+  // Add the URL where "internal" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/internal');
+  // If "resources" bundle exists, add the URL where "resources" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/resources');
+  // Add the URL where "main" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/main');
+
+  var count = 0;
+  function cb (err) {
+      if (err) {
+          return console.error(err.message, err.stack);
+      }
+      count++;
+      if (count === bundleRoot.length + 1) {
+          cc.game.run(option, onStart);
+      }
+  }
+
+  cc.assetManager.loadScript(settings.jsList.map(x => 'src/' + x), cb);
+
+  for (let i = 0; i < bundleRoot.length; i++) {
+      cc.assetManager.loadBundle(bundleRoot[i], cb);
+  }
+
+  ```
 
 ## Priority
 
