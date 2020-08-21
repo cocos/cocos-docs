@@ -66,10 +66,6 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 如果选择构建 Android 或者 Android Instant 平台，勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
-### SDKBox
-
-SDKBox 是免费的让移动游戏开发人员简单轻松集成第三方 SDK 的工具，主要面向海外的各种平台和服务。支持苹果和谷歌的 IAP 内购等近 30 种 SDK，所有的 SDK 都经过严格的测试与官方认证。详情请参考 [SDKBox](../sdk/sdkbox.md)。
-
 ### 加密脚本
 
 加密发布后的脚本。会在构建后的 `src` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `js backups` 目录下以便调试，打包时不会进入 APP 中。
