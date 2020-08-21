@@ -27,7 +27,33 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
 - 通过在 **构建发布** 面板配置 **资源服务器地址**
 - 通过自定义构建模板功能修改 `main.js` 中的代码，如下所示：
 
-  ![launch](bundle/launch.png) 
+```js
+// ...
+
+let bundleRoot = [];
+// internal bundle 所在服务器地址
+bundleRoot.push('http://myserver.com/assets/internal');
+// 如果有 resources bundle, 则加入 resources bundle 所在服务器地址
+bundleRoot.push('http://myserver.com/assets/resources');
+// main bundle 所在服务器地址
+bundleRoot.push('http://myserver.com/assets/main');
+
+var count = 0;
+function cb (err) {
+    if (err) return console.error(err.message, err.stack);
+    count++;
+    if (count === bundleRoot.length + 1) {
+        cc.game.run(option, onStart);
+    }
+}
+
+cc.assetManager.loadScript(settings.jsList.map(function (x) { return 'src/' + x;}), cb);
+
+for (let i = 0; i < bundleRoot.length; i++) {
+    cc.assetManager.loadBundle(bundleRoot[i], cb);
+}
+
+```
 
 ## 优先级
 
