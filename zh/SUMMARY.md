@@ -199,6 +199,4 @@
     - [AnySDK](sdk/anysdk-overview.md)
         - [AnySDK Framework](sdk/anysdk/anysdk-framework.md)
         - [Cocos Creator 接入 AnySDK 教程](sdk/anysdk/integrate-anysdk.md)
-    - [SDKBox](sdk/sdkbox.md)
     - [Cocos 数据统计](sdk/cocos-analytics.md)
-
