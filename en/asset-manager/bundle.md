@@ -40,7 +40,9 @@ The built-in Asset Bundle can be loaded in two ways:
 
   var count = 0;
   function cb (err) {
-      if (err) return console.error(err.message, err.stack);
+      if (err) {
+          return console.error(err.message, err.stack);
+      }
       count++;
       if (count === bundleRoot.length + 1) {
           cc.game.run(option, onStart);
