@@ -46,7 +46,7 @@ Now if you want to access it in another script, you can:
 var Rotate = require("Rotate");
 ```
 
-What `require` returned is the object exported by the module. Normally, we would save the result to a variable（`var Rotate`）immediately. The incoming `require` character string is the module's **file name**, the name contains neither path nor suffix and it is case sensitive.
+What `require` returned is the object exported by the module. Normally, we would save the result to a variable (`var Rotate`) immediately. The incoming `require` character string is the module's **file name**, the name contains neither path nor suffix and it is case sensitive.
 
 ### require complete example
 
@@ -157,7 +157,7 @@ Comments:
 
 ### Export variable
 
-- `module.exports` is a empty object（`{}`）and can be added in a new field directly.
+- `module.exports` is a empty object (`{}`) and can be added in a new field directly.
 
 ```js
 // foobar.js:

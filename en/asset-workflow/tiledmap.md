@@ -6,9 +6,9 @@ Tiled map resources are data formats that exported by [TiledMap](https://www.map
 
 Assets required by TiledMap:
 
-- .tmx : The TiledMap data file.
-- .png : The texture used by TiledMap.
-- .tsx : The data of tileset **(optional)**
+- `.tmx`: The TiledMap data file.
+- `.png`: The texture used by TiledMap.
+- `.tsx`: The data of tileset **(optional)**
 
 	![tiledmap](tiledmap/import.png)
 

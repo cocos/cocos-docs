@@ -56,8 +56,8 @@ After selecting the keyframe, click the ![](animation-curve/more.png) button of 
 
 > Support only v1.9.2 and above
 
-After we select the node, we can press <kbd>ctrl + c</kbd>（Windows）or <kbd>command + c</kbd> (Mac) on the keyboard to copy the selected frame.
-Then press <kbd>ctrl + v</kbd>（Windows）or <kbd>command + v</kbd> (Mac) in the new area to paste the newly copied frame to the specified position.
+After we select the node, we can press <kbd>ctrl + c</kbd> (Windows) or <kbd>command + c</kbd> (Mac) on the keyboard to copy the selected frame.
+Then press <kbd>ctrl + v</kbd> (Windows) or <kbd>command + v</kbd> (Mac) in the new area to paste the newly copied frame to the specified position.
 
 According to the number of selected nodes, there are two ways to index:
 

@@ -87,7 +87,7 @@ cc.resources.load('prefabs/enemy', cc.Prefab, function (err, asset) {
 
 Creator 还提供了引用计数机制来帮助开发者控制资源的引用和释放。例如：
 
-- 当你需要持有资源时，请调用 `addRef` 来增加引用，确保该资源不会被其他引用到的地方自动释放。
+- 当需要持有资源时，请调用 `addRef` 来增加引用，确保该资源不会被其他引用到的地方自动释放。
 
   ```js
   cc.resources.load('textures/armor', cc.Texture2D, function (err, texture) {
@@ -96,7 +96,7 @@ Creator 还提供了引用计数机制来帮助开发者控制资源的引用和
   });
   ```
 
-- 当你不再需要持有该资源时，请调用 `decRef` 来减少引用，`decRef` 还将根据引用计数尝试自动释放。
+- 当不再需要持有该资源时，请调用 `decRef` 来减少引用，`decRef` 还将根据引用计数尝试自动释放。
 
   ```js
   this.texture.decRef();
@@ -129,11 +129,11 @@ bundle.loadScene('test', { priority: 3 }, callback);
 
 更多关于 `options` 的内容可参考文档 [可选参数](options.md)。
 
-如果你不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
+如果不需要配置引擎内置参数或者自定义参数来扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
 
 ## 加载管线
 
-为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载与解析** 的机制来完成资源的加载工作，极大地增加了灵活性和扩展性。如果你想扩展加载管线或自定义管线，可以参考：
+为了更方便地扩展资源加载流程，Asset Manager 底层使用了名为 **管线与任务**、**下载与解析** 的机制来完成资源的加载工作，极大地增加了灵活性和可扩展性。如果需要扩展加载管线或自定义管线，可以参考：
 
 - [管线与任务](pipeline-task.md)
 - [下载与解析](downloader-parser.md)

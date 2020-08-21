@@ -58,7 +58,7 @@ Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同�
 
 png 图片的 meta 文件信息比较多，除了基本的 ver 和 uuid 外，还记录了图片的宽高、偏移、九宫格等数据。上面这么多信息，我们这里只关心一个：**uuid**。
 
-> uuid : 通用唯一标识符（Universally Unique Identifier）
+> uuid: 通用唯一标识符（Universally Unique Identifier）
 
 uuid 是 Creator 用来管理游戏资源的。它会为每个文件分配一个唯一的 id，图集会生成多个。由此可以了解在 Creator 引擎中，识别一个文件不是简单地通过 `路径 + 文件名` 定位，而是通过 uuid 来引用文件。因此可以在编辑器资源管理中，随意删除、移动文件。
 

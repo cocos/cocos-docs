@@ -1,29 +1,36 @@
 # Pipeline and Task
 
-> Author：Santy-Wang
-> This article is for advanced developers who have customization needs for their loading process
+> Author: Santy-Wang, Xunyi
 
-To make it easier to extend and modify the engine loading process, the bottom layer of Asset Manager loads resources using **Pipeline and Task**, **Download and parser**, and this article focuses on **Pipeline and Task**.
+> This article is for advanced developers who have customization needs for their loading process.
 
-The `cc.loader` has been using the concept of pipelines for resource loading since before v2.4. In Asset Manager, we've refactored the pipeline to make the logic clearer and easier to extend, and you can extend existing pipelines or create custom ones using the `cc.AssetManager.Pipeline` class provided in the engine.
+To make it easier to modify or extend the loading process of engine, the underlying layer of Asset Manager uses a mechanism called **Pipeline and Task**, **Download and Parser** to load resources. This article will focus on **Pipeline and Task**.
 
-**Pipeline** (defined in `cc.AssetManager.Pipeline`) can be understood as a series of processes in series, and as a request passes through the pipeline, it is processed in turn by the various stages of the pipeline, with the result of the processing finally being output. The schematic is as follows:
+Although `cc.loader` used before v2.4 already used the concept of **Pipeline** for resource loading, in Asset Manager we have refactored the pipeline to make the logic clearer and easier to extend. You can extend an existing pipeline, or customize a pipeline using the class `cc.AssetManager.Pipeline` provided by the engine.
+
+## Pipeline
+
+The **Pipeline** (defined in `cc.AssetManager.Pipeline`) can be understood as a series of processes in series, and as a request passes through the pipeline, it is processed in turn by each stage of the pipeline, with the result of the processing finally being output. The schematic is as follows:
 
 ![pipeline](pipeline-task/pipeline.png)
 
-The advantage of a pipeline over a regular fixed process is that all links in the pipeline are spliceable and combinable, which means you can insert new stages or remove old ones at any point in the existing pipeline, which brings great flexibility and allows you to make custom extensions to the existing process.
+The advantage of a pipeline over a regular fixed process is that all the links in the pipeline are spliceable and combinable, which means you can insert new stages or remove old stages at any point in the existing pipeline, greatly increasing flexibility and scalability. 
 
-There are three pipelines built into Asset Manager, as shown in the figure:
+### The built-in Pipeline
+
+There are three pipelines built into the Asset Manager, as shown in the figure:
 
 ![builtin-pipeline](pipeline-task/builtin-pipeline.jpg)
 
-1. The first pipeline is used to convert resource paths and find the real resource paths.
-2. The second pipeline is a normal loading process.
-3. The third pipeline is used for the preload process.
+- The first pipeline is used to convert resource paths and find the real resource paths.
+- The second pipeline is used for the normal loading process.
+- The third pipeline is used for the preload process.
 
-**Note**: The second line uses a downloader and parser, and the third line uses a downloader, see [Download and Parse](downloader-parser.md) documentation for details.
+**Note**: The second pipeline uses a downloader and a parser, and the third pipeline uses a downloader. See document [Download and Parse](downloader-parser.md) for details.
 
-You can extend the built-in pipeline to achieve your own custom needs, for example:
+### Custom Pipeline
+
+You can extend the built-in pipeline to achieve your own customization needs:
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {
@@ -35,7 +42,7 @@ cc.assetManager.pipeline.insert(function (task, done) {
 }, 1);
 ```
 
-You can also build a new pipeline, for example:
+You can also build a new pipeline:
 
 ```js
 var pipeline = new cc.AssetManager.Pipeline('test', [(task, done) => {
@@ -47,9 +54,11 @@ var pipeline = new cc.AssetManager.Pipeline('test', [(task, done) => {
 }]);
 ```
 
-Building the pipeline requires only a series of methods, each accepting a task parameter and a completion callback parameter. You can access everything about the task in the method, just call the completion callback on completion.
+Building the pipeline requires a series of methods, each of which requires passing in a task parameter and a completion callback parameter. You can access everything about the task in the method and just call the completion callback on completion.
 
-A request flowing in the pipeline is called a task, see `cc.AssetManager.Task` type for details, a task will include all its information including inputs, outputs, completion callbacks, [Optional Parameters](options.md), etc. As the task flows through the pipeline, each stage of the pipeline can take out the input of the task, make certain processing and save it back to the output. For example:
+## Task
+
+**Task** is a request flowing in the pipeline, a task contains inputs, outputs, completion callbacks, [optional parameters](options.md) and so on. As the task flows through the pipeline, each stage of the pipeline takes out the input of the task, makes some processing and saves it back to the output. For example:
 
 ```js
 cc.assetManager.pipeline.insert(function (task, done) {
@@ -60,3 +69,5 @@ cc.assetManager.pipeline.insert(function (task, done) {
     done();
 }, 1);
 ```
+
+For details, please refer to the type [cc.AssetManager.Task](../../../api/en/classes/Task.html).

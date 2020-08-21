@@ -38,7 +38,7 @@ There's an **Add Component** button at the very bottom of **Properties**. Click 
 
 ![add-script](assets/add-script.png)
 
-If everything goes well, you will see your script shown in **Properties** :
+If everything goes well, you will see your script shown in **Properties**:
 
 ![script-in-inspector](assets/script-in-inspector.png)
 

@@ -709,7 +709,7 @@ cc.Class({
     // the engine will automatically add the dependency component to the same node to prevent script errors.
     // This option is also valid at run time.
     //
-    // Value type: Function （must be inherited from cc.Component constructor, such as cc.Sprite）
+    // Value type: Function (must be inherited from cc.Component constructor, such as cc.Sprite)
     // Default: null
     requireComponent: null,
 

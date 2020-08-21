@@ -51,7 +51,7 @@
 
 > 仅支持 v1.9.2 以上版本
 
-在动画编辑器内选中关键帧之后，可以按下 <kbd>ctrl + c</kbd>（Windows）或 <kbd>command + c</kbd>（Mac） 复制当前的关键帧。然后选中某一个时间轴上的点，按下 <kbd>ctrl + v</kbd>（Windows）或 <kbd>command + v</kbd>（Mac）会将刚刚复制的关键帧粘贴到选中的时间点上。
+在动画编辑器内选中关键帧之后，可以按下 <kbd>ctrl + c</kbd>（Windows）或 <kbd>command + c</kbd>（Mac）复制当前的关键帧。然后选中某一个时间轴上的点，按下 <kbd>ctrl + v</kbd>（Windows）或 <kbd>command + v</kbd>（Mac）会将刚刚复制的关键帧粘贴到选中的时间点上。
 
 根据选中的节点数量有两种建立索引的方式：
 

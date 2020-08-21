@@ -1,6 +1,6 @@
 # Asset Bundle Configuration and Loading
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 As the gameplay gets richer and the number of resources in the game grows, the need for developers to split the package is increasing. So starting with v2.4, Cocos Creator introduced the **Asset Bundle**, which supports subpackage loading for **code**, **resources** and **scene**.
 
