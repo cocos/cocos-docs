@@ -387,8 +387,8 @@ var userInfo = sdkhub.getUserPlugin().getUserInfo();
 
 ```js
 var params = {
-    userID : "890839221",
-    userName : "test_name"
+    userID: "890839221",
+    userName: "test_name"
 };
 sdkhub.getUserPlugin().setUserInfo(params);
 ```

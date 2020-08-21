@@ -58,7 +58,7 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 
 The **meta** file for the png image has more information. In addition to the basic ver and uuid, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **uuid** and it is particularly important.
 
-> uuid : Universally Unique Identifier
+> uuid: Universally Unique Identifier
 
 **uuids** in __Cocos Creator__ are used to manage the resources of the game. It assigns a unique id to each file. This means that in the __Cocos Creator__ engine, identifying a file is not simply by `path + filename`, but by **uuid**. Therefore, you can delete and move files at will in **Asset Resource Management**.
 

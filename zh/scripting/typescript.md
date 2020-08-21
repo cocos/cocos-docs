@@ -160,7 +160,7 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export class MyModule extends cc.Component {
     @property(cc.String)
-    myName : string = "";
+    myName: string = "";
 
     @property(cc.Node)
     myNode: cc.Node = null;
