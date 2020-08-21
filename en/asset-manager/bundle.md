@@ -31,11 +31,11 @@ The built-in Asset Bundle can be loaded in two ways:
   // ...
 
   let bundleRoot = [];
-  // The URL where "internal" bundle is located.
+  // Add the URL where "internal" bundle is located.
   bundleRoot.push('http://myserver.com/assets/internal');
   // If "resources" bundle exists, add the URL where "resources" bundle is located.
   bundleRoot.push('http://myserver.com/assets/resources');
-  // The URL where "main" bundle is located.
+  // Add the URL where "main" bundle is located.
   bundleRoot.push('http://myserver.com/assets/main');
 
   var count = 0;
@@ -47,7 +47,7 @@ The built-in Asset Bundle can be loaded in two ways:
       }
   }
 
-  cc.assetManager.loadScript(settings.jsList.map(function (x) { return 'src/' + x;}), cb);
+  cc.assetManager.loadScript(settings.jsList.map(x => 'src/' + x), cb);
 
   for (let i = 0; i < bundleRoot.length; i++) {
       cc.assetManager.loadBundle(bundleRoot[i], cb);

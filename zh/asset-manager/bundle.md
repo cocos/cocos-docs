@@ -31,11 +31,11 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
   // ...
 
   let bundleRoot = [];
-  // internal bundle 的 URL 地址
+  // 加入 internal bundle 的 URL 地址
   bundleRoot.push('http://myserver.com/assets/internal');
   // 如果有 resources bundle, 则加入 resources bundle 的 URL 地址
   bundleRoot.push('http://myserver.com/assets/resources');
-  // main bundle 的 URL 地址
+  // 加入 main bundle 的 URL 地址
   bundleRoot.push('http://myserver.com/assets/main');
 
   var count = 0;
@@ -47,7 +47,7 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
       }
   }
 
-  cc.assetManager.loadScript(settings.jsList.map(function (x) { return 'src/' + x;}), cb);
+  cc.assetManager.loadScript(settings.jsList.map(x => 'src/' + x), cb);
 
   for (let i = 0; i < bundleRoot.length; i++) {
       cc.assetManager.loadBundle(bundleRoot[i], cb);
