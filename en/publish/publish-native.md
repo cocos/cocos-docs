@@ -67,10 +67,6 @@ Android requires that all APKs be digitally signed with a certificate before the
 
 Creator added the **App Bundle (Google Play)** option to the **v2.0.9**. If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
 
-### SDKBox
-
-SDKBox is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. Support for nearly 30 SDKs such as Apple and Google's IAP In-App Purchases, all SDKs are rigorously tested and officially certified. Please refer to [SDKBox](../sdk/sdkbox.md) for details.
-
 ### Encrypt JS
 
 Encrypt the published script. After build, the JSC file is generated in the `src` directory, which is encrypted. And JS files will be backed up in the `js backups` directory for debugging, and will not enter the APP when packaged.

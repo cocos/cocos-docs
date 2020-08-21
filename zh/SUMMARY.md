@@ -245,6 +245,5 @@
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
 - [SDK 集成](sdk/index.md)
-    - [SDKBox](sdk/sdkbox.md)
     - [Facebook 直播和广告](sdk/fb-an-and-live.md)
     - [WebSocket 服务器](sdk/websocket-server.md)
