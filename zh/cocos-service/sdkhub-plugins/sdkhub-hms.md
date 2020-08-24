@@ -67,7 +67,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 - 请在工程中的 `config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在 AppGallery Connect 后台 配置生成，可参考 [配置商品信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-product-0000001050033076) 和 [配置成就/事件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/config-agc-0000001050166285-V5#ZH-CN_TOPIC_0000001051142256__section122826183710)。
 
-- 配置完成并接入相关 API 接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](https://docs.cocos.com/creator/manual/zh/publish/publish-huawei-agc.html)。旧版本用户可构建发布到 Android 平台。
+- 配置完成并接入相关 API 接口后，即可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator 2.4.1 及以上版本，可参考 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。旧版本用户可构建发布到 Android 平台。
 
     ![](sdkhub-hms/hms-build.png)
     
@@ -81,7 +81,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 ## 开发指南
 
-开发时请先参考 [Cocos SDKHub - 开发指南](../sdkhub.md/#开发指南)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
+开发时请先参考 [Cocos SDKHub - 开发指南](./sdkhub.md/#开发指南)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
 华为 HMS Core SDK 提供的方法较多，部分接口需要使用扩展方法调用，并返回扩展回调。需要配合参考 Cocos SDKHub Sample 工程中的代码与华为官方对应的文档进行调用。
 

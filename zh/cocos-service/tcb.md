@@ -83,7 +83,7 @@
 	});
 	```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，若能在控制台中看到初始化和调用日志，即为接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即为接入成功。
 
     ![](tcb/tcb-debugging.jpg)
 
@@ -111,7 +111,7 @@
 
 - 请到 **腾讯云后台 -> 云开发 -> 选择当前环境 -> 环境设置/登录授权** 中确认该环境已经启用 **匿名登录**。
 
-- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，即可在浏览器中调试该项目工程。
+- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
 
   ![](tcb/tcb-sample.jpg)
   

@@ -20,7 +20,7 @@
 
   ![](agc-apm/apm-panel.png)
 
-- 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 网站，点击 **我的项目**，进入 **质量 -> 性能管理 -> **立即开通** 按钮，开通服务。
+- 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，点击 **我的项目**，进入 **质量 -> 性能管理 -> **立即开通** 按钮，开通服务。
 
   ![](agc-apm/apm-open.png)
 
