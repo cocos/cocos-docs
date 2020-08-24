@@ -107,7 +107,7 @@ HMS 帐号服务致力于华为帐号的开放，可以让用户方便快捷地�
 
 - [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 若应用启动后，能看到华为账号的登录界面，即为接入成功。
+- 若代码调用后，能看到华为账号的登录界面，即为接入成功。
 
   ![](agc-auth/auth-verify.png)
 
@@ -325,7 +325,7 @@ huawei.agc.auth.authService.updateProfile("name1", photoUrl);
 
 `updatePassword(newPassword: string, verifyCode: string, provider: AuthProvider): void`
 
-更新当前用户的密码，可参考 AGC 认证服务 - [updatePassword](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword)，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
+更新当前用户的密码，可参考 AGC 认证服务文档 - [updatePassword](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword)，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
 
 **参数说明**：
 
