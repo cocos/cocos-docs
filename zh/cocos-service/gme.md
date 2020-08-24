@@ -58,7 +58,7 @@
 	tencentGME && tencentGME.enterRoom(channelid, 1);
 	```
 
-- 脚本修改完成并保存后，回到编辑器，当前游戏多媒体引擎版本不支持 H5 调试，需要 [**打包发布**](https://docs.cocos.com/creator/manual/zh/publish/publish-native.html) 到 **Android** 或者 **iOS** 平台。我们以 iOS 平台为例，若能在 Xcode 的控制台中看到游戏多媒体引擎进入房间相关日志，即为接入成功。
+- 脚本修改完成并保存后，回到编辑器，当前游戏多媒体引擎版本不支持 H5 调试，需要 [**打包发布**](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。我们以 iOS 平台为例，若能在 Xcode 的控制台中看到游戏多媒体引擎进入房间相关日志，即为接入成功。
 
   ![](gme/gme-debugging.jpg)
     
@@ -74,7 +74,7 @@
 
 - 打开工程中的 `assest/Script/index.js`，修改 **appid** 和 **key** 的值。
 
-- 脚本修改完成并保存后，回到编辑器，[打包发布](https://docs.cocos.com/creator/manual/zh/publish/publish-native.html) 到 **Android** 或者 **iOS** 平台。
+- 脚本修改完成并保存后，回到编辑器，[打包发布](../publish/publish-native.md) 到 **Android** 或者 **iOS** 平台。
 
   ![](gme/gme-sample.jpg)
   

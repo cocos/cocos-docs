@@ -83,7 +83,7 @@
 	});
 	```
 
-- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，若能在控制台中看到初始化和调用日志，即为接入成功。
+- 脚本修改完成并保存后，回到编辑器。在编辑器上方选择 **浏览器**，然后点击 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，若能在控制台中看到初始化和调用日志，即为接入成功。
 
     ![](tcb/tcb-debugging.jpg)
 
@@ -111,7 +111,7 @@
 
 - 请到 **腾讯云后台 -> 云开发 -> 选择当前环境 -> 环境设置/登录授权** 中确认该环境已经启用 **匿名登录**。
 
-- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](https://docs.cocos.com/creator/manual/zh/getting-started/basics/preview-build.html) 按钮，即可在浏览器中调试该项目工程。
+- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
 
   ![](tcb/tcb-sample.jpg)
   
@@ -130,6 +130,5 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 - [云开发简介](https://cloud.tencent.com/document/product/876/18431)
 - [云开发计费模式](https://cloud.tencent.com/document/product/876/18864)
 - [云开发常见问题](https://cloud.tencent.com/product/tcb/faqs)
-- [云开发文档与资源](https://cloud.tencent.com/product/tcb/developer)
 
-更多文档可直接在 [腾讯云文档中心 - 云开发](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信小程序版本也不相通。若有多个文档版本，请参考 **Web** 版 SDK。
+更多文档可在 [腾讯云文档中心 - 云开发](https://cloud.tencent.com/document/product/876) 中查阅。Cocos Service 对接的 SDK 为 **Web** 版本，与微信开发者工具提供的版本不相通。目前 Cocos Service 提供的云开发版本正在更新中，文档请以 [Web SDK API 参考](https://docs.cloudbase.net/api-reference/web/initialization.html) 这篇为准。

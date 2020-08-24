@@ -16,6 +16,7 @@
         - [定位服务（HMS Core）](hms-location.md)
         - [分析服务（HMS Core）](hms-analytics.md)
         - [性能管理（AppGallery Connect）](agc-apm.md)
+        - [认证服务（AppGallery Connect）](agc-auth.md)
         - [崩溃服务（AppGallery Connect）](agc-crash.md)
         - [远程配置服务（AppGallery Connect）](agc-remote.md)
         - [Cocos SDKHub](sdkhub.md)
