@@ -1,24 +1,24 @@
 # 认证服务（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[认证服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-introduction) 提供了云侧服务和 SDK，可以帮您为您的应用快速构建安全可靠的用户认证系统，以便您的应用可以对您的用户进行身份认证。
+华为 AppGallery Connect（简称 AGC）[认证服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-introduction) ，提供了云侧服务和 SDK，可以为应用快速构建安全可靠的用户认证系统，以便应用可以对用户进行身份认证。
 
-认证服务支持多种认证方式，并与其他 Serverless 服务紧密集成，您可以通过简单的规则定义来保护您的用户的数据安全。
+认证服务支持多种认证方式，并与其他 Serverless 服务紧密集成，开发者可以通过简单的规则定义来保护用户的数据安全。
 
 ### 与HMS帐号服务的区别和关系
 
 认证服务和 HMS 帐号服务关注的是开发者两个不同层面的诉求。
 
-HMS 帐号服务致力于华为帐号的开放，可以让您的用户方便快捷地使用其华为帐号登录您的应用和游戏。而认证服务则致力于帮助您快速地低成本构建一个安全可靠的用户认证系统。
+HMS 帐号服务致力于华为帐号的开放，可以让用户方便快捷地使用其华为帐号登录应用和游戏。而认证服务则致力于帮助开发者快速地低成本构建一个安全可靠的用户认证系统。
 
-两者并不冲突，认证服务支持与包括 HMS 帐号服务在内的多种第三方认证系统对接，支持您的用户采用包括华为帐号在内的多种认证方式来登录您的应用和游戏。
+两者并不冲突，认证服务支持与包括 HMS 帐号服务在内的多种第三方认证系统对接，支持用户采用包括华为帐号在内的多种认证方式来登录应用和游戏。
 
-无论您的应用和游戏是否已经集成了 HMS 帐号服务，或者是否打算集成 HMS 帐号服务，我们都推荐您使用认证服务来构建您的用户认证系统，这有助于减少您在用户认证系统构建和运维上的投入和成本。
+无论开发者的应用和游戏是否已经集成了 HMS 帐号服务，或者是否打算集成 HMS 帐号服务，我们都推荐使用认证服务来构建用户认证系统，这有助于减少开发者在用户认证系统构建和运维上的投入和成本。
 
 ### 主要功能
 
-使用认证服务可将以下的一种或多种认证方式集成到您的应用中，可以使您的用户轻松快速的注册和登录您的应用。
+使用认证服务可将以下的一种或多种认证方式集成到应用中，可以使用户轻松快速的注册和登录应用。
 
-- 自有帐号：用于支撑您已有的认证系统的接入，以便您的存量用户能够以安全的方式访问其他Serverless服务。
+- 自有帐号：用于支撑开发者已有的认证系统的接入，以便存量用户能够以安全的方式访问其他Serverless服务。
 - 匿名帐号：可以支撑应用的游客访问方式。认证服务可以为游客分配用户标识，以便游客可以以安全的方式访问其他 Serverless 服务。游客后续可通过注册来转化为正式用户，并保留其原来的用户标识，以使其业务保持连贯。
 - 第三方账号：通过对接第三方认证服务对用户进行身份认证。认证服务支持用户使用他们对应的帐号进行身份认证。目前支持以下第三方认证方式：
 
@@ -30,7 +30,7 @@ HMS 帐号服务致力于华为帐号的开放，可以让您的用户方便快�
   - 微博
   - QQ
 
-  以下海外登录方式，**仅在海外站点支持**，当您选择数据存储位置为德国、新加坡或俄罗斯时可以使用这些认证方式。仅在支持GMS（Google Mobile Services）服务的设备上支持 Google 帐号和 Google Play Game 帐号的第三方认证方式。
+  以下海外登录方式，**仅在海外站点支持**，当选择数据存储位置为德国、新加坡或俄罗斯时，可以使用这些认证方式。仅在支持GMS（Google Mobile Services）服务的设备上支持 Google 帐号和 Google Play Game 帐号的第三方认证方式。
 
   - Google
   - Google Play Game
@@ -45,7 +45,7 @@ HMS 帐号服务致力于华为帐号的开放，可以让您的用户方便快�
   
   - 对于第三方帐号认证，认证凭据是第三方认证服务颁发的 OAuth 令牌。
   - 对于匿名帐号，认证凭据是认证服务 SDK 为该应用安装实例生成的唯一标识。
-  - 对于自有帐号，认证凭据是您已有认证系统通过 Server SDK 生成 Token。
+  - 对于自有帐号，认证凭据是开发者已有认证系统通过 Server SDK 生成 Token。
 
 - 上报认证凭据
 
@@ -325,7 +325,7 @@ huawei.agc.auth.authService.updateProfile("name1", photoUrl);
 
 `updatePassword(newPassword: string, verifyCode: string, provider: AuthProvider): void`
 
-更新当前用户的密码，可参考 AGC - [updatePassword] (https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword)，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
+更新当前用户的密码，可参考 AGC 认证服务 - [updatePassword](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword)，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
 
 **参数说明**：
 
@@ -343,7 +343,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-更新当前用户的邮箱。可参考 AGC - [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514)，通过异步回调更新结果。调用次接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为您所有。
+更新当前用户的邮箱。可参考 AGC - 认证服务文档 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514)，通过异步回调更新结果。调用次接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为该用户所有。
 
 **参数说明**：
 
@@ -362,7 +362,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-更新当前用户的手机号。可参考 AGC - [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePhone)，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为您所有。
+更新当前用户的手机号。可参考 AGC - 认证服务文档 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePhone)，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为该用户所有。
 
 **参数说明**：
 
@@ -382,7 +382,7 @@ huawei.agc.auth.authService.updateEmail("0086", "132xxxxxxxx", "1234");
 
 `getUserExtra(): void`
 
-获取当前用户的 UserExtra，通过异步回调更新结果，可参考 AGC - [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra)。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
+获取当前用户的 UserExtra，通过异步回调更新结果，可参考 AGC - 认证服务文档 [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra)。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
 
 **示例**：
 

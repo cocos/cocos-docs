@@ -87,15 +87,13 @@
 
 - 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Remote** 按钮，进入该功能界面进行测试。
 
-![](agc-remote/remote-sample.png)
+  ![](agc-remote/remote-sample.png)
 
 ## 开发指南
 
-本文档对应 [AppGallery Connect - 接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide) 。
+本文档对应 AppGallery Connect - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)。JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html) 为准。
 
 由于 Java 层的 `apply` 方法返回的是参数对象，无法在 JS 层传递。插件封装时，舍弃了 Java 层的 `applyDefault` 和 `apply` 方法。并封装了 `applyLastFetched` 和 `fetchAndApply` 两个方法代替。
-
-JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html) 为准。
 
 ### 设置应用内默认值
 
@@ -109,7 +107,7 @@ JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/m
 
 插件封装了 `fetchAndApply` 方法，建议使用该方法，实现获取和更新云端参数值到本地功能。
 
-对应 Java 层 `fetch()` + `apply()` 方法，从云测获取最新的配置数据，由参数传入间隔时间，间隔内返回缓存数据，`fetch()` 方法获取配置数据 **回调成功** 时，调用 `apply()` 生效配置参数。单位是秒，默认 intervalSeconds 为 -1，更新周期为 12 小时。
+对应 Java 层 `fetch` + `apply` 方法，从云测获取最新的配置数据，由参数传入间隔时间，间隔内返回缓存数据，`fetch` 方法获取配置数据 **回调成功** 时，调用 `apply` 生效配置参数。单位是秒，默认 intervalSeconds 为 -1，更新周期为 12 小时。
 
 若执行 `fetch` 方法获取配置数据 **回调失败** 情况下，会通过 [setRemoteConfigListener](#setRemoteConfigListener) 监听器返回失败回调，用户可选择是否设置监听。**回调成功** 情况下 **不返回回调**。
 
@@ -221,7 +219,7 @@ huawei.agc.rc.rcService.clearAll();
 
 ### 加载流程
 
-可参考 AGC 文档 - [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)
+开发者可以通过如下两种方式进行数据刷新，可参考 AGC 文档 - [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854)。
 
 #### 获取数据后立刻生效
 
@@ -235,7 +233,7 @@ huawei.agc.rc.rcService.clearAll();
 
 `applyLastFetched(): void`
 
-对应 Java 层 `loadLastFetched()` + `apply()` 方法，获取最近一次拉取成功的缓存数据，并生效配置参数。
+对应 Java 层 `loadLastFetched` + `apply` 方法，获取最近一次拉取成功的缓存数据，并生效配置参数。
 
 **示例**：
 
