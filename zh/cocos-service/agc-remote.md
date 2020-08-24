@@ -73,7 +73,7 @@
 
 - [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 若能看到 Logcat 中，取到的值为 **testValue**，即为 SDK 接入成功。
+- 若能看到 Logcat 中，取到的值为 **testValue**，即为接入成功。
 
 ![](agc-remote/remote-logcat.png)
 

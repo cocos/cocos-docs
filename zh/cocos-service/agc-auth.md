@@ -161,7 +161,7 @@ onAuthResult: function (code, msg) {
 
 **示例**：
 
-```
+```js
 huawei.agc.auth.authService.switchAuthType(huawei.agc.auth.AuthProvider.HMS_Provider);
 ```
 
@@ -173,7 +173,7 @@ huawei.agc.auth.authService.switchAuthType(huawei.agc.auth.AuthProvider.HMS_Prov
 
 **示例**：
 
-```
+```js
 huawei.agc.auth.authService.login();
 ```
 
@@ -274,7 +274,7 @@ console.log("getSupportAuthType...", "type = ", supAuthType);
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  forceRefresh  | 是否强制刷新用户的 Access Token 信息。<br>**true**：强制刷新。<br>false：获取缓存的A ccess Token。| 
+|  forceRefresh  | 是否强制刷新用户的 Access Token 信息。<br>**true**：强制刷新。<br>false：获取缓存的 Access Token。| 
 
 **示例**：
 

@@ -82,7 +82,7 @@
 
 **示例**：
 
-```
+```js
 huawei.AGC.Crash.CrashService.enableCrashCollection(false);
 ```
 
@@ -94,19 +94,20 @@ huawei.AGC.Crash.CrashService.enableCrashCollection(false);
 
 **示例**：
 
-```
+```js
 huawei.AGC.Crash.CrashService.testIt();
 ```
 
 ## 服务使用
 
-应用集成崩溃服务后，可以在应用崩溃时自动上报崩溃数据到 AppGallery Connect，开发者可以根据具体的崩溃信息，前往 AppGallery Connect 后台，分析崩溃问题原因。可参考以下 AGC 文档链接。
+应用集成崩溃服务后，可以在应用崩溃时自动上报崩溃数据到 AppGallery Connect，开发者可以根据具体的崩溃信息，前往 AppGallery Connect 后台，分析崩溃问题原因。可参考以下 AGC 崩溃服务文档链接。
 
 - [分析崩溃问题](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [接收崩溃提醒](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-notice)
 - [获取 NDK 崩溃报告](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-report)
 - [获取可阅读的崩溃报告](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-mapping)
 - [自定义崩溃报告](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-customreport)
+- [崩溃服务 FAQ](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-faq)
 
 ## API 文档
 

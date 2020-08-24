@@ -95,7 +95,9 @@ huawei.AGC.apms.enableCollection(true);
 
 **示例**：
 
-`huawei.AGC.apms.startCustomTrace("traceID");`
+```js
+huawei.AGC.apms.startCustomTrace("traceID");
+```
 
 #### 停止自定义跟踪记录
 
@@ -111,7 +113,9 @@ huawei.AGC.apms.enableCollection(true);
 
 **示例**：
 
-`huawei.AGC.apms.stopCustomTrace("traceID");`
+```js
+huawei.AGC.apms.stopCustomTrace("traceID");
+```
 
 #### 添加自定义属性
 
