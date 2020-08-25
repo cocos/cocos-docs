@@ -67,7 +67,7 @@
   huawei.hms.location.locationService.requestLocationPermission();
   ```
 
-- 代码添加完成后，即可 [打包发布](../publish/publish-native.md) 到 **Android** 平台，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
+- 代码添加完成后，即可 [发布到 Android 平台](../publish/publish-native.md)，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
 - 第一次在手机上运行时，若弹出申请位置权限的对话框（见下图），即表示接入成功。
 
@@ -81,9 +81,9 @@
 
 - 点击定位服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
+- 参照上文开通分析服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
+- 需要在已安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
 - Sample 工程运行到手机后，点击首页的 **Location** 按钮，即可进入功能界面进行测试。
 
@@ -97,7 +97,7 @@
 
 `huawei.hms.location.locationService`
 
-可参考华为 HMS 文档 - [定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
+可参考华为 HMS 文档 — [定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
 
 #### 检查应用权限
 
@@ -277,7 +277,7 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 `huawei.hms.location.locationActivityService`
 
-可参考华为 HMS 文档 - [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
+可参考华为 HMS 文档 — [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
 
 #### 动态申请活动识别权限
 
@@ -405,7 +405,7 @@ huawei.hms.location.locationActivityService.deleteActivityConversionUpdates();
 
 `huawei.hms.location.locationGeofenceService`
 
-可参考华为 HMS 文档 - [地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
+可参考华为 HMS 文档 — [地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
 
 #### 设置地理围栏监听
 

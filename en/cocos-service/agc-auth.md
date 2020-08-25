@@ -20,7 +20,7 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
   - Weibo account
   - QQ account 
 
-  The following accounts，are supported only at sites outside China. You can use these authentication modes when the data storage location you select resides in Germany, Singapore, or Russia. The Google account and Google Play Game account authentication modes are supported only on devices installing Google Mobile Services (GMS).
+  The following accounts, are supported **only at sites outside China**. You can use these authentication modes when the data storage location you select resides in Germany, Singapore, or Russia. The **Google account** and **Google Play Game account** authentication modes are supported only on devices installing Google Mobile Services (GMS).
 
   - Google account
   - Google Play Game account
@@ -64,13 +64,13 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-open.png)
 
-- Click **Enable** in the row of each authentication mode to be enabled. In the dialog box that is displayed, configure app information. Required information can be obtained refer to AGC Auth Service document - [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1590395363254-0).
+- Select the required authentication method, click the **Enable** button on the right. In the dialog box that is displayed, configure app information. Required information can be obtained refer to AGC Auth Service document - [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1590395363254-0).
 
   ![](agc-auth/auth-console1.png)
 
   ![](agc-auth/auth-console2.png)
 
-- Go back to the service panel, check the required authentication mode to be enabled, and configure app information for client.
+- After console setting, return to the Creator service panel, check the required authentication mode to be enabled, and configure app information for client.
 
   ![](agc-auth/auth-params.jpg)
 
@@ -99,7 +99,7 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run it on a phone, if the Huawei ID login interface appears，which means the integrate is successful.
+- Run it on a phone, if the Huawei ID login interface appears, which means the integrate is successful.
 
   ![](agc-auth/auth-verify.png)
 
@@ -125,7 +125,21 @@ The Auth Service plug-in in Cocos Service has unified encapsulation of various a
 
 The Auth Service plug-in encapsulates the callbacks of each login method in a unified manner. The developer needs to set up a listener and bind the method, and the callback logic is unified in the binding method.
 
-The callback enumeration value [AuthRetCode](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authretcode.html) has three length types, the four-digit **1XXX** is the **unified callback event enumeration value** defined by the Auth Service plug-in. Developers need to deal with key events. Nine digits error codes **2038XXXXX** indicate backend server errors, one digits error code **1 ~ 7** indicate SDK internal errors. These two types are the **error codes** of the SDK, which can be handled as needed.
+回调枚举值 [AuthRetCode](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authretcode.html) 有三种长度类型：
+
+- 四位数的 **1XXX** 为认证服务插件封装的 **统一回调事件枚举值**，开发者需要对关键事件进行处理。
+- 九位数的 **2038XXXXX** 为 SDK 返回的后端服务器的错误信息。
+- 一位数的从 **1 ~ 7** 为 SDK 内部错误信息。
+
+后面两种长度类型都是 SDK 的 错误码，可以根据需要进行处理。
+
+The callback enumeration value [AuthRetCode](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authretcode.html) has three length types:
+
+- The four-digit **1XXX** is the **unified callback event enumeration value** defined by the Auth Service plug-in. Developers need to handle with key events. 
+- The nine-digit **2038XXXXX** indicate backend server errors. 
+- The one-digit **1 ~ 7** indicate SDK internal errors. 
+
+The latter two length types are SDK error codes, which can be handled as needed.
 
 **Example**:
 
@@ -149,7 +163,7 @@ Select the current authentication login method. You need to call this method fir
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  authType  | [enumeration value of [AuthProvider](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authprovider.html) type. | 
+|  authType  | [enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type. | 
 
 **Example**:
 
@@ -204,7 +218,11 @@ Set user registration or login information (for phone number and email address a
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  loginInfo  | JSON Object, send these params:<br>email: for email authentication method<br>phoneNumber: for phone authentication method<br>countryCode: for phone authentication method<<br>verifyCode: call method `register` or `getVerifyCode`, user receives the verification code, and needs to let the user fill in the interface and reset the login information through the verification code<br>action: fill the `register` or `reset` | 
+|  loginInfo  | JSON Object, according to the needs of mobile phone or email authentication login method, input the following parameters::<br>email: for email authentication method<br>phoneNumber: for phone authentication method<br>countryCode: for phone authentication method<<br>verifyCode: call method `register` or `getVerifyCode`, user receives the verification code, and needs to let the user fill in the interface and reset the login information through the verification code<br>action: fill the `register` or `reset` | 
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+|  loginInfo  | JSON Object, according to the needs of mobile phone or email authentication login method, require the following parameters:<br>email: Email address, for email authentication method required.<br>phoneNumber: Mobile number, for phone authentication method required.<br>countryCode: Country/Region code, for phone authentication method required.<br>verifyCode: The verification code that the user fills in after calling the register or getVerifyCode method, used to reset the login information.<br>action: register (for registration) or reset (for reset). | 
 
 **Example**:
 
@@ -247,7 +265,7 @@ huawei.agc.auth.authService.getVerifyCode();
 
 `getSupportAuthType(): string`
 
-Get supported authentication methods, such as "[0, 1, 2]", refer to [AuthProvider](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authprovider.html) type.
+Get supported authentication methods, such as "[0, 1, 2]", refer to [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type.
 
 **Example**:
 
@@ -266,7 +284,7 @@ Obtains the access token of a user from AppGallery Connect, asynchronous update 
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  forceRefresh  | Indicates whether to forcibly update the access token of a user.<br>**true**: Forcible update is required.<br>false: the cached access token is obtained. | 
+|  forceRefresh  | Indicates whether to forcibly update the access token of a user.<br>**true**: Forcible update is required.<br>**false**: the cached access token is obtained. | 
 
 **Example**:
 
@@ -284,7 +302,7 @@ Associates the current user with a new login method.
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  authType  | enumeration value of [AuthProvider](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authprovider.html) type | 
+|  authType  | enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type | 
 
 **Example**:
 
@@ -325,7 +343,7 @@ Updates the current user's password, asynchronous update result. After the passw
 | :---------- | :------------- |  
 |  newPassword  | new password | 
 |  verifyCode  | verification code |
-|  provider  | enumeration value of [AuthProvider](https://docs.cocos.com/service/api/modules/huawei.agc.auth.authprovider.html) type, which is used to distinguish the email address account from the phone number account. |
+|  provider  | enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type, which is used to distinguish the email address account from the phone number account. |
 
 **Example**:
 
@@ -335,7 +353,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-Updates the email address of the current user, asynchronous update result. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email address. The verification code is used to verify that the current user owns the new email address. Refer to AGC Auth Service document - [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514)，
+Updates the email address of the current user, asynchronous update result. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email address. The verification code is used to verify that the current user owns the new email address. Refer to AGC Auth Service document - [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514).
 
 **Parameter Description**:
 
@@ -398,7 +416,7 @@ huawei.agc.auth.authService.deleteUser();
 
 `resetPassword(emailOrPhone: string, newPassword: string, verifyCode: string, countryCode = ""): void`
 
-Resets the password using a mobile number.重置密码(for phone number and email address authentication methods only)。若传入 `countryCode` 参数则为手机登录方式，不传则为邮箱登录方式。回调 Code 为 `huawei.agc.auth.AuthRetCode.RESET_PASS_SUCCESS` 和 `huawei.agc.auth.AuthRetCode.RESET_PASS_FAIL`。
+Resets the password using a mobile number (for phone number and email address authentication methods only). If the `countryCode` parameter is sent, it is the mobile phone authentication method, otherwise it is email authentication method. Callback code is `huawei.agc.auth.AuthRetCode.RESET_PASS_SUCCESS` or `huawei.agc.auth.AuthRetCode.RESET_PASS_FAIL`.
 
 **Parameter Description**:
 

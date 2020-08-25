@@ -54,8 +54,8 @@ Cocos Service 目前支持集成以下服务：
 - [游戏多媒体引擎（腾讯云）](gme.md)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [定位服务（HMS Core）](hms-location.md)：采用 GPS、Wi-Fi、基站等多种混合定位模式进行定位，赋予您的应用程序快速、精准地获取用户位置信息的能力。
 - [分析服务（HMS Core）](hms-analytics.md)：基于开发者上报的用户行为和属性数据，提供多种分析能力。
-- [性能管理（AGC）](agc-apm.md)：提供分钟级应用性能监控能力，收集应用性能数据。
-- [认证服务（AGC）](agc-auth.md)：使应用快速构建安全可靠额用户认证系统。
-- [崩溃服务（AGC）](agc-crash.md)：零代码快速集成，通过崩溃报告了解应用崩溃情况。
-- [远程配置服务（AGC）](agc-remote.md)：应用可在线更改行为和外观，无需下载应用更新。
+- [性能管理（AppGallery Connect）](agc-apm.md)：提供分钟级应用性能监控能力，收集应用性能数据。
+- [认证服务（AppGallery Connect）](agc-auth.md)：使应用快速构建安全可靠额用户认证系统。
+- [崩溃服务（AppGallery Connect）](agc-crash.md)：零代码快速集成，通过崩溃报告了解应用崩溃情况。
+- [远程配置服务（AppGallery Connect）](agc-remote.md)：应用可在线更改行为和外观，无需下载应用更新。
 - [Cocos SDKHub](sdkhub.md)：快速接入原生平台 SDK。

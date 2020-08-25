@@ -1,4 +1,4 @@
-# Crash（AppGallery Connect）Quick Start
+# Crash (AppGallery Connect) Quick Start
 
 The [Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction) Service of AppGallery Connect is a lightweight crash analysis service, in which Huawei provides a Crash SDK that can be quickly integrated into your app, **without the need for coding**.
 
@@ -32,7 +32,7 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 ### Verify whether the service is integrated successfully
 
-Crash service can integrate **without the need for coding**. Generally, there is a low probability that an app crashes. Therefore, you are not advised to test the Crash service with a real crash. You can call the API of the Crash SDK to intentionally trigger a crash during app test and view the crash data in AppGallery Connect to check whether the Crash service is running properly.
+Generally, there is a low probability that an app crashes. You can call the API of the Crash SDK to intentionally trigger a crash during app test and view the crash data in AppGallery Connect to check whether the Crash service is running properly.
 
 - Add simple code to the script.
 
@@ -45,7 +45,7 @@ Crash service can integrate **without the need for coding**. Generally, there is
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see new user information (usually displayed within 15 minutes), which means the integrate is successful.
+- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
 
   ![](agc-crash/crash-console.jpg)
 
@@ -77,7 +77,7 @@ This method is used to enable or disable the crash data reporting function. The 
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  enable    | If this method is called and set to **false**, Crash service collection and reporting function will be disabled. If you want to continue to use Crash service collection and report function, you need to set it to **true**. | 
+|  enable    | 	Indicates whether to enable the crash data reporting function.<br>**false**: disable the Crash service.<br>**true**: enable the Crash service. | 
 
 **Example**:
 
@@ -97,9 +97,7 @@ This method is used to trigger a crash for testing an app. This method can be us
 huawei.AGC.Crash.CrashService.testIt();
 ```
 
-## Console Usage
-
-When a crash occurs, the Crash service reports the crash data to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html). You can view details about the crash in AppGallery Connect and analyze the cause of the crash. Please refer to following document links:
+## Service Reference Documents
 
 - [Analyzing a Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [Receiving Crash Notifications](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-notice)

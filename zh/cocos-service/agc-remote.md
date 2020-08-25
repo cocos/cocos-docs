@@ -1,33 +1,33 @@
 # 远程配置服务（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[远程配置服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 提供了在线的配置项管理能力，可以实现应用在线更改行为和外观，而无需用户下载应用更新。
+华为 AppGallery Connect（简称 AGC）[远程配置服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 提供在线的配置项管理能力，开发者可以在线更改应用的行为和外观，无需用户下载应用更新。
 
 远程配置服务提供云端，管理台和客户端 SDK，应用集成客户端 SDK 后可以定期获取云端管理台配置的配置项和配置参数值，实现客户端应用行为和 UI 的修改。
 
 ### 主要功能
 
-- **配置项管理**：添加、删除、修改配置项，通过复制方式快速添加配置项，根据不同条件设置不同配置项值。
-- **配置条件管理**：添加、删除、修改条件，通过复制方式快速添加条件，当前可以设置的过滤条件包括：应用版本、设备语言、国家地区、用户受众群体、随机百分比用户、日期时间，后续可设置的过滤条件还会持续增强。
-- **历史版本管理**：支持最多 90 天 300 个历史版本管理和回滚能力。
-- **权限管理**：默认帐号持有者、管理员、App 管理员、开发、运营几种角色具备远程管理服务的权限。
+- **配置项管理**：用于添加、删除、修改配置项。还可以通过直接 复制 其他的配置项来快速添加新的配置项。
+- **配置条件管理**：用于添加、删除、修改配置条件，还可以通过直接 复制 其他的配置条件来快速添加新的条件。目前可设置的过滤条件包括：应用版本、设备语言、国家地区、用户受众群体、随机百分比用户、日期时间，后续可设置的过滤条件还会持续增加。
+- **历史版本管理**：最多支持 90 天 300 个历史版本的管理和回滚能力。
+- **权限管理**：默认帐号持有者、管理员、App 管理员、开发、运营这几种角色具备远程管理服务的权限。
 
 ### 应用场景
 
 #### 不同地区展现不同语言
 
-使用远程配置的时间条件，设定特定时间触发内容。使用远程配置的国家地区条件和设备语言条件，设定在不同的国家地区分配不同的参数值，从而呈现不同的促销内容。
+使用远程配置服务的 **国家地区** 条件和 **设备语言** 条件，设置在不同国家地区分配不同的参数值，从而呈现不同的内容。
 
 #### 不同用户展现不同内容
 
-协同高级分析服务，针对不同的用户受众群组推荐不同内容：根据高级分析（华为分析）服务定义的不同用户受众群体，比如对职场白领和学生推送不同的物品及页面布局。
+使用远程配置服务的 **用户受众群体** 条件，协同高级分析（华为分析）服务，针对不同的用户群体推荐不同内容。例如对职场白领和学生推送不同的物品及页面布局。
 
 #### 特定主题特定时间配置
 
-更改应用的颜色以配合特定的主题:使用远程配置的时间条件，设定应用不同的颜色、图片素材，配合经常变化的特定主题。比如下图中毕业季这个特殊的时间段，配置一些相关的内容以吸引用户购买。
+使用远程配置服务的 **日期时间** 条件来更改应用的颜色、图片素材等，以配合特定的主题。例如在毕业季这个特殊的时间段设置一些特定的内容来吸引用户。
 
 #### 功能发布
 
-按百分比发布新功能，在同一时刻面向所有用户发布新功能的风险很高，利用远程配置可以实现按照百分比发布，从而缓慢向用户发布新功能，可以有效避免舆情或者及时修改调整。
+支持按用户百分比发布新功能。因为在同一时间面向所有用户发布新功能的风险很高，所以利用远程配置服务的 **随机百分比用户** 条件，可以实现按照百分比缓慢地向用户发布新功能，可以有效避免舆情或者及时修改调整。
 
 ## 一键接入远程配置服务
 
@@ -39,13 +39,13 @@
 
   ![](agc-remote/remote-panel.png)
     
-- 登录 AppGallery Connect，点击 **我的项目**。在项目下的应用列表中点击需要启动远程配置功能的应用。
+- 登录 AppGallery Connect，点击 **我的项目**。在项目的应用列表中选择启动远程配置服务的应用。
 
-- 在左侧导航栏选择 **增长 > 远程配置**。如果首次使用远程配置服务，请点击 **立即开通** 开通服务。
+- 在左侧导航栏选择 **增长 > 远程配置**。如果首次使用远程配置服务，需要先点击页面右上方的 **立即开通** 按钮来开通服务。
 
   ![](agc-remote/remote-open.png)
 
-- 系统默认在开通远程配置服务时将自动开通远程配置 API，如果需要手动开通，请参见 **开通服务** 打开远程配置的 API 权限。
+- 在开通远程配置服务时，系统会默认自动开通远程配置 API。如果需要手动控制是否开启远程配置 API，可参考文档 [开通服务](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service)。
 
   ![](agc-remote/remote-console.png)
 
@@ -60,7 +60,7 @@
 
 ### 验证服务是否接入成功
 
-**远程配置服务** 接入时在 Android 工程中，添加了本地配置文件 `/res/xml/remote_config.xml`，并预设了一对键值，用于测试和指导用户使用。可以通过调用方法 `getValueAsString` 获取该键值，来判断服务是否介入成功。
+在 Android 工程中接入 **远程配置服务** 时，添加了本地配置文件 res/xml/remote_config.xml，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
 
 ![](agc-remote/remote-configxml.png)
 
@@ -71,9 +71,9 @@
   console.log('Get config by key : test, value :' + value);
   ```
 
-- [**打包发布**](../publish/publish-native.md) 到 **Android** 平台。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
+- [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 若能看到 Logcat 中，取到的值为 **testValue**，即为接入成功。
+- 工程运行到手机后，若能在 Logcat 中看到输出的值为 **testValue**，即为接入成功。
 
 ![](agc-remote/remote-logcat.png)
 
@@ -83,21 +83,23 @@
 
 - 点击远程配置服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- 参照上文开通远程配置服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [打包发布](../publish/publish-native.md) 到 **Android** 平台。
+- 参照上文开通远程配置服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。点击 Sample 首页的 **Remote** 按钮，进入该功能界面进行测试。
+- 需要在已安装 HMS Core 服务的华为或荣耀品牌手机上测试。
+
+- Sample 工程运行到手机后，点击首页的 **Remote** 按钮，即可进入功能界面进行测试。
 
   ![](agc-remote/remote-sample.png)
 
 ## 开发指南
 
-本文档对应 AppGallery Connect - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)。JS 层调用，以本指南和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html) 为准。
+本文档对应 AppGallery Connect - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)。使用 JavaScript 调用时，请以本文档和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html) 为准。
 
-由于 Java 层的 `apply` 方法返回的是参数对象，无法在 JS 层传递。插件封装时，舍弃了 Java 层的 `applyDefault` 和 `apply` 方法。并封装了 `applyLastFetched` 和 `fetchAndApply` 两个方法代替。
+由于 Java SDK 的 `apply` 方法返回的是参数对象，无法在 JavaScript 层传递。所以 Creator 集成到服务面板的远程配置服务插件在封装时，使用了 `applyLastFetched` 和 `fetchAndApply` 方法来代替 Java SDK 的 `applyDefault` 和 `apply` 方法。
 
 ### 设置应用内默认值
 
-由于舍弃了 Java 层的 `applyDefault` 方法，所有默认配置需要到 `/res/xml/remote_config.xml` 中编写。
+所有默认配置需要在 `/res/xml/remote_config.xml` 文件中配置。
 
 ### 获取和更新云端参数值到本地
 
@@ -105,16 +107,14 @@
 
 `fetchAndApply(intervalSeconds?: number): void`
 
-插件封装了 `fetchAndApply` 方法，建议使用该方法，实现获取和更新云端参数值到本地功能。
+远程配置服务插件封装了 `fetchAndApply` 方法，对应 Java SDK 的 `fetch` + `apply` 方法。
 
-对应 Java 层 `fetch` + `apply` 方法，从云测获取最新的配置数据，由参数传入间隔时间，间隔内返回缓存数据，`fetch` 方法获取配置数据 **回调成功** 时，调用 `apply` 生效配置参数。单位是秒，默认 intervalSeconds 为 -1，更新周期为 12 小时。
-
-若执行 `fetch` 方法获取配置数据 **回调失败** 情况下，会通过 [setRemoteConfigListener](#setRemoteConfigListener) 监听器返回失败回调，用户可选择是否设置监听。**回调成功** 情况下 **不返回回调**。
+建议使用 `fetchAndApply` 方法来获取和更新云端参数值到本地。若获取配置数据失败，开发者可以通过 [setRemoteConfigListener](#setRemoteConfigListener) 监听器返回失败回调，**获取更新成功情况下没有回调**。
 
 **参数说明**：
 
 | 参数 | 说明 |  
-| :---------- | :------------- |  
+| :---------- | :------------- | 
 |  intervalSeconds  | 获取数据的间隔时间，单位为秒，默认值为 -1，更新周期为 12 小时 | 
 
 **示例**：
@@ -127,13 +127,13 @@ huawei.agc.rc.rcService.fetchAndApply();
 
 `fetch(intervalSeconds: number): void`
 
-开发者也可调用 `fetch` 方法，获取 [setRemoteConfigListener](#setRemoteConfigListener) 回调，再调用 [applyLastFetched](#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%90%8E%E4%B8%8B%E6%AC%A1%E5%90%AF%E5%8A%A8%E7%94%9F%E6%95%88) 方法，实现更新参数流程。
+开发者也可以通过调用 `fetch` 方法获取 `setRemoteConfigListener` 回调，然后再调用 `applyLastFetched` 方法来更新参数值。但还是建议使用 `fetchAndApply` 方法。
 
 **参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  intervalSeconds  | 获取数据的间隔时间，单位为秒，默认值为 -1 | 
+|  intervalSeconds  | 获取数据的间隔时间，单位为秒，默认值为 -1 ，更新周期为 12 小时 | 
 
 **示例**：
 
@@ -145,11 +145,10 @@ huawei.agc.rc.rcService.fetch();
 
 `setRemoteConfigListener(listener: RemoteConfigListener): void`
 
-`fetch` 相关方法监听器，可选。
+`setRemoteConfigListener` 监听器用于返回从云端获取参数值是否成功的回调。开发者可以根据需要选择是否启用监听。
 
-若使用 `fetchAndApply` 方法，**仅失败** 情况下，会通过该监听器给出回调。开发者可以考虑是否需要监听和处理该回调。
-
-若使用 `fetch` 方法，成功或失败都会通过该监听器给出回调。开发者可在成功回调后，调用 `applyLastFetched` 方法，更新云端参数值。
+- 若使用 `fetchAndApply` 方法，则只有在获取参数值 **失败** 的情况下，`setRemoteConfigListener` 才会返回回调。
+- 若使用 `fetch` 方法，无论获取参数值成功或者失败，`setRemoteConfigListener` 都会返回回调。开发者可以在返回成功回调后，调用 `applyLastFetched` 方法来更新云端参数值。
 
 **示例**：
 
@@ -169,9 +168,9 @@ getValueAsLong(key: String): Number { return 0; }
 getValueAsString(key: String): String { return ""; }
 ```
 
-在设置默认值和更新云端参数值后，就可以调用该接口获取参数值。插件封装时，提供了四种数据类型的接口，可根据需求进行使用。
+在设置默认值和更新云端参数值后，就可以调用以上方法中所需类型的方法获取参数值。远程配置服务插件封装时，提供了四种数据类型的接口，可根据需求进行使用。
 
-由于 JS 层限制，插件不支持对应 Java 层的 `getValueAsBytArray` 方法。
+由于 JavaScript 层限制，远程配置服务插件不支持对应 Java SDK 的 `getValueAsBytArray` 方法。
 
 **参数说明**：
 
@@ -182,21 +181,21 @@ getValueAsString(key: String): String { return ""; }
 **示例**：
 
 ```js
-let values = huawei.agc.rc.rcService.getMergedAll();
-console.log('Get all configs : ' + JSON.stringify(values));
+let value = huawei.agc.rc.rcService.getValueAsString('test');
+console.log('Get config by key : test, value :' + value);
 ```
 
 可通过 `getSource` 方法获取 Value 值的来源。数据可能有如下三种来源：
 
-- `huawei.agc.rc.rcService.RemoteConfigSource.STATIC = 0`: 获取的值是类型默认值
-- `huawei.agc.rc.rcService.RemoteConfigSource.DEFAULT = 1`: 获取的值是传入的本地默认值
-- `huawei.agc.rc.rcService.RemoteConfigSource.REMOTE = 2`: 获取的值是云端同步下来的值
+- `huawei.agc.rc.rcService.RemoteConfigSource.STATIC = 0`：获取的值是类型默认值
+- `huawei.agc.rc.rcService.RemoteConfigSource.DEFAULT = 1`：获取的值是传入的本地默认值
+- `huawei.agc.rc.rcService.RemoteConfigSource.REMOTE = 2`：获取的值是从云端同步下来的值
 
 ### 获取全部参数值
 
 `getMergedAll(): any`
 
-开发者可以获取全部本地默认值和云端参数值，并且相同 key 值的数据使用云端数据。返回值为 JSON 对象。
+开发者可以获取全部本地默认值和云端参数值，若本地数据与云端数据的 Key 值相同，将获取该 Key 值的云端参数值。返回值为 JSON 对象。
 
 **示例**：
 
@@ -209,7 +208,7 @@ console.log('Get all configs : ' + JSON.stringify(values));
 
 `clearAll(): void`
 
-清除所有的缓存数据，包括从云测拉取的数据和传入的默认值。
+用于清除所有的缓存数据，包括从云端获取的参数值和传入的默认值。
 
 **示例**：
 
@@ -219,21 +218,21 @@ huawei.agc.rc.rcService.clearAll();
 
 ### 加载流程
 
-开发者可以通过如下两种方式进行数据刷新，可参考 AGC 文档 - [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854)。
+开发者可以通过如下两种方式进行数据刷新，具体的内容可参考 AGC 远程配置服务文档 — [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854)。
 
 #### 获取数据后立刻生效
 
-该情况对应 [fetchAndApply](#fetchAndApply) 方法。
+该方式对应 [fetchAndApply](#fetchAndApply) 方法。
 
 #### 获取数据后下次启动生效
 
-开发者可以在任何时候 `fetch` 数据，但是此次运行并不使其生效，在下次应用启动时，才使上次 `fetch` 的数据生效。这种方式可以无需异步等待即可使用最新的值。
+该方式对应 `fetch` 方法，开发者可以在任何时候 `fetch` 数据。但是当前的运行并不能生效，下一次应用启动时，上一次 `fetch` 的数据才会生效。这种方式无需异步等待即可使用最新的参数值。
 
-该情况对应 [fetch](#fetch) 方法，在 [setRemoteConfigListener](#setRemoteConfigListener) 成功回调时，调用 `applyLastFetched` 方法更新云端参数值。
+该方式对应 [fetch](#fetch) 方法，在 [setRemoteConfigListener](#setRemoteConfigListener) 成功回调时，调用 `applyLastFetched` 方法更新云端参数值。
 
 `applyLastFetched(): void`
 
-对应 Java 层 `loadLastFetched` + `apply` 方法，获取最近一次拉取成功的缓存数据，并生效配置参数。
+对应 Java SDK `loadLastFetched` + `apply` 方法，获取最近一次拉取成功的缓存数据，并生效配置参数。
 
 **示例**：
 
@@ -245,13 +244,13 @@ huawei.agc.rc.rcService.applyLastFetched();
 
 `setDeveloperMode(isDeveloperMode: Boolean): void`
 
-设置开发者模式，将不限制客户端获取数据的次数，云测仍将进行流控。
+用于设置开发者模式，不限制客户端获取数据的次数，但云端仍将进行流量控制。
 
 **参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  key  | 远程配置服务配置的 Key 值 | 
+|  isDeveloperMode  | 是否设置为开发者模式 | 
 
 **示例**：
 

@@ -52,14 +52,14 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
-- 
+
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the settings directory of the project directory after downloading or updating.
 
   ![](agc-remote/remote-configfile.png)
 
 ### Verify whether the service is integrated successfully
 
-When **Remote Configuration** service is intergrated and built to the Android project, it adds local configuration files `/res/xml/remote_config.xml`, a pair of key values are preset for testing and guiding developer. The key value can be obtained by calling the method `getValueAsString` to determine whether the service intervention is successful.
+When integrating the ****Remote Configuration** service in the Android project, a local configuration file `res/xml/remote_config.xml` is added, and a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
 
 ![](agc-remote/remote-configxml.png)
 
@@ -72,9 +72,9 @@ When **Remote Configuration** service is intergrated and built to the Android pr
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- If you can see the value is **testValue** in LogCat, which means the integrate is successful.
+- After the project is run on the mobile phone, if you can see the output value is **testValue** in LogCat, which means the integrate is successful.
 
-![](agc-remote/remote-logcat.png)
+  ![](agc-remote/remote-logcat.png)
 
 ## Sample Project
 
@@ -92,13 +92,13 @@ Developer can get a quick taste of the Analytics Kit with the sample project.
 
 ## Developer Guide
 
-The document refer to AppGallery Connect - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). JS method calls are subject to this guide and [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html).
+The document refer to AppGallery Connect - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). JavaScript method calls are subject to this guide and [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html).
 
-Because the `apply` from Java SDK returns a object, it cannot be passed in the JS method. When Remote Configuration plug-in integrated, the `applyDefault` and `apply` methods from Java SDK are discarded. And add the two methods `applyLastFetched` and `fetchAndApply` instead.
+Because the `apply` of the Java SDK returns a object, it cannot be passed in the JavaScript method. When Remote Configuration plug-in integrated, the `applyLastFetched` and `fetchAndApply` methods are used instead of the `applyDefault` and `apply` methods of the Java SDK
 
 ### Setting Parameter Values in Remote Configuration
 
-Because the `applyDefault` from the Java SDK is discarded, all default configurations should be written in `/res/xml/remote_config.xml`.
+All default configurations should be configured in the `/res/xml/remote_config.xml` file.
 
 ### Fetching Parameter Values from Remote Configuration
 
@@ -106,11 +106,9 @@ Because the `applyDefault` from the Java SDK is discarded, all default configura
 
 `fetchAndApply(intervalSeconds?: number): void`
 
-The Remote Configuration plug-in add the `fetchAndApply` method. It is recommended to use this method to fetching parameter values from the cloud.
+The Remote Configuration plug-in add the `fetchAndApply` method, corresponding to `fetch` + `apply` methods of the Java SDK. 
 
-Corresponding to `fetch` + `apply` methods from Java SDK. After the API is successfully called, data of the ConfigValues type is returned from Remote Configuration. Using the ConfigValues class, you can obtain only parameter values on the cloud. After obtaining parameter value updates, the app calls the apply() method immediately or at a specified time based on service requirements to override the values in the app by obtained values. The default value of intervalSeconds is -1, interval to call the fetch() method is 12 hours. 
-
-If you call the `fetch` method to obtain configuration data but **callback failed**, the failure callback will be returned through the [setRemoteConfigListener](#setRemoteConfigListener) listener, and the user can choose whether to set up a listener. **Callback successful** In case of **no callback**.
+It is recommended to use this method to fetch and apply parameter values from the cloud. Developers can get the failure callback from [setRemoteConfigListener](#setRemoteConfigListener). **No callback in case of success**.
 
 **Parameter Description**:
 
@@ -128,7 +126,7 @@ huawei.agc.rc.rcService.fetchAndApply();
 
 `fetch(intervalSeconds: number): void`
 
-Developers can also call the `fetch` method to obtain the [setRemoteConfigListener](#setRemoteConfigListener) callback, and then call the [applyLastFetched](#applying-parameter-values-upon-the-next-startup) method to implement the parameter update process.
+Developers can also call the `fetch` method to get the `setRemoteConfigListener` callback, and then call the `applyLastFetched` method to apply parameter values from the cloud. But it is recommended to use the `fetchAndApply` method.
 
 **Parameter Description**:
 
@@ -146,11 +144,10 @@ huawei.agc.rc.rcService.fetch();
 
 `setRemoteConfigListener(listener: RemoteConfigListener): void`
 
-Set listener for `fetch` and `fetchAndApply`, optional.
+The `setRemoteConfigListener` is used to get the callback for obtaining the parameter value from the cloud. Developers can choose whether to enable monitoring according to their needs.
 
-If the `fetchAndApply` method is called, in the case of failed listener **only** callback will be given. Developers could consider whether they need to do for the callback.
-
-If the `fetch` method is called, success or failure listener callback will be given. Developers can call the `applyLastFetched` method after success listener callback to update cloud parameter values.
+- If the `fetchAndApply` method is used, `setRemoteConfigListener` will return the callback only if it fails to obtain the parameter value.
+- If the `fetch` method is used, regardless of whether the parameter value is obtained successfully or failed, `setRemoteConfigListener` will return a callback. Developers can call the `applyLastFetched` method to update cloud parameter values after returning the success callback.
 
 **Example**:
 
@@ -172,7 +169,7 @@ getValueAsString(key: String): String { return ""; }
 
 After default parameter values are set or parameter values are fetched from Remote Configuration, you can call any of these APIs provided by the SDK based on the data type to obtain the parameter values to use in your app.
 
-Due to JS method limitation, the plug-in does not support `getValueAsBytArray` method from Java SDK.
+Due to JavaScript method limitation, the Remote Configuration plug-in does not support `getValueAsBytArray` method of the Java SDK.
 
 **Parameter Description**:
 
@@ -183,8 +180,8 @@ Due to JS method limitation, the plug-in does not support `getValueAsBytArray` m
 **Example**:
 
 ```js
-let values = huawei.agc.rc.rcService.getMergedAll();
-console.log('Get all configs : ' + JSON.stringify(values));
+let value = huawei.agc.rc.rcService.getValueAsString('test');
+console.log('Get config by key : test, value :' + value);
 ```
 
 You can call the `getSource` API to obtain the source of a value. The data sources are as follows:
@@ -197,7 +194,7 @@ You can call the `getSource` API to obtain the source of a value. The data sourc
 
 `getMergedAll(): any`
 
-Returns all values obtained after the combination of the default values and values in Remote Configuration.
+Returns all values obtained after the combination of the default values and values in Remote Configuration. If they have a same Key, the values in Remote Configuration is preferred.
 
 **Example**:
 
@@ -224,7 +221,7 @@ You can apply obtained parameter values in either of the following ways, refer t
 
 #### Applying parameter values immediately
 
-Refer to [fetchAndApply](#fetchAndApply) function.
+Please refer to [fetchAndApply](#fetchAndApply) function.
 
 #### Applying parameter values upon the next startup
 
@@ -234,7 +231,7 @@ Corresponding to the [fetch](#fetch) method, when [setRemoteConfigListener](#set
 
 `applyLastFetched(): void`
 
-Corresponding to `loadLastFetched` + `apply` methods from Java SDK. Obtains the cached data that is successfully fetched last time, and applies parameter values.
+Corresponding to `loadLastFetched` + `apply` methods of the Java SDK. Obtains the cached data that is successfully fetched last time, and applies parameter values.
 
 **Example**:
 
@@ -252,7 +249,7 @@ Enables the developer mode, in which the number of times that the client obtains
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  key  | Key of a parameter specified in Remote Configuration. | 
+|  isDeveloperMode  | Indicates whether to enable the developer mode. | 
 
 **Example**:
 
