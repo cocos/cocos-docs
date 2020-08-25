@@ -98,3 +98,4 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 - [字节跳动开发者工具介绍](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)
 - [字节跳动小游戏真机调试](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/real-machine-adjust)
 - [字节跳动小游戏多端支持情况](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/multi-server-support/using-restriction)
+- [字节小游戏 FAQ 汇总](https://forum.cocos.org/t/faq/97461)
