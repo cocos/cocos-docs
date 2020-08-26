@@ -1,10 +1,10 @@
 # Crash (AppGallery Connect) Quick Start
 
-The [Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction) Service of AppGallery Connect is a lightweight crash analysis service, in which Huawei provides a Crash SDK that can be quickly integrated into your app, **without the need for coding**.
+[Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction) Service of AppGallery Connect is a lightweight crash analysis service, in which Huawei provides a Crash SDK that can be quickly integrated into your app, **without the need for coding**.
 
 ### Functions
 
-- The Crash service provides crash reports that are easy to reference and analyze. The last-hour crash report allows you to monitor the quality of your app in real time.
+- The Crash service provides real-time reports for the last hour, allowing you to monitor the quality of your application in real time.
 
 - In addition, the Crash service automatically categorizes crashes, and provides indicator data of the crashes, allowing you to prioritize the most important crashes. You can view information about a specific crash, and analyze the app and Android versions with the crash. You can also view information about the app, operating system, and device corresponding to a specific crash, as well as the crashed stack. All the information is enormously helpful in locating and resolving crashes.
 
@@ -14,7 +14,7 @@ The [Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-
 
 - Use Cocos Creator to open the project that needs to be connected to Crash service.
 
-- The Crash service uses capabilities of HUAWEI Analytics Kit to report crash events. Therefore, you need to enable HUAWEI Analytics Kit before integrating the Crash SDK. For details, please refer to [Analytics Kit (HMS Core)](./hms-analytics.md).
+- Since the Crash service uses the HUAWEI Analytics Kit to report crash event, please enable the [Analytics Kit (HMS Core)](./hms-analytics.md) before integrating the Crash Service.
 
 - Click on **Panel -> Service** in the menu bar to open the Service panel, select Crash service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
@@ -22,9 +22,9 @@ The [Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-
 
 ### Configs HUAWEI Config file
 
-Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
+Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
+- Login to AppGallery Connect and click on **My projects** to select the project. Then select the app to enable the Remote Configuration service from the app list of the project.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the settings directory of the project directory after downloading or updating.
 
@@ -32,7 +32,7 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 ### Verify whether the service is integrated successfully
 
-Generally, there is a low probability that an app crashes. You can call the API of the Crash SDK to intentionally trigger a crash during app test and view the crash data in AppGallery Connect to check whether the Crash service is running properly.
+Generally, there is a low probability of an application crashing, so the Crash service SDK provides a method to manually create a crash, which can be invoked to determine if the Crash service was successfully accessed.
 
 - Add simple code to the script.
 
@@ -53,9 +53,9 @@ Generally, there is a low probability that an app crashes. You can call the API 
 
 Developer can get a quick taste of the Analytics Kit with the sample project.
 
-- Click on the **Sample** button in the Analytics Kit service panel, clone or download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Crash service panel, clone or download, and open the project in Cocos Creator.
 
-- After enabling the Analytics Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After enabling the Crash service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
@@ -71,7 +71,7 @@ Crash service without the need for coding. The following methods are optional.
 
 `enableCrashCollection(enable: boolean): void`
 
-This method is used to enable or disable the crash data reporting function. The function is enabled by default, indicating that the Crash service will collect and report crash data. If you do not want the Crash service to automatically collect or report crash data, disable the function.
+是否开启崩溃上报服务，默认开启。开启时崩溃服务将会收集和上报崩溃信息。如果不需要使用崩溃服务，设置为关闭即可。
 
 **Parameter Description**:
 

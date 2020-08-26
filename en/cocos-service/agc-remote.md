@@ -2,7 +2,7 @@
 
 HUAWEI AppGallery Connect provides the [Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) service for you to manage parameters online. With the service, you can change the behavior and appearance of your app online without requiring users to update the app.
 
-Remote Configuration provides cloud-based services, the console, and the client SDK. By integrating the client SDK, your app can periodically obtain parameter values delivered on the console to modify the app's behavior and appearance.
+By integrating the client SDK, your app can periodically obtain parameter values delivered on the console to modify the app's behavior and appearance.
 
 ### Functions
 
@@ -36,20 +36,18 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 - Click on **Panel -> Service** in the menu bar to open the Service panel, select Remote Configuration service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
   ![](agc-remote/remote-panel.png)
-    
-- Sign in to AppGallery Connect and select **My projects**. Find your project from the project list and click your app to enable Remote Configuration on the project card.
 
-- Go to **Growing -> Remote Configuration**. Click **Enable now** to enable Remote Configuration.
+- Find your project from the project list and click the app for which you need to enable Remote Configuration service on the project card. Go to **Growing -> Remote Configuration**, if it is the first time that you use Remote Configuration service, click **Enable now** in the upper right corner. 
 
   ![](agc-remote/remote-open.png)
 
-- By default, the Remote Configuration API is automatically enabled when you enable the Remote Configuration service. To manually enable the API, please refer to [Enabling Services](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-enable_service).
+- By default, the Remote Configuration API is automatically enabled when you enable the Remote Configuration service. If you need to manually control whether the Remote Configuration API is enabled or not, refer to the documentation [Enabling Services](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-enable_service).
 
   ![](agc-remote/remote-console.png)
 
 ### Configs HUAWEI Config file
 
-Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
+Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -59,7 +57,7 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 ### Verify whether the service is integrated successfully
 
-When integrating the ****Remote Configuration** service in the Android project, a local configuration file `res/xml/remote_config.xml` is added, and a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
+When integrating the **Remote Configuration** service in the Android project, a local configuration file `res/xml/remote_config.xml` is added, and a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
 
 ![](agc-remote/remote-configxml.png)
 
@@ -78,11 +76,11 @@ When integrating the ****Remote Configuration** service in the Android project, 
 
 ## Sample Project
 
-Developer can get a quick taste of the Analytics Kit with the sample project.
+Developer can get a quick taste of the Remote Configuration with the sample project.
 
-- Click on the **Sample** button in the Analytics Kit service panel, clone or download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Remote Configuration service panel, clone or download, and open the project in Cocos Creator.
 
-- After enabling the Analytics Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After enabling the Remote Configuration service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
@@ -92,9 +90,9 @@ Developer can get a quick taste of the Analytics Kit with the sample project.
 
 ## Developer Guide
 
-The document refer to AppGallery Connect - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). JavaScript method calls are subject to this guide and [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html).
+This document refers to the AppGallery Connect documentation - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). When calling in JavaScript, please use this document and the [API documentation](https://test-docs.cocos.com/service/api/modules/huawei.agc.rc.html) as a guide.
 
-Because the `apply` of the Java SDK returns a object, it cannot be passed in the JavaScript method. When Remote Configuration plug-in integrated, the `applyLastFetched` and `fetchAndApply` methods are used instead of the `applyDefault` and `apply` methods of the Java SDK
+Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration Service plugin that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply `methods of the Java SDK in its wrapper.
 
 ### Setting Parameter Values in Remote Configuration
 
@@ -114,7 +112,7 @@ It is recommended to use this method to fetch and apply parameter values from th
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  intervalSeconds  | Interval for fetching data, the unit is seconds, default value is -1 for 12 hours | 
+|  intervalSeconds  | Interval for fetching data, the unit is seconds, default value is -1 for 12 hours. | 
 
 **Example**:
 
@@ -132,7 +130,7 @@ Developers can also call the `fetch` method to get the `setRemoteConfigListener`
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  intervalSeconds  | Interval for fetching data, the unit is seconds, default value is -1 for 12 hours | 
+|  intervalSeconds  | Interval for fetching data, the unit is seconds, default value is -1 for 12 hours. | 
 
 **Example**:
 
@@ -167,9 +165,9 @@ getValueAsLong(key: String): Number { return 0; }
 getValueAsString(key: String): String { return ""; }
 ```
 
-After default parameter values are set or parameter values are fetched from Remote Configuration, you can call any of these APIs provided by the SDK based on the data type to obtain the parameter values to use in your app.
+After default parameter values are set and parameter values are fetched from Remote Configuration, you can call any of these APIs provided by the SDK based on the data type to obtain the parameter values to use in your app.
 
-Due to JavaScript method limitation, the Remote Configuration plug-in does not support `getValueAsBytArray` method of the Java SDK.
+Due to JavaScript layer limitation, the Remote Configuration plug-in does not support `getValueAsBytArray` method of the Java SDK.
 
 **Parameter Description**:
 
@@ -207,7 +205,7 @@ console.log('Get all configs : ' + JSON.stringify(values));
 
 `clearAll(): void`
 
-Clears all cached data, including the data fetched from Remote Configuration and the default values passed.
+Clears all cached data, including the data fetched from Remote Configuration and the default values passed in.
 
 **Example**:
 
@@ -217,7 +215,7 @@ huawei.agc.rc.rcService.clearAll();
 
 ### Loading Process
 
-You can apply obtained parameter values in either of the following ways, refer to AGC Remote Configuration service - [Loading Process](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854).
+You can apply obtained parameter values in either of the following ways, refer to AGC Remote Configuration service - [Loading Process](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307089186).
 
 #### Applying parameter values immediately
 
@@ -259,4 +257,4 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 
 ## API Documentation
 
-Please refer to the [Remote Configuration - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.rcService.html).
+Please refer to the [Remote Configuration - API Documentation](https://test-docs.cocos.com/service/api/modules/huawei.agc.rc.html).

@@ -20,7 +20,7 @@
 
   ![](agc-apm/apm-panel.png)
 
-- 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，点击 **我的项目**，进入 **质量 -> 性能管理 -> 立即开通** 按钮，开通服务。
+- 如果华为后台的 **性能管理** 服务尚未开通，需登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，选择 **我的项目**，进入 **质量 -> 性能管理** 页面，点击 **立即开通** 按钮开通服务。
 
   ![](agc-apm/apm-open.png)
 
@@ -63,7 +63,7 @@
 
 可参考 AGC 性能管理文档 — [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111)。开关的默认值为打开 (true)，如果需要停用应用性能数据采集，可将开关设为关闭 (false)。
 
-应用客户端停用级别 **高于** AGC 远程配置停用级别。如用户在应用客户端停用性能监控，即使通过 AGC 远程配置打开性能监控开关，性能管理服务也不会进行性能数据采集。
+应用客户端停用的级别 **高于** AGC 远程配置停用。如用户在应用客户端停用性能监控，即使通过 AGC 远程配置打开性能监控开关，性能管理服务也不会进行性能数据采集。
 
 **参数说明**：
 

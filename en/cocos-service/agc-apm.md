@@ -18,13 +18,13 @@
 
   ![](agc-apm/apm-panel.png)
 
-- If APM is not enabled in the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, go to **Quality -> APM** , click **Enable**.
+- If APM is not enabled in the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, go to **Quality -> APM** , click **Enable** button to enable the service.
 
   ![](agc-apm/apm-open.png)
 
 ### Configs HUAWEI Config file
 
-Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
+Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -34,19 +34,19 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 ### Verify whether the service is integrated successfully
 
-- Once the APM service is integrated, you can [publish to the Android platform](../publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
+- Once the APM service is integrated, you can [publish to the Android platform](./publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> APM**. If you can see new user information (usually displayed within 15 minutes), which means the integrate is successful.
+- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> APM**. If you can see App Performance information (usually displayed within 15 minutes), which means the integrate is successful.
 
   ![](agc-apm/apm-console.jpg)
 
 ## Sample Project
 
-Developer can get a quick taste of the Analytics Kit with the sample project.
+Developer can get a quick taste of the APM service with the sample project.
 
-- Click on the **Sample** button in the Analytics Kit service panel, clone or download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the APM service panel, clone or download, and open the project in Cocos Creator.
 
-- After enabling the Analytics Kit service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After enabling the APM service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](./publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](./publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
@@ -60,7 +60,7 @@ Developer can get a quick taste of the Analytics Kit with the sample project.
 
 `enableCollection (enable: boolean): void`
 
- The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. Refer to AGC APM Document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111).
+ The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111).
 
 The priority of the disabling configuration in apps is **higher** than that through Remote Configuration in AppGallery Connect. If users disable performance monitoring in apps, the APM does not collect performance data even if the performance monitoring function is enabled through Remote Configuration in AppGallery Connect.
 
@@ -78,19 +78,19 @@ huawei.AGC.apms.enableCollection(true);
 
 ### Creating a Custom Trace (Optional)
 
-Custom traces can be used to monitor the performance of your app in specific scenarios, such as app sign-in and that the page fails to respond for a long time. Compared with the AGC APM SDK, the APM plug-in needs to add the `name` parameter to get the object. If the object with the current name does not exist, another object will be created. Refer to AGC APM Document - [Creating a Custom Trace](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addtrace).
+Custom traces can be used to monitor the performance of your app in specific scenarios, such as app sign-in and that the page fails to respond for a long time. Compared with the AGC APM SDK, the APM plug-in needs to add the `name` parameter to get the object. If the object with the current name does not exist, a new object will be created. You can refer to AGC APM document - [Creating a Custom Trace](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addtrace).
 
 #### Start
 
 `startCustomTrace(name: string): void`
 
-Starts a custom trace. Refer to AGC APM Document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#start).
+Starts a custom trace. You can refer to AGC APM document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#start).
 
 **Parameter Description**:
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 
 **Example**:
 
@@ -102,13 +102,13 @@ huawei.AGC.apms.startCustomTrace("traceID");
 
 `stopCustomTrace(name: string): void`
 
-Stops a custom trace. Refer to AGC APM Document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#stop).
+Stops a custom trace. You can refer to AGC APM document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#stop).
 
 **Parameter Description**:
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 
 **Example**:
 
@@ -126,7 +126,7 @@ Sets the attribute names and values of a custom trace. Up to **5** custom attrib
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | propertyName | Name of a custom attribute. The name can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 40 characters. | 
 | propertyValue | Value of a custom attribute. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. | 
 
@@ -150,7 +150,7 @@ Removes an existing attribute from a CustomTrace instance.
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | propertyName | Name of the attribute to be removed. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 40 characters. | 
 
 **Example**:
@@ -166,13 +166,13 @@ huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
 
 `getCustomTraceProperty (name: string, propertyName: string): string`
 
-Obtains a custom attribute value. Refer to AGC APM Document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
+Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
 
 **Parameter Description**:
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | propertyName | Name of the attribute to be removed. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 40 characters. | 
 
 **Example**:
@@ -194,7 +194,7 @@ Adds an indicator value for a custom trace. If the indicator does not exist, a n
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | measureName | Name of the custom trace indicator to which an indicator value is to be added. | 
 | measureValue | Indicator value to be added. Corresponds to `long` type on Java side. | 
 
@@ -212,13 +212,13 @@ huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
 
 `getCustomTraceMeasure (name: string, measureName: string): string`
 
-Obtains an indicator value for a custom trace. Refer to AGC APM Document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
+Obtains an indicator value for a custom trace. You can refer to AGC APM document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
 
 **Parameter Description**:
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | measureName | Name of the custom trace indicator to which an indicator value is to be added. | 
 
 **Example**:
@@ -235,13 +235,13 @@ console.log("mValue = ", measureValue);
 
 `putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
 
-Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. Refer to AGC APM Document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
+Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to AGC APM document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
 
 **Parameter Description**:
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 | measureName | Name of the custom trace indicator to which an indicator value is to be added. | 
 | measureValue | Indicator value to be added. Corresponds to `long` type on Java side. | 
 
@@ -265,7 +265,7 @@ Obtains the custom attribute values by JSON object.
 
 | Parameter | Description |   
 | :---------- | :------------- |  
-| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, another object will be created. | 
+| name | The name of the custom trace. The value can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 100 characters. The following methods need to get the object call based on the name. If the object with the current name does not exist, a new object will be created. | 
 
 **Example**:
 
@@ -277,7 +277,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### Adding Indicators to Monitor Specific Network Requests (Optional)
 
-APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. Refer to AGC APM Document - [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure).
+APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. You can refer to AGC APM document - [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure).
 
 #### Init
 
@@ -303,7 +303,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 `startNetworkMeasure(id: string): void`
 
-Sets the request start time. Refer to AGC APM Document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#start).
+Sets the request start time. You can refer to AGC APM document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#start).
 
 **Parameter Description**:
 
@@ -321,7 +321,7 @@ huawei.AGC.apms.startNetworkMeasure(id);
 
 `stopNetworkMeasure(id: string): void`
 
-Sets the request end time and reports network request indicators and custom attribute data. Refer to AGC APM Document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#stop).
+Sets the request end time and reports network request indicators and custom attribute data. You can refer to AGC APM document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#stop).
 
 **Parameter Description**:
 
@@ -339,7 +339,7 @@ huawei.AGC.apms.stopNetworkMeasure(id);
 
 `setNetworkMeasureStatusCode(id: string, statusCode: number): void`
 
-Sets the response code of a request. Refer to AGC APM Document - [setStatusCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode).
+Sets the response code of a request. You can refer to AGC APM document - [setStatusCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode).
 
 **Parameter Description**:
 
@@ -358,7 +358,7 @@ huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
 
 `setNetworkMeasureBytesSent(id: string, length: number): void`
 
-Sets the request body size. Refer to AGC APM Document - [setBytesSent](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent).
+Sets the request body size. You can refer to AGC APM document - [setBytesSent](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent).
 
 **Parameter Description**:
 
@@ -377,7 +377,7 @@ huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
 
 `setNetworkMeasureBytesReceived(id: string, length: number): void`
 
-Sets the response body size. Refer to AGC APM Document - [setBytesReceived](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived).
+Sets the response body size. You can refer to AGC APM document - [setBytesReceived](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived).
 
 **Parameter Description**:
 
@@ -396,7 +396,7 @@ huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
 
 `setNetworkMeasureContentType(id: string, contentType: string): void`
 
-Sets the response body type specified by **contentType**. Refer to AGC APM Document - [setContentType](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setContentType).
+Sets the response body type specified by **contentType**. You can refer to AGC APM document - [setContentType](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setContentType).
 
 **Parameter Description**:
 
@@ -415,7 +415,7 @@ huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
 
 `putNetworkMeasureProperty(id: string, propertyName: string, propertyValue: string): void`
 
-Sets the custom attribute name and value of a network request. Up to **5** custom attributes can be set for each **NetworkMeasure** instance. Refer to AGC APM Document - [putProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#putProperty).
+Sets the custom attribute name and value of a network request. Up to **5** custom attributes can be set for each **NetworkMeasure** instance. You can refer to AGC APM document - [putProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#putProperty).
 
 **Parameter Description**:
 
@@ -437,7 +437,7 @@ huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
 
 `removeNetworkMeasureProperty(id: string, propertyName: string): void`
 
-Removes an existing attribute from a **NetworkMeasure** instance. Refer to AGC APM Document - [removeProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#removeProperty).
+Removes an existing attribute from a **NetworkMeasure** instance. You can refer to AGC APM document - [removeProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#removeProperty).
 
 **Parameter Description**:
 
@@ -457,7 +457,7 @@ huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 
 `getNetworkMeasureProperty(id: string, propertyName: string): string`
 
-Obtains all attributes from a NetworkMeasure instance by JSON object. Refer to AGC APM Document - [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties).
+Obtains all attributes from a NetworkMeasure instance by JSON object. You can refer to AGC APM document - [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties).
 
 **Parameter Description**:
 
@@ -478,7 +478,7 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 
 `getNetworkMeasureProperties(id: string): string`
 
-Obtains a custom attribute value. Refer to AGC APM Document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty).
+Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty).
 
 **Parameter Description**:
 

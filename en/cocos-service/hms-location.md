@@ -38,15 +38,12 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 ### Configs HUAWEI Config file
 
-Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
+Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) and select **My projects**.
-- Find your project from the project list and click the app on the project card.
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it.
+- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), find your project from the project list and select the app on the project card.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](hms-location/loc-configfile.png)
-
-The `agconnect-services.json` file needs to be placed in the `/settings` directory in the project directory. After the file is downloaded or updated, **please manually copy and overwrite it**.
 
 ### Verify whether the service is integrated successfully
 
