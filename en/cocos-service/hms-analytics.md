@@ -1,4 +1,4 @@
-# Analytics Kit (HMS Core)
+# Analytics Kit (HMS Core) Quick Start
 
 [HUAWEI Analytics Kit](https://developer.huawei.com/consumer/en/hms/huawei-analyticskit) (hereinafter referred to as Analytics Kit or Kit) offers a rich array of preset analytics models that help you gain a deeper insight into your users, products, and content. With this insight, you can then take a data-driven approach to market your apps and optimize your products.
 
@@ -37,7 +37,7 @@ Most of HUAWEI Kits need the `agconnect-services.json` configuration file. If th
 
 - Once the Analytics Kit service is integrated, you can [publish to the Android platform](../publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **HUAWEI Analytics -> User Analysis -> New Users**. If you can see new user information (usually displayed within 10 minutes), which means the access is successful.
+- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **HUAWEI Analytics -> User Analysis -> New Users**. If you can see new user information (usually displayed within 10 minutes), which means the integrate is successful.
 
 ## Sample Project
 
