@@ -11,6 +11,6 @@
 - [性能管理（AppGallery Connect）](agc-apm.md)
 - [认证服务（AppGallery Connect）](agc-auth.md)
 - [崩溃服务（AppGallery Connect）](agc-crash.md)
-- [远程配置服务（AppGallery Connect）](agc-remote.md)
+- [远程配置（AppGallery Connect）](agc-remote.md)
 - [Cocos SDKHub](sdkhub.md)
     - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

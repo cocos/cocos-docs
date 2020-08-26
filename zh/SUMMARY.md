@@ -102,7 +102,7 @@
         - [性能管理（AGC）](cocos-service/agc-apm.md)
         - [认证服务（AGC）](cocos-service/agc-auth.md)
         - [崩溃服务（AGC）](cocos-service/agc-crash.md)
-        - [远程配置服务（AGC）](cocos-service/agc-remote.md)
+        - [远程配置（AGC）](cocos-service/agc-remote.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
             - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)
