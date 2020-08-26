@@ -18,7 +18,7 @@ Cocos Service 目前提供的服务包括：
 - [性能管理（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)：实时性能报告，帮助改善应用性能。
 - [认证服务（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-introduction)：快速、低成本地构建安全、可靠的用户认证系统。
 - [崩溃服务（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-introduction)：实时数据报告，多维度分析，快速解决崩溃问题。
-- [远程配置服务（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction)：无需升级应用，即可灵活修改应用的行为和外观。
+- [远程配置（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction)：无需升级应用，即可灵活修改应用的行为和外观。
 - [Cocos SDKHub](sdkhub.md)：快速接入第三方原生 SDK。
 
 更多第三方服务还在不断接入中。
@@ -40,6 +40,6 @@ Cocos Service 目前提供的服务包括：
     - [性能管理（AppGallery Connect）](agc-apm.md)
     - [认证服务（AppGallery Connect）](agc-auth.md)
     - [崩溃服务（AppGallery Connect）](agc-crash.md)
-    - [远程配置服务（AppGallery Connect）](agc-remote.md)
+    - [远程配置（AppGallery Connect）](agc-remote.md)
     - [Cocos SDKHub](sdkhub.md)
         - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

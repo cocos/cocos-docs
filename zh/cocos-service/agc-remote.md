@@ -1,6 +1,6 @@
-# 远程配置服务（AppGallery Connect）快速入门
+# 远程配置（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[远程配置服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 提供在线的配置项管理能力，开发者可以在线更改应用的行为和外观，无需用户下载应用更新。
+华为 AppGallery Connect（简称 AGC）[远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 服务，提供在线的配置项管理能力，开发者可以在线更改应用的行为和外观，无需用户下载应用更新。
 
 应用集成客户端 SDK 后，可以定期获取云端管理台配置的配置项和配置参数值，实现客户端应用行为和 UI 的修改。
 
@@ -29,13 +29,13 @@
 
 支持按用户百分比发布新功能。因为在同一时间面向所有用户发布新功能的风险很高，所以利用远程配置服务的 **随机百分比用户** 条件，可以实现按照百分比缓慢地向用户发布新功能，可以有效避免舆情或者及时修改调整。
 
-## 一键接入远程配置服务
+## 一键接入远程配置
 
 ### 开通服务
 
 - 使用 Cocos Creator 打开需要接入远程配置服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **远程配置服务**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **远程配置**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
   ![](agc-remote/remote-panel.png)
 
@@ -58,7 +58,7 @@
 
 ### 验证服务是否接入成功
 
-在 Android 工程中接入 **远程配置服务** 时，添加了本地配置文件 res/xml/remote_config.xml，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
+在 Android 工程中接入 **远程配置** 服务时，添加了本地配置文件 res/xml/remote_config.xml，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
 
 ![](agc-remote/remote-configxml.png)
 
