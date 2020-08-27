@@ -90,7 +90,7 @@ Developer can get a quick taste of the Remote Configuration with the sample proj
 
 ## Developer Guide
 
-This document refers to the AppGallery Connect documentation - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). When calling in JavaScript, please use this document and the [API documentation](https://test-docs.cocos.com/service/api/modules/huawei.agc.rc.html) as a guide.
+This document refers to the AppGallery Connect documentation - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). When calling in JavaScript, please use this document and the [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) as a guide.
 
 Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration Service plugin that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply `methods of the Java SDK in its wrapper.
 
@@ -257,4 +257,4 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 
 ## API Documentation
 
-Please refer to the [Remote Configuration - API Documentation](https://test-docs.cocos.com/service/api/modules/huawei.agc.rc.html).
+Please refer to the [Remote Configuration - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html).
