@@ -71,7 +71,7 @@ Crash service without the need for coding. The following methods are optional.
 
 `enableCrashCollection(enable: boolean): void`
 
-是否开启崩溃上报服务，默认开启。开启时崩溃服务将会收集和上报崩溃信息。如果不需要使用崩溃服务，设置为关闭即可。
+This method is used to enable or disable the crash data reporting function. The function is enabled by default, indicating that the Crash service will collect and report crash data. If you do not want the Crash service to automatically collect or report crash data, disable the function.
 
 **Parameter Description**:
 
