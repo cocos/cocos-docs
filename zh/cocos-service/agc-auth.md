@@ -85,7 +85,7 @@
 
   ![](agc-auth/auth-params.jpg)
 
-  若使用 **Google 帐号** 或 **Google Play Game 帐号** 认证方式，在发布到 Android 平台时，**构建发布** 面板中的 **生成 App Bundle（Google Play）** 项 **请勿勾选**。
+  若使用 **Google 帐号** 或 **Google Play Game 帐号** 认证方式，在发布到 Android 平台时，**构建发布** 面板中的 **生成 App Bundle（Google Play）** 选项 **请勿勾选**。
 
   ![](agc-auth/auth-google-bundle.png)
 
