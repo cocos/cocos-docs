@@ -108,7 +108,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 Developer can get a quick taste of the Auth Service with the sample project.
 
-- Click on the **Sample** button in the Auth service panel, clone or download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Auth Service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the Auth Service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
