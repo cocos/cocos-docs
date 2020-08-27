@@ -57,7 +57,7 @@
 
 - 返回认证结果
 
-  认证服务将认证结果返回给应用。此时应用可以访问和维护该用户的基本个人资料信息（昵称、头像），访问和操作其他 Serverless 服务中的受安全规则保护的数据。
+  认证服务将认证结果返回给应用。此时应用可以访问和维护该用户的基本个人资料信息（昵称、头像），也可以访问和操作其他 Serverless 服务中的受安全规则保护的数据。
  
 ## 一键接入认证服务
 
@@ -85,9 +85,7 @@
 
   ![](agc-auth/auth-params.jpg)
 
-  若使用 **Google 帐号** 或 **Google Play Game 帐号** 认证方式，在发布到 Android 平台时，**构建发布** 面板中的 **生成 App Bundle（Google Play）** 选项 **请勿勾选**。
-
-  ![](agc-auth/auth-google-bundle.png)
+  **注意**：若使用 **Google 帐号** 或 **Google Play Game 帐号** 认证方式，在发布到 Android 平台时，**构建发布** 面板中的 **生成 App Bundle（Google Play）** 选项 **请勿勾选**。
 
 ### 配置华为参数文件
 
@@ -113,7 +111,7 @@
 
 - [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 若代码调用后，运行到手机上能看到登录界面，即为接入成功。
+- 工程运行到手机后，若能看到登录界面，即为接入成功。
 
   ![](agc-auth/auth-verify.png)
 
@@ -205,7 +203,7 @@ huawei.agc.auth.authService.logout();
 
 `getUserInfo(): any`
 
-获取当前用户信息。信息可能包括 `isAnonymous` 是否为游客账号、`uid` 用户 ID、`displayName` 用户显示名称、`photoUrl` 头像 URL、`email` 邮箱地址、`phone` 手机号码、`providerId` [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值、`providerInfo` 认证登录信息、`emailVerified` 是否已通过邮箱验证、`passwordSetted` 是否已设置密码。
+获取当前用户信息。返回信息可能包括 `isAnonymous` 是否为游客账号、`uid` 用户 ID、`displayName` 用户显示名称、`photoUrl` 头像 URL、`email` 邮箱地址、`phone` 手机号码、`providerId` [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值、`providerInfo` 认证登录信息、`emailVerified` 是否已通过邮箱验证、`passwordSetted` 是否已设置密码。
 
 **示例**：
 
@@ -224,7 +222,7 @@ console.log('getUserInfo...', 'info =', JSON.stringify(userInfo));
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>email：邮箱账号，邮箱认证登录方式需要传入。<br>phoneNumber：手机号码，手机认证登录方式需要传入。<br>countryCode：国家码，即国际电话区号，手机认证登录方式需要传入。<br>verifyCode：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>action：register（用于注册）或 reset（用于重置）。 | 
+|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>`email`：邮箱账号，邮箱认证登录方式需要传入。<br>`phoneNumber`：手机号码，手机认证登录方式需要传入。<br>`countryCode`：国家码，即国际电话区号，手机认证登录方式需要传入。<br>`verifyCode`：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>`action`：`register`（用于注册）或 `reset`（用于重置）。 | 
 
 **示例**：
 

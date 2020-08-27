@@ -46,7 +46,7 @@
 
 - [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目，进入 **质量 -> 崩溃服务**，确认崩溃数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
+- 工程运行到手机后，登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目，进入 **质量 -> 崩溃服务**，确认崩溃数据可以正常显示（通常会在 15 分钟内显示），即为接入成功。
 
   ![](agc-crash/crash-console.jpg)
 

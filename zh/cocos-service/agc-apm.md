@@ -37,7 +37,7 @@
 
 - 完成 **性能管理** 服务接入步骤后，无需改动代码，即可 [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目， 进入 **质量 -> 性能管理**，若能看到应用性能数据正常显示（通常会在 15 分钟内显示），即为接入成功。
+- 工程运行到手机后，登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，打开对应项目， 进入 **质量 -> 性能管理**，若能看到应用性能数据正常显示（通常会在 15 分钟内显示），即为接入成功。
 
   ![](agc-apm/apm-console.jpg)
 
@@ -145,7 +145,7 @@ huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
 
 `removeCustomTraceProperty (name: string, propertyName: string): void`
 
-从 CustomTrace 实例中移除已存在属性。
+从 CustomTrace 实例中移除自定义属性。
 
 **参数说明**：
 
@@ -289,7 +289,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 | 参数 | 说明 |  
 | :---------- | :------------- |  
 | url | 网络请求 URL 地址 | 
-| httpMethod | 请求方法，仅支持 GET、PUT、POST、DELETE、HEAD、PATCH、OPTIONS、TRACE 或 CONNECT 方法。 | 
+| httpMethod | 请求方法，仅支持 GET、PUT、POST、DELETE、HEAD、PATCH、OPTIONS、TRACE 和 CONNECT 方法。 | 
 
 **示例**：
 

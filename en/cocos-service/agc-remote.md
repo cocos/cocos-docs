@@ -8,7 +8,7 @@ By integrating the client SDK, your app can periodically obtain parameter values
 
 - **Parameter management**: Includes adding, deleting, and modifying parameters, copying and modifying existing parameters as new ones, and setting conditional values.
 - **Condition management**: Includes adding, deleting, and modifying conditions, and copying and modifying existing conditions as new ones. Currently, you can set the following conditions: version, language, country/region, audience, user attribute, user percentage, and time. More conditions will be available in the future.
-- **Version management**: Supports management and rollback of up to 300 versions for parameters and conditions.
+- **Version management**: Supports management and rollback of up to 90 days of 300 historical versions for parameters and conditions.
 - **Permission management**: Allows the account holder, administrator, app administrator, R&D personnel, and operations personnel to access Remote Configuration by default.
 
 ### Use Cases
@@ -51,7 +51,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the settings directory of the project directory after downloading or updating.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-remote/remote-configfile.png)
 
@@ -70,7 +70,7 @@ When integrating the **Remote Configuration** service in the Android project, a 
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- After the project is run on the mobile phone, if you can see the output value is **testValue** in LogCat, which means the integrate is successful.
+- Run it on a phone, if you can see the output value is **testValue** in LogCat, which means the integrate is successful.
 
   ![](agc-remote/remote-logcat.png)
 
@@ -92,7 +92,7 @@ Developer can get a quick taste of the Remote Configuration with the sample proj
 
 This document refers to the AppGallery Connect documentation - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). When calling in JavaScript, please use this document and the [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) as a guide.
 
-Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration Service plugin that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply` methods of the Java SDK in its wrapper.
+Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration service plugin that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply` methods of the Java SDK in its wrapper.
 
 ### Setting Parameter Values in Remote Configuration
 
@@ -156,13 +156,13 @@ huawei.agc.rc.rcService.fetch();
 ### Obtaining Parameter Values by Data Type
 
 ```js
-getValueAsBoolean(key: String): Boolean { return false; }
+getValueAsBoolean(key: String): Boolean {return false;}
 
-getValueAsDouble(key: String): Number { return 0; }
+getValueAsDouble(key: String): Number {return 0;}
 
-getValueAsLong(key: String): Number { return 0; }
+getValueAsLong(key: String): Number {return 0;}
 
-getValueAsString(key: String): String { return ""; }
+getValueAsString(key: String): String {return "";}
 ```
 
 After default parameter values are set and parameter values are fetched from Remote Configuration, you can call any of these APIs provided by the SDK based on the data type to obtain the parameter values to use in your app.

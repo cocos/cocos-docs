@@ -14,7 +14,7 @@
 
 - Use Cocos Creator to open the project that needs to be connected to Crash service.
 
-- Since the Crash service uses the HUAWEI Analytics Kit to report crash event, please enable the [Analytics Kit (HMS Core)](./hms-analytics.md) before integrating the Crash Service.
+- Since the Crash service uses the HUAWEI Analytics Kit to report crash event, please enable the [Analytics Kit (HMS Core)](./hms-analytics.md) before integrating the Crash service.
 
 - Click on **Panel -> Service** in the menu bar to open the Service panel, select Crash service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
@@ -26,7 +26,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - Login to AppGallery Connect and click on **My projects** to select the project. Then select the app to enable the Remote Configuration service from the app list of the project.
 
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the settings directory of the project directory after downloading or updating.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-crash/crash-configfile.png)
 
@@ -45,7 +45,7 @@ Generally, there is a low probability of an application crashing, so the Crash s
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
+- Run it on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
 
   ![](agc-crash/crash-console.jpg)
 
@@ -77,7 +77,7 @@ This method is used to enable or disable the crash data reporting function. The 
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  enable    | 	Indicates whether to enable the crash data reporting function.<br>**false**: disable the Crash service.<br>**true**: enable the Crash service. | 
+|  enable    | 	Indicates whether to enable the crash data reporting function.<br>**false**: Disable the crash data reporting.<br>**true**: Enable the crash data reporting. | 
 
 **Example**:
 
@@ -89,7 +89,7 @@ huawei.AGC.Crash.CrashService.enableCrashCollection(false);
 
 `testIt(): void`
 
-This method is used to trigger a crash for testing an app. This method can be used to test the Crash service of your app during debugging. Do not use it in any formally release app.
+This method is used to trigger a crash for testing an app. This method can be used to test the Crash service of your app during debugging. Do not use it in any formally released application.
 
 **Example**:
 

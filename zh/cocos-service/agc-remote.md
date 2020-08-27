@@ -58,7 +58,7 @@
 
 ### 验证服务是否接入成功
 
-在 Android 工程中接入 **远程配置** 服务时，添加了本地配置文件 res/xml/remote_config.xml，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
+在 Android 工程中接入 **远程配置** 服务时，添加了本地配置文件 `res/xml/remote_config.xml`，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
 
 ![](agc-remote/remote-configxml.png)
 
@@ -157,13 +157,13 @@ huawei.agc.rc.rcService.fetch();
 ### 获取参数值
 
 ```js
-getValueAsBoolean(key: String): Boolean { return false; }
+getValueAsBoolean(key: String): Boolean {return false;}
 
-getValueAsDouble(key: String): Number { return 0; }
+getValueAsDouble(key: String): Number {return 0;}
 
-getValueAsLong(key: String): Number { return 0; }
+getValueAsLong(key: String): Number {return 0;}
 
-getValueAsString(key: String): String { return ""; }
+getValueAsString(key: String): String {return "";}
 ```
 
 在设置默认值和更新云端参数值后，就可以调用以上方法中所需类型的方法获取参数值。远程配置服务插件封装时，提供了四种数据类型的接口，可根据需求进行使用。
