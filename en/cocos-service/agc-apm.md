@@ -34,7 +34,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
-- Once the APM service is integrated, you can [publish to the Android platform](./publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
+- Once the APM service is integrated, you can [publish to the Android platform](../publish/publish-native.md) without changing your code. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
 - Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> APM**. If you can see App Performance information (usually displayed within 15 minutes), which means the integrate is successful.
 
@@ -46,7 +46,7 @@ Developer can get a quick taste of the APM service with the sample project.
 
 - Click on the **Sample** button in the APM service panel, clone or download, and open the project in Cocos Creator.
 
-- After enabling the APM service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](./publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](./publish/publish-native.md).
+- After enabling the APM service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
@@ -60,7 +60,7 @@ Developer can get a quick taste of the APM service with the sample project.
 
 `enableCollection (enable: boolean): void`
 
- The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111).
+ The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) for details.
 
 The priority of the disabling configuration in apps is **higher** than that through Remote Configuration in AppGallery Connect. If users disable performance monitoring in apps, the APM does not collect performance data even if the performance monitoring function is enabled through Remote Configuration in AppGallery Connect.
 
@@ -277,7 +277,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### Adding Indicators to Monitor Specific Network Requests (Optional)
 
-APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. You can refer to AGC APM document - [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure).
+APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. For details, please refer to AGC APM document - [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure).
 
 #### Init
 

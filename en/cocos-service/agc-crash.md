@@ -51,7 +51,7 @@ Generally, there is a low probability of an application crashing, so the Crash s
 
 ## Sample Project
 
-Developer can get a quick taste of the Analytics Kit with the sample project.
+Developer can get a quick taste of the Crash service with the sample project.
 
 - Click on the **Sample** button in the Crash service panel, clone or download, and open the project in Cocos Creator.
 

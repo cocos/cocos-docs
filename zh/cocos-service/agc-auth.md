@@ -30,7 +30,7 @@
   - 微博
   - QQ
 
-   以下几种海外登录方式 **仅支持海外站点**，例如数据存储位置为德国、新加坡或俄罗斯时。其中 **Google 帐号** 和 **Google Play Game 帐号** 这两种认证方式仅支持在安装了 GMS（Google Mobile Services）服务的设备上使用。
+  以下几种海外登录方式 **仅支持海外站点**，例如数据存储位置为德国、新加坡或俄罗斯时。其中 **Google 帐号** 和 **Google Play Game 帐号** 这两种认证方式仅支持在安装了 GMS（Google Mobile Services）服务的设备上使用。
 
   - Google
   - Google Play Game
@@ -78,7 +78,6 @@
   ![](agc-auth/auth-console1.png)
 
 - 填写所需参数。各认证方式的参数申请，可参考 AGC 认证服务文档 — [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408)。
-
 
   ![](agc-auth/auth-console2.png)
 
@@ -429,9 +428,9 @@ huawei.agc.auth.authService.deleteUser();
 **示例**：
 
 ```js
-huawei.agc.auth.authService.resetPassword( "132xxxxxxxx", "neWPaSSwOrd", "1234", "0086");
+huawei.agc.auth.authService.resetPassword("132xxxxxxxx", "neWPaSSwOrd", "1234", "0086");
 
-huawei.agc.auth.authService.resetPassword( "newUser1@gmail.com", "neWPaSSwOrd", "1234");
+huawei.agc.auth.authService.resetPassword("newUser1@gmail.com", "neWPaSSwOrd", "1234");
 ```
 
 ## API 文档
