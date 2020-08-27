@@ -30,7 +30,7 @@
   - 微博
   - QQ
 
-  以下几种海外登录方式 **仅支持海外站点**，例如数据存储位置为德国、新加坡或俄罗斯时。其中 **Google 帐号** 和 **Google Play Game 帐号** 这两种认证方式仅支持在安装了 GMS（Google Mobile Services）服务的设备上使用。
+  以下几种海外认证方式 **仅支持海外站点**，例如数据存储位置为德国、新加坡或俄罗斯时。其中 **Google 帐号** 和 **Google Play Game 帐号** 这两种认证方式仅支持在安装了 GMS（Google Mobile Services）服务的设备上使用。
 
   - Google
   - Google Play Game
@@ -84,6 +84,10 @@
 - 设置完成后回到 Creator 服务面板，勾选所需的认证方式，填入该认证方式客户端所需的参数。
 
   ![](agc-auth/auth-params.jpg)
+
+  若使用 **Google 帐号** 或 **Google Play Game 帐号** 认证方式，在发布到 Android 平台时，**构建发布** 面板中的 **生成 App Bundle（Google Play）** 项 **请勿勾选**。
+
+  ![](agc-auth/auth-google-bundle.png)
 
 ### 配置华为参数文件
 

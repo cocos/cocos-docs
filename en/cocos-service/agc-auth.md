@@ -76,6 +76,10 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-params.jpg)
 
+  If you are using **Google account** or **Google Play Game account** authentication method, **do not** check the **Generate App Bundle (Google Play)** option in the **Build** panel when publishing to Android.
+
+  ![](agc-auth/auth-google-bundle.png)
+
 ### Configs HUAWEI Config file
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
@@ -193,7 +197,7 @@ huawei.agc.auth.authService.logout();
 
 `getUserInfo(): any`
 
-Get current user info. Return information include isAnonymous (is it a annoymous account), uid (user id), displayName (displays the user name or not), photoUrl (photo url), email (email account), phone (phone number), providerId (enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type), providerInfo (auth provider info), emailVerified (Is it verified by email), passwordSetted (set the password or not).
+Get current user info. Return information may include `isAnonymous` (is it a annoymous account), `uid` (user id), `displayName` (displays the user name or not), `photoUrl` (photo url), `email` (email account), `phone` (phone number), `providerId` (enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type), `providerInfo` (auth provider info), `emailVerified` (is it verified by email), `passwordSetted` (set the password or not).
 
 **Example**:
 
