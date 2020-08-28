@@ -44,6 +44,13 @@ After installing Android Studio, refer to the official documentation and open th
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
+**Note**: Currently, the version of Android Gradle supported by Creator is **4.10.x**, and the corresponding Gradle Tool version is **3.x** (v3.2.0 is recommended). When using Android Studio to compile, please **do not** upgrade when prompted to upgrade the Android Gradle Plugin.
+
+![](setup-native-development/gradle-update.png)
+
+- View the file path for the Android Gradle version as: `YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\build.gradle`
+- View the file path for the Gradle Tool version as: `YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\gradle\wrapper\gradle-wrapper.properties`
+
 ## Install C++ compiling environment
 
 Please install the following running environment:

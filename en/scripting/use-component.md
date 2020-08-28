@@ -15,17 +15,18 @@ cc.Class({
     properties: {
     },
 
-    // use this for initialization
+    // Use this for initialization
     onLoad: function () {
     },
 
-    // called every frame, uncomment this function to activate update callback
+    // Called every frame, uncomment this function to activate update callback
     update: function (dt) {
     },
 });
 ```
 
 ## Editing script
+
 We recommend that a popular editor is used, such as: Vim, Sublime Text, WebStorm, VSCode, etc. Each editor has advantages and disadvantages. Please set it up in [Settings](../getting-started/basics/editor-panels/preferences.md#script-editor) first.
 
 Edit the scripts and save them. Cocos Creator will automatically detect the alteration of the script and compile it quickly.
@@ -42,7 +43,7 @@ If everything goes well, you will see your script shown in **Properties**:
 
 ![script-in-inspector](assets/script-in-inspector.png)
 
-**Note:** You can also add script by dragging script asset into **Properties**.
+**Note**: You can also add script by dragging script asset into **Properties**.
 
 ---
 
