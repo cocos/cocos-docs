@@ -62,7 +62,7 @@ cc.assetManager.init({
     remoteBundles: settings.remoteBundles,
     server: settings.server,
     jsbDownloaderMaxTasks: 32, // 最大并发数
-    jsbDownloaderTimeout: 30 // 超时时长
+    jsbDownloaderTimeout: 60 // 超时时长
 });
 ```
 
