@@ -12,6 +12,14 @@ The **Service** Panel currently supports the integration of third-party services
 
   - [Analytics Kit (HMS Core)](hms-analytics.md)
 
+  - [APM (AppGallery Connect)](agc-apm.md)
+
+  - [Auth Service (AppGallery Connect)](agc-auth.md)
+
+  - [Crash (AppGallery Connect)](agc-crash.md)
+    
+  - [Remote Configuration (AppGallery Connect)](agc-remote.md)
+
   - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
 ## Usage
