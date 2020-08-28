@@ -55,15 +55,15 @@ You can set limits such as the maximum number of concurrent downloads in the dow
 
 **Note**: On native platforms, resources are downloaded via the `jsbDownloader` object, which is an instance of the `jsb.Downloader`. The `jsb.Downloader` class also has a limit on the number of concurrent download task, and timeout. The default concurrency setting of `jsbDownloader` is 32 and the default timeout is 30 seconds. You can customize main.js if you want to change the settings. as follows.
 
-  ```js
-  // In main.js
-  cc.assetManager.init({ 
-      bundleVers: settings.bundleVers,
-      remoteBundles: settings.remoteBundles,
-      server: settings.server,
-      jsbDownloaderMaxTasks: 32, // Max concurrency
-      jsbDownloaderTimeout: 60 // Timeout
-  });
+```js
+// In main.js
+cc.assetManager.init({ 
+    bundleVers: settings.bundleVers,
+    remoteBundles: settings.remoteBundles,
+    server: settings.server,
+    jsbDownloaderMaxTasks: 32, // Max concurrency
+    jsbDownloaderTimeout: 60 // Timeout
+});
 ```
 
 ## Parser
