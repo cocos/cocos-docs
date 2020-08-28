@@ -53,7 +53,7 @@ Creator 开放了四个下载优先级，下载器将会按照优先级 **从大
   cc.assetManager.downloader.maxRequestsPerFrame = 6;
   ```
 
-**注意**：在原生平台，资源下载时是通过 `jsbDownloader` 对象进行下载，它是 `jsb.Downloader` 类的一个实例。`jsb.Downloader` 类中也存在有并发数限制，与超时时长。目前引擎默认设置 `jsbDownloader` 的并发数限制为 32，超时时长默认为 30 秒，如果有需要的话，可以通过自定义 main.js 进行修改。如下：
+**注意**：在原生平台上，downloader 拥有一个 `jsb.Downloader` 类型的实例用于从服务器上下载文件。`jsb.Downloader` 类型与 web 上的 `XMLHttpRequest` 类似，存在有并发数限制，与超时时长等设置。目前 downloader 中的 `jsb.Downloader` 的实例的并发数限制默认为 32，超时时长默认为 30 秒，如果有需要的话，可以通过自定义 main.js 进行修改。如下：
 
 ```js
 // main.js 中
