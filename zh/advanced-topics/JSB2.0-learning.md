@@ -230,10 +230,10 @@ __对象类型__
 
 此外，se::Object 目前支持以下几种对象的手动创建：
 
-* Plain Object : 通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
-* Array Object : 通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
-* Uint8 Typed Array Object : 通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
-* Array Buffer Object : 通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
+* Plain Object: 通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
+* Array Object: 通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
+* Uint8 Typed Array Object: 通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
+* Array Buffer Object: 通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
 
 __手动创建对象的释放__
 

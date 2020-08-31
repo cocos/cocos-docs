@@ -86,7 +86,7 @@ First, find the background image resource according to the path of `assets/textu
 
 Now you can release the mouse button, and you will see a node named `background` has been added under `Canvas`. When we use the way of dragging a resource to add a node, the node will be automatically named as the name of the image resource.
 
-When we edit and modify the scene, we can promptly save our modifications by main menu `File -> Save Scene`. Or we can save by shortcut keys: <kbd>Ctrl+S</kbd>（Windows）or <kbd>Cmd + S</kbd>（Mac）.
+When we edit and modify the scene, we can promptly save our modifications by main menu `File -> Save Scene`. Or we can save by shortcut keys: <kbd>Ctrl+S</kbd> (Windows) or <kbd>Cmd + S</kbd> (Mac).
 
 ### Modify background size
 
@@ -609,7 +609,7 @@ Open the `Star` script after saving, now we can use the `player` node referenced
     },
 ```
 
-The `getPosition()` method under the node returns the position（x, y）of the node in the parent node's coordinate system, that is a `Vec2` type object. At the same time, note that call node under `destroy()` method can destroy the node.
+The `getPosition()` method under the node returns the position (x, y) of the node in the parent node's coordinate system, that is a `Vec2` type object. At the same time, note that call node under `destroy()` method can destroy the node.
 
 Then add the judging distance for each frame in the `update` method. If the distance is less than the collection distance specified by the `pickRadius` property, the collection behavior is performed:
 
@@ -631,7 +631,7 @@ Save the script, by pressing <kbd>A</kbd> and <kbd>D</kbd> key to control the ma
 
 The little monster makes a great effort to collect the stars, does not have the reward how to line? Now, let's add the logic and display of scoring when collecting stars.
 
-### Adding a score label（Label）
+### Adding a score label (Label)
 
 The score will start from 0 when the game is started. 1 point will be added for 1 star collected. To display the score, we should first create a **Label** node. Choose the `Canvas` node in the **Node Tree**, right click and choose `Create -> Create Renderer Nodes -> Node With Label`. A new label node will be created under `Canvas` node, and it will be located at the bottom. Next we will use the following steps to set up this label node:
 

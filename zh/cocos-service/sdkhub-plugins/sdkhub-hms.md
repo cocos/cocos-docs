@@ -19,7 +19,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
     
 - 若需要使用游戏服务，需要开发者 [配置成就和事件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/config-agc-0000001050166285-V5#ZH-CN_TOPIC_0000001051142256__section122826183710)，获取对应的 ID。
 
-- 需要在安装 HMS Core 服务的华为或荣耀品牌手机上测试。
+- 需要在已安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
 ## Sample 工程
 

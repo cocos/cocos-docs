@@ -1,6 +1,6 @@
 # Asset Bundle Overview
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.<br>
 The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in subprojects.
@@ -27,7 +27,35 @@ The built-in Asset Bundle can be loaded in two ways:
 - Configure the **Resource Server Address** in the **Build** panel at build time.
 - Modify the code in `main.js` through the custom build template feature, as follows:
 
-  ![launch](bundle/launch.png) 
+  ```js
+  // ...
+
+  let bundleRoot = [];
+  // Add the URL where "internal" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/internal');
+  // If "resources" bundle exists, add the URL where "resources" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/resources');
+  // Add the URL where "main" bundle is located.
+  bundleRoot.push('http://myserver.com/assets/main');
+
+  var count = 0;
+  function cb (err) {
+      if (err) {
+          return console.error(err.message, err.stack);
+      }
+      count++;
+      if (count === bundleRoot.length + 1) {
+          cc.game.run(option, onStart);
+      }
+  }
+
+  cc.assetManager.loadScript(settings.jsList.map(x => 'src/' + x), cb);
+
+  for (let i = 0; i < bundleRoot.length; i++) {
+      cc.assetManager.loadBundle(bundleRoot[i], cb);
+  }
+
+  ```
 
 ## Priority
 
@@ -81,7 +109,7 @@ At build time, all the **code** and **resources** in the folder configured as th
 - **Resources**: All resources in the folder and the related dependent resources outside the folder are placed in the `import` or `native` directory.
 - **Resource Configuration**: All resource configuration information including path, type, and version information is merged into a file named `config.json`.
 
-The structure of the Asset Bundle directory generated after build is shown below：
+The structure of the Asset Bundle directory generated after build is shown below:
 
 ![export](bundle/exported.png) 
 

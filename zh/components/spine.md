@@ -91,7 +91,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
         extends: cc.Component,
 
         properties: {
-            skeleton : {
+            skeleton: {
                 type: sp.Skeleton,
                 default: null,
             }

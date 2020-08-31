@@ -1,6 +1,6 @@
 # Release Of Resources
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 A resource release module is provided in Asset Manager to manage the release of resources.
 

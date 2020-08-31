@@ -36,11 +36,11 @@ class CustomGizmo extends Editor.Gizmo {
         // 实例：
 
         // 创建一个 svg 工具
-        // group 函数文档 : http://documentup.com/wout/svg.js#groups
+        // group 函数文档：http://documentup.com/wout/svg.js#groups
         this._tool = this._root.group();
 
         // 画一个的圆
-        // circle 函数文档 : http://documentup.com/wout/svg.js#circle
+        // circle 函数文档：http://documentup.com/wout/svg.js#circle
         let circle = this._tool.circle();
 
         // 为 tool 定义一个绘画函数，可以为其他名字
@@ -86,7 +86,7 @@ class CustomGizmo extends Editor.Gizmo {
 //        return this.selecting || this.editing;
 //    }
 
-// Gizmo 创建在哪个 Layer 中 : foreground, scene, background
+// Gizmo 创建在哪个 Layer 中：foreground, scene, background
 // 默认创建在 scene Layer
 //    layer () {
 //        return 'scene';
@@ -111,8 +111,8 @@ module.exports = CustomGizmo;
 }
 ```
 
-**CustomComponent** ：Component 名字
-**packages://custom-gizmo/custom-gizmo.js** ：CustomGizmo 路径
+- **CustomComponent**：Component 名字。
+- **packages://custom-gizmo/custom-gizmo.js**：CustomGizmo 路径
 
 这样就将 CustomGizmo 注册到 CustomComponent 上了。
 

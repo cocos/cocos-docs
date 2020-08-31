@@ -158,7 +158,7 @@ myProfile = {
 }
 ```
 
-In the grammar for object declaration（`myProfile = {...}`）, there is one pair of key values separated by a comma. Each pair includes one key (character string type, sometimes quoted by double quotation marks) and a value (could be any type: including string, number, boolean, variable name, array, object, and even function). We call such pairs of key values a property of the object, key is the property name and value is the property value.
+In the grammar for object declaration (`myProfile = {...}`), there is one pair of key values separated by a comma. Each pair includes one key (character string type, sometimes quoted by double quotation marks) and a value (could be any type: including string, number, boolean, variable name, array, object, and even function). We call such pairs of key values a property of the object, key is the property name and value is the property value.
 
 You can nest other objects or arrays composed by a set of objects in the value
 
@@ -370,7 +370,7 @@ This piece of code defines a new component to the engine. This component has a `
 
 Let's go through the function of each sentence (I will highlight useful grammar patterns):
 
-`var Comp = cc.Class({`: Here we use the object `cc`, call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax **, the parameter passing during the call is an anonymous **JavaScript object** （`{}`）.
+`var Comp = cc.Class({`: Here we use the object `cc`, call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax **, the parameter passing during the call is an anonymous **JavaScript object** (`{}`).
 
 `target: { default: null, type: cc.Entity }`: This pair of key values declare a property named `target` and its value is another JavaScript anonymous object which defines the default value and value type of the target.
 

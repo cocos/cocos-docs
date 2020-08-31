@@ -1,6 +1,6 @@
 # Download and Parse
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 The underlying of the Asset Manager uses multiple loading pipelines to load and parse resources, each of which uses the `downloader` and `parser` modules, that is, the downloader and the parser. You can access them via `cc.assetManager.downloader` and `cc.assetManager.parser`.
 

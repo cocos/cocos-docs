@@ -25,7 +25,7 @@ There are two ways to create node in Hierarchy:
 
 ## Delete node
 
-After select node, you can delete the selected node by the `delete` option in the right click menu or press the hot key <kbd>Delete</kbd>（Windows）or <kbd>Cmd + Backspace</kbd>. If the selected node contains child node, then the child node will be deleted along with it.
+After select node, you can delete the selected node by the `delete` option in the right click menu or press the hot key <kbd>Delete</kbd> (Windows) or <kbd>Cmd + Backspace</kbd> (Mac). If the selected node contains child node, then the child node will be deleted along with it.
 
 ## Create and edit node parenting relationship
 

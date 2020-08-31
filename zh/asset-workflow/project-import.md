@@ -2,7 +2,7 @@
 
 ## 简介
 
-通过 Cocos Creator 主菜单中 `文件->导入项目` 的子菜单，可以导入其他编辑器中的项目。目前支持导入的编辑器项目有：
+通过 Cocos Creator 主菜单中 **文件 -> 导入项目** 的子菜单，可以导入其他编辑器中的项目。目前支持导入的编辑器项目有：
 
 * Cocos Studio 项目（*.ccs 文件）
 * Cocos Builder 项目（*.ccbproj 文件）
@@ -17,8 +17,11 @@
 
 1. 点击相应的菜单，打开文件选择对话框。
 2. 选择对应扩展名的文件，即可开始导入。如图：
+
 	![select-file.png](./project-import/select-file.png)
+
 3. 导入过程中 Cocos Creator 的控制台窗口会持续输出 log 以显示当前的导入进度。如下图：
+
 	![import-process.png](./project-import/import-process.png)
 	
 	输出的 log 说明：
@@ -74,8 +77,7 @@ Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与
 * 导入嵌套的 csd：
 
     当 csd 包含嵌套时候，会自动创建一个挂有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代，该组件中的
-    `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行目前不支持编辑器中预览）  
-
+    `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行目前不支持编辑器中预览）
 
 ## Cocos Builder 项目导入说明
 

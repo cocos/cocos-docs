@@ -7,7 +7,7 @@ Using Dashboard we can create a new project with **Hello World** project templat
 Your Cocos Creator project should look like this:
 
 ```
-ProjectName（project root）
+ProjectName (project root)
 ├──assets
 ├──library
 ├──local

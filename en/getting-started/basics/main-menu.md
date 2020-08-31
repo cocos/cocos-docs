@@ -77,7 +77,7 @@ Run, build projects, and project-specific personalization configurations.
 * **Properties (Shortcut: <kbd>Ctrl/Command + 3</kbd>)**: Open or focus the [Properties](editor-panels/properties.md) panel.
 * **Node Library (Shortcut: <kbd>Ctrl/Command + 5</kbd>)**: Open or focus the [Node Library](editor-panels/node-library.md) panel.
 * **Scene (Shortcut: <kbd>Ctrl/Command + 1</kbd>)**: Open or focus the [Scene](editor-panels/scene.md) panel.
-* **TimeLine (<kbd>Ctrl/Command + 6</kbd>）**: Open or focus the [Timeline](../../animation/animation.md) panel.
+* **TimeLine (<kbd>Ctrl/Command + 6</kbd>)**: Open or focus the [Timeline](../../animation/animation.md) panel.
 
 ## Layout
 

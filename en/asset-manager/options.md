@@ -1,6 +1,6 @@
 # Optional Parameters
 
-> Author：Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
 For added flexibility and extensibility, most of the load interfaces in Asset Manager, including `cc.assetManager.loadAny` and `cc.assetManager.preloadAny`, provide `options` parameters. In addition to configuring the built-in parameters of Creator, `options` also allows you to customize any parameters to extend engine functionality. If you do not need to configure the engine's built-in parameters or extend the engine's functionality, you can ignore it and just use the simpler API interfaces, such as `cc.resources.load`.
 

@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang，Xunyi
 
-为了增加灵活性和扩展性，Asset Manager 中大部分的加载接口包括 `cc.assetManager.loadAny` 和 `cc.assetManager.preloadAny` 都提供了 `options` 参数。`options` 除了可以配置 Creator 的内置参数，还可以自定义任意参数用于扩展引擎功能。如果开发者不需要配置引擎内置参数或者扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
+为了增加灵活性和可扩展性，Asset Manager 中大部分的加载接口包括 `cc.assetManager.loadAny` 和 `cc.assetManager.preloadAny` 都提供了 `options` 参数。`options` 除了可以配置 Creator 的内置参数，还可以自定义任意参数用于扩展引擎功能。如果开发者不需要配置引擎内置参数或者扩展引擎功能，可以无视它，直接使用更简单的 API 接口，比如 `cc.resources.load`。
 
 目前 `options` 中引擎已使用的参数包括：
 

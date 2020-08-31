@@ -143,9 +143,9 @@ In the call-back of the event listener, the developer will receive an event obje
 | `stopPropagation` | `Function` | stop the bubble stage, the event will no longer pass on to the parent node while the rest of the listeners of the current node will still receive the event |
 | `stopPropagationImmediate` | `Function` | stop delivering the event. The event will not pass on to the parent node and the rest of the listeners of the current node |
 | `getCurrentTarget` | `Function` | get the target node that is currently receiving the event |
-| `detail` | `Function` | custom event information（belongs to `cc.Event.EventCustom`） |
-| `setUserData` | `Function` | set custom event information（belongs to `cc.Event.EventCustom`） |
-| `getUserData` | `Function` | get custom event information（belongs to `cc.Event.EventCustom`） |
+| `detail` | `Function` | custom event information (belongs to `cc.Event.EventCustom`) |
+| `setUserData` | `Function` | set custom event information (belongs to `cc.Event.EventCustom`) |
+| `getUserData` | `Function` | get custom event information (belongs to `cc.Event.EventCustom`) |
 
 You can refer to the `cc.Event` and API files of its child category for a complete API list.
 

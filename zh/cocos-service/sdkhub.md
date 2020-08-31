@@ -43,7 +43,7 @@ Cocos SDKHub 服务接入完成后，我们可以通过在脚本中添加简单�
     },2);
     ```
 
-- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [打包发布](../publish/publish-native.md) 到 **Android** 平台。若能在设备中看到 Debug 模式下的登录窗口，即为接入成功。
+- 脚本修改完成并保存后，回到编辑器。Cocos SDKHub 调试需要 [发布到 Android 平台](../publish/publish-native.md)。若能在设备中看到 Debug 模式下的登录窗口，即为接入成功。
 
   ![](sdkhub/sdkhub-debugging.jpg)
     
@@ -387,8 +387,8 @@ var userInfo = sdkhub.getUserPlugin().getUserInfo();
 
 ```js
 var params = {
-    userID : "890839221",
-    userName : "test_name"
+    userID: "890839221",
+    userName: "test_name"
 };
 sdkhub.getUserPlugin().setUserInfo(params);
 ```
