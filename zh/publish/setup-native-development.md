@@ -44,6 +44,13 @@ java -version
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
+**注意**：目前 Creator 支持的 Android Gradle 版本为 **4.10.x**，对应的 Gradle Tool 版本为 **3.x**（推荐使用 v3.2.0）。在使用 Android Studio 编译时，若出现 Android Gradle 插件的升级提示，建议不要升级。
+
+![](setup-native-development/gradle-update.png)
+
+- 查看 Android Gradle 版本的文件路径：`YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\build.gradle`
+- 查看 Gradle Tool 版本的文件路径：`YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\gradle\wrapper\gradle-wrapper.properties`
+
 ## 安装 C++ 编译环境
 
 请安装以下运行环境：
