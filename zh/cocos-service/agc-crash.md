@@ -40,7 +40,7 @@
   ```js
   console.log("Call crash method after 5 seconds.");
   this.scheduleOnce(function(){
-      huawei.AGC.Crash.CrashService.testIt();
+      huawei.agc.Crash.CrashService.testIt();
   },5);
   ```
 
@@ -83,7 +83,7 @@
 **示例**：
 
 ```js
-huawei.AGC.Crash.CrashService.enableCrashCollection(false);
+huawei.agc.Crash.CrashService.enableCrashCollection(false);
 ```
 
 ### 制造崩溃异常
@@ -95,7 +95,7 @@ huawei.AGC.Crash.CrashService.enableCrashCollection(false);
 **示例**：
 
 ```js
-huawei.AGC.Crash.CrashService.testIt();
+huawei.agc.Crash.CrashService.testIt();
 ```
 
 ## 服务使用参考文档
