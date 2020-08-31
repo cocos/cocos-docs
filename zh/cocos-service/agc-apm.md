@@ -138,7 +138,7 @@ let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
 
-huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
+huawei.AGC.apms.putCustomTraceProperty(traceID, pName, pValue);
 ```
 
 #### 移除自定义属性
