@@ -73,7 +73,7 @@ The priority of the disabling configuration in apps is **higher** than that thro
 **Example**:
 
 ```js
-huawei.agc.apms.enableCollection(true);
+huawei.agc.apms.apmsService.enableCollection(true);
 ```
 
 ### Creating a Custom Trace (Optional)
@@ -95,7 +95,7 @@ Starts a custom trace. You can refer to AGC APM document - [start](https://devel
 **Example**:
 
 ```js
-huawei.agc.apms.startCustomTrace("traceID");
+huawei.agc.apms.apmsService.startCustomTrace("traceID");
 ```
 
 #### Stop
@@ -113,7 +113,7 @@ Stops a custom trace. You can refer to AGC APM document - [stop](https://develop
 **Example**:
 
 ```js
-huawei.agc.apms.stopCustomTrace("traceID");
+huawei.agc.apms.apmsService.stopCustomTrace("traceID");
 ```
 
 #### Put Property
@@ -137,7 +137,7 @@ let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
 
-huawei.agc.apms.putCustomTraceProperty(traceID, pName, pValue);
+huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
 ```
 
 #### Remove Property
@@ -159,7 +159,7 @@ Removes an existing attribute from a CustomTrace instance.
 let traceID = "testTrace";
 let pName = "product";
 
-huawei.agc.apms.removeCustomTraceProperty(traceID, pName);
+huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 ```
 
 #### Get Property
@@ -180,7 +180,7 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 ```js
 let traceID = "testTrace";
 let pName = "product";
-let propertValue = huawei.agc.apms.getCustomTraceProperty(traceID, pName);
+let propertValue = huawei.agc.apms.apmsService.getCustomTraceProperty(traceID, pName);
 console.log("pValue = ", propertValue);
 ```
 
@@ -205,7 +205,7 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.incrementCustomTraceMeasure (traceID, mName, mValue);
 ```
 
 #### Get Measure
@@ -227,7 +227,7 @@ Obtains an indicator value for a custom trace. You can refer to AGC APM document
 let traceID = "testTrace";
 let mName = "MeasureName";
 
-let measureValue = huawei.agc.apms.getCustomTraceMeasure(traceID, mName);
+let measureValue = huawei.agc.apms.apmsService.getCustomTraceMeasure(traceID, mName);
 console.log("mValue = ", measureValue);
 ```
 
@@ -252,7 +252,7 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.putCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.putCustomTraceMeasure (traceID, mName, mValue);
 ```
 
 #### Get Properties
@@ -271,7 +271,7 @@ Obtains the custom attribute values by JSON object.
 
 ```js
 let traceID = "testTrace";
-let tProp = huawei.agc.apms.getCustomTraceProperties(traceID);
+let tProp = huawei.agc.apms.apmsService.getCustomTraceProperties(traceID);
 console.log("tProp = ", JSON.stringify(tProp));
 ```
 
@@ -295,7 +295,7 @@ APM automatically collects performance data of most network requests for your ap
 **Example**:
 
 ```js
-let id = huawei.agc.apms.initNetworkMeasure(url, "POST");
+let id = huawei.agc.apms.apmsService.initNetworkMeasure(url, "POST");
 console.log("createNetworkMeasure, id = ", id);
 ```
 
@@ -314,7 +314,7 @@ Sets the request start time. You can refer to AGC APM document - [start](https:/
 **Example**:
 
 ```js
-huawei.agc.apms.startNetworkMeasure(id);
+huawei.agc.apms.apmsService.startNetworkMeasure(id);
 ```
 
 #### Stop
@@ -332,7 +332,7 @@ Sets the request end time and reports network request indicators and custom attr
 **Example**:
 
 ```js
-huawei.agc.apms.stopNetworkMeasure(id);
+huawei.agc.apms.apmsService.stopNetworkMeasure(id);
 ```
 
 #### Set Status Code
@@ -351,7 +351,7 @@ Sets the response code of a request. You can refer to AGC APM document - [setSta
 **Example**:
 
 ```js
-huawei.agc.apms.setNetworkMeasureStatusCode(id, 500);
+huawei.agc.apms.apmsService.setNetworkMeasureStatusCode(id, 500);
 ```
 
 #### Set Bytes Sent
@@ -370,7 +370,7 @@ Sets the request body size. You can refer to AGC APM document - [setBytesSent](h
 **Example**:
 
 ```js
-huawei.agc.apms.setNetworkMeasureBytesSent(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesSent(id, 10000);
 ```
 
 #### Set Bytes Received
@@ -389,7 +389,7 @@ Sets the response body size. You can refer to AGC APM document - [setBytesReceiv
 **Example**:
 
 ```js
-huawei.agc.apms.setNetworkMeasureBytesReceived(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesReceived(id, 10000);
 ```
 
 #### Set Content Type
@@ -408,7 +408,7 @@ Sets the response body type specified by **contentType**. You can refer to AGC A
 **Example**:
 
 ```js
-huawei.agc.apms.setNetworkMeasureContentType(id, "contentType1");
+huawei.agc.apms.apmsService.setNetworkMeasureContentType(id, "contentType1");
 ```
 
 #### Put Property
@@ -430,7 +430,7 @@ Sets the custom attribute name and value of a network request. Up to **5** custo
 ```js
 let pName = "propName";
 let pValue = "12000";
-huawei.agc.apms.putNetworkMeasureProperty(id, pName, pValue);
+huawei.agc.apms.apmsService.putNetworkMeasureProperty(id, pName, pValue);
 ```
 
 #### Remove Property
@@ -450,7 +450,7 @@ Removes an existing attribute from a **NetworkMeasure** instance. You can refer 
 
 ```js
 let pName = "propName";
-huawei.agc.apms.removeNetworkMeasureProperty(id, pName);
+huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 ```
 
 #### Get Property
@@ -470,7 +470,7 @@ Obtains all attributes from a NetworkMeasure instance by JSON object. You can re
 
 ```js
 let pName = "propName";
-let nMeasure = huawei.agc.apms.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
@@ -489,10 +489,10 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 **Example**:
 
 ```js
-let mProp = huawei.agc.apms.getNetworkMeasureProperties(id);
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
 console.log("mProp = ", mProp);
 ```
 
 ## API Documentation
 
-Please refer to the [APM - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html).
+Please refer to the [APM - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.apms.apmsService.html).
