@@ -53,7 +53,7 @@ You can set limits such as the maximum number of concurrent downloads in the dow
   cc.assetManager.downloader.maxRequestsPerFrame = 6;
   ```
 
-**Note**: In addition, `downloader` uses an instance of the `jsb.Downloader` class to download resources from the server on **native platforms**. `jsb.Downloader` is similar to the Web's [XMLHttpRequest](../scripting/network.md). Currently the `jsb.Downloader` class instances have a default download concurrency limit of **32** and a default timeout of **30s**, if you want to change the default values, you can do so in `main.js`.
+In addition, `downloader` uses an instance of the `jsb.Downloader` class to download resources from the server on **native platforms**. `jsb.Downloader` is similar to the Web's [XMLHttpRequest](../scripting/network.md). Currently the `jsb.Downloader` class instances have a default download concurrency limit of **32** and a default timeout of **30s**, if you want to change the default values, you can do so in `main.js`.
 
 ```js
 // main.js
