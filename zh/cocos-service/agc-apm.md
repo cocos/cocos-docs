@@ -284,7 +284,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 `initNetworkMeasure(url: string, httpMethod: string): string`
 
-针对每个网络请求，[创建网络请求指标实例]((https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/apms#createNetworkMeasure)，用于采集网络性能数据。**返回值即为下方各方法所需的 id 参数**。
+针对每个网络请求，[创建网络请求指标实例](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/apms#createNetworkMeasure)，用于采集网络性能数据。**返回值即为下方各方法所需的 id 参数**。
 
 **参数说明**：
 
