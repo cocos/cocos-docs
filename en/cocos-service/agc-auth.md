@@ -192,7 +192,17 @@ huawei.agc.auth.authService.logout();
 
 `getUserInfo(): any`
 
-Get current user info. The returned information may include `isAnonymous` (is it a annoymous account), `uid` (user id), `displayName` (displays the user name or not), `photoUrl` (photo url), `email` (email account), `phone` (phone number), `providerId` (enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type), `providerInfo` (auth provider info), `emailVerified` (is it verified by email), `passwordSetted` (set the password or not).
+Get current user info. The returned information may include:
+- `isAnonymous`: is it a annoymous account
+- `uid`: user id
+- `displayName`: displays the user name
+- `photoUrl`: icon photo url
+- `email`: email account
+- `phone`: phone number
+- `providerId`: enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type
+- `providerInfo`: auth provider info
+- `emailVerified`: is it verified by email
+- `passwordSetted`: set the password or not
 
 **Example**:
 
@@ -305,7 +315,7 @@ huawei.agc.auth.authService.link(huawei.agc.auth.AuthProvider.HMS_Provider);
 
 Updates information (profile image and nickname) for the current user.
 
-This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code 203817986 will be returned, indicating that the user's Refresh Token has expired. When receiving the result code, prompt your user to sign in again so that you can obtain the new Access Token and Refresh Token.
+This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code `INVALID_REFRESH_TOKEN = 203817986` will be returned, indicating that the user's Refresh Token has expired. When receiving the result code, prompt your user to sign in again so that you can obtain the new Access Token and Refresh Token.
 
 **Parameter Description**:
 
@@ -369,12 +379,12 @@ Updates the phone number of the current user, update results via the asynchronou
 | :---------- | :------------- |  
 |  countryCode  | Country/Region code. For example, 86 indicates China, 49 indicates Germany, 7 indicates Russia, and 65 indicates Singapore. This parameter supports multiple formats. Taking China as an example, the code can be 86, 0086, or +86. | 
 |  phoneNumber  | Phone number. The number does not include the plus sign (+) and country/region code. For example, for the phone number +86132xxxxxxxx, the value of this parameter is 132xxxxxxxx. |
-|  verifyCode  | Verification code. |
+|  newVerifyCode  | Verification code. |
 
 **Example**:
 
 ```js
-huawei.agc.auth.authService.updateEmail("0086", "132xxxxxxxx", "1234");
+huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 ```
 
 ### getUserExtra

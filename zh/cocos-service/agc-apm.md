@@ -59,7 +59,7 @@
 
 ### 设置性能管理服务开关
 
-`enableCollection (enable: boolean): void`
+`enableCollection(enable: boolean): void`
 
 可参考 AGC 性能管理文档 — [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111)。开关的默认值为打开 (true)，如果需要停用应用性能数据采集，可将开关设为关闭 (false)。
 
@@ -74,7 +74,7 @@
 **示例**：
 
 ```js
-huawei.AGC.apms.enableCollection(true);
+huawei.agc.apms.apmsService.enableCollection(true);
 ```
 
 ### 添加自定义跟踪记录（可选）
@@ -96,7 +96,7 @@ huawei.AGC.apms.enableCollection(true);
 **示例**：
 
 ```js
-huawei.AGC.apms.startCustomTrace("traceID");
+huawei.agc.apms.apmsService.startCustomTrace("traceID");
 ```
 
 #### 停止自定义跟踪记录
@@ -114,7 +114,7 @@ huawei.AGC.apms.startCustomTrace("traceID");
 **示例**：
 
 ```js
-huawei.AGC.apms.stopCustomTrace("traceID");
+huawei.agc.apms.apmsService.stopCustomTrace("traceID");
 ```
 
 #### 添加自定义属性
@@ -138,12 +138,12 @@ let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
 
-huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
+huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
 ```
 
 #### 移除自定义属性
 
-`removeCustomTraceProperty (name: string, propertyName: string): void`
+`removeCustomTraceProperty(name: string, propertyName: string): void`
 
 从 CustomTrace 实例中移除自定义属性。
 
@@ -160,12 +160,12 @@ huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
 let traceID = "testTrace";
 let pName = "product";
 
-huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
+huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 ```
 
 #### 获取自定义属性值
 
-`getCustomTraceProperty (name: string, propertyName: string): string`
+`getCustomTraceProperty(name: string, propertyName: string): string`
 
 可参考 AGC 性能管理文档 — [获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getProperty)。
 
@@ -181,13 +181,60 @@ huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
 ```js
 let traceID = "testTrace";
 let pName = "product";
-let propertValue = huawei.AGC.apms.getCustomTraceProperty(traceID, pName);
+let propertValue = huawei.agc.apms.apmsService.getCustomTraceProperty(traceID, pName);
 console.log("pValue = ", propertValue);
+```
+
+#### 增加自定义跟踪记录指标
+
+`incrementCustomTraceMeasure(name: string, measureName: string, measureValue: number): void`
+
+增加自定义跟踪记录指标。如果指标已经存在，则更新指标的值。
+
+**参数说明**：
+
+|  参数  |  说明  |  
+| :---------- | :------------- |  
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| measureName | 自定义跟踪记录指标名称。| 
+| measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
+
+**示例**：
+
+```js
+let traceID = "testTrace";
+let mName = "MeasureName";
+let mValue = 12000;
+
+huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
+```
+
+#### 获取自定义跟踪记录指标值
+
+`getCustomTraceMeasure(name: string, measureName: string): string`
+
+可参考 AGC 性能管理文档 — [获取自定义跟踪记录指标值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getMeasure)。
+
+**参数说明**：
+
+|  参数  |  说明  |  
+| :---------- | :------------- |  
+| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
+| measureName | 自定义跟踪记录指标名称。| 
+
+**示例**：
+
+```js
+let traceID = "testTrace";
+let mName = "MeasureName";
+
+let measureValue = huawei.agc.apms.apmsService.getCustomTraceMeasure(traceID, mName);
+console.log("mValue = ", measureValue);
 ```
 
 #### 添加自定义跟踪记录指标
 
-`incrementCustomTraceMeasure(name: string, measureName: string, measureValue: number): void`
+`putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
 
 添加自定义跟踪记录指标。如果指标已经存在，则更新指标的值。
 
@@ -206,57 +253,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
-```
-
-#### 获取自定义跟踪记录指标值
-
-`getCustomTraceMeasure (name: string, measureName: string): string`
-
-可参考 AGC 性能管理文档 — [获取自定义跟踪记录指标值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getMeasure)。
-
-**参数说明**：
-
-|  参数  |  说明  |  
-| :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
-| measureName | 自定义跟踪记录指标名称。| 
-
-**示例**：
-
-```js
-let traceID = "testTrace";
-let mName = "MeasureName";
-
-let measureValue = huawei.AGC.apms.getCustomTraceMeasure(traceID, mName);
-console.log("mValue = ", measureValue);
-```
-
-#### 添加自定义跟踪记录指标
-
-`putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
-
-**参数说明**：
-
-|  参数  |  说明  |  
-| :---------- | :------------- |  
-| name | 自定义跟踪记录名称，只能包含中文、字母（不区分大小写）、数字和下划线，且长度不能超过 100 字符，所有方法需要根据该名称获取对象调用。若当前名称的对象不存在，则会再新建一个对象。 |
-| measureName | 自定义跟踪记录指标名称。| 
-| measureValue | 自定义跟踪记录指标值，对应 Java 侧 long 型数值。| 
-
-**示例**：
-
-```js
-let traceID = "testTrace";
-let mName = "MeasureName";
-let mValue = 12000;
-
-huawei.AGC.apms.putCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.putCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### 获取自定义跟踪记录的所有属性
 
-`getCustomTraceProperties: (name: string): string`
+`getCustomTraceProperties(name: string): string`
 
 获取自定义跟踪记录的所有属性。返回值为 JSON 对象，存放所有属性的键值对。
 
@@ -270,7 +272,7 @@ huawei.AGC.apms.putCustomTraceMeasure (traceID, mName, mValue);
 
 ```js
 let traceID = "testTrace";
-let tProp = huawei.AGC.apms.getCustomTraceProperties(traceID);
+let tProp = huawei.agc.apms.apmsService.getCustomTraceProperties(traceID);
 console.log("tProp = ", JSON.stringify(tProp));
 ```
 
@@ -282,7 +284,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 `initNetworkMeasure(url: string, httpMethod: string): string`
 
-针对每个网络请求，[创建网络请求指标实例]((https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/apms#createNetworkMeasure))，用于采集网络性能数据。**返回值即为下方各方法所需的 id 参数**。
+针对每个网络请求，[创建网络请求指标实例](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/apms#createNetworkMeasure)，用于采集网络性能数据。**返回值即为下方各方法所需的 id 参数**。
 
 **参数说明**：
 
@@ -294,7 +296,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 **示例**：
 
 ```js
-let id = huawei.AGC.apms.initNetworkMeasure(url, "POST");
+let id = huawei.agc.apms.apmsService.initNetworkMeasure(url, "POST");
 console.log("createNetworkMeasure, id = ", id);
 ```
 
@@ -313,7 +315,7 @@ console.log("createNetworkMeasure, id = ", id);
 **示例**：
 
 ```js
-huawei.AGC.apms.startNetworkMeasure(id);
+huawei.agc.apms.apmsService.startNetworkMeasure(id);
 ```
 
 #### 设置请求结束时间
@@ -331,7 +333,7 @@ huawei.AGC.apms.startNetworkMeasure(id);
 **示例**：
 
 ```js
-huawei.AGC.apms.stopNetworkMeasure(id);
+huawei.agc.apms.apmsService.stopNetworkMeasure(id);
 ```
 
 #### 设置请求的响应码
@@ -350,7 +352,7 @@ huawei.AGC.apms.stopNetworkMeasure(id);
 **示例**：
 
 ```js
-huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
+huawei.agc.apms.apmsService.setNetworkMeasureStatusCode(id, 500);
 ```
 
 #### 设置请求体大小
@@ -369,7 +371,7 @@ huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
 **示例**：
 
 ```js
-huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesSent(id, 10000);
 ```
 
 #### 设置响应体大小
@@ -388,7 +390,7 @@ huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
 **示例**：
 
 ```js
-huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesReceived(id, 10000);
 ```
 
 #### 设置响应体 contentType 类型
@@ -407,7 +409,7 @@ huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
 **示例**：
 
 ```js
-huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
+huawei.agc.apms.apmsService.setNetworkMeasureContentType(id, "contentType1");
 ```
 
 #### 设置网络请求的自定义属性名称和属性值
@@ -429,7 +431,7 @@ huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
 ```js
 let pName = "propName";
 let pValue = "12000";
-huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
+huawei.agc.apms.apmsService.putNetworkMeasureProperty(id, pName, pValue);
 ```
 
 #### 从 NetworkMeasure 实例中移除已存在属性
@@ -449,7 +451,7 @@ huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
 
 ```js
 let pName = "propName";
-huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 ```
 
 #### 从 NetworkMeasure 实例中获取所有属性
@@ -469,7 +471,7 @@ huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
 
 ```js
 let pName = "propName";
-let nMeasure = huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
@@ -488,7 +490,7 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 **示例**：
 
 ```js
-let mProp = huawei.AGC.apms.getNetworkMeasureProperties(id);
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
 console.log("mProp = ", mProp);
 ```
 

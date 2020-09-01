@@ -39,7 +39,7 @@ Generally, there is a low probability of an app crashing, so the Crash service S
   ```js
   console.log("Call crash method after 5 seconds.");
   this.scheduleOnce(function(){
-      huawei.AGC.Crash.CrashService.testIt();
+      huawei.agc.crash.CrashService.testIt();
   },5);
   ```
 
@@ -82,7 +82,7 @@ This method is used to enable or disable the crash data reporting function. The 
 **Example**:
 
 ```js
-huawei.AGC.Crash.CrashService.enableCrashCollection(false);
+huawei.agc.crash.CrashService.enableCrashCollection(false);
 ```
 
 ### Trigger a Crash
@@ -94,7 +94,7 @@ This method is used to trigger a crash for testing an app. This method can be us
 **Example**:
 
 ```js
-huawei.AGC.Crash.CrashService.testIt();
+huawei.agc.crash.CrashService.testIt();
 ```
 
 ## Service Reference Documents

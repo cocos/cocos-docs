@@ -58,7 +58,7 @@ Developer can get a quick taste of the APM service with the sample project.
 
 ### Enables or disables APM
 
-`enableCollection (enable: boolean): void`
+`enableCollection(enable: boolean): void`
 
  The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) for details.
 
@@ -73,7 +73,7 @@ The priority of the disabling configuration in apps is **higher** than that thro
 **Example**:
 
 ```js
-huawei.AGC.apms.enableCollection(true);
+huawei.agc.apms.apmsService.enableCollection(true);
 ```
 
 ### Creating a Custom Trace (Optional)
@@ -95,7 +95,7 @@ Starts a custom trace. You can refer to AGC APM document - [start](https://devel
 **Example**:
 
 ```js
-huawei.AGC.apms.startCustomTrace("traceID");
+huawei.agc.apms.apmsService.startCustomTrace("traceID");
 ```
 
 #### Stop
@@ -113,7 +113,7 @@ Stops a custom trace. You can refer to AGC APM document - [stop](https://develop
 **Example**:
 
 ```js
-huawei.AGC.apms.stopCustomTrace("traceID");
+huawei.agc.apms.apmsService.stopCustomTrace("traceID");
 ```
 
 #### Put Property
@@ -137,12 +137,12 @@ let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
 
-huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
+huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
 ```
 
 #### Remove Property
 
-`removeCustomTraceProperty (name: string, propertyName: string): void`
+`removeCustomTraceProperty(name: string, propertyName: string): void`
 
 Removes an existing attribute from a CustomTrace instance.
 
@@ -159,12 +159,12 @@ Removes an existing attribute from a CustomTrace instance.
 let traceID = "testTrace";
 let pName = "product";
 
-huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
+huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 ```
 
 #### Get Property
 
-`getCustomTraceProperty (name: string, propertyName: string): string`
+`getCustomTraceProperty(name: string, propertyName: string): string`
 
 Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
 
@@ -180,7 +180,7 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 ```js
 let traceID = "testTrace";
 let pName = "product";
-let propertValue = huawei.AGC.apms.getCustomTraceProperty(traceID, pName);
+let propertValue = huawei.agc.apms.apmsService.getCustomTraceProperty(traceID, pName);
 console.log("pValue = ", propertValue);
 ```
 
@@ -205,12 +205,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### Get Measure
 
-`getCustomTraceMeasure (name: string, measureName: string): string`
+`getCustomTraceMeasure(name: string, measureName: string): string`
 
 Obtains an indicator value for a custom trace. You can refer to AGC APM document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
 
@@ -227,13 +227,13 @@ Obtains an indicator value for a custom trace. You can refer to AGC APM document
 let traceID = "testTrace";
 let mName = "MeasureName";
 
-let measureValue = huawei.AGC.apms.getCustomTraceMeasure(traceID, mName);
+let measureValue = huawei.agc.apms.apmsService.getCustomTraceMeasure(traceID, mName);
 console.log("mValue = ", measureValue);
 ```
 
 #### Put Measure
 
-`putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
+`putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
 
 Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to AGC APM document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
 
@@ -252,12 +252,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.AGC.apms.putCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.putCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### Get Properties
 
-`getCustomTraceProperties: (name: string): string`
+`getCustomTraceProperties(name: string): string`
 
 Obtains the custom attribute values by JSON object.
 
@@ -271,7 +271,7 @@ Obtains the custom attribute values by JSON object.
 
 ```js
 let traceID = "testTrace";
-let tProp = huawei.AGC.apms.getCustomTraceProperties(traceID);
+let tProp = huawei.agc.apms.apmsService.getCustomTraceProperties(traceID);
 console.log("tProp = ", JSON.stringify(tProp));
 ```
 
@@ -295,7 +295,7 @@ APM automatically collects performance data of most network requests for your ap
 **Example**:
 
 ```js
-let id = huawei.AGC.apms.initNetworkMeasure(url, "POST");
+let id = huawei.agc.apms.apmsService.initNetworkMeasure(url, "POST");
 console.log("createNetworkMeasure, id = ", id);
 ```
 
@@ -314,7 +314,7 @@ Sets the request start time. You can refer to AGC APM document - [start](https:/
 **Example**:
 
 ```js
-huawei.AGC.apms.startNetworkMeasure(id);
+huawei.agc.apms.apmsService.startNetworkMeasure(id);
 ```
 
 #### Stop
@@ -332,7 +332,7 @@ Sets the request end time and reports network request indicators and custom attr
 **Example**:
 
 ```js
-huawei.AGC.apms.stopNetworkMeasure(id);
+huawei.agc.apms.apmsService.stopNetworkMeasure(id);
 ```
 
 #### Set Status Code
@@ -351,7 +351,7 @@ Sets the response code of a request. You can refer to AGC APM document - [setSta
 **Example**:
 
 ```js
-huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
+huawei.agc.apms.apmsService.setNetworkMeasureStatusCode(id, 500);
 ```
 
 #### Set Bytes Sent
@@ -370,7 +370,7 @@ Sets the request body size. You can refer to AGC APM document - [setBytesSent](h
 **Example**:
 
 ```js
-huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesSent(id, 10000);
 ```
 
 #### Set Bytes Received
@@ -389,7 +389,7 @@ Sets the response body size. You can refer to AGC APM document - [setBytesReceiv
 **Example**:
 
 ```js
-huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
+huawei.agc.apms.apmsService.setNetworkMeasureBytesReceived(id, 10000);
 ```
 
 #### Set Content Type
@@ -408,7 +408,7 @@ Sets the response body type specified by **contentType**. You can refer to AGC A
 **Example**:
 
 ```js
-huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
+huawei.agc.apms.apmsService.setNetworkMeasureContentType(id, "contentType1");
 ```
 
 #### Put Property
@@ -430,7 +430,7 @@ Sets the custom attribute name and value of a network request. Up to **5** custo
 ```js
 let pName = "propName";
 let pValue = "12000";
-huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
+huawei.agc.apms.apmsService.putNetworkMeasureProperty(id, pName, pValue);
 ```
 
 #### Remove Property
@@ -450,7 +450,7 @@ Removes an existing attribute from a **NetworkMeasure** instance. You can refer 
 
 ```js
 let pName = "propName";
-huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 ```
 
 #### Get Property
@@ -470,7 +470,7 @@ Obtains all attributes from a NetworkMeasure instance by JSON object. You can re
 
 ```js
 let pName = "propName";
-let nMeasure = huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
@@ -489,7 +489,7 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 **Example**:
 
 ```js
-let mProp = huawei.AGC.apms.getNetworkMeasureProperties(id);
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
 console.log("mProp = ", mProp);
 ```
 

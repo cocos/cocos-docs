@@ -390,12 +390,12 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 | :---------- | :------------- |  
 |  countryCode  | 国家码，即国际电话区号。比如中国为 86、德国 49、俄罗斯 7、新加坡 65。<br>该字段支持多种格式，以中国为例 86、0086、+86 都可以。 | 
 |  phoneNumber  | 手机号码。需要去掉“+”号和国家（地区）码，例如：+86132xxxxxxxx，则取值132xxxxxxxx。 |
-|  verifyCode  | 验证码 |
+|  newVerifyCode  | 验证码 |
 
 **示例**：
 
 ```js
-huawei.agc.auth.authService.updateEmail("0086", "132xxxxxxxx", "1234");
+huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 ```
 
 ### getUserExtra
