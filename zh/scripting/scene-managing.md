@@ -72,4 +72,4 @@ cc.director.loadScene("table");
 
 ---
 
-继续前往 [获取和加载资源](load-assets.md) 说明文档。
+继续前往 [获取和设置资源](load-assets.md) 说明文档。

@@ -37,7 +37,7 @@
 
 相关文档可参考：
 
-- [获取和加载资源](../scripting/load-assets.md)
+- [加载资源](../scripting/dynamic-load-resources.md)
 - [Asset Bundle](../scripting/asset-bundle.md)
 
 所有加载到的资源都会被缓存在 `cc.assetManager` 中。
