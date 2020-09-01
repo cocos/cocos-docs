@@ -230,10 +230,10 @@ __对象类型__
 
 此外，se::Object 目前支持以下几种对象的手动创建：
 
-* Plain Object: 通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
-* Array Object: 通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
-* Uint8 Typed Array Object: 通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
-* Array Buffer Object: 通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
+* Plain Object：通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
+* Array Object：通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
+* Uint8 Typed Array Object：通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
+* Array Buffer Object：通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
 
 __手动创建对象的释放__
 
@@ -308,15 +308,15 @@ se::Class 用于暴露 CPP 类到 JS 中，它会在 JS 中创建一个对应名
 
 它有如下方法：
 
-* `static se::Class* create(className, obj, parentProto, ctor)`: 创建一个 Class，注册成功后，在 JS 层中可以通过`var xxx = new SomeClass();`的方式创建一个对象
-* `bool defineFunction(name, func)`: 定义 Class 中的成员函数
-* `bool defineProperty(name, getter, setter)`: 定义 Class 属性读写器
-* `bool defineStaticFunction(name, func)`: 定义 Class 的静态成员函数，可通过 SomeClass.foo() 这种非 new 的方式访问，与类实例对象无关
-* `bool defineStaticProperty(name, getter, setter)`: 定义 Class 的静态属性读写器，可通过 SomeClass.propertyA 直接读写，与类实例对象无关
-* `bool defineFinalizeFunction(func)`: 定义 JS 对象被 GC 后的 CPP 回调
-* `bool install()`: 注册此类到 JS 虚拟机中
-* `Object* getProto()`: 获取注册到 JS 中的类（其实是 JS 的 constructor）的 prototype 对象，类似 function Foo(){}的 Foo.prototype
-* `const char* getName() const`: 获取当前 Class 的名称
+* `static se::Class* create(className, obj, parentProto, ctor)`：创建一个 Class，注册成功后，在 JS 层中可以通过`var xxx = new SomeClass();`的方式创建一个对象
+* `bool defineFunction(name, func)`：定义 Class 中的成员函数
+* `bool defineProperty(name, getter, setter)`：定义 Class 属性读写器
+* `bool defineStaticFunction(name, func)`：定义 Class 的静态成员函数，可通过 SomeClass.foo() 这种非 new 的方式访问，与类实例对象无关
+* `bool defineStaticProperty(name, getter, setter)`：定义 Class 的静态属性读写器，可通过 SomeClass.propertyA 直接读写，与类实例对象无关
+* `bool defineFinalizeFunction(func)`：定义 JS 对象被 GC 后的 CPP 回调
+* `bool install()`：注册此类到 JS 虚拟机中
+* `Object* getProto()`：获取注册到 JS 中的类（其实是 JS 的 constructor）的 prototype 对象，类似 function Foo(){}的 Foo.prototype
+* `const char* getName() const`：获取当前 Class 的名称
 
 **注意：**
 
