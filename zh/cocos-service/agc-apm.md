@@ -59,7 +59,7 @@
 
 ### 设置性能管理服务开关
 
-`enableCollection (enable: boolean): void`
+`enableCollection(enable: boolean): void`
 
 可参考 AGC 性能管理文档 — [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111)。开关的默认值为打开 (true)，如果需要停用应用性能数据采集，可将开关设为关闭 (false)。
 
@@ -143,7 +143,7 @@ huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
 
 #### 移除自定义属性
 
-`removeCustomTraceProperty (name: string, propertyName: string): void`
+`removeCustomTraceProperty(name: string, propertyName: string): void`
 
 从 CustomTrace 实例中移除自定义属性。
 
@@ -165,7 +165,7 @@ huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 
 #### 获取自定义属性值
 
-`getCustomTraceProperty (name: string, propertyName: string): string`
+`getCustomTraceProperty(name: string, propertyName: string): string`
 
 可参考 AGC 性能管理文档 — [获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getProperty)。
 
@@ -206,12 +206,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.apmsService.incrementCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### 获取自定义跟踪记录指标值
 
-`getCustomTraceMeasure (name: string, measureName: string): string`
+`getCustomTraceMeasure(name: string, measureName: string): string`
 
 可参考 AGC 性能管理文档 — [获取自定义跟踪记录指标值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/customtrace#getMeasure)。
 
@@ -234,7 +234,7 @@ console.log("mValue = ", measureValue);
 
 #### 添加自定义跟踪记录指标
 
-`putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
+`putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
 
 添加自定义跟踪记录指标。如果指标已经存在，则更新指标的值。
 
@@ -253,12 +253,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.apmsService.putCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.putCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### 获取自定义跟踪记录的所有属性
 
-`getCustomTraceProperties: (name: string): string`
+`getCustomTraceProperties(name: string): string`
 
 获取自定义跟踪记录的所有属性。返回值为 JSON 对象，存放所有属性的键值对。
 
@@ -496,5 +496,5 @@ console.log("mProp = ", mProp);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [性能管理 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.apms.apmsService.html)。
+详细的功能接口和 API 说明，请参考 [性能管理 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html)。
 

@@ -58,7 +58,7 @@ Developer can get a quick taste of the APM service with the sample project.
 
 ### Enables or disables APM
 
-`enableCollection (enable: boolean): void`
+`enableCollection(enable: boolean): void`
 
  The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) for details.
 
@@ -142,7 +142,7 @@ huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
 
 #### Remove Property
 
-`removeCustomTraceProperty (name: string, propertyName: string): void`
+`removeCustomTraceProperty(name: string, propertyName: string): void`
 
 Removes an existing attribute from a CustomTrace instance.
 
@@ -164,7 +164,7 @@ huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 
 #### Get Property
 
-`getCustomTraceProperty (name: string, propertyName: string): string`
+`getCustomTraceProperty(name: string, propertyName: string): string`
 
 Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
 
@@ -205,12 +205,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.apmsService.incrementCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### Get Measure
 
-`getCustomTraceMeasure (name: string, measureName: string): string`
+`getCustomTraceMeasure(name: string, measureName: string): string`
 
 Obtains an indicator value for a custom trace. You can refer to AGC APM document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
 
@@ -233,7 +233,7 @@ console.log("mValue = ", measureValue);
 
 #### Put Measure
 
-`putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
+`putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
 
 Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to AGC APM document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
 
@@ -252,12 +252,12 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
-huawei.agc.apms.apmsService.putCustomTraceMeasure (traceID, mName, mValue);
+huawei.agc.apms.apmsService.putCustomTraceMeasure(traceID, mName, mValue);
 ```
 
 #### Get Properties
 
-`getCustomTraceProperties: (name: string): string`
+`getCustomTraceProperties(name: string): string`
 
 Obtains the custom attribute values by JSON object.
 
@@ -495,4 +495,4 @@ console.log("mProp = ", mProp);
 
 ## API Documentation
 
-Please refer to the [APM - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.apms.apmsService.html).
+Please refer to the [APM - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html).
