@@ -53,6 +53,19 @@ You can set limits such as the maximum number of concurrent downloads in the dow
   cc.assetManager.downloader.maxRequestsPerFrame = 6;
   ```
 
+In addition, `downloader` uses an instance of the `jsb.Downloader` class to download resources from the server on **native platforms**. `jsb.Downloader` is similar to the Web's [XMLHttpRequest](../scripting/network.md). Currently the `jsb.Downloader` class instances have a default download concurrency limit of **32** and a default timeout of **30s**, if you want to change the default values, you can do so in `main.js`.
+
+```js
+// main.js
+cc.assetManager.init({ 
+    bundleVers: settings.bundleVers,
+    remoteBundles: settings.remoteBundles,
+    server: settings.server,
+    jsbDownloaderMaxTasks: 32, // Max concurrency
+    jsbDownloaderTimeout: 60 // Timeout
+});
+```
+
 ## Parser
 
 The parser is used to parse the files into the resources that can be recognized by the engine, and you can access them via `cc.assetManager.parser`.
