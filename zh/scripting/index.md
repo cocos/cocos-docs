@@ -45,7 +45,3 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 
 - [JavaScript 标准支持](reference/javascript-support.md)
 - [推荐编码规范](reference/coding-standards.md)
-
-<hr>
-
-继续前往 [创建和使用组件脚本](use-component.md) 开始阅读。
