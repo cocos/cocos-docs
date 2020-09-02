@@ -29,7 +29,3 @@ Assets required by TiledMap:
 ## Store in Project
 
 In order to improve the efficiency of management, we suggest that put the TiledMap assets togather in a separate folder.
-
-<hr>
-
-Continue on to read about [Content creation workflow](../content-workflow/index.md)

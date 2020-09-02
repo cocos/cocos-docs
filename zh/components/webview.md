@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [10_webview](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)。
+详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [10_webview](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/10_webview)。
 
 ## 详细说明
 
@@ -202,5 +202,3 @@ cc.Class({
 ```
 
 #### 再强调一遍: Web 平台上的跨域问题需要自行解决
-
-<hr>

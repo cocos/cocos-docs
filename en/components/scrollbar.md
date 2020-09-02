@@ -19,10 +19,6 @@ For the script interface of the ScrollBar, refer to [ScrollBar API](../../../api
 
 ## Detailed explanation
 
-ScrollBar normally is used together with `ScrollView` instead of being used alone. Also, ScrollBar needs to assign a `Sprite` component, i.e. `Handle` in the attribute panel.
+ScrollBar normally is used together with `ScrollView` instead of being used alone. Also, ScrollBar needs to assign a `Sprite` component, i.e. `Handle` in the Properties panel.
 
 Normally we will also designate a background picture to ScrollBar. This can be used to indicate the length or width of the whole of the ScrollBar.
-
----
-
-Continue on to read about [Layout component reference](layout.md).

@@ -45,7 +45,3 @@ You can specify `audioLoadMode` as `DOM_AUDIO` to load dom audio forcibly.
 ```js
 cc.assetManager.loadRemote('http://example.com/background.mp3', { audioLoadMode: cc.AudioClip.LoadMode.DOM_AUDIO }, callback);
 ```
-
-<hr>
-
-Continue on to read about [Prefabricate Asset](prefab.md).

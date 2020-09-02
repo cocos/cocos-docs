@@ -83,7 +83,3 @@ If you want to use LabelAtlas, you should create a LabelAtlas font asset at firs
 ### UI Rendering Batch Processing Guide
 
 For more info of this feature, please refer to [UI Rendering Batch Processing Guide](../advanced-topics/ui-auto-batch.md) topic.
-
----
-
-Continue on to read about [Spine Component Reference](spine.md).

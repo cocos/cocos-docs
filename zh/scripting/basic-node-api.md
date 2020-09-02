@@ -10,13 +10,17 @@
 
 节点默认是激活的，我们可以在代码中设置它的激活状态，方法是设置节点的 `active` 属性：
 
-`this.node.active = false;`
+```js
+this.node.active = false;
+```
 
 设置 `active` 属性和在编辑器中切换节点的激活、关闭状态，效果是一样的。当一个节点是关闭状态时，它的所有组件都将被禁用。同时，它所有子节点，以及子节点上的组件也会跟着被禁用。要注意的是，子节点被禁用时，并不会改变它们的 `active` 属性，因此当父节点重新激活的时候它们就会回到原来的状态。
 
 也就是说，`active` 表示的其实是该节点 **自身的** 激活状态，而这个节点 **当前** 是否可被激活则取决于它的父节点。并且如果它不在当前场景中，它也无法被激活。我们可以通过节点上的只读属性 `activeInHierarchy` 来判断它当前是否已经激活。
 
-`this.node.active = true;`
+```js
+this.node.active = true;
+```
 
 若节点原先就处于 **可被激活** 状态，修改 `active` 为 true 就会立即触发激活操作：
 
@@ -24,9 +28,11 @@
 - 该节点和所有子节点上的所有组件都会被启用，它们中的 `update` 方法之后每帧都会执行
 - 这些组件上如果有 `onEnable` 方法，这些方法将被执行
 
-`this.node.active = false;`
+```js
+this.node.active = false;
+```
 
-如该节点原先就已经被激活，修改 `active` 为 false 就会立即触发关闭操作：
+若该节点原先就已经被激活，修改 `active` 为 false 就会立即触发关闭操作：
 
 - 在场景中隐藏该节点和节点下的所有子节点
 - 该节点和所有子节点上的所有组件都将被禁用，也就是不会再执行这些组件中的 `update` 中的代码
@@ -34,9 +40,7 @@
 
 ### 更改节点的父节点
 
-假设父节点为 `parentNode`，子节点为 `this.node`
-
-您可以：
+假设父节点为 `parentNode`，子节点为 `this.node`，您可以：
 
 ```js
 this.node.parent = parentNode;
@@ -51,16 +55,16 @@ parentNode.addChild(this.node);
 
 这两种方法是等价的。
 
-注意：
+**注意**：
  - `removeFromParent` 通常需要传入一个 `false`，否则默认会清空节点上绑定的事件和 action 等。
  - 通过 [创建和销毁节点](create-destroy.md) 介绍的方法创建出新节点后，要为节点设置一个父节点才能正确完成节点的初始化。
 
 ### 索引节点的子节点
 
-`this.node.children` 将返回节点的所有子节点数组。<br>
-`this.node.childrenCount` 将返回节点的子节点数量。
+- `this.node.children` 将返回节点的所有子节点数组。
+- `this.node.childrenCount` 将返回节点的子节点数量。
 
-**注意** 以上两个 API 都只会返回节点的直接子节点，不会返回子节点的子节点。
+**注意**：以上两个 API 都只会返回节点的直接子节点，不会返回子节点的子节点。
 
 ## 更改节点的变换（位置、旋转、缩放、尺寸）
 
@@ -68,63 +72,84 @@ parentNode.addChild(this.node);
 
 分别对 x 轴和 y 轴坐标赋值：
 
-`this.node.x = 100;`<br>
-`this.node.y = 50;`
+```js
+this.node.x = 100;
+this.node.y = 50;
+```
 
-使用 `setPosition` 方法：
+还可以使用 `setPosition` 方法进行赋值：
 
-`this.node.setPosition(100, 50);`<br>
-`this.node.setPosition(cc.v2(100, 50));`
+```js
+this.node.setPosition(100, 50);
+this.node.setPosition(cc.v2(100, 50));
+```
 
-设置 `position` 变量：
+或者通过设置 `position` 变量进行赋值：
 
-`this.node.position = cc.v2(100, 50);`
+```js
+this.node.position = cc.v2(100, 50);
+```
 
-以上两种用法等价。
+以上几种用法等价。
 
 ### 更改节点旋转
 
-`this.node.rotation = 90;`
+```js
+this.node.rotation = 90;
+```
 
 或
 
-`this.node.setRotation(90);`
+```js
+this.node.setRotation(90);
+```
 
 ### 更改节点缩放
 
-`this.node.scaleX = 2;`<br>
-`this.node.scaleY = 2;`
+```js
+this.node.scaleX = 2;
+this.node.scaleY = 2;
+```
 
 或
 
-`this.node.setScale(2);`<br>
-`this.node.setScale(2, 2);`
+```js
+this.node.setScale(2);
+this.node.setScale(2, 2);
+```
 
 以上两种方法等价。`setScale` 传入单个参数时，会同时修改 `scaleX` 和 `scaleY`。
 
 ### 更改节点尺寸
 
-`this.node.setContentSize(100, 100);`<br>
-`this.node.setContentSize(cc.size(100, 100));`
+```js
+this.node.setContentSize(100, 100);
+this.node.setContentSize(cc.size(100, 100));
+```
 
 或
 
-`this.node.width = 100;`<br>
-`this.node.height = 100;`
+```js
+this.node.width = 100;
+this.node.height = 100;
+```
 
 以上两种方式等价。
 
 ### 更改节点锚点位置
 
-`this.node.anchorX = 1;`<br>
-`this.node.anchorY = 0;`
+```js
+this.node.anchorX = 1;
+this.node.anchorY = 0;
+```
 
 或
 
-`this.node.setAnchorPoint(1, 0);`
+```js
+this.node.setAnchorPoint(1, 0);
+```
 
 注意以上这些修改变换的方法会影响到节点上挂载的渲染组件，比如 Sprite 图片的尺寸、旋转等等。
-
 
 ## 颜色和不透明度
 
@@ -132,12 +157,15 @@ parentNode.addChild(this.node);
 
 假如我们有一个 Sprite 的实例为 `mySprite`，如果需要设置它的颜色：
 
-`mySprite.node.color = cc.Color.RED;`
+```js
+mySprite.node.color = cc.Color.RED;
+```
 
 设置不透明度：
 
-`mySprite.node.opacity = 128;`
-
+```js
+mySprite.node.opacity = 128;
+```
 
 ## 常用组件接口
 
@@ -148,7 +176,3 @@ parentNode.addChild(this.node);
 - `update(dt)`：作为组件的成员方法，在组件的 `enabled` 属性为 `true` 时，其中的代码会每帧执行
 - `onLoad()`：组件所在节点进行初始化时（节点添加到节点树时）执行
 - `start()`：会在该组件第一次 `update` 之前执行，通常用于需要在所有组件的 `onLoad` 初始化完毕后执行的逻辑
-
----
-
-更多组件成员方法请继续参考 [生命周期回调](life-cycle-callbacks.md) 文档。

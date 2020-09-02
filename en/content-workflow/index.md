@@ -11,7 +11,3 @@ Except for basic scene elements creation and editing, we will introduce other im
 - [Renderer and Graphics](../render/index.md)
 - [UI system](../ui/index.md)
 - [Animation system](../animation/index.md)
-
----
-
-Continue on to read about [Node and Component](node-component.md).

@@ -102,9 +102,5 @@ Where `onLoad` and `start` are often used for a component's initialization and w
 
 |        | onLoad  | start  |
 | ------ | ------- | -----  |
-| When the node is activated           | Calls immediately | Deferred Call |
+| When the node is activated   | Calls immediately | Deferred Call |
 | Only called when the component is enabled? |  No   | Yes  |
-
----
-
-Continue on to read about [Creating and Destroying Nodes](create-destroy.md).

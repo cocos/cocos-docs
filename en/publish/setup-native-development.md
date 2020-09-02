@@ -92,7 +92,3 @@ We have received lots of feedback about original packing in the public beta, and
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
 In the end, if building still fails, please post the bug with detailed reproducible steps and error information to us in the [forum](https://discuss.cocos2d-x.org/c/creator).
-
----
-
-Continue on to read about [Publising -> Native](publish-native.md).

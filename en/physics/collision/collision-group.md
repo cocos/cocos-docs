@@ -31,7 +31,3 @@ Platform - Bullet
 Collider - Collider   
 Actor - Wall   
 Actor - Platform   
-
----
-
-Go ahead and read [Collision Scripting](collision-manager.md)

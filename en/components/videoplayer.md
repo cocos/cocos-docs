@@ -16,18 +16,18 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 
 ## VideoPlayer Properties
 
-| Properties | Function Explanation
+| Properties | Function Explanation |
 |-------- | ----------- |
-| Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
-| Clip               | Displayed when Resource Type is LOCAL, feed it with a local video path.
-| Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
-| Current Time       | The current time when video start to play.
+| Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
+| Clip               | Displayed when Resource Type is LOCAL, feed it with a local video path. |
+| Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
+| Current Time       | The current time when video start to play. |
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
 | Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
-| Keep Aspect Ratio  | Whether keep the aspect ratio of the original video.
-| Is Fullscreen      | Whether play video in fullscreen mode.
-| Stay On Bottom     | Display video below the game view (Only available on web).
-| Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
+| Keep Aspect Ratio  | Whether keep the aspect ratio of the original video. |
+| Is Fullscreen      | Whether play video in fullscreen mode. |
+| Stay On Bottom     | Display video below the game view (Only available on web). |
+| Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
 **Note**: In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
@@ -58,7 +58,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 
 **Note**: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
 
-For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
+For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
 ## Detailed Explanation
 
@@ -144,7 +144,7 @@ You can display a UI upon a video in three steps:
 - The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
 - After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
-For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
+For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
 
 ![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
 
@@ -173,7 +173,3 @@ cc.Class({
     }
 });
 ```
-
-<hr>
-
-Continue reading [WebView Component](webview.md).

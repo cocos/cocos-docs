@@ -17,7 +17,3 @@
 - [v1.10 资源升级指南](../release-notes/raw-asset-migration.md)
 - [v2.0 升级指南](../release-notes/upgrade-guide-v2.0.md)
 - [FAQ](faq.md)
-
----
-
-让我们现在就马上开始，请先阅读 [关于 Cocos Creator](introduction.md) 来了解这是一个怎样的游戏开发工具，能为开发者做什么。

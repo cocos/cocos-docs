@@ -99,7 +99,7 @@ ready 初始化回调函数中中对面板元素的事件进行注册和处理�
 在主进程函数中，我们做如下定义：
 
 ```javascript
-'use strict';
+// use strict;
 
 module.exports = {
   load () {
@@ -127,7 +127,7 @@ module.exports = {
 通常我们需要在窗口面板中设置一些 UI，然后通过发送 IPC 消息将任务交给主进程处理。这里我们可以使用 `Editor.Ipc` 模块来完成，在上面定义的 `index.js` 的 `ready()` 函数中处理按钮消息来达成。
 
 ```javascript
-  this.$btn.addEventListener('confirm', () => {
+this.$btn.addEventListener('confirm', () => {
     Editor.Ipc.sendToMain('simple-package:say-hello', 'Hello, this is simple panel');
   });
 ```

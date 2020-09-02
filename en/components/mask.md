@@ -17,7 +17,3 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Segements      | The segements for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.
 
 **Note**: After adding the Mask component to a node, all the child nodes of this node will be affected by Mask during rendering.
-
----
-
-Continue on to read about [ScrollView Component Reference](scrollview.md).

@@ -82,7 +82,7 @@ What should I do if I feel that the range displayed by the **Timeline** is too s
 
 - Drag the marked red line in area 4.
 
-### Enter / exit recording status
+### Enter/exit recording status
 
 - There is a red button on the left side of graph 1. Click it and you will open/close the recording status.
 
@@ -100,20 +100,16 @@ What should I do if I feel that the range displayed by the **Timeline** is too s
 
 ## Shortcut key
 
-- left: previous frame
+- **left**: previous frame
  
-- right: next frame
+- **right**: next frame
  
-- delete: Delete the selected keys
+- **delete**: Delete the selected keys
  
-- k: Forward the animation
+- **k**: Forward the animation
  
-- j: Backward animation
+- **j**: Backward animation
  
-- ctrl / cmd + left: Jump to the first frame
+- **ctrl/cmd + left**: Jump to the first frame
 
-- ctrl / cmd + right: Jump to the last frame
-
----
-
-Continue on to read about [Creating Animation component and animation clip](animation-clip.md).
+- **ctrl/cmd + right**: Jump to the last frame

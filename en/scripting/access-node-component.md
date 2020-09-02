@@ -290,8 +290,3 @@ cc.Class({
 ```
 
 For details, please refer to [Modular script](modular-script.md).
-
-
----
-
-Continue on to read about [Basic node and component API](basic-node-api.md).

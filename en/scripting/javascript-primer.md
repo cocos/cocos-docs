@@ -34,12 +34,11 @@ var a = 12;
 
 When reading JavaScript code from others, you may also see variable declaration like this:
 
-```
+```js
 a = 12;
 ```
 
 If you try in the browser's console, you will find JavaScript won't report an error when the variable declaration omits `var`, but in the Cocos Creator project script, `var` of variable declaration can not be omitted, otherwise the compiler will report an error.
-
 
 ## Function
 
@@ -392,7 +391,3 @@ Here are some JavaScript primers:
 
 - [JavaScript standard reference tutorial](http://javascript.ruanyifeng.com/)
 - [JavaScript secret garden](http://bonsaiden.github.io/JavaScript-Garden/)
-
----
-
-Continue on to read about [Advanced CCClass](reference/class.md).

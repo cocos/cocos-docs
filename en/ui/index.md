@@ -11,7 +11,3 @@ This chapter will introduce the powerful and flexible UI (user interface) system
 - [UI Components](ui-components.md)
 - [Auto Layout](auto-layout.md)
 - [List with Data](list-with-data.md)
-
-<hr>
-
-Continue on to read about [Sliced Sprite](sliced-sprite.md).

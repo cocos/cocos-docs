@@ -150,8 +150,5 @@ cc.Class({
 ```
 
 The smaller the `executionOrder` is, the earlier the component executes relative to the other components. The `executionOrder` defaults to 0, so if set to negative, it will execute before the other default components.
-The `executionOrder` will only affect onLoad, onEnable, start, update and lateUpdate while onDisable and onDestroy will not be affected.
 
----
-
-Continue on to read about [Network interface](network.md).
+The `executionOrder` will only affect `onLoad`, `onEnable`, `start`, `update` and `lateUpdate` while `onDisable` and `onDestroy` will not be affected.

@@ -8,7 +8,7 @@ cc.director.loadScene("MyScene");
 
 In addition, as of v2.4, the Asset Bundle has added a new loading method:
 
- ```js
+```js
 bundle.loadScene('MyScene', function (err, scene) {
     cc.director.runScene(scene);
 });
@@ -33,11 +33,9 @@ To revert a persist node to normal node:
 
 Beware the above API will not destroy the node immediately, only mark it as 'destroyable' for next scene switch.
 
-
 ### Global variable
 
 We can also store and pass information using global variable. For details please read [Global Variable](access-node-component.md#global_variable).
-
 
 ## Scene loaded callback
 
@@ -48,7 +46,6 @@ When loading scene, you can pass a function as the callback when scene loaded:
 `onSceneLaunched` is the callback function declared in the same script.
 
 Since it can only be declared in the same script, it's better to call `loadScene` from a persist node so that the component instance will stay in memory for callback function to continue running.
-
 
 ## Preload scene
 
@@ -68,7 +65,7 @@ cc.director.loadScene("table");
 
 It will be totally fine to call `cc.director.loadScene` at any time even if the preloading is not yet finished. You can take [Black Jack demo](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14) as an example.
 
-**Notice** Using `cc.loader.loadRes` to load assets in next scene and call `runScene` method to switch scene is **deprecated!**
+**Note**: Using `cc.loader.loadRes` to load assets in next scene and call `runScene` method to switch scene is **deprecated!**
 
 ```js
 // DO NOT USE THE FOLLOWING METHOD!
@@ -76,8 +73,3 @@ cc.loader.loadRes('MyScene.fire', function(err, res) {
     cc.director.runScene(res.scene);
 });
 ```
-
-
----
-
-Continue on to read about [Asset Loading](load-assets.md).

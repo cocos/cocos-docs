@@ -27,7 +27,3 @@ Then the hierarchy in the animation editor will show:
 ![animation-editor-hierarchy.png](./animation/animation-editor-hierarchy.png)
 
 For more information about **Animation**, please read [Animation System](../animation/index.md).
-
-<hr>
-
-Continue on to read about [Canvas component reference](canvas.md).

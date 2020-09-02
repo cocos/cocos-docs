@@ -1,6 +1,6 @@
 # Declare class with cc.Class
 
-`cc.Class` is a useful API, which is used to declare Class in Cocos Creator. For the convenience of categorization, we call the Class that uses the cc.Class declaration **CCClass**.
+`cc.Class` is a useful API, which is used to declare Class in Cocos Creator. For the convenience of categorization, we call the Class that uses the `cc.Class` declaration **CCClass**.
 
 ## Define CCClass
 
@@ -27,7 +27,7 @@ var obj = new Sprite();
 When you need to judge the class of an object, you can use the JavaScript built-in `instanceof`:
 
 ```javascript
-cc.log(obj instanceof Sprite);       // true
+cc.log(obj instanceof Sprite);    // true
 ```
 
 ## Constructor
@@ -93,7 +93,7 @@ var square = new Square();
 
 The output of the above code is "Shape" and "Square".
 
-## <a name="properties"></a> Property declaration
+## Property declaration
 
 By employing attribute declaration in the component script, we can visually show the field of the script component in **Properties** panel so that we can adjust the attribute value in the scene easily.
 
@@ -164,7 +164,7 @@ In most cases, we can use simple declaration.
     }
     ```
 
-**Note:** Other than the situations above, we all need to use **complete declaration** to write for other types.
+**Note**: Other than the situations above, we all need to use **complete declaration** to write for other types.
 
 ### Complete declaration
 
@@ -191,7 +191,7 @@ Below are the general attributes.
 - **displayName**: display the assigned name on the **Properties** panel
 - **tooltip**: add Tooltip of property in the **Properties** panel
 
-For detailed usage please refer to [Property attribute](reference/attributes.md).
+For detailed usage please refer to [Attribute](reference/attributes.md).
 
 #### Array declaration
 
@@ -228,9 +228,4 @@ properties: {
 }
 ```
 
-> You can define the get method only, so this is like one property of read only.<br>
-
-
----
-
-Continue on to read about [Access node and other component](access-node-component.md) or [CCClass Advanced Reference](reference/class.md).
+You can define the `get` method only, so this is like one property of read only.

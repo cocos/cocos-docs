@@ -47,7 +47,3 @@ At this point, we manually specify the node for the data:
 2. Click the button that appears on the right.
 3. Select Migrating data.
 4. Change the path to `/New Node/test` and press enter.
-
----
-
-Continue on to read about [Animation Curves](animation-curve.md).

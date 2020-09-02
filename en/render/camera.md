@@ -124,7 +124,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture).
 
 ```javascript
 // This code works only on web platform. To use this features on native platform, please refer to the capture_to_native scene in example-cases.
@@ -205,4 +205,4 @@ Because of WeChat Mini Games does not support createImageData, nor does it suppo
 
 ## Case
 
-Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.
+Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.

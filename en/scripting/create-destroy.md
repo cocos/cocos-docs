@@ -111,7 +111,3 @@ cc.Class({
 After calling a node's `removeFromParent`, in-memory data is not guaranteed to be released because there may be some logical problems that cause the program to still refer to the object. So if a node is no longer used, please call its `destroy` instead of `removeFromParent`. `destroy` will not only activate the components `onDestroy`, but also reduce the probability of memory leaks, while reducing the consequences of memory leak.
 
 In short, if a node is no longer used, use `destroy`, do not need `removeFromParent`, do not need to set `parent` to `null`.
-
----
-
-Continue on to read about [Asset Management/Scene Management](scene-managing.md).

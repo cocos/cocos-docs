@@ -77,7 +77,3 @@ To make sure you can update node's position or size during runtime:
 ## Note
 
 Widget will adjust current node's position and size automatically, but the results after adjustment can not be obtained until the next frame unless you call [updateAlignment](../../../api/en/classes/Widget.html#updatealignment) manually.
-
----
-
-Continue on to read about [Button component preference](button.md).

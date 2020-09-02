@@ -12,4 +12,4 @@
 
 **注意**：在使用 SafeArea 时若发现无效，请检查 **项目 -> 项目设置 -> 模块设置** 中的 SafeArea 模块是否有勾选。
 
-具体用法可参考官方范例中的 [SafeArea](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/16_safeArea) 测试例。
+具体用法可参考官方范例中的 [SafeArea](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/16_safeArea) 测试例。

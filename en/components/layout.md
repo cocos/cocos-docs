@@ -52,7 +52,3 @@ When using Grid layout, the **Start Axis** is very important. When choosing **HO
 
 1. Scaling and rotation of child nodes are not considered.
 2. After setting the Layout, the results need to be updated until the next frame, unless you manually call `updateLayout` API.
-
----
-
-Continue on to read about [Script development workflow](../scripting/index.md).

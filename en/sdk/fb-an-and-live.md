@@ -1,10 +1,10 @@
 # Facebook Live Video and Audience Network
 
-Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live Video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
+Starting with **v2.0.6**, Cocos Creator officially supports one-click integration of Facebook services, including **Facebook Live Video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
 
 **Cocos Creator includes**:
 
-- Provides one-click integration of Facebook Live Video and Facebook Audience Network in the __Cocos Creator__ **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly
+- Provides one-click integration of Facebook Live Video and Facebook Audience Network in the Cocos Creator **Project Settings** panel, and is automatically initialized so that users can call the relevant APIs directly
 
 **What the user needs to do**:
 
@@ -12,7 +12,7 @@ Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integr
 
 ## Facebook Service Integration Operation Steps
 
-**First**, open the project with __Cocos Creator__, click on the **Menu bar -> Project -> Project Settings -> Service** and there is a **Facebook Service** in the **Service** tab.
+**First**, open the project with Cocos Creator, click on the **Menu bar -> Project -> Project Settings -> Service** and there is a **Facebook Service** in the **Service** tab.
 
 ![](fb-an-and-live/facebook.png)
 
@@ -46,7 +46,7 @@ Select the **Facebook Service** and you can see that there are three options bel
   $ sudo gem install cocoapods
   ```
 
-**Third**, after the build is complete, you can see that two files, **fb-live-stream.js** and **CCAds.js**, have been generated under the `src` directory in the `build` directory. These correspond to the encapsulation of **Facebook Live Video** and **Facebook Audience Network** by __Cocos Creator__.
+**Third**, after the build is complete, you can see that two files, **fb-live-stream.js** and **CCAds.js**, have been generated under the `src` directory in the `build` directory. These correspond to the encapsulation of **Facebook Live Video** and **Facebook Audience Network** by Cocos Creator.
 
 ![](fb-an-and-live/package.png)
 
@@ -113,7 +113,7 @@ banner_click(event){
 
 ## Related reference links
 
-- The Facebook Service Integration [Sample Project](https://github.com/cocos-creator/facebook_demo) provided by __Cocos Creator__ contains **Facebook Live Video** and **Facebook Audience Network** usage example.
+- The Facebook Service Integration [Sample Project](https://github.com/cocos-creator/facebook_demo) provided by Cocos Creator contains **Facebook Live Video** and **Facebook Audience Network** usage example.
 - [Facebook Developer Center](https://developers.facebook.com/)
 - [Facebook Live Video](https://developers.facebook.com/docs/videos/live-video)
 - [Facebook Audience Network](https://developers.facebook.com/docs/audience-network)

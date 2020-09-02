@@ -44,7 +44,3 @@ If everything goes well, you will see your script shown in **Properties**:
 ![script-in-inspector](assets/script-in-inspector.png)
 
 **Note**: You can also add script by dragging script asset into **Properties**.
-
----
-
-Continue on to read about [Declare class with cc.Class](class.md).

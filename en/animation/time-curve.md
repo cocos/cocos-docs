@@ -22,7 +22,3 @@ In the preview image to the right of the time curve editor, there are two gray c
 If the controll points need to be dragged outside of the visual field, you can use the mouse wheel or small plotting scale on the top right corner to zoom in/out of the preview image. The proportions supported range from 0.1 to 1.
 
 ![time curve](time-curve/custom.png)
-
----
-
-Continue on to read [Animation Events](animation-event.md).

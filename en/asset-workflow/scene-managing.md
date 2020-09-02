@@ -1,7 +1,8 @@
 # Creating and managing scenes
 
 ## Creating a scene
-Method one: on the main menu select __File-->New scene__
+
+Method one: on the main menu select **File -> New scene**.
 
 ![new-scene-main-menu](scene-managing/new-scene-main-menu.png)
 
@@ -10,13 +11,15 @@ Method two: click the create menu in **Assets** to create a new scene.
 ![new-scene-assets-menu](scene-managing/new-scene-assets-menu.png)
 
 ## Saving a scene
-Method one: use keyboard shortcut __Ctrl + S__ (Windows) or __Command + S__ (Mac)
 
-Method two: on the main menu select __File-->Save scene__
+Method one: use keyboard shortcut **Ctrl + S** (Windows) or **Command + S** (Mac).
+
+Method two: on the main menu select **File -> Save Scene**.
 
 ![save-scene-main-menu](scene-managing/save-scene-main-menu.png)
 
 ## Switching scenes
+
 Double click the scene that you want to open in **Assets**.
 
 ## Change the policy of auto releasing assets from previous scene
@@ -40,7 +43,7 @@ For details on resource release, see [Release Of Resources](../asset-manager/rel
 
 ## Change the policy of scene loading
 
-Select the scene in **Assets** panel, you will see the "Async Load Assets" property in **Properties** panel, the property is true by default.
+Select the scene in **Assets** panel, you will see the **Async Load Assets** option in **Properties** panel, which is disabled by default.
 
 ### Disable Async Load Assets
 
@@ -53,7 +56,3 @@ However, the players may see some assets rendered one by one after scene launche
 In this mode, to display the entire scene faster, you can make the undisplayed rendering components (such as Sprite) keep inactive from the beginning.
 
 > The depended assets for Spine and TiledMap will always loaded before scene launch.
-
-<hr>
-
-Continue on to read about [Textures](sprite.md).

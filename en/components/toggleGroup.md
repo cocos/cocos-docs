@@ -20,5 +20,3 @@ The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/clas
 ## Detailed explanation
 
 The ToggleGroup won't be used alone and it usually be used with `Toggle` to implement the RatioButton.
-
----

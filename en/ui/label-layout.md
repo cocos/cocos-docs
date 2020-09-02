@@ -112,11 +112,6 @@ In the above picture, two Label child nodes are added to the background nodes. A
 
 And by setting margins on the Widget, plus the layout type of labels, a flexible and beautiful layout for labels can be easily realized without concrete and minor adjustments to the bounding box.
 
-
 ## Reference for checking components
 
 For properties of the Label component, you can also check [Label Component](../components/label.md) document.
-
----
-
-Continue on to read about [UI Components](ui-components.md).
