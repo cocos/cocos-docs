@@ -112,7 +112,7 @@ The compression required by the texture can be set directly in the editor, and C
   - [Web] Increase transparency support for WebView on the web platform.
   - [Web] Optimized display position of WebView components.
   - [Web] Optimizing the performance of VideoPlayer on the X5 browser.
-  - [Wechat] Supports getting the res and referrerInfo parameters passed to the platform when responding to the cc.game.EVENT_SHOW event on WeChat Mini Games.
+  - [WeChat] Supports getting the res and referrerInfo parameters passed to the platform when responding to the cc.game.EVENT_SHOW event on WeChat Mini Games.
   - [VideoPlayer] Optimized the performance of VideoPlayer full-screen playback.
 
 ### Bug Fixes
@@ -156,7 +156,7 @@ The compression required by the texture can be set directly in the editor, and C
 
 #### WeChat Open Data Context
 
-Starting with v2.0.1, Cocos Creator upgraded the open data context solution, see [Wechat Open Data Context](../publish/publish-Wechatgame-sub-domain.md).
+Starting with v2.0.1, Cocos Creator upgraded the open data context solution, see [WeChat Open Data Context](../publish/publish-Wechatgame-sub-domain.md).
 
 #### v2.0 Upgrade Guide
 

@@ -24,7 +24,7 @@ After adding the Sprite component, drag the Texture or SpriteFrame type resource
 
 If this SpriteFrame resource is contained within an Atlas resource, then the `Atlas` attribute of the Sprite will be set up along with it.
 
-**To dynamically replace spriteframe, you need to dynamically load the picture resource before you replace it, please refer to [Acquire and load asset: how to dynamically load](../scripting/load-assets.md#how-to-dynamically-load).**
+**To dynamically replace spriteframe, you need to dynamically load the picture resource before you replace it, please refer to [Dynamic loading of resources](../scripting/dynamic-load-resources.md).**
 
 ## Rendering mode
 
