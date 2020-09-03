@@ -116,7 +116,7 @@ Another situation is when the **uuid** has changed, so that the resources corres
 
 ![](meta/lost.png)
 
-If you can't find the resources corresponding to the old **uuid**, you can see that Cocos Creator gives a very detailed warning message in the **console**. These details include the *scene file name*, *node path*, *component*, *uuid*, etc. The warning message allows you to quickly locate the error.
+If you can't find the resources corresponding to the old **uuid**, you can see that Cocos Creator gives a very detailed warning message in the **console**. These details include the **scene file name**, **node path**, **component**, **uuid**, etc. The warning message allows you to quickly locate the error.
 
 How is this situation caused exactly? When someone adds a new resource to the project, they forget to switch to the editor interface to generate a **meta** file, and at the same time submit the new file to version management (without the **meta** file). Then, another person updates the resources he/she submitted and switches to the editor interface for editing. At this point, Cocos Creator will check that the new resource is generated without a **meta** file. The **meta** file is also generated when the first person switches to the editor, so that the two people have the same file on the computer, but the **uuid** in the generated **meta** file is different.
 

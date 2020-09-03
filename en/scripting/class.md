@@ -102,6 +102,7 @@ To declare the attribute, all you need to do is put the attribute name and param
 ```javascript
 cc.Class({
     extends: cc.Component,
+
     properties: {
         userID: 20,
         userName: "Foobar"

@@ -184,7 +184,7 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-rendertexture.ts)。
 
 ### 在原生平台上保存截图文件
 
@@ -196,7 +196,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)。
+详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/07_capture_texture/capture_to_native.js)。
 
 ## 微信中的截图
 

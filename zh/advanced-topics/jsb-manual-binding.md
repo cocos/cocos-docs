@@ -123,7 +123,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 * `SE_DECLARE_FINALIZE_FUNC`：声明一个 JS 对象被 GC 回收后的回调函数
 * `_SE`：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 _T("xxx") 来包装 Unicode 或者 MultiBytes 字符串
 
-在我们的简化版例子中，只需要用到 `SE_DECLARE_FUNC`、`SE_BIND_FUNC ` 即可。
+在我们的简化版例子中，只需要用到 `SE_DECLARE_FUNC`、`SE_BIND_FUNC` 即可。
 
 ### 类型转换辅助函数
 
@@ -365,7 +365,7 @@ static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
 }
 ```
 
-1. 通过 `seval_to_std_string ` 方法获取转化 C++ 后的 url、path 参数和原始 jsFunc。
+1. 通过 `seval_to_std_string` 方法获取转化 C++ 后的 url、path 参数和原始 jsFunc。
 2. 手动构造回调 function，将 msg 和 code 转化为 `se::Value`。
 3. 通过 `funcObj->call` 执行 JS 方法进行回调。
 

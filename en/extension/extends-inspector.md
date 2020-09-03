@@ -28,9 +28,9 @@ cc.Class ({
 });
 ```
 
-** Note 1: ** Here we define a `editor` field and define the `inspector` entry file in this field. Basis your `inspector.js` editor will generate the correspondence frame.
+**Note 1**: Here we define a `editor` field and define the `inspector` entry file in this field. Basis your `inspector.js` editor will generate the correspondence frame.
 
-** Note 2: ** In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
+**Note 2**: In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
 
 ## Create a custom Inspector extension package
 

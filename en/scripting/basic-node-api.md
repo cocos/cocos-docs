@@ -61,7 +61,7 @@ These two method have equal effect.
 
 ### Access child node
 
-- `this.node.children` will return all child nodes of current node.<br>
+- `this.node.children` will return all child nodes of current node.
 - `this.node.childrenCount` will return the number of child nodes.
 
 **Notice** the above API will only count direct children, not grand children.

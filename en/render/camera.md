@@ -185,7 +185,7 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
+Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
 
 ### Save screenshot file on native platform
 
@@ -197,7 +197,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js) for details.
+Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/07_capture_texture/capture_to_native.js) for details.
 
 ## The screenshot in WeChat
 

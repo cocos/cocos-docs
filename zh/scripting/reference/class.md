@@ -104,6 +104,7 @@ var Texture = cc.Class();
 var Texture2D = cc.Class({
     extends: Texture
 });
+
 cc.log(cc.isChildClassOf(Texture2D, Texture));   // true
 ```
 
@@ -136,6 +137,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.text = "this is sprite";
     },
+
     // 声明一个名叫 "print" 的实例方法
     print: function () {
         cc.log(this.text);
@@ -186,6 +188,7 @@ var Object = cc.Class({
         range: { w: 100, h: 100 }
     }
 });
+
 var Sprite = cc.Class({
     extends: Object
 });
@@ -226,6 +229,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -235,6 +239,7 @@ var Sprite = cc.Class({
         this.name = "sprite";
     }
 });
+
 var obj = new Sprite();
 cc.log(obj.name);    // "sprite"
 ```
@@ -247,6 +252,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -270,12 +276,14 @@ var Shape = cc.Class({
         return "shape";
     }
 });
+
 var Rect = cc.Class({
     extends: Shape,
     getName: function () {
         return "rect";
     }
 });
+
 var obj = new Rect();
 cc.log(obj.getName());    // "rect"
 ```
@@ -339,6 +347,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.img = LoadImage();
     },
+
     properties: {
         img: {
             default: null,
@@ -362,9 +371,9 @@ var Sprite = cc.Class({
 
 `default` 允许设置为以下几种值类型：
 
-1. 任意 number, string 或 boolean 类型的值
-2. `null` 或 `undefined`
-3. 继承自 `cc.ValueType` 的子类，如 `cc.Vec2`, `cc.Color` 或 `cc.Rect` 的实例化对象：
+- 任意 number, string 或 boolean 类型的值
+- `null` 或 `undefined`
+- 继承自 `cc.ValueType` 的子类，如 `cc.Vec2`, `cc.Color` 或 `cc.Rect` 的实例化对象：
 
     ```javascript
     properties: {
@@ -374,8 +383,8 @@ var Sprite = cc.Class({
     }
     ```
 
-4. 空数组 `[]` 或空对象 `{}`
-5. 一个允许返回任意类型值的 function，这个 function 会在每次实例化该类时重新调用，并且以返回值作为新的默认值：
+- 空数组 `[]` 或空对象 `{}`
+- 一个允许返回任意类型值的 function，这个 function 会在每次实例化该类时重新调用，并且以返回值作为新的默认值：
 
     ```javascript
     properties: {
@@ -465,6 +474,7 @@ _id: {
     tooltip: "my id",
     override: true
 },
+
 name: {
     get: function () {
         return this._name;
@@ -613,6 +623,7 @@ var Sprite = cc.Class({
         this.__width = 128;
         cc.log(this.width);    // 128
     },
+
     properties: {
         width: {
             get: function () {
@@ -632,6 +643,7 @@ var Sprite = cc.Class({
         get: function () {
             return this.__width;
         },
+
         type: cc.Integer,
         tooltip: "The width of sprite"
     }
@@ -649,6 +661,7 @@ var Sprite = cc.Class({
         }
         ...
     });
+    
     var obj = new Sprite();
     obj.position = new cc.Vec2(10, 20);   // 失败！position 是只读的！
     obj.position.x = 100;                 // 允许！position 返回的 _position 对象本身可以修改！

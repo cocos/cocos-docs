@@ -10,13 +10,13 @@ This is not the first time Cocos has upgraded the engine from 2D to 3D. A few ye
 
 ## Follow-up Version Notice
 
-**v2.0 will continue to be maintained, native platform performance will be optimized as soon as possible**
+**V2.0 will continue to be maintained, native platform performance will be optimized as soon as possible**
 
-v2.0 and v2.1 will grow together over a period of time. V2.0 will continue to be maintained, adding more performance optimizations and bug fixes. We will soon be beta testing v2.0.7. In v2.0.7 the rendering performance of the engine has been optimized, especially **Spine** and **DragonBones**. Also, the performance has been greatly improved.
+V2.0 and v2.1 will grow together over a period of time. V2.0 will continue to be maintained, adding more performance optimizations and bug fixes. We will soon be beta testing v2.0.7. In v2.0.7 the rendering performance of the engine has been optimized, especially **Spine** and **DragonBones**. Also, the performance has been greatly improved.
 
-**v2.1 iterations will be more aggressive**
+**V2.1 iterations will be more aggressive**
 
-Compared with v2.0, the upgrade cycle of v2.1 will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support. Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in Properties**. We will be releasing **v2.1.1** in the near future which will support *3D scene editing*, *material systems* and *optimizing the 3D development process*.
+Compared with v2.0, the upgrade cycle of v2.1 will mainly focus on 3D features. We recommend upgrading new projects with 3D requirements to this version, and establishing contact with us on our forums. This allows us and our 3D partners to provide support. Since v2.1 is a very new version, we will speed up the iteration and try to meet the needs of developers. In particular, **currently v2.1.0 version still does not support 3D scene editing, only the 3D parameters can be set in Properties**. We will be releasing **v2.1.1** in the near future which will support **3D scene editing**, **material systems** and **optimizing the 3D development process**.
 
 ## Complete list of changes (compared to v2.0.5)
 

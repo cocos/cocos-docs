@@ -104,6 +104,7 @@ var Texture = cc.Class();
 var Texture2D = cc.Class({
     extends: Texture
 });
+
 cc.log(cc.isChildClassOf(Texture2D, Texture));   // true
 ```
 
@@ -228,6 +229,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -237,6 +239,7 @@ var Sprite = cc.Class({
         this.name = "sprite";
     }
 });
+
 var obj = new Sprite();
 cc.log(obj.name);    // "sprite"
 ```
@@ -249,6 +252,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -343,6 +347,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.img = LoadImage();
     },
+
     properties: {
         img: {
             default: null,
@@ -366,9 +371,9 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
 
 `default` allows you to set the following types of values:
 
-1. Any value of type, string, or boolean
-2. `null` or `undefined`
-3. Object which instance of subclasses inherited from `cc.ValueType`, such as `cc.Vec2`, `cc.Color` or `cc.Rect`
+- Any value of type, string, or boolean
+- `null` or `undefined`
+- Object which instance of subclasses inherited from `cc.ValueType`, such as `cc.Vec2`, `cc.Color` or `cc.Rect`
 
     ```javascript
     properties: {
@@ -378,8 +383,8 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
     }
     ```
 
-4. Empty array `[]` or empty object `{}`
-5. A function that allows you to return any type of value, which is called again each time the class is instantiated and takes the return value as the new default:
+- Empty array `[]` or empty object `{}`
+- A function that allows you to return any type of value, which is called again each time the class is instantiated and takes the return value as the new default:
 
     ```javascript
     properties: {
@@ -474,6 +479,7 @@ name: {
     get: function () {
         return this._name;
     },
+
     displayName: "Name",
     override: true
 }
@@ -618,6 +624,7 @@ var Sprite = cc.Class({
         this.__width = 128;
         cc.log(this.width);    // 128
     },
+
     properties: {
         width: {
             get: function () {
@@ -637,6 +644,7 @@ Please note:
         get: function () {
             return this.__width;
         },
+
         type: cc.Integer,
         tooltip: "The width of sprite"
     }
@@ -654,6 +662,7 @@ Please note:
         }
         ...
     });
+
     var obj = new Sprite();
     obj.position = new cc.Vec2(10, 20);   // Failure! position is read only!
     obj.position.x = 100;                 // Allow! _position object itself returned by position can be modified!

@@ -2,7 +2,7 @@
 
 ## Creating a scene
 
-Method one: on the main menu select **File -> New scene**.
+Method one: on the main menu select **File -> New Scene**.
 
 ![new-scene-main-menu](scene-managing/new-scene-main-menu.png)
 

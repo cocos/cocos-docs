@@ -32,7 +32,7 @@ Adjust value to avoid value's fractional part to be too long.
 
 - `targets` [Object] - The target wich should adjust.
 - `keys` String (optional) - If not specified, then will adjust all available properties on target.
-- `minDifference` Number(optionnal) - The decimal precision, default is ` Editor.Gizmo.prototype.defaultMinDifference()`
+- `minDifference` Number(optionnal) - The decimal precision, default is `Editor.Gizmo.prototype.defaultMinDifference()`
 
 ```javascript
 this.adjustValue(this.node, ['position']);

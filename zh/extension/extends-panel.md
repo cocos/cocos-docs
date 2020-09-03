@@ -129,11 +129,9 @@ module.exports = {
 ```javascript
 this.$btn.addEventListener('confirm', () => {
     Editor.Ipc.sendToMain('simple-package:say-hello', 'Hello, this is simple panel');
-  });
+});
 ```
 
 当点击按钮时，它将会给插件主进程发送 'say-hello' 消息，并附带对应的参数。你可以用任何你能想得到的前端技术编辑你的窗口界面，还可以结合 Electron 的 内置 node 在窗口内 require 你希望的 node 模块，完成任何你希望做的操作。
-
----
 
 更全面和详细的主进程和面板之间的 IPC 通讯交互方法，请继续阅读 [进程间通讯工作流程](ipc-workflow.md)。
