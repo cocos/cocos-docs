@@ -1,4 +1,5 @@
 # Editor interface overview
+
 This chapter will introduce the editor interface and get familiar with each of the panels, menus and functional buttons that make up the editor. The Cocos Creator editor is composed of multiple panels which can be moved and combined freely to meet the needs of different projects and developers. Here we will take the default editor layout as an example to quickly browse the name and function of each panel:
 
 ![Editor Overview](index/editor-overview.png)
@@ -49,7 +50,7 @@ For further information please read the [Node Library](editor-panels/node-librar
 
 **Toolbar** the scene editing tool, operating button for previewing games, shows the access address for remote testing, number of connected devices and the rightmost access project folder and open program installation path.
 
-Continue on to read about [Toolbar](toolbar.md).
+For further information please read the [Toolbar](toolbar.md) section.
 
 ## Settings
 

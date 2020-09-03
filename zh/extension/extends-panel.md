@@ -99,7 +99,7 @@ ready 初始化回调函数中中对面板元素的事件进行注册和处理�
 在主进程函数中，我们做如下定义：
 
 ```javascript
-'use strict';
+// use strict;
 
 module.exports = {
   load () {
@@ -127,13 +127,11 @@ module.exports = {
 通常我们需要在窗口面板中设置一些 UI，然后通过发送 IPC 消息将任务交给主进程处理。这里我们可以使用 `Editor.Ipc` 模块来完成，在上面定义的 `index.js` 的 `ready()` 函数中处理按钮消息来达成。
 
 ```javascript
-  this.$btn.addEventListener('confirm', () => {
+this.$btn.addEventListener('confirm', () => {
     Editor.Ipc.sendToMain('simple-package:say-hello', 'Hello, this is simple panel');
-  });
+});
 ```
 
 当点击按钮时，它将会给插件主进程发送 'say-hello' 消息，并附带对应的参数。你可以用任何你能想得到的前端技术编辑你的窗口界面，还可以结合 Electron 的 内置 node 在窗口内 require 你希望的 node 模块，完成任何你希望做的操作。
-
----
 
 更全面和详细的主进程和面板之间的 IPC 通讯交互方法，请继续阅读 [进程间通讯工作流程](ipc-workflow.md)。

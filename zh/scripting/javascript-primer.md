@@ -392,7 +392,3 @@ var Comp = cc.Class({
 
 - [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
 - [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
-
----
-
-继续前往 [CCClass 进阶参考](reference/class.md)。

@@ -101,7 +101,7 @@ It is a singleton that could be accessed via `se::ScriptEngine::getInstance()`.
 
 #### se::Value
 
-`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`,` number`, `string`,` boolean`, `null`,` undefined`, so `se::Value` uses an `union` to include ` object`, `number`,` string `,` boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
+`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`,` number`, `string`,` boolean`, `null`,` undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
 
 ```c++
 namespace se {

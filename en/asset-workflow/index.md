@@ -64,7 +64,3 @@ Next, we will introduce Cocos Creator's main asset types and the related workflo
 - [DragonBones](dragonbones.md)
 - [JSON asset](json.md)
 - [Text asset](text.md)
-
----
-
-Continue on to read about [Create and Manage Scenes](scene-managing.md).

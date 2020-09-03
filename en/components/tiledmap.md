@@ -22,6 +22,7 @@ API reference: [TiledMap API](../../../api/en/classes/TiledMap.html).
 - After you add the **Tmx Asset** property to the TiledMap component, the TiledMap component will add children node corresponding to the layers in the map. A TiledLayer component will be added for the children node. **Please DO NOT remove the TiledLayer component.**
 
   ![](./tiledmap/tiledlayer.png)
+
 - The Tiledmap component does not support `mapLoaded` callback, you can use TiledMap component in callback `start`.
 
 ## TiledLayer and Node Overlap
@@ -77,15 +78,11 @@ Here is an example of how TiledLayer achieves overlap with nodes.
 
 4. Mount the script component onto the Canvas, it means dragging and dropping the script into the **Properties** of the node. Then drag and drop the auto-generated node with TiledLayer component in the **Node Tree** and the prefab in the **Assets** to the corresponding property box of script component. And save the Scene.
 
-5. Click the preview button at the top of the editor, we can see the effact that the nodes and the map layer mutual overlap. About the code, please refer to [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap) for details.
+5. Click the preview button at the top of the editor, we can see the effact that the nodes and the map layer mutual overlap. About the code, please refer to [ShieldNode](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/tiledmap) for details.
 
     ![](./tiledmap/shieldNode.png)
 
 If you want to remove a node in the map layer, call the `removeUserNode` of TiledLayer.
-
----
-
-Continue on to read about [Workflow of script development](../scripting/index.md).
 
 ## Disable TiledMap clipping
 

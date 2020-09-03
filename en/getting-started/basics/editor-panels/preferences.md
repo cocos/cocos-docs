@@ -56,7 +56,7 @@ This classification is used to set the build is released to the native platform 
 
 * **Cocos2d-x Path**: `Use Builtin Cocos2d-x Engine` cancel previous selections, you can manually specify the path cocos2d-x. Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/cocos2d-x-lite> or the warehouse's fork.
 
-* **WechatGame App Path**: Set the WechatGame App Path, See [WeChat Mini Games](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F).
+* **WeChatGame App Path**: Set the WeChatGame App Path, See [WeChat Mini Games](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F).
 
 * **NDK Path**: Set the NDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 

@@ -10,7 +10,9 @@ There's an example project you can see data storage API work in action: [Tutoria
 
 `cc.sys.localStorage.setItem(key, value)`
 
-This method requires 2 parameter: `key` is the key you use to index the data. `value` is the data itself.
+This method requires 2 parameter: 
+- `key` is the key you use to index the data.
+- `value` is the data itself.
 
 If we want to store the how much gold player owns, we use `gold` as the key:
 
@@ -44,7 +46,6 @@ We can remove a key-value data from the storage when we don't need it anymore:
 
 `cc.sys.localStorage.removeItem(key)`
 
-
 ## Encryption
 
 For single player game, apply encryption to user profile data can make it harder to hack your game. You can import any third party encryption library and use it to encrypt your data before using `setItem`.
@@ -68,4 +69,4 @@ var cipherText = cc.sys.localStorage.getItem('userData');
 var userData=JSON.parse(encrypt.decrypt(cipherText,secretkey,256));
 ```
 
-**Notice** Data encryption cannot guarantee the safety of user profile data. If you want to make sure it's not hackable please load and save data with a secured server.
+**Note**: Data encryption cannot guarantee the safety of user profile data. If you want to make sure it's not hackable please load and save data with a secured server.

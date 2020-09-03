@@ -124,7 +124,7 @@ The specific filling rules for the relevant parameter configuration are as follo
   - **Windows**: Gets the path in the environment variable from the system.
   - **Mac**: Gets the path in the environment variable from the configuration file of Shell.
 
-  If not, make sure the npm is properly installed and can be started directly in the command line environment. The obtained npm is used to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
+  If not, make sure the npm is properly installed and can be started directly in the command line environment. The obtained npm is used to provide an environment for building rpk. If the npm folder path cannot be found at building, Cocos Creator will only export the game project directory and will not generate the rpk package.
 
   The npm filling rules below **v2.0.10** are as follows:
 

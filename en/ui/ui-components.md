@@ -7,7 +7,7 @@ This document describes commonly used controls in the UI system, use the core re
 - ProgressBar
 - EditBox
 
-UI controls are described below can be passed **Node Tree** top left to create a node in the menu "Create UI Node" to create a submenu.
+UI controls are described below can be passed **Node Tree** top left to create a node in the menu **Create UI Nodes** to create a submenu.
 
 ![create node ui](ui-components/create_node_ui.png)
 
@@ -90,7 +90,3 @@ Note that after the fill mode is selected in the progress bar, the unit of `Tota
 ## EditBox
 
 Please refer to [EditBox Component Reference](../components/editbox.md) for details.
-
-<hr>
-
-Continue on to read about  [Auto Layout](auto-layout.md).

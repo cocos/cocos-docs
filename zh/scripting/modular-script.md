@@ -233,7 +233,3 @@ cc.log(foo.isDirty());           // true
 ## 循环引用
 
 请参考 [属性延迟定义](reference/class.md#deferred-definition)
-
----
-
-继续前往 [插件脚本](plugin-scripts.md)。

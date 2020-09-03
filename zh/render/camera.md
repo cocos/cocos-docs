@@ -124,7 +124,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture)。
 
 ```javascript
 // 此代码仅适用于 web 平台。要在 native 平台中使用这个功能，请参考 example-case 中的 capture_to_native 场景。
@@ -184,7 +184,7 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-rendertexture.ts)。
 
 ### 在原生平台上保存截图文件
 
@@ -196,7 +196,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)。
+详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/07_capture_texture/capture_to_native.js)。
 
 ## 微信中的截图
 
@@ -204,4 +204,4 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 ## 案例
 
-具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。

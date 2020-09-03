@@ -18,7 +18,3 @@ In this chapter:
 - [v2.0 Upgrade Guide](../release-notes/upgrade-guide-v2.0.md)
 - [v2.1 Upgrade Guide](../release-notes/upgrade-guide-v2.1.md)
 - [FAQ](faq.md)
-
----
-
-Let's get started now with an [Introduction](introduction.md) to learn what Cocos Creator is and what can it do for game developers.

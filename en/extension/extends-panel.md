@@ -97,7 +97,7 @@ Some time we would like to quickly access a panel, usually we do this by registe
 ```
 
 ```javascript
-'use strict';
+// use strict
 
 module.exports = {
   load () {
@@ -125,13 +125,11 @@ More about the `package.json` field, read [Panel Json Reference](reference/panel
 Usually we put some UI in panel, user interact with it and send IPC message to main process. We use `Editor.Ipc` to achieve this. For example:
 
 ```javascript
-  this.$btn.addEventListener('confirm', () => {
+this.$btn.addEventListener('confirm', () => {
     Editor.Ipc.sendToMain('simple-package:say-hello', 'Hello, this is simple panel');
-  });
+});
 ```
 
 When you click the button, he will send 'say-hello' message to main process with arguments. You can use any front end techinque you like to programme the panel UI, you are also free to use node technique since we are in Electron.
-
----
 
 For more about IPC communication between panel and main process, read [Ipc Workflow](ipc-workflow.md).

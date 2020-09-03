@@ -91,7 +91,3 @@ Content resources outside the scene can be imported from outside, such as images
 Supports both 2D and 3D game development with features that meet the specific needs of your various game types. Deep optimization of the editor experience and engine performance of pure 2D games and built-in support for middleware such as Spine, DragonBones, TiledMap, Box2D, and Texture Packer.
 
 Finally, the developed game can be published to each platform by one-click through a graphical tool, from design development to test release, Cocos Creator can handle everything for you.
-
----
-
-Continue on to read about the [Installation](install.md).

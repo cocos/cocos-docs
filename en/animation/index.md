@@ -13,7 +13,3 @@ This chapter will introduce the animation system that comes bundled with Cocos C
 - [Time Curves](time-curve.md)
 - [Animation Events](animation-event.md)
 - [Scripting Animations](scripting-animation.md)
-
-<hr>
-
-Start learning from [About Animations](animation.md).

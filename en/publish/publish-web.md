@@ -66,7 +66,3 @@ You can use `cc.view.enableRetina(true)` to set the high resolution in the scrip
 If you want to release or share your games on the Internet, click the **Open** button next to **Build path**. After opening the release path, copy everything in the built `web-mobile` or `web-desktop` folders, and drop them into your Web server. Then you can see the game later there.
 
 For the construction of Web server, you can search for solutions such as Apache, Nginx, IIS and Express on your own.
-
----
-
-Continue on to read about [Setup Native Development](setup-native-development.md).

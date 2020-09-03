@@ -3,6 +3,7 @@
 支持显示 mackdown 语法
 
 ## 基础用法
+
 ```html
 <ui-markdown>
     <!-- mackdown 语法的文档 -->
@@ -24,10 +25,13 @@
     ------
 </ui-markdown>
 ```
+
 ![ui-markdown img](ui-kit/ui-markdown.png)
 
 ## 使用语法
-具体使用语法，请参照[ markdown 官方文档](http://www.markdown.cn/)和网上其他的完整教程
+
+具体使用语法，请参照 [markdown 官方文档](http://www.markdown.cn/) 和网上其他的完整教程
 
 ## 效果示例
+
 请参见 `UI-Kit Preview`

@@ -39,14 +39,10 @@ Drag **plist** & **png** files into **Assets Panel** at the same time. Then you 
 
 ### Atlas & SpriteFrame
 
-In the [Texture Document](sprite.md), we introduced the relationship between Texture & SpriteFrame. When Atlas asset imported, here is also a triangle icon beside the `Atlas` asset. Click it to expand Atlas asset. There will be many `SpriteFrame` sub-assets, each one can be used separately.
+In the [Texture](sprite.md) document, we introduced the relationship between Texture & SpriteFrame. When Atlas asset imported, here is also a triangle icon beside the `Atlas` asset. Click it to expand Atlas asset. There will be many `SpriteFrame` sub-assets, each one can be used separately.
 
 ![sprite frame](atlas/spriteframes.png)
 
 ## Convert separated images to atlas
 
 In the project prototype stage or early production, art content and structure changes will be more frequent, we usually use the separated images to build the scene and make UI. In order to optimize performance and save the package, you need to merge the separated images into a atlas. Creator provides the Auto Atlas Asset to seamlessly merges separated images of a production stage into an atlas when it is released, and automatically updates the resource index. Please see [Auto Atlas Asset](./auto-atlas.md) for detailed usage.
-
-<hr>
-
-Continue on to read about [Trim](trim.md).

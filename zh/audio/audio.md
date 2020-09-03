@@ -1,6 +1,6 @@
 # 音频播放
 
-- 音频的加载方式请参考：[声音资源](../asset-workflow/audio-asset.md)
+音频的加载方式请参考：[声音资源](../asset-workflow/audio-asset.md)
 
 ## 使用 AudioSource 组件播放
 
@@ -8,39 +8,39 @@
 2. 选中空节点，在 **属性检查器** 最下方点击 **添加组件 -> 其他组件 -> AudioSource** 来添加 AudioSource 组件
 3. 将 **资源管理器** 中所需的音频资源拖拽到 AudioSource 组件的 Clip 中，如下所示:
 
-![](audio/audiosource.png)
+    ![](audio/audiosource.png)
 
 然后根据需要对 AudioSource 组件的其他参数项进行设置即可，参数详情可参考 [AudioSource 组件参考](../components/audiosource.md)。
 
 - **通过脚本控制 AudioSource 组件**
 
-如果只需要在游戏加载完成后自动播放音频，那么勾选 AudioSource 组件的 **Play On Load** 即可。如果要更灵活的控制 AudioSource 的播放，可以在自定义脚本中获取 **AudioSource 组件**，然后调用相应的 API，如下所示：
+    如果只需要在游戏加载完成后自动播放音频，那么勾选 AudioSource 组件的 **Play On Load** 即可。如果要更灵活的控制 AudioSource 的播放，可以在自定义脚本中获取 **AudioSource 组件**，然后调用相应的 API，如下所示：
 
-```js
-// AudioSourceControl.js
-cc.Class({
-    extends: cc.Component,
+    ```js
+    // AudioSourceControl.js
+    cc.Class({
+        extends: cc.Component,
 
-    properties: {
-        audioSource: {
-            type: cc.AudioSource,
-            default: null
+        properties: {
+            audioSource: {
+                type: cc.AudioSource,
+                default: null
+            },
         },
-    },
 
-    play: function () {
-        this.audioSource.play();
-    },
+        play: function () {
+            this.audioSource.play();
+        },
 
-    pause: function () {
-        this.audioSource.pause();
-    },
-});
-```
+        pause: function () {
+            this.audioSource.pause();
+        },
+    });
+    ```
 
-然后在编辑器的 **属性检查器** 中添加对应的用户脚本组件。选择相对应的节点，在 **属性检查器** 最下方点击 **添加组件 -> 用户脚本组件 -> 用户脚本**，即可添加脚本组件。然后将带有 AudioSource 组件的节点拖拽到脚本组件中的 **Audio Source** 上，如下所示：
+    然后在编辑器的 **属性检查器** 中添加对应的用户脚本组件。选择相对应的节点，在 **属性检查器** 最下方点击 **添加组件 -> 用户脚本组件 -> 用户脚本**，即可添加脚本组件。然后将带有 AudioSource 组件的节点拖拽到脚本组件中的 **Audio Source** 上，如下所示：
 
-![](audio/audiosourcecontrol.png)
+    ![](audio/audiosourcecontrol.png)
 
 ## 使用 AudioEngine 播放
 
@@ -49,27 +49,27 @@ AudioEngine 与 AudioSource 都能播放音频，它们的区别在于 AudioSour
 1. 在脚本的 properties 中定义一个 AudioClip 资源对象
 2. 直接使用 `cc.audioEngine.play(audio, loop, volume);` 播放，如下所示：
 
-```js
-// AudioEngine.js
-cc.Class({
-    extends: cc.Component,
+    ```js
+    // AudioEngine.js
+    cc.Class({
+        extends: cc.Component,
 
-    properties: {
-        audio: {
-            default: null,
-            type: cc.AudioClip
+        properties: {
+            audio: {
+                default: null,
+                type: cc.AudioClip
+            }
+        },
+
+        onLoad: function () {
+            this.current = cc.audioEngine.play(this.audio, false, 1);
+        },
+
+        onDestroy: function () {
+            cc.audioEngine.stop(this.current);
         }
-    },
-
-    onLoad: function () {
-        this.current = cc.audioEngine.play(this.audio, false, 1);
-    },
-
-    onDestroy: function () {
-        cc.audioEngine.stop(this.current);
-    }
-});
-```
+    });
+    ```
 
 目前建议使用 [audioEngine.play](../../../api/zh/classes/audioEngine.html#play) 接口来统一播放音频。或者也可以使用 [audioEngine.playEffect](../../../api/zh/classes/audioEngine.html#playeffect) 和 [audioEngine.playMusic](../../../api/zh/classes/audioEngine.html#playmusic) 这两个接口，前者主要是用于播放音效，后者主要是用于播放背景音乐。具体可查看 API 文档。
 

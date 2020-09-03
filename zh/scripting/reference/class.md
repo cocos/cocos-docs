@@ -104,6 +104,7 @@ var Texture = cc.Class();
 var Texture2D = cc.Class({
     extends: Texture
 });
+
 cc.log(cc.isChildClassOf(Texture2D, Texture));   // true
 ```
 
@@ -136,6 +137,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.text = "this is sprite";
     },
+
     // 声明一个名叫 "print" 的实例方法
     print: function () {
         cc.log(this.text);
@@ -186,6 +188,7 @@ var Object = cc.Class({
         range: { w: 100, h: 100 }
     }
 });
+
 var Sprite = cc.Class({
     extends: Object
 });
@@ -226,6 +229,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -235,6 +239,7 @@ var Sprite = cc.Class({
         this.name = "sprite";
     }
 });
+
 var obj = new Sprite();
 cc.log(obj.name);    // "sprite"
 ```
@@ -247,6 +252,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -270,61 +276,63 @@ var Shape = cc.Class({
         return "shape";
     }
 });
+
 var Rect = cc.Class({
     extends: Shape,
     getName: function () {
         return "rect";
     }
 });
+
 var obj = new Rect();
 cc.log(obj.getName());    // "rect"
 ```
 
 和构造函数不同的是，父类被重写的方法并不会被 CCClass 自动调用，如果你要调用的话：
 
-方法一：使用 CCClass 封装的 `this._super`：
+- 方法一：使用 CCClass 封装的 `this._super`
 
-```javascript
-var Shape = cc.Class({
-    getName: function () {
-        return "shape";
-    }
-});
-var Rect = cc.Class({
-    extends: Shape,
-    getName: function () {
-    
-        var baseName = this._super();
-        
-        return baseName + " (rect)";
-    }
-});
-var obj = new Rect();
-cc.log(obj.getName());    // "shape (rect)"
-```
+    ```javascript
+    var Shape = cc.Class({
+        getName: function () {
+            return "shape";
+        }
+    });
 
-方法二：使用 JavaScript 原生写法：
+    var Rect = cc.Class({
+        extends: Shape,
+        getName: function () {
+            var baseName = this._super();
+            return baseName + " (rect)";
+        }
+    });
 
-```javascript
-var Shape = cc.Class({
-    getName: function () {
-        return "shape";
-    }
-});
-var Rect = cc.Class({
-    extends: Shape,
-    getName: function () {
-    
-        var baseName = Shape.prototype.getName.call(this);
-        
-        return baseName + " (rect)";
-    }
-});
-var obj = new Rect();
-cc.log(obj.getName());    // "shape (rect)"
-```
+    var obj = new Rect();
+    cc.log(obj.getName());    // "shape (rect)"
+    ```
 
-> 如果你想实现继承的父类和子类都不是 CCClass，只是原生的 JavaScript 构造函数，你可以用更底层的 API `cc.js.extend` 来实现继承。
+- 方法二：使用 JavaScript 原生写法
+
+    ```javascript
+    var Shape = cc.Class({
+        getName: function () {
+            return "shape";
+        }
+    });
+
+    var Rect = cc.Class({
+        extends: Shape,
+        getName: function () {
+            var baseName = Shape.prototype.getName.call(this);
+            return baseName + " (rect)";
+        }
+    });
+
+    var obj = new Rect();
+    cc.log(obj.getName());    // "shape (rect)"
+    ```
+
+如果你想实现继承的父类和子类都不是 CCClass，只是原生的 JavaScript 构造函数，你可以用更底层的 API `cc.js.extend` 来实现继承。
 
 ## 属性
 
@@ -339,6 +347,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.img = LoadImage();
     },
+
     properties: {
         img: {
             default: null,
@@ -348,23 +357,24 @@ var Sprite = cc.Class({
 });
 ```
 
-不过要注意的是，属性被反序列化的过程紧接着发生在构造函数执行**之后**，因此构造函数中只能获得和修改属性的默认值，还无法获得和修改之前保存（序列化）的值。
+不过要注意的是，属性被反序列化的过程紧接着发生在构造函数执行 **之后**，因此构造函数中只能获得和修改属性的默认值，还无法获得和修改之前保存（序列化）的值。
 
 ### 属性参数
 
-所有属性参数都是可选的，但至少必须声明 `default`, `get`, `set` 参数中的其中一个。
+所有属性参数都是可选的，但至少必须声明 `default`、`get`、`set` 参数中的其中一个。
 
-#### <a name="default"></a>default 参数
+#### default 参数
 
-`default` 用于声明属性的默认值，声明了默认值的属性会被 CCClass 实现为成员变量。默认值只有在**第一次创建**对象的时候才会用到，也就是说修改默认值时，并不会改变已添加到场景里的组件的当前值。
+`default` 用于声明属性的默认值，声明了默认值的属性会被 CCClass 实现为成员变量。默认值只有在 **第一次创建** 对象的时候才会用到，也就是说修改默认值时，并不会改变已添加到场景里的组件的当前值。
 
 > 当你在编辑器中添加了一个组件以后，再回到脚本中修改一个默认值的话，**属性检查器** 里面是看不到变化的。因为属性的当前值已经序列化到了场景中，不再是第一次创建时用到的默认值了。如果要强制把所有属性设回默认值，可以在 **属性检查器** 的组件菜单中选择 Reset。
 
 `default` 允许设置为以下几种值类型：
 
-1. 任意 number, string 或 boolean 类型的值
-2. `null` 或 `undefined`
-3. 继承自 `cc.ValueType` 的子类，如 `cc.Vec2`, `cc.Color` 或 `cc.Rect` 的实例化对象：
+- 任意 number, string 或 boolean 类型的值
+- `null` 或 `undefined`
+- 继承自 `cc.ValueType` 的子类，如 `cc.Vec2`, `cc.Color` 或 `cc.Rect` 的实例化对象：
+
     ```javascript
     properties: {
         pos: {
@@ -372,8 +382,10 @@ var Sprite = cc.Class({
         }
     }
     ```
-4. 空数组 `[]` 或空对象 `{}`
-5. 一个允许返回任意类型值的 function，这个 function 会在每次实例化该类时重新调用，并且以返回值作为新的默认值：
+
+- 空数组 `[]` 或空对象 `{}`
+- 一个允许返回任意类型值的 function，这个 function 会在每次实例化该类时重新调用，并且以返回值作为新的默认值：
+
     ```javascript
     properties: {
         pos: {
@@ -384,7 +396,7 @@ var Sprite = cc.Class({
     }
     ```
 
-#### <a name="visible"></a>visible 参数
+#### visible 参数
 
 默认情况下，是否显示在 **属性检查器** 取决于属性名是否以下划线 `_` 开头。如果以下划线开头，则默认不显示在 **属性检查器**，否则默认显示。
 
@@ -410,9 +422,9 @@ properties: {
 }
 ```
 
-#### <a name="serializable"></a>serializable 参数
+#### serializable 参数
 
-指定了 `default` 默认值的属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的值保存到场景等资源文件中，并且在加载场景时自动还原之前设置好的值。如果不想序列化，可以设置`serializable: false`。
+指定了 `default` 默认值的属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的值保存到场景等资源文件中，并且在加载场景时自动还原之前设置好的值。如果不想序列化，可以设置 `serializable: false`。
 
 ```javascript
 temp_url: {
@@ -421,7 +433,7 @@ temp_url: {
 }
 ```
 
-#### <a name="type"></a>type 参数
+#### type 参数
 
 当 `default` 不能提供足够详细的类型信息时，为了能在 **属性检查器** 显示正确的输入控件，就要用 `type` 显式声明具体的类型：
 
@@ -452,9 +464,9 @@ temp_url: {
     }
     ```
 
-#### <a name="override"></a>override 参数
+#### override 参数
 
-所有属性都将被子类继承，如果子类要覆盖父类同名属性，需要显式设置 override 参数，否则会有重名警告：
+所有属性都将被子类继承，如果子类要覆盖父类同名属性，需要显式设置 `override` 参数，否则会有重名警告：
 
 ```javascript
 _id: {
@@ -462,6 +474,7 @@ _id: {
     tooltip: "my id",
     override: true
 },
+
 name: {
     get: function () {
         return this._name;
@@ -473,7 +486,7 @@ name: {
 
 更多参数内容请查阅 [属性参数](attributes.md)。
 
-### <a name="deferred-definition"></a> 属性延迟定义
+### 属性延迟定义
 
 如果两个类相互引用，脚本加载阶段就会出现循环引用，循环引用将导致脚本加载出错：
 
@@ -551,7 +564,7 @@ name: {
 你可以这样来理解箭头函数：
 
 ```js
-// 箭头函数支持省略掉 `return` 语句，我们推荐的是这种省略后的写法：
+// 箭头函数支持省略掉 return 语句，我们推荐的是这种省略后的写法：
 
 properties: () => ({    // <- 箭头右边的括号 "(" 不可省略
     game: {
@@ -560,7 +573,7 @@ properties: () => ({    // <- 箭头右边的括号 "(" 不可省略
     }
 })
 
-// 如果要完整写出 `return`，那么上面的写法等价于：
+// 如果要完整写出 return，那么上面的写法等价于：
 
 properties: () => {
     return {
@@ -610,6 +623,7 @@ var Sprite = cc.Class({
         this.__width = 128;
         cc.log(this.width);    // 128
     },
+
     properties: {
         width: {
             get: function () {
@@ -622,19 +636,20 @@ var Sprite = cc.Class({
 
 **注意**：
 
-- 设定了 get 以后，这个属性就不能被序列化，也不能指定默认值，但仍然可附带除了 `default`, `serializable` 外的大部分参数。
+1. 设定了 get 以后，这个属性就不能被序列化，也不能指定默认值，但仍然可附带除了 `default`、`serializable` 外的大部分参数。
 
     ```javascript
     width: {
         get: function () {
             return this.__width;
         },
+
         type: cc.Integer,
         tooltip: "The width of sprite"
     }
     ```
 
-- get 属性本身是只读的，但返回的对象并不是只读的。用户使用代码依然可以修改对象内部的属性，例如：
+2. get 属性本身是只读的，但返回的对象并不是只读的。用户使用代码依然可以修改对象内部的属性，例如：
 
     ```javascript
     var Sprite = cc.Class({
@@ -646,6 +661,7 @@ var Sprite = cc.Class({
         }
         ...
     });
+    
     var obj = new Sprite();
     obj.position = new cc.Vec2(10, 20);   // 失败！position 是只读的！
     obj.position.x = 100;                 // 允许！position 返回的 _position 对象本身可以修改！
@@ -672,9 +688,11 @@ width: {
     get: function () {
         return this._width;
     },
+
     set: function (value) {
         this._width = value;
     },
+
     type: cc.Integer,
     tooltip: "The width of sprite"
 }
@@ -760,8 +778,3 @@ cc.Class({
   }
 });
 ```
-
-
----
-
-继续前往 [属性参数参考](attributes.md)。

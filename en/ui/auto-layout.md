@@ -39,7 +39,3 @@ You can set up two directions: `Top to Bottom` or `Bottom to Top`. The former wi
 We will update this part of the document in the next edition.
 
 For the properties of other Layout components, please check [Layout](../components/layout.md) document.
-
-<hr>
-
-Continue on to read about [List with Data](list-with-data.md).

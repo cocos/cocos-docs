@@ -72,7 +72,7 @@ Use `ctor` to declare constructor of CCClass, for deserialization to work, const
 
 > If developer absolutely needs to pass parameter, `arguments` can be used to capture parameters, but do make sure you can finish instance creation process event if no parameter is passed.
 
-#### <a name="__ctor__"></a>Declare by `__ctor__`
+#### Declare by `__ctor__`
 
 `__ctor__` is the same as `ctor`, but it can receive constructor parameters, and will **NOT** call the constructor of parent class automatically, so you can call the constructor of parent by yourself. `__ctor__` is not the standard way to define constructor, always use the `ctor` unless you have a specific need.
 
@@ -104,6 +104,7 @@ var Texture = cc.Class();
 var Texture2D = cc.Class({
     extends: Texture
 });
+
 cc.log(cc.isChildClassOf(Texture2D, Texture));   // true
 ```
 
@@ -125,7 +126,7 @@ var Sprite = cc.Class({
 });
 ```
 
-> We recommend add `_` prefix to variable name for private members
+> We recommend add `_` prefix to variable name for private members.
 
 ### Instance Method
 
@@ -186,6 +187,7 @@ var Object = cc.Class({
         range: { w: 100, h: 100 }
     }
 });
+
 var Sprite = cc.Class({
     extends: Object
 });
@@ -227,6 +229,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -236,6 +239,7 @@ var Sprite = cc.Class({
         this.name = "sprite";
     }
 });
+
 var obj = new Sprite();
 cc.log(obj.name);    // "sprite"
 ```
@@ -248,6 +252,7 @@ var Node = cc.Class({
         this.name = "node";
     }
 });
+
 var Sprite = cc.Class({
     extends: Node,
     ctor: function () {
@@ -259,7 +264,7 @@ var Sprite = cc.Class({
 });
 ```
 
-> In special cases, arguments of parent's constructor may not compatible with child's constructor. Then you have to call parent's constructor and pass the needed arguments into it manually. At this point you should declare the child's constructor in [`__ctor__`](#__ctor__).
+> In special cases, arguments of parent's constructor may not compatible with child's constructor. Then you have to call parent's constructor and pass the needed arguments into it manually. At this point you should declare the child's constructor in `__ctor__`.
 
 ### Override
 
@@ -271,61 +276,63 @@ var Shape = cc.Class({
         return "shape";
     }
 });
+
 var Rect = cc.Class({
     extends: Shape,
     getName: function () {
         return "rect";
     }
 });
+
 var obj = new Rect();
 cc.log(obj.getName());    // "rect"
 ```
 
 Different from constructor, overridden method from parent class will not be called automatically, so you need to call explicitly if needed:
 
-Method one: use `this._super` provided by CCClass:
+- Method one: use `this._super` provided by CCClass:
 
-```javascript
-var Shape = cc.Class({
-    getName: function () {
-        return "shape";
-    }
-});
-var Rect = cc.Class({
-    extends: Shape,
-    getName: function () {
+    ```javascript
+    var Shape = cc.Class({
+        getName: function () {
+            return "shape";
+        }
+    });
 
-        var baseName = this._super();
+    var Rect = cc.Class({
+        extends: Shape,
+        getName: function () {
+            var baseName = this._super();
+            return baseName + " (rect)";
+        }
+    });
 
-        return baseName + " (rect)";
-    }
-});
-var obj = new Rect();
-cc.log(obj.getName());    // "shape (rect)"
-```
+    var obj = new Rect();
+    cc.log(obj.getName());    // "shape (rect)"
+    ```
 
-Method two: use native JavaScript language feature:
+- Method two: use native JavaScript language feature:
 
-```javascript
-var Shape = cc.Class({
-    getName: function () {
-        return "shape";
-    }
-});
-var Rect = cc.Class({
-    extends: Shape,
-    getName: function () {
+    ```javascript
+    var Shape = cc.Class({
+        getName: function () {
+            return "shape";
+        }
+    });
 
-        var baseName = Shape.prototype.getName.call(this);
+    var Rect = cc.Class({
+        extends: Shape,
+        getName: function () {
+            var baseName = Shape.prototype.getName.call(this);
+            return baseName + " (rect)";
+        }
+    });
 
-        return baseName + " (rect)";
-    }
-});
-var obj = new Rect();
-cc.log(obj.getName());    // "shape (rect)"
-```
+    var obj = new Rect();
+    cc.log(obj.getName());    // "shape (rect)"
+    ```
 
-> If the parent and child class are neither CCClass, you can use lower level API `cc.js.extend` to do inheritance.
+If the parent and child class are neither CCClass, you can use lower level API `cc.js.extend` to do inheritance.
 
 ## Property
 
@@ -340,6 +347,7 @@ var Sprite = cc.Class({
     ctor: function () {
         this.img = LoadImage();
     },
+
     properties: {
         img: {
             default: null,
@@ -355,7 +363,7 @@ It should be noted that the process of the deserialization of the property occur
 
 All attributes are optional, but at least one of the `default`,` get`, `set` attributes must be declared.
 
-#### <a name="default"></a>`default` attribute
+#### `default` attribute
 
 `default` is used to declare the default value of the property, and the property that declares the default value is implemented as a member variable by the CCClass. The default value is only used when the object is **created for the first time**, that is, when the default value is modified, the current value of the component that has been added to the scene is not changed.
 
@@ -363,9 +371,9 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
 
 `default` allows you to set the following types of values:
 
-1. Any value of type, string, or boolean
-2. `null` or `undefined`
-3. Object which instance of subclasses inherited from `cc.ValueType`, such as `cc.Vec2`, `cc.Color` or `cc.Rect`
+- Any value of type, string, or boolean
+- `null` or `undefined`
+- Object which instance of subclasses inherited from `cc.ValueType`, such as `cc.Vec2`, `cc.Color` or `cc.Rect`
 
     ```javascript
     properties: {
@@ -375,8 +383,9 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
     }
     ```
 
-4. Empty array `[]` or empty object `{}`
-5. A function that allows you to return any type of value, which is called again each time the class is instantiated and takes the return value as the new default:
+- Empty array `[]` or empty object `{}`
+- A function that allows you to return any type of value, which is called again each time the class is instantiated and takes the return value as the new default:
+
     ```javascript
     properties: {
         pos: {
@@ -387,7 +396,7 @@ All attributes are optional, but at least one of the `default`,` get`, `set` att
     }
     ```
 
-#### <a name="visible"></a>`visible` attribute
+#### `visible` attribute
 
 By default, whether or not a property is displayed in the **Properties** is depends on whether the property name begins with an underscore `_`. If you start with an underscore, the **Properties** is not displayed by default, otherwise it is displayed by default.
 
@@ -413,7 +422,7 @@ properties: {
 }
 ```
 
-#### <a name="serializable"></a>`serializable` attribute
+#### `serializable` attribute
 
 Properties that specify the `default` value are serialized by default. After serialization, the settings in the editor will be saved to the resource file such as the scene, and automatically restore the previously set value when loading the scene. If you do not want to serialize, you can set `serializable: false`.
 
@@ -424,7 +433,7 @@ temp_url: {
 }
 ```
 
-#### <a name="type"></a>`type` attribute
+#### `type` attribute
 
 When the `default` can not provide sufficient detailed type information, in order to be able to display the correct input control in **Properties**, it is necessary to use the `type` to declare the specific type explicitly:
 
@@ -455,7 +464,7 @@ When the `default` can not provide sufficient detailed type information, in orde
     }
     ```
 
-#### <a name="override"></a>`override` attribute
+#### `override` attribute
 
 All properties will be inherited by subclasses, if the subclass wants to override the parent property with the same name, you need to explicitly set the override attribute, otherwise there will be a warning:
 
@@ -465,10 +474,12 @@ _id: {
     tooltip: "my id",
     override: true
 },
+
 name: {
     get: function () {
         return this._name;
     },
+
     displayName: "Name",
     override: true
 }
@@ -554,7 +565,7 @@ This is done by specifying properties as an arrow function (lambda expression) o
 You can understand the arrow function like this:
 
 ```js
-// The arrow function supports omitting the `return` statement, and we recommend this omission:
+// The arrow function supports omitting the 'return' statement, and we recommend this omission:
 
 properties: () => ({    // <- brackets "(" on the right side of the arrows can not be omitted
     game: {
@@ -563,7 +574,7 @@ properties: () => ({    // <- brackets "(" on the right side of the arrows can n
     }
 })
 
-// If you want to completely write `return`, then the above wording is equivalent to:
+// If you want to completely write 'return', then the above wording is equivalent to:
 
 properties: () => {
     return {
@@ -613,6 +624,7 @@ var Sprite = cc.Class({
         this.__width = 128;
         cc.log(this.width);    // 128
     },
+
     properties: {
         width: {
             get: function () {
@@ -625,19 +637,20 @@ var Sprite = cc.Class({
 
 Please note:
 
-- After setting get, this property can not be serialized, nor can it specify a default value, but it can still include most of the attributes except `default`, `serializable`.
+1. After setting get, this property can not be serialized, nor can it specify a default value, but it can still include most of the attributes except `default`, `serializable`.
 
     ```javascript
     width: {
         get: function () {
             return this.__width;
         },
+
         type: cc.Integer,
         tooltip: "The width of sprite"
     }
     ```
 
-- The get attribute itself is read-only, but the returned object is not read-only. Users can still use the code to modify the object's internal properties, such as:
+2. The get attribute itself is read-only, but the returned object is not read-only. Users can still use the code to modify the object's internal properties, such as:
 
     ```javascript
     var Sprite = cc.Class({
@@ -649,6 +662,7 @@ Please note:
         }
         ...
     });
+
     var obj = new Sprite();
     obj.position = new cc.Vec2(10, 20);   // Failure! position is read only!
     obj.position.x = 100;                 // Allow! _position object itself returned by position can be modified!
@@ -675,9 +689,11 @@ width: {
     get: function () {
         return this._width;
     },
+
     set: function (value) {
         this._width = value;
     },
+
     type: cc.Integer,
     tooltip: "The width of sprite"
 }
@@ -766,9 +782,3 @@ cc.Class({
   }
 });
 ```
-
-
-
----
-
-Continue on to read about [Attributes](attributes.md).

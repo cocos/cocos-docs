@@ -111,7 +111,3 @@ cc.Class({
 调用一个节点的 `removeFromParent` 后，它不一定就能完全从内存中释放，因为有可能由于一些逻辑上的问题，导致程序中仍然引用到了这个对象。因此如果一个节点不再使用了，请直接调用它的 `destroy` 而不是 `removeFromParent`。`destroy` 不但会激活组件上的 `onDestroy`，还会降低内存泄露的几率，同时减轻内存泄露时的后果。
 
 总之，如果一个节点不再使用，`destroy` 就对了，不需要 `removeFromParent` 也不需要设置 `parent` 为 `null`。
-
----
-
-继续前往 [资源管理/加载和切换场景](scene-managing.md) 说明文档。

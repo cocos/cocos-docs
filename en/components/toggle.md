@@ -10,23 +10,23 @@ The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle
 
 ## Toggle properties
 
-| Properties       |   Function Explanation
+| Properties     |   Function Explanation |
 | -------------- | ----------- |
-|isChecked       | Boolean type. When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled.
-|checkMark       | cc.Sprite type. The image displayed when Toggle is selected.
-|toggleGroup     | cc.ToggleGroup type. The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton.
-|Check Events    | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Toggle Event** section below for details.
+| isChecked      | Boolean type. When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled. |
+| checkMark      | `cc.Sprite` type. The image displayed when Toggle is selected. |
+| toggleGroup    | `cc.ToggleGroup` type. The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton. |
+| Check Events   | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Toggle Event** section below for details. |
 
 **Note**: Because Toggle is inherited from Button, so the attributes exists in Button also apply to Toggle, please refer to the [Button Component](button.md) for more information.
 
 ## Toggle Event
 
-| Properties      | Function Explanation                                                                            |
-| --------------  | -----------                                                                                     |
-| Target          | Node with the script component.                                                                 |
-| Component       | Script component name.                                                                          |
-| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Toggle.|
-| customEventData | A user-defined string value passed as the last event argument of the event callback.            |
+| Properties      | Function Explanation |
+| --------------  | -----------     |
+| Target          | Node with the script component.    |
+| Component       | Script component name.      |
+| Handler         | Assign a callback function which will be triggered when the user clicks and releases the Toggle. |
+| customEventData | A user-defined string value passed as the last event argument of the event callback.   |
 
 The Toggle event callback has two parameters, the first one is the Toggle itself and the second is the `customEventData`.
 
@@ -92,7 +92,3 @@ cc.Class({
     }
 });
 ```
-
----
-
-Please go to the  [ToggleGroup Component Reference](toggleGroup.md) for more information.

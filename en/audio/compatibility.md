@@ -11,7 +11,7 @@ The average browser supports the **Audio** tag to play audio. The __DOM Audio__ 
 
 __WebAudio__ compatibility is much better than __DOM__ mode, but there are some special considerations to think about:
 
-1. On IOS, the default __WebAudio__ timeline will not advance. The timeline will only start after the user touches and plays the audio for the first time. This means that the page may not be able to start and play background music. The best way to do this is to guide the user through the screen and then play the sound.
+- On iOS, the default __WebAudio__ timeline will not advance. The timeline will only start after the user touches and plays the audio for the first time. This means that the page may not be able to start and play background music. The best way to do this is to guide the user through the screen and then play the sound.
 
 ## IOS WeChat automatically plays audio
 

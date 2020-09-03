@@ -98,7 +98,7 @@ When you declare a component in the script, Creator will acquiesce to export it 
 
 ### Define regular JavaScript module
 
-You can not only define a component in the module, but you can also export any JavaScript object. Let's imagine that there is a script `config.js`
+You can not only define a component in the module, but you can also export any JavaScript object. Let's imagine that there is a script `config.js`.
 
 ```js
 // config.js
@@ -112,6 +112,7 @@ var cfg = {
         // ...
     }
 };
+
 cfg.load();
 ```
 
@@ -138,6 +139,7 @@ var cfg = {
         // ...
     }
 };
+
 cfg.load();
 
 module.exports = cfg;
@@ -148,7 +150,7 @@ The reason for doing this is because as long as there is another script that req
 In this way, it can output correctly: "speed is 10".
 
 > The default value of `module.exports`:<br>
-  If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically.
+> If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically.
 
 Comments: 
 - The other variables added to `module` can not be exported, that is to say` exports` can not be replaced with other variable names, the system will only read the `exports` variable.
@@ -159,53 +161,55 @@ Comments:
 
 - `module.exports` is a empty object (`{}`) and can be added in a new field directly.
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js
 
-module.exports.foo = function () {
-    cc.log("foo");
-};
-module.exports.bar = function () {
-    cc.log("bar");
-};
-```
+    module.exports.foo = function () {
+        cc.log("foo");
+    };
 
-```js
-// test.js:
+    module.exports.bar = function () {
+        cc.log("bar");
+    };
+    ```
 
-var foobar = require("foobar");
-foobar.foo();    // "foo"
-foobar.bar();    // "bar"
-```
+    ```js
+    // test.js
+
+    var foobar = require("foobar");
+    foobar.foo();    // "foo"
+    foobar.bar();    // "bar"
+    ```
 
 - `module.exports` value can be any JavaScript type.
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js
 
-module.exports = {
-    FOO: function () {
-        this.type = "foo";
-    },
-    bar: "bar"
-};
-```
+    module.exports = {
+        FOO: function () {
+            this.type = "foo";
+        },
 
-```js
-// test.js:
+        bar: "bar"
+    };
+    ```
 
-var foobar = require("foobar");
-var foo = new foobar.FOO();
-cc.log(foo.type);      // "foo"
-cc.log(foobar.bar);    // "bar"
-```
+    ```js
+    // test.js
+
+    var foobar = require("foobar");
+    var foo = new foobar.FOO();
+    cc.log(foo.type);      // "foo"
+    cc.log(foobar.bar);    // "bar"
+    ```
 
 ### Packaging a private variable
 
 Each script is a single scope where the local variable defined using `var` in the script cannot be accessed by external modules. We can package the private variable in the module easily:
 
 ```js
-// foobar.js:
+// foobar.js
 
 var dirty = false;
 module.exports = {
@@ -219,7 +223,7 @@ module.exports = {
 ```
 
 ```js
-// test1.js:
+// test1.js
 
 var foo = require("foobar");
 cc.log(typeof foo.dirty);        // "undefined"
@@ -227,7 +231,7 @@ foo.setDirty();
 ```
 
 ```js
-// test2.js:
+// test2.js
 
 var foo = require("foobar");
 cc.log(foo.isDirty());           // true
@@ -235,9 +239,4 @@ cc.log(foo.isDirty());           // true
 
 ## Circular reference
 
-Please refer to [Property delay definition](reference/class.md#deferred-definition)
-
-
----
-
-Continue on to read about [Plugin Scripts](plugin-scripts.md).
+Please refer to [Property delay definition](reference/class.md#deferred-definition).

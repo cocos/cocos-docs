@@ -152,7 +152,9 @@ The red frames in the picture indicate projects of different native platforms. N
 **Note**: 
 
 - Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
+
 - When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
+
 - Starting from v2.3.0, Android and Android Instant use the same build template, and the built projects are in the `build\jsb-default\frameworks\runtime-src\proj.android-studio` directory. Please note for this directory:
   - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
   - For code and third-party library used separately by the Android Instant, place them in the `game\src` and `game\libs` directories, respectively.
@@ -162,7 +164,3 @@ The red frames in the picture indicate projects of different native platforms. N
     - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
 
   When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.
-
----
-
-To know how to debug on a native platform, please refer to [Debuging JavaScript on Native Platforms](debug-jsb.md).

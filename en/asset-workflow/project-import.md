@@ -89,8 +89,3 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 - `CCControlButton` in Cocos Builder can set different color for different states, but Cocos Creator does not support this.
 - `LayerGradient`.
 - No support for importing `SkewX` & `SkewY` properties of the `Node`.
-
-<hr>
-
-Back to [Asset Workflow](index.md)<br>
-Continue on to read about [Script Assets](script.md)

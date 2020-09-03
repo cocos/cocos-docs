@@ -24,7 +24,3 @@
     - [Mini Game Subpackage](subpackage.md)
 - [Publish from Command Line](publish-in-command-line.md)
 - [Custom Project Build Template](custom-project-build-template.md)
-
-<hr>
-
-Continue on to read about [Publish to Web](publish-web.md).

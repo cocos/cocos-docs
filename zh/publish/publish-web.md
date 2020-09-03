@@ -66,7 +66,3 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：Chrome 和 Firefox
 要在互联网上发布或分享您的游戏，只要点击 **发布路径** 旁边的 **打开** 按钮，打开发布路径之后，将构建出的 `web-mobile` 或 `web-desktop` 文件夹里的内容整个复制到您的 Web 服务器上就可以通过相应的地址访问了。
 
 关于 Web 服务器的架设，可以自行搜索 Apache、Nginx、IIS、Express 等相关解决方案。
-
----
-
-要了解如何发布游戏到原生平台，请继续前往 [安装配置原生开发环境](setup-native-development.md) 说明文档。
