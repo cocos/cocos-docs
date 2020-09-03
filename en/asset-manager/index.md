@@ -37,7 +37,7 @@ The relevant APIs are listed below:
 
 References documentations:
 
-- [Acquire and load asset](../scripting/load-assets.md)
+- [Load Asset](../scripting/dynamic-load-resources.md)
 - [Asset Bundle](../scripting/asset-bundle.md)
 
 All loaded resources are cached in `cc.assetManager`.

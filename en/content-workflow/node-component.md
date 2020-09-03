@@ -28,7 +28,7 @@ In the following image, the section starting with `Sprite` shows the properties 
 
 We can see that the default texture turns into the texture we assigned. This is what **Sprite** component does: rendering image textures.
 
-> Any resources that are set on the component, such as SpriteFrame, will load automatically when the scene loads. In a custom component, you can also declare the type of resource that needs to be set and automatically loaded, as described in [Acquire and Load Asset](../scripting/load-assets.md).
+> Any resources that are set on the component, such as SpriteFrame, will load automatically when the scene loads. In a custom component, you can also declare the type of resource that needs to be set and automatically loaded, as described in [Acquire and set asset](../scripting/load-assets.md).
 
 ### Node properties affecting sprite component rendering
 

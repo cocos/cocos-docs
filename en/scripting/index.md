@@ -17,8 +17,9 @@ While writing the component script, you can map the variables needing adjustment
   - [Creating and Destroying Nodes](create-destroy.md)
 - Asset Management
   - [Scene Management](scene-managing.md)
-  - [Acquire and Load Asset](load-assets.md)
-  - [Asset Bundle Configuration and Loading](asset-bundle.md)
+  - [Acquire and Set Asset](load-assets.md)
+      - [Asset Loading](dynamic-load-resources.md)
+      - [Asset Bundle Configuration and Loading](asset-bundle.md)
   - [Asset Manager](../asset-manager/index.md)
 - Event
   - [Launch and Listen to Events](events.md)
@@ -43,7 +44,3 @@ While writing the component script, you can map the variables needing adjustment
 ## More Reference
 
 - [Recommended coding standards](reference/coding-standards.md)
-
-<hr>
-
-Continue on to read about [Create and use component script](use-component.md).

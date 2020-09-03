@@ -17,8 +17,9 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
   - [创建和销毁节点](create-destroy.md)
 - 资源管理
   - [加载和切换场景](scene-managing.md)
-  - [获取和加载资源](load-assets.md)
-  - [配置和加载 Asset Bundle](asset-bundle.md)
+  - [获取和设置资源](load-assets.md)
+      - [加载资源](dynamic-load-resources.md)
+      - [配置和加载 Asset Bundle](asset-bundle.md)
   - [资源管理系统](../asset-manager/index.md)
 - 事件系统
   - [发射和监听事件](events.md)
@@ -44,7 +45,3 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
 
 - [JavaScript 标准支持](reference/javascript-support.md)
 - [推荐编码规范](reference/coding-standards.md)
-
-<hr>
-
-继续前往 [创建和使用组件脚本](use-component.md) 开始阅读。
