@@ -71,7 +71,7 @@
   子域项目中，如果需要监听来自主域的消息，需要先排除来自主域引擎的消息
   ```js
     tt.onMessage(res => {
-        if (!res.fromEngine) {
+        if (!(res && res.fromEngine)) {
           console.log('do something...');
         }
     });
