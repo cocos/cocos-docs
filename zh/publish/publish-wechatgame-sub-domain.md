@@ -54,6 +54,23 @@
 
   **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SubContextView 组件的 FPS 属性。**
 
+- **控制子域主循环**
+
+  在 Creator v2.4.3 中，我们完善了子域主循环的控制。默认情况下子域项目是不会执行引擎主循环的。子域项目的主循环会在 SubContextView 组件启用后执行。同样的，主循环会在 SubContextView 组件禁用时停止运行。
+
+  **注意：**当 SubContextView 组件没有启用时，由于主循环没有在执行，这时候项目当中写在组件生命周期里的业务逻辑是不会执行的。所以在没启用 SubContextView 组件的情况下，需要提前执行的相关逻辑请写在组件外的区域或者插件脚本里。
+
+  例如：
+  ```js
+    console.log("do some stuff before enabling SubContextView component");
+
+    cc.Class({
+    extends: cc.Component,
+    onLoad () {
+        console.log("won't execute before enabling SubContextView component");
+    },
+  ```
+
 ## 模块选择
 
 由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置 [项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：

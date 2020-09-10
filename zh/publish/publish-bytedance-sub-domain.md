@@ -51,6 +51,23 @@
 
   **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SubContextView 组件的 FPS 属性。**
 
+- **控制子域主循环**
+
+  在 Creator v2.4.3 中，我们完善了子域主循环的控制。默认情况下子域项目是不会执行引擎主循环的。子域项目的主循环会在 SubContextView 组件启用后执行。同样的，主循环会在 SubContextView 组件禁用时停止运行。
+
+  **注意：**当 SubContextView 组件没有启用时，由于主循环没有在执行，这时候项目当中写在组件生命周期里的业务逻辑是不会执行的。所以在没启用 SubContextView 组件的情况下，需要提前执行的相关逻辑请写在组件外的区域或者插件脚本里。
+
+  例如：
+  ```js
+    console.log("do some stuff before enabling SubContextView component");
+
+    cc.Class({
+    extends: cc.Component,
+    onLoad () {
+        console.log("won't execute before enabling SubContextView component");
+    },
+  ```
+
 ## 开放数据域发布流程
 
 1. 打开主域项目，在 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **字节跳动小游戏**，填入 **开放数据域代码目录**。该目录是开放数据域构建后所在的路径，并且这个路径需要放在主域构建目录下。然后点击 **构建**。
