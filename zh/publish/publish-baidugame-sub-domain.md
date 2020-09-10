@@ -69,6 +69,15 @@
         console.log("won't execute before enabling SubContextView component");
     },
   ```
+    
+  子域项目中，如果需要监听来自主域的消息，需要先排除来自主域引擎的消息
+  ```js
+    swan.onMessage(res => {
+        if (!res.fromEngine) {
+          console.log('do something...');
+        }
+    });
+  ```
 
 ## 开放数据域发布流程
 
