@@ -51,35 +51,38 @@
 
   **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SubContextView 组件的 FPS 属性。**
 
-- **控制子域主循环**
+- **控制开放数据域主循环**
 
-  在 Creator v2.4.3 中，我们完善了子域主循环的控制。默认情况下子域项目是不会执行引擎主循环的。子域项目的主循环会在 SubContextView 组件启用后执行。同样的，主循环会在 SubContextView 组件禁用时停止运行。
+  在 Creator **v2.4.3**，我们完善了开放数据域中对引擎主循环的控制，默认情况下不运行。只有在 SubContextView 组件启用后才会运行引擎主循环，SubContextView 组件禁用时则停止运行。
 
-  **注意**：当 SubContextView 组件没有启用时，由于主循环没有在执行，这时候项目当中写在组件生命周期里的业务逻辑是不会执行的。所以在没启用 SubContextView 组件的情况下，需要提前执行的相关逻辑请写在组件外的区域或者插件脚本里。  
-  这里有个特例，由于子域会默认加载首场景，所以首场景当中默认激活的组件，会执行 onLoad 回调。
+  当 SubContextView 组件未启用时，引擎主循环不会运行，因此项目中写在组件生命周期中的业务逻辑也不会执行。所以在还未启用 SubContextView 组件时，部分需要提前执行的相关业务逻辑请写在组件外部或者插件脚本中。
 
-  例如：
+  这里需要注意的是有一个特例，由于开放数据域会默认加载首场景，所以首场景中默认激活的组件会执行 `onLoad` 回调。例如：
+
   ```js
-    console.log("do some stuff before enabling SubContextView component");
+  console.log("do some stuff before enabling SubContextView component");
 
-    cc.Class({
-        extends: cc.Component,
-        onLoad () {
-            console.log("execute if it's enabled in the start scene");
-        },
-        start () {
-            console.log("won't execute before enabling SubContextView component");
-        },
-    });
+  cc.Class({
+      extends: cc.Component,
+
+      onLoad () {
+          console.log("execute if it's enabled in the start scene");
+      },
+
+      start () {
+          console.log("won't execute before enabling SubContextView component");
+      },
+  });
   ```
-    
-  子域项目中，如果需要监听来自主域的消息，需要先排除来自主域引擎的消息
+
+  另外，在开放数据域项目中，如果需要监听来自主域的消息，则需要先判断消息是否来自主域的引擎：
+
   ```js
-    tt.onMessage(res => {
-        if (!(res && res.fromEngine)) {
-          console.log('do something...');
-        }
-    });
+  tt.onMessage(res => {
+      if (!(res && res.fromEngine)) {
+        console.log('do something...');
+      }
+  });
   ```
 
 ## 开放数据域发布流程
