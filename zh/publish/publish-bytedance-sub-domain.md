@@ -62,10 +62,11 @@
     console.log("do some stuff before enabling SubContextView component");
 
     cc.Class({
-    extends: cc.Component,
-    onLoad () {
-        console.log("won't execute before enabling SubContextView component");
-    },
+        extends: cc.Component,
+        onLoad () {
+            console.log("won't execute before enabling SubContextView component");
+        },
+    });
   ```
     
   子域项目中，如果需要监听来自主域的消息，需要先排除来自主域引擎的消息
