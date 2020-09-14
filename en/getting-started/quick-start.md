@@ -120,7 +120,11 @@ According to the method of modifying the `background` node, we can also use **Re
 
 ![ground finish](quick-start/ground_finish.png)
 
-Apart from **Rect Transform Tool**, we can also use **move tool** ![translate gizmo](quick-start/translate_gizmo.png) to change the positions of the nodes. Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
+Apart from **Rect Transform Tool**, we can also use **move tool** to change the positions of the nodes.
+
+![translate gizmo](quick-start/translate_gizmo.png)
+
+Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
 
 When setting up the position and size of the `background` and `ground`, we don't need precise numeric values and can drag them by guessing. If you prefer whole numbers, you can directly input numeric values of `position` and `size` according to the screenshot.
 
