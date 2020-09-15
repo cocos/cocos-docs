@@ -58,7 +58,11 @@ Developer can get a quick taste of the APM service with the sample project.
 
 ### Enables or disables APM
 
+<<<<<<< HEAD
 `enableCollection(enable: boolean): void`
+=======
+`enableCollection (enable: boolean): void`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
  The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) for details.
 
@@ -73,7 +77,11 @@ The priority of the disabling configuration in apps is **higher** than that thro
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.enableCollection(true);
+=======
+huawei.AGC.apms.enableCollection(true);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 ### Creating a Custom Trace (Optional)
@@ -95,7 +103,11 @@ Starts a custom trace. You can refer to AGC APM document - [start](https://devel
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.startCustomTrace("traceID");
+=======
+huawei.AGC.apms.startCustomTrace("traceID");
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Stop
@@ -113,7 +125,11 @@ Stops a custom trace. You can refer to AGC APM document - [stop](https://develop
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.stopCustomTrace("traceID");
+=======
+huawei.AGC.apms.stopCustomTrace("traceID");
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Put Property
@@ -137,12 +153,20 @@ let traceID = "testTrace";
 let pName = "product";
 let pValue = "food";
 
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.putCustomTraceProperty(traceID, pName, pValue);
+=======
+huawei.AGC.apms.putCustomTracePropert(traceID, pName, pValue);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Remove Property
 
+<<<<<<< HEAD
 `removeCustomTraceProperty(name: string, propertyName: string): void`
+=======
+`removeCustomTraceProperty (name: string, propertyName: string): void`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 Removes an existing attribute from a CustomTrace instance.
 
@@ -159,12 +183,20 @@ Removes an existing attribute from a CustomTrace instance.
 let traceID = "testTrace";
 let pName = "product";
 
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
+=======
+huawei.AGC.apms.removeCustomTraceProperty(traceID, pName);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Get Property
 
+<<<<<<< HEAD
 `getCustomTraceProperty(name: string, propertyName: string): string`
+=======
+`getCustomTraceProperty (name: string, propertyName: string): string`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
 
@@ -180,7 +212,11 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 ```js
 let traceID = "testTrace";
 let pName = "product";
+<<<<<<< HEAD
 let propertValue = huawei.agc.apms.apmsService.getCustomTraceProperty(traceID, pName);
+=======
+let propertValue = huawei.AGC.apms.getCustomTraceProperty(traceID, pName);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("pValue = ", propertValue);
 ```
 
@@ -205,12 +241,20 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
+=======
+huawei.AGC.apms.incrementCustomTraceMeasure (traceID, mName, mValue);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Get Measure
 
+<<<<<<< HEAD
 `getCustomTraceMeasure(name: string, measureName: string): string`
+=======
+`getCustomTraceMeasure (name: string, measureName: string): string`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 Obtains an indicator value for a custom trace. You can refer to AGC APM document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
 
@@ -227,13 +271,21 @@ Obtains an indicator value for a custom trace. You can refer to AGC APM document
 let traceID = "testTrace";
 let mName = "MeasureName";
 
+<<<<<<< HEAD
 let measureValue = huawei.agc.apms.apmsService.getCustomTraceMeasure(traceID, mName);
+=======
+let measureValue = huawei.AGC.apms.getCustomTraceMeasure(traceID, mName);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("mValue = ", measureValue);
 ```
 
 #### Put Measure
 
+<<<<<<< HEAD
 `putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
+=======
+`putCustomTraceMeasure (name: String, measureName: String, measureValue: number): void`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to AGC APM document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
 
@@ -252,12 +304,20 @@ let traceID = "testTrace";
 let mName = "MeasureName";
 let mValue = 12000;
 
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.putCustomTraceMeasure(traceID, mName, mValue);
+=======
+huawei.AGC.apms.putCustomTraceMeasure (traceID, mName, mValue);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Get Properties
 
+<<<<<<< HEAD
 `getCustomTraceProperties(name: string): string`
+=======
+`getCustomTraceProperties: (name: string): string`
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 Obtains the custom attribute values by JSON object.
 
@@ -271,7 +331,11 @@ Obtains the custom attribute values by JSON object.
 
 ```js
 let traceID = "testTrace";
+<<<<<<< HEAD
 let tProp = huawei.agc.apms.apmsService.getCustomTraceProperties(traceID);
+=======
+let tProp = huawei.AGC.apms.getCustomTraceProperties(traceID);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("tProp = ", JSON.stringify(tProp));
 ```
 
@@ -295,7 +359,11 @@ APM automatically collects performance data of most network requests for your ap
 **Example**:
 
 ```js
+<<<<<<< HEAD
 let id = huawei.agc.apms.apmsService.initNetworkMeasure(url, "POST");
+=======
+let id = huawei.AGC.apms.initNetworkMeasure(url, "POST");
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("createNetworkMeasure, id = ", id);
 ```
 
@@ -314,7 +382,11 @@ Sets the request start time. You can refer to AGC APM document - [start](https:/
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.startNetworkMeasure(id);
+=======
+huawei.AGC.apms.startNetworkMeasure(id);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Stop
@@ -332,7 +404,11 @@ Sets the request end time and reports network request indicators and custom attr
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.stopNetworkMeasure(id);
+=======
+huawei.AGC.apms.stopNetworkMeasure(id);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Set Status Code
@@ -351,7 +427,11 @@ Sets the response code of a request. You can refer to AGC APM document - [setSta
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.setNetworkMeasureStatusCode(id, 500);
+=======
+huawei.AGC.apms.setNetworkMeasureStatusCode(id, 500);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Set Bytes Sent
@@ -370,7 +450,11 @@ Sets the request body size. You can refer to AGC APM document - [setBytesSent](h
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.setNetworkMeasureBytesSent(id, 10000);
+=======
+huawei.AGC.apms.setNetworkMeasureBytesSent(id, 10000);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Set Bytes Received
@@ -389,7 +473,11 @@ Sets the response body size. You can refer to AGC APM document - [setBytesReceiv
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.setNetworkMeasureBytesReceived(id, 10000);
+=======
+huawei.AGC.apms.setNetworkMeasureBytesReceived(id, 10000);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Set Content Type
@@ -408,7 +496,11 @@ Sets the response body type specified by **contentType**. You can refer to AGC A
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.setNetworkMeasureContentType(id, "contentType1");
+=======
+huawei.AGC.apms.setNetworkMeasureContentType(id, "contentType1");
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Put Property
@@ -430,7 +522,11 @@ Sets the custom attribute name and value of a network request. Up to **5** custo
 ```js
 let pName = "propName";
 let pValue = "12000";
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.putNetworkMeasureProperty(id, pName, pValue);
+=======
+huawei.AGC.apms.putNetworkMeasureProperty(id, pName, pValue);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Remove Property
@@ -450,7 +546,11 @@ Removes an existing attribute from a **NetworkMeasure** instance. You can refer 
 
 ```js
 let pName = "propName";
+<<<<<<< HEAD
 huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
+=======
+huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 #### Get Property
@@ -470,7 +570,11 @@ Obtains all attributes from a NetworkMeasure instance by JSON object. You can re
 
 ```js
 let pName = "propName";
+<<<<<<< HEAD
 let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
+=======
+let nMeasure = huawei.AGC.apms.removeNetworkMeasureProperty(id, pName);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
@@ -489,7 +593,11 @@ Obtains a custom attribute value. You can refer to AGC APM document - [getProper
 **Example**:
 
 ```js
+<<<<<<< HEAD
 let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
+=======
+let mProp = huawei.AGC.apms.getNetworkMeasureProperties(id);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 console.log("mProp = ", mProp);
 ```
 

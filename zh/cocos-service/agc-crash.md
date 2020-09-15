@@ -40,7 +40,11 @@
   ```js
   console.log("Call crash method after 5 seconds.");
   this.scheduleOnce(function(){
+<<<<<<< HEAD
       huawei.agc.crash.CrashService.testIt();
+=======
+      huawei.AGC.Crash.CrashService.testIt();
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
   },5);
   ```
 
@@ -78,12 +82,20 @@
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
+<<<<<<< HEAD
 |  enable    | `false`：关闭崩溃服务<br>`true`：开启崩溃服务 | 
+=======
+|  enable    | **false**：关闭崩溃服务<br>**true**：开启崩溃服务 | 
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 **示例**：
 
 ```js
+<<<<<<< HEAD
 huawei.agc.crash.CrashService.enableCrashCollection(false);
+=======
+huawei.AGC.Crash.CrashService.enableCrashCollection(false);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 ### 制造崩溃异常
@@ -95,7 +107,11 @@ huawei.agc.crash.CrashService.enableCrashCollection(false);
 **示例**：
 
 ```js
+<<<<<<< HEAD
 huawei.agc.crash.CrashService.testIt();
+=======
+huawei.AGC.Crash.CrashService.testIt();
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 ## 服务使用参考文档

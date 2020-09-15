@@ -4,7 +4,11 @@
 
 ### Functions
 
+<<<<<<< HEAD
 - The Crash service provides real-time reports for the last hour, allowing you to monitor the quality of your app in real time.
+=======
+- The Crash service provides real-time reports for the last hour, allowing you to monitor the quality of your application in real time.
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 - In addition, the Crash service automatically categorizes crashes, and provides indicator data of the crashes, allowing you to prioritize the most important crashes. You can view information about a specific crash, and analyze the app and Android versions with the crash. You can also view information about the app, operating system, and device corresponding to a specific crash, as well as the crashed stack. All the information is enormously helpful in locating and resolving crashes.
 
@@ -32,14 +36,22 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
+<<<<<<< HEAD
 Generally, there is a low probability of an app crashing, so the Crash service SDK provides a method to manually create a crash, which can be invoked to determine if the Crash service was successfully accessed.
+=======
+Generally, there is a low probability of an application crashing, so the Crash service SDK provides a method to manually create a crash, which can be invoked to determine if the Crash service was successfully accessed.
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 - Add simple code to the script.
 
   ```js
   console.log("Call crash method after 5 seconds.");
   this.scheduleOnce(function(){
+<<<<<<< HEAD
       huawei.agc.crash.CrashService.testIt();
+=======
+      huawei.AGC.Crash.CrashService.testIt();
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
   },5);
   ```
 
@@ -82,19 +94,31 @@ This method is used to enable or disable the crash data reporting function. The 
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.crash.CrashService.enableCrashCollection(false);
+=======
+huawei.AGC.Crash.CrashService.enableCrashCollection(false);
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 ### Trigger a Crash
 
 `testIt(): void`
 
+<<<<<<< HEAD
 This method is used to trigger a crash for testing an app. This method can be used to test the Crash service of your app during debugging. Do not use it in any formally released app.
+=======
+This method is used to trigger a crash for testing an app. This method can be used to test the Crash service of your app during debugging. Do not use it in any formally released application.
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 
 **Example**:
 
 ```js
+<<<<<<< HEAD
 huawei.agc.crash.CrashService.testIt();
+=======
+huawei.AGC.Crash.CrashService.testIt();
+>>>>>>> 4441e123fea91d2b27c320b23a6d0ba3cd669919
 ```
 
 ## Service Reference Documents
