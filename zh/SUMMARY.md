@@ -104,6 +104,8 @@
         - [认证服务（AGC）](cocos-service/agc-auth.md)
         - [崩溃服务（AGC）](cocos-service/agc-crash.md)
         - [远程配置（AGC）](cocos-service/agc-remote.md)
+        - [应用内消息（AGC）](cocos-service/agc-appmessaging.md)
+        - [App Linking（AGC）](cocos-service/agc-applinking.md)
         - [Cocos SDKHub](cocos-service/sdkhub.md)
             - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [发布跨平台游戏](publish/index.md)

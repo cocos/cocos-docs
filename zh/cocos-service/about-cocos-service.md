@@ -58,4 +58,6 @@ Cocos Service 目前支持集成以下服务：
 - [认证服务（AppGallery Connect）](agc-auth.md)：使应用快速构建安全可靠额用户认证系统。
 - [崩溃服务（AppGallery Connect）](agc-crash.md)：零代码快速集成，通过崩溃报告了解应用崩溃情况。
 - [远程配置（AppGallery Connect）](agc-remote.md)：应用可在线更改行为和外观，无需下载应用更新。
+- [应用内消息（AppGallery Connect）](agc-appmessaging.md)：基于用户使用情境发送上下文相关消息，增强用户粘性。
+- [App Linking（AppGallery Connect）](agc-applinking.md)：跨平台深度链接直达应用内内容，推动应用增长。
 - [Cocos SDKHub](sdkhub.md)：快速接入原生平台 SDK。

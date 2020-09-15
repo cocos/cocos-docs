@@ -69,7 +69,7 @@
 
   ![](agc-auth/auth-panel.png)
 
-- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**。若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 AGC 认证服务文档 — [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408)。
+- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 AGC 认证服务文档 — [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408)。
 
   ![](agc-auth/auth-open.png)
 

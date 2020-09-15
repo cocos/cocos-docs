@@ -96,6 +96,8 @@
     - [Auth Service (AGC)](cocos-service/agc-auth.md)
     - [Crash (AGC)](cocos-service/agc-crash.md)
     - [Remote Configuration (AGC)](cocos-service/agc-remote.md)
+    - [App Messaging (AGC)](cocos-service/agc-appmessaging.md)
+    - [App Linking (AGC)](cocos-service/agc-applinking.md)
     - [Cocos SDKHub](cocos-service/sdkhub.md)
         - [HUAWEI HMS Core](cocos-service/sdkhub-plugins/sdkhub-hms.md)
 - [Publish Game](publish/index.md)
