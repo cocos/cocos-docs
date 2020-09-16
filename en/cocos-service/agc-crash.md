@@ -97,7 +97,7 @@ This method is used to trigger a crash for testing an app. This method can be us
 huawei.agc.crash.CrashService.testIt();
 ```
 
-## Service Reference Documents
+## Service Related Documentation
 
 - [Analyzing a Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [Receiving Crash Notifications](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-notice)
@@ -106,6 +106,6 @@ huawei.agc.crash.CrashService.testIt();
 - [Customizing a Crash Report](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-customreport)
 - [Crash FAQs](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-faq)
 
-## API Documentation
+## API Reference
 
-Please refer to the [Crash - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html).
+Please refer to the [Crash - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html).

@@ -6,7 +6,7 @@ App Messaging even allows you to customize how your messages look and the way th
 
 ### Message Types
 
-Currently, App Messaging supports pop-up, image, and banner messages, which have different content and layouts. You can customize the message content and layout as needed.
+Currently, App Messaging supports **pop-up**, **image**, and **banner** messages, which have different content and layouts. You can customize the message content and layout as needed.
 
 - A pop-up message can have a title and body and contain an image and up to two buttons. It is a better choice for you to send rich information to your users.
 
@@ -52,7 +52,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
-- Once the App Messaging service is integrated, we can verify the success of the Location Kit integration by adding simple code to the script.
+- Once the App Messaging service is integrated, we can verify the success of the App Messaging service integration by adding simple code to the script.
 
   ```js
   console.log("get AAID =", huawei.agc.appmessaging.appMessagingService.getAAID());
@@ -65,9 +65,9 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
   ![](agc-appmessaging/am-logcat.png)
 
-- Creating an In-App Message in the AppGallery Connect console, please Refer to AGC - App Messaging document [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create)
+- Creating an In-App Message in the AppGallery Connect console, please refer to AGC - App Messaging [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create) documentation for details.
 
-- Obtain the anonymous application identifier (AAID obtained previously) of the test device and set the in-app message to a test message. please Refer to AGC - App Messaging document [https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug).
+- Obtain the anonymous application identifier (AAID obtained previously) of the test device and set the in-app message to a test message. please refer to AGC - App Messaging document [https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug) documentation for details.
 
 - Run the project on a phone again, if the pop-up message appears, which means the integrate is successful.
 
@@ -91,7 +91,7 @@ The App Messaging SDK obtains in-app messages from AppGallery Connect and displa
 
 This document refers to the AppGallery Connect documentation - [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display). When calling in JavaScript, please use this document and the [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html) as a guide.
 
-Due to JavaScript layer limitation, the App Messaging plug-in does not support [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) functions.
+**Note**: Due to JavaScript layer limitation, the App Messaging plug-in does not support [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) functions.
 
 ### Prerequisites for In-App Message Display
 
@@ -105,7 +105,7 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
   Call [setFetchMessageEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable) to set whether to allow data synchronization from the AppGallery Connect server.
 
-  ```
+  ```js
   huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
   ```
   
@@ -124,7 +124,7 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
   Call [setDisplayEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable) to set whether to enable message display.
 
-  ```
+  ```js
   huawei.agc.appmessaging.appMessagingService.setDisplayEnable(true);
   ```
 
@@ -132,7 +132,7 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
 You can use the App Messaging SDK to customize app messaging behavior to respond to users promptly. The App Messaging SDK can listen on events including message display, message tapping, and message closing. Get the callback by `huawei.agc.appmessaging.appMessagingService.on` listener, or `huawei.agc.appmessaging.appMessagingService.once` listener for callback once.
 
-```
+```js
 huawei.agc.appmessaging.appMessagingService.on(huawei.agc.appmessaging.AGC_APP_MESSAGING_LISTENER_NAME.ON_MESSAGE_CLICK, (result) => {
     console.log('getId: ', result.getId());
 }, this);
@@ -142,13 +142,13 @@ huawei.agc.appmessaging.appMessagingService.once(huawei.agc.appmessaging.AGC_APP
 }, this);
 ```
 
-## Service Reference Documents
+## Service Related Documentation
 
 - [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create)
 - [Publishing an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-release)
 - [Viewing In-App Message Statistics](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-analysis)
 - [App Messaging FAQs](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-faq)
 
-## API Documentation
+## API Reference
 
-Please refer to the [App Messaging- API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html).
+Please refer to the [App Messaging- API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html).

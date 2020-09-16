@@ -1,4 +1,4 @@
-# App Linking（AppGallery Connect）Quick Start
+# App Linking (AppGallery Connect) Quick Start
 
 [App Linking](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-introduction) allows you to create cross-platform links that can work as defined regardless of whether your app has been installed by a user. A link created in App Linking can be distributed through multiple channels to users. When a user taps the link, the user will be redirected to the specified in-app content. In App Linking, you can create both long and short links.
 
@@ -46,11 +46,12 @@ You can create a link of App Linking in any of the following modes:
 
 When a link is tapped, an action will be triggered based on the link opening mode that you have specified and whether the user has installed your app.
 
-A link can be opened either in a browser or in your app, which is specified by you.
+A link can be opened either in a **browser** or in your **app**, which is specified by you.
 
-- If you set the link as to be opened in a browser, a user can open the link in a browser either from a mobile device or PC.
-- If you set the link as to be opened in your app, when a user who has not installed the app taps the link, the user will be redirected to AppGallery (or a custom address) and instructed to install your app. After the user installs the app, the app will be launched and the in-app content will be displayed.
-- If a user who has installed your app taps the link, the user will be directly redirected to the target in-app content.
+- If you set the link as to be opened in a browser, a user can open the link in a browser either from a **mobile device** or **PC**.
+- If you set the link as to be opened in your app:
+  - When a user who has not installed the app taps the link, the user will be redirected to AppGallery (or a custom address) and instructed to install your app. After the user installs the app, the app will be launched and the in-app content will be displayed.
+  - When a user who has installed your app taps the link, the user will be directly redirected to the target in-app content.
 
 ### Concepts
 
@@ -58,9 +59,9 @@ A link can be opened either in a browser or in your app, which is specified by y
 
 A long link is a link of App Linking in its entirety, and generally follows this format:
 
-**URL prefix+[Deep link]+[Android app parameters]+[Preview type]+[Social sharing identifier parameters]+[Tracing parameters]+[Site ID]**
+**URL prefix + [Deep link] + [Android app parameters] + [Preview type] + [Social sharing identifier parameters] + [Tracing parameters] + [Site ID]**
 
-- The URL prefix is the URL contained in a link, which is in **https://Domain** name format. You can use the domain name provided by AppGallery Connect for free.
+- The URL prefix is the URL contained in a link, which is in `https://Domain` name format. You can use the domain name provided by AppGallery Connect for free.
 - The deep link is the URL of your app content. This is where a user will be directed when they tap the link. So if you want the user to see a specific page when they tap a link, you can set the URL of that page as the deep link.
 - Android app parameters include the APK name, the link that will be opened if your app is not installed, and the earliest version of your app where the link can be opened.
 - The preview type defines the type of the preview page displayed when a link of App Linking is opened in the browser.
@@ -76,7 +77,10 @@ If a long link is too long, it can be converted to a short link. A short link fo
 
 **URL prefix + Random suffix of the string type**
 
-The suffix of a short link can be long or short. A long suffix contains 17 characters. A short suffix contains at least four random characters.
+- URL prefix: Consistent with long links.
+- The suffix of a short link can be **Long** or **Short**:
+  - **Long** suffix contains 17 characters.
+  - **Short** suffix contains at least four random characters.
 
 ## Enable App Linking
 
@@ -108,7 +112,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
-- Once the App Linking service is integrated, we can verify the success of the Location Kit integration by adding simple code to the script.
+- Once the App Linking service is integrated, we can verify the success of the App Linking service integration by adding simple code to the script.
 
   ```js
   huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
@@ -121,7 +125,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - [Publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Refer to AGC — AppLinking document [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc), create a App Linking, select **Open in your Android app** option of **Set Android link behavior**, and choose current application in setting box below.
+- Refer to AGC - AppLinking [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) documentation, create a App Linking, select **Open in your Android app** option of **Link behavior for Android**, and choose current application in setting box below.
 
   ![](agc-applinking/al-console-behavior.png)
 
@@ -147,7 +151,7 @@ Developer can get a quick taste of the App Linking service with the sample proje
 
 ## Developer Guide
 
-This article mainly introduces the [Creating a Link of App Linking in Your App](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-bysdk) method. Other creating App Linking methods, please refer to AGC AppLinking documents — [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) and [Manually Constructing a Link of App Linking](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined).
+This article mainly introduces the [Creating a Link of App Linking in Your App](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-bysdk) method. Other creating App Linking methods, please refer to AGC AppLinking - [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) and [Manually Constructing a Link of App Linking](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined) documentations for details.
 
 ### Creating a Link of App Linking in Your App
 
@@ -157,7 +161,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 - Call [setBuilder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setbuilder) to set a Builder object. The `Builder` instance contains link parameters is set by [huawei.AGC.AppLinking.Builder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.builder.html).
 
-  ```
+  ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
   let linkBuilder = new huawei.agc.applinking.Builder();
   linkBuilder.setUriPrefix("https://yourapp.drcn.agconnect.link");
@@ -167,7 +171,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 - To set Android app parameters, call the [setAndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) method. The `AndroidLinkInfo` instance contains Android app parameters is set by [huawei.AGC.AppLinking.AndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.androidlinkinfo.html).
 
-  ```
+  ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
   let androidLinkInfo = new huawei.AGC.AppLinking.AndroidLinkInfo();
   androidLinkInfo.setFallbackUrl("https://yourapp.drhw.agconnect.com/applink");
@@ -177,7 +181,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 - To set social sharing identifier parameters, call the [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) method. The `SocialCardInfo` instance contains social sharing identifier parameters is set by [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html).
 
-  ```
+  ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
   let socialBuilder = new huawei.agc.applinking.SocialCardInfo();
   socialBuilder.setDescription('this is a test case');
@@ -188,7 +192,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 - To set activity parameters, call the [setCampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) method. The `CampaignInfo` instance contains activity parameters is set by [huawei.agc.applinking.CampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.campaigninfo.html).
 
-  ```
+  ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
   let campaignInfo = new huawei.agc.applinking.CampaignInfo();
   campaignInfo.setMedium('test-medium');
@@ -203,7 +207,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 Call `buildLongLink` to generate a long link, **synchronization** method.
 
-```
+```js
 let getLinkInfo = new huawei.agc.applinking.AppLinking();
 ...
 let longLink = huawei.agc.applinking.appLinkingService.buildLongLink(genLinkInfo);
@@ -215,7 +219,7 @@ let longLink = huawei.agc.applinking.appLinkingService.buildLongLink(genLinkInfo
 
 Call `buildShortLink` to create a short link.
 
-```
+```js
 huawei.agc.applinking.appLinkingService.once(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.BUILD_SHORT_LINK, (data) => {
     if (data.code === 1) {
         console.log('build short link success：', data.data);
@@ -233,7 +237,7 @@ huawei.agc.applinking.appLinkingService.buildShortLink(linkInfo);
 
 If you have created a long link and want to convert it to a short link by `buildShortLinkFromLongLink` method.
 
-```
+```js
 huawei.agc.applinking.appLinkingService.once(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.BUILD_SHORT_LINK_FROM_LONG_LINK, (data) => {
     if (data.code === 1) {
         console.log('build short link from long link success：', data.data);
@@ -247,7 +251,7 @@ huawei.agc.applinking.appLinkingService.buildShortLinkFromLongLink(longLink);
 
 Set the listener, obtain data passed through the link, such as `DeepLink`.
 
-```
+```js
 huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
     if (data.code === 1) {
         console.log('receive deepLink：', data.getDeepLink());
@@ -255,13 +259,13 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
 }, this);
 ```
 
-## Service Reference Documents
+## Service Related Documentation
 
 - [Viewing Analytical Data](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-viewanalytics)
 - [Debugging the Link of App Linking](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-debug)
 - [Social Sharing Identifiers](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-socialdescription)
 - [Restrictions](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-restrictions)
 
-## API Documentation
+## API Reference
 
-Please refer to the [App Linking - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.applinking.html).
+Please refer to the [App Linking - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.applinking.html).

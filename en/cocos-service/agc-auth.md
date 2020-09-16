@@ -65,7 +65,7 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-console1.png)
 
-- In the dialog box that is displayed, configure app information. Required information can be obtained refer to AGC Auth Service document - [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1590395363254-0).
+- In the dialog box that is displayed, configure app information. Required information can be obtained refer to AGC Auth Service - [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1590395363254-0) documentation for details.
 
   ![](agc-auth/auth-console2.png)
 
@@ -334,7 +334,7 @@ huawei.agc.auth.authService.updateProfile("name1", photoUrl);
 
 `updatePassword(newPassword: string, verifyCode: string, provider: AuthProvider): void`
 
-Updates the current user's password, update results via the asynchronous callback. After the password is updated successfully, the user's Access Token is refreshed and the user is asked to re-sign in. Otherwise, the API call may fail due to the Access Token matching failure. You can refer to AGC Auth Service document - [updatePassword](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#updatePassword).
+Updates the current user's password, update results via the asynchronous callback. After the password is updated successfully, the user's Access Token is refreshed and the user is asked to re-sign in. Otherwise, the API call may fail due to the Access Token matching failure. You can refer to AGC Auth Service - [updatePassword](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#updatePassword) documentation for details.
 
 **Parameter Description**:
 
@@ -352,7 +352,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-Updates the email account of the current user, update results via the asynchronous callback. Before calling this interface, call `getVerifyCode` function to apply a verification code for the new phone number to make sure the new number is owned by the current user. You can refer to AGC Auth Service document - [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514).
+Updates the email account of the current user, update results via the asynchronous callback. Before calling this interface, call `getVerifyCode` function to apply a verification code for the new phone number to make sure the new number is owned by the current user. You can refer to AGC Auth Service - [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514) documentation for details.
 
 **Parameter Description**:
 
@@ -371,7 +371,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-Updates the phone number of the current user, update results via the asynchronous callback. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email account. The verification code is used to verify that the current user owns the new email account. You can refer to AGC Auth Service document - [updatePhone](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#updatePhone).
+Updates the phone number of the current user, update results via the asynchronous callback. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email account. The verification code is used to verify that the current user owns the new email account. You can refer to AGC Auth Service - [updatePhone](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#updatePhone) documentation for details.
 
 **Parameter Description**:
 
@@ -391,7 +391,7 @@ huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 
 `getUserExtra(): void`
 
-Obtains UserExtra of the current user, update results via the asynchronous callback. This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code `INVALID_REFRESH_TOKEN = 203817986` will be returned, indicating that the user's Refresh Token has expired. You can refer to AGC Auth Service document - [getUserExtra](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra).
+Obtains UserExtra of the current user, update results via the asynchronous callback. This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code `INVALID_REFRESH_TOKEN = 203817986` will be returned, indicating that the user's Refresh Token has expired. You can refer to AGC Auth Service - [getUserExtra](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra) documentation for details.
 
 **Example**:
 
@@ -434,6 +434,6 @@ huawei.agc.auth.authService.resetPassword("132xxxxxxxx", "neWPaSSwOrd", "1234", 
 huawei.agc.auth.authService.resetPassword("newUser1@gmail.com", "neWPaSSwOrd", "1234");
 ```
 
-## API Documentation
+## API Reference
 
-Please refer to the [Auth Service - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html).
+Please refer to the [Auth Service - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html).

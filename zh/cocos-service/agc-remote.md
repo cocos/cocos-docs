@@ -91,7 +91,7 @@
 
 ## 开发指南
 
-本文档对应 AppGallery Connect - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)。使用 JavaScript 调用时，请以本文档和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) 为准。
+本文档对应 AppGallery Connect 文档 - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)，使用 JavaScript 调用时，请以本文档和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) 为准。
 
 由于 Java SDK 的 `apply` 方法返回的是参数对象，无法在 JavaScript 层传递。所以 Creator 集成到服务面板的远程配置服务插件在封装时，使用了 `applyLastFetched` 和 `fetchAndApply` 方法来代替 Java SDK 的 `applyDefault` 和 `apply` 方法。
 
@@ -168,7 +168,7 @@ getValueAsString(key: String): String {return "";}
 
 在设置默认值和更新云端参数值后，就可以调用以上方法中所需类型的方法获取参数值。远程配置服务插件封装时，提供了四种数据类型的接口，可根据需求进行使用。
 
-由于 JavaScript 层限制，远程配置服务插件不支持对应 Java SDK 的 `getValueAsBytArray` 方法。
+**注意**：由于 JavaScript 层限制，远程配置服务插件不支持对应 Java SDK 的 `getValueAsBytArray` 方法。
 
 **参数说明**：
 

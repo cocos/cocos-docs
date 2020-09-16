@@ -476,6 +476,6 @@ var removeID = "ID1";
 huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 ```
 
-## API Documentation
+## API Reference
 
-Please refer to the [Analytics Kit - API Documentation](https://docs.cocos.com/service/api/modules/huawei.hms.location.html).
+Please refer to the [Analytics Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.location.html).
