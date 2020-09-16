@@ -69,7 +69,7 @@
 
   ![](agc-auth/auth-panel.png)
 
-- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 AGC 认证服务文档 — [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408)。
+- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408) 文档。
 
   ![](agc-auth/auth-open.png)
 
@@ -77,7 +77,7 @@
 
   ![](agc-auth/auth-console1.png)
 
-- 填写所需参数。各认证方式的参数申请，可参考 AGC 认证服务文档 — [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408)。
+- 填写所需参数。各认证方式的参数申请，可参考 [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408) 文档。
 
   ![](agc-auth/auth-console2.png)
 
@@ -345,7 +345,7 @@ huawei.agc.auth.authService.updateProfile("name1", photoUrl);
 
 `updatePassword(newPassword: string, verifyCode: string, provider: AuthProvider): void`
 
-更新当前用户的密码，可参考 AGC 认证服务文档 — [updatePassword](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword)，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
+更新当前用户的密码，可参考 [updatePassword](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePassword) 文档，通过异步回调更新结果。密码更新成功后，用户的 Access Token 将会刷新，请用户重新登录，否则会出现 Access Token 不匹配而调用接口失败。
 
 **参数说明**：
 
@@ -363,7 +363,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-更新当前用户的邮箱。可参考 AGC 认证服务文档 — [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514)，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为该用户所有。
+更新当前用户的邮箱。可参考 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为该用户所有。
 
 **参数说明**：
 
@@ -382,7 +382,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-更新当前用户的手机号。可参考 AGC 认证服务文档 — [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePhone)，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为该用户所有。
+更新当前用户的手机号。可参考 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePhone) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为该用户所有。
 
 **参数说明**：
 
@@ -402,7 +402,7 @@ huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 
 `getUserExtra(): void`
 
-获取当前用户的 UserExtra，通过异步回调更新结果，可参考 AGC 认证服务文档 — [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra)。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
+获取当前用户的 UserExtra，通过异步回调更新结果，可参考 [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra) 文档。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
 
 **示例**：
 
@@ -448,5 +448,3 @@ huawei.agc.auth.authService.resetPassword("newUser1@gmail.com", "neWPaSSwOrd", "
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [认证服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html)。
-
-

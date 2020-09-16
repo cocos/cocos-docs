@@ -30,28 +30,21 @@
 
 | 功能 | 说明 |
 | :--- | :--- |
-| 延迟深度链接支持 | 即使用户还未安装该应用，也可以先被跳转到应用市场，在安装该应用后，即可从他们原先所在的位置继续，而不用重新导航回到原先的位置。 |
+| 延迟深度链接支持 | 即使用户还未安装该应用，也可以先跳转到应用市场，在安装该应用后，即可从他们原先所在的位置继续，而不用重新导航回到原先的位置。 |
 | 支持社交卡片的适配 | 通过分享标识可以将 App Linking 呈现为卡片，实现更加丰富的呈现效果。 |
 | 数据统计 | 记录链接里所有相关事件数据，比如点击次数、首次打开次数、重复打开次数等，便于数据分析。 |
 
-### 工作原理
+### 创建链接
 
-App Linking 支持 3 种方式创建链接：
+创建 App Linking 链接有以下三种方式：
 
-- 在 AGC 管理台中创建。
-- 在应用客户端创建。
-- 手动构造 App Linking 链接。
+1. 在 AGC 管理台中创建。
 
-开发者可以选择其中一种方式创建链接，系统将会根据打开方式及用户是否安装应用来执行对应的操作。
+2. 在应用客户端创建。
 
-链接创建完成后可设置在 **浏览器** 或 **应用** 中打开。
+3. 手动构造 App Linking 链接。
 
-- 如果设置的是在浏览器中打开，那么无论用户是在 **移动端** 还是 **PC 端** 都可以通过浏览器打开链接查看内容。
-- 如果设置的是在应用中打开：
-  - 若尚未安装应用，则会跳转到应用市场（或自定义网址）提示用户安装应用然后展示内容。
-  - 若已安装应用，则会直接打开应用原生的页面来展示内容。
-
-### 相关概念
+创建出来的链接包括 **长链接** 和 **短链接** 两种。其中前两种创建方式可创建长链接/短链接，而第三种方式只能创建出长链接。
 
 #### 长链接
 
@@ -67,7 +60,7 @@ App Linking 支持 3 种方式创建链接：
 - 广告跟踪参数：在链接中增加跟踪参数，可用于广告和流量跟踪。
 - 站点编号：用于标记向应用提供 App Linking 服务的站点信息，站点编号根据应用设置的数据存储位置确定。
 
-有关长链接地址的详细说明，请参见 [手动构造 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined)。
+具体的参数说明可参考文档 [手动构造 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined)。
 
 #### 短链接
 
@@ -80,6 +73,17 @@ App Linking 支持 3 种方式创建链接：
   - **LONG** 固定 17 位字符。
   - **SHORT** 以 4 位字符开始，当 4 位字符的随机字符串使用完后自动增加 1 位，依次累加。
 
+### 打开链接
+
+链接创建完成后可设置在 **浏览器** 或 **应用** 中打开。
+
+- 如果设置的是在浏览器中打开，那么无论用户是在 **移动端** 还是 **PC 端** 都可以通过浏览器打开链接查看内容。
+
+- 如果设置的是在应用中打开：
+
+  - 若尚未安装应用，则会跳转到应用市场（或自定义网址）提示用户安装应用然后展示内容。
+  - 若已安装应用，则会直接打开应用原生的页面来展示内容。
+
 ## 一键接入 App Linking
 
 ### 开通服务
@@ -88,11 +92,11 @@ App Linking 支持 3 种方式创建链接：
 
 - 由于 App Linking 事件进行数据统计时，使用了华为分析服务功能，所以在集成 App Linking 服务前，请先开通 [分析服务（HMS Core）](./hms-analytics.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **App Linking**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **AppLinking**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
   ![](agc-applinking/al-panel.png)
 
-- 在 App Linking 服务面板下方，填写 **android intent filter** 项目，需填写 App Linking **转换前** 的网站的地址，具体内容可参考 [添加 Intent 过滤器](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1579335100846)。
+- 在 App Linking 服务面板下方，填写 **android intent filter**，需要填入 App Linking **转换前** 的网站的地址，具体内容可参考 [添加 Intent 过滤器](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1579335100846)。
 
   ![](agc-applinking/al-filter.png)
   
@@ -117,18 +121,18 @@ App Linking 支持 3 种方式创建链接：
   huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
       console.log("getData, data.code =", data.code);
       if (data.code === 1) {
-          this.console.log('receive deepLink：', data.getDeepLink());
+          this.console.log('receive deepLink:', data.getDeepLink());
       }
   }, this);
   ```
 
 - [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 参考 AGC — AppLinking 文档 [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc)，创建一组 App Linking，在 **设置安卓链接行为** 项目中请选择 **在安卓应用中打开**，并在下方设置框中选择当前应用。
+- 参考 [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) 文档，创建一组 App Linking，在 **设置安卓链接行为** 时，请选择 **在安卓应用中打开**，并在下方设置框中选择当前应用（若还未创建应用可点击后面的 **添加应用** 按钮创建）。
 
   ![](agc-applinking/al-console-behavior.png)
 
-- 获取该组 App Linking 的地址，在测试设备的浏览器中打开该地址，可以看到下方 App Linking 提供的界面，点击 **打开**，跳转到 App。
+- 获取该组 App Linking 的地址，在测试设备的浏览器中打开该地址，可以看到 App Linking 提供的界面（如下所示），点击 **打开**，跳转到 App。
 
   ![](agc-applinking/al-browser.png)
 
@@ -136,7 +140,7 @@ App Linking 支持 3 种方式创建链接：
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验 App Linking 。
+开发者可以通过 Sample 工程快速体验 App Linking。
 
 - 点击 App Linking 面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
@@ -150,15 +154,15 @@ App Linking 支持 3 种方式创建链接：
 
 ## 开发指南
 
-本文主要介绍 [在应用客户端创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-bysdk) 方式，其他创建 App Linking 方式，请参考 AGC AppLinking 文档 — [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) 和 [手动构造 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined)。
+本文主要介绍 [在应用客户端创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-bysdk) 方式，其他创建 App Linking 方式，请参考 [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) 和 [手动构造 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-defined) 文档。
 
 ### 在应用客户端创建 App Linking
 
 如果开发者希望在应用程序中以动态方式创建链接以便用户之间相互分享，可以在应用客户端中使用 App Linking SDK 提供的 API 来创建 App Linking 的长链接或短链接。
 
-#### 设置链接信息对象
+#### 创建长链接或短链接
 
-- Builder 对象使用 [setBuilder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setbuilder) 方法设置，方法中包含 App Linking 相关参数的 `Builder` 实例使用 [huawei.AGC.AppLinking.Builder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.builder.html) 构建。
+- Builder 对象使用 [setBuilder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setbuilder) 方法设置，方法中包含 App Linking 相关参数的 `Builder` 实例，该实例使用 [huawei.AGC.AppLinking.Builder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.builder.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -168,7 +172,7 @@ App Linking 支持 3 种方式创建链接：
   linkInfo.setBuilder(linkBuilder);
   ```
 
-- 安卓应用参数信息使用 [setAndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 方法设置，方法中包含安卓参数信息的 `AndroidLinkInfo` 实例使用 [huawei.AGC.AppLinking.AndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.androidlinkinfo.html) 构建。
+- 安卓应用参数信息使用 [setAndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 方法设置，方法中包含安卓参数信息的 `AndroidLinkInfo` 实例，该实例使用 [huawei.AGC.AppLinking.AndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.androidlinkinfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -178,7 +182,7 @@ App Linking 支持 3 种方式创建链接：
   linkInfo.setAndroidLinkInfo(androidLinkInfo);
   ```
 
-- 社交分享标记参数使用 [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
+- 社交分享标记参数使用 [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例，该实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -189,7 +193,7 @@ App Linking 支持 3 种方式创建链接：
   linkInfo.setSocialCardInfo(socialBuilder);
   ```
 
-- 活动参数使用 [setCampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) 设置，方法中包含活动参数信息的 `CampaignInfo` 实例使用 [huawei.agc.applinking.CampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.campaigninfo.html) 构建。
+- 活动参数使用 [setCampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) 设置，方法中包含活动参数信息的 `CampaignInfo` 实例，该实例使用 [huawei.agc.applinking.CampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.campaigninfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -204,7 +208,7 @@ App Linking 支持 3 种方式创建链接：
 
 `buildLongLink(linkInfo: AppLinking): string`
 
-调用 `buildLongLink` 方法生成长链接，**同步** 方法。
+调用 `buildLongLink` 同步方法生成长链接。
 
 ```js
 let getLinkInfo = new huawei.agc.applinking.AppLinking();
@@ -221,7 +225,7 @@ let longLink = huawei.agc.applinking.appLinkingService.buildLongLink(genLinkInfo
 ```js
 huawei.agc.applinking.appLinkingService.once(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.BUILD_SHORT_LINK, (data) => {
     if (data.code === 1) {
-        console.log('build short link success：', data.data);
+        console.log('build short link success:', data.data);
     }
 }, this);
 
@@ -239,7 +243,7 @@ huawei.agc.applinking.appLinkingService.buildShortLink(linkInfo);
 ```js
 huawei.agc.applinking.appLinkingService.once(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.BUILD_SHORT_LINK_FROM_LONG_LINK, (data) => {
     if (data.code === 1) {
-        console.log('build short link from long link success：', data.data);
+        console.log('build short link from long link success:', data.data);
     }
 }, this);
 
@@ -253,7 +257,7 @@ huawei.agc.applinking.appLinkingService.buildShortLinkFromLongLink(longLink);
 ```js
 huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
     if (data.code === 1) {
-        console.log('receive deepLink：', data.getDeepLink());
+        console.log('receive deepLink:', data.getDeepLink());
     }
 }, this);
 ```
@@ -268,5 +272,3 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [App Linking  - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.applinking.html)。
-
-

@@ -45,7 +45,7 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
   ![](agc-remote/remote-console.png)
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -70,7 +70,7 @@ When integrating the **Remote Configuration** service in the Android project, a 
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run it on a phone, if you can see the output value is **testValue** in LogCat, which means the integrate is successful.
+- Run the project on a phone, if you can see the output value is **testValue** in LogCat, which means the integrate is successful.
 
   ![](agc-remote/remote-logcat.png)
 
@@ -215,7 +215,7 @@ huawei.agc.rc.rcService.clearAll();
 
 ### Loading Process
 
-You can apply obtained parameter values in either of the following ways, refer to AGC Remote Configuration - [Loading Process](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307089186) documentation for details.
+You can apply obtained parameter values in either of the following ways, refer to [Loading Process](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307089186) documentation for details.
 
 #### Applying parameter values immediately
 

@@ -36,7 +36,7 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 - Location Kit can be used directly, without additional operations in the AppGallery Connect console.
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -64,7 +64,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- The first time you run it on a phone, the dialog box for applying for location permission will pop up (see the figure below), which means the integrate is successful.
+- The first time you run the project on a phone, the dialog box for applying for location permission will pop up (see the figure below), which means the integrate is successful.
 
   ![](hms-location/loc-debugging.png)
 
@@ -92,7 +92,7 @@ All functions of Location Kit within async callback. Call the function with `hua
 
 `huawei.hms.location.locationService`
 
-Refer to [HMS - Developing the Location Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143).
+Refer to [Developing the Location Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143).
 
 #### Checking the Device Location Settings
 
@@ -272,7 +272,7 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 `huawei.hms.location.locationActivityService`
 
-Refer to [HMS - Developing the Activity Identification Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110).
+Refer to [Developing the Activity Identification Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110).
 
 #### Assigning App Permissions
 
@@ -394,7 +394,7 @@ huawei.hms.location.locationActivityService.deleteActivityConversionUpdates();
 
 `huawei.hms.location.locationGeofenceService`
 
-refer to [HMS - Developing the Geofence Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159).
+Refer to [Developing the Geofence Service](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159).
 
 #### Set listener for geofence service
 

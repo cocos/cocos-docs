@@ -26,13 +26,13 @@ After you integrate the App Messaging SDK into your app, the SDK automatically s
 
 A user can tap an in-app message to access the destination specified during message creation. The App Messaging SDK reports the message display result to AppGallery Connect. You can view the statistics on message displays, taps, and conversion data in AppGallery Connect.
 
-## Enable App Messaging
+## Enable App Messaging Service
 
 - Use Cocos Creator to open the project that needs to be connected to App Messaging service.
 
 - App Messaging service works with the HUAWEI Analytics Kit, please enable the [Analytics Kit (HMS Core)](./hms-analytics.md) before integrating the App Messaging service.
 
-- Click on **Panel -> Service** in the menu bar to open the Service panel, select App Messaging service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
+- Click on **Panel -> Service** in the menu bar to open the Service panel, select **App Messaging** service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
   ![](agc-appmessaging/am-panel.png)
 
@@ -40,7 +40,7 @@ A user can tap an in-app message to access the destination specified during mess
 
   ![](agc-appmessaging/am-open.png)
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -61,13 +61,13 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - [Publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run it on a phone, get the **AAID** from **LogCat**.
+- Run the project on a phone, get the **AAID** from **LogCat**.
 
   ![](agc-appmessaging/am-logcat.png)
 
-- Creating an In-App Message in the AppGallery Connect console, please refer to AGC - App Messaging [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create) documentation for details.
+- Creating an In-App Message in the AppGallery Connect console, please refer to [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create) documentation for details.
 
-- Obtain the anonymous application identifier (AAID obtained previously) of the test device and set the in-app message to a test message. please refer to AGC - App Messaging document [https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug) documentation for details.
+- Obtain the anonymous application identifier (AAID obtained previously) of the test device and set the in-app message to a test message. Please refer to [Testing an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-debug) documentation for details.
 
 - Run the project on a phone again, if the pop-up message appears, which means the integrate is successful.
 
@@ -101,32 +101,32 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
 2. A user triggers the event upon which an in-app message will be displayed. Then the App Messaging SDK synchronizes the message data from the AppGallery Connect server or obtains the message data from the local cache and determines whether to display the message.
 
-  The App Messaging SDK allows you to enable or disable data synchronization from the AppGallery Connect server. The function is enabled by default.
+    The App Messaging SDK allows you to enable or disable data synchronization from the AppGallery Connect server. The function is enabled by default.
 
-  Call [setFetchMessageEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable) to set whether to allow data synchronization from the AppGallery Connect server.
+    Call [setFetchMessageEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable) to set whether to allow data synchronization from the AppGallery Connect server.
 
-  ```js
-  huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
-  ```
+    ```js
+    huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
+    ```
   
-  **Note**:
+    **Note**:
 
-  - The App Messaging SDK does not request messages from the AppGallery Connect server every time an event is triggered. Instead, it requests messages only once in a specified period (usually when the app is launched) and caches all messages locally. During the period, the matching locally cached messages are displayed upon events.
-  - New in-app messages created during the period in AppGallery Connect will not be displayed since the App Messaging SDK has not obtained them.
+    - The App Messaging SDK does not request messages from the AppGallery Connect server every time an event is triggered. Instead, it requests messages only once in a specified period (usually when the app is launched) and caches all messages locally. During the period, the matching locally cached messages are displayed upon events.
+    - New in-app messages created during the period in AppGallery Connect will not be displayed since the App Messaging SDK has not obtained them.
 
 3. Display an in-app message published in AppGallery Connect when the following conditions are met:
 
-  - The system time of the device is later than the message start time and earlier than the message end time.
-  - The display frequency has not met the upper limit.
-  - An event contained in the trigger event list of the message occurs.
+    - The system time of the device is later than the message start time and earlier than the message end time.
+    - The display frequency has not met the upper limit.
+    - An event contained in the trigger event list of the message occurs.
 
-  The App Messaging SDK allows you to enable or disable the message display function. The function is enabled by default.
+    The App Messaging SDK allows you to enable or disable the message display function. The function is enabled by default.
 
-  Call [setDisplayEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable) to set whether to enable message display.
+    Call [setDisplayEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable) to set whether to enable message display.
 
-  ```js
-  huawei.agc.appmessaging.appMessagingService.setDisplayEnable(true);
-  ```
+    ```js
+    huawei.agc.appmessaging.appMessagingService.setDisplayEnable(true);
+    ```
 
 ### Interacting with Users
 

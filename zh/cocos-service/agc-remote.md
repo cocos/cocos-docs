@@ -216,7 +216,7 @@ huawei.agc.rc.rcService.clearAll();
 
 ### 加载流程
 
-开发者可以通过如下两种方式进行数据刷新，具体的内容可参考 AGC 远程配置服务文档 — [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854)。
+开发者可以通过如下两种方式进行数据刷新，具体的内容可参考 [加载流程](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760759854) 文档。
 
 #### 获取数据后立刻生效
 
@@ -259,5 +259,3 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html)。
-
-
