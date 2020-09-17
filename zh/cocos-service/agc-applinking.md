@@ -69,7 +69,7 @@
 **链接前缀 + 随机字符串后缀**
 
 - 链接前缀：与长链接的一致。
-- 随机字符串后缀：包括 **LONG** 和 **SHORT** 两种：
+- 随机字符串后缀，包括 **LONG** 和 **SHORT** 两种：
   - **LONG** 固定 17 位字符。
   - **SHORT** 以 4 位字符开始，当 4 位字符的随机字符串使用完后自动增加 1 位，依次累加。
 
@@ -91,7 +91,7 @@
 
 - 由于 App Linking 事件进行数据统计时，使用了华为分析服务功能，所以在集成 App Linking 服务前，请先开通 [分析服务（HMS Core）](./hms-analytics.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **AppLinking**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **App Linking**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
   ![](agc-applinking/al-panel.png)
 
@@ -127,11 +127,11 @@
 
 - [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 参考 [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) 文档，创建一组 App Linking，在 **设置安卓链接行为** 时，请选择 **在安卓应用中打开**，并在下方设置框中选择当前应用（若还未创建应用可点击后面的 **添加应用** 按钮创建）。
+- 参考 [在 AGC 界面创建 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) 文档，创建一个 App Linking，在 **设置安卓链接行为** 时，请选择 **在安卓应用中打开**，并在下方设置框中选择当前应用（若还未创建应用可点击后面的 **添加安卓应用** 按钮创建）。
 
   ![](agc-applinking/al-console-behavior.png)
 
-- 获取该组 App Linking 的地址，在测试设备的浏览器中打开该地址，可以看到 App Linking 提供的界面（如下所示），点击 **打开**，跳转到 App。
+- 获取该 App Linking 的地址，在测试设备的浏览器中打开该地址，可以看到 App Linking 提供的界面（如下所示），点击 **打开**，跳转到 App。
 
   ![](agc-applinking/al-browser.png)
 
@@ -181,7 +181,7 @@
   linkInfo.setAndroidLinkInfo(androidLinkInfo);
   ```
 
-- 社交分享标记参数使用 [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例，该实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
+- 社交分享标记参数使用 [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例，该实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();

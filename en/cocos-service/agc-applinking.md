@@ -182,7 +182,7 @@ If you want your app to dynamically create links for users to share, you can int
   linkInfo.setAndroidLinkInfo(androidLinkInfo);
   ```
 
-- To set social sharing identifier parameters, call the [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) method. The `SocialCardInfo` instance contains social sharing identifier parameters is set by [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html).
+- To set social sharing identifier parameters, call the [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) method. The `SocialCardInfo` instance contains social sharing identifier parameters is set by [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html).
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
