@@ -66,7 +66,7 @@
 
 - 代码添加完成后，即可 [发布到 Android 平台](../publish/publish-native.md)，请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 工程第一次运行到手机后，，若弹出申请位置权限的对话框（见下图），即表示接入成功。
+- 工程第一次运行到手机后，若弹出申请位置权限的对话框（见下图），即表示接入成功。
 
   ![](hms-location/loc-debugging.png)
 
@@ -94,7 +94,7 @@
 
 `huawei.hms.location.locationService`
 
-可参考华为 HMS 文档 — [定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143)。
+可参考 [定位服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/location-develop-steps-0000001050746143) 文档。
 
 #### 检查应用权限
 
@@ -274,7 +274,7 @@ huawei.hms.location.locationService.setMockLocation(24.4813889,118.1590724);
 
 `huawei.hms.location.locationActivityService`
 
-可参考华为 HMS 文档 — [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110)。
+可参考 [活动识别服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/activity-recognition-develop-steps-0000001050706110) 文档。
 
 #### 动态申请活动识别权限
 
@@ -292,7 +292,7 @@ huawei.hms.location.locationActivityService.requestRecognitionPermission();
 
 `createActivityIdentificationUpdates(intervalMillis: number): void`
 
-可参考华为 HMS 文档 — [注册活动识别更新](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397)。
+可参考 [注册活动识别更新](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/activityidentificationservice-0000001050986183-V5#ZH-CN_TOPIC_0000001050986183__section177364246397) 文档。
 
 **参数说明**：
 
@@ -402,7 +402,7 @@ huawei.hms.location.locationActivityService.deleteActivityConversionUpdates();
 
 `huawei.hms.location.locationGeofenceService`
 
-可参考华为 HMS 文档 — [地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159)。
+可参考 [地理围栏服务开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/geofence-develop-steps-0000001050986159) 文档。
 
 #### 设置地理围栏监听
 
@@ -487,4 +487,3 @@ huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [位置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.location.html)。
-

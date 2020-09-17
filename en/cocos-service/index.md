@@ -20,6 +20,10 @@ The **Service** Panel currently supports the integration of third-party services
     
   - [Remote Configuration (AppGallery Connect)](agc-remote.md)
 
+  - [App Messaging (AppGallery Connect)](agc-appmessaging.md)
+
+  - [App Linking (AppGallery Connect)](agc-applinking.md)
+
   - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
 ## Usage

@@ -137,6 +137,6 @@ You can get a quick taste of the Cocos SDKHub with the sample project.
 
 - If you need to delete the service plug-in configuration (e.g. remove the IAP function), it is recommended to delete the release package `build/jsb-link` or `build/jsb-default` directory generated after the project is built, and then rebuild.
 
-## API Documentation
+## API Reference
 
 Please refer to the [API documentation](https://docs.cocos.com/service/api/modules/sdkhub.html).

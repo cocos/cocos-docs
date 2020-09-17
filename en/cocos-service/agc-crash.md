@@ -20,7 +20,7 @@
 
   ![](agc-crash/crash-panel.png)
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -45,7 +45,7 @@ Generally, there is a low probability of an app crashing, so the Crash service S
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run it on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
+- Run the project on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
 
   ![](agc-crash/crash-console.jpg)
 
@@ -97,7 +97,7 @@ This method is used to trigger a crash for testing an app. This method can be us
 huawei.agc.crash.CrashService.testIt();
 ```
 
-## Service Reference Documents
+## Service Related Documentation
 
 - [Analyzing a Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [Receiving Crash Notifications](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-notice)
@@ -106,6 +106,6 @@ huawei.agc.crash.CrashService.testIt();
 - [Customizing a Crash Report](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-customreport)
 - [Crash FAQs](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-faq)
 
-## API Documentation
+## API Reference
 
-Please refer to the [Crash - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html).
+Please refer to the [Crash - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html).
