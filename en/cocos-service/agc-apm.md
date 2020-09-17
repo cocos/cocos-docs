@@ -22,7 +22,7 @@
 
   ![](agc-apm/apm-open.png)
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -60,7 +60,7 @@ Developer can get a quick taste of the APM service with the sample project.
 
 `enableCollection(enable: boolean): void`
 
- The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to AGC APM document - [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) for details.
+ The default value is true, indicating that APM app performance data collection is enabled. To disable app performance data collection of APM, set this parameter to false. You can refer to [Disabling APM Performance Monitoring in Apps](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) documentation for details.
 
 The priority of the disabling configuration in apps is **higher** than that through Remote Configuration in AppGallery Connect. If users disable performance monitoring in apps, the APM does not collect performance data even if the performance monitoring function is enabled through Remote Configuration in AppGallery Connect.
 
@@ -78,13 +78,13 @@ huawei.agc.apms.apmsService.enableCollection(true);
 
 ### Creating a Custom Trace (Optional)
 
-Custom traces can be used to monitor the performance of your app in specific scenarios, such as app sign-in and that the page fails to respond for a long time. Compared with the AGC APM SDK, the APM plug-in needs to add the `name` parameter to get the object. If the object with the current name does not exist, a new object will be created. You can refer to AGC APM document - [Creating a Custom Trace](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addtrace).
+Custom traces can be used to monitor the performance of your app in specific scenarios, such as app sign-in and that the page fails to respond for a long time. Compared with the AGC APM SDK, the APM plug-in needs to add the `name` parameter to get the object. If the object with the current name does not exist, a new object will be created. You can refer to [Creating a Custom Trace](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addtrace) documentation for details.
 
 #### Start
 
 `startCustomTrace(name: string): void`
 
-Starts a custom trace. You can refer to AGC APM document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#start).
+Starts a custom trace. You can refer to [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#start) documentation for details.
 
 **Parameter Description**:
 
@@ -102,7 +102,7 @@ huawei.agc.apms.apmsService.startCustomTrace("traceID");
 
 `stopCustomTrace(name: string): void`
 
-Stops a custom trace. You can refer to AGC APM document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#stop).
+Stops a custom trace. You can refer to [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#stop) documentation for details.
 
 **Parameter Description**:
 
@@ -166,7 +166,7 @@ huawei.agc.apms.apmsService.removeCustomTraceProperty(traceID, pName);
 
 `getCustomTraceProperty(name: string, propertyName: string): string`
 
-Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty).
+Obtains a custom attribute value. You can refer to [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getProperty) documentation for details.
 
 **Parameter Description**:
 
@@ -212,7 +212,7 @@ huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
 
 `getCustomTraceMeasure(name: string, measureName: string): string`
 
-Obtains an indicator value for a custom trace. You can refer to AGC APM document - [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure).
+Obtains an indicator value for a custom trace. You can refer to [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure) documentation for details.
 
 **Parameter Description**:
 
@@ -235,7 +235,7 @@ console.log("mValue = ", measureValue);
 
 `putCustomTraceMeasure(name: String, measureName: String, measureValue: number): void`
 
-Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to AGC APM document - [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure).
+Adds an indicator for a custom trace. If the indicator already exists, the value of the indicator is updated. You can refer to [putMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#putMeasure) documentation for details.
 
 **Parameter Description**:
 
@@ -277,7 +277,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### Adding Indicators to Monitor Specific Network Requests (Optional)
 
-APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. For details, please refer to AGC APM document - [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure).
+APM automatically collects performance data of most network requests for your app. However, if a framework other than URLConnection or Okhttp is used, APM may miss some network requests. In this case, use the method described in this section to collect network performance data to preventing request loss. In addition, you can add custom properties to refine network performance data analysis. For details, please refer to [addnetworkmeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure) documentation for details.
 
 #### Init
 
@@ -303,7 +303,7 @@ console.log("createNetworkMeasure, id = ", id);
 
 `startNetworkMeasure(id: string): void`
 
-Sets the request start time. You can refer to AGC APM document - [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#start).
+Sets the request start time. You can refer to [start](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#start) documentation for details.
 
 **Parameter Description**:
 
@@ -321,7 +321,7 @@ huawei.agc.apms.apmsService.startNetworkMeasure(id);
 
 `stopNetworkMeasure(id: string): void`
 
-Sets the request end time and reports network request indicators and custom attribute data. You can refer to AGC APM document - [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#stop).
+Sets the request end time and reports network request indicators and custom attribute data. You can refer to [stop](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#stop) documentation for details.
 
 **Parameter Description**:
 
@@ -339,7 +339,7 @@ huawei.agc.apms.apmsService.stopNetworkMeasure(id);
 
 `setNetworkMeasureStatusCode(id: string, statusCode: number): void`
 
-Sets the response code of a request. You can refer to AGC APM document - [setStatusCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode).
+Sets the response code of a request. You can refer to [setStatusCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setStatusCode) documentation for details.
 
 **Parameter Description**:
 
@@ -358,7 +358,7 @@ huawei.agc.apms.apmsService.setNetworkMeasureStatusCode(id, 500);
 
 `setNetworkMeasureBytesSent(id: string, length: number): void`
 
-Sets the request body size. You can refer to AGC APM document - [setBytesSent](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent).
+Sets the request body size. You can refer to [setBytesSent](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesSent) documentation for details.
 
 **Parameter Description**:
 
@@ -377,7 +377,7 @@ huawei.agc.apms.apmsService.setNetworkMeasureBytesSent(id, 10000);
 
 `setNetworkMeasureBytesReceived(id: string, length: number): void`
 
-Sets the response body size. You can refer to AGC APM document - [setBytesReceived](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived).
+Sets the response body size. You can refer to [setBytesReceived](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setBytesReceived) documentation for details.
 
 **Parameter Description**:
 
@@ -396,7 +396,7 @@ huawei.agc.apms.apmsService.setNetworkMeasureBytesReceived(id, 10000);
 
 `setNetworkMeasureContentType(id: string, contentType: string): void`
 
-Sets the response body type specified by **contentType**. You can refer to AGC APM document - [setContentType](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setContentType).
+Sets the response body type specified by **contentType**. You can refer to [setContentType](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#setContentType) documentation for details.
 
 **Parameter Description**:
 
@@ -415,7 +415,7 @@ huawei.agc.apms.apmsService.setNetworkMeasureContentType(id, "contentType1");
 
 `putNetworkMeasureProperty(id: string, propertyName: string, propertyValue: string): void`
 
-Sets the custom attribute name and value of a network request. Up to **5** custom attributes can be set for each **NetworkMeasure** instance. You can refer to AGC APM document - [putProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#putProperty).
+Sets the custom attribute name and value of a network request. Up to **5** custom attributes can be set for each **NetworkMeasure** instance. You can refer to [putProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#putProperty) documentation for details.
 
 **Parameter Description**:
 
@@ -437,7 +437,7 @@ huawei.agc.apms.apmsService.putNetworkMeasureProperty(id, pName, pValue);
 
 `removeNetworkMeasureProperty(id: string, propertyName: string): void`
 
-Removes an existing attribute from a **NetworkMeasure** instance. You can refer to AGC APM document - [removeProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#removeProperty).
+Removes an existing attribute from a **NetworkMeasure** instance. You can refer to [removeProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#removeProperty) documentation for details.
 
 **Parameter Description**:
 
@@ -457,7 +457,7 @@ huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 
 `getNetworkMeasureProperty(id: string, propertyName: string): string`
 
-Obtains all attributes from a NetworkMeasure instance by JSON object. You can refer to AGC APM document - [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties).
+Obtains all attributes from a NetworkMeasure instance by JSON object. You can refer to [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties) documentation for details.
 
 **Parameter Description**:
 
@@ -478,7 +478,7 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 
 `getNetworkMeasureProperties(id: string): string`
 
-Obtains a custom attribute value. You can refer to AGC APM document - [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty).
+Obtains a custom attribute value. You can refer to [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty) documentation for details.
 
 **Parameter Description**:
 
@@ -493,6 +493,6 @@ let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
 console.log("mProp = ", mProp);
 ```
 
-## API Documentation
+## API Reference
 
-Please refer to the [APM - API Documentation](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html).
+Please refer to the [APM - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html).

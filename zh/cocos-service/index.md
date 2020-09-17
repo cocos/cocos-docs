@@ -41,5 +41,7 @@ Cocos Service 目前提供的服务包括：
     - [认证服务（AppGallery Connect）](agc-auth.md)
     - [崩溃服务（AppGallery Connect）](agc-crash.md)
     - [远程配置（AppGallery Connect）](agc-remote.md)
+    - [应用内消息（AppGallery Connect）](agc-appmessaging.md)
+    - [App Linking（AppGallery Connect）](agc-applinking.md)
     - [Cocos SDKHub](sdkhub.md)
         - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

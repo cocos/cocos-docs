@@ -24,7 +24,7 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 - Refer to the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) documentation to complete developer registration, app creation, enable Huawei Analysis Service parameter configuration, and enable the API.
 
-### Configs HUAWEI Config file
+### Configs HUAWEI Config File
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
@@ -317,7 +317,6 @@ huawei.hms.analytics.AnalyticsTools.enableLog();
 huawei.hms.analytics.AnalyticsTools.enableLog(huawei.hms.LOG_LEVEL.debug);
 ```
 
-## API Documentation
+## API Reference
 
-Please refer to the [Analytics Kit - API Documentation](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html).
-
+Please refer to the [Analytics Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html).
