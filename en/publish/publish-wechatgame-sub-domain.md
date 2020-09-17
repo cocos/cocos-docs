@@ -54,6 +54,40 @@ This is the core component of the open data context solution. In addition to the
 
   **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the SubContextView component directly in the Main Context project.**
 
+- **Controlling engine main loop in open data context**
+
+  In Creator **v2.4.3**, we have improved the control of the engine main loop in the open data context, which is not run by default. The engine main loop will only run if the SubContextView component is enabled, and will stop if the SubContextView component is disabled.
+
+  When the SubContextView component is disabled, the engine main loop will not run, so the logic written in the component life cycle of the project will not be executed. Therefore, if the SubContextView component is disabled, some of the logic that needs to be executed in advance should be written outside the component or in the plugin script.
+
+  One exception to note here is that since the open data context loads the start scene by default, the `onLoad` callback is executed for components that are activated by default in the start scene. For example:
+
+  ```js
+  console.log("do some stuff before enabling SubContextView component");
+
+  cc.Class({
+      extends: cc.Component,
+
+      onLoad () {
+          console.log("execute if it's enabled in the start scene");
+      },
+
+      start () {
+          console.log("won't execute before enabling SubContextView component");
+      },
+  });
+  ```
+
+  In addition, in an open data context project, if you need to listen for messages from the main context, you need to first determine if the message comes from the engine in main context:
+
+  ```js
+  wx.onMessage(res => {
+      if (!(res && res.fromEngine)) {
+        console.log('do something...');
+      }
+  });
+  ```
+
 ## Module selection
 
 Since the code and resources of the WeChat open data context cannot be shared with the main context, it is very sensitive to the package. The developer needs to set the [project module culling option](../getting-started/basics/editor-panels/project-settings.md) for the open data context project. It should be noted that starting with v2.0.0, developers can't check the WebGL Renderer in open data context projects. The Canvas Renderer must be checked because the open data context only supports Canvas rendering. At the same time, the rendering components supported under Canvas rendering are also limited (the UI components are not limited) and currently only support:
