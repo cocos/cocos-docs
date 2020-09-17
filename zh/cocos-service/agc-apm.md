@@ -61,7 +61,7 @@
 
 `enableCollection(enable: boolean): void`
 
-可参考 [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) 文档。开关的默认值为打开 (true)，如果需要停用应用性能数据采集，可将开关设为关闭 (false)。
+可参考 [在应用客户端停用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-stopapms#h1-1584589061111) 文档。开关的默认值为打开（true），如果需要停用应用性能数据采集，可将开关设为关闭（false）。
 
 应用客户端停用的级别 **高于** AGC 远程配置停用。如用户在应用客户端停用性能监控，即使通过 AGC 远程配置打开性能监控开关，性能管理服务也不会进行性能数据采集。
 

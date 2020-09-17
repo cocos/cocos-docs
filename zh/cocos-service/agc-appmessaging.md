@@ -1,6 +1,6 @@
 # 应用内消息（AppGallery Connect）快速入门
 
-通过华为 AppGallery Connect（简称 AGC）的 [应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-introduction)（App Messaging）服务，可以实现向活跃用户发送有针对性的消息来鼓励用户使用应用的关键功能，从而吸引这些用户。例如，通过应用内消息，开发者可以向用户给出某个关卡的通过提示、鼓励用户订阅，或者推荐某个餐厅活动。
+通过华为 AppGallery Connect（简称 AGC）的 [应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-introduction)（App Messaging）服务，可以实现向活跃用户发送有针对性的消息来鼓励用户使用应用的关键功能，从而吸引这些用户。例如，通过应用内消息，开发者可以向用户给出某个关卡的通关提示、鼓励用户订阅，或者推荐某个餐厅活动。
 
 开发者可以定制这些消息的外观和形式，并通过事件作为触发器，在关键的时候呈现给用户。
 
@@ -131,7 +131,7 @@ App Messaging SDK 展示消息的条件包括以下几点：
 
 ### 当用户与消息交互时进行响应
 
-通过 App Messaging SDK，开发者可以进一步定制应用内消息的行为，在用户与消息交互时进行响应，App Messaging SDK 支持对消息的展示、点击，以及消失事件的监听。可以通过 `huawei.agc.appmessaging.appMessagingService.on` 监听回调，，或者通过 `huawei.agc.appmessaging.appMessagingService.once` 获取单次回调。
+通过 App Messaging SDK，开发者可以进一步定制应用内消息的行为，在用户与消息交互时进行响应，App Messaging SDK 支持对消息的展示、点击，以及消失事件的监听。可以通过 `huawei.agc.appmessaging.appMessagingService.on` 监听回调，或者通过 `huawei.agc.appmessaging.appMessagingService.once` 获取单次回调。
 
 ```js
 huawei.agc.appmessaging.appMessagingService.on(huawei.agc.appmessaging.AGC_APP_MESSAGING_LISTENER_NAME.ON_MESSAGE_CLICK, (result) => {

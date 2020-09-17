@@ -38,7 +38,7 @@ App Linking can work with [Cloud Functions](https://developer.huawei.com/consume
 
 ### Create a link of App Linking
 
-You can create a link of App Linking in any of the following modes:
+There are three ways to create a link of App Linking:
 
 1. Creating a link in AppGallery Connect
 
@@ -66,7 +66,7 @@ For more information about long links, please refer to [Manually Constructing a 
 
 #### Short link
 
-If a long link is too long, it can be converted to a short link. A short link follows this format:
+Short link addresses are shortened by shortening the information contained in a long link address to a random string suffix in order to prevent the link address from being too long for sharing. A short link follows this format:
 
 **URL prefix + Random suffix of the string type**
 
@@ -128,7 +128,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - [Publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Refer to [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) documentation, create a App Linking, then select **Open in your Android app** option of **Link behavior for Android**, and choose current application in setting box below (if you have not created an application, you can click the **Add Android app** button to create).
+- Refer to [Creating a Link in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc) documentation to create an App Linking. When setting the Android Linking behavior, select **Open in your Android app** and select the current app in the settings box below (if you have not created an application, you can click the **Add Android app** button to create).
 
   ![](agc-applinking/al-console-behavior.png)
 

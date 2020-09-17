@@ -212,7 +212,7 @@ huawei.agc.apms.apmsService.incrementCustomTraceMeasure(traceID, mName, mValue);
 
 `getCustomTraceMeasure(name: string, measureName: string): string`
 
-Obtains an indicator value for a custom trace. You can refer to  [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure) documentation for details.
+Obtains an indicator value for a custom trace. You can refer to [getMeasure](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/customtrace#getMeasure) documentation for details.
 
 **Parameter Description**:
 
