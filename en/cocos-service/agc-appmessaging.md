@@ -83,7 +83,7 @@ Developer can get a quick taste of the App Messaging service with the sample pro
 
 - Once the Sample project is running on the phone, click the **AppMessaging** button on the homepage for testing.
 
-  ![](agc-auth/auth-sample.png)
+  ![](agc-appmessaging/am-sample.jpg)
 
 ## Developer Guide
 
