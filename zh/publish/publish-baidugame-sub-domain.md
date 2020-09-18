@@ -82,7 +82,7 @@
   ```js
   swan.onMessage(res => {
       if (!(res && res.fromEngine)) {
-        console.log('do something...');
+          console.log('do something...');
       }
   });
   ```
