@@ -57,9 +57,9 @@ This is the core component of the Open Data Context solution. In addition to the
 
   In Creator **v2.4.3**, we have improved the control of the engine main loop in the Open Data Context, which is not run by default. The engine main loop will only run if the SubContextView component is enabled, and will stop if the SubContextView component is disabled.
 
-  When the SubContextView component is disabled, the engine main loop will not run, so the logic written in the component life cycle of the project will not be executed. Therefore, if the SubContextView component is disabled, some of the logic that needs to be executed in advance should be written outside the component or in the plugin script.
+  When the SubContextView component is not enabled, the engine main loop does not run, so the business logic written in the component life cycle of the project is not executed. Therefore, some of the business logic that needs to be executed before the SubContextView component is enabled should be written outside the component or in the plugin script.
 
-  One exception to note here is that since the Open Data Context loads the start scene by default, the `onLoad` callback is executed for components that are activated by default in the start scene. For example:
+  One exception to note here is that since the Open Data Context will load the start scene by default, the `onLoad` callback is executed for components that are activated by default in the start scene. For example:
 
   ```js
   console.log("do some stuff before enabling SubContextView component");
@@ -77,12 +77,12 @@ This is the core component of the Open Data Context solution. In addition to the
   });
   ```
 
-  In addition, in an Open Data Context project, if you need to listen for messages from the main context, you need to first determine if the message comes from the engine in main context:
+  In addition, in an Open Data Context project, if you need to listen for messages from the main context, you need to determine whether the messages come from the main context engine first:
 
   ```js
   swan.onMessage(res => {
       if (!(res && res.fromEngine)) {
-        console.log('do something...');
+          console.log('do something...');
       }
   });
   ```
