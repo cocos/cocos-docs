@@ -159,10 +159,12 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 由于 Manifest 中的资源版本建议使用 md5 码，那么在校验函数中计算下载文件的 md5 码去和 asset 的 md5 码比对即可判断文件是否正常。除了 md5 信息之外，asset 对象还包含下面的属性：
 
-1. path：            服务器端相对路径
-2. compressed：      是否被压缩
-3. size：            文件尺寸
-4. downloadState：   下载状态，包含 UNSTARTED、DOWNLOADING、SUCCESSED、UNMARKED
+| 属性   | 说明 |
+| :---- | :---- |
+| path          | 服务器端相对路径 |
+| compressed    | 是否被压缩 |
+| size          | 文件尺寸 |
+| downloadState | 下载状态，包含 `UNSTARTED`、`DOWNLOADING`、`SUCCESSED`、`UNMARKED` |
 
 ### 错误处理和失败重试
 
@@ -186,7 +188,7 @@ assetsManager.downloadFailedAssets();
 
 2. 资源配置的刷新
 
-    在 Cocos2d-x/JS 中可以不重启游戏就直接使用新的贴图、字体、音效等资源。但是在 Creator 中不可以，因为 Creator 的场景和资源都依赖于 `settings.js`。如果 settings.js 没有重新执行，并被 main.js 和 AssetsLibrary 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
+    在 Cocos2d-x/JS 中可以不重启游戏就直接使用新的贴图、字体、音效等资源。但是在 Creator 中不可以，因为 Creator 的场景和资源都依赖于 `settings.js`。如果 `settings.js` 没有重新执行，并被 `main.js` 和 `AssetsLibrary` 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
 
 而如何启用新的资源，就需要依赖 Cocos 引擎的搜索路径机制了。Cocos 中所有文件的读取都是通过 FileUtils，而 FileUtils 会按照搜索路径的优先级顺序查找文件。所以我们只要将热更新的缓存目录添加到搜索路径中并且前置，就会优先搜索到缓存目录中的资源。以下是示例代码：
 
@@ -206,7 +208,7 @@ if (jsb) {
 }
 ```
 
-需要注意的是，这段代码必须放在 main.js 中 require 其他脚本之前执行，否则还是会加载到应用包内的脚本。
+需要注意的是，这段代码必须放在 `main.js` 中 require 其他脚本之前执行，否则还是会加载到应用包内的脚本。
 
 ## 进阶主题
 

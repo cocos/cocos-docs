@@ -99,13 +99,15 @@ All the child nodes will be zoomed in the same ratio with the node.
 
 ### Rect Transform Tool
 
-Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **Rect Transform Tool**.
+Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **Rect Transform Tool**. And the gizmo of Rect Transform Tool is mainly made up of a box with four blue vertices and a blue ring.
 
 ![rect](scene/rect_button.png)
 
-Drag any end-points of the gizmo so you can change the attributes of `width` and `height` in node size while the opposite angles end points position keep the same.
+Drag any vertex of the gizmo, you can modify the `position` and `size` attributes of the node at the same time, while keeping the position of the diagonal vertices unchanged.
 
-Drag any side on the gizmo so you can change the attributes of `width` and `height` in node size while the opposite sides position keep the same.
+Drag any border of the gizmo box, you can modify the `width` and `height` attributes of the node at the same time, while keeping the position of the opposite edge unchanged.
+
+Drag the blue dot of the gizmo, you can modify the `Anchor` attribute of the node, while keeping the position of the box the same.
 
 ![rect](scene/rect_gizmo.png)
 

@@ -163,10 +163,12 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 The asset version in manifest is recommended to use md5. You can determine whether the file is correct by calculating the md5 code of the downloaded file in the verify function and comparing it with the md5 of the asset. In addition to md5, the asset object also contains the following properties:
 
-1. path:            The relative path of the server side
-2. compressed:      Whether it is compressed
-3. size:            File state
-4. downloadState:   Download size, includes `UNSTARTED`, `DOWNLOADING`, `SUCCESSED`, `UNMARKED`
+| Property  | Function Explanation |
+| :---- | :---- |
+| path          | The relative path of the server side |
+| compressed    | Whether it is compressed |
+| size          | File state |
+| downloadState | Download size, includes `UNSTARTED`, `DOWNLOADING`, `SUCCESSED`, `UNMARKED` |
  
 ### Error message handling and download retry
 
