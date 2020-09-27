@@ -52,13 +52,13 @@ cc.tween(this.node)
 
 `cc.tween` 提供了两个设置属性的 API：
 
-- `to`：对属性进行绝对值计算，最终的运行结果即是设置的属性值
-- `by`：对属性进行相对值计算，最终的运行结果是设置的属性值加上开始运行时节点的属性值
+- `to`：对属性进行绝对值计算，最终的运行结果即是设置的属性值，即改变到某个值。
+- `by`：对属性进行相对值计算，最终的运行结果是设置的属性值加上开始运行时节点的属性值，即变化值。
 
 ```js
 cc.tween(node)
   .to(1, {scale: 2})      // node.scale === 2
-  .by(1, {scale: 2})      // node.scale === 4 (2+2)
+  .by(1, {scale: 2})      // node.scale === 4 (2 + 2)
   .by(1, {scale: 1})      // node.scale === 5
   .to(1, {scale: 2})      // node.scale === 2
   .start()

@@ -24,6 +24,8 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
 - For some Windows systems that are very old and have been on the intranet for a long time or have not upgraded the operating system patch for a long time, some errors may be caused by the lack of dll at runtime, you can try to install the system patch to solve: <https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows>
 
+- If the "Access Denied" popup appears during the installation process, or the installation fails. Please make sure that the operating system is an official Microsoft genuine.
+
 - If the installation still fails, try executing the installer from the command line:
 
   ```bash
@@ -31,8 +33,6 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
   ```
 
   Then submit the resulting installation logs ( `exe_log.txt` and `msi_log.txt`) to the development team for help. If the installation logs cannot be obtained by using the above command, you can also obtain the installation log by create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute.
-
-- If the "Access Denied" popup appears during the installation process, or the installation fails. Please make sure that the operating system is an official Microsoft genuine.
 
 ### Mac installation instructions
 

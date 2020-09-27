@@ -72,7 +72,7 @@ You can also to compile the native project of the native platform separately by 
   - `xxteaKey` - The key used for encrypt js files
   - `zipCompressJs` - Whether or not compress the files after encrypting js files
   - `autoCompile` - Whether or not auto compile project after publish project. Default is **false**.
-  - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
+  - `configPath` - Config file path. If define `configPath`, then Creator will load this file as a `json` file, and combine with the build parameters.
 
 Currently, not many parameters support command-line publishing. If no parameters are passed, the last configured configuration will be used. It is recommended that after manually packaging on a computer, upload the set build configuration files (in the settings directory) to the code repository, and then pull the configuration on the packager.
 
