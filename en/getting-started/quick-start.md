@@ -12,11 +12,11 @@ The completed form of this game can be played here:
 
 We have prepared for you all the resources needed for creating this game. Download **Original Project** and decompress it to the location you want. Then we can start:
 
-[Download the original project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/start_project.zip)
+[Download the original project -- **start_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4)
 
 You can also download the completed project. If there is any confusion when following the tutorial to create the game, you can open the completed project for reference:
 
-[Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/complete_project.zip)
+[Download the completed project -- **complete_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4)
 
 ## Open the original project
 
@@ -583,7 +583,7 @@ Let's open the `Game` script and add a `newStar.getComponent('Star').game = this
     spawnNewStar: function() {
         // ...
 
-        // Staging a reference of Game object on the Star script component
+        // Save a reference of the Game object on the Star script component
         newStar.getComponent('Star').game = this;
     },
 ```
@@ -901,7 +901,7 @@ Next, you can continue to refine all aspects of the game, and here are some reco
 - Add more gorgeous effects when collecting stars
 - Add input controls for touch screen devices
 
-For editions that have been improved in all the above aspects, you can download [Evolution Edition Project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/polished_project.zip) for reference and learning, which will not be discussed in detail here.
+For editions that have been improved in all the above aspects, you can download [Evolution Edition Project -- **polished_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4) for reference and learning, which will not be discussed in detail here.
 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Build and Preview](basics/preview-build.md) section.
 
