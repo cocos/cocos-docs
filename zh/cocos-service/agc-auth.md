@@ -95,7 +95,7 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
-- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-auth/auth-configfile.png)
 

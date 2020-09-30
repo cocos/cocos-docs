@@ -50,15 +50,13 @@
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
-- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-appmessaging/am-configfile.png)
 
-- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
+**注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-appmessaging/am-agcfile.jpg)
-
-- 发布到 Android 平台，或者旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
 ### 验证服务是否接入成功
 
