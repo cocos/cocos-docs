@@ -475,7 +475,7 @@ huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 
 ```js
 let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
-console.log("mProp = ", mProp);
+console.log("mProp = ", JSON.stringify(mProp));
 ```
 
 #### 获取自定义属性值
@@ -496,7 +496,7 @@ console.log("mProp = ", mProp);
 ```js
 let pName = "propName";
 let nMeasure = huawei.agc.apms.apmsService.getNetworkMeasureProperty(id, pName);
-console.log("nMeasure = ", JSON.stringify(nMeasure));
+console.log("nMeasure = ", nMeasure);
 ```
 
 ## API 文档

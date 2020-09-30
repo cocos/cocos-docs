@@ -473,7 +473,7 @@ Obtains all attributes from a NetworkMeasure instance by JSON object. You can re
 
 ```js
 let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
-console.log("mProp = ", mProp);
+console.log("mProp = ", JSON.stringify(mProp));
 ```
 
 #### Get Property
@@ -490,6 +490,11 @@ Obtains a custom attribute value. You can refer to [getProperty](https://develop
 | propertyName | Name of a custom attribute. The name can contain only Chinese characters, letters (case-insensitive), digits, and underscores (_), with up to 40 characters. | 
 
 **Example**:
+
+```js
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
+console.log("mProp = ", JSON.stringify(mProp));
+```
 
 ```js
 let pName = "propName";
