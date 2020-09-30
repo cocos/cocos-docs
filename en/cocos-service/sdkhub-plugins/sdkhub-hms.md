@@ -11,10 +11,26 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 ## Preparation Work
 
-- Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, generation and configuring the Signing Certificate Fingerprint and enabling required services.
+- Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, **generation and configuring the Signing Certificate Fingerprint** and enabling required services.
 - Integrate the work of HMS Core SDK, Cocos SDKHub will **automatically complete** when building, no need to pay attention.
 - If you need to use the IAP function, please prepare the bank card of the registered developer in advance, and fill in the relevant payment information. It may take 1-2 business days for review after submission.
 - Need to test on Huawei or Honor brand phones with HMS Core service installed.
+
+### Configs HUAWEI Config File
+
+Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
+
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
+
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating. 
+
+  ![](sdkhub-hms/hms-configfile.png)
+
+  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+
+  ![](sdkhub-hms/hms-agcfile.jpg)
 
 ## Enable Cocos SDKHub
 
@@ -43,10 +59,6 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
   Enter the **Parameter Config** panel to configure the required parameters.
 
   ![](sdkhub-hms/hms-params.png)
-
-  - **HMS Config file**: `agconnect-services.json` configuration file, which can be obtained in the developer background after creating the project.
-
-    ![](sdkhub-hms/hms-configfile.png)
     
   - [Payment public key](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/appgallery_querypaymentinfo), which is required when checking IAP service.
 
@@ -148,6 +160,50 @@ How ​​to submit scores, please refer to the [Game Service - Leaderboards](ht
 #### callFuncWithParam
 
 Need to call the interface description through the extension method:
+
+#### `init`
+
+Please refer to `JosAppsClient.init` method from the [Game Launch](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-start-0000001050123475#EN-US_TOPIC_0000001054251621__section12165571141) document. It needs to be called before the game login to display the announcement.
+
+**Example**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("init");
+```
+
+#### `checkAppUpdate`
+
+Please refer to [Updating an App](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/update-app-0000001050176950-V5#EN-US_TOPIC_0000001050176950__section11141193833414) document. Games in mainland China need to call this method after the game is started.
+
+**Parameter Description**:
+
+| Parameter name | Fill in requirements | Description |
+| :--- | :--- | :--- |
+| showUpdateDialog | "0" | Optional, whether to call the [update dialog](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#EN-US_TOPIC_0000001054371620__section1113567144514) provided by HMS, the default is "1". |
+| forceUpdate | "1" | Optional, if the `showUpdateDialog` value is "1", forcible update is required,the default is "0". |
+
+**Example**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
+```
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 132 | JSON | CheckAppUpdate successfully, The returned information can correspond to [intent](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#EN-US_TOPIC_0000001054371620__section15712187193218) |
+| + 107 | JSON / String | Operation failure description |
+
+#### `getCurrentPlayer`
+
+Please refer to [getCurrentPlayer](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/playersclient-0000001050121668-V5#EN-US_TOPIC_0000001054371606__section1442582231216) document. Since this method is also called during the login process, and this method is called back through the login method, this method is optional.
+
+**Example**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("getCurrentPlayer");
+```
 
 #### `cancelAuthorization`
 
@@ -251,6 +307,64 @@ How ​​to get basic game information, please refer to the [Game Service - Bas
 | :--- | :--- | :--- |
 | + 118 | JSON | Get the event data successfully, you can get the parameters achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | Description of failure to obtain event data |
+
+#### `cancelGameService`
+
+Provides the function for users to revoke authorization to HUAWEI Game Service, please refer to [cancelGameService](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#EN-US_TOPIC_0000001054691591__section58133387544) document.
+
+**Example**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("cancelGameService");
+```
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 124 | String | Description of successful revoke of GameService authorization |
+| + 125 | String | Description of failed revoke of GameService authorization |
+
+#### `setPopupsPosition`
+
+Sets the position for displaying the game greeting and achievement unlocking pop-ups on the screen. If this API is not called, the pop-ups will be displayed at the top of the screen by default. Please refer to [setPopupsPosition](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#EN-US_TOPIC_0000001054691591__section66001857175314) document.
+
+**Parameter Description**:
+
+| Parameter name | Fill in requirements | Description |
+| :--- | :--- | :--- |
+| position | 0 | Position for displaying the game greeting and achievement unlocking pop-ups on the screen. Currently, the pop-ups are displayed only at the top of the screen.<br>Pass any integer for the parameter. |
+
+**Example**：
+
+```js
+var params = 1;
+sdkhub.getUserPlugin().callFuncWithParam("setPopupsPosition", params);
+```
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 126 | String | Description of successful setting the position |
+| + 127 | String | Description of failed setting the position |
+
+#### `getAppId`
+
+Please refer to [getAppId](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#EN-US_TOPIC_0000001054691591__section12552847125319) document.
+
+**Example**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("getAppId");
+```
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 128 | String | The APPID |
+| + 129 | String | Failed to get APPID information |
 
 #### ReadSmsManager
 
@@ -398,7 +512,7 @@ Pre-loaded advertising method.
 
 #### showAds
 
-Display Advertising Method.
+Display advertising method.
 
 **Parameter Description**:
 
@@ -408,3 +522,82 @@ Display Advertising Method.
 | adId | "testx9dtjwj8hp" | Ad ID |
 | pos | "0" | Ad position, optional in the case of Banner, default is "0".<br>"0": directly below.<br>"1": center.<br>"2": directly above. |
 | adSize | "BANNER_SIZE_360_144" | Ad size, optional in the case of Banner, the default is "BANNER_SIZE_360_57", the input value can refer to [Ad Sizes](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576067654264) document. |
+| nativeLayout | "native_small"<br>"native_full" | Optional in the case of Native, Corresponding to the two [Native Ad Templates](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#EN-US_TOPIC_0000001057043311__section424619410104) that come with the plug-in, developers can modify the layout in the `.xml` file. The default is "native_full" |
+| requestCustomDislikeThisAd | "1" | Optional in the case of Native, switch of [Dislike This Ad](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#EN-US_TOPIC_0000001057043311__section8833172411816) feature, allows users to hide or block the ads that they are not interested in. This feature is not available in mainland China. |
+| choicesPosition | "TOP_LEFT"<br>"TOP_RIGHT"<br>"BOTTOM_RIGHT"<br>"BOTTOM_LEFT"<br>"INVISIBLE" | Optional in the case of Native and `requestCustomDislikeThisAd` = "1", [sets the AdChoices icon position](https://developer.huawei.com/consumer/en/doc/HMSCore-References/nativeadconfiguration-builder-0000001050064912-V5#EN-US_TOPIC_0000001055645257__section8995193618112), the default is "TOP_RIGHT". |
+| videoConfiguration | "1" | ptional in the case of Native, [video configuration builder](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5). The default is "0", when set to "1", the following parameters can be set. |
+| audioFocusType | "GAIN_AUDIO_FOCUS_ALL"<br>"NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE"<br>"NOT_GAIN_AUDIO_FOCUS_ALL" | Optional in the case of Native and `videoConfiguration` = "1", [sets the audio focus type](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5#EN-US_TOPIC_0000001057125174__section1469218165456), the default is "GAIN_AUDIO_FOCUS_ALL". |
+| startMuted | "0" | Optional in the case of Native and `videoConfiguration` = "1", [sets whether to mute a video initially](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5#EN-US_TOPIC_0000001057125174__section5378113754415), the default is "1". |
+
+#### hideAds
+
+Hide advertising method.
+
+**Parameter Description**:
+
+| Parameter name | Fill in requirements | Description |
+| :--- | :--- | :--- |
+| adType | "Native"<br>"Banner" | Ad Type |
+
+**Example**：
+
+```js
+var params = { "adType": "Native" };
+sdkhub.getAdsPlugin().hideAds(params);
+```
+
+#### getOdid
+
+Obtains an ODID in asynchronous mode, please refer to the [getOdid](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/opendeviceclient-0000001050831617-V5#EN-US_TOPIC_0000001050831617__section1788692510237) document.
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.PushResultCode.kPushExtension`` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 108 | String | The ODID |
+| + 109 | String | Description of failed get ODID |
+
+#### getAAID
+
+Obtains an AAID in asynchronous mode, please refer to the [getAAID](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section8856440133116 document.
+
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.PushResultCode.kPushExtension`` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 110 | String | The AAID |
+| + 111 | String | Description of failed get AAID |
+
+####  deleteAAID
+
+Deletes a local AAID, please refer to the [deleteAAID](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section8856440133116) document.
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.PushResultCode.kPushExtension`` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 110 | String | Description of deletes AAID success |
+| + 111 | String | Description of deletes AAID failure |
+
+#### isAutoInitEnabled
+
+Checks whether automatic initialization is enabled, please refer to the [isAutoInitEnabled](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488) document.
+
+**Example**：
+
+```js
+var isAuto = sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
+console.log("isAutoInitEnabled", isAuto);
+```
+
+### setAutoInitEnabled
+
+Sets whether to enable automatic initialization. If this parameter is set to **true**, the SDK automatically generates an AAID and applies for a token. The token is returned through the `sdkhub.PushResultCode.kPushExtension + 100` callback method. please refer to the [setAutoInitEnabled](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511) document.
+
+**Example**：
+
+```js
+var params = 1 - sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
+sdkhub.getPushPlugin().callFuncWithParam("setAutoInitEnabled", params);
+```

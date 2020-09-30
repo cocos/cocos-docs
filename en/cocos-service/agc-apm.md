@@ -26,11 +26,17 @@
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-apm/apm-configfile.png)
+
+  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+
+  ![](agc-apm/apm-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 
@@ -47,8 +53,6 @@ Developer can get a quick taste of the APM service with the sample project.
 - Click on the **Sample** button in the APM service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the APM service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
-
-- Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
 - Once the Sample project is running on the phone, click the **APMS** button on the homepage for testing.
 
@@ -453,11 +457,30 @@ let pName = "propName";
 huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 ```
 
+#### Get Properties
+
+`getNetworkMeasureProperties(id: string): string`
+
+Obtains all attributes from a NetworkMeasure instance by JSON object. You can refer to [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties) documentation for details.
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| id | The object id returned by the `initNetworkMeasure` method. There may be **multiple ids** at the same time. All other methods need to send the parameter. | 
+
+**Example**:
+
+```js
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
+console.log("mProp = ", JSON.stringify(mProp));
+```
+
 #### Get Property
 
 `getNetworkMeasureProperty(id: string, propertyName: string): string`
 
-Obtains all attributes from a NetworkMeasure instance by JSON object. You can refer to [getProperties](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperties) documentation for details.
+Obtains a custom attribute value. You can refer to [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty) documentation for details.
 
 **Parameter Description**:
 
@@ -470,27 +493,8 @@ Obtains all attributes from a NetworkMeasure instance by JSON object. You can re
 
 ```js
 let pName = "propName";
-let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.getNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
-```
-
-#### Get Measure Properties
-
-`getNetworkMeasureProperties(id: string): string`
-
-Obtains a custom attribute value. You can refer to [getProperty](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/networkmeasure#getProperty) documentation for details.
-
-**Parameter Description**:
-
-| Parameter | Description | 
-| :---------- | :------------- |  
-| id | The object id returned by the `initNetworkMeasure` method. There may be **multiple ids** at the same time. All other methods need to send the parameter. | 
-
-**Example**:
-
-```js
-let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
-console.log("mProp = ", mProp);
 ```
 
 ## API Reference
