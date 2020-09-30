@@ -32,11 +32,11 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
   ![](agc-crash/crash-configfile.png)
 
-- For Creator 2.4.3 and above, if you [publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) platform, **select** the `agconnect-services.json` file on the **Build** panel after downloading or updating.
+- For Creator 2.4.3 and above, if you [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md) platform, **select** the `agconnect-services.json` file on the **Build** panel after downloading or updating.
 
   ![](agc-crash/crash-agcfile.jpg)
 
-- Users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
+- If published to the Android platform, or users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
 ### Verify whether the service is integrated successfully
 

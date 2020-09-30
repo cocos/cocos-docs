@@ -115,11 +115,11 @@
 
   ![](agc-applinking/al-configfile.png)
 
-- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
+- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
 
   ![](agc-applinking/al-agcfile.jpg)
 
-- 对旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
+- 发布到 Android 平台，或者旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
 ### 验证服务是否接入成功
 

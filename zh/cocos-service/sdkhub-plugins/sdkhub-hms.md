@@ -37,7 +37,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
   ![](sdkhub-hms/hms-agcfile.jpg)
 
-- 对旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
+- 发布到 Android 平台，或者旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
 ## Sample 工程
 
@@ -235,7 +235,7 @@ sdkhub.getUserPlugin().callFuncWithParam("init");
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | showUpdateDialog | "0" | 可选，是否调用 HMS 提供的 [应用升级提示框](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section1113567144514)，默认为 "1" |
-| forceUpdate | "1" | 可选，若 `showUpdateDialog` 为 "1"，强制更新按钮选择，默认为 "0" |
+| forceUpdate | "1" | 可选，默认为 "0"。若 showUpdateDialog 为 "1"，则强制更新按钮选择。 |
 
 **示例**：
 

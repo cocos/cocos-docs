@@ -26,13 +26,13 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. 
 
-  ![](hms-location/loc-configfile.png)
+  ![](sdkhub-hms/hms-configfile.png)
 
 - For Creator 2.4.3 and above, if you [publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) platform, **select** the `agconnect-services.json` file on the **Build** panel after downloading or updating.
 
-  ![](hms-location/loc-agcfile.jpg)
+  ![](sdkhub-hms/hms-agcfile.jpg)
 
-- Users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
+- If published to the Android platform, or users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
 ## Enable Cocos SDKHub
 
@@ -336,7 +336,7 @@ Sets the position for displaying the game greeting and achievement unlocking pop
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
 | position | 0 | 	
-Position for displaying the game greeting and achievement unlocking pop-ups on the screen. Currently, the pop-ups are displayed only at the top of the screen.<br>Pass any integer for the parameter.<br> |
+Position for displaying the game greeting and achievement unlocking pop-ups on the screen. Currently, the pop-ups are displayed only at the top of the screen.<br>Pass any integer for the parameter. |
 
 **Example**：
 
@@ -525,10 +525,10 @@ Display advertising method.
 | adId | "testx9dtjwj8hp" | Ad ID |
 | pos | "0" | Ad position, optional in the case of Banner, default is "0".<br>"0": directly below.<br>"1": center.<br>"2": directly above. |
 | adSize | "BANNER_SIZE_360_144" | Ad size, optional in the case of Banner, the default is "BANNER_SIZE_360_57", the input value can refer to [Ad Sizes](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576067654264) document. |
-| nativeLayout | "native_small"<br>"native_full" | Optional in the case of Native, Corresponding to the two [Native Ad Templates](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#ZH-CN_TOPIC_0000001057043311__section424619410104) that come with the plug-in, developers can modify the layout in the `.xml` file. The default is "native_full" |
-| requestCustomDislikeThisAd | "1" | Optional in the case of Native, switch of [Dislike This Ad](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#ZH-CN_TOPIC_0000001057043311__section8833172411816)feature, allows users to hide or block the ads that they are not interested in. This feature is not available in mainland China. |
+| nativeLayout | "native_small"<br>"native_full" | Optional in the case of Native, Corresponding to the two [Native Ad Templates](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#EN-US_TOPIC_0000001057043311__section424619410104) that come with the plug-in, developers can modify the layout in the `.xml` file. The default is "native_full" |
+| requestCustomDislikeThisAd | "1" | Optional in the case of Native, switch of [Dislike This Ad](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#EN-US_TOPIC_0000001057043311__section8833172411816) feature, allows users to hide or block the ads that they are not interested in. This feature is not available in mainland China. |
 | choicesPosition | "TOP_LEFT"<br>"TOP_RIGHT"<br>"BOTTOM_RIGHT"<br>"BOTTOM_LEFT"<br>"INVISIBLE" | Optional in the case of Native and `requestCustomDislikeThisAd` = "1", [sets the AdChoices icon position](https://developer.huawei.com/consumer/en/doc/HMSCore-References/nativeadconfiguration-builder-0000001050064912-V5#EN-US_TOPIC_0000001055645257__section8995193618112), the default is "TOP_RIGHT". |
-| videoConfiguration | "1" | ptional in the case of Native, [video configuration builder](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5). The default is "0", when set to "1", the following parameters can be set. |
+| videoConfiguration | "1" | ptional in the case of Native, [video configuration builder](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5). The default is "0", when set to "1", the following parameters can be set. |
 | audioFocusType | "GAIN_AUDIO_FOCUS_ALL"<br>"NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE"<br>"NOT_GAIN_AUDIO_FOCUS_ALL" | Optional in the case of Native and `videoConfiguration` = "1", [sets the audio focus type](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5#EN-US_TOPIC_0000001057125174__section1469218165456), the default is "GAIN_AUDIO_FOCUS_ALL". |
 | startMuted | "0" | Optional in the case of Native and `videoConfiguration` = "1", [sets whether to mute a video initially](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5#EN-US_TOPIC_0000001057125174__section5378113754415), the default is "1". |
 
