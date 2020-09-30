@@ -42,10 +42,19 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤。
+
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
-- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
+
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
   ![](hms-location/loc-configfile.png)
+
+- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
+
+  ![](hms-location/loc-agcfile.jpg)
+
+- 对旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
 ### 验证服务是否接入成功
 
@@ -100,7 +109,7 @@
 
 `checkLocationSettings(): void`
 
-检查位置服务相关应用权限。
+检查定位服务相关应用权限。
 
 **示例**：
 
@@ -143,6 +152,10 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 该方法用于在应用中持续获取设备的位置。
 
+`requestLocationUpdatesEx() void`
+
+扩展的位置信息服务接口，当前支持高精度定位，并兼容普通定位接口.
+
 **示例**：
 
 ```js
@@ -155,6 +168,7 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 });
 
 huawei.hms.location.locationService.requestLocationUpdates();
+huawei.hms.location.locationService.requestLocationUpdatesEx(); //若需要高精度定位，可调用该方法代替
 ```
 
 `removeLocationUpdates(): void`
@@ -201,6 +215,46 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 });
 
 huawei.hms.location.locationService.getLastLocation();
+```
+
+`getLastLocationWithAddress(): void`
+
+返回最后一次请求的可用位置，包括详细地址信息。如果某个位置不可用，则返回 `null`。
+
+**示例**：
+
+```js
+huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_GET_HWLOCATION, (result) => {
+    if (result.code === huawei.hms.location.LocationService.StatusCode.success) {
+        console.log('getLastLocationWithAddress success, data is ', JSON.stringify(result));
+    } else {
+        console.log('getLastLocationWithAddress fail, reason ', result.errMsg);
+    }
+});
+
+huawei.hms.location.locationService.getLastLocationWithAddress();
+```
+
+#### 刷新位置
+
+`flushLocations(): void`
+
+刷新当前正在处理的位置。
+
+**注意**：当前 HMS 提供的 SDK 版本并未提供 flushLocations() 功能，SDK 中为空实现。
+
+**示例**：
+
+```js
+huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_FLUSH_LOCATIONS, (result) => {
+    if (result.code === huawei.hms.location.LocationService.StatusCode.success) {
+        console.log('flushLocations success,data is ', result.toString());
+    } else {
+        console.log('flushLocations fail ,reason ', result.errMsg);
+    }
+});
+
+huawei.hms.location.locationService.flushLocations();
 ```
 
 #### 使用模拟位置信息功能
@@ -486,4 +540,4 @@ huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [位置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.location.html)。
+详细的功能接口和 API 说明，请参考 [定位服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.location.html)。

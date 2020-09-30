@@ -40,10 +40,19 @@ You can also create a geofence by dragging to select an area on the map and sett
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), find your project from the project list and select the app on the project card.
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) process.
+
+- Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
+
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. 
 
   ![](hms-location/loc-configfile.png)
+
+- For Creator 2.4.3 and above, if you [publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) platform, **select** the `agconnect-services.json` file on the **Build** panel after downloading or updating.
+
+  ![](hms-location/loc-agcfile.jpg)
+
+- Users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
 ### Verify whether the service is integrated successfully
 
@@ -141,6 +150,10 @@ huawei.hms.location.locationService.requestLocationPermission();
 
 Requests location updates using the callback on the specified looper thread. This method can be called back continuously only when your process exists.
 
+`requestLocationUpdatesEx(): void`
+
+Requests location updates. This is an extended location service API that supports high-precision location and is compatible with common location APIs.
+
 **Example**:
 
 ```js
@@ -153,6 +166,7 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 });
 
 huawei.hms.location.locationService.requestLocationUpdates();
+huawei.hms.location.locationService.requestLocationUpdatesEx(); //For high-precision location
 ```
 
 `removeLocationUpdates(): void`
@@ -199,6 +213,46 @@ huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_
 });
 
 huawei.hms.location.locationService.getLastLocation();
+```
+
+`getLastLocationWithAddress(): void`
+
+Obtains the available location of the last request, including the detailed address information. If a location is unavailable, `null` will be returned.
+
+**Example**:
+
+```js
+huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_GET_HWLOCATION, (result) => {
+    if (result.code === huawei.hms.location.LocationService.StatusCode.success) {
+        console.log('getLastLocationWithAddress success, data is ', JSON.stringify(result));
+    } else {
+        console.log('getLastLocationWithAddress fail, reason ', result.errMsg);
+    }
+});
+
+huawei.hms.location.locationService.getLastLocationWithAddress();
+```
+
+#### Flush location
+
+`flushLocations(): void`
+
+Updates the location under processing.
+
+**Note**：Currently, the `flushLocations()` method is not provided, nor implemented in the HMS SDK.
+
+**Example**:
+
+```js
+huawei.hms.location.locationService.once(huawei.hms.location.HMS_LOCATION_EVENT_LISTENER_NAME.HMS_FLUSH_LOCATIONS, (result) => {
+    if (result.code === huawei.hms.location.LocationService.StatusCode.success) {
+        console.log('flushLocations success,data is ', result.toString());
+    } else {
+        console.log('flushLocations fail ,reason ', result.errMsg);
+    }
+});
+
+huawei.hms.location.locationService.flushLocations();
 ```
 
 #### Using the Mock Location Function
@@ -478,4 +532,4 @@ huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 
 ## API Reference
 
-Please refer to the [Analytics Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.location.html).
+Please refer to the [Location Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.location.html).

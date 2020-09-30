@@ -28,10 +28,19 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤。
+
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
-- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
+
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
 
   ![](agc-apm/apm-configfile.png)
+
+- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
+
+  ![](agc-apm/apm-agcfile.jpg)
+
+- 对旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
 ### 验证服务是否接入成功
 
@@ -48,8 +57,6 @@
 - 点击性能管理服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
 - 参照上文开通性能管理并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
-
-- 需要在已安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
 - Sample 工程运行到手机后，点击首页的 **APMS** 按钮，即可进入功能界面进行测试。
 
@@ -189,7 +196,7 @@ console.log("pValue = ", propertValue);
 
 `incrementCustomTraceMeasure(name: string, measureName: string, measureValue: number): void`
 
-增加自定义跟踪记录指标。如果指标已经存在，则更新指标的值。
+增加自定义跟踪记录指标的指标值。如果指标不存在，将创建一个新指标。如果自定义跟踪记录未启动或已停止，接口不生效。
 
 **参数说明**：
 
@@ -278,7 +285,7 @@ console.log("tProp = ", JSON.stringify(tProp));
 
 ### 添加针对特定网络请求的监控指标（可选）
 
-可参考 [添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure) 文档。自定义跟踪记录可用于监控开发者的应用在特定场景下的性能，如应用登录场景、应用页面长时间无响应场景等。
+可参考 [添加针对特定网络请求的监控指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-addnetworkmeasure) 文档。虽然 APM 会自动采集应用中大多数网络请求性能数据，但如果采用的是非 URLConnection 或非 Okhttp 框架，还是有少量网络请求 APM 无法自动采集。此时，可以按照下列方式采集网络请求性能数据。另外，您还可以对特定网络请求添加自定义属性。
 
 #### 创建网络请求指标实例
 
@@ -456,7 +463,7 @@ huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 
 #### 从 NetworkMeasure 实例中获取所有属性
 
-`getNetworkMeasureProperty(id: string, propertyName: string): string`
+`getNetworkMeasureProperties(id: string): string`
 
 可参考 [从 NetworkMeasure 实例中获取所有属性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperties) 文档，返回 JSON 对象。
 
@@ -471,13 +478,13 @@ huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
 
 ```js
 let pName = "propName";
-let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
 #### 获取自定义属性值
 
-`getNetworkMeasureProperties(id: string): string`
+`getNetworkMeasureProperty(id: string, propertyName: string): string`
 
 可参考 [获取自定义属性值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#getProperty) 文档。
 
@@ -490,7 +497,7 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 **示例**：
 
 ```js
-let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
+let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperty(id);
 console.log("mProp = ", mProp);
 ```
 

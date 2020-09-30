@@ -21,6 +21,24 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 - 需要在已安装 HMS Core 服务的华为或荣耀品牌手机上测试。
 
+### 配置华为参数文件
+
+大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
+
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤。
+
+- 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
+
+- 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。
+
+  ![](sdkhub-hms/hms-configfile.png)
+
+- Cocos Creator 2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) 平台，可在 `agconnect-services.json` 文件下载或更新后，在发布面板中选取文件。
+
+  ![](sdkhub-hms/hms-agcfile.jpg)
+
+- 对旧版本用户，`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
+
 ## Sample 工程
 
 开发者可以通过 Sample 工程快速体验 Cocos SDKHub。若开发者需要在自己的游戏工程中接入 HMS Core SDK，也可参考此流程。请先确保 [准备工作](#准备工作) 部分已经完成，并且已获取到所需参数。
@@ -50,10 +68,6 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
   进入 **参数配置** 页面，配置所需的参数。
 
   ![](sdkhub-hms/hms-params.jpg)
-
-  - **华为配置文件**：创建项目后在 [AppGallery Connect 后台](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 的 **我的项目 -> 项目设置 -> 常规 -> 应用** 中获取。
-
-    ![](sdkhub-hms/hms-configfile.png)
     
   - [支付公钥](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_querypaymentinfo)，勾选支付服务时需要填写。
 
@@ -63,7 +77,6 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
     - 此参数为选填项。如果开发者的应用不需要设置只支持某些特定语言，该参数可以设置为空，应用将默认支持所有 HMS Core SDK 支持的语言。
     - 如果开发者的应用需要设置只支持某些特定语言，填写格式为 **"en", "zh-rCN", "需要支持的其他语言"**。
     - HMS Core SDK 支持的语言列表请参考文档 [HMS SDK 支持的语言](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/hmssdk_supported_language)。
-
 
 - 请在工程中的 `config.js` 文件中，替换支付商品 ID `payProductId`、请求商品信息 ID 列表 `obtainProductIdList`、成就 ID `achievementId`、排行榜 ID `rankingId` 和 事件 ID `eventId`。以上参数均可在 AppGallery Connect 后台 配置生成，可参考 [配置商品信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-product-0000001050033076) 和 [配置成就/事件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/config-agc-0000001050166285-V5#ZH-CN_TOPIC_0000001051142256__section122826183710)。
 
@@ -196,6 +209,60 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 ---
 
 **以下方法需要通过 [扩展方法调用](../sdkhub.md/#扩展方法调用)**。
+
+#### 初始化
+
+可参考 [游戏启动 - 开发步骤](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-start-0000001050123475#ZH-CN_TOPIC_0000001054251621__section11466122071413) 的 `JosAppsClient.init` 方法，需要用户在游戏登录前调用，用于展示公告业务。
+
+**方法名**：`init`
+
+**参数说明**：无需参数。
+
+**示例**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("init");
+```
+
+#### 应用升级
+
+可参考 [应用升级](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/update-app-0000001050176950-V5) 文档，中国大陆的联运游戏需要在应用启动完成后接入。
+
+**方法名**：`checkAppUpdate`
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| showUpdateDialog | "0" | 可选，是否调用 HMS 提供的 [应用升级提示框](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section1113567144514)，默认为 "1" |
+| forceUpdate | "1" | 可选，若 `showUpdateDialog` 为 "1"，强制更新按钮选择，默认为 "0" |
+
+**示例**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 132 | JSON | 获取升级信息成功，返回信息可对应 [intent 说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section15712187193218)。 |
+| + 133 | String | 获取升级信息失败，或者无需处理升级信息情况 |
+
+#### 登录后获取用户信息
+
+可参考 [getCurrentPlayer](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/playersclient-0000001050121668-V5#ZH-CN_TOPIC_0000001054371606__section1442582231216) 文档，由于登录流程中也会调用该方法，并且走登录方法回调，该方法可选。
+
+**方法名**：`getCurrentPlayer`
+
+**参数说明**：无需参数。
+
+**示例**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("getCurrentPlayer");
+```
 
 #### 帐号取消授权
 
@@ -366,6 +433,74 @@ sdkhub.getUserPlugin().callFuncWithParam("getGameSummary", params);
 | :--- | :--- | :--- |
 | + 118 | JSON | 获取事件数据成功，可获取参数 achievementCount, appId, descInfo, gameName, gameHdImgUri, gameIconUri, rankingCount, firstKind, secondKind |
 | + 119 | JSON / String | 获取事件数据失败描述 |
+
+#### 取消游戏服务授权
+
+可参考 [cancelGameService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#ZH-CN_TOPIC_0000001054691591__section58133387544)，用户在华为应用市场开启游戏服务授权后，应用可以调用本方法向用户提供取消游戏服务授权的功能。
+
+**方法名**：`cancelGameService`
+
+**参数说明**：无需参数。
+
+**示例**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("cancelGameService");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 124 | String | 取消游戏服务授权成功描述 |
+| + 125 | String | 取消游戏服务授权失败描述 |
+
+#### 设置欢迎提示语和完成成就提示框展示位置
+
+可参考 [setPopupsPosition](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#ZH-CN_TOPIC_0000001054691591__section66001857175314)，设置欢迎提示语和完成成就提示框展示的位置。如果不调用本接口，将默认在页面顶部展示。
+
+**方法名**：`setPopupsPosition`
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| position | 0 | 当前只支持在页面顶部展示欢迎提示语和完成成就提示框。<br>此参数传入任意整型值即可。 |
+
+**示例**：
+
+```js
+var params = 1;
+sdkhub.getUserPlugin().callFuncWithParam("setPopupsPosition", params);
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 126 | String | 设置提示框位置成功描述 |
+| + 127 | String | 设置提示框位置失败描述 |
+
+#### 获取 APPID
+
+可参考 [获取游戏的应用 ID](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#ZH-CN_TOPIC_0000001054691591__section12552847125319) 文档。
+
+**方法名**：`getAppId`
+
+**参数说明**：无需参数。
+
+**示例**：
+
+```js
+sdkhub.getUserPlugin().callFuncWithParam("getAppId");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 128 | String | 获取 APPID 成功，可获取参数 APPID |
+| + 129 | String | 获取 APPID 失败描述 |
 
 #### 自动读取短信验证码
 
@@ -582,9 +717,9 @@ sdkhub.getFeePlugin().callFuncWithParam("startIapActivity", params);
 
 开发时请先参考 [Cocos SDKHub - 广告插件](../sdkhub.md/#广告插件)，本章节作为 HMS Core SDK 插件特性的补充说明部分。
 
-目前广告系统接入的是 [流量变现服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-introduction) 部分。接入广告形式为 [Banner](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner)，[激励广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-reward) 和 [插屏广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-interstitial)。开屏广告若有需要用户可自己直接在工程中接入。
+目前广告系统接入的是 [流量变现服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-introduction) 部分。接入广告形式为 [Banner](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner)，[原生广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-native)，[激励广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-reward) 和 [插屏广告](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-interstitial)。开屏和极速开屏广告若有需要用户可自己直接在工程中接入。
 
-Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 预加载方法，收到成功回调后，再调用 `showAds` 显示广告。Banner 条幅广告可直接调用 `showAds` 显示广告。
+Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 预加载方法，收到成功回调后，再调用 `showAds` 显示广告。Banner 条幅广告和 Native 原生广告，可直接调用 `showAds` 显示广告。
 
 #### 预加载广告
 
@@ -608,16 +743,39 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-| adType | "Interstitial"<br>"Reward"<br>"Banner"  | 广告类型 |
-| adId | "testx9dtjwj8hp" | 广告 ID |
+| adType | "Interstitial"<br>"Native"<br>"Reward"<br>"Banner"  | 广告类型 |
+| adId | "testx9dtjwj8hp" | 广告 ID，Native 原生广告中，广告 ID 对应不同展示形式的原生广告 |
 | pos | "0" | 广告位置，Banner 情况下可选，默认为 "0"。<br>"0"：正下方<br>"1"：正中<br>"2"：正上方 |
 | adSize | "BANNER_SIZE_360_144" | 广告尺寸，Banner 情况下可选，默认为 "BANNER_SIZE_360_57"，传入值可参考 [广告尺寸](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ads-sdk-guide-banner#h1-1576047688608) 文档。 |
+| nativeLayout | "native_small"<br>"native_full" | Native 情况下可选，对应插件自带的两种 [原生广告模板文件](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#ZH-CN_TOPIC_0000001057043311__section424619410104)，用户也可直接在对应 `.xml` 文件中修改布局，默认为 "native_full" |
+| requestCustomDislikeThisAd | "1" | Native 情况下可选，[不再显示该广告](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968#ZH-CN_TOPIC_0000001057043311__section8833172411816) 开关，用户可以自行隐藏或关闭不感兴趣的广告，默认值为 "0"，该功能大陆地区不可用，若需调试需要在 Log 中查看输出信息。 |
+| choicesPosition | "TOP_LEFT"<br>"TOP_RIGHT"<br>"BOTTOM_RIGHT"<br>"BOTTOM_LEFT"<br>"INVISIBLE" | Native 广告且 `requestCustomDislikeThisAd` = "1" 情况下可选，[设置广告选项的展示位置](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/nativeadconfiguration-builder-0000001050064912-V5#ZH-CN_TOPIC_0000001055645257__section8995193618112)，默认为 "TOP_RIGHT" |
+| videoConfiguration | "1" | Native 情况下可选，[视频广告参数设置](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5)。默认为 "0"，设为 "1" 情况下，可设置以下参数 |
+| audioFocusType | "GAIN_AUDIO_FOCUS_ALL"<br>"NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE"<br>"NOT_GAIN_AUDIO_FOCUS_ALL" | Native 广告且 `videoConfiguration` = "1" 情况下可选，[设置视频的音频焦点类型](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5)，默认为 "GAIN_AUDIO_FOCUS_ALL" |
+| startMuted | "0" | Native 广告且 `videoConfiguration` = "1" 情况下可选，[设置视频的初始静音状态](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/videoconfiguration-builder-0000001050064890-V5#ZH-CN_TOPIC_0000001057125174__section5378113754415)，默认为 "1" |
+
+注意：使用 Native 原生广告，再次调用显示广告方法前，请确保先前的请求已经完成。
 
 **示例**：
 
 ```js
 var params = { "adType": "Banner", "adId": "testw6vs28auh3", "pos": "0", "adSize": "BANNER_SIZE_360_144" };
 sdkhub.getAdsPlugin().showAds(params);
+```
+
+#### 隐藏广告
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| adType | "Native"<br>"Banner" | 广告类型 |
+
+**示例**：
+
+```js
+var params = { "adType": "Native" };
+sdkhub.getAdsPlugin().hideAds(params);
 ```
 
 ### 推送插件
@@ -722,3 +880,86 @@ sdkhub.getPushPlugin().callFuncWithParam("sendMessage", params);
 | + 104 | String | 消息发送成功，返回 msgId |
 | + 105 | String | 消息发送时发生错误，返回失败描述 |
 | + 106 | String | 消息已经送达，返回 msgId |
+
+#### 获取 ODID
+
+异步任务获取 ODID，可参考 [推送服务 - getOdid](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/opendeviceclient-0000001050831617-V5#ZH-CN_TOPIC_0000001050831617__section1788692510237)。
+
+**方法名**：`getOdid`
+
+**示例**：
+
+```js
+sdkhub.getPushPlugin().callFuncWithParam("getOdid");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 108 | String | 返回获取的 ODID |
+| + 109 | String | 发生错误，返回失败描述 |
+
+#### 获取 AAID
+
+异步任务获取 AAID，可参考 [推送服务 - getAAID](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#ZH-CN_TOPIC_0000001050255634__section14116320143111)。
+
+**方法名**：`getAAID`
+
+**示例**：
+
+```js
+sdkhub.getPushPlugin().callFuncWithParam("getAAID");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 110 | String | 返回获取的 AAID |
+| + 111 | String | 发生错误，返回失败描述 |
+
+#### 删除 AAID
+
+删除本地已经生成的 AAID，可参考 [推送服务 - deleteAAID](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#ZH-CN_TOPIC_0000001050255634__section8856440133116)。
+
+**方法名**：`deleteAAID`
+
+**示例**：
+
+```js
+sdkhub.getPushPlugin().callFuncWithParam("deleteAAID");
+```
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.PushResultCode.kPushExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 112 | String | 删除成功，返回成功描述 |
+| + 113 | String | 删除失败，返回失败描述 |
+
+#### 获取自动初始化
+
+获取是否启用了自动初始化功能，可参考 [isAutoInitEnabled](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#ZH-CN_TOPIC_0000001050255650__section768215326488)。
+
+**方法名**：`isAutoInitEnabled`
+
+**示例**：
+
+```js
+var isAuto = sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
+console.log("isAutoInitEnabled", isAuto);
+```
+
+### 设置自动初始化
+
+设置是否自动初始化。如果设置为 true，SDK 会自动生成 AAID，自动申请令牌 Token，申请的令牌通过 `sdkhub.PushResultCode.kPushExtension + 100` 回调方法返回。可参考 [setAutoInitEnabled](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#ZH-CN_TOPIC_0000001050255650__section19198183125511)。
+
+**方法名**：`setAutoInitEnabled`
+
+**示例**：
+
+```js
+var params = 1 - sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
+sdkhub.getPushPlugin().callFuncWithParam("setAutoInitEnabled", params);
+```

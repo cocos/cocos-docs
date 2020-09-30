@@ -79,11 +79,19 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) process.
+
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
-- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
+- On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. 
 
   ![](agc-auth/auth-configfile.png)
+
+- For Creator 2.4.3 and above, if you [publish to HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md) platform, **select** the `agconnect-services.json` file on the **Build** panel after downloading or updating.
+
+  ![](agc-auth/auth-agcfile.jpg)
+
+- Users of older versions, the `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
 ### Verify whether the service is integrated successfully
 
