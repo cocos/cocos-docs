@@ -492,13 +492,8 @@ Obtains a custom attribute value. You can refer to [getProperty](https://develop
 **Example**:
 
 ```js
-let mProp = huawei.agc.apms.apmsService.getNetworkMeasureProperties(id);
-console.log("mProp = ", JSON.stringify(mProp));
-```
-
-```js
 let pName = "propName";
-let nMeasure = huawei.agc.apms.apmsService.removeNetworkMeasureProperty(id, pName);
+let nMeasure = huawei.agc.apms.apmsService.getNetworkMeasureProperty(id, pName);
 console.log("nMeasure = ", JSON.stringify(nMeasure));
 ```
 
