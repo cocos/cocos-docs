@@ -54,6 +54,41 @@
 
   **注意：FPS 属性会覆盖开放数据域的 `cc.game.setFrameRate()` 实现，所以建议直接在主域项目中设置好 SubContextView 组件的 FPS 属性。**
 
+- **控制开放数据域中的引擎主循环**
+
+  在 Creator **v2.4.3**，我们完善了开放数据域中对引擎主循环的控制，默认情况下不运行。只有在 SubContextView 组件启用后才会运行引擎主循环，SubContextView 组件禁用时则停止运行。
+
+  当 SubContextView 组件未启用时，引擎主循环不会运行，因此项目中写在组件生命周期中的业务逻辑也不会执行。所以在还未启用 SubContextView 组件时，部分需要提前执行的相关业务逻辑请写在组件外部或者插件脚本中。
+
+  这里需要注意的是有一个特例，由于开放数据域会默认加载首场景，所以首场景中默认激活的组件会执行 `onLoad` 回调。例如：
+
+  ```js
+  console.log("do some stuff before enabling SubContextView component");
+
+  cc.Class({
+      extends: cc.Component,
+
+      onLoad () {
+          console.log("execute if it's enabled in the start scene");
+      },
+
+      start () {
+          console.log("won't execute before enabling SubContextView component");
+      },
+  });
+  ```
+
+  另外，在开放数据域项目中，如果需要监听来自主域的消息，则需要先判断消息是否来自主域引擎：
+
+  ```js
+  wx.onMessage(res => {
+      if (!(res && res.fromEngine)) {
+          console.log('do something...');
+      }
+  });
+  ```
+
+
 ## 模块选择
 
 由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置 [项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
@@ -89,7 +124,7 @@
 
 ![](./publish-wechatgame/preview.png)
 
-**注意**：由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它。
+**注意**：由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 开放数据域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它。
 
 ## 参考链接
 
