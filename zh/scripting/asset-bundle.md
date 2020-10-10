@@ -62,27 +62,28 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bun
 });
 ```
 
+另外，`cc.assetManager.loadBundle` 还支持传入用户空间中的路径来加载用户空间中的 Asset Bundle。你可以使用对应平台提供的下载接口将 Asset Bundle 提前下载到用户空间中，然后再使用 `loadBundle` 进行加载，这样你就可以完全自己管理 Asset Bundle 的下载与缓存过程，更加灵活，例如：
+
+```js
+// 提前下载某个 Asset Bundle 到用户空间 pathToBundle 目录下，需要保证用户空间下的 Asset Bundle 和对应原始 Asset Bundle 结构和内容完全一样
+// ...
+
+// 通过 Asset Bundle 在用户空间中的路径进行加载
+// 原生平台下
+cc.assetManager.loadBundle(jsb.fileUtils.getWritablePath() + '/pathToBundle/bundleName', (err, bundle) => {
+    // ...
+});
+
+// 微信小游戏平台下
+cc.assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err, bundle) => {
+    // ...
+});
+```
+
 **注意**：在配置 Asset Bundle 时，若勾选了 **配置为远程包**，那么构建时请在 **构建发布** 面板中填写 **资源服务器地址**。
 
 在通过 API 加载 Asset Bundle 时，引擎并没有加载 Asset Bundle 中的所有资源，而是加载 Asset Bundle 的 **资源清单**，以及包含的 **所有脚本**。<br>
 当 Asset Bundle 加载完成后，会触发回调并返回错误信息和 `cc.AssetManager.Bundle` 类的实例，这个实例就是 Asset Bundle API 的主要入口，开发者可以使用它去加载 Asset Bundle 中的各类资源。
-
-```javascript
-cc.assetManager.loadBundle('01_graphics', function (err, bundle) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log('load bundle successfully.');
-});
-
-// 如果复用其他项目的 Asset Bundle
-cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function (err, bundle) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log('load bundle successfully.');
-});
-```
 
 ### Asset Bundle 的版本
 

@@ -62,27 +62,29 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bun
 });
 ```
 
+In addition, `cc.assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. You can use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
+
+```js
+// Download an Asset Bundle in advance to the pathToBundle directory in your user space, and it's necessary to ensure 
+// that the structure and content of the Asset Bundle in your user space is identical to that of the original Asset Bundle.
+// ...
+
+// Load with the path of the Asset Bundle in user space
+// On native platform
+cc.assetManager.loadBundle(jsb.fileUtils.getWritablePath() + '/pathToBundle/bundleName', (err, bundle) => {
+    // ...
+});
+
+// On WeChat Mini Game
+cc.assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err, bundle) => {
+    // ...
+});
+```
+
 **Note**: If you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
 
 When you load the Asset Bundle via the API, instead of loading all the resources in the Asset Bundle, the engine loads the Asset Bundle's **resource manifest** and **all the scripts** it contains.<br>
 When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `cc.AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that you can use to load the various resources in the Asset Bundle.
-
-```javascript
-cc.assetManager.loadBundle('01_graphics', function (err, bundle) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log('load bundle successfully.');
-});
-
-// Reuse Asset Bundles from other projects
-cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', function (err, bundle) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log('load bundle successfully.');
-});
-```
 
 ### Versions of the Asset Bundle
 
