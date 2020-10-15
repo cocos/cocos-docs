@@ -62,19 +62,19 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bun
 });
 ```
 
-另外，`cc.assetManager.loadBundle` 还支持传入用户空间中的路径来加载用户空间中的 Asset Bundle。你可以使用对应平台提供的下载接口将 Asset Bundle 提前下载到用户空间中，然后再使用 `loadBundle` 进行加载，这样你就可以完全自己管理 Asset Bundle 的下载与缓存过程，更加灵活，例如：
+另外，`cc.assetManager.loadBundle` 还支持传入用户空间中的路径来加载用户空间中的 Asset Bundle。通过对应平台提供的下载接口将 Asset Bundle 提前下载到用户空间中，然后再使用 `loadBundle` 进行加载，开发者就可以完全自己管理 Asset Bundle 的下载与缓存过程，更加灵活。例如：
 
 ```js
-// 提前下载某个 Asset Bundle 到用户空间 pathToBundle 目录下，需要保证用户空间下的 Asset Bundle 和对应原始 Asset Bundle 结构和内容完全一样
+// 提前下载某个 Asset Bundle 到用户空间 pathToBundle 目录下。需要保证用户空间下的 Asset Bundle 和对应原始 Asset Bundle 的结构和内容完全一样
 // ...
 
 // 通过 Asset Bundle 在用户空间中的路径进行加载
-// 原生平台下
+// 原生平台
 cc.assetManager.loadBundle(jsb.fileUtils.getWritablePath() + '/pathToBundle/bundleName', (err, bundle) => {
     // ...
 });
 
-// 微信小游戏平台下
+// 微信小游戏平台
 cc.assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err, bundle) => {
     // ...
 });

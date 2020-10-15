@@ -65,7 +65,7 @@ cc.assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bun
 In addition, `cc.assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. You can use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
 
 ```js
-// Download an Asset Bundle in advance to the pathToBundle directory in your user space, and it's necessary to ensure 
+// Download an Asset Bundle in advance to the "pathToBundle" directory in your user space, and it's necessary to ensure 
 // that the structure and content of the Asset Bundle in your user space is identical to that of the original Asset Bundle.
 // ...
 
