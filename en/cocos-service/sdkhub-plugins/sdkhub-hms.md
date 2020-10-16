@@ -199,7 +199,7 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 **Note**: Game does not need to integrate this method.
 
-Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents, account Kit enables your apps to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information) so that users can sign in with their HUAWEI IDs securely. 
+Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents, Account Kit enables your apps to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information) so that users can sign in with their HUAWEI IDs securely. 
 
 Developer can get ID Token or Authorization Code by `sdkhub.UserResultCode.kLoginSucceed` callback, then please refer to [HUAWEI documents](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) to verify by yourself on the server.
 
