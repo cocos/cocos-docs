@@ -20,7 +20,7 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -194,6 +194,27 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 | :--- | :--- | :--- |
 | + 132 | JSON | CheckAppUpdate successfully, The returned information can correspond to [intent](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#EN-US_TOPIC_0000001054371620__section15712187193218) |
 | + 107 | JSON / String | Operation failure description |
+
+#### `accountLogin`
+
+**Note**: Game does not need to integrate this method.
+
+Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents, account Kit enables your apps to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information) so that users can sign in with their HUAWEI IDs securely. 
+
+Developer can get ID Token or Authorization Code by `sdkhub.UserResultCode.kLoginSucceed` callback, then please refer to [HUAWEI documents](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) to verify by yourself on the server.
+
+**Parameter Description**:
+
+| Parameter name | Fill in requirements | Description |
+| :--- | :--- | :--- |
+| type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | Account Kit login types |
+
+**Example**：
+
+```js
+var params = "AuthorizationCode";
+sdkhub.getUserPlugin().callFuncWithParam("accountLogin", params);
+```
 
 #### `getCurrentPlayer`
 

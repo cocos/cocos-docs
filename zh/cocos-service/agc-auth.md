@@ -91,7 +91,7 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
@@ -325,6 +325,24 @@ huawei.agc.auth.authService.getToken(true);
 
 ```js
 huawei.agc.auth.authService.link(huawei.agc.auth.AuthProvider.HMS_Provider);
+```
+
+### unlink
+
+`unlink(authType: AuthProvider): void`
+
+为当前用户解除关联的认证登录方式。
+
+**参数说明**：
+
+| 参数 | 说明 |  
+| :---------- | :------------- |  
+|  authType  | [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
+
+**示例**：
+
+```js
+huawei.agc.auth.authService.unlink(huawei.agc.auth.AuthProvider.HMS_Provider);
 ```
 
 ### updateProfile

@@ -206,7 +206,7 @@ sdkhub.getUserPlugin().setListener(this.onUserResult, this);
 onUserResult: function (code, msg) {
     switch (code) {
         case sdkhub.UserResultCode.kLoginSucceed:
-console.log("kLoginSucceed", msg);
+            console.log("kLoginSucceed", msg);
         break;
     }
 }

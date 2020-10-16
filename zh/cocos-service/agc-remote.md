@@ -51,7 +51,7 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
@@ -65,7 +65,7 @@
 
 ### 验证服务是否接入成功
 
-在 Android 工程中接入 **远程配置** 服务时，添加了本地配置文件 `res/xml/remote_config.xml`，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
+远程配置服务插件中，添加了一个本地配置文件 `res/xml/remote_config.xml`。项目工程若接入 **远程配置** 服务并发布到 Android 平台后，可在 Android Studio 工程中看到该文件。该文件预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
 
 ![](agc-remote/remote-configxml.png)
 
@@ -104,7 +104,7 @@
 
 ### 设置应用内默认值
 
-所有默认配置需要在 `res/xml/remote_config.xml` 文件中配置。
+所有默认配置需要在 [res/xml/remote_config.xml](#验证服务是否接入成功) 文件中配置。
 
 ### 获取和更新云端参数值到本地
 
@@ -266,3 +266,5 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html)。
+
+

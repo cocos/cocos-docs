@@ -49,7 +49,7 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -63,7 +63,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
-When integrating the **Remote Configuration** service in the Android project, a local configuration file `res/xml/remote_config.xml` is added, and a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
+A local configuration file `res/xml/remote_config.xml` has been added to the Remote Configuration service plug-in. When the project integrates **Remote Configuration** service and publishes it to the Android platform, you can see the file in the Android Studio project. In the file, a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
 
 ![](agc-remote/remote-configxml.png)
 
@@ -98,11 +98,11 @@ Developer can get a quick taste of the Remote Configuration with the sample proj
 
 This document refers to the AppGallery Connect documentation - [Integrating Remote Configuration](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide). When calling in JavaScript, please use this document and the [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) as a guide.
 
-Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration service plugin that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply` methods of the Java SDK in its wrapper.
+Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration service plug-in that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply` methods of the Java SDK in its wrapper.
 
 ### Setting Parameter Values in Remote Configuration
 
-All default configurations should be configured in the `/res/xml/remote_config.xml` file.
+All default configurations should be configured in the [/res/xml/remote_config.xml](#verify-whether-the-service-is-integrated-successfully) file.
 
 ### Fetching Parameter Values from Remote Configuration
 

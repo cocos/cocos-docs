@@ -25,7 +25,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
 
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
@@ -247,6 +247,29 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 | :--- | :--- | :--- |
 | + 132 | JSON | 获取升级信息成功，返回信息可对应 [intent 说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section15712187193218)。 |
 | + 133 | String | 获取升级信息失败，或者无需处理升级信息情况 |
+
+#### 账号服务登录
+
+注意：游戏请调用 [Login](../sdkhub.md/#登录) 方法，无需接入该方法。
+
+可参考华为账号服务 [登录华为帐号](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) 和 [静默登录](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) 文档，第三方应用可以获取华为帐号用户身份认证信息（ID Token）或用户的临时授权票据（Authorization Code），用于用户通过华为帐号安全登录第三方应用。
+
+通过 `sdkhub.UserResultCode.kLoginSucceed` 登录回调，获取 ID Token 或 Authorization Code 后，请参考 [华为文档](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272)，接入服务端验证部分。
+
+**方法名**：`accountLogin`
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | 对应各账号服务登录方式。 |
+
+**示例**：
+
+```js
+var params = "AuthorizationCode";
+sdkhub.getUserPlugin().callFuncWithParam("accountLogin", params);
+```
 
 #### 登录后获取用户信息
 
@@ -961,3 +984,5 @@ console.log("isAutoInitEnabled", isAuto);
 var params = 1 - sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
 sdkhub.getPushPlugin().callFuncWithParam("setAutoInitEnabled", params);
 ```
+
+

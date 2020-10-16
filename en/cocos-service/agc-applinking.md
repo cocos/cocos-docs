@@ -99,6 +99,8 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
   ![](agc-applinking/al-filter.png)
 
+- You need to prefix the free domain name (for example, drcn.agconnect.link) provided by AppGallery Connect with a string to uniquely identify the URL prefix. Please refer to [Adding a URL Prefix](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc#h1-1585299576869).
+
 - Find your project from the project list and click the app for which you need to enable App Linking service on the project card. Go to **Growing -> App Linking**, if it is the first time that you use App Linking service, click **Enable now** in the upper right corner.  
 
   ![](agc-applinking/al-open.png)
@@ -107,7 +109,7 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -151,8 +153,6 @@ Developer can get a quick taste of the App Linking service with the sample proje
 - Click on the **Sample** button in the App Linking service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the App linking service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
-
-- Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
 - Once the Sample project is running on the phone, click the **AppLinking** button on the homepage for testing.
 
@@ -258,7 +258,9 @@ huawei.agc.applinking.appLinkingService.buildShortLinkFromLongLink(longLink);
 
 ### Receiving Links of App Linking
 
-Set the listener, obtain data passed through the link, such as `DeepLink`.
+`getAppLinking(): void`
+
+Checks whether there is data to be received from a specified link of App Linking. Obtain data passed through the link from the listener, such as `DeepLink`.
 
 ```js
 huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
@@ -266,6 +268,7 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
         console.log('receive deepLink: ', data.getDeepLink());
     }
 }, this);
+huawei.agc.applinking.appLinkingService.getAppLinking();
 ```
 
 ## Service Related Documentation

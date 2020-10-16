@@ -4,7 +4,7 @@
 
 ### Functions
 
-- The Crash service provides real-time reports for the last hour, allowing you to monitor the quality of your app in real time.
+- The Crash service provides real-time reports for the last 24 hour, allowing you to monitor the quality of your app in real time.
 
 - In addition, the Crash service automatically categorizes crashes, and provides indicator data of the crashes, allowing you to prioritize the most important crashes. You can view information about a specific crash, and analyze the app and Android versions with the crash. You can also view information about the app, operating system, and device corresponding to a specific crash, as well as the crashed stack. All the information is enormously helpful in locating and resolving crashes.
 
@@ -24,7 +24,7 @@
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
 
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
@@ -51,7 +51,7 @@ Generally, there is a low probability of an app crashing, so the Crash service S
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run the project on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
+- Run the project on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 5 minutes), which means the integrate is successful.
 
   ![](agc-crash/crash-console.jpg)
 
@@ -62,8 +62,6 @@ Developer can get a quick taste of the Crash service with the sample project.
 - Click on the **Sample** button in the Crash service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the Crash service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
-
-- Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
 - Once the Sample project is running on the phone, click the **Crash** button on the homepage for testing.
 
@@ -101,6 +99,44 @@ This method is used to trigger a crash for testing an app. This method can be us
 
 ```js
 huawei.agc.crash.CrashService.testIt();
+```
+
+### Set Custom User ID
+
+`setUserId(userId: string): void`
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| userId | Unique anonymous identifier generated for a user based on an algorithm.<br>The maximum length is 1 KB. An overlong value will be truncated. If you want to delete a user ID, reset the parameter to an empty string. Deleting a user ID will not delete the crash records of the ID. |
+
+**Example**:
+
+```js
+huawei.agc.crash.crashService.setUserId('user001');
+```
+
+### Set Custom Key-value Pair
+
+`setCustomKey(key: string, value: any): void`
+
+Sets a custom key-value pair. The value can be `boolean`/`string`/`number`/`float` type.
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| key | Key of the custom key-value pair. The maximum length of each key is 1 KB. An overlong key will be truncated. A maximum of 64 key-value pairs are supported, and the excessive part will not be saved. |
+| value | Value of the custom key-value pair. The value can be `boolean`/`string`/`number`/`float` type. The maximum length of each value is 1 KB. An overlong value will be truncated. A maximum of 64 key-value pairs are supported, and the excessive part will not be saved. |
+
+**Example**:
+
+```js
+huawei.agc.crash.crashService.setCustomKey('floatKey123', 123.11);
+huawei.agc.crash.crashService.setCustomKey('intKey123', 123);
+huawei.agc.crash.crashService.setCustomKey('stringKey123', 'crash');
+huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
 ```
 
 ## Service Related Documentation
