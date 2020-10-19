@@ -14,11 +14,11 @@
 
 - Latest Version: 0.5.5_1.4.1.300
 
-  1. Update the SDK and fix some bugs.
+    - Update the SDK and fix some bugs.
 
 - v0.5.3_1.3.2
 
-  1. Add Huawei AGC Crash service integration.
+    - Add Huawei AGC Crash service integration.
 
 ## Enable Crash Service
 
@@ -44,7 +44,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
   ![](agc-crash/globle-keystore.png)
 

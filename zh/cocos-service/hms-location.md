@@ -28,11 +28,11 @@
 
 - 当前版本：0.5.8_5.0.2
 
-  1. 更新 SDK，新增部分接口。
+    - 更新 SDK，新增部分接口。
 
 - v0.5.6_4.0.4
 
-  1. 新增华为 HMS 位置服务集成。
+    - 新增华为 HMS 位置服务集成。
 
 ## 一键接入定位服务
 
@@ -66,7 +66,7 @@
 
   ![](hms-location/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](hms-location/loc-agcfile.jpg)
 

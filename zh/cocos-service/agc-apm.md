@@ -12,9 +12,9 @@
 
 ## 版本更新说明
 
-### 当前版本：0.5.1_1.3.1
+- 当前版本：0.5.1_1.3.1
 
-1. 新增华为 AGC APM 服务集成。
+    - 新增华为 AGC APM 服务集成。
 
 ## 一键接入性能管理服务
 
@@ -48,7 +48,7 @@
 
   ![](agc-apm/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-apm/apm-agcfile.jpg)
 

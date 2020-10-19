@@ -33,11 +33,11 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
 - Latest Version: 0.5.1_1.4.1.300
 
-  1. Update the SDK and add local configuration entry.
+    - Update the SDK and add local configuration entry.
 
 - v0.5.0_1.4.0
 
-  1. Add Huawei AGC Remote Configuration service integration.
+    - Add Huawei AGC Remote Configuration service integration.
 
 ## Enable Remote Configuration Service
 
@@ -69,7 +69,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
   ![](agc-remote/globle-keystore.png)
 

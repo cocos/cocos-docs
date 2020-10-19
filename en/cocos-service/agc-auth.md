@@ -53,11 +53,11 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
 - Latest Version: 0.5.2_1.4.1.300
 
-  1. Update the SDK and add some functions.
+    - Update the SDK and add some functions.
 
 - v0.5.1_1.3.1
 
-  1. Add Huawei AGC Auth Service integration.
+    - Add Huawei AGC Auth Service integration.
  
 ## Enable Auth Service
 
@@ -99,7 +99,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
   ![](agc-auth/globle-keystore.png)
 

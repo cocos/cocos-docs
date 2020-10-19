@@ -87,11 +87,11 @@
 
 - 当前版本：0.5.4_1.3.2
 
-  1. 修复部分 bug。
+    - 修复部分 bug。
 
 - v0.5.4_1.3.2
 
-  1. 新增华为 AGC App Linking 服务集成。
+    - 新增华为 AGC App Linking 服务集成。
 
 ## 一键接入 App Linking
 
@@ -133,7 +133,7 @@
 
   ![](agc-applinking/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-applinking/al-agcfile.jpg)
 

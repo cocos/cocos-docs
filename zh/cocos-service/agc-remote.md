@@ -33,11 +33,11 @@
 
 - 当前版本：0.5.1_1.4.1.300
 
-  1. 更新 SDK，添加本地配置入口。
+    - 更新 SDK，添加本地配置入口。
 
 - v0.5.0_1.4.0
 
-  1. 新增华为 AGC 远程配置服务集成。
+    - 新增华为 AGC 远程配置服务集成。
 
 ## 一键接入远程配置
 
@@ -75,7 +75,7 @@
 
   ![](agc-remote/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-remote/remote-agcfile.jpg)
 

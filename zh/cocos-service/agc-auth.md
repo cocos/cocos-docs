@@ -63,11 +63,11 @@
 
 - 当前版本：0.5.2_1.4.1.300
 
-  1. 更新 SDK，新增部分接口。
+    - 更新 SDK，新增部分接口。
 
 - v0.5.1_1.3.1
 
-  1. 新增华为 AGC 认证服务集成。
+    - 新增华为 AGC 认证服务集成。
  
 ## 一键接入认证服务
 
@@ -115,7 +115,7 @@
 
   ![](agc-auth/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-auth/auth-agcfile.jpg)
 

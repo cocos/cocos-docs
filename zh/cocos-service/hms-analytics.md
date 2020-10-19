@@ -18,7 +18,7 @@
 
 - 当前版本：0.5.3_5.0.1
 
-  1. 新增华为 HMS 分析服务集成。
+    - 新增华为 HMS 分析服务集成。
 
 ## 一键接入分析服务
 
@@ -50,7 +50,7 @@
 
   ![](hms-analytics/globle-keystore.png)
 
-3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](hms-analytics/ana-agcfile.jpg)
 

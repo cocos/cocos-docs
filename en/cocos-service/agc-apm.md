@@ -12,9 +12,9 @@
 
 ## Version Update Description
 
-### Latest Version: 0.5.1_1.3.1
+- Latest Version: 0.5.1_1.3.1
 
-1. Add Huawei AGC APM service integration.
+    - Add Huawei AGC APM service integration.
 
 ## Enable APM Service
 
@@ -42,7 +42,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
   ![](agc-apm/globle-keystore.png)
 

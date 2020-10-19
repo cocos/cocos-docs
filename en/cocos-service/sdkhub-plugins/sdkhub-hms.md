@@ -31,22 +31,22 @@ The version code of the integrated HMS Core SDK project can be found in the `pro
 
 - v1.2.1_5.0.1
 
-  1. Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
-  2. Please put 'agconnect-services.json' file to `/settings` folder manually after update.
+    - Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
+    - Please put 'agconnect-services.json' file to `/settings` folder manually after update.
 
 - v1.1.7_5.0.1
 
-  1. Fix the parameter problem when only choice push.
-  2. Fix the display problem of the leaderboard interface.
+    - Fix the parameter problem when only choice push.
+    - Fix the display problem of the leaderboard interface.
 
 - v1.1.5_5.0.1
 
-  1. Add Push Kit 5.0.0.301 of HMS Core.
-  2. Update to HMS Core SDKs: base:5.0.0.300, hwid:5.0.1.301, game:5.0.0.300, iap:4.0.4.300, ads-lite:13.4.31.300.
+    - Add Push Kit 5.0.0.301 of HMS Core.
+    - Update to HMS Core SDKs: base:5.0.0.300, hwid:5.0.1.301, game:5.0.0.300, iap:4.0.4.300, ads-lite:13.4.31.300.
 
 - v1.1.4_5.0.0
 
-  1. First release.
+    - First release.
 
 ## Preparation Work
 
@@ -69,7 +69,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
   ![](sdkhub-hms/globle-keystore.png)
 
