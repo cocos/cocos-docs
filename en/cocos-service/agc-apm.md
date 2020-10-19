@@ -10,11 +10,15 @@
 | Allows you to view and analyze app performance data to accurately identify the aspects that can be improved. | APM displays app performance indicators from multiple dimensions (such as the version number, country/region, device model, level-1 region, system version, carrier, and network), helping you quickly understand the aspects that can be improved. |
 | Allows you to create custom traces to monitor app performance data in specific scenarios. |  With the APM SDK, you can:<br>1. Create custom traces to monitor your app's performance in scenarios such as sign-in and scene loading.<br>2. Add indicators (such as the number of sign-in times) and properties (such as whether the sign-in is successful) for a custom trace. |
 
-## Version Update Description
+### Version Update Description
 
-- Latest Version: 0.5.1_1.3.1
+- Latest Version: 0.5.2_1.3.1.300
 
-    - Add Huawei AGC APM service integration.
+    - Fix some bugs.
+
+- v0.5.1_1.3.1
+
+    - Integrated Huawei AGC APM service.
 
 ## Enable APM Service
 
@@ -42,13 +46,13 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
-  ![](agc-apm/globle-keystore.png)
+    ![](agc-apm/globle-keystore.png)
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-  ![](agc-apm/apm-agcfile.jpg)
+    ![](agc-apm/apm-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 

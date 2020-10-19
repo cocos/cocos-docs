@@ -14,11 +14,11 @@
 - 基于对用户行为的洞察，使用受众群体构建能力，对受众群体开展相应的营销活动。
 - 通过概览和通用的分析能力，有效衡量营销活动是否达到预期效果；并帮助开发者轻松获取常用指标和常见问题的答案。
 
-## 版本更新说明
+### 版本更新说明
 
 - 当前版本：0.5.3_5.0.1
 
-    - 新增华为 HMS 分析服务集成。
+    - 集成华为 HMS 分析服务。
 
 ## 一键接入分析服务
 
@@ -46,13 +46,13 @@
 
 1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
 
-2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
 
-  ![](hms-analytics/globle-keystore.png)
+    ![](hms-analytics/globle-keystore.png)
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-  ![](hms-analytics/ana-agcfile.jpg)
+    ![](hms-analytics/ana-agcfile.jpg)
 
 ### 验证服务是否接入成功
 

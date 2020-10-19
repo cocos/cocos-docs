@@ -26,11 +26,11 @@
 
 用户看到消息后可以点击消息跳转到创建消息时设置的跳转链接，App Messaging SDK 最终将消息的展示结果上报给 AGC 服务端。开发者可以在 AGC 后台上查看消息的展示、点击和事件转换情况。
 
-## 版本更新说明
+### 版本更新说明
 
 - 当前版本：0.5.3_1.4.0
 
-    - 新增华为 AGC 应用内消息服务集成。
+    - 集成华为 AGC 应用内消息服务。
 
 ## 一键接入应用内消息
 
@@ -62,13 +62,13 @@
 
 1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
 
-2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
 
-  ![](agc-appmessaging/globle-keystore.png)
+    ![](agc-appmessaging/globle-keystore.png)
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-  ![](agc-appmessaging/am-agcfile.jpg)
+    ![](agc-appmessaging/am-agcfile.jpg)
 
 ### 验证服务是否接入成功
 

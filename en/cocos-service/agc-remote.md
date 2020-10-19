@@ -29,7 +29,7 @@ You can set the time condition, different app colors, and various picture materi
 
 Releasing new functions to all users at the same time may be risky. Remote Configuration enables new function release by user percentage for you to slowly increase the target user scope, effectively helping you improve your app based on the feedback from users already exposed to the new functions.
 
-## Version Update Description
+### Version Update Description
 
 - Latest Version: 0.5.1_1.4.1.300
 
@@ -37,7 +37,7 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
 - v0.5.0_1.4.0
 
-    - Add Huawei AGC Remote Configuration service integration.
+    - Integrated Huawei AGC Remote Configuration service.
 
 ## Enable Remote Configuration Service
 
@@ -69,17 +69,17 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
-  ![](agc-remote/globle-keystore.png)
+    ![](agc-remote/globle-keystore.png)
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-  ![](agc-remote/remote-agcfile.jpg)
+    ![](agc-remote/remote-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 
-Remote Configuration service plug-in has a local configuration file `res/xml/remote_config.xml`. When the project integrates **Remote Configuration** service and publishes it to the Android platform, you can see the file in the Android Studio project. In the file, a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
+There is a local configuration file res/xml/remote_config.xml in the Remote Configuration Service plug-in, which can be seen in Android Studio if the project is integrated with the Remote Configuration Service and published to the Android platform. This file is preconfigured with a pair of key values for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
 
 ![](agc-remote/remote-configxml.png)
 

@@ -26,11 +26,11 @@ After you integrate the App Messaging SDK into your app, the SDK automatically s
 
 A user can tap an in-app message to access the destination specified during message creation. The App Messaging SDK reports the message display result to AppGallery Connect. You can view the statistics on message displays, taps, and conversion data in AppGallery Connect.
 
-## Version Update Description
+### Version Update Description
 
 - Latest Version: 0.5.3_1.4.0
 
-    - Add Huawei AGC App Messaging service integration.
+    - Integrated Huawei AGC App Messaging service.
 
 ## Enable App Messaging Service
 
@@ -60,13 +60,13 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
-  ![](agc-appmessaging/globle-keystore.png)
+    ![](agc-appmessaging/globle-keystore.png)
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-  ![](agc-appmessaging/am-agcfile.jpg)
+    ![](agc-appmessaging/am-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 

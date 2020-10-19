@@ -59,7 +59,7 @@
 
   认证服务将认证结果返回给应用。此时应用可以访问和维护该用户的基本个人资料信息（昵称、头像），也可以访问和操作其他 Serverless 服务中的受安全规则保护的数据。
 
-## 版本更新说明
+### 版本更新说明
 
 - 当前版本：0.5.2_1.4.1.300
 
@@ -67,7 +67,7 @@
 
 - v0.5.1_1.3.1
 
-    - 新增华为 AGC 认证服务集成。
+    - 集成华为 AGC 认证服务。
  
 ## 一键接入认证服务
 
@@ -111,13 +111,13 @@
 
 1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
 
-2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
 
-  ![](agc-auth/globle-keystore.png)
+    ![](agc-auth/globle-keystore.png)
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-  ![](agc-auth/auth-agcfile.jpg)
+    ![](agc-auth/auth-agcfile.jpg)
 
 ### 验证服务是否接入成功
 

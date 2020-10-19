@@ -13,7 +13,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 **当前版本：1.2.1_5.0.1**
 
-| HMS Core SDK 名称 | 版本号 | 说明 |
+| HMS Core SDK 名称 | 当前版本号 | 说明 |
 | :--- | :--- | :--- |
 | com.huawei.hms:hwid | 5.0.1.301 | 帐号服务 |
 | com.huawei.hms:game | 5.0.1.302 | 游戏服务 |
@@ -23,9 +23,9 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 | com.huawei.hms:ads-installreferrer | 3.4.30.307 | 广告服务 |
 | com.huawei.hms:push | 5.0.2.300 | 推送服务 |
 
-HMS Core SDK 最新版本及更新说明，可参考 [HMS - 版本更新汇总](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513)。
+关于 HMS Core SDK 最新版本以及详细的更新说明，可参考 [HMS - 版本更新汇总](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513)。
 
-已接入工程的 HMS Core SDK 版本号，可在构建后的 Android Studio 工程 `proj.android-stuio/app/build.gradle` 文件中查看。升级插件重新打包后，也请关注该文件中各组件的版本。
+已接入项目的 HMS Core SDK，可在 Android Studio 的 `proj.android-studio/app/build.gradle` 文件中查看版本号。升级插件并重新构建后，也请关注该文件中各 SDK 的版本。
 
 ### 版本更新说明
 
@@ -75,13 +75,13 @@ HMS Core SDK 最新版本及更新说明，可参考 [HMS - 版本更新汇总](
 
 1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
 
-2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
 
-  ![](sdkhub-hms/globle-keystore.png)
+    ![](sdkhub-hms/globle-keystore.png)
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-  ![](sdkhub-hms/hms-agcfile.jpg)
+    ![](sdkhub-hms/hms-agcfile.jpg)
 
 ## Sample 工程
 
@@ -300,7 +300,7 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 该方法用于第三方应用获取华为帐号用户身份认证信息（ID Token）或用户的临时授权票据（Authorization Code），以便用户可以使用华为帐号安全登录第三方应用。详情可参考 [登录华为帐号](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) 和 [静默登录](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) 文档。
 
-通过 `sdkhub.UserResultCode.kLoginSucceed` 登录回调，获取 ID Token 或 Authorization Code 后，请参考 [华为文档](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272)，接入服务端验证部分。
+通过 `sdkhub.UserResultCode.kLoginSucceed` 登录回调获取 ID Token 或 Authorization Code 后，请参考 [登录华为帐号](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) 文档中对应登录方式的服务端验证部分，完成服务端接入。
 
 **方法名**：`accountLogin`
 

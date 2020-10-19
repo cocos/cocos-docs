@@ -29,7 +29,7 @@
 
 支持按用户百分比发布新功能。因为在同一时间面向所有用户发布新功能的风险很高，所以利用远程配置服务的 **随机百分比用户** 条件，可以实现按照百分比缓慢地向用户发布新功能，可以有效避免舆情或者及时修改调整。
 
-## 版本更新说明
+### 版本更新说明
 
 - 当前版本：0.5.1_1.4.1.300
 
@@ -37,7 +37,7 @@
 
 - v0.5.0_1.4.0
 
-    - 新增华为 AGC 远程配置服务集成。
+    - 集成华为 AGC 远程配置服务。
 
 ## 一键接入远程配置
 
@@ -71,13 +71,13 @@
 
 1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
 
-2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
 
-  ![](agc-remote/globle-keystore.png)
+    ![](agc-remote/globle-keystore.png)
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-  ![](agc-remote/remote-agcfile.jpg)
+    ![](agc-remote/remote-agcfile.jpg)
 
 ### 验证服务是否接入成功
 

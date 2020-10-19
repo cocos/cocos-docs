@@ -13,7 +13,7 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 **Latest Version: 1.2.1_5.0.1**
 
-| HMS Core SDK | Version | Description |
+| HMS Core SDK | Current Version | Description |
 | :--- | :--- | :--- |
 | com.huawei.hms:hwid | 5.0.1.301 | Account Kit |
 | com.huawei.hms:game | 5.0.1.302 | Game Service |
@@ -25,7 +25,7 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 For details of HMS Core SDKs latest versions and change historys, please refer to [HMS - Version Update History](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513).
 
-The version code of the integrated HMS Core SDK project can be found in the `proj.android-stuio/app/build.gradle` file of the Android Studio project. After the plug-in is updated and rebuilt, please also pay attention to the version code of each HMS Core SDK Kits in the same file.
+The version numbers of the HMS Core SDKs that have been integrated into the project can be found in the `proj.android-stuio/app/build.gradle` file in Android Studio. After upgrading the plug-in and rebuilding the project, please also focus on the version number of each SDK in that file.
 
 ### Version Update Description
 
@@ -69,13 +69,13 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
 
-2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
 
-  ![](sdkhub-hms/globle-keystore.png)
+    ![](sdkhub-hms/globle-keystore.png)
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-  ![](sdkhub-hms/hms-agcfile.jpg)
+    ![](sdkhub-hms/hms-agcfile.jpg)
 
 ## Enable Cocos SDKHub
 
@@ -242,11 +242,11 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 #### `accountLogin`
 
-**Note**: Game does not need to integrate this method.
+**Note**: For games, please call the [Login](#login) method without accessing this method.
 
-This method enable applications of developers to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information), so that users can sign in with their HUAWEI IDs securely. Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents.
+This method is used by third-party applications to obtain the user authentication information (ID Token) or the user's temporary authorization ticket (Authorization Code) of Huawei account, so that the user can use the Huawei account to securely log in to third-party applications. For details, please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents.
 
-Developer can get ID Token or Authorization Code by `sdkhub.UserResultCode.kLoginSucceed` callback, then please refer to [HUAWEI documents](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) to verify by yourself on the server.
+After the developer obtains the ID Token or Authorization Code via the `sdkhub.UserResultCode.kLoginSucceed` login callback, please refer to the server-side authentication section of the corresponding login method in the [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) documentation, to complete server-side access.
 
 **Parameter Description**:
 
