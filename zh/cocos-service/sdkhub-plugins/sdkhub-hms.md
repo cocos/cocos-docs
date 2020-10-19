@@ -25,7 +25,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 关于 HMS Core SDK 最新版本以及详细的更新说明，可参考 [HMS - 版本更新汇总](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513)。
 
-已接入项目的 HMS Core SDK，可在 Android Studio 的 `proj.android-studio/app/build.gradle` 文件中查看版本号。升级插件并重新构建后，也请关注该文件中各 SDK 的版本。
+已集成到项目中的 HMS Core SDK，可在 Android Studio 的 `proj.android-studio/app/build.gradle` 文件中查看版本号。当升级插件并重新构建项目后，也请关注该文件中各 SDK 的版本。
 
 ### 版本更新说明
 

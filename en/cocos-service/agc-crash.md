@@ -10,7 +10,7 @@
 
 - The Crash service can also detect major crashes in real time. After you enable crash notifications, AppGallery Connect can send you an email when a major crash occurs.
 
-## Version Update Description
+### Version Update Description
 
 - Latest Version: 0.5.5_1.4.1.300
 
@@ -144,7 +144,7 @@ Set the key and value of a custom. The value can be `boolean`/`string`/`number`/
 | Parameter | Description | 
 | :---------- | :------------- |  
 | key | The **key** of a custom key-value pair, the maximum length of each key is 1KB, any more than that will be truncated. A maximum of 64 key-value pairs can be supported, no more values will be stored beyond this limit. |
-| value | The **value** of a custom key-value pair, supports boolean/string/number/float types. The maximum length of each value is 1KB, any more than that will be truncated. A maximum of 64 key-value pairs can be supported, no more values will be stored beyond this limit.|
+| value | The **value** of a custom key-value pair, supports `boolean`/`string`/`number`/`float` types. The maximum length of each value is 1KB, any more than that will be truncated. A maximum of 64 key-value pairs can be supported, no more values will be stored beyond this limit.|
 
 **Example**:
 
@@ -164,9 +164,9 @@ huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
 | Parameter | Description | 
 | :---------- | :------------- |  
 | level | Custom log level. Currently, the following levels are supported:<br>**huawei.agc.crash.LOG.DEBUG**: A log of the DEBUG level is recorded.<br>**huawei.agc.crash.LOG.INFO**: A log of the INFO level is recorded.<br>**huawei.agc.crash.LOG.WARN**: A log of the WARN level is recorded.<br>**huawei.agc.crash.LOG.ERROR**: A log of the ERROR level is recorded.|
-| content | Custom log content.<br>The length of a single log cannot exceed 4 KB. An overlong log will be truncated. The total size of logs cannot exceed 64 KB. If the upper limit is exceeded, earliest logs will be deleted. |
+| content | Custom log content.<br>The length of a single log cannot exceed 4KB. An overlong log will be truncated. The total size of logs cannot exceed 64KB. If the upper limit is exceeded, earliest logs will be deleted. |
 
-**示例**：
+**Example**:
 
 ```js
 huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke');
