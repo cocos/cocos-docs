@@ -10,6 +10,16 @@
 
 - The Crash service can also detect major crashes in real time. After you enable crash notifications, AppGallery Connect can send you an email when a major crash occurs.
 
+## Version Update Description
+
+- Latest Version: 0.5.5_1.4.1.300
+
+  1. Update the SDK and fix some bugs.
+
+- v0.5.3_1.3.2
+
+  1. Add Huawei AGC Crash service integration.
+
 ## Enable Crash Service
 
 - Use Cocos Creator to open the project that needs to be connected to Crash service.
@@ -24,15 +34,21 @@
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-crash/crash-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
+
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+
+  ![](agc-crash/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
   ![](agc-crash/crash-agcfile.jpg)
 
@@ -109,7 +125,7 @@ huawei.agc.crash.CrashService.testIt();
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-| userId | Unique anonymous identifier generated for a user based on an algorithm.<br>The maximum length is 1 KB. An overlong value will be truncated. If you want to delete a user ID, reset the parameter to an empty string. Deleting a user ID will not delete the crash records of the ID. |
+| userId | Unique anonymous identifier generated for a user based on an algorithm.The maximum length is 1 KB. An overlong value will be truncated. If you want to delete a user ID, reset the parameter to an empty string. Deleting a user ID will not delete the crash records of the ID. |
 
 **Example**:
 
@@ -137,6 +153,23 @@ huawei.agc.crash.crashService.setCustomKey('floatKey123', 123.11);
 huawei.agc.crash.crashService.setCustomKey('intKey123', 123);
 huawei.agc.crash.crashService.setCustomKey('stringKey123', 'crash');
 huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
+```
+
+### Records Custom Log
+
+`log(level: LOG, content: string): void`
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| level | Custom log level. Currently, the following levels are supported:<br>**huawei.agc.crash.LOG.DEBUG**: A log of the DEBUG level is recorded.<br>**huawei.agc.crash.LOG.INFO**: A log of the INFO level is recorded.<br>**huawei.agc.crash.LOG.WARN**: A log of the WARN level is recorded.<br>**huawei.agc.crash.LOG.ERROR**: A log of the ERROR level is recorded.|
+| content | Custom log content.<br>The length of a single log cannot exceed 4 KB. An overlong log will be truncated. The total size of logs cannot exceed 64 KB. If the upper limit is exceeded, earliest logs will be deleted. |
+
+**示例**：
+
+```js
+huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke');
 ```
 
 ## Service Related Documentation

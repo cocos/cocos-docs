@@ -10,6 +10,12 @@
 | 支持查看和分析应用性能数据，精准发现应用性能在哪些方面有改进空间 | 性能管理 APM 通过多个维度（版本号、国家/地区、手机类型、一级区域、系统版本、运营商、网络）向开发者展示应用的性能指标，帮助开发者快速了解应用在哪些方面可优化改进。 |
 | 支持创建自定义跟踪记录，监控应用在特定场景下的性能 |  借助性能管理 APM SDK，开发者可以：<br>1. 创建自定义跟踪记录来监控应用在特定场景，如用户登录或者屏幕加载场景下的性能。<br>2. 为自定义跟踪记录添加指标（如登录次数）和属性（如登录是否成功）。|
 
+## 版本更新说明
+
+### 当前版本：0.5.1_1.3.1
+
+1. 新增华为 AGC APM 服务集成。
+
 ## 一键接入性能管理服务
 
 ### 开通服务
@@ -28,15 +34,21 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-apm/apm-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
+
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+  ![](agc-apm/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-apm/apm-agcfile.jpg)
 

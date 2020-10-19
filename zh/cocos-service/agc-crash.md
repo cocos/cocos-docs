@@ -10,6 +10,16 @@
 
 - 崩溃服务提供实时检测重大崩溃问题。开发者开启崩溃提醒后，AppGallery Connect 会在发生重大崩溃问题时向开发者发送邮件提醒。
 
+## 版本更新说明
+
+- 当前版本：0.5.5_1.4.1.300
+
+  1. 更新 SDK，修复部分 bug。
+
+- v0.5.3_1.3.2
+
+  1. 新增华为 AGC 崩溃服务集成。
+
 ## 一键接入崩溃服务
 
 ### 开通服务
@@ -26,15 +36,21 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-crash/crash-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
+
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+  ![](agc-crash/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-crash/crash-agcfile.jpg)
 
@@ -111,7 +127,7 @@ huawei.agc.crash.CrashService.testIt();
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  userId  | 开发者根据算法计算生成的用户唯一的匿名标识符。<br>长度最长为 1KB，超过会被截断。如果需要清除某个用户标识符，可将该值重置为空字符串。清除用户标识符不会移除现有的崩溃记录。 | 
+|  userId  | 开发者根据算法计算生成的用户唯一的匿名标识符。长度最长为 1KB，超过会被截断。如果需要清除某个用户标识符，可将该值重置为空字符串。清除用户标识符不会移除现有的崩溃记录。 | 
 
 **示例**：
 
@@ -123,13 +139,13 @@ huawei.agc.crash.crashService.setUserId('user001');
 
 `setCustomKey(key: string, value: any): void`
 
-设置自定义键值对的 key 和 value. value 可为 `boolean`/`string`/`number`/`float` 类型。
+设置自定义键值对的 key 和 value。value 可为 `boolean`/`string`/`number`/`float` 类型。
 
 **参数说明**：
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-| key | 自定义键值对的 key。<br>每组键值对的 key 最长为 1KB，超过会被截断。最多可支持 64 组键值对，超过后不再保存更多的值。 |
+| key | 自定义键值对的 key。每组键值对的 key 最长为 1KB，超过会被截断。最多可支持 64 组键值对，超过后不再保存更多的值。 |
 | value | 自定义键值对的 value，可为 `boolean`/`string`/`number`/`float` 类型。<br>每组键值对的 value 最长为 1KB，超过会被截断。最多可支持 64 组键值对，超过后不再保存更多的值。 |
 
 **示例**：
@@ -149,8 +165,8 @@ huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-| level | 自定义日志的级别。目前只支持4个级别：<br>**huawei.agc.crash.LOG.DEBUG**：表示添加 DEBUG 级别的日志。<br>**huawei.agc.crash.LOG.INFO**：表示添加 INFO 级别的日志。<br>**huawei.agc.crash.LOG.WARN**：表示添加 WARN 级别的日志。<br>**huawei.agc.crash.LOG.ERROR**：表示添加 ERROR 级别的日志。|
-| content | 自定义日志的内容。<br>单条日志长度最长不能超过 4KB，超过会被截断。日志总大小限制为不超过 64KB，超过会删除最早的日志条目。 |
+| level | 自定义日志的级别。目前只支持 4 个级别：<br>**huawei.agc.crash.LOG.DEBUG**：表示添加 DEBUG 级别的日志。<br>**huawei.agc.crash.LOG.INFO**：表示添加 INFO 级别的日志。<br>**huawei.agc.crash.LOG.WARN**：表示添加 WARN 级别的日志。<br>**huawei.agc.crash.LOG.ERROR**：表示添加 ERROR 级别的日志。|
+| content | 自定义日志的内容。<br>单条日志长度最长不能超过 4KB，超过会被截断。日志总大小限制为不超过 64KB，超过会删除最早的日志。 |
 
 **示例**：
 

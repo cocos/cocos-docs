@@ -24,6 +24,16 @@
 
 地理围栏同时支持页面操作，通过基于地图的拖拽和参数填写创建地理围栏，详情参见 [服务端开发](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/server-dev-0000001050170474-V5)。
 
+## 版本更新说明
+
+- 当前版本：0.5.8_5.0.2
+
+  1. 更新 SDK，新增部分接口。
+
+- v0.5.6_4.0.4
+
+  1. 新增华为 HMS 位置服务集成。
+
 ## 一键接入定位服务
 
 ### 开通服务
@@ -42,15 +52,21 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](hms-location/loc-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
+
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+  ![](hms-location/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](hms-location/loc-agcfile.jpg)
 

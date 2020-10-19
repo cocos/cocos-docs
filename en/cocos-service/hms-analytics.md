@@ -14,6 +14,12 @@ With Analytics Kit's on-device data collection SDK, you can:
 - Use audience building to tailor your marketing activity to your users' behaviors and preferences.
 - Use dashboards and analytics to measure your marketing activity and identify areas to improve.
 
+## Version Update Description
+
+- Latest Version: 0.5.3_5.0.1
+
+  1. Add Huawei HMS Analytics Kit integration.
+
 ## Enable Analytics Kit Service
 
 - Use Cocos Creator to open the project that needs to be connected to Analytics Kit.
@@ -28,15 +34,21 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](hms-analytics/ana-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
+
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+
+  ![](hms-analytics/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
   ![](hms-analytics/ana-agcfile.jpg)
 

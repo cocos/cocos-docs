@@ -83,6 +83,16 @@
   - 若尚未安装应用，则会跳转到应用市场（或自定义网址）提示用户安装应用然后展示内容。
   - 若已安装应用，则会直接打开应用原生的页面来展示内容。
 
+## 版本更新说明
+
+- 当前版本：0.5.4_1.3.2
+
+  1. 修复部分 bug。
+
+- v0.5.4_1.3.2
+
+  1. 新增华为 AGC App Linking 服务集成。
+
 ## 一键接入 App Linking
 
 ### 开通服务
@@ -99,7 +109,7 @@
 
   ![](agc-applinking/al-filter.png)
 
-- 您需要在 AGC 提供的免费域名（例如：drcn.agconnect.link）前再设置一个前缀字符串，来唯一标识您的域名地址。请参考 [添加链接前缀](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc#h1-1579332231584)。
+- 开发者需要在 AGC 提供的免费域名（例如 `drcn.agconnect.link`）前设置一个前缀字符串，作为开发者域名地址的唯一标识。详情请参考 [添加链接前缀](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-createlinks-byagc#h1-1579332231584)。
   
 - 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动 App Linking 服务的应用，然后点击 **增长 -> App Linking**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。
 
@@ -109,15 +119,21 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。**构建发布** 面板中勾选 **调试模式** 时，请在 Android Studio 工程中自行配置签名文件。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-applinking/al-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
+
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式** ，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+  ![](agc-applinking/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 *构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
   ![](agc-applinking/al-agcfile.jpg)
 
@@ -260,7 +276,7 @@ huawei.agc.applinking.appLinkingService.buildShortLinkFromLongLink(longLink);
 
 `getAppLinking(): void`
 
-查看指定的链接地址是否有待接收的数据，在回调中可以解析出 App Linking 传递的信息，如 DeepLink 地址。
+查看指定的链接地址是否有待接收的数据，在回调中解析出 App Linking 传递的信息，如 DeepLink 地址。
 
 ```js
 huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING_EVENT_LISTENER_NAME.RECEIVE_LINK_CALLBACK, (data) => {
@@ -268,6 +284,7 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
         console.log('receive deepLink:', data.getDeepLink());
     }
 }, this);
+
 huawei.agc.applinking.appLinkingService.getAppLinking();
 ```
 

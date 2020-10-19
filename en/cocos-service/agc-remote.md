@@ -29,6 +29,16 @@ You can set the time condition, different app colors, and various picture materi
 
 Releasing new functions to all users at the same time may be risky. Remote Configuration enables new function release by user percentage for you to slowly increase the target user scope, effectively helping you improve your app based on the feedback from users already exposed to the new functions.
 
+## Version Update Description
+
+- Latest Version: 0.5.1_1.4.1.300
+
+  1. Update the SDK and add local configuration entry.
+
+- v0.5.0_1.4.0
+
+  1. Add Huawei AGC Remote Configuration service integration.
+
 ## Enable Remote Configuration Service
 
 - Use Cocos Creator to open the project that needs to be connected to Remote Configuration service.
@@ -49,21 +59,27 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-remote/remote-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
+
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+
+  ![](agc-remote/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
   ![](agc-remote/remote-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 
-A local configuration file `res/xml/remote_config.xml` has been added to the Remote Configuration service plug-in. When the project integrates **Remote Configuration** service and publishes it to the Android platform, you can see the file in the Android Studio project. In the file, a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
+Remote Configuration service plug-in has a local configuration file `res/xml/remote_config.xml`. When the project integrates **Remote Configuration** service and publishes it to the Android platform, you can see the file in the Android Studio project. In the file, a pair of key values are preset for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
 
 ![](agc-remote/remote-configxml.png)
 

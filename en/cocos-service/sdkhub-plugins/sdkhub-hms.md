@@ -9,6 +9,45 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 - [Verifying the Sign-in Signature](https://developer.huawei.com/consumer/en/doc/development/HMS-References/verify-login-signature)
 - [Verifying the Purchase Token for the Order Service](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
 
+## Version Update History
+
+**Latest Version: 1.2.1_5.0.1**
+
+| HMS Core SDK | Version | Description |
+| :--- | :--- | :--- |
+| com.huawei.hms:hwid | 5.0.1.301 | Account Kit |
+| com.huawei.hms:game | 5.0.1.302 | Game Service |
+| com.huawei.hms:iap | 5.0.2.300 | IAP Kit |
+| com.huawei.hms:ads-lite | 13.4.32.303 | Ads Kit |
+| com.huawei.hms:ads-identifier | 3.4.30.307 | Ads Kit |
+| com.huawei.hms:ads-installreferrer | 3.4.30.307 | Ads Kit |
+| com.huawei.hms:push | 5.0.2.300 | Push Kit |
+
+For details of HMS Core SDKs latest versions and change historys, please refer to [HMS - Version Update History](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513).
+
+The version code of the integrated HMS Core SDK project can be found in the `proj.android-stuio/app/build.gradle` file of the Android Studio project. After the plug-in is updated and rebuilt, please also pay attention to the version code of each HMS Core SDK Kits in the same file.
+
+### Version Update Description
+
+- v1.2.1_5.0.1
+
+  1. Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
+  2. Please put 'agconnect-services.json' file to `/settings` folder manually after update.
+
+- v1.1.7_5.0.1
+
+  1. Fix the parameter problem when only choice push.
+  2. Fix the display problem of the leaderboard interface.
+
+- v1.1.5_5.0.1
+
+  1. Add Push Kit 5.0.0.301 of HMS Core.
+  2. Update to HMS Core SDKs: base:5.0.0.300, hwid:5.0.1.301, game:5.0.0.300, iap:4.0.4.300, ads-lite:13.4.31.300.
+
+- v1.1.4_5.0.0
+
+  1. First release.
+
 ## Preparation Work
 
 - Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, **generation and configuring the Signing Certificate Fingerprint** and enabling required services.
@@ -20,15 +59,21 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint. If you check **Debug Mode** in the **Build** panel, please configure the keystore file and infomation manually in the Android Studio project.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating. 
 
   ![](sdkhub-hms/hms-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
+
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **debug mode** is checked in the **Build** panel, developer needs to configure the Keystore signature file in the ʻapp/build.gradle` file of Android Studio.
+
+  ![](sdkhub-hms/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
   ![](sdkhub-hms/hms-agcfile.jpg)
 
@@ -199,7 +244,7 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 **Note**: Game does not need to integrate this method.
 
-Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents, Account Kit enables your apps to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information) so that users can sign in with their HUAWEI IDs securely. 
+This method enable applications of developers to obtain users' authorization codes (temporary authorization credentials) or ID tokens (identity authorization information), so that users can sign in with their HUAWEI IDs securely. Please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents.
 
 Developer can get ID Token or Authorization Code by `sdkhub.UserResultCode.kLoginSucceed` callback, then please refer to [HUAWEI documents](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) to verify by yourself on the server.
 
