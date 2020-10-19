@@ -9,6 +9,45 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 - [Verifying the Sign-in Signature](https://developer.huawei.com/consumer/en/doc/development/HMS-References/verify-login-signature)
 - [Verifying the Purchase Token for the Order Service](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
 
+## Version Update History
+
+**Latest Version: 1.2.1_5.0.1**
+
+| HMS Core SDK | Current Version | Description |
+| :--- | :--- | :--- |
+| com.huawei.hms:hwid | 5.0.1.301 | Account Kit |
+| com.huawei.hms:game | 5.0.1.302 | Game Service |
+| com.huawei.hms:iap | 5.0.2.300 | IAP Kit |
+| com.huawei.hms:ads-lite | 13.4.32.303 | Ads Kit |
+| com.huawei.hms:ads-identifier | 3.4.30.307 | Ads Kit |
+| com.huawei.hms:ads-installreferrer | 3.4.30.307 | Ads Kit |
+| com.huawei.hms:push | 5.0.2.300 | Push Kit |
+
+For details of HMS Core SDKs latest versions and change historys, please refer to [HMS - Version Update History](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513).
+
+The version numbers of the HMS Core SDKs that have been integrated into the project can be found in the `proj.android-stuio/app/build.gradle` file in Android Studio. After upgrading the plug-in and rebuilding the project, please also focus on the version number of each SDK in that file.
+
+### Version Update Description
+
+- v1.2.1_5.0.1
+
+    - Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
+    - Please put 'agconnect-services.json' file to `/settings` folder manually after update.
+
+- v1.1.7_5.0.1
+
+    - Fix the parameter problem when only choice push.
+    - Fix the display problem of the leaderboard interface.
+
+- v1.1.5_5.0.1
+
+    - Add Push Kit 5.0.0.301 of HMS Core.
+    - Update to HMS Core SDKs: base:5.0.0.300, hwid:5.0.1.301, game:5.0.0.300, iap:4.0.4.300, ads-lite:13.4.31.300.
+
+- v1.1.4_5.0.0
+
+    - First release.
+
 ## Preparation Work
 
 - Refer to [AppGallery Connect Configuration](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/account-preparation#h1-1-configuring-appgallery-connect) document to complete developer registration, app creation, **generation and configuring the Signing Certificate Fingerprint** and enabling required services.
@@ -20,17 +59,23 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating. 
 
   ![](sdkhub-hms/hms-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
 
-  ![](sdkhub-hms/hms-agcfile.jpg)
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+
+    ![](sdkhub-hms/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+
+    ![](sdkhub-hms/hms-agcfile.jpg)
 
 ## Enable Cocos SDKHub
 
@@ -194,6 +239,27 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 | :--- | :--- | :--- |
 | + 132 | JSON | CheckAppUpdate successfully, The returned information can correspond to [intent](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#EN-US_TOPIC_0000001054371620__section15712187193218) |
 | + 107 | JSON / String | Operation failure description |
+
+#### `accountLogin`
+
+**Note**: For games, please call the [Login](#login) method without accessing this method.
+
+This method is used by third-party applications to obtain the user authentication information (ID Token) or the user's temporary authorization ticket (Authorization Code) of Huawei account, so that the user can use the Huawei account to securely log in to third-party applications. For details, please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents.
+
+After the developer obtains the ID Token or Authorization Code via the `sdkhub.UserResultCode.kLoginSucceed` login callback, please refer to the server-side authentication section of the corresponding login method in the [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) documentation, to complete server-side access.
+
+**Parameter Description**:
+
+| Parameter name | Fill in requirements | Description |
+| :--- | :--- | :--- |
+| type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | Account Kit login types |
+
+**Example**：
+
+```js
+var params = "AuthorizationCode";
+sdkhub.getUserPlugin().callFuncWithParam("accountLogin", params);
+```
 
 #### `getCurrentPlayer`
 

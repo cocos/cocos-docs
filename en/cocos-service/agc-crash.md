@@ -4,11 +4,21 @@
 
 ### Functions
 
-- The Crash service provides real-time reports for the last hour, allowing you to monitor the quality of your app in real time.
+- The Crash service provides real-time reports for the last 24 hour, allowing you to monitor the quality of your app in real time.
 
 - In addition, the Crash service automatically categorizes crashes, and provides indicator data of the crashes, allowing you to prioritize the most important crashes. You can view information about a specific crash, and analyze the app and Android versions with the crash. You can also view information about the app, operating system, and device corresponding to a specific crash, as well as the crashed stack. All the information is enormously helpful in locating and resolving crashes.
 
 - The Crash service can also detect major crashes in real time. After you enable crash notifications, AppGallery Connect can send you an email when a major crash occurs.
+
+### Version Update Description
+
+- Latest Version: 0.5.5_1.4.1.300
+
+    - Update the SDK and fix some bugs.
+
+- v0.5.3_1.3.2
+
+    - Integrated Huawei AGC Crash service.
 
 ## Enable Crash Service
 
@@ -24,17 +34,23 @@
 
 Most of HUAWEI Services need the `agconnect-services.json` configuration file. If there are operations such as newly opened services, please update the file in time.
 
-**Note**: Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
-
 - Sign in to [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) find your project from the project list and select the app on the project card.
 
 - On the **Project Setting** page, click the configuration file **agconnect-services.json** to download it. The `agconnect-services.json` file **must be copied manually** to the `settings` directory of the project directory after downloading or updating.
 
   ![](agc-crash/crash-configfile.png)
 
-  **Note**: For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+**Note**:
 
-  ![](agc-crash/crash-agcfile.jpg)
+1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+
+2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+
+    ![](agc-crash/globle-keystore.png)
+
+3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+
+    ![](agc-crash/crash-agcfile.jpg)
 
 ### Verify whether the service is integrated successfully
 
@@ -51,7 +67,7 @@ Generally, there is a low probability of an app crashing, so the Crash service S
 
 - You can [publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
 
-- Run the project on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 15 minutes), which means the integrate is successful.
+- Run the project on a phone, then login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project, go to **Quality -> Crash**. If you can see crash data (usually displayed within 5 minutes), which means the integrate is successful.
 
   ![](agc-crash/crash-console.jpg)
 
@@ -62,8 +78,6 @@ Developer can get a quick taste of the Crash service with the sample project.
 - Click on the **Sample** button in the Crash service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the Crash service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
-
-- Need to test on Huawei or Honor brand phones with HMS Core service installed.
 
 - Once the Sample project is running on the phone, click the **Crash** button on the homepage for testing.
 
@@ -101,6 +115,61 @@ This method is used to trigger a crash for testing an app. This method can be us
 
 ```js
 huawei.agc.crash.CrashService.testIt();
+```
+
+### Set Custom User ID
+
+`setUserId(userId: string): void`
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| userId | A user unique anonymous identifier generated by the developer based on an algorithm. The maximum length is 1KB, over which it is truncated. If a user identifier needs to be cleared, reset the parameter to an empty string. Clearing a user identifier does not remove existing crash logs. |
+
+**Example**:
+
+```js
+huawei.agc.crash.crashService.setUserId('user001');
+```
+
+### Set Custom Key-value Pair
+
+`setCustomKey(key: string, value: any): void`
+
+Set the key and value of a custom. The value can be `boolean`/`string`/`number`/`float` type.
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| key | The **key** of a custom key-value pair, the maximum length of each key is 1KB, any more than that will be truncated. A maximum of 64 key-value pairs can be supported, no more values will be stored beyond this limit. |
+| value | The **value** of a custom key-value pair, supports `boolean`/`string`/`number`/`float` types. The maximum length of each value is 1KB, any more than that will be truncated. A maximum of 64 key-value pairs can be supported, no more values will be stored beyond this limit.|
+
+**Example**:
+
+```js
+huawei.agc.crash.crashService.setCustomKey('floatKey123', 123.11);
+huawei.agc.crash.crashService.setCustomKey('intKey123', 123);
+huawei.agc.crash.crashService.setCustomKey('stringKey123', 'crash');
+huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
+```
+
+### Records Custom Log
+
+`log(level: LOG, content: string): void`
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :------------- |  
+| level | Custom log level. Currently, the following levels are supported:<br>**huawei.agc.crash.LOG.DEBUG**: A log of the DEBUG level is recorded.<br>**huawei.agc.crash.LOG.INFO**: A log of the INFO level is recorded.<br>**huawei.agc.crash.LOG.WARN**: A log of the WARN level is recorded.<br>**huawei.agc.crash.LOG.ERROR**: A log of the ERROR level is recorded.|
+| content | Custom log content.<br>The length of a single log cannot exceed 4KB. An overlong log will be truncated. The total size of logs cannot exceed 64KB. If the upper limit is exceeded, earliest logs will be deleted. |
+
+**Example**:
+
+```js
+huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke');
 ```
 
 ## Service Related Documentation

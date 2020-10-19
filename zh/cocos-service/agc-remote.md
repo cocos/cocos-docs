@@ -29,6 +29,16 @@
 
 支持按用户百分比发布新功能。因为在同一时间面向所有用户发布新功能的风险很高，所以利用远程配置服务的 **随机百分比用户** 条件，可以实现按照百分比缓慢地向用户发布新功能，可以有效避免舆情或者及时修改调整。
 
+### 版本更新说明
+
+- 当前版本：0.5.1_1.4.1.300
+
+    - 更新 SDK，添加本地配置入口。
+
+- v0.5.0_1.4.0
+
+    - 集成华为 AGC 远程配置服务。
+
 ## 一键接入远程配置
 
 ### 开通服务
@@ -51,21 +61,27 @@
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](agc-remote/remote-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
 
-  ![](agc-remote/remote-agcfile.jpg)
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+    ![](agc-remote/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+
+    ![](agc-remote/remote-agcfile.jpg)
 
 ### 验证服务是否接入成功
 
-在 Android 工程中接入 **远程配置** 服务时，添加了本地配置文件 `res/xml/remote_config.xml`，并预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
+在远程配置服务插件中有一个本地配置文件 `res/xml/remote_config.xml`，项目工程若接入 **远程配置** 服务并发布到 Android 平台后，可在 Android Studio 工程中看到该文件。该文件预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
 
 ![](agc-remote/remote-configxml.png)
 
@@ -104,7 +120,7 @@
 
 ### 设置应用内默认值
 
-所有默认配置需要在 `res/xml/remote_config.xml` 文件中配置。
+所有默认配置需要在 [res/xml/remote_config.xml](#%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E6%98%AF%E5%90%A6%E6%8E%A5%E5%85%A5%E6%88%90%E5%8A%9F) 文件中配置。
 
 ### 获取和更新云端参数值到本地
 
@@ -266,3 +282,5 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html)。
+
+

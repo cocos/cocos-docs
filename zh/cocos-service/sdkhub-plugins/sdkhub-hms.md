@@ -9,6 +9,46 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 - [校验登录签名接口](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/verify-login-signature)
 - [Order 服务购买 Token 校验](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/iap-order-service-purchase-token-verification-v4)
 
+## 版本更新汇总
+
+**当前版本：1.2.1_5.0.1**
+
+| HMS Core SDK 名称 | 当前版本号 | 说明 |
+| :--- | :--- | :--- |
+| com.huawei.hms:hwid | 5.0.1.301 | 帐号服务 |
+| com.huawei.hms:game | 5.0.1.302 | 游戏服务 |
+| com.huawei.hms:iap | 5.0.2.300 | 应用内支付服务 |
+| com.huawei.hms:ads-lite | 13.4.32.303 | 广告服务 |
+| com.huawei.hms:ads-identifier | 3.4.30.307 | 广告服务 |
+| com.huawei.hms:ads-installreferrer | 3.4.30.307 | 广告服务 |
+| com.huawei.hms:push | 5.0.2.300 | 推送服务 |
+
+关于 HMS Core SDK 最新版本以及详细的更新说明，可参考 [HMS - 版本更新汇总](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/hmssdk-kit-0000001050042513)。
+
+已集成到项目中的 HMS Core SDK，可在 Android Studio 的 `proj.android-studio/app/build.gradle` 文件中查看版本号。当升级插件并重新构建项目后，也请关注该文件中各 SDK 的版本。
+
+### 版本更新说明
+
+- v1.2.1_5.0.1
+
+    - 更新各组件：game:5.0.1.302、ads-lite:13.4.32.303、iap:5.0.2.300、push:5.0.2.300。
+    - 更新版本后，请手动将 `agconnect-services.json` 文件复制到工程 `/setting` 目录下。
+
+- v1.1.7_5.0.1
+
+    - 修复单选推送时的参数问题。
+    - 修复游戏排行榜界面显示问题。
+
+- v1.1.5_5.0.1
+
+    - 添加 HMS Core 推送功能：push:5.0.0.301。
+    - 更新各组件：base:5.0.0.300、hwid:5.0.1.301、game:5.0.0.300、iap:4.0.4.300
+、ads-lite:13.4.31.300。
+
+- v1.1.4_5.0.0
+
+    - 首次发布
+
 ## 准备工作
 
 - 参考 [AppGallery Connect 配置](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-preparation#h1-1573697333903) 文档，在 [华为开发者联盟后台](https://developer.huawei.com/consumer/cn/console) 注册开发者账号，创建游戏应用和 **生成/配置签名证书指纹**。在该游戏应用的 **我的项目 -> 项目设置 -> API 管理** 页面中开通 **Account Kit**、**In-App Purchases**、**Game Service**、**Push Kit** 服务。华为文档中的集成 HMS Core SDK 部分，Cocos SDKHub 会在构建时 **自动完成**，无需开发者手动操作。
@@ -25,17 +65,23 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 大部分的华为相关项目都需要用到 `agconnect-services.json` 配置文件。若有新开通服务等操作，请及时更新该文件。
 
-**注意**：务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
-
 - 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 后台，在 **项目列表 -> 应用列表** 中找到对应的应用。
 
 - 在 **项目设置** 页面的 **应用** 区域，点击 `agconnect-services.json` 下载配置文件。`agconnect-services.json` 文件在下载或者更新完成后，**必须手动拷贝** 到工程目录的 `settings` 目录下。
 
   ![](sdkhub-hms/hms-configfile.png)
 
-  **注意**：Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+**注意**：
 
-  ![](sdkhub-hms/hms-agcfile.jpg)
+1. 务必确认完成 [生成/配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050166285#ZH-CN_TOPIC_0000001054452903__section21591342135811) 步骤，配置 SHA256 证书指纹。
+
+2. 在构建时若勾选了 **调试模式**，开发者需要在 Android Studio 的 `app/build.gradle` 文件中，自行配置 Keystore 签名文件。
+
+    ![](sdkhub-hms/globle-keystore.png)
+
+3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
+
+    ![](sdkhub-hms/hms-agcfile.jpg)
 
 ## Sample 工程
 
@@ -247,6 +293,29 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 | :--- | :--- | :--- |
 | + 132 | JSON | 获取升级信息成功，返回信息可对应 [intent 说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section15712187193218)。 |
 | + 133 | String | 获取升级信息失败，或者无需处理升级信息情况 |
+
+#### 账号服务登录
+
+注意：游戏请调用 [Login](../sdkhub.md#%E7%99%BB%E5%BD%95) 方法，无需接入该方法。
+
+该方法用于第三方应用获取华为帐号用户身份认证信息（ID Token）或用户的临时授权票据（Authorization Code），以便用户可以使用华为帐号安全登录第三方应用。详情可参考 [登录华为帐号](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) 和 [静默登录](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) 文档。
+
+通过 `sdkhub.UserResultCode.kLoginSucceed` 登录回调获取 ID Token 或 Authorization Code 后，请参考 [登录华为帐号](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) 文档中对应登录方式的服务端验证部分，完成服务端接入。
+
+**方法名**：`accountLogin`
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | 对应各账号服务登录方式。 |
+
+**示例**：
+
+```js
+var params = "AuthorizationCode";
+sdkhub.getUserPlugin().callFuncWithParam("accountLogin", params);
+```
 
 #### 登录后获取用户信息
 
@@ -961,3 +1030,5 @@ console.log("isAutoInitEnabled", isAuto);
 var params = 1 - sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
 sdkhub.getPushPlugin().callFuncWithParam("setAutoInitEnabled", params);
 ```
+
+
