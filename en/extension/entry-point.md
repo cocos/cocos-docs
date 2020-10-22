@@ -14,11 +14,11 @@ Here is an example of an entry file:
 
 module.exports = {
   load () {
-    console.log('package loaded');
+    Editor.log('package loaded');
   },
 
   unload () {
-    console.log('package unloaded');
+    Editor.log('package unloaded');
   },
 };
 ```
@@ -42,8 +42,8 @@ If you want to listen to IPC messages in main process, you can add it in `messag
 
 module.exports = {
   messages {
-    'foo-bar' ( event ) { console.log('hello foobar'); },
-    'scene:saved' ( event ) { console.log('scene saved!'); },
+    'foo-bar' ( event ) { Editor.log('hello foobar'); },
+    'scene:saved' ( event ) { Editor.log('scene saved!'); },
   },
 };
 ```

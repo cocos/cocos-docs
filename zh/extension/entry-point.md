@@ -14,11 +14,11 @@
 
 module.exports = {
   load () {
-    console.log('package loaded');
+    Editor.log('package loaded');
   },
 
   unload () {
-    console.log('package unloaded');
+    Editor.log('package unloaded');
   },
 };
 ```
@@ -47,8 +47,8 @@ Cocos Creator 支持在编辑器运行时动态的添加和删除扩展包，所
 
 module.exports = {
   messages {
-    'foo-bar' ( event ) { console.log('hello foobar'); },
-    'scene:saved' ( event ) { console.log('scene saved!'); },
+    'foo-bar' ( event ) { Editor.log('hello foobar'); },
+    'scene:saved' ( event ) { Editor.log('scene saved!'); },
   },
 };
 ```
