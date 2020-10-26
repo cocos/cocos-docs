@@ -580,7 +580,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
 | + 120 | String | 成功，需通过 `type` 判断调用类型，并获取其他参数。 |
-| + 121 | String | 失败，需通过 `type` 判断调用类型 |
+| + 121 | String | 失败，需通过 `type` 判断调用类型。 |
 
 此外还有两种特殊 `type` 回调类型可能需要处理：
 
@@ -737,7 +737,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
-| diffStrategy | "STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：最高的进度，在冲突的两个存档中使用进度较高的存档处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：最高的进度，在冲突的两个存档中使用进度较高的存档处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
 
 **示例**：
 

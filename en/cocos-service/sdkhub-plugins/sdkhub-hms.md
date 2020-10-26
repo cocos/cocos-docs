@@ -440,17 +440,18 @@ HUAWEI Game Service allows your game to save your players' game progress to HUAW
 
 | Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
-| + 120 | String | Description of successful, need to determine the call type by `type` and get other parameters |
-| + 121 | String | Description of failed, eed to determine the call type by `type` |
+| + 120 | String | Description of successful, need to determine the call type by `type` and get other parameters. |
+| + 121 | String | Description of failed, need to determine the call type by `type`. |
 
 In addition, there are two special `type` callback types that may need to be handled:
 
 - `archiveAdd`: The callback will be received when the user clicks the **Add Archive** function on the archive selection page, please call the `addArchive` method to save the current game record.
-- `archiveConflict`: When archive data read from the local cache [conflicts](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) with that retrieved from Huawei game server during archive reading or updating, please obtain the information of the `recentArchive` and `serverArchive` objects in the callback, and call the ʻupdateArchive` method after resolving the conflict.
+- `archiveConflict`: When archive data read from the local cache [conflicts](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) with that retrieved from Huawei game server during archive reading or updating, please obtain the information of the `recentArchive` and `serverArchive` objects in the callback, and call the `updateArchive` method after resolving the conflict.
 
 **setScopeList**:
 
 If you need to use the archive function, when a player signs in to your game to [Apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593), no need to handle callbacks.
+
 **Example**:
 
 ```js
@@ -553,7 +554,7 @@ Load the saved game list page.
 | title | "Saved games" | Archive name displayed on the UI. |
 | allowAddBtn | "1" | Optional, indicates whether the button for adding an archive is allowed, the default is "0". |
 | allowDeleteBtn | "1" | Optional, indicates whether the button for deleting an archive is allowed, the default is "0". |
-| maxArchive | "1" | Optional, maximum number of archives that can be displayed. The default "-1" indicates all archives. |
+| maxArchive | "1" | Optional, maximum number of archives that can be displayed. The default is "-1", indicates all archives. |
 
 **Example**:
 
@@ -596,9 +597,8 @@ Reads archive metadata based on the archive ID. A conflict resolution policy can
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
-| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 	
-ID of the archive metadata to be read. |
-| diffStrategy | "STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | Optional, conflict resolution policy, default is "STRATEGY_SELF", Huawei game server does not resolve the conflict. <br>"STRATEGY_ACTIVE_TIME": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the played time.<br>"STRATEGY_TOTAL_PROGRESS": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the progress.<br>"STRATEGY_LAST_UPDATE": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the last modified time. |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata to be read. |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | Optional, conflict resolution policy, the default is "STRATEGY_SELF", Huawei game server does not resolve the conflict. <br>"STRATEGY_ACTIVE_TIME": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the played time.<br>"STRATEGY_TOTAL_PROGRESS": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the progress.<br>"STRATEGY_LAST_UPDATE": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the last modified time. |
 
 **Example**:
 
