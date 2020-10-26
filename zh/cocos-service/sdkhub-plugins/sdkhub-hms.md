@@ -571,7 +571,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 
 #### 存档
 
-您可以将玩家的游戏进度存储至华为云空间中，或从华为云空间取得之前的游戏进度继续游戏。因此，只要用户使用相同的华为帐号登录，则游戏存档可以在任意设备取回进行游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
+开发者可以将玩家的游戏进度存储至华为云空间中，或从华为云空间取得之前的游戏进度继续游戏。因此，只要用户使用相同的华为帐号登录，则游戏存档可以在任意设备取回进行游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
 
 **方法名**：`archive`
 
