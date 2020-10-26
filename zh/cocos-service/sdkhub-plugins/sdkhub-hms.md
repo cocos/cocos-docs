@@ -571,7 +571,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 
 #### 存档
 
-开发者可以将玩家的游戏进度存储至华为云空间中，或从华为云空间取得之前的游戏进度继续游戏。因此，只要用户使用相同的华为帐号登录，则游戏存档可以在任意设备取回进行游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
+开发者可以将玩家的游戏进度存储到华为云空间，或从华为云空间中获得之前的游戏进度以便继续游戏。因此，只要用户使用相同的华为帐号登录，则可以在任意设备上按照之前的游戏进度继续游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
 
 **方法名**：`archive`
 
@@ -589,7 +589,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 
 **setScopeList**：
 
-如果需要使用存档功能，在玩家登录前，需要调用该方法，[申请 DRIVE_APP_DATA 的 SCOPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section8429103710593)，无需处理回调。
+如果要使用存档功能，需要在玩家登录之前调用该方法，[申请 DRIVE_APP_DATA 的 SCOPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section8429103710593)，无需处理回调。
 
 **示例**：
 
@@ -597,14 +597,13 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 var params = {
     "type": "setScopeList",
 }
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **addArchive**：
 
-以异步方式提交存档记录，只增加存档。
-
-本方法的提交方式为异步提交，即应用客户端调用本方法时如果设备无网络，HMS Core SDK 会先将数据缓存在本地，待网络恢复后用户再次登录时提交到华为服务器。开发者无需关注此方法的执行结果。
+以 **异步** 方式提交存档记录，只增加存档。即使应用客户端调用本方法时如果设备无网络，HMS Core SDK 也会先将数据缓存在本地，待网络恢复后用户再次登录时提交到华为服务器，开发者无需关注此方法的执行结果。
 
 **参数说明**：
 
@@ -631,17 +630,19 @@ var params = {
     "thumbnailMimeType": "png",
     "isSupportCache" : "1", 
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **removeArchive**：
 
-删除存档记录，包括华为游戏服务器和本地缓存的存档记录。
+删除存档记录，包括华为游戏服务器和本地缓存中的存档记录。
 
 **参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
+
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 要删除的存档的 ID。 |
 
 **示例**：
@@ -651,12 +652,13 @@ var params = {
     "type": "removeArchive",
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **getLimitThumbnailSize**：
 
-获取服务器允许的封面文件的最大大小。
+获取服务器允许的封面图片文件的最大大小。
 
 **示例**：
 
@@ -664,6 +666,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 var params = {
     "type": "getLimitThumbnailSize",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -677,6 +680,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 var params = {
     "type": "getLimitDetailsSize",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -689,8 +693,8 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | title | "Saved games" | 界面上展示的存档的名称 |
-| allowAddBtn | "1" | 可选，是否允许有新增存档按钮，默认为 "0"。 |
-| allowDeleteBtn | "1" | 可选，是否允许有删除存档按钮，默认为 "0"。 |
+| allowAddBtn | "1" | 可选，是否允许有新增存档按钮，默认为 "0"。<br>"0"：不允许<br>"1"：允许 |
+| allowDeleteBtn | "1" | 可选，是否允许有删除存档按钮，默认为 "0"。<br>"0"：不允许<br>"1"：允许 |
 | maxArchive | "1" | 可选，展示存档的最大数量，默认为 "-1"，表示展示全部。 |
 
 **示例**：
@@ -703,6 +707,7 @@ var params = {
     "allowDeleteBtn": "1",
     "maxArchive": "5",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -723,19 +728,20 @@ var params = {
     "type": "getArchiveSummaryList",
     "isRealTime": "0",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **loadArchiveDetails**：
 
-使用存档 ID 打开存档元数据，支持指定冲突策略。
+使用存档 ID 打开存档元数据，支持指定 [冲突策略](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。
 
 **参数说明**：
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
-| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：最高的进度，在冲突的两个存档中使用进度较高的存档处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：游戏进度，在冲突的两个存档中使用进度较快的存档来处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
 
 **示例**：
 
@@ -745,6 +751,7 @@ var params = {
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
     "diffStrategy": "STRATEGY_TOTAL_PROGRESS",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -756,7 +763,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-| selectArchive | "recentArchive"<br>"serverArchive" | 可选，处理 `type` = `archiveConflict` 冲突回调，选取使用哪个存档解决冲突。若传入该参数，则其他参数均不生效。 |
+| selectArchive | "recentArchive"<br>"serverArchive" | 可选，处理 `type = archiveConflict` 冲突回调，选取使用哪个存档 [解决冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。若传入该参数，则其他参数均不生效。<br>"recentArchive"：选择本地缓存的存档作为最终存档。<br>"serverArchive"：选择使用服务器存在的存档作为最终存档。 |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
 | activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
 | currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
@@ -779,6 +786,7 @@ var params = {
     "thumbnail": "archiveIcon.png",
     "thumbnailMimeType": "png",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -865,6 +873,7 @@ var params = {
     "productIdList": conf.obtainProductIdList,
     "priceType": 0
 };
+
 sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 ```
 

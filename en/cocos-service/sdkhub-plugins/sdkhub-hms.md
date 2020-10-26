@@ -434,7 +434,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 
 #### `archive`
 
-HUAWEI Game Service allows your game to save your players' game progress to HUAWEI Cloud and then retrieve the saved data so that your players can continue the game from the last save point from any device as long as they use HUAWEI IDs to sign in to the game. In this way, players do not need to start from the beginning even if their device is lost, damaged, or changed. Please refer to [Archive](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532) and [API Referenes](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5).
+Developers can store a player's game progress in Huawei Cloud or access previous game progress from Huawei Cloud in order to continue playing. Therefore, as long as the user logs in with the same Huawei account, the user can continue to play the game on any device at the same progress as before, even if the user's previous device is lost, destroyed or replaced with a new one. Please refer to [Archive](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532) and [API Referenes](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5).
 
 **Callback Description**:
 
@@ -450,7 +450,7 @@ In addition, there are two special `type` callback types that may need to be han
 
 **setScopeList**:
 
-If you need to use the archive function, when a player signs in to your game to [Apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593), no need to handle callbacks.
+If you need to use the archive function, please [apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593), before a player signs in to your game, no need to handle callbacks.
 
 **Example**:
 
@@ -458,14 +458,13 @@ If you need to use the archive function, when a player signs in to your game to 
 var params = {
     "type": "setScopeList",
 }
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **addArchive**:
 
-Asynchronously submits an archive. This method only adds an archive.
-
-This method submits information asynchronously. To be specific, if the device is not connected to the network when the app client calls this method, the HMS Core SDK caches the data locally. The data is submitted to Huawei server when network connection is restored and the user signs in again. You do not need to pay attention to the execution result of this method.
+**Asynchronously** submits an archive. This method only adds an archive. To be specific, if the device is not connected to the network when the app client calls this method, the HMS Core SDK caches the data locally. The data is submitted to Huawei server when network connection is restored and the user signs in again. You do not need to pay attention to the execution result of this method.
 
 **Parameter Description**:
 
@@ -492,6 +491,7 @@ var params = {
     "thumbnailMimeType": "png",
     "isSupportCache" : "1", 
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -512,12 +512,13 @@ var params = {
     "type": "removeArchive",
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **getLimitThumbnailSize**:
 
-Obtains the maximum size of an archive cover file allowed by Huawei game server.
+Obtains the maximum size of an archive cover image file allowed by Huawei game server.
 
 **Example**:
 
@@ -525,6 +526,7 @@ Obtains the maximum size of an archive cover file allowed by Huawei game server.
 var params = {
     "type": "getLimitThumbnailSize",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -538,6 +540,7 @@ Obtains the maximum size of an archive file allowed by Huawei game server.
 var params = {
     "type": "getLimitDetailsSize",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -550,8 +553,8 @@ Load the saved game list page.
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
 | title | "Saved games" | Archive name displayed on the UI. |
-| allowAddBtn | "1" | Optional, indicates whether the button for adding an archive is allowed, the default is "0". |
-| allowDeleteBtn | "1" | Optional, indicates whether the button for deleting an archive is allowed, the default is "0". |
+| allowAddBtn | "1" | Optional, indicates whether the button for adding an archive is allowed, the default is "0".<br>"0": not allowed.<br>"1": allowed. |
+| allowDeleteBtn | "1" | Optional, indicates whether the button for deleting an archive is allowed, the default is "0".<br>"0": not allowed.<br>"1": allowed. |
 | maxArchive | "1" | Optional, maximum number of archives that can be displayed. The default is "-1", indicates all archives. |
 
 **Example**:
@@ -564,6 +567,7 @@ var params = {
     "allowDeleteBtn": "1",
     "maxArchive": "5",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -584,12 +588,13 @@ var params = {
     "type": "getArchiveSummaryList",
     "isRealTime": "0",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
 **loadArchiveDetails**:
 
-Reads archive metadata based on the archive ID. A conflict resolution policy can be specified.
+Reads archive metadata based on the archive ID. A [conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) resolution policy can be specified.
 
 **Parameter Description**:
 
@@ -606,6 +611,7 @@ var params = {
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
     "diffStrategy": "STRATEGY_TOTAL_PROGRESS",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
@@ -617,7 +623,7 @@ Updaste archive or resolves a data conflict.
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
-| selectArchive | "recentArchive"<br>"serverArchive" | Optional, Handle `type` = ʻarchiveConflict` conflict callback, choose which archive to use to resolve the conflict. If this parameter is passed in, the other parameters will not take effect. |
+| selectArchive | "recentArchive"<br>"serverArchive" | Optional, Handle `type = archiveConflict` conflict callback, choose which archive to use to [resolve the conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812). If this parameter is passed in, the other parameters will not take effect.<br>"recentArchive": To obtain the archive cached locally as the final archive.<br>"serverArchive": To obtain the archive stored on Huawei game server as the final archive |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata. |
 | activeTime | "10000" | Played time of an archive. You need to define the time when submitting an archive. Corresponds to `long` type on Java side. |
 | currentProgress | "50" | Progress value of an archive. You need to define the value when submitting an archive. Corresponds to `long` type on Java side. |
@@ -640,6 +646,7 @@ var params = {
     "thumbnail": "archiveIcon.png",
     "thumbnailMimeType": "png",
 };
+
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 ```
 
