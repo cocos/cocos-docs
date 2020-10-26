@@ -459,7 +459,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-| isRealTime | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。本地缓存时间为5分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。 |
+| isRealTime | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。本地缓存时间为 5 分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。 |
 
 **示例**：
 
@@ -568,6 +568,221 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 | :--- | :--- | :--- |
 | + 128 | String | 获取 APPID 成功，可获取参数 APPID |
 | + 129 | String | 获取 APPID 失败描述 |
+
+#### 存档
+
+您可以将玩家的游戏进度存储至华为云空间中，或从华为云空间取得之前的游戏进度继续游戏。因此，只要用户使用相同的华为帐号登录，则游戏存档可以在任意设备取回进行游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
+
+**方法名**：`archive`
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 120 | String | 成功，需通过 `type` 判断调用类型，并获取其他参数。 |
+| + 121 | String | 失败，需通过 `type` 判断调用类型 |
+
+此外还有两种特殊 `type` 回调类型可能需要处理：
+
+- `archiveAdd`：用户点击存档选择页面的 **添加存档** 功能时会收到该回调，请调用 `addArchive` 方法，保存当前游戏记录。
+- `archiveConflict`：发生 [存档冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)，请分析返回信息中 `recentArchive` 和 `serverArchive` 对象的信息，解决冲突后调用 `updateArchive` 方法。
+
+**setScopeList**：
+
+如果需要使用存档功能，在玩家登录前，需要调用该方法，[申请 DRIVE_APP_DATA 的 SCOPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section8429103710593)，无需处理回调。
+
+**示例**：
+
+```js
+var params = {
+    "type": "setScopeList",
+}
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**addArchive**：
+
+以异步方式提交存档记录，只增加存档。
+
+本方法的提交方式为异步提交，即应用客户端调用本方法时如果设备无网络，HMS Core SDK 会先将数据缓存在本地，待网络恢复后用户再次登录时提交到华为服务器。开发者无需关注此方法的执行结果。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| descInfo | "Savedata20" | 存档描述信息 |
+| archiveDetails | "Savedata20, details..." | 需要写入存档文件的二进制字节数据 |
+| thumbnail | "archiveIcon.png" | 存档封面图片，可选，需要放在可读写目录下 |
+| thumbnailMimeType | "png" | 存档封面图片类型，可选 |
+| isSupportCache | "1" | 是否支持网络异常时先缓存到本地，待网络恢复后再提交 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "addArchive",
+    "activeTime": "5000",
+    "currentProgress": "50",
+    "archiveDetails": "time = 5000, progress = 50",
+    "descInfo": "Savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+    "isSupportCache" : "1", 
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**removeArchive**：
+
+删除存档记录，包括华为游戏服务器和本地缓存的存档记录。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| index | "0" | 可选，要删除的存档在全部存档数据中的顺序，若与 `archiveId` 同时传入，优先使用 `index` 参数。 |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 可选，要删除的存档的 ID，建议只传入该参数。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "removeArchive",
+    //"index": "0",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitThumbnailSize**：
+
+获取服务器允许的封面文件的最大大小。
+
+**示例**：
+
+```js
+var params = {
+    "type": "getLimitThumbnailSize",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitDetailsSize**：
+
+获取服务器允许的存档文件的最大大小。
+
+**示例**：
+
+```js
+var params = {
+    "type": "getLimitDetailsSize",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getShowArchiveListIntent**：
+
+打开存档选择页面。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| title | "Saved games" | 界面上展示的存档的名称 |
+| allowAddBtn | "1" | 可选，是否允许有新增存档按钮，默认为 "0"。 |
+| allowDeleteBtn | "1" | 可选，是否允许有删除存档按钮，默认为 "0"。 |
+| maxArchive | "1" | 可选，展示存档的最大数量，默认为 "-1"，表示展示全部。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "getShowArchiveListIntent",
+    "title": "Savedata",
+    "allowAddBtn": "1",
+    "allowDeleteBtn": "1",
+    "maxArchive": "5",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getArchiveSummaryList**：
+
+获取当前玩家的所有存档元数据，支持从本地缓存获取。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| isRealTime | "0" | 可选，是否联网获取数据，默认为 "1"。<br>"1"：表示从游戏服务器获取数据。<br>"0"：表示从本地缓存获取数据。本地缓存时间为 5 分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。|
+
+**示例**：
+
+```js
+var params = {
+    "type": "getArchiveSummaryList",
+    "isRealTime": "0",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**loadArchiveDetails**：
+
+使用存档 ID 打开存档元数据，支持指定冲突策略。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
+| diffStrategy | "STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：最高的进度，在冲突的两个存档中使用进度较高的存档处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "loadArchiveDetails",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "diffStrategy": "STRATEGY_TOTAL_PROGRESS",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**updateArchive**：
+
+更新存档或解决数据冲突。
+
+**参数说明**：
+
+| 参数名 | 填写要求 | 说明 |
+| :--- | :--- | :--- |
+| selectArchive | "recentArchive"<br>"serverArchive" | 可选，处理 `type` = `archiveConflict` 冲突回调，选取使用哪个存档解决冲突。若传入该参数，则其他参数均不生效。 |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
+| activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| descInfo | "Savedata20" | 存档描述信息 |
+| archiveDetails | "Savedata20, details..." | 需要写入存档文件的二进制字节数据 |
+| thumbnail | "archiveIcon.png" | 可选，存档封面图片，需要放在可读写目录下 |
+| thumbnailMimeType | "png" | 可选，存档封面图片类型 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "updateArchive",
+    //"selectArchive": "recentArchive",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "activeTime": "8000",
+    "currentProgress": "60",
+    "archiveDetails": "time=8000,progress=60",
+    "descInfo": "savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+};
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
 
 #### 自动读取短信验证码
 
