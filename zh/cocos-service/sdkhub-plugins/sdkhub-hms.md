@@ -642,15 +642,13 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-| index | "0" | 可选，要删除的存档在全部存档数据中的顺序，若与 `archiveId` 同时传入，优先使用 `index` 参数。 |
-| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 可选，要删除的存档的 ID，建议只传入该参数。 |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 要删除的存档的 ID。 |
 
 **示例**：
 
 ```js
 var params = {
     "type": "removeArchive",
-    //"index": "0",
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
 };
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);

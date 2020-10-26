@@ -503,15 +503,13 @@ Deletes an archive, including the archive on Huawei game server and that in the 
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
-| index | "0" | Optional, the index of the archive to be deleted in archive summary list. Takes precedence over the `archiveId` parameter. |
-| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | Optional, ID of the archive to be deleted, it is recommended to only pass in this parameter. |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive to be deleted. |
 
 **Example**:
 
 ```js
 var params = {
     "type": "removeArchive",
-    //"index": "0",
     "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
 };
 sdkhub.getUserPlugin().callFuncWithParam("archive", params);
