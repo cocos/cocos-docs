@@ -29,6 +29,11 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 ### 版本更新说明
 
+- v1.2.2_5.0.1
+
+    - 添加存档功能。
+    - 修复部分 bug。
+
 - v1.2.1_5.0.1
 
     - 更新各组件：game:5.0.1.302、ads-lite:13.4.32.303、iap:5.0.2.300、push:5.0.2.300。
@@ -579,13 +584,13 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 
 | 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
 | :--- | :--- | :--- |
-| + 120 | String | 成功，需通过 `type` 判断调用类型，并获取其他参数。 |
-| + 121 | String | 失败，需通过 `type` 判断调用类型。 |
+| + 120 | String | 成功回调，需通过 `type` 判断调用类型，并获取其他参数。 |
+| + 121 | String | 失败回调，需通过 `type` 判断调用类型。 |
 
 此外还有两种特殊 `type` 回调类型可能需要处理：
 
-- `archiveAdd`：用户点击存档选择页面的 **添加存档** 功能时会收到该回调，请调用 `addArchive` 方法，保存当前游戏记录。
-- `archiveConflict`：发生 [存档冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)，请分析返回信息中 `recentArchive` 和 `serverArchive` 对象的信息，解决冲突后调用 `updateArchive` 方法。
+- `archiveAdd`：当用户点击存档选择页面的 **添加存档** 按钮时会收到该回调。请调用 `addArchive` 方法，保存当前游戏记录。
+- `archiveConflict`：发生 [存档冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)请分析返回信息中的 `recentArchive` 和 `serverArchive` 对象，解决冲突后调用 `updateArchive` 方法。
 
 **setScopeList**：
 
@@ -615,7 +620,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | archiveDetails | "Savedata20, details..." | 需要写入存档文件的二进制字节数据 |
 | thumbnail | "archiveIcon.png" | 存档封面图片，可选，需要放在可读写目录下 |
 | thumbnailMimeType | "png" | 存档封面图片类型，可选 |
-| isSupportCache | "1" | 是否支持网络异常时先缓存到本地，待网络恢复后再提交 |
+| isSupportCache | "0" | 是否支持网络异常时先缓存到本地，待网络恢复后再提交，默认为 "1"，支持。 |
 
 **示例**：
 
@@ -642,7 +647,6 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 要删除的存档的 ID。 |
 
 **示例**：
@@ -693,8 +697,8 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | title | "Saved games" | 界面上展示的存档的名称 |
-| allowAddBtn | "1" | 可选，是否允许有新增存档按钮，默认为 "0"。<br>"0"：不允许<br>"1"：允许 |
-| allowDeleteBtn | "1" | 可选，是否允许有删除存档按钮，默认为 "0"。<br>"0"：不允许<br>"1"：允许 |
+| allowAddBtn | "1" | 可选，是否允许新增存档按钮。默认为 “0”，不允许。 |
+| allowDeleteBtn | "1" | 可选，是否允许新增删除存档按钮。默认为 “0”，不允许。 |
 | maxArchive | "1" | 可选，展示存档的最大数量，默认为 "-1"，表示展示全部。 |
 
 **示例**：
@@ -741,7 +745,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
-| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，冲突策略，默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：游戏进度，在冲突的两个存档中使用进度较快的存档来处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 可选，选择解决冲突的策略。默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：游戏进度，在冲突的两个存档中使用进度较快的存档来处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
 
 **示例**：
 
@@ -763,7 +767,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 | 参数名 | 填写要求 | 说明 |
 | :--- | :--- | :--- |
-| selectArchive | "recentArchive"<br>"serverArchive" | 可选，处理 `type = archiveConflict` 冲突回调，选取使用哪个存档 [解决冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。若传入该参数，则其他参数均不生效。<br>"recentArchive"：选择本地缓存的存档作为最终存档。<br>"serverArchive"：选择使用服务器存在的存档作为最终存档。 |
+| selectArchive | "recentArchive"<br>"serverArchive" | 可选，选择使用哪个存档来处理 `type = archiveConflict` 的冲突回调。若传入该参数，则其他参数都不生效。详情请参考文档 [解决冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。<br>"recentArchive"：选择本地缓存的存档作为最终存档。<br>"serverArchive"：选择从服务器获取的存档作为最终存档。 |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
 | activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
 | currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |

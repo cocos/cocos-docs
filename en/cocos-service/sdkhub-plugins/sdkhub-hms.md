@@ -29,6 +29,11 @@ The version numbers of the HMS Core SDKs that have been integrated into the proj
 
 ### Version Update Description
 
+- v1.2.2_5.0.1
+
+    - Add archive function.
+    - Fix some bugs.
+
 - v1.2.1_5.0.1
 
     - Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
@@ -440,17 +445,17 @@ Developers can store a player's game progress in Huawei Cloud or access previous
 
 | Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
 | :--- | :--- | :--- |
-| + 120 | String | Description of successful, need to determine the call type by `type` and get other parameters. |
-| + 121 | String | Description of failed, need to determine the call type by `type`. |
+| + 120 | String | Description of successful callback, need to determine the call type by `type` and get other parameters. |
+| + 121 | String | Description of failed callback, need to determine the call type by `type`. |
 
 In addition, there are two special `type` callback types that may need to be handled:
 
-- `archiveAdd`: The callback will be received when the user clicks the **Add Archive** function on the archive selection page, please call the `addArchive` method to save the current game record.
+- `archiveAdd`: The callback will be received when the user clicks the **Add Archive** button on the archive selection page. Please call the `addArchive` method to save the current game record.
 - `archiveConflict`: When archive data read from the local cache [conflicts](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) with that retrieved from Huawei game server during archive reading or updating, please obtain the information of the `recentArchive` and `serverArchive` objects in the callback, and call the `updateArchive` method after resolving the conflict.
 
 **setScopeList**:
 
-If you need to use the archive function, please [apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593), before a player signs in to your game, no need to handle callbacks.
+If you want to use the archive feature, call the `setScopeList` method for [apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593)  before a player logs in, without handling callbacks.
 
 **Example**:
 
@@ -464,7 +469,7 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 **addArchive**:
 
-**Asynchronously** submits an archive. This method only adds an archive. To be specific, if the device is not connected to the network when the app client calls this method, the HMS Core SDK caches the data locally. The data is submitted to Huawei server when network connection is restored and the user signs in again. You do not need to pay attention to the execution result of this method.
+This method submits archive records **asynchronously** and only adds archives. Even if the App Client is not on the network when the method is invoked, the HMS Core SDK will first cache the data locally and submit it to the Huawei server when the network is restored and the user logs in again.
 
 **Parameter Description**:
 
@@ -473,10 +478,10 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 | activeTime | "10000" | Played time of an archive. You need to define the time when submitting an archive. Corresponds to `long` type on Java side. |
 | currentProgress | "50" | Progress value of an archive. You need to define the value when submitting an archive. Corresponds to `long` type on Java side. |
 | descInfo | "Savedata20" | Description of an archive. |
-| archiveDetails | "Savedata20, details..." | Contains the content of the archive file. |
+| archiveDetails | "Savedata20, details..." | Binary byte data written to an archive file. |
 | thumbnail | "archiveIcon.png" | Optional, cover image of an archive. Stored in writable directory (application storage space or SD card specified directory). |
 | thumbnailMimeType | "png" | Optional, MIME type of the cover image of an archive. |
-| isSupportCache | "1" | Indicates whether to locally cache data when the network is abnormal and submit the data after the network is recovered. |
+| isSupportCache | "0" | Indicates whether to locally cache data when the network is abnormal and submit the data after the network is recovered. The default is 1, supported. |
 
 **Example**:
 
@@ -546,15 +551,15 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 **getShowArchiveListIntent**:
 
-Load the saved game list page.
+Open the archive selection page.
 
 **Parameter Description**:
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
 | title | "Saved games" | Archive name displayed on the UI. |
-| allowAddBtn | "1" | Optional, indicates whether the button for adding an archive is allowed, the default is "0".<br>"0": not allowed.<br>"1": allowed. |
-| allowDeleteBtn | "1" | Optional, indicates whether the button for deleting an archive is allowed, the default is "0".<br>"0": not allowed.<br>"1": allowed. |
+| allowAddBtn | "1" | Optional, allow or disallow to add an archive button. The default is 0, not allowed. |
+| allowDeleteBtn | "1" | Optional, allow or disallow to add a delete archive button. The default is 0, not allowed. |
 | maxArchive | "1" | Optional, maximum number of archives that can be displayed. The default is "-1", indicates all archives. |
 
 **Example**:
@@ -594,14 +599,14 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 **loadArchiveDetails**:
 
-Reads archive metadata based on the archive ID. A [conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) resolution policy can be specified.
+Use archive ID to open archive metadata, support for specifying [conflict policy](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812).
 
 **Parameter Description**:
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata to be read. |
-| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | Optional, conflict resolution policy, the default is "STRATEGY_SELF", Huawei game server does not resolve the conflict. <br>"STRATEGY_ACTIVE_TIME": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the played time.<br>"STRATEGY_TOTAL_PROGRESS": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the progress.<br>"STRATEGY_LAST_UPDATE": Constant for setting the conflict resolution policy as automatic resolution by Huawei game server based on the last modified time. |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | Optional, select the conflict resolution policy. The default is "STRATEGY_SELF": without resolving the conflict. <br>"STRATEGY_ACTIVE_TIME": Use an archive with a longer game duration to resolve conflicts.<br>"STRATEGY_TOTAL_PROGRESS": Use an archive with a faster game progression to resolve conflicts.<br>"STRATEGY_LAST_UPDATE": Use the last modified archive to resolve conflicts. |
 
 **Example**:
 
@@ -617,13 +622,13 @@ sdkhub.getUserPlugin().callFuncWithParam("archive", params);
 
 **updateArchive**:
 
-Updaste archive or resolves a data conflict.
+Update archives or resolve data conflicts.
 
 **Parameter Description**:
 
 | Parameter name | Fill in requirements | Description |
 | :--- | :--- | :--- |
-| selectArchive | "recentArchive"<br>"serverArchive" | Optional, Handle `type = archiveConflict` conflict callback, choose which archive to use to [resolve the conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812). If this parameter is passed in, the other parameters will not take effect.<br>"recentArchive": To obtain the archive cached locally as the final archive.<br>"serverArchive": To obtain the archive stored on Huawei game server as the final archive |
+| selectArchive | "recentArchive"<br>"serverArchive" | Optional, choose which archive to use to handle conflict callbacks with `type = archiveConflict`. If this parameter is passed in, no other parameters will take effect. For details, please refer to [resolve the conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812).<br>"recentArchive": To obtain the archive cached locally as the final archive.<br>"serverArchive": To obtain the archive from Huawei game server as the final archive. |
 | archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata. |
 | activeTime | "10000" | Played time of an archive. You need to define the time when submitting an archive. Corresponds to `long` type on Java side. |
 | currentProgress | "50" | Progress value of an archive. You need to define the value when submitting an archive. Corresponds to `long` type on Java side. |
