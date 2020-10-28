@@ -11,7 +11,7 @@ The Cocos SDKHub framework and plug-ins basically do not involve current state p
 
 ## Version Update History
 
-**Latest Version: 1.2.1_5.0.1**
+**Latest Version: 1.2.2_5.0.1**
 
 | HMS Core SDK | Current Version | Description |
 | :--- | :--- | :--- |
