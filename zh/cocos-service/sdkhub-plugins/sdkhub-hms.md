@@ -29,6 +29,11 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 ### 版本更新说明
 
+- v1.2.2_5.0.1
+
+    - 添加存档功能。
+    - 修复部分 bug。
+
 - v1.2.1_5.0.1
 
     - 更新各组件：game:5.0.1.302、ads-lite:13.4.32.303、iap:5.0.2.300、push:5.0.2.300。
@@ -170,7 +175,7 @@ HMS Core SDK 插件已在生命周期内调用 SDK 的浮标接口。**无需** 
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | "getShowAchievementListIntent"<br>"getAchievementList" | 直接跳转或执行展示成就列表 |
 | forceReload | "1" | "getAchievementList" 情况可选参数：<br>"0"：不联网，表示从本地缓存获取<br>"1"：联网，表示直接从游戏服务器获取。<br>默认为 "1" |
@@ -189,7 +194,7 @@ sdkhub.getUserPlugin().showAchievements(params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | "visualizeWithResult"<br>"growWithResult"<br>"makeStepsWithResult"<br>"reachWithResult" | 对应文档各子方法 |
 | achievementId | "5D9580837D32CB59Cxxx" | 后台配置后生成的成就 ID |
@@ -214,7 +219,7 @@ sdkhub.getUserPlugin().unlockAchievement(params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | "getRankingsIntent"<br>"getRankingSummary"<br>"getCurrentPlayerRankingScore"<br>"getPlayerCenteredRankingScores"<br>"getMoreRankingScores"<br>"getRankingTopScores" | 对应文档各子方法：直接展示应用助手的排行榜和自行展示排行榜列表等。 |
 | rankingId | "5D9580837D32CB59Cxxx" | 可选，如果需要获取所有排行榜就不要传该参数。 |
@@ -242,7 +247,7 @@ sdkhub.getUserPlugin().showLeaderBoard(params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | "getRankingSwitchStatus"<br>"setRankingSwitchStatus"<br>"submitRankingScore" | 对应文档各子方法。 |
 | stateValue | "1" | setRankingSwitchStatus 需要传入，排行榜开关状态，默认为 0，需设置为 1 才可提交分数。 |
@@ -276,7 +281,7 @@ sdkhub.getUserPlugin().callFuncWithParam("init");
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | showUpdateDialog | "0" | 可选，是否调用 HMS 提供的 [应用升级提示框](https://developer.huawei.com/consumer/cn/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#ZH-CN_TOPIC_0000001054371620__section1113567144514)，默认为 "1" |
 | forceUpdate | "1" | 可选，默认为 "0"。若 showUpdateDialog 为 "1"，则强制更新按钮选择。 |
@@ -306,7 +311,7 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | 对应各账号服务登录方式。 |
 
@@ -400,7 +405,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getPlayerExtraInfo");
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | eventId | "5D9580837D32CB59Cxxx" | 当前事件的 ID，在配置事件时生成，后台获取。 |
 | growAmount | "20" | 在已有事件数值的基础上要增量增加的数值。 |
@@ -427,7 +432,7 @@ sdkhub.getUserPlugin().callFuncWithParam("submitEvent", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | forceReload | "1" | 可选，默认为 "1"。<br>"0"：不联网，表示从本地缓存获取。<br>"1"：联网，表示直接从游戏服务器获取。 |
 | eventIds | "eventId1, eventId2" | 可选，传入事件 ID，获取特定事件数据，通过逗号分隔。不传则返回所有事件数据。 |
@@ -457,9 +462,9 @@ sdkhub.getUserPlugin().callFuncWithParam("getEvent", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
-| isRealTime | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。本地缓存时间为5分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。 |
+| isRealTime | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。本地缓存时间为 5 分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。 |
 
 **示例**：
 
@@ -483,7 +488,7 @@ sdkhub.getUserPlugin().callFuncWithParam("getGamePlayerStats", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | isLocal | 0 | Number 型<br>1：是，表示从游戏服务器获取数据。<br>0：否，表示从本地缓存获取数据。 |
 
@@ -530,7 +535,7 @@ sdkhub.getUserPlugin().callFuncWithParam("cancelGameService");
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | position | 0 | 当前只支持在页面顶部展示欢迎提示语和完成成就提示框。<br>此参数传入任意整型值即可。 |
 
@@ -569,6 +574,226 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 | + 128 | String | 获取 APPID 成功，可获取参数 APPID |
 | + 129 | String | 获取 APPID 失败描述 |
 
+#### 存档
+
+开发者可以将玩家的游戏进度存储到华为云空间，或从华为云空间中获得之前的游戏进度以便继续游戏。因此，只要用户使用相同的华为帐号登录，则可以在任意设备上按照之前的游戏进度继续游戏，即使用户之前的设备丢失、损毁或换了新设备也能继续之前的游戏进度。可参考 [游戏服务 - 业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532) 和 [API 参考 - ArchivesClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5)。
+
+**方法名**：`archive`
+
+**回调说明**：
+
+| 扩展回调值 `sdkhub.UserResultCode.kUserExtension` | msg 类型 | msg 说明 |
+| :--- | :--- | :--- |
+| + 120 | String | 成功回调，需通过 `type` 判断调用类型，并获取其他参数。 |
+| + 121 | String | 失败回调，需通过 `type` 判断调用类型。 |
+
+此外还有两种特殊 `type` 回调类型可能需要处理：
+
+- `archiveAdd`：当用户点击存档选择页面的 **添加存档** 按钮时会收到该回调。请调用 `addArchive` 方法，保存当前游戏记录。
+- `archiveConflict`：发生 [存档冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812) 时请分析返回信息中的 `recentArchive` 和 `serverArchive` 对象，解决冲突后调用 `updateArchive` 方法。
+
+**setScopeList**：
+
+如果要使用存档功能，需要在玩家登录之前调用该方法，[申请 DRIVE_APP_DATA 的 SCOPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section8429103710593)，无需处理回调。
+
+**示例**：
+
+```js
+var params = {
+    "type": "setScopeList",
+}
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**addArchive**：
+
+以 **异步** 方式提交存档记录，只增加存档。即使应用客户端调用本方法时如果设备无网络，HMS Core SDK 也会先将数据缓存在本地，待网络恢复后用户再次登录时提交到华为服务器，开发者无需关注此方法的执行结果。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| descInfo | "Savedata20" | 存档描述信息 |
+| archiveDetails | "Savedata20, details..." | 需要写入存档文件的二进制字节数据 |
+| thumbnail | "archiveIcon.png" | 存档封面图片，可选，需要放在可读写目录下 |
+| thumbnailMimeType | "png"<br>"jpg" | 存档封面图片类型，可选 |
+| isSupportCache | "0" | 是否支持网络异常时先缓存到本地，待网络恢复后再提交，默认为 "1"，支持。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "addArchive",
+    "activeTime": "5000",
+    "currentProgress": "50",
+    "archiveDetails": "time = 5000, progress = 50",
+    "descInfo": "Savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+    "isSupportCache" : "1", 
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**removeArchive**：
+
+删除存档记录，包括华为游戏服务器和本地缓存中的存档记录。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 要删除的存档的 ID。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "removeArchive",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitThumbnailSize**：
+
+获取服务器允许的封面图片文件的最大大小。
+
+**示例**：
+
+```js
+var params = {
+    "type": "getLimitThumbnailSize",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitDetailsSize**：
+
+获取服务器允许的存档文件的最大大小。
+
+**示例**：
+
+```js
+var params = {
+    "type": "getLimitDetailsSize",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getShowArchiveListIntent**：
+
+打开存档选择页面。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| title | "Saved games" | 界面上展示的存档的名称 |
+| allowAddBtn | "1" | 可选，是否允许新增存档按钮。默认为 “0”，不允许。 |
+| allowDeleteBtn | "1" | 可选，是否允许新增删除存档按钮。默认为 “0”，不允许。 |
+| maxArchive | "1" | 可选，展示存档的最大数量，默认为 "-1"，表示展示全部。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "getShowArchiveListIntent",
+    "title": "Savedata",
+    "allowAddBtn": "1",
+    "allowDeleteBtn": "1",
+    "maxArchive": "5",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getArchiveSummaryList**：
+
+获取当前玩家的所有存档元数据，支持从本地缓存获取。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| isRealTime | "0" | 可选，是否联网获取数据，默认为 "1"。<br>"1"：表示从游戏服务器获取数据。<br>"0"：表示从本地缓存获取数据。本地缓存时间为 5 分钟，如果本地无缓存或缓存超时，则从游戏服务器获取。|
+
+**示例**：
+
+```js
+var params = {
+    "type": "getArchiveSummaryList",
+    "isRealTime": "0",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**loadArchiveDetails**：
+
+使用存档 ID 打开存档元数据，支持指定 [冲突策略](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | 选择解决冲突的策略。默认为 "STRATEGY_SELF"，不处理冲突。<br>"STRATEGY_ACTIVE_TIME"：游戏时长，在冲突的两个存档中使用游戏时长较长的存档处理冲突。<br>"STRATEGY_TOTAL_PROGRESS"：游戏进度，在冲突的两个存档中使用进度较快的存档来处理冲突。<br>"STRATEGY_LAST_UPDATE"：最近修改版本，在冲突的两个存档中使用最近修改的存档处理冲突。 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "loadArchiveDetails",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "diffStrategy": "STRATEGY_TOTAL_PROGRESS",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**updateArchive**：
+
+更新存档或解决数据冲突。
+
+**参数说明**：
+
+| 参数名 | 填写格式 | 说明 |
+| :--- | :--- | :--- |
+| selectArchive | "recentArchive"<br>"serverArchive" | 选择使用哪个存档来处理 `type = archiveConflict` 的冲突回调。若传入该参数，则其他参数都不生效。详情请参考文档 [解决冲突](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/game-archive-0000001050121532#ZH-CN_TOPIC_0000001054212898__section77051130111812)。<br>"recentArchive"：选择本地缓存的存档作为最终存档。<br>"serverArchive"：选择从服务器获取的存档作为最终存档。 |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | 存档 ID |
+| activeTime | "10000" | 存档的时长。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| currentProgress | "50" | 存档的进度值。由开发者在提交存档时自行定义，Java 侧为 `long` 型。 |
+| descInfo | "Savedata20" | 存档描述信息 |
+| archiveDetails | "Savedata20, details..." | 需要写入存档文件的二进制字节数据 |
+| thumbnail | "archiveIcon.png" | 可选，存档封面图片，需要放在可读写目录下 |
+| thumbnailMimeType | "png"<br>"jpg" | 可选，存档封面图片类型 |
+
+**示例**：
+
+```js
+var params = {
+    "type": "updateArchive",
+    // "selectArchive": "recentArchive",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "activeTime": "8000",
+    "currentProgress": "60",
+    "archiveDetails": "time=8000,progress=60",
+    "descInfo": "savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
 #### 自动读取短信验证码
 
 自动读取短信验证码方法，可选，可参考 [账号服务 - 自动读取短信验证码](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/account-guide-v4#h1-1573730317319) 文档。本插件在 User 系统初始化时调用了请求开启短信读取服务，用户无需调用代码，**仅需处理回调**。
@@ -601,7 +826,7 @@ HMS Core SDK 目前支付流程中，支付后的回执直接返回客户端。C
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | Product_ID | "CProduct1" | 后台配置商品的商品 ID。 |
 | EXT | "50extra" | 可选，对应 文档 `setDeveloperPayload`，支付透传参数。 |
@@ -640,7 +865,7 @@ sdkhub.getFeePlugin().callFuncWithParam("isEnvReady");
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | productIdList | "item1,item2" | 后台配置商品的商品 ID，若需传入多个以逗号分隔。 |
 | priceType | "0" | 可选，0/1/2 分别对应消耗型商品，非消耗型商品和订阅型商品，不传则默认为 0。 |
@@ -652,6 +877,7 @@ var params = {
     "productIdList": conf.obtainProductIdList,
     "priceType": 0
 };
+
 sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 ```
 
@@ -688,7 +914,7 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainProductInfo", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | 0 |  Number 型，0/1/2 分别对应消耗型商品、非消耗型商品、订阅商品。 |
 
@@ -736,7 +962,7 @@ sdkhub.getFeePlugin().callFuncWithParam("consumeOwnedPurchase", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | type | 0 |  Number 型，0/1/2 分别对应消耗型商品、非消耗型商品和订阅型商品。 |
 
@@ -762,7 +988,7 @@ sdkhub.getFeePlugin().callFuncWithParam("obtainOwnedPurchaseRecord", params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | reqType | "TYPE_SUBSCRIBE_EDIT_ACTIVITY" | 若传入"TYPE_SUBSCRIBE_EDIT_ACTIVITY" 显示编辑订阅页面<br>若传入 "TYPE_SUBSCRIBE_MANAGER_ACTIVITY" 显示管理订阅页面。 |
 
@@ -792,7 +1018,7 @@ Reward 激励广告和 Interstitial 插屏广告均需要先调用 `preloadAds` 
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | adType | "Interstitial"<br>"Reward"  | 广告类型 |
 | adId | "testb4znbuh3n2" | 广告 ID |
@@ -808,7 +1034,7 @@ sdkhub.getAdsPlugin().preloadAds(params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | adType | "Interstitial"<br>"Native"<br>"Reward"<br>"Banner"  | 广告类型 |
 | adId | "testx9dtjwj8hp" | 广告 ID，Native 原生广告中，广告 ID 对应不同展示形式的原生广告 |
@@ -834,7 +1060,7 @@ sdkhub.getAdsPlugin().showAds(params);
 
 **参数说明**：
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | adType | "Native"<br>"Banner" | 广告类型 |
 
@@ -913,7 +1139,7 @@ sdkhub.getPushPlugin().callFuncWithParam("turnOffPush");
 
 仅有 `messageId` 为必传，部分参数可对应文档 [RemoteMessage.Builder](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5)，传入指定参数便会调用相关方法。传入其他 Key 和 Value 值，便可用来上行给服务端。
 
-| 参数名 | 填写要求 | 说明 |
+| 参数名 | 填写格式 | 说明 |
 | :--- | :--- | :--- |
 | messageId | "mid123456"  | 需要保证该参数的唯一性 |
 | messageType | "mType1" | 发送上行消息时设置的消息类型，SDK 不感知，直接透传 |

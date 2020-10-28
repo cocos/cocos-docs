@@ -29,6 +29,11 @@ The version numbers of the HMS Core SDKs that have been integrated into the proj
 
 ### Version Update Description
 
+- v1.2.2_5.0.1
+
+    - Add archive function.
+    - Fix some bugs.
+
 - v1.2.1_5.0.1
 
     - Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
@@ -155,7 +160,7 @@ How ​​to display achievements, please refer to the [Game Services - Achievem
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | "getShowAchievementListIntent"<br>"getAchievementList" | Jump directly or execute the display achievement list |
 | forceReload | "1" | "getAchievementList" Optional parameters: <br>"0": not connected to the network, means to obtain from the local cache<br>"1": to network, means to obtain directly from the game server.<br>The default is "1" |
@@ -166,7 +171,7 @@ How ​​to unlock achievements, please refer to the [Game Services - Achieveme
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | "visualizeWithResult"<br>"growWithResult"<br>"makeStepsWithResult"<br>"reachWithResult" | Corresponding document methods |
 | achievementId | "5D9580837D32CB59Cxxx" | Achievement ID generated after background configuration |
@@ -178,7 +183,7 @@ How ​​to display leaderboards, please refer to the [Game Service - Leaderboa
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | "getRankingsIntent"<br>"getRankingSummary"<br>"getCurrentPlayerRankingScore"<br>"getPlayerCenteredRankingScores"<br>"getMoreRankingScores"<br>"getRankingTopScores" | The corresponding sub-methods of the document: directly display the ranking of the application assistant and display the leaderboard list by yourself. |
 | rankingId | "5D9580837D32CB59Cxxx" | Optional, do not pass this parameter if you need to get all the rankings.|
@@ -194,12 +199,12 @@ How ​​to submit scores, please refer to the [Game Service - Leaderboards](ht
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | "getRankingSwitchStatus"<br>"setRankingSwitchStatus"<br>"submitRankingScore" | Corresponding to each sub-method of the document. |
 | stateValue | "1" | setRankingSwitchStatus needs to be passed in, the leaderboard switch status, the default is 0, and it needs to be set to 1 to submit scores. |
 | rankingId | "5D9580837D32CB59Cxxx" | submitRankingScore needs to be passed in, the ranking ID generated after background configuration |
-| score | "10000" | submitRankingScore The situation needs to be passed in. The score to be submitted to the leaderboard, long type. |
+| score | "10000" | submitRankingScore The situation needs to be passed in. The score to be submitted to the leaderboard, corresponds to `long` type on Java side. |
 | scoreTips | "Gold Coins" | submitRankingScore is optional, and needs to be passed in if there is a custom unit. |
 
 #### callFuncWithParam
@@ -210,7 +215,7 @@ Need to call the interface description through the extension method:
 
 Please refer to `JosAppsClient.init` method from the [Game Launch](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-start-0000001050123475#EN-US_TOPIC_0000001054251621__section12165571141) document. It needs to be called before the game login to display the announcement.
 
-**Example**：
+**Example**:
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("init");
@@ -222,12 +227,12 @@ Please refer to [Updating an App](https://developer.huawei.com/consumer/en/doc/d
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | showUpdateDialog | "0" | Optional, whether to call the [update dialog](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/appupdateclient-0000001050123641-V5#EN-US_TOPIC_0000001054371620__section1113567144514) provided by HMS, the default is "1". |
 | forceUpdate | "1" | Optional, if the `showUpdateDialog` value is "1", forcible update is required,the default is "0". |
 
-**Example**：
+**Example**:
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
@@ -250,11 +255,11 @@ After the developer obtains the ID Token or Authorization Code via the `sdkhub.U
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | "AuthorizationCode"<br>"IDToken"<br>"Slient" | Account Kit login types |
 
-**Example**：
+**Example**:
 
 ```js
 var params = "AuthorizationCode";
@@ -265,7 +270,7 @@ sdkhub.getUserPlugin().callFuncWithParam("accountLogin", params);
 
 Please refer to [getCurrentPlayer](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/playersclient-0000001050121668-V5#EN-US_TOPIC_0000001054371606__section1442582231216) document. Since this method is also called during the login process, and this method is called back through the login method, this method is optional.
 
-**Example**：
+**Example**:
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("getCurrentPlayer");
@@ -311,7 +316,7 @@ Event reporting method, please refer to the [Game Service - Game Events](https:/
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | eventId | "5D9580837D32CB59Cxxx" | The ID of the current event, generated when the event is configured, and obtained in the background. |
 | growAmount | "20" | The value to increase incrementally on the basis of the existing event value. |
@@ -328,7 +333,7 @@ To obtain player event data, please refer to the [Game Service - Game Events](ht
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | forceReload | "1" | Optional, default is "1".<br>"0": Not connected to the Internet, which means to obtain from the local cache.<br>"1": Internet connection, which means to obtain directly from the game server. |
 | eventIds | "eventId1,eventId2" | Pass in event ID to obtain specific event data, separated by commas. |
@@ -346,7 +351,7 @@ For player information statistics method, please refer to the [Game Service - Pl
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | isRealTime | 0 | Number Type<br>1: Yes, it means to get data from the game server. <br>0: No, it means to get data from local cache. The local cache time is 5 minutes. If there is no local cache or the cache expires, it will be obtained from the game server. |
 
@@ -363,7 +368,7 @@ How ​​to get basic game information, please refer to the [Game Service - Bas
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | isLocal | 0 | Number type<br>1: Yes, it means to get data from the game server.<br>0: No, it means to get data from local cache. |
 
@@ -378,7 +383,7 @@ How ​​to get basic game information, please refer to the [Game Service - Bas
 
 Provides the function for users to revoke authorization to HUAWEI Game Service, please refer to [cancelGameService](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#EN-US_TOPIC_0000001054691591__section58133387544) document.
 
-**Example**：
+**Example**:
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("cancelGameService");
@@ -397,11 +402,11 @@ Sets the position for displaying the game greeting and achievement unlocking pop
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | position | 0 | Position for displaying the game greeting and achievement unlocking pop-ups on the screen. Currently, the pop-ups are displayed only at the top of the screen.<br>Pass any integer for the parameter. |
 
-**Example**：
+**Example**:
 
 ```js
 var params = 1;
@@ -419,7 +424,7 @@ sdkhub.getUserPlugin().callFuncWithParam("setPopupsPosition", params);
 
 Please refer to [getAppId](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/gamesclient-0000001050123611-V5#EN-US_TOPIC_0000001054691591__section12552847125319) document.
 
-**Example**：
+**Example**:
 
 ```js
 sdkhub.getUserPlugin().callFuncWithParam("getAppId");
@@ -431,6 +436,224 @@ sdkhub.getUserPlugin().callFuncWithParam("getAppId");
 | :--- | :--- | :--- |
 | + 128 | String | The APPID |
 | + 129 | String | Failed to get APPID information |
+
+#### `archive`
+
+Developers can store a player's game progress in Huawei Cloud or access previous game progress from Huawei Cloud in order to continue playing. Therefore, as long as the user logs in with the same Huawei account, the user can continue to play the game on any device at the same progress as before, even if the user's previous device is lost, destroyed or replaced with a new one. Please refer to [Archive](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532) and [API Referenes](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/archivesclient-0000001050123603-V5).
+
+**Callback Description**:
+
+| Extension callback value `sdkhub.UserResultCode.kUserExtension` | msg type | msg description |
+| :--- | :--- | :--- |
+| + 120 | String | Description of successful callback, need to determine the call type by `type` and get other parameters. |
+| + 121 | String | Description of failed callback, need to determine the call type by `type`. |
+
+In addition, there are two special `type` callback types that may need to be handled:
+
+- `archiveAdd`: The callback will be received when the user clicks the **Add Archive** button on the archive selection page. Please call the `addArchive` method to save the current game record.
+- `archiveConflict`: When archive data read from the local cache [conflicts](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812) with that retrieved from Huawei game server during archive reading or updating, please obtain the information of the `recentArchive` and `serverArchive` objects in the callback, and call the `updateArchive` method after resolving the conflict.
+
+**setScopeList**:
+
+If you want to use the archive feature, call the `setScopeList` method to [apply for the permission scope of DRIVE_APP_DATA](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section8429103710593) before a player logs in, without handling callbacks.
+
+**Example**:
+
+```js
+var params = {
+    "type": "setScopeList",
+}
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**addArchive**:
+
+This method submits archive records **asynchronously** and only adds archives. Even if the App Client is not on the network when the method is invoked, the HMS Core SDK will first cache the data locally and submit it to the Huawei server when the network is restored and the user logs in again.
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| activeTime | "10000" | Played time of an archive. You need to define the time when submitting an archive. Corresponds to `long` type on Java side. |
+| currentProgress | "50" | Progress value of an archive. You need to define the value when submitting an archive. Corresponds to `long` type on Java side. |
+| descInfo | "Savedata20" | Description of an archive. |
+| archiveDetails | "Savedata20, details..." | Binary byte data written to an archive file. |
+| thumbnail | "archiveIcon.png" | Optional, cover image of an archive. Stored in writable directory (application storage space or SD card specified directory). |
+| thumbnailMimeType | "png"<br>"jpg" | Optional, MIME type of the cover image of an archive. |
+| isSupportCache | "0" | Indicates whether to locally cache data when the network is abnormal and submit the data after the network is recovered. The default is 1, supported. |
+
+**Example**:
+
+```js
+var params = {
+    "type": "addArchive",
+    "activeTime": "5000",
+    "currentProgress": "50",
+    "archiveDetails": "time = 5000, progress = 50",
+    "descInfo": "Savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+    "isSupportCache" : "1", 
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**removeArchive**:
+
+Deletes an archive, including the archive on Huawei game server and that in the local cache. 
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive to be deleted. |
+
+**Example**:
+
+```js
+var params = {
+    "type": "removeArchive",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitThumbnailSize**:
+
+Obtains the maximum size of an archive cover image file allowed by Huawei game server.
+
+**Example**:
+
+```js
+var params = {
+    "type": "getLimitThumbnailSize",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getLimitDetailsSize**:
+
+Obtains the maximum size of an archive file allowed by Huawei game server.
+
+**Example**:
+
+```js
+var params = {
+    "type": "getLimitDetailsSize",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getShowArchiveListIntent**:
+
+Open the archive selection page.
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| title | "Saved games" | Archive name displayed on the UI. |
+| allowAddBtn | "1" | Optional, allow or disallow to add an archive button. The default is 0, not allowed. |
+| allowDeleteBtn | "1" | Optional, allow or disallow to add a delete archive button. The default is 0, not allowed. |
+| maxArchive | "1" | Optional, maximum number of archives that can be displayed. The default is "-1", indicates all archives. |
+
+**Example**:
+
+```js
+var params = {
+    "type": "getShowArchiveListIntent",
+    "title": "Savedata",
+    "allowAddBtn": "1",
+    "allowDeleteBtn": "1",
+    "maxArchive": "5",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**getArchiveSummaryList**:
+
+Obtains all archive metadata of the current player. The data can be obtained from the local cache.
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| isRealTime | "0" | Optional, indicates whether to obtain data from Huawei game server, the default is "1".<br>"1": Obtain data from Huawei game server.<br>"0": Obtain data from the local cache. Data is kept in the local cache for 5 minutes. If there is no local cache or the cache times out, data will be obtained from the game server.|
+
+**Example**:
+
+```js
+var params = {
+    "type": "getArchiveSummaryList",
+    "isRealTime": "0",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**loadArchiveDetails**:
+
+Use archive ID to open archive metadata, support for specifying [conflict policy](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812).
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata to be read. |
+| diffStrategy | "STRATEGY_SELF"<br>"STRATEGY_ACTIVE_TIME"<br>"STRATEGY_TOTAL_PROGRESS"<br>"STRATEGY_LAST_UPDATE" | Select the conflict resolution policy. The default is "STRATEGY_SELF", without resolving the conflict. <br>"STRATEGY_ACTIVE_TIME": Use an archive with a longer game duration to resolve conflicts.<br>"STRATEGY_TOTAL_PROGRESS": Use an archive with a faster game progression to resolve conflicts.<br>"STRATEGY_LAST_UPDATE": Use the last modified archive to resolve conflicts. |
+
+**Example**:
+
+```js
+var params = {
+    "type": "loadArchiveDetails",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "diffStrategy": "STRATEGY_TOTAL_PROGRESS",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
+
+**updateArchive**:
+
+Update archives or resolve data conflicts.
+
+**Parameter Description**:
+
+| Parameter name | Fill format | Description |
+| :--- | :--- | :--- |
+| selectArchive | "recentArchive"<br>"serverArchive" | Choose which archive to use to handle conflict callbacks with `type = archiveConflict`. If this parameter is passed in, no other parameters will take effect. For details, please refer to [resolve the conflict](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/game-archive-0000001050121532#EN-US_TOPIC_0000001054212898__section77051130111812).<br>"recentArchive": To obtain the archive cached locally as the final archive.<br>"serverArchive": To obtain the archive from Huawei game server as the final archive. |
+| archiveId | "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA" | ID of the archive metadata. |
+| activeTime | "10000" | Played time of an archive. You need to define the time when submitting an archive. Corresponds to `long` type on Java side. |
+| currentProgress | "50" | Progress value of an archive. You need to define the value when submitting an archive. Corresponds to `long` type on Java side. |
+| descInfo | "Savedata20" | Description of an archive. |
+| archiveDetails | "Savedata20, details..." | Contains the content of the archive file. |
+| thumbnail | "archiveIcon.png" | Optional, cover image of an archive. Stored in writable directory (application storage space or SD card specified directory). |
+| thumbnailMimeType | "png"<br>"jpg" | Optional, MIME type of the cover image of an archive. |
+
+**Example**:
+
+```js
+var params = {
+    "type": "updateArchive",
+    // "selectArchive": "recentArchive",
+    "archiveId": "AA14I0V4G_gChJWeU_H2RRQalZZT5hvwA",
+    "activeTime": "8000",
+    "currentProgress": "60",
+    "archiveDetails": "time=8000,progress=60",
+    "descInfo": "savedata20",
+    "thumbnail": "archiveIcon.png",
+    "thumbnailMimeType": "png",
+};
+
+sdkhub.getUserPlugin().callFuncWithParam("archive", params);
+```
 
 #### ReadSmsManager
 
@@ -454,7 +677,7 @@ Considering the past experience of Apple’s IAP review and other issues, we set
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | Product_ID | "CProduct1" | The product ID of the background configuration product. |
 | priceType | "0" | Optional, 0/1/2 respectively correspond to consumable products, non-consumable products and subscription products, if not passed, the default is "0". |
@@ -481,7 +704,7 @@ Method of displaying product information, if you use the product configured on t
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | productIdList | "item1,item2" | The product ID of the background configuration product, if you need to pass in more than one, separated by commas. |
 | priceType | "0" | Optional, 0/1/2 respectively correspond to consumable products, non-consumable products and subscription products. If not passed, the default is 0. |
@@ -501,7 +724,7 @@ It is recommended to call it at the beginning of the game to get the user's othe
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | 0 | Number type, 0/1/2 correspond to consumable products, non-consumable products and subscription products respectively. |
 
@@ -531,7 +754,7 @@ View user purchase history, please refer to the [In-App Purchases - Viewing the 
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | type | 0 | Number type, 0/1/2 correspond to consumable products, non-consumable products and subscription products respectively. |
 
@@ -548,7 +771,7 @@ Provide subscription management page redirection, please refer to the [Subscript
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | reqType | "TYPE_SUBSCRIBE_EDIT_ACTIVITY" | If "TYPE_SUBSCRIBE_EDIT_ACTIVITY" is passed in, the edit subscription page will be displayed.<br>If "TYPE_SUBSCRIBE_MANAGER_ACTIVITY" is passed in, the management subscription page will be displayed. |
 
@@ -571,7 +794,7 @@ Pre-loaded advertising method.
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | adType | "Interstitial"<br>"Reward" | Ad Type |
 | adId | "testb4znbuh3n2" | Ad ID |
@@ -582,7 +805,7 @@ Display advertising method.
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | adType | "Interstitial"<br>"Reward"<br>"Banner" | Ad Type |
 | adId | "testx9dtjwj8hp" | Ad ID |
@@ -601,11 +824,11 @@ Hide advertising method.
 
 **Parameter Description**:
 
-| Parameter name | Fill in requirements | Description |
+| Parameter name | Fill format | Description |
 | :--- | :--- | :--- |
 | adType | "Native"<br>"Banner" | Ad Type |
 
-**Example**：
+**Example**:
 
 ```js
 var params = { "adType": "Native" };
@@ -650,7 +873,7 @@ Deletes a local AAID, please refer to the [deleteAAID](https://developer.huawei.
 
 Checks whether automatic initialization is enabled, please refer to the [isAutoInitEnabled](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488) document.
 
-**Example**：
+**Example**:
 
 ```js
 var isAuto = sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
@@ -661,7 +884,7 @@ console.log("isAutoInitEnabled", isAuto);
 
 Sets whether to enable automatic initialization. If this parameter is set to **true**, the SDK automatically generates an AAID and applies for a token. The token is returned through the `sdkhub.PushResultCode.kPushExtension + 100` callback method. please refer to the [setAutoInitEnabled](https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511) document.
 
-**Example**：
+**Example**:
 
 ```js
 var params = 1 - sdkhub.getPushPlugin().callBoolFuncWithParam("isAutoInitEnabled");
