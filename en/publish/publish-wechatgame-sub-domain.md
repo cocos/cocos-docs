@@ -50,6 +50,7 @@ This is the core component of the Open Data Context solution. In addition to the
   The **FPS** property has the following two advantages:
 
   - The Main Context will calculate an **update interval** ​​based on the set **FPS**. This **update interval** prevents the engine from frequently calling **update** to update the Canvas texture of Open Data Context.
+
   - By reducing the FPS of Open Data Context, you can also reduce the performance overhead of Open Data Context to some extent.
 
   **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the SubContextView component directly in the Main Context project.**

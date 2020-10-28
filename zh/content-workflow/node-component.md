@@ -1,12 +1,12 @@
 # 节点和组件
 
-Cocos Creator 的工作流程是以组件式开发为核心的，组件式架构也称作 **组件-实体系统**（或 [Entity-Component System](https://en.wikipedia.org/wiki/Entity_component_system)），简单的说，就是以组合而非继承的方式进行实体的构建。
+Cocos Creator 的工作流程是以组件式开发为核心的，组件式架构也称作 **组件 — 实体系统**（或 [Entity-Component System](https://en.wikipedia.org/wiki/Entity_component_system)），简单的说，就是以组合而非继承的方式进行实体的构建。
 
-在 Cocos Creator 中，**节点（Node）**是承载组件的实体，我们通过将具有各种功能的 **组件（Component）** 挂载到节点上，来让节点具有各式各样的表现和功能。接下来我们看看如何在场景中创建节点和添加组件。
+在 Cocos Creator 中，**节点（Node）** 是承载组件的实体，我们通过将具有各种功能的 **组件（Component）** 挂载到节点上，来让节点具有各式各样的表现和功能。接下来我们看看如何在场景中创建节点和添加组件。
 
 ## 创建节点（Node）
 
-要最快速的获得一个具有特定功能的节点，可以通过 **层级管理器** 左上角的 **创建节点** 按钮。我们以创建一个最简单的 Sprite（精灵）节点为例，点击 **创建节点** 按钮后选择 `创建渲染节点/Sprite（精灵）`：
+要最快速的获得一个具有特定功能的节点，可以通过 **层级管理器** 左上角的 **创建节点** 按钮。我们以创建一个最简单的 Sprite（精灵）节点为例，点击 **创建节点** 按钮后选择 **创建渲染节点 -> Sprite（精灵）**：
 
 ![create](node-component/create.png)
 

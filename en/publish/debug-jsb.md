@@ -20,9 +20,11 @@ After running the simulator, open the address <devtools://devtools/bundled/js_ap
 
 Starting with **v2.0.7**, the [Open Simulator Debugger Panel](../getting-started/basics/editor-panels/preferences.md#preview-run) feature has been added to the **Preview Run** of **Settings** panel. The debugging steps are as follows:
 
-  - Check the **Open Simulator Debugger Panel** in the **Setting -> Preview Run** panel, then click **Save**.
+- Check the **Open simulator debugger panel** in the **Settings -> Preview Run** panel, then click **Save**.
 
-  - Running the simulator, then you can automatically open simulator debugger panel for debugging when start simulator.
+  ![](debug-jsb/debug-in-editor.png)
+
+- Running the simulator, then you can automatically open simulator debugger panel for debugging when start simulator.
 
 ## Debug on target device
 

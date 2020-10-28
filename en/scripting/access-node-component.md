@@ -120,17 +120,18 @@ cc.Class({
 
 ### Use Properties panel to link component
 
-In the example above, if you set the property's type to Player component, when you drag the "Player Node" to **Properties** panel, player property will be set to the Player component in the node. Then you don't need to call `getComponent` for yourself.
+In the example above, if you first get the script (e.g. `Player.js`) in a [modular fashion](./modular-script.md#require), and then declare the `type` of the property in `Cannon.js` as the `Player` script component:
 
 ```js
 // Cannon.js
 
+// Get the "Player.js" in a modular fashion
 var Player = require("Player");
 
 cc.Class({
     extends: cc.Component,
     properties: {
-        // declare player property, but directly use component type this time
+        // Declare the player property, but directly as a component type
         player: {
             default: null,
             type: Player
@@ -138,13 +139,22 @@ cc.Class({
     },
 
     start: function () {
-        var playerComp = this.player;
-        this.checkPlayer(playerComp);
+        cc.log("The player is " + this.player.name);
     },
 
     // ...
 });
 ```
+
+In **Properties** panel, the component will looks like this after the script compiled:
+
+![](access-node-component/player-in-properties-null.png)
+
+Then drag the **Player Node** with the `Player.js` mounted into the `player` property box of this component.
+
+![](access-node-component/player-in-properties.png)
+
+Now the `player` property is the Player script component on this node, so you don't need to manually call `getComponent` to get the component yourself.
 
 You can also set the property's default value from `null` to an array `[]`, then you can set multiple objects in **Properties** panel.<br>
 But if you need to dynamically get other objects in runtime, you need to search them by using methods shown below.

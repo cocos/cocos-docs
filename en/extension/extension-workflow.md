@@ -58,7 +58,7 @@ After panel opened, we can send or recieve IPC via  `Editor.Ipc.sendToPanel`, `E
 Cocos Creator use the Entity Component in the engine, it allow us extending the script by developing new Component. The extension package can used as the media for the components and resources. Also, we can define the `runtime-resource` field, it will mapping the path under extension to project path, this will make the extensions join the build pipeline correctly.
 
 ```json
-//package.json
+// package.json
   "runtime-resource": {
     "path": "path/to/runtime-resource",
     "name": "shared-resource"
