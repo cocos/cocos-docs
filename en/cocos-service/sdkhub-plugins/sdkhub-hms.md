@@ -32,21 +32,25 @@ The version numbers of the HMS Core SDKs that have been integrated into the proj
 - v1.2.2_5.0.1
 
     - Add archive function.
+
     - Fix some bugs.
 
 - v1.2.1_5.0.1
 
     - Update Huawei HMS Core SDKs: game:5.0.1.302, ads-lite:13.4.32.303, iap:5.0.2.300, push:5.0.2.300.
-    - Please put 'agconnect-services.json' file to `/settings` folder manually after update.
+
+    - Please put `agconnect-services.json` file to `/settings` folder manually after update.
 
 - v1.1.7_5.0.1
 
     - Fix the parameter problem when only choice push.
+
     - Fix the display problem of the leaderboard interface.
 
 - v1.1.5_5.0.1
 
     - Add Push Kit 5.0.0.301 of HMS Core.
+
     - Update to HMS Core SDKs: base:5.0.0.300, hwid:5.0.1.301, game:5.0.0.300, iap:4.0.4.300, ads-lite:13.4.31.300.
 
 - v1.1.4_5.0.0
@@ -80,7 +84,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-    ![](sdkhub-hms/hms-agcfile.jpg)
+    ![](sdkhub-hms/hms-agcfile.png)
 
 ## Enable Cocos SDKHub
 

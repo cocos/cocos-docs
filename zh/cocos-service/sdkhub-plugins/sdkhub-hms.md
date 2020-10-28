@@ -32,23 +32,26 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 - v1.2.2_5.0.1
 
     - 添加存档功能。
+
     - 修复部分 bug。
 
 - v1.2.1_5.0.1
 
     - 更新各组件：game:5.0.1.302、ads-lite:13.4.32.303、iap:5.0.2.300、push:5.0.2.300。
+
     - 更新版本后，请手动将 `agconnect-services.json` 文件复制到工程 `/setting` 目录下。
 
 - v1.1.7_5.0.1
 
     - 修复单选推送时的参数问题。
+
     - 修复游戏排行榜界面显示问题。
 
 - v1.1.5_5.0.1
 
     - 添加 HMS Core 推送功能：push:5.0.0.301。
-    - 更新各组件：base:5.0.0.300、hwid:5.0.1.301、game:5.0.0.300、iap:4.0.4.300
-、ads-lite:13.4.31.300。
+
+    - 更新各组件：base:5.0.0.300、hwid:5.0.1.301、game:5.0.0.300、iap:4.0.4.300、ads-lite:13.4.31.300。
 
 - v1.1.4_5.0.0
 
@@ -86,7 +89,7 @@ Cocos SDKHub 框架和插件基本不涉及当前状态处理和服务端接口�
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-    ![](sdkhub-hms/hms-agcfile.jpg)
+    ![](sdkhub-hms/hms-agcfile.png)
 
 ## Sample 工程
 
