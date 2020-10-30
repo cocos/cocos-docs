@@ -33,17 +33,17 @@ Set the drawing flag to `0` to disable drawing.
 cc.director.getPhysicsManager().debugDrawFlags = 0;
 ```
 
-### Conversion physics units to pixel units
+### Conversion the physics units to the world coordinate system units
 
-Box2d uses **meter - kilogram - second (MDS)** unit system, it has the best performance operating under such a unit system.
-But we use **pixel** unit of length in 2D games, so we need a ratio to convert the physics units to the pixel units.
-In general, we set this ratio to `32`, which can be obtained by `cc.PhysicsManager.PTM_RATIO`, and this value is read-only.
-Usually the user does not need to care about this value, the physics system will automatically convert the physics units and pixel units to each other. User can use the familiar pixel units for all the calculations.
+Box2d uses **Metre-Kilogramme-Second (MKS)** unit system, it has the best performance operating under such a unit system. But we use the **world coordinate system units** (short for world units) as the unit of length in 2D games, so we need a ratio to convert the physics units to the world units.
+
+In general, we set this ratio to `32`, which can be obtained by `cc.PhysicsManager.PTM_RATIO`, and this value is read-only. Usually the user does not need to care about this value, the physics system will automatically convert the physics units and world units to each other. User can use the familiar world units for all the calculations.
 
 ### Set physics gravity
 
 Gravity is a very important thing in physics operation, and most physics games use the gravity as a important feature.
-The default gravity is (0, -320) pixels per second^2, according to the conversion rules described above, that's (0, -10) m / s^2 in physics unit.
+
+The default gravity is `(0, -320)` world units per second^2, according to the conversion rules described above, that's `(0, -10)` m/s^2 in physics unit.
 
 If you want the gravity to be 0, you can set like this:
 
@@ -51,7 +51,7 @@ If you want the gravity to be 0, you can set like this:
 cc.director.getPhysicsManager().gravity = cc.v2 ();
 ```
 
-If you want to modify the gravity to other values, such as 640 pixels / second^2, then you can set like this:
+If you want to modify the gravity to other values, such as 640 world units/second^2, then you can set like this:
 
 ```javascript
 cc.director.getPhysicsManager().gravity = cc.v2 (0, -640);

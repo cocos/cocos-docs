@@ -36,7 +36,7 @@ start: function () {
 }
 ```
 
-你也可以为 `getComponent` 传入一个类名。对用户定义的组件而言，类名就是脚本的文件名，并且**区分大小写**。例如 `SinRotate.js` 里声明的组件，类名就是 `SinRotate`。
+你也可以为 `getComponent` 传入一个类名。对用户定义的组件而言，类名就是脚本的文件名，并且 **区分大小写**。例如 `SinRotate.js` 里声明的组件，类名就是 `SinRotate`。
 
 ```js
 var rotate = this.getComponent("SinRotate");
@@ -91,7 +91,7 @@ cc.Class({
 
 ![player-in-inspector-null](access-node-component/player-in-inspector-null.png)
 
-接着你就可以将层级管理器上的任意一个节点拖到这个 Player 控件：
+接着你就可以将 **层级管理器** 中的任意一个节点拖到这个 Player 控件：
 
 ![player-in-inspector](access-node-component/player-in-inspector.png)
 
@@ -120,17 +120,18 @@ cc.Class({
 
 ### 利用属性检查器设置组件
 
-在上面的例子中，如果你将属性的 type 声明为 Player 组件，当你拖动节点 **Player Node** 到 **属性检查器**，player 属性就会被设置为这个节点里面的 Player 组件。这样你就不需要再自己调用 `getComponent` 啦。
+在上面的例子中，如果你先通过 [模块化](./modular-script.md#require) 方式获取到脚本（例如 `Player.js`），然后再将 `Cannon.js` 中属性的 type 声明为 Player 脚本组件：
 
 ```js
 // Cannon.js
 
+// 通过模块化方式获取脚本 “Player”
 var Player = require("Player");
 
 cc.Class({
     extends: cc.Component,
     properties: {
-        // 声明 player 属性，这次直接是组件类型
+        // 声明 player 属性，直接声明为组件类型
         player: {
             default: null,
             type: Player
@@ -138,15 +139,24 @@ cc.Class({
     },
 
     start: function () {
-        var playerComp = this.player;
-        this.checkPlayer(playerComp);
+        cc.log("The player is " + this.player.name);
     },
 
     // ...
 });
 ```
 
-你还可以将属性的默认值由 `null` 改为数组 `[]`，这样你就能在 **属性检查器** 中同时设置多个对象。<br>
+那么脚本编译之后，这个组件在 **属性检查器** 中看起来是这样的：
+
+![](access-node-component/player-in-properties-null.png)
+
+然后将挂载了 `Player.js` 的 **Player Node** 拖拽到这个组件的 `player` 属性框中：
+
+![](access-node-component/player-in-properties.png)
+
+这样 `player` 属性就相当于是这个节点上的 Player 脚本组件了，就不需要再自己手动调用 `getComponent` 来获取组件了。
+
+还可以将属性的默认值由 `null` 改为数组 `[]`，这样你就能在 **属性检查器** 中同时设置多个对象。<br>
 不过如果需要在运行时动态获取其它对象，还需要用到下面介绍的查找方法。
 
 ### 查找子节点

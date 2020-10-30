@@ -52,7 +52,7 @@
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-    ![](agc-crash/crash-agcfile.jpg)
+    ![](agc-crash/crash-agcfile.png)
 
 ### 验证服务是否接入成功
 
