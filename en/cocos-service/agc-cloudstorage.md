@@ -25,7 +25,7 @@ Cloud Storage is a resource-consuming service and will be charged based on the s
 
 Cloud Storage is still in Beta state. To use Cloud Storage, send an application email to agconnect@huawei.com to apply for the service.
 
-Set your email title in the following format: [Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID).
+Set your email title in the following format: **[Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID).
 
 Huawei operation personnel will reply within 1 to 3 working days.
 
@@ -159,7 +159,7 @@ All error messages will be returned to the `error` event callback.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| errCode | Number | Error Code, please refer to [Troubleshooting](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-troubleshooting) document. |
+| errCode | Number | Error code, please refer to [Troubleshooting](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-troubleshooting) document. |
 | errMsg | String | Error message description. |
 
 ### Creating a Reference
@@ -186,7 +186,7 @@ var nRootReference = fileReference.getRoot();
 
 ### Uploading a File
 
-Developer can reference files on the local device to upload the files to the storage instance on the AppGallery Connect cloud by calling `putFile` method.
+Reference files on the local device to upload the files to the storage instance on the AppGallery Connect cloud by calling `putFile` method.
 
 `putFile(filePath: string, metadata = {}, offset = -1): AGCUploadTask`
 
@@ -203,7 +203,7 @@ var fileReference = storageManagement.getStorageReference("images/demo.jpg");
 var uploadTask = fileReference.putFile(jsb.fileUtils.getWritablePath() + "/images/demo.jpg");
 ```
 
-Developer can call the `pause`, `resume`, or `cancel` method to change the upload task status.
+Call the `pause`, `resume`, or `cancel` method to change the upload task status.
 
 - `pause(): boolean`: Pauses an upload task that is being executed.
 - `resume(): boolean`: Resumes a paused upload task.
@@ -267,9 +267,9 @@ Developer can obtain information from the `list-file` event callback.
 
 ### Downloading a File
 
-After files are uploaded to the cloud, developer can call `getFile` method to download files on the cloud to the local device.
+After files are uploaded to the cloud, call `getFile` method to download files on the cloud to the local device.
 
-The `getFile` method supports resumable download. If the download fails due to an exception, developer can call `getFile` again to continue the download, improving user experience.
+The `getFile` method supports resumable download. If the download fails due to an exception, call `getFile` again to continue the download, improving user experience.
 
 `getFile(filePath: string): AGCDownloadTask`
 
@@ -288,7 +288,7 @@ Developer can obtain information from the [task](#task-event-callback) event cal
 
 ### Deleting a File
 
-Developer can call `delete` method to delete a file on the cloud. The deletion operation is **irreversible**, once the operation is performed, the file will be physically deleted and cannot be retrieved.
+Call `delete` method to delete a file on the cloud. The deletion operation is **irreversible**, once the operation is performed, the file will be physically deleted and cannot be retrieved.
 
 `delete(): void`
 
@@ -338,7 +338,7 @@ Developer can obtain information from the `get-file-metadata` event callback.
 
 ### Setting Metadata
 
-Developer can set file metadata before uploading a file or after a file is uploaded to the cloud. Configurable file metadata includes custom file attributes.
+Set file metadata before uploading a file or after a file is uploaded to the cloud. Configurable file metadata includes custom file attributes.
 
 `updateFileMetadata(metedata: any): void`
 

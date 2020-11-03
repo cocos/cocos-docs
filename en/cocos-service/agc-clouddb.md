@@ -122,7 +122,7 @@ This document refers to the AppGallery Connect documentation - [Getting Started]
 
 ### Initializing
 
-When developers use Cloud DB service, they need to perform initialization operations first: set listener (optional), and open the Cloud DB zone.
+When developers use Cloud DB service, they need to perform initialization operations first.
 
 #### Set listener (optional)
 
@@ -138,8 +138,8 @@ huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${
 | :--- | :--- |
 | zoneId | Name of Cloud DB zone, represents a unique data storage zone. |
 | typeName | Name of Storage instance. |
-| errCode | Error Code, please refer to [getCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/clouddb-agconnectclouddbexception#getCode) document. |
-| errMsg | error message |
+| errCode | Error code, please refer to [getCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/clouddb-agconnectclouddbexception#getCode) document. |
+| errMsg | Error Message |
 
 If you need to use the [Updating Listening in Real Time](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/clouddb-deve_guide_updating_listening) function, you can set up `subscribe` listener.
 
@@ -154,8 +154,8 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `error :
 | zoneId | Name of Cloud DB zone, represents a unique data storage zone. |
 | typeName | Name of Storage instance. |
 | queryId | Custom query ID, for query interface. |
-| subscribeId | subscribe listener id |
-| result | return message |
+| subscribeId | Subscribe listener id |
+| result | Return message |
 
 #### Open the Cloud DB zone
 
