@@ -2,19 +2,17 @@
 
 传统的移动应用开发，开发者需要从头开始构建每一个服务，开发工作量大，门槛高。开发者在写应用逻辑之外，还需要解决数据管理、端云数据同步和服务器部署维护等难题。
 
-华为 AppGallery Connect（简称 AGC） [云数据库](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction) （Cloud DB）是一款端云协同的数据库产品，提供端云数据的协同管理、统一的数据模型和丰富的数据管理 API 接口等能力。在保证数据的可用性、可靠性、一致性，以及安全等特性基础上，能够实现数据在客户端和云端之间的无缝同步，并为应用提供离线支持，以帮助开发者快速构建端云、多端协同的应用。同时，Cloud DB 作为 AGC 解决方案的一部分，为 AGC 平台构建了 MBaaS（Mobile Backend as a Service，移动后端即服务）能力。从而让应用开发者聚焦于应用本身的业务，极大的提升开发者的生产效率。
+华为 AppGallery Connect（简称 AGC）[云数据库](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction)（Cloud DB）是一款端云协同的数据库产品，提供端云数据的协同管理、统一的数据模型和丰富的数据管理 API 接口等能力。在保证数据的可用性、可靠性、一致性，以及安全等特性基础上，能够实现数据在客户端和云端之间的无缝同步，并为应用提供离线支持，以帮助开发者快速构建端云、多端协同的应用。同时，Cloud DB 作为 AGC 解决方案的一部分，为 AGC 平台构建了 MBaaS（Mobile Backend as a Service，移动后端即服务）能力，从而让应用开发者聚焦于应用本身的业务，极大地提升了生产效率。
 
-### 申请开通服务
+### 申请测试资格
 
-云数据库功能当前仍处于 Beta 开放状态，在使用此功能前，您需要请先 [下载表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后作为附件发送至 [agconnect@huawei.com](agconnect@huawei.com)，申请云数据库功能。
+目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至 [agconnect@huawei.com](agconnect@huawei.com) 提交申请。
 
-邮件标题请使用如下格式：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]**，开发者帐号 ID 及应用 ID 查询方法可参见 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。在收到您的申请后，华为运营人员会在 1-3 个工作日内给您答复。本邮箱地址仅处理 AGC 服务开通申请，其他咨询类问题请勿发送至本邮箱。
+邮件标题请使用：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
-云数据库属于资源消耗型服务，未来会基于数据记录条数、存储空间和网络的占用情况来进行收费。目前云数据库功能处于 Beta 测试期间，您可以 **免费** 使用。我们会在正式收费前一个月邮件通知并公告相关策略及费率。
-
-开通云数据库服务时，系统默认为您提供如下配额的免费云数据库服务。
+目前云数据库服务处于 Beta 测试阶段，开发者可以 **免费** 使用。华为会在正式收费前一个月邮件通知并公告相关策略及费率。开通云数据库服务时，系统默认提供如下配额的免费云数据库服务。
 
 | 服务类别 | 配额 |  
 | :--- | :--- |  
@@ -22,16 +20,7 @@
 |  最大并发连接数  | 150 | 
 |  云侧数据库每秒最大操作数  | 10 | 
 
-首次开通云数据库，如果您的应用需要使用的资源大于免费配额，或者您已开通免费云数据库服务，但免费资源配额无法满足您当前应用的使用需求时 ，您可 [下载表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写内容，然后作为附件发送至 [agconnect@huawei.com](agconnect@huawei.com) 申请云数据库功能。邮件标题格式：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]**，应用 ID 查询方法可参见 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。
-
-### 更多信息
-
-请参考以下文档：
-
-  - [产品架构](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-introduction_architecture)
-  - [功能特性](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-introduction_functions)
-  - [技术指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-introduction_technical_specifications)
-  - [FAQ](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-faq)
+使用云数据库时，若免费的资源配额无法满足开发者当前应用的使用需求 ，请先 [下载申请表格]((https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true)) 并填写内容，然后发送到邮箱提交申请。**邮箱、邮件标题格式** 和申请云数据库使用权限一致。
 
 ### 版本更新说明
 
@@ -43,11 +32,11 @@
 
 ### 开通服务
 
-- 发送邮件 [申请开通服务](#申请开通服务)。
-
-- 云数据库依赖于认证服务，所以在集成云数据库服务前，请先开通 [认证服务（AGC）](./agc-auth.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
+- 确保云数据库服务测试资格申请已通过。
 
 - 使用 Cocos Creator 打开需要接入云数据库服务的项目工程。
+
+- 云数据库依赖于认证服务，所以在集成云数据库服务前，请先开通 [认证服务（AGC）](./agc-auth.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **云数据库**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
@@ -93,7 +82,7 @@
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用 [数据库文件](agc-clouddb/cdb-test.json)，将其导入后台。
+- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json)，将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 
@@ -119,7 +108,7 @@
 
 ## 开发指南
 
-本文档对应 [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started)。
+本文档对应 [华为云数据库服务 — 使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started)。
 
 ### 初始化
 
@@ -147,7 +136,7 @@ huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${
 **示例**：
 
 ```js
-huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `error : [${data.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
+huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscribe : [${data.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
 ```
 
 | 参数 | 说明 |  
@@ -259,3 +248,9 @@ this.console.log('Cloud DB', 'delete count : ' + count);
 ## API 文档
 
 详细的功能接口和 API 说明，请参考 [云数据库 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.db.html)。
+
+## 相关参考链接
+
+- [工作原理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046
+- [技术指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046)
+- [FAQ](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-faq)

@@ -14,5 +14,8 @@
 - [远程配置（AppGallery Connect）](agc-remote.md)
 - [应用内消息（AppGallery Connect）](agc-appmessaging.md)
 - [App Linking（AppGallery Connect）](agc-applinking.md)
+- [云数据库（AppGallery Connect）](agc-clouddb.md)
+- [云存储（AppGallery Connect）](agc-cloudstorage.md)
+- [云函数（AppGallery Connect）](agc-cloudfunc.md)
 - [Cocos SDKHub](sdkhub.md)
     - [HUAWEI HMS Core](sdkhub-plugins/sdkhub-hms.md)

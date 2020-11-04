@@ -24,6 +24,12 @@ The **Service** Panel currently supports the integration of third-party services
 
   - [App Linking (AppGallery Connect)](agc-applinking.md)
 
+  - [Cloud DB (AppGallery Connect)](agc-clouddb.md)
+    
+  - [Cloud Storage (AppGallery Connect)](agc-cloudstorage.md)
+    
+  - [Cloud Functions (AppGallery Connect)](agc-cloudfunc.md)
+
   - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
 
 ## Usage

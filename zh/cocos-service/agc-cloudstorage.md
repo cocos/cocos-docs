@@ -1,33 +1,31 @@
 # 云存储（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage/) 是专为开发者打造的可伸缩、免维护的云端存储服务，开发者可以用于存储图片、音频、视频或其他由用户生成的内容。
+华为 AppGallery Connect（简称 AGC）[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage/) 是专为开发者打造的可伸缩、免维护的云端存储服务，用于存储图片、音频、视频或其他由用户生成的内容。
 
-云存储具备稳定、安全、高效、易用的特点，开发者无需关心存储服务器的开发、部署、运维、扩容等事务，及可用性、可靠性、持久性等指标，降低应用使用存储的门槛，让开发者可专注于业务能力的构建、运营和提升用户口碑。
+云存储具备稳定、安全、高效、易用的特点，开发者无需关心存储服务器的开发、部署、运维、扩容等事务。具备可用性、可靠性、持久性等指标，降低应用使用存储的门槛，让开发者可专注于业务能力的构建、运营和提升用户口碑。
 
 ### 云存储的优势
 
-云存储提供了客户端 SDK，SDK 提供简单、安全、高效、健壮的 API 接口，开发者使用支持云存储 SDK 来存储图片、视频、音频或用户生成的其他类型文件。
+云存储提供了客户端 SDK，SDK 提供简单、安全、高效、健壮的 API 接口，开发者可以使用云存储 SDK，存储图片、视频、音频或用户生成的其他类型文件。
 
-- 全流程使用 HTTPS 协议对用户的传输数据进行加密保护，并采用安全的加密协议将文件加密存储在云端。
-- 因网络原因或用户原因导致的操作中止，应用客户端只需要简单的传入操作中止的位置，就可以尝试重新开始该操作。
+- 全流程使用 HTTPS 协议，对用户的传输数据进行加密保护，并采用安全的加密协议将文件加密存储在云端。
+- 因网络原因或用户原因导致的操作中止，应用客户端只需要简单的传入操作中止的位置，即可尝试继续操作。
 - 提供 EB 级的数据存储，解决开发者海量数据存储的难题。
 - 开发者简单的判断返回异常就可以定位出错误原因，定位快捷方便。
 
 ### 工作原理
 
-使用云存储服务提供的客户端 SDK，应用客户端可以向云存储空间上传文件，云存储服务将开发者上传的文件存储在默认的存储实例中，开发者可以通过 AGC 访问这些文件。当然，开发者还可以使用云存储 SDK 在应用客户端下载、删除、管理文件。
+应用客户端使用云存储服务提供的客户端 SDK 上传文件到云存储空间，云存储服务再将上传的文件存储在默认的存储实例中，开发者即可通过 AGC 访问这些文件。当然，开发者还可以使用云存储 SDK 在应用客户端下载、删除、管理文件。
+
+### 申请测试资格
+
+云存储服务当前仍处于 Beta 开放状态，在使用此服务前，开发者需要向 agconnect@huawei.com 发送申请邮件，申请开通云存储服务。
+
+邮件标题请使用如下格式：**[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]**，开发者帐号 ID 及项目 ID 查询方法，可参见 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)，在收到开发者的申请后，华为运营人员会在 1-3 个工作日内给开发者答复。
 
 ### 如何收费
 
 云存储属于资源消耗型服务，未来会基于存储量、流量、请求操作次数等情况进行收费。目前云存储服务处于 Beta 测试阶段，采取 **限量免费** 的策略，开发者可以在一定配额内免费使用。
-
-### 申请开通服务
-
-云存储服务当前仍处于 Beta 开放状态，在使用此服务前，开发者需要向 agconnect@huawei.com 发送申请邮件，申请开通云存储服务。
-
-邮件标题请使用如下格式：**[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]**，开发者帐号 ID 及项目 ID 查询方法可参见 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)，在收到开发者的申请后，华为运营人员会在 1-3 个工作日内给开发者答复。
-
-本邮箱地址仅处理 AGC 服务开通申请，其他咨询类问题请勿发送至本邮箱。
 
 ### 版本更新说明
 
@@ -39,11 +37,11 @@
 
 ### 开通服务
 
-- 发送邮件 [申请开通服务](#申请开通服务)。
-
-- 云存储依赖于认证服务，所以在集成云存储服务前，请先开通 [认证服务（AGC）](./agc-auth.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
+- 确保云存储服务测试资格申请已通过。
 
 - 使用 Cocos Creator 打开需要接入云存储服务的项目工程。
+
+- 云存储依赖于认证服务，所以在集成云存储服务前，请先开通 [认证服务（AGC）](./agc-auth.md#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1)。
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **云存储**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
@@ -89,15 +87,15 @@
 
 - [发布到 Android 平台](../publish/publish-native.md)。请确保 **构建发布** 面板中的包名与华为后台设置的包名一致。
 
-- 工程运行到手机后，若能在 Logcat 中看到上传文件的文件名输出，即为接入成功。
+- 工程运行到手机后，若能在 Logcat 中看到上传文件的文件名，即为接入成功。
 
 ## Sample 工程
 
-开发者可以通过 Sample 工程快速体验性能管理服务。
+开发者可以通过 Sample 工程快速体验云存储服务。
 
-- 参考 [上传文件](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-manage#h1-1591179694719)，上传一个名为 `output.json` 的 [合法文件](#%E6%96%87%E4%BB%B6%E5%90%88%E6%B3%95%E6%80%A7)。
+- [上传](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-manage#h1-1591179694719) 一个名为 `output.json` 的 [合法文件](#%E6%96%87%E4%BB%B6%E5%90%88%E6%B3%95%E6%80%A7)。
 
-- 点击性能管理服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击云存储面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
 - 参照上文开通性能管理并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
@@ -114,18 +112,18 @@
 - 采用 UTF-8 编码时，云端文件的完整地址总长度不超过 1024 字符。
 - 不能包含回车符、换行符。
 - 对象名称中禁止使用特殊字符，如 `# * : ? ' " < > | [ ]`。
-- 最大上传文件大小不能超过 50GB，单次上传不超过 5GB，云存储 SDK 内部将文件按最大 5GB 的大小上传到服务器直到 50GB 上传完毕。若上传失败，SDK 会根据设置的最大重试次数进行重试上传。
+- 最大上传文件大小不能超过 50GB，单次上传不超过 5GB，云存储 SDK 内部将文件按最大 5GB 的大小分割上传到服务器直到 50GB 上传完毕。若上传失败，SDK 会根据设置的最大重试次数重新上传文件。
 - 单个文件名称或目录名称避免超过 255 个字符，超过后会导致在某些操作系统下出现兼容问题。
 
 ### 初始化
 
-在使用云存储功能前，需要初始化云存储实例，可通过 `getInstance` 进行初始化。
+在使用云存储功能前，需要使用 `getInstance` 初始化云存储实例。
 
 ```js
 var storageManagement = huawei.agc.storage.storageService.getInstance();
 ```
 
-如果有多个存储实例，并需要使用非默认的存储实例，需要传入 **存储实例名称**。
+如果需要使用 [非默认](#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1) 存储实例，需要传入 **存储实例名称**。
 
 ```js
 var customManagement = huawei.agc.storage.storageService.getInstance("custom-bucket-name");
@@ -192,7 +190,7 @@ var nRootReference = fileReference.getRoot();
 
 ### 上传文件
 
-用户可以通过引用操作本地设备上的文件，通过 `putFile` 将文件上传到 AGC 云端的存储实例中。
+开发者可以通过 `putFile` 将文件上传到 AGC 云端的存储实例中。
 
 `putFile(filePath: string, metadata = {}, offset = -1): AGCUploadTask`
 
@@ -254,7 +252,7 @@ dirReference.listAll();
 | 参数名 | 说明 |
 | :--- | :--- |
 | max | 分页获取时，指定获取的文件和子目录的总数量。max 的范围在 1-1000 之间。 |
-| marker | 分页标识。在 `list-file` 回调中的 `pageMarker` 获取下一页的分页标识，再调用本方法获取下一页数据。 |
+| marker | 分页标识。通过 `list-file` 回调中的 `pageMarker` 获取下一页的分页标识，再调用本方法获取下一页数据。 |
 
 **示例**：
 
@@ -283,7 +281,7 @@ dirReference.list(100, "file100.json");
 
 | 参数名 | 说明 |
 | :--- | :--- |
-| filePath | 待写入文件，需提前创建 |
+| filePath | 待写入文件的路径，文件需提前创建 |
 
 **示例**：
 
@@ -313,7 +311,7 @@ fileReference.delete();
 
 ### 获取元数据
 
-文件保存到云端后，您可以在下载文件实体前获取文件的元数据，来决定是否要下载文件。
+文件保存到云端后，开发者可以在下载文件之前先获取文件的元数据，再决定是否要下载文件。
 
 `getFileMetadata(): void`
 
@@ -346,11 +344,11 @@ fileReference.getFileMetadata();
 
 ### 设置元数据
 
-在上传文件前或者文件已经上传到云端，开发者都可以设置文件元数据。可设置的文件元数据包括文件的自定义属性。
+在上传文件前或者文件已经上传到云端，开发者都可以设置文件元数据，包括文件的自定义属性。
 
 `updateFileMetadata(metedata: any): void`
 
-可修改的参数：`sha256`/`contentType`/`cacheControl`/`contentDisposition`/`contentEncoding`/`contentLanguage`/`customMetadata`。
+可修改的参数：`sha256`、`contentType`、`cacheControl`、`contentDisposition`、`contentEncoding`、`contentLanguage`、`customMetadata`。
 
 **示例**：
 
@@ -381,7 +379,7 @@ fileReference.updateFileMetadata(metadata);
 
 ### 获取下载地址
 
-获取云端文件的分享地址。
+获取云端文件的下载地址。
 
 `getDownloadUrl(): void`
 
