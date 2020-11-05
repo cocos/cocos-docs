@@ -28,9 +28,9 @@
 
 ### 申请测试资格
 
-云函数服务当前仍处于 Beta 测试阶段，在使用此服务前，开发者需要向 `agconnect@huawei.com` 发送申请邮件，申请开通云函数服务。
+云函数服务当前仍处于 Beta 测试状态，若要使用该服务，开发者需要发送申请开通服务的邮件到邮箱 `agconnect@huawei.com`。
 
-邮件标题请使用 **[云函数]-[公司名称]-[开发者帐号 ID]-[项目 ID]** 格式，**开发者帐号 ID** 及**项目 ID** 的获取可参考文档 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)。在收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
+邮件标题请使用 **[云函数]-[公司名称]-[开发者帐号 ID]-[项目 ID]** 格式，**开发者帐号 ID** 及 **项目 ID** 的获取可参考文档 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)。在收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
@@ -78,7 +78,7 @@
 
 ### 验证服务是否接入成功
 
-- 参考 [创建函数]((https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-getstarted#h1-1577934210281) ) 文档，在 AppGallery Connect 后台创建函数并完成函数定义，可直接使用 AGC 默认提供的 **myHandler** 函数代码。然后参考 [应用客户端调用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-appcall#h1-1577936935853) 查询并获取触发器标识。
+- 参考 [创建函数](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-getstarted#h1-1577934210281) 文档，在 AppGallery Connect 后台创建函数并完成函数定义，可直接使用 AGC 默认提供的 **myHandler** 函数代码。然后参考 [应用客户端调用](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-appcall#h1-1577936935853) 查询并获取触发器标识。
 
 - 参考上文开通云函数服务后，我们便可以通过在脚本中添加简单的代码，来验证接入是否成功。以获取到的触发器标识为 `test-$latest` 为例：
 

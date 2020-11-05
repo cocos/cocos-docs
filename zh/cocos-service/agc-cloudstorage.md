@@ -19,9 +19,9 @@
 
 ### 申请测试资格
 
-云存储服务当前仍处于 Beta 开放状态，在使用此服务前，开发者需要向 `agconnect@huawei.com` 发送申请邮件，申请开通云存储服务。
+云存储服务当前仍处于 Beta 测试状态，若要使用该服务，开发者需要发送申请开通服务的邮件到邮箱 `agconnect@huawei.com`。
 
-邮件标题请使用 **[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]** 格式，**开发者帐号 ID** 及**项目 ID** 的获取可参考文档 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)。在收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
+邮件标题请使用 **[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]** 格式，**开发者帐号 ID** 及 **项目 ID** 的获取可参考文档 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)。在收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
@@ -243,7 +243,7 @@ var dirReference = storageManagement.getStorageReference("images/");
 dirReference.listAll();
 ```
 
-也可以通过 `list` 分页获取当前目录下的文件列表，包括文件和子目录。
+也可以通过 `list` 方法，分页获取当前目录下的文件列表，包括文件和子目录。
 
 `list(max: number, marker = ""): void`
 

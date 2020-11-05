@@ -62,5 +62,5 @@ Cocos Service 目前支持集成以下服务：
 - [App Linking（AppGallery Connect）](agc-applinking.md)：跨平台深度链接直达应用内内容，推动应用增长。
 - [云数据库（AppGallery Connect）](agc-clouddb.md)：安全可信的数据管理服务。
 - [云存储（AppGallery Connect）](agc-cloudstorage.md)：跨平台提供高效经济的文件上传下载服务。
-- [云函数（AppGallery Connect）](agc-cloudfunc.md)：事件驱动的函数计算平台，保证高可用与伸缩，让您便捷运行代码而无需管理服务器。
+- [云函数（AppGallery Connect）](agc-cloudfunc.md)：事件驱动的函数计算平台，保证高可用与伸缩，让开发者便捷运行代码而无需管理服务器。
 - [Cocos SDKHub](sdkhub.md)：快速接入原生平台 SDK。

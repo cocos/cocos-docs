@@ -22,8 +22,6 @@ The Cloud DB service is currently in beta testing and **free** of charge. Huawei
 
 When using Cloud DB service, if the free resource quota cannot meet the developer's current application needs, please download the [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510930080052:2800:18284CEBCBB25F6DF7FEC9639CEF797C13C6E5ACE32078EADF082AF53770BC74.xlsx?needInitFileName=true) and fill in the content, and then send it to the email address to submit the application. The email address and email header format are consistent with the [Apply for Test Qualification](#apply-for-test-qualification).
 
-When you apply for the Cloud DB service for the first time, if your application requires more resources than the free quota, or if you have enabled the free Cloud DB service but the free resource quota cannot meet your application requirements, you can download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510930080052:2800:18284CEBCBB25F6DF7FEC9639CEF797C13C6E5ACE32078EADF082AF53770BC74.xlsx?needInitFileName=true), and send it as an attachment to `agconnect@huawei.com`. Email title format: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo).
-
 ### Version Update Description
 
 - Latest Version: 0.5.0_1.2.1.301
@@ -42,7 +40,7 @@ When you apply for the Cloud DB service for the first time, if your application 
 
   ![](agc-clouddb/cdb-panel.png)
 
-- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes#h1-1594195740754) document, export object types file in **JSON** format, import into the **Cloud DB Config File** item at the bottom of the Cloud DB service panel.
+- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes#h1-1594195740754) document, export object types file in **JSON** format, import into the **Cloud DB Config File** parameter at the bottom of the Cloud DB service panel.
 
   ![](agc-clouddb/cdb-jsonconfig.png)
 
@@ -131,7 +129,7 @@ huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${
 | errCode | Error code, please refer to [getCode](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/clouddb-agconnectclouddbexception#getCode) document. |
 | errMsg | Error Message |
 
-If you need to use the [Updating Listening in Real Time](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/clouddb-deve_guide_updating_listening) function, you can set up `subscribe` listener.
+If you need to use the [Updating Listening in Real Time](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-update-listen) function, you can set up `subscribe` listener.
 
 **Example**:
 
@@ -149,7 +147,7 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 
 #### Open the Cloud DB zone
 
-Open the cloud DB zone by calling the ʻopenCloudDBZone` method.
+Open the cloud DB zone by calling the `openCloudDBZone` method.
 
 `openCloudDBZone(config: AGCCloudDBZoneConfig, isAllowToCreate: boolean): AGCCloudDBZone`
 

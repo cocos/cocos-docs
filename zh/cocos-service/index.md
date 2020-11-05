@@ -21,7 +21,7 @@ Cocos Service 目前提供的服务包括：
 - [远程配置（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction)：无需升级应用，即可灵活修改应用的行为和外观。
 - [云数据库（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction)：安全可信的数据管理服务。
 - [云存储（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-introduction)：跨平台提供高效经济的文件上传下载服务。
-- [云函数（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-introduction)：事件驱动的函数计算平台，保证高可用与伸缩，让您便捷运行代码而无需管理服务器。
+- [云函数（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-introduction)：事件驱动的函数计算平台，保证高可用与伸缩，让开发者便捷运行代码而无需管理服务器。
 - [Cocos SDKHub](sdkhub.md)：快速接入第三方原生 SDK。
 
 更多第三方服务还在不断接入中。

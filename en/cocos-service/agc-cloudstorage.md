@@ -21,7 +21,7 @@ With the client SDK provided by Cloud Storage, an app client can upload files to
 
 Cloud Storage is still in Beta testing. To use Cloud Storage, send an application email to `agconnect@huawei.com` to apply for the service.
 
-Set your email title in the following format: **[Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days.
+Set your email title format: **[Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days.
 
 ### Charge
 
@@ -39,7 +39,7 @@ Cloud Storage is in beta testing and uses a **limited free** usage policy. That 
 
   ![](agc-cloudstorage/cs-panel.png)
 
-- Please refer to [Enabling Cloud Storage](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-getstarted#h1-1585569414384) document, set **Storage instance** and enabling cloud storage. Then fill in the name of the storage instance used by default into the **Default Instance** item at the bottom of the Cloud Storage service panel.
+- Please refer to [Enabling Cloud Storage](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-getstarted#h1-1585569414384) document, set **Storage instance** and enabling cloud storage. Then fill in the name of the storage instance used by default into the **Default Instance** parameter at the bottom of the Cloud Storage service panel.
 
   ![](agc-cloudstorage/cs-panelparam.png)
 
@@ -85,7 +85,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 Developer can get a quick taste of the Cloud Storage service with the sample project.
 
-- [Upload]((https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-manage#h1-1591181343625)) a [legal file](#legality-of-files) named `output.json`.
+- [Upload](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudstorage-manage#h1-1591181343625) a [legal file](#legality-of-files) named `output.json`.
 
 - Click on the **Sample** button in the Cloud Storage service panel, clone or download, and open the project in Cocos Creator.
 
@@ -104,7 +104,7 @@ When you upload a file or directory, the system strictly checks the name of the 
 - When you use UTF-8 for encoding, the total length of the complete address of the cloud file cannot exceed 1024 characters.
 - The name cannot contain carriage return characters or line breaks.
 - Do not use special characters including the following: `# * : ? ' " < > | [ ]`.
-- The maximum size of a file to be uploaded cannot exceed 50 GB. The Cloud Storage SDK of AppGallery Connect uploads a maximum of 5 GB data to the server each time until 50 GB data is uploaded. If the upload fails, the SDK retries the upload until the configured maximum number of retry times is reached.
+- The maximum size of a file to be uploaded cannot exceed 50GB. The Cloud Storage SDK of AppGallery Connect uploads a maximum of 5 GB data to the server each time until 50GB data is uploaded. If the upload fails, the SDK retries the upload until the configured maximum number of retry times is reached.
 - The name of a file or directory can contain up to 255 characters. Otherwise, compatibility problems may occur in some operating systems.
 
 ### Initializing
@@ -188,7 +188,7 @@ Reference files on the local device to upload the files to the storage instance 
 
 | Parameter | Description |
 | :--- | :--- |
-| filePath | Binary data of a file to be uploaded. The total size cannot exceed 50 GB. |
+| filePath | Binary data of a file to be uploaded. The total size cannot exceed 50GB. |
 | metadata | Metadata of a file or directory. |
 | offset | Position of resumable download. Set this parameter to the number of bytes that have been passed. You can obtain the value of this parameter from `bytesTransferred` of `task` callback. |
 
@@ -235,7 +235,7 @@ var dirReference = storageManagement.getStorageReference("images/");
 dirReference.listAll();
 ```
 
-To obtain data in pagination mode by calling `list` method, to obtain the files and directories in the subdirectory.
+You can also call `list` method to get a list of files in the current directory, including files and subdirectories.
 
 `list(max: number, marker = ""): void`
 

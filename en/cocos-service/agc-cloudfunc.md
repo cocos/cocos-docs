@@ -30,7 +30,7 @@ Cloud Functions lets you run function code to respond to specific events, such a
 
 Cloud Functions is still in Beta state. To use Cloud Functions, send an application email to `agconnect@huawei.com` to apply for the service.
 
-Set your email title in the following format: **[Cloud Functions]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query the developer account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days. 
+Set your email title format: **[Cloud Functions]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query the developer account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days. 
 
 ### Charge
 
@@ -140,7 +140,7 @@ function.call((err, data) => {
 
 // with params
 function.call((err, data) => {
-if (err !== null) {
+    if (err !== null) {
         console.log("Cloud Function", `error: ${JSON.stringify(err)}`);
     }
     console.log("Cloud Function", `result: ${JSON.stringify(data)}`);
