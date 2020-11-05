@@ -66,7 +66,7 @@
 
 3. Cocos Creator v2.4.3 及以上版本，若 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)，开发者可直接在 **构建发布** 面板中选取下载或更新后的配置文件，不需要手动拷贝。
 
-    ![](agc-clouddb/cdb-agcfile.jpg)
+    ![](agc-clouddb/cdb-agcfile.png)
 
 ### 验证服务是否接入成功
 
@@ -82,7 +82,7 @@
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json)，将其导入 AGC 后台。
+- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json.zip)，解压后将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 

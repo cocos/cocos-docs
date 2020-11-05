@@ -64,7 +64,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-    ![](agc-clouddb/cdb-agcfile.jpg)
+    ![](agc-clouddb/cdb-agcfile.png)
 
 ### Verify whether the service is integrated successfully
 
@@ -80,7 +80,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- Download [database file](agc-clouddb/cdb-test.json) for test, import it into the AGC console.
+- Download [database file](agc-clouddb/cdb-test.json.zip) for test, import it into the AGC console after decompression.
 
   ![](agc-clouddb/cdb-importdb.png)
 
