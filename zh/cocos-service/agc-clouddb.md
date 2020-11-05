@@ -6,7 +6,7 @@
 
 ### 申请测试资格
 
-目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至 [agconnect@huawei.com](agconnect@huawei.com) 提交申请。
+目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至 `agconnect@huawei.com` 提交申请。
 
 邮件标题请使用：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
@@ -20,7 +20,7 @@
 |  最大并发连接数  | 150 | 
 |  云侧数据库每秒最大操作数  | 10 | 
 
-使用云数据库时，若免费的资源配额无法满足开发者当前应用的使用需求 ，请先 [下载申请表格]((https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true)) 并填写内容，然后发送到邮箱提交申请。**邮箱、邮件标题格式** 和申请云数据库使用权限一致。
+使用云数据库时，若免费的资源配额无法满足开发者当前应用的使用需求，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写内容，然后发送到邮箱提交申请。**邮箱**、**邮件标题格式** 和申请云数据库服务测试资格一致。
 
 ### 版本更新说明
 
@@ -73,7 +73,7 @@
 - 完成 **云数据库** 服务接入步骤后，我们便可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
   ```js
-  //"test" 需替换为配置的对象类型名
+  // "test" 需替换为配置的对象类型名
   let db = huawei.agc.db;
   let config = db.AGCCloudDBZoneConfig.createConfig("test", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
   let query = db.AGCCloudDBZoneQuery.where("test", "queryTest");
@@ -98,9 +98,9 @@
 
 - 点击云数据库服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- [开通服务](#%E5%BC%80%E9%80%9A%E6%9C%8D%E5%8A%A1) 时，配置一个名为 `test` 的 **对象类型名**。
+- 参照上文开通云数据库服务并配置华为参数文件。在开通服务时，请将 **云数据库配置文件** 的 **对象类型名** 设置为 `test`。
 
-- 参照上文开通云数据库并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
+- 设置完成后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
 - Sample 工程运行到手机后，点击首页的 **DB** 按钮，即可进入功能界面进行测试。
 
@@ -251,6 +251,6 @@ this.console.log('Cloud DB', 'delete count : ' + count);
 
 ## 相关参考链接
 
-- [工作原理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046
+- [工作原理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046)
 - [技术指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046)
 - [FAQ](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-faq)

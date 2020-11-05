@@ -6,7 +6,7 @@ In the traditional mobile application development, developers have to build each
 
 ### Apply for Test Qualification
 
-The Cloud DB service is currently in beta testing. If you want to use this service, please download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510820040619:2800:87124B14FD9DA9B4EA0EE9D1C79FA3B9750FC489D47C0B290205770EC05D0261.xlsx?needInitFileName=true), and send it to [agconnect@huawei.com](agconnect@huawei.com) to submit the application.
+The Cloud DB service is currently in beta testing. If you want to use this service, please download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510820040619:2800:87124B14FD9DA9B4EA0EE9D1C79FA3B9750FC489D47C0B290205770EC05D0261.xlsx?needInitFileName=true), and send it to `agconnect@huawei.com` to submit the application.
 
 Email title format: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo). After receiving your application, Huawei operations personnel will reply to you within 1 to 3 working days.
 
@@ -22,7 +22,7 @@ The Cloud DB service is currently in beta testing and **free** of charge. Huawei
 
 When using Cloud DB service, if the free resource quota cannot meet the developer's current application needs, please download the [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510930080052:2800:18284CEBCBB25F6DF7FEC9639CEF797C13C6E5ACE32078EADF082AF53770BC74.xlsx?needInitFileName=true) and fill in the content, and then send it to the email address to submit the application. The email address and email header format are consistent with the [Apply for Test Qualification](#apply-for-test-qualification).
 
-When you apply for the Cloud DB service for the first time, if your application requires more resources than the free quota, or if you have enabled the free Cloud DB service but the free resource quota cannot meet your application requirements, you can download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510930080052:2800:18284CEBCBB25F6DF7FEC9639CEF797C13C6E5ACE32078EADF082AF53770BC74.xlsx?needInitFileName=true), and send it as an attachment to agconnect@huawei.com. Email title format: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo).
+When you apply for the Cloud DB service for the first time, if your application requires more resources than the free quota, or if you have enabled the free Cloud DB service but the free resource quota cannot meet your application requirements, you can download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510930080052:2800:18284CEBCBB25F6DF7FEC9639CEF797C13C6E5ACE32078EADF082AF53770BC74.xlsx?needInitFileName=true), and send it as an attachment to `agconnect@huawei.com`. Email title format: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo).
 
 ### Version Update Description
 
@@ -73,7 +73,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 - Once the Cloud DB service is integrated, we can verify the success of the Cloud DB service integration by adding simple code to the script.
 
   ```js
-  //"test" should to be replaced with the name of Storage instance
+  // "test" should to be replaced with the name of Storage instance
   let db = huawei.agc.db;
   let config = db.AGCCloudDBZoneConfig.createConfig("test", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
   let query = db.AGCCloudDBZoneQuery.where("test", "queryTest");
@@ -98,9 +98,9 @@ Developer can get a quick taste of the Cloud DB service with the sample project.
 
 - Click on the **Sample** button in the Cloud DB service panel, clone or download, and open the project in Cocos Creator.
 
-- Configure an **Object Type Name** named `test` when [Enable Cloud DB Service](#enable-cloud-db-service).
+- Enabling the Cloud DB service and configuring the HUAWEI configuration file as described above. Configure an **Object Type Name** named `test` when enabling the Cloud DB service.
 
-- After enabling the Cloud DB service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After setting, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Once the Sample project is running on the phone, click the **DB** button on the homepage for testing.
 
@@ -108,7 +108,7 @@ Developer can get a quick taste of the Cloud DB service with the sample project.
 
 ## Developer Guide
 
-This document refers to the [AppGallery Connect documentation - Getting Started](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started#h1-1594008574948).
+This document refers to the AppGallery Connect documentation - [Getting Started](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started#h1-1594008574948).
 
 ### Initializing
 

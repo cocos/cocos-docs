@@ -28,13 +28,13 @@ Cloud Functions lets you run function code to respond to specific events, such a
 
 ### Apply for Test Qualification
 
-Cloud Functions is still in Beta state. To use Cloud Functions, send an application email to [agconnect@huawei.com](agconnect@huawei.com) to apply for the service.
+Cloud Functions is still in Beta state. To use Cloud Functions, send an application email to `agconnect@huawei.com` to apply for the service.
 
 Set your email title in the following format: **[Cloud Functions]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query the developer account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days. 
 
-### Pricing
+### Charge
 
-Cloud Functions is a resource-consuming service and will be charged based on service call times, memory usage, and network resource usage in the future. Currently, Cloud Functions is in beta test and **free** of charge. We will email you a notice about pricing policies one month in advance of formal charging.
+Currently, Cloud Functions is in beta test and **free** of charge. Huawei will email you a notice about pricing policies one month in advance of formal charging.
 
 ### Version Update Description
 
@@ -111,7 +111,7 @@ Developer can get a quick taste of the Cloud Functions service with the sample p
 
 ## Developer Guide
 
-This document refers to [Calling a Function](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudfunction-appcall#h1-1578361210933).
+This document refers to AppGallery Connect documentation - [Calling a Function](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudfunction-appcall#h1-1578361210933).
 
 Call `wrap` and transfer the trigger identifier to it.
 

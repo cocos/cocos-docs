@@ -2,7 +2,7 @@
 
 华为 AppGallery Connect（简称 AGC）[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage/) 是专为开发者打造的可伸缩、免维护的云端存储服务，用于存储图片、音频、视频或其他由用户生成的内容。
 
-云存储具备稳定、安全、高效、易用的特点，开发者无需关心存储服务器的开发、部署、运维、扩容等事务。具备可用性、可靠性、持久性等指标，降低应用使用存储的门槛，让开发者可专注于业务能力的构建、运营和提升用户口碑。
+云存储具备稳定、安全、高效、易用的特点，开发者无需关心存储服务器的开发、部署、运维、扩容等事务。具备可用性、可靠性、持久性等指标，降低应用使用存储的门槛，让开发者专注于业务能力的构建、运营和提升用户口碑。
 
 ### 云存储的优势
 
@@ -19,13 +19,13 @@
 
 ### 申请测试资格
 
-云存储服务当前仍处于 Beta 开放状态，在使用此服务前，开发者需要向 agconnect@huawei.com 发送申请邮件，申请开通云存储服务。
+云存储服务当前仍处于 Beta 开放状态，在使用此服务前，开发者需要向 `agconnect@huawei.com` 发送申请邮件，申请开通云存储服务。
 
-邮件标题请使用如下格式：**[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]**，开发者帐号 ID 及项目 ID 查询方法，可参见 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)，在收到开发者的申请后，华为运营人员会在 1-3 个工作日内给开发者答复。
+邮件标题请使用 **[云存储]-[公司名称]-[开发者帐号 ID]-[项目 ID]** 格式，**开发者帐号 ID** 及**项目 ID** 的获取可参考文档 [查询开发者帐号 ID 及项目 ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-ID)。在收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
-云存储属于资源消耗型服务，未来会基于存储量、流量、请求操作次数等情况进行收费。目前云存储服务处于 Beta 测试阶段，采取 **限量免费** 的策略，开发者可以在一定配额内免费使用。
+目前云存储服务处于 Beta 测试阶段，采取 **限量免费** 的策略，开发者可以在一定配额内免费使用。
 
 ### 版本更新说明
 
@@ -47,7 +47,7 @@
 
   ![](agc-cloudstorage/cs-panel.png)
 
-- 请参考 [开通云存储服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-getstarted#h1-1585569414384) 文档，设置存储实例名称，开通服务，并将默认使用的存储实例名称，填写到云存储服务面板下方 **默认实例** 选项中。
+- 请参考 [开通云存储服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-getstarted#h1-1585569414384) 文档，设置存储实例名称，开通服务，并将默认使用的存储实例名称填写到云存储服务面板下方 **默认实例** 选项中。
 
   ![](agc-cloudstorage/cs-panelparam.png)
 
@@ -95,9 +95,9 @@
 
 - [上传](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudstorage-manage#h1-1591179694719) 一个名为 `output.json` 的 [合法文件](#%E6%96%87%E4%BB%B6%E5%90%88%E6%B3%95%E6%80%A7)。
 
-- 点击云存储面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
+- 点击云存储服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- 参照上文开通性能管理并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
+- 参照上文开通云存储服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
 - Sample 工程运行到手机后，点击首页的 **Storage** 按钮，即可进入功能界面进行测试。
 
