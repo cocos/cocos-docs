@@ -82,7 +82,7 @@
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json)，将其导入 AGC 后台。
+- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json.zip)，解压后将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 

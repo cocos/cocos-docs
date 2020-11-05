@@ -80,7 +80,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- Download [database file](agc-clouddb/cdb-test.json) for test, import it into the AGC console.
+- Download [database file](agc-clouddb/cdb-test.json.zip) for test, import it into the AGC console after decompression.
 
   ![](agc-clouddb/cdb-importdb.png)
 
