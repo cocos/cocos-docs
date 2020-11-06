@@ -20,6 +20,7 @@ You can import projects from other editors by the Main Menu **File -> Import Pro
 	![import-process.png](./project-import/import-process.png)
 	
 	Details:
+
 	- 1 -- The full path of the imported project.
 	- Log the file is now importing.
 	- 2 -- When the importing is finished, you will see a line like this: `Import XXX project finished.`. (XXX should be the project type.)
@@ -30,6 +31,7 @@ The time of importing depends on the size of the project. When it's importing, p
 ## Details of Importing Cocos Studio Projects
 
 - There are 3 kinds of `csd` files in Cocos Studio project:
+
 	- Scene ---- Imported as a scene (`.fire`)
 	- Layer ---- Imported as a prefab
 	- Node ---- Imported as a prefab
@@ -37,6 +39,7 @@ The time of importing depends on the size of the project. When it's importing, p
 - The animation data in the `csd` files will be imported as `.anim` files.
 
 - The File Structure after the project imported:
+
 	- The resources will be stored in a separate folder in assets. The folder name will be same with the Cocos Studio project name.
 	- The File Structure will be same with the Cocos Studio project.
 	- The animation files will be stored in a child folder. The folder name will be `[csd file name]_action`.
@@ -44,6 +47,7 @@ The time of importing depends on the size of the project. When it's importing, p
 - Some controls from the Cocos Studio project are currently not supported in Cocos Creator. When these controls are imported, an x component will be added to the corresponding node and the control data will be stored in the x component.
 
 - Some controls in Cocos Studio are currently not supported in Cocos Creator. The importing process will add a `StudioComponent` for the node with unsupported controls. The data of the controls will be stored in the `StudioComponent`. Unsupported controls including:
+
 	- CheckBox
 	- LabelAtlas
 	- SliderBar
@@ -70,13 +74,15 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 
 - New support for animation frame events
 
-    Unified add default `triggerAnimationEvent` event, The parameter is the data set below:
+  Unified add default `triggerAnimationEvent` event, The parameter is the data set below:
     
-    ![animation-frame-event.png](./project-import/animation-frame-event.png)
+  ![animation-frame-event.png](./project-import/animation-frame-event.png)
 
 - Import nested csd
 
-    If the **csd** contains a nested prefab, a dummy node will be auto created with a `cc.StudioComponent.PlaceHolder` component attached. The `nestedPrefab` property of the component will save nested prefab resources, which are replaced by the current node at runtime. (If you need to operate on this node, it must be the runtime of the project, and the editor preview not supported at this time)
+  If the **csd** contains a nested prefab, a dummy node will be auto created with a `cc.StudioComponent.PlaceHolder` component attached. The `nestedPrefab` property of the component will save nested prefab resources, which are replaced by the current node at runtime. (If you need to operate on this node, it must be the runtime of the project, and the editor preview not supported at this time)
+
+  **Note**: As of v2.4.3, this operation is no longer required.
 
 ## Details of Importing Cocos Builder Projects
 

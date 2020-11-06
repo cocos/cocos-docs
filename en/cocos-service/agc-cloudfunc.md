@@ -30,7 +30,7 @@ Cloud Functions lets you run function code to respond to specific events, such a
 
 Cloud Functions is still in Beta state. To use Cloud Functions, send an application email to `agconnect@huawei.com` to apply for the service.
 
-Set your email title format: **[Cloud Functions]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query the developer account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days. 
+Set your email title format as: **[Cloud Functions]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query the developer account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days. 
 
 ### Charge
 
@@ -81,12 +81,12 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 - Once the Cloud Functions service is integrated, we can verify the success of the Cloud Functions service integration by adding simple code to the script. Take the obtained trigger identifier as `test-$latest` as an example.
 
   ```js
-    huawei.agc.func.AGCFunctionService.wrap("test-$latest").call((err, data) => {
-        if (err !== null) {
-            console.log("Cloud Function", `error: ${JSON.stringify(err)}`);
-        }
-        console.log("Cloud Function", `result: ${JSON.stringify(data)}`);
-    });
+  huawei.agc.func.AGCFunctionService.wrap("test-$latest").call((err, data) => {
+      if (err !== null) {
+          console.log("Cloud Function", `error: ${JSON.stringify(err)}`);
+      }
+      console.log("Cloud Function", `result: ${JSON.stringify(data)}`);
+  });
   ```
   
 - [Publish to the Android platform](../publish/publish-native.md) after the code is added. Please make sure that the **Package Name** on the **Build** panel is consistent with the **Package Name** set in the AppGallery Connect console.
