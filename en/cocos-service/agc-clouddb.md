@@ -8,7 +8,7 @@ In the traditional mobile application development, developers have to build each
 
 The Cloud DB service is currently in beta testing. If you want to use this service, please download and fill in an [application form](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820100918.76138629294381731909324437851176:50510820040619:2800:87124B14FD9DA9B4EA0EE9D1C79FA3B9750FC489D47C0B290205770EC05D0261.xlsx?needInitFileName=true), and send it to `agconnect@huawei.com` to submit the application.
 
-Email title format: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo). After receiving your application, Huawei operations personnel will reply to you within 1 to 3 working days.
+Set your email title format as: **[Cloud DB]-[Company name]-[Developer account ID]-[App ID]**. For details about how to query the app ID, see [Querying App Information](https://developer.huawei.com/consumer/en/doc/appgallery_queryappinfo). After receiving your application, Huawei operations personnel will reply to you within 1 to 3 working days.
 
 ### Charge
 
@@ -80,7 +80,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- Download [database file](agc-clouddb/cdb-test.json.zip) for test, import it into the AGC console after decompression.
+- Download <a href="agc-clouddb/cdb-test.json.zip" target="_blank">database file</a> for test, import it into the AGC console after decompression.
 
   ![](agc-clouddb/cdb-importdb.png)
 

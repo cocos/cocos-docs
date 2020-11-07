@@ -6,9 +6,9 @@
 
 ### 申请测试资格
 
-目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至 `agconnect@huawei.com` 提交申请。
+目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至邮箱 `agconnect@huawei.com` 提交申请。
 
-邮件标题请使用：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
+邮件标题请使用 **[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
@@ -82,7 +82,7 @@
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json.zip)，解压后将其导入 AGC 后台。
+- 下载测试用的 <a href="agc-clouddb/cdb-test.json.zip" target="_blank">数据库文件</a>，解压后将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 

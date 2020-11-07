@@ -1,6 +1,15 @@
 # Spine
 
-Spine skeleton animation resources are data formats that exported by [Spine](http://en.esotericsoftware.com/) (Creator v2.0.7 and below support for Spine v2.5, Creator v2.0.8 to v2.1 support for Spine v3.6, Creator v2.2 support for Spine v3.7, Creator v2.3 and above support for Spine v3.8).
+Spine skeleton animation resources in Cocos Creator are exported from [Spine Editor](http://esotericsoftware.com/), and currently support both [JSON](http://esotericsoftware.com/spine-export/#JSON) and [Binary](http://esotericsoftware.com/spine-export/#Binary) data formats.
+
+The supported Spine versions for each Creator version are as follows:
+
+| Creator version | Spine version |
+| :---------- | :-------- |
+| v2.0.7 and below | v2.5 |
+| v2.0.8～v2.1     | v3.6 |
+| v2.2             | v3.7 |
+| v2.3 and above   | v3.8 |
 
 ## Import skeleton animation resources
 
