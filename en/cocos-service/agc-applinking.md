@@ -288,7 +288,7 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
 huawei.agc.applinking.appLinkingService.getAppLinking();
 ```
 
-## Service Related Documentation
+## Reference Links
 
 - [Viewing Analytical Data](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-viewanalytics)
 - [Debugging the Link of App Linking](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-debug)

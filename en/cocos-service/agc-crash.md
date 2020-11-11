@@ -172,7 +172,7 @@ huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
 huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke');
 ```
 
-## Service Related Documentation
+## Reference Links
 
 - [Analyzing a Crash](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [Receiving Crash Notifications](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-notice)

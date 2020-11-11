@@ -243,7 +243,7 @@ let count = this._zone.deleteAllSync("test");
 this.console.log('Cloud DB', 'delete count : ' + count);
 ```
 
-## Service Related Documentation
+## Reference Links
 
 - [Working Principle](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603975887838-0)
 - [Technical Specifications](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603848492635)
