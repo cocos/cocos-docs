@@ -255,7 +255,7 @@ console.log('getUserInfo...', 'info =', JSON.stringify(userInfo));
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>`email`：邮箱账号，邮箱认证登录方式需要传入。<br>`phoneNumber`：手机号码，手机认证登录方式需要传入。<br>`countryCode`：国家码，即国际电话区号，手机认证登录方式需要传入。<br>`verifyCode`：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>`action`：`register`（用于注册）或 `reset`（用于重置）。<br>`locale`：可选，[updatePhone](#updatePhone) 和 [updateEmail](#updateEmail) 方法所需的验证码发送的语言，默认为当前系统语言。 | 
+|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>`email`：邮箱账号，邮箱认证登录方式需要传入。<br>`phoneNumber`：手机号码，手机认证登录方式需要传入。<br>`countryCode`：国家码，即国际电话区号，手机认证登录方式需要传入。<br>`verifyCode`：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>`action`：`register`（用于注册）或 `reset`（用于重置）。<br>`locale`：可选，[updatePhone](#updatePhone) 和 [updateEmail](#updateEmail) 方法发送的验证码的语言，默认为当前系统语言。 | 
 
 **示例**：
 
@@ -405,7 +405,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-更新当前用户的邮箱。可参考 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section39401634112717) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为该用户所有。验证码发送的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
+更新当前用户的邮箱。可参考 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section39401634112717) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法为新邮箱申请验证码，从而确定新邮箱为该用户所有。验证码的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
 
 **参数说明**：
 
@@ -424,7 +424,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-更新当前用户的手机号。可参考 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section1668015437285) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为该用户所有。验证码发送的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
+更新当前用户的手机号。可参考 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section1668015437285) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法为新手机申请验证码，从而确定新手机为该用户所有。验证码的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
 
 **参数说明**：
 
