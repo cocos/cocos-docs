@@ -21,7 +21,7 @@ With the client SDK provided by Cloud Storage, an app client can upload files to
 
 Cloud Storage is still in Beta testing. To use Cloud Storage, send an application email to `agconnect@huawei.com` to apply for the service.
 
-Set your email title format: **[Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days.
+Set your email title format as: **[Cloud Storage]-[Company name]-[Developer account ID]-[Project ID]**. For details about how to query thedeveloper account ID and project ID, please refer to [Querying the Developer Account ID and Project ID](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-query-ID). Huawei operation personnel will reply within 1 to 3 working days.
 
 ### Charge
 

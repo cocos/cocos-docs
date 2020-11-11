@@ -38,6 +38,7 @@
 ### 实现方案
 
 - Cocos Studio 工程中的 csd 文件分为以下三类：
+
 	- Scene —— 导入为场景文件（`.fire`）
 	- Layer —— 导入为 prefab
 	- Node —— 导入为 prefab
@@ -45,11 +46,13 @@
 - csd 文件中记录的节点帧动画数据，导入为 anim 文件。
 
 - 导入后的目录结构：
+
 	- Cocos Studio 工程导入后存放在 assets 目录下一个独立的文件夹中（文件夹以 Cocos Studio 工程名命名）。
 	- Cocos Studio 工程中使用的资源文件以相同的目录结构导入到 Cocos Creator 工程中。
 	- csd 文件中的帧动画数据存放在一个子目录中，子目录命名为 `[csd 文件名]_action`
 
 - 目前 Cocos Studio 工程的部分控件在 Cocos Creator 中暂不支持。这些控件在导入过程中，会在相应的节点上添加 StudioComponent 组件，并将控件数据保存在 StudioComponent 组件中。不支持的控件类型包括：
+
 	- 复选框
 	- 艺术数字
 	- 滑动条
@@ -76,13 +79,15 @@ Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与
     
 - 新支持动画帧事件
 
-    统一添加默认的 `triggerAnimationEvent` 事件，参数为下方设置的数据：
+  统一添加默认的 `triggerAnimationEvent` 事件，参数为下方设置的数据：
     
-    ![animation-frame-event.png](./project-import/animation-frame-event.png)
+  ![animation-frame-event.png](./project-import/animation-frame-event.png)
    
 - 导入嵌套的 csd
 
-    当 csd 包含嵌套的时候，会自动创建一个带有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代。该组件中的 `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行，且目前不支持在编辑器中预览）
+  当 csd 包含嵌套的时候，会自动创建一个带有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代。该组件中的 `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（必须是 **运行时** 才可以对该节点进行操作，且目前不支持在编辑器中预览）
+
+  **注意**：从 v2.4.3 开始不需要再执行该操作。
 
 ## Cocos Builder 项目导入说明
 

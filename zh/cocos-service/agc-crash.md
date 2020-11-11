@@ -174,7 +174,7 @@ huawei.agc.crash.crashService.setCustomKey('booleanKey123', true);
 huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke');
 ```
 
-## 服务使用参考文档
+## 相关参考链接
 
 - [分析崩溃问题](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-locate)
 - [接收崩溃提醒](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-notice)

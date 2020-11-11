@@ -162,7 +162,7 @@ huawei.agc.appmessaging.appMessagingService.once(huawei.agc.appmessaging.AGC_APP
 }, this);
 ```
 
-## 服务使用参考文档
+## 相关参考链接
 
 - [创建应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-create)
 - [发布应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-release)

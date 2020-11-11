@@ -6,9 +6,9 @@
 
 ### 申请测试资格
 
-目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写，然后发送至 `agconnect@huawei.com` 提交申请。
+目前云数据库服务处于 Beta 测试阶段，若需要使用该服务，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20201029204556.90836227403434525043560975024077:50511102062728:2800:96352C544064A8F08BA8C6A312F6046E5188814BE7C53FC10FE88D68218DADEE.xlsx?needInitFileName=true) 并填写，然后发送至邮箱 `agconnect@huawei.com` 提交申请。
 
-邮件标题请使用：**[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
+邮件标题请使用 **[云数据库]-[公司名称]-[开发者帐号 ID]-[应用 ID]** 格式，**开发者帐号 ID** 及 **应用 ID** 可参考 [查询应用信息](https://developer.huawei.com/consumer/cn/doc/appgallery_queryappinfo)。收到开发者的申请后，华为运营人员会在 **1-3** 个工作日内答复。
 
 ### 如何收费
 
@@ -20,7 +20,7 @@
 |  最大并发连接数  | 150 | 
 |  云侧数据库每秒最大操作数  | 10 | 
 
-使用云数据库时，若免费的资源配额无法满足开发者当前应用的使用需求，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20200820101125.28511354479501521580745818636661:50510820025921:2800:48D4EDB65005C37D82E8C72C782C01520D12E31BE071FF183DF3D6E1B5E8E68C.xlsx?needInitFileName=true) 并填写内容，然后发送到邮箱提交申请。**邮箱**、**邮件标题格式** 和申请云数据库服务测试资格一致。
+使用云数据库时，若免费的资源配额无法满足开发者当前应用的使用需求，请先 [下载申请表格](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20201029204556.90836227403434525043560975024077:50511102062728:2800:96352C544064A8F08BA8C6A312F6046E5188814BE7C53FC10FE88D68218DADEE.xlsx?needInitFileName=true) 并填写内容，然后发送到邮箱提交申请。**邮箱**、**邮件标题格式** 和申请云数据库服务测试资格一致。
 
 ### 版本更新说明
 
@@ -42,7 +42,7 @@
 
   ![](agc-clouddb/cdb-panel.png)
 
-- 参考 [管理对象类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes#h1-1594195740754) 文档，导出 **JSON** 格式的对象类型文件，将其导入云数据库服务面板下方，**云数据库配置文件** 选项中。
+- 参考 [管理对象类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) 文档，导出 **JSON** 格式的对象类型文件，将其导入云数据库服务面板下方，**云数据库配置文件** 选项中。
 
   ![](agc-clouddb/cdb-jsonconfig.png)
 
@@ -82,7 +82,7 @@
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用的 [数据库文件](agc-clouddb/cdb-test.json.zip)，解压后将其导入 AGC 后台。
+- 下载测试用的 <a href="agc-clouddb/cdb-test.json.zip" target="_blank">数据库文件</a>，解压后将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 
@@ -245,12 +245,13 @@ let count = this._zone.deleteAllSync("test");
 this.console.log('Cloud DB', 'delete count : ' + count);
 ```
 
-## API 文档
-
-详细的功能接口和 API 说明，请参考 [云数据库 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.db.html)。
-
 ## 相关参考链接
 
 - [工作原理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046)
 - [技术指标](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction#h1-1603358685046)
 - [FAQ](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-faq)
+
+## API 文档
+
+详细的功能接口和 API 说明，请参考 [云数据库 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.db.html)。
+

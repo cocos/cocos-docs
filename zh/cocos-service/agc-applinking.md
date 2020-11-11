@@ -24,7 +24,7 @@
 
 #### 鼓励用户分享
 
-与 [云函数](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-introduction)、[云数据库](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/clouddb-quick_start_overview) 结合使用，制定激励政策，创建 App Linking 链接，鼓励用户分享链接，邀请自己的朋友下载应用，给予分享者一定的激励，从而促进用户快速增长。
+与 [云函数](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunction-introduction)、[云数据库](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-introduction) 结合使用，制定激励政策，创建 App Linking 链接，鼓励用户分享链接，邀请自己的朋友下载应用，给予分享者一定的激励，从而促进用户快速增长。
 
 ### 主要功能
 
@@ -288,7 +288,7 @@ huawei.agc.applinking.appLinkingService.on(huawei.agc.applinking.AGC_APP_LINKING
 huawei.agc.applinking.appLinkingService.getAppLinking();
 ```
 
-## 服务使用参考文档
+## 相关参考链接
 
 - [查看分析数据](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-viewanalytics)
 - [调试 App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-debug)

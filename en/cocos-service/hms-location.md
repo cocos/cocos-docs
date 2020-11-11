@@ -105,7 +105,7 @@ Developer can get a quick taste of the Location Kit with the sample project.
 
 - Once the Sample project is running on the phone, click the **Location** button on the homepage for testing.
 
-    ![](hms-location/loc-sample.jpg)
+  ![](hms-location/loc-sample.jpg)
 
 ## Developer Guide
 
@@ -253,7 +253,7 @@ huawei.hms.location.locationService.getLastLocationWithAddress();
 
 Updates the location under processing.
 
-**Note**：Currently, the `flushLocations()` method is not provided, nor implemented in the HMS SDK.
+**Note**: Currently, the `flushLocations()` method is not provided, nor implemented in the HMS SDK.
 
 **Example**:
 
