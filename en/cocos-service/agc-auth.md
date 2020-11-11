@@ -1,6 +1,6 @@
 # Auth Service (AppGallery Connect) Quick Start
 
-AppGallery Connect provides a cloud-based [Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-introduction) and SDKs to help you quickly build a secure and reliable user authentication system for your apps to verify user identity.
+AppGallery Connect provides a cloud-based [Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-introduction-0000001053732605) and SDKs to help you quickly build a secure and reliable user authentication system for your apps to verify user identity.
 
 The AppGallery Connect auth service supports multiple authentication methods and is seamlessly integrated with other Serverless services to help you secure user data based on simple rules that you have defined.
 
@@ -67,7 +67,7 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-panel.png)
 
-- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project. Go to **Build -> Auth Service**, if it is the first time that you use Auth Service, click **Enable now** in the upper right corner. For details, you can refer to the AGC Auth Service documentation - [Getting Started](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted).
+- Login the [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) console, open the project. Go to **Build -> Auth Service**, if it is the first time that you use Auth Service, click **Enable now** in the upper right corner. For details, you can refer to the AGC Auth Service documentation - [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-android-getstarted-0000001053053922#EN-US_TOPIC_0000001053053922__section916641174412).
 
   ![](agc-auth/auth-open.png)
 
@@ -75,7 +75,7 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-console1.png)
 
-- In the dialog box that is displayed, configure app information. Required information can be obtained refer to [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1590395363254-0) documentation for details.
+- In the dialog box that is displayed, configure app information. Required information can be obtained refer to [Enabling Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-android-getstarted-0000001053053922#EN-US_TOPIC_0000001053053922__section916641174412) documentation for details.
 
   ![](agc-auth/auth-console2.png)
 
@@ -243,7 +243,7 @@ Set user registration or login information (for phone number or email account au
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  loginInfo  | JSON Object, according to the needs of phone or email account authentication method, require the following parameters:<br>`email`: Email account, for email account authentication method required.<br>`phoneNumber`: Phone number, for phone number authentication method required.<br>`countryCode`: Country/Region code, for phone number authentication method required.<br>`verifyCode`: The verification code that the user fills in after calling the `register` or `getVerifyCode` method, used to reset the login information.<br>`action`: `register` (for registration) or `reset` (for reset). | 
+|  loginInfo  | JSON Object, according to the needs of phone or email account authentication method, require the following parameters:<br>`email`: Email account, for email account authentication method required.<br>`phoneNumber`: Phone number, for phone number authentication method required.<br>`countryCode`: Country/Region code, for phone number authentication method required.<br>`verifyCode`: The verification code that the user fills in after calling the `register` or `getVerifyCode` method, used to reset the login information.<br>`action`: `register` (for registration) or `reset` (for reset).<br>`locale`: Language in which the verification code message is sent for [updatePhone](#updatePhone) and [updateEmail](#updateEmail) method. The default is the current system language. | 
 
 **Example**:
 
@@ -254,6 +254,7 @@ let loginInfo = {
   countryCode: "86",
   verifyCode: code,
   action: "register",
+  locale: "zh",
 }
 huawei.agc.auth.authService.setLoginInfo(loginInfo);
 ```
@@ -392,7 +393,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-Updates the email account of the current user, update results via the asynchronous callback. Before calling this interface, call `getVerifyCode` function to apply a verification code for the new phone number to make sure the new number is owned by the current user. You can refer to [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514) documentation for details.
+Updates the email account of the current user, update results via the asynchronous callback. Before calling this interface, call `getVerifyCode` function to apply a verification code for the new phone number to make sure the new number is owned by the current user. Please set the language of the verification code message in the [setLoginInfo](#setLoginInfo) method. You can refer to [updateEmail](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#EN-US_TOPIC_0000001054522513__section39401634112717) documentation for details.
 
 **Parameter Description**:
 
@@ -411,7 +412,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-Updates the phone number of the current user, update results via the asynchronous callback. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email account. The verification code is used to verify that the current user owns the new email account. You can refer to [updatePhone](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#updatePhone) documentation for details.
+Updates the phone number of the current user, update results via the asynchronous callback. Before calling this method, call the `getVerifyCode` function to apply for a verification code of the new email account. The verification code is used to verify that the current user owns the new email account. Please set the language of the verification code message in the [setLoginInfo](#setLoginInfo) method. You can refer to [updatePhone](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#EN-US_TOPIC_0000001054522513__section1668015437285) documentation for details.
 
 **Parameter Description**:
 
@@ -431,7 +432,7 @@ huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 
 `getUserExtra(): void`
 
-Obtains UserExtra of the current user, update results via the asynchronous callback. This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code `INVALID_REFRESH_TOKEN = 203817986` will be returned, indicating that the user's Refresh Token has expired. You can refer to [getUserExtra](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra) documentation for details.
+Obtains UserExtra of the current user, update results via the asynchronous callback. This API verifies the Access Token and Refresh Token of a user. Ensure that the Refresh Token is within its validity period. Otherwise, result code `INVALID_REFRESH_TOKEN = 203817986` will be returned, indicating that the user's Refresh Token has expired. You can refer to [getUserExtra](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#EN-US_TOPIC_0000001054522513__section191819193315) documentation for details.
 
 **Example**:
 

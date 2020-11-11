@@ -160,7 +160,7 @@ huawei.agc.appmessaging.appMessagingService.once(huawei.agc.appmessaging.AGC_APP
 }, this);
 ```
 
-## Service Related Documentation
+## Reference Links
 
 - [Creating an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-create)
 - [Publishing an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-release)

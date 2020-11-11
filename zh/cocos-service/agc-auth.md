@@ -1,6 +1,6 @@
 # 认证服务（AppGallery Connect）快速入门
 
-华为 AppGallery Connect（简称 AGC）[认证服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-introduction)，提供了云侧服务和 SDK，可以为应用快速构建安全可靠的用户认证系统，以便应用可以对用户进行身份认证。
+华为 AppGallery Connect（简称 AGC）[认证服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-introduction-0000001053732605)，提供了云侧服务和 SDK，可以为应用快速构建安全可靠的用户认证系统，以便应用可以对用户进行身份认证。
 
 认证服务支持多种认证方式，并与其他 Serverless 服务紧密集成，开发者可以通过简单的规则定义来保护用户的数据安全。
 
@@ -79,7 +79,7 @@
 
   ![](agc-auth/auth-panel.png)
 
-- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408) 文档。
+- 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动认证服务的应用，然后点击 **构建 -> 认证服务**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。具体内容可参考 [启用服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-android-getstarted-0000001053053922#ZH-CN_TOPIC_0000001053053922__section916641174412) 文档。
 
   ![](agc-auth/auth-open.png)
 
@@ -87,7 +87,7 @@
 
   ![](agc-auth/auth-console1.png)
 
-- 填写所需参数。各认证方式的参数申请，可参考 [使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-service-getstarted#h1-1589437068408) 文档。
+- 填写所需参数。各认证方式的参数申请，可参考 [启用服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-auth-android-getstarted-0000001053053922#ZH-CN_TOPIC_0000001053053922__section916641174412) 文档。
 
   ![](agc-auth/auth-console2.png)
 
@@ -245,7 +245,7 @@ let userInfo = huawei.agc.auth.authService.getUserInfo();
 console.log('getUserInfo...', 'info =', JSON.stringify(userInfo));
 ```
 
-### setLoginInfo 
+### setLoginInfo
 
 `setLoginInfo(loginInfo: any): void`
 
@@ -255,7 +255,7 @@ console.log('getUserInfo...', 'info =', JSON.stringify(userInfo));
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>`email`：邮箱账号，邮箱认证登录方式需要传入。<br>`phoneNumber`：手机号码，手机认证登录方式需要传入。<br>`countryCode`：国家码，即国际电话区号，手机认证登录方式需要传入。<br>`verifyCode`：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>`action`：`register`（用于注册）或 `reset`（用于重置）。 | 
+|  loginInfo  | JSON 对象，按手机或邮箱认证登录方式的需要，传入以下参数：<br>`email`：邮箱账号，邮箱认证登录方式需要传入。<br>`phoneNumber`：手机号码，手机认证登录方式需要传入。<br>`countryCode`：国家码，即国际电话区号，手机认证登录方式需要传入。<br>`verifyCode`：调用 `register` 或 `getVerifyCode` 方法后让用户填写的验证码，用于重置登录信息。<br>`action`：`register`（用于注册）或 `reset`（用于重置）。<br>`locale`：可选，[updatePhone](#updatePhone) 和 [updateEmail](#updateEmail) 方法发送的验证码的语言，默认为当前系统语言。 | 
 
 **示例**：
 
@@ -266,6 +266,7 @@ let loginInfo = {
   countryCode: "86",
   verifyCode: code,
   action: "register",
+  locale: "zh",
 }
 huawei.agc.auth.authService.setLoginInfo(loginInfo);
 ```
@@ -404,7 +405,7 @@ huawei.agc.auth.authService.updatePassword("neWPaSSwOrd", "1234", huawei.agc.aut
 
 ### updateEmail
 
-更新当前用户的邮箱。可参考 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#h2-1577435497514) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新邮箱申请验证码，从而确定新邮箱为该用户所有。
+更新当前用户的邮箱。可参考 [updateEmail](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section39401634112717) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法为新邮箱申请验证码，从而确定新邮箱为该用户所有。验证码的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
 
 **参数说明**：
 
@@ -423,7 +424,7 @@ huawei.agc.auth.authService.updateEmail("newUser1@gmail.com", "1234");
 
 `updatePhone(countryCode: string, phoneNumber: string, newVerifyCode: string): void`
 
-更新当前用户的手机号。可参考 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#updatePhone) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法来为新手机申请验证码，从而确定新手机为该用户所有。
+更新当前用户的手机号。可参考 [updatePhone](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section1668015437285) 文档，通过异步回调更新结果。调用此接口之前，请调用 `getVerifyCode` 方法为新手机申请验证码，从而确定新手机为该用户所有。验证码的语言请在 [setLoginInfo](#setLoginInfo) 方法中设置。
 
 **参数说明**：
 
@@ -443,7 +444,7 @@ huawei.agc.auth.authService.updatePhone("0086", "132xxxxxxxx", "1234");
 
 `getUserExtra(): void`
 
-获取当前用户的 UserExtra，通过异步回调更新结果，可参考 [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser#getUserExtra) 文档。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
+获取当前用户的 UserExtra，通过异步回调更新结果，可参考 [getUserExtra](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agconnectuser-0000001054522513#ZH-CN_TOPIC_0000001054522513__section191819193315) 文档。此接口会验证用户 Access Token 和 Refresh Token，请确保用户 Refresh Token 在有效期内，否则会抛出错误码 `INVALID_REFRESH_TOKEN = 203817986`，表示用户 Refresh Token 无效错误码。开发者收到此错误码后，应该让用户重新登录，获取新的 Access Token 和 Refresh Token。
 
 **示例**：
 
