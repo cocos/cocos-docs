@@ -12,7 +12,7 @@
 - **Q**: What platform can Cocos Creator let me develop for?<br>
   **A**: Cocos Creator supports all major platforms allowing games to be quickly released for the web, iOS, Android, Windows, Mac, and various mini-game platforms. A pure JavaScript-developed engine runtime is available on the web and mini-game platforms for better performance and smaller packages. On other native platforms, C++ is used to implement the underlying framework, providing greater operational efficiency.
 
-## What is Cocos Cretaor?
+## What is Cocos Creator?
 
 Cocos Creator is an open source game development tool centered on content creation. Which realizes the fully scripted, componentized and data-driven on the basis of Cocos2d-x.
 
@@ -91,3 +91,5 @@ Content resources outside the scene can be imported from outside, such as images
 Supports both 2D and 3D game development with features that meet the specific needs of your various game types. Deep optimization of the editor experience and engine performance of pure 2D games and built-in support for middleware such as Spine, DragonBones, TiledMap, Box2D, and Texture Packer.
 
 Finally, the developed game can be published to each platform by one-click through a graphical tool, from design development to test release, Cocos Creator can handle everything for you.
+
+
