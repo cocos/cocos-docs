@@ -2,18 +2,22 @@
 
 成立于 2013 年的 [声网 Agora](https://www.agora.io/cn/) 是实时互动 API 平台行业开创者，是全球领先的专业服务商。开发者只需简单调用 API，即可在应用内构建多种实时音视频互动场景。
 
-[Agora Interactive Gaming SDK](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms) 是 Agora 针对游戏开发者提供的音视频通话软件开发包，其主要目的是帮助游戏开发者在游戏中快速集成音视频通话的功能。
+[Agora 音频互动直播](https://docs.agora.io/cn/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)（Live Interactive Audio Streaming）可以实现一对多，多对多的纯音频互动直播。
 
 ### 应用场景
 
-Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频功能的应用，也可以用 Native SDK 在 iOS 和 Android 上进行原生开发。
+Agora 音频互动直播提供丰富的功能，你可以根据自己的场景需求灵活组合。
 
-| 主要功能 | 功能描述 | 典型适用场景 |
-| --- | --- | --- |
-| 音视频互通 | 实现游戏中的实时音视频互通，可以在游戏中实现开黑语音，实时视频传输的功能 | 开黑工具 |
-| 电台语音 | 可在游戏中加入语音电台功能，支持 44.1k 采样率超高音质，也支持观众与主播连麦，实现电台双向互通 | MMO / RPG |
-| 听声辨位 | 支持游戏音效 180° 听声辨位，增加游戏角色的方位感，还原真实场景 | FPS |
-| 趣味变声 | 支持性别变声，迷惑对手，增加游戏互动趣味性 |  MOBA / 二次元游戏 |
+| 主要功能            | 功能描述                                                     | 典型适用场景                                                 |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 观众连麦           | 观众与主播连麦聊天，观众围观。                               | <li>大型直播时，主播邀请观众互动 <li>狼人杀、剧本杀          |
+| 跨直播间连麦         | 多个主播跨直播间，连麦互动，观众围观。                       | PK 连麦                                                      |
+| 伴奏混音             | 将本地或在线的音频和用户声音，同时发送并播放给频道内其他用户 | <li>在线合唱 <li>针对幼儿的音乐互动课堂                      |
+| 变声和混响        | 提供多种预置的变声和混响效果，同时支持灵活调整用户声音的音调、均衡及混响效果。 | <li>一起 KTV<li>语音聊天室变声 |
+| 听声辨位          | 设置远端用户声音出现的位置，增加游戏角色的方位感，还原真实游戏场景。 | 吃鸡游戏                       |
+| 修改音频原始数据   | 可支持变声，支持获取媒体引擎的原始语音数据，对原始数据进行处理 | <li>语音聊天室变声                           |
+| 在线媒体流输入       | 可以将媒体流作为一个发送端接入正在进行的直播房间。通过将正在播放的音频添加到直播中，主播和观众可以在一起收听/观看媒体流的同时，实时互动。 可以对输入源的属性进行设置。 | <li>主播和观众一起听演唱会      |
+| 推流到 CDN           | 将频道内的音频内容通过 CDN 推送到其他 RTMP 服务器： <li>能够随时启动或停止推流 <li>能够在不间断推流的同时增减推流地址 | <li>在朋友圈、微博等推广直播内容<li>频道人数超限时，让更多人参与直播 |
 
 ### 版本更新说明
 
@@ -85,10 +89,14 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## 开发指南
 
-请参考 [Agora Voice API 文档](https://docs.agora.io/cn/Interactive%20Gaming/game_coco?platform=Cocos%20Creator)
+请参考 [基本流程](https://docs.agora.io/cn/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation)。
 
 ## 相关参考链接
 
 - [Agora 平台概述](https://docs.agora.io/cn/Agora%20Platform/agora_platform?platform=All%20Platforms)
-- [Interactive Gaming SDK 概述](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms)
+- [Agora 音频互动直播](https://docs.agora.io/cn/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)
 - [校验用户权限 — 获取 App ID](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms) 
+
+## API 文档
+
+详细的功能接口和 API 说明，请参考 [Agora Voice API Reference](https://docs.agora.io/cn/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html)。

@@ -2,18 +2,22 @@
 
 Agora is a leading video, voice and live interactive streaming platform, helping developers deliver rich in-app experiences—including embedded voice and video chat, real-time recording, interactive live streaming, and real-time messaging.
 
-The [Agora Interactive Gaming SDK](https://docs.agora.io/en/Interactive%20Gaming/product_gaming?platform=All%20Platforms) helps you quickly integrate audio and video functions into your gaming projects.
+[Agora Live Interactive Audio Streaming](https://docs.agora.io/en/Audio%20Broadcast/product_live_audio?platform=All%20Platforms) enables one-to-many and many-to-many audio live streaming with the Agora RTC SDK.
 
 ### Functions
 
-The Agora Interactive Gaming SDK provides a variety of functions for different gaming scenarios, which are mainly used for applications based on Unity and Cocos gaming engines. You can also use native SDK for native development.
+Agora Live Interactive Audio Streaming boasts a flexible combination of functions for different scenarios.
 
-| Function                      | Description                                                  | Scenario                    |
-| ----------------------------- | ------------------------------------------------------------ | --------------------------- |
-| Audio and Video Communication | Enables real-time audio and video communication in your game. | Group chatting in the games |
-| Radio Voice                   | <li>Supports sampling rates of up to 44.1K and super high-quality sound.<li>Enables interaction with the radio host. | <li>MMO<li>RPG                    |
-| Spatial Sound Effects         | Provides immersive experiences.                              | FPS                         |
-| Voice Change              | Changes the speaker's voice, for example, to the opposite gender. | <li>MOBA<li>ACG games       |
+| Function                        | Description                                                  | Scenarios                                                     |
+| :------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------ |
+| Co-hosting in one channel       | An audience switches to a co-host and interacts with the existing host. | <li>Large-scale live streams where hosts can invite the audience to interact with them. <li>Online games such as Murder Mystery and Werewolf Killing. |
+| Co-hosting across channels      | Hosts interact with each other across channels.              | PK Hosting.                                                  |
+| Audio mixing                    | Sends the local and online audio with the user's voice to other audience members in the channel. | <li>Online KTV. <li>Interactive music classes for children.  |
+| Voice changer and reverberation | Provides multiple presets to easily change the voice and set reverberation effects, also supports adjusting the pitch and using the equalization and reverberation modes flexibly. | <li>Online KTV.<li>To change the voice in an online chatroom. |
+| Spatial sound effects           | Sets the spatial sound effects for remote users to provide immersive experiences. | FPS games.                                                   |
+| Modify the raw data             | Developers obtain and modify the raw voice data of the SDK engine to create special effects, such as a voice change. | <li>To change the voice in an online voice chatroom.<li>Image enhancement in a live stream. |
+| Inject an online media stream   | Injects an external audio stream to an ongoing live interactive streaming channel. The host and audience in the channel can listen to or watch the stream while interacting with each other. You can set the attributes of the audio source. | <li>The host and audience listening to a concert together.   |
+| Push streams to the CDN         | Sends the audio of your channel to other RTMP servers through the CDN:<li>Starts or stops publishing at any time.<li>Adds or removes an address while continuously publishing the stream. <li>Adjusts the picture-in-picture layout. | <li>To send a live stream to WeChat or Weibo.<li>To allow more people to watch the live stream when the number of audience members in the channel reached the limit. |
 
 ### Version Update Description
 
@@ -83,10 +87,14 @@ After the service is activated, Cocos Service will automatically activate the cl
 
 ## Developer Guide
 
-Please refer to [Agora Voice API Document](https://docs.agora.io/en/Interactive%20Gaming/game_coco?platform=Cocos%20Creator).
+Please refer to [Implementation](https://docs.agora.io/en/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation) documentation.
 
 ## Reference Links
 
 - [Agora Platform Overview](https://docs.agora.io/en/Agora%20Platform/agora_platform?platform=All%20Platforms)
-- [Agora Interactive Gaming Overview](https://docs.agora.io/en/Interactive%20Gaming/product_gaming?platform=All%20Platforms)
+- [Agora Live Interactive Audio Streaming Overview](https://docs.agora.io/en/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)
 - [Use an App ID for authentication](https://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms) 
+
+## API Reference
+
+Please refer to the [Agora Voice API Reference](https://docs.agora.io/en/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html) documentation.
