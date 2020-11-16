@@ -30,7 +30,7 @@ The **Service** Panel currently supports the integration of third-party services
     
   - [Cloud Functions (AppGallery Connect)](agc-cloudfunc.md)
 
-  - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
+  - [Agora Voice](agora.md)
 
 ## Usage
 

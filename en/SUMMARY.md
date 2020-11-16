@@ -89,7 +89,7 @@
     - [Advanced CCClass](scripting/reference/class.md)
     - [Attributes](scripting/reference/attributes.md)
 - [Access to Third Party Services](cocos-service/index.md)
-    - [Agora Voice](https://docs.agora.io/en/Interactive%20Gaming/game_c?platform=Cocos%20Creator)
+    - [Agora Voice](cocos-service/agora.md)
     - [Location Kit (HMS Core)](cocos-service/hms-location.md)
     - [Analytics Kit (HMS Core)](cocos-service/hms-analytics.md)
     - [APM (AGC)](cocos-service/agc-apm.md)

@@ -1,19 +1,41 @@
 # 声网（Agora Voice）快速入门
 
-从硅谷一个车库的几行代码开始，一群程序员创立了 [Agora 声网](https://www.agora.io/cn/)，期待用实时音视频互动 API 改变全世界人们的沟通方式。
+成立于 2013 年的 [声网 Agora](https://www.agora.io/cn/) 是实时互动 API 平台行业开创者，是全球领先的专业服务商。开发者只需简单调用 API，即可在应用内构建多种实时音视频互动场景。
 
-[Agora Interactive Gaming SDK](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms) 是 Agora 针对游戏开发者提供的音视频通话软件开发包，其主要目的是帮助游戏开发者在游戏中快速集成音视频通话的功能。
+[Agora 音频互动直播](https://docs.agora.io/cn/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)（Live Interactive Audio Streaming）可以实现一对多，多对多的纯音频互动直播。
 
 ### 应用场景
 
-Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频功能的应用，也可以用 Native SDK 在 iOS 和 Android 上进行原生开发。
+Agora 音频互动直播提供丰富的功能，你可以根据自己的场景需求灵活组合。
 
-| 主要功能 | 功能描述 | 典型适用场景 |
-| --- | --- | --- |
-| 音视频互通 | 实现游戏中的实时音视频互通，可以在游戏中实现开黑语音，实时视频传输的功能 | 开黑工具 |
-| 电台语音 | 可在游戏中加入语音电台功能，支持 44.1k 采样率超高音质，也支持观众与主播连麦，实现电台双向互通 | MMO / RPG |
-| 听声辨位 | 支持游戏音效 180° 听声辨位，增加游戏角色的方位感，还原真实场景 | FPS |
-| 趣味变声 | 支持性别变声，迷惑对手，增加游戏互动趣味性 |  MOBA / 二次元游戏 |
+| 主要功能            | 功能描述                                                     | 典型适用场景                                                 |
+| :-------------------- | :------------------------------------------------------------ | :------------------------------------------------------------ |
+| 观众连麦           | 观众与主播连麦聊天，观众围观。                               | <li>大型直播时，主播邀请观众互动 <li>狼人杀、剧本杀          |
+| 跨直播间连麦         | 多个主播跨直播间，连麦互动，观众围观。                       | PK 连麦                                                      |
+| 伴奏混音             | 将本地或在线的音频和用户声音，同时发送并播放给频道内其他用户 | <li>在线合唱 <li>针对幼儿的音乐互动课堂                      |
+| 变声和混响        | 提供多种预置的变声和混响效果，同时支持灵活调整用户声音的音调、均衡及混响效果。 | <li>一起 KTV<li>语音聊天室变声 |
+| 听声辨位          | 设置远端用户声音出现的位置，增加游戏角色的方位感，还原真实游戏场景。 | 吃鸡游戏                       |
+| 修改音频原始数据   | 可支持变声，支持获取媒体引擎的原始语音数据，对原始数据进行处理 | <li>语音聊天室变声                           |
+| 在线媒体流输入       | 可以将媒体流作为一个发送端接入正在进行的直播房间。通过将正在播放的音频添加到直播中，主播和观众可以在一起收听/观看媒体流的同时，实时互动。可以对输入源的属性进行设置。 | <li>主播和观众一起听演唱会      |
+| 推流到 CDN           | 将频道内的音频内容通过 CDN 推送到其他 RTMP 服务器：<li>能够随时启动或停止推流 <li>能够在不间断推流的同时增减推流地址 | <li>在朋友圈、微博等推广直播内容<li>频道人数超限时，让更多人参与直播 |
+
+### 版本更新说明
+
+- 当前版本：1.2.1_3.1.2
+
+    - 适配 Cocos Creator 2.4.x。
+
+- v1.1.0_2.2.3.20_2.5.2
+
+    - 适配 Cocos Creator 2.3.x。
+
+- v1.0.2_2.2.3.20_2.5.2
+
+    - Bug 修复。
+
+- v1.0.1_2.2.3.20_2.5.2
+
+    - 新增 Agora service 插件。
 
 ## 一键接入 Agora Voice 服务
 
@@ -23,7 +45,7 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
 - 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Agora Voice**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
-    ![](agora/agora-provisioning.png)
+    ![](agora/agora-panel.png)
 
     **计费**：Agora Voice 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
 
@@ -33,11 +55,11 @@ Agora Interactive Gaming SDK 应用丰富，主要适用于需要实时音视频
 
 Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
-- 点击 Agora Voice 服务设置面板中的 **前往控制台**，跳转到 [Agora 管理后台](https://staging-dashboard.agora.io/) 来获取参数 **App ID**。具体获取步骤可参考 [文档](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms)。
+- 点击 Agora Voice 服务面板中的 **前往控制台** 按钮跳转到 [Agora 管理后台](https://console.agora.io/)，点击左侧导航栏的 ![](agora/agora-projecticon.png) 图标进入项目管理页面，获取对应游戏的 **App ID**。
 
-    ![](agora/agora-param.jpg)
+    ![](agora/agora-param.png)
 
-- 在脚本中调用初始化方法，填入从 Agora 后台获取的 **App ID**：
+- 在脚本中调用初始化方法，填入从 Agora 后台获取的 App ID：
 
     ```js
     var appid = '从 Agora 后台获取的 App ID';
@@ -50,109 +72,31 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## Sample 工程
 
-- 点击 Agora Voice 服务设置面板中的 **Sample 工程**，Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
+- 点击 Agora Voice 服务面板中的 **Sample 工程**，Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
+
   - 加入通话和离开通话
   - 发布音频流和订阅音频流
 
 - 在 **服务** 面板中开通 Agora Voice 服务。
 
-- 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为你从 Agora 后台获取的 App ID。
+- 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为 Agora 后台获取的 App ID。
 
 - 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
 
-  ![](agora/agora-sample.png)
+  ![](agora/agora-sample.jpg)
 
   **注意**：若在浏览器中调试时发现 Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora Voice 服务。
 
 ## 开发指南
 
-以下为 Agora Voice 服务主要方法调用说明。
-
-### 初始化
-
-```js
-agora.init(appid)
-``` 
-
-Agora Voice 服务初始化方法，需传入从 Agora 后台获取的 App ID。
-
-**注意**：在整个应用全局，开发者只需要对引擎做一次初始化。
-
-### 加入频道
-
-```js
-agora.joinChannel(token, channelId, [info], [uid])
-```
-
-也可简化为：
-
-```js
-agora.joinChannel('', channelId)
-```
-
-| 参数 | 类型 | 详细说明 |
-| --- | --- | --- |
-| token | String | 将值设置为 Token 值，可以为空字符串。如果你已经启用了 App 证书，请务必使用 Token。关于如何获取 Token，详见 [校验用户权限 - Token](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms#token)。 |
-| channelId | String | 标识通话的频道名称，长度在 64 字节以内的字符串。以下为支持的字符集范围（共 89 个字符）：a-z, A-Z, 0-9, space, ! #$%&, ()+, -, :;<=.#$%&, ()+, -, :;<=., >?@[], ^_, {  |
-| [info] | String | （非必选项）开发者需加入的任何附加信息。一般可设置为空字符串，或频道相关信息。该信息不会传递给频道内的其他用户  |
-| [uid] | number | （非必选项）用户 ID，32 位无符号整数。建议设置范围：1 到 (232-1)，并保证唯一性。如果不指定（即设为 0），SDK 会自动分配一个，并在 `onJoinChannelSuccess` 回调方法中返回，App 层必须记住该返回值并维护，SDK 不对该返回值进行维护。uid 在 SDK 内部用 32 位无符号整数表示，由于 Java 不支持无符号整数，uid 被当成 32 位有符号整数处理。对于过大的整数，Java 会表示为负数，如有需要可以用 (uid&0xffffffffL) 转换成 64 位整数。  |
-
-该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App ID 的应用程序之间是不能互通的，如果已在通话中，用户必须调用 `agora.leaveChannel()` 退出当前通话，才能进入下一个频道。
-
-### 离开频道
-
-```js
-agora.leaveChannel()
-```
-
-离开频道，即挂断或退出通话。
-
-`joinChannel` 后，必须调用 `leaveChannel` 以结束通话，否则不能进行下一次通话。不管当前是否在通话中，都可以调用 `leaveChannel`，没有副作用。如果成功，则返回值为 0。`leaveChannel` 会把会话相关的所有资源释放掉。
-
-`leaveChannel` 是异步操作，调用返回时并没有真正退出频道。在真正退出频道后，SDK 会触发 `onLeaveChannel` 回调。
-
-### 本地静音
-
-```js
-agora.muteLocalAudioStream(mute)
-```
-
-| 参数 | 类型 | 详细说明 |
-| --- | --- | --- |
-| mute | Boolean | True：开启本地麦克风静音<br>False：取消本地麦克风静音 |
-
-本地静音或取消静音。该方法用于允许或禁止向网络发送本地音频流。
-
-该方法绑定在 Sample 工程的 **发布流** 按钮上，在 Agora SDK 中一般写作 [publish](https://docs.agora.io/cn/Voice/API%20Reference/web/interfaces/agorartc.client.html#publish) 方法。
-
-### 远端静音
-
-```js
-agora.muteAllRemoteAudioStreams(mute)
-```
-
-| 参数 | 类型 | 详细说明 |
-| --- | --- | --- |
-| mute | Boolean | True：停止接收和播放所有远端音频流<br>False：允许接收和播放所有远端音频流 |
-
-该方法用于允许或禁止播放远端用户的音频流，即对所有远端用户进行静音与否。
-
-该方法绑定在 Sample 工程的 **订阅流** 按钮上，在 Agora Interactive Gaming SDK 中一般写作 [subscribe](https://docs.agora.io/cn/Voice/API%20Reference/web/interfaces/agorartc.client.html#subscribe) 方法。
-
-### 监听事件信息
-
-```js
-agora.on(event, callback, target)
-```
-
-各种监听的事件说明请参考 [Agora 监听事件说明](https://docs.agora.io/cn/Interactive%20Gaming/game_coco?platform=Cocos%20Creator#module_agora.on)。
+请参考 [音频互动直播 — 快速开始](https://docs.agora.io/cn/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation)。
 
 ## 相关参考链接
 
 - [Agora 平台概述](https://docs.agora.io/cn/Agora%20Platform/agora_platform?platform=All%20Platforms)
-- [Interactive Gaming SDK 概述](https://docs.agora.io/cn/Interactive%20Gaming/product_gaming?platform=All%20Platforms)
+- [Agora 音频互动直播](https://docs.agora.io/cn/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)
 - [校验用户权限 — 获取 App ID](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms) 
 
 ## API 文档
 
-请参考 [Agora Voice API 文档](https://docs.agora.io/cn/Interactive%20Gaming/game_coco?platform=Cocos%20Creator)
+详细的功能接口和 API 说明，请参考 [Agora Voice API Reference](https://docs.agora.io/cn/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html)。
