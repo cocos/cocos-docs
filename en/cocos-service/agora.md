@@ -47,7 +47,7 @@ Agora Live Interactive Audio Streaming boasts a flexible combination of function
 
     **Charge**: Agora Voice services use the **prepaid** model. When your service usage exceeds the free portion of the service provider and the account balance is insufficient, the service will be stopped. At that time, you need to **pre-charge** in the Cocos Developer Console. 
 
-After the service is activated, Cocos Service will automatically activate the  service, connect Agora Voice account, and integrate the Agora Interactive Gaming SDK into the game project.
+After the service is activated, Cocos Service will automatically activate the Agora Voice service, connect Agora account, and integrate the Agora SDK into the game project.
 
 ### Verify whether the service is integrated successfully
 
