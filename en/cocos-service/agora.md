@@ -70,14 +70,14 @@ After the service is activated, Cocos Service will automatically activate the cl
 
 ## Sample Project
 
-- Click the **Sample** button in Agora Voice service panel, Clone or download **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** Project and then open the project in Cocos Creator. The Sample project contains the following functions:
+- Click the **Sample** button in Agora Voice service panel, Clone or download **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** project and then open the project in Cocos Creator. The Sample project contains the following functions:
 
   - Join channel & leave channel.
   - Publish or subscribe stream.
 
 - Enabling the Agora Voice service.
 
-- Double click to open the **HelloWorld.js** file, Then replace **appid** in the `initAgora` method with the App ID obtained from the Agora console.
+- Double click to open the **HelloWorld.js** in **Assets** panel, then replace **appid** in the `initAgora` method with the App ID obtained from the Agora console.
 
 - After the script is finished and saved, go back to the editor. Select the **Browser** and click the ![](./image/preview-button.jpg) [Preview](../getting-started/basics/preview-build.md) button, you can debug the project in the browser.
 
