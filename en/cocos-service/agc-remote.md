@@ -116,7 +116,7 @@ Since the `apply` method of the Java SDK returns a parameter object, it cannot b
 
 ### Setting Default In-app Parameter Values
 
-You can set [in-app default parameter values]((https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459)) in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values is set in **Params Config** item in the service panel.
+You can set [in-app default parameter values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459) in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values is set in **Params Config** item in the service panel.
 
 ![](agc-remote/remote-param.png)
 
