@@ -47,7 +47,7 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
   ![](agc-remote/remote-panel.png)
 
-  - 服务面板中的 **参数配置**，Please refer to [Setting Parameter Values in Remote Configuration](#setting-parameter-values-in-remote-configuration).
+  - The **Params Config** item in Service panel, please refer to [Setting Default In-app Parameter Values](#setting-default-in-app-parameter-values).
 
 - Find your project from the project list and click the app for which you need to enable Remote Configuration service on the project card. Go to **Growing -> Remote Configuration**, if it is the first time that you use Remote Configuration service, click **Enable now** in the upper right corner. 
 
@@ -116,7 +116,7 @@ Since the `apply` method of the Java SDK returns a parameter object, it cannot b
 
 ### Setting Default In-app Parameter Values
 
-Please refer to the the AppGallery Connect documentation - [Setting Default In-app Parameter Values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459). You can set in-app default parameter values in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values can be configured in **Params Config** in the service panel.
+Please refer to the the AppGallery Connect documentation - [Setting Default In-app Parameter Values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459). You can set in-app default parameter values in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values can be configured in **Params Config** item in the service panel.
 
 ![](agc-remote/remote-param.png)
 
