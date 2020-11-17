@@ -118,7 +118,7 @@
 
 ### 设置应用内默认值
 
-对应 AppGallery Connect 文档 - [设置应用内默认值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760650143)。您可以在远程配置对象中设置应用程序内的默认值，以便您的应用程序在连接到远程配置服务之前按照预期运行。如果云端未设置参数值，则可以使用本地默认值，可在服务面板的 **参数配置** 中配置该项目。
+开发者可以在远程配置对象中设置 [应用程序内的默认值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760650143)，以便应用程序在连接到远程配置服务之前按照预期运行。如果云端未设置参数值，可以使用本地默认值，本地默认值在服务面板的 **参数配置** 中设置。
 
 ![](agc-remote/remote-param.png)
 
