@@ -98,7 +98,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 Developer can get a quick taste of the Remote Configuration with the sample project.
 
-- Click on the **Sample** button in the Remote Configuration service panel, clone or download, and open the project in Cocos Creator.
+- Click on the **Sample** button in the Remote Configuration Service panel, clone or download, and open the project in Cocos Creator.
 
 - After enabling the Remote Configuration service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
@@ -116,7 +116,7 @@ Since the `apply` method of the Java SDK returns a parameter object, it cannot b
 
 ### Setting Default In-app Parameter Values
 
-You can set [in-app default parameter values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459) in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values is set in **Params Config** item in the service panel.
+You can set [in-app default parameter values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459) in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the default values is set in **Params Config** item in the Service panel.
 
 ![](agc-remote/remote-param.png)
 
