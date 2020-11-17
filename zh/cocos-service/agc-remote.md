@@ -49,6 +49,8 @@
 
   ![](agc-remote/remote-panel.png)
 
+    - 服务面板中的 **参数配置**，请参考 [设置应用内默认值](#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A8%E5%86%85%E9%BB%98%E8%AE%A4%E5%80%BC)。
+
 - 登录 AppGallery Connect，点击 **我的项目**，在项目的应用列表中选择需要启动远程配置服务的应用，然后点击 **增长 -> 远程配置**，若首次使用请点击页面右上方的 **立即开通** 按钮来开通服务。
 
   ![](agc-remote/remote-open.png)
@@ -81,11 +83,7 @@
 
 ### 验证服务是否接入成功
 
-在远程配置服务插件中有一个本地配置文件 `res/xml/remote_config.xml`，项目工程若接入 **远程配置** 服务并发布到 Android 平台后，可在 Android Studio 工程中看到该文件。该文件预设了一对键值，用于测试和指导用户使用。我们可以通过调用 `getValueAsString` 方法获取该键值，来判断服务是否接入成功。
-
-![](agc-remote/remote-configxml.png)
-
-- 在脚本中添加代码。
+- 完成 **远程配置** 服务接入步骤后，我们便可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
   ```js
   let value = huawei.agc.rc.rcService.getValueAsString('test');
@@ -120,7 +118,9 @@
 
 ### 设置应用内默认值
 
-所有默认配置需要在 [res/xml/remote_config.xml](#%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E6%98%AF%E5%90%A6%E6%8E%A5%E5%85%A5%E6%88%90%E5%8A%9F) 文件中配置。
+开发者可以在远程配置对象中设置 [应用程序内的默认值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1591760650143)，以便应用程序在连接到远程配置服务之前按照预期运行。如果云端未设置参数值，可以使用本地默认值，本地默认值在服务面板的 **参数配置** 中设置。
+
+![](agc-remote/remote-param.png)
 
 ### 获取和更新云端参数值到本地
 
