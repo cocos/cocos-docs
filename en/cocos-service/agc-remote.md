@@ -47,6 +47,8 @@ Releasing new functions to all users at the same time may be risky. Remote Confi
 
   ![](agc-remote/remote-panel.png)
 
+  - 服务面板中的 **参数配置**，Please refer to [Setting Parameter Values in Remote Configuration](#setting-parameter-values-in-remote-configuration).
+
 - Find your project from the project list and click the app for which you need to enable Remote Configuration service on the project card. Go to **Growing -> Remote Configuration**, if it is the first time that you use Remote Configuration service, click **Enable now** in the upper right corner. 
 
   ![](agc-remote/remote-open.png)
@@ -79,11 +81,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ### Verify whether the service is integrated successfully
 
-There is a local configuration file res/xml/remote_config.xml in the Remote Configuration Service plug-in, which can be seen in Android Studio if the project is integrated with the Remote Configuration Service and published to the Android platform. This file is preconfigured with a pair of key values for testing and guiding users. We can obtain the key value by calling the `getValueAsString` method to determine whether the service is integrated successfully.
-
-![](agc-remote/remote-configxml.png)
-
-- Add simple code to the script.
+- Once the Remote Configuration service is integrated, we can verify the success of the Remote Configuration service integration by adding simple code to the script.
 
   ```js
   let value = huawei.agc.rc.rcService.getValueAsString('test');
@@ -116,9 +114,11 @@ This document refers to the AppGallery Connect documentation - [Integrating Remo
 
 Since the `apply` method of the Java SDK returns a parameter object, it cannot be passed in the JavaScript layer. So the Remote Configuration service plug-in that Creator integrates into the Service panel uses the `applyLastFetched` and `fetchAndApply` methods instead of the `applyDefault` and `apply` methods of the Java SDK in its wrapper.
 
-### Setting Parameter Values in Remote Configuration
+### Setting Default In-app Parameter Values
 
-All default configurations should be configured in the [/res/xml/remote_config.xml](#verify-whether-the-service-is-integrated-successfully) file.
+Please refer to the the AppGallery Connect documentation - [Setting Default In-app Parameter Values](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide#h1-1592307026459). You can set in-app default parameter values in the Remote Configuration object so that your app can run properly before being connected to Remote Configuration, and in-app default values are used if parameter values are not set on the console, the values can be configured in **Params Config** in the service panel.
+
+![](agc-remote/remote-param.png)
 
 ### Fetching Parameter Values from Remote Configuration
 

@@ -87,7 +87,11 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
 ### Version Update Description
 
-- Latest Version: 0.5.7_1.4.1.300
+- Latest Version: 0.5.9_1.4.1.300
+
+    - Added support for AppLinking receives information mode.
+
+- v0.5.7_1.4.1.300
 
     - Fix some bugs.
 
