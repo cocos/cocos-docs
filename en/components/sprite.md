@@ -34,7 +34,7 @@ Currently, the Sprite component supports five rendering modes:
 
 - `Sliced mode`: the image is cut up into a 9-slicing and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [Use a Sliced Sprite to make an UI imagee](../ui/sliced-sprite.md) for details.
 
-- `Tiled mode`: The image will be repeated to fit the size of the Sprite. If the SpriteFrame is [9-sliced](../ui/sliced-sprite.md), when the image is tiled, the surrounding width will remain unchanged while the other sections be repeated.
+- `Tiled mode`: The image will be repeated to fit the size of the Sprite. If the SpriteFrame is [9-sliced](../ui/sliced-sprite.md), when the image is tiled, the surrounding width will remain unchanged while the other sections will be repeated.
 
   ![tiled](sprite/tiled.png)
  
