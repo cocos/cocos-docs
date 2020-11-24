@@ -34,7 +34,7 @@ Sprite 组件支持五种渲染模式：
 
 - `九宫格模式（Sliced）`：图像将被分割成九宫格，并按照一定规则进行缩放以适应可随意设置的尺寸(`size`)。通常用于 UI 元素，或将可以无限放大而不影响图像质量的图片制作成九宫格图来节省游戏资源空间。详细信息请阅读 [使用 Sprite 编辑器制作九宫格图像](../ui/sliced-sprite.md#-) 一节。
 
-- `平铺模式（Tiled）`：图像将会根据 Sprite 的尺寸重复平铺显示。如果 SpriteFrame 包含 [九宫格配置](../ui/sliced-sprite.md)，那么图像平铺时角落将保持不缩放，而其他部分重复。
+- `平铺模式（Tiled）`：图像将会根据 Sprite 的尺寸重复平铺显示。如果 SpriteFrame 包含 [九宫格配置](../ui/sliced-sprite.md)，平铺时将保持周围宽度不变，而其余部分重复。
 
   ![tiled](sprite/tiled.png)
   
