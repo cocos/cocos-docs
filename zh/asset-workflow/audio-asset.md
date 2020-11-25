@@ -35,7 +35,7 @@
 音频默认是使用 Web Audio 的方式加载并播放的，只有在不支持的浏览器才会使用 DOM 模式。
 
 ```js
-cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
+cc.loader.load('http://example.com/background.mp3', callback);
 ```
 
 ### 强制使用 DOM 模式加载
@@ -43,11 +43,9 @@ cc.loader.load(cc.url.raw('resources/background.mp3'), callback);
 音频在加载过程中，会读取 url 内的 get 参数。其中只需要定义一个 useDom 参数，使其有一个非空的值，这样在 audioDownloader 中，就会强制使用 DOM mode 的方式加载播放这个音频。
 
 ```js
-cc.loader.load(cc.url.raw('resources/background.mp3?useDom=1'), callback);
+cc.loader.load('http://example.com/background.mp3?useDom=1', callback);
 ```
 
 需要注意的是，如果是使用 DOM 模式加载的音频，在 cc.loader 的 cache 中，缓存的 url 也会带有 ?useDom=1。**建议不要直接填写资源的 url** 尽量在脚本内定义一个 AudioClip，然后从编辑器内定义。
 
-参考：
-
-- [音频播放](../audio/audio.md)
+参考 [音频播放](../audio/audio.md)

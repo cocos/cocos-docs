@@ -23,13 +23,12 @@
 2. 1.x 升级过程中如果内置 base64 贴图的 Particle 资源可能会失效。我们会在 2.0.1 回滚对 Particle 资源的升级，回到 1.x 的状态，避免错误。如果遇到类似问题可以通过使用外部贴图文件来绕过。
 3. 1.x RichText 升级后可能导致场景持续报错：can not read property `_worldMatrix` of null。在 2.0.1 中会修复。暂时可以在旧版本删除 RichText，再在 2.0 重新添加来绕过。
 4. 微信开放数据域中加载远程头像无法显示，无法设置 Camera 背景色透明。在 2.0.1 中修复。
-5. 玩一玩发布版本可能会黑屏，原因是 libs 下的脚本文件名大小写在发布过程中被覆盖了。在 2.0.1 中修复。遇到问题请使用 1.x 版本发布玩一玩。
-6. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
-7. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
-8. RichText 暂不支持通过节点颜色修改颜色。
-9. Native 平台暂不支持 VideoPlayer 和 WebView 组件
-10. 不支持 IE 11。在 2.0.1 中修复。
-11. 目前 2.0 版本存在着原生平台上引擎渲染性能可能下降的情况，对特定的游戏可能会有较明显的影响，建议开发中的原生平台项目谨慎升级。我们后续会进行优化。
+5. 部分 Spine 动画升级后渲染错误。在 2.0.1 中修复。
+6. Tilemap 在 Camera 缩放的情况下，会出现地图被过多剪裁的问题。在 2.0.1 中修复。
+7. RichText 暂不支持通过节点颜色修改颜色。
+8. Native 平台暂不支持 VideoPlayer 和 WebView 组件
+9. 不支持 IE 11。在 2.0.1 中修复。
+10. 目前 2.0 版本存在着原生平台上引擎渲染性能可能下降的情况，对特定的游戏可能会有较明显的影响，建议开发中的原生平台项目谨慎升级。我们后续会进行优化。
 
 # 2. 编辑器升级
 
@@ -54,15 +53,7 @@
 
 这在 1.x 都需要使用代码的方式才能够消除，而在 2.0 中你只需要开启贴图的预乘选项。还需要注意的是，如果你发现这样做使得贴图变暗，那么就要将对应的渲染组件的混合模式改为 ONE，ONE_MINUS_SRC_ALPHA 即可。
 
-## 2.2 RenderComponent 组件设置
-
-在 2.0 中，我们抽象了一个新的基础组件类：RenderComponent，所有的直接渲染组件都是继承自这个组件，比如：Sprite、Label、Graphics 等。对用户来说，最直观的改变就是，继承自它的渲染组件在属性检查器中都会包含混合模式的设置选项（Src Blend Factor & Dst Blend Factor）：
-
-![TiledLayer 的混合模式设置](upgrade-guide-v2.0/render-component.png)
-
-因为 2.0 中对基础渲染器的改造，我们将很多渲染阶段的功能都抽象出来，方便用户访问和设置。这些接口的入口很多都在 RenderComponent 中，除了混合模式以外，我们还计划推出材质系统（引擎已经内置，暂时只有脚本接口）。
-
-## 2.3 Camera 组件使用
+## 2.2 Camera 组件使用
 
 摄像机可能是 1.x 到 2.0 改动最大的一个组件，为了开发者可以顺畅更新，我们尽量保持了组件层 API 的一致性，然而 Camera 的使用方式和 API 却无法做到简单迁移。因为在 2.0 中，Camera 从一个配角变成了主角：
 
@@ -74,9 +65,9 @@
 
 具体的改动，开发者们可以参考 [2.0 Camera 使用文档](../render/camera.md)。
 
-## 2.4 构建面板更新
+## 2.3 构建面板更新
 
-构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Game Open Data Context。
+构建面板方面，最大的改动是微信小游戏开放数据域的发布。在 1.x 中，开发者要选择发布平台为 WeChat Mini Game，并且勾选开放数据域项目，在 2.0 中，我们将微信开放数据域独立为一个平台：WeChat Mini Game Open Data Context。
 
 ![2.0 微信小游戏开放数据域发布面板](upgrade-guide-v2.0/wechat-open-data.png)
 
@@ -86,23 +77,20 @@
 
 从 v2.0.1 开始，我们更新了开放数据域解决方案，具体请参考 [接入小游戏开放数据域](../publish/publish-wechatgame-sub-domain.md)。
 
-## 2.5 模块设置
+## 2.4 模块设置
 
 除了微信开放数据域中的模块设置比较特殊以外，在其他平台项目的模块设置中还有几点需要注意：
 
 1. 目前我们已经在非微信开放数据域的其他平台中废弃了 Canvas 渲染模式，所以 Canvas Renderer 模块都可以剔除，但 WebGL Renderer 模块必须保留。
 2. 原生平台目前不可剔除 Native Network 模块（未来会调整）。
 
-## 2.6 自定义引擎 Quick Compile
+## 2.5 自定义引擎 Quick Compile
 
 在 2.0 中，我们为需要定制引擎的开发者提供了一种更便捷的开发方式。1.x 在修改定制引擎之后，还需要进行 gulp build 构建才能生效，而且构建时间很长。这个问题的根本原因是，任何小的改动都需要将所有引擎文件进行重新打包，混淆，这个过程的耗时很长。所以 2.0 中我们改为引用自定义引擎中的分散文件，当用户改动发生时，只会更新被修改的文件，开发者也可以手动触发更新。
 
 ![自定义引擎配置](upgrade-guide-v2.0/quick-compile.png)
 
-当使用自定义 JS 引擎时：
-
-1. 勾选自动编译 JS 引擎：加载或刷新编辑器时扫描引擎并自动重新编译修改的引擎代码
-2. 不勾选自动编译 JS 引擎：开发者需要在修改完引擎代码之后，手动使用菜单项：”开发者” > “编译引擎” 来触发编译
+当使用自定义 JS 引擎时，加载或刷新编辑器时编辑器会扫描引擎并自动重新编译修改的引擎代码。
 
 在编译完成后，预览就会直接使用新的引擎代码，构建项目时，也会使用新的引擎代码进行编译构建，当然，这会带来两个副作用：需要编译引擎时构建时间增长；预览时加载引擎脚本很多，所以预览加载时间也会增长。
 
@@ -148,7 +136,7 @@
 - 加载 main.js
 - 加载项目插件脚本
 - 加载项目主脚本
-- 初始化引擎（Animation Manager, Collision Manager, Physics Manager, Widget Manager）
+- 初始化引擎（Animation Manager、Collision Manager、Physics Manager、Widget Manager）
 - 初始化渲染器
 - 调用 cc.game.onStart
 
@@ -165,9 +153,6 @@
 3. 原生平台
     1. 入口文件：main.js
     2. 适配文件：jsb-adapter/
-4. QQ 轻游戏
-    1. 入口文件：main.js
-    2. 适配文件：libs/
 
 开发者如果需要添加自己的定制代码，可以参考 [定制项目文档](http://docs.cocos.com/creator/manual/zh/publish/custom-project-build-template.html) 在项目中用自己的版本覆盖原始版本，另外，尽量不要覆盖 main.js。
 
@@ -192,23 +177,28 @@ EventTarget：
 可以看到只有 Node 的 `on`/`off` 支持父节点链上的事件捕获和事件冒泡，默认仅有系统事件支持这样的派发模式，用户可以通过 `node.dispatchEvent` 在节点树上以同样的流程派发事件。这点跟 1.x 是一致的。
 但是，Node 上使用 emit 派发的事件和 EventTarget 上的所有事件派发都是简单的事件派发方式，这种方式派发的事件，在事件回调的参数上和 1.x 有区别：
 
-    // **v1.x**
-    eventTarget.on(type, function (event) {
-        // 通过 event.detail 获取 emit 时传递的参数
-    });
-    eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
-    // **v2.0**
-    eventTarget.on(type, function (message, target) {
-        // 直接通过回调参数来获取 emit 时传递的事件参数
-    });
-    eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
+```js
+// **v1.x**
+eventTarget.on(type, function (event) {
+    // 通过 event.detail 获取 emit 时传递的参数
+});
+eventTarget.emit(type, message); // message 会被保存在回调函数的 event 参数的 detail 属性上
 
-另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 cc.eventManager 来监听回调，在 2.0 中我们提供了更简单的方式：
+// **v2.0**
+eventTarget.on(type, function (message, target) {
+    // 直接通过回调参数来获取 emit 时传递的事件参数
+});
+eventTarget.emit(type, message, eventTarget); // emit 时可以传递至多五个额外参数，都会被扁平的直接传递给回调函数
+```
+    
+另外值得一提的是，热更新管理器的事件监听机制也升级了，AssetsManager 在旧版本中需要通过 `cc.eventManage`r 来监听回调，在 2.0 中我们提供了更简单的方式：
 
-    // 设置事件回调
-    assetsManager.setEventCallback(this.updateCallback.bind(this));
-    // 取消事件回调
-    assetsManager.setEventCallback(null);
+```js
+// 设置事件回调
+assetsManager.setEventCallback(this.updateCallback.bind(this));
+// 取消事件回调
+assetsManager.setEventCallback(null);
+```
 
 ## 3.5 适配模式升级
 

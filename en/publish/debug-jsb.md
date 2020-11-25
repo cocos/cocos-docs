@@ -1,6 +1,6 @@
-# Debug JavaScript on Native Platform
+# Debuging JavaScript on Native Platforms
 
-After the game is released to the native platform, because the operating environment is different, may appear in the browser preview can not reproduce the Bug, then we must directly in the original platform for debugging. However, traditional debugging methods can only be debugged to the C + + section and cannot debug JavaScript code. Cocos Creator introduced JSB 2.0 from v1.7, which makes it easy to remotely debug JavaScript in the native platform. If the Creator version is v1.6 below, please refer to [Native Platform Debugging](../publish/debug-native.md).
+After a game is released on the native platform, because the runtime environment is different, there may be some bugs that cannot be reproduced in the browser preview. This means we must debug it directly on the native platform. Cocos Creator makes it easy to debug JavaScript remotely in the native platforms.
 
 ## Debug Simulator
 
@@ -12,72 +12,30 @@ First choose to use the **simulator (debug)** as the preview platform on the top
 
 ![](debug-jsb/simulator-run.png)
 
-#### Windows
-
-After running the simulator, open the address directly with the Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/ 00010002-0003-4004-8005-000600070008` can be debugged:
+After running the simulator, open the address <devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008> directly with the Chrome browser to debug. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 
 ![](debug-jsb/v8-win32-debug.png)
-
-#### Mac
-
-- After running the simulator, in the Safari browser's **Preferences -> Advanced** tab, Check `Show Develop menu in menu bar`.
-- Safari menu select `Develop -> your Mac device -> Cocos2d-x JSB`.
-
-![](debug-jsb/jsc-mac-debug.png)
-
-- To debug in a pop-up **Web inspector**:
-
-![](debug-jsb/jsc-mac-breakpoint.png)
 
 ### Method Two
 
 Starting with **v2.0.7**, the [Open Simulator Debugger Panel](../getting-started/basics/editor-panels/preferences.md#preview-run) feature has been added to the **Preview Run** of **Settings** panel. The debugging steps are as follows:
 
   - Check the **Open Simulator Debugger Panel** in the **Setting -> Preview Run** panel, then click **Save**.
+
   - Running the simulator, then you can automatically open simulator debugger panel for debugging when start simulator.
 
 ## Debug on target device
 
-If the game only run on the real machine, or the simulator can not reproduce the problem, it must be the real machine to the packaged game to debug.
+If a game can only run on a physical device, or the simulator can not reproduce the problem, then the packaged game must be debugged on a physical device. Debugging steps are as follows:
 
-### Android Debugging
+- Make sure that the Android/iOS device is on the same LAN as Windows or Mac.
 
-- Make sure that the Android device is on the same LAN as Windows or Mac.
-- Select the Android platform and Debug mode in the build publishing panel of Creator to build a compile-and-run project.
-- Open address with Chrome browser: `chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={ip}:5086/ 00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android device, you can debug it. (**Note**: Starting with **v2.0.7**, 5086 needs to be changed to 6086)
+- Select the **Android / iOS** platform and **Debug** mode in the **Build** panel of Cocos Creator to build, compile and run a project (The iOS platform recommends connecting to the physical device via Xcode to compile and run).
 
-![](debug-jsb/v8-android-debug.png)
+- Open address with Chrome browser: <devtools://devtools/bundled/js_app.html?v8only=true&ws={ip}:6086/00010002-0003-4004-8005-000600070008>, where `{IP}` is the local IP of the Android/iOS device, then you can debug it. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 
-### iOS Debugging
-
-- Connect a device to a computer via a USB cable.
-- Open IPhone Settings -> Safari -> Advanced -> Open Web Inspector.
-- Select the IOS platform, Debug mode, and build the project in Creator's Build publishing panel. Open the project in Xcode.
-
-![](debug-jsb/package.png)
-
-- Add signature to Project: Select your iOS project -> General -> Signing -> Select your developer certificate.
-- Add a entitlements file for the Xcode project and skip this step if the entitlements file exists. If not, open iCloud in the capabilities setting of the project, and then close. The .entitlements file is automatically added to the project.
-
-![](debug-jsb/jsc-entitlements.png)
-
-- Make sure the Code Signing Entitlements option contains entitlements files in the Build Setting (**examplecases-mobile.entitlements** this part requires manual input).
-
-![](debug-jsb/jsc-entitlements-check.png)
-
-- Open the entitlements file, manually add the **get-task-allow**, the value type is **Boolean**, and the value is **YES**.
-
-![](debug-jsb/jsc-security-key.png)
-
-- Compile the project in Xcode and publish the project to the device.
-- Safari menu select `develop -> your device -> Cocos2d-x JSB` (This step if you can't find your device, it's probably because Safari is too low and needs to be upgraded Safari).
-
-![](debug-jsb/jsc-ios-debug.png)
-
-- To debug in a pop-up **Web Inspector**:
-
-![](debug-jsb/jsc-ios-breakpoint.png)
+  ![](debug-jsb/v8-android-debug.png)
 
 ## Other Platform Debugging
 
-If you need to debug in release mode, or the need to publish to the Windows or Mac platform debugging, or you need to debug a custom native engine, refer to the more detailed [JSB 2.0 Use Guide: Remote Debugging and Profile](../advanced-topics/jsb/JSB2.0-learning.md#remote-debugging-and-profile).
+If you need to debug in release mode, or the need to publish to the Windows or Mac platform debugging, or you need to debug a custom native engine, refer to the more detailed [JSB 2.0 Use Guide: Remote Debugging and Profile](../advanced-topics/JSB2.0-learning.md#remote-debugging-and-profile) documentation.

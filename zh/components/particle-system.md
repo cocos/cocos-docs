@@ -12,7 +12,7 @@ ParticleSystem 组件可通过编辑器和脚本两种方式创建，如下所�
 
 ### 1、通过编辑器创建
 
-  点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **添加渲染组件** 中选择 **ParticleSystem**，即可添加 ParticleSystem 组件到节点上。
+  点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **渲染组件** 中选择 **ParticleSystem**，即可添加 ParticleSystem 组件到节点上。
 
   ![](pageviewindicator/add_particlesystem.png)
 

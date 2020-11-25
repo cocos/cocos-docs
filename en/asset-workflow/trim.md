@@ -8,11 +8,11 @@ Once a texture is imported, the SpriteFrame asset generated with the texture wil
 
 There are two properties related to trim setting in **Sprite** component:
 
-- `Trim` If checked, the node's bounding box will not include transparent pixels around the image. Instead the bounding box will be an exact fit to trimmed image. If unchecked the bounding box will be showing original texture including transparent areas.
-- `Size Mode` Use the options in this property to set node's size to the original texture size or trimmed image size. Options are:
-  - `TRIMMED` Select this option will set the size of the node to use trimmed image size of the current SpriteFrame used by Sprite component.
-  - `RAW` Select this option will set the size of the node to use the original texture size, including transparent areas.
-  - `CUSTOM` This option make sure the size of the node will not be changed along with SpriteFrame, and should be managed by user himself. If user use **Rect Transform Tool** or `Size` property in **Properties** panel to modify the size of the node, the `Size Mode` property will be automatically set to `CUSTOM`.
+- `Trim`: If checked, the node's bounding box will not include transparent pixels around the image. Instead the bounding box will be an exact fit to trimmed image. If unchecked the bounding box will be showing original texture including transparent pixels. It only takes effect when the Type is set to **Simple**.
+- `Size Mode`: Use the options in this property to set node's size to the original texture size or trimmed image size. Options are:
+  - `TRIMMED`: Select this option will set the size of the node to use trimmed image size of the current SpriteFrame used by Sprite component.
+  - `RAW`: Select this option will set the size of the node to use the original texture size, including transparent pixels.
+  - `CUSTOM`: This option make sure the size of the node will not be changed along with SpriteFrame, and should be managed by yourself. If you use the **Rect Transform Tool** to drag and drop to change the `size` of the node, or modify the `size` property in **Properties** panel, or modify the `width` or `height` in the script, the `Size Mode` property will be automatically set to `CUSTOM`.
 
 The following picture shows the comparison of two size modes:
 
@@ -20,7 +20,7 @@ The following picture shows the comparison of two size modes:
 
 ## Sprite Animation with offset
 
-There are a lot of animator prefer to draw the moving motion in texture, commonly seen in attack animations. Usually animator will use a large canvas and put character on different positions on the canvas for different animation frames. In this case, all animation frames are textures with the same size and transparent areas around the character. We should set **Sprite** component's `Trim` property to `false`, and set `Size Mode` to `RAW`. This way when playing sprite animation the sprite node position will not change, instead the character will move based on it's offset in original textures.
+There are a lot of animator prefer to draw the moving motion in texture, commonly seen in attack animations. Usually animator will use a large texture and put character on different positions on the texture for different animation frames. In this case, we need to set the **Sprite** component's `Trim` property to `false`, and set the `Size Mode` to `RAW`. In this way, the animation will use the original texture size when playing each sequence frame, and retain the information of transparent pixels around the image. So that the character's position drawn in the texture can be displayed correctly.
 
 If `Trim` property is set to `true`, it would fit animations that have no in texture offset.
 

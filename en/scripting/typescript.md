@@ -1,5 +1,7 @@
 # Use TypeScript
 
+> Proofreader: finscn
+
 TypeScript is a free and open source programming language developed by Microsoft. It is a strictly superset of JavaScript and adds optional static types and class-based object-oriented programming. TypeScript design goal is to develop large-scale applications, and then translated into JavaScript. Since TypeScript is a superset of JavaScript, any existing JavaScript program is a valid TypeScript program.
 
 For more information on how to use TypeScript, please visit [TypeScript official website](https://www.typescriptlang.org/).
@@ -7,8 +9,6 @@ For more information on how to use TypeScript, please visit [TypeScript official
 ## TypeScript and Cocos Creator
 
 Many of Cocos Creator users used to use other strong type programming language (such as C++ / C#) to write game, so they hope to use strong type language to enhance the project in the larger scale team when developing games with Cocos Creator.
-
-From v1.5 version on, Cocos Creator supports using TypeScript in the project as a script language. Users' source code can be all TypeScript, or TypeScript and JavaScript mixed.
 
 As with other JavaScript scripts, the TypeScript file (`.ts`) in the project `assets` directory will be compiled into an ES5 JavaScript script that is compatible with the browser standard once created or modified. The compiled script is stored in the `library` directories in the project folder.
 
@@ -24,15 +24,42 @@ When editing the TypeScript script, we recommend using Microsoft's [VS Code](htt
 
 ### Add a TypeScript setting to an existing project
 
-If you want to add a TypeScript script to the original project and get the full support of the IDE such as VS Code, you need to execute the '`Developer -> VS Code Workflow -> Update VS Code API Source` and `Developer -> VS Code Workflow -> Add TypeScript Config` in the main menu. This will add `creator.d.ts` and `tsconfig.json` file to your project root directory. `creator.d.ts` declares all APIs for the engine and is used to support VS Code's intellisense and auto complete. `tsconfig.json` is used to set the TypeScript project configuration and can be further customized by referring to the official [tsconfig.json instructions](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+If you want to add a TypeScript script to the original project and get the full support of the IDE such as VS Code, you need to execute the **Developer -> VS Code Workflow -> Update VS Code API Source** and **Developer -> VS Code Workflow -> Add TypeScript Config** in the main menu. This will add `creator.d.ts` and `tsconfig.json` file to your project root directory. `creator.d.ts` declares all APIs for the engine and is used to support VS Code's intellisense and auto complete.
+
+![](assets/setting-vscode.png)
+
+`tsconfig.json` is used to set the TypeScript project configuration and can be further customized by referring to the official [tsconfig.json instructions](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+
+Here is a `tsconfig.json` paradigm:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": [ "es2015", "es2017", "dom" ],
+    "target": "es5",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "outDir": "temp/vscode-dist"
+  },
+  "exclude": [
+    "node_modules",
+    "library",
+    "local",
+    "temp",
+    "build",
+    "settings"
+  ]
+}
+```
 
 ### Create a TypeScript script in the project
 
-As with creating a JavaScript script, you can create a new `.ts` file directly in the text editor, or create via Assets panel's context menu, right-click on a folder and select `New -> TypeScript`.
+As with creating a JavaScript script, you can create a new `.ts` file directly in the text editor, or create via Assets panel's context menu, right-click on a folder and select **Create -> TypeScript**.
 
 ## Declare CCClass with TypeScript
 
-The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
+The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
 
 The following is an example of a basic TypeScript component declaration:
 
@@ -62,56 +89,55 @@ The decorator uses the `@` character as the marker, the decorator is mainly used
 
 ### More property declaration example
 
-Declare value types:
+- Declare value types
 
-```typescript
-@property({
-    type: cc.Integer
-})
-myInteger = 1;
+    ```typescript
+    @property({
+        type: cc.Integer
+    })
+    myInteger = 1;
 
-@property
-myNumber = 0;
+    @property
+    myNumber = 0;
 
-@property
-myText = "";
+    @property
+    myText = "";
 
-@property(cc.Node)
-myNode: cc.Node = null;
+    @property(cc.Node)
+    myNode: cc.Node = null;
 
-@property
-myOffset = new cc.Vec2(100, 100);
-```
+    @property
+    myOffset = new cc.Vec2(100, 100);
+    ```
 
-Declare arrays
+- Declare arrays
 
-```typescript
-@property([cc.Node])
-public myNodes: cc.Node[] = [];
+    ```typescript
+    @property([cc.Node])
+    public myNodes: cc.Node[] = [];
 
-@property([cc.Color])
-public myColors: cc.Color[] = [];
-```
+    @property([cc.Color])
+    public myColors: cc.Color[] = [];
+    ```
 
-Declare getset
+- Declare getset
 
-```typescript
-@property
-_width = 100;
+    ```typescript
+    @property
+    _width = 100;
 
-@property
-get width () {
-    return this._width;
-}
+    @property
+    get width () {
+        return this._width;
+    }
 
-@property
-set width (value) {
-    cc.log('width changed');
-    return this._width = value;
-}
-```
+    set width (value) {
+        cc.log('width changed');
+        this._width = value;
+    }
+    ```
 
-Note：The public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
+**Note**: The public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
 
 ## Intellisense
 
@@ -146,7 +172,7 @@ And import MyModule and then declare a member variable of the `MyModule` type in
 ```typescript
 // MyUser.ts
 const {ccclass, property} = cc._decorator;
-import MyModule from './MyModule';
+import {MyModule} from './MyModule';
 
 @ccclass
 export class MyUser extends cc.Component {
@@ -175,7 +201,7 @@ When you enter `this.myModule.`, you will be prompt the properties declared in `
 
 ![Auto complete](assets/auto-complete.gif)
 
-__Node: If the declared property is modified to an Array type, but it does not take effect in the editor. Please Reset the component through the component menu.__
+**Node: If the declared property is modified to an Array type, but it does not take effect in the editor. Please Reset the component through the component menu.**
 
 ![Reset component](assets/reset-component.png)
 
@@ -185,58 +211,79 @@ Cocos Creator made partial adjustments to the asset types since v1.10. The decla
 
 ```typescript
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 texture: cc.Texture2D = null;
 
 @property({
-    type: cc.Texture2D
+    type: cc.Texture2D,
 })
 textures: cc.Texture2D[] = [];
 ```
 
 ## Using namespaces
 
-In typescript, a namespace is an ordinary, named Javascript object that is located under the global namespace. It is commonly used to add namespace restrictions to variables when using global variables to avoid polluting the global space. Namespaces and modularity are completely different concepts, and namespaces cannot be exported or referenced, and are used only to provide global variables and methods that are accessed through namespaces. More detailed explanations of namespaces and modularity please refer to [Namespaces and Modules](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Namespaces%20and%20Modules.html).
+In TypeScript, a namespace is an ordinary, named Javascript object that is located under the global namespace. It is commonly used to add namespace restrictions to variables when using global variables to avoid polluting the global space. Namespaces and modularity are completely different concepts, and namespaces cannot be exported or referenced, and are used only to provide global variables and methods that are accessed through namespaces. More detailed explanations of namespaces and modularity please refer to [Namespaces and Modules](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Namespaces%20and%20Modules.html).
 
 Creator defaults all scripts in the assets directory will be compiled, and a modular package is automatically generated for each script so that the scripts can reference each other via `import` or `require`. When we want to place a script's variables and methods in the global namespace rather than in a module, we need to select this script resource and set the script `import as plugin` in the **Properties**. Scripts that are set up as Plug-ins will not encapsulated in a modularly and are not automatically compiled.
 
-So for typescript scripts that contain namespaces, we can neither compile and modularize the scripts nor set them as plugin scripts (which will cause TS files not to be compiled into JS). If you need to use namespaces, we need to work with a specific workflow.
+**Note**: In the WeChat, Baidu, Xiaomi, Alipay mini game environments, the global variables need to explicitly set properties of `window` to declare successfully, such as `window.data = {};`.
 
-### Name space workflow
+So for TypeScript scripts that contain namespaces, we can neither compile and modularize the scripts nor set them as plugin scripts (which will cause TS files not to be compiled into JS). If you need to use namespaces, we need to work with a specific workflow.
 
-1. In the root directory of the project (outside the assets directory), create a new folder to store all of TS scripts containing namespaces, such as `namespaces`.
+### Namespaces workflow
 
-    ![namespace folder](assets/namespace-folder.jpg)
+Here is an example of the namespaces workflow.
 
-2. Modify the `tsconfig.json` file to add the `namespace` folder you just created to the `include` field, indicating that we will compile this part of the file by Vscode.
-3. In the `compilerOptions` field of `tsconfig.json`, add the `outFile` field and set the file path under a `assets` folder. With these settings, We will compile all the ts files in the `namespace` directory into a js file in the `assets` directory.
+1. For first time use, you need to install the TypeScript compiler, execute the following command in command line:
+
+    ```bash
+    npm install -g typescript
+    ```
+
+2. Open the **tsconfig.json** file in the project root directory with VS Code, and then set `outDir` in the `compilerOptions` field.
 
     ```json
     {
-        "compilerOptions": {
-            "module": "commonjs",
-            "lib": [ "dom", "es5", "es2015.promise" ],
-            "target": "es5",
-            "outFile": "./assets/Script/Lib/namespace.js",
-            "experimentalDecorators": true
-        },
-        "include": [
-            "namespaces"
-        ]
+      "compilerOptions": {
+
+        "outDir": "temp/vscode-dist"
+
+        ......
+      },
+
+      ......
     }
     ```
 
-4. Press `Ctrl/Cmd + Shift + P`, enter `task` in Command Palette and select `Tasks: Configure Task Runner`. In the pop-up dialog box, select `TypeScript - tsconfig`. This will create a new `tasks.json` profile under the `. Vscode` folder and configures the task of compiling the ts script specified in the project according to `Tsconfig.json`.
-    ![build task](assets/build-task.jpg)
-5. Now you can write a ts script containing namespaces in the `namespace` directory. By pressing `Ctrl/Cmd + Shift + B` to trigger the default build task after programming, the script content in `namespace` is compiled into the specified file in the `assets` directory. Each time you modify a script in `namespace`, you should perform a build task to update the compiled file.
-6. Return to the Creator editor, select the newly generated namespace script `Namespace.js` in the explorer and set `import as plugin` in the property check, avoid further compiler encapsulation of the script by the editor.
+3. In the root directory of the project (outside the **assets** directory), create a new folder and name it **namespaces** to store all of `ts` scripts that contain namespace. Then create a new script **foo.ts** under that folder:
 
-This is the complete workflow for using the Typescript namespace in Creator.
+    ```ts
+    namespace Foo {
+        export let bar: number = 1;
+    }
+    ```
+
+4. Press the **Ctrl/Cmd + Shift + P**, enter `task` in the popup input box and select `Tasks: Configure Task`. Then continue to select `tsc: build - tsconfig.json` in the popup options.
+
+5. Press the **Ctrl/Cmd + Shift + B**, enter `tsc` in the popup input box and select `tsc: build - tsconfig.json` to start the `ts` compilation task. You can see that a **vscode-dist** folder has been generated under the **temp** directory, in that folder you can find the compiled generated script **foo.js**, the contents of the script now should be:
+
+    ```js
+    var Foo;
+    (function (Foo) {
+        Foo.bar = 1;
+    })(Foo || (Foo = {}));
+    ```
+
+6. Copy the **foo.js** to any valid location in the **assets** directory of project.
+
+7. Go back to the editor and select the **foo.js** you just copied in the **Assets** panel. Then check **Import As Plugin** in the **Properties** panel and click the **Apply** button in the upper right corner when you're done. The namespaces defined in the **foo.js** now works fine.
+
+That is the complete workflow for using the TypeScript namespace in Creator.
 
 ## Update engine interface declaration data
 
-Each new version of Creator will update the engine interface statement, so after upgrading the Creator, it is recommended to update existing project `creator.d.ts` file to the latest. Go through the main menu 'Developer -> VS Code Workflow -> Update VS Code API Source` to complete the update.
+Each new version of Creator will update the engine interface statement, so after upgrading the Creator, it is recommended to update existing project `creator.d.ts` file to the latest. Go through the main menu **Developer -> VS Code Workflow -> Update VS Code API Source** to complete the update.
 
 ---
 

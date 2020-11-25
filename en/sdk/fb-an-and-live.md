@@ -1,6 +1,6 @@
 # Facebook Live Video and Audience Network
 
-Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
+Starting with __v2.0.6__, __Cocos Creator__ officially supports one-click integration of Facebook services, including **Facebook Live Video** and **Facebook Audience Network**. These two SDKs currently support Android and iOS.
 
 **Cocos Creator includes**:
 
@@ -76,7 +76,7 @@ There are three types of **Facebook Audience Network**:
 
 - `cc.Ads.Banner`: Pop up banner ad
 - `cc.Ads.RewardedVideo`: Pop up reward video window ad
-- `cc.Ads.Interstitial`：Pop up placard ad
+- `cc.Ads.Interstitial`: Pop up placard ad
 
 Taking the pop up banner ad `cc.Ads.Banner` as an example, the user can create an instance of a new `cc.Ads.Banner` object and then call it according to their needs.
 

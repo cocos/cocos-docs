@@ -11,7 +11,7 @@
 - 合成图集时会去除每张图片周围的空白区域，加上可以在整体上实施各种优化算法，合成图集后可以大大减少游戏包体和内存占用
 - 多个 Sprite 如果渲染的是来自同一张图集的图片时，这些 Sprite 可以使用同一个渲染批次来处理，大大减少 CPU 的运算时间，提高运行效率。
 
-更形象生动的解释可以观看来自 CodeAndWeb 的教学视频 [What is a Sprite Sheet（什么是图集）](https://www.codeandweb.com/what-is-a-sprite-sheet)，需要使用 VPN 打开视频。
+更形象生动的解释可以观看来自 CodeAndWeb 的教学视频 [What is a Sprite Sheet（什么是图集）](https://www.codeandweb.com/what-is-a-sprite-sheet)（如无法访问请科学上网）。
 
 ## 制作图集资源
 
@@ -28,17 +28,22 @@
 
 ![atlas files](atlas/atlas_files.png)
 
+**注意**：
+
+- Zwoptex 暂时不支持最新版 macOS。
+- 若没有特殊需求，也可以直接使用 [自动图集](./auto-atlas.md) 功能生成图集。
+
 ## 导入图集资源
 
 将上面所示的 **plist** 和 **png** 文件同时拖拽到 **资源管理器** 中，就可以生成可以在编辑器和脚本中使用的图集资源了。
 
 ### Atlas 和 SpriteFrame
 
-在[图像资源文档](sprite.md#texture-spriteframe-)中，我们介绍了 Texture 和 SpriteFrame 的关系。导入图集资源后，我们可以看到类型为 `Atlas` 的图集资源可以点击左边的三角图标展开，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都是可以单独使用和引用的图片。
+在 [图像资源文档](sprite.md#texture-spriteframe-) 中，我们介绍了 Texture 和 SpriteFrame 的关系。导入图集资源后，我们可以看到类型为 `Atlas` 的图集资源，点击左边的三角图标展开，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都是可以单独使用和引用的图片。
 
 ![sprite frame](atlas/spriteframes.png)
 
-接下来对于 Sprite Frame 的使用方法就和图像资源中介绍的一样了，请查阅相关文档。
+Sprite Frame 的使用方法和图像资源中介绍的一样，请查阅相关文档。
 
 ## 碎图转图集
 

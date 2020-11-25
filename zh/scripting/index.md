@@ -2,7 +2,7 @@
 
 ## 简介
 
-Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Cocos Creator 支持 JavaScript 和 CoffeeScript 两种脚本语言。通过编写脚本组件，并将它赋予到场景节点中来驱动场景中的物体。
+Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Cocos Creator 支持 JavaScript 和 TypeScript 两种脚本语言。通过编写脚本组件，并将它赋予到场景节点中来驱动场景中的物体。
 
 在组件脚本的编写过程中，你可以通过声明属性，将脚本中需要调节的变量映射到 **属性检查器**（Properties） 中，供策划和美术调整。于此同时，你也可以通过注册特定的回调函数，来帮助你初始化，更新甚至销毁节点。
 
@@ -22,8 +22,8 @@ Cocos Creator 的脚本主要是通过扩展组件来进行开发的。目前 Co
   - [发射和监听事件](events.md)
   - [系统内置事件](internal-events.md)
   - [玩家输入事件](player-controls.md)
-- [使用动作系统](actions.md)
 - [使用缓动系统](tween.md)
+- [使用动作系统](actions.md)
 - [动作列表](action-list.md)
 - [使用计时器](scheduler.md)
 - [脚本执行顺序](execution-order.md)

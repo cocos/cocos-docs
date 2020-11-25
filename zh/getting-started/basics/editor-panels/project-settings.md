@@ -42,5 +42,6 @@
 
 ## 服务
 
-**集成 Cocos 数据统计** 允许游戏发布后统计玩家数据。详情请参考 [Cocos 数据统计](../../../sdk/cocos-analytics.md?h=%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1).
+![](../../../sdk/fb-an-and-live/facebook.png)
 
+Facebook 服务包括 **Facebook Live Video** 和 **Facebook Audience Network**。详情请参考 [Facebook 直播和广告](../../../sdk/fb-an-and-live.md)。

@@ -1,6 +1,8 @@
 # 使用对象池
 
-在运行时进行节点的创建(`cc.instantiate`)和销毁(`node.destroy`)操作是非常耗费性能的，因此我们在比较复杂的场景中，通常只有在场景初始化逻辑（`onLoad`）中才会进行节点的创建，在切换场景时才会进行节点的销毁。如果制作有大量敌人或子弹需要反复生成和被消灭的动作类游戏，我们要如何在游戏进行过程中随时创建和销毁节点呢？这里就需要对象池的帮助了。
+> 校对：大城小胖
+
+在运行时进行节点的创建（`cc.instantiate`）和销毁（`node.destroy`）操作是非常耗费性能的，因此我们在比较复杂的场景中，通常只有在场景初始化逻辑（`onLoad`）中才会进行节点的创建，在切换场景时才会进行节点的销毁。如果制作有大量敌人或子弹需要反复生成和被消灭的动作类游戏，我们要如何在游戏进行过程中随时创建和销毁节点呢？这里就需要对象池的帮助了。
 
 ## 对象池的概念
 
@@ -73,6 +75,7 @@ onEnemyKilled: function (enemy) {
 }
 ```
 
+返还节点时，对象池内部会调用结点的 `removeFromParent(false)` 方法，将对象从父节点中移除，但并不会执行 `cleanup` 操作。  
 这样我们就完成了一个完整的循环，主角需要刷多少怪都不成问题了！将节点放入和从对象池取出的操作不会带来额外的内存管理开销，因此只要是可能，应该尽量去利用。
 
 ## 使用组件来处理回收和复用的事件
@@ -115,7 +118,6 @@ let newBullet = myBulletPool.get(this); // 传入 manager 的实例，用于之�
 
 
 // Bullet.js
-
 reuse (bulletManager) {
     this.bulletManager = bulletManager; // get 中传入的管理类实例
 }
@@ -125,7 +127,6 @@ hit () {
     this.bulletManager.put(this.node); // 通过之前传入的管理类实例回收子弹
 }
 ```
-
 
 ## 清除对象池
 
@@ -145,6 +146,8 @@ myPool.clear(); // 调用这个方法就可以清空对象池
 
 对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 [暗黑斩 Demo 中的 PoolMng 脚本](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) 来实现自己的对象池。
 
+## 使用 cc.NodePool 的注意事项
 
+当获取和返还节点时，`cc.NodePool` 内部会不断地对节点执行 `removeFromParent` 和 `addChild` 操作，当大批量、频繁地操作对象池时（比如制作射击游戏弹幕），可能在低端机器上仍然会引起卡顿。
 
-
+除了性能问题，不断地执行 `removeFromParent` 和 `addChild` 也会导致节点的默认渲染顺序发生变化。如有必要避免，可以调用 `setSiblingIndex` 修改节点的索引。

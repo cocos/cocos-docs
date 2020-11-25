@@ -4,18 +4,18 @@ The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 
 ![toggle1](./toggle/toggle.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **Toggle** from **Add UI Component**. Then you can add the Toggle component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **Toggle** from **UI Component**. Then you can add the Toggle component to the node.
 
-The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html)。
+The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html).
 
 ## Toggle properties
 
 | Properties       |   Function Explanation
 | -------------- | ----------- |
-|isChecked       | Boolean type，When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled.
-|checkMark       | cc.Sprite type，The image used for the checkmark.
-|toggleGroup     | cc.ToggleGroup type， The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton.
-|Check Events    | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
+|isChecked       | Boolean type. When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled.
+|checkMark       | cc.Sprite type. The image displayed when Toggle is selected.
+|toggleGroup     | cc.ToggleGroup type. The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton.
+|Check Events    | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Toggle Event** section below for details.
 
 **Note**: Because Toggle is inherited from Button, so the attributes exists in Button also apply to Toggle, please refer to the [Button Component](button.md) for more information.
 
@@ -28,7 +28,7 @@ The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle
 | Handler         | Assign a callback function which will be triggered when the user clicks and releases the Toggle.|
 | customEventData | A user-defined string value passed as the last event argument of the event callback.            |
 
-The Toggle event callback has two parameters, the first one is the Toggle itself and the second argument is the customEventData.
+The Toggle event callback has two parameters, the first one is the Toggle itself and the second is the `customEventData`.
 
 ## Detailed explanation
 
@@ -36,7 +36,7 @@ The generic node hierarchy of Toggle is as below:
 
 ![toggle-node-tree](./toggle/toggle-node-tree.png)
 
-**Note**: The checkMark node could be put on top of the background node.
+**Note**: The checkMark node needs to be placed on the upper level of the background node in the **Scene**.
 
 ## Add a callback through the script code
 

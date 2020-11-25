@@ -1,23 +1,23 @@
-# Circle
+# circle
 
-Use `circle()` method to create a circle.
+The `circle()` method is used to create a circle.
 
 | Parameter | Description
 | -------------- | ----------- |
 | cx | The x coordinate of the center of the circle.
 | cy | The y coordinate of the center of the circle.
-| r | radius of the circle.
+| r | Radius of the circle.
 
 ## Example
 
 ```javascript
-var ctx = node.getComponent (cc.Graphics);
-ctx.circle (200,200, 200);
-ctx.stroke ();
+var ctx = node.getComponent(cc.Graphics);
+ctx.circle(200, 200, 200);
+ctx.stroke();
 ```
 
 <a href="graphics/circle.png"><img src = "graphics/circle.png"></a>
 
 <hr>
 
-Return to [Graphics component](index.md)
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

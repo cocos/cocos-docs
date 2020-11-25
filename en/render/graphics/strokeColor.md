@@ -1,4 +1,4 @@
-# StrokeColor
+# strokeColor
 
 The `strokeColor` property sets or returns the color used for the stroke.
 
@@ -7,8 +7,8 @@ The `strokeColor` property sets or returns the color used for the stroke.
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 2;
-ctx.strokeColor = cc.hexToColor('#0000ff');
-ctx.rect(20,20,250,200);
+ctx.strokeColor = new cc.Color().fromHEX('#0000ff');
+ctx.rect(20, 20, 250, 200);
 ctx.fill();
 ```
 
@@ -16,4 +16,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

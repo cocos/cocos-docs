@@ -6,6 +6,14 @@
 
 ## 摄像机属性
 
+- **backgroundColor**
+
+  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+
+- **depth**
+
+  摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
+
 - **cullingMask**
 
   `cullingMask` 将决定这个摄像机用来渲染场景的哪些部分。在 **属性检查器** 中的摄像机组件中的 `cullingMask` 会列出当前可以选择的 mask 选项，你可以通过勾选这些选项来组合生成 `cullingMask`。
@@ -16,11 +24,7 @@
 
   用户可以通过编辑器菜单栏中的 **项目 -> 项目设置 -> 分组管理** 来添加或者更改分组，这些分组即是对应的 mask。
 
-  ![](camera/mask-setting.png)
-
-- **zoomRatio**
-
-  指定摄像机的缩放比例, 值越大显示的图像越大。
+  ![culling mask](camera/mask-setting.png)
 
 - **clearFlags**
 
@@ -28,13 +32,25 @@
 
   ![camera-2](camera/camera-2.png)
 
-- **backgroundColor**
+- **rect**
 
-  当指定了摄像机需要清除颜色的时候，摄像机会使用设定的背景色来清除场景。
+  决定摄像机绘制在屏幕上的哪个区域，便于实现类似小地图那样的 Viewport，值为 0～1。
 
-- **depth**
+  ![camera-2](camera/camera-rect.png)
 
-  摄像机深度，用于决定摄像机的渲染顺序。值越大，则摄像机越晚被渲染。
+  如上图所示，场景中创建了一个用来显示小地图的 camera，最终显示效果在 **游戏预览** 窗口的右上角可以看到。
+
+- **zoomRatio**
+
+  指定摄像机的缩放比例，值越大显示的图像越大。
+
+- **alignWithScreen**
+
+  当 alignWithScreen 为 true 的时候，摄像机会自动将视窗大小调整为整个屏幕的大小。如果想要完全自由地控制摄像机，则需要将 alignWithScreen 设置为 false。（v2.2.1 新增）
+
+- **orthoSize**
+
+  摄像机在正交投影模式下的视窗大小。该属性在 alignWithScreen 设置为 **false** 时生效。
 
 - **targetTexture**
 
@@ -42,7 +58,27 @@
 
   如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
 
-  具体可以参考 [例子](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31)
+### 3D 摄像机属性
+
+这些属性在摄像机节点设置为 [3D 节点](../3d/3d-node.md) 后才会显示在 **属性检查器** 中。
+
+- **nearClip**
+
+  摄像机的近剪裁面。
+
+- **farClip**
+
+  摄像机的远剪裁面。
+
+- **ortho**
+
+  设置摄像机的投影模式是正交（true）还是透视（false）模式。
+
+- **fov**
+
+  决定摄像机视角的高度，当 **alignWithScreen** 和 **ortho** 都设置为 **false** 时生效。
+
+如需调节在 **场景编辑器** 中所用的摄像机参数，可参考 [场景摄像机配置面板](../content-workflow/camera-config.md)。
 
 ## 摄像机方法
 
@@ -68,22 +104,22 @@
 
 ### 坐标转换
 
-一个常见的问题是，当摄像机被移动，旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
+一个常见的问题是，当摄像机被移动、旋转或者缩放后，这时候用点击事件获取到的坐标去测试节点的坐标，这样往往是获取不到正确结果的。
 
-因为这时候获取到的点击坐标是摄像机坐标系下的坐标了，我们需要将这个坐标转换到世界坐标系下，才能继续与节点的世界坐标进行运算。
+因为这时候获取到的点击坐标是屏幕坐标系下的坐标了，我们需要将这个坐标转换到世界坐标系下，才能继续与节点的世界坐标进行运算。
 
-下面是一些摄像机坐标系转换的函数
+下面是一些坐标系转换的函数
 
 ```javascript
-// 将一个摄像机坐标系下的点转换到世界坐标系下
-camera.getCameraToWorldPoint(point, out);
-// 将一个世界坐标系下的点转换到摄像机坐标系下
-camera.getWorldToCameraPoint(point, out);
+// 将一个屏幕坐标系下的点转换到世界坐标系下
+camera.getScreenToWorldPoint(point, out);
+// 将一个世界坐标系下的点转换到屏幕坐标系下
+camera.getWorldToScreenPoint(point, out);
 
-// 获取摄像机坐标系到世界坐标系的矩阵
-camera.getCameraToWorldMatrix(out);
-// 获取世界坐标系到摄像机坐标系的矩阵
-camera.getWorldToCameraMatrix(out);
+// 获取屏幕坐标系到世界坐标系的矩阵，只适用于 2D 摄像机并且 alignWithScreen 为 true 的情况
+camera.getScreenToWorldMatrix2D(out);
+// 获取世界坐标系到屏幕坐标系的矩阵，只适用于 2D 摄像机并且 alignWithScreen 为 true 的情况
+camera.getWorldToScreenMatrix2D(out);
 ```
 
 ## 截图
@@ -91,6 +127,7 @@ camera.getWorldToCameraMatrix(out);
 截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)。
 
 ```javascript
+// 此代码仅适用于 web 平台。要在 native 平台中使用这个功能，请参考 example-case 中的 capture_to_native 场景。
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);
@@ -114,6 +151,9 @@ let data = texture.readPixels();
 // 接下来就可以对这些数据进行操作了
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
+let width = canvas.width = texture.width;
+let height = canvas.height = texture.height;
+
 canvas.width = texture.width;
 canvas.height = texture.height;
 
@@ -134,9 +174,21 @@ let img = document.createElement("img");
 img.src = dataURL;
 ```
 
-### 保存截图文件
+### 截取部分区域
 
-Creator 从 **v2.0.2** 开始新增了保存截图文件功能。首先先截图，然后在 `readPixels` 之后使用：
+当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。（v2.2.1 新增）
+
+```js
+camera.alignWithScreen = false;
+camera.orthoSize = 100;
+camera.position = cc.v2(100, 100);
+```
+
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
+
+### 在原生平台上保存截图文件
+
+首先先截图，然后在 `readPixels` 之后使用：
 
 ```js
 var data = renderTexture.readPixels();
@@ -144,13 +196,12 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考：[capture_to_native](https://github.com/cocos-creator/example-cases/blob/v2.0/assets/cases/07_capture_texture/capture_to_native.js)
-https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture
+详情请参考 [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)。
 
 ## 微信中的截图
 
-**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/document/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API：[canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/api/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
 
 ## 案例
 
-具体可以参考 [案例](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)，从编辑器创建范例合集项目可以看到实际运行效果。
+具体可以参考 [案例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)，从编辑器创建范例集合项目可以看到实际运行效果。

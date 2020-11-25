@@ -1,6 +1,6 @@
 # Common UI Controls
 
-This document describes commonly used non - core controls in the UI system, use the core rendering component, and alignment strategy. These controls will constitute the most interactive part of our game UI. You will understand the usage of the following UI control:
+This document describes commonly used controls in the UI system, use the core rendering component, and alignment strategy. These controls will constitute the most interactive part of our game UI. You will understand the usage of the following UI control:
 
 - ScrollView、ScrollBar and Mask
 - Button
@@ -49,7 +49,7 @@ Detailed property descriptions available on **Button** components, please refer 
 
 ### Transition Description
 
-`Transition` property of the Button used to set up when the button is in normal (Normal), down (Pressed), the hover (Hover), Disabled (Disabled) `Target` four state property to refer to the background. You can choose from three modes：
+`Transition` property of the Button used to set up when the button is in normal (Normal), down (Pressed), the hover (Hover), Disabled (Disabled) `Target` four state property to refer to the background. You can choose from three modes:
 
 - `NONE` (Nothing Transtion), the mode button does not respond to interactive event to automatically change their appearance. But you can add a custom script on the button to precisely control the behavior of interactive performance.
 

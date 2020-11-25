@@ -24,11 +24,11 @@ Event types included:
 
 ### Keyboard Events
 
-- Type：`cc.SystemEvent.EventType.KEY_DOWN` 和 `cc.SystemEvent.EventType.KEY_UP`
-- Call Back: Custom Event：callback(event);
-- Call Back Parameter：
+- Type: `cc.SystemEvent.EventType.KEY_DOWN` 和 `cc.SystemEvent.EventType.KEY_UP`
+- Call Back: Custom Event: callback(event);
+- Call Back Parameter:
     - KeyCode: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/enums/KEY.html)
-    - Event：[API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/classes/Event.html)
+    - Event: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/classes/Event.html)
 
 ```js
 cc.Class({
@@ -64,10 +64,10 @@ cc.Class({
 
 ### DEVICE MOTION
 
-- Type：`cc.SystemEvent.EventType.DEVICEMOTION`
-- Call Back: Custom Event：callback(event);
-- Call Back Parameter：
-    - Event：[API reference](../../../api/en/classes/Event.html)
+- Type: `cc.SystemEvent.EventType.DEVICEMOTION`
+- Call Back: Custom Event: callback(event);
+- Call Back Parameter:
+    - Event: [API reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({

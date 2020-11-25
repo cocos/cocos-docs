@@ -13,28 +13,23 @@ path is animation component relative path. So, only one data copy of the same na
 
 ### clip params
 
-**sample**： The number of frames per second data，default 60
+**sample**: The number of frames per second data, default 60
 
-**speed**： Animation speed，default 1
+**speed**: Animation speed, default 1
 
-**duration**： Animation duration ( speed = 1 )
+**duration**: Animation duration (speed = 1)
 
-**real time**： Play continued real time
+**real time**: Play continued real time
 
-**wrap mode**： Play Mode
+**wrap mode**: Play Mode
 
 ## Animate Editing Mode
 
-Animation in normal mode is not allowed to edit only in movie editing mode, to be able to edit the clip.
-But in edit mode, the node can not be added / deleted / renamed operation.
+Animation files can only be edited in animation editing mode. However, in edit mode, you cannot **add** / **delete** / **rename** nodes.
 
-Open edit mode
+- Open edit mode: Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
 
-- Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
-
-Close edit mode
-
-- Click the Edit button in the upper left corner of the animation editor. Or click the close button on the top left corner of the scene editor
+- Close edit mode: Click the Edit button in the upper left corner of the **Timeline**. Or click the close button on the top left corner of the **Scene** panel.
 
 ## Understanding animation editor
 
@@ -71,13 +66,15 @@ Although the time of current frame changes with the frame rate, but the total fr
 
 ### Modify the zoom proportion of timeline
 
-- Scroll the mouse wheel in area 2, 4, 6 of the image, and the display percentage of the timeline can be zoomed in/out.
+What should I do if I feel that the range displayed by the **Timeline** is too small, and I need to scale it down so that more key frames are displayed in the **Timeline**?
+
+- Scroll the mouse wheel in the area 2, 4 and 6 in the image above, and the display percentage of the timeline can be zoomed in/out.
 
 ### Modify the display area of timeline
 
-- Press Shift button on the keyboard, left-click area 2, 4, 6 in the image and drag it to the left/right.
+- Press Shift button on the keyboard, left-click area 2, 4, 6 in the image above and drag it to the left/right.
 
-- Press down the middle mouse button in area 2, 4, 6 in the image and drag it.
+- Press down the middle mouse button in area 2, 4, 6 in the image above and drag it.
 
 ### Modify the currently chosen timeline node
 
@@ -85,7 +82,7 @@ Although the time of current frame changes with the frame rate, but the total fr
 
 - Drag the marked red line in area 4.
 
-### Enter/exit recording status
+### Enter / exit recording status
 
 - There is a red button on the left side of graph 1. Click it and you will open/close the recording status.
 
@@ -103,19 +100,19 @@ Although the time of current frame changes with the frame rate, but the total fr
 
 ## Shortcut key
 
-- left：previous frame
+- left: previous frame
  
-- right：next frame
+- right: next frame
  
-- delete：Delete the selected keys
+- delete: Delete the selected keys
  
-- k：Forward the animation
+- k: Forward the animation
  
-- j：Backward animation
+- j: Backward animation
  
-- ctrl / cmd + left：Jump to the first frame
+- ctrl / cmd + left: Jump to the first frame
 
-- ctrl / cmd + right：Jump to the last frame
+- ctrl / cmd + right: Jump to the last frame
 
 ---
 

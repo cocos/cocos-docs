@@ -67,7 +67,9 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) 中的 **dragonBones/DragonMesh** 测试例。
 
-### 如何从服务器远程加载 DragonBones ？
+### 如何从服务器远程加载 DragonBones
+
+#### 加载文本格式的 DragonBones 资源
 
 ```js
 var animNode = new cc.Node();
@@ -97,7 +99,39 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
+#### 加载二进制格式的 DragonBones 资源
+
+```js
+var animNode = new cc.Node();
+animNode.parent = cc.find('Canvas');
+var dragonDisplay = animNode.addComponent(dragonBones.ArmatureDisplay);
+
+var image = 'http://localhost:7456/res/raw-assets/eee_tex-1529064342.png';
+var ske = 'http://localhost:7456/res/raw-assets/eee_ske-1529065642.dbbin';
+var atlas = 'http://localhost:7456/res/raw-assets/eee_tex-1529065642.json';
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'bin' }, (error, dragonBonesBin) => {
+            var atlas = new dragonBones.DragonBonesAtlasAsset();
+            atlas.atlasJson = atlasJson;
+            atlas.texture = texture;
+
+            var asset = new dragonBones.DragonBonesAsset();
+            asset._nativeAsset = dragonBonesBin;
+
+            dragonDisplay.dragonAtlasAsset = atlas;
+            dragonDisplay.dragonAsset = asset;
+
+            dragonDisplay.armatureName = 'box_anim';
+            dragonDisplay.playAnimation('box_anim', 0);
+        });
+    });
+});
+```
+
 ### 如何从服务器远程加载 Spine
+
+#### 加载文本格式的 Spine 资源
 
 ```js
 var spineNode = new cc.Node();
@@ -121,7 +155,35 @@ cc.loader.load(image, (error, texture) => {
 });
 ```
 
-### 如何自定义或者直接禁用编辑器自带的 uglify？
+#### 加载二进制格式的 Spine 资源
+
+```js
+var spineNode = new cc.Node();
+var skeleton = spineNode.addComponent(sp.Skeleton);
+this.node.addChild(spineNode);
+
+var image = "http://localhost/download/spineres/1/1.png";
+var ske = "http://localhost/download/spineres/1/1.skel";
+var atlas = "http://localhost/download/spineres/1/1.atlas";
+cc.loader.load(image, (error, texture) => {
+    cc.loader.load({ url: atlas, type: 'txt' }, (error, atlasJson) => {
+        cc.loader.load({ url: ske, type: 'bin' }, (error, spineBin) => {
+            var asset = new sp.SkeletonData();
+            asset._nativeAsset = spineBin;
+            asset.atlasText = atlasJson;
+            asset.textures = [texture];
+            asset.textureNames = ['1.png'];
+            skeleton.skeletonData = asset;
+        });
+    });
+});
+```
+
+### 如何从服务器远程加载图集
+
+可参考这个范例：<https://github.com/cocos-creator/load-remote-plist>。
+
+### 如何自定义或者直接禁用编辑器自带的 uglify
 
 自定义引擎完成后，打开 `engine/gulp/util/utils.js` 脚本，在最下面有一个 `uglify` 函数，可以根据需求自行修改其中的参数。如果想要完全跳过 `uglify` 操作，可以直接将 `uglify` 部分中的内容替换成：
 
@@ -137,3 +199,73 @@ return Es.through();
 ### 如何在插件中重新刷新 AssetDB 中的资源
 
 `Editor.assetdb.refresh()` 提供了一个手动刷新资源库的方法。
+
+### Creator 打包 APK 提交到 Google Play 失败，提示 API 等级最低 26？
+
+Google Play 声明 2018 年 8 月开始，新提交的应用必须使用 api level 26 及以上版本编译。Android 构建时三个版本号的设置如下：
+
+- compileSdkVersion 编译版本：编译 Java 代码时使用的 SDK 版本，和支持的最低版本无关。可以设置为 26/27/28。
+- minSdkVersion：支持的最小版本，决定编译出的应用最小支持的 Android 版本。建议设置为 16（对应 Android 4.1）。
+- targetSdkVersion：和运行时的行为有关，建议设置与 compileSdkVersion 一致，也可以设置为 22，避免 [运行时权限的问题](https://developer.android.google.cn/training/permissions/requesting?hl=zh-cn)。
+
+  ![](introduction/compile_version.png)
+
+### 物理刚体的最大速度似乎被限制住了
+
+可以对引擎进行 [定制和重编译](../advanced-topics/engine-customization.md)，在引擎 `engine/external/box2d/box2d.js` 脚本中，`b2_maxTranslation` 参数表示刚体的最大线速度，默认值为 **2**，开发者可以按需修改。
+
+### 加载场景时出现 `TypeError: children[i]._onBatchCreated is not a function` 的报错
+
+这是由于场景文件中的某个 `_children` 的值错误地保存成了 `null`，有可能是在某次编辑器报错的情况下无意中保存了错误的场景数据导致的。可以用文本编辑工具打开场景对应的 `.fire` 文件，把它改为 `[]` 即可。
+
+### VideoPlayer 在浏览器中播放视频时显示黑屏
+
+HTML 只支持 H.264 编码格式的 MP4，建议使用视频格式转换工具输出 AVC(H264) 编码格式的 MP4 视频。
+
+### 运行或预览时，Creator 默认的调试信息显示的颜色看不清楚
+
+可以对引擎进行 [定制和重编译](../advanced-topics/engine-customization.md)，修改引擎调试信息所用的颜色。在 `engine/cocos2d/core/utils/profiler/CCProfiler.js` 脚本中找到 `generateNode` 方法，修改其中的 **LEFT-PANEL**、**RIGHT-PANEL** 节点颜色即可。
+
+### Widget 组件改变的坐标值在当前帧不刷新
+
+请注意需要在立即刷新节点坐标或尺寸前执行 `widget.updateAlignment();`。
+
+### 监听多点触摸，假设有 A、B 两点，按住 B 点，重复点击 A 点之后，松开 B 点时不响应 `touchend` 事件
+
+在项目的任意脚本最外层对 [cc.macro.TOUCH_TIMEOUT](../../../api/zh/classes/macro.html#touchtimeout) 重新赋予一个更大的值即可。注意赋值代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中。
+
+### 动态修改材质的纹理
+
+可以通过材质的 `setProperty` 来修改纹理：
+
+```js
+material.setProperty("diffuseTexture", texture);
+```
+
+具体内容可参考官方范例中的 [custom_material](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) 测试例。
+
+### Scheduler 取消失败，仍然运行
+
+`this.unschedule(callBack, target)` 接收的参数必须与 `this.schedule(callBack, target)` 传入的一致。其中 callBack 必须是同一函数对象，而 target 也必须是同一个对象。如果传入的参数不同就会导致无法正常停止 Scheduler。
+
+### Mac 版本的 CocosCreator 在程序坞上变小
+
+受 Electron 底层 bug 影响，Mac 系统上 Cocos Creator 程序坞图标概率性变小。可以在终端上输入命令行：`defaults write com.apple.dock contents-immutable -bool false; killall Dock`，回车之后即可重启程序坞。
+
+### Web Audio 在 iOS 的浏览器上播放时，如果切换前后台，大概率会出现无法正常暂停和恢复播放的问题
+
+这个问题是 Web Audio 的 `AudioScheduledSourceNode` 引起的。`WebAudioContext` 的 `suspend` 方法在 Web Desktop 平台只会暂停 **指定的** Audio，而在 Web Mobile 平台会暂停 **所有的** Audio。因此在引擎上修复该问题过于 Hack 且不够通用，便不做修复，开发者可以通过在项目脚本中加入以下代码修复：
+
+```js
+if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_IOS) {
+    cc.game.on(cc.game.EVENT_GAME_INITED, () => {
+        cc.game.on(cc.game.EVENT_SHOW, () => {
+            cc.sys.__audioSupport.context.resume();
+        });
+
+        cc.game.on(cc.game.EVENT_HIDE, () => {
+            cc.sys.__audioSupport.context.suspend();
+        });
+    })
+}
+```

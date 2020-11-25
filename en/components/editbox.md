@@ -4,28 +4,35 @@ EditBox is a text input component, you could use this component to gather user i
 
 ![editbox](./editbox/editbox.png)
 
-Click **Add Component** button at the bottom of **Properties** panel and then select **EditBox** from **Add UI Component**, then you can add the EditBox component to the node.
+Click **Add Component** button at the bottom of **Properties** panel and then select **EditBox** from **UI Component**, then you can add the EditBox component to the node.
 
 For EditBox API reference, please refer to [EditBox API](../../../api/en/classes/EditBox.html).
 
+## Upgrade for EditBox component
+
+In v2.1.1, we've made some adjustment and optimization on EditBox component. The change mainly includes:
+- Add `textLabel`,  `placeholderLabel`, `background` properties, users can configure the style of **EditBox** component more flexibly by attaching a custom **Label** or **Sprite** component.
+- Deprecated `fontSize`, `fontColor`, `lineHeight`,  `placeholderFontSize`, `placeholderFontColor`, `backgroundImage`, `stayOnTop` properties, Cocos Creator will automatically upgrade these properties to the corresponding properties on the attached components.
+- Deprecated the `setFocus()` method, add new methods `focus()` and `blur()`, which provides users with the ability to force ending editing editBox.
+
 ## Layout property
 
-| Property |   Function Explanation
-| -------------- | ----------- |
-| String                 | The initial input text of EditBox.
-| Background Image       | The background image of EditBox.
-| Keyboard Return Type   | The keyboard return type of EditBox. This is useful for keyboard of mobile device.
-| Input Flag             | Specify the input flag: password or capitalize word. (Only supports Android platform)
-| Input Mode             | Specify the input mode: multiline or single line.
-| Font Size              | The font size of input label.
-| StayOnTop              | The input is always visible and be on top of the game view.
-| TabIndex               | Set the tabIndex of the DOM input element, only useful on Web.
-| Line Height            | The line height of input label.
-| Font Color             | The font color of input label.
-| Placeholder            | The content string of placeholder.
-| Placeholder Font Size  | The font size of placeholder label.
-| Placeholder Font Color | The font color of placeholder label.
-| Max Length             | The maximize input characters.
+| Property              |   Function Explanation
+| --------------        | ----------- |
+| String                | The initial input text of EditBox.
+| Placeholder           | The content string of placeholder.
+| Background            | The Sprite component attached to the node for EditBox's background.
+| Text Label            | The Label component attached to the node for EditBox's input text label.
+| Placeholder Label     | The Label component attached to the node for EditBox's placeholder text label.
+| KeyboardReturnType    | The keyboard return type of EditBox. This is useful for keyboard of mobile device.
+| Input Flag            | Specify the input flag: password or capitalize word. (Only supports Android platform)
+| Input Mode            | Specify the input mode: multiline or single line.
+| Max Length            | The maximize input characters.
+| Tab Index             | Set the tabIndex of the DOM input element, only useful on Web.
+| Editing Did Began     | The event handler to be called when EditBox began to edit text. Please refer to the Editing Did Began event below for details.                  |
+| Text Changed          | The event handler to be called when EditBox text changes. Please refer to the Text Changed event below for details.                      |
+| Editing Did Ended     | The event handler to be called when EditBox edit ends. Please refer to the Editing Did Ended event below for details.                 |
+| Editing Return        | The event handler to be called when return key is pressed, Currently does not support windows platform. Please refer to the Editing Return event below for details. |
 
 ## EditBox Event
 
@@ -84,8 +91,6 @@ In single line mode, EditBox may lose its focus if users press Return.
 - If you want to input password, you need set **Input Flag** to `PASSWORD` and the **Input Mode** mustn't be `ANY`, usually we use **Single Line**.
 - If you want to enable multiline input support, the flag of `Input Mode` should be set to `Any`.
 - The background image of EditBox support slice 9, you could customize the border as you did in Sprite component.
-
-**Note**: When used in **iframe**, you should set `stayOnTop` property to true.
 
 ## Add a callback through the script code
 

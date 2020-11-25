@@ -1,19 +1,19 @@
-# Ellipse
+# ellipse
 
-Use `ellipse()` method to create an ecllipse.
+The `ellipse()` method is used to create an ecllipse.
 
 | Parameter | Description
-| -------------- | ----------- |
-| cx | 圆的中心的 x 坐标。
-| cy | 圆的中心的 y 坐标。
-| rx | 圆的 x 半径。
-| ry | 圆的 y 半径。
+| --------- | ----------- |
+| cx | The x coordinate of the center of the ecllipse. |
+| cy | The y coordinate of the center of the ecllipse. |
+| rx | The x radius of the ecllipse.|
+| ry | The y radius of the ecllipse.|
 
 ## Example
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.ellipse(200,100, 200,100);
+ctx.ellipse(200, 100, 200, 100);
 ctx.fill();
 ```
 
@@ -21,4 +21,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

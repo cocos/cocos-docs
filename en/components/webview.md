@@ -15,7 +15,7 @@ For more information about WebView API, please refer to [WebView API](../../../a
 | Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
 | Webview Events | The webview's event callback, it will be triggered when certain webview event occurs.
 
-**Note**：In **cc.Node** of the **Webview Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant WebView event according to the user's needs.
+**Note**: In **cc.Node** of the **Webview Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant WebView event according to the user's needs.
 
 ## WebView Event
 
@@ -44,7 +44,10 @@ For more information, please refer to the [WebView Events](../../../api/en/class
 
 Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
 
-This component doesn't support load HTML file or execute Javascript.
+**Note**:
+
+- This component doesn't support load HTML file or execute Javascript.
+- If you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
 
 ### Add a callback via script
 
@@ -160,10 +163,9 @@ cc.Class({
 });
 ```
 
+So when you need to interact with WebView through an internal page, you should set the internal page URL: `testkey://(the data you want to callback to WebView later)`. WebView internal page code:
+
 ```html
-// So when you need to interact with WebView through an internal page, 
-// you should set the internal page URL: TestKey://(the data you want to callback to WebView later)
-// WebView internal page code
 <html>
 <body>
     <dev>
@@ -179,10 +181,9 @@ cc.Class({
 </html>
 ```
 
-Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other
+Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
 
-```js
-// WebView internal page code
+```html
 <html>
 <body>
     <dev>

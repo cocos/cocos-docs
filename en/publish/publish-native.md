@@ -2,7 +2,7 @@
 
 Open **Project -> Build...** in the main menu and open **Build** panel.
 
-Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options of release games on iOS, Mac and Windows will only appear in concerning operating systems.
+Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. 
 
 ![native platform](publish-native/native_platform.png)
 
@@ -11,6 +11,8 @@ Currently, there are four native platforms, which include: **Android**, **iOS**,
 ### Merge SpriteFrames in Atlas
 
 Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
+
+If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of `project.manifest`.
 
 **Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
 
@@ -22,7 +24,7 @@ When merging assets automatically, combine all SpriteFrame and the assets that a
 
 Add MD5 information to all the resource file names after build to resolve the CDN cache problem during hot update.
 
-After being enabled, if any resource fails to load, it is because the renamed new file can not be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
+After being enabled, if any resource fails to load, it is because after renaming the new file, it cannot be found. It is usually because some third party resources used in C++ was not loaded by cc.loader. If this happens, you can convert the url before loading, to fix the loading problem.
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -59,15 +61,11 @@ To set up the CPU type that Android needs to support, you can select one or more
 
 ### Keystore
 
-Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.com/studio/publish/app-signing?hl=zh-cn) for details.
+Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, Check the **Use Debug Keystore** to use the default keystore. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to [Official Document](https://developer.android.google.cn/studio/publish/app-signing) for details.
 
 ### App Bundle (Google Play)
 
-Creator added the **App Bundle (Google Play)** option to the **v2.0.9**. If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
-
-### SDKBox
-
-SDKBox is a free tool for mobile game developers that aids in easily integrating popular social services and other SDKs with just a few lines of code. Support for nearly 30 SDKs such as Apple and Google's IAP In-App Purchases, all SDKs are rigorously tested and officially certified. Please refer to [SDKBox](../sdk/sdkbox.md) for detail.
+If you choose Android or Android Instant platform, check this option to package the game into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
 
 ### Encrypt JS
 
@@ -75,9 +73,13 @@ Encrypt the published script. After build, the JSC file is generated in the `src
 
 **JS Encryption Key**: This secret key will be used to encrypt js files. The project will generate the key randomly when created.
 
-**Zip Compress**: You can reduce the size of your scripts by checking them
+**Zip Compress**: You can reduce the size of your scripts by checking them.
 
 ![](publish-native/js_secret.png)
+
+### Build Scripts Only
+
+When you build a project, if you only modified some scripts, checking this option will only rebuild the scripts, which can greatly reduce the build time.
 
 ## Select source
 
@@ -106,7 +108,7 @@ After selecting the release platform and initial scene, the project can now be b
 When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
 
 ```bash
-Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
+Built to "\myProject\example\build\jsb-default" successfully
 ```
 
 Next, you can choose to directly open the original preview provided by Cocos Creator, or manually open the constructed native project in IDE of corresponding platform for further preview, adjustment and release.
@@ -115,9 +117,9 @@ Next, you can choose to directly open the original preview provided by Cocos Cre
 
 Click the **Compile** button below to enter the compile process, if the template chooses the `default` source code engine, this compilation process will take a long time. When the compilation is successful, it will prompt:
 
-`Compile native project successfully`
+`Compile native project successfully.`
 
-**Attention**: First build Android platform, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, then compile and run.
+**Note: After the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, then compile and run.**
 
 Then click the **Play** button on the bottom right corner, you can preview games of native platforms via the default method provided by Cocos Framework.
 
@@ -125,11 +127,11 @@ Then click the **Play** button on the bottom right corner, you can preview games
 
 After clicking **Play** button, a part of the building work will be continued, the real time progress of which will be seen on the console.
 
-The Mac/Windows platform runs the preview directly on the desktop, and the iOS platform calls the simulator to run the preview. Android platform must connect to real machine via USB and the preview can be run after USB debugging is turned on on the real machine.
+The Mac/Windows platform runs the preview directly on the desktop, and the iOS platform calls the simulator to run the preview. Android platform must connect to physical device via USB and the preview can be run after USB debugging is turned on on the physical device.
 
 The iOS platform recommends compiling with the Xcode connection true machine. After the build is complete, use Xcode to open the `frameworks\runtime-src\proj.ios_mac\.xcodeproj` file under the build directory and set the signature in the Xcode panel `General -> Signing`, select the connected device at the top left of Xcode and click the compile button to compile.
 
-![](publish-native/package.png)
+![](publish-native/package.jpg)
 
 ## Use an Native Project
 
@@ -137,18 +139,26 @@ The iOS platform recommends compiling with the Xcode connection true machine. Af
 
 Click the **open** button near the release path, the building release path will be opened in the document manager of operating system.
 
-`jsb` of this path includes all the native build projects.
+`jsb-default` or `jsb-link` of this path includes all the native build projects.
 
-![native projects](publish-native/native_projects.jpg)
+![native projects](publish-native/native_projects.png)
 
 The red frames in the picture indicate projects of different native platforms. Next, only by using IDE(such as: Xcode, Visual Studio) that corresponds to the native platform to open these projects, can you make further operations like compilation, preview and release. For the usage instructions for native platform's IDE, please search related information on your own, which will not be discussed in detail here.
 
-**Attention**：Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
+**Note**: 
+
+- Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
+- When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
+- Starting from v2.3.0, Android and Android Instant use the same build template, and the built projects are in the `build\jsb-default\frameworks\runtime-src\proj.android-studio` directory. Please note for this directory:
+  - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
+  - For code and third-party library used separately by the Android Instant, place them in the `game\src` and `game\libs` directories, respectively.
+  - For code and third-party library used in common by the Android and Android Instant, place them in the `src` and `libs` directories, respectively.
+  - The `jni\CocosAndroid.mk` and `jni\CocosApplication.mk` files in the `proj.android-studio` directory are mainly used for engine-related configuration and aren't recommended to be modified. If you need to modify the configuration:
+    - For Android, please modify `app\jni\Android.mk` and `app\jni\Application.mk`.
+    - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
+
+  When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.
 
 ---
 
-To know how to debug on a native platform:
-
-Since Creator v1.7, please refer to [Debug JavaScript on Native Platform](debug-jsb.md).
-
-If the Creator version is v1.6 below, please refer to [Native Platform Debugging](debug-native.md).
+To know how to debug on a native platform, please refer to [Debuging JavaScript on Native Platforms](debug-jsb.md).

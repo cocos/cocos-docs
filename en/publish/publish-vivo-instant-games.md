@@ -1,12 +1,10 @@
-# Publishing to vivo Mini Games
-
-Starting with __v2.0.5__, Cocos Creator officially supports the release of games to the __vivo Mini Games__. It takes just a single click with Cocos Creator to publish to the vivo Mini Game. This document is currently written on the basis of **v2.0.6**, which is the lowest recommended version to use. If you are using v2.0.5, it is recommended to upgrade to v2.0.6.
+# Publish to vivo Mini Games
 
 ## Environment Configuration
 
 - Download [Quick App & vivo Mini Game Debugger](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%B0%83%E8%AF%95%E5%99%A8) and [vivo Mini Game Engine](https://minigame.vivo.com.cn/documents/#/lesson/base/environment?id=%E5%AE%89%E8%A3%85vivo%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E) and install it on your Android device (recommended Android Phone 6.0 or above)
 
-- Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally:
+- Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
     **Note**: After installing nodejs, you need to pay attention to whether the npm source address is https://registry.npmjs.org/
 
@@ -24,17 +22,19 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
     npm install -g qgame-toolkit
     ```
 
+    **Note**: Starting with **v2.1.3**, there is no need to install `qgame-toolkit`, but you need to install `vivo-minigame/cli`:
+
+    ```
+    npm install -g @vivo-minigame/cli
+    ```
+
+    If `vivo-minigame/cli` installation fails, it may be caused by too low version of nodejs. Please check the version of node and upgrade.
+
 ## Release Process
 
 **First**, use __Cocos Creator__ to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build...** panel.
 
 ![](./publish-vivo-instant-games/build.png)
-
-**Required parameter items**: Filled in according to the user's requirements and the prompt information in the parameter input box. Including **App Package Name**, **App Name**, **App Icon**, **App Version Name**, **App Version Number**, **Supported Minimum Platform Version Number**.
-
-**Optional parameter items**: Includes **Small Packet Mode**, **Small Packet Mode Server Path** and **Custom npm folder path (New in v2.0.9)**.
-
-For the **Keystore** and two signature files (**certificate.pem path** and **private.pem path**), need to select the **Keystore** or fill in two paths according to user requirements.
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
@@ -61,25 +61,31 @@ The specific filling rules for the relevant parameter configuration are as follo
 - **Supported Minimum Platform Version Number**
 
   This item is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
-  
-- **Small Packet Mode and Small Packet Mode Server Path**
 
-  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the small game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already helped the user. What the user needs to do is the following two steps:
+- **Small Packet Mode**
 
-  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**. Then click on **Build**.
+  This item is optional. The in-package volume of the mini-game contains code and resources that cannot exceed 4M, and resources can be loaded via network requests. **Small Packet Mode** is to help users keep the script files in the mini game package, other resources are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote resources, Cocos Creator has already done that for developers. What the developer needs to do are the following steps:
 
-  2. After the build is complete, click the **Open** button after the **Publish Path** to upload the **jsb-link/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/jsb-link/res** directory.
+  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
-  At this point, the built-up **qgame** directory will no longer contain the **res** directory, and the resources in the **res** directory will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
+  2. **First game resource package into the game package**, this item is optional (New in v2.1.3).
+
+      In the Small Packet Mode, due to too many resources on the launch scene, downloading and loading resources for a long time may result in a short black screen when entering the game for the first time. If **First game resource package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` resource does not support split resource downloading at this time, and the entire `import` directory is also packaged into the first package.
+
+      Developers can choose whether to check this item according to their needs. Then click on **Build**.
+
+  3. After the build is complete, click the **Open** button after the **Build Path** to upload the **qgame/res** directory under the release path to the packet mode server. For example, if the default publishing path is build, you need to upload the **build/qgame/res** directory.
+
+  At this point, the **res** folder will no longer be included in the **qgame** directory which is generated after the build, and the resources in the **res** folder will be downloaded from the filled **Small Packet Mode Server Path** via the network request.
 
 - **Keystore**
 
   When you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
-  
+
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box.
-  
+
   **Note**: These two signature files are not recommended to be placed in the **build/qgame** directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
-  
+
   There are two ways to generate a signature files:
 
     - Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
@@ -95,17 +101,23 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
+- **Separate Engine** (New in v2.3.4)
+
+  This item is optional. Vivo has added **game engine plugin** feature since platform version number **1063**. This plugin has the official version of the Cocos Creator engine built-in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
+
+  Check **Separate Engine** when using, and then build and release normally in the **Build** panel, without additional manual operation. You can refer to the [WeChat Engine Plugin Instructions](./wechat-engine-plugin.md) for details.
+
 - **Custom npm folder path**
 
   This item is optional. Starting with **v2.0.10**, the global npm of the operating system can be automatically obtained without manual setting. The way to obtain npm is:
 
   - **Windows**: Gets the path in the environment variable from the system.
   - **Mac**: Gets the path in the environment variable from the configuration file of Shell.
-  
+
   If not, make sure the npm is properly installed and can be started directly in the command line environment. The obtained npm is used to provide an environment for building rpk. If the npm folder path cannot be found at building, __Cocos Creator__ will only export the game project directory and will not generate the rpk package.
 
   The npm filling rules below **v2.0.10** are as follows:
-  
+
   - If you do not fill out this item, the Creator will read the npm path in the environment variable by default on the Windows system, and the npm in the **/usr/bin/local** directory is read by default on the Mac system to build the exported mini game rpk package that can be run.
   - If your PC environment does not have npm installed or cannot read the npm path in the system, you will need to fill out the **Custom npm folder path** to build and exported rpk package. Fill in the rules as follows:
 
@@ -131,7 +143,7 @@ The specific filling rules for the relevant parameter configuration are as follo
       /Users/yourname/.nvm/versions/node/v8.1.4/bin
       ```
 
-**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported __vivo Mini Game__ project directory.
+**Second**, after the relevant parameters of the **Build...** panel are set, click **Build**. After the build is complete, click the **Open** button behind the **Build Path** to open the build release package. You can see that the **qgame** directory is generated under the default release path build directory, which is the exported vivo Mini Game project directory.
 
 ![](./publish-vivo-instant-games/package.png)
 
@@ -141,7 +153,7 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 **Third**, run the packaged rpk to your phone. There are three ways to run rpk on your phone:
 
-- **Method One**：
+- **Method One**:
 
     Click the **Run** button in the **Build** panel to wait for the QR Code interface to be generated:
 
@@ -171,11 +183,15 @@ And the rpk package will be generated in the **/build/qgame/dist** directory.
 
 - **Method Three**:
 
-    Copy the generated small game **rpk** file (located in the dist directory of the game project qgame directory) to the mobile phone SD card
+    Copy the generated mini game **rpk** file (located in the dist directory of the game project qgame directory) to the `sdcard` directory of the mobile phone.
 
-    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from your phone SD and select Open.
+    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your mobile phone and select Open.
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
+
+## Subpackage Loading
+
+Starting with **v2.1.3**, vivo Mini Games supports subpackage loading, and usage is similar to WeChat Mini Games. Please refer to [Subpackage Loading](../scripting/subpackage.md) for details.
 
 ## Reference link
 

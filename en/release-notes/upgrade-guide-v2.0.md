@@ -1,6 +1,6 @@
 # Cocos Creator v2.0 Upgrade Guide
 
-# 1 Overview
+# 1. Overview
 
 __Cocos Creator v2.0__ is the result of a large-scale *under the hood* refactoring plus two months of
 stability testing. This article will assist __v1.x__ users in upgrading to __v2.0__.
@@ -55,15 +55,7 @@ Maybe developers have noticed the configuration of texture resources in Creator 
 
 This can be eliminated by using code in 1.x, and in 2.0 you only need to turn on the pre-multiply option of the texture. It's also worth noting that if you find that this makes the texture darker, you can change the blending mode of the corresponding rendering component to ONE, ONE_MINUS_SRC_ALPHA.
 
-## 2.2 RenderComponent component settings
-
-In 2.0, we abstracted a new base component class: `RenderComponent`, and all direct rendering components are inherited from this component. These include: `Sprite`, `Label`, `Graphics`, and so on. The most intuitive change for the user is that the rendering component that inherits from it will include the __Src Blend Factor__ & __Dst Blend Factor__ in the __Properties__:
-
-![TiledLayer's Mixed Mode Settings](upgrade-guide-v2.0/render-component.png)
-
-Because of the transformation of the underlying renderer in 2.0, we abstracted the functionality of many render phases for user access and setup. Many of the interfaces to these interfaces are in the RenderComponent. In addition to the blend mode, we also plan to introduce the material system (the engine is built-in, and only the script interface is temporarily available).
-
-## 2.3 Camera component use
+## 2.2 Camera component use
 
 The camera may be the most changed component from 1.x to 2.0. In order for developers to update smoothly, we tried to maintain the consistency of the component layer API. Here are details of the changes:
 
@@ -75,26 +67,26 @@ If you need a more advanced Camera component, it will be necessary to upgrade to
 
 For specific changes, developers can refer to [2.0 Camera Using Documentation](../render/camera.md).
 
-## 2.4 Build Panel Updates
+## 2.3 Build Panel Updates
 
-The biggest change in Build panels is the release of WeChat games open data domain. In 1.x, developers choose to publish the platform as WeChat Game and check the open data domain project. In 2.0, we separate the WeChat open data domain into a platform: WeChat Game Open Data Context.
+The biggest change in Build panels is the release of WeChat Mini Game Open Data Context. In 1.x, developers choose to publish the platform as WeChat Mini Game and check the open data context project. In 2.0, we separate the WeChat Mini Game Open Data Context into a platform: WeChat Mini Game Open Data Context.
 
-![2.0 WeChat game open data domain publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
+![2.0 WeChat mini game open data context publishing panel](upgrade-guide-v2.0/wechat-open-data.png)
 
-As you can see, the build options are much simpler than other platforms because the open data domain has a special environment that removes unnecessary options. At the same time, since the open data domain does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data domain.
+As you can see, the build options are much simpler than other platforms because the open data context has a special environment that removes unnecessary options. At the same time, since the open data context does not support WebGL rendering, the WebGL renderer will be rejected on the engine module clipping, regardless of the user's settings, and all modules that rely on WebGL rendering will be rejected. Other modules still need the user's own choice to try to get the smallest package in the open data context.
 
 For the same reason, when building other platforms, please don't check the Canvas Renderer, because the Canvas renderer supports a small number of rendering components, meaning little.
 
-Starting with v2.0.1, we updated the open data domain solution. For details, please refer to [Access Small Game Open Data Domain](../publish/publish-wechatgame-sub-domain.md).
+Starting with v2.0.1, we updated the open data context solution. For details, please refer to [Access to the Open Data Context of WeChat Mini Games](../publish/publish-wechatgame-sub-domain.md).
 
-## 2.5 Module Settings
+## 2.4 Module Settings
 
-In addition to the special module settings in the WeChat open data domain, there are several points to note in the module settings of other platform projects:
+In addition to the special module settings in the WeChat open data context, there are several points to note in the module settings of other platform projects:
 
-  1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data domain, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
+  1. Currently we have deprecated the Canvas rendering mode on other platforms in the non-WeChat open data context, so the Canvas Renderer module can be culled, but the WebGL Renderer module must be retained.
   2. The native platform cannot currently remove the Native Network module (which will be adjusted in the future).
 
-## 2.6 Custom Engine Quick Compile
+## 2.5 Custom Engine Quick Compile
 
 In 2.0, we provided a more convenient way for developers who needed a custom engine. 1.x After modifying the custom engine, you also need to build the gulp build to take effect, and the build time is very long. The root cause of this problem is that any minor changes require repackaging and confusing all engine files, which can take a long time. So in 2.0, we instead refer to the separated source files in the custom engine. When the user changes, only the modified file will be updated, and the developer can also manually trigger the update.
 
@@ -167,9 +159,6 @@ In 1.x, `main.js` hosts the initialization logic for all platforms, but as the p
   3. Native platform
        1. Entry file: `main.js`
        2. Adaptation file: `jsb-adapter/``
-  4. QQ light game
-       1. Entry file: `main.js`
-       2. Adaptation file: `libs/``
 
 Developers who need to add their own custom code can refer to [Custom Project Documentation](http://docs.cocos2d-x.org/creator/manual/en/publish/custom-project-build-template.html) for use in projects. Your own version overrides the original version, and try not to overwrite `main.js`.
 
@@ -196,25 +185,26 @@ You can see that only Node's `on`/`off` supports event capture and event bubblin
 However, the use of emit dispatch on Node and all event dispatch on EventTarget are simple event dispatch methods. The dispatch event is different from 1.x in the event callback parameters:
 
 ```javascript
-    // v1.x
-    eventTarget.on(type, function (event) {
-        // Get the argument passed when emit via event.detail
-    });
-    eventTarget.emit(type, message); // message will be saved on the detail property of the event parameter of the callback function
-    // v2.0
-    eventTarget.on(type, function (message, target) {
-        // Get the event argument passed when emit directly through the callback parameter
-    });
-    eventTarget.emit(type, message, eventTarget); // emits up to five extra arguments, which are passed flat to the callback function
+// v1.x
+eventTarget.on(type, function (event) {
+    // Get the argument passed when emit via event.detail
+});
+eventTarget.emit(type, message); // message will be saved on the detail property of the event parameter of the callback function
+
+// v2.0
+eventTarget.on(type, function (message, target) {
+    // Get the event argument passed when emit directly through the callback parameter
+});
+eventTarget.emit(type, message, eventTarget); // emits up to five extra arguments, which are passed flat to the callback function
 ```
 
 It is also worth mentioning that the event monitoring mechanism of the Hot Update Manager has also been upgraded. In the old version, AssetsManager needs to listen for callbacks through cc.eventManager. In 2.0, we provide an easier way:
 
 ```javascript
-    / / Set the event callback
-    assetsManager.setEventCallback(this.updateCallback.bind(this));
-    // cancel event callback
-    assetsManager.setEventCallback(null);
+// Set the event callback
+assetsManager.setEventCallback(this.updateCallback.bind(this));
+// cancel event callback
+assetsManager.setEventCallback(null);
 ```
 
 ## 3.5 Adaptation mode upgrade
@@ -225,9 +215,9 @@ Cocos Creator supports a variety of adaptation modes, which developers can manag
 
 In this adaptation mode, the developer's design resolution ratio will be faithfully preserved, and the scene will be zoomed until all content is visible. At this time, the aspect ratio of the scene and the aspect ratio of the device screen are generally different. Leave a black border on the left or right or up and down.
 
-In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in small games.
+In 1.x, we set the size of the DOM Canvas directly to the size of the scene, so content beyond the scene range will be clipped, and the background is the web page. However, this method has encountered problems in WeChat mini games. WeChat will force the size of the main Canvas to be stretched to the full screen range, resulting in 1.x using this adaptation mode often causes serious distortion in mini games.
 
-2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat game are completely correct, but the content outside the scene is still visible.
+2.0 changed the implementation of the adaptation strategy, keeping the DOM Canvas full screen, and setting the GL Viewport to center the scene content and be in the correct position. The change brought about by this is that the proportions in the WeChat mini game are completely correct, but the content outside the scene is still visible.
 
 ## 3.6 RenderTexture Screenshot
 

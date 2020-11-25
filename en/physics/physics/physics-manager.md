@@ -59,7 +59,7 @@ cc.director.getPhysicsManager().gravity = cc.v2 (0, -640);
 
 ### Set physics timestep
 
-The Physics System updates the physics world according to a fixed timestep, the default timestep is the frame rate of your game: `1/framerate`. But some games may not want to follow such a high frequency to update the physics world, after all, this operation is more time consuming, then you can reduce the timestep to achieve this effect.
+The Physics System updates the physical world according to a fixed timestep, the default timestep is the frame rate of your game: `1/framerate`. But some games may not want to follow such a high frequency to update the physical world, after all, this operation is more time consuming, then you can reduce the timestep to achieve this effect.
 
 ```javascript
 var manager = cc.director.getPhysicsManager();
@@ -78,7 +78,7 @@ manager.POSITION_ITERATIONS = 8;
 
 ```
 
-**Attention**：Reducing the fixed timestep and the number of iterations for each property will reduce the physics detection frequency. Therefore, it is more likely to occur rigid body penetration, which needs to be taken into account when using.
+**Attention**: Reducing the fixed timestep and the number of iterations for each property will reduce the physics detection frequency. Therefore, it is more likely to occur rigid body penetration, which needs to be taken into account when using.
 
 ## Query physics object
 

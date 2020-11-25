@@ -2,10 +2,12 @@
 
 In Cocos Creator, we support the most widely used standard network interface on the Web platform:
 
-- **XMLHttpRequest**：for short connection
-- **WebSocket**：for long connection
+- **XMLHttpRequest**: for short connection
+- **WebSocket**: for long connection
 
 Of course, browsers on the Web platform support these two interfaces originally. The reason why we say Cocos Creator supports it is because when we release the native version, the user can operate it using these two network interface codes which follows the principle of "one set of code for multiple platforms operation" which Cocos honors.
+
+**Note**: If you need to use `WebSocket` on the native platform, make sure that the **Native Socket** module is checked in the **Project -> Project Settings -> Module Config**.
 
 ## How to use
 
@@ -13,8 +15,8 @@ Of course, browsers on the Web platform support these two interfaces originally.
     
     Simple example:
 
-    ```
-    var xhr = new XMLHttpRequest();
+    ```js
+    let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
             var response = xhr.responseText;
@@ -27,14 +29,14 @@ Of course, browsers on the Web platform support these two interfaces originally.
 
     Developers can use `new XMLHttpRequest()` directly or use `cc.loader.getXMLHttpRequest()` to create a connecting object. The effect of these two are the same.
 
-    For the standard file of `XMLHttpRequest`, please refer to [MDN Chinese file](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。
+    For the standard file of `XMLHttpRequest`, please refer to [MDN file](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest).
 
 2. WebSocket
 
     Simple example:
 
-    ```
-    ws = new WebSocket("ws://echo.websocket.org");
+    ```js
+    let ws = new WebSocket("ws://echo.websocket.org");
     ws.onopen = function (event) {
         console.log("Send Text WS was opened.");
     };
@@ -58,7 +60,7 @@ Of course, browsers on the Web platform support these two interfaces originally.
     }, 3);
     ```
 
-    For the standard file of `WebSocket`, please refer to[MDN Chinese file](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)。
+    For the standard file of `WebSocket`, please refer to [MDN file](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
 ## SocketIO
 
@@ -68,13 +70,13 @@ Beyond these, SocketIO provides packaging based on the WebSocket API which can b
 
 Reference SocketIO in script:
 
-1. Download SocketIO：[https://socket.io](https://socket.io)
-2. Drag the downloaded file into the route you would like to save in explorer
+1. Download SocketIO: [https://socket.io](https://socket.io)
+2. Drag the downloaded file into the route you would like to save in Explorer / Finder.
 3. Modify SocketIO script to avoid the execution on native environment
 
     As web SocketIO can not parsed correctly in JSB, the Cocos provides native SocketIO on native environment. So we should hack to make the web SocketIO script not work on native environment, the way to achieve this is to modify the SocketIO script:
 
-    ```
+    ```js
     if (!cc.sys.isNative) {
 
         // SocketIO original code

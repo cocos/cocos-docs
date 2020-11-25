@@ -6,6 +6,8 @@ Some people may think `setTimeout` and `setInterval` are enough. Developers sure
 
 Now, let's see its detailed using method:
 
+First, create a variable named `component` that refers to a component. 
+
 1. Start a timer
 
     ```js
@@ -32,7 +34,7 @@ Now, let's see its detailed using method:
     }, interval, repeat, delay);
     ```
 
-    The timer above will start counting after 10 seconds, run call-back once every 5 seconds and repeat 3 times.
+    The timer above will start counting after 10 seconds, run call-back once every 5 seconds and perform 3 + 1 times.
 
 3. Timer only runs once (shortcut)
 
@@ -66,12 +68,12 @@ Now, let's see its detailed using method:
 
 Below are all the functions of the timer in the component:
 
-- schedule：start a timer
-- scheduleOnce：start a timer that runs only once
-- unschedule：cancel a timer
-- unscheduleAllCallbacks：cancel all the timers of this component
+- schedule: start a timer
+- scheduleOnce: start a timer that runs only once
+- unschedule: cancel a timer
+- unscheduleAllCallbacks: cancel all the timers of this component
 
-These detailed descriptions about API can all be found in [Component API](http://docs.cocos2d-x.org/creator-api/en/classes/Component.html).
+These detailed descriptions about API can all be found in [Component API](../../../api/en/classes/Component.html).
 
 Besides this, if every frame needs to run a function, please add function `update` directly into the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
 

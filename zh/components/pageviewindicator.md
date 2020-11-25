@@ -4,7 +4,7 @@ PageviewIndicator 用于显示 PageView 当前的页面数量和标记当前所�
 
 ![pageviewindicator.png](./pageviewindicator/pageviewindicator.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **PageviewIndicator**，即可添加 PageviewIndicator 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **PageviewIndicator**，即可添加 PageviewIndicator 组件到节点上。
 
 PageviewIndicator 的脚本接口请参考 [PageviewIndicator API](../../../api/zh/classes/PageViewIndicator.html)。
 
@@ -12,10 +12,10 @@ PageviewIndicator 的脚本接口请参考 [PageviewIndicator API](../../../api/
 
 | 属性 |   功能说明 |
 | -------------- | ----------- |
-| spriteFrame | 每个页面标记显示的图片 |
-| direction | 页面标记摆放方向，分别为 水平方向 和 垂直方向 |
-| cellSize | 每个页面标记的大小 |
-| spacing | 每个页面标记之间的边距 |
+| Sprite Frame | 每个页面标记显示的图片 |
+| Direction    | 页面标记摆放方向，分别为 水平方向 和 垂直方向 |
+| Cell Size    | 每个页面标记的大小 |
+| Spacing      | 每个页面标记之间的边距 |
 
 ## 详细说明
 

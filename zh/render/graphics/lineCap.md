@@ -1,12 +1,12 @@
 # lineCap
 
-`lineCap` 属性设置或返回线条末端线帽的样式。
+`lineCap` 属性用于设置或返回线条末端线帽的样式。
 
 | 参数 |   描述
 | -------------- | ----------- |
-|cc.Graphics.LineCap.BUTT   | 默认。向线条的每个末端添加平直的边缘。
-|cc.Graphics.LineCap.ROUND  | 向线条的每个末端添加圆形线帽。
-|cc.Graphics.LineCap.SQUARE | 向线条的每个末端添加正方形线帽。
+| cc.Graphics.LineCap.BUTT   | 默认。向线条的每个末端添加平直的边缘。
+| cc.Graphics.LineCap.ROUND  | 向线条的每个末端添加圆形线帽。
+| cc.Graphics.LineCap.SQUARE | 向线条的每个末端添加正方形线帽。
 
 ## 实例
 
@@ -23,5 +23,4 @@ ctx.fill();
 
 <hr>
 
-返回 [绘图组件](index.md)
-
+返回 [Graphics 组件参考](../../components/graphics.md)

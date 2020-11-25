@@ -17,7 +17,7 @@ command 和 message 功能相似，但是他不是向主进程中发送 IPC 消�
 }
 ```
 
-值得注意的是，message 和 command 字段不能共存，因为他们都关系到点击行为。
+值得注意的是，message 和 command 字段不能共存，因为它们都关系到点击行为。
 
 ### params (Array)
 

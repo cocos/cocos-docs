@@ -1,6 +1,6 @@
 # lineTo
 
-`lineTo()` 方法添加一个新点，然后创建从该点到画布中最后指定点的线条。
+`lineTo()` 方法用于添加一个新点，然后创建从该点到画布中最后指定点的线条。
 
 | 参数 |   描述
 | -------------- | ----------- |
@@ -11,9 +11,9 @@
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.moveTo(20,100);
-ctx.lineTo(20,20);
-ctx.lineTo(70,20);
+ctx.moveTo(20, 100);
+ctx.lineTo(20, 20);
+ctx.lineTo(70, 20);
 ctx.fill();
 ```
 
@@ -21,4 +21,4 @@ ctx.fill();
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)

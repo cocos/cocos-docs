@@ -51,6 +51,7 @@
 - [图集资源（Atlas）](atlas.md)
 - [自动图集资源（Auto Atlas）](auto-atlas.md)
 - [图像资源的自动剪裁](trim.md)
+- [压缩纹理](compress-texture.md)
 - [预制资源（Prefab）](prefab.md)
 - [脚本资源](script.md)
 - [字体资源](font.md)

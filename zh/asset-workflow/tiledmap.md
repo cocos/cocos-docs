@@ -1,6 +1,6 @@
 # 瓦片图资源（TiledMap）
 
-瓦片图资源是由 [TiledMap](https://www.mapeditor.org/) 所导出的数据格式（支持 TiledMap v1.0）。
+瓦片图资源是由 [TiledMap](https://www.mapeditor.org/) 所导出的数据格式（Creator v2.1 及以下支持 TiledMap v1.0.0，Creator v2.2.0 及以上支持 TiledMap v1.2.0）。
 
 ## 导入地图资源
 
@@ -28,4 +28,4 @@
 
 ## 在项目中的存放
 
-为了提高资源管理效率，建议将导入的 `tmx`, `tsx` 和 `png` 文件存放在单独的目录下，不要和其他资源混在一起。
+为了提高资源管理效率，建议将导入的 `tmx`、`tsx` 和 `png` 文件存放在单独的目录下，不要和其他资源混在一起。

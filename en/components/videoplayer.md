@@ -2,11 +2,11 @@
 
 VideoPlayer is a component for playing videos, you could use this component for playing local video and remote videos.
 
-**Play local video**：
+**Play local video**:
 
 ![videoplayer](./videoplayer/videoplayer.png)
 
-**Play remote video**：
+**Play remote video**:
 
 ![videoplayer-remote](./videoplayer/videoplayer-remote.png)
 
@@ -18,27 +18,28 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 
 | Properties | Function Explanation
 |-------- | ----------- |
-| Resource Type| The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
-| Clip | Displayed when Resource Type is LOCAL，feed it with a local video path.
-| Remote URL | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
-| Current Time | The current time when video start to play.
+| Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
+| Clip               | Displayed when Resource Type is LOCAL, feed it with a local video path.
+| Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
+| Current Time       | The current time when video start to play.
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
 | Mute               | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
-| Keep Aspect Ratio | Whether keep the aspect ratio of the original video.
-| Is Fullscreen| Whether play video in fullscreen mode.
-| Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
+| Keep Aspect Ratio  | Whether keep the aspect ratio of the original video.
+| Is Fullscreen      | Whether play video in fullscreen mode.
+| Stay On Bottom     | Display video below the game view (Only available on web).
+| Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
-**Note**：In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+**Note**: In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
 ### VideoPlayerEvent Event
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
-| target| Node with the script component.
-| component| Script component name.
-| handler| Specify a callback，when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.
+| Properties      |   Function Explanation  |
+| --------------  | ----------- |
+| target          | Node with the script component.|
+| component       | Script component name.         |
+| handler         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
 | customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
 
 For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
@@ -60,8 +61,6 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
 ## Detailed Explanation
-
-Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview VideoPlayer on these platforms, there is nothing to show.
 
 The supported video types are determined by the supported OS, in order to make it works across all the supported platforms, we suggest to use mp4 format.
 
@@ -126,9 +125,30 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `read-to-play` parameters.
 
+About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
+
+## How to display a UI upon a video
+
+You can display a UI upon a video in three steps:
+
+1. Set `cc.macro.ENABLE_TRANSPARENT_CANVAS = true`.
+2. Make sure the alpha value of the camera's background color is 0.
+3. Check the **stayOnBottom** property on the VideoPlayer in the **Properties** panel.
+
+    ![](videoplayer/stayonbutton.png)
+
+**Note**:
+- This feature is only supported on Web.
+- The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
+- After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
+
+For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
+
+![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
+
 ## Support platform
 
-Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, and **Android** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
+Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.
 
 <hr>
 

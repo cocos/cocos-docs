@@ -16,10 +16,10 @@
 获得组件所在的节点很简单，只要在组件方法里访问 `this.node` 变量：
 
 ```js
-    start: function () {
-        var node = this.node;
-        node.x = 100;
-    }
+start: function () {
+    var node = this.node;
+    node.x = 100;
+}
 ```
 
 ## 获得其它组件
@@ -27,30 +27,30 @@
 你会经常需要获得同一个节点上的其它组件，这就要用到 `getComponent` 这个 API，它会帮你查找你要的组件。
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        var text = this.name + ' started';
+start: function () {
+    var label = this.getComponent(cc.Label);
+    var text = this.name + 'started';
 
-        // Change the text in Label Component
-        label.string = text;
-    }
+    // Change the text in Label Component
+    label.string = text;
+}
 ```
 
-你也可以为 `getComponent` 传入一个类名。对用户定义的组件而言，类名就是脚本的文件名，并且**区分大小写**。例如 "SinRotate.js" 里声明的组件，类名就是 "SinRotate"。
+你也可以为 `getComponent` 传入一个类名。对用户定义的组件而言，类名就是脚本的文件名，并且**区分大小写**。例如 `SinRotate.js` 里声明的组件，类名就是 `SinRotate`。
 
 ```js
-    var rotate = this.getComponent("SinRotate");
+var rotate = this.getComponent("SinRotate");
 ```
 
 在节点上也有一个 `getComponent` 方法，它们的作用是一样的：
 
 ```js
-    start: function () {
-        cc.log( this.node.getComponent(cc.Label) === this.getComponent(cc.Label) );  // true
-    }
+start: function () {
+    cc.log(this.node.getComponent(cc.Label) === this.getComponent(cc.Label));  // true
+}
 ```
 
-如果在节点上找不到你要的组件，`getComponent` 将返回 null，如果你尝试访问 null 的值，将会在运行时抛出 "TypeError" 这个错误。因此如果你不确定组件是否存在，请记得判断一下：
+如果在节点上找不到你要的组件，`getComponent` 将返回 null，如果你尝试访问 null 的值，将会在运行时抛出 TypeError 这个错误。因此如果你不确定组件是否存在，请记得判断一下：
 
 ```js
     start: function () {
@@ -120,7 +120,7 @@ cc.Class({
 
 ### 利用属性检查器设置组件
 
-在上面的例子中，如果你将属性的 type 声明为 Player 组件，当你拖动节点 "Player Node" 到 **属性检查器**，player 属性就会被设置为这个节点里面的 Player 组件。这样你就不需要再自己调用 `getComponent` 啦。
+在上面的例子中，如果你将属性的 type 声明为 Player 组件，当你拖动节点 **Player Node** 到 **属性检查器**，player 属性就会被设置为这个节点里面的 Player 组件。这样你就不需要再自己调用 `getComponent` 啦。
 
 ```js
 // Cannon.js
@@ -146,7 +146,7 @@ cc.Class({
 });
 ```
 
-你还可以将属性的默认值由 `null` 改为数组`[]`，这样你就能在 **属性检查器** 中同时设置多个对象。<br>
+你还可以将属性的默认值由 `null` 改为数组 `[]`，这样你就能在 **属性检查器** 中同时设置多个对象。<br>
 不过如果需要在运行时动态获取其它对象，还需要用到下面介绍的查找方法。
 
 ### 查找子节点
@@ -290,7 +290,6 @@ cc.Class({
 ```
 
 更详细内容，请参考 [模块化](modular-script.md)。
-
 
 ---
 

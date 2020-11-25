@@ -1,21 +1,21 @@
-# Use a Sliced Sprite to make a UI image
+# Use a Sliced Sprite to make an UI image
 
-When developing UI, we usually use an image in a nine rectangle grid format to display US element, the size of which might be dynamically modified according to the requirements of fitting screen resolution. In this way, even a very small original picture can be used to generate a background image that can cover the whole screen. It will save the inclusive space of the game, on the other hand, it can flexibly fit different layout requirements.
+The core design principle of the UI system is to automatically adapt to different device screen sizes. When developing the UI, we need to correctly set the each node's `size`, and which can be automatically stretched and adapted according to the screen size of the device. To achieve this, we usually use the 9-sliced images to render these nodes. In this way, even if small original images can be used to generate background images that can cover the entire screen. On the one hand, the game package is reduced, and on the other hand, it can flexibly fit different layout requirements.
 
 ![compare](sliced-sprite/compare.png)
 
 The right side of the picture above displays the texture of original size. The left side displays the effect of choosing Sliced mode and enlarging the `size` property.
 
-## The nine rectangle grid cutting of the image resource
+## Setting up your SpriteFrame for 9-slicing
 
-To use a nine rectangle grid image effect that can be infinitely enlarged, we need to cut the image resource into a nine rectangle grid at first. There are two methods to open **Sprite editor** to edit the image resource:
+To use a 9-sliced image effect that can be infinitely enlarged, we need to cut the image resource into a 9-slicing at first. There are two methods to open **Sprite Editor** to edit the image resource:
 
-- Choose image resource in **Assets**, then click the **edit** button on the bottom of ** Properties**. If the height of your window is not large enough, you might need to scroll **Properties** downward to see the button at the bottom.
-- Choose the image node that you want to cut into a nine rectangle grid in **scene editor**. Then find and click the **Edit** button on the right side of the `Sprite Frame` property in the Sprite component of **Properties**.
+- Choose image resource in **Assets**, then click the **Edit** button on the bottom of **Properties**. If the height of your window is not large enough, you might need to scroll **Properties** downward to see the button at the bottom.
+- Choose the image node that you want to cut into a 9-slicing in **Scene / Note Tree**. Then find and click the **Edit** button on the right side of the `Sprite Frame` property in the Sprite component of **Properties**.
 
-After opening **Sprite editor**, you will see there is a green line around the image, which indicates the position of the current split line of the nine rectangle grid. Drag the mouse to the split line, you will see the shape of the cursor change, then you can press down and drag the mouse to modify the position of the split line.
+After opening **Sprite Editor**, you will see there is a green line around the image, which indicates the position of the current 9-sliced split line. Drag the mouse to the split line, you will see the shape of the cursor change, then you can press down and drag the mouse to modify the position of the split line.
 
-We drag the four split lines on the left/right/upper/lower side respectively and cut the image into a nine rectangle grid. The nine areas will apply different zooming in/out strategies when the Sprite size changes, which is as illustrated below:
+We click and drag the four split lines at the left/right/upper/lower side respectively and cut the image into a 9-slicing. The nine areas will apply different zooming in/out strategies when the Sprite size changes, which is as illustrated below:
 
 ![sliced](sliced-sprite/editing.png)
 
@@ -23,20 +23,15 @@ And the following picture illustrates the state of zooming in/out in different a
 
 ![scaling](sliced-sprite/scaling.png)
 
-After cutting, don't forget to click the green check mark on the upper right corner of **Sprite editor** to save modifications to the resource.
+After cutting, don't forget to click the green check mark on the upper right corner of **Sprite Editor** to save modifications to the resource.
 
-## Set Sprite component to use Sliced mode
+## Set the Sprite component to use Sliced mode
 
-After preparing the resource that has been cut into a nine rectangle grid, you can modify the display mode of the Sprite. And by modifying `size`, you can create a UI element whose size can be arbitrarily designated.
+After you have prepared the 9-sliced resources, you can modify the draw mode of the Sprite and modify the `size` to make a UI element that can specify any size.
 
-1. First, choose the Sprite node in the scene, set `Type` property of the Sprite as `Sliced`.
-2. Then drag the controlling point by [rectangle tool](../getting-started/basics/editor-panels/scene.md#--12) to enlarge the `size` property of the node. You can also modify the `size` property by directly inputting a numeric value into **Properties**. If the image resource is produced in a nine rectangle grid format, then no matter how much the Sprite zooms in, no vagueness or distortion will appear.
+1. First, select the Sprite node in the **Scene / Node Tree**, set the `Type` property of the Sprite as `Sliced` in the **Properties**.
+2. Then drag the control point with the [Rect Transform Tool](../getting-started/basics/editor-panels/scene.md#--12) to enlarge the `size` property of the node. You can also modify the `size` property value directly in the **Properties**. Because the image resource has been set to 9-slicing, no matter how much the Sprite zooms in, there will be no vagueness or distortion.
 
-## Notice
+## Cautions
 
-When using **rectangle tool** or directly modifying the `size` property of a Sliced Sprite, don't set the value of `size` as a negative number, otherwise it can't be displayed correctly in Sliced mode.
-
-
----
-
-Continue on to read about [Multi-resolution](multi-resolution.md)
+When using **Rect Transform Tool** or directly modifying the `size` property of Sliced ​​Sprite, note that the `size` property value cannot be negative, otherwise it cannot be displayed normally in Sliced ​​mode.

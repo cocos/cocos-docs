@@ -16,7 +16,7 @@ hello-world
 
 ## 定义你的包描述文件：package.json
 
-每个包都需要一份 `package.json` 文件去描述他的用途，这样 Cocos Creator 编辑器才能知道这个包要扩展什么，从而正确加载。值得一提的是，虽然 `package.json` 在很多字段上的定义和 node.js 的 npm-package 相似，他们仍然是为不同的产品服务的，所以从 npm 社区中下载的包，并不能直接放入到 Cocos Creator 中变成插件。
+每个包都需要一份 `package.json` 文件去描述他的用途，这样 Cocos Creator 编辑器才能知道这个包要扩展什么，从而正确加载。值得一提的是，虽然 `package.json` 在很多字段上的定义和 node.js 的 npm-package 相似，它们仍然是为不同的产品服务的，所以从 npm 社区中下载的包，并不能直接放入到 Cocos Creator 中变成插件，但是可以使用它。
 
 我们在这里做一份简单的 `package.json`：
 

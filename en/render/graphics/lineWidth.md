@@ -1,6 +1,6 @@
-# LineWidth
+# lineWidth
 
-Use `lineWidth()` method to add a new point, and then create a line from that point to the last specified point in the canvas.
+The `lineWidth` property adds a new point, and then creates a line from that point to the last specified point in the canvas.
 
 | Parameter | description
 | -------------- | ----------- |
@@ -11,7 +11,7 @@ Use `lineWidth()` method to add a new point, and then create a line from that po
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 20;
-ctx.rect(20,20,80,100);
+ctx.rect(20, 20, 80, 100);
 ctx.fill();
 ```
 
@@ -19,4 +19,4 @@ ctx.fill();
 
 <hr>
 
-Return to [Graphics component](index.md).
+Return to the [Graphics Component Reference](../../components/graphics.md) documentation..

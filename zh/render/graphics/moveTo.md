@@ -1,6 +1,6 @@
 # moveTo
 
-`moveTo` 表示一条路径的起点。
+`moveTo()` 用于表示一条路径的起点。
 
 | 参数 |   描述
 | -------------- | ----------- |
@@ -11,8 +11,8 @@
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.moveTo(0,0);
-ctx.lineTo(300,150);
+ctx.moveTo(0, 0);
+ctx.lineTo(300, 150);
 ctx.fill();
 ```
 
@@ -20,4 +20,4 @@ ctx.fill();
 
 <hr>
 
-返回 [绘图组件](index.md)
+返回 [Graphics 组件参考](../../components/graphics.md)
