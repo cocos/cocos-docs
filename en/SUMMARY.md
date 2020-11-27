@@ -21,6 +21,7 @@
   - [Animation](editor/animation/index.md)
   - [Preferences](editor/preferences/index.md)
   - [Project Settings](editor/project/index.md)
+    - [Physics Configs](editor/project/physics-configs.md)
   - [Engine Customization Workflow](editor/engine-customization/engine-customization.md)
 
 - [Preview a Game](editor/preview/index.md)
