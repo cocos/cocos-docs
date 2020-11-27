@@ -6,4 +6,4 @@
 
 开发者只需要将 SafeArea 组件添加到节点上。该组件在启用时会通过 `cc.sys.getSafeAreaRect();` 获取到当前 iOS 或 Android 设备的安全区域，并通过 Widget 组件（如果没有 Widget 组件会自动添加）实现适配。
 
-SageArea 脚本接口请参考 [Mask API](https://docs.cocos.com/creator/api/zh/classes/ui.safearea.html)。
+SageArea 脚本接口请参考 [Mask API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.safearea.html)。

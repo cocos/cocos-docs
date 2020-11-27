@@ -4,7 +4,7 @@
 
 ![spot light](spot-light.jpg)
 
-To use `Spotlights`, please refer to the [Spotlights API](https://docs.cocos.com/creator/api/en/classes/component_light.spotlight.html).
+To use `Spotlights`, please refer to the [Spotlights API](https://docs.cocos.com/creator/3.0/api/en/classes/component_light.spotlight.html).
 
 ## Spotlights Properties
 

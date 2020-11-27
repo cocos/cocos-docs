@@ -25,8 +25,8 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode： [API 传送门](https://docs.cocos.com/creator/api/zh/classes/event.eventkeyboard-1.html)
-    - Event：[API 传送门](https://docs.cocos.com/creator/api/zh/classes/event.event-1.html)
+    - KeyCode： [API 传送门](https://docs.cocos.com/creator/3.0/api/zh/classes/event.eventkeyboard-1.html)
+    - Event：[API 传送门](https://docs.cocos.com/creator/3.0/api/zh/classes/event.event-1.html)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro } from "cc";
@@ -68,7 +68,7 @@ export class Example extends Component {
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`;
 - 回调参数：
-    - Event：[API 传送门](https://docs.cocos.com/creator/api/zh/classes/event.event-1.html)
+    - Event：[API 传送门](https://docs.cocos.com/creator/3.0/api/zh/classes/event.event-1.html)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro, log } from "cc";

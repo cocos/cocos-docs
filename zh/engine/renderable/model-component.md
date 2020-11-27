@@ -2,9 +2,9 @@
 
 模型组件用于显示一个静态的 3D 模型。通过 mesh 设置模型网格，通过 material 改变模型外观。
 
-普通模型的组件接口请参考 [MeshRenderer API](https://docs.cocos.com/creator/api/zh/classes/model.meshrenderer.html)。
+普通模型的组件接口请参考 [MeshRenderer API](https://docs.cocos.com/creator/3.0/api/zh/classes/model.meshrenderer.html)。
 
-蒙皮模型的组件接口请参考 [SkinnedMeshRenderer API](https://docs.cocos.com/creator/api/zh/classes/model.skinnedmeshrenderer.html)
+蒙皮模型的组件接口请参考 [SkinnedMeshRenderer API](https://docs.cocos.com/creator/3.0/api/zh/classes/model.skinnedmeshrenderer.html)
 
 ## MeshRenderer 属性
 

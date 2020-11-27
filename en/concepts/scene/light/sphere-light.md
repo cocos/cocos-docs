@@ -4,7 +4,7 @@ __Cocos Creator__ uses spherical light instead of **point lighting**, because ph
 
 ![sphere light](sphere-light.jpg)
 
-To use `Spherical Lighting`, please refer to the [Spherical Lighting API](https://docs.cocos.com/creator/api/en/classes/component_light.spherelight.html).
+To use `Spherical Lighting`, please refer to the [Spherical Lighting API](https://docs.cocos.com/creator/3.0/api/en/classes/component_light.spherelight.html).
 
 ## Spherical Lighting Properties
 

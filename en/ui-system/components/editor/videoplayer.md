@@ -12,7 +12,7 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the **VideoPlayer** component to the node.
 
-For more information about VideoPlayer's scripting interface, please refer to the [VideoPlayer API](https://docs.cocos.com/creator/api/en/classes/VideoPlayer.html) documentation.
+For more information about VideoPlayer's scripting interface, please refer to the [VideoPlayer API](https://docs.cocos.com/creator/3.0/api/en/classes/VideoPlayer.html) documentation.
 
 ## VideoPlayer Properties
 

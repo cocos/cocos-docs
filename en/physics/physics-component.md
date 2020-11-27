@@ -20,7 +20,7 @@ The __collider component__ is used to represent the shape of the __collision bod
   **center** | The origin of the shape in the local coordinate system
   **size** | The size of the box, ie length, width, height
 
-To use __BoxCollider__, please refer to the [BoxCollider API](https://docs.cocos.com/creator/api/en/classes/physics.boxcollider.html).
+To use __BoxCollider__, please refer to the [BoxCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.boxcollider.html).
 
 ### SphereCollider
 
@@ -30,7 +30,7 @@ Properties | Description (Other reference box colliders)
 ---|---
 **radius** | Radius of the sphere
 
-To use __SphereCollider__, please refer to the [SphereCollider API](https://docs.cocos.com/creator/api/en/classes/physics.spherecollider.html).
+To use __SphereCollider__, please refer to the [SphereCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.spherecollider.html).
 
 ### CylinderCollider
 
@@ -42,7 +42,7 @@ Properties | Description (Other reference box colliders)
 **height** | The total height of the cylinder
 **radius** | The radius of the circular surfaces at both ends of the cylinder
 
-To use __CylinderCollider__, please refer to the [CylinderCollider API](https://docs.cocos.com/creator/api/en/classes/physics.cylindercollider.html).
+To use __CylinderCollider__, please refer to the [CylinderCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.cylindercollider.html).
 
 ### CapsuleCollider
 
@@ -53,7 +53,7 @@ Properties | Description (Other reference cylinders and box colliders)
 **cylinderHeight** | The height of the cylinder in the capsule
 **radius** | The radius of the sphere in the capsule
 
-To use __CapsuleCollider__, please refer to the [CapsuleCollider API](https://docs.cocos.com/creator/api/en/classes/physics.capsulecollider.html).
+To use __CapsuleCollider__, please refer to the [CapsuleCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.capsulecollider.html).
 
 > **Note**: __cannon.js__ does not support capsule components. It is recommended to use two spheres and cylinders and piece them together.
 
@@ -66,7 +66,7 @@ Properties | Description (Other reference cylinders and box colliders)
 **radius** | The radius of the circle of the underside of the cone
 **height** | The height of the cone
 
-To use __ConeCollider__, please refer to the [ConeCollider API](https://docs.cocos.com/creator/api/en/classes/physics.conecollider.html).
+To use __ConeCollider__, please refer to the [ConeCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.conecollider.html).
 
 ### PlaneCollider
 
@@ -77,7 +77,7 @@ Properties | Description (Other reference box colliders)
 **normal** | The normal vector to the plane
 **constant** | The distance that the plane moves along the normal vector
 
-To use __PlaneCollider__, please refer to the [PlaneCollider API](https://docs.cocos.com/creator/api/en/classes/physics.planecollider.html).
+To use __PlaneCollider__, please refer to the [PlaneCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.planecollider.html).
 
 ### MeshCollider
 
@@ -88,7 +88,7 @@ Properties | Description (Other reference box colliders)
 **mesh** | The mesh asset referenced by the mesh collider, used to initialize the mesh collision volume
 **convex** | Whether used the convex hull of the mesh is approximated, the number of vertices of the mesh should be less than 255 (through which any convex collider and dynamic rigid body can be supported).
 
-To use __MeshCollider__, please refer to the [MeshCollider API](https://docs.cocos.com/creator/api/en/classes/physics.meshcollider.html).
+To use __MeshCollider__, please refer to the [MeshCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.meshcollider.html).
 
 > **Note**: __cannon.js__ has poor support for the mesh collider component, and only allows detection with the sphere\plane collider.
 > **Note**: currently only __ammo.js__ backend supports __convex__ functionality.
@@ -105,7 +105,7 @@ Properties | Description (Other reference box colliders)
 **vertex2** | Vertex 2 of the simplex, triangular face (consisting of 0,1,2)
 **vertex3** | Vertex 3 of the simplex, tetrahedron (consisting of 0,1,2,3)
 
-To use __SimplexCollider__, please refer to the [SimplexCollider API](https://docs.cocos.com/creator/api/en/classes/physics.simplexcollider.html).
+To use __SimplexCollider__, please refer to the [SimplexCollider API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.simplexcollider.html).
 
 ## RigidBody
 
@@ -124,7 +124,7 @@ Properties | Description (The property values ​​in the above picture are all
 **linerFactor** | Linear factor, which can affect the change of linear velocity in each axis
 **angularFactor** | Rotation factor, which can affect the change of the rotation speed of each axis
 
-To use __RigidBody__, please refer to the [RigidBody API](https://docs.cocos.com/creator/api/en/classes/physics.rigidbody.html).
+To use __RigidBody__, please refer to the [RigidBody API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.rigidbody.html).
 
 ## ConstantForce
 
@@ -139,4 +139,4 @@ Properties | Description
 **torque** | Torque applied to the rigid body in the world coordinate system
 **localTorque** | Torque applied to the rigid body in the local coordinate system
 
-To use __ConstantForce__, please refer to the [ConstantForce API](https://docs.cocos.com/creator/api/en/classes/physics.constantforce.html).
+To use __ConstantForce__, please refer to the [ConstantForce API](https://docs.cocos.com/creator/3.0/api/en/classes/physics.constantforce.html).
