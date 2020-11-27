@@ -25,7 +25,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
   >
   > 如果一份资源仅仅是被 **resources** 中的其它资源所依赖，而不需要直接被 `resources.load` 调用，那么 **请不要** 放在 resources 文件夹中。否则会增大 `config.json` 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能合并零碎的 JSON。
 
-  **注意**：从 v2.4 开始，`loader` 等接口不再建议使用，请使用最新的 `assetManager` 相关接口，升级文档请参考 [资源加载升级指南](../release-notes/asset-manager-upgrade-guide.md)。
+  **注意**：从 v3.0 开始，`loader` 等接口不再建议使用，请使用最新的 `assetManager` 相关接口，升级文档请参考 [资源加载升级指南](asset-manager-upgrade-guide.md)。
 
 ### 加载 SpriteFrame 或 Texture2D
 
@@ -80,7 +80,7 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 
 ## 预加载资源
 
-从 v2.4 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
+从 v3.0 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
 
 `resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。
 
@@ -135,5 +135,5 @@ assetManager.loadRemote(remoteUrl, function (err, textAsset) {
 
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
-1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析。（如需远程加载所有资源，可使用 [Asset Bundle](asset-bundle.md#%E5%8A%A0%E8%BD%BD-asset-bundle-%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90))
+1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析。（如需远程加载所有资源，可使用 [Asset Bundle](bundle.md))
 2. Web 端的远程加载受到浏览器的 [CORS 跨域策略限制](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，如果对方服务器禁止跨域访问，那么会加载失败，而且由于 WebGL 安全策略的限制，即便对方服务器允许 http 请求成功之后也无法渲染。

@@ -6,7 +6,9 @@
 
 目前 `options` 中引擎已使用的参数包括：
 
-`uuid`, `url`, `path`, `dir`, `scene`, `type`, `priority`, `preset`, `audioLoadMode`, `ext`, `bundle`, `onFileProgress`, `maxRetryCount`, `maxConcurrency`, `maxRequestsPerFrame`, `version`, `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `reload`, `cacheAsset`, `cacheEnabled`
+`uuid`, `url`, `path`, `dir`, `scene`, `type`, `priority`, `preset`, `audioLoadMode`, `ext`,
+`bundle`, `onFileProgress`, `maxConcurrency`, `maxRequestsPerFrame`, `maxRetryCount`, `version`, `xhrResponseType`,
+`xhrWithCredentials`, `xhrMimeType`, `xhrTimeout`, `xhrHeader`, `reloadAsset`, `cacheAsset`, `cacheEnabled`
 
 **注意**：请 **不要** 使用以上字段作为自定义参数的名称，避免与引擎功能发生冲突。
 
@@ -24,7 +26,8 @@ assetManager.loadAny({'path': 'image/background'}, {priority: 2, maxRetryCount: 
 
 ### 控制下载器和解析器的处理方法
 
-下载器/解析器中的文本文件和二进制文件等资源的处理方法，可接受可选参数 `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `onFileProgress` 用于设置 XHR 的返回类型、头部以及下载进度回调等参数。
+下载器/解析器中的文本文件和二进制文件等资源的处理方法，可接受可选参数 `xhrResponseType`,
+`xhrWithCredentials`, `xhrMimeType`, `xhrTimeout`, `xhrHeader`, `onFileProgress` 用于设置 XHR 的返回类型、头部以及下载进度回调等参数。
 
 ```typescript
 // 获取 XHR 的下载进度回调

@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang、Xunyi
 
-从 v2.4 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为资源模块化工具，允许开发者按照项目需求将贴图、脚本、场景等资源划分在多个 Asset Bundle 中，然后在游戏运行过程中，按照需求去加载不同的 Asset Bundle，以减少启动时需要加载的资源数量，从而减少首次下载和加载游戏时所需的时间。<br>
+从 v3.0 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为资源模块化工具，允许开发者按照项目需求将贴图、脚本、场景等资源划分在多个 Asset Bundle 中，然后在游戏运行过程中，按照需求去加载不同的 Asset Bundle，以减少启动时需要加载的资源数量，从而减少首次下载和加载游戏时所需的时间。<br>
 Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、本地、或者小游戏平台的分包中。也可以跨项目复用，用于加载子项目中的 Asset Bundle。
 
 ## 内置 Asset Bundle
@@ -62,7 +62,7 @@ function loadBundle (name) {
 配置完成后点击右上方的 **应用** 按钮，这个文件夹就被配置为 Asset Bundle 了，然后在 **构建发布** 面板选择对应的平台进行构建。
 
 **注意**：
-1. Creator 有 3 个 [内置 Asset Bundle](bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这四个名称。
+1. Creator 有 3 个 [内置 Asset Bundle](bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这三个名称。
 2. 小游戏分包只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
 3. Zip 压缩类型主要是为了降低网络请求数量，如果放在本地，不用网络请求，则没什么必要。所以要求与 **配置为远程包** 搭配使用。
 
@@ -102,7 +102,7 @@ Creator 目前提供了 **合并依赖**、**无压缩**、**合并所有 JSON**
 | **合并依赖**      | 构建 Asset Bundle 时会将相互依赖的资源的 JSON 文件合并在一起，从而减少运行时的加载请求次数  |
 | **无压缩**        | 构建 Asset Bundle 时没有任何压缩操作 |
 | **合并所有 JSON** | 构建 Asset Bundle 时会将所有资源的 JSON 文件合并为一个，从而最大化减少请求数量，但可能会增加单个资源的加载时间  |
-| **小游戏分包**    | 在提供了分包功能的小游戏平台，会将 Asset Bundle 设置为对应平台上的分包。具体内容请参考 [小游戏分包](../publish/subpackage.md)  |
+| **小游戏分包**    | 在提供了分包功能的小游戏平台，会将 Asset Bundle 设置为对应平台上的分包。 |
 | **Zip**          | 在部分小游戏平台，构建 Asset Bundle 时会将资源文件压缩成一个 Zip 文件，从而减少运行时的加载请求数量  |
 
 如果开发者在不同平台对 Asset Bundle 设置了不同的压缩类型，那么在构建时将根据对应平台的设置来构建 Asset Bundle。
@@ -321,7 +321,7 @@ assetManager.removeBundle(bundle);
 
 ## FAQ
   
-- **Q**：Asset Bundle 与 v2.4 之前的资源分包有什么区别？<br>
+- **Q**：Asset Bundle 与 v3.0 之前的资源分包有什么区别？<br>
   **A**：
   1. 资源分包实际上是将一些图片和网格拆分出去单独放在一个包内，但这个包是不完整的、无逻辑的，无法复用。<br>
   Asset Bundle 是通过逻辑划分对资源进行模块化。Asset Bundle 中包含资源、脚本、元数据和资源清单，所以 Asset Bundle 是完整的、有逻辑的、可复用的，我们可以从 Asset Bundle 中加载出整个场景或其他任何资源。Asset Bundle 通过拆分，可以极大减少首包中的 json 数量以及 `settings.js` 的大小。
@@ -336,7 +336,7 @@ assetManager.removeBundle(bundle);
   **A**：支持，子游戏的场景可以放在 Asset Bundle 中，在需要时加载，子游戏甚至可以在其它项目中预先以 Asset Bundle 的形式构建出来，然后在主项目中加载使用。
 
 - **Q**：Asset Bundle 可以减少 `settings.js` 的大小吗？<br>
-  **A**：当然可以。实际上从 v2.4 开始，打包后的项目完全是基于 Asset Bundle 的，`setting.js` 不再存储跟资源相关的任何配置信息，所有的配置信息都会存储在每个 Asset Bundle 的 `config.json` 中。每一个 `config.json` 只存储各自 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单地理解为所有的 `config.json` 加起来等于之前的 `settings.js`。
+  **A**：当然可以。实际上从 v3.0 开始，打包后的项目完全是基于 Asset Bundle 的，`setting.js` 不再存储跟资源相关的任何配置信息，所有的配置信息都会存储在每个 Asset Bundle 的 `config.json` 中。每一个 `config.json` 只存储各自 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单地理解为所有的 `config.json` 加起来等于之前的 `settings.js`。
 
 - **Q**：Asset Bundle 支持跨项目复用吗？<br>
   **A**：当然支持，不过需要满足以下条件：

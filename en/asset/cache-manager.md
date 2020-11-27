@@ -5,7 +5,7 @@
 For Web platforms, resources cache are managed by the browser after download, not the engine.<br>
 However, on some non-Web platforms, such as WeChat Mini Game, these platforms have a file system, which can be used to cache some remote resources, but do not implement a caching mechanism for resources. In this case, the engine needs to implement a set of caching mechanisms for managing resources downloaded from the network, including caching resources, cleaning cached resources, querying cached resources and other features.
 
-As of v2.4, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
+As of v3.0, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
 
 ## Resource download process
 
@@ -22,8 +22,6 @@ The logic of the engine downloading resources is as follows:
 5. Slowly save the resources from the temporary directory to the local cache directory in the background (the native platform skips this step);
 
 6. When the cache space is full, the older resources will be deleted using the LRU algorithm at this point (there is no size limit on the native platform's cache space, so skip this step, you can call manually for cleanup if needed).
-
-Resource management for the mini game can be found in the document [Resource Management for the WeChat Mini Games](../publish/publish-wechatgame.md#resource-management-for-the-wechat-mini-games).
 
 ## Query cache files
 

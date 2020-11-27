@@ -6,7 +6,13 @@ During the development of the game, it is generally necessary to use a large num
 
 **Asset Manager** is a new resource manager from Creator in v2.4 that replaces the previous `loader`. The new **Asset Manager** resource management module has features for loading resources, finding resources, destroying resources, caching resources, Asset Bundle, and more. Compared with previous `loader`, Asset Manager has better performance, easier-to-use APIs, and greater extensibility. All functions and methods are accessible via `assetManager` and all types and enumerations are accessible via the `AssetManager` namespace.
 
+Creators 3.0 now support for AssetManager too.
+
 **Note**: We will maintain compatibility with `loader` for a period of time, but we strongly recommend using **Asset Manager** consistently for new projects.
+
+If you are a Creator 3D user, you can refer to the following articles for upgrading:
+- [Loader Upgrade AssetManager Guide](asset-manager-upgrade-guide.md)
+- [Subpackage Upgrade Asset Bundle Guide](subpackage-upgrade-guide.md)
 
 ## Load Resources
 
@@ -106,7 +112,7 @@ Please refer to the [Release of Resources](release-manager.md) documentation for
 
 ## Cache Manager
 
-On some platforms, such as WeChat, it is possible to use the file system to cache some remote resources because a file system exists. In this case, a cache manager is required to manage all cache resources, such as caching resources, clearing cache resources, modifying cache cycles, etc. . As of v2.4, Creator provides a cache manager on all platforms where file systems exist, so that you can add, delete, change, and check the cache. For example:
+On some platforms, such as WeChat, it is possible to use the file system to cache some remote resources because a file system exists. In this case, a cache manager is required to manage all cache resources, such as caching resources, clearing cache resources, modifying cache cycles, etc. . Creator provides a cache manager on all platforms where file systems exist, so that you can add, delete, change, and check the cache. For example:
 
 ```typescript
 // Get the cache of a resource.

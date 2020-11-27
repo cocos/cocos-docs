@@ -2,7 +2,7 @@
 
 > Author: Santy-Wang, Xunyi
 
-Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.<br>
+Starting with v3.0, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.<br>
 The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in subprojects.
 
 ## The built-in Asset Bundle
@@ -15,7 +15,7 @@ In addition to the custom Asset Bundle, there are three built-in Asset Bundles i
 | :--------------- | :--------- | :-------- |
 | `main`        | Store all scenes checked in the **Included Scenes** selection box of the **Build** panel and their dependent resources  | By configuring the **Main Bundle Compression Type** and **Main Bundle Is Remote** options of the **Build** panel. |
 | `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `assets -> resources` folder in the **Assets** panel. |
-| `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder. Please refer to the [Start Scene Loading](../publish/publish-wechatgame.md#speed-up-the-loading-of-the-start-scene) for details.  | Cannot be configured. |
+| `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder. | Cannot be configured. |
 
 After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](../scripting/asset-bundle.md#configuration) documentation for the configuration methods and generation rules.
 
@@ -61,8 +61,8 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 After the configuration, click on the **Apply** button at the top right and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
 **Note**:
-1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these four names.
-2. The [mini game subpackage](../publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
+1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
+2. The mini game subpackage can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 
 
@@ -102,7 +102,7 @@ Creator currently provides **Merge Depend**, **None**, **Merge All Json**, **Min
 | **Merge Depend**   | When building the Asset Bundle, JSON files for interdependent resources are merged together to reduce the number of load requests at runtime. |
 | **None**           | When building the Asset Bundle, there is no compression operation. |
 | **Merge All Json** | When building the Asset Bundle, the JSON files for all resources are merged into one, which minimizes the number of requests, but may increase the load time for a single resource. |
-| **Mini Game Subpackage** | On a mini game platform that provides subpackaging, the Asset Bundle will be set as a subpackage of the mini game. For details, see [Mini Game Subpackage](../publish/subpackage.md) documentation. |
+| **Mini Game Subpackage** | On a mini game platform that provides subpackaging, the Asset Bundle will be set as a subpackage of the mini game. |
 | **Zip**            | On some mini game platforms, the resource file will be compressed into a Zip file when building the Asset Bundle, reducing the number of load requests at runtime. |
 
 If you use different compression types for the Asset Bundle on different platforms, then the Asset Bundle will be built according to the settings of the corresponding platform.
@@ -127,7 +127,7 @@ After building, the Asset Bundle folder will be packaged into the **assets** fol
 
 Each folder contained within these three folders **assets**, **remote** and **subpackages** is an Asset Bundle.
 
-**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos-creator/example-cases) is configured as an Asset Bundle on the Web Mobile platform, then after the project is built, a **01_graphics** folder is generated in the **assets** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
+**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos-creator/example-3d) is configured as an Asset Bundle on the Web Mobile platform, then after the project is built, a **01_graphics** folder is generated in the **assets** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
@@ -323,7 +323,7 @@ assetManager.removeBundle(bundle);
 
 ## FAQ
 
-- **Q**: What is the difference between Asset Bundle and pre v2.4 resource subpackage?<br>
+- **Q**: What is the difference between Asset Bundle and resource subpackage?<br>
   **A**:
   1. Resource subpackage is actually splitting out some textures, meshs into a separate packages, but the package is incomplete and illogical and cannot be reused.<br>
   while Asset Bundle is modularizing resources through logical division. The Asset Bundle includes resources, scripts, metadata and resource lists, so it is complete, logical and reusable, and we can load an entire scene or any other resources from Asset Bundle. By splitting the Asset Bundle, you can greatly reduce the number of `json` and the size of `settings.js` in the first package.
@@ -338,7 +338,7 @@ assetManager.removeBundle(bundle);
   **A**: Absolutely, subgame scenes can be placed in the Asset Bundle and loaded when needed, and subgames can even be pre-built as an Asset Bundle in other projects and then loaded for use in the main project.
 
 - **Q**: Can the Asset Bundle reduce the size of `settings.js`?<br>
-  **A**: Absolutely. In fact, as of v2.4, the packaged project is entirely based on the Asset Bundle, and the `setting.js` no longer stores any configuration information related to the resource, all configuration informations are stored in the `config.json` of each Asset Bundle. Each `config.json` stores only the resource information in the respective Asset Bundle, which reduces the size of the first package. This can simply be understood as all the `config.json` combined equal to the previous `settings.js`.
+  **A**: Absolutely. In fact, as of v3.0, the packaged project is entirely based on the Asset Bundle, and the `setting.js` no longer stores any configuration information related to the resource, all configuration informations are stored in the `config.json` of each Asset Bundle. Each `config.json` stores only the resource information in the respective Asset Bundle, which reduces the size of the first package. This can simply be understood as all the `config.json` combined equal to the previous `settings.js`.
 
 - **Q**: Does the Asset Bundle support cross project reuse?<br>
   **A**: Absolutely support, but the following conditions must be met:

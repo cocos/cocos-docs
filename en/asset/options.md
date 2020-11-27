@@ -6,7 +6,9 @@ For added flexibility and extensibility, most of the load interfaces in Asset Ma
 
 Parameters that are currently used by the engine in `options` include the following:
 
-`uuid`, `url`, `path`, `dir`, `scene`, `type`, `priority`, `preset`, `audioLoadMode`, `ext`, `bundle`, `onFileProgress`, `maxRetryCount`, `maxConcurrency`, `maxRequestsPerFrame`, `version`, `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `reload`, `cacheAsset`, `cacheEnabled`
+`uuid`, `url`, `path`, `dir`, `scene`, `type`, `priority`, `preset`, `audioLoadMode`, `ext`,
+`bundle`, `onFileProgress`, `maxConcurrency`, `maxRequestsPerFrame`, `maxRetryCount`, `version`, `xhrResponseType`,
+`xhrWithCredentials`, `xhrMimeType`, `xhrTimeout`, `xhrHeader`, `reloadAsset`, `cacheAsset`, `cacheEnabled`,
 
 Please **DO NOT** use the above fields as your custom parameter names to avoid conflicts with engine functions.
 
@@ -24,7 +26,7 @@ assetManager.loadAny({'path': 'image/background'}, {priority: 2, maxRetryCount: 
 
 ### Controls the handler of downloader and parser
 
-The handler for resources such as text files and binary files in the downloader/parser, accepting optional parameters `responseType`, `withCredentials`, `mimeType`, `timeout`, `header`, `onFileProgress` to set the XHR's return type, header, download progress callback and other parameters.
+The handler for resources such as text files and binary files in the downloader/parser, accepting optional parameters `xhrResponseType`, `xhrWithCredentials`, `xhrMimeType`, `xhrTimeout`, `xhrHeader`, `onFileProgress` to set the XHR's return type, header, download progress callback and other parameters.
 
 ```typescript
 // Get a download progress callback for XHR
