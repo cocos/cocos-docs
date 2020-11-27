@@ -17,12 +17,12 @@
 ### MD5 Cache
 
 作为通用选项，主要是给构建后的所有资源文件名将加上 MD5 信息，解决热更新时的 CDN 资源缓存问题。
-启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载，具体代码如下：
+启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 assetManager 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载，具体代码如下：
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
 JS::RootedValue returnParam(cx);
-ScriptingCore::getInstance()->evalString("loader.md5Pipe.transformURL('url')", &returnParam);
+ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
 
 string url;
 jsval_to_string(cx, returnParam, &url);

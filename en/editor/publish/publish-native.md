@@ -20,12 +20,12 @@ The following are specific build options for individual platforms and considerat
 
 **MD5 Cache** is used as a generic option, mainly to add MD5 information to all asset file names after the build, solving **the CDN asset cache problem** during **hot update**.
 
-When enabled, if any asset fails to load, it is because after renaming the new file, it cannot be found. This is usually because some third party assets used in C++ was not loaded by `loader`. At this point, you can convert the URL before loading with the following method, to fix the loading problem:
+When enabled, if any asset fails to load, it is because after renaming the new file, it cannot be found. This is usually because some third party assets used in C++ was not loaded by `assetManager`. At this point, you can convert the URL before loading with the following method, to fix the loading problem:
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
 JS::RootedValue returnParam(cx);
-ScriptingCore::getInstance()->evalString("loader.md5Pipe.transformURL('url')", &returnParam);
+ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
 
 string url;
 jsval_to_string(cx, returnParam, &url);

@@ -30,7 +30,7 @@
 
 选项名 | 可选 | 默认值 | 说明 | 字段名
 - | - | - | - | -
-初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md) 中，提高初始场景的资源加载速度。具体内容可参考文档下方的 [初始场景的资源加载](#初始场景的资源加载)。 | startSceneAssetBundle
+初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档下方的 [初始场景的资源加载](#初始场景的资源加载)。 | startSceneAssetBundle
 设备方向 | 必填 | landscape | 设备方向，填写后将会写入在 `game.json` 内。| orientation
 appid | 必填 | 'testappid' | 百度小游戏 appid，填写后将会写入在 `project.swan.json` 内。| appid
 远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress

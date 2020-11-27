@@ -22,20 +22,21 @@ The first scene after entering the game can be set directly in the **Start Scene
 
 Append MD5 hash to the exported assets for resolving CDN or browser cache issue.
 
-After being enabled, if any asset fails to load, it is because the renamed new file can not be found. It is usually because some third party assets was not loaded by `cc.loader`. If this happens, you can convert the url before loading, to fix the loading problem. Example:
+After being enabled, if any asset fails to load, it is because the renamed new file can not be found. It is usually because some third party assets was not loaded by `assetManager`. If this happens, you can convert the url before loading, to fix the loading problem. Example:
 
-```js
-url = loader.md5Pipe.transformURL(url);
+```typescript
+const uuid = assetManager.utils.getUuidFromURL(url);
+url = assetManager.utils.getUrlWithUuid(uuid);
 ```
 
 ### Main Bundle Compression Type
 
-Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../../asset/bundle.md#The-built-in-Asset-Bundle) documentation for details.
 
 ### Main Bundle Is Remote
 
 This option is optional and needs to be used with the **Resource Server Address** option.<br>
-If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../../asset/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
 
 ### Debug
 

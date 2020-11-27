@@ -27,7 +27,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 - **Start Scene Asset Bundle**
 
 This option is optional.<br>
-If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
+If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
 
 - **Game Package Name**: is filled in according to the user's needs. It's required.
 

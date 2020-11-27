@@ -32,3 +32,17 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
 - [Model assets](mesh.md)
    - [Export model assets from third-party tools](dcc-export-mesh.md)
 - [Animation assets](anim.md)
+
+## Asset Management Of Runtime
+
+- [Asset Manager](asset-manager.md)
+    - [Loader Upgrade AssetManager Guide](asset-manager-upgrade-guide.md)
+    - [Subpackage Upgrade Asset Bundle Guide](subpackage-upgrade-guide.md)
+    - [Dynamic load asset](dynamic-load-resources.md) 
+    - [Asset Bundle](bundle.md)
+    - [Release Of Resources](release-manager.md)
+    - [Download and Parse](downloader-parser.md)
+    - [Loading and Preloading](preload-load.md)
+    - [Cache Manager](cache-manager.md)
+    - [Optional Parameters](options.md)
+    - [Pipeline and Task](pipeline-task.md)

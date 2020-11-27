@@ -21,7 +21,7 @@ __Method 1__: (load __ImageAsset__):
 ```typescript
 const self = this;
 const url = 'test_assets/test_altas/content';
-loader.loadRes(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset,(err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   const spriteFrame = new SpriteFrame();
   const tex = new Texture2D();
@@ -36,7 +36,7 @@ __Method 2__: (load SpriteFrame):
 ```typescript
 const self = this;
 const url = 'test_assets/test_altas/content/spriteFrame';
-loader.loadRes(url, SpriteFrame,(err: any, spriteFrame) => {
+resources.load(url, SpriteFrame,(err: any, spriteFrame) => {
   const sprite = this.getComponent(Sprite);
   sprite.spriteFrame = spriteFrame;
 });
