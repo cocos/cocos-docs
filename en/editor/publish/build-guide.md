@@ -22,7 +22,7 @@ The editor will first summarize the scene currently involved in the build and al
 
 This step will also sort out the asset types based on the build's internal division, such as scenes, scripts, texture compression tasks, JSON grouping information, etc., and weed out asset information that is not used.
 
-> **Note**: All user scripts are loaded before this step is performed.
+> **Note**: all user scripts are loaded before this step is performed.
 
 ### Write the built asset to the file system
 
@@ -34,7 +34,7 @@ After performing the previous steps, then we need to generate the used assets in
 
     - The non-plugin script will package the source files into `project.js` (`project.dev.js` in debug mode) in the corresponding `src` directory. Checking the `sourceMap` option will generate a corresponding `map` file, and the `debug` option will determine whether the script is compressed or not.
 
-2. **Auto Atlas**: Query all **Auto Altas** assets in the project, and then pack **SpriteFrame** assets within **Auto Altas** into a big **Sprite Atlas** assets, serialize assets to `JSON` according to the configuration of **Auto Atlas** assets. This step will  modify the JSON grouping information, asset asset grouping information and add texture compression task. If the **packAutoAtlas** option in the **Build** panel is not checked during the build, no processing is done.
+2. **Auto Atlas**: Query all **Auto Altas** assets in the project, and then pack **SpriteFrame** assets within **Auto Altas** into a big **Sprite Atlas** assets, serialize assets to `JSON` according to the configuration of **Auto Atlas** assets. This step will modify the JSON grouping information, asset asset grouping information and add texture compression task. If the **packAutoAtlas** option in the **Build** panel is not checked during the build, no processing is done.
 
 3. **Compress Texture**: Compress the texture assets according to the organized texture compression tasks and write them to the folder generated after build. If the **Compress Texture** option in the **Build** panel is not checked during the build, no processing is done.
 
@@ -123,7 +123,7 @@ During the asset packaging process, the `uuid` of all assets involved in the bui
 
 #### Build assets
 
-At this stage, the editor will arrage the **scenes assets that selected in Build panel and all assets in the assets directory. All assets will be deserialized by engine to find out the dependent assets in deep**. Before deserialization, editor will load all the scripts（expect plugin scripts) in the project, if the script is written illegally and fails to load, it will make this build task stop immediately. If any dependent asset is missing during the deserialization process, a warning info will be print, but editor will continue to build. When warning info is printed, we recommend you to read and try to resolve it, otherwise it may cause some unexpect errors after build. During the packaging process, the assets will be re-compressed and serialized after deserialization to reduce the package size. Also, all serialized files will be sorted into deferent `JSON` groups to reduce the size of game package.
+At this stage, the editor will arrage the **scenes assets that selected in Build panel and all assets in the assets directory. All assets will be deserialized by engine to find out the dependent assets in deep**. Before deserialization, editor will load all the scripts (expect plugin scripts) in the project, if the script is written illegally and fails to load, it will make this build task stop immediately. If any dependent asset is missing during the deserialization process, a warning info will be print, but editor will continue to build. When warning info is printed, we recommend you to read and try to resolve it, otherwise it may cause some unexpect errors after build. During the packaging process, the assets will be re-compressed and serialized after deserialization to reduce the package size. Also, all serialized files will be sorted into deferent `JSON` groups to reduce the size of game package.
 
 Assets that perform deserialization during the packing process will recompress the serialization to reduce the package size after packing. The serialized files of the texture assets are all packaged into a single `JSON` file, and the other serialized files are subpackaged according to the build options configuration.
 

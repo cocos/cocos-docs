@@ -16,79 +16,74 @@
 
 在 Windows 平台及 Mac 平台下调试游戏，步骤与真机调试类似，将工程用 IDE 编译运行之后，此时便可进行调试。步骤如下：
 
-- 用 IDE 将打包好的工程编译并运行（Windows 平台请使用 Visual Studio， Mac 平台请使用 Xcode）
+- 用 IDE 将打包好的工程编译并运行（Windows 平台请使用 Visual Studio，Mac 平台请使用 Xcode）
 - 在游戏运行时打开 Chrome 浏览器，输入地址：`devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。
 
    ![](debug-jsb/v8-win32-debug.png)
 
 ## 使用 `lldb` 查看当前的 JS 调用栈
 
-通过在 C++ 中断点我们能很便捷地看到 C++ 的调用栈, 但并不能同时看到 JS 的调用栈. 这个割裂的过程会常常打断调试的体验.  
+通过在 C++ 中断点我们能很便捷地看到 C++ 的调用栈，但并不能同时看到 JS 的调用栈，这个割裂的过程会常常打断调试的体验。
 
-我们可以使用 `lldb` 提供的功能, 在调试过程中进行很多的操作, 包括查看调用栈. 
+我们可以使用 `lldb` 提供的功能，在调试过程中进行很多的操作，包括查看调用栈。
 
-`Xcode` 和 `Android Studio` 都默认使用 `lldb` 作为调试器.
+**Xcode** 和 **Android Studio** 都默认使用 `lldb` 作为调试器。
 
-> 详细的 `lldb` 文档可以查看 https://lldb.llvm.org/use/tutorial.html
+详情可参考文档 [lldb](https://lldb.llvm.org/use/tutorial.html)。
 
-###  `lldb` 的全局配置
+### `lldb` 的全局配置
 
- `lldb` 在启动的时候 会加载 `~/.lldbinit`
-
-例如下面的配置: 
+`lldb` 在启动的时候 会加载 `~/.lldbinit`。例如下面的配置：
 
 `~ % cat ~/.lldbinit`
+
 ```
 target stop-hook add 
 expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 DONE
 ```
 
-设置了*每次断点*后的行为, 执行代码
+设置了 **每次断点** 后的行为，执行以下代码输出 JS 调用栈的信息：
 
 ```c++
 cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
-输出 JS 调用栈的信息. 
 
-[查看 `target stop-hook` 的用法](https://lldb.llvm.org/use/map.html#examining-variables)
+关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#examining-variables>
 
+但这种方法也存在着明显的缺陷：会对 **所有项目** 生效，而其他项目不存在相应符号，导致出现报错。
 
-#### 这种方法也有明显的缺陷
-
-会对 **所有项目** 生效, 其他项目不存在相应符号, 导致报错. 
-
-###  Xcode 在断点中编辑 `action` (只对具体的断点触发)
+### Xcode 在断点中编辑 action（只对具体的断点触发）
 
 ![](debug-jsb/xcode-brk-point-action.png)
 
-可以在 `Debugger Command` 中输入命令
+在 **Debugger Command** 中输入命令：
+
 ```lldb
 expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 
-[查看 `expr` 的用法](https://lldb.llvm.org/use/map.html#evaluating-expressions)
+关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#evaluating-expressions>
 
+### 增加回调
 
-### 在断点触发后, 在 lldb console 中增加 回调
-
-可以针对具体的断点, 进行更多的调用
+断点触发后，需要在 lldb console 中增加回调。可以针对具体的断点，进行更多的调用：
 
 ![](debug-jsb/xcode-brk-point-lldb.png)
 
-同上, 也可以输入
+同上，也可以执行以下代码查看调用栈：
 
 ```lldb
-expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
-查看调用栈. 
 
 ### 在 Android Studio 配置 `lldb`
-在 `Run/Debug Configuration/ Debugger` 界面进行类似的配置
+
+在 **Android Studio** 的 **Run -> Debug Configuration -> Debugger** 界面进行类似的配置：
 
 ![](debug-jsb/as-brk-point-action.png)
 
-Android Studio 也提供了和 Xcode 类似的 `lldb console`.
+Android Studio 也提供了和 Xcode 类似的 `lldb console`。
 
 ## 进阶调试指南
 

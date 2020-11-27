@@ -12,7 +12,7 @@ For some general build options of platforms, please refer to the [General Build 
 
 Options | Optional or not | Default | Explanation
 :--: | :--: | - | -
-**Polyfills** | Optional | { asyncFunctions: true } | Since v1.0.3, the Build supports some new feature of `polyfills`, mainly when the script is packaged, and the corresponding processing will be done. developer can choose `polyfills` according to their needs. This option currently only has `Async Functions`, and more functions will be opened in the future.
+**Polyfills** | Optional | { asyncFunctions: true } | In Creator 3.0, the Build supports some new feature of `polyfills`, mainly when the script is packaged, and the corresponding processing will be done. developer can choose `polyfills` according to their needs. This option currently only has `Async Functions`, and more functions will be opened in the future.
 **Preview Resolution** | Required | 1280 * 960| Resolution width and height of the game view
 
 ### Web Mobile
@@ -20,7 +20,7 @@ Options | Optional or not | Default | Explanation
 Options | Optional or not | Default | Explanation
 :--: | :--: | - | -
 **Orientation** | Required | Auto | Device orientation, including `Auto`, `Landscape`, `Portrait`.
-**Polyfills** | Optional | Async Functions | Since v1.0.3, the Build supports some new feature of `polyfills`, mainly when the script is packaged, and the corresponding processing will be done. developer can choose `polyfills` according to their needs. This option currently only has `Async Functions`, and more functions will be opened in the future.
+**Polyfills** | Optional | Async Functions | In Creator 3.0, the Build supports some new feature of `polyfills`, mainly when the script is packaged, and the corresponding processing will be done. developer can choose `polyfills` according to their needs. This option currently only has `Async Functions`, and more functions will be opened in the future.
 **VConsole** | Optional | false | Whether to use vConsole. vConsole is similar to the mini version of DevTools and is used to aid debugging.
 
 ### Preview URL

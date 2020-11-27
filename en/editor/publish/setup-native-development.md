@@ -52,7 +52,7 @@ Please install the following running environment:
 
 - In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
 
-  > **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
+  > **Note**: there is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
 - In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
@@ -70,7 +70,7 @@ We need to configure the following two paths here:
 
 Close the window after configuration is completed.
 
-> **Note**: The configuration will work when build native project. If the configuration not work, please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
+> **Note**: the configuration will work when build native project. If the configuration not work, please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
 ## Notes
 

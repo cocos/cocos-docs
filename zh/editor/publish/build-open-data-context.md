@@ -8,7 +8,7 @@
 
 由于开放数据域只能在离屏画布 sharedCanvas 上渲染，所以在项目中，需要有一个节点作为渲染开放数据域的容器，并在该节点上添加 **SubContextView** 组件，该组件会将 sharedCanvas 渲染到容器节点上。
 
-SubContextView 组件主要包含两个属性，**设计分辨率** 和 **FPS**
+SubContextView 组件主要包含 **设计分辨率** 和 **FPS** 两个属性。
 
 ![](./build-open-data-context/sub-context-view.png)
 

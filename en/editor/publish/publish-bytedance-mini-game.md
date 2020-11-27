@@ -1,6 +1,6 @@
 # Publishing to ByteDance Mini Games
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **ByteDance Mini Games** are developed based on ByteDance full products, which do not require users to download. This is a brand-new game type that can be played on tap.
 
@@ -33,7 +33,7 @@ Options | Optional or not | Default | Explanation
 **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
 **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
 
-##  Asset Management for ByteDance Mini Game Environment
+## Asset Management for ByteDance Mini Game Environment
 
 In a **ByteDance Mini Game** environment, asset management is the most special part. It differs from the browser in the following four points:
 
@@ -57,7 +57,7 @@ Specifically, developers need to do the following:
 
 ## Reference documentation
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [ByteDance Mini Game Developer Document Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/about-mini-game/flow-entrance/brief-introduction-on-flow-entrance)
 - [ByteDance Developer Platform](https://microapp.bytedance.com/)

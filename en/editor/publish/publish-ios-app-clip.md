@@ -1,6 +1,6 @@
 # Publish to iOS App Clip (Light App)
 
-Starting from the v1.2.1 version, the Xcode project built on the iOS platform already includes the **App Clip** compilation target. After constructing resources through this process, the **App Clip** application can be run and/or published.
+The Xcode project built on the iOS platform already includes the **App Clip** compilation target. After constructing resources through this process, the **App Clip** application can be run and/or published.
 
 **Cocos Creator** also supports embedding the game into other Xcode projects by way of **App Clip**. For example, after using other game engines to **generate** iOS project files, the **Cocos Creator** project can be embedded in it through this construction process. It is convenient for players to easily experience the application through **App Clip**.
 
@@ -28,13 +28,13 @@ In addition to the following two parameters, other parameters can refer to the p
   Specify the `.xcodeproj` path to be embedded in **App Clip**. The editor will configure **App Clips** for the iOS targets in it.
 
 
-> **Note**: Since the **App Clip** has a package size limitation of `10M`, the developer can select the scene appropriately and adjust the final package size.
+> **Note**: since the **App Clip** has a package size limitation of `10M`, the developer can select the scene appropriately and adjust the final package size.
 
 ### Build App Clip Resources For Cocos Creator project
 
 Before building the **App Clip**, the native iOS platform needs to be built first to generate the Xcode main project.
 
-First, set **App Clip Resources Path** as the build directory of the **iOS main project**. The generated resource files will be stored in the subdirectory 　`ios-app-clip/`.
+First, set **App Clip Resources Path** as the build directory of the **iOS main project**. The generated resource files will be stored in the subdirectory `ios-app-clip/`.
 
 Next, **Embed Xcodeproj Target**,　the path does not need to be set, just leave it blank.
 

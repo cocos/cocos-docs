@@ -1,6 +1,6 @@
 # Publishing to Baidu Mini Games
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **Cocos Creator** officially supports the release of games to the **Baidu Mini Games**.
 
@@ -38,7 +38,7 @@ Please refer to the [Baidu Mini Game Developer Documentation](https://smartprogr
 
     ![](./publish-baidugame/preview.png)
 
-    > **Note**: When previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest devtools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Smart Mini Program**, not the **appid** of the **Baidu Mini Game**, please re-apply for the **appid** of the **Baidu Mini Game**.
+    > **Note**: when previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest devtools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Smart Mini Program**, not the **appid** of the **Baidu Mini Game**, please re-apply for the **appid** of the **Baidu Mini Game**.
 
 ## asset Management for Baidu Mini Game Environment
 
@@ -55,9 +55,9 @@ Specifically, developers need to do the following:
 3. After the build is complete, upload the `build/baidu-mini-game/res` folder to the server.
 4. Delete the `res` folder under the local release package directory.
 
-> **Note**: When Baidu loads the assets on the remote server on the physical device, it only supports access via HTTPS, so the asset file must be placed on HTTPS, otherwise the loading of the asset will fail.
+> **Note**: when Baidu loads the assets on the remote server on the physical device, it only supports access via HTTPS, so the asset file must be placed on HTTPS, otherwise the loading of the asset will fail.
 
-> **Note**: If the cache asset exceeds the environment limit of Baidu, you need to manually clear the asset. You can use the `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` interfaces to clear the cache in Baidu mini game. The former will clear all cache assets in the cache directory, please use it with caution. The latter will clear the cache assets that are not used in the current application in the cache directory.
+> **Note**: if the cache asset exceeds the environment limit of Baidu, you need to manually clear the asset. You can use the `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` interfaces to clear the cache in Baidu mini game. The former will clear all cache assets in the cache directory, please use it with caution. The latter will clear the cache assets that are not used in the current application in the cache directory.
 
 ## Baidu Mini Game Subpackage Loading
 
@@ -89,7 +89,7 @@ If needed, you can directly call Baidu's [API](https://smartprogram.baidu.com/do
 
 ## Reference documentation
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [Baidu Mini Game Registration Guide](https://smartprogram.baidu.com/docs/game/)
 - [Baidu DevTools documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)

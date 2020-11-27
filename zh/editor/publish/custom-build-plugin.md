@@ -1,26 +1,26 @@
 # 扩展构建流程
 
-构建平台插件首先是需要一个普通的编辑器插件格式，关于插件的基本结构可以参考 [Package 插件系统](../extension/install.md)。扩展构建功能首先需要对构建的整体处理流程有所了解，不熟悉的用户建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
+构建平台插件首先是需要一个普通的编辑器插件格式，关于插件的基本结构可以参考 [Package 插件系统](../extension/install.md)。扩展构建功能首先需要对构建的整体处理流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
 
 ## 快速开始
 
-1. 点击编辑器内的菜单内的 `项目 -> 生成构建插件模板`，选择文件夹后即可在对应位置生成一份构建插件模板。作为项目使用的构建插件可以选择项目下的 `packages/xxx` 路径，作为全局使用的构建插件可以选择全局插件目录下 `packages/xxx` 路径，本例作为测试使用直接放在项目下的 `packages` 文件夹内即可。
+1. 点击编辑器内的菜单内的 **项目 -> 生成构建插件模板**，选择文件夹后即可在对应位置生成一份构建插件模板。作为项目使用的构建插件可以选择项目下的 `packages/xxx` 路径，作为全局使用的构建插件可以选择全局插件目录下 `packages/xxx` 路径，本例作为测试使用直接放在项目下的 `packages` 文件夹内即可。
 
 2. 选择对应文件夹后，如果正常生成会看到控制台上回打印生成构建模板成功的 log，使用 Ctrl + 鼠标可以直接跳转到对应位置。
 
-3. 文件夹直接放置在项目目录下的 packages 后，在菜单里点击打开插件管理器，在项目页点击刷新即可看到最新添加的插件。此时点击 `enable` 即可启用插件。
+3. 文件夹直接放置在项目目录下的 packages 后，在菜单里点击打开插件管理器，在项目页点击刷新即可看到最新添加的插件。此时点击 **Enable** 按钮即可启用插件。
 
-![enable-plugin](./custom-project-build-template/enable-plugin.jpg)
+    ![enable-plugin](./custom-project-build-template/enable-plugin.jpg)
 
-4. 启用插件后打开构建插件面板，选择 `Web-Mobile` 平台，即可看到构建插件注入的新参数，点击构建即可生效。
+4. 启用插件后打开构建插件面板，选择 `Web-Mobile` 平台，即可看到构建插件注入的新参数，点击 **构建** 即可生效。
 
-![plugin-template](./custom-project-build-template/plugin-template.jpg)
+    ![plugin-template](./custom-project-build-template/plugin-template.jpg)
 
-5. 通过直接修改该文件夹内的代码，再编译，reload 该插件即可，示例是一个使用 ts 编译的小范例，不清楚如何编译的可以参见插件包内的 readme 文档。
+5. 通过直接修改该文件夹内的代码，再编译，然后 reload 该插件即可。示例是一个使用 ts 编译的小范例，不清楚如何编译的可以参见插件包内的 readme 文档。
 
 ## 基本配置流程
 
-扩展构建功能的插件，需要在 package.json 里面的 `contributions` 添加 `builder` 字段，字段内可以对指定平台传递对应模块的相对路径配置。
+扩展构建功能的插件，需要在 `package.json` 中的 `contributions` 添加 `builder` 字段，字段内可以对指定平台传递对应模块的相对路径配置。
 
 **package.json 对应示例：**
 
@@ -34,7 +34,7 @@
 
 ## 插件入口配置代码示例与接口定义
 
-// 入口配置代码示例
+入口配置代码示例如下：
 
 ```ts
 export const configs: IConfigs = {
@@ -56,7 +56,10 @@ export const configs: IConfigs = {
 };
 ```
 
-> 注意：如果平台 key 添写的是 `*` 则对所有的平台都生效，但是用 `*` 和指定平台名称是互斥的，请不要在同一个构建插件内部同时使用两种配置方式。其中 `hooks` 字段传递的脚本将会在构建进程内执行，`panel` 字段传递的脚本则会在渲染进程内执行，不同进程内的环境变量会有所差异，在编写脚本时需要额外注意。
+需要注意的是不同进程内的环境变量会有所差异，在编写脚本时需要额外注意：
+- 如果平台 key 添加的是 `*`，则对所有的平台都生效。但是用 `*` 的话，和指定平台名称是互斥的，请不要在同一个构建插件内部同时使用两种配置方式。
+- `hooks` 字段传递的脚本将会在构建进程内执行
+- `panel` 字段传递的脚本则会在渲染进程内执行
 
 详细的接口定义说明如下：
 
@@ -73,7 +76,7 @@ declare interface IConfigItem {
     default?: any;
 
     render: ?{
-        // ------ 渲染 ui 组件规则，与 ui-prop 处统一规则一致，只有指定了 ui 属性的配置才会在构建配置面板上显示
+        // 渲染 ui 组件规则，与 ui-prop 处统一规则一致，只有指定了 ui 属性的配置才会在构建配置面板上显示
         ui?: string;
         // 传给 ui 组件的配置参数
         attributes?: IUiOptions;
@@ -93,7 +96,7 @@ declare interface IConfigItem {
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    // 校验规则数组，构建提供一些基础规则，也可以通过 verifyRuleMap 来指定新的校验规则,只有当传入 require 时才会做无值的校验，否则仅存在值时才校验
+    // 校验规则数组，构建提供一些基础规则，也可以通过 verifyRuleMap 来指定新的校验规则，只有当传入 require 时才会做无值的校验，否则仅存在值时才校验
     verifyRules?: string[];
 }
 
@@ -102,11 +105,11 @@ declare interface IUiOptions extends IOptionsBase {
 }
 ```
 
-> 其中 IOptionsBase 的接口定义需要参考 [ui-prop 自动渲染规则定义](../extension/ui.md);
+其中 `IOptionsBase` 的接口定义需要参考 [ui-prop 自动渲染规则定义](../extension/ui.md)。
 
 ## 自定义构建钩子函数代码配置
 
-入口配置里的 hooks 字段定义的脚本模块内可以编写构建生命周期的钩子函数，在不同的钩子函数内部，接受到的数据会有差异。钩子函数全部都运行在构建进程内，在构建进程内可以直接使用引擎方法，如需使用 `Editor` 需要添加代码 `import * as Editor from 'editor';`手动 require，关于 Editor 的接口介绍还请参考编辑器的插件开发文档。公开的钩子函数与构建的生命周期的关系可以参考下图：
+入口配置里的 hooks 字段定义的脚本模块内可以编写构建生命周期的钩子函数，在不同的钩子函数内部，接受到的数据会有差异。钩子函数全部都运行在构建进程内，在构建进程内可以直接使用引擎方法，如需使用 `Editor` 需要添加代码 `import * as Editor from 'editor';` 手动 require，关于 Editor 的接口介绍还请参考编辑器的插件开发文档。公开的钩子函数与构建的生命周期的关系可以参考下图：
 
 ![build-process](./custom-project-build-template/build-process.jpg)
 
@@ -124,9 +127,9 @@ declare interface IHook {
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> 注意：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正的影响构建。构建参数的修改请使用入口的 `options` 来配置。由于接口定义众多，详细的接口定义可以参考构建插件模板文件夹内的 `@types/builder.d.ts` 文件。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正的影响构建。构建参数的修改请使用入口的 `options` 来配置。由于接口定义众多，详细的接口定义可以参考构建插件模板文件夹内的 `@types/builder.d.ts` 文件。
 
-简单代码示例：
+简单的代码示例：
 
 ```ts
 export function onBeforeBuild(options) {
@@ -139,4 +142,4 @@ export function onBeforeCompressSettings(options, result) {
 
 ## 构建插件调试
 
-点击菜单里的`开发者 ——> 打开构建调试工具`，即可正常调试添加的构建插件脚本。
+点击菜单里的 **开发者 —> 打开构建调试工具**，即可正常调试添加的构建插件脚本。

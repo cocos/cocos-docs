@@ -14,7 +14,7 @@ Click the **New Build Task** button at the top right of the **Build** panel to o
 
 Make sure the content in the **Scene** panel is saved before you build. If it is not saved, when you click on the **Build** button, a prompt will pop up asking: `Do you want to save the current data before build?`. You can choose **Save**, **Ignore** or **Unbuild**. If **Save** / **Ignore** is selected, the build will continue, and if **Unbuild** is selected, a record of cancelled builds will be generated.
 
-> **Note**: There is no point in executing a build if there is no scene in the project, so projects without a scene are not allowed to add build tasks.
+> **Note**: there is no point in executing a build if there is no scene in the project, so projects without a scene are not allowed to add build tasks.
 
 ![](build-panel/save_scene.png)
 
@@ -62,9 +62,9 @@ The **Build** panel has a ![](build-panel/view_build_parameter.png) button below
 
 The information about the completed build task will be saved in the `profiles/packages/build.json` file of the project. As long as the source file of the corresponding build task is not deleted, either in the **Build** panel or directly deleted in the project directory, you can view the build options configuration of the previous build after reopening the editor, as well as to run and preview again.
 
-> **Note**: The ![](build-panel/view_build_parameter.png) button is for developers to recompile after adjusting the build options of the current build task, while the **New Build Task** button is for creating a new build task, please don't confuse the two.
+> **Note**: the ![](build-panel/view_build_parameter.png) button is for developers to recompile after adjusting the build options of the current build task, while the **New Build Task** button is for creating a new build task, please don't confuse the two.
 
-## Export / Import
+## Export/Import
 
 ### Export
 

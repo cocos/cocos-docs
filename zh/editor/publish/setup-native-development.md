@@ -37,7 +37,7 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 Android Studio 作
 1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）等。
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
-4. 勾选 **Android SDK Platform-Tools**, **Android SDK Tools** 和 **Android Support Library**
+4. 勾选 **Android SDK Platform-Tools**、**Android SDK Tools** 和 **Android Support Library**
 5. 勾选 **NDK**，建议使用的版本为 **r17 - r19**。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
@@ -68,7 +68,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
-**注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：COCOS_CONSOLE_ROOT, NDK_ROOT, ANDROID_SDK_ROOT。
+**注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
 
 ## 注意事项
 

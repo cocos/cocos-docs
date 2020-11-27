@@ -1,6 +1,6 @@
 # Publishing to native
 
-**Cocos Creator** officially supports the native platform since v1.0.3, click the **Project -> Build** in the main menu to open the **Build** panel.
+**Cocos Creator** officially supports the native platform, click the **Project -> Build** in the main menu to open the **Build** panel.
 
 There are four native platforms, which include **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. Currently, all native platforms are packaged together, you can configure the parameters of each native platform in the **Build** panel, and all native platform release packages can be generated in one build.
 
@@ -65,7 +65,7 @@ The **Cocos Creator** installation directory under `resources/3d/cocos2d-x-lite`
 
 Usually in descending order by product site URL, e.g. `com.mycompany.myproduct`.
 
-> **Note**: Only numbers, letters and underscores can be included in the **Package Name**. In addition, the last part of the **Package Name** must begin with a letter, not with an underscore or a number.
+> **Note**: only numbers, letters and underscores can be included in the **Package Name**. In addition, the last part of the **Package Name** must begin with a letter, not with an underscore or a number.
 
 #### Target API Level
 
@@ -75,9 +75,9 @@ Set the **Target API Level** required to compile the Android platform. Click the
 
 Set the CPU types that Android needs to support, including **armeabi-v7a**、**arm64-v8a** and **x86**. You can choose one or more options.
 
-> **Note**: When you select an ABI to build and then build another ABI without `Clean`, both ABI's `so` will be packaged into the APK, which is the default behavior of Android Studio. If you import a project with Android Studio, after selecting an ABI to build, run **Build -> Clean Project**, then build another ABI, only the latter ABI will be packaged into the APK.
+> **Note**: when you select an ABI to build and then build another ABI without `Clean`, both ABI's `so` will be packaged into the APK, which is the default behavior of Android Studio. If you import a project with Android Studio, after selecting an ABI to build, run **Build -> Clean Project**, then build another ABI, only the latter ABI will be packaged into the APK.
 
-> **Note**: After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build** panel. If you need to modify the ABI, you can directly modify the `PROP_APP_ABI` property in `gradle.properties` as shown below:
+> **Note**: after the project is imported with Android Studio, it is an independent existence and does not depend on the **Build** panel. If you need to modify the ABI, you can directly modify the `PROP_APP_ABI` property in `gradle.properties` as shown below:
 
   ![modify abi](publish-native/modify_abi.png)
 
@@ -135,4 +135,4 @@ The following are manual compilations for each native platform:
 
 - **Windows**: Use **Visual Studio** (**Visual Studio 2017 is recommended**) to open the `native\frameworks\runtime-src\proj.win32\.sln` file in the `build` directory, or just double-click it to compile and run the project. When installing **Visual Studio**, please note that you need to check the box to install the SDK for **Windows 8.1 version**.
 
-> **Note**: When running a project built in debug mode on the **MIUI 10** system, the `Detected problems with API compatibility` prompt may pop up, which is a problem introduced by the **MIUI 10** system itself, just use the **release mode** to build.
+> **Note**: when running a project built in debug mode on the **MIUI 10** system, the `Detected problems with API compatibility` prompt may pop up, which is a problem introduced by the **MIUI 10** system itself, just use the **release mode** to build.

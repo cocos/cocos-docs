@@ -66,7 +66,7 @@ The **FPS** property is primarily used to set how often the main context will up
 
     ![](./build-open-data-context/show-in-devtool.png)
 
-    > **Note**: In the **Open Data Context** of **Baidu** platform, since the image can only load player avatars returned from Baidu, the local avatar image may not be loaded in the generated template project.
+    > **Note**: in the **Open Data Context** of **Baidu** platform, since the image can only load player avatars returned from Baidu, the local avatar image may not be loaded in the generated template project.
 
 ## Customization on Open Data Context Project
 

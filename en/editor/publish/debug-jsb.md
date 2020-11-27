@@ -22,7 +22,7 @@ The steps for debugging a game on the Windows / Mac platform are similar to the 
 
 - Open Chrome while the game is running and enter the address: `devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008` to debug it.
 
-   ![](debug-jsb/v8-win32-debug.png)
+ ![](debug-jsb/v8-win32-debug.png)
 
 ## Other Platform Debugging
 

@@ -1,6 +1,6 @@
 # Publishing to Cocos Play
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **Cocos Creator** officially supports the release of games to the **Cocos Play**.
 
@@ -12,7 +12,7 @@
 
 ### Build
 
-1. Use **Cocos Creator** to open a project. Select **Cocos Play** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
+1. Use **Cocos Creator 3.0** to open a project. Select **Cocos Play** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
 
     ![](publish-cocos-play/build.png)
 
@@ -90,7 +90,7 @@ There are two ways to start the game through the **Self-test Tools**.
 
 ## Reference documentation
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [Cocos Play Center](https://gamebox.cocos.com/)
 - [Cocos Play Documentation Center](https://gamebox.gitbook.io/project/)

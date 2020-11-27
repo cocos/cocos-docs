@@ -39,7 +39,7 @@ Currently, when using the command line to build, except for the required build o
 
     - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
 
-      > **Note**: The pass is an array of module `entry` fields, see [this documentation](https://github.com/cocos-creator/engine/blob/3d-v1.0.0/scripts/module-division/division-config.json) for details.
+      > **Note**: the pass is an array of module `entry` fields, see [this documentation](https://github.com/cocos-creator/engine/blob/3d-v1.0.0/scripts/module-division/division-config.json) for details.
 
     - `taskName`: Build task name, the name of the release folder generated after the build.
     - `name`: Game name

@@ -15,7 +15,7 @@ project-folder
             |--index.html
 ```
 
-If the current platform is `web-mobile`, then `build-templates/web-mobile/index.html` will be copied to `build/web-mobile/index.html`.
+If the current platform is `Web-Mobile`, then `build-templates/web-mobile/index.html` will be copied to `build/web-mobile/index.html`.
 
 In addition to this, build templates can be customized in the following ways.
 
@@ -34,7 +34,7 @@ project-folder
 
 Parameters are imported into these templates during the build, and content that is frequently changed during the build is placed in sub-templates of that template. You only need to modify what you want to use, so that the build templates within the project can be updated less frequently.
 
-> **Note**: The copy template occurs after the rendered template. For example, if both `index.ejs` and `index.html` exist in this directory, the final packaged package will be the `index.html` file instead of the `index.ejs` rendered file.
+> **Note**: the copy template occurs after the rendered template. For example, if both `index.ejs` and `index.html` exist in this directory, the final packaged package will be the `index.html` file instead of the `index.ejs` rendered file.
 
 ### JSON Type
 
