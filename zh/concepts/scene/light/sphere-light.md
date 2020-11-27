@@ -4,7 +4,7 @@ Cocos Creator 中使用球面光替代 **点光源（Point Light）**，因为�
 
 ![sphere light](sphere-light.jpg)
 
-球面光组件接口请参考 [Spherical Lighting API](https://docs.cocos.com/creator3d/api/zh/classes/component_light.spherelight.html)。
+球面光组件接口请参考 [Spherical Lighting API](https://docs.cocos.com/creator/api/zh/classes/component_light.spherelight.html)。
 
 ## 球面光属性
 

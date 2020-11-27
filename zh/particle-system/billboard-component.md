@@ -11,4 +11,4 @@ Billboard 组件用于渲染一个始终面向摄像机的方块。
 | **Width**    | billboard 的宽度。
 | **Rotation** | billboard 绕中心点旋转的角度。
 
-Billboard 组件接口请参考 [Billboard API](https://docs.cocos.com/creator3d/api/zh/classes/particle.billboard.html)。
+Billboard 组件接口请参考 [Billboard API](https://docs.cocos.com/creator/api/zh/classes/particle.billboard.html)。

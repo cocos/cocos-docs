@@ -26,7 +26,7 @@ While creating __Scenes__, you can quickly save __Scenes__ with the shortcut key
 
 ## Switching Scenes
 
-In the __Assets__, __double-click__ the __Scene__ you want to open. When needing to switch __Scenes__ in the game, you can use the `director.loadScene()` API to implement dynamic scene loading and switching in the game. For further details, please see the [API documentation](https://docs.cocos.com/creator3d/api/en/classes/core.director-2.html#loadscene).
+In the __Assets__, __double-click__ the __Scene__ you want to open. When needing to switch __Scenes__ in the game, you can use the `director.loadScene()` API to implement dynamic scene loading and switching in the game. For further details, please see the [API documentation](https://docs.cocos.com/creator/api/en/classes/core.director-2.html#loadscene).
 
 ## Scene Asset Properties
 
@@ -34,7 +34,7 @@ Since the __Scene__ is an __Asset__ a property can be set in the __Assets__ to l
 
 ![](scene/scene_set.png)
 
-After opening the __Scene__ file, *Scene* is the root node of the __Scene__ node tree. Select the __Scene__ node in the __Hierarchy__ panel. In the __Inspector__ panel on the left, you can set the properties of the entire __Scene__, including **ambient light** settings, **shadow** settings and **sky box** settings.
+After opening the __Scene__ file, **Scene** is the root node of the __Scene__ node tree. Select the __Scene__ node in the __Hierarchy__ panel. In the __Inspector__ panel on the left, you can set the properties of the entire __Scene__, including **ambient light** settings, **shadow** settings and **sky box** settings.
 
 ![](scene/scene_node_set.png)
 

@@ -19,7 +19,7 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 | Linear Factor   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
 | Angular Factor  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
 
-For the API interface of RigidBody, please refer to [Class RigidBody](https://docs.cocos.com/creator3d/api/en/classes/physics.rigidbody.html).
+For the API interface of RigidBody, please refer to [Class RigidBody](https://docs.cocos.com/creator/api/en/classes/physics.rigidbody.html).
 
 ### Obtaining a RigidBody
 

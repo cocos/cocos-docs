@@ -6,7 +6,7 @@ Slider is a component for the production of UI components such as volume adjustm
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Slider__ to add the Slider component to the node.
 
-To use `Slider`, please refer to the [Slider API](https://docs.cocos.com/creator3d/api/en/classes/ui.slider.html) documentation and the [slider](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/10.slider) scene of the test-cases-3d project.
+To use `Slider`, please refer to the [Slider API](https://docs.cocos.com/creator/api/en/classes/ui.slider.html) documentation and the [slider](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/10.slider) scene of the test-cases-3d project.
 
 
 ## Slider Properties

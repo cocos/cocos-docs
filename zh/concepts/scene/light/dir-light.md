@@ -4,7 +4,7 @@ Cocos Creator 中只有一个主方向光，主方向光可以理解为场景中
 
 ![main dir light](dir-light.jpg)
 
-主方向光组件接口请参考 [Main Directional Light API](https://docs.cocos.com/creator3d/api/zh/classes/component_light.directionallight.html)。
+主方向光组件接口请参考 [Main Directional Light API](https://docs.cocos.com/creator/api/zh/classes/component_light.directionallight.html)。
 
 ## 主方向光属性
 

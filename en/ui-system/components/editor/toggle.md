@@ -6,7 +6,7 @@ The Toggle component is a CheckBox, when it's used together with a ToggleGroup, 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Toggle__ to add the Toggle component to the node.
 
-To use `Toggle`, please refer to the [Toggle API](https://docs.cocos.com/creator3d/api/en/classes/ui.toggle.html) documentation and the [toggle](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
+To use `Toggle`, please refer to the [Toggle API](https://docs.cocos.com/creator/api/en/classes/ui.toggle.html) documentation and the [toggle](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
 
 ## Toggle Properties
 

@@ -25,4 +25,4 @@ bursts | Emit a given number of particles at a certain point in time
 - repeatCount | The number of burst triggers.
 - repeatInterval | The time interval of each trigger.
 
-To use `Particle System`, please refer to the [Particle System API](https://docs.cocos.com/creator3d/api/en/classes/particle.particlesystem.html).
+To use `Particle System`, please refer to the [Particle System API](https://docs.cocos.com/creator/api/en/classes/particle.particlesystem.html).

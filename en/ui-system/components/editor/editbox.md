@@ -6,7 +6,7 @@ __EditBox__ is a text input component, you can use this component to get user in
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/EditBox__ to add the __EditBox__ component to the node.
 
-To use `EditBox`, please refer to the [EditBox API](https://docs.cocos.com/creator3d/api/en/classes/ui.editbox.html) documentation and the [editBox](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) scene of the test-cases-3d project.
+To use `EditBox`, please refer to the [EditBox API](https://docs.cocos.com/creator/api/en/classes/ui.editbox.html) documentation and the [editBox](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) scene of the test-cases-3d project.
 
 ## EditBox Properties
 

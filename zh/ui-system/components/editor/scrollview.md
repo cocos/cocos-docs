@@ -8,7 +8,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/ScrollView** 即可添加 ScrollView 组件到节点上。
 
-滚动视图的脚本接口请参考 [ScrollView API](https://docs.cocos.com/creator3d/api/zh/classes/ui.scrollview.html)。
+滚动视图的脚本接口请参考 [ScrollView API](https://docs.cocos.com/creator/api/zh/classes/ui.scrollview.html)。
 
 关于使用可以参考 test-cases-3d 里的 [scrollView](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/06.scrollView) 相关。
 

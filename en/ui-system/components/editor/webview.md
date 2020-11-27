@@ -6,7 +6,7 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information about WebView API, please refer to [WebView API](https://docs.cocos.com/creator3d/api/en/classes/WebView.html) documentation.
+For more information about WebView API, please refer to [WebView API](https://docs.cocos.com/creator/api/en/classes/WebView.html) documentation.
 
 ## WebView Properties
 

@@ -26,4 +26,4 @@
 - repeatCount | burst触发次数
 - repeatInterval | 每次触发的时间间隔
 
-粒子系统组件接口请参考 [ParticleSystem API](https://docs.cocos.com/creator3d/api/zh/classes/particle.particlesystem.html)。
+粒子系统组件接口请参考 [ParticleSystem API](https://docs.cocos.com/creator/api/zh/classes/particle.particlesystem.html)。
