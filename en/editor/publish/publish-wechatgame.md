@@ -113,6 +113,59 @@ __Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely 
 
 It is possible to use the missing functionality by calling the **WeChat's** API directly.
 
+## WebAssembly Support
+
+Starting with version 3.0, the WeChat build options increased the physics wasm item. It is an experimental function used to select the use mode of ammo physics:
+
+- __none__ : use __js__ mode，this is consistent with previous versions；
+- __fallback__ : Automatic __fallback__ mode，Use __wasm__ in an environment that supports __wasm__, or revert to __js__；
+- __wasm__ : use __wasm__ mode；
+
+In __fallback__ mode, the editor packages all the schema code for ammo physics. The code packets for each of the two modes are per __1.2MB__ and per __0.7MB__, with a total of closer to per __2MB__, and this has a significant impact on the limit of per __4MB__ for the main package.
+
+The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage：
+
+- Modify the `game.json`：
+
+```ts
+{
+  //*,
+  "subpackages": [{
+    "name": "ammo",
+    "root": "cocos-js/ammo-82499473.js"
+  }]
+}
+```
+
+- Modify the `game.js` of `init` function：
+
+```ts
+window.__globalAdapter.init(function() {
+  fsUtils.loadSubpackage('ammo', null, (err) => {
+    System.import('./cocos-js/ammo-82499473.js').then(() => {
+      return System.import('./application.js').then(({ createApplication }) => {
+        return createApplication({
+          loadJsListFile: (url) => require(url),
+          loadAmmoJsWasmBinary,
+        });
+      }).then((application) => {
+        return onApplicationCreated(application);
+      }).catch((err) => {
+        console.error(err);
+      });
+    })
+  });
+});
+```
+
+**Note**：
+
+- Wechat WebAssembly required WeChat version 7.0.17 or above;
+
+- The WeChat WebAssembly debugging base library needs to be 2.12.0 or above；
+
+- Fallback mode is recommended for the most comprehensive device support；
+
 ## Reference documentation
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
