@@ -242,10 +242,11 @@ Dynamic instancing is a very flexible batching framework, whcih allows user-defi
 #endif
 ```
 
-> **Note**:
-> - the actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
-> - All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
-> - Make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
+> **Note**: tthe actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
+
+> **Note**: all instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
+
+> **Note**: make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
 
 The instanced property value will be initialized to all zeros by default. Use the `setInstancedAttribute` on `MeshRenderer` to assign new values:
 

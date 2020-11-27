@@ -59,6 +59,6 @@ The material must be insured that it is consistent, under this premise:
 - If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use *instancing batching*.
 - If there are a large number of models with very low number of triangles but different vertex data, consider trying *VB-merging batching*.
 
-> **Note**:<br>
-> <b id="f1">[1]</b> currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__. [↩](#a1)<br>
-> <b id="f2">[2]</b> there have been many discussions in the industry on the topic of batching and performance, you can refer to this [nVidia slide](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf). [↩](#a2)
+> **Note**: <b id="f1">[1]</b> currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__. [↩](#a1)
+
+> **Note**: <b id="f2">[2]</b> there have been many discussions in the industry on the topic of batching and performance, you can refer to this [nVidia slide](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf). [↩](#a2)

@@ -158,6 +158,6 @@ The RigidBody component provides the `linearFactor` and `angularFactor` properti
 
 The factor is the type of `Vec3`. The value of the corresponding component is used to scale the speed change of the corresponding axis. The default value is `1`, which means that the scaling is `1` times, that is, no effect.
 
-> **Note**:<br>
-> 1. Set a certain component value of the factor to `0`, you can fix a certain axis of movement or rotation.
-> 2. In the physics engines `cannon.js` and `ammo.js`, the factors act on different physical quantities, in `cannon.js` on speed and in `ammo.js` on force.
+> **Note**: set a certain component value of the factor to `0`, you can fix a certain axis of movement or rotation.
+
+> **Note**: in the physics engines `cannon.js` and `ammo.js`, the factors act on different physical quantities, in `cannon.js` on speed and in `ammo.js` on force.

@@ -83,6 +83,6 @@ private onCollision (event: ICollisionEvent) {
 }
 ```
 
-> **Note**:
-> 1. `Collider` is the parent class of all collision components.
-> 2. Collision events are in physical elements, and all collider components on this element will receive collision events.
+> **Note**: `Collider` is the parent class of all collision components.
+
+> **Note**: collision events are in physical elements, and all collider components on this element will receive collision events.
