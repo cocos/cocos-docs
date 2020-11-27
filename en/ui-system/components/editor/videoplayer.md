@@ -30,7 +30,7 @@ For more information about VideoPlayer's scripting interface, please refer to th
 | Stay On Bottom       | Display video below the game view (Only available on web). |
 | Video Player Event   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
-**Note:** In **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+> **Note**: In **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
@@ -59,7 +59,7 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 | ERROR          | Video Trigger Error           |
 | CLICKED        | Video is clicked by the user. (Only supports Web platform.) |
 
-**Note:** On iOS platform, due to the platform limitations, the CLICKED event can't be fired when **VideoPlayer** is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the **VideoPlayer's** size.
+> **Note**: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when **VideoPlayer** is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the **VideoPlayer's** size.
 
 For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [21.video-player](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) of the test-cases-3d samples bundled with Creator.
 
@@ -131,7 +131,7 @@ Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and 
 
 Please refer to the [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) documentation for details on VideoPlayer events..
 
-**Note:** As VideoPlayer is a special component, it cannot register `touch` or `mouse` events on the node with **VideoPlayer** component.
+> **Note**: As VideoPlayer is a special component, it cannot register `touch` or `mouse` events on the node with **VideoPlayer** component.
 
 ## How to display a UI upon a video
 
@@ -143,12 +143,11 @@ You can display a UI upon a video in two steps:
 
 2. Check the **stayOnBottom** property on the **VideoPlayer** in the **Properties** panel.
 
-**Note:**
-- This feature is only supported on Web.
-- The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
-- After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
+> **Note**: this feature is only supported on Web.
+> **Note**: the specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
+> **Note**: after the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
-For more information, please refer to the [21.video-player](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) of the test-cases-3d samples bundled with Creator. Results as shown below:
+For more information, please refer to the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) in the test-cases-3d samples bundled with __Cocos Creator__. Results as shown below:
 
 ![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
 
