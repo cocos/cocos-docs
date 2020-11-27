@@ -6,7 +6,7 @@
 
 - 全局安装 [nodejs-8.9.0](https://nodejs.org/zh-cn/download/) 或以上版本
 
-    **注意**：安装 nodejs 后，需要注意 npm 源地址是否为 https://registry.npmjs.org/
+    **注意**：安装 nodejs 后，需要注意 npm 源地址是否为 <https://registry.npmjs.org/>
 
     ```bash
     # 查看当前 npm 源地址
@@ -23,80 +23,43 @@
 
     若 `vivo-minigame/cli` 安装失败，可能是因为 nodejs 版本过低导致的，请检查 node 版本并升级。
 
-## 发布流程
+## 构建参数介绍
 
-一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **vivo Mini Game**。
+一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
 
-![](./vivo-mini-game/build_options.jpg)
+选项名 | 可选 | 默认值 | 说明 | 字段名
+- | - | - | - | -
+初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md) 中，提高初始场景的资源加载速度。具体内容可参考文档下方的 [初始场景的资源加载](#初始场景的资源加载)。 | startSceneAssetBundle
+资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress
+游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package
+桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon
+应用版本名称 | 必填 | (Cocos 版本号) | 应用版本名称 是真实的版本，如：1.0.0 | versionName
+应用版本号 | 必填 | 1201 | 纯数字，应用版本号，从 1 自增，每次重新上传包时务必 versionCode+1，否则将影响上架版本的更新。例如原版本为11，更新版本的 versionCode 需要为12。 | versionCode
+支持的最小平台版本号 | 必填 | 1035 | 支持的最小平台版本号，原理同Android API Level。用于兼容性检查，避免上线后在低版本平台运行导致不兼容。游戏设定值必须大于等于 1035。 | minPlatformVersion
+屏幕方向 | - | landscape | 设备方向，填写后将会写入在 `manifest.json` 内。| deviceOrientation
+使用调试密钥库 | - | true |  勾选 **使用调试密钥库** 时，表示默认使用的是 Creator 自带的证书构建 rpk 包，仅用于 **调试** 时使用，用于提交审核时则构建时不要勾选该项。| useDebugKey
+密钥证书路径 | - | - | 密钥库证书，上架华为应用市场的快游戏，必须使用 release 版本的证书做签名，同时在华为开发者联盟后台配置证书指纹。具体可以参考下面的 [生成签名文件](###生成签名文件) | privatePemPath、certificatePemPath
 
-相关参数配置具体的填写规则如下：
+### 生成签名文件
 
-- **游戏包名**
+有以下两种方式可以生成签名文件：
 
-  该项为必填项，根据用户的需求进行填写。
+- 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成
 
-- **游戏名称**
+- 通过命令行生成 release 签名
 
-  该项为必填项，是 vivo 小游戏的名称。
+    用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
 
-- **桌面图标**
+    ```bash
+    # 通过 openssl 命令工具生成签名文件
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+    ```
 
-  **桌面图标** 为必填项。点击输入框后面的按钮选择所需的图标。构建时，图标将会被构建到 vivo 小游戏的工程中。**桌面图标** 建议使用 **.png** 图片。
+    > **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
+    >
+## vivo 打包工具
 
-- **游戏版本名称**
-
-  该项为必填项。**游戏版本名称** 是真实的版本，如：1.0.0
-
-- **游戏版本号**
-
-  该项为必填项。**游戏版本号** 与 **游戏版本名称** 不同，**游戏版本号** 主要用于区别版本更新。每次提交审核时应用版本号都要比上次提交审核的值至少 +1，一定不能等于或者小于上次提交审核的值，建议每次提交审核时应用版本号递归 +1。**注意**：**应用版本号** 必须为正整数。
-
-- **支持的最小平台版本号**
-
-  该项为必填项。具体填写值可通过点击 [更新记录](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) 来查看最新的 vivo 引擎版本号。
-
-- **小包模式**
-
-  该项为选填项。小游戏的包内体积包含代码和资源不能超过 4M，资源可以通过网络请求加载。**小包模式** 就是帮助用户将脚本文件保留在小游戏包内，其他资源则上传到远程服务器，根据需要从远程服务器下载。而远程资源的下载、缓存和版本管理，Creator 已经帮用户做好了。用户需要做的是以下几个步骤：
-
-  1. 构建时，勾选 **小包模式**，填写 **小包模式服务器路径**。
-  
-  2. **首屏游戏资源打包到游戏包**
-  
-      在小包模式下，由于首屏资源过多，下载和加载资源时间比较久，可能会导致首次进入游戏时出现短暂黑屏。如果在构建时勾选了 **首屏游戏资源打包到游戏包**，可以缩短首次进入游戏黑屏的时间。不过需要注意的是：res/import 资源暂不支持分割资源下载，整个 import 目录也会打包到首包。
-  
-      开发者可以根据自己的需要看是否勾选该项。然后点击 **构建**。
-
-  3. 构建完成后，点击 **发布路径** 后面的 **打开** 按钮，将发布路径下的 **res** 目录上传到小包模式服务器。例如：默认发布路径是 build，构建任务名为 vivo-mini-game，则需要上传 /build/vivo-mini-game/res 目录。
-  **注意**：如果是命令行编译小包模式，记得备份 **build/vivo-mini-game/res** 目录，然后删除 **build/vivo-mini-game/res** 目录，再进行命令行编译（npm run build）。
-
-  此时，构建出来的 rpk 将不再包含 res 目录，res 目录里的资源将通过网络请求从填写的 **小包模式服务器路径** 上下载。
-
-- **分包**
-
-  该功能默认开启。
-
-- **密钥库**
-
-  勾选 **密钥库** 时，表示默认用的是 Creator 自带的证书构建 rpk 包，仅用于 **测试和调试** 时使用。<br>
-  如果不勾选 **密钥库**，则需要配置签名文件 **certificate.pem 路径** 和 **private.pem 路径**，此时构建出的是可以 **直接发布** 的 rpk 包。用户可通过输入框右边的 **...** 按钮来配置两个签名文件。**注意**：这两个签名文件建议不要放在发布包 **build/qgame** 目录下，否则每次构建时都会清空该目录，导致文件丢失。
-
-  有以下两种方式可以生成签名文件：
-
-    - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。
-
-    - 通过命令行生成 release 签名
-
-      用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
-
-      ```bash
-      # 通过 openssl 命令工具生成签名文件
-      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-      ```
-
-      **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开，而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量。
-
-二、**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了与构建任务名称相同的目录例如 `vivo-mini-game`，该目录就是导出的 vivo 小游戏工程原始目录，但并不是编译目录。打开编辑器安装目录下的 `resources/tools/vivo-pack-tools` 的文件夹，该文件夹内存放了 vivo 的本地打包工具，每次构建会将项目里的信息生成到这里构建出 rpk 后再拷贝会源目录，如果想要自行编译项目需要在该目录下进行。
+构建导出的 vivo 小游戏工程原始目录，并不是编译目录。打开编辑器安装目录下的 `resources/tools/vivo-pack-tools` 的文件夹，该文件夹内存放了 vivo 的本地打包工具，每次构建会将项目里的信息生成到这里构建出 rpk 后再拷贝会源目录，如果想要自行编译项目需要在该目录下进行。目前也在构建面板上新增了**编译**按钮，可以在构建完单独点击重新生成 rpk。
 
 ![](./vivo-mini-game/package.png)
 
@@ -104,7 +67,11 @@
 
 ![](./vivo-mini-game/rpk.png)
 
-三、将打包出来的 rpk 运行到手机上。有以下三种方式可将 rpk 运行到手机上：
+使用编辑器上的编译按钮也可以重新生成 rpk
+
+## 运行 rpk
+
+有以下三种方式可将 rpk 运行到手机上：
 
 - **方法一**：
 
@@ -130,7 +97,7 @@
 
     ```bash
     # 先把命令行指定到编辑器安装目录下的 resources/tools/vivo-pack-tools 目录下
-    cd ${CocosCreator}/resources/tools/vivo-pack-tools
+    cd ${CocosCreator3D}/resources/tools/vivo-pack-tools
     # 生成网址和二维码
     npm run server
     ```
@@ -141,7 +108,28 @@
 
 ## 分包加载
 
-vivo 小游戏的分包加载，用法与微信小游戏类似。详情请参考 [分包加载](../../asset/subpackage.md)。
+在 vivo 小游戏的构建中，Asset Bundle 的配置也会按照规则自动生成到 vivo 小游戏发布包 `qgame/src` 目录下的 **manifest.json** 配置文件中。
+
+**注意**：
+
+**快应用 & vivo 小游戏调试器** 从 **1051** 版本开始支持 vivo 小游戏分包加载。低于 1051 的版本虽然不支持分包加载，但是也做了兼容处理，如果使用了分包也不会影响游戏正常运行。具体可参考 [vivo 分包加载-运行时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9)。
+
+![](./subpackage/vivo_subpackage.png)
+
+### 分包加载包大小的限制
+
+目前 vivo 小游戏分包大小有以下限制：
+
+- 整个小游戏的所有分包及主包大小不超过 **8M**（打包完成后的整个压缩包包含整包不超过 **16M**，详情可参考 [vivo 分包加载-编译时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9)）
+- 单个分包/主包大小不能超过 **4M**
+
+具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage)。
+
+## vivo 小游戏环境的资源管理
+
+vivo 小游戏超过包体大小限制的部分必须通过网络请求下载。
+
+Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理，详情请参考 [资源管理](./asset-load.md#资源管理)。
 
 ## 参考链接
 

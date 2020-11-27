@@ -1,6 +1,6 @@
 # Publishing to Alipay Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **Cocos Creator** officially supports the release of games to the **Alipay Mini Games**.
 
@@ -14,15 +14,20 @@
 
 ## Release Process
 
-**First**, use **Cocos Creator 3.0** to open the project that needs to be released. Select **Alipay Mini Game** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
+**First**, use **Cocos Creator** to open the project that needs to be released. Select **Alipay Mini Game** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
 
 ![](./publish-alipay-mini-game/build_option.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
-  - **Polyfills** - **Polyfills** are optional. If this option is checked at build time, the resulting release package will have the corresponding polyfills in it, and will also increase the size of the package. Developers can choose polyfills on demand, but only `Async Functions` are currently available.
+- **Polyfills** - **Polyfills** are optional. If this option is checked at build time, the resulting release package will have the corresponding polyfills in it, and will also increase the size of the package. Developers can choose polyfills on demand, but only `Async Functions` are currently available.
 
-  - **Remote URL** - **Remote URL** is optional. For details, please refer to the **Resource Management for Alipay Mini Game Environment** section below.
+- **Remote URL** - **Remote URL** is optional. For details, please refer to the **Resource Management for Alipay Mini Game Environment** section below.
+
+- **Start Scene Asset Bundle**
+
+  This option is optional.<br>
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
 
 **Second**, after the build is completed, click the **folder icon** button below the alipay-mini-game build task to open the `build` release path. If the Build Task Name is `alipay-mini-game`, you can see that the **Alipay Mini Game's** project folder `alipay-mini-game` is generated in the `build` directory, which has included Alipay Mini Game environment configuration file `game.json`.
 
@@ -48,9 +53,9 @@ Specifically, developers need to:
 
 Currently, our adaptation of **Alipay Mini Games** has not been completely completed, and the following modules are still not supported:
 
-  - WebView
-  - VideoPlayer
-  - Subpackage Loading
-  - Custom Font
+- WebView
+- VideoPlayer
+- Subpackage Loading
+- Custom Font
 
 The above functions are expected to be gradually supported in future updates.

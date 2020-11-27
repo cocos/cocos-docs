@@ -13,8 +13,12 @@
 - [发布到 Web 平台](publish-web.md)
 - [发布到原生平台](publish-native.md)
   - [安装配置原生环境](setup-native-development.md)
+  - [原生平台通用选项与基础目录结构](native-options.md)
+  - [发布到安卓](publish-android.md)
+  - [发布到 iOS](publish-ios.md)
+  - [发布到 Mac](publish-mac.md)
+  - [发布到 Windows](publish-windows.md)
   - [原生平台 JavaScript 调试](debug-jsb.md)
-- [发布到 iOS App Clip (轻 App)](publish-ios-app-clip.md)
 - [发布到支付宝小游戏](publish-alipay-mini-game.md)
 - [发布到字节跳动小游戏](publish-bytedance-mini-game.md)
 - [发布到 Cocos Play](publish-cocos-play.md)
@@ -25,6 +29,8 @@
 - [发布到百度小游戏](publish-baidu-mini-game.md)
 - [发布到微信小游戏](publish-wechatgame.md)
   - [启用微信小游戏引擎插件](wechatgame-plugin.md)
-- [开放数据域](build-open-data-context.md)
+  - [开放数据域](build-open-data-context.md)
+- [发布到连尚小游戏](publish-link-sure.md)
+- [发布到趣头条小游戏](publish-qtt.md)
 
 先从 [熟悉构建发布面板](build-panel.md) 开始了解。

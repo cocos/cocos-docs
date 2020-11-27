@@ -1,6 +1,6 @@
 # Publishing to WeChat Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 The runtime environment of the **WeChat Mini Game** is an extension of the **WeChat Mini Program**, providing a WebGL interface encapsulation based on the mini program environment, greatly improving rendering capabilities and performance. However, since these interfaces are encapsulated by the WeChat team, they are not equivalent to the browser environment.
 
@@ -32,7 +32,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
     ![](./publish-wechatgame/tool.jpeg)
 
-    > **Note**: the **WeChat DevTools**, if it has not been run on a Mac before, will show an error that states: `Please ensure that the IDE has been properly installed`. You need to manually open the **WeChat DevTools** once, before you can click **Run**.
+    > **Note**: The **WeChat DevTools**, if it has not been run on a Mac before, will show an error that states: `Please ensure that the IDE has been properly installed`. You need to manually open the **WeChat DevTools** once, before you can click **Run**.
 
 6. Preview deployment
 
@@ -45,6 +45,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 Options | Optional or not | Default | Explanation
 - | - | - | -
 **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.
+**Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
 **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.
 **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
 **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
@@ -72,7 +73,7 @@ In the **WeChat Mini Game** environment, we provide a `wxDownloader` object, and
 4. Download and save them to the mini game application cache in backstage for re-access.
 5. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process.
 
-It should be noted that once the cache space is full, all the assets that need to be downloaded cannot be saved, only the temporary files for save download assets can be used, and WeChat will automatically clean up all temporary files after the mini game is exited. So the next time you run the mini game again, those assets are downloaded again and the process keeps looping.<br>
+It should be noted that once the cache space is full, all the assets that need to be downloaded cannot be saved, only the temporary files for save download assets can be used, and WeChat will automatically clean up all temporary files after the mini game is exited. So the next time you run the mini game again, those assets are downloaded again and the process keeps looping.  
 In addition, the problem of file saving failure due to cache space exceeding the limit does not occur on the **WeChat DevTools**, because the **WeChat DevTools** does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
 
 At the same time, when the **MD5 Cache** feature of the engine is enabled, the URL of the file will change as the content of the file changes, so that when a new version of the game is released, the assets of the old version will naturally become invalid in the cache, and only the new assets can be requested from the server, which achieves the effect of version control.
@@ -87,7 +88,7 @@ Specifically, developers need to do:
 
     ![](./publish-wechatgame/detail.jpeg)
 
-> **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. And you can use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
+> **Note**: If the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. And you can use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
 
 ## WeChat Mini Game Subpackage Loading
 
@@ -108,14 +109,14 @@ In addition to pure game content, the **WeChat Mini Game** environment actually 
 
 __Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely implemented. The following modules are still not supported:
 
-  - VideoPlayer
-  - WebView
+- VideoPlayer
+- WebView
 
 It is possible to use the missing functionality by calling the **WeChat's** API directly.
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [WeChat Mini Game Developer Document](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)

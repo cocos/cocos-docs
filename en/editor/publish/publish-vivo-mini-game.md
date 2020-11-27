@@ -1,6 +1,6 @@
 # Publishing to vivo Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 ## Environment Configuration
 
@@ -8,7 +8,7 @@
 
 - Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
-    > **Note**: after installing nodejs, you need to note whether the npm source address is <https://registry.npmjs.org/>
+    > **Note**: After installing nodejs, you need to note whether the npm source address is <https://registry.npmjs.org/>
 
     ```bash
     # View current npm source address
@@ -28,7 +28,7 @@
 
 ## Release Process
 
-1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build** panel.
+1. Use **Cocos Creator** to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build** panel.
 
     ![](./vivo-mini-game/build_options.jpg)
 
@@ -40,17 +40,17 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Game Package Name**: is required. it is filled in according to the developer's needs.
 
-- **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the **Desktop Icon**.
+- **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project.  It is suggested to use `PNG` images for the **Desktop Icon**.
 
 - **Game Version Name**: is required. **Game Version Name** is the real version, such as: **1.0.0**.
 
 - **Game Version Number**: is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. 
 
-  > **Note**: the **Game Version Number** must be a positive integer.
+  > **Note**: The **Game Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**: is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
 
-- **Build Sub Package**: is enabled by **default**. For details, please refer to **Subpackage Loading** at the end of this document.
+- **Build Sub Package**: is supported by v1.0.4 onwards and is enabled by **default**. For details, please refer to **Subpackage Loading** at the end of this document.
 
 - **Small Packet Mode**: is optional. The in-package volume of the mini-game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the mini game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote assets, **Cocos Creator** has already helped the developer. What the developer needs to do is the following steps:
 
@@ -64,13 +64,13 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   3. After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the small packet mode server. For example, if the default release path is `build`, the **Build Task Name** is `vivo-mini-game`, you need to upload the `/build/vivo-mini-game/res` directory.
 
-      > **Note**: if you are using the command line to compile **small packet mode**, remember to backup the `build/vivo-mini-game/res` directory, then delete the `build/vivo-mini-game/res` directory, and then perform command line compilation (`npm run build`).
+      > **Note**: If you are using the command line to compile **small packet mode**, remember to backup the `build/vivo-mini-game/res` directory, then delete the `build/vivo-mini-game/res` directory, and then perform command line compilation (`npm run build`).
 
   At this point, the `res` directory will no longer be included in the built-up rpk, and the assets in the `res` directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**. 
 
-  > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
+  > **Note**: When the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
   
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The developer can configure two signature files by using the **search icon** button to the right of the input box.
 
@@ -123,7 +123,7 @@ There are three ways to run rpk on your phone:
 
     ```bash
     # Specify to the editor installation directory.
-    cd F:/CocosCreator/resources/tools/vivo-pack-tools
+    cd F:/CocosCreator3D/resources/tools/vivo-pack-tools
 
     # Generate URL and QR code
     npm run server
@@ -139,7 +139,7 @@ The subpackage loading of __vivo Mini Games__, is similar to __WeChat Mini Games
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
 - [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)

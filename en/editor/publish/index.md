@@ -12,9 +12,14 @@ The **Build** panel allows you to publish games to multiple platforms, including
 - [Publishing to the Web](publish-web.md)
 - [Publishing to native](publish-native.md)
   - [Setup Native Development](setup-native-development.md)
+  - [Native platform common options and basic directory structure](native-options.md)
+  - [Publish to Android](publish-android.md)
+  - [Publish to iOS](publish-ios.md)
+  - [Publish to Mac](publish-mac.md)
+  - [Publish to Windows](publish-windows.md)
   - [Debugging JavaScript on Native Platforms](debug-jsb.md)
+
 - Publish to Mini Games
-  - [Publishing to iOS App Clip (Light App)](publish-ios-app-clip.md)
   - [Publishing to Alipay Mini Games](publish-alipay-mini-game.md)
   - [Publishing to ByteDance Mini Games](publish-bytedance-mini-game.md)
   - [Publishing to Cocos Play](publish-cocos-play.md)
@@ -25,4 +30,6 @@ The **Build** panel allows you to publish games to multiple platforms, including
   - [Publishing to Baidu Mini Games](publish-baidugame.md)
   - [Publishing to WeChat Mini Games](publish-wechatgame.md)
     - [WeChat Engine Plugin](wechatgame-plugin.md)
-  - [Open Data Context](build-open-data-context.md)
+    - [Open Data Context](build-open-data-context.md)
+  - [Publish to LinkSure Mini Games](publish-link-sure.md)
+  - [Publish to QTT Mini Games](publish-qtt.md)

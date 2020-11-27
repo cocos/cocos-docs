@@ -8,16 +8,6 @@ You can designate a release path for the game by inputting a path in the **Build
 
 The default release path is in the `build` under the project folder. If you use version control systems like `git` and `svn`, you can ignore the `build` folder in version control.
 
-### Debug
-
-In release mode, the `uuid` of the asset, the built engine script and the project script will be compressed and confused, and the JSON of the same asset will be subpackaged to reduce the number of asset loads. When debugging a project, it is recommended to check the **Debug** option for easy positioning of the problem.
-
-### Replace Splash screen
-
-Mouse over this option and an **Edit** button will appear. Click this button and the panel will open. The first time you use this feature you need to fill out a questionnaire before opening the Replace Splash screen panel. There will be some project-based information in the questionnaire, and we hope to gather more information on games developed using **Cocos Creator**, as well as more support programs in the future that developers will hopefully be able to fill out truthfully.
-
-![](build-options/splash-setting.jpg)
-
 ### Included Scenes
 
 There are usually multiple game scenes in the project, this option allows you to choose the scenes you want to package. During the build process, all assets that depended on these selected scene assets in deep will be packaged. Just select the game scenes that are actually needed can reduce the size of game package after build.
@@ -27,6 +17,35 @@ For more information about assets packaging, please refer to the [Build Process 
 ### Start Scene
 
 The first scene after entering the game can be set directly in the **Start Scene**. You can also choose other scenes, that are part of your game, in **Included Scenes**. Move the mouse to the scene, a `move up icon` button will appear after the scene, then click the button to set it.
+
+### MD5 Cache
+
+Append MD5 hash to the exported assets for resolving CDN or browser cache issue.
+
+After being enabled, if any asset fails to load, it is because the renamed new file can not be found. It is usually because some third party assets was not loaded by `cc.loader`. If this happens, you can convert the url before loading, to fix the loading problem. Example:
+
+```js
+url = loader.md5Pipe.transformURL(url);
+```
+
+### Main Bundle Compression Type
+
+Set the compression type of the main package, please refer to the [built-in Asset Bundle — `main`](../asset-manager/bundle.md#the-built-in-asset-bundle) documentation for details.
+
+### Main Bundle Is Remote
+
+This option is optional and needs to be used with the **Resource Server Address** option.<br>
+If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../asset-manager/bundle.md#the-built-in-asset-bundle) under the **remote** folder of the release package directory. You need to upload the entire **remote** folder to the remote server.
+
+### Debug
+
+In release mode, the `uuid` of the asset, the built engine script and the project script will be compressed and confused, and the JSON of the same asset will be subpackaged to reduce the number of asset loads. When debugging a project, it is recommended to check the **Debug** option for easy positioning of the problem.
+
+### Replace Splash screen
+
+Mouse over this option and an **Edit** button will appear. Click this button and the panel will open. The first time you use this feature you need to fill out a questionnaire before opening the Replace Splash screen panel. There will be some project-based information in the questionnaire, and we hope to gather more information on games developed using **Cocos Creator**, as well as more support programs in the future that developers will hopefully be able to fill out truthfully.
+
+![](build-options/splash-setting.jpg)
 
 ### Source Maps
 
@@ -57,23 +76,13 @@ Please refer to the [Auto Atlas](../../asset/auto-atlas.md) documentation for de
 
 When merging assets automatically, all `JSON` files that the **Start Scene** depends on are merged into the package that contains the **Start Scene**. This option is disabled by default. When enabled, it will not increase the overall game size, but if these `JSON` is also used by other scenes, then CPU overhead may increase slightly when they are loaded again.
 
-### MD5 Cache
-
-Append MD5 hash to the exported assets for resolving CDN or browser cache issue.
-
-After being enabled, if any asset fails to load, it is because the renamed new file can not be found. It is usually because some third party assets was not loaded by `cc.loader`. If this happens, you can convert the url before loading, to fix the loading problem. Example:
-
-```js
-url = loader.md5Pipe.transformURL(url);
-```
-
-## Other option configurations involved in the build.
+## Other option configurations involved in the build
 
 ### Engine Modules
 
 Click **Project -> Project Setting -> Modules** in the menu bar to open the **Modules** panel. The Modules panel is mainly used to reduce the size of the packaged package by eliminating some engine modules that are not needed in the project. Engine modules may change with the version upgrades, and specific module information is subject to the version-specific editor.
 
-> **Note**: please reconfirm the module information after each version upgrade before building and releasing it.
+> **Note**: Please reconfirm the module information after each version upgrade before building and releasing it.
 
 ![](build-options/engine-excludes.jpg)
 

@@ -1,6 +1,6 @@
 # Publishing to Xiaomi Quick Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 __Cocos Creator__ officially supports the release of games to the **Xiaomi Quick Games** platform.
 
@@ -21,7 +21,7 @@ __Cocos Creator__ officially supports the release of games to the **Xiaomi Quick
 
 ## Release Process
 
-1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **Xiaomi Quick Game** in the **Platform** dropdown of the **Build** panel.
+1. Use **Cocos Creator** to open the project that needs to be released. Select **Xiaomi Quick Game** in the **Platform** dropdown of the **Build** panel.
 
   ![](./publish-xiaomi-quick-game/build.jpg)
 
@@ -33,7 +33,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Package Name**: the format of the **App Package Name** is `com.yourcompany.projectname`. This option is required and will be filled in according to the developer's needs.
 
-  > **Note**: starting from the platform version number **1062**, Xiaomi Quick Game needs to use the official **App Package Name**, otherwise the error of `Data loading exception, please click retry` will be reported during debugging. You can refer to the [Xiaomi Quick Game App Package Name Application](https://forum.cocos.org/t/topic/81887) documentation for details.
+  > **Note**: Starting from the platform version number **1062**, Xiaomi Quick Game needs to use the official **App Package Name**, otherwise the error of `Data loading exception, please click retry` will be reported during debugging. You can refer to the [Xiaomi Quick Game App Package Name Application](https://forum.cocos.org/t/topic/81887) documentation for details.
 
 - **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the Desktop Icon will be built into the Xiaomi Quick Game project. It is suggested to use a `PNG` image for the **Desktop Icon**.
 
@@ -41,7 +41,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Version Number**: is required. **App Version Number** is different from the **App Version Name**, and the **App Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the **App Version Number** is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **App Version Number** be recursively incremented by 1 each time when the audit is submitted.
 
-  > **Note**: the **App Version Number** must be a positive integer.
+  > **Note**: The **App Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**: is required. According to the requirements of Xiaomi Quick Games, this value must be greater than or equal to **1050**.
 
@@ -59,17 +59,17 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   3. After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the small packet mode server. For example, if the default release path is `build`, the **Build Task Name** is `xiaomi-quick-game`, you need to upload the `/build/xiaomi-quick-game/res` directory.
 
-      > **Note**: if you are using the command line to compile small packet mode, remember to backup the `build/xiaomi-pack-tools/res` directory, then delete the `build/xiaomi-pack-tools/res` directory, and then perform command line compilation (`npm run build`).
+      > **Note**: If you are using the command line to compile small packet mode, remember to backup the `build/xiaomi-pack-tools/res` directory, then delete the `build/xiaomi-pack-tools/res` directory, and then perform command line compilation (`npm run build`).
 
   At this point, the `res` directory will no longer be included in the built-up rpk, and the assets in the `res` directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with __Cocos Creator__, which is used only for **debugging**.
 
-    > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
+    > **Note**: When the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
 
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The developer can configure two signature files by using the **search icon** button to the right of the input box.
 
-    > **Note**: these two signature files are not recommended to be placed in the `build/xiaomi-quick-game` directory of the release package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
+    > **Note**: These two signature files are not recommended to be placed in the `build/xiaomi-quick-game` directory of the release package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
 
   There are two ways to generate a signature file:
 
@@ -142,12 +142,12 @@ Subpackage rpk can be used according to your needs.
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../../asset/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
 
-> **Note**: the size of a single subpackage/main package must not exceed **5M**, and the sum of all packages must not exceed **10M**.
+> **Note**: The size of a single subpackage/main package must not exceed **5M**, and the sum of all packages must not exceed **10M**.
 
 When the build is complete, an `.rpk` file is generated in the `/build/xiaomi-quick-game/dist` directory.
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [Xiaomi Quick Game Reference documentation](https://forum.cocos.org/t/topic/81887)
