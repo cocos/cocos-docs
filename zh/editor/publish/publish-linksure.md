@@ -1,6 +1,6 @@
 # 发布到连尚小游戏
 
-从 v2.4.1 开始，Cocos Creator 支持发布到 **连尚小游戏**。连尚小游戏是 WiFi 万能钥匙旗下的小游戏应用平台，具有便捷、轻量、免安装的特点。
+连尚小游戏是 WiFi 万能钥匙旗下的小游戏应用平台，具有便捷、轻量、免安装的特点。
 
 连尚小游戏以 **.cpk** 格式的游戏包形式运行于小游戏环境中，运行环境与微信小游戏类似。游戏包由云端托管，在 APP 内投放和运行，安全可靠且体验流畅，用户可点开即玩，无需安装。
 
@@ -10,7 +10,7 @@
 
 ## 发布流程
 
-使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **连尚小游戏**。
+使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板里 **新建构建任务**，**发布平台** 选择 **连尚小游戏**。
 
 ![](publish-linksure/build.png)
 
@@ -20,17 +20,17 @@
 
 - **主包压缩类型**
 
-  设置主包的压缩类型，具体内容可参考文档 [内置 Asset Bundle — `main`](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)。
+  设置主包的压缩类型，具体内容可参考文档 [内置 Asset Bundle — `main`](TODO)。
 
 - **配置主包为远程包**
 
   该项为可选项，需要与 **资源服务器地址** 选项配合使用。<br>
-  勾选后，主包会配置为远程包，并且与其相关依赖资源一起构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器，这样主包就不会被打包到 cpk 中。
+  勾选后，主包会配置为远程包，并且与其相关依赖资源一起构建到发布包目录 remote 下的内置 Asset Bundle — [main](TODO) 中。开发者需要将整个 remote 文件夹上传到远程服务器，这样主包就不会被打包到 cpk 中。
 
 - **初始场景分包**
 
   该项为可选项。<br>
-  勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
+  勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](TODO) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
 
 - **资源服务器地址**
 
@@ -45,7 +45,7 @@
 ### 构建
 
 **构建发布** 面板的相关参数设置完成后，点击 **构建**。<br>
-构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **linksure** 目录，该目录就是导出的 **linksure** 工程目录，cpk 包在 `build/linksure` 目录下。
+构建完成后点击 **发布路径** 后面的 **打开** 按钮来打开构建发布包，可以看到在默认发布路径 build 目录下生成了 **linksure** 目录，该目录就是导出的 **linksure** 工程目录，cpk 包在 `build/link-sure/dist` 目录下。
 
 ![](publish-linksure/package.png)
 
