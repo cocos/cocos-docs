@@ -13,13 +13,14 @@
 一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
 
 选项名 | 可选 | 默认值 | 说明 | 字段名
-- | - | - | - | -
+| - | - | - | - | -
 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。| startSceneAssetBundle
 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分，服务器地址将会填写在 `application.js` 内部。 | tinyPackageServer
 
 ## 将打包出来的 cpk 运行到手机上
 
 构建后就会在对应目录的 `dist` 目录下生成 cpk 文件。
+
 ![](publish-link-sure/dist.png)
 
 - 开发者需要联系 [连尚小游戏的商务](https://www.wjminiapp.com/docs/minigame/guide/flow.html) 成为小游戏开发者。

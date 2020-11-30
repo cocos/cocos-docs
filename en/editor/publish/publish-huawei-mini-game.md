@@ -12,7 +12,7 @@ __Cocos Creator__ officially supports the release of games to the **Huawei Quick
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **Huawei Quick Game** in the **Platform** dropdown of the **Build** panel.
+1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **Huawei Quick Game** in the **Platform** dropdown of the **Build** panel.
 
     ![](./huawei-mini-game/build_options.jpg)
 
