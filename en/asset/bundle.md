@@ -17,7 +17,7 @@ In addition to the custom Asset Bundle, there are three built-in Asset Bundles i
 | `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `assets -> resources` folder in the **Assets** panel. |
 | `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder. | Cannot be configured. |
 
-After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](../scripting/asset-bundle.md#configuration) documentation for the configuration methods and generation rules.
+After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](bundle.md#configuration) documentation for the configuration methods and generation rules.
 
 The built-in Asset Bundle is loaded in `application.js`, and you can modify the code in `application.js` by using the custom build template feature, as shown below.
 
