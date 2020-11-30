@@ -234,8 +234,7 @@
 
 - [Asset Manual](asset/index.md)
   - [Asset workflow](asset/asset-workflow.md)
-  - [Loading assets](asset/load-assets.md)
-  - [Subpackages](asset/subpackage.md)
+  - [Asset Manager](asset/asset-manager.md)
   - [Scene](asset/scene.md)
   - [Images](asset/image.md)
     - [Textures](asset/texture.md)

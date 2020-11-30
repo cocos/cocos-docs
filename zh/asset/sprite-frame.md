@@ -32,7 +32,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 });
 ```
 
-在服务器上的资源只能加载到图像源 ImageAsset，具体方法请参考 [资源加载](./load-assets.md)。
+在服务器上的资源只能加载到图像源 ImageAsset，具体方法请参考 [动态加载资源](./dynamic-load-resources.md)。
 
 我们提供了 `createWithImage` 方法来帮助用户快捷的将 ImageAsset 或者原始图像资源 ImageSource 包装为 SpriteFrame：
 
