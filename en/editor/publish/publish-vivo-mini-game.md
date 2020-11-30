@@ -108,13 +108,28 @@ There are three ways to run rpk on your phone:
 
 In the construction of vivo mini games, the configuration of [Asset Bundle](../../asset/bundle.md) will also be automatically generated into the vivo mini game release package `vivo-mini-game/src` directory according to the rules The **manifest.json**configuration file.
 
-**Note**:**Quick App & vivo Mini Game Debugger**Starting from the **1051**version, the sub-package loading of vivo mini games is supported. Although the version lower than 1051 does not support sub-package loading, it is also compatible. If sub-package is used, it will not affect the normal operation of the game. For details, please refer to [vivo subpackage loading-runtime compatibility](<https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c> %e6%97%b6%e5%85%bc%e5%ae%b9).
+> **Note**: **quick App & vivo Mini Game Debugger**Starting from the **1051**version, the sub-package loading of vivo mini games is supported. Although the version lower than 1051 does not support sub-package loading, it is also compatible. If sub-package is used, it will not affect the normal operation of the game. For details, please refer to [vivo subpackage loading-runtime compatibility](<https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c> %e6%97%b6%e5%85%bc%e5%ae%b9).
 
 ![](./subpackage/vivo_subpackage.png)
 
+### Sub-package loading package size limit
+
+At present, the subpackage size of vivo mini games has the following restrictions:
+
+-The size of all sub-packages and the main package of the entire mini game does not exceed **8M**(the entire compressed package after packaging does not exceed **16M**including the entire package. For details, please refer to [vivo sub-package loading-compile-time compatibility](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9))
+-The size of a single sub-package/main package cannot exceed **4M**
+
+For details, please refer to [vivo mini game subpackage loading official document](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage).
+
+## vivo Mini Game Environment Resource Management
+
+The part of vivo mini games that exceed the package size limit must be downloaded through the network.
+
+Cocos Creator has helped developers to download, cache and manage remote resources. For details, please refer to [Resource Management](./asset-load.md#资源管理).
+
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+**Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
 - [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)

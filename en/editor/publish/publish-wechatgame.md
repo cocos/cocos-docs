@@ -44,12 +44,12 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 Options | Optional or not | Default | Explanation
 | - | - | - | - |
-**appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.
-**Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
-**Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.
-**Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
-**Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
-**Build Sub Package** | Optional | Enabled | Whether to enable the Subpackage function.
+| **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.|
+| **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.|
+| **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.|
+| **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
+| **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
+| **Build Sub Package** | Optional | Enabled | Whether to enable the Subpackage function.|
 
 ## asset Management for WeChat Mini Game Environment
 

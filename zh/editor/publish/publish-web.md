@@ -10,19 +10,19 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 ### Web Desktop
 
-参数名 | 可选 | 默认值 | 说明 | 字段名
-| - | - | - | - | -
-资源服务器地址 | - | - | 资源服务器地址 |remoteServerAddress
-polyfills | - | { asyncFunctions: true } | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills，这组选项暂时只有 **异步函数**，后续将会开放更多功能。| polyfills
-预览分辨率 | 必填 | {designWidth: 1280, designHeight: 960} | 游戏视图分辨率 | resolution
+| 参数名 | 可选 | 默认值 | 说明 | 字段名 |
+| :--- | :--- | :--- | :--- | :--- |
+| 资源服务器地址 |  |  | 资源服务器地址 | remoteServerAddress |
+| polyfills |  | { asyncFunctions: true } | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills，这组选项暂时只有 **异步函数**，后续将会开放更多功能。| polyfills |
+| 预览分辨率 | 必填 | {designWidth: 1280, designHeight: 960} | 游戏视图分辨率 | resolution |
 
 ### Web Mobile
 
-参数名 | 可选 | 默认值 | 说明 | 字段名
-| - | - | - | - | -
-polyfills | 选填 | { asyncFunctions: true } | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills，这组选项暂时只有 **异步函数**，后续将会开放更多功能。 | polyfills
-VConsole | 选填 | false | 是否使用 vConsole，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | embedWebDebugger
-设备方向 | 必填 | 'auto' | 设备方向，可选值为 `'auto'、'landscape'、'portrait'`。 | orientation
+| 参数名 | 可选 | 默认值 | 说明 | 字段名 |
+| :--- | :--- | :--- | :--- | :--- |
+| polyfills | 选填 | { asyncFunctions: true } | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills，这组选项暂时只有 **异步函数**，后续将会开放更多功能。 | polyfills |
+| VConsole | 选填 | false | 是否使用 vConsole，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | embedWebDebugger |
+| 设备方向 | 必填 | 'auto' | 设备方向，可选值为 'auto'、'landscape'、'portrait' | orientation |
 
 ### 预览 URL
 
