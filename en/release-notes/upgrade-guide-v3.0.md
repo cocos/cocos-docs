@@ -45,8 +45,8 @@ However, it is recommended that developers still search for all uses of similar 
 
 The abandoned interfaces are as follows:
 
-- Attributes: `width`, `height`, `anchorX`, `anchorY`
-- Methods: `getAnchorPoint`, `setAnchorPoint`, `getContentSize`, `setContentSize`
+- Attributes: `width`, `height`, `anchorX`, `anchorY`.
+- Methods: `getAnchorPoint`, `setAnchorPoint`, `getContentSize`, `setContentSize`.
 
 Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
 
@@ -56,7 +56,7 @@ node.getComponent(UITransform).setContentSize(size);
 
 #### loader
 
-The loader API is consistent with v2.4, please refer to the [v2.4 Resource Management Module Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html)
+The loader API is consistent with v2.4, please refer to the [v2.4 Resource Management Module Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html).
 
 ### Editor upgrade
 
@@ -80,11 +80,11 @@ Select the resource in the resource manager to display resource thumbnails in th
 
 #### Animation editor upgrades
 
-- Support the search and display filtering of nodes in the node tree panel
-- Support using the system clipboard to copy and paste all animation data (nodes, tracks, and key frames) on nodes
-- Support multi-select nodes to add attribute tracks in batches
-- Optimize the experience of selecting and deselecting key frames (Ctrl + mouse click to select key frames to deselect them)
-- After selecting multiple key frames, continue to click to edit the curve or select unselected key frames
+- Support the search and display filtering of nodes in the node tree panel.
+- Support using the system clipboard to copy and paste all animation data (nodes, tracks, and key frames) on nodes.
+- Support multi-select nodes to add attribute tracks in batches.
+- Optimize the experience of selecting and deselecting key frames (Ctrl + mouse click to select key frames to deselect them).
+- After selecting multiple key frames, continue to click to edit the curve or select unselected key frames.
 - Support continuing to edit node attributes in the animation editing state, including particle and model material attributes, etc.
 
 ![image](https://user-images.githubusercontent.com/1503156/100603114-a2aaf080-333f-11eb-8bd3-0997721adcb6.png)
