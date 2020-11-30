@@ -29,7 +29,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 如果拖拽的 SpriteFrame 资源是包含在一个 Atlas 图集资源中的，那么 Sprite 的 **Atlas** 属性也会被一起设置。
 
-**若要动态更换 SpriteFrame 则需要先动态加载图片资源，然后再进行替换，详情请参考 [获取和加载资源：动态加载](../../../scripting/load-assets.md#加载-spriteframe-或-texture2d)。**
+**若要动态更换 SpriteFrame 则需要先动态加载图片资源，然后再进行替换，详情请参考 [获取和加载资源：动态加载](../../../asset/dynamic-load-resources.md#加载-spriteframe-或-texture2d)。**
 
 ## 渲染模式
 

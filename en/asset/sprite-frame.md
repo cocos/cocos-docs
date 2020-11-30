@@ -21,7 +21,7 @@ __Method 1__: (load __ImageAsset__):
 ```typescript
 const self = this;
 const url = 'test_assets/test_altas/content';
-loader.loadRes(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset,(err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   const spriteFrame = new SpriteFrame();
   const tex = new Texture2D();
@@ -36,13 +36,13 @@ __Method 2__: (load SpriteFrame):
 ```typescript
 const self = this;
 const url = 'test_assets/test_altas/content/spriteFrame';
-loader.loadRes(url, SpriteFrame,(err: any, spriteFrame) => {
+resources.load(url, SpriteFrame,(err: any, spriteFrame) => {
   const sprite = this.getComponent(Sprite);
   sprite.spriteFrame = spriteFrame;
 });
 ```
 
-__Assets__ on the server can only be loaded into __ImageAsset__. For specific methods, please refer to the [Asset Loading](./load-assets.md) documentation.
+__Assets__ on the server can only be loaded into __ImageAsset__. For specific methods, please refer to the [dynamic load asset](./dynamic-load-resources.md) documentation.
 
 __Cocos Creator__ will provide a way to package an __Image Asset__ as a __SpriteFrame__ in a later release to make it easier for users to use image assets.
 

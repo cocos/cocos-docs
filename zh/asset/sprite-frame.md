@@ -26,13 +26,13 @@ Cocos Creator 3.0 的 SpriteFrame 是 UI 渲染基础图形的容器。其本身
 
 ```typescript
 const url = 'test_assets/test_atlas/content/spriteFrame';
-loader.loadRes(url, SpriteFrame, (err: any, spriteFrame) => {
+resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
   const sprite = this.getComponent(Sprite);
   sprite.spriteFrame = spriteFrame;
 });
 ```
 
-在服务器上的资源只能加载到图像源 ImageAsset，具体方法请参考 [资源加载](./load-assets.md)。
+在服务器上的资源只能加载到图像源 ImageAsset，具体方法请参考 [动态加载资源](./dynamic-load-resources.md)。
 
 我们提供了 `createWithImage` 方法来帮助用户快捷的将 ImageAsset 或者原始图像资源 ImageSource 包装为 SpriteFrame：
 
@@ -41,7 +41,7 @@ loader.loadRes(url, SpriteFrame, (err: any, spriteFrame) => {
 ```typescript
 const self = this;
 const url = 'test_assets/test_atlas/content';
-loader.loadRes(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset,(err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   sprite.spriteFrame = SpriteFrame.createWithImage(imageAsset);
 });
@@ -52,7 +52,7 @@ loader.loadRes(url, ImageAsset,(err: any, imageAsset) => {
 ```typescript
 const self = this;
 const url = 'test_assets/test_atlas/content';
-loader.loadRes(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset,(err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   const spriteFrame = new SpriteFrame();
   const tex = new Texture2D();

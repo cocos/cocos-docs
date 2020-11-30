@@ -9,8 +9,6 @@ The **Assets** panel is an important tool for accessing and managing assets, dev
 ## Assets Workflow
 
 - **Assets Workflow** - the general Assets workflow including importing assets, synchronizing assets, locating assets, etc. can be found in the [Assets Workflow](asset-workflow.md) documentation.
-- **Getting and Loading assets** - detailed instructions for getting and loading assets can be found in the [Getting and Loading assets](load-assets.md) documentation.
-- **Sub-package loading of assets** - for game sub-packaging of small game platforms, __Cocos Creator__ provides developers with sub-package loading functions. For detailed instructions, please read the [Subpackage Loading](subpackage.md) documentation.
 
 ## Common Assets type workflow
 
@@ -32,3 +30,17 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
 - [Model assets](mesh.md)
    - [Export model assets from third-party tools](dcc-export-mesh.md)
 - [Animation assets](anim.md)
+
+## Asset Management Of Runtime
+
+- [Asset Manager](asset-manager.md)
+    - [AssetManager Upgrade Guide](asset-manager-upgrade-guide.md)
+    - [Asset Bundle Upgrade Guide](subpackage-upgrade-guide.md)
+    - [Dynamic load asset](dynamic-load-resources.md) 
+    - [Asset Bundle](bundle.md)
+    - [Release Of Resources](release-manager.md)
+    - [Download and Parse](downloader-parser.md)
+    - [Loading and Preloading](preload-load.md)
+    - [Cache Manager](cache-manager.md)
+    - [Optional Parameters](options.md)
+    - [Pipeline and Task](pipeline-task.md)

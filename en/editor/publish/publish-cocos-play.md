@@ -1,4 +1,4 @@
-# Publishing to Cocos Play
+# Publish to Cocos Play
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -34,7 +34,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
     At this point, the `res` directory will no longer be included in the built-up cpk, and the assets in the `res` directory will be downloaded from the filled **tinyPacketMode Server Path** through the network request.
 
-    The build parameters when publishing from the command line:
+    The build parameters when Publish from the command line:
 
     ```js
     tinyPackageMode: false,
