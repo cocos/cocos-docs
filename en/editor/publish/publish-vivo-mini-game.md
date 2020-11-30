@@ -30,7 +30,7 @@
 
 For some general build options of platforms, please refer to the [General Build Options](build-options.md) documentation for details.
 
-Name | Optional | Default value | Description | Field name |
+| Name | Optional | Default value | Description | Field name |
 | - | - | - | - | - |
 | **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. | startSceneAssetBundle |
 | **Remote server address** | Optional | Empty | This option is optional and used to fill in the address of the remote server where the resources are stored.If this option is left blank, the build/quickgame/remote folder in the release package directory will be packaged into the rpk package.Refer to the Resource Management section for more details. | remoteServerAddress |
