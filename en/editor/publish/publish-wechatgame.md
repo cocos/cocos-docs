@@ -43,9 +43,9 @@ In addition, the game submission, review and release process of the **WeChat Min
 ### Build Options
 
 Options | Optional or not | Default | Explanation
-- | - | - | -
+| - | - | - | - |
 **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.
-**Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
+**Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
 **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.
 **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
 **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
@@ -109,8 +109,8 @@ In addition to pure game content, the **WeChat Mini Game** environment actually 
 
 __Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely implemented. The following modules are still not supported:
 
-  - VideoPlayer
-  - WebView
+- VideoPlayer
+- WebView
 
 It is possible to use the missing functionality by calling the **WeChat's** API directly.
 

@@ -10,11 +10,12 @@
 
 ## 参数选项说明
 
-| 参数名 | 可选 | 默认值 | 说明 |
-| - | - | - | - |
-| polyfills | 选填 | { asyncFunctions: true } | 自 v1.0.3 版本起，构建支持一些新特性的 polyfills ，主要是在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills, 这组选项暂时只有`异步函数`，后续将会开放更多功能。|
-| remoteUrl | 选填 | ' ' | 服务器地址，指定了服务器地址后，资源将会从服务器上下载，具体加载规则可以参考微信小程序端
-deviceOrientation | 必填 | 'auto' | 设备方向，可选值为`'landscape' | 'portrait'`。|
+| 参数名 | 可选 | 默认值 | 说明 | 字段名 |
+| - | - | - | - | - |
+初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle
+| polyfills | 选填 | { asyncFunctions: true } | 构建支持一些新特性的 polyfills ，主要是在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills, 这组选项暂时只有`异步函数`，后续将会开放更多功能。|
+远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteUrl
+deviceOrientation | 必填 | 'auto' | 设备方向，可选值为`'landscape' 或 'portrait'`。|
 
 ## 发布流程
 

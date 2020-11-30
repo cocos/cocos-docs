@@ -1,6 +1,6 @@
 # Publishing to vivo Mini Games
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 ## Environment Configuration
 
@@ -8,7 +8,7 @@
 
 - Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
-    > **Note**: After installing nodejs, you need to note whether the npm source address is <https://registry.npmjs.org/>
+    > **Note**: after installing nodejs, you need to note whether the npm source address is <https://registry.npmjs.org/>
 
     ```bash
     # View current npm source address
@@ -26,6 +26,24 @@
 
     If `vivo-minigame/cli` installation fails, it may be caused by too low version of **nodejs**. Please check the version of **node** and upgrade.
 
+## Build Options
+
+For some general build options of platforms, please refer to the [General Build Options](build-options.md) documentation for details.
+
+Name | Optional | Default value | Description | Field name
+| - | - | - | - | -
+**Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
+**Remote server address** | Optional | Empty | This option is optional and used to fill in the address of the remote server where the resources are stored.If this option is left blank, the build/quickgame/remote folder in the release package directory will be packaged into the rpk package.Refer to the Resource Management section for more details.
+资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress
+游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package
+桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon
+应用版本名称 | 必填 | (Cocos 版本号) | 应用版本名称 是真实的版本，如：1.0.0 | versionName
+应用版本号 | 必填 | 1201 | 纯数字，应用版本号，从 1 自增，每次重新上传包时务必 versionCode+1，否则将影响上架版本的更新。例如原版本为11，更新版本的 versionCode 需要为12。 | versionCode
+支持的最小平台版本号 | 必填 | 1035 | 支持的最小平台版本号，原理同Android API Level。用于兼容性检查，避免上线后在低版本平台运行导致不兼容。游戏设定值必须大于等于 1035。 | minPlatformVersion
+屏幕方向 | - | landscape | 设备方向，填写后将会写入在 `manifest.json` 内。| deviceOrientation
+使用调试密钥库 | - | true |  勾选 **使用调试密钥库** 时，表示默认使用的是 Creator 自带的证书构建 rpk 包，仅用于 **调试** 时使用，用于提交审核时则构建时不要勾选该项。| useDebugKey
+密钥证书路径 | - | - | 密钥库证书，上架华为应用市场的快游戏，必须使用 release 版本的证书做签名，同时在华为开发者联盟后台配置证书指纹。具体可以参考下面的 [生成签名文件](###生成签名文件) | privatePemPath、certificatePemPath
+
 ## Release Process
 
 1. Use **Cocos Creator** to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build** panel.
@@ -40,17 +58,17 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Game Package Name**: is required. it is filled in according to the developer's needs.
 
-- **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project.  It is suggested to use `PNG` images for the **Desktop Icon**.
+- **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the **Desktop Icon**.
 
 - **Game Version Name**: is required. **Game Version Name** is the real version, such as: **1.0.0**.
 
-- **Game Version Number**: is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. 
+- **Game Version Number**: is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted.
 
-  > **Note**: The **Game Version Number** must be a positive integer.
+  > **Note**: the **Game Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**: is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
 
-- **Build Sub Package**: is supported by v1.0.4 onwards and is enabled by **default**. For details, please refer to **Subpackage Loading** at the end of this document.
+- **Build Sub Package**: is enabled by **default**. For details, please refer to **Subpackage Loading** at the end of this document.
 
 - **Small Packet Mode**: is optional. The in-package volume of the mini-game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the mini game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote assets, **Cocos Creator** has already helped the developer. What the developer needs to do is the following steps:
 
@@ -64,21 +82,21 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   3. After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the small packet mode server. For example, if the default release path is `build`, the **Build Task Name** is `vivo-mini-game`, you need to upload the `/build/vivo-mini-game/res` directory.
 
-      > **Note**: If you are using the command line to compile **small packet mode**, remember to backup the `build/vivo-mini-game/res` directory, then delete the `build/vivo-mini-game/res` directory, and then perform command line compilation (`npm run build`).
+      > **Note**: if you are using the command line to compile **small packet mode**, remember to backup the `build/vivo-mini-game/res` directory, then delete the `build/vivo-mini-game/res` directory, and then perform command line compilation (`npm run build`).
 
   At this point, the `res` directory will no longer be included in the built-up rpk, and the assets in the `res` directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
 
-- **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**. 
+- **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
 
-  > **Note**: When the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
+  > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
   
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The developer can configure two signature files by using the **search icon** button to the right of the input box.
 
   There are two ways to generate a signature files:
 
-    - Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
+  - Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
 
-    - Generated by the command line.
+  - Generated by the command line.
 
       The developer needs to generate the signature file **private.pem**, **certificate.pem** through tools such as **openssl**.
 
@@ -123,7 +141,7 @@ There are three ways to run rpk on your phone:
 
     ```bash
     # Specify to the editor installation directory.
-    cd F:/CocosCreator3D/resources/tools/vivo-pack-tools
+    cd F:/CocosCreator/resources/tools/vivo-pack-tools
 
     # Generate URL and QR code
     npm run server
@@ -139,7 +157,7 @@ The subpackage loading of __vivo Mini Games__, is similar to __WeChat Mini Games
 
 ## Reference documentation
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
 - [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)
