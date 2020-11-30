@@ -26,13 +26,13 @@
 
 一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
 
-选项名 | 可选 | 默认值 | 说明 | 字段名
-| - | - | - | - | -
-初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle
-设备方向 | 必填 | landscape | 设备方向，填写后将会写入在 `game.json` 内。| orientation
-appid | 必填 | 'testappid' | 百度小游戏 appid，填写后将会写入在 `project.swan.json` 内。| appid
-远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress
-生成开放数据与工程模板 | - | false | 用于接入开放数据域，详情可以参考[开放数据域](./build-open-data-context.md) | buildOpenDataContextTemplate
+| 选项名 | 可选 | 默认值 | 说明 | 字段名 |
+| - | - | - | - | - |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle
+| 设备方向 | 必填 | landscape | 设备方向，填写后将会写入在 `game.json` 内。| orientation |
+| appid | 必填 | 'testappid' | 百度小游戏 appid，填写后将会写入在 `project.swan.json` 内。| appid |
+| 远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress |
+| 生成开放数据与工程模板 | - | false | 用于接入开放数据域，详情可以参考[开放数据域](./build-open-data-context.md) | buildOpenDataContextTemplate |
 
 ### 发布流程
 
@@ -55,7 +55,7 @@ appid | 必填 | 'testappid' | 百度小游戏 appid，填写后将会写入在 
 
 百度小游戏存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。
 
-我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator已经帮用户做好了远程资源的下载、缓存和版本管理，具体可参考 [资源管理](../../asset/bundle.md)。
+我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator已经帮用户做好了远程资源的下载、缓存和版本管理，详情可参考 [资源管理](../../asset/cache-manager.md#资源下载流程)。
 
 **注意**：
 
