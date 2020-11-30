@@ -9,8 +9,8 @@ During the development of the game, it is generally necessary to use a large num
 **Note**: We will maintain compatibility with `loader` for a period of time, but we strongly recommend using **Asset Manager** consistently for new projects.
 
 you can refer to the following articles for upgrading:
-- [Loader Upgrade AssetManager Guide](asset-manager-upgrade-guide.md)
-- [Subpackage Upgrade Asset Bundle Guide](subpackage-upgrade-guide.md)
+- [AssetManager Upgrade Guide](asset-manager-upgrade-guide.md)
+- [Asset Bundle Upgrade Guide](subpackage-upgrade-guide.md)
 
 ## Load Resources
 

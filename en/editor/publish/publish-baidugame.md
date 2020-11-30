@@ -66,7 +66,7 @@ The subpackage loading method of **Baidu Mini Game** is similar to WeChat, with 
 - The size of all subpackages of the entire Mini Game can not exceed **8MB**.
 - The size of a single subpackage / main package can not exceed **4MB**.
 
-Please refer to the [SubPackage Loading](../../asset/subpackage.md) documentation for details.
+Please refer to the [Asset Bundle](../../asset/bundle.md) documentation for details.
 
 ## Platform SDK Access
 

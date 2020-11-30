@@ -140,7 +140,7 @@ Debugging can currently be initiated from the command line.
 
 Subpackage rpk can be used according to your needs.
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Subpackage Configuration](../../asset/subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
+Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Bundle Configuration](../../asset/bundle.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
 
 > **Note**: the size of a single subpackage/main package must not exceed **5M**, and the sum of all packages must not exceed **10M**.
 

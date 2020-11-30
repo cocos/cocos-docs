@@ -92,7 +92,7 @@ Specifically, developers need to do:
 
 ## WeChat Mini Game Subpackage Loading
 
-To achieve subpackage loading with **WeChat Mini Game**, please refer to [Subpackage Loading](../../asset/subpackage.md) documentation.
+To achieve subpackage loading with **WeChat Mini Game**, please refer to [Asset Bundle](../../asset/bundle.md) documentation.
 
 ## Platform SDK Access
 
