@@ -108,7 +108,7 @@
 
 ## 分包加载
 
-在 vivo 小游戏的构建中，[Asset Bundle](../../asset/bundle.md) 的配置也会按照规则自动生成到 vivo 小游戏发布包 `qgame/src` 目录下的 **manifest.json** 配置文件中。
+在 vivo 小游戏的构建中，[Asset Bundle](../../asset/bundle.md) 的配置也会按照规则自动生成到 vivo 小游戏发布包 `vivo-mini-game/src` 目录下的 **manifest.json** 配置文件中。
 
 **注意**：
 
