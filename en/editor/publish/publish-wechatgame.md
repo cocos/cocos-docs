@@ -42,7 +42,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 ### Build Options
 
-Options | Optional or not | Default | Explanation
+| Options | Optional or not | Default | Explanation |
 | - | - | - | - |
 | **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.|
 | **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.|

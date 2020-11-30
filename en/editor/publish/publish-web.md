@@ -37,8 +37,6 @@ After configuring the build parameters, click the **Build** button, then a progr
 
 The image above shows the preview of Web Mobile, you can see that the game view will cover the whole browser window, but Web Desktop will not, as shown below:
 
-![web mobile](publish-web/web-desktop.gif)
-
 ### Browser Compatibility
 
 The desktop browsers tested during the **Cocos Creator** development process include: **Chrome**, **Firefox**, **Safari (Mac)**, **QQ browser**, **360 browser**. Other browsers as long as the kernel version is high enough to work properly, for some browsers do not open IE6 compatibility mode.
