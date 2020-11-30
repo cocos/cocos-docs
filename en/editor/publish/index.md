@@ -10,14 +10,13 @@ The **Build** panel allows you to publish games to multiple platforms, including
 - [Custom Project Build Process](custom-project-build-template.md)
 - [Build Process with FAQ](build-guide.md)
 - [Publishing to the Web](publish-web.md)
-- [Publishing to native](publish-native.md)
+- [Publishing to native](native-options.md)
   - [Setup Native Development](setup-native-development.md)
-  - [Native platform common options and basic directory structure](native-options.md)
+  - [Debugging JavaScript on Native Platforms](debug-jsb.md)
   - [Publish to Android](publish-android.md)
   - [Publish to iOS](publish-ios.md)
   - [Publish to Mac](publish-mac.md)
   - [Publish to Windows](publish-windows.md)
-  - [Debugging JavaScript on Native Platforms](debug-jsb.md)
 
 - Publish to Mini Games
   - [Publishing to Alipay Mini Games](publish-alipay-mini-game.md)
