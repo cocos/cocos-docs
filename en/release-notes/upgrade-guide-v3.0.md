@@ -15,7 +15,7 @@ This __Cocos Creator 3.0 Preview__ version uses a new future-oriented engine arc
 
 ## How to migrate (not supported in Preview version)
 
-Although **we do not recommend projects under development, especially projects that are about to go live, upgrade to 3.0**, we will still launch the 2.x resource import tool in the 3.0 official version. This tool will support the perfect import of old project resources and the auxiliary import of codes. Code-assisted import will convert Javascript into Typescript, add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the developer's upgrade difficulty.
+Although **we do not recommend projects under development, especially projects that are about to go live, upgrade to 3.0**, we will still launch the 2.x resource import tool in the 3.0 official version. This tool will support the perfect import of old project resources and the auxiliary import of codes. Code-assisted import will convert **Javascript** into **TypeScript**, add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the developer's upgrade difficulty.
 
 Users only need to click **File -> Import -> CocosCreator 2D Project** in the main menu, and a window for importing the plug-in will appear.
 
