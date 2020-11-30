@@ -19,19 +19,6 @@
                 ]
             },
             {
-                "name": "Cocos Creator 3D",
-                "links": [
-                    {
-                        "name": "Manual",
-                        "link": "https://docs.cocos.com/creator3d/manual/en"
-                    },
-                    {
-                        "name": "API Ref",
-                        "link": "https://docs.cocos.com/creator3d/api/en"
-                    }
-                ]
-            },
-            {
                 "name": "Cocos2d-x",
                 "links": [
                     {
@@ -53,6 +40,10 @@
             {
                 "name": "1.9",
                 "links": [
+                    {
+                        "name": "3.0 Preview",
+                        "link": "https://docs.cocos.com/creator/3.0/manual/en"
+                    },
                     {
                         "name": "2.4",
                         "link": "https://docs.cocos.com/creator/2.4/manual/en"
