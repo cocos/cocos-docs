@@ -29,8 +29,8 @@
 - [发布到百度小游戏](publish-baidu-mini-game.md)
 - [发布到微信小游戏](publish-wechatgame.md)
   - [启用微信小游戏引擎插件](wechatgame-plugin.md)
-  - [开放数据域](build-open-data-context.md)
 - [发布到连尚小游戏](publish-link-sure.md)
 - [发布到趣头条小游戏](publish-qtt.md)
+- [开放数据域](build-open-data-context.md)
 
 先从 [熟悉构建发布面板](build-panel.md) 开始了解。

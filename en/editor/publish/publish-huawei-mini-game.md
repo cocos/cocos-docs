@@ -1,6 +1,6 @@
 # Publishing to Huawei Quick Games
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 __Cocos Creator__ officially supports the release of games to the **Huawei Quick Games**.
 
@@ -38,7 +38,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This item is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted
 
-  > **Note**: The **Game Version Number** must be a positive integer.
+  > **Note**: the **Game Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**
 
@@ -48,7 +48,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   This is an optional item, which is the expansion function of Huawei Quick Game. When used, you need to select a `JSON` file, and the data type in the file is required to be in `JSON` format.
 
-  > **Note**: The `JSON` data is not available when the key value are `package`, `appType`, `name`, `versionName`, `versionCode`, `icon`, `minPlatformVersion`, `config`, `display`, otherwise it will be overwritten by data such as **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number** during the build.
+  > **Note**: the `JSON` data is not available when the key value are `package`, `appType`, `name`, `versionName`, `versionCode`, `icon`, `minPlatformVersion`, `config`, `display`, otherwise it will be overwritten by data such as **Game Package Name**, **Game Name**, **Desktop Icon**, **Game Version Name**, **Game Version Number** during the build.
 
 - **Build Sub Package**
 
@@ -74,7 +74,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   When you check the **Keystore**, the default is to build the **rpk** package with a certificate that comes with Creator. This certificate is used only for **debugging**.
   
-  > **Note**: When the **rpk** package is to be used to submit an audit, do not check the **Keystore** to build it.
+  > **Note**: when the **rpk** package is to be used to submit an audit, do not check the **Keystore** to build it.
   
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a **rpk** package that you can **publish directly**. The user can configure two signature files by using the **search icon** button to the right of the input box.
 
@@ -111,10 +111,10 @@ Subpackage loading, that is, splitting the game content into several packages ac
 
 After the build is complete, the generated subpackages and main package are merged into one **rpk**, which is in the `/build/huawei-mini-game/dist` directory.
 
-> **Note**: Currently, Huawei Quick Game does not support downloading multiple subpackages at the same time, please download them in order if you need to download multiple subpackages.
+> **Note**: currently, Huawei Quick Game does not support downloading multiple subpackages at the same time, please download them in order if you need to download multiple subpackages.
 
 ## Reference documentation
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 [Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickgame-develop-runtime-game)

@@ -1,6 +1,6 @@
 # Publishing to OPPO Mini Games
 
-> **Note**: Some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 __Cocos Creator__ officially supports the release of games to the **OPPO Mini Games**.
 
@@ -14,7 +14,7 @@ __Cocos Creator__ officially supports the release of games to the **OPPO Mini Ga
 
 ## Release Process
 
-1. Use **Cocos Creator** to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build** panel.
+1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build** panel.
 
     ![](./oppo-mini-game/build_options.jpg)
 
@@ -27,7 +27,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 - **Start Scene Asset Bundle**
 
 This option is optional.<br>
-If set, the start scene and its related dependent resources are built into the built-in Asset Bundle â€” [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
+If set, the start scene and its related dependent resources are built into the built-in Asset Bundle ¡ª [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. Please refer to the [Start Scene Loading](#speed-up-the-loading-of-the-start-scene) for details.
 
 - **Game Package Name**: is filled in according to the user's needs. It's required.
 

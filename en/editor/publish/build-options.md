@@ -82,7 +82,7 @@ When merging assets automatically, all `JSON` files that the **Start Scene** dep
 
 Click **Project -> Project Setting -> Modules** in the menu bar to open the **Modules** panel. The Modules panel is mainly used to reduce the size of the packaged package by eliminating some engine modules that are not needed in the project. Engine modules may change with the version upgrades, and specific module information is subject to the version-specific editor.
 
-> **Note**: Please reconfirm the module information after each version upgrade before building and releasing it.
+> **Note**: please reconfirm the module information after each version upgrade before building and releasing it.
 
 ![](build-options/engine-excludes.jpg)
 
