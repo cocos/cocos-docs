@@ -9,6 +9,7 @@
   - [Hello world!](getting-started/helloworld/index.md)
   - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
   - [注意事项](getting-started/attention/index.md)
+- [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
 
 ## 编辑器手册
 
