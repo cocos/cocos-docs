@@ -29,7 +29,7 @@
 
 选项名 | 可选 | 默认值 | 说明 | 字段名
 - | - | - | - | -
-初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md) 中，提高初始场景的资源加载速度。具体内容可参考文档下方的 [初始场景的资源加载](#初始场景的资源加载)。 | startSceneAssetBundle
+初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档下方的 [初始场景的资源加载](#初始场景的资源加载)。 | startSceneAssetBundle
 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress
 游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package
 桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon

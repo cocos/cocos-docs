@@ -6,6 +6,19 @@ __Cocos Creator__ uses the scene's file name (without extension) to index the sc
 director.loadScene("MyScene");
 ```
 
+In addition, as of v3.0, the Asset Bundle has added a new loading method:
+
+```js
+bundle.loadScene('MyScene', function (err, scene) {
+    cc.director.runScene(scene);
+});
+```
+
+The `loadScene` provided by the Asset Bundle will only load scenes from the specified bundle and will not automatically run the scenes, you also need to use `cc.director.runScene` to run the scenes.<br>
+`loadScene` also provides more parameters to control the loading process, so developers can control the loading parameters themselves or do some processing after the loading scene.
+
+For more information about loading scenes in the Asset Bundle, you can refer to the [Asset Bundle](../asset/bundle.md) documentation.
+
 ## Scene resource management and Persistent Nodes
 
 The engine will only run one scene at the same time. When switching scenes, all nodes and other instances in the scene will be destroyed by default. Developer's may need to use a component to control the loading of all scenes, or to transfer parameter data between scenes, mark the node where the component is located as a __Persistent Node__ so that it will not be automatically destroyed when the scene is switched, and will remain in memory. Example:

@@ -6,6 +6,18 @@
 director.loadScene("MyScene");
 ```
 
+除此之外，从 v3.0 开始 Asset Bundle 还增加了一种新的加载方式：
+
+```typescript
+bundle.loadScene('MyScene', function (err, scene) {
+    director.runScene(scene);
+});
+```
+
+Asset Bundle 提供的 `loadScene` 只会加载指定 bundle 中的场景，并不会自动运行场景，还需要使用 `director.runScene` 来运行场景。<br>`loadScene` 还提供了更多参数来控制加载流程，开发者可以自行控制加载参数或者在加载完场景后做一些处理。
+
+更多关于加载 Asset Bundle 中的场景，可参考文档 [Asset Bundle](../asset/bundle.md)。
+
 ## 通过常驻节点进行场景资源管理和参数传递
 
 引擎同时只会运行一个场景，当切换场景时，默认会将场景内所有节点和其他实例销毁。如果我们需要用一个组件控制所有场景的加载，或在场景之间传递参数数据，就需要将该组件所在节点标记为「常驻节点」，使它在场景切换时不被自动销毁，常驻内存。我们使用以下接口：
