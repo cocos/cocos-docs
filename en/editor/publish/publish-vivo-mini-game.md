@@ -1,4 +1,4 @@
-# Publishing to vivo Mini Games
+# Publish to vivo Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -26,59 +26,32 @@
 
     If `vivo-minigame/cli` installation fails, it may be caused by too low version of **nodejs**. Please check the version of **node** and upgrade.
 
-## Release Process
+## Build Options
 
-1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **vivo Mini Game** in the **Platform** dropdown of the **Build** panel.
+For some general build options of platforms, please refer to the [General Build Options](build-options.md) documentation for details.
 
-    ![](./vivo-mini-game/build_options.jpg)
+| Name | Optional | Default value | Description | Field name |
+| - | - | - | - | - |
+| **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. | startSceneAssetBundle |
+| **Remote server address** | Optional | Empty | This option is optional and used to fill in the address of the remote server where the resources are stored.If this option is left blank, the build/quickgame/remote folder in the release package directory will be packaged into the rpk package.Refer to the Resource Management section for more details. | remoteServerAddress |
+| Game Package Name | required | (Project Name) | such as `com.example.demo` | package |
+| Desktop Icon | required | (Cocos Logo) | Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the | **Desktop Icon**. | icon |
+| Game Version Name | required | (Cocos version) | **Game Version Name** is the real version, such as: **1.0.0**. | versionName |
+| Game Version Number | required | 1201 |  **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. | versionCode |
+| Supported Minimum Platform Version Number | required | 1035 | Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine. | minPlatformVersion |
+| Orientation | - | landscape | Device direction, it will be written in `manifest.json`.| deviceOrientation |
+| Use debug keystore | - | true | When you check **Use Debug Keystore**, it means that the rpk package built with the certificate that comes with Creator is used by default, and it is only used for **debugging**. when the rpk package is to be used to submit an audit, do not check the **Use Debug Keystore** to build it.| useDebugKey |
+| Key certification path | - | - | The key store certificate, the quick game on the Huawei App Market, must be signed with the release version certificate, and the certificate fingerprint must be configured in the background of the Huawei Developers Alliance. For details, please refer to the following [Generate Signature File](###Generate Signature File) | privatePemPath、certificatePemPath |
 
-    Click on the **vivo-mini-game** below to expand the parameter configuration of vivo Mini Game.
+### Generate signature file
 
-    ![](./vivo-mini-game/vivo_options.jpg)
-
-The specific filling rules for the relevant parameter configuration are as follows:
-
-- **Game Package Name**: is required. it is filled in according to the developer's needs.
-
-- **Desktop Icon**: is required. Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the **Desktop Icon**.
-
-- **Game Version Name**: is required. **Game Version Name** is the real version, such as: **1.0.0**.
-
-- **Game Version Number**: is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. 
-
-  > **Note**: the **Game Version Number** must be a positive integer.
-
-- **Supported Minimum Platform Version Number**: is required. Please refer to [Official Documentation](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine.
-
-- **Build Sub Package**: is enabled by **default**. For details, please refer to **Subpackage Loading** at the end of this document.
-
-- **Small Packet Mode**: is optional. The in-package volume of the mini-game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the mini game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote assets, **Cocos Creator** has already helped the developer. What the developer needs to do is the following steps:
-
-  1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
-
-  2. **First game asset package into the game package**, this item is optional.
-
-      In the **Small Packet Mode**, due to too many assets on the launch scene, downloading and loading assets for a long time may result in a short black screen when entering the game for the first time. If **First game asset package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` asset does not support split asset downloading at this time, and the entire `import` directory is also packaged into the first package.
-
-      Developers can choose whether to check this item according to their needs and then click **Build**.
-
-  3. After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the small packet mode server. For example, if the default release path is `build`, the **Build Task Name** is `vivo-mini-game`, you need to upload the `/build/vivo-mini-game/res` directory.
-
-      > **Note**: if you are using the command line to compile **small packet mode**, remember to backup the `build/vivo-mini-game/res` directory, then delete the `build/vivo-mini-game/res` directory, and then perform command line compilation (`npm run build`).
-
-  At this point, the `res` directory will no longer be included in the built-up rpk, and the assets in the `res` directory will be downloaded from the filled **Small Packet Mode Server Path** through the network request.
-
-- **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**. 
-
-  > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
-  
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The developer can configure two signature files by using the **search icon** button to the right of the input box.
 
   There are two ways to generate a signature files:
 
-    - Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
+- Generated by the **New** button after the **certificate.pem path** in the **Build** panel.
 
-    - Generated by the command line.
+- Generated by the command line.
 
       The developer needs to generate the signature file **private.pem**, **certificate.pem** through tools such as **openssl**.
 
@@ -89,13 +62,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
       > **Note**: **openssl** can be used directly in the terminal in Linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables. Restart Creator after the configuration is complete.
 
-**2. Build**
-
-After the relevant parameters of the **Build** panel are set, click **Build**. When the build is complete, click the **folder icon** button below the corresponding build task to open the build release path, you can see that a directory with the same name as the Build Task Name is generated in the default release path `build` directory, which is the exported vivo Mini Game project directory and **rpk**, **rpk** package are in the `dist` directory.
+## Run the rpk
 
 ![](./vivo-mini-game/rpk.png)
-
-**3. Run the built rpk to the phone**
 
 There are three ways to run rpk on your phone:
 
@@ -135,11 +104,30 @@ There are three ways to run rpk on your phone:
 
 ## Subpackage Loading
 
-The subpackage loading of __vivo Mini Games__, is similar to __WeChat Mini Games__. Please refer to the [Subpackage Loading](../../asset/subpackage.md) documentation for details.
+In the construction of vivo mini games, the configuration of [Asset Bundle](../../asset/bundle.md) will also be automatically generated into the vivo mini game release package `vivo-mini-game/src` directory according to the rules The **manifest.json**configuration file.
+
+> **Note**: **quick App & vivo Mini Game Debugger**Starting from the **1051**version, the sub-package loading of vivo mini games is supported. Although the version lower than 1051 does not support sub-package loading, it is also compatible. If sub-package is used, it will not affect the normal operation of the game. For details, please refer to [vivo subpackage loading-runtime compatibility](<https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c> %e6%97%b6%e5%85%bc%e5%ae%b9).
+
+![](./subpackage/vivo_subpackage.png)
+
+### Sub-package loading package size limit
+
+At present, the subpackage size of vivo mini games has the following restrictions:
+
+-The size of all sub-packages and the main package of the entire mini game does not exceed **8M**(the entire compressed package after packaging does not exceed **16M**including the entire package. For details, please refer to [vivo sub-package loading-compile-time compatibility](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9))
+-The size of a single sub-package/main package cannot exceed **4M**
+
+For details, please refer to [vivo mini game subpackage loading official document](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage).
+
+## vivo Mini Game Environment Resource Management
+
+The part of vivo mini games that exceed the package size limit must be downloaded through the network.
+
+Cocos Creator has helped developers to download, cache and manage remote resources. For details, please refer to [Resource Management](./asset-load.md#资源管理).
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+**Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
 - [vivo Mini Games Development Documentation](https://minigame.vivo.com.cn/documents/#/lesson/base/start)
 - [vivo Mini Games API Documentation](https://minigame.vivo.com.cn/documents/#/api/system/life-cycle)

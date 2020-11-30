@@ -27,7 +27,7 @@ After adding the Sprite component, drag the SpriteFrame type asset from the __As
 
 If this SpriteFrame asset is contained within an Atlas asset, then the `Atlas` property of the Sprite will be set up along with it.
 
-> **Note**: to dynamically replace SpriteFrame, you need to dynamically load the image asset before you replace it, please refer to the [Acquire and load asset: how to dynamically load](../../../asset/load-assets.md) documentation.
+> **Note**: to dynamically replace SpriteFrame, you need to dynamically load the image asset before you replace it, please refer to the [Acquire and load asset: how to dynamically load](../../../asset/dynamic-load-resources.md) documentation.
 
 ## Rendering mode
 
