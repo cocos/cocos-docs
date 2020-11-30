@@ -113,5 +113,6 @@ Creator 3.0 中所有平台的构建都内置为插件，因此构建面板也�
 ### TypeScript 参考教程
 
 - [TypeScript 官方网站](https://www.typescriptlang.org/)
-- [TypeScript — Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
-- [TypeScript — Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
+- [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
+- [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
+- [X 分钟速成 TypeScript](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
