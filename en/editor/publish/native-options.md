@@ -1,4 +1,4 @@
-# Publishing to native
+# Publish to native
 
 **Cocos Creator** supports four native platforms, which include **Android**, **iOS**, **Mac** and **Windows**.
 The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. Currently, all native platforms are packaged together, you can configure the parameters of each native platform in the **Build** panel, and all native platform release packages can be generated in one build.

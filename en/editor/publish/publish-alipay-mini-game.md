@@ -1,4 +1,4 @@
-# Publishing to Alipay Mini Games
+# Publish to Alipay Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 

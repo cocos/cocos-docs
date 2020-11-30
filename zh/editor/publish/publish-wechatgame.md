@@ -46,7 +46,7 @@
 | - | - | - | - | - |
 | 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle
 | appid | 必填 | 'wx6ac3f5090a6b99c5' | 微信小游戏 appid，填写后将会写入在 `project.config.json` 内。| appid
-远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress
+| 远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress
 | 生成开放数据与工程模板 | - | false | 详情可以参考[开放数据域](./build-open-data-context.md) | buildOpenDataContextTemplate
 | 设备方向 | 必填 | landscape | 设备方向，填写后将会写入在 `game.json` 内。| orientation
 | 引擎分离 | - | false | 是否使用微信引擎插件 | separateEngine

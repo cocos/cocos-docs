@@ -1,4 +1,4 @@
-# Publishing to WeChat Mini Games
+# Publish to WeChat Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -12,7 +12,7 @@ On the engine side, in order to make the developers' workload as easy as possibl
 
 In addition, the game submission, review and release process of the **WeChat Mini Game** is no different from the **WeChat Mini Program**. Please refer to the [WeChat Mini Game Developer](https://developers.weixin.qq.com/minigame/en/dev/guide/) documentation.
 
-## Publishing WeChat Mini Games with Cocos Creator
+## Publish WeChat Mini Games with Cocos Creator
 
 1. Download the **WeChat DevTools** on [WeChat Official Document](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 

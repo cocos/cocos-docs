@@ -1,4 +1,4 @@
-# Publishing to the Web
+# Publish to the Web
 
 Open main menu's **Project -> Build** to open the **Build** panel.
 

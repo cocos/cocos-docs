@@ -1,4 +1,4 @@
-# Publishing to Huawei Quick Games
+# Publish to Huawei Quick Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 

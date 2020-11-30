@@ -1,4 +1,4 @@
-# Publishing to OPPO Mini Games
+# Publish to OPPO Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -26,8 +26,8 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Start Scene Asset Bundle**
 
-This option is optional.<br>
-If set, the start scene and its related dependent resources are built into the built-in Asset Bundle - [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
+  This option is optional.<br>
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle - [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
 
 - **Game Package Name**: is filled in according to the user's needs. It's required.
 

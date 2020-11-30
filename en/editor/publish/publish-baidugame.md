@@ -1,4 +1,4 @@
-# Publishing to Baidu Mini Games
+# Publish to Baidu Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -56,7 +56,6 @@ Specifically, developers need to do the following:
 4. Delete the `res` folder under the local release package directory.
 
 > **Note**: when Baidu loads the assets on the remote server on the physical device, it only supports access via HTTPS, so the asset file must be placed on HTTPS, otherwise the loading of the asset will fail.
-
 > **Note**: if the cache asset exceeds the environment limit of Baidu, you need to manually clear the asset. You can use the `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` interfaces to clear the cache in Baidu mini game. The former will clear all cache assets in the cache directory, please use it with caution. The latter will clear the cache assets that are not used in the current application in the cache directory.
 
 ## Baidu Mini Game Subpackage Loading
