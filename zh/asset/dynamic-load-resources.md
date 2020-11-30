@@ -25,7 +25,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
   >
   > 如果一份资源仅仅是被 **resources** 中的其它资源所依赖，而不需要直接被 `resources.load` 调用，那么 **请不要** 放在 resources 文件夹中。否则会增大 `config.json` 的大小，并且项目中无用的资源，将无法在构建的过程中自动剔除。同时在构建过程中，JSON 的自动合并策略也将受到影响，无法尽可能合并零碎的 JSON。
 
-  **注意**：从 v3.0 开始，`loader` 等接口不再建议使用，请使用最新的 `assetManager` 相关接口，升级文档请参考 [资源加载升级指南](asset-manager-upgrade-guide.md)。
+  **注意**：从 v2.4 开始，`loader` 等接口不再建议使用，请使用最新的 `assetManager` 相关接口，升级文档请参考 [资源加载升级指南](asset-manager-upgrade-guide.md)。
 
 ### 加载 SpriteFrame 或 Texture2D
 
@@ -80,7 +80,7 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 
 ## 预加载资源
 
-从 v3.0 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
+从 v2.4 开始，除了场景能够预加载之外，其他资源也可以预加载。预加载的加载参数与正常加载时一样，不过预加载只会去下载必要的资源，并不会进行资源的反序列化和初始化工作，所以性能消耗更小，适合游戏运行中使用。
 
 `resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。
 

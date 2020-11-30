@@ -42,7 +42,7 @@ resources.load(url, SpriteFrame,(err: any, spriteFrame) => {
 });
 ```
 
-__Assets__ on the server can only be loaded into __ImageAsset__. For specific methods, please refer to the [Asset Loading](./load-assets.md) documentation.
+__Assets__ on the server can only be loaded into __ImageAsset__. For specific methods, please refer to the [dynamic load asset](./dynamic-load-resources.md) documentation.
 
 __Cocos Creator__ will provide a way to package an __Image Asset__ as a __SpriteFrame__ in a later release to make it easier for users to use image assets.
 

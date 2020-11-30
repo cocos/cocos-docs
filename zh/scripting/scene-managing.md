@@ -6,7 +6,7 @@
 director.loadScene("MyScene");
 ```
 
-除此之外，从 v3.0 开始 Asset Bundle 还增加了一种新的加载方式：
+除此之外，从 v2.4 开始 Asset Bundle 还增加了一种新的加载方式：
 
 ```typescript
 bundle.loadScene('MyScene', function (err, scene) {

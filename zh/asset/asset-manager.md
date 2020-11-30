@@ -6,11 +6,9 @@
 
 **Asset Manager** 是 Creator 在 v2.4 新推出的资源管理器，用于替代之前的 `loader`。新的 Asset Manager 资源管理模块具备加载资源、查找资源、销毁资源、缓存资源、Asset Bundle 等功能，相比之前的 `loader` 拥有更好的性能，更易用的 API，以及更强的扩展性。所有函数和方法可通过 `assetManager` 进行访问，所有类型和枚举可通过 `AssetManager` 命名空间进行访问。
 
-Creator 3.0 同步支持了 2.4 的资源管理器。
-
 **注意**：为了带来平滑的升级体验，我们会在一段时间内保留对 `loader` 的兼容，但还是建议新项目统一使用 **Asset Manager**。
 
-如果你是 Creator 3D 老用户，你可以参考以下文章升级：
+你可以参考以下文章升级：
 
 - [loader 升级 assetManager 指南](asset-manager-upgrade-guide.md)
 - [子包升级 Asset Bundle 指南](subpackage-upgrade-guide.md)

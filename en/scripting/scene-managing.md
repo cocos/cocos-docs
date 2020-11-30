@@ -6,7 +6,7 @@ __Cocos Creator__ uses the scene's file name (without extension) to index the sc
 director.loadScene("MyScene");
 ```
 
-In addition, as of v3.0, the Asset Bundle has added a new loading method:
+In addition, as of v2.4, the Asset Bundle has added a new loading method:
 
 ```js
 bundle.loadScene('MyScene', function (err, scene) {

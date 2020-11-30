@@ -212,8 +212,7 @@
 
 - [资源手册](asset/index.md)
   - [资源工作流](asset/asset-workflow.md)
-  - [获取和加载资源](asset/load-assets.md)
-  - [分包加载](asset/subpackage.md)
+  - [资源管理](asset/asset-manager.md)
   - [场景资源](asset/scene.md)
   - [图像资源](asset/image.md)
     - [纹理贴图资源](asset/texture.md)

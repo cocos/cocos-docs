@@ -9,7 +9,7 @@ In order to minimize download times, most of the loading interfaces in Asset Man
 3. Preloading has a lower priority, and when multiple resources are waiting to be downloaded, the preloaded resources will be downloaded last.
 4. Since the preload does not do any parsing, no available resources are returned when all the preloads load are complete.
 
-Compared to previous versions of Creator v3.0, these optimizations reduce the preloading performance loss and ensure a smooth gaming experience. You can make full use of the network bandwidth during the game to reduce the loading time of subsequent resources.
+Compared to previous versions of Creator v2.4, these optimizations reduce the preloading performance loss and ensure a smooth gaming experience. You can make full use of the network bandwidth during the game to reduce the loading time of subsequent resources.
 
 Since the preload does not parse the resources, you need to parse and initialize the resources with the loading interface to complete the resource loading after the preload is complete. For example:
 

@@ -5,7 +5,7 @@
 For Web platforms, resources cache are managed by the browser after download, not the engine.<br>
 However, on some non-Web platforms, such as WeChat Mini Game, these platforms have a file system, which can be used to cache some remote resources, but do not implement a caching mechanism for resources. In this case, the engine needs to implement a set of caching mechanisms for managing resources downloaded from the network, including caching resources, cleaning cached resources, querying cached resources and other features.
 
-As of v3.0, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
+Since v2.4, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
 
 ## Resource download process
 

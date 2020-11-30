@@ -2,11 +2,11 @@
 
 > Author: Santy-Wang, Xunyi
 
-> This article details what to expect when upgrading from loader to assetManager. If you are not an old user of Creator 3D, you can skip this post.
+> This article details what to expect when upgrading from loader to assetManager.
 
-Before Creator 3D v1.2, [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) was implemented through the `loader` module (including the APIs `loader.load`, `loader.loadRes`, `loader.loadResDir`, etc.), which was primarily used to load resources. However, with the continuous development of Creator, developers' demands for resource management have been increasing. The original `loader` module has been unable to meet a large number of resource management needs, and a new resource management module is in the air.
+Before Creator v2.4, [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) was implemented through the `loader` module (including the APIs `loader.load`, `loader.loadRes`, `loader.loadResDir`, etc.), which was primarily used to load resources. However, with the continuous development of Creator, developers' demands for resource management have been increasing. The original `loader` module has been unable to meet a large number of resource management needs, and a new resource management module is in the air.
 
-Therefore, Creator 3.0 migrates the resource management module of Creator 2.4 -- **Asset Manager**. Compared to the previous `loader` module, **Asset Manager** not only provides better loading performance, but also supports **Asset Bundle**, preload resources and more convenient resource release management. And **Asset Manager** also has strong extensibility, which greatly improves the development efficiency and user experience of developers. We recommend that all developers upgrade.
+Therefore, Creator in **v2.4** introduced a new resource management module -- **Asset Manager**. Compared to the previous `loader` module, **Asset Manager** not only provides better loading performance, but also supports **Asset Bundle**, preload resources and more convenient resource release management. And **Asset Manager** also has strong extensibility, which greatly improves the development efficiency and user experience of developers. We recommend that all developers upgrade.
 
 To bring a smooth upgrade experience, we will maintain compatibility with `loader` related APIs, and most of the game project can run as usual, except for a few that use incompatible special usage APIs that must be manually upgraded. And we will only remove full compatibility with `loader` when the time comes. If you are temporarily uncomfortable upgrading due to the project cycle, etc., you can keep the original writing while making sure the test passes.
 
@@ -15,7 +15,7 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, all APIs in the `loader` module that were used in the original code need to be changed to APIs from `assetManager`. The related content will be described in detail in this document.
 
-**Note**: As v3.0 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
+**Note**: As v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
 
 ## Situations that require upgrading manually
 
@@ -28,11 +28,11 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 ## Upgrade steps
 
 - **Back up your old projects**
-- Use Cocos Creator **v3.0** in the **Dashboard** to open the project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning may appear on the **Console** panel, don't worry, open the code editor to update your code according to the error or warning message.
+- Use Cocos Creator **v2.4** in the **Dashboard** to open the project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning may appear on the **Console** panel, don't worry, open the code editor to update your code according to the error or warning message.
 
 ### Replace the `loader` related API with the `assetManager` related API.
 
-As of v3.0, `loader` is no longer recommended and will be completely removed in subsequent releases, please replace it with the new resource management module `assetManager`.
+As of v2.4, `loader` is no longer recommended and will be completely removed in subsequent releases, please replace it with the new resource management module `assetManager`.
 
 #### The relevant interface replacement about loading
 

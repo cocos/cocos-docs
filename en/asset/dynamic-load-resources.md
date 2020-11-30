@@ -27,7 +27,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 
 - The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-  **Note**: As of v3.0, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
+  **Note**: As of v2.4, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
 
 ### Loading a SpriteFrame or a Texture2D
 
@@ -83,7 +83,7 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 
 ## Preload resources
 
-Starting with v3.0, in addition to scenes that can be preloaded, other resources can also be preloaded. Preloading has the same loading parameters as normal loading, but it will only download the necessary resources, and will not perform deserialization or initialization. Therefore, it consumes less performance and is suitable for use during the game.
+Starting with v2.4, in addition to scenes that can be preloaded, other resources can also be preloaded. Preloading has the same loading parameters as normal loading, but it will only download the necessary resources, and will not perform deserialization or initialization. Therefore, it consumes less performance and is suitable for use during the game.
 
 `resources` provides `preload` and `preloadDir` for preloading resources.  
 
