@@ -22,8 +22,6 @@
 
     ![](./publish-baidugame/appid.png)
 
-### 构建参数
-
 ## 构建选项介绍
 
 一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
