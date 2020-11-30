@@ -83,7 +83,7 @@
 
     ```bash
     # 指定到编辑器安装目录下的 resources/tools/xiaomi-pack-tools 目录下
-    cd ${CocosCreator3D}/tools/xiaomi-pack-tools
+    cd ${CocosCreator}/tools/xiaomi-pack-tools
     # 自动在 Chrome 上打开调试界面
     npm run debug
     # 手动在 Chrome 上打开调试页面

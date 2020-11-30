@@ -9,14 +9,14 @@
 - Mac
 
   ```bash
-  /Applications/CocosCreator3D.app/Contents/MacOS/CocosCreator3D --project projectPath
+  /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
   --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
 
   ```bash
-  CocosCreator3D/CocosCreator3D.exe --project projectPath --build "platform=web-desktop;debug=true"
+  CocosCreator/CocosCreator.exe --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 目前命令行构建除了必填项外，如果不传递一律使用默认值来构建，具体参数默认值请参考下方描述以及平台的参数介绍。
@@ -37,7 +37,7 @@
 
   - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出。
 
-  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从 [这里](https://github.com/cocos-creator/engine/blob/3d-v1.0.0/scripts/module-division/division-config.json) 查找到，注意传递的是模块 entry 字段组成的数组。
+  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从 [这里](https://github.com/cocos-creator/engine/scripts/module-division/division-config.json) 查找到，注意传递的是模块 entry 字段组成的数组。
   - `taskName` - 构建任务名，构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
   - `platform` - 必填，构建的平台

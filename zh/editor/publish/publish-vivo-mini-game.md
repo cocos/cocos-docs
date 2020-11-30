@@ -97,7 +97,7 @@
 
     ```bash
     # 先把命令行指定到编辑器安装目录下的 resources/tools/vivo-pack-tools 目录下
-    cd ${CocosCreator3D}/resources/tools/vivo-pack-tools
+    cd ${CocosCreator}/resources/tools/vivo-pack-tools
     # 生成网址和二维码
     npm run server
     ```
