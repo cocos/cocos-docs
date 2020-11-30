@@ -4,7 +4,7 @@ There is only one main directional light in __Cocos Creator__. The main directio
 
 ![main dir light](dir-light.jpg)
 
-To use `Main Directional Light`, please refer to the [Main Directional Light API](https://docs.cocos.com/creator3d/api/en/classes/component_light.directionallight.html).
+To use `Main Directional Light`, please refer to the [Main Directional Light API](https://docs.cocos.com/creator/3.0/api/en/classes/component_light.directionallight.html).
 
 ## Main Directional Light Properties
 

@@ -2,7 +2,7 @@
 
 __Skeletal Animation__ is a common but special type of animation. Two different systems are provided and each is optimized for different purposes. Seamless switching between these two systems can be as simple as toggle the `useBakedAnimation` switch on `SkeletalAnimation`, even at runtime. when enabled, the pre-baked system will be used, or the real-time calculated system if otherwise.
 
-To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](https://docs.cocos.com/creator3d/api/en/classes/animation.skeletalanimation.html).
+To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](https://docs.cocos.com/creator/3.0/api/en/classes/animation.skeletalanimation.html).
 
 ## Pre-baked Skeletal Animation System
 

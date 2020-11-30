@@ -2,7 +2,7 @@
 
 The __ModelComponent__ is used to display a static 3D model. Set the model grid through a mesh, and change the appearance of the model through material.
 
-To use `MeshRenderer`, please refer to the [MeshRenderer API](https://docs.cocos.com/creator3d/api/en/classes/model.meshrenderer.html).
+To use `MeshRenderer`, please refer to the [MeshRenderer API](https://docs.cocos.com/creator/3.0/api/en/classes/model.meshrenderer.html).
 
 ## MeshRenderer Properties
 

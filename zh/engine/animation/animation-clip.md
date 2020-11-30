@@ -210,7 +210,7 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 当曲线数据的 `interpolate` 属性为 `true` 时，曲线将尝试使用插值函数：
 - 若曲线值的类型为 `number`、`Number`，将应用线性插值；
 - 若曲线值继承自 `ValueType`，将调用 `ValueType` 的 `lerp` 函数完成插值，Cocos Creator 内置的大多数值类型都将其 `lerp` 实现为线性插值；
-- 若曲线值是 [可插值的](https://docs.cocos.com/creator3d/api/zh/interfaces/animation.ilerpable.html)，将调用曲线值的 `lerp` 函数完成插值<sup id="a2">[2](#f2)</sup>。
+- 若曲线值是 [可插值的](https://docs.cocos.com/creator/3.0/api/zh/interfaces/animation.ilerpable.html)，将调用曲线值的 `lerp` 函数完成插值<sup id="a2">[2](#f2)</sup>。
 
 若曲线值不满足上述任何条件，或当曲线数据的 `interpolate` 属性为 `false`时，将不会进行插值操作，而是永远使用前一帧的曲线值作为结果。
 
@@ -326,7 +326,7 @@ function createMyCurve (): IPropertyCurveData {
 | WrapMode.Loop    | 循环播放 |
 | WrapMode.PingPong | 从动画开头播放到结尾后，从结尾开始反向播放到开头，如此循环往复 |
 
-对于更多的循环模式，请参考 [WrapMode](https://docs.cocos.com/creator3d/api/zh/enums/animation.wrapmode.html)。
+对于更多的循环模式，请参考 [WrapMode](https://docs.cocos.com/creator/3.0/api/zh/enums/animation.wrapmode.html)。
 
 <b id="f1">1</b> 动画剪辑的所在节点是指引用该动画剪辑的动画状态对象所在动画组件所附加的节点。 [↩](#a1)<br>
 <b id="f2">2</b> 对于数值、四元数以及各种向量，Cocos 提供了相应的可插值类以实现[三次样条插值](https://en.wikipedia.org/wiki/Spline_interpolation)。 [↩](#a2)
