@@ -111,23 +111,23 @@ appid | 必填 | 'wx6ac3f5090a6b99c5' | 微信小游戏 appid，填写后将会�
 
 从 3.0 开始，微信构建项中增加了物理 wasm 项。它属于实验性功能，用于选择 ammo 物理的使用模式：
 
-- __none__ : 使用 __js__ 模式，此模式与以往版本一致；
-- __fallback__ : 自动回退模式，在支持 __wasm__ 的环境中使用 __wasm__，否则回退到 __js__ ；
-- __wasm__ : 使用 __wasm__ 模式；
+- __none__：使用 __js__ 模式，此模式与以往版本一致；
+- __fallback__：自动回退模式，在支持 __wasm__ 的环境中使用 __wasm__，否则回退到 __js__ ；
+- __wasm__：使用 __wasm__ 模式；
 
 在 __fallback__ 中，编辑器会打包 ammo 物理的所有模式代码。两个模式对应的代码包体分别为 __1.2MB__ 和 __0.7MB__，总共接近 __2MB__，这对主包 __4MB__ 限制的影响很大。
 
-解决办法是通过配置子包的方式来减轻主包的压力，这里以将 `ammo-82499473.js` 文件作为子包举例：
+解决办法是通过配置子包来减轻主包的压力，这里以 `ammo-82499473.js` 文件为例：
 
 - 修改 `game.json`，增加子包配置：
 
 ```ts
 {
-  //*,
-  "subpackages": [{
-    "name": "ammo",
-    "root": "cocos-js/ammo-82499473.js"
-  }]
+    //*,
+    "subpackages": [{
+        "name": "ammo",
+        "root": "cocos-js/ammo-82499473.js"
+    }]
 }
 ```
 
@@ -136,30 +136,30 @@ appid | 必填 | 'wx6ac3f5090a6b99c5' | 微信小游戏 appid，填写后将会�
 ```ts
 // 大致在 55 行左右
 window.__globalAdapter.init(function() {
-  fsUtils.loadSubpackage('ammo', null, (err) => {
-    System.import('./cocos-js/ammo-82499473.js').then(() => {
-      return System.import('./application.js').then(({ createApplication }) => {
-        return createApplication({
-          loadJsListFile: (url) => require(url),
-          loadAmmoJsWasmBinary,
-        });
-      }).then((application) => {
-        return onApplicationCreated(application);
-      }).catch((err) => {
-        console.error(err);
-      });
-    })
-  });
+    fsUtils.loadSubpackage('ammo', null, (err) => {
+        System.import('./cocos-js/ammo-82499473.js').then(() => {
+            return System.import('./application.js').then(({ createApplication }) => {
+                return createApplication({
+                    loadJsListFile: (url) => require(url),
+                    loadAmmoJsWasmBinary,
+                });
+            }).then((application) => {
+                return onApplicationCreated(application);
+            }).catch((err) => {
+                console.error(err);
+            });
+        })
+    });
 });
 ```
 
 **注意**：
 
-- 微信 WebAssembly 要求微信版本需为 7.0.17 及以上版本；
+- 微信 WebAssembly 要求微信版本需为 v7.0.17 及以上；
 
-- 微信 WebAssembly 调试基础库需为 2.12.0 及以上版本；
+- 微信 WebAssembly 调试基础库需为 v2.12.0 及以上；
 
-- 推荐使用 fallback 模式以得到最为全面的设备支持；
+- 推荐使用 fallback 模式以得到更全面的设备支持。
 
 ## 参考链接
 

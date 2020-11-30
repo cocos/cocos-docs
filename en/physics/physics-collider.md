@@ -1,6 +1,7 @@
 # Collision Component
 
 ## Getting the Collider Component
+
 The following code works in both __JavaScript__ and __TypeScript__:
 
 ```ts
