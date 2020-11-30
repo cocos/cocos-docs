@@ -15,7 +15,7 @@ This __Cocos Creator 3.0 Preview__ version uses a new future-oriented engine arc
 
 ## How to migrate (not supported in Preview version)
 
-Although **we do not recommend projects under development, especially projects that are about to go live, upgrade to 3.0**, we will still launch the 2.x resource import tool in the 3.0 official version. This tool will support the perfect import of old project resources and the auxiliary import of codes. Code-assisted import will convert Javascript into Typescript, add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the developer's upgrade Difficulty.
+Although **we do not recommend projects under development, especially projects that are about to go live, upgrade to 3.0**, we will still launch the 2.x resource import tool in the 3.0 official version. This tool will support the perfect import of old project resources and the auxiliary import of codes. Code-assisted import will convert Javascript into Typescript, add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the developer's upgrade difficulty.
 
 Users only need to click **File -> Import -> CocosCreator 2D Project** in the main menu, and a window for importing the plug-in will appear.
 
@@ -25,7 +25,7 @@ Users only need to click **File -> Import -> CocosCreator 2D Project** in the ma
 
 Then click the button under the left picture and select the root directory of the __Cocos Creator__ 2D project. The plug-in will automatically traverse all the resources in the project and present it to the user. Users can check the resources to be imported by themselves, and click the import button in the right picture after selection. The import is complete.
 
-If an existing project needs to be upgraded for special reasons, and you encounter technical or workload difficulties, you can also contact slackmoehrle@cocos2d-x.org for assistance!
+If an existing project needs to be upgraded for special reasons, and you encounter technical or workload difficulties, you can also contact [slackmoehrle@cocos2d-x.org](mailto:slackmoehrle@cocos2d-x.org) for assistance!
 
 ## Old version developers quickly get started
 
