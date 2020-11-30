@@ -6,7 +6,7 @@
 
 To make it easier to modify or extend the loading process of engine, the underlying layer of Asset Manager uses a mechanism called **Pipeline and Task**, **Download and Parser** to load resources. This article will focus on **Pipeline and Task**.
 
-Although `loader` used before v3.0 already used the concept of **Pipeline** for resource loading, in Asset Manager we have refactored the pipeline to make the logic clearer and easier to extend. You can extend an existing pipeline, or customize a pipeline using the class `AssetManager.Pipeline` provided by the engine.
+Although `loader` used before v2.4 already used the concept of **Pipeline** for resource loading, in Asset Manager we have refactored the pipeline to make the logic clearer and easier to extend. You can extend an existing pipeline, or customize a pipeline using the class `AssetManager.Pipeline` provided by the engine.
 
 ## Pipeline
 

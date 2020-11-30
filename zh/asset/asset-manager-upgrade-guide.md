@@ -2,11 +2,11 @@
 
 > 文：Santy-Wang、Xunyi
 
-> 本文将详细介绍 loader 升级到 assetManager 时的注意事项，如果你不是 Creator 3D 的老用户，可以跳过此文章。
+> 本文将详细介绍 loader 升级到 assetManager 时的注意事项。
 
-在 Creator 3D v1.2 以前，[获取和加载资源](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/load-assets.md) 是通过 `loader` 模块（包括 `loader.load`、`loader.loadRes`、`loader.loadResDir` 等系列 API）来实现的，`loader` 模块主要用于加载资源。但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，原来的 `loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。
+在 Creator 2.4 以前，[获取和加载资源](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/load-assets.md) 是通过 `loader` 模块（包括 `loader.load`、`loader.loadRes`、`loader.loadResDir` 等系列 API）来实现的，`loader` 模块主要用于加载资源。但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，原来的 `loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。
 
-因此，Creator 3.0 同步了 Creator 2.4 的资源管理模块 —— **Asset Manager**。相较之前的 `loader`，Asset Manager 不但提供了更好的加载性能，而且支持 Asset Bundle、预加载资源以及更加方便的资源释放管理。同时 Asset Manager 还拥有强大的扩展性，大大提升开发者的开发效率和使用体验，我们建议所有开发者都进行升级。
+因此，Creator 在 v2.4 推出了全新的资源管理模块 —— **Asset Manager**。相较之前的 `loader`，Asset Manager 不但提供了更好的加载性能，而且支持 Asset Bundle、预加载资源以及更加方便的资源释放管理。同时 Asset Manager 还拥有强大的扩展性，大大提升开发者的开发效率和使用体验，我们建议所有开发者都进行升级。
 
 为了带来平滑的升级体验，我们仍保留了对 `loader` 相关 API 的兼容。除个别项目使用了无法兼容的特殊用法的 API 必须手动升级外，大部分项目都可以照常运行。之后我们会在时机成熟时才逐渐完全移除对 `loader` 的兼容。如果由于项目周期等原因暂时不方便升级，你可以在确保测试通过的情况下继续保留原来的写法。
 
@@ -15,7 +15,7 @@
 - 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不需要升级。
 - 对 **程序** 而言，影响主要体现在原先代码中使用的 `loader` 的所有 API，都需要改为 `assetManager` 的 API。以下将详细介绍这部分内容。
 
-**注意**：因为 v3.0 支持 Asset Bundle，项目中的分包功能也需要进行升级，具体内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
+**注意**：因为 v2.4 支持 Asset Bundle，项目中的分包功能也需要进行升级，具体内容请参考 [分包升级指南](./subpackage-upgrade-guide.md)。
 
 ## 需要手动升级的情况
 
@@ -28,11 +28,11 @@
 ## 升级步骤
 
 - **备份好旧项目**
-- 在 Dashboard 中使用 Cocos Creator v3.0 打开需要升级的旧项目，Creator 将对有影响的资源重新导入，第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请打开代码编辑工具根据报错或警告信息对代码进行升级。
+- 在 Dashboard 中使用 Cocos Creator v2.4 打开需要升级的旧项目，Creator 将对有影响的资源重新导入，第一次导入时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。此时可能会出现较多的报错或警告信息，别担心，请打开代码编辑工具根据报错或警告信息对代码进行升级。
 
 ### 将 `loader` 相关的 API 替换为 `assetManager` 相关的 API
 
-从 v3.0 开始，不建议使用 `loader`，并且在后续的版本中也会逐渐被彻底移除，请使用新的资源管理模块 `assetManager` 进行替换。
+从 v2.4 开始，不建议使用 `loader`，并且在后续的版本中也会逐渐被彻底移除，请使用新的资源管理模块 `assetManager` 进行替换。
 
 #### 加载相关接口的替换
 
@@ -344,7 +344,7 @@
 
 ### 其他更新
 
-`url` 与 `AssetLibrary` 在 **v3.0** 中已经被移除，请避免使用 `url` 与 `AssetLibrary` 中的任何方法和属性。
+`url` 与 `AssetLibrary` 在 **v2.4** 中已经被移除，请避免使用 `url` 与 `AssetLibrary` 中的任何方法和属性。
 
 `Pipeline` 可由 `AssetManager.Pipeline` 进行替换，请参考以下方式进行替换：
 

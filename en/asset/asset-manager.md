@@ -6,11 +6,9 @@ During the development of the game, it is generally necessary to use a large num
 
 **Asset Manager** is a new resource manager from Creator in v2.4 that replaces the previous `loader`. The new **Asset Manager** resource management module has features for loading resources, finding resources, destroying resources, caching resources, Asset Bundle, and more. Compared with previous `loader`, Asset Manager has better performance, easier-to-use APIs, and greater extensibility. All functions and methods are accessible via `assetManager` and all types and enumerations are accessible via the `AssetManager` namespace.
 
-Creators 3.0 now support for AssetManager too.
-
 **Note**: We will maintain compatibility with `loader` for a period of time, but we strongly recommend using **Asset Manager** consistently for new projects.
 
-If you are a Creator 3D user, you can refer to the following articles for upgrading:
+you can refer to the following articles for upgrading:
 - [Loader Upgrade AssetManager Guide](asset-manager-upgrade-guide.md)
 - [Subpackage Upgrade Asset Bundle Guide](subpackage-upgrade-guide.md)
 

@@ -9,8 +9,6 @@ The **Assets** panel is an important tool for accessing and managing assets, dev
 ## Assets Workflow
 
 - **Assets Workflow** - the general Assets workflow including importing assets, synchronizing assets, locating assets, etc. can be found in the [Assets Workflow](asset-workflow.md) documentation.
-- **Getting and Loading assets** - detailed instructions for getting and loading assets can be found in the [Getting and Loading assets](load-assets.md) documentation.
-- **Sub-package loading of assets** - for game sub-packaging of small game platforms, __Cocos Creator__ provides developers with sub-package loading functions. For detailed instructions, please read the [Subpackage Loading](subpackage.md) documentation.
 
 ## Common Assets type workflow
 

@@ -59,7 +59,7 @@ When a more complex resource release mechanism is used in a project, you can cal
 assetManager.releaseAsset(texture);
 ```
 
-Since the resource management module was upgraded in v3.0, the release interface differs slightly from the previous version:
+Since the resource management module was upgraded in v2.4, the release interface differs slightly from the previous version:
 
 1. The `assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource uuid, resource url, etc. 
 
@@ -69,7 +69,7 @@ Since the resource management module was upgraded in v3.0, the release interface
 
 ## Reference Count Statistics
 
-Before v3.0, Creator chose to give the developer control over the release of all resources, both the resource itself and its dependencies, and the developer had to manually obtain all the dependencies of the resource and select the dependencies to be released. This way gave the developer the most control, and worked well for small projects. But as Creator grows, the size of the project grows, the resources referenced by the scene grows, and other scenes may reuse those resources, which causes increasing complexity in releasing resources and it is very difficult for the developer to master the usage of all resources.
+Before v2.4, Creator chose to give the developer control over the release of all resources, both the resource itself and its dependencies, and the developer had to manually obtain all the dependencies of the resource and select the dependencies to be released. This way gave the developer the most control, and worked well for small projects. But as Creator grows, the size of the project grows, the resources referenced by the scene grows, and other scenes may reuse those resources, which causes increasing complexity in releasing resources and it is very difficult for the developer to master the usage of all resources.
 
 To address this pain point, the Asset Manager provides a set of resource release mechanism based on the reference counting, so that developers can release resources simply and efficiently, without worrying about rapid expansion of the project size.<br>
 It should be noted that the Asset Manager only automatically counts static references between resources and does not truly reflect how the resources are dynamically referenced in the game, you need to control the dynamic references yourself to ensure that the resources are released correctly. The reasons are as follows:
