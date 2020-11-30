@@ -12,8 +12,6 @@ The default release path is in the `build` under the project folder. If you use 
 
 There are usually multiple game scenes in the project, this option allows you to choose the scenes you want to package. During the build process, all assets that depended on these selected scene assets in deep will be packaged. Just select the game scenes that are actually needed can reduce the size of game package after build.
 
-For more information about assets packaging, please refer to the [Build Process with FAQ](./build-guide) documentation.
-
 ### Start Scene
 
 The first scene after entering the game can be set directly in the **Start Scene**. You can also choose other scenes, that are part of your game, in **Included Scenes**. Move the mouse to the scene, a `move up icon` button will appear after the scene, then click the button to set it.

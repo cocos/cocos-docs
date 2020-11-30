@@ -49,7 +49,6 @@ In addition, the game submission, review and release process of the **WeChat Min
 | **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.|
 | **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
 | **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
-| **Build Sub Package** | Optional | Enabled | Whether to enable the Subpackage function.|
 
 ## asset Management for WeChat Mini Game Environment
 

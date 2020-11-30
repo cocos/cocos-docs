@@ -6,26 +6,26 @@ Please check [Native Platform Build Guidelines](./native-options.md), before rea
 
 ![Mac 平台选项](publish-native/mac_options.png)
 
-### Bundle Identifier 包名
+### Render BackEnd
 
-（也称作 Package Name 或 Bundle Identifier），通常以产品网站 url 倒序排列，如 `com.mycompany.myproduct`。
+Three options of metal, gles3 are supported. By default, metal is checked.
 
-**注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+### Bundle Identifier(Package Name)
 
-### 渲染后端
+Usually in descending order by product site URL, e.g. `com.mycompany.myproduct`.
 
-目前支持 metal、gles3 两个选项，默认选择 metal。
+> **Note**: only numbers, letters and underscores can be included in the **Package Name**. In addition, the last part of the **Package Name** must begin with a letter, not with an underscore or a number.
 
-## 编译/运行工程
+## Compile / run project
 
-### 使用构建面板上的编译、运行按钮
+### Use the compile and run buttons on the build panel
 
-支持编译的平台构建，默认情况下会全部执行完毕。如果有需要单独执行编译任务的。可以在构建完成后，单独点击编译按钮即可。编译运行输出的 log 可以打开构建调试工具查看。
+Project will be automatically compiled after the build. If you need to recompile the project after build, you can click the compile button alone. You can open the build debugging tool to view the log output when the project is compiling or running.
 
-点击运行就能直接打开执行编译好的 win32 工程。
+When running, you only need to connect your phone to your computer and click Run.
 
-### 使用 Xcode 编译运行
+### Compile/Run with Xcode
 
-使用 Xcode 打开构建目录下的 `mac\proj` 文件夹后即可编译运行。
+Use Xcode to open the file `mac\proj\.xcodeproj` in the build directory, set the signature in the Xcode panel `General -> Signing`, select the connected device at the top left of Xcode and click the compile button to compile and run.
 
-要了解如何在原生平台上调试，请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
+To learn how to debug on the native platform, please refer to [Native Platform JavaScript Debugging](debug-jsb.md).
