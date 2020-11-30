@@ -34,12 +34,12 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ### 主包压缩类型
 
-设置主包的压缩类型，具体内容可参考文档 Asset Bundle — 压缩类型。
+设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md##压缩类型)。
 
 ### 配置主包为远程包
 
 该项为可选项，需要与 资源服务器地址 选项配合使用。
-勾选后，主包会配置为远程包，并且与其相关依赖资源一起被构建到发布包目录 remote 下的内置 Asset Bundle — main 中。开发者需要将整个 remote 文件夹上传到远程服务器。
+勾选后，主包会配置为远程包，并且与其相关依赖资源一起被构建到发布包目录 remote 下的[内置 Asset Bundle — main](../../asset/bundle.md##内置-Asset-Bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
 
 ### 调试模式
 
