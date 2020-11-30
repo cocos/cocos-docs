@@ -1,16 +1,8 @@
-# 发布到 Mac 平台
+# Publish to Mac
 
-## 环境配置
+Please check [Native Platform Build Guidelines](./native-options.md), before reading this article.
 
-发布原生平台需要配置一些必要的环境，详情请参考 [原生环境配置](setup-native-development.md)。
-
-## 构建选项
-
-一些通用构建参数的配置，请参照 [通用构建参数介绍](build-options.md)。
-
-![native platform](publish-native/native_platform.jpg)
-
-部分原生平台通用的选项配置，请参照 [原生平台构建参数介绍](native-options.md)。
+## Mac Build Options
 
 ![Mac 平台选项](publish-native/mac_options.png)
 
