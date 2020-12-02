@@ -67,7 +67,7 @@ Conversely, we can also execute JavaScript code in C++ / Objective-C by using `e
 Example:
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){{
+Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ``` 
