@@ -184,7 +184,7 @@
       - [UIMeshRenderer 组件参考](ui-system/components/editor/ui-model.md)
       - [UICoordinateTracker 组件参考](ui-system/components/editor/ui-coordinate-tracker.md)
       - [UIOpacity 组件参考](ui-system/components/editor/ui-opacity.md)
-      - [BlockInputEvents 组件参考](ui-system/components/editor/block-input-enents.md)
+      - [BlockInputEvents 组件参考](ui-system/components/editor/block-input-events.md)
       - [WebView 组件参考](ui-system/components/editor/webview.md)
       - [VideoPlayer 组件参考](ui-system/components/editor/videoplayer.md)
       - [SafeArea 组件参考](ui-system/components/editor/safearea.md)
