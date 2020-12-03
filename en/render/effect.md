@@ -17,7 +17,3 @@ Another way is to select the folder in the **Assets** panel where you want to st
 2. Select the Material in the **Assets** panel, and then you can see the new **New Effect** option in the Effect drop-down box of the **Properties** panel.
 
     ![](./material/use-effect.png)
-
-## Rules for writing
-
-Cocos Creator's Effect writing rules is consistent with Cocos Creator 3D, it can be written using VS Code’s Cocos Effect plugin, but the built-in shader variable names are slightly different. Please refer to the [Documentation](https://docs.cocos.com/creator3d/manual/en/material-system/overview.html) for details.
