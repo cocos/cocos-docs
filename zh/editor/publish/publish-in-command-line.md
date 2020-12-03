@@ -40,14 +40,11 @@
   - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从 [这里](https://github.com/cocos-creator/engine/scripts/module-division/division-config.json) 查找到，注意传递的是模块 entry 字段组成的数组。
   - `outputName` - 构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
-  - `platform` - 必填，构建的平台，具体名称参考面板上对于插件名称即可
+  - `platform` - 必填，构建的平台，具体名称参考面板上对应插件名称即可
   - `buildPath` - 构建的工作区，默认为 build 目录下
   - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置），未指定时将使用参与构建场景的第一个
   - `scenes` - 参与构建的场景信息，未指定时默认为全部场景，具体格式为：`{}`
   - `debug` - 是否为 debug 模式，默认关闭
-  <!-- - `inlineSpriteFrames` - 是否内联所有 SpriteFrame -->
-  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON，默认关闭
-  
   - `packAutoAtlas` - 是否开启自动图集，默认关闭
   - `compressTexture` - 是否开启压缩纹理，默认关闭
   - `replaceSplashScreen` - 是否替换插屏，默认关闭
