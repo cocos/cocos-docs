@@ -40,7 +40,7 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 
 ### 设置物理重力
 
-重力是物理表现中非常重要的一点，大部分物理游戏都会使用到重力这一物理特性。默认的重力加速度是 `(0, -320)` 世界单位/秒^2，按照上面描述的转换规则，即 `(0, -10)` 米/秒^2。
+重力是物理表现中非常重要的一点，大部分物理游戏都会使用到重力这一物理特性。默认的重力加速度是 `(0, -10)` 米/秒^2，按照上面描述的转换规则，即 `(0, -320)` 世界单位/秒^2。
 
 如果希望重力加速度为 0，可以这样设置：
 
@@ -48,10 +48,10 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 PhysicsSystem2D.instance.gravity = cc.v2();
 ```
 
-如果希望修改重力加速度为其他值，比如每秒加速降落 10 m/s，那么可以这样设置：
+如果希望修改重力加速度为其他值，比如每秒加速降落 20 m/s，那么可以这样设置：
 
 ```javascript
-PhysicsSystem2D.instance.gravity = cc.v2(0, -10 * PHYSICS_2D_PTM_RATIO);
+PhysicsSystem2D.instance.gravity = cc.v2(0, -20 * PHYSICS_2D_PTM_RATIO);
 ```
 
 ### 设置物理步长
