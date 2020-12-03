@@ -12,7 +12,7 @@ VideoPlayer 是一种视频播放组件，可通过该组件播放本地和远�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **VideoPlayer**，即可添加 VideoPlayer 组件到节点上。
 
-VideoPlayer 的脚本接口请参考 [VideoPlayer API](https://docs.cocos.com/creator3d/api/zh/classes/VideoPlayer.html)。
+VideoPlayer 的脚本接口请参考 [VideoPlayer API](https://docs.cocos.com/creator/3.0/api/zh/classes/VideoPlayer.html)。
 
 ## VideoPlayer 属性
 

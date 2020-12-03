@@ -9,8 +9,6 @@
 ## 资源工作流
 
 - **资源工作流** 通用的资源工作流程包括导入资源、同步资源、定位资源等说明可见：[资源工作流](asset-workflow.md)
-- **资源的获取和加载** 资源的获取和加载的详细说明可见：[获取和加载资源](load-assets.md)
-- **资源的分包加载** 对于小游戏平台的游戏分包，Cocos Creator 为开发者提供了分包加载功能，详细说明可见：[分包加载](subpackage.md)
 
 ## 常见资源类型工作流程
 
@@ -32,3 +30,17 @@
 - [模型资源](mesh.md)
    - [从第三方工具导出模型资源](dcc-export-mesh.md)
 - [动画资源](anim.md)
+
+## 运行时资源管理
+
+- [Asset Manager 概述](asset-manager.md)
+    - [loader 升级 assetManager 指南](asset-manager-upgrade-guide.md)
+    - [子包升级 Asset Bundle 指南](subpackage-upgrade-guide.md)
+    - [动态加载资源](dynamic-load-resources.md)
+    - [Asset Bundle](bundle.md)
+    - [资源释放](release-manager.md)
+    - [下载与解析](downloader-parser.md)
+    - [加载与预加载](preload-load.md)
+    - [缓存管理器](cache-manager.md)
+    - [可选参数](options.md)
+    - [管线与任务](pipeline-task.md)

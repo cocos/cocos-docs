@@ -6,7 +6,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/Sprite** 即可添加 Sprite 组件到节点上。
 
-图像的组件接口请参考 [Sprite API](https://docs.cocos.com/creator3d/api/zh/classes/ui.sprite.html)。
+图像的组件接口请参考 [Sprite API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.sprite.html)。
 
 关于使用可以参考 test-cases-3d 里的 [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) 相关。
 
@@ -29,7 +29,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 如果拖拽的 SpriteFrame 资源是包含在一个 Atlas 图集资源中的，那么 Sprite 的 **Atlas** 属性也会被一起设置。
 
-**若要动态更换 SpriteFrame 则需要先动态加载图片资源，然后再进行替换，详情请参考 [获取和加载资源：动态加载](../../../scripting/load-assets.md#加载-spriteframe-或-texture2d)。**
+**若要动态更换 SpriteFrame 则需要先动态加载图片资源，然后再进行替换，详情请参考 [获取和加载资源：动态加载](../../../asset/dynamic-load-resources.md#加载-spriteframe-或-texture2d)。**
 
 ## 渲染模式
 

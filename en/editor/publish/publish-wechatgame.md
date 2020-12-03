@@ -1,4 +1,4 @@
-# Publishing to WeChat Mini Games
+# Publish to WeChat Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -12,7 +12,7 @@ On the engine side, in order to make the developers' workload as easy as possibl
 
 In addition, the game submission, review and release process of the **WeChat Mini Game** is no different from the **WeChat Mini Program**. Please refer to the [WeChat Mini Game Developer](https://developers.weixin.qq.com/minigame/en/dev/guide/) documentation.
 
-## Publishing WeChat Mini Games with Cocos Creator
+## Publish WeChat Mini Games with Cocos Creator
 
 1. Download the **WeChat DevTools** on [WeChat Official Document](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 
@@ -42,13 +42,13 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 ### Build Options
 
-Options | Optional or not | Default | Explanation
-- | - | - | -
-**appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.
-**Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.
-**Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
-**Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
-**Build Sub Package** | Optional | Enabled | Whether to enable the Subpackage function.
+| Options | Optional or not | Default | Explanation |
+| - | - | - | - |
+| **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.|
+| **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.|
+| **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.|
+| **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
+| **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
 
 ## asset Management for WeChat Mini Game Environment
 
@@ -91,7 +91,7 @@ Specifically, developers need to do:
 
 ## WeChat Mini Game Subpackage Loading
 
-To achieve subpackage loading with **WeChat Mini Game**, please refer to [Subpackage Loading](../../asset/subpackage.md) documentation.
+To achieve subpackage loading with **WeChat Mini Game**, please refer to [Asset Bundle](../../asset/bundle.md) documentation.
 
 ## Platform SDK Access
 
@@ -108,8 +108,8 @@ In addition to pure game content, the **WeChat Mini Game** environment actually 
 
 __Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely implemented. The following modules are still not supported:
 
-  - VideoPlayer
-  - WebView
+- VideoPlayer
+- WebView
 
 It is possible to use the missing functionality by calling the **WeChat's** API directly.
 

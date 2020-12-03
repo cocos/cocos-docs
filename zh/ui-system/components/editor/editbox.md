@@ -6,7 +6,7 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/EditBox** 即可添加 EditBox 组件到节点上。
 
-EditBox 的脚本接口请参考 [EditBox API](https://docs.cocos.com/creator3d/api/zh/classes/ui.editbox.html)。
+EditBox 的脚本接口请参考 [EditBox API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.editbox.html)。
 
 关于使用可以参考 test-cases-3d 里的 [mask](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) 相关。
 

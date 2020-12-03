@@ -6,7 +6,7 @@ Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Toggle** 即可添加 Toggle 组件到节点上。
 
-Toggle 的组件接口请参考 [Toggle API](https://docs.cocos.com/creator3d/api/zh/classes/ui.toggle.html)。
+Toggle 的组件接口请参考 [Toggle API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.toggle.html)。
 
 关于使用可以参考 test-cases-3d 里的 [toggle](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) 相关。
 
