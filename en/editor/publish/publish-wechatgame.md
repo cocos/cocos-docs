@@ -115,17 +115,17 @@ It is possible to use the missing functionality by calling the **WeChat's** API 
 
 ## WebAssembly Support
 
-Starting with Creator 3.0, the WeChat Mini Game build options increased the physics wasm item. It is an experimental function used to select the use mode of ammo physics:
+As of 3.0, the physics wasm option has been added to the WeChat Mini Game builds. It is an experimental feature for choosing the usage mode of ammo physics:
 
 - __none__: use __js__ mode，this is consistent with previous versions;
 - __fallback__: Automatic __fallback__ mode，Use __wasm__ in an environment that supports __wasm__, or revert to __js__;
 - __wasm__: use __wasm__ mode;
 
-In __fallback__ mode, the editor packages all the schema code for ammo physics. The code packets for each of the two modes are per __1.2MB__ and per __0.7MB__, with a total of closer to per __2MB__, and this has a significant impact on the limit of per __4MB__ for the main package.
+In __fallback__, the editor packs all the mode code for the ammo physics. The corresponding code packets for the two modes are __1.2MB__ and __0.7MB__, totaling nearly __2MB__, which has a significant impact on the __4MB__ limit of the main packet.
 
 The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage：
 
-- Modify the `game.json`：
+- Modify `game.json`：
 
 ```ts
 {
@@ -137,7 +137,7 @@ The solution is to reduce the pressure on the main package by configuring the su
 }
 ```
 
-- Modify the `game.js` of `init` function：
+- Modify the `init` function in `game.js`：
 
 ```ts
 window.__globalAdapter.init(function() {
@@ -158,13 +158,10 @@ window.__globalAdapter.init(function() {
 });
 ```
 
-**Note**：
-
-- WeChat WebAssembly required WeChat v7.0.17 and above;
-
-- The WeChat WebAssembly debugging base library needs to be v2.12.0 and above;
-
-- Fallback mode is recommended for the most comprehensive device support.
+> **Note**: The WeChat Separation Engine plugin currently only supports __none__ mode;
+> **Note**: WebAssembly required WeChat v7.0.17 and above;
+> **Note**: The WeChat WebAssembly debugging base library needs to be v2.12.0 and above;
+> **Note**: Fallback mode is recommended for the most comprehensive device support.
 
 ## Reference documentation
 

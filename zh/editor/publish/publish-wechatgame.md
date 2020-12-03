@@ -155,6 +155,8 @@ window.__globalAdapter.init(function() {
 
 **注意**：
 
+- 微信引擎分离插件目前仅支持 __none__ 模式；
+
 - 微信 WebAssembly 要求微信版本需为 v7.0.17 及以上；
 
 - 微信 WebAssembly 调试基础库需为 v2.12.0 及以上；
