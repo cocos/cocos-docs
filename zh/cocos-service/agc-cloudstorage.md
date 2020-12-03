@@ -99,7 +99,7 @@
 
 - 参照上文开通云存储服务并配置华为参数文件后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
 
-- Sample 工程运行到手机后，点击首页的 **Storage** 按钮，即可进入功能界面进行测试。
+- Sample 工程运行到手机后，需要先点击 **Auth** 按钮，完成用户认证后，再返回首页点击 **Storage** 按钮，进入云存储功能界面进行测试。
 
   ![](agc-cloudstorage/cs-sample.jpg)
 
@@ -229,6 +229,7 @@ uploadTask.cancel();
 | :--- | :--- | :--- |
 | bytesTransferred | Number | 已传输的字节 |
 | totalByteCount | Number | 上传文件的总字节 |
+| metadata | Map | 文件元数据，仅上传时返回 |
 
 ### 列举文件
 
