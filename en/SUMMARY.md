@@ -205,7 +205,7 @@
       - [PageViewIndicator Reference](ui-system/components/editor/pageviewindicator.md)
       - [UIMeshRenderer Reference](ui-system/components/editor/ui-model.md)
       - [UIOpacity Reference](ui-system/components/editor/ui-opacity.md)
-      - [BlockInputEvents Reference](ui-system/components/editor/block-input-enents.md)
+      - [BlockInputEvents Reference](ui-system/components/editor/block-input-events.md)
       - [WebView Reference](ui-system/components/editor/webview.md)
       - [VideoPlayer Reference](ui-system/components/editor/videoplayer.md)
       - [SafeArea Reference](ui-system/components/editor/safearea.md)
