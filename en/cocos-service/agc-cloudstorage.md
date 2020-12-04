@@ -27,6 +27,18 @@ Set your email title format as: **[Cloud Storage]-[Company name]-[Developer acco
 
 Cloud Storage is in beta testing and uses a **limited free** usage policy. That is, you can use the service for free within a specified quota.
 
+### Version Update Description
+
+- Latest Version: 0.5.2_1.3.1.100
+
+    - Fix the crash of the `updateFileMetadata` method.
+    - Add some AGCStorageReference interfaces.
+    - Add a new part to obtain the Android application storage directory interface.
+
+- v0.5.0_1.3.0.300
+
+    - Integrated Huawei AGC Cloud Storage service.
+
 ## Enable Cloud Storage Service
 
 - Ensure that the Cloud Storage service test qualification application has been passed.

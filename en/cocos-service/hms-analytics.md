@@ -16,7 +16,15 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 ### Version Update Description
 
-- Latest Version: 0.5.3_5.0.1
+- Latest Version: 0.5.5_5.0.5.301
+
+    - Update the Analytics SDK to version 5.0.5.301.
+    - Add support for the setting of the installation source.
+    - Add `setReportPolicies` to set the report policies.
+    - Add predefined events and parameters specific to the gaming and e-commerce industries.
+    - Pass `null` or `undefined` in the `setUserProfile` method, can delete the corresponding user profile.
+
+- v0.5.3_5.0.1
 
     - Integrated Huawei HMS Analytics Kit.
 
