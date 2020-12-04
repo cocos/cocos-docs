@@ -38,7 +38,7 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 - Refer to the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) documentation to complete developer registration, app creation, enable Huawei Analysis Service parameter configuration, and enable the API.
 
-- At the bottom of the Analytics Kit service panel, fill in the **App installation source**. For example, if the app installation source is AppGallery, you can customize it as `AppGallery`. The name can contain a maximum of 128 characters, including letters, digits, underscores (_), hyphens (-), and spaces. The name cannot start or end with a space if it contains only digits.
+- Fill in **App installation source** in "Params Config" of Analytics Kit service panel. For example, if the installation source of the application is Huawei AppGallery, you can fill in `AppGallery`. The installation source name can contain up to 128 characters, including letters, digits, underscores (_), hyphens (-), and spaces. The name cannot start or end with a space if it contains only digits.
 
   ![](hms-analytics/ana-filter.jpg)
 
@@ -336,7 +336,7 @@ huawei.hms.analytics.analyticsService.pageEnd("pageName1");
 
 | Parameter | Description | 
 | :---------- | :---------- |  
-| policies | Policy for data reporting. Four policies are supported. One or more policies can be specified.<br>**ON_APP_LAUNCH_POLICY**: An event is reported immediately when this policy is set. After that, an event is reported each time the app is started.<br>**ON_MOVE_BACKGROUND_POLICY**: This event is reported when an app is switched to the background (including app exit).<br>**ON_SCHEDULED_TIME_POLICY**: An event is reported at the specified interval. The value ranges from 60 to 1800, in seconds. If the specified value is beyond the value range, the boundary value is used.<br>**ON_CACHE_THRESHOLD_POLICY**: An event is reported when the number of cached events reaches the threshold. The value ranges from 30 to 1000. The default value is 30. If the specified value is beyond the value range, the boundary value is used.| 
+| policies | Policy for data reporting. Four policies are supported, and multiple policies can be set at the same time.<br>**ON_APP_LAUNCH_POLICY**: An event is reported immediately when this policy is set. After that, an event is reported each time the app is started.<br>**ON_MOVE_BACKGROUND_POLICY**: This event is reported when an app is switched to the background (including app exit).<br>**ON_SCHEDULED_TIME_POLICY**: An event is reported at the specified interval. The value ranges from 60 to 1800, in seconds. If the specified value is beyond the value range, the boundary value is used.<br>**ON_CACHE_THRESHOLD_POLICY**: An event is reported when the number of cached events reaches the threshold. The value ranges from 30 to 1000. The default value is 30. If the specified value is beyond the value range, the boundary value is used.| 
 
 **Note**:
 
