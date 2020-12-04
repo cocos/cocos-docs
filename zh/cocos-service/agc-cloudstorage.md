@@ -229,7 +229,7 @@ uploadTask.cancel();
 | :--- | :--- | :--- |
 | bytesTransferred | Number | 已传输的字节 |
 | totalByteCount | Number | 上传文件的总字节 |
-| metadata | Map | 文件元数据，仅上传时返回 |
+| metadata | Map | 文件元数据，仅在上传时返回 |
 
 ### 列举文件
 

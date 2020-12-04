@@ -221,7 +221,7 @@ Developer can obtain information from the `task` event callback.
 | :--- | :--- | :--- |
 | bytesTransferred | Number | Obtains passed bytes. |
 | totalByteCount | Number | Obtains the total number of bytes of an uploaded file. |
-| metadata | Map | Obtains the file metadata, return only when uploading. |
+| metadata | Map | OObtain file metadata and return it only on upload. |
 
 ### Listing Files
 
