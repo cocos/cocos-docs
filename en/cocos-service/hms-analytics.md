@@ -38,7 +38,7 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 - Refer to the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) documentation to complete developer registration, app creation, enable Huawei Analysis Service parameter configuration, and enable the API.
 
-- At the bottom of the Analytics Kit service panel, fill in the **App installation source** item. For example, if the app installation source is AppGallery, you can customize it as `AppGallery`. The name can contain a maximum of 128 characters, including letters, digits, underscores (_), hyphens (-), and spaces. The name cannot start or end with a space if it contains only digits.
+- At the bottom of the Analytics Kit service panel, fill in the **App installation source**. For example, if the app installation source is AppGallery, you can customize it as `AppGallery`. The name can contain a maximum of 128 characters, including letters, digits, underscores (_), hyphens (-), and spaces. The name cannot start or end with a space if it contains only digits.
 
   ![](hms-analytics/ana-filter.jpg)
 
