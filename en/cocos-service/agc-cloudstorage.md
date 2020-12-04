@@ -27,6 +27,18 @@ Set your email title format as: **[Cloud Storage]-[Company name]-[Developer acco
 
 Cloud Storage is in beta testing and uses a **limited free** usage policy. That is, you can use the service for free within a specified quota.
 
+### Version Update Description
+
+- Latest Version: 0.5.2_1.3.1.100
+
+    - Fix the crash of the `updateFileMetadata` method.
+    - Add some AGCStorageReference interfaces.
+    - Add a new part to obtain the Android application storage directory interface.
+
+- v0.5.0_1.3.0.300
+
+    - Integrated Huawei AGC Cloud Storage service.
+
 ## Enable Cloud Storage Service
 
 - Ensure that the Cloud Storage service test qualification application has been passed.
@@ -91,7 +103,7 @@ Developer can get a quick taste of the Cloud Storage service with the sample pro
 
 - After enabling the Cloud Storage service and configuring the HUAWEI configuration file as described above, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
-- Once the Sample project is running on the phone, click the **Storage** button on the homepage for testing.
+- Once the Sample project is running on the phone, click the **Auth** button first, after completing user authentication, then back to homepage and press **Storage** button for testing.
 
   ![](agc-cloudstorage/cs-sample.jpg)
 
@@ -221,6 +233,7 @@ Developer can obtain information from the `task` event callback.
 | :--- | :--- | :--- |
 | bytesTransferred | Number | Obtains passed bytes. |
 | totalByteCount | Number | Obtains the total number of bytes of an uploaded file. |
+| metadata | Map | OObtain file metadata and return it only on upload. |
 
 ### Listing Files
 

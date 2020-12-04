@@ -16,7 +16,15 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 ### Version Update Description
 
-- Latest Version: 0.5.3_5.0.1
+- Latest Version: 0.5.5_5.0.5.301
+
+    - Update the Analytics SDK to version 5.0.5.301.
+    - Add support for the setting of the installation source.
+    - Add `setReportPolicies` to set the report policies.
+    - Add predefined events and parameters specific to the gaming and e-commerce industries.
+    - Pass `null` or `undefined` in the `setUserProfile` method, can delete the corresponding user profile.
+
+- v0.5.3_5.0.1
 
     - Integrated Huawei HMS Analytics Kit.
 
@@ -29,6 +37,10 @@ With Analytics Kit's on-device data collection SDK, you can:
   ![](hms-analytics/ana-provisioning.jpeg)
 
 - Refer to the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) documentation to complete developer registration, app creation, enable Huawei Analysis Service parameter configuration, and enable the API.
+
+- Fill in **App installation source** in "Params Config" of Analytics Kit service panel. For example, if the installation source of the application is Huawei AppGallery, you can fill in `AppGallery`. The installation source name can contain up to 128 characters, including letters, digits, underscores (_), hyphens (-), and spaces. The name cannot start or end with a space if it contains only digits.
+
+  ![](hms-analytics/ana-filter.jpg)
 
 ### Configs HUAWEI Config File
 
@@ -314,6 +326,36 @@ huawei.hms.analytics.analyticsService.pageStart("pageName1", "pageClassOverride1
 
 ```js
 huawei.hms.analytics.analyticsService.pageEnd("pageName1");
+```
+
+#### Sets the automatic event reporting policy
+
+`setReportPolicies(...reportPolicies: ReportPolicy[])`
+
+**Parameter Description**:
+
+| Parameter | Description | 
+| :---------- | :---------- |  
+| policies | Policy for data reporting. Four policies are supported, and multiple policies can be set at the same time.<br>**ON_APP_LAUNCH_POLICY**: An event is reported immediately when this policy is set. After that, an event is reported each time the app is started.<br>**ON_MOVE_BACKGROUND_POLICY**: This event is reported when an app is switched to the background (including app exit).<br>**ON_SCHEDULED_TIME_POLICY**: An event is reported at the specified interval. The value ranges from 60 to 1800, in seconds. If the specified value is beyond the value range, the boundary value is used.<br>**ON_CACHE_THRESHOLD_POLICY**: An event is reported when the number of cached events reaches the threshold. The value ranges from 30 to 1000. The default value is 30. If the specified value is beyond the value range, the boundary value is used.| 
+
+**Note**:
+
+- The preceding reporting policies take effect only when the debug mode is disabled.
+- **onMoveBackgroundPolicy** and **onCacheThresholdPolicy** are default policies. If no policy is set, the two policies automatically take effect. If **onMoveBackgroundPolicy** is not included in the configured event reporting policies, this policy will not take effect.
+- **onCacheThresholdPolicy** is mandatory. This policy is effective no matter what policy has been configured. You can change the threshold as needed.
+- Event reporting policies will be updated if a policy setting API is called multiple times. Only the policy set by the last API is effective.
+- When a policy is met and event reporting is triggered, the event is cached locally if no network is available and will be reported again when reporting conditions are met next time.
+- The specified event reporting policies are saved persistently.
+- If the app is uninstalled when only **onAppLaunchPolicy** or **onScheduledTimePolicy** is specified, events of the app may be lost.
+
+**Example**:
+
+```js
+let ReportPolicy = huawei.hms.analytics.ReportPolicy;
+let moveBackgroundPolicy = ReportPolicy.ON_MOVE_BACKGROUND_POLICY;
+let scheduledTimePolicy = ReportPolicy.ON_SCHEDULED_TIME_POLICY;
+scheduledTimePolicy.threshold = 600;
+huawei.hms.analytics.analyticsService.setReportPolicies(moveBackgroundPolicy, scheduledTimePolicy);
 ```
 
 #### Enables the debug log function

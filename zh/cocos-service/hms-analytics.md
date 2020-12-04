@@ -16,7 +16,15 @@
 
 ### 版本更新说明
 
-- 当前版本：0.5.3_5.0.1
+- 当前版本：0.5.5_5.0.5.301
+
+    - 更新分析服务 SDK 到版本 5.0.5.301。
+    - 新增对设置应用安装来源的支持。
+    - 新增 `setReportPolicies` 接口来设置上报策略。
+    - 新增部分游戏行业和电商行业的预置事件及参数。
+    - `setUserProfile` 方法中传入 `null` 或者 `undefined`，可以删除对应的用户属性。
+
+- v0.5.3_5.0.1
 
     - 集成华为 HMS 分析服务。
 
@@ -31,6 +39,10 @@
   ![](hms-analytics/ana-provisioning.jpeg)
 
 - 参考 [配置 AppGallery Connect](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-config-agc-0000001050163815) 文档，完成开发者注册、创建应用、开通华为分析服务参数配置和开启 API 步骤。
+
+- 在分析服务面板的 **参数配置** 中填写 **应用安装来源**。例如：应用的安装来源是华为应用市场，就可以填写 **AppGallery**。安装来源命名规范：支持英文字母、阿拉伯数字、下划线、中划线和空格，长度不超过 128 个字符。当命名仅包含数字时不能以空格为开头/结尾，
+
+  ![](hms-analytics/ana-filter.jpg)
 
 ### 配置华为参数文件
 
@@ -316,6 +328,36 @@ huawei.hms.analytics.analyticsService.pageStart("pageName1", "pageClassOverride1
 
 ```js
 huawei.hms.analytics.analyticsService.pageEnd("pageName1");
+```
+
+#### 设置自动上报策略
+
+`setReportPolicies(...reportPolicies: ReportPolicy[])`
+
+**参数说明**：
+
+| 参数 | 说明 |  
+| :---------- | :---------- |  
+| policies | 支持四种上报策略，可以同时设置多个策略。<br>**ON_APP_LAUNCH_POLICY**：应用启动上报策略，当应用启动时会立即上报一次，此后每次应用启动时都会上报一次。<br>**ON_MOVE_BACKGROUND_POLICY**：应用切后台（包括应用退出）上报策略。<br>**ON_SCHEDULED_TIME_POLICY**：定时上报策略，根据指定的间隔时间轮循上报事件，取值范围为 60-1800 秒，如果设置的值超过给定范围则取边界值。<br>**ON_CACHE_THRESHOLD_POLICY**：阈值上报策略，缓存事件条数达到阈值时上报事件，取值范围为 30-1000 条（默认 30 条），如果设置的值超过给定范围则取边界值。| 
+
+**说明**：
+
+- 以上上报策略仅在 **非调试模式** 下生效。
+- 应用切后台上报策略和阈值上报策略为默认策略，当没有设置上报策略时，这两种策略自动生效。如果设置了上报策略但是不包含应用切后台上报策略，此时应用切后台上报策略不会生效。
+- 阈值上报策略为必选策略，无论设置什么策略，该策略都会生效，但是可以改变它的阈值。
+- 多次调用设置上报策略的接口，会刷新上报策略，仅最后一次设置的策略生效，请谨慎多次调用。
+- 当策略满足触发事件上报时，如果没有网络，则会将事件缓存在本地，等待下次条件满足继续上报。
+- 上报策略持久化保存。
+- 如果仅设置启动上报或者定时上报，然后卸载应用，可能会造成部分打点数据丢失。
+
+**示例**：
+
+```js
+let ReportPolicy = huawei.hms.analytics.ReportPolicy;
+let moveBackgroundPolicy = ReportPolicy.ON_MOVE_BACKGROUND_POLICY;
+let scheduledTimePolicy = ReportPolicy.ON_SCHEDULED_TIME_POLICY;
+scheduledTimePolicy.threshold = 600;
+huawei.hms.analytics.analyticsService.setReportPolicies(moveBackgroundPolicy, scheduledTimePolicy);
 ```
 
 #### 打开调试日志
