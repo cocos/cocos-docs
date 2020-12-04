@@ -28,7 +28,11 @@ A user can tap an in-app message to access the destination specified during mess
 
 ### Version Update Description
 
-- Latest Version: 0.5.3_1.4.0
+- Latest Version: 0.5.6_1.4.2.301
+
+    - Updated SDK to version 1.4.2.301.
+
+- v0.5.3_1.4.0
 
     - Integrated Huawei AGC App Messaging service.
 
