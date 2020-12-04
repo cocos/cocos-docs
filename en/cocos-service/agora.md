@@ -21,7 +21,11 @@ Agora Live Interactive Audio Streaming boasts a flexible combination of function
 
 ### Version Update Description
 
-- Latest Version: 1.2.1_3.1.2
+- Latest Version: 1.3.1_3.1
+
+    - Added video module and optimize performance.
+
+- v1.2.1_3.1.2
 
     - Adapt to Cocos Creator 2.4.x.
 
@@ -87,7 +91,7 @@ After the service is activated, Cocos Service will automatically activate the Ag
 
 ## Developer Guide
 
-Please refer to [Agora Live Interactive Audio Streaming - Implementation](https://docs.agora.io/en/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation) documentation.
+Please refer to [Agora Live Interactive Audio Streaming - Implementation](https://docs.agora.io/en/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation) and [Start a Video Call](https://docs.agora.io/en/Video/start_call_cocos_creator?platform=Android) documentations.
 
 ## Reference Links
 
