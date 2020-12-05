@@ -21,7 +21,11 @@ Agora 音频互动直播提供丰富的功能，你可以根据自己的场景�
 
 ### 版本更新说明
 
-- 当前版本：1.2.1_3.1.2
+- 当前版本：1.3.1_3.1
+
+    - 新增视频模块，优化性能。
+
+- v1.2.1_3.1.2
 
     - 适配 Cocos Creator 2.4.x。
 
@@ -89,7 +93,7 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## 开发指南
 
-请参考 [音频互动直播 — 快速开始](https://docs.agora.io/cn/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation)。
+请参考 [音频互动直播 — 快速开始](https://docs.agora.io/cn/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation) 和 [实现视频通话](https://docs.agora.io/cn/Video/start_call_cocos_creator?platform=Android)。
 
 ## 相关参考链接
 
