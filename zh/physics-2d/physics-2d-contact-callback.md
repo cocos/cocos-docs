@@ -1,6 +1,6 @@
 # 碰撞回调
 
-当物体在场景中移动并碰撞到其他物体时，物理引擎会处理大部分必要的碰撞检测，我们一般不需要关心这些情况。但是制作物理游戏最主要的点是有些情况下物体碰撞后应该发生些什么，比如角色碰到怪物后会死亡，或者球在地上弹动时应该产生声音等。
+当物体在场景中移动并碰撞到其它物体时，物理引擎会处理大部分必要的碰撞检测，我们一般不需要关心这些情况。但是制作物理游戏最主要的点是有些情况下物体碰撞后应该发生些什么，比如角色碰到怪物后会死亡，或者球在地上弹动时应该产生声音等。
 
 我们需要一个方式来获取到这些碰撞信息，物理引擎提供的方式是在碰撞发生时产生回调，在回调里我们可以根据产生碰撞的两个碰撞体的类型信息来判断需要作出什么样的动作。
 
@@ -16,7 +16,7 @@
 
 注册一个碰撞回调函数有两种方式，一种是通过指定的 collider 注册；另一种是通过 2D 物理系统注册一个全局的回调函数。
 
-**注意**： Builtin 2D 物理模块只会发送 `BEGIN_CONTACT` 和 `END_CONTACT` 回调消息。
+**注意**：Builtin 2D 物理模块只会发送 `BEGIN_CONTACT` 和 `END_CONTACT` 回调消息。
 
 ```js
 @ccclass('TestContactCallBack')
@@ -59,11 +59,11 @@ export class TestContactCallBack extends Component {
 
 ```
 
-上面的代码示例演示了如何在脚本中添加了所有的碰撞回调函数。一共有四种回调，每种回调函数都有三个参数，详情可查看下方的 **回调参数** 说明。每种回调函数的作用如注释所示，开发者可以根据自己的需求实现相应的回调函数。
+上面的代码示例演示了如何在脚本中添加所有的碰撞回调函数。回调一共有四种，每种回调函数都有三个参数，详情可查看下方的 **回调参数** 说明。每种回调函数的作用如注释所示，开发者可以根据自己的需求实现相应的回调函数。
 
 ## Box2D 物理模块碰撞回调的顺序
 
-Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过拆分一个简单示例的碰撞过程来查看碰撞回调函数的回调顺序和回调的时机，假设有两个刚体正相互移动，三角形往右运动，方块往左运动，即将碰撞到了一起。
+Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过拆分一个简单示例的碰撞过程来查看碰撞回调函数的回调顺序和回调的时机。假设有两个刚体正相互移动，三角形往右运动，方块往左运动，它们即将碰撞到一起。
 
 ![anatomy-aabbs](./image/anatomy-aabbs.png)
 
@@ -116,7 +116,7 @@ Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过�
 
 - **selfCollider**：指的是回调脚本的节点上的碰撞体；
 - **otherCollider**：指的是发生碰撞的另一个碰撞体；
-- **contact**：是一个 [IPhysicsContact ](https://docs.cocos.com/creator/3.0/api/en/interfaces/physics2d.iphysicscontact.html) 类型的接口。包含碰撞最主要的信息。其中比较常用的信息就是碰撞的位置和法向量，`contact` 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。注意，Builtin 物理模块这个参数为空。
+- **contact**：是一个 [IPhysicsContact](https://docs.cocos.com/creator/3.0/api/en/interfaces/physics2d.iphysicscontact.html) 类型的接口。包含碰撞最主要的信息。其中比较常用的信息就是碰撞的位置和法向量，`contact` 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。注意，在 Builtin 物理模块这个参数为空。
 
 ### worldManifold
 
@@ -134,7 +134,7 @@ const normal = worldManifold.normal;
 
   ![world-manifold-points](./image/world-manifold-points.png)
 
-  **注意**：不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
+  **注意**：不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其它的碰撞示例。
 
   ![collision-points-1](./image/collision-points-1.png)
 
@@ -148,18 +148,18 @@ const normal = worldManifold.normal;
 
   ![world-manifold-normal](./image/world-manifold-normal.png)
 
-上图所示的线条即碰撞点上的法向量，在这个碰撞中，解决碰撞最快的途径是添加冲量将三角形往左上推，将方块往右下推。需要注意的是这里的法向量只是一个方向，并不带有位置属性，也不会连接到这些碰撞点中的任何一个。
+  上图所示的线条即碰撞点上的法向量，在这个碰撞中，解决碰撞最快的途径是添加冲量将三角形往左上推，将方块往右下推。需要注意的是这里的法向量只是一个方向，并不带有位置属性，也不会连接到这些碰撞点中的任何一个。
 
-  你还需要注意的是 **碰撞法向量并不是碰撞体碰撞的角度**，他只会指明可以解决两个碰撞体相互覆盖这一问题最短的方向。比如上面的例子中如果三角形移动得更快一点，覆盖的情形像下图所示的话：
+  你还需要注意的是 **碰撞法向量并不是碰撞体碰撞的角度**，它只会指明可以解决两个碰撞体相互覆盖这一问题最短的方向。比如上面的例子中如果三角形移动得更快一点，覆盖的情形像下图所示的话：
 
   ![world-manifold-normal-2](./image/world-manifold-normal-2.png)
 
   那么最短的方式将会是把三角形往右上推，所以使用法向量来作为碰撞角度不是一个好主意。如果想要知道碰撞的真正方向，可以使用以下方式获取两个碰撞体相互碰撞时在碰撞点上的相对速度。
 
   ```ts
-  var vel1 = triangleBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
-  var vel2 = squareBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
-  var relativeVelocity = vel1.sub(vel2);
+  const vel1 = triangleBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
+  const vel2 = squareBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
+  const relativeVelocity = vel1.sub(vel2);
   ```
 
 ### 禁用 contact
@@ -168,7 +168,7 @@ const normal = worldManifold.normal;
 contact.disabled = true;
 ```
 
-禁用 contact 会使物理引擎在计算碰撞时会忽略掉这次碰撞，禁用将会持续到碰撞完成，除非在其他回调中再将这个 contact 启用。
+禁用 contact 会使物理引擎在计算碰撞时会忽略掉这次碰撞，禁用将会持续到碰撞完成，除非在其它回调中再将这个 contact 启用。
 
 或者如果只想在本次物理处理步骤中禁用 contact，可以使用 `disabledOnce`。
 
@@ -188,4 +188,4 @@ contact.setFriction(friction);
 contact.setRestitution(restitution);
 ```
 
-注意这些修改只会在本次物理处理步骤中生效。
+注意：这些修改只会在本次物理处理步骤中生效。
