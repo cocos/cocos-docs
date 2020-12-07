@@ -22,6 +22,8 @@
   - [动画编辑器](editor/animation/index.md)
   - [偏好设置](editor/preferences/index.md)
   - [项目设置](editor/project/index.md)
+    - [物理配置](editor/project/physics-configs.md)
+    - [骨骼贴图布局设置](editor/project/joints-texture-layout.md)
   - [引擎定制工作流程](editor/engine-customization/engine-customization.md)
 
 - [项目预览调试](editor/preview/index.md)

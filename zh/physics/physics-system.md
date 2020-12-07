@@ -20,11 +20,11 @@
 
 | 属性 | 说明 |
 | :--- | :--- |
-| **enable** | 是否开启物理系统，默认为`true` |
+| **enable** | 是否开启物理系统，默认为 `true` |
 | **gravity** | 物理世界的重力值，默认为 `(0, -10, 0)` |
-| **allowSleep** | 是否允许物理系统自动休眠，默认为`true` |
-| **maxSubSteps** | 每帧模拟的最大子步数，默认为`2` |
-| **fixedTimeStep** | 每次子步进消耗的时间，默认为`1/60` |
+| **allowSleep** | 是否允许物理系统自动休眠，默认为 `true` |
+| **maxSubSteps** | 每帧模拟的最大子步数，默认为 `2` |
+| **fixedTimeStep** | 每次子步进消耗的时间，默认为 `1/60` |
 | **sleepThreshold** | 进入休眠的默认速度临界值 |
 | **autoSimulation** | 是否开启自动模拟，默认为 `true` |
 | **defaultMaterial** | 获取默认物理材质（只读） |
@@ -36,8 +36,4 @@
 
 | 接口 | 签名 | 说明 |
 | :--- | :--- | :--- |
-| resetAccumulator | `(time=0)=>void` | 重置累计的时间总量（可以考虑在切换场景时进行重置） |
-
----
-
-继续前往 [物理组件](physics-component.md) 说明文档。
+| resetAccumulator | `(time = 0) => void` | 重置累计的时间总量（可以考虑在切换场景时进行重置） |
