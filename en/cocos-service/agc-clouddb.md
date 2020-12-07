@@ -24,7 +24,16 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 ### Version Update Description
 
-- Latest Version: 0.5.0_1.2.1.301
+- Latest Version: 0.5.2_1.2.3.301
+
+    - Updated SDK to version 1.2.3.301.
+    - Fix the bug that the querier can only query string type.
+    - Add `openCloudZone2` asynchronous method, `remove` remove listener method.
+    - Add `getObjectTypeName` and `getPackageName` methods to the query result set object.
+    - Remove `setUpgradeProcessMode`, `deleteAll` method.
+    - If you are using the `data.zoneId` parameter in the callback, please modify it to `data.zone.zoneId`.
+
+- v0.5.0_1.2.1.301
 
     - Integrated Huawei AGC Cloud DB service.
 
@@ -119,7 +128,7 @@ If you need to handle the error return, you can set up the `error` listener.
 **Example**:
 
 ```js
-huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${data.zoneId}][${data.typeName}] ${data.errCode}:${data.errMsg}`), this);
+huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${data.zone.zoneId}][${data.typeName}] ${data.errCode}:${data.errMsg}`), this);
 ```
 
 | Parameter | Description |  
@@ -134,7 +143,7 @@ If you need to use the [Updating Listening in Real Time](https://developer.huawe
 **Example**:
 
 ```js
-huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscribe : [${data.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
+huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscribe : [${data.zone.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
 ```
 
 | Parameter | Description |  
@@ -147,9 +156,11 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 
 #### Open the Cloud DB zone
 
-Open the cloud DB zone by calling the `openCloudDBZone` method.
+Open the cloud DB zone by calling the `openCloudDBZone` or `openCloudDBZone2` method.
 
 `openCloudDBZone(config: AGCCloudDBZoneConfig, isAllowToCreate: boolean): AGCCloudDBZone`
+
+`openCloudDBZone2(config: AGCCloudDBZoneConfig, isAllowToCreate: boolean): void`
 
 | Parameter | Description |  
 | :--- | :--- |
@@ -161,6 +172,13 @@ Open the cloud DB zone by calling the `openCloudDBZone` method.
 ```js
 let config = huawei.agc.db.AGCCloudDBZoneConfig.createConfig("test", huawei.agc.db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
 this._zone = huawei.agc.db.dbService.openCloudDBZone(config, true);
+```
+
+```js
+huawei.agc.db.dbService.on("db", data => this._zone = data.zone, this);
+
+let config = huawei.agc.db.AGCCloudDBZoneConfig.createConfig("test", huawei.agc.db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
+huawei.agc.db.dbService.openCloudDBZone2(config, true);
 ```
 
 ### Inserting Data
@@ -226,21 +244,6 @@ Developer can use the **synchronized** `deleteSync` method to delete data, it su
 let query = huawei.agc.db.AGCCloudDBZoneQuery.where("test", "deleteTest").lessThan('id', "5");
 let count = this._zone.deleteSync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_FROM_CLOUD_PRIOR);
 console.log('Cloud DB', 'delete count : ' + count);
-```
-
-Developer can also use the **synchronized** `deleteAllSync` method to delete all data of the Cloud DB zone.
-
-`deleteAllSync(typeName: string): number`
-
-| Parameter | Description |  
-| :--- | :--- |
-| typeName | Name of Storage instance. |
-
-**Example**:
-
-```js
-let count = this._zone.deleteAllSync("test");
-this.console.log('Cloud DB', 'delete count : ' + count);
 ```
 
 ## Reference Links

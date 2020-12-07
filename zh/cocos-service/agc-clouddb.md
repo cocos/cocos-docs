@@ -24,7 +24,16 @@
 
 ### 版本更新说明
 
-- 当前版本：0.5.0_1.2.1.301
+- 当前版本：0.5.2_1.2.3.301
+
+    - 升级 SDK 版本到 1.2.3.301。
+    - 修复查询器只能查询 String 类型的 bug。
+    - 新增 `openCloudZone2` 异步接口、`remove` 移除监听器接口。
+    - 查询结果集对象添加 `getObjectTypeName` 和 `getPackageName` 方法。
+    - 移除 `setUpgradeProcessMode` 和 `deleteAll` 方法。
+    - 回调中若使用 `data.zoneId` 参数，请修改为 `data.zone.zoneId`。
+
+- v0.5.0_1.2.1.301
 
     - 集成华为 AGC 云数据库服务。
 
@@ -121,7 +130,7 @@
 **示例**：
 
 ```js
-huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${data.zoneId}][${data.typeName}] ${data.errCode}:${data.errMsg}`), this);
+huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${data.zone.zoneId}][${data.typeName}] ${data.errCode}:${data.errMsg}`), this);
 ```
 
 | 参数 | 说明 |  
@@ -136,7 +145,7 @@ huawei.agc.db.dbService.on("error", data => console.log("Cloud DB", `error : [${
 **示例**：
 
 ```js
-huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscribe : [${data.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
+huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscribe : [${data.zone.zoneId}][${data.typeName}][${data.queryId}][${data.subscribeId}] ${data.result}`), this);
 ```
 
 | 参数 | 说明 |  
@@ -149,9 +158,11 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 
 #### 打开 Cloud DB zone
 
-通过 `openCloudDBZone` 方法，打开已配置的 Cloud DB zone。
+通过 `openCloudDBZone` 或 `openCloudDBZone2` 方法，打开已配置的 Cloud DB zone。
 
 `openCloudDBZone(config: AGCCloudDBZoneConfig, isAllowToCreate: boolean): AGCCloudDBZone`
+
+`openCloudDBZone2(config: AGCCloudDBZoneConfig, isAllowToCreate: boolean): void`
 
 | 参数名 | 说明 |
 | :--- | :--- |
@@ -163,6 +174,13 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 ```js
 let config = huawei.agc.db.AGCCloudDBZoneConfig.createConfig("test", huawei.agc.db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
 this._zone = huawei.agc.db.dbService.openCloudDBZone(config, true);
+```
+
+```js
+huawei.agc.db.dbService.on("db", data => this._zone = data.zone, this);
+
+let config = huawei.agc.db.AGCCloudDBZoneConfig.createConfig("test", huawei.agc.db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
+huawei.agc.db.dbService.openCloudDBZone2(config, true);
 ```
 
 ### 写入数据
@@ -228,21 +246,6 @@ let query = huawei.agc.db.AGCCloudDBZoneQuery.where("test", "deleteTest").lessTh
 let query = huawei.agc.db.AGCCloudDBZoneQuery.where("test", "deleteTest").lessThan('id', "5");
 let count = this._zone.deleteSync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_FROM_CLOUD_PRIOR);
 console.log('Cloud DB', 'delete count : ' + count);
-```
-
-也可以通过 `deleteAllSync` 方法，删除整个 Cloud DB zone 的数据。
-
-`deleteAllSync(typeName: string): number`
-
-| 参数名 | 说明 |
-| :--- | :--- |
-| typeName | 对象类型名称 |
-
-**示例**：
-
-```js
-let count = this._zone.deleteAllSync("test");
-this.console.log('Cloud DB', 'delete count : ' + count);
 ```
 
 ## 相关参考链接
