@@ -117,17 +117,17 @@ It is possible to use the missing functionality by calling the **WeChat's** API 
 
 As of 3.0, the physics wasm option has been added to the WeChat Mini Game builds. It is an experimental feature for choosing the usage mode of __ammo__ physics:
 
-- __none__: use __js__ mode，this is consistent with previous versions;
-- __fallback__: Automatic __fallback__ mode，Use __wasm__ in an environment that supports __wasm__, or revert to __js__;
+- __none__: use __js__ mode, this is consistent with previous versions;
+- __fallback__: Automatic __fallback__ mode, Use __wasm__ in an environment that supports __wasm__, or revert to __js__;
 - __wasm__: use __wasm__ mode.
 
 In __fallback__, the editor packs all the mode code for the ammo physics. The corresponding code packets for the two modes are __1.2MB__ and __0.7MB__, totaling nearly __2MB__, which has a significant impact on the __4MB__ limit of the main packet.
 
 The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage:
 
-- Modify `game.json`：
+- Modify `game.json`:
 
-```ts
+    ```ts
     {
         //*,
         "subpackages": [{
@@ -135,11 +135,11 @@ The solution is to reduce the pressure on the main package by configuring the su
             "root": "cocos-js/ammo-82499473.js"
         }]
     }
-```
+    ```
 
-- Modify the `init` function in `game.js`：
+- Modify the `init` function in `game.js`:
 
-```ts
+    ```ts
     window.__globalAdapter.init(function() {
         fsUtils.loadSubpackage('ammo', null, (err) => {
             System.import('./cocos-js/ammo-82499473.js').then(() => {
@@ -156,7 +156,7 @@ The solution is to reduce the pressure on the main package by configuring the su
             })
         });
     });
-```
+    ```
 
 > **Note**:
 > 1. The WeChat Separation Engine plugin currently only supports __none__ mode;
