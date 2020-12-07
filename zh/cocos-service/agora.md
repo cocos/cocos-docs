@@ -1,4 +1,4 @@
-# 声网（Agora Voice）快速入门
+# 声网（Agora RTC）快速入门
 
 成立于 2013 年的 [声网 Agora](https://www.agora.io/cn/) 是实时互动 API 平台行业开创者，是全球领先的专业服务商。开发者只需简单调用 API，即可在应用内构建多种实时音视频互动场景。
 
@@ -41,25 +41,25 @@ Agora 音频互动直播提供丰富的功能，你可以根据自己的场景�
 
     - 新增 Agora service 插件。
 
-## 一键接入 Agora Voice 服务
+## 一键接入 Agora RTC 服务
 
 ### 开通服务
 
-- 使用 Cocos Creator 打开需要接入 Agora Voice 服务的项目工程。
+- 使用 Cocos Creator 打开需要接入 Agora RTC 服务的项目工程。
 
-- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Agora Voice**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
+- 点击菜单栏的 **面板 -> 服务**，打开 **服务** 面板，选择 **Agora RTC**，进入服务详情页。然后点击右上方的 **启用** 按钮即可开通服务。详情可参考 [服务面板操作指南](./user-guide.md)。
 
     ![](agora/agora-panel.png)
 
-    **计费**：Agora Voice 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
+    **计费**：Agora RTC 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
 
-开通服务后，Cocos Service 将自动开通 Agora Voice 服务、联通 Agora 账号，并集成 Agora Interactive Gaming SDK 和所需预览插件到游戏工程中。
+开通服务后，Cocos Service 将自动开通 Agora RTC 服务、联通 Agora 账号，并集成 Agora SDK 和所需预览插件到游戏工程中。
 
 ### 验证服务是否接入成功
 
-Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
+Agora RTC 服务接入完成后，我们可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
-- 点击 Agora Voice 服务面板中的 **前往控制台** 按钮跳转到 [Agora 管理后台](https://console.agora.io/)，点击左侧导航栏的 ![](agora/agora-projecticon.png) 图标进入项目管理页面，获取对应游戏的 **App ID**。
+- 点击 Agora RTC 服务面板中的 **前往控制台** 按钮跳转到 [Agora 管理后台](https://console.agora.io/)，点击左侧导航栏的 ![](agora/agora-projecticon.png) 图标进入项目管理页面，获取对应游戏的 **App ID**。
 
     ![](agora/agora-param.png)
 
@@ -76,12 +76,12 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## Sample 工程
 
-- 点击 Agora Voice 服务面板中的 **Sample 工程**，Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
+- 点击 Agora RTC 服务面板中的 **Sample 工程**，Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
 
   - 加入通话和离开通话
   - 发布音频流和订阅音频流
 
-- 在 **服务** 面板中开通 Agora Voice 服务。
+- 在 **服务** 面板中开通 Agora RTC 服务。
 
 - 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为 Agora 后台获取的 App ID。
 
@@ -89,7 +89,7 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
   ![](agora/agora-sample.jpg)
 
-  **注意**：若在浏览器中调试时发现 Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora Voice 服务。
+  **注意**：若在浏览器中调试时发现 Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora RTC 服务。
 
 ## 开发指南
 
@@ -103,4 +103,4 @@ Agora Voice 服务接入完成后，我们可以通过在脚本中添加简单�
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [Agora Voice API Reference](https://docs.agora.io/cn/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html)。
+详细的功能接口和 API 说明，请参考 [Agora RTC API Reference](https://docs.agora.io/cn/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html)。
