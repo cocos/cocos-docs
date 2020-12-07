@@ -122,35 +122,35 @@ appid | 必填 | 'wx6ac3f5090a6b99c5' | 微信小游戏 appid，填写后将会�
 - 修改 `game.json`，增加子包配置：
 
 ```ts
-{
-    //*,
-    "subpackages": [{
-        "name": "ammo",
-        "root": "cocos-js/ammo-82499473.js"
-    }]
-}
+    {
+        //*,
+        "subpackages": [{
+            "name": "ammo",
+            "root": "cocos-js/ammo-82499473.js"
+        }]
+    }
 ```
 
 - 修改 `game.js` 的 `init` 方法，提前加载此子包：
 
 ```ts
-// 大致在 55 行左右
-window.__globalAdapter.init(function() {
-    fsUtils.loadSubpackage('ammo', null, (err) => {
-        System.import('./cocos-js/ammo-82499473.js').then(() => {
-            return System.import('./application.js').then(({ createApplication }) => {
-                return createApplication({
-                    loadJsListFile: (url) => require(url),
-                    loadAmmoJsWasmBinary,
+    // 大致在 55 行左右
+    window.__globalAdapter.init(function() {
+        fsUtils.loadSubpackage('ammo', null, (err) => {
+            System.import('./cocos-js/ammo-82499473.js').then(() => {
+                return System.import('./application.js').then(({ createApplication }) => {
+                    return createApplication({
+                        loadJsListFile: (url) => require(url),
+                        loadAmmoJsWasmBinary,
+                    });
+                }).then((application) => {
+                    return onApplicationCreated(application);
+                }).catch((err) => {
+                    console.error(err);
                 });
-            }).then((application) => {
-                return onApplicationCreated(application);
-            }).catch((err) => {
-                console.error(err);
-            });
-        })
+            })
+        });
     });
-});
 ```
 
 **注意**：

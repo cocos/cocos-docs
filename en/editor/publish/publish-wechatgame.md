@@ -128,34 +128,34 @@ The solution is to reduce the pressure on the main package by configuring the su
 - Modify `game.json`：
 
 ```ts
-{
-    //*,
-    "subpackages": [{
-        "name": "ammo",
-        "root": "cocos-js/ammo-82499473.js"
-    }]
-}
+    {
+        //*,
+        "subpackages": [{
+            "name": "ammo",
+            "root": "cocos-js/ammo-82499473.js"
+        }]
+    }
 ```
 
 - Modify the `init` function in `game.js`：
 
 ```ts
-window.__globalAdapter.init(function() {
-    fsUtils.loadSubpackage('ammo', null, (err) => {
-        System.import('./cocos-js/ammo-82499473.js').then(() => {
-            return System.import('./application.js').then(({ createApplication }) => {
-                return createApplication({
-                    loadJsListFile: (url) => require(url),
-                    loadAmmoJsWasmBinary,
+    window.__globalAdapter.init(function() {
+        fsUtils.loadSubpackage('ammo', null, (err) => {
+            System.import('./cocos-js/ammo-82499473.js').then(() => {
+                return System.import('./application.js').then(({ createApplication }) => {
+                    return createApplication({
+                        loadJsListFile: (url) => require(url),
+                        loadAmmoJsWasmBinary,
+                    });
+                }).then((application) => {
+                    return onApplicationCreated(application);
+                }).catch((err) => {
+                    console.error(err);
                 });
-            }).then((application) => {
-                return onApplicationCreated(application);
-            }).catch((err) => {
-                console.error(err);
-            });
-        })
+            })
+        });
     });
-});
 ```
 
 > **Note**:
