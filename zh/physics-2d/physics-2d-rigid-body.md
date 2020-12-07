@@ -44,7 +44,7 @@ const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 **刚体的 get 方法都提供了 out 参数来接收函数返回值。**
 
 ```ts
-const velocity = cc.v2();
+const velocity = new Vec2();
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
 ```
 
@@ -94,7 +94,7 @@ rigidbody.enabledContactListener = true;
 
 ## 刚体类型
 
-Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 CocosCreator 里多添加了一个类型：**Animated**。
+Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 3.0 里多添加了一个类型：**Animated**。
 
 Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
@@ -119,7 +119,7 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 
 ### 获取或转换旋转位移属性
 
-使用这些 API 来获取世界坐标系下的旋转和位移会比通过节点来获取更快，因为节点中还需要通过矩阵运算得到结果，而这些 API 是直接得到结果的。
+使用这些 API 来获取世界坐标系下的旋转和位移会比通过节点来获取更快，因为节点中还需要通过矩阵运算得到结果，而使用 API 是直接得到结果的。
 
 #### 本地坐标与世界坐标转换
 
@@ -127,7 +127,7 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 // 世界坐标转换到本地坐标
 const localPoint = rigidbody.getLocalPoint(worldPoint);
 // 或者
-localPoint = cc.v2();
+localPoint = new Vec2();
 rigidbody.getLocalPoint(worldPoint, localPoint);
 ```
 
@@ -135,22 +135,23 @@ rigidbody.getLocalPoint(worldPoint, localPoint);
 // 本地坐标转换到世界坐标
 const worldPoint = rigidbody.getWorldPoint(localPoint);
 // 或者
-worldPoint = cc.v2();
+worldPoint = new Vec2();
 rigidbody.getLocalPoint(localPoint, worldPoint);
 ```
 
 ```ts
-// 局部向量转换为世界向量
+// 本地向量转换为世界向量
 const worldVector = rigidbody.getWorldVector(localVector);
 // 或者
-worldVector = cc.v2();
+worldVector = new Vec2();
 rigidbody.getWorldVector(localVector, worldVector);
 ```
 
 ```ts
+// 世界向量转换为本地向量
 const localVector = rigidbody.getLocalVector(worldVector);
 // 或者
-localVector = cc.v2();
+localVector = new Vec2();
 rigidbody.getLocalVector(worldVector, localVector);
 ```
 
@@ -163,14 +164,14 @@ rigidbody.getLocalVector(worldVector, localVector);
 const localCenter = rigidbody.getLocalCenter();
 
 // 或者通过参数来接收返回值
-localCenter = cc.v2();
+localCenter = new Vec2();
 rigidbody.getLocalCenter(localCenter);
 
 // 获取世界坐标系下的刚体质心
 const worldCenter = rigidbody.getWorldCenter();
 
 // 或者通过参数来接收返回值
-worldCenter = cc.v2();
+worldCenter = new Vec2();
 rigidbody.getWorldCenter(worldCenter);
 ```
 
