@@ -72,8 +72,8 @@ assetManager.loadAny({'dir': 'images', type: SpriteFrame, bundle: 'resources'}, 
 ```typescript
 // 扩展管线
 assetManager.pipeline.insert(function (task, done) {
-    var input = task.input;
-    for (var i = 0; i < input.length; i++) {
+    const input = task.input;
+    for (let i = 0; i < input.length; i++) {
         if (input[i].options.myParam === 'important') {
             console.log(input[i].url);
         }
@@ -87,7 +87,7 @@ assetManager.loadAny({'path': 'images/background'}, {'myParam': 'important'}, ca
 // 注册处理方法
 assetManager.downloader.register('.myformat', function (url, options, callback) {
     // 下载对应资源
-    var img = new Image();
+    const img = new Image();
     if (options.isCrossOrigin) {
         img.crossOrigin = 'anonymous';
     }

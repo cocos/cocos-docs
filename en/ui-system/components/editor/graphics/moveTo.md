@@ -9,8 +9,8 @@ Parameter | Description |
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.moveTo(0,0);
 ctx.lineTo(300,150);
 ctx.stroke();

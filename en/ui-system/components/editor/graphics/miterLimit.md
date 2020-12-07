@@ -14,8 +14,8 @@ If the miter length exceeds the value of `miterLimit`, the corners are displayed
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.miterLimit = 10;
 ctx.moveTo(20,20);
 ctx.lineTo(100,50);

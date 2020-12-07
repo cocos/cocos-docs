@@ -40,7 +40,7 @@
     {{ super() }}
     <script type="text/javascript">
     function toggleLanguage () {
-            var path = location.href;
+            let path = location.href;
             // console.log(path);
             if (path.indexOf('/zh') !== -1) {
                 path = path.replace(/\/zh[\/$\s]/i, '/en/');

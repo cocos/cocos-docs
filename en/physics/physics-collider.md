@@ -3,7 +3,7 @@
 ## Getting the Collider Component
 The following code works in both __JavaScript__ and __TypeScript__:
 
-```javascript
+```ts
 this.getComponent('cc.BoxCollider')
 
 - or -

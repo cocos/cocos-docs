@@ -29,7 +29,7 @@ The Cache Manager provides a `getCache` interface to query all cache resources, 
 
 ```typescript
 resources.load('images/background', Texture2D, function (err, texture) {
-    var cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
+    const cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
     console.log(cachePath);
 });
 ```
@@ -40,7 +40,7 @@ After a resource is downloaded locally, it may be stored as a temporary file in 
 
 ```typescript
 assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
-    var tempPath = assetManager.cacheManager.getTemp(texture.nativeUrl);
+    const tempPath = assetManager.cacheManager.getTemp(texture.nativeUrl);
     console.log(tempPath);
 });
 ```
@@ -62,7 +62,7 @@ A number of parameters are provided in the Cache Manager to control the caching 
 The cache manager provides three interfaces `removeCache`, `clearCache` and `clearLRU` to clean up cache resources.
 
 - `removeCache` -- Clean up a single cached resource, and you need to provide the original path of the resource when using it.
-  
+
   ```typescript
   assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
       assetManager.cacheManager.removeCache(texture.nativeUrl);

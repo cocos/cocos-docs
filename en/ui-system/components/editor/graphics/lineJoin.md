@@ -10,8 +10,8 @@ The `lineJoin` property represents the style of the joint between two line segme
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.lineJoin = Graphics.LineJoin.ROUND;
 ctx.moveTo(20,20);
 ctx.lineTo(100,50);

@@ -242,7 +242,7 @@ import{Global}from "./Global";
 @ccclass("AnyScript")
 export class AnyScript extends Component {
     start () {
-        var text = "Back";
+        const text = "Back";
         Global.backLabel.string=text;
     }
 }
