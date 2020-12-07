@@ -93,7 +93,7 @@
         - [计费和充值](cocos-service/billing-and-charge.md)
     - [服务列表](cocos-service/service-index.md)
         - [Cocos Analytics](cocos-service/cocos-analytics.md)
-        - [声网（Agora Voice）](cocos-service/agora.md)
+        - [声网（Agora RTC）](cocos-service/agora.md)
         - [云开发（腾讯云）](cocos-service/tcb.md)
         - [游戏联机对战引擎（腾讯云）](cocos-service/mgobe.md)
         - [游戏多媒体引擎（腾讯云）](cocos-service/gme.md)
