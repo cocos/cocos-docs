@@ -87,7 +87,13 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
 ### Version Update Description
 
-- Latest Version: 0.5.9_1.4.1.300
+- Latest Version: v0.6.0_1.4.2.301
+
+    - Update SDK to v1.4.2.301.
+    - Add **intent link type** option to the service panel.
+    - Add **Clickboard Setting** option to the service panel.
+
+- v0.5.9_1.4.1.300
 
     - Added support for AppLinking receives information mode.
 
@@ -110,6 +116,18 @@ A link can be opened either in a **browser** or in your **app**, which is specif
   ![](agc-applinking/al-panel.png)
 
 - At the bottom of the App Linking service panel, fill in the **android intent filter** item with the address of the App Linking **original** website. This step corresponds to [Adding an Intent Filter](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1585311152686).
+
+- Please refer to [Adding an Intent Filter](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1585311152686), then set the **intent link type** option. The service plug-in will add the required configuration to the `AndroidManifest.xml` file when building.
+
+    - Currently, your app can receive data through **AppLink** or **DeepLink**. **AppLink** is recommended.
+    - If you select **AppLink**, the URL prefix must be `http://` or `https://`.
+    - If you select **DeepLink**, you can use any URL prefix, such as `abc://`.
+
+- The App Linking SDK reads content on the clipboard to obtain link information during the first launch and go to the linked content in the app. You can set the **Clipboard Settings** option to choose whether to read the clipboard every time when the app is started.
+    
+    - **Default**: App Linking SDK reads content on the clipboard only when the app is launched for the first time.
+    - **Available**: App Linking SDK reads content on the clipboard each time when the app is launched.
+    - **Unavailable**: App Linking SDK does not read content on the clipboard.
 
   ![](agc-applinking/al-filter.png)
 

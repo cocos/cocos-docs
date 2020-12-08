@@ -85,7 +85,13 @@
 
 ### 版本更新说明
 
-- 当前版本：0.5.9_1.4.1.300
+- 当前版本：v0.6.0_1.4.2.301
+
+    - 升级 SDK 版本到 1.4.2.301。
+    - 服务面板添加 **intent link type** 选项。
+    - 服务面板添加 **剪切板设置** 选项。
+
+- v0.5.9_1.4.1.300
 
     - 增加对 App Linking 信息接收方式的支持。
 
@@ -110,6 +116,18 @@
   ![](agc-applinking/al-panel.png)
 
 - 在 App Linking 服务面板下方，填写 **android intent filter**，需要填入 App Linking **转换前** 的网站的地址，具体内容可参考 [添加 Intent 过滤器](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1579335100846)。
+
+- 请参考 [添加 Intent 过滤器](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1579335100846)，设置 **intent link type** 选项。构建时插件会将所需的配置添加到 `AndroidManifest.xml` 文件中。
+
+    - 当前支持使用 **AppLink** 或 **DeepLink** 来接收信息，一般建议使用 **AppLink**。
+    - 若选择 **AppLink**，网址前缀必须为 `http://` 或者 `https://`。
+    - 若选择 **DeepLink**，可以使用任意网址前缀，例如 `abc://`。
+
+- App Linking SDK 会在首次启动时，读取剪切板内容获取链接信息，以到达应用内指定的内容。可再通过 **剪切板设置** 选项，选择应用每次启动时是否读取剪切板。
+    
+    - **Default**：仅在应用首次启动时读取剪切板。
+    - **Available**：应用每次启动时，都会读取剪切板。
+    - **Unavailable**：不读取剪切板。
 
   ![](agc-applinking/al-filter.png)
 
