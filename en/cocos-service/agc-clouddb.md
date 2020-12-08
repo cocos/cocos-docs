@@ -26,8 +26,8 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 - Latest Version: 0.5.2_1.2.3.301
 
-    - Updated SDK to version 1.2.3.301.
-    - Fix the bug that the querier can only query string type.
+    - Updated SDK to v1.2.3.301.
+    - Fix the bug that the querier can only query String type.
     - Add `openCloudZone2` asynchronous method, `remove` remove listener method.
     - Add `getObjectTypeName` and `getPackageName` methods to the query result set object.
     - Remove `setUpgradeProcessMode`, `deleteAll` method.
