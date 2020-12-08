@@ -9,7 +9,7 @@ Agora is a leading video, voice and live interactive streaming platform, helping
 Agora Live Interactive Audio Streaming boasts a flexible combination of functions for different scenarios.
 
 | Function                                | Description                                                  | Scenario                                                     |
-| --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| :--------------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------ |
 | Co-hosting in a channel                 | An audience switches to a co-host and interacts with the existing host. | <li>Large-scale live streams where hosts can invite the audience to interact with them. <li>Online games such as Murder Mystery and Werewolf Killing. |
 | Co-hosting across channels              | Hosts interact with each other across channels.              | PK Hosting.                                                  |
 | Audio mixing                            | Sends the local and online audio with the user's voice to other audience members in the channel. | <li>Online KTV. <li>Interactive music classes for children.  |

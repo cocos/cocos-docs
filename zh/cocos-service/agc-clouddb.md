@@ -29,7 +29,7 @@
     - 升级 SDK 版本到 1.2.3.301。
     - 修复查询器只能查询 String 类型的 bug。
     - 新增 `openCloudZone2` 异步接口、`remove` 移除监听器接口。
-    - 查询结果集对象添加 `getObjectTypeName` 和 `getPackageName` 方法。
+    - 在查询结果集的对象中添加 `getObjectTypeName` 和 `getPackageName` 方法。
     - 移除 `setUpgradeProcessMode` 和 `deleteAll` 方法。
     - 回调中若使用 `data.zoneId` 参数，请修改为 `data.zone.zoneId`。
 
