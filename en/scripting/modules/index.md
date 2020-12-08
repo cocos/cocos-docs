@@ -6,35 +6,21 @@ Engine and editor expose their functionalities API through modules. Modules are 
 
 ## Engine modules
 
-At present, engine only offers one public module `'cc'`.
+### Functionalities
 
-Contents of module `'cc'` are dynamically decided,
+Module `'cc'` provide access to engine functionalities. Contents of module `'cc'` are dynamically decided,
 which is relevant with engine modules setting in project settings.
 
-### Example: engine logging
+#### Example: engine logging
 
 ```ts
 import { log } from 'cc';
 log(`Hello world!`);
 ```
 
-## Editor modules
-
-Editor modules are under protocol `'cce:'`("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
-
-Except for module `cce:env`, all modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
-
-| Module name | Use for                        |
-|-------------|--------------------------------|
-| `'cce:env'` | Accessing build-time constants |
-<!--
-| `'cce:gizmo'` | Gizmo                          |
--->
-
-
 ### Build-time constants
 
-Editor module `'cce:env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on. Unlike other editor modules, `'cce:env'` is visible from non-editor environments.
+Module `'cc/env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on.
 
 Since these constants are declared with `const` qualifier, it's very friendly to code optimization.
 
@@ -78,9 +64,21 @@ The following constants represent if is executing on some platform or some kind 
 
 ```ts
 import { log } from 'cc';
-import { DEV } from "cce:env";
+import { DEV } from "cc/env";
 
 if (DEV) {
     log(`I'm in development mode!`);
 }
 ```
+
+## Editor modules
+
+Editor modules are under protocol `'cce:'`("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
+
+All modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
+
+<!--
+| Module name | Use for                        |
+|-------------|--------------------------------|
+| `'cce:gizmo'` | Gizmo                          |
+-->
