@@ -24,7 +24,8 @@ Agora 互动直播提供丰富的功能，你可以根据自己的场景需求�
 
 - 当前版本：1.3.1_3.1
 
-    - 修改服务名称，新增视频模块，优化性能。
+    - 修改服务名称，从 Agora Voice 改为 Agora RTC。
+    - 新增视频模块，优化性能。
 
 - v1.2.1_3.1.2
 
@@ -92,7 +93,7 @@ Agora RTC 服务接入完成后，我们可以通过在脚本中添加简单的�
 
   **注意**：若在浏览器中调试时发现 Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora RTC 服务。
 
-- 视频通话示例项目请参考 [Agora-Cocos-Quickstart](https://docs.agora.io/cn/Interactive%20Broadcast/start_live_cocos_creator?platform=Cocos%20Creator#相关链接)。
+- 视频通话示例项目请参考 [Agora-Cocos-Quickstart](https://docs.agora.io/cn/Interactive%20Broadcast/start_live_cocos_creator?platform=Cocos%20Creator#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5)。
 
 ## 开发指南
 
