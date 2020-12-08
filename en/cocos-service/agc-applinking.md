@@ -87,7 +87,7 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
 ### Version Update Description
 
-- Latest Version: v0.6.0_1.4.2.301
+- Latest Version: 0.6.0_1.4.2.301
 
     - Update SDK to v1.4.2.301.
     - Add **intent link type** option to the service panel.
