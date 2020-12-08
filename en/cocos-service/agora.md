@@ -1,28 +1,31 @@
-# Agora Voice Quick Start
+# Agora RTC Quick Start
 
 Agora is a leading video, voice and live interactive streaming platform, helping developers deliver rich in-app experiences—including embedded voice and video chat, real-time recording, interactive live streaming, and real-time messaging.
 
-[Agora Live Interactive Audio Streaming](https://docs.agora.io/en/Audio%20Broadcast/product_live_audio?platform=All%20Platforms) enables one-to-many and many-to-many audio live streaming with the Agora RTC SDK.
+[Agora Interactive Live Streaming Premium](https://docs.agora.io/en/Interactive%20Broadcast/product_live?platform=Cocos%20Creator) enables one-to-many and many-to-many audio or video live streaming with the Agora RTC SDK.
 
 ### Functions
 
 Agora Live Interactive Audio Streaming boasts a flexible combination of functions for different scenarios.
 
-| Function                        | Description                                                  | Scenarios                                                     |
-| :------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------ |
-| Co-hosting in one channel       | An audience switches to a co-host and interacts with the existing host. | <li>Large-scale live streams where hosts can invite the audience to interact with them. <li>Online games such as Murder Mystery and Werewolf Killing. |
-| Co-hosting across channels      | Hosts interact with each other across channels.              | PK Hosting.                                                  |
-| Audio mixing                    | Sends the local and online audio with the user's voice to other audience members in the channel. | <li>Online KTV. <li>Interactive music classes for children.  |
-| Voice changer and reverberation | Provides multiple presets to easily change the voice and set reverberation effects, also supports adjusting the pitch and using the equalization and reverberation modes flexibly. | <li>Online KTV.<li>To change the voice in an online chatroom. |
-| Spatial sound effects           | Sets the spatial sound effects for remote users to provide immersive experiences. | FPS games.                                                   |
-| Modify the raw data             | Developers obtain and modify the raw voice data of the SDK engine to create special effects, such as a voice change. | <li>To change the voice in an online voice chatroom.<li>Image enhancement in a live stream. |
-| Inject an online media stream   | Injects an external audio stream to an ongoing live interactive streaming channel. The host and audience in the channel can listen to or watch the stream while interacting with each other. You can set the attributes of the audio source. | <li>The host and audience listening to a concert together.   |
-| Push streams to the CDN         | Sends the audio of your channel to other RTMP servers through the CDN:<li>Starts or stops publishing at any time.<li>Adds or removes an address while continuously publishing the stream. <li>Adjusts the picture-in-picture layout. | <li>To send a live stream to WeChat or Weibo.<li>To allow more people to watch the live stream when the number of audience members in the channel reached the limit. |
+| Function                                | Description                                                  | Scenario                                                     |
+| :--------------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------ |
+| Co-hosting in a channel                 | An audience switches to a co-host and interacts with the existing host. | <li>Large-scale live streams where hosts can invite the audience to interact with them. <li>Online games such as Murder Mystery and Werewolf Killing. |
+| Co-hosting across channels              | Hosts interact with each other across channels.              | PK Hosting.                                                  |
+| Audio mixing                            | Sends the local and online audio with the user's voice to other audience members in the channel. | <li>Online KTV. <li>Interactive music classes for children.  |
+| Screen sharing                          | Hosts share their screens with the audience in the channel. Supports specifying which screen or which window to share, and supports specifying the sharing region. | <li>Interactive online classes.<li>Live streaming of gaming hosts. |
+| Basic image enhancement                 | Sets basic beauty effects, including skin smoothening, whitening, and cheek blushing. | Image enhancement in a video call.                           |
+| Modify the raw data                     | Developers obtain and modify the raw voice or video data of the SDK engine to create special effects, such as a voice change. | <li>To change the voice in an online voice chatroom.<li>Image enhancement in a live stream. |
+| Inject an online media stream           | Injects an external audio or video stream to an ongoing live interactive streaming channel. The host and audience in the channel can listen to or watch the stream while interacting with each other. You can set the attributes of the video source. | <li>The host and audience watching a movie or game together. |
+| Customize the video source and renderer | Users process videos (from self-built cameras, screen sharing, or files) for image enhancement and filtering. | <li>To use a customized image enhancement library or pre-processing library.<li>To customize the application's built-in image and video modules.<li>To use other video sources, such as a recorded video.<li>To provide flexible device management for exclusive video capture devices to avoid conflicts with other services. |
+| Push streams to the CDN                 | Sends the audio and video of your channel to other RTMP servers through the CDN:<li>Starts or stops publishing at any time.<li>Adds or removes an address while continuously publishing the stream. <li>Adjusts the picture-in-picture layout. | <li>To send a live stream to WeChat or Weibo.<li>To allow more people to watch the live stream when the number of audience members in the channel reached the limit. |
+
 
 ### Version Update Description
 
 - Latest Version: 1.3.1_3.1
 
+    - Modify the service name from Agora Voice to Agora RTC
     - Added video module and optimize performance.
 
 - v1.2.1_3.1.2
@@ -39,25 +42,25 @@ Agora Live Interactive Audio Streaming boasts a flexible combination of function
 
 - v1.0.1_2.2.3.20_2.5.2
 
-    - Integrated Agora Voice service.
+    - Integrated Agora service.
 
-## Enable Agora Voice Service
+## Enable Agora RTC Service
 
-- Use Cocos Creator to open the project that needs to be connected to Agora Voice service.
+- Use Cocos Creator to open the project that needs to be connected to Agora RTC service.
 
-- Click on **Panel -> Service** in the menu bar to open the Service panel, select **Agora Voice** service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
+- Click on **Panel -> Service** in the menu bar to open the Service panel, select **Agora RTC** service to go to the service detail page, and then click on the **Enable** button in the top right to enable the service. For details, please refer to the Cocos Service [Operation Guide](./index.md#usage) documentation.
 
     ![](agora/agora-panel.png)
 
-    **Charge**: Agora Voice services use the **prepaid** model. When your service usage exceeds the free portion of the service provider and the account balance is insufficient, the service will be stopped. At that time, you need to **pre-charge** in the Cocos Developer Console. 
+    **Charge**: Agora RTC services use the **prepaid** model. When your service usage exceeds the free portion of the service provider and the account balance is insufficient, the service will be stopped. At that time, you need to **pre-charge** in the Cocos Developer Console. 
 
-After the service is activated, Cocos Service will automatically activate the Agora Voice service, connect the Agora account, and integrate the Agora SDK into the game project.
+After the service is activated, Cocos Service will automatically activate the Agora RTC service, connect the Agora account, and integrate the Agora SDK into the game project.
 
 ### Verify whether the service is integrated successfully
 
-- Once the Agora Voice service is integrated, we can verify the success of the Agora Voice service integration by adding simple code to the script.
+- Once the Agora RTC service is integrated, we can verify the success of the Agora RTC service integration by adding simple code to the script.
 
-- Click **Dashboard** button in the Agora Voice service panel, jump to [Agora Console](https://console.agora.io/). Then click ![](agora/agora-projecticon.png) icon in the left navigation menu to enter the Project Management page and obtain the **App ID** of the corresponding game.
+- Click **Dashboard** button in the Agora RTC service panel, jump to [Agora Console](https://console.agora.io/). Then click ![](agora/agora-projecticon.png) icon in the left navigation menu to enter the Project Management page and obtain the **App ID** of the corresponding game.
 
     ![](agora/agora-param.png)
 
@@ -74,12 +77,12 @@ After the service is activated, Cocos Service will automatically activate the Ag
 
 ## Sample Project
 
-- Click the **Sample** button in Agora Voice service panel, Clone or download **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** project and then open the project in Cocos Creator. The Sample project contains the following functions:
+- Click the **Sample** button in Agora RTC service panel, Clone or download **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** project and then open the project in Cocos Creator. The Sample project contains the following functions:
 
   - Join channel & leave channel.
   - Publish or subscribe stream.
 
-- Enabling the Agora Voice service.
+- Enabling the Agora RTC service.
 
 - Double click to open the **HelloWorld.js** in **Assets** panel, then replace **appid** in the `initAgora` method with the App ID obtained from the Agora console.
 
@@ -87,18 +90,20 @@ After the service is activated, Cocos Service will automatically activate the Ag
 
   ![](agora/agora-sample.jpg)
 
-  **Note**: If you find that the Sample project is successfully initialized during debugging in the browser, but there is no callback when you click **Join Channel**, please confirm whether you have enabled the Agora Voice service in the **Cocos Service** panel.
+  **Note**: If you find that the Sample project is successfully initialized during debugging in the browser, but there is no callback when you click **Join Channel**, please confirm whether you have enabled the Agora RTC service in the **Cocos Service** panel.
+
+- Sample project of Interactive Live Video Streaming, please refer to [Agora-Cocos-Quickstart](https://docs.agora.io/en/Interactive%20Broadcast/start_live_cocos_creator?platform=Cocos%20Creator#see-also).
 
 ## Developer Guide
 
-Please refer to [Agora Live Interactive Audio Streaming - Implementation](https://docs.agora.io/en/Audio%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator#implementation) and [Start a Video Call](https://docs.agora.io/en/Video/start_call_cocos_creator?platform=Android) documentations.
+Please refer to [Start Interactive Live Audio Streaming](https://docs.agora.io/en/Interactive%20Broadcast/start_live_audio_cocos_creator?platform=Cocos%20Creator), [Start Interactive Live Video Streaming](https://docs.agora.io/en/Interactive%20Broadcast/start_live_cocos_creator?platform=Cocos%20Creator) and [Start a Video Call](https://docs.agora.io/en/Video/start_call_cocos_creator?platform=Android) documentations.
 
 ## Reference Links
 
-- [Agora Platform Overview](https://docs.agora.io/en/Agora%20Platform/agora_platform?platform=All%20Platforms)
-- [Agora Live Interactive Audio Streaming Overview](https://docs.agora.io/en/Audio%20Broadcast/product_live_audio?platform=All%20Platforms)
+- [Agora Platform Overview](https://docs.agora.io/en/Agora%20Platform/agora_platform?platform=Cocos%20Creator)
+- [Agora Live Interactive Audio Streaming Overview](https://docs.agora.io/en/Interactive%20Broadcast/product_live?platform=Cocos%20Creator)
 - [Use an App ID for authentication](https://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms) 
 
 ## API Reference
 
-Please refer to the [Agora Voice API Reference](https://docs.agora.io/en/Audio%20Broadcast/API%20Reference/cocos_creator_voice/index.html) documentation.
+Please refer to the [Cocos Creator SDK API Reference](https://docs.agora.io/en/Video/API%20Reference/cocos_creator/index.html?platform=All%20Platforms) documentation.

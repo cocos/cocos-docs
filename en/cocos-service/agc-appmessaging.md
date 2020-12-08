@@ -30,7 +30,7 @@ A user can tap an in-app message to access the destination specified during mess
 
 - Latest Version: 0.5.6_1.4.2.301
 
-    - Updated SDK to version 1.4.2.301.
+    - Updated SDK to v1.4.2.301.
 
 - v0.5.3_1.4.0
 

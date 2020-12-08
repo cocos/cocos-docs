@@ -30,7 +30,7 @@ The **Service** Panel currently supports the integration of third-party services
     
   - [Cloud Functions (AppGallery Connect)](agc-cloudfunc.md)
 
-  - [Agora Voice](agora.md)
+  - [Agora RTC](agora.md)
 
 ## Usage
 
