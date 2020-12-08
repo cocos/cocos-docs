@@ -115,9 +115,7 @@ A link can be opened either in a **browser** or in your **app**, which is specif
 
   ![](agc-applinking/al-panel.png)
 
-- At the bottom of the App Linking service panel, fill in the **android intent filter** item with the address of the App Linking **original** website. This step corresponds to [Adding an Intent Filter](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1585311152686).
-
-- Please refer to [Adding an Intent Filter](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1585311152686), then set the **intent link type** option. The service plug-in will add the required configuration to the `AndroidManifest.xml` file when building.
+- Fill in the **android intent filter** in the **Params Config** of the App Linking service panel, and fill in the address of the App Linking **original** website. Then set the **intent link type** option. The service plug-in will add the required configuration to the `AndroidManifest.xml` file when building. This step corresponds to [Adding an Intent Filter](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-applinking-receivelinks#h1-1585311152686).
 
     - Currently, your app can receive data through **AppLink** or **DeepLink**. **AppLink** is recommended.
     - If you select **AppLink**, the URL prefix must be `http://` or `https://`.
