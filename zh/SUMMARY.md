@@ -134,6 +134,13 @@
     - [物理事件](physics/physics-event.md)
     - [分组和掩码](physics/physics-group-mask.md)
     - [射线检测](physics/physics-raycast.md)
+- [2D 物理](physics-2d/physics-2d.md)
+  - [2D 物理系统](physics-2d/physics-2d-system.md)
+  - [2D 刚体组件](physics-2d/physics-2d-rigid-body.md)
+  - [2D 碰撞体](physics-2d/physics-2d-collider.md)
+  - [2D 碰撞回调](physics-2d/physics-2d-contact-callback.md)
+  - [2D 物理关节](physics-2d/physics-2d-joint.md)
+
 - [UI](ui-system/components/engine/index.md)
   - [渲染排序规则](ui-system/components/engine/priority.md)
   - [UI 合批说明](ui-system/components/engine/ui-batch.md)

@@ -20,21 +20,21 @@ log(`Hello world!`);
 
 ## Editor modules
 
-Editor modules are prefixed by `'cce.'`("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
+Editor modules are under protocol `'cce:'`("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
 
-Except for module `cce.env`, all modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
+Except for module `cce:env`, all modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
 
 | Module name | Use for                        |
 |-------------|--------------------------------|
-| `'cce.env'` | Accessing build-time constants |
+| `'cce:env'` | Accessing build-time constants |
 <!--
-| `'cce.gizmo'` | Gizmo                          |
+| `'cce:gizmo'` | Gizmo                          |
 -->
 
 
 ### Build-time constants
 
-Editor module `'cce.env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on. Unlike other editor modules, `'cce.env'` is visible from non-editor environments.
+Editor module `'cce:env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on. Unlike other editor modules, `'cce:env'` is visible from non-editor environments.
 
 Since these constants are declared with `const` qualifier, it's very friendly to code optimization.
 
@@ -78,7 +78,7 @@ The following constants represent if is executing on some platform or some kind 
 
 ```ts
 import { log } from 'cc';
-import { DEV } from "cce.env";
+import { DEV } from "cce:env";
 
 if (DEV) {
     log(`I'm in development mode!`);
