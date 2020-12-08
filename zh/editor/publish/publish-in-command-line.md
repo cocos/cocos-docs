@@ -35,9 +35,9 @@
 
   在 `--build`  后如果没有指定参数，则会使用 Cocos Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
-  - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出，当配置和 configPath 内的配置冲突时， configPath 指定的配置将会被覆盖。
+  - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出，当配置和 configPath 内的配置冲突时，configPath 指定的配置将会被覆盖。
 
-  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从 [这里](https://github.com/cocos-creator/engine/scripts/module-division/division-config.json) 查找到，注意传递的是模块 entry 字段组成的数组。
+  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从[引擎仓库](https://github.com/cocos-creator/engine)的 `/scripts/module-division/division-config.json` 查找到，注意传递的是模块 entry 字段组成的数组。
   - `outputName` - 构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
   - `platform` - 必填，构建的平台，具体名称参考面板上对应插件名称即可
@@ -49,7 +49,7 @@
   - `compressTexture` - 是否开启压缩纹理，默认关闭
   - `replaceSplashScreen` - 是否替换插屏，默认关闭
   - `md5Cache` - 是否开启 md5 缓存，默认关闭
-  - `mainBundleCompressionType` - 主包压缩类型，具体选项值可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md##压缩类型)。
+  - `mainBundleCompressionType` - 主包压缩类型，具体选项值可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md#压缩类型)。
   - `mainBundleIsRemote` - 配置主包为远程包
   - `packages` - 各个插件支持的构建配置参数，需要存放的是对于数据对象的序列化字符串，具体可以参考下文：
 

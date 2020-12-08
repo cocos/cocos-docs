@@ -39,7 +39,7 @@ Currently, when using the command line to build, except for the required build o
 
   - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
 
-      > **Note**: the pass is an array of module `entry` fields, see [this documentation](https://github.com/cocos-creator/engine/blob/3d-v1.0.0/scripts/module-division/division-config.json) for details.
+      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) for details.
 
   - `outputName`: The name of the release folder generated after the build.
   - `name`: Game name
@@ -52,9 +52,9 @@ Currently, when using the command line to build, except for the required build o
   - `compressTexture`: Enabled or disabled the compress texture, the default is `false`.
   - `replaceSplashScreen`: Whether to replace the splash screen, the default is `false`.
   - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
-  - `mainBundleCompressionType` Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression type).
-  - `mainBundleIsRemote` Configure the main package as a remote package
-  - `packages` The build configuration parameters supported by each plugin. What needs to be stored is the serialized string for the data object. For details, please refer to the following:
+  - `mainBundleCompressionType`: Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression-type).
+  - `mainBundleIsRemote`: Configure the main package as a remote package.
+  - `packages`: The build configuration parameters supported by each plugin. What needs to be stored is the serialized string for the data object. For details, please refer to the following:
 
 Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations, and the build options are in `packages.[platform-name].key`. For example, to specify the build options for the WeChat Mini Game, the configuration is as follows:
 
@@ -69,7 +69,7 @@ Each platform's build will be embedded in the **Build** panel as a separate plug
 }
 ```
 
-After the build plugin system is opened to the public, the configuration parameters of other plugins are embedded in the **Build** panel in the same way. Please refer to the documentation of each platform for the specific parameter fields of each platform, it is better to use the **Export** function of the **Build** panel to get the configuration parameters. Currently it is still compatible with the old version of the parameters to build, but the compatibility process will be gradually removed later, so please upgrade the configuration parameters as soon as possible.
+After the build plugin system is opened to the public, the configuration parameters of other plugins are embedded in the **Build** panel in the same way. **Please refer to the documentation of each platform for the specific parameter fields of each platform**, it is better to use the **Export** function of the **Build** panel to get the configuration parameters. Currently it is still compatible with the old version of the parameters to build, but the compatibility process will be gradually removed later, so please upgrade the configuration parameters as soon as possible.
 
 ## Publish using Jenkins
 
