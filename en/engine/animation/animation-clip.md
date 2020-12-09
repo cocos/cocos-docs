@@ -221,7 +221,7 @@ When the `interpolate` property of the curve data is `true`, the curve will try 
 If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, there will be no interpolation operation. Always use the curve value of the previous frame as the result.
 
 ```ts
-import { AnimationClip, color, IPropertyCurveData, SpriteFrame, v3 } from "cc";
+import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from "cc";
 
 const animationClip = new AnimationClip();
 
@@ -240,7 +240,7 @@ const numberCurve: IPropertyCurveData = {
 // Use lerp() of value type Vec3
 const vec3Curve: IPropertyCurveData = {
     keys: 0,
-    values: [ v3(0), v3(2), v3(4), v4(6) ],
+    values: [ new Vec3(0), new Vec3(2), new Vec3(4), new Vec3(6) ],
     interpolate: true,
 };
 
@@ -266,7 +266,7 @@ const spriteCurve: IPropertyCurveData = {
 The following code shows how to customize the **interpolation** algorithm:
 
 ```ts
-import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, v3, vmath } from "cc";
+import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from "cc";
 
 class MyCurveValue implements ILerpable {
     public position: Vec3;
@@ -315,9 +315,9 @@ function createMyCurve (): IPropertyCurveData {
     return {
         keys: 0 /* frame time */,
         values: [
-            new MyCurveValue(v3(0), rotation1),
-            new MyCurveValue(v3(10), rotation2),
-            new MyCurveValue(v3(0), rotation3),
+            new MyCurveValue(new Vec3(0), rotation1),
+            new MyCurveValue(new Vec3(10), rotation2),
+            new MyCurveValue(new Vec3(0), rotation3),
         ],
     };
 }

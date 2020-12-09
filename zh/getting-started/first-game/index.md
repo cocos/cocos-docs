@@ -119,7 +119,7 @@ export class PlayerController extends Component {
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, v3 } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -137,9 +137,9 @@ export class PlayerController extends Component {
     private _curJumpTime: number = 0;
     private _jumpTime: number = 0.1;
     private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = v3();
-    private _deltaPos: Vec3 = v3(0, 0, 0);
-    private _targetPos: Vec3 = v3();
+    private _curPos: Vec3 = new Vec3();
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    private _targetPos: Vec3 = new Vec3();
     private _isMoving = false;
 
     start () {
@@ -166,7 +166,7 @@ export class PlayerController extends Component {
         this._curJumpTime = 0;
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
         this._isMoving = true;
     }
@@ -476,7 +476,7 @@ init() {
     this.startMenu.active = true;
     this.generateRoad();
     this.playerCtrl.setInputActive(false);
-    this.playerCtrl.node.setPosition(v3());
+    this.playerCtrl.node.setPosition(Vec3.ZERO);
 }
 
 set curState (value: GameState) {
@@ -710,7 +710,7 @@ jumpByStep(step: number) {
     this._curJumpTime = 0;
     this._curJumpSpeed = this._jumpStep / this._jumpTime;
     this.node.getPosition(this._curPos);
-    Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+    Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
     this._isMoving = true;
 
@@ -745,7 +745,7 @@ onOnceJumpEnd() {
 **PlayerController.ts**
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation, v3 } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -762,9 +762,9 @@ export class PlayerController extends Component {
     private _curJumpTime: number = 0;
     private _jumpTime: number = 0.3;
     private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = v3();
-    private _deltaPos: Vec3 = v3(0, 0, 0);
-    private _targetPos: Vec3 = v3();
+    private _curPos: Vec3 = new Vec3();
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    private _targetPos: Vec3 = new Vec3();
     private _isMoving = false;
     private _curMoveIndex = 0;
 
@@ -803,7 +803,7 @@ export class PlayerController extends Component {
         this._curJumpTime = 0;
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
         this._isMoving = true;
 
@@ -847,7 +847,7 @@ export class PlayerController extends Component {
 **GameManager.ts**
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, v3} from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
@@ -887,7 +887,7 @@ export class GameManager extends Component {
         this.startMenu.active = true;
         this.generateRoad();
         this.playerCtrl.setInputActive(false);
-        this.playerCtrl.node.setPosition(v3());
+        this.playerCtrl.node.setPosition(Vec3.ZERO);
         this.playerCtrl.reset();
     }
 

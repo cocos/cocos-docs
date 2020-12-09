@@ -215,7 +215,7 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 若曲线值不满足上述任何条件，或当曲线数据的 `interpolate` 属性为 `false`时，将不会进行插值操作，而是永远使用前一帧的曲线值作为结果。
 
 ```ts
-import { AnimationClip, color, IPropertyCurveData, SpriteFrame, v3 } from "cc";
+import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from "cc";
 
 const animationClip = new AnimationClip();
 
@@ -233,7 +233,7 @@ const numberCurve: IPropertyCurveData = {
 // 使用值类型 Vec3 的 lerp()
 const vec3Curve: IPropertyCurveData = {
     keys: 0,
-    values: [ v3(0), v3(2), v3(4), v4(6) ],
+    values: [ new Vec3(0), new Vec3(2), new Vec3(4), new Vec3(6) ],
     interpolate: true,
 };
 
@@ -259,7 +259,7 @@ const spriteCurve: IPropertyCurveData = {
 以下代码展示了如何自定义插值算法：
 
 ```ts
-import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, v3, vmath } from "cc";
+import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from "cc";
 
 class MyCurveValue implements ILerpable {
     public position: Vec3;
@@ -308,9 +308,9 @@ function createMyCurve (): IPropertyCurveData {
     return {
         keys: 0 /* 帧时间 */,
         values: [
-            new MyCurveValue(v3(0), rotation1),
-            new MyCurveValue(v3(10), rotation2),
-            new MyCurveValue(v3(0), rotation3),
+            new MyCurveValue(new Vec3(0), rotation1),
+            new MyCurveValue(new Vec3(10), rotation2),
+            new MyCurveValue(new Vec3(0), rotation3),
         ],
     };
 }
