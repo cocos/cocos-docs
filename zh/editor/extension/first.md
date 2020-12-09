@@ -4,7 +4,7 @@
 
 ## 创建并安装扩展
 
-找到 **~/.CocosEditor3D/packages** Windows 用户为 **C:\Users\${你的用户名}\.CocosEditor3D\packages）**，或者 **${你的项目路径}/packages** 文件夹，如果文件夹不存在，则新建这个文件夹。
+找到 **~/.CocosEditor3D/extensions** Windows 用户为 **C:\Users\${你的用户名}\.CocosEditor3D\extensions）**，或者 **${你的项目路径}/extensions** 文件夹，如果文件夹不存在，则新建这个文件夹。
 
 在这个文件夹里新创建一个空的文件夹，并命名为 "hello-world"，并在文件夹内创建 `browser.js` 和 `package.json` 两个文件。扩展所在目录的结构大致如下：
 

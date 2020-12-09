@@ -4,12 +4,12 @@ Cocos Creator 在启动过程中会搜索并自动打开 "全局" 和 "项目" �
 
 如果打算将扩展应用到所有的项目，可以将扩展放到 "全局" 路径下：
 
-- **Windows**： %USERPROFILE%\.CocosCreator\packages
-- **Mac**： $HOME/.CocosCreator/packages
+- **Windows**： %USERPROFILE%\.CocosCreator\extensions
+- **Mac**： $HOME/.CocosCreator/extensions
 
 如果只希望在当前项目使用这个扩展，则放到 "项目" 路径：
 
-- **$你的项目地址/packages**
+- **$你的项目地址/extensions**
 
 ## 打包扩展
 
