@@ -360,7 +360,7 @@ fileReference.getFileMetadata();
 **示例**：
 
 ```js
-var metadata = ["contentType": "jpg", "customMetadata": {"key1": 'values1', "key2": 'value2'}];
+var metadata = {"contentType": "jpg", "customMetadata": {"key1": 'values1', "key2": 'value2'}};
 fileReference.updateFileMetadata(metadata);
 ```
 
