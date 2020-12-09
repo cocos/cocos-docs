@@ -9,14 +9,14 @@ Publish a project from the command line can help us build an auto-publish routin
 - Mac
 
   ```bash
-  /Applications/CocosCreator3D.app/Contents/MacOS/CocosCreator3D --project projectPath
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
   --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
 
   ```bash
-  CocosCreator3D/CocosCreator3D.exe --project projectPath --build "platform=web-desktop;debug=true"
+  ...\CocosCreator.exe --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 Currently, when using the command line to build, except for the required build options, if no parameter values are uploaded, the default values are used to build. Please refer to the description below and the platform's build options description for specific default values.
@@ -34,13 +34,8 @@ Currently, when using the command line to build, except for the required build o
 - `--build`: Specify the parameters to be used when building the project.
 
   If no parameters are specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
-
     - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
-
-    - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
-
-      > **Note**: the pass is an array of module `entry` fields, see [this documentation](https://github.com/cocos-creator/engine/blob/3d-v1.0.0/scripts/module-division/division-config.json) for details.
-
+    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. This parameter passes in the `entry` field of the module, the corresponding field of each module can be found in [this file](https://github.com/cocos-creator/engine/blob/3d/scripts/module-division/division-config.json).
     - `taskName`: Build task name, the name of the release folder generated after the build.
     - `name`: Game name
     - `platform`: Required, the platform needs to be built.
@@ -54,7 +49,7 @@ Currently, when using the command line to build, except for the required build o
     - `replaceSplashScreen`: Whether to replace the splash screen, the default is `false`.
     - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
 
-Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations, and the build options are in `packages.platform-name.key`. For example, to specify the build options for the WeChat Mini Game, the configuration is as follows:
+Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations. The build parameters are configured in the `packages` field, for example, to specify the build parameters for WeChat Mini Game, the configuration is as follows:
 
 ```bash
 {

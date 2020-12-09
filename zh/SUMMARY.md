@@ -202,6 +202,7 @@
   - [脚本创建](scripting/setup.md)
   - [脚本基础](scripting/basic.md)
   - [语言支持](scripting/language-support.md)
+  - [模块](scripting/modules/index.md)
   - [ccclass](scripting/ccclass.md)
   - [属性参数参考](scripting/reference/attributes.md)
   - [访问节点和其他组件](scripting/access-node-component.md)

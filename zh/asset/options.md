@@ -31,9 +31,14 @@ assetManager.loadAny({'path': 'image/background'}, {priority: 2, maxRetryCount: 
 
 ```typescript
 // 获取 XHR 的下载进度回调
-assetManager.loadAny({'path': 'image/background'}, {onFileProgress: function (loaded, total) {
-    console.log(loaded/total);
-}}, callback);
+assetManager.loadAny({
+    'path': 'image/background'
+},
+{
+    onFileProgress: function (loaded, total) {
+        console.log(loaded/total);
+    }
+}, callback);
 ```
 
 而可选参数 `audioLoadMode` 则用于控制音频文件的处理方法是否使用 `WebAudio` 来加载音频。

@@ -30,9 +30,14 @@ The handler for resources such as text files and binary files in the downloader/
 
 ```typescript
 // Get a download progress callback for XHR
-assetManager.loadAny({'path': 'image/background'}, {onFileProgress: function (loaded, total) {
-    console.log(loaded/total);
-}}, callback);
+assetManager.loadAny({
+    'path': 'image/background'
+},
+{
+    onFileProgress: function (loaded, total) {
+        console.log(loaded/total);
+    }
+}, callback);
 ```
 
 While the optional parameter `audioLoadMode` controls whether or not the audio file's handler uses `WebAudio` to load audio.
