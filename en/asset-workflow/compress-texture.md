@@ -11,15 +11,15 @@ For example, on the mobile platform may only need the original image 80% or less
 Before Cocos Creator v2.4, texture compression configuration was only supported on **Android**, **iOS**, **Web** and **WeChat Mini Game** platforms.
 Starting with v2.4, texture compression configuration is supported on all mini game platforms.
 
-Picture Format | Android | iOS | Mini Game | Web
------------- | ------------- | --------- | -------- | --------
-PNG | Support | Support | Support | Support
-JPG | Support | Support | Support | Support
-WEBP | Android 4.0 above native support<br>Other versions can use the [resolver library](https://github.com/alexey-pelykh/webp-android-backport) | Use [resolver library](https://github.com/carsonmcdonald/WebP-iOS-example) | Unsupport | [resolver library](https://caniuse.com/#feat=webp)
-PVR | Unsupport | Support iOS | Unsupport | Unsupport
-PVR | Unsupport | Support | Support iOS | Support iOS
-ETC1 | Support | Unsupport | Support Android | Support Android
-ETC2 | Only support for generating resources, and the engine needs to be implemented by reference to pr: <https://github.com/cocos-creator/cocos2d-x-lite/pull/1685>
+| Picture Format | Android | iOS | Mini Game | Web |
+| :----------- | :------------ | :-------- | :------- | :------- |
+| PNG | Support | Support | Support | Support |
+| JPG | Support | Support | Support | Support |
+| WEBP | Android 4.0 above native support<br>Other versions can use the [resolver library](https://github.com/alexey-pelykh/webp-android-backport) | Use [resolver library](https://github.com/carsonmcdonald/WebP-iOS-example) | Unsupport | [resolver library](https://caniuse.com/#feat=webp) |
+| PVR | Unsupport | Support iOS | Unsupport | Unsupport |
+| PVR | Unsupport | Support | Support iOS | Support iOS |
+| ETC1 | Support | Unsupport | Support Android | Support Android |
+| ETC2 | Only support for generating resources, and the engine needs to be implemented by reference to PR: <https://github.com/cocos-creator/cocos2d-x-lite/pull/1685> | - | - | - |
 
 By default, Cocos Creator outputs the original image when it is built. If you need to compress an image at build time, you can select this image in the **Assets** and edit the texture format in the **Properties**.
 

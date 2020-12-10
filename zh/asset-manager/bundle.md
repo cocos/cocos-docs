@@ -7,16 +7,18 @@ Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、�
 
 ## 内置 Asset Bundle
 
-从 v2.4 开始，项目中所有的资源都会分类放在 Creator 内置的 4 个 Asset Bundle 中。与其他 Asset Bundle 一样，内置 Asset Bundle 也可以根据不同平台进行配置。
+从 v2.4 开始，项目中所有的资源都会分类放在 Creator 内置的 4 个 Asset Bundle 中：
 
 ![builtinBundles](bundle/builtin-bundles.png)
 
 | 内置 Asset Bundle | 功能说明 | 配置 |
 | :--------------- | :-- | :-------- |
-| `internal`    | 存放所有内置资源以及其依赖资源 | 通过配置 **资源管理器** 中的 `internal -> resources` 文件夹 |
+| `internal`    | 存放所有内置资源以及其依赖资源 | 通过配置 **资源管理器** 中的 `internal -> resources` 文件夹，但目前不支持修改默认配置 |
 | `main`        | 存放所有在 **构建发布** 面板的 **参与构建场景** 中勾选的场景以及其依赖资源  | 通过配置 **构建发布** 面板的 **主包压缩类型** 和 **配置主包为远程包** 两项 |
 | `resources`   | 存放 `resources` 目录下的所有资源以及其依赖资源  | 通过配置 **资源管理器** 中的 `assets -> resources` 文件夹 |
 | `start-scene` | 如果在 **构建发布** 面板中勾选了 **初始场景分包**，则首场景将会被构建到 `start-scene` 中。具体内容可参考 [初始场景的资源加载](../publish/publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。  | 无法进行配置 |
+
+与其他 Asset Bundle 一样，内置 Asset Bundle（除了 `internal`）也可以根据不同平台进行配置。
 
 在构建完成后，内置 Asset Bundle 会根据配置决定它所生成的位置，具体的配置方法以及生成规则请参考 [配置 Asset Bundle](../scripting/asset-bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95)。
 
@@ -87,7 +89,7 @@ Creator 开放了 10 个可供配置的优先级，编辑器在构建时将会�
 
 ## 压缩类型
 
-Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这几种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可重新设置包括内置 Asset Bundle 在内的所有 Asset Bundle 的压缩类型。
+Creator 目前提供了 **默认**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 这几种压缩类型用于优化 Asset Bundle。所有 Asset Bundle 默认使用 **默认** 压缩类型，开发者可重新设置包括内置 Asset Bundle（除了 `internal`）在内的所有 Asset Bundle 的压缩类型。
 
 | 压缩类型 | 功能说明 |
 | :------ | :------ |

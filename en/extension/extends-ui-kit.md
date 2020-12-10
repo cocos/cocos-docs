@@ -32,31 +32,29 @@ Editor.UI.registerElement('foobar-label', {
 
 ## 内容分布
 
-有时候我们会在自定义元素内加入内容，为了能够让自定义元素正确处理内容，需要在模板中通过 `<content>` 标签加以说明。
-这个过程我们称作“内容分布”。
+有时候我们会在自定义元素内加入内容，为了能够让自定义元素正确处理内容，需要在模板中通过 `<content>` 标签加以说明。这个过程我们称作“内容分布”。
 
 拿上面的例子来说，假设我们希望 `<foobar-label>` 不只是显示 Foobar，而是根据我们加入的内容进行显示，例如：
 
 ```javascript
-  <foobar-label>Hello World</foobar-label>
+<foobar-label>Hello World</foobar-label>
 ```
 
 这个时候就需要使用内容分发功能。我们可以对之前的范例做一个小小的更改：
 
 ```javascript
-  template: `
-    <div class="text">
-      <content></content>
-    </div>
-  `
+template: `
+  <div class="text">
+    <content></content>
+  </div>
+`
 ```
 
 通过使用 `<content>` 标签告诉样板，我们希望将用户内容放置在这个地方。
 
 ## 内容分布选择器
 
-有时候自定义元素的内容不止是文字，而是一些复合元素，我们在做内容分发的时候，希望有些元素在某些标签下，
-有些元素位于另外的标签中。这个时候就可以考虑使用内容分发选择器。考虑如下样例：
+有时候自定义元素的内容不止是文字，而是一些复合元素，我们在做内容分发的时候，希望有些元素在某些标签下，有些元素位于另外的标签中。这个时候就可以考虑使用内容分发选择器。考虑如下样例：
 
 
 ```javascript

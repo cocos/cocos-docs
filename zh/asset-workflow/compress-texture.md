@@ -6,16 +6,16 @@ Cocos Creator 可以直接在编辑器中设置纹理需要的压缩方式，然
 
 Cocos Creator 支持导入多种格式的图片（具体见下表），但是在实际游戏运行中，我们不建议使用原始图片作为资源来加载。比如在手机平台上可能只需要原图 80% 或者更少的画质，又或者是没有使用到透明通道的 .png 可以将其转换成 .jpg，这样可以减少很大一部分图片的存储空间。
 
-在 Cocos Creator v2.4 之前，只支持为 **Android**, **iOS**, **Web** 和 **微信小游戏** 这些平台配置压缩纹理。从 v2.4 开始，支持为所有的小游戏平台配置压缩纹理。
+在 Cocos Creator v2.4 之前，配置压缩纹理只支持 **Android**, **iOS**, **Web** 和 **微信小游戏** 平台，而从 v2.4 开始，支持所有的小游戏平台。
 
-图片格式 | Android | iOS | Mini Game | Web
------------- | ------------- | --------- | -------- | --------
-PNG | 支持 | 支持 | 支持 | 支持
-JPG | 支持 | 支持 | 支持 | 支持
-WEBP | Android 4.0 以上原生支持<br>其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 不支持 | [部分支持](https://caniuse.com/#feat=webp)
-PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备
-ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备
-ETC2 | 只支持生成资源，引擎部分需要参考 pr 自己实现：<https://github.com/cocos-creator/cocos2d-x-lite/pull/1685>
+| 图片格式 | Android | iOS | Mini Game | Web |
+| :----------- | :------------ | :-------- | :------- | :------- |
+| PNG | 支持 | 支持 | 支持 | 支持 |
+| JPG | 支持 | 支持 | 支持 | 支持 |
+| WEBP | Android 4.0 以上原生支持<br>其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 不支持 | [部分支持](https://caniuse.com/#feat=webp) |
+| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 |
+| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 |
+| ETC2 | 只支持生成资源，引擎部分需要参考 PR 自己实现：<https://github.com/cocos-creator/cocos2d-x-lite/pull/1685> | - | - | - |
 
 默认情况下 Cocos Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片进行压缩，可以在 **资源管理器** 中选中这张图片，然后在 **属性管理器** 中对图片的纹理格式进行编辑。
 
