@@ -56,7 +56,7 @@ For further information please read the [Toolbar](toolbar.md) section.
 
 ![preferences](editor-panels/preferences/general.png)
 
-**Settings** panels provides personalized global settings for various editors, including native development environments, game previews, script editing tools, and so on.
+**Settings** panels provides various personalized global settings for editor, including native development environments, game previews, script editing tools, and so on.
 
 For further information please read the [Settings](editor-panels/preferences.md) section.
 
