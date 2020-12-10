@@ -9,8 +9,8 @@ The `lineTo()` method is used to add a new point, and then create a line from th
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.moveTo(20,100);
 ctx.lineTo(20,20);
 ctx.lineTo(70,20);

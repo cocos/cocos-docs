@@ -29,7 +29,7 @@
 
 ```typescript
 resources.load('images/background', Texture2D, function (err, texture) {
-    var cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
+    const cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
     console.log(cachePath);
 });
 ```
@@ -40,7 +40,7 @@ resources.load('images/background', Texture2D, function (err, texture) {
 
 ```typescript
 assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
-    var tempPath = assetManager.cacheManager.getTemp(texture.nativeUrl);
+    const tempPath = assetManager.cacheManager.getTemp(texture.nativeUrl);
     console.log(tempPath);
 });
 ```
@@ -62,7 +62,7 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 缓存管理器提供了 `removeCache`, `clearCache`, `clearLRU` 这三个接口用于清理缓存资源：
 
 - `removeCache` —— 清理单个缓存资源，使用时需要提供资源的原路径，例如：
-  
+
   ```typescript
   assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
       assetManager.cacheManager.removeCache(texture.nativeUrl);

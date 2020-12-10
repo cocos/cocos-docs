@@ -34,8 +34,8 @@ Asset Manager 中内置了三条管线：
 
 ```typescript
 assetManager.pipeline.insert(function (task, done) {
-    task.output = task.input; 
-    for (var i = 0; i < task.input; i++) {
+    task.output = task.input;
+    for (let i = 0; i < task.input; i++) {
         console.log(task.input[i].content);
     }
     done();
@@ -45,7 +45,7 @@ assetManager.pipeline.insert(function (task, done) {
 也可以构建一条新的管线：
 
 ```typescript
-var pipeline = new AssetManager.Pipeline('test', [(task, done) => {
+const pipeline = new AssetManager.Pipeline('test', [(task, done) => {
     console.log('first step');
     done();
 }, (task, done) => {
@@ -62,7 +62,7 @@ var pipeline = new AssetManager.Pipeline('test', [(task, done) => {
 
 ```typescript
 assetManager.pipeline.insert(function (task, done) {
-    for (var i = 0; i < task.input.length; i++) {
+    for (let i = 0; i < task.input.length; i++) {
         task.input[i].content = null;
     }
     task.output = task.input;

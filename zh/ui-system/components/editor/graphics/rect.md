@@ -11,16 +11,16 @@
 
 ## 实例
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.rect(20,20,150,100);
 ctx.stroke();
 ```
 
 <a href="rect.png"><img src="rect.png"></a>
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 
 // 红色矩形
 ctx.lineWidth = 6;

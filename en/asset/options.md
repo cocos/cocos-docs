@@ -76,8 +76,8 @@ You can extend the loading capabilities of the engine by using optional paramete
 ```typescript
 // Extend the pipeline
 assetManager.pipeline.insert(function (task, done) {
-    var input = task.input;
-    for (var i = 0; i < input.length; i++) {
+    let input = task.input;
+    for (let i = 0; i < input.length; i++) {
         if (input[i].options.myParam === 'important') {
             console.log(input[i].url);
         }
@@ -91,7 +91,7 @@ assetManager.loadAny({'path': 'images/background'}, {'myParam': 'important'}, ca
 // Register the handler
 assetManager.downloader.register('.myformat', function (url, options, callback) {
     // Download the resource
-    var img = new Image();
+    const img = new Image();
     if (options.isCrossOrigin) {
         img.crossOrigin = 'anonymous';
     }

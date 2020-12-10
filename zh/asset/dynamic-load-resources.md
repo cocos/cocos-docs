@@ -57,7 +57,7 @@ resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Textu
 // 加载 SpriteAtlas（图集），并且获取其中的一个 SpriteFrame
 // 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下, 所以需要在第二个参数指定资源类型
 resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
-    var frame = atlas.getSpriteFrame('sheep_down_0');
+    const frame = atlas.getSpriteFrame('sheep_down_0');
     sprite.spriteFrame = frame;
 });
 ```
@@ -115,7 +115,7 @@ assetManager.loadRemote(remoteUrl, {ext: '.png'}, function () {
 });
 
 // 用绝对路径加载设备存储内的资源，比如相册
-var absolutePath = "/dara/data/some/path/to/image.png"
+const absolutePath = "/dara/data/some/path/to/image.png";
 assetManager.loadRemote(absolutePath, function () {
     // Use texture to create sprite frame
 });

@@ -69,7 +69,7 @@ resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
 
 `resources.loadDir` can load multiple resources under the same path:
 
-```javascript
+```ts
 // loading all resource in the test assets directory
 resources.loadDir("test assets", function (err, assets) {
     // ...
@@ -85,7 +85,7 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 
 Starting with v2.4, in addition to scenes that can be preloaded, other resources can also be preloaded. Preloading has the same loading parameters as normal loading, but it will only download the necessary resources, and will not perform deserialization or initialization. Therefore, it consumes less performance and is suitable for use during the game.
 
-`resources` provides `preload` and `preloadDir` for preloading resources.  
+`resources` provides `preload` and `preloadDir` for preloading resources.
 
 ```typescript
 resources.preload('test assets/image', SpriteFrame);
