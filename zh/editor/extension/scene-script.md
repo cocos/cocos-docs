@@ -60,14 +60,14 @@ const options: ExecuteSceneScriptMethodOptions = {
     name: 'scene',
     method: 'log',
     args: [
-        'test',
+        
     ],
 };
 
 await Editor.Message.request('scene', 'execute-scene-script', options); // true
 ```
 
-执行后，我们会在场景控制台打印一个 test 字符串，并且 message 消息返回一个 true 布尔值。
+执行后，我们会在场景控制台打印场景中所有节点的名字，并且 message 消息返回一个 true 布尔值。
 
 **值得注意的**需要在场景加载完成之后才能调用场景脚本。
 
