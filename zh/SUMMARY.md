@@ -266,6 +266,7 @@
     - [消息通信](editor/extension/contributions-messages.md)
     - [快捷键](editor/extension/contributions-shortcuts.md)
     - [扩展主菜单](editor/extension/contributions-menu.md)
+    - [场景脚本](editor/extension/scene-script.md)
   - [基础功能](editor/extension/basic.md)
     - [插件系统](editor/extension/package.md)
     - [消息系统](editor/extension/messages.md)
