@@ -9,14 +9,14 @@
 - Mac
 
   ```bash
-  /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
   --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
 
   ```bash
-  CocosCreator/CocosCreator.exe --project projectPath --build "platform=web-desktop;debug=true"
+  ...\CocosCreator.exe --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 目前命令行构建除了必填项外，如果不传递一律使用默认值来构建，具体参数默认值请参考下方描述以及平台的参数介绍。
@@ -33,11 +33,10 @@
 
 - `--build`：指定构建项目使用的参数
 
-  在 `--build`  后如果没有指定参数，则会使用 Cocos Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
+  在 `--build`  后如果没有指定参数，则会使用 Cocos Creator 中 **构建发布** 面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
   - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出。
-
-  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从 [这里](https://github.com/cocos-creator/engine/scripts/module-division/division-config.json) 查找到，注意传递的是模块 entry 字段组成的数组。
+  - `includedModules` - 定制引擎打包模块，只打包需要的模块。该参数传入的是模块中的 `entry` 字段，各模块对应的字段可在 [这里](https://github.com/cocos-creator/engine/blob/3d/scripts/module-division/division-config.json) 查找。
   - `taskName` - 构建任务名，构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
   - `platform` - 必填，构建的平台
@@ -47,13 +46,12 @@
   - `debug` - 是否为 debug 模式，默认关闭
   <!-- - `inlineSpriteFrames` - 是否内联所有 SpriteFrame -->
   - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON，默认关闭
-  
   - `packAutoAtlas` - 是否开启自动图集，默认关闭
   - `compressTexture` - 是否开启压缩纹理，默认关闭
   - `replaceSplashScreen` - 是否替换插屏，默认关闭
   - `md5Cache` - 是否开启 md5 缓存，默认关闭
 
-Cocos Creator 3.0 各个平台的构建会作为独立的插件嵌入到构建发布面板中，因而构建各个平台的构建参数位置也不同，各个平台的参数将会放置在 `packages.平台名称.key` 内，例如：为 wechatgame 指定构建参数，配置大体如下：
+Cocos Creator 3.0 各个平台的构建会作为独立的插件嵌入到 **构建发布** 面板中，因而各个平台的构建参数位置也不同。各个平台的构建参数会配置在 `packages` 字段中，例如：为微信小游戏指定构建参数，配置大体如下：
 
 ```
 {
@@ -66,7 +64,7 @@ Cocos Creator 3.0 各个平台的构建会作为独立的插件嵌入到构建�
 }
 ```
 
-之后在构建插件支持对外开放，其他插件的配置参数也会通过同样的方式嵌入到构建面板中。具体各个平台的参数字段还请参照各个平台各自的文档，最好是通过构建面板的 `导出` 功能来获取配置参数，更加方便快捷。目前依旧兼容旧版本的参数来构建，但是将会在之后移除该兼容处理，请尽快升级配置参数。
+之后在构建插件支持对外开放，其他插件的配置参数也会通过同样的方式嵌入到构建面板中。具体各个平台的参数字段还请参照各个平台各自的文档，最好是通过构建面板的 **导出** 功能来获取配置参数，更加方便快捷。目前依旧兼容旧版本的参数来构建，但是将会在之后移除该兼容处理，请尽快升级配置参数。
 
 ## 在 Jenkins 上部署
 

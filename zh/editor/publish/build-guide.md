@@ -53,16 +53,17 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
     ![build-engine](./build-guide/build-engine.jpg)
 
     关于引擎文件的复用规则，这里有必要阐述下：<br>
-    打包好的引擎文件将会放置在编辑器全局的临时目录下 (在构建进程内使用 `Build.globalTempDir` 打印)。缓存文件按照会影响引擎编译的参数生成的 hash 值作为名称存放，其中 `.watch-file.json` 存放的是引擎各个文件的修改时间。
+    打包好的引擎文件将会放置在编辑器全局的临时目录下 (在构建进程内使用 `Build.globalTempDir` 打印)。缓存文件按照会影响引擎编译的参数生成的 hash 值作为名称存放。
 
     ```bash
     global-temp-folder
     |--CocosCreator
-        |--x.xx(1.2.0)
-            |--.editor-cache
-                |-- 1dc4a547f9...63a43bb8965.watch-files.json
-                |-- 1dc4a547f9...63a43bb8965
-                |-- 1dc4a547f9...63a43bb8965.map
+        |--x.xx(3.0.0)
+            |--builder
+                |--engine
+                    |--1dc4a547f9...63a43bb8965.watch-files.json
+                    |--1dc4a547f9...63a43bb8965
+                    |--1dc4a547f9...63a43bb8965.meta
                 ...
     ```
 

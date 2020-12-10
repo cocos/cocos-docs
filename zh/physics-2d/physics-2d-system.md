@@ -50,7 +50,7 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 PhysicsSystem2D.instance.gravity = cc.v2();
 ```
 
-如果希望修改重力加速度为其他值，比如每秒加速降落 20 m/s，那么可以这样设置：
+如果希望修改重力加速度为其他值，比如每秒加速降落 20m/s，那么可以这样设置：
 
 ```ts
 PhysicsSystem2D.instance.gravity = cc.v2(0, -20 * PHYSICS_2D_PTM_RATIO);
