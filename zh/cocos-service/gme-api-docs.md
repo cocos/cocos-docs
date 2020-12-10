@@ -2,7 +2,7 @@
 
 为方便 Cocos Creator 开发者调试和接入游戏多媒体引擎（腾讯云）产品 API，本文为通过 Cocos Service 服务面板，接入游戏多媒体引擎的接口文档。
 
-- 此文档对应游戏多媒体引擎 SDK 的版本为 **2.5.2**。
+- 此文档对应游戏多媒体引擎 SDK 的版本为 **2.7**。
 - 函数原型为 [游戏多媒体引擎 Cocos SDK 接口文档](https://cloud.tencent.com/document/product/607/15218) 中定义的接口，Cocos Service 接入时设置了一个全局变量 `tencentGME.tencentGMEInst`，可参考示例代码接入。
 
 ## 游戏多媒体引擎的重要接口
@@ -1048,12 +1048,14 @@ tencentGME.tencentGMEInst.pttDownloadRecordedFile(fileId, filePath);
 #### 函数原型
 
 ```js
-TencentGME.fn.pttPlayRecordedFile = function(filePath: string) {...}
+TencentGME.fn.pttPlayRecordedFile = function(filePath: string, [voiceType: number]) {...}
 ```
 
 | 参数      |  类型   |  含义 |  
 | :------- |  :----- |  :------- |  
 | filePath |  string |  文件的路径 |  
+| voicetype | number |  可选参数，变声类型，请参考 [变声特效](#https://cloud.tencent.com/document/product/607/34378#.E5.8F.98.E5.A3.B0.E7.89.B9.E6.95.88) |  
+
 
 #### 返回错误码
 
@@ -1140,7 +1142,7 @@ TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileID: strin
 | :------ |  :------------ |  :------------- |  
 | fileID                   |  string |  语音文件 url |  
 | speechLanguage (可选)     |  string |  识别出指定文字的语言参数，具体请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282) |  
-| translatelanguage (可选)  |  string |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)<br>**注意**：此参数 **暂时无效**，填入参数应与 `speechLanguage` 一致 |  
+| translatelanguage (可选)  |  string |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)<br>**注意**：此参数 **暂时无效**，填入参数应与 `speechLanguage` 一致，两个参数需要同时传入 |  
 
 #### 示例代码
 
@@ -1297,6 +1299,7 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 |  `ITMG_MAIN_EVNET_TYPE_PTT_DOWNLOAD_COMPLETE`    |  下载 PTT 完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_PLAY_COMPLETE`        |  播放 PTT 完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE` |  语音转文字完成 |  
+|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_IS_RUNNING` | 流式语音识别，相当于边说话边返回识别到的文字 |
 
 ### Data 列表
 
@@ -1316,4 +1319,4 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_DOWNLOAD<br>_COMPLETE	  |  result; file_path; <br>file_id  		|  {"file_id":"","file_path":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_PLAY_COMPLETE 	          |  result; file_path  			|  {"file_path":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_SPEECH2TEXT<br>_COMPLETE	|  result; text; <br>file_id		|  {"file_id":"","text":"","result":0}|  
-| ITMG_MAIN_EVNET_TYPE<br>_PTT<br>_STREAMINGRECOGNITION<br>_COMPLETE |  result; file_path; <br>text;file_id		|  {"file_id":"","file_path":","text":"","result":0}|  
+| ITMG_MAIN_EVNET_TYPE<br>_PTT<br>_STREAMINGRECOGNITION<br>_IS_RUNNING |  result; file_path; <br>text;file_id		|  {"file_id":"","file_path":","text":"","result":0}|  
