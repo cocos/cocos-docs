@@ -1054,7 +1054,7 @@ TencentGME.fn.pttPlayRecordedFile = function(filePath: string, [voiceType: numbe
 | 参数      |  类型   |  含义 |  
 | :------- |  :----- |  :------- |  
 | filePath |  string |  文件的路径 |  
-| voicetype | number |  可选参数，变声类型，请参考 [变声特效](#https://cloud.tencent.com/document/product/607/34378#.E5.8F.98.E5.A3.B0.E7.89.B9.E6.95.88) |  
+| voicetype | number |  可选参数，变声类型，请参考 [变声特效](https://cloud.tencent.com/document/product/607/34378#.E5.8F.98.E5.A3.B0.E7.89.B9.E6.95.88) |  
 
 
 #### 返回错误码
