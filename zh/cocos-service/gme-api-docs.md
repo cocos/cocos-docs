@@ -1299,7 +1299,8 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 |  `ITMG_MAIN_EVNET_TYPE_PTT_DOWNLOAD_COMPLETE`    |  下载 PTT 完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_PLAY_COMPLETE`        |  播放 PTT 完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE` |  语音转文字完成 |  
-|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_IS_RUNNING` | 流式语音识别，相当于边说话边返回识别到的文字 |
+|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE` | 流式语音识别完成 |
+|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_IS_RUNNING` | 流式语音识别运行中，相当于边说话边返回识别到的文字 |
 
 ### Data 列表
 
@@ -1319,4 +1320,5 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_DOWNLOAD<br>_COMPLETE	  |  result; file_path; <br>file_id  		|  {"file_id":"","file_path":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_PLAY_COMPLETE 	          |  result; file_path  			|  {"file_path":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT_SPEECH2TEXT<br>_COMPLETE	|  result; text; <br>file_id		|  {"file_id":"","text":"","result":0}|  
+| ITMG_MAIN_EVNET_TYPE<br>_PTT<br>_STREAMINGRECOGNITION<br>_COMPLETE |  result; file_path; <br>text;file_id		|  {"file_id":"","file_path":","text":"","result":0}|  
 | ITMG_MAIN_EVNET_TYPE<br>_PTT<br>_STREAMINGRECOGNITION<br>_IS_RUNNING |  result; file_path; <br>text;file_id		|  {"file_id":"","file_path":","text":"","result":0}|  
