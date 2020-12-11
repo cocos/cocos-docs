@@ -8,7 +8,9 @@
   - [Dashboard](getting-started/dashboard/index.md)
   - [Hello world!](getting-started/helloworld/index.md)
   - [Quick Start: First Game](getting-started/first-game/index.md)
+  - [Support](getting-started/support.md)
   - [Caution!](getting-started/attention/index.md)
+- [Cocos Creator 3.0 Preview Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
 
 ## Editor Manual
 

@@ -8,6 +8,7 @@
   - [Dashboard](getting-started/dashboard/index.md)
   - [Hello world!](getting-started/helloworld/index.md)
   - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
+  - [获取帮助和支持](getting-started/support.md)
   - [注意事项](getting-started/attention/index.md)
 - [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
 
