@@ -70,4 +70,4 @@ assetManager.pipeline.insert(function (task, done) {
 }, 1);
 ```
 
-具体内容可参考 [AssetManager.Task](https://docs.cocos.com/creator/3.0/api/zh/classes/asset_manager.task.html) 类型。
+具体内容可参考 [AssetManager.Task](../../../api/zh/classes/asset_manager.task.html) 类型。

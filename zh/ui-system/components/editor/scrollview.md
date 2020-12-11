@@ -8,7 +8,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/ScrollView** 即可添加 ScrollView 组件到节点上。
 
-滚动视图的脚本接口请参考 [ScrollView API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.scrollview.html)。
+滚动视图的脚本接口请参考 [ScrollView API](../../../api/zh/classes/ui.scrollview.html)。
 
 关于使用可以参考 test-cases-3d 里的 [scrollView](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/06.scrollView) 相关。
 
@@ -106,4 +106,4 @@ export class example extends Component {
 
 同样的，你也可以注册 `scrolling`、`touch-up`、`scroll-began` 等事件，这些事件的回调函数的参数与 `scroll-to-top` 的参数一致。
 
-<!-- 关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档 [ScrollView API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.scrollview.html)。 -->
+关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档 [ScrollView API](../../../api/zh/classes/ui.scrollview.html)。

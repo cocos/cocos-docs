@@ -6,7 +6,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/Sprite** 即可添加 Sprite 组件到节点上。
 
-图像的组件接口请参考 [Sprite API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.sprite.html)。
+图像的组件接口请参考 [Sprite API](../../../api/zh/classes/ui.sprite.html)。
 
 关于使用可以参考 test-cases-3d 里的 [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) 相关。
 

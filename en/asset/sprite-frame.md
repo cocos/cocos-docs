@@ -68,4 +68,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API interface document: [SpriteFrame](https://docs.cocos.com/creator/3.0/api/en/classes/asset.spriteframe.html).
+API interface document: [SpriteFrame](../../../api/en/classes/asset.spriteframe.html).
