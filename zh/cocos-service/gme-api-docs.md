@@ -1300,7 +1300,7 @@ tencentGME.tencentGMEInst.removeAudioBlackList(openId);
 |  `ITMG_MAIN_EVNET_TYPE_PTT_PLAY_COMPLETE`        |  播放 PTT 完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_SPEECH2TEXT_COMPLETE` |  语音转文字完成 |  
 |  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_COMPLETE` | 流式语音识别完成 |
-|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_IS_RUNNING` | 流式语音识别运行中，相当于边说话边返回识别到的文字 |
+|  `ITMG_MAIN_EVNET_TYPE_PTT_STREAMINGRECOGNITION_IS_RUNNING` | 流式语音识别运行中，相当于边识别语音边返回识别到的文字 |
 
 ### Data 列表
 
