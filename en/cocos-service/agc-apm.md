@@ -44,7 +44,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 - For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-    ![](agc-apm/apm-agcfile.png)
+  ![](agc-apm/apm-agcfile.png)
 
 ### Verify whether the service is integrated successfully
 

@@ -1142,7 +1142,7 @@ TencentGME.fn.pttStartRecordingWithStreamingRecognition = function(fileID: strin
 | :------ |  :------------ |  :------------- |  
 | fileID                   |  string |  语音文件 url |  
 | speechLanguage (可选)     |  string |  识别出指定文字的语言参数，具体请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282) |  
-| translatelanguage (可选)  |  string |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)<br>**注意**：此参数 **暂时无效**，填入参数应与 `speechLanguage` 一致，两个参数需要同时传入 |  
+| translatelanguage (可选)  |  string |  翻译成指定文字的语言参数，参数请参考 [语音转文字的语言参数参考列表](https://cloud.tencent.com/document/product/607/30282)<br>**注意**：此参数 **暂时无效**，填入参数应与 `speechLanguage` 一致。`speechLanguage` 与 `translatelanguage` 这两个参数需要同时传入 |  
 
 #### 示例代码
 
