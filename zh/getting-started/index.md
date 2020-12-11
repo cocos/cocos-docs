@@ -9,4 +9,5 @@
 - [Dashboard](dashboard/index.md)
 - [Hello world!](helloworld/index.md)
 - [快速上手：制作第一个游戏](first-game/index.md)
+- [获取帮助和支持](support.md)
 - [注意事项](attention/index.md)

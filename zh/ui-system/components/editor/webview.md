@@ -28,7 +28,7 @@ WebView 的脚本接口请参考 [WebView API](https://docs.cocos.com/creator/3.
 | Handler         | 指定一个回调函数，当网页加载过程中、加载完成后或者加载出错时会被调用，该函数会传一个事件类型参数进来。详情见下方的 **WebView 事件回调参数** 部分 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
-详情可参考 API 文档 [Component.EventHandler 类型](../../../api/zh/classes/Component.EventHandler.html)
+详情可参考 API 文档 [Component.EventHandler 类型](https://docs.cocos.com/creator/3.0/api/zh/classes/event.eventhandler.html)
 
 ### WebView 事件回调参数
 
@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](https://docs.cocos.com/creator/3.
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 test-cases-3d 测试例中的 [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview)。
+详情可参考 [WebView 事件](https://docs.cocos.com/creator/3.0/api/zh/classes/webview.webview-1.html#webviewevents) 或者参考引擎自带的 test-cases-3d 测试例中的 [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview)。
 
 ## 详细说明
 

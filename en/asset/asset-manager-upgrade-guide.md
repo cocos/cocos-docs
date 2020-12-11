@@ -336,7 +336,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
-  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](../../../api/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](../../../api/en/classes/asset_manager.assetmanager.html#parser).
+  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](https://docs.cocos.com/creator/3.0/api/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](https://docs.cocos.com/creator/3.0/api/en/classes/asset_manager.assetmanager.html#parser).
 
   **Note**: For performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
 

@@ -28,7 +28,7 @@ For more information about WebView API, please refer to [WebView API](https://do
 |Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
 | CustomEventData | The user specifies that any string is passed in as the last parameter of the event callback. |
 
-For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html) documentation.
+For more information, please refer to the [Component.EventHandler Class](https://docs.cocos.com/creator/3.0/api/en/classes/event.eventhandler.html) documentation.
 
 ### Parameter of WebViewEvents
 
@@ -38,7 +38,7 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 | LOADED| WebView is finished loading.
 | ERROR| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [WebView Events](https://docs.cocos.com/creator/3.0/api/en/classes/webview.webview-1.html#webviewevents) or [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
 
 ## Details Explanation
 

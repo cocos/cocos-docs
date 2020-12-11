@@ -7,7 +7,7 @@ Cocos Creator 3.0 可以直接在编辑器中设置纹理需要的压缩方式�
 Cocos Creator 支持导入多种格式的图片（具体见下表），但是在实际游戏运行中，我们不建议使用原始图片作为资源来加载。比如在手机平台上可能只需要原图 80% 或者更少的画质，又或者是没有使用到透明通道的 `.png` 可以将其转换成 `.jpg`，这样可以减少很大一部分图片的存储空间。
 
 | 图片格式 | Android | iOS | Mini Game | Web  | Mac & Windows |
-| ------- | -------- | ------ | ----- | ------ | ------ |
+| :------ | :------ | :------ | :----- | :------ | :------ |
 | PNG | 支持 | 支持   | 支持 | 支持 | 支持 |
 | JPG | 支持 | 支持 | 支持 | 支持 | 支持 |
 | WEBP | Android 4.0 以上原生支持，其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 支持 | [部分支持](https://caniuse.com/#feat=webp) | 不支持 |
@@ -52,10 +52,10 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 
 ## 构建平台的压缩纹理支持细节
 
-除全平台支持的 `JPG` 和 `PNG` 外，其他格式的支持细节如下：
+除全平台支持的 `JPG` 和 `PNG` 外，其他格式的支持情况如下：
 
 | Platform          | TextureCompressTypes |
-| ----------------- | -------------------- |
+| :---------------- | :------------------- |
 | Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | WeChat Game       | ETC1 / PVR           |

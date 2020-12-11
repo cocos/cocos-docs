@@ -68,5 +68,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-<!-- API 接口文档如下：
-* [SpriteFrame 资源类型](https://docs.cocos.com/creator/2.1/api/zh/classes/SpriteFrame.html) -->
+API interface document: [SpriteFrame](https://docs.cocos.com/creator/3.0/api/en/classes/asset.spriteframe.html).
