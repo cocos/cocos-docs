@@ -25,14 +25,12 @@
 - [弹弹乐 3D](https://github.com/cocos-creator/demo-ball)：用户可通过此项目制作弹弹球游戏。
 - [快上车 3D](https://github.com/cocos-creator/tutorial-taxi-game)：基于物理的游戏制作 demo，用户可通过此项目制作快上车游戏。
 
-## 其他第三方工具和资源
+## 适合新人的第三方工具和资源
 
 ### 代码编辑工具
 
 - [VS Code](https://code.visualstudio.com/) 微软推出的轻量级文本编辑器，支持 Cocos Creator 代码提示和语法高亮
 - [WebStorm](https://www.jetbrains.com/webstorm/)
-- [Sublime Text](http://www.sublimetext.com/)
-- [Atom](https://atom.io/)
 
 ### 图集生产工具
 
@@ -65,7 +63,7 @@
 除了本手册里提供的信息，您还可以随时通过下面的渠道获取信息或反馈问题给 Cocos Creator 开发团队：
 
 <!-- QQ群：738190852，539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
-- [Cocos 论坛社区](https://forum.cocos.org/c/Creator/58)
+- [Cocos 论坛社区](https://forum.cocos.org/c/58)
 - [Cocos 技术支持](https://www.cocos.com/support)
 
 或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。

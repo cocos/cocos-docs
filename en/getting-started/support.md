@@ -17,14 +17,12 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![](su
 - [Jump Ball 3D](https://github.com/cocos-creator/demo-ball): Users can make jump ball games through this project.
 - [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game): Physics-based game demo, users can make taxi games through this project.
 
-## Other third-party tools and resources
+## Third-party tools and resources for newcomers
 
 ### Code IDE
 
 - [VS Code](https://code.visualstudio.com/) Recommended coding environment for Cocos Creator.
 - [WebStorm](https://www.jetbrains.com/webstorm/)
-- [Sublime Text](http://www.sublimetext.com/)
-- [Atom](https://atom.io/)
 
 ### Tools for generating texture packer
 
