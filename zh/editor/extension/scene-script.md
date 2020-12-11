@@ -1,12 +1,18 @@
-# 场景脚本功能
+# 调用引擎 API 和项目脚本
 
-场景脚本功能主要适用于一个扩展插件需要使用场景内的引擎运行时数据的场景。
+在插件中可以声明一个特殊的脚本文件（场景脚本），该脚本和项目中的脚本 （`assets` 目录下的脚本）具有相同的环境，也就是说在这个脚本里可以调用引擎 API 和其他项目脚本，实现：
 
-例如想要输出一份节点树的数据。就需要在场景进程里，运行自己的代码，并且和外部的插件主体进行一定程度的交互。
+- 遍历场景中的节点，获取或改动数据
 
-## 使用方式
+- 调用项目中的其他脚本完成工作
 
-首先在 pacakge.json 里注册数据到场景插件：
+  
+
+## 注册场景脚本
+
+
+
+首先往 `pacakge.json` 的 `contributions` 属性添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
 ```json
 {
@@ -19,7 +25,13 @@
 }
 ```
 
-然后在 scene.js 内填入相应的数据
+
+
+## 编写场景脚本
+
+
+
+`scene.js` 需要用这样的形式定义：
 
 ```javascript
 // 模块加载的时候触发的函数
@@ -30,23 +42,25 @@ exports.unload = function() {};
 // 模块内定义的方法
 exports.methods = {
     log() {
-
-        const scene = cc.director.getScene()
-        if(scene)
-        {
-            scene.walk((target)=>console.log(target.name))
+        const scene = cc.director.getScene();
+        if (scene) {
+            scene.walk(target => console.log(target.name));
+        } else {
+            console.warn(`Scene not found`);
         }
-        else
-        {
-            console.warn(`Scene not found`)
-        }
-        return true;
     }
-}
 };
 ```
 
-定义完成后，我们可以通过 message 进行触发：
+**注意： 由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的`cc.require` 方法被弃用**
+
+
+
+## 向场景脚本发送消息
+
+
+
+接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
@@ -57,17 +71,21 @@ interface ExecuteSceneScriptMethodOptions {
 }
 
 const options: ExecuteSceneScriptMethodOptions = {
-    name: 'scene',
+    name: 'foobar',
     method: 'log',
-    args: [
-        
-    ],
+    args: []
 };
 
 await Editor.Message.request('scene', 'execute-scene-script', options); // true
 ```
 
-执行后，我们会在场景控制台打印场景中所有节点的名字，并且 message 消息返回一个 true 布尔值。
 
-**值得注意的**需要在场景加载完成之后才能调用场景脚本。
+这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
 
+**注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
+
+
+
+### 引用插件脚本
+
+直接使用 `window.globalVar` 来访问插件脚本里声明的全局变量和方法即可。
