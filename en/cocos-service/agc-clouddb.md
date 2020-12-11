@@ -24,7 +24,7 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 ### Version Update Description
 
-- Latest Version: 0.5.2_1.2.3.301
+- Latest Version: 0.5.3_1.2.3.301
 
     - Updated SDK to v1.2.3.301.
     - Fix the bug that the querier can only query String type.
@@ -63,17 +63,9 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
   ![](agc-clouddb/cdb-configfile.png)
 
-**Note**:
+- For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
 
-1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
-
-2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
-
-    ![](agc-clouddb/globle-keystore.png)
-
-3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
-
-    ![](agc-clouddb/cdb-agcfile.png)
+  ![](agc-clouddb/cdb-agcfile.png)
 
 ### Verify whether the service is integrated successfully
 
