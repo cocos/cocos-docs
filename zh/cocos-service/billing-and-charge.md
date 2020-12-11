@@ -24,8 +24,25 @@ Cocos Service 提供的服务有免费的，也有部分是付费的，具体在
 
     ![](image/console-billing.jpg)
 
+## 腾讯云套餐购买方式说明
+
+由于用户在 Service 中开通的腾讯云账号类型为子账号，若用户需要购买腾讯云（TCB/MGOBE/GME）相关资源包套餐，无法直接在腾讯云后台直接购买。因此，我们开发了一套简易流程供用户自助购买套餐。
+
+- 在腾讯云后台登录账号，并正常选择后台中的套餐购买，直到页面弹出错误提示：您无权查看该订单。
+
+    ![](image/tencloud-buy.jpg)
+
+    ![](image/tencloud-error.jpg)
+
+- 回到 Cocos 后台，在 **财务 -> 订单管理** 查看待支付订单，对应订单将会在 1 分钟内生成。请确认是否是所需购买的套餐包，并支付该订单开通套餐。
+
+    ![](image/tencloud-order.jpg)
+
 ## 服务商计费说明
 
 服务商具体的计费说明请参考：
 
 - [Agora 官方计费说明](https://docs.agora.io/cn/Voice/billing_rtc?platform=All%20Platforms)
+- [TCB 云开发计费概述](https://cloud.tencent.com/document/product/876/18864)
+- [MGOBE 游戏联机对战引擎计费概述](https://cloud.tencent.com/document/product/1038/33293)
+- [GME 游戏多媒体引擎购买指南](https://cloud.tencent.com/document/product/607/38500)
