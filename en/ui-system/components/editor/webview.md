@@ -6,14 +6,14 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information about WebView API, please refer to [WebView API](https://docs.cocos.com/creator3d/api/en/classes/WebView.html) documentation.
+For more information about WebView API, please refer to the [WebView API](https://docs.cocos.com/creator3d/api/en/classes/WebView.html) documentation.
 
 ## WebView Properties
 
 | Properties | Function Explanation
 |-------- | ----------- |
-| Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
-| WebView Events | The webview's event callback, it will be triggered when certain webview event occurs.
+| **URL** | A given URL to be loaded by the WebView, it should have a http or https prefix.
+| **WebView Events** | The webview's event callback, it will be triggered when certain webview event occurs.
 
 > **Note**: in **Node** of the **WebView Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant **WebView** event according to the user's needs.
 
@@ -23,10 +23,10 @@ For more information about WebView API, please refer to [WebView API](https://do
 
 | Properties |   Function Explanation
 | -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
-| CustomEventData | The user specifies that any string is passed in as the last parameter of the event callback. |
+|**Target**| Node with the script component.
+|**Component**| Script component name.
+|**Handler**| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
+| **CustomEventData** | The user specifies that any string is passed in as the last parameter of the event callback. |
 
 For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html) documentation.
 
@@ -34,18 +34,19 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 
 | Name |   Function Explanation
 | -------------- | ----------- |
-| LOADING | WebView is loading.
-| LOADED| WebView is finished loading.
-| ERROR| Errors occurred when loading web pages.
+| **LOADING** | WebView is loading.
+| **LOADED**| WebView is finished loading.
+| **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
 
 ## Details Explanation
 
 Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
 
-> **Note**: this component doesn't support load HTML file or execute JavaScript.
-> **Note**: if you don't use **WebView** related features in your project, please ensure that the **WebView** module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with **WebView**), and therefore the game rejected by App Store, you can still try to appeal through email.
+> **Note**: 
+> 1. This component doesn't support load HTML file or execute JavaScript.
+> 2. If you don't use **WebView** related features in your project, please ensure that the **WebView** module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with **WebView**), and therefore if the game is rejected by App Store, you can still try to appeal through email.
 
 ### Add a callback via script
 
