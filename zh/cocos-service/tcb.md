@@ -129,6 +129,7 @@ https://www.bilibili.com/video/BV1CC4y1p7r7
 
 ## 文档链接
 
+- [腾讯云套餐购买方式](billing-and-charge.md#%E8%85%BE%E8%AE%AF%E4%BA%91%E5%A5%97%E9%A4%90%E8%B4%AD%E4%B9%B0%E6%96%B9%E5%BC%8F)
 - [云开发简介](https://cloud.tencent.com/document/product/876/18431)
 - [云开发计费模式](https://cloud.tencent.com/document/product/876/18864)
 - [云开发常见问题](https://cloud.tencent.com/product/tcb/faqs)

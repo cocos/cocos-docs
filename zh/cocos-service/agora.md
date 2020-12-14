@@ -78,20 +78,7 @@ Agora RTC 服务接入完成后，我们可以通过在脚本中添加简单的�
 
 ## Sample 工程
 
-- 点击 Agora RTC 服务面板中的 **Sample 工程**，Clone 或下载 **Voice-Call-for-Mobile-Gaming/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora** 项目，并在 Cocos Creator 中打开。该 Sample 工程中包含了以下功能：
-
-  - 加入通话和离开通话
-  - 发布音频流和订阅音频流
-
-- 在 **服务** 面板中开通 Agora RTC 服务。
-
-- 在 **资源管理器** 中双击打开 **HelloWorld.js**，然后将 `initAgora` 方法中的 **appid** 替换为 Agora 后台获取的 App ID。
-
-- 脚本修改完成并保存后，回到编辑器。点击编辑器窗口正上方的 ![](./image/preview-button.jpg) [预览](../getting-started/basics/preview-build.md) 按钮，即可在浏览器中调试该项目工程。
-
-  ![](agora/agora-sample.jpg)
-
-  **注意**：若在浏览器中调试时发现 Sample 工程初始化成功，但点击 **加入频道** 时没有回调，请确认是否有在 **服务** 面板中开通 Agora RTC 服务。
+- 音频直播示例项目请参考 [Hello-Agora-CocosCreator-Voice](https://github.com/AgoraIO/Voice-Call-for-Mobile-Gaming/blob/master/Basic-Voice-Call-for-Gaming/Hello-CocosCreator-Voice-Agora/README.zh.md)。
 
 - 视频通话示例项目请参考 [Agora-Cocos-Quickstart](https://docs.agora.io/cn/Interactive%20Broadcast/start_live_cocos_creator?platform=Cocos%20Creator#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5)。
 
