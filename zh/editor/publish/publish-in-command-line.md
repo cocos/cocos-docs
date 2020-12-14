@@ -37,7 +37,7 @@
 
   - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出，当配置和 configPath 内的配置冲突时，configPath 指定的配置将会被覆盖。
 
-  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。具体模块可以从[引擎仓库](https://github.com/cocos-creator/engine)的 `/scripts/module-division/division-config.json` 查找到，注意传递的是模块 entry 字段组成的数组。
+  - `includedModules` - 定制引擎的打包模块，有需要打包部分模块而不是全部模块的，可以传递此参数。定制引擎打包的模块。该参数传入的是模块中的 entry 字段，各模块对应的字段可在[引擎仓库](https://github.com/cocos-creator/engine)（目前使用的是 3d 分支）的 `/scripts/module-division/division-config.json` 查找到，注意传递的是模块 `entry` 字段组成的数组。
   - `outputName` - 构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
   - `platform` - 必填，构建的平台，具体名称参考面板上对应插件名称即可

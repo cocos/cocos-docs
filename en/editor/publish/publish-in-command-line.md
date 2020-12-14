@@ -39,7 +39,7 @@ Currently, when using the command line to build, except for the required build o
 
   - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
 
-      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) for details.
+      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) (now in `3d` branch) for details.
 
   - `outputName`: The name of the release folder generated after the build.
   - `name`: Game name
