@@ -38,7 +38,7 @@ exports.methods = {
         if (scene) {
             scene.walk(target => console.log(target.name));
         } else {
-            console.warn("Scene not found");
+            console.warn('Scene not found');
         }
     }
 };
@@ -48,7 +48,7 @@ exports.methods = {
 
 ## 向场景脚本发送消息
 
-接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
+接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene.js` 发送消息（假设扩展包名是 `foobar` ）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
