@@ -2,11 +2,11 @@
 
 **VideoPlayer** is a component for playing videos, you could use this component for playing local video and remote videos.
 
-**Playing local video**:
+**Playing a local video**:
 
 ![videoplayer](./videoplayer/videoplayer.png)
 
-**Playing remote video**:
+**Playing a remote video**:
 
 ![videoplayer-remote](./videoplayer/videoplayer-remote.png)
 
@@ -18,17 +18,17 @@ For more information about VideoPlayer's scripting interface, please refer to th
 
 | Properties | Function Explanation |
 |-------- | ----------- |
-| Resource Type        | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
-| Remote URL           | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
-| Clip                 | Displayed when Resource Type is LOCAL, feed it with a local video path. |
-| Play On Awake        | Whether the video start playing automatically after loaded? |
-| Current Time         | The current playback time of the now playing item in seconds, you could also change the start playback time. |
-| Volume               | The volume of the video. (0.0 ~ 1.0) |
-| Mute                 | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
-| Keep Aspect Ratio    | Whether keep the aspect ratio of the original video. |
-| Full Screen On Awake | Whether play video in fullscreen mode. |
-| Stay On Bottom       | Display video below the game view (Only available on web). |
-| Video Player Event   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
+| **Resource Type**        | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
+| **Remote URL**           | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
+| **Clip**                | Displayed when Resource Type is LOCAL, feed it with a local video path. |
+| **Play On Awake**        | Whether the video start playing automatically after loaded? |
+| **Current Time**         | The current playback time of the now playing item in seconds, you could also change the start playback time. |
+| **Volume**               | The volume of the video. (0.0 ~ 1.0) |
+| **Mute**                 | Mutes the VideoPlayer. Mute sets the volume=0, Un-Mute restore the original volume. |
+| **Keep Aspect Ratio**    | Whether keep the aspect ratio of the original video. |
+| **Full Screen On Awake** | Whether play video in fullscreen mode. |
+| **Stay On Bottom**       | Display video below the game view (Only available on web). |
+| **Video Player Event**   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
 > **Note**: In **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
@@ -38,10 +38,10 @@ For more information about VideoPlayer's scripting interface, please refer to th
 
 | Properties      |   Function Explanation  |
 | --------------  | ----------- |
-| target          | Node with the script component.|
-| component       | Script component name.         |
-| handler         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
-| customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
+| **target**          | Node with the script component.|
+| **component**       | Script component name.         |
+| **handler**         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
+| **customEventData** | The user specifies that any string is passed in as the last parameter of the event callback |
 
 For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html) documentation.
 
@@ -49,19 +49,19 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 
 | Name           | Function Explanation          |
 | -------------- | -----------                   |
-| NONE           | None                          |
-| PLAYING        | Video is playing.             |
-| PAUSED         | Video is paused.              |
-| STOPPED        | Video is stopped.             |
-| COMPLETED      | Video is completed.           |
-| META_LOADED    | Video's meta data is loaded.  |
-| READY_TO_PLAY  | Video is ready to play.       |
-| ERROR          | Video Trigger Error           |
-| CLICKED        | Video is clicked by the user. (Only supports Web platform.) |
+| **NONE**           | None                          |
+| **PLAYING**        | Video is playing.             |
+| **PAUSED**         | Video is paused.              |
+| **STOPPED**        | Video is stopped.             |
+| **COMPLETED**      | Video is completed.           |
+| **META_LOADED**    | Video's meta data is loaded.  |
+| **READY_TO_PLAY**  | Video is ready to play.       |
+| **ERROR**          | Video Trigger Error           |
+| **CLICKED**        | Video is clicked by the user. (Only supports Web platform.) |
 
 > **Note**: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when **VideoPlayer** is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the **VideoPlayer's** size.
 
-For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [21.video-player](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) documentation or the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) in the test-cases-3d samples bundled with __Cocos Creator__.
 
 ## Detailed Explanation
 
@@ -129,9 +129,9 @@ export class VideoPlayerCtrl extends Component {
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `ready-to-play` parameters.
 
-Please refer to the [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) documentation for details on VideoPlayer events..
+Please refer to the [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) documentation for details on VideoPlayer events.
 
-> **Note**: As VideoPlayer is a special component, it cannot register `touch` or `mouse` events on the node with **VideoPlayer** component.
+> **Note**: As **VideoPlayer** is a special component, it cannot register `touch` or `mouse` events on the node with **VideoPlayer** component.
 
 ## How to display a UI upon a video
 
@@ -143,9 +143,10 @@ You can display a UI upon a video in two steps:
 
 2. Check the **stayOnBottom** property on the **VideoPlayer** in the **Properties** panel.
 
-> **Note**: this feature is only supported on Web.
-> **Note**: the specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
-> **Note**: after the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
+> **Notes**: 
+> 1. This feature is only supported on Web.
+> 2. The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
+> 3. After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
 For more information, please refer to the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/21.video-player) in the test-cases-3d samples bundled with __Cocos Creator__. Results as shown below:
 
