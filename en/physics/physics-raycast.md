@@ -51,8 +51,9 @@ The `ray` is composed of **start point** and **direction**. There are the follow
     cameraCom.screenPointToRay(0, 0, outRay);
     ```
 
-    > **Note**: first, you need to get a reference to a camera component or camera instance.
-    > **Note**: the order of the interface parameters exposed by both the camera component and the camera instance is not the same.
+    > **Notes**: 
+    > 1. You need to get a reference to a camera component or camera instance.
+    > 2. The order of the interface parameters exposed by both the camera component and the camera instance is not the same.
 
 ## Interface Introduction
 
@@ -88,4 +89,4 @@ The information is stored by `PhysicsRayResult`, which mainly has the following 
 - `hitPoint`: Hit point (in world coordinate system)
 - `hitNormal`: The normal of the hit point's face (in the world coordinate system)
 
-Related test cases can be found [here](https://github.com/cocos-creator/example-3d/blob/master/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).
+Related test cases can be found in the [GutHub repo](https://github.com/cocos-creator/example-3d/blob/master/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).
