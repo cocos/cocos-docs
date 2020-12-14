@@ -1,4 +1,4 @@
-# Publishing to ByteDance Mini Games
+# Publish to ByteDance Mini Games
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
@@ -6,7 +6,7 @@
 
 The game submission, review and release process of a mini-game needs to comply with the requirements and standard processes of the Byte official specification. For specific information, please refer to the links at the end of this document.
 
-## Publishing to ByteDance with Cocos Creator
+## Publish to ByteDance with Cocos Creator
 
 1. Download the **ByteDance DevTools** on [ByteDance Official Website](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download).
 

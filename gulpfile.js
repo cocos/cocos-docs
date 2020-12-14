@@ -167,8 +167,8 @@ function pruneLeftBar (dir) {
         if (content !== result) {
             Fs.writeFileSync(path, result, 'utf8');
         }
-        else {
-            throw 'Prune Summary Failed!';
+        else if (!Fs.existsSync(Path.relative('_book', path))) {
+            throw new Error (`Prune Summary Failed: ${path}`);
         }
     }
 }

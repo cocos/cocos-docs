@@ -6,7 +6,7 @@
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **WebView**，即可添加 WebView 组件到节点上。
 
-WebView 的脚本接口请参考 [WebView API](https://docs.cocos.com/creator3d/api/zh/classes/WebView.html)。
+WebView 的脚本接口请参考 [WebView API](https://docs.cocos.com/creator/3.0/api/zh/classes/WebView.html)。
 
 ## WebView 属性
 

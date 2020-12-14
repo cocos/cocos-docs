@@ -69,7 +69,7 @@ In order to facilitate the location of files, nodes or resources, and provide a 
 ### Example
 
 ```sh
-console.log('Open {link[the help doc url](https://docs.cocos.com/creator3d/manual/en/editor/console/)}');
+console.log('Open {link[the help doc url](https://docs.cocos.com/creator/manual/en/editor/console/)}');
 console.log('Locate {link[ the file in library](D:/cocos-creator/a/library/36/36b55a90-1547-4695-8105-abd89f8a0e5f.js)}');
 console.log('Locate Node UUID {node(f6zHdGKiZDhqbDizUsp8mK)}');
 console.warn('Locate Asset UUID {asset(17185449-5194-4d6c-83dc-1e785375acdb)}');

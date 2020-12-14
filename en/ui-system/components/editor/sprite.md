@@ -6,7 +6,7 @@ Using Sprite is the most common way to display images in 2D/3D games. By adding 
 
 You can add a Sprite component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __UI -> Render -> Sprite__.
 
-To use `Sprite`, please refer to the [Sprite API](https://docs.cocos.com/creator3d/api/en/classes/ui.sprite.html) documentation and the [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
+To use `Sprite`, please refer to the [Sprite API](https://docs.cocos.com/creator/3.0/api/en/classes/ui.sprite.html) documentation and the [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
 
 ## Sprite Properties
 
@@ -27,7 +27,7 @@ After adding the Sprite component, drag the SpriteFrame type asset from the __As
 
 If this SpriteFrame asset is contained within an Atlas asset, then the `Atlas` property of the Sprite will be set up along with it.
 
-> **Note**: to dynamically replace SpriteFrame, you need to dynamically load the image asset before you replace it, please refer to the [Acquire and load asset: how to dynamically load](../../../asset/load-assets.md) documentation.
+> **Note**: to dynamically replace SpriteFrame, you need to dynamically load the image asset before you replace it, please refer to the [Acquire and load asset: how to dynamically load](../../../asset/dynamic-load-resources.md) documentation.
 
 ## Rendering mode
 

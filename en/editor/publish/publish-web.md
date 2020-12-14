@@ -1,4 +1,4 @@
-# Publishing to the Web
+# Publish to the Web
 
 Open main menu's **Project -> Build** to open the **Build** panel.
 
@@ -36,8 +36,6 @@ After configuring the build parameters, click the **Build** button, then a progr
 ![web mobile](publish-web/web-mobile.png)
 
 The image above shows the preview of Web Mobile, you can see that the game view will cover the whole browser window, but Web Desktop will not, as shown below:
-
-![web mobile](publish-web/web-desktop.gif)
 
 ### Browser Compatibility
 

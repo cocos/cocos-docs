@@ -8,7 +8,7 @@
 
 ![](./animation/add-component.jpg)
 
-动画组件接口请参考 [MeshRenderer API](https://docs.cocos.com/creator3d/api/zh/classes/animation.animation-1.html)。
+动画组件接口请参考 [MeshRenderer API](https://docs.cocos.com/creator/3.0/api/zh/classes/animation.animation-1.html)。
 
 ## Clip 动画剪辑
 
