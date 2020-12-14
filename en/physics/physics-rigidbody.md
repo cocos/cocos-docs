@@ -10,16 +10,16 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 
 | Properties      | Function explanation |
 | :-------------- | :------------------- |
-| Type            | The type of the rigid body, including **DYNAMIC**, **STATIC** and **KINEMATIC**, See below for details.
-| Mass            | The mass of the rigid body.                     |
-| AllowSleep      | Whether to allow the rigid body to enter sleep state.   |
-| Linear Damping  | Used to reduce the linear rate of rigid body. The larger the value, the slower the rigid body moves. |
-| Angular Damping | Used to reduce the rotation rate of rigid body. The larger the value, the slower the rigid body rotates. |
-| Use Gravity     | If enabled, the rigid body is affected by gravity.     |
-| Linear Factor   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
-| Angular Factor  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
+| **Type**            | The type of the rigid body, including **DYNAMIC**, **STATIC** and **KINEMATIC**, See below for details.
+| **Mass**            | The mass of the rigid body.                     |
+| **AllowSleep**      | Whether to allow the rigid body to enter sleep state.   |
+| **Linear Damping**  | Used to reduce the linear rate of rigid body. The larger the value, the slower the rigid body moves. |
+| **Angular Damping** | Used to reduce the rotation rate of rigid body. The larger the value, the slower the rigid body rotates. |
+| **Use Gravity**     | If enabled, the rigid body is affected by gravity.     |
+| **Linear Factor**   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
+| **Angular Factor**  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
 
-For the API interface of RigidBody, please refer to [Class RigidBody](https://docs.cocos.com/creator3d/api/en/classes/physics.rigidbody.html).
+For more information, please refer to [RigidBody API Docs](https://docs.cocos.com/creator3d/api/en/classes/physics.rigidbody.html).
 
 ### Obtaining a RigidBody
 
@@ -158,6 +158,6 @@ The RigidBody component provides the `linearFactor` and `angularFactor` properti
 
 The factor is the type of `Vec3`. The value of the corresponding component is used to scale the speed change of the corresponding axis. The default value is `1`, which means that the scaling is `1` times, that is, no effect.
 
-> **Note**: set a certain component value of the factor to `0`, you can fix a certain axis of movement or rotation.
-
-> **Note**: in the physics engines `cannon.js` and `ammo.js`, the factors act on different physical quantities, in `cannon.js` on speed and in `ammo.js` on force.
+> **Notes**: 
+> 1. Set a certain component value of the factor to `0`, you can fix a certain axis of movement or rotation.
+> 2. In the physics engines `cannon.js` and `ammo.js`, the factors act on different physical quantities, in `cannon.js` on speed and in `ammo.js` on force.
