@@ -6,11 +6,7 @@
 
 - 调用项目中的其他脚本完成工作
 
-  
-
 ## 注册场景脚本
-
-
 
 首先往 `pacakge.json` 的 `contributions` 属性添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
@@ -25,11 +21,7 @@
 }
 ```
 
-
-
 ## 编写场景脚本
-
-
 
 `scene.js` 需要用这样的形式定义：
 
@@ -46,25 +38,21 @@ exports.methods = {
         if (scene) {
             scene.walk(target => console.log(target.name));
         } else {
-            console.warn(`Scene not found`);
+            console.warn("Scene not found");
         }
     }
 };
 ```
 
-**注意： 由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的`cc.require` 方法被弃用**
-
-
+**注意： 由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的 `cc.require` 方法被弃用**
 
 ## 向场景脚本发送消息
-
-
 
 接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
-    //name of extension
+    // name of extension
     name: string;
     method: string;
     args: any[];
@@ -79,12 +67,9 @@ const options: ExecuteSceneScriptMethodOptions = {
 await Editor.Message.request('scene', 'execute-scene-script', options); // true
 ```
 
-
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
 
 **注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
-
-
 
 ### 引用插件脚本
 
