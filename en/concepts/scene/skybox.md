@@ -79,5 +79,6 @@ To make a __CubeMap__ in __Cocos Creator__ and set it to a __Skybox__, follow th
 
     ![CubeMap](skybox/Cubemap_Show.png)
 
-> **Note**: faces that are not mapped in __CubeMap__. It will be filled with a default texture.
-> **Note**: the pictures associated with the TextureCube **should not be the same**. Otherwise, there will be a problem that some platforms will not display it.
+> **Notes**: 
+> 1. Faces that are not mapped in __CubeMap__. It will be filled with a default texture.
+> 2. The pictures associated with the TextureCube **should not be the same**. Otherwise, there will be a problem that some platforms will not display it.
