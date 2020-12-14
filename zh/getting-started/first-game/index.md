@@ -183,8 +183,7 @@ export class PlayerController extends Component {
                 this.node.setPosition(this._targetPos);
                 this._startJump = false;
                 this.onOnceJumpEnd();
-            }
-            else {
+            } else {
                 // tween
                 this.node.getPosition(this._curPos);
                 this._deltaPos.x = this._curJumpSpeed * deltaTime;
@@ -317,8 +316,7 @@ export class GameManager extends Component {
         for (let i = 1; i < this.roadLength; i++) {
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
-            }
-            else {
+            } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
@@ -436,8 +434,7 @@ start () {
 setInputActive(active: boolean) {
     if (active) {
         systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-    } 
-    else {
+    } else {
         systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 }
@@ -546,8 +543,7 @@ onStartButtonClicked() {
             if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
                 this.curState = GameState.GS_INIT;
             }
-        }
-        else {    // 跳过了最大长度
+        } else {    // 跳过了最大长度
             this.curState = GameState.GS_INIT;
         }
     }
@@ -778,8 +774,7 @@ export class PlayerController extends Component {
     setInputActive(active: boolean) {
         if (active) {
             systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-        }
-        else {
+        } else {
             systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
@@ -920,8 +915,7 @@ export class GameManager extends Component {
         for (let i = 1; i < this.roadLength; i++) {
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
-            }
-            else {
+            } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
@@ -955,8 +949,7 @@ export class GameManager extends Component {
             if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
                 this.curState = GameState.GS_INIT;
             }
-        }
-        else {    // 跳过了最大长度
+        } else {    // 跳过了最大长度
             this.curState = GameState.GS_INIT;
         }
     }

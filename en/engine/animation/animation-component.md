@@ -105,7 +105,7 @@ class MyScript extends Component {
     }
 
     public onTriggered(arg: number) {
-        console.log(`I'm triggered!`);
+        console.log('I am triggered!');
     }
 }
 ```
