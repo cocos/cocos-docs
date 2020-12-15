@@ -8,7 +8,7 @@
 
 ## 注册场景脚本
 
-首先往 `pacakge.json` 的 `contributions` 属性添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
+首先在 `pacakge.json` 的 `contributions` 属性添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
 ```json
 {
@@ -64,13 +64,11 @@ const options: ExecuteSceneScriptMethodOptions = {
     args: []
 };
 
-await Editor.Message.request('scene', 'execute-scene-script', options); // true
+await Editor.Message.request('scene', 'execute-scene-script', options); 
 ```
 
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
 
 **注意: 由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
 
-### 引用插件脚本
 
-直接使用 `window.globalVar` 来访问插件脚本里声明的全局变量和方法即可。
