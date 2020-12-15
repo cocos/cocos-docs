@@ -32,7 +32,8 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
     - Add `getObjectTypeName` and `getPackageName` methods to the query result set object.
     - Remove `setUpgradeProcessMode`, `deleteAll` method.
     - If you are using the `data.zoneId` parameter in the callback, please modify it to `data.zone.zoneId`.
-
+    - Modify the `subscribe` method, supports using only the equal-value subscription, that is, the `equalTo()` method to construct query conditions.
+    
 - v0.5.0_1.2.1.301
 
     - Integrated Huawei AGC Cloud DB service.
@@ -142,7 +143,7 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 | :--- | :--- |  
 | zoneId | Name of Cloud DB zone, represents a unique data storage zone. |
 | typeName | Name of Storage instance. |
-| queryId | Custom query ID, for query interface. |
+| queryId | Custom query ID, for query interface. Only the equal-value subscription, that is, the [equalTo()](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) method can be used to construct query conditions. The query conditions must contain at least one field and at most five fields. The **AND** operation is used between multiple query conditions. |
 | subscribeId | Subscribe listener id |
 | result | Return message |
 
