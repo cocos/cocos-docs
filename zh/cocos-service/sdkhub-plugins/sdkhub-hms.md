@@ -168,7 +168,7 @@ Cocos SDKHub 的 Log 关键字为 `HUB_LOG`，仅在 **构建发布** 面板中�
 
 #### 浮标
 
-HMS Core SDK 插件已在生命周期内调用 SDK 的浮标接口。**无需** 开发者调用 `showToolBar` 和 `hideToolBar` 浮标方法。
+SDKHub 提供的 HMS Core SDK 插件，已在生命周期内调用 SDK 的浮标接口。**无需** 开发者调用 `showToolBar` 和 `hideToolBar` 浮标方法。
 
 #### 成就
 
