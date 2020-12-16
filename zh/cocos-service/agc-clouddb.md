@@ -32,6 +32,7 @@
     - 在查询结果集的对象中添加 `getObjectTypeName` 和 `getPackageName` 方法。
     - 移除 `setUpgradeProcessMode` 和 `deleteAll` 方法。
     - 回调中若使用 `data.zoneId` 参数，请修改为 `data.zone.zoneId`。
+    - 修改 `subscribe` 方法，构造查询条件变更为仅支持等值订阅，也就是只支持使用 `equalTo` 方法构造查询条件。
 
 - v0.5.0_1.2.1.301
 
@@ -144,7 +145,7 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 | :--- | :--- |  
 | zoneId | Cloud DB zone 名称，表示一个唯一的数据存储区域 |
 | typeName | 对象类型名称 |
-| queryId | 自定义查询 ID，用于查询接口 |
+| queryId | 自定义查询 ID，用于查询接口。构造查询条件时，当前仅支持等值订阅，也就是只支持使用 [equalTo()](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) 方法，且查询条件中最少包含一个字段，最多包含 5 个字段，多个查询条件之间采用 **与** 运算。 |
 | subscribeId | 订阅器的 ID |
 | result | 返回信息 |
 
