@@ -9,7 +9,7 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板。我们甄选优质
 Cocos Service 目前提供的服务包括：
 
 - [Cocos 数据统计](https://www.cocos.com/analytics/)：精准了解游戏的新增、活跃、留存、付费等数据。
-- [声网（Agora RTC）](https://www.agora.io/cn/)：游戏内置实时音频 SDK。
+- [声网（Agora RTC）](https://www.agora.io/cn/)：游戏内置实时音视频 SDK。
 - [云开发（腾讯云）](https://cloud.tencent.com/product/tcb)：Serverless 云端一体化产品方案，助力小程序、Web 应用、移动应用成功。
 - [游戏联机对战引擎（腾讯云）](https://cloud.tencent.com/product/mgobe)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
 - [游戏多媒体引擎（腾讯云）](https://cloud.tencent.com/product/gme)：一站式语音解决方案，助力开发者快速实现各类语音功能。
