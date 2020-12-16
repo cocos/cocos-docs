@@ -16,9 +16,9 @@ With Analytics Kit's on-device data collection SDK, you can:
 
 ### Version Update Description
 
-- Latest Version: 0.5.6_5.0.5.301
+- Latest Version: 0.5.7_5.0.5.301
 
-    - Fix some bugs.
+    - Add new predefined events and parameters.
 
 - v0.5.5_5.0.5.301
 
