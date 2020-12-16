@@ -24,7 +24,12 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 ### Version Update Description
 
-- Latest Version: 0.5.3_1.2.3.301
+- Latest Version: 0.5.4_1.2.3.301
+
+    - Fix the crash caused by the generator not adapting to the index of the new version of FORMAT-VERSION.
+    - Fix the crash caused by Query type conversion problem.
+
+- v0.5.3_1.2.3.301
 
     - Updated SDK to v1.2.3.301.
     - Fix the bug that the querier can only query String type.
@@ -49,7 +54,7 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
   ![](agc-clouddb/cdb-panel.png)
 
-- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) document, export object types file in **JSON** format, import into the **Cloud DB Config File** parameter at the bottom of the Cloud DB service panel.
+- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) document, export object types file in **JSON** format, import into the **Cloud DB Config File** parameter at the bottom of the Cloud DB service panel, and get the version number in the console, and fill it in the **Cloud DB Object Version** option.
 
   ![](agc-clouddb/cdb-jsonconfig.png)
 
@@ -97,6 +102,8 @@ Developer can get a quick taste of the Cloud DB service with the sample project.
 
 - Click on the **Sample** button in the Cloud DB service panel, clone or download, and open the project in Cocos Creator.
 
+- The `attach/agcclouddb.json` file in the project needs to be imported into the AGC console, otherwise the Cloud DB database module in the sample will not execute normally.
+
 - Enabling the Cloud DB service and configuring the HUAWEI configuration file as described above. Configure an **Object Type Name** named `test` when enabling the Cloud DB service.
 
 - After setting, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
@@ -106,6 +113,8 @@ Developer can get a quick taste of the Cloud DB service with the sample project.
   ![](agc-clouddb/cdb-sample.jpg)
 
 ## Developer Guide
+
+Cloud DB supports multiple data types. The current version only supports `Boolean`, `Integer`, `Long`, `Float`, `Double` and `String` types in Creator.
 
 This document refers to the AppGallery Connect documentation - [Getting Started](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started).
 
