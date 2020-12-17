@@ -24,7 +24,12 @@
 
 ### 版本更新说明
 
-- 当前版本：0.5.3_1.2.3.301
+- 当前版本：0.5.4_1.2.3.301
+
+    - 修复生成器未适配新版 FORMAT-VERSION 的索引导致的崩溃问题。
+    - 修复 Query 查询器类型转换问题导致的崩溃。
+
+- v0.5.3_1.2.3.301
 
     - 升级 SDK 版本到 1.2.3.301。
     - 修复查询器只能查询 String 类型的 bug。
@@ -52,7 +57,7 @@
 
   ![](agc-clouddb/cdb-panel.png)
 
-- 参考 [管理对象类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) 文档，导出 **JSON** 格式的对象类型文件，将其导入云数据库服务面板下方，**云数据库配置文件** 选项中。
+- 参考 [管理对象类型](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) 文档，导出 **JSON** 格式的对象类型文件，将其导入云数据库服务面板下方 **云数据库配置文件** 选项中，然后从 AGC 云数据库后台获取版本号，填入 **云数据库对象版本** 选项中。
 
   ![](agc-clouddb/cdb-jsonconfig.png)
 
@@ -100,6 +105,8 @@
 
 - 点击云数据库服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
+- 将工程中的 `attach/agcclouddb.json` 文件导入到 AGC 云数据库后台，否则会导致 Sample 工程中的云数据库模块无法正常运行。
+
 - 参照上文开通云数据库服务并配置华为参数文件。在开通服务时，请将 **云数据库配置文件** 的 **对象类型名** 设置为 `test`。
 
 - 设置完成后，可通过 Creator 编辑器菜单栏的 **项目 -> 构建发布** 打开 **构建发布** 面板来构建编译工程。Creator v2.4.1 及以上版本，可 [发布到 HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md)。Creator v2.4.1 以下的版本可 [发布到 Android 平台](../publish/publish-native.md)。
@@ -109,6 +116,8 @@
   ![](agc-clouddb/cdb-sample.jpg)
 
 ## 开发指南
+
+云数据库支持多种数据类型，目前 Cocos Service 提供的云数据库服务支持 `Boolean`、`Integer`、 `Long`、`Float`、`Double` 和 `String` 类型。
 
 本文档对应 [华为云数据库服务 — 使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started)。
 

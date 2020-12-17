@@ -24,7 +24,12 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 ### Version Update Description
 
-- Latest Version: 0.5.3_1.2.3.301
+- Latest Version: 0.5.4_1.2.3.301
+
+    - Fix the crash caused by the generator not adapting to the index of the new version of FORMAT-VERSION.
+    - Fix the crash caused by a Query type conversion problem.
+
+- v0.5.3_1.2.3.301
 
     - Updated SDK to v1.2.3.301.
     - Fix the bug that the querier can only query String type.
@@ -50,7 +55,7 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
   ![](agc-clouddb/cdb-panel.png)
 
-- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) document, export object types file in **JSON** format, import into the **Cloud DB Config File** parameter at the bottom of the Cloud DB service panel.
+- Please refer to [Managing Object Types](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-agcconsole-objecttypes) document, export object types file in **JSON** format, import into the **Cloud DB Config File** parameter at the bottom of the Cloud DB service panel, then get the version number from the AGC Cloud DB console, and fill it in the **Cloud DB Object Version** option.
 
   ![](agc-clouddb/cdb-jsonconfig.png)
 
@@ -94,9 +99,11 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ## Sample Project
 
-Developer can get a quick taste of the Cloud DB service with the sample project.
+Developer can get a quick taste of the Cloud DB service with the Sample project.
 
 - Click on the **Sample** button in the Cloud DB service panel, clone or download, and open the project in Cocos Creator.
+
+- Import the `attach/agcclouddb.json` file in the project into the AGC Cloud DB console, otherwise the Cloud DB database module in the Sample project will not run normally.
 
 - Enabling the Cloud DB service and configuring the HUAWEI configuration file as described above. Configure an **Object Type Name** named `test` when enabling the Cloud DB service.
 
@@ -107,6 +114,8 @@ Developer can get a quick taste of the Cloud DB service with the sample project.
   ![](agc-clouddb/cdb-sample.jpg)
 
 ## Developer Guide
+
+Cloud DB supports multiple data types. Currently, the Cloud DB service provided by Cocos Service, supports `Boolean`, `Integer`, `Long`, `Float`, `Double` and `String` types.
 
 This document refers to the AppGallery Connect documentation - [Getting Started](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-clouddb-get-started).
 
