@@ -98,11 +98,11 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
 ## Sample Project
 
-Developer can get a quick taste of the Cloud DB service with the sample project.
+Developer can get a quick taste of the Cloud DB service with the Sample project.
 
 - Click on the **Sample** button in the Cloud DB service panel, clone or download, and open the project in Cocos Creator.
 
-- Import the `attach/agcclouddb.json` file in the project into the AGC Cloud DB console, otherwise the Cloud DB database module in the sample will not run normally.
+- Import the `attach/agcclouddb.json` file in the project into the AGC Cloud DB console, otherwise the Cloud DB database module in the Sample project will not run normally.
 
 - Enabling the Cloud DB service and configuring the HUAWEI configuration file as described above. Configure an **Object Type Name** named `test` when enabling the Cloud DB service.
 
