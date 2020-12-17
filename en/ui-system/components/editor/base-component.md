@@ -17,4 +17,4 @@
 - [PageView Component Reference](pageview.md)
 - [PageViewIndicator Component Reference](pageviewindicator.md)
 - [UIOpacity Component Reference](ui-opacity.md)
-- [BlockInputEvents Component Reference](block-input-enents.md)
+- [BlockInputEvents Component Reference](block-input-events.md)

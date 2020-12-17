@@ -15,8 +15,8 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.arc(100,75,50,0,1.5 * Math.PI);
 ctx.stroke();
 ```

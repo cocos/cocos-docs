@@ -8,7 +8,9 @@
   - [Dashboard](getting-started/dashboard/index.md)
   - [Hello world!](getting-started/helloworld/index.md)
   - [Quick Start: First Game](getting-started/first-game/index.md)
+  - [Support](getting-started/support.md)
   - [Caution!](getting-started/attention/index.md)
+- [Cocos Creator 3.0 Preview Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
 
 ## Editor Manual
 
@@ -21,6 +23,7 @@
   - [Animation](editor/animation/index.md)
   - [Preferences](editor/preferences/index.md)
   - [Project Settings](editor/project/index.md)
+    - [Physics Configs](editor/project/physics-configs.md)
   - [Engine Customization Workflow](editor/engine-customization/engine-customization.md)
 
 - [Preview a Game](editor/preview/index.md)
@@ -205,7 +208,7 @@
       - [PageViewIndicator Reference](ui-system/components/editor/pageviewindicator.md)
       - [UIMeshRenderer Reference](ui-system/components/editor/ui-model.md)
       - [UIOpacity Reference](ui-system/components/editor/ui-opacity.md)
-      - [BlockInputEvents Reference](ui-system/components/editor/block-input-enents.md)
+      - [BlockInputEvents Reference](ui-system/components/editor/block-input-events.md)
       - [WebView Reference](ui-system/components/editor/webview.md)
       - [VideoPlayer Reference](ui-system/components/editor/videoplayer.md)
       - [SafeArea Reference](ui-system/components/editor/safearea.md)
@@ -214,6 +217,7 @@
   - [Script Creation](scripting/setup.md)
   - [Scripting Basics](scripting/basic.md)
   - [Language Support](scripting/language-support.md)
+  - [Module](scripting/modules/index.md)
   - [ccclass](scripting/ccclass.md)
   - [Attributes](scripting/reference/attributes.md)
   - [Access Node and Other Components](scripting/access-node-component.md)

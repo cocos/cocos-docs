@@ -95,6 +95,61 @@
 
 微信小游戏不支持 WebView。
 
+## WebAssembly 支持
+
+从 3.0 开始，微信小游戏的构建选项中新增了 **物理 wasm** 选项（实验室功能），用于选择 ammo 物理的使用模式：
+
+- **js**：使用 **js** 模式，此模式与以往版本一致；
+- **fallback**：自动回退模式，在支持 **wasm** 的环境中使用 **wasm**，否则回退到 **js**；
+- **wasm**：使用 **wasm** 模式。
+
+在 **fallback** 中，编辑器会打包 ammo 物理所有模式的代码。两个模式对应的代码包体分别为 **1.2MB** 和 **0.7MB**，总共接近 **2MB**，这对主包 **4MB** 的限制影响很大。<br>
+解决办法是通过配置子包来减轻主包的压力，这里以 `ammo-82499473.js` 文件为例：
+
+- 修改 `game.json`，增加子包配置
+
+    ```ts
+    {
+        //*,
+        "subpackages": [{
+            "name": "ammo",
+            "root": "cocos-js/ammo-82499473.js"
+        }]
+    }
+    ```
+
+- 修改 `game.js` 的 `init` 方法，提前加载此子包
+
+    ```ts
+    // 大致在 55 行左右
+    window.__globalAdapter.init(function() {
+        fsUtils.loadSubpackage('ammo', null, (err) => {
+            System.import('./cocos-js/ammo-82499473.js').then(() => {
+                return System.import('./application.js').then(({ createApplication }) => {
+                    return createApplication({
+                        loadJsListFile: (url) => require(url),
+                        loadAmmoJsWasmBinary,
+                    });
+                }).then((application) => {
+                    return onApplicationCreated(application);
+                }).catch((err) => {
+                    console.error(err);
+                });
+            })
+        });
+    });
+    ```
+
+**注意**：
+
+- 微信引擎分离插件目前仅支持 **js** 模式；
+
+- 微信 WebAssembly 要求微信版本需为 v7.0.17 及以上；
+
+- 微信 WebAssembly 调试基础库需为 v2.12.0 及以上；
+
+- 推荐使用 fallback 模式以得到更全面的设备支持。
+
 ## 参考链接
 
 - [微信小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/guide/)

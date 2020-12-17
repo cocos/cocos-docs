@@ -10,8 +10,8 @@
 
 ## 实例
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.circle(200,200, 200);
 ctx.stroke();
 ```

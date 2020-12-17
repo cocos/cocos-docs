@@ -127,7 +127,7 @@ Debugging can currently be initiated from the command line.
 
     ```bash
     # Specify to the editor installation directory.
-    cd F:/CocosCreator3D/assets/tools/xiaomi-pack-tools
+    cd ${CocosCreator}/resources/tools/xiaomi-pack-tools
     # Automatically opens the debug interface on Chrome.
     npm run debug
     # manually opens the debug interface on Chrome.

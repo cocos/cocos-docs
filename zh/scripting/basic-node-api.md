@@ -1,6 +1,6 @@
 # 常用节点和组件接口
 
-在通过 [访问节点和组件](access-node-component.md) 介绍的方法获取到节点或组件实例后，这篇文章将会介绍通过节点和组件实例可以通过哪些常用接口实现我们需要的种种效果和操作。这一篇也可以认为是 [Node](../../../api/zh/classes/Node.html) 和 [Component](../../../api/zh/classes/Component.html) 类的 API 阅读指南，可以配合 API 一起学习理解。
+在通过 [访问节点和组件](access-node-component.md) 介绍的方法获取到节点或组件实例后，这篇文章将会介绍通过节点和组件实例可以通过哪些常用接口实现我们需要的种种效果和操作。这一篇也可以认为是 [Node](../../../api/zh/classes/scene_graph.node-1.html) 和 [Component](../../../api/zh/classes/component.component-1.html) 类的 API 阅读指南，可以配合 API 一起学习理解。
 
 ## 节点状态和层级操作
 
@@ -21,7 +21,7 @@
 若节点原先就处于 **可被激活** 状态，修改 `active` 为 true 就会立即触发激活操作：
 
 - 在场景中重新激活该节点和节点下所有 active 为 true 的子节点
-- 该节点和所有子节点上的所有组件都会被启用，他们中的 `update` 方法之后每帧会执行
+- 该节点和所有子节点上的所有组件都会被启用，它们中的 `update` 方法之后每帧会执行
 - 这些组件上如果有 `onEnable` 方法，这些方法将被执行
 
 `this.node.active = false;`

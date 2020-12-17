@@ -12,12 +12,12 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the **VideoPlayer** component to the node.
 
-For more information about VideoPlayer's scripting interface, please refer to the [VideoPlayer API](https://docs.cocos.com/creator/3.0/api/en/classes/VideoPlayer.html) documentation.
+For more information about VideoPlayer's scripting interface, please refer to the [VideoPlayer API](../../../api/en/classes/video.videoplayer.html) documentation.
 
 ## VideoPlayer Properties
 
 | Properties | Function Explanation |
-|-------- | ----------- |
+|:-------- | :----------- |
 | **Resource Type**        | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
 | **Remote URL**           | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
 | **Clip**                | Displayed when Resource Type is LOCAL, feed it with a local video path. |
@@ -30,25 +30,25 @@ For more information about VideoPlayer's scripting interface, please refer to th
 | **Stay On Bottom**       | Display video below the game view (Only available on web). |
 | **Video Player Event**   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
-> **Note**: In **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+> **Note**: in the **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
 ### VideoPlayerEvent Event
 
 | Properties      |   Function Explanation  |
-| --------------  | ----------- |
+| :--------------  | :----------- |
 | **target**          | Node with the script component.|
 | **component**       | Script component name.         |
 | **handler**         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
 | **customEventData** | The user specifies that any string is passed in as the last parameter of the event callback |
 
-For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html) documentation.
+For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/event.eventhandler.html) documentation.
 
 ### Parameter of VideoPlayerEvent
 
 | Name           | Function Explanation          |
-| -------------- | -----------                   |
+| :-------------- | :-----------                   |
 | **NONE**           | None                          |
 | **PLAYING**        | Video is playing.             |
 | **PAUSED**         | Video is paused.              |

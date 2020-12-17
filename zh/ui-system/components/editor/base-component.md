@@ -17,4 +17,4 @@
 - [PageView 组件参考](pageview.md)
 - [PageViewIndicator 组件参考](pageviewindicator.md)
 - [UIOpacity 组件参考](ui-opacity.md)
-- [BlockInputEvents 组件参考](block-input-enents.md)
+- [BlockInputEvents 组件参考](block-input-events.md)

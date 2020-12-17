@@ -8,9 +8,9 @@ The game submission, review and release process of a mini-game needs to comply w
 
 ## Publish to ByteDance with Cocos Creator
 
-1. Download the **ByteDance DevTools** on [ByteDance Official Website](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download).
+1. Download the **ByteDance DevTools** on [ByteDance Official Website [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download).
 
-2. Log in to [Developer Platform](https://microapp.bytedance.com/)to find your `mini game appid`. For details, please refer to the official [Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game) documentation.
+2. Log in to [Developer Platform [zh]](https://microapp.bytedance.com/)to find your `mini game appid`. For details, please refer to the official [Access Guide [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game) documentation.
 
     ![](https://sf1-ttcdn-tos.pstatp.com/obj/website-img/f296a9f80eaeb40f4af38e8a4e25e17e_12.png)
 
@@ -59,8 +59,8 @@ Specifically, developers need to do the following:
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
-- [ByteDance Mini Game Developer Document Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/about-mini-game/flow-entrance/brief-introduction-on-flow-entrance)
-- [ByteDance Developer Platform](https://microapp.bytedance.com/)
-- [ByteDance Mini Game API Documentation](https://developer.toutiao.com/docs/game/)
-- [ByteDance DevTools Download](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
-- [ByteDance DevTools Documentation](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)
+- [ByteDance Mini Game Developer Document Guide [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/about-mini-game/flow-entrance/brief-introduction-on-flow-entrance)
+- [ByteDance Developer Platform [zh]](https://microapp.bytedance.com/)
+- [ByteDance Mini Game API Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game/)
+- [ByteDance DevTools Download [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
+- [ByteDance DevTools Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)

@@ -46,6 +46,7 @@
   - [动画](engine/animation/index.md)
   - [缓动](tween/index.md)
   - [物理](physics/physics.md)
+  - [2D 物理](physics-2d/physics-2d.md)
   - [UI](ui-system/components/engine/index.md)
   - [组件](editor/components/index.md)
   - [可定制的渲染管线](render-pipeline/overview.md)

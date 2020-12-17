@@ -6,8 +6,8 @@ The `fill()` method is used to fill the current image (path). The color used is 
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.rect(20,20,150,100);
 ctx.fillColor = Color.GREEN;
 ctx.fill();

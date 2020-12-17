@@ -51,7 +51,7 @@ Asset Bundle 提供的 `loadScene` 只会加载指定 bundle 中的场景，并�
 
 ```ts
 director.preloadScene("table", function () {
-    console.log("Next scene preloaded");
+    console.log('Next scene preloaded');
 });
 ```
 

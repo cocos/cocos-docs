@@ -39,9 +39,9 @@ export class ItemList extends Component {
     itemPrefab: Prefab | null = null;
 
     onLoad() {
-        for (var i = 0; i < this.items.length; ++i) {
-            var item = instantiate(this.itemPrefab);
-            var data = this.items[i];
+        for (let i = 0; i < this.items.length; ++i) {
+            const item = instantiate(this.itemPrefab);
+            const data = this.items[i];
             this.node.addChild(item);
             item.getComponent('ItemTemplate').init(data);
         }
@@ -117,9 +117,9 @@ init(data: Item) {
 itemPrefab: Prefab | null = null;
 
 onLoad () {
-    for (var i = 0; i < this.items.length; ++i) {
-        var item = instantiate(this.itemPrefab);
-        var data = this.items[i];
+    for (let i = 0; i < this.items.length; ++i) {
+        const item = instantiate(this.itemPrefab);
+        const data = this.items[i];
         this.node.addChild(item);
         item.getComponent('ItemTemplate').init(data);
     }

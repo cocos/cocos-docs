@@ -83,7 +83,7 @@
   如果你想要查询 `paths` 列表，可以使用以下方式：
 
   ```typescript
-  var infos = resources.getDirWithPath('images', Texture2D);
+  const infos = resources.getDirWithPath('images', Texture2D);
   let paths = infos.map(function (info) {
       return info.path;
   });
@@ -151,13 +151,13 @@
   [texture1, texture2, texture3].forEach(t => assetManager.releaseAsset(t));
 
   // 修改前
-  var uuid = texture._uuid;
+  const uuid = texture._uuid;
   loader.release(uuid);
   // 修改后
   assetManager.releaseAsset(texture);
 
   // 修改前
-  var url = texture.url;
+  const url = texture.url;
   loader.release(url);
   // 修改后
   assetManager.releaseAsset(texture);
@@ -167,7 +167,7 @@
 
   ```typescript
   // 修改前
-  var assets = loader.getDependsRecursively(texture);
+  const assets = loader.getDependsRecursively(texture);
   loader.release(assets);
 
   // 修改后
@@ -228,7 +228,7 @@
 
   ```typescript
   // 修改前
-  var pipe1 = {
+  const pipe1 = {
     id: 'pipe1',
     handle: (item, done) => {
       let result = doSomething(item.uuid);
@@ -236,7 +236,7 @@
     }
   };
 
-  var pipe2 = {
+  const pipe2 = {
     id: 'pipe2',
     handle: (item, done) => {
       let result = doSomething(item.content);
@@ -250,7 +250,7 @@
   // 修改后
   function pipe1 (task, done) {
     let output = [];
-    for (var i = 0; i < task.input.length; i++) {
+    for (let i = 0; i < task.input.length; i++) {
       let item = task.input[i];
       item.content = doSomething(item.uuid);
       output.push(item);
@@ -262,7 +262,7 @@
 
   function pipe2 (task, done) {
     let output = [];
-    for (var i = 0; i < task.input.length; i++) {
+    for (let i = 0; i < task.input.length; i++) {
       let item = task.input[i];
       item.content = doSomething(item.content);
       output.push(item);
@@ -292,7 +292,7 @@
 
   ```typescript
   // 修改前
-  var customHandler = (item, cb) => {
+  const customHandler = (item, cb) => {
       let result = doSomething(item.url);
       cb(null, result);
   };
@@ -300,7 +300,7 @@
   loader.addDownloadHandlers({png: customHandler});
 
   // 修改后
-  var customHandler = (url, options, cb) => {
+  const customHandler = (url, options, cb) => {
       let result = doSomething(url);
       cb(null, result);
   };
@@ -312,7 +312,7 @@
 
   ```typescript
   // 修改前
-  var customHandler = (item, cb) => {
+  const customHandler = (item, cb) => {
       let result = doSomething(item.content);
       cb(null, result);
   };
@@ -320,7 +320,7 @@
   loader.addLoadHandlers({png: customHandler});
 
   // 修改后
-  var customHandler = (file, options, cb) => {
+  const customHandler = (file, options, cb) => {
       let result = doSomething(file);
       cb(null, result);
   };
@@ -331,7 +331,7 @@
   **注意**：
 
   1. 因为 **下载模块** 与 **解析模块** 都是依靠 **扩展名** 来匹配对应的处理方式，所以调用 `register` 时，传入的第一个参数需要以 `.` 开头。
- 
+
   2. 出于模块化的考虑，自定义的处理方法将不再传入一个 `item` 对象，而是直接传入与其相关的信息。`downloader` 的自定义处理方法传入的是 **待下载的 URL**，`parser` 传入的则是 **待解析的文件**。具体的内容请参考 [下载与解析](downloader-parser.md)。
 
   3. 新的拓展机制提供了一个额外的 `options` 参数，可以极大地增加灵活性。但如果你不需要配置引擎内置参数或者自定义参数，可以无视它。具体内容请参考文档 [可选参数](options.md)。
@@ -350,7 +350,7 @@
 
 ```typescript
 // 修改前
-var pipe1 = {
+const pipe1 = {
     id: 'pipe1',
     handle: function (item, cb) {
         let result = doSomething(item);
@@ -358,7 +358,7 @@ var pipe1 = {
     }
 }
 
-var pipeline = new Pipeline([pipe1]);
+const pipeline = new Pipeline([pipe1]);
 
 // 修改后
 function pipe1 (task, cb) {
@@ -366,7 +366,7 @@ function pipe1 (task, cb) {
     cb(null);
 }
 
-var pipeline = new AssetManager.Pipeline('test', [pipe1]);
+const pipeline = new AssetManager.Pipeline('test', [pipe1]);
 ```
 
 **注意**：`LoadingItem` 在 `assetManager` 中已经不支持，请避免使用这个类型。

@@ -8,8 +8,8 @@ __Atlas__, also called a __Sprite Sheet__, is a common art asset in game develop
 
 In a game, using an __Atlas__ composed of multiple pictures as art assets has the following advantages:
 
-  - The blank area around each picture will be removed when synthesizing the __Atlas__, plus various optimization algorithms can be implemented as a whole. After synthesizing the __Atlas__, the game package and memory consumption can be greatly reduced.
-  - When multiple __Sprites__ are rendering pictures from the same atlas, these __Sprites__ can be processed using the same rendering batch, which greatly reduces the CPU's computing time and improves operating efficiency.
+- The blank area around each picture will be removed when synthesizing the __Atlas__, plus various optimization algorithms can be implemented as a whole. After synthesizing the __Atlas__, the game package and memory consumption can be greatly reduced.
+- When multiple __Sprites__ are rendering pictures from the same atlas, these __Sprites__ can be processed using the same rendering batch, which greatly reduces the CPU's computing time and improves operating efficiency.
 
 For a more comprehensive explanation, you can watch a teaching video: [__What is a Sprite Sheet__](https://www.codeandweb.com/what-is-a-sprite-sheet) from __CodeAndWeb__.
 
@@ -21,15 +21,14 @@ To generate an __Atlas__, you should first prepare a set of original pictures. E
 
 __Next__, you can use special software to generate the __Atlas__. Examples:
 
-  - [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
-  - [Zwoptex](https://zwopple.com/zwoptex/)
+- [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
+- [Zwoptex](https://zwopple.com/zwoptex/)
 
-When using these software packages to generate an __Atlas__, please select a **.plist** file in **Cocos2d-x** format. The resulting __Atlas__ files are a **.plist** and **.png** with the same name. Example: `myAtlas.plist` and `myAtlas.png`.
+When using these software packages to generate an __Atlas__, please select a `.plist` file in **Cocos2d-x** format. The resulting __Atlas__ files are a `.plist` and `.png` with the same name. Example: `myAtlas.plist` and `myAtlas.png`.
 
 ![atlas files](atlas/atlas_files.png)
 
-Users of the __TexturePacker__ software need to pay attention to a few items:
-  - Use version __4.x__ only. Version __3.x__ is not supported.
+When using __TexturePacker__ software, please note that use __v4.x__ only, v3.x and below is not supported.
 
 ## Importing Atlas Assets
 
