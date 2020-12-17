@@ -60,8 +60,7 @@ function getPageTitle (path) {
     var match = PAGE_TITLE_RE.exec(content);
     if (match) {
         return match[1];
-    }
-    else {
+    } else {
         return Path.parse(path).name;
     }
 }
@@ -92,13 +91,11 @@ gulp.task('preview', ['restore-summary', 'restore-ignore'], function (done) {
         quickPreview(includeFiles, (error) => {
             if (error) {
                 return done(error);
-            }
-            else {
+            } else {
                 openServer(done);
             }
         });
-    }
-    else {
+    } else {
         fillSummary('zh/SUMMARY.md');
         fillSummary('en/SUMMARY.md');
         openServer(done);
