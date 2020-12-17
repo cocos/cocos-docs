@@ -217,6 +217,7 @@
   - [发射和监听事件](engine/event/event-emit.md)
   - [系统内置事件](engine/event/event-builtin.md)
   - [全局系统事件](engine/event/event-input.md)
+  - [事件 API](engine/event/event-api.md)
   - [插件脚本](scripting/external-scripts.md)
   - [添加 Log](scripting/log.md)
   - [废弃 API](scripting/deprecated.md)
