@@ -2,21 +2,11 @@
 
 Layout 是一种容器组件，容器能够开启自动布局功能，自动按照规范排列所有子物体，方便用户制作列表、翻页等功能。
 
-- 水平布局容器
-
-  ![horizontal-layout.png](layout/horizontal-layout.png)
-
-- 垂直布局容器
-
-  ![vertical-layout.png](layout/vertical-layout.png)
-
-- 网格布局容器
-
-  ![grid-layout.png](layout/grid-layout.png)
+![layout](layout/layout.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Layout** 即可添加 Layout 组件到节点上。
 
-布局的组件接口请参考 [Layout API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.layout.html)。
+布局的组件接口请参考 [Layout API](../../../api/zh/classes/ui.layout.html)。
 
 关于使用可以参考 test-cases-3d 里的 [layout](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/05.layout) 相关。
 
@@ -24,34 +14,45 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 | 属性                 | 功能说明     |
 | :-----------------  | :--------- |
-| Type                 | 布局类型，支持 NONE、HORIZONTAL、VERTICAL 和 GRID。详情请参考 [自动布局](../engine/auto-layout.md)。                                                                                                |
-| ResizeMode           | 缩放模式，支持 NONE、CHILDREN 和 CONTAINER。                                                                                                        |
-| PaddingLeft          | 排版时，子物体相对于容器左边框的距离。                                                                                                            |
-| PaddingRight         | 排版时，子物体相对于容器右边框的距离。                                                                                                            |
-| PaddingTop           | 排版时，子物体相对于容器上边框的距离。                                                                                                            |
-| PaddingBottom        | 排版时，子物体相对于容器下边框的距离。                                                                                                            |
-| SpacingX             | 水平排版时，子物体与子物体在水平方向上的间距。NONE 模式无此属性。                                                                                  |
-| SpacingY             | 垂直排版时，子物体与子物体在垂直方向上的间距。NONE 模式无此属性。                                                                                  |
-| Horizontal Direction | 指定水平排版时，第一个子节点从容器的左边还是右边开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始水平排列方向。 |
-| Vertical Direction   | 指定垂直排版时，第一个子节点从容器的上面还是下面开始布局。当容器为 Grid 类型时，此属性和 Start Axis 属性一起决定 Grid 布局元素的起始垂直排列方向。 |
-| Cell Size            | 此属性只在 Grid 布局、Children 缩放模式时存在，指定网格容器里面排版元素的大小。                                                                                       |
-| Start Axis           | 此属性只在 Grid 布局时存在，指定网格容器里面元素排版指定的起始方向轴。                                                                             |
-| Affected By Scale    | 子节点的缩放是否影响布局。  |
+| **Type**                 | 布局类型，支持 **NONE**、**HORIZONTAL**、**VERTICAL** 和 **GRID**。                                                                                                 |
+| **ResizeMode**         | 缩放模式，支持 **NONE**、**CHILDREN** 和 **CONTAINER**。                                                                                                        |
+| **PaddingLeft**         | 排版时，子物体相对于容器左边框的距离。                                                                                                            |
+| **PaddingRight**         | 排版时，子物体相对于容器右边框的距离。                                                                                                            |
+| **PaddingTop**           | 排版时，子物体相对于容器上边框的距离。                                                                                                            |
+| **PaddingBottom**        | 排版时，子物体相对于容器下边框的距离。                                                                                                            |
+| **SpacingX**             | 水平排版时，子物体与子物体在水平方向上的间距。NONE 模式无此属性。                                                                                  |
+| **SpacingY**             | 垂直排版时，子物体与子物体在垂直方向上的间距。NONE 模式无此属性。                                                                                  |
+| **HorizontalDirection** | 指定水平排版时，第一个子节点从容器的左边还是右边开始布局。当容器为 `GRID` 类型时，此属性和 `Start Axis` 属性一起决定 Grid 布局元素的起始水平排列方向。 |
+| **VerticalDirection**   | 指定垂直排版时，第一个子节点从容器的上面还是下面开始布局。当容器为 `GRID` 类型时，此属性和 `Start Axis` 属性一起决定 Grid 布局元素的起始垂直排列方向。 |
+| **CellSize**            | 此属性只在 `GRID` 布局、`Children` 缩放模式时存在，指定网格容器里面排版元素的大小。                                                                                       |
+| **StartAxis**           | 此属性只在 `GRID` 布局时存在，指定网格容器里面元素排版指定的起始方向轴。                                                                             |
+| **AffectedByScale**    | 子节点的缩放是否影响布局。  |
+| **AutoAlignment**    | 自动对齐，在 `Type` 类型为 **HORIZONTAL** 或 **VERTICAL** 模式下，保证另外一个轴向值始终为 0。 |
+| **Constraint**    | 布局约束，可以在某个方向上约束排列数量，支持 **NONE**、**FIXED_ROW** 和 **FIXED_COL**。 |
+| **ConstraintNum**    | 布局约束值，在 `Constraint` 的类型为 **FIXED_ROW** 或 **FIXED_COL** 模式下有效。 |
 
 ## 详细说明
 
-添加 Layout 组件之后，默认的布局类型是 NONE，它表示容器不会修改子物体的大小和位置，当用户手动摆放子物体时，容器会以能够容纳所有子物体的最小矩形区域作为自身的大小。
+添加 Layout 组件之后，默认的布局类型是 **NONE**，可以通过修改 **属性检查器** 里的 `Type` 切换容器排列类型。类型分为 **HORIZONTAL**（水平），**VERTICAL**（垂直）以及 **GRID**（网格）布局。另外，除了 **NONE** 布局类型，其他都支持 `ResizeMode`。
 
-通过修改 **属性检查器** 里面的 `Type` 可以切换布局容器的类型，可以切换成水平，垂直或者网格布局。
+**ResizeMode** 模式：
 
-另外，所有的容器均支持 ResizeMode（NONE 容器只支持 NONE 和 CONTAINER）。
+- 设置为 **NONE** 时，子物体和容器的大小变化互不影响。
 
-- 当 **ResizeMode** 设置为 NONE 时，子物体和容器的大小变化互不影响。
+- 设置为 **CHILDREN** 时，子物体大小会随着容器的大小而变化。
 
-- 设置为 CHILDREN 则子物体大小会随着容器的大小而变化。
+- 设置为 **CONTAINER** 时，容器的大小会随着子物体的大小变化。
 
-- 设置为 CONTAINER 则容器的大小会随着子物体的大小变化。
+所有的排列都是根据容器大小进行计算的，如果需要固定排序，可以将 Type 设置为 **GRID**，然后设置 `Constraint` 和 `ConstraintNum` 来固定排序。
 
-在使用网格布局时，当 **Start Axis** 设置为 HORIZONTAL 时，将在新行开始之前填充整行。设置为 VERTICAL 时，它将在新列开始之前填充整个列。
+**Constraint** 模式：
+
+- 设置为 **NONE** 时，自由布局。
+
+- 设置为 **FIXED_ROW** 时，固定行数，搭配 `ConstraintNum` 使用。
+
+- 设置为 **FIXED_COL** 时，固定列数，搭配 `ConstraintNum` 使用。
 
 **注意**：Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
+
+更多布局案例，详情请参考 [自动布局](../engine/auto-layout.md)
