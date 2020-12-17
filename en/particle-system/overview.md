@@ -33,11 +33,11 @@ There are two ways to add a particle system:
 
       ![](particle-system/new_ParticleSystemComponent_node.png)
 
-2. Call `addComponent` via script to dynamically add particle system components (not recommended).
+2. Call `addComponent` via a script to dynamically add particle system components (not recommended).
 
 ## Particle Modules
 
-The __Cocos Creator__ particle system organizes functions in modules, including the following modules:
+The __Cocos Creator__ particle system uses modules to organize functions, including the following modules:
 
 | Module | Description |
 | :--- | :--- |
