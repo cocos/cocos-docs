@@ -104,7 +104,7 @@
 
 - 点击云数据库服务面板中的 **Sample 工程** 按钮，Clone 或下载 HUAWEI Sample 工程，并在 Cocos Creator 中打开。
 
-- 将工程中的 `attach/agcclouddb.json` 文件导入到 AGC 云数据库后台，否则会导致测试例中的云数据库模块无法正常运行。
+- 将工程中的 `attach/agcclouddb.json` 文件导入到 AGC 云数据库后台，否则会导致 Sample 工程中的云数据库模块无法正常运行。
 
 - 参照上文开通云数据库服务并配置华为参数文件。在开通服务时，请将 **云数据库配置文件** 的 **对象类型名** 设置为 `test`。
 
