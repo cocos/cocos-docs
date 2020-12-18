@@ -105,9 +105,7 @@ Developer can get a quick taste of the Cloud DB service with the Sample project.
 
 - Import the `attach/agcclouddb.json` file in the project into the AGC Cloud DB console, otherwise the Cloud DB database module in the Sample project will not run normally.
 
-- Enabling the Cloud DB service and configuring the HUAWEI configuration file as described above. Configure an **Object Type Name** named `test` when enabling the Cloud DB service.
-
-- After setting, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
+- After the import operation, you can open the **Build** panel to compile the project by clicking **Project -> Build** in the Creator editor menu bar. Cocos Creator v2.4.1 and above, you could [publish to HUAWEI AppGallery Connect](../publish/publish-huawei-agc.md). Below Creator v2.4.1 could [publish to the Android platform](../publish/publish-native.md).
 
 - Once the Sample project is running on the phone, click the **DB** button on the homepage for testing.
 
