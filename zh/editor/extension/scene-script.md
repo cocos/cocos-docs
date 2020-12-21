@@ -48,7 +48,7 @@ exports.methods = {
 
 ## 使用下面的接口向 scene.js 发送消息
 
-在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 scene.js 发送消息（假设扩展包名是 foobar）：
+在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 scene.js 发送消息（假设扩展包名是 `foobar`）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
