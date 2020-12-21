@@ -1,13 +1,13 @@
 # Call the engine API and project script
 
-In a plugin, a special script called a scene script can be created in assets\. This special script can call the engine API and other projects scripts to achieve special functionality, including:
+In a plugin, a special script called a scene script can be created in `assets\.` This special script can call the engine API and other projects scripts to achieve special functionality, including:
 
 - Traverse the nodes in the scene to get or change the data.
 - Call the other scripts in the project to complete the job.
 
 ## Registering the scene script
 
-First add a `scene` field to the `contributions` property of `pacakge.json`, the value of which is the path to a script file, relative to the extension package directory.
+First, add a `scene` field to the `contributions` property of `pacakge.json`, the value of which is the path to a script file, relative to the extension package directory.Example:
 
 ```json
 {
@@ -20,14 +20,14 @@ First add a `scene` field to the `contributions` property of `pacakge.json`, the
 }
 ```
 
-## Write the scene script
+## Adding code to the scene script 
 
 `scene.js` needs to be defined in this form.
 
 ```javascript
-// function triggered when the module is loaded
+// Function triggered when the module is loaded
 exports.load = function() {};
-// function triggered when the module is unloaded
+// Function triggered when the module is unloaded
 exports.unload = function() {};
 
 // Methods defined within the module
@@ -43,7 +43,7 @@ exports.methods = {
 };
 ```
 
-**Note**: due to the upgrade of the scripting system, the `cc.require` method, which used the same module reference mechanism as the project script, has been deprecated.
+**Note**: Due to the upgrade of the scripting system, the `cc.require` method, which used the same module reference mechanism as the project script, has been deprecated.
 
 ## Use the following API to send messages to scene.js
 
@@ -51,7 +51,7 @@ Next, the following interface can be used to send messages to `scene.js` in both
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
-    // name of extension
+    // Name of extension
     name: string;
     method: string;
     args: any[];
@@ -68,6 +68,6 @@ await Editor.Message.request('scene', 'execute-scene-script', options);
 
 This allows retreiving get the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
 
-**Note**: because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.
+**Note**: Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.
 
 
