@@ -8,40 +8,16 @@ Engine and editor expose their functionalities API through modules. Modules are 
 
 ### Functionalities
 
-<<<<<<< HEAD
 Module `'cc'` provide access to engine functionalities. Contents of module `'cc'` are dynamically decided,
 which is relevant with engine modules setting in project settings.
 
 #### Example: engine logging
-=======
-Contents of module `'cc'` are dynamically decided, which is relevant with **Engine Module** setting in **Project Setting** panel.
-
-### Engine logging
-
-Example:
->>>>>>> 7f1bcd3f4b0a4361a61c837d690ef0efb8cb5958
 
 ```ts
 import { log } from 'cc';
 log(`Hello world!`);
 ```
 
-<<<<<<< HEAD
-=======
-## Editor modules
-
-Editor modules are under protocol `'cce:'` ("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
-
-Except for module `cce.env`, all modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
-
-| Module name | Description                    |
-| :---------- | :----------------------------- |
-| `'cce.env'` | Accessing build-time constants |
-<!--
-| `'cce:gizmo'` | Gizmo                          |
--->
-
->>>>>>> 7f1bcd3f4b0a4361a61c837d690ef0efb8cb5958
 ### Build-time constants
 
 Module `'cc/env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on.
