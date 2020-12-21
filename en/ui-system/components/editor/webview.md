@@ -6,7 +6,8 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information, please refer to the [WebView API](https://docs.cocos.com/creator/3.0/api/en/classes/WebView.html) documentation.
+For more information, please refer to the [WebView API](../../../api/en/classes/webview.webview-1.html) documentation.
+
 
 ## WebView Properties
 
@@ -38,7 +39,7 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 | **LOADED**| WebView is finished loading.
 | **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [WebView Events](../../../api/en/classes/webview.webview-1.html#webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
 
 ## Details Explanation
 
