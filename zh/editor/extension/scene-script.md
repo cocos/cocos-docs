@@ -8,7 +8,7 @@
 
 ## 注册场景脚本
 
-首先在 `pacakge.json` 的 `contributions` 属性添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
+首先在 `pacakge.json` 的 `contributions` 属性中添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
 ```json
 {
@@ -48,7 +48,7 @@ exports.methods = {
 
 ## 使用下面的接口向 scene.js 发送消息
 
-接下来在扩展包程序的主进程和渲染进程中，都可以使用下面的接口来向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
+在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 scene.js 发送消息（假设扩展包名是 foobar）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
