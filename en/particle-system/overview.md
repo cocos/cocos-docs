@@ -23,17 +23,13 @@ The general particle system will consist of the following parts:
 
 There are two ways to add a particle system:
 
-1. Use the editor to add particle system components (recommended).
+1. Select the node in the __Hierarchy__ panel and click the __Add Component__ button on the __Inspector__ panel, as shown below:
 
-    - By clicking __Add Component__ button on the **Inspector** panel, as shown below:
+    ![](particle-system/new_ParticleSystemComponent.png)
 
-      ![](particle-system/new_ParticleSystemComponent.png)
+2. You can also right-click the **Hierarchy** panel and select __Create -> Effects-> Particle System__, as shown below:
 
-    - You can also right-click the **Hierarchy** panel and select __Create -> Effects-> Particle System__, as shown below:
-
-      ![](particle-system/new_ParticleSystemComponent_node.png)
-
-2. Call `addComponent` via a script to dynamically add particle system components (not recommended).
+    ![](particle-system/new_ParticleSystemComponent_node.png)
 
 ## Particle Modules
 
