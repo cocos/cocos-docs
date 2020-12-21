@@ -45,7 +45,7 @@ exports.methods = {
 
 **Note: Due to the upgrade of the scripting system, the `cc.require` method, which used the same module reference mechanism as the project script, has been deprecated**
 
-## Send a message from the extension package to the scene script
+## Use the following API to send messages to scene.js
 
 Next, the following interface can be used to send messages to `scene.js` (assuming the name of the extension is `foobar`) in both the main process and the rendering process of the extension package application.
 
@@ -68,6 +68,6 @@ await Editor.Message.request('scene', 'execute-scene-script', options);
 
 This allows you to get the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
 
-**Note: Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.**
+**Note:Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.**
 
 
