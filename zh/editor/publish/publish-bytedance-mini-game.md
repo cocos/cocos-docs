@@ -47,15 +47,13 @@
 
 字节开发者工具使用的版本请大于等于 **2.0.6**，小于 **3.0.0**。调试基础库则要求在 1.88.0 及以上。
 
-> 注意：若产品的版本不支持分包加载，则引擎会将分包作为一个普通的 asset bundle 加载。
+> **注意**：若产品的版本不支持分包加载，则引擎会将分包作为一个普通的 asset bundle 加载。
 
 目前小游戏分包大小有以下限制：
 - 整个小游戏的所有分包大小不超过 16 M
 - 单个分包/主包的大小不能超过 4 M
 
 具体可参考 [字节小游戏分包加载官方文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
-
-具体的分包加载机制，请参考 [分包加载](../../asset/subpackage.md)。
 
 ## 参考链接
 

@@ -59,20 +59,20 @@ Specifically, developers need to do the following:
 
 The ByteDance Mini Game requires a specific version to support the subpackage feature, and the version requirements for the ByteDance product are as follows:
 
-| product | Android     | iOS        |
+| Product | Android     | iOS        |
 | :--     | :---        | :---       |
 | TikTok  | v13.6.0     | v13.7.0    |
 | TouTiao | v7.9.9      | v7.9.8     |
 
-The ByteDance Dev Tool requires a version greater than or equal to **2.0.6** and less than **3.0.0**. The debugging base library requires 1.88.0 or above.
+For ByteDance DevTools, please use **v2.0.6** or above, but below **v3.0.0**. After updating the DevTools, don't forget to modify the **Debug Base library** to **1.88.0** or above in the ByteDance DevTools.
 
-> Note: If the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
+> **Note**: If the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
 
-Information on package size restrictions is as follows:
-- The size of all subpackages of the entire mini-game cannot exceed **16 M**
+At present, the size of the ByteDance Mini Game subpackage has following restrictions:
+- The size of all subpackages of the entire mini game cannot exceed **16 M**
 - The size of a single subpackage/main package cannot exceed **4 M**
 
-To achieve subpackage loading with **ByteDance Mini Game**, please refer to [Subpackage Loading](../../asset/subpackage.md) documentation.
+For details, please refer to [ByteDance Subpackage Loading Official Document](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
 
 ## Reference documentation
 
