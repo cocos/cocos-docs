@@ -39,11 +39,11 @@ For more information, please refer to the [Component.EventHandler Class](../../.
 | **LOADED**| WebView is finished loading.
 | **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/webview.webview-1.html#webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [WebView Events](../../../api/en/classes/webview.webview-1.html#webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
 
 ## Details Explanation
 
-Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
+Currently this component is only available on Web (Both PC and Mobile, iOS and Android (Not supported in the v2.0.0~2.0.6). It cannot be use on Mac or Windows which means if you preview **WebView** on these platforms, there is nothing to show.
 
 > **Notes**: 
 > 1. This component doesn't support load HTML file or execute JavaScript.
@@ -186,7 +186,7 @@ When you need to interact with **WebView** through an internal page, you should 
 </html>
 ```
 
-Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
+Due to limitations of the Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
 
 ```html
 <html>
@@ -207,4 +207,4 @@ Because of the limitations of Web platform, it can not be implemented by this me
 </html>
 ```
 
-> **Note**: Again: cross-domain issues on Web platform need to be resolved by yourself as __Cocos Creator__ does not assist with this.
+> **Note**: cross-domain issues on Web platform need to be resolved by yourself as __Cocos Creator__ does not assist with this.
