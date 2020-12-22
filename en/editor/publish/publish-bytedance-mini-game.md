@@ -55,6 +55,24 @@ Specifically, developers need to do the following:
 4. Delete the **res** folder inside the local release package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat DevTools, check the `Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates` option in the **Local Settings**.
 
+## ByteDance Mini Game Subpackage Loading
+
+The ByteDance Dev Tool supports subpackage loading since v2.0.6, and Cocos Creator supports this feature since v3.0.
+The host environment versions that started to support subpackage loading are as follows:
+
+|         | Android     | iOS        |
+| :--     | :---        | :---       |
+| TikTok  | v13.6.0     | v13.7.0    |
+| TouTiao | v7.9.9      | v7.9.8     |
+
+If the current version of the host environment does not support subpackage loading, the engine will load the subpackage as a normal asset bundle
+
+Information on package size restrictions is as follows:
+- The size of a single subpackage / main package can not exceed **4MB**.
+- The size of all subpackages of the entire Mini Game can not exceed **16MB**.
+
+To achieve subpackage loading with **ByteDance Mini Game**, please refer to [Subpackage Loading](../../asset/subpackage.md) documentation.
+
 ## Reference documentation
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.

@@ -36,6 +36,24 @@
 
 字节跳动小游戏与微信小游戏类似，都存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情可参考 [资源管理](../../asset/cache-manager.md#资源下载流程)。
 
+## 字节跳动小游戏分包加载
+
+字节开发者工具从 v2.0.6 开始支持分包加载，Cocos Creator 也从 v3.0 开始同步支持这个特性
+开始支持分包加载的宿主环境版本如下：
+
+|         | Android    | iOS        |
+| :--     | :---       | :---       |
+| 抖音     | v13.6.0    | v13.7.0    |
+| 头条     | v7.9.9     | v7.9.8     |
+
+如果当前宿主环境的版本不支持分包加载，引擎会将分包作为一个普通的 asset bundle 加载
+
+包体限制的相关信息如下：
+- 单个包限制大小，主包, 分包都不能超过 4M
+- 整个小游戏所有分包大小不超过 16M
+
+具体的分包加载机制，请参考 [分包加载](../../asset/subpackage.md)。
+
 ## 参考链接
 
 - [字节小游戏开发介绍指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/about-mini-game/flow-entrance/brief-introduction-on-flow-entrance)
