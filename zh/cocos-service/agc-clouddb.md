@@ -24,7 +24,11 @@
 
 ### 版本更新说明
 
-- 当前版本：0.5.4_1.2.3.301
+- 当前版本：0.5.5_1.2.3.301
+
+    - 修复因 JSON 解析库使用方法导致的数据库插入失败问题。
+
+- v0.5.4_1.2.3.301
 
     - 修复生成器未适配新版 FORMAT-VERSION 的索引导致的崩溃问题。
     - 修复 Query 查询器类型转换问题导致的崩溃。
@@ -152,7 +156,7 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 | :--- | :--- |  
 | zoneId | Cloud DB zone 名称，表示一个唯一的数据存储区域 |
 | typeName | 对象类型名称 |
-| queryId | 自定义查询 ID，用于查询接口。构造查询条件时，当前仅支持等值订阅，也就是只支持使用 [equalTo()](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) 方法，且查询条件中最少包含一个字段，最多包含 5 个字段，多个查询条件之间采用 **与** 运算。 |
+| queryId | 自定义查询 ID，用于查询接口。构造查询条件时，当前仅支持等值订阅，也就是只支持使用 [equalTo()](https://service.cocos.com/document/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) 方法，且查询条件中最少包含一个字段，最多包含 5 个字段，多个查询条件之间采用 **与** 运算。 |
 | subscribeId | 订阅器的 ID |
 | result | 返回信息 |
 
@@ -221,7 +225,7 @@ let result = this._zone.querySync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_
 console.log('Cloud DB', 'query : ' + JSON.stringify(result));
 ```
 
-也可以添加查询条件，支持方法可参考 [API 文档 - AGCCloudDBZoneQuery](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html)。
+也可以添加查询条件，支持方法可参考 [API 文档 - AGCCloudDBZoneQuery](https://service.cocos.com/document/api/classes/huawei.agc.db.agcclouddbzonequery.html)。
 
 **示例**：
 
@@ -256,5 +260,5 @@ console.log('Cloud DB', 'delete count : ' + count);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [云数据库 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.db.html)。
+详细的功能接口和 API 说明，请参考 [云数据库 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.db.html)。
 

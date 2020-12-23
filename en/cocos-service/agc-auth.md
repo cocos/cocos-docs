@@ -134,13 +134,13 @@ Developer can get a quick taste of the Auth Service with the sample project.
 
 ## Developer Guide
 
-The Auth Service plug-in in Cocos Service has unified encapsulation of various authentication methods of Java SDK. Please refer to this document and [Auth Service - API Document](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html) for integrate using JavaScript.
+The Auth Service plug-in in Cocos Service has unified encapsulation of various authentication methods of Java SDK. Please refer to this document and [Auth Service - API Document](https://service.cocos.com/document/api/modules/huawei.agc.auth.html) for integrate using JavaScript.
 
 ### Listener and callback
 
 The Auth Service plug-in encapsulates the callbacks of each login method in a unified manner. The developer needs to set up a listener and bind the method, and the callback logic is unified in the binding method.
 
-The callback enumeration value [AuthRetCode](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authretcode.html) has three length types:
+The callback enumeration value [AuthRetCode](https://service.cocos.com/document/api/enums/huawei.agc.auth.authretcode.html) has three length types:
 
 - The four-digit **1XXX** is the **unified callback event enumeration value** defined by the Auth Service plug-in. Developers need to handle with key events. 
 - The nine-digit **2038XXXXX** indicate backend server errors. 
@@ -170,7 +170,7 @@ Select the current authentication method. You need to call this method first, be
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  authType  | enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type. | 
+|  authType  | enumeration value of [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type. | 
 
 **Example**:
 
@@ -213,7 +213,7 @@ Get current user info. The returned information may include:
 - `photoUrl`: icon photo url
 - `email`: email account
 - `phone`: phone number
-- `providerId`: enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type
+- `providerId`: enumeration value of [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type
 - `providerInfo`: auth provider info
 - `emailVerified`: is it verified by email
 - `passwordSetted`: set the password or not
@@ -279,7 +279,7 @@ huawei.agc.auth.authService.getVerifyCode();
 
 `getSupportAuthType(): string`
 
-Get supported authentication methods, such as "[0, 1, 2]", refer to [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type.
+Get supported authentication methods, such as "[0, 1, 2]", refer to [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type.
 
 **Example**:
 
@@ -316,7 +316,7 @@ Associate a new authentication login method for the current user.
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  authType  | Enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type. | 
+|  authType  | Enumeration value of [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type. | 
 
 **Example**:
 
@@ -334,7 +334,7 @@ Disassociates the current user from the associated login method.
 
 | Parameter | Description | 
 | :---------- | :------------- |  
-|  authType  | Enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type. | 
+|  authType  | Enumeration value of [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type. | 
 
 **Example**:
 
@@ -375,7 +375,7 @@ Updates the current user's password, update results via the asynchronous callbac
 | :---------- | :------------- |  
 |  newPassword  | New password. | 
 |  verifyCode  | Verification code. |
-|  provider  | Enumeration value of [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) type, which is used to distinguish the email account from the phone number account. |
+|  provider  | Enumeration value of [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) type, which is used to distinguish the email account from the phone number account. |
 
 **Example**:
 
@@ -469,4 +469,4 @@ huawei.agc.auth.authService.resetPassword("newUser1@gmail.com", "neWPaSSwOrd", "
 
 ## API Reference
 
-Please refer to the [Auth Service - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html).
+Please refer to the [Auth Service - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.auth.html).

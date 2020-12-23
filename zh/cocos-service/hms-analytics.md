@@ -380,4 +380,4 @@ huawei.hms.analytics.AnalyticsTools.enableLog(huawei.hms.LOG_LEVEL.debug);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [分析服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html)。
+详细的功能接口和 API 说明，请参考 [分析服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.hms.analytics.html)。

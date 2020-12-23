@@ -105,7 +105,7 @@
 
 当达到消息展示的触发条件后，App Messaging SDK 会自动以默认的消息展示布局在应用中展示消息。开发者 **不需要编写任何代码**，就可以拥有展示消息的能力。如果开发者需要对展示消息或用户对消息的操作进行一些特殊的配置，可以通过 App Messaging SDK 提供的 API 完成。
 
-本文档对应 AppGallery Connect 文档 - [展示应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-display)，使用 JavaScript 调用时，请以本文档和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html) 为准。
+本文档对应 AppGallery Connect 文档 - [展示应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-display)，使用 JavaScript 调用时，请以本文档和 [API 文档](https://service.cocos.com/document/api/modules/huawei.agc.appmessaging.html) 为准。
 
 **注意**：由于 JavaScript 层限制，应用内消息插件不支持 [自定义消息布局](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) 相关功能。
 
@@ -119,7 +119,7 @@ App Messaging SDK 展示消息的条件包括以下几点：
 
     App Messaging SDK 支持数据拉取开关的设置，方便开发者随时开启/停用从 AGC 服务端数据拉取功能（默认为开启）。
 
-    调用 [setFetchMessageEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable)，设置是否同步 AGC 服务端数据的开关。
+    调用 [setFetchMessageEnable](https://service.cocos.com/document/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable)，设置是否同步 AGC 服务端数据的开关。
 
     ```js
     huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
@@ -138,7 +138,7 @@ App Messaging SDK 展示消息的条件包括以下几点：
 
     App Messaging SDK 支持消息展示开关的设置，方便开发者随时开启/停用消息展示功能（默认为开启）。
 
-    调用 [setDisplayEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable)，设置是否允许展示消息的开关。
+    调用 [setDisplayEnable](https://service.cocos.com/document/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable)，设置是否允许展示消息的开关。
 
     ```js
     huawei.agc.appmessaging.appMessagingService.setDisplayEnable(true);
@@ -167,4 +167,4 @@ huawei.agc.appmessaging.appMessagingService.once(huawei.agc.appmessaging.AGC_APP
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [应用内消息 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html)。
+详细的功能接口和 API 说明，请参考 [应用内消息 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.appmessaging.html)。

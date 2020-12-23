@@ -177,6 +177,6 @@ huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke'
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [崩溃服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html)。
+详细的功能接口和 API 说明，请参考 [崩溃服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.crash.html)。
 
 

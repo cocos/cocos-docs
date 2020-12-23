@@ -376,4 +376,4 @@ huawei.hms.analytics.AnalyticsTools.enableLog(huawei.hms.LOG_LEVEL.debug);
 
 ## API Reference
 
-Please refer to the [Analytics Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.analytics.html).
+Please refer to the [Analytics Kit - API Reference](https://service.cocos.com/document/api/modules/huawei.hms.analytics.html).

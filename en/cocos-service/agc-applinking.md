@@ -196,7 +196,7 @@ If you want your app to dynamically create links for users to share, you can int
 
 #### Creating a Long or Short Link
 
-- Call [setBuilder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setbuilder) to set a Builder object. The `Builder` instance contains link parameters is set by [huawei.AGC.AppLinking.Builder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.builder.html).
+- Call [setBuilder](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setbuilder) to set a Builder object. The `Builder` instance contains link parameters is set by [huawei.AGC.AppLinking.Builder](https://service.cocos.com/document/api/classes/huawei.agc.applinking.builder.html).
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -206,7 +206,7 @@ If you want your app to dynamically create links for users to share, you can int
   linkInfo.setBuilder(linkBuilder);
   ```
 
-- To set Android app parameters, call the [setAndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) method. The `AndroidLinkInfo` instance contains Android app parameters is set by [huawei.AGC.AppLinking.AndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.androidlinkinfo.html).
+- To set Android app parameters, call the [setAndroidLinkInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) method. The `AndroidLinkInfo` instance contains Android app parameters is set by [huawei.AGC.AppLinking.AndroidLinkInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.androidlinkinfo.html).
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -216,7 +216,7 @@ If you want your app to dynamically create links for users to share, you can int
   linkInfo.setAndroidLinkInfo(androidLinkInfo);
   ```
 
-- To set social sharing identifier parameters, call the [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) method. The `SocialCardInfo` instance contains social sharing identifier parameters is set by [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html).
+- To set social sharing identifier parameters, call the [setSocialCardInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) method. The `SocialCardInfo` instance contains social sharing identifier parameters is set by [huawei.AGC.AppLinking.SocialCardInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.socialcardinfo.html).
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -227,7 +227,7 @@ If you want your app to dynamically create links for users to share, you can int
   linkInfo.setSocialCardInfo(socialBuilder);
   ```
 
-- To set activity parameters, call the [setCampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) method. The `CampaignInfo` instance contains activity parameters is set by [huawei.agc.applinking.CampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.campaigninfo.html).
+- To set activity parameters, call the [setCampaignInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) method. The `CampaignInfo` instance contains activity parameters is set by [huawei.agc.applinking.CampaignInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.campaigninfo.html).
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -309,4 +309,4 @@ huawei.agc.applinking.appLinkingService.getAppLinking();
 
 ## API Reference
 
-Please refer to the [App Linking - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.applinking.html).
+Please refer to the [App Linking - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.applinking.html).

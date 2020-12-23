@@ -146,13 +146,13 @@
 
 ## 开发指南
 
-Cocos Service 中的认证服务插件，对原有 SDK 的各种认证方式进行了统一封装。使用 JavaScript 接入时，请以本文档和 [认证服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html) 为准。
+Cocos Service 中的认证服务插件，对原有 SDK 的各种认证方式进行了统一封装。使用 JavaScript 接入时，请以本文档和 [认证服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.auth.html) 为准。
 
 ### 监听和回调
 
 认证服务插件将各认证登录方式的回调进行统一封装，开发者需要设置监听并绑定方法，在绑定方法中统一处理回调逻辑。
 
-回调枚举值 [AuthRetCode](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authretcode.html) 有三种长度类型：
+回调枚举值 [AuthRetCode](https://service.cocos.com/document/api/enums/huawei.agc.auth.authretcode.html) 有三种长度类型：
 
 - 四位数的 **1XXX** 为认证服务插件封装的 **统一回调事件枚举值**，开发者需要对关键事件进行处理。
 - 九位数的 **2038XXXXX** 为 SDK 返回的后端服务器的错误信息。
@@ -182,7 +182,7 @@ onAuthResult: function (code, msg) {
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  authType  | [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
+|  authType  | [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
 
 **示例**：
 
@@ -225,7 +225,7 @@ huawei.agc.auth.authService.logout();
 - `photoUrl`：头像 URL
 - `email`：邮箱地址
 - `phone`：手机号码
-- `providerId`：[AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值
+- `providerId`：[AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值
 - `providerInfo`：认证登录信息
 - `emailVerified`：是否已通过邮箱验证
 - `passwordSetted`：是否已设置密码
@@ -291,7 +291,7 @@ huawei.agc.auth.authService.getVerifyCode();
 
 `getSupportAuthType(): string`
 
-获取支持的认证登录方式，例如 "[0, 1, 2]"。枚举值对应 [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html)。
+获取支持的认证登录方式，例如 "[0, 1, 2]"。枚举值对应 [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html)。
 
 **示例**：
 
@@ -328,7 +328,7 @@ huawei.agc.auth.authService.getToken(true);
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  authType  | [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
+|  authType  | [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
 
 **示例**：
 
@@ -346,7 +346,7 @@ huawei.agc.auth.authService.link(huawei.agc.auth.AuthProvider.HMS_Provider);
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  authType  | [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
+|  authType  | [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值 | 
 
 **示例**：
 
@@ -387,7 +387,7 @@ huawei.agc.auth.authService.updateProfile("name1", photoUrl);
 | :---------- | :------------- |  
 |  newPassword  | 新密码 | 
 |  verifyCode  | 验证码 |
-|  provider  | [AuthProvider](https://docs.cocos.com/service/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值，此处用于区分邮箱和电话 |
+|  provider  | [AuthProvider](https://service.cocos.com/document/api/enums/huawei.agc.auth.authprovider.html) 第三方认证登录方式枚举值，此处用于区分邮箱和电话 |
 
 **示例**：
 
@@ -481,4 +481,4 @@ huawei.agc.auth.authService.resetPassword("newUser1@gmail.com", "neWPaSSwOrd", "
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [认证服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.auth.html)。
+详细的功能接口和 API 说明，请参考 [认证服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.auth.html)。

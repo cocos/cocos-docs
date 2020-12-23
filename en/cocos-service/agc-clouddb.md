@@ -24,7 +24,11 @@ When using Cloud DB service, if the free resource quota cannot meet the develope
 
 ### Version Update Description
 
-- Latest Version: 0.5.4_1.2.3.301
+- Latest Version: 0.5.5_1.2.3.301
+
+    - Fix the problem of database insertion failure caused by the usage of JSON parsing library.
+
+- v0.5.4_1.2.3.301
 
     - Fix the crash caused by the generator not adapting to the index of the new version of FORMAT-VERSION.
     - Fix the crash caused by a Query type conversion problem.
@@ -150,7 +154,7 @@ huawei.agc.db.dbService.on("subscribe", data => console.log("Cloud DB", `subscri
 | :--- | :--- |  
 | zoneId | Name of Cloud DB zone, represents a unique data storage zone. |
 | typeName | Name of Storage instance. |
-| queryId | Custom query ID, for query interface. Only the equal-value subscription, that is, the [equalTo()](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) method can be used to construct query conditions. The query conditions must contain at least one field and at most five fields. The **AND** operation is used between multiple query conditions. |
+| queryId | Custom query ID, for query interface. Only the equal-value subscription, that is, the [equalTo()](https://service.cocos.com/document/api/classes/huawei.agc.db.agcclouddbzonequery.html#equalto) method can be used to construct query conditions. The query conditions must contain at least one field and at most five fields. The **AND** operation is used between multiple query conditions. |
 | subscribeId | Subscribe listener id |
 | result | Return message |
 
@@ -219,7 +223,7 @@ let result = this._zone.querySync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_
 console.log('Cloud DB', 'query : ' + JSON.stringify(result));
 ```
 
-It supports adding query conditions, supported methods can refer to [API document - AGCCloudDBZoneQuery](https://docs.cocos.com/service/api/classes/huawei.agc.db.agcclouddbzonequery.html).
+It supports adding query conditions, supported methods can refer to [API document - AGCCloudDBZoneQuery](https://service.cocos.com/document/api/classes/huawei.agc.db.agcclouddbzonequery.html).
 
 **Example**:
 
@@ -254,5 +258,5 @@ console.log('Cloud DB', 'delete count : ' + count);
 
 ## API Reference
 
-Please refer to the [Cloud DB - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.db.html).
+Please refer to the [Cloud DB - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.db.html).
 

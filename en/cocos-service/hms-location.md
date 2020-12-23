@@ -546,4 +546,4 @@ huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 
 ## API Reference
 
-Please refer to the [Location Kit - API Reference](https://docs.cocos.com/service/api/modules/huawei.hms.location.html).
+Please refer to the [Location Kit - API Reference](https://service.cocos.com/document/api/modules/huawei.hms.location.html).

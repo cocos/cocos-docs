@@ -139,4 +139,4 @@ You can get a quick taste of the Cocos SDKHub with the sample project.
 
 ## API Reference
 
-Please refer to the [API documentation](https://docs.cocos.com/service/api/modules/sdkhub.html).
+Please refer to the [API documentation](https://service.cocos.com/document/api/modules/sdkhub.html).
