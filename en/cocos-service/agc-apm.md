@@ -507,4 +507,4 @@ console.log("nMeasure = ", JSON.stringify(nMeasure));
 
 ## API Reference
 
-Please refer to the [APM - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html).
+Please refer to the [APM - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.apms.html).

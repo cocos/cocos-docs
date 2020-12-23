@@ -509,4 +509,4 @@ console.log("nMeasure = ", nMeasure);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [性能管理 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.apms.html)。
+详细的功能接口和 API 说明，请参考 [性能管理 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.apms.html)。

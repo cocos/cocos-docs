@@ -104,7 +104,7 @@
 
 ## 开发指南
 
-本文档对应 AppGallery Connect 文档 - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)，使用 JavaScript 调用时，请以本文档和 [API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html) 为准。
+本文档对应 AppGallery Connect 文档 - [接入远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-dev-guide)，使用 JavaScript 调用时，请以本文档和 [API 文档](https://service.cocos.com/document/api/modules/huawei.agc.rc.html) 为准。
 
 由于 Java SDK 的 `apply` 方法返回的是参数对象，无法在 JavaScript 层传递。所以 Creator 集成到服务面板的远程配置服务插件在封装时，使用了 `applyLastFetched` 和 `fetchAndApply` 方法来代替 Java SDK 的 `applyDefault` 和 `apply` 方法。
 
@@ -273,6 +273,6 @@ huawei.agc.rc.rcService.setDeveloperMode(true);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.rc.html)。
+详细的功能接口和 API 说明，请参考 [远程配置服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.rc.html)。
 
 

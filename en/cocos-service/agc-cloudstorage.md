@@ -395,4 +395,4 @@ Developer can obtain information from the `get-download-url` event callback.
 
 ## API Reference
 
-Please refer to the [Cloud Storage - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.cs.html).
+Please refer to the [Cloud Storage - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.cs.html).

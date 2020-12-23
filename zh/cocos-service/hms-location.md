@@ -554,4 +554,4 @@ huawei.hms.location.locationGeofenceService.removeWithID(removeID);
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [定位服务 - API 文档](https://docs.cocos.com/service/api/modules/huawei.hms.location.html)。
+详细的功能接口和 API 说明，请参考 [定位服务 - API 文档](https://service.cocos.com/document/api/modules/huawei.hms.location.html)。

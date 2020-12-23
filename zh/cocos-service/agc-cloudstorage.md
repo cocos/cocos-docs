@@ -399,4 +399,4 @@ fileReference.getDownloadUrl();
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [云存储 - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.storage.html)。
+详细的功能接口和 API 说明，请参考 [云存储 - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.storage.html)。

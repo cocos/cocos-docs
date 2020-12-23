@@ -175,4 +175,4 @@ huawei.agc.crash.crashService.log(huawei.agc.crash.LOG.DEBUG, 'debug log invoke'
 
 ## API Reference
 
-Please refer to the [Crash - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.crash.html).
+Please refer to the [Crash - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.crash.html).

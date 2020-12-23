@@ -147,4 +147,4 @@ function.call((err, data) => {
 
 ## API Reference
 
-Please refer to the [Cloud Functions - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.func.html).
+Please refer to the [Cloud Functions - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.func.html).

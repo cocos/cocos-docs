@@ -103,7 +103,7 @@ Developer can get a quick taste of the App Messaging service with the sample pro
 
 The App Messaging SDK obtains in-app messages from AppGallery Connect and displays the messages in your app when the specific trigger event occurs using the default message layout. The process is totally **coding-free**. You can also call APIs provided by the App Messaging SDK to personalize your in-app messages.
 
-This document refers to the AppGallery Connect documentation - [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display). When calling in JavaScript, please use this document and the [API documentation](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html) as a guide.
+This document refers to the AppGallery Connect documentation - [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display). When calling in JavaScript, please use this document and the [API documentation](https://service.cocos.com/document/api/modules/huawei.agc.appmessaging.html) as a guide.
 
 **Note**: Due to JavaScript layer limitation, the App Messaging plug-in does not support [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) functions.
 
@@ -117,7 +117,7 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
     The App Messaging SDK allows you to enable or disable data synchronization from the AppGallery Connect server. The function is enabled by default.
 
-    Call [setFetchMessageEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable) to set whether to allow data synchronization from the AppGallery Connect server.
+    Call [setFetchMessageEnable](https://service.cocos.com/document/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setfetchmessageenable) to set whether to allow data synchronization from the AppGallery Connect server.
 
     ```js
     huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
@@ -136,7 +136,7 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
 
     The App Messaging SDK allows you to enable or disable the message display function. The function is enabled by default.
 
-    Call [setDisplayEnable](https://docs.cocos.com/service/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable) to set whether to enable message display.
+    Call [setDisplayEnable](https://service.cocos.com/document/api/classes/huawei.agc.appmessaging.appmessagingservice.html#setdisplayenable) to set whether to enable message display.
 
     ```js
     huawei.agc.appmessaging.appMessagingService.setDisplayEnable(true);
@@ -165,4 +165,4 @@ huawei.agc.appmessaging.appMessagingService.once(huawei.agc.appmessaging.AGC_APP
 
 ## API Reference
 
-Please refer to the [App Messaging - API Reference](https://docs.cocos.com/service/api/modules/huawei.agc.appmessaging.html).
+Please refer to the [App Messaging - API Reference](https://service.cocos.com/document/api/modules/huawei.agc.appmessaging.html).

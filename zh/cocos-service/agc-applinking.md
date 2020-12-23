@@ -198,7 +198,7 @@
 
 #### 创建长链接或短链接
 
-- Builder 对象使用 [setBuilder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setbuilder) 方法设置，方法中包含 App Linking 相关参数的 `Builder` 实例，该实例使用 [huawei.AGC.AppLinking.Builder](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.builder.html) 构建。
+- Builder 对象使用 [setBuilder](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setbuilder) 方法设置，方法中包含 App Linking 相关参数的 `Builder` 实例，该实例使用 [huawei.AGC.AppLinking.Builder](https://service.cocos.com/document/api/classes/huawei.agc.applinking.builder.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -208,7 +208,7 @@
   linkInfo.setBuilder(linkBuilder);
   ```
 
-- 安卓应用参数信息使用 [setAndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 方法设置，方法中包含安卓参数信息的 `AndroidLinkInfo` 实例，该实例使用 [huawei.AGC.AppLinking.AndroidLinkInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.androidlinkinfo.html) 构建。
+- 安卓应用参数信息使用 [setAndroidLinkInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setandroidlinkinfo) 方法设置，方法中包含安卓参数信息的 `AndroidLinkInfo` 实例，该实例使用 [huawei.AGC.AppLinking.AndroidLinkInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.androidlinkinfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -218,7 +218,7 @@
   linkInfo.setAndroidLinkInfo(androidLinkInfo);
   ```
 
-- 社交分享标记参数使用 [setSocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例，该实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
+- 社交分享标记参数使用 [setSocialCardInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setsocialcardinfo) 设置，方法中包含社交分享参数信息的 `SocialCardInfo` 实例，该实例使用 [huawei.AGC.AppLinking.SocialCardInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.socialcardinfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -229,7 +229,7 @@
   linkInfo.setSocialCardInfo(socialBuilder);
   ```
 
-- 活动参数使用 [setCampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) 设置，方法中包含活动参数信息的 `CampaignInfo` 实例，该实例使用 [huawei.agc.applinking.CampaignInfo](https://docs.cocos.com/service/api/classes/huawei.agc.applinking.campaigninfo.html) 构建。
+- 活动参数使用 [setCampaignInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.applinking.html#setcampaigninfo) 设置，方法中包含活动参数信息的 `CampaignInfo` 实例，该实例使用 [huawei.agc.applinking.CampaignInfo](https://service.cocos.com/document/api/classes/huawei.agc.applinking.campaigninfo.html) 构建。
 
   ```js
   let linkInfo = new huawei.agc.applinking.AppLinking();
@@ -311,4 +311,4 @@ huawei.agc.applinking.appLinkingService.getAppLinking();
 
 ## API 文档
 
-详细的功能接口和 API 说明，请参考 [App Linking  - API 文档](https://docs.cocos.com/service/api/modules/huawei.agc.applinking.html)。
+详细的功能接口和 API 说明，请参考 [App Linking  - API 文档](https://service.cocos.com/document/api/modules/huawei.agc.applinking.html)。
