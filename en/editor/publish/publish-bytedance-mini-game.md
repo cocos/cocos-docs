@@ -66,13 +66,13 @@ The ByteDance Mini Game requires a specific version to support the subpackage fe
 
 For ByteDance DevTools, please use **v2.0.6** or above, but below **v3.0.0**. After updating the DevTools, don't forget to modify the **Debug Base library** to **1.88.0** or above in the ByteDance DevTools.
 
-> **Note**: If the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
+> **Note**: if the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
 
 Currently, the size of the ByteDance Mini Game subpackage has following restrictions:
 - The size of all subpackages of the entire mini game cannot exceed **16 M**
 - The size of a single subpackage/main package cannot exceed **4 M**
 
-For details, please refer to the [ByteDance Subpackage Loading Official Documentation](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+For details, please refer to the [ByteDance Subpackage Loading Official Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
 
 ## Reference documentation
 
