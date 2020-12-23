@@ -18,7 +18,7 @@
 	
 	| 属性 | 说明 |
 	| :--- | :--- |
-	| Bakeable | 是否可烘培 |
+	| Bakeable | 是否烘培静态光照 |
 	| CastShaow | 是否投射静态阴影 |
 	| EditorOnly | 是否只在编辑器中生效 |
 
