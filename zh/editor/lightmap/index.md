@@ -12,7 +12,7 @@
    
     ![create lightmap](./images/bake_menu.png)
 
-2. 在烘焙前需要在编辑器中光源组件的静态灯光属性将 `Bakeable` 设置为 `true`（目前只支持一个主方向光源）。
+2. 在烘焙前，需要先在 **属性检查器** 中勾选光源组件的静态灯光属性 Bakeable（目前只支持一个主方向光源）。
    
     ![enable lightbake](./images/bakeable.png)
 	
