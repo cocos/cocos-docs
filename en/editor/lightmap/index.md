@@ -17,11 +17,12 @@ The following three steps are required to turn on the baking system:
     > **Note**: currently only one main direction light source is supported.
    
     ![enable lightbake](./images/bakeable.png)
-	| Parameter | Description |
+	
+	| Property | Description |
 	| :--- | :--- |
-	| Bakeable | Enable bake lighting |
-	| CastShaow | Enable cast static shadow |
-	| EditorOnly | Valid only in the editor |
+	| Bakeable | When checked, enable bake lighting |
+	| CastShaow | When checked, enable cast static shadow |
+	| EditorOnly | When checked, only takes effect in the editor |
 
 3. In the lightmap panel that pops up, after setting the corresponding parameters, click the `Lightmap Generate` button and select the corresponding storage folder to generate the lightmap 
 

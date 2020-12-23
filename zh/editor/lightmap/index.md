@@ -15,7 +15,8 @@
 2. 在烘焙前需要在编辑器中光源组件的静态灯光属性将 `Bakeable` 设置为 `true`（目前只支持一个主方向光源）。
    
     ![enable lightbake](./images/bakeable.png)
-	| 参数 | 说明 |
+	
+	| 属性 | 说明 |
 	| :--- | :--- |
 	| Bakeable | 是否可烘培 |
 	| CastShaow | 是否投射静态阴影 |
