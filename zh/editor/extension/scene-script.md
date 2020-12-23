@@ -44,15 +44,15 @@ exports.methods = {
 };
 ```
 
-**注意： 由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的 `cc.require` 方法被弃用**
+>**注意**：由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的 `cc.require` 方法被弃用。
 
-## 使用下面的接口向 scene.js 发送消息
+## 使用下面的接口向 `scene.js` 发送消息
 
-在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 scene.js 发送消息（假设扩展包名是 `foobar`）：
+在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
-    // name of extension
+    // Name of extension
     name: string;
     method: string;
     args: any[];
@@ -69,6 +69,4 @@ await Editor.Message.request('scene', 'execute-scene-script', options);
 
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
 
-**注意：由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。推荐只传输纯 JSON 对象。**
-
-
+> **注意**：由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。建议只传输纯 JSON 对象。

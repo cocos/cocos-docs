@@ -1,6 +1,6 @@
 # Call the engine API and project script
 
-In a plugin, a special script called a scene script can be created in `assets\.` This special script can call the engine API and other projects scripts to achieve special functionality, including:
+In a plugin, a special script called a scene script can be created in `assets\`. This special script can call the engine API and other projects scripts to achieve special functionality, including:
 
 - Traverse the nodes in the scene to get or change the data.
 - Call the other scripts in the project to complete the job.
@@ -22,7 +22,7 @@ First, add a `scene` field to the `contributions` property of `pacakge.json`, th
 
 ## Adding code to the scene script 
 
-`scene.js` needs to be defined in this form.
+Define `scene.js` as follows:
 
 ```javascript
 // Function triggered when the module is loaded
@@ -43,9 +43,9 @@ exports.methods = {
 };
 ```
 
-**Note**: Due to the upgrade of the scripting system, the `cc.require` method, which used the same module reference mechanism as the project script, has been deprecated.
+>**Note**: due to the upgrade of the scripting system, the cc.require method, which used the same module reference mechanism as the project script, has been deprecated.
 
-## Use the following API to send messages to scene.js
+## Sending a message from the extension package to the `scene.js`
 
 Next, the following interface can be used to send messages to `scene.js` in both the main process and the rendering process of the extension package application. For example, assuming the name of the extension is `foobar`:
 
@@ -66,8 +66,6 @@ const options: ExecuteSceneScriptMethodOptions = {
 await Editor.Message.request('scene', 'execute-scene-script', options); 
 ```
 
-This allows retreiving get the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
+This allows retreiving the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
 
-**Note**: Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.
-
-
+>**Note**: because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.
