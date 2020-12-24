@@ -12,7 +12,7 @@ The following three steps are required to turn on the baking system:
    
     ![create lightmap](./images/bake_menu.png)
 
-2. Before baking, you need to set 'bakeable' to 'true' in the static light attribute of the light source component in the editor`, 
+2. Before baking, you need to set `bakeable` to `true` in the static light attribute of the light source component in the editor, 
 
     > **Note**: currently only one main direction light source is supported.
    
