@@ -84,14 +84,14 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
   ```js
   // "test" should to be replaced with the name of Storage instance
   let db = huawei.agc.db;
-  let config = db.AGCCloudDBZoneConfig.createConfig("test", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
-  let query = db.AGCCloudDBZoneQuery.where("test", "queryTest");
+  let config = db.AGCCloudDBZoneConfig.createConfig("Types", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
+  let query = db.AGCCloudDBZoneQuery.where("Types", "queryTest");
   let zone = db.dbService.openCloudDBZone(config, true);
   let result = zone.querySync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_FROM_CLOUD_PRIOR);
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- Download <a href="agc-clouddb/cdb-test.json.zip" target="_blank">database file</a> for test, import it into the AGC console after decompression.
+- Download <a href="agc-clouddb/cdb-agccloudedb.json.zip" target="_blank">database file</a> for test, import it into the AGC console after decompression.
 
   ![](agc-clouddb/cdb-importdb.png)
 
