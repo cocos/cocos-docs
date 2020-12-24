@@ -1,6 +1,6 @@
 # Call the engine API and project script
 
-In a plugin, a special script called a scene script can be created in `assets\`. This special script can call the engine API and other projects scripts to achieve special functionality, including:
+In a plugin, you can declare a special script file called scene script, which has the same environment as the scripts in the `assets` directory of the project. That is, in this script you can call the engine API and other project scripts to achieve special functionality, including:
 
 - Traverse the nodes in the scene to get or change the data.
 - Call the other scripts in the project to complete the job.
