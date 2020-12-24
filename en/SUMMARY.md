@@ -88,6 +88,7 @@
     - [Message](editor/extension/contributions-messages.md)
     - [Shortcuts](editor/extension/contributions-shortcuts.md)
     - [Menu](editor/extension/contributions-menu.md)
+    - [Scene Script](editor/extension/scene-script.md)
   - [Basic](editor/extension/basic.md)
     - [Extension](editor/extension/package.md)
     - [Message](editor/extension/messages.md)
