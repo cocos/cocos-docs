@@ -11,29 +11,29 @@ In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ pr
 
 This __Cocos Creator 3.0 Preview__ version is close to the official version in terms of functionality, and can be used for new project establishment and feature pre-research. The next official version will be released around Feb 11 - Feb 17, 2021, and will further improve the performance and fix the problems at that time to ensure that everyone's new projects can proceed smoothly.
 
-The __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
+__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
 ## How to migrate (not supported in Preview version)
 
-Although **we do not recommend projects under development, especially projects that are about to go live, upgrade to 3.0**, we will still launch the 2.x resource import tool in the 3.0 official version. This tool will support the perfect import of old project resources and the auxiliary import of codes. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the developer's upgrade difficulty.
+Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource import tool when v3.0 is officially released. This tool will support importing old projects, project resources, and project code very well. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
 
 Developers only need to click **File -> Import -> Cocos Creator 2D Project** in the main menu, and a window for importing the plug-in will appear.
 
 ![image](import-menu.png)
 
-Then click the button in the left picture below and select the root directory of the __Cocos Creator 2D__ project. The plug-in will automatically traverse all the resources in the project and present it to the developer. Developers can check the resources to be imported by themselves, and click the __Import__ button in the right picture below after selection. The import is complete.
+Next, click the button in the left picture below and select the root directory of the __Cocos Creator 2D__ project. The plug-in will automatically traverse all the resources in the project and present it to the developer. Developers can check the resources to be imported by themselves, and click the __Import__ button in the right picture below after selection. The import is complete.
 
 ![image](import.png)
 
-If an existing project needs to be upgraded for special reasons, and you encounter technical or workload difficulties, you can also contact [slackmoehrle@cocos2d-x.org](mailto:slackmoehrle@cocos2d-x.org) for assistance!
+If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos2d-x.org](mailto:slackmoehrle@cocos2d-x.org) for assistance!
 
 ## Old version developers quickly get started
 
 ### Engine API upgrade
 
-#### loader
+#### Asset loading
 
-The loader API is consistent with v2.4, please refer to the [v2.4 Asset Manager Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html).
+The API for Cocos Creator 3.0 asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
 
 #### UI related interfaces on the obsolete node
 
@@ -52,11 +52,11 @@ node.getComponent(UITransform).setContentSize(size);
 
 #### Build Panel
 
-The builds of all platforms in __Cocos Creator 3.0__ are built-in plug-ins, so the __Build__ panel is also different from __Creator v2.4__. The unique build options of each platform will be placed in a foldable section control separately.
+The builds of all platforms in __Cocos Creator 3.0__ are built-in plug-ins, so the __Build__ panel is also different from __v2.4__. The unique build options of each platform will be placed in a foldable section control separately.
 
 ![image](build-panel.png)
 
-After clicking the build button, it will jump to the **Build Tasks** panel, where all built platforms will be displayed. You can modify the build options of the built project in this panel and then rebuild, view the build log, open the project directory, etc. If you need to compile for other platforms, click the **New Build Task** button at the top left of the panel.
+After clicking the build button, it will jump to the __Build Tasks__ panel, where all built platforms will be displayed. You can modify the build options of the built project in this panel and then rebuild, view the build log, open the project directory, etc. If you need to compile for other platforms, click the __New Build Task__ button at the top left of the panel.
 
 ![image](build.png)
 
@@ -64,7 +64,7 @@ In addition, it supports the construction of multi-module results with file sepa
 
 #### Asset Preview Panel
 
-Select the resource in the __Asset__ panel to display resource thumbnails in the __Asset Preview__ panel. If select the folder where the resource is located, the thumbnails of all resources under the folder can be displayed for easy viewing.
+Select the resource in the __Asset__ panel to display resource thumbnails in the __Asset Preview__ panel. If the folder where the resource is located is selected, the thumbnails of all resources under the folder can be displayed for easy viewing.
 
 ![image](assets-preview.png)
 
@@ -86,91 +86,91 @@ The Physics Collision Group uses the `PhysicsSystem.PhysicsGroup` type independe
 
 ![image](project-setting.png)
 
-The __Texture Compress__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Asset__ panel, and then select the preset method.<br>
+The __Texture Compression__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Asset__ panel, and then select the preset method.<br>
 After the old project is upgraded, the editor will automatically scan all the compressed texture configurations in the project and sort out several presets. Since it is automatically scanned, the generated name may not be what you want, you can modify it here.
 
 ![image](texture-compress-setting.png)
 
 ### Build Directory Differences
 
-Creator v2.x and Creator 3.0 also differ to a certain extent in the directories generated after building on different platforms. Let's take Creator v2.4.3 as an example and compare it with Creator 3.0 on Web, Native and WeChat Mini Game platforms respectively.
+Cocos Creator 2.x and Cocos Creator 3.0 differ to a certain extent in the directories generated after building on different platforms. Let's take __v2.4.3__ as an example and compare it with __v3.0__ on Web, Native and WeChat Mini Game platforms respectively.
 
 #### Web
 
-The directory generated by Creator v2.4.3 after building the Web Desktop is as follows:
+The directory generated by Cocos Creator 2.4.3 after building the __Web Desktop__ is as follows:
 
 ![image](web-v243.png)
 
-The directory generated by Creator 3.0 after building the Web Desktop is as follows:
+The directory generated by Cocos Creator 3.0 after building the __Web Desktop__ is as follows:
 
 ![image](web-v3.png)
 
-From the above two figures, we can see that the directory generated after building the Web Desktop, Creator v2.4.3 and 3.0 are mostly the same, with the following differences:
+From the above two figures, notice the directory generated after building the Web Desktop, v2.4.3 and v3.0 are mostly the same, except with the following differences:
 
-1. Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `web-desktop/cocos-js` directory, which looks clearer than Creator v2.4.3, which was decentralized in the `web-desktop` directory.
+1. Cocos Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `web-desktop/cocos-js` directory, which looks clearer than v2.4.3, which was decentralized in the `web-desktop` directory.
 
     ![image](web-cocosjs.png)
 
-2. Creator v2.4.3 has only one startup script `main.js`, while Creator 3.0 has the following two startup scripts:
+2. Cocos Creator 2.4.3 has only one startup script `main.js`, while v3.0 has the following two startup scripts:
 
     - `index.js` -- Used to do some pre-processing work.
     - `application.js` -- Used to start the game.
 
-3. The `src/settings.js` used to manage configuration in Creator v2.4.3 is changed to `src/settings.json` in Creator 3.0.
+3. The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
-4. The splash screen `splash.png` in Creator v2.4.3 is stored in `settings.json` by default in Creator 3.0.
+4. The splash screen `splash.png` in v2.4.3 is stored in `settings.json` by default in v3.0.
 
-5. The `style-desktop.css` and `style-mobile.css` in Creator v2.4.3 are combined into a single `style.css` in Creator 3.0.
+5. The `style-desktop.css` and `style-mobile.css` in v2.4.3 are combined into a single `style.css` in v3.0.
 
 #### WeChat Mini Game
 
-The directory generated by Creator v2.4.3 after building the WeChat Mini Game is as follows:
+The directory generated by Cocos Creator 2.4.3 after building the __WeChat Mini Game__ is as follows:
 
 ![image](wechat-v243.png)
 
-The directory generated by Creator 3.0 after building the WeChat Mini Game is as follows:
+The directory generated by Cocos Creator 3.0 after building the __WeChat Mini Game__ is as follows:
 
 ![image](wechat-v3.png)
 
-From the above two figures, we can see that the directory generated after building the WeChat Mini Game, Creator v2.4.3 and 3.0 are mostly the same, with the following differences:
+From the above two figures, notice the directory generated after building the __WeChat Mini Game__, v2.4.3 and v3.0 are mostly the same, except with the following differences:
 
-1. Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `wechatgame/cocos-js` directory. While Creator v2.4.3 scattered part of it in the `wechatgame` directory and part of it in the `wechatgame/cocos` directory.
+1. Cocos Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `wechatgame/cocos-js` directory. While v2.4.3 scattered part of it in the `wechatgame` directory and part of it in the `wechatgame/cocos` directory.
 
     ![image](wechat-cocosjs.png)
 
-2. Creator v2.4.3 compiles all the adaptation layer code of mini games into `adapter-min.js`, while Creator 3.0 stores all the adaptation layer code as loose files in the `libs` directory, without compilation.
+2. Cocos Creator 2.4.3 compiles all the adaptation layer code of mini games into `adapter-min.js`, while v3.0 stores all the adaptation layer code as loose files in the `libs` directory, without compilation.
 
-3. The startup script for Creator v2.4.3 is `main.js`, and for Creator 3.0 it is `application.js`.
+3. The startup script for v2.4.3 is `main.js`, and for v3.0 it is `application.js`.
 
-4. Creator v2.4.3 records all references of dynamic code in `ccRequire.js`. While Creator 3.0 does not have this feature currently.
+4. Cocos Creator 2.4.3 records all references of dynamic code in `ccRequire.js`. While v3.0 currently does not have this feature.
 
-5. The `src/settings.js` used to manage configuration in Creator v2.4.3 is changed to `src/settings.json` in Creator 3.0.
+5. The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
 #### Native
 
-The directory generated by Creator v2.4.3 after building the Windows is as follows:
+The directory generated by Cocos Creator 2.4.3 after building the __Windows__ platform is as follows:
 
 ![image](window-v243.png)
 
-The directory generated by Creator 3.0 after building the Windows is as follows:
+The directory generated by Cocos Creator 3.0 after building the __Windows__ platform is as follows:
 
 ![image](window-v3.png)
 
-As you can see from the above two figures, there is a big difference between Creator v2.4.3 and Creator 3.0 in the directory generated after building the Windows platform.
+As you can see from the above two figures, there is a big difference between v2.4.3 and v3.0 in the directory generated after building the __Windows__ platform.
 
-Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. So in Creator 3.0, we extracted the underlying C++ code that was stored in the `jsb-link/frameworks/runtime-src/Classes` directory in Creator v2.4.3 and placed it in a shared `common-link` folder (or `common-default` folder, depending on the build template). This way, when building the native platform, if the `common-link` folder is detected to already exist, this part will no longer be processed, to speed up the build.
+Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. Cocos Creator 3.0 extracts the underlying C++ code that was stored in the `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `common-link` folder (or `common-default` folder, depending on the build template). This way, when building the native platform, if the `common-link` folder is detected to already exist, this part will no longer be processed, to speed up the build.
 
-The `Windows` folder is used by Creator 3.0 to store the native-related content for the current built (or the `android` folder if the build is for Android).
+The `Windows` folder is used by v3.0 to store the native-related content for the current built (or the `android` folder if the build is for Android).
 
 ![image](v3-windows.png)
 
-Let's take a look at the `jsb-link` directory generated after the build in Creator v2.4.3.
+Let's take a look at the `jsb-link` directory generated after the build in v2.4.3.
 
 ![image](v243-windows.png)
 
 The main differences between them include the following:
 
-1. The files belonging to the application layer in the Creator v2.4.3 build directory have been merged into the `assets` directory in Creator 3.0. The application layer files include the following:
+1. The files belonging to the application layer in the v2.4.3 build directory have been merged into the `assets` directory in v3.0. The application layer files include the following:
 
     - **assets** -- Resource directory.
     - **jsb-adapter** -- Directory, store the adaptation layer code.
@@ -178,29 +178,29 @@ The main differences between them include the following:
     - Related configuration files (`.cocos-project.json`, `cocos-project-template.json`, `project.json`).
     - The startup script (`main.js`).
 
-    The `assets` directory structure of Creator 3.0 is as follows:
+    The `assets` directory structure of v3.0 is as follows:
 
     ![image](v3-assets.png)
 
-    Creator 3.0 has also made adjustments and changes accordingly during the merging process.
+    Cocos Creator 3.0 has also made adjustments and changes accordingly during the merging process.
 
-    - All the engine related code (such as core modules, physics modules, plugin scripts, etc.) that was originally placed in the `src/cocos2d-jsb.js` file in Creator v2.4.3 is moved to the `assets/src/cocos-js` directory.
+    - All the engine related code (such as core modules, physics modules, plugin scripts, etc.) that was originally placed in the `src/cocos2d-jsb.js` file in v2.4.3 is moved to the `assets/src/cocos-js` directory.
 
       ![image](windows-cocosjs.png)
 
-    - Creator v2.4.3 has only one startup script `main.js`, while Creator 3.0 adds a new startup script `application.js` in the `src` directory to startup the game in addition to `main.js`.
+    - Cocos Creator 2.4.3 has only one startup script `main.js`, while v3.0 adds a new startup script `application.js` in the `src` directory to startup the game in addition to `main.js`.
     
-    - The `src/settings.js` used to manage configuration in Creator v2.4.3 is changed to `src/settings.json` in Creator 3.0.
+    - The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
-2. Creator v2.4.3 generates all the native build templates in the `frameworks/runtime-src` directory.
+2. Cocos Creator 2.4.3 generates all the native build templates in the `frameworks/runtime-src` directory.
 
     ![image](v243-build-template.png)
 
-    While Creator 3.0 generates the native build templates in the `build` directory and only generates the native build templates for the current built. As shown below:
+    While v3.0 generates the native build templates in the `build` directory and only generates the native build templates for the current built. As shown below:
 
     ![image](v3-build-template.png)
 
-3. Some resources needed for compilation, such as application icons, application startup scripts, etc., Creator v2.4.3 are stored in the build template, while Creator 3.0 are stored in the `windows/proj` directory.
+3. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build template, while v3.0 are stored in the `windows/proj` directory.
 
 ## TypeScript Reference Tutorial
 
@@ -208,6 +208,6 @@ The main differences between them include the following:
 - [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 - [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
 - [TypeScript - DefinitelyTyped](http://definitelytyped.org/)
-- [Learn TypeScript in Y minutes [zh]](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
+- [Learn TypeScript in Y minutes [cn]](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
 - [TypeScript GitHub](https://github.com/Microsoft/TypeScript)
-
+- [The Best Resources For Learning TypeScript for Game Development](https://www.cocos.com/en/the-best-resources-for-learning-typescript-for-game-development)
