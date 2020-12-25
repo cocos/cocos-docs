@@ -86,14 +86,14 @@
   ```js
   // "test" 需替换为配置的对象类型名
   let db = huawei.agc.db;
-  let config = db.AGCCloudDBZoneConfig.createConfig("test", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
-  let query = db.AGCCloudDBZoneQuery.where("test", "queryTest");
+  let config = db.AGCCloudDBZoneConfig.createConfig("Types", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
+  let query = db.AGCCloudDBZoneQuery.where("Types", "queryTest");
   let zone = db.dbService.openCloudDBZone(config, true);
   let result = zone.querySync(query, huawei.agc.db.QueryPolicy.POLICY_QUERY_FROM_CLOUD_PRIOR);
   console.log('Cloud DB', 'query : ' + JSON.stringify(result));
   ```
 
-- 下载测试用的 <a href="agc-clouddb/cdb-test.json.zip" target="_blank">数据库文件</a>，解压后将其导入 AGC 后台。
+- 下载测试用的 <a href="agc-clouddb/cdb-agccloudedb.json.zip" target="_blank">数据库文件</a>，解压后将其导入 AGC 后台。
 
   ![](agc-clouddb/cdb-importdb.png)
 
