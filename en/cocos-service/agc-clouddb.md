@@ -82,7 +82,7 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 - Once the Cloud DB service is integrated, we can verify the success of the Cloud DB service integration by adding simple code to the script.
 
   ```js
-  // "test" should to be replaced with the name of Storage instance
+  // "Types" can be replaced with the name of Storage instance
   let db = huawei.agc.db;
   let config = db.AGCCloudDBZoneConfig.createConfig("Types", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
   let query = db.AGCCloudDBZoneQuery.where("Types", "queryTest");

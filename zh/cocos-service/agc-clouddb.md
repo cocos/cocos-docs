@@ -84,7 +84,7 @@
 - 完成 **云数据库** 服务接入步骤后，我们便可以通过在脚本中添加简单的代码，来验证接入是否成功。
 
   ```js
-  // "test" 需替换为配置的对象类型名
+  // "Types" 可替换为配置的对象类型名
   let db = huawei.agc.db;
   let config = db.AGCCloudDBZoneConfig.createConfig("Types", db.SyncProperty.CLOUDDBZONE_CLOUD_CACHE);
   let query = db.AGCCloudDBZoneQuery.where("Types", "queryTest");
