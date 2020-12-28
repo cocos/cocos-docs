@@ -25,7 +25,7 @@ Next, click the button in the left picture below and select the root directory o
 
 ![image](import.png)
 
-If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos2d-x.org](mailto:slackmoehrle@cocos2d-x.org) for assistance!
+If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos2d-x.org](mailto:Slackmoehrle@cocos.com) for assistance!
 
 ## Old version developers quickly get started
 
