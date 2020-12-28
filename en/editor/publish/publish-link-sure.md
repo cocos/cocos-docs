@@ -51,7 +51,7 @@ After the build is complete, click the **Open** button behind the **Build Path**
 
 ### Run the built cpk to the phone
 
-- You need to first contact the [LinkSure Mini Game business [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) to become a mini game developer.
+- You need to first contact the [LinkSure Mini Game business [cn]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) to become a mini game developer.
 
 - Enter LinkSure Mini Program Management Platform, click **Mini Program Management -> My Mini Program -> Create Mini Program**, fill in the relevant information, submit and wait for review.
 
@@ -63,9 +63,9 @@ After the build is complete, click the **Open** button behind the **Build Path**
 
   ![](publish-link-sure/upload.png)
 
-- Click the **View QR Code** after uploaded, then open the LinkSure Mini Game Debugger already installed on your phone to scan the code. You can now preview the game on the physical device. If you need to debug the game, refer to the official documentation [LinkSure Mini Game debugging [zh]](https://www.wjminiapp.com/docs/minigame/guide/debug.html).
+- Click the **View QR Code** after uploaded, then open the LinkSure Mini Game Debugger already installed on your phone to scan the code. You can now preview the game on the physical device. If you need to debug the game, refer to the official documentation [LinkSure Mini Game debugging [cn]](https://www.wjminiapp.com/docs/minigame/guide/debug.html).
 
-For more information, please refer to the [LinkSure Mini Game Development Process [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) documentation.
+For more information, please refer to the [LinkSure Mini Game Development Process [cn]](https://www.wjminiapp.com/docs/minigame/guide/flow.html) documentation.
 
 ## Resource Management for the LinkSure Mini Game
 
@@ -75,8 +75,8 @@ Cocos Creator already helps developers with downloading, caching and version man
 
 ## Related Reference Links
 
-- [LinkSure Mini Game Guide [zh]](https://www.wjminiapp.com/docs/minigame/guide/)
-- [LinkSure Mini Game Development Process [zh]](https://www.wjminiapp.com/docs/minigame/guide/flow.html)
-- [LinkSure Mini Game Debugging Documentation [zh]](https://www.wjminiapp.com/docs/minigame/guide/debug.html)
-- [LinkSure Mini Game API Documentation [zh]](https://www.wjminiapp.com/docs/minigame/api/)
-- [LinkSure Mini Game Debugger Download [zh]](https://www.wjminiapp.com/docs/minigame/guide/download_apk.html)
+- [LinkSure Mini Game Guide [cn]](https://www.wjminiapp.com/docs/minigame/guide/)
+- [LinkSure Mini Game Development Process [cn]](https://www.wjminiapp.com/docs/minigame/guide/flow.html)
+- [LinkSure Mini Game Debugging Documentation [cn]](https://www.wjminiapp.com/docs/minigame/guide/debug.html)
+- [LinkSure Mini Game API Documentation [cn]](https://www.wjminiapp.com/docs/minigame/api/)
+- [LinkSure Mini Game Debugger Download [cn]](https://www.wjminiapp.com/docs/minigame/guide/download_apk.html)
