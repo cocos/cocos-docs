@@ -48,7 +48,7 @@ node.on('mouse-down', (event) => {
 | getUILocationX            | Number | 获取当前鼠标在 UI 窗口内相对于左下角的 X 轴位置。                      |
 | getUILocationY            | Number | 获取当前鼠标在 UI 窗口内相对于左下角的 Y 轴位置。                      |
 | getUIPreviousLocation     | Vec2 | 获取上一次鼠标在 UI 窗口内相对于左下角的坐标位置，对象包含 x 和 y 属性。                      |
-| getUIDelta                | Vec2 | 获取鼠标距离上一次事件移动在 UI 坐标系下的距离对象，对象包含 x 和 y 属性。                      |
+| getUIDelta                | Vec2 | 获取鼠标在 UI 窗口内与上一次鼠标事件停留位置的坐标差值，对象包含 x 和 y 属性。                      |
 | getUIDeltaX               | Number | 获取当前鼠标距离上一次鼠标移动在 UI 窗口内相对于左下角的 X 轴距离。                      |
 | getUIDeltaY               | Number | 获取当前鼠标距离上一次鼠标移动在 UI 窗口内相对于左下角的 Y 轴距离。                      |
 
@@ -79,7 +79,7 @@ node.on('mouse-down', (event) => {
 | getUILocationX | Number | 获取当前触点在 UI 窗口内相对于左下角的 X 轴位置。                      |
 | getUILocationY | Number | 获取当前触点在 UI 窗口内相对于左下角的 Y 轴位置。                      |
 | getUIPreviousLocation | Vec2 | 获取上一次触点在 UI 窗口内相对于左下角的坐标位置，对象包含 x 和 y 属性。                      |
-| getUIDelta | Vec2 | 获取当前触点距离上一次触点移动在 UI 窗口内相对于左下角的距离对象，对象包含 x 和 y 属性。                      |
+| getUIDelta | Vec2 | 获取当前触点在 UI 窗口内与上一次触摸事件停留位置的坐标差值，对象包含 x 和 y 属性。                      |
 | getUIStartLocation | Vec2 | 获取初始触点在 UI 窗口内相对于左下角的位置对象，对象包含 x 和 y 属性。                      |
 
 需要注意的是，触摸事件支持多点触摸，每个触点都会发送一次事件给事件监听器。
