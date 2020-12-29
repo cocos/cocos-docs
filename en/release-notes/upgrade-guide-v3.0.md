@@ -9,7 +9,7 @@ In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ pr
  - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
  - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
-This __Cocos Creator 3.0 Preview__ version is close to the official version in terms of functionality, and can be used for new project establishment and feature pre-research. The next official version will be released around Feb 11 - Feb 17, 2021, and will further improve the performance and fix the problems at that time to ensure that everyone's new projects can proceed smoothly.
+The __Cocos Creator 3.0 Preview__ version is close to the official version in terms of functionality, and can be used for new project establishment and feature pre-research. The next official version will be released around Feb 11 - Feb 17, 2021, and will further improve the performance and fix the problems at that time to ensure that everyone's new projects can proceed smoothly.
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
@@ -25,7 +25,7 @@ Next, click the button in the left picture below and select the root directory o
 
 ![image](import.png)
 
-If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos2d-x.org](mailto:Slackmoehrle@cocos.com) for assistance!
+If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos.com](mailto:slackmoehrle@cocos.com) for assistance!
 
 ## Old version developers quickly get started
 
@@ -33,11 +33,11 @@ If an existing project needs to be upgraded under special circumstances, and tec
 
 #### Asset loading
 
-The API for Cocos Creator 3.0 asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
+The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
 
 #### UI related interfaces on the obsolete node
 
-The abandoned interfaces are as follows:
+The deprecated interfaces are as follows:
 
 - Attributes: `width`, `height`, `anchorX`, `anchorY`.
 - Methods: `getAnchorPoint`, `setAnchorPoint`, `getContentSize`, `setContentSize`.
@@ -86,14 +86,14 @@ The Physics Collision Group uses the `PhysicsSystem.PhysicsGroup` type independe
 
 ![image](project-setting.png)
 
-The __Texture Compression__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Asset__ panel, and then select the preset method.<br>
+__Texture Compression__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Asset__ panel, and then select the preset method.<br>
 After the old project is upgraded, the editor will automatically scan all the compressed texture configurations in the project and sort out several presets. Since it is automatically scanned, the generated name may not be what you want, you can modify it here.
 
 ![image](texture-compress-setting.png)
 
 ### Build Directory Differences
 
-Cocos Creator 2.x and Cocos Creator 3.0 differ to a certain extent in the directories generated after building on different platforms. Let's take __v2.4.3__ as an example and compare it with __v3.0__ on Web, Native and WeChat Mini Game platforms respectively.
+__Cocos Creator 2.x__ and __Cocos Creator 3.0__ differ to a certain extent in the directories generated after building on different platforms. Let's take __v2.4.3__ as an example and compare it with __v3.0__ on Web, Native and WeChat Mini Game platforms respectively.
 
 #### Web
 
