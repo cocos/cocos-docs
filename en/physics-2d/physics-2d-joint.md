@@ -2,7 +2,7 @@
 
 The physics system contains a series of __Joint__ components for linking two rigidbodies. **Joint** components can be used to simulate the interaction between real objects, such as __hinges__, __pistons__, __ropes__, __wheels__, __pulleys__, __motor vehicles__, __chains__ and so on. Learning how to use joint components can effectively help create a truly interesting scene.
 
->__Note__: Joint components are invalid in the Builtin 2D physics module.
+> __Note__: joint components are invalid in the Builtin 2D physics module.
 
 The following joints are available in the physics system:
 

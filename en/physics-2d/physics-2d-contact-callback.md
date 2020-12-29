@@ -4,19 +4,16 @@ When a physics object moves in the scene and collides with other objects, __Box2
 
 Besides the engine tells us when a collision happens, we also need a way to get these collision information. The physics engine provides contact callback when the collision happens. In the callback we can get the information from callback argument that we can determine what happened and what action needs to be done next.
 
->__Notes:__
->
->1. First, set `Enable contact listener` in the [Rigidbody](physics-2d-rigid-body.md) component properties. The corresponding callback will be generated.
->
->2. The information in the argument of callback function is fetched from the cache of the physics engine, so the information is only accessible in the current callback. Do not store the reference to those parameters in your script, but rather copy the data to local variables for later use.
->
->3. If creating a physics object (rigidbody, joint or collider) in the callback function, the corresponding __Box2D__ objects will not be created immediately along these objects. The creation of physics object will be done after a physics time step completes.
+> __Notes:__
+> 1. First, set `Enable contact listener` in the [Rigidbody](physics-2d-rigid-body.md) component properties. The corresponding callback will be generated.
+> 2. The information in the argument of callback function is fetched from the cache of the physics engine, so the information is only accessible in the current callback. Do not store the reference to those parameters in your script, but rather copy the data to local variables for later use.
+> 3. If creating a physics object (rigidbody, joint or collider) in the callback function, the corresponding __Box2D__ objects will not be created immediately along these objects. The creation of physics object will be done after a physics time step completes.
 
 ## Define a callback function
 
 There are two ways to register a collision callback function, either through the specified collider or through a global callback function registered with the 2D physics system.
 
->__Note__: The built-in 2D physics module will only send `BEGIN_CONTACT` and `END_CONTACT` callback messages.
+> __Note__: the built-in 2D physics module will only send `BEGIN_CONTACT` and `END_CONTACT` callback messages.
 
 ```ts
 @ccclass('TestContactCallBack')
@@ -119,7 +116,7 @@ The callback parameters contain all the collision contact information, and each 
 
 ### worldManifold
 
-Obtaining the `worldManifold` like this:
+Obtaining the `worldManifold`:
 
 ```ts
 const worldManifold = contact.getWorldManifold();
@@ -135,7 +132,7 @@ const normal = worldManifold.normal;
 
   ![world-manifold-points](./image/world-manifold-points.png)
 
-  >__Note__: Not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
+  >__Note__: not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
 
   ![collision-points-1](./image/collision-points-1.png)
 
@@ -171,7 +168,7 @@ contact.disabled = true;
 
 Disabling the contact will cause the physics engine to ignore the contact when calculating the collision. Disabling will continue until the collision is completely resolved unless the contact is enabled in other callbacks.
 
-Or, to disable contact in the current time step, use `disabledOnce`。
+To disable contact in the current time step, use `disabledOnce`。
 
 ```ts
 contact.disabledOnce = true;
@@ -182,11 +179,11 @@ contact.disabledOnce = true;
 To modify the contact information in **onPreSolve** because **onPreSolve** is called before the physics engine handles the contact information. Changes to the contact information will affect the subsequent collision calculations.
 
 ```ts
-// modify the friction between the collision bodies
+// Modify the friction between the collision bodies
 contact.setFriction(friction);
 
 // Modify the elasticity of the collision body
 contact.setRestitution(restitution);
 ```
 
->__Note__: these changes will only take effect within the current time step.
+> __Note__: these changes will only take effect within the current time step.

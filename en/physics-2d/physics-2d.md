@@ -16,4 +16,4 @@ Choose the physics module that suits your needs, and switch the physics module y
 
 ## Physics 2D Examples
 
-Examples are available on [Github](https://github.com/cocos-creator/physics-samples/tree/v3.0/2d).
+Examples are available on [GitHub](https://github.com/cocos-creator/physics-samples/tree/v3.0/2d).

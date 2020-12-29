@@ -33,15 +33,15 @@ const damping = rigidbody.linearDamping;
 rigidbody.linearDamping = damping;
 ```
 
-Sometimes, it may be desirable to get the velocity of a point on a rigidbody, such as a box that rotates forward and touches the wall. It may be desirable to get the velocity of the box at the point of the collision. You can get it by  `getLinearVelocityFromWorldPoint`.
+To get the velocity of a point on a rigidbody, such as a box that rotates forward and touches the wall. It may be desirable to get the velocity of the box at the point of the collision. You can get it by  `getLinearVelocityFromWorldPoint`.
 
 ```ts
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-Or, you can pass in a  `cc.Vec2` object as the second argument to get the return value so that you can use your cached object to store this value, avoiding creating too many objects to improve performance.
+Or, pass in a  `cc.Vec2` object as the second argument to get the return value so that you can use your cached object to store this value, avoiding creating too many objects to improve performance.
 
->__Note: The `get` method of rigidbody provides an out parameter to receive the function return value__
+> __Note: the `get` method of rigidbody provides an out parameter to receive the function return value__
 
 ```ts
 const velocity = cc.v2();
@@ -71,9 +71,7 @@ rigidbody.angularDamping = damping;
 Rotation, position and scaling are the most commonly used transform in game development, and almost every node has these properties set. In the physics system, the system will automatically synchronize these properties of the node to __Box2D__ corresponding properties.
 
 > __Notes__:
->
 > 1. There is only rotation and position in __Box2D__ and there is no scaling, so if you set the scale properties of the node, all the colliders of the __Rigidbody__ are reconstructed. One way to avoid this is to take the renderer node as a child node of the __Rigidbody__ node, and to scale only the renderer node, to avoid scaling the __Rigidbody__ nodes as much as possible.
->
 > 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __Rigidbody__ information is synchronized to the corresponding node.In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
 
 ### Fixed rotation
