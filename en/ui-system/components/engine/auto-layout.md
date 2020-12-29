@@ -1,6 +1,6 @@
 # Auto Layout Container
 
-The layout component can be mounted to any node, making the node into a container with the auto layout function. The so-called auto layout container can automatically array the child nodes according to certain rules and adjust the container type nodes of its own size according to the sum total of bounding boxes of the node content.
+The __Layout__ component can be mounted to any __Node__, making the node into a container with the auto layout function. The so-called auto layout container can automatically array the child nodes according to certain rules and adjust the container type nodes of its own size according to the sum total of bounding boxes of the node content.
 
 For the next layout types, the node structure is as follows:
 
@@ -18,11 +18,11 @@ When Layout `Type` is set to `Horizontal`, all child nodes will be automatically
 
 The situation that the content exceeds the container easily under horizontal sorting, the following measures can be taken as needed.
 
-    - If the container is to adapt to the size of the content, you can set the `ResizeMode` to `Container`, which will set the width of the Layout node based on the sum of the widths of the child nodes (`Width`) (left in the figure below);
+  - If the container is to adapt to the size of the content, you can set the `ResizeMode` to `Container`, which will set the width of the Layout node based on the sum of the widths of the child nodes (`Width`) (left in the figure below).
 
-    - If the content object is always to remain inside the container, you can set `ResizeMode` to `Children`, which will limit the size of the content object to the container (right in the figure below).
+  - If the content object is always to remain inside the container, you can set `ResizeMode` to `Children`, which will limit the size of the content object to the container (right in the figure below).
 
-    - If you want the child nodes to be aligned upwards on the y-axis, you can add a widget component to the child node and turn on the `Top` or `Bottom` alignment mode.
+  - If you want the child nodes to be aligned upwards on the y-axis, you can add a widget component to the child node and turn on the `Top` or `Bottom` alignment mode.
 
 ![horizontal-resizemode](auto-layout/horizontal-resizemode.png)
 
@@ -46,8 +46,8 @@ Layout arranges the child nodes in the order in which they are displayed in the 
   - Set to either `HORIZONTAL` or `VERTICAL` orientation. The former will be aligned horizontally, the latter vertically.
 - Start point
   - The start point is created by combining `HorizontalDirection` and `VerticalDirection`.
-  - Suppose `HorizontalDirection` is `LEFT_TO_RIGHT` and VerticalDirection is `TOP_TO_BOTTOM`, then the start point is __top left__
-  - Suppose `HorizontalDirection` is `RIGHT_TO_LEFT` and VerticalDirection is `BOTTOM_TO_TOP`, then the start point is __bottom right__
+  - Suppose `HorizontalDirection` is `LEFT_TO_RIGHT` and VerticalDirection is `TOP_TO_BOTTOM`, then the start point is __top left__.
+  - Suppose `HorizontalDirection` is `RIGHT_TO_LEFT` and VerticalDirection is `BOTTOM_TO_TOP`, then the start point is __bottom right__.
 
 Two examples are given in conjunction with alignment directions:
 
@@ -55,8 +55,8 @@ Two examples are given in conjunction with alignment directions:
 
 - If the currently set `HorizontalDirection` is `RIGHT_TO_LEFT`, VerticalDirection is `BOTTOM_TO_TOP` and `StartAxis` is `VERTICAL`, it is telling the component to be sorted vertically starting from the __BOTTOM RIGHT__ of the container (right in the figure below).
 
-![grid-layout](auto-layout/grid-layout.png)
+  ![grid-layout](auto-layout/grid-layout.png)
 
 Grid sorting may also cause the content to exceed the container, which can also be solved by using the `Children` and `Container` modes of `ResizeMode` mentioned in `Horizontal Layout`.
 
-About Layout components, please refer to the [Layout](../editor/layout.md) documentation.
+For more information, please refer to the [Layout component](../editor/layout.md) documentation.

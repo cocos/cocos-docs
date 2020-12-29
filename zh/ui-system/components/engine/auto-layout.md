@@ -16,13 +16,13 @@ Layout（自动布局）组件可以挂载在任何节点上，将节点变成�
 
 Layout `Type` 设为 `Horizontal` 时，所有子节点都会自动横向排列，组件默认会修改节点在 y 轴上的位置或高度，如果子节点需要放置在 Layout 节点的约束框高度范围之外，可以取消勾选 `AutoAlignment`（如上图）。
 
-水平排序下容易出现水平方向上内容超出容器的情况，可以根据需要采取如下措施：
+水平排序下容易出现内容超出容器的情况，可以根据需要采取如下措施：
 
-    - 如果容器要自适应上内容的尺寸，可以通过设置 `ResizeMode` 为 `Container`，该模式会根据子节点的宽度（`Width`）总和设置 Layout 节点的宽度（下图左）。
+  - 如果容器要自适应上内容的尺寸，可以通过设置 `ResizeMode` 为 `Container`，该模式会根据子节点的宽度（`Width`）总和设置 Layout 节点的宽度（下图左）。
 
-    - 如果内容对象始终要保持在容器内，可以通过设置 `ResizeMode` 为 `Children`，该模式会将内容对象的尺寸限制在容器内（下图右）。
+  - 如果内容对象始终要保持在容器内，可以通过设置 `ResizeMode` 为 `Children`，该模式会将内容对象的尺寸限制在容器内（下图右）。
 
-    - 如果需要子节点在 y 轴向上对齐，可以在子节点上添加 Widget 组件，并开启 Top 或 Bottom 的对齐模式。
+  - 如果需要子节点在 y 轴向上对齐，可以在子节点上添加 Widget 组件，并开启 Top 或 Bottom 的对齐模式。
 
 ![horizontal-resizemode](auto-layout/horizontal-resizemode.png)
 
@@ -55,7 +55,7 @@ Layout 排列子节点时，是以子节点在 **层级管理器** 中显示顺�
 
 - 如果当前设置的 HorizontalDirection 为 `RIGHT_TO_LEFT`，VerticalDirection 为 `BOTTOM_TO_TOP`，StartAxis 为 `VERTICAL`，则是告知组件要的排序方式是从容器的 **右下角** 开始按垂直方向排列（下图右）。
 
-![grid-layout](auto-layout/grid-layout.png)
+  ![grid-layout](auto-layout/grid-layout.png)
 
 Grid 排序也有可能出现内容超出容器的情况，可以参考上文中的 **水平布局**，通过调整 `ResizeMode` 属性解决。
 
