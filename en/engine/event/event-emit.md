@@ -50,15 +50,15 @@ const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
-    onEnable(){
+    onEnable () {
         this.node.on('foobar', this._sayHello, this);
     }
 
-    onDisable(){
+    onDisable () {
         this.node.off('foobar', this._sayHello, this);
     }
 
-    _sayHello(){
+    _sayHello () {
         console.log('Hello World');
     }
 }
@@ -128,7 +128,7 @@ this.node.on('foobar', (event: EventCustom) => {
 In the call-back of the event listener, the developer will receive an event object event of the `Event` type. `propagationStopped` is the standard API of Event, other important API include:
 
 | API Name                        | Type     | Meaning                                                                                                                                          |
-|---------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------------------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | __type__                        | String   | The event type (event name).                                                                                                                     |
 | __target__                      | Node     | The original target that received the event.                                                                                                     |
 | __currentTarget__               | Node     | The current object that received the event. The current target of the event during the bubbling phase may be different from the original target. |
@@ -145,6 +145,6 @@ Please refer to the `Event` and API files of its child category for a complete A
 
 Above are the general rules for listening to events and emitting events. __Cocos Creator__ has built in system events. Please refer to the following documents:
 
-[Node System Events](event-builtin.md)
+- [Node System Events](event-builtin.md)
 
-[Global System Events](event-input.md)
+- [Global System Events](event-input.md)

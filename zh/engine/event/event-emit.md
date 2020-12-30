@@ -50,15 +50,15 @@ const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
-    onEnable(){
+    onEnable () {
         this.node.on('foobar', this._sayHello, this);
     }
 
-    onDisable(){
+    onDisable () {
         this.node.off('foobar', this._sayHello, this);
     }
 
-    _sayHello(){
+    _sayHello () {
         console.log('Hello World');
     }
 }

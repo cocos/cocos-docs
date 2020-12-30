@@ -229,7 +229,7 @@
   - [Loading Assets](scripting/load-assets.md)
   - [Scheduler](scripting/scheduler.md)
   - [Component and component execution order](scripting/component.md)
-  - [Event System](engine/event/event-emit.md)
+  - [Listen to and launch events](engine/event/event-emit.md)
   - [Builtin Events](engine/event/event-builtin.md)
   - [Global Events](engine/event/event-input.md)
   - [Event API](engine/event/event-api.md)

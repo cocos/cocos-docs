@@ -5,7 +5,7 @@
 | Function Name | Return value type | Meaning                                                                                 |
 |:--------------|:------------------|:----------------------------------------------------------------------------------------|
 | __getScrollY__    | Number            | Get the scrolling distance of the mouse wheel on the y-axis, valid only when scrolling. |
-| __getButton__       | Number | __Event.EventMouse.BUTTON_LEFT__ or __Event.EventMouse.BUTTON_RIGHT__ or __Event.EventMouse__.BUTTON_MIDDLE.                     ｜
+| __getButton__       | Number | __Event.EventMouse.BUTTON_LEFT__ or __Event.EventMouse.BUTTON_RIGHT__ or __Event.EventMouse.BUTTON_MIDDLE__.                     ｜
 
 ### Global Mouse Events API
 
@@ -35,7 +35,7 @@
 
 | API Name | Type   | Meaning                                                             |
 |:----------|:--------|:---------------------------------------------------------------------|
-| __touch__    | Touch  | the touch point related to the current event.                       |
+| __touch__    | Touch  | The touch point related to the current event.                       |
 | __getID__    | Number | Get the ID of the touch point, which is used for multi-touch logic. |
 
 ### Global Touch Events API

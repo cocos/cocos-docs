@@ -2,7 +2,7 @@
 
 `Node` has a complete set of [event listeners and dispatch mechanisms](event-emit.md). Based on this mechanism, basic system events are provided.
 
-__Cocos Creator__ supports four types of system events: __mouse__, __touch__, __keyboard__, __device motion__. They are called [Global Events](event-input.md). The usage of touch and mouse events dispatched by `Node` is discussed in this document `Node` is discussed in this document.
+__Cocos Creator__ supports four types of system events: __mouse__, __touch__, __keyboard__, __device motion__. They are called [Global Events](event-input.md). The usage of touch and mouse events dispatched by `Node` is discussed in this document.
 
 __System events__ follow the general register method, developers can register event listener not only by using the enumeration type but also by using the event name directly. It is recommended to use enumeration for event registration to avoid event registration failure due to writing problems.
 
@@ -18,9 +18,9 @@ node.on('mouse-down', (event) => {
 }, this);
 ```
 
-## Mouse events type and event object
+## Mouse event type and event object
 
-__Mouse event__ will only be triggered on desktop platforms, the event types the system provides are as follows:
+__Mouse events__ will only be triggered on desktop platforms, the event types the system provides are as follows:
 
 | Enumerated Object Definition   | Corresponding event Name | Timing of Event Triggering                                                                   |
 |:-------------------------------|:-------------------------|:---------------------------------------------------------------------------------------------|
@@ -96,14 +96,12 @@ Normal events are dispensed as described above. However, if the node has compone
 
 ## Example for touch events
 
-Using the example below, summarizing touch events is easy. There are four nodes A, B, C and D in the picture above, where A and B are brother nodes.
-
-The specific hierarchical relationship should be like this:
+Using the example below, summarizing touch events is easy. There are four nodes A, B, C and D in the picture above, where A and B are brother nodes. The specific hierarchical relationship should be like this:
 
 ![example](example.png)
 
 1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be __A -> C -> D__.
-2. If the touch location is in node B ( the visible green area ), the order should be __B -> C -> D__.
+2. If the touch location is in node B (the visible green area), the order should be __B -> C -> D__.
 3. If the touch location is in node C, the order should be __C -> D__.
 4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be __D -> C -> B__.
 
@@ -120,7 +118,7 @@ All node built-in events can get event names from `Node.EventType`.
 Definition of Transformation Enumeration Values:
 
 | Enumeration Value Meaning | Transformations                               |
-|---------------------------|-----------------------------------------------|
+|:---------------------------|:-----------------------------------------------|
 | __TransformBit.NONE__     | The properties remain unchanged.              |
 | __TransformBit.POSITION__ | The node position changes.                    |
 | __TransformBit.ROTATION__ | The node rotation changes.                    |
@@ -131,7 +129,7 @@ Definition of Transformation Enumeration Values:
 ### 2D Node Events
 
 | Enumeration Value Meaning | Corresponding Event Name | Timing of Event Triggering                                                                                              |
-|---------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|:---------------------------|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------|
 | __SIZE_CHANGED__          | size-changed             | When the width/height property is modified. The width/height property is located on the `UITransform` component.        |
 | __ANCHOR_CHANGED__        | anchor-changed           | When the X/Y properties of the anchor is modified. The width/height property is located on the `UITransform` component. |
 | __COLOR_CHANGED__ | color-changed | When the color property is modified. The width/height property is located on the `UITransform` component.

@@ -84,7 +84,7 @@ const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
-    onLoad(){
+    onLoad () {
         systemEvent.setAccelerometerEnabled(true);
         systemEvent.on(SystemEventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
