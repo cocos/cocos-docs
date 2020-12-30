@@ -4,7 +4,7 @@ Publish a project from the command line can help us build an auto-publish routin
 
 ## Command Reference
 
-**For example**: Build Web Desktop with debug mode enabled:
+**For example**: Building Web Desktop with debug mode enabled:
 
 - Mac
 
@@ -39,7 +39,7 @@ Currently, when using the command line to build, except for the required build o
 
   - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
 
-      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) (now in `3d` branch) for details.
+      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) (now in the `3d` branch) for details.
 
   - `outputName`: The name of the release folder generated after the build.
   - `name`: Game name
@@ -73,6 +73,6 @@ After the build plugin system is opened to the public, the configuration paramet
 
 ## Publish using Jenkins
 
-**Cocos Creator** still needs the GUI environment when running from the command line. If the Jenkins server can not run **Cocos Creator** from the command line, a solution is running Jenkins in agent mode, so it can interact with the operating systems window server. For more details please review this [Stack Overflow post]( https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed).
+**Cocos Creator** still needs the GUI environment when running from the command line. If the Jenkins server can not run **Cocos Creator** from the command line, a solution is running Jenkins in agent mode, so it can interact with the operating systems window server. For more details please review this [Stack Overflow post](https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed).
 
 If the Jenkins server can not compile under Windows, specify a local user for the Jenkins service in the Windows **Control Panel -> Administrative Tools -> Services**, and then restart the computer. You don't need to set up a master-slave mode separately.

@@ -1,6 +1,6 @@
 ## Components
 
-All classes inherited from [Component]() are called __Component Classes__. The objects in a __Component Class__ are called __Components__. __Components__ are implement according to the __Cocos Creator__ __Entity Component (EC)__ system.
+All classes inherited from [Component](../../../api/en/classes/component.component-1.html) are called __Component Classes__. The objects in a __Component Class__ are called __Components__. __Components__ are implement according to the __Cocos Creator__ __Entity Component (EC)__ system.
 
 The component class must inherit from a `cc` class. Example:
 
@@ -33,7 +33,7 @@ After this, the __component__ is said to be __attached__ to the node. __Componen
 - Before the end of the constructor of the component class.
 - After the component is removed from the node.
 
-Call the `Node.removeComponent` method to remove the specified component and destroy it. Example"
+Call the `Node.removeComponent` method to remove the specified component and destroy it. Example:
 
 ```ts
 import { Component } from "cc";
