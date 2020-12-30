@@ -2,19 +2,19 @@
 
 __Cocos Creator__ provides life cycle callback functions for component scripts. As long as the user defines a specific callback function, __Cocos Creator__ will automatically execute related scripts in a specific period, and the user does not need to call them manually.
 
-The life cycle callback functions currently provided to users mainly include:
+The life cycle callback functions currently provided to users mainly include (order by life cycle trigger):
 
   - onLoad()
+  - onEnable()
   - start()
   - update()
   - lateUpdate()
-  - onDestroy()
-  - onEnable()
   - onDisable()
+  - onDestroy()
 
 ## onLoad()
 
-In the initialization phase of the component script, the `onLoad()` callback function is available. The `onLoad()` callback will be triggered when the node is activated for the first time, such as when the scene is loaded or the node is activated. In the `onLoad()` stage, it is guaranteed that you can get other nodes in the scene and the resource data associated with the nodes. `onLoad()` will always be executed before any start method is called, which can be used to arrange the initialization sequence of the script. Usually, some initialization related operations are performed in the `onLoad()` stage. Example: 
+In the initialization phase of the component script, the `onLoad()` callback function is available. The `onLoad()` callback will be triggered when the node is activated for the first time, such as when the scene is loaded or the node is activated. In the `onLoad()` stage, it is guaranteed that you can get other nodes in the scene and the resource data associated with the nodes. `onLoad()` will always be executed before any start method is called, which can be used to arrange the initialization sequence of the script. Usually, some initialization related operations are performed in the `onLoad()` stage. Example:
 
 ```ts
 import { _decorator, Component, Node, SpriteFrame, find } from "cc";
