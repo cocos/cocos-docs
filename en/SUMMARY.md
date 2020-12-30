@@ -8,7 +8,9 @@
   - [Dashboard](getting-started/dashboard/index.md)
   - [Hello world!](getting-started/helloworld/index.md)
   - [Quick Start: First Game](getting-started/first-game/index.md)
+  - [Support](getting-started/support.md)
   - [Caution!](getting-started/attention/index.md)
+- [Cocos Creator 3.0 Preview Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
 
 ## Editor Manual
 
@@ -21,6 +23,7 @@
   - [Animation](editor/animation/index.md)
   - [Preferences](editor/preferences/index.md)
   - [Project Settings](editor/project/index.md)
+    - [Physics Configs](editor/project/physics-configs.md)
   - [Engine Customization Workflow](editor/engine-customization/engine-customization.md)
 
 - [Preview a Game](editor/preview/index.md)
@@ -71,26 +74,6 @@
     - [Open Data Context](editor/publish/build-open-data-context.md)
     - [Publish to LinkSure Mini Games](editor/publish/publish-link-sure.md)
     - [Publish to QTT Mini Games](editor/publish/publish-qtt.md)
-
-## Advanced
-
-- [Extended Editor](editor/extension/readme.md)
-  - [The First Extension](editor/extension/first.md)
-  - [Install And Share](editor/extension/install.md)
-  - [Extension Description](editor/extension/define.md)
-  - [Extended Panel](editor/extension/panel.md)
-    - [Compose Panel](editor/extension/panel-boot.md)
-    - [Panel Message](editor/extension/panel-messages.md)
-  - [Contributions](editor/extension/contributions.md)
-    - [Message](editor/extension/contributions-messages.md)
-    - [Shortcuts](editor/extension/contributions-shortcuts.md)
-    - [Menu](editor/extension/contributions-menu.md)
-  - [Basic](editor/extension/basic.md)
-    - [Extension](editor/extension/package.md)
-    - [Message](editor/extension/messages.md)
-    - [I18n](editor/extension/i18n.md)
-    - [Profile](editor/extension/profile.md)
-    - [Editor UI](editor/extension/ui.md)
 
 ## Engine Manual
 
@@ -153,6 +136,13 @@
   - [Group Masks](physics/physics-group-mask.md)
   - [Raycast](physics/physics-raycast.md)
 
+- [2D Physics](physics-2d/physics-2d.md)
+  - [2D Physics System](physics-2d/physics-2d-system.md)
+  - [2D Rigid Body](physics-2d/physics-2d-rigid-body.md)
+  - [2D Physics Collider](physics-2d/physics-2d-collider.md)
+  - [2D Contact Callback](physics-2d/physics-2d-contact-callback.md)
+  - [2D Physical Joints](physics-2d/physics-2d-joint.md)
+
 - [UI](ui-system/components/engine/index.md)
   - [Rendering Order](ui-system/components/engine/priority.md)
   - [UI Batch](ui-system/components/engine/ui-batch.md)
@@ -205,7 +195,7 @@
       - [PageViewIndicator Reference](ui-system/components/editor/pageviewindicator.md)
       - [UIMeshRenderer Reference](ui-system/components/editor/ui-model.md)
       - [UIOpacity Reference](ui-system/components/editor/ui-opacity.md)
-      - [BlockInputEvents Reference](ui-system/components/editor/block-input-enents.md)
+      - [BlockInputEvents Reference](ui-system/components/editor/block-input-events.md)
       - [WebView Reference](ui-system/components/editor/webview.md)
       - [VideoPlayer Reference](ui-system/components/editor/videoplayer.md)
       - [SafeArea Reference](ui-system/components/editor/safearea.md)
@@ -214,6 +204,7 @@
   - [Script Creation](scripting/setup.md)
   - [Scripting Basics](scripting/basic.md)
   - [Language Support](scripting/language-support.md)
+  - [Module](scripting/modules/index.md)
   - [ccclass](scripting/ccclass.md)
   - [Attributes](scripting/reference/attributes.md)
   - [Access Node and Other Components](scripting/access-node-component.md)
@@ -223,9 +214,11 @@
   - [Load and switch scenes](scripting/scene-managing.md)
   - [Loading Assets](scripting/load-assets.md)
   - [Scheduler](scripting/scheduler.md)
-  - [Component](scripting/component.md)
-  - [Component Execution Order](scripting/execution-order-component.md)
-  - [Event Mechanism](engine/event/index.md)
+  - [Component and component execution order](scripting/component.md)
+  - [Listening to and launching events](engine/event/event-emit.md)
+  - [Builtin Events](engine/event/event-builtin.md)
+  - [Global Events](engine/event/event-input.md)
+  - [Event API](engine/event/event-api.md)
   - [Plugin script](scripting/external-scripts.md)
   - [Logging](scripting/log.md)
   - [Deprecated APIs](scripting/deprecated.md)
@@ -261,3 +254,23 @@
   - [Material](asset/material.md)
   - [Mesh](asset/mesh.md)
   - [Animation assets](asset/anim.md)
+
+## Advanced
+
+- [Extended Editor](editor/extension/readme.md)
+  - [The First Extension](editor/extension/first.md)
+  - [Install And Share](editor/extension/install.md)
+  - [Extension Description](editor/extension/define.md)
+  - [Extended Panel](editor/extension/panel.md)
+    - [Compose Panel](editor/extension/panel-boot.md)
+    - [Panel Message](editor/extension/panel-messages.md)
+  - [Contributions](editor/extension/contributions.md)
+    - [Message](editor/extension/contributions-messages.md)
+    - [Shortcuts](editor/extension/contributions-shortcuts.md)
+    - [Menu](editor/extension/contributions-menu.md)
+  - [Basic](editor/extension/basic.md)
+    - [Extension](editor/extension/package.md)
+    - [Message](editor/extension/messages.md)
+    - [I18n](editor/extension/i18n.md)
+    - [Profile](editor/extension/profile.md)
+    - [Editor UI](editor/extension/ui.md)

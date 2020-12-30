@@ -12,9 +12,15 @@
    
     ![create lightmap](./images/bake_menu.png)
 
-2. 在烘焙前需要在编辑器中设置光源组件的 `Bakeable` 属性为 `true`（目前只支持一个主方向光源）。
+2. 在烘焙前，需要先在 **属性检查器** 中勾选光源组件的静态灯光属性 Bakeable（目前只支持一个主方向光源）。
    
     ![enable lightbake](./images/bakeable.png)
+	
+	| 属性 | 说明 |
+	| :--- | :--- |
+	| Bakeable | 是否烘培静态光照 |
+	| CastShaow | 是否投射静态阴影 |
+	| EditorOnly | 是否只在编辑器中生效 |
 
 3. 在弹出的 lightmap 面板中，设置好对应参数后可点击 `Lightmap Generate(生成光照贴图)` 按钮，选择对应存储文件夹即可生成光照贴图（存储文件夹一定要在 assets 下才可生效）。
    

@@ -1,6 +1,6 @@
 # RigidBody Component
 
-**RigidBody** is the basic object that make up the physical world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
+**RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
 
 ![](img/rigidbody-prop.png)
 
@@ -19,7 +19,7 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 | Linear Factor   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
 | Angular Factor  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
 
-For the API interface of RigidBody, please refer to [Class RigidBody](https://docs.cocos.com/creator/3.0/api/en/classes/physics.rigidbody.html).
+For the API interface of RigidBody, please refer to [Class RigidBody](../../../api/en/classes/physics.rigidbody.html).
 
 ### Obtaining a RigidBody
 

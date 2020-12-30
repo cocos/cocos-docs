@@ -114,12 +114,12 @@ export class PlayerController extends Component {
 }
 ```
 
-这些代码就是编写一个组件（脚本）所需的结构。具有这样结构的脚本就是 Cocos Creator 中的 **组件（Component）**，他们能够挂载到场景中的节点上，提供控制节点的各种功能，更详细的脚本信息可以查看 [脚本](../../scripting/index.md)。
+这些代码就是编写一个组件（脚本）所需的结构。具有这样结构的脚本就是 Cocos Creator 中的 **组件（Component）**，它们能够挂载到场景中的节点上，提供控制节点的各种功能，更详细的脚本信息可以查看 [脚本](../../scripting/index.md)。
 
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, v3 } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -137,9 +137,9 @@ export class PlayerController extends Component {
     private _curJumpTime: number = 0;
     private _jumpTime: number = 0.1;
     private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = v3();
-    private _deltaPos: Vec3 = v3(0, 0, 0);
-    private _targetPos: Vec3 = v3();
+    private _curPos: Vec3 = new Vec3();
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    private _targetPos: Vec3 = new Vec3();
     private _isMoving = false;
 
     start () {
@@ -166,7 +166,7 @@ export class PlayerController extends Component {
         this._curJumpTime = 0;
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
         this._isMoving = true;
     }
@@ -183,8 +183,7 @@ export class PlayerController extends Component {
                 this.node.setPosition(this._targetPos);
                 this._startJump = false;
                 this.onOnceJumpEnd();
-            }
-            else {
+            } else {
                 // tween
                 this.node.getPosition(this._curPos);
                 this._deltaPos.x = this._curJumpSpeed * deltaTime;
@@ -317,8 +316,7 @@ export class GameManager extends Component {
         for (let i = 1; i < this.roadLength; i++) {
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
-            }
-            else {
+            } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
@@ -436,8 +434,7 @@ start () {
 setInputActive(active: boolean) {
     if (active) {
         systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-    } 
-    else {
+    } else {
         systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 }
@@ -476,7 +473,7 @@ init() {
     this.startMenu.active = true;
     this.generateRoad();
     this.playerCtrl.setInputActive(false);
-    this.playerCtrl.node.setPosition(v3());
+    this.playerCtrl.node.setPosition(Vec3.ZERO);
 }
 
 set curState (value: GameState) {
@@ -546,8 +543,7 @@ onStartButtonClicked() {
             if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
                 this.curState = GameState.GS_INIT;
             }
-        }
-        else {    // 跳过了最大长度
+        } else {    // 跳过了最大长度
             this.curState = GameState.GS_INIT;
         }
     }
@@ -710,7 +706,7 @@ jumpByStep(step: number) {
     this._curJumpTime = 0;
     this._curJumpSpeed = this._jumpStep / this._jumpTime;
     this.node.getPosition(this._curPos);
-    Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+    Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
     this._isMoving = true;
 
@@ -745,7 +741,7 @@ onOnceJumpEnd() {
 **PlayerController.ts**
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation, v3 } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -762,9 +758,9 @@ export class PlayerController extends Component {
     private _curJumpTime: number = 0;
     private _jumpTime: number = 0.3;
     private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = v3();
-    private _deltaPos: Vec3 = v3(0, 0, 0);
-    private _targetPos: Vec3 = v3();
+    private _curPos: Vec3 = new Vec3();
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    private _targetPos: Vec3 = new Vec3();
     private _isMoving = false;
     private _curMoveIndex = 0;
 
@@ -778,8 +774,7 @@ export class PlayerController extends Component {
     setInputActive(active: boolean) {
         if (active) {
             systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-        }
-        else {
+        } else {
             systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
@@ -803,7 +798,7 @@ export class PlayerController extends Component {
         this._curJumpTime = 0;
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, v3(this._jumpStep, 0, 0));
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
         this._isMoving = true;
 
@@ -847,7 +842,7 @@ export class PlayerController extends Component {
 **GameManager.ts**
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, v3} from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
@@ -887,7 +882,7 @@ export class GameManager extends Component {
         this.startMenu.active = true;
         this.generateRoad();
         this.playerCtrl.setInputActive(false);
-        this.playerCtrl.node.setPosition(v3());
+        this.playerCtrl.node.setPosition(Vec3.ZERO);
         this.playerCtrl.reset();
     }
 
@@ -920,8 +915,7 @@ export class GameManager extends Component {
         for (let i = 1; i < this.roadLength; i++) {
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
-            }
-            else {
+            } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
@@ -955,8 +949,7 @@ export class GameManager extends Component {
             if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
                 this.curState = GameState.GS_INIT;
             }
-        }
-        else {    // 跳过了最大长度
+        } else {    // 跳过了最大长度
             this.curState = GameState.GS_INIT;
         }
     }

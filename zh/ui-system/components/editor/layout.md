@@ -4,11 +4,11 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 ![layout](layout/layout.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Layout** 即可添加 Layout 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI -> Layout** 即可添加 Layout 组件到节点上。
 
 布局的组件接口请参考 [Layout API](../../../api/zh/classes/ui.layout.html)。
 
-关于使用可以参考 test-cases-3d 里的 [layout](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/05.layout) 相关。
+具体使用方法可参考 [官方范例](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout) 中的 **05.layout** 范例。
 
 ## Layout 属性
 
@@ -33,26 +33,26 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 ## 详细说明
 
-添加 Layout 组件之后，默认的布局类型是 **NONE**，可以通过修改 **属性检查器** 里的 `Type` 切换容器排列类型。类型分为 **HORIZONTAL**（水平），**VERTICAL**（垂直）以及 **GRID**（网格）布局。另外，除了 **NONE** 布局类型，其他都支持 `ResizeMode`。
+添加 Layout 组件之后，默认的布局类型是 **NONE**，可以通过修改 **属性检查器** 里的 `Type` 切换容器排列类型。类型分为 **HORIZONTAL**（水平）、**VERTICAL**（垂直）以及 **GRID**（网格）布局。另外，除了 **NONE** 布局类型，其他都支持 `ResizeMode`。
 
-**ResizeMode** 模式：
+- **ResizeMode** 模式：
 
-- 设置为 **NONE** 时，子物体和容器的大小变化互不影响。
+    - 设置为 **NONE** 时，子物体和容器的大小变化互不影响。
 
-- 设置为 **CHILDREN** 时，子物体大小会随着容器的大小而变化。
+    - 设置为 **CHILDREN** 时，子物体大小会随着容器的大小而变化。
 
-- 设置为 **CONTAINER** 时，容器的大小会随着子物体的大小变化。
+    - 设置为 **CONTAINER** 时，容器的大小会随着子物体的大小变化。
 
-所有的排列都是根据容器大小进行计算的，如果需要固定排序，可以将 Type 设置为 **GRID**，然后设置 `Constraint` 和 `ConstraintNum` 来固定排序。
+    所有的排列都是根据容器大小进行计算的，如果需要固定排序，可以将 Type 设置为 **GRID**，然后设置 `Constraint` 和 `ConstraintNum` 来固定排序。
 
-**Constraint** 模式：
+- **Constraint** 模式：
 
-- 设置为 **NONE** 时，自由布局。
+    - 设置为 **NONE** 时，自由布局。
 
-- 设置为 **FIXED_ROW** 时，固定行数，搭配 `ConstraintNum` 使用。
+    - 设置为 **FIXED_ROW** 时，固定行数，搭配 `ConstraintNum` 使用。
 
-- 设置为 **FIXED_COL** 时，固定列数，搭配 `ConstraintNum` 使用。
+    - 设置为 **FIXED_COL** 时，固定列数，搭配 `ConstraintNum` 使用。
 
 **注意**：Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
 
-更多布局案例，详情请参考 [自动布局](../engine/auto-layout.md)
+更多布局案例，详情请参考 [自动布局](../engine/auto-layout.md)。

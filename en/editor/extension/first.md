@@ -4,9 +4,9 @@ Through this article, we will learn to create a **Cocos Creator** extension and 
 
 ## Creating and Installing Extensions
 
-__First__, find `~/.CocosEditor3D/packages`, on MacOS or `C:\Users\${your user name}\.CocosEditor3D\packages)`, or the `${your project path}/packages` folder on Windows. If the folder does not exist, create a new one.
+__First__, find the folder `~/.CocosCreator/extensions` (Mac) or `C:\Users\${your user name}\.CocosCreator\extensions` (Windows) in the global directory, or the `${your project path}/extensions` folder. If the `extensions` folder does not exist, create a new one.
 
-__Second__, create an empty folder inside of the above mentioned folder named `hello-world`.
+__Second__, create an empty folder inside the `extensions` folder named `hello-world`.
 
 __Third__, create two files `browser.js` and `package.json` in the folder. These files will be empty. Use any text editor to create these files or on MacOS use `touch browser.js` and `touch package.json` from a command prompt.
 

@@ -1,33 +1,39 @@
 # Publish to OPPO Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
-
 __Cocos Creator__ officially supports the release of games to the **OPPO Mini Games**.
 
 ## Environment Configuration
 
-- Download [OPPO Mini Game Debugger](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [OPPO Mini Game Debugger [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a) and install it on your OPPO phone (Android 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally
-
-- Determine whether you need to install the [Debugging Tools](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) according to your own development needs.
 
 ## Release Process
 
 1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build** panel.
 
-    ![](./oppo-mini-game/build_options.jpg)
+    ![](./publish-oppo-mini-games/oppo-build.png)
 
-    Click on the **oppo-mini-game** below to expand the parameter configuration of OPPO Mini Game.
+    Click on the **oppo-mini-game** below to expand the build options configuration of OPPO Mini Game.
 
-    ![](./oppo-mini-game/oppo_options.png)
+    ![](./publish-oppo-mini-games/build-option.png)
 
-The specific filling rules for the relevant parameter configuration are as follows:
+The general build options for each platform, please refer to [General Build Options](build-options.md) for details. OPPO Mini Game related build options filling rules are as follows:
 
 - **Start Scene Asset Bundle**
 
   This option is optional.<br>
-  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle - [start-scene](../asset-manager/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
+  If set, the start scene and its related dependent resources are built into the built-in Asset Bundle - [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.
+
+- **Resource Server Address**
+
+  This option is optional and used to fill in the address of the remote server where the resources are stored.
+
+  - If this option is left blank, the `remote` folder in the release package directory will be packaged into the **rpk** package.
+
+  - If this option is filled in, the `remote` folder will not be packaged into the built **rpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
+
+  Refer to the Resource Management section at the bottom of the document for more details.
 
 - **Game Package Name**: is filled in according to the user's needs. It's required.
 
@@ -39,7 +45,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   > **Note**: the **Game Version Number** must be a positive integer.
 
-- **Supported Minimum Platform Version Number**: is required. According to the requirements for OPPO Mini Games, this value must be greater than or equal to **1031**.
+- **Supported Minimum Platform Version Number**: is required. According to the requirements for OPPO Mini Games, this value must be greater than or equal to **1031**, and **1060** is recommended. Refer to the [Instructions [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) for details.
 
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
 
@@ -60,41 +66,46 @@ The specific filling rules for the relevant parameter configuration are as follo
       openssl req -newkey rsa:2048 -nodes -keyout private.pem   -x509 -days 3650 -out certificate.pem
       ```
 
-      > **Note**: **openssl** can be used directly in the terminal in **Linux** or **Mac** environment, and in the **Windows** environment you need to install `openssl` and configure system environment variables. Restart **Cocos Creator** after the configuration is complete.
+      > **Note**: **openssl** can be used directly in the terminal in **Linux** or **Mac** environment, and in the **Windows** environment you need to install **openssl** and configure system environment variables. Restart **Cocos Creator** after the configuration is complete.
 
 **2. Build**
 
-After the relevant parameters of the **Build** panel are set, click **Build**. When the build is complete, click the **folder icon** button below the corresponding build task to open the build release path, you can see that a directory with the same name as the **Build Task Name** is generated in the default release path `build` directory, which is the exported OPPO Mini Game project directory and **rpk**, **rpk** package are in the `dist` directory.
+After the relevant parameters of the **Build** panel are set, click **Build**. When the build is complete, click the **folder icon** button below the corresponding build task to open the build release path, you can see that a directory with the same name as the **Build Task Name** is generated in the default release path `build` directory, which is the exported OPPO Mini Game project directory and **rpk**, **rpk** package is in the `dist` directory.
 
-![](./oppo-mini-game/package.jpg)
+![](./publish-oppo-mini-games/package.png)
 
 **3. Run the built rpk to the phone**
 
-Copy the generated mini-game **rpk** file to the `/sdcard/games/` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the Android device, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the **More -> Refresh** button in the upper right corner to refresh.
+Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the OPPO phone, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the **More -> Refresh** button in the upper right corner to refresh.
 
-  > **Note**: if the OPPO Mini Game Debugger version is `V3.2.0` and above,you need to copy the mini-game **rpk** file to the `Android/data/com.nearme.instant.platform/files/games` directory on your phone's SD card.If there is no `games` directory, you need to create a new one.
+  > **Note**: if the OPPO Mini Game Debugger version is `v3.2.0` and above, you need to copy the mini-game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone. If there is no `games` directory, you need to create a new one. Please refer to the [Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
 
-![](./oppo-mini-game/rpk_games.jpg)
+![](./publish-oppo-mini-games/rpk_games.jpg)
 
-**4. Subpackage rpk**
+## Subpackage rpk
 
 Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Bundle Configuration](../../asset/bundle.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
-After the build is complete, the subpackage directory is in the `dist` directory. <br>
-In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `dist` directory to the **subPkg** directory.
+After the build is complete, the subpackage directory is in the `dist` directory. In this case, you need to create a new `subPkg` directory in the `sdcard` directory of the OPPO phone, and then copy the **.rpk** file in the `dist` directory to the `subPkg` directory.
 
 Then switch to the **Package Load** section of OPPO **Mini Game Debugger**, click **Refresh** at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk**.
 
-![](./oppo-mini-game/run_subpackage.jpg)
+![](./publish-oppo-mini-games/run_subpackage.jpg)
 
-> **Note**: subpackage rpk needs to be copied to the `/sdcard/subPkg/` directory of Android devices, and non-subpackage rpk needs to be copied to the `/sdcard/games/` directory of Android devices, both of which cannot be mixed.
-> **Note**: if the OPPO Mini Game Debugger version is `V3.2.0` and above,you need to copy the mini-game **rpk** file to the `Android/data/com.nearme.instant.platform/files/subPkg` directory on your phone's SD card.If there is no `subPkg` directory, you need to create a new one.
+Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phones, and non-subpackage rpk needs to be copied to the `/sdcard/games` directory of OPPO phones, both of which cannot be mixed.
+
+> **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above,you need to copy the mini game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone. If there is no `subPkg` directory, you need to create a new one.
+
+## Resource Management for OPPO Mini Game Environment
+
+**OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for OPPO Mini Game is **10MB**, more than that must be downloaded via a network request.
+
+Cocos Creator already helps developers with downloading, caching and version management of remote resources. Please refer to the [Cache Manager](../../asset/cache-manager.md#resource-download-process) documentation for details.
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
-
-- [OPPO Mini Game Tutorial](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO Mini Game API Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO Mini Game Tool Download](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
-- [OPPO Mini Game Debugging](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/debug.html)
+- [OPPO Developer Guides](https://developers.oppomobile.com/wiki/doc/index#id=88)
+- [OPPO Mini Game Tutorial [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO Mini Game API Documentation [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO Mini Game Tool Download [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
+- [OPPO Mini Game Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)

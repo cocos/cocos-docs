@@ -46,6 +46,7 @@
   - [动画](engine/animation/index.md)
   - [缓动](tween/index.md)
   - [物理](physics/physics.md)
+  - [2D 物理](physics-2d/physics-2d.md)
   - [UI](ui-system/components/engine/index.md)
   - [组件](editor/components/index.md)
   - [可定制的渲染管线](render-pipeline/overview.md)
@@ -59,7 +60,7 @@
 - [物理测试范例](https://github.com/cocos-creator/example-3d/tree/master/physics-3d): 包含了一些物理测试例和一些案例工程，如吞噬黑洞、简化小车、坠落小球等，测试例和案例介绍了一些基础的功能和使用方法，方便您结合文档了解物理功能
 - [Simple-Games](https://github.com/cocos-creator/example-3d/tree/master/simple-games)：简单小游戏集合演示 Demo，用户可通过此案例学习完成一些简单并且常见的小游戏
 - [模块展示集合](https://github.com/cocos-creator/test-cases-3d): 引擎各个功能的范例项目，基本涵盖了引擎的大部分功能模块，用户在使用功能时可参考此项目中的用法进行开发
-- [UI 展示 Demo](https://github.com/cocos-creator/demo-ui/tree/3d)：各类 UI 组件组合使用的演示 Demo
+- [UI 展示 Demo](https://github.com/cocos-creator/demo-ui/)：各类 UI 组件组合使用的演示 Demo
 - [弹弹乐 3D](https://github.com/cocos-creator/demo-ball)：用户可通过此项目制作弹弹球游戏。
 - [快上车 3D](https://github.com/cocos-creator/tutorial-taxi-game)：基于物理的游戏制作 demo，用户可通过此项目制作快上车游戏。
 

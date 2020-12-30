@@ -21,15 +21,14 @@ To generate an __Atlas__, you should first prepare a set of original pictures. E
 
 __Next__, you can use special software to generate the __Atlas__. Examples:
 
-  - [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
-  - [Zwoptex](https://zwopple.com/zwoptex/)
+- [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
+- [Zwoptex](https://zwopple.com/zwoptex/)
 
-When using these software packages to generate an __Atlas__, please select a **.plist** file in **Cocos2d-x** format. The resulting __Atlas__ files are a **.plist** and **.png** with the same name. Example: `myAtlas.plist` and `myAtlas.png`.
+When using these software packages to generate an __Atlas__, please select a `.plist` file in **Cocos2d-x** format. The resulting __Atlas__ files are a `.plist` and `.png` with the same name. Example: `myAtlas.plist` and `myAtlas.png`.
 
 ![atlas files](atlas/atlas_files.png)
 
-Users of the __TexturePacker__ software need to pay attention to a few items:
-  - Use version __4.x__ only. Version __3.x__ is not supported.
+When using __TexturePacker__ software, please note that use __v4.x__ only, v3.x and below is not supported.
 
 ## Importing Atlas Assets
 

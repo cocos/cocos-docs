@@ -6,14 +6,14 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/Render** 中选择 **Label**，即可添加 Label 组件到节点上。
 
-文字的组件接口请参考 [Label API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.label.html)。
+Label 的组件接口请参考 [Label API](../../../api/zh/classes/ui.label.html)。
 
-关于使用可以参考 test-cases-3d 里的 [label](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/02.label) 相关。
+具体使用方法可参考 [官方范例](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout) 中的 **02.label** 范例。
 
 ## Label 属性
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Color | 文字颜色。
 | String | 文本内容字符串。
 | Horizontal Align | 文本的水平对齐方式。可选值有 LEFT，CENTER 和 RIGHT。
@@ -37,7 +37,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 ## Label 排版
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 |CLAMP| 文字尺寸不会根据 Content Size 的大小进行缩放，Wrap Text 关闭的情况下，按照正常文字排列，超出 Content Size 的部分将不会显示。Wrap Text 开启的情况下，会试图将本行超出范围的文字换行到下一行。如果纵向空间也不够时，也会隐藏无法完整显示的文字。
 |SHRINK| 文字尺寸会根据 Content Size 大小进行自动缩放（不会自动放大，最大显示 Font Size 规定的尺寸），Wrap Text 开启时，当宽度不足时会优先将文字换到下一行，如果换行后还无法完整显示，则会将文字进行自动适配 Content Size 的大小。如果 Wrap Text 关闭时，则直接按照当前文字进行排版，如果超出边界则会进行自动缩放。
 |RESIZE_HEIGHT| 文本的 Content Size 会根据文字排版进行适配，这个状态下用户无法手动修改文本的高度，文本的高度由内部算法自动计算出来。
@@ -45,7 +45,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 ## 文本缓存类型（Cache Mode）
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | NONE | 默认值，Label 中的整段文本将生成一张位图。
 |BITMAP| 目前等同于 NONE。<!--选择后，Label 中的整段文本仍将生成一张位图，但是会尽量参与 [动态合图](../advanced-topics/dynamic-atlas.md)。只要满足动态合图的要求，就会和动态合图中的其它 Sprite 或者 Label 合并 Draw Call。由于动态合图会占用更多内存，**该模式只能用于文本不常更新的 Label**。-->
 | CHAR | 原理类似 BMFont，Label 将以“字”为单位将文本缓存到全局共享的位图中，相同字体样式和字号的每个字符将在全局共享一份缓存。能支持文本的频繁修改，对性能和内存最友好。不过目前该模式还存在如下限制，我们将在后续的版本中进行优化：<br>1、**该模式只能用于字体样式和字号（通过记录字体的 fontSize、fontFamily、color、outline 为关键信息，以此进行字符的重复使用，其他有使用特殊自定义文本格式的需要注意）固定，并且不会频繁出现巨量未使用过的字符的 Label**。这是为了节约缓存，因为全局共享的位图尺寸为 2048*2048，只有场景切换时才会清除，一旦位图被占满后新出现的字符将无法渲染。<br>2、Overflow 不支持 SHRINK。<br>3、不能参与动态合图（同样启用 CHAR 模式的多个 Label 在渲染顺序不被打断的情况下仍然能合并 Draw Call）

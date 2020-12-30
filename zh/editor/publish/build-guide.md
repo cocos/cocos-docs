@@ -53,16 +53,17 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
     ![build-engine](./build-guide/build-engine.jpg)
 
     关于引擎文件的复用规则，这里有必要阐述下：<br>
-    打包好的引擎文件将会放置在编辑器全局的临时目录下 (在构建进程内使用 `Build.globalTempDir` 打印)。缓存文件按照会影响引擎编译的参数生成的 hash 值作为名称存放，其中 `.watch-file.json` 存放的是引擎各个文件的修改时间。
+    打包好的引擎文件将会放置在编辑器全局的临时目录下 (在构建进程内使用 `Build.globalTempDir` 打印)。缓存文件按照会影响引擎编译的参数生成的 hash 值作为名称存放。
 
     ```bash
     global-temp-folder
     |--CocosCreator
-        |--x.xx(1.2.0)
-            |--.editor-cache
-                |-- 1dc4a547f9...63a43bb8965.watch-files.json
-                |-- 1dc4a547f9...63a43bb8965
-                |-- 1dc4a547f9...63a43bb8965.map
+        |--x.xx(3.0.0)
+            |--builder
+                |--engine
+                    |--1dc4a547f9...63a43bb8965.watch-files.json
+                    |--1dc4a547f9...63a43bb8965
+                    |--1dc4a547f9...63a43bb8965.meta
                 ...
     ```
 
@@ -192,8 +193,8 @@ json 打包后都会存放在 `res/import` 文件夹内，如果是普通资源�
 ### 引擎编译失败
 
 如果是自定义引擎编译失败，请检查你修改的代码，或者自定义引擎路径。<br>
-如果是引擎编译失败，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/Creator/58) 提问。
+如果是引擎编译失败，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 提问。
 
 ### 其他报错
 
-如果遇到其他无法自行解决的构建报错信息，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/Creator/58) 提问。
+如果遇到其他无法自行解决的构建报错信息，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 提问。

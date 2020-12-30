@@ -10,7 +10,7 @@
 
 ![blender model](./mesh/blender_model.png)
 
-在 [Blender 的 FBX 导出选项](https://docs.blender.org/manual/en/2.80/addons/io_scene_fbx.html) 中，我们选择 Up 为 Y Up，Forward 为 -Z Forward。
+在 [Blender 的 FBX 导出选项](https://docs.blender.org/manual/zh-hans/2.80/addons/io_scene_fbx.html) 中，我们选择 Up 为 Y Up，Forward 为 -Z Forward。
 
 ![blender export](./mesh/blender_export_fbx_1.png)
 
@@ -28,7 +28,7 @@
 
 ## 导出 glTF
 
-[glTF 使用的也是右手坐标系](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#coordinate-system-and-units)，Blender 的 [导出 glTF 的选项](https://docs.blender.org/manual/en/2.80/addons/io_scene_gltf2.html) 比较简单，只要把 +Y Up 选项勾上就可以了，导出的数据中也没有旋转值。
+[glTF 使用的也是右手坐标系](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#coordinate-system-and-units)，Blender 的 [导出 glTF 的选项](https://docs.blender.org/manual/zh-hans/2.80/addons/io_scene_gltf2.html) 比较简单，只要把 +Y Up 选项勾上就可以了，导出的数据中也没有旋转值。
 
 ![blender export glTF](./mesh/blender_export_gltf.png)
 

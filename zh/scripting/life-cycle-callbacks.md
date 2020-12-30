@@ -2,15 +2,15 @@
 
 Cocos Creator 为组件脚本提供了生命周期的回调函数。开发者只需要定义特定的回调函数，Creator 就会在特定的时期自动执行相关脚本，开发者不需要手工调用它们。
 
-目前提供给用户的生命周期回调函数主要有：
+目前提供给用户的生命周期回调函数主要有（按生命周期触发先后排列）：
 
 - onLoad
+- onEnable
 - start
 - update
 - lateUpdate
-- onDestroy
-- onEnable
 - onDisable
+- onDestroy
 
 ## onLoad
 
@@ -36,6 +36,10 @@ export class test extends Component {
 }
 
 ```
+
+## onEnable
+
+当组件的 `enabled` 属性从 `false` 变为 `true` 时，或者所在节点的 `active` 属性从 `false` 变为 `true` 时，会激活 `onEnable` 回调。倘若节点第一次被创建且 `enabled` 为 `true`，则会在 `onLoad` 之后，`start` 之前被调用。
 
 ## start
 
@@ -97,10 +101,6 @@ export class lateupdatetest extends Component {
     }
 }
 ```
-
-## onEnable
-
-当组件的 `enabled` 属性从 `false` 变为 `true` 时，或者所在节点的 `active` 属性从 `false` 变为 `true` 时，会激活 `onEnable` 回调。倘若节点第一次被创建且 `enabled` 为 `true`，则会在 `onLoad` 之后，`start` 之前被调用。
 
 ## onDisable
 

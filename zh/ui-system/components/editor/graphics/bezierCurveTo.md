@@ -15,8 +15,8 @@
 
 ## 实例
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.moveTo(20,20);
 ctx.bezierCurveTo(20,100,200,100,200,20);
 ctx.stroke();

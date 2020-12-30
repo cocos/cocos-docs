@@ -113,9 +113,58 @@ __Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely 
 
 It is possible to use the missing functionality by calling the **WeChat's** API directly.
 
-## Reference documentation
+## WebAssembly Support
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+As of 3.0, the __Wasm physics experimental__ option has been added to the WeChat Mini Game builds. It is a laboratory feature for choosing the usage mode of __ammo__ physics:
+
+- __js__: Use __js__ mode, this is consistent with previous versions.
+- __fallback__: Automatic __fallback__ mode, use __wasm__ in an environment that supports __wasm__, or revert to __js__.
+- __wasm__: Use __wasm__ mode.
+
+In __fallback__, the editor packs all the mode code for the __ammo__ physics. The corresponding code packets for the two modes are __1.2MB__ and __0.7MB__, totaling nearly __2MB__, which has a significant impact on the __4MB__ limit of the main packet.
+
+The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage:
+
+- Modify `game.json`
+
+    ```ts
+    {
+        //*,
+        "subpackages": [{
+            "name": "ammo",
+            "root": "cocos-js/ammo-82499473.js"
+        }]
+    }
+    ```
+
+- Modify the `init` function in `game.js`
+
+    ```ts
+    window.__globalAdapter.init(function() {
+        fsUtils.loadSubpackage('ammo', null, (err) => {
+            System.import('./cocos-js/ammo-82499473.js').then(() => {
+                return System.import('./application.js').then(({ createApplication }) => {
+                    return createApplication({
+                        loadJsListFile: (url) => require(url),
+                        loadAmmoJsWasmBinary,
+                    });
+                }).then((application) => {
+                    return onApplicationCreated(application);
+                }).catch((err) => {
+                    console.error(err);
+                });
+            })
+        });
+    });
+    ```
+
+> **Note**:
+> 1. The WeChat Separation Engine plugin currently only supports __js__ mode.
+> 2. WebAssembly required WeChat v7.0.17 and above.
+> 3. The WeChat WebAssembly debugging base library needs to be v2.12.0 and above.
+> 4. __Fallback__ mode is recommended for the most comprehensive device support.
+
+## Reference documentation
 
 - [WeChat Mini Game Developer Document](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)

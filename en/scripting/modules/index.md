@@ -1,4 +1,4 @@
-
+# Module
 
 Engine and editor expose their functionalities API through modules. Modules are in form of ECMAScript module format.
 
@@ -6,12 +6,13 @@ Engine and editor expose their functionalities API through modules. Modules are 
 
 ## Engine modules
 
-### Functionalities
+### Functionality
 
-Module `'cc'` provide access to engine functionalities. Contents of module `'cc'` are dynamically decided,
-which is relevant with engine modules setting in project settings.
+Module `'cc'` provide access to engine functionalities. Contents of module `'cc'` are dynamically decided, which is relevant with **Engine Module** setting in the **Project Settings** panel.
 
-#### Example: engine logging
+#### Engine logging
+
+Example:
 
 ```ts
 import { log } from 'cc';
@@ -26,41 +27,41 @@ Since these constants are declared with `const` qualifier, it's very friendly to
 
 #### Execution environment
 
-| Name(all in type of `boolean`) | Meaning                            |
-|--------------------------------|------------------------------------|
-| `BUILD`                        | Is executing after building        |
-| `PREVIEW`                      | Is executing during previewing     |
-| `EDITOR`                       | Is executing in editor environment |
-
+| Name (all in type of `boolean`) | Description   |
+| :-------- | :--------------------------------- |
+| `BUILD`   | Is executing after building        |
+| `PREVIEW` | Is executing during previewing     |
+| `EDITOR`  | Is executing in editor environment |
 
 #### Debugging level
 
-| Name(all in type of `boolean`) | Meaning                                                                                |
-|--------------------------------|----------------------------------------------------------------------------------------|
-| `DEBUG`                        | Is under debug mode. `false` if debug option is set when do building,`true` otherwise. |
-| `DEV`                          | Equivalent to `DEBUG || EDITOR || PREVIEW || EDITOR`                                   |
-
+| Name (all in type of `boolean`) | Description  |
+| :------ | :------- |
+| `DEBUG` | Is under debug mode. `false` if debug option is set when do building, `true` otherwise. |
+| `DEV`   | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW`.  |
 
 #### Platform identification
 
 The following constants represent if is executing on some platform or some kind of platforms. All of these constants have type `boolean`.
 <!-- Please sort the table in dictionary order -->
-| Name        | Platform          | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
-|-------------|-------------------|------------------------|----------------------------------------|--------------------------------|
-| `HTML5`     | Web               | ❌                      | ❌                                      | ❌                              |
-| `NATIVE`    | Native platforms  | ❌                      | ❌                                      | ❌                              |
-| `ALIPAY`    | Alipay mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `BAIDU`     | Baidu mini game   | ✔️                      | ❌                                      | ✔️                              |
-| `BYTEDANCE` | Tik Tok mini game | ✔️                      | ❌                                      | ✔️                              |
-| `WECHAT`    | WeChat mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `XIAOMI`    | XiaoMi mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `COCOSPLAY` | Cocos play        | ❌                      | ✔️                                      | ✔️                              |
-| `HUAWEI`    | HuaWei quick game | ❌                      | ✔️                                      | ✔️                              |
-| `OPPO`      | OPPO quick game   | ❌                      | ✔️                                      | ✔️                              |
-| `VIVO`      | vivo quick game   | ❌                      | ✔️                                      | ✔️                              |
 
+| Name        | Platform            | `MINIGAME` mini game | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
+| :---------- | :------------------ | :------------------- | :------------------- | :------------------- |
+| `HTML5`     | Web                 | ❌                   | ❌                    | ❌                   |
+| `NATIVE`    | Native platforms    | ❌                   | ❌                    | ❌                   |
+| `ALIPAY`    | Alipay Mini Game    | ✔️                    | ❌                    | ✔️                   |
+| `BAIDU`     | Baidu Mini Game     | ✔️                    | ❌                    | ✔️                    |
+| `BYTEDANCE` | Bytedance Mini Game | ✔️                    | ❌                    | ✔️                    |
+| `WECHAT`    | WeChat Mini Game    | ✔️                    | ❌                    | ✔️                    |
+| `XIAOMI`    | Xiaomi Quick Game    | ✔️                    | ❌                    | ✔️                    |
+| `COCOSPLAY` | Cocos Play          | ❌                   | ✔️                     | ✔️                    |
+| `HUAWEI`    | HuaWei Quick Game   | ❌                   | ✔️                     | ✔️                    |
+| `OPPO`      | OPPO Quick Game     | ❌                   | ✔️                     | ✔️                    |
+| `VIVO`      | vivo Quick Game     | ❌                   | ✔️                     | ✔️                    |
 
-#### Example: logging under development mode
+#### Logging under development mode
+
+Example:
 
 ```ts
 import { log } from 'cc';

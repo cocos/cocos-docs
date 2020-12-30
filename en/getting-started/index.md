@@ -9,4 +9,5 @@ This chapter includes the following:
 - [Dashboard](dashboard/index.md)
 - [Hello world!](helloworld/index.md)
 - [Quick start: making your first game](first-game/index.md)
+- [Support](support.md)
 - [Caution](attention/index.md)

@@ -28,9 +28,7 @@
 
 ![atlas files](atlas/atlas_files.png)
 
-使用 TexturePacker 打包图集的用户需要注意：
-- 3D 这里不再做 3.x 版本以下的图集格式，导入是会报错的，望用户知悉，推荐使用的版本是 4.x。
-- 由于 TexturePacker 打包结果的问题，与我们处理九宫格算法的不匹配，所以在 1.0.4 版本的编辑器中，生成合图时请禁止旋转，以获得正确的效果。
+使用 TexturePacker 打包图集时需要注意，Creator 3.0 不支持 TexturePacker v3.x 以下的图集格式，否则导入时会出现报错。推荐使用的版本是 4.x。
 
 ## 导入图集资源
 

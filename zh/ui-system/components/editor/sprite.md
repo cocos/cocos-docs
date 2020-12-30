@@ -6,7 +6,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/Sprite** 即可添加 Sprite 组件到节点上。
 
-图像的组件接口请参考 [Sprite API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.sprite.html)。
+图像的组件接口请参考 [Sprite API](../../../api/zh/classes/ui.sprite.html)。
 
 关于使用可以参考 test-cases-3d 里的 [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) 相关。
 
@@ -49,10 +49,10 @@ Sprite 组件支持以下几种渲染模式：
 
 ### 填充模式（Filled）
 
-**Type** 属性选择填充模式后，会出现一组新的属性可供配置，让我们依次介绍他们的作用。
+**Type** 属性选择填充模式后，会出现一组新的属性可供配置：
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Fill Type | 填充类型选择，有 **HORIZONTAL**（横向填充）、**VERTICAL**（纵向填充）和 **RADIAL** （扇形填充）三种。
 | Fill Start | 填充起始位置的标准化数值（从 0 ~ 1，表示填充总量的百分比），选择横向填充时，**Fill Start** 设为 0，就会从图像最左边开始填充
 | **Fill Range** | 填充范围的标准化数值（同样从 0 ~ 1），设为 1，就会填充最多整个原始图像的范围。
@@ -60,14 +60,9 @@ Sprite 组件支持以下几种渲染模式：
 <!-- 所用的坐标系和 [Anchor 锚点](../content-workflow/transform.md#-anchor-) 是一样的。 -->
 
 ![radial](sprite/radial.png)
+
 #### Fill Range 填充范围补充说明
 
 在 **HORIZONTAL** 和 **VERTICAL** 这两种填充类型下，**Fill Start** 设置的数值将影响填充总量，如果 **Fill Start** 设为 0.5，那么即使 **Fill Range** 设为 1.0，实际填充的范围也仍然只有 Sprite 总大小的一半。
 
 而 **RADIAL** 类型中 **Fill Start** 只决定开始填充的方向，**Fill Start** 为 0 时，从 x 轴正方向开始填充。**Fill Range** 决定填充总量，值为 1 时将填充整个圆形。**Fill Range** 为正值时逆时针填充，为负值时顺时针填充。
-
----
-
-- [其他渲染模块参考](render-component.md)
-
-- [基础模块参考](base-component.md)

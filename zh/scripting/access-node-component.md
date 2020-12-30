@@ -71,8 +71,7 @@ export class test extends Component {
         this.label = this.getComponent(Label);
         if (this.label) {
             this.label.string = "Hello";
-        }
-        else {
+        } else {
             console.error("Something wrong?");
         }
     }
@@ -125,7 +124,7 @@ export class Cannon extends Component {
     private player = null;
 
     start() {
-        console.log("The player is " + this.player.name);
+        console.log('The player is ' + this.player.name);
     }
 }
 ```
@@ -245,7 +244,7 @@ import{Global}from "./Global";
 @ccclass("AnyScript")
 export class AnyScript extends Component {
     start () {
-        var text = "Back";
+        const text = "Back";
         Global.backLabel.string = text;
     }
 }

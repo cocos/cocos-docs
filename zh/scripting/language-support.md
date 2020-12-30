@@ -8,9 +8,9 @@ Creator 3.0 使用 [babel](https://babeljs.io/) 编译 TypeScript 脚本，而�
 - `tsconfig.json` 不会被读取
 
 - 隐含着 `isolatedModules` 选项，这意味着：
-  - 不支持 [const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)
+    - 不支持 [const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)
 
-  - 导出声明中不应该导出 TypeScript 类型和接口
+    - 导出声明中不应该导出 TypeScript 类型和接口
 
 - 不支持 `export =` 和 `import =`
 

@@ -2,7 +2,7 @@
 
 ## 监听事件
 
-事件处理是在节点（Node）中完成的。对于组件，可以通过访问节点 this.node 来注册和监听事件。监听事件可以通过 this.node.on() 函数来注册，方法如下：
+事件处理大多数是在节点（Node）中完成的。对于组件，可以通过访问节点 `this.node` 来注册和监听事件。监听事件可以通过 `this.node.on()` 函数来注册，方法如下：
 
 ```ts
 // 该事件监听每次都会触发，需要手动取消注册
@@ -50,15 +50,15 @@ const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
-    onEnable(){
+    onEnable () {
         this.node.on('foobar', this._sayHello, this);
     }
 
-    onDisable(){
+    onDisable () {
         this.node.off('foobar', this._sayHello, this);
     }
 
-    _sayHello(){
+    _sayHello () {
         console.log('Hello World');
     }
 }
@@ -69,11 +69,9 @@ export class Example extends Component {
 触发事件有两种方式：`emit` 和 `dispatchEvent`。两者的区别在于，后者可以做事件传递。我们先通过一个简单的例子来了解 `emit` 事件
 
 ```ts
-// 事件派发的时候可以指定派发参数，参数最多只主持 5 个事件参数
+// 事件派发的时候可以指定派发参数，参数最多只支持 5 个事件参数
 xxx.emit(type, ...args);
 ```
-
-需要说明的是，出于底层事件派发的性能考虑，这里最多只支持传递 5 个事件参数。所以在传参时需要注意控制参数的传递个数。
 
 ## 事件参数说明
 
@@ -103,7 +101,7 @@ export class Example extends Component {
 
 ## 派发事件
 
-上文提到了 `dispatchEvent` 方法，通过该方法派发的事件，会进入事件派发阶段。在 Cocos Creator 的事件派发系统中，我们采用冒泡派发的方式。冒泡派发会将事件从事件发起节点，不断地向上传递给他的父级节点，直到到达根节点或者在某个节点的响应函数中做了中断处理 `event.propagationStopped = true`。
+上文提到了 `dispatchEvent` 方法，通过该方法派发的事件，会进入事件派发阶段。在 Cocos Creator 的事件派发系统中，我们采用冒泡派发的方式。冒泡派发会将事件从事件发起节点，不断地向上传递给它的父级节点，直到到达根节点或者在某个节点的响应函数中做了中断处理 `event.propagationStopped = true`。
 
 ![bubble-event](bubble-event.png)
 
@@ -123,12 +121,28 @@ this.node.on('foobar', (event: EventCustom) => {
 });
 ```
 
-请注意，在发送用户自定义事件的时候，请不要直接创建 cc 内的 Event 对象，因为它是一个抽象类，请创建 cc.Event.EventCustom 对象来进行派发。
+请注意，在发送用户自定义事件的时候，请不要直接创建 cc 内的 Event 对象，因为它是一个抽象类，请创建 Event.EventCustom 对象来进行派发。
+
+## 事件对象
+
+在事件监听回调中，开发者会接收到一个 Event 类型的事件对象 event，`propagationStopped` 就是 Event 的标准 API，其它重要的 API 包含：
+
+| API 名                 | 类型             | 意义             |
+| :-------------             | :----------            |   :----------        |
+| **type**           | String   | 事件的类型（事件名）。                      |
+| **target**          | Node | 接收到事件的原始对象。                      |
+| **currentTarget**          | Node | 接收到事件的当前对象，事件在冒泡阶段当前对象可能与原始对象不同。                      |
+| **getType**      | Function   | 获取事件的类型。                      |
+| **propagationStopped**   | Boolean   | 是否停止传递当前事件。                      |
+| **propagationImmediateStopped**              | Boolean   | 是否立即停止当前事件的传递，事件甚至不会被分派到所连接的当前目标。                      |
+| **detail**             | Function | 自定义事件的信息（属于 Event.EventCustom）。    |
+| **setUserData**             | Function | 设置自定义事件的信息（属于 Event.EventCustom）。    |
+| **getUserData**             | Function | 获取自定义事件的信息（属于 Event.EventCustom）    |
 
 ## 系统内置事件
 
 以上是通用的事件监听和发射规则，在 Cocos Creator 中，我们默认支持了一些系统内置事件，可以参考我们后续的文档来查看如何使用：
 
-鼠标、触摸：可参考 [节点系统事件文档](event-builtin.md)
+鼠标、触摸：可参考 [系统与节点事件文档](event-builtin.md)
 
 键盘、重力感应：可参考 [全局系统事件文档](event-input.md)

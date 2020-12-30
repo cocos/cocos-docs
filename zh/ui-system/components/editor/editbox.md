@@ -6,7 +6,7 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/EditBox** 即可添加 EditBox 组件到节点上。
 
-EditBox 的脚本接口请参考 [EditBox API](https://docs.cocos.com/creator/3.0/api/zh/classes/ui.editbox.html)。
+EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/ui.editbox.html)。
 
 关于使用可以参考 test-cases-3d 里的 [mask](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) 相关。
 
@@ -18,7 +18,7 @@ EditBox 的脚本接口请参考 [EditBox API](https://docs.cocos.com/creator/3.
 | FontColor            | 输入框文本的颜色 |
 | FontSize             | 输入框文本的字体大小 |
 | InputFlag           | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）|
-| InputMode           | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
+| InputMode           | 指定输入模式：ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
 | LineHeight           | 输入框文本的行高 |
 | MaxLength            | 输入框最大允许输入的字符个数  |
 | Placeholder          | 输入框占位符的文本内容  |

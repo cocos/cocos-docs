@@ -70,7 +70,7 @@
 
 - **打开构建日志记录文件**
 
-    每次构建过程中产生的报错信息都会被记录起来，点击构建任务的![log](build-panel/log.jpg)按钮即可查看，在向 [论坛](https://forum.cocos.org/c/Creator/58) 反馈构建相关问题时，可以直接贴上该 log 文件。
+    每次构建过程中产生的报错信息都会被记录起来，点击构建任务的 ![log](build-panel/log.jpg) 按钮即可查看，在向 [论坛](https://forum.cocos.org/c/58) 反馈构建相关问题时，可以直接贴上该 log 文件。
 
     这里的 log 文件会存储在项目目录下的 `temp/builder/log` 文件夹内。
 

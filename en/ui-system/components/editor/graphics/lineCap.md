@@ -10,8 +10,8 @@ The `lineCap` property represents the style of the line end cap.
 
 ## Example
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.lineCap = Graphics.LineCap.ROUND;
 ctx.lineWidth = 10;
 ctx.moveTo(100, 100);

@@ -9,14 +9,14 @@ Publish a project from the command line can help us build an auto-publish routin
 - Mac
 
   ```bash
-  /Applications/CocosCreator3D.app/Contents/MacOS/CocosCreator3D --project projectPath
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
   --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
 
   ```bash
-  CocosCreator3D/CocosCreator3D.exe --project projectPath --build "platform=web-desktop;debug=true"
+  ...\CocosCreator.exe --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 Currently, when using the command line to build, except for the required build options, if no parameter values are uploaded, the default values are used to build. Please refer to the description below and the platform's build options description for specific default values.
@@ -35,28 +35,24 @@ Currently, when using the command line to build, except for the required build o
 
   If no parameters are specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
-  - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
+    - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
+    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. This parameter passes in the `entry` field of the module, the corresponding field of each module can be found in the [division-config.json](https://github.com/cocos-creator/engine/blob/3d/scripts/module-division/division-config.json) of engine repository.
+    - `outputName`: The name of the release folder generated after the build.
+    - `name`: Game name.
+    - `platform`: Required, the platform needs to be built.
+    - `buildPath`: The game's release path, the default release path is in the `build` under the project folder.
+    - `startScene`: The uuid of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
+    - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
+    - `debug`: Whether or not debug mode, the default is `false`.
+    - `packAutoAtlas`: Enabled or disabled the Auto Atlas, the default is `false`.
+    - `compressTexture`: Enabled or disabled the compress texture, the default is `false`.
+    - `replaceSplashScreen`: Whether to replace the splash screen, the default is `false`.
+    - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
+    - `mainBundleCompressionType`: Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression-type).
+    - `mainBundleIsRemote`: Configure the main package as a remote package.
+    - `packages`: The build configuration parameters supported by each plugin. What needs to be stored is the serialized string for the data object. For details, please refer to the following.
 
-  - `includedModules`: Package modules for custom engines. Only the required modules are packaged.
-
-      > **Note**: the pass is an array of module `entry` fields, see `/scripts/module-division/division-config.json` in [engine repository](https://github.com/cocos-creator/engine) (now in the `3d` branch) for details.
-
-  - `outputName`: The name of the release folder generated after the build.
-  - `name`: Game name
-  - `platform`: Required, the platform needs to be built.
-  - `buildPath`: The game's release path, the default release path is in the `build` under the project folder.
-  - `startScene`: The uuid of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
-  - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
-  - `debug`: Whether or not debug mode, the default is `false`.
-  - `packAutoAtlas`: Enabled or disabled the Auto Atlas, the default is `false`.
-  - `compressTexture`: Enabled or disabled the compress texture, the default is `false`.
-  - `replaceSplashScreen`: Whether to replace the splash screen, the default is `false`.
-  - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
-  - `mainBundleCompressionType`: Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression-type).
-  - `mainBundleIsRemote`: Configure the main package as a remote package.
-  - `packages`: The build configuration parameters supported by each plugin. What needs to be stored is the serialized string for the data object. For details, please refer to the following:
-
-Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations, and the build options are in `packages.[platform-name].key`. For example, to specify the build options for the WeChat Mini Game, the configuration is as follows:
+Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations. The build parameters are configured in the `packages` field, for example, to specify the build options for WeChat Mini Game, the configuration is as follows:
 
 ```bash
 {

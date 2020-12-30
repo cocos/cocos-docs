@@ -83,7 +83,7 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
   If you want to query the paths list, you can use the following form:
 
   ```typescript
-  var infos = resources.getDirWithPath('images', Texture2D);
+  const infos = resources.getDirWithPath('images', Texture2D);
   let paths = infos.map(function (info) {
       return info.path;
   });
@@ -149,13 +149,13 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   [texture1, texture2, texture3].forEach(t => assetManager.releaseAsset(t));
 
   // before
-  var uuid = texture._uuid;
+  const uuid = texture._uuid;
   loader.release(uuid);
   // after
   assetManager.releaseAsset(texture);
 
   // before
-  var url = texture.url;
+  const url = texture.url;
   loader.release(url);
   // after
   assetManager.releaseAsset(texture);
@@ -165,7 +165,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   ```typescript
   // before
-  var assets = loader.getDependsRecursively(texture);
+  const assets = loader.getDependsRecursively(texture);
   loader.release(assets);
 
   // after
@@ -226,15 +226,15 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   ```typescript
   // before
-  var pipe1 = {
+  const pipe1 = {
     id: 'pipe1',
     handle: (item, done) => {
       let result = doSomething(item.uuid);
       done(null, result);
     }
   };
-  
-  var pipe2 = {
+
+  const pipe2 = {
     id: 'pipe2',
     handle: (item, done) => {
       let result = doSomething(item.content);
@@ -248,7 +248,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   // after
   function pipe1 (task, done) {
     let output = [];
-    for (var i = 0; i < task.input.length; i++) {
+    for (let i = 0; i < task.input.length; i++) {
       let item = task.input[i];
       item.content = doSomething(item.uuid);
       output.push(item);
@@ -260,7 +260,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   function pipe2 (task, done) {
     let output = [];
-    for (var i = 0; i < task.input.length; i++) {
+    for (let i = 0; i < task.input.length; i++) {
       let item = task.input[i];
       item.content = doSomething(item.content);
       output.push(item);
@@ -276,9 +276,9 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   **Note**:
 
-  1. `assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `assetManager`. Please refer to the [Pipeline and Task](pipeline-task.md) documentation for details. 
+  1. `assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `assetManager`. Please refer to the [Pipeline and Task](pipeline-task.md) documentation for details.
 
-  2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](pipeline-task.md) documentation for details. 
+  2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](pipeline-task.md) documentation for details.
 
   3. In order to simplify the logic and improve performance, what is processed in Pipe is no longer a `item` but a `task` object, see [Pipeline and Task](pipeline-task.md) documentation for details.
 
@@ -290,7 +290,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   ```typescript
   // before
-  var customHandler = (item, cb) => {
+  const customHandler = (item, cb) => {
     let result = doSomething(item.url);
     cb(null, result);
   };
@@ -298,7 +298,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   loader.addDownloadHandlers({png: customHandler});
 
   // after
-  var customHandler = (url, options, cb) => {
+  const customHandler = (url, options, cb) => {
     let result = doSomething(url);
     cb(null, result);
   };
@@ -310,7 +310,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   ```typescript
   // before
-  var customHandler = (item, cb) => {
+  const customHandler = (item, cb) => {
     let result = doSomething(item.content);
     cb(null, result);
   };
@@ -318,7 +318,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   loader.addLoadHandlers({png: customHandler});
 
   // after
-  var customHandler = (file, options, cb) => {
+  const customHandler = (file, options, cb) => {
     let result = doSomething(file);
     cb(null, result);
   };
@@ -338,7 +338,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](../../../api/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](../../../api/en/classes/asset_manager.assetmanager.html#parser).
 
-  **Note**: For performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation. 
+  **Note**: For performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
 
 ### Other changes
 
@@ -348,7 +348,7 @@ The `url` and `AssetLibrary` have been removed, so avoid using any methods and p
 
 ```typescript
 // before
-var pipe1 = {
+const pipe1 = {
     id: 'pipe1',
     handle: function (item, cb) {
         let result = doSomething(item);
@@ -356,7 +356,7 @@ var pipe1 = {
     }
 }
 
-var pipeline = new Pipeline([pipe1]);
+const pipeline = new Pipeline([pipe1]);
 
 // after
 function pipe1 (task, cb) {
@@ -364,7 +364,7 @@ function pipe1 (task, cb) {
     cb(null);
 }
 
-var pipeline = new AssetManager.Pipeline('test', [pipe1]);
+const pipeline = new AssetManager.Pipeline('test', [pipe1]);
 ```
 
 **Note**: `LoadingItem` is no longer supported in `assetManager`, please avoid using this type.

@@ -4,13 +4,13 @@ __Layout__ is a component for UI container nodes. This component provide to the 
 
   ![layout](layout/layout.png)
 
-Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Layout__ to add the __Layout__ component to the node.
+Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI -> Layout__ to add the __Layout__ component to the node.
 
-To use `Layout`, please refer to the [Layout API](../../../api/en/classes/ui.layout.html) documentation and the [layout](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/05.layout) scene of the test-cases-3d project.
+To use `Layout`, please refer to the [Layout API](../../../api/en/classes/ui.layout.html) documentation and the [05.layout example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout) of the **test-cases-3d** project.
 
 ## Layout Properties
 
-| Properties             | Function Explanation      |
+| Property           | Function Explanation      |
 | :--------------         | :-----------   |
 | __Type__                 | Layout type, including __NONE__, __HORIZONTAL__, __VERTICAL__ and __GRID__. |
 | __ResizeMode__           | Resize mode, including __NONE__, __CHILDREN__ and __CONTAINER__. |
@@ -33,23 +33,23 @@ To use `Layout`, please refer to the [Layout API](../../../api/en/classes/ui.lay
 
 After adding the `Layout` component, the default layout type is __NONE__, you can toggle the container alignment type by modifying `Type` in **Inspector**. The types are **HORIZONTAL**, **VERTICAL** and **GRID** layouts. Also, `ResizeMode` is supported for all layout types except **NONE**.
 
-The modes of `Resize Mode`:
+- The modes of `Resize Mode`:
 
-- When __Resize Mode__ is __NONE__, the size of the container and children is independent from each other.
+    - When __Resize Mode__ is __NONE__, the size of the container and children is independent from each other.
 
-- When __Resize Mode__ is __CHILDREN__, the size of the children will change with the size of the container to make sure all children fit inside the container's bounding box.
+    - When __Resize Mode__ is __CHILDREN__, the size of the children will change with the size of the container to make sure all children fit inside the container's bounding box.
 
-- When __Resize Mode__ is __CONTAINER__, the size of the container will change with the size of the children to make sure the container is large enough to contain all children inside its bounding box.
+    - When __Resize Mode__ is __CONTAINER__, the size of the container will change with the size of the children to make sure the container is large enough to contain all children inside its bounding box.
 
-All alignments are calculated based on the container size. If the sorting needs to be fixed, set the `Type` to `Grid` and then set the `Constraint` and `ConstraintNum` to fix the sorting.
+    All alignments are calculated based on the container size. If the sorting needs to be fixed, set the `Type` to `Grid` and then set the `Constraint` and `ConstraintNum` to fix the sorting.
 
-The modes of `Constraint`:
+- The modes of `Constraint`:
 
-- When __Constraint__ is __NONE__, the layout is free of __Constraint__.
+    - When __Constraint__ is __NONE__, the layout is free of __Constraint__.
 
-- When __Constraint__ is __FIXED_ROW__, a fixed number of rows is used with `ConstraintNum`.
+    - When __Constraint__ is __FIXED_ROW__, a fixed number of rows is used with `ConstraintNum`.
 
-- When __Constraint__ is __FIXED_COL__, a fixed number of columns is used with `ConstraintNum`.
+    - When __Constraint__ is __FIXED_COL__, a fixed number of columns is used with `ConstraintNum`.
 
 > __Note__: if the __Layout__'s configuration is set in runtime, the results need to be updated until the next frame, unless you manually call `updateLayout` API.
 

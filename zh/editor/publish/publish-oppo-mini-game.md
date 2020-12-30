@@ -2,30 +2,36 @@
 
 ## 环境配置
 
-- 下载 [OPPO 小游戏调试器](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)，并安装到 Android 设备上（建议 Android Phone 6.0 或以上版本）
+- 下载 [OPPO 小游戏调试器](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a)，并安装到 OPPO 手机上（建议 Android Phone 6.0 或以上版本）
 
 - 全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 
-- 根据用户自己的开发需求判断是否需要安装 [调试工具](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)。
+## 发布流程
 
-## 构建参数介绍
+使用 Cocos Creator 3.0 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **OPPO 小游戏**。
 
-一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
+![](./publish-oppo-mini-games/oppo-build.png)
 
-| 选项名 | 可选 | 默认值 | 说明 | 字段名 |
-| - | - | - | - | - |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
-| 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress |
-| 游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package |
-| 桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon |
-| 应用版本名称 | 必填 | (Cocos 版本号) | 应用版本名称 是真实的版本，如：1.0.0 | versionName |
-| 应用版本号 | 必填 | 1201 | 纯数字，应用版本号，从 1 自增，每次重新上传包时务必 versionCode+1，否则将影响上架版本的更新。例如原版本为11，更新版本的 versionCode 需要为12。 | versionCode |
-| 支持的最小平台版本号 | 必填 | 1035 | 支持的最小平台版本号，原理同Android API Level。用于兼容性检查，避免上线后在低版本平台运行导致不兼容。游戏设定值必须大于等于 1035。 | minPlatformVersion |
-| 屏幕方向 | - | landscape | 设备方向，填写后将会写入在 `manifest.json` 内。| deviceOrientation |
-| 使用调试密钥库 | - | true |  勾选 **使用调试密钥库** 时，表示默认使用的是 Creator 自带的证书构建 rpk 包，仅用于 **调试** 时使用，用于提交审核时则构建时不要勾选该项。| useDebugKey |
-| 密钥证书路径 | - | - | 密钥库证书，上架华为应用市场的快游戏，必须使用 release 版本的证书做签名，同时在华为开发者联盟后台配置证书指纹。具体可以参考下面的 [生成签名文件](###生成签名文件) | privatePemPath、certificatePemPath |
+点击下方的 **oppo-mini-game**，展开 OPPO 小游戏的参数配置。
 
-### 生成签名文件
+![](./publish-oppo-mini-games/build-option.png)
+
+各平台通用的构建参数，详情请参考 [通用构建参数](build-options.md)。OPPO 小游戏相关参数配置具体的填写规则如下：
+
+| 选项名 | 可选 | 说明 | 字段名 |
+| :--- | :--- | :--- | :--- |
+| **初始场景分包** | 选填项 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.html#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
+| **资源服务器路径** | 选填项 | 该项用于填写资源存放在服务器上的地址。<br>若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的 rpk 包中。<br>若 **填写** 该项，则不会打包到 rpk 包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考文档下方的资源管理部分。 | `remoteServerAddress` |
+| **游戏包名** | 必填项 | 游戏包名，根据开发者的需求进行填写，例如 `com.example.demo`。 | `package` |
+| **桌面图标** | 必填项 | 点击输入框后面的搜索图标按钮选择所需的图标。构建时，图标将会被构建到 OPPO 小游戏的工程中。桌面图标建议使用 **png** 图片。 | `icon` |
+| **游戏版本名称** | 必填项 | 游戏版本名称是真实的版本，如：1.0.0 | `versionName` |
+| **游戏版本号** | 必填项 | **游戏版本号** 与 **游戏版本名称** 不同，**游戏版本号** 主要用于区别版本更新。每次提交审核时游戏版本号都要比上次提交审核的值至少 +1，一定不能等于或者小于上次提交审核的值，建议每次提交审核时游戏版本号递归 +1。**注意**：**游戏版本号** 必须为正整数。 | `versionCode` |
+| **支持的最小平台版本号** | 必填项 | 推荐使用 **1060**。该项原理同 Android API Level，用于兼容性检查，避免游戏上线后在低版本平台运行不兼容。具体内容可点击 [使用说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) 查看。 | `minPlatformVersion` |
+| **屏幕方向** | - | 设备方向，构建后将会写入 `manifest.json` 中。| `deviceOrientation` |
+| **密钥库** | 必填项 | 勾选 **使用调试密钥库** 时，表示默认使用的是 Creator 自带的证书构建 rpk 包，仅用于 **调试** 时使用。**注意**：若 rpk 包要用于提交审核，则构建时不要勾选该项。| `useDebugKey` |
+| **密钥证书路径** | - | 如果不勾选 **密钥库**，则需要配置签名文件 **certificate.pem 路径** 和 **private.pem 路径**，此时构建后生成的是可以 **直接发布** 的 rpk 包。开发者可通过输入框右边的搜索图标按钮来配置两个签名文件。**注意**：这两个签名文件建议不要放在发布包 `build/quickgame` 目录下，否则每次构建时都会清空该目录，导致文件丢失。生成签名文件的方式可参考下方的 **生成签名文件** 部分。 | `privatePemPath`、`certificatePemPath` |
+
+**生成签名文件**
 
 有以下两种方式可以生成签名文件：
 
@@ -33,7 +39,7 @@
 
 - 通过命令行生成 release 签名
 
-    用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
+    开发者需要通过 openssl 命令等工具生成签名文件 `private.pem`、`certificate.pem`。
 
     ```bash
     # 通过 openssl 命令工具生成签名文件
@@ -41,41 +47,44 @@
     ```
 
     > **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
-    >
 
-## 将构建出来的 rpk 运行到手机上
+### 构建
 
-将构建生成的小游戏 rpk 包（ dist 目录中）拷贝到手机 SD 卡的 **/sdcard/games/** 目录。然后在 Android 设备上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，然后找到填写游戏名相对应的图标即可，如没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
+**构建发布** 面板的相关参数设置完成后，点击 **构建**。构建完成后点击 **构建任务** 左下角的文件夹图标按钮打开构建发布包，可以看到在默认发布路径 build 目录下生成了 `oppo-mini-game` 目录，该目录就是导出的 OPPO 小游戏工程目录和 rpk，rpk 包在 `build/oppo-mini-game/dist` 目录下。
 
-**注意：OPPO 小游戏调试器为 V3.2.0 及以上的需要将准备好的 rpk 拷贝到手机 sdcard 的 Android/data/com.nearme.instant.platform/files/games 中, 无 games 目录则需新建**
+![](./publish-oppo-mini-games/package.png)
 
-![](./oppo-mini-game/rpk_games.jpg)
+### 将构建出来的 rpk 运行到手机上
 
-## OPPO 小游戏环境的资源管理
+将构建生成的小游戏 rpk 包（ dist 目录中）拷贝到手机 SD 卡的 `/sdcard/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，然后找到填写游戏名相对应的图标即可，如果没有发现，可点击右上角的 **更多 -> 刷新** 按钮进行刷新。
 
-OPPO 小游戏与微信小游戏类似，都存在着包体限制, OPPO 的主包包体限制是 **10MB**，超过的部分必须通过网络请求下载。
+> **注意**：OPPO 小游戏调试器为 **v3.2.0** 及以上的需要将准备好的 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明 — 新建目录](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) 查看。
 
-Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理，详情请参考 [资源管理](../../asset/cache-manager.md#资源下载流程)。
+![](./publish-oppo-mini-games/rpk_games.jpg)
 
 ## 分包加载
 
-构建完成后，分包 rpk 在 dist 目录下。<br>
-这时需要在 Android 设备的 **sdcard** 目录下，新建一个 **subPkg** 目录，然后把 dist 目录下的 **.rpk** 文件拷贝到 subPkg 目录中。<br>
+分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。若要使用该功能需要在 Creator 中设置 [小游戏分包](subpackage.md)，设置完成后构建时就会自动分包。
+
+构建完成后，分包 rpk 在 `dist` 目录下。这时需要在 OPPO 手机的 `sdcard` 目录下新建一个 `subPkg` 目录，然后把 `dist` 目录下的 **.rpk** 文件拷贝到 `subPkg` 目录中。<br>
 然后切换到 **OPPO 小游戏调试器** 的 **分包加载** 栏目，点击右上方的刷新即可看到分包的游戏名称，点击 **秒开** 即可跟正常打包的 rpk 一样使用。
 
-![](./oppo-mini-game/run_subpackage.jpg)
+![](./publish-oppo-mini-games/run_subpackage.jpg)
 
-**注意**：
+分包 rpk 需要拷贝到 OPPO 手机的 `/sdcard/subPkg` 目录，未分包的 rpk 需要拷贝到 OPPO 手机的 `/sdcard/games` 目录，两者不可混用。
 
-1. 分包 rpk 需要拷贝到 Android 设备的 **/sdcard/subPkg/** 目录，未分包的 rpk 需要拷贝到 Android 设备的 **/sdcard/games/** 目录，两者不可混用。
+> **注意**：OPPO 小游戏调试器为 **v3.2.0** 及以上的，需要将分包 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` 目录，如果没有 subPkg 目录则需新建。而未分包的 rpk 则是拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 目录，两者同样不可混用。
 
-> 注意：OPPO 小游戏调试器为 V3.2.0 及以上的需要将准备好的 rpk 拷贝到手机 sdcard 的 Android/data/com.nearme.instant.platform/files/subPkg 中, 无 subPkg 目录则需新建
+## 资源管理
 
-2. **快应用 & vivo 小游戏调试器** 从 **1051** 版本开始支持 vivo 小游戏分包加载。低于 1051 的版本虽然不支持分包加载，但是也做了兼容处理，如果使用了分包也不会影响游戏正常运行。具体可参考 [vivo 分包加载-运行时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9)。
+OPPO 小游戏与微信小游戏类似，都存在着包体限制, OPPO 的主包包体限制是 **10MB**，超过的部分必须通过网络请求下载。
+
+Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理，详情请参考 [资源管理](../../asset/cache-manager.md#%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E6%B5%81%E7%A8%8B)。
 
 ## 相关参考链接
 
-- [OPPO 小游戏调试说明](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/debug.html)
-- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
+- [OPPO 开放平台](https://open.oppomobile.com/wiki/doc#id=10445)
+- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
+- [OPPO 小游戏使用说明 — 新建目录](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)

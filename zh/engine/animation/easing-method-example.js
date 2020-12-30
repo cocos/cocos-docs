@@ -74,8 +74,7 @@
         if (!easingMethodsExampleInitialized) {
             easingMethodsExampleInitialized = true;
             initializeEasingMethodsExample(panel);
-        }
-        else {
+        } else {
             panel.hidden = !panel.hidden;
         }
     };

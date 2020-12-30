@@ -4,8 +4,8 @@
 
 ## 实例
 
-```javascript
-var ctx = node.getComponent(Graphics);
+```ts
+const ctx = node.getComponent(Graphics);
 ctx.fillColor = new Color().fromHEX('#0000ff');
 ctx.rect(20,20,250,200);
 ctx.stroke();
