@@ -36,7 +36,7 @@
   在 `--build`  后如果没有指定参数，则会使用 Cocos Creator 中 **构建发布** 面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
   - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出。
-  - `includedModules` - 定制引擎打包模块，只打包需要的模块。该参数传入的是模块中的 `entry` 字段，各模块对应的字段可在 [这里](https://github.com/cocos-creator/engine/blob/3d/scripts/module-division/division-config.json) 查找。
+  - `includedModules` - 定制引擎打包功能模块，只打包需要的功能模块。具体由哪些功能模块可以参考引擎仓库下根目录下的 [`cc.config.json`](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) 文件里的 `features`。
   - `taskName` - 构建任务名，构建后生成的发布包文件夹名称。
   - `name` - 游戏名称
   - `platform` - 必填，构建的平台
