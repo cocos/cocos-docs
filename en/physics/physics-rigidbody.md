@@ -1,6 +1,6 @@
 # RigidBody Component
 
-**RigidBody** is the basic object that make up the physical world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
+**RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
 
 ![](img/rigidbody-prop.png)
 
