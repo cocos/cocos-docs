@@ -75,27 +75,6 @@
     - [Publish to LinkSure Mini Games](editor/publish/publish-link-sure.md)
     - [Publish to QTT Mini Games](editor/publish/publish-qtt.md)
 
-## Advanced
-
-- [Extended Editor](editor/extension/readme.md)
-  - [The First Extension](editor/extension/first.md)
-  - [Install And Share](editor/extension/install.md)
-  - [Extension Description](editor/extension/define.md)
-  - [Extended Panel](editor/extension/panel.md)
-    - [Compose Panel](editor/extension/panel-boot.md)
-    - [Panel Message](editor/extension/panel-messages.md)
-  - [Contributions](editor/extension/contributions.md)
-    - [Message](editor/extension/contributions-messages.md)
-    - [Shortcuts](editor/extension/contributions-shortcuts.md)
-    - [Menu](editor/extension/contributions-menu.md)
-    - [Scene Script](editor/extension/scene-script.md)
-  - [Basic](editor/extension/basic.md)
-    - [Extension](editor/extension/package.md)
-    - [Message](editor/extension/messages.md)
-    - [I18n](editor/extension/i18n.md)
-    - [Profile](editor/extension/profile.md)
-    - [Editor UI](editor/extension/ui.md)
-
 ## Engine Manual
 
 - [Function Map](module-map/index.md)
@@ -272,3 +251,23 @@
   - [Material](asset/material.md)
   - [Mesh](asset/mesh.md)
   - [Animation assets](asset/anim.md)
+
+## Advanced
+
+- [Extended Editor](editor/extension/readme.md)
+  - [The First Extension](editor/extension/first.md)
+  - [Install And Share](editor/extension/install.md)
+  - [Extension Description](editor/extension/define.md)
+  - [Extended Panel](editor/extension/panel.md)
+    - [Compose Panel](editor/extension/panel-boot.md)
+    - [Panel Message](editor/extension/panel-messages.md)
+  - [Contributions](editor/extension/contributions.md)
+    - [Message](editor/extension/contributions-messages.md)
+    - [Shortcuts](editor/extension/contributions-shortcuts.md)
+    - [Menu](editor/extension/contributions-menu.md)
+  - [Basic](editor/extension/basic.md)
+    - [Extension](editor/extension/package.md)
+    - [Message](editor/extension/messages.md)
+    - [I18n](editor/extension/i18n.md)
+    - [Profile](editor/extension/profile.md)
+    - [Editor UI](editor/extension/ui.md)
