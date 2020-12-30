@@ -2,7 +2,7 @@
 
 Engine and editor expose their functionalities API through modules. Modules are in form of ECMAScript module format.
 
-> **Note**: starting from 3.0, you can not access API through global variable `cc`!
+> **Note**: starting from Creator 3.0, developers cannot access the API through global variable `cc`!
 
 ## Engine modules
 
@@ -25,7 +25,7 @@ Since these constants are declared with `const` qualifier, it's very friendly to
 
 #### Execution environment
 
-| Name(all in type of `boolean`) | Meaning                            |
+| Name (type: `boolean`) | Description                            |
 | :--------------------------------|:------------------------------------|
 | `BUILD`                        | Is executing after building        |
 | `PREVIEW`                      | Is executing during previewing     |
@@ -34,7 +34,7 @@ Since these constants are declared with `const` qualifier, it's very friendly to
 
 #### Debugging level
 
-| Name(all in type of `boolean`) | Meaning                                                                                |
+| Name (type: `boolean`) | Description                                                                                |
 |:--------------------------------|:----------------------------------------------------------------------------------------|
 | `DEBUG`                        | Is under debug mode. `false` if debug option is set when do building,`true` otherwise. |
 | `DEV`                          | Equivalent to `DEBUG || EDITOR || PREVIEW || EDITOR`                                   |
@@ -45,7 +45,7 @@ Since these constants are declared with `const` qualifier, it's very friendly to
 The following constants represent if is executing on some platform or some kind of platforms. All of these constants have type `boolean`.
 <!-- Please sort the table in dictionary order -->
 | Name        | Platform          | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
-|:-------------|:-------------------|:------------------------|:----------------------------------------|:--------------------------------|
+|:-------------|:-------------------|------------------------|----------------------------------------|--------------------------------|
 | `HTML5`     | Web               | ❌                      | ❌                                      | ❌                              |
 | `NATIVE`    | Native platforms  | ❌                      | ❌                                      | ❌                              |
 | `ALIPAY`    | Alipay mini game  | ✔️                      | ❌                                      | ✔️                              |
