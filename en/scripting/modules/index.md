@@ -53,7 +53,6 @@ Since these constants are declared with `const` qualifier, it's very friendly to
 | `DEBUG` | Is under debug mode. `false` if debug option is set when do building, `true` otherwise. |
 | `DEV`   | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW`.  |
 
-
 #### Platform identification
 
 The following constants represent if is executing on some platform or some kind of platforms. All of these constants have type `boolean`.
@@ -72,7 +71,6 @@ The following constants represent if is executing on some platform or some kind 
 | `HUAWEI`    | HuaWei Quick Game   | ❌                   | ✔️                     | ✔️                    |
 | `OPPO`      | OPPO Quick Game     | ❌                   | ✔️                     | ✔️                    |
 | `VIVO`      | vivo Quick Game     | ❌                   | ✔️                     | ✔️                    |
-
 
 #### Logging under development mode
 

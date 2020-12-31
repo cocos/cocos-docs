@@ -26,5 +26,6 @@
     "fenced-code-language": false,
     "single-trailing-newline": true,
     "code-fence-style": true,
+    "no-duplicate-header": false,
     "no-empty-links": true
 }
