@@ -4,21 +4,26 @@
 
 ## 快速开始
 
-1. 点击编辑器内的菜单内的 **项目 -> 新建构建扩展插件**，选择生成位置后即可在对应位置生成一份构建扩展包模板。作为项目使用的构建扩展包可以选择项目下的 `extensions/xxx` 路径，作为全局使用的构建扩展包可以选择全局插件目录下 `extensions/xxx` 路径，本例作为测试使用直接放在项目下的 `extensions` 文件夹内即可。
+1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展插件**，选择 **全局**/ **项目** 后即可创建一个构建扩展插件包。
 
-2. 如果正常生成会看到控制台上回打印生成构建模板成功的 log，使用 **鼠标点击链接** 可以直接跳转到对应位置。
+* 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
+  * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+  * **Mac**：`$HOME/.CocosCreator/extensions`
+* 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
 
-3. 文件夹直接放置在项目目录的 extensions 目录下，模板需要编译使用的话，需要先在目录下执行 `npm install` 安装一些依赖的 @types 模块才能正常编译。编辑器自带的 types 已经生成在根目录下了，一些接口也可以在文件夹里查看，后续通过编辑器里的 `开发者 -> 导出 .d.ts` 即可获取到最新的接口定义。
+2. 构建扩展插件创建完成后会在 控制台 中看到插件的生成路径，点击路径即可在操作系统的文件管理器中打开构建扩展插件包。
 
-4. 在菜单里点击打开插件管理器，在项目页点击刷新即可看到最新添加的插件。此时点击下图框起的按钮即可启用禁用插件。
+3. 启用构建扩展插件之前需要先在目录下执行 `npm install` 安装一些依赖的 @types 模块才能正常编译。编辑器自带的接口定义 已经生成在根目录的 `@types` 文件夹下了，后续可以通过编辑器菜单栏的 `开发者 -> 导出 .d.ts` 即可获取到最新的接口定义。
+
+4. 在编辑器的菜单栏中点击 **扩展 -> 扩展管理器**，打开 **扩展管理器** 面板。然后在 **扩展管理器** 中选择 **项目**/**全局** 选项卡，点击 **刷新图标** 按钮即可看到刚刚添加的构建扩展插件。然后点击右侧的 **启用** 按钮，即可正常运行插件。
 
     ![enable-plugin](./custom-project-build-template/enable-plugin.png)
 
-5. 启用插件后打开构建扩展包面板，选择任意平台，即可看到构建扩展包注入的新参数，点击 **构建** 即可生效。
+5. 构建扩展插件启用后，打开 **构建发布** 面板，可以看到构建扩展插件的展开栏。点击 **构建** 即可加入构建流程。
 
     ![plugin-template](./custom-project-build-template/plugin-template.png)
 
-6. 通过直接修改该文件夹内的代码，再编译，然后 reload 该插件即可。示例是一个使用 ts 编译的小范例，不清楚如何编译的可以参见插件包内的 readme 文档。
+6. 如果需要修改构建扩展插件的内容，直接修改 `extensions` 目录下的构建扩展插件包，然后执行第 3 个步骤。再在 **扩展管理器** 中找到对应的构建扩展插件，然后点击 **重新载入** 图标按钮，这时候编辑器中的扩展将使用最新的代码和文件重新运行。
 
 ## 基本配置流程
 
@@ -59,10 +64,7 @@ export const configs: IConfigs = {
                     description: 'i18n:cocos-build-template.options.enterCocos',
                     default: '',
                     render: {
-                        /**
-                         * @en Please refer to Developer -> UI Component for a list of all supported UI components
-                         * @zh 请参考 开发者 -> UI 组件 查看所有支持的 UI 组件列表
-                         */
+                        // 请点击编辑器菜单栏中的“开发者 -> UI 组件”，查看所有支持的 UI 组件列表。
                         ui: 'ui-input',
                         attributes: {
                             placeholder: 'i18n:cocos-build-template.options.enterCocos',
@@ -147,7 +149,7 @@ declare interface IUiOptions extends IOptionsBase {
 
 ```ts
 declare interface IHook {
-    throwError?: boolean; // 插件注入的钩子函数，在执行失败时是否直接退出构建流程显示构建失败
+    throwError?: boolean; // 插件注入的钩子函数，在执行失败时是否直接退出构建流程，并显示构建失败
     // ------------------ 钩子函数 --------------------------
     onBeforeBuild?: IBaseHooks;
     onBeforeCompressSettings?: IBaseHooks;
@@ -161,7 +163,7 @@ declare interface IHook {
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正的影响构建。构建参数的修改请使用入口的 `options` 来配置。由于接口定义比较多，详细的接口定义可以参考构建扩展模板文件夹内的 `@types/packages/builder` 文件夹。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正的影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
 
 简单的代码示例：
 
