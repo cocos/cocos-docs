@@ -33,9 +33,9 @@ Currently, when using the command line to build, except for the required build o
 
 - `--build`: Specify the parameters to be used when building the project.
 
-  - If no parameters are specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
+  - When no parameters are specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. When additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
     - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
-    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found n the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json).
+    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json).
     - `taskName`: Build task name, the name of the release folder generated after the build.
     - `name`: Game name
     - `platform`: Required, the platform needs to be built.
