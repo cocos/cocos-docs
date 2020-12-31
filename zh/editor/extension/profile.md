@@ -16,7 +16,7 @@
 
 编辑器设置分成三个层级，优先级从高到低：
 
-```
+```sh
 local -> global -> default
 ```
 
@@ -24,11 +24,42 @@ local -> global -> default
 
 存放一些和项目相关的配置，这些配置允许，并且需要在项目间共享。
 
-```
+项目设置分成两个层级，优先级从高到低：
+
+```sh
 local -> default
 ```
 
 ## 注册配置
+
+<span id="interface"></span>
+
+```typescript
+interface ProfileItem {
+    // 默认值
+    default: any;
+    // 被修改后的通知消息
+    message?: string;
+    // 配置显示的名字，如果需要翻译，则传入 i18n:${key}
+    label?: string;
+    // 配置的说明,会出现在tooltip上
+    description?: string;
+}
+
+// package.json的contributions 需要像下面这样定义
+interface Contributions {
+    // 配置
+    'profile': {
+        // 编辑器配置
+        editor: { [key: string]: ProfileItem };
+        // 项目配置
+        project: { [key: string]: ProfileItem };
+    };
+    ...
+}
+```
+
+先像这样设置package.json
 
 ```json
 {
@@ -38,15 +69,17 @@ local -> default
             "editor": {
                 "test.a": {
                     "default": 0,
-                    "message": "editorTestAChanged",
-                    "label": "测试编辑器配置"
+                    "message": "editor-test-a-changed",
+                    "label": "测试编辑器配置",
+                    "description":"test for editor's profile"
                 }
             },
             "project": {
                 "test.a": {
                     "default": 1,
-                    "message": "projectTestAChanged",
-                    "label": "测试项目配置"
+                    "message": "project-test-a-changed",
+                    "label": "测试项目配置",
+                    "description":"test for project's profile"
                 }
             }
         }
@@ -54,38 +87,26 @@ local -> default
 }
 ```
 
-```typescript
-interface ProfileInfo {
-    editor: { [ key: string ]: ProfileItem };
-    project: { [ key: string ]: ProfileItem };
-}
+### profile
 
-interface ProfileItem {
-    // 配置的默认数据
-    default: any;
-    // 配置更改后，会自动发送这个消息进行通知
-    message: string;
-    // 简单的描述配置信息的作用，支持 i18n:key 语法
-    label: string;
-}
-```
+类型 {object} 可选
 
-contributions.profile 分成 editor 和 project 两种配置，这两中配置的定义都是 object 对象。
+`contributions.profile` 分成 editor 和 project 两种配置，这两中配置的定义都是 object 对象。
 object 的 key 为配置的 key，value 则是描述这个配置的基本信息。
 
-### default 
+#### default
 
 类型 {any} 可选
 
 配置的默认值。可以是任何类型。
 
-### message
+#### message
 
 类型 {string} 可选
 
 当消息修改后，会触发定义的消息。用于配置改变的时候动态更新一些数据。
 
-### label
+#### label
 
 类型 {string} 可选
 
@@ -95,17 +116,65 @@ object 的 key 为配置的 key，value 则是描述这个配置的基本信息�
 
 读取编辑器配置
 
+```typescript
+Editor.Profile.getConfig(name: string, key?: string | undefined, type?: "default" | "global" | "local" | undefined): Promise<any>
+```
+
 ```javascript
-// await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getConfig('hello-world', 'test.a'); // 0
-await Editor.Profile.getConfig('hello-world', 'test.a', 'local'); // undefined
-await Editor.Profile.getConfig('hello-world', 'test.a', 'global'); // undefined
+await Editor.Profile.getConfig('hello-world','test.a'); // 0
+await Editor.Profile.getConfig('hello-world','test.a','local'); // undefined
+await Editor.Profile.getConfig('hello-world','test.a','global'); // undefined
 ```
 
 读取项目配置
 
-```javascript
-// await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getProject('hello-world', 'test.a'); // 1
-await Editor.Profile.getProject('hello-world', 'test.a', 'project'); // undefined
+```typescript
+Editor.Profile.getProject(name: string, key?: string | undefined, type?: "default" | "project" | undefined): Promise<any>
 ```
+
+```javascript
+await Editor.Profile.getProject('hello-world','test.a'); // 1
+await Editor.Profile.getProject('hello-world','test.a','project'); // undefined
+```
+
+## 写入配置
+
+写入编辑器配置
+
+```typescript
+Editor.Profile.setConfig(name: string, key: string, value: any, type?: "default" | "global" | "local" | undefined): Promise<void>
+```
+
+```javascript
+await Editor.Profile.setConfig('hello-world', 'test.a', 1); // 0
+await Editor.Profile.setConfig('hello-world', 'test.a', 1, 'local'); // undefined
+await Editor.Profile.setConfig('hello-world', 'test.a', 1, 'global'); // undefined
+```
+
+写入项目配置
+
+```typescript
+Editor.Profile.setProject(name: string, key: string, value: any, type?: "default" | "project" | undefined): Promise<void>
+```
+
+```javascript
+await Editor.Profile.setProject('hello-world', 'test.a', 1); // 1
+await Editor.Profile.setProject('hello-world', 'test.a', 1, 'project'); // undefined
+```
+
+## 配置存放的地方
+
+编辑器配置存放的地方
+
+| 层级    | 路径                                                         |
+| ------- | ------------------------------------------------------------ |
+| local   | `${projectPath}/profiles/v2/packages/${extensionName}.json`  |
+| global  | `C:/Users/Administrator/.CocosCreator/profiles/v2/packages/${extensionName}.json` |
+| default | `${extensionPath}/package.json`                              |
+
+项目配置存放的地方
+
+| 层级    | 路径                                                        |
+| ------- | ----------------------------------------------------------- |
+| local   | `${projectPath}/settings/v2/packages/${extensionName}.json` |
+| default | `${extensionPath}/package.json`                             |

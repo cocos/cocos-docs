@@ -29,6 +29,9 @@ Before reading this chapter, please review the [Message System](./messages.md) d
             },
             "query": {
                 "methods": ["queryData"]
+            },
+            "panel-say-hello":{
+                "methods": ["default.hello"]
             }
         }
     }
@@ -50,7 +53,9 @@ exports.methods = {
     },
 };
 
-exports.load = function() {};
+exports.load = function() {
+    this.cache = {};
+};
 exports.unload = function() {};
 ```
 
@@ -69,6 +74,11 @@ exports.close() {
     // Upload the data to the extension process after receiving the data
     Editor.Message.send('hello-world', 'upload', 'tab', 1);
     Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+};
+exports.methods={
+    hello(){
+        console.log('hello')
+    }
 };
 ```
 
@@ -112,3 +122,18 @@ const subTab = await Editor.Message.send('hello-world', 'query', 'subTab');
 ```
 
 At this point, we have completed an interaction between the panel and the extension process.
+
+Next we call the method in the panel.
+Press **ctrl(cmd) + shift + i** to open the console. Type the following code in the console to send the message.
+
+```javascript
+Editor.Message.send('hello-world','panel-say-hello');
+```
+
+The console will print out the sentence
+
+```sh
+hello
+```
+
+This is because `messages` defines the `hello` method on the extension's `default` panel to be triggered when the extension receives a `panel-say-hello` message.

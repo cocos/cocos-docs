@@ -29,6 +29,9 @@
             },
             "query": {
                 "methods": ["queryData"]
+            },
+            "panel-say-hello":{
+                "methods": ["default.hello"]
             }
         }
     }
@@ -50,14 +53,16 @@ exports.methods = {
     },
 };
 
-exports.load = function() {};
+exports.load = function() {
+    this.cache = {};
+};
 exports.unload = function() {};
 ```
 
 然后定义面板的 main 文件：
 
 ```javascript
-exports.ready = async () => {
+exports.ready = async function(){
     const tab = await Editor.Message.request('hello-world', 'query', 'tab');
     const subTab = await Editor.Message.request('hello-world', 'query', 'subTab');
 
@@ -65,10 +70,15 @@ exports.ready = async () => {
     console.log(tab, subTab):
     // TODO 使用这两个数据初始化
 };
-exports.close() {
+exports.close = function() {
     // 收到数据后上传到扩展进程
     Editor.Message.send('hello-world', 'upload', 'tab', 1);
     Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+};
+exports.methods={
+    hello(){
+        console.log('hello')
+    }
 };
 ```
 
@@ -76,7 +86,7 @@ exports.close() {
 
 当定义好扩展和扩展里的面板后，就可以尝试触发这些消息。
 
-按下 **ctrl(cmd) + shift + i** 打开控制台。在控制台打开面板：
+按下 **ctrl(cmd) + shift + i** 打开控制台。在控制台输入以下代码打开面板：
 
 ```javascript
 // default 可以省略，如果面板名字是非 default，则需要填写 'hello-world.xxx'
@@ -102,6 +112,13 @@ Editor.Message.send('hello-world', 'upload', 'tab', 1);
 Editor.Message.send('hello-world', 'upload', 'subTab', 0);
 ```
 
+接下来我们发送消息给面板。
+按下 **ctrl(cmd) + shift + i** 打开控制台。在控制台输入以下代码打开面板：
+
+```javascript
+Editor.Message.send('hello-world.default','hello');
+```
+
 通过这两条消息，Message 系统首先根据 messages 里的 upload 定义 `"methods": ["saveData"]`，将数据保存到扩展进程里。当再次打开面板时，通过以下代码查询到刚刚保存的数据，并初始化界面、打印到控制台：
 
 ```javascript
@@ -110,3 +127,18 @@ const subTab = await Editor.Message.send('hello-world', 'query', 'subTab');
 ```
 
 至此，我们完成了一次面板与扩展进程的交互。
+
+接下来我们调用面板里的方法。
+按下 **ctrl(cmd) + shift + i** 打开控制台。在控制台输入以下代码发送消息：
+
+```javascript
+Editor.Message.send('hello-world','panel-say-hello');
+```
+
+控制台会打印出一句：
+
+```sh
+hello
+```
+
+这是因为 `messages` 中定义了当扩展接受到 `panel-say-hello` 消息时就会触发扩展的 `default` 面板上的 `hello` 方法。
