@@ -1,59 +1,290 @@
-# Contributions in English
+# English document writing standard
 
-## Using Bold
+The purpose of the format specification is to provide uniform writing guidelines and make the finished document have a better reading experience.
 
-- to note step numbers.
-  - __Example__: __First__, __Second__, __Third__, etc
-- to designate important Creator Components, Objets, UI Elements.
-  - __Example__: __Scene__, __Sprite inspector__, __Sprite__ inspector, __Asset panel__ or __Asset__ panel
+## Use # for the title, separate the upper and lower text with a blank line
 
-## List items
+Use # for the first-level title.
+Use ## for the second-level title.
+Use ### for the third-level title. 
+and so on...
 
-- __Example__: *apple*, *orange*, *banana*, and *pear*
-- __Example__:
-  - apple
-  - orange
-  - pear
+Under normal circumstances, do not skip the use of headings, for example, the third-level headings cannot appear directly under the first-level heading.
 
-## Using a single backtick (code wrapper)
+Example (correct):
+# Main Heading
 
-- designate class names, property names and function names.
-  - __Example__: `SpriteComponent`, `onEnable`, `SpriteComponent.spriteFrame`
-- filenames and paths.
-  - __Example__: `myfile.txt`, `/mypath/myfile.txt`, `/assets/xyz/`
+## Sub-heading 1
 
-## Using a triple backtick
+### Sub-heading 2
 
-- code blocks
+Example (NOT correct):
+# Main Heading
 
-## Tables
+### Sub-heading 1
 
-Can bold or italics the first colume but bot the second column. __Examples__:
 
-| Properties | Explanation |
-| --- | --- |
-| anisotropy | Anisotropy value |
-| minFilter | Narrowing Filter Algorithm |
 
-| Properties | Explanation |
-| --- | --- |
-| **anisotropy** | Anisotropy value |
-| **minFilter** | Narrowing Filter Algorithm |
+## Use correct initial capital letters for proper English nouns and component names
 
-| Properties | Explanation |
-| --- | --- |
-| *anisotropy* | Anisotropy value |
-| *minFilter* | Narrowing Filter Algorithm |
+Correct usage:
+
+> Log in with GitHub
+
+> Sprite component
+
+Incorrect usage:
+
+> Login with github
+
+> sprite component
+
+## Use spaces
+
+### Add spaces between Chinese and English, and between Chinese and numbers
+
+Correct usage:
+
+> This site is built using Jekyll, applying HPSTR theme. The posts are saved in the `_posts` directory.
+
+> I went out to buy vegetables and spent 5,000 yuan
+
+Incorrect usage:
+
+> This site is built using Jekyll, applying HPSTR theme. Posts are saved in the `_posts` directory.
+
+> I went out to buy vegetables and spent 5,000 yuan
+
+Complete correct usage:
+
+> Please try to avoid using the Ruby that comes with the system directly. It is recommended to use rbenv to manage the local Ruby runtime environment and use ruby-build to install Ruby. The Ruby version you are currently using is 2.1.1.
+
+### A space needs to be added between the number and the unit
+
+Correct usage:
+
+> The bandwidth of my home is 1 Gbps, and the total hard disk is 10 TB.
+
+Incorrect usage:
+
+> The bandwidth of my home is 1Gbps, and the total hard disk is 10TB.
+
+**Exception: There is no need to add a space between degree/percentage and number**
+
+Correct usage:
+
+> Today is a high temperature of 233°.
+
+> The new MacBook Pro has a 15% increase in CPU performance.
+
+Incorrect usage:
+
+> Today is a high temperature of 233 °.
+
+> The new MacBook Pro has a 15% increase in CPU performance.
+
+### Add a space between the URL and the adjacent text
+
+URL link format: **[url document name]\(url document path)**. Use halfwidth (halfwidth) English punctuation, and no spaces between [] and ()
+
+> e.g: [Monitor and launch events]\(../scripting/events.md).
+
+Correct usage:
+
+> For details, please refer to the [Monitor and Launch Events](../scripting/events.md) documentation.
+
+Incorrect usage:
+
+> For details, please refer to the [Monitor and Launch Events](../scripting/events.md) documentation.
+
+### Add a URL to the API document, with spaces on both sides
+
+URL link format: **[url document name]\(url document directory)**. Use halfwidth (halfwidth) English punctuation, and no spaces between [] and ()
+
+> e.g: [Mask API]\(../../../api/en/classes/Mask.html). Use **.html** for file name suffixes across documents
+
+## Use bold and add spaces between adjacent text
+
+**Panel names, components or other important interface elements in the editor** are expressed in bold, and a space is required between the adjacent text.
+
+> Format: open \*\*property inspector\*\* to view properties
+
+Correct usage:
+
+> Open **Properties Inspector** to view properties
+
+> Click the **Create** button to create a new node
+
+> Drag any picture resource to the **Sprite Frame** property
+
+Note that the property name in the editor should be written in the format displayed in the property inspector.
+
+## Use backtick, and add a space between the adjacent text
+
+**Script attributes and method names are written according to the format displayed in the API**, expressed by backtick, and a space is added between the adjacent text
+
+> Format: Set the scale of the node through \`this.node.scale\`
+
+Correct usage:
+
+> Set the scale of the node through `this.node.scale`
+
+> `this.getComponent(cc.Sprite).spriteFrame` can dynamically change the image rendered by the node
+
+**File name and file path**, use backtick to indicate, and add a space between the adjacent text
+
+Format: \`/mypath/myfile.ts\`
+
+If it is a full path, you need to add / before it, if it is not a full path, you don’t need it
+
+Correct usage:
+
+> The sub-package directory is under the `build/quickgame/dist` directory
+
+## Use blank lines
+
+### The code paragraph and the context need to be separated by a blank line
+
+E.g:
+
+> Save Prefab, the code example is as follows:<br>
+>
+> \```js<br>
+> Editor.Ipc.sendToPanel('scene','scene:apply-prefab', node.uuid);<br>
+> \```
+>
+> Continue text part.
+
+The effect is as follows:
+
+> Save Prefab, the code example is as follows:
+>
+> ```js
+> Editor.Ipc.sendToPanel('scene','scene:apply-prefab', node.uuid);
+> ```
+>
+> Continue text part.
+
+### The picture and the upper and lower text need to be separated by a blank line
+
+Picture format: **![Picture description, optional]\(relative path of the picture)**. Use halfwidth English punctuation, and no spaces between !, [], ()
+
+> e.g:!\[background]\(quick-start/background.png)
+
+If the picture is added to the text, it needs to add a space between the adjacent text
+
+## Use blank lines or \<br\> for line breaks
+
+If you use the Enter key to wrap, there will be no wrap effect on GitBook and a space will be added
+
+**Use blank line wrap effect**:
+
+> First line
+>
+> Second line
+
+**Use \<br\> wrapping effect**:
+
+> First line<br>
+> Second line
+
+**Use the enter key to wrap the line effect (not recommended)**:
+
+> First line
+> Second line
+
+## Note writing format
+
+> Format:> \*\*Note\*\*: Do not mix Chinese and English symbols in Chinese and English documents
+
+When the note is more than two points, the writing format is as follows:
+
+> \> \*\*Note\*\*:<br>
+> \> 1. The first point.<br>
+> \> 2. The second point.<br>
+> \> 3. One last point.<br>
+
+The effect is as follows:
+
+> **Note**:
+> 1. The first point.
+> 2. The second point.
+> 3. One last point.
+
+## Introduction
+
+### Used in the text-point introduction
+
+When the main text is introduced with-points, the main text in the points, including pictures, need to be indented with 2/4 spaces. Generally, indents with two spaces are used. E.g:
+
+> \- Point introduction 1
+>
+> (Two spaces) The body part that begins the first division.
+>
+> \- Introduction 2
+>
+> (Two spaces) the body part that begins the second division.
+>
+> (Two spaces)!\[image]\(image link)
+
+The effect is as follows:
+
+>-Point introduction 1
+>
+> Start the text part of the first division.
+>
+>-Introduction 2
+>
+> Start the text part of the second point.
+>
+> !\[image]\(image link)
+
+### Introduction to the use of digital points in the text
+
+When the main text is introduced with **number** points, the main text in the points including pictures need to be indented with **4** spaces. E.g:
+
+> 1\. Point introduction 1
+>
+> (4 spaces) The part of the body that begins the first division.
+>
+> 2\. Point introduction 2
+>
+> (4 spaces) The part of the body that begins the second division.
+>
+> (4 spaces)!\[image]\(image link)
+
+The effect is as follows:
+
+> 1. Sub-point introduction 1
+>
+> Start the text part of the first division.
+>
+> 2. Sub-point introduction 2
+>
+> Start the text part of the second point.
+>
+> !\[image]\(image link)
+
+## The table uniformly uses left alignment
+
+E.g:
+
+> | Properties | Function Description |<br>
+> | \:---- | :------ |<br>
+> | Property 1 | Description 1 |<br>
+> | Property 2 | Description 2 |
+
+Appropriate spaces can be reserved before and after for easy editing.
 
 ## Grammar suggestions
 
 - __Firstly__ ->  __First__.
 - At present, —> Currently,
 - Cocos Creator —> __Cocos Creator__ (let's bold our product name
-- **Note**: —> > **Note**:
 - Related Reference Links —> Reference documentation
 - do not use phrases like: "Now let me explain", "he should do this"
 - text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then you can find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
+- text like this should be avoided: "So, "
 
 ## Technical designations
 
