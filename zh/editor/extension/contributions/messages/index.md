@@ -1,6 +1,6 @@
 # 消息通信
 
-Cocos Creator 内，所有的交互都是通过 [消息系统](./messages.md)。
+Cocos Creator 内，所有的交互都是通过 [消息系统](../../panel/index.md)。
 
 而消息也需要在 "contributions" 里定义后才能使用。
 
@@ -8,7 +8,7 @@ Cocos Creator 内，所有的交互都是通过 [消息系统](./messages.md)。
 
 编辑器在顶部菜单 "开发者" - "消息列表" 里，预置了一个消息管理面板，面板里可以显示每个功能定义的公开消息及其说明。
 
-## 定义一条消息
+## 定义普通消息
 
 ```json
 {
@@ -37,7 +37,7 @@ Cocos Creator 内，所有的交互都是通过 [消息系统](./messages.md)。
 
 类型 {string} 可选
 
-如果 public 为 true，则会在消息列表显示一些简单的描述，支持 i18n:key 语法
+如果 public 为 true，则会在消息列表显示一些简单的描述，支持 i18n:key 语法，详情请查看[I18n](../../basic/i18n.md)
 
 ### doc
 
@@ -73,3 +73,17 @@ Cocos Creator 内，所有的交互都是通过 [消息系统](./messages.md)。
     }
 }
 ```
+
+## 发送消息
+
+- `Editor.Message.send(pkgName, message, ...args);`
+
+  `send` 方法只发送消息，并不会等待返回。如果不需要返回数据，且不关心是否执行完成，请使用这个方法。
+
+- `await Editor.Message.request(pkgName, message, ...args);`
+
+  `request` 方法返回一个 promise 对象，这个 promise 会接收消息处理后返回的数据。
+
+- `Editor.Message.broadcast(`${pkgName}:${actionName}`, ...args);`
+
+  `broadcast` 方法只发送，并且发送给所有监听对应消息的功能扩展。

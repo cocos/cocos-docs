@@ -22,7 +22,7 @@
         "shortcuts": [
             {
                 "message": "undo",
-                "when": "panel.hello-world",
+                "when": "PanelName === 'hello-world'",
                 "win": "ctrl+z",
                 "mac": "cmd+z",
             }
@@ -31,7 +31,7 @@
 }
 ```
 
-`contributions.messages` 详情请参考 [消息通信](./contributions-messages.md)
+`contributions.messages` 详情请参考 [消息通信](../messages/index.md)
 
 `contributions.shortcuts` 参数说明请继续查看下文介绍。
 

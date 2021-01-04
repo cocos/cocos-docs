@@ -6,7 +6,7 @@
 
 但一些简单的扩展，或者需要浏览器环境的扩展，实际功能可能放在面板上，这时候就需要向面板上发送请求。
 
-在看这章节前，需要对 [消息系统](./messages.md) 有一定程度的了解。
+在看这章节前，需要对 [消息系统](../basic/messages.md) 有一定程度的了解。
 
 ## 定义扩展上和面板的方法
 
@@ -55,7 +55,7 @@ exports.close = function() {};
 
 当我们定义好扩展和扩展里的面板后，就可以尝试触发这些消息。
 
-按下 ctrl(cmd) + shift + i 打开控制台。在控制台打开面板:
+按下 `ctrl(cmd) + shift + i` 打开控制台。在控制台打开面板:
 
  ```javascript
  // default 可以省略，如果面板名字是非 default，则需要填写 'hello-world.xxx'
@@ -64,7 +64,7 @@ exports.close = function() {};
  Editor.Message.send('hello-world', 'console', 'log');
  ```
 
-hello world 插件收到消息后，会转给 panel.js 里的 methods.console 进行处理。
+hello world 插件收到消息后，会转给 `panel.js` 里的 methods.console 进行处理。
 
 所以会在控制台输出一个字符串 "log"
 

@@ -1,6 +1,6 @@
 # 编写面板
 
-我们已经在 [package.json](./panel.md) 里写好了面板的定义，这时候就需要实现面板的逻辑功能了。
+我们已经在 [package.json](./index.md) 里写好了面板的定义，这时候就需要实现面板的逻辑功能了。
 
 这时候就需要在 panel 定义中标识 main 入口文件，并填充其内容：
 
@@ -51,7 +51,7 @@ exports.template = readFileSync(join(__dirname, '../static/default.html'), 'utf8
 
 当定义好 template 后，面板被打开的时候，将自动把 template 的内容渲染到界面上。
 
-此外编辑器也提供了一些 custom element，可以参考 [UI 组件](./editor/extension/ui.md) 使用。
+此外编辑器也提供了一些 custom element，可以参考 [UI 组件](../basic/ui.md) 使用。
 
 ## style
 
@@ -93,7 +93,7 @@ exports.ready = function() {
 
 ## methods
 
-面板上定义的方法。面板对外的功能都需要封装成方法，以函数为单位对外提供。消息也可以直接触发面板上的方法，详细请参考 [消息通信](./contributions-messages.md)
+面板上定义的方法。面板对外的功能都需要封装成方法，以函数为单位对外提供。消息也可以直接触发面板上的方法，详细请参考 [消息通信](../contributions/messages/index.md)
 
 这个对象里都是函数，请不要挂载其他类型的对象到这里。
 
@@ -143,7 +143,7 @@ exports.listeners = {
 
 请不要在这个函数里执行实际的销毁和关闭相关的逻辑代码，这一步骤只是进行询问，实际的销毁请放到 close 函数里。
 
-**请谨慎使用** 如果判断错误，可能导致编辑器或者面板窗口无法正常关闭。
+> **注意**：如果判断错误，可能导致编辑器或者面板窗口无法正常关闭。
 
 ## close
 

@@ -58,10 +58,10 @@
 
 类型 {[name: string]: PanelInfo} 可选
 
-扩展内定义的面板信息。可以使用 Editor.Panel.open('hello-world.list'); 打开定义好的面板。详细信息请参看 [扩展面板](./panel.md)
+扩展内定义的面板信息。可以使用 Editor.Panel.open('hello-world.list'); 打开定义好的面板。详细信息请参看 [扩展面板](./panel/index.md)
 
 ## contributions
 
 类型 {[name: string]: any} 可选
 
-扩展已经存在的功能，能够在定制一些其他功能模块对外开放的功能。详细信息请参看 [扩展已有功能](./contributions.md)
+扩展已经存在的功能，能够在定制一些其他功能模块对外开放的功能。详细信息请参看 [扩展已有功能](./contributions/index.md)

@@ -6,7 +6,7 @@
 
 这时候就需要与扩展主体进行一定程度的数据交互。
 
-在看这章节前，需要对 [消息系统](./messages.md) 有一定程度的了解。
+在看这章节前，需要对 [消息系统](../basic/messages.md) 有一定程度的了解。
 
 ## 定义扩展上和面板的方法
 
@@ -29,9 +29,6 @@
             },
             "query": {
                 "methods": ["queryData"]
-            },
-            "panel-say-hello":{
-                "methods": ["default.hello"]
             }
         }
     }
@@ -127,18 +124,3 @@ const subTab = await Editor.Message.send('hello-world', 'query', 'subTab');
 ```
 
 至此，我们完成了一次面板与扩展进程的交互。
-
-接下来我们调用面板里的方法。
-按下 **ctrl(cmd) + shift + i** 打开控制台。在控制台输入以下代码发送消息：
-
-```javascript
-Editor.Message.send('hello-world','panel-say-hello');
-```
-
-控制台会打印出一句：
-
-```sh
-hello
-```
-
-这是因为 `messages` 中定义了当扩展接受到 `panel-say-hello` 消息时就会触发扩展的 `default` 面板上的 `hello` 方法。
