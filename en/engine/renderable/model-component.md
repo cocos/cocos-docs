@@ -7,7 +7,7 @@ To use `MeshRenderer`, please refer to the [MeshRenderer API](../../../api/en/cl
 ## MeshRenderer Properties
 
 Properties | Functions
---- | ---
+:--- | :---
 **mesh** | 3D model assets for rendering.
 **materials** | The material used to render the model, one material corresponds to one submesh in the mesh.
 **shadowCastingMode** | Whether the model casts shadows. The planar shadow system in the scene should be enabled beforehand.
@@ -31,7 +31,7 @@ After batching, the original transform of `MeshRenderer` cannot be changed, but 
 
 ## About dynamic batching
 
-The engine currently provides two sets of dynamic batching systems, *instancing batching* and *VB-merging batching*. The two methods cannot coexist, and the priority of instancing is greater than that of dynamic merging VB. To enable batching, simply check the `USE_INSTANCING` or `USE_BATCHING` switch in the material used in the model.
+The engine currently provides two sets of dynamic batching systems, **instancing batching** and **VB-merging batching**. The two methods cannot coexist, and the priority of instancing is greater than that of dynamic merging VB. To enable batching, simply check the `USE_INSTANCING` or `USE_BATCHING` switch in the material used in the model.
 
 > **Note**: batching can participate in the frustum culling process normally, but transparents model cannot be sorted, which will lead to incorrect blending results. The engine does not explicitly prohibit the approval of transparent objects, and developers can control the trade-offs.
 
@@ -51,13 +51,13 @@ Operations such as merging vertices per frame introduce a portion of CPU overhea
 
 ## Batch best practices
 
-Generally speaking, the priority of the batch system is: *static batching* -> *instancing batching* -> *VB-merging batching*.
+Generally speaking, the priority of the batch system is: **static batching** -> **instancing batching** -> **VB-merging batching**.
 
 The material must be insured that it is consistent, under this premise:
   - If you are certain that certain models will remain completely static during the game cycle, use **static batching**.
   - If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use **instancing batching**.
   - If there are a large number of models with very low number of triangles but different vertex data, consider trying **VB-merging batching**.
 
-> **Notes**: 
+> **Notes**:
 > 1. <b id="f1">[1]</b> Currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__. [↩](#a1)
 > 2. <b id="f2">[2]</b> There have been many discussions in the industry on the topic of batching and performance, you can refer to this [nVidia slide](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf). [↩](#a2)
