@@ -1,4 +1,4 @@
-**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/gme-api-docs.html)。
+> **注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/gme-api-docs.html)。
 
 # 游戏多媒体引擎（腾讯云）接口文档
 

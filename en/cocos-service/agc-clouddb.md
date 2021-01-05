@@ -1,4 +1,4 @@
-**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/agc-clouddb.html).
+> **Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/agc-clouddb.html).
 
 # Cloud DB (AppGallery Connect) Quick Start
 

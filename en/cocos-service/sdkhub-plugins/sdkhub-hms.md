@@ -1,4 +1,4 @@
-**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html).
+> **Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html).
 
 # HUAWEI HMS Core Plug-in User Guide
 
