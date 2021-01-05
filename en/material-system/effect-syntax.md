@@ -283,7 +283,7 @@ The effect compiler will finally split these compile-time constant branches into
 
 First the conclusion, the final rules are, every non-sampler uniform should be specified in UBO blocks, and for every UBO block:
 
-  1. There should be no vec3 typed members,
+  1. There should be no vec3 typed members.
   2. For array typed members, size of each element should be no less than a vec4.
   3. Any member ordering that introduces a padding will be rejected.
 
