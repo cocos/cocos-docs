@@ -1,4 +1,4 @@
-> **Note**: this version of the documentation has been archived and is no longer maintained, please move to the [latest version](https://service.cocos.com/document/en/agc-appmessaging.html).
+> **Note**: this version of the documentation has been archived and is no longer maintained. Please move to the [latest version](https://service.cocos.com/document/en/agc-appmessaging.html).
 
 # App Messaging (AppGallery Connect) Quick Start
 
