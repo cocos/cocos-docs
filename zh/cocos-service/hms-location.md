@@ -1,4 +1,4 @@
-> **注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/hms-location.html)。
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/hms-location.html)。
 
 # 定位服务（HMS Core）
 

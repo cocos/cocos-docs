@@ -1,4 +1,4 @@
-> **注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/agora.html)。
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/agora.html)。
 
 # 声网（Agora RTC）快速入门
 
