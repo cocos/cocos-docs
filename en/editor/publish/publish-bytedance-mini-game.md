@@ -12,17 +12,17 @@ The game submission, review and release process of a mini-game needs to comply w
 
 2. Log in to [Developer Platform [cn]](https://microapp.bytedance.com/)to find your `mini game appid`. For details, please refer to the official [Access Guide [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game) documentation.
 
-    ![](https://sf1-ttcdn-tos.pstatp.com/obj/website-img/f296a9f80eaeb40f4af38e8a4e25e17e_12.png)
+    ![appid](./publish-bytedance-mini-game/appid.png)
 
 3. Select the **ByteDance Mini Game** in the **Platform** in the **Build** panel, fill in the `mini game appid`, and then click **Build**
 
-    ![](./publish-bytedance-mini-game/build.jpg)
+    ![build](./publish-bytedance-mini-game/build.jpg)
 
 4. Preview game
 
     Following this process, a `bytedance-mini-game` folder will be generated in the project's **build** directory (the name of the folder is based on the **Build Task Name**), then you can open your game with the **ByteDance DevTools**.
 
-    ![](./publish-bytedance-mini-game/tool.jpg)
+    ![tool](./publish-bytedance-mini-game/tool.jpg)
 
 ## Build Options
 
