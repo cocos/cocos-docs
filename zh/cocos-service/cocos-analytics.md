@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/cocos-analytics.html)。
+
 # Cocos Analytics 快速入门
 
 [Cocos Analytics](https://www.cocos.com/analytics) 用于数据统计和行为分析，并且在后台提供了数据分析支持。只需要在 Cocos Creator 的 **服务** 面板中进行简单的设置就能开启 Cocos Analytics 统计服务，方便在游戏开发过程中快速接入。及时便捷地监测游戏生命周期中的运营情况，为开发者提供符合行业标准的运营分析指标，简单而实用，并在不断的完善中，让开发者可以更专注于游戏开发。目前支持 Android／iOS／Web／微信小游戏平台。

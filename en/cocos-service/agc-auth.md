@@ -1,3 +1,5 @@
+**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/agc-auth.html).
+
 # Auth Service (AppGallery Connect) Quick Start
 
 AppGallery Connect provides a cloud-based [Auth Service](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-auth-introduction-0000001053732605) and SDKs to help you quickly build a secure and reliable user authentication system for your apps to verify user identity.

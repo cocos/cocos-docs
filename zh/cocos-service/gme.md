@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/gme.html)。
+
 # 游戏多媒体引擎（腾讯云）快速入门
 
 [**游戏多媒体引擎（Game Multimedia Engine，GME）**](https://cloud.tencent.com/product/gme) 提供一站式语音解决方案。针对不同场景进行深度优化，覆盖游戏、社交、娱乐等多种泛互联网行业应用场景。提供实时语音、语音消息及转文本、语音分析服务，一次接入即可满足多样化的语音需求。

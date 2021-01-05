@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/)。
+
 # 服务列表
 
 - [Cocos Analytics](cocos-analytics.md)

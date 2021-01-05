@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/hms-analytics.html)。
+
 # 分析服务（HMS Core）
 
 [华为分析服务](https://developer.huawei.com/consumer/cn/hms/huawei-analyticskit)（HUAWEI Analytics Kit）预置大量分析模型，可帮助开发者清晰地了解用户的行为方式，从而实现用户、产品、内容的深度洞察，让开发者实现基于数据驱动的运营，可以就应用营销和产品优化制定明智的决策。

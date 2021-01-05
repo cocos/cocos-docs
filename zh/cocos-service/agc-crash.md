@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/agc-crash.html)。
+
 # 崩溃服务（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[崩溃服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-crash-introduction) 是一个轻量级崩溃分析服务，开发者可以通过崩溃报告了解应用崩溃情况。并且提供了 Crash SDK，可以 **零代码** 快速集成。

@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/agc-cloudstorage.html)。
+
 # 云存储（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage/) 是专为开发者打造的可伸缩、免维护的云端存储服务，用于存储图片、音频、视频或其他由用户生成的内容。

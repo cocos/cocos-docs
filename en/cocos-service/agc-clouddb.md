@@ -1,3 +1,5 @@
+**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/agc-clouddb.html).
+
 # Cloud DB (AppGallery Connect) Quick Start
 
 In the traditional mobile application development, developers have to build each service from the ground-up, leading to heavy development workload and high technical requirements. In addition to writing application logic, developers need to perform data management, device-cloud data synchronization, and server deployment and maintenance.

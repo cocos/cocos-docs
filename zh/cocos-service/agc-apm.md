@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/agc-apm.html)。
+
 # 性能管理（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[性能管理](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)（APM，App Performance Management）服务，提供分钟级应用性能监控能力，开发者可以在 AGC 后台查看和分析性能管理服务收集到的应用性能数据，从而全面了解所开发应用的性能特点，快速精准修复应用存在的性能问题，持续提升应用的用户体验。

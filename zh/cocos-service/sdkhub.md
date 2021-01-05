@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/sdkhub.html)。
+
 # Cocos SDKHub 快速入门
 
 Cocos SDKHub 是一套帮助 Cocos Creator 开发者快速接入原生平台 SDK 的接入框架。

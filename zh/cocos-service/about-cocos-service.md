@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/)。
+
 # Cocos Service 简介
 
 Cocos Service 为开发者提供优质服务，以便获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单。

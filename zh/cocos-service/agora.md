@@ -1,3 +1,5 @@
+**注意**：此版本文档已归档不再维护，推荐您使用 [最新文档](https://service.cocos.com/document/zh/agora.html)。
+
 # 声网（Agora RTC）快速入门
 
 成立于 2013 年的 [声网 Agora](https://www.agora.io/cn/) 是实时互动 API 平台行业开创者，是全球领先的专业服务商。开发者只需简单调用 API，即可在应用内构建多种实时音视频互动场景。

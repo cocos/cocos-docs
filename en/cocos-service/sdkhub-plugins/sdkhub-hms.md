@@ -1,3 +1,5 @@
+**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html).
+
 # HUAWEI HMS Core Plug-in User Guide
 
 Currently, the Huawei HMS Core plug-in provided by Cocos SDKHub includes [Game Service](https://developer.huawei.com/consumer/en/hms/huawei-game), [In-App Purchases](https://developer.huawei.com/consumer/en/hms/huawei-iap), [Ads Kit](https://developer.huawei.com/consumer/en/hms/huawei-adskit), and some [Account Kit](https://developer.huawei.com/consumer/en/hms/huawei-accountkit) function, the user needs to call the Cocos SDKHub interface at the JS layer to handle the callback.

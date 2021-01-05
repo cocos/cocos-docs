@@ -1,3 +1,5 @@
+**Note**: Documents from this version have been archived, and will not continue to be maintained. Please use [the latest version](https://service.cocos.com/document/en/agc-apm.html).
+
 # APM (AppGallery Connect) Quick Start
 
 [App Performance Management (APM)](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-apms-introduction) Service of HUAWEI AppGallery Connect provides minute-level app performance monitoring capabilities. You can view and analyze app performance data collected by APM in AppGallery Connect to comprehensively understand the performance features of developed apps, helping you quickly and accurately rectify possible performance problems and continuously improve user experience.
