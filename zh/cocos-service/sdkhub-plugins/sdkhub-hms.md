@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/sdkhub-plugins/sdkhub-hms.html)。
+
 # HUAWEI HMS Core 插件使用指南
 
 目前 Cocos SDKHub 提供的华为 HMS Core 插件，包括了 [游戏服务](https://developer.huawei.com/consumer/cn/hms/huawei-game)、[应用内支付服务](https://developer.huawei.com/consumer/cn/hms/huawei-iap/)、[广告服务](https://developer.huawei.com/consumer/cn/hms/huawei-adskit)、[推送服务](https://developer.huawei.com/consumer/cn/hms/huawei-pushkit) 和部分 [账号服务](https://developer.huawei.com/consumer/cn/hms/huawei-accountkit)，开发者需在 JS 层调用 Cocos SDKHub 接口，处理回调。

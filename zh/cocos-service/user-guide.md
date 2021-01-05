@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/user-guide.html)。
+
 # 服务面板操作指南
 
 ## 使用方式

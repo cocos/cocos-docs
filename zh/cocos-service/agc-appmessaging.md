@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/agc-appmessaging.html)。
+
 # 应用内消息（AppGallery Connect）快速入门
 
 通过华为 AppGallery Connect（简称 AGC）的 [应用内消息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-appmessage-introduction)（App Messaging）服务，可以实现向活跃用户发送有针对性的消息来鼓励用户使用应用的关键功能，从而吸引这些用户。例如，通过应用内消息，开发者可以向用户给出某个关卡的通关提示、鼓励用户订阅，或者推荐某个餐厅活动。

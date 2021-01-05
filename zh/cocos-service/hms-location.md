@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/hms-location.html)。
+
 # 定位服务（HMS Core）
 
 [华为定位服务](https://developer.huawei.com/consumer/cn/hms/huawei-locationkit)（HUAWEI Location Kit）采用 GPS、Wi-Fi、基站等多途径的混合定位模式进行定位，赋予应用开发者快速、精准地获取用户位置信息的能力，构建全球定位服务能力，助力开发者发展全球业务。当前华为定位服务的主要能力包含三个部分：融合定位、活动识别和地理围栏，开发者可以根据自己的需求，调用相应的能力。

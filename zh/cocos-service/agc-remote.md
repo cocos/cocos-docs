@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/agc-remote.html)。
+
 # 远程配置（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[远程配置](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-remoteconfig-introduction) 服务，提供在线的配置项管理能力，开发者可以在线更改应用的行为和外观，无需用户下载应用更新。

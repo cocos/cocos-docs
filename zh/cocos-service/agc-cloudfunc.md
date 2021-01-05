@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/agc-cloudfunc.html)。
+
 # 云函数（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[云函数](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudfunctiontion-introduction) 是一项 Serverless 计算服务，提供 FaaS（Function as a Service）能力，可以帮助开发者大幅简化应用开发与运维相关的事务，降低应用功能的实现门槛，快速构建业务能力。

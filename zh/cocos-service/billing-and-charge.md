@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/billing-and-charge.html)。
+
 # 计费与充值
 
 Cocos Service 提供的服务有免费的，也有部分是付费的，具体在对应的服务详情页会有明确标明。

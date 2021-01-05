@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/)。
+
 # 一键接入第三方服务
 
 ## Cocos Service 简介

@@ -1,3 +1,5 @@
+> **Note**: this version of the documentation has been archived and is no longer maintained. Please move to the [latest version](https://service.cocos.com/document/en/hms-analytics.html).
+
 # Analytics Kit (HMS Core) Quick Start
 
 [HUAWEI Analytics Kit](https://developer.huawei.com/consumer/en/hms/huawei-analyticskit) (hereinafter referred to as Analytics Kit or Kit) offers a rich array of preset analytics models that help you gain a deeper insight into your users, products, and content. With this insight, you can then take a data-driven approach to market your apps and optimize your products.

@@ -1,3 +1,5 @@
+> **Note**: this version of the documentation has been archived and is no longer maintained. Please move to the [latest version](https://service.cocos.com/document/en/sdkhub.html).
+
 # Cocos SDKHub Quick Start
 
 Cocos SDKHub is a set of access frameworks that help Cocos Creator users quickly access native channel SDKs.

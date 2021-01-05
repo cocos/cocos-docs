@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/agc-applinking.html)。
+
 # App Linking（AppGallery Connect）快速入门
 
 华为 AppGallery Connect（简称 AGC）[App Linking](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-applinking-introduction) 是一种无论应用是否已经安装都可以按照所需方式工作的跨平台链接，创建 App Linking 后将链接地址多渠道分发，用户点击链接后即可跳转到链接指定的内容，有长链接和短链接之分。为了区分用户来源的渠道，在创建 App Linking 时可针对不同渠道设置不同的跟踪参数用于流量跟踪，将链接地址多平台多渠道分发投放，根据数据点击来查看哪个营销平台或广告系列最为适合。

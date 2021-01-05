@@ -1,3 +1,5 @@
+> **注意**：此版本文档已归档不再维护，请移步至 [最新版本](https://service.cocos.com/document/zh/gme-api-docs.html)。
+
 # 游戏多媒体引擎（腾讯云）接口文档
 
 为方便 Cocos Creator 开发者调试和接入游戏多媒体引擎（腾讯云）产品 API，本文为通过 Cocos Service 服务面板，接入游戏多媒体引擎的接口文档。
