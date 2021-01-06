@@ -50,4 +50,4 @@ To use `Label`, please refer to the [Label API](../../../api/en/classes/ui.label
 
 ## Use font assets
 
-By dragging the __TTF__ font asset and __BMFont__ font asset into the `Font` property in the __Inspector__ panel, the __Label__ component can alter the rendering font type. If you want to stop using a font file, you can use the system font again by checking __UseSystemFont__.
+By dragging the __TTF__ font asset and __BMFont__ font asset into the `Font` property in the __Inspector__ panel, the __Label__ component can alter the rendering font type. If you want to stop using a font file, use the system font again by checking __UseSystemFont__.

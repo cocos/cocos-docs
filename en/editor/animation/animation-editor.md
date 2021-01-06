@@ -62,7 +62,7 @@ __Right-click__ on the __timeline position__ or __click__ the __timeline button_
 
 The __index node__ in the __animation data__ is based on the relative path of the node where the __Animation component__ is attached. Therefore, a node with the same name under the same parent node can only generate one copy of __animation data__, and can only be applied to the first node with the same name.
 
-The nodes here and the nodes of the __Hierarchy__ panel are mapped one by one. Using this relationship, when the number of nodes in the node list is too large to be consulted, you can use the search function of the __Hierarchy__ panel to locate the nodes. Click on the node in the __Hierarchy__ panel, and it will also jump to the corresponding node position in the __Animation Editor__ to achieve a reasonable display effect.
+The nodes here and the nodes of the __Hierarchy__ panel are mapped one by one. Using this relationship, when the number of nodes in the node list is too large to be consulted, use the search function of the __Hierarchy__ panel to locate the nodes. Click on the node in the __Hierarchy__ panel, and it will also jump to the corresponding node position in the __Animation Editor__ to achieve a reasonable display effect.
 
 #### Selected node icon
 

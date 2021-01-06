@@ -63,19 +63,19 @@ Just like the `include` directive in C/C++, you can include other shader chunks:
 
 Relevant details:
 
-- The `.chunk` extension can be omitted; quotation marks and angle brackets means the same;
-- Every included header is guaranteed to be expanded only once; so every module could (and in fact should) include all its dependencies, even if there are overlaps;
-- Dead code elimination is done at compile-time too, so including lots of unused utility functions shouldn't be of concern;
-- There are two ways to reference a external chunk file: using the relative path to current file ('relative path'), or the relative path to `assets/chunks` folder of current project ('project absolute path'). If the specified file interpreted under both rules are present, the latter is preferred;
-- When including files from other databases (like the internal database), only project absolute path is supported. When there are multiple databases have the same specified file, the priority is: **User Project DB > Plugin DB > Internal DB**;
-- The built-in chunks are located directly inside `assets/chunks` in internal database, so you can include these without path prefix;
-- All `CCProgram` blocks in the same effect file can include each other;
+- The `.chunk` extension can be omitted; quotation marks and angle brackets means the same.
+- Every included header is guaranteed to be expanded only once; so every module could (and in fact should) include all its dependencies, even if there are overlaps.
+- Dead code elimination is done at compile-time too, so including lots of unused utility functions shouldn't be of concern.
+- There are two ways to reference a external chunk file: using the relative path to current file ('relative path'), or the relative path to `assets/chunks` folder of current project ('project absolute path'). If the specified file interpreted under both rules are present, the latter is preferred.
+- When including files from other databases (like the internal database), only project absolute path is supported. When there are multiple databases have the same specified file, the priority is: **User Project DB > Plugin DB > Internal DB**.
+- The built-in chunks are located directly inside `assets/chunks` in the internal database. Include these without path prefix.
+- All `CCProgram` blocks in the same effect file can include each other.
 
 ### Pre-processing Macros
 
 Currently the effect system tends to take advantage of the language built-in pre-processing macros to create shader variants. The effect compiler will collect the macros that appear in shaders, and declarations will be inserted accordingly at runtime.
 
-So for the most part you can use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natual editting interface.
+For the most part, use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natual editting interface.
 
 Relevant details:
 - To type check as many branches as possible at effect compile-time, the strategy currently taken is to set all macros to `1` (or its given default value) before doing the actual check; so make sure this combination works (or if not, maybe you need numerical macros, specified in the next section);

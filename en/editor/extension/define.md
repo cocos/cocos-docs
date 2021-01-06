@@ -58,7 +58,7 @@ The relative path of a js file defines the function entry file. When the extensi
 
 Type `{[name: string]: PanelInfo}` Optional
 
-Panel information defined in the extension. You can use `Editor.Panel.open('hello-world.list');` to open the defined panel. For more information, please refer to the [Panel](./panel.md) documentation.
+Panel information defined in the extension. Use `Editor.Panel.open('hello-world.list');` to open the defined panel. For more information, please refer to the [Panel](./panel.md) documentation.
 
 ## contributions
 

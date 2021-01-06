@@ -116,7 +116,7 @@ The constructor of `CCClass` is defined by `constructor`. To ensure that deseria
 
 ### Judgment Example
 
-When you need to make type judgments, you can use **TypeScript** native `instanceof`:
+When making type judgments, use **TypeScript** native `instanceof`:
 
 ```typescript
 class Sub extends Base {

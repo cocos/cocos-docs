@@ -42,7 +42,7 @@ The **Scene Gizmo** is in the upper-right corner of the **Scene** view. It indic
 
 ## Selecting a node
 
-The node will be selected upon left-clicking the mouse on the node in the **Scene** panel. You can use transform tools (like position, rotation) to do basic node operations when it is selected.
+The node will be selected upon left-clicking the mouse on the node in the **Scene** panel. Use transform tools (like position, rotation) to do basic node operations when it is selected.
 
 ## Gizmo Operation Introduction
 

@@ -71,4 +71,4 @@ The **Cocos Creator** installation directory under `resources/3d/cocos2d-x-lite`
     - compile.config.json
 ```
 
-After building the project file, you can use the relevant development tool of the platform to open `proj` folder. For details, please refer to the specific documents of the designation platform.
+After building the project file, use the relevant development tool of the platform to open `proj` folder. For details, please refer to the specific documents of the designation platform.
