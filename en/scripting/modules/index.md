@@ -1,83 +1,86 @@
-# Module
+# Modules
 
-Engine and editor expose their functionalities API through modules. Modules are in form of ECMAScript module format.
+Engines and editors expose their functionality through API interfaces and modules that exist in the form of **ECMAScript** modules.
 
-> **Note**: starting from Creator 3.0, developers cannot access the API through global variable `cc`!
+> **Note**: starting from 3.0, engine functions cannot be accessed through the global variable, prefixed with `cc`!
 
-## Engine modules
+## Engine Module
 
-### Functionality
+Currently, the engine only provides a public module prefixed with `'cc'`.
 
-Module `'cc'` provide access to engine functionalities. Contents of module `'cc'` are dynamically decided, which is relevant with engine modules setting in project settings.
+The content of the `'cc'` module is dynamic, and its content is related to the setting of **engine module** in **Project Settings**.
 
-#### Example: engine logging
+### Engine log output
+
+Examples are as follows:
 
 ```ts
-import { log } from 'cc';
+import {log} from'cc';
 log(`Hello world!`);
 ```
 
-### Build-time constants
+## Editor Module
 
-Module `'cc/env'` exposes some **constants** that are came from building environment. These constants may present execution environment, debugging level, platform identification and so on.
+The editor modules are all under the `'cce:'` protocol (**cce** stands for "**C**ocos**C**reator**E**ditor").
 
-Since these constants are declared with `const` qualifier, it's very friendly to code optimization.
+With the only exception being `'cce.env'`, all editor modules are only available in the editor environment. For example, the editor module cannot be accessed in the preview and build environment, on the contrary, it can be accessed in the **scene editor**.
+
+| Module name | Description |
+| :---------- | :-------------- |
+| `'cce.env'` | Used to access build-time constants |
+<!--
+| `'cce:gizmo'` | Gizmo |
+-->
+
+### Build time constant
+
+The editor module, `'cce.env'`, exposes some **constants** at build time. These constants represent the execution environment, debugging level, or platform identification. Unlike other editor modules, `'cce.env'` allows access in a non-editor environment.
+
+As these constants are declared with `const`, it provides a good opportunity for code optimization.
 
 #### Execution environment
 
-| Name (type: `boolean`) | Description                            |
-| :--------------------------------|:------------------------------------|
-| `BUILD`                        | Is executing after building        |
-| `PREVIEW`                      | Is executing during previewing     |
-| `EDITOR`                       | Is executing in editor environment |
+| Name (all types are `boolean`) | Description |
+| :-------- | :------------------- |
+| `BUILD` | Is it running after build |
+| `PREVIEW` | Is it running in preview |
+| `EDITOR` | Is it running in the editor |
 
+#### Debug level
 
-#### Debugging level
+| Name (all types are `boolean`) | Description |
+| :------ | :------ |
+| `DEBUG` | Whether it is in debug mode. It is `false` only when the debug option is not checked when building, and it is `true` in all other cases |
+| `DEV` | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW` |
 
-| Name (type: `boolean`) | Description                                                                                |
-|:--------------------------------|:----------------------------------------------------------------------------------------|
-| `DEBUG`                        | Is under debug mode. `false` if debug option is set when do building,`true` otherwise. |
-| `DEV`                          | Equivalent to `DEBUG || EDITOR || PREVIEW || EDITOR`                                   |
+#### Platform ID
 
+The constants listed in the following table represent whether it is running on **a** or **a type** platform, and the type is all `boolean`.
+<!-- Please sort the following table lexicographically -->
 
-#### Platform identification
+| Name | Representative platform | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` supports JIT |
+| :---------- | :---------- | :----------------- | :----- ------------ | :----------------- |
+| `HTML5` | Web | ❌ | ❌ | ❌ |
+| `NATIVE` | Native platform | ❌ | ❌ | ❌ |
+| `ALIPAY` | Alipay game | ✔️ | ❌ | ✔️ |
+| `BAIDU` | Baidu Mini Games | ✔️ | ❌ | ✔️ |
+| `BYTEDANCE` | Bytedance game | ✔️ | ❌ | ✔️ |
+| `WECHAT` | WeChat Mini Game | ✔️ | ❌ | ✔️ |
+| `XIAOMI` | Mi Games | ✔️ | ❌ | ✔️ |
+| `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
+| `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
+| `OPPO` | OPPO Quick Game | ❌ | ✔️ | ✔️ |
+| `VIVO` | vivo fast game | ❌ | ✔️ | ✔️ |
 
-The following constants represent if is executing on some platform or some kind of platforms. All of these constants have type `boolean`.
-<!-- Please sort the table in dictionary order -->
-| Name        | Platform          | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
-|:-------------|:-------------------|------------------------|----------------------------------------|--------------------------------|
-| `HTML5`     | Web               | ❌                      | ❌                                      | ❌                              |
-| `NATIVE`    | Native platforms  | ❌                      | ❌                                      | ❌                              |
-| `ALIPAY`    | Alipay mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `BAIDU`     | Baidu mini game   | ✔️                      | ❌                                      | ✔️                              |
-| `BYTEDANCE` | Tik Tok mini game | ✔️                      | ❌                                      | ✔️                              |
-| `WECHAT`    | WeChat mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `XIAOMI`    | XiaoMi mini game  | ✔️                      | ❌                                      | ✔️                              |
-| `COCOSPLAY` | Cocos play        | ❌                      | ✔️                                      | ✔️                              |
-| `HUAWEI`    | HuaWei quick game | ❌                      | ✔️                                      | ✔️                              |
-| `OPPO`      | OPPO quick game   | ❌                      | ✔️                                      | ✔️                              |
-| `VIVO`      | vivo quick game   | ❌                      | ✔️                                      | ✔️                              |
+#### Outputting in debug mode
 
-
-#### Example: logging under development mode
+Examples are as follows:
 
 ```ts
-import { log } from 'cc';
-import { DEV } from "cc/env";
+import {log} from'cc';
+import {DEV} from'cce.env';
 
 if (DEV) {
     log(`I'm in development mode!`);
 }
 ```
-
-## Editor modules
-
-Editor modules are under protocol `'cce:'`("cce" is abbreviation of "**C**ocos**C**reator**E**ditor").
-
-All modules are visible only under editor environments. For example, they are not visible from previewing and after building. Instead, they are visible from scene editor.
-
-<!--
-| Module name | Use for                        |
-|-------------|--------------------------------|
-| `'cce:gizmo'` | Gizmo                          |
--->
