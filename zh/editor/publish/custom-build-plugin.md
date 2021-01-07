@@ -4,14 +4,14 @@
 
 ## 快速开始
 
-1. 在编辑器的菜单栏中点击**项目 -> 新建构建扩展插件**，选择 **全局**/ **项目** 后即可创建一个构建扩展插件包。
+1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展插件**，选择 **全局**/**项目** 后即可创建一个构建扩展插件包。
 
-* 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
-  * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
-  * **Mac**：`$HOME/.CocosCreator/extensions`
-* 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
+  * 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
+    * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+    * **Mac**：`$HOME/.CocosCreator/extensions`
 
-  * `$你的项目地址/extensions`
+  * 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
+    * `$你的项目地址/extensions`
 
 2. 构建扩展插件创建完成后会在 **控制台** 中看到插件的生成路径，点击路径即可在操作系统的文件管理器中打开构建扩展插件包。
 
@@ -158,14 +158,14 @@ declare interface IHook {
     onAfterCompressSettings?: IBaseHooks;
     onAfterBuild?: IBaseHooks;
 
-    // 编译生成的钩子函数（仅在有生成流程的平台构建时才有效）
+    // 编译生成的钩子函数（仅在构建有“生成”流程的平台时才有效）
     onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
-    onAfterMake?:  (root: string, options: IBuildTaskOptions) => void;
+    onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
 }
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个拷贝，仅作为信息的获取参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
 
 简单的代码示例：
 
