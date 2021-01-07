@@ -15,7 +15,7 @@ For some general build options of platforms, please refer to the [General Build 
 
 ### MD5 Cache
 
-**MD5 Cache** is used as a generic option, mainly to add MD5 information to all asset file names after the build, solving **the CDN asset cache problem** during **hot update**.
+**MD5 Cache** is used as a generic option, mainly to add MD5 information to all asset file names after the build.
 
 When enabled, if any asset fails to load, it is because after renaming the new file, it cannot be found. This is usually because some third party assets used in C++ was not loaded by `loader`. At this point, you can convert the URL before loading with the following method, to fix the loading problem:
 

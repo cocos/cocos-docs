@@ -124,7 +124,7 @@ After the interruption, start the hot update process again, it will check whethe
 
 ### Control concurrency
 
-From Cocos Creator v1.4 and cocos2d-x v3.15, hot update manager adds control to download the number of concurrent API, the use of the following:
+Hot update manager provide control to download the number of concurrent API, the use of the following:
 
 ```js
 assetsManager.setMaxConcurrentTask(10);
@@ -132,7 +132,7 @@ assetsManager.setMaxConcurrentTask(10);
 
 ### Version comparison function
 
-A very important step in the hot update process is to compare the client and server versions, by default only when the primary version of the server is updated over the client major version. The engine implements a version of the comparison function, its initial version of the use of the most simple string comparison and criticized, for example, there will be 1.9 > 1.10 situation. After Cocos Creator v1.4 and Cocos2d-x v3.15, we upgraded to support the x.x.x.x four sequence versions of the comparison function (x is a pure number), do not conform to this version number mode will continue to use the string comparison function.
+A very important step in the hot update process is to compare the client and server versions, by default only when the primary version of the server is updated over the client major version. The engine implements a version of the comparison function, support the x.x.x.x four sequence versions of the comparison function (x is a pure number), do not conform to this version number mode will continue to use the string comparison function.
 
 In addition, we also allow users to use their own version of the contrast:
 

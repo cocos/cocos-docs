@@ -16,7 +16,7 @@ Hot update in Cocos Creator comes mainly from the `AssetsManager` module in the 
 
 **Server and client both keep a full list of the game asset (manifest)**, during hot update process, by comparing server and client asset manifest, the client should know what to download to get the latest content. This can naturally support cross-version updates, such as when client version is A, remote version is C, then we can directly update the assets from A to C. We do not need to generate A to B and B to C update package. Therefore, when we push new asset version to server, we can save new version files discreately on server, and during update the client will download each file needed seprately.
 
-Please be aware that hot update system is for native games only, since Web game would always request assets from web server. So `AssetsManager` class exists only in the jsb namespace, please check runtime environment before implement these API.
+Please be aware that **hot update system is for native games only**, since Web game would always request assets from web server. So `AssetsManager` class exists only in the jsb namespace, please check runtime environment before implement these API.
 
 ## Manifest file
 
@@ -37,7 +37,7 @@ The version file can be part of the contents of the manifest file and do not con
 
 In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
 
-Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. For Cocos Creator, all JS scripts will be packaged into the `src` directory, and other assets will be exported to the `assets` directory.
+Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The Creator published directory structure and cocos2d-x JS project directory is exactly the same. For Cocos Creator, engine scripts will be packaged into the `src` directory, and other assets will be exported to the `assets` directory.
 
 Based on this project structure, the hot update process in this tutorial is simple:
 
@@ -46,11 +46,11 @@ Based on this project structure, the hot update process in this tutorial is simp
 3. After release of the game, if you need to update the version, you need to generate a set of remote asset versions, including the `assets` directory, `src` directory and manifest file. Then deploy these files to your server.
 4. When the hot update script detects that the server manifest version does not match local version, the hot update starts
 
-The example project used in the tutorial is based on the BlackJack example. To show the hot update process, delete the table scene in the project, set to version 1.0.0. And save the full version of project assets with the table scene in the `remote-assets` directory, set to version 1.1.0. At the beginning of the game it will check whether there is a version of the remote update, if you find a remote version the user is prompted to update. When update is complete, the user re-enter the game to launch the table scene.
+To show the hot update process, the example project used in the tutorial has a full version with 1.1.0 information saved in the `remote-assets` directory, and the default build of the project generates version 1.0.0. At the beginning of the game it will check whether there is a version of the remote update, if you find a remote version the user is prompted to update. When update is complete, the user re-enter the game and see the version 1.1.0 information.
 
 ![table](./hot-update/table.png)
 
-**Note**, the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
+**Note**: the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
 
 ### Use the version generator to generate the manifest file
 
@@ -71,7 +71,7 @@ The following is a description of the parameters:
 
 In the example project, the implementation of the hot update component is located at [assets/hotupdate/HotUpdate.ts](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts), the developer can refer to this implementation, but also free to modify according to their own needs.
 
-In addition, the sample project is also equipped with a `Canvas/update` node for prompting to update and display the progress of the update.
+In addition, the sample project is also equipped with a `Scene/Canvas/update` node for prompting to update and display the progress of the update.
 
 ![component](./hot-update/editor.png)
 
@@ -130,7 +130,7 @@ The editor plugin automatically adds the search path logic and fix code to `main
 })();
 ```
 
-This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `cc.sys.localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
+This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
 In addition, if you encounter this warning during the opening of the project, you can ignore: `loader for [.manifest] not exists!`.
 

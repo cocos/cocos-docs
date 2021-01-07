@@ -16,7 +16,7 @@ Cocos Creator 中的热更新主要源于 Cocos 引擎中的 AssetsManager 模�
 
 **服务端和本地均保存完整版本的游戏资源**，热更新过程中通过比较服务端和本地版本的差异来决定更新哪些内容。这样即可天然支持跨版本更新，比如本地版本为 A，远程版本是 C，则直接更新 A 和 C 之间的差异，并不需要生成 A 到 B 和 B 到 C 的更新包，依次更新。所以，在这种设计思路下，新版本的文件以离散的方式保存在服务端，更新时以文件为单位下载。
 
-除此之外，由于 WEB 版本可以通过服务器直接进行版本更新，所以资源热更新只适用于原生发布版本。AssetsManager 类也只在 jsb 命名空间下，在使用的时候需要注意判断运行环境。
+除此之外，由于 WEB 版本可以通过服务器直接进行版本更新，**所以资源热更新只适用于原生发布版本**。AssetsManager 类也只在 jsb 命名空间下，在使用的时候需要注意判断运行环境。
 
 ## Manifest 文件
 
@@ -36,7 +36,7 @@ Manifest 文件中包含以下几个重要信息：
 ## 在 Cocos Creator 项目中支持热更新
 
 在这篇教程中，将提出一种针对 Cocos Creator 项目可行的热更新方案，我们也在 cocos2d-x 的中开放了 Downloader 的 JavaScript 接口，用户可以自由开发自己的热更新方案。
-对于 Cocos Creator 来说，所有 JS 脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 assets 目录。
+对于 Cocos Creator 来说，引擎脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 assets 目录。
 
 基于这样的项目结构，本篇教程中的热更新思路很简单：
 
@@ -45,11 +45,11 @@ Manifest 文件中包含以下几个重要信息：
 3. 游戏发布后，若需要更新版本，则生成一套远程版本资源，包含 assets 目录、src 目录和 Manifest 文件，将远程版本部署到服务端。
 4. 当热更新组件检测到服务端 Manifest 版本不一致时，就会开始热更新
 
-教程所使用的范例工程是基于 21 点范例修改而来的，为了展示热更新的过程，将工程中的 table 场景（牌桌场景）删除，设为 1.0.0 版本。并在 `remote-assets` 目录中保存带有 table 场景的完整版本，设为 1.1.0 版本。游戏开始时会检查远程是否有版本更新，如果发现远程版本则提示用户更新，更新完成后，用户重新进入游戏即可进入牌桌场景。
+为了展示热更新的过程，教程所使用的范例工程已经在 `remote-assets` 目录中保存了包含 1.1.0 信息的完整版本，而项目默认构建生成版本为 1.0.0 版本。游戏开始时会检查远程是否有版本更新，如果发现远程版本则提示用户更新，更新完成后，用户重新进入游戏即可看到 1.1.0 版本信息。
 
 ![](./hot-update/table.png)
 
-**注意**，项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
+**注意**：项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
@@ -62,15 +62,15 @@ Manifest 文件中包含以下几个重要信息：
 下面是参数说明：
 
 - `-v` 指定 Manifest 文件的主版本号。
-- `-u` 指定服务器远程包的地址，这个地址需要和最初发布版本中 Manifest 文件的远程包地址一致，否则无法检测到更新。
-- `-s` 本地原生打包版本的目录相对路径。
-- `-d` 保存 Manifest 文件的地址。
+- `-u` 指定服务器远程包的地址，这个地址需要和最初发布版本中 Manifest 文件的远程包地址一致，否则无法检测到更新，。
+- `-s` 本地原生打包版本的目录相对路径, 比如 ./build/android/assets 。
+- `-d` 保存 Manifest 文件的相对路径。
 
 ### 热更新组件
 
-在范例工程中，热更新组件的实现位于 [`assets/hotupdate/HotUpdate.ts`](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts) 中，开发者可以参考这种实现，也可以自由得按自己的需求修改。
+在范例工程中，热更新组件的实现位于 [`assets/hotupdate/HotUpdate.ts`](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts) 中，开发者可以参考这种实现，也可以自由的按自己的需求修改。
 
-除此之外，范例工程中还搭配了一个 `Canvas/update` 节点用于提示更新和显示更新进度供参考。
+除此之外，范例工程中还搭配了一个 `Scene/Canvas/update` 节点用于提示更新和显示更新进度供参考。
 
 ![](./hot-update/editor.png)
 
@@ -129,19 +129,19 @@ Manifest 文件中包含以下几个重要信息：
 })();
 ```
 
-这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos2d-x 的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `cc.sys.localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。
+这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos2d-x 的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。
 
 此外，打开工程过程中如果遇到这个警告可以忽略：`loader for [.manifest] not exists!`。
 
 ### 运行范例工程
 
-如果一切正常，此时运行原生版本的范例工程，就会发现检测到新版本，提示更新，更新之后会自动重启游戏，此时可进入 table 场景。
+如果一切正常，此时运行原生版本的范例工程，就会发现检测到新版本，提示更新，更新之后会自动重启游戏，此时会进入新版本场景。
 
 ![](./hot-update/update.png)
 
 ## 结语
 
-以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到 [论坛](https://forum.cocos.org/c/27)。
+以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到 [论坛](https://forum.cocos.org/c/Creator/58)。
 
 ## Next Step
 
