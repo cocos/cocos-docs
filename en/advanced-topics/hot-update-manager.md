@@ -188,7 +188,7 @@ When the interface is called, it will restart the hot update process and only do
 
 If you want to use hot updated assets, you need to restart the game.
 
-There are two reasons, the first is that the updated script requires a clean JS environment. The second is the assets configuration that used by `AssetsLibrary` needs to be updated to the latest to load the scene and assets properly.
+There are two reasons, the first is that the updated script requires a clean JS environment. The second is the assets configuration that used by `AssetManager` needs to be updated to the latest to load the scene and assets properly.
 
 1. Refresh of JS script
     
