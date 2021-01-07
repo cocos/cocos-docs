@@ -196,7 +196,7 @@ There are two reasons, the first is that the updated script requires a clean JS 
 
 2. Refresh of asset configuration
 
-    In Cocos2d-x/JS, you can use new assets such as textures, fonts and sound effects without restarting the game. But not in Creator, because Creator's scenes and assets depend on the `settings.js`. That is, the game will not be able to load the new scenes and assets without the `settings.js` being reloaded and parsed by `main.js` and `AssetsLibrary`.
+    Creator's scenes and assets depend on the [Asset Bundle](https://docs.cocos.com/creator/3.0/manual/en/asset/bundle.html). That is, the game will not be able to load the new scenes and assets without the Asset Bundle being reloaded and parsed by [Asset Manager](https://docs.cocos.com/creator/3.0/manual/en/asset/asset-manager.html).
 
 Enabling new assets relies on the search path mechanism of the Cocos engine. All files in the Cocos are read by FileUtils, which finds files in the priority order of the search path. So we add the hot update cache directory to the search path and promote it so that the assets in the cache directory are searched first. Here is the code example:
 

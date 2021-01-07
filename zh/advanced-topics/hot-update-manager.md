@@ -182,7 +182,7 @@ assetsManager.downloadFailedAssets();
 
 ### 重启的必要性
 
-如果要使用热更新之后的资源，需要重启游戏。有两个原因，第一是更新之后的脚本需要干净的 JS 环境才能正常运行。第二是场景配置，AssetsLibrary 中的配置都需要更新到最新才能够正常加载场景和资源。
+如果要使用热更新之后的资源，需要重启游戏。有两个原因，第一是更新之后的脚本需要干净的 JS 环境才能正常运行。第二是场景配置，AssetManager 中的配置都需要更新到最新才能够正常加载场景和资源。
 
 1. JS 脚本的刷新
     
@@ -190,7 +190,7 @@ assetsManager.downloadFailedAssets();
 
 2. 资源配置的刷新
 
-    在 Cocos2d-x/JS 中可以不重启游戏就直接使用新的贴图、字体、音效等资源。但是在 Creator 中不可以，因为 Creator 的场景和资源都依赖于 `settings.js`。如果 `settings.js` 没有重新执行，并被 `main.js` 和 `AssetsLibrary` 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
+    因为 Creator 的场景和资源都依赖于 [Asset Bundle](https://docs.cocos.com/creator/3.0/manual/en/asset/bundle.html) 。如果 Asset Bundle 没有被重新加载，并被 [Asset Manager](https://docs.cocos.com/creator/3.0/manual/en/asset/asset-manager.html) 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
 
 而如何启用新的资源，就需要依赖 Cocos 引擎的搜索路径机制了。Cocos 中所有文件的读取都是通过 FileUtils，而 FileUtils 会按照搜索路径的优先级顺序查找文件。所以我们只要将热更新的缓存目录添加到搜索路径中并且前置，就会优先搜索到缓存目录中的资源。以下是示例代码：
 

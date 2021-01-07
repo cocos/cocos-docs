@@ -4,7 +4,7 @@
 
 In current Cocos Creator version, assets hot update workflow has not been fully integrated into the editor. But the engine itself has complete support for hot update system, so with some of the external script and tool the workflow is complete.
 
-The sample project for this document is available from [Github Repo](https://github.com/cocos-creator/tutorial-hot-update).
+The sample project for this document is available from [Github Repo](https://github.com/cocos-creator/tutorial-hot-update/tree/master).
 
 ![Hot update](./hot-update/title.jpg)
 
