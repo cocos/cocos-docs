@@ -39,7 +39,7 @@ To get the velocity of a point on a rigidbody, such as a box that rotates forwar
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-Or, pass in a `cc.Vec2` object as the second argument to get the return value inorder to use the cached object to store this value. This avoids creating too many objects to improve performance.
+Or, pass in a `cc.Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
 
 > __Note__: the `get` method of rigidbody provides an out parameter to receive the function return value.
 
