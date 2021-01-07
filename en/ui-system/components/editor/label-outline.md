@@ -8,7 +8,7 @@ Select a node in the __Hierarchy__ panel, then click the __Add Component__ butto
 
 ## LabelOutline Properties
 
-| Properties | Function Explanation |
-| -------------- | ----------- |
-| Color | The outline color |
-| Width | The outline width |
+| Property | Function Explanation |
+| :-------------- | :----------- |
+| **Color** | The outline color |
+| **Width** | The outline width |

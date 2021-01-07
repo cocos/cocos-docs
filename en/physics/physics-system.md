@@ -18,7 +18,7 @@ The properties of the physics system can only be set through the code for the ti
 
 > **Note**: gets the instance of physics system using: `PhysicsSystem.instance`
 
-| Properties | Description |
+| Property | Description |
 | :--- | :--- |
 | **enable** | Whether to enable the physics system, the default is `true` |
 | **gravity** | The gravity value of the physics world, the default is `(0, -10, 0)` |

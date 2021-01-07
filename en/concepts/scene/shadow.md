@@ -44,7 +44,7 @@ __Cocos Creator__ currently supports two shadow modes, __shadow Map__ and __plan
 
 The following describes all the properties of the panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **Enabled**     | Whether to turn on the shadow effect |
 | **Type**        | Choose shade type |
@@ -58,7 +58,7 @@ The following describes all the properties of the panel:
 
 The following describes all the properties of the panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **Enabled**         | Whether to turn on the shadow effect |
 | **Type**            | Choose shade type |

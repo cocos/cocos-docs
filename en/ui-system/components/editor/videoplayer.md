@@ -16,7 +16,7 @@ For more information about VideoPlayer's scripting interface, please refer to th
 
 ## VideoPlayer Properties
 
-| Properties | Function Explanation |
+| Property | Function Explanation |
 |-------- | ----------- |
 | Resource Type        | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
 | Remote URL           | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |

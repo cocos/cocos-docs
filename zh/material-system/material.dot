@@ -10,7 +10,7 @@ digraph G {
         lib [label="ProgramLib | { shader instances | <temp> shader templates }"]
     }
 
-    mat [label="Material | { defines | properties | <efx> effect}"]
+    mat [label="Material | { defines | Property | <efx> effect}"]
 
     subgraph cluster_effect {
         style=dotted label="auto-generated from *.effect file" labelloc=b
