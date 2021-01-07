@@ -89,21 +89,7 @@ In the case of long-term updates, the local cache will always be replaced with t
 
 ### Progress information
 
-In the previous section of the flow chart, you can see the hot update manager has sent `UPDATE_PROGRESSION` message to the user. In the current version, the progress information received by the user contains byte-level progress and file-level progress (percentage value):
-
-```js
-function updateCb (event) {
-    switch (event.getEventCode ())
-    {
-        case jsb.EventAssetsManager.UPDATE_PROGRESSION:
-            cc.log ("Byte progression:" + event.getPercent () / 100);
-            cc.log ("File progression:" + event.getPercentByFile () / 100);
-            break;
-    }
-}
-```
-
-We will add more information in Cocos Creator 1.5:
+In the previous section of the flow chart, you can see the hot update manager has sent `UPDATE_PROGRESSION` message to the user. In the current version, the progress information received by the user contains:
 
 1. byte-level progress (percentage)
 2. File level progress (percentage)
@@ -111,6 +97,22 @@ We will add more information in Cocos Creator 1.5:
 4. The total number of bytes
 5. The number of files received
 6. The total number of documents
+
+```js
+function updateCb (event) {
+    switch (event.getEventCode ())
+    {
+        case jsb.EventAssetsManager.UPDATE_PROGRESSION:
+            cc.log("Byte progression : " + event.getPercent() / 100);
+            cc.log("File progression : " + event.getPercentByFile() / 100);
+            cc.log("Total files      : " + event.getTotalFiles());
+            cc.log("Downloaded files : " + event.getDownloadedFiles());
+            cc.log("Total bytes      : " + event.getTotalBytes());
+            cc.log("Downloaded bytes : " + event.getDownloadedBytes());
+            break;
+    }
+}
+```
 
 ### Resume broken transfer
 

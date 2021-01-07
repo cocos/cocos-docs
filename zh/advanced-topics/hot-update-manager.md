@@ -85,7 +85,14 @@ Manifest 文件可以通过 Cocos Creator 热更新范例中的 [Version Generat
 
 ### 进度信息
 
-在前面章节的流程图中，可以看到热更新管理器有发送 `UPDATE_PROGRESSION` 消息给用户。目前版本中，用户接收到的进度信息包含字节级进度和文件级进度（百分比数值）：
+在前面章节的流程图中，可以看到热更新管理器有发送 `UPDATE_PROGRESSION` 消息给用户。目前版本中，用户可以接收到下面进度信息：
+
+1. 字节级进度（百分比）
+2. 文件级进度（百分比）
+3. 已接收到的字节数
+4. 总字节数
+5. 已接收到的文件数
+6. 总文件数
 
 ```js
 function updateCb (event) {
@@ -94,19 +101,14 @@ function updateCb (event) {
         case jsb.EventAssetsManager.UPDATE_PROGRESSION:
             cc.log("Byte progression : " + event.getPercent() / 100);
             cc.log("File progression : " + event.getPercentByFile() / 100);
+            cc.log("Total files      : " + event.getTotalFiles());
+            cc.log("Downloaded files : " + event.getDownloadedFiles());
+            cc.log("Total bytes      : " + event.getTotalBytes());
+            cc.log("Downloaded bytes : " + event.getDownloadedBytes());
             break;
     }
 }
 ```
-
-我们会在 Cocos Creator 1.5 中添加更多信息：
-
-1. 字节级进度（百分比）
-2. 文件级进度（百分比）
-3. 已接收到的字节数
-4. 总字节数
-5. 已接收到的文件数
-6. 总文件数
 
 ### 断点续传
 
