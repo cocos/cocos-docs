@@ -276,6 +276,6 @@
     - [UI 组件](editor/extension/ui.md)
 
 - [进阶主题](advanced-topics/index.md)
-  - [热更新范例教程](advanced-topics/hot-update.md)
-  - [热更新管理器](advanced-topics/hot-update-manager.md)
+    - [热更新范例教程](advanced-topics/hot-update.md)
+    - [热更新管理器](advanced-topics/hot-update-manager.md)
   

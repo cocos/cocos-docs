@@ -248,6 +248,6 @@ Hot update is a frequent requirement for game developers, and multiple hot updat
 
 ### Update engine
 
-Upgrading the engine version can have a huge impact on the hot update, and you may have noticed that there is a `src/cocos2d-jsb.js` file in the native project, which is compiled by the JS engine and contains some interface encapsulations for the C++ engine and the JS engine framework. In different versions of engine, its code will be quite different, and the bottom layer of C++ will also change simultaneously. Once the C++ engine version in the game pack does not match the engine version in the `src/cocos2d-jsb.js`, it can cause serious problems and even prevent the game from running.
+Upgrading the engine version can have a huge impact on the hot update, and you may have noticed that there is a `src/cocos-js/cc.js` file in the native project, which is compiled by the JS engine and contains some interface encapsulations for the JS engine framework. In different versions of engine, its code will be quite different, and the bottom layer of C++ will also change simultaneously. Once the C++ engine version in the game pack does not match the engine version in the `src/cocos-js/cc.js`, it can cause serious problems and even prevent the game from running.
 
 It is recommended to publish the major version to app stores as much as possible after updating the engine. If you decide to use hot update, please carefully complete the test of updating the old version to the new version.
