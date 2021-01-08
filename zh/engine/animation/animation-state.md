@@ -2,7 +2,7 @@
 # 动画状态
 
 动画剪辑仅描述某一类的对象的动画数据，但并未绑定具体要进行动画的对象。
-当为对象播放动画时，对象与动画剪辑绑定，动画播放的状态称为动画状态。动画状态就像播放机一样，允许对动画进行暂停、调速。
+当为对象播放动画时，对象与动画剪辑绑定，动画播放的状态称为动画状态。动画状态就像播放机一样，允许对动画进行暂停、调速等。
 
 动画状态由类 `AnimationState` 管理。
 
@@ -18,7 +18,7 @@
 
 ## 循环模式与重复次数
 
-可以仅将播放播放至结尾就停止，也可以将动画进行循环播放，甚至，可以先播放至结尾再从结尾播放至开头如此循环。这些统称为循环模式，由枚举 `AnimationClip.WrapMode` 表示：
+可以仅将动画播放至结尾就停止，也可以将动画进行循环播放，甚至，可以先播放至结尾再从结尾播放至开头如此循环。这些统称为循环模式，由枚举 `AnimationClip.WrapMode` 表示：
 
 | 循环模式 | 说明 |
 | :--- | :--- |
@@ -34,11 +34,11 @@
 | `AnimationClip.WrapMode.LoopReverse`    | 不断地从结尾播放至开头 |
 | `AnimationClip.WrapMode.PingPongReverse` | 从结尾播放至开头后，再从开头反向播放至开头，如此循环往复 |
 
-简单地设置动画状态的 `wrapMode` 字段即可改变动画状态的循环模式。
+动画状态的初始循环模式将从动画剪辑中读取，需要改变动画状态的循环模式时简单地设置动画状态的 `wrapMode` 字段即可改变动画状态的循环模式。
 
 ⚠ 注意，设置循环模式时会重置动画状态的累计播放时间。
 
 除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），上述的循环模式都进行的是无限次循环。可以通过设置 `AnimationState` 的 `repeatCount` 字段来指定和获取循环的次数。
 
-设置重复次数需要在设置循环模式后设置，因为重新设置循环模式时会重置循环次数：`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）.
+⚠ 设置重复次数应该在设置循环模式后进行，因为重新设置循环模式时会重置循环次数：`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）.
 
