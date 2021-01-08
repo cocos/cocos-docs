@@ -8,26 +8,16 @@
 
 ## 环境配置
 
-发布原生平台需要安装配置一些必要的环境，详情请参考 [安装配置原生开发环境](setup-native-development.md)。
+发布到原生平台需要安装配置一些必要的环境，详情请参考 [安装配置原生开发环境](setup-native-development.md)。
 
 ## 构建选项
 
-各平台通用的构建选项，详情请参考 [通用构建选项](build-options.md)。需要注意的是虽然 **MD5 Cache** 也是通用选项，但在原生平台上的使用有一些区别，主要用于为构建后的所有资源文件名加上 MD5 信息，解决热更新时的 CDN 资源缓存问题。
-
-启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件，通常是因为有些 C++ 中用到的第三方资源没通过 assetManager 加载引起的。这时可以在加载前使用以下方法转换 URL，转换后的路径就能正确加载。具体代码如下：
-
-```cpp
-auto cx = ScriptingCore::getInstance()->getGlobalContext();
-JS::RootedValue returnParam(cx);
-ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
-
-string url;
-jsval_to_string(cx, returnParam, &url);
-```
+各平台通用的构建选项，详情请参考 [通用构建选项](build-options.md)。
 
 ### 原生平台通用构建选项
 
-由于目前构建机制上的调整，不同平台的处理均以插件的形式注入。在 **构建发布** 面板的 **发布平台** 中选择要构建的原生平台后，将会看到除了具体原生平台的展开选项外还有一个 **native** 的展开选项。**native** 中的构建选项在各个原生平台上都是一致的。
+由于目前构建机制上的调整，不同平台的处理均以插件的形式注入 **构建发布** 面板。<br>
+在 **构建发布** 面板的 **发布平台** 中选择要构建的原生平台后，将会看到除了具体原生平台的展开选项外还有一个 **native** 的展开选项。**native** 中的构建选项在各个原生平台上都是一致的。
 
 ![Native 选项](publish-native/native-options.png)
 
@@ -38,11 +28,13 @@ jsval_to_string(cx, returnParam, &url);
 - **Default** — 使用默认的 Cocos2d-x 源码版引擎构建项目。
 - **Link** — 与 Default 模板不同的是，Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
 
-> 关于源码引擎，Cocos2d-x 引擎中包括源码引擎，它们适用的范围是：
+> **关于源码引擎**
+>
+> Cocos2d-x 引擎中包括了源码引擎，它们适用的范围是：
 > 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
 > 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
 
-目前 Cocos Creator 安装目录下已经包含了自带的 Cocos2d-x 源码引擎，在安装目录下的 `resources/3d/cocos2d-x-lite` 文件夹内可以查看到。
+目前 Cocos Creator 安装目录下的 `resources/3d/cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。
 
 #### Polyfills
 
@@ -50,7 +42,7 @@ jsval_to_string(cx, returnParam, &url);
 
 #### 构建后立即生成
 
-若勾选该项，构建完成后会自动执行编译任务，不需要再手动操作。
+若勾选该项，构建完成后会自动执行 **生成** 步骤，不需要再手动操作。
 
 #### 加密脚本
 
@@ -80,7 +72,7 @@ Android 平台的构建选项如下：
 
 #### Target API Level
 
-设置编译 Android 平台所需的 Target API Level。点击旁边的 **Set Android SDK** 按钮即可快速跳转到配置页，具体配置规则请参考 [配置原生发布环境路径](setup-native-development.md#%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%94%9F%E5%8F%91%E5%B8%83%E7%8E%AF%E5%A2%83%E8%B7%AF%E5%BE%84)。
+设置编译 Android 平台时所需的 Target API Level。点击旁边的 **Set Android SDK** 按钮即可快速跳转到配置页，具体配置规则请参考 [配置原生发布环境路径](setup-native-development.md#%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%94%9F%E5%8F%91%E5%B8%83%E7%8E%AF%E5%A2%83%E8%B7%AF%E5%BE%84)。
 
 #### APP ABI
 
@@ -90,13 +82,13 @@ Android 平台的构建选项如下：
 >
 > 1. 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 **Build -> Clean Project** 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
 >
-> 2. 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建面板。如果需要修改 ABI，直接修改 **gradle.properties** 中的 **PROP_APP_ABI** 属性即可。
+> 2. 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建面板。如果需要修改 ABI，直接修改 **gradle.properties** 文件中的 **PROP_APP_ABI** 属性即可。
 >
 >     ![modify abi](publish-native/modify_abi.png)
 
-#### 密钥库
+#### 使用调试密钥库
 
-Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库，若开发者需要自定义密钥库可去掉 **使用调试密钥库** 勾选。具体请参考 [官方文档](https://developer.android.google.cn/studio/publish/app-signing?hl=zh-cn)。
+Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库。若开发者需要自定义密钥库可去掉 **使用调试密钥库** 勾选，详情请参考 [官方文档](https://developer.android.google.cn/studio/publish/app-signing?hl=zh-cn)。
 
 #### 屏幕方向
 
@@ -193,15 +185,15 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 ### 通过 IDE
 
-点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `build-win32-link` 或 `build-win32-default`（根据选择的平台和模板不同）里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程在发布路径的 `proj` 目录下。
+点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `build-win32-link` 或 `build-win32-default`（根据选择的平台和模板不同）里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程生成在发布路径的 `proj` 目录下。
 
-接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译和发布预览操作了。
+接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
 
 - **Android**
 
   ![android xcode](publish-native/android-studio.png)
 
-- **windows**
+- **Windows**
 
   ![windows xcode](publish-native/windows-vs.png)
 
@@ -215,7 +207,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 1. 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
 
-2. 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 引擎模块** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
+2. 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 功能裁剪** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
 3. Android 平台通过编辑器和 Android Studio 编译后的结果有些区别：
 

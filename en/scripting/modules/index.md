@@ -8,7 +8,7 @@ Engine and editor expose their functionalities API through modules. Modules are 
 
 At present, engine only offers one public module `'cc'`.
 
-Contents of module `'cc'` are dynamically decided, which is relevant with **Engine Module** setting in **Project Setting** panel.
+Contents of module `'cc'` are dynamically decided, which is relevant with **Feature Crop** setting in **Project Setting** panel.
 
 ### Engine logging
 

@@ -26,14 +26,25 @@
 
 ### MD5 Cache
 
-给构建后的所有资源文件名加上 MD5 信息，解决 CDN 资源缓存问题。
+给构建后的所有资源文件名加上 MD5 信息，解决 CDN 或者浏览器资源缓存问题。
 
-启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些第三方资源没通过 assetManager 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
+启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些第三方资源没通过 `assetManager` 加载引起的。这时可以在加载前先用以下方法转换 URL，转换后的路径就能正确加载。
 
 ```typescript
 const uuid = assetManager.utils.getUuidFromURL(url);
 url = assetManager.utils.getUrlWithUuid(uuid);
 ```
+
+> **注意**：原生平台启用 MD5 Cache 后，如果出现资源加载不了的情况，通常是因为有些 C++ 中用到的第三方资源没通过 `assetManager` 加载引起的。也可以通过以下代码转换 URL 来解决：
+>
+> ```cpp
+> auto cx = ScriptingCore::getInstance()->getGlobalContext();
+> JS::RootedValue returnParam(cx);
+> ScriptingCore::getInstance()->evalString("cc.assetManager.utils.getUrlWithUuid(cc.assetManager.utils.getUuidFromURL('url'))", &returnParam);
+>
+> string url;
+> jsval_to_string(cx, returnParam, &url);
+> ```
 
 ### 主包压缩类型
 
@@ -52,11 +63,15 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ### 调试模式
 
-在发布模式下，将会对资源的 uuid、构建出来的引擎脚本与项目脚本进行压缩和混淆，并且将对同类资源的 json 做分包处理，减少资源加载的次数。在需要对项目进行调试处理时，建议勾上此项方便定位问题。
+若不勾选该项，则处于发布模式，会对资源的 uuid、构建出来的引擎脚本和项目脚本进行压缩和混淆，并且对同类资源的 json 做分包处理，减少资源加载的次数。
+
+若勾选该项，则处于调试模式，可对项目进行调试，方便定位问题。
 
 ### Source Maps
 
-构建默认会对引擎文件和项目脚本做压缩处理，如果需要生成 sourcemap 需要勾选此项。
+若勾选该项，构建时会默认压缩引擎文件和项目脚本。如果需要生成 sourcemap，请勾选该项。
+
+Source map 是从已转换的代码映射到原始源的文件，使浏览器能够重构原始源并在调试器中显示重建的原始源。详情请参考 [使用 source map](https://developer.mozilla.org/zh-CN/docs/Tools/Debugger/How_to/Use_a_source_map)。
 
 ### 替换插屏
 
@@ -70,7 +85,11 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ### 自动图集
 
-自动图集是编辑器自带的合图功能，勾选后将会根据图集配置进行合图处理。如未勾选该项，即便配置了合图也不会在构建时生效。如果在 `resources` 文件夹中配置了自动图集，将会同时打包出大图和小图的图片资源以及对应的序列化信息，会增大包体，如非必要请不要这样使用。具体配置选项可以参考 [自动图集资源](../../asset/auto-atlas.md)
+自动图集是编辑器自带的合图功能，勾选后将会根据图集配置进行合图处理。如未勾选该项，即便配置了合图也不会在构建时生效。如果在 `resources` 文件夹中配置了自动图集，将会同时打包出大图和小图的图片资源以及对应的序列化信息，会增大包体，如非必要请不要这样使用。详情请参考 [自动图集资源](../../asset/auto-atlas.md)
+
+### 擦除模块结构（实验性质）
+
+若勾选该项，脚本导入速度更快，但无法使用模块特性，例如 `import.meta`、`import()` 等。
 
 <!--
 ### 内联所有 SpriteFrame
@@ -81,10 +100,12 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 自动合并资源时，将初始场景依赖的所有 JSON 文件都合并到初始场景所在的包中。默认关闭，启用后不会增大总包体，但如果这些 JSON 也被其它场景公用，则后面再次加载它们时 CPU 开销可能会稍微增加。
 -->
 
-## 平台相关构建选项
+## 各平台相关构建选项
 
-平台相关的选项会单独的放在一个可折叠的 section 控件内，编写构建插件注册进来的界面选项也将以同样的方式显示，上面的名字便是插件名，在菜单里的 `扩展-插件管理器` 可以看到对应的平台插件。
+由于目前构建机制上的调整，不同平台的处理均以插件的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名字便是平台插件名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台插件。
+
+自定义构建插件的处理方式与平台插件一致，详情可参考 [扩展构建流程](custom-build-plugin.md)。
 
 ## 其他参与构建的参数配置
 
-所有项目设置的配置都将会影响到构建的结果，每次构建都会查询最新的项目配置，具体参数请参考 [项目设置](../project/index.md)。
+编辑器菜单栏 **项目 -> 项目设置** 中的配置都会影响到项目构建的结果，详情请参考 [项目设置](../project/index.md)。

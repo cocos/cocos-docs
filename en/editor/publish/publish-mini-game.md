@@ -1,4 +1,4 @@
-# Publish to MiniGames
+# Publish to Mini Game Platforms
 
 - [Publish to Alipay Mini Games](publish-alipay-mini-game.md)
 - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
@@ -7,7 +7,7 @@
 - [Publish to OPPO Mini Games](publish-oppo-mini-game.md)
 - [Publish to vivo Mini Games](publish-vivo-mini-game.md)
 - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-game.md)
-- [Publish to Baidu Mini Games](publish-baidugame.md)
+- [Publish to Baidu Mini Games](publish-baidu-mini-game.md)
 - [Publish to WeChat Mini Games](publish-wechatgame.md)
 - [WeChat Engine Plugin](wechatgame-plugin.md)
 - [Open Data Context](build-open-data-context.md)

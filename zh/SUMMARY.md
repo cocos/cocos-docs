@@ -49,10 +49,6 @@
 - [发布跨平台游戏](editor/publish/index.md)
     - [熟悉构建发布面板](editor/publish/build-panel.md)
     - [通用构建选项介绍](editor/publish/build-options.md)
-    - [命令行发布项目](editor/publish/publish-in-command-line.md)
-    - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
-    - [扩展构建流程](editor/publish/custom-build-plugin.md)
-    - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [发布到 Web 平台](editor/publish/publish-web.md)
     - [发布到原生平台](editor/publish/native-options.md)
         - [安装配置原生环境](editor/publish/setup-native-development.md)
@@ -71,6 +67,10 @@
         - [发布到连尚小游戏](editor/publish/publish-link-sure.md)
         - [发布到趣头条小游戏](editor/publish/publish-qtt.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
+    - [命令行发布项目](editor/publish/publish-in-command-line.md)
+    - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
+    - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
+    - [扩展构建流程](editor/publish/custom-build-plugin.md)
 
 ## 引擎手册
 
