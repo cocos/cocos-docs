@@ -1,6 +1,6 @@
 # Modules
 
-Engines and editors expose their functionality through API interfaces and modules that exist in the form of **ECMAScript** modules.
+The engine and editor expose their APIs to developers through modules, which exist as **ECMAScript** modules.
 
 > **Note**: starting from 3.0, engine functions cannot be accessed through the global variable, prefixed with `cc`!
 
@@ -23,7 +23,7 @@ log(`Hello world!`);
 
 The editor modules are all under the `'cce:'` protocol (**cce** stands for "**C**ocos**C**reator**E**ditor").
 
-With the only exception being `'cce.env'`, all editor modules are only available in the editor environment. For example, the editor module cannot be accessed in the preview and build environment, on the contrary, it can be accessed in the **scene editor**.
+All editor modules are only available in the editor environment, except for the `cce.env` module. For example, the editor module cannot be accessed in the environment after previewing and building, on the contrary, it can be accessed in the **Scene** panel.
 
 | Module name | Description |
 | :---------- | :-------------- |
@@ -34,7 +34,7 @@ With the only exception being `'cce.env'`, all editor modules are only available
 
 ### Constants at build time
 
-The editor module, `'cce.env'`, exposes some **constants** at build time. These constants represent the execution environment, debug level, or platform identification. Unlike other editor modules, `'cce.env'` allows access in a non-editor environment.
+The `'cce.env'` editor module exposes some **constants** at build time. These constants represent the execution environment, debug level, or platform identification. Unlike other editor modules, `'cce.env'` allows access in a non-editor environment.
 
 As these constants are declared with `const`, it provides a good opportunity for code optimization.
 
