@@ -58,7 +58,7 @@ export const configs: IConfigs = {
                         placeholder: 'Enter remote address...',
                     },
                 },
-                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 verifyRuleMap 处填写
+                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 verifyRuleMap 字段中配置
                 verifyRules: ['require', 'http'],
             },
             enterCocos: {
