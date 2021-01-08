@@ -1,0 +1,19 @@
+strict digraph {
+    graph [fontname = "consolas"];
+    node [fontname = "consolas"];
+    edge [fontname = "consolas"];
+
+    entry [labe="<entry>",shape="diamond"]
+    playing [label="isPlaying"]
+    playingPaused [label="isPlaying && isPaused"]
+    stopped [label="<stopped>"]
+
+    entry -> stopped
+
+    stopped -> playing [label="play()"]
+    playing -> playingPaused [label="play() / resume()"]
+    playingPaused -> playing [label="pause()"]
+
+    playing -> stopped [label="stop()"]
+    playingPaused -> stopped [label="stop()"]
+}

@@ -22,17 +22,17 @@
 
 | 循环模式 | 说明 |
 | :--- | :--- |
-| `AnimationClip.WrapMode.Normal`  | 从开头播放至结尾后停止 |
-| `AnimationClip.WrapMode.Loop`    | 不断地从开头播放至结尾 |
-| `AnimationClip.WrapMode.PingPong` | 从开头播放至结尾后，再从结尾反向播放至开头，如此循环往复 |
+| `AnimationClip.WrapMode.Normal`  | 从开头播放至结尾后停止。 |
+| `AnimationClip.WrapMode.Loop`    | 不断地从开头播放至结尾。 |
+| `AnimationClip.WrapMode.PingPong` | 从开头播放至结尾后，再从结尾反向播放至开头，如此循环往复。 |
 
 除此之外，上表中的每种循环模式还存在对应的 “反向” 循环模式：
 
 | 循环模式 | 说明 |
 | :--- | :--- |
-| `AnimationClip.WrapMode.Reverse`  | 从结尾播放至开头后停止 |
-| `AnimationClip.WrapMode.LoopReverse`    | 不断地从结尾播放至开头 |
-| `AnimationClip.WrapMode.PingPongReverse` | 从结尾播放至开头后，再从开头反向播放至开头，如此循环往复 |
+| `AnimationClip.WrapMode.Reverse`  | 从结尾播放至开头后停止。 |
+| `AnimationClip.WrapMode.LoopReverse`    | 不断地从结尾播放至开头。 |
+| `AnimationClip.WrapMode.PingPongReverse` | 从结尾播放至开头后，再从开头反向播放至开头，如此循环往复。 |
 
 动画状态的初始循环模式将从动画剪辑中读取，需要改变动画状态的循环模式时简单地设置动画状态的 `wrapMode` 字段即可改变动画状态的循环模式。
 
@@ -41,4 +41,27 @@
 除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），上述的循环模式都进行的是无限次循环。可以通过设置 `AnimationState` 的 `repeatCount` 字段来指定和获取循环的次数。
 
 ⚠ 设置重复次数应该在设置循环模式后进行，因为重新设置循环模式时会重置循环次数：`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）.
+
+## 播放控制
+
+就像电影一样，动画状态提供了方法用于控制动画的播放、暂停、恢复、停止：
+
+| 方法 | 说明 |
+| :--- | :--- |
+| `play()`  | 重置播放时间为 0 并开始播放动画。 |
+| `pause()`    | 暂停动画至当前的时间。 |
+| `resume()` | 从当前时间开始继续播放动画。 |
+| `stop()` | 停止播放动画。 |
+
+也可以查询播放状态：
+
+| 字段（只读） | 说明 |
+| :--- | :--- |
+| `isPlaying`  | 动画是否处于播放状态。 |
+| `isPaused`    | 动画是否处于暂停状态。 |
+| `isMotionless` | 动画是否处于暂停状态或者已被停止。 |
+
+播放控制与状态之间的关系表示在如下的流程图中：
+
+![Playback control](./playback-control.png "Playback control")
 
