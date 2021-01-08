@@ -8,18 +8,18 @@ Engines and editors expose their functionality through API interfaces and module
 
 Currently, the engine only provides a public module prefixed with `'cc'`.
 
-The content of the `'cc'` module is dynamic, and its content is related to the setting of **engine module** in **Project Settings**.
+The content of the `'cc'` module is dynamic, and its content is related to the setting of **Feature crop** in **Project Settings**.
 
 ### Engine log output
 
-Examples are as follows:
+An example is shown below:
 
 ```ts
-import {log} from'cc';
+import { log } from 'cc';
 log(`Hello world!`);
 ```
 
-## Editor Module
+## Editor Modules
 
 The editor modules are all under the `'cce:'` protocol (**cce** stands for "**C**ocos**C**reator**E**ditor").
 
@@ -32,9 +32,9 @@ With the only exception being `'cce.env'`, all editor modules are only available
 | `'cce:gizmo'` | Gizmo |
 -->
 
-### Build time constant
+### Constants at build time
 
-The editor module, `'cce.env'`, exposes some **constants** at build time. These constants represent the execution environment, debugging level, or platform identification. Unlike other editor modules, `'cce.env'` allows access in a non-editor environment.
+The editor module, `'cce.env'`, exposes some **constants** at build time. These constants represent the execution environment, debug level, or platform identification. Unlike other editor modules, `'cce.env'` allows access in a non-editor environment.
 
 As these constants are declared with `const`, it provides a good opportunity for code optimization.
 
@@ -42,9 +42,9 @@ As these constants are declared with `const`, it provides a good opportunity for
 
 | Name (all types are `boolean`) | Description |
 | :-------- | :------------------- |
-| `BUILD` | Is it running after build |
-| `PREVIEW` | Is it running in preview |
-| `EDITOR` | Is it running in the editor |
+| `BUILD` | Is it running in the built environment. |
+| `PREVIEW` | Is it running in the preview environment. |
+| `EDITOR` | Is it running in the editor environment. |
 
 #### Debug level
 
@@ -53,32 +53,32 @@ As these constants are declared with `const`, it provides a good opportunity for
 | `DEBUG` | Whether it is in debug mode. It is `false` only when the debug option is not checked when building, and it is `true` in all other cases |
 | `DEV` | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW` |
 
-#### Platform ID
+#### Platform identification
 
-The constants listed in the following table represent whether it is running on **a** or **a type** platform, and the type is all `boolean`.
+The constants listed in the following table represent whether it is running on a particular platform or class of platforms, and all types are boolean.
 <!-- Please sort the following table lexicographically -->
 
 | Name | Representative platform | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` supports JIT |
-| :---------- | :---------- | :----------------- | :----- ------------ | :----------------- |
+| :---------- | :---------- | :----------------- | :----------------- | :----------------- |
 | `HTML5` | Web | ❌ | ❌ | ❌ |
-| `NATIVE` | Native platform | ❌ | ❌ | ❌ |
-| `ALIPAY` | Alipay game | ✔️ | ❌ | ✔️ |
+| `NATIVE` | Native platforms | ❌ | ❌ | ❌ |
+| `ALIPAY` | Alipay Mini game | ✔️ | ❌ | ✔️ |
 | `BAIDU` | Baidu Mini Games | ✔️ | ❌ | ✔️ |
-| `BYTEDANCE` | Bytedance game | ✔️ | ❌ | ✔️ |
+| `BYTEDANCE` | Bytedance Mini game | ✔️ | ❌ | ✔️ |
 | `WECHAT` | WeChat Mini Game | ✔️ | ❌ | ✔️ |
-| `XIAOMI` | Mi Games | ✔️ | ❌ | ✔️ |
+| `XIAOMI` | XiaoMi Mini Game | ✔️ | ❌ | ✔️ |
 | `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
 | `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
-| `OPPO` | OPPO Quick Game | ❌ | ✔️ | ✔️ |
-| `VIVO` | vivo fast game | ❌ | ✔️ | ✔️ |
+| `OPPO` | OPPO Mini Game | ❌ | ✔️ | ✔️ |
+| `VIVO` | vivo Mini game | ❌ | ✔️ | ✔️ |
 
 #### Outputting in debug mode
 
-Examples are as follows:
+An example is shown below:
 
 ```ts
-import {log} from'cc';
-import {DEV} from'cce.env';
+import { log } from 'cc';
+import { DEV } from 'cce.env';
 
 if (DEV) {
     log(`I'm in development mode!`);
