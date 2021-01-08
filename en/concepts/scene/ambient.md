@@ -4,16 +4,14 @@ In life, the intricate light patterns and uneven surfaces reflect each other, so
 
 __Ambient light__ in __Cocos Creator__, as shown below:
 
-![ambient](ambient/Ambient.jpg)
+![ambient](ambient/ambient.png)
 
-## Ambient light panel
+## Ambient light properties
 
-![ambient panel](ambient/AmbientDetail.jpg)
-
-The following describes all the properties of the panel:
+![ambient panel](ambient/ambient-property.png)
 
 | Properties | Explanation |
-| --- | --- |
+| :--- | :--- |
 | **groundAlbedo** | ground reflected light |
 | **skyColor** | sky color |
 | **skyIllum** | sky brightness |
