@@ -6,12 +6,15 @@
 
 1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展插件**，选择 **全局**/**项目** 后即可创建一个构建扩展插件包。
 
-  * 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
-    * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
-    * **Mac**：`$HOME/.CocosCreator/extensions`
+    * 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
 
-  * 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
-    * `$你的项目地址/extensions`
+        * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+
+        * **Mac**：`$HOME/.CocosCreator/extensions`
+
+    * 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
+
+        * `$你的项目地址/extensions`
 
 2. 构建扩展插件创建完成后会在 **控制台** 中看到插件的生成路径，点击路径即可在操作系统的文件管理器中打开构建扩展插件包。
 
