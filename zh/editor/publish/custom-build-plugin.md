@@ -169,7 +169,7 @@ declare interface IHook {
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 的一个副本，仅作为信息的获取参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息的获取参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
 
 简单的代码示例：
 
