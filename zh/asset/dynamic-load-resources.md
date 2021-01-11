@@ -6,7 +6,7 @@
 
 ```typescript
 // 加载 Prefab
-resources.load("test assets/prefab", Prefab, function (err, prefab) => {
+resources.load("test assets/prefab", Prefab, (err, prefab) => {
     const newNode = instantiate(prefab);
     this.node.addChild(newNode);
 });
