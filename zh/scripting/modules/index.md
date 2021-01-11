@@ -16,7 +16,7 @@
 
 ```ts
 import { log } from 'cc';
-log(`Hello world!`);
+log('Hello world!');
 ```
 
 ## 编辑器模块
@@ -81,6 +81,6 @@ import { log } from 'cc';
 import { DEV } from 'cce.env';
 
 if (DEV) {
-    log(`I'm in development mode!`);
+    log('I am in development mode!');
 }
 ```
