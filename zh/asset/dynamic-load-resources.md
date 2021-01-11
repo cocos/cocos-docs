@@ -6,7 +6,7 @@
 
 ```typescript
 // 加载 Prefab
-resources.load("test assets/prefab", Prefab, function (err, prefab) => {
+resources.load("test assets/prefab", Prefab, (err, prefab) => {
     const newNode = instantiate(prefab);
     this.node.addChild(newNode);
 });
@@ -40,7 +40,7 @@ resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) 
 
 ```typescript
 // 加载 texture
-resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Texture2D) => {
+resources.load("test assets/image/texture", Texture2D, (err: any, texture: Texture2D) => {
     const spriteFrame = new SpriteFrame();
     spriteFrame.texture = texture;
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;

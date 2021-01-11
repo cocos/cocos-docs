@@ -41,7 +41,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 ```typescript
 const self = this;
 const url = 'test_assets/test_atlas/content';
-resources.load(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset, (err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   sprite.spriteFrame = SpriteFrame.createWithImage(imageAsset);
 });
@@ -52,7 +52,7 @@ resources.load(url, ImageAsset,(err: any, imageAsset) => {
 ```typescript
 const self = this;
 const url = 'test_assets/test_atlas/content';
-resources.load(url, ImageAsset,(err: any, imageAsset) => {
+resources.load(url, ImageAsset, (err: any, imageAsset) => {
   const sprite = this.getComponent(Sprite);
   const spriteFrame = new SpriteFrame();
   const tex = new Texture2D();
