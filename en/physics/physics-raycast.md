@@ -51,7 +51,7 @@ The `ray` is composed of **start point** and **direction**. There are the follow
     cameraCom.screenPointToRay(0, 0, outRay);
     ```
 
-    > **Notes**: 
+    > **Notes**:
     > 1. You need to get a reference to a camera component or camera instance.
     > 2. The order of the interface parameters exposed by both the camera component and the camera instance is not the same.
 

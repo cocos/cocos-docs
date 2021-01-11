@@ -40,7 +40,7 @@ resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) 
 
 ```typescript
 // 加载 texture
-resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Texture2D) => {
+resources.load("test assets/image/texture", Texture2D, (err: any, texture: Texture2D) => {
     const spriteFrame = new SpriteFrame();
     spriteFrame.texture = texture;
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
