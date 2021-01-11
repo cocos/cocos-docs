@@ -52,11 +52,10 @@ Using a UI built-in material works the same as custom materials. However, there 
 5. To perform uniform assignment operations to custom materials, they can operate by obtaining the material on the Sprite. We provide different interfaces to deal with different operating conditions, as shown in the following code: **(Please pay attention to the difference Notes on the interface!)**
 
     ```ts
-        let spriteCom = this.node.getComponent(Sprite);
-        // What is obtained through the sharedMaterial method is a shared material resource, and operations on material will affect all rendering objects that use this material
-        let material = spriteCom.sharedMaterial;
+    let spriteCom = this.node.getComponent(Sprite);
+    // What is obtained through the sharedMaterial method is a shared material resource, and operations on material will affect all rendering objects that use this material
+    let material = spriteCom.sharedMaterial;
 
-        // The material trial used by the current rendering component obtained through the material method, the operation for material Instance will only affect the current component
-        let materialInstance = spriteCom.material;
-
+    // The material trial used by the current rendering component obtained through the material method, the operation for material Instance will only affect the current component
+    let materialInstance = spriteCom.material;
     ```
