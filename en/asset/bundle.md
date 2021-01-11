@@ -65,12 +65,11 @@ After the configuration, click on the **Apply** button at the top right and the 
 2. The mini game subpackage can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 
-
 ## Priority
 
 When the folder is set to Asset Bundle, the resources in the folder and the related dependent resources outside the folder are merged into the same Asset Bundle. It is possible to have a resource that is not in the Asset Bundle folder, but belongs to both Asset Bundles, because it is depended upon by both Asset Bundles. As shown in the figure:
 
-![shared](bundle/shared.png) 
+![shared](bundle/shared.png)
 
 Another possibility is that a resource is in one Asset Bundle folder, but is also depended upon by other Asset Bundles. As shown in the figure:
 
@@ -119,7 +118,7 @@ All the **code** and **resources** in the folder configured as the Asset Bundle 
 
 The structure of the Asset Bundle directory generated after build is shown below:
 
-![export](bundle/exported.png) 
+![export](bundle/exported.png)
 
 After building, the Asset Bundle folder will be packaged into the **assets** folder in the release package directory of the corresponding platform. However, there are two special cases.
 - If the **Is Remote Bundle** option is checked when configuring the Asset Bundle, this Asset Bundle folder will be packaged into the **remote** folder in the release package directory of the corresponding platform.
@@ -135,9 +134,9 @@ Each folder contained within these three folders **assets**, **remote** and **su
 
 The Asset Bundle supports script subpackaging. If your Asset Bundle includes the script files, then all the scripts will be merged into a single **js** file and removed from the main package. When loading the Asset Bundle, this **js** file will be attempted to be loaded.
 
-**Note**: 
-1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/bundle-scripts` directory to ensure normal loading.
-2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
+> **Notes**:
+> 1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/bundle-scripts` directory to ensure normal loading.
+> 2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
 
 ## Load the Asset Bundle
 
@@ -279,7 +278,6 @@ After loading the resources, all the resources are temporarily cached in `assetM
 
 2. Use `release` method provided by the Asset Bundle, then pass in the path and type to release resources, but can only release the single resource in the Asset Bundle. The arguments can be the same as those used in the `load` method of the Asset Bundle.
 
-    
     ```typescript
     bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
         bundle.release(`image`, SpriteFrame);

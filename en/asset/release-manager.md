@@ -41,7 +41,7 @@ onDestroy () {
 
 The advantage of auto-release is that you don't have to explicitly call the release interface, you just need to maintain the reference count of the resource and Creator will release it automatically based on the reference count. This greatly reduces the possibility of releasing resources by mistake, and you don't need to understand the complex referencing relationships between resources. For projects with no special requirements, it is recommended that you use automatic release to release resources as much as possible.
 
-#### Release Check
+### Release Check
 
 To prevent rendering or other problems caused by incorrectly releasing resources being used, Creator will perform a series of checks before auto-releasing resources:
 
@@ -61,7 +61,7 @@ assetManager.releaseAsset(texture);
 
 Since the resource management module was upgraded in v2.4, the release interface differs slightly from the previous version:
 
-1. The `assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource uuid, resource url, etc. 
+1. The `assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource uuid, resource url, etc.
 
 2. When releasing a resource, you only need to focus on the resource itself and the engine will automatically release its dependent resources instead of fetching them manually via `getDependsRecursively`.
 
@@ -101,7 +101,7 @@ This is because a resource can only be auto-released if its reference count is 0
     - The reference count of the Material a changes to 0 and is released; so the reference count of the Texture α minus 1 changes to 0 and is also released.
     - The reference count of the Material b changes to 1 and is retained, so the reference count of the Texture β is still 1 and is also retained.
     - Because the Prefab B is not released, the reference count for the Material c remains at 1 and is retained.
-    
+
     ![](release-manager/picc.png)
 
 ### Dynamic Referencing of Resources

@@ -80,7 +80,7 @@ export class example extends Component {
     @property(SliderComponent)
     slider: SliderComponent | null = null;
     onLoad(){
-       this.toggle.node.on('toggle', this.callback, this);
+       this.slider.node.on('slider', this.callback, this);
     }
 
     callback(slider: SliderComponent) {
