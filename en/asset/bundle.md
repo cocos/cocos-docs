@@ -153,7 +153,7 @@ assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bundle
 });
 ```
 
-`assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. You can use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
+`assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. Use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
 
 ```typescript
 // Download an Asset Bundle in advance to the "pathToBundle" directory in your user space, and it's necessary to ensure 
@@ -175,7 +175,7 @@ assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err
 **Note**: If you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
 
 When you load the Asset Bundle via the API, instead of loading all the resources in the Asset Bundle, the engine loads the Asset Bundle's **resource manifest** and **all the scripts** it contains.<br>
-When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that you can use to load the various resources in the Asset Bundle.
+When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that can be used to load the various resources in the Asset Bundle.
 
 ### Versions of the Asset Bundle
 
@@ -252,7 +252,7 @@ bundle.loadScene('test', function (err, scene) {
 
 ## Get the Asset Bundle
 
-After the Asset Bundle has been loaded, it will be cached, and you can use the name to get the Asset Bundle. For example:
+After the Asset Bundle has been loaded, it will be cached, and the name can be used to get the Asset Bundle. For example:
 
 ```typescript
 let bundle = assetManager.getBundle('01_graphics');

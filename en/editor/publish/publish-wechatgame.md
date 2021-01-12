@@ -87,7 +87,7 @@ Specifically, developers need to do:
 
     ![](./publish-wechatgame/detail.jpeg)
 
-> **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. And you can use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
+> **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. Use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
 
 ## WeChat Mini Game Subpackage Loading
 
