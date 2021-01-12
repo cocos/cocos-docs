@@ -90,6 +90,6 @@ For example, in the figure below, when we align the three Label nodes with diffe
 
 There is also support for setting skyboxes, global fog effects, and shadows in the scene to better enrich the scene and render and display the scene environment. For details, please refer to:
 
-- [skybox](./skybox.md)
-- [Global fog effect](./fog.md)
-- [shadow](./shadow.md)
+- [Skybox](./skybox.md)
+- [Global Fog](./fog.md)
+- [Shadow](./shadow.md)

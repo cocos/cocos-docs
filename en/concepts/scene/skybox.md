@@ -1,18 +1,18 @@
 # Skybox
 
-The skybox in video games is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting in PBR-based workflows.
+The skybox in a video game is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting in PBR-based workflows.
 
 ![skybox](skybox/Skybox.png)
 
 ## Enable Skybox
 
-Check **Scene** in the **Hierarchy Manager**, then check the **Enabled** property in the **skybox** component of the **Property Inspector** to enable the skybox.
+Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **skybox** component of the **Inspector** panel to enable the skybox.
 
- ! [enable skybox](skybox/enable-skybox.png)
+ ![enable skybox](skybox/enable-skybox.png)
 
 The skybox component properties are as follows:
 
-| properties | description |
+| Properties | Description |
 | :---| :--- |
 | **Enabled** | Whether to enable skybox |
 | **UseIBL** | Whether to use ambient lighting |
@@ -47,9 +47,9 @@ If the SkyIllum parameter is set **too low**, the environment map of the skybox 
 
 - When the SkyIllum parameter is 5000, the effect is equivalent to the light intensity of a moonlit night.
 
-#### Modify Clear Flag of Camera
+#### Modify ClearFlags of Camera
 
-If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlag** of the Camera component to **SKYBOX**:
+If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlags** of the Camera component to **SKYBOX**:
 
 ![](skybox/skybox-camera.png)
 

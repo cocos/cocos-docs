@@ -19,20 +19,20 @@ Nodes have the following properties:
 
 The quickest way to get a node with a specific function is to use the **Create Node** button in the top left corner of the **Hierarchy Manager**. Let's take the simplest example of creating a Sphere node by clicking on the **+** Create Node button in the upper left corner and then selecting **Create 3D Object -> Sphere**.
 
-! [create](scene/create.png)
+![create](scene/create.png)
 
-Then we can see the newly added Sphere node in **Scene Editor** and **Hierarchy Manager**. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the Sphere component. You can also try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../ui-system/components/engine/index.md).
+Then we can see the newly added Sphere node in **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the Sphere component. You can also try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../ui-system/components/engine/index.md).
 
-For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the hierarchy manager, please refer to [Hierarchy Manager](./.../editor/hierarchy/index.md).
+For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the hierarchy manager, please refer to [Hierarchy Panel](../../editor/hierarchy/index.md).
 
-To create nodes dynamically in a script, refer to the document [Create and Destroy Nodes](./.../scripting/create-destroy.md).
+To create nodes dynamically in a script, refer to the document [Create and Destroy Nodes](../../scripting/create-destroy.md).
 
 ## Components
 
 We just created a node, so now let's look at what components are and how they relate to the node. <br>
-Select the `Sphere` node we just created and you can see in the **Inspector** that it shows.
+Select the `Sphere` node we just created and you can see in the **Inspector** panel that it shows.
 
-! [Properties](scene/inspector.png)
+![Properties](scene/inspector.png)
 
 The part of the **Inspector** that starts with the `Node` title is the node's properties, which include information about the node's position, rotation, scaling, and other transformations. We will cover this in detail in the [Coordinate System and Node Attribute Transformations](coord.md) section.
 
@@ -49,15 +49,15 @@ Once the node and MeshRenderer components are combined, you can control the rend
 
 **Before Adjustment**.
 
-! [node property](scene/node-before.png)
+![node property](scene/node-before.png)
 
 **After Adjustment**.
 
-! [node property](scene/node-after.png)
+![node property](scene/node-after.png)
 
 We mentioned earlier that the component-based structure is combined to achieve functional extensions. The combination of the node and MeshRenderer components is shown in the following figure:
 
-! [node component relationship](scene/node-chart.png)
+![node component relationship](scene/node-chart.png)
 
 ## Add Additional Components
 

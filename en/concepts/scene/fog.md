@@ -14,8 +14,8 @@ The types of global fog depend on the result of the calculation of **Camera** an
 
 | Properties | Description |
 | :---| :--- |
-| **Enabled** | Whether to enable global fog |
-| **FogColor** | Set the color of the global fog |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
 | **Type** | The type of the global fog |
 | **FogStart** | The starting position of the fog effect |
 | **FogEnd** | The end position of the fog effect |
@@ -43,9 +43,9 @@ If you want to adjust the fog effect to the right consistency, it is best to adj
 
 | Properties | Description |
 | :---| :--- |
-| | **Enabled** | Enables or disables global fog |
-| **FogColor** | Set the global fog color |
-| | **Type** | The type of the global fog |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
+| **Type** | The type of the global fog |
 | **FogDensity** | The fog density, in the range 0 ~ 1 |
 | **FogAtten** | Fog attenuation coefficient |
 
@@ -71,10 +71,10 @@ Layered Fog is parallel to the horizontal plane and has a certain height. The he
 
 | properties | description |
 | :---| :--- |
-| **Enabled** | Whether to enable global fog |
-| **FogColor** | Set the global fog color |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
 | **Type** | The fog type of the global fog |
-| **FogAtten** | Fog attenuation factor |
+| **FogAtten** | Fog attenuation coefficient |
 | **FogTop** | The position of the model vertices in the vertical direction of the world coordinate system, below which all vertices will be affected by the fog effect |
 | **FogRange** | The range of the fog effect |
 

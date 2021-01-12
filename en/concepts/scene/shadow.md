@@ -1,4 +1,4 @@
-# Shadows
+# Shadow
 
 In the 3D world, light and shadow have always been extremely important components that enrich the entire environment. High quality shadows can make the game world look more realistic.
 
@@ -6,7 +6,7 @@ Creator 3.0 currently supports both **Planar** and **ShadowMap** shadow types.
 
 ![shadow](shadow/shadowExample.png)
 
-## Enable Shadows
+## Enable Shadow Effect
 
 To enable the shadow effect for an object, proceed as follows:
 
@@ -36,7 +36,7 @@ The Planar shadow type is generally used for simpler scenes.
 | :--- | :--- |
 | **Enabled** | Whether to enable shadow effect |
 | **Type** | Shadow type |
-| **ShadowColor** | Set the shadow color |
+| **ShadowColor** | Shadow color |
 | **Normal** | The normal line perpendicular to the shadow, used to adjust the slope of the shadow |
 | **Distance** | The distance of the shadow in the direction of the normal to the origin of the coordinate |
 
@@ -54,7 +54,7 @@ ShadowMap renders the scene with the light source as the viewpoint. From the pos
 | :--- | :--- |
 | **Enabled** | Whether to enable the shadow effect |
 | **Type** | Shadow type | 
-| **ShadowColor** | Set the shadow color |
+| **ShadowColor** | Shadow color |
 | **Pcf** | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **FILTER_X5**, **FILTER_X9**, **FILTER_X25** |
 | **Near** | Set the near clip plane of the main light source camera |
 | **Far** | Set the far clip plane of the main light source camera |

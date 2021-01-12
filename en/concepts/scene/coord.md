@@ -1,6 +1,6 @@
 # Coordinate Systems and Transformations
 
-In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector**. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
+In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector** panel. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
 
 ## Coordinate Systems
 
@@ -20,7 +20,7 @@ The local coordinate system, also called the relative coordinate system, is the 
 
 Creator 3.0 has a hierarchy of parent-child relationships between **Nodes**, and the position of a node set by modifying its `Position` property is the node's **local coordinate system** with respect to its parent, not the world coordinate system.
 
-Finally when drawing the whole scene, Creator will map the local coordinates of these nodes to world coordinate system coordinates. <br
+Finally when drawing the whole scene, Creator will map the local coordinates of these nodes to world coordinate system coordinates. <br>
 Suppose there are three nodes in the scene: NodeA, NodeB, and NodeC. The structure of the nodes is shown in the following figure.
 
 ![node tree](coord/node-tree.png)
@@ -31,7 +31,7 @@ When the scene contains nodes at different levels, the position of each node und
 2. Next, process all the direct children of NodeA, which is NodeB in the above figure (as well as other nodes of the same level as NodeB). Based on NodeB's `Position` property, determine NodeB's position in the world coordinate system in NodeA's local coordinate system. 
 3. Each node uses the parent's coordinate system and its own position property to determine its position in the world coordinate system.
 
-## Transformation properties
+## Transformation Properties
 
 Nodes include three main transformation properties, **Position**, **Rotation** and **Scale**, which are described below in turn.
 
@@ -47,7 +47,7 @@ Nodes include three main transformation properties, **Position**, **Rotation** a
 
 In the above figure, the world coordinates of NodeA are `(50, 50, 50)` and the local coordinates of child NodeB are `(0, 2, 0)`. If we move NodeB to the root of the scene, we can see that the world coordinates of NodeB become `(50, 52, 50)`.
 
-![position](coord/position-node-B-world.png)
+![position](coord/position-nodeB-world.png)
 
 As you can see, the `Position` of the child NodeB is based on the `Position` of the parent NodeA as the origin of the coordinate system.
 
