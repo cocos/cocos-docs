@@ -321,7 +321,7 @@ assetManager.removeBundle(bundle);
 ```
 
 ## FAQ
-  
+
 - **Q**：Asset Bundle 与 v2.4 之前的资源分包有什么区别？<br>
   **A**：
   1. 资源分包实际上是将一些图片和网格拆分出去单独放在一个包内，但这个包是不完整的、无逻辑的，无法复用。<br>

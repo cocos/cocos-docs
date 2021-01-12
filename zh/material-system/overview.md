@@ -270,8 +270,8 @@ pass.setUniform(hColor, color);
 | alphaThreshold | 启用 alpha test 后的测试阈值。输出的 alpha 值低于此值的像素会被 discard 掉 |
 | normalMap | 法线贴图，用于增加表面细节 |
 | normalStrenth | 法线贴图强度，控制凹凸质感的强弱 |
-| pbrMap | PBR 材质参数贴图：环境遮挡、粗糙度和金属度<br>采样结果会和常数项相乘 |
-| metallicRoughnessMap | 独立的粗糙度和金属度贴图<br>采样结果会和常数项相乘 |
+| pbrMap<br>**R**（AO）<br>**G**（Roughness）<br>**B**（Metallic） | PBR 材质参数贴图：环境遮挡、粗糙度和金属度<br>采样结果会和常数项相乘 |
+| metallicRoughnessMap<br>**G**（Roughness）<br>**B**（Metallic） | 独立的粗糙度和金属度贴图<br>采样结果会和常数项相乘 |
 | occlusionMap | 独立的环境遮挡贴图<br>采样结果会和常数项相乘 |
 | occlusion | 环境遮挡常数 |
 | roughness | 粗糙度常数 |

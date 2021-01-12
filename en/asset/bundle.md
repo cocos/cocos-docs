@@ -118,7 +118,7 @@ All the **code** and **resources** in the folder configured as the Asset Bundle 
 
 The structure of the Asset Bundle directory generated after build is shown below:
 
-![export](bundle/exported.png) 
+![export](bundle/exported.png)
 
 After building, the Asset Bundle folder will be packaged into the **assets** folder in the release package directory of the corresponding platform. However, there are two special cases.
 - If the **Is Remote Bundle** option is checked when configuring the Asset Bundle, this Asset Bundle folder will be packaged into the **remote** folder in the release package directory of the corresponding platform.
@@ -134,9 +134,9 @@ Each folder contained within these three folders **assets**, **remote** and **su
 
 The Asset Bundle supports script subpackaging. If your Asset Bundle includes the script files, then all the scripts will be merged into a single **js** file and removed from the main package. When loading the Asset Bundle, this **js** file will be attempted to be loaded.
 
-**Note**: 
-1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/bundle-scripts` directory to ensure normal loading.
-2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
+> **Notes**:
+> 1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/bundle-scripts` directory to ensure normal loading.
+> 2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
 
 ## Load the Asset Bundle
 
@@ -153,7 +153,7 @@ assetManager.loadBundle('https://othergame.com/remote/01_graphics', (err, bundle
 });
 ```
 
-`assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. You can use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
+`assetManager.loadBundle` also supports loading an Asset Bundle from user space with the path in user space. Use the download interface provided by the corresponding platform to pre-download the Asset Bundle into your user space and then use `loadBundle` to load it, so that you can manage the download and cache process of the Asset Bundle by yourself.
 
 ```typescript
 // Download an Asset Bundle in advance to the "pathToBundle" directory in your user space, and it's necessary to ensure 
@@ -175,7 +175,7 @@ assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err
 **Note**: If you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
 
 When you load the Asset Bundle via the API, instead of loading all the resources in the Asset Bundle, the engine loads the Asset Bundle's **resource manifest** and **all the scripts** it contains.<br>
-When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that you can use to load the various resources in the Asset Bundle.
+When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that can be used to load the various resources in the Asset Bundle.
 
 ### Versions of the Asset Bundle
 
@@ -252,7 +252,7 @@ bundle.loadScene('test', function (err, scene) {
 
 ## Get the Asset Bundle
 
-After the Asset Bundle has been loaded, it will be cached, and you can use the name to get the Asset Bundle. For example:
+After the Asset Bundle has been loaded, it will be cached, and the name can be used to get the Asset Bundle. For example:
 
 ```typescript
 let bundle = assetManager.getBundle('01_graphics');
@@ -278,7 +278,6 @@ After loading the resources, all the resources are temporarily cached in `assetM
 
 2. Use `release` method provided by the Asset Bundle, then pass in the path and type to release resources, but can only release the single resource in the Asset Bundle. The arguments can be the same as those used in the `load` method of the Asset Bundle.
 
-    
     ```typescript
     bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
         bundle.release(`image`, SpriteFrame);

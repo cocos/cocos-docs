@@ -27,27 +27,27 @@ Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何
 
 我们可以在 Canvas 下新建一个 sprite，在 sprite 节点上添加一个 Widget 组件，然后做如下一些测试：
 
-### 左对齐，左边界距离 100 px：
+### 左对齐，左边界距离 100 px
 
 ![left-100px](widget/widget-left-100px.png)
 
-### 下对齐，下边界距离 50%：
+### 下对齐，下边界距离 50%
 
 百分比将以父节点的宽或高作为基准。
 
 ![bottom-0.5](widget/widget-bottom-0.5.png)
 
-### 右下对齐，边界距离 0 px：
+### 右下对齐，边界距离 0 px
 
 ![bottom-right-0px](widget/widget-bottom-right-0px.png)
 
 ## 居中对齐
 
-### 水平方向居中：
+### 水平方向居中
 
 ![bottom-right-0px](widget/widget-h-center.png)
 
-### 竖直方向居中，并且右边界距离 50%：
+### 竖直方向居中，并且右边界距离 50%
 
 ![v-center-right-0.5](widget/widget-v-center-right-0.5.png)
 
@@ -56,15 +56,15 @@ Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何
 如果左右同时对齐，或者上下同时对齐，那么在相应方向上的尺寸就会被拉伸。
 下面演示一下，在场景中放置两个矩形 Sprite，大的作为对话框背景，小的作为对话框上的按钮。按钮节点作为对话框的子节点，并且按钮设置成 Sliced 模式以便展示拉伸效果。
 
-### 宽度拉伸，左右边距 10%：
+### 宽度拉伸，左右边距 10%
 
 ![h-stretch](widget/widget-h-stretch.png)
 
-### 高度拉伸，上下边距 0，同时水平居中：
+### 高度拉伸，上下边距 0，同时水平居中
 
 ![v-stretch](widget/widget-v-stretch.png)
 
-### 水平和竖直同时拉伸，边距 50 px：
+### 水平和竖直同时拉伸，边距 50 px
 
 ![margin-50px](widget/widget-margin-50px.png)
 

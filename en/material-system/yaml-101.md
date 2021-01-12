@@ -1,6 +1,6 @@
 # YAML 101
 
-Cocos Creator 3.0 uses a parser that conforms to the YAML 1.2 standard, which means that Creator is fully compatible with JSON, and you can use JSON directly without any problems.
+Cocos Creator 3.0 uses a parser that conforms to the YAML 1.2 standard, which means that Creator is fully compatible with JSON, and use JSON directly without any problems.
 
 ```yaml
 "techniques":

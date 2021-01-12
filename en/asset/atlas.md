@@ -19,7 +19,7 @@ To generate an __Atlas__, you should first prepare a set of original pictures. E
 
 ![single sheep](atlas/single_sheep.png)
 
-__Next__, you can use special software to generate the __Atlas__. Examples:
+__Next__, use special software to generate the __Atlas__. Examples:
 
 - [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
 - [Zwoptex](https://zwopple.com/zwoptex/)
