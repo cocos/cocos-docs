@@ -1,18 +1,23 @@
 # Main Directional Light
 
-There is only one main directional light in __Cocos Creator__. The main directional light can be understood as the dominant light in the scene, usually the sunlight in outdoor scenes. The main directional light also affects the shadow projection.
+Directional light is the most common type of lights, and can be understood as the dominant light in a scene. The lighting effect is not affected by the **light position** and **orientation**, and is suitable for achieving sunlight. However, **rotation** affects the direction of directional lights illumination, which in turn affects the range to which the model receives illumination and where the model produces shadows.
 
 ![image](dir-light.jpg)
 
-To use **Main Directional Light**, please refer to the [Main Directional Light API](../../../api/en/classes/component_light.directionallight.html).
+> **Note**: Cocos Creator currently supports only one main directional light. If more than one is added at the same time, the last one added will prevail.
 
-## Main Directional Light Properties
+To add the directional light to the scene, refer to the [Lighting](../light.md) for details.
+
+For the related interface of the directional light component, please refer to [DirectionalLight API](../../../api/en/classes/component_light.directionallight.html).
+
+## Main Directional Lights Properties
 
 ![image](dir-light-panel.png)
 
 | Property | Description |
 | :------- | :--- |
-| Color | Light color |
-| Use Color Temperature | Whether to enable color temperature |
-| Color Temperature | Color temperature |
-| Illumiance | Illumination, unit **lux (lx)** of **nits** |
+| Color | Set the light color |
+| UseColorTemperature | Whether to enable color temperature |
+| ColorTemperature | Adjust the color temperature |
+| StaticSettings | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
+| Illumiance | Illumination, unit **lux (lx)** |

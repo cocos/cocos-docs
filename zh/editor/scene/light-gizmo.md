@@ -14,8 +14,8 @@
 
 ![sphere light gizmo](images/sphere-light-gizmo.png)
 
-## 聚光（Spot Light）
+## 聚光（Spotlight）
 
 **聚光 Gizmo** 显示了光源的颜色、光源范围以及聚光的角度，同时可以使用方块控制点来编辑光源的范围和角度。
 
-![spot light gizmo](images/spot-light-gizmo.png)
+![spotlight gizmo](images/spot-light-gizmo.png)

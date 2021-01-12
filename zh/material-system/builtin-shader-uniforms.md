@@ -1,16 +1,16 @@
-## 常用 shader 内置 Uniform
+# 常用 shader 内置 Uniform
 
 要在 shader 中使用内置变量，需要包含对应头文件。
 目前所有的内置变量，按所在头文件分组，依次有：
 
-### cc-local.chunk
+## `cc-local.chunk`
 
 | Name | Type | Info |
 | :--: | :--: | :--: |
 | cc_matWorld | mat4 | 模型空间转世界空间矩阵 |
 | cc_matWorldIT | mat4 | 模型空间转世界空间逆转置矩阵 |
 
-### cc-global.chunk
+## `cc-global.chunk`
 
 | Name | Type | Info |
 | :--: | :--: | :--: |
@@ -31,13 +31,13 @@
 | cc_ambientSky | vec4 | xyz：天空颜色 w：亮度 |
 | cc_ambientGround | vec4 | xyz：地面反射光颜色 |
 
-### cc-environment.chunk
+## `cc-environment.chunk`
 
 | Name | Type | Info |
 | :--: | :--: | :--: |
 | cc_environment | samplerCube | IBL 环境贴图 |
 
-### cc-forward-light.chunk
+## `cc-forward-light.chunk`
 
 | Name | Type | Info |
 | :--: | :--: | :--: |
@@ -49,7 +49,7 @@
 | cc_spotLitDir[MAX_LIGHTS] | vec4 | xyz：聚光灯方向 |
 | cc_spotLitColor[MAX_LIGHTS] | vec4 | xyz：聚光灯颜色 w：聚光灯强度 |
 
-### cc-shadow.chunk
+## `cc-shadow.chunk`
 
 | Name | Type | Info |
 | :--: | :--: | :--: |

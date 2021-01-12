@@ -14,8 +14,8 @@ For more information about the light of __Cocos Creator__, you can read the [Lig
 
 ![sphere light gizmo](images/sphere-light-gizmo.png)
 
-## Spot Light
+## Spotlight
 
-**Spot Light Gizmo** shows the color, area and spot angle of spot light, you can edit the area and angle of light by dragging the control quad.
+**Spotlight Gizmo** shows the color, area and spot angle of spotlight, you can edit the area and angle of light by dragging the control quad.
 
-![spot light gizmo](images/spot-light-gizmo.png)
+![spotlight gizmo](images/spot-light-gizmo.png)

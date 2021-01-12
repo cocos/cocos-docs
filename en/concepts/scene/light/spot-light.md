@@ -1,21 +1,26 @@
 # Spotlight
 
-**Spotlight** is used to express the focus of a light beam. You can control the spot size by adjusting the focusing angle.
+The Spotlight is a beam of light emitted from a point in one direction, close to the light produced by a flashlight. Spotlights have an additional `SpotAngle` property over other types of lighting, which is used to adjust the illumination range of the Spotlight.
 
-![spot light](spot-light.jpg)
+![spotlight](spot-light.jpg)
 
-To use `Spotlight`, please refer to the [Spotlight API](../../../api/en/classes/component_light.spotlight.html).
+To add the Spotlight to the scene, refer to the [Lighting](../light.md) for details.
 
-## Spotlights Properties
+For the related interface of the Spotlight component, please refer to [Spotlight API](../../../api/en/classes/component_light.spotlight.html).
 
-| Parameter | Description |
+## Spotlight Properties
+
+![image](spot-light-prop.png)
+
+| Property | Description |
 | :------- | :--- |
-| Color | Light source color |
+| Color | Set the light color  |
 | UseColorTemperature | Whether to enable color temperature |
-| ColorTemperature | Color temperature |
-| Size | Light source size |
-| Range | Lighting impact range |
-| SpotAngle | Condensing angle |
-| Term | Selected unit for light intensity <br> Spherical light supports two unit system: **luminous power** and **luminance** |
-| LuminousPower | Luminous power in **lumens (lm)** <br> When __Term__ is specified as __LUMINOUS_POWER__, lumen is used to indicate the light intensity |
-| Luminance | Brightness, unit **Candela per square meter (cd/m<sup>2</sup>)** <br>When __Term__ is specified as __LUMINANCE__, brightness is used to indicate light intensity |
+| ColorTemperature | Adjust the color temperature |
+| Size | Set the light source size |
+| Range | Set the lighting impact range |
+| SpotAngle | Adjust the spotlight angle to control the lighting range |
+| Term | Setup the light intensity unit type, including both **LUMINOUS_POWER** and **LUMINANCE** |
+| LuminousPower | Luminous power in **lumens (lm)**. Takes effect when **Term** is set to **LUMINOUS_POWER** |
+| Luminance | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**. Takes effect when **Term** is set to **LUMINANCE** |
+| StaticSettings | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
