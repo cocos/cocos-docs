@@ -10,11 +10,11 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
 3. After the folder is directly placed in packages under the project directory, click in the menu to open the plug-in manager, and click refresh on the project page to see the newly added plug-ins. At this point, click the **Enable** button to enable the plug-in.
 
-    ![enable-plugin](./custom-project-build-template/enable-plugin.jpg)
+    ![enable-plugin](./custom-project-build-template/enable-plugin.png)
 
 4. After enabling the plug-in, open the build plug-in panel, select the `Web-Mobile` platform, you can see the new parameters injected by the build plug-in, and click **build** to take effect.
 
-    ![plugin-template](./custom-project-build-template/plugin-template.jpg)
+    ![plugin-template](./custom-project-build-template/plugin-template.png)
 
 5. Modify the code in the folder directly, compile it, and then reload the plug-in. The example is a small example compiled with Typescript. If you don't know how to compile, please refer to the `readme` document in the plugin package.
 
