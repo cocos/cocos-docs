@@ -57,7 +57,7 @@ Since the callback function can only be written in this script, the scene loadin
 
 ```ts
 director.preloadScene("table", function () {
-    console.log("Next scene preloaded");
+    console.log('Next scene preloaded');
 });
 ```
 

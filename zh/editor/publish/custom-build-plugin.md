@@ -4,19 +4,31 @@
 
 ## 快速开始
 
-1. 点击编辑器内的菜单内的 **项目 -> 生成构建插件模板**，选择文件夹后即可在对应位置生成一份构建插件模板。作为项目使用的构建插件可以选择项目下的 `extensions/xxx` 路径，作为全局使用的构建插件可以选择全局插件目录下 `extensions/xxx` 路径，本例作为测试使用直接放在项目下的 `extensions` 文件夹内即可。
+1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展插件**，选择 **全局**/**项目** 后即可创建一个构建扩展插件包。
 
-2. 选择对应文件夹后，如果正常生成会看到控制台上回打印生成构建模板成功的 log，使用 **Ctrl + 鼠标右键** 可以直接跳转到对应位置。
+    * 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
 
-3. 文件夹直接放置在项目目录的 extensions 目录下，在菜单里点击打开插件管理器，在项目页点击刷新即可看到最新添加的插件。此时点击 **Enable** 按钮即可启用插件。
+        * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
 
-    ![enable-plugin](./custom-project-build-template/enable-plugin.jpg)
+        * **Mac**：`$HOME/.CocosCreator/extensions`
 
-4. 启用插件后打开构建插件面板，选择 `Web-Mobile` 平台，即可看到构建插件注入的新参数，点击 **构建** 即可生效。
+    * 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
 
-    ![plugin-template](./custom-project-build-template/plugin-template.jpg)
+        * `$你的项目地址/extensions`
 
-5. 通过直接修改该文件夹内的代码，再编译，然后 reload 该插件即可。示例是一个使用 ts 编译的小范例，不清楚如何编译的可以参见插件包内的 readme 文档。
+2. 构建扩展插件创建完成后会在 **控制台** 中看到插件的生成路径，点击路径即可在操作系统的文件管理器中打开构建扩展插件包。
+
+3. 启用构建扩展插件之前需要先在目录下执行 `npm install` 安装一些依赖的 @types 模块才能正常编译。编辑器自带的接口定义已经生成在根目录的 **@types** 文件夹下了，后续通过编辑器菜单栏的 **开发者 -> 导出 .d.ts** 即可获取到最新的接口定义。
+
+4. 在编辑器的菜单栏中点击 **扩展 -> 扩展管理器**，打开 **扩展管理器** 面板。然后在 **扩展管理器** 中选择 **项目**/**全局** 选项卡，点击 **刷新图标** 按钮即可看到刚刚添加的构建扩展插件。然后点击右侧的 **启用** 按钮，即可正常运行插件。
+
+    ![enable-plugin](./custom-project-build-template/enable-plugin.png)
+
+5. 构建扩展插件启用后，打开 **构建发布** 面板，可以看到构建扩展插件的展开栏。点击 **构建** 即可加入构建流程。
+
+    ![plugin-template](./custom-project-build-template/plugin-template.png)
+
+6. 如果需要修改构建扩展插件的内容，直接修改 `extensions` 目录下的构建扩展插件包，然后执行第 3 个步骤。再在 **扩展管理器** 中找到对应的构建扩展插件，然后点击 **重新载入** 图标按钮，这时候编辑器中的扩展将使用最新的代码和文件重新运行。
 
 ## 基本配置流程
 
@@ -32,7 +44,7 @@
 }
 ```
 
-## 插件入口配置代码示例与接口定义
+## 入口配置代码示例与接口定义
 
 入口配置代码示例如下：
 
@@ -44,22 +56,48 @@ export const configs: IConfigs = {
             remoteAddress: {
                 label: 'i18n:xxx',
                 render: {
-                    ui: 'input',
+                    ui: 'ui-input',
                     attributes: {
                         placeholder: 'Enter remote address...',
                     },
                 },
+                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 verifyRuleMap 字段中配置
                 verifyRules: ['require', 'http'],
             },
+            enterCocos: {
+                    label: 'i18n:cocos-build-template.options.enterCocos',
+                    description: 'i18n:cocos-build-template.options.enterCocos',
+                    default: '',
+                    render: {
+                        // 请点击编辑器菜单栏中的“开发者 -> UI 组件”，查看所有支持的 UI 组件列表。
+                        ui: 'ui-input',
+                        attributes: {
+                            placeholder: 'i18n:cocos-build-template.options.enterCocos',
+                        },
+                    },
+                    verifyRules: ['ruleTest']
+                }
+            },
+            verifyRuleMap: {
+                ruleTest: {
+                    message: 'i18n:cocos-build-template.ruleTest_msg',
+                    func(val, option) {
+                        if (val === 'cocos') {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            }
         },
-    },
 };
 ```
 
-需要注意的是不同进程内的环境变量会有所差异，在编写脚本时需要额外注意：
-- 如果平台 key 添加的是 `*`，则对所有的平台都生效。但是用 `*` 的话，和指定平台名称是互斥的，请不要在同一个构建插件内部同时使用两种配置方式。
-- `hooks` 字段传递的脚本将会在构建进程内执行
-- `panel` 字段传递的脚本则会在渲染进程内执行
+在编写入口脚本时还需要额外注意以下几点：
+
+1. 不同进程中的环境变量会有所差异。入口脚本会同时被渲染进程和主进程加载，所以请不要在入口脚本中使用仅存在于单一进程中的编辑器接口；
+
+2. `config` 的 key 有两种配置方式：一种是针对单个平台配置，key 填写为 **平台插件名**（可在编辑器菜单栏 **扩展 -> 扩展管理器 -> 内置** 中查看平台插件名）； 一种是针对所有平台的配置，key 填写为 `*`。这两种配置方式是互斥的，请不要在同一个构建扩展包内部同时使用。
 
 详细的接口定义说明如下：
 
@@ -117,17 +155,21 @@ declare interface IUiOptions extends IOptionsBase {
 
 ```ts
 declare interface IHook {
-    throwError?: boolean; // 插件注入的钩子函数，在执行失败时是否直接退出构建流程
+    throwError?: boolean; // 插件注入的钩子函数，在执行失败时是否直接退出构建流程，并显示构建失败
     // ------------------ 钩子函数 --------------------------
     onBeforeBuild?: IBaseHooks;
     onBeforeCompressSettings?: IBaseHooks;
     onAfterCompressSettings?: IBaseHooks;
     onAfterBuild?: IBaseHooks;
+
+    // 编译生成的钩子函数（仅在构建有“生成”流程的平台时才有效）
+    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
+    onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
 }
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用 `options` 一个副本仅作为信息的获取参考，因而直接修改它并不会真正的影响构建。构建参数的修改请使用入口的 `options` 来配置。由于接口定义众多，详细的接口定义可以参考构建插件模板文件夹内的 `@types/builder.d.ts` 文件。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息的获取参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
 
 简单的代码示例：
 
@@ -140,6 +182,6 @@ export function onBeforeCompressSettings(options, result) {
 }
 ```
 
-## 构建插件调试
+## 构建扩展插件调试
 
 点击菜单里的 **开发者 —> 打开构建调试工具**，即可正常调试添加的构建插件脚本。

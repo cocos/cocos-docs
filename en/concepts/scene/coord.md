@@ -1,4 +1,4 @@
-# Coordinate systems and transformations
+# Coordinate Systems and Transformations
 
 In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector**. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
 
