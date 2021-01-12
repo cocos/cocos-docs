@@ -35,17 +35,17 @@ After enabling the skybox, you also need to set the skybox's environment map. Th
 
     ![Set environment map for skybox](skybox/set-envmap.png)
 
-Then the setup is done. The developer can see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, you need to check if the value of **SkyIllum parameter** is too low, or **modify the Clear Flag** of Camera.
+Then the setup is done. The developer can see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, you need to check if the value of **SkyIllumination parameter** is too low, or **modify the Clear Flag** of Camera.
 
-#### SkyIllum Parameter
+#### SkyIllumination Parameter
 
-The SkyIllum parameter can be found in the **Scene** component of the **Inspector** panel by selecting **Scene** in the **Hierarchy** panel and then in the **ambient** component of the **Inspector** panel, with a default value of 20000.
+The SkyIllumination parameter can be found in the **Scene** component of the **Inspector** panel by selecting **Scene** in the **Hierarchy** panel and then in the **ambient** component of the **Inspector** panel, with a default value of 20000.
 
-If the SkyIllum parameter is set **too low**, the environment map of the skybox may not be displayed correctly in the **Scene** panel. General:
+If the SkyIllumination parameter is set **too low**, the environment map of the skybox may not be displayed correctly in the **Scene** panel. General:
 
-- When the SkyIllum parameter value is less than 300, the environment map of the Skybox will not be displayed properly.
+- When the SkyIllumination parameter value is less than 300, the environment map of the Skybox will not be displayed properly.
 
-- When the SkyIllum parameter is 5000, the effect is equivalent to the light intensity of a moonlit night.
+- When the SkyIllumination parameter is 5000, the effect is equivalent to the light intensity of a moonlit night.
 
 #### Modify ClearFlags of Camera
 
