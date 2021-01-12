@@ -37,16 +37,56 @@ The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please 
 
 #### UI related interfaces on the obsolete node
 
-The deprecated interfaces are as follows:
+- The UI-related interface changes on the node are as follows:
+    - The interfaces related to coordinate transformation calculation are as follows:
+        - Attributes: `width`、`height`、`anchorX`、`anchorY`、`anchorPoint`、`contentSize`.
+        - Methods: `setAnchorPoint`、`setContentSize`、`convertToNodeSpaceAR`、`getBoundingBox`、`getBoundingBoxTo`. Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
 
-- Attributes: `width`, `height`, `anchorX`, `anchorY`.
-- Methods: `getAnchorPoint`, `setAnchorPoint`, `getContentSize`, `setContentSize`.
+        ```typescript
+        node.getComponent(UITransform).setContentSize(size);
+        ```
 
-Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
+    - The remaining interfaces are as follows:
+        - `color`: needs to get the rendering component on the node first (e.g. `Sprite` component), and then use the corresponding interface.
+        - `opacity`: If there is a rendering component on the node, set the `color` of the rendering component directly. If there is no rendering component, you can set the rendering component's `color` by adding the `UIOpacity` component and setting the related property.
+        - `skew`: The interface has been removed.
+        - `group`: change to `layer`.
+- `CCSpriteFrame`: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture` are deprecated. `setFlipX` and `isFlipX` -> `flipUVX`, `setFlipY` and `isFlipY` -> `flipUVY`, `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture) have been changed. The remaining methods corresponding to `get` and `set` (e.g. `getOffset`) all correspond directly to properties of the same name (e.g. `offset`) in 3.0.
+- `CCTexture2D`: The interface changes are `genMipmaps` -> `mipmaps`, `initWithElement` -> `image`, `initWithData`, the whole method is removed, similarly the use is to pass the original `ArrayBufferView` data to the new `ImageAsset`, and then `ImageAsset` to the new `Texture2D` to get a copy of the image resource.
+- `Action`: Remove all related.
+- **Physics**: `cc.Collider` -> `Collider2D`, `cc.BoxCollider` -> `BoxCollider2D`, `cc.RigidBody` -> `RigidBody2D`, etc. `cc.Collider3D` -> `Collider`, `cc.BoxCollider3D` -> `BoxCollider`, `cc.RigidBody3D` -> `RigidBody`, etc.
+- **tween**: `cc.repeatForever`, `cc.reverseTime`, `cc.show`, etc., corresponding to 3.0 as `Tween.repeatForever`, `Tween.reverseTime`, `Tween.show`, etc.
+- **Animation**：`addClip`-> `createState`、`getClips`-> `clips`、`playAdditive`-> `crossFade`、`getAnimationState`-> `getState`, etc.
+- **Camera**：`findCamera`、`alignWithScreen`、`main`、`cameras`、`zoomRatio` and `containsNode` are deprecated. The remaining changes, such as: `backgroundColor` -> `clearColor`、`cullingMask` -。 > `visibility`、`depth`->`clearDepth`、`getScreenToWorldPoint`->`screenToWorld`、`getWorldToScreenPoint`->`worldToScreen`、`getRay`->`screenPointToRay`, etc.
+- **Audio**: `getLoop` and `setLoop` -> `loop`, `getVolume` and `setVolume` -> `volume`, `getCurrentTime` and `setCurrentTime` -> `currentTime`, `src` -> `clip` interface changes.
+- **Materials**: All relevant changes need to be done by getting a **Material instance** on **MeshRenderer** or its subclasses. `setBlend`, `setDepth`, `setStencilEnabled`, `setStencil` and `setCullMode` are deprecated and `overridePipelineStates` is called to complete the update. `define` is deprecated and `recompileShaders` is called to complete the update.
+- The platform variable changes under **sys** are as follows:
 
-```typescript
-node.getComponent(UITransform).setContentSize(size);
-```
+    | Cocos Creator 2.4 | Cocos Creator 3.0   |
+    |-------------------|---------------------|
+    | `BAIDU_GAME`        | `BAIDU_MINI_GAME`     |
+    | `VIVO_GAME`         | `VIVO_MINI_GAME`      |
+    | `OPPO_GAME`         | `OPPO_MINI_GAME`      |
+    | `HUAWEI_GAME`       | `HUAWEI_QUICK_GAME`   |
+    | `XIAOMI_GAME`       | `XIAOMI_QUICK_GAME`   |
+    | `JKW_GAME`          | `COCOSPLAY`           |
+    | `ALIPAY_GAME`       | `ALIPAY_MINI_GAME`    |
+    | `BYTEDANCE_GAM`E    | `BYTEDANCE_MINI_GAME` |
+
+- The **global variables** are changed as follows：
+
+    | Creator 2.x      | Creator 3.0     |
+    |:-----------------|:----------------|
+    | `CC_BUILD`       | `BUILD`         |
+    | `CC_TEST`        | `TEST`          |
+    | `CC_EDITOR`      | `EDITOR`        |
+    | `CC_PREVIEW`     | `PREVIEW`       |
+    | `CC_DEV`         | `DEV`           |
+    | `CC_DEBUG`       | `DEBUG`         |
+    | `CC_JSB`         | `JSB`           |
+    | `CC_WECHATGAME`  | `WECHATGAME`    |
+    | `CC_RUNTIME`     | `RUNTIME_BASED` |
+    | `CC_SUPPORT_JIT` | `SUPPORT_JIT`   |
 
 ### Editor upgrade
 
