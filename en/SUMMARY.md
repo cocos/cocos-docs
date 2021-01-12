@@ -81,6 +81,7 @@
   - [Graphics Rendering](module-map/graphics.md)
 
 - [Scene and Environment](concepts/scene/index.md)
+  - [Nodes and Components](concepts/scene/node-component.md)  
   - [Coordinate system](concepts/scene/coord.md)
   - [Scene](concepts/scene/scene.md)
   - [Node](concepts/scene/node.md)
