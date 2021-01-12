@@ -70,7 +70,7 @@ Sculpting is changing the shape of a terrain.
 | BrushStrength | The strength of the brush |
 | BrushMode | The type of the brush, including **Bulge**、**Sunken** and **Smooth** |
 
-To control the bulging/depression of the terrain, use the **left mouse** button and the **Shift + left mouse** button, respectively. The bulge and depression operation often makes the terrain look sharp, so you can use the smoothing function to overdo it.
+To control the bulging/depression of the terrain, use the **left mouse** button and the **Shift + left mouse** button, respectively. The bulge and depression operation often makes the terrain look sharp, use the smoothing function to overdo it.
 
 > **Note**: currently only round brushes are supported.
 

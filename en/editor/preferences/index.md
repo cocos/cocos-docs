@@ -30,7 +30,7 @@ This page is used to set the path of the development environment required when t
 
 - **Use Builtin JS Engine**: Whether to use the engine path that comes with the __Cocos Creator__ installation path as the JavaScript engine path.This engine is used for scene rendering in the scene panel of editor, declaration of built-in components, and engine modules in other Web environments such as `preview` or `publish`.
 
-- **Custom JS Engine**: In addition to using the built-in engine, you can also go to [engine repository](https://github.com/cocos-creator/engine) to clone or fork a copy of the engine to the local anywhere, then uncheck `Use Builtin JS Engine`, then set the JavaScript engine path to your customized engine path. You can use the editor to customize your engine.
+- **Custom JS Engine**: In addition to using the built-in engine, you can also go to [engine repository](https://github.com/cocos-creator/engine) to clone or fork a copy of the engine to the local anywhere, then uncheck `Use Builtin JS Engine`, then set the JavaScript engine path to your customized engine path. Use the editor to customize your engine.
 
 - **WeChatGame APP Path**: Set the WechatGame App Path, See [WeChat Mini Games](../publish/publish-wechatgame.md).
 
@@ -44,7 +44,7 @@ This category is used to set the default open mode for assets.
 
 ![edit](./index/edit.jpg)
 
-- **Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in `Assets`.
+- **Script Editor**: Use the executable file of any external text editing tool as the opening method when you double-click the script file in `Assets`.
 
 - **Picture Editor**: Similar to the above option, used here to set when `Assets`, double-click the picture file, open the picture with the default application path.
 

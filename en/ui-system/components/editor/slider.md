@@ -8,7 +8,6 @@ Click the __Add Component__ button at the bottom of the __Inspector__ panel and 
 
 To use `Slider`, please refer to the [Slider API](../../../api/en/classes/ui.slider.html) documentation and the [slider](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/10.slider) scene of the test-cases-3d project.
 
-
 ## Slider Properties
 
 | Properties     | Function Explanation |
@@ -81,7 +80,7 @@ export class example extends Component {
     @property(SliderComponent)
     slider: SliderComponent | null = null;
     onLoad(){
-       this.toggle.node.on('toggle', this.callback, this);
+       this.slider.node.on('slider', this.callback, this);
     }
 
     callback(slider: SliderComponent){

@@ -27,5 +27,6 @@
     "single-trailing-newline": true,
     "code-fence-style": true,
     "no-duplicate-header": false,
-    "no-empty-links": true
+    "no-empty-links": true,
+    "no-inline-html": false
 }

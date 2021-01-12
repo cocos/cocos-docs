@@ -1,6 +1,6 @@
 # Assets
 
-The **Assets** panel is an important tool used to access and manage project assets. When starting to make a game, **importing assets** is usually a necessary step. You can use the __Hello World__ template project as a starting point when creating a new project. After you create and open a new project, various types of assets are visible in the **Assets** panel.
+The **Assets** panel is an important tool used to access and manage project assets. When starting to make a game, **importing assets** is usually a necessary step. Use the __Hello World__ template project as a starting point when creating a new project. After you create and open a new project, various types of assets are visible in the **Assets** panel.
 
 ![Panel Overview](img/thumb.gif)
 
@@ -40,7 +40,7 @@ When adding a asset, an **input box** will appear. The name of the asset is requ
 
 ### Selecting Assets
 
-You can use the following operations to select assets in the list:
+Use the following operations to select assets in the list:
 
 - **Click** to **single-select assets**.
 - The **up** and **down** arrows on the keyboard can be used to select.
