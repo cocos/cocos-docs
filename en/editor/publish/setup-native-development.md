@@ -28,7 +28,7 @@ On Windows platform, please confirm if `JAVA_HOME` is included in your environme
 
 ### Download and install Android Studio
 
-**Cocos Creator does not support Eclipse's ANT** build, we need to use **Android Studio v4.1 and above** as an Android platform's build tool and you should download the required SDK and NDK packages in **Android Studio**. First install [Android Studio](https://developer.android.com/studio#downloads).
+**Cocos Creator does not support Eclipse's ANT** build, we need to use **Android Studio v4.1 and above** as an Android platform's build tool and you should download the required SDK and NDK packages in **Android Studio**. First, install [Android Studio](https://developer.android.com/studio#downloads).
 
 ### Download the SDK and NDK required to publish the Android platform
 
@@ -58,7 +58,7 @@ Please install the following running environment:
 
 ## Configure Native Develop environments path
 
-Next, let's go back to Cocos Creator to configure the environmental path of the native platform. Choose **Cocos Creator -> Preferences** in the main menu, and open the **Preferences** panel. We need to configure the following two paths here:
+Next, go back to Cocos Creator to configure the environmental path of the native platform. Choose **Cocos Creator -> Preferences** in the main menu, and open the **Preferences** panel. We need to configure the following two paths here:
 
 ![preference](setup-native-development/sdk.png)
 

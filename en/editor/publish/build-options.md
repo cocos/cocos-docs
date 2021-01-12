@@ -2,7 +2,7 @@
 
 ## General Build Options
 
-The general build options in the **Build** panel are as follows:
+For the general build options in the **Build** panel are as follows:
 
 ![build options](./build-options/options.png)
 

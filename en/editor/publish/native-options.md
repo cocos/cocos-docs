@@ -12,7 +12,7 @@ To publish to the native platforms you need to install and configure some necess
 
 ## Build Options
 
-The general build options for all platforms, see [General Build Options](build-options.md) for details.
+For the general build options for all platforms, see [General Build Options](build-options.md) for details.
 
 ### General build options for native platforms
 
@@ -178,7 +178,7 @@ Click the **Make** button on the **Build Task** window to enter the compile proc
 
 `make package YourProjectBuildPath success!`
 
-> **Note**: After the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, and then perform the Make and Run.
+> **Note**: after the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, and then perform the Make and Run.
 
 Once the **Make** process is complete, continue to click the **Run** button next to it. Some compilation work may continue, so please wait patiently or check the progress through the log file. The results of the **Run** for each platform are as follows:
 

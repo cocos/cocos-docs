@@ -4,14 +4,14 @@ Cocos Creator supports all major platforms in depth, games can be quickly publis
 
 ## Preparation Work
 
-The game project can be published when it is developed normally and the preview results meet the requirements. The preparatory work that need to be done before publishing includes:
+The game project can be published when it is developed normally and the preview results meet the requirements. The preparations work that need to be done before publishing includes:
 
 - [About the Build Panel](build-panel.md)
 - [Build Options](build-options.md)
 
 ## Publishing Platform
 
-Currently, Cocos Creator supports publishing platforms as follows:
+Currently, Cocos Creator supports publishing to the following platforms:
 
 - [Publish to Web Platforms](publish-web.md)
 - [Publish to Native Platforms](native-options.md)
@@ -32,7 +32,7 @@ Currently, Cocos Creator supports publishing platforms as follows:
     - [Publish to QTT Mini Games](publish-qtt.md)
     - [Access to Open Data Context](build-open-data-context.md)
 
-Developers can also publish game projects via the command line, see [Publish from Command Line](publish-in-command-line.md) for details.
+Developers can also publish game projects via the command line, see [Publish from the Command Line](publish-in-command-line.md) for details.
 
 ## Advanced Topics
 

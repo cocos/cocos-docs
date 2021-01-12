@@ -67,7 +67,7 @@
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
         - [Publish to LinkSure Mini Games](editor/publish/publish-link-sure.md)
         - [Publish to QTT Mini Games](editor/publish/publish-qtt.md)
-    - [Publish from Command Line](editor/publish/publish-in-command-line.md)
+    - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
     - [Build Process with FAQ](editor/publish/build-guide.md)
     - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
     - [Extend the Build Process](editor/publish/custom-build-plugin.md)
