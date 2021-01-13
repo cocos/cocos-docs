@@ -66,7 +66,7 @@ When the height or width of the SpriteFrame changes, The `align` attribute may n
 | Attribute | Description | Example | Note   |
 | --------- | ----------- | ------- | ------ |
 | height    | Specify the SpriteFrame height size, the size should be a integer.| `<img src='foo' height=50 />` | If you only assign height the SpriteFrame will auto keep aspect-ratio
-| width     | Specify the SpriteFrame width size, the size should be a integer.| `<img src='foo' width=50 />` | You can use both Height and Width `<img src='foo' width=20 height=30 />`
+| width     | Specify the SpriteFrame width size, the size should be a integer.| `<img src='foo' width=50 />` | Use both Height and Width `<img src='foo' width=20 height=30 />`
 | align     | Specify the SpriteFrame alignment in line, the value should be `bottom`, `top` or `center`.| `<img src='foo' align=center />` | Default SpriteFrame alignment will be bottom
 
 To support custom image layout, the `offset` attribute can be used to fine-tune the position of the specified SpriteFrame in the RichText component. When setting the `offset` attribute, keep in mind that the value must be an integer, and it will cause the image to overlap the text if it is not set properly.
@@ -74,7 +74,7 @@ To support custom image layout, the `offset` attribute can be used to fine-tune 
 | `offset` attribute | Example | Description | Note   |
 | --------- | ------- | ----------- | ------ |
 | Y         | `<img src='foo' offset=5 />`    | Specify the SpriteFrame to offset y + 5           | If offset only set one Integer value it's will be offset Y
-| Y         | `<img src='foo' offset=-5 />`   | Specify the SpriteFrame to offset y - 5           | You can use minus to decrease Y position
+| Y         | `<img src='foo' offset=-5 />`   | Specify the SpriteFrame to offset y - 5           | Use minus to decrease Y position
 | X, Y      | `<img src='foo' offset=6,-5 />` | Specify the SpriteFrame to offset x + 6 and y - 5 | The offset values should only contains `0-9`, `-` and `,` characters
 
 

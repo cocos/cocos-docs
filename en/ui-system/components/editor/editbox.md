@@ -1,6 +1,6 @@
 # EditBox Component Reference
 
-__EditBox__ is a text input component, you can use this component to get user input easily.
+__EditBox__ is a text input component, use this component to get user input easily.
 
 ![editbox](editbox/editbox.png)
 

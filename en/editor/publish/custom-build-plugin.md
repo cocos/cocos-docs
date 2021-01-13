@@ -34,8 +34,6 @@ Example `package.json`:
 
 ## Plug-in entry configuration code example and interface definition
 
-Example entry configuration code:
-
 ```ts
 export const configs: IConfigs = {
     'web-mobile': {
@@ -56,7 +54,7 @@ export const configs: IConfigs = {
 };
 ```
 
-> **Note**: The environment variables in different processes will be different, pay extra attention when writing scripts:
+> **Notes**: The environment variables in different processes will be different, pay extra attention when writing scripts:
   > 1. If the platform key is added with `*`, it will take effect for all platforms. However, using `*` is mutually exclusive with the specified platform name. Do not use both configuration methods in the same build plugin.
   > 2. The script passed in the `hooks` field will be executed during the build process.
   > 3. The script passed in the `panel` field will be executed in the rendering process.
@@ -125,11 +123,15 @@ declare interface IHook {
     onBeforeCompressSettings?: IBaseHooks;
     onAfterCompressSettings?: IBaseHooks;
     onAfterBuild?: IBaseHooks;
+
+    // Compile the generated hook function (only valid when the platform is built with a "generation" process)
+    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
+    onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
 }
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **Note**: The `result` parameter can be accessed at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is used in the actual build process. A copy of `options` is only used as a reference for information acquisition, so directly Modifying it does not really affect the build. To modify the build parameters, please use the `options` of the entry to configure. Due to the numerous interface definitions, you can refer to the `@types/builder.d.ts` file in the build plugin template folder for detailed interface definitions.
+> **Note**: the `result` parameter can be accessed at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is used in the actual build process. A copy of `options` is only used as a reference for information acquisition, so directly Modifying it does not really affect the build. To modify the build parameters, please use the `options` of the entry to configure. Due to the numerous interface definitions, you can refer to the `@types/builder.d.ts` file in the build plugin template folder for detailed interface definitions.
 
 A simple example:
 
