@@ -5,7 +5,9 @@
         "style": "dash"
     },
     "list-indent": true,
-    "ul-indent": true,
+    "ul-indent": {
+        "indent": 4
+    },
     "no-trailing-spaces": {
         "br_spaces": 0
     },
@@ -24,6 +26,7 @@
     "fenced-code-language": false,
     "single-trailing-newline": true,
     "code-fence-style": true,
+    "no-duplicate-header": false,
     "no-empty-links": true,
     "no-inline-html": false
 }

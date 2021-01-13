@@ -4,14 +4,14 @@ Using Sprite is the most common way to display images in 2D/3D games. By adding 
 
 ![add sprite](sprite/sprite-component.png)
 
-You can add a Sprite component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __UI -> Render -> Sprite__.
+Add a **Sprite** component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __UI -> Render -> Sprite__.
 
 To use `Sprite`, please refer to the [Sprite API](../../../api/en/classes/ui.sprite.html) documentation and the [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
 
 ## Sprite Properties
 
-| Properties | Function Explanation
-| -------------- | ----------- |
+| Property | Function Explanation
+| :-------------- | :----------- |
 | **Type** | Rendering mode, currently includes `SIMPLE`, `SLICED`, `TILED`, `FILLED` four rendering modes.
 | **Materials** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
 | **Src Blend Factor** | The source image blend mode.
@@ -47,8 +47,8 @@ Currently, the Sprite component supports the following rendering modes:
 
 When the `Type` property selects `FILLED`, a new set of properties appears to be configured. So let's explain their roles in turn.
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
+| Property |   Function Explanation
+| :-------------- | :----------- |
 | **Fill Type** | Fill type selection, including `HORIZONTAL`, `VERTICAL`, and `RADIAL`. |
 | **Fill Start** | Normalized values for filling starting position (from 0 ~ 1, denoting the percentage of total population), when you select a horizontal fill, the `Fill Start` is set to 0, and it is populated from the leftmost edge of the image. |
 | **Fill Range** | Normalized values for padding ranges (same from 0 ~ 1). When set to 1, it fills up the entire range of the original image. |

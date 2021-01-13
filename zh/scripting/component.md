@@ -109,7 +109,7 @@ export class Game extends Component {
 
 在同一个节点上的组件执行顺序，可以通过组件在 **属性检查器** 里的排列顺序来控制，排列在上的组件会先于排列在下的组件执行。可以通过组件右上角的齿轮按钮里的 `Move Up` 和 `Move Down` 菜单来调整组件的排列顺序，即执行顺序。
 
-假如有两个组件 CompA 和 CompB，他们的内容分别是：
+假如有两个组件 CompA 和 CompB，它们的内容分别是：
 
 ```ts
 // CompA.ts

@@ -6,15 +6,15 @@
 
 1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展插件**，选择 **全局**/**项目** 后即可创建一个构建扩展插件包。
 
-    * 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
+    - 若选择 **全局**，则是将构建扩展插件应用到所有的 Cocos Creator 项目，**全局** 路径为：
 
-        * **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+        - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
 
-        * **Mac**：`$HOME/.CocosCreator/extensions`
+        - **Mac**：`$HOME/.CocosCreator/extensions`
 
-    * 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
+    - 若选择 **项目**，则是将构建扩展插件应用到指定的 Cocos Creator 项目，**项目** 路径为：
 
-        * `$你的项目地址/extensions`
+        - `$你的项目地址/extensions`
 
 2. 构建扩展插件创建完成后会在 **控制台** 中看到插件的生成路径，点击路径即可在操作系统的文件管理器中打开构建扩展插件包。
 
@@ -28,7 +28,7 @@
 
     ![plugin-template](./custom-project-build-template/plugin-template.png)
 
-6. 如果需要修改构建扩展插件的内容，直接修改 `extensions` 目录下的构建扩展插件包，然后执行第 3 个步骤。再在 **扩展管理器** 中找到对应的构建扩展插件，然后点击 **重新载入** 图标按钮，这时候编辑器中的扩展将使用最新的代码和文件重新运行。
+6. 如果需要修改构建扩展插件的内容，直接修改 `extensions` 目录下的构建扩展插件包即可，具体内容请参考构建扩展插件包目录下的 `readme.md` 文件。再在 **扩展管理器** 中找到对应的构建扩展插件，然后点击 **重新载入** 图标按钮，这时候编辑器中的扩展将使用最新的代码和文件重新运行。
 
 ## 基本配置流程
 
@@ -61,7 +61,7 @@ export const configs: IConfigs = {
                         placeholder: 'Enter remote address...',
                     },
                 },
-                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 verifyRuleMap 字段中配置
+                // 校验规则，目前内置了几种常用的校验规则。如果有需要自定义的规则可以在 verifyRuleMap 字段中配置
                 verifyRules: ['require', 'http'],
             },
             enterCocos: {
@@ -169,7 +169,7 @@ declare interface IHook {
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息的获取参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
+> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
 
 简单的代码示例：
 

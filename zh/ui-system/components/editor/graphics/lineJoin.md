@@ -3,7 +3,7 @@
 `lineJoin` 属性设置或返回线条末端线帽的样式。
 
 | 参数 |   描述
-| -------------- | ----------- |
+| :-------------- | :----------- |
 |Graphics.LineJoin.BEVEL   | 创建斜角。
 |Graphics.LineJoin.ROUND  | 创建圆角。
 |Graphics.LineJoin.MITER | 默认。创建尖角。
