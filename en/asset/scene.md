@@ -26,7 +26,7 @@ While creating __Scenes__, you can quickly save __Scenes__ with the shortcut key
 
 ## Switching Scenes
 
-In the __Assets__, __double-click__ the __Scene__ you want to open. When needing to switch __Scenes__ in the game, you can use the `director.loadScene()` API to implement dynamic scene loading and switching in the game. For further details, please see the [API documentation](../../../api/en/classes/core.director-2.html#loadscene).
+In the __Assets__, __double-click__ the __Scene__ you want to open. When needing to switch __Scenes__ in the game, use the `director.loadScene()` API to implement dynamic scene loading and switching in the game. For further details, please see the [API documentation](../../../api/en/classes/core.director-2.html#loadscene).
 
 ## Scene Asset Properties
 

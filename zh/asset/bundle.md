@@ -70,7 +70,7 @@ function loadBundle (name) {
 
 当文件夹设置为 Asset Bundle 之后，会将文件夹中的资源以及文件夹外的相关依赖资源都合并到同一个 Asset Bundle 中。这样就有可能出现某个资源虽然不在 Asset Bundle 文件夹中，但因为同时被两个 Asset Bundle 所依赖，所以属于两个 Asset Bundle 的情况，如图所示：
 
-![shared](bundle/shared.png) 
+![shared](bundle/shared.png)
 
 另一种情况是某个资源在一个 Asset Bundle 文件夹中，但同时又被其他 Asset Bundle 所依赖，如图所示：
 
@@ -320,7 +320,7 @@ assetManager.removeBundle(bundle);
 ```
 
 ## FAQ
-  
+
 - **Q**：Asset Bundle 与 v2.4 之前的资源分包有什么区别？<br>
   **A**：
   1. 资源分包实际上是将一些图片和网格拆分出去单独放在一个包内，但这个包是不完整的、无逻辑的，无法复用。<br>

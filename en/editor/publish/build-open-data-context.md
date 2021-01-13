@@ -1,4 +1,4 @@
-# Open Data Context
+# Access to Open Data Context
 
 Currently, platforms such as **WeChat**, **Baidu**, and **ByteDance Mini Game** have added the concept of **Open Data Context**, which is a separate game execution environment, in order to protect their social relationship chain data. The resources, engines, and applications in the **Open Data Context** are completely isolated from the main context, and only in the **Open Data Context** can developers access the relationship chain data through the open interface provided by the platform to implement some features such as leaderboards.
 

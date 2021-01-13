@@ -3,9 +3,9 @@
 The `moveTo()` method sets the starting point of a path.
 
 Parameter | Description |
-| -------------- | ----------- |
-| *x* | The x coordinate of the target location of the path. |
-| *y* | The y coordinate of the target position of the path. |
+| :-------------- | :----------- |
+| **x** | The x coordinate of the target location of the path. |
+| **y** | The y coordinate of the target position of the path. |
 
 ## Example
 

@@ -48,7 +48,7 @@ In the last example, supposing the screen has a resolution of `640 x 960`. If yo
 
 ![show all](multi-resolution/show_all.png)
 
-Under such a displaying mode, there might be black borders on the screen or scene image that exceed the design resolution (goof). Although developers try their best to avoid black borders in general, if you want to make sure all the contents within the scale of design resolution are displayed on the screen, you can use this mode too.
+Under such a displaying mode, there might be black borders on the screen or scene image that exceed the design resolution (goof). Although developers try their best to avoid black borders in general, if you want to make sure all the contents within the scale of design resolution are displayed on the screen, use this mode too.
 
 ### According to the screen aspect ratio, 'Fit Width' or 'Fit Height' will be automatically selected
 

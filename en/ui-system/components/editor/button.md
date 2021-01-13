@@ -29,7 +29,7 @@ __Button Transition__ is used to choose the action of the button when clicked by
 
 ![color-transition](button/color-transition.png)
 
-| Properties | Function Explanation |
+| Property | Function Explanation |
 | ---------- | -------------------- |
 | __Normal__     | Color of Button under Normal status.    |
 | __Pressed__    | Color of Button under Pressed status.   |

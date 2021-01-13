@@ -30,7 +30,7 @@ This page is used to set the path of the development environment required when t
 
 - **Use Builtin JS Engine**: Whether to use the engine path that comes with the __Cocos Creator__ installation path as the JavaScript engine path.This engine is used for scene rendering in the scene panel of editor, declaration of built-in components, and engine modules in other Web environments such as `preview` or `publish`.
 
-- **Custom JS Engine**: In addition to using the built-in engine, you can also go to [engine repository](https://github.com/cocos-creator/engine) to clone or fork a copy of the engine to the local anywhere, then uncheck `Use Builtin JS Engine`, then set the JavaScript engine path to your customized engine path. You can use the editor to customize your engine.
+- **Custom JS Engine**: In addition to using the built-in engine, you can also go to [engine repository](https://github.com/cocos-creator/engine) to clone or fork a copy of the engine to the local anywhere, then uncheck `Use Builtin JS Engine`, then set the JavaScript engine path to your customized engine path. Use the editor to customize your engine.
 
 - **WeChatGame APP Path**: Set the WechatGame App Path, See [WeChat Mini Games](../publish/publish-wechatgame.md).
 
@@ -44,7 +44,7 @@ This category is used to set the default open mode for assets.
 
 ![edit](./index/edit.jpg)
 
-- **Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in `Assets`.
+- **Script Editor**: Use the executable file of any external text editing tool as the opening method when you double-click the script file in `Assets`.
 
 - **Picture Editor**: Similar to the above option, used here to set when `Assets`, double-click the picture file, open the picture with the default application path.
 
@@ -60,7 +60,7 @@ About Laboratory:
 
 2. Non-backward compatible changes or removal may occur in any future release. Use of the feature in production environments should be well tested and pay attention to the publish notes of future versions.
 
-3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/), you can make those features more powerful and easier to use in your own projects.
+3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/c/33), you can make those features more powerful and easier to use in your own projects.
 
 ### Use The Search Pop To Add Components
 
@@ -74,7 +74,7 @@ In order to make user more convenient, we also add some auxiliary editing design
 
 - When searching for related components, you can directly use the shortcut keys `↑ ↓` to quickly switch component options, and press the `enter` key to add the component;
 
-For this feature, if you have more awesome suggestions, welcome to tell us in the [forum](https://discuss.cocos2d-x.org/).
+For this feature, if you have more awesome suggestions, welcome to tell us in the [forum](https://discuss.cocos2d-x.org/c/33).
 
 ### Turn on terrain
 
