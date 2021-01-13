@@ -86,7 +86,7 @@
     - [Shadows](concepts/scene/shadow.md)
 
 - [Lighting](concepts/scene/light.md)
-    - [Physical based Lighting](concepts/scene/light/pbr-lighting.md)
+    - [Physically-based Lighting](concepts/scene/light/pbr-lighting.md)
     - [Directional Light](concepts/scene/light/dir-light.md)
     - [Spherical Light](concepts/scene/light/sphere-light.md)
     - [Spotlight](concepts/scene/light/spot-light.md)

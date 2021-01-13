@@ -1,10 +1,10 @@
-# Physical based Lighting
+# Physically-based Lighting
 
 ![pbr lighting](pbr-lighting.jpg)
 
 ## Lights in the real world
 
-Physical based lighting describes the light in the real world. In real environments, the lights we see have their own industrial parameters. First, let's look at a light bulb.💡
+Physically-based lighting describes the light in the real world. In real environments, the lights we see have their own industrial parameters. First, let's look at a light bulb.💡
 
 ![light bulb size](light-bulb.jpg)
 

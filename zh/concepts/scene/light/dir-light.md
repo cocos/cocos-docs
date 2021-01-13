@@ -20,4 +20,4 @@
 | UseColorTemperature | 是否启用色温 |
 | ColorTemperature | 调节色温 |
 | StaticSettings | 设置静态灯光，详情请参考 [烘焙系统](../../../editor/lightmap/index.md) |
-| Illumiance | 照度，单位 **勒克斯（lx）** |
+| illumination | 照度，单位 **勒克斯（lx）** |

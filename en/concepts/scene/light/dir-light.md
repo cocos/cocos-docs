@@ -6,18 +6,18 @@ Directional light is the most common type of lights, and can be understood as th
 
 > **Note**: Cocos Creator currently supports only one main directional light. If more than one is added at the same time, the last one added will prevail.
 
-To add the directional light to the scene, refer to the [Lighting](../light.md) for details.
+To add the directional light to the scene, refer to the [Lighting](../light.md) documentation.
 
-For the related interface of the directional light component, please refer to [DirectionalLight API](../../../api/en/classes/component_light.directionallight.html).
+For the related interface of the directional light component, please refer to the [DirectionalLight API](../../../api/en/classes/component_light.directionallight.html).
 
 ## Main Directional Lights Properties
 
-![image](dir-light-panel.png)
+![image](dir-light-prop.png)
 
 | Property | Description |
 | :------- | :--- |
-| Color | Set the light color |
-| UseColorTemperature | Whether to enable color temperature |
-| ColorTemperature | Adjust the color temperature |
-| StaticSettings | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
-| Illumiance | Illumination, unit **lux (lx)** |
+| **Color** | Set the light color |
+| **UseColorTemperature** | Whether to enable color temperature |
+| **ColorTemperature** | Adjust the color temperature |
+| **StaticSettings** | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
+| **Illumination** | Illumination, unit **lux (lx)** |

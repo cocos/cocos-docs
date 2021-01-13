@@ -16,11 +16,11 @@ There are two ways to add lights:
 
   ![add light2](light/add-light2.png)
 
-## Physical based Lighting
+## Physically-based Lighting
 
 __Cocos Creator__ uses optical measurement units to describe light source parameters. Based on optical measurement units, we can convert all relevant parameters of the light source into physical values in the real world. In this way, the designer can adjust the __light intensity__, __color__, __range__ and __other__ parameters according to the industrial standards of parameters and the physical parameters of a real environment. The overall lighting effect is more in line with the real natural environment.
 
-For more information about the light and light parameters, please refer to [Physical based Lighting](./light/pbr-lighting.md).
+For more information about the light and light parameters, please refer to the [Physically-based Lighting](./light/pbr-lighting.md).
 
 ## Types of Light
 
