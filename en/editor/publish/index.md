@@ -4,7 +4,7 @@ Cocos Creator supports all major platforms in depth, games can be quickly publis
 
 ## Preparation Work
 
-The game project can be published when it is developed normally and the preview results meet the requirements. The preparations work that need to be done before publishing includes:
+The game project can be published when it is developed normally and the preview results meet the requirements. The preparation work that need to be done before publishing includes:
 
 - [About the Build Panel](build-panel.md)
 - [Build Options](build-options.md)
