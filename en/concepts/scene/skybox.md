@@ -47,7 +47,7 @@ After completing the above steps, although the skybox can be displayed correctly
 
 The following describes all the properties of the __Skybox__ panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **enabled** | whether to enable Skybox |
 | **envmap** | environment map, type is __TextureCube__ |

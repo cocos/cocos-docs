@@ -3,8 +3,8 @@
 The `lineWidth` defines the width of drawing line for [`stroke`](./stroke.md) function.
 
 | Parameter | Description
-| -------------- | ----------- |
-| *number* | The width of the current line, in pixels. |
+| :-------------- | :----------- |
+| **number** | The width of the current line, in pixels. |
 
 ## Example
 
