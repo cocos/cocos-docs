@@ -12,10 +12,10 @@ To use `PageView`, please refer to the [PageView API](../../../api/en/classes/ui
 
 | Property | Function Description |
 | ----------- | ----------- |
-| *CellSize*    | The cellsize for each element |
-| *Direction*   | The location direction of __PageViewIndicator__, including __HORIZONTAL__ and __VERTICAL__ |
-| *Spacing*     | The distance between each element |
-| *SpriteFrame* | The spriteFrame for each element |
+| **CellSize**    | The cellsize for each element |
+| **Direction**   | The location direction of __PageViewIndicator__, including __HORIZONTAL__ and __VERTICAL__ |
+| **Spacing**     | The distance between each element |
+| **SpriteFrame** | The spriteFrame for each element |
 
 ## Detailed Explanation
 
