@@ -20,7 +20,7 @@
 
 | 选项名 | 可选 | 默认值 | 说明 | 字段名 |
 | :-- | :-- | :-- | :-- | :-- |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.html#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
 | 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress |
 | 游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package |
 | 桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon |
@@ -47,7 +47,6 @@
     ```
 
     > **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
-    >
 
 ## 启动游戏
 
@@ -60,9 +59,9 @@
     ![](./publish-xiaomi-quick-game/run.jpg)
 
   - 然后在小米手机上打开之前已经安装完成的 **快应用调试器**，点击 **扫码安装** 按钮，直接扫描二维码即可打开 rpk。
-  
+
     ![](./publish-xiaomi-quick-game/play.png)
-  
+
 - **方法二**：
 
   - 首先在小米手机上打开 **设置-> 更多设置-> 开发者选项**，开启开发者选项以及 USB 调试。

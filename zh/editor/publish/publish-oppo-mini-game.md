@@ -9,7 +9,7 @@
 ## 发布流程
 
 使用 Cocos Creator 3.0 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **OPPO 小游戏**。
- 
+
 ![](./publish-oppo-mini-games/oppo-build.png)
 
 点击下方的 **oppo-mini-game**，展开 OPPO 小游戏的参数配置。
@@ -20,7 +20,7 @@
 
 | 选项名 | 可选 | 说明 | 字段名 |
 | :--- | :--- | :--- | :--- |
-| **初始场景分包** | 选填项 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.html#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
+| **初始场景分包** | 选填项 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | **资源服务器路径** | 选填项 | 该项用于填写资源存放在服务器上的地址。<br>若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的 rpk 包中。<br>若 **填写** 该项，则不会打包到 rpk 包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考文档下方的资源管理部分。 | `remoteServerAddress` |
 | **游戏包名** | 必填项 | 游戏包名，根据开发者的需求进行填写，例如 `com.example.demo`。 | `package` |
 | **桌面图标** | 必填项 | 点击输入框后面的搜索图标按钮选择所需的图标。构建时，图标将会被构建到 OPPO 小游戏的工程中。桌面图标建议使用 **png** 图片。 | `icon` |
@@ -85,7 +85,7 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 ## 相关参考链接
 
 - [OPPO 开放平台](https://open.oppomobile.com/wiki/doc#id=10445)
-- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
-- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
-- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
-- [OPPO 小游戏使用说明 — 新建目录](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)
+- [OPPO 小游戏教程](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO 小游戏 API 文档](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO 小游戏工具下载](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
+- [OPPO 小游戏使用说明 — 新建目录](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)
