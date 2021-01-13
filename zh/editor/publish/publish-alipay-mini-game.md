@@ -10,7 +10,7 @@
 
 ## 参数选项说明
 
-| 参数名 | 可选 | 默认值 | 说明 | 字段名 |
+| 构建选项 | 可选 | 默认值 | 说明 | 字段名 |
 | - | - | - | - | - |
 | 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
 | polyfills | 选填 | { asyncFunctions: true } | 构建支持一些新特性的 polyfills ，主要是在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills, 这组选项暂时只有`异步函数`，后续将会开放更多功能。| polyfills |

@@ -478,6 +478,6 @@ set(value) {
 }
 ```
 
-> **Notes**: 
+> **Notes**:
 > 1. If it is not defined together with `get`, the `set` itself cannot be accompanied by any parameters.
 > 2. Like `get`, after `set` is set, this property cannot be serialized, nor can it be assigned a default value.
