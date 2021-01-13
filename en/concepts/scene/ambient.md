@@ -12,7 +12,7 @@ __Ambient light__ in __Cocos Creator__, as shown below:
 
 The following describes all the properties of the panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **groundAlbedo** | ground reflected light |
 | **skyColor** | sky color |

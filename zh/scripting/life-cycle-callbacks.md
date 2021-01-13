@@ -1,8 +1,9 @@
-﻿# 生命周期回调
+﻿
+# 生命周期回调
 
 Cocos Creator 为组件脚本提供了生命周期的回调函数。开发者只需要定义特定的回调函数，Creator 就会在特定的时期自动执行相关脚本，开发者不需要手工调用它们。
 
-目前提供给用户的生命周期回调函数主要有（按生命周期触发先后排列）：
+目前提供给开发者的生命周期回调函数主要有（按生命周期触发先后排列）：
 
 - onLoad
 - onEnable
@@ -34,7 +35,6 @@ export class test extends Component {
         this.gun = find('hand/weapon'),this.node;
     }
 }
-
 ```
 
 ## start

@@ -65,7 +65,7 @@ In the **Scene** panel, you can always use the [Move Transform Tool](../../edito
 
 The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, so you can see that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
-**Note**: The [rotation](../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, please make sure to pay attention to the difference between them and the editor panel property names.
+> **Note**: the [rotation](../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, please make sure to pay attention to the difference between them and the editor panel property names.
 
 In the **Scene** panel, you can always use the [rotate transform tool](../../editor/scene/transform-gizmo.md) to set the rotation of the node.
 

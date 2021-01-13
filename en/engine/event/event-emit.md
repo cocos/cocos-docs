@@ -101,7 +101,7 @@ export class Example extends Component {
 
 ## Event delivery
 
-Events launched by the `dispatchEvent` method mentioned above would enter the event delivery stage. In __Cocos Creator__'s event delivery system, bubble delivery is used. Bubble delivery will pass the event from the initiating node continually on to its parent node,  until the root node is reached or an interrupt `event.propagationStopped = true` is made in the response function of a node.
+Events launched by the `dispatchEvent` method, mentioned above, would enter the event delivery stage. In __Cocos Creator__'s event delivery system, bubble delivery is used. Bubble delivery will pass the event from the initiating node continually on to its parent node,  until the root node is reached or an interrupt `event.propagationStopped = true` is made in the response function of a node.
 
 ![bubble-event](bubble-event.png)
 

@@ -80,7 +80,7 @@ The 6 distribution buttons in the second half, from left to right, will align th
 - Horizontally centered distribution, evenly distributed along the vertical center line of the node
 - Right distribution, evenly distributed along the right boundary of the node
 
-**Note**: Whether the left and right boundaries and the center line are determined at the beginning, or the reference when aligning/evenly distributing each node later, it is the center of the node bounding box or one of the boundaries rather than the position coordinates of the nodes.
+> **Note**: whether the left and right boundaries and the center line are determined at the beginning, or the reference when aligning/evenly distributing each node later, it is the center of the node bounding box or one of the boundaries rather than the position coordinates of the nodes.
 
 For example, in the figure below, when we align the three Label nodes with different widths to the right, we get the alignment of the right boundaries of the three node bounding boxes, not the `x` coordinates of the three node positions becoming the same.
 

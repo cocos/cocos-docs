@@ -61,7 +61,7 @@ parentNode.addChild(this.node);
 
 These two methods are equivalent.
 
-> **Notes**: 
+> **Notes**:
 > 1. The `removeFromParent` usually needs to pass a `false`, otherwise it will empty the bound events and actions, etc. on the node by default.
 > 2. After creating a new node through the method introduced in the [Create and Destroy Node](create-destroy.md) documentation, it is a **must** to set a parent node for the node to correctly initialize the node.
 

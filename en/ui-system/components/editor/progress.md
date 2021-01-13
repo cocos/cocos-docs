@@ -10,13 +10,13 @@ To use `Progress`, please refer to the [Mask API](../../../api/en/classes/ui.pro
 
 ## ProgressBar Properties
 
-| Properties | Function Explanation |
-| -------------- | ----------- |
-| *BarSprite* | The __Sprite__ component needed for rendering __ProgressBar__. It can be linked by dragging a node with the __Sprite__ component to this property |
-| *Mode*      | Currently supports the __HORIZONTAL__, __VERTICAL__ and __FILLED__ modes. The initial direction can be changed by cooperating with the __reverse__ property |
-| *Progress*  | Floating point. The value range is __0~1__, and values outside the range are not allowed. |
-| *Reverse*   | Boolean value. The default fill direction is from left to right / bottom to top, when enable, it becomes right to left / top to bottom |
-| *Total Length* | The total length / total width of the __BarSprite__ when the __ProgressBar__ is at __100%__. In __FILLED__ mode, __Total Length__ represents the percentage of the total display range for __Bar Sprite__, with values ranging from __0 to 1__ |
+| Property | Function Explanation |
+| :-------------- | :----------- |
+| **BarSprite** | The __Sprite__ component needed for rendering __ProgressBar__. It can be linked by dragging a node with the __Sprite__ component to this property |
+| **Mode**      | Currently supports the __HORIZONTAL__, __VERTICAL__ and __FILLED__ modes. The initial direction can be changed by cooperating with the __reverse__ property |
+| **Progress**  | Floating point. The value range is __0~1__, and values outside the range are not allowed. |
+| **Reverse**   | Boolean value. The default fill direction is from left to right / bottom to top, when enable, it becomes right to left / top to bottom |
+| **Total Length** | The total length / total width of the __BarSprite__ when the __ProgressBar__ is at __100%__. In __FILLED__ mode, __Total Length__ represents the percentage of the total display range for __Bar Sprite__, with values ranging from __0 to 1__ |
 
 ## Detailed Explanation
 

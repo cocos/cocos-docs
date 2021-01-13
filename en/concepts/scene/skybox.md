@@ -12,7 +12,7 @@ Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property 
 
 The skybox component properties are as follows:
 
-| Properties | Description |
+| Property | Description |
 | :---| :--- |
 | **Enabled** | Whether to enable skybox |
 | **UseIBL** | Whether to use ambient lighting |
@@ -69,9 +69,9 @@ To use a CubeMap as the environment map for the skybox, you need to create a Cub
 
     ![Set CubeMap](skybox/cubemap-properties.png)
 
-    **Note**:
-    - The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
-    - The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
+    > **Notes**:
+    > - The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
+    > - The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
 
 4. Finally, drag the finished CubeMap asset into the **Envmap** property box of the skybox component, and you are done with the CubeMap application.
 

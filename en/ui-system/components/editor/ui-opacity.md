@@ -17,6 +17,6 @@ To use `UIOpacity`, please refer to the [UIOpacity API](../../../api/en/classes/
 
 ## UIOpacity Properties
 
-| Properties | Function Description |
+| Property | Function Description |
 | -------- | ----------- |
 | Opacity        | transparency |

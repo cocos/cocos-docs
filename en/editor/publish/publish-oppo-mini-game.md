@@ -12,13 +12,13 @@ __Cocos Creator__ officially supports the release of games to the **OPPO Mini Ga
 
 1. Use **Cocos Creator 3.0** to open the project that needs to be released. Select **OPPO Mini Game** in the **Platform** dropdown of the **Build** panel.
 
-    ![](./publish-oppo-mini-games/oppo-build.png)
+    ![oppo build](./publish-oppo-mini-games/oppo-build.png)
 
     Click on the **oppo-mini-game** below to expand the build options configuration of OPPO Mini Game.
 
-    ![](./publish-oppo-mini-games/build-option.png)
+    ![build option](./publish-oppo-mini-games/build-option.png)
 
-The general build options for each platform, please refer to [General Build Options](build-options.md) for details. OPPO Mini Game related build options filling rules are as follows:
+For the general build options for each platform, please refer to [General Build Options](build-options.md) for details. OPPO Mini Game related build options filling rules are as follows:
 
 - **Start Scene Asset Bundle**
 

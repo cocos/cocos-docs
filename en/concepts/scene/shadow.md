@@ -20,7 +20,7 @@ To enable the shadow effect for an object, proceed as follows:
 
     If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the MeshRenderer component to **ON**.
 
-**Note**: If the shadows are not displayed properly, you need to adjust the direction of the directional light.
+> **Note**: if the shadows are not displayed properly, you need to adjust the direction of the directional light.
 
 ## Shadow Type
 
@@ -32,7 +32,7 @@ The Planar shadow type is generally used for simpler scenes.
 
 ![](shadow/plannar-properties.png)
 
-| properties | description |
+| Property | Description |
 | :--- | :--- |
 | **Enabled** | Whether to enable shadow effect |
 | **Type** | Shadow type |
@@ -42,7 +42,7 @@ The Planar shadow type is generally used for simpler scenes.
 
 Adjust the direction of the directional light to adjust the position of the shadow.
 
-**Note**: Planar shadows are only cast on planar surfaces, not on objects, which means that the **ReceiveShadow** property in the MeshRenderer component is invalid.
+> **Note**: planar shadows are only cast on planar surfaces, not on objects, which means that the **ReceiveShadow** property in the MeshRenderer component is invalid.
 
 ## ShadowMap
 
@@ -50,7 +50,7 @@ ShadowMap renders the scene with the light source as the viewpoint. From the pos
 
 ![Shadow Map Panel Details](shadow/shadowmap-properties.png)
 
-| Properties | Description |
+| Property | Description |
 | :--- | :--- |
 | **Enabled** | Whether to enable the shadow effect |
 | **Type** | Shadow type | 

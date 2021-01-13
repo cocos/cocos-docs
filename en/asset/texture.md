@@ -30,7 +30,7 @@ After selecting the generated __Texture2D__ sub-asset, you can see the following
 
 The following describes the properties of the panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | __anisotropy__ | Anisotropy value |
 | __minFilter__ | Narrowing Filter Algorithm |

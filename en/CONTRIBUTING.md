@@ -30,17 +30,17 @@
 
 Can bold or italics the first colume but bot the second column. __Examples__:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | anisotropy | Anisotropy value |
 | minFilter | Narrowing Filter Algorithm |
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **anisotropy** | Anisotropy value |
 | **minFilter** | Narrowing Filter Algorithm |
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | *anisotropy* | Anisotropy value |
 | *minFilter* | Narrowing Filter Algorithm |

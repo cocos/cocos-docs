@@ -1,6 +1,6 @@
 # Setup Native Development Environment
 
-Apart from Publish games to the Web, **Cocos Creator** uses JSB technology based on the **Cocos2d-x** engine for the cross-platform release of native games. Before using **Cocos Creator** to bundle and publish games to native platforms, you need to configure related **Cocos2d-x** development environment first.
+Apart from Publish games to the Web, **Cocos Creator** uses JSB technology based on the **Cocos2d-x** engine for the cross-platform release of native games. Before using **Cocos Creator** to build and publish games to native platforms, you need to configure related **Cocos2d-x** development environment first.
 
 ## Android platform dependencies
 
@@ -28,7 +28,7 @@ On Windows platform, please confirm if `JAVA_HOME` is included in your environme
 
 ### Download and install Android Studio
 
-**Cocos Creator** does not support **Eclipse's ANT** build, we need to use **Android Studio** as an Android platform's build tool and you should download the required SDK and NDK packages in **Android Studio**. First install [Android Studio](https://developer.android.com/studio#downloads).
+**Cocos Creator does not support Eclipse's ANT** build, we need to use **Android Studio v4.1 and above** as an Android platform's build tool and you should download the required SDK and NDK packages in **Android Studio**. First, install [Android Studio](https://developer.android.com/studio#downloads).
 
 ### Download the SDK and NDK required to publish the Android platform
 
@@ -37,20 +37,20 @@ After installing **Android Studio**, refer to the official documentation and ope
 1. In the **SDK Platforms** tab page, check the API level you want to install, and it is recommended to select the required mainstream API Level such as `API Level 23 (6.0)`, `API Level 26 (8.0)` and `API Level 28 (9.0)`, etc.
 2. In the **SDK Tools** tab page, first check the lower right corner of the **Show Package Details**, show the version of the tool selection.
 3. In the **Android SDK Build-Tools**, select the latest build Tools version.
-4. Check the **Android SDK Platform-Tools** and **Android SDK Tools**. If you need to install the **Android Support Library**, please refer to the official [Android Documentation](https://developer.android.com/topic/libraries/support-library/setup).
-5. Check the **NDK** and the recommended version is **r17 ~ r19**.
+4. Check the **Android SDK Platform-Tools** and **CMake**. If you need to install the **Android Support Library**, please refer to the official [Support Library Setup](https://developer.android.com/topic/libraries/support-library/setup).
+5. Check the **NDK** and the recommended version is **r20**.
 6. Take note of the path of **Android SDK Location** on top of the **SDK Manager** window. Later we need to fill in the location of the SDK in **Cocos Creator**.
 7. Click **OK** and follow the prompts to complete the installation.
 
-![sdk manager](setup-native-development/sdk-manager.jpg)
+![sdk manager](setup-native-development/sdk-manager.png)
 
 ## Install C++ compiling environment
 
 Please install the following running environment:
 
-- Python **2.7.5+**, [download page](https://www.python.org/downloads/). Pay attention! Don't download Python **3.x** version.
+- Python **2.7.5+**, [download page](https://www.python.org/downloads/). **Pay attention! Don't download Python 3.x version**.
 
-- In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
+- In Windows, the installation of [Visual Studio 2017/2019 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
 
   > **Note**: there is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
@@ -58,15 +58,13 @@ Please install the following running environment:
 
 ## Configure Native Develop environments path
 
-Next, let's go back to Cocos Creator to configure the environmental path of the native platform. Choose **CocosCreator -> Preferences** in the main menu, and open the **Preferences** panel:
+Next, go back to Cocos Creator to configure the environmental path of the native platform. Choose **Cocos Creator -> Preferences** in the main menu, and open the **Preferences** panel. We need to configure the following two paths here:
 
-![preference](setup-native-development/sdk.jpg)
+![preference](setup-native-development/sdk.png)
 
-We need to configure the following two paths here:
+- **Android NDK**: choose the `ndk-bundle` folder in `Android SDK Location` path we just noted in Android Studio SDK Manager window. You can skip this if you don't need to compile on Android platform.
 
-- **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path we just noted in Android Studio SDK Manager window. You can skip this if you don't need to compile on Android platform.
-
-- **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). You can skip this if you don't need to compile the Android platform.
+- **Android SDK**: choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). You can skip this if you don't need to compile the Android platform.
 
 Close the window after configuration is completed.
 
@@ -84,4 +82,4 @@ We have received lots of feedback about native packing in the public beta, and s
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, please send a question to the [Forum](https://discuss.cocos2d-x.org/) with the Creator version, the build log file in the Build panel, and a demo that reproduces the problem.
+In the end, if building still fails, please send a question to the [Forum](https://discuss.cocos2d-x.org/c/33) with the Creator version, the build log file in the Build panel, and a demo that reproduces the problem.

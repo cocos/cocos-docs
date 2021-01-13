@@ -112,7 +112,7 @@ There are three types of Box2d's native __Rigidbody__: __Static__, __Dynamic__, 
 
 - `cc.RigidBodyType.Animated`
 
-  __Animated Rigidbody__, already mentioned above, derived from Kinematic type, mainly used for __Rigidbody__ and animation in combination.
+  __Animated Rigidbody__, previously mentioned above, is derived from Kinematic type, mainly used for __Rigidbody__ and animation in combination.
 
 ## Rigidbody API
 

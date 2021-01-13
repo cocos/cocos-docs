@@ -12,10 +12,10 @@ To use `ToggleContainer`, please refer to the [ToggleContainer API](../../../api
 
 ## ToggleContainer Properties
 
-| Properties |   Functions Explanation |
-| -------------- | ----------- |
-| AllowSwitchOff | If it is enabled, then the toggle button can be checked and unchecked repeatedly when it is clicked. If it is disabled, it will make sure there is always only one toggle could be checked and the already checked toggle can't be unchecked |
-| CheckEvents | List type, default is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the __ToggleContainer Event__ section below for details |
+| Property |   Functions Explanation |
+| :-------------- | :----------- |
+| **AllowSwitchOff** | If it is enabled, then the toggle button can be checked and unchecked repeatedly when it is clicked. If it is disabled, it will make sure there is always only one toggle could be checked and the already checked toggle can't be unchecked |
+| **CheckEvents** | List type, default is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the __ToggleContainer Event__ section below for details |
 
 ## ToggleContainer Event
 
