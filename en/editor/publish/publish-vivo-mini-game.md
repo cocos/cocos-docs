@@ -104,13 +104,13 @@ There are three ways to run rpk on your phone:
 
 ## Subpackage Loading
 
-The subpackage loading of vivo Mini Games is similar to WeChat Mini Games. Please refer to the [Mini Game Subpackage](subpackage.md) for details.
+The subpackage loading of vivo Mini Games is similar to WeChat Mini Games. Please refer to the [Mini Game Subpackage](subpackage.md) documentation for details.
 
 ## vivo Mini Game Environment Resource Management
 
 The part of vivo mini games that exceed the package size limit must be downloaded through the network.
 
-Cocos Creator has helped developers to download, cache and manage remote resources. For details, please refer to [Resource Management](../../asset/cache-manager.md).
+Cocos Creator helps developers to download, cache and manage remote resources. For details, please refer to [Resource Management](../../asset/cache-manager.md).
 
 ## Reference documentation
 

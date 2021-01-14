@@ -86,9 +86,9 @@ Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on yo
 
 Subpackage **rpk** can be used according to your needs.
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
+Subpackage loading, which is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, The developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
 
-To use this function, you need to set [Bundle Configuration](subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
+To use this function, set the [Bundle Configuration](subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `dist` directory. In this case, you need to create a new `subPkg` directory in the `sdcard` directory of the OPPO phone, and then copy the **.rpk** file in the `dist` directory to the `subPkg` directory.
 

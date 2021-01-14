@@ -43,7 +43,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**: is required. According to the requirements of Xiaomi Quick Games, this value must be greater than or equal to **1050**.
 
-- **Small Packet Mode**: is optional. The in-package volume of the quick-game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the quick game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. And the download, cache and version management of remote assets, __Cocos Creator__ has already helped the developer. What the developer needs to do is the following steps:
+- **Small Packet Mode**: is optional. The in-package volume of the quick-game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **Small Packet Mode** is to help developers keep the script files in the quick game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. Cocos Creator has already helped the developer with the download, cache, and version management of remote assets. The developer needs to do is the following steps:
 
     1. When building, check the **Small Packet Mode** and fill in the **Small Packet Mode Server Path**.
 
@@ -136,13 +136,13 @@ Debugging can currently be initiated from the command line.
 
 Subpackage rpk can be used according to your needs.
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. And the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
+Subpackage loading, which is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**. The developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
 
-To use this function, you need to set [Bundle Configuration](subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
+To use this function, set the [Bundle Configuration](subpackage.md) in __Cocos Creator__, and the package will be automatically subpackaged when the setting is completed.
 
 When the build is complete, an `.rpk` file is generated in the `build/xiaomi-quick-game/dist` directory.
 
-The package size limit for single subpackage/main package, see [Xiaomi Quick Game Subpackage Rules [cn]](https://forum.cocos.org/t/topic/81887) for details.
+The package size limitations for single subpackage/main package, please refer to the [Xiaomi Quick Game Subpackage Rules [cn]](https://forum.cocos.org/t/topic/81887) documentation for details.
 
 ## Reference documentation
 

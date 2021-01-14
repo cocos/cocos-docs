@@ -36,7 +36,7 @@ When building for the WeChat Mini Game, the configuration of the Asset Bundle wi
 
 ### Subpackage Load Packet Size Limit
 
-At present, the size of the WeChat Mini Game subpackage has following restrictions:
+Currently, the size of the WeChat Mini Game subpackage has following restrictions:
 
 - The size of all subpackage of the entire Mini Game can not exceed **16M**
 - The size of single subpackage/main package can not exceed **4M**
@@ -50,16 +50,16 @@ When building for the vivo Mini Game, the configuration of the Asset Bundle will
 ![profile](./subpackage/vivo-profile.png)
 
 > **Notes**:
-> 1. Starting with **1051** version, **Quick App & vivo Mini Game Debugger** supports the subpackage loading of vivo Mini Game. Versions lower than 1051 do not support subpackage loading, but they are also compatible. If a subpackage is configured in the editor's **Properties** panel, it will not affect the normal operation of the game. Please refer to [vivo Mini Game Subpackage Loading -- Runtime Compatibility [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9) for details.
+> 1. Starting with **1051** version, **Quick App & vivo Mini Game Debugger** supports the subpackage loading of vivo Mini Game. Versions lower than 1051 do not support subpackage loading, but they are also compatible. If a subpackage is configured in the editor's **Properties** panel, it will not affect the normal operation of the game. Please refer to the [vivo Mini Game Subpackage Loading -- Runtime Compatibility [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9) documentation for details.
 > 2. Unlike other mini game platforms, the Asset Bundle folder for the vivo Mini Game will be generated in the `src` directory of release package `vivo-mini-game` directory after the project is built.
 >
 >     ![](./subpackage/vivo-subpackages.png)
 
 ### Subpackage Load Packet Size Limit
 
-At present, the size of the vivo Mini Game subpackage has following restrictions:
+Currently, the size of the vivo Mini Game subpackage has following restrictions:
 
-- The size of all subpackage and main package of the entire Mini Game can not exceed **8M** (The compressed package after packaging contains whole package no more than **16M**, please refer to [vivo Mini Game Subpackage Loading -- Compatibility [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9) for details.
+- The size of all subpackage and main package of the entire Mini Game can not exceed **8M** (The compressed package after packaging contains whole package no more than **16M**, please refer to [vivo Mini Game Subpackage Loading -- Compatibility [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9) documentation for details.
 - The size of single subpackage/main package can not exceed **4M**.
 
-Please refer to the [vivo Mini Game Subpackage Loading [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage) for details.
+Please refer to the [vivo Mini Game Subpackage Loading [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage) documentation for details.
