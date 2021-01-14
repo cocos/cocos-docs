@@ -23,4 +23,4 @@ cc.resources.load('images/background', cc.SpriteFrame, function (err, spriteFram
 });
 ```
 
-**Note**: Loading does not need to wait until the preload is complete, you can load at any time. The normal loading interface will directly reuse the content that was already downloaded during the preload process, reducing the load time
+> **Note**: loading does not need to wait until the preload is complete, you can load at any time. The normal loading interface will directly reuse the content that was already downloaded during the preload process, reducing the load time

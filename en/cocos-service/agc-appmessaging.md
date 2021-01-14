@@ -107,7 +107,7 @@ The App Messaging SDK obtains in-app messages from AppGallery Connect and displa
 
 This document refers to the AppGallery Connect documentation - [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display). When calling in JavaScript, please use this document and the [API documentation](https://service.cocos.com/document/api/modules/huawei.agc.appmessaging.html) as a guide.
 
-**Note**: Due to JavaScript layer limitation, the App Messaging plug-in does not support [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) functions.
+> **Note**: due to JavaScript layer limitation, the App Messaging plug-in does not support [Displaying an In-App Message](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-appmessage-display#h1-1586403550092) functions.
 
 ### Prerequisites for In-App Message Display
 
@@ -125,10 +125,10 @@ The prerequisites for the App Messaging SDK to display in-app messages are as fo
     huawei.agc.appmessaging.appMessagingService.setFetchMessageEnable(true);
     ```
   
-    **Note**:
-
-    - The App Messaging SDK does not request messages from the AppGallery Connect server every time an event is triggered. Instead, it requests messages only once in a specified period (usually when the app is launched) and caches all messages locally. During the period, the matching locally cached messages are displayed upon events.
-    - New in-app messages created during the period in AppGallery Connect will not be displayed since the App Messaging SDK has not obtained them.
+    > **Notes**:
+    >
+    > 1. The App Messaging SDK does not request messages from the AppGallery Connect server every time an event is triggered. Instead, it requests messages only once in a specified period (usually when the app is launched) and caches all messages locally. During the period, the matching locally cached messages are displayed upon events.
+    > 2. New in-app messages created during the period in AppGallery Connect will not be displayed since the App Messaging SDK has not obtained them.
 
 3. Display an in-app message published in AppGallery Connect when the following conditions are met:
 

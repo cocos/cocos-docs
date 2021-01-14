@@ -2,7 +2,7 @@
 
 The `bezierCurveTo()` method adds a point to the current path by using the specified control point that represents the cubic bezier curves.
 
-**Note**: Cubic Bezier curves require three control points. The first two points are for the control points in the cubic Bezier calculation, and the third point is the end point of the curve. The starting point of the curve is the last point in the current path.
+> **Note**: cubic bezier curves require three control points. The first two points are for the control points in the cubic bezier calculation, and the third point is the end point of the curve. The starting point of the curve is the last point in the current path.
 
 | Parameter | Description |
 | -------------- | ----------- |

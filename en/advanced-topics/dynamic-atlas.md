@@ -48,7 +48,7 @@ cc.dynamicAtlasManager.insertSpriteFrame(spriteFrame);
 
 When a Sprite Frame is added to a dynamic atlas, the texture of the Sprite Frame will be modify to **a larger image in the Dynamic Atlas Manager**. The uv in the Sprite Frame is also recalculated according to the coordinates in the large image.
 
-**Note**: Before the scene is loaded, the Dynamic Atlas Manager will be reset, and the reference of the Sprite Frame texture and uv will be restored to their initial values.
+> **Note**: before the scene is loaded, the Dynamic Atlas Manager will be reset, and the reference of the Sprite Frame texture and uv will be restored to their initial values.
 
 ## Debugging
 

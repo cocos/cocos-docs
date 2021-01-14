@@ -58,7 +58,7 @@ Example of multiple panel registration:
 
 This will generate two panel IDs for the registered panel: `simple-package` and `simple-package.02`.
 
-For details about panel registration, please refer to the [Panel field reference [zh]](panel-json-reference.md).
+For details about panel registration, please refer to the [Panel field reference [cn]](panel-json-reference.md).
 
 ### reload (Object)
 

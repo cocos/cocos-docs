@@ -20,7 +20,7 @@ Imported Bitmap font asset should looks like this in **Assets**:
 
 ![imported font asset](font/imported.png)
 
-**Note**: To make asset loading more effective, we recommend that you create a specific folder for all your Bitmap font assets.
+> **Note**: to make asset loading more effective, we recommend that you create a specific folder for all your Bitmap font assets.
 
 ## Using Font Asset
 

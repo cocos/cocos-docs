@@ -89,10 +89,10 @@ Click on the **Instant Games** tab in the Applications panel, select **Details**
 
 For details, refer to [Testing, Publishing, and Sharing an Instant Game](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=EN).
 
-**Note**: There are many limitations to Facebook hosting, the most important of which are:
-
-- Does not support server-side logic (e.g. php)
-- A maximum of 500 files uploaded per application
+> **Note**: there are many limitations to Facebook hosting, the most important of which are:
+>
+> 1. Does not support server-side logic (e.g. php)
+> 2. A maximum of 500 files uploaded per application
 
 ## Custom Instant Games
 

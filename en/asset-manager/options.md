@@ -40,7 +40,7 @@ While the optional parameter `audioLoadMode` controls whether or not the audio f
 cc.assetManager.loadRemote('http://example.com/background.mp3', {audioLoadMode: cc.AudioClip.LoadMode.WEB_AUDIO}, callback);
 ```
 
-**Note**: Loading progress of the resources must be configured on the server if you want to get it.
+> **Note**: loading progress of the resources must be configured on the server if you want to get it.
 
 For more information about the handler, please refer to document [Download and Parse](downloader-parser.md).
 

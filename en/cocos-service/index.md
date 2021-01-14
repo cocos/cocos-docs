@@ -19,7 +19,7 @@ The **Service** Panel currently supports the integration of third-party services
   - [Auth Service (AppGallery Connect)](agc-auth.md)
 
   - [Crash (AppGallery Connect)](agc-crash.md)
-    
+
   - [Remote Configuration (AppGallery Connect)](agc-remote.md)
 
   - [App Messaging (AppGallery Connect)](agc-appmessaging.md)
@@ -27,16 +27,16 @@ The **Service** Panel currently supports the integration of third-party services
   - [App Linking (AppGallery Connect)](agc-applinking.md)
 
   - [Cloud DB (AppGallery Connect)](agc-clouddb.md)
-    
+
   - [Cloud Storage (AppGallery Connect)](agc-cloudstorage.md)
-    
+
   - [Cloud Functions (AppGallery Connect)](agc-cloudfunc.md)
 
   - [Agora RTC](agora.md)
 
 ## Usage
 
-- Open the Cocos Creator, choose **Menu bar -> Panel -> Service** to open the **Service** panel. Click the ![](index/setting.png) button above the **Service** panel. Select **Dashboard** and go to the [Cocos Account Center](https://auth.cocos.com/#/) to register your user account.
+- Open the Cocos Creator, choose **Menu bar -> Panel -> Service** to open the **Service** panel. Click the ![setting](index/setting.png) button above the **Service** panel. Select **Dashboard** and go to the [Cocos Account Center](https://auth.cocos.com/#/) to register your user account.
 
   ![](index/console.png)
 
@@ -44,7 +44,7 @@ The **Service** Panel currently supports the integration of third-party services
 
   ![](index/game.png)
 
-- After the game is created, return to the Cocos Creator **Service** panel and click the ![](index/setting.png) button. After selecting **Set Cocos AppID**, jump to the **Set Cocos AppID** panel. Then select the game and click the **Association** button.
+- After the game is created, return to the Cocos Creator **Service** panel and click the ![setting](index/setting.png) button. After selecting **Set Cocos AppID**, jump to the **Set Cocos AppID** panel. Then select the game and click the **Association** button.
 
   ![](index/appid.png)
 
@@ -54,6 +54,6 @@ The **Service** Panel currently supports the integration of third-party services
 
   ![](index/service.png)
 
-  If you need to switch games, you can click the ![](index/setting.png) button again to select **Unlink**. Then go to the **Set Cocos AppID** panel again and re-select the game.
+  If you need to switch games, you can click the ![setting](index/setting.png) button again to select **Unlink**. Then go to the **Set Cocos AppID** panel again and re-select the game.
 
   ![](index/switch_appid.png)

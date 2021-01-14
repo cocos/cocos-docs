@@ -56,7 +56,7 @@ When in Clamp mode, labels will firstly be rendered according to the requirement
 
 When in auto shrink mode, if labels exceed the bounding box when being rendered according to the original size, the size of the labels will be automatically shrunk to display all the labels.
 
-**Note**: Auto shrink mode will not zoom in on labels to adapt to bounding box.
+> **Note**: auto shrink mode will not zoom in on labels to adapt to bounding box.
 
 ### Resize Height
 
@@ -68,7 +68,7 @@ Resize height mode will make sure the bounding box of the labels fits the height
 
 The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap acccording to the width of the bounding box without manual input of `\r` or `\n` when inputting labels.
 
-**Note**: The `Enable Wrap Text` property is only available in the **Clamp** and **Shrink** modes of the label layout mode. In **RESIZE_HEIGHT** mode, the `Enable Wrap Text` property is compulsorily opened.
+> **Note**: the `Enable Wrap Text` property is only available in the **Clamp** and **Shrink** modes of the label layout mode. In **RESIZE_HEIGHT** mode, the `Enable Wrap Text` property is compulsorily opened.
 
 ### Auto Wrap in Clamp Mode
 

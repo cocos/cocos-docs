@@ -15,7 +15,7 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, all APIs in the `cc.loader` module that were used in the original code need to be changed to APIs from `cc.assetManager`. The related content will be described in detail in this document.
 
-**Note**: As v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
+> **Note**: as v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
 
 ## Situations that require upgrading manually
 
@@ -74,7 +74,7 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
   cc.resources.loadDir(...);
   ```
 
-  **Note**: To simplify the interface, the load completion callback for `cc.resources.loadDir` will **no longer** provide a list of paths. Please avoid using the following:
+  > **Note**: to simplify the interface, the load completion callback for `cc.resources.loadDir` will **no longer** provide a list of paths. Please avoid using the following:
 
   ```js
   cc.loader.loadResDir('images', cc.Texture2D, (err, assets, paths) => console.log(paths));
@@ -123,11 +123,11 @@ If you use `cc.loader.loadRes`, `cc.loader.loadResArray`, `cc.loader.loadResDir`
     cc.assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
     ```
 
-**Note**:
-
-1. If you use `cc.loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
-
-2. To avoid unnecessary errors, `cc.loader.onProgress` has no equivalent implementation in `cc.assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
+> **Notes**:
+>
+> 1. If you use `cc.loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
+>
+> 2. To avoid unnecessary errors, `cc.loader.onProgress` has no equivalent implementation in `cc.assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
 
 #### The relevant interface replacement about releasing
 
@@ -135,7 +135,9 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
 - **cc.loader.release**
 
-  `cc.loader.release` can be replaced with `cc.assetManager.releaseAsset`. **Note**: In order to avoid user attention to some obscure properties of the resource, `cc.assetManager.releaseAsset` **no longer** accepts arrays, resource UUIDs, resource URLs for release, only the resource itself can be accepted for release.
+  `cc.loader.release` can be replaced with `cc.assetManager.releaseAsset`.
+  
+  > **Note**: in order to avoid user attention to some obscure properties of the resource, `cc.assetManager.releaseAsset` **no longer** accepts arrays, resource UUIDs, resource URLs for release, only the resource itself can be accepted for release.
 
   ```js
   // before
@@ -161,16 +163,16 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
   cc.assetManager.releaseAsset(texture);
   ```
 
-  **Note**: To increase ease of use, releasing resource dependencies in `cc.assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `cc.assetManager.releaseAsset` to automatically release the associated dependencies, for example:
-
-  ```js
-  // before
-  var assets = cc.loader.getDependsRecursively(texture);
-  cc.loader.release(assets);
-
-  // after
-  cc.assetManager.releaseAsset(texture);
-  ```
+  > **Note**: to increase ease of use, releasing resource dependencies in `cc.assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `cc.assetManager.releaseAsset` to automatically release the associated dependencies, for example:
+  >
+  > ```js
+  > // before
+  > var assets = cc.loader.getDependsRecursively(texture);
+  > cc.loader.release(assets);
+  >
+  > // after
+  > cc.assetManager.releaseAsset(texture);
+  > ```
 
 - **cc.loader.releaseAsset**
 
@@ -208,13 +210,13 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
   cc.assetManager.releaseAll();
   ```
 
-**Note**:
-
-1. For security reasons, `cc.loader.releaseResDir` does not have a corresponding implementation in `cc.assetManager`, please use `cc.assetManager.releaseAsset` or `cc.resources.release` for individual resource releases.
-
-2. Since the `cc.assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `cc.loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `cc.assetManager.dependUtil`.
-
-3. For security reasons, `cc.assetManager` only supports the Auto Release property set in the scene, and `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](../asset-manager/release-manager.md) documentation for details.
+> **Notes**:
+>
+> 1. For security reasons, `cc.loader.releaseResDir` does not have a corresponding implementation in `cc.assetManager`, please use `cc.assetManager.releaseAsset` or `cc.resources.release` for individual resource releases.
+>
+> 2. Since the `cc.assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `cc.loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `cc.assetManager.dependUtil`.
+>
+> 3. For security reasons, `cc.assetManager` only supports the Auto Release property set in the scene, and `cc.loader.setAutoRelease`, `cc.loader.setAutoReleaseRecursively`, `cc.loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](../asset-manager/release-manager.md) documentation for details.
 
 #### Extension-related interface replacements
 
@@ -274,15 +276,15 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
   cc.assetManager.pipeline.append(pipe2);
   ```
 
-  **Note**:
-
-  1. `cc.assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `cc.assetManager`. Please refer to the [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details. 
-
-  2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details. 
-
-  3. In order to simplify the logic and improve performance, what is processed in Pipe is no longer a `item` but a `task` object, see [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details.
-
-  4. In order to reduce learning costs, APIs in the form of `insertPipeAfter` are no longer supported in `Pipeline`, so please use `insert` to insert the specified location.
+  > **Notes**:
+  >
+  > 1. `cc.assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `cc.assetManager`. Please refer to the [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details.
+  >
+  > 2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details.
+  >
+  > 3. In order to simplify the logic and improve performance, what is processed in Pipe is no longer a `item` but a `task` object, see [Pipeline and Task](../asset-manager/pipeline-task.md) documentation for details.
+  >
+  > 4. In order to reduce learning costs, APIs in the form of `insertPipeAfter` are no longer supported in `Pipeline`, so please use `insert` to insert the specified location.
 
 - **addDownloadHandlers, addLoadHandlers**
 
@@ -326,19 +328,19 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
   cc.assetManager.parser.register('.png', customHandler);
   ```
 
-  **Note**:
-
-  1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
-
-  2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Download and Parse](../asset-manager/downloader-parser.md) documentation.
-
-  3. The new expansion mechanism provides an additional `options` parameter that can greatly increase flexibility. However, if you don't need to configure the engine's built-in or custom parameters, you can ignore it. Please refer to the [Optional parameter](../asset-manager/options.md) documentation for details.
+  > **Notes**:
+  >
+  > 1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
+  >
+  > 2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Download and Parse](../asset-manager/downloader-parser.md) documentation.
+  >
+  > 3. The new expansion mechanism provides an additional `options` parameter that can greatly increase flexibility. However, if you don't need to configure the engine's built-in or custom parameters, you can ignore it. Please refer to the [Optional parameter](../asset-manager/options.md) documentation for details.
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
   `cc.loader.downloader` can be replaced by `cc.assetManager.downloader`, and `cc.loader.loader` can be replaced by `cc.assetManager.parser`. For details, see [Download and Parse](../asset-manager/downloader-parser.md) documentation or the corresponding API documentation [cc.assetManager.downloader](../../../api/classes/AssetManager.html#downloader) and [cc.assetManager.parser](../../../api/en/classes/AssetManager.html#parser).
 
-  **Note**: For performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline and Tasks](../asset-manager/pipeline-task.md) documentation. 
+  > **Note**: for performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline and Tasks](../asset-manager/pipeline-task.md) documentation.
 
 ### Other changes
 
@@ -367,7 +369,7 @@ function pipe1 (task, cb) {
 var pipeline = new cc.AssetManager.Pipeline('test', [pipe1]);
 ```
 
-**Note**: `cc.LoadingItem` is no longer supported in `cc.assetManager`, please avoid using this type.
+> **Note**: `cc.LoadingItem` is no longer supported in `cc.assetManager`, please avoid using this type.
 
 To support more loading strategies, `cc.macro.DOWNLOAD_MAX_CONCURRENT` has been removed from `cc.macro` and you can replace it with the following:
 

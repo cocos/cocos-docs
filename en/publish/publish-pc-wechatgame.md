@@ -25,8 +25,9 @@ Starting with Cocos Creator v2.3.1, creating games for the WeChat PC Mini Games 
 ## FAQ
 
 Q: How to distinguish the **Mobile** and **PC** of WeChat through the engine interface?<br>
-A: You can determine by `cc.sys.isMobile` that the PC side returns `false` and the mobile side returns `true`.<br>
-**Note**: The simulator on the WeChat DevTools simulates the environment on the mobile, so this returns `true`.
+A: You can determine by `cc.sys.isMobile` that the PC side returns `false` and the mobile side returns `true`.
+
+> **Note**: the simulator on the WeChat DevTools simulates the environment on the mobile, so this returns `true`.
 
 Q: Does the WeChat PC mini game support Mac?<br>
 A: Not yet supported. By 2020-03-09, WeChat PC mini game is in the open beta phase, and it only supports Windows currently. Later on, we will actively cooperate with the engineers of WeChat PC mini game to adapt the Mac system at the first time.

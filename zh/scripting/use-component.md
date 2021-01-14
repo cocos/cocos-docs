@@ -27,7 +27,7 @@ cc.Class({
 
 ## 编辑脚本
 
-用户可根据自己的需求，选择自己喜爱的文本工具（如：Vim, Sublime Text, Web Storm, VSCode...）进行脚本编辑，请先到 [设置](../getting-started/basics/editor-panels/preferences.md#script-editor) 中进行设置。
+用户可根据自己的需求，选择自己喜爱的文本工具（如：Vim, Sublime Text, Web Storm, VS Code...）进行脚本编辑，请先到 [设置](../getting-started/basics/editor-panels/preferences.md#script-editor) 中进行设置。
 
 通过双击脚本资源，可以直接打开脚本编辑器进行编辑。当编辑完脚本并保存，Cocos Creator 会自动检测到脚本的改动，并迅速编译。
 

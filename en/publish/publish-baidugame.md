@@ -60,7 +60,7 @@ The specific filling rules for the relevant options configuration are as follows
 
   ![](./publish-baidugame/preview.png)
 
-  **Note**: When previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest developer tools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Mini Program**, not the **appid** of the Baidu Mini Game, please re-apply for the **appid** of the Baidu Mini Game.
+  > **Note**: when previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest developer tools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Mini Program**, not the **appid** of the Baidu Mini Game, please re-apply for the **appid** of the Baidu Mini Game.
 
 ## Resource Management for Baidu Mini Game Environment
 
@@ -68,14 +68,14 @@ Baidu Mini Game is similar to the WeChat Mini Game. There are restrictions on th
 
 Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
-**Note**: Currently, Baidu Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
+> **Note**: currently, Baidu Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Baidu Mini Game Subpackage Loading
 
 The subpackage loading method of Baidu Mini Game is similar to WeChat, with the following package restrictions:
 
 - The size of all subpackage of the entire Mini Game can not exceed **8MB**.
-- The size of single subpackage / main package can not exceed **4MB**.
+- The size of single subpackage/main package can not exceed **4MB**.
 
 Please refer to the [Mini Game Subpackage](subpackage.md#wechat-mini-games) for details.
 

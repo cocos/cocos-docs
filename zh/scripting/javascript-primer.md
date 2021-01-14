@@ -392,3 +392,4 @@ var Comp = cc.Class({
 
 - [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
 - [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript 内存详解 & 分析指南](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)

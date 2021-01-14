@@ -59,7 +59,7 @@ The property column that needs to be assigned value by dragging assets will show
 
 ![reference types](inspector/reference_type.png)
 
-  **Note**: That script file is also a type of asset. Therefore the script asset reference property used by components shown on the top of the above picture is also represented by a blue label.
+  > **Note**: that script file is also a type of asset. Therefore the script asset reference property used by components shown on the top of the above picture is also represented by a blue label.
 
 ## Editing several assets at once
 
@@ -75,8 +75,9 @@ If a property in **Properties** panel shows the following statuses, it means the
 - Input box is **-**
 - Select box is **blank**
 
-**Note**:
-- Currently, this feature does not support Material properties and Texture Compression properties.
-- Several assets with **different types** can be selected at once, but it is not supported to modify properties at the same time. Only the number of currently selected assets will be displayed in the **Properties** panel.
-
-  ![](inspector/different_type_res.png)
+> **Notes**:
+>
+> 1. Currently, this feature does not support Material properties and Texture Compression properties.
+> 2. Several assets with **different types** can be selected at once, but it is not supported to modify properties at the same time. Only the number of currently selected assets will be displayed in the **Properties** panel.
+>
+>     ![](inspector/different_type_res.png)

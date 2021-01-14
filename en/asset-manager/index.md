@@ -6,7 +6,7 @@ During the development of the game, it is generally necessary to use a large num
 
 **Asset Manager** is a new resource manager from Creator in v2.4 that replaces the previous `cc.loader`. The new **Asset Manager** resource management module has features for loading resources, finding resources, destroying resources, caching resources, Asset Bundle, and more. Compared with previous `cc.loader`, Asset Manager has better performance, easier-to-use APIs, and greater extensibility. All functions and methods are accessible via `cc.assetManager` and all types and enumerations are accessible via the `cc.AssetManager` namespace.
 
-**Note**: We will maintain compatibility with `cc.loader` for a period of time, but we strongly recommend using **Asset Manager** consistently for new projects.
+> **Note**: we will maintain compatibility with `cc.loader` for a period of time, but we strongly recommend using **Asset Manager** consistently for new projects.
 
 ## Load Resources
 

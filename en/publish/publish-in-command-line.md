@@ -27,7 +27,7 @@ You can also to compile the native project of the native platform separately by 
 
 - `--compile "platform=android;debug=true"`
 
-**Note**: The Web platform does not need to use `--compile` command, and the `--compile` command is used by the native platform.
+> **Note**: the Web platform does not need to use `--compile` command, and the `--compile` command is used by the native platform.
 
 ## Publish Parameters
 

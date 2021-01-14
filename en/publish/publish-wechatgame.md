@@ -68,7 +68,7 @@ The specific filling rules for the relevant options configuration are as follows
 
   ![](./publish-wechatgame/tool.png)
 
-  **Note**: If you have not run the WeChat DevTools on your Mac before, an `Please ensure that the IDE has been properly installed` error will result. You need to manually open the WeChat DevTools once before you can click the **Play** directly in the **Build** panel to enable it.
+  > **Note**: if you have not run the WeChat DevTools on your Mac before, an `Please ensure that the IDE has been properly installed` error will result. You need to manually open the WeChat DevTools once before you can click the **Play** directly in the **Build** panel to enable it.
 
 ## Resource Management for the WeChat Mini Games
 
@@ -169,5 +169,5 @@ The WeChat Mini Game does not support WebView.
 - [WeChat Official Accounts Platform](https://mp.weixin.qq.com/?lang=en_US)
 - [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
-- [WeChat Mini Game Performance Optimization [zh]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
+- [WeChat Mini Game Performance Optimization [cn]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
 - [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)

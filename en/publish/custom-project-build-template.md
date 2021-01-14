@@ -113,7 +113,7 @@ module.exports = {
 };
 ```
 
-**Note**: As of v2.4, `buildResults` are no longer provided in `options`, but rather an array of `bundles`.
+> **Note**: as of v2.4, `buildResults` are no longer provided in `options`, but rather an array of `bundles`.
 
 `bundles` is an array that stores information about all Asset Bundles, each of which is defined as follows:
 

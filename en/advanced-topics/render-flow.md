@@ -22,4 +22,4 @@ When rendering this node, RenderFlow will enter the **transform => render** bran
 
 ## Reference Link
 
-[Custom Rendering Assembler [zh]](https://forum.cocos.org/t/demo/95087)
+[Custom Rendering Assembler [cn]](https://forum.cocos.org/t/demo/95087)

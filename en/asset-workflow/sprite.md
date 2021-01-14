@@ -83,7 +83,7 @@ When the original size of Texture does not match the size of the texture image m
 
   Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
 
-  **Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
+  > **Note**: the Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
 
 ## genMipmaps
 
