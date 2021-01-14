@@ -28,8 +28,8 @@
 一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
 
 | 选项名 | 可选 | 默认值 | 说明 | 字段名 |
-| - | - | - | - | - |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
+| :-- | :-- | :-- | :-- | :-- |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
 | 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress | |
 | 游戏包名 | 必填 | (项目名称) | 游戏包名，例如 com.example.demo | package |
 | 桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon
@@ -78,11 +78,11 @@
 
     在 **构建发布** 面板点击 **运行** 按钮，等待二维码界面生成
 
-    ![](./vivo-mini-game/play.jpg)
+    ![play](./vivo-mini-game/play.jpg)
 
     然后在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **扫码安装** 按钮直接扫描二维码即可打开 rpk。
 
-    ![](./vivo-mini-game/vivo-instant_scan_install.jpg)
+    ![vivo instant scan install](./vivo-mini-game/vivo-instant_scan_install.jpg)
 
 - **方法二**：
 
@@ -90,7 +90,7 @@
 
     在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **本地安装**，然后从手机 sdcard 目录中找到 rpk 文件，选择打开即可。
 
-    ![](./vivo-mini-game/vivo-instant_native_install.jpg)
+    ![vivo instant native install](./vivo-mini-game/vivo-instant_native_install.jpg)
 
 - **方法三**：
 
@@ -109,22 +109,7 @@
 
 ## 分包加载
 
-在 vivo 小游戏的构建中，[Asset Bundle](../../asset/bundle.md) 的配置也会按照规则自动生成到 vivo 小游戏发布包 `vivo-mini-game/src` 目录下的 **manifest.json** 配置文件中。
-
-**注意**：
-
-**快应用 & vivo 小游戏调试器** 从 **1051** 版本开始支持 vivo 小游戏分包加载。低于 1051 的版本虽然不支持分包加载，但是也做了兼容处理，如果使用了分包也不会影响游戏正常运行。具体可参考 [vivo 分包加载-运行时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9)。
-
-![](./subpackage/vivo_subpackage.png)
-
-### 分包加载包大小的限制
-
-目前 vivo 小游戏分包大小有以下限制：
-
-- 整个小游戏的所有分包及主包大小不超过 **8M**（打包完成后的整个压缩包包含整包不超过 **16M**，详情可参考 [vivo 分包加载-编译时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9)）
-- 单个分包/主包大小不能超过 **4M**
-
-具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage)。
+vivo 小游戏的分包加载，用法与微信小游戏类似，详情请参考 [小游戏分包](subpackage.md)。
 
 ## vivo 小游戏环境的资源管理
 

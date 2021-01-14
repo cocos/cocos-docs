@@ -1,7 +1,5 @@
 # Publish to Baidu Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
-
 **Cocos Creator** officially supports the release of games to the **Baidu Mini Games**.
 
 The runtime environment of the Baidu Mini Game is an extension of the **Baidu Smart Mini Program**. This provides a WebGL interface encapsulation based on the mini program environment. This greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the Baidu team, they are not equivalent to the browser environment.
@@ -12,15 +10,15 @@ On the engine side, in order to make the developers' workload as easy as possibl
 - The **Cocos Creator** editor provides a fast packaging process, released directly as a **Baidu Mini Game**, and automatically evokes the Baidu DevTools.
 - Automatically load remote assets, cache assets, and cache asset version control.
 
-Please refer to the [Baidu Mini Game Developer Documentation](https://smartprogram.baidu.com/docs/game/) documentation to review the game submission, the review, and the release process for a Baidu Mini Game.
+Please refer to the [Baidu Mini Game Developer Documentation [cn]](https://smartprogram.baidu.com/docs/game/) documentation to review the game submission, the review, and the release process for a Baidu Mini Game.
 
 ## Publish Baidu Mini Games with Cocos Creator
 
 ### Prerequisites
 
-- Download and install **Baidu DevTools** in the [Baidu DevTools](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) documentation.
+- Download and install **Baidu DevTools** in the [Baidu DevTools [cn]](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) documentation.
 - Download and install the **Baidu App** in the app store of your phone.
-- Log in to the [Baidu Smart Mini Progame Platform](https://smartprogram.baidu.com/developer/index.html) and find **App ID**.
+- Log in to the [Baidu Smart Mini Program Platform [cn]](https://smartprogram.baidu.com/developer/index.html) and find **App ID**.
 
   ![](./publish-baidugame/appid.png)
 
@@ -63,9 +61,9 @@ Specifically, developers need to do the following:
 The subpackage loading method of **Baidu Mini Game** is similar to WeChat, with the following package restrictions:
 
 - The size of all subpackages of the entire Mini Game can not exceed **8MB**.
-- The size of a single subpackage / main package can not exceed **4MB**.
+- The size of a single subpackage/main package can not exceed **4MB**.
 
-Please refer to the [Asset Bundle](../../asset/bundle.md) documentation for details.
+Please refer to the [Mini Game Subpackage](subpackage.md) documentation for details.
 
 ## Platform SDK Access
 
@@ -84,12 +82,11 @@ Currently, the adaptation work of Baidu Mini Game is not completely finished, an
 - VideoPlayer
 - WebView
 
-If needed, you can directly call Baidu's [API](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/) as needed.
+If needed, you can directly call Baidu's [API [cn]](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/) as needed.
 
 ## Reference documentation
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
-
-- [Baidu Mini Game Registration Guide](https://smartprogram.baidu.com/docs/game/)
-- [Baidu DevTools documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
-- [Baidu Mini Game API documentation](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/)
+- [Baidu Mini Game Registration Guide [cn]](https://smartprogram.baidu.com/docs/game/)
+- [Baidu DevTools documentation [cn]](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/)
+- [Baidu Mini Game API documentation [cn]](https://smartprogram.baidu.com/docs/game/api/openApi/authorize/)
+- [Baidu Mini Game Subpackage Loading [cn]](https://smartprogram.baidu.com/docs/game/tutorials/subpackages/sub/)

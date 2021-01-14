@@ -50,7 +50,7 @@ For the general build options for each platform, please refer to [General Build 
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
 
   > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
-  
+
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **search icon** button to the right of the input box.
 
   There are two ways to generate a signature files:
@@ -84,7 +84,11 @@ Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on yo
 
 ## Subpackage rpk
 
-Subpackage loading, that is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, and the developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot. To use this function, you need to set [Bundle Configuration](../../asset/bundle.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
+Subpackage **rpk** can be used according to your needs.
+
+Subpackage loading, which is, splitting the game content into several packages according to certain rules, only downloading the necessary packages when starting up for the first time. This necessary package is called **main package**, The developer can trigger in the main package to download other sub-packages, which can effectively reduce the time spent on the first boot.
+
+To use this function, set the [Bundle Configuration](subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
 After the build is complete, the subpackage directory is in the `dist` directory. In this case, you need to create a new `subPkg` directory in the `sdcard` directory of the OPPO phone, and then copy the **.rpk** file in the `dist` directory to the `subPkg` directory.
 
@@ -92,9 +96,9 @@ Then switch to the **Package Load** section of OPPO **Mini Game Debugger**, clic
 
 ![](./publish-oppo-mini-games/run_subpackage.jpg)
 
-Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phones, and non-subpackage rpk needs to be copied to the `/sdcard/games` directory of OPPO phones, both of which cannot be mixed.
+Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phones, and non-subpackaged rpk needs to be copied to the `/sdcard/games` directory of OPPO phones, both of which cannot be mixed.
 
-> **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above,you need to copy the mini game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone. If there is no `subPkg` directory, you need to create a new one.
+> **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above, you need to copy the mini game subpackaged **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone, or create a new one if there is no `subPkg` directory. The non-subpackaged rpk is copied to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone, and the two cannot be mixed.
 
 ## Resource Management for OPPO Mini Game Environment
 
@@ -105,7 +109,7 @@ Cocos Creator already helps developers with downloading, caching and version man
 ## Reference documentation
 
 - [OPPO Developer Guides](https://developers.oppomobile.com/wiki/doc/index#id=88)
-- [OPPO Mini Game Tutorial [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
-- [OPPO Mini Game API Documentation [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
-- [OPPO Mini Game Tool Download [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
-- [OPPO Mini Game Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)
+- [OPPO Mini Game Tutorial [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO Mini Game API Documentation [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO Mini Game Tool Download [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
+- [OPPO Mini Game Instructions -- New Directory [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)
