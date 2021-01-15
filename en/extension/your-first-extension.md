@@ -39,7 +39,7 @@ Here is a simple example of a `package.json` file:
 
 Explanation:
 
- - `name` String - The package name. Make sure your package name is unique. It's related to many things in package programming. **Lowercase letters**, **numbers**, **hyphens (`-`)**, **underscores (`_`)** and **dots (`.`)** are allowed, and begin with a **lowercase letter** or **number**.
+ - `name` String - The package name. Make sure your package name is unique. It's related to many things in package programming. If the plugin will be uploaded to the Cocos Store, there are certain restrictions on the package name. The `name` only allows **lowercase letters**, **numbers**, **hyphens (`-`)**, **underscores (`_`)**, **dots (`.`)**, and begin with a **lowercase letter** or **number**.
  - `version` String - The version number. We highly recommend you use [semver](http://semver.org/) standard for your version.
  - `description` String (optional) - Describe your package in one sentence.
  - `author` String (optional) - Author's name.
