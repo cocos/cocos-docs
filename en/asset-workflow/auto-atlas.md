@@ -43,4 +43,4 @@ The results are:
 
 With **Auto Atlas asset** created correctly, you can build your scenes or animations using the original sprite textures. During the **Build** process, Cocos Creator will automatically pack all **SpriteFrame** with Auto Atlas asset in the folder into atlas and update reference to them in the whole project automatically.
 
-**Note**: If Premultiply Alpha is enabled on the texture, it will be invalid when generating the atlas. If you need to use the Premultiply Alpha, you can check Premultiply Alpha on the Auto Atlas.
+> **Note**: if Premultiply Alpha is enabled on the texture, it will be invalid when generating the atlas. If you need to use the Premultiply Alpha, you can check Premultiply Alpha on the Auto Atlas.

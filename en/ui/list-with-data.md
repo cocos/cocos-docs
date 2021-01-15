@@ -78,7 +78,7 @@ Let's drag all those nodes onto the property fields of `ItemTemplate` component.
 
 ![item binding](list-with-data/item-binding.png)
 
-**Note**: We will assign value for `id` property through script, no data binding needed.
+> **Note**: we will assign value for `id` property through script, no data binding needed.
 
 ### Update template display with script
 

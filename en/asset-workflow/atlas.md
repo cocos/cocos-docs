@@ -28,10 +28,10 @@ Please select plist files for cocos2d-x when export atlas by the tool. Then you 
 
 ![atlas files](atlas/atlas_files.png)
 
-**Note**:
-
-- Zwoptex does not support the latest version of macOS currently.
-- If you don't have any special needs, you can generate atlas by using the [Auto Atlas](./auto-atlas.md).
+> **Notes**:
+>
+> 1. Zwoptex does not support the latest version of macOS currently.
+> 2. If you don't have any special needs, you can generate atlas by using the [Auto Atlas](./auto-atlas.md).
 
 ## Import Atlas
 

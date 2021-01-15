@@ -76,17 +76,17 @@ Most of HUAWEI Services need the `agconnect-services.json` configuration file. I
 
   ![](sdkhub-hms/hms-configfile.png)
 
-**Note**:
-
-1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
-
-2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
-
-    ![](sdkhub-hms/globle-keystore.png)
-
-3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
-
-    ![](sdkhub-hms/hms-agcfile.png)
+> **Notes**:
+>
+> 1. Please make sure that you have completed the [generating/configuring the signing certificate Fingerprint](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050166285#EN-US_TOPIC_0000001054452903__section10260203515546) to config the SHA-256 certificate fingerprint.
+>
+> 2. If the **Debug Mode** is checked in the **Build** panel, the developer needs to configure the Keystore signature file in the `app/build.gradle` file of Android Studio.
+>
+>     ![](sdkhub-hms/globle-keystore.png)
+>
+> 3. For Creator v2.4.3 and above, if you want to publish to the [HUAWEI AppGallery Connect](../../publish/publish-huawei-agc.md), you can select the downloaded or updated configuration file directly in the **Build** panel, no need to copy it manually.
+>
+>     ![](sdkhub-hms/hms-agcfile.png)
 
 ## Enable Cocos SDKHub
 
@@ -253,7 +253,7 @@ sdkhub.getUserPlugin().callFuncWithParam("checkAppUpdate");
 
 #### `accountLogin`
 
-**Note**: For games, please call the [Login](#login) method without accessing this method.
+> **Note**: for games, please call the [Login](#login) method without accessing this method.
 
 This method is used by third-party applications to obtain the user authentication information (ID Token) or the user's temporary authorization ticket (Authorization Code) of Huawei account, so that the user can use the Huawei account to securely log in to third-party applications. For details, please refer to [Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dev-guide-account-0000001050048888#ZH-CN_TOPIC_0000001050048888__section15992612272) and [Silently Signing In with a HUAWEI ID](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/login-silentsignin-0000001050050853) documents.
 

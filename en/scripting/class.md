@@ -165,7 +165,7 @@ In most cases, we can use simple declaration.
     }
     ```
 
-**Note**: Other than the situations above, we all need to use **complete declaration** to write for other types.
+> **Note**: other than the situations above, we all need to use **complete declaration** to write for other types.
 
 ### Complete declaration
 

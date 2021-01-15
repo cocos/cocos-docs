@@ -83,9 +83,9 @@ if (rigidBody.isAwake) {
 }
 ```
 
-**Note**: The rigidbody can be woken by force, impulse and change the velocity.
+> **Note**: the rigidbody can be woken by force, impulse and change the velocity.
 
-### Let rigidbody awake	
+### Let rigidbody awake
 
 ```js
 // awake
@@ -116,4 +116,4 @@ There are several ways to restrict a rigidbody move:
 
   The factor is type `Vec3`. Value of the corresponding components is used to scale the velocity of corresponding axises. The default values are 1, which means that the scaling are 1x, that is, no scale.
 
-  **Note**: Set a component value of the factor to 0 to fix movement or rotation for a certain axis. If you want to completely fix the rotation, please use `fixedRotation`.
+  > **Note**: set a component value of the factor to 0 to fix movement or rotation for a certain axis. If you want to completely fix the rotation, please use `fixedRotation`.

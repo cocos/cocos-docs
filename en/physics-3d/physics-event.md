@@ -47,7 +47,7 @@ Code example:
   }
   ```
 
-**Note**: `Collider3D` is the base class for all Collider components in the physics system.
+> **Note**: `Collider3D` is the base class for all Collider components in the physics system.
 
 ### Collision Event
 

@@ -53,7 +53,9 @@ The main configuration notes in the **Build** panel about publishing to Google P
 
 - **Resource Server Address**
 
-  The download address of the remote resource, can be a CDN address. Put the `path_to_your_project/build/jsb-link/remote_assets` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package. **Note**: Server Address should not contain `/remote_assets`.
+  The download address of the remote resource, can be a CDN address. Put the `path_to_your_project/build/jsb-link/remote_assets` folder into the server or CDN, Cocos Creator will go to this address to download the resources that are not in the first package.
+  
+  > **Note**: server Address should not contain `/remote_assets`.
 
 - **Default URL**
 
@@ -67,7 +69,7 @@ The main configuration notes in the **Build** panel about publishing to Google P
 
   When this option is checked, the game will be packeaged into App Bundle format for uploading to Google Play store. Please refer to [Official Document](https://developer.android.com/guide/app-bundle/) for details.
 
-**Note**: If the Google Play Instant package has more permissions than the app on Google Store, it may not install properly when you install the app:
+> **Note**: if the Google Play Instant package has more permissions than the app on Google Store, it may not install properly when you install the app:
 
 ![](publish-android-instant/installation_failed.png)
 

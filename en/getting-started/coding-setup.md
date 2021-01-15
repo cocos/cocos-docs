@@ -30,11 +30,10 @@ Choose **Developer -> VS Code Workflow -> Update VS Code API Source** from main 
 
 This operation is only required when the API source is updated, or for some reason your project does not have a `creator.d.ts` file in it.
 
-**Note**:
-
-1. Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will automatically copy a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.
-
-2. If it is a JavaScript project, please do not click the `Add TypeScript Config` option. This feature generates `tsconfig.json` file at the project root, giving the TypeScript code intellisense, but invalidating the JavaScript code intellisense. Delete `tsconfig.json` if the problem occurs.
+> **Notes**:
+>
+> 1. Since VS Code 0.10.11, you'll also need a `jsconfig.json` for your project to work. The above command will automatically copy a predefined `jsconfig.json` file along with `creator.d.ts` to your project. You can customize `jsconfig.json` according to [VS Code JavaScript guide](http://code.visualstudio.com/docs/languages/javascript) to better suit your habit.
+> 2. If it is a JavaScript project, please do not click the `Add TypeScript Config` option. This feature generates `tsconfig.json` file at the project root, giving the TypeScript code intellisense, but invalidating the JavaScript code intellisense. Delete `tsconfig.json` if the problem occurs.
 
 ### Open Project With VS Code
 
@@ -44,7 +43,7 @@ Now you can create a new script or edit existing script and enjoy autocomplete a
 
 ![vs code](coding-setup/vscode.png)
 
-**Note**: `creator.d.ts` and `jsconfig.json` file must reside in the folder you open with VS Code to make the whole language and API autocomplete work.
+> **Note**: `creator.d.ts` and `jsconfig.json` file must reside in the folder you open with VS Code to make the whole language and API autocomplete work.
 
 ### Setup File Tree and Search Filter
 
@@ -73,9 +72,9 @@ Choose **Code (Mac) / File (Windows) -> Preferences -> Settings** from VS Code m
 
 The above settings exclude folders generated and managed by Cocos Creator from search and file tree.
 
-**Note**: The new version of VS Code may be in the UI interface state when opening user profile `USER SETTINGS`:
-
-![vs code](coding-setup/vs_code_1.png)
+> **Note**: the new version of VS Code may be in the UI interface state when opening user profile `USER SETTINGS`:
+>
+> ![vs code](coding-setup/vs_code_1.png)
 
 Next, enter the **exclude** in the search box above, and then click the **Add Pattern** button in the `search.exclude` and `files.exclude` modules to supplement the content:
 

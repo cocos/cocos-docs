@@ -2,7 +2,7 @@
 
 ToggleContainer is not a visiable UI component but a way to modify the behavior of a set of Toggles. Toggles that belong to the same group could only have one of them to be switched on at a time.
 
-**Note**: All the first layer child node containing the toggle component will auto be added to the container
+> **Note**: all the first layer child node containing the toggle component will auto be added to the container
 
 ![toggle-container](./toggle/toggle-container.png)
 

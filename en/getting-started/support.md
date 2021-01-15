@@ -6,7 +6,7 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![](in
 
 ## Demo and example projects
 
-**Note**: All demo and example projects on GitHub will be updated with the version of Cocos Creator. The default branch corresponds to the latest Cocos Creator version. The old version of the project will be distinguished by the branch name like **v0.7**. The branch name will match the Cocos Creator version, please be careful to distinguish the version when downloading and using.
+> **Note**: all demo and example projects on GitHub will be updated with the version of Cocos Creator. The default branch corresponds to the latest Cocos Creator version. The old version of the project will be distinguished by the branch name like **v0.7**. The branch name will match the Cocos Creator version, please be careful to distinguish the version when downloading and using.
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game), please read [Quick Start Tutorial](quick-start.md) to build it step by step!

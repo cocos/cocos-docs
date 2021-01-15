@@ -8,7 +8,7 @@ We can click the **Preview** button on top of editor window to see the game in a
 
 ![select platform](preview-build/select-platform.png)
 
-**Note**: You must double click to open the scene to preview the game. If you don't have any scenes open, or if you create a new empty scene, you will not see anything in the preview.
+> **Note**: you must double click to open the scene to preview the game. If you don't have any scenes open, or if you create a new empty scene, you will not see anything in the preview.
 
 ### Simulator
 

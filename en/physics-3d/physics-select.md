@@ -4,7 +4,7 @@ Open the editor, click **Project -> Project Settings -> Module Config** in the m
 
 ![](image/physics-module.png)
 
-**Note**: The physics engine is always `cannon.js` during the preview. The setting of this option will only take effect when building the project.
+> **Note**: the physics engine is always `cannon.js` during the preview. The setting of this option will only take effect when building the project.
 
 ## Physics Engine (cannon.js)
 

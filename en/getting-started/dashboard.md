@@ -36,7 +36,7 @@ You can create a new Cocos Creator project with the **Creat a New Project** tab.
 
 In the **Creat a New Project** page, we first need to choose a project template. The project template includes various kinds of basic game frameworks and sample resources and scripts for learning, which can help you start creative work quicker.
 
-**Note**: The early Cocos Creator edition doesn't include multiple optional project templates. Along with the improvement of Cocos Creator's functions, we will gradually add more templates to provide convenience for users.
+> **Note**: the early Cocos Creator edition doesn't include multiple optional project templates. Along with the improvement of Cocos Creator's functions, we will gradually add more templates to provide convenience for users.
 
 Click a template, and you will see descriptions of this template at the bottom of the page.
 

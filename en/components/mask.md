@@ -16,4 +16,4 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Sprite Frame   | The image required for the mask, which takes effect only when the Mask type is set to `IMAGE_STENCIL`.
 | Segements      | The segements for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.
 
-**Note**: After adding the Mask component to a node, all the child nodes of this node will be affected by Mask during rendering.
+> **Note**: after adding the Mask component to a node, all the child nodes of this node will be affected by Mask during rendering.

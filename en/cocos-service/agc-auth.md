@@ -85,7 +85,7 @@ By using the AppGallery Auth Service SDK, you can integrate one or more of the f
 
   ![](agc-auth/auth-params.jpg)
 
-  **Note**: If you are using **Google account** or **Google Play Game account** authentication method, **do not** check the **Generate App Bundle (Google Play)** option in the **Build** panel when publishing to Android.
+  > **Note**: if you are using **Google account** or **Google Play Game account** authentication method, **do not** check the **Generate App Bundle (Google Play)** option in the **Build** panel when publishing to Android.
 
 ### Configs HUAWEI Config File
 

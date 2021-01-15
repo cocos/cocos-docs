@@ -75,6 +75,6 @@ When playing AudioEngine, it is important to note that a complete AudioClip obje
 
 ![](audio/audioengine.png)
 
-**Note**: If the audio playback related settings are complete, there is still no sound to be heard when previewing or running on some browsers, which may be due to browser compatibility issues. For example, Chrome disables automatic playback of Web Audio, while audio is loaded and played by default using Web Audio, where the user needs to select the audio resource in **Assets** and then modify the Download Mode of the audio to the DOM Audio in the **Properties** to play audio properly on the browser. For more information, please refer to [Audio Resource](../asset-workflow/audio-asset.md) and [Audio Compatibility](compatibility.md).
-
-![](audio/mode.png)
+> **Note**: if the audio playback related settings are complete, there is still no sound to be heard when previewing or running on some browsers, which may be due to browser compatibility issues. For example, Chrome disables automatic playback of Web Audio, while audio is loaded and played by default using Web Audio, where the user needs to select the audio resource in **Assets** and then modify the Download Mode of the audio to the DOM Audio in the **Properties** to play audio properly on the browser. For more information, please refer to [Audio Resource](../asset-workflow/audio-asset.md) and [Audio Compatibility](compatibility.md).
+>
+> ![mode](audio/mode.png)

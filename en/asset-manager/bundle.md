@@ -113,15 +113,16 @@ At build time, all the **code** and **resources** in the folder configured as th
 
 The structure of the Asset Bundle directory generated after build is shown below:
 
-![export](bundle/exported.png) 
+![export](bundle/exported.png)
 
 ### Scripts in the Asset Bundle
 
 The Asset Bundle supports script subpackaging. If your Asset Bundle includes the script files, then all the scripts will be merged into a single **js** file and removed from the main package. When loading the Asset Bundle, this **js** file will be attempted to be loaded.
 
-**Note**: 
-1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/scripts` directory to ensure normal loading.
-2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
+> **Notes**:
+>
+> 1. Some platforms do not allow the loading of remote script files, such as the WeChat Mini Game, and Creator will copy the code of the Asset Bundle to the `src/scripts` directory to ensure normal loading.
+> 2. It is recommended that scripts in the different Asset Bundles do not reference each other, otherwise you may not find the corresponding script at runtime. If you need to reference certain classes or variables, you can share them by exposing them in your own global namespace.
 
 ## FAQ
 

@@ -50,7 +50,7 @@ Creator will parse the ejs syntax in the **html** template. And Creator currentl
 | cocos2d           | The path where the engine script is located     |
 | enableDebugger    | When preview on a mobile browser platform, the value is true |
 
-**Note**: The **html** template in the example uses `<%=title%>` and `<%=cocos2d%>` of the custom variable. If you want to customize other variables, then you need to parse them on your own.
+> **Note**: the **html** template in the example uses `<%=title%>` and `<%=cocos2d%>` of the custom variable. If you want to customize other variables, then you need to parse them on your own.
 
 ## preview-templates expansion
 

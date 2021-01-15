@@ -65,7 +65,7 @@ cc.director.loadScene("table");
 
 It will be totally fine to call `cc.director.loadScene` at any time even if the preloading is not yet finished. You can take [Black Jack demo](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14) as an example.
 
-**Note**: Using `cc.loader.loadRes` to load assets in next scene and call `runScene` method to switch scene is **deprecated!**
+> **Note**: using `cc.loader.loadRes` to load assets in next scene and call `runScene` method to switch scene is **deprecated!**
 
 ```js
 // DO NOT USE THE FOLLOWING METHOD!

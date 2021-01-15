@@ -123,4 +123,4 @@ With each state transition in the middle of drawElements, we can see what is cau
 
 ## Reference
 
-[Cocos Creator Performance Optimization: DrawCall [zh]](https://mp.weixin.qq.com/s/2fKhBciXoxZ85XuUL01iyg)
+[Cocos Creator Performance Optimization: DrawCall [cn]](https://mp.weixin.qq.com/s/2fKhBciXoxZ85XuUL01iyg)

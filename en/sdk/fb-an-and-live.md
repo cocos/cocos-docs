@@ -24,38 +24,38 @@ Select the **Facebook Service** and you can see that there are three options bel
 
 **Second**, after you set up the SDK that needs to be integrated in the **Project Settings -> Service**, open the **Build** panel, select **Platform** and then select **Android/iOS**. Next, select the **API Level** of the Android platform as **android-26** and above. There are other parameters that the developer can configure themselves, as needed. When the configuration is complete, click **Build**.
 
-  **Note**: **Before you build for iOS**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for details.
-
-  ```bash
-  # Xcode 8 + 9
-  $ sudo gem install cocoapods
-  ```
-
-  If you run the command, and the following error occurs:
-
-  ```bash
-  ERROR:  Could not find a valid gem 'cocoapods' (>= 0), here is why:
-        Unable to download data from https://rubygems.org/ - SSL_connect returned=1 errno=0 state=SSLv2/v3 read server hello A: tlsv1 alert protocol version (https://rubygems.org/latest_specs.4.8.gz)
-  ```
-
-  You can run the following command to resolve:
-
-  ```bash
-  $ gem source -r https://rubygems.org/
-  $ gem source -a http://rubygems.org/
-  $ sudo gem install cocoapods
-  ```
+> **Note**: **before you build for iOS**, you need to download the dependencies associated with the Facebook service and execute the following command on the command line. Please refer to [CocoaPods official website](https://cocoapods.org/) for details.
+>
+> ```bash
+> # Xcode 8 + 9
+> $ sudo gem install cocoapods
+> ```
+>
+> If you run the command, and the following error occurs:
+>
+> ```bash
+> ERROR:  Could not find a valid gem 'cocoapods' (>= 0), here is why:
+> Unable to download data from https://rubygems.org/ - SSL_connect returned=1 errno=0 state=SSLv2/v3 read server hello A: tlsv1 alert protocol version (https://rubygems.org/latest_specs.4.8.gz)
+> ```
+>
+> You can run the following command to resolve:
+>
+> ```bash
+> $ gem source -r https://rubygems.org/
+> $ gem source -a http://rubygems.org/
+> $ sudo gem install cocoapods
+> ```
 
 **Third**, after the build is complete, you can see that two files, **fb-live-stream.js** and **CCAds.js**, have been generated under the `src` directory in the `build` directory. These correspond to the encapsulation of **Facebook Live Video** and **Facebook Audience Network** by Cocos Creator.
 
 ![](fb-an-and-live/package.png)
 
-**Note**:
-
-- The first time you compile on Android requires using Android Studio to open the built-after project to download the support packages that Facebook needs (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio). And Android Phone needs to be in version 6.0 or above.
-- When you use Xcode to compile for iOS, you need to open `.xcworkspace` file instead of `.xcodeproj` file. And iOS devices need to be in version 11 or above.
-
-  ![](fb-an-and-live/xcode.png)
+>**Notes**:
+>
+> 1. The first time you compile on Android requires using Android Studio to open the built-after project to download the support packages that Facebook needs (If the download fails, it is recommended to switch the network or set up the HTTP proxy for Android Studio). And Android Phone needs to be in version 6.0 or above.
+> 2. When you use Xcode to compile for iOS, you need to open `.xcworkspace` file instead of `.xcodeproj` file. And iOS devices need to be in version 11 or above.
+>
+>     ![](fb-an-and-live/xcode.png)
 
 ## Invoking related APIs
 

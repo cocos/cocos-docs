@@ -22,13 +22,13 @@ Merge all the SpriteFrames in the same atlas into the same package. The option i
 
 If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of it.
 
-**Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
+> **Note**: for projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
 
 ### Package Name
 
 An input field named **package name** will appear in the **Build** panel after selecting Android platform, into which you can input the package name of your game (also called Bundle ID). The package name is usually arranged in the reverse order of the product's website url, such as: `com.mycompany.myproduct`.
 
-**Note**: Only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
+> **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
 
 ![package name](publish-native/package_name.png)
 
@@ -149,18 +149,18 @@ Click the **open** button near the release path, the building release path will 
 
 The red frames in the picture indicate projects of different native platforms. Next, only by using IDE(such as: Xcode, Visual Studio) that corresponds to the native platform to open these projects, can you make further operations like compilation, preview and release. For the usage instructions for native platform's IDE, please search related information on your own, which will not be discussed in detail here.
 
-**Note**: 
+## Precautions
 
-- Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
+1. Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
 
-- When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
+2. When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
 
-- Starting from v2.3.0, Android and Android Instant use the same build template, and the built projects are in the `build\jsb-default\frameworks\runtime-src\proj.android-studio` directory. Please note for this directory:
-  - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
-  - For code and third-party library used separately by the Android Instant, place them in the `game\src` and `game\libs` directories, respectively.
-  - For code and third-party library used in common by the Android and Android Instant, place them in the `src` and `libs` directories, respectively.
-  - The `jni\CocosAndroid.mk` and `jni\CocosApplication.mk` files in the `proj.android-studio` directory are mainly used for engine-related configuration and aren't recommended to be modified. If you need to modify the configuration:
-    - For Android, please modify `app\jni\Android.mk` and `app\jni\Application.mk`.
-    - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
+3. Starting from v2.3.0, Android and Android Instant use the same build template, and the built projects are in the `build\jsb-default\frameworks\runtime-src\proj.android-studio` directory. Please note for this directory:
+    - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
+    - For code and third-party library used separately by the Android Instant, place them in the `game\src` and `game\libs` directories, respectively.
+    - For code and third-party library used in common by the Android and Android Instant, place them in the `src` and `libs` directories, respectively.
+    - The `jni\CocosAndroid.mk` and `jni\CocosApplication.mk` files in the `proj.android-studio` directory are mainly used for engine-related configuration and aren't recommended to be modified. If you need to modify the configuration:
+      - For Android, please modify `app\jni\Android.mk` and `app\jni\Application.mk`.
+      - For Android Instant, please modify `game\jni\Android.mk` and `game\jni\Application.mk`.
 
-  When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.
+    When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instant:assembleRelease/Debug` is executed by default.

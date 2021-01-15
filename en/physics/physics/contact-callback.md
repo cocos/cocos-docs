@@ -118,7 +118,7 @@ var normal = worldManifold.normal;
 
   ![World-manifold-points](./image/world-manifold-points.png)
 
-  **Note**: Not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
+  > **Note**: not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
 
   ![Collision-points-1](./image/collision-points-1.png)
 

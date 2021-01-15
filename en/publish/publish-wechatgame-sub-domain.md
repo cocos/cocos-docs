@@ -12,8 +12,9 @@ In the Open Data Context project, it is packaged independently through the Open 
 ## Integration method
 
 - Create an Open Data Context project to obtain user data through the relevant API, and create a display of UI according to your own needs. The entire Open Data Context project should only contain its content UI. The design resolution of the Canvas component in the scene should be set to the full resolution of the UI, without the corresponding main context resolution.
-- Create a node in the main context as an Open Data Context container, add the `SubContextView` component to set the Open Data Context view and update the Open Data Context texture. The aspect ratio of this node should be equal to the aspect ratio of the Open Data Context design resolution (otherwise stretching happens).<br>
-  > **Note**: As of **v2.4.1**, the `WXSubContextView` is deprecated, please use `SubContextView`.
+- Create a node in the main context as an Open Data Context container, add the `SubContextView` component to set the Open Data Context view and update the Open Data Context texture. The aspect ratio of this node should be equal to the aspect ratio of the Open Data Context design resolution (otherwise stretching happens).
+
+  > **Note**: as of **v2.4.1**, the `WXSubContextView` is deprecated, please use `SubContextView`.
 
 The difference from the previous version is:
 
@@ -53,7 +54,7 @@ This is the core component of the Open Data Context solution. In addition to the
 
   - By reducing the FPS of Open Data Context, you can also reduce the performance overhead of Open Data Context to some extent.
 
-  **Note: The FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the SubContextView component directly in the Main Context project.**
+    > **Note**: the FPS property overrides the `cc.game.setFrameRate()` implementation of the Open Data Context, so it is recommended to set the FPS property of the SubContextView component directly in the Main Context project.
 
 - **Controlling engine main loop in Open Data Context**
 
@@ -112,7 +113,7 @@ Since the code and resources of the WeChat Open Data Context cannot be shared wi
 
 3. The **Build Path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-    **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
+    > **Note**: the **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
 
     ![](./publish-wechatgame/open-data-project-build.png)
 
@@ -124,7 +125,7 @@ Since the code and resources of the WeChat Open Data Context cannot be shared wi
 
     ![](./publish-wechatgame/preview.png)
 
-**Note**: Because WeChat Mini Games will support WebGL rendering mode for Open Data Context in later versions, so Creator adapted WebGL mode for Open Data Context in v2.0.9. However, it currently cause the project to appear **[GameOpenDataContext] Open Data Context only supports using 2D rendering mode** error message when running in the WeChat DevTools. This error message is due to the use of `document.createElement("canvas").getContext("webgl")` to detect if WeChat mini games supports WebGL, it will not affect the normal use of the project, you can ignore it.
+> **Note**: because WeChat Mini Games will support WebGL rendering mode for Open Data Context in later versions, so Creator adapted WebGL mode for Open Data Context in v2.0.9. However, it currently cause the project to appear **[GameOpenDataContext] Open Data Context only supports using 2D rendering mode** error message when running in the WeChat DevTools. This error message is due to the use of `document.createElement("canvas").getContext("webgl")` to detect if WeChat mini games supports WebGL, it will not affect the normal use of the project, you can ignore it.
 
 ### Reference link
 

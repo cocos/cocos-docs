@@ -22,7 +22,7 @@ cc.director.getPhysics3DManager().enabled = true;
 
 For API interface, please refer to [Physics3DManager](../../../api/en/classes/Physics3DManager.html) for details.
 
-**Note**: The Builtin Physics Engine does not support the above properties related to physics simulation.
+> **Note**: the Builtin Physics Engine does not support the above properties related to physics simulation.
 
 ## Ray Detection
 
@@ -32,8 +32,8 @@ Ray Detection is used to detect which colliders a given line passes through. The
 
   The `cc.director.getPhysics3DManager().raycast` interface, will detect all Colliders on the ray path, the order of the detected results is not fixed.
 
-    - If no Collider is detected, it returns `null`.
-    - If so, it returns an array containing the results of all Collisions. Please refer to the [raycast](../../../api/en/classes/Physics3DManager.html#raycast) for details.
+  - If no Collider is detected, it returns `null`.
+  - If so, it returns an array containing the results of all Collisions. Please refer to the [raycast](../../../api/en/classes/Physics3DManager.html#raycast) for details.
 
     Code example:
 
@@ -54,8 +54,8 @@ Ray Detection is used to detect which colliders a given line passes through. The
 
   The `cc.director.getPhysics3DManager().raycastClosest` interface, will detect the nearest Collider on the ray path.
 
-    - If no Collider is detected, it returns `null`.
-    - If so, it returns a Collider that meets the requirements, the usage is similar to the `raycast`. Please refer to the [raycastClosest](../../../api/en/classes/Physics3DManager.html#raycastclosest) for details.
+  - If no Collider is detected, it returns `null`.
+  - If so, it returns a Collider that meets the requirements, the usage is similar to the `raycast`. Please refer to the [raycastClosest](../../../api/en/classes/Physics3DManager.html#raycastclosest) for details.
 
     Code example:
 
