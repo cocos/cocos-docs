@@ -80,7 +80,7 @@
 - [Scene Creation Workflow](concepts/scene/index.md)
     - [Nodes and Components](concepts/scene/node-component.md)
     - [Coordinate Systems and Transformations](concepts/scene/coord.md)
-    - [Node Hierarchy and Display Order](concepts/scene/node-tree.md)
+    - [Node Hierarchy and Rendering Order](concepts/scene/node-tree.md)
     - [Build a Scene Image Using the Scene Panel](concepts/scene/scene-editing.md)
     - [Skybox](concepts/scene/skybox.md)
     - [GlobalFog](concepts/scene/fog.md)

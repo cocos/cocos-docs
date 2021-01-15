@@ -1,16 +1,16 @@
 # Skybox
 
-The skybox in a video game is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting in PBR-based workflows.
+The skybox in a video game is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting the in PBR-based workflow.
 
 ![skybox](skybox/Skybox.png)
 
 ## Enable Skybox
 
-Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **skybox** component of the **Inspector** panel to enable the skybox.
+Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **Skybox** component of the **Inspector** panel to enable the skybox.
 
  ![enable skybox](skybox/enable-skybox.png)
 
-The skybox component properties are as follows:
+The **Skybox** component properties are as follows:
 
 | Property | Description |
 | :---| :--- |
@@ -31,31 +31,31 @@ After enabling the skybox, you also need to set the skybox's environment map. Th
 
     ![Set to TextureCube](skybox/texturecube.png)
 
-3. Check **Scene** in the **Hierarchy** panel, then drag the set texture asset to the **Envmap** property box of the **skybox** component in the **Inspector** panel.
+3. Check **Scene** in the **Hierarchy** panel, then drag the set texture asset to the **Envmap** property box of the **Skybox** component in the **Inspector** panel.
 
     ![Set environment map for skybox](skybox/set-envmap.png)
 
 Then the setup is done. The developer can see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, you need to check if the value of **SkyIllumination parameter** is too low, or **modify the Clear Flag** of Camera.
 
-#### SkyIllumination Parameter
+#### SkyIllumination Property
 
-The SkyIllumination parameter can be found in the **Scene** component of the **Inspector** panel by selecting **Scene** in the **Hierarchy** panel and then in the **ambient** component of the **Inspector** panel, with a default value of 20000.
+The SkyIllumination property can be found in the **Scene** component of the **Inspector** panel by selecting **Scene** in the **Hierarchy** panel and then in the **Ambient** component of the **Inspector** panel, with a default value of 20000.
 
-If the SkyIllumination parameter is set **too low**, the environment map of the skybox may not be displayed correctly in the **Scene** panel. General:
+If the SkyIllumination property is set **too low**, the environment map of the skybox may not be displayed correctly in the **Scene** panel. General:
 
-- When the SkyIllumination parameter value is less than 300, the environment map of the Skybox will not be displayed properly.
+- When the SkyIllumination property value is less than 300, the environment map of the Skybox will not be displayed properly.
 
-- When the SkyIllumination parameter is 5000, the effect is equivalent to the light intensity of a moonlit night.
+- When the SkyIllumination property is 5000, the effect is equivalent to the light intensity of a moonlit night.
 
 #### Modify ClearFlags of Camera
 
-If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlags** of the Camera component to **SKYBOX**:
+If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlags** of the **Camera** component to **SKYBOX**:
 
 ![](skybox/skybox-camera.png)
 
 ### By Setting the CubeMap
 
-To use a CubeMap as the environment map for the skybox, you need to create a CubeMap and drag it into the **Envmap** property box of the skybox component. The operation steps are as follows:
+To use a CubeMap as the environment map for the skybox, you need to create a CubeMap and drag it into the **Envmap** property box of the **Skybox** component. The operation steps are as follows:
 
 1. Select all the six prepared texture assets in the **Assets** panel, and then set the **Type** property of these texture assets to **texture** in the **Inspector** panel, and click the green checkbox in the upper right corner.
 
@@ -73,7 +73,7 @@ To use a CubeMap as the environment map for the skybox, you need to create a Cub
     > - The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
     > - The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
 
-4. Finally, drag the finished CubeMap asset into the **Envmap** property box of the skybox component, and you are done with the CubeMap application.
+4. Finally, drag the finished CubeMap asset into the **Envmap** property box of the **Skybox** component, and you are done with the CubeMap application.
 
     ![CubeMap](skybox/cubemap-show.png)
  

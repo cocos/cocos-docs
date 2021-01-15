@@ -1,4 +1,4 @@
-# Coordinate Systems and Transformations
+# Coordinate Systems and  Node Transformation Properties
 
 In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector** panel. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
 
@@ -10,7 +10,7 @@ We already know that you can set position properties for nodes, so where will a 
 
 The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator 3.0 game development, and "world" is used to represent our game scene.
 
-The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate system with default x to the right, y to the top, z to the outside, and the -z axis for the front.
+The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
 
 ![right hand](coord/right_hand.png)
 
@@ -39,7 +39,7 @@ Nodes include three main transformation properties, **Position**, **Rotation** a
 
 ### Position
 
-**Position** consists of the `X`, `Y` and `Z` properties, which specify the coordinates of the node on the x-, y- and z-axes of the current coordinate system, respectively, and default to `(0, 0, 0)`.
+**Position** consists of the `X`, `Y` and `Z` properties, which specify the coordinates of the node on the X-axis, Y-axis and Z-axis of the current coordinate system, respectively, and default to `(0, 0, 0)`.
 
 ![position](coord/position-nodeA.png)
 
@@ -65,19 +65,19 @@ In the **Scene** panel, you can always use the [Move Transform Tool](../../edito
 
 The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, so you can see that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
-> **Note**: the [rotation](../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, please make sure to pay attention to the difference between them and the editor panel property names.
+> **Note**: the [rotation](../../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, please make sure to pay attention to the difference between them and the editor panel property names.
 
 In the **Scene** panel, you can always use the [rotate transform tool](../../editor/scene/transform-gizmo.md) to set the rotation of the node.
 
-### Scaling
+### Scale
 
-The **Scale** property also consists of the `X`, `Y` and `Z` attributes, which represent the scaling of the node on the x-, y- and z-axes, respectively, and defaults to `(1, 1, 1)`.
+The **Scale** property also consists of the `X`, `Y` and `Z` properties, which represent the scaling of the node on the x-axis, y-axis and z-axis, respectively, and defaults to `(1, 1, 1)`.
 
 ![scale](coord/scale.png)
 
 The node hierarchy shown above is the same as when `Position` was introduced. Setting the scale property of NodeA to `(2, 1, 1)` means that NodeA is scaled to **2** times its original size in the x-axis direction, while the y-axis and z-axis remain unchanged. You can see that the child node NodeB is also scaled to twice its original size in the x-axis direction, so the scaling property affects all child nodes.
 
-The scaling properties set on the child nodes are superimposed on the parent node's scaling, and the children of the child nodes **multiply** all the scaling properties at each level to obtain the scaling multiplier displayed in the world coordinate system. This is actually the same as the **position** and **rotation** properties, except that the **position** and **rotation** properties are **additive**, while the **scaling** property is **multiplicative**, which has a more pronounced effect.
+The `Scale` property set on a child node are superimposed on its parent node's scaling, and the child nodes of the child node **multiply** all the `Scale` properties at each level to obtain the scaling multiplier displayed in the world coordinate system. This is actually the same as the **position** and **rotation** properties, except that the **position** and **rotation** properties are **additive**, while the **scaling** property is **multiplicative**, which has a more pronounced effect.
 
 The **Scale** property does not affect the **Position** and **Rotation** of the current node, but it does affect the **Position** of the child nodes.
 

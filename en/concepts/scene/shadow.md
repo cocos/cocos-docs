@@ -10,7 +10,7 @@ Creator 3.0 currently supports both **Planar** and **ShadowMap** shadow types.
 
 To enable the shadow effect for an object, proceed as follows:
 
-1. Check **Scene** in the **Hierarchy** panel, and then check the **Enabled** property in the **shadows** component of the **Inspector** panel.
+1. Check **Scene** in the **Hierarchy** panel, and then check the **Enabled** property in the **Shadows** component of the **Inspector** panel.
 
     ![](shadow/enable-shadow.png)
 
@@ -18,13 +18,13 @@ To enable the shadow effect for an object, proceed as follows:
     
     ![](shadow/set-meshrenderer.png)
 
-    If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the MeshRenderer component to **ON**.
+    If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the **MeshRenderer** component to **ON**.
 
 > **Note**: if the shadows are not displayed properly, you need to adjust the direction of the directional light.
 
 ## Shadow Type
 
-The shadow type can be set in the **Type** property of the shadows component.
+The shadow type can be set in the **Type** property of the **Shadows** component.
 
 ### Planar Shadow
 
@@ -42,7 +42,7 @@ The Planar shadow type is generally used for simpler scenes.
 
 Adjust the direction of the directional light to adjust the position of the shadow.
 
-> **Note**: planar shadows are only cast on planar surfaces, not on objects, which means that the **ReceiveShadow** property in the MeshRenderer component is invalid.
+> **Note**: planar shadows are only cast on planar surfaces, not on objects, which means that the **ReceiveShadow** property in the **MeshRenderer** component is invalid.
 
 ## ShadowMap
 

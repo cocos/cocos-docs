@@ -2,7 +2,7 @@
 
 Global fog is used to simulate fog effects in outdoor environments in video games. In addition to fog representation in video games, it can also be used to hide the model outside the camera's far clipping plane to improve rendering performance.
 
-Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **fog** component of the **Inspector** panel to enable global fog.
+Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **Fog** component of the **Inspector** panel to enable global fog.
 
 ![image](./fog/enable-fog.png)
 
@@ -69,7 +69,7 @@ Layered Fog is parallel to the horizontal plane and has a certain height. The he
 
 ![](./fog/layered-properties.png)
 
-| properties | description |
+| Property | Description |
 | :---| :--- |
 | **Enabled** | Whether to enable the global fog |
 | **FogColor** | The color of the global fog |

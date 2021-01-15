@@ -1,10 +1,10 @@
-# Node Hierarchy and Display Order
+# Node Hierarchy and Rendering Order
 
-In the previous section, we learned about the ability to create multiple elements in a scene through a combination of nodes and components. When there are more and more elements in the scene, we need to group the nodes according to their logical functions through the node hierarchy and arrange their display order as needed.
+In the previous section, we've learnt that by combining Nodes and Components we can create all kinds of images, texts and interactive elements in a scene. When there are more and more elements in the scene, we can use the **Hierarchy** panel to arrange their hierarchy and rendering order to make things organized.
 
 ## Hierarchy Panel
 
-When creating and editing nodes, the **Scene** panel can display an intuitive visualization of scene elements. The hierarchical relationships between nodes need to be checked and manipulated using the **Hierarchy** panel. Please read the introduction of the [Hierarchy](../../editor/hierarchy/index.md) panel first to learn how to use the **Hierarchy Manager**.
+When creating and editing nodes, the **Scene** panel can display an intuitive visualization of scene elements. The hierarchical relationships between nodes need to be checked and manipulated using the **Hierarchy** panel. Please read the introduction of the [Hierarchy](../../editor/hierarchy/index.md) panel first to learn how to use it.
 
 ## Node Trees
 
@@ -22,7 +22,7 @@ We call those displayed in the upper level as parent nodes and those displayed i
 
 ![](node-tree/in_hierarchy.png)
 
-Because Creator 3.0 UI nodes require any parent node to have at least one UITransform component, if it does not comply with the rules, a Canvas node will be automatically added as its parent, so the node tree in the above figure puts all UI nodes under the Canvas node. Then we create parent nodes according to the category and put nodes of the same category under one parent node to build the node tree.
+Because Creator 3.0 UI nodes require any parent node to have at least one **UITransform** component, if it does not comply with the rules, a Canvas node will be automatically added as its parent, so the node tree in the above figure puts all UI nodes under the Canvas node. Then we create parent nodes according to the category and put nodes of the same category under one parent node to build the node tree.
 
 In real game projects, we can also use other methods (such as game logic) to organize the node tree as needed.
 
@@ -33,8 +33,8 @@ The rendering and occlusion relationship of UI nodes, on the other hand, is infl
 
 Other rendering-related references can be found in.
 - [Graphics Rendering](../../module-map/graphics.md)
-- [Particle Rendering](../../particle-system/renderer.md)
-- [Model Grouping Rendering](../../engine/renderable/model-component.md)
+- [Particle Renderer](../../particle-system/renderer.md)
+- [Model Group Rendering](../../engine/renderable/model-component.md#model-group-rendering)
 
 ## Performance Considerations
 

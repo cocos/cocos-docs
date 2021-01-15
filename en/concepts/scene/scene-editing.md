@@ -1,8 +1,8 @@
 # Build a Scene Image Using the Scene Panel
 
-This document will introduce the use of the [Scene](../../editor/scene/index.md) panel to create and edit scene images.
+This document will introduce the workflow and tips of using [Scene](../../editor/scene/index.md) panel to create and edit scene images.
 
-## Quickly Add Basic Node Types Using the "Create Node" Menu
+## Use the "Create Node" Menu to Quickly Add Basic Node Types
 
 When we start adding content to the scene, we typically start with the **Create Node** menu in the **Hierarchy** panel, which is the menu that pops up when you click the **+** button in the upper left corner, and select the base node type we need from several simple node categories and add it to the scene.
 
@@ -18,7 +18,7 @@ Select **Create 3D Object** in the **Create Node** menu to create some of the mo
 
 ### UI Nodes
 
-UI nodes can be created by selecting **Create UI** from the **Create Node** menu. UI nodes in Creator 3.0 require that any parent node must have at least one UITransform component. And every UI node itself will also have a UITransform component.
+UI nodes can be created by selecting **Create UI** from the **Create Node** menu. UI nodes in Creator 3.0 require that any parent node must have at least one **UITransform** component. And every UI node itself will also have a **UITransform** component.
 
 So the Canvas node is the **root node** of UI rendering, and all rendering-related UI nodes are placed under the Canvas, which has the following benefits:
 
@@ -27,7 +27,7 @@ So the Canvas node is the **root node** of UI rendering, and all rendering-relat
 
 #### 2D Rendering Nodes
 
-The **Create Node** menu allows you to create node types consisting of nodes and base rendering components like ParticleSystem, Sprite, Label, Mask, etc.
+The **Create Node** menu allows you to create node types consisting of nodes and base rendering components like **ParticleSystem**, **Sprite**, **Label**, **Mask**, etc.
 
 The base 2D rendering component here cannot be replaced by a combination of other components. Note that only one rendering component can be added to each node, and repeated additions will result in an error. However, complex interface controls can be implemented by combining different rendering nodes, such as the UI control node below.
 
@@ -35,7 +35,7 @@ The base 2D rendering component here cannot be replaced by a combination of othe
 
 Common UI controls including Button, Widget, Layout, ScrollView, EditBox, etc. nodes can be created from the **UI** category in the **Create Node** menu.
 
-UI nodes are mostly a combination of rendered nodes, for example, the Button node we created through the menu includes a button background node with Button + Sprite components, plus a label node with Label components:
+UI nodes are mostly a combination of rendered nodes, for example, the **Button** node we created through the menu includes a button background node with a **Button** component + a **Sprite** component, and a label node with a **Label** component:
 
 ![](scene-editing/button-breakdown.png)
 
@@ -64,9 +64,9 @@ When the **Scene** panel is in **2D** view, there is a row of buttons in the upp
 
 Assuming that all three Label nodes are selected, the six alignment buttons from left to right will align these nodes in turn:
 
-- top-aligned to the nearest upper border (not the upper border of the topmost node)
-- vertically centered, aligned to the overall horizontal center line
-- bottom-aligned, aligned to the nearest lower boundary
+- Top-aligned to the nearest upper border (not the upper border of the topmost node)
+- Vertically centered, aligned to the overall horizontal center line
+- Bottom-aligned, aligned to the nearest lower boundary
 - Left-aligned to its closest left border
 - Horizontally centered, aligned to the overall vertical center line
 - Right-aligned, aligned to the nearest right border
@@ -88,7 +88,7 @@ For example, in the figure below, when we align the three Label nodes with diffe
 
 ## Scene Display Effects
 
-There is also support for setting skyboxes, global fog effects, and shadows in the scene to better enrich the scene and render and display the scene environment. For details, please refer to:
+There is also support for setting the Skybox, Global Fog, and Shadows in the scene to better enrich the scene and render and display the scene environment. For details, please refer to:
 
 - [Skybox](./skybox.md)
 - [Global Fog](./fog.md)
