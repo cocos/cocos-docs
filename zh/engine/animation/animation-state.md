@@ -61,5 +61,5 @@
 
 播放控制与播放状态之间的关系如下图所示：
 
-![Playback control](./playback-control.png "Playback control")
+![Playback control](./playback-control.svg)
 

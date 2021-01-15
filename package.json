@@ -7,13 +7,16 @@
     "commander": "^2.12.2",
     "del": "^3.0.0",
     "globby": "^7.1.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-sequence": "^0.4.6",
     "lodash": "^4.17.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "graphviz-cli": "^1.0.0"
+  },
   "scripts": {
     "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
+    "build:dots": "node ./scripts/build-dots.js",
     "preview": "gulp preview",
     "upload": "gulp publish --dest /Volumes/creator/manual",
     "publish": "npm run build && npm run upload"

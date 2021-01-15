@@ -1,1 +1,0 @@
-& dot -Tpng $PSScriptRoot/playback-control.dot -o $PSScriptRoot/playback-control.png
