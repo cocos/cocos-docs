@@ -14,6 +14,7 @@
 - **头部菜单区** 的功能包括 **新建资源**、**排序方式**、**搜索过滤**、**搜索框**、**全部折叠或展开**、**刷新列表** 等。
 
 - **树形列表区** 主要体现资源之间的关系，根节点 `assets` 类似操作系统里的文件管理器，在编辑器中称之为一个 DB。
+
   - `assets`：项目资源，新项目中默认为空；
   - `internal`：内置资源，属于只读资源，不可进行增删改操作，但可以作为资源模板，复制粘贴到 Assets DB 上，即新建了一个项目资源。
   - 面板和节点都有右击菜单事件，是重要的操作功能，灰色则为不可用菜单。
@@ -105,6 +106,7 @@
 ### 重命名资源
 
 选中需要重命名的资源，使用快捷键 **F2** 或者 **Enter**，即可进入名称修改。
+
 - 快捷键 **Esc** 用于取消重命名
 - 此外 TypeScript 脚本资源的初始名称会处理为它的 `className`，而 `className` 是不能重复的。
 
@@ -124,113 +126,4 @@
 
 ## 扩展 Assets 面板菜单
 
-目前支持的扩展包括 **拖入识别** 和 **右击菜单**。
-
-注入扩展的主要流程为：
-
-- 新建一个插件
-- 插件 package.json 
-
-```json
-{
-  "name": "extend-assets-menu",
-  "contributions": {
-    "assets": {
-      "drop": [
-        {
-          "type": "my-defined-asset-type-for-drop",
-          "message": "drop-asset"
-        }
-      ],
-      "menu": [
-        {
-          "path": "create",
-          "label": "i18n:extend-assets-menu.menu.createAsset",
-          "message": "create-asset"
-        },
-        {
-          "path": "asset",
-          "label": "i18n:extend-assets-menu.menu.assetCommand",
-          "submenu": [
-            {
-              "label": "extend-assets-menu.menu.runCommand",
-              "message": "asset-command"
-            }
-          ]
-        }
-      ]
-    },
-  }
-}
-```
-
-``` html
-<ui-drag-item type="my-defined-asset-type-for-drop" additional='[{"type":"my-defined-asset-type-for-drop","value":"xxx"}]'>
-    <ui-label>拖动到 assets 面板，有值</ui-label>
-</ui-drag-item>
-
-<ui-drag-item type="my-defined-asset-type-for-drop" >
-    <ui-label>拖动到 assets 面板，无值</ui-label>
-</ui-drag-item>
-```
-
-```typescript
-/**
- * 拖入识别
- * message ipc 返回参数 info: DropCallbackInfo
- */
-interface DropItem {
-  type: string;
-  message: string;
-}
-export const Drop: DropItem[] = [];
-
-export interface DropCallbackInfo {
-    type: string; // 拖什么类型过去
-    values?: IDragAdditional[]; // 可能是拖了多选值
-    to: string; // 到哪个资源 uuid 上
-}
-
-export interface IDragAdditional {
-    type: string; // 资源类型
-    value: string; // 资源 uuid
-    name?: string; // 资源名称
-}
-```
-
-```typescript
-/**
- * 扩展右击菜单使用 Eelectron MenuItem
- * https://www.electronjs.org/docs/api/menu-item
- * 
- * path 扩展的区域可选值：
-    "create" 位置：创建资源
-    "asset" 位置：普通资源的右击菜单
-
-    以下尚不支持
-    "db" 位置：DB 资源 (根节点) 的右击菜单
-    "panel" 位置：面板空白区域的右击菜单
-    "sort" 位置：面板头部排序按钮的菜单
-    "search" 位置：面板头部搜索按钮的菜单
-
-  * message ipc 返回参数 info: MenuCallbackInfo
-  */
-
-  interface Menu extends MenuItem {
-    label: string; // 显示的文字
-    path: string; // 添加的位置
-    message: string; // Message
-}
-export const Menu: Menu;
-
-export interface MenuCallbackInfo {
-    type: string;
-    uuid: string;
-}
-```
-
-细节太多，附上一个 demo 源码，<a href="img/extend-assets-menu.zip" target="_blank">点击下载 extend-assets-menu.zip</a>
-
-![extend-menu](img/extend-menu.png)
-
-![extend-create-menu](img/extend-create-menu.png)
+目前支持的扩展包括 **右击菜单** 和 **拖入识别** [查看详细介绍](./extension.md)
