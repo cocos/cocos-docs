@@ -4,14 +4,17 @@ strict digraph {
     edge [fontname = "consolas"];
 
     entry [labe="<entry>",shape="diamond"]
-    playing [label="isPlaying"]
-    playingPaused [label="isPlaying && isPaused"]
+    {
+        rank=same;
+        playing [label="isPlaying"]
+        playingPaused [label="isPlaying &&\nisPaused"]
+    }
     stopped [label="<stopped>"]
 
     entry -> stopped
 
     stopped -> playing [label="play()"]
-    playing -> playingPaused [label="play() / resume()"]
+    playing -> playingPaused [label="play()/resume()"]
     playingPaused -> playing [label="pause()"]
 
     playing -> stopped [label="stop()"]

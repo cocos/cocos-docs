@@ -12,11 +12,11 @@
 
 **累计播放时间** 和 **进度时间** 分别由 `AnimationState` 的 `time` 和 `current` 字段获取，但 **累计播放时间** 是可以显式设置的，**进度时间** 是**只读**的。
 
-动画播放的循环模式与重复次数决定了累计播放至某一时间时动画的进度位置，不管 **累计播放时间** 因为时间推移而增加还是因为直接设置更改，**进度时间** 都会相应改变。
+动画播放的循环模式与循环次数决定了累计播放至某一时间时动画的进度位置，不管 **累计播放时间** 因为时间推移而增加还是因为直接设置更改，**进度时间** 都会相应改变。
 
-## 循环模式与重复次数
+## 循环模式与循环次数
 
-可以选择仅将动画播放至结尾就停止，也可以将动画进行循环播放，甚至，可以先播放至结尾再从结尾播放至开头如此循环。这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](https://docs.cocos.com/creator/3.0/api/zh/enums/animation.wrapmode.html) 表示：
+动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](../../../../api/zh/enums/animation.wrapmode.html) 表示：
 
 | 循环模式 | 说明 |
 | :--- | :--- |
@@ -32,17 +32,17 @@
 | `AnimationClip.WrapMode.LoopReverse`    | 不断地从结尾播放至开头。 |
 | `AnimationClip.WrapMode.PingPongReverse` | 从结尾播放至开头后，再从开头反向播放至结尾，如此循环往复。 |
 
-动画状态的初始循环模式将从动画剪辑中读取，需要改变动画状态的循环模式时简单地设置动画状态的 `wrapMode` 字段即可。
+动画状态的初始循环模式将从动画剪辑中读取。需要改变动画状态的循环模式时，简单地设置动画状态的 `wrapMode` 字段即可。
 
 > **注意**：设置循环模式时会重置动画状态的累计播放时间。
 
-除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），其余的循环模式都进行的是无限次循环。可以通过 `AnimationState` 的 `repeatCount` 字段来指定和获取循环的次数。
+除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），其余的循环模式都进行的是无限次循环，可以通过 `AnimationState` 的 `repeatCount` 字段来指定和获取循环的次数。
 
-> **注意**：设置重复次数应该在设置循环模式后进行，因为重新设置循环模式时会重置循环次数：`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）。
+> **注意**：设置循环次数应该在设置循环模式后进行，因为重新设置循环模式时会重置循环次数。`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）。
 
 ## 播放控制
 
-动画状态提供了以下几种方法用于控制动画的播放、暂停、恢复、停止：
+动画状态提供了以下几种方法用于控制动画的播放、暂停、恢复和停止：
 
 | 方法 | 说明 |
 | :--- | :--- |

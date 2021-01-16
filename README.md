@@ -64,15 +64,17 @@ You can also build the doc for ebook formats (PDF, ePub, mobi), please following
 
 If you need to publish to the website, you'd better build it on Mac. If use Windows, some redundant `.md` file will also generated.
 
-## Build .svg from graphviz files
+## Build Graphviz files
 
-If you want to build .svg from graphviz files(.dot), run:
+You're able to use Graphviz to draw flow charts. The only supported generated format is SVG.
+
+To build Graphviz files(.dot), run:
 
 ```bash
 npm run build:dots
 ```
 
-the svg would be generated at the same directory the graphviz file in, with same file name but extension replaced by ".svg".
+The output SVG file would be generated at the same directory the graphviz file in, with same file name but extension replaced by ".svg".
 
 ## Content Editing
 
