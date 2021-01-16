@@ -121,6 +121,7 @@
 - [动画](engine/animation/index.md)
   - [动画组件](engine/animation/animation-component.md)
   - [动画剪辑](engine/animation/animation-clip.md)
+  - [动画状态](engine/animation/animation-state.md)
   - [骨骼动画](engine/animation/skeletal-animation.md)
 - [缓动](tween/index.md)
 
