@@ -1,7 +1,7 @@
 strict digraph {
-    graph [fontname = "consolas"];
-    node [fontname = "consolas"];
-    edge [fontname = "consolas"];
+    graph [fontname = "Courier New"];
+    node [fontname = "Courier New"];
+    edge [fontname = "Courier New"];
 
     entry [labe="<entry>",shape="diamond"]
     {
