@@ -1,4 +1,4 @@
-# Main Directional Light
+# Main Directional Lights
 
 Directional light is the most common type of lights, and can be understood as the dominant light in a scene. The lighting effect is not affected by the **light position** and **orientation**, and is suitable for achieving sunlight. However, **rotation** affects the direction of directional lights illumination, which in turn affects the range to which the model receives illumination and where the model produces shadows.
 

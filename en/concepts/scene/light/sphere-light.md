@@ -1,6 +1,6 @@
-# Spherical Light
+# Spherical Lights
 
-Cocos Creator 3.0 uses Spherical Light instead of **Point Light**, because Point Light ignore volume, but all Physical Lights in the real world have the lights `size` property.
+Cocos Creator 3.0 uses Spherical Lights instead of the **Point Light**, because the point light ignore volume, but all Physical Lights in the real world have the lights `size` property.
 
 ![sphere light](sphere-light.jpg)
 
@@ -8,7 +8,7 @@ To add the spherical light to the scene, refer to the [Lighting](../light.md) fo
 
 For the related interface of the spherical light component, please refer to the [SphereLight API](../../../api/en/classes/component_light.spherelight.html).
 
-## Spherical Light Properties
+## Spherical Lights Properties
 
 ![image](sphere-light-prop.png)
 

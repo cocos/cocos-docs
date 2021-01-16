@@ -1,14 +1,14 @@
-# Ambient Light
+# Ambient Lights
 
 In life, intricate lights and uneven surfaces of objects reflect each other, making the whole environment illuminated, as if by a layer of light evenly enveloped, this light is generally called Ambient Light. By adjusting the ambient light, is the most direct way to adjust the overall illumination of the environment, but also an effective way to express the atmosphere of the environment.
 
 ![ambient](ambient/ambient.png)
 
-Select **Scene** in the **Hierarchy** panel and set the Ambient Light property in the **ambient** component of the **Inspector**.
+Select **Scene** in the **Hierarchy** panel and set the Ambient Light properties in the **ambient** component of the **Inspector** panel.
 
 > **Note**: since the ambient light is directionless, it cannot produce shadows.
 
-## Ambient light properties
+## Ambient lights properties
 
 ![ambient panel](ambient/ambient-prop.png)
 
@@ -18,4 +18,4 @@ Select **Scene** in the **Hierarchy** panel and set the Ambient Light property i
 | **SkyIllumination** | Adjust the sky brightness |
 | **GroundAlbedo** | Set the ground reflected light |
 
-Ambient light can be used with the Skybox, see [Skybox](skybox.md) for details.
+The ambient light can be used with the Skybox, see [Skybox](skybox.md) for details.

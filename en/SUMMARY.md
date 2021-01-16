@@ -87,10 +87,10 @@
 
 - [Lighting](concepts/scene/light.md)
     - [Physically-based Lighting](concepts/scene/light/pbr-lighting.md)
-    - [Directional Light](concepts/scene/light/dir-light.md)
-    - [Spherical Light](concepts/scene/light/sphere-light.md)
-    - [Spotlight](concepts/scene/light/spot-light.md)
-    - [Ambient Light](concepts/scene/ambient.md)
+    - [Directional Lights](concepts/scene/light/dir-light.md)
+    - [Spherical Lights](concepts/scene/light/sphere-light.md)
+    - [Spotlights](concepts/scene/light/spot-light.md)
+    - [Ambient Lights](concepts/scene/ambient.md)
 
 - [Materials System](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)

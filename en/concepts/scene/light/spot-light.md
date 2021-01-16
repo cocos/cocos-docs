@@ -1,4 +1,4 @@
-# Spotlight
+# Spotlights
 
 The Spotlight is a beam of light emitted from a point in one direction, close to the light produced by a flashlight. Spotlights have an additional `SpotAngle` property over other types of lighting, which is used to adjust the illumination range of the Spotlight.
 
@@ -8,7 +8,7 @@ To add the Spotlight to the scene, refer to the [Lighting](../light.md) document
 
 For the related interface of the Spotlight component, please refer to the [Spotlight API](../../../api/en/classes/component_light.spotlight.html).
 
-## Spotlight Properties
+## Spotlights Properties
 
 ![image](spot-light-prop.png)
 

@@ -24,9 +24,9 @@ For more information about the light and light parameters, please refer to the [
 
 ## Types of Light
 
-Light types include __Directional Light__, __Spherical Light__, __Spotlight__ and __Ambient Light__ four types. For more information, please refer to the following documentations:
+Light types include __Directional Lights__, __Spherical Lights__, __Spotlights__ and __Ambient Lights__. For more information, please refer to the following documentations:
 
-- [Directional light](light/dir-light.md)
-- [Spherical light](light/sphere-light.md)
-- [Spotlight](light/spot-light.md)
-- [Ambient light](./ambient.md)
+- [Directional lights](light/dir-light.md)
+- [Spherical lights](light/sphere-light.md)
+- [Spotlights](light/spot-light.md)
+- [Ambient lights](./ambient.md)
