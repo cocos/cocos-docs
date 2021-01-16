@@ -11,23 +11,23 @@
 ## 参数选项说明
 
 | 参数名 | 可选 | 默认值 | 说明 | 字段名 |
-| - | - | - | - | - |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
-| polyfills | 选填 | { asyncFunctions: true } | 构建支持一些新特性的 polyfills ，主要是在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills, 这组选项暂时只有`异步函数`，后续将会开放更多功能。| polyfills |
+| :-- | :-- | :-- | :-- | :-- |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
+| polyfills | 选填 | { asyncFunctions: true } | 构建支持一些新特性的 polyfills，主要是在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills, 这组选项暂时只有 **异步函数**，后续将会开放更多功能。| polyfills |
 | 远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteUrl |
-| 屏幕方向 | 必填 | 'auto' | 设备方向，可选值为`'landscape' 或 'portrait'`。| deviceOrientation |
+| 屏幕方向 | 必填 | 'auto' | 设备方向，可选值为 `landscape` 或 `portrait`。| deviceOrientation |
 
 ## 发布流程
 
 一、使用 Cocos Creator 打开需要发布的项目工程，在 **构建发布** 面板的 **发布平台** 中选择 **Alipay Mini Game**。然后点击 **构建**。
 
-![](./publish-alipay-mini-game/build_option.png)
+![build option](./publish-alipay-mini-game/build_option.png)
 
 二、构建完成后点击 **发布路径** 后的 **打开** 按钮，可以看到在发布包 **build** 目录下生成了支付宝小游戏工程文件夹 **alipay**，其中已经包含了支付宝小游戏环境的配置文件 `game.json`。
 
 三、使用 **支付宝开发者工具** 打开构建生成的 **alipay** 文件夹，即可打开支付宝小游戏项目以及预览调试游戏内容。
 
-![](./publish-alipay-mini-game/preview.png)
+![preview](./publish-alipay-mini-game/preview.png)
 
 ## 支付宝小游戏环境的资源管理
 

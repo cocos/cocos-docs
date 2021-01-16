@@ -68,7 +68,7 @@ export class test extends Component {
 
 ## Destroy the node
 
-Through the `node.destroy()` function, nodes can be destroyed. It is worth mentioning that the destroyed node will not be removed immediately, but will be executed uniformly after the logic update of the current frame is completed. When a node is destroyed, the node is in an invalid state. You can use `isValid` to determine whether the current node has been destroyed. Example:
+Through the `node.destroy()` function, nodes can be destroyed. It is worth mentioning that the destroyed node will not be removed immediately, but will be executed uniformly after the logic update of the current frame is completed. When a node is destroyed, the node is in an invalid state. Use `isValid` to determine whether the current node has been destroyed. Example:
 
 ```typescript
 import { _decorator, Component, Node } from "cc";

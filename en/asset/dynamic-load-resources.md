@@ -95,13 +95,13 @@ resources.load('test assets/image', SpriteFrame, (err, spriteFrame) => {
 });
 ```
 
-You can use the preload related interface to load resources in advance, without waiting for the preload to finish, you can use the normal load interface to load, the normal load interface will directly reuse the content that has been downloaded during the preload process to shorten the load time.
+Use the preload related interface to load resources in advance, without waiting for the preload to finish. Then use the normal load interface to load, the normal load interface will directly reuse the content that has been downloaded during the preload process to shorten the load time.
 
 For more information on preloading, please refer to the [Preloading and Loading](preload-load.md) documentation.
 
 ## How to load remote assets or files in device
 
-Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `assetManager.loadRemote`. At the same time you can use the same API to load resources on the local device storage. The `resources.load` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local
+Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `assetManager.loadRemote`. At the same time the same API can be used to load resources on the local device storage. The `resources.load` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local
 device files:
 
 ```typescript
@@ -138,5 +138,5 @@ assetManager.loadRemote(remoteUrl, function (err, textAsset) {
 
 There still remains some restrictions currently, the most important are:
 
-1. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap. (If you want to load all resources remotely, you can use the [Asset Bundle](bundle.md))
+1. This loading method supports only native resource types such as textures, audios, text, etc., and does not support direct loading and analysis of resources such as SpriteFrame, SpriteAtlas, Tilemap. (If you want to load all resources remotely, use the [Asset Bundle](bundle.md))
 2. Remote loading ability on Web is limited by the browser's [CORS cross-domain policy restriction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). If the server forbid cross-domain access, loading request will fail, and due to WebGL security policy restrictions, even if the server allows CORS http request, textures loaded can not be rendered.

@@ -266,8 +266,8 @@ Here are the complete list of properties and macros for it:
 | alphaThreshold | test threshold for discarding pixels, any pixel with target channel value lower than this threshold will be discarded |
 | normalMap | normal map texture, enhancing surface details |
 | normalStrenth | strenth of the normal map, the bigger the bumpier |
-| pbrMap | PBR parameter all-in-one texture: occlusion, roughness and metallic<br>sample result will be multiplied by the matching constants |
-| metallicRoughnessMap | metallic and roughness texture<br>sample result will be multiplied by the matching constants |
+| pbrMap<br>**R** (AO)<br>**G** (Roughness)<br>**B** (Metallic) | PBR parameter all-in-one texture: occlusion, roughness and metallic<br>sample result will be multiplied by the matching constants |
+| metallicRoughnessMap<br>**G** (Roughness)<br>**B** (Metallic) | metallic and roughness texture<br>sample result will be multiplied by the matching constants |
 | occlusionMap | independent occlusion texture<br>sample result will be multiplied by the matching constants |
 | occlusion | occlusion constant |
 | roughness | roughness constant |

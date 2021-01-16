@@ -4,60 +4,42 @@ The purpose of the format specification is to provide uniform writing guidelines
 
 ## Use # for the title, separate the upper and lower text with a blank line
 
-Use # for the first-level title.
-Use ## for the second-level title.
-Use ### for the third-level title. 
+Use # for the first-level title.<br>
+Use ## for the second-level title.<br>
+Use ### for the third-level title.<br>
 and so on...
 
 Under normal circumstances, do not skip the use of headings, for example, the third-level headings cannot appear directly under the first-level heading.
 
 Example (correct):
-# Main Heading
 
-## Sub-heading 1
-
-### Sub-heading 2
+> \# Main Heading
+>
+> \## Sub-heading 1
+>
+> \### Sub-heading 2
 
 Example (NOT correct):
-# Main Heading
 
-### Sub-heading 1
-
-
+> \# Main Heading
+>
+> \### Sub-heading 1
 
 ## Use correct initial capital letters for proper English nouns and component names
 
 Correct usage:
 
 > Log in with GitHub
-
+>
 > Sprite component
 
 Incorrect usage:
 
 > Login with github
-
+>
 > sprite component
 
 ## Use spaces
-
-### Add spaces between Chinese and English, and between Chinese and numbers
-
-Correct usage:
-
-> This site is built using Jekyll, applying HPSTR theme. The posts are saved in the `_posts` directory.
-
-> I went out to buy vegetables and spent 5,000 yuan
-
-Incorrect usage:
-
-> This site is built using Jekyll, applying HPSTR theme. Posts are saved in the `_posts` directory.
-
-> I went out to buy vegetables and spent 5,000 yuan
-
-Complete correct usage:
-
-> Please try to avoid using the Ruby that comes with the system directly. It is recommended to use rbenv to manage the local Ruby runtime environment and use ruby-build to install Ruby. The Ruby version you are currently using is 2.1.1.
 
 ### A space needs to be added between the number and the unit
 
@@ -74,18 +56,18 @@ Incorrect usage:
 Correct usage:
 
 > Today is a high temperature of 233°.
-
+>
 > The new MacBook Pro has a 15% increase in CPU performance.
 
 Incorrect usage:
 
 > Today is a high temperature of 233 °.
-
+>
 > The new MacBook Pro has a 15% increase in CPU performance.
 
-### Add a space between the URL and the adjacent text
+### Add a jump link to a document in this repository
 
-URL link format: **[url document name]\(url document path)**. Use halfwidth (halfwidth) English punctuation, and no spaces between [] and ()
+URL link format: **[url document name]\(url document path)**. Use halfwidth English punctuation.
 
 > e.g: [Monitor and launch events]\(../scripting/events.md).
 
@@ -95,51 +77,51 @@ Correct usage:
 
 Incorrect usage:
 
-> For details, please refer to the [Monitor and Launch Events](../scripting/events.md) documentation.
+> For details, please refer to the [Monitor and Launch Events] (../scripting/events.md) documentation.
 
-### Add a URL to the API document, with spaces on both sides
+### Add a URL to the API document
 
-URL link format: **[url document name]\(url document directory)**. Use halfwidth (halfwidth) English punctuation, and no spaces between [] and ()
+URL link format: **[url document name]\(url document directory)**. Use halfwidth English punctuation, and no spaces between [] and ()
 
 > e.g: [Mask API]\(../../../api/en/classes/Mask.html). Use **.html** for file name suffixes across documents
 
-## Use bold and add spaces between adjacent text
+## Use bold between adjacent text
 
-**Panel names, components or other important interface elements in the editor** are expressed in bold, and a space is required between the adjacent text.
+**Panel names, components or other important interface elements in the editor** are expressed in bold.
 
-> Format: open \*\*property inspector\*\* to view properties
+> Format: open \*\*Inspector\*\* panel to view properties.
 
 Correct usage:
 
-> Open **Properties Inspector** to view properties
+> Open **Inspector** panel to view properties.
+>
+> Click the **Create** button to create a new node.
+>
+> Drag any picture resource to the **Sprite Frame** property.
 
-> Click the **Create** button to create a new node
+Note that the property name in the editor should be written in the format displayed in the Inspector panel.
 
-> Drag any picture resource to the **Sprite Frame** property
+## Use backtick between the adjacent text
 
-Note that the property name in the editor should be written in the format displayed in the property inspector.
-
-## Use backtick, and add a space between the adjacent text
-
-**Script attributes and method names are written according to the format displayed in the API**, expressed by backtick, and a space is added between the adjacent text
+**Script attributes and method names are written according to the format displayed in the API**, expressed by backtick.
 
 > Format: Set the scale of the node through \`this.node.scale\`
 
 Correct usage:
 
-> Set the scale of the node through `this.node.scale`
+> Set the scale of the node through `this.node.scale`.
+>
+> `this.getComponent(cc.Sprite).spriteFrame` can dynamically change the image rendered by the node.
 
-> `this.getComponent(cc.Sprite).spriteFrame` can dynamically change the image rendered by the node
-
-**File name and file path**, use backtick to indicate, and add a space between the adjacent text
+**File name and file path**, use backtick to indicate.
 
 Format: \`/mypath/myfile.ts\`
 
-If it is a full path, you need to add / before it, if it is not a full path, you don’t need it
+If it is a full path, you need to add / before it, if it is not a full path, you don’t need it.
 
 Correct usage:
 
-> The sub-package directory is under the `build/quickgame/dist` directory
+> The subpackage directory is under the `build/quickgame/dist` directory.
 
 ## Use blank lines
 
@@ -167,9 +149,9 @@ The effect is as follows:
 
 ### The picture and the upper and lower text need to be separated by a blank line
 
-Picture format: **![Picture description, optional]\(relative path of the picture)**. Use halfwidth English punctuation, and no spaces between !, [], ()
+Picture format: **![Picture description]\(relative path of the picture)**. Use halfwidth English punctuation, and no spaces between !, [], ().
 
-> e.g:!\[background]\(quick-start/background.png)
+> e.g: !\[background]\(quick-start/background.png)
 
 If the picture is added to the text, it needs to add a space between the adjacent text
 
@@ -195,18 +177,18 @@ If you use the Enter key to wrap, there will be no wrap effect on GitBook and a 
 
 ## Note writing format
 
-> Format:> \*\*Note\*\*: Do not mix Chinese and English symbols in Chinese and English documents
+> Format: **> \*\*Note\*\*: do not mix Chinese and English symbols in Chinese and English documents.**
 
 When the note is more than two points, the writing format is as follows:
 
-> \> \*\*Note\*\*:<br>
+> \> \*\*Notes\*\*:<br>
 > \> 1. The first point.<br>
 > \> 2. The second point.<br>
 > \> 3. One last point.<br>
 
 The effect is as follows:
 
-> **Note**:
+> **Notes**:
 > 1. The first point.
 > 2. The second point.
 > 3. One last point.
@@ -223,21 +205,21 @@ When the main text is introduced with-points, the main text in the points, inclu
 >
 > \- Introduction 2
 >
-> (Two spaces) the body part that begins the second division.
+> (Two spaces) The body part that begins the second division.
 >
-> (Two spaces)!\[image]\(image link)
+> (Two spaces) !\[image]\(image link)
 
 The effect is as follows:
 
->-Point introduction 1
+> - Point introduction 1
 >
-> Start the text part of the first division.
+>   Start the text part of the first division.
 >
->-Introduction 2
+> - Introduction 2
 >
-> Start the text part of the second point.
+>   Start the text part of the second point.
 >
-> !\[image]\(image link)
+>   !\[image]\(image link)
 
 ### Introduction to the use of digital points in the text
 
@@ -251,19 +233,19 @@ When the main text is introduced with **number** points, the main text in the po
 >
 > (4 spaces) The part of the body that begins the second division.
 >
-> (4 spaces)!\[image]\(image link)
+> (4 spaces) !\[image]\(image link)
 
 The effect is as follows:
 
 > 1. Sub-point introduction 1
 >
-> Start the text part of the first division.
+>     Start the text part of the first division.
 >
 > 2. Sub-point introduction 2
 >
-> Start the text part of the second point.
+>     Start the text part of the second point.
 >
-> !\[image]\(image link)
+>     !\[image]\(image link)
 
 ## The table uniformly uses left alignment
 
@@ -280,11 +262,33 @@ Appropriate spaces can be reserved before and after for easy editing.
 
 - __Firstly__ ->  __First__.
 - At present, —> Currently,
-- Cocos Creator —> __Cocos Creator__ (let's bold our product name
 - Related Reference Links —> Reference documentation
 - do not use phrases like: "Now let me explain", "he should do this"
 - text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then you can find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
 - text like this should be avoided: "So, "
+
+## About product name
+
+1. Cocos Creator
+2. Cocos Creator 2.4.3
+3. v2.4.3
+4. v3.0
+5. The engine (where refer to the runtime)
+6. The editor (where refer to the IDE)
+
+**Versions**:
+
+- 2.4.3 (3.0.0)
+- 2.4.3 Preview (GA/RC/Alpha/Beta ...)
+- 2.4.x (3.0.x)
+- 2.4 (3.0)
+- 2.x (3.x)
+
+**Never use**:
+
+1. CCC or ccc
+2. Cocos (where refer to Cocos Creator)
+3. IDE (where refer to Cocos Creator)
 
 ## Technical designations
 

@@ -163,4 +163,4 @@ After registered the handler, the corresponding handler will be used if the down
 assetManager.loadAny({'url': 'http://example.com/myAsset.myformat'}, callback);
 ```
 
-Note that the handler can receive incoming optional parameters, which you can use to implement custom extensions, see the [Optional Parameters](options.md#expand-engine) documentation for details.
+Note that the handler can receive incoming optional parameters, which can be used to implement custom extensions, see the [Optional Parameters](options.md#expand-engine) documentation for details.

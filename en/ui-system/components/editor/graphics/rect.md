@@ -3,11 +3,11 @@
 The `rect()` method is used to create a rectangle.
 
 | Parameter | Description |
-| -------------- | ----------- |
-| *x* | The x coordinate of the lower left point of the rectangle. |
-| *y* | The y coordinate of the lower left point of the rectangle. |
-| *width* | The width of rectangle. |
-| *height* | The height of rectangle. |
+| :-------------- | :----------- |
+| **x** | The x coordinate of the lower left point of the rectangle. |
+| **y** | The y coordinate of the lower left point of the rectangle. |
+| **width** | The width of rectangle. |
+| **height** | The height of rectangle. |
 
 ## Example
 

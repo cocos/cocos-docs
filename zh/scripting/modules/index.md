@@ -8,13 +8,15 @@
 
 ### 功能
 
-模块 `'cc'` 提供了所有引擎功能的访问。模块 `'cc'` 的内容是动态的，其内容和 **项目设置** 中的 **引擎模块** 设置有关。
+模块 `'cc'` 提供了所有引擎功能的访问。模块 `'cc'` 的内容是动态的，其内容和 **项目设置** 中的 **功能裁剪** 设置有关。
 
-#### 示例：引擎日志输出
+#### 引擎日志输出
+
+示例：
 
 ```ts
 import { log } from 'cc';
-log(`Hello world!`);
+log('Hello world!');
 ```
 
 ### 构建时常量
@@ -27,9 +29,9 @@ log(`Hello world!`);
 
 | 名称（类型都为 `boolean`）| 说明    |
 | :-------- | :------------------- |
-| `BUILD`   | 是否正处于构建后的运行中 |
-| `PREVIEW` | 是否正在预览中运行      |
-| `EDITOR`  | 是否正在编辑器中运行    |
+| `BUILD`   | 是否正在构建后的环境中运行 |
+| `PREVIEW` | 是否正在预览环境中运行    |
+| `EDITOR`  | 是否正在编辑器环境中运行  |
 
 #### 调试级别
 
@@ -40,7 +42,7 @@ log(`Hello world!`);
 
 #### 平台标识
 
-下表列出的常量代表是否正在 **某一个** 或 **某一类** 平台上运行，类型都为 `boolean`。
+下表列出的常量表示是否正在 **某一个** 或 **某一类** 平台上运行，常量的类型都是 `boolean`。
 <!-- 下表请按字典序排序 -->
 
 | 名称        | 代表平台      | `MINIGAME` “小游戏” | `RUNTIME_BASED` 基于 Cocos Runtime | `SUPPORT_JIT` 支持 JIT |
@@ -66,7 +68,7 @@ import { log } from 'cc';
 import { DEV } from 'cc/env';
 
 if (DEV) {
-    log(`I'm in development mode!`);
+    log('I am in development mode!');
 }
 ```
 
