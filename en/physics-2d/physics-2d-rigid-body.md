@@ -39,9 +39,9 @@ To get the velocity of a point on a rigidbody, such as a box that rotates forwar
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-Or, pass in a  `cc.Vec2` object as the second argument to get the return value so that you can use your cached object to store this value, avoiding creating too many objects to improve performance.
+Or, pass in a `cc.Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
 
-> __Note: the `get` method of rigidbody provides an out parameter to receive the function return value__
+> __Note__: the `get` method of rigidbody provides an out parameter to receive the function return value.
 
 ```ts
 const velocity = cc.v2();
@@ -112,7 +112,7 @@ There are three types of Box2d's native __Rigidbody__: __Static__, __Dynamic__, 
 
 - `cc.RigidBodyType.Animated`
 
-  __Animated Rigidbody__, already mentioned above, derived from Kinematic type, mainly used for __Rigidbody__ and animation in combination.
+  __Animated Rigidbody__, previously mentioned above, is derived from Kinematic type, mainly used for __Rigidbody__ and animation in combination.
 
 ## Rigidbody API
 

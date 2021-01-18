@@ -52,7 +52,7 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
 
 - **loader.loadResArray**
 
-  For reducing learning costs, `loadResArray` has been merged with `load` and the first parameter of `resources.load` can support multiple paths, so you can use `resources.load` to replace.
+  For reducing learning costs, `loadResArray` has been merged with `load` and the first parameter of `resources.load` can support multiple paths, use `resources.load` to replace.
 
   ```typescript
   // before
@@ -80,7 +80,7 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
   loader.loadResDir('images', Texture2D, (err, assets, paths) => console.log(paths));
   ```
 
-  If you want to query the paths list, you can use the following form:
+  If you want to query the paths list, use the following form:
 
   ```typescript
   const infos = resources.getDirWithPath('images', Texture2D);
