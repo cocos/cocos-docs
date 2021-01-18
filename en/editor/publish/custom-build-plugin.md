@@ -4,19 +4,31 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
 ## Quick start
 
-1. Click **Project -> Generate Build Plug-in Template** in the menu in the editor, and select a folder to generate a build plugin template in the corresponding location. The build plugin used as a project can select the `packages/xxx` path under the project. As a global build plugin, select the `packages/xxx` path under the global plugin directory. This example uses the `packages` directly under the project as a test.
+1. Click **Project -> New Build Extension** in the menu bar of the editor, and select **Global**/**Project** to create a build extension package.
 
-2. After selecting the corresponding folder, if it is generated normally, the log with successful template generation is printed on the console. Use **Ctrl + mouse** to jump directly to the corresponding location.
+    * If selecting **Global**, the build extension will be applied to all Cocos Creator projects. The path of **Global** is:
 
-3. After the folder is directly placed in packages under the project directory, click in the menu to open the plug-in manager, and click refresh on the project page to see the newly added plug-ins. At this point, click the **Enable** button to enable the plug-in.
+        * **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
+
+        * **Mac**: `$HOME/.CocosCreator/extensions`
+
+    * If selecting **Project**, this will apply the build extension to the specified Cocos Creator project. The path of **Project** is:
+
+        * `$Your project address/extensions`
+
+2. After the build extension is created, you will see the generation path of the plugin in the **console**. Click on the path to open the build extension package in the file manager of the operating system.
+
+3. Before enabling the build extension, execute `npm install` in the directory to install some dependent @types modules to compile normally. The interface definition that comes with the editor has been generated under the **@types** folder in the root directory. **Developer -> Export.d.ts** from the menu bar of the editor shows the latest.
+
+4. Click **Extensions -> Extension Manager** in the menu bar of the editor to open the **Extension Manager** panel. Then select the **Project**/**Global** tab in the **Extension Manager**, and click the **Refresh Icon** button to see the build extension you just added. Then click the **Enable** button on the right to run the plug-in normally.
 
     ![enable-plugin](./custom-project-build-template/enable-plugin.png)
 
-4. After enabling the plug-in, open the build plug-in panel, select the `Web-Mobile` platform, you can see the new parameters injected by the build plug-in, and click **build** to take effect.
+5. After the build extension is enabled, open the **Build Release** panel, you can see the expansion bar of the build extension. Click **Build** to join the build process.
 
     ![plugin-template](./custom-project-build-template/plugin-template.png)
 
-5. Modify the code in the folder directly, compile it, and then reload the plug-in. The example is a small example compiled with Typescript. If you don't know how to compile, please refer to the `readme` document in the plugin package.
+6. If you need to modify the content of the build extension, directly modify the build extension package under the `extensions` directory, and then perform the third step. Then find the corresponding build extension in the **Extension Manager**, and click the **Reload** icon button. At this time, the extension in the editor will re-run with the latest code and files.
 
 ## Basic configuration process
 
@@ -44,22 +56,48 @@ export const configs: IConfigs = {
             remoteAddress: {
                 label: 'i18n:xxx',
                 render: {
-                    ui: 'input',
+                    ui: 'ui-input',
                     attributes: {
                         placeholder: 'Enter remote address...',
                     },
                 },
+                // Validation rules, there are currently several commonly used validation rules built in, and the rules that need to be customized can be configured in the verifyRuleMap field
                 verifyRules: ['require', 'http'],
             },
+            enterCocos: {
+                    label: 'i18n:cocos-build-template.options.enterCocos',
+                    description: 'i18n:cocos-build-template.options.enterCocos',
+                    default: '',
+                    render: {
+                        // Please click "Developer -> UI Components" in the menu bar of the editor to view a list of all supported UI components.
+                        ui: 'ui-input',
+                        attributes: {
+                            placeholder: 'i18n:cocos-build-template.options.enterCocos',
+                        },
+                    },
+                    verifyRules: ['ruleTest']
+                }
+            },
+            verifyRuleMap: {
+                ruleTest: {
+                    message: 'i18n:cocos-build-template.ruleTest_msg',
+                    func(val, option) {
+                        if (val === 'cocos') {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            }
         },
-    },
 };
 ```
 
-> **Note**: The environment variables in different processes will be different, pay extra attention when writing scripts:
-  > 1. If the platform key is added with `*`, it will take effect for all platforms. However, using `*` is mutually exclusive with the specified platform name. Do not use both configuration methods in the same build plugin.
-  > 2. The script passed in the `hooks` field will be executed during the build process.
-  > 3. The script passed in the `panel` field will be executed in the rendering process.
+Please pay extra attention to the following points when writing entry scripts:
+
+1. The environment variables in different processes will be different. The entry script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the entry script.
+
+2. There are two ways to configure the key of `config`: one is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Built-in** To view the platform plug-in name); one is the configuration for all platforms, the key is filled in as `*`. These two configuration methods are mutually exclusive, please do not use them in the same build extension package.
 
 Example:
 
