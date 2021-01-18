@@ -4,7 +4,7 @@ In the panel **Project -> Project Settings -> Module Options** of the Editor, yo
 
 ![Physics Engine Options](img/physics-module.jpg)
 
-> **Note**: the default is `cannon.js` physics engine.
+> **Note**: the default is `ammo.js` physics engine.
 
 > **Note**: the physics engine can be switched at will during development.
 

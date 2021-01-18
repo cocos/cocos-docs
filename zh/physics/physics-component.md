@@ -107,7 +107,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **vertex2** | 单纯形的顶点2，三角面（以此类推）
 **vertex3** | 单纯形的顶点3，四面体
 
-> **注**：`cannon.js`对点、四面体支持的更加完整。
+> **注**：`cannon.js` 对线和三角面的支持不完善。
 
 单纯形碰撞器组件接口请参考 [SimplexCollider API](../../../api/zh/classes/physics.simplexcollider.html)。
 
@@ -121,7 +121,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 ---|---
 **group** |  分组
 **type**  | 刚体类型（下方属性仅对 __DYNAMIC__ 类型的刚体有用）
-**mass** |  质量，__DYNAMIC__ 类型的刚体的质量应大于 __0__
+**mass** |  质量，该值应大于 __0__
 **allowSleep** | 是否允许休眠
 **linearDamping** |  线性阻尼，用于减小物体的线性速率
 **angularDamping** |  角阻尼，用于减小物体的旋转速率

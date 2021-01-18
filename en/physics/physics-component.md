@@ -105,6 +105,8 @@ Properties | Description (Other reference box colliders)
 **vertex2** | Vertex 2 of the simplex, triangular face (consisting of 0,1,2)
 **vertex3** | Vertex 3 of the simplex, tetrahedron (consisting of 0,1,2,3)
 
+> **Note**: `cannon.js` has imperfect support for line and triangular face.
+
 To use __SimplexCollider__, please refer to the [SimplexCollider API](../../../api/en/classes/physics.simplexcollider.html).
 
 ## RigidBody
