@@ -20,7 +20,7 @@ Attributes are used to attach metadata to defined properties, similar to Decorat
 
 ### Serialization-Related Attributes
 
-The following attributes cannot be used in the `get` method.
+The following attributes cannot be used with the `get` method.
 
 | Attribute Name | Description | Type | Default | Remarks |
 | :--- | :--- | :--- | :--- | :--- |
