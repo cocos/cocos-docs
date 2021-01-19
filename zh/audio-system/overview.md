@@ -88,5 +88,5 @@ export class AudioController extends Component {
 
 ## 相关链接
 
-[Audio 资源](../asset/audio.md)
+[Audio 资源](../asset/audio.md)  
 [AudioSource 组件参考](./audiosource.md)
