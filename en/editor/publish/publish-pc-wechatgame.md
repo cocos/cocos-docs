@@ -2,7 +2,7 @@
 
 WeChat PC mini game is support to open WeChat Mini Game in the WeChat PC Client. The WeChat PC mini game will have most of the capabilities of Mobile, including but not limited to virtual payment, open data context, touch events, etc. (Ads are not currently supported). It also provides keyboard events, mouse events, window customization and other features.
 
-In Cocos Creator 3.0, creating games for the WeChat PC Mini Games is officially supported. And completes the adaptation of mouse and keyboard related interfaces.
+In Cocos Creator, creating games for the WeChat PC Mini Games is officially supported. And completes the adaptation of mouse and keyboard related interfaces.
 
 ## Use Cocos Creator to access to WeChat PC Mini Games
 
@@ -25,7 +25,7 @@ A: You can determine by `sys.isMobile` that the PC side returns `false` and the 
 **Note**: The simulator on the WeChat DevTools simulates the environment on the mobile, so this returns `true`.
 
 Q: Does the WeChat PC mini game support Mac?<br>
-A: Not yet supported. By 2020-03-09, WeChat PC mini game is in the open beta phase, and it only supports Windows currently. Later on, we will actively cooperate with the engineers of WeChat PC mini game to adapt the Mac system at the first time.
+A: Not yet supported. By 2021-01-19, WeChat PC mini game has been officially launched, and it only supports Windows currently. Later on, we will actively cooperate with the engineers of WeChat PC mini game to adapt the Mac system at the first time.
 
 ## Related Reference Links
 
