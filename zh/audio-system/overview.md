@@ -3,6 +3,7 @@
 声音系统的接口主要面向两类需求，一类是长度较长，循环持续播放的 “音乐”，一类是长度较短，一次性播放的 “音效”。所有声音资源都会在编辑器内导入成 AudioClip 资源。
 
 ## 音乐播放
+
 1. 在 **层级管理器** 上创建一个空节点
 2. 选中空节点，在 **属性检查器** 最下方点击 **添加组件 -> Components -> AudioSource** 来添加 AudioSource 组件
 3. 将 **资源管理器** 中所需的声音资源拖拽到 AudioSource 组件的 Clip 中，如下所示:
@@ -36,6 +37,7 @@ export class AudioController extends Component {
 ![](audio/audiocontroller.png)
 
 ## 音效播放
+
 相较于长的音乐播放，音效播放具有以下特点：
 - 播放时间短
 - 同时播放的数量多
@@ -62,6 +64,7 @@ export class AudioController extends Component {
 > 注意：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
 
 ## Web 平台的播放限制
+
 目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
 
 ```javascript
@@ -84,5 +87,6 @@ export class AudioController extends Component {
 ```
 
 ## 相关链接
+
 [Audio 资源](../asset/audio.md)
 [AudioSource 组件参考](./audiosource.md)

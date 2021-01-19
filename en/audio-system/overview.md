@@ -39,6 +39,7 @@ Then add the corresponding custom component to the editor's __Properties__. Sele
 ![](audio/audiocontroller.png)
 
 ## Effect Playing
+
 Compared to long music playback, audio effects playback has the following characteristics:
 - Short playback time
 - A large number of simultaneous playback
@@ -65,6 +66,7 @@ export class AudioController extends Component {
 > Note: `playOneShot` is a one-time play operation, there is no way to pause or stop the audio after it is played, and no way to register the `ended` event callback.
 
 ## Web Platform Playback Restrictions
+
 Audio playback on the Web platform currently requires compliance with the latest [Audio Play Police](https://www.chromium.org/audio-video/autoplay), and even if the AudioSource component is set to `playOnAwake` it will not start until the first user input is received. An example is as follows:
 
 ```javascript
@@ -87,5 +89,6 @@ export class AudioController extends Component {
 ```
 
 ## Related Links
+
 [Audio Asset](../asset/audio.md)
 [AudioSource Component](./audiosource.md)
