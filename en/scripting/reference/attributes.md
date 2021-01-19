@@ -24,7 +24,7 @@ The following attributes cannot be used in the `get` method.
 
 | Attribute Name | Description | Type | Default | Remarks |
 | :--- | :--- | :--- | :--- | :--- |
-| serializable | Serialize this property | boolean | true | See [serializable attribute](../ccclass.md#serializable-attribute) |
+| serializable | Serialize this property | boolean | true | See [serializable attribute](../ccclass.md#serializable-parameters) |
 | formerlySerializedAs | Specify the name of the field used in the previous serialization | string | undefined | Declare this attribute when renaming the property to be compatible with the previously serialized data |
 | editorOnly | Exclude this property before exporting the project | boolean | false | - |
 
@@ -34,7 +34,7 @@ The following attributes cannot be used in the `get` method.
 | :--- | :--- | :--- | :--- | :--- |
 | default | Define the default value of an attribute | (Any) | undefined | See [default attribute](../ccclass.md#default-parameter) |
 | notify | Trigger the specified method when the property is assigned a value | `function (oldValue) {}` | undefined | The `default` attribute needs to be set and its value cannot be an array.<br> Not support ES6 definitions |
-| override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../ccclass.md#override-attribute) |
+| override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../ccclass.md#override-parameters) |
 | animatable | Whether this property can be modified by the animation editor | boolean | undefined | - |
 
-> **Note**: The default value of visible depends on the property name. When the property name starts with an underscore **`_`**, it is hidden by default, otherwise it is shown by default.
+> **Note 1**: The default value of visible depends on the property name. When the property name starts with an underscore **`_`**, it is hidden by default, otherwise it is shown by default.
