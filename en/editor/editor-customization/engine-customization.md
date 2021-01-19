@@ -45,7 +45,7 @@ npm install -g gulp
 npm install
 ```
 
-> **Note**: The gulp build tool is required to generate debuginfos.
+> **Note**: the gulp build tool is required to generate debuginfos.
 
 ### 1.4 Make changes and compile
 
@@ -77,7 +77,7 @@ To get the latest official version in development, you need to download or clone
 
 After downloading or cloning the Cocos2d-x-lite engine repository, go to the engine path at the command line and execute the following command:
 
-> **Note**: If you copied the built-in cocos2d-x-lite directory from the editor, you can skip this step.
+> **Note**: if you copied the built-in cocos2d-x-lite directory from the editor, you can skip this step.
 
 ```bash
 # Go to the Cocos2d-x-lite engine path at the command line
