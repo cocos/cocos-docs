@@ -1,6 +1,6 @@
 # Attributes
 
-> Attributes are used to attach metadata to defined properties, similar to Decorator in scripting languages or Attribute in C#.
+Attributes are used to attach metadata to defined properties, similar to Decorator in scripting languages or Attribute in C#.
 
 ### Related Attributes on Inspector Panel
 
@@ -37,4 +37,4 @@ The following attributes cannot be used in the `get` method.
 | override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../ccclass.md#override-attribute) |
 | animatable | Whether this property can be modified by the animation editor | boolean | undefined | - |
 
-> **Note 1**: The default value of visible depends on the property name. When the property name starts with an underscore **`_`**, it is hidden by default, otherwise it is shown by default.
+> **Note**: The default value of visible depends on the property name. When the property name starts with an underscore **`_`**, it is hidden by default, otherwise it is shown by default.
