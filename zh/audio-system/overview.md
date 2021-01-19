@@ -8,7 +8,7 @@
 2. 选中空节点，在 **属性检查器** 最下方点击 **添加组件 -> Components -> AudioSource** 来添加 AudioSource 组件
 3. 将 **资源管理器** 中所需的声音资源拖拽到 AudioSource 组件的 Clip 中，如下所示:
 
-![](audio/audiocilp.gif)
+    ![](audio/audiocilp.gif)
 
 4. 根据需要对 AudioSource 组件的其他参数项进行设置即可，参数详情可参考 [AudioSource 组件参考](./audiosource.md)。
 
@@ -61,7 +61,7 @@ export class AudioController extends Component {
 }
 ```
 
-> 注意：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
+> **注意**：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
 
 ## Web 平台的播放限制
 

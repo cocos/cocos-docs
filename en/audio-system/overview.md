@@ -10,7 +10,7 @@ All audio assets are imported into the editor in the format of __audioClip__ ass
 2. Select the empty node and click __Add Component -> Components -> AudioSource__ at the bottom of the __Properties__ to add the AudioSource component.
 3. Drag the audio resources in __Assets__ to the __Clip__ of the AudioSource component, as follows:
 
-![](audio/audiocilp.gif)
+    ![](audio/audiocilp.gif)
 
 4. Then set the other parameter of the AudioSource component as needed, for the details of parameter can refer [Audiosource Component Reference](./audiosource.md).
 
@@ -63,7 +63,7 @@ export class AudioController extends Component {
 }
 ```
 
-> Note: `playOneShot` is a one-time play operation, there is no way to pause or stop the audio after it is played, and no way to register the `ended` event callback.
+> __Note__: `playOneShot` is a one-time play operation, there is no way to pause or stop the audio after it is played, and no way to register the `ended` event callback.
 
 ## Web Platform Playback Restrictions
 

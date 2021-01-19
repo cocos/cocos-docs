@@ -21,6 +21,7 @@ Audio resources on the Web platform are special because the Web standard support
 The engine currently tries to load audio resources as Web Audio by default. If it detects that the browser does not support loading Web Audio, it will fall back to the DOM Audio mode.
 
 If the project needs to force using DOM Audio mode, use the following to load the audio resources dynamically:
+
 ```javascript
 assetManager.loadRemote('http://example.com/background.mp3', {
     audioLoadMode: AudioClip.AudioType.DOM_AUDIO,

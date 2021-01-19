@@ -22,6 +22,7 @@ Web 平台上的声音资源比较特别，因为 Web 标准支持以两种不�
 目前引擎默认会尝试以 Web Audio 的方式加载声音资源。如果检测到浏览器不支持加载 Web Audio，则会回滚到 DOM Audio 的方式。
 
 如果项目需要强制使用 DOM Audio 的声音资源，请使用以下方式动态加载声音资源：
+
 ```javascript
 assetManager.loadRemote('http://example.com/background.mp3', {
     audioLoadMode: AudioClip.AudioType.DOM_AUDIO,
