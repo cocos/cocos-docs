@@ -7,7 +7,7 @@ All audio assets are imported into the editor in the format of __audioClip__ ass
 ## Music Playing
 
 1. Create an empty node on the __Node Tree__
-2. Select the empty node and click __Add Component -> Other Component -> AudioSource__ at the bottom of the __Properties__ to add the AudioSource component.
+2. Select the empty node and click __Add Component -> Components -> AudioSource__ at the bottom of the __Properties__ to add the AudioSource component.
 3. Drag the audio resources in __Assets__ to the __Clip__ of the AudioSource component, as follows:
 
 ![](audio/audiocilp.gif)

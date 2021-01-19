@@ -150,7 +150,7 @@
     - [制作可任意拉伸的 UI 图像](ui-system/components/engine/sliced-sprite.md)
     - [UI 材质](ui-system/components/engine/ui-material.md)
 - [组件](editor/components/index.md)
-    - [AudioSource](audio-system/overview.md)
+    - [AudioSource](audio-system/audiosource.md)
     - [MeshRenderer](engine/renderable/model-component.md)
     - [SkinnedMeshRenderer](engine/animation/skeletal-animation.md)
     - [Camera](editor/components/camera-component.md)

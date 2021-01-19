@@ -152,7 +152,7 @@
     - [UI Custom Material](ui-system/components/engine/ui-material.md)
 
 - [Components](editor/components/index.md)
-    - [AudioSource](audio-system/overview.md)
+    - [AudioSource](audio-system/audiosource.md)
     - [MeshRenderer](engine/renderable/model-component.md)
     - [SkinnedMeshRenderer](engine/animation/skeletal-animation.md)
     - [Camera](editor/components/camera-component.md)
