@@ -12,7 +12,8 @@ Currently, the engine's audio system can support the following formats:
   - `.mp4`
   - `.m4a`
 
-## loading mode of audio resources on the Web platform
+## Loading Modes of Audio Resources on the Web Platform
+
 
 Audio resources on the Web platform are special because the Web standard supports loading audio resources in two different ways as follows:
 - Web Audio: providing a relatively more modern interface for audio control, the audio resources will be cached in an audio buffer of the engine. The advantage of this approach is good compatibility and robust.
