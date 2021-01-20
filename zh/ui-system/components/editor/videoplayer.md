@@ -139,11 +139,11 @@ export class VideoPlayerCtrl extends Component {
 
 1. 确保 **项目设置** Macro Config 中的 **ENABLE_TRANSPARENT_CANVAS** 为勾选状态（设置 Canvas 背景支持 alpha 通道）
 
-![](videoplayer/ENABLE_TRANSPARENT_CANVAS.png)
+    ![](videoplayer/ENABLE_TRANSPARENT_CANVAS.png)
 
 2. 可通过 **属性检查器** 中勾选 VideoPlayer 组件上的 **stayOnBottom** 属性。
 
-![](videoplayer/stayonbuttom.png)
+    ![](videoplayer/stayonbuttom.png)
 
 **注意：**
 
@@ -159,7 +159,7 @@ export class VideoPlayerCtrl extends Component {
 
 由于不同平台对于 VideoPlayer 组件的授权、API、控制方式都不同，还没有形成统一的标准，所以目前只支持 Web、iOS、Android、微信小游戏、Facebook Instant Games 以及 Google Play Instant 平台。
 
-#### 关于自动播放的问题
+### 关于自动播放的问题
 
 一些移动端的浏览器或 **WebView** 不允许自动播放视频，用户需要在触摸事件中手动播放视频。
 

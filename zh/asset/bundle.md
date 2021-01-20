@@ -2,7 +2,8 @@
 
 > 文：Santy-Wang、Xunyi
 
-从 v2.4 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为资源模块化工具，允许开发者按照项目需求将贴图、脚本、场景等资源划分在多个 Asset Bundle 中，然后在游戏运行过程中，按照需求去加载不同的 Asset Bundle，以减少启动时需要加载的资源数量，从而减少首次下载和加载游戏时所需的时间。<br>
+从 v2.4 开始，Creator 正式支持 Asset Bundle 功能。Asset Bundle 作为资源模块化工具，允许开发者按照项目需求将贴图、脚本、场景等资源划分在多个 Asset Bundle 中，然后在游戏运行过程中，按照需求去加载不同的 Asset Bundle，以减少启动时需要加载的资源数量，从而减少首次下载和加载游戏时所需的时间。
+
 Asset Bundle 可以按需求随意放置，比如可以放在远程服务器、本地、或者小游戏平台的分包中。也可以跨项目复用，用于加载子项目中的 Asset Bundle。
 
 ## 内置 Asset Bundle
@@ -51,7 +52,7 @@ function loadBundle (name) {
 
 ![bundle](./subpackage/inspector.png)
 
-| 配置项 | 功能说明|
+| 配置项 | 功能说明 |
 | :---  | :---- |
 | Bundle 名称   | Asset Bundle 构建后的名称，默认会使用这个文件夹的名字，可根据需要修改。 |
 | Bundle 优先级 | Creator 开放了 20 个可供配置的优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle - 优先级](bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
@@ -63,14 +64,14 @@ function loadBundle (name) {
 
 **注意**：
 1. Creator 有 3 个 [内置 Asset Bundle](bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **resources**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这三个名称。
-2. 小游戏分包只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
+2. [小游戏分包](../editor/publish/subpackage.md) 只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
 3. Zip 压缩类型主要是为了降低网络请求数量，如果放在本地，不用网络请求，则没什么必要。所以要求与 **配置为远程包** 搭配使用。
 
 ## 优先级
 
 当文件夹设置为 Asset Bundle 之后，会将文件夹中的资源以及文件夹外的相关依赖资源都合并到同一个 Asset Bundle 中。这样就有可能出现某个资源虽然不在 Asset Bundle 文件夹中，但因为同时被两个 Asset Bundle 所依赖，所以属于两个 Asset Bundle 的情况，如图所示：
 
-![shared](bundle/shared.png) 
+![shared](bundle/shared.png)
 
 另一种情况是某个资源在一个 Asset Bundle 文件夹中，但同时又被其他 Asset Bundle 所依赖，如图所示：
 
@@ -320,7 +321,7 @@ assetManager.removeBundle(bundle);
 ```
 
 ## FAQ
-  
+
 - **Q**：Asset Bundle 与 v2.4 之前的资源分包有什么区别？<br>
   **A**：
   1. 资源分包实际上是将一些图片和网格拆分出去单独放在一个包内，但这个包是不完整的、无逻辑的，无法复用。<br>

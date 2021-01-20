@@ -13,7 +13,7 @@ PageViewIndicator 的脚本接口请参考 [PageViewIndicator API](../../../api/
 ## PageviewIndicator 属性
 
 | 属性 |   功能说明 |
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | spriteFrame | 每个页面标记显示的图片 |
 | direction | 页面标记摆放方向，分别为 水平方向 和 垂直方向 |
 | cellSize | 每个页面标记的大小 |

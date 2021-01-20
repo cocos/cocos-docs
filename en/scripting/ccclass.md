@@ -116,7 +116,7 @@ The constructor of `CCClass` is defined by `constructor`. To ensure that deseria
 
 ### Judgment Example
 
-When you need to make type judgments, you can use **TypeScript** native `instanceof`:
+When making type judgments, use **TypeScript** native `instanceof`:
 
 ```typescript
 class Sub extends Base {
@@ -478,6 +478,6 @@ set(value) {
 }
 ```
 
-> **Note**:
+> **Notes**:
 > 1. If it is not defined together with `get`, the `set` itself cannot be accompanied by any parameters.
-> 2. like `get`, after `set` is set, this property cannot be serialized, nor can it be assigned a default value.
+> 2. Like `get`, after `set` is set, this property cannot be serialized, nor can it be assigned a default value.

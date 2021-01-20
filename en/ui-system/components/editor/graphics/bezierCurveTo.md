@@ -5,13 +5,13 @@ The `bezierCurveTo()` method adds a bezier curve to the current path by using th
 > __Note__: Cubic Bezier curves require three control points. The first two points are for the control points in the cubic Bezier calculation, and the third point is the end point of the curve. The starting point of the curve is the last point in the current path.
 
 | Parameter | Description |
-| -------------- | ----------- |
-| *cp1x* | The x coordinate of the first bezier control point. |
-| *cp1y* | The y coordinate of the first bezier control point. |
-| *cp2x* | The x coordinate of the second Bezier control point. |
-| *cp2y* | The x coordinate of the second Bezier control point. |
-| *x* | The x coordinate of the end point. |
-| *y* | The y coordinate of the end point. |
+| :-------------- | :----------- |
+| **cp1x** | The x coordinate of the first bezier control point. |
+| **cp1y** | The y coordinate of the first bezier control point. |
+| **cp2x** | The x coordinate of the second Bezier control point. |
+| **cp2y** | The x coordinate of the second Bezier control point. |
+| **x** | The x coordinate of the end point. |
+| **y** | The y coordinate of the end point. |
 
 ## Example
 

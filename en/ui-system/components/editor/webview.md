@@ -6,48 +6,47 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information about WebView API, please refer to [WebView API](../../../api/en/classes/WebView.html) documentation.
+For more information, please refer to the [WebView API](../../../api/en/classes/webview.webview-1.html) documentation.
 
 ## WebView Properties
 
 | Properties | Function Explanation
-|-------- | ----------- |
-| Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
-| WebView Events | The webview's event callback, it will be triggered when certain webview event occurs.
+|:-------- | :----------- |
+| **URL** | A given URL to be loaded by the WebView, it should have a http or https prefix.
+| **WebView Events** | The webview's event callback, it will be triggered when certain webview event occurs.
 
-**Note:** In **Node** of the **WebView Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant **WebView** event according to the user's needs.
+> **Note**: in the **Node** of the **WebView Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant **WebView** event according to the user's needs.
 
 ## WebView Event
 
 ### WebViewEvents Event
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
-|Target| Node with the script component.
-|Component| Script component name.
-|Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
-| CustomEventData | The user specifies that any string is passed in as the last parameter of the event callback. |
+| Property |   Function Explanation
+| :-------------- | :----------- |
+|**Target**| Node with the script component.
+|**Component**| Script component name.
+|**Handler**| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
+| **CustomEventData** | The user specifies that any string is passed in as the last parameter of the event callback. |
 
 For more information, please refer to the [Component.EventHandler Class](../../../api/en/classes/event.eventhandler.html) documentation.
 
 ### Parameter of WebViewEvents
 
 | Name |   Function Explanation
-| -------------- | ----------- |
-| LOADING | WebView is loading.
-| LOADED| WebView is finished loading.
-| ERROR| Errors occurred when loading web pages.
+| :-------------- | :----------- |
+| **LOADING** | WebView is loading.
+| **LOADED**| WebView is finished loading.
+| **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/webview.webview-1.html#webviewevents) or [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the test-cases-3d samples bundled with Creator.
+For more information, please refer to the [WebView Events](../../../api/en/classes/webview.webview-1.html#webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
 
 ## Details Explanation
 
-Currently this component is only available on Web (Both PC and Mobile), iOS and Android (Not supported in the v2.0.0~2.0.6). You can't use it on Mac or Windows which means if you preview WebView on these platforms, there is nothing to show.
+Currently, this component is only available on Web (Both PC and Mobile, iOS and Android (Not supported in the v2.0.0~2.0.6). It cannot be use on Mac or Windows which means if you preview **WebView** on these platforms, there is nothing to show.
 
-**Note:**
-
-- This component doesn't support load HTML file or execute JavaScript.
-- If you don't use **WebView** related features in your project, please ensure that the **WebView** module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with **WebView**), and therefore the game rejected by App Store, you can still try to appeal through email.
+> **Notes**:
+> 1. This component doesn't support load HTML file or execute JavaScript.
+> 2. If you don't use **WebView** related features in your project, please ensure that the **WebView** module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with **WebView**), and therefore if the game is rejected by App Store, you can still try to appeal through email.
 
 ### Add a callback via script
 
@@ -131,7 +130,7 @@ export class WebViewCtrl extends Component {
 }
 ```
 
-#### Note: Cross-domain issues on Web platform need to be resolved by you, the developer.
+> **Note**: cross-domain issues on Web platform need to be resolved by yourself as __Cocos Creator__ does not assist with this.
 
 ### WebView internal pages call external code
 
@@ -186,7 +185,7 @@ When you need to interact with **WebView** through an internal page, you should 
 </html>
 ```
 
-Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
+Due to limitations of the Web platform, it can not be implemented by this mechanism, but internal pages can interact in the following ways:
 
 ```html
 <html>
@@ -207,4 +206,4 @@ Because of the limitations of Web platform, it can not be implemented by this me
 </html>
 ```
 
-#### Note: Stressed once more Cross-domain issues on Web platform need to be resolved by you, the developer.
+> **Note**: cross-domain issues on Web platform need to be resolved by yourself as __Cocos Creator__ does not assist with this.

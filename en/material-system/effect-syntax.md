@@ -63,24 +63,24 @@ Just like the `include` directive in C/C++, you can include other shader chunks:
 
 Relevant details:
 
-- The `.chunk` extension can be omitted; quotation marks and angle brackets means the same;
-- Every included header is guaranteed to be expanded only once; so every module could (and in fact should) include all its dependencies, even if there are overlaps;
-- Dead code elimination is done at compile-time too, so including lots of unused utility functions shouldn't be of concern;
-- There are two ways to reference a external chunk file: using the relative path to current file ('relative path'), or the relative path to `assets/chunks` folder of current project ('project absolute path'). If the specified file interpreted under both rules are present, the latter is preferred;
-- When including files from other databases (like the internal database), only project absolute path is supported. When there are multiple databases have the same specified file, the priority is: **User Project DB > Plugin DB > Internal DB**;
-- The built-in chunks are located directly inside `assets/chunks` in internal database, so you can include these without path prefix;
-- All `CCProgram` blocks in the same effect file can include each other;
+- The `.chunk` extension can be omitted; quotation marks and angle brackets means the same.
+- Every included header is guaranteed to be expanded only once; so every module could (and in fact should) include all its dependencies, even if there are overlaps.
+- Dead code elimination is done at compile-time too, so including lots of unused utility functions shouldn't be of concern.
+- There are two ways to reference a external chunk file: using the relative path to current file ('relative path'), or the relative path to `assets/chunks` folder of current project ('project absolute path'). If the specified file interpreted under both rules are present, the latter is preferred.
+- When including files from other databases (like the internal database), only project absolute path is supported. When there are multiple databases have the same specified file, the priority is: **User Project DB > Plugin DB > Internal DB**.
+- The built-in chunks are located directly inside `assets/chunks` in the internal database. Include these without path prefix.
+- All `CCProgram` blocks in the same effect file can include each other.
 
 ### Pre-processing Macros
 
 Currently the effect system tends to take advantage of the language built-in pre-processing macros to create shader variants. The effect compiler will collect the macros that appear in shaders, and declarations will be inserted accordingly at runtime.
 
-So for the most part you can use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natual editting interface.
+For the most part, use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natual editting interface.
 
 Relevant details:
-- To type check as many branches as possible at effect compile-time, the strategy currently taken is to set all macros to `1` (or its given default value) before doing the actual check; so make sure this combination works (or if not, maybe you need numerical macros, specified in the next section);
-- All the macros that are not enabled at runtime will be explicitly given a value of 0, so please avoid using `#ifdef` or `#if defined` (**except the GLSL built-in macros, like extension indicators with `GL_` prefix**), for they would alway be true；
-- Hash values will be calculated for each macro combination at runtime. For a single shader, the process is the most efficient when there are less than **2^32** combinations (a standard integer range), that means 32 boolean macros switches (or less if there are numerical macros). So please try to keep in this range to maintain optimal performance.
+- To type check as many branches as possible at effect compile-time, the strategy currently taken is to set all macros to `1` (or its given default value) before doing the actual check; so make sure this combination works (or if not, maybe you need numerical macros, specified in the next section).
+- All the macros that are not enabled at runtime will be explicitly given a value of 0, so please avoid using `#ifdef` or `#if defined` (**except the GLSL built-in macros, like extension indicators with `GL_` prefix**), for they would alway be true.
+- Hash values will be calculated for each macro combination at runtime. For a single shader, the process is the most efficient when there are less than **2^32** combinations (a standard integer range), that means 32 boolean macros switches (or less if there are numerical macros). Try to keep in this range to maintain optimal performance.
 
 ### Macro Tags
 
@@ -101,8 +101,8 @@ For these special usages, you'll have to explicitly declare the macro, using mac
 
 | Tag     | Description | Default Value | Usage |
 | :------ | :---------- | :------------ | :---- |
-| range   | A two-element array, specifying minimum and maximum value, both inclusive | [0, 3] | For macros with bounded range. The bound should be as tight as possible |
-| options | An arbitrary-length array, specifying every possible options | nothing | For macros with discrete, explicit choices |
+| **range**   | A two-element array, specifying minimum and maximum value, both inclusive | [0, 3] | For macros with bounded range. The bound should be as tight as possible |
+| **options** | An arbitrary-length array, specifying every possible options | nothing | For macros with discrete, explicit choices |
 
 Declarations for the above case are:
 
@@ -111,8 +111,9 @@ Declarations for the above case are:
 #pragma define METALLIC_SOURCE options([r, g, b, a])
 ```
 
-The first line declares a macro named `LAYERS`, with possible range of [4, 5].<br>
-The second line declares a macro named `METALLIC_SOURCE`, with four possible options: 'r', 'g', 'b', 'a'.<br>
+The first line declares a macro named `LAYERS`, with possible range of [4, 5].
+
+The second line declares a macro named `METALLIC_SOURCE`, with four possible options: 'r', 'g', 'b', 'a'.
 
 > **Note**: every tag accepts a single parameter, in the syntax of YAML.
 
@@ -135,7 +136,7 @@ In fact, many built-in utility functions are functional macros:
   #pragma // empty pragma trick to get rid of trailing semicolons at effect compile time
 ```
 
-Meanwhile, same as the macro system in C/C++, the mechanism does nothing on checking [macro hygiene](https://en.wikipedia.org/wiki/Hygienic_macro). Any issues will have to be dealt with by developers manually:
+Meanwhile, same as the macro system in C/C++, the mechanism does nothing on checking the [Hygienic Macro WikiPedia Entry](https://en.wikipedia.org/wiki/Hygienic_macro). Any issues will have to be dealt with by developers manually:
 
 ```glsl
 // please do be careful with unhygienic macros like this
@@ -210,7 +211,7 @@ vec4 frag () {
 }
 ```
 
-so that the code can work in both the __HDR__ and __LDR__ pipelines.
+The code can work in both the __HDR__ and __LDR__ pipelines.
 
 If lighting is involved, combine with `CCStandardShading` to form a surface shader structure:
 
@@ -242,10 +243,10 @@ Dynamic instancing is a very flexible batching framework, whcih allows user-defi
 #endif
 ```
 
-> **Note**:
-> - the actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
-> - All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
-> - Make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
+> **Notes**:
+> 1. The actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
+> 2. All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
+> 3. Make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
 
 The instanced property value will be initialized to all zeros by default. Use the `setInstancedAttribute` on `MeshRenderer` to assign new values:
 
@@ -281,14 +282,17 @@ The effect compiler will finally split these compile-time constant branches into
 ### About UBO Memory Layout
 
 First the conclusion, the final rules are, every non-sampler uniform should be specified in UBO blocks, and for every UBO block:
-1. There should be no vec3 typed members；
-2. For array typed members, size of each element should be no less than a vec4;
-3. Any member ordering that introduces a padding will be rejected.
+
+  1. There should be no vec3 typed members.
+  2. For array typed members, size of each element should be no less than a vec4.
+  3. Any member ordering that introduces a padding will be rejected.
 
 These rules will be checked rigorously at effect compile-time and throws detailed, implicit padding related compile error.
 
-This might sound overly-strict at first, but it's for a few good reasons:<br>
-__First__, UBO is a much better basic unit to efficiently reuse data, so discrete declaration is no longer an option.<br>
+This might sound overly-strict at first, but it's for a few good reasons:
+
+__First__, UBO is a much better basic unit to efficiently reuse data, so discrete declaration is no longer an option.
+
 __Second__, currently many platforms, including WebGL 2.0 only support one platform-independent memory layout, namely **std140**, and it has many restrictions<sup id="a3">[3](#f3)</sup>:
 
 - All vec3 members will be aligned to vec4
@@ -325,7 +329,7 @@ __Second__, currently many platforms, including WebGL 2.0 only support one platf
 
 This means lots of wasted space, and some driver implementation might not completely conform to the standard<sup id="a5">[5](#f5)</sup>, hence all the strict checking procedure help to clear some pretty insidious bugs.
 
-> **Note**: the actual uniform type can differ from the public interfaces the effect exposes to artists and runtime properties. Through [property target](pass-parameter-list.md#Properties) system, every single channel can be manipulated independently, without restriction of the original uniform.
+> **Note**: the actual uniform type can differ from the public interfaces the effect exposes to artists and runtime properties. Through the [property target](pass-parameter-list.md#Properties) system, every single channel can be manipulated independently, without restriction of the original uniform.
 
 <b id="f1">[1]</b> Shaders for systems with procedurally generated mesh, like particles, sprites, post-effects, etc. may handle things a bit differently [↩](#a1)<br>
 <b id="f2">[2]</b> Integer-typed attribute is not supported on WebGL 1.0 platform, so use the default float type if targeting this platform [↩](#a2)<br>

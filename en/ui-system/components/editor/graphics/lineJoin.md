@@ -3,10 +3,10 @@
 The `lineJoin` property represents the style of the joint between two line segments.
 
 | Possible line join options | Description |
-| -------------- | ----------- |
-| *Graphics.LineJoin.BEVEL* | Creates a bevel |
-| *Graphics.LineJoin.ROUND* | Create a fillet |
-| *Graphics.LineJoin.MITER* | Default. Create sharp corners |
+| :-------------- | :----------- |
+| **Graphics.LineJoin.BEVEL** | Creates a bevel |
+| **Graphics.LineJoin.ROUND** | Create a fillet |
+| **Graphics.LineJoin.MITER** | Default. Create sharp corners |
 
 ## Example
 

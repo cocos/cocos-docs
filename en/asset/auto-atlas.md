@@ -14,8 +14,8 @@ __Right-click__ in the **Assets** panel, select **New -> Auto Atlas Configuratio
 
 After selecting an **Auto Atlas Resource** in the __Assets__ panel, the **Inspector** panel will display all of the configurable items for the **Auto Atlas Resource**.
 
-| Properties | Functional Description
-| -------------- | ----------- |
+| Property | Functional Description
+| :-------------- | :----------- |
 | **Maximum Width** | Single Atlas Maximum Width |
 | **Maximum Height** | Maximum Height of a Single Atlas |
 | **Spacing** | Spacing between shreds in the atlas |

@@ -1,7 +1,5 @@
 # Publish to WeChat Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
-
 The runtime environment of the **WeChat Mini Game** is an extension of the **WeChat Mini Program**, providing a WebGL interface encapsulation based on the mini program environment, greatly improving rendering capabilities and performance. However, since these interfaces are encapsulated by the WeChat team, they are not equivalent to the browser environment.
 
 On the engine side, in order to make the developers' workload as easy as possible, our main tasks for developers include the following:
@@ -43,14 +41,14 @@ In addition, the game submission, review and release process of the **WeChat Min
 ### Build Options
 
 | Options | Optional or not | Default | Explanation |
-| - | - | - | - |
+| :-- | :-- | :-- | :-- |
 | **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.|
 | **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene.|
 | **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.|
 | **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
 | **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
 
-## asset Management for WeChat Mini Game Environment
+## Asset Management for WeChat Mini Game Environment
 
 In a **WeChat Mini Game** environment, asset management is the most special part. It differs from the browser in the following four points:
 
@@ -87,11 +85,11 @@ Specifically, developers need to do:
 
     ![](./publish-wechatgame/detail.jpeg)
 
-> **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. And you can use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
+> **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. Use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
 
 ## WeChat Mini Game Subpackage Loading
 
-To achieve subpackage loading with **WeChat Mini Game**, please refer to [Asset Bundle](../../asset/bundle.md) documentation.
+To achieve subpackage loading with **WeChat Mini Game**, please refer to [Mini Game Subpackage](subpackage.md) documentation.
 
 ## Platform SDK Access
 

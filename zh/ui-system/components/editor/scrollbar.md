@@ -11,7 +11,7 @@ ScrollBar 允许用户通过拖动滑块来滚动一张图片（公测版本暂�
 ## ScrollBar 属性
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Handle| ScrollBar 前景图片，它的长度/宽度会根据 ScrollView 的 content 的大小和实际显示区域的大小来计算。
 | Direction | 滚动方向，目前包含水平和垂直两个方向。
 | Enable Auto Hide | 是否开启自动隐藏，如果开启了，那么在 ScrollBar 显示后的 `Auto Hide Time` 时间内会自动消失。

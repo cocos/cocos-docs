@@ -9,7 +9,7 @@ UITransform 脚本接口请参考 [Mask API](../../../api/zh/classes/ui.uitransf
 ## UITransform 属性介绍
 
 | 属性 |   功能说明
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | ContentSize | UI 矩形内容尺寸
 | AnchorPoint | UI 矩形锚点位置
 | Priority | UI 节点优先级，在当前父节点下排序，Canvas 节点顺序不受此属性影响。

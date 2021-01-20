@@ -30,7 +30,7 @@ __Third__, locating assets is convenient to quickly locate __Prefab assets__ in 
 
 __Fourth__, you can deserialize a __Node__ object again from the asset and replace the existing node. This operation does not change the *uuid* of the existing __Node__. It is usually used when you want the __Node__ to be re-synchronized with the __Prefab Asset__.
 
-__Fifth__, when there are new changes to the __Node__, and you want to update to the associated __Prefab__ asset, you can use this button.
+__Fifth__, when there are new changes to the __Node__, and you want to update to the associated __Prefab__ asset, use this button.
 
 ## Status of prefab nodes
 
