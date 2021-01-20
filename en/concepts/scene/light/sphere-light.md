@@ -1,6 +1,6 @@
 # Spherical Lights
 
-Cocos Creator 3.0 uses Spherical Lights instead of the **Point Light**, because the point light ignore volume, but all Physical Lights in the real world have the lights `size` property.
+Cocos Creator 3.0 uses Spherical Lights instead of **Point Light** because Point Light ignores volume, but physical light in the real world have a light `size` property.
 
 ![sphere light](sphere-light.jpg)
 

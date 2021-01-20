@@ -1,6 +1,6 @@
 # Spotlights
 
-The Spotlight is a beam of light emitted from a point in one direction, close to the light produced by a flashlight. Spotlights have an additional `SpotAngle` property over other types of lighting, which is used to adjust the illumination range of the Spotlight.
+Spotlight is a beam of light emitted from a point in one direction, close to the light produced by a flashlight. Spotlights have an additional `SpotAngle` property over other types of lighting, which is used to adjust the illumination range of the Spotlight.
 
 ![spotlight](spot-light.jpg)
 

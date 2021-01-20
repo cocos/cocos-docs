@@ -4,7 +4,7 @@ In life, intricate lights and uneven surfaces of objects reflect each other, mak
 
 ![ambient](ambient/ambient.png)
 
-Select **Scene** in the **Hierarchy** panel and set the Ambient Light properties in the **ambient** component of the **Inspector** panel.
+Select **Scene** in the **Hierarchy** panel and set the properties in the **ambient** component of the **Inspector** panel.
 
 > **Note**: since the ambient light is directionless, it cannot produce shadows.
 
@@ -18,4 +18,4 @@ Select **Scene** in the **Hierarchy** panel and set the Ambient Light properties
 | **SkyIllumination** | Adjust the sky brightness |
 | **GroundAlbedo** | Set the ground reflected light |
 
-The ambient light can be used with the Skybox, see [Skybox](skybox.md) for details.
+Ambient light can be used with a Skybox, see [Skybox](skybox.md) for details.
