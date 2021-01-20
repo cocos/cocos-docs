@@ -4,7 +4,8 @@
 
 ## Properties
 
-|Properties          | Function Explanation                                                    |
+|Property          | Description                                                    |
+
 |:--                 | :--                                                                     |
 |Clip                | Audio resource object to play                                           |
 |Loop                | Whether it is loop                                                      |
@@ -13,4 +14,3 @@
 
 More audio interface to the script interface [AudioSource API](../../../api/en/classes/component_audio.audiosource.html).  
 For specific playback controls, refer to the document [Audio System Overview](./overview.md).
-
