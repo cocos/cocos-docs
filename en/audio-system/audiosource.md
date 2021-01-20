@@ -16,4 +16,4 @@
 
 
 More audio interface to the script interface [AudioSource API](../../../api/en/classes/component_audio.audiosource.html).  
-For specific playback controls, refer to the document [Audio System Overview](./overview.md).
+For specific playback controls, please refer to [Audio System Overview](./overview.md).
