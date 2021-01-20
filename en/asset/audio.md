@@ -16,7 +16,8 @@ Currently, the engine's audio system can support the following formats:
 
 
 Audio resources on the Web platform are special because the Web standard supports loading audio resources in two different ways as follows:
-- Web Audio: providing a relatively more modern interface for audio control, the audio resources will be cached in an audio buffer of the engine. The advantage of this approach is good compatibility and robust.
+- Web Audio: provides a relatively more modern audio control interface, and the audio resource is cached in the engine as an audio buffer. The advantage of this approach is good compatibility and robust.
+
 - DOM Audio: by generating a standard element to play the audio resources, the cache is the audio element. When using standard audio elements to play audio resources, you may encounter some restrictions on some browsers. For example, browsers on iOS do not support setting volume, and all volume-related properties will not be available.
 
 The engine currently tries to load audio resources as Web Audio by default. If it detects that the browser does not support loading Web Audio, it will fall back to the DOM Audio mode.
