@@ -13,7 +13,7 @@ The __Cocos Creator 3.0 Preview__ version is close to the official version in te
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
-## How to migrate Cocos Creator 2D projects
+## How to migrate Cocos Creator 2.x projects
 
 Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migrate tool when v3.0 is officially released. This tool will support migrating old projects, project resources, and project code very well. Code-assisted migrate will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be migrated in the form of comments, which can reduce the difficulty of upgrading.
 
