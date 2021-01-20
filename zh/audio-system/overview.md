@@ -14,7 +14,7 @@
 
 如果只需要在游戏加载完成后自动播放声音，那么勾选 AudioSource 组件的 **PlayOnAwake** 即可。如果要更灵活的控制 AudioSource 的播放，可以在自定义脚本中获取 **AudioSource 组件**，然后调用相应的 API，如下所示：
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component { 
@@ -44,7 +44,7 @@ export class AudioController extends Component {
 
 针对这样的播放需求，AudioSource 组件提供了 `playOneShot` 接口来播放音效。具体代码实现如下：
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component {     
@@ -67,7 +67,7 @@ export class AudioController extends Component {
 
 目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component {      

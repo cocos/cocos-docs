@@ -16,7 +16,7 @@ All audio assets are imported into the editor in the format of __audioClip__ ass
 
 If you only need to play the audio automatically after the game is loaded, check the __PlayOnAwake__ of the AudioSource component. If you want more flexibility in controlling AudioSource playback, you can get the __AudioSource Component__ in the custom script and then call the appropriate API. As shown below:
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component { 
@@ -46,7 +46,7 @@ Compared to long music playback, audio effects playback has the following charac
 
 For such playback requirements, the AudioSource component provides the `playOneShot` interface to play audio effects. The specific code implementation is as follows:
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component {     
@@ -69,7 +69,7 @@ export class AudioController extends Component {
 
 Audio playback on the Web platform currently requires compliance with the latest [Audio Play Police](https://www.chromium.org/audio-video/autoplay), and even if the AudioSource component is set to `playOnAwake` it will not start until the first user input is received. An example is as follows:
 
-```javascript
+```typescript
 // AudioController.js
 @ccclass("AudioController")
 export class AudioController extends Component {      
