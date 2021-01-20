@@ -15,5 +15,5 @@
 |Volume              | Audio volume, ranging from 0 to 1                                  |
 
 
-More audio interface to the script interface [AudioSource API](../../../api/en/classes/component_audio.audiosource.html).  
+For more script interfaces for AudioSource, please refer to [AudioSource API](../../../api/en/classes/component_audio.audiosource.html).  
 For specific playback controls, please refer to [Audio System Overview](./overview.md).
