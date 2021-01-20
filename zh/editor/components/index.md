@@ -15,3 +15,5 @@ Cocos Creator 中包括以下功能组件：
 - [ParticleSystem](../../particle-system/main-module.md)
 - [物理组件](../../physics/physics-component.md)
 - [UI 组件](../../ui-system/components/editor/index.md)
+- [Dragonboens 组件](dragonbones.md)
+- [TileMap 组件](tiledmap.md)
