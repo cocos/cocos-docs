@@ -7,7 +7,8 @@
 |Property          | Description                                                    |
 
 |:--                 | :--                                                                     |
-|Clip                | Audio resource object to play                                           |
+|Clip                | The audio resource object to be played                                           |
+
 |Loop                | Whether it is loop                                                      |
 |PlayOnAwake         | Whether to play audio automatically after the component is activated    |
 |Volume              | Audio volume, the range is between 0~1                                  |
