@@ -13,17 +13,25 @@ The __Cocos Creator 3.0 Preview__ version is close to the official version in te
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
-## How to migrate (not supported in Preview version)
+## How to migrate Cocos Creator 2D projects
 
 Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource import tool when v3.0 is officially released. This tool will support importing old projects, project resources, and project code very well. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
 
-Developers only need to click **File -> Import -> Cocos Creator 2D Project** in the main menu, and a window for importing the plug-in will appear.
+Developers only need to click **File -> Import -> Cocos Creator 2D project (recommended: version 2.4.3 and above)** in the main menu.
 
-![image](import-menu.png)
+<img src="import-menu.png" width="50%" height="50%"/>
 
-Next, click the button in the left picture below and select the root directory of the __Cocos Creator 2D__ project. The plug-in will automatically traverse all the resources in the project and present it to the developer. Developers can check the resources to be imported by themselves, and click the __Import__ button in the right picture below after selection. The import is complete.
+Next, select the root directory of the __Cocos Creator 2D__ project. The plug-in will automatically traverse all the resources in the project and present it to the developer.(**Note**: It is recommended that the project version is 2.4.3 and above, although other versions can be imported, but there is no guarantee of a successful import.)
 
-![image](import.png)
+<img src="import-select-project.png" width="50%" height="50%"/>
+
+Also developers can click on the button in the image below to re-select other items for import
+
+<img src="import-panel-select.png" width="30%" height="30%"/>
+
+Final Developers can check the resources to be imported by themselves, and click the __Import__ button in the right picture below after selection. The import is complete.
+
+<img src="import-panel.png" width="30%" height="30%"/>
 
 If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos.com](mailto:slackmoehrle@cocos.com) for assistance!
 

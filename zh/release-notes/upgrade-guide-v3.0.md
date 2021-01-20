@@ -21,17 +21,25 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 关于 Cocos Creator 3.0 的详细介绍，请移步 [官网更新说明](https://cocos.com/creator)。
 
-## 如何迁移（Preview 版本暂不支持）
+## 如何迁移 Cocos Creator 2D 项目
 
 虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍将在 3.0 正式版推出 v2.x 资源导入工具。此工具支持旧项目资源完美导入，以及代码的辅助导入。代码辅助导入会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式导入，减轻开发者的升级难度。
 
-开发者只需要点击主菜单中的 **文件 -> 导入 -> Cocos Creator 2D 项目**，即可出现导入插件的窗口。
+开发者只需要点击主菜单中的 **文件 -> 导入 -> Cocos Creator 2D 项目（推荐：2.4.3及以上的版本）** 
 
-![image](import-menu.png)
+<img src="import-menu.png" width="50%" height="50%"/>
 
-然后点击下方左图中的按钮并选择 Cocos Creator 2D 项目的根目录，插件会自动遍历项目中所有的资源并呈现在窗口。开发者可以自行勾选需要导入的资源，然后点击下方右图中的 **导入** 按钮即可完成导入。
+然后选择 Cocos Creator 2D 项目的根目录，插件会自动遍历项目中所有的资源并呈现在导入面板窗口上。（注意：推荐项目版本为 2.4.3 及以上的版本，虽然其他版本也可导入，但是不能保证导入成功）
 
-![image](import.png)
+<img src="import-select-project.png" width="50%" height="50%"/>
+
+同时开发者也能点击下方图片中的图标，重新选择其他项目进行导入
+
+<img src="import-panel-select.png" width="30%" height="30%"/>
+
+最后开发者确认导入的项目后，可以自行勾选需要导入的资源，然后点击下方右图中的 **导入** 按钮即可完成导入。
+
+<img src="import-panel.png" width="30%" height="30%"/>
 
 如果现有项目因为特殊原因需要升级，并且遇到了技术上或者工作量上的困难，也可以联系 `zhengxiong.zhao@cocos.com` 获取我们的人工协助！
 
