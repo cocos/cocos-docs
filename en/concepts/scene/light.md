@@ -16,6 +16,14 @@ There are two ways to add lights:
 
   ![add light2](light/add-light2.png)
 
+## additive per-pixel lights
+
+Until today, Uber Shader is still the mainstream solution on some performance-constrained platforms. With the enhancement of hardware performance and the improvement of image quality requirements, a fixed number of light sources can no longer meet the needs of practical applications. People naturally think of a solution to support multiple light sources: `Multi-pass drawing`.
+
+For a detailed introduction, please read:
+
+- [additive per-pixel lights](light/additive-per-pixel-lights.md)
+
 ## Physically-based Lighting
 
 __Cocos Creator__ uses optical measurement units to describe light source parameters. Based on optical measurement units, we can convert all relevant parameters of the light source into physical values in the real world. In this way, the designer can adjust the __light intensity__, __color__, __range__ and __other__ parameters according to the industrial standards of parameters and the physical parameters of a real environment. The overall lighting effect is more in line with the real natural environment.
