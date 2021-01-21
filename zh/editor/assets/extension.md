@@ -28,9 +28,8 @@
 
 - 然后在插件包中新建一个 `assets-menu.js` 文件，文件内容可参考下文。`assets-menu.js` 文件中有一个显示事件，是约定好名称的函数 `show(where, assetInfo){ }` ，它会被调用并返回菜单数组数据。
 
-以下使用 `typescript` 代码及其类型定义，演示整体逻辑，代码如下：
-
 ```typescript
+// assets-menu.js
 export function show(where: MenuWhere, assetInfo: MenuAssetInfo): MenuItem[] {
   switch (where) {
     case MenuWhere.Create: {
@@ -213,15 +212,13 @@ export interface AssetInfo {
   },
   "messages": {
     "drop-asset": {
-      "methods": ["default.dropAsset"]
+      "methods": ["default.dropAsset"] // 'default' 是指当前插件的默认面板
     }
   }
 }
-
-// "default.dropAsset" 中的 'default' 是指当前插件的默认面板
 ```
 
-`panle.js` （对应附件包里示例，是面板的渲染进程）
+下方 **Demo 示例** 中的范例有一个 `panle.js` 文件，是面板的渲染进程，如下所示：
 
 ```typescript
 exports.methods = {
@@ -240,13 +237,13 @@ exports.methods = {
 </ui-drag-item>
 ```
 
-`dropAsset() 方法的参数说明`
+`panle.js` 文件中 `dropAsset()` 方法的参数说明如下：
 
 ```typescript
 export interface DropCallbackInfo {
-  uuid: string; // 拖放到哪个资源 uuid 上
-  type: string; // 拖放位置上资源的类型
-  isDirectory: boolean; // 拖放位置上资源的是否是文件夹
+  uuid: string; // 拖放到该资源上，该资源的 uuid
+  type: string; // 该资源的类型
+  isDirectory: boolean; // 该资源是否是文件夹
 }
 ```
 
