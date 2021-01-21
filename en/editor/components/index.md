@@ -2,7 +2,7 @@
 
 __Cocos Creator__ includes the following __Components__:
 
-- [AudioSource](../../audio-system/overview.md)
+- [AudioSource](../../audio-system/audiosource.md)
 - [MeshRenderer](../../engine/renderable/model-component.md)
 - [SkinnedMeshRenderer](../../engine/animation/skeletal-animation.md)
 - [Camera](camera-component.md)
