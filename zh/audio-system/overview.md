@@ -77,7 +77,7 @@ export class AudioController extends Component {
 
     start () {
         let btnNode = find('BUTTON_NODE_NAME');
-        btnNode!.on('touchstart', this.playAudio, this);
+        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
     }
     
     playAudio () {
