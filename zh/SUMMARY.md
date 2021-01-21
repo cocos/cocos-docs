@@ -273,3 +273,6 @@
         - [多语言系统](editor/extension/i18n.md)
         - [配置系统](editor/extension/profile.md)
         - [UI 组件](editor/extension/ui.md)
+
+- [进阶主题](advanced-topics/index.md)
+    - [动态合图](advanced-topics/dynamic-atlas.md)
