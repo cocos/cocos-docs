@@ -29,7 +29,7 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 <img src="import-menu.png" width="50%" height="50%"/>
 
-然后选择 Cocos Creator 2.x 项目的根目录，插件会自动遍历项目中所有的资源并呈现在迁移面板窗口上。（注意：推荐项目版本为 2.4.3 及以上的版本，虽然其他版本也可以迁移，但是有可能会出现资源迁移报错从而导致无法正常迁移的问题）
+然后选择 Cocos Creator 2.x 项目的根目录，插件会自动遍历项目中所有的资源并呈现在迁移面板窗口上。（注意：推荐先单独升级到 Cocos Creator 2.4.3 或以上版本，再重新导入；否则无法确保迁移结果的正确性。）
 
 <img src="import-select-project.png" width="50%" height="50%"/>
 
