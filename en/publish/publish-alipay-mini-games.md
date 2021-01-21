@@ -1,6 +1,6 @@
-# Publish to Alipay Mini Games
+# Publish to Youku Mini Games
 
-Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games is officially supported.
+> Starting from v2.4.4, Alipay Mini Game has supported Youku.
 
 ## Environment Configuration
 
@@ -69,6 +69,6 @@ The following modules are still not supported:
 Since the documents related to Alipay mini games are currently only open to the inside, you can contact them directly if needed:
 
 | Contacts | Email |
-| ----- | ----- |
-| LiZhi | lz98684@alibaba-inc.com      |
-| HuangJiao | huangjiao.hj@alibaba-inc.com |
+| :----- | :----- |
+| Ning Yu | yoaer.ty@antgroup.com      |
+| Jiao Huang | huangjiao.hj@alibaba-inc.com |
