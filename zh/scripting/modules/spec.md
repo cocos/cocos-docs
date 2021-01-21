@@ -16,9 +16,9 @@ Cocos Creator 原生支持并推荐使用 ECMAScript 模块格式（以下简称
 
 Cocos Creator 引擎提供的所有功能都以 ESM 模块形式向开发者暴露，见 [引擎模块](./index.md)。
 
-项目资源目录下，以 `.ts` 作为后缀的文件。例如 `assets/scripts/foo.ts`、`assets/scripts/bar.mjs`，都视为 ESM 格式。
+项目资源目录下，以 `.ts` 作为后缀的文件。例如 `assets/scripts/foo.ts`。
 
-对于任何其它模块，Cocos Creator 选择与 Node.js 类似的规则来[鉴别格式](https://nodejs.org/api/packages.html#packages_determining_module_system)。具体地，以下文件将被视为 ESM 格式：
+对于任何其它模块，Cocos Creator 选择与 Node.js 类似的规则来 [鉴别格式](https://nodejs.org/api/packages.html#packages_determining_module_system)。具体地，以下文件将被视为 ESM 格式：
 
 - 以 `.mjs` 为后缀的文件；
 
@@ -36,7 +36,7 @@ Cocos Creator 引擎提供的所有功能都以 ESM 模块形式向开发者暴�
 
 在 ESM 模块中，通过标准的导入导出语句与目标模块进行交互，例如：
 
-```js
+```ts
 import { Foo } from './foo';
 export { Bar } from './bar';
 ```
@@ -85,7 +85,7 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 
 ### 后缀与目录导入
 
-Cocos Creator 对模块说明符中模块的后缀要求更偏向于 Web：必须指定后缀并且不支持 Node.js 式的目录导入。然而，基于历史原因和现行的一些限制，TypeScript 模块不允许给出后缀并支持 Node.js 式的目录导入。具体来说：
+Cocos Creator 对模块说明符中模块的后缀要求更偏向于 Web —— 必须指定后缀并且不支持 Node.js 式的目录导入。然而，基于历史原因和现行的一些限制，TypeScript 模块不允许给出后缀并支持 Node.js 式的目录导入。具体来说：
 
 当目标模块文件的后缀是 `.js`、`.mjs` 时，模块说明符中 **必须指定** 后缀：
 ```ts
