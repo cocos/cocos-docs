@@ -1,16 +1,23 @@
-# Main Directional Light
+# Main Directional Lights
 
-There is only one main directional light in __Cocos Creator__. The main directional light can be understood as the dominant light source in the scene, usually the sunlight in outdoor scenes. The main directional light also affects the shadow projection.
+Directional light is the most common type of lights, and can be understood as the dominant light in a scene. The lighting effect is not affected by the **light position** and **orientation**, and is suitable for achieving sunlight. However, **rotation** affects the direction of directional lights illumination, which in turn affects the range to which the model receives illumination and where the model produces shadows.
 
-![main dir light](dir-light.jpg)
+![image](dir-light.jpg)
 
-To use `Main Directional Light`, please refer to the [Main Directional Light API](../../../api/en/classes/component_light.directionallight.html).
+> **Note**: Cocos Creator currently supports only one main directional light. If more than one is added at the same time, the last one added will prevail.
 
-## Main Directional Light Properties
+To add the directional light to the scene, refer to the [Lighting](../light.md) documentation.
 
-| Parameter name | Description |
-|:-------:|:---:|
-| Color | Light Source Color |
-| Use Color Temperature | Whether to enable color temperature |
-| Color Temperature | Color Temperature |
-| Illumiance | Illumination, unit **lux (*lx*)** of **nits** |
+For the related interface of the directional light component, please refer to the [DirectionalLight API](../../../api/en/classes/component_light.directionallight.html).
+
+## Main Directional Lights Properties
+
+![image](dir-light-prop.png)
+
+| Property | Description |
+| :------- | :--- |
+| **Color** | Set the light color |
+| **UseColorTemperature** | Whether to enable color temperature |
+| **ColorTemperature** | Adjust the color temperature |
+| **StaticSettings** | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
+| **Illumination** | Illumination, unit **lux (lx)** |
