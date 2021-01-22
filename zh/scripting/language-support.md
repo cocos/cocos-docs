@@ -6,6 +6,7 @@
 Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：
 
 - `tsconfig.json` 不会被读取。每个项目都隐含着如下选项：
+
   ```json5
   {
     "compilerOptions": {
@@ -19,10 +20,10 @@ Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：
   }
   ```
 
-- 隐含着 `isolatedModules` 选项，这意味着：
+  隐含的 `isolatedModules` 选项意味着：
     - 不支持 [const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)。
 
-    - 重导出 TypeScript 类型和接口时应当使用 `export type`。例如，应当使用 `export type { Foo } from './foo';` 而非 `export { Foo } from './foo';`。
+    - 重导出 TypeScript 类型和接口时应该使用 `export type`。例如使用 `export type { Foo } from './foo';` 而不是 `export { Foo } from './foo';`。
 
 - 不支持 `export =` 和 `import =`。
 
@@ -32,7 +33,7 @@ Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：
 
 - 编译过程中的类型错误将被忽略。
 
-编译时不会读取 `tsconfig.json` 意味着 `tsconfig.json` 的编译选项并不会影响编译。
+编译时不会读取 `tsconfig.json`，意味着 `tsconfig.json` 的编译选项并不会影响编译。
 
 开发者仍然可以在项目中使用 `tsconfig.json` 以配合 IDE 实现类型检查等功能。为了让 IDE 的 TypeScript 检查功能和 Creator 行为兼容，开发者需要额外注意一些事项，详情可参考 [tsconfig](./tsconfig.md)。
 
@@ -46,19 +47,19 @@ Creator 支持的 JavaScript 语言规范为 ES6。
 
 - [类字段](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Class_elements)
 - [Promise 对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [可选链操作符 `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [空值合并操作符 `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+- [可选链操作符 `?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [空值合并操作符 `??`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 - 逻辑赋值操作符
-  - [逻辑空赋值操作符 `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
-  - [逻辑与赋值操作符 `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
-  - [逻辑或赋值操作符 `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+    - [逻辑空赋值操作符 `??=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
+    - [逻辑与赋值操作符 `&&=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
+    - [逻辑或赋值操作符 `||=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
 - [全局对象 `globalThis`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 
 以下语言特性同样支持，但需要开启相关的编译选项：
 
 - [异步函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)
 
-特别地，Creator 目前支持 **Legacy** 装饰器提案，其具体用法和含义请参考 [babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)。由于该 [提案](https://github.com/tc39/proposal-decorators) 仍处于阶段 2，引擎暴露的所有装饰器相关功能接口都在以下划线开头的 [`_decorator` 命名空间](https://github.com/cocos-creator/engine/blob/3d-v1.2/cocos/core/data/class-decorator.ts#L28) 下。
+特别地，Creator 目前支持 **Legacy** 装饰器提案，其具体用法和含义请参考 [babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)。由于该 [提案](https://github.com/tc39/proposal-decorators) 仍处于阶段 2，引擎暴露的所有装饰器相关功能接口都在以下划线开头的 `_decorator` 命名空间下。
 
 ### 编译选项
 
