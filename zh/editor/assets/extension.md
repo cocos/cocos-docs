@@ -219,7 +219,7 @@
 }
 ```
 
-下方 **Demo 示例** 中的范例有一个 `panle.js` 文件，是面板的渲染进程，如下所示：
+下方 **Demo 示例** 中的范例有一个 `panel.js` 文件，是面板的渲染进程，如下所示：
 
 ```typescript
 exports.methods = {
@@ -238,7 +238,7 @@ exports.methods = {
 </ui-drag-item>
 ```
 
-`panle.js` 文件中 `dropAsset()` 方法的参数说明如下：
+`panel.js` 文件中 `dropAsset()` 方法的参数说明如下：
 
 ```typescript
 export interface DropCallbackInfo {
