@@ -204,12 +204,15 @@
 // package.json
 {
   "contributions": {
-    "drop": [
-      {
-        "type": "my-defined-asset-type-for-drop",
-        "message": "drop-asset"
-      }
-    ]
+    "assets": {
+      "drop": [
+        {
+          "type": "my-defined-asset-type-for-drop", // 对应 Demo 示例中 panel.html 的用法
+          "message": "drop-asset"
+        }
+      ],
+      "menu": "./assets-menu.js"
+    }
   },
   "messages": {
     "drop-asset": {
