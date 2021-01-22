@@ -38,10 +38,10 @@
             label: 'i18n:extend-assets-demo.menu.createAsset',
             click() {
               if (!assetInfo) {
-                console.log('get create command from header     menu');
+                console.log('get create command from header menu');
               } else {
                 console.log(
-                  'get create command, the detail of diretory     asset is:'
+                  'get create command, the detail of diretory asset is:'
                 );
                 console.log(assetInfo);
               }
@@ -52,10 +52,10 @@
       case MenuWhere.Asset: {
         return [
           {
-            label: 'i18n:extend-assets-demo.menu.    assetCommandParent',
+            label: 'i18n:extend-assets-demo.menu.assetCommandParent',
             submenu: [
               {
-                label: 'i18n:extend-assets-demo.menu.    assetCommand1',
+                label: 'i18n:extend-assets-demo.menu.assetCommand1',
                 enabled: assetInfo.isDirectory,
                 click() {
                   console.log('get it');
@@ -63,7 +63,7 @@
                 },
               },
               {
-                label: 'i18n:extend-assets-demo.menu.    assetCommand2',
+                label: 'i18n:extend-assets-demo.menu.assetCommand2',
                 enabled: !assetInfo.isDirectory,
                 click() {
                   console.log('yes, you clicked');
@@ -96,7 +96,7 @@
             label: 'i18n:extend-assets-demo.menu.plainCommand1',
             message: 'create-asset',
             click() {
-              console.log('clicked on the plain area in the     panel.');
+              console.log('clicked on the plain area in the panel.');
             },
           },
         ];
