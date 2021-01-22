@@ -155,14 +155,14 @@ The rough interface definition of hook function is as follows:
 
 ```ts
 declare interface IHook {
-    throwError?: boolean; // when the execution fails and displays the build failure.
+    throwError?: boolean; // The hook function injected by the plugin, whether to exit the build process directly and show the build failure when the execution fails.
     // ------------------ hook function --------------------------
     onBeforeBuild?: IBaseHooks;
     onBeforeCompressSettings?: IBaseHooks;
     onAfterCompressSettings?: IBaseHooks;
     onAfterBuild?: IBaseHooks;
 
-    // only valid if the platform's build process has a "Make" step.
+    // Compile the generated hook function (only valid if the platform's build process has a "Make" step)
     onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
     onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
 }
