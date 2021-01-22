@@ -33,11 +33,11 @@ There are three types of Trigger Events:
 
 Where the collision pairs that can generate trigger events are:
 
-| Type | Static rigid body | Kinematic rigid body | Dynamic rigid body |
+| Type | **Static rigid body** | **Kinematic rigid body** | **Dynamic rigid body** |
 | :--- | :--- | :--- | :--- |
-| Static rigid body | | ✔ | ✔ |
-| Kinematic rigid body | ✔ | ✔ | ✔ |
-| Dynamic rigid body | ✔ | ✔ | ✔ |
+| **Static rigid body** | | ✔ | ✔ |
+| **Kinematic rigid body** | ✔ | ✔ | ✔ |
+| **Dynamic rigid body** | ✔ | ✔ | ✔ |
 
 > **Note**: the prerequisite is that both must come with a collision component and at least one of them must be a trigger type.
 
@@ -75,11 +75,11 @@ Collision events are divided into three types:
 
 Where the collision pairs that can generate collision events are:
 
-| Type | Static rigid body | Kinematic rigid body | Dynamic rigid body |
+| Type | **Static rigid body** | **Kinematic rigid body** | **Dynamic rigid body** |
 | :--- | :--- | :--- | :--- |
-| Static rigid body | | ✔ | ✔ |
-| Kinematic rigid body | ✔ | ✔ | ✔ |
-| Dynamic rigid body | ✔ | ✔ | ✔ |
+| **Static rigid body** | | ✔ | ✔ |
+| **Kinematic rigid body** | ✔ | ✔ | ✔ |
+| **Dynamic rigid body** | ✔ | ✔ | ✔ |
 
 > **Note**: the prerequisite is that both must come with a collision component and both must be of the collider type.
 

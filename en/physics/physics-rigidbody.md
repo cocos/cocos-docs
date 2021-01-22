@@ -2,7 +2,7 @@
 
 **RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react.
 
-The RigidBody component is used to control the properties associated with the simulation.
+The **RigidBody** component is used to control the properties associated with the simulation.
 
 ![](img/rigidbody-prop.png)
 
