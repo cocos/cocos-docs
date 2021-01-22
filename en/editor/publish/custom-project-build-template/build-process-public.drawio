@@ -14,7 +14,7 @@
                         <mxPoint x="255" y="60" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="56" value="&lt;span&gt;开始构建&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#66B2FF;fillColor=#99CCFF;fontColor=#0F0F0F;" parent="1" vertex="1">
+                <mxCell id="56" value="&lt;span&gt;Start building&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#66B2FF;fillColor=#99CCFF;fontColor=#0F0F0F;" parent="1" vertex="1">
                     <mxGeometry x="210" y="30" width="90" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#66B2FF;" parent="1" source="58" target="60" edge="1">
