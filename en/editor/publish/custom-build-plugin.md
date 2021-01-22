@@ -1,6 +1,6 @@
-# Extended build process
+# Extended Build Process
 
-To build a platform plug-in a common editor plug-in format is required. For the basic structure of the plug-in, please refer to the [Package Plug-in System](../extension/install.md) documentation . To extend the build function, it is necessary to understand the overall process of the build. Please read the [Introduction to the build process and FAQ guide](./build-guide.md) documentation.
+To build a platform plug-in a common editor plug-in format is required. For the basic structure of the plug-in, please refer to the [First Extension](../extension/first.md) documentation . To extend the build function, it is necessary to understand the overall process of the build. Please read the [Introduction to the build process and FAQ guide](./build-guide.md) documentation.
 
 ## Quick start
 
@@ -16,19 +16,19 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
         * `$Your project address/extensions`
 
-2. After the build extension is created, you will see the generation path of the plugin in the **console**. Click on the path to open the build extension package in the file manager of the operating system.
+2. After the build extension is created, you will see the generation path of the plugin in the **Console**. Click on the path to open the build extension package in the file manager of the operating system.
 
-3. Before enabling the build extension, execute `npm install` in the directory to install some dependent @types modules to compile normally. The interface definition that comes with the editor has been generated under the **@types** folder in the root directory. **Developer -> Export.d.ts** from the menu bar of the editor shows the latest.
+3. Before enabling the build extension, execute `npm install` in the directory to install some dependent @types modules to compile normally. The interface definition that comes with the editor has been generated under the **@types** folder in the root directory. **Developer -> Export.d.ts** from the menu bar of the editor shows the latest interface definitions.
 
-4. Click **Extensions -> Extension Manager** in the menu bar of the editor to open the **Extension Manager** panel. Then select the **Project**/**Global** tab in the **Extension Manager**, and click the **Refresh Icon** button to see the build extension you just added. Then click the **Enable** button on the right to run the plug-in normally.
+4. Click **Extension -> Extension Manager** in the menu bar of the editor to open the **Extension Manager** panel. Then select the **Project**/**Global** tab in the **Extension Manager**, and click the **Refresh Icon** button to see the build extension you just added. Then click the **Enable** button on the right to run the plug-in normally.
 
     ![enable-plugin](./custom-project-build-template/enable-plugin.png)
 
-5. After the build extension is enabled, open the **Build Release** panel, you can see the expansion bar of the build extension. Click **Build** to join the build process.
+5. After the build extension is enabled, open the **Build** panel, notice the expansion bar of the build extension plugin. Click **Build** to join the build process.
 
     ![plugin-template](./custom-project-build-template/plugin-template.png)
 
-6. If you need to modify the content of the build extension, directly modify the build extension package under the `extensions` directory, and then perform the third step. Then find the corresponding build extension in the **Extension Manager**, and click the **Reload** icon button. At this time, the extension in the editor will re-run with the latest code and files.
+6. If you need to modify the content of the build extension, directly modify the build extension package under the `extensions` directory, see the `readme.md` file in the build extension package directory for details. Then find the corresponding build extension in the **Extension Manager**, and click the **Reload** icon button. At this time, the extension in the editor will re-run with the latest code and files.
 
 ## Basic configuration process
 
@@ -44,7 +44,7 @@ Example `package.json`:
 }
 ```
 
-## Plug-in entry configuration code example and interface definition
+The plugin entry configuration code example is shown below:
 
 ```ts
 export const configs: IConfigs = {
@@ -59,7 +59,7 @@ export const configs: IConfigs = {
                         placeholder: 'Enter remote address...',
                     },
                 },
-                // Validation rules, there are currently several commonly used validation rules built in, and the rules that need to be customized can be configured in the verifyRuleMap field
+                // Validation rules, there are currently several commonly used validation rules built in, and the rules that need to be customized can be configured in the "verifyRuleMap" field
                 verifyRules: ['require', 'http'],
             },
             enterCocos: {
@@ -95,9 +95,9 @@ Please pay extra attention to the following points when writing entry scripts:
 
 1. The environment variables in different processes will be different. The entry script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the entry script.
 
-2. There are two ways to configure the key of `config`: one is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Built-in** To view the platform plug-in name); one is the configuration for all platforms, the key is filled in as `*`. These two configuration methods are mutually exclusive, please do not use them in the same build extension package.
+2. There are two ways to configure the key of `config`: one is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Internal** to view the platform plug-in name); one is the configuration for all platforms, the key is filled in as `*`. These two configuration methods are mutually exclusive, please do not use them in the same build extension package.
 
-Example:
+The detailed interface definition is described as follows:
 
 ```ts
 declare type IConfigs = Record<Platform | '*', IPlatformConfig>;
@@ -108,36 +108,36 @@ declare interface IBuildPlugin {
 }
 declare type IDisplayOptions = Record<string, IConfigItem>;
 declare interface IConfigItem {
-    // The default value, the registered default value will be in the options.[platform].xxx field in the plugin configuration
+    // The default value, the registered default value will be in the "options.[platform].xxx" field in the plugin configuration
     default?: any;
 
     render: ?{
-        // The rules for rendering ui components are consistent with the unified rules at ui-prop. Only configurations with ui properties specified will be displayed on the build configuration panel
+        // The rules for rendering UI components are consistent with the unified rules at "ui-prop". Only configurations with UI properties specified will be displayed on the Build panel
         ui?: string;
-        // The configuration parameters passed to the ui component
+        // The configuration parameters passed to the UI component
         attributes?: IUiOptions;
     };
 
-    // Configure the displayed name, if you need to translate, then pass in i18n:${key}
+    // Configure the displayed name, if you need to translate, then pass in "i18n:${key}"
     label?: string;
 
-    // A brief description of the setting will be displayed on the title of the configuration name
+    // A brief description of the setting, which will be displayed on the title when the mouse hovers over the configuration name.
     description?: string;
 
     // Type of configuration
     type?: 'array' | 'object';
 
-    // If type is an array, the data will be rendered according to the specified data type and itemConfigs
+    // If type is an array, the data will be rendered according to the specified data type and "itemConfigs"
     itemConfigs?: Record<string, IConfigItem> | IConfigItem[];
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    // Validation rule array, build to provide some basic rules, you can also specify a new validation rule through verifyRuleMap, only when pass in require will be a valueless check, otherwise only when there is a value
+    //     // Validation rules array, build provides some basic rules, and you can also specify new validation rules through “verifyRuleMap”. Only when pass in “require” will be a valueless checksum, otherwise only when there is a value.
     verifyRules?: string[];
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    class?: string | string[]; // The name of the style that needs to be set on the current ui-prop
+    class?: string | string[]; // The name of the style that needs to be set on the current "ui-prop"
 }
 ```
 
@@ -145,7 +145,7 @@ For the interface definition of `IOptionsBase` please refer to [ui-prop automati
 
 ## Custom build hook function code configuration
 
-In the script module defined by the hooks field in the entry configuration, hook functionss can be written that build the life cycle. In different hook functions, the data received will be different. All hook functions run in the build process, and the engine method can be used directly in the build process. If you need to use `Editor`, adding the code `import * as Editor from'editor';` manually is required.
+In the script module defined by the hooks field in the entry configuration, hook functions can be written that build the life cycle. In different hook functions, the data received will be different. All hook functions run in the build process, and the engine method can be used directly in the build process. If you need to use `Editor`, adding the code `import * as Editor from 'editor';` to manually require.
 
 The relationship between the public hook function and the life cycle of the build can be seen in the following figure:
 
@@ -155,21 +155,21 @@ The rough interface definition of hook function is as follows:
 
 ```ts
 declare interface IHook {
-    throwError?: boolean; // Whether the hook function injected by the plug-in directly exits the build process when the execution fails
+    throwError?: boolean; // when the execution fails and displays the build failure.
     // ------------------ hook function --------------------------
     onBeforeBuild?: IBaseHooks;
     onBeforeCompressSettings?: IBaseHooks;
     onAfterCompressSettings?: IBaseHooks;
     onAfterBuild?: IBaseHooks;
 
-    // Compile the generated hook function (only valid when the platform is built with a "generation" process)
+    // only valid if the platform's build process has a "Make" step.
     onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
     onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
 }
 type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 ```
 
-> **Note**: the `result` parameter can be accessed at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is used in the actual build process. A copy of `options` is only used as a reference for information acquisition, so directly Modifying it does not really affect the build. To modify the build parameters, please use the `options` of the entry to configure. Due to the numerous interface definitions, you can refer to the `@types/builder.d.ts` file in the build plugin template folder for detailed interface definitions.
+> **Note**: the `result` parameter can be accessed only at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is a copy of the `options` used in the actual build process, and only used as a reference for information acquisition, so directly modifying it does not really affect the build process, although it can be modified successfully. To modify the build parameters, please set in the `options` field of the entry configuration code. Due to the numerous interface definitions, you can refer to the `@types/packages/builder` folder in the build extension package for detailed interface definitions.
 
 A simple example:
 
@@ -184,4 +184,4 @@ export function onBeforeCompressSettings(options, result) {
 
 ## Build plugin debugging
 
-Click **Developer —> Open Build Debug Tool** in the menu to debug the plugin script normally.
+Click **Developer --> Open Build DevTools** in the menu to debug the plugin script normally.
