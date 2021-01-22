@@ -28,11 +28,11 @@
 
 - 然后在插件包中新建一个 `assets-menu.js` 文件，`assets-menu.js` 文件中有一个显示事件，是约定好名称的函数 `show(where, assetInfo){ }` ，它会被调用并返回菜单数组数据，代码如下：
 
-  ```typescript
+  ```javascript
   // assets-menu.js
-  export function show(where: MenuWhere, assetInfo: MenuAssetInfo): MenuItem[] {
+  exports.show = function (where, assetInfo) {
     switch (where) {
-      case MenuWhere.Create: {
+      case 'create': {
         return [
           {
             label: 'i18n:extend-assets-demo.menu.createAsset',
@@ -49,7 +49,7 @@
           },
         ];
       }
-      case MenuWhere.Asset: {
+      case 'asset': {
         return [
           {
             label: 'i18n:extend-assets-demo.menu.assetCommandParent',
@@ -74,7 +74,7 @@
           },
         ];
       }
-      case MenuWhere.DB: {
+      case 'db': {
         return [
           {
             label: 'i18n:extend-assets-demo.menu.dbCommand1',
@@ -90,7 +90,7 @@
           },
         ];
       }
-      case MenuWhere.Plain: {
+      case 'plain': {
         return [
           {
             label: 'i18n:extend-assets-demo.menu.plainCommand1',
@@ -101,15 +101,15 @@
           },
         ];
       }
-      default:
-        return [];
     }
-  }
+  };
   ```
 
 - `assets-menu.js` 中 `show()` 函数的参数说明如下：
 
   ```typescript
+  export function show(where: MenuWhere, assetInfo: MenuAssetInfo): MenuItem[] {}
+
   export enum MenuWhere {
     Create: 'create',
     DB: 'db',
@@ -118,15 +118,15 @@
   }
 
   export interface MenuItem {
-    type?: string;
-    label?: string;
-    sublabel?: string;
-    submenu?: MenuItem[];
-    click?: Function;
-    enable?: Boolean;
-    visible?: boolean;
-    accelerator?: string;
-    checked?: boolean;
+    type?: string; // 可选，normal、separator、submenu、checkbox 或 radio
+    label?: string; // 显示的文本
+    sublabel?: string; // 显示的二级文本
+    submenu?: MenuItem[]; // 子项菜单
+    click?: Function; // 点击事件
+    enable?: Boolean; // 是否可用，不可用会有置灰样式
+    visible?: boolean; // 是否显示
+    accelerator?: string; // 显示快捷键
+    checked?: boolean; // type = 'checkbox' | 'radio' 时是否选中
     /**
     * 更多参数请查阅
     * https://www.electronjs.org/docs/api/menu-item
@@ -224,13 +224,27 @@
 
 下方 **Demo 示例** 中的范例有一个 `panel.js` 文件，是面板的渲染进程，如下所示：
 
-```typescript
+```javascript
 exports.methods = {
-  dropAsset(assetInfo: DropCallbackInfo, dragInfo: any) {
-    console.log('get drop callback params: ', assetInfo, dragInfo);
+  dropAsset(assetInfo, dragInfo) {
+    console.log(Editor.I18n.t('extend-assets-demo.drop.callback'));
+    console.log(assetInfo);
+    console.log(dragInfo);
   },
 };
 ```
+
+`panel.js` 文件中 `dropAsset()` 方法的参数说明如下：
+
+```typescript
+export interface assetInfo {
+  uuid: string; // 拖放到该资源上，该资源的 uuid
+  type: string; // 该资源的类型
+  isDirectory: boolean; // 该资源是否是文件夹
+}
+```
+
+`panel.html` 中 `<ui-drag-item>` 的使用方式如下：
 
 ```html
 <ui-drag-item
@@ -239,16 +253,6 @@ exports.methods = {
 >
   <ui-label>Drag me to assets panel, and look conosole log.</ui-label>
 </ui-drag-item>
-```
-
-`panel.js` 文件中 `dropAsset()` 方法的参数说明如下：
-
-```typescript
-export interface DropCallbackInfo {
-  uuid: string; // 拖放到该资源上，该资源的 uuid
-  type: string; // 该资源的类型
-  isDirectory: boolean; // 该资源是否是文件夹
-}
 ```
 
 ## Demo 示例
