@@ -47,7 +47,7 @@ After completing the above steps, although the skybox can be displayed correctly
 
 The following describes all the properties of the __Skybox__ panel:
 
-| Properties | Explanation |
+| Property | Explanation |
 | --- | --- |
 | **enabled** | whether to enable Skybox |
 | **envmap** | environment map, type is __TextureCube__ |
@@ -79,6 +79,6 @@ To make a __CubeMap__ in __Cocos Creator__ and set it to a __Skybox__, follow th
 
     ![CubeMap](skybox/Cubemap_Show.png)
 
-> **Notes**: 
+> **Notes**:
 > 1. Faces that are not mapped in __CubeMap__. It will be filled with a default texture.
 > 2. The pictures associated with the TextureCube **should not be the same**. Otherwise, there will be a problem that some platforms will not display it.

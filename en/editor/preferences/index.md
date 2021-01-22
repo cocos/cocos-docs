@@ -60,7 +60,7 @@ About Laboratory:
 
 2. Non-backward compatible changes or removal may occur in any future release. Use of the feature in production environments should be well tested and pay attention to the publish notes of future versions.
 
-3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/), you can make those features more powerful and easier to use in your own projects.
+3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/c/33), you can make those features more powerful and easier to use in your own projects.
 
 ### Use The Search Pop To Add Components
 
@@ -74,7 +74,7 @@ In order to make user more convenient, we also add some auxiliary editing design
 
 - When searching for related components, you can directly use the shortcut keys `↑ ↓` to quickly switch component options, and press the `enter` key to add the component;
 
-For this feature, if you have more awesome suggestions, welcome to tell us in the [forum](https://discuss.cocos2d-x.org/).
+For this feature, if you have more awesome suggestions, welcome to tell us in the [forum](https://discuss.cocos2d-x.org/c/33).
 
 ### Turn on terrain
 

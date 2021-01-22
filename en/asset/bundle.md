@@ -60,10 +60,10 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 
 After the configuration, click on the **Apply** button at the top right and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
-**Note**:
-1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
-2. The mini game subpackage can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
-3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
+> **Notes**:
+> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
+> 2. The [mini game subpackage](../editor/publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
+> 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 
 ## Priority
 

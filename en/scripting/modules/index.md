@@ -16,7 +16,7 @@ An example is shown below:
 
 ```ts
 import { log } from 'cc';
-log(`Hello world!`);
+log('Hello world!');
 ```
 
 ## Editor Modules
@@ -51,7 +51,7 @@ As these constants are declared with `const`, it provides a good opportunity for
 | Name (all types are `boolean`) | Description |
 | :------ | :------ |
 | `DEBUG` | Whether it is in debug mode. It is `false` only when the debug option is not checked when building, and it is `true` in all other cases |
-| `DEV` | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW` |
+| `DEV`   | Equivalent to `DEBUG`/`EDITOR`/`PREVIEW` |
 
 #### Platform identification
 
@@ -60,17 +60,17 @@ The constants listed in the following table represent whether it is running on a
 
 | Name | Representative platform | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` supports JIT |
 | :---------- | :---------- | :----------------- | :----------------- | :----------------- |
-| `HTML5` | Web | ❌ | ❌ | ❌ |
-| `NATIVE` | Native platforms | ❌ | ❌ | ❌ |
-| `ALIPAY` | Alipay Mini game | ✔️ | ❌ | ✔️ |
-| `BAIDU` | Baidu Mini Games | ✔️ | ❌ | ✔️ |
+| `HTML5`     | Web | ❌ | ❌ | ❌ |
+| `NATIVE`    | Native platforms    | ❌ | ❌ | ❌ |
+| `ALIPAY`    | Alipay Mini game    | ✔️ | ❌ | ✔️ |
+| `BAIDU`     | Baidu Mini Games    | ✔️ | ❌ | ✔️ |
 | `BYTEDANCE` | Bytedance Mini game | ✔️ | ❌ | ✔️ |
-| `WECHAT` | WeChat Mini Game | ✔️ | ❌ | ✔️ |
-| `XIAOMI` | XiaoMi Mini Game | ✔️ | ❌ | ✔️ |
-| `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
-| `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
-| `OPPO` | OPPO Mini Game | ❌ | ✔️ | ✔️ |
-| `VIVO` | vivo Mini game | ❌ | ✔️ | ✔️ |
+| `WECHAT`    | WeChat Mini Game    | ✔️ | ❌ | ✔️ |
+| `XIAOMI`    | XiaoMi Mini Game    | ✔️ | ❌ | ✔️ |
+| `COCOSPLAY` | Cocos Play          | ❌ | ✔️ | ✔️ |
+| `HUAWEI`    | Huawei Quick Game   | ❌ | ✔️ | ✔️ |
+| `OPPO`      | OPPO Mini Game      | ❌ | ✔️ | ✔️ |
+| `VIVO`      | vivo Mini game      | ❌ | ✔️ | ✔️ |
 
 #### Outputting in debug mode
 
@@ -81,6 +81,6 @@ import { log } from 'cc';
 import { DEV } from 'cce.env';
 
 if (DEV) {
-    log(`I'm in development mode!`);
+    log('I am in development mode!');
 }
 ```

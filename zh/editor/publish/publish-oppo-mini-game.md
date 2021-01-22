@@ -16,12 +16,12 @@
 
 ![](./publish-oppo-mini-games/build-option.png)
 
-各平台通用的构建参数，详情请参考 [通用构建参数](build-options.md)。OPPO 小游戏相关参数配置具体的填写规则如下：
+各平台通用的构建选项，详情请参考 [通用构建参数](build-options.md)。OPPO 小游戏相关的构建选项填写规则如下：
 
-| 选项名 | 可选 | 说明 | 字段名 |
+| 选项 | 可选 | 说明 | 字段名 |
 | :--- | :--- | :--- | :--- |
 | **初始场景分包** | 选填项 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.html#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
-| **资源服务器路径** | 选填项 | 该项用于填写资源存放在服务器上的地址。<br>若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的 rpk 包中。<br>若 **填写** 该项，则不会打包到 rpk 包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考文档下方的资源管理部分。 | `remoteServerAddress` |
+| **资源服务器地址** | 选填项 | 该项用于填写资源存放在服务器上的地址。<br>若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的 rpk 包中。<br>若 **填写** 该项，则不会打包到 rpk 包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考文档下方的资源管理部分。 | `remoteServerAddress` |
 | **游戏包名** | 必填项 | 游戏包名，根据开发者的需求进行填写，例如 `com.example.demo`。 | `package` |
 | **桌面图标** | 必填项 | 点击输入框后面的搜索图标按钮选择所需的图标。构建时，图标将会被构建到 OPPO 小游戏的工程中。桌面图标建议使用 **png** 图片。 | `icon` |
 | **游戏版本名称** | 必填项 | 游戏版本名称是真实的版本，如：1.0.0 | `versionName` |
@@ -64,9 +64,10 @@
 
 ## 分包加载
 
-分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。若要使用该功能需要在 Creator 中设置 [小游戏分包](subpackage.md)，设置完成后构建时就会自动分包。
+分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。
 
-构建完成后，分包 rpk 在 `dist` 目录下。这时需要在 OPPO 手机的 `sdcard` 目录下新建一个 `subPkg` 目录，然后把 `dist` 目录下的 **.rpk** 文件拷贝到 `subPkg` 目录中。<br>
+若要使用该功能需要在 Creator 中设置 [小游戏分包](subpackage.md)，设置完成后构建时就会自动分包。构建完成后，分包 rpk 在 `dist` 目录下。这时需要在 OPPO 手机的 `sdcard` 目录下新建一个 `subPkg` 目录，然后把 `dist` 目录下的 **.rpk** 文件拷贝到 `subPkg` 目录中。
+
 然后切换到 **OPPO 小游戏调试器** 的 **分包加载** 栏目，点击右上方的刷新即可看到分包的游戏名称，点击 **秒开** 即可跟正常打包的 rpk 一样使用。
 
 ![](./publish-oppo-mini-games/run_subpackage.jpg)
@@ -84,7 +85,7 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 ## 相关参考链接
 
 - [OPPO 开放平台](https://open.oppomobile.com/wiki/doc#id=10445)
-- [OPPO 小游戏教程](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
-- [OPPO 小游戏 API 文档](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
-- [OPPO 小游戏工具下载](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
-- [OPPO 小游戏使用说明 — 新建目录](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)
+- [OPPO 小游戏教程](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO 小游戏 API 文档](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO 小游戏工具下载](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)
+- [OPPO 小游戏使用说明 — 新建目录](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95)

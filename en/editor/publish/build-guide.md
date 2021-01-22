@@ -1,4 +1,4 @@
-# Build Process with FAQ
+# Build Process Introduction with FAQ
 
 The build process is mainly divided into two parts, the **General Build Process** and the **Platform Adaptation Process**. The adaptation processing logic for each platform will be embedded in the **Build** panel as a separate plugin. The build plugin system is then open and developers can dynamically embed some build parameters into the panel for use.
 
