@@ -62,4 +62,4 @@ The following fields can be used to query the playback status:
 
 The playback status and playback control is formatted as the following graph:
 
-![Playback control](../../../zh/engine/animation/playback-control.svg)
+![Playback control](./playback-control.svg)
