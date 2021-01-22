@@ -4,7 +4,7 @@ The Billboard component is used to render a box that always faces the camera.
 
 ![](particle-system/billboard.png)
 
-| Properties | Description |
+| Property | Description |
 | :---| :--- |
 | **Texture** | The texture displayed on the billboard. |
 | **Height** | The height of billboard. |

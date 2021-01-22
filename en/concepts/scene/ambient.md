@@ -1,19 +1,21 @@
-# Ambient light
+# Ambient Lights
 
-In life, the intricate light patterns and uneven surfaces reflect each other, so that the entire environment is illuminated, as if the entire scene is enveloped by a layer of ambient light. Adjusting the amount of __ambient light__ is the most direct way to adjust the overall illumination of the environment. It is also one way to effectively express the atmosphere of the environment.
+In life, intricate lights and uneven surfaces of objects reflect each other, making the whole environment illuminated, as if by a layer of light evenly enveloped, this light is generally called Ambient Light. By adjusting the ambient light, is the most direct way to adjust the overall illumination of the environment, but also an effective way to express the atmosphere of the environment.
 
-__Ambient light__ in __Cocos Creator__, as shown below:
+![ambient](ambient/ambient.png)
 
-![ambient](ambient/Ambient.jpg)
+Select **Scene** in the **Hierarchy** panel and set the properties in the **ambient** component of the **Inspector** panel.
 
-## Ambient light panel
+> **Note**: since the ambient light is directionless, it cannot produce shadows.
 
-![ambient panel](ambient/AmbientDetail.jpg)
+## Ambient lights properties
 
-The following describes all the properties of the panel:
+![ambient panel](ambient/ambient-prop.png)
 
-| Properties | Explanation |
-| --- | --- |
-| **groundAlbedo** | ground reflected light |
-| **skyColor** | sky color |
-| **skyIllum** | sky brightness |
+| Property | Explanation |
+| :--- | :--- |
+| **SkyColor** | Set the sky color |
+| **SkyIllumination** | Adjust the sky brightness |
+| **GroundAlbedo** | Set the ground reflected light |
+
+Ambient light can be used with a Skybox, see [Skybox](skybox.md) for details.

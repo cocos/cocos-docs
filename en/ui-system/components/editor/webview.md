@@ -8,7 +8,6 @@ Click **Add Component** at the bottom of **Properties** panel and select **WebVi
 
 For more information, please refer to the [WebView API](../../../api/en/classes/webview.webview-1.html) documentation.
 
-
 ## WebView Properties
 
 | Properties | Function Explanation
@@ -22,7 +21,7 @@ For more information, please refer to the [WebView API](../../../api/en/classes/
 
 ### WebViewEvents Event
 
-| Properties |   Function Explanation
+| Property |   Function Explanation
 | :-------------- | :----------- |
 |**Target**| Node with the script component.
 |**Component**| Script component name.
@@ -43,9 +42,9 @@ For more information, please refer to the [WebView Events](../../../api/en/class
 
 ## Details Explanation
 
-Currently this component is only available on Web (Both PC and Mobile, iOS and Android (Not supported in the v2.0.0~2.0.6). It cannot be use on Mac or Windows which means if you preview **WebView** on these platforms, there is nothing to show.
+Currently, this component is only available on Web (Both PC and Mobile, iOS and Android (Not supported in the v2.0.0~2.0.6). It cannot be use on Mac or Windows which means if you preview **WebView** on these platforms, there is nothing to show.
 
-> **Notes**: 
+> **Notes**:
 > 1. This component doesn't support load HTML file or execute JavaScript.
 > 2. If you don't use **WebView** related features in your project, please ensure that the **WebView** module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with **WebView**), and therefore if the game is rejected by App Store, you can still try to appeal through email.
 

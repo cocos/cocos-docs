@@ -8,29 +8,29 @@
 
 1. 在 [字节官方文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 下载字节开发者工具
 
-2. 登陆 [开发者平台](https://microapp.bytedance.com/)，找到 appid，详情可参考官方详细[接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game)。
+2. 登陆 [开发者平台](https://microapp.bytedance.com/)，找到 appid，详情可参考 [官方接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game)。
 
-    ![](https://sf1-ttcdn-tos.pstatp.com/obj/website-img/f296a9f80eaeb40f4af38e8a4e25e17e_12.png)
+    ![appid](./publish-bytedance-mini-game/appid.png)
 
 3. 在 **构建发布** 面板的 **发布平台** 中选择 **字节小游戏**，填入小游戏 appid，然后点击 **构建**
 
-    ![](./publish-bytedance-mini-game/build.png)
+    ![build](./publish-bytedance-mini-game/build.png)
 
 4. 打开字节跳动小游戏
 
     按照这样的流程，项目的 build 目录下就会生成一个字节小游戏的发布包 **bytedance-mini-game** 文件夹(具体构建任务名为准），打开开发者工具，导入对应文件夹即可。
 
-    ![](./publish-bytedance-mini-game/tool.jpg)
+    ![tool](./publish-bytedance-mini-game/tool.jpg)
 
 ## 构建选项介绍
 
 | 选项名 | 可选 | 默认值 | 说明 | 字段名 |
-| - | - | - | - | - |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
+| :-- | :-- | :-- | :-- | :-- |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
 | appid | 必填 | 'testId' | 字节小游戏 appid，填写后将会写入在 `project.swan.json` 内。 | appid |
 | 远程服务器地址 | - | - | 远程服务器地址，开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。 | remoteServerAddress |
 | 设备方向 | 必填 | landscape | 设备方向，填写后将会写入在 `game.json` 内。 | orientation |
-| 生成开放数据与工程模板 | - | false | 用于接入开放数据域，详情可以参考[开放数据域](./build-open-data-context.md) | buildOpenDataContextTemplate |
+| 生成开放数据域工程模板 | - | false | 用于接入开放数据域，详情可以参考 [开放数据域](./build-open-data-context.md) | buildOpenDataContextTemplate |
 
 ## 小游戏环境的资源管理
 
