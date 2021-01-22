@@ -276,3 +276,6 @@
 
 - [进阶主题](advanced-topics/index.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
+    - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
+        - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
+        - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
