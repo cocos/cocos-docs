@@ -21,7 +21,7 @@ Developers only need to click **File -> Migrate -> Cocos Creator 2.x project (re
 
 <img src="import-menu.png" width="50%" height="50%"/>
 
-Next select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the migration window.
+Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the migration window.
 
 > **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the migration results cannot be guaranteed to be correct.
 
