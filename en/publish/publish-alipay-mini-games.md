@@ -6,7 +6,7 @@
 
 - Download [Alipay Mini Program Studio](https://opendocs.alipay.com/mini/ide/download) on the PC and install it.
 
-  > **Note**: currently, the mini game entry in Alipay Mini Program Studio is only open to the internal, developers can apply to Alipay through the contact information at the end of the article.
+  > **Note**: currently, the mini game entry in Alipay Mini Program Studio is only open to the internal, developers can apply through the contact information at the end of the document.
 
 - Download [Alipay](https://mobile.alipay.com/index.htm) and install it on your phone. The minimum supported version of Alipay on Android is 10.1.75, on iOS is 10.1.78.
 
@@ -46,7 +46,7 @@ The specific filling rules for the relevant options configuration are as follows
 
 - Use **Alipay Mini Program Studio** to open **youku** directory. Next, you can open Youku Mini Game project to preview and debug game content.
 
-  > **Note**: the mini game entry in Alipay Mini Program Studio needs to apply for developer permission to open, please apply to Alipay through the contact information at the end of the document.
+  > **Note**: the mini game entry in Alipay Mini Program Studio needs to apply for developer permission to open, please apply through the contact information at the end of the document.
 
 ## Resource Management for Youku Mini Game Environment
 
