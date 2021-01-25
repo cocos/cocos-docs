@@ -15,7 +15,7 @@
 虽然基于这个方式上层封装接口后，新增业务逻辑会比较方便。但是过度依赖 evalString，往往也会带来一些隐患。举个 Android 侧的例子：
 
 ```js
-Cocos2dxJavascriptJavaBridge.evalString("window.sample.testEval('" + param + "',JSON.stringify(" + jsonObj + "))");
+CocosJavascriptJavaBridge.evalString("window.sample.testEval('" + param + "',JSON.stringify(" + jsonObj + "))");
 ```
 
 对于常见的参数结构，这样运行是没有问题的，然而基于实际场景的种种情况，我们会发现针对 **引号** 的控制格外重要。如代码所示，为了保证 JS 代码能够被正确执行，我们在拼接字符串时必须明确 `'` 与 `"` 的使用，稍有不慎就会出现 `evalString` 失败的情况。在 Cocos 的官方论坛上，从大量的反馈中我们也能了解这里的确是一个十分容易踩坑的地方。而另一方面，对于我们项目本身而言，过度依赖 `evalString` 所产生的种种不确定因素也往往很难掌控，我们又不能一味地通过 `try/catch` 去解决。所幸的是，经过全局业务排查，目前项目中在绝大多数因此，在查阅官方文档后，我们决定绕过 `evalString`，直接基于 JSB 绑定的方式进行通信。
