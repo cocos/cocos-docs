@@ -11,13 +11,13 @@
 一些通用的构建通用参数介绍，请参考 [通用构建参数介绍](build-options.md)。
 
 | 选项名 | 可选 | 默认值 | 说明 | 字段名 |
-| - | - | - | - | - |
-| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#内置-Asset-Bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
+| :-- | :-- | :-- | :-- | :-- |
+| 初始场景分包 | - | false | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | startSceneAssetBundle |
 | 资源服务器地址 | - | - | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建出来的 rpk 包中。填写则不会打包进 rpk,开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。具体的资源管理细节，请参考资源管理部分。 | remoteServerAddress |
 | 游戏包名 | 必填 | (项目名称) | 游戏包名，确保与原生应用的包名不一致，由数字、字母、"."组成，必须以字母开头，以数字或字母结尾，同时必须包含"."，长度不能超过255字节。例如 com.example.demo | package
 | 桌面图标 | 必填 | (Cocos Logo) | 桌面图标路径 | icon |
 | 应用版本名称 | 必填 | (Cocos 版本号) | 应用版本名称 是真实的版本，如：1.0.0 | versionName
-| 应用版本号 | 必填 | 1201 | 纯数字，应用版本号，从 1 自增，每次重新上传包时务必 versionCode+1，否则将影响上架版本的更新。例如原版本为11，更新版本的 versionCode 需要为12。 | versionCode |
+| 应用版本号 | 必填 | 1201 | 纯数字，应用版本号，从 1 自增，每次重新上传包时务必 versionCode+1，否则将影响上架版本的更新。例如原版本为11，更新版本的 versionCode 需要为 12。 | versionCode |
 | 支持的最小平台版本号 | 必填 | 1035 | 支持的最小平台版本号，原理同Android API Level。用于兼容性检查，避免上线后在低版本平台运行导致不兼容。游戏设定值必须大于等于 1035。 | minPlatformVersion
 | 自定义 manifest 文件路径 | - | - | 该项为选填项。为华为快游戏扩展功能。使用时需要选择 json 文件，文件中的数据类型要求为 json 格式。注意：当 json 数据的 key 值为 `package、appType、name、versionName、versionCode、icon、minPlatformVersion、config、display` 时不可用。否则在构建时会被 应用包名、应用名称、应用图标、应用版本号、应用版本名称 等数据覆盖。 | manifestPath |
 | 屏幕方向 | - | landscape | 设备方向，填写后将会写入在 `manifest.json` 内。| deviceOrientation |
@@ -57,11 +57,11 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 
 ## 分包 rpk
 
-分包 rpk 是根据用户的需求选择是否使用。分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。分包配置可以参考 [Asset Bundle](../../asset/bundle.md) 的相关介绍。
+分包 rpk 是根据开发者的需求选择是否使用。分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。
 
-构建完成后，生成的子包和主包会合并成一个 rpk，生成目录在 **/build/huawei-mini-game/dist** 目录下。
+若要使用该功能需要在 Creator 编辑器中配置 [小游戏分包](subpackage.md)，设置完成后在构建时就会自动分包。构建完成后，会在 `build/huawei-mini-game/dist` 目录下生成 **.rpk** 文件。
 
-**注意**：目前华为不支持同时下载多个分包，需要下载多个分包时请按顺序下载，等待下一个分包下载完成后再下一个分包。
+> **注意**：目前华为不支持同时下载多个分包，需要下载多个分包时请按顺序下载。
 
 ## 相关参考链接
 
