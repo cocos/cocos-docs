@@ -46,6 +46,8 @@ The specific filling rules for the relevant options configuration are as follows
 
 - Use **Alipay Mini Program Studio** to open **youku** directory. Next, you can open Youku Mini Game project to preview and debug game content.
 
+  > **Note**: the mini game entry in Alipay Mini Program Studio needs to apply for developer permission to open, please apply to Alipay through the contact information at the end of the document.
+
 ## Resource Management for Youku Mini Game Environment
 
 **Youku Mini Game** is similar to the **WeChat Mini Game**. There are restrictions on the package size. Resources over **4MB** must be downloaded via a network request.
@@ -64,7 +66,7 @@ The following modules are still not supported:
 
 ## About Documentation
 
-Since the documents related to Youku Mini Games are currently only open to the inside, you can contact them directly if needed:
+Since the Youku Mini Game entry and related documentation are currently only open to the internal, you can contact them directly if needed:
 
 | Contacts | Email |
 | :----- | :----- |
