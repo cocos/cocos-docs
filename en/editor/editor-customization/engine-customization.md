@@ -1,6 +1,6 @@
 # Engine Customization Workflow
 
-The engine part of Cocos Creator 3.0 includes JavaScript, Cocos2d-x-lite, and adapter (adapter engine customization is not supported at this time). The engine is all open-source on GitHub. The addresses are as follows:
+The engine part of Cocos Creator 3.0 includes JavaScript, Cocos2d-x-lite, and an adapter (adapter engine customization is not supported at this time). The engine is all open-source on GitHub. The addresses are as follows:
  
 - [JavaScript engine](https://github.com/cocos-creator/engine)
 - [Cocos2d-x-lite engine](https://github.com/cocos-creator/cocos2d-x-lite)
