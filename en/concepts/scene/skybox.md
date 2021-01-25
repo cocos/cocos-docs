@@ -1,84 +1,79 @@
 # Skybox
 
-__Skybox__, in video games, is a cube that wraps the entire scene. The __Skybox__ can render the atmosphere of the entire environment and express the environment of the entire scene. The __Skybox__ is also a very important part in the __PBR-based workflow__.
-
-The __Skybox__ in __Cocos Creator__, is shown below:
+The skybox in a video game is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting the in PBR-based workflow.
 
 ![skybox](skybox/Skybox.png)
 
-## Enabling Skybox
+## Enable Skybox
 
-Enabling the __Skybox__ effect in __Cocos Creator__, takes just one step:
+Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **Skybox** component of the **Inspector** panel to enable the skybox.
 
-  - The __Skybox__ panel is on the Scene node's __Properties panel__. Check the *Enabled* property to enable the __Skybox__.
-  ![Open skybox](skybox/SkyboxPanel.jpg)
+ ![enable skybox](skybox/enable-skybox.png)
 
- > **Note**: when the **Envmap** property of __Skybox__ is empty, the default pixel map will be used and displayed.
+The **Skybox** component properties are as follows:
 
-## Modify the environment map of the Skybox
+| Property | Description |
+| :---| :--- |
+| **Enabled** | Whether to enable skybox |
+| **UseIBL** | Whether to use ambient lighting |
+| **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel mapping by default |
+| **IsRGBE** | Whether the pixel format of the environment map is RGBE |
 
-Modifying the environment map of the __Skybox__ in __Cocos Creator__ is done by setting a asset of type __TextureCube__. Importing from a asset into a __TextureCube__ and setting it into a __Skybox__ can be done in the following steps:
+## Set the Environment Map of the Skybox
 
-1. Import picture assets.
-    > **Note**: this example is of a panorama. Creating a `CubeMap` is covered later in this documentation.
+After enabling the skybox, you also need to set the skybox's environment map. The environment map asset of the skybox can be a single map of TextureCube type or a CubeMap which is a combination of six texture type maps. So the developer can set the environment map of the skybox in the following two ways:
 
-2. Select the imported panorama asset and set it to the __TextureCube__ type in the __Inspector panel__ on the right, as shown in this figure:
+### By Setting the Texture Assets of TextureCube Type
 
-    ![Set as TextureCube](skybox/TextureCube.jpg)
+1. To import a texture asset, drag and drop it directly into the **Assets** panel.
 
-3. Drag the __TextureCube__ asset to the __Envmap property__ on the __Skybox's Inspector panel__.
+2. Select the imported texture asset, set the **Type** property to **texture cube** in the **Inspector** panel on the right, then click the green checkbox in the upper right corner to save the settings.
 
-    ![Set the environment map of the skybox](skybox/EnvmapSet.jpg)
+    ![Set to TextureCube](skybox/texturecube.png)
 
-After completing the above steps, you should be able to see the newly replaced environment map in the editor scene.
+3. Check **Scene** in the **Hierarchy** panel, then drag the set texture asset to the **Envmap** property box of the **Skybox** component in the **Inspector** panel.
 
-## Confirm setting the SkyIllum parameter
-If the skybox doesn't show in the __Scene__ panel after completing the previous step, it is highly likely that the SkyIllum parameter setting is too low. Check the parameter of `ambient -> SkyIllum` in the __Inspector__ panel of the scene node. Generally speaking, if SkyIllum < 300, the skybox texture is not very visible. SkyIllum is 5000 is probably the light intensity of the moon at night. For a newly created __Cocos Creator__ project, the default SkyIllum is 20000.
+    ![Set environment map for skybox](skybox/set-envmap.png)
 
-## Modify the Clear Flag of Camera
-After completing the above steps, although the skybox can be displayed correctly in the __Scene__ panel, it is still not visible when running. At this time, you need to modify the __Clear Flag__ of __Camera__ to `SKYBOX`, as shown below
+Then the setup is done. The developer can see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, you need to check if the value of **SkyIllumination parameter** is too low, or **modify the Clear Flag** of Camera.
 
-![change Clear Flag of Camera to SKYBOX](skybox/SkyboxCamera.jpg)
+#### SkyIllumination Property
 
+The SkyIllumination property can be found in the **Scene** component of the **Inspector** panel by selecting **Scene** in the **Hierarchy** panel and then in the **Ambient** component of the **Inspector** panel, with a default value of 20000.
 
-## Skybox panel
+If the SkyIllumination property is set **too low**, the environment map of the skybox may not be displayed correctly in the **Scene** panel. General:
 
-![skybox panel](skybox/SkyboxDetail.jpg)
+- When the SkyIllumination property value is less than 300, the environment map of the Skybox will not be displayed properly.
 
-The following describes all the properties of the __Skybox__ panel:
+- When the SkyIllumination property is 5000, the effect is equivalent to the light intensity of a moonlit night.
 
-| Property | Explanation |
-| --- | --- |
-| **enabled** | whether to enable Skybox |
-| **envmap** | environment map, type is __TextureCube__ |
-| **isRGBE** | whether the pixel format of the environment map is __RGBE__ |
-| **useIBL** | whether to use ambient light |
+#### Modify ClearFlags of Camera
 
-## CubeMap
+If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlags** of the **Camera** component to **SKYBOX**:
 
-__CubeMap__ is a kind of environment map asset for a __Skybox__. It is composed of map assets of six faces on a cube. It can be used as a __TextureCube__ asset.
+![](skybox/skybox-camera.png)
 
-### Making and applying a CubeMap
+### By Setting the CubeMap
 
-To make a __CubeMap__ in __Cocos Creator__ and set it to a __Skybox__, follow these steps:
+To use a CubeMap as the environment map for the skybox, you need to create a CubeMap and drag it into the **Envmap** property box of the **Skybox** component. The operation steps are as follows:
 
-1. Import the six texture map assets prepared in advance, and set these texture assets to the __Texture__ type.
+1. Select all the six prepared texture assets in the **Assets** panel, and then set the **Type** property of these texture assets to **texture** in the **Inspector** panel, and click the green checkbox in the upper right corner.
 
-    ![import Cubemap textures](skybox/Cubemap_Textures.png)
-    ![create Cubemap textures type](skybox/Cubemap_Textures_type.png)
+   ![](skybox/cubemap-texture-type.png)
 
-2. Create a new __CubeMap__ resource
+2. Create a new CubeMap asset. Select the folder where you want to store CubeMap in the **Assets** panel, click the **+** button in the upper left corner, and then select **Cubemap**. Or you can right-click the folder where you want to store the CubeMap, and select **New -> Cubemap**.
 
-    ![create Cubemap](skybox/Cubemap_Create.png)
+   ![create Cubemap](skybox/create-cubemap.png)
 
-3. Drag the imported texture assets into the corresponding input box, and click the green check button when you are finished.
+3.  Drag and drop the six images you just set as texture type into the corresponding property box of the CubeMap, and click the green tick button on the top right then you are done.
 
-    ![Set CubeMap](skybox/Cubemap_Inspector.png)
+    ![Set CubeMap](skybox/cubemap-properties.png)
 
-4. Finally, drag the completed __CubeMap__ asset into the __Envmap__ property box of the __Skybox__.
+    > **Notes**:
+    > - The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
+    > - The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
 
-    ![CubeMap](skybox/Cubemap_Show.png)
+4. Finally, drag the finished CubeMap asset into the **Envmap** property box of the **Skybox** component, and you are done with the CubeMap application.
 
-> **Notes**:
-> 1. Faces that are not mapped in __CubeMap__. It will be filled with a default texture.
-> 2. The pictures associated with the TextureCube **should not be the same**. Otherwise, there will be a problem that some platforms will not display it.
+    ![CubeMap](skybox/cubemap-show.png)
+ 

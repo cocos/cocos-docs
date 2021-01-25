@@ -81,7 +81,7 @@
 - [场景制作工作流程](concepts/scene/index.md)
     - [节点和组件](concepts/scene/node-component.md)
     - [坐标系和节点变换](concepts/scene/coord.md)
-    - [节点层级和显示顺序](concepts/scene/node-tree.md)
+    - [节点层级和渲染顺序](concepts/scene/node-tree.md)
     - [使用场景编辑器搭建场景](concepts/scene/scene-editing.md)
     - [天空盒](concepts/scene/skybox.md)
     - [全局雾](concepts/scene/fog.md)
