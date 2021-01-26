@@ -1,71 +1,67 @@
 # Shadow
 
-In the 3D world, *light* and *shadows* have always been extremely important components. They can enrich the entire environment, good-quality shadows can achieve the effect of false realization, and make the entire world have a three-dimensional feel to it.
+In the 3D world, light and shadow have always been extremely important components that enrich the entire environment. High quality shadows can make the game world look more realistic.
 
-Here is an example of a shadow from __Cocos Creator__:
+Creator 3.0 currently supports both **Planar** and **ShadowMap** shadow types.
+
 ![shadow](shadow/shadowExample.png)
 
-## Turning on shadows
+## Enable Shadow Effect
 
-__Cocos Creator__ currently supports two shadow modes, __shadow Map__ and __planer Shadow__ for developers to use.
+To enable the shadow effect for an object, proceed as follows:
 
-* It takes three steps to enable a __Planar Shadow__ in __Cocos Creator__:
+1. Check **Scene** in the **Hierarchy** panel, and then check the **Enabled** property in the **Shadows** component of the **Inspector** panel.
 
-  1. Select the Scene node on the level manager, you can see the following panel, check the *Enabled* property of *Shadows*.
-![location of enable shadow](shadow/shadows.png)
+    ![](shadow/enable-shadow.png)
 
-  2. Choose *Type* as *Planar*
-![location of shadow type](shadow/planarShadowType.png)
+2. Select the 3D node that needs to display shadows in the **Hierarchy** panel, and then set the **ShadowCastingMode** property to **ON** in the **MeshRenderer** component of the **Inspector** panel.
+    
+    ![](shadow/set-meshrenderer.png)
 
-  3. Set *ShadowCastingMode* to *ON* in the model that needs to display shadows.
-![ShadowCastingModes property](shadow/planarShadowCastingMode.png)
+    If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the **MeshRenderer** component to **ON**.
 
-  > **Note**: __Planar Shadow__ will only be cast on the shadow surface. Adjusting the directional light angle can adjust the shadow projection.
+> **Note**: if the shadows are not displayed properly, you need to adjust the direction of the directional light.
 
-* It takes four steps to enable a __Shadow Map__ in __Cocos Creator__:
+## Shadow Type
 
-  1. Select the Scene node on the level manager, you can see the following panel, check the *Enabled* property of *Shadows*.
-![location of enable shadow](shadow/shadows.png)
+The shadow type can be set in the **Type** property of the **Shadows** component.
 
-  2. Choose *Type* as *ShadowMap*
-![location of shadow type](shadow/shadowMapType.png)
+### Planar Shadow
 
-  3. Set *ShadowCasting* to *ON* in the model that needs to display shadows.
-![ShadowCastingModes property](shadow/shadowMapCastingMode.png)
+The Planar shadow type is generally used for simpler scenes.
 
-  4. Set *ReceiveShadow* to *ON* in the model that needs to display shadows.
-![ReceiveShadowModes property](shadow/shadowMapReceiveMode.png)
+![](shadow/plannar-properties.png)
 
-  > **Note**: __ReceiveShadow__ receive the shadow effect. __ShadowCasting__ produces a shadow effect.
+| Property | Description |
+| :--- | :--- |
+| **Enabled** | Whether to enable shadow effect |
+| **Type** | Shadow type |
+| **ShadowColor** | Shadow color |
+| **Normal** | The normal line perpendicular to the shadow, used to adjust the slope of the shadow |
+| **Distance** | The distance of the shadow in the direction of the normal to the origin of the coordinate |
 
-## PlanarShadows panel
+Adjust the direction of the directional light to adjust the position of the shadow.
 
-![planar shadow panel details](shadow/planarShadowsDetail.png)
+> **Note**: planar shadows are only cast on planar surfaces, not on objects, which means that the **ReceiveShadow** property in the **MeshRenderer** component is invalid.
 
-The following describes all the properties of the panel:
+## ShadowMap
 
-| Property | Explanation |
-| --- | --- |
-| **Enabled**     | Whether to turn on the shadow effect |
-| **Type**        | Choose shade type |
-| **ShadowColor** | Color value of the resulting shadow |
-| **Normal**      | Normals to vertical and shadow planes |
-| **Distance**    | The distance of the shadow plane from the coordinate origin in the direction of the normal |
+ShadowMap renders the scene with the light source as the viewpoint. From the position of the light source, the places in the scene that are not visible are where the shadows are created.
 
-## ShadowMap panel
+![Shadow Map Panel Details](shadow/shadowmap-properties.png)
 
-![shadow map panel details](shadow/shadowsMapDetail.png)
+| Property | Description |
+| :--- | :--- |
+| **Enabled** | Whether to enable the shadow effect |
+| **Type** | Shadow type | 
+| **ShadowColor** | Shadow color |
+| **Pcf** | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **FILTER_X5**, **FILTER_X9**, **FILTER_X25** |
+| **Near** | Set the near clip plane of the main light source camera |
+| **Far** | Set the far clip plane of the main light source camera |
+| **OrthoSize** | Set the orthogonal viewport size of the main light source camera |
+| **ShadowMapSize** | Set the texture size of the shadow |
+| **Aspect** | Set the aspect ratio of the orthogonal viewport of the main light source camera |
 
-The following describes all the properties of the panel:
+ShadowMap receives and displays shadow effects generated by other objects when **ReceiveShadow** on the object **MeshRenderer** component is enabled.
 
-| Property | Explanation |
-| --- | --- |
-| **Enabled**         | Whether to turn on the shadow effect |
-| **Type**            | Choose shade type |
-| **ShadowColor**     | Color value of the resulting shadow |
-| **Pcf**             | Set the anti-aliasing level of the shadow edge |
-| **Near**            | Set the near clipping plane of the main light source shadow camera |
-| **Far**             | Set the far clipping plane of the main light source shadow camera |
-| **OrthoSize**       | Set the ortho viewport size of the main light source shadow camera |
-| **ShadowMapSize**   | Set the shadow map size |
-| **Aspect**          | Set the ortho viewport aspect ratio of the main light source shadow camera |
+ShadowMap is generally used for scenes that require more realistic and complex light and shadow effects. The downside is that if the light source is not moved, then the previously generated Shadow Map can be reused, while once the light source is moved, then a new ShadowMap needs to be recalculated.
