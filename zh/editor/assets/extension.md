@@ -91,13 +91,13 @@
     - `imported` Boolean - 是否导入完成
     - `invalid` Boolean - 是否导入失败
     - `name` String - 资源名字
-    - `path` String - 资源 loader 的加载地址，不包含文件扩展名
+    - `file` String - 资源文件所在的磁盘绝对路径
     - `redirect` Object - 跳转指向资源
       - `type` String - 资源类型
       - `uuid` String - 资源 ID
     - `readonly` Boolean - 是否只读
     - `type` String - 资源类型
-    - `url` String - 资源地址，含文件扩展名
+    - `url` String - db:// 开头的资源地址
     - `uuid` String - 资源 ID
 
   - 返回值 `MenuItem[]` , `MenuItem` Object
