@@ -2,7 +2,7 @@
 
 > This document is based on v2.x. It may change slightly with Cocos Creator 3.0 and will be updated as soon as possible.
 
-With the Cocos Creator Android build, developer's can call Java static methods directly in JavaScript. Doing so is very simple:
+With the Cocos Creator Android build, developers can call Java static methods directly in JavaScript. Doing so is very simple:
 
 ```js
 var result = jsb.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
