@@ -45,7 +45,6 @@ Layer 脚本接口相关请参考 [TiledLayer API](../../../api/zh/classes/Tiled
 | X     | 指定 TiledTile 的横向坐标，以地图块为单位
 | Y     | 指定 TiledTile 的纵向坐标，以地图块为单位
 | Gid   | 指定 TiledTile 的 gid 值，来切换 TiledTile 的样式
-| Layer | 获取 TiledTile 属于哪一个 TiledLayer 
 
 TiledTile 可以控制指定的地图块，以及将节点的位移、旋转和缩放等应用到地图块。用户可以通过更改 TiledTile 的 gid 属性来更换地图块样式。
 
