@@ -22,11 +22,11 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 
 ```ts
 // 创建一个新节点
-const node = new cc.Node();
+const node = new Node();
 // 然后把该节点的父节点设置为任意的 layer 节点
 node.parent = this.layer.node;  
 // 最后添加 TiledTile 组件到该节点上，并返回 TiledTile 对象，就可以对 TiledTile 对象进行一系列操作
-const tiledTile = node.addComponent(cc.TiledTile);  
+const tiledTile = node.addComponent(TiledTile);  
 ```
 
 #### 通过 getTiledTileAt 获取 TiledTile

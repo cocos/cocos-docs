@@ -18,7 +18,7 @@ DragonBones 骨骼动画资源包括：
 
 1. 创建节点并添加 DragonBones 组件：
    
-   - 从 **资源管理器** 里将骨骼动画资源拖动到已创建 DragonBones 组件的 Dragon Asset 属性中：
+    从 **资源管理器** 里将骨骼动画资源拖动到已创建 DragonBones 组件的 Dragon Asset 属性中：
 
       ![DragonBones](dragonbones/set_asset.png) 
 

@@ -1,10 +1,10 @@
-# Spine 组件参考
+# Spine（骨骼动画）Skeleton 组件参考
 
-Spine 组件支持 Spine 导出的数据格式，并对骨骼动画（Spine）资源进行渲染和播放。
+Spine（骨骼动画）Skeleton 组件支持 Spine 官方工具导出的数据格式，并对Spine（骨骼动画）资源进行渲染和播放。
 
 ![spine](./spine/spine-properties.png)
 
-选中节点，点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> Spine Skeleton** 按钮，即可添加 Spine 组件到节点上。
+选中节点，点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> Spine Skeleton** 按钮，即可添加 Skeleton 组件到节点上。
 
 Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.html)。
 
@@ -12,8 +12,8 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 | 属性 | 功能说明
 | --------------------- | ------------------ |
-| Color | 颜色设置
-| Skeleton Data         | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
+| Color                 | 颜色设置
+| SkeletonData          | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
 | Default Skin          | 选择默认的皮肤
 | Animation             | 当前播放的动画名称
 | Animation Cache Mode  | 渲染模式，默认 `REALTIME` 模式。
@@ -25,17 +25,17 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 | Debug Bones           | 是否显示骨骼的 debug 信息
 | Debug Mesh            | 是否显示 mesh 的 debug 信息
 | Use Tint              | 是否开启染色效果，默认关闭。
-| Sockets | 挂点系统，用来将某些外部节点挂到指定的骨骼关节上
+| Sockets               | 挂点系统，用来将某些外部节点挂到指定的骨骼关节上
 
-**注意**：当使用 Spine 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
+**注意**：当使用 Skeleton 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
 
 ## Spine 换装
 
-下面通过一个范例介绍 Spine 如何换装。我们将会通过替换插槽的 attachment 对象，将绿色框中的手臂替换为红色框中的手臂。
+下面通过一个范例介绍 Spine 如何换装。
 
 ![spine-cloth](./spine/cloth0.png)
 
-首先在 **层级管理器** 中新建一个空节点，重命名为 girl。在 **属性检查器** 中添加 Spine 组件，并将资源拖拽至 Spine 组件的 Skeleton Data 属性框中。可更改 Spine 组件的 Animation 属性用于设置开发者想要播放的动画。
+首先在 **层级管理器** 中新建一个空节点，重命名为 girl。在 **属性检查器** 中添加 Skeleton 组件，并将资源拖拽至 Skeleton 组件的 SkeletonData 属性框中。可更改 Skeleton 组件的 Animation 属性用于设置开发者想要播放的动画。
 
     ![spine-cloth](./spine/cloth1.png)
 
@@ -43,15 +43,15 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 1. 在 **资源管理器** 中新建一个 TypeScript 脚本，编写组件脚本。脚本代码如下：
 
     ```ts
-    import { _decorator, Component,  sp } from 'cc';
+    import { _decorator, Component, sp } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('SpineSkin')
     export class SpineSkin extends Component {
 
 
-        @property({type:sp.Skeleton})
-        spine: sp.Skeleton|null = null;
+        @property({ type:sp.Skeleton })
+        spine: sp.Skeleton | null = null;
 
         skinId: number = 0;
 
@@ -71,31 +71,31 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
     }
     ```
 
-2. 然后将脚本组件挂载到相关节点上（此处挂载到了button的点击事件上）。
+2. 然后将脚本组件挂载到相关节点上（此处利用 Button 组件的点击事件来触发脚本的 change 回调）。
 
     ![spine-cloth](./spine/click_event.png)
 
-3. 点击编辑器上方的预览按钮，点击change skin按钮，可以看到人物皮肤已被替换。
+3. 点击编辑器上方的预览按钮，点击 change skin 按钮，可以看到人物皮肤已被替换。
 
     ![spine-cloth](./spine/cloth2.png)
 
 ## Spine 顶点效果
 
-顶点效果只有当 Spine 处于 REALTIME 模式时有效，下面通过一个范例介绍 Spine 如何设置顶点效果。
+顶点效果只有当 Spine 的 `Animation Cache Mode` 处于 **REALTIME** 模式时有效，下面通过一个范例介绍 Spine 如何设置顶点效果。
 
-1. 首先在 **层级管理器** 中新建一个空节点并重命名。然后在 **属性检查器** 中添加 Spine 组件，并将资源拖拽至 Spine 组件的 Skeleton Data 属性框中，设置好 Spine 组件属性。
+1. 首先在 **层级管理器** 中新建一个空节点并重命名。然后在 **属性检查器** 中添加 Skeleton 组件，并将资源拖拽至 Skeleton 组件的 SkeletonData 属性框中，设置好 Skeleton 组件属性。
 
 2. 在 **资源管理器** 中新建一个 TypeScript 脚本，编写组件脚本。脚本代码如下：
 
     ```ts
-    import { _decorator, Component,  sp } from 'cc';
+    import { _decorator, Component, sp } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('SpineExample')
     export class SpineExample extends Component {
 
-        @property({type:sp.Skeleton})
-        spine: sp.Skeleton|null = null;
+        @property({ type:sp.Skeleton })
+        spine: sp.Skeleton | null = null;
 
         skinId: number = 0;
 
@@ -103,33 +103,33 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
             this._jitterEffect = new sp.VertexEffectDelegate();
             // 设置好抖动参数。
             this._jitterEffect.initJitter(20, 20);
-            // 调用 Spine 组件的 setVertexEffectDelegate 方法设置效果。
+            // 调用 Skeleton 组件的 setVertexEffectDelegate 方法设置效果。
             this.skeleton.setVertexEffectDelegate(this._jitterEffect);
         }
     });
     ```
 
-3. 然后将脚本组件挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中的节点拖拽到脚本组件对应的属性框中，并保存场景。
+3. 然后将脚本组件挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中的节点拖拽到脚本组件对应的 spine 属性框中，并保存场景。
 
-4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 [SpineMesh](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/spine) 范例。
+4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) 范例。
 
 ## Spine 挂点
 
-在使用骨骼动画时，经常需要在骨骼动画的某个部位上挂载节点，以实现节点与骨骼动画联动的效果。我们可以通过使用编辑器和脚本两种方式来实现 Spine 挂点，下面用一个范例来介绍 Spine 如何使用挂点将星星挂在龙的尾巴，前爪和人物的手上，并随着Spine节点一起晃动。
+在使用骨骼动画时，经常需要在骨骼动画的某个部位上挂载节点，以实现节点与骨骼动画联动的效果。我们可以通过使用编辑器和脚本两种方式来实现 Spine 挂点，下面用一个范例来介绍 Spine 如何使用挂点将星星挂在龙的尾巴，前爪和人物的手上，并随着 Spine 节点一起晃动。
 
 ![](./spine/attach0.png)
 
 ### 通过编辑器实现 Spine 挂点
 
-1. 首先在 **层级管理器** 中新建一个空节点并重命名。选中该节点然后在 **属性检查器** 中添加 Spine 组件，并将资源拖拽至 Spine 组件的 Skeleton Data 属性框中，设置好 Spine 组件属性。然后右键 Spine 节点为其添加子节点 Sprite (图中的tail, hand, claw)。
+1. 首先在 **层级管理器** 中新建一个空节点并重命名。选中该节点然后在 **属性检查器** 中添加 Skeleton 组件，并将资源拖拽至 Skeleton 组件的 SkeletonData 属性框中，设置好 Skeleton 组件属性。然后右键 Spine 节点为其添加子节点 Sprite (图中的 tail，hand，claw)。
 
     ![](./spine/attach1.png)
 
-2. 在 **层级管理器** 中选中想要设置挂点的 Spine 父节点， 通过设置 **属性检查器** 中的Sockets为子节点添加挂点信息（Sockets的值代表了挂点的数量）
+2. 在 **层级管理器** 中选中想要设置挂点的 Spine 节点， 通过设置 **属性检查器** 中的 Sockets 为子节点添加挂点信息（Sockets 的值代表了挂点的数量）
 
     ![](./spine/attach2.png)
 
-3. 设置Sockets的Path和Target, 分别选择想要挂载的位置和子节点对象
+3. 设置 Sockets 的 Path 和 Target，分别选择想要挂载的位置和子节点对象
 
     ![](./spine/attach3.png)
 
@@ -137,7 +137,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
     ![](./spine/attach4.png)
     
-4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考 example-case 中的 [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) 范例。
+4. 最后将星星资源拖拽到 Sprite 组件的 `SpriteFrame` 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考 example-case 中的 [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) 范例。
 
 
 ## Spine 碰撞检测
@@ -145,15 +145,15 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 通过 Spine 挂点功能可以对骨骼动画的某个部位做碰撞检测，Spine 如何实现挂点请参考前面 Spine 挂点部分章节。下面通过一个范例来介绍 Spine 如何实现碰撞检测，通过判断人物脚与地面接触与否来实现当人物跑动时，动态地改变地面颜色。
     ![collider](./spine/collider0.png)
 
-1. 首先需要在项目设置中将2D物理引擎设置为 **内置物理引擎**。
+1. 首先需要在项目设置中将 2D 物理引擎设置为 **内置物理引擎**。
     ![collider](./spine/collider1.png)
 
 2. 与通过编辑器实现 Spine 挂点的前两个步骤一样，创建好 Spine 节点和其挂载的子节点。
 
-3. 然后在 **层级管理器** Spine 节点下的骨骼节点树中选中目标骨骼节点（人物的脚）作为父节点，再创建一个空节点（重命名为 frontFoot）作为子节点。
+3. 然后在 **层级管理器** Spine 节点下的骨骼节点树中选中目标骨骼节点（人物的脚）作为父节点，再创建一个空节点（如为 frontFoot）作为子节点。
     ![collider](./spine/collider2.png)
 
-4. 在 **层级管理器** 中选中要设置的节点（如frontFoot），在 **属性检查器** 中点击 **添加组件 -> p -> Polygon Collider**，然后设置好碰撞组件参数。该节点便会随着骨骼动画一起运动，从而碰撞组件的包围盒也会实时地与骨骼动画保持同步。
+4. 在 **层级管理器** 中选中要设置的节点（如frontFoot），在 **属性检查器** 中点击 **添加组件 -> Physics2D -> Colliders -> Polygon Collider**，然后设置好碰撞组件参数。该节点便会随着骨骼动画一起运动，从而碰撞组件的包围盒也会实时地与骨骼动画保持同步。
     ![collider](./spine/collider3.png)
     ![collider](./spine/collider4.png)
 
@@ -169,9 +169,9 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
     @ccclass('SpineCollider')
     export class SpineCollider extends Component {
 
-        touchingCountMap: Map<Node, number> = new Map;
+        touchingCountMap : Map<Node, number> = new Map;
 
-        private debugDrawFlags:number = 0;
+        private debugDrawFlags : number = 0;
         start () {
             // Your initialization goes here.
             PhysicsSystem2D.instance.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
