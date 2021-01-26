@@ -22,7 +22,7 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 
 ```ts
 // 创建一个新节点
-var node = new cc.Node();
+const node = new cc.Node();
 // 然后把该节点的父节点设置为任意的 layer 节点
 node.parent = this.layer.node;  
 // 最后添加 TiledTile 组件到该节点上，并返回 TiledTile 对象，就可以对 TiledTile 对象进行一系列操作
@@ -45,7 +45,7 @@ Layer 脚本接口相关请参考 [TiledLayer API](../../../api/zh/classes/Tiled
 | X     | 指定 TiledTile 的横向坐标，以地图块为单位
 | Y     | 指定 TiledTile 的纵向坐标，以地图块为单位
 | Gid   | 指定 TiledTile 的 gid 值，来切换 TiledTile 的样式
-| Layer | 获取 TiledTile 属于哪一个 TiledLayer (从 v2.0.1 开始移除该属性 )
+| Layer | 获取 TiledTile 属于哪一个 TiledLayer 
 
 TiledTile 可以控制指定的地图块，以及将节点的位移、旋转和缩放等应用到地图块。用户可以通过更改 TiledTile 的 gid 属性来更换地图块样式。
 
