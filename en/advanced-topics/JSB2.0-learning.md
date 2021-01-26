@@ -24,43 +24,43 @@ For example, to register a JS function in CPP, there are different definitions i
 
     ```c++
     JSValueRef JSB_foo_func(
-            JSContextRef _cx,
-            JSObjectRef _function,
-            JSObjectRef _thisObject,
-            size_t argc,
-            const JSValueRef _argv[],
-            JSValueRef* _exception
-        );
+        JSContextRef _cx,
+        JSObjectRef _function,
+        JSObjectRef _thisObject,
+        size_t argc,
+        const JSValueRef _argv[],
+        JSValueRef* _exception
+    );
     ```
 
 - SpiderMonkey
 
     ```c++
     bool JSB_foo_func(
-            JSContext* _cx,
-            unsigned argc,
-            JS::Value* _vp
-        );
+        JSContext* _cx,
+        unsigned argc,
+        JS::Value* _vp
+    );
     ```
 
 - V8
 
     ```c++
     void JSB_foo_func(
-            const v8::FunctionCallbackInfo<v8::Value>& v8args
-        );
+        const v8::FunctionCallbackInfo<v8::Value>& v8args
+    );
     ```
 
 - ChakraCore
 
     ```c++
     JsValueRef JSB_foo_func(
-            JsValueRef _callee,
-            bool _isConstructCall,
-            JsValueRef* _argv,
-            unsigned short argc,
-            void* _callbackState
-        );
+        JsValueRef _callee,
+        bool _isConstructCall,
+        JsValueRef* _argv,
+        unsigned short argc,
+        void* _callbackState
+    );
     ```
 
 We evaluated several options and eventually decided to use `macros` to reduce the differences between the definition and parameter types of different JS engine callbacks, regardless of which engine is used, and developers could use an unified callback definition. We refer to the definition of Lua callback function. The definition of all JS to CPP callback functions in the abstract layer is defined as:
@@ -101,7 +101,7 @@ It is a singleton that could be accessed via `se::ScriptEngine::getInstance()`.
 
 #### se::Value
 
-`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`,` number`, `string`,` boolean`, `null`,` undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
+`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`, `number`, `string`, `boolean`, `null`, `undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
 
 ```c++
 namespace se {
@@ -132,7 +132,7 @@ namespace se {
 }
 ```
 
-If a `se::Value` stores the underlying data types, such as `number`,` string`, `boolean`, which is directly stored by `value copy`.
+If a `se::Value` stores the underlying data types, such as `number`, `string`, `boolean`, which is directly stored by `value copy`.
 The storage of `object` is special because it is a `weak reference` to JS objects via `se::Object*`.
 
 #### se::Object
@@ -226,16 +226,16 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
 
 __se::Object Types__
 
-* Native Binding Object
+- Native Binding Object
 
-	The creation of native binding object has been hidden in the `SE_BIND_CTOR` and` SE_BIND_SUB_CLS_CTOR` macros, if developers need to use the `se::Object` in the binding callback, just get it by invoking `s.thisObject()`. Where `s` is `se::State&` which will be described in the following chapters.
+    The creation of native binding object has been hidden in the `SE_BIND_CTOR` and `SE_BIND_SUB_CLS_CTOR` macros, if developers need to use the `se::Object` in the binding callback, just get it by invoking `s.thisObject()`. Where `s` is `se::State&` which will be described in the following chapters.
 
 In addition, `se::Object` currently supports the manual creation of the following objects:
 
-* Plain Object: Created by `se::Object::createPlainObject`, similar to `var a = {};` in JS
-* Array Object: Created by `se::Object::createArrayObject`, similar to `var a = [];` in JS
-* Uint8 Typed Array Object: Created by `se::Object::createTypedArray`, like `var a = new Uint8Array(buffer);` in JS
-* Array Buffer Object: Created by `se::Object::createArrayBufferObject` similar to `var a = new ArrayBuffer(len);` in JS
+- Plain Object: Created by `se::Object::createPlainObject`, similar to `var a = {};` in JS
+- Array Object: Created by `se::Object::createArrayObject`, similar to `var a = [];` in JS
+- Uint8 Typed Array Object: Created by `se::Object::createTypedArray`, like `var a = new Uint8Array(buffer);` in JS
+- Array Buffer Object: Created by `se::Object::createArrayBufferObject` similar to `var a = new ArrayBuffer(len);` in JS
 
 __The Release of The Objects Created Manually__
 
@@ -251,7 +251,7 @@ obj->decRef(); // Decrease the reference count to avoid memory leak
 #### se::HandleObject
 
 `se::HandleObject` is the recommended helper class for managing the objects created manually.
- 
+
 * If using manual creation of objects in complex logic, developers often forget to deal with `decRef` in different conditions
 
 ```c++
@@ -260,7 +260,7 @@ bool foo()
 	se::Object* obj = se::Object::createPlainObject();
 	if (var1)
 		return false; // Return directly, forget to do 'decRef' operation
-	
+
 	if (var2)
 		return false; // Return directly, forget to do 'decRef' operation
 	...
@@ -285,9 +285,11 @@ The following two code snippets are equivalent, the use of `se::HandleObject` si
         obj->setProperty(...);
         otherObject->setProperty("foo", se::Value(obj));
     }
- 
-	is equal to:
+```
 
+Is equal to:
+
+```c++
     {
         se::Object* obj = se::Object::createPlainObject();
         obj->root(); // Root the object immediatelly to prevent the object being garabge collected.
@@ -300,12 +302,10 @@ The following two code snippets are equivalent, the use of `se::HandleObject` si
     }
 ```
 
-**NOTE**
-
-* Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
-
-* The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
-
+> **NOTES**:
+>
+> 1. Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
+> 2. The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
 
 #### se::Class
 
@@ -326,9 +326,7 @@ It has the following methods:
 * `Object* getProto()`: Get the prototype of JS constructor installed, similar to `function Foo(){}` `Foo.prototype` in JS.
 * `const char* getName() const`: Get the class name which is also the name of JS constructor.
 
-**NOTE**
-
-You do not need to release memory manually after `se::Class` type is created, it will be automatically encapsulated layer.
+> **NOTE**: do not need to release memory manually after `se::Class` type is created, it will be automatically encapsulated layer.
 
 You could look through the API documentation or code comments for more specific API instructions.
 
@@ -393,7 +391,7 @@ static bool Foo_balabala(se::State& s)
 	const auto& args = s.args();
 	int argc = (int)args.size();
 	
-	if (argc >= 2) // Limit the number of parameters must be greater than or equal to 2, or throw an error to the JS layer and return false.	{
+	if (argc >= 2) // Limit the number of parameters must be greater than or equal to 2, or throw an error to the JS layer and return false.
 		...
 		...
 		return true;
@@ -600,7 +598,7 @@ bool js_register_ns_SomeClass(se::Object* global)
     cls->defineFunction("foo", _SE(js_SomeClass_foo));
     cls->defineProperty("xxx", _SE(js_SomeClass_get_xxx), _SE(js_SomeClass_set_xxx));
 
-	// Define finalize callback function
+    // Define finalize callback function
     cls->defineFinalizeFunction(_SE(js_SomeClass_finalize));
 
     // Install the class to JS virtual machine
@@ -917,7 +915,6 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 * `native_ptr_to_seval` is used in `JS control CPP object life cycle` mode. This method can be called when a `se::Value` needs to be obtained from a CPP object pointer at the binding code. Most subclasses in the Cocos2D-X that inherit from `cocos2d::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JS object's life cycle, need to be converted to seval, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
 * `native_ptr_to_rooted_seval` is used in `CPP controlling JS object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according the incoming CPP object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the CPP object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
 
-
 ## Automatic Binding
 
 ### Configure Module `.ini` Files
@@ -1087,12 +1084,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
 }
 ```
+
 ### What's The Difference between se::Object::root/unroot and se::Object::incRef/decRef?
 
 `root`/`unroot` is used to control whether JS objects are controlled by GC, `root` means JS object should not be controlled by GC, `unroot` means it should be controlled by GC. For a `se::Object`, `root` and `unroot` can be called multiple times, `se::Object`'s internal `_rootCount` variables is used to indicate the count of `root` operation. When `unroot` is called and `_rootCount` reach **0**, the JS object associated with `se::Object` is handed over to the GC. Another situation is that if `se::Object` destructor is triggered and `_rootCount` is still greater than 0, it will force the JS object to be controlled by the GC.
 
 `incRef`/`decRef` is used to control the life cycle of `se::Object` CPP object. As mentioned in the previous section, it is recommended that you use `se::HandleObject` to control the manual creation of unbound objects's  life cycle. So, in general, developers do not need to touch `incRef`/`decRef`.
-
 
 ### The Association and Disassociation of Object's Life Cycle
 
@@ -1133,7 +1130,7 @@ SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
 ### Please DO NOT Assign A Subclass of cocos2d::Ref on The Stack
 
-Subclasses of `cocos2d::Ref` must be allocated on the heap, via `new`, and then released by` release`. In JS object's finalize callback function, we should use 'autorelease` or `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or` private` in the binding classes that inherit from `cocos2d::Ref`, ensuring that this problem can be found during compilation.
+Subclasses of `cocos2d::Ref` must be allocated on the heap, via `new`, and then released by `release`. In JS object's finalize callback function, we should use `autorelease` or `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or `private` in the binding classes that inherit from `cocos2d::Ref`, ensuring that this problem can be found during compilation.
 
 E.g:
 
