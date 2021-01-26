@@ -1,10 +1,10 @@
 # 如何向 Cocos 提交代码
 
-和 Cocos2d-x-lite 一样，Cocos Creator 也是一个开源引擎，连同范例、文档都是开源的。<br>
+Cocos Creator 是一个开源引擎，连同范例、文档都是开源的。<br>
 在你开发游戏的过程中，当发现了引擎、文档或者范例不够完善的地方，如果仅仅是向官方团队提出建议，官方团队可能会因为人力资源的紧张而无法及时跟进。在此我们欢迎所有用户主动向我们提交 PR，帮助 Cocos 越做越好。引擎有 Bug？提 PR！范例难看？提 PR！API 注释不清晰？提 PR！文档有错别字？提 PR！想要把你的宝贵修改贡献给游戏社区？提 PR！以下几个是目前官方比较常用的开源仓库，这些仓库都可以提交 PR。
 
-- **JavaScript 引擎**：<https://github.com/cocos-creator/engine/tree/3d><br>
-- **Cocos2d-x-lite 引擎**：<https://github.com/cocos-creator/cocos2d-x-lite><br>
+- **TypeScript 引擎**：<https://github.com/cocos-creator/engine/><br>
+- **engine-native 引擎**：<https://github.com/cocos-creator/engine-native/><br>
 - **jsb-adapter**：<https://github.com/cocos-creator-packages/jsb-adapter>
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
@@ -68,8 +68,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 **注意**：根据不同的版本，还需要切换不同的分支，例如：
 
 - **vX.Y** 分支：对应 X.Y 版本所用分支
-- **next** 分支： 用于 2.0 分支
-- **master/develop** 分支：当前最新版本所用分支
+- **develop** 分支：开发分支
 
 2、打开本地 docs-3d 项目进行修改，修改完成后查看仓库详情，如下图所示：
 
@@ -97,7 +96,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 如果距离上次克隆仓库已经挺长时间，那么请在提交 PR 前先从官方仓库获取最新的修改以防和其他人的修改发生冲突。
 
-1、添加官方仓库。点击 GitKraken 左边列表的 **REMOTE + **，如下图所示：
+1、添加官方仓库。点击 GitKraken 左边列表的 **REMOTE +**，如下图所示：
 
 ![add upstream](submit-pr/add-upstream.png)
 
@@ -130,4 +129,4 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 2、或者也可以进入官方仓库 [docs-3d](https://github.com/cocos-creator/docs-3d)，选择 **Issue -> New issue** 进入提交 issue 界面，填写内容并提交。
 
 本次提交 pr 和提交 issue 的教程到这里就结束了，若有不理解或者有误的地方请根据上述步骤向我们反馈。<br>
-有些人可能会问，为什么要这么麻烦的提交问题。其实，正确的提交问题可以节省很多的沟通成本，而且有些问题可能在初步排查的时候就可以解决了，或者会发现只是由于自己粗心大意导致的。而官方节省下来的人力就可以更好的去服务于 Creator，让 Creator 能更好地为游戏开发者服务。 
+有些人可能会问，为什么要这么麻烦的提交问题。其实，正确的提交问题可以节省很多的沟通成本，而且有些问题可能在初步排查的时候就可以解决了，或者会发现只是由于自己粗心大意导致的。而官方节省下来的人力就可以更好的去服务于 Creator，让 Creator 能更好地为游戏开发者服务。

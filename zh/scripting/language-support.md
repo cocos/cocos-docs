@@ -102,3 +102,9 @@ module.exports = blah; // 错误 module 是未定义的
 import blah from './blah-blah';
 export default blah;
 ```
+
+## 相关教程
+
+- [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
+- [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript 内存详解 & 分析指南](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)

@@ -27,7 +27,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 
 - The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-  **Note**: As of v2.4, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
+  > **Note**: as of v2.4, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
 
 ### Loading a SpriteFrame or a Texture2D
 

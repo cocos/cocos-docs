@@ -13,7 +13,7 @@ The global mouse and touch events are very similar to the node events, except th
 
 ## The difference between node events and global mouse and touch events
 
-> __Note__: Before beginning this section, read up on [Auto fit for multi-resolution](../../ui-system/components/engine/multi-resolution.md#Design-resolution-and-screen-resolution) and understand the screen area and UI display area.
+> __Note__: before beginning this section, read up on [Auto fit for multi-resolution](../../ui-system/components/engine/multi-resolution.md#Design-resolution-and-screen-resolution) and understand the screen area and UI display area.
 
 When listening for global mouse/touch events, the acquired contacts are calculated based on the bottom left corner of the screen area (device display resolution). The contacts fetched by the UI node listener are not the same as the contacts fetched by the global event, which are converted to the points calculated in the lower left corner of the adapted UI viewable area. Global touch points are better suited for manipulating the behavior of 3D nodes by tapping directly on the screen, without having to add UI nodes to the scene to listen for mouse/touch events.
 
