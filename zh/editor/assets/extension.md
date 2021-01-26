@@ -176,4 +176,4 @@
 
 ## Demo 示例
 
-两个扩展功能的可执行代码可下载 <a href="img/extend-assets.zip" target="_blank">范例</a> 查看
+两个扩展功能的可执行代码可下载 <a href="img/extend-assets-demo.zip" target="_blank">范例</a> 查看
