@@ -127,11 +127,9 @@ An Android native AlertDialog should show now.
 
 Now that it is possible to successfully called Java methods in JavaScript, is it possible to call JavaScript in Java? Of course!
 
-The engine contains class `CocosJavascriptJavaBridge`, which has a `evalString` method that can execute JavaScript, and is located in the `resources\3d\cocos2d-x-lite\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` file in the engine directory. Please note that this time JavaScript code should be run in the gl` thread.
+The engine contains class `CocosJavascriptJavaBridge`, which has an  `evalString` method that can execute JavaScript, and is located in the `resources\3d\cocos2d-x-lite\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` file in the engine directory. Please note that this time JavaScript code should be run in the `gl` thread.
 
-Generally speaking, the engine does not promise security in multi-threaded currently, avoid JavaScript code being called in other threads during development to avoid various memory errors.
-
-Consider an exmample of adding an OK button for the AlertDialog, and using `evalString` in its `OnClickListener`:
+Consider an example of adding an OK button for the AlertDialog, and using `evalString` in its `OnClickListener`:
 
 ```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
@@ -147,6 +145,8 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     }
 });
 ```
+
+> **Note**: the engine does not promise security in multi-threaded currently, avoid JavaScript code being called in other threads during development to avoid various memory errors.
 
 To call `evalString` in C++, please refer to the following method to ensure that `evalString` is executed in the thread where the JavaScript engine is:
 
