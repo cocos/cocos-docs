@@ -20,20 +20,20 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 
 #### 通过对一个节点添加 TiledTile 组件创建
 
-```js
+```ts
 // 创建一个新节点
 var node = new cc.Node();
 // 然后把该节点的父节点设置为任意的 layer 节点
 node.parent = this.layer.node;  
 // 最后添加 TiledTile 组件到该节点上，并返回 TiledTile 对象，就可以对 TiledTile 对象进行一系列操作
-var tiledTile = node.addComponent(cc.TiledTile);  
+const tiledTile = node.addComponent(cc.TiledTile);  
 ```
 
 #### 通过 getTiledTileAt 获取 TiledTile
 
-```js
+```ts
 // 获取 layer 上横向坐标为 0，纵向坐标为 0 的 TiledTile 对象，就可以对 TiledTile 对象进行一系列操作
-var tiledTile = this.layer.getTiledTileAt(0, 0);
+const tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
 Layer 脚本接口相关请参考 [TiledLayer API](../../../api/zh/classes/TiledLayer.html)

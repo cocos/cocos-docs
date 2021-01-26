@@ -10,8 +10,9 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 ## Spine 属性
 
-| 属性 |   功能说明
+| 属性 | 功能说明
 | --------------------- | ------------------ |
+| Color | 颜色设置
 | Skeleton Data         | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
 | Default Skin          | 选择默认的皮肤
 | Animation             | 当前播放的动画名称
@@ -22,7 +23,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 | Debug Slots           | 是否显示 slot 的 debug 信息
 | Debug Bones           | 是否显示骨骼的 debug 信息
 | Debug Mesh            | 是否显示 mesh 的 debug 信息
-| Use Tint              | 是否开启染色效果，默认关闭。（v2.0.9 中新增）
+| Use Tint              | 是否开启染色效果，默认关闭。
 | Sockets | 挂点系统，用来将某些外部节点挂到指定的骨骼关节上
 
 **注意**：当使用 Spine 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
