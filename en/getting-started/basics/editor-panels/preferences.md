@@ -26,7 +26,6 @@ This item is selected, Build log will be displayed directly in the process of pu
 Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project,
 you can also use the **Console** Log button in the upper left corner of the panel **Cocos Console Log** option to open the document.
 
-
 ### Spin step
 
 In the **Properties**, all numeric property has a set of UP and DOWN arrows next to the input box,
@@ -52,9 +51,7 @@ This category is used to set the default open mode for scripts and resources.
 ### <a name="script-editor"></a>External Script Editor
 
 You can use built-in Code Editor or any external text tool executable file, as in **Assets** opens when you double-click
-a script file. Also available in the drop-down menu select **Internal**,
-or click **Browse** button select the executable file of the preferred text editor.
-
+a script file. Also available in the drop-down menu select **Internal**, or click **Browse** button select the executable file of the preferred text editor.
 
 ### External Picture Editor
 
@@ -76,20 +73,17 @@ declarations and other built-in components engine module in the Web environment.
 
 ### JavaScript Engine Path
 
-In addition to using `engine`, you can also customize to https://github.com/cocos-creator/engine to clone or
-fork a copy of the engine to the local anywhere,
-then uncheck **Use Builtin JavaScript Engine** and set the **Use Builtin JavaScript Engine** path to
-your custom engines. You can use the editor to customize your engine.
+In addition to using `engine`, you can also customize to <https://github.com/cocos-creator/engine> to clone or fork a copy of the engine to the local anywhere, then uncheck **Use Builtin JavaScript Engine** and set the **Use Builtin JavaScript Engine** path to your custom engines. You can use the editor to customize your engine.
 
 ### Use Builtin Cocos2d-x Engine
 
-Whether to use Cocos Creator the built-in 'cocos2d-x' path as cocos2d-x c++ engine path.
-This engine is used for all **Build** native platform ( iOS, Android, Mac, Windows ) project to build and compile.
+Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all **Build** native platform (iOS, Android, Mac, Windows) project to build and compile.
 
 ### Cocos2d-x Path
 
 **Use Builtin Cocos2d-x Engine** cancel previous selections, you can manually specify the path cocos2d-x.
-Note cocos2d-x engine used here must be downloaded from the https://github.com/cocos-creator/cocos2d-x-lite or the warehouse's fork.
+
+Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/engine-native> or the warehouse's fork.
 
 ### NDK Path
 
@@ -102,7 +96,6 @@ Set the Android SDK Path, See [Setup Native Development Environment](../../../pu
 ### ANT Path
 
 Set the ANT Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
-
 
 ## Preview Run
 

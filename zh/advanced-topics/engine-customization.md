@@ -1,11 +1,11 @@
 # 引擎定制工作流程
 
-Cocos Creator 的引擎部分包括 JavaScript 和 C++ 两个部分。全部都在 github 上开源。地址在：
+Cocos Creator 的引擎部分包括 JavaScript 和 C++ 两个部分。全部都在 GitHub 上开源。地址在：
 
-- Creator-JS 引擎：https://github.com/cocos-creator/engine
-- Cocos2d-x 引擎：https://github.com/cocos-creator/cocos2d-x-lite
+- Creator-JS 引擎：<https://github.com/cocos-creator/engine>
+- Cocos2d-x 引擎：<https://github.com/cocos-creator/engine-native>
 
-我们建议您通过 github 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [github help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 github 相关工作流程请参考 [github help](https://help.github.com)。
+我们建议您通过 GitHub 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 GitHub 相关工作流程请参考 [GitHub help](https://help.github.com)。
 
 ## 定制 JavaScript 引擎
 
@@ -13,7 +13,7 @@ Cocos Creator 的引擎部分包括 JavaScript 和 C++ 两个部分。全部都�
 
 ### 获取 JS 引擎
 
-首先您需要从 github 上 clone Creator-JS 引擎的原始（地址见上文）或 fork 后的版本。根据不同的 Creator 版本，还需要 checkout 不同的分支，例如 Creator 1.1.2 对应的是引擎的 v1.1 分支。下载后存放到任意本地路径，在命令行中进入此路径。
+首先您需要从 GitHub 上 clone Creator-JS 引擎的原始（地址见上文）或 fork 后的版本。根据不同的 Creator 版本，还需要 checkout 不同的分支，例如 Creator 1.1.2 对应的是引擎的 v1.1 分支。下载后存放到任意本地路径，在命令行中进入此路径。
 
 ### 安装编译依赖
 
@@ -38,11 +38,9 @@ gulp build
 
 通过 **偏好设置** 面板的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#--8) 分页设置。设置使用您本地定制后的 JS 引擎路径。
 
-
 ## 定制 Cocos2d-x 引擎
 
-
-如果您需要定制渲染和原生接口相关的引擎功能，在修改 JS 引擎的基础上，还需要同步修改 Cocos2d-x 的 C++ 引擎。注意 Cocos Creator 使用的 Cocos2d-x 引擎是专门定制的，需要从上文中指定的 github 仓库下载。
+如果您需要定制渲染和原生接口相关的引擎功能，在修改 JS 引擎的基础上，还需要同步修改 Cocos2d-x 的 C++ 引擎。注意 Cocos Creator 使用的 Cocos2d-x 引擎是专门定制的，需要从上文中指定的 GitHub 仓库下载。
 
 和 JS 引擎类似，C++ 引擎在使用前也请确认当前所在分支，对于 Cocos Creator v1.2.0 版本请使用 `v1.2` 分支。
 
@@ -85,8 +83,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-`gulp sign-simulator` 是 1.7.0 中的新增命令，只有 Mac 需要运行。详见 [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention)。
-
+`gulp sign-simulator` 是 1.7.0 中的新增命令，只有 Mac 需要运行。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
 
 ### JSB 绑定流程
 
