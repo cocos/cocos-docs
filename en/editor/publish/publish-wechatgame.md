@@ -36,7 +36,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
     Following this process, a `wechatgame` folder will be generated in the project's **build** directory (the name of the folder is based on the **Build Task Name**), which already contains the configuration files `game.json` and `project.config.json` of the WeChat Mini Games environment.
 
-    ./publish-wechatgame/package.jpg)
+    ![package](./publish-wechatgame/package.jpg)
 
 ### Build Options
 
@@ -83,7 +83,7 @@ Specifically, developers need to do:
 4. Delete the **res** folder inside the local release package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat DevTools, check the `Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates` option in the **Local Settings**.
 
-    ./publish-wechatgame/detail.jpeg)
+    ![detail](./publish-wechatgame/detail.jpeg)
 
 > **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. Use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
 

@@ -64,7 +64,7 @@ There are two ways to generate a signature files:
 
 ## Run the rpk
 
-./vivo-mini-game/rpk.png)
+![rpk](./vivo-mini-game/rpk.png)
 
 There are three ways to run rpk on your phone:
 

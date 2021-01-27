@@ -112,7 +112,7 @@ If you want to see the key frame on the right side of the __Animation Editor__ t
 
 The dividing line between the node list and the time, and the dividing line between the __Property List__ and the time axis can be used to drag and change the layout, and can be freely adjusted to the layout effect suitable for editing by dragging.
 
-  ./animation-editor/layout.gif)
+  ![layout](./animation-editor/layout.gif)
 
 ### Change the currently selected time
 

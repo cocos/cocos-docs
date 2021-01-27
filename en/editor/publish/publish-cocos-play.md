@@ -14,7 +14,7 @@
 
 1. Use **Cocos Creator 3.0** to open a project. Select **Cocos Play** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
 
-    publish-cocos-play/build.png)
+    ![build](publish-cocos-play/build.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 

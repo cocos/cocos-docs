@@ -80,7 +80,7 @@ Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on yo
 
   > **Note**: if the OPPO Mini Game Debugger version is `v3.2.0` and above, you need to copy the mini-game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone. If there is no `games` directory, you need to create a new one. Please refer to the [Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
 
-./publish-oppo-mini-games/rpk_games.jpg)
+![rpk games](./publish-oppo-mini-games/rpk_games.jpg)
 
 ## Subpackage rpk
 

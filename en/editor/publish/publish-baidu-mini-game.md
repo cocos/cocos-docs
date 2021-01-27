@@ -20,21 +20,21 @@ Please refer to the [Baidu Mini Game Developer Documentation [cn]](https://smart
 - Download and install the **Baidu App** in the app store of your phone.
 - Log in to the [Baidu Smart Mini Program Platform [cn]](https://smartprogram.baidu.com/developer/index.html) and find **App ID**.
 
-  ./publish-baidugame/appid.png)
+  ![appid](./publish-baidugame/appid.png)
 
 ### Release process
 
 1. Select the **Baidu Mini Game** in the **Platform** of the **Build** panel, fill in the **appid**, and then click **Build**.
 
-    ![](./publish-baidugame/build.png)
+    ![build](./publish-baidugame/build.png)
 
 2. After a build is completed, a `baidu-mini-game` folder will be generated in the project's **build** directory (the name of the folder is based on the **Build Task Name**), which already contains the configuration files `game.json` and `project.swan.json` of the Baidu Mini Games environment.
 
-    ![](./publish-baidugame/package.png)
+    ![package](./publish-baidugame/package.png)
 
 3. Use the **Baidu DevTools** to open the `baidu-mini-game` folder to preview and debug the game. Please refer to the Baidu DevTools documentation for details. About how ​​to use Baidu DevTools, please refer to [Baidu DevTools Documentation](https://smartprogram.baidu.com/docs/game/tutorials/howto/dev/) for details.
 
-    ![](./publish-baidugame/preview.png)
+    ![preview](./publish-baidugame/preview.png)
 
     > **Note**: when previewing and debugging, if a prompt appears stating: `The current version of the developer tool can't publish mini program, please update to the latest devtools`. This means the **appid** filled in the **Build** panel is the **appid** of the **Baidu Smart Mini Program**, not the **appid** of the **Baidu Mini Game**, please re-apply for the **appid** of the **Baidu Mini Game**.
 
