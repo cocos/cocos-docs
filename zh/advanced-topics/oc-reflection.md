@@ -16,7 +16,7 @@ var result = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, 
 
 参数中的类名，只需要传入 Objective-C 中的类名即可，与 Java 不同，类名并不需要路径。比如你在工程底下新建一个类 `NativeOcClass`，只要你将它引入工程，那么它的类名就是 `NativeOcClass`，你并不需要传入它的路径。
 
-```
+```objc
 import <Foundation/Foundation.h>
 @interface NativeOcClass : NSObject
 +(BOOL)callNativeUIWithTitle:(NSString *) title andContent:(NSString *)content;
@@ -28,13 +28,13 @@ import <Foundation/Foundation.h>
 - JavaScript 到 Objective-C 的反射仅支持 Objective-C 中类的静态方法。
 - 方法名比较需要注意。我们需要传入完整的方法名，特别是当某个方法带有参数的时候，需要将它的 **:** 也带上。根据下面的例子，此时的方法名是 `callNativeUIWithTitle:andContent:`，不要漏掉了中间的 **:**。
 
-  ```
+  ```objc
   +(BOOL)callNativeUIWithTitle:(NSString *)title andContent:(NSString *)content;
   ```
 
 - 如果是没有参数的函数，那么就不需要 **:**。如下面代码中的方法名是 `callNativeWithReturnString`，由于没有参数，就不需要 **:**，跟 Objective-C 的 method 写法一致。
 
-  ```
+  ```objc
   +(NSString *)callNativeWithReturnString;
   ```
 
@@ -51,7 +51,7 @@ var ret = jsb.reflection.callStaticMethod("NativeOcClass",
 
 这里是这个方法在 Objective-C 的实现，可以看到是弹出了一个原生对话框。并把 `title` 和 `content` 设置成你传入的参数，并返回一个 boolean 类型的返回值。
 
-```
+```objc
 +(BOOL)callNativeUIWithTitle:(NSString *) title andContent:(NSString *)content{
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
   [alertView show];
@@ -83,7 +83,7 @@ Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
 - **bool 请使用 BOOL 类型**
 - 例如下面代码，传入两个浮点数，然后计算它们的合并返回，我们使用 NSNumber 作为参数类型，而不是 int 和 float。
 
-  ```
+  ```objc
   +(float) addTwoNumber:(NSNumber *)num1 and:(NSNumber *)num2{
       float result = [num1 floatValue]+[num2 floatValue];
       return result;
