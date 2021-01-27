@@ -14,8 +14,6 @@ ArmatureDisplay 组件可以对DragonBones（龙骨）资源进行渲染和播�
 | 属性 | 功能说明
 | --------------------- | ------------------ 
 | CustomMaterial        | 自定义材质
-| SrcBlendFactor        | 前景图像的源混合模式 
-| DstBlendFactor        | 背景图像混合模式，与上述属性一起，可以以不同的方式混合前景和背景内容，可以参考[glBlendFunc 工具](http://www.andersriggelsen.dk/glblendfunc.php)获得效果 
 | Color                 | 颜色设置
 | Dragon Asset          | 骨骼信息数据，包含了骨骼信息（绑定骨骼动作，slots，渲染顺序，attachments，皮肤等等）和动画，但不持有任何状态。<br>多个 ArmatureDisplay 可以共用相同的骨骼数据。<br/>可拖拽 DragonBones 导出的骨骼资源到这里
 | Dragon Atlas Asset    | 骨骼数据所需的 Atlas Texture 数据。可拖拽 DragonBones 导出的 Atlas 资源到这里
