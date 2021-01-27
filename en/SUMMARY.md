@@ -24,7 +24,6 @@
     - [Preferences](editor/preferences/index.md)
     - [Project Settings](editor/project/index.md)
         - [Physics Configs](editor/project/physics-configs.md)
-    - [Engine Customization Workflow](editor/engine-customization/engine-customization.md)
 
 - [Preview a Game](editor/preview/index.md)
     - [Previewing in Browser](editor/preview/browser.md)
@@ -274,7 +273,7 @@
         - [Profile](editor/extension/profile.md)
         - [Editor UI](editor/extension/ui.md)
 - [Advanced Topics](advanced-topics/index.md)
-    - [Engine Customization Workflow](editor/engine-customization/engine-customization.md)
+    - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
