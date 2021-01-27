@@ -1,6 +1,6 @@
 # DragonBones（龙骨）ArmatureDisplay 组件参考
 
-ArmatureDisplay 组件可以对DragonBones（龙骨）资源进行渲染和播放。
+ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播放。
 
 ![dragonbones](./dragonbones/properties.png)
 

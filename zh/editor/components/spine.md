@@ -1,6 +1,6 @@
 # Spine（骨骼动画）Skeleton 组件参考
 
-Spine（骨骼动画）Skeleton 组件支持 Spine 官方工具导出的数据格式，并对Spine（骨骼动画）资源进行渲染和播放。
+Spine（骨骼动画）Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spine（骨骼动画）资源进行渲染和播放。
 
 ![spine](./spine/spine-properties.png)
 
