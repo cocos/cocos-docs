@@ -136,7 +136,7 @@ Generally speaking, the engine does not promise security in multi-threaded at pr
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
 
-        //we must use runOnGLThread here
+        // We must use runOnGLThread here
         app.runOnGLThread(new Runnable() {
             @Override
             public void run() {

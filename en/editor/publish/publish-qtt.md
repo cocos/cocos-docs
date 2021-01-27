@@ -42,15 +42,17 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Game Version Number**
 
-  This item is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the Game Version Number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **Game Version Number** must be a positive integer.
+  This item is required. **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the Game Version Number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted.
+
+  > **Note**: the **Game Version Number** must be a positive integer.
 
 - **Resource Server Address**
 
   This option is optional and used to fill in the address of the remote server where the resources are stored.
 
-  - If this option is left blank, the `build/qtt-game/remote` folder in the release package directory will be packaged into the **cpk** package.
+    - If this option is left blank, the `build/qtt-game/remote` folder in the release package directory will be packaged into the **cpk** package.
 
-  - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
+    - If this option is filled in, the `remote` folder will not be packaged into the built **cpk** package. You need to manually upload the `remote` folder to the filled in Resource Server Address after build.
 
   Refer to the Resource Management section at the bottom of the document for more details.
 

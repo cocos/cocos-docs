@@ -172,7 +172,7 @@ assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (err
 });
 ```
 
-**Note**: If you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
+> **Note**: if you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
 
 When you load the Asset Bundle via the API, instead of loading all the resources in the Asset Bundle, the engine loads the Asset Bundle's **resource manifest** and **all the scripts** it contains.<br>
 When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that can be used to load the various resources in the Asset Bundle.
@@ -292,7 +292,7 @@ After loading the resources, all the resources are temporarily cached in `assetM
     });
     ```
 
-**Note**: When releasing a resource, Creator will automatically handle the resource's dependent resources, and you don't need to manage their dependency resources.
+> **Note**: when releasing a resource, Creator will automatically handle the resource's dependent resources, and you don't need to manage their dependency resources.
 
 For more information about releasing resources, see [Release of Resources](release-manager.md) documentation.
 
@@ -305,7 +305,7 @@ let bundle = assetManager.getBundle('bundle1');
 assetManager.removeBundle(bundle);
 ```
 
-**Note**: When you destroy an Asset Bundle, the resources already loaded in the bundle are not released. If you need to release it, use the Asset Bundle's `release` / `releaseAll` method first.
+> **Note**: when you destroy an Asset Bundle, the resources already loaded in the bundle are not released. If you need to release it, use the Asset Bundle's `release`/`releaseAll` method first.
 
 ```typescript
 let bundle = assetManager.getBundle('bundle1');

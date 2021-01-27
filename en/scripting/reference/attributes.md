@@ -7,7 +7,7 @@ Attributes are used to attach metadata to defined properties, similar to Decorat
 | Attribute Name | Description | Type | Default | Remarks |
 | :--- | :--- | :--- | :--- | :--- |
 | type | Restrict the data type of the property | (Any) | undefined | See [type attribute](../ccclass.md#type-parameter) |
-| visible | Show or hide in the **Inspector** panel | boolean | (Note 1) | See [visible attribute](../ccclass.md#visible-parameter) |
+| visible | Show or hide in the **Inspector** panel | boolean | <b id="f1">[1]</b> | See [visible attribute](../ccclass.md#visible-parameter) |
 | displayName | Show as another name in the **Inspector** panel | string | undefined | - |
 | tooltip | Add a Tooltip for a property in the **Inspector** panel | string | undefined | - |
 | multiline | Use multi-line text boxes in the **Inspector** panel | boolean | false | - |
@@ -37,4 +37,4 @@ The following attributes cannot be used with the `get` method.
 | override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../ccclass.md#override-parameters) |
 | animatable | Whether this property can be modified by the animation editor | boolean | undefined | - |
 
-> **Note 1**: The default value of visible depends on the property name. When the property name starts with an underscore **`_`**, it is hidden by default, otherwise it is shown by default.
+> <b id="f1">[1]</b>: The default value of visible depends on the property name. When the property name starts with an underscore `_`, it is hidden by default, otherwise it is shown by default.

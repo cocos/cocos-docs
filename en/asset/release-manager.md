@@ -65,7 +65,7 @@ Since the resource management module was upgraded in v2.4, the release interface
 
 2. When releasing a resource, you only need to focus on the resource itself and the engine will automatically release its dependent resources instead of fetching them manually via `getDependsRecursively`.
 
-**Note**: The `release` series interfaces (Such as `release`, `releaseAsset`, `releaseAll`) will release the resource directly without a release check, only resource's dependent resources will have a release check. So when the `release` series interfaces are called explicitly, you can be sure that the resource itself will always be released.
+> **Note**: the `release` series interfaces (such as `release`, `releaseAsset`, `releaseAll`) will release the resource directly without a release check, only resource's dependent resources will have a release check. So when the `release` series interfaces are called explicitly, you can be sure that the resource itself will always be released.
 
 ## Reference Count Statistics
 

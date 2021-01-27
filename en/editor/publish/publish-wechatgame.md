@@ -156,7 +156,7 @@ The solution is to reduce the pressure on the main package by configuring the su
     });
     ```
 
-> **Note**:
+> **Notes**:
 > 1. The WeChat Separation Engine plugin currently only supports __js__ mode.
 > 2. WebAssembly required WeChat v7.0.17 and above.
 > 3. The WeChat WebAssembly debugging base library needs to be v2.12.0 and above.
