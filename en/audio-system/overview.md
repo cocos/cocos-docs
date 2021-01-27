@@ -10,7 +10,7 @@ All audio assets are imported into the editor in the format of __audioClip__ ass
 2. Select the empty node and click __Add Component -> Components -> AudioSource__ at the bottom of the __Properties__ to add the AudioSource component.
 3. Drag the audio resources in __Assets__ to the __Clip__ of the AudioSource component, as follows:
 
-    ![](audio/audiocilp.gif)
+    ![audioclip](audio/audiocilp.gif)
 
 4. Then set the other parameter of the AudioSource component as needed, for the details of parameter can refer [Audiosource Component Reference](./audiosource.md).
 
@@ -36,7 +36,7 @@ export class AudioController extends Component {
 
 Then add the corresponding custom component to the editor's __Properties__. Selecting the corresponding node and add the custom component by clicking __Add Component-> Custom script -> User Script__ at the bottom of the __Properties__. Then drag and drop the node with the AudioSource component onto __Audio Source__ in the custom component. As shown below:
 
-![](audio/audiocontroller.png)
+![audiocontroller](audio/audiocontroller.png)
 
 ## Effect Playing
 
@@ -90,5 +90,5 @@ export class AudioController extends Component {
 
 ## Related Links
 
-[Audio Asset](../asset/audio.md)  
+[Audio Asset](../asset/audio.md)
 [AudioSource Component](./audiosource.md)

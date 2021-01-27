@@ -6,14 +6,14 @@ The __Label__ component is one of the key rendering components. You need to lear
 
 Like other renderer components, the layout of the Label component is also based on the size information (`contentSize`) possessed by the [UITransform](../editor/ui-transform.md) component, that is, the range specified by the Bounding Box.
 
-![](label-layout/label_in_boundingbox.png)
+![label_in_boundingbox](label-layout/label_in_boundingbox.png)
 
 What is shown in the picture above is the display effect of labels rendered by Label in the blue bounding box. The following properties in Label determines the position of labels in the bounding box:
 
 - `Horizontal Align`: the horizontal alignment of labels in the bounding box, which can be chosen from 3 positions: Left, Right, Center.
 - `Vertical Align`: the vertical alignment of labels in the bounding box, which can be chosen from 3 positions: Top, Bottom, Center.
 
-  ![](label-layout/horizontal-vertical-align.png)
+  ![horizontal-vertical-align](label-layout/horizontal-vertical-align.png)
 
 In the figure above, the horizontal alignment position is set to `Right`, and the vertical alignment position is set to `Bottom`. It can be seen that the label appears at the bottom of the Bounding Box and is aligned to the right. The developer can modify the two properties above to make other combinations, labels will appear on the corresponding position of the blue bounding box according to the settings.
 
@@ -30,15 +30,15 @@ __Relation of label size and line height__:
 
 - If the values of `Font Size` and `Line Height` are the same, labels will occupy the height of the most part of one line.
 
-  ![](label-layout/font_equal_line_height.png)
+  ![font_equal_line_height](label-layout/font_equal_line_height.png)
 
 - If the value of `Font Size` is less than that of `Line Height`, space between multiple lines of labels will be enlarged
 
-  ![](label-layout/font_smaller.png)
+  ![font_smaller](label-layout/font_smaller.png)
 
 - If the value of `Font Size` is larger than that of `Line Height`, space between multiple lines of labels will be narrowed between multiple lines of labels. Overlapping of labels may appear.
 
-  ![](label-layout/font_bigger.png)
+  ![font_bigger](label-layout/font_bigger.png)
 
 ## Overflow
 
@@ -48,13 +48,13 @@ __NONE__ mode will automatically fix the size of the bounding box according to t
 
 ### Clamp
 
-![](label-layout/clamp.png)
+![clamp](label-layout/clamp.png)
 
 When in Clamp mode, labels will firstly be rendered according to the requirements of alignment type and size, but the parts exceeding the bounding box will be concealed (clamped).
 
 ### Auto Shrink
 
-![](label-layout/shrink.png)
+![shrink](label-layout/shrink.png)
 
 When in auto shrink mode, if labels exceed the bounding box when being rendered according to the original size, the size of the labels will be automatically shrink to display all the labels.
 
@@ -62,7 +62,7 @@ When in auto shrink mode, if labels exceed the bounding box when being rendered 
 
 ### Resize Height
 
-![](label-layout/resize-height.png)
+![resize-height](label-layout/resize-height.png)
 
 Resize height mode will make sure the bounding box of the labels fits the height of the labels, no matter the quantity of the labels' lines. This mode is suitable for displaying paragraphs of labels that don't have the same amount of content. An infinite amount of label content can be displayed in the arbitrary UI field when using this mode together with the [ScrollView](../components/scrollview.md) component.
 
@@ -76,13 +76,13 @@ The `Enable Wrap Text` property of the Label component can switch the auto wrap 
 
 When clamp mode opens auto wrap, labels will be wrapped in the allowable scale of the bounding box in priority. Only when not all the words can be displayed after being wrapped will clamp mode function.
 
-![](label-layout/clamp_wrap.png)
+![clamp_wrap](label-layout/clamp_wrap.png)
 
 The following two pictures are taken when `Clamp` + `Enable Wrap Text` are opened, the difference of which is the different width of the bounding boxes of the labels;
 
-![](label-layout/clamp_wrap1.png)
+![clamp_wrap 1](label-layout/clamp_wrap1.png)
 
-![](label-layout/clamp_wrap2.png)
+![clamp_wrap 2](label-layout/clamp_wrap2.png)
 
 When the width of the bounding box is changing from the left picture to the right picture, labels will be continuously adjusted and wrapped. In the end, the clamped display will appear due to the insufficient height of the bounding box.
 
@@ -90,7 +90,7 @@ When the width of the bounding box is changing from the left picture to the righ
 
 Similar to clamp mode, labels will be wrapped in priority when labels exceed the width of the bounding box in auto shrink mode. Only when the width and length of the bounding box are exceeded will the labels be automatically shrink to adapt to the bounding box.
 
-![](label-layout/shrink_wrap.png)
+![shrink_wrap](label-layout/shrink_wrap.png)
 
 ### Enable Wrap Text of Chinese
 
@@ -102,15 +102,15 @@ The anchor point of a label node and the alignment mode of labels in the boundin
 
 For example, if you want the bounding box to extend downward, you need to set the `y` property of `Anchor` as `1`. As shown below:
 
-![](label-layout/anchor1.png)
+![anchor1](label-layout/anchor1.png)
 
-![](label-layout/anchor2.png)
+![anchor2](label-layout/anchor2.png)
 
 ## Widget
 
 Add a __Widget__ component to the node with the Label component, then you can make various layouts for label nodes relative to their parent nodes.
 
-![](label-layout/widget.png)
+![widget](label-layout/widget.png)
 
 In the above picture, two Label child nodes are added to the background node. After respectively adding the Widget component to them, set the `Right` property of the Widget for the labels on the left side as `50%`, and set the `Left` property of the Widget for the labels on the right side as `60%`, then the multi-column layout of labels in the picture above can be realized.
 

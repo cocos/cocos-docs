@@ -22,17 +22,17 @@ If you only need to customize the engine functionality of the web version of the
 
 You can modify the engine based on the one built in Cocos Creator 3.0 if you just need to make some adjustments based on the current version. Click the **App** button at the top right of the Creator editor, and then copy the built-in **engine** directory to another local path.
 
-![](engine-customization/open-engine.png)
+![open-engine](engine-customization/open-engine.png)
 
 To get the latest official version in development, fork or clone the original version of the JavaScript engine from GitHub (see above), and switch the corresponding branch of the JavaScript engine according to the Creator version before using it. Once downloaded, store it to any local path.
 
-![](engine-customization/download-repo-js.png)
+![download-repo-js](engine-customization/download-repo-js.png)
 
 ### 1.2 Modify the JS Engine Path
 
 Set the path of the JavaScript engine to be customized via the **Engine Manager** tab of **Cocos Creator -> Preferences**.
 
-![](engine-customization/customJSEngine.png)
+![customJSEngine](engine-customization/customJSEngine.png)
 
 ### 1.3 Install Compilation Dependencies
 
@@ -57,11 +57,11 @@ npm run build
 
 The build process can also happen from within Cocos Creator by selecting **Developer -> Compile the Engine**.
 
-![](engine-customization/build.png)
+![build](engine-customization/build.png)
 
 This command will generate a `bin` folder under the engine directory and compile the engine source code under the `bin` directory.
 
-![](engine-customization/bin.png)
+![bin](engine-customization/bin.png)
 
 ## 2 Customize the Cocos2d-x-lite Engine
 
@@ -94,7 +94,7 @@ gulp init
 
 Set the path to the Cocos2d-x-lite engine to be customized via the **Engine Manager** tab of **Cocos Creator -> Preferences**.
 
-![](engine-customization/custom2DXEngine.png)
+![custom2DXEngine](engine-customization/custom2DXEngine.png)
 
 ### 2.4 Modify the Engine
 

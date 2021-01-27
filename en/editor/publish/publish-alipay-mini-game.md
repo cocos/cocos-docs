@@ -16,7 +16,7 @@
 
 **First**, use **Cocos Creator 3.0** to open the project that needs to be released. Select **Alipay Mini Game** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
 
-![](./publish-alipay-mini-game/build_option.png)
+![build_option](./publish-alipay-mini-game/build_option.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
@@ -26,11 +26,11 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 **Second**, after the build is completed, click the **folder icon** button below the alipay-mini-game build task to open the `build` release path. If the Build Task Name is `alipay-mini-game`, you can see that the **Alipay Mini Game's** project folder `alipay-mini-game` is generated in the `build` directory, which has included Alipay Mini Game environment configuration file `game.json`.
 
-![](./publish-alipay-mini-game/build.png)
+![build](./publish-alipay-mini-game/build.png)
 
 **Third**, use **Alipay Mini Program Studio** to open **alipay-mini-game** directory. Next, you can open **alipay mini game project** to preview and debug game content.
 
-![](./publish-alipay-mini-game/preview.png)
+![preview](./publish-alipay-mini-game/preview.png)
 
 ## Resource Management for Alipay Mini Game Environment
 

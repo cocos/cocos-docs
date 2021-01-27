@@ -20,7 +20,7 @@ Please refer to the [Baidu Mini Game Developer Documentation [cn]](https://smart
 - Download and install the **Baidu App** in the app store of your phone.
 - Log in to the [Baidu Smart Mini Program Platform [cn]](https://smartprogram.baidu.com/developer/index.html) and find **App ID**.
 
-  ![](./publish-baidugame/appid.png)
+  ./publish-baidugame/appid.png)
 
 ### Release process
 
