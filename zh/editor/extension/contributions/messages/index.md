@@ -84,6 +84,6 @@ Cocos Creator 内，所有的交互都是通过 [消息系统](../../panel/index
 
   `request` 方法返回一个 promise 对象，这个 promise 会接收消息处理后返回的数据。
 
-- `Editor.Message.broadcast(`${pkgName}:${actionName}`, ...args);`
+- `Editor.Message.broadcast(`{pkgName}:{actionName}`, ...args);`
 
   `broadcast` 方法只发送，并且发送给所有监听对应消息的功能扩展。

@@ -275,7 +275,7 @@
         - [快捷键](editor/extension/contributions/shortcuts/index.md)
         - [扩展主菜单](editor/extension/contributions/menu/index.md)
         - [扩展场景](editor/extension/scene/index.md)
-       -[场景脚本](editor/extension/scene/script.md)
+            - [场景脚本](editor/extension/scene/script.md)
     - [基础功能](editor/extension/basic/index.md)
         - [插件系统](editor/extension/basic/package.md)
         - [消息系统](editor/extension/basic/messages.md)

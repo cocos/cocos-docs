@@ -108,20 +108,3 @@ Editor.Profile.setProject(name: string, key: string, value: any, type?: "default
 await Editor.Profile.setProject('hello-world', 'test.a', 1); // 1
 await Editor.Profile.setProject('hello-world', 'test.a', 1, 'project'); // undefined
 ```
-
-## 配置存放的地方
-
-编辑器配置存放的地方
-
-| 层级    | 路径                                                         |
-| ------- | ------------------------------------------------------------ |
-| local   | `${projectPath}/profiles/v2/packages/${extensionName}.json`  |
-| global  | `C:/Users/Administrator/.CocosCreator/profiles/v2/packages/${extensionName}.json` |
-| default | `${extensionPath}/package.json`                              |
-
-项目配置存放的地方
-
-| 层级    | 路径                                                        |
-| ------- | ----------------------------------------------------------- |
-| local   | `${projectPath}/settings/v2/packages/${extensionName}.json` |
-| default | `${extensionPath}/package.json`                             |
