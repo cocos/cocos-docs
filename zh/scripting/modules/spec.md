@@ -65,19 +65,19 @@ Cocos Creator 支持三种模块说明符：
 
 Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定的文件路径是绝对路径，因此很少使用。
 
-> 值得注意的是，在 Node.js 中，一种访问 Node.js 内置模块的方法是通过 `node:` 协议的 URL，例如：`node:fs`。Cocos Creator 会将所有对 Node.js 内置模块的访问请求解析为 `node:` URL 请求，例如 `import fs from 'fs'` 中的 `'fs'` 将解析为 `node:fs`。但 Cocos Creator 并不支持 Node.js 内置模块，也就是说并不支持 `node:` 协议。因此会产生加载错误。当使用 NPM 中的模块时，可能会遇到该错误。
+> 值得注意的是，在 Node.js 中，一种访问 Node.js 内置模块的方法是通过 `node:` 协议的 URL，例如：`node:fs`。Cocos Creator 会将所有对 Node.js 内置模块的访问请求解析为 `node:` URL 请求，例如 `import fs from 'fs'` 中的 `'fs'` 将解析为 `node:fs`。但 Cocos Creator 并不支持 Node.js 内置模块，也就是说并不支持 `node:` 协议。因此会产生加载错误。当使用 npm 中的模块时，可能会遇到该错误。
 
 ### 裸说明符
 
 目前为止，对于裸说明符，Cocos Creator 将应用 Node.js 模块解析算法。
 
-> 这就包括了对 NPM 模块的解析。
+> 这就包括了对 npm 模块的解析。
 
 一般来说，裸说明符具有以下两种形式：
 
-- `'foo'` 解析为 NPM 包 `foo` 的入口模块。
+- `'foo'` 解析为 npm 包 `foo` 的入口模块。
 
-- `'foo/bar'` 将解析为 NPM 包 `foo` 中子路径 `./bar` 下的模块。
+- `'foo/bar'` 将解析为 npm 包 `foo` 中子路径 `./bar` 下的模块。
 
 裸说明符的具体解析规则可参考 [Node.js 模块解析算法](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification)。
 
@@ -122,9 +122,9 @@ import './foo'; // 正确：解析为 `foo/index.ts` 模块
 
 ### 未支持 `browser` 字段
 
-有些 NPM 包的清单文件 `package.json` 中记录了 `browser` 字段，例如 [JSZip](https://github.com/Stuk/jszip)。`browser` 字段用于指定当该包在非 Node.js 环境下特有的模块解析方法，它可使得包中的某些专用于 Node.js 的模块被替换为能够在 Web 中使用的模块。虽然 Cocos Creator **不支持该字段**，但如果对 NPM 包有编辑的能力，Cocos Creator 推荐使用 [条件化导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 和 [子路径导入](https://nodejs.org/api/packages.html#packages_subpath_imports) 来代替 `browser` 字段。
+有些 npm 包的清单文件 `package.json` 中记录了 `browser` 字段，例如 [JSZip](https://github.com/Stuk/jszip)。`browser` 字段用于指定当该包在非 Node.js 环境下特有的模块解析方法，它可使得包中的某些专用于 Node.js 的模块被替换为能够在 Web 中使用的模块。虽然 Cocos Creator **不支持该字段**，但如果对 npm 包有编辑的能力，Cocos Creator 推荐使用 [条件化导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 和 [子路径导入](https://nodejs.org/api/packages.html#packages_subpath_imports) 来代替 `browser` 字段。
 
-否则，可以以非 NPM 的方式使用目标库。例如，将目标库中专为非 Node.js 环境制定的模块复制至项目中，再通过相对路径来导入。
+否则，可以以非 npm 的方式使用目标库。例如，将目标库中专为非 Node.js 环境制定的模块复制至项目中，再通过相对路径来导入。
 
 ## CommonJS 模块解析
 

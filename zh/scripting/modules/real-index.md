@@ -4,8 +4,6 @@
 
 - [引擎模块](./engine.md)
 
-- [示例：使用 NPM 包 protobufjs](./example-protobufjs.md)
-
-- [示例：使用游戏联机对战引擎 MGOBE](./example-mgobe.md)
+- [示例：使用 npm 包 protobufjs](./example-protobufjs.md)
 
 最后，本章节以较为详细地给出了在 Cocos Creator 编辑器中使用模块的 [详细规范](./spec.md)。
