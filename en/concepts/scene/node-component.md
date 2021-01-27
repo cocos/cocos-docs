@@ -24,13 +24,13 @@ The quickest way to get a node with a specific function is to use the **Create N
 
 Notice the newly added Sphere node in the **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the **Sphere** component. Try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Also, note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../ui-system/components/engine/index.md).
 
-For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the **Hierarchy** panel, please refer to the[Hierarchy Panel](../../editor/hierarchy/index.md) documentation.
+For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the **Hierarchy** panel, please refer to the [Hierarchy Panel](../../editor/hierarchy/index.md) documentation.
 
 To create nodes dynamically in a script, refer to the [Create and Destroy Nodes](../../scripting/create-destroy.md) documentation.
 
 ## Components
 
-What are components and how do they relate nods?
+What are components and how do they relate nodes?
 
 Select the `Sphere` node, created above, and notice what the **Inspector** panel shows:
 
@@ -46,11 +46,9 @@ The `Materials` property is used to specify the material used for rendering. You
 
 In addition to adding components manually in the editor, they can also be added via scripts, for more details see the [Component creation and destruction](../../scripting/component.md) documentation.
 
-> **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
-
 ### Effect of Node Properties on Components
 
-Once the node and **MeshRenderer** component are combined, the rendering of the mesh resources can be controlled by modifying the node properties. YThe node can also be adjust according to the properties marked by the red line in the figure below, notice that the rotation and scaling of the model have changed.
+Once the node and **MeshRenderer** component are combined, the rendering of the mesh resources can be controlled by modifying the node properties. The node can also be adjust according to the properties marked by the red line in the figure below, notice that the rotation and scaling of the model have changed.
 
 **Before adjustment**:
 
@@ -77,3 +75,5 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 > **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
 
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
+
+> **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
