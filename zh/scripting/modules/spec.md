@@ -1,4 +1,4 @@
-# 模块
+# 模块规范
 
 在 Cocos Creator 中，所有 JavaScript 代码都以模块的形式组织，这包括：
 
