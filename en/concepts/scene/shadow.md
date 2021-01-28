@@ -77,7 +77,7 @@ The following describes all the properties of the panel:
 | **Type**            | Choose shade type |
 | **ShadowColor**     | Color value of the resulting shadow |
 | **Pcf**             | Set the anti-aliasing level of the shadow edge |
-| **AutoAdapt**       | Enable autoAdapt adaptive shadow calculation technology    |
+| **AutoAdapt**       | Enable automatic calculation of the range of shadow generation    |
 | **Near**            | Set the near clipping plane of the main light source shadow camera |
 | **Far**             | Set the far clipping plane of the main light source shadow camera |
 | **OrthoSize**       | Set the ortho viewport size of the main light source shadow camera |
