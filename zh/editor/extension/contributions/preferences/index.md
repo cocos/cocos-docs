@@ -6,6 +6,10 @@
 
 ## 偏好设置的面板说明
 
+我们通过顶部菜单 **Cocos Creator -> 偏好设置** 打开偏好设置面板。
+
+![preferences](../../img/basic/preferences-tool.png)
+
 偏好设置面板分成左右两侧：
 
 左侧显示的是提供配置项目的功能插件的名字。
