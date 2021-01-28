@@ -84,7 +84,7 @@
   - 参数 `assetInfo` Object
 
     - `displayName` String - 资源用于显示的名字
-    - `extends` (可选) String[]; 继承类
+    - `extends` (可选) String[] - 继承类
     - `importer` String - 导入器名字
     - `isDirectory` Boolean - 是否是文件夹
     - `instantiation` (可选) String - 虚拟资源可以实例化成实体的话，会带上这个扩展名
