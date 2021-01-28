@@ -71,7 +71,7 @@ The way to distribute all the animation data used at runtime to each joint textu
 
 The joint texture uploaded by the GPU on the bottom layer has been globally automatically batched and reused. The upper layer data can currently be combined with all the sub-skin models controlled by the same joint animation component by using the `BatchedSkinningModelComponent`:
 
-![](batched-skinning-model-component.png)
+![batched-skinning-model-component](batched-skinning-model-component.png)
 
 The batch version of the effect is relatively complicated to write, but it can basically be based on the common effects used by the sub-materials, adding some relatively direct preprocessing and interface changes. The built-in assets in the editor (util/batched-unlit) provide a The integrated version of builtin-unlit can be referenced.
 

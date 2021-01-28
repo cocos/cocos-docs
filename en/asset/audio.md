@@ -12,8 +12,21 @@ Currently, the engine's audio system can support the following formats:
   - `.mp4`
   - `.m4a`
 
-## Use of sound assets
+## Loading Modes of Audio Resources on the Web Platform
 
-After adding an `AudioSource` to a `Node`, drag the imported audio asset from the __Asset Manager__ to the `Clip` of the node `AudioSource` to control the sound asset:
 
-![](audio/audiocilp.gif)
+Audio resources on the Web platform are special because the Web standard supports loading audio resources in two different ways as follows:
+- Web Audio: provides a relatively more modern audio control interface, and the audio resource is cached in the engine as an audio buffer. The advantage of this approach is good compatibility and robust.
+
+- DOM Audio: plays the sound resource by generating a standard audio element, which is cached. When using the standard audio element to play audio resources, some compatibility issues may be encountered in some browsers. For example, browsers on iOS do not support setting volume, and all volume related properties will not be available.
+
+
+The engine currently tries to load audio resources as Web Audio by default. If it detects that the browser does not support loading Web Audio, it will fall back to the DOM Audio mode.
+
+If the project needs to force using DOM Audio mode, use the following to load the audio resources dynamically:
+
+```typescript
+assetManager.loadRemote('http://example.com/background.mp3', {
+    audioLoadMode: AudioClip.AudioType.DOM_AUDIO,
+}, callback);
+```

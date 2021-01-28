@@ -677,7 +677,7 @@ onStartButtonClicked() {
 
 ![remove capsule](./images/remove-capsule.png)
 
-此时会发现模型有些暗，可以在 Cocos 节点下加个聚光灯（Spot Light），以突出它锃光瓦亮的脑门。
+此时会发现模型有些暗，可以在 Cocos 节点下加个聚光灯（Spotlight），以突出它锃光瓦亮的脑门。
 
 ![add cocos light](./images/cocos-add-light.png)
 

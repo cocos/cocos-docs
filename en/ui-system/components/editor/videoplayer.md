@@ -139,7 +139,7 @@ You can display a UI upon a video in two steps:
 
 1. Make sure the **ENABLE_TRANSPARENT_CANVAS** checkbox is checked. It can be found in the **Macro Config** page in **Project Settings**
 
-    ![](videoplayer/ENABLE_TRANSPARENT_CANVAS.png)
+    ![ENABLE_TRANSPARENT_CANVAS](videoplayer/ENABLE_TRANSPARENT_CANVAS.png)
 
 2. Check the **stayOnBottom** property on the **VideoPlayer** in the **Properties** panel.
 

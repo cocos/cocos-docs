@@ -42,7 +42,7 @@ The polygon collision component also has a **Regenerate Points** function. This 
 
 Enable editing for a **Circle Collider** will show the circle editing area like below:
 
-![](image/edit-circle-collider.png)
+![edit-circle-collider](image/edit-circle-collider.png)
 
 Left mouse button dragging the displayed dots modifies the radius of **circular collision components**. Dragging an area inside a circle can drag a circular area.
 

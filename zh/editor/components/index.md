@@ -2,7 +2,7 @@
 
 Cocos Creator 中包括以下功能组件：
 
-- [AudioSource](../../audio-system/overview.md)
+- [AudioSource](../../audio-system/audiosource.md)
 - [MeshRenderer](../../engine/renderable/model-component.md)
 - [SkinnedMeshRenderer](../../engine/animation/skeletal-animation.md)
 - [Camera](camera-component.md)

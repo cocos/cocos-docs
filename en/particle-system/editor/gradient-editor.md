@@ -1,7 +1,7 @@
 ## Gradient Editor
 The gradient editor can set the color of a certain property in the particle system that changes with time. The interface of the gradient editor is as follows:
 
-![](img/gradient_editor.png)
+![gradient_editor](img/gradient_editor.png)
 
 The gradient editor can perform the following operations:
 

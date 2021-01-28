@@ -31,7 +31,7 @@ In the editor, the grouping format of the collision matrix is __{index, name}__,
 
 By clicking the __+__ button you can add a new group.
 
-> **Note**: Both __index__ and __name__ cannot be empty and cannot be repeated with existing items; after adding, the group cannot be deleted, only the name of the group can be modified.
+> **Note**: both __index__ and __name__ cannot be empty and cannot be repeated with existing items; after adding, the group cannot be deleted, only the name of the group can be modified.
 
 ### How to configure
 

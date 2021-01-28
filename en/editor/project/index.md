@@ -165,7 +165,7 @@ Example:
 
     ![Layers-node](./index/layers-node.png)
 
-    ![Layers-camera](./index/layers-camera.png) 
+    ![Layers-camera](./index/layers-camera.png)
 
 For more instructions, please refer to [Camera Component introduction](./../components/camera-component.md);
 

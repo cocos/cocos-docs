@@ -1,5 +1,6 @@
 ## Trail Module
-![](particle-system/trail_module.png)
+
+![trail_module](particle-system/trail_module.png)
 
 Property | Role
 ---|---
@@ -15,4 +16,4 @@ Property | Role
 **ColorOverTrail** | The color of the trail color changes gradually with the length of the trailing itself.
 **ColorOvertime** | Color gradient of trail color over time.
 
-![](particle-system/trail.gif)
+![trail](particle-system/trail.gif)
