@@ -12,8 +12,8 @@
 
 JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，在回调函数中关联 CPP 对象。其实主要包含如下两种类型：
 
-- 注册 JS 函数（包含全局函数，类构造函数、类析构函数、类成员函数，类静态成员函数），绑定一个 CPP 回调
-- 注册 JS 对象的属性读写访问器，分别绑定读与写的 CPP 回调
+* 注册 JS 函数（包含全局函数，类构造函数、类析构函数、类成员函数，类静态成员函数），绑定一个 CPP 回调
+* 注册 JS 对象的属性读写访问器，分别绑定读与写的 CPP 回调
 
 如何做到抽象层开销最小而且暴露统一的 API 供上层使用？
 
@@ -67,23 +67,23 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 ```c++
 bool foo(se::State& s)
 {
-    ...
-    ...
+	...
+	...
 }
 SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 ```
 
 开发者编写完回调函数后，记住使用 `SE_BIND_XXX` 系列的宏对回调函数进行包装。目前提供了如下几个宏：
 
-- **SE\_BIND\_PROP_GET**：包装一个 JS 对象属性读取的回调函数
-- **SE\_BIND\_PROP_SET**：包装一个 JS 对象属性写入的回调函数
-- **SE\_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
-- **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
-- **SE\_BIND_CTOR**：包装一个 JS 构造函数
-- **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用  `cc.Class.extend` 继承 Native 绑定类
-- **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
-- **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
-- **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串
+* **SE\_BIND\_PROP_GET**：包装一个 JS 对象属性读取的回调函数
+* **SE\_BIND\_PROP_SET**：包装一个 JS 对象属性写入的回调函数
+* **SE\_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
+* **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
+* **SE\_BIND_CTOR**：包装一个 JS 构造函数
+* **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用  `cc.Class.extend` 继承 Native 绑定类
+* **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
+* **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
+* **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串
 
 ## API
 
@@ -131,7 +131,7 @@ namespace se {
 }
 ```
 
-如果 `se::Value` 中保存基础数据类型，比如 `number`、`string` 和 `boolean`，其内部是直接存储一份值副本。<br>
+如果 `se::Value` 中保存基础数据类型，比如 `number`，`string`，`boolean`，其内部是直接存储一份值副本。<br>
 `object` 的存储比较特殊，是通过 `se::Object*` 对 JS 对象的弱引用 (weak reference)。
 
 #### se::Object
@@ -230,14 +230,14 @@ __对象类型__
 
 此外，se::Object 目前支持以下几种对象的手动创建：
 
-- Plain Object：通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
-- Array Object：通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
-- Uint8 Typed Array Object：通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
-- Array Buffer Object：通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
+* Plain Object：通过 se::Object::createPlainObject 创建，类似 JS 中的 `var a = {};`
+* Array Object：通过 se::Object::createArrayObject 创建，类似 JS 中的 `var a = [];`
+* Uint8 Typed Array Object：通过 se::Object::createTypedArray 创建，类似 JS 中的 `var a = new Uint8Array(buffer);`
+* Array Buffer Object：通过 se::Object::createArrayBufferObject，类似 JS 中的 `var a = new ArrayBuffer(len);`
 
 __手动创建对象的释放__
 
-se::Object::createXXX 方法与 cocos2d-x 中的 create 方法不同，抽象层是完全独立的一个模块，并不依赖与 cocos2d-x 的 autorelease 机制。虽然 se::Object 也是继承引用计数类，但开发者需要处理 **手动创建出来的对象** 的释放。
+se::Object::createXXX 方法与 cocos2d-x 中的 create 方法不同，抽象层是完全独立的一个模块，并不依赖与 cocos2d-x 的 autorelease 机制。虽然 se::Object 也是继承引用计数类，但开发者需要处理**手动创建出来的对象**的释放。
 
 ```c++
 se::Object* obj = se::Object::createPlainObject();
@@ -248,7 +248,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 #### se::HandleObject （推荐的管理手动创建对象的辅助类）
 
-- 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 decRef
+* 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 decRef
 
     ```c++
     bool foo()
@@ -268,58 +268,59 @@ obj->decRef(); // 释放引用，避免内存泄露
 
   就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
 
-- JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
+* JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
 
-为了解决上述两个问题，抽象层定义了一个辅助管理 **手动创建对象** 的类型，即 `se::HandleObject`。
+为了解决上述两个问题，抽象层定义了一个辅助管理**手动创建对象**的类型，即 `se::HandleObject`。
 
 `se::HandleObject` 是一个辅助类，用于更加简单地管理手动创建的 se::Object 对象的释放、root 和 unroot 操作。
 以下两种代码写法是等价的，使用 se::HandleObject 的代码量明显少很多，而且更加安全。
 
 ```c++
-{
-    se::HandleObject obj(se::Object::createPlainObject());
-    obj->setProperty(...);
-    otherObject->setProperty("foo", se::Value(obj));
-}
+    {
+        se::HandleObject obj(se::Object::createPlainObject());
+        obj->setProperty(...);
+        otherObject->setProperty("foo", se::Value(obj));
+    }
+ 
+	等价于：
+
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        obj->root(); // 在手动创建完对象后立马 root，防止对象被 GC
+
+        obj->setProperty(...);
+        otherObject->setProperty("foo", se::Value(obj));
+        
+        obj->unroot(); // 当对象被使用完后，调用 unroot
+        obj->decRef(); // 引用计数减一，避免内存泄露
+    }
 ```
 
-等价于：
+注意：
 
-```c++
-{
-    se::Object* obj = se::Object::createPlainObject();
-    obj->root(); // 在手动创建完对象后立马 root，防止对象被 GC
+* 不要尝试使用 se::HandleObject 创建一个 native 与 JS 的绑定对象，在 JS 控制 CPP 的模式中，绑定对象的释放会被抽象层自动处理，在 CPP 控制 JS 的模式中，前一章节中已经有描述了。
+* se::HandleObject 对象只能够在栈上被分配，而且栈上构造的时候必须传入一个 se::Object 指针。
 
-    obj->setProperty(...);
-    otherObject->setProperty("foo", se::Value(obj));
-    
-    obj->unroot(); // 当对象被使用完后，调用 unroot
-    obj->decRef(); // 引用计数减一，避免内存泄露
-}
-```
-
-> **注意**：
->
-> 1. - 不要尝试使用 `se::HandleObject` 创建一个 native 与 JS 的绑定对象，在 JS 控制 CPP 的模式中，绑定对象的释放会被抽象层自动处理，在 CPP 控制 JS 的模式中，前一章节中已经有描述了。
-> 2. `se::HandleObject` 对象只能够在栈上被分配，而且栈上构造的时候必须传入一个 `se::Object` 指针。
 
 #### se::Class
 
-`se::Class` 用于暴露 CPP 类到 JS 中，它会在 JS 中创建一个对应名称的 `constructor function`。
+se::Class 用于暴露 CPP 类到 JS 中，它会在 JS 中创建一个对应名称的 constructor function。
 
 它有如下方法：
 
-- `static se::Class* create(className, obj, parentProto, ctor)`：创建一个 Class，注册成功后，在 JS 层中可以通过`var xxx = new SomeClass();`的方式创建一个对象
-- `bool defineFunction(name, func)`：定义 Class 中的成员函数
-- `bool defineProperty(name, getter, setter)`：定义 Class 属性读写器
-- `bool defineStaticFunction(name, func)`：定义 Class 的静态成员函数，可通过 `SomeClass.foo()` 这种非 new 的方式访问，与类实例对象无关
-- `bool defineStaticProperty(name, getter, setter)`：定义 Class 的静态属性读写器，可通过 SomeClass.propertyA 直接读写，与类实例对象无关
-- `bool defineFinalizeFunction(func)`：定义 JS 对象被 GC 后的 CPP 回调
-- `bool install()`：注册此类到 JS 虚拟机中
-- `Object* getProto()`：获取注册到 JS 中的类（其实是 JS 的 constructor）的 prototype 对象，类似 `function Foo(){}` 的 `Foo.prototype`
-- `const char* getName() const`：获取当前 Class 的名称
+* `static se::Class* create(className, obj, parentProto, ctor)`：创建一个 Class，注册成功后，在 JS 层中可以通过`var xxx = new SomeClass();`的方式创建一个对象
+* `bool defineFunction(name, func)`：定义 Class 中的成员函数
+* `bool defineProperty(name, getter, setter)`：定义 Class 属性读写器
+* `bool defineStaticFunction(name, func)`：定义 Class 的静态成员函数，可通过 SomeClass.foo() 这种非 new 的方式访问，与类实例对象无关
+* `bool defineStaticProperty(name, getter, setter)`：定义 Class 的静态属性读写器，可通过 SomeClass.propertyA 直接读写，与类实例对象无关
+* `bool defineFinalizeFunction(func)`：定义 JS 对象被 GC 后的 CPP 回调
+* `bool install()`：注册此类到 JS 虚拟机中
+* `Object* getProto()`：获取注册到 JS 中的类（其实是 JS 的 constructor）的 prototype 对象，类似 function Foo(){}的 Foo.prototype
+* `const char* getName() const`：获取当前 Class 的名称
 
-> **注意**：Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。
+**注意：**
+
+Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。
 
 更具体 API 说明可以翻看 API 文档或者代码注释
 
@@ -371,7 +372,7 @@ SE_BIND_FUNC(foo)
 
 不依赖。
 
-ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos 引擎。开发者完整可以通过 copy、paste 把 `cocos/scripting/js-bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
+ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos 引擎。开发者完整可以通过 copy、paste 把 cocos/scripting/js-bindings/jswrapper 下的所有抽象层源码拷贝到其他项目中直接使用。
 
 ## 手动绑定
 
@@ -382,14 +383,14 @@ static bool Foo_balabala(se::State& s)
 {
 	const auto& args = s.args();
 	int argc = (int)args.size();
-
+	
 	if (argc >= 2) // 这里约定参数个数必须大于等于 2，否则抛出错误到 JS 层且返回 false
 	{
 		...
 		...
 		return true;
 	}
-
+	
 	SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", argc, 2);
 	return false;
 }
@@ -884,7 +885,8 @@ bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
 bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
 ```
 
-辅助转换函数不属于`Script Engine Wrapper`抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
+辅助转换函数不属于`Script Engine Wrapper`抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。
+每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
 
 以上接口，直接根据接口名称即可知道具体的用法，接口中第一个参数为输入，第二个参数为输出参数。用法如下：
 
@@ -902,8 +904,8 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
-- `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
-- `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
+* `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
+* `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
 
 更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
 
@@ -917,7 +919,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 其他字段与 1.6 一致。
 
-具体可以参考引擎目录下的 `tools/tojs/cocos2dx.ini` 等 ini 配置。
+具体可以参考引擎目录下的 tools/tojs/cocos2dx.ini 等 ini 配置。
 
 ### 理解 ini 文件中每个字段的意义
 
