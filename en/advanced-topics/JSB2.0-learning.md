@@ -280,26 +280,26 @@ In order to solve the above problems, the abstraction layer defines a type that 
 The following two code snippets are equivalent, the use of `se::HandleObject` significantly smaller amount of code, and more secure.
 
 ```c++
-    {
-        se::HandleObject obj(se::Object::createPlainObject());
-        obj->setProperty(...);
-        otherObject->setProperty("foo", se::Value(obj));
-    }
+{
+    se::HandleObject obj(se::Object::createPlainObject());
+    obj->setProperty(...);
+    otherObject->setProperty("foo", se::Value(obj));
+}
 ```
 
 Is equal to:
 
 ```c++
-    {
-        se::Object* obj = se::Object::createPlainObject();
-        obj->root(); // Root the object immediatelly to prevent the object being garabge collected.
+{
+    se::Object* obj = se::Object::createPlainObject();
+    obj->root(); // Root the object immediatelly to prevent the object being garabge collected.
 
-        obj->setProperty(...);
-        otherObject->setProperty("foo", se::Value(obj));
-        
-        obj->unroot(); // Call unroot while the object is needed anymore.
-        obj->decRef(); // Decrease the reference count to avoid memory leak.
-    }
+    obj->setProperty(...);
+    otherObject->setProperty("foo", se::Value(obj));
+    
+    obj->unroot(); // Call unroot while the object is needed anymore.
+    obj->decRef(); // Decrease the reference count to avoid memory leak.
+}
 ```
 
 > **NOTES**:

@@ -7,7 +7,7 @@
 - [Debuging JavaScript on Native Platforms](debug-jsb.md)
 - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [Publish to Google Play Instant](publish-android-instant.md)
-- [Publish to Youku Mini Games](publish-alipay-mini-games.md)
+- [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)
 - [Publish to Cocos Play](publish-cocosplay.md)
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
