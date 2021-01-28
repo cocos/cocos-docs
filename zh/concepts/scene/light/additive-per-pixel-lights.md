@@ -8,7 +8,7 @@
 
 ![using Light](usingLight.png)
 
-在看看 Status 下的 Draw Call:
+场景搭建完成后，选择编辑器上面的浏览器预览，可以在左下角看到 Draw Call：
 
 ![Draw Call](drawCall.png)
 
