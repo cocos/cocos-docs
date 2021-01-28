@@ -110,7 +110,7 @@
     - `enable` (可选) Boolean - 是否可用，不可用会有置灰样式
     - `visible` (可选) Boolean - 是否显示
     - `accelerator` (可选) String - 显示快捷键
-    - `checked` (可选) Boolean - type = 'checkbox' | 'radio' 时是否选中
+    - `checked` (可选) Boolean - 当 type 为 'checkbox'/'radio' 时是否选中
     - 更多属性可参考 [electron menu-item](https://www.electronjs.org/docs/api/menu-item) 的数据格式。
 
 实现扩展的效果图：
