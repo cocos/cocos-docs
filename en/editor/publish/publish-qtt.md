@@ -1,5 +1,7 @@
 # Publish to QTT Mini Games
 
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+
 ## Environment Configuration
 
 - Download [QTT APP](https://game.qutoutiao.net/doc/index.html#/doc/debug_in_app) and install it on your Android device (Android Phone 6.0 or above is recommended).

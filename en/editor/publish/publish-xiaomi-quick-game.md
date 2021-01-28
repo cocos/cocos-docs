@@ -1,5 +1,7 @@
 # Publish to Xiaomi Quick Games
 
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+
 __Cocos Creator__ officially supports the release of games to the **Xiaomi Quick Games**.
 
 ## Environment Configuration
