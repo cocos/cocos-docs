@@ -6,9 +6,9 @@ DragonBones 骨骼动画资源是由 [DragonBones 编辑器](http://dragonbones.
 
 DragonBones 骨骼动画资源包括：
 
-- .json/.dbbin 骨骼数据
-- .json 图集数据
-- .png 图集纹理
+- `.json`/`.dbbin` 骨骼数据
+- `.json` 图集数据
+- `.png` 图集纹理
 
   ![DragonBones](dragonbones/import.png)
 
@@ -17,16 +17,16 @@ DragonBones 骨骼动画资源包括：
 在场景中使用 DragonBones 骨骼动画资源需要两个步骤：
 
 1. 创建节点并添加 DragonBones 组件：
-   
+
     从 **资源管理器** 里将骨骼动画资源拖动到已创建 DragonBones 组件的 Dragon Asset 属性中：
 
-      ![DragonBones](dragonbones/set_asset.png) 
+    ![DragonBones](dragonbones/set_asset.png)
 
 2. 为 DragonBones 组件设置图集数据
 
     从 **资源管理器** 里将图集数据拖动到 DragonBones 组件的 Dragon Atlas Asset 属性中：
 
-      ![DragonBones](dragonbones/set_atlas.png)
+    ![DragonBones](dragonbones/set_atlas.png)
 
 ## 在项目中的存放
 

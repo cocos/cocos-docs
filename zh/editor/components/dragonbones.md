@@ -12,7 +12,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 ## DragonBones 属性
 
 | 属性 | 功能说明
-| :-------- | :---------- | 
+| :-------- | :---------- |
 | CustomMaterial        | 自定义材质
 | Color                 | 颜色设置
 | Dragon Asset          | 骨骼信息数据，包含了骨骼信息（绑定骨骼动作，slots，渲染顺序，attachments，皮肤等等）和动画，但不持有任何状态。<br>多个 ArmatureDisplay 可以共用相同的骨骼数据。<br/>可拖拽 DragonBones 导出的骨骼资源到这里
@@ -26,7 +26,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 | DebugBones            | 是否显示 bone 的 debug 信息
 | Sockets               | 挂点系统，用来将某些外部节点挂到指定的骨骼关节上
 
-**注意**：当使用 ArmatureDisplay 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
+> **注意**：当使用 ArmatureDisplay 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
 
 ## DragonBones 换装
 
@@ -47,7 +47,6 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
     ```ts
     import { _decorator, Component, dragonBones } from 'cc';
     const { ccclass, property } = _decorator;
-
 
     @ccclass('ReplaceSlotDisplay')
     export class ReplaceSlotDisplay extends Component {

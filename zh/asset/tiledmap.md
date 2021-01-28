@@ -6,17 +6,17 @@
 
 地图所需资源有：
 
-- .tmx 地图数据
-- .png 图集纹理
-- .tsx tileset 数据配置文件（部分 tmx 文件需要）
+- `.tmx` 地图数据
+- `.png` 图集纹理
+- `.tsx` tileset 数据配置文件（部分 tmx 文件需要）
 
     ![tiledmap](tiledmap/import.png)
 
 ## 创建瓦片图资源
 
-- 从 **资源管理器** 里将地图资源拖动到已创建 TiledMap 组件的 Tmx File 属性中：
+从 **资源管理器** 里将地图资源拖动到已创建 TiledMap 组件的 Tmx File 属性中：
 
-    ![tiledmap](tiledmap/set_asset.png)
+![tiledmap](tiledmap/set_asset.png)
 
 ## 在项目中的存放
 

@@ -23,7 +23,6 @@ Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftw
 
 ## 创建骨骼动画
 
-创建骨骼动画资源：
 从 **资源管理器** 中将骨骼动画资源拖动到 **属性检查器** Spine 组件的 SkeletonData 属性中：
-  
-  ![spine](spine/set_skeleton.png)
+
+![spine](spine/set_skeleton.png)
