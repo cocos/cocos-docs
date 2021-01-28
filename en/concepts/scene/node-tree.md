@@ -12,15 +12,15 @@ The complete logical relationship between nodes established by the operations of
 
 Let's use a simple game scenario to see what a node tree is. The following picture includes a background image, a main character (the blob), a title, a springboard, diamonds and a button to start the game.
 
-![](node-tree/rolling-ball.png)
+![rolling-ball](node-tree/rolling-ball.png)
 
 Each visual element is a node. Usually we do not lay all nodes flat on the scene, but organize them into a node tree according to a certain classification and order (e.g. according to our own preferences), e.g.
 
-![](node-tree/node-tree.png)
+![node-tree](node-tree/node-tree.png)
 
 We call those displayed in the upper level as parent nodes and those displayed in the lower level as children. In the **Hierarchy** panel, the node tree in the above figure would look like this:
 
-![](node-tree/in_hierarchy.png)
+![in_hierarchy](node-tree/in_hierarchy.png)
 
 Because Creator 3.0 UI nodes require any parent node to have at least one **UITransform** component, if it does not comply with the rules, a Canvas node will be automatically added as its parent, so the node tree in the above figure puts all UI nodes under the Canvas node. Then we create parent nodes according to the category and put nodes of the same category under one parent node to build the node tree.
 

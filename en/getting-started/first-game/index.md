@@ -6,7 +6,7 @@ Let's follow a guided tutorial to make a magical game named **Mind Your Step**. 
 
 You can try out the completed the game [here](https://gameall3d.github.io/MindYourStep_Tutorial/index.html).
 
-![](images/cocos-play.gif)
+![cocos-play](images/cocos-play.gif)
 
 ## New Project
 

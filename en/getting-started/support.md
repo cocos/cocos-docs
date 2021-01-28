@@ -2,7 +2,7 @@
 
 ## More tutorials
 
-More engine dynamics, quality tutorials, and interviews can be viewed at [![](support/twitter.png)](https://twitter.com/cocos2dx) or [![](support/facebook.png)](https://www.facebook.com/cocos2dx/).
+More engine dynamics, quality tutorials, and interviews can be viewed at [![twitter](support/twitter.png)](https://twitter.com/cocos2dx) or [![facebook](support/facebook.png)](https://www.facebook.com/cocos2dx/).
 
 ## Demo and example projects
 

@@ -1,6 +1,6 @@
 # AudioSource Component
 
-![](audio/audiosource.png)
+![audiosource](audio/audiosource.png)
 
 ## Properties
 
