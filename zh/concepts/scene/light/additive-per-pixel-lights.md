@@ -1,6 +1,6 @@
 # 基于多 Pass 的多光源支持
 
-首先我们使用 Cocos 中的默认的光照材质。
+下面以 Creator 中默认的光照材质 `default-material.mtl` 为例，介绍如何实现基于多 Pass 的多光源支持。
 
 ![default-material](default-material.png)
 
