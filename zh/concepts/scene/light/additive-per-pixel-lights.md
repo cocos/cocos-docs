@@ -4,7 +4,7 @@
 
 ![default-material](default-material.png)
 
-就如题图所示，我们在场景中放置了一个球体，然后打上一盏平行光，在打上两盏聚光灯，放置在球形的周围。
+首先在 **层级管理器** 中新建一个 **Sphere 球体** 节点，然后继续添加一个平行光，两个聚光灯，将它们设置环绕在球体周围，如下图所示：
 
 ![using Light](usingLight.png)
 
