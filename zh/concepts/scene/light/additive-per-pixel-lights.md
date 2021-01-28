@@ -1,14 +1,14 @@
 # 基于多 Pass 的多光源支持
 
-首先我们使用 Cocos 中的默认的光照材质。
+下面以 Creator 中默认的光照材质 `default-material.mtl` 为例，介绍如何实现基于多 Pass 的多光源支持。
 
 ![default-material](default-material.png)
 
-就如题图所示，我们在场景中放置了一个球体，然后打上一盏平行光，在打上两盏聚光灯，放置在球形的周围。
+首先在 **层级管理器** 中新建一个 **Sphere 球体** 节点，然后继续添加一个平行光，两个聚光灯，将它们设置环绕在球体周围，如下图所示：
 
 ![using Light](usingLight.png)
 
-在看看 Status 下的 Draw Call:
+场景搭建完成后，选择编辑器上面的浏览器预览，可以在左下角看到 Draw Call：
 
 ![Draw Call](drawCall.png)
 
