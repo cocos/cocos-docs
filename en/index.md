@@ -14,7 +14,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 - **As of v2.3.0**, Cocos Creator supports publishing to [QTT Mini Games](publish/publish-qutoutiao-mini-games.md).
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
-- **As of v2.1.4**, Cocos Creator supports publishing to [Youku Mini Games](publish/publish-alipay-mini-games.md).
+- **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
 - **As of v2.1**, Cocos Creator introduced 3D support. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
 - **As of v2.0.10**, Cocos Creator supports publishing to [Xiaomi Quick Games](publish/publish-xiaomi-quick-games.md) and [Cocos Play](publish/publish-cocosplay.md).
 - **As of v2.0.7**, Cocos Creator supports publishing to [Huawei Quick Games](publish/publish-huawei-quick-games.md).

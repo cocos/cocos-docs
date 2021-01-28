@@ -7,7 +7,7 @@
 - [原生平台 JavaScript 调试](debug-jsb.md)
 - [发布到 HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [发布到 Google Play Instant](publish-android-instant.md)
-- [发布到优酷小游戏](publish-alipay-mini-games.md)
+- [发布到支付宝小游戏](publish-alipay-mini-games.md)
 - [发布到字节跳动小游戏](publish-bytedance.md)
     - [字节跳动小游戏开放数据域](publish-bytedance-sub-domain.md)
 - [发布到趣头条小游戏](publish-qutoutiao-mini-games.md)

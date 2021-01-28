@@ -1,6 +1,6 @@
-# Publish to Youku Mini Games
+# Publish to Alipay Mini Games
 
-> Starting from v2.4.4, Alipay Mini Game has supported Youku.
+Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games is officially supported.
 
 ## Environment Configuration
 
@@ -36,7 +36,7 @@ The specific filling rules for the relevant options configuration are as follows
 
 - **Resource Server Address**
 
-  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after build. 
+  This option is optional and used to fill in the address of the remote server where the resources are stored. You need to manually upload the **remote** folder from the release package directory to the filled resource server after build.
 
 ### Run the Preview
 
@@ -54,7 +54,7 @@ The specific filling rules for the relevant options configuration are as follows
 
 Cocos Creator already helps developers with downloading, caching and version management of remote resources. The specific implementation logic and operation steps are similar to the WeChat Mini game. Please refer to the [Resource Management for WeChat Mini Game](./publish-wechatgame.md#resource-management-for-the-wechat-mini-games) documentation for details.
 
-**Note**: Currently, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
+> **Note**: currently, Alipay Mini Game only supports loading resources from remote server via **HTTPS** on the physical device, so the resource file must be placed on the **HTTPS** server, otherwise the resource loading failure will occur.
 
 ## Limitations of the Alipay Mini Games
 
