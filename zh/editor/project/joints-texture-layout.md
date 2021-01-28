@@ -6,7 +6,7 @@
 
 > 注意：骨骼贴图布局设置面板提供的，本质上是运行时的“内存分配指导规则”。对于指定的骨骼和动画资源，会保证按照指定规则分配，但如果运行时用到了并未指定规则的资源，还是会回到全局复用的自动分配模式上去。
 
-下面我们以一个[具体场景](https://github.com/cocos-creator/example-3d/blob/master/demo02/assets/scenes/instanced-skinning.scene)为例，展示设置流程和实际作用。
+下面我们以[show-case](https://github.com/cocos-creator/example-3d/blob/v3.0/show-cases/assets/scenes/instanced-skinning.scene)工程的 **instanced-skinning** 场景为例，展示设置流程和实际作用。
 
 下图中展示了一个示例场景，有多个来自同一模型的实例，同时各播放完全不同的动画。这些模型使用实时计算动画模式，并没有开启 instancing。可以看到，当前场景加上 UI，总 drawcall 为 60，instance 计数为 0。这个状态将作为后面改动的 baseline，作为对照。
 
@@ -26,7 +26,7 @@
 
 出于展示目的，我们可以在布局面板故意将每个动画都单独放到一张贴图上，来看看最后的渲染效果：
 
-通过菜单 `Panel -> Animation -> Joint Texture Layout` 打开骨骼贴图布局设置面板：
+通过菜单 **Panel -> Animation -> Joint Texture Layout** 打开骨骼贴图布局设置面板：
 
 ![Panel](./index/joint_texture_layout_new.png)
 

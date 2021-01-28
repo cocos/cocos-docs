@@ -16,19 +16,19 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 2. Set the **WeChatGame App Path** in **Cocos Creator -> Preferences -> [Native Develop](../../editor/preferences/index.md)**.
 
-    ![](./publish-wechatgame/preference.png)
+    ![preference](./publish-wechatgame/preference.png)
 
 3. Log in to the WeChat public platform and find the appid
 
-    ![](./publish-wechatgame/appid.jpeg)
+    ![appid](./publish-wechatgame/appid.jpeg)
 
 4. Select the **WeChat Game** in the **Platform** of the **Build** panel, fill in the `mini game appid`, and then click **Build**
 
-    ![](./publish-wechatgame/build.png)
+    ![build](./publish-wechatgame/build.png)
 
 5. Click **Play** to open the **WeChat DevTools**
 
-    ![](./publish-wechatgame/tool.jpeg)
+    ![tool](./publish-wechatgame/tool.jpeg)
 
     > **Note**: the **WeChat DevTools**, if it has not been run on a Mac before, will show an error that states: `Please ensure that the IDE has been properly installed`. You need to manually open the **WeChat DevTools** once, before you can click **Run**.
 
@@ -36,7 +36,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
     Following this process, a `wechatgame` folder will be generated in the project's **build** directory (the name of the folder is based on the **Build Task Name**), which already contains the configuration files `game.json` and `project.config.json` of the WeChat Mini Games environment.
 
-    ![](./publish-wechatgame/package.jpg)
+    ![package](./publish-wechatgame/package.jpg)
 
 ### Build Options
 
@@ -83,7 +83,7 @@ Specifically, developers need to do:
 4. Delete the **res** folder inside the local release package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat DevTools, check the `Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates` option in the **Local Settings**.
 
-    ![](./publish-wechatgame/detail.jpeg)
+    ![detail](./publish-wechatgame/detail.jpeg)
 
 > **Note**: if the cache asset exceeds the WeChat environment limit, you need to manually clear the asset. Use `wx.downloader.cleanAllAssets()` and `wx.downloader.cleanOldAssets()` to clear the cache in **WeChat Mini Games**. The former clears all the cache assets in the cache directory, please use it carefully. While the latter clears cache assets that are currently unused in the cache directory in the application.
 
@@ -156,7 +156,7 @@ The solution is to reduce the pressure on the main package by configuring the su
     });
     ```
 
-> **Note**:
+> **Notes**:
 > 1. The WeChat Separation Engine plugin currently only supports __js__ mode.
 > 2. WebAssembly required WeChat v7.0.17 and above.
 > 3. The WeChat WebAssembly debugging base library needs to be v2.12.0 and above.

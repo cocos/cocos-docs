@@ -51,7 +51,7 @@ If the SkyIllumination property is set **too low**, the environment map of the s
 
 If the environment map of the skybox is already displayed correctly in the **Scene** panel but still does not take effect after the project is run, you need to change the **ClearFlags** of the **Camera** component to **SKYBOX**:
 
-![](skybox/skybox-camera.png)
+![skybox-camera](skybox/skybox-camera.png)
 
 ### By Setting the CubeMap
 
@@ -59,21 +59,20 @@ To use a CubeMap as the environment map for the skybox, you need to create a Cub
 
 1. Select all the six prepared texture assets in the **Assets** panel, and then set the **Type** property of these texture assets to **texture** in the **Inspector** panel, and click the green checkbox in the upper right corner.
 
-   ![](skybox/cubemap-texture-type.png)
+   ![cubemap-texture-type](skybox/cubemap-texture-type.png)
 
 2. Create a new CubeMap asset. Select the folder where you want to store CubeMap in the **Assets** panel, click the **+** button in the upper left corner, and then select **Cubemap**. Or you can right-click the folder where you want to store the CubeMap, and select **New -> Cubemap**.
 
    ![create Cubemap](skybox/create-cubemap.png)
 
-3.  Drag and drop the six images you just set as texture type into the corresponding property box of the CubeMap, and click the green tick button on the top right then you are done.
+3. Drag and drop the six images you just set as texture type into the corresponding property box of the CubeMap, and click the green tick button on the top right then you are done.
 
     ![Set CubeMap](skybox/cubemap-properties.png)
 
     > **Notes**:
-    > - The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
-    > - The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
+    > 1. The property boxes in CubeMap that do not have a texture asset yet will be populated using the default asset.
+    > 2. The six property boxes in CubeMap **do not use the same texture**, otherwise they will not be displayed properly for some platforms.
 
 4. Finally, drag the finished CubeMap asset into the **Envmap** property box of the **Skybox** component, and you are done with the CubeMap application.
 
     ![CubeMap](skybox/cubemap-show.png)
- 

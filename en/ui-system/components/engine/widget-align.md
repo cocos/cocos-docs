@@ -17,7 +17,7 @@ For elements with relatively small areas like a pause menu, gold coins in the ga
 
 After setting up the Widget component like this, no matter what the actual screen resolution is, this node element will remain at the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 40px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
 
-**__Note__**: The alignment distance provided by the Widget component refers to the border of the bounding box that is located in the same direction as the child node and parent node. For example, `Left` is ticked on in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's (i.e., Canvas node, whose bounding box is constantly the same size as the screen) bounding box is the set value 40px.
+> **__Note__**: the alignment distance provided by the Widget component refers to the border of the bounding box that is located in the same direction as the child node and parent node. For example, `Left` is ticked on in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's (i.e., Canvas node, whose bounding box is constantly the same size as the screen) bounding box is the set value 40px.
 
 ## Nest Alignment Elements
 

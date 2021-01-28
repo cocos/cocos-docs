@@ -12,7 +12,7 @@ The complete logical relationship between nodes established by the operations of
 
 Using a simple game scenario demonstrates what a node tree is. The following picture includes a background image, a main character (the blob), a title, a springboard, diamonds and a button to start the game.
 
-![rolling ball](node-tree/rolling-ball.png)
+![rolling-ball](node-tree/rolling-ball.png)
 
 Each visual element is a node. Usually all nodes are not laid flat on the scene, but rather, organized into a node tree according to a certain classification and order (e.g. according to our own preferences). Example:
 

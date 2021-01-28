@@ -72,7 +72,7 @@ For the general build options for each platform, please refer to [General Build 
 
 After the relevant parameters of the **Build** panel are set, click **Build**. When the build is complete, click the **folder icon** button below the corresponding build task to open the build release path, you can see that a directory with the same name as the **Build Task Name** is generated in the default release path `build` directory, which is the exported OPPO Mini Game project directory and **rpk**, **rpk** package is in the `dist` directory.
 
-![](./publish-oppo-mini-games/package.png)
+![package](./publish-oppo-mini-games/package.png)
 
 **3. Run the built rpk to the phone**
 
@@ -80,7 +80,7 @@ Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on yo
 
   > **Note**: if the OPPO Mini Game Debugger version is `v3.2.0` and above, you need to copy the mini-game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone. If there is no `games` directory, you need to create a new one. Please refer to the [Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
 
-![](./publish-oppo-mini-games/rpk_games.jpg)
+![rpk games](./publish-oppo-mini-games/rpk_games.jpg)
 
 ## Subpackage rpk
 
@@ -94,7 +94,7 @@ After the build is complete, the subpackage directory is in the `dist` directory
 
 Then switch to the **Package Load** section of OPPO **Mini Game Debugger**, click **Refresh** at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk**.
 
-![](./publish-oppo-mini-games/run_subpackage.jpg)
+![run_subpackage](./publish-oppo-mini-games/run_subpackage.jpg)
 
 Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phones, and non-subpackaged rpk needs to be copied to the `/sdcard/games` directory of OPPO phones, both of which cannot be mixed.
 

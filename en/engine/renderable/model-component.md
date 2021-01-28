@@ -45,7 +45,7 @@ In addition, inside each group, the instanced attributes supports custom additio
 
 ### VB-merging batching
 
-__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches. <sup id="a1">[1](#f1)</sup>.
+__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches <sup id="a1">[1](#f1)</sup>.
 
 Operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. In addition, it is necessary to remind that the number of __draw calls__ is not as low as possible. Although, it is important to note, minimizing the number of draw calls to the extreme doesn't necessarily lead to the best (or even good) performance <sup id="a2">[2](#f2)</sup>. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
 

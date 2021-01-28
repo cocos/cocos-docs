@@ -39,7 +39,7 @@ To adjust the fog effect to the right consistency, it is best to adjust both the
 
 ### Exponential and Exponential Squared
 
-![](. /fog/exp-properties.png)
+![exp-properties](. /fog/exp-properties.png)
 
 | Property | Description |
 | :---| :--- |
@@ -67,7 +67,7 @@ An example effect of Exponential Fog is shown below.
 
 Layered Fog is parallel to the horizontal plane and has a specific height. The height of the fog can be determined by setting the top of the Layered Fog at any position in the vertical direction of the scene world coordinate system.
 
-![](./fog/layered-properties.png)
+![layered-properties](./fog/layered-properties.png)
 
 | Property | Description |
 | :---| :--- |

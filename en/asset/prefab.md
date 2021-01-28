@@ -6,7 +6,7 @@ It is necessary to use __Prefabs__ for __Nodes__ that will be repeatedly generat
 
 After editing the __Node__ in the __Scene__, drag the __Nodes__ directly from the __Hierarchy__ panel to the __Assets__ panel to complete the creation of the __Prefab__. After the creation is complete, the original __Node__ will automatically become a __Prefab Node__, showing in __green__.
 
-![](prefab/create-prefab.gif)
+![create-prefab](prefab/create-prefab.gif)
 
 ## Using Prefabs
 
@@ -14,13 +14,13 @@ Drag a __Node__ from the __Assets__ panel to the __Hierarchy__ panel or the __Sc
 
 In the __Scene__, the __Prefab Node__ objects data source comes from the deserialization of the __Prefab__ assets. They are completely independent of each other, multiples can coexist, and there is no data association with the __Prefab__ assets. __Assets__ and __Nodes__ are changed separately unless the `Restore from assets` or` Update to assets` (described below) is used. Otherwise, they will not affect each other.
 
-![](prefab/use-prefab.gif)
+![use-prefab](prefab/use-prefab.gif)
 
 ## Editing Prefab Nodes in a Scene
 
 In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are several buttons that can be clicked at the top of the __Inspector__ panel. If you move the mouse up, there will be a text prompt for these functions. The following image describes the functions of the buttons in the red frame area:
 
-![](prefab/edit-prefab.png)
+![edit-prefab](prefab/edit-prefab.png)
 
 __First__, revert to __normal node__. __Prefab Nodes__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is available in the top-level menu `Edit`.
 
@@ -40,7 +40,7 @@ __Prefab Nodes__ in the __Inspector__ panel render __green__ to indicate normal 
 
 __Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. You can edit the __Prefab Assets__ in the __Editor__. After editing, click __Save Prefab__ in the __Scene editor__ to save the edited __Prefab Assets__. __Next__, click __Close__ to return to the __Scene__ editing mode.
 
-![](prefab/edit-prefab.gif)
+![edit-prefab](prefab/edit-prefab.gif)
 
 There is no automatic synchronization between __Prefab Nodes__ and __Assets__. Manual synchronization is required.
 

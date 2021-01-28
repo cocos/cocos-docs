@@ -53,7 +53,7 @@ When building for the vivo Mini Game, the configuration of the Asset Bundle will
 > 1. Starting with **1051** version, **Quick App & vivo Mini Game Debugger** supports the subpackage loading of vivo Mini Game. Versions lower than 1051 do not support subpackage loading, but they are also compatible. If a subpackage is configured in the editor's **Properties** panel, it will not affect the normal operation of the game. Please refer to the [vivo Mini Game Subpackage Loading -- Runtime Compatibility [cn]](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e8%bf%90%e8%a1%8c%e6%97%b6%e5%85%bc%e5%ae%b9) documentation for details.
 > 2. Unlike other mini game platforms, the Asset Bundle folder for the vivo Mini Game will be generated in the `src` directory of release package `vivo-mini-game` directory after the project is built.
 >
->     ![](./subpackage/vivo-subpackages.png)
+>     ![vivo-subpackages](./subpackage/vivo-subpackages.png)
 
 ### Subpackage Load Packet Size Limit
 

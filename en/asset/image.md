@@ -6,13 +6,13 @@ __Image__ assets are generally created using image processing software (such as 
 
 After importing images into __Cocos Creator__, they can be seen in **Assets** panel.
 
-![](texture/imported.png)
+![imported](texture/imported.png)
 
 ## Types of image assets
 
 On the right side of the **Inspector** panel, you can choose different ways to use the image asset. There are currently 4 ways to use it for developers, as shown below:
 
-![](texture/type-change.png)
+![type-change](texture/type-change.png)
 
 The details of each type of image asset are described in detail in the following sections:
   - The raw type is the original picture type. It has no effect and users do not need to use it.
@@ -23,5 +23,5 @@ The details of each type of image asset are described in detail in the following
 
 In the **Assets** panel, a __triangle icon__ similar to a folder will be displayed on the left of the image. __Click__ to expand to see its __sub-assets__. After each image is imported, the editor will automatically create a **selected type** asset of the same name. __Select__ the asset itself to __change the asset type__, __set the image flip__, and __set the quality__ of the image on each platform. For detailed descriptions of __sub-assets__, please refer to the [Sub-asset Properties Panel](texture.md#Sub-AssetTexture2D'sPropertyPanel) documentation.
 
-![](texture/image-info.png)
-![](texture/texture-info.png)
+![image-info](texture/image-info.png)
+![texture-info](texture/texture-info.png)
