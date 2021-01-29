@@ -7,26 +7,29 @@ To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](../../..
 ## Pre-baked Skeletal Animation System
 
 The dominant purpose of this system is performance, and some sacrifices in expressiveness are also considered acceptable. __Cocos Creator__ has made many low-level optimizations in a targeted manner. The current runtime process is roughly as follows:
-  * All animation data will be pre-sampled in advance according to the specified frame rate and baked onto a global-managed joint texture atlas.
-  * Depending on whether the operating platform supports floating-point textures, the corresponding texture format will be RGBA32F, or automatically fallback to RGBA8 if not available (The rendering results should be identical, it is only the fail-safe approach for really low-end devices, and shouldn't be of any concern for game developers).
-  * Each __Skeletal Animation Component__ (`SkeletalAnimation`) is responsible for maintaining the current playback progress, stored in the form of UBO (a `vec4`).
-  * Each skinning model component (`SkinnedMeshRenderer`) holds a pre-baked skinning model class (`BakedSkinningModel`). Based on the bounding box information pre-baked in the same way to do frustum culling, update the UBO, and get the current data from the texture atlas on the GPU to complete the skinning.
+
+  - All animation data will be pre-sampled in advance according to the specified frame rate and baked onto a global-managed joint texture atlas.
+  - Depending on whether the operating platform supports floating-point textures, the corresponding texture format will be RGBA32F, or automatically fallback to RGBA8 if not available (The rendering results should be identical, it is only the fail-safe approach for really low-end devices, and shouldn't be of any concern for game developers).
+  - Each __Skeletal Animation Component__ (`SkeletalAnimation`) is responsible for maintaining the current playback progress, stored in the form of UBO (a `vec4`).
+  - Each skinning model component (`SkinnedMeshRenderer`) holds a pre-baked skinning model class (`BakedSkinningModel`). Based on the bounding box information pre-baked in the same way to do frustum culling, update the UBO, and get the current data from the texture atlas on the GPU to complete the skinning.
 
 ## Real-time calculated Skeletal Animation System
 
 The dominant purpose of this system is expressiveness, ensuring the correct display of all details, and complete program control capabilities.
 
 The current runtime process is roughly as follows:
-  * All animation data are calculated dynamically according to the current global time.
-  * Animation data will be output to the skeleton node tree of the scene.
-  * Users and any other system can affect the skin effect by manipulating this node tree.
-  * Each __Skinning Model Component__ (`SkinnedMeshRenderer`) holds a common __Skinning Model__ class (`SkinningModel`). Extract the transformation data from joint node tree, do frustum culling, upload the complete joint transformation information of the current frame to UBO, and complete the skinning in the GPU.
+
+  - All animation data are calculated dynamically according to the current global time.
+  - Animation data will be output to the skeleton node tree of the scene.
+  - Users and any other system can affect the skin effect by manipulating this node tree.
+  - Each __Skinning Model Component__ (`SkinnedMeshRenderer`) holds a common __Skinning Model__ class (`SkinningModel`). Extract the transformation data from joint node tree, do frustum culling, upload the complete joint transformation information of the current frame to UBO, and complete the skinning in the GPU.
 
 This provides the fundamental support for all the following functions:
-  * Blendshape support
-  * Mixing and masking of any number of __Animation Clips__
-  * Inverse kinematics, secondary physics
-  * Explicit procedural control over any joint tranformations
+
+  - Blendshape support
+  - Mixing and masking of any number of __Animation Clips__
+  - Inverse kinematics, secondary physics
+  - Explicit procedural control over any joint tranformations
 
 ## Selection and best practice of two systems
 
@@ -47,11 +50,11 @@ It is recommended that projects with higher pursuit of skin animation quality ca
 
 If you need to attach some external nodes to the specified joint joints, you need to use the __Socket system__ of the __Skeleton Animation Component__:
 
-* Create a new child node directly under the node of `SkeletalAnimation` to be attached to.
+- Create a new child node directly under the node of `SkeletalAnimation` to be attached to.
 
-* Add an array element in the sockets list of the `SkeletalAnimation`. Select the path of the joint to be attached to from the drop-down list (note that the `defaultClip` property of the `SkeletalAnimation` must be a valid clip, the content of the drop-down list depend on this), and specify the target as the child node just created.
+- Add an array element in the sockets list of the `SkeletalAnimation`. Select the path of the joint to be attached to from the drop-down list (note that the `defaultClip` property of the `SkeletalAnimation` must be a valid clip, the content of the drop-down list depend on this), and specify the target as the child node just created.
 
-* This child node becomes a socket node, you can put any node under and it will follow the transformations of the specified joint.
+- This child node becomes a socket node, you can put any node under and it will follow the transformations of the specified joint.
 
 `FBX` or `glTF` assets will be automatically adapted to use this socket system at import time, without any manual interference.
 
