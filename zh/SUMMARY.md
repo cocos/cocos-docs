@@ -258,6 +258,7 @@
     - [第一个扩展包](editor/extension/first.md)
     - [安装与分享](editor/extension/install.md)
     - [扩展包定义](editor/extension/define.md)
+    - [提交插件到商店](editor/extension/store/upload-store.md)
     - [扩展面板](editor/extension/panel.md)
         - [编写面板](editor/extension/panel-boot.md)
         - [面板与插件的通信](editor/extension/panel-messages.md)
