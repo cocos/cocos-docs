@@ -111,6 +111,27 @@ The search function is a combined function that can limit the search type and sp
 - Shortcut key `Esc` to cancel rename
 - In addition, the initial name of the Typescript asset will be treated as its `className`, and the `className` cannot be repeated.
 
+### Exporting Assets Package
+
+Select the asset to be exported and right click on the **Exporting Assets Pack** menu, the plugin will automatically list the currently selected asset and its dependent related asset into the plugin window. Dependent asset are included by default, you can uncheck **Include Dependency** if you don't need them. Once you have identified the asset you need to export, the developer can export them with one click by clicking the **Export** button.
+
+> **Note**.
+> The plugin will automatically make a **zip** package of the assets, this zip package is only available for use with the **Import Assets Package** plugin
+
+Translated with www.DeepL.com/Translator (free version)
+
+<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-plane.png" width="50%" height="50%"/>
+
+### Importing Assets Package
+
+Select the **assets** panel or **blank space**, select the **Importing Assets Package** menu by right-clicking, and after a pop-up dialogue box and selecting the **import packages plugin exported zip package**, the import package plugin will automatically parse all the assets in the zip package and present them in the plugin window. Finally the developer can import with one click using the **Import** button.
+
+<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-plane.png" width="50%" height="50%"/>
+
+> **Note**：
+> 1. imported **zip** packages must be exported from CocosCreator version 3.0.0 and above by the Editor **Exporting Assets Package** plugin to be supported.
+> 2. importing scripts with the same class name is not supported.
+
 ### Big Picture Preview
 
 In addition, it can be used in conjunction with the Assets Preview panel to click on a folder to display the sub-assets of the big picture arranged by type, which is more intuitive for picture assets.
