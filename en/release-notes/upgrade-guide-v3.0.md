@@ -189,18 +189,18 @@ The main differences between them include the following:
       ![image](windows-cocosjs.png)
 
     - Cocos Creator 2.4.3 has only one startup script `main.js`, while v3.0 adds a new startup script `application.js` in the `src` directory to startup the game in addition to `main.js`.
-    
+
     - The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
-2. Cocos Creator 2.4.3 generates all the native build templates in the `frameworks/runtime-src` directory.
+2. Cocos Creator 2.4.3 generates all the native build projects in the `frameworks/runtime-src` directory.
 
     ![image](v243-build-template.png)
 
-    While v3.0 generates the native build templates in the `build` directory and only generates the native build templates for the current built. As shown below:
+    While v3.0 generates the native build project in the `build` directory and only generates the native build project for the current built. As shown below:
 
     ![image](v3-build-template.png)
 
-3. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build template, while v3.0 are stored in the `windows/proj` directory.
+3. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build project, while v3.0 are stored in the `windows/proj` directory.
 
 ## TypeScript Reference Tutorial
 

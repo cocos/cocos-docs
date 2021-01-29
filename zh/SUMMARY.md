@@ -118,6 +118,7 @@
 - [动画](engine/animation/index.md)
     - [动画组件](engine/animation/animation-component.md)
     - [动画剪辑](engine/animation/animation-clip.md)
+    - [动画状态](engine/animation/animation-state.md)
     - [骨骼动画](engine/animation/skeletal-animation.md)
 - [缓动](tween/index.md)
 
@@ -164,6 +165,10 @@
     - [BoxCollider](physics/physics-component.md#盒碰撞器组件（boxcollidercomponent）)
     - [SphereCollider](physics/physics-component.md#球碰撞器组件（spherecollidercomponent）)
     - [RigidBody](physics/physics-component.md#刚体组件)
+    - [Spine Skeleton 组件参考](editor/components/spine.md)
+    - [DragonBones ArmatureDisplay 组件参考](editor/components/dragonbones.md)
+    - [TileMap 组件参考](editor/components/tiledmap.md)
+    - [TiledTile 组件参考](editor/components/tiledtile.md)
     - [UI 组件](ui-system/components/editor/index.md)
         - [UI 渲染组件](ui-system/components/editor/render-component.md)
             - [Sprite 组件参考](ui-system/components/editor/sprite.md)
@@ -250,6 +255,9 @@
     - [材质资源](asset/material.md)
     - [模型资源](asset/mesh.md)
     - [动画资源](asset/anim.md)
+    - [Spine 骨骼动画资源](asset/spine.md)
+    - [Dragonbones 骨骼动画资源](asset/dragonbones.md)
+    - [TiledMap 瓦片图资源](asset/tiledmap.md)
 - [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 ## 进阶使用
