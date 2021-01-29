@@ -1,6 +1,6 @@
 # Dynamic Atlas
 
-Reducing the number of DrawCalls is a very direct and effective way to improve game rendering efficiency, and one of the most important factors for two DrawCalls to be merged into one is whether both DrawCalls use the same texture.
+Reducing the number of DrawCalls is a very direct and effective way to improve game rendering efficiency. One of the most important factors for two DrawCalls to be merged into one is whether both DrawCalls use the same texture.
 
 Cocos Creator provides **Dynamic Atlas**, which dynamically merges the textures into one large texture at project runtime. When a map is rendered, the Dynamic Atlas system automatically detects if the map has been merged into an atlas (collection of images). If not, the system merges the texture into the atlas if it meets the conditions for dynamic atlas.
 
@@ -18,9 +18,9 @@ macro.CLEANUP_IMAGE_CACHE = false;
 dynamicAtlasManager.enabled = true;
 ```
 
-> **Note**: Please write the code above in the outermost part of the project script, not in the `onLoad`/`start` class functions, to ensure that they take effect instantly during the project loading process. Otherwise, it may cause an error if the dynamic atlas is enabled only when part of the texture cache has been released.
+> **Note**: write the code above in the outermost part of the project script, not in the `onLoad`/`start` class functions, to ensure that they take effect instantly during the project loading process. Otherwise, it may cause an error if the dynamic atlas is enabled only when part of the texture cache has been released.
 
-**If you wish to forcibly disable dynamic atlas**, you can control it directly by code:
+**To forcibly disable dynamic atlas**, control it directly by code:
 
 ```ts
 dynamicAtlasManager.enabled = false;
@@ -28,10 +28,10 @@ dynamicAtlasManager.enabled = false;
 
 ## Texture Restrictions
 
-The dynamic atlas system limits the size of the texture that can be merged. By default, only textures with a width and height less than **512** can be entered into the dynamic atlas system. This limit can be modified by the developer according to the following requirements.
+The dynamic atlas system limits the size of the texture that can be merged. By default, only textures with a width and height less than **512** can be entered into the dynamic atlas system. This limit can be modified by the developer as required with the following code.
 
 ```ts
 dynamicAtlasManager.maxFrameSize = 512;
 ```
 
-For details, look up `DynamicAtlasManager` in the API documentation.
+For APIs related to the `DynamicAtlasManager`, please refer to the [DynamicAtlasManager API](https://github.com/api/en/classes/DynamicAtlasManager.html) documentation.
