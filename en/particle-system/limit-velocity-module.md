@@ -1,5 +1,6 @@
 ## Limit Velocity Overtime Module
-![](particle-system/limit_module.png)
+
+![limit_module](particle-system/limit_module.png)
 
 Properties | Features
 ---|---

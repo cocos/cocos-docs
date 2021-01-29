@@ -1,12 +1,12 @@
 # Canvas Component Reference
 
-![](canvas/canvas.png)
+![canvas](canvas/canvas.png)
 
 The node where the **Canvas** component is located is the **root** of the UI rendering. There can be multiple __Canvas__ in the scene. **All UI elements must be placed under a __Canvas__ node so that it can be rendered**. UI Elements are rendered by the **Canvas** node that they are located under. Each **Canvas** can be presented in a certain order controlled by the `priority` attribute.
 
 In addition to the root node of the UI, **Canvas** also has a screen adaptation function. Please refer to the [Multi-Resolution Adaption](../engine/multi-resolution.md) documentation to read about this. **Canvas** also supports multi-resolution adaptation. The __design resolution__ and __adaptation scheme__ are uniformly set in the __Project Setting__. A **Camera** is provided inside the __Canvas__, and the default z-axis direction is __-1000 ~ 998__, so the z-axis on the UI must be within this range to display properly (without taking the threshold value).
 
-![](canvas/design-resolution.png)
+![design-resolution](canvas/design-resolution.png)
 
 In the previous design, __Canvas__ was last rendered, meaning it could mask the rendering of all 3D content, but this was far from sufficient for project development needs, such as a 2D map with a 3D character. The **RenderMode** property allows developers to sort the rendering order of the 3D Camera and UI Camera. If you want to have canvas and 3D camera content mixed up, only the lowest camera or canvas can have the **SOLID_COLOR** **ClearFlag**, otherwise a camera with **SOLID_COLOR** flag will erase all content rendered before it.
 

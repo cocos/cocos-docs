@@ -31,10 +31,10 @@ Event types included:
 
 - Type: `SystemEventType.KEY_DOWN` and `SystemEventType.KEY_UP`
 - Call Back:
-  - Custom Event：callback(event);
+    - Custom Event: callback(event);
 - Call Back Parameter:
-  - KeyCode: [API Reference](../../../api/en/classes/event.eventkeyboard-1.html)
-  - Event: [API Reference](../../../api/en/classes/event.event-1.html)
+    - KeyCode: [API Reference](../../../api/en/classes/event.eventkeyboard-1.html)
+    - Event: [API Reference](../../../api/en/classes/event.event-1.html)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro } from "cc";
@@ -99,4 +99,4 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/event)（This includes the keyboard, accelerometer, single point touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).

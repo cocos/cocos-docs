@@ -55,22 +55,22 @@ As these constants are declared with `const`, it provides a good opportunity for
 
 #### Platform identification
 
-The constants listed in the following table represent whether it is running on a particular platform or class of platforms, and all types are boolean.
+The constants listed in the following table represent whether it is running on a particular platform or class of platforms, and all types of these constants are `boolean`.
 <!-- Please sort the following table lexicographically -->
 
-| Name | Representative platform | `MINIGAME` "mini game" | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` supports JIT |
-| :---------- | :---------- | :----------------- | :----------------- | :----------------- |
-| `HTML5`     | Web | ❌ | ❌ | ❌ |
-| `NATIVE`    | Native platforms    | ❌ | ❌ | ❌ |
-| `ALIPAY`    | Alipay Mini game    | ✔️ | ❌ | ✔️ |
-| `BAIDU`     | Baidu Mini Games    | ✔️ | ❌ | ✔️ |
-| `BYTEDANCE` | Bytedance Mini game | ✔️ | ❌ | ✔️ |
-| `WECHAT`    | WeChat Mini Game    | ✔️ | ❌ | ✔️ |
-| `XIAOMI`    | XiaoMi Mini Game    | ✔️ | ❌ | ✔️ |
-| `COCOSPLAY` | Cocos Play          | ❌ | ✔️ | ✔️ |
-| `HUAWEI`    | Huawei Quick Game   | ❌ | ✔️ | ✔️ |
-| `OPPO`      | OPPO Mini Game      | ❌ | ✔️ | ✔️ |
-| `VIVO`      | vivo Mini game      | ❌ | ✔️ | ✔️ |
+| Name        | Platform            | `MINIGAME` mini game | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
+| :---------- | :------------------ | :------------------- | :------------------- | :------------------- |
+| `HTML5`     | Web                 | ❌                   | ❌                    | ❌                   |
+| `NATIVE`    | Native platforms    | ❌                   | ❌                    | ❌                   |
+| `ALIPAY`    | Alipay Mini Game    | ✔️                   | ❌                    | ✔️                    |
+| `BAIDU`     | Baidu Mini Game     | ✔️                   | ❌                    | ✔️                    |
+| `BYTEDANCE` | Bytedance Mini Game | ✔️                   | ❌                    | ✔️                    |
+| `WECHAT`    | WeChat Mini Game    | ✔️                   | ❌                    | ✔️                    |
+| `XIAOMI`    | Xiaomi Quick Game   | ✔️                   | ❌                    | ✔️                    |
+| `COCOSPLAY` | Cocos Play          | ❌                   | ✔️                     | ✔️                    |
+| `HUAWEI`    | Huawei Quick Game   | ❌                   | ✔️                     | ✔️                    |
+| `OPPO`      | OPPO Mini Game      | ❌                   | ✔️                     | ✔️                    |
+| `VIVO`      | vivo Mini Game      | ❌                   | ✔️                     | ✔️                    |
 
 #### Outputting in debug mode
 

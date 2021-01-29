@@ -6,7 +6,7 @@
 
 ### Architecture
 
-![](jsb/JSB2.0-Architecture.png)
+![JSB2.0-Architecture](jsb/JSB2.0-Architecture.png)
 
 ### Macro
 
@@ -1040,15 +1040,15 @@ Change to:
 
 - Breakpoint debugging:
 
-  ![](jsb/v8-win32-debug.jpg)
+  ![v8-win32-debug](jsb/v8-win32-debug.jpg)
 
 - Catch JS Heap:
 
-  ![](jsb/v8-win32-memory.jpg)
+  ![v8-win32-memory](jsb/v8-win32-memory.jpg)
 
 - Profile:
 
-  ![](jsb/v8-win32-profile.jpg)
+  ![v8-win32-profile](jsb/v8-win32-profile.jpg)
 
 #### Android/iOS
 

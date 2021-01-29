@@ -1,5 +1,7 @@
 # Access to WeChat PC Mini Games
 
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+
 WeChat PC Mini Game supports running WeChat mini games in WeChat for PC. The WeChat PC Mini Game will have most of the Mobile capabilities, including but not limited to virtual payment, open data context, touch events, etc. (ads are not currently supported). It also provides keyboard events, mouse events, window customization and other features.
 
 Cocos Creator supports publishing games to WeChat PC Mini Games, and completes the adaptation of mouse and keyboard related interfaces. Let's see how to publish the game to WeChat PC Mini Games by Cocos Creator.

@@ -37,6 +37,10 @@ export class test extends Component {
 }
 ```
 
+## onEnable()
+
+When the `enabled` attribute of the component changes from `false` to `true`, or the node's `active` attribute changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
+
 ## start()
 
 The `start()` callback function will be triggered before the first activation of the component, that is, before the first execution of `update()`. `start()` is usually used to initialize some intermediate state data. These data may change during update and are frequently enabled and disabled. Example:
@@ -97,10 +101,6 @@ export class lateupdatetest extends Component {
     }
 }
 ```
-
-## onEnable()
-
-When the `enabled` attribute of the component changes from `false` to `true`, or the node's `active` attribute changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
 
 ## onDisable()
 

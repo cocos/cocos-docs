@@ -18,7 +18,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/ui.editbo
 | FontColor            | 输入框文本的颜色 |
 | FontSize             | 输入框文本的字体大小 |
 | InputFlag           | 指定输入标识：可以指定输入方式为密码或者单词首字母大写（仅支持 Android 平台）|
-| InputMode           | 指定输入模式: ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
+| InputMode           | 指定输入模式：ANY 表示多行输入，其它都是单行输入，移动平台上还可以指定键盘样式。 |
 | LineHeight           | 输入框文本的行高 |
 | MaxLength            | 输入框最大允许输入的字符个数  |
 | Placeholder          | 输入框占位符的文本内容  |

@@ -1,5 +1,6 @@
 ## Texture Animation Module
-![](particle-system/texture_animation.png)
+
+![texture_animation](particle-system/texture_animation.png)
 
 Property | Role
 ---|---
@@ -11,4 +12,4 @@ Property | Role
 **startFrame** | Play from the first few frames, the time is the life cycle of the entire particle system.
 **cycleCount** | The number of playback cycles in a life cycle.
 
-![](particle-system/texture_animation.gif)
+![texture_animation](particle-system/texture_animation.gif)

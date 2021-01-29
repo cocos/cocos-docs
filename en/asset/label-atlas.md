@@ -10,7 +10,7 @@ In the **Assets** panel right-click on a folder, and click the context menu item
 
 Before using the **LabelAtlas** asset, it needs some configuration. Configure a pre-drawn picture that contains the font style, as shown below:
 
-![](label-atlas/raw_texture_file.png)
+![raw_texture_file](label-atlas/raw_texture_file.png)
 
 ## Configuration of LabelAtlas asset
 

@@ -69,7 +69,7 @@ resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
 
 After importing the FBX model or glTF model into the editor, it will parse out the related resources which includes meshes, materials, skeletons, animations, etc. contained in the model, as shown in the following figure.
 
-![](./load-assets/model.png)
+![model](./load-assets/model.png)
 
 It is possible to dynamically load a single resource in the model at runtime by simply specifying the path to a specific sub-resource, as follows.
 
