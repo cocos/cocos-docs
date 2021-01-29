@@ -14,10 +14,10 @@
 具体实现步骤：
 
 - 在编辑器顶部的菜单栏中选择 **扩展** --> **创建扩展**，根据需要在 **全局/项目** 目录下新建一个插件。插件包就会生成在根目录/项目目录的 `extensions` 目录下。
-- 打开插件包的 `package.json` 文件，然后配置 `contributions.assets.menu` 属性，其中 `methods` 引入 `assets-menu.js` 文件，
-  其他属性如 `createMenu` 为上述的 (`where`) 的显式声明，对应的 `onCreateMenu` 是 `assets-menu.js` `export` 出来的方法:
+- 打开插件包的 `package.json` 文件，然后配置 `contributions.assets.menu` 属性，其中 `methods` 引入 `assets-menu.js` 文件。其他属性如 `createMenu` 为上述 `where` 的显式声明，对应的 `onCreateMenu` 是 `assets-menu.js` export 出来的方法:
 
   ```json5
+  // package.json
   {
     contributions: {
       assets: {
@@ -33,9 +33,10 @@
   }
   ```
 
-- **Demo 示例** 中 `assets-menu.js` 部分代码示例如下：
+- 文末的 **Demo 示例** 中 `assets-menu.js` 部分代码示例如下：
 
   ```javascript
+  // assets-menu.js
   exports.onCreateMenu = function (assetInfo) {
     return [
       {
@@ -100,7 +101,7 @@
     - `url` String - db:// 开头的资源地址
     - `uuid` String - 资源 ID
 
-  - 返回值 `MenuItem[]` , `MenuItem` Object
+  - 返回值 `MenuItem[]`, `MenuItem` Object
 
     - `type` (可选) String - 可选，normal、separator、submenu、checkbox 或 radio
     - `label` (可选) String - 显示的文本
@@ -110,10 +111,11 @@
     - `enable` (可选) Boolean - 是否可用，不可用会有置灰样式
     - `visible` (可选) Boolean - 是否显示
     - `accelerator` (可选) String - 显示快捷键
-    - `checked` (可选) Boolean - 当 type 为 'checkbox'/'radio' 时是否选中
-    - 更多属性可参考 [electron menu-item](https://www.electronjs.org/docs/api/menu-item) 的数据格式。
+    - `checked` (可选) Boolean - 当 type 为 `checkbox` / `radio` 时是否选中
 
-实现扩展的效果图：
+    更多属性可参考 [electron menu-item](https://www.electronjs.org/docs/api/menu-item) 的数据格式。
+
+实现扩展的效果图如下：
 
 ![extend-create-menu](img/extend-create-menu.png)
 
@@ -145,7 +147,7 @@
 }
 ```
 
-- **Demo 示例** 中 `panel.js` 文件：
+- 文末的 **Demo 示例** 中 `panel.js` 文件：
 
   ```javascript
   exports.methods = {
@@ -159,11 +161,11 @@
 
   `assetInfo` 参数说明：
 
-  - `uuid` String - 拖放到该资源上，该资源的 ID
-  - `type` String - 该资源的类型
-  - `isDirectory` Boolean - 该资源是否是文件夹
+    - `uuid` String - 拖放到该资源上，该资源的 ID
+    - `type` String - 该资源的类型
+    - `isDirectory` Boolean - 该资源是否是文件夹
 
-- **Demo 示例** 中 `panel.html` 文件：
+- 文末的 **Demo 示例** 中 `panel.html` 文件：
 
   ```html
   <ui-drag-item
