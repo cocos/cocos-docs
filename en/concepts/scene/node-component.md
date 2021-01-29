@@ -42,7 +42,7 @@ Starting with the `cc.MeshRenderer` title, is the properties of the **Sphere** c
 
 The `Materials` property is used to specify the material used for rendering. You can try dragging any material from the **Assets** into the `Materials` property of the **Inspector** panel and you can see that the default material just became the specified material.
 
-> **Note**: any resources set on the component, such as `sphere.mesh` in this case, will be loaded automatically at the same time as the scene loads. Types of resources can be declared, set and loaded automatically in custom components, refer to the [Getting and loading resources](../../scripting/load-assets.md) documentation.
+> **Note**: any resources set on the component, such as `sphere.mesh` in this case, will be loaded automatically at the same time as the scene loads. Types of resources that need to be set and automatically loaded can also be declared in custom components, refer to the [Getting and loading resources](../../scripting/load-assets.md) documentation.
 
 In addition to adding components manually in the editor, they can also be added via scripts, for more details see the [Component creation and destruction](../../scripting/component.md) documentation.
 
