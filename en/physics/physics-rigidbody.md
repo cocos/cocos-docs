@@ -4,7 +4,7 @@
 
 The **RigidBody** component is used to control the properties associated with the simulation.
 
-![](img/rigidbody-prop.png)
+![rigidbody-prop](img/rigidbody-prop.png)
 
 Click the **Add Component -> Physics Component -> RigidBody** button at the bottom of the **Inspector** panel to add the RigidBody component to the node.
 

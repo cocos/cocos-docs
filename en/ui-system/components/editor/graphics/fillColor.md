@@ -11,7 +11,7 @@ ctx.rect(20,20,250,200);
 ctx.stroke();
 ```
 
-![](fillColor.png)
+![fillColor](fillColor.png)
 
 <hr>
 

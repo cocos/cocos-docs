@@ -36,11 +36,11 @@ The __animation clip__ defines the position of the data by the name of the node,
 
 - **Migrating node data**: sometimes we will rename the node after the animation is completed, which will cause problems with the animation data, as shown below:
 
-  ![](./animation-clip/missing_node.png)
+  ![missing_node](./animation-clip/missing_node.png)
 
   Next, right-click on __Migrate Data__ on the missing node, and then click on other nodes to migrate the data. If you do not want to migrate after clicking __Migrate Data__, click directly in the timeline area or click __Cancel__ in the pop-up window after clicking other nodes.
 
-  ![](./animation-clip/moving_node.gif)
+  ![moving_node](./animation-clip/moving_node.gif)
 
     > **Note**: by default, node data migration will overwrite the data on the target node
 
@@ -50,19 +50,19 @@ An __animation clip__ may contain multiple nodes, and multiple __animation prope
 
 - **Add an property track**: click the `+` small button next to the __property list__, after the pop-up property menu pops up, click on the property that needs to be added. Example:
 
-    ![](./animation-clip/add-property.gif)
+    ![add-property](./animation-clip/add-property.gif)
 
 - **Remove property track**: right-click the property list item and select __Remove property track__. Example:
 
-    ![](./animation-clip/clear-property.gif)
+    ![clear-property](./animation-clip/clear-property.gif)
 
 - **Clear track data**: right-click the property list item and select __Clear property track__. Example:
 
-    ![](./animation-clip/remove-property.gif)
+    ![remove-property](./animation-clip/remove-property.gif)
 
 - **Copy and paste track data**: right-click the property list item, select **copy track data** or press __Ctrl + C__, then click the same type of track as the copied track, right-click will see the paste option, click or press __Ctrl + V__ to paste. Example:
 
-    ![](./animation-clip/copy-property.gif)
+    ![copy-property](./animation-clip/copy-property.gif)
 
 ## Common Key Frame Operations
 
@@ -82,19 +82,19 @@ To add a __key frame__:
 
 - __Right-click__ on the corresponding property track position and select __Add Key Frame__. The current number of __key frame__ frames will also appear on the right-click menu.
 
-    ![](./animation-clip/add-keyframe_1.gif)
+    ![add-keyframe_1](./animation-clip/add-keyframe_1.gif)
 
 - **Select the corresponding node and the corresponding property**, move the time cursor to the position where the __key frame__ needs to be added, and press the __I__ (inset) key
 
-    ![](./animation-clip/add-keyframe_2.gif)
+    ![add-keyframe_2](./animation-clip/add-keyframe_2.gif)
 
-- Move the time cursor to the position where the __key frame__ needs to be added. In the corresponding property list item, click ![](./animation-clip/add-key-button.png).
+- Move the time cursor to the position where the __key frame__ needs to be added. In the corresponding property list item, click ![add-key-button](./animation-clip/add-key-button.png).
 
-    ![](./animation-clip/add-keyframe_3.gif)
+    ![add-keyframe_3](./animation-clip/add-keyframe_3.gif)
 
 - After selecting the corresponding node and the corresponding property track, the editor control for the corresponding property will appear in the middle of the __animation editor__, and the __key frame__ can be marked by modification.
 
-    ![](./animation-clip/add-keyframe_4.gif)
+    ![add-keyframe_4](./animation-clip/add-keyframe_4.gif)
 
 - After adding the __property track__, move the time cursor to desired position of the __Inspector__ panel or perform scene operations to automatically generate __key frames__.
 
@@ -110,7 +110,7 @@ To add a __key frame__:
 
 On the __timeline__ **double-click** the __key frame__ that needs to be modified. The __time cursor__ will move to that position. You can also directly drag the __time cursor__ to the corresponding position, and modify the corresponding properties directly in the **Inspector** panel. Make sure the __animation editor__ is in __edit mode__. For example, there are three property tracks in the property list: *position*, *scale*, and *rotation*. After the __key frame__ is selected, you can modify the *position*, *scale*, and *rotation* properties in the **Inspector** panel.
 
-![](./animation-clip/edit-keyframe_1.gif)
+![edit-keyframe_1](./animation-clip/edit-keyframe_1.gif)
 
 In __animation editing mode__, move the __time control__ line to a position where there are no __key frames__ on the timeline, and then modify the corresponding properties in the __Inspector__ panel, and a frame will also be inserted automatically.
 
@@ -137,7 +137,7 @@ After selecting multiple __key frames__, adjust the number of interval __key fra
 - A. After selecting the __key frame__, follow the normal __shortcut key__ __C/V__ to *copy* and *paste*. Note that the location of the __shortcut key__ __paste__ will start from __the current key frame__(The red line position).
 - B. After selecting the __key frame__, __right-click__ on the selected __key frame__, select __Copy Key Frame__, and then __right-click__ elsewhere, select __Paste Key Frame__.
 
-    ![](./animation-clip/copy-key frames.gif)
+    ![copy-key frames](./animation-clip/copy-key frames.gif)
 
 The copy and paste of key frame data supports cross-node and cross-clip use.
 

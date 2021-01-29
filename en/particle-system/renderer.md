@@ -6,7 +6,7 @@ The CPU renderer maintains all particles through an object pool, generates corre
 
 The GPU renderer generates particles on the CPU side, and only submits the vb and ib data of initial parameter, but the calculations related to the module are in the form of pre-sampled data. The data is submitted once during initialization, and the subsequent module system extracts and simulates the data on the GPU side to reduce the computing pressure on the CPU side. The subsequent versions will continue to optimize and improve the particle system. The current GPU version does not support `TrailModule` and `LimitVelocityOvertimeModule`.
 
-![](particle-system/renderer.png)
+![renderer](particle-system/renderer.png)
 
 | Property | Description |
 | :--- | :--- |

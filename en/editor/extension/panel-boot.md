@@ -139,7 +139,7 @@ When the panel tries to be closed, this function will be triggered. `BeforeClose
 
 Do not execute the actual destruction and close-related logic code in this function. This step is just for inquiry. Please put the actual destruction in the close function.
 
-> **Note**: **Please use with caution**, if the judgment is wrong, the editor or panel window may not close normally.
+> **Note**: **please use with caution**, if the judgment is wrong, the editor or panel window may not close normally.
 
 ## Close
 

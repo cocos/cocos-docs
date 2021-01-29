@@ -2,7 +2,7 @@
 
 The curve editor can set the curve of a certain property in the particle system with time. The interface of the curve editor is as follows:
 
-![](img/curve_editor.png)
+![curve_editor](img/curve_editor.png)
 
 The curve editor can perform the following operations:
 

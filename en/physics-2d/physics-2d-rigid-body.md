@@ -72,7 +72,7 @@ Rotation, position and scaling are the most commonly used transform in game deve
 
 > __Notes__:
 > 1. There is only rotation and position in __Box2D__ and there is no scaling, so if you set the scale properties of the node, all the colliders of the __Rigidbody__ are reconstructed. One way to avoid this is to take the renderer node as a child node of the __Rigidbody__ node, and to scale only the renderer node, to avoid scaling the __Rigidbody__ nodes as much as possible.
-> 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __Rigidbody__ information is synchronized to the corresponding node.In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
+> 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __Rigidbody__ information is synchronized to the corresponding node. In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
 
 ### Fixed rotation
 

@@ -43,23 +43,23 @@ As these constants are declared with `const`, it provides a good opportunity for
 #### Platform identification
 
 The constants listed in the following table represent whether it is running on a particular platform or class of platforms, and all types of these constants are `boolean`.
-<!-- Please sort the table in dictionary order -->
+<!-- Please sort the following table lexicographically -->
 
 | Name        | Platform            | `MINIGAME` mini game | `RUNTIME_BASED` based on Cocos Runtime | `SUPPORT_JIT` JIT is supported |
 | :---------- | :------------------ | :------------------- | :------------------- | :------------------- |
 | `HTML5`     | Web                 | ❌                   | ❌                    | ❌                   |
 | `NATIVE`    | Native platforms    | ❌                   | ❌                    | ❌                   |
-| `ALIPAY`    | Alipay Mini Game    | ✔️                    | ❌                    | ✔️                    |
-| `BAIDU`     | Baidu Mini Game     | ✔️                    | ❌                    | ✔️                    |
-| `BYTEDANCE` | Bytedance Mini Game | ✔️                    | ❌                    | ✔️                    |
-| `WECHAT`    | WeChat Mini Game    | ✔️                    | ❌                    | ✔️                    |
-| `XIAOMI`    | Xiaomi Quick Game   | ✔️                    | ❌                    | ✔️                    |
+| `ALIPAY`    | Alipay Mini Game    | ✔️                   | ❌                    | ✔️                    |
+| `BAIDU`     | Baidu Mini Game     | ✔️                   | ❌                    | ✔️                    |
+| `BYTEDANCE` | Bytedance Mini Game | ✔️                   | ❌                    | ✔️                    |
+| `WECHAT`    | WeChat Mini Game    | ✔️                   | ❌                    | ✔️                    |
+| `XIAOMI`    | Xiaomi Quick Game   | ✔️                   | ❌                    | ✔️                    |
 | `COCOSPLAY` | Cocos Play          | ❌                   | ✔️                     | ✔️                    |
 | `HUAWEI`    | Huawei Quick Game   | ❌                   | ✔️                     | ✔️                    |
 | `OPPO`      | OPPO Mini Game      | ❌                   | ✔️                     | ✔️                    |
 | `VIVO`      | vivo Mini Game      | ❌                   | ✔️                     | ✔️                    |
 
-#### Logging under development mode
+#### Logging in debug mode
 
 An example is shown below:
 
