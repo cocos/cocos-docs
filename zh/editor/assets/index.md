@@ -124,13 +124,13 @@
 > **注意**：
 > 插件会自动把资源打成一个 zip 包，该 zip 包只适用于 **导入资源包** 插件使用。
 
-<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-plane.png" width="50%" height="50%"/>
+<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-panel.png" width="50%" height="50%"/>
 
 ### 导入资源包
 
 选中 **assets** 面板或者 **空白处**，通过右键选择 **导入资源包** 菜单，在弹出对话框后，并选择 **导入资源包插件导出的 zip 包**，插件会自动解析 zip 包中的所有资源，然后呈现在插件窗口中。最后开发者即可通过 **导入** 按钮进行一键导入。
 
-<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-plane.png" width="50%" height="50%"/>
+<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-panel.png" width="50%" height="50%"/>
 
 > **注意**：
 > 1. 导入的 zip 包，必须是由 CocosCreator 3.0.0 版本及以上的编辑器导出资源包插件导出的才支持。

@@ -118,15 +118,13 @@ Select the asset to be exported and right click on the **Exporting Assets Pack**
 > **Note**.
 > The plugin will automatically make a **zip** package of the assets, this zip package is only available for use with the **Import Assets Package** plugin
 
-Translated with www.DeepL.com/Translator (free version)
-
-<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-plane.png" width="50%" height="50%"/>
+<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-panel.png" width="50%" height="50%"/>
 
 ### Importing Assets Package
 
 Select the **assets** panel or **blank space**, select the **Importing Assets Package** menu by right-clicking, and after a pop-up dialogue box and selecting the **import packages plugin exported zip package**, the import package plugin will automatically parse all the assets in the zip package and present them in the plugin window. Finally the developer can import with one click using the **Import** button.
 
-<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-plane.png" width="50%" height="50%"/>
+<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-panel.png" width="50%" height="50%"/>
 
 > **Note**：
 > 1. imported **zip** packages must be exported from CocosCreator version 3.0.0 and above by the Editor **Exporting Assets Package** plugin to be supported.
