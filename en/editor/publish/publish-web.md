@@ -2,7 +2,7 @@
 
 Open main menu's **Project -> Build** to open the **Build** panel.
 
-![](publish-web/web.png)
+![web](publish-web/web.png)
 
 **Cocos Creator** provides page templates for two kinds of Web platforms. From the pop up menu of **Platform**, you can choose **Web Mobile** or **Web Desktop**. The major difference is that in **Web Mobile**, the image will cover the whole browser window by default, while in **Web Desktop**, you are allowed to designate the resolution of image, which doesn't change when you zoom on the browser window.
 
@@ -33,7 +33,7 @@ For some general build options of platforms, please refer to the [General Build 
 
   Multiple Web projects can be previewed at the same time, so instead of a uniform **Preview URL** for the build, each build task will have a separate **Preview URL** that does not interfere with each other. Clicking on the URL will automatically open the browser for previewing, and the specific preview URL splicing rule is **${The Preview IP in Preferences panel}:${Editor preview port number}/${Build platform}/${Build task name}/index.html**.
 
-  ![](publish-web/preview-url.jpg)
+  ![preview-url](publish-web/preview-url.jpg)
 
 ## Build and Preview
 

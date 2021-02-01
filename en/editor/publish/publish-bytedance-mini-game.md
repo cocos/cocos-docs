@@ -1,6 +1,6 @@
 # Publish to ByteDance Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **ByteDance Mini Games** are developed based on ByteDance full products, which do not require users to download. This is a brand-new game type that can be played on tap.
 
@@ -54,6 +54,25 @@ Specifically, developers need to do the following:
 3. When the build is complete, upload the **res** folder in the mini game release package to the server.
 4. Delete the **res** folder inside the local release package.
 5. For the test phase, you may not be able to deploy to the official server, you need to use the local server to test, then open the details page in the WeChat DevTools, check the `Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates` option in the **Local Settings**.
+
+## Subpackage Loading
+
+The ByteDance Mini Game requires a specific version to support the subpackage feature, and the version requirements for the ByteDance product are as follows:
+
+| Product | Android     | iOS        |
+| :--     | :---        | :---       |
+| TikTok  | v13.6.0     | v13.7.0    |
+| TouTiao | v7.9.9      | v7.9.8     |
+
+For ByteDance DevTools, please use **v2.0.6** or above, but below **v3.0.0**. After updating the DevTools, don't forget to modify the **Debug Base library** to **1.88.0** or above in the ByteDance DevTools.
+
+> **Note**: if the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
+
+Currently, the size of the ByteDance Mini Game subpackage has following restrictions:
+- The size of all subpackages of the entire mini game cannot exceed **16 M**
+- The size of a single subpackage/main package cannot exceed **4 M**
+
+For details, please refer to the [ByteDance Subpackage Loading Official Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
 
 ## Reference documentation
 

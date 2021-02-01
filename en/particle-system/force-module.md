@@ -1,9 +1,10 @@
-## Force Overtime Module
-![](particle-system/force_module.png)
+# Force Overtime Module
 
-Properties | Features
+![force_module](particle-system/force_module.png)
+
+Property | Features
 ---|---
 **space** | In which coordinate system the acceleration is calculated.
 **x,y,z** | The acceleration components in the three directions, can be calculated in different modes.
 
-![](particle-system/force_overtime.gif)
+![force_overtime](particle-system/force_overtime.gif)

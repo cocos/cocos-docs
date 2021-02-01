@@ -16,7 +16,7 @@ Make sure the content in the **Scene** panel is saved before you build. If it is
 
 > **Note**: there is no point in executing a build if there is no scene in the project, so projects without a scene are not allowed to add build tasks.
 
-![](build-panel/save_scene.png)
+![save_scene](build-panel/save_scene.png)
 
 ### Build Task Name
 
@@ -58,11 +58,11 @@ Because the build process generates so many log messages, by default only error 
 
 ## Adjust the build options configuration
 
-The **Build** panel has a ![](build-panel/view_build_parameter.png) button below the build task, which can be clicked to see or adjust the configuration of the previous build options. Click the **Recompile** button after the adjustment is complete, the generated release package will directly overwrite the original.
+The **Build** panel has a ![view_build_parameter](build-panel/view_build_parameter.png) button below the build task, which can be clicked to see or adjust the configuration of the previous build options. Click the **Recompile** button after the adjustment is complete, the generated release package will directly overwrite the original.
 
 The information about the completed build task will be saved in the `profiles/packages/build.json` file of the project. As long as the source file of the corresponding build task is not deleted, either in the **Build** panel or directly deleted in the project directory, you can view the build options configuration of the previous build after reopening the editor, as well as to run and preview again.
 
-> **Note**: the ![](build-panel/view_build_parameter.png) button is for developers to recompile after adjusting the build options of the current build task, while the **New Build Task** button is for creating a new build task, please don't confuse the two.
+> **Note**: the ![view_build_parameter](build-panel/view_build_parameter.png) button is for developers to recompile after adjusting the build options of the current build task, while the **New Build Task** button is for creating a new build task, please don't confuse the two.
 
 ## Export/Import
 
@@ -82,4 +82,4 @@ If you want to adjust the configuration of build options after the project is bu
 
 **Option 1**: use the **Recompile** button at the bottom right of the build task, in the Build panel. This option will directly recompile using the previous configuration of build options.
 
-**Option 2**: use the ![](build-panel/view_build_parameter.png) button at the bottom of the build task in the **Build** panel. Click the button to enter the **Build** panel and you can see a **Recompile** button. For details, see **Adjust the build options configuration** in the upper part of the documentation.
+**Option 2**: use the ![view_build_parameter](build-panel/view_build_parameter.png) button at the bottom of the build task in the **Build** panel. Click the button to enter the **Build** panel and you can see a **Recompile** button. For details, see **Adjust the build options configuration** in the upper part of the documentation.

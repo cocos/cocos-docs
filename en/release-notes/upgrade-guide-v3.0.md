@@ -13,17 +13,27 @@ The __Cocos Creator 3.0 Preview__ version is close to the official version in te
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
-## How to migrate (not supported in Preview version)
+## How to migrate Cocos Creator 2.x projects
 
-Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource import tool when v3.0 is officially released. This tool will support importing old projects, project resources, and project code very well. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
+Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool when v3.0 is officially released. This tool will support migrating old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be migrated in the form of comments, which can reduce the difficulty of upgrading.
 
-Developers only need to click **File -> Import -> Cocos Creator 2D Project** in the main menu, and a window for importing the plug-in will appear.
+Developers only need to click **File -> Migrate -> Cocos Creator 2.x project (recommended: version 2.4.3 and above)** in the main menu.
 
-![image](import-menu.png)
+<img src="import-menu.png" width="50%" height="50%"/>
 
-Next, click the button in the left picture below and select the root directory of the __Cocos Creator 2D__ project. The plug-in will automatically traverse all the resources in the project and present it to the developer. Developers can check the resources to be imported by themselves, and click the __Import__ button in the right picture below after selection. The import is complete.
+Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the migration window.
 
-![image](import.png)
+> **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the migration results cannot be guaranteed to be correct.
+
+<img src="import-select-project.png" width="50%" height="50%"/>
+
+If the developer wishes to switch to another project for migration, click on the icon in the image below to reselect the project.
+
+<img src="import-panel-select.png" width="30%" height="30%"/>
+
+After confirming the items to be migrated, developers can check the resources to be migrated by themselves and then click the __Migrate__ button in the image below to complete the migration.
+
+<img src="import-panel.png" width="30%" height="30%"/>
 
 If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos.com](mailto:slackmoehrle@cocos.com) for assistance!
 
@@ -35,38 +45,95 @@ If an existing project needs to be upgraded under special circumstances, and tec
 
 The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
 
-NOTE: When using `bundle.load` or `resources.load` to dynamically load a sprite-frame or texture, in 2.x you might do it in the following way.
-
-```typescript
-// load texture
-cc.resources.load('background', cc.Texture2D, () => {});
-
-// load sprite frame
-cc.resources.load('background', cc.SpriteFrame, () => {});
-```
-
-In 3.0, the path needs to be assigned to a specific sub-resource, e.g.
-
-```typescript
-// load texture
-resources.load('background/texture', Texture2D, () => {});
-
-// load sprite frame
-resources.load('background/spriteFrame', SpriteFrame, () => {});
-```
-
 #### UI related interfaces on the obsolete node
 
-The deprecated interfaces are as follows:
+- The UI-related interface changes on the node are as follows:
+    - The interfaces related to coordinate transformation calculation (e.g. `size` or `anchor`) are as follows:
+        Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
 
-- Attributes: `width`, `height`, `anchorX`, `anchorY`.
-- Methods: `getAnchorPoint`, `setAnchorPoint`, `getContentSize`, `setContentSize`.
+        ```typescript
+            const uiTrans = node.getComponent(UITransform)!;
+            uiTrans.anchorX = 0.5;
+            uiTrans.setContentSize(size);
+        ```
 
-Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
+    - The remaining interfaces are as follows:
+        - `color`: needs to get the rendering component on the node first (e.g. `Sprite` component), and then use the corresponding interface.
+        - `opacity`: If there is a rendering component on the node, set the `color` of the rendering component directly. If there is no rendering component, you can set the rendering component's `color` by adding the `UIOpacity` component and setting the related property.
+        - `skew`: The interface has been removed.
+        - `group`: change to `layer`.
+- `CCSpriteFrame`:
+    - Remove the interfaces: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture`.
+    - Change the interface: `setFlipX` and `isFlipX` -> `flipUVX`, `setFlipY` and `isFlipY` -> `flipUVY`, `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture) .
+    - The remaining methods corresponding to `get` and `set` (e.g. `getOffset`) all correspond directly to properties of the same name (e.g. `offset`) in 3.0.
+- `CCTexture2D`:
+    - Change the interface: `genMipmaps` -> `mipmaps`, `initWithElement` -> `image`.
+    - `initWithData`, the whole method is removed, similarly the use is to pass the original `ArrayBufferView` data to the new `ImageAsset`, and then `ImageAsset` to the new `Texture2D` to get a copy of the image resource.
+- `Action`:
+    - Remove all related.
+- **Physics**:
+    - 2D changed components: `cc.Collider` -> `Collider2D`, `cc.BoxCollider` -> `BoxCollider2D`, `cc.RigidBody` -> `RigidBody2D`, etc.
+    - 3D changed components: `cc.Collider3D` -> `Collider`, `cc.BoxCollider3D` -> `BoxCollider`, `cc.RigidBody3D` -> `RigidBody`, etc.
+- **tween**:
+    - Change the interface: `cc.repeatForever` -> `Tween.repeatForever`、`cc.reverseTime` -> `Tween.reverseTime`、`cc.show` ->  `Tween.show`, etc.
+- **Animation**:
+    - Change the interface: `addClip`-> `createState`、`getClips`-> `clips`、`playAdditive`-> `crossFade`、`getAnimationState`-> `getState`, etc.
+- **Camera**:
+    - Remove the interfaces: `findCamera`、`alignWithScreen`、`main`、`cameras`、`zoomRatio` and `containsNode`.
+    - Change the interface: `backgroundColor` -> `clearColor`、`cullingMask` -。 > `visibility`、`depth`->`clearDepth`、`getScreenToWorldPoint`->`screenToWorld`、`getWorldToScreenPoint`->`worldToScreen`、`getRay`->`screenPointToRay`, etc.
+- **Audio**:
+    - Change the interface: `getLoop` and `setLoop` -> `loop`, `getVolume` and `setVolume` -> `volume`, `getCurrentTime` and `setCurrentTime` -> `currentTime`, `src` -> `clip`.
+- **Materials**:
+    - All relevant changes need to be done by getting a **Material instance** on **MeshRenderer** or its subclasses.
+    - Remove the interfaces: `setBlend`, `setDepth`, `setStencilEnabled`, `setStencil` and `setCullMode` and call `overridePipelineStates` to complete the update. `define` calls `recompileShaders` to complete the update.
+- The platform variable changes under **sys** are as follows:
 
-```typescript
-node.getComponent(UITransform).setContentSize(size);
-```
+    | Cocos Creator 2.4 | Cocos Creator 3.0     |
+    |:-------------------|:-----------------------|
+    | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
+    | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
+    | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
+    | `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
+    | `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
+    | `JKW_GAME`        | `COCOSPLAY`           |
+    | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
+    | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
+
+- The **global variables** are changed as follows：
+
+    | Cocos Creator 2.x | Cocos Creator 3.0 |
+    |:------------------|:------------------|
+    | `CC_BUILD`        | `BUILD`           |
+    | `CC_TEST`         | `TEST`            |
+    | `CC_EDITOR`       | `EDITOR`          |
+    | `CC_PREVIEW`      | `PREVIEW`         |
+    | `CC_DEV`          | `DEV`             |
+    | `CC_DEBUG`        | `DEBUG`           |
+    | `CC_JSB`          | `JSB`             |
+    | `CC_WECHATGAME`   | `WECHATGAME`      |
+    | `CC_RUNTIME`      | `RUNTIME_BASED`   |
+    | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
+
+- **Dynamic Loading**:
+    When using `bundle.load` or `resources.load` to dynamically load a sprite-frame or texture, in 2.x you might do it in the following way.
+
+    ```typescript
+    // load texture
+    cc.resources.load('background', cc.Texture2D, () => {});
+
+    // load sprite frame
+    cc.resources.load('background', cc.SpriteFrame, () => {});
+    ```
+
+    In 3.0, the path needs to be assigned to a specific sub-resource, e.g.
+
+    ```typescript
+    // load texture
+    resources.load('background/texture', Texture2D, () => {});
+
+    // load sprite frame
+    resources.load('background/spriteFrame', SpriteFrame, () => {});
+    ```
 
 ### Editor upgrade
 
@@ -209,18 +276,18 @@ The main differences between them include the following:
       ![image](windows-cocosjs.png)
 
     - Cocos Creator 2.4.3 has only one startup script `main.js`, while v3.0 adds a new startup script `application.js` in the `src` directory to startup the game in addition to `main.js`.
-    
+
     - The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
-2. Cocos Creator 2.4.3 generates all the native build templates in the `frameworks/runtime-src` directory.
+2. Cocos Creator 2.4.3 generates all the native build projects in the `frameworks/runtime-src` directory.
 
     ![image](v243-build-template.png)
 
-    While v3.0 generates the native build templates in the `build` directory and only generates the native build templates for the current built. As shown below:
+    While v3.0 generates the native build project in the `build` directory and only generates the native build project for the current built. As shown below:
 
     ![image](v3-build-template.png)
 
-3. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build template, while v3.0 are stored in the `windows/proj` directory.
+3. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build project, while v3.0 are stored in the `windows/proj` directory.
 
 ## TypeScript Reference Tutorial
 

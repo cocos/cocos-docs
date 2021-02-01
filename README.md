@@ -64,6 +64,18 @@ You can also build the doc for ebook formats (PDF, ePub, mobi), please following
 
 If you need to publish to the website, you'd better build it on Mac. If use Windows, some redundant `.md` file will also generated.
 
+## Build Graphviz files
+
+You're able to use Graphviz to draw flow charts. The only supported generated format is SVG.
+
+To build Graphviz files(.dot), run:
+
+```bash
+npm run build:dots
+```
+
+The output SVG file would be generated at the same directory the graphviz file in, with same file name but extension replaced by ".svg".
+
 ## Content Editing
 
 The markdown source of this book is in language specific folders [/en](en) and [/zh](zh). Language options are registered in [LANGS.md](LANGS.md) file.

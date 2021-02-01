@@ -1,6 +1,6 @@
 ## Particle System Component
 
-![](particle-system/main.png)
+![main](particle-system/main.png)
 
 | Property | Feature Description |
 | :--              | :-- |

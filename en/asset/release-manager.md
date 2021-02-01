@@ -11,7 +11,7 @@ Releasing a resource will destroy all internal properties of the resource, such 
 
 For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the asset manager. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, asset manager do not need to request the existing SpriteFrame and Texture again it will use the cache directly.
 
-![](load-assets/asset-dep.png)
+![asset-dep](load-assets/asset-dep.png)
 
 ## Auto Release
 
@@ -65,7 +65,7 @@ Since the resource management module was upgraded in v2.4, the release interface
 
 2. When releasing a resource, you only need to focus on the resource itself and the engine will automatically release its dependent resources instead of fetching them manually via `getDependsRecursively`.
 
-**Note**: The `release` series interfaces (Such as `release`, `releaseAsset`, `releaseAll`) will release the resource directly without a release check, only resource's dependent resources will have a release check. So when the `release` series interfaces are called explicitly, you can be sure that the resource itself will always be released.
+> **Note**: the `release` series interfaces (such as `release`, `releaseAsset`, `releaseAll`) will release the resource directly without a release check, only resource's dependent resources will have a release check. So when the `release` series interfaces are called explicitly, you can be sure that the resource itself will always be released.
 
 ## Reference Count Statistics
 
@@ -91,18 +91,18 @@ This is because a resource can only be auto-released if its reference count is 0
 
 1. Suppose you now have a Prefab A that depends on both Material a and Material b. Material a references Texture α, and Material b references Texture β. After loading Prefab A, the reference count for both Material a and Material b are 1, and the reference count for both Texture α and Texture β are also 1.
 
-    ![](release-manager/pica.png)
+    ![pica](release-manager/pica.png)
 
 2. Suppose you now add a Prefab B that depends on both Material b and Material c. After you load the Prefab B, the reference count to Material b is 2, because it is referenced by both the Prefab A and B. The reference count to Material c is 1, and the reference counts for Textures α and β are still 1.
 
-    ![](release-manager/picb.png)
+    ![picb](release-manager/picb.png)
 
 3. When the Prefab A is released, the reference count for the Materials a and b each decreases by 1.
     - The reference count of the Material a changes to 0 and is released; so the reference count of the Texture α minus 1 changes to 0 and is also released.
     - The reference count of the Material b changes to 1 and is retained, so the reference count of the Texture β is still 1 and is also retained.
     - Because the Prefab B is not released, the reference count for the Material c remains at 1 and is retained.
 
-    ![](release-manager/picc.png)
+    ![picc](release-manager/picc.png)
 
 ### Dynamic Referencing of Resources
 

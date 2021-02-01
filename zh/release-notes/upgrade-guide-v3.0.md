@@ -6,10 +6,10 @@ Cocos Creator 3.0 集成了原有 2D 和 3D 两套产品的所有功能，带来
 
 - **对于 Cocos Creator 2.x**
 
-  为了保障现有的 Cocos Creator 2.4 项目平稳过渡，我们会将 v2.4 做为 LTS（长期支持）版本，提供后续 **两年** 的持续更新！在 **2021** 年，v2.4 将继续更新版本，提供缺陷修复和新的 Cocos Creator 小游戏平台支持，保障大家的项目成功上线。在 **2022** 年我们还将为开发者持续提供 v2.4 的关键问题修复，保障已上线的游戏平稳运营！因此：
+    为了保障现有的 Cocos Creator 2.4 项目平稳过渡，我们会将 v2.4 做为 LTS（长期支持）版本，提供后续 **两年** 的持续更新！在 **2021** 年，v2.4 将继续更新版本，提供缺陷修复和新的 Cocos Creator 小游戏平台支持，保障大家的项目成功上线。在 **2022** 年我们还将为开发者持续提供 v2.4 的关键问题修复，保障已上线的游戏平稳运营！因此：
 
-  - **现有的 v2.x 项目可以安心继续开发，无需强制升级到 v3.0**。
-  - **新项目建议使用 v3.0 版本开发**，我们会不断优化 v3.0 的开发体验和运行效率，支撑好 2D、3D 等不同品类的重度游戏顺利上线。
+    - **现有的 v2.x 项目可以安心继续开发，无需强制升级到 v3.0**。
+    - **新项目建议使用 v3.0 版本开发**，我们会不断优化 v3.0 的开发体验和运行效率，支撑好 2D、3D 等不同品类的重度游戏顺利上线。
 
 - **对于 Cocos Creator 3D**
 
@@ -21,17 +21,27 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 关于 Cocos Creator 3.0 的详细介绍，请移步 [官网更新说明](https://cocos.com/creator)。
 
-## 如何迁移（Preview 版本暂不支持）
+## 如何迁移 Cocos Creator 2.x 项目
 
-虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍将在 3.0 正式版推出 v2.x 资源导入工具。此工具支持旧项目资源完美导入，以及代码的辅助导入。代码辅助导入会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式导入，减轻开发者的升级难度。
+虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍将在 3.0 正式版推出 v2.x 资源迁移工具。此工具支持旧项目资源完美迁移，以及代码的辅助迁移。代码辅助迁移会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式迁移，减轻开发者的升级难度。
 
-开发者只需要点击主菜单中的 **文件 -> 导入 -> Cocos Creator 2D 项目**，即可出现导入插件的窗口。
+开发者只需要点击主菜单中的 **文件 -> 迁移 -> Cocos Creator 2.x 项目（推荐：2.4.3 及以上的版本）** 
 
-![image](import-menu.png)
+<img src="import-menu.png" width="50%" height="50%"/>
 
-然后点击下方左图中的按钮并选择 Cocos Creator 2D 项目的根目录，插件会自动遍历项目中所有的资源并呈现在窗口。开发者可以自行勾选需要导入的资源，然后点击下方右图中的 **导入** 按钮即可完成导入。
+然后选择 Cocos Creator 2.x 项目的根目录，插件会自动遍历项目中所有的资源并呈现在迁移窗口上。
 
-![image](import.png)
+> **注意**：旧项目推荐先升级到 Cocos Creator 2.4.3 或以上版本，然后再导入到 Cocos Creator 3.0，否则无法确保迁移结果的正确性。
+
+<img src="import-select-project.png" width="50%" height="50%"/>
+
+若开发者想要切换其他的项目进行迁移，点击下图中的图标，即可重新选择项目。
+
+<img src="import-panel-select.png" width="30%" height="30%"/>
+
+确认迁移的项目后，开发者可以自行勾选需要迁移的资源，然后点击下图中的 **迁移** 按钮完成迁移。
+
+<img src="import-panel.png" width="30%" height="30%"/>
 
 如果现有项目因为特殊原因需要升级，并且遇到了技术上或者工作量上的困难，也可以联系 `zhengxiong.zhao@cocos.com` 获取我们的人工协助！
 
@@ -55,40 +65,92 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 #### 针对 Cocos Creator 2.x 用户
 
-废弃节点上 UI 相关接口，被废弃的接口如下：
+- 节点上 UI 相关接口变更如下：
+    - 与坐标变换计算相关的接口（例如：`size` 和 `anchor`）如下：
+        需要先获取节点上的 `UITransform` 组件，再使用对应的接口，例如：
 
-- 属性：`width`、`height`、`anchorX`、`anchorY`
-- 方法：`getAnchorPoint`、`setAnchorPoint`、`getContentSize`、`setContentSize`
+        ```typescript
+            const uiTrans = node.getComponent(UITransform)!;
+            uiTrans.anchorX = 0.5;
+            uiTrans.setContentSize(size);
+        ```
 
-请先获取节点上的 `UITransform` 组件，再使用对应的接口，例如：
+    - 其余接口如下：
+        - `color`：需要先获取节点上的渲染组件（例如：`Sprite` 组件），再使用对应的接口。
+        - `opacity`：如果节点上有渲染组件，直接设置渲染组件的 `color`。如果没有渲染组件，则可以通过添加 `UIOpacity` 组件，并设置相关属性。
+        - `skew`：该接口已被移除。
+        - `group`：变更为 `layer`。
+- `CCSpriteFrame`：
+    - 移除接口：`copyWithZone`、`copy`、`clone` 和 `ensureLoadTexture`。
+    - 变更接口：`setFlipX` 和 `isFlipX` -> `flipUVX`、`setFlipY` 和 `isFlipY` -> `flipUVY`、`getTexture` 和 `setTexture` -> `texture`（此处的类型是 Texture2D/RenderTexture）。
+    - 其余 `get` 和 `set` 对应的方法（例如：`getOffset`）在 3.0 中都直接对应同名属性（例如：`offset`）。
+- `CCTexture2D`：
+    - 变更接口：`genMipmaps` -> `mipmaps`、`initWithElement` -> `image`。
+    - `initWithData` 整个方法被移除，类似的使用是将原先要传入的 `ArrayBufferView` 数据，传给新建的 `ImageAsset`，然后再用 `ImageAsset` 传给新建的 `Texture2D`，从而获得一份图片资源。
+- `cc.Action`：
+    - 相关接口全部移除。
+- **物理**：
+    - 2D 变更组件：`cc.Collider` -> `Collider2D`、`cc.BoxCollider` -> `BoxCollider2D`、`cc.RigidBody` -> `RigidBody2D` 等。
+    - 3D 变更组件：`cc.Collider3D` -> `Collider`、`cc.BoxCollider3D` -> `BoxCollider`、`cc.RigidBody3D` -> `RigidBody` 等。
+- **tween**：
+    - 变更接口：`cc.repeatForever` -> `Tween.repeatForever`、`cc.reverseTime` -> `Tween.reverseTime`、`cc.show` ->  `Tween.show` 等。
+- **动画**：
+    - 变更接口：`addClip` -> `createState`、`getClips` -> `clips`、`playAdditive` -> `crossFade`、`getAnimationState` -> `getState` 等。
+- **相机**：
+    - 移除接口：`findCamera`、`alignWithScreen`、`main`、`cameras`、 `zoomRatio` 和 `containsNode`。
+    - 变更接口：`backgroundColor` -> `clearColor`、`cullingMask` -> `visibility`、`depth` -> `clearDepth`、`getScreenToWorldPoint` -> `screenToWorld`、`getWorldToScreenPoint` -> `worldToScreen`、`getRay` -> `screenPointToRay` 等。
+- **音频**：
+    - 变更接口：`getLoop` 和 `setLoop` -> `loop`、`getVolume` 和 `setVolume` -> `volume`、`getCurrentTime` 和 `setCurrentTime` -> `currentTime`、`src` -> `clip`。
+- **材质**：
+    - 所有相关改动都需要获得 **MeshRenderer** 或其子类身上的 **材质实例** 来完成。
+    - 移除接口：`setBlend`、`setDepth`、`setStencilEnabled`、`setStencil` 和 `setCullMode`，调用 `overridePipelineStates` 完成更新。`define` 调用 `recompileShaders` 完成更新。
+- **sys** 下的平台变量变更如下：
 
-```typescript
-node.getComponent(UITransform).setContentSize(size);
-```
+    | Cocos Creator 2.4 | Cocos Creator 3.0     |
+    |:------------------|:----------------------|
+    | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
+    | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
+    | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
+    | `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
+    | `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
+    | `JKW_GAME`        | `COCOSPLAY`           |
+    | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
+    | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
 
-使用 bundle.load 或 resources.load 动态加载 sprite-frame 或 texture 时，在 2.x 中你可能用如下方式：
+- **全局变量** 变更如下：
+    | Cocos Creator 2.x | Cocos Creator 3.0 |
+    |:-------------------|:-------------------|
+    | `CC_BUILD`        | `BUILD`           |
+    | `CC_TEST`         | `TEST`            |
+    | `CC_EDITOR`       | `EDITOR`          |
+    | `CC_PREVIEW`      | `PREVIEW`         |
+    | `CC_DEV`          | `DEV`             |
+    | `CC_DEBUG`        | `DEBUG`           |
+    | `CC_JSB`          | `JSB`             |
+    | `CC_WECHATGAME`   | `WECHATGAME`      |
+    | `CC_RUNTIME`      | `RUNTIME_BASED`   |
+    | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
 
-```typescript
-// 加载 texture
-resources.load('background', cc.Texture2D, () => {});
+- **动态加载资源**：
+    使用 bundle.load 或 resources.load 动态加载 sprite-frame 或 texture 时，在 2.x 中你可能用如下方式：
 
-// 加载 sprite frame
-resources.load('background', cc.SpriteFrame, () => {});
-```
+    ```typescript
+    // 加载 texture
+    resources.load('background', cc.Texture2D, () => {});
 
-在 3.0 中，需要将路径指定到具体的子资源，例如：
+    // 加载 sprite frame
+    resources.load('background', cc.SpriteFrame, () => {});
+    ```
 
-```typescript
-// 加载 texture
-resources.load('background/texture', Texture2D, () => {});
+    在 3.0 中，需要将路径指定到具体的子资源，例如：
 
-// 加载 sprite frame
-resources.load('background/spriteFrame', SpriteFrame, () => {});
-```
+    ```typescript
+    // 加载 texture
+    resources.load('background/texture', Texture2D, () => {});
 
-#### 其它废弃的接口
-
-（暂缺）
+    // 加载 sprite frame
+    resources.load('background/spriteFrame', SpriteFrame, () => {});
+    ```
 
 ### 编辑器升级
 
@@ -236,15 +298,15 @@ v2.4.3 构建 Windows 平台后生成的目录：
 
     - v2.4.3 中用于管理配置的 `src/settings.js` 在 v3.0 改为 `assets/src/settings.json`。
 
-2. v2.4.3 将所有原生平台的构建模板都生成在 `frameworks/runtime-src` 目录下：
+2. v2.4.3 将所有原生平台的构建工程都生成在 `frameworks/runtime-src` 目录下：
 
     ![image](v243-build-template.png)
 
-    而 v3.0 则是将构建模板生成在 `build` 目录下，且只生成当前构建平台的构建模板：
+    而 v3.0 则是将构建工程生成在 `build` 目录下，且只生成当前构建平台的工程：
 
     ![image](v3-build-template.png)
 
-3. 一些编译时需要用到的资源，例如应用图标、应用启动脚本等，v2.4.3 是存储在构建模板中，而 v3.0 则是存储在构建目录的 `windows/proj` 目录下。
+3. 一些编译时需要用到的资源，例如应用图标、应用启动脚本等，v2.4.3 是存储在构建工程中，而 v3.0 则是存储在构建目录的 `windows/proj` 目录下。
 
 ## TypeScript 参考教程
 
