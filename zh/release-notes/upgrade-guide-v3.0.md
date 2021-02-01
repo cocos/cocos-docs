@@ -132,6 +132,7 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
     | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
 
 - **动态加载资源**：
+
     在 v3.0 中使用 `bundle.load` 或 `resources.load` 动态加载 `sprite-frame` 或 `texture` 时，需要将路径指定到具体的子资源：
 
     ```ts
@@ -141,30 +142,12 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
     // v3.0
     resources.load('background/texture', Texture2D, () => {});
     ```
-    
+
     ```ts
     // 加载 sprite frame
     // v2.x
     resources.load('background', cc.SpriteFrame, () => {});
     // v3.0
-    resources.load('background/spriteFrame', SpriteFrame, () => {});
-    ```
-
-    ```typescript
-    // 加载 texture
-    resources.load('background', cc.Texture2D, () => {});
-
-    // 加载 sprite frame
-    resources.load('background', cc.SpriteFrame, () => {});
-    ```
-
-    在 3.0 中，需要将路径指定到具体的子资源，例如：
-
-    ```typescript
-    // 加载 texture
-    resources.load('background/texture', Texture2D, () => {});
-
-    // 加载 sprite frame
     resources.load('background/spriteFrame', SpriteFrame, () => {});
     ```
 
