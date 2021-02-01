@@ -48,7 +48,7 @@ __Cocos Creator__ will provide a way to package an __Image Asset__ as a __Sprite
 
 ### The container contains objects that are used by RenderTexture
 
-__RenderTexture__ is a rendering texture that renders content from the camera directly to a texture instead of the screen. __SpriteFrame__ can easily display 3D camera content on the UI by managing __RenderTexture__. Use is as follows:
+__RenderTexture__ is a rendering texture that renders content from the camera directly to a texture instead of the screen. __SpriteFrame__ can easily display 3D camera content on the UI by managing __RenderTexture__. Example:
 
 ```typescript
 const cameraComp = this.getComponent(Camera);
@@ -68,4 +68,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API interface document: [SpriteFrame](../../../api/en/classes/asset.spriteframe.html).
+For API information, please refer to the [SpriteFrame API](../../../api/en/classes/asset.spriteframe.html) documentation.

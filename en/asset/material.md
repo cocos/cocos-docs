@@ -1,6 +1,6 @@
-## Material assets
+# Material assets
 
-### Material creation
+## Material creation
 
 __Material__ is created as follows:
 

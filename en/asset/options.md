@@ -10,7 +10,7 @@ Parameters that are currently used by the engine in `options` include the follow
 `bundle`, `onFileProgress`, `maxConcurrency`, `maxRequestsPerFrame`, `maxRetryCount`, `version`, `xhrResponseType`,
 `xhrWithCredentials`, `xhrMimeType`, `xhrTimeout`, `xhrHeader`, `reloadAsset`, `cacheAsset`, `cacheEnabled`,
 
-Please **DO NOT** use the above fields as your custom parameter names to avoid conflicts with engine functions.
+**DO NOT** use the above fields as your custom parameter names to avoid conflicts with engine functions.
 
 ## Control loading pipeline
 

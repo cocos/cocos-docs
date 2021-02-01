@@ -53,10 +53,10 @@ Currently, Cocos Creator supports four Java types:
 
 | Java type | signature |
 | :-------- | :-------- |
-| int       | I         |
-| float     | F         |
-| boolean   | Z         |
-| String    | Ljava / lang / String; |
+| **int**       | I         |
+| **float**     | F         |
+| **boolean**   | Z         |
+| **String**    | Ljava / lang / String; |
 
 ## Parameters
 
@@ -115,7 +115,7 @@ public class AppActivity extends Cocos2dxActivity {
 }
 ```
 
-Next, calling `showAlertDialog` in JavaScript:
+Next, call `showAlertDialog` in JavaScript:
 
 ```js
 jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");

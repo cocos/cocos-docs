@@ -18,4 +18,4 @@ Select **Scene** in the **Hierarchy** panel and set the properties in the **ambi
 | **SkyIllumination** | Adjust the sky brightness |
 | **GroundAlbedo** | Set the ground reflected light |
 
-Ambient light can be used with a Skybox, see [Skybox](skybox.md) for details.
+Ambient light can be used with a Skybox, see the [Skybox](skybox.md) documentation for details.

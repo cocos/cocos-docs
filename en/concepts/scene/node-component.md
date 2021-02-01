@@ -29,7 +29,7 @@ To create nodes dynamically in a script, refer to the document [Create and Destr
 
 ## Components
 
-We just created a node, so now let's look at what components are and how they relate to the node. <br>
+Having just created a node, look at what components are and how they relate to the node. <br>
 Select the `Sphere` node we just created and you can see in the **Inspector** panel that it shows.
 
 ![Properties](scene/inspector.png)
@@ -39,9 +39,9 @@ The part of the **Inspector** panel that starts with the `Node` title is the nod
 The next section, starting with the `cc.MeshRenderer` title, is the properties of the **Sphere** component. In Cocos Creator, the **MeshRenderer** component is used to draw mesh resources, where the `Mesh` property is used to specify the mesh resources used for rendering. Since we just created the Sphere node, the default here is `sphere.mesh`. <br>
 And the `Materials` property is used to specify the material used for rendering. You can try dragging any material from the **Assets** into the `Materials` property of the **Inspector** panel and you can see that the default material just became the specified material.
 
-> Any resources set on the component, such as `sphere.mesh` in this case, will be loaded automatically at the same time as the scene loads. You can also declare the types of resources to be set and loaded automatically in your custom components, see [Getting and loading resources](../../scripting/load-assets.md).
+> **Note**: any resources set on the component, such as `sphere.mesh` in this case, will be loaded automatically at the same time as the scene loads. You can also declare the types of resources to be set and loaded automatically in your custom components, see [Getting and loading resources](../../scripting/load-assets.md).
 
-In addition to adding components manually in the editor, you can also control components via scripts, see [Component creation and destruction](../../scripting/component.md).
+In addition to adding components manually in the editor, components can also be controlled via scripts. Please refer to the [Component creation and destruction](../../scripting/component.md) documentation.
 
 ### Effect of Node Properties on Components
 

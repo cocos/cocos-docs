@@ -39,6 +39,7 @@ After opening the __Scene__ file, **Scene** is the root node of the __Scene__ no
 ![scene_node_set](scene/scene_node_set.png)
 
 For a detailed description of each attribute, see the following documents:
+
 - [Ambient light](../concepts/scene/ambient.md)
 - [Shadow](../concepts/scene/shadow.md)
 - [Global Fog](../concepts/scene/fog.md)

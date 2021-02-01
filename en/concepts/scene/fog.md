@@ -20,9 +20,7 @@ The types of global fog depend on the result of the calculation of **Camera** an
 | **FogStart** | The starting position of the fog effect |
 | **FogEnd** | The end position of the fog effect |
 
-The fog blend factor of Linear Fog is calculated by the following formula:
-
-**f = (FogEnd - Cam_dis) / (FogEnd - FogStart)**
+The fog blend factor of Linear Fog is calculated by the formula: **f = (FogEnd - Cam_dis) / (FogEnd - FogStart)**
 
 - When `Cam_dis = FogEnd`, i.e., the distance between the camera and the model vertex is equal to FogEnd, the blend factor is calculated as 0, and the object is fully fogged.
 
@@ -49,13 +47,9 @@ If you want to adjust the fog effect to the right consistency, it is best to adj
 | **FogDensity** | The fog density, in the range 0 ~ 1 |
 | **FogAtten** | Fog attenuation coefficient |
 
-The fog blend factor for Exponential Fog is calculated as
+The fog blend factor for Exponential Fog is calculated as: **f = e^(-distance * fogDensity)**
 
-**f = e^(-distance * fogDensity)**
-
-The fog blend factor for Exponential Squared Fog is calculated as
-
-**f = e^(-distance * fogDensity)²**
+The fog blend factor for Exponential Squared Fog is calculated as: **f = e^(-distance * fogDensity)²**
 
 Developers can use `FogDensity` and `FogAtten` to adjust the density of global fog at different locations.
 

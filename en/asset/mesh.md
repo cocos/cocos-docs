@@ -13,13 +13,12 @@ After importing into the editor, from the outside, the corresponding model asset
 - The structure of the model file that contains animations is as follows:
 
   ![mesh_list](mesh/mesh_list_1.png)
-
-  - `.material` -- Material files
-  - `.mesh` -- Model files
-  - `.texture` -- Model texture files
-  - `.animation` -- Model animation files
-  - `.skeleton` -- Model bone files
-  - `.prefab` -- Prefab files that are automatically generated on import
+    - `.material` -- Material files
+    - `.mesh` -- Model files
+    - `.texture` -- Model texture files
+    - `.animation` -- Model animation files
+    - `.skeleton` -- Model bone files
+    - `.prefab` -- Prefab files that are automatically generated on import
 
 ## Using Models
 

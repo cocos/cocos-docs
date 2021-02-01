@@ -2,7 +2,8 @@
 
 > Author: Santy-Wang, Xunyi
 
-Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.<br>
+Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.
+
 The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in subprojects.
 
 ## The built-in Asset Bundle
@@ -52,11 +53,11 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 
 | Configuration Options | Function Explanation |
 | :---  | :---- |
-| Bundle Name      | The name of the Asset Bundle after it is built, which will use the name of this folder by default, can be modified as needed.  |
-| Bundle Priority  | Creator opens up 10 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
-| Target Platform  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
-| Compression Type | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
-| Is Remote Bundle | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
+| **Bundle Name**      | The name of the Asset Bundle after it is built, which will use the name of this folder by default, can be modified as needed.  |
+| **Bundle Priority**  | Creator opens up 10 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
+| **Target Platform**  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
+| **Compression Type** | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
+| **Is Remote Bundle** | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
 
 After the configuration, click on the **Apply** button at the top right and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
@@ -78,14 +79,16 @@ Another possibility is that a resource is in one Asset Bundle folder, but is als
 In both cases, `resource c` belongs to both `Asset Bundle A` and `Asset Bundle B`. So which Asset Bundle does `resource c` actually exist in? This needs to be specified by adjusting the priority of the Asset Bundle.<br>
 Creator opens up 10 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
 
-- When the same resource is referenced by multiple Asset Bundles with **different priorities**, the resource will be placed in the high-priority Asset Bundle, while the lower-priority Asset Bundle stores only one record message. In this case the lower-priority Asset Bundle relies on the higher-priority Asset Bundle.<br>
+- When the same resource is referenced by multiple Asset Bundles with **different priorities**, the resource will be placed in the high-priority Asset Bundle, while the lower-priority Asset Bundle stores only one record message. In this case the lower-priority Asset Bundle relies on the higher-priority Asset Bundle.
+
 If you want to load this shared resource in a lower-priority Asset Bundle, you must load the higher-priority Asset Bundle before loading the lower-priority Asset Bundle.
+
 - When the same resource is referenced by multiple Asset Bundles of the **same priority**, the resource will be copied in each Asset Bundle, with no dependencies between the different Asset Bundles, and they can be loaded in any order. So try to make sure that the Asset Bundle that the shared resource (e.g. `Texture`, `SpriteFrame`, `Audio`, etc.) is in has a higher priority, so that more lower-priority Asset Bundles can share resources, thus minimizing the package size.
 
 The four built-in Asset Bundle folders are prioritized as follows:
 
 | Asset Bundle | Priority |
-| :--- | --- |
+| :--- | :--- |
 | `main`        | 7  |
 | `resources`   | 8  |
 | `start-scene` | 20 |
@@ -97,7 +100,7 @@ When the four built-in Asset Bundles contain the same resources, the resources a
 Creator currently provides **Merge Depend**, **None**, **Merge All Json**, **Mini Game Subpackage**, and **Zip** compression types for optimizing the Asset Bundle. All Asset Bundles use the **Merge Depend** compression type by default, and you can reset the compression type for all Asset Bundles including the built-in Asset Bundle.
 
 | Compression Type | Function Explanation |
-| :------ | ------ |
+| :------ | :------ |
 | **Merge Depend**   | When building the Asset Bundle, JSON files for interdependent resources are merged together to reduce the number of load requests at runtime. |
 | **None**           | When building the Asset Bundle, there is no compression operation. |
 | **Merge All Json** | When building the Asset Bundle, the JSON files for all resources are merged into one, which minimizes the number of requests, but may increase the load time for a single resource. |
@@ -121,6 +124,7 @@ The structure of the Asset Bundle directory generated after build is shown below
 ![export](bundle/exported.png)
 
 After building, the Asset Bundle folder will be packaged into the **assets** folder in the release package directory of the corresponding platform. However, there are two special cases.
+
 - If the **Is Remote Bundle** option is checked when configuring the Asset Bundle, this Asset Bundle folder will be packaged into the **remote** folder in the release package directory of the corresponding platform.
 - If the **Compression Type** is set to **Mini Game Subpackage** when configuring the Asset Bundle, this Asset Bundle folder will be packaged into the **subpackages** folder in the release package directory of the corresponding platform.
 
@@ -195,11 +199,11 @@ assetManager.loadBundle('01_graphics', {version: 'fbc07'}, function (err, bundle
 });
 ```
 
-Then you can bypass the old version files in the cache and redownload the latest version of the Asset Bundle.
+Then bypass the old version files in the cache and redownload the latest version of the Asset Bundle.
 
 ## Load the resources in the Asset Bundle
 
-After the Asset Bundle is loaded, the engine returns an instance of `AssetManager.Bundle` class. You can load the resources in the Asset Bundle by using `load` method of the instance, which has the same arguments as the `resources.load`, you just need to pass in the path of the resource relative to the Asset Bundle, and the end of the path **must not** contain the file extension.
+After the Asset Bundle is loaded, the engine returns an instance of `AssetManager.Bundle` class. Load the resources in the Asset Bundle by using `load` method of the instance, which has the same arguments as the `resources.load`, you just need to pass in the path of the resource relative to the Asset Bundle, and the end of the path **must not** contain the file extension.
 
 ```typescript
 // Load Prefab

@@ -1,4 +1,4 @@
-# Coordinate Systems and  Node Transformation Properties
+# Coordinate Systems and Node Transformation Properties
 
 In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector** panel. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
 
@@ -28,7 +28,7 @@ Suppose there are three nodes in the scene: NodeA, NodeB, and NodeC. The structu
 When the scene contains nodes at different levels, the position of each node under the world coordinate system is determined according to the following steps:
 
 1. Process each node starting from the root level, NodeA in the above figure is a root level node. The first step is to determine the position of the origin of NodeA's local coordinate system (i.e. `Position`) in the world coordinate system based on NodeA's **Position** property.
-2. Next, process all the direct children of NodeA, which is NodeB in the above figure (as well as other nodes of the same level as NodeB). Based on NodeB's `Position` property, determine NodeB's position in the world coordinate system in NodeA's local coordinate system. 
+2. Next, process all the direct children of NodeA, which is NodeB in the above figure (as well as other nodes of the same level as NodeB). Based on NodeB's `Position` property, determine NodeB's position in the world coordinate system in NodeA's local coordinate system.
 3. Each node uses the parent's coordinate system and its own position property to determine its position in the world coordinate system.
 
 ## Transformation Properties
@@ -49,7 +49,7 @@ In the above figure, the world coordinates of NodeA are `(50, 50, 50)` and the l
 
 ![position](coord/position-nodeB-world.png)
 
-As you can see, the `Position` of the child NodeB is based on the `Position` of the parent NodeA as the origin of the coordinate system.
+Notice that the `Position` of the child NodeB is based on the `Position` of the parent NodeA as the origin of the coordinate system.
 
 If the parent NodeA changes its `Position`, the child NodeB will also change its position (world coordinate system), but the `Position` property of the child NodeB will not change, because the child NodeB does not change in the local coordinate system with the parent NodeA's `Position` as the origin.
 
@@ -58,6 +58,7 @@ In the **Scene** panel, you can always use the [Move Transform Tool](../../edito
 ### Rotation
 
 **Rotation** consists of the `X`, `Y` and `Z` properties, which default to `(0, 0, 0)`, and is another important property that affects the node's local coordinate system. When the `X` property is changed, it means that the node will be rotated counterclockwise/clockwise around the x-axis, and so on, and the same applies when the `Y` or `Z` property is changed.
+
 - When the property value is **positive**, the node rotates **counterclockwise**.
 - When the property value is **negative**, the node rotates **clockwise**.
 
@@ -81,4 +82,4 @@ The `Scale` property set on a child node are superimposed on its parent node's s
 
 The **Scale** property does not affect the **Position** and **Rotation** of the current node, but it does affect the **Position** of the child nodes.
 
-In the **Scene** panel, you can always use the [Scale Transform Tool](../../editor/scene/transform-gizmo.md) to modify the node scaling.
+In the **Scene** panel, use the [Scale Transform Tool](../../editor/scene/transform-gizmo.md) to modify the node scaling.
