@@ -66,6 +66,26 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 node.getComponent(UITransform).setContentSize(size);
 ```
 
+使用 bundle.load 或 resources.load 动态加载 sprite-frame 或 texture 时，在 2.x 中你可能用如下方式：
+
+```typescript
+// 加载 texture
+resources.load('background', cc.Texture2D, () => {});
+
+// 加载 sprite frame
+resources.load('background', cc.SpriteFrame, () => {});
+```
+
+在 3.0 中，需要将路径指定到具体的子资源，例如：
+
+```typescript
+// 加载 texture
+resources.load('background/texture', Texture2D, () => {});
+
+// 加载 sprite frame
+resources.load('background/spriteFrame', SpriteFrame, () => {});
+```
+
 #### 其它废弃的接口
 
 （暂缺）
