@@ -1,10 +1,10 @@
 # Coordinate Systems and Node Transformation Properties
 
-In the document [Scene Panel](../../editor/scene/index.md) and [Nodes and Components](node-component.md), we introduced the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector** panel. In this document we will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
+In the documents, [Scene Panel](../../editor/scene/index.md), and [Nodes and Components](node-component.md), the ability to change the display behavior of nodes by using the **transformation tool Gizmo** and editing the properties of nodes in the **Inspector** panel was introduced. This document will take a deeper look at the coordinate system of the scene space in which the node is located and how the **Position**, **Rotation**, and **Scale** transformation properties of the node work.
 
 ## Coordinate Systems
 
-We already know that you can set position properties for nodes, so where will a node with a specific position property be rendered on the screen when the game is running? Just as we specify longitude and latitude for our planet in order to use GPS, we need to understand the coordinate system of Cocos Creator 3.0 to understand the meaning of node positions.
+Position properties for nodes can be set, but where will a node with a specific position property be rendered on the screen when the game is running? Just as longitude and latitude specify coordinates for a location on a planet it is necessary to understand the coordinate system of Cocos Creator 3.0 to understand the meaning of node positions.
 
 ### World Coordinate
 
@@ -45,15 +45,15 @@ Nodes include three main transformation properties, **Position**, **Rotation** a
 
 ![position](coord/position-nodeB.png)
 
-In the above figure, the world coordinates of NodeA are `(50, 50, 50)` and the local coordinates of child NodeB are `(0, 2, 0)`. If we move NodeB to the root of the scene, we can see that the world coordinates of NodeB become `(50, 52, 50)`.
+In the above figure, the world coordinates of NodeA are `(50, 50, 50)` and the local coordinates of child NodeB are `(0, 2, 0)`. If NodeB is moved to the root of the scene, the world coordinates of NodeB become `(50, 52, 50)`.
 
 ![position](coord/position-nodeB-world.png)
 
-Notice that the `Position` of the child NodeB is based on the `Position` of the parent NodeA as the origin of the coordinate system.
+The `Position` of the child NodeB is based on the `Position` of the parent NodeA as the origin of the coordinate system.
 
 If the parent NodeA changes its `Position`, the child NodeB will also change its position (world coordinate system), but the `Position` property of the child NodeB will not change, because the child NodeB does not change in the local coordinate system with the parent NodeA's `Position` as the origin.
 
-In the **Scene** panel, you can always use the [Move Transform Tool](../../editor/scene/transform-gizmo.md) to change the node position.
+In the **Scene** panel, use the [Move Transform Tool](../../editor/scene/transform-gizmo.md) to change the node position.
 
 ### Rotation
 
@@ -66,9 +66,9 @@ In the **Scene** panel, you can always use the [Move Transform Tool](../../edito
 
 The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, so you can see that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
-> **Note**: the [rotation](../../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, please make sure to pay attention to the difference between them and the editor panel property names.
+> **Note**: the [rotation](../../../../api/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](../../../../api/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
 
-In the **Scene** panel, you can always use the [rotate transform tool](../../editor/scene/transform-gizmo.md) to set the rotation of the node.
+In the **Scene** panel, use the [rotate transform tool](../../editor/scene/transform-gizmo.md) to set the rotation of the node.
 
 ### Scale
 

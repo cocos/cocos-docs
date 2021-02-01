@@ -118,6 +118,7 @@
 - [动画](engine/animation/index.md)
     - [动画组件](engine/animation/animation-component.md)
     - [动画剪辑](engine/animation/animation-clip.md)
+    - [动画状态](engine/animation/animation-state.md)
     - [骨骼动画](engine/animation/skeletal-animation.md)
 - [缓动](tween/index.md)
 
@@ -164,6 +165,10 @@
     - [BoxCollider](physics/physics-component.md#盒碰撞器组件（boxcollidercomponent）)
     - [SphereCollider](physics/physics-component.md#球碰撞器组件（spherecollidercomponent）)
     - [RigidBody](physics/physics-component.md#刚体组件)
+    - [Spine Skeleton 组件参考](editor/components/spine.md)
+    - [DragonBones ArmatureDisplay 组件参考](editor/components/dragonbones.md)
+    - [TileMap 组件参考](editor/components/tiledmap.md)
+    - [TiledTile 组件参考](editor/components/tiledtile.md)
     - [UI 组件](ui-system/components/editor/index.md)
         - [UI 渲染组件](ui-system/components/editor/render-component.md)
             - [Sprite 组件参考](ui-system/components/editor/sprite.md)
@@ -250,6 +255,9 @@
     - [材质资源](asset/material.md)
     - [模型资源](asset/mesh.md)
     - [动画资源](asset/anim.md)
+    - [Spine 骨骼动画资源](asset/spine.md)
+    - [Dragonbones 骨骼动画资源](asset/dragonbones.md)
+    - [TiledMap 瓦片图资源](asset/tiledmap.md)
 - [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 ## 进阶使用
@@ -264,8 +272,9 @@
     - [扩展已有功能](editor/extension/contributions.md)
         - [消息通信](editor/extension/contributions-messages.md)
         - [快捷键](editor/extension/contributions-shortcuts.md)
-        - [扩展主菜单](editor/extension/contributions-menu.md)
         - [场景脚本](editor/extension/scene-script.md)
+        - [扩展主菜单](editor/extension/contributions-menu.md)
+        - [扩展资源管理器面板](editor/assets/extension.md)
     - [基础功能](editor/extension/basic.md)
         - [插件系统](editor/extension/package.md)
         - [消息系统](editor/extension/messages.md)
@@ -275,7 +284,7 @@
 
 - [进阶主题](advanced-topics/index.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
-    - [引擎定制工作流程](editor/engine-customization/engine-customization.md)
+    - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
         - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)

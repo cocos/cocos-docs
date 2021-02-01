@@ -16,7 +16,7 @@ Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：
         "experimentalDecorators": true,
         "moduleResolution": /* Cocos Creator 特定的模块解析算法 */,
         "forceConsistentCasingInFileNames": true,
-    }，
+    }
   }
   ```
 

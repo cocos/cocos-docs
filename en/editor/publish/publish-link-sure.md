@@ -1,5 +1,7 @@
 # Publish to LinkSure Mini Games
 
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+
 LinkSure Mini Game is a mini game application platform of WiFi Master Key, which is convenient, lightweight and without installation.
 
 The LinkSure Mini Game runs as a **cpk** game package in the mini game environment, which is similar to the WeChat Mini Game. The game package is hosted in the cloud, put and run in the APP, safe, reliable and experience smooth, users can tap to play, without installation.
