@@ -35,7 +35,7 @@ If an existing project needs to be upgraded under special circumstances, and tec
 
 The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
 
-NOTE: When using bundle.load or resources.load to dynamically load a sprite-frame or texture, in 2.x you might do it in the following way.
+NOTE: When using `bundle.load` or `resources.load` to dynamically load a sprite-frame or texture, in 2.x you might do it in the following way.
 
 ```typescript
 // load texture
