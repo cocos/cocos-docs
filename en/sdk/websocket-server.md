@@ -12,13 +12,13 @@ In `ccConfig.h`, set `USE_WEBSOCKET_SERVER` to 1.
 
 ![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
-**Note**: Since it is rare to keep the **WebSocket Server** in **Release** mode, it is recommended to include the following in the modification:
-
-```c++
-#if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
-#define USE_WEBSOCKET_SERVER 0
-#endif
-``` 
+> **Note**: since it is rare to keep the **WebSocket Server** in **Release** mode, it is recommended to include the following in the modification:
+>
+> ```c++
+> #if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
+> #define USE_WEBSOCKET_SERVER 0
+> #endif
+> ```
 
 Modifying the default value will affect all platforms. If you don't know whether you need to enable it on all platforms, you can refer to the following method 2, and only enable it for specific platforms.
 

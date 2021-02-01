@@ -6,7 +6,7 @@
 
 - Install [nodejs-8.9.0](https://nodejs.org/en/download/) or above, globally:
 
-    **Note**: After installing nodejs, you need to pay attention to whether the npm source address is https://registry.npmjs.org/
+    > **Note**: after installing nodejs, you need to pay attention to whether the npm source address is <https://registry.npmjs.org/>
 
     ```bash
     # View current npm source address
@@ -22,7 +22,7 @@
     npm install -g qgame-toolkit
     ```
 
-    **Note**: Starting with **v2.1.3**, there is no need to install `qgame-toolkit`, but you need to install `vivo-minigame/cli`:
+    > **Note**: starting with **v2.1.3**, there is no need to install `qgame-toolkit`, but you need to install `vivo-minigame/cli`:
 
     ```
     npm install -g @vivo-minigame/cli
@@ -72,7 +72,9 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **App Version Number**
 
-  This item is required. **App Version Number** is different from the **App Version Name**, and the **App Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the app version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **App Version Number** be recursively incremented by 1 each time when the audit is submitted. **Note**: The **App Version Number** must be a positive integer.
+  This item is required. **App Version Number** is different from the **App Version Name**, and the **App Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the app version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **App Version Number** be recursively incremented by 1 each time when the audit is submitted.
+  
+  > **Note**: the **App Version Number** must be a positive integer.
 
 - **Supported Minimum Platform Version Number**
 
@@ -94,7 +96,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
   If you don't check the **Keystore**, you need to configure the signature files **certificate.pem path** and **private.pem path**, where you build a rpk package that you can **publish directly**. The user can configure two signature files by using the **...** button to the right of the input box.
 
-  **Note**: These two signature files are not recommended to be placed in the **build/qgame** directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
+  > **Note**: these two signature files are not recommended to be placed in the **build/qgame** directory of the publish package, otherwise the build directory will be emptied each time when it is built, resulting in file loss.
 
   There are two ways to generate a signature files:
 
@@ -109,7 +111,7 @@ The specific filling rules for the relevant parameter configuration are as follo
       openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
       ```
 
-      **Note**: The `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
+      > **Note**: the `openssl` tool can be opened directly in the terminal in linux or Mac environment, and in the Windows environment you need to install `openssl` and configure system environment variables.
 
 - **Separate Engine** (New in v2.3.4)
 

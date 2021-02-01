@@ -12,7 +12,7 @@ Then you can switch the **Scene** to 3D editing mode. Drag with right mouse butt
 
 ![](img/3d-scene.png)
 
-**Note**: When working on a 3D project, we usually assign multiple Cameras to UI and scene. In this case, you need to set the Camera's `depth` property correctly, otherwise the occlusion order may be incorrect. Please refer to [Camera Properties](../render/camera.md#camera-properties) for details.
+> **Note**: when working on a 3D project, we usually assign multiple Cameras to UI and scene. In this case, you need to set the Camera's `depth` property correctly, otherwise the occlusion order may be incorrect. Please refer to [Camera Properties](../render/camera.md#camera-properties) for details.
 
 ## Scene Rendering Configuration
 

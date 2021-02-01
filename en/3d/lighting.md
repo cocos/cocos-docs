@@ -56,12 +56,12 @@ Ambient light can evenly illuminate all objects in the scene, helping to improve
 
 Ambient light generally needs to be used with other types of Light. For example, if there is only one directional light in the scene, it will appear very dark at the backlight of the model. Adding ambient light can enhance the brightness of the back of the model.
 
-**Note**:
-
-- Since the ambient light has no direction, no shadow can be produced.
-- Ambient light can be placed anywhere in the scene, regardless of the coordinates.
-
-![Ambient Light](img/lighting-7.jpg)
+> **Notes**:
+>
+> 1. Since the ambient light has no direction, no shadow can be produced.
+> 2. Ambient light can be placed anywhere in the scene, regardless of the coordinates.
+>
+>     ![Ambient Light](img/lighting-7.jpg)
 
 ## Shadows
 

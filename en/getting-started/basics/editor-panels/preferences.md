@@ -23,8 +23,9 @@ After modifying the settings, click the **Save** button.
   ![step button](preferences/step-button.png).
 
   When hovering close to the value of the property name, the cursor will turn into ![mouse cursor](preferences/mouse-cursor.jpg) such a shape, then Drag the mouse, can also according to a continuous increase or decrease the value of step amplitude.<br>
-  The above two ways to modify the value, the default step size is **0.1**, spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to **1**, can be adjusted more easily.<br>
-  **Note**: After modifying the steps to refresh the Editor window (Ctrl / Cmd + R), set the Stride length will take effect
+  The above two ways to modify the value, the default step size is **0.1**, spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to **1**, can be adjusted more easily.
+
+  > **Note**: after modifying the steps to refresh the Editor window (Ctrl / Cmd + R), set the Stride length will take effect
 
 * **Show dialog when meta files backed up**: When the resource to which the meta file belongs is lost, whether a dialog pops up prompts you to back up or delete the meta file. If you choose to back up, you can manually restore the resources later, and manually copy the meta file back to the project assets directory to prevent loss of important resource-related settings (such as scenes, prefabs).
 

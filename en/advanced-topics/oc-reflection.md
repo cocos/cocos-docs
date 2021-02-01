@@ -8,7 +8,7 @@ var ojb = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, ...
 
 You can use `jsb.reflection.callStaticMethod` to call Native OC method by sending `className` `methodName` and `parameters`.
 
-**Note**: Please pay attention to Apple Developer Program License Agreement (section 3.3.2) when you use reflection features. The usage of `respondsToSelector:` and `performSelector:` might cause problem in App Store review process, here is a related discussion in [React-Native's issue tracker](https://github.com/facebook/react-native/issues/12778).
+> **Note**: please pay attention to Apple Developer Program License Agreement (section 3.3.2) when you use reflection features. The usage of `respondsToSelector:` and `performSelector:` might cause problem in App Store review process, here is a related discussion in [React-Native's issue tracker](https://github.com/facebook/react-native/issues/12778).
 
 ## Objective-C Class
 
@@ -70,9 +70,9 @@ Example:
 Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
-``` 
+```
 
-**Note**: Unless it is clear that the current thread is the **main thread**, the function needs to be distributed to the main thread for execution.
+> **Note**: unless it is clear that the current thread is the **main thread**, the function needs to be distributed to the main thread for execution.
 
 ## Notice
 

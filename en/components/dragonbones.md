@@ -24,7 +24,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Debug Bones           | Indicates whether open debug bones.
 | Enable Batch          | Whether to enable animation batch, default is disabled. (New in v2.0.9)<br>When enable, drawcall will reduce, which is suitable for a large number of simple animations to play at the same time.<br>When disabled, drawcall will rise, but it can reduce the computational burden of the CPU. Suitable for complex animations.
 
-**Note**: When the DragonBones component is used, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
+> **Note**: when the DragonBones component is used, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
 
 ## DragonBones ReplaceTexture
 

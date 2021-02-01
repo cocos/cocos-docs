@@ -69,4 +69,4 @@ var cipherText = cc.sys.localStorage.getItem('userData');
 var userData=JSON.parse(encrypt.decrypt(cipherText,secretkey,256));
 ```
 
-**Note**: Data encryption cannot guarantee the safety of user profile data. If you want to make sure it's not hackable please load and save data with a secured server.
+> **Note**: data encryption cannot guarantee the safety of user profile data. If you want to make sure it's not hackable please load and save data with a secured server.

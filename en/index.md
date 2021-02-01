@@ -2,7 +2,7 @@
 
 Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross-platform, game development tool based on **Cocos2d-x**. This is a comprehensive and detailed guide to help you get started with designing and developing games.
 
-**Note**: Please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.
+> **Note**: please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.
 
 ## What's New
 
@@ -14,7 +14,7 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 - **As of v2.3.0**, Cocos Creator supports publishing to [QTT Mini Games](publish/publish-qutoutiao-mini-games.md).
 - [Spine ReplaceTexture](components/spine.md#spine-replacetexture).
 - [DragonBones ReplaceTexture](components/dragonbones.md).
-- **As of v2.1.4**, Cocos Creator supports publishing to [Youku Mini Games](publish/publish-alipay-mini-games.md).
+- **As of v2.1.4**, Cocos Creator supports publishing to [Alipay Mini Games](publish/publish-alipay-mini-games.md).
 - **As of v2.1**, Cocos Creator introduced 3D support. Please refer to [v2.1.0 Release Notes](release-notes/upgrade-guide-v2.1.md).
 - **As of v2.0.10**, Cocos Creator supports publishing to [Xiaomi Quick Games](publish/publish-xiaomi-quick-games.md) and [Cocos Play](publish/publish-cocosplay.md).
 - **As of v2.0.7**, Cocos Creator supports publishing to [Huawei Quick Games](publish/publish-huawei-quick-games.md).
@@ -50,4 +50,4 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
-**Note**: These projects are not always brought up to date with the most recent version of Cocos Creator. Their default branches on GitHub are `master`, which corresponds to the latest **Cocos Creator version**. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.
+> **Note**: these projects are not always brought up to date with the most recent version of Cocos Creator. Their default branches on GitHub are `master`, which corresponds to the latest **Cocos Creator version**. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.

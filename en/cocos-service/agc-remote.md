@@ -183,7 +183,7 @@ getValueAsString(key: String): String {return "";}
 
 After default parameter values are set and parameter values are fetched from Remote Configuration, you can call any of these APIs provided by the SDK based on the data type to obtain the parameter values to use in your app.
 
-**Note**: Due to JavaScript layer limitation, the Remote Configuration plug-in does not support `getValueAsBytArray` method of the Java SDK.
+> **Note**: due to JavaScript layer limitation, the Remote Configuration plug-in does not support `getValueAsBytArray` method of the Java SDK.
 
 **Parameter Description**:
 

@@ -24,10 +24,11 @@ The Asset Bundle is configured in **folders**. When we select a folder in the **
 
 After the configuration, click on the **Apply** button at the top right and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
-**Note**:
-1. There are four [built-in Asset Bundles](../asset-manager/bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **internal**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these four names.
-2. The [mini game subpackage](../publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
-3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
+> **Notes**:
+>
+> 1. There are four [built-in Asset Bundles](../asset-manager/bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **internal**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these four names.
+> 2. The [mini game subpackage](../publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
+> 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 
 ## Build
 
@@ -44,7 +45,7 @@ Each folder contained within these three folders **assets**, **remote** and **su
 ![asset-bundle](./subpackage/asset-bundle.png)
 
 <!--
-**Note**: If you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
+> **Note**: if you set the **Compression Type** to **Mini Game Subpackage** when configuring the Asset Bundle, do not remove the Asset Bundle folder that was generated in the **subpackages** folder after build. The corresponding platform (such as WeChat Mini Game) will do the relevant processing by itself.
 -->
 
 ## Load the Asset Bundle
@@ -81,7 +82,7 @@ cc.assetManager.loadBundle(wx.env.USER_DATA_PATH + '/pathToBundle/bundleName', (
 });
 ```
 
-**Note**: If you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
+> **Note**: if you check the **Is Remote Bundle** option when configuring the Asset Bundle, then please fill in the **Resource Server Address** in the **Build** panel when building.
 
 When you load the Asset Bundle via the API, instead of loading all the resources in the Asset Bundle, the engine loads the Asset Bundle's **resource manifest** and **all the scripts** it contains.<br>
 When the Asset Bundle is loaded, the engine triggers a callback and returns an error message and an instance of `cc.AssetManager.Bundle` class, which is the main entrance of the Asset Bundle API that you can use to load the various resources in the Asset Bundle.
@@ -202,7 +203,7 @@ After loading the resources, all the resources are temporarily cached in `cc.ass
     });
     ```
 
-**Note**: When releasing a resource, Creator will automatically handle the resource's dependent resources, and you don't need to manage their dependency resources.
+> **Note**: when releasing a resource, Creator will automatically handle the resource's dependent resources, and you don't need to manage their dependency resources.
 
 For more information about releasing resources, see [Release of Resources](../asset-manager/release-manager.md) documentation.
 
@@ -215,7 +216,7 @@ let bundle = cc.assetManager.getBundle('bundle1');
 cc.assetManager.removeBundle(bundle);
 ```
 
-**Note**: When you destroy an Asset Bundle, the resources already loaded in the bundle are not released. If you need to release it, use the Asset Bundle's `release` / `releaseAll` method first.
+> **Note**: when you destroy an Asset Bundle, the resources already loaded in the bundle are not released. If you need to release it, use the Asset Bundle's `release`/`releaseAll` method first.
 
 ```js
 let bundle = cc.assetManager.getBundle('bundle1');

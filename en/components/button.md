@@ -17,7 +17,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Transition              | Enumeration type, including NONE, COLOR, SPRITE and SCALE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
 | Click Event             | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Click Event** section below for details. |
 
-**Note**: When `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
+> **Note**: when `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
 
 ## Button Transition
 

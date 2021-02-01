@@ -51,5 +51,5 @@ Load and cache the template then return a promise.
 
 Load and append script by `url`. Once it is done, the `cb` will be invoked.
 
-**NOTE**: the different between `loadGlobalScript` and `importScript` is `loadGlobalScript` use `<script>` tag, and it will process zipped script internally in browser.
+> **Note**: the different between `loadGlobalScript` and `importScript` is `loadGlobalScript` use `<script>` tag, and it will process zipped script internally in browser.
 However, `loadGlobalScript` cannot return evaluated result, which means you can only get the context in it by assigning global variable inside the target script.

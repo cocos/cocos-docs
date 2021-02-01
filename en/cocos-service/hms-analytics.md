@@ -336,15 +336,15 @@ huawei.hms.analytics.analyticsService.pageEnd("pageName1");
 | :---------- | :---------- |  
 | policies | Policy for data reporting. Four policies are supported, and multiple policies can be set at the same time.<br>**ON_APP_LAUNCH_POLICY**: An event is reported immediately when this policy is set. After that, an event is reported each time the app is started.<br>**ON_MOVE_BACKGROUND_POLICY**: This event is reported when an app is switched to the background (including app exit).<br>**ON_SCHEDULED_TIME_POLICY**: An event is reported at the specified interval. The value ranges from 60 to 1800, in seconds. If the specified value is beyond the value range, the boundary value is used.<br>**ON_CACHE_THRESHOLD_POLICY**: An event is reported when the number of cached events reaches the threshold. The value ranges from 30 to 1000. The default value is 30. If the specified value is beyond the value range, the boundary value is used.| 
 
-**Note**:
-
-- The preceding reporting policies take effect only when the debug mode is disabled.
-- **onMoveBackgroundPolicy** and **onCacheThresholdPolicy** are default policies. If no policy is set, the two policies automatically take effect. If **onMoveBackgroundPolicy** is not included in the configured event reporting policies, this policy will not take effect.
-- **onCacheThresholdPolicy** is mandatory. This policy is effective no matter what policy has been configured. You can change the threshold as needed.
-- Event reporting policies will be updated if a policy setting API is called multiple times. Only the policy set by the last API is effective.
-- When a policy is met and event reporting is triggered, the event is cached locally if no network is available and will be reported again when reporting conditions are met next time.
-- The specified event reporting policies are saved persistently.
-- If the app is uninstalled when only **onAppLaunchPolicy** or **onScheduledTimePolicy** is specified, events of the app may be lost.
+> **Notes**:
+>
+> 1. The preceding reporting policies take effect only when the debug mode is disabled.
+> 2. **onMoveBackgroundPolicy** and **onCacheThresholdPolicy** are default policies. If no policy is set, the two policies automatically take effect. If **onMoveBackgroundPolicy** is not included in the configured event reporting policies, this policy will not take effect.
+> 3. **onCacheThresholdPolicy** is mandatory. This policy is effective no matter what policy has been configured. You can change the threshold as needed.
+> 4. Event reporting policies will be updated if a policy setting API is called multiple times. Only the policy set by the last API is effective.
+> 5. When a policy is met and event reporting is triggered, the event is cached locally if no network is available and will be reported again when reporting conditions are met next time.
+> 6. The specified event reporting policies are saved persistently.
+> 7. If the app is uninstalled when only **onAppLaunchPolicy** or **onScheduledTimePolicy** is specified, events of the app may be lost.
 
 **Example**:
 

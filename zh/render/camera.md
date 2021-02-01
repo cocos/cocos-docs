@@ -131,7 +131,8 @@ camera.getWorldToScreenMatrix2D(out);
 let node = new cc.Node();
 node.parent = cc.director.getScene();
 let camera = node.addComponent(cc.Camera);
-
+camera.backgroundColor = cc.Color.TRANSPARENT
+camera.clearFlags = cc.Camera.ClearFlags.DEPTH | cc.Camera.ClearFlags.STENCIL | cc.Camera.ClearFlags.COLOR
 // 设置你想要的截图内容的 cullingMask
 camera.cullingMask = 0xffffffff;
 
@@ -159,9 +160,9 @@ canvas.height = texture.height;
 
 let rowBytes = width * 4;
 for (let row = 0; row < height; row++) {
-    let srow = height - 1 - row;
+    let startRow = height - 1 - row;
     let imageData = ctx.createImageData(width, 1);
-    let start = srow*width*4;
+    let start = startRow * width * 4;
     for (let i = 0; i < rowBytes; i++) {
         imageData.data[i] = data[start+i];
     }

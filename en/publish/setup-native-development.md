@@ -44,7 +44,7 @@ After installing Android Studio, refer to the official documentation and open th
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-**Note**: Currently, the version of Android Gradle supported by Creator is **4.10.x**, and the corresponding Gradle Tool version is **3.x** (v3.2.0 is recommended). When using Android Studio to compile, please **do not** upgrade when prompted to upgrade the Android Gradle Plugin.
+> **Note**: currently, the version of Android Gradle supported by Creator is **4.10.x**, and the corresponding Gradle Tool version is **3.x** (v3.2.0 is recommended). When using Android Studio to compile, please **do not** upgrade when prompted to upgrade the Android Gradle Plugin.
 
 ![](setup-native-development/gradle-update.png)
 
@@ -59,7 +59,7 @@ Please install the following running environment:
 
 - In Windows, the installation of [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/download-visual-studio-vs) is needed. When installing Visual Studio, please check **Desktop development with C++** and **Game development with C++** two modules.
 
-  **Note**: There is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
+  > **Note**: there is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
 - In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
@@ -77,7 +77,7 @@ We need to configure the following two paths here:
 
 Close the window after configuration is completed.
 
-**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
+> **Note**: the configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
 ## Notes
 

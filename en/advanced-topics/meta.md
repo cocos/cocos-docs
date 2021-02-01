@@ -1,6 +1,6 @@
 # Resource Management Considerations --- meta files
 
-> **Note**: The full text of this article is reproduced from [WeChat Official Account: Quetta Planet [zh]](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting<br>
+> **Note**: the full text of this article is reproduced from [WeChat Official Account: Quetta Planet [cn]](https://mp.weixin.qq.com/s/MykJaytb3t_oacude1cvIg), authorized by the author before reprinting<br>
 > **Author**: Shawn Zhang
 
 Cocos Creator will generate a **meta** file with the same name for every file and directory in the **assets** directory. Understanding the role and mechanics of Cocos Creator's generation of **meta** files can help developers solve resource conflicts, file loss, and missing component properties that are often encountered with team development. What is the **meta** file used for? Let's take a look!

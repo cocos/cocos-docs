@@ -47,7 +47,7 @@ In v2.1.1, we've made some adjustment and optimization on EditBox component. The
 | Handler         | Assign a callback function which will be triggered before user starting to input text.
 | customEventData | A user-defined string value passed as the last event argument of the event callback.
 
-**Note**: This event will be triggered when the user clicks on EditBox.
+> **Note**: this event will be triggered when the user clicks on EditBox.
 
 ### Text Changed Event
 
@@ -58,7 +58,7 @@ In v2.1.1, we've made some adjustment and optimization on EditBox component. The
 | Handler         | Assign a callback function which will be triggered when user is editing text.
 | customEventData | A user-defined string value passed as the last event argument of the event callback.
 
-**Note**: This event will be triggered each time when the content in EditBox is changed.
+> **Note**: this event will be triggered each time when the content in EditBox is changed.
 
 ### Editing Did Ended Event
 
@@ -69,9 +69,11 @@ In v2.1.1, we've made some adjustment and optimization on EditBox component. The
 | Handler         | Assign a callback function which will be triggered after user finished input text. 
 | customEventData | A user-defined string value passed as the last event argument of the event callback.
 
-**Note**: This event will be triggered when the EditBox loses focus.  
-Usually when in single line input mode, it's triggered after user presses Return key or clicks the area outside of EditBox.  
-When in multiline input mode, it's triggered only after user click the area outside of EditBox.
+> **Note**: this event will be triggered when the EditBox loses focus.
+
+- Usually when in single line input mode, it's triggered after user presses Return key or clicks the area outside of EditBox.
+
+- When in multiline input mode, it's triggered only after user click the area outside of EditBox.
 
 ### Editing Return Event
 
@@ -82,7 +84,8 @@ When in multiline input mode, it's triggered only after user click the area outs
 | Handler         | Assign a callback function which will be triggered when the user presses Return key.
 | customEventData | A user-defined string value passed as the last event argument of the event callback.
 
-**Note**: This event will be triggered when the user presses the Return key or presses the Done button on soft keyboard on the mobile.  
+> **Note**: this event will be triggered when the user presses the Return key or presses the Done button on soft keyboard on the mobile.
+
 In single line mode, EditBox may lose its focus if users press Return.
 
 ## Detailed explanation

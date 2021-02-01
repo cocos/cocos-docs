@@ -4,7 +4,7 @@
 
 Cocos SDKHub is a set of access frameworks that help Cocos Creator users quickly access native channel SDKs.
 
-When a game is finished and ready to be released to the channel, it usually needs to access the channel's SDK to integrate with the channel's account, IAP, advertising, game services, etc. When the game is to be released to multiple channels at the same time, the SDK interface is not the same from one channels to another, which makes it difficult for the developers to handle. Under the circumstances, developers would need to write lots of extra codes to ensure compatibility of the SDK integration. This is why there are many "super SDKs" that abstract these SDKs such as the Cocos AnySDK, which is an EOL product released by Cocos. 
+When a game is finished and ready to be released to the channel, it usually needs to access the channel's SDK to integrate with the channel's account, IAP, advertising, game services, etc. When the game is to be released to multiple channels at the same time, the SDK interface is not the same from one channels to another, which makes it difficult for the developers to handle. Under the circumstances, developers would need to write lots of extra codes to ensure compatibility of the SDK integration. This is why there are many "super SDKs" that abstract these SDKs such as the Cocos AnySDK, which is an EOL product released by Cocos.
 
 The Cocos SDKHub is a feature developed by the engine team for Cocos Creators to solve this problem and can be used as a complete replacement for AnySDK.
 

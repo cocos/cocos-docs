@@ -55,9 +55,10 @@ parentNode.addChild(this.node);
 
 These two method have equal effect.
 
-**Note**:
-- `removeFromParent` usually need to pass a `false`, otherwise it will clear all the events and actions on the node.
-- Creating a new node with [Creating and Destroying Nodes](create-destroy.md) section, you'll need to give the newly created node a parent to initialize it properly.
+> **Notes**:
+>
+> 1. `removeFromParent` usually need to pass a `false`, otherwise it will clear all the events and actions on the node.
+> 2. Creating a new node with [Creating and Destroying Nodes](create-destroy.md) section, you'll need to give the newly created node a parent to initialize it properly.
 
 ### Access child node
 

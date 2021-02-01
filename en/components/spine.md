@@ -25,7 +25,7 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 | Use Tint              | Indicates whether open tint, default is close. (New in v2.0.9)
 | Enable Batch          | Whether to enable animation batch, default is disabled. (New in v2.0.9)<br>When enable, drawcall will reduce, which is suitable for a large number of simple animations to play at the same time.<br>When disabled, drawcall will rise, but it can reduce the computational burden of the CPU. Suitable for complex animations.
 
-**Note**: When using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
+> **Note**: when using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
 
 ## Spine ReplaceTexture
 
@@ -139,7 +139,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
     
 4. Finally, drag the star resource to the `Sprite Frame` property of the Sprite component. Save the scene and click the **Preview** button above the editor, then you can see a star hanging on the dragon's tail and shaking with the dragon's tail. For details, please refer to the [SpineAttach](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/spine) in example-case.
 
-**Note**: After finish the Spine Attachments, you can delete unused skeleton nodes in the **Node Tree** panel to reduce the computational overhead at runtime. Note that the parent node of the target bone node cannot be deleted.
+> **Note**: after finish the Spine Attachments, you can delete unused skeleton nodes in the **Node Tree** panel to reduce the computational overhead at runtime. Note that the parent node of the target bone node cannot be deleted.
 
 ### Implement in the script
 
@@ -271,5 +271,4 @@ Here is an example of Spine how to implement collision detection. And determines
 
 7. You can see the effect by clicking the preview button above the editor. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/spine) in example-case.
 
-**Note**: Due to the implementation mechanism of Spine Attachments, there is a delay of one frame in the collision detection based on Spine Attachments.
-
+> **Note**: due to the implementation mechanism of Spine Attachments, there is a delay of one frame in the collision detection based on Spine Attachments.

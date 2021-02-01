@@ -27,7 +27,7 @@ You can also to compile the native project of the native platform separately by 
 
 - `--compile "platform=android;debug=true"`
 
-**Note**: The Web platform does not need to use `--compile` command, and the `--compile` command is used by the native platform.
+> **Note**: the Web platform does not need to use `--compile` command, and the `--compile` command is used by the native platform.
 
 ## Publish Parameters
 
@@ -40,7 +40,7 @@ You can also to compile the native project of the native platform separately by 
 
   - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
   - `title` - Project title
-  - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, youku, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
+  - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
   - `buildPath` - Publish path
   - `startScene` - Start scene uuid
   - `debug` - Whether or not debug mode

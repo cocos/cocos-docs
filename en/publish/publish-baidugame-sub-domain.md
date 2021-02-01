@@ -15,7 +15,7 @@ The specific use method of baidu Baidu Mini Game Open Data Context, please refer
 
 Create a node in the main context as an Open Data Context container, add the `SubContextView` component to set the Open Data Context view and update the Open Data Context texture. The aspect ratio of this node should be equal to the aspect ratio of the Open Data Context design resolution (otherwise stretching happens).
 
-**Note**: As of **v2.4.1**, the `SwanSubContextView` is deprecated, please use `SubContextView`.
+> **Note**: as of **v2.4.1**, the `SwanSubContextView` is deprecated, please use `SubContextView`.
 
 ## Open Data Context project
 
@@ -114,7 +114,7 @@ It should be noted that the developer cannot remove the **Canvas Renderer** modu
 
 3. The **Build Path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click the **Build**.
 
-    **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
+    > **Note**: the **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
 
     ![](./publish-baidugame/open-data-project-build.png)
 

@@ -150,6 +150,6 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
-``` 
+```
 
 这样在点击 OK 按钮后，你应该可以在控制台看到正确的输出。`evalString` 可以执行任何 JS 代码，并且它可以访问到你在 JS 代码中的对象。

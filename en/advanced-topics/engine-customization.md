@@ -67,7 +67,7 @@ This command will generate a `bin` folder in the engine directory and compile th
 
 ![](engine-customization/bin.png)
 
-**Note**: If a `JavaScript heap out of memory` error occurs during compilation, you can use the following command to solve it:
+> **Note**: if a `JavaScript heap out of memory` error occurs during compilation, you can use the following command to solve it:
 
 ```js
 gulp build-dev --max-old-space-size=8192
@@ -81,12 +81,13 @@ If you need to customize the engine functionality associated with the native pla
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download or clone it from the GitHub repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure Cocos2d-x-lite repo is on correct branch. 
+If you want to get the latest version that is currently under development, you need to download or clone it from the GitHub repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure Cocos2d-x-lite repo is on correct branch.
 
 ### 2.2 Initialize
 
-Once cloned or downloaded, enter the Cocos2d-x-lite engine path at the command line and run the following command.<br>
-**Note**: If you copied the builtin **cocos2d-x-lite** directory from the Creator editor, you can skip this step.
+Once cloned or downloaded, enter the Cocos2d-x-lite engine path at the command line and run the following command.
+
+> **Note**: if you copied the builtin **cocos2d-x-lite** directory from the Creator editor, you can skip this step.
 
 ```bash
 # Enter the Cocos2d-x-lite engine path from the command line

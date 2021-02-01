@@ -43,10 +43,10 @@ Here is an example of the `size` and `color` tag:
 
 ### Supported tags
 
-**Note**: All tag names should be lower case and the property assignment should use `=` sign.
+> **Note**: all tag names should be lower case and the property assignment should use `=` sign.
 
 | Name | Description | Example | Note |
-| ------ | ------- | ----- | ------ |
+| :------ | :------- | :----- | :------ |
 | color  | Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html) |
 | size   | Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` | The size assignment should use `=` sign. |
 | outline | Specify the font outline, you could customize the outline color and width by using the `color` and `width` property. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color or width of outline, the default color value is `#ffffff` and the default width is `1`. |
@@ -92,7 +92,7 @@ There are two ways to set the color of RichText:
 1. Selected the node and set the overall color of RichText in **Node -> Color** of the **Properties**.
 2. Use BBCode to set colors on the inside of RichText separately.
 
-**Note**: The two cannot be mixed. If mixed, the color set in the **second** way will prevail at runtime.
+> **Note**: the two cannot be mixed. If mixed, the color set in the **second** way will prevail at runtime.
 
 ## Cache Mode (New in v2.3)
 
@@ -104,7 +104,7 @@ Since the RichText component is assembled from multiple Label nodes, the number 
 |BITMAP| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render.
 | CHAR | After selection, each Label node created by RichText has its CacheMode set to CHAR type, that is, the text of each Label is cached in a globally shared bitmap in "words". Each of the same font style and size is Characters will share a cache globally.
 
-**Note**: The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
+> **Note**: the **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
 
 ## Detailed explanation
 

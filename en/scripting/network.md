@@ -7,12 +7,12 @@ In Cocos Creator, we support the most widely used standard network interface on 
 
 Of course, browsers on the Web platform support these two interfaces originally. The reason why we say Cocos Creator supports it is because when we release the native version, the user can operate it using these two network interface codes which follows the principle of "one set of code for multiple platforms operation" which Cocos honors.
 
-**Note**: If you need to use `WebSocket` on the native platform, make sure that the **Native Socket** module is checked in the **Project -> Project Settings -> Module Config**.
+> **Note**: if you need to use `WebSocket` on the native platform, make sure that the **Native Socket** module is checked in the **Project -> Project Settings -> Module Config**.
 
 ## How to use
 
 1. XMLHttpRequest
-    
+
     Simple example:
 
     ```js
@@ -87,6 +87,6 @@ Reference SocketIO in script:
 4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly
 5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
 
-**Note**: If you need to use `WebSocket` or `SocketIO` on native platform, make sure you check the `Native Socket` module.
+> **Note**: if you need to use `WebSocket` or `SocketIO` on native platform, make sure you check the `Native Socket` module.
 
 [config](network/config.png)

@@ -1,9 +1,10 @@
 # miterLimit
 
-The `miterLimit` property sets or returns the maximum miter length.<br>
+The `miterLimit` property sets or returns the maximum miter length.
+
 The miter length refers to the distance between the inner and outer corners of the intersection of the two lines.
 
-**Note**: `miterLimit` is valid only if the `lineJoin` property is `miter`.
+> **Note**: `miterLimit` is valid only if the `lineJoin` property is `miter`.
 
 The smaller the angle of the corners, the greater the length of the miter. To avoid miter length getting too long, we can use the `miterLimit` property.
 

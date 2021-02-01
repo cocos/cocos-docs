@@ -82,7 +82,7 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 
   If the **csd** contains a nested prefab, a dummy node will be auto created with a `cc.StudioComponent.PlaceHolder` component attached. The `nestedPrefab` property of the component will save nested prefab resources, which are replaced by the current node at runtime. (If you need to operate on this node, it must be the runtime of the project, and the editor preview not supported at this time)
 
-  **Note**: As of v2.4.3, this operation is no longer required.
+  > **Note**: as of v2.4.3, this operation is no longer required.
 
 ## Details of Importing Cocos Builder Projects
 
