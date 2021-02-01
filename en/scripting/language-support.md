@@ -3,7 +3,7 @@
 
 ## TypeScript
 
-Cocos Creator supports TypeScript 4.1.0. The following restrictions have been made on this base:
+Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on TypeScript 4.1.0:
 
 - `tsconfig.json` will not be read. The following options are implied for each project:
 
@@ -23,7 +23,7 @@ Cocos Creator supports TypeScript 4.1.0. The following restrictions have been ma
   The implicit `isolatedModules` option means that:
     - [const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums) is not supported.
 
-    - You should use `export type` when re-exporting TypeScript types and interfaces. For example, use `export type { Foo } from '. /foo';` instead of `export { Foo } from '. /foo';`.
+    - Use `export type` when re-exporting TypeScript types and interfaces. For example, use `export type { Foo } from '. /foo';` instead of `export { Foo } from '. /foo';`.
 
 - `export =` and `import =` are not supported.
 
@@ -45,30 +45,30 @@ The JavaScript language specification supported by the Creator is ES6.
 
 In addition, the following language features or proposals, updated to the ES6 specification, are still supported.
 
-- [Class fields](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Class_elements)
-- [Promise objects](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [Optional chain operator `?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Null-value merge operator `??`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+- [Class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
+- [Promise objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Optional chain operator `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Null-value merge operator `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 - Logical assignment operators
-    - [Logical null assignment operator `??=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
-    - [Logical and assignment operator `&&=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
-    - [Logical or assignment operator `||=`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
-- [global object `globalThis`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
+    - [Logical null assignment operator `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
+    - [Logical and assignment operator `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
+    - [Logical or assignment operator `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+- [global object `globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 
 The following language features are also supported, but require the relevant compilation options to be turned on:
 
-- [asynchronous functions](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)
+- [asynchronous functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 In particular, Creator currently supports **Legacy** decorator proposals, see [babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators) for their usage and meaning. Since this [proposal](https://github.com/tc39/proposal-decorators) is still in phase 2, all decorator-related functional interfaces exposed by the engine are under the `_decorator` namespace starting with an underscore.
 
 ### Compilation Options
 
-The Creator opens some compilation options that will be applied to the entire project.
+Creator opens some compilation options that will be applied to the entire project.
 
 | Option | Name | Meaning |
 | :-- | :--- | :-- |
-| useDefineForClassFields | Conforming class fields | When turned on, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
-| allowDeclareFields |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to ` undefined`. |The
+| **useDefineForClassFields** | Conforming class fields | When turned on, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
+| **allowDeclareFields** |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to ` undefined`. |The
 
 ### Runtime Environment
 
@@ -104,5 +104,5 @@ export default blah;
 ## Related Tutorials
 
 - [JavaScript Standard Reference Tutorial](http://javascript.ruanyifeng.com/)
-- [JavaScript Secret Garden](http://bonsaiden.github.io/JavaScript-Garden/zh/)
-- [JavaScript Memory Detailing & Analysis Guide](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)
+- [JavaScript Secret Garden](http://bonsaiden.github.io/JavaScript-Garden/)
+- [JavaScript Memory Detailing & Analysis Guide [cn]](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)
