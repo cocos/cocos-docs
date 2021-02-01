@@ -58,7 +58,7 @@
 | WeightMapSize | 权重图大小 | 
 | LightMapSize | 光照贴图大小 | 
 
-### 雕刻（Sculpt）
+### 雕塑（Sculpt）
 
 用于改变地形的形状。
 
@@ -69,11 +69,9 @@
 | BrushSize     | 画刷的大小 |
 | BrushStrength | 画刷的力度  |
 | BrushMode | 画刷类型，包括 **Bulge**、**Sunken** 和 **Smooth** |
-| Brush | 自定义画刷样式  |
+| Brush | 自定义画刷样式，通过选取样式图片生成自定义画刷 |
 
 可通过 **鼠标左键** 控制地形的 **隆起**，通过 **Shift + 鼠标左键** 控制地形的 **凹陷**。而隆起/凹陷的操作往往会使地形看上去很尖锐，此时就可以使用平滑功能进行过度。
-
-**Brush**：v3.0新增了自定义画刷样式选项,通过选取样式图片生成自定义画刷。
 
 ### 涂料（Paint）
 
@@ -83,13 +81,11 @@
 
 | 参数 | 说明 |
 | :--- | :--- |
-| TerrainLayer | 设置地形的 Layer。详情可参考下方的 **Layer 编辑** |
+| Terrain Layer | 设置地形的 Layer。详情可参考下方的 **Layer 编辑** |
 | BrushSize | 画刷的大小 |
 | BrushStrength | 画刷的力度  |
 | BrushFalloff | 画刷衰减度，决定了画刷边缘的锐利程度。<br>**0.0** 表示画刷在整个范围内都有完全效果（全部被当前层纹理覆盖），具有尖锐的边缘。<br>**1.0** 表示画刷仅在它中心具有完全效果，在到达边缘的过程中效果逐渐衰减 |
-| Brush | 自定义画刷样式  |
-
-**Brush**：v3.0新增了自定义画刷样式选项,通过选取样式图片生成自定义画刷。
+| Brush | 自定义画刷样式，通过选取样式图片生成自定义画刷 |
 
 #### Layer 编辑
 
@@ -99,8 +95,8 @@
 
 | 参数 | 说明 |
 | :--- | :--- |
-| TerrainLayer | 设置当前Layer的纹理 |
-| NormalMap | 设置当前Layer的法线贴图,需要勾选地形组件的UseNormalMap选项 |
-| Metallic | 设置当前Layer的金属特性(主要指光滑程度) |
-| Roughness | 设置当前Layer的粗糙程度 |
+| Terrain Layer | 设置当前 Layer 的纹理 |
+| NormalMap | 设置当前 Layer 的法线贴图,需要勾选地形组件的UseNormalMap属性 |
+| Metallic | 设置当前 Layer 的金属特性 (主要指光滑程度) |
+| Roughness | 设置当前 Layer 的粗糙程度 |
 | TileSize       | 纹理的平铺大小，值越小会在同样大小的区域内进行更多次的平铺 |

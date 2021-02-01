@@ -69,11 +69,9 @@ Sculpting is changing the shape of a terrain.
 | BrushSize     | The size of the brush |
 | BrushStrength | The strength of the brush |
 | BrushMode | The type of the brush, including **Bulge**、**Sunken** and **Smooth** |
-| Brush | Custom brush style |
+| Brush | Custom brush style, by selecting a style picture to generate a custom brush. |
 
 To control the bulging/depression of the terrain, use the **left mouse** button and the **Shift + left mouse** button, respectively. The bulge and depression operation often makes the terrain look sharp, use the smoothing function to overdo it.
-
-**Brush**: V3.0 added a custom brush style option, by selecting a style picture to generate a custom brush.
 
 ### Painting a terrain
 
@@ -87,9 +85,7 @@ Painting is the texture used to depict the appearance of a terrain.
 | BrushSize | The size of the brush |
 | BrushStrength | The strength of the brush  |
 | BrushFalloff | Brush falloff, this value determines the sharpness of the brush edge.<br>**0.0** means that the brush has full effect in the whole range (all covered by the current layer texture), with sharp edges.<br>**1.0** means that the brush has full effect only in its center, and the influence will be attenuated when reaching the edge. |
-| Brush | Custom brush style |
-
-**Brush**: V3.0 added a custom brush style option, by selecting a style picture to generate a custom brush.
+| Brush | Custom brush style. by selecting a style picture to generate a custom brush. |
 
 #### Layer editing
 
@@ -100,7 +96,7 @@ Click the **+** or **-** button at the top right to **add** or **delete** layers
 | Parameter | Description |
 | :--- | :--- |
 | TerrainLayer | Current Layer texture |
-| NormalMap | To set the normal map of the current Layer, check the UseNormalMap option for the terrain component |
+| NormalMap | To set the normal map of the current Layer, check the UseNormalMap property for the terrain component |
 | Metallic | Set the metal properties of the current Layer |
 | Roughness | Sets the roughness of the current Layer |
 | TileSize       | The tile size of the texture. The smaller the value, the more tiles will be used in the same size area |
