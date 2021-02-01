@@ -22,7 +22,7 @@ __Next__, drag the texture to be displayed in the next frame to the specified po
 
 If you drag multiple textures to the __Attribute Track__ at the same time, the button textures are selected in the order on the track, and they are arranged in sequence according to the number of intervals displayed on the toolbar to generate key frames.
 
-![](sprite-animation/sprite-frame.png)
+![sprite-frame](sprite-animation/sprite-frame.png)
 
 ## Arranging and modifying key frame intervals
 

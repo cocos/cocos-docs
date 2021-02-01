@@ -69,7 +69,7 @@ export class example extends Component {
 通过 `toggle.node.on('toggle', ...)` 的方式来添加
 
 ```js
-// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
 import { _decorator, Component, ToggleComponent } from "cc";
 const { ccclass, property } = _decorator;

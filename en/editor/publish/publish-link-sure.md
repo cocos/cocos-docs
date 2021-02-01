@@ -1,5 +1,7 @@
 # Publish to LinkSure Mini Games
 
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+
 LinkSure Mini Game is a mini game application platform of WiFi Master Key, which is convenient, lightweight and without installation.
 
 The LinkSure Mini Game runs as a **cpk** game package in the mini game environment, which is similar to the WeChat Mini Game. The game package is hosted in the cloud, put and run in the APP, safe, reliable and experience smooth, users can tap to play, without installation.
@@ -12,7 +14,7 @@ The LinkSure Mini Game runs as a **cpk** game package in the mini game environme
 
 Use Cocos Creator to open the project that needs to be released. Open the **Build** panel from the **Menu bar -> Project**, select **LinkSure Mini Game** in the **Platform** dropdown of the **Build** panel.
 
-  ![](publish-link-sure/options.png)
+  ![options](publish-link-sure/options.png)
 
 ### Configuration Options
 
@@ -47,7 +49,7 @@ The specific filling rules for the relevant options configuration are as follows
 After the relevant options of the **Build** panel are set, click **Build**.<br>
 After the build is complete, click the **Open** button behind the **Build Path** to open the release package directory. You can see that the `link-sure/dist` folder is generated under the default release path `build` directory, which is the exported LinkSure Mini Game project directory and **cpk**.
 
-![](publish-link-sure/dist.png)
+![dist](publish-link-sure/dist.png)
 
 ### Run the built cpk to the phone
 
@@ -57,11 +59,11 @@ After the build is complete, click the **Open** button behind the **Build Path**
 
 - After the review is approved, click the **Version Management** on the back of the mini program.
 
-  ![](publish-link-sure/add-minigame.png)
+  ![add](publish-link-sure/add-minigame.png)
 
 - Then click **Upload Developer Version** to upload the built cpk, which will only save the latest upload. The cpk that is uploaded later will overwrite the version that was uploaded earlier.
 
-  ![](publish-link-sure/upload.png)
+  ![upload](publish-link-sure/upload.png)
 
 - Click the **View QR Code** after uploaded, then open the LinkSure Mini Game Debugger already installed on your phone to scan the code. You can now preview the game on the physical device. If you need to debug the game, refer to the official documentation [LinkSure Mini Game debugging [cn]](https://www.wjminiapp.com/docs/minigame/guide/debug.html).
 

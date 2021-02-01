@@ -37,7 +37,7 @@ Common UI controls including Button, Widget, Layout, ScrollView, EditBox, etc. n
 
 UI nodes are mostly a combination of rendered nodes, for example, the **Button** node we created through the menu includes a button background node with a **Button** component + a **Sprite** component, and a label node with a **Label** component:
 
-![](scene-editing/button-breakdown.png)
+![button-breakdown](scene-editing/button-breakdown.png)
 
 Creating nodes of the base type using the menu is the recommended way to quickly add content to the scene, and then we can edit the nodes created using the menu as needed to create the combinations we need.
 

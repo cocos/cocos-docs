@@ -8,11 +8,11 @@ Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property 
 
 ## Types of Global Fog
 
-The types of global fog depend on the result of the calculation of **Camera** and **Model Vertices**, which is called the **Fog Blend Factor**. The fog blend factor determines how the fog colors and model colors are blended, resulting in a different global fog effect. Currently there are four fog types including **LINEAR**, **EXP**, **EXP_SQUARED**, and **LAYERED**.
+The type of global fog depend on the result of the calculation of **Camera** and **Model Vertices**, which is called the **Fog Blend Factor**. The fog blend factor determines how the fog colors and model colors are blended, resulting in a different global fog effect. Currently there are four fog types including **LINEAR**, **EXP**, **EXP_SQUARED**, and **LAYERED**.
 
 ### Linear
 
-| Properties | Description |
+| Property | Description |
 | :---| :--- |
 | **Enabled** | Whether to enable the global fog |
 | **FogColor** | The color of the global fog |
@@ -33,15 +33,15 @@ To increase the density of Linear Fog when the distance between the camera and t
 1. fix the value of `FogStart` and decrease the value of `FogEnd`.
 2. Decrease the value of `FogStart` and fix the value of `FogEnd`.
 
-If you want to adjust the fog effect to the right consistency, it is best to adjust both the `FogStart` and `FogEnd` properties appropriately. A example effect of Linear Fog is shown below：
+To adjust the fog effect to the right consistency, it is best to adjust both the `FogStart` and `FogEnd` properties appropriately. An example effect of Linear Fog is shown below：
 
 ![image](./fog/linear_fog.png)
 
 ### Exponential and Exponential Squared
 
-![](. /fog/exp-properties.png)
+![exp-properties](. /fog/exp-properties.png)
 
-| Properties | Description |
+| Property | Description |
 | :---| :--- |
 | **Enabled** | Whether to enable the global fog |
 | **FogColor** | The color of the global fog |
@@ -65,9 +65,9 @@ An example effect of Exponential Fog is shown below.
 
 ### Layered
 
-Layered Fog is parallel to the horizontal plane and has a certain height. The height of the fog can be determined by setting the top of the Layered Fog at any position in the vertical direction of the scene world coordinate system.
+Layered Fog is parallel to the horizontal plane and has a specific height. The height of the fog can be determined by setting the top of the Layered Fog at any position in the vertical direction of the scene world coordinate system.
 
-![](./fog/layered-properties.png)
+![layered-properties](./fog/layered-properties.png)
 
 | Property | Description |
 | :---| :--- |
@@ -80,8 +80,8 @@ Layered Fog is parallel to the horizontal plane and has a certain height. The he
 
 The fog calculation of Layered Fog is a bit more complicated than the previous three fog types, as it introduces the concept of `FogTop` and also requires distance calculation in the **x-z** plane.
 
-Layered Fog is more common in reality, with towering mountains and buildings. If it is used wisely, it is believed to have a good effect on scene presentation, but at the same time, the computation will be increased, so developers can decide according to their needs.
+Layered Fog is more common in reality, with towering mountains and buildings. If it is used wisely, it is believed to have a good effect on scene presentation, but at the same time, the computation will be increased, developers can decide according to their needs.
 
-The example effect of Layered Fog is as follows.
+An example of Layered Fog:
 
 ![image](./fog/layerfog.png)

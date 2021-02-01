@@ -1,6 +1,6 @@
 # Publish to Huawei Quick Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
 __Cocos Creator__ officially supports the release of games to the **Huawei Quick Games**.
 
@@ -93,7 +93,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 After the relevant parameters of the **Build** panel are set, click **Build**. When the build is complete, click the **folder icon** button below the corresponding build task to open the build release path, you can see that a directory with the same name as the **Build Task Name** is generated in the default release path `build` directory, which is the exported Huawei Quick Game project directory and **rpk**, **rpk** package are in the `dist` directory.
 
-![](./huawei-mini-game/rpk.png)
+![rpk](./huawei-mini-game/rpk.png)
 
 **3. Run the built rpk to the phone**
 

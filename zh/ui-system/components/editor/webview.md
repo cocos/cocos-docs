@@ -204,4 +204,4 @@ export class WebViewCtrl extends Component {
 </html>
 ```
 
-#### 再强调一遍: Web 平台上的跨域问题需要自行解决
+#### 再强调一遍：Web 平台上的跨域问题需要自行解决

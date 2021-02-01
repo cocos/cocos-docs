@@ -47,9 +47,20 @@ To continue creating an extension, fill in the content in the newly created `pac
 }
 ```
 
-__Next__, it is necessary to define a messages object in contributions, which is the method of editor message registration. This message can be bound to one or more methods defined in the extension. For more definition data, please refer to the [Message](./contributions-messages.md) documentation.
+The meanings of the fields are as follows:
 
-__Next__, define a menu array in contributions to provide basic information of a menu to the menu component. Finally, bind this menu to a message. For more details, please refer to the [Menu](./contributions-menu.md) documentation.
+- `name` String -- Defines the package name, which is globally unique and relates to the login name on the official website server in the future.
+
+  > **Note**: if the plugin will be uploaded to the Cocos Store, there are certain restrictions on the package name. The `name` only allows **lowercase letters**, **numbers**, **hyphens (`-`)**, **underscores (`_`)**, **dots (`.`)**, and begin with a **lowercase letter** or **number**.
+
+- `version` String -- The version number. We recommend using the [semver](http://semver.org/) standard to manage your package versions.
+- `main` String (optional) -- The entry file
+- `description` String (optional) -- Describe your package in one sentence.
+- `contributions` Object (optional) -- Configuration objects that extend the existing functionality of the editor.
+
+__Next__, it is necessary to define a `messages` object in `contributions`, which is the method of editor message registration. This message can be bound to one or more methods defined in the extension. For more definition data, please refer to the [Message](./contributions-messages.md) documentation.
+
+__Next__, define a `menu` array in `contributions` to provide basic information of a menu to the menu component. Finally, bind this menu to a message. For more details, please refer to the [Menu](./contributions-menu.md) documentation.
 
 Careful that after the menu is pressed, the triggered action is notified by the message between the extensions, and the message system is the way of interaction between the extensions.
 

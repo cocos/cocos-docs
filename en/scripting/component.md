@@ -27,7 +27,7 @@ In contrast, __components__ must be created by nodes and added to nodes as follo
 const myComponent = node.addComponent(MyComponent);
 ```
 
-When the component is no longer needed, call the `node.removeComponent(myComponent)` method to remove the specified component and destroy it.
+When the component is no longer needed, call the `node.removeComponent(myComponent)` method to remove the specified component and destroy it. Example:
 
 ```ts
 import { Component } from "cc";
