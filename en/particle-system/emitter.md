@@ -11,7 +11,7 @@ Properties | Features
 
 - **Box**  
 
-![](particle-system/box_emitter.png)
+![box_emitter](particle-system/box_emitter.png)
 
 Properties | Features
 ---|---
@@ -20,7 +20,7 @@ Properties | Features
 
 - **Shpere\Hemisphere)**
 
-![](particle-system/sphere_emitter.png)
+![sphere_emitter](particle-system/sphere_emitter.png)
 
 Properties | Features
 ---|---
@@ -30,7 +30,7 @@ Properties | Features
 
 - **Circle**
 
-![](particle-system/circle_emitter.png)
+![circle_emitter](particle-system/circle_emitter.png)
 
 Properties | Features
 ---|---
@@ -44,7 +44,7 @@ Properties | Features
 
 - **Cone**
 
-![](particle-system/cone_emitter.png)
+![cone_emitter](particle-system/cone_emitter.png)
 
 Properties | Features
 ---|---

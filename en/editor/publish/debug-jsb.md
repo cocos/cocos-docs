@@ -12,7 +12,7 @@ If a game can only run on a physical device, then the packaged game must be debu
 
 - Open address with Chrome browser: `devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android/iOS device, then you can debug it.
 
-  ![](debug-jsb/v8-android-debug.png)
+  ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
 ## Debugging on Windows / Mac
 
@@ -22,7 +22,7 @@ The steps for debugging a game on the Windows / Mac platform are similar to the 
 
 - Open Chrome while the game is running and enter the address: `devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008` to debug it.
 
- ![](debug-jsb/v8-win32-debug.png)
+ ![v8-win32-debug](debug-jsb/v8-win32-debug.png)
 
 ## Other Platform Debugging
 

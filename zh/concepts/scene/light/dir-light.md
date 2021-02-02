@@ -1,16 +1,23 @@
-# 主方向光（Main Directional Light）
+# 平行光
 
-Cocos Creator 中只有一个主方向光，主方向光可以理解为场景中的主导性光源，通常是室外场景的太阳光。主方向光还会影响阴影的投影。
+平行光是最常见的一种光源，也可以理解为场景中的主导性光源（主方向光）。光照效果不受 **光源位置** 和 **朝向** 的影响，适合用于实现太阳光。但是旋转会影响到平行光照射的方向，而光照方向又会影响到模型接受光照的范围以及模型产生阴影的位置。
 
-![main dir light](dir-light.jpg)
+![image](dir-light.jpg)
 
-主方向光组件接口请参考 [Main Directional Light API](../../../api/zh/classes/component_light.directionallight.html)。
+> **注意**：Cocos Creator 目前只支持一个主方向光。若同时添加多个，则以最后一个添加的为准。
 
-## 主方向光属性
+在场景中添加平行光的方式可参考 [光照](../light.md)。
 
-| 参数名称 | 说明 |
-|:-------:|:---:|
-| Color | 光源颜色 |
+平行光组件相关接口，请参考 [DirectionalLight API](../../../api/zh/classes/component_light.directionallight.html)。
+
+## 平行光属性
+
+![image](dir-light-prop.png)
+
+| 属性 | 说明 |
+| :------ | :-- |
+| Color | 设置光源颜色 |
 | UseColorTemperature | 是否启用色温 |
-| ColorTemperature | 色温 |
-| Illumiance | 照度，单位**勒克斯（*lx*）** |
+| ColorTemperature | 调节色温 |
+| StaticSettings | 设置静态灯光，详情请参考 [烘焙系统](../../../editor/lightmap/index.md) |
+| illumination | 照度，单位 **勒克斯（lx）** |

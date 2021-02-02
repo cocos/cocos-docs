@@ -1,6 +1,6 @@
 # WeChat Mini Games Engine Plugin Instructions
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
 The **Game Engine Plugin** is a new feature added to **WeChat v7.0.7**, which has the official version of the __Cocos Creator__ engine built in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the __Cocos Creator__ engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.
 
@@ -10,7 +10,7 @@ For example, when a player has played an A game developed using __Cocos Creator_
 
 Simply check the **Separate Engine** option in the **Build** panel, and then build and release as normal, without additional manual operation. (This feature is only available when the built-in engine is used and the build is in non-debug mode.)
 
-![](./wechatgame-plugin/build-options.jpg)
+![build-options](./wechatgame-plugin/build-options.jpg)
 
 ## FAQ
 

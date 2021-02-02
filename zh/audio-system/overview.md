@@ -1,22 +1,92 @@
 # 声音系统总览
 
-声音系统的接口主要面向两类需求，一类是长度较长，循环持续播放的 “音乐”，一类是长度较短，一次性播放的 “音效”。<br>
-所有音频资源都会在编辑器内导入成 AudioClip 资源，要播放声音，首先需要在场景里创建 AudioSource。
+声音系统的接口主要面向两类需求，一类是长度较长，循环持续播放的 “音乐”，一类是长度较短，一次性播放的 “音效”。所有声音资源都会在编辑器内导入成 AudioClip 资源。
 
-对于音乐，可以直接将 AudioClip 赋给 AudioSource 上的 `clip` 属性，勾选 `playOnAwake` 属性或脚本调用组件的 play 方法来控制播放；<br>
-对于音效，可以在脚本里调用 AudioSource 的 `playOneShot` 方法，在调用时传入要播放的音效片段和音量。
+## 音乐播放
 
-注意虽然 AudioClip 资源本身也直接有 `play` 等接口实现，但 AudioSource 才是常规的播放入口，请尽量使用组件完成工作流。
+1. 在 **层级管理器** 上创建一个空节点
+2. 选中空节点，在 **属性检查器** 最下方点击 **添加组件 -> Components -> AudioSource** 来添加 AudioSource 组件
+3. 将 **资源管理器** 中所需的声音资源拖拽到 AudioSource 组件的 Clip 中，如下所示:
 
-## 音频相关事件
-所有的 AudioClip 资源对象都是一个 EventTarget：
-* 在音频开始实际播放时，会发出 `started` 事件；
-* 在音频播放自然结束时，会发出 `ended` 事件；
+    ![](audio/audiocilp.gif)
 
-## 平台差异性
+4. 根据需要对 AudioSource 组件的其他参数项进行设置即可，参数详情可参考 [AudioSource 组件参考](./audiosource.md)。
 
-目前支持 Web Audio API、DOM 音频、微信小游戏音频三种接口，虽然运行时各个平台的音频接口实现并不完全统一，<br>
-我们已经尽力在引擎中最小化这部分差异，但还是会存在一部分不可协调的不一致性：
-* iOS 平台 DOM 音频模式不支持调整音量大小，所有 volume 相关属性将不会有效；
-* 只有 Web Audio 模式支持同一音频的多重播放，其他模式下为避免重复创建，多次调用 `playOneShot` 的默认行为是从头开始重新播放；
-* 目前大部分平台都已遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放；
+如果只需要在游戏加载完成后自动播放声音，那么勾选 AudioSource 组件的 **PlayOnAwake** 即可。如果要更灵活的控制 AudioSource 的播放，可以在自定义脚本中获取 **AudioSource 组件**，然后调用相应的 API，如下所示：
+
+```typescript
+// AudioController.ts
+@ccclass("AudioController")
+export class AudioController extends Component { 
+    
+    @property(AudioSource)
+    public audioSource: AudioSource = null!;
+
+    play () {
+        this.audioSource.play();
+    }
+
+    pause () {
+        this.audioSource.pause();
+    }
+}
+```
+
+然后在编辑器的 **属性检查器** 中添加对应的用户脚本组件。选择相对应的节点，在 **属性检查器** 最下方点击 **添加组件 -> 自定义脚本 -> 用户脚本**，即可添加脚本组件。然后将带有 AudioSource 组件的节点拖拽到脚本组件中的 **Audio Source** 上，如下所示：
+
+![](audio/audiocontroller.png)
+
+## 音效播放
+
+相较于长的音乐播放，音效播放具有以下特点：
+- 播放时间短
+- 同时播放的数量多
+
+针对这样的播放需求，AudioSource 组件提供了 `playOneShot` 接口来播放音效。具体代码实现如下：
+
+```typescript
+// AudioController.ts
+@ccclass("AudioController")
+export class AudioController extends Component {     
+
+    @property(AudioClip)
+    public clip: AudioClip = null!;   
+
+    @property(AudioSource)
+    public audioSource: AudioSource = null!;
+
+    playOneShot () {
+        this.audioSource.playOneShot(this.clip, 1);
+    }
+}
+```
+
+> **注意**：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
+
+## Web 平台的播放限制
+
+目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
+
+```typescript
+// AudioController.ts
+@ccclass("AudioController")
+export class AudioController extends Component {      
+
+    @property(AudioSource)
+    public audioSource: AudioSource = null!;
+
+    start () {
+        let btnNode = find('BUTTON_NODE_NAME');
+        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
+    }
+    
+    playAudio () {
+        this.audioSource.play();
+    }
+}
+```
+
+## 相关链接
+
+[Audio 资源](../asset/audio.md)  
+[AudioSource 组件参考](./audiosource.md)

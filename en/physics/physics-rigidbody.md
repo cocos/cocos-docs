@@ -2,7 +2,7 @@
 
 **RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
 
-![](img/rigidbody-prop.png)
+![rigidbody-prop](img/rigidbody-prop.png)
 
 Click the **Add Component -> Physics Component -> RigidBody** button at the bottom of the **Inspector** panel to add the RigidBody component to the node.
 

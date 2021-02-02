@@ -2,7 +2,7 @@
 
 The Billboard component is used to render a box that always faces the camera.
 
-![](particle-system/billboard.png)
+![billboard](particle-system/billboard.png)
 
 | Property | Description |
 | :---| :--- |

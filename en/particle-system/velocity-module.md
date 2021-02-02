@@ -1,6 +1,6 @@
 ## Velocity Overtime Module
 
-![](particle-system/velocity_module.png)
+![velocity_module](particle-system/velocity_module.png)
 
 | Property | Description |
 | :--- | :--- |
@@ -8,4 +8,4 @@
 | **x,y,z** | Different calculation modes can be used for the velocity components in the three directions. |
 | **speedModifier** | Speed correction factor. |
 
-![](particle-system/velocity_overtime.gif)
+![velocity_overtime](particle-system/velocity_overtime.gif)

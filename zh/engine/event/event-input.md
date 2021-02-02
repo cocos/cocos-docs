@@ -97,4 +97,4 @@ export class Example extends Component {
 }
 ```
 
-完整范例可参考 [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/event) 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。
+完整范例可参考 [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。
