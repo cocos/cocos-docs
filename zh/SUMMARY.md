@@ -283,6 +283,8 @@
         - [UI 组件](editor/extension/ui.md)
 
 - [进阶主题](advanced-topics/index.md)
+    - [热更新范例教程](advanced-topics/hot-update.md)
+    - [热更新管理器](advanced-topics/hot-update-manager.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
