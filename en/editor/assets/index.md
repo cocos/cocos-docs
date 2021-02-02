@@ -113,22 +113,23 @@ The search function is a combined function that can limit the search type and sp
 
 ### Exporting Assets Package
 
-Select the asset to be exported and right click on the **Exporting Assets Pack** menu, the plugin will automatically list the currently selected asset and its dependent related asset into the plugin window. Dependent asset are included by default, you can uncheck **Include Dependency** if you don't need them. Once you have identified the asset you need to export, the developer can export them with one click by clicking the **Export** button.
+Select the resource to be exported and right click on it, then select **Export Resource Package**. The **Export Resource** panel will automatically list the currently selected resource and its dependencies. If you don't need to export dependent resources, you can uncheck **Include Dependent Resources** in the bottom left corner of the **Export Resources** panel.
 
-> **Note**.
-> The plugin will automatically make a **zip** package of the assets, this zip package is only available for use with the **Import Assets Package** plugin
+> **Note**: The exported zip package is only suitable for use with **imported resource packages**, as described below.
 
-<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-panel.png" width="50%" height="50%"/>
+![导出资源包](img/package-asset/exporting.png)
 
 ### Importing Assets Package
 
-Select the **assets** panel or **blank space**, select the **Importing Assets Package** menu by right-clicking, and after a pop-up dialogue box and selecting the **import packages plugin exported zip package**, the import package plugin will automatically parse all the assets in the zip package and present them in the plugin window. Finally the developer can import with one click using the **Import** button.
+Select and right click on the folder you want to import resources from, or right click on the **blank space** in the **Explorer** panel, then select **Import Package** and select the zip package exported from **Import Package** in the file browsing dialog. The resources in the zip package will be automatically parsed to the **Import Package** panel.
 
-<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-panel.png" width="50%" height="50%"/>
+The import process will also ask the user to reconfirm the imported resources, so you can remove the resources you don't need to import by unchecking some of them.
 
-> **Note**：
-> 1. imported **zip** packages must be exported from CocosCreator version 3.0.0 and above by the Editor **Exporting Assets Package** plugin to be supported.
-> 2. importing scripts with the same class name is not supported.
+![导出资源包](img/package-asset/exporting.png)
+
+> **Note**:
+> 1. Imported zip packages, only zip packages exported by Cocos Creator 3.0.0 and above using **Export Resource Packages** are supported.
+> 2. Importing scripts with the same class name is not supported.
 
 ### Big Picture Preview
 
