@@ -96,7 +96,7 @@
 | 参数 | 说明 |
 | :--- | :--- |
 | Terrain Layer | 设置当前 Layer 的纹理 |
-| NormalMap | 设置当前 Layer 的法线贴图,需要勾选地形组件的UseNormalMap属性 |
+| NormalMap | 设置当前 Layer 的法线贴图，需要勾选地形组件的 **UseNormalMap** 属性 |
 | Metallic | 设置当前 Layer 的金属特性 (主要指光滑程度) |
 | Roughness | 设置当前 Layer 的粗糙程度 |
 | TileSize       | 纹理的平铺大小，值越小会在同样大小的区域内进行更多次的平铺 |
