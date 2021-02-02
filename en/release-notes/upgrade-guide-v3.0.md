@@ -114,6 +114,26 @@ The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please 
     | `CC_RUNTIME`      | `RUNTIME_BASED`   |
     | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
 
+- **Dynamic Loading**:
+
+    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource.
+
+    ```ts
+    // load texture
+    // v2.x
+    resources.load('background', cc.Texture2D, () => {});
+    // v3.0
+    resources.load('background/texture', Texture2D, () => {});
+    ```
+
+    ```ts
+    // load sprite frame
+    // v2.x
+    resources.load('background', cc.SpriteFrame, () => {});
+    // v3.0
+    resources.load('background/spriteFrame', SpriteFrame, () => {});
+    ```
+
 ### Editor upgrade
 
 #### Build Panel
