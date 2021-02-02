@@ -1,6 +1,8 @@
 # 提交资源到商店
 
-Cocos Creator 内置了 [扩展商店](https://docs.cocos.com/creator/manual/zh/extension/install-and-share.html)，可供用户浏览、下载和自动安装官方或者第三方插件、资源。同时用户也可以将自己开发的扩展插件、美术素材、音乐音效等资源提交到扩展商店以便分享或者售卖。接下来我们以提交扩展插件为例来看一下具体的提交流程。
+Cocos Creator 内置了 **扩展商店**，可供用户浏览、下载和自动安装官方或者第三方插件、资源。同时用户也可以将自己开发的扩展插件、美术素材、音乐音效等资源提交到扩展商店以便分享或者售卖。接下来我们以提交扩展插件为例来看一下具体的提交流程。
+
+![img](../image/store.png)
 
 ## 打包插件
 
@@ -16,7 +18,7 @@ foobar
 
 开发者需要将 `foobar` 文件夹打包成 `foobar.zip` 文件，然后提交到 Cocos 开发者中心。
 
-更多关于插件扩展包的内容，可参考文档 [创建扩展包](https://docs.cocos.com/creator/manual/zh/extension/your-first-extension.html)。
+更多关于插件扩展包的内容，可参考文档 [创建扩展包](../first.md)。
 
 ### 第三方库
 
@@ -63,6 +65,7 @@ foobar
     - **插件扩展包名**：插件扩展包的名称，定义在扩展包的 `package.json` 文件中。
     - **版本号**：插件版本号，定义在扩展包的 `package.json` 文件中。书写规范请遵守 [semver 规范](http://semver.org/lang/zh-CN/)。
     - **Creator 版本要求**：插件对 Creator 版本的要求。
+
     > **注意**：由于 Creator 2.x 和 3.x 插件互不兼容，如果没有对应的版本支持插件包，作品将不会显示到对应版本的 Creator 插件商店中。
 
   填写完成后点击 **下一步** 进入 **提交审核** 页面。
