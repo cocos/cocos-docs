@@ -26,11 +26,11 @@ foobar
 
 访问 [Cocos 开发者中心](https://auth.cocos.com/#/) 并登录，然后进入 [商店](https://store-my.cocos.com/#/seller/resources/) 栏目，点击右上方的 **发布新资源**。
 
-![img](..\image\create.png)
+![img](../image/create.png)
 
 - 然后进入 **资源类别** 页面，填写 **名称** 和 **类别**，勾选已阅读协议。
 
-  ![img](..\image\category.png)
+  ![img](../image/category.png)
 
     - **名称**：插件显示在扩展商店中的名称。需要注意的是，名称一经确认后不可更改，请谨慎填写。
     - **类别**：要提交的资源类别，我们这里选择 **Creator 扩展 -> 插件**。
@@ -39,7 +39,7 @@ foobar
 
 - 在 **资源介绍** 页面填写相关信息。
 
-  ![img](..\image\introduction.png)
+  ![img](../image/introduction.png)
 
     - **关键字**：方便用户更快搜索到您的插件，支持多个关键字
     - **支持平台**：包括 Android、iOS、HTML5
@@ -51,7 +51,7 @@ foobar
 
 - 在 **定价** 页面设置插件的售价，包括 **CNY** 和 **USD** 两种，如果免费请填写 **0**。
 
-  ![img](..\image\pricing.png)
+  ![img](../image/pricing.png)
 
   填写完成后点击 **下一步** 进入 **上传资源** 页面
 
@@ -69,6 +69,6 @@ foobar
 
 - 在 **提交审核** 页面点击 **提交审核** 按钮即可，也可以点击 **查看** 按钮重新编辑该插件资源。
 
-  ![img](..\image\submit-for-review.png)
+  ![img](../image/submit-for-review.png)
 
 - 提交审核后，扩展商店的管理人员会在 **3** 个工作日内审核插件内容和信息：
