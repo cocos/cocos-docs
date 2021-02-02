@@ -17,7 +17,7 @@
 ![camera component](camera-component.png)
 
 | 属性名称 | 说明 |
-|:-------:|:---:|
+|:-------|:---|
 | priority | 相机的渲染优先级，值越小越优先渲染 |
 | visibility | 可见性掩码，声明在当前相机中可见的节点层级集合 |
 | clearFlags | 相机的缓冲清除标志位，指定帧缓冲的哪部分要每帧清除。包含：<br>DONT_CLEAR：不清空；<br>DEPTH_ONLY：只清空深度；<br> SOLID_COLOR：清空颜色、深度与模板缓冲；<br> SKYBOX：启用天空盒，只清空深度 |

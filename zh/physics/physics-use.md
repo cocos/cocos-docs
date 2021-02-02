@@ -5,6 +5,7 @@
 模块 | 描述
 ---|---
 [**碰撞组件**](physics-collider.md) | 介绍了 __Collider__ 组件的设计，以及与 __RigidBody__ 组件的关系
+[**物理配置**](../editor/project/physics-configs.md) | 物理配置用于配置各种常用属性，以及设置碰撞矩阵等
 [**物理材质**](physics-material.md) | 介绍了 Cocos Creator 中的物理材质资源
 [**刚体组件**](physics-rigidbody.md) | 介绍了 __RigidBody__ 组件的一些代码使用示例
 [**物理事件**](physics-event.md) | 介绍了 Cocos Creator 中的物理事件
