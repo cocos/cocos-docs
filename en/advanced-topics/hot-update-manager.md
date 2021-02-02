@@ -1,20 +1,8 @@
 # Hot Update AssetsManager
 
-This document will fully cover the `AssetsManager` module for hot update, includes technical details and usage. As the requirements of the hot update process for developers may be different, and each developer may also face different problems. So that developers need to fully understand the details of the hot update mechanism to be able to customize the workflow to meet their needs.
+This document will fully cover the `AssetsManager` module for hot update, includes technical details and usage. As the requirements of the hot update process for developers may be different, and each developer may also face different problems. Developers need to fully understand the details of the hot update mechanism to be able to customize the workflow to meet their needs.
 
-So this document is relatively long, it tries to introduce the hot update mechanism gradually, but will not introduce too much user level code. you want to first understand how to use the hot update mechanism to update their game developers, you can try our [simple tutorial](hot-update.md) to get started.
-
-## Introduction to Asset Hot Update
-
-Asset hot update is designed for the game to dynamically update assets, where the asset can be textures, audio and even game logic. During the maintenance and operations of the game, you will be able to upload new assets to your server so that your game keeps in sync of the remote server and automatically downloads new assets to the user's device. In this way, new designs, new play experience and even new game content will be immediately pushed to your users hands. It is important that you don't have to publish and submit your application to each market and go through a painful application submission review!
-
-The asset hot update manager has walked through three important phases:
-
-1. Cocos2d-JS v3.0 contains the initial design and implementation.
-2. In cocos2d-x v3.9 we upgraded `Downloader` and implemented multi-threaded concurrent download.
-3. Cocos Creator v1.4.0 and Cocos2d-x v3.15 we have made a major reconstruction, and solve most of major issues during hot update process.
-
-So please use the latest version of the engine or editor, this document is based on Cocos Creator v1.4.0+ and cocos2d-x 3.15.
+This document is relatively long, it tries to introduce the hot update mechanism gradually, but will not introduce too much user level code. First, understand how to use the hot update mechanism to update a game, try the [simple tutorial](hot-update.md) example to get started.
 
 ## Design goals and basic principles
 
@@ -216,7 +204,7 @@ if (jsb) {
 }
 ```
 
-Note that this code must be placed in `main.js` and executed before it require other script, otherwise it will still load the script from the application package.
+Note: that this code must be placed in `main.js` and executed before it require other script, otherwise it will still load the script from the application package.
 
 ## Advanced Topics
 

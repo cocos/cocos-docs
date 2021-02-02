@@ -1,5 +1,8 @@
 # 进阶主题
 
+- 热更新
+    - [热更新范例教程](hot-update.md)
+    - [热更新管理器](hot-update-manager.md)
 - [动态合图](dynamic-atlas.md)
 - [引擎定制工作流程](engine-customization.md)
 - [JSB 2.0 使用指南](JSB2.0-learning.md)

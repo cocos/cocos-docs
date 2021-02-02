@@ -50,7 +50,7 @@ To show the hot update process, the example project used in the tutorial has a f
 
 ![table](./hot-update/table.png)
 
-**Note**: the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
+**Note:** the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
 
 ### Use the version generator to generate the manifest file
 
@@ -87,9 +87,9 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 
 After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.
 
-**Note**: 
-- Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
-- Please make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin)
+**Note:**
+- 1. Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
+- 2. Make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin)
 
 The editor plugin automatically adds the search path logic and fix code to `main.js` everytime we build a successful native version:
 

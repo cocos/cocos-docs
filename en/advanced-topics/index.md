@@ -1,5 +1,8 @@
 # Advanced Topics
 
+- Hot Update
+    - [Hot update tutorial](hot-update.md)
+    - [AssetManager](hot-update-manager.md)
 - [Dynamic Atlas](dynamic-atlas.md)
 - [Engine Customization Workflow](engine-customization.md)
 - [The Tutorial for JSB 2.0](JSB2.0-learning.md)
