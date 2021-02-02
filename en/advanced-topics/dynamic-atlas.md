@@ -34,4 +34,4 @@ The dynamic atlas system limits the size of the texture that can be merged. By d
 dynamicAtlasManager.maxFrameSize = 512;
 ```
 
-For APIs related to the `DynamicAtlasManager`, please refer to the [DynamicAtlasManager API](https://github.com/api/en/classes/DynamicAtlasManager.html) documentation.
+For details, look up `DynamicAtlasManager` in the [API documentation](../../../api/en/).
