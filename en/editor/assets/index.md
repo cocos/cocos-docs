@@ -117,7 +117,7 @@ Select the resource to be exported and right click on it, then select **Export R
 
 Once you have identified the resources to be exported, click on the **Export** button and a file storage dialog box will pop up. The user will need to specify a folder location and file name, click on **Store** and a **filename.zip** zip file will be generated containing all of the exported resources.
 
-![导出资源包](img/package-asset/exporting.png)
+![exporting](img/package-asset/exporting.png)
 
 > **Note**: The exported zip package is only suitable for use with **imported resource packages**, as described below.
 
@@ -127,7 +127,7 @@ Select and right-click on the folder you want to import resources from, or right
 
 The import process will also ask the user to reconfirm the imported resources, so you can remove the resources you don't need to import by unchecking some of them.
 
-![导出资源包](img/package-asset/exporting.png)
+![importing](img/package-asset/importing.png)
 
 > **Note**:
 > 1. Imported zip packages, only zip packages exported by Cocos Creator 3.0.0 and above using **Export Resource Packages** are supported.
