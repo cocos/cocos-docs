@@ -115,17 +115,17 @@ The search function is a combined function that can limit the search type and sp
 
 Select the resource to be exported and right click on it, then select **Export Resource Package**. The **Export Resource** panel will automatically list the currently selected resource and its dependencies. If you don't need to export dependent resources, you can uncheck **Include Dependent Resources** in the bottom left corner of the **Export Resources** panel.
 
-Once you have identified the resources to be exported, click on the **Export** button and a file storage dialog box will pop up. The user will need to specify a folder location and file name, click on **Store** and a **filename.zip** zip file will be generated containing all of the exported resources.
+Once you have identified the resources to be exported, click the **Export** button to bring up the file storage dialog box where you will need to specify a folder location and file name.
 
 ![exporting](img/package-asset/exporting.png)
 
-> **Note**: The exported zip package is only suitable for use with **imported resource packages**, as described below.
+> **Note**: Exported zip packages are only suitable for **importing resource packages** use, as described below.
 
 ### Importing Assets Package
 
-Select and right-click on the folder you want to import resources from, or right-click on the **blank space** in the **Export Explorer** panel, then select **Import Package** and select the zip package exported from **Export Package** in the pop-up file browse dialog. The resources in the zip package will be automatically parsed to the **Import Package** pop-up panel.
+Select and right click on the folder you want to import resources from, or right click on the **blank space** in the **Export Explorer** panel, then select **Import Package** and select the zip package exported from **Export Package** in the file browse dialog box. The resources in the zip package will be automatically parsed into the **Import Package** panel that pops up.
 
-The import process will also ask the user to reconfirm the imported resources, so you can remove the resources you don't need to import by unchecking some of them.
+The import process will also ask the user to reconfirm the imported resources, so you can uncheck some resources to remove the ones you don't want to import.
 
 ![importing](img/package-asset/importing.png)
 
