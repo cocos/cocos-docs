@@ -17,25 +17,23 @@ __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will
 
 Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool when v3.0 is officially released. This tool will support migrating old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be migrated in the form of comments, which can reduce the difficulty of upgrading.
 
-Developers only need to click **File -> Migrate -> Cocos Creator 2.x project (recommended: version 2.4.3 and above)** in the main menu.
+Developers only need to click **File -> Import Cocos Creator 2.x project** in the main menu.
 
-<img src="import-menu.png" width="50%" height="50%"/>
+![import-menu](import-menu.png)
 
-Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the migration window.
+Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the import window.
 
-> **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the migration results cannot be guaranteed to be correct.
+![import-select-project](import-select-project.png)
 
-<img src="import-select-project.png" width="50%" height="50%"/>
+> **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the import results cannot be guaranteed to be correct.
 
-If the developer wishes to switch to another project for migration, click on the icon in the image below to reselect the project.
+If the developer wishes to switch to another project for import, click on the icon in the image below to reselect the project.
 
-<img src="import-panel-select.png" width="30%" height="30%"/>
+After confirming the items to be imported, developers can check the resources to be imported by themselves and then click the __Import__ button in the image below to complete the import.
 
-After confirming the items to be migrated, developers can check the resources to be migrated by themselves and then click the __Migrate__ button in the image below to complete the migration.
+![import-project](import-panel.png)
 
-<img src="import-panel.png" width="30%" height="30%"/>
-
-If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos.com](mailto:slackmoehrle@cocos.com) for assistance!
+As the editor is currently unable to support hot updates for plugins, if developers are experiencing problems with the plugin, get the latest plugin via [this portal](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md).
 
 ## Old version developers quickly get started
 

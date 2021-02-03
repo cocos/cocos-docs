@@ -25,25 +25,23 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍将在 3.0 正式版推出 v2.x 资源迁移工具。此工具支持旧项目资源完美迁移，以及代码的辅助迁移。代码辅助迁移会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式迁移，减轻开发者的升级难度。
 
-开发者只需要点击主菜单中的 **文件 -> 迁移 -> Cocos Creator 2.x 项目（推荐：2.4.3 及以上的版本）** 
+开发者只需要点击主菜单中的 **文件 -> 导入 Cocos Creator 2.x 项目**
 
-<img src="import-menu.png" width="50%" height="50%"/>
+![import-menu](import-menu.png)
 
-然后选择 Cocos Creator 2.x 项目的根目录，插件会自动遍历项目中所有的资源并呈现在迁移窗口上。
+然后选择 Cocos Creator 2.x 项目的根目录，插件会自动遍历项目中所有的资源并呈现在导入窗口上。
 
-> **注意**：旧项目推荐先升级到 Cocos Creator 2.4.3 或以上版本，然后再导入到 Cocos Creator 3.0，否则无法确保迁移结果的正确性。
+![import-menu](import-select-project.png)
 
-<img src="import-select-project.png" width="50%" height="50%"/>
+> **注意**：旧项目推荐先升级到 Cocos Creator 2.4.3 或以上版本，然后再导入到 Cocos Creator 3.0，否则无法确保导入结果的正确性。
 
-若开发者想要切换其他的项目进行迁移，点击下图中的图标，即可重新选择项目。
+若开发者想要切换其他的项目进行导入，点击下图中的图标，即可重新选择项目。
 
-<img src="import-panel-select.png" width="30%" height="30%"/>
+确认导入的项目后，开发者可以自行勾选需要导入的资源，然后点击下图中的 **导入** 按钮完成导入。
 
-确认迁移的项目后，开发者可以自行勾选需要迁移的资源，然后点击下图中的 **迁移** 按钮完成迁移。
+![import-project](import-panel.png)
 
-<img src="import-panel.png" width="30%" height="30%"/>
-
-如果现有项目因为特殊原因需要升级，并且遇到了技术上或者工作量上的困难，也可以联系 `zhengxiong.zhao@cocos.com` 获取我们的人工协助！
+由于目前编辑器无法支持插件热更新，所以如果开发者在使用该插件时遇到问题，通过 [此传送门](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) 获取最新的插件。
 
 ## 旧版本开发者快速上手
 
