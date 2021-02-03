@@ -39,3 +39,34 @@
 ## 相机分组渲染
 
 分组渲染功能是通过相机组件([Camera](../../editor/components/camera-component.md)) 的 Visibility 属性配合节点的 Layer 属性共同决定。用户可通过代码设置 Visibility 的值来完成分组渲染。所有节点默认都属于 DEFAULT 层，在所有相机都可见。
+
+### 相机的 Visibility 属性设置
+
+引擎提供了了独占的 layer，范围 20位 ~ 30位，同时也向用户提供了 0 ~ 19 位自定义的 layer 值。如下图：
+
+![layer gizmo](layer-gizmo.png)
+
+| 属性                  | 说明                     | 值              |
+| :---                  | :---                    | :---            |
+| **NONE**              | 设置全都不可见            | 0               |
+| **IGNORE_RAYCAST**    | 设置忽略射线检测          | 1 << 20         |
+| **GIZMOS**            | 设置配置信息可见          | 1 << 21         |
+| **EDITOR**            | 设置编辑器可见            | 1 << 22        |
+| **UI_3D**             | 设置 `3D UI` 节点可见     | 1 << 23         |
+| **SCENE_GIZMO**       | 设置场景配置节点可见       | 1 << 24         |
+| **UI_2D**             | 设置 `2D UI` 节点可见     | 1 << 25         |
+| **PROFILER**          | 设置分析工具节点可见       | 1 << 28         |
+| **DEFAULT**           | 设置默认节点可见          | 1 << 30         |
+| **ALL**               | 设置所有节点可见          | 0xffffffff      |
+
+当用户勾选了多个 layer 作为该相机可见依据时，Visibility 属性通过 ` | ` 操作计算得出。
+
+下图为相机使用到的 layer。
+
+![camera visibility gizmo](camera-visibility-gizmo.png)
+
+此时相机的 Visibility 属性值为 ` 1 << 23 | 1 << 30 = 1820327937 `。
+
+### 相机的可见性计算
+
+相机自身可以设置一个或多个可见的 Visibility 属性，同时 node 上也有自身的 layer 值，camera 上的 Visibility 是一个 2^32^ 整数，每一种可见的 layer 占一位，采用位操作运算，最高支持 32 个不同的 layer 标签（每一种 layer 值占一位，即用 2^layer^ 表示）。在相机 culling 时，根据每个节点的 layer 值，跟相机进行 ` & ` 操作，如果相机的 Visibility 属性包含这个 layer，那么当前节点就应该被相机所见。反之则看不见。
