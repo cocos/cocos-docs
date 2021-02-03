@@ -20,34 +20,57 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 ### 构建数据整理
 
-编辑器会先汇总 **当前参与构建的场景以及所有 bundle 目录下的资源，通过引擎的反序列化，查找出依赖资源再递归查找处所有需要打包的资源列表**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而**如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
+编辑器会先汇总 **当前参与构建的场景以及所有 Bundle 目录下的资源，通过引擎的反序列化，查找出依赖资源再递归查找处所有需要打包的资源列表**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而**如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
 
 在汇总所有参与构建的资源列表后，就会根据 Bundle 配置，对资源分类，并收集脚本、图片压缩任务、json 分组信息等。
 
 ### 资源构建写入文件系统
 
-自 3.0 支持 Asset Bundle 后，构建后的资源会根据 bundle 配置分布在不同的位置内。每个 Bundle 内会有一份 `project.js` 脚本，以及对应的资源以及类似于最早版本 settings 的 config.json 记录 bundle 内部的资源 uuid 信息。生成规则
-根据前两个步骤（参数初始化以及构建数据整理）的结果，将使用到的资源生成到文件系统内，打包之后，所有的序列化文件都会放置在构建后目录的 `res/import` 目录下，所有的资源的源文件将会放置在 `res/raw-assets` 目录下。具体可以分为以下几个步骤：
+自 3.0 支持 Asset Bundle 后，构建后的资源会根据 Bundle 配置分布在不同的位置内。每个 Bundle 内会有一份 `project.js` 脚本，以及对应的资源以及类似于最早版本 settings 的 config.json 记录 Bundle 内部的资源 uuid 信息。每个 Bundle 在构建后将会被打包到 `assets/[Bundle 名称]` 内。
+
+#### Asset Bundle 的构建
+
+每个 Bundle 的资源基本目录可以参考下方：
+
+```bash
+- XXXBundle
+    - import （序列化 JSON）
+        - 04
+            - 04630c...od.json
+        ...
+    - native （原始资源，例如 .png .bin 等文件)
+            - 04
+            - 04630c...od.png
+        ...
+    - config.json （Bundle 资源配置文件）
+    - index.js （Bundle 内的脚本
+```
+
+更多详细的 Asset Bundle 配置与构建细节，请参考 [Asset Bundle 介绍](../../asset/bundle.md)
+
+在整理完基本的构建任务后，构建将会按照每个 Bundle 为处理单元处理完其他的构建流程。
+
+具体可以分为以下几个步骤：
 
 - **脚本构建**：编辑器内对脚本的构建分为 **插件脚本** 和 **非插件脚本** 两类。
 
-  - 插件脚本会直接把源文件按照原来的目录结构拷到构建后文件夹的 `src` 目录下，所以插件脚本是不支持任何需要编译的脚本形式的比如 ts 或者是使用 es6 写法的 js。插件脚本的资源信息则会写进 settings 里的 jsList 数组内。
+    - 插件脚本会直接把源文件按照原来的目录结构拷到构建后文件夹的 `src` 目录下，所以插件脚本是不支持任何需要编译的脚本形式的比如 ts 或者是使用 es6 写法的 js。插件脚本的资源信息则会写进 settings 里的 jsList 数组内。
 
-  - 非插件脚本将会全部打包成 `project.js`（调试模式下是 `project.dev.js`），放在对应的 src 目录下。勾选 sourceMap 选项将会生成对应的 map 文件，根据 debug 选项来确定脚本是否压缩。
+    - 非插件脚本将会全部打包成 `project.js`（调试模式下是 `project.dev.js`），放在对应的 src 目录下。勾选 sourceMap 选项将会生成对应的 map 文件，根据 debug 选项来确定脚本是否压缩。
 
 - **自动图集处理**：查询项目内部的自动图集资源信息，根据自动图集资源的配置将图集下的 SpriteFrame 小图打包成大图、生成序列化文件等等。这一步骤会修改 json 分组信息、asset 资源分组信息以及添加纹理压缩任务。如果构建选项没有勾选自动图集，不进行任何处理。
 
 - **纹理压缩**：根据整理好的图片压缩任务，进行图片资源的压缩处理并写入到构建文件夹内，如果构建选项没有勾选纹理压缩，不进行任何处理。
 
-- **引擎构建**：根据项目设置内的引擎模块设置剔除没有使用到的引擎模块，打包到 cocos-js 目录下，生成到 `src` 文件夹下。勾选 sourceMap 选项将会生成对应的 map 文件，根据 debug 选项来确定脚本是否压缩。
+- **引擎构建**：根据项目设置内的引擎模块设置剔除没有使用到的引擎模块，打包到 cocos-js 目录下。勾选 sourceMap 选项将会生成对应的 map 文件，根据 debug 选项来确定脚本是否压缩。
 
     引擎打包的主要步骤是：
 
-  - 获取**项目设置里的引擎模块信息**；
+    - 获取**项目设置里的引擎模块信息**；
 
-  - **检查缓存**中的引擎版本与当前需要编译的引擎是否一致，内容一致直接拷贝不编译；
+    - **检查缓存**中的引擎版本与当前需要编译的引擎是否一致，内容一致直接拷贝不编译；
 
-  - 如需编译，根据引擎接口，执行打包引擎的任务，之后拷贝编译后的 js 文件，并保存引擎的修改时间；
+    - 如需编译，根据引擎接口，执行打包引擎的任务，之后拷贝编译后的 js 文件，并保存引擎的修改时间；
 
     编译引擎时，可以查看 [输出的 log 信息](./build-panel.md#%E6%9E%84%E5%BB%BA-log-%E4%BF%A1%E6%81%AF%E6%9F%A5%E7%9C%8B)：
 
@@ -70,23 +93,23 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
     只要任何相关的引擎构建参数发生更改，就会重新编译引擎，具体影响构建引擎缓存使用的有：
 
-  - debug: 是否打开调试模式
-  - includeModules: 引擎模块设置
-  - sourceMaps：是否开启 sourceMap
-  - platform：构建平台
-  - 引擎修改时间
-  - 是否勾选分离引擎（仅微信平台）
-  - 使用引擎路径
+    - debug: 是否打开调试模式
+    - includeModules: 引擎模块设置
+    - sourceMaps：是否开启 sourceMap
+    - platform：构建平台
+    - 引擎修改时间
+    - 是否勾选分离引擎（仅微信平台）
+    - 使用引擎路径
 
-- **json 构建**：序列化 json 根据 json 分组进行合并写入文件系统(`res/import` 文件夹内)，如果是 **release 模式还会对序列化 json 内的 uuid 进行压缩处理**。
+- **json 构建**：序列化 json 根据 json 分组以及所属 Bundle 进行合并写入文件系统(`assets/xxxBundle/import` 文件夹内)，如果是 **release 模式还会对序列化 json 内的 uuid 进行压缩处理**。
 
-- **普通资源拷贝**：一些原始资源（rawAssets）直接从 library 拷贝到构建后的 `res/raw-assets` 文件夹内。
+- **普通资源拷贝**：一些原始资源（rawAssets）直接从 library 拷贝到构建后的 `assets/xxxBundle/native` 文件夹内。
 
 - **md5 处理**：将 res 文件夹内的资源全部加上 md5 后缀，并整理数据准备记录在 settings 内。
 
 - **application.js 模板文件生成**：根据用户选项注入一些项目设置到 application.js 文件夹内并生成到构建输出目录下。
 
-### 整理 settings 数据
+### 整理 settings、config 数据
 
 主要是根据之前资源整理的数据，准备游戏启动必要的配置信息。
 
@@ -95,40 +118,59 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 ```js
 {
     debug: boolean; // 是否为调试模式，取自构建配置面板
-    designResolution: { // canvas 分辨率设置，取自项目设置内数据
-        width: number; // canvas 分辨率宽度
-        height: number; // canvas 分辨率高度
-        policy: number; // 满屏的宽高适配模式
-    };
-    launchScene: string; // 初始场景的 url
-    platform: string; // 平台
+    designResolution: ISettingsDesignResolution; // canvas 分辨率设置，取自项目设置内数据
+    jsList: string[];
+    launchScene: string; // 初始场景 url
+    moduleIds: string[]; // 所有用户脚本组件的信息
+    platform: string;
+    renderPipeline: string;// renderPipeline 信息，取自项目设置
+    physics?: IPhysicsConfig;// 物理模块设置（仅在勾选了物理引擎模块时生成）
+    bundleVers: Record<string, string>; // bundle 的 md5 文件戳
+    subpackages: string[]; // 分包信息
+    remoteBundles: string[]; // 记录远程包 bundle 的集合
+    // server: string;
+    hasResourcesBundle: boolean; // 是否含有 resources 内置 bundle
+    hasStartSceneBundle: boolean; // 是否含有初始场景内置 bundle
+    customJointTextureLayouts?: ICustomJointTextureLayout[];
+    macros?: Record<string, any>; // 引擎 Macro 配置值，取自项目设置
+}
+```
+
+关于 config.json 的通用解析
+
+```js
+{
+    importBase: string; // bundle 中 import 目录的名称，通常是 'import'
+    nativeBase: string; // native 中 native 目录的名称，通常是 'native'
+    name: string; // bundle 的名称，可以通过 bundle 名称加载 bundle
+    deps: string[]; // 该 bundle 依赖的其他 bundle 名称
+    scenes: Array<{url: string, uuid: string}>; // Bundle 内包含的场景信息数组
     rawAssets: { [index: string]: { [uuid: string]: string[] } };
     // 存储 resources 下加载的资源 url 与类型
     // 示例: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
     // "bba0...@6c48a": ["test/right/texture", 1, 1]
-    scenes: Array<{url: string, uuid: string}>; // 参与运行的场景信息数组
-    scriptPackages: Array<{moduleId: string, file: string}>; // 脚本信息数组
-    jsList: string[]; // 脚本插件数组
-    moduleIds: string[]; // 所有用户脚本组件的信息
-    packedAssets: Record<string, IUuid[] | number[]>; // json 分组信息
-    md5AssetsMap: { [index: string]: Array<string | number> }; // 勾选 md5Cache 后才有，数组部分以 [uuid_1, md5_1, uuid_2, md5_2, ...] 的格式存储，其中 uuid_1 如果是个简单数字说明存储的是 uuids 数组内的 uuid 索引。
+    packs: Record<string, IUuid[] | number[]>; // json 分组信息
+    versions: { 
+        import: Array<string | number>;
+        native: Array<string | number>;
+     }; // 勾选 md5Cache 后才有，数组部分以 [uuid_1, md5_1, uuid_2, md5_2, ...] 的格式存储，其中 uuid_1 如果是个简单数字说明存储的是 uuids 数组内的 uuid 索引。
     uuids: string[]; // uuid 数组，仅 release 模式下
-    assetTypes?: string[]; // 资源类型数组，仅 release 模式下
-
-    subpackages?: Record<IUuid, IPackageInfo>; // 分包资源信息，仅仅支持分包的平台存在
-    renderPipeline：string；// renderPipeline 信息，取自项目设置
+    types?: string[]; // 资源类型数组，仅 release 模式下
+    encrypted?: boolean; // 原生上使用，标记该 bundle 中的脚本是否加密
+    isZip?: boolean; // 是否是 zip 模式
+    zipVersion?: string;
 }
 ```
 
-这里的结构仅列举了通用流程下的 settings 结构，实际上在不同的平台打包时，会根据需要添加配置。
+这里的结构仅列举了通用流程下的 settings/config 结构，实际上在不同的平台打包时，会根据需要添加配置。
 
-### settings uuid 压缩与文件写入
+### config 内的 uuid 压缩与文件写入
 
-资源打包过程中也会不断的收集参与资源构建的资源 uuid，最终会整理写进 setting.js。setting.js 会被写入在构建后文件夹的 `src` 目录下，生成之前将会根据是否为调试模式来决定是否对文件内的 uuid 做压缩处理，所有使用到的 uuid 会进行整理，将出现 **两次以上** 的存储进 `uuids` 数组内，之前使用 uuid 的位置替换为索引。所有出现两次的 `assetType` 也会存储到 `assetTypes` 数组中，使用的地方存储为索引。
+资源打包过程中也会不断的收集参与资源构建的资源 uuid，最终会整理写进对应 Bundle 的 config.json 内。生成之前将会根据是否为调试模式来决定是否对文件内的 uuid 做压缩处理，所有使用到的 uuid 会进行整理，将出现 **两次以上** 的存储进 `uuids` 数组内，之前使用 uuid 的位置替换为索引。所有出现两次的 `types` 也会存储到 `types` 数组中，使用的地方存储为索引。
 
 #### 构建资源
 
-这一步骤内所指的对资源的打包是指除了脚本以外的资源文件，因为脚本是作为特殊文件来打包处理的。在打包资源阶段，编辑器会先汇总 **当前参与构建的场景以及所有在 `resources` 目录下的资源，每个资源的打包都会经过引擎的反序列化，查找出依赖资源再递归进行资源的打包**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，**如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
+这一步骤内所指的对资源的打包是指除了脚本以外的资源文件，因为脚本是作为特殊文件来打包处理的。在打包资源阶段，编辑器会先汇总 **当前参与构建的场景以及所有 BUndle 目录下的资源，每个资源的打包都会经过引擎的反序列化，查找出依赖资源再递归进行资源的打包**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，**如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
 
 资源在打包过程中执行反序列化后会重新压缩序列化，以减小打包之后的包体。texture 资源的序列化文件会全部打包成一个 json 文件，其他序列化文件则根据构建配置参数来决定是否分包。
 
@@ -144,6 +186,10 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 构建提供了部分生命周期的钩子函数，方便开发者在构建的不同处理时期参与构建，影响构建结果。同时构建也提供了开发者直接添加一些构建选项的方法，可以修改构建配置页的 UI 界面、数据检验等等。目前这些功能都尚未对外开放，这里只简单介绍，但编辑器内部的平台构建插件已经是以这种方式开发的。构建插件注入的构建选项将会存放在 `options.packages` 内部，因而目前命令行构建的选项参数编写方式也需要遵循此规则。
 
+### 平台的编译 / 生成流程
+
+自 3.0.0 起，所有需要或支持单独编译、生成的平台构建流程都已经拆分出来，可能会有部分开发者疑惑现今的小游戏平台为何新增了生成按钮。事实上之前这部分逻辑也一直存在，只不过直接在构建流程内，无法进行单独控制。编辑器的构建事实上类似于一个**导出成对应平台游戏包**的功能，各个平台通常还会有自己的编译流程，例如微信平台自带的开发者工具编译上传功能，各个原生平台相关工具的编译运行调试功能。**编辑器的构建完成的是为开发者完成引擎对各个平台的接口、以及游戏包基本格式兼容**，但并不代表全部工作，如果开发者需要一些针对平台的定制化打包处理，就需要编辑器端先支持流程上的拆分才能更好的接入。
+
 ## 常见问题指南
 
 构建的整个进程是在一个单独的 worker 内的，所以如果想要查看构建过程的 log 信息或者查看出现报错时完整的调用栈，需要点击主菜单的 **开发者 -> 打开构建调试工具** 打开。构建时其实会输出很多的 log 信息，但是为了不干扰用户只有错误信息和重要信息会被打印到编辑器的控制台，调试工具里的信息才是最完整的。当然，也可以在 **偏好设置 -> 资源数据库 -> 日志等级** 中设置输出日志，详情可以参考 [构建相关文档](./build-panel.md)。
@@ -154,11 +200,11 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 这种情况下，请复制报资源丢失信息里的 `uuid` 去 **资源管理器** 中查找对应的资源，查看该资源依赖的资源是否都正常。资源加载 404 通常有以下几种情况：
 
-1. **在脚本内动态加载了没有放在 resources 中的资源**。
+1. **在脚本内动态加载了没有放在 bundle 中的资源**。
 
-    - **原因**：通过上面的介绍，我们知道只有在 `resources` 目录下的资源以及参与构建场景的资源才会被打包到最终的构建文件夹内，并且**只有放进 `resources` 文件夹内的资源 url 才会写入到 settings.js**。所以如果在脚本内使用了某个资源但这个资源没有放在 `resources` 目录下，之后加载就会出现 404 了。
+    - **原因**：通过上面的介绍，我们知道只有在 Bundle 目录下的资源及其依赖资源以及参与构建场景的资源及其依赖资源才会被打包到最终的构建文件夹内，并且**只有直接放进 `Bundle` 文件夹内的资源 url 才会写入到 config.json**。所以如果在脚本内使用了某个资源但这个资源没有放在任何 Bundle 目录下，之后加载就会出现 404 了。
 
-    - **解决方案**：将使用到的资源移动在 `resources` 文件夹下。
+    - **解决方案**：将使用到的资源移动在 Bundle 文件夹下。
 
 2. **加载的资源导入有问题，未能正常生成数据到 library 内**
 
@@ -178,24 +224,28 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 ### 如何查找到小图自动合图后的大图
 
-自动图集在构建过程中会打印出原始小图与合成大图的 uuid 信息，直接在构建调试工具内就可以查看到，用查找到的大图 uuid 在打包后文件夹 `res/raw-assets` 内查看即可。如果合图太多，可以打开构建 log 用搜索 uuid 的方式查找。
+自动图集在构建过程中会打印出原始小图与合成大图的 uuid 信息，直接在构建调试工具内就可以查看到，用查找到的大图 uuid 在打包后文件夹 `XXXBundle/native` 内查看即可。如果合图太多，可以打开构建 log 用搜索 uuid 的方式查找。
 
 ![build-atlas](./build-guide/build-atlas.jpg)
 
-<!-- 
 ### 如何解压缩 uuid
 
-在 release 模式下打包出来的资源 json 以及 settings 内的 uuid 都是压缩后的，需要将其解压才能找到对应原项目内的资源。 -->
+在 release 模式下打包出来的资源 json 以及 config.json 内的 `uuid` 都是压缩后的，需要将其解压才能找到对应原项目内的资源。构建进程内内置一些工具方法在全局变量 Build 上，直接点击菜单里的 `开发者 -> 构建调试工具` 后，在控制台里输入：
+
+```js
+Build.Utils.decompressUuid('425o80X19KipOK7J1f5hsN');
+// 42e68f34-5f5f-4a8a-938a-ec9d5fe61b0d
+```
 
 <!-- ### 如何查找到资源序列化 json 在构建后包体内的位置
 
-json 打包后都会存放在 `res/import` 文件夹内，如果是普通资源直接用 uuid 去文件夹内搜索即可。 -->
+json 打包后都会存放在 `assets/XXXBundle/import` 文件夹内，如果是普通资源直接用 uuid 去文件夹内搜索即可。 -->
 
 ### 引擎编译失败
 
 如果是自定义引擎编译失败，请检查你修改的代码，或者自定义引擎路径。<br>
-如果是引擎编译失败，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 提问。
+如果是引擎编译失败，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 反馈给我们。
 
 ### 其他报错
 
-如果遇到其他无法自行解决的构建报错信息，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 提问。
+如果遇到其他无法自行解决的构建报错信息，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 demo 到 [论坛](https://forum.cocos.org/c/58) 反馈给我们。
