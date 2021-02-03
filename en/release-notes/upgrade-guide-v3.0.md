@@ -21,19 +21,17 @@ Developers only need to click **File -> Import Cocos Creator 2.x project** in th
 
 ![import-menu](import-menu.png)
 
-Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the import window.
+Next, select the root directory of the Cocos Creator 2.x project in the file browse dialog that pops up.
 
 ![import-select-project](import-select-project.png)
 
 > **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the import results cannot be guaranteed to be correct.
 
-If the developer wishes to switch to another project for import, click on the icon in the image below to reselect the project.
-
-After confirming the items to be imported, developers can check the resources to be imported by themselves and then click the __Import__ button in the image below to complete the import.
+All the resources in the Cocos Creator 2.x project will be automatically presented in the **Import Cocos Creator 2.x** project pop-up panel, where the developer can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch between imported 2.x projects, click on the search icon button in the image below to reselect the project.
 
 ![import-project](import-panel.png)
 
-As the editor is currently unable to support hot updates for plugins, if developers are experiencing problems with the plugin, get the latest plugin via [this portal](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md).
+The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository where the project plugins are imported, to [update imported plugins](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or to submit feedback.
 
 ## Old version developers quickly get started
 
