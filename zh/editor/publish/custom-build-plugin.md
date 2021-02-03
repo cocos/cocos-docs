@@ -147,7 +147,9 @@ declare interface IUiOptions extends IOptionsBase {
 
 ## 自定义构建钩子函数代码配置
 
-入口配置里的 hooks 字段定义的脚本模块内可以编写构建生命周期的钩子函数，在不同的钩子函数内部，接受到的数据会有差异。钩子函数全部都运行在构建进程内，在构建进程内可以直接使用引擎方法，如需使用 `Editor` 需要添加代码 `import * as Editor from 'editor';` 手动 require，关于 Editor 的接口介绍还请参考编辑器的插件开发文档。公开的钩子函数与构建的生命周期的关系可以参考下图：
+入口配置里的 hooks 字段定义的脚本模块内可以编写构建生命周期的钩子函数，在不同的钩子函数内部，接受到的数据会有差异。钩子函数全部都运行在构建进程内，钩子函数将会按照顺序依次执行。在构建进程内可以直接使用引擎方法与 `Editor` 全局变量，关于 Editor 的接口定义可以点击菜单里的 **开发者 —> 导出 .d.ts** 获取查看。
+
+公开的钩子函数与构建的生命周期的关系可以参考下图：
 
 ![build-process](./custom-project-build-template/build-process.jpg)
 
@@ -163,13 +165,15 @@ declare interface IHook {
     onAfterBuild?: IBaseHooks;
 
     // 编译生成的钩子函数（仅在构建有“生成”流程的平台时才有效）
-    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
-    onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
+    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void | Promise<void>;
+    onAfterMake?: (root: string, options: IBuildTaskOptions) => void | Promise<void>;
 }
-type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
+type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void | Promise<void>;
 ```
 
-> **注意**：在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
+> **注意**：
+> 1. 在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
+> 2. 钩子函数允许为异步函数，构建执行改函数时默认会 await 等待其执行完毕才会执行下一个流程。
 
 简单的代码示例：
 
@@ -177,7 +181,7 @@ type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
 export function onBeforeBuild(options) {
     // Todo some thing...
 }
-export function onBeforeCompressSettings(options, result) {
+export async function onBeforeCompressSettings(options, result) {
     // Todo some thing...
 }
 ```
