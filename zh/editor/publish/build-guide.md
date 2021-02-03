@@ -125,12 +125,12 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
     platform: string;
     renderPipeline: string;// renderPipeline 信息，取自项目设置
     physics?: IPhysicsConfig;// 物理模块设置（仅在勾选了物理引擎模块时生成）
-    bundleVers: Record<string, string>; // bundle 的 md5 文件戳
+    BundleVers: Record<string, string>; // Bundle 的 md5 文件戳
     subpackages: string[]; // 分包信息
-    remoteBundles: string[]; // 记录远程包 bundle 的集合
+    remoteBundles: string[]; // 记录远程包 Bundle 的集合
     // server: string;
-    hasResourcesBundle: boolean; // 是否含有 resources 内置 bundle
-    hasStartSceneBundle: boolean; // 是否含有初始场景内置 bundle
+    hasResourcesBundle: boolean; // 是否含有 resources 内置 Bundle
+    hasStartSceneBundle: boolean; // 是否含有初始场景内置 Bundle
     customJointTextureLayouts?: ICustomJointTextureLayout[];
     macros?: Record<string, any>; // 引擎 Macro 配置值，取自项目设置
 }
@@ -140,10 +140,10 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 ```js
 {
-    importBase: string; // bundle 中 import 目录的名称，通常是 'import'
+    importBase: string; // Bundle 中 import 目录的名称，通常是 'import'
     nativeBase: string; // native 中 native 目录的名称，通常是 'native'
-    name: string; // bundle 的名称，可以通过 bundle 名称加载 bundle
-    deps: string[]; // 该 bundle 依赖的其他 bundle 名称
+    name: string; // Bundle 的名称，可以通过 Bundle 名称加载 Bundle
+    deps: string[]; // 该 Bundle 依赖的其他 Bundle 名称
     scenes: Array<{url: string, uuid: string}>; // Bundle 内包含的场景信息数组
     rawAssets: { [index: string]: { [uuid: string]: string[] } };
     // 存储 resources 下加载的资源 url 与类型
@@ -156,7 +156,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
      }; // 勾选 md5Cache 后才有，数组部分以 [uuid_1, md5_1, uuid_2, md5_2, ...] 的格式存储，其中 uuid_1 如果是个简单数字说明存储的是 uuids 数组内的 uuid 索引。
     uuids: string[]; // uuid 数组，仅 release 模式下
     types?: string[]; // 资源类型数组，仅 release 模式下
-    encrypted?: boolean; // 原生上使用，标记该 bundle 中的脚本是否加密
+    encrypted?: boolean; // 原生上使用，标记该 Bundle 中的脚本是否加密
     isZip?: boolean; // 是否是 zip 模式
     zipVersion?: string;
 }
@@ -170,7 +170,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 #### 构建资源
 
-这一步骤内所指的对资源的打包是指除了脚本以外的资源文件，因为脚本是作为特殊文件来打包处理的。在打包资源阶段，编辑器会先汇总 **当前参与构建的场景以及所有 BUndle 目录下的资源，每个资源的打包都会经过引擎的反序列化，查找出依赖资源再递归进行资源的打包**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，**如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
+这一步骤内所指的对资源的打包是指除了脚本以外的资源文件，因为脚本是作为特殊文件来打包处理的。在打包资源阶段，编辑器会先汇总 **当前参与构建的场景以及所有 Bundle 目录下的资源，每个资源的打包都会经过引擎的反序列化，查找出依赖资源再递归进行资源的打包**。在反序列化之前会先配置整个项目的脚本环境，也就是加载所有的非插件项目脚本。因为脚本的加载正确与否会直接影响到反序列化的进行，因而如果脚本编写的不合法加载失败会直接导致构建失败。如果在反序列化过程中发现有依赖的资源丢失会发出警告，但会继续进行构建。这里的警告并不意味着问题不需要解决，**如果资源丢失不解决，是难于保证构建后的内容不出问题的**。
 
 资源在打包过程中执行反序列化后会重新压缩序列化，以减小打包之后的包体。texture 资源的序列化文件会全部打包成一个 json 文件，其他序列化文件则根据构建配置参数来决定是否分包。
 
@@ -200,7 +200,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
 这种情况下，请复制报资源丢失信息里的 `uuid` 去 **资源管理器** 中查找对应的资源，查看该资源依赖的资源是否都正常。资源加载 404 通常有以下几种情况：
 
-1. **在脚本内动态加载了没有放在 bundle 中的资源**。
+1. **在脚本内动态加载了没有放在 Bundle 中的资源**。
 
     - **原因**：通过上面的介绍，我们知道只有在 Bundle 目录下的资源及其依赖资源以及参与构建场景的资源及其依赖资源才会被打包到最终的构建文件夹内，并且**只有直接放进 `Bundle` 文件夹内的资源 url 才会写入到 config.json**。所以如果在脚本内使用了某个资源但这个资源没有放在任何 Bundle 目录下，之后加载就会出现 404 了。
 
