@@ -45,19 +45,19 @@ The JavaScript language specification supported by the Creator is ES6.
 
 In addition, the following language features or proposals, updated to the ES6 specification, are still supported.
 
-- [Class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
-- [Promise objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [Optional chain operator `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Null-value merge operator `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+- [Public class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
+- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Optional chaining operator `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Nullish coalescing operator `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 - Logical assignment operators
-    - [Logical null assignment operator `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
-    - [Logical and assignment operator `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
-    - [Logical or assignment operator `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
-- [global object `globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
+    - [Logical nullish assignment operator `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
+    - [Logical AND assignment operator `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
+    - [Logical OR assignment operator `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+- [Global object `globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 
 The following language features are also supported, but require the relevant compilation options to be turned on:
 
-- [asynchronous functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 In particular, Creator currently supports **Legacy** decorator proposals, see [babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators) for their usage and meaning. Since this [proposal](https://github.com/tc39/proposal-decorators) is still in phase 2, all decorator-related functional interfaces exposed by the engine are under the `_decorator` namespace starting with an underscore.
 
@@ -67,7 +67,7 @@ Creator opens some compilation options that will be applied to the entire projec
 
 | Option | Name | Meaning |
 | :-- | :--- | :-- |
-| **useDefineForClassFields** | Conforming class fields | When turned on, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
+| **useDefineForClassFields** | Conforming class fields | When enabled, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
 | **allowDeclareFields** |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to ` undefined`. |The
 
 ### Runtime Environment
@@ -77,21 +77,21 @@ From the user's perspective, Creator does not bind any JavaScript implementation
 For example, when wishing to use **global objects**, the standard feature `globalThis` should be used:
 
 ```js
-globalThis.blahBlah // globalThis must exist in any environment
+globalThis.blahBlah // 'globalThis' must exist in any environment
 ```
 
 instead of `window`, `global`, `self` or `this`:
 
 ```js
-typeof window // may be 'undefined'
-typeof global // may be 'undefined' in the browser environment
+typeof window // May be 'undefined'
+typeof global // May be 'undefined' in the browser environment
 ```
 
 Again, Creator does not provide a module system for **CommonJS**, so the following code snippet would pose a problem:
 
 ```js
-const blah = require('./blah-blah'); // error, require is undefined
-module.exports = blah; // error module is undefined
+const blah = require('./blah-blah'); // Error, require is undefined
+module.exports = blah; // Error, module is undefined
 ```
 
 Instead, the standard module syntax should be used:
@@ -103,6 +103,6 @@ export default blah;
 
 ## Related Tutorials
 
-- [JavaScript Standard Reference Tutorial](http://javascript.ruanyifeng.com/)
-- [JavaScript Secret Garden](http://bonsaiden.github.io/JavaScript-Garden/)
+- [JavaScript Standard Reference Tutorial [cn]](https://wangdoc.com/javascript/)
+- [JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)
 - [JavaScript Memory Detailing & Analysis Guide [cn]](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)
