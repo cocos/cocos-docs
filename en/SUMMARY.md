@@ -114,6 +114,7 @@
     - [Publish to HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
     - [Publish to Google Play Instant](publish/publish-android-instant.md)
     - [Publish to Alipay Mini Games](publish/publish-alipay-mini-games.md)
+    - [Publish to ByteDance Mini Games](publish/publish-bytedance.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)
     - [Publish to Cocos Play](publish/publish-cocosplay.md)
     - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
