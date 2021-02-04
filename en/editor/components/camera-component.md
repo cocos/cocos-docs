@@ -39,30 +39,19 @@ The __Camera__ and models provided by default are all __rendered without groupin
 
 ### The Visibility property of the camera is set
 
-The engine provides an exclusive layer, ranging from 20 to 30 bits, and also provides the user with a custom layer value from 0 to 19 bits. As shown below.
+Set which tiers should be observed by this camera and which tiers should not be observed.
 
-![layer gizmo](layer-gizmo.png)
+Note: From version 3.0 of the Creator, the rendering of 2d elements (such as Sprite) also follows the Layer and Visibility judgement, so you can adjust the layer and visibility as required.
 
-| Property              | Description                             | other           |
-| :---                  | :---                                    | :---            |
-| **NONE**              | Set all invisible                       | 0               |
-| **IGNORE_RAYCAST**    | Setting to ignore ray detection         | 1 << 20         |
-| **GIZMOS**            | Set gizmo information visible           | 1 << 21         |
-| **EDITOR**            | Set editor visible                      | 1 << 22         |
-| **UI_3D**             | Set the `3D UI` node to be visible      | 1 << 23         |
-| **SCENE_GIZMO**       | Set scene gizmo visible                 | 1 << 24         |
-| **UI_2D**             | Set `2D UI` nodes visible               | 1 << 25         |
-| **PROFILER**          | Set the profiler node to be visible     | 1 << 28         |
-| **DEFAULT**           | Set the default node to be visible      | 1 << 30         |
-| **ALL**               | Set all nodes to be visible             | 0xffffffff      |
-
-The Visibility property is calculated using the ` | ` operation when the user has checked multiple layers as the basis for visibility of the camera.
+The Visibility property is calculated from the value of multiple layer ` | ` operations when the user has checked more than one layer as the basis for visibility of the camera.
 
 The image below shows the layer used by the camera.
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
 In this case the Visibility property of the camera is ` 1 << 23 | 1 << 30 = 1820327937 `.
+
+For details on the implementation of layers, see [Layer](../../concepts/scene/layer.md) documentation.
 
 ### Visibility calculations for the camera
 

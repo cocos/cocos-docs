@@ -76,7 +76,9 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 
 ## Set the layer and control its visibility
 
-From version 3.0 onwards, the engine uses the Visibility property of the camera and the layer property of the node to control its visibility, instead of using the Canvas and its nodes to control the visibility of 2D components, a more generic node and camera match is used to control visibility. The benefit is that the visibility of components can be controlled more flexibly and groupings can be diversified. Also 3D components can be mixed with 2D components for rendering.
+The engine uses more generic node and camera matching to control visibility based on the Visibility property of the camera and the layer property of the node. The visibility of components can be controlled more flexibly, allowing for a variety of groupings to be displayed. Also 3D and 2D components can be mixed for rendering.
+
+For details on the implementation of layers, please refer to the [layer](layer.md) documentation.
 
 ### Set the layer property of the node
 
@@ -92,7 +94,7 @@ Click on the `Edit` button in this screen to edit.
 
 ![layer edit](scene/layer-edit.png)
 
-The ` User Layer 0 ` ~ ` User Layer 19 ` is a layer attribute provided to the user for customisation. The user can enable this layer attribute and edit it on the node by filling in the custom layer name after the layer.
+The ` User Layer 0 ` - ` User Layer 19 ` is a layer attribute provided to the user for customisation. The user can enable this layer attribute and edit it on the node by filling in the custom layer name after the layer.
 
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
 

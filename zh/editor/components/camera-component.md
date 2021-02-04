@@ -42,30 +42,19 @@
 
 ### 相机的 Visibility 属性设置
 
-引擎提供了了独占的 layer，范围 20位 ~ 30位，同时也向用户提供了 0 ~ 19 位自定义的 layer 值。如下图：
+设置哪些层级应该被该相机观察，哪些层级不应该被观察。
 
-![layer gizmo](layer-gizmo.png)
+注意： Creator 从 3.0 版本开始，2d 元素（例如 Sprite） 的渲染也遵从 Layer 与 Visibility 的判断，你可以根据需要调整 layer 与 visibility。
 
-| 属性                  | 说明                     | 值              |
-| :---                  | :---                    | :---            |
-| **NONE**              | 设置全都不可见            | 0               |
-| **IGNORE_RAYCAST**    | 设置忽略射线检测          | 1 << 20         |
-| **GIZMOS**            | 设置配置信息可见          | 1 << 21         |
-| **EDITOR**            | 设置编辑器可见            | 1 << 22        |
-| **UI_3D**             | 设置 `3D UI` 节点可见     | 1 << 23         |
-| **SCENE_GIZMO**       | 设置场景配置节点可见       | 1 << 24         |
-| **UI_2D**             | 设置 `2D UI` 节点可见     | 1 << 25         |
-| **PROFILER**          | 设置分析工具节点可见       | 1 << 28         |
-| **DEFAULT**           | 设置默认节点可见          | 1 << 30         |
-| **ALL**               | 设置所有节点可见          | 0xffffffff      |
-
-当用户勾选了多个 layer 作为该相机可见依据时，Visibility 属性通过 ` | ` 操作计算得出。
+当用户勾选了多个 layer 作为该相机可见依据时，Visibility 属性通过多个 layer 的值 ` | ` 操作计算得出。
 
 下图为相机使用到的 layer。
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
 此时相机的 Visibility 属性值为 ` 1 << 23 | 1 << 30 = 1820327937 `。
+
+关于 layer 的实现详情，请参考 [层级](../../concepts/scene/layer.md) 文档。
 
 ### 相机的可见性计算
 
