@@ -15,7 +15,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 | 属性 |   功能说明
 | :-------------- | :----------- |
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式
-| Materials | 自定义材质，使用方法参考 [UI 自定义材质](../engine/ui-material.md)
+| CustomMaterial | 自定义材质，使用方法参考 [自定义材质](../engine/ui-material.md)
 | Src Blend Factor | 当前图像混合模式
 | Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 | Color | 图片颜色
