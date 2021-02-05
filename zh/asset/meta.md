@@ -5,13 +5,13 @@
 
 Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同名的 meta 文件，相信大家一定不会太陌生。理解 Creator 生成 meta 文件的作用和机理，能帮助您和您的团队解决在多人开发时常会遇到的资源冲突、文件丢失、组件属性丢失等问题。那 meta 文件是做什么用的呢？下面我们来了解一下。
 
-![](meta/missingscript.png)
+![missingscript](meta/missingscript.png)
 
 ## meta 文件的作用
 
 先来看下场景中的 meta 文件长什么样子：
 
-```js
+```json
 {  
   "ver": "1.0.0",  // 版本
   "uuid": "911560ae-98b2-4f4f-862f-36b7499f7ce3", // 全局唯一 id
@@ -23,7 +23,7 @@ Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同�
 
 预制件的 meta 文件与场景是一样的。我们再来看一下 png 图片的 meta 文件：
 
-```js
+```json
 {  
    "ver": "1.0.0",
    "uuid": "19110ebf-4dda-4c90-99d7-34b2aef4d048",
@@ -76,11 +76,11 @@ Creator 生成 meta 文件有以下几种情况：
 
 - 在 **资源管理器** 中可以对资源进行文件名修改、改变目录、删除文件，添加文件等操作，请参考 [资源管理器](../getting-started/basics/editor-panels/assets.md)。也可以直接从桌面或操作系统的文件管理器中将文件拖入到 **资源管理器** 中。
 
-  ![](meta/add.png)
+ ![add](meta/add.png)
 
 - 还有一种情况是在操作系统的文件管理器中对 assets 目录中的文件进行增、删、改之后切换到编辑器界面，此时可以看到 **资源管理器** 刷新的过程。
 
-  ![](meta/refresh.png)
+  ![refresh](meta/refresh.png)
 
 如果一个文件的 meta 文件不存在，上面两种情况都会触发引擎去生成 meta 文件。
 
@@ -92,11 +92,11 @@ Creator 生成 meta 文件有以下几种情况：
 
 uuid 是全局唯一的，产生冲突肯定是有不同的文件的 uuid 相同了，一旦出现这个问题会导致 Cocos Creator 资源管理器目录结构加载不完整。如下图所示，遇到这种情况估计会让你吓出一身冷汗：
 
-![](meta/conflict.png)
+![conflict](meta/conflict.png)
 
 从提示中可以看到冲突的 uuid 字符串，然后打开操作系统文件管理或代码编辑器，搜索这个 uuid：
 
-![](meta/search_uuid.png)
+![search_uuid](meta/search_uuid.png)
 
 此时先关闭 Creator 编辑器，再任意删除其中一个 meta 文件，然后再打开 Creator 编辑器就可以解决。
 
@@ -114,7 +114,7 @@ uuid 是全局唯一的，产生冲突肯定是有不同的文件的 uuid 相同
 
 还有一种情况是 uuid 变了，使得旧的 uuid 对应的资源无法找到，这样的话，你曾经编辑的界面将会出现资源、图片丢失，还可能出现组件属性丢失。
 
-![](meta/lost.png)
+![lost](meta/lost.png)
 
 如果找不到旧的 uuid 对应的资源，通过 **控制台** 可以看到 Creator 给出了所在的场景文件名、节点路径、组件、uuid 等非常详细的警告信息。通过警告信息可以快速定位出错的地方。
 
@@ -122,7 +122,7 @@ uuid 是全局唯一的，产生冲突肯定是有不同的文件的 uuid 相同
 
 这种情况下，后面进行资源提交或更新的人，肯定也会遇到冲突，如果不明就理就强行解决冲突，就会产生上面所说的问题。下面的时序图就描述了这种错误的工作流程：
 
-![](meta/resources.png)
+![resources](meta/resources.png)
 
 因为第一个 A 同学忘记生成 meta 文件并提交，之后其他人都编辑过项目，但每个人生成的 uuid 都不同，这样就会陷入无限的资源出错中，编辑好的东西，一提交更新又出现冲突了。
 

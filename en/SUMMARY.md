@@ -234,6 +234,7 @@
         - [Cache Manager](asset/cache-manager.md)
         - [Optional Parameters](asset/options.md)
         - [Pipeline and Task](asset/pipeline-task.md)
+        - [Resource Management Considerations --- meta files](asset/meta.md)
     - [Scene](asset/scene.md)
     - [Images](asset/image.md)
         - [Textures](asset/texture.md)

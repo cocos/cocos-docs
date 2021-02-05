@@ -19,7 +19,6 @@ Windows 版的安装程序是一个 `.exe` 可执行文件，通常命名会是 
 >
 >     应用的安装路径默认选择 C:\CocosDashboard，可以在安装过程中进行更改。
 >
->     Cocos Dashboard 将会占据系统盘中大约 1.25 GB 的空间，请在安装前整理您的系统盘空间。
 > 2. 如果出现 “不能安装需要的文件，因为 CAB 文件没有正确的数字签名。可能表明 CAB 文件损坏” 的弹窗警告，请尝试使用管理员权限进行安装。
 >
 > 3. 对于部分很老并且长期处于内网或者很久没有升级操作系统补丁的 Windows 系统，运行时可能会出现一些 dll 缺失引起的相关报错，可尝试安装该系统补丁解决：<https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows>
@@ -44,7 +43,7 @@ Windows 所支持的最低版本是 Windows 7 64位。
 
 ## 运行 Cocos Dashboard
 
-在 Windows 系统，双击解压后文件夹中的 **CocosDashboard.exe** 文件即可启动 Cocos Dashboard。
+在 Windows 系统，双击解压后 `CocosDashboard` 文件夹中的 **CocosDashboard.exe** 文件即可启动 Cocos Dashboard。
 
 在 Mac 系统，双击拖动出来的 **CocosDashboard.app** 应用图标即可启动 Cocos Dashboard。
 
