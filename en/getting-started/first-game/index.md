@@ -233,7 +233,7 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
 
     > **Note**: remember to save the animation before exiting the animation editing mode, otherwise the animation will be lost.
 
-3. __Animation Clips__ can also be created using the __Asset__ panel. Next, Create a __Clip__ named `twoStep` and add it to the __AnimationComponent__ on `Body`.
+3. __Animation Clips__ can also be created using the __Asset__ panel. Next, Create a __Clip__ named `twoStep` and add it to the __Animation__ component on `Body`.
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
@@ -243,13 +243,13 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
 
     ![edit second clip](./images/edit-second-clip.png)
 
-5. Reference the __AnimationComponent__ in the` PlayerController` Component, as different animations need to be played according to the number of steps `Player` jumped.
+5. Reference the __Animation__ component in the` PlayerController` Component, as different animations need to be played according to the number of steps `Player` jumped.
 
-    First, reference the __AnimationComponent__ on the `Body` in the `PlayerController` component.
+    First, reference the __Animation__ component on the `Body` in the `PlayerController` component.
    
     ```ts
     @property({type: Animation})
-    public BodyAnim: Animation = null;
+    public BodyAnim: Animation|null = null;
     ```
    
     Then in the **Inspector** panel, drag the `Animation` to the `Body` variable.
@@ -259,10 +259,12 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
     Add the animation playback code to the jump function `jumpByStep`:
 
     ```ts
-    if (step === 1) {
-        this.BodyAnim.play('oneStep');
-    } else if (step === 2) {
-        this.BodyAnim.play('twoStep');
+    if (this.BodyAnim) {
+        if (step === 1) {
+            this.BodyAnim.play('oneStep');
+        } else if (step === 2) {
+            this.BodyAnim.play('twoStep');
+        }
     }
     ```
 
@@ -284,7 +286,7 @@ For a node that needs to be generated repeatedly, it can be saved as a **Prefab 
 
 > **Note**: before proceeding, please read the [Prefab Resources](../../asset/prefab.md) documentation.
 
-It is necesssary to make the basic element `cube` of the road into a __Prefab__, after which all three cubes in the __Scene__ can be deleted.
+It is necessary to make the basic element `cube` of the road into a __Prefab__, after which all three cubes in the __Scene__ can be deleted.
 
 ![create cube prefab](./images/create-cube-prefab.gif)
 
@@ -305,7 +307,7 @@ enum BlockType{
 export class GameManager extends Component {
 
     @property({type: Prefab})
-    public cubePrfb: Prefab = null;
+    public cubePrfb: Prefab|null = null;
     @property({type: CCInteger})
     public roadLength: Number = 50;
     private _road: number[] = [];
@@ -340,7 +342,11 @@ export class GameManager extends Component {
     }
 
     spawnBlockByType(type: BlockType) {
-        let block = null;
+        if (!this.cubePrfb) {
+            return null;
+        }
+
+        let block: Node|null = null;
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);
@@ -469,10 +475,15 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
     }
 
     init() {
-        this.startMenu.active = true;
+        if (this.startMenu) {
+            this.startMenu.active = true;
+        }
+
         this.generateRoad();
-        this.playerCtrl.setInputActive(false);
-        this.playerCtrl.node.setPosition(Vec3.ZERO);
+        if (this.playerCtrl) {
+            this.playerCtrl.setInputActive(false);
+            this.playerCtrl.node.setPosition(Vec3.ZERO);
+        }
     }
 
     set curState (value: GameState) {
@@ -481,11 +492,15 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
                 this.init();
                 break;
             case GameState.GS_PLAYING:
-                this.startMenu.active = false;
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
                 // Directly setting active will directly start monitoring
                 // mouse events, and do a little delay processing
                 setTimeout(() => {
-                    this.playerCtrl.setInputActive(true);
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
                 }, 0.1);
                 break;
             case GameState.GS_END:
@@ -503,7 +518,7 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
     }
     ```
 
-    Next, add the response function of __Click Events__ in the __Inspector__ panbel for the `Play` button.
+    Next, add the response function of __Click Events__ in the __Inspector__ panel for the `Play` button.
 
     ![play button inspector](./images/play-button-inspector.png)
 
@@ -556,7 +571,7 @@ The game character is just running forward, with no purpose. Adding game rules t
     ```ts
     start () {
         this.curState = GameState.GS_INIT;
-        this.playerCtrl.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
     // ...
@@ -594,7 +609,7 @@ We can display the current number of steps jumped in the interface. Perhaps watc
 
     ```ts
     @property({type: Label})
-    public stepsLabel: Label = null;
+    public stepsLabel: Label|null = null;
     ```
 
     ![steps label to game manager](./images/add-steps-to-game-manager.png)
@@ -608,12 +623,18 @@ We can display the current number of steps jumped in the interface. Perhaps watc
                 this.init();
                 break;
             case GameState.GS_PLAYING:
-                this.startMenu.active = false;
-                //  reset the number of steps to 0
-                this.stepsLabel.string = '0';
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
+                if (this.stepsLabel) {
+                    //  reset the number of steps to 0
+                    this.stepsLabel.string = '0';
+                }
                 // set active directly to start listening for mouse events directly
                 setTimeout(() => {
-                    this.playerCtrl.setInputActive(true);
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
                 }, 0.1);
                 break;
             case GameState.GS_END:
@@ -715,14 +736,19 @@ jumpByStep(step: number) {
 
     this._isMoving = true;
 
-    // The jumping animation takes a long time, here is accelerated playback
-    this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
-    // Play jumping animation
-    this.CocosAnim.play('cocos_anim_jump');
-    if (step === 1) {
-        //this.BodyAnim.play('oneStep');
-    } else if (step === 2) {
-        this.BodyAnim.play('twoStep');
+    if (this.CocosAnim) {
+        // The jumping animation takes a long time, here is accelerated playback
+        this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
+        // Play jumping animation
+        this.CocosAnim.play('cocos_anim_jump');
+    }
+
+    if (this.BodyAnim) {
+        if (step === 1) {
+            //this.BodyAnim.play('oneStep');
+        } else if (step === 2) {
+            this.BodyAnim.play('twoStep');
+        }
     }
 
     this._curMoveIndex += step;
@@ -734,7 +760,9 @@ In the `onOnceJumpEnd` function, change to the standby state and play the standb
 ```ts
 onOnceJumpEnd() {
     this._isMoving = false;
-    this.CocosAnim.play('cocos_anim_idle');
+    if (this.CocosAnim) {
+        this.CocosAnim.play('cocos_anim_idle');
+    }
     this.node.emit('JumpEnd', this._curMoveIndex);
 }
 ```
@@ -808,14 +836,19 @@ export class PlayerController extends Component {
 
         this._isMoving = true;
 
-        // The jumping animation takes a long time, here is accelerated playback
-        this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
-        // Play jumping animation
-        this.CocosAnim.play('cocos_anim_jump');
-        if (step === 1) {
-            //this.BodyAnim.play('oneStep');
-        } else if (step === 2) {
-            this.BodyAnim.play('twoStep');
+        if (this.CocosAnim) {
+            // The jumping animation takes a long time, here is accelerated playback
+            this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
+            // Play jumping animation
+            this.CocosAnim.play('cocos_anim_jump');
+        }
+        
+        if (this.BodyAnim) {
+            if (step === 1) {
+                //this.BodyAnim.play('oneStep');
+            } else if (step === 2) {
+                this.BodyAnim.play('twoStep');
+            }
         }
 
         this._curMoveIndex += step;
@@ -850,7 +883,7 @@ export class PlayerController extends Component {
 The final code for `GameManager.ts` should look like this:
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger } from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
@@ -869,29 +902,35 @@ enum GameState{
 export class GameManager extends Component {
 
     @property({type: Prefab})
-    public cubePrfb: Prefab = null;
+    public cubePrfb: Prefab|null = null;
     @property({type: CCInteger})
     public roadLength: Number = 50;
     private _road: number[] = [];
     @property({type: Node})
-    public startMenu: Node = null;
+    public startMenu: Node|null = null;
     @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
+    public playerCtrl: PlayerController|null = null;
     private _curState: GameState = GameState.GS_INIT;
     @property({type: Label})
-    public stepsLabel: Label = null;
+    public stepsLabel: Label|null = null;
 
     start () {
         this.curState = GameState.GS_INIT;
-        this.playerCtrl.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
     init() {
-        this.startMenu.active = true;
+        if (this.startMenu) {
+            this.startMenu.active = true;
+        }
+
         this.generateRoad();
-        this.playerCtrl.setInputActive(false);
-        this.playerCtrl.node.setPosition(Vec3.ZERO);
-        this.playerCtrl.reset();
+
+        if (this.playerCtrl) {
+            this.playerCtrl.setInputActive(false);
+            this.playerCtrl.node.setPosition(Vec3.ZERO);
+            this.playerCtrl.reset();
+        }
     }
 
     set curState (value: GameState) {
@@ -900,12 +939,19 @@ export class GameManager extends Component {
                 this.init();
                 break;
             case GameState.GS_PLAYING:
-                this.startMenu.active = false;
-                //  reset the number of steps to 0
-                this.stepsLabel.string = '0';
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
+
+                if (this.stepsLabel) {
+                    //  reset the number of steps to 0
+                    this.stepsLabel.string = '0';
+                }
                 // set active directly to start listening for mouse events directly
                 setTimeout(() => {
-                    this.playerCtrl.setInputActive(true);
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
                 }, 0.1);
                 break;
             case GameState.GS_END:
@@ -940,7 +986,11 @@ export class GameManager extends Component {
     }
 
     spawnBlockByType(type: BlockType) {
-        let block = null;
+        if (!this.cubePrfb) {
+            return null;
+        }
+
+        let block: Node|null = null;
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);
@@ -967,7 +1017,9 @@ export class GameManager extends Component {
     }
 
     onPlayerJumpEnd(moveIndex: number) {
-        this.stepsLabel.string = '' + moveIndex;
+        if (this.stepsLabel) {
+            this.stepsLabel.string = '' + moveIndex;
+        }
         this.checkResult(moveIndex);
     }
 
