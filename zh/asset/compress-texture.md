@@ -29,7 +29,7 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 
 ![compress-texture](compress-texture/compress-texture.png)
 
-编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置](../editor/project/index.md)。
+编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置 - 压缩纹理](../editor/project/index.md)。
 
 ![meta](compress-texture/meta.png)
 
