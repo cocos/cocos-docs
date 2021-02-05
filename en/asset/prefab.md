@@ -5,7 +5,7 @@ Prefab is used to store some scene objects that can be reused, it can contain no
 ## Basic Concepts
 
 Name|Description|Example
----|---|---
+:---|:---|:---
 Prefab Asset|The asset of prefab in **Assets** panel, which is the serialize file of Prefab.|![](prefab/prefab-asset.png)
 Prefab Instance|When the __Prefab Asset__ is drag to the `Hierarchy` panel, it will generate a __Prefab Instance__.Its root node is currently marked in bright green, and its child nodes are dark green|![](prefab/prefab-instance.png)
 Prefab Editing Mode|Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green|![](prefab/prefab-edit-mode.png)
