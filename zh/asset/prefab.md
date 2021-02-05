@@ -48,7 +48,7 @@
 
 图标|描述
 :---|:---
-![](prefab/unlink-prefab-button.png)|还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。在顶部菜单 `节点` 中也有此功能的菜单项。
+![](prefab/unlink-prefab-button.png)|还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。还可以通过点击编辑器主菜单中的 **节点 -> 取消关联当前的 prefab 资源** 来实现。
 ![](prefab/locate-prefab-button.png)|定位资源。便于快速在 `资源管理器` 中定位到预制件资源。
 ![](prefab/revert-prefab-button.png)|从资源还原。将当前预制件实例的数据还原为预制件资源中的数据，这里名字，位置，旋转不会还原为预制体资源中的数据。
 ![](prefab/apply-prefab-button.png)|更新到资源。将当前预制件实例的所有数据更新到所关联的预制件资源中。
