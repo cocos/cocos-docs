@@ -59,6 +59,7 @@ A new node added under the __Prefab Instance__ will have a `+` sign in the lower
 
 
 ## Some Current Restrictions
+
 - Add/remove components in the __Prefab Instance__
 - Delete the node created from the __Prefab Asset__ in the __Prefab Instance__
 - Change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__
