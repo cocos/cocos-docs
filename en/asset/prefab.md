@@ -53,7 +53,8 @@ Icon|Description
 ![](prefab/apply-prefab-button.png)|Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__.
 
 ### Add New Node
-A new node added under the __Prefab Instance__ will have a `+` sign in the lower right corner of the node name. Its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
+
+A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name., and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
 
 ![](prefab/prefab-mounted-children.png)
 
