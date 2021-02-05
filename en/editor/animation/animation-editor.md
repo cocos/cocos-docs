@@ -64,6 +64,8 @@ The __index node__ in the __animation data__ is based on the relative path of th
 
 The nodes here and the nodes of the __Hierarchy__ panel are mapped one by one. Using this relationship, when the number of nodes in the node list is too large to be consulted, use the search function of the __Hierarchy__ panel to locate the nodes. Click on the node in the __Hierarchy__ panel, and it will also jump to the corresponding node position in the __Animation Editor__ to achieve a reasonable display effect.
 
+Of course, __Animation Editor__ also supports node search and filtering.
+
 #### Selected node icon
 
 ![Selected node icon](animation-editor/select_node.gif)
@@ -138,7 +140,7 @@ Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortc
 
 ![shortcuts-manager](./animation-editor/shortcuts-manager.png)
 
-### Shortcut key summary
+### Default Shortcut key summary
 
 Function | Shortcut key | Description
 --- | ---- | ----

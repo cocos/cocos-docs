@@ -173,7 +173,7 @@ type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void | 
 
 > **注意**：
 > 1. 在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数内的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口配置代码的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展插件包中的 `@types/packages/builder` 文件夹。
-> 2. 钩子函数允许为异步函数，构建执行改函数时默认会 await 等待其执行完毕才会执行下一个流程。
+> 2. 钩子函数允许为异步函数，构建执行钩子函数时默认会 await 等待其执行完毕才会执行下一个流程。
 
 简单的代码示例：
 

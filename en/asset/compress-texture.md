@@ -1,12 +1,21 @@
 # Compress texture
 
-**Cocos Creator 3.0** can set the compression method required for textures directly in the editor, and then automatically compress the textures when the project is released. For the web platform, multiple image formats can be exported at the same time, and the engine will automatically download the appropriate format according to different browsers.
+**Cocos Creator** can set the compression method required for textures directly in the editor, and then automatically compress the textures when the project is released. Multiple image formats can be exported at the same time, and the engine will automatically download the appropriate format according to different devices.
 
 ## Configure compressed texture
 
-**Cocos Creator 3.0** supports importing images in multiple formats (see the table below for details), but in an actual running game, we do not recommend using the original images as assets to load. For example, on a mobile platform, only 80% or less of the original image quality may be required, or a `.png` without the transparent channel can be converted into a `.jpg`, which can reduce the storage space required.
+**Cocos Creator** supports importing images in multiple formats (see the table below for details), but in an actual running game, we do not recommend using the original images as assets to load. For example, on a mobile platform, only 80% or less of the original image quality may be required, or a `.png` without the transparent channel can be converted into a `.jpg`, which can reduce the storage space required.
 
-| Image format | Android | iOS | Mini Game | Web  | Mac & Windows |
+| Image format | Android | iOS | Mini Game | Web  |
+| ------- | -------- | ------ | ----- | ------ |
+| PNG | Supported | Supported   | Supported | Supported |
+| JPG | Supported | Supported | Supported | Supported |
+| WEBP | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/webp-android-backport) | can use [this library](https://github.com/carsonmcdonald/WebP-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=webp) |
+| PVR | Not Supported | Supported | Supported iOS  | Supported iOS |
+| ETC1 | Supported | Not Supported | Supported Android  | Supported Android |
+| ETC2 | Partially Supported | Not Supported | Not Supported | Supported Android |
+| ASTC | Partially Supported  | Partially Supported | Not Supported | Partially Supported |
+<!-- | Image format | Android | iOS | Mini Game | Web  | Mac & Windows |
 | ------- | -------- | ------ | ----- | ------ | ------ |
 | PNG | Supported | Supported   | Supported | Supported | Supported |
 | JPG | Supported | Supported | Supported | Supported | Supported |
@@ -14,9 +23,9 @@
 | PVR | Not Supported | Supported | Supported iOS  | Supported iOS  | Mac Supported |
 | ETC1 | Supported | Not Supported | Supported Android  | Supported Android  | Not Supported |
 | ETC2 | Partially Supported | Not Supported | Not Supported | Supported Android  | Not Supported |
-| ASTC | Partially Supported  | Partially Supported | Not Supported | Partially Supported  | Mac Supported |
+| ASTC | Partially Supported  | Partially Supported | Not Supported | Partially Supported  | Mac Supported | -->
 
-By default, **Cocos Creator 3.0** outputs the original image during build. If you need to compress an image during the build process, you can select this image in the **Assets** panel and then manage it in the **Inspector** to edit the compress texture format of the image.
+By default, **Cocos Creator** outputs the original image during build. If you need to compress an image during the build process, you can select this image in the **Assets** panel and then manage it in the **Inspector** to edit the compress texture format of the image.
 
 ![compress-texture](compress-texture/compress-texture.png)
 
@@ -44,13 +53,13 @@ The user can customize the supported image assets for a platform and the priorit
 
 ## Example
 
-![1](compress-texture/compress-1.jpg)
+![1](compress-texture/compress-1.png)
 
-**Example (1)**: As the compress presets of the MiniGame platform shown in the figure, if the build target is **Huawei Quick Game**, **Builder** will not package the **PVR** texture format. For more details about the support of platforms, please refer to [Details of compressed texture support for platforms](##Details of compressed texture support for platforms)
+**Example (1)**: As the compress presets of the MiniGame platform shown in the figure, if the build target is **Huawei Quick Game** That only runs on Android devices, **Builder** will not package the **PVR** texture format. For more details about the support of platforms, please refer to [Details of compressed texture support for platforms](##Details of compressed texture support for platforms)
 
-![2](compress-texture/compress-2.jpg)
+![2](compress-texture/compress-2.png)
 
-**Example (2)**: In the example picture above, both **ETC1** and **PVR** types are configured with RGB and RGBA two types of texture formats. In this case, **Builder** will be according to whether the current picture has a transparent channel to choose one of the same types of formats. The image asset in the example is with a transparent channel, then **Builder** will only pack a compressed texture format with REGA type. Of course, if there is only RGB picture format in the configuration, even if the current picture is with a transparent channel, it will be packaged normally.
+**Example (2)**: In the example picture above, both **ETC1** and **PVR** types are configured with RGB and RGBA two types of texture formats. In this case, **Builder** will be **according to whether the current picture has a transparent channel to choose one of the same types of formats**. The image asset in the example is with a transparent channel, then **Builder** will only pack a compressed texture format with REGA type. Of course, if there is only RGB picture format in the configuration, even if the current picture is with a transparent channel, it will be packaged normally.
 
 ## Details of compressed texture support for platforms
 
