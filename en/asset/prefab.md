@@ -27,7 +27,8 @@ In the __Scene__, the __Prefab Instance__ objects data source comes from the des
 
 ## Entering prefab editing mode
 
-__Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. You can edit the __Prefab Assets__ in the __Editor__. After editing, click __Save Prefab__ in the __Scene editor__ to save the edited __Prefab Assets__. __Next__, click __Close__ to return to the __Scene__ editing mode.
+__Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. You can edit the __Prefab Assets__ in the __Editor__. After editing, click __Save__ button in the __Scene__ panel to save the edited __Prefab Assets__. Next, click __Close__ button to return to the Scene editing mode.
+
 
 ![](prefab/prefab-edit-mode.gif)
 
