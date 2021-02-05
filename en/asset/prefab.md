@@ -40,7 +40,8 @@ __Prefab Nodes__ in the __Inspector__ panel render __green__ to indicate normal 
 ## Editing Prefab Nodes in a Scene
 
 ### General Operations
-In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are several buttons that can be clicked at the top of the __Inspector__ panel. If you move the mouse over, there will be a text prompt for these functions. The following image describes the functions of the buttons in the red frame area:
+
+In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are several buttons that can be clicked at the top of the __Inspector__ panel:
 
 ![](prefab/edit-prefab.png)
 
