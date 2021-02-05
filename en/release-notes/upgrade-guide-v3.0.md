@@ -25,7 +25,7 @@ Next, select the root directory of the Cocos Creator 2.x project in the file bro
 
 ![import-select-project](import-select-project.png)
 
-> **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the import results cannot be guaranteed to be correct.
+> **Note**: it is recommended to upgrade to Cocos Creator 2.4.3 or above before importing to Cocos Creator 3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
 
 All the resources in the Cocos Creator 2.x project will be automatically presented in the **Import Cocos Creator 2.x** project pop-up panel, where the developer can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch between imported 2.x projects, click on the search icon button in the image below to reselect the project.
 
