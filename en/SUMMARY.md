@@ -53,6 +53,7 @@
         - [Setup Native Development](editor/publish/setup-native-development.md)
         - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
+        - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Games](editor/publish/publish-alipay-mini-game.md)
         - [Publish to ByteDance Mini Games](editor/publish/publish-bytedance-mini-game.md)
         - [Publish to QTT Mini Games](editor/publish/publish-qtt.md)

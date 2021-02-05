@@ -1,5 +1,6 @@
 # 发布到小游戏平台
 
+- [发布到 HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [发布到支付宝小游戏](publish-alipay-mini-game.md)
 - [发布到字节跳动小游戏](publish-bytedance-mini-game.md)
 - [发布到趣头条小游戏](publish-qtt.md)
