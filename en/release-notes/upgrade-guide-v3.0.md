@@ -31,7 +31,7 @@ All the resources in the Cocos Creator 2.x project will be automatically present
 
 ![import-project](import-panel.png)
 
-The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository where the project plugins are imported, to [update imported plugins](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or to submit feedback.
+The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository for the Import Plugin, which can be used to [update the Import Plugin](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or submit feedback.
 
 ## Old version developers quickly get started
 
