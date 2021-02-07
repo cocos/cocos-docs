@@ -6,7 +6,7 @@ Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Widget** 即可添加 Widget 组件到节点上。
 
-对齐挂件的脚本接口请参考 [Widget API](../../../api/zh/classes/ui.widget.html)。
+对齐挂件的脚本接口请参考 [Widget API](__APIDOC__/zh/classes/ui.widget.html)。
 
 关于使用可以参考 test-cases-3d 里的 [Widget](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/04.widget) 相关。
 

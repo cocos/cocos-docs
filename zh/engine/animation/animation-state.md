@@ -2,7 +2,7 @@
 
 动画剪辑仅描述某一类对象的动画数据，但并未绑定具体要进行动画的对象。在对象上播放动画时，对象与动画剪辑绑定，动画播放的状态称为动画状态。动画状态就像播放机一样，允许对动画进行暂停、调速等。
 
-动画状态由 [类 `AnimationState`](../../../../api/zh/classes/animation.animationstate-1.html) 管理。
+动画状态由 [类 `AnimationState`](__APIDOC__/zh/classes/animation.animationstate-1.html) 管理。
 
 ## 播放时间
 
@@ -16,7 +16,7 @@
 
 ## 循环模式与循环次数
 
-动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](../../../../api/zh/enums/animation.wrapmode.html) 表示：
+动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/enums/animation.wrapmode.html) 表示：
 
 | 循环模式 | 说明 |
 | :--- | :--- |

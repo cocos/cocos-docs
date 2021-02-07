@@ -68,4 +68,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API interface document: [SpriteFrame](../../../api/en/classes/asset.spriteframe.html).
+API interface document: [SpriteFrame](__APIDOC__/en/classes/asset.spriteframe.html).

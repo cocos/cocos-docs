@@ -8,7 +8,7 @@ __Cocos Creator__ is a component structure, and __Animation__ is no exception. I
 
 ![add-component](./animation/add-component.png)
 
-To use `Animation`, please refer to the [Animation API](../../../api/en/classes/animation.animation-1.html).
+To use `Animation`, please refer to the [Animation API](__APIDOC__/en/classes/animation.animation-1.html).
 
 ## Clip Animation clip
 
