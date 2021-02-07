@@ -10,7 +10,7 @@ Apart from the information provided in this guide, you can also obtain informati
 
 ## Demo and example projects
 
-**Notice:** all demo projects on Github have different branches matching Cocos Creator version. Please use corresponding branch to prevent unmatching engine API. 
+**Notice:** all demo projects on GitHub have different branches matching Cocos Creator version. Please use corresponding branch to prevent unmatching engine API.
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](quick-start.md) to build it step by step!

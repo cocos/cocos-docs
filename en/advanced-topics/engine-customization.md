@@ -2,8 +2,8 @@
 
 The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and Cocos2d-x (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
-- JavaScript engine: <https://github.com/cocos-creator/engine>
-- Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
+- [Creator-JS engine](https://github.com/cocos-creator/engine)
+- [Cocos2d-x engine](https://github.com/cocos-creator/engine-native)
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
@@ -13,7 +13,7 @@ If your concern is only Web based games, or what you want to change in the engin
 
 ### 1.1 Get JavaScript Engine Repository
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths. 
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin engine of Cocos Creator. Click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **engine** directory to another local paths.
 
 ![](engine-customization/open-engine.png)
 
@@ -55,21 +55,21 @@ Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set 
 
 ## 2 Customized Cocos2d-x Engine
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator.
+If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x engine of Cocos Creator.
 
 ### 2.1 Get the Cocos2d-x Engine
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
+If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
 
 ### 2.2 Initialize
 
-Once cloned, enter the Cocos2d-x-lite engine folder and run:
+Once cloned, enter the Cocos2d-x engine folder and run:
 
 ```bash
 # Enter the Cocos2d-x engine path from the command line
-cd /Users/yufang/cocos2d-x-lite
+cd /Users/yufang/cocos2d-x
 # Install NPM dependencies
 npm install
 # Initialize repo
@@ -98,32 +98,32 @@ gulp init
 
 ### 2.3 Configure Custom Engine in Cocos Creator
 
-Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set the path to your customized cocos2d-x-lite engine.
+Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path to your customized cocos2d-x engine.
 
 ![](engine-customization/setting-2dx.png)
 
 ### 2.4 Build from Source
 
-Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
+Next, you can start working on updating code for Cocos2d-x. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
 
 ### 2.5 Build binary library and simulator
 
 - If you want to use a `binary` template to build and compile native project (it's much faster since Cocos2d-x code are already compiled), you'll need to run these commands:
 
-```bash
-# use cocos console to generate prebuilt binary libs
-gulp gen-libs
-```
+    ```bash
+    # use cocos console to generate prebuilt binary libs
+    gulp gen-libs
+    ```
 
 - To generate simulator to preview your changes:
 
-```bash
-# use cocos console to generate simulator
-gulp gen-simulator
-gulp update-simulator-config
-```
+    ```bash
+    # use cocos console to generate simulator
+    gulp gen-simulator
+    gulp update-simulator-config
+    ```
 
-**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
+**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention) for details.
 
 ![](engine-customization/sign.png)
 
@@ -137,5 +137,5 @@ Creator >= 1.7, please refer to:
 
 Creator <= 1.6, please refer to:
 
-- [Script binding in Cocos](https://zhuanlan.zhihu.com/p/20525026)
-- [Automatic binding in Cocos](https://zhuanlan.zhihu.com/p/20525109)
+- [Script binding in Cocos [cn]](https://zhuanlan.zhihu.com/p/20525026)
+- [Automatic binding in Cocos [cn]](https://zhuanlan.zhihu.com/p/20525109)

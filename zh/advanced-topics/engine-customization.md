@@ -3,9 +3,9 @@
 Cocos Creator 的引擎部分包括 JavaScript 和 Cocos2d-x 两个部分。全部都在 github 上开源。地址在：
 
 - JavaScript 引擎：<https://github.com/cocos-creator/engine>
-- Cocos2d-x 引擎：<https://github.com/cocos-creator/cocos2d-x-lite>
+- Cocos2d-x 引擎：<https://github.com/cocos-creator/engine-native>
 
-我们建议您通过 github 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [github help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 github 相关工作流程请参考 [github help](https://help.github.com)。
+我们建议您通过 GitHub 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 GitHub 相关工作流程请参考 [GitHub help](https://help.github.com)。
 
 ## 1、定制 JavaScript 引擎
 
@@ -17,7 +17,7 @@ Cocos Creator 的引擎部分包括 JavaScript 和 Cocos2d-x 两个部分。全�
 
 ![](engine-customization/open-engine.png)
 
-如果您想获得官方正在开发中的最新版本，首先您需要从 github 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。根据不同的 Creator 版本，还需要切换不同的分支，例如 Creator 1.6.2 对应的是引擎的 v1.6 分支，下载后存放到任意本地路径。
+如果您想获得官方正在开发中的最新版本，首先您需要从 GitHub 上 fork 或者克隆 JavaScript 引擎的原始版本（地址见上文）。根据不同的 Creator 版本，还需要切换不同的分支，例如 Creator 1.6.2 对应的是引擎的 v1.6 分支，下载后存放到任意本地路径。
 
 ![](engine-customization/download-repo-js.png)
 
@@ -46,7 +46,7 @@ gulp build
 
 ### 1.4、在 Cocos Creator 中使用定制版引擎
 
-通过 `项目 -> 项目设置` 面板的 **自定义引擎** 选项卡，设置本地定制后的 JavaScript 引擎路径。
+通过 **项目 -> 项目设置** 面板的 **自定义引擎** 选项卡，设置本地定制后的 JavaScript 引擎路径。
 
 ![](engine-customization/setting-js.png)
 
@@ -58,7 +58,7 @@ gulp build
 
 如果您仅需要基于当前的版本做一些调整，那么在 Cocos Creator 内置的 Cocos2d-x 引擎基础上修改就可以了。操作步骤和获取 JS 引擎一致：点击 Creator 编辑器右上方的 **打开程序安装路径**，然后将内置的 **cocos2d-x** 目录拷贝到本地其他路径。
 
-如果您想取得官方正在开发中的最新版本，需要从上文中指定的 github 仓库下载。和 JS 引擎类似，Cocos2d-x 引擎在使用前也请确认当前所在分支，例如 Cocos Creator v1.6.2 版本请使用 `v1.6` 分支。
+如果您想取得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载。和 JS 引擎类似，Cocos2d-x 引擎在使用前也请确认当前所在分支，例如 Cocos Creator v1.6.2 版本请使用 `v1.6` 分支。
 
 ### 2.2、初始化
 
@@ -66,7 +66,7 @@ gulp build
 
 ```bash
 # 在命令行进入 Cocos2d-x 引擎路径
-cd /Users/yufang/cocos2d-x-lite  
+cd /Users/yufang/cocos2d-x 
 # 安装编译依赖
 npm install
 # 安装 gulp 构建工具
@@ -122,7 +122,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention)。
+**注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
 
 ![](engine-customization/sign.png)
 
