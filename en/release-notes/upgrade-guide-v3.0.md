@@ -9,13 +9,11 @@ In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ pr
  - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
  - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
-The __Cocos Creator 3.0 Preview__ version is close to the official version in terms of functionality, and can be used for new project establishment and feature pre-research. The next official version will be released around Feb 11 - Feb 17, 2021, and will further improve the performance and fix the problems at that time to ensure that everyone's new projects can proceed smoothly.
+__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
-__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
+## How to migrate
 
-## How to migrate (not supported in Preview version)
-
-Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource import tool when v3.0 is officially released. This tool will support importing old projects, project resources, and project code very well. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
+Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource import tool in __Cocos Creator 3.0__. This tool supports importing old projects, project resources, and project code very well. Code-assisted import will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
 
 Developers only need to click **File -> Import -> Cocos Creator 2D Project** in the main menu, and a window for importing the plug-in will appear.
 
