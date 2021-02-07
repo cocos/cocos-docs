@@ -69,7 +69,7 @@ function changeAPIUrl () {
     var bookJson = JSON.parse(Fs.readFileSync('./zh/book.json', 'utf-8'));
     var version = bookJson.variables.version[0].name;
     var APIDocPrefix = `https://docs.cocos.com/creator/${version}/api`;
-    var allPagesPattern = ['_book/zh/*/**/*.html', '_book/en/*/**/*.md'];
+    var allPagesPattern = ['zh/*/**/*.md', 'en/*/**/*.md'];
     var allPages = Globby.sync(allPagesPattern, { absolute: true });
     allPages.forEach(element => {
         var content = Fs.readFileSync(element, 'utf8');
