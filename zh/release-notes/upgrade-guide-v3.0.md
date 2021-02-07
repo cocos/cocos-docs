@@ -19,19 +19,25 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 关于 Cocos Creator 3.0 的详细介绍，请移步 [官网更新说明](https://cocos.com/creator)。
 
-## 如何迁移
+## 如何迁移 Cocos Creator 2.x 项目
 
-虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍在 Cocos Creator 3.0 推出了 v2.x 资源导入工具。此工具支持旧项目资源完美导入，以及代码的辅助导入。代码辅助导入会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式导入，减轻开发者的升级难度。
+虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍在 Cocos Creator 3.0 推出了 v2.x 资源导入工具。此工具支持旧项目资源完美导入，以及代码的辅助迁移。代码辅助迁移会把 JavaScript 转换成 TypeScript，并自动添加组件类型声明、属性声明及函数声明，组件在场景中的引用都会得到保留，并且函数内部的代码会以注释的形式迁移，减轻开发者的升级难度。
 
-开发者只需要点击主菜单中的 **文件 -> 导入 -> Cocos Creator 2D 项目**，即可出现导入插件的窗口。
+开发者只需要点击主菜单中的 **文件 -> 导入 Cocos Creator 2.x 项目**。
 
-![image](import-menu.png)
+![import-menu](import-menu.png)
 
-然后点击下方左图中的按钮并选择 Cocos Creator 2D 项目的根目录，插件会自动遍历项目中所有的资源并呈现在窗口。开发者可以自行勾选需要导入的资源，然后点击下方右图中的 **导入** 按钮即可完成导入。
+然后在弹出的文件浏览对话框中选择 Cocos Creator 2.x 项目的根目录。
 
-![image](import.png)
+![import-menu](import-select-project.png)
 
-如果现有项目因为特殊原因需要升级，并且遇到了技术上或者工作量上的困难，也可以联系 `zhengxiong.zhao@cocos.com` 获取我们的人工协助！
+> **注意**：旧项目推荐先升级到 Cocos Creator 2.4.3 或以上版本，然后再导入到 Cocos Creator 3.0，否则无法确保导入结果的正确性。
+
+Cocos Creator 2.x 项目中所有的资源便会自动呈现在弹出的 **导入 Cocos Creator 2.x 项目** 面板中，开发者可以再次确认要导入的资源，然后点击面板右下角的 **导入** 按钮完成导入。若开发者想要切换导入的 2.x 项目，点击下图中的搜索图标按钮，即可重新选择项目。
+
+![import-project](import-panel.png)
+
+面板左下角的 **使用说明** 按钮可跳转到导入项目插件的 GitHub 仓库，用于 [更新导入插件](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) 或者提交反馈。
 
 ## 旧版本开发者快速上手
 
@@ -53,20 +59,106 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 #### 针对 Cocos Creator 2.x 用户
 
-废弃节点上 UI 相关接口，被废弃的接口如下：
+- 节点上 UI 相关接口变更如下：
 
-- 属性：`width`、`height`、`anchorX`、`anchorY`
-- 方法：`getAnchorPoint`、`setAnchorPoint`、`getContentSize`、`setContentSize`
+    - 与坐标变换计算相关的接口（例如：`size` 和 `anchor`）变更如下：
 
-请先获取节点上的 `UITransform` 组件，再使用对应的接口，例如：
+        需要先获取节点上的 `UITransform` 组件，再使用对应的接口，例如：
 
-```typescript
-node.getComponent(UITransform).setContentSize(size);
-```
+        ```typescript
+        const uiTrans = node.getComponent(UITransform)!;
+        uiTrans.anchorX = 0.5;
+        uiTrans.setContentSize(size);
+        ```
 
-#### 其它废弃的接口
+    - 其余接口变更如下：
+        - `color`：需要先获取节点上的渲染组件（例如：`Sprite` 组件），再使用对应的接口。
+        - `opacity`：如果节点上有渲染组件，直接设置渲染组件的 `color`。如果没有渲染组件，则可以通过添加 `UIOpacity` 组件，并设置相关属性。
+        - `skew`：该接口已被移除。
+        - `group`：变更为 `layer`。
 
-（暂缺）
+- `CCSpriteFrame`：
+    - 移除接口：`copyWithZone`、`copy`、`clone` 和 `ensureLoadTexture`。
+    - 变更接口：
+        - `setFlipX` 和 `isFlipX` -> `flipUVX`
+        - `setFlipY` 和 `isFlipY` -> `flipUVY`
+        - `getTexture` 和 `setTexture` -> `texture`（此处的类型是 Texture2D/RenderTexture）。
+    - 其余 `get` 和 `set` 对应的方法在 3.0 中都直接对应同名属性（例如：`getOffset` -> `offset`）。
+
+- `CCTexture2D`：
+    - 变更接口：`genMipmaps` -> `mipmaps`、`initWithElement` -> `image`。
+    - `initWithData` 整个方法被移除，类似的使用是将原先要传入的 `ArrayBufferView` 数据，传给新建的 `ImageAsset`，然后再用 `ImageAsset` 传给新建的 `Texture2D`，从而获得一份图片资源。
+
+- `cc.Action`：相关接口全部移除。
+
+- **物理**：
+    - 2D 变更组件：`cc.Collider` -> `Collider2D`、`cc.BoxCollider` -> `BoxCollider2D`、`cc.RigidBody` -> `RigidBody2D` 等。
+    - 3D 变更组件：`cc.Collider3D` -> `Collider`、`cc.BoxCollider3D` -> `BoxCollider`、`cc.RigidBody3D` -> `RigidBody` 等。
+
+- **tween**：
+    - 变更接口：`cc.repeatForever` -> `Tween.repeatForever`、`cc.reverseTime` -> `Tween.reverseTime`、`cc.show` -> `Tween.show` 等。
+
+- **动画**：
+    - 变更接口：`addClip` -> `createState`、`getClips` -> `clips`、`playAdditive` -> `crossFade`、`getAnimationState` -> `getState` 等。
+
+- **相机**：
+    - 移除接口：`findCamera`、`alignWithScreen`、`main`、`cameras`、 `zoomRatio` 和 `containsNode`。
+    - 变更接口：`backgroundColor` -> `clearColor`、`cullingMask` -> `visibility`、`depth` -> `clearDepth`、`getScreenToWorldPoint` -> `screenToWorld`、`getWorldToScreenPoint` -> `worldToScreen`、`getRay` -> `screenPointToRay` 等。
+
+- **音频**：
+    - 变更接口：`getLoop` 和 `setLoop` -> `loop`、`getVolume` 和 `setVolume` -> `volume`、`getCurrentTime` 和 `setCurrentTime` -> `currentTime`、`src` -> `clip`。
+
+- **材质**：
+    - 所有相关改动都需要获得 **MeshRenderer** 或其子类身上的 **材质实例** 来完成。
+    - 移除接口：`setBlend`、`setDepth`、`setStencilEnabled`、`setStencil`、`setCullMode` 和 `define`，其中除了 `define` 是调用 `recompileShaders` 完成更新，其余的都是调用 `overridePipelineStates` 完成更新。
+
+- **sys** 下的平台变量变更如下：
+
+    | Cocos Creator 2.x | Cocos Creator 3.0     |
+    |:------------------|:----------------------|
+    | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
+    | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
+    | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
+    | `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
+    | `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
+    | `JKW_GAME`        | `COCOSPLAY`           |
+    | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
+    | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
+
+- **全局变量** 变更如下：
+
+    | Cocos Creator 2.x | Cocos Creator 3.0 |
+    |:-------------------|:-------------------|
+    | `CC_BUILD`        | `BUILD`           |
+    | `CC_TEST`         | `TEST`            |
+    | `CC_EDITOR`       | `EDITOR`          |
+    | `CC_PREVIEW`      | `PREVIEW`         |
+    | `CC_DEV`          | `DEV`             |
+    | `CC_DEBUG`        | `DEBUG`           |
+    | `CC_JSB`          | `JSB`             |
+    | `CC_WECHATGAME`   | `WECHATGAME`      |
+    | `CC_RUNTIME`      | `RUNTIME_BASED`   |
+    | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
+
+- **动态加载资源**：
+
+    在 v3.0 中使用 `bundle.load` 或 `resources.load` 动态加载 `sprite-frame` 或 `texture` 时，需要将路径指定到具体的子资源：
+
+    ```ts
+    // 加载 texture
+    // v2.x
+    resources.load('background', cc.Texture2D, () => {});
+    // v3.0
+    resources.load('background/texture', Texture2D, () => {});
+    ```
+
+    ```ts
+    // 加载 sprite frame
+    // v2.x
+    resources.load('background', cc.SpriteFrame, () => {});
+    // v3.0
+    resources.load('background/spriteFrame', SpriteFrame, () => {});
+    ```
 
 ### 编辑器升级
 
@@ -113,7 +205,9 @@ Cocos Creator 3.0 中所有平台的构建都内置为插件，因此 **构建�
 
 #### 编辑器插件系统升级
 
-（暂缺）
+Cocos Creator 3.0 拥有更加强大的插件系统，编辑器几乎所有功能模块都是以插件形式存在。你可以在扩展菜单中快速创建自己的插件，从而实现自己想要的效果。另外，Cocos Creator 3.0 还提供了扩展管理器，可以轻松管理所有扩展插件的运行和卸载。
+
+![image](extension-plugin.png)
 
 ### 构建目录区别
 

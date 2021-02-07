@@ -119,6 +119,7 @@
 - [Animation](engine/animation/index.md)
     - [Animation Components](engine/animation/animation-component.md)
     - [Animation Clips](engine/animation/animation-clip.md)
+    - [Animation State](engine/animation/animation-state.md)
     - [Skeletal Animation](engine/animation/skeletal-animation.md)
 - [Tween](tween/index.md)
 

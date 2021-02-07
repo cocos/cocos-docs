@@ -6,7 +6,7 @@ To use `MeshRenderer`, please refer to the [MeshRenderer API](../../../api/en/cl
 
 ## MeshRenderer Properties
 
-Properties | Functions
+Property | Functions
 :--- | :---
 **mesh** | 3D model assets for rendering.
 **materials** | The material used to render the model, one material corresponds to one submesh in the mesh.

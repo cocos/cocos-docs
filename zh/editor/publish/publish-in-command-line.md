@@ -48,6 +48,9 @@
     - `compressTexture` - 是否开启压缩纹理，默认关闭
     - `replaceSplashScreen` - 是否替换插屏，默认关闭
     - `md5Cache` - 是否开启 md5 缓存，默认关闭
+    - `mainBundleCompressionType` - 主包压缩类型，具体选项值可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md#压缩类型)。
+    - `mainBundleIsRemote` - 配置主包为远程包
+    - `packages` - 各个插件支持的构建配置参数，需要存放的是对于数据对象的序列化字符串，具体可以参考下文。
 
 Cocos Creator 3.0 各个平台的构建会作为独立的插件嵌入到 **构建发布** 面板中，因而各个平台的构建参数位置也不同。各个平台的构建参数会配置在 `packages` 字段中，例如：为微信小游戏指定构建参数，配置大体如下：
 
