@@ -18,11 +18,15 @@ After modifying the settings, click the **Save** button.
 
 * **Show native build log in console**: This item is selected, Build log will be displayed directly in the process of publishing original project Console panel. Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project, you can also use the Console Log button in the upper left corner of the panel Cocos Console Log option to open the document.
 
-* **Spin step**: In the Properties, all numeric property has a set of UP and DOWN arrows next to the input box, values that can be used to step Input:<br>
-![step button](preferences/step-button.png).<br>
-When hovering close to the value of the property name, the cursor will turn into ![mouse cursor](preferences/mouse-cursor.jpg) such a shape, then Drag the mouse, can also according to a continuous increase or decrease the value of step amplitude.<br>
-The above two ways to modify the value，the default step size is **0.1**, spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to **1**, can be adjusted more easily.<br>
-**Note**：After modifying the steps to refresh the Editor window (Ctrl / Cmd + R), set the Stride length will take effect
+* **Spin step**: In the Properties, all numeric property has a set of UP and DOWN arrows next to the input box, values that can be used to step Input:
+
+  ![step button](preferences/step-button.png).
+
+  When hovering close to the value of the property name, The cursor will turn into ![mouse cursor](preferences/mouse-cursor.jpg) such a shape, then Drag the mouse, can also according to a continuous increase or decrease the value of step amplitude.
+
+  The above two ways to modify the value，The default step size is `0.1`, Spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to `1`, can be adjusted more easily.
+
+  > **Note**：after modifying the steps to refresh the Editor window (Ctrl/Cmd + R), set the Stride length will take effect
 
 * **Show dialog when meta files backed up**: When the resource to which the meta file belongs is lost, whether a dialog pops up prompts you to back up or delete the meta file. If you choose to back up, you can manually restore the resources later, and manually copy the meta file back to the project assets directory to prevent loss of important resource-related settings (such as scenarios, prefabs).
 
@@ -36,7 +40,7 @@ This category is used to set the default open mode for scripts and resources. In
 
 ![data editing](preferences/data-editing.png)
 
-* **<a name="script-editor"></a>External Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in `Assets`. You can click the `Browse` button to select the preferred text editor executable file. And the built-in script editor is not recommended.
+* **External Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in **Assets**. You can click the `Browse` button to select the preferred text editor executable file. And the built-in script editor is not recommended.
 
 * **External Picture Editor**: Similar to the above option, used here to set when Assets, double-click the picture file, open the picture with the default application path.
 
@@ -48,11 +52,11 @@ This classification is used to set the build is released to the native platform 
 
 * **Use Builtin JavaScript Engine**: Whether to use Cocos Creator the built-in `engine` path as JavaScript engine path. This engine is used for Scene to render the scene, declarations and other built-in components engine module in the Web environment.
 
-* **JavaScript Engine Path**: In addition to using `engine`, you can also customize to <https://github.com/cocos-creator/engine> to clone or fork a copy of the engine to the local anywhere, then uncheck `Use Builtin JavaScript Engine` and set the `Use Builtin JavaScript Engine` path to your custom engines. You can use the editor to customize your engine.
+* **JavaScript Engine Path**: In addition to using `engine`, you can also customize to <https://github.com/cocos-creator/engine> to clone or fork a copy of the engine to the local anywhere, then uncheck **Use Builtin JavaScript Engine** and set the **Use Builtin JavaScript Engine** path to your custom engines. You can use the editor to customize your engine.
 
 * **Use Builtin Cocos2d-x Engine**: Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all Build native platform ( iOS, Android, Mac, Windows ) project to build and compile.
 
-* **Cocos2d-x Path**: `Use Builtin Cocos2d-x Engine` cancel previous selections, you can manually specify the path cocos2d-x. Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/cocos2d-x-lite> or the warehouse's fork.
+* **Cocos2d-x Path**: **Use Builtin Cocos2d-x Engine** cancel previous selections, you can manually specify the path cocos2d-x. Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/engine-native> or the warehouse's fork.
 
 * **WechatGame App Path**: Set the WechatGame App Path, See [WeChat Mini Games](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F).
 
@@ -78,6 +82,6 @@ When using **Play** button directly above the main window, you can set various o
 
 * **Simulato Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
 
-* **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**). 
+* **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**).
 
-* **Wait For Debugger Connect**: This option is turned on when **Open Simulator Debugger Panel** is checked, and the effect of this option is to pause simulator until debugger connected (New in **v2.0.7**). 
+* **Wait For Debugger Connect**: This option is turned on when **Open Simulator Debugger Panel** is checked, and the effect of this option is to pause simulator until debugger connected (New in **v2.0.7**).

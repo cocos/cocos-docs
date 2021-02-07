@@ -1,9 +1,9 @@
 # Engine Customization Workflow
 
-The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x-lite (custom version of Cocos2d-x-lite) and adapters. They are all open sourced on GitHub:
+The game engine in Cocos Creator has three parts: JavaScript engine with ECS (entity-component system), Cocos2d-x (custom version of Cocos2d-x) and adapters. They are all open sourced on GitHub:
 
-- JavaScript engine: <https://github.com/cocos-creator/engine>
-- Cocos2d-x-lite engine：<https://github.com/cocos-creator/cocos2d-x-lite>
+- [Creator-JS engine](https://github.com/cocos-creator/engine)
+- [Cocos2d-x engine](https://github.com/cocos-creator/engine-native)
 
 There are three adapters:
 
@@ -74,30 +74,30 @@ Use the **Custom Engine** tab of the **Project -> Project Settings** panel to se
 
 ![](engine-customization/setting-js.png)
 
-## 2 Customize Cocos2d-x-lite Engine
+## 2 Customize Cocos2d-x Engine
 
-If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x-lite engine of Cocos Creator.
+If you need to customize the engine functionality associated with the native platform. Besides updating JavaScript engine (so that your change can work with component system) you may also need to synchronize your change to the customized Cocos2d-x engine of Cocos Creator.
 
-### 2.1 Get the Cocos2d-x-lite Engine
+### 2.1 Get the Cocos2d-x Engine
 
-If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x-lite engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
+If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download or clone it from the GitHub repo specified above. please make sure you get the cocos2d-x-lite engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. 
+If you want to get the latest version that is currently under development, you need to download or clone it from the GitHub repo specified above. please make sure you get the cocos2d-x engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x repo is on correct branch.
 
 ### 2.2 Initialize
 
-Once cloned or downloaded, enter the Cocos2d-x-lite engine folder and run:
+Once cloned or downloaded, enter the Cocos2d-x engine folder and run:
 
 ```bash
-# Enter the Cocos2d-x-lite engine path from the command line
-cd /Users/yufang/cocos2d-x-lite
+# Enter the Cocos2d-x engine path from the command line
+cd /Users/yufang/cocos2d-x
 # Install NPM dependencies
 npm install
 # Initialize repo
 gulp init
 ```
 
-- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x-lite engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
+- If you get an error like the one below, please download the zip file manually. The reason for the error is that the version of a library that your python ships with is too low, but it is not very easy to upgrade. The simpler method is to download the zip file and manually put it under the Cocos2d-x engine repo and rename it to `v3-deps-54.zip` (you do not need to unzip the zip file.) and rerun `gulp init` again.
 
     ```bash
     > ==> Ready to download 'v3-deps-54.zip' from
@@ -107,7 +107,7 @@ gulp init
     > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
     ```
 
-- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x-lite engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
+- If you get an error like the one below, please manually download the zip file. Manually put it in the Cocos2d-x engine repository under the `tools/cocos2d-console` directory and rename it to `creator-console-2.zip` (without unzipping the zip file), and rerun `gulp init` again.
 
     ```bash
     > ==> Ready to download 'creator-console-2.zip' from
@@ -117,7 +117,7 @@ gulp init
     > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
     ```
 
-- If you get an error like the one below, it's usually because the Cocos2d-x-lite engine folder was downloaded, not cloned from GitHub. You can execute `git init` and then rerun `gulp init` again.
+- If you get an error like the one below, it's usually because the Cocos2d-x engine folder was downloaded, not cloned from GitHub. You can execute `git init` and then rerun `gulp init` again.
 
     ```bash
     fatal: not a git repository (or any of the parent directories): .git
@@ -125,13 +125,13 @@ gulp init
 
 ### 2.3 Configure Custom Engine in Cocos Creator
 
-Use the **Custom Engine** tab of the `Project -> Project Settings` panel to set the path to your customized cocos2d-x-lite engine.
+Use the **Custom Engine** tab of the **Project -> Project Settings** panel to set the path to your customized cocos2d-x engine.
 
 ![](engine-customization/setting-2dx.png)
 
 ### 2.4 Build from Source
 
-Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
+Next, you can start working on updating code for Cocos2d-x. If you want to use source code in your built project you can just choose `default` or `link` template in **Build** panel and compile from the source, no extra command line work needed.
 
 ### 2.5 Build simulator
 
@@ -143,7 +143,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/cocos2d-x-lite/blob/develop/README.md#git-user-attention) for details.
+**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention) for details.
 
 ![](engine-customization/sign.png)
 
@@ -241,7 +241,7 @@ If you want to learn more about mini game adapter, please refer to [Mini Game Do
 
 ## 4 JSB Workflow (JavaScript Binding)
 
-If you need to modify the JavaScript interface provided by the Cocos2d-x-lite engine, you should complete the JSB binding.
+If you need to modify the JavaScript interface provided by the Cocos2d-x engine, you should complete the JSB binding.
 
 Creator >= 1.7, please refer to:
 
@@ -249,5 +249,5 @@ Creator >= 1.7, please refer to:
 
 Creator <= 1.6, please refer to:
 
-- [Script binding in Cocos](https://zhuanlan.zhihu.com/p/20525026)
-- [Automatic binding in Cocos](https://zhuanlan.zhihu.com/p/20525109)
+- [Script binding in Cocos [cn]](https://zhuanlan.zhihu.com/p/20525026)
+- [Automatic binding in Cocos [cn]](https://zhuanlan.zhihu.com/p/20525109)
