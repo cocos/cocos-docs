@@ -3,7 +3,7 @@
 The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and C++ (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
 - [Creator-JS engine](https://github.com/cocos-creator/engine)
-- [Cocos2d-x-lite engine](https://github.com/cocos-creator/engine-native)
+- [Cocos2d-x engine](https://github.com/cocos-creator/engine-native)
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
@@ -41,13 +41,13 @@ Goto **Preferences** panel and click [Native Develop Tab](../getting-started/bas
 
 ## Customized Cocos2d-x C++ Engine
 
-If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x-lite engine of Cocos Creator. Please make sure you get the cocos2d-x-lite engine repo from the link on top of this article, it's not the same as the stand alone [cocos2d-x repo](http://github.com/cocos2d/cocos2d-x)!
+If you need to change stuff of rendering or native API related function. Besides updating JavaScript engine (so that your change can work with component system) you'll need to synchronize your change to the customized cocos2d-x engine of Cocos Creator. Please make sure you get the cocos2d-x engine repo from the link on top of this article, it's not the same as the stand alone [cocos2d-x repo](http://github.com/cocos2d/cocos2d-x)!
 
-Same as JavaScript engine, you need to make sure cocos2d-x-lite repo is on correct branch. For Cocos Creator v1.2.0 please checkout `v1.2` branch.
+Same as JavaScript engine, you need to make sure cocos2d-x repo is on correct branch. For Cocos Creator v1.2.0 please checkout `v1.2` branch.
 
 ### Initialize
 
-Once cloned, enter the Cocos2d-x-lite engine folder and run:
+Once cloned, enter the Cocos2d-x engine folder and run:
 
 ```bash
 # Install NPM dependencies
@@ -58,13 +58,13 @@ python download-deps.py
 git submodule update --init
 ```
 
-### Used customized cocos2d-x-lite engine in Cocos Creator
+### Used customized cocos2d-x engine in Cocos Creator
 
-Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x-lite engine.
+Goto **Preferences** panel and click [Native Develop Tab](../getting-started/basics/editor-panels/preferences.md#--8). And follow the guide to set the path to your customized cocos2d-x engine.
 
 ### Build from Source
 
-Next, you can start working on updating code for Cocos2d-x-lite. If you want to use source code in your built project you can just choose `default` template in **Build** panel and compile from the source, no extra command line work needed.
+Next, you can start working on updating code for Cocos2d-x. If you want to use source code in your built project you can just choose `default` template in **Build** panel and compile from the source, no extra command line work needed.
 
 ### Build binary library and simulator
 
