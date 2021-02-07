@@ -70,7 +70,6 @@
 
 和上面的选项类似，这里用来设置在 **资源管理器** 中双击图片文件时，默认打开图片用的应用程序路径。
 
-
 ## 原生开发环境
 
 ![native develop](preferences/native-develop.jpg)
@@ -83,7 +82,7 @@
 
 ### JavaScript 引擎路径
 
-除了使用自带的 `engine`，您也可以前往 https://github.com/cocos-creator/engine 来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+除了使用自带的 `engine`，您也可以前往 <https://github.com/cocos-creator/engine> 来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 ### 使用内置 Cocos2d-x 引擎
 
@@ -91,7 +90,7 @@
 
 ### Cocos2d-x 路径
 
-取消上一项 **使用内置 cocos2d-x 引擎** 的选择后，就可以手动指定 cocos2d-x 路径了。注意这里使用的 cocos2d-x 引擎必须从 https://github.com/cocos-creator/cocos2d-x-lite 或该仓库的 fork 下载。
+取消上一项 **使用内置 Cocos2d-x 引擎** 的选择后，就可以手动指定 Cocos2d-x 路径了。注意这里使用的 Cocos2d-x 引擎必须从 <https://github.com/cocos-creator/engine-native> 或该仓库的 fork 下载。
 
 ### NDK 路径
 
@@ -104,7 +103,6 @@
 ### ANT 路径
 
 设置 ANT 路径，详情见 [安装配置原生开发环境](../../publish/setup-native-development.md)。
-
 
 ## 预览运行
 
@@ -122,7 +120,7 @@
 
 ### 模拟器路径
 
-从 v1.1.0 版开始， Cocos Creator 中使用的 Cocos 模拟器会放置在 cocos2d-x 引擎路径下。在使用定制版引擎时，需要自己编译模拟器到引擎路径下。点击 **打开** 按钮可以在文件系统中打开当前指定的模拟器路径，方便调试时定位。
+从 v1.1.0 版开始， Cocos Creator 中使用的 Cocos 模拟器会放置在 Cocos2d-x 引擎路径下。在使用定制版引擎时，需要自己编译模拟器到引擎路径下。点击 **打开** 按钮可以在文件系统中打开当前指定的模拟器路径，方便调试时定位。
 
 ### 模拟器横竖屏设置
 
@@ -135,4 +133,3 @@
 ### 自定义分辨率设置
 
 如果预设的分辨率不能满足要求，您可以手动输入屏幕宽高来设置模拟器分辨率。
-
