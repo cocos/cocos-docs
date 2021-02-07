@@ -1,6 +1,6 @@
 # ScrollBar 组件参考
 
-ScrollBar 允许用户通过拖动滑块来滚动一张图片（公测版本暂不支持），它与 `Slider` 组件有点类似，但是它主要是用于滚动而 Slider 则用来设置数值。
+ScrollBar 允许用户通过拖动滑块来滚动一张图片，它与 `Slider` 组件有点类似，但是它主要是用于滚动而 Slider 则用来设置数值。
 
 ![scrollbar.png](scroll/scrollbar.png)
 

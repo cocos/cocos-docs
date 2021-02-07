@@ -2,7 +2,7 @@
 
 ![](canvas/canvas.png)
 
-**RenderRoot2D** 组件所在的节点是 2D 渲染组件数据收集的入口，而 **Canvas（画布）** 组件继承自 **RenderRoot2D** 组件，所以**Canvas** 组件也是数据收集入口。场景中 Canvas 节点可以有多个，**所有 2D 渲染元素都必须作为 RenderRoot2D 的子节点才能被渲染**。
+**RenderRoot2D** 组件所在的节点是 2D 渲染组件数据收集的入口，而 **Canvas（画布）** 组件继承自 **RenderRoot2D** 组件，所以 **Canvas** 组件也是数据收集入口。场景中 Canvas 节点可以有多个，**所有 2D 渲染元素都必须作为 RenderRoot2D 的子节点才能被渲染**。
 
 Canvas 节点除了继承自 RenderRoot2D 的数据入口能力，其本身还作为屏幕适配的重要组件，在游戏制作上面对多分辨率适配也起到关键作用，具体请参考 [多分辨率适配方案](../engine/multi-resolution.md)。Canvas 的设计分辨率和适配方案统一通过 **项目设置** 配置。
 
@@ -19,4 +19,4 @@ Canvas 本身和相机并无关系，其更主要的作用是上文叙述的屏�
 
 ## 注意事项
 
-如果遇到 UI 渲染出错，花屏，闪屏等现象，可以看此处的 [注意事项](../engine/priority.md#注意事项)。
+如果遇到 UI 渲染出错、花屏、闪屏等现象，请参考 [注意事项](../engine/priority.md#注意事项)。
