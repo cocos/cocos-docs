@@ -29,7 +29,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 > **注意**：当使用 Skeleton 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
 
-> **注意**：当使用 Skeleton 组件时，由于其拥有 Use Tint 属性，所以其自定义材质需要有两个颜色信息，可参考引擎内置的 [builtin-spine effect](https://github.com/cocos-creator/engine/blob/v3.0.0/editor/assets/effects/builtin-spine.effect)  实现，否则 spine 的染色效果可能会出错。
+> **注意**：当使用 Skeleton 组件时，由于其拥有 Use Tint 属性，所以其自定义材质需要有两个颜色信息，可参考引擎内置的 [builtin-spine effect](https://github.com/cocos-creator/engine/blob/v3.0.0/editor/assets/effects/builtin-spine.effect) 实现，否则 spine 的染色效果可能会出错。
 
 ## Spine 换装
 

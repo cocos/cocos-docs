@@ -10,17 +10,7 @@
 
 由于 2D 渲染对象在 Camera 的可见性判断上和 3D 渲染节点并无区别，所以用户需要自己控制节点的 layer 属性并设置 Camera 的 Visibility 来配合进行分组渲染，如果场景中出现多个相机的情况，错误的 layer 设置导致节点重复渲染或不渲染。
 
-这里请 3D 1.2 版本升级的用户注意，我们纠正了之前的 Canvas 只会渲染其子节点的行为，目前需要用户自己管理节点的 layer 和相机的 Visibility，之前使用了多 Canvas 渲染的用户可能会需要对项目做出调整以达到更合理的场景结构。
-
-## 2D 渲染组件的添加方式
-
-我们在编辑器内置了一些 2D 渲染组件，在创建了 RenderRoot 节点之后，即可在此节点下创建带有 2D 渲染组件的节点：
-
-![create-2d](./create-2d.png)
-
-也可以通过在节点上添加组件来添加 2D 渲染组件，组件菜单中的 2D 菜单下的节点均为 2D 渲染组件：
-
-![add-render-component](./add-render-component.png)
+**这里请 3D 1.2 版本升级的用户注意，我们纠正了之前的 Canvas 只会渲染其子节点的行为，目前需要用户自己管理节点的 layer 和相机的 Visibility，之前使用了多 Canvas 渲染的用户可能会需要对项目做出调整以达到更合理的场景结构。**
 
 ## 2D 渲染组件
 
@@ -36,6 +26,16 @@
 - [TiledTile 组件参考](../../editor/components/tiledtile.md)
 - [Spine（骨骼动画）Skeleton 组件参考](../../editor/components/spine.md)
 - [DragonBones（龙骨）ArmatureDisplay 组件参考](../../editor/components/dragonbones.md)
+
+## 2D 渲染组件的添加方式
+
+我们在编辑器内置了一些 2D 渲染组件，在创建了 RenderRoot 节点之后，即可在此节点下创建带有 2D 渲染组件的节点：
+
+![create-2d](./create-2d.png)
+
+也可以通过在节点上添加组件来添加 2D 渲染组件，组件菜单中的 2D 菜单下的节点均为 2D 渲染组件：
+
+![add-render-component](./add-render-component.png)
 
 ## 2D 渲染组件规则介绍
 
