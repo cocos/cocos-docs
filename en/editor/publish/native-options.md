@@ -24,11 +24,9 @@ When you select the native platform you want to build in the **Platform** option
 
 #### Template
 
-There are two types of available engine templates in the dropdown menu of **Template**, from which we can choose one:
+Currently, the engine template available in **Template** is **Link**.
 
-- **Default** - build the project with the **Cocos2d-x** source-code version engine.
-
-- **Link** - unlike the **Default** template, the **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
+The **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
 
 > **About Source Engine**
 >
@@ -160,8 +158,7 @@ After the build, we get a standard Cocos2d-x project, with the same structure as
 ![native directory](publish-native/native-directory.png)
 
 - `assets`: places project resources.
-- `build`: places the currently built native platform project, which can be used by the IDE of the corresponding platform to perform compilation tasks. Except for the Android platform, the Android platform's native project is generated in the `proj` directory.
-- `proj`: place required resources for compilation, such as application icons, application startup scripts, etc.
+- `proj`: places the currently built native platform project, which can be used by the IDE of the corresponding platform to perform compilation tasks.
 - `cocos.compile.config.json`: place the compile option json for current build.
 
 For more information, please refer to [Build Directory -- Native](../../release-notes/upgrade-guide-v3.0.md#native).
@@ -174,7 +171,7 @@ Cocos Creator supports **Make** and **Run Preview** steps via the editor or the 
 
 ### By the Editor
 
-Click the **Make** button on the **Build Task** window to enter the compile process, if the template chooses the **default** source code engine, this compilation process will take a long time. When the compilation is successful, it will prompt:
+Click the **Make** button on the **Build Task** window to enter the compile process. When the compilation is successful, it will prompt:
 
 `make package YourProjectBuildPath success!`
 
