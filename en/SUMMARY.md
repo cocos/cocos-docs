@@ -119,6 +119,7 @@
 - [Animation](engine/animation/index.md)
     - [Animation Components](engine/animation/animation-component.md)
     - [Animation Clips](engine/animation/animation-clip.md)
+    - [Animation State](engine/animation/animation-state.md)
     - [Skeletal Animation](engine/animation/skeletal-animation.md)
 - [Tween](tween/index.md)
 
@@ -234,6 +235,7 @@
         - [Cache Manager](asset/cache-manager.md)
         - [Optional Parameters](asset/options.md)
         - [Pipeline and Task](asset/pipeline-task.md)
+        - [Resource Management Considerations --- meta files](asset/meta.md)
     - [Scene](asset/scene.md)
     - [Images](asset/image.md)
         - [Textures](asset/texture.md)

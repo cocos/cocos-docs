@@ -52,7 +52,7 @@ In addition to nodes with specific rendering and other tasks, it is recommended 
 The **Scene** panel includes both 3D and 2D views. The 3D view is used for 3D scene editing, and the 2D view is used mainly for editing 2D elements such as UI nodes. The scene view can be switched via the 3D/2D button in the toolbar at the top left of the editor. <br>
 The following shortcuts work for both views.
 
-- Select a node in the **Hierarchy** panel and double-click or press <kbd>Cmd/Ctrl + F</kbd> to focus the node in the **Scene** panel.
+- Select a node in the **Hierarchy** panel and double-click or press <kbd>F</kbd> to focus the node in the **Scene** panel.
 - Pressing <kbd>Cmd/Ctrl + D</kbd> after selecting a node will copy and paste an identical node at the same location as the node, which can be used for efficiency when we need to make multiple similar nodes quickly.
 - In **Scene**/**Hierarchy** panel, hold down the <kbd>Cmd/Ctrl</kbd> key and click on the node you want in order to select multiple nodes at the same time. The <kbd>Shift</kbd> key allows you to select nodes in succession, without selecting them one by one.
 

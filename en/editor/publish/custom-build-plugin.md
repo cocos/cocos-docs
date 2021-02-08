@@ -6,15 +6,15 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
 1. Click **Project -> New Build Extension** in the menu bar of the editor, and select **Global**/**Project** to create a build extension package.
 
-    * If selecting **Global**, the build extension will be applied to all Cocos Creator projects. The path of **Global** is:
+    - If selecting **Global**, the build extension will be applied to all Cocos Creator projects. The path of **Global** is:
 
-        * **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
+        - **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
 
-        * **Mac**: `$HOME/.CocosCreator/extensions`
+        - **Mac**: `$HOME/.CocosCreator/extensions`
 
-    * If selecting **Project**, this will apply the build extension to the specified Cocos Creator project. The path of **Project** is:
+    - If selecting **Project**, this will apply the build extension to the specified Cocos Creator project. The path of **Project** is:
 
-        * `$Your project address/extensions`
+        - `$Your project address/extensions`
 
 2. After the build extension is created, you will see the generation path of the plugin in the **Console**. Click on the path to open the build extension package in the file manager of the operating system.
 

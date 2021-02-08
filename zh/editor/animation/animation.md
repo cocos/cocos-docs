@@ -8,7 +8,7 @@
 
 ![](./animation/add-component.jpg)
 
-动画组件接口请参考 [MeshRenderer API](../../../api/zh/classes/animation.animation-1.html)。
+动画组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/animation.animation-1.html)。
 
 ## Clip 动画剪辑
 

@@ -1,4 +1,3 @@
-
 # 语言支持
 
 ## TypeScript
@@ -103,6 +102,6 @@ export default blah;
 
 ## 相关教程
 
-- [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
-- [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
+- [JavaScript 标准参考教程](https://wangdoc.com/javascript/)
+- [JavaScript 秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/)
 - [JavaScript 内存详解 & 分析指南](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)

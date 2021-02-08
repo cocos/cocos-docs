@@ -5,7 +5,7 @@
 这两套系统的唯一开关就是 `SkeletalAnimation` 上的 `useBakedAnimation` 开关，<br>
 启用对应预烘焙骨骼动画系统，禁用后对应实时计算骨骼动画系统，运行时也可以无缝切换。
 
-骨骼动画的组件接口请参考 [MeshRenderer API](../../../api/zh/classes/animation.skeletalanimation.html)。
+骨骼动画的组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/animation.skeletalanimation.html)。
 
 ## 预烘焙骨骼动画系统
 

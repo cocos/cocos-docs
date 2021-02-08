@@ -33,11 +33,11 @@ Event types included:
 - Call Back:
     - Custom Event: callback(event);
 - Call Back Parameter:
-    - KeyCode: [API Reference](../../../api/en/classes/event.eventkeyboard-1.html)
-    - Event: [API Reference](../../../api/en/classes/event.event-1.html)
+    - KeyCode: [API Reference](__APIDOC__/en/classes/event.eventkeyboard-1.html)
+    - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from "cc";
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -52,7 +52,7 @@ export class Example extends Component {
         systemEvent.off(SystemEventType.KEY_UP, this.onKeyUp, this);
     }
 
-    onKeyDown (event: EventMouse) {
+    onKeyDown (event: EventKeyboard) {
         switch(event.keyCode) {
             case macro.KEY.a:
                 console.log('Press a key');
@@ -60,7 +60,7 @@ export class Example extends Component {
         }
     }
 
-    onKeyUp (event: EventMouse) {
+    onKeyUp (event: EventKeyboard) {
         switch(event.keyCode) {
             case macro.KEY.a:
                 console.log('Release a key');
@@ -76,10 +76,10 @@ export class Example extends Component {
 - Call back:
   - Custom event: `callback(event);`;
 - Call back parameter:
-  - Event: [API Reference](../../../api/en/classes/event.event-1.html)
+  - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro, log } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, log } from "cc";
 const { ccclass } = _decorator;
 
 @ccclass("Example")

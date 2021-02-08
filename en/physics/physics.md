@@ -1,6 +1,6 @@
 # Physics Introduction
 
-__Cocos Creator__ currently supports the lightweight collision detection system __builtin__ and the physics engine __cannon.js__ with physical simulation, and the __asm.js__/__wasm__ version __ammo.js__ of the powerful physics engine __bullet__, also we provides users with efficient component-based workflow and convenient methods of use.
+__Cocos Creator__ currently supports the lightweight collision detection system __builtin__ and the physics engine __cannon.js__ with physical simulation, and the __asm.js__/__wasm__ version __ammo.js__ of the powerful physics engine __bullet__, also we provides users with efficient and unified component-based workflow and convenient methods of use.
 
 ## Physics World And Elements
 
