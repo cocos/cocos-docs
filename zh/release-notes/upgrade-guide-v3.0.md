@@ -287,6 +287,8 @@ v3.0 构建微信小游戏后生成的目录：
 
 #### 原生平台
 
+> **注意**：这部分内容暂时还未更新到最新版，请以实际构建结果为准。
+
 v2.4.3 构建 Windows 平台后生成的目录：
 
 ![image](window-v243.png)
@@ -296,7 +298,7 @@ v2.4.3 构建 Windows 平台后生成的目录：
 ![image](window-v3.png)
 
 从以上两张图可以看出 Windows 平台构建后生成的目录，v2.4.3 与 v3.0 差异较大。<br>
-因为各个原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将 v2.4.3 存放在构建目录 `frameworks/runtime-src/Classes` 中的底层 C++ 代码单独提取出来，根据构建 **模板** 放在共享的 `common-link`/`common-default` 文件夹中。这样在构建原生平台时，如果检测到已经存在 `common-link`/`common-default` 文件夹，这部分内容便不会再进行处理，加快构建速度。
+因为各个原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将 v2.4.3 存放在构建目录 `frameworks/runtime-src/Classes` 中的底层 C++ 代码单独提取出来放在共享的 `common-link` 文件夹中。这样在构建原生平台时，如果检测到已经存在 `common-link` 文件夹，这部分内容便不会再进行处理，加快构建速度。
 
 而 `Windows` 文件夹则是 v3.0 用于存储当前构建的原生平台相关的内容（如果构建的是 Android 平台则生成 `android` 文件夹）：
 

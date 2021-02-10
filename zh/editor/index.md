@@ -30,3 +30,11 @@
     ![settings](index/settings.png)
 
     **项目设置** 里提供各种项目特定的个性化设置，包括分组管理、模块设置、项目预览、自定义引擎等。详情请阅读 [项目设置](project/index.md) 一节。
+
+- **服务**
+
+    ![service](index/service.png)
+
+    Cocos Service 是集成在 Cocos Creator 内的 **服务** 面板。我们甄选优质技术方案商，提供高性价比服务接入，致力于给用户一键式的接入体验，以及提供相应的技术支撑。同时依托广大 Cocos 开发者群体，我们也将为开发者争取到更加优惠的价格。
+
+    具体内容请参考 [Cocos Service 简介](https://service.cocos.com/document/zh/)。
