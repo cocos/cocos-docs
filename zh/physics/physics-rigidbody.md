@@ -1,8 +1,10 @@
 # 刚体组件
 
-刚体是组成物理世界的基本对象，可以让一个节点受到物理影响并产生反应。在使用 Builtin 物理引擎时刚体组件无效。
+刚体是组成物理世界的基本对象，可以让一个节点受到物理影响并产生反应。
 
-![](img/rigidbody-prop.png)
+刚体组件用于控制模拟相关的部分属性：
+
+![刚体](img/rigidbody-prop.png)
 
 点击 **属性检查器** 下方的 **添加组件 -> Physics -> RigidBody**，即可添加刚体组件到节点上。
 
@@ -19,7 +21,7 @@
 | Linear Factor   | 线性因子，可影响刚体在每个轴向的线性速度变化，值越大刚体移动越快 |
 | Angular Factor  | 旋转因子，可影响刚体在每个轴向的旋转速度变化，值越大刚体旋转越快 |
 
-刚体的 API 接口请参考 [Class RigidBody](../../../api/zh/classes/physics.rigidbody.html)。
+刚体的 API 接口请参考 [Class RigidBody](__APIDOC__/zh/classes/physics.rigidbody.html)。
 
 ### 获取刚体组件
 

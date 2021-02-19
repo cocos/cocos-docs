@@ -1,5 +1,6 @@
 # Publish to Mini Game Platforms
 
+- [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [Publish to Alipay Mini Games](publish-alipay-mini-game.md)
 - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
 - [Publish to QTT Mini Games](publish-qtt.md)

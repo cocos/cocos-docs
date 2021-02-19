@@ -105,7 +105,7 @@ Code of this example is stored in the [test-case-3d](https://github.com/cocos-cr
 
 Open __Project —> Project Preview__. Custom device info can be modified on this page, and changes will work after refreshing the preview page.
 
-![Custom Devices Info](./browser/user_device.jpg)
+![Custom Devices Info](./index/user_device.jpg)
 
 ## Debugging with browser Developer Tools
 
