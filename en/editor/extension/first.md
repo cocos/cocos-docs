@@ -83,10 +83,10 @@ exports.methods = {
 };
 
 // Execute when the extension is started
-exports.load = {};
+exports.load = function() {};
 
 // Execute when the extension is closed
-exports.unload = {};
+exports.unload = function() {};
 ```
 
 This entry program will be loaded during the startup of **Cocos Creator**. The methods defined in methods will be used as the operation interface, which can be called across extensions through [messages](./messages.md) or communicate with the panel.
