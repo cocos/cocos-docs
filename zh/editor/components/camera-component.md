@@ -58,4 +58,4 @@ Visibility 属性用于设置节点的哪些层级应该被该相机观察到，
 
 ### 相机的可见性计算
 
-相机自身可以设置一个或多个可见的 Visibility 属性，同时 node 上也有自身的 layer 值，camera 上的 Visibility 是一个 2^32^ 整数，每一种可见的 layer 占一位，采用位操作运算，最高支持 32 个不同的 layer 标签（每一种 layer 值占一位，即用 2^layer^ 表示）。在相机 culling 时，根据每个节点的 layer 值，跟相机进行 ` & ` 操作，如果相机的 Visibility 属性包含这个 layer，那么当前节点就应该被相机所见。反之则看不见。
+Visibility 属性可以同时选择多个 Layer，同时 Node 上的 Layer 也有自身的值，因此相机的 Visibility 属性是一个 2<sup>32</sup> 位的整数，每一种可见的 layer 占一位，采用位操作运算，最高支持 32 个不同的 Layer 标签（每一种 Layer 值占一位，即用 2<sup>32</sup> 表示）。在相机 culling 时，每个节点的 layer 值会跟相机进行 `&` 操作运算，如果相机的 Visibility 属性包含这个 Layer，那么当前节点就会被相机所看见，反之则看不见。
