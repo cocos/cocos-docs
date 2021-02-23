@@ -42,7 +42,7 @@
 
 ### 相机的 Visibility 属性设置
 
-设置哪些层级应该被该相机观察，哪些层级不应该被观察。
+Visibility 属性用于设置节点的哪些层级应该被该相机观察到，哪些层级不应该被观察到。
 
 注意： Creator 从 3.0 版本开始，2d 元素（例如 Sprite） 的渲染也遵从 Layer 与 Visibility 的判断，你可以根据需要调整 layer 与 visibility。
 
