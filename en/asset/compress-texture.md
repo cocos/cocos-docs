@@ -10,7 +10,7 @@
 | ------- | -------- | ------ | ----- | ------ |
 | **PNG** | Supported | Supported   | Supported | Supported |
 | **JPG** | Supported | Supported | Supported | Supported |
-| **WEBP** | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/**WEBP**-android-backport) | can use [this library](https://github.com/carsonmcdonald/**WEBP**-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=**WEBP**) |
+| **WEBP** | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/WEBP-android-backport) | can use [this library](https://github.com/carsonmcdonald/WEBP-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=WEBP) |
 | **PVR** | Not Supported | Supported | Supported iOS  | Supported iOS |
 | **ETC1** | Supported | Not Supported | Supported Android  | Supported Android |
 | **ETC2** | Partially Supported | Not Supported | Not Supported | Supported Android |
@@ -19,7 +19,7 @@
 | ------- | -------- | ------ | ----- | ------ | ------ |
 | **PNG** | Supported | Supported   | Supported | Supported | Supported |
 | **JPG** | Supported | Supported | Supported | Supported | Supported |
-| **WEBP** | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/**WEBP**-android-backport) | can use [this library](https://github.com/carsonmcdonald/**WEBP**-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=**WEBP**) | Not Supported |
+| **WEBP** | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/WEBP-android-backport) | can use [this library](https://github.com/carsonmcdonald/WEBP-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=WEBP) | Not Supported |
 | **PVR** | Not Supported | Supported | Supported iOS  | Supported iOS  | Mac Supported |
 | **ETC1** | Supported | Not Supported | Supported Android  | Supported Android  | Not Supported |
 | **ETC2** | Partially Supported | Not Supported | Not Supported | Supported Android  | Not Supported |
