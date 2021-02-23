@@ -1,6 +1,8 @@
 # 层级
 
-layer 属性是一个无符号32位的整数，最多支持 32 个不同类型的 layer, 引擎将 20 - 30 位作为系统默认，留出 00 - 19 位给用户做自定义设置。相机的 Visibility 属性跟节点的 layer 属性，都是用来控制其可见性的，相机的 Visibility 属性支持多个 layer 状态叠加，采用 ` | `,` & ` 这种位操作符判断该节点的 layer 是否应该被观察到。
+节点的 Layer 属性是一个无符号 32 位的整数，最多支持 32 个不同类型的 Layer，可在编辑器上方菜单栏的 **项目 -> 项目设置 -> [Layers](../../editor/project/index.md#layers)** 中设置。其中开发者可自定义第 0 ~ 19 个 Layer，剩下后面的 12 个 Layers 则是引擎内置的。
+
+相机的 Visibility 属性跟节点的 Layer 属性，都是用来控制其可见性的。但只有当节点设置的 Layer 属性包含在相机的 Visibility 中时，节点才可以被相机看见。相机的 Visibility 属性采用 `|` 和 `&` 这种位操作符来判断节点的 Layer 是否应该被观察到，且支持同时选择多个 Layer。具体内容可参考 [Camera — Visibility 属性](../../editor/components/camera-component.md#%E7%9B%B8%E6%9C%BA%E5%88%86%E7%BB%84%E6%B8%B2%E6%9F%93)。
 
 ## 引擎内置的层级
 
