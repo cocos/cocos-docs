@@ -1,8 +1,8 @@
-# layer
+# Layer
 
-The layer property is an unsigned 32-bit integer, supporting up to 32 different types of layer, with bits 20 - 30 set as the system default, leaving bits 00 - 19 for user custom. The Visibility property of the camera, like the layer property of a node, is used to control its visibility. The Visibility property of the camera supports the overlay of multiple layer states, using bitwise operators like ` | `, ` & ` to determine whether the node's layer should be observed.
+The ` Layer ` property is an unsigned 32-bit integer, supporting up to 32 different types of ` Layer `, with bits 20 - 30 set as the system default, leaving bits 00 - 19 for user custom. The ` Visibility ` property of the camera, like the ` Layer ` property of a node, is used to control its ` Visibility `. The ` Visibility ` property of the camera supports the overlay of multiple ` Layer ` states, using bitwise operators like ` | `, ` & ` to determine whether the node's ` Layer ` should be observed.
 
-## System default hierarchical attributes
+## System default hierarchical properties
 
 ![layer gizmo](scene/layer-gizmo.png)
 

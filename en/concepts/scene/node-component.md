@@ -74,9 +74,9 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 
 > **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
 
-## Set the layer and control its visibility
+## Setting the layer and controlling its visibility
 
-The engine uses more generic node and camera matching to control visibility based on the Visibility property of the camera and the layer property of the node. The visibility of components can be controlled more flexibly, allowing for a variety of groupings to be displayed. Also 3D and 2D components can be mixed for rendering.
+The engine uses more generic node and camera matching to control visibility based on the Visibility property of the camera and the layer property of the node. The visibility of components can be controlled more flexibly, allowing for a variety of groupings to be displayed. 3D and 2D components can be mixed for rendering.
 
 For details on the implementation of layers, please refer to the [layer](layer.md) documentation.
 
@@ -84,7 +84,7 @@ For details on the implementation of layers, please refer to the [layer](layer.m
 
 ![node layer gizmo](scene/node-layer-gizmo.png)
 
-This list can use either engine-exclusive layer attributes or user-defined layer attributes. layer attributes are global and unique, but different nodes can set the same layer attributes so that they are viewed by the same camera.
+This list can use either engine-exclusive layer attributes or user-defined layer attributes. Layer attributes are global and unique, but different nodes can set the same layer attributes so that they are viewed by the same camera.
 
 ### Custom layer attribute added
 
