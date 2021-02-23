@@ -1,6 +1,6 @@
 # Components and component execution order
 
-All classes inherited from [Component](../../../api/en/classes/component.component-1.html) are called __Component Classes__. The objects in a __Component Class__ are called __Components__. __Components__ are implement according to the __Cocos Creator__ __Entity Component (EC)__ system.
+All classes inherited from [Component](__APIDOC__/en/classes/component.component-1.html) are called __Component Classes__. The objects in a __Component Class__ are called __Components__. __Components__ are implement according to the __Cocos Creator__ __Entity Component (EC)__ system.
 
 The component class must inherit from a `cc` class. Example:
 
@@ -27,7 +27,7 @@ In contrast, __components__ must be created by nodes and added to nodes as follo
 const myComponent = node.addComponent(MyComponent);
 ```
 
-When the component is no longer needed, call the `node.removeComponent(myComponent)` method to remove the specified component and destroy it.
+When the component is no longer needed, call the `node.removeComponent(myComponent)` method to remove the specified component and destroy it. Example:
 
 ```ts
 import { Component } from "cc";

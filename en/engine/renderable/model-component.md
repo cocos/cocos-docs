@@ -2,11 +2,11 @@
 
 The __ModelComponent__ is used to display a static 3D model. Set the model grid through a mesh, and change the appearance of the model through material.
 
-To use `MeshRenderer`, please refer to the [MeshRenderer API](../../../api/en/classes/model.meshrenderer.html).
+To use `MeshRenderer`, please refer to the [MeshRenderer API](__APIDOC__/en/classes/model.meshrenderer.html).
 
 ## MeshRenderer Properties
 
-Properties | Functions
+Property | Functions
 :--- | :---
 **mesh** | 3D model assets for rendering.
 **materials** | The material used to render the model, one material corresponds to one submesh in the mesh.
@@ -25,9 +25,9 @@ The current static batching scheme is static batching at run time. Static batchi
 
 After batching, the original transform of `MeshRenderer` cannot be changed, but the transform of the root node after batching can be changed. Only nodes that meet the following conditions can be statically batched:
 
-  * The child node can only contain `MeshRenderer`.
-  * The vertex data structure of `Mesh` of `MeshRenderer` under child nodes must be consistent.
-  * The material of `MeshRenderer` under child nodes must be the same.
+- The child node can only contain `MeshRenderer`.
+- The vertex data structure of `Mesh` of `MeshRenderer` under child nodes must be consistent.
+- The material of `MeshRenderer` under child nodes must be the same.
 
 ## About dynamic batching
 
@@ -45,7 +45,7 @@ In addition, inside each group, the instanced attributes supports custom additio
 
 ### VB-merging batching
 
-__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches. <sup id="a1">[1](#f1)</sup>.
+__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches <sup id="a1">[1](#f1)</sup>.
 
 Operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. In addition, it is necessary to remind that the number of __draw calls__ is not as low as possible. Although, it is important to note, minimizing the number of draw calls to the extreme doesn't necessarily lead to the best (or even good) performance <sup id="a2">[2](#f2)</sup>. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
 
@@ -54,9 +54,10 @@ Operations such as merging vertices per frame introduce a portion of CPU overhea
 Generally speaking, the priority of the batch system is: **static batching** -> **instancing batching** -> **VB-merging batching**.
 
 The material must be insured that it is consistent, under this premise:
-  - If you are certain that certain models will remain completely static during the game cycle, use **static batching**.
-  - If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use **instancing batching**.
-  - If there are a large number of models with very low number of triangles but different vertex data, consider trying **VB-merging batching**.
+
+- If you are certain that certain models will remain completely static during the game cycle, use **static batching**.
+- If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use **instancing batching**.
+- If there are a large number of models with very low number of triangles but different vertex data, consider trying **VB-merging batching**.
 
 > **Notes**:
 > 1. <b id="f1">[1]</b> Currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__. [↩](#a1)

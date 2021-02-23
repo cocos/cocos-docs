@@ -2,19 +2,17 @@
 
 ![index](index/index.png)
 
-**控制台** 输出编辑器或引擎信息，信息类型有 log 日志、warn 警告、error 报错。不同类型的信息会以不同颜色显示。
+**控制台** 输出编辑器或引擎信息，信息类型包括 **log 日志**、**warn 警告** 和 **error 报错**。不同类型的信息会以不同颜色显示。
 
-显示的颜色如下
-
-- `console.log()`：输出日志，<font color=#b6b6b6>灰色文字</font>，编辑器以及插件内开发者觉得有必要打印到控制台的内容。
+- `console.log()`：输出日志，<font color=#b6b6b6>灰色文字</font>，通常用来显示正在进行的操作。
 
   ![log](index/log.png)
 
-- `console.warn()`：输出警告，<font color=#ebbe09>黄色文字</font>，程序运行遇到的不影响结果的异常情况。
+- `console.warn()`：输出警告，<font color=#ebbe09>黄色文字</font>，用于提示开发者最好进行处理的异常情况，但不处理也不会影响运行。
 
   ![warn](index/warn.png)
 
-- `console.error()`：输出错误，<font color=#dd3c43>红色文字</font>，运行中遇到的会影响结果的异常，严重级别最高。
+- `console.error()`：输出错误，<font color=#dd3c43>红色文字</font>，表示出现了严重错误，必须解决才能进行下一步操作或者运行游戏。
 
   ![error](index/error.png)
 
@@ -32,41 +30,45 @@
 
 ## 参数设置
 
-控制台的一些参数在偏好设置里配置，请参考 [偏好设置](../preferences/index.md) 里的扩展设置。
+控制台的一些参数可在 **偏好设置 -> 控制台** 中配置，包括是否显示日期，调整文字大小。
 
 ![preferences](index/preferences.png)
 
-## 内容的输出规则
+## 自定义输出信息
 
-为了方便定位文件、节点或资源，提供跳转到帮助文档，需要对内容进行了一些识别，添加动作，具体需求包括：
+为了方便定位文件、节点或资源，或者提供跳转到帮助文档的链接等，Cocos Creator 支持在编辑器主菜单的 **开发者 -> 开发人员工具** 中自定义输出到 **控制台** 的日志，目前支持输出以下内容：
 
-- 根据 url 跳转链接
-- 根据 url 显示图片
-- 根据 url 或 uuid 定位到 Asset 资源
-- 根据 uuid 定位到 Node 节点
+- 根据 URL 跳转链接
+- 根据 URL 显示图片
+- 根据 URL 或 UUID 定位到 Asset 资源
+- 根据 UUID 定位到 Node 节点
 - 根据磁盘文件路径 path 定位到脚本文件
 - 输出对应语言的文案
 
 ### 数据格式
 
+根据输出内容的不同，输入的数据格式包括以下两种：
+
 - `{type[text](url)}`
 - `{type(text | url | uuid | path)}`
 
-### 数据格式说明
+数据格式说明如下：
 
 - 整体匹配 `{}` 中的字符；
-- `[text]` 为扩展入参，选填；
+- `[text]`：扩展入参，选填；
 - `type` 存在时，不区分大小写；
 - `type` 不存在时，原数据输出；
 
 - `types` 包括：
-  - `link` 外部跳转链接
-  - `image` 显示图片
-  - `asset` 定位到资源
-  - `node` 定位到节点
-  - `i18n` 多语言翻译
+    - `link`：外部跳转链接
+    - `image`：显示图片
+    - `asset`：定位到资源
+    - `node`：定位到节点
+    - `i18n`：多语言翻译
 
 ### 示例
+
+打开编辑器主菜单中的 **开发者 -> 开发人员工具**，然后输入：
 
 ```sh
 console.log('Open {link[the help doc url](https://docs.cocos.com/creator/manual/en/editor/console/)}');
@@ -79,6 +81,6 @@ console.log('Show image {image(https://forum.cocos.org/images/logo.png)}');
 console.log('Translate: {i18n(console.description)}');
 ```
 
-效果如下图：
+可以在 **控制台** 中看到输出的日志：
 
 ![content](index/content.png)

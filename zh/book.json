@@ -48,10 +48,10 @@
         ],
         "version": [
             {
-                "name": "3.0 Preview",
+                "name": "3.0",
                 "links": [
                     {
-                        "name": "3.0 Preview",
+                        "name": "3.0",
                         "link": "https://docs.cocos.com/creator/3.0/manual/zh"
                     },
                     {

@@ -31,11 +31,11 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode： [API 传送门](../../../api/zh/classes/event.eventkeyboard-1.html)
-    - Event：[API 传送门](../../../api/zh/classes/event.event-1.html)
+    - KeyCode： [API 传送门](__APIDOC__/zh/classes/event.eventkeyboard-1.html)
+    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from "cc";
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -50,7 +50,7 @@ export class Example extends Component {
         systemEvent.off(SystemEventType.KEY_UP, this.onKeyUp, this);
     }
 
-    onKeyDown (event: EventMouse) {
+    onKeyDown (event: EventKeyboard) {
         switch(event.keyCode) {
             case macro.KEY.a:
                 console.log('Press a key');
@@ -58,7 +58,7 @@ export class Example extends Component {
         }
     }
 
-    onKeyUp (event: EventMouse) {
+    onKeyUp (event: EventKeyboard) {
         switch(event.keyCode) {
             case macro.KEY.a:
                 console.log('Release a key');
@@ -74,10 +74,10 @@ export class Example extends Component {
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`
 - 回调参数：
-    - Event：[API 传送门](../../../api/zh/classes/event.event-1.html)
+    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventMouse, macro, log } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, log } from "cc";
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -97,4 +97,4 @@ export class Example extends Component {
 }
 ```
 
-完整范例可参考 [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/event) 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。
+完整范例可参考 [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。

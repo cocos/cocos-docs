@@ -6,9 +6,9 @@ Before creating an __Animation__, you must first add an __Animation Component__ 
 
 __Cocos Creator__ is a component structure, and __Animation__ is no exception. It is also a component on the node. Only after adding an __Animation Component__ to the node can the node be given the ability to participate in the animation. Therefore, after clicking on the relevant node, if the node does not have an __Animation Component__, the **Add Animation Component** button will be displayed on the interface of the __Animation Editor__, __click__ to __add__.
 
-![](./animation/add-component.png)
+![add-component](./animation/add-component.png)
 
-To use `Animation`, please refer to the [Animation API](../../../api/en/classes/animation.animation-1.html).
+To use `Animation`, please refer to the [Animation API](__APIDOC__/en/classes/animation.animation-1.html).
 
 ## Clip Animation clip
 

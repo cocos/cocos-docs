@@ -24,11 +24,9 @@ When you select the native platform you want to build in the **Platform** option
 
 #### Template
 
-There are two types of available engine templates in the dropdown menu of **Template**, from which we can choose one:
+Currently, the engine template available in **Template** is **Link**.
 
-- **Default** - build the project with the **Cocos2d-x** source-code version engine.
-
-- **Link** - unlike the **Default** template, the **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
+The **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
 
 > **About Source Engine**
 >
@@ -36,7 +34,7 @@ There are two types of available engine templates in the dropdown menu of **Temp
 > - The first time the source code engine builds and compiles a project, it takes a long time to compile C++ code, depending on the configuration of the computer, which may take 5~20 minutes. After the same project has been compiled once, the time required for the next recompile is greatly shortened.
 > - The projects built by the source code engine, compiled and run using native development environment (such as Android Studio, Xcode, etc. IDE), and also can be debugged and error trapped.
 
-Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources/3d/cocos2d-x-lite` folder.
+Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder.
 
 #### Polyfills
 
@@ -160,8 +158,7 @@ After the build, we get a standard Cocos2d-x project, with the same structure as
 ![native directory](publish-native/native-directory.png)
 
 - `assets`: places project resources.
-- `build`: places the currently built native platform project, which can be used by the IDE of the corresponding platform to perform compilation tasks. Except for the Android platform, the Android platform's native project is generated in the `proj` directory.
-- `proj`: place required resources for compilation, such as application icons, application startup scripts, etc.
+- `proj`: places the currently built native platform project, which can be used by the IDE of the corresponding platform to perform compilation tasks.
 - `cocos.compile.config.json`: place the compile option json for current build.
 
 For more information, please refer to [Build Directory -- Native](../../release-notes/upgrade-guide-v3.0.md#native).
@@ -174,7 +171,7 @@ Cocos Creator supports **Make** and **Run Preview** steps via the editor or the 
 
 ### By the Editor
 
-Click the **Make** button on the **Build Task** window to enter the compile process, if the template chooses the **default** source code engine, this compilation process will take a long time. When the compilation is successful, it will prompt:
+Click the **Make** button on the **Build Task** window to enter the compile process. When the compilation is successful, it will prompt:
 
 `make package YourProjectBuildPath success!`
 

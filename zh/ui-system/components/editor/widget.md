@@ -1,19 +1,19 @@
 # Widget 组件参考
 
-Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。对齐方案详细说明请参考[对齐方案](../engine/widget-align.md)
+Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。对齐方案详细说明请参考 [对齐方案](../engine/widget-align.md)
 
 ![default](widget/widget-default.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Widget** 即可添加 Widget 组件到节点上。
 
-对齐挂件的脚本接口请参考 [Widget API](../../../api/zh/classes/ui.widget.html)。
+对齐挂件的脚本接口请参考 [Widget API](__APIDOC__/zh/classes/ui.widget.html)。
 
 关于使用可以参考 test-cases-3d 里的 [Widget](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/04.widget) 相关。
 
 ## 选项
 
 选项     | 说明      | 备注
---      | --        | --
+:--     | :--      | :--
 Top     | 对齐上边界 | 选中后，将在旁边显示一个输入框，用于设定当前节点的上边界和父物体的上边界之间的距离。
 Bottom  | 对齐下边界 | 选中后，将在旁边显示一个输入框，用于设定当前节点的下边界和父物体的下边界之间的距离。
 Left    | 对齐左边界 | 选中后，将在旁边显示一个输入框，用于设定当前节点的左边界和父物体的左边界之间的距离。

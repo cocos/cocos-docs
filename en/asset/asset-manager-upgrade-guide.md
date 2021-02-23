@@ -15,7 +15,7 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, all APIs in the `loader` module that were used in the original code need to be changed to APIs from `assetManager`. The related content will be described in detail in this document.
 
-**Note**: As v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
+> **Note**: as v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
 
 ## Situations that require upgrading manually
 
@@ -74,7 +74,7 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
   resources.loadDir(...);
   ```
 
-  **Note**: To simplify the interface, the load completion callback for `resources.loadDir` will **no longer** provide a list of paths. Please avoid using the following:
+  > **Note**: to simplify the interface, the load completion callback for `resources.loadDir` will **no longer** provide a list of paths. Please avoid using the following:
 
   ```typescript
   loader.loadResDir('images', Texture2D, (err, assets, paths) => console.log(paths));
@@ -123,11 +123,9 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
     assetManager.loadRemote('http://example.com/equipment.txt', (err, textAsset) => console.log(textAsset.text));
     ```
 
-**Note**:
-
-1. If you use `loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
-
-2. To avoid unnecessary errors, `loader.onProgress` has no equivalent implementation in `assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
+> **Notes**:
+> 1. If you use `loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
+> 2. To avoid unnecessary errors, `loader.onProgress` has no equivalent implementation in `assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
 
 #### The relevant interface replacement about releasing
 
@@ -135,7 +133,9 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
 - **loader.release**
 
-  `loader.release` can be replaced with `assetManager.releaseAsset`. **Note**: In order to avoid user attention to some obscure properties of the resource, `assetManager.releaseAsset` **no longer** accepts arrays, resource UUIDs, resource URLs for release, only the resource itself can be accepted for release.
+  `loader.release` can be replaced with `assetManager.releaseAsset`.
+
+  > **Note**: in order to avoid user attention to some obscure properties of the resource, `assetManager.releaseAsset` **no longer** accepts arrays, resource UUIDs, resource URLs for release, only the resource itself can be accepted for release.
 
   ```typescript
   // before
@@ -161,7 +161,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   assetManager.releaseAsset(texture);
   ```
 
-  **Note**: To increase ease of use, releasing resource dependencies in `assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `assetManager.releaseAsset` to automatically release the associated dependencies, for example:
+  > **Note**: to increase ease of use, releasing resource dependencies in `assetManager` will **no longer require** manual access to resource dependencies, and an attempt will be made within `assetManager.releaseAsset` to automatically release the associated dependencies, for example:
 
   ```typescript
   // before
@@ -208,13 +208,10 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   assetManager.releaseAll();
   ```
 
-**Note**:
-
-1. For security reasons, `loader.releaseResDir` does not have a corresponding implementation in `assetManager`, please use `assetManager.releaseAsset` or `resources.release` for individual resource releases.
-
-2. Since the `assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `assetManager.dependUtil`.
-
-3. For security reasons, `assetManager` only supports the Auto Release property set in the scene, and `loader.setAutoRelease`, `loader.setAutoReleaseRecursively`, `loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](release-manager.md) documentation for details.
+> **Notse**:
+> 1. For security reasons, `loader.releaseResDir` does not have a corresponding implementation in `assetManager`, please use `assetManager.releaseAsset` or `resources.release` for individual resource releases.
+> 2. Since the `assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `assetManager.dependUtil`.
+> 3. For security reasons, `assetManager` only supports the Auto Release property set in the scene, and `loader.setAutoRelease`, `loader.setAutoReleaseRecursively`, `loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](release-manager.md) documentation for details.
 
 #### Extension-related interface replacements
 
@@ -274,15 +271,11 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   assetManager.pipeline.append(pipe2);
   ```
 
-  **Note**:
-
-  1. `assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `assetManager`. Please refer to the [Pipeline and Task](pipeline-task.md) documentation for details.
-
-  2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](pipeline-task.md) documentation for details.
-
-  3. In order to simplify the logic and improve performance, what is processed in Pipe is no longer a `item` but a `task` object, see [Pipeline and Task](pipeline-task.md) documentation for details.
-
-  4. In order to reduce learning costs, APIs in the form of `insertPipeAfter` are no longer supported in `Pipeline`, so please use `insert` to insert the specified location.
+  > **Notes**:
+  > 1. `assetManager` **no longer** inherits by `Pipeline`, but by multiple `Pipeline` instances owned under `assetManager`. Please refer to the [Pipeline and Task](pipeline-task.md) documentation for details.
+  > 2. For ease of use, the definition of Pipe no longer requires the definition of an object with a `handle` method and an `id`, just a single method. See [Pipeline and Task](pipeline-task.md) documentation for details.
+  > 3. In order to simplify the logic and improve performance, what is processed in Pipe is no longer a `item` but a `task` object, see [Pipeline and Task](pipeline-task.md) documentation for details.
+  > 4. In order to reduce learning costs, APIs in the form of `insertPipeAfter` are no longer supported in `Pipeline`, so please use `insert` to insert the specified location.
 
 - **addDownloadHandlers, addLoadHandlers**
 
@@ -326,19 +319,16 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
   assetManager.parser.register('.png', customHandler);
   ```
 
-  **Note**:
-
-  1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
-
-  2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Download and Parse](downloader-parser.md) documentation.
-
-  3. The new expansion mechanism provides an additional `options` parameter that can greatly increase flexibility. However, if you don't need to configure the engine's built-in or custom parameters, you can ignore it. Please refer to the [Optional parameter](options.md) documentation for details.
+  > **Notes**:
+  > 1. Since both the **download module** and the **parsing module** rely on **extensions** to match the corresponding processing method. So when calling `register`, the incoming first parameter needs to start with `.`.
+  > 2. For the sake of modularity, the custom processing method will no longer pass in an `item` object, but will pass in its associated information directly. The custom processing method of `downloader` passes in **the URL to be downloaded**, and `parser` passes in **the file to be parsed**. For more information about `downloader` and `parser`, please refer to the [Download and Parse](downloader-parser.md) documentation.
+  > 3. The new expansion mechanism provides an additional `options` parameter that can greatly increase flexibility. However, if you don't need to configure the engine's built-in or custom parameters, you can ignore it. Please refer to the [Optional parameter](options.md) documentation for details.
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
-  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](../../../api/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](../../../api/en/classes/asset_manager.assetmanager.html#parser).
+  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](__APIDOC__/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](__APIDOC__/en/classes/asset_manager.assetmanager.html#parser).
 
-  **Note**: For performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
+  > **Note**: for performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
 
 ### Other changes
 
@@ -367,7 +357,7 @@ function pipe1 (task, cb) {
 const pipeline = new AssetManager.Pipeline('test', [pipe1]);
 ```
 
-**Note**: `LoadingItem` is no longer supported in `assetManager`, please avoid using this type.
+> **Note**: `LoadingItem` is no longer supported in `assetManager`, please avoid using this type.
 
 To support more loading strategies, `macro.DOWNLOAD_MAX_CONCURRENT` has been removed from `macro` and you can replace it with the following:
 

@@ -18,6 +18,12 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
 
 - [动画剪辑](./animation-clip.md)
 
+动画状态提供了控制动画播放的低级接口：
+
+- [动画状态](./animation-state.md)
+
 骨骼动画是一种常见但类型特殊的动画，相关详细说明参考：
 
 - [骨骼动画](./skeletal-animation.md)
+
+**动画编辑器** 的使用请参考 [动画系统](../../editor/animation/index.md)。

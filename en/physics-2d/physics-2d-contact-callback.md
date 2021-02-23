@@ -112,7 +112,7 @@ The callback parameters contain all the collision contact information, and each 
 
 - **selfCollider**: refers to the collider on the node of the callback script.
 - **otherCollider**: refers to the other collider.
-- **contact**: it's an interface of the class [PhysicsContact](../../../api/en/classes/physics2d.box2d.physicscontact.html). Contains the most important information about the collision. Some useful information in **contact** object are location of the collision and the normal vector. **contact** store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
+- **contact**: it's an interface of the class [PhysicsContact](__APIDOC__/en/classes/physics2d.box2d.physicscontact.html). Contains the most important information about the collision. Some useful information in **contact** object are location of the collision and the normal vector. **contact** store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
 
 ### worldManifold
 
@@ -132,7 +132,7 @@ const normal = worldManifold.normal;
 
   ![world-manifold-points](./image/world-manifold-points.png)
 
-  >__Note__: not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
+  > __Note__: not every collision will have two contact points, in more simulation cases only one contact point will be produced. The following lists some other examples of the collision.
 
   ![collision-points-1](./image/collision-points-1.png)
 

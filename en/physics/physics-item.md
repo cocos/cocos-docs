@@ -4,9 +4,9 @@ In the panel **Project -> Project Settings -> Module Options** of the Editor, yo
 
 ![Physics Engine Options](img/physics-module.jpg)
 
-> **Note**: the default is `cannon.js` physics engine.
-
-> **Note**: the physics engine can be switched at will during development.
+> **Notes**:
+> 1. The default is `ammo.js` physics engine.
+> 2. The physics engine can be switched at will during development.
 
 ## Collision Detection: builtin
 

@@ -1,6 +1,6 @@
 # Publish to vivo Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
 ## Environment Configuration
 
@@ -64,7 +64,7 @@ There are two ways to generate a signature files:
 
 ## Run the rpk
 
-![](./vivo-mini-game/rpk.png)
+![rpk](./vivo-mini-game/rpk.png)
 
 There are three ways to run rpk on your phone:
 
@@ -72,11 +72,11 @@ There are three ways to run rpk on your phone:
 
     Click the **Run** button at the bottom right of the `vivo-mini-game` build task in the **Build** panel and wait for the QR Code interface to be generated:
 
-    ![](./vivo-mini-game/play.jpg)
+    ![play](./vivo-mini-game/play.jpg)
 
     Then open the **Quick App & vivo Mini Game Debugger** that was installed before on your Android device. Click the **Scan code install** button to scan the QR Code to open the **rpk**.
 
-    ![](./vivo-mini-game/vivo-instant_scan_install.jpg)
+    ![vivo-instant_scan_install](./vivo-mini-game/vivo-instant_scan_install.jpg)
 
 - **Method Two**
 
@@ -84,7 +84,7 @@ There are three ways to run rpk on your phone:
 
     Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your mobile phone and select Open.
 
-    ![](./vivo-mini-game/vivo-instant_native_install.jpg)
+    ![vivo-instant_native_install](./vivo-mini-game/vivo-instant_native_install.jpg)
 
 - **Method Three**
 

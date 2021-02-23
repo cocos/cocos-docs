@@ -43,17 +43,25 @@ hello-world
 }
 ```
 
-现在需要在 contributions 内定义一个 messages 对象，这是编辑器消息注册的方法。这个消息可以绑定一个或多个的扩展内定义的方法。
+其中字段含义如下：
 
-更多定义数据请参考 [消息通信](./contributions-messages.md)
+- `name` String - 定义了包的名字，包的名字是全局唯一的，关系到今后在官网服务器上登录时的名字
 
-然后需要在 contributions 内再定义一个 menu 数组，向 menu 组件提供一个菜单的基础信息。
+  > **注意**：插件若要上传到 Cocos Store，对包名有一定的限制，只允许使用 **小写字母**、**数字**，**连字符（`-`）**、**下划线（`_`）** 和 **点（`.`）**，并以 **小写字母** 或 **数字** 开头。
 
-最后将这个菜单绑定到一条的消息。更详细的请参考：[扩展主菜单](./contributions-menu.md)
+- `version` String - 版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
+- `main` String (可选) - 入口文件
+- `description` String（可选） - 一句话描述你的包是做什么的
+- `contributions` Object (可选) - 对编辑器已有功能进行扩展的配置对象
+
+现在需要在 contributions 内定义一个 `messages` 对象，这是编辑器消息注册的方法，这个消息可以绑定一个或多个的扩展内定义的方法。更多
+定义数据请参考 [消息通信](./contributions-messages.md)。
+
+然后需要在 contributions 内再定义一个 `menu` 数组，向 menu 组件提供一个菜单的基础信息，最后将这个菜单绑定到一条的消息。具体内容请参考 [扩展主菜单](./contributions-menu.md)。
 
 细心的你可能发现了，菜单按下后，触发的动作是通过扩展间的消息进行通知的，消息系统是扩展间交互的方式。
 
-关于详细的 package.json 格式定义，请参考 [扩展定义](./define.md)。
+关于详细的 `package.json` 格式定义，请参考 [扩展定义](./define.md)。
 
 ## 入口程序 browser.js
 
@@ -72,10 +80,10 @@ exports.methods = {
 };
 
 // 当扩展被启动的时候执行
-exports.load = {};
+exports.load = function() {};
 
 // 当扩展被关闭的时候执行
-exports.unload = {};
+exports.unload = function() {};
 ```
 
 这份入口程序会在 Cocos Creator 的启动过程中被加载。methods 内定义的方法，将会作为操作的接口，通过 [消息系统](./messages.md) 跨扩展调用，或者是和面板通信。

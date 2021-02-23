@@ -1,4 +1,4 @@
-# Graphics Render
+# Graphics Rendering
 
 ||||
 |:-|:-|:-|

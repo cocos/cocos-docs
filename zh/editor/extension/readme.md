@@ -1,7 +1,6 @@
 # 扩展编辑器
 
-本章主要介绍一些编辑器的扩展功能。
-大家可以通过下面的导航跳转到自己感兴趣的章节。
+本章主要介绍一些编辑器的扩展功能。大家可以通过下面的导航跳转到自己感兴趣的章节。
 
 - [第一个扩展包](./first.md)
 - [安装与分享](./install.md)
@@ -13,7 +12,9 @@
 - [扩展已有功能](./contributions.md)
   - [消息通信](./contributions-messages.md)
   - [快捷键](./contributions-shortcuts.md)
+  - [场景脚本](./scene-script.md)
   - [扩展主菜单](./contributions-menu.md)
+  - [扩展资源管理器面板](../assets/extension.md)
 - [基础功能](./basic.md)
   - [插件系统](./package.md)
   - [消息系统](./messages.md)

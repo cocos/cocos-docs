@@ -1,6 +1,6 @@
 # 扩展构建流程
 
-构建平台插件首先是需要一个普通的编辑器插件格式，关于插件的基本结构可以参考 [插件系统](../extension/install.md)。扩展构建功能首先需要对构建的整体处理流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
+构建平台插件首先是需要一个普通的编辑器插件格式，关于插件的基本结构可以参考 [第一个扩展](../extension/first.md)。扩展构建功能首先需要对构建的整体处理流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
 
 ## 快速开始
 
@@ -61,7 +61,7 @@ export const configs: IConfigs = {
                         placeholder: 'Enter remote address...',
                     },
                 },
-                // 校验规则，目前内置了几种常用的校验规则。如果有需要自定义的规则可以在 verifyRuleMap 字段中配置
+                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 "verifyRuleMap" 字段中配置
                 verifyRules: ['require', 'http'],
             },
             enterCocos: {
@@ -110,36 +110,36 @@ declare interface IBuildPlugin {
 }
 declare type IDisplayOptions = Record<string, IConfigItem>;
 declare interface IConfigItem {
-    // 默认值，注册的默认值将会在插件自身配置里的 options.[platform].xxx 字段内
+    // 默认值，注册的默认值将会在插件自身配置里的 "options.[platform].xxx" 字段内
     default?: any;
 
     render: ?{
-        // 渲染 ui 组件规则，与 ui-prop 处统一规则一致，只有指定了 ui 属性的配置才会在构建配置面板上显示
+        // 渲染 UI 组件规则，与 "ui-prop" 处统一规则一致，只有指定了 UI 属性的配置才会在构建配置面板上显示
         ui?: string;
-        // 传给 ui 组件的配置参数
+        // 传给 UI 组件的配置参数
         attributes?: IUiOptions;
     };
 
-    // 配置显示的名字，如果需要翻译，则传入 i18n:${key}
+    // 配置显示的名字，如果需要翻译，则传入 "i18n:${key}"
     label?: string;
 
-    // 设置的简单说明，将会显示在配置名称的鼠标上移 title 上
+    // 设置的简单说明，当鼠标上移到配置名称时会显示在 title 中
     description?: string;
 
     // 配置的类型
     type?: 'array' | 'object';
 
-    // 如果 type 是 array，则会按照指定数据类型和 itemConfigs 来渲染数据
+    // 如果 type 是 array，则会按照指定数据类型和 "itemConfigs" 来渲染数据
     itemConfigs?: Record<string, IConfigItem> | IConfigItem[];
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    // 校验规则数组，构建提供一些基础规则，也可以通过 verifyRuleMap 来指定新的校验规则，只有当传入 require 时才会做无值的校验，否则仅存在值时才校验
+    // 校验规则数组，构建提供一些基础规则，也可以通过 "verifyRuleMap" 来指定新的校验规则，只有当传入 "require" 时才会做无值的校验，否则仅存在值时才校验
     verifyRules?: string[];
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    class?: string | string[]; // 需要设置在当前 ui-prop 上的样式名称
+    class?: string | string[]; // 需要设置在当前 "ui-prop" 上的样式名称
 }
 ```
 

@@ -43,7 +43,7 @@ hello-world.zip
 
 - First, click __Extension -> Extension Manager__ in the top menu bar of the editor to open the __Extension Manager__ panel.
 
-  ![](image/extension-manager.png)
+  ![extension-manager](image/extension-manager.png)
 
 - Then select the __Project/Global__ tab in the __Extension Manager__, click the __+__ button, select the packaged extension `.zip` file in the pop-up file selection window, and click __Open__. The imported extension `.zip` file will be unpacked and placed in the specified location (__Project__/__Global__ extensions path).
 

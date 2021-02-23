@@ -6,7 +6,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/Sprite** 即可添加 Sprite 组件到节点上。
 
-图像的组件接口请参考 [Sprite API](../../../api/zh/classes/ui.sprite.html)。
+图像的组件接口请参考 [Sprite API](__APIDOC__/zh/classes/ui.sprite.html)。
 
 关于使用可以参考 test-cases-3d 里的 [sprite](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/01.sprite) 相关。
 
@@ -15,7 +15,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 | 属性 |   功能说明
 | :-------------- | :----------- |
 | Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式
-| Materials | 自定义材质，使用方法参考 [UI 自定义材质](../engine/ui-material.md)
+| CustomMaterial | 自定义材质，使用方法参考 [自定义材质](../engine/ui-material.md)
 | Src Blend Factor | 当前图像混合模式
 | Dst Blend Factor | 背景图像混合模式，和上面的属性共同作用，可以将前景和背景 Sprite 用不同的方式混合渲染，效果预览可以参考 [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php)
 | Color | 图片颜色

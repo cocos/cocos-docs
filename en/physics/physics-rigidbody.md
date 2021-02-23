@@ -1,8 +1,10 @@
 # RigidBody Component
 
-**RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react. The RigidBody component is invalid when using the **Builtin** physics engine.
+**RigidBody** is the basic object that make up a physics world, and it can make a node physically affected and react.
 
-![](img/rigidbody-prop.png)
+The **RigidBody** component is used to control the properties associated with the simulation.
+
+![rigidbody-prop](img/rigidbody-prop.png)
 
 Click the **Add Component -> Physics Component -> RigidBody** button at the bottom of the **Inspector** panel to add the RigidBody component to the node.
 
@@ -19,7 +21,7 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 | **Linear Factor**   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
 | **Angular Factor**  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
 
-For more information, please refer to the [RigidBody API](../../../api/en/classes/physics.rigidbody.html).
+For more information, please refer to the [RigidBody API](__APIDOC__/en/classes/physics.rigidbody.html).
 
 ### Obtaining a RigidBody
 

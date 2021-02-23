@@ -27,7 +27,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 
 - The second to note is that compared to previous Cocos2d-JS, dynamic loading of resources in Creator is **asynchronous**, you need to get the loaded resources in the callback function. This is done because in addition to the resources associated with the scene, Creator has no additional resources preload list, and the dynamically loaded resources are really dynamically loaded.
 
-  **Note**: As of v2.4, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
+  > **Note**: as of v2.4, the `loader` interface is deprecated, please use `assetManager` instead. You can refer to the [Asset Manager Upgrade Guide](asset-manager-upgrade-guide.md) documentation for details.
 
 ### Loading a SpriteFrame or a Texture2D
 
@@ -62,6 +62,31 @@ For an atlas imported from a third-party tool such as Texturepacker, if you want
 resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
     const frame = atlas.getSpriteFrame('sheep_down_0');
     this.node.getComponent(Sprite).spriteFrame = frame;
+});
+```
+
+### Load resources in the FBX or glTF model
+
+After importing the FBX model or glTF model into the editor, it will parse out the related resources which includes meshes, materials, skeletons, animations, etc. contained in the model, as shown in the following figure.
+
+![model](./load-assets/model.png)
+
+It is possible to dynamically load a single resource in the model at runtime by simply specifying the path to a specific sub-resource, as follows.
+
+```typescript
+// Load the mesh in the model
+resources.load("Monster/monster", Mesh, (err, mesh) => {
+    this.node.getComponent(MeshRenderer).mesh = mesh;
+});
+
+// Load the material in the model
+resources.load("Monster/monster-effect", Material, (err, material) => {
+    this.node.getComponent(MeshRenderer).material = material;
+});
+
+// Load the skeleton in the model
+resources.load("Monster/Armature", Skeleton, (err, skeleton) => {
+    this.node.getComponent(SkinnedMeshRenderer).skeleton = skeleton;
 });
 ```
 

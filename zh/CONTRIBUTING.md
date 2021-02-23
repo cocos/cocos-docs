@@ -8,6 +8,29 @@
 
 一般情况下，不要跳级使用标题，例如一级标题下，不能直接出现三级标题。
 
+## 关于产品名的写法
+
+1. Cocos Creator
+2. Cocos Creator 2.4.3
+3. v2.4.3
+4. v3.0
+5. The engine (where refer to the runtime)
+6. The editor (where refer to the IDE)
+
+**版本**：
+
+- 2.4.3 (3.0.0)
+- 2.4.3 Preview (GA/RC/Alpha/Beta ...)
+- 2.4.x (3.0.x)
+- 2.4 (3.0)
+- 2.x (3.x)
+
+**不要使用以下写法**：
+
+1. CCC or ccc
+2. Cocos (where refer to Cocos Creator)
+3. IDE (where refer to Cocos Creator)
+
 ## 专有英文名词、组件名使用正确的首字母大写
 
 正确：
@@ -84,7 +107,7 @@
 
 跳转链接格式：**[跳转的文档名称]\(跳转的文档目录)**。使用半角（halfwidth）英文标点，且 [] 与 () 之间不要有空格
 
-> e.g：[Mask API]\(../../../api/zh/classes/Mask.html)。跨文档的文件名后缀要使用 **.html**
+> e.g：[Mask API]\(__APIDOC__/zh/classes/Mask.html)。跨文档的文件名后缀要使用 **.html**
 
 ## 使用加粗且和相邻的正文之间加空格
 

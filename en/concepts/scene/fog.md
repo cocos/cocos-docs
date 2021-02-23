@@ -1,70 +1,87 @@
-## Global fog type
+# Global Fog
 
-Four types of global fog are provided inside the engine:
+Global fog is used to simulate fog effects in outdoor environments in video games. In addition to fog representation in video games, it can also be used to hide the model outside the camera's far clipping plane to improve rendering performance.
 
-1. Linear Fog
-2. Exponential Fog
-3. Exponential Squared Fog
-4. Layered Fog
+Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **Fog** component of the **Inspector** panel to enable global fog.
 
-The global fog function is used to obtain different fog effects with the fogging mixing factor affecting globally the model vertices, to get different global fog effects.
+![image](./fog/enable-fog.png)
 
-## Open method
+## Types of Global Fog
 
-![image](./fog/fogInspector.png)
+The type of global fog depend on the result of the calculation of **Camera** and **Model Vertices**, which is called the **Fog Blend Factor**. The fog blend factor determines how the fog colors and model colors are blended, resulting in a different global fog effect. Currently there are four fog types including **LINEAR**, **EXP**, **EXP_SQUARED**, and **LAYERED**.
 
-Click on the scene node in the hierarchy panel, expand the fog option in the inspector panel, check the `Enabled` property to enable the global fog function, and set the type of global fog. You can set the color of the global fog through `FogColor`.
+### Linear
 
-## Different types of use
+| Property | Description |
+| :---| :--- |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
+| **Type** | The type of the global fog |
+| **FogStart** | The starting position of the fog effect |
+| **FogEnd** | The end position of the fog effect |
 
-### Linear Fog
+The fog blend factor of Linear Fog is calculated by the following formula:
 
+**f = (FogEnd - Cam_dis) / (FogEnd - FogStart)**
+
+- When `Cam_dis = FogEnd`, i.e., the distance between the camera and the model vertex is equal to FogEnd, the blend factor is calculated as 0, and the object is fully fogged.
+
+- When `Cam_dis = FogStart`, i.e. the distance between the camera and the model vertex is equal to FogStart, the blend factor is calculated as 1, and the object is not affected by fogging.
+
+To increase the density of Linear Fog when the distance between the camera and the model vertex is fixed, there are two ways:
+
+1. fix the value of `FogStart` and decrease the value of `FogEnd`.
+2. Decrease the value of `FogStart` and fix the value of `FogEnd`.
+
+To adjust the fog effect to the right consistency, it is best to adjust both the `FogStart` and `FogEnd` properties appropriately. An example effect of Linear Fog is shown below：
 
 ![image](./fog/linear_fog.png)
 
-The linear fog mixing factor is calculated in the following way:
+### Exponential and Exponential Squared
 
-`` f = (FogEnd - Cam_dis) / (FogEnd - FogStart)；``
+![exp-properties](. /fog/exp-properties.png)
 
-That is:
+| Property | Description |
+| :---| :--- |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
+| **Type** | The type of the global fog |
+| **FogDensity** | The fog density, in the range 0 ~ 1 |
+| **FogAtten** | Fog attenuation coefficient |
 
-When Cam_dis = `FogEnd`, the mixing factor is 0, all objects are covered by fog,
+The fog blend factor for Exponential Fog is calculated as
 
-When Cam_dis = `FogStart`, the mixing factor is 1, the objects are not affected by any fog.
+**f = e^(-distance * fogDensity)**
 
-If you want to increase the concentration of Linear Fog, there are two ways:
+The fog blend factor for Exponential Squared Fog is calculated as
 
-1. Fixing the `FogStart` value and reducing `FogEnd` value.
-2. Fixing the `FogEnd` value and reducing `FogStart` value.
+**f = e^(-distance * fogDensity)²**
 
-To achieve project results, `FogStart` and `FogEnd` need to be adjusted appropriately.
+Developers can use `FogDensity` and `FogAtten` to adjust the density of global fog at different locations.
 
-### Exponential Fog and Exponential Squared Fog
+An example effect of Exponential Fog is shown below.
 
 ![image](./fog/expfog.png)
 
-The mixing factor f of Exponential Fog is obtained in the following way:
+### Layered
 
-`` f = e^(-distance * fogDensity) ``
+Layered Fog is parallel to the horizontal plane and has a specific height. The height of the fog can be determined by setting the top of the Layered Fog at any position in the vertical direction of the scene world coordinate system.
 
-The mixing factor f of Exponential Squared Fog is obtained in the following way:
+![layered-properties](./fog/layered-properties.png)
 
-`` f = e^(-distance * fogDensity)² ``
+| Property | Description |
+| :---| :--- |
+| **Enabled** | Whether to enable the global fog |
+| **FogColor** | The color of the global fog |
+| **Type** | The fog type of the global fog |
+| **FogAtten** | Fog attenuation coefficient |
+| **FogTop** | The position of the model vertices in the vertical direction of the world coordinate system, below which all vertices will be affected by the fog effect |
+| **FogRange** | The range of the fog effect |
 
-In addition to adjusting the global fog density through `FogDensity`, the `FogAtten` attribute has been added, which is the attenuation coefficient of fog. The user can adjust this parameter to adapt to different concentrations in the right position.
+The fog calculation of Layered Fog is a bit more complicated than the previous three fog types, as it introduces the concept of `FogTop` and also requires distance calculation in the **x-z** plane.
 
-### Layered Fog
+Layered Fog is more common in reality, with towering mountains and buildings. If it is used wisely, it is believed to have a good effect on scene presentation, but at the same time, the computation will be increased, developers can decide according to their needs.
+
+An example of Layered Fog:
 
 ![image](./fog/layerfog.png)
-
-Layered Fog provides a fog effect based on the vertical height upon x-z plane.
-
-The following are the meanings of its parameters:
-
-`FogAtten`: Layered Fog attenuation coefficient.
-
-`FogTop`: The position in the vertical direction of the world coordinates of each vertex of the model, All vertices smaller than this position will be affected by the fog.
-
-`FogRange`: Scope of fog.
-
-Layered Fog is still relatively common in reality, If it can be used reasonably, I believe it will improve the effect, but at the same time the amount of calculation will increase to a certain extent. The developer can decide whether and where to use layered fog for a balance of performance and visual quality.
