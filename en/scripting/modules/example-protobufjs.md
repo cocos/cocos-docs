@@ -1,4 +1,4 @@
-# Example: Use protobuf.js with npm
+# Example: Using protobuf.js with npm
 
 This section illustrates how to use the npm package in a Cocos Creator project by installing and using [protobufjs](https://www.npmjs.com/package/protobufjs).
 
@@ -16,17 +16,17 @@ Confirm that the installation of `npm` is successful with the following command:
 
 ## Install the npm Package
 
-Executing the following command in the project root directory
+Executing the following command in the project root directory:
 
 ```bash
 > npm install --save protobufjs
 ```
 
-will install the npm package `protobufjs` into the `/node_modules` directory and write the dependencies for this package to the file `package.json`.
+Will install the npm package `protobufjs` into the `/node_modules` directory and write the dependencies for this package to the file `package.json`.
 
 The `package.json` file is an npm manifest file and needs to be included in version control.
 
-> Cocos Creator recommends that the automatically generated `package-lock.json` also be included in version control to ensure that the developers install the same version of the package.
+> **Note**: Cocos Creator recommends that the automatically generated `package-lock.json` also be included in version control to ensure that the developers install the same version of the package.
 
 The `/node_modules` directory is generally not included in version control.
 
@@ -38,7 +38,7 @@ Once `package.json` has documented the dependencies, the following commands can 
 
 ### Expansion: Use npm Mirrors
 
-npm reads and downloads packages from the [official npmjs source](https://www.npmjs.com/) by default. Some countries or regions may have network issues that cause installation to fail or install too slowly, so it is recommended to fix this by switching mirrors.
+npm reads and downloads packages from the [official npmjs source](https://www.npmjs.com/) by default. As some countries or regions may have network issues that cause installation to fail or install too slowl, it is recommended to fix this by switching mirrors.
 
 First, install the npm package [nrm](https://www.npmjs.com/package/nrm) globally.
 
@@ -62,15 +62,15 @@ Check the following valid npm mirrors:
 # edunpm ----- http://registry.enpmjs.org/
 ```
 
-You can choose the appropriate mirror according to the current region. The `taobao` mirror is a good choice for users in mainland China. Execute the following command to switch mirrors.
+Choose the appropriate mirror according to the current region. Execute the following command to switch mirrors.
 
 ```bash
 > npx nrm use taobao # or any suitable mirror
 ```
 
-> This command is also global. Optionally, you can switch only the mirror of the current project, see [nrm options](https://www.npmjs.com/package/nrm#usage).
+> This command is also global. Optionally, switch only the mirror of the current project, see [nrm options](https://www.npmjs.com/package/nrm#usage).
 
-The mirror name `npm` is the name of the official source, so it can be switched back to the official source with the following command:
+The mirror name `npm` is the name of the official source, and it can be switched back to the official source with the following command:
 
 ```bash
 > npx nrm use npm
@@ -85,7 +85,7 @@ Edit the `tsconfig.json` file in the project directory and make sure that the `"
 ```json5
 {
   /* Base configuration. Do not edit this field. */
-  "extends": ". /temp/tsconfig.cocos.json",
+  "extends": "./temp/tsconfig.cocos.json",
 
   "compilerOptions": {
       "allowSyntheticDefaultImports": true, // needs to be turned on
@@ -93,9 +93,9 @@ Edit the `tsconfig.json` file in the project directory and make sure that the `"
 }
 ```
 
-Because currently `protobufjs` only provides CommonJS modules, and Cocos Creator accesses CommonJS modules via "default import".
+Currently `protobufjs` only provides CommonJS modules, and Cocos Creator accesses CommonJS modules via "default import".
 
-## Use protobufjs
+## Using protobufjs
 
 ```ts
 import protobuf from 'protobufjs';
@@ -117,4 +117,4 @@ or.
 import protobuf from 'protobufjs/minimal.js';
 ```
 
-> **Note**: in the case of protobufjs and many classic npm packages, the suffix is required when importing subpaths in the package. Please refer to the [Cocos Creator Module Specification](./spec.md).
+> **Note**: in the case of protobufjs and many classic npm packages, the suffix is required when importing subpaths in the package. Please refer to the [Cocos Creator Module Specification](./spec.md) documentation.

@@ -1,6 +1,6 @@
 # Module Specification
 
-In Cocos Creator, all JavaScript code is organized in the form of modules, which include
+In Cocos Creator, all JavaScript code is organized in the form of modules, which include:
 
 - The code created in the project.
 
@@ -69,7 +69,7 @@ Cocos Creator currently only supports file protocol URLs, but since the file pat
 
 ### Bare Specifiers
 
-So far, for bare specifiers, Cocos Creator will apply the Node.js module parsing algorithm.
+For bare specifiers, Cocos Creator will apply the Node.js module parsing algorithm.
 
 > This includes parsing of npm modules.
 
@@ -87,7 +87,7 @@ The specific rules for parsing bare specifiers can be found in [Node.js module p
 
 Cocos Creator's requirements for module suffixes in module specifiers are more web-oriented -- suffixes must be specified and Node.js-style directory import is not supported. However, for historical reasons and some existing restrictions, TypeScript modules do not allow suffixes and support Node.js-style directory import. Specifically:
 
-When the target module file has the suffix `.js`, `.mjs`, the suffix **must be specified** in the module specifier: ``.js`, `.mjs`.
+When the target module file has the suffix `.js`, `.mjs`, the suffix **must be specified** in the module specifier: `.js`, `.mjs`.
 
 ```ts
 import '. /foo.mjs'; // correct
@@ -115,10 +115,10 @@ On the other hand, Node.js-style directory import is supported:
 ```ts
 import '. /foo'; // correct: parsed as the `foo/index.ts` module
 ```
-
+> **Note**:
 > Cocos Creator supports the Web platform. Implementing complex module parsing algorithms like Node.js on the Web platform is expensive, and the client and server cannot try different suffixes and file paths with frequent communication between them.
-> Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, we prefer to specify the full file path in the code for the choice of module parsing algorithm.
-> However, we can't restrict this completely, since TypeScript currently doesn't allow the suffix `.ts` to be specified in the specifier. And TypeScript does not yet support auto-completion of specific target suffixes. With these limitations, it's hard to have it both ways, but we're still watching to see if these conditions improve in the future.
+> Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, specify the full file path in the code for the choice of module parsing algorithm.
+> However, this cannot be restricted completely, since TypeScript currently doesn't allow the suffix `.ts` to be specified in the specifier. And TypeScript does not yet support auto-completion of specific target suffixes. With these limitations, it's hard to have it both ways, but we're still watching to see if these conditions improve in the future.
 
 ### The `browser` Field is not Supported
 

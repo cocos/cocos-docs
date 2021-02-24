@@ -2,7 +2,7 @@
 
 The engine and editor expose functional interfaces to developers via modules, which exist as **ECMAScript** modules.
 
-> **Note**: As of 3.0, engine functions will not be accessible via global variables prefixed with `cc`!
+> **Note**: engine functions will not be accessible via global variables prefixed with `cc`!
 
 ## Engine Modules
 
@@ -23,7 +23,7 @@ log('Hello world!');
 
 The engine module `'cc/env'` exposes a number of build-time **constants** that represent the execution environment, debug level, or platform identifier, etc.
 
-Since these constants are declared with `const`, they provide good opportunities for code optimization.
+As these constants are declared with `const`, they provide good opportunities for code optimization.
 
 #### Execution Environment
 
@@ -48,16 +48,16 @@ The constants in the following table indicate whether the application is running
 | Name | Platform | `MINIGAME` | `RUNTIME_BASED` | `SUPPORT_JIT` |
 | :---------- | :---------- | :----------------- | :----------------- | :----------------- |
 | `HTML5` | Web | ❌ | ❌ | ❌ |
-| `NATIVE` | Native Platform | ❌ | ❌ | ❌ |
-| `ALIPAY` | Alipay Mini Games | ✔️ | ❌ | ✔️ |
-| `BAIDU` | Baidu Mini Games | ✔️ | ❌ | ✔️ |
-| `BYTEDANCE` | ByteDance Mini Games | ✔️ | ❌ | ✔️ |
-| `WECHAT` | WeChat Mini Gamees | ✔️ | ❌ | ✔️ |
-| `XIAOMI` | Xiaomi Quick Games | ✔️ | ❌ | ✔️ |
+| `NATIVE` | Native Platforms | ❌ | ❌ | ❌ |
+| `ALIPAY` | Alipay Mini Game | ✔️ | ❌ | ✔️ |
+| `BAIDU` | Baidu Mini Game | ✔️ | ❌ | ✔️ |
+| `BYTEDANCE` | ByteDance Mini Game | ✔️ | ❌ | ✔️ |
+| `WECHAT` | WeChat Mini Gamee | ✔️ | ❌ | ✔️ |
+| `XIAOMI` | Xiaomi Quick Game | ✔️ | ❌ | ✔️ |
 | `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
-| `HUAWEI` | Huawei Quick Games | ❌ | ✔️ | ✔️ |
-| `OPPO` | OPPO Mini Games | ❌ | ✔️ | ✔️ |
-| `VIVO` | VIVO Mini Games | ❌ | ✔️ | ✔️ |
+| `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
+| `OPPO` | OPPO Mini Game | ❌ | ✔️ | ✔️ |
+| `VIVO` | vivo Mini Game | ❌ | ✔️ | ✔️ |
 
 #### Output in Debug Mode
 
