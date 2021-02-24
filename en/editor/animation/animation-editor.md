@@ -160,4 +160,4 @@ Function | Shortcut key | Description
 *Paste the animation data of the last copy* | Ctrl/Cmd + V | Support pasting selected key frames, property tracks, node data
 *Unselected key frame or event frame or property track* | Esc |-
 
-> Most shortcut keys are invalid only when the animation editor is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.
+> **Note**: most shortcut keys are invalid only when the animation editor is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.
