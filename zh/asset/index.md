@@ -1,50 +1,43 @@
 # 关于资源
 
-本章节将详细介绍 Cocos Creator 中资源的整体工作流程，并对各类资源的使用方法及可能需要注意的地方做出说明。
+本章节将详细介绍 Cocos Creator 中资源的整体工作流程，涉及到以下几个部分：
 
-## 资源管理器
+- [资源管理器](../editor/assets/index.md)
+- [常见资源类型](../editor/assets/index.md)
+- [获取和加载资源](../scripting/load-assets.md)
+- [资源管理](./asset-manager.md)
 
-**资源管理器** 作为访问管理资源的重要工具，开发者在管理资源时推荐先熟悉资源管理器的使用方法，关于资源管理器的详细介绍可见：[资源管理器](../editor/assets/index.md)
+## 什么是资源
 
-## 资源工作流
+资源可以是项目中使用的任何文件，资源来自于外部创建的文件，例如：模型、贴图、音频、字体等。或者来自于在 Cocos Creator 创建的资源类型，例如：场景、预制、图集、动画等。
 
-- **资源工作流** 通用的资源工作流程包括导入资源、同步资源、定位资源等说明可见：[资源工作流](asset-workflow.md)
+## 资源导入流程
 
-## 常见资源类型工作流程
+所有导入资源面板里的资源，都会通过编辑器的资源导入器导入并生成一份 `meta` 文件，`meta` 文件内部会记录为该资源分配的唯一 **uuid**。
 
-接下来我们会介绍 Cocos Creator 中主要资源类型和相关工作流程：
+### uuid
 
-- [场景资源](scene.md)
-- [图像资源](image.md)
-    - [纹理贴图资源](texture.md)
-    - [精灵帧资源](sprite-frame.md)
-    - [立方体贴图资源](../concepts/scene/skybox.md#cubemap)
-    - [图像资源的自动裁剪](../ui-system/components/engine/trim.md)
-    - [图集资源](atlas.md)
-    - [渲染纹理](render-texture.md)
-- [预制资源](prefab.md)
-- [脚本资源](script.md)
-- [字体资源](font.md)
-- [声音资源](audio.md)
-- [材质资源](material.md)
-- [模型资源](mesh.md)
-    - [从第三方工具导出模型资源](dcc-export-mesh.md)
-- [动画资源](anim.md)
-- [Spine 骨骼动画资源](spine.md)
-- [Dragonbones 骨骼动画资源](dragonbones.md)
-- [TiledMap 瓦片图资源](tiledmap.md)
+Cocos Creator 内每一个资源的 **uuid** 都是唯一的，**uuid** 的计算规则是根据路径得出。资源间的引用也是采用 **uuid** 的方式记录。
 
-## 运行时资源管理
+在某些情况下，导入单个资源的时候，可能会创建多个资源（例如：图集资源和模型资源），所有创建出来的资源都属于该资源的 **子资源**，并在该资源 **uuid** 的基础上根据类型生成一份新的 **uuid**，同时记录在该资源的 `meta` 文件里。因此，一份实体资源的 `meta` 文件内部会记录多个 **uuid**，**uuid** 里带有 `@` 字符的则是子资源的 **uuid**。
 
-- [Asset Manager 概述](asset-manager.md)
-    - [loader 升级 assetManager 指南](asset-manager-upgrade-guide.md)
-    - [子包升级 Asset Bundle 指南](subpackage-upgrade-guide.md)
-    - [动态加载资源](dynamic-load-resources.md)
-    - [Asset Bundle](bundle.md)
-    - [资源释放](release-manager.md)
-    - [下载与解析](downloader-parser.md)
-    - [加载与预加载](preload-load.md)
-    - [缓存管理器](cache-manager.md)
-    - [可选参数](options.md)
-    - [管线与任务](pipeline-task.md)
-    - [资源管理注意事项 - meta 文件](meta.md)
+```json
+// 图集资源 plist
+plist（实体资源） ：0d2ef83b-0f1e-4ae9-88ac-aae5ac79e784
+图片 sheep_run_0（子资源）：0d2ef83b-0f1e-4ae9-88ac-aae5ac79e784@19fe2
+图片 sheep_run_1（子资源）：0d2ef83b-0f1e-4ae9-88ac-aae5ac79e784@34f21
+```
+
+所有导入的资源，最终无论是实体资源还是子资源，最后都会在项目下的 [library](../getting-started/project-structure/index.md) 目录下生成一份以资源 **uuid** 命名供引擎使用的文件。
+
+## 资源配置信息 `.meta` 文件
+
+所有资源文件都会在导入时生成一份同名的 `.meta` 后缀的配置文件 这份配置文件提供了该资源在项目中的唯一标识 **uuid** 以及其他的一些配置信息，如图集中的小图引用，贴图资源的裁剪数据等，是识别一份合法资源的必要因素。
+
+在 **资源管理器** 面板中 `.meta` 文件是不可见的，对资源的重命名，移动，删除，都会由编辑器自动同步该资源对应的 `.meta` 文件，以确保配置信息如 **uuid** 等保持不变，即不影响现有的引用。
+
+不推荐直接在 **操作系统的文件管理器** 对资源文件进行操作，如有操作，请同步处理相应的 `.meta` 文件，如下建议：
+
+- 关闭正在使用的编辑器，避免因为文件锁定或资源名称相同导致更新失败。
+- 删除，重命名，移动资源时，请连同 `.meta` 文件一起删除，重命名，移动。
+- 复制资源时如果连同 `.meta` 文件一起复制，将直接使用复制进来的 `.meta` 文件，而不是再生成新的 `.meta` 文件；如果只复制了资源文件，则会生成对应名称的新的 `.meta` 文件。

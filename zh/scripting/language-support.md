@@ -1,5 +1,7 @@
 # 语言支持
 
+Cocos Creator 支持 TypeScript 和 JavaScript 两种语言。在 3.0 版本默认推荐使用 TypeScript。
+
 ## TypeScript
 
 Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：

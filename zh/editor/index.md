@@ -31,6 +31,18 @@
 
     **项目设置** 里提供各种项目特定的个性化设置，包括分组管理、模块设置、项目预览、自定义引擎等。详情请阅读 [项目设置](project/index.md) 一节。
 
+- **快捷键**
+
+    ![shortcuts](index/shortcut.png)
+
+    **快捷键** 里提供了多个功能模块的操作快捷键，从而加快游戏制作效率。详情请阅读 [快捷键](shortcuts/index.md) 一节。
+
+- **预览调试**
+
+    ![preview](index/preview.png)
+
+    **预览调试** 里可以通过浏览器、预览窗口、模拟器快速查看游戏实际运行效果。详情请阅读 [预览调试](preview/index.md) 一节。
+
 - **服务**
 
     ![service](index/service.png)

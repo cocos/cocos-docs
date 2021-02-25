@@ -2,7 +2,7 @@
 
 ## 创建组件脚本
 
-在 Cocos Creator 中，脚本也是资源的一部分。你可以在资源编辑器中通过点击"创建"按钮来添加并选择 TypeScript 来创建一份组件脚本。此时你会在你的资源编辑器中得到一份新的脚本：
+在 Cocos Creator 中，脚本也是资源的一部分。你可以在资源编辑器中通过点击"创建"按钮来添加并选择 TypeScript 来创建一份组件脚本，并将脚本命名为 HelloWorld，此时你会在你的资源编辑器中得到一份新的脚本：
 
 ![create-script](setup/create-script.png)
 
@@ -12,8 +12,8 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('NewScript')
-export class NewScript extends Component {
+@ccclass('HelloWorld')
+export class HelloWorld extends Component {
     /* class member could be defined like this */
     // dummy = '';
 
@@ -43,7 +43,7 @@ export class NewScript extends Component {
 
 ## 添加脚本到场景节点中
 
-将脚本添加到场景节点中，实际上就是为这个节点添加一份组件。我们先将刚刚创建出来的 **NewScript.js** 重命名为 **say-hello.js**。然后选中我们希望添加的场景节点，此时该节点的属性会显示在 **属性检查器** 中。在 **属性检查器** 的最下方有一个 **添加组件** 的按钮，点击按钮并选择 **添加用户脚本 -> say-hello** 来添加我们刚刚编写的脚本组件。
+将脚本添加到场景节点中，实际上就是为这个节点添加一份组件。选中我们希望添加的场景节点，此时该节点的属性会显示在 **属性检查器** 中。在 **属性检查器** 的最下方有一个 **添加组件** 的按钮，点击按钮并选择 **添加用户脚本 -> HelloWorld** 来添加我们刚刚编写的脚本组件。
 
 ![add-script](setup/add-script.png)
 
