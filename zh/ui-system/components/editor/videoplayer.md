@@ -119,7 +119,7 @@ export class VideoPlayerCtrl extends Component {
     }
 
     callback (videoplayer) {
-        // 这里的 videoplayer 是一个 VideoPlayer 组件
+        // 这里的 videoplayer 表示的是 VideoPlayer 组件
         // 对 videoplayer 进行你想要的操作
         // 另外，注意这种方式注册的事件，也无法传递 customEventData
     }
