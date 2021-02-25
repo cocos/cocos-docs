@@ -114,12 +114,11 @@ cc.Class({
        this.videoplayer.node.on('ready-to-play', this.callback, this);
     },
 
-    callback: function (event) {
-       //event is EventCustom, you can use event.detail to get VideoPlayer component
-       var videoplayer = event.detail;
-       //do whatever you want with videoplayer
-       //you can't pass customEventData in this way
-    }
+    callback: function (videoplayer) {
+        // The 'videoplayer' here represents the VideoPlayer component.
+        // do whatever you want with videoplayer
+        // you can't pass customEventData in this way
+    },
 });
 ```
 
