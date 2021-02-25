@@ -119,7 +119,7 @@ export class VideoPlayerCtrl extends Component {
     }
 
     callback (videoplayer) {
-        // videoplayer is a VideoPlayer component
+        // The "videoplayer" here represents the VideoPlayer component.
         // do whatever you want with videoplayer
         // you can't pass customEventData in this way
     }
