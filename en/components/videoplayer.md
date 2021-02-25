@@ -116,7 +116,7 @@ cc.Class({
 
     callback: function (videoplayer) {
         // The 'videoplayer' here represents the VideoPlayer component.
-        // do whatever you want with videoplayer
+        // Do whatever you want with videoplayer.
         // you can't pass customEventData in this way
     },
 });
