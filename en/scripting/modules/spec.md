@@ -14,7 +14,7 @@ Cocos Creator natively supports and recommends the use of the ECMAScript module 
 
 This section describes how Cocos Creator determines the format of a module.
 
-All the functionality provided by the Cocos Creator engine is in the form of ESM modules, see [engine modules](./index.md).
+All the functionalities provided by the Cocos Creator engine are in the form of ESM modules, see [engine modules](./index.md).
 
 Files in the project resources directory ending in `.ts`. For example `assets/scripts/foo.ts`.
 

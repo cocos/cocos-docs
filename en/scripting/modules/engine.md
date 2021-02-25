@@ -2,7 +2,7 @@
 
 The engine and editor expose functional interfaces to developers via modules, which exist as **ECMAScript** modules.
 
-> **Note**: engine functions will not be accessible via global variables prefixed with `cc`!
+> **Note**: from 3.0, we strongly recommend not to use global variable `cc` to access engine modules or classes.
 
 ## Engine Modules
 
