@@ -6,21 +6,21 @@ Cocos Creator 3.0 可以直接在编辑器中设置纹理需要的压缩方式�
 
 Cocos Creator 支持导入多种格式的图片（具体见下表），但是在实际游戏运行中，我们不建议使用原始图片作为资源来加载。比如在手机平台上可能只需要原图 80% 或者更少的画质，又或者是没有使用到透明通道的 `.png` 可以将其转换成 `.jpg`，这样可以减少很大一部分图片的存储空间。
 
-| 图片格式 | Android | iOS | Mini Game | Web  | Mac & Windows |
-| :------ | :------ | :------ | :----- | :------ | :------ |
-| PNG | 支持 | 支持   | 支持 | 支持 | 支持 |
-| JPG | 支持 | 支持 | 支持 | 支持 | 支持 |
-| WEBP | Android 4.0 以上原生支持，其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 支持 | [部分支持](https://caniuse.com/#feat=webp) | 不支持 |
-| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 | Mac 支持 |
-| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 | 不支持 |
-| ETC2 | 部分支持，取决于手机硬件 | 不支持 | 不支持 | 支持部分 Android 设备 | 不支持 |
-| ASTC | 部分支持  | 部分支持 | 不支持 | 部分支持  | Mac 支持 |
+| 图片格式 | Android | iOS | Mini Game | Web  |
+| :------ | :------ | :------ | :----- | :------ |
+| PNG | 支持 | 支持   | 支持 | 支持 |
+| JPG | 支持 | 支持 | 支持 | 支持 |
+| WEBP | Android 4.0 以上原生支持，其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 支持 | [部分支持](https://caniuse.com/#feat=webp) |
+| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 |
+| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 |
+| ETC2 | 部分支持，取决于手机硬件 | 不支持 | 不支持 | 支持部分 Android 设备 |
+| ASTC | 部分支持  | 部分支持 | 不支持 | 部分支持  |
 
 默认情况下 Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片或者自动图集进行压缩，可以在 **资源管理器** 中选中这张图片或图集，然后在 **属性管理器** 中勾选 `useCompressTexture`，再选择图片的纹理压缩格式预设即可。
 
 ![compress-texture](compress-texture/compress-texture.jpg)
 
-编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置](./editor/project/index.md)。
+编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置 — 压缩纹理](../editor/project/index.md)。
 
 ![meta](compress-texture/meta.png)
 

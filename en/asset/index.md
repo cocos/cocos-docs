@@ -44,3 +44,4 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
     - [Cache Manager](cache-manager.md)
     - [Optional Parameters](options.md)
     - [Pipeline and Task](pipeline-task.md)
+    - [Resource Management Considerations --- meta files](asset/meta.md)

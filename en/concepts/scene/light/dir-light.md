@@ -8,7 +8,7 @@ Directional light is the most common type of lights, and can be understood as th
 
 To add the directional light to the scene, refer to the [Lighting](../light.md) documentation.
 
-For the related interface of the directional light component, please refer to the [DirectionalLight API](../../../api/en/classes/component_light.directionallight.html).
+For the related interface of the directional light component, please refer to the [DirectionalLight API](__APIDOC__/en/classes/component_light.directionallight.html).
 
 ## Main Directional Lights Properties
 
