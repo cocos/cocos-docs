@@ -43,7 +43,7 @@ export class SayHello extends Component {
 
 然后双击脚本资源，可以直接打开脚本编辑器进行编辑。编辑完脚本并保存，然后返回编辑器，Cocos Creator 会自动检测到脚本的改动，并迅速编译。
 
-在代码编写之前，请先阅读 [脚本基础](basic.md) 了解更多关于脚本的内容。
+在代码编写之前，请先阅读 [脚本基础](modules/index.md) 了解更多关于脚本的内容。
 
 ## 添加脚本到场景节点中
 

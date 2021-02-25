@@ -1,6 +1,8 @@
 # YAML 101
 
-Cocos Creator 3.0 使用的是符合 YAML 1.2 标准的解析器，这意味着 Creator 是与 JSON 完全兼容的，直接使用 JSON 完全不会有问题：
+YAML 是一门面向数据序列化的，对人类书写十分友好的语言，但它引入了一些独特的语法来表示不同类型的数据，对于不熟悉这门语言的开发者可能会有一点门槛，我们在本篇文章中快速总结了最常用的一些语法和语言特性，有需要可以参考。
+
+Cocos Creator 3.0 使用的是符合 YAML 1.2 标准的解析器，这意味着 Creator 是与 JSON 完全兼容的，直接使用 JSON 完全不会有问题。
 
 ```yaml
 "techniques":
@@ -27,7 +29,7 @@ Cocos Creator 3.0 使用的是符合 YAML 1.2 标准的解析器，这意味着 
   key2: unquoted string
   ```
 
-  **注意**：冒号后的空格不可省略
+  > **注意**：冒号后的空格不可省略
 
 - 行首的空格缩进数量代表数据的层级<sup id="a1">[1](#f1)</sup>
 
@@ -131,14 +133,6 @@ techniques:
       p3: { inspector: { type: color } }
   - # pass 2 specifications...
     properties: *props # reference anywhere
-```
-
-最后，在实际 effect 文件中任何流程声明都需要包在 **CCEffect** 语法块内：
-
-```yaml
-CCEffect %{
-  # YAML starts here
-}%
 ```
 
 若有疑问可复制代码示例到任何 [在线 YAML JSON 转换器](https://codebeautify.org/yaml-to-json-xml-csv) 观察生成的数据。

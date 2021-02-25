@@ -1,18 +1,6 @@
-# 关于Animation
+# 动画编辑器
 
-在制作动画之前首先需要先为节点添加动画组件，并为组件挂载 clip 文件后才能编辑。在此之前，有必要先了解一下 clip 动画剪辑和 Animation 组件的相关概念。
-
-## Animation 组件
-
-之前我们了解到 Cocos Creator 3.0 是组件式的结构，那么 Animation 也不例外，它也是节点上的一个组件，只有为节点添加动画组件后，才能赋予节点参与到动画的能力。因而点击相关节点后，如果节点没有动画组件，**动画编辑器** 的界面上将会显示 **添加 Animation 组件** 按钮，点击即可添加。
-
-![](./animation/add-component.jpg)
-
-动画组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/animation.animation-1.html)。
-
-## Clip 动画剪辑
-
-动画剪辑就是一份动画的声明数据，我们将它挂载到 Animation 组件上，就能够将这份动画数据应用到节点上，一个动画组件可以挂载多份动画剪辑。在没有 clip 的节点上是不能够编辑动画的，点击相关节点后，如果节点只有 Animation 组件却没有 clip 文件，**动画编辑器** 将会显示 **创建 clip 文件** 按钮，点击即可创建并赋给组件。在动画编辑模式下亦可以通过 **动画编辑器** 左下角的 clip 选项来切换编辑不同的动画剪辑。
+在使用动画编辑器制作动画之前需要先为节点添加 [动画组件](../../engine/animation/animation-component.md)，确定动画当前编辑的目标对象。接着，为组件挂载 [动画剪辑 Clip](../../engine/animation/animation-clip.md) 后就可以开始编辑动画数据，编辑后的动画数据会记录在当前动画剪辑上。一个动画组件可以挂载多份动画剪辑，没有 clip 的动画组件无法编辑动画。
 
 ## 动画编辑模式
 
@@ -28,5 +16,3 @@
 - 点击 **动画编辑器** 右上角的 **退出** 按钮
 - 点击 **场景编辑器** 左上角的 **关闭** 按钮
 - 快捷键 Ctrl/Cmd + E
-
-更多内容请参考 Animation 的 [系统设计](./../../engine/animation/index.md) 和 [脚本控制](./../../engine/animation/animation-component.md) 文档。

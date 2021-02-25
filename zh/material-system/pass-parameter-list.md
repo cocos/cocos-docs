@@ -1,232 +1,284 @@
-# Pass 可选配置参数
+# Shader 书写格式
 
-Pass 中的参数主要分为开发者可自定义的 effect 参数和引擎提供的 PipelineStates 参数两部分内容，本文主要介绍 PipelineStates 相关的参数，所有参数不区分大小写。
+## Shader 片段
 
-| 参数名 | 说明 | 默认值  | 备注 |
-| :---- | :-- | :----- | :--- |
-| switch         | 指定这个 pass 的执行依赖于哪个 define。可以是任意有效的宏名称，但不应与使用到的 shader 中定义的任何 define 重名 | 未定义 | 这个字段默认是不存在的，意味着这个 pass 是无条件执行的 |
-| priority       | 指定这个 pass 的渲染优先级，数值越小渲染优先级越高，取值范围为 **0 ~ 255** | 128 | 可结合四则运算符指定相对值 |
-| stage          | 指定这个 pass 归属于管线的哪个 stage。可以是运行时管线中任何注册的 Stage 名称 | **default** | 对于默认的 forward 管线，只有 `default` 一个 stage |
-| phase          | 指定这个 pass 归属于管线的哪个 phase。可以是运行时管线中任何注册的 Phase 名称 | **default** | 对于默认的 forward 管线，可以是 `default`、`forward-add` 或者 `shadow-caster`  |
-| propertyIndex  | 指定这个 pass 运行时的 uniform 属性数据要和哪个 pass 保持一致，例如 forward add 等 pass 需要和 base pass 一致才能保证正确的渲染效果。可以是任意有效的 pass 索引 | 未定义 | 一旦指定了此参数，材质面板上就不会再显示这个 pass 的任何属性 |
-| embeddedMacros | 指定在这个 pass 的 shader 基础上额外定义的常量宏，可以是一个包含任意宏键值对的对象 | 未定义 | 只有当宏定义不同时才能在多个 pass 中使用此参数来复用 shader 资源 |
-| properties     | Properties 存储着这个 pass 中需要显示在 **属性检查器** 上的可定制的参数 |                 | 详见下文 **Properties** 部分的介绍    |
-| migrations     | 迁移旧的材质数据  |           | 详见下文 **Migrations** 部分的介绍                                                     |
-| primitive      | 创建材质顶点数据    | **triangle_list** | 可选项包括：point_list、line_list、line_strip、line_loop<br>**triangle_list**、triangle_strip、triangle_fan<br>line_list_adjacency、line_strip_adjacency<br>triangle_list_adjacency、triangle_strip_adjacency<br>triangle_patch_adjacency、quad_patch_list、iso_line_list |
-| dynamics      | 补充说明 | **[]** | 数组，包括：viewport、scissor、line_width、depth_bias、blend_constants、depth_bounds、stencil_write_mask、stencil_compare_mask |
-| RasterizerState   | 补充说明 |  | 详见下文 **RasterizerState** 部分的介绍 |
-| DepthStencilState | 补充说明 |  | 详见下文 **DepthStencilState** 部分的介绍    |
-| BlendState        | 材质混合状态 | **false** | 详见下文 **BlendState** 部分的介绍 |
+Shader 片段在语法上基于 GLSL 300 ES，在资源加载时有相应的预处理编译流程。
 
-## Properties
+这一节会介绍所有“领域特定”的扩展语法，更多实际使用示例，可参考编辑器内提供的 builtin effect。
 
-Properties 存储着这个 Pass 中需要显示在 **属性检查器** 上的可定制的参数，这些参数可以是 shader 中某个 uniform 的完整映射，也可以是具体某个分量的映射（使用 target 参数）：
+在 EffectAsset 文件中任何着色器内容都需要包在 **CCProgram** 语法块内：
 
 ```yaml
-albedo: { value: [1, 1, 1, 1] } # uniform vec4 albedo
-roughness: { value: 0.8, target: pbrParams.g } # uniform vec4 pbrParams
-offset: { value: [0, 0], target: tilingOffset.zw } # uniform vec4 tilingOffset
-# say there is another uniform, vec4 emissive, that doesn't appear here
-# so it will be assigned a default value of [0, 0, 0, 0] and will not appear in the inspector
+CCProgram 着色器名 %{
+  # YAML starts here
+}%
 ```
 
-运行时可以这样使用：
+这里以 unlit 顶点着色器（可以在编辑器资源下的 internal 下找到 builtin-unlit.effect 文件）为例展示 CCProgram 内的结构如下：
 
-```js
-// as long as it is a real uniform
-// it doesn't matter whether it is specified in the property list or not
-mat.setProperty('emissive', Color.GREY); // this works
-mat.setProperty('albedo', Color.RED); // directly set uniform
-mat.setProperty('roughness', 0.2); // set certain component
-const h = mat.passes[0].getHandle('offset'); // or just take the handle,
-mat.passes[0].setUniform(h, new Vec2(0.5, 0.5)); // and use Pass.setUniform interface instead
+![unlit](unlit.png)
+
+## Shader 片段声明说明
+
+在标准 GLSL 语法上，Creator 引入了以下几种非常自然的 C 风格语法扩展。
+
+### Include 机制
+
+类似 C/C++ 的头文件 include 机制，你可以在任意 shader 代码（CCProgram 块或独立的头文件 chunk）中引入其他代码片段：
+
+```c
+#include <cc-global>
+#include "../headers/my-shading-algorithm.chunk"
 ```
 
-未指定的 uniform 将由引擎在运行时根据自动分析出的数据类型给予 [默认初值](#default-values)。
+相关规则和注意事项：
+- 头文件默认扩展名为 `.chunk`，包含时可省略。尖括号和双引号没有区别；
+- 在编译期的头文件展开过程中，每个头文件保证只会被展开一次，所以书写时不必担心，每个模块都可以（也应该）包含自己依赖的头文件，即使这中间有重复；
+- 更进一步地，所有不参与运行时实际计算流程的函数声明也都会在编译期就被剔除，所以可以放心包含各类工具函数；
+- 头文件引用可以指定基于当前文件目录的相对路径（以下统称"相对路径"），也可以指定基于 `assets/chunks` 目录的相对路径（以下统称"项目绝对路径"），两个位置如果有同名文件，则后者优先；
+- 引用了编辑器其他 DB 的头文件（Internal 或各类插件 DB 等）只能指定项目绝对路径。当多个 DB 在此路径下有相同文件时，优先级为：用户项目 DB > 插件 DB > Internal DB；
+- 编辑器内置头文件资源就在 internal DB 的 `assets/chunks` 目录下，所以可以不加目录直接引用，主要包括一些常用的工具函数和标准光照模型等。
+- 所有在同一个 effect 文件中声明的 CCProgram 代码块都可以相互引用。
 
-为方便声明各 property 子属性，可以直接在 properties 内声明 `__metadata__` 项，所有 property 都会继承它声明的内容，如：
+### 预处理宏定义
 
-```yaml
-properties:
-  __metadata__: { editor: { visible: false } }
-  a: { value: [1, 1, 0, 0] }
-  b: { editor: { type: color } }
-  c: { editor: { visible: true } }
+目前 Effect 系统的设计倾向于在游戏项目运行时可以方便地利用 shader 中的各类预处理宏，进而减少 runtime branching。<br>
+编辑器会在加载资源时收集所有在 shader 中出现的 defines，然后引擎在运行时动态地将需要的声明加入 shader 内容。所以如果要使用这些预处理宏，只需要像上面的截图例子一样，在 shader 中直接进行逻辑判断即可。所有的 define 都会被序列化到 **属性检查器** 上，以便随时调整。
+
+**注意**：
+- 为尽可能多地在编译期做类型检查，目前的策略是直接将所有自定义宏设置为 true（或根据 Macro Tags 指定的默认值）再交给后端尝试检查。所以如果在设计上某些宏之间存在互斥关系（不可能同时为 true）的话，应统一使用一个通过 tag 声明的宏来处理；
+- 运行时会显式定义所有 shader 中出现的自定义宏（默认定义为 0），所以 **除了 GLSL 语言内置宏外（`GL_` 开头的 extension 等）**，请不要使用 `#ifdef` 或 `#if defined` 这样的形式做判断，否则执行结果会始终为 true；
+- 运行时会对宏定义组合计算 hash，目前的计算机制在宏定义组合数 **2^32** 以内（一个 int 的范围），相对高效，对应到 shader 中相当于 32 个 boolean 开关。所以请尽量不要超出此限制，定义过多运行时可调整的宏定义，会影响运行效率。
+
+### Macro Tags
+
+虽然引擎会尝试自动识别所有出现在预处理分支逻辑中 (#if) 的宏定义，但有时实际使用方式要比简单的布尔开关更复杂一些，如：
+
+```glsl
+// macro defined within certain numerical 'range'
+#if LAYERS == 4
+  // ...
+#elif LAYERS == 5
+  // ...
+#endif
+// multiple discrete 'options'
+float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 ```
 
-这样 uniform `a` 和 `b` 已声明的各项参数都不会受到影响，但都不会显示在 **属性检查器** 中（visible 为 false），而 uniform `c` 仍会正常显示。
+针对这类有固定取值范围或固定选项的宏定义，需要选择一个合适的 tag 显式声明：
 
-### Property 参数列表
+| Tag     | 说明                                              | 默认值                       | 备注                                                                                            |
+|---------|-------------------------------------------------|------------------------------|-----------------------------------------------------------------------------------------------|
+| range   | 一个长度为 2 的数组。首元素为最小值，末元素为最大值 | [0, 3]                       | 针对连续数字类型的宏定义，显式指定它的取值范围。<br>范围应当控制到最小，有利于运行时的 shader 管理 |
+| options | 一个任意长度的数组，每个元素都是一个可能的取值     | 如未显式声明则不会定义任何宏 | 针对有清晰选项的宏定义，显式指定它的可用选项                                                     |
 
-Property 中可配置的参数如下表所示，任何可配置的字段如果和默认值相同都可以省掉。
+比如下面这样的声明：
 
-| 参数 | 默认值 | 可选项  | 备注 |
-| :--- | :---- | :---- | :-- |
-| target   | **undefined** | undefined | 任意有效的 uniform 通道，可指定连续的单个或多个，但不可随机重排 |
-| value    |                 |  | 详见下文 **Default Values** 部分的介绍      |
-| sampler.<br>minFilter | **linear** | none, point, linear, anisotropic |    |
-| sampler.<br>magFilter | **linear** | none, point, linear, anisotropic |    |
-| sampler.<br>mipFilter | **none**   | none, point, linear, anisotropic |    |
-| sampler.<br>addressU  | **wrap**   | wrap, mirror, clamp, border      |    |
-| sampler.<br>addressV  | **wrap**   | wrap, mirror, clamp, border      |    |
-| sampler.<br>addressW  | **wrap**   | wrap, mirror, clamp, border      |    |
-| sampler.<br>maxAnisotropy | **16** | 16                               |    |
-| sampler.<br>cmpFunc       | **never**           | never, less, equal, less_equal, greater, not_equal, greater_equal, always |    |
-| sampler.<br>borderColor   | **[0, 0, 0, 0]**    | [0, 0, 0, 0]           |    |
-| sampler.<br>minLOD        | **0** | 0  |    |
-| sampler.<br>maxLOD        | **0** | 0  | Remember to override this when enabling mip filter |
-| sampler.<br>mipLODBias    | **0** | 0  |    |
-| editor.<br>displayName    | **\*property name** | \*property name     | 任意字符串 |
-| editor.<br>type           | **vector** | vector, color                |      |
-| editor.<br>visible        | **true**   | true, false                  |      |
-| editor.<br>tooltip        | **\*property name** | \*property name     | 任意字符串 |
-| editor.<br>range          | **undefined** | undefined, [ min, max, [step] ]  |   |
-| editor.<br>deprecated     | **false**  | true, false | For any material using this effect, delete the existing data for this property after next saving |
-
-## Migrations
-
-一般情况下，在使用材质资源时都希望底层的 effect 接口能始终向前兼容，但有时面对新的需求最好的解决方案依然是含有一定 breaking change 的，这时为了保持项目中已有的材质资源数据不受影响，或者至少能够更平滑地升级，就可以使用 effect 的迁移系统。
-
-在 effect 导入成功后会 **立即更新工程内所有** 依赖于此 effect 的材质资源，对每个材质资源，会尝试寻找所有指定的旧参数数据（包括 **property** 和 **宏定义** 两类），然后将其复制或迁移到新属性中。
-
-**注意**：使用迁移功能前请一定先备份好项目工程，以免丢失数据！
-
-对于一个现有的 effect，迁移字段声明如下：
-
-```yaml
-migrations:
-  # macros: # macros follows the same rule as properties, without the component-wise features
-  # USE_MIAN_TEXTURE: { formerlySerializedAs: USE_MAIN_TEXTURE }
-  properties:
-    newFloat: { formerlySerializedAs: oldVec4.w }
+```glsl
+#pragma define LAYERS range([4, 5])
+#pragma define METALLIC_SOURCE options([r, g, b, a])
 ```
 
-对于一个依赖于这个 effect，并在对应 pass 中持有属性的材质：
+一个是名为 `LAYERS` 的宏定义，它在运行时可能的取值范围为 `[4, 5]`。<br>
+另一个是名为 `METALLIC_SOURCE` 的宏定义，它在运行时可能的取值为 'r'、'g'、'b'、'a' 四种。
 
-```json
-{
-  "oldVec4": {
-    "__type__": "cc.Vec4",
-    "x": 1,
-    "y": 1,
-    "z": 1,
-    "w": 0.5
-  }
+**注意**：语法中的每个 tag 都只有一个参数，这个参数可以直接用 YAML 语法指定。
+
+### Functional Macros
+
+由于 WebGL1 不支持原生，Creator 将函数式宏定义提供为 effect 编译期的功能，输出的 shader 中就已经将此类宏定义展开。这非常适用于 inline 一些简单的工具函数，或需要大量重复定义的相似代码。事实上，内置头文件中不少工具函数都是函数式宏定义：
+
+```glsl
+#define CCDecode(position) \
+  position = vec4(a_position, 1.0)
+#define CCVertInput(position) \
+  CCDecode(position);         \
+  #if CC_USE_SKINNING         \
+    CCSkin(position);         \
+  #endif                      \
+  #pragma // empty pragma trick to get rid of trailing semicolons at effect compile time
+```
+
+但与 C/C++ 的宏定义系统相同，这套机制不会对宏定义的 [卫生情况](https://en.wikipedia.org/wiki/Hygienic_macro) 做任何处理，由不卫生的宏展开而带来的问题需要开发者自行处理，因此我们推荐，并也确保所有内置头文件中，谨慎定义含有局部变量的预处理宏：
+
+```glsl
+// please do be careful with unhygienic macros like this
+#define INCI(i) do { int a=0; ++i; } while(0)
+// when invoking
+int a = 4, b = 8;
+INCI(b); // correct, b would be 9 after this
+INCI(a); // wrong! a would still be 4
+```
+
+### Vertex Input<sup id="a1">[1](#f1)</sup>
+
+为对接骨骼动画与数据解压流程，我们提供了 `CCVertInput` 工具函数，对所有 3D 模型使用的 shader，可直接在 vs 开始时类似这样写：
+
+```glsl
+#include <input>
+vec4 vert () {
+  vec3 position;
+  CCVertInput(position);
+  // ... do your thing with `position` (models space, after skinning)
 }
 ```
 
-在 effect 导入成功后，这些数据会被立即转换成：
+如果还需要法线等信息，可直接使用 standard 版本：
 
-```json
-{
-  "oldVec4": {
-    "__type__": "cc.Vec4",
-    "x": 1,
-    "y": 1,
-    "z": 1,
-    "w": 0.5
-  },
-  "newFloat": 0.5
+```glsl
+#include <input-standard>
+vec4 vert () {
+  StandardVertInput In;
+  CCVertInput(In);
+  // ... now use `In.position`, etc.
 }
 ```
 
-在 **编辑器** 内重新编辑并保存这个材质资源后会变成（假设 effect 和 property 数据本身并没有改变）：
+这会返回模型空间的顶点位置（position）、法线（normal）和切空间（tangent）信息，并对骨骼动画模型做完蒙皮计算。
 
-```json
-{
-  "newFloat": 0.5
+**注意**：引用头文件后，不要在 shader 内重复声明这些 attributes（a_position 等）。对于其他顶点数据（如 uv 等）还是正常声明 attributes 直接使用。
+
+另外如果需要对接引擎动态合批和 instancing 流程，需要包含 `cc-local-batch` 头文件，通过 `CCGetWorldMatrix` 工具函数获取世界矩阵：
+
+```glsl
+// unlit version (when normal is not needed)
+mat4 matWorld;
+CCGetWorldMatrix(matWorld);
+// standard version
+mat4 matWorld, matWorldIT;
+CCGetWorldMatrixFull(matWorld, matWorldIT);
+```
+
+关于更多 shader 内置 uniform，可以参考 [完整列表](builtin-shader-uniforms.md)。
+
+### Fragment Ouput<sup id="a1">[1](#f1)</sup>
+
+为对接引擎渲染管线，Creator 提供了 `CCFragOutput` 工具函数，对所有无光照 shader，都可以直接在 fs 返回时类似这样写：
+
+```glsl
+#include <output>
+vec4 frag () {
+  vec4 o = vec4(0.0);
+  // ... do the computation
+  return CCFragOutput(o);
 }
 ```
 
-当然如果希望在导入时就直接删除旧数据，可以再加一条迁移信息来专门指定这点：
+这样中间的颜色计算就不必区分当前渲染管线是否为 HDR 流程等。<br>
+如需包含光照计算，可结合标准着色函数 `CCStandardShading` 一起构成 surface shader 流程：
 
-```yaml
-oldVec4: { removeImmediately: true }
+```glsl
+#include <shading-standard>
+#include <output-standard>
+void surf (out StandardSurface s) {
+  // fill in your data here
+}
+vec4 frag () {
+  StandardSurface s; surf(s);
+  vec4 color = CCStandardShading(s);
+  return CCFragOutput(color);
+}
 ```
 
-这对于在项目有大量旧材质，又能够确定这个属性的数据已经完全冗余时会比较有用。
+在此框架下可方便地实现自己的 surface 输入，或其他 shading 算法。
 
-更多地，注意这里的通道指令只是简单的取 `w` 分量，事实上还可以做任意的 shuffle：
+**注意**：`CCFragOutput` 函数一般还是不需要自己实现，它只起到与渲染管线对接的作用，且对于这种含有光照计算的输出，因为计算结果已经在 HDR 范围，所以应该包含 `output-standard` 而非 `output` 头文件。
 
-```yaml
-newColor: { formerlySerializedAs: someOldColor.yxx }
+### 自定义 Instanced 属性
+
+通过 instancing 动态合批的功能十分灵活，在默认的流程上，开发者可以加入更多 instanced 属性。如果要在 shader 中引入新的属性，那么所有相关处理代码都需要依赖统一的宏定义 `USE_INSTANCING`：
+
+```glsl
+#if USE_INSTANCING // when instancing is enabled
+  #pragma format(RGBA8) // normalized unsigned byte
+  in vec4 a_instanced_color;
+#endif
 ```
 
-甚至基于某个宏定义：
+**注意**：
+- 这里可以使用编译器提示 `format` 指定此属性的具体数据格式，参数为引擎 `gfx.Format` 的任意枚举名<sup id="a2">[2](#f2)</sup>，如未声明则默认为 32 位 float 类型；
+- 所有 instanced 属性都是 VS 的输入 attribute，所以如果要在 FS 中使用，则需要在 VS 中自行传递；
+- 记得确保代码在所有分支都能正常执行，无论 `USE_INSTANCING` 启用与否。
 
-```yaml
-occlusion: { formerlySerializedAs: pbrParams.<OCCLUSION_CHANNEL|z> }
+在运行时所有属性都会默认初始化为 0，脚本中设置接口为：
+
+```ts
+const comp = node.getComponent(MeshRenderer);
+comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]); // should match the specified format
 ```
 
-这里声明了新的 occlusion 属性会从旧的 `pbrParams` 中获取，而具体的分量取决于 `OCCLUSION_CHANNEL` 宏定义。并且如果材质资源中未定义这个宏，则默认取 `z` 通道。<br>
-但如果某个材质在迁移升级前就已经存着 `newFloat` 字段的数据，则不会对其做任何修改，除非指定为强制更新模式：
+**注意**：在每次重建 PSO 时（一般对应更换新材质时）所有属性值都会重置，需要重新设置。
 
-```yaml
-newFloat: { formerlySerializedAs: oldVec4.w! }
+### WebGL 1 fallback 支持
+
+由于 WebGL 1 仅支持 GLSL 100 标准语法，在 effect 编译期会提供 300 es 转 100 的 fallback shader，所以开发者基本不需关心这层变化。<br>
+但需要注意的是目前的自动 fallback 只支持一些基本的格式转换，如果使用了 300 es 独有的 shader 函数（texelFetch、textureGrad 等）或 extension，我们推荐根据 `\_\_VERSION__` 宏定义判断 shader 版本，自行实现更稳定精确的 fallback：
+
+```glsl
+#if __VERSION__ < 300
+#ifdef GL_EXT_shader_texture_lod
+  vec4 color = textureCubeLodEXT(envmap, R, roughness);
+#else
+  vec4 color = textureCube(envmap, R);
+#endif
+#else
+  vec4 color = textureLod(envmap, R, roughness);
+#endif
 ```
 
-强制更新模式会强制更新所有材质的属性，无论这个操作是否会覆盖数据。
+在 effect 编译期我们会尝试解析所有已经为常量的宏控制流，将实际内容做剔除或拆分到不同版本的 shader 输出中。
 
-**注意**：强制更新操作会在编辑器的每次资源事件中都执行（几乎对应每一次鼠标点击，相对高频），因此只是一个快速测试和调试的手段，一定不要将处于强制更新模式的 effect 提交到版本控制。
+### 关于 UBO 内存布局
 
-再次总结一下为防止数据丢失所设置的相关规则：
-- 为避免有效旧数据丢失，只要没有显式指定 `removeImmediately` 规则，就不会在导入时自动删除旧数据；
-- 为避免有效的新数据被覆盖，如果没有指定为强制更新模式，对于那些既有旧数据，又有对应的新数据的材质，不会做任何迁移操作。
+Creator 规定在 shader 中所有非 sampler 的 uniform 都应以 block 形式声明，且对于所有 UBO：
+1. 不应出现 vec3 成员；
+2. 对数组类型成员，每个元素 size 不能小于 vec4；
+3. 不允许任何会引入 padding 的成员声明顺序。
 
-## RasterizerState
+这些规则都会在 effect 编译期做对应检查，以便在导入错误（implicit padding 相关）形式时提醒修改。
 
-| 参数名      | 说明 | 默认值  | 可选项 |
-| :--------- | :-- | :----- | :--- |
-| cullMode | 补充说明 | **back** | front, back, none  |
+这可能听起来有些过分严格，但背后有非常务实的考量：<br>
+首先，UBO 是渲染管线内要做到高效数据复用的唯一基本单位，离散声明已不是一个选项；<br>
+其次，WebGL2 的 UBO 只支持 std140 布局，它遵守一套比较原始的 padding 规则：<sup id="a3">[3](#f3)</sup>
 
-## DepthStencilState
+- 所有 vec3 成员都会补齐至 vec4：
 
-| 参数名      | 说明 | 默认值  | 可选项 |
-| :--------- | :-- | :----- | :--- |
-| depthTest        | 补充说明   | **true** | true, false                                                                 |
-| depthWrite       | 补充说明   | **true** |true, false                                                                  |
-| depthFunc        | 补充说明   | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
-| stencilTest      | 补充说明   | **false**  | true, false                                                               |
-| stencilFunc      | 补充说明   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
-| stencilReadMask  | 补充说明   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilWriteMask | 补充说明   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilFailOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilZFailOp   | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilPassOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilRef       | 补充说明   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
-| stencil\*Front/Back | 补充说明  |        | **\*set above stencil properties for specific side**                        |
+  ```glsl
+  uniform ControversialType {
+    vec3 v3_1; // offset 0, length 16 [IMPLICIT PADDING!]
+  }; // total of 16 bytes
+  ```
 
-## BlendState
+- 任意长度小于 vec4 类型的数组和结构体，都会将元素补齐至 vec4：
 
-| 参数名      | 说明 | 默认值  | 可选项 |
-| :--------- | :--- | :----- | :--- |
-| BlendColor | 补充说明 | **0** | 0, `[0, 0, 0, 0]`  |
-| Targets    | 补充说明 | **false** | **false** | true, false  |
-| targets[i].<br>blend          | 补充说明 | **false** | true, false                                                               |
-| targets[i].<br>blendEq        | 补充说明 | **add** | add, sub, rev_sub                                                           |
-| targets[i].<br>blendSrc       | 补充说明 | **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| targets[i].<br>blendDst       | 补充说明 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| targets[i].<br>blendSrcAlpha  | 补充说明 | **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| targets[i].<br>blendDstAlpha  | 补充说明 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| targets[i].<br>blendAlphaEq   | 补充说明 | **add** | add, sub, rev_sub                                                           |
-| targets[i].<br>blendColorMask | 补充说明 | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
+  ```glsl
+  uniform ProblematicArrays {
+    float f4_1[4]; // offset 0, stride 16, length 64 [IMPLICIT PADDING!]
+  }; // total of 64 bytes
+  ```
 
-## Default Values
+- 所有成员在 UBO 内的实际偏移都会按自身所占字节数对齐<sup id="a4">[4](#f4)</sup>：
 
-| 类型        |  默认值 | 可选项   |
-| :---------- | :----- | :------ |
-| int         |  | 0                                        |
-| ivec2       |  | [0, 0]                                   |
-| ivec3       |  | [0, 0, 0]                                |
-| ivec4       |  | [0, 0, 0, 0]                             |
-| float       |  | 0                                        |
-| vec2        |  | [0, 0]                                   |
-| vec3        |  | [0, 0, 0]                                |
-| vec4        |  | [0, 0, 0, 0]                             |
-| sampler2D   | **default**      | black, grey, white, normal, default  |
-| samplerCube | **default-cube** | black-cube, white-cube, default-cube |
+  ```glsl
+  uniform IncorrectUBOOrder {
+    float f1_1; // offset 0, length 4 (aligned to 4 bytes)
+    vec2 v2; // offset 8, length 8 (aligned to 8 bytes) [IMPLICIT PADDING!]
+    float f1_2; // offset 16, length 4 (aligned to 4 bytes)
+  }; // total of 32 bytes
 
-对于 defines：
-- boolean 类型默认值为 false。
-- number 类型默认值为 0，默认取值范围为 [0, 3]。
-- string 类型默认值为 options 数组第一个元素。
+  uniform CorrectUBOOrder {
+    float f1_1; // offset 0, length 4 (aligned to 4 bytes)
+    float f1_2; // offset 4, length 4 (aligned to 4 bytes)
+    vec2 v2; // offset 8, length 8 (aligned to 8 bytes)
+  }; // total of 16 bytes
+  ```
+
+这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准<sup id="a5">[5](#f5)</sup>，因此目前 Creator 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。<br>
+
+> **注意**：再次提醒，uniform 的类型与 inspector 的显示和运行时参数赋值时的程序接口可以不直接对应，通过 [property target](pass-parameter-list.md#Properties) 机制，可以独立编辑任意 uniform 具体的分量。
+
+<b id="f1">[1]</b> 不包含粒子、sprite、后效等不基于 mesh 执行渲染的 shader [↩](#a1)<br>
+<b id="f2">[2]</b> 注意 WebGL 1.0 平台下不支持整型 attributes，如项目需要发布到此平台，应使用默认浮点类型 [↩](#a2)<br>
+<b id="f3">[3]</b> [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159) [↩](#a3)<br>
+<b id="f4">[4]</b> 注意在示例代码中，UBO IncorrectUBOOrder 的总长度为 32 字节，实际上这个数据到今天也依然是平台相关的，看起来是由于 GLSL 标准的疏忽，更多相关讨论可以参考 [这里](https://bugs.chromium.org/p/chromium/issues/detail?id=988988) [↩](#a4)<br>
+<b id="f5">[5]</b> [Interface Block - OpenGL Wiki](https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout) [↩](#a5)

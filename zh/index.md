@@ -1,6 +1,6 @@
 # Cocos Creator 3.0 用户手册
 
-欢迎使用 Cocos Creator 3.0 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 3.0 开发跨平台游戏的方法。
+欢迎使用 Cocos Creator 3.0 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和循序渐进的新手教程。能够帮您快速掌握使用 Cocos Creator 3.0 开发跨平台游戏的方法。
 
 > **注意**：请在右上角根据您使用的 Cocos Creator 版本选择相应的手册版本。
 
@@ -12,7 +12,7 @@
 - [发布跨平台游戏](editor/publish/index.md)
 - [功能地图](module-map/index.md)
     - [图形渲染](module-map/graphics.md)
-    - [动画系统](engine/animation/index.md)
+    - [动画系统](editor/animation/index.md)
     - [声音系统](audio-system/overview.md)
     - [物理模拟](physics/physics.md)
     - [组件](editor/components/index.md)

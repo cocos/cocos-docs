@@ -1,5 +1,7 @@
 # 语言支持
 
+Cocos Creator 支持 TypeScript 和 JavaScript 两种语言，但 v3.0 仅支持在 **资源管理器** 中创建 TypeScript，JavaScript 可通过导入到 **资源管理器** 来使用。推荐开发者使用 TypeScript 进行开发。
+
 ## TypeScript
 
 Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：

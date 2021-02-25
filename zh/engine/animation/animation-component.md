@@ -2,15 +2,22 @@
 
 动画组件控制动画的播放。
 
-像其他组件一样为节点添加动画组件：
+添加动画组件的方式有三种：
 
-```ts
-import { Animation, Node } from 'cc';
+1. 像其他节点添加组件一样。选中节点，在 **属性检查器** 面板点击添加组件，搜索 `Animation`，点击即可添加。
+2. 在 **动画编辑器** 面板开启的状态下，选中节点，点击 **动画编辑器** 面板上的 **添加 Animation 组件** 按钮即可添加。
 
-function (node: Node) {
-    const animationComponent = node.addComponent(Animation);
-}
-```
+    ![](../../editor/animation/animation/add-component.jpg)
+
+3. 通过代码方式添加：
+
+    ```ts
+    import { Animation, Node } from 'cc';
+
+    function (node: Node) {
+        const animationComponent = node.addComponent(Animation);
+    }
+    ```
 
 动画组件管理了一组动画剪辑。
 
@@ -113,3 +120,5 @@ class MyScript extends Component {
 ```
 
 以上代码表示 `MyScript` 脚本组件所在节点的动画组件的默认动画剪辑在进行到第 0.5 秒时，将调用 `MyScript` 组件的 `test()` 方法并传递参数 `0`。
+
+动画组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/animation.animation-1.html)。
