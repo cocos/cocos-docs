@@ -114,12 +114,11 @@ cc.Class({
        this.videoplayer.node.on('ready-to-play', this.callback, this);
     },
 
-    callback: function (event) {
-       //这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 VideoPlayer 组件
-       var videoplayer = event.detail;
-       //do whatever you want with videoplayer
-       //另外，注意这种方式注册的事件，也无法传递 customEventData
-    }
+    callback: function (videoplayer) {
+        // 这里的 videoplayer 表示的是 VideoPlayer 组件
+        // 做任何你想要对 videoplayer 执行的操作
+        // 需要注意的是，使用这种方式注册的事件，无法传递 customEventData
+    },
 });
 ```
 
