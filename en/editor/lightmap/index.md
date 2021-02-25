@@ -12,23 +12,21 @@ The following three steps are required to turn on the baking system:
 
     ![create lightmap](./images/bake_menu.png)
 
-2. Before baking, you need to set `bakeable` to `true` in the static light attribute of the light source component in the editor, 
+2. Before baking, you need to set `bakeable` to `true` in the static light attribute of the light source component in the editor.
 
     > **Note**: currently only one main direction light source is supported.
 
     ![enable lightbake](./images/bakeable.png)
 
-	| Property | Description |
-	| :--- | :--- |
-	| Bakeable | When checked, enable bake lighting |
-	| CastShaow | When checked, enable cast static shadow |
-	| EditorOnly | When checked, only takes effect in the editor |
+	- **Bakeable**: When checked, enable bake lighting
+	- **CastShaow**: When checked, enable cast static shadow
+	- **EditorOnly**: When checked, only takes effect in the editor
 
-3. In the lightmap panel that pops up, after setting the corresponding parameters, click the `Lightmap Generate` button and select the corresponding storage folder to generate the lightmap 
+3. In the lightmap panel that pops up, after setting the corresponding parameters, click the `Lightmap Generate` button and select the corresponding storage folder to generate the lightmap
 
     > **Note**: the storage folder must be under Effective Assets.
-
-    ![create lightmap asset](./images/lightmap_generate.png)
+    >
+    > ![create lightmap asset](./images/lightmap_generate.png)
 
 ## Using
 
