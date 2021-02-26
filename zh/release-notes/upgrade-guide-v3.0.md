@@ -344,6 +344,7 @@ v2.4.3 构建 Windows 平台后生成的目录：
 
 ## TypeScript 参考教程
 
+- [Cocos Creator 3.0 TypeScript 问题答疑及经验分享](https://forum.cocos.org/t/topic/106995)
 - [TypeScript 官方网站](https://www.typescriptlang.org/)
 - [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 - [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)

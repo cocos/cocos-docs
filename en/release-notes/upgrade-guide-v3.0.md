@@ -174,7 +174,7 @@ In addition, it supports the construction of multi-module results with file sepa
 
 #### Asset Preview Panel
 
-Select the resource in the __Asset__ panel to display resource thumbnails in the __Asset Preview__ panel. If the folder where the resource is located is selected, the thumbnails of all resources under the folder can be displayed for easy viewing.
+Select the resource in the __Assets__ panel to display resource thumbnails in the __Asset Preview__ panel. If the folder where the resource is located is selected, the thumbnails of all resources under the folder can be displayed for easy viewing.
 
 ![image](assets-preview.png)
 
@@ -196,7 +196,7 @@ The Physics Collision Group uses the `PhysicsSystem.PhysicsGroup` type independe
 
 ![image](project-setting.png)
 
-__Texture Compression__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Asset__ panel, and then select the preset method.<br>
+__Texture Compression__ is modified to configure the preset in the __Project Setting__ panel, then select the image resource in the __Assets__ panel, and then select the preset method.<br>
 After the old project is upgraded, the editor will automatically scan all the compressed texture configurations in the project and sort out several presets. Since it is automatically scanned, the generated name may not be what you want, you can modify it here.
 
 ![image](texture-compress-setting.png)
