@@ -9,33 +9,29 @@ In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ pr
  - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
  - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
-The __Cocos Creator 3.0 Preview__ version is close to the official version in terms of functionality, and can be used for new project establishment and feature pre-research. The next official version will be released around Feb 11 - Feb 17, 2021, and will further improve the performance and fix the problems at that time to ensure that everyone's new projects can proceed smoothly.
+__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
-__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0 Preview__, please go to [Official Website Update Instructions](https://cocos.com/creator).
+## How to migrate
 
 ## How to migrate Cocos Creator 2.x projects
 
-Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool when v3.0 is officially released. This tool will support migrating old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be migrated in the form of comments, which can reduce the difficulty of upgrading.
+Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool in __Cocos Creator 3.0__. This tool supports importing old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
 
-Developers only need to click **File -> Migrate -> Cocos Creator 2.x project (recommended: version 2.4.3 and above)** in the main menu.
+Developers only need to click **File -> Import Cocos Creator 2.x project** in the main menu.
 
-<img src="import-menu.png" width="50%" height="50%"/>
+![import-menu](import-menu.png)
 
-Next, select the root directory of the Cocos Creator 2.x project and the plugin will automatically traverse all the resources in the project and present them on the migration window.
+Next, select the root directory of the Cocos Creator 2.x project in the file browse dialog that pops up.
 
-> **Note**: It is recommended to upgrade to Cocos Creator 2.4.3 or above separately before re-importing; otherwise the migration results cannot be guaranteed to be correct.
+![import-select-project](import-select-project.png)
 
-<img src="import-select-project.png" width="50%" height="50%"/>
+> **Note**: it is recommended to upgrade to Cocos Creator 2.4.3 or above before importing to Cocos Creator 3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
 
-If the developer wishes to switch to another project for migration, click on the icon in the image below to reselect the project.
+All the resources in the Cocos Creator 2.x project will be automatically presented in the popup **Import Cocos Creator 2.x Project** panel. Developers can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch the imported 2.x project, click the search icon button in the image below to reselect the project.
 
-<img src="import-panel-select.png" width="30%" height="30%"/>
+![import-project](import-panel.png)
 
-After confirming the items to be migrated, developers can check the resources to be migrated by themselves and then click the __Migrate__ button in the image below to complete the migration.
-
-<img src="import-panel.png" width="30%" height="30%"/>
-
-If an existing project needs to be upgraded under special circumstances, and technical or workload difficulties are encountered, please contact [slackmoehrle@cocos.com](mailto:slackmoehrle@cocos.com) for assistance!
+The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository for the Import Plugin, which can be used to [update the Import Plugin](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or submit feedback.
 
 ## Old version developers quickly get started
 
@@ -48,71 +44,119 @@ The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please 
 #### UI related interfaces on the obsolete node
 
 - The UI-related interface changes on the node are as follows:
+
     - The interfaces related to coordinate transformation calculation (e.g. `size` or `anchor`) are as follows:
         Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
 
         ```typescript
-            const uiTrans = node.getComponent(UITransform)!;
-            uiTrans.anchorX = 0.5;
-            uiTrans.setContentSize(size);
+        const uiTrans = node.getComponent(UITransform)!;
+        uiTrans.anchorX = 0.5;
+        uiTrans.setContentSize(size);
         ```
 
     - The remaining interfaces are as follows:
+
         - `color`: needs to get the rendering component on the node first (e.g. `Sprite` component), and then use the corresponding interface.
+
         - `opacity`: If there is a rendering component on the node, set the `color` of the rendering component directly. If there is no rendering component, you can set the rendering component's `color` by adding the `UIOpacity` component and setting the related property.
+
         - `skew`: The interface has been removed.
+
         - `group`: change to `layer`.
+
 - `CCSpriteFrame`:
+
     - Remove the interfaces: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture`.
-    - Change the interface: `setFlipX` and `isFlipX` -> `flipUVX`, `setFlipY` and `isFlipY` -> `flipUVY`, `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture) .
+
+    - Change the interface: `setFlipX` and `isFlipX` -> `flipUVX`, `setFlipY` and `isFlipY` -> `flipUVY`, `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture).
+
     - The remaining methods corresponding to `get` and `set` (e.g. `getOffset`) all correspond directly to properties of the same name (e.g. `offset`) in 3.0.
+
 - `CCTexture2D`:
+
     - Change the interface: `genMipmaps` -> `mipmaps`, `initWithElement` -> `image`.
+
     - `initWithData`, the whole method is removed, similarly the use is to pass the original `ArrayBufferView` data to the new `ImageAsset`, and then `ImageAsset` to the new `Texture2D` to get a copy of the image resource.
-- `Action`:
-    - Remove all related.
+
+- `Action`: Remove all related.
+
 - **Physics**:
+
     - 2D changed components: `cc.Collider` -> `Collider2D`, `cc.BoxCollider` -> `BoxCollider2D`, `cc.RigidBody` -> `RigidBody2D`, etc.
+
     - 3D changed components: `cc.Collider3D` -> `Collider`, `cc.BoxCollider3D` -> `BoxCollider`, `cc.RigidBody3D` -> `RigidBody`, etc.
+
 - **tween**:
+
     - Change the interface: `cc.repeatForever` -> `Tween.repeatForever`、`cc.reverseTime` -> `Tween.reverseTime`、`cc.show` ->  `Tween.show`, etc.
+
 - **Animation**:
+
     - Change the interface: `addClip`-> `createState`、`getClips`-> `clips`、`playAdditive`-> `crossFade`、`getAnimationState`-> `getState`, etc.
+
 - **Camera**:
+
     - Remove the interfaces: `findCamera`、`alignWithScreen`、`main`、`cameras`、`zoomRatio` and `containsNode`.
+
     - Change the interface: `backgroundColor` -> `clearColor`、`cullingMask` -。 > `visibility`、`depth`->`clearDepth`、`getScreenToWorldPoint`->`screenToWorld`、`getWorldToScreenPoint`->`worldToScreen`、`getRay`->`screenPointToRay`, etc.
+
 - **Audio**:
+
     - Change the interface: `getLoop` and `setLoop` -> `loop`, `getVolume` and `setVolume` -> `volume`, `getCurrentTime` and `setCurrentTime` -> `currentTime`, `src` -> `clip`.
+
 - **Materials**:
+
     - All relevant changes need to be done by getting a **Material instance** on **MeshRenderer** or its subclasses.
+
     - Remove the interfaces: `setBlend`, `setDepth`, `setStencilEnabled`, `setStencil` and `setCullMode` and call `overridePipelineStates` to complete the update. `define` calls `recompileShaders` to complete the update.
+
 - The platform variable changes under **sys** are as follows:
 
-    | Cocos Creator 2.4 | Cocos Creator 3.0     |
-    |:-------------------|:-----------------------|
-    | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
-    | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
-    | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
-    | `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
-    | `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
-    | `JKW_GAME`        | `COCOSPLAY`           |
-    | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
-    | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
+| Cocos Creator 2.x | Cocos Creator 3.0     |
+|:-------------------|:-----------------------|
+| `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
+| `VIVO_GAME`       | `VIVO_MINI_GAME`      |
+| `OPPO_GAME`       | `OPPO_MINI_GAME`      |
+| `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
+| `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
+| `JKW_GAME`        | `COCOSPLAY`           |
+| `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
+| `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
 
 - The **global variables** are changed as follows：
 
-    | Cocos Creator 2.x | Cocos Creator 3.0 |
-    |:------------------|:------------------|
-    | `CC_BUILD`        | `BUILD`           |
-    | `CC_TEST`         | `TEST`            |
-    | `CC_EDITOR`       | `EDITOR`          |
-    | `CC_PREVIEW`      | `PREVIEW`         |
-    | `CC_DEV`          | `DEV`             |
-    | `CC_DEBUG`        | `DEBUG`           |
-    | `CC_JSB`          | `JSB`             |
-    | `CC_WECHATGAME`   | `WECHATGAME`      |
-    | `CC_RUNTIME`      | `RUNTIME_BASED`   |
-    | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
+| Cocos Creator 2.x | Cocos Creator 3.0 |
+|:------------------|:------------------|
+| `CC_BUILD`        | `BUILD`           |
+| `CC_TEST`         | `TEST`            |
+| `CC_EDITOR`       | `EDITOR`          |
+| `CC_PREVIEW`      | `PREVIEW`         |
+| `CC_DEV`          | `DEV`             |
+| `CC_DEBUG`        | `DEBUG`           |
+| `CC_JSB`          | `JSB`             |
+| `CC_WECHATGAME`   | `WECHATGAME`      |
+| `CC_RUNTIME`      | `RUNTIME_BASED`   |
+| `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
+
+- **Dynamic Loading**:
+
+    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource.
+
+    ```ts
+    // load texture
+    // v2.x
+    resources.load('background', cc.Texture2D, () => {});
+    // v3.0
+    resources.load('background/texture', Texture2D, () => {});
+    ```
+
+    ```ts
+    // load sprite frame
+    // v2.x
+    resources.load('background', cc.SpriteFrame, () => {});
+    // v3.0
+    resources.load('background/spriteFrame', SpriteFrame, () => {});
+    ```
 
 ### Editor upgrade
 
@@ -156,6 +200,12 @@ __Texture Compression__ is modified to configure the preset in the __Project Set
 After the old project is upgraded, the editor will automatically scan all the compressed texture configurations in the project and sort out several presets. Since it is automatically scanned, the generated name may not be what you want, you can modify it here.
 
 ![image](texture-compress-setting.png)
+
+#### Powerful extension system
+
+Cocos Creator v3.0 has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, Creator v3.0 also provides an **Extension Manager**, which can easily manage the operation and uninstallation of all extensions.
+
+![image](extension-plugin.png)
 
 ### Build Directory Differences
 
@@ -214,6 +264,8 @@ From the above two figures, notice the directory generated after building the __
 
 #### Native
 
+> **Note**: this part has not been updated to the latest version yet, please refer to the actual build result.
+
 The directory generated by Cocos Creator 2.4.3 after building the __Windows__ platform is as follows:
 
 ![image](window-v243.png)
@@ -224,7 +276,7 @@ The directory generated by Cocos Creator 3.0 after building the __Windows__ plat
 
 As you can see from the above two figures, there is a big difference between v2.4.3 and v3.0 in the directory generated after building the __Windows__ platform.
 
-Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. Cocos Creator 3.0 extracts the underlying C++ code that was stored in the `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `common-link` folder (or `common-default` folder, depending on the build template). This way, when building the native platform, if the `common-link` folder is detected to already exist, this part will no longer be processed, to speed up the build.
+Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. Cocos Creator 3.0 extracts the underlying C++ code that was stored in the `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `common-link` folder. This way, when building the native platform, if the `common-link` folder is detected to already exist, this part will no longer be processed, to speed up the build.
 
 The `Windows` folder is used by v3.0 to store the native-related content for the current built (or the `android` folder if the build is for Android).
 

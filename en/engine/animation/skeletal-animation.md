@@ -2,7 +2,7 @@
 
 __Skeletal Animation__ is a common but special type of animation. Two different systems are provided and each is optimized for different purposes. Seamless switching between these two systems can be as simple as toggle the `useBakedAnimation` switch on `SkeletalAnimation`, even at runtime. when enabled, the pre-baked system will be used, or the real-time calculated system if otherwise.
 
-To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](../../../api/en/classes/animation.skeletalanimation.html).
+To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](__APIDOC__/en/classes/animation.skeletalanimation.html).
 
 ## Pre-baked Skeletal Animation System
 

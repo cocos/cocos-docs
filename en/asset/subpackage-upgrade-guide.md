@@ -39,4 +39,4 @@ You used the API `loader.downloader.loadSubpackage` in your own code to load the
 
 For details on how to use the **Asset Bundle**, please refer to the [Asset Bundle](bundle.md) documentation.
 
-For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](../../../api/en/classes/asset_manager.bundle.html) documentation.
+For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](__APIDOC__/en/classes/asset_manager.bundle.html) documentation.

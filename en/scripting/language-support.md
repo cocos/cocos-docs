@@ -1,40 +1,108 @@
+
 # Language Support
 
 ## TypeScript
 
-Cocos Creator 3.0 uses [babel](https://babeljs.io/) instead of [tsc](https://www.typescriptlang.org/) to compile __TypeScript__ scripts. In particular, the [@babel/plugin-transform-typescript](https://babeljs.io/docs/en/babel-plugin-transform-typescript) plugin is used. For this reason, TypeScript support has certain limitations.
+Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on TypeScript 4.1.0:
 
-Some important considerations are listed below.
-For a complete description, see [@babel/plugin-transform-typescript](https://babeljs.io/docs/en/babel-plugin-transform-typescript).
+- `tsconfig.json` will not be read. The following options are implied for each project:
 
-- `tsconfig.json` will not be read.
-- Implied with `isolatedModules` option, which means:
-  - [Const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums) is not supported.
-  - TypeScript types and interfaces should not be exported in the export declaration.
-- `Export =` and `import =` are not supported.
-- Variables exported by namespace must be declared as `const` instead of `var` or `let`.
-- Different declarations in the same namespace will not share the scope and require explicit use of qualifiers.
-
-`tsconfig.json` will not be read during compilation means that the compilation options in `tsconfig.json` does not affect compilation.
-However, there are exceptions, please refer to the [Module Analysis](####ModuleAnalysis) documentation.
-
-Developers can still use `tsconfig.json` in the project to cooperate with the IDE to implement type checking and other functions.
-In-order to make the IDE’s TypeScript checking function compatible with __Cocos Creator__'s behavior, pay extra attention to some things, please referto the [tsconfig](./tsconfig.md) documentation.
-
-#### Module Analysis
-
-__Cocos Creator__ uses the __NodeJS__ module analysis algorithm.
-It is equivalent to the following `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "moduleResolution": "node"
+  ```json5
+  {
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "ES2015",
+        "isolatedModules": true,
+        "experimentalDecorators": true,
+        "moduleResolution": /* Cocos Creator's specific module resolution algorithm */,
+        "forceConsistentCasingInFileNames": true,
+    }，
   }
-}
+  ```
+
+  The implicit `isolatedModules` option means that:
+    - [const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums) is not supported.
+
+    - Use `export type` when re-exporting TypeScript types and interfaces. For example, use `export type { Foo } from '. /foo';` instead of `export { Foo } from '. /foo';`.
+
+- `export =` and `import =` are not supported.
+
+-  Variables derived from namespace must be declared as `const`, not `var` or `let`.
+
+- Different declarations in the same namespace do not share scope and require explicit use of qualifiers.
+
+- Type errors during compilation will be ignored.
+
+`tsconfig.json` is not read at compile time, meaning that the compile option for `tsconfig.json` does not affect compilation.
+
+Developers can still use `tsconfig.json` in their projects to work with the IDE to implement features such as type checking. In order to make the IDE's TypeScript checking compatible with the Creator's behavior, developers need to pay some extra attention to [tsconfig](./tsconfig.md).
+
+## JavaScript
+
+### Language Features
+
+The JavaScript language specification supported by the Creator is ES6.
+
+In addition, the following language features or proposals, updated to the ES6 specification, are still supported.
+
+- [Public class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
+- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Optional chaining operator `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Nullish coalescing operator `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+- Logical assignment operators
+    - [Logical nullish assignment operator `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
+    - [Logical AND assignment operator `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
+    - [Logical OR assignment operator `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+- [Global object `globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
+
+The following language features are also supported, but require the relevant compilation options to be turned on:
+
+- [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+In particular, Creator currently supports **Legacy** decorator proposals, see [babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators) for their usage and meaning. Since this [proposal](https://github.com/tc39/proposal-decorators) is still in phase 2, all decorator-related functional interfaces exposed by the engine are under the `_decorator` namespace starting with an underscore.
+
+### Compilation Options
+
+Creator opens some compilation options that will be applied to the entire project.
+
+| Option | Name | Meaning |
+| :-- | :--- | :-- |
+| **useDefineForClassFields** | Conforming class fields | When enabled, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
+| **allowDeclareFields** |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to ` undefined`. |The
+
+### Runtime Environment
+
+From the user's perspective, Creator does not bind any JavaScript implementation, so it is recommended that developers write scripts strictly according to the JavaScript specification for better cross-platform support.
+
+For example, when wishing to use **global objects**, the standard feature `globalThis` should be used:
+
+```js
+globalThis.blahBlah // 'globalThis' must exist in any environment
 ```
 
-TypeScript's path mapping function is also supported. The following `tsconfig.json` options will be read and retain the same semantics as `tsc`:
+instead of `window`, `global`, `self` or `this`:
 
-- [compilerOptions.baseUrl](https://www.typescriptlang.org/docs/handbook/module-resolution.html#base-url)
-- [compilerOptions.paths](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
+```js
+typeof window // May be 'undefined'
+typeof global // May be 'undefined' in the browser environment
+```
+
+Again, Creator does not provide a module system for **CommonJS**, so the following code snippet would pose a problem:
+
+```js
+const blah = require('./blah-blah'); // Error, require is undefined
+module.exports = blah; // Error, module is undefined
+```
+
+Instead, the standard module syntax should be used:
+
+```js
+import blah from './blah-blah';
+export default blah;
+```
+
+## Related Tutorials
+
+- [JavaScript Standard Reference Tutorial [cn]](https://wangdoc.com/javascript/)
+- [JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)
+- [JavaScript Memory Detailing & Analysis Guide [cn]](https://mp.weixin.qq.com/s/EuJzQajlU8rpZprWkXbJVg)

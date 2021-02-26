@@ -3,7 +3,7 @@
 
 Animation clips describes animation data for specific kinds of objects and do not bind to individual target object. When the animation got to be played, target object is bound to the animation clip, the playback state is so called animation state. Animation states are somewhat similar to a player, which for example pause and alter the speed of animation.
 
-Animation states are represented by [class `AnimationState`](../../../../api/en/classes/animation.animationstate-1.html).
+Animation states are represented by [class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).
 
 ## Playback Time
 
@@ -17,7 +17,7 @@ The loop mode and loop count decide the correspondence of playback location and 
 
 ## Loop Mode and Loop Count
 
-The animation can be stopped once it had been played to the end or can be loop forever, or, can be played to the end and replay to the begin so forth. These are called loop modes, denoted by enumeration [`AnimationClip.WrapMode`](../../../../api/en/enums/animation.wrapmode.html):
+The animation can be stopped once it had been played to the end or can be loop forever, or, can be played to the end and replay to the begin so forth. These are called loop modes, denoted by enumeration [`AnimationClip.WrapMode`](__APIDOC__/en/enums/animation.wrapmode.html):
 
 | Loop Mode | Description |
 | :--- | :--- |
