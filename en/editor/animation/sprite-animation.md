@@ -16,7 +16,7 @@ Click the `+` next to the __Property List__ of the __Animation Editor__. Select 
 
 ## Adding a Frame
 
-__First__, from the __Asset__ panel, drag the texture to the __Attribute Frame__ area and place it on the __Sprite.spriteFrame__ track.
+__First__, from the __Assets__ panel, drag the texture to the __Attribute Frame__ area and place it on the __Sprite.spriteFrame__ track.
 
 __Next__, drag the texture to be displayed in the next frame to the specified position, and then __click__ __Play__ to preview the animation that was just created.
 

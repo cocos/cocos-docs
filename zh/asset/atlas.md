@@ -28,7 +28,7 @@
 
 ![atlas files](atlas/atlas_files.png)
 
-使用 TexturePacker 打包图集时需要注意，Creator 3.0 不支持 TexturePacker v3.x 以下的图集格式，否则导入时会出现报错。推荐使用的版本是 4.x。
+使用 TexturePacker 打包图集时需要注意，Creator 3.0 不支持 TexturePacker v4.x 以下的图集格式，否则导入时会出现报错。
 
 ## 导入图集资源
 
