@@ -83,14 +83,6 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 关于 layer 的实现详情，请参考 [层级](layer.md) 文档。
 
-在这个列表中可以使用引擎内置的 layer 属性，也能使用用户自定义的 layer 属性。layer 属性是全局且唯一的，但是不同的节点可以设置相同的 layer 属性，使其被同一个相机所观察。
-
-### 自定义 layer 属性新增
-
-![node layer edit](scene/node-layer-edit.png)
-
-在此界面点击 `Edit` 按钮进行编辑。
-
 ![layer edit](scene/layer-edit.png)
 
 其中 `User Layer 0` - `User Layer 19` 是提供给用户自定义设置的 layer 属性，用户只需要在 layer 后面填入自定义 layer name 就可以启用这个 layer 属性，并在节点上编辑。
