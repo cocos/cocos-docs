@@ -46,7 +46,7 @@
 
 > **注意**：从 Cocos Creator 3.0 开始，2D 元素（例如 Sprite）的渲染也遵从 Layer 与 Visibility 的判断，开发者可以根据需要自行调整 Layer 与 Visibility。
 
-当用户勾选了多个 Layer 作为该相机可见依据时，Visibility 属性通过多个 Layer (例如：1 << n) 的值 `|` 操作计算得出。
+当开发者在相机的 Visibility 属性中同时勾选了多个 Layer 时，Visibility 的属性值便是通过将多个 Layer 的值执行 `|` 操作计算而得出。
 
 例如，下图中相机的 Visibility 属性同时勾选了 **UI_3D** 和 **DEFAULT** 这两个 Layer，通过 [查询 Layer 属性值](../../concepts/scene/layer.md) 可以知道 **UI_3D** 的属性值是 **1 << 23**，**DEFAULT** 的属性值是 **1 << 30**，那么 Visibility 属性值便是 **1 << 23 | 1 << 30  = 1820327937**。
 
