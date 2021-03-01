@@ -49,7 +49,7 @@ The image below shows the ` Layer ` used by the camera:
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
-In this case the ` Visibility ` property of the camera is ` 1 << 23 | 1 << 30 = 1820327937 `.
+In this case the ` Visibility ` property of the camera is ` 1 << 23 (Layer: UI_3D) | 1 << 30 (Layer: DEFAULT) = 1820327937 `.
 
 For details on the implementation of layers, Review the [Layer](../../concepts/scene/layer.md) documentation.
 
