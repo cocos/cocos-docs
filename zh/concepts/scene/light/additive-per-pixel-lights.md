@@ -16,15 +16,15 @@
 
 ![Frame Debug](debug.png)
 
-> 第一遍，先渲染 ` Main Light ` 的基础着色效果。
+> 第一遍，先渲染 ` Directional Light ` 的基础着色效果。
 
 ![main light pass](pass1.png)
 
-> 第二遍，渲染 ` 聚光灯_1 ` 的光照效果。
+> 第二遍，渲染 ` Spot Light 1 ` 的光照效果。
 
 ![ForwardAdd pass](pass2.png)
 
-> 第三遍，渲染 ` 聚光灯_2 ` 的光照效果。
+> 第三遍，渲染 ` Spot Light 2 ` 的光照效果。
 
 ![ForwardAdd pass](pass3.png)
 
