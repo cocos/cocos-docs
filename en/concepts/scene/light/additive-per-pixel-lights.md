@@ -16,18 +16,22 @@ Let's open Frame Debug to see how these are rendered to the screen:
 
 ![Frame Debug](debug.png)
 
-In the first pass, first render the base color of Main Light.
+In the first pass, first render the base color of `Directional Light`:
 
 ![main light pass](pass1.png)
 
-In the second pass, the Lighting pass of light_1 is rendered.
+In the second pass, the Lighting pass of `Spot Light 1` is rendered:
 
 ![ForwardAdd pass](pass2.png)
 
-In the third pass, the Lighting pass of light_2 is rendered.
+In the third pass, the Lighting pass of `Spot Light 2` is rendered:
 
 ![ForwardAdd pass](pass3.png)
 
-This kind of rendering path is Forward-Pipeline. Forward is composed of two Passes. The first Pass is called BasePas, which is used to draw the illumination brought by a parallel light, and the other is called LightPass, which is responsible for drawing the illumination of the remaining lights. One can be foreseen. When the object is illuminated by multiple lights, there will be multiple Draw Calls.
+This rendering method is the Forward-Pipeline, which supports multiple lighting models.
 
-The advantage of this rendering method is that you can add more lighting effects, even on the mobile terminal, it also has a good performance.
+- The first pass is BasePas, which is used to draw the light from a parallel light.
+
+- The second pass is called LightPass and is used to render the light from the remaining light sources.
+
+Therefore, when an object is illuminated by more than one light at the same time, the Draw Call is increased.
