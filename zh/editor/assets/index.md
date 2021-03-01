@@ -140,7 +140,7 @@
 
 > **注意**：插件会自动把资源打成一个 zip 包，该 zip 包只适用于 **导入资源包** 插件使用。
 
-<img src="img/package-asset/export-menu.png" width="50%" height="50%"/><img src="img/package-asset/export-plane.png" width="50%" height="50%"/>
+![exporting](img/package-asset/exporting.png)
 
 ### 导入资源包
 
@@ -148,7 +148,7 @@
 
 导入过程中也会让用户再次确认导入资源，这时候可以通过取消某些资源的勾选来去掉不需要导入的资源。
 
-<img src="img/package-asset/import-menu.png" width="50%" height="50%"/><img src="img/package-asset/import-plane.png" width="50%" height="50%"/>
+![importing](img/package-asset/importing.png)
 
 > **注意**：
 > 1. 导入的 zip 包，仅支持由 Cocos Creator 3.0.0 及以上版本使用 **导出资源包** 导出的 zip 包。
