@@ -94,7 +94,7 @@ Click on the `Edit` button in this screen to edit.
 
 ![layer edit](scene/layer-edit.png)
 
-The ` User Layer 0 ` - ` User Layer 19 ` is a layer attribute provided to the user for customisation. The user can enable this layer attribute and edit it on the node by filling in the custom layer name after the layer.
+The `User Layer 0` - `User Layer 19` is a layer attribute provided to the user for custom. The user can enable this layer attribute and edit it on the node by filling in the custom layer name after the layer.
 
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
 

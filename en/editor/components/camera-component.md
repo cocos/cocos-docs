@@ -29,7 +29,7 @@ The __Camera Component__ is an important functional component that we use to pre
 | *Priority* | Priority. High-priority __Camera__s will be rendered first in the rendering process |
 | *Projection* | Projection mode. Divided into **perspective projection (PERSPECTIVE)** and **orthogonal projection (ORTHO)** |
 | *Rect* | Viewport size of __Camera__ |
-| *Visibility* | The ` Visibility ` of the __Camera__. Used to control the ` Visibility ` of different models in the same __Camera__. |
+| *Visibility* | The `Visibility` of the __Camera__. Used to control the `Visibility` of different models in the same __Camera__. |
 
 ## Camera group rendering
 
@@ -41,18 +41,18 @@ The __Camera__ and models provided by default are all __rendered without groupin
 
 Set which tiers should be observed by this camera and which tiers should not be observed.
 
-**Note** : From version 3.0 of the Creator, The rendering of 2d elements (such as Sprite) also follows the ` Layer ` and ` Visibility ` judgement, So you can adjust the ` Layer ` and ` Visibility ` as required.
+**Note** : From version 3.0 of the Creator, The rendering of 2d elements (such as Sprite) also follows the `Layer` and `Visibility` judgement, So you can adjust the `Layer` and `Visibility` as required.
 
-The ` Visibility ` property is calculated from the value of multiple ` Layer ` ` | ` operations when the user has checked more than one ` Layer ` as the basis for ` Visibility ` of the camera.
+The `Visibility` property is calculated from the value of multiple `Layer` `|` operations when the user has checked more than one `Layer` as the basis for `Visibility` of the camera.
 
-The image below shows the ` Layer ` used by the camera:
+The image below shows the `Layer` used by the camera:
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
-In this case the ` Visibility ` property of the camera is ` 1 << 23 (Layer: UI_3D) | 1 << 30 (Layer: DEFAULT) = 1820327937 `.
+In this case the `Visibility` property of the camera is `1 << 23 (Layer: UI_3D) | 1 << 30 (Layer: DEFAULT) = 1820327937`.
 
 For details on the implementation of layers, Review the [Layer](../../concepts/scene/layer.md) documentation.
 
 ### Visibility calculations for the camera
 
-The camera itself can set one or more visible ` Visibility ` properties, And has its own ` Layer ` values on the node, Which is a 2^32^ integer, one for each visible ` Layer `, Using bitwise operations to support up to 32 different ` Layer ` labels (one bit for each ` Layer ` value, i.e. 2^layer^). When culling the camera, The ` & ` operation is performed with the camera based on the ` Layer ` value of each node, And if the ` Visibility ` property of the camera contains this ` Layer `, Then the current node should be visible to the camera. If the camera's ` Visibility ` property contains this ` Layer `, Then the current node should be visible to the camera.
+The camera itself can set one or more visible `Visibility` properties, And has its own `Layer` values on the node, Which is a 2^32^ integer, one for each visible `Layer`, Using bitwise operations to support up to 32 different `Layer` labels (one bit for each `Layer` value, i.e. 2^layer^). When culling the camera, The `&` operation is performed with the camera based on the `Layer` value of each node, And if the `Visibility` property of the camera contains this `Layer`, Then the current node should be visible to the camera. If the camera's `Visibility` property contains this ` Layer `, Then the current node should be visible to the camera.

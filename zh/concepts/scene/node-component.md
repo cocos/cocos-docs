@@ -75,9 +75,9 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 ## 设置 layer，控制其可见性
 
-引擎采用根据相机的 ` Visibility ` 属性跟节点的 ` Layer ` 属性，使用更加通用的节点与相机匹配来控制可见性。更灵活的控制组件的可见性，使分组显示多样化。同时 3D 组件与 2D 组件可以混合渲染。
+引擎采用根据相机的 `Visibility` 属性跟节点的 `Layer` 属性，使用更加通用的节点与相机匹配来控制可见性。更灵活的控制组件的可见性，使分组显示多样化。同时 3D 组件与 2D 组件可以混合渲染。
 
-### 设置节点的 ` Layer ` 属性
+### 设置节点的 `Layer` 属性
 
 ![node layer gizmo](scene/node-layer-gizmo.png)
 
@@ -93,7 +93,7 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 ![layer edit](scene/layer-edit.png)
 
-其中 ` User Layer 0 ` - ` User Layer 19 ` 是提供给用户自定义设置的 layer 属性，用户只需要在 layer 后面填入自定义 layer name 就可以启用这个 layer 属性，并在节点上编辑。
+其中 `User Layer 0` - `User Layer 19` 是提供给用户自定义设置的 layer 属性，用户只需要在 layer 后面填入自定义 layer name 就可以启用这个 layer 属性，并在节点上编辑。
 
 ## 小结
 
