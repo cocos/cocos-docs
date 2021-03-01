@@ -76,9 +76,7 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 
 ## Setting the layer and controlling its visibility
 
-The engine uses a more generic node-to-camera match to control the visibility of nodes when the node's set Layer property is included in the camera's ![Visibility property](../../editor/components/camera-component.md), The node can be seen by the camera and supports mixed rendering of 3D and 2D components. This allows greater flexibility in controlling the visibility of node components and diversifying group displays.
-
-Translated with www.DeepL.com/Translator (free version)
+The engine uses a more generic node-to-camera match to control the visibility of nodes when the node's set Layer property is included in the camera's [Visibility property](../../editor/components/camera-component.md), The node can be seen by the camera and supports mixed rendering of 3D and 2D components. This allows greater flexibility in controlling the visibility of node components and diversifying group displays.
 
 For details on the implementation of layers, please refer to the [layer](layer.md) documentation.
 
