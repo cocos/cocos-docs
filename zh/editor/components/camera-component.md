@@ -48,7 +48,7 @@ Visibility 用于设置哪些层级的节点应该被该相机观察到。
 
 当用户勾选了多个 Layer 作为该相机可见依据时，Visibility 属性通过多个 Layer (例如：1 << n) 的值 `|` 操作计算得出。
 
-下图为相机使用到的 layer。
+例如，下图中相机的 Visibility 属性同时勾选了 **UI_3D** 和 **DEFAULT** 这两个 Layer，通过 [查询 Layer 属性值](../../concepts/scene/layer.md) 可以知道 **UI_3D** 的属性值是 **1 << 23**，**DEFAULT** 的属性值是 **1 << 30**，那么 Visibility 属性值便是 **1 << 23 | 1 << 30  = 1820327937**。
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
