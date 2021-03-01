@@ -12,20 +12,26 @@
 
 ![Draw Call](drawCall.png)
 
-> 我们来打开Frame Debug来看看这些到底是如何渲染到屏幕上去的:
+我们可以通过第三方软件，例如 RenderDoc，打开Frame Debug来看看这些到底是如何渲染到屏幕上的:
 
 ![Frame Debug](debug.png)
 
-> 第一遍，先渲染 ` Directional Light ` 的基础着色效果。
+由上图可以看出来，第一遍，先渲染 `Directional Light` ：
 
 ![main light pass](pass1.png)
 
-> 第二遍，渲染 ` Spot Light 1 ` 的光照效果。
+第二遍，渲染 `Spot Light 1` 的光照效果：
 
 ![ForwardAdd pass](pass2.png)
 
-> 第三遍，渲染 ` Spot Light 2 ` 的光照效果。
+第三遍，渲染 `Spot Light 2` 的光照效果：
 
 ![ForwardAdd pass](pass3.png)
 
-> 这种渲染路径就是 Forward-Pipeline，Forward 由两个 Pass 组成 第一个 Pass 叫 BasePas，用来绘制一个平行光带来的光照，另一个 Pass 叫 LightPass，负责绘制剩余灯>光的光照，可以预见到一个物体被多个灯光照射到了，就会多个 Draw Call。
+这种渲染方式便是支持多种光照模型的 Forward-Pipeline。Forward 一般由两个 Pass 组成：
+
+- 第一个 Pass 是 BasePas，用来绘制一个平行光带来的光照。
+
+- 第二个 Pass 叫 LightPass，用于渲染剩余光源的光照。
+
+因此，当一个物体同时背多个灯光照射时，Draw Call 也会增加。
