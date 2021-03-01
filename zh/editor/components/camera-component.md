@@ -44,7 +44,7 @@
 
 Visibility 用于设置哪些层级的节点应该被该相机观察到。
 
-**注意**：从 Cocos Creator 3.0 开始，2D 元素（例如 Sprite）的渲染也遵从 Layer 与 Visibility 的判断，开发者可以根据需要自行调整 Layer 与 Visibility。
+> **注意**：从 Cocos Creator 3.0 开始，2D 元素（例如 Sprite）的渲染也遵从 Layer 与 Visibility 的判断，开发者可以根据需要自行调整 Layer 与 Visibility。
 
 当用户勾选了多个 Layer 作为该相机可见依据时，Visibility 属性通过多个 Layer (例如：1 << n) 的值 `|` 操作计算得出。
 
