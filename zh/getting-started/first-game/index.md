@@ -10,9 +10,9 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
 
 如果您还不了解如何获取和启动 Cocos Creator，请阅读 [安装和启动](../install/index.md) 一节。
 
-1. 首先启动 Cocos Creator，然后新建一个名为 **MindYourStep** 的项目，如果不知道如何创建项目，请阅读 [Hello World!](../helloworld/index.md)。
+1. 首先启动 Cocos Creator，然后新建一个名为 **MindYourStep** 的空项目，如果不知道如何创建项目，请参考 [Hello World!](../helloworld/index.md)。
 
-2. 新建项目后会看到如下的编辑器界面：
+2. 新建项目后会看到如下所示的编辑器界面：
 
     ![main window](./images/main-window.png)
 
@@ -27,34 +27,32 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
 
 当玩家运行游戏时，就会载入游戏场景，游戏场景加载后就会自动运行所包含组件的游戏脚本，实现各种各样开发者设置的逻辑功能。所以除了资源以外，游戏场景是一切内容创作的基础。现在，让我们来新建一个场景。
 
-1. 在 **资源管理器** 中点击选中 **assets** 目录，点击 **资源管理器** 左上角的加号按钮，选择文件夹，命名为 Scenes。
+1. 在 **资源管理器** 中选中 `assets` 目录，点击右键并选择 **创建 -> 文件夹**，将其命名为 `Scenes`，用于统一放置场景文件。
 
    ![create scene](./images/create-folder.png)
 
-2. 点击选中 Scenes 目录（下图把一些常用的文件夹都提前创建好了），点击鼠标右键，在弹出的菜单中选择 **场景文件**。
+2. 选中 `Scenes` 目录，确保我们的场景会被创建在这个目录下，然后点击右键并选择 **创建 -> Scene**，和创建文件夹的步骤一致。
 
-   ![create scene](./images/create-scene.png)
+3. 然后在 **资源管理器** 中就会生成一个名为 `scene` 的场景文件，并且名称会处于编辑状态，将它重命名为 `Main`。
 
-3. 我们创建了一个名叫 New Scene 的场景文件，创建完成后场景文件 New Scene 的名称会处于编辑状态，将它重命名为 Main。
-
-4. 双击 Main，就会在 **场景编辑器** 和 **层级管理器** 中打开这个场景。
+4. 双击 Main 场景，就会在 **场景编辑器** 和 **层级管理器** 中打开这个场景。
 
 ## 添加跑道
 
 我们的主角需要在一个由方块（Block）组成的跑道上从屏幕左边向右边移动。我们使用编辑器自带的立方体（Cube）来组成道路。
 
-1. 在 **层级管理器** 中创建一个立方体（Cube），并命名为 `Cube`。
+1. 在 **层级管理器** 中创建一个立方体（Cube）节点，并命名为 `Cube`。
 
    ![create cube](./images/create-cube.gif)
 
-2. 选中 Cube，按 **Ctrl + D** 复制出 3 个 Cube。
+2. 选中 Cube，按 **Ctrl + D** 复制出另外两个 Cube。
 
-3. 将 3 个 Cube 按以下坐标排列：
+3. 然后依次在 **层级管理器** 中选中 3 个 Cube，在 **属性检查器** 中分别将 3 个 Cube 的 `Position` 属性设置为：
 
     - 第一个节点位置（0，-1.5，0）
     - 第二个节点位置（1，-1.5，0）
     - 第三个节点位置（2，-1.5，0）
-    
+
     效果如下：
 
     ![create ground](./images/add-ground-base.png)
@@ -63,13 +61,15 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
 
 ### 创建主角节点
 
-首先创建一个名为 Player 的空节点，然后在这个空节点下创建名为 Body 的主角模型节点，为了方便，我们采用编辑器自带的胶囊体模型做为主角模型。
+首先在 **层级管理器** 面板中点击右键，选择 **创建 -> 空节点** 创建一个空节点并命名为 `Player`。
 
-![create player node](./images/create-player.gif)
+然后右键点击 `Player` 节点，选择 **创建 -> 3D 对象 -> Capsule 胶囊** 并命名为 `Body`，作为主角模型节点。
+
+![create player node](./images/create-player1.png)
 
 分为两个节点的好处是，我们可以使用脚本控制 Player 节点来使主角进行水平方向移动，而在 Body 节点上做一些垂直方向上的动画（比如原地跳起后下落），两者叠加形成一个跳越动画。
 
-然后将 Player 节点设置在（0，0，0）位置，使得它能站在第一个方块上。效果如下：
+然后将 Player 节点的 `Position` 属性设置为 `(0，0，0)` 位置，使得它能站在第一个方块上。效果如下：
 
 ![create player](./images/create-player.png)
 
@@ -79,17 +79,21 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
 
 #### 创建脚本
 
-1. 如果还没有创建 Scripts 文件夹，首先在 **资源管理器** 中右键点击 **assets** 文件夹，选择 **新建 -> 文件夹**，重命名为 Scripts。
-2. 右键点击 Scripts 文件夹，选择 **新建 -> TypeScript**，创建一个 TypeScript 脚本，有关 TypeScript 资料可以查看 [TypeScript 官方网站](https://www.typescriptlang.org/)。
-3. 将新建脚本的名字改为 `PlayerController`，双击这个脚本，打开代码编辑器（例如 VSCode）。
+1. 如果还没有创建 Scripts 文件夹，需要先在 **资源管理器** 中右键点击 **assets** 文件夹，选择 **创建 -> 文件夹**，并重命名为 `Scripts`，之后我们所有的脚本都会存放在这个文件夹中。
 
-    ![create player script](./images/create-player-script.gif)
+2. 右键点击 Scripts 文件夹，选择 **创建 -> TypeScript**，创建一个 TypeScript 脚本，并命名为 `PlayerController`。有关 TypeScript 资料可以查看 [TypeScript 参考教程](../../release-notes/upgrade-guide-v3.0.md#typescript-%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B)。
 
-**注意**：Cocos Creator 中脚本名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
+3. 双击这个脚本，打开 [代码编辑器](../../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F)（例如 VSCode）。
+
+    ![create player script](./images/create-player-script.png)
+
+> **注意**：
+> 1. Cocos Creator 中脚本组件名是以脚本中定义的类名为准的，而不是脚本文件名。脚本的类名会与创建脚本时的脚本文件名保持一致，但之后如果有修改了脚本文件名/脚本类名，这两者之间并不会自动同步，如果需要的话，可以手动同步。
+> 2. 脚本文件名和类名的命名是大小写敏感的！如果名称的大小写不正确，将无法正确通过名称使用组件！
 
 #### 编写脚本代码
 
-在打开的 PlayerController 脚本里已经有了预先设置好的一些代码块，如下所示：
+在打开的 `PlayerController` 脚本里已经有了预先设置好的一些代码块，如下所示：
 
 ```ts
 import { _decorator, Component } from "cc";
@@ -116,7 +120,7 @@ export class PlayerController extends Component {
 
 这些代码就是编写一个组件（脚本）所需的结构。具有这样结构的脚本就是 Cocos Creator 中的 **组件（Component）**，它们能够挂载到场景中的节点上，提供控制节点的各种功能，更详细的脚本信息可以查看 [脚本](../../scripting/index.md)。
 
-我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
+接下来在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
 import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
@@ -195,15 +199,15 @@ export class PlayerController extends Component {
 }
 ```
 
-现在我们可以把 `PlayerController` 组件添加到主角节点 `Player` 上。在 **层级管理器** 中选中 `Player` 节点，然后在 **属性检查器** 中点击 **添加组件** 按钮，选择 **添加用户脚本组件 -> PlayerController**，为主角节点添加 `PlayerController` 组件。
+然后将 `PlayerController` 组件添加到主角节点 `Player` 上。在 **层级管理器** 中选中 `Player` 节点，然后在 **属性检查器** 中点击 **添加组件** 按钮，选择 **自定义脚本 -> PlayerController**，为主角节点添加 `PlayerController` 组件。或者也可以直接将 **资源管理器** 中的脚本直接拖拽到 **属性检查器** 中。
 
 ![add player controller comp](./images/add-player-controller.png)
 
-为了能在运行时看到物体，我们需要将场景中 Camera 的参数进行一些调整，`Position`  设置为（0，0，13），`Color` 设置为（50，90，255，255）：
+为了能在运行时看到物体，我们需要将场景中 Camera 的参数做一些调整。在 **层级管理器** 中选中 `Main Camera` 节点，然后在 **属性检查器** 中将 `Position` 设置为 `(0，0，13)`，`ClearColor` 设置为 `(50，90，255，255)`：
 
 ![camera setting](./images/camera-setting.png)
 
-然后点击工具栏中心位置的 Play 按钮：
+然后在编辑器上方选择使用浏览器预览，然后点击 Play 按钮：
 
 ![play button](./images/play.png)
 
@@ -215,40 +219,44 @@ export class PlayerController extends Component {
 
 ### 添加角色动画
 
-从上面运行的结果可以看到单纯对 Player 进行水平方向的移动是十分呆板的，我们要让 Player 跳跃起来才比较有感觉，可以通过为 Player 添加垂直方向的动画来达到这个效果。有关 **动画编辑器** 的更多信息，请阅读 [动画编辑器](../../editor/animation/index.md)
+从上面运行的结果可以看到单纯对 `Player` 进行水平方向的移动是十分呆板的，我们要让 `Player` 跳跃起来才比较有感觉，可以通过为 `Player` 添加垂直方向的动画来达到这个效果。有关 **动画编辑器** 的更多信息，请参考 [动画编辑器](../../editor/animation/index.md)。
 
-1. 选中场景中的 Body 节点，然后在编辑器下方的 **动画编辑器** 中添加 Animation 组件并创建 Clip，命名为 `oneStep`。
+1. 在 **资源管理器** 面板新建一个名为 `Animations` 的文件夹。然后选中场景中的 Body 节点，在编辑器下方的 **动画编辑器** 面板中点击 **添加 Animation 组件**，再点击 **新建 AnimationClip 文件** 并命名为 `oneStep`，存放在 `Animations` 文件夹中。
 
     ![player move](./images/add-animation.gif)
 
-2. 进入动画编辑模式，添加 position 属性轨道，并添加三个关键帧，position 值分别为（0，0，0）、（0，0.5，0）、（0，0，0）。
+2. 进入动画编辑模式，添加 `position` 属性轨道，并添加三个关键帧，`Position` 属性值分别为 `(0，0，0)`、`(0，0.5，0)`、`(0，0，0)`。
 
     ![add keyframe](./images/add-keyframe.gif)
 
-    **注意**：退出动画编辑模式前记得要保存动画，否则做的动画就白费了。
+    动画编辑完成后可点击 **动画编辑器** 面板右上角的 ![exit](./images/exit-animation-button.png) 按钮或者 **场景编辑器** 面板中的 **关闭** 按钮退出动画编辑模式。
 
-3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。
+    > **注意**：退出动画编辑模式前记得要保存动画，可使用快捷键 `Ctrl + S` 或者点击 **场景编辑器** 面板中的 **保存** 按钮来保存动画。
+
+3. 我们还可以通过 **资源管理器** 来创建 Animation Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 节点 **Animation** 组件的 `Clips` 中（这里为了录制方便调整了一下 [编辑器面板布局](../../editor/editor-layout/index.md)）。
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
-4. 进入动画编辑模式，选择并编辑 `twoStep` 的 Clip，类似第 2 步，添加三个 position 的关键帧，分别为（0，0，0）、（0，1，0）、（0，0，0）。
+4. 进入动画编辑模式，选择并编辑 `twoStep` 的 Clip，与第 2 个步骤一致。`Position` 属性值分别为 `(0，0，0)`、`(0，1，0)`、`(0，0，0)`。
 
     ![edit second clip](./images/edit-second-clip.png)
 
-5. 在 `PlayerController` 组件中引用 **动画组件**，我们需要在代码中根据跳的步数不同来播放不同的动画。
-
-    首先需要在 `PlayerController` 组件中引用 Body 身上的 `Animation`。
+5. 在 `PlayerController` 脚本组件中引用 **动画组件**。首先需要在 `PlayerController` 脚本中引用 `Body` 节点身上的 `Animation`：
 
     ```ts
     @property({type: Animation})
     public BodyAnim: Animation|null = null;
     ```
 
-    然后在 **属性检查器** 中将 Body 身上的 `Animation` 拖到这个变量上。
+    保存脚本后回到编辑器，在 Player 节点的 `PlayerController` 脚本组件中可以看到新增了一个 `BodyAnim` 属性。
+
+    ![bodyanim](./images/bodyanim.png)
+
+    然后将 **层级管理器** 中的 `Body` 节点拖拽到 `BodyAnim` 属性框中。
 
     ![drag to animComp](./images/drag-to-animComp.gif)
 
-    在跳跃的函数 `jumpByStep` 中加入动画播放的代码：
+6. 接下来我们需要在脚本中设置根据跳的步数不同来播放不同的动画。在 `PlayerController` 脚本跳跃函数 `jumpByStep` 的最后面加入动画播放的代码：
 
     ```ts
     if (this.BodyAnim) {
@@ -260,7 +268,7 @@ export class PlayerController extends Component {
     }
     ```
 
-6. 最后点击 Play 按钮，点击鼠标左键和右键，可以看到新的跳跃效果：
+7. 保存脚本后回到编辑器，点击编辑器上方的预览按钮，在预览网页中点击鼠标左键和右键，可以看到新的跳跃效果：
 
     ![preview with jump](./images/preview-with-jump.gif)
 
@@ -270,24 +278,28 @@ export class PlayerController extends Component {
 
 ### 游戏管理器（GameManager）
 
-一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。在场景中创建一个名为 GameManager 的节点，然后在 `assets/Scripts` 中创建一个名为 GameManager 的 TypeScript 脚本文件，并将它添加到 GameManager 节点上。
+一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。在 **层级管理器** 中创建一个名为 `GameManager` 的节点，然后在 **资源管理器** 的 `assets/Scripts` 中创建一个名为 `GameManager` 的 TypeScript 脚本文件，并将它挂载到 `GameManager` 节点上。
 
-### 制作Prefab
+![gamemanager](./images/gamemanager.png)
+
+### 制作 Prefab
 
 对于需要重复生成的节点，我们可以将它保存成 [Prefab（预制）资源](../../asset/prefab.md)，作为我们动态生成节点时使用的模板。
 
-将生成跑道的基本元素 **正方体（Cube）** 制作成 Prefab，之后可以把场景中的三个 Cube 都删除了。
+在 **资源管理器** 中创建一个命为 `Prefabs` 的文件夹，然后将 **层级管理器** 中的 Cube 节点拖拽到该文件夹中，就生成了名为 `Cube` 的 Prefab 资源。
 
 ![create cube prefab](./images/create-cube-prefab.gif)
 
+现在可以把场景中的三个 Cube 都删除了。接下去我们会在脚本中使用 Cube 的 Prefab 资源动态生成正方体（Cube）。
+
 ### 添加自动创建跑道代码
 
-Player 需要一个很长的跑道，理想的方法是能动态增加跑道的长度，这样可以永无止境地跑下去，这里为了方便先生成一个固定长度的跑道，跑道长度可以自己定义。另外，我们可以在跑道上生成一些坑，当 Player 跳到坑上就 GameOver 了。
+Player 需要一个很长的跑道，理想的办法是动态增加跑道的长度，这样可以永无止境地跑下去。这里为了方便先生成一个固定长度的跑道，跑道长度可以自己定义。另外，我们可以在跑道上生成一些坑，当 Player 跳到坑上就 GameOver 了。
 
 将 `GameManager` 脚本中的代码替换成以下代码：
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
 const { ccclass, property } = _decorator;
 
 enum BlockType {
@@ -352,50 +364,57 @@ export class GameManager extends Component {
 }
 ```
 
-将上面制作好的 Cube 的 prefab 拖到 GameManager 在 **属性检查器** 中的 CubePrfb 属性上。
+保存脚本后回到编辑器，在 GameManager 节点的 `GameManager` 脚本组件中可以看到新增了 `CubePrfb` 和 `RoadLength` 属性。然后将 **资源管理器** 中 Cube 的 prefab 资源拖拽到 `CubePrfb` 属性框中。
 
 ![assign cube prefab](./images/assign-cube-prefab.png)
 
-在 GameManager 的 **属性检查器** 面板中可以通过修改 roadLength 的值来改变跑道的长度。
-此时点击预览可以看到自动生成了跑道，不过因为 Camera 没有跟随 Player 移动，所以看不到后面的跑道，我们可以将场景中的 Camera 设置为 Player 的子节点。
+`RoadLength` 属性则是用于设置跑道的长度。此时点击预览可以看到自动生成了跑道：
+
+![runway](./images/runway.gif)
+
+但是由于 Camera 没有跟随 Player 移动，所以看不到后面的跑道，我们可以将场景中的 Main Camera 设置为 Player 的子节点。
 
 ![drag camera to player](./images/drag-camera-to-player.gif)
 
-这样 Camera 就会跟随 Player 的移动而移动，现在点击预览可以从头跑到尾地观察生成的跑道了。
+这样 Camera 就会跟随 Player 的移动而移动，现在再次点击预览便可以从头跑到尾地观察生成的跑道了。
+
+![runway](./images/runway-follow.gif)
 
 ## 增加开始菜单
 
 开始菜单是游戏不可或缺的一部分，我们可以在这里加入游戏名称、游戏简介、制作人员等信息。
 
-1. 在 **层级管理器** 中添加一个 Button 节点并命名为 PlayButton。
+1. 在 **层级管理器** 中点击左上角的创建（**+**）按钮，选择 **UI 组件 -> Button（按钮）** 添加一个 Button 节点并命名为 `PlayButton`。
 
-    ![create button](./images/create-button.gif)
+    ![create button](./images/create-button.png)
 
-    可以看到在 **层级管理器** 中生成了一个 Canvas 节点，一个 PlayButton 节点和一个 Label 节点。因为 UI 组件需要在带有 `Canvas` 的父节点下才能显示，所以编辑器在发现没有 Canvas 节点时会自动创建一个。
+    可以看到生成了一个 Canvas 节点、一个 Camera 节点、一个 PlayButton 节点和一个 Label 节点。因为 UI 节点的任意上级节点至少得有一个含有 **UITransform** 组件，所以在创建 UI 节点时，如果不符合规则，则会自动创建一个 **Canvas** 节点作为 UI 节点的根节点，具体内容可参考 [UI 结构说明](../../2d-object/ui-system/index.md)。
 
-    然后将 Label 节点上 `cc.Label` 中的 **String** 属性从 Button 改为 Play。
+    然后将 Label 节点上 `cc.Label` 中的 **String** 属性从 button 改为 Play。
 
-2. 在 Canvas 底下创建一个名为 StartMenu 的空节点，将 PlayButton 拖到它底下。我们可以通过点击工具栏上的 2D/3D 按钮切换到 2D 编辑视图下进行 UI 编辑操作，详细的描述请查阅 [场景编辑](../../editor/scene/index.md)。
+    ![label-string](./images/label-string.png)
 
-    ![2d-view](./images/2d-view.png) 
+2. 在 **层级管理器** 中选中 Canvas 节点，点击右键并选择 **创建 -> 空节点**，命名为 `StartMenu`，然后将 PlayButton 拖拽到它底下，成为 `StartMenu` 的子节点。我们可以通过点击编辑器左上方工具栏中的 2D/3D 按钮切换到 2D 编辑视图下进行 UI 编辑操作，具体内容请参考 [场景编辑](../../editor/scene/index.md)。
 
-3. 在 StartMenu 下新建一个名为 `BG` 的 Sprite 节点作为背景框，调整它的位置到  PlayButton 的上方。
+    ![2d-view](./images/2d-view.png)
 
-    ![create bg sprite](./images/create-bg-sprite.gif)
+3. 然后选中 `StartMenu` 节点，右键点击并选择 **创建 -> 2D 对象 -> Sprite（精灵）**，新建一个名为 `BG` 的 Sprite 节点作为背景框，然后将其拖拽到 `PlayButton` 节点的上方。
 
-    然后在 **属性检查器** 中将 `cc.UITransform` 的 `ContentSize` 设置为（200，200），同时将 **资源管理器** 中的 `internal/default_ui/default_sprite_splash` 拖拽到 **SpriteFrame** 属性框中。
+    ![create bg sprite](./images/create-bg-sprite.png)
+
+    然后在 **属性检查器** 中根据需要调整 `BG` 节点 `cc.UITransform` 的 **ContentSize** 属性，例如修改为 `(200，200)`。同时将 **资源管理器** 中的 `internal/default_ui/default_sprite_splash` 拖拽到 **SpriteFrame** 属性框中。
 
     ![change spriteFrame](./images/change-spriteFrame.png)
 
-4. 在 **层级管理器** 的 StartMenu 节点下添加一个名为 Title 的 Label 节点用于开始菜单的标题。
+4. 在 **层级管理器** 中选中 `StartMenu` 节点，右键点击并选择 **创建 -> 2D 对象 -> Label（文本）**，创建一个名为 `Title` 的 Label 节点作为开始菜单的标题。
 
-    ![add title label](./images/add-label-title.gif)
+    ![add title label](./images/add-label-title.png)
 
-5. 在 **属性检查器** 中设置 Title 节点的属性，例如 `Position`、`Color`、`String`、`FontSize` 等。
+5. 在 **属性检查器** 中根据需要设置 Title 节点的属性，例如 `Position`、`Color`、`String`、`FontSize` 等。
 
     ![modify title](./images/title-inspector.png)
 
-6. 根据需要增加操作的 Tips 节点，然后调整 PlayButton 的位置，一个简单的开始菜单就完成了
+6. 根据需要增加操作的 Tips 节点，然后调整各个 UI 节点的位置和属性值，一个简单的开始菜单就完成了：
 
     ![modify title](./images/start-menu.png)
 
@@ -403,37 +422,37 @@ export class GameManager extends Component {
 
 一般我们可以将游戏分为三个状态：
 
-- 初始化（Init）：显示游戏菜单，初始化一些资源。
-- 游戏进行中（Playing）：隐藏游戏菜单，玩家可以操作角色进行游戏。
-- 结束（End）：游戏结束，显示结束菜单。
+- 初始化（`Init`）：显示游戏菜单，初始化一些资源。
+- 游戏进行中（`Playing`）：隐藏游戏菜单，玩家可以操作角色进行游戏。
+- 结束（`End`）：游戏结束，显示结束菜单。
 
-使用一个枚举（enum）类型来表示这几个状态。
+这几个状态都可以用枚举（`enum`）类型来表示，在 `GameManager` 脚本中加入以下内容：
 
 ```ts
-enum BlockType{
+enum BlockType {
     BT_NONE,
     BT_STONE,
 };
 
-enum GameState{
+enum GameState {
     GS_INIT,
     GS_PLAYING,
     GS_END,
 };
 ```
 
-在 `GameManager` 脚本中加入表示当前状态的私有变量：
+然后继续加入表示当前状态的私有变量：
 
 ```ts
 private _curState: GameState = GameState.GS_INIT;
 ```
 
-为了在游戏开始时不让用户操作角色，而在游戏进行时让用户操作角色，我们需要动态地开启和关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中做如下修改：
+为了让玩家在游戏进行时操作角色而不是游戏开始时，我们需要动态地开启/关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中加入 `setInputActive()`：
 
 ```ts
 start () {
     // Your initialization goes here.
-    // systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+    systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
 }
 
 setInputActive(active: boolean) {
@@ -449,25 +468,32 @@ setInputActive(active: boolean) {
 
 ```ts
 @property({type: PlayerController})
-public playerCtrl: PlayerController = null;
+public playerCtrl: PlayerController|null = null;
 ```
 
-完成后保存脚本，回到编辑器，将 **层级管理器** 中挂载了 `PlayerController` 脚本的 Player 节点拖拽到 GameManager 节点的 `playerCtrl` 属性框中。
+要引用 `PlayerController` 脚本还需要在 `GameManager` 脚本开头导入 `PlayerController`：
+
+```ts
+import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from "cc";
+// 导入 PlayerController.ts
+import { PlayerController } from "./PlayerController";
+const { ccclass, property } = _decorator;
+```
 
 同时，为了动态地开启/关闭开始菜单，还需要在 `GameManager` 脚本中引用 StartMenu 节点：
 
 ```ts
 @property({type: Node})
-public startMenu: Node = null;
+public startMenu: Node|null = null;
 ```
 
-完成后保存脚本，回到编辑器，将 **层级管理器** 中的 StartMenu 节点拖拽到 GameManager 节点的 `startMenu` 属性框中。
+完成后保存脚本，回到编辑器，将 **层级管理器** 中挂载了 `PlayerController` 脚本的 Player 节点和 StartMenu 节点分别拖拽到 GameManager 节点的 `playerCtrl` 和 `startMenu` 属性框中。
 
 ![add player to game manager](./images/game-manager-player.png)
 
 ### 增加状态切换代码
 
-增加状态切换代码并修改 GameManger 脚本的初始化方法：
+修改 GameManger 脚本的初始化方法：
 
 ```ts
 start () {
@@ -495,7 +521,7 @@ set curState (value: GameState) {
             if (this.startMenu) {
                 this.startMenu.active = false;
             }
-            setTimeout(() => {      // 直接设置 active 会直接开始监听鼠标事件，这里做了延迟处理
+            setTimeout(() => { // 直接设置 active 会直接开始监听鼠标事件，这里做了延迟处理
                 if (this.playerCtrl) {
                     this.playerCtrl.setInputActive(true);
                 }
@@ -510,7 +536,7 @@ set curState (value: GameState) {
 
 ### 添加对 Play 按钮的事件监听
 
-为了能在点击 Play 按钮后开始游戏，我们需要对按钮的点击事件做出响应。在 `GameManager` 脚本中加入响应按钮点击的代码，以便用户在点击按钮后进入游戏的 Playing 状态：
+为了能在点击开始菜单的 Play 按钮后开始游戏，我们需要对按钮的点击事件做出响应。在 `GameManager` 脚本的 `spawnBlockByType()` 方法后面加入 `onStartButtonClicked()`，以便玩家在点击按钮后进入游戏的 Playing 状态：
 
 ```ts
 onStartButtonClicked() {
@@ -518,7 +544,7 @@ onStartButtonClicked() {
 }
 ```
 
-然后在 **层级管理器** 中选中 PlayButton 节点，在 **属性检查器** 的 `cc.Button` 中添加 ClickEvents 的响应函数，将 GameManager 节点拖拽到 `cc.Node` 属性框中：
+然后在 **层级管理器** 中选中 PlayButton 节点，在 **属性检查器** 的 `cc.Button` 中添加 [ClickEvents](../..//ui-system/components/editor/button.md#button-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6) 的响应函数，将 GameManager 节点拖拽到 `cc.Node` 属性框中：
 
 ![play button inspector](./images/play-button-inspector.png)
 
@@ -526,7 +552,7 @@ onStartButtonClicked() {
 
 ## 添加游戏结束逻辑
 
-目前游戏角色只是呆呆的往前跑，我们需要添加游戏规则，让它跑的更有挑战性。
+目前游戏角色只是呆呆地往前跑，我们需要添加游戏规则，让它跑的更有挑战性。
 
 1. 角色每次跳跃结束都需要发出消息，并将自己当前所在的位置做为参数发出消息，在 `PlayerController` 脚本中记录自己跳了多少步：
 
@@ -554,10 +580,10 @@ onStartButtonClicked() {
     ```ts
     checkResult(moveIndex: number) {
         if (moveIndex <= this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
+            if (this._road[moveIndex] == BlockType.BT_NONE) {  // 跳到了空方块上
                 this.curState = GameState.GS_INIT;
             }
-        } else {    // 跳过了最大长度
+        } else {  // 跳过了最大长度
             this.curState = GameState.GS_INIT;
         }
     }
@@ -584,9 +610,9 @@ onStartButtonClicked() {
         this._curMoveIndex = 0;
     }
     ```
-  
+
     然后在 `GameManager` 脚本的 `init` 函数中调用 `reset` 来重置 `PlayerController.ts` 中的 `_curMoveIndex` 属性。
- 
+
     ```ts
     init() {
         // ...
@@ -708,7 +734,7 @@ onStartButtonClicked() {
 
 ```ts
 @property({type: SkeletalAnimation})
-public CocosAnim: SkeletalAnimation = null;
+public CocosAnim: SkeletalAnimation|null = null;
 ```
 
 然后在 **层级管理器** 中将 Cocos 节点拖拽到 Player 节点的 `CocosAnim` 属性框中：
@@ -896,14 +922,14 @@ enum GameState{
 export class GameManager extends Component {
 
     @property({type: Prefab})
-    public cubePrfb: Prefab = null;
+    public cubePrfb: Prefab|null = null;
     @property({type: CCInteger})
     public roadLength: Number = 50;
     private _road: number[] = [];
     @property({type: Node})
     public startMenu: Node = null;
     @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
+    public playerCtrl: PlayerController|null = null;
     private _curState: GameState = GameState.GS_INIT;
     @property({type: Label})
     public stepsLabel: Label = null;
@@ -956,7 +982,7 @@ export class GameManager extends Component {
         }
 
         for (let j = 0; j < this._road.length; j++) {
-            let block: Node = this.spawnBlockByType(this._road[j]);
+            let block: Node|null = this.spawnBlockByType(this._road[j]);
             if (block) {
                 this.node.addChild(block);
                 block.setPosition(j, -1.5, 0);
@@ -965,7 +991,7 @@ export class GameManager extends Component {
     }
 
     spawnBlockByType(type: BlockType) {
-        let block = null;
+        let block: Node|null = null;
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);

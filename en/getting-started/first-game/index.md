@@ -1,4 +1,4 @@
-# Quick start: making your first game.
+# Quick start: making your first game
 
 The power of the __Cocos Creator__ editor is that it allows developers to quickly prototype games.
 
@@ -14,7 +14,7 @@ If you still don’t know how to download and run __Cocos Creator__, please revi
 
 To start a new project:
 
-1. Start __Cocos Creator__ and then create a new project named **MindYourStep**. If you don’t know how to create a project, please read the [Hello World!](../helloworld/index.md) documentation.
+1. Start __Cocos Creator__ and then create a new empty project named **MindYourStep**. If you don’t know how to create a project, please read the [Hello World!](../helloworld/index.md) documentation.
 
 2. After creating a new project, you should see the following editor interface:
 
@@ -31,7 +31,7 @@ In __Cocos Creator__, **Scene** is the center for organizing game content during
 
 When the player runs the game, the game scene will be loaded. After the game scene is loaded, scripts of the included components will be automatically run. Apart from __assets__, game scenes are the foundation of all content creation. Now, to create a new __Scene__:
 
-1. In the __Asset__ panel, click to select the __assets__ directory, click the __+__ button in the upper left corner, select the folder, and name it __Scenes__. Example:
+1. Select the `assets` directory in the __Assets__ panel, right-click and select **Create -> Folder**, then name the folder as __Scenes__.
 
     ![create scene](./images/create-folder.png)
 
@@ -66,11 +66,9 @@ Our main character needs to run from left to right on a road composed of cubes (
 
 ### Create a main character node
 
-__First__, create an empty node named `Player`.
+First right-click in the **Hierarchy** panel and select **Create -> Empty Node** to create an empty node and name it `Player`. Then right-click on the `Player` node, select **Create -> 3D Objects -> Capsule** and name it `Body` as the body of our main character.
 
-__Second__, create a __Model Component__ named `Body` under the `Player` node. For convenience, let's use the built-in __Capsule__ model as the body of our main character.
-
-![create player node](./images/create-player.gif)
+![create player node](./images/create-player1.png)
 
 The advantage of being divided into two nodes is that we can use the script to control the `Player` node to move the main character in the horizontal direction, and do some vertical animations on the `Body` node (such as falling after jumping in place), the two are superimposed to form a jumping animation.
 
@@ -86,13 +84,17 @@ It is necessary for the main character to be affected when the mouse moves. To d
 
 #### Creating a script
 
-1. If you have not yet created a `Scripts` folder, right-click the **assets** folder in the __Assets__ panel, select **New -> Folder**, and rename the newly created folder to `Scripts`.
-2. Right-click the `Scripts` folder and select **New -> TypeScript** to create a new, blank __TypeScript__ script. For __TypeScript__ information, you can view the [TypeScript Official Website](https://www.typescriptlang.org/).
-3. Change the name of the newly created script to `PlayerController` and the double-click the script to open the code editor (in, for example, __VSCode__).
+1. If you have not yet created a `Scripts` folder, right-click the **assets** folder in the __Assets__ panel, select **Create -> Folder**, and rename the newly created folder to `Scripts`.
 
-    ![create player script](./images/create-player-script.gif)
+2. Right-click the `Scripts` folder and select **Create -> TypeScript** to create a new __TypeScript__ script and name it `PlayerController`. For __TypeScript__ information, you can view the [TypeScript Reference Tutorial](../../release-notes/upgrade-guide-v3.0.md#typescript-reference-tutorial).
 
-    > **Note**: the name of the script in __Cocos Creator 3.0__ is the name of the component. This name is case sensitive! If the capitalization of the component name is incorrect, the component cannot be used correctly by the name!
+3. Double-click the script to open the code editor (in, for example, __VSCode__).
+
+    ![create player script](./images/create-player-script.png)
+
+> **Notes**:
+> 1. The name of the script component in __Cocos Creator 3.0__ is the name of the class defined in the script. The class name of the script will be the same as the script file name when the script is created, but if there are changes to the script file name/class name afterwards, the two are not automatically synchronized, and you can manually synchronize them if needed.
+> 2. Script filenames and class names are named case-sensitive! If the names are not case-sensitive, the components will not be used correctly by name!
 
 #### Writing script code
 
@@ -121,9 +123,9 @@ export class PlayerController extends Component {
 }
 ```
 
-This code is the structure needed to write a __component__. Scripts with this structure are **Components in Cocos Creator**. They can be attached to nodes in a __Scene__ and provide various functionality for controlling nodes. For detailed information review the [Script](../../scripting/index.md) documentation.
+This code is the structure needed to write a __component__. Scripts with this structure are **Components in Cocos Creator**. They can be attached to nodes in a __Scene__ and provide various functionality for controlling nodes. For details information review the [Script](../../scripting/index.md) documentation.
 
-Monitoring of mouse events needs to be added in the script to let the `Player` node move. Modify the code in `PlayerController` as follows:
+Listening of mouse events needs to be added in the script to let the `Player` node move. Modify the code in `PlayerController` as follows:
 
 ```ts
 import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
@@ -201,11 +203,11 @@ export class PlayerController extends Component {
 }
 ```
 
-__Next__, attach the `PlayerController` component to the `Player` node. Select the `Player` node in the **Hierarchy** panel, then click the **Add Component** button in the **Inspector** panel, select **Custom Script Component- > PlayerController** to the `Player` node to add the `PlayerController` component.
+__Next__, attach the `PlayerController` component to the `Player` node. Select the `Player` node in the __Hierarchy__ panel, then click the __Add Component__ button in the __Inspector__ panel, select __Custom script- > PlayerController__ to the `Player` node to add the `PlayerController` component.
 
 ![add player controller comp](./images/add-player-controller.png)
 
-In-order to see the object at runtime, we need to adjust some parameters of the __Camera__ in the scene, set the __position__ to __(0, 0, 13)__, and set the __ClearColor__ to __(50, 90, 255, 255)__:
+In-order to see the object at runtime, we need to adjust some parameters of the __Camera__ in the scene. Select the `Main Camera` node in the __Hierarchy__ panel, then set the __position__ to __(0, 0, 13)__, and set the __ClearColor__ to __(50, 90, 255, 255)__ in the __Inspector__ panel.
 
 ![camera setting](./images/camera-setting.png)
 
@@ -227,36 +229,40 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
 
     ![player move](./images/add-animation.gif)
 
-2. Enter __animation editing mode__ in-order to add the __position attribute__. Next, add three __key frames__ with position values ​​of __(0, 0, 0)__, __(0, 0.5, 0)__, __(0, 0, 0)__.
+2. Enter __animation editing mode__ in-order to add the __position attribute__. Next, add three __key frames__ with `Position` values ​​of __(0, 0, 0)__, __(0, 0.5, 0)__, __(0, 0, 0)__.
 
     ![add keyframe](./images/add-keyframe.gif)
 
-    > **Note**: remember to save the animation before exiting the animation editing mode, otherwise the animation will be lost.
+    You can click the ![exit](./images/exit-animation-button.png) button in the upper right corner of the __Animation__ panel or the __Close__ button in the __Scene__ panel to exit the animation editing mode after the animation editing is finished.
 
-3. __Animation Clips__ can also be created using the __Asset__ panel. Next, Create a __Clip__ named `twoStep` and add it to the __Animation__ component on `Body`.
+    > **Note**: remember to save the animation before exiting the animation editing mode, you can use the shortcut key `Ctrl + S` or click the __Save__ button in the __Scene__ panel to save the animation. Otherwise the animation will be lost.
+
+3. __Animation Clips__ can also be created using the __Assets__ panel. Next, Create a __Clip__ named `twoStep` and add it to the __Animation__ component on `Body`.
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
     > **Note**: the panel layout was adjusted for recording convenience.
 
-4. Enter the __animation editing mode__, select and edit the `twoStep` clip. Similar to the second step, add three key frames at positions __(0, 0, 0)__, __(0, 1, 0)__, __(0, 0, 0)__.
+4. Enter the __animation editing mode__, select and edit the `twoStep` clip. Similar to the second step, add three key frames at positions, with the `Position` property values __(0, 0, 0)__, __(0, 1, 0)__ and __(0, 0, 0)__ respectively.
 
     ![edit second clip](./images/edit-second-clip.png)
 
-5. Reference the __Animation__ component in the` PlayerController` Component, as different animations need to be played according to the number of steps `Player` jumped.
+5. Reference the __Animation__ component in the `PlayerController` script Component. First, reference the __Animation__ component on the `Body` node in the `PlayerController` script:
 
-    First, reference the __Animation__ component on the `Body` in the `PlayerController` component.
-   
     ```ts
     @property({type: Animation})
     public BodyAnim: Animation|null = null;
     ```
-   
-    Then in the **Inspector** panel, drag the `Animation` to the `Body` variable.
+
+    After saving the script and returning to the editor, you can see a new `BodyAnim` property in the `PlayerController` script component of the `Player` node.
+
+    ![bodyanim](./images/bodyanim.png)
+
+    Then drag the `Body` node in the **Hierarchy** panel to the `BodyAnim` property box.
 
     ![drag to animComp](./images/drag-to-animComp.gif)
 
-    Add the animation playback code to the jump function `jumpByStep`:
+6. As different animations need to be played according to the number of steps `Player` jumped. Add the code for the animation play at the end of the jump function `jumpByStep` of the `PlayerController` script.
 
     ```ts
     if (this.BodyAnim) {
@@ -268,7 +274,7 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
     }
     ```
 
-    Click the __Play__ button. When playing, click the left and right mouse buttons, you can see the new jump effect in action:
+7. After saving the script go back to the editor and click the __Preview__  button at the top of the editor. Then click the left and right mouse button in the preview page to see the new jump effect:
 
     ![preview with jump](./images/preview-with-jump.gif)
 
@@ -278,17 +284,19 @@ In-order to make the gameplay longer and more enjoyable, we need a long stretch 
 
 ### A "Game Manager" can help
 
-Most games have a __manager__, which is mainly responsible for the management of the entire game life-cycle. You can put the code for the dynamic creation of the road in this same manager. Create a node named `GameManager` in the __Scene__. Next, create a TypesScript file named `GameManager` in `assets/Scripts` and add it to the `GameManager` node.
+Most games have a __manager__, which is mainly responsible for the management of the entire game life-cycle. You can put the code for the dynamic creation of the road in this same manager. Create a node named `GameManager` in the __Hierarchy__ panel, then create a TypeScript file named `GameManager` in the `assets/Scripts` folder of the __Assets__ panel and mount it to the `GameManager` node.
+
+![gamemanager](./images/gamemanager.png)
 
 ### Making a Prefab
 
-For a node that needs to be generated repeatedly, it can be saved as a **Prefab (prefabricated)** resource. This means it can be used as a template when we dynamically generate other nodes of this same type.
+For a node that needs to be generated repeatedly, it can be saved as a [Prefab](../../asset/prefab.md) resource. This means it can be used as a template when we dynamically generate other nodes of this same type.
 
-> **Note**: before proceeding, please read the [Prefab Resources](../../asset/prefab.md) documentation.
-
-It is necessary to make the basic element `cube` of the road into a __Prefab__, after which all three cubes in the __Scene__ can be deleted.
+Create a folder named `Prefabs` in **Assets** panel, and drag and drop the `Cube` node from the **Hierarchy** panel into that folder to create a Prefab resource named `Cube`.
 
 ![create cube prefab](./images/create-cube-prefab.gif)
+
+It is necessary to make the basic element `cube` of the road into a __Prefab__, after which all three cubes in the __Scene__ can be deleted. Next, we will use the Cube's Prefab resource to dynamically generate the Cube in the script.
 
 ### Adding the automatic road creation
 
@@ -362,165 +370,190 @@ export class GameManager extends Component {
 }
 ```
 
-Assign the Cube prefab that made previously to the `CubePrfb` property in GameManager Inspector.
+After saving the script and returning to the editor, you can see the new `CubePrfb` and `RoadLength` properties in the `GameManager` script component of the `GameManager` node. Then drag and drop the Cube's prefab resource from the __Assets__ panel into the `CubePrfb` property box.
 
 ![assign cube prefab](./images/assign-cube-prefab.png)
 
-The length of the road can be changed by modifying the value of `roadLength` in the __Properties__ panel for the `GameManager`.
+The `RoadLength` property is used to set the length of the runway. At this point, click the __Preview__ button to see the automatically generated runway:
 
-When previewing, the road is now automatically generated, however, because the __Camera__ does not follow the `Player`, the road behind cannot be seen. Changing the __Camera__ in the __Scene__ to be a child node of the `Player` can help solve this.
+![runway](./images/runway.gif)
+
+However, since the `Camera` does not follow the `Player`, we cannot see the runway afterwards, so we can set the `Main Camera` node as a child of the `Player` node:
 
 ![drag camera to player](./images/drag-camera-to-player.gif)
 
-Now, the __Camera__ will follow the Player's movement.
+The Camera will then follow the Player's movement, and you can now click the __Preview__ button again to see the resulting runway from start to finish.
+
+![runway](./images/runway-follow.gif)
 
 ## Adding a start menu
 
 The __start menu__ is an indispensable part of most any game. Add the game name, game introduction, production staff and other information here. Creating a simple start menu starts with some basic steps:
 
-1. Add a button called `Play`
+1. Click the Create (__+__) button in the top left corner of the __Hierarchy__ panel, select __UI Components -> Button__ to add a Button node and name it `PlayButton`.
 
-    ![create button](./images/create-button.gif)
+    ![create button](./images/create-button.png)
 
-    This operation creates a `Canvas` node, a `PlayButton` node, and a `Label` node. Because the UI component needs to be displayed under the parent node with `Canvas`, the editor will automatically add one when it finds that there is not a node with this component in the current __Scene__. After creating the button, change the `String` property of `cc.Label` on the `Label` node from `Button` to `Play.`
+    You can see that a `Canvas` node, a `Camera` node, a `PlayButton` node, and a `Label` node are generated. Since any parent node of a UI node must have at least one `UITransform` component, a `Canvas` node is automatically created as the root node of the UI node if the rules are not met when creating the UI node, as described in the [UI Architecture](../../ui-system/components/engine/index.md) documentation.
 
-2. Create an empty node named `StartMenu` under `Canvas` and drag `PlayButton` under it. We can switch to the 2D editing view for UI editing operations by clicking the 2D/3D button on the toolbar.
+    Then change the __String__ property in `cc.Label` on the `Label` node from __button__ to __Play__.
 
-    > **Note**: 2D View is this toolbar button ![2d-view](./images/2d-view.png).
+    ![label-string](./images/label-string.png)
 
-    > **Note**: before proceeding, please read the [Scene Editing](../../editor/scene/index.md) documentation.
+2. Select the `Canvas` node in the **Hierarchy** panel, right click and select __Create -> Empty Node__, name it `StartMenu`, then drag and drop the `PlayButton` under `StartMenu` to become its child node. We can switch to __2D editing view__ for UI editing operation by clicking __2D/3D__ button in the toolbar at the top left of the editor, please refer to the [View Introduction](../../editor/scene/index.md) documentation for details.
 
-3. Add a background frame by creating a `Sprite` node named `BG` under `StartMenu`. Adjust `BG`'s position to above the `PlayButton`, setting the __W(width)__ and __H(height)__ of `ContentSize` to __(200, 200)__, and setting its __SpriteFrame__ to `internal/default_ui/ default_sprite_splash`.
+    ![2d-view](./images/2d-view.png)
 
-    ![create bg sprite](./images/create-bg-sprite.gif)
+3. Then select the `StartMenu` node, right click and select __Create -> 2D Object -> Sprite__, create a new Sprite node named `BG` as background box, and drag it to the top of the `PlayButton` node.
+
+    ![create bg sprite](./images/create-bg-sprite.png)
+
+    Then adjust the __ContentSize__ property of the `cc.UITransform` of the `BG` node in the __Inspector__ panel as needed, for example to `(200, 200)`. Also drag and drop the `internal/default_ui/default_sprite_splash` from the __Assets__ panel into the __SpriteFrame__ property box.
 
     ![change spriteFrame](./images/change-spriteFrame.png)
 
-4. Add a __Label__ called `Title` for the title of the start menu.
+4. Select the `StartMenu` node in the __Hierarchy__ panel, right-click and select __Create -> 2D Object -> Label__ to create a Label node named `Title` as the title of the start menu.
 
-    ![add title label](./images/add-label-title.gif)
+    ![add title label](./images/add-label-title.png)
 
-5. Modify the text for `Title` and adjust it's *position*, *text size* and *color*.
+5. Modify the properties of the `Title` node in the __Inspector__ panel as needed, such as `Position`, `Color`, `String`, `FontSize`, etc.
 
     ![modify title](./images/title-inspector.png)
 
-6. Adjust the position of the `PlayButton`. The layout of a simple __start menu__ is complete.
+6. Add as many Tips nodes as needed, then adjust the position and property values of each UI node, and a simple start menu is complete.
 
     ![modify title](./images/start-menu.png)
 
-7. Add game state logic, generally it can be divided into three states:
-    - **Init**: display the game menu and initialize some resources.
-    - **Playing**: hide the game menu, players can operate the game.
-    - **End**: end the game and display the ending menu.
+## Add game status logic
 
-    Use an enum type to represent these states.
+Add game state logic, generally it can be divided into three states:
 
-    ```ts
-    enum BlockType{
-        BT_NONE,
-        BT_STONE,
-    };
+1. **Init**: display the game menu and initialize some resources.
+2. **Playing**: hide the game menu, players can operate the game.
+3. **End**: end the game and display the ending menu.
 
-    enum GameState{
-        GS_INIT,
-        GS_PLAYING,
-        GS_END,
-    };
-    ```
+Each of these states can be represented using an `enum` type, adding the following to the `GameManager` script:
 
-    Add a private variable that represents the current state to the `GameManager` script
+```ts
+enum BlockType{
+    BT_NONE,
+    BT_STONE,
+};
 
-    ```ts
-    private _curState: GameState = GameState.GS_INIT;
-    ```
+enum GameState{
+    GS_INIT,
+    GS_PLAYING,
+    GS_END,
+};
+```
 
-    In-order not to let the user operate the character at the beginning, but to allow the user to operate the character while the game is in progress, we need to dynamically turn on and off the character's monitoring of mouse messages. This can be done with the following changes to `PlayerController`:
+Then continue adding a private variable that represents the current state to the `GameManager` script.
 
-    ```ts
-    start () {
-        // Your initialization goes here.
-        //systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+```ts
+private _curState: GameState = GameState.GS_INIT;
+```
+
+In order to allow the player to operate the character while the game is in progress rather than at the beginning of the game, we need to dynamically turn on/off the character's listening to mouse messages. Add the `setInputActive()` method to the `PlayerController` script.
+
+```ts
+start () {
+    // Your initialization goes here.
+    systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+}
+
+setInputActive(active: boolean) {
+    if (active) {
+        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+    } else {
+        systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+    }
+}
+```
+
+Next, reference `PlayerController` script in the `GameManager` script:
+
+```ts
+@property({type: PlayerController})
+public playerCtrl: PlayerController|null = null;
+```
+
+To reference the `PlayerController` script you also need to import the `PlayerController` script at the beginning of the `GameManager` script:
+
+```ts
+import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from "cc";
+// Import "PlayerController" script
+import { PlayerController } from "./PlayerController";
+const { ccclass, property } = _decorator;
+```
+
+In order to dynamically enable/disable the start menu, it is also necessary to reference the `StartMenu` node in the `GameManager` script:
+
+```ts
+@property({type: Node})
+public startMenu: Node|null = null;
+```
+
+After saving the script and returning to the editor, drag the `Player` node with the `PlayerController` script mounted and the `StartMenu` node in the __Hierarchy__ panel to the `playerCtrl` and `startMenu` property boxes of the `GameManager` node, respectively.
+
+![add player to game manager](./images/game-manager-player.png)
+
+### Add status switching code
+
+Modify the code in the `GameManger.ts`:
+
+```ts
+start () {
+    this.curState = GameState.GS_INIT;
+}
+
+init() {
+    if (this.startMenu) {
+        this.startMenu.active = true;
     }
 
-    setInputActive(active: boolean) {
-        if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-        } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-        }
+    this.generateRoad();
+    if (this.playerCtrl) {
+        this.playerCtrl.setInputActive(false);
+        this.playerCtrl.node.setPosition(Vec3.ZERO);
     }
-    ```
+}
 
-    Next, reference `PlayerController` in the `GameManager` script. Drag the `Player` variable in the __Inspector__ panel.
-
-    ```ts
-    @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
-    ```
-
-    In-order to dynamically open/close the open menu, the `StartMenu` needs to be referenced in the `GameManager`. Drag the `StartMenu` of the scene into this variable in the __Inspector__ panel.
-
-    ```ts
-    @property({type: Node})
-    public startMenu: Node = null;
-    ```
-
-    ![add player to game manager](./images/game-manager-player.png)
-
-    Modify the code in the `GameManger`:
-
-    ```ts
-    start () {
-        this.curState = GameState.GS_INIT;
-    }
-
-    init() {
-        if (this.startMenu) {
-            this.startMenu.active = true;
-        }
-
-        this.generateRoad();
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false);
-            this.playerCtrl.node.setPosition(Vec3.ZERO);
-        }
-    }
-
-    set curState (value: GameState) {
-        switch(value) {
-            case GameState.GS_INIT:
-                this.init();
-                break;
-            case GameState.GS_PLAYING:
-                if (this.startMenu) {
-                    this.startMenu.active = false;
+set curState (value: GameState) {
+    switch(value) {
+        case GameState.GS_INIT:
+            this.init();
+            break;
+        case GameState.GS_PLAYING:
+            if (this.startMenu) {
+                this.startMenu.active = false;
+            }
+            // Setting "active" directly will start listening for mouse events directly, here a delay handling is done.
+            setTimeout(() => {
+                if (this.playerCtrl) {
+                    this.playerCtrl.setInputActive(true);
                 }
-                // Directly setting active will directly start monitoring
-                // mouse events, and do a little delay processing
-                setTimeout(() => {
-                    if (this.playerCtrl) {
-                        this.playerCtrl.setInputActive(true);
-                    }
-                }, 0.1);
-                break;
-            case GameState.GS_END:
-                break;
-        }
-        this._curState = value;
+            }, 0.1);
+            break;
+        case GameState.GS_END:
+            break;
     }
-    ```
+    this._curState = value;
+}
+```
 
-8. Add event monitoring to the `Play` button. In-order to start the game after clicking the `Play` button, the button needs to respond to click events. Add code that responds to the button click in the `GameManager` script, and click to enter the game's `Playing` state:
+### Add an event listener for the Play button
 
-    ```ts
-    onStartButtonClicked() {
-        this.curState = GameState.GS_PLAYING;
-    }
-    ```
+Add event listening to the `Play` button. In-order to start the game after clicking the `Play` button, the button needs to respond to click events. Add code that responds to the button click in the `GameManager` script, and click to enter the game's `Playing` state:
 
-    Next, add the response function of __Click Events__ in the __Inspector__ panel for the `Play` button.
+```ts
+onStartButtonClicked() {
+    this.curState = GameState.GS_PLAYING;
+}
+```
 
-    ![play button inspector](./images/play-button-inspector.png)
+Next, add the response function of __Click Events__ in the __Inspector__ panel for the `Play` button.
+
+![play button inspector](./images/play-button-inspector.png)
 
 Now, preview the scene by clicking the `Play` button to start the game.
 
@@ -713,7 +746,7 @@ First, add a variable in the `PlayerController` class that references the model 
 
 ```ts
 @property({type: SkeletalAnimation})
-public CocosAnim: SkeletalAnimation = null;
+public CocosAnim: SkeletalAnimation|null = null;
 ```
 
 Then, in the __Inspector__, drag the `Cocos` node into this variable.
@@ -783,9 +816,9 @@ const { ccclass, property } = _decorator;
 export class PlayerController extends Component {
 
     @property({type: Animation})
-    public BodyAnim: Animation = null;
+    public BodyAnim: Animation|null = null;
     @property({type: SkeletalAnimation})
-    public CocosAnim: SkeletalAnimation = null;
+    public CocosAnim: SkeletalAnimation|null = null;
 
     // for fake tween
     private _startJump: boolean = false;
