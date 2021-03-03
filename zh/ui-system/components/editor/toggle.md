@@ -49,7 +49,7 @@ export class example extends Component {
     onLoad(){
         const checkEventHandler = new EventHandler();
         checkEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        checkEventHandler.component = 'example';//这个是代码文件名
+        checkEventHandler.component = 'example';//这个是脚本类名
         checkEventHandler.handler = 'callback';
         checkEventHandler.customEventData = 'foobar';
 

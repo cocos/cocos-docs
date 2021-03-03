@@ -82,6 +82,8 @@ Cocos Creator 2.x 项目中所有的资源便会自动呈现在弹出的 **导�
 
         - `group`：变更为 `layer`。
 
+        - `zIndex`：变更为 `UITransform` 中的 [priority](__APIDOC__/zh/classes/ui.uitransform.html#priority)。
+
 - `CCSpriteFrame`：
 
     - 移除接口：`copyWithZone`、`copy`、`clone` 和 `ensureLoadTexture`。
