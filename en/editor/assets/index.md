@@ -119,7 +119,7 @@ Once identified, the resources can be exported by clicking the **Export** button
 
 ![exporting](img/package-asset/exporting.png)
 
-> **Note**: Exported zip packages are only suitable for **importing resource packages** use, as described below.
+> **Note**: exported zip packages are only suitable for **importing resource packages** use, as described below.
 
 ### Importing Assets Package
 
@@ -130,7 +130,7 @@ The import process will also ask to reconfirm the imported resources. Uncheck re
 ![importing](img/package-asset/importing.png)
 
 > **Notes**:
-> 1. Imported zip packages, only zip packages exported by Cocos Creator and above using **Export Resource Packages** are supported.
+> 1. The imported asset packages are only supported for zip packages exported by Cocos Creator 3.0 and above using the **Export Resource Packages** feature.
 > 2. Importing scripts with the same class name is not supported.
 
 ### Big Picture Preview
