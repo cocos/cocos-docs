@@ -113,24 +113,24 @@ The search function is a combined function that can limit the search type and sp
 
 ### Exporting Assets Package
 
-Select the resource to be exported, right-click on it, then select **Export Resource Package**. The **Export Resource** panel will automatically list the currently selected resource and its dependencies. To not export the dependent resources, uncheck **Include Dependent Resources** n the bottom left corner of the **Export Resources** panel.
+Select the resource to be exported, right-click on it, then select **Export Assets Package**. The **Export Assets** panel will automatically list the currently selected resource and its dependencies. To not export the dependent resources, uncheck **Include Dependency** in the bottom left corner of the **Export** panel.
 
 Once identified, the resources can be exported by clicking the **Export** button to bring up the file storage dialog box where it is necessary to specify a folder location and file name.
 
 ![exporting](img/package-asset/exporting.png)
 
-> **Note**: exported zip packages are only suitable for **importing resource packages** use, as described below.
+> **Note**: exported zip packages are only suitable for **Importing Assets Package** use, as described below.
 
 ### Importing Assets Package
 
-Select and right click on the folder to import resources from, or right click on the **blank space** in the **Export Explorer** panel, then select **Import Package** and select the zip package exported from **Export Package** in the file browse dialog box. The resources in the zip package will be automatically parsed into the **Import Package** panel that pops up.
+Select and right click on the folder to import resources from, or right click on the **blank space** in the **Assets** panel, then select **Importing Assets Package** and select the zip package exported from **Exporting Assets Package** in the file browse dialog box. The resources in the zip package will be automatically parsed into the **Importing Assets Package** panel that pops up.
 
 The import process will also ask to reconfirm the imported resources. Uncheck resources to remove the unnecessary ones.
 
 ![importing](img/package-asset/importing.png)
 
 > **Notes**:
-> 1. The imported asset packages are only supported for zip packages exported by Cocos Creator 3.0 and above using the **Export Resource Packages** feature.
+> 1. The imported asset packages are only supported for zip packages exported by Cocos Creator 3.0 and above using the **Exporting Assets Package** feature.
 > 2. Importing scripts with the same class name is not supported.
 
 ### Big Picture Preview
