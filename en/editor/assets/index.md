@@ -113,7 +113,7 @@ The search function is a combined function that can limit the search type and sp
 
 ### Exporting Assets Package
 
-Select the resource to be exported, right-click on it, then select **Export Assets Package**. The **Export Assets** panel will automatically list the currently selected resource and its dependencies. To not export the dependent resources, uncheck **Include Dependency** in the bottom left corner of the **Export** panel.
+Select the asset to be exported, right-click on it, then select **Exporting Assets Package**. The **Exporting Assets** panel will automatically list the currently selected asset and its dependencies. To not export the dependent assets, uncheck **Include Dependency** in the bottom left corner of the **Exporting Assets** panel.
 
 Once identified, the resources can be exported by clicking the **Export** button to bring up the file storage dialog box where it is necessary to specify a folder location and file name.
 
