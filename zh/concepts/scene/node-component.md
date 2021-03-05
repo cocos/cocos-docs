@@ -77,7 +77,7 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 引擎采用更加通用的节点与相机匹配来控制节点的可见性，当节点设置的 Layer 属性包含在相机的 [Visibility 属性](../../editor/components/camera-component.md) 中时，节点便可以被相机看见，同时支持 3D 组件与 2D 组件的混合渲染。以便更灵活地控制节点组件的可见性，使分组显示多样化。
 
-### 设置节点的 `Layer` 属性
+### 控制节点的可见性
 
 ![node layer gizmo](scene/node-layer-gizmo.png)
 
