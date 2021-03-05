@@ -7,7 +7,7 @@ The ArmatureDisplay component can render and play DragonBones assets.
 In the **Hierarchy** panel, select the node where you want to add the ArmatureDisplay component, and then click the **Add Components -> Components -> ArmatureDisplay** button under the **Inspector** panel to add the ArmatureDisplay component to the node.
 
 - Please refer to the [DragonBones test case](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones) in [example-cases](https://github.com/cocos-creator/example-cases) for the operation of the ArmatureDisplay component in the script.
-- For DragonBones related scripting interface, please refer to [DragonBones API](__APIDOC__/zh/modules/dragonBones.html).
+- For DragonBones related scripting interface, please refer to the [DragonBones API](__APIDOC__/zh/modules/dragonBones.html).
 
 ## DragonBones Properties
 
@@ -34,7 +34,7 @@ The following is an example of how DragonBones implement skins function. Replace
 
 ![dragonbones-cloth](./dragonbones/cloth.png)
 
-1. First create a new empty node in the **Hierarchy** panel and rename it to replaceDBNode. then add ArmatureDisplay component in **Inspector** panel. And drag and drop the assets of the knife in the red box to the properties box of the ArmatureDisplay component, as follows:
+1. First create a new empty node in the **Hierarchy** panel and rename it to `replaceDBNode`. then add ArmatureDisplay component in **Inspector** panel. And drag and drop the assets of the knife in the red box to the properties box of the ArmatureDisplay component, as follows:
 
     ![dragonbones-cloth](./dragonbones/cloth2.png)
 
