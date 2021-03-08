@@ -37,7 +37,7 @@ The __Camera__'s group rendering function works with the [Model Component](../..
 
 The __Camera__ and models provided by default are all __rendered without grouping__. You do not need to change this value if the game has no special requirements to do so.
 
-### The Visibility property of the camera is set
+### Set the Visibility property
 
 The `Visibility` property is used to set which layers of nodes should be observed by the camera, and multiple Layers can be selected at the same time.
 
