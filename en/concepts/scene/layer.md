@@ -1,6 +1,8 @@
 # Layer
 
-The `Layer` property is an unsigned 32-bit integer, supporting up to 32 different types of `Layer`, with bits 20 - 30 set as the system default, leaving bits 00 - 19 for user custom. The `Visibility` property of the camera, like the `Layer` property of a node, is used to control its `Visibility`. The `Visibility` property of the camera supports the overlay of multiple `Layer` states, using bitwise operators like `|`, `&` to determine whether the node's `Layer` should be observed.
+The `Layer` property of the Node is an unsigned 32-bit integer, supporting up to 32 different types of `Layer`, which can be set in **Project -> Project Settings -> [Layers](../../editor/project/index.md#layers)** in the menu bar above the editor. The developer can customize the Layer **0 ~ 19**, and the remaining 12 Layers are the engine's built-in ones.
+
+The `Visibility` property of the Camera and the `Layer` property of the Node are both used to control the visibility of nodes. However, a node can only be seen by the camera if the `Layer` property set in the node is included in the `Visibility` of the camera. The `Visibility` property of the camera uses bitwise operators (such as `|` and `&`) to determine whether a node's `Layer` should be visible, and supports selecting multiple Layers at the same time. See the [Camera — Set the Visibility property](../../editor/components/camera-component.md) documentation for details.
 
 ## System default hierarchical properties
 
