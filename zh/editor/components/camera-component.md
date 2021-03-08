@@ -40,7 +40,7 @@
 
 分组渲染功能是通过相机组件([Camera](../../editor/components/camera-component.md)) 的 Visibility 属性配合节点的 Layer 属性共同决定。用户可通过代码设置 Visibility 的值来完成分组渲染。所有节点默认都属于 DEFAULT 层，在所有相机都可见。
 
-### 设置 Visibility 属性
+### 控制节点的可见性
 
 Visibility 属性用于设置哪些层级（Layer）的节点应该被相机观察到，可同时选择多个 Layer。
 
