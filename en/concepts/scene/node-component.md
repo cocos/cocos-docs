@@ -74,7 +74,7 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 
 > **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
 
-## Setting the layer and controlling its visibility
+## Setting the visibility of nodes
 
 The engine uses a more generic node-to-camera match to control the visibility of nodes when the node's set Layer property is included in the camera's [Visibility property](../../editor/components/camera-component.md), The node can be seen by the camera and supports mixed rendering of 3D and 2D components. This allows greater flexibility in controlling the visibility of node components and diversifying group displays.
 
