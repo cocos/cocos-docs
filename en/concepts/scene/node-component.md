@@ -86,15 +86,7 @@ For details on the implementation of layers, please refer to the [layer](layer.m
 
 This list can use either engine-exclusive layer attributes or user-defined layer attributes. Layer attributes are global and unique, but different nodes can set the same layer attributes so that they are viewed by the same camera.
 
-### Custom layer attribute added
-
 ![node layer edit](scene/node-layer-edit.png)
-
-Click on the `Edit` button in this screen to edit.
-
-![layer edit](scene/layer-edit.png)
-
-The `User Layer 0` - `User Layer 19` is a layer attribute provided to the user for custom. The user can enable this layer attribute and edit it on the node by filling in the custom layer name after the layer.
 
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
 
