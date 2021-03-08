@@ -41,7 +41,7 @@ The __Camera__ and models provided by default are all __rendered without groupin
 
 Set which tiers should be observed by this camera and which tiers should not be observed.
 
-**Note** : From version 3.0 of the Creator, The rendering of 2d elements (such as Sprite) also follows the `Layer` and `Visibility` judgement, So you can adjust the `Layer` and `Visibility` as required.
+> **Note**: the rendering of 2d elements (such as Sprite) also follows the `Layer` and `Visibility` judgement, adjust the `Layer` and `Visibility` as required.
 
 The `Visibility` property is calculated from the value of multiple `Layer` `|` operations when the user has checked more than one `Layer` as the basis for `Visibility` of the camera.
 
