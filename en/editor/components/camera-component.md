@@ -43,7 +43,9 @@ The `Visibility` property is used to set which layers of nodes should be observe
 
 > **Note**: the rendering of 2d elements (such as Sprite) also follows the `Layer` and `Visibility` judgement, adjust the `Layer` and `Visibility` as required.
 
-The `Visibility` property is calculated from the value of multiple `Layer` `|` operations when the user has checked more than one `Layer` as the basis for `Visibility` of the camera.
+When you check multiple Layers in the `Visibility` property, the value of the `Visibility` property is calculated by performing a `|` operation on the property values of multiple Layers.
+
+For example, in the following image, the `Visibility` property of the camera has both **UI_3D** and **DEFAULT** Layer checked, and by looking up [the value of the Layer property](../../concepts/scene/layer.md), we can see that the value of the **UI_3D** property is **1 << 23** and the value of the **DEFAULT** property is **1 << 30**, so the value of the `Visibility` property is **1 << 23 | 1 << 30  = 1820327937**.
 
 The image below shows the `Layer` used by the camera:
 
