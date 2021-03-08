@@ -45,13 +45,7 @@ Set which tiers should be observed by this camera and which tiers should not be 
 
 The `Visibility` property is calculated from the value of multiple `Layer` `|` operations when the user has checked more than one `Layer` as the basis for `Visibility` of the camera.
 
-The image below shows the `Layer` used by the camera:
-
 ![camera visibility gizmo](camera-visibility-gizmo.png)
-
-In this case the `Visibility` property of the camera is `1 << 23 (Layer: UI_3D) | 1 << 30 (Layer: DEFAULT) = 1820327937`.
-
-For details on the implementation of layers, Review the [Layer](../../concepts/scene/layer.md) documentation.
 
 ### Visibility calculations for the camera
 

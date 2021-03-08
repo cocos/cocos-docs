@@ -52,7 +52,7 @@ Visibility 属性用于设置哪些层级（Layer）的节点应该被相机观�
 
 ![camera visibility gizmo](camera-visibility-gizmo.png)
 
-关于 layer 的实现详情，请参考 [层级](../../concepts/scene/layer.md) 文档。
+关于 Layer 的实现详情，请参考 [层级](../../concepts/scene/layer.md) 文档。
 
 ### 相机的可见性计算
 
