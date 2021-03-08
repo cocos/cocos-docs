@@ -21,6 +21,6 @@ The `Visibility` property of the Camera and the `Layer` property of the Node are
 | **DEFAULT**           | Set the default node to be visible      | 1 << 30         |
 | **ALL**               | Set all nodes to be visible             | 0xffffffff      |
 
-## User-defined hierarchy
+## User-defined Layers
 
 ![layer gizmo](scene/layer-edit.png)
