@@ -4,55 +4,26 @@ Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed 
 
 > **Note**: please select the corresponding manual version in the upper right corner according to the __Cocos Creator 3.0__ version you are using.
 
-## General guide
+## General Guide
 
-Use the feature map to quickly understand engine features:
-
-- [Function Map](module-map/index.md)
-    - [Graphics rendering](module-map/graphics.md)
-        - [Material](material-system/overview.md)
-        - [Lighting](module-map/light.md)
-        - [Particle System](particle-system/overview.md)
-    - [UI system](ui-system/components/engine/index.md)
-    - [Animation System](engine/animation/index.md)
+- [Getting Started](getting-started/index.md)
+- [Scene Creation Workflow](concepts/scene/index.md)
+- [Scripting](scripting/index.md)
+- [Cross-platform Game Publish](editor/publish/index.md)
+- [Engine Features Map Guide](module-map/index.md)
+    - [Graphics Rendering](module-map/graphics.md)
+    - [Animation](engine/animation/index.md)
     - [Audio](audio-system/overview.md)
-    - [Physical Simulation](physics/physics.md)
-    - [Scripting Guide and Event System](scripting/index.md)
+    - [Physics](physics/physics.md)
     - [Components](editor/components/index.md)
     - [Assets](asset/index.md)
-    - [Scene and Environment Settings](concepts/scene/index.md)
-
-- Beginner's guide
-    - [Beginner](getting-started/index.md)
-    - [Dashboard](getting-started/dashboard/index.md)
-    - [Hello World!](getting-started/helloworld/index.md)
-    - [Quick start: making your first game](getting-started/first-game/index.md)
-    - [Caution](getting-started/attention/index.md)
-
-- Editor Manual
-    - [Quick Start](getting-started/index.md)
-    - [Panel Introduction](editor/index.md)
-    - [Project Preview Debugging](editor/preview/index.md)
-    - [Game View](editor/gameview/index.md)
-    - [Particle Editor](particle-system/editor/index.md)
-    - [Animation System](editor/animation/index.md)
-    - [Terrain System](editor/terrain/index.md)
-    - [Build release](editor/publish/index.md)
-    - [Export mesh asset from DCC](asset/dcc-export-mesh.md)
-
-- Engine Manual
-    - [Scenes and Environment](concepts/scene/index.md)
-    - [Lighting](concepts/scene/light.md)
-    - [Material](material-system/overview.md)
-    - [Sound](audio-system/overview.md)
-    - [Particle](particle-system/overview.md)
-    - [Animation](engine/animation/index.md)
-    - [Easing](tween/index.md)
-    - [Physics](physics/physics.md)
-    - [UI](ui-system/components/engine/index.md)
-    - [Components](editor/components/index.md)
-    - [Scripting Guide and Event Mechanism](scripting/index.md)
-    - [Resource Manual](asset/index.md)
+- [UI](ui-system/components/engine/index.md)
+- [Terrain](editor/terrain/index.md)
+- [Lightmap](editor/lightmap/index.md)
+- [Tween](tween/index.md)
+- [2D Physics](physics-2d/physics-2d.md)
+- [Editor Extension](editor/extension/readme.md)
+- [Advanced Topics](advanced-topics/index.md)
 
 ## Demo and example projects
 
