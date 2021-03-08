@@ -1,6 +1,6 @@
 # Skeletal Animation Assets (Spine)
 
-Skeletal animation assets in Creator are exported from [Spine](http://esotericsoftware.com/), which currently supports [JSON](http://esotericsoftware.com/spine-export/#JSON) and [binary](http://esotericsoftware.com/spine-export/#%E4%BA%8C%E8%BF%9B%E5%88%B6) data formats.
+Skeletal animation assets in Creator are exported from [Spine](http://esotericsoftware.com/), which currently supports the [JSON](http://esotericsoftware.com/spine-export/#JSON) and [binary](http://esotericsoftware.com/spine-export/#%E4%BA%8C%E8%BF%9B%E5%88%B6) data formats.
 
 The supported Spine versions for each Creator version are as follows.
 
@@ -23,6 +23,6 @@ The assets required for skeletal animation are:
 
 ## Create Skeletal Animation
 
-Drag the skeletal animation asset from the **Assets** panel to the SkeletonData property of the spine component in the **Inspector** panel.
+Drag the skeletal animation asset from the **Assets** panel to the `SkeletonData` property of the spine component in the **Inspector** panel.
 
 ![spine](spine/set_skeleton.png)

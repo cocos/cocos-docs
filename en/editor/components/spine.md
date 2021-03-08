@@ -6,7 +6,7 @@ The Spine Skeleton components support the data format exported by the official S
 
 Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspector** panel to add the Skeleton component to the node.
 
-Please refer to [Skeleton API](../../../api/zh/classes/Skeleton.html) for the scripting interface of Spine.
+Please refer to the [Skeleton API](../../../api/zh/classes/Skeleton.html) for the scripting interface of Spine.
 
 ## Spine Properties
 
@@ -26,15 +26,15 @@ Please refer to [Skeleton API](../../../api/zh/classes/Skeleton.html) for the sc
 | Use Tint              | Whether to turn on the tinting effect, off by default.
 | Sockets               | A system for hooking up external nodes to a given bone joint.
 
-> **Note**: the **Anchor** and **Size** properties on the Node component in the **Inspector** panel are invalid when using the Skeleton component.
+> **Note**: the `Anchor` and `Size` properties on the Node component in the **Inspector** panel are invalid when using the Skeleton component.
 
 ## Spine Skins
 
-The following is an example of how to change skins in Spine.
+It is possible to change skins in Spine.
 
 ![spine-cloth](./spine/cloth0.png)
 
-First create a new empty node in the **Hierarchy** panel and rename it to "girl". Add the Skeleton component in the **Inspector** panel and drag and drop the asset into the SkeletonData property box of the Skeleton component. The Animation property of the Skeleton component can be changed to set the animation that the developer wants to play.
+First, create a new empty node in the **Hierarchy** panel and rename it to "girl". Add the Skeleton component in the **Inspector** panel and drag and drop the asset into the SkeletonData property box of the Skeleton component. The Animation property of the Skeleton component can be changed to set the animation that the developer wants to play.
 
 ![spine-cloth](./spine/cloth1.png)
 
@@ -69,11 +69,11 @@ First create a new empty node in the **Hierarchy** panel and rename it to "girl"
     }
     ```
 
-2. Then attach the script component to the relevant node (here the Button component's click event is used to trigger the script's change callback).
+2. Next, attach the script component to the relevant node (here the Button component's click event is used to trigger the script's change callback).
 
     ![spine-cloth](./spine/click_event.png)
 
-3. Click the preview button at the top of the editor, and click the change skin button then you can see that the character's skin has been replaced.
+3. Click the preview button at the top of the editor, and then click the change skin button. Notice the character's skin has been replaced.
 
     ![spine-cloth](./spine/cloth2.png)
 
@@ -107,7 +107,7 @@ The vertex effect is only available when Spine's `Animation Cache Mode` is in th
     });
     ```
 
-3. Then attach the script component to a Canvas node or other node, i.e. drag and drop the script into the node's **Inspector** panel. Then drag and drop the node in the **Hierarchy** panel to the corresponding spine property box of the script component, and save the scene.
+3. Next, attach the script component to a Canvas node or other node, i.e. drag and drop the script into the node's **Inspector** panel. Then drag and drop the node in the **Hierarchy** panel to the corresponding spine property box of the script component, and save the scene.
 
 4. Click the Preview button at the top of the editor to see the effect of vertex jitter of the Spine animation. For the code, please refer to the [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) example.
 
@@ -129,43 +129,41 @@ When using skeletal animation, you often need to attach a node on a part of the 
 
     ![attach2](./spine/attach2.png)
 
-4. Set the Path and Target of Sockets, select the location and child node object you want to attach respectively.
+4. To set the Path and Target properties of the Sockets, select the location and child node object to attach.
 
     ![attach3](./spine/attach3.png)
 
-    You can see that a Sprite has been attached on the tail of the dragon in the **Scene** panel, and the same for the other attachment slots.
-
-    The same goes for the other attachment slots.
+    Notice that a Sprite has been attached on the tail of the dragon in the **Scene** panel, and the same for the other attachment slots. The same goes for the other attachment slots.
     
     ![attach4](./spine/attach4.png)
 
-5. Finally, drag the star asset to the Sprite component's `SpriteFrame` property. Save the scene and click the preview button at the top of the editor to see the star hanging on the dragon's tail and wiggling along with it. See the [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) example in the example-case for details.
+5. Finally, drag the star asset to the Sprite component's `SpriteFrame` property. Save the scene and click the preview button at the top of the editor to see the star hanging on the dragon's tail and wiggling along with it. Please refer to the [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/spine) example in the example-case for details.
 
 ## Spine Collision Detection
 
-The Spine attachment slots function allows you to detect the collision of a part of the skeleton animation. The following is an example of how Spine implements collision detection, by determining whether the character's feet are in contact with the ground or not to dynamically change the ground color when the character is running.
+The Spine attachment slots function allows for the detection of a collision of a part of the skeleton animation. The following is an example of how Spine implements collision detection, by determining whether the character's feet are in contact with the ground or not to dynamically change the ground color when the character is running.
 
 ![collider](./spine/collider0.png)
 
-1. First, you need to set the 2D physics engine to **Built-In Physics Engine** in the project settings.
+1. First, set the 2D physics engine to **Built-In Physics Engine** in the project settings.
 
     ![collider](./spine/collider1.png)
 
-2. Create the Spine node and its attached child nodes as in the first two steps of the Spine attachment slots via the editor.
+2. Create the Spine node and its attached child nodes (as in the first two steps) of the Spine attachment slots via the editor.
 
-3. Then select the target skeleton node (the character's foot) as the parent node in the skeleton node tree under the **Hierarchy** panel Spine node, and create an empty node (renamed frontFoot) as the child node.
+3. Select the target skeleton node (character's foot) as the parent node in the skeleton node tree under the Spine node in the **Hierarchy** panel, and create an empty node (renamed to frontFoot) as the child node.
 
     ![collider](./spine/collider2.png)
 
-4. Select the node you want to set (renamed frontFoot) in the **Hierarchy** panel, click **Add Component -> Physics2D -> Colliders -> Polygon Collider** in the **Properties Inspector**, and set the collision component parameters. The node will then move along with the skeletal animation, so that the collision component's enclosing box will be synchronized with the skeletal animation in real time.
+4. Select the node to set (renamed to frontFoot) in the **Hierarchy** panel, click **Add Component -> Physics2D -> Colliders -> Polygon Collider** in the **Properties Inspector**, and set the collision component parameters. The node will then move along with the skeletal animation, ensuring the collision component's enclosing box will be synchronized with the skeletal animation in real time.
 
     ![collider](./spine/collider3.png)
 
     ![collider](./spine/collider4.png)
 
-5. Create a Sprite node as a ground in the **Hierarchy** panel. Select the node, then set the position size and other properties in the **Inspector** panel and add the **BoxCollider2D** collision component.
+5. Create a Sprite node as the ground in the **Hierarchy** panel. Select the node, then set the position size and other properties in the **Inspector** panel and add the **BoxCollider2D** collision component.
 
-Create a new TypeScript script in the **Assets** panel, and then attach the script to the ground node (the platform node in the figure). The script code is as follows:
+Create a new TypeScript script in the **Assets** panel, and then attach the script to the node representing the ground (the node "platform" in the figure). The script code is as follows:
 
     ```ts
     import { _decorator, Component, Node, PhysicsSystem2D, Contact2DType, Collider2D, Color, Sprite, ParticleSystem2D, EPhysics2DDrawFlags } from 'cc';
