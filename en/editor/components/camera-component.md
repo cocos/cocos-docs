@@ -39,7 +39,7 @@ The __Camera__ and models provided by default are all __rendered without groupin
 
 ### The Visibility property of the camera is set
 
-Set which tiers should be observed by this camera and which tiers should not be observed.
+The `Visibility` property is used to set which layers of nodes should be observed by the camera, and multiple Layers can be selected at the same time.
 
 > **Note**: the rendering of 2d elements (such as Sprite) also follows the `Layer` and `Visibility` judgement, adjust the `Layer` and `Visibility` as required.
 
