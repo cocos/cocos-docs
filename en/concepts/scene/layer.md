@@ -4,7 +4,7 @@ The `Layer` property of the Node is an unsigned 32-bit integer, supporting up to
 
 The `Visibility` property of the Camera and the `Layer` property of the Node are both used to control the visibility of nodes. However, a node can only be seen by the camera if the `Layer` property set in the node is included in the `Visibility` of the camera. The `Visibility` property of the camera uses bitwise operators (such as `|` and `&`) to determine whether a node's `Layer` should be visible, and supports selecting multiple Layers at the same time. See the [Camera — Set the Visibility property](../../editor/components/camera-component.md) documentation for details.
 
-## System default hierarchical properties
+## The engine's built-in Layers
 
 ![layer gizmo](scene/layer-gizmo.png)
 
