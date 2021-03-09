@@ -117,7 +117,7 @@ import '. /foo'; // correct: parsed as the `foo/index.ts` module
 ```
 > **Notes**:
 > 1. Cocos Creator supports the Web platform. Implementing complex module parsing algorithms like Node.js on the Web platform is expensive, and the client and server cannot try different suffixes and file paths with frequent communication between them.
-> Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, specify the full file path in the code for the choice of module parsing algorithm.
+> 2. Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, specify the full file path in the code for the choice of module parsing algorithm.
 > However, this cannot be restricted completely, since TypeScript currently doesn't allow the suffix `.ts` to be specified in the specifier. And TypeScript does not yet support auto-completion of specific target suffixes. With these limitations, it's hard to have it both ways, but we're still watching to see if these conditions improve in the future.
 
 ### The `browser` Field is not Supported
