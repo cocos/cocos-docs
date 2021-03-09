@@ -98,7 +98,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
     - sourceMaps：是否开启 sourceMap
     - platform：构建平台
     - 引擎修改时间
-    - 是否勾选分离引擎（仅微信平台）
+    - 是否勾选分离引擎（仅微信小游戏平台）
     - 使用引擎路径
 
 - **json 构建**：序列化 json 根据 json 分组以及所属 Bundle 进行合并写入文件系统(`assets/xxxBundle/import` 文件夹内)，如果是 **release 模式还会对序列化 json 内的 uuid 进行压缩处理**。
