@@ -93,7 +93,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
 
     只要任何相关的引擎构建参数发生更改，就会重新编译引擎，具体影响构建引擎缓存使用的有：
 
-    - debug: 是否打开调试模式
+    - debug：是否打开调试模式
     - includeModules: 引擎模块设置
     - sourceMaps：是否开启 sourceMap
     - platform：构建平台
