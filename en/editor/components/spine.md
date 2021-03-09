@@ -6,7 +6,7 @@ The Spine Skeleton components support the data format exported by the official S
 
 Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspector** panel to add the Skeleton component to the node.
 
-Please refer to the [Skeleton API](../../../api/zh/classes/Skeleton.html) for the scripting interface of Spine.
+Please refer to the [Skeleton API](__APIDOC__/en/classes/spine.skeleton-1.html) for the scripting interface of Spine.
 
 ## Spine Properties
 
