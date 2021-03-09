@@ -8,7 +8,7 @@
 
 ![](./animation/add-component.jpg)
 
-动画组件接口请参考 [MeshRenderer API](../../../api/zh/classes/animation.animation-1.html)。
+动画组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/animation.animation-1.html)。
 
 ## Clip 动画剪辑
 
@@ -16,7 +16,7 @@
 
 ## 动画编辑模式
 
-动画在普通模式下是不允许编辑的，只有在动画编辑模式下才可以编辑动画文件。但是在动画编辑模式下，无法对节点进行添加/删除/重命名操作。
+动画在普通模式下是不允许编辑的，只有在动画编辑模式下才可以编辑动画文件。但是在动画编辑模式下，无法对节点进行添加/删除/重命名操作，并且没有记录在动画关键帧内的属性修改，在退出动画编辑器后也会被还原。
 
 打开编辑模式有以下两种方式：
 

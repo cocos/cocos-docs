@@ -13,4 +13,6 @@ The [__Animation Components__](./animation-component.md) documentation describes
 
 The [__Animation Clip__](./animation-clip.md) documentation describes the composition of _Animation Clips__ or creating _Animation Clips__ programmatically.
 
+The [__Animation State__](./animation-state.md) provides a low-level control of animation playback.
+
 The [__Skeletal Animation__](./skeletal-animation.md) documentation describes how to use this common but special type of animation. 

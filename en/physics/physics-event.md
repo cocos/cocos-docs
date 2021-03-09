@@ -31,6 +31,16 @@ There are three types of Trigger Events:
 | `onTriggerStay`  | Trigger stay |
 | `onTriggerExit`  | Trigger end |
 
+Where the collision pairs that can generate trigger events are:
+
+| Type | Static rigid body | Kinematic rigid body | Dynamic rigid body |
+| :--- | :--- | :--- | :--- |
+| **Static rigid body** | | ✔ | ✔ |
+| **Kinematic rigid body** | ✔ | ✔ | ✔ |
+| **Dynamic rigid body** | ✔ | ✔ | ✔ |
+
+> **Note**: the prerequisite is that both must come with a collision component and at least one of them must be a trigger type.
+
 #### Listen to trigger events
 
 In order to add listeners to the trigger event, you need to add the corresponding callback by registering the event:
@@ -53,7 +63,7 @@ private onTrigger (event: ITriggerEvent) {
 
 ### Collision Events
 
-__Collision events__ are generated based on collision data. Collision data only affects dynamic rigid bodies. Therefore, a dynamic rigid body is required to generate collision events.
+__Collision events__ are generated based on collision data. Collision data is not generated between rigid bodies of static types.
 
 Collision events are divided into three types:
 
@@ -62,6 +72,16 @@ Collision events are divided into three types:
 | `onCollisionEnter` | Start of the collision |
 | `onCollisionStay`  | Collision hold |
 | `onCollisionExit`  | end of the collision |
+
+Where the collision pairs that can generate collision events are:
+
+| Type | Static rigid body | Kinematic rigid body | Dynamic rigid body |
+| :--- | :--- | :--- | :--- |
+| **Static rigid body** | | ✔ | ✔ |
+| **Kinematic rigid body** | ✔ | ✔ | ✔ |
+| **Dynamic rigid body** | ✔ | ✔ | ✔ |
+
+> **Note**: the prerequisite is that both must come with a collision component and both must be of the collider type.
 
 #### Listen to collision events
 

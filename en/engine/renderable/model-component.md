@@ -2,11 +2,11 @@
 
 The __ModelComponent__ is used to display a static 3D model. Set the model grid through a mesh, and change the appearance of the model through material.
 
-To use `MeshRenderer`, please refer to the [MeshRenderer API](../../../api/en/classes/model.meshrenderer.html).
+To use `MeshRenderer`, please refer to the [MeshRenderer API](__APIDOC__/en/classes/model.meshrenderer.html).
 
 ## MeshRenderer Properties
 
-Properties | Functions
+Property | Functions
 :--- | :---
 **mesh** | 3D model assets for rendering.
 **materials** | The material used to render the model, one material corresponds to one submesh in the mesh.

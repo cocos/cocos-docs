@@ -23,10 +23,9 @@
 
 #### 选择源码模板（Template）
 
-在 **模板 (Template)** 下拉菜单中有两种可用的引擎模板，我们可以从中选择一种：
+目前 **模板 (Template)** 中可使用的引擎模板为 **Link**。
 
-- **Default** — 使用默认的 Cocos2d-x 源码版引擎构建项目。
-- **Link** — 与 Default 模板不同的是，Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
+Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
 
 > **关于源码引擎**
 >
@@ -157,8 +156,7 @@ Mac 平台的构建选项包括 **Bundle Identifier** 和 **渲染后端**，设
 ![native directory](publish-native/native-directory.png)
 
 - `assets`：存放项目资源
-- `build`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务。除了 Android 平台，Android 平台的工程是生成在 `proj` 目录下。
-- `proj`：存放编译时需要用到的资源，例如应用图标、应用启动脚本等。
+- `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务。
 - `cocos.compile.config.json`：本次构建的编译选项 json
 
 更多详细的内容可参考 [构建目录 — 原生平台](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0)
@@ -171,7 +169,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 ### 通过编辑器
 
-构建完成后，继续点击旁边的 **生成** 按钮，如果模板选择了 default 的源码版引擎，这个过程将会花费比较久的时间。成功后会提示：
+构建完成后，继续点击旁边的 **生成** 按钮，成功后会提示：
 
 `make package YourProjectBuildPath success!`
 
@@ -185,7 +183,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 ### 通过 IDE
 
-点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `build-win32-link` 或 `build-win32-default`（根据选择的平台和模板不同）里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程生成在发布路径的 `proj` 目录下。
+点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程生成在发布路径的 `proj` 目录下。
 
 接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
 
