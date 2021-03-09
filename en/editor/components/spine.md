@@ -145,7 +145,7 @@ The Spine attachment slots function allows for the detection of a collision of a
 
 ![collider](./spine/collider0.png)
 
-1. First, set the 2D physics engine to **Built-In Physics Engine** in the project settings.
+1. First, set the 2D physics engine to **Builtin 2D Physics System** in the **Project Settings**.
 
     ![collider](./spine/collider1.png)
 
