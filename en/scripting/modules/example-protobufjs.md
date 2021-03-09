@@ -1,6 +1,6 @@
 # Example: Using protobuf.js with npm
 
-This section illustrates how to use the npm package in a Cocos Creator project by installing and using [protobufjs](https://www.npmjs.com/package/protobufjs).
+This section illustrates how to use npm packages in a Cocos Creator project by installing and using [protobufjs](https://www.npmjs.com/package/protobufjs).
 
 ## Install Node.js
 
