@@ -12,7 +12,7 @@ __After__ selecting the node, use the **Add Component** button in the __Inspecto
 
 __After__ the node can display the texture normally, an __Attribute Track__ needs to be created for the texture.
 
-Click the `+` next to the __Property List__ of the __Animation Editor__. Select __cc.Sprite-> spriteFrame__.
+Click the __+__ next to the __Property List__ of the __Animation Editor__. Select __cc.Sprite -> spriteFrame__.
 
 ## Adding a Frame
 
