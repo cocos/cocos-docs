@@ -37,7 +37,7 @@
 
 ### UI 节点
 
-对于 UI 节点，为了让其正常显示，它的任意上级节点至少得有一个含有 **UITransform** 组件。所以创建 UI 节点时，如果不符合规则，则会自动创建一个 **Canvas** 节点作为 UI 节点的根节点，具体内容可参考 [UI 结构说明](../../ui-system/components/engine/index.md)。
+对于 UI 节点，为了让其正常显示，它的任意上级节点至少得有一个含有 **UITransform** 组件。所以创建 UI 节点时，如果不符合规则，则会自动创建一个 **Canvas** 节点作为 UI 节点的根节点，具体内容可参考 [UI 结构说明](../../2d-object/ui-system/index.md)。
 
 ### Prefab 节点
 

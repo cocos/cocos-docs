@@ -22,13 +22,13 @@ Cocos Creator 引擎提供的所有功能都以 ESM 模块的形式存在，见 
 
 - 以 `.mjs` 为后缀的文件；
 
-- 以 `.js` 为后缀的文件，并且与其最相近的 `package.json` 文件中，顶级的 `"type"` 字段为 `"module"`。
+- 以 `.js` 为后缀的文件，并且与其最相近的父级 `package.json` 文件中包含一个顶级的 `"type"` 字段，其值为 `"module"`。
 
 其余的文件将被视为 CommonJS 模块格式，这包括：
 
 - 以 `.cjs` 为后缀的文件；
 
-- 以 `.js` 为后缀的文件，并且与其最相近的 `package.json` 文件中，顶级的 `"type"` 字段为 `"commonjs"`。
+- 以 `.js` 为后缀的文件，并且与其最相近的父级 `package.json` 文件中包含一个顶级的 `"type"` 字段，其值为 `"commonjs"`。
 
 - 不在上述条件下的以 `.js` 为后缀的文件。
 

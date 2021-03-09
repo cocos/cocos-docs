@@ -118,9 +118,8 @@ export class VideoPlayerCtrl extends Component {
         this.videoplayer.node.on(VideoPlayer.EventType.READY_TO_PLAY, this.callback, this);
     }
 
-    callback (event) {
-        // 这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 VideoPlayer 组件
-        let videoplayer = event.detail;
+    callback (videoplayer) {
+        // 这里的 videoplayer 表示的是 VideoPlayer 组件
         // 对 videoplayer 进行你想要的操作
         // 另外，注意这种方式注册的事件，也无法传递 customEventData
     }
