@@ -1,4 +1,4 @@
-# Component Reference for DragonBones ArmatureDisplay
+# DragonBones ArmatureDisplay Component References
 
 The ArmatureDisplay component can render and play DragonBones assets.
 

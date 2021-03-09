@@ -153,6 +153,7 @@
     - [List with data](ui-system/components/engine/list-with-data.md)
     - [Stretchable UI Sprite](ui-system/components/engine/sliced-sprite.md)
     - [UI Custom Material](ui-system/components/engine/ui-material.md)
+    - [DragonBones ArmatureDisplay Component References](editor/components/dragonbones.md)
 
 - [Components](editor/components/index.md)
     - [AudioSource](audio-system/audiosource.md)
@@ -254,7 +255,8 @@
     - [Audio](asset/audio.md)
     - [Material](asset/material.md)
     - [Mesh](asset/mesh.md)
-    - [Animation assets](asset/anim.md)
+    - [Animation Assets](asset/anim.md)
+    - [Skeletal Animation Assets (DragonBones)](asset/dragonbones.md)
 
 ## Advanced
 

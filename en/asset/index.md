@@ -30,6 +30,7 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
 - [Model assets](mesh.md)
     - [Export model assets from third-party tools](dcc-export-mesh.md)
 - [Animation assets](anim.md)
+- [Skeletal Animation Assets (DragonBones)](dragonbones.md)
 
 ## Asset Management Of Runtime
 
