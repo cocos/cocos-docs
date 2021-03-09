@@ -21,4 +21,4 @@
     - [消息系统](./messages.md)
     - [多语言系统](./i18n.md)
     - [配置系统](./profile.md)
-    - [UI组件](./ui.md)
+    - [UI 组件](./ui.md)
