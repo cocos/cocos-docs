@@ -43,7 +43,7 @@ Cocos Creator 的通用构建流程，主要有以下部分内容：
             - 04630c...od.png
         ...
     - config.json （Bundle 资源配置文件）
-    - index.js （Bundle 内的脚本
+    - index.js （Bundle 内的脚本）
 ```
 
 更多详细的 Asset Bundle 配置与构建细节，请参考 [Asset Bundle 介绍](../../asset/bundle.md)
