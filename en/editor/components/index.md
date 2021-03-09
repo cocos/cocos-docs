@@ -17,3 +17,4 @@ __Cocos Creator__ includes the following __Components__:
 - [SphereCollider](../../physics/physics-component.md#spherecollidercomponent)
 - [RigidBody](../../physics/physics-component.md#RigidBody)
 - [UI Components](../../ui-system/components/editor/index.md)
+- [Spine (Skeletal Animation) Skeleton Component References](spine.md)
