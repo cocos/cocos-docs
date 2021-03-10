@@ -18,7 +18,7 @@ There are two ways to add lights:
 
 ## Additive per-pixel lights
 
-Until today, Uber Shader is still the mainstream solution on some performance-constrained platforms. With the enhancement of hardware performance and the improvement of image quality requirements, a fixed number of light sources can no longer meet the needs of practical applications. People naturally think of a solution to support multiple light sources: `Multi-pass drawing`.
+Uber Shader is still the dominant solution on some performance-constrained platforms, but as hardware performance increases and the demand for higher picture quality increases, a fixed number of lights can no longer meet the needs of practical applications, so there is a solution that supports multiple lights -- **Multi-pass drawing**.
 
 For a detailed introduction, please read:
 
