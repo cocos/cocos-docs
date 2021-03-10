@@ -30,7 +30,7 @@
 
 这种渲染方式便是支持多种光照模型的 Forward-Pipeline。Forward 一般由两个 Pass 组成：
 
-- 第一个 Pass 是 BasePas，用来绘制一个平行光带来的光照。
+- 第一个 Pass 是 BasePass，用于渲染平行光的光照。
 
 - 第二个 Pass 叫 LightPass，用于渲染剩余光源的光照。
 
