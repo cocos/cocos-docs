@@ -15,8 +15,8 @@ To enable the shadow effect for an object, proceed as follows:
     ![enable-shadow](shadow/enable-shadow.png)
 
 2. Select the 3D node that needs to display shadows in the **Hierarchy** panel, and then set the **ShadowCastingMode** property to **ON** in the **MeshRenderer** component of the **Inspector** panel.
-    
-    ![set-meshrenderer](shadow/set-meshrenderer.png)
+
+    ![set-meshRenderer](shadow/set-meshrenderer.png)
 
     If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the **MeshRenderer** component to **ON**.
 
@@ -30,7 +30,7 @@ The shadow type can be set in the **Type** property of the **Shadows** component
 
 The Planar shadow type is generally used for simpler scenes.
 
-![plannar-properties](shadow/plannar-properties.png)
+![planar-properties](shadow/plannar-properties.png)
 
 | Property | Description |
 | :--- | :--- |
@@ -53,7 +53,7 @@ ShadowMap renders the scene with the light source as the viewpoint. From the pos
 | Property | Description |
 | :--- | :--- |
 | **Enabled** | Whether to enable the shadow effect |
-| **Type** | Shadow type | 
+| **Type** | Shadow type |
 | **ShadowColor** | Shadow color |
 | **Pcf** | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **FILTER_X5**, **FILTER_X9**, **FILTER_X25** |
 | **Near** | Set the near clip plane of the main light source camera |
