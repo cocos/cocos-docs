@@ -8,7 +8,7 @@ First create a new **Sphere** node in the **Hierarchy** panel, then continue to 
 
 ![using Light](usingLight.png)
 
-Take a look at Draw Call under Status:
+After the scene is built, select the browser preview above the editor and you can see the Draw Call in the bottom left corner of the web preview:
 
 ![Draw Call](drawCall.png)
 
