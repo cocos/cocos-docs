@@ -118,9 +118,8 @@ export class VideoPlayerCtrl extends Component {
         this.videoplayer.node.on(VideoPlayer.EventType.READY_TO_PLAY, this.callback, this);
     }
 
-    callback (event) {
-        // event is EventCustom, you can use event.detail to get VideoPlayer component
-        let videoplayer = event.detail;
+    callback (videoplayer) {
+        // The "videoplayer" here represents the VideoPlayer component.
         // do whatever you want with videoplayer
         // you can't pass customEventData in this way
     }

@@ -1,6 +1,6 @@
 # About Animations
 
-Before creating an __Animation__, you must first add an __Animation Component__ to the node, and mount the clip file for the component before editing. Before that, it is necessary to first understand the related concepts of an __Animation Clip__ and __Animation Component__.
+Before creating an __Animation__, you must first add an __Animation Component__ to the node, and attach the clip file for the component before editing. Before that, it is necessary to first understand the related concepts of an __Animation Clip__ and __Animation Component__.
 
 ## Animation Component
 
@@ -12,7 +12,7 @@ To use `Animation`, please refer to the [Animation API](__APIDOC__/en/classes/an
 
 ## Clip Animation clip
 
-An __Animation Clip__ is a piece of declaration data for an animation. If we mount it on an __Animation Component__, we can apply this animation data to a node. An __Animation Component__ can mount multiple __Animation Clips__. It is not possible to edit animations on nodes without clips. After clicking on the relevant nodes, if the node has only __Animation Components__, but no clip files, the __Animation Editor__ will display the **Create Clip File** button, __click__ to create and assign to the component. In the animation editing mode, you can also switch to edit different __Animation Clips__ through the clip option in the lower left corner of the __Animation Editor__.
+An __Animation Clip__ is a piece of declaration data for an animation. If attached on an __Animation Component__, we can apply this animation data to a node. An __Animation Component__ can attach multiple __Animation Clips__. It is not possible to edit animations on nodes without clips. After clicking on the relevant nodes, if the node has only __Animation Components__, but no clip files, the __Animation Editor__ will display the **Create Clip File** button, __click__ to create and assign to the component. In the animation editing mode, you can also switch to edit different __Animation Clips__ through the clip option in the lower left corner of the __Animation Editor__. The attribute modification that are not recorded in the animation key frame will be restored after exiting __animation editing mode__.
 
 ## Animation editing mode
 

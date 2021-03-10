@@ -8,15 +8,15 @@ __First__, we need to allow the node to display the texture normally, so we need
 
 __After__ selecting the node, use the **Add Component** button in the __Inspector__ panel and select __UI-> Render-> Sprite__.
 
-## Add a Sprite.spriteFrame to the attribute list
+## Add a cc.Sprite.spriteFrame to the attribute list
 
 __After__ the node can display the texture normally, an __Attribute Track__ needs to be created for the texture.
 
-Click the `+` next to the __Property List__ of the __Animation Editor__. Select __Sprite-> spriteFrame__.
+Click the __+__ next to the __Property List__ of the __Animation Editor__. Select __cc.Sprite -> spriteFrame__.
 
 ## Adding a Frame
 
-__First__, from the __Asset__ panel, drag the texture to the __Attribute Frame__ area and place it on the __Sprite.spriteFrame__ track.
+__First__, from the __Assets__ panel, drag the texture to the __Attribute Frame__ area and place it on the __cc.Sprite.spriteFrame__ track.
 
 __Next__, drag the texture to be displayed in the next frame to the specified position, and then __click__ __Play__ to preview the animation that was just created.
 

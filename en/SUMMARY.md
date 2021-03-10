@@ -169,6 +169,7 @@
     - [BoxCollider](physics/physics-component.md#boxcollider)
     - [SphereCollider](physics/physics-component.md#spherecollider)
     - [RigidBody](physics/physics-component.md#rigidbody)
+    - [Spine Skeleton](editor/components/spine.md)
     - [UI Component Reference](ui-system/components/editor/index.md)
         - [UI Renderer Component](ui-system/components/editor/render-component.md)
             - [Sprite Reference](ui-system/components/editor/sprite.md)
@@ -255,6 +256,7 @@
     - [Material](asset/material.md)
     - [Mesh](asset/mesh.md)
     - [Animation assets](asset/anim.md)
+    - [Skeletal Animation Assets (Spine)](asset/spine.md)
 
 ## Advanced
 
@@ -278,7 +280,7 @@
 - [Advanced Topics](advanced-topics/index.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
-    - [Dynamic Atlas](advanced-topics/dynamic-atlas.md) 
+    - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)

@@ -74,6 +74,20 @@ Next, set the properties of the **Directional Light** component, e.g. adjust the
 
 > **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
 
+## Setting the visibility of nodes
+
+The engine uses more generic nodes that match the camera to control the visibility of nodes. When the `Layer` property set in the node is included in the [Visibility property](../../editor/components/camera-component.md) of the camera, the node can be seen by the camera, and it supports mixed rendering of 3D and 2D components. This allows more flexibility in controlling the visibility of node components and diversifying the group display.
+
+For details on the implementation of layers, please refer to the [layer](layer.md) documentation.
+
+### Set the layer property of the node
+
+![node layer gizmo](scene/node-layer-gizmo.png)
+
+The `Layer` property of a node is global and unique, but different nodes can set the same `Layer` property so that they are viewed by the same camera. Developers can use the  `Layer` property built-in with the engine, or they can use a custom `Layer` property, which can be set by clicking the **Edit** button in the image below and going to the **Project Settings -> Layers** page. Please refer to the [Layer](layer.md) documentation for details.
+
+![node layer edit](scene/node-layer-edit.png)
+
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
 
 > **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
