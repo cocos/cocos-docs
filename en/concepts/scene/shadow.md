@@ -60,7 +60,7 @@ Adjust the direction of the directional light to adjust the position of the shad
 
 Percentage Closer Filtering (PCF) is a simple, common technique used to achieve shadow edge desampling, by smoothing shadow edges to eliminate jaggedness in shadow mapping. The principle is to sample around the current pixel (also called a fragment), then calculate the ratio of the sample closer to the lights compared to the fragment, use this ratio to scale the scattered light and specular light, and then color the fragment to blur the shadow edges.
 
-* At present, 5x, 9x, and 25x sampling are used to attenuate the coloring. As the sampled area expands, the shadow edge will have a blur effect.
+Cocos Creator currently supports 5x, 9x, and 25x sampling. The larger the magnification, the larger the sampling area and the more blurred the shadow edges.
 
 ### AutoAdapt adaptive shadow calculation technology
 
