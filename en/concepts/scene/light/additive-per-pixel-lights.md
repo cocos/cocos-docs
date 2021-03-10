@@ -30,7 +30,7 @@ The third rendering is the lighting of **Spot Light 2**:
 
 This type of rendering is the **Forward-Pipeline** that supports multiple lighting models, and **Forward** generally consists of two passes:
 
-- The first pass is BasePas, which is used to draw the light from a parallel light.
+- The first Pass is **BasePass**, which is used to render the lighting of Directional Light.
 
 - The second pass is called LightPass and is used to render the light from the remaining light sources.
 
