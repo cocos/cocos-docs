@@ -16,7 +16,7 @@
 
 ![Frame Debug](debug.png)
 
-由上图可以看出来，第一遍，先渲染 `Directional Light` ：
+由上图可以看出来，第一遍渲染的是 `Directional Light` 的光照：
 
 ![main light pass](pass1.png)
 
