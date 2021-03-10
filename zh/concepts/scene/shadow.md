@@ -76,7 +76,7 @@ AutoAdapt 自适应阴影计算会自动计算视口（lightView）下阴影产�
 | **OrthoSize**       | 设置主光源相机的正交视口大小     |
 | **ShadowMapSize**   | 设置阴影纹理大小     |
 | **Aspect**          | 设置主光源相机的正交视口长宽比     |
-| **Bias**            | 设置阴影偏移值    |
+| **Bias**            | 设置阴影偏移值，防止 z-fiting    |
 
 ShadowMap 在开启了物体 **MeshRenderer** 组件上的 **ReceiveShadow** 后，就会接收并显示其它物体产生的阴影效果。
 
