@@ -1,4 +1,4 @@
-# additive per-pixel lights
+# Additive per-pixel lights
 
 First we use the default lighting material in Cocos.
 
