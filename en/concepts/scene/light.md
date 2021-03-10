@@ -16,7 +16,7 @@ There are two ways to add lights:
 
   ![add light2](light/add-light2.png)
 
-## additive per-pixel lights
+## Additive per-pixel lights
 
 Until today, Uber Shader is still the mainstream solution on some performance-constrained platforms. With the enhancement of hardware performance and the improvement of image quality requirements, a fixed number of light sources can no longer meet the needs of practical applications. People naturally think of a solution to support multiple light sources: `Multi-pass drawing`.
 
