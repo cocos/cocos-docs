@@ -68,7 +68,7 @@ AutoAdapt adaptive shadow calculation will automatically calculate the range of 
 
 ### GPU Instancing support
 
-We can remove all these static objects such as vegetation from the scene, and save their position, zoom, uv offset and other related information. When rendering is needed, use the saved information to render through Instance, which can reduce The rendering time of large batches of the same objects that cannot be batched due to memory reasons. Generate a shadowMap for the statically batched model, and sample it where it is used.
+When there are large batches of same objects in the project, but cannot be batched due to memory reasons, it will take too long to render. In this case, you can save information about the position, scaling and uv offset of these static objects (e.g. vegetation, etc.) and then exclude them all from the scene, and render them by `Instance` when you need to render them based on the saved information.
 
 ![shadow map panel details](shadow/shadowsMapDetail.png)
 
