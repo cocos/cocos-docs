@@ -32,6 +32,6 @@
 
 - 第一个 Pass 是 BasePass，用于渲染平行光的光照。
 
-- 第二个 Pass 叫 LightPass，用于渲染剩余光源的光照。
+- 第二个 Pass 是 LightPass，用于渲染剩余光源的光照。
 
 因此，当一个物体同时被多个灯光照射时，Draw Call 也会增加。
