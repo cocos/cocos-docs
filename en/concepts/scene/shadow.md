@@ -64,7 +64,7 @@ Cocos Creator currently supports 5x, 9x, and 25x sampling. The larger the magnif
 
 ### AutoAdapt adaptive shadow calculation technology
 
-Automatically calculate the range of shadows under the viewport and the distance of the shadow camera.
+AutoAdapt adaptive shadow calculation will automatically calculate the range of shadows created under the viewport, as well as the distance of the shadow camera.
 
 ### GPU Instancing support
 
