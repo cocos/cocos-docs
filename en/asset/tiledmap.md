@@ -1,0 +1,23 @@
+# TiledMap Assets
+
+TiledMap asset is a data format exported by [TiledMap](https://www.mapeditor.org/) (TiledMap v1.2.0 is supported by Cocos Creator 3.0).
+
+## Import Map Assets
+
+The assets required for the map are:
+
+- `.tmx` map data
+- `.png` atlas textures
+- `.tsx` tileset data configuration file (required for some tmx files)
+
+    ![tiledmap](tiledmap/import.png)
+
+## Create TiledMap Assets
+
+Drag the map asset from the **Assets** panel into the Tmx File property of the created TiledMap component.
+
+![tiledmap](tiledmap/set_asset.png)
+
+## Storage in the Project
+
+For efficient asset management, it is recommended to store the imported `tmx`, `tsx` and `png` files in a separate directory, not mixed with other assets.
