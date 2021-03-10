@@ -28,7 +28,7 @@ The third rendering is the lighting of **Spot Light 2**:
 
 ![ForwardAdd pass](pass3.png)
 
-This rendering method is the Forward-Pipeline, which supports multiple lighting models.
+This type of rendering is the **Forward-Pipeline** that supports multiple lighting models, and **Forward** generally consists of two passes:
 
 - The first pass is BasePas, which is used to draw the light from a parallel light.
 
