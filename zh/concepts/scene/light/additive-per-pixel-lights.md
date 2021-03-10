@@ -24,7 +24,7 @@
 
 ![ForwardAdd pass](pass2.png)
 
-第三遍，渲染 `Spot Light 2` 的光照效果：
+第三遍，渲染的是 `Spot Light 2` 的光照：
 
 ![ForwardAdd pass](pass3.png)
 
