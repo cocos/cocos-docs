@@ -21,8 +21,19 @@
 	| Bakeable | 是否烘培静态光照 |
 	| CastShaow | 是否投射静态阴影 |
 	| EditorOnly | 是否只在编辑器中生效 |
+	
+3. 设置MeshRenderer组件的光照图属性。
+	
+	![model lighting map settings](./images/model_bake_settings.png)
+	
+	| 属性 | 说明 |
+	| :--- | :--- |
+	| Bakeable | 是否烘培静态光照 |
+	| CastShaow | 是否投射静态阴影 |
+	| RecieveShadow | 是否接受静态阴影 |
+	| LightMapSize | 光照图大小 |
 
-3. 在弹出的 lightmap 面板中，设置好对应参数后可点击 `Lightmap Generate(生成光照贴图)` 按钮，选择对应存储文件夹即可生成光照贴图（存储文件夹一定要在 assets 下才可生效）。
+4. 在弹出的 lightmap 面板中，设置好对应参数后可点击 `Lightmap Generate(生成光照贴图)` 按钮，选择对应存储文件夹即可生成光照贴图（存储文件夹一定要在 assets 下才可生效）。
    
     ![create lightmap asset](./images/lightmap_generate.png)
 
