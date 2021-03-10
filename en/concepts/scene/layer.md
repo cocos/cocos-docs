@@ -8,7 +8,7 @@ The `Visibility` property of the Camera and the `Layer` property of the Node are
 
 ![layer gizmo](scene/layer-gizmo.png)
 
-| Property              | Description                             | other           |
+| Property              | Description                             | Property Value           |
 | :---                  | :---                                    | :---            |
 | **NONE**              | Set all invisible                       | 0               |
 | **IGNORE_RAYCAST**    | Setting to ignore ray detection         | 1 << 20         |
