@@ -24,7 +24,7 @@ The second rendering is the lighting of **Spot Light 1**:
 
 ![ForwardAdd pass](pass2.png)
 
-In the third pass, the Lighting pass of `Spot Light 2` is rendered:
+The third rendering is the lighting of **Spot Light 2**:
 
 ![ForwardAdd pass](pass3.png)
 
