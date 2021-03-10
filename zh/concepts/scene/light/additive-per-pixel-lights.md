@@ -12,7 +12,7 @@
 
 ![Draw Call](drawCall.png)
 
-我们可以通过第三方软件，例如 RenderDoc，打开 Frame Debug 来看看这些到底是如何渲染到屏幕上的:
+我们可以通过第三方软件，例如 RenderDoc，打开 Frame Debug 来看看这些到底是如何渲染到屏幕上的：
 
 ![Frame Debug](debug.png)
 
