@@ -4,7 +4,7 @@ The following is an example of how to implement multiple lights based on multipl
 
 ![default-material](default-material.png)
 
-As shown in the title picture, we placed a sphere in the scene, then a parallel light, and two spotlights, placed around the sphere.
+First create a new **Sphere** node in the **Hierarchy** panel, then continue to add a Directional Light and two Spotlights, setting them to surround the Sphere, as shown in the following image:
 
 ![using Light](usingLight.png)
 
