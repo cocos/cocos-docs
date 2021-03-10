@@ -1,6 +1,6 @@
 # Additive per-pixel lights
 
-First we use the default lighting material in Cocos.
+The following is an example of how to implement multiple lights based on multiple Pass with the default lighting material `default-material.mtl` in Cocos Creator.
 
 ![default-material](default-material.png)
 
