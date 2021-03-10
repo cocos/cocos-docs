@@ -16,7 +16,7 @@ We can use a third party software such as RenderDoc to open Frame Debug to see h
 
 ![Frame Debug](debug.png)
 
-In the first pass, first render the base color of `Directional Light`:
+As shown in the image above, the first rendering is the lighting of **Directional Light**:
 
 ![main light pass](pass1.png)
 
