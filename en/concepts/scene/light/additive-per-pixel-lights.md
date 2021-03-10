@@ -20,7 +20,7 @@ As shown in the image above, the first rendering is the lighting of **Directiona
 
 ![main light pass](pass1.png)
 
-In the second pass, the Lighting pass of `Spot Light 1` is rendered:
+The second rendering is the lighting of **Spot Light 1**:
 
 ![ForwardAdd pass](pass2.png)
 
