@@ -32,6 +32,6 @@ This type of rendering is the **Forward-Pipeline** that supports multiple lighti
 
 - The first Pass is **BasePass**, which is used to render the lighting of Directional Light.
 
-- The second pass is called LightPass and is used to render the light from the remaining light sources.
+- The second pass is **LightPass**, which is used to render the lighting of the remaining lights.
 
 Therefore, when an object is illuminated by more than one light at the same time, the Draw Call is increased.
