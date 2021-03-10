@@ -20,7 +20,7 @@
 
 ![main light pass](pass1.png)
 
-第二遍，渲染 `Spot Light 1` 的光照效果：
+第二遍，渲染的是 `Spot Light 1` 的光照：
 
 ![ForwardAdd pass](pass2.png)
 
