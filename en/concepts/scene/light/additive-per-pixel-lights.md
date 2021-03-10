@@ -12,7 +12,7 @@ After the scene is built, select the browser preview above the editor and you ca
 
 ![Draw Call](drawCall.png)
 
-Let's open Frame Debug to see how these are rendered to the screen:
+We can use a third party software such as RenderDoc to open Frame Debug to see how these lights are rendered to the screen:
 
 ![Frame Debug](debug.png)
 
