@@ -153,7 +153,7 @@
     - [List with data](ui-system/components/engine/list-with-data.md)
     - [Stretchable UI Sprite](ui-system/components/engine/sliced-sprite.md)
     - [UI Custom Material](ui-system/components/engine/ui-material.md)
-    - [DragonBones ArmatureDisplay Component References](editor/components/dragonbones.md)
+    - [DragonBones ArmatureDisplay](editor/components/dragonbones.md)
 
 - [Components](editor/components/index.md)
     - [AudioSource](audio-system/audiosource.md)
