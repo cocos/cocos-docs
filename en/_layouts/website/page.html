@@ -48,6 +48,8 @@
                 path = path.replace(/\/en[\/$\s]/i, '/zh/');
             }
             // console.log('after: ' + path);
+            // remove point
+            path = path.split("#")[0];
             location.assign(path);
     }
     </script>

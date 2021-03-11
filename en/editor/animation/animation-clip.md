@@ -3,7 +3,7 @@
 After the __animation clip__ is attached to the __Node__, click __Enter Animation Edit Mode__ to enter the __animation editing mode__, and then you can create some __animation frame data__ in the __animation clip__.
 
 __First__, it is important to understand about __animation properties__. __Animation properties__ include a __Node's__ own *position*, *rotation* and *other properties*, as well as the __properties__ in a __Component__.
-The __component__ contains the __component's__ __name__ and other properties, such as `Sprite.spriteFrame`. The corresponding blue prism on the property track is the __key frame__.
+The __component__ contains the __component's__ __name__ and other properties, such as `cc.Sprite.spriteFrame`. The corresponding blue prism on the property track is the __key frame__.
 
 __Animation components__ can animate the __node__ and __component__ properties on the __node__ and __child nodes__, including __Properties__ in __user-defined scripts__. This means that various animation requirements can be flexibly implemented. The specific animation implementation depends on different animation needs and different steps. For an example case, please refer to the [official example-3d](https://github.com/cocos-creator/example-3d). This repository mainly introduces some common editing operations and facilitates rapid editing to achieve these effects.
 

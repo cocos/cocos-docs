@@ -22,12 +22,13 @@ Sometimes, when the __preset curve__ can not meet the needs of the animation, we
 The curve data during the modification process will be displayed in the input box in the upper left corner of the curve area in real time, and the input box also supports **manual input of curve data to generate a curve**, of course, the format of the curve data must be four numbers in __CSV__ format (__commas separated value format__) with, otherwise it cannot be applied normally.
 
 ## Save custom curve
+
 Sometimes some custom curve data required by the project needs to be reused, it can be saved in the preset library of User. Specifically, after editing the curve data to be saved, select the User option in the preset menu at the upper left and enter the name of the curve data to be saved in the input box at the lower left, and click add to add.
 
-> **Note**: the curve with the same name will be overwritten, and the custom curve is saved without undo processing, so if it is overwritten, it needs to be added again.
+> **Note**: **the curve with the same name will be overwritten**, and the custom curve is saved without undo processing, so if it is overwritten, it needs to be added again.
 
 ![add-curve](animation-curve/add-curve.png)
 
-The custom curve saved in the preset is the same as the preset curve of other libraries, click to apply. At the same time, when the mouse moves over the curve, a __delete icon__ will appear. __Click__ to __delete__ the corresponding curve data.
+The custom curve saved in the preset is the same as the preset curve of other libraries, **click to apply**. At the same time, when the mouse moves over the curve, a __delete icon__ will appear. __Click__ to __delete__ the corresponding curve data.
 
 For more about the design of animation curve and script control code, please refer to the [Animation Curve](./../../engine/animation/animation-clip.md) documentation.

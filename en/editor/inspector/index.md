@@ -2,7 +2,7 @@
 
 The **Inspector** is important for viewing and editing the properties of nodes or assets. You can edit the location of a node, components, pictures, materials, models and other assets of a node. 
 
-The **Inspector** features many details and can seem complicated. To get started, aselect the node in **Scene** panel, **Hierarchy** panel, or select the asset in **Asset** panel. Properties can now be displayed or edited.
+The **Inspector** features many details and can seem complicated. To get started, aselect the node in **Scene** panel, **Hierarchy** panel, or select the asset in **Assets** panel. Properties can now be displayed or edited.
 
 ![introduce](index/introduce.gif)
 
@@ -67,7 +67,7 @@ Properties are divided into **value types** and **reference types**.
 
 ### Reference type properties
 
-**Reference types** include objects, such as **nodes**, **components**, or **assets**. You can select and assign values ​​by **dragging** or **popping up the asset panel**.
+**Reference types** include objects, such as **nodes**, **components**, or **assets**. You can select and assign values ​​by **dragging** or **popping up the Assets panel**.
 
 ![assets-panel](index/assets-panel.png)
 

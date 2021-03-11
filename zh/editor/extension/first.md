@@ -80,10 +80,10 @@ exports.methods = {
 };
 
 // 当扩展被启动的时候执行
-exports.load = {};
+exports.load = function() {};
 
 // 当扩展被关闭的时候执行
-exports.unload = {};
+exports.unload = function() {};
 ```
 
 这份入口程序会在 Cocos Creator 的启动过程中被加载。methods 内定义的方法，将会作为操作的接口，通过 [消息系统](./messages.md) 跨扩展调用，或者是和面板通信。
