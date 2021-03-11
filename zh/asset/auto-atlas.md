@@ -26,7 +26,7 @@
 | Power of Two | 是否将图集长宽大小设置为二次方倍数
 | Algorithm | 图集打包策略，目前暂时只有一个选项 `MaxRects`
 | Padding Bleed | 在碎图的边框外扩展出一像素外框，并复制相邻碎图像素到外框中。该功能也称作 **Extrude**
-| Filter Unused | 该选项仅在构建后生效
+| Filter Unused | 不包含未被引用的资源，该选项仅在构建后生效
 
 其余属性与 Texture 是一样的，详情请参考 [纹理贴图](./texture.md#%E5%AD%90%E8%B5%84%E6%BA%90-texture2d-%E7%9A%84%E5%B1%9E%E6%80%A7%E9%9D%A2%E6%9D%BF)。
 

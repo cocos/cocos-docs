@@ -26,7 +26,7 @@ After selecting an **Auto Atlas Resource** in the __Assets__ panel, the **Inspec
 | **Power of Two** | Whether to set the size of the atlas to a multiple of a square |
 | **Algorithm** | Atlas packaging strategy, currently only one option `MaxRects` |
 | **Padding Bleed** | Expand a pixel outer frame outside the border of the broken image, and copy the adjacent broken image pixels to the outer frame. This feature is also called **Extrude**. |
-| **Filter Unused** | This option only takes effect after the build. |
+| **Filter Unused** | If this option is checked, unreferenced assets will not be included when building. This option only takes effect after the build.
 
 The rest of the properties are the same as Texture, please refer to the [Texture](./texture.md#sub-asset-texture2d-properties-panel) documentation for details.
 
