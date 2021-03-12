@@ -287,30 +287,25 @@ v3.0 构建微信小游戏后生成的目录：
 
 #### 原生平台
 
-> **注意**：这部分内容暂时还未更新到最新版，请以实际构建结果为准。
-
-v2.4.3 构建 Windows 平台后生成的目录：
-
-![image](window-v243.png)
-
-3.0 构建 Windows 平台后生成的目录：
-
-![image](window-v3.png)
-
-从以上两张图可以看出 Windows 平台构建后生成的目录，v2.4.3 与 v3.0 差异较大。<br>
-因为各个原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将 v2.4.3 存放在构建目录 `frameworks/runtime-src/Classes` 中的底层 C++ 代码单独提取出来放在共享的 `common-link` 文件夹中。这样在构建原生平台时，如果检测到已经存在 `common-link` 文件夹，这部分内容便不会再进行处理，加快构建速度。
-
-而 `Windows` 文件夹则是 v3.0 用于存储当前构建的原生平台相关的内容（如果构建的是 Android 平台则生成 `android` 文件夹）：
-
-![image](v3-windows.png)
-
-我们再来看一下 v2.4.3 构建后生成的目录 `jsb-link`：
+v2.4.3 构建 Windows 平台后生成的发布包目录如下：
 
 ![image](v243-windows.png)
 
-这两者的区别主要在于：
+v3.0 构建 Windows 平台后生成的发布包目录如下：
 
-1. v2.4.3 构建目录中属于应用层的文件在 v3.0 都统一合并到了 `assets` 目录中。应用层的文件包括：
+![image](v3-windows.png)
+
+从以上两张图可以看出 Windows 平台构建后生成的发布包目录，v2.4.3 与 v3.0 差异较大：
+
+1. v2.4.3 的发布包名称是以 **构建发布** 面板中的 **构建模板** 命名的（例如 `jsb-link`），v3.0 则是以 **当前构建的原生平台** 命名的（例如 `windows`、`Android`）。
+
+2. 因为各个原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将 v2.4.3 存放在发布包目录 `frameworks/runtime-src/Classes` 中的底层 C++ 代码单独提取出来放在共享的项目目录下的 `native/engine/common` 文件夹中。这样在构建原生平台时，如果检测到已经存在该文件夹，这部分内容便不会再进行处理，加快构建速度。
+
+    ![image](engine-common.png)
+
+3. v2.4.3 发布包目录中应用层相关的文件，在 v3.0 都统一合并到了 `assets` 目录中。
+
+    v2.4.3 应用层相关的文件包括：
 
     - `assets` 目录（资源）
     - `jsb-adapter` 目录（适配层代码）
@@ -324,23 +319,23 @@ v2.4.3 构建 Windows 平台后生成的目录：
 
     v3.0 在合并的过程中也做了相应的调整和改动：
 
-    - 将原先 v2.4.3 全部放在构建目录 `src/cocos2d-jsb.js` 文件中引擎相关的代码（例如核心模块、物理模块、插件脚本等）都放到了构建目录 `assets/src/cocos-js` 目录下。
+    - 原 v2.4.3 全部放在发布包目录 `src` 目录下的引擎相关代码（例如核心模块、物理模块、插件脚本等），在 v3.0 都放到了发布包目录 `assets/src/cocos-js` 目录下。
 
-      ![image](windows-cocosjs.png)
+    - 原 v2.4.3 中用于管理配置的 `src/settings.js`，在 v3.0 改为 `assets/src/settings.json`。
 
-    - v2.4.3 只有一个启动脚本 `main.js`，而 v3.0 除了 `main.js` 之外还在 `src` 目录下新增了一个启动脚本 `application.js`，用于启动游戏。
-
-    - v2.4.3 中用于管理配置的 `src/settings.js` 在 v3.0 改为 `assets/src/settings.json`。
-
-2. v2.4.3 将所有原生平台的构建工程都生成在 `frameworks/runtime-src` 目录下：
+4. v2.4.3 会将所有原生平台的构建工程都生成在发布包目录 `frameworks/runtime-src` 目录下：
 
     ![image](v243-build-template.png)
 
-    而 v3.0 则是将构建工程生成在 `build` 目录下，且只生成当前构建平台的工程：
+    而 v3.0 则是将构建工程生成在发布包目录 `proj` 目录下，且只生成当前构建平台的工程：
 
     ![image](v3-build-template.png)
 
-3. 一些编译时需要用到的资源，例如应用图标、应用启动脚本等，v2.4.3 是存储在构建工程中，而 v3.0 则是存储在构建目录的 `windows/proj` 目录下。
+    同时，v3.0 也做了代码和配置的分离，将一部分代码和配置放入源码管理，位于项目目录下的 `native/engine/当前构建的平台名称` 文件夹中（例如 `native/engine/win32`、`native/engine/android`）。开发者可以在这里集成 SDK 或者做二次开发，删除构建后生成的发布包目录（例如 `build/windows`）不会影响已经集成的 SDK。
+
+    ![image](v3-build-native.png)
+
+5. 一些编译时需要用到的资源，例如应用图标、应用启动脚本等，v2.4.3 是存储在构建工程中，而 v3.0 则是存储在项目目录的 `native/engine/当前构建的平台名称` 文件夹中。
 
 ## TypeScript 参考教程
 
