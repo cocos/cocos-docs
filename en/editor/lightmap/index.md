@@ -18,7 +18,7 @@ The following three steps are required to turn on the baking system:
 
     ![enable lightbake](./images/bakeable.png)
 
-	- **Bakeable**: When checked, enable bake lighting
+	- **Bakeable**: When checked, enable bake static lighting
 	- **CastShaow**: When checked, enable cast static shadow
 	- **EditorOnly**: When checked, only takes effect in the editor
 	
