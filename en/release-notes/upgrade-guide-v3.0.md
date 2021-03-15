@@ -64,6 +64,8 @@ The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please 
 
         - `group`: change to `layer`.
 
+        - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
+
 - `CCSpriteFrame`:
 
     - Remove the interfaces: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture`.

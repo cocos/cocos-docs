@@ -398,8 +398,8 @@ After the `get` or `set` is set in the property, when the property is accessed, 
 Set the `get` method in the properties:
 
 ```typescript
-@property({ type: CCInteger })
 private _num = 0;
+@property({ type: CCInteger })
 private get num() {
     return this._num;
 }
@@ -454,11 +454,11 @@ start() {
 Set the `set` method in the properties:
 
 ```typescript
+private _width = 0;
 @property({ type: CCInteger })
-    private _width = 0;
-    set(value) {
-        this._width = value
-    }
+set (value) {
+    this._width = value
+}
 ```
 
 The `set` method receives an incoming parameter, which can be of any type.

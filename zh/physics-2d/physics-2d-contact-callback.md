@@ -39,19 +39,19 @@ export class TestContactCallBack extends Component {
             PhysicsSystem2D.instance.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
     }
-    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体开始接触时被调用一次
         console.log('onBeginContact');
     }
-    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
         console.log('onEndContact');
     }
-    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 每次将要处理碰撞体接触逻辑时被调用
         console.log('onPreSolve');
     }
-    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 每次处理完碰撞体接触逻辑时被调用
         console.log('onPostSolve');
     }

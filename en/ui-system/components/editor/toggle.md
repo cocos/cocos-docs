@@ -48,7 +48,7 @@ export class example extends Component {
         const checkEventHandler = new EventHandler();
         // This Node is the node to which your event processing code component belongs
         checkEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         checkEventHandler.component = 'example';
         checkEventHandler.handler = 'callback';
         checkEventHandler.customEventData = 'foobar';

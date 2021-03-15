@@ -8,7 +8,7 @@ Use the physics system to access some of the common functions of the physics mod
 
 ### Enabling the Physics Manager
 
-The __Physics Manager__ is disabled by default. To use the physics system-related functions, first, enable the __Physics Manager__, otherwise, all the physics objects setup in the editor will not produce any effect.
+The __Physics Manager__ is enabled by default:
 
 ```ts
 PhysicsSystem2D.instance.enable = true;

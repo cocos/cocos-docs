@@ -1,12 +1,12 @@
 # Auto Atlas
 
-**Auto Atlas Assets** is the picture-combining method that comes as part of __Cocos Creator__. You can pack a specified series of images into a __sprite sheet__. This capability is very similar to the function of __Texture Packer__.
+**Auto Atlas** is the picture-combining method that comes as part of __Cocos Creator__. **Auto Atlas** packs a specified series of images into a __sprite sheet__. This capability is very similar to the function of __Texture Packer__.
 
 ## Creating Auto Atlas Assets
 
-__Right-click__ in the **Assets** panel, select **New -> Auto Atlas Configuration** in the menu. Selecting this option will create a new asset similar to **AutoAtlas.pac**.
+Create a new **auto-atlas.pac** resource in the **Assets** panel by clicking the **+** Create button in the upper left corner and then selecting **Auto Atlas**.
 
-![create auto atlas](auto-atlas/create-auto-atlas.jpg)
+![create auto atlas](auto-atlas/create-auto-atlas.png)
 
 **AutoAtlas** will pack all **SpriteFrame** assets in the same folder into a big **Sprite Atlas** asset during the build process. We might add other ways to choose assets for packing in the future. If the original **SpriteFrame** asset have been configured, then all configurations will be preserved.
 
@@ -14,20 +14,25 @@ __Right-click__ in the **Assets** panel, select **New -> Auto Atlas Configuratio
 
 After selecting an **Auto Atlas Resource** in the __Assets__ panel, the **Inspector** panel will display all of the configurable items for the **Auto Atlas Resource**.
 
+![auto atlas properties](auto-atlas/autoatlas-properties.png)
+
 | Property | Functional Description
 | :-------------- | :----------- |
-| **Maximum Width** | Single Atlas Maximum Width |
-| **Maximum Height** | Maximum Height of a Single Atlas |
-| **Spacing** | Spacing between shreds in the atlas |
-| **Allow Rotation** | Whether Rotate Fragments |
-| **Output size is square** | Whether to force the size of the atlas to be square |
-| **The output size is a power of two** | Whether to set the size of the atlas to a multiple of a square |
-| **Algorithm** | Atlas packaging strategy, currently only one option |
-| **Output format** | Atlas image generation format, the available formats are [png, jpg, webp...] |
-| **Expand the edge** | Expand a pixel outer frame outside the border of the broken image, and copy the adjacent broken image pixels to the outer frame. This feature is also called "Extrude". |
-| **Does not include unreferenced assets** | In preview, this option will not take effect, this option will take effect after building |
+| **Max Width** | Single atlas maximum width |
+| **Max Height** | Maximum Height of a single atlas |
+| **Padding** | Spacing between shreds in the atlas |
+| **Allow Rotation** | Whether rotate fragments |
+| **Force Squared** | Whether to force the size of the atlas to be square |
+| **Power of Two** | Whether to set the size of the atlas to a multiple of a square |
+| **Algorithm** | Atlas packaging strategy, currently only one option `MaxRects` |
+| **Padding Bleed** | Expand a pixel outer frame outside the border of the broken image, and copy the adjacent broken image pixels to the outer frame. This feature is also called **Extrude**. |
+| **Filter Unused** | If this option is checked, unreferenced assets will not be included when building. This option only takes effect after the build.
 
-After the configuration is complete, you can click the **Preview** button to preview the packaged results. The related results generated according to the current automatic atlas configuration will be displayed in the area below the **Properties Inspector**. Please note that after each configuration, you can re-click **Preview** to update the preview image. (Generating a preview is not required).
+The rest of the properties are the same as Texture, please refer to the [Texture](./texture.md#sub-asset-texture2d-properties-panel) documentation for details.
+
+After the configuration is complete, click the **Preview** button to preview the packaged results. The related results generated according to the current automatic atlas configuration will be displayed in the area below the **Inspector** panel.
+
+> **Note**: after each configuration, re-click **Preview** to update the preview image. (Generating a preview is not required).
 
 The results are divided into:
 
