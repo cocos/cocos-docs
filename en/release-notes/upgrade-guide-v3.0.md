@@ -4,7 +4,7 @@
 
 __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __3D__ products, brings many major updates, and will become the main version of __Cocos Creator__. At the same time, 3.0 also continues __Cocos's__ advantages of light weight and high efficiency in 2D categories, and provides an efficient development experience for 3D heavy games.
 
-In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use 2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, 2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to 2.4 bug fixes to ensure the smooth operation of online games! Therefore,
+In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use v2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore,
 
  - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
  - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
@@ -21,13 +21,13 @@ Developers only need to click **File -> Import Cocos Creator 2.x project** in th
 
 ![import-menu](import-menu.png)
 
-Next, select the root directory of the Cocos Creator 2.x project in the file browse dialog that pops up.
+Next, select the root directory of the v2.x project in the file browse dialog that pops up.
 
 ![import-select-project](import-select-project.png)
 
-> **Note**: it is recommended to upgrade to Cocos Creator 2.4.3 or above before importing to Cocos Creator 3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
+> **Note**: it is recommended to upgrade to v2.4.3 or above before importing to v3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
 
-All the resources in the Cocos Creator 2.x project will be automatically presented in the popup **Import Cocos Creator 2.x Project** panel. Developers can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch the imported 2.x project, click the search icon button in the image below to reselect the project.
+All the resources in the v2.x project will be automatically presented in the popup **Import Cocos Creator 2.x Project** panel. Developers can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch the imported 2.x project, click the search icon button in the image below to reselect the project.
 
 ![import-project](import-panel.png)
 
@@ -39,7 +39,7 @@ The **Manual** button in the bottom left corner of the panel will take you to th
 
 #### Asset loading
 
-The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
+The API for v3.0 asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
 
 #### UI related interfaces on the obsolete node
 
@@ -162,7 +162,7 @@ The API for __Cocos Creator 3.0__ asset loading is consistent with v2.4, please 
 
 #### Build Panel
 
-The builds of all platforms in __Cocos Creator 3.0__ are built-in plug-ins, so the __Build__ panel is also different from __v2.4__. The unique build options of each platform will be placed in a foldable section control separately.
+The builds of all platforms in __v3.0__ are built-in plug-ins, so the __Build__ panel is also different from __v2.4__. The unique build options of each platform will be placed in a foldable section control separately.
 
 ![image](build-panel.png)
 
@@ -203,7 +203,7 @@ After the old project is upgraded, the editor will automatically scan all the co
 
 #### Powerful extension system
 
-Cocos Creator v3.0 has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, Creator v3.0 also provides an **Extension Manager**, which can easily manage the operation and uninstallation of all extensions.
+Cocos Creator 3.0 has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, v3.0 also provides an **Extension Manager**, which can easily manage the operation and uninstallation of all extensions.
 
 ![image](extension-plugin.png)
 
@@ -213,21 +213,21 @@ __Cocos Creator 2.x__ and __Cocos Creator 3.0__ differ to a certain extent in th
 
 #### Web
 
-The directory generated by Cocos Creator 2.4.3 after building the __Web Desktop__ is as follows:
+The directory generated by v2.4.3 after building the __Web Desktop__ is as follows:
 
 ![image](web-v243.png)
 
-The directory generated by Cocos Creator 3.0 after building the __Web Desktop__ is as follows:
+The directory generated by v3.0 after building the __Web Desktop__ is as follows:
 
 ![image](web-v3.png)
 
 From the above two figures, notice the directory generated after building the Web Desktop, v2.4.3 and v3.0 are mostly the same, except with the following differences:
 
-1. Cocos Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `web-desktop/cocos-js` directory, which looks clearer than v2.4.3, which was decentralized in the `web-desktop` directory.
+1. V3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `web-desktop/cocos-js` directory, which looks clearer than v2.4.3, which was decentralized in the `web-desktop` directory.
 
     ![image](web-cocosjs.png)
 
-2. Cocos Creator 2.4.3 has only one startup script `main.js`, while v3.0 has the following two startup scripts:
+2. V2.4.3 has only one startup script `main.js`, while v3.0 has the following two startup scripts:
 
     - `index.js` -- Used to do some pre-processing work.
     - `application.js` -- Used to start the game.
@@ -240,35 +240,35 @@ From the above two figures, notice the directory generated after building the We
 
 #### WeChat Mini Game
 
-The directory generated by Cocos Creator 2.4.3 after building the __WeChat Mini Game__ is as follows:
+The directory generated by v2.4.3 after building the __WeChat Mini Game__ is as follows:
 
 ![image](wechat-v243.png)
 
-The directory generated by Cocos Creator 3.0 after building the __WeChat Mini Game__ is as follows:
+The directory generated by v3.0 after building the __WeChat Mini Game__ is as follows:
 
 ![image](wechat-v3.png)
 
 From the above two figures, notice the directory generated after building the __WeChat Mini Game__, v2.4.3 and v3.0 are mostly the same, except with the following differences:
 
-1. Cocos Creator 3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `wechatgame/cocos-js` directory. While v2.4.3 scattered part of it in the `wechatgame` directory and part of it in the `wechatgame/cocos` directory.
+1. V3.0 puts all engine related code, such as core modules, physics modules, plugin scripts, etc., into the `wechatgame/cocos-js` directory. While v2.4.3 scattered part of it in the `wechatgame` directory and part of it in the `wechatgame/cocos` directory.
 
     ![image](wechat-cocosjs.png)
 
-2. Cocos Creator 2.4.3 compiles all the adaptation layer code of mini games into `adapter-min.js`, while v3.0 stores all the adaptation layer code as loose files in the `libs` directory, without compilation.
+2. V2.4.3 compiles all the adaptation layer code of mini games into `adapter-min.js`, while v3.0 stores all the adaptation layer code as loose files in the `libs` directory, without compilation.
 
 3. The startup script for v2.4.3 is `main.js`, and for v3.0 it is `application.js`.
 
-4. Cocos Creator 2.4.3 records all references of dynamic code in `ccRequire.js`. While v3.0 currently does not have this feature.
+4. V2.4.3 records all references of dynamic code in `ccRequire.js`. While v3.0 currently does not have this feature.
 
 5. The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
 #### Native
 
-The release package generated by Cocos Creator 2.4.3 after building the __Windows__ platform is as follows:
+The release package generated by v2.4.3 after building the __Windows__ platform is as follows:
 
 ![image](v243-windows.png)
 
-The release package generated by Cocos Creator 3.0 after building the __Windows__ platform is as follows:
+The release package generated by v3.0 after building the __Windows__ platform is as follows:
 
 ![image](v3-windows.png)
 
@@ -276,7 +276,7 @@ As you can see from the above two figures, there is a big difference between v2.
 
 1. The release package name for v2.4.3 is based on the **Templete** in the **Build** panel (e.g. `jsb-link`), while v3.0 is based on the **current build of the native platform** (e.g. `windows`, `Android`).
 
-2. Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. Cocos Creator 3.0 extracts the underlying C++ code that was stored in the release package `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `native/engine/common` folder under the project directory. This way, when building the native platform, if the folder is detected to already exist, this part will no longer be processed, to speed up the build.
+2. Since the underlying C++ code generated after building on each native platform (e.g. Android, Windows) is completely consistent. V3.0 extracts the underlying C++ code that was stored in the release package `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `native/engine/common` folder under the project directory. This way, when building the native platform, if the folder is detected to already exist, this part will no longer be processed, to speed up the build.
 
     ![image](engine-common.png)
 
@@ -292,13 +292,13 @@ As you can see from the above two figures, there is a big difference between v2.
 
     ![image](v3-assets.png)
 
-    Cocos Creator 3.0 has also made adjustments and changes accordingly during the merging process.
+    V3.0 has also made adjustments and changes accordingly during the merging process.
 
     - All the engine related code (such as core modules, physics modules, plugin scripts, etc.) that was originally placed in the `src` file in v2.4.3 is moved to the `assets/src/cocos-js` directory.
 
     - The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
 
-4. Cocos Creator 2.4.3 generates all the native build projects in the `frameworks/runtime-src` directory of the release package:
+4. V2.4.3 generates all the native build projects in the `frameworks/runtime-src` directory of the release package:
 
     ![image](v243-build-template.png)
 
@@ -314,7 +314,7 @@ As you can see from the above two figures, there is a big difference between v2.
 
 ## TypeScript Reference Tutorial
 
-- [Cocos Creator 3.0 TypeScript question answering and experience sharing](https://discuss.cocos2d-x.org/t/tutorial-3-0-typescript-question-answering-and-experience-sharing/52932)
+- [Tutorial: v3.0 TypeScript question answering and experience sharing](https://discuss.cocos2d-x.org/t/tutorial-3-0-typescript-question-answering-and-experience-sharing/52932)
 - [TypeScript Official Website](https://www.typescriptlang.org/)
 - [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 - [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
