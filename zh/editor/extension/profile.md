@@ -109,3 +109,21 @@ await Editor.Profile.getConfig('hello-world', 'test.a', 'global'); // undefined
 await Editor.Profile.getProject('hello-world', 'test.a'); // 1
 await Editor.Profile.getProject('hello-world', 'test.a', 'project'); // undefined
 ```
+
+## 配置存放的地方
+
+### 编辑器配置存放的地方
+
+| 层级    | 路径                                                         |
+| ------- | ------------------------------------------------------------ |
+| local   | `{projectPath}/profiles/v2/extensions/{extensionName}.json`  |
+| global(mac)  | `Users/{name}/.CocosCreator/profiles/v2/extensions/{extensionName}.json` |
+| global(window)  | `c/Users/{name}/.CocosCreator/profiles/v2/extensions/{extensionName}.json` |
+| default | `{extensionPath}/package.json`                              |
+
+### 项目配置存放的地方
+
+| 层级    | 路径                                                        |
+| ------- | ----------------------------------------------------------- |
+| local   | `{projectPath}/settings/v2/extensions/{extensionName}.json` |
+| default | `{extensionPath}/package.json`                             |

@@ -278,6 +278,8 @@
         - [场景脚本](editor/extension/scene-script.md)
         - [扩展主菜单](editor/extension/contributions-menu.md)
         - [扩展资源管理器面板](editor/assets/extension.md)
+        - [扩展项目设置](editor/contributions-project.md)
+        - [扩展偏好设置](editor/extension/contributions-preferences.md)
     - [基础功能](editor/extension/basic.md)
         - [插件系统](editor/extension/package.md)
         - [消息系统](editor/extension/messages.md)
