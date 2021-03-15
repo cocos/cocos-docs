@@ -39,7 +39,7 @@ export class NewScript extends Component {
 
 ## Editing scripts
 
-Users can choose their favorite text-editing tools (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing according to their own needs, please review [Settings](#defaultscripteditingtoolconfiguration) to change.
+Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing, please setup in the **Preferences -> External Program -> Default Script Editor** option of the editor menu bar.
 
 By double-clicking the script resource, the script editor directly opens to allow for editing. When the script is edited and saved, then returned to the editor, Cocos Creator will automatically detect the changes to the script and compile it quickly.
 
