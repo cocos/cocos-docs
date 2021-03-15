@@ -32,7 +32,7 @@ The rest of the properties are the same as Texture, please refer to the [Texture
 
 After the configuration is complete, click the **Preview** button to preview the packaged results. The related results generated according to the current automatic atlas configuration will be displayed in the area below the **Inspector** panel.
 
-> **Note**: after each configuration, you can re-click **Preview** to update the preview image. (Generating a preview is not required).
+> **Note**: after each configuration, re-click **Preview** to update the preview image. (Generating a preview is not required).
 
 The results are divided into:
 
