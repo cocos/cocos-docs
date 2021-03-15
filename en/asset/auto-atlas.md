@@ -30,7 +30,7 @@ After selecting an **Auto Atlas Resource** in the __Assets__ panel, the **Inspec
 
 The rest of the properties are the same as Texture, please refer to the [Texture](./texture.md#sub-asset-texture2d-properties-panel) documentation for details.
 
-After the configuration is complete, you can click the **Preview** button to preview the packaged results. The related results generated according to the current automatic atlas configuration will be displayed in the area below the **Inspector** panel.
+After the configuration is complete, click the **Preview** button to preview the packaged results. The related results generated according to the current automatic atlas configuration will be displayed in the area below the **Inspector** panel.
 
 > **Note**: after each configuration, you can re-click **Preview** to update the preview image. (Generating a preview is not required).
 
