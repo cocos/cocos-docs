@@ -24,7 +24,7 @@ When you select the native platform you want to build in the **Platform** option
 
 #### Template
 
-As of Cocos Creator 3.0, the engine template available in **Template** is **Link** for a consistent experience, removing the original **Default** template.
+Starting with Cocos Creator 3.0, the engine template available in **Template** is **Link** for a consistent experience, removing the original **Default** template.
 
 The **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
 
