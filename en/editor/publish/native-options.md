@@ -34,7 +34,7 @@ The **Link** template does not copy the **Cocos2d-x** source-code to the `build`
 > - The first time the source code engine builds and compiles a project, it takes a long time to compile C++ code, depending on the configuration of the computer, which may take 5~20 minutes. After the same project has been compiled once, the time required for the next recompile is greatly shortened.
 > - The projects built by the source code engine, compiled and run using native development environment (such as Android Studio, Xcode, etc. IDE), and also can be debugged and error trapped.
 
-Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder. If you need to customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
+Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder. To customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
 
 #### Polyfills
 
