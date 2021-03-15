@@ -53,7 +53,7 @@ Adding a script to a scene node is actually adding a script component to that no
 
     ![add scriptcomponent](setup/add-script-component.png)
 
-2. Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> SayHello** to add the script component just created. Or, add it by searching for **SayHello** in the Add Component search box, provided that the **Add components using popups** feature in **Preferences -> Laboratory** is enabled.
+2. Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> SayHello** to add the script component just created. It is also possible to add it by searching for **SayHello** in the **Add Component** search box, provided that the **Add components using popups** feature in **Preferences -> Laboratory** is enabled.
 
     ![add scriptcomponent](setup/add-script-component2.png)
 
