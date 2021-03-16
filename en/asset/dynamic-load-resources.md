@@ -132,20 +132,26 @@ device files:
 ```typescript
 // Remote texture url with file extensions
 let remoteUrl = "http://unknown.org/someres.png";
-assetManager.loadRemote(remoteUrl, function (err, texture) {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    spriteFrame.texture = imageAsset._texture;
+    // ...
 });
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-assetManager.loadRemote(remoteUrl, {type: 'png'}, function () {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    spriteFrame.texture = imageAsset._texture;
+    // ...
 });
 
 // Use absolute path to load files on device storage
 let absolutePath = "/dara/data/some/path/to/image.png"
-assetManager.loadRemote(absolutePath, function () {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(absolutePath, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    spriteFrame.texture = imageAsset._texture;
+    // ...
 });
 
 // Remote Audio
