@@ -10,10 +10,10 @@ You can *select*, *create*, *move*, *rename* or *delete* nodes in the **Hierarch
 
 The **Hierarchy** panel contains a top menu area and a bottom tree list area on the panel:
 
-  - The functions of the top menu are: **New Node Button**, **Search Type Button**, **Search Box**, **Fold All or Expand Button**, **Refresh List Button**.
-  - The tree-like list area at the bottom mainly reflects the hierarchical relationship of nodes. The root node is **scene node**. When editing the prefab file, is the root node **scene node**, but the top node of itself. There is a blank area with a height of 20px at the end of the tree-shaped area. Click here to **uncheck**, that is, the **Hierarchy** panel can have no selected items.
-  - The panel supports right-click menus, and the content of right-click menus in different positions and nodes will be different.
-  - The panel supports keyboard shortcuts:
+- The functions of the top menu are: **New Node Button**, **Search Type Button**, **Search Box**, **Fold All or Expand Button**, **Refresh List Button**.
+- The tree-like list area at the bottom mainly reflects the hierarchical relationship of nodes. The root node is **scene node**. When editing the prefab file, is the root node **scene node**, but the top node of itself. There is a blank area with a height of 20px at the end of the tree-shaped area. Click here to **uncheck**, that is, the **Hierarchy** panel can have no selected items.
+- The panel supports right-click menus, and the content of right-click menus in different positions and nodes will be different.
+- The panel supports keyboard shortcuts:
 
     - *Copy*: Ctrl or Cmd + C
     - *Paste*: Ctrl or Cmd + V

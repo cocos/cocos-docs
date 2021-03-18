@@ -1,4 +1,4 @@
-## GameView description
+# GameView description
 
 ![image](./gameview.png)
 
