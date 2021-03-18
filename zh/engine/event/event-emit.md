@@ -103,13 +103,13 @@ export class Example extends Component {
 
 上文提到了 `dispatchEvent` 方法，通过该方法派发的事件，会进入事件派发阶段。在 Cocos Creator 的事件派发系统中，我们采用冒泡派发的方式。冒泡派发会将事件从事件发起节点，不断地向上传递给它的父级节点，直到到达根节点或者在某个节点的响应函数中做了中断处理 `event.propagationStopped = true`。
 
-在 v3.0 当中，我们移除了 `Event.EventCustom` 类，如果你需要派发自定义事件，需要实现一个 `EventCustom` 类，该类继承自 `Event` 类，如：
+在 v3.0 当中，我们移除了 `Event.EventCustom` 类，如果你需要派发自定义事件，需要实现一个自定义的事件类，该类继承自 `Event` 类，如：
 
 ```ts
 // 注：Event 由 cc 模块导入
 import { Event } from 'cc';
 
-class EventCustom extends Event {
+class MyEvent extends Event {
     constructor(name: string, bubbles?: boolean, detail?: any){
         super(name, bubbles);
         this.detail = detail;
@@ -124,14 +124,14 @@ class EventCustom extends Event {
 
 ```ts
 // 节点 c 的组件脚本中
-this.node.dispatchEvent( new EventCustom('foobar', true, 'detail info') );
+this.node.dispatchEvent( new MyEvent('foobar', true, 'detail info') );
 ```
 
 如果我们希望在 b 节点截获事件后就不再传递事件，我们可以通过调用 `event.propagationStopped = true` 函数来完成。具体方法如下：
 
 ```ts
 // 节点 b 的组件脚本中
-this.node.on('foobar', (event: EventCustom) => {
+this.node.on('foobar', (event: MyEvent) => {
   event.propagationStopped = true;
 });
 ```
