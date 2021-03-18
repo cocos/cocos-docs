@@ -103,13 +103,29 @@ export class Example extends Component {
 
 Events launched by the `dispatchEvent` method, mentioned above, would enter the event delivery stage. In __Cocos Creator__'s event delivery system, bubble delivery is used. Bubble delivery will pass the event from the initiating node continually on to its parent node,  until the root node is reached or an interrupt `event.propagationStopped = true` is made in the response function of a node.
 
+In v3.0, we removed the `Event.EventCustom` class. If you need to dispatch custom events, you need to implement an `EventCustom` class that inherits from the `Event` class. For example:
+
+
+```ts
+// NOTE: import Event from cc module
+import { Event } from 'cc';
+
+class EventCustom extends Event {
+    constructor(name: string, bubbles?: boolean, detail?: any){
+        super(name, bubbles);
+        this.detail = detail;
+    }
+    public detail: any = null;  // custom property
+}
+```
+
 ![bubble-event](bubble-event.png)
 
 As shown in the picture above, when we send the event `“foobar”` from node c, if both node a and b listen to the event `“foobar”`, the event will pass to node b and a from c. For example:
 
 ```ts
 // In the component script of node c
-this.node.dispatchEvent( new Event.EventCustom('foobar', true) );
+this.node.dispatchEvent( new EventCustom('foobar', true, 'detail info') );
 ```
 
 To stop the event delivery after node b intercepts the event, call the function `event.propagationStopped = true` to do this. Detailed methods are as follows:
@@ -121,7 +137,7 @@ this.node.on('foobar', (event: EventCustom) => {
 });
 ```
 
-> __Note__: to dispatch a custom event, do not use `Event` because it's an abstract class. Instead, use `Event.EventCustom` to dispatch a custom event.
+> __Note__: to dispatch a custom event, do not use `Event` because it's an abstract class. Instead, use `EventCustom` to dispatch a custom event.
 
 ## Event object
 
@@ -135,9 +151,6 @@ In the call-back of the event listener, the developer will receive an event obje
 | __getType__                     | Function | Get the event type.                                                                                                                              |
 | __propagationStopped__          | Boolean  | Whether or not stop the bubbling phase. The parent node of the current target no longer receives the corresponding event.                        |
 | __propagationImmediateStopped__ | Boolean  | Whether or not stop passing the current event immediately. The current target no longer receives the event either.                               |
-| __detail__                      | Function | The information of the custom event, which belongs to Event.EventCustom.                                                                         |
-| __setUserData__                 | Function | Set the information of the custom event, which belongs to Event.EventCustom.                                                                     |
-| __getUserData__                 | Function | Get the information of the custom event, which belongs to Event.EventCustom.                                                                     |
 
 Please refer to the `Event` and API files of its child category for a complete API list.
 
