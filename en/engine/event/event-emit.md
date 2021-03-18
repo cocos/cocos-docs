@@ -137,7 +137,7 @@ this.node.on('foobar', (event: MyEvent) => {
 });
 ```
 
-> __Note__: to dispatch a custom event, do not use `Event` because it's an abstract class. Instead, use `EventCustom` to dispatch a custom event.
+> __Note__: to dispatch a custom event, do not use `Event` directly because it's an abstract class.
 
 ## Event object
 
