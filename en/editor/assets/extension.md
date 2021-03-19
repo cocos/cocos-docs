@@ -113,7 +113,7 @@ Specific implementation steps:
     - `accelerator` (optional) String - Show shortcut keys
     - `checked` (optional) Boolean - whether checked when type is `checkbox` / `radio`
 
-    More properties can be found in the data format of the [electron menu-item](https://www.electronjs.org/docs/api/menu-item).
+More properties can be found in the data format of the [electron menu-item](https://www.electronjs.org/docs/api/menu-item) documentation.
 
 The effect of implementing the extension is illustrated as follows:
 
