@@ -36,7 +36,7 @@ const tiledTile = node.addComponent(TiledTile);
 const tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-For Layer script interface, please refer to [TiledLayer API](__APIDOC__/zh/classes/TiledLayer.html).
+For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/en/classes/TiledLayer.html).
 
 ## TiledTile Properties
 
