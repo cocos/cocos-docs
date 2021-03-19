@@ -8,7 +8,7 @@ Click the **Add Component -> Components -> TileMap** button under the **Inspecto
 
 ![](./tiledmap/add_tiledmap.png)
 
-For the script interface of TiledMap, please refer to [TiledMap API](__APIDOC__/zh/classes/TiledMap.html).
+For the script interface of TiledMap, please refer to the [TiledMap API](__APIDOC__/en/classes/TiledMap.html).
 
 ## TiledMap Properties
 
