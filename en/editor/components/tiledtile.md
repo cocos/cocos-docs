@@ -44,7 +44,7 @@ For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/
 | :-----| :---------- |
 | **X** | Specifies the horizontal coordinates of the TiledTile, in map blocks
 | **Y** | Specifies the vertical coordinates of the TiledTile, in map blocks
-| Gid | Specifies the gid value of the TiledTile to toggle the style of the TiledTile
+| **Gid** | Specifies the gid value of the TiledTile to toggle the style of the TiledTile
 
 TiledTile can control the specified map block and apply the displacement, rotation and scaling of nodes to the map block. The user can change the map block style by changing the gid property of the TiledTile.
 
