@@ -1,6 +1,6 @@
 ## Extending the Inspector Panel
 
-## Extend the Right-Click Menu
+## Extending the Right-Click Menu
 
 The right-click menu display mechanism is to get the live menu data before it is displayed. The extension pre-registers the `assets` module in its own `package.json` to get the right-click menu display events for the **Assets** panel, and returns the menu data to be displayed via the events, and then displays it uniformly. The registered menu is usually displayed after the existing menu.
 
