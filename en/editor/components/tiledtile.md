@@ -16,7 +16,7 @@ For related TiledTile script interface, please refer to the [TiledTile API](__AP
 
 ### Create by Code
 
-There are two ways to set up a map block in code. When you set a TiledTile in a Layer node, the TiledTile at the original location of that Layer node will be replaced.
+There are two ways to set up a map block in code. When setting the TiledTile in a Layer node, the TiledTile at the original location of that Layer node will be replaced.
 
 #### Create by adding a TiledTile Ccmponent to a node
 
