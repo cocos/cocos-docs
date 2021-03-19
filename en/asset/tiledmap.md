@@ -14,7 +14,7 @@ The assets required for the map are:
 
 ## Create TiledMap Assets
 
-Drag the map asset from the **Assets** panel into the Tmx File property of the created TiledMap component.
+Drag the map asset from the **Assets** panel into the `Tmx file` property of the created **TiledMap** component.
 
 ![tiledmap](tiledmap/set_asset.png)
 
