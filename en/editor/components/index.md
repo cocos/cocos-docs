@@ -18,3 +18,5 @@ __Cocos Creator__ includes the following __Components__:
 - [RigidBody](../../physics/physics-component.md#RigidBody)
 - [UI Components](../../ui-system/components/editor/index.md)
 - [Spine Skeleton](spine.md)
+- [TildMap Component References](tiledmap.md)
+- [TildTile Component References](tiledtile.md)

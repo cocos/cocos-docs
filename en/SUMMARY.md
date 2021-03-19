@@ -170,6 +170,8 @@
     - [SphereCollider](physics/physics-component.md#spherecollider)
     - [RigidBody](physics/physics-component.md#rigidbody)
     - [Spine Skeleton](editor/components/spine.md)
+    - [TiledMap Component References](editor/components/tiledmap.md)
+    - [TiledTile Component References](editor/components/tiledtile.md)
     - [UI Component Reference](ui-system/components/editor/index.md)
         - [UI Renderer Component](ui-system/components/editor/render-component.md)
             - [Sprite Reference](ui-system/components/editor/sprite.md)
