@@ -12,7 +12,7 @@ Create an empty node under the Layer node **automatically generated** during the
 
 ![add_tiledtile](./tiledtile/add_tiledtile.png)
 
-For related TiledTile script interface, please refer to [TiledTile API](__APIDOC__/zh/classes/TiledTile.html).
+For related TiledTile script interface, please refer to the [TiledTile API](__APIDOC__/en/classes/TiledTile.html).
 
 ### Create by Code
 
