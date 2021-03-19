@@ -119,7 +119,7 @@ The effect of implementing the extension is illustrated as follows:
 
 ![extend-create-menu](img/extend-create-menu.png)
 
-## Extend Drag-and-Drop Recognition
+## Extending Drag-and-Drop Recognition
 
 Recognizing an acceptable type requires the support of the editor UI component `<ui-drag-item>`, where an important property is `type`, `<ui-drag-item type="xxx">`. Customize a drag-in type and inject it into the **Assets** panel's scope. If a `<ui-drag-item>` element containing that custom type is subsequently dragged into the **Assets** panel from another editor panel, the **Assets** panel recognizes it and sends a message to the registrant (plugin) of the custom type. The registrant can then perform a custom action, such as creating a new set of assets.
 
