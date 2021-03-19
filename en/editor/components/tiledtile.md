@@ -55,7 +55,7 @@ TiledTile can control the specified map block and apply the displacement, rotati
 | Property | Description
 | :-----| :---------- |
 | Position | Change the **Position** of the specified TiledTile
-| Rotation | **Rotate** the specified TiledTile
+| **Rotation** | **Rotate** the specified TiledTile
 | **Scale** | **Scale** the specified TiledTile
 | **Color** | Change the **Color** of the specified TiledTile
 | **Opacity** | Adjust the **Opacity** of the specified TiledTile
