@@ -20,4 +20,4 @@ Drag the map asset from the **Assets** panel into the `Tmx file` property of the
 
 ## Storage in the Project
 
-For efficient asset management, it is recommended to store the imported `tmx`, `tsx` and `png` files in a separate directory, not mixed with other assets.
+For efficient asset management, it is recommended to store the imported `.tmx`, `.tsx` and `.png` files in a separate directory, not mixed with other assets.
