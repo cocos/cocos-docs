@@ -178,4 +178,4 @@ The specific implementation steps are roughly the same as the above **extension 
 
 ## Demo examples
 
-For executable code for both extensions, please download <a href="img/extend-assets-demo.zip" target="_blank">Examples</a>
+For executable code for both extensions, please download the working<a href="img/extend-assets-demo.zip" target="_blank">examples</a>
