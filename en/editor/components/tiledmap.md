@@ -24,7 +24,7 @@ For the script interface of TiledMap, please refer to the [TiledMap API](__APIDO
 
     ![](./tiledmap/tiledlayer.png)
 
-- TiledMap component does not support `mapLoaded` callback. It can be used normally in `start` function.
+- TiledMap component does not support the `mapLoaded` callback. It can be used normally in the `start` function.
 
 ## TiledLayer and Node Occlusion
 
