@@ -41,7 +41,7 @@ export class example extends Component {
         const containerEventHandler = new EventHandler();
         // This Node is the node to which your event processing code component belongs
         containerEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         containerEventHandler.component = 'example';
         containerEventHandler.handler = 'callback';
         containerEventHandler.customEventData = 'foobar';

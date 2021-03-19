@@ -14,23 +14,24 @@ The **Assets** panel is an important tool for accessing and managing assets, dev
 
 Next we will introduce the main **Asset** types and related workflows in __Cocos Creator__:
 
-- [Scene assets](scene.md)
+- [Scene Assets](scene.md)
 - [Image Assets](image.md)
-    - [Texture Map assets](texture.md)
+    - [Texture Map Assets](texture.md)
     - [Sprite Frame Assets](sprite-frame.md)
-    - [Cube Map assets](../concepts/scene/skybox.md#cubemap)
-    - [Auto crop of image assets](../ui-system/components/engine/trim.md)
-    - [Atlas assets](atlas.md)
-    - [Render texture](render-texture.md)
-- [Prefabricated assets](prefab.md)
+    - [Cube Map Assets](../concepts/scene/skybox.md#cubemap)
+    - [Auto Crop of Image Assets](../ui-system/components/engine/trim.md)
+    - [Atlas Assets](atlas.md)
+    - [Render Texture](render-texture.md)
+- [Prefabricated Assets](prefab.md)
 - [Script Assets](script.md)
 - [Font Assets](font.md)
-- [Sound assets](audio.md)
+- [Sound Assets](audio.md)
 - [Material Assets](material.md)
-- [Model assets](mesh.md)
+- [Model Assets](mesh.md)
     - [Export model assets from third-party tools](dcc-export-mesh.md)
-- [Animation assets](anim.md)
-- [Skeletal Animation Assets (Spine)](spine.md)
+- [Animation Assets](anim.md)
+- [Spine Skeletal Animation Assets](spine.md)
+- [DragonBones Skeletal Animation Assets](dragonbones.md)
 
 ## Asset Management Of Runtime
 
@@ -45,4 +46,4 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
     - [Cache Manager](cache-manager.md)
     - [Optional Parameters](options.md)
     - [Pipeline and Task](pipeline-task.md)
-    - [Resource Management Considerations --- meta files](asset/meta.md)
+    - [Resource Management Considerations -- meta files](asset/meta.md)

@@ -49,7 +49,7 @@ export class example extends Component {
         const sliderEventHandler = new EventHandler();
         // This Node is the node to which your event processing code component belongs
         sliderEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         sliderEventHandler.component = 'example';
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';

@@ -65,7 +65,7 @@ export class example extends Component {
     onLoad() {
         const scrollViewEventHandler = new EventHandler();
         scrollViewEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        scrollViewEventHandler.component = 'example';// 这个是代码文件名
+        scrollViewEventHandler.component = 'example';// 这个是脚本类名
         scrollViewEventHandler.handler = 'callback';
         scrollViewEventHandler.customEventData = 'foobar';
 

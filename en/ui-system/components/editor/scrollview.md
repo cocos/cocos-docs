@@ -68,7 +68,7 @@ export class example extends Component {
         const scrollViewEventHandler = new EventHandler();
         // This node is the node to which your event handler code component belongs
         scrollViewEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         scrollViewEventHandler.component = 'example';
         scrollViewEventHandler.handler = 'callback';
         scrollViewEventHandler.customEventData = 'foobar';

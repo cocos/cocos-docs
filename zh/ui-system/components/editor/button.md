@@ -87,7 +87,7 @@ export class example extends Component {
     onLoad () {
         const clickEventHandler = new EventHandler();
         clickEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        clickEventHandler.component = 'example';// 这个是代码文件名
+        clickEventHandler.component = 'example';// 这个是脚本类名
         clickEventHandler.handler = 'callback';
         clickEventHandler.customEventData = 'foobar';
 

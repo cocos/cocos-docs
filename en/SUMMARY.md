@@ -170,8 +170,9 @@
     - [SphereCollider](physics/physics-component.md#spherecollider)
     - [RigidBody](physics/physics-component.md#rigidbody)
     - [Spine Skeleton](editor/components/spine.md)
-    - [TiledMap Component References](editor/components/tiledmap.md)
-    - [TiledTile Component References](editor/components/tiledtile.md)
+    - [DragonBones ArmatureDisplay](editor/components/dragonbones.md)
+    - [TiledMap](editor/components/tiledmap.md)
+    - [TiledTile](editor/components/tiledtile.md)
     - [UI Component Reference](ui-system/components/editor/index.md)
         - [UI Renderer Component](ui-system/components/editor/render-component.md)
             - [Sprite Reference](ui-system/components/editor/sprite.md)
@@ -257,8 +258,9 @@
     - [Audio](asset/audio.md)
     - [Material](asset/material.md)
     - [Mesh](asset/mesh.md)
-    - [Animation assets](asset/anim.md)
-    - [Skeletal Animation Assets (Spine)](asset/spine.md)
+    - [Animation Assets](asset/anim.md)
+    - [Spine](asset/spine.md)
+    - [DragonBones](asset/dragonbones.md)
 
 ## Advanced
 
