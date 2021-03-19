@@ -30,7 +30,7 @@ For the script interface of TiledMap, please refer to the [TiledMap API](__APIDO
 
 The TiledLayer component converts the node coordinates added to the map layer into map block row coordinates. When rendering a map block in a map layer in row order, if there is a node in the row of the map block, then rendering of the map block will be interrupted in favor of rendering the node. After the nodes in the map block are rendered, the rendering of the map block will continue. In this way, the nodes and map layers are mutually occluded from each other.
 
-> **Note**: This occlusion relationship is only related to the coordinates of the node, not the size of the node.
+> **Note**: this occlusion relationship is only related to the coordinates of the node, not the size of the node.
 
 The following is an example of how the TiledLayer and the node can occlude each other.
 
