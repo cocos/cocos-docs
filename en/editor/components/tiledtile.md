@@ -48,7 +48,7 @@ For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/
 
 TiledTile can control the specified map block and apply the displacement, rotation and scaling of nodes to the map block. The user can change the map block style by changing the gid property of the TiledTile.
 
-> **Note**: you can only use the gid of an existing map block in the map to toggle the style of the map block, you cannot toggle the style of the map block by customizing the Sprite Frame.
+> **Note**: the gid can only be used with an existing map block in the map to toggle the style of the map block, it is not possible to toggle the style of the map block by customizing the Sprite Frame.
 
 ## Node properties that can be applied to TiledTile
 
