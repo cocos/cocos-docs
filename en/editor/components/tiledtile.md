@@ -42,7 +42,7 @@ For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/
 
 | Property | Description
 | :-----| :---------- |
-| X | Specifies the horizontal coordinates of the TiledTile, in map blocks
+| **X** | Specifies the horizontal coordinates of the TiledTile, in map blocks
 | Y | Specifies the vertical coordinates of the TiledTile, in map blocks
 | Gid | Specifies the gid value of the TiledTile to toggle the style of the TiledTile
 
