@@ -4,7 +4,7 @@ The **TiledMap** asset is a data format exported by [Tiled Map Editor](https://w
 
 ## Importing Map Assets
 
-The assets required for the map are:
+The assets required for using a map are:
 
 - `.tmx` map data
 - `.png` atlas textures
