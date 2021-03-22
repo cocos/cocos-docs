@@ -19,5 +19,5 @@ __Cocos Creator__ includes the following __Components__:
 - [UI Components](../../ui-system/components/editor/index.md)
 - [Spine Skeleton](spine.md)
 - [DragonBones ArmatureDisplay](dragonbones.md)
-- [TildMap](tiledmap.md)
+- [TiledMap](tiledmap.md)
 - [TildTile](tiledtile.md)
