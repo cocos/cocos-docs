@@ -20,4 +20,4 @@ __Cocos Creator__ includes the following __Components__:
 - [Spine Skeleton](spine.md)
 - [DragonBones ArmatureDisplay](dragonbones.md)
 - [TiledMap](tiledmap.md)
-- [TildTile](tiledtile.md)
+- [TiledTile](tiledtile.md)
