@@ -1,4 +1,4 @@
-## Extending the Inspector Panel
+# Extending the Inspector Panel
 
 ## Extending the Right-Click Menu
 
