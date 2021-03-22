@@ -171,6 +171,8 @@
     - [RigidBody](physics/physics-component.md#rigidbody)
     - [Spine Skeleton](editor/components/spine.md)
     - [DragonBones ArmatureDisplay](editor/components/dragonbones.md)
+    - [TiledMap](editor/components/tiledmap.md)
+    - [TiledTile](editor/components/tiledtile.md)
     - [UI Component Reference](ui-system/components/editor/index.md)
         - [UI Renderer Component](ui-system/components/editor/render-component.md)
             - [Sprite Reference](ui-system/components/editor/sprite.md)
