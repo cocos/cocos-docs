@@ -1,13 +1,29 @@
-# Beginning your Cocos Creator Journey
+# Beginner's Guide
 
-Welcome to using __Cocos Creator__. Before learning to use it, please follow the steps below to install the editor development environment.
+Welcome to Cocos Creator. Before learning how to use it, please refer to [installation and startup](install/index.md) to install Cocos Creator.
 
-After installing the editor, you can get familiar with the editor by reading [Hello world!](helloworld/index.md), or refer to our [first game demo](first-game/index.md) to start your own development.
+After installing the editor, you can familiarize yourself with it, including how to create a project, the project structure, and the editor panels, by going through the following contents:
 
-This chapter includes the following:
+- [Using Dashboard](dashboard/index.md)
+- [Project Structure](project-structure/index.md)
+- [Editor Panels](../editor/index.md)
+    - [Scene](../editor/scene/index.md)
+    - [Hierarchy](../editor/hierarchy/index.md)
+    - [Assets](../editor/assets/index.md)
+    - [Inspector](../editor/inspector/index.md)
+    - [Console](../editor/console/index.md)
+    - [Animation](../editor/animation/index.md)
+    - [Preferences](../editor/preferences/index.md)
+    - [Project Settings](../editor/project/index.md)
+    - [Editor Layout](../editor/editor-layout/index.md)
+    - [Preview & Debugging](../editor/preview/index.md)
 
-- [Dashboard](dashboard/index.md)
+Once you have some familiarity and understanding of the editor, you can get familiar with the Cocos Creator development process with a simple example:
+
 - [Hello world!](helloworld/index.md)
-- [Quick start: making your first game](first-game/index.md)
-- [Support](support.md)
-- [Caution](attention/index.md)
+- [Quick start: Making your first game](first-game/index.md)
+
+Cocos Creator also provides a lot of examples and tutorials, and supports other third-party tools and resources, etc. Developers can also give feedback to the Cocos Creator development team directly:
+
+- [Getting Help and Support](support.md)
+- [Notes](attention/index.md)
