@@ -131,7 +131,9 @@ resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) 
 let remoteUrl = "http://unknown.org/someres.png";
 assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
-    spriteFrame.texture = imageAsset._texture;
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
     // ...
 });
 
@@ -139,7 +141,9 @@ assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
 remoteUrl = "http://unknown.org/emoji?id=124982374";
 assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
-    spriteFrame.texture = imageAsset._texture;
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
     // ...
 });
 
@@ -147,7 +151,9 @@ assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, ima
 const absolutePath = "/dara/data/some/path/to/image.png";
 assetManager.loadRemote<ImageAsset>(absolutePath, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
-    spriteFrame.texture = imageAsset._texture;
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
     // ...
 });
 
