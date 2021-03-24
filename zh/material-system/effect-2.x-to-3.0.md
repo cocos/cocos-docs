@@ -92,7 +92,9 @@ Creator3.0 默认的 standard 材质支持标准的 Physically Based Rendering (
 
 在头文件方面，Creator3.0 的编辑器内置头文件资源就在 Internal DB 的 assets/chunks 目录下。引用时可以不加目录，直接引用，主要包括一些常用的工具函数, 和标准光照模型等。而 Creator2.x 的头文件是内置在编辑器中，无法直观的了解具体有哪些。
 
-#### 除此之外，Creator3.0 还新增了一些新的 Pass 选项
+### 2.4 新增 Pass 选项
+
+Creator 3.0 新增了一些新的 Pass 选项：
 
 - PropertyIndex：指定这个 pass 的运行时 uniform 属性数据要和哪个 pass 保持一致，比如 forward add 等 pass 需要和 base pass 一致才能保证正确的渲染效果。一旦指定了此参数，材质面板上就不再会显示这个 pass 的任何属性。
 
@@ -100,9 +102,9 @@ Creator3.0 默认的 standard 材质支持标准的 Physically Based Rendering (
 
 参考详细的 Pass [参数列表](https://docs.cocos.com/creator3d/manual/zh/material-system/pass-parameter-list.html)
 
-## 详细 API 升级指南
+## 3. 详细 API 升级指南
 
-### 内置 Uniform 差异列表
+### 3.1 内置 Uniform 差异列表
 
 要在 shader 中使用内置变量，需要包含对应头文件。下表是常用功能汇总表，有很多功能 Creator2.x 与 Creator3.0 是一样的，有一些是有区别的。
 
@@ -185,13 +187,13 @@ Creator3.0 新功能，Creator2.x 没有
 
 </br>
 
-### Shader 内建函数和变量
+### 3.2 Shader 内建函数和变量
 
 在 creator3.0 里另外如果需要对接引擎动态合批和 instancing 流程，需要包含 cc-local-batch 头文件，通过 CCGetWorldMatrix 工具函数获取世界矩阵。
 
-#### Creator3.0 有两个新的着色函数
+#### **Creator3.0 新增着色函数**
 
-##### **函数名 CCStandardShading，需要包含头文件 shading-standard.chunk，用来进行光照计算，一起构成 surface shader 流程**
+函数名 CCStandardShading，需要包含头文件 shading-standard.chunk，用来进行光照计算，一起构成 surface shader 流程
 
 ``` c
 #include <shading-standard>
@@ -210,7 +212,9 @@ vec4 frag () {
 
 **注意：CCFragOutput 函数一般还是不需要自己实现，它只起与渲染管线对接的作用，且对于这种含有光照计算的输出，因计算结果已经在 HDR 范围，应包含 output-standard 而非 output 头文件。**
 
-##### **函数名 CCToonShading,需要包含头文件 shading-toon.chunk，进行卡通渲染的光影计算**
+</br>
+
+函数名 CCToonShading,需要包含头文件 shading-toon.chunk，进行卡通渲染的光影计算
 
 ``` c
 #include <shading-toon>
@@ -225,11 +229,13 @@ vec4 frag () {
   }
 ```
 
-### 光影计算相关函数： Creator2.x 与 Creator3.0 的光影计算有很大不同
+### 3.3 光影计算相关函数
+
+Creator2.x 与 Creator3.0 的光影计算有很大不同
 
 #### 光源部分
 
-##### **在 Create3.0 里点光源叫球面光有很多现成的功能，要加入头文件 cc-forward-light.chunk 函数名称如下图所示**
+在 Create3.0 里点光源叫球面光有很多现成的功能，要加入头文件 cc-forward-light.chunk 函数名称如下图所示
 
 |Name    | Type |Info|
 |------ | ------|------|
@@ -241,7 +247,7 @@ vec4 frag () {
 
 </br>
 
-##### **在 Create3.0 里聚光灯有很多现成的功能，要加入头文件 cc-forward-light.chunk 函数名称如下图所示**
+在 Create3.0 里聚光灯有很多现成的功能，要加入头文件 cc-forward-light.chunk 函数名称如下图所示
 
 |Name    | Type |Info|
 |------ | ------|------|
@@ -254,9 +260,11 @@ vec4 frag () {
 
 </br>
 
-### 阴影部分：Creator2.x 与 Creator3.0 阴影计算区别很大
+### 3.4 阴影部分
 
-#### Create2.0 : 加入头文件 shadow.chunk
+Creator2.x 与 Creator3.0 阴影计算区别很大
+
+Create2.0 : 加入头文件 shadow.chunk
 
 |Name    | Type |Info|
 |------ | ------|------|
@@ -272,9 +280,9 @@ vec4 frag () {
 
 </br>
 
-#### Creator3.0 : 加入头文件 cc-shadow.chunk
+Creator3.0 : 加入头文件 cc-shadow.chunk
 
-##### 常用阴影 uniform
+#### 常用阴影 uniform
 
 |Name    | Type |Info|
 |------ | ------|------|
@@ -283,10 +291,10 @@ vec4 frag () {
 
 </br>
 
-### ShadowPCF 软阴影
+#### ShadowPCF 软阴影
 
 Creator2.x : 加入头文件 shadow.chunk</br>
-函数有 shadowPCF3X3（3X3采样），shadowPCF5X5（5X5采样）。
+函数有 shadowPCF3X3（3X3采样），shadowPCF5X5（5X5采样。
 
 Creator3.0 ：加入头文件 cc-shadow-map-fs.chunk</br>
 函数为 CC_DIR_SHADOW_FACTOR 直接修改内存里的阴影颜色数值。
