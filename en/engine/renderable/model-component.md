@@ -20,7 +20,7 @@ The component interfaces for the skinning model are described in [SkinnedMeshRen
 
 ## Model group rendering
 
-The group rendering function is determined by the `Visibility` property of the camera component and the `Layer` property of the node. Users can set the `Visibility` value through code to complete the group rendering. All nodes belong to the `DEFAULT` layer by default and are visible on all cameras.
+The group rendering function is determined by the [Visibility property](../../editor/components/camera-component.md#set-the-visibility-property) of the camera component and the [Layer property](../../concepts/scene/node-component.md#set-the-layer-property-of-the-node) of the node. Users can set the `Visibility` value through code to complete the group rendering. All nodes belong to the `DEFAULT` layer by default and are visible on all cameras.
 
 > **Note**: please review the [Camera Component](../../editor/components/camera-component.md) documentation for additional information, if required.
 

@@ -19,7 +19,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 | SkeletonData          | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
 | Default Skin          | 选择默认的皮肤
 | Animation             | 当前播放的动画名称
-| Animation Cache Mode  | 渲染模式，包括 **REALTIME**（默认）、**SHARED_CACHE** 和 **PRIVATE_CACHE** 三种。<br>1. **REALTIME** 模式，实时运算，支持 Spine 所有的功能。<br>2. **SHARED_CACHE** 模式，将骨骼动画及贴图数据进行缓存并共享，相当于预烘焙骨骼动画。拥有较高性能，但不支持动作融合和动作叠加，只支持动作开始和结束事件。至于内存方面，当创建 N（N>=3）个相同骨骼、相同动作的动画时，会呈现内存优势。N 值越大，优势越明显。综上 **SHARED_CACHE** 模式适用于场景动画、特效、副本怪物、NPC 等，能极大提高帧率和降低内存。<br>3. **PRIVATE_CACHE** 模式，与 **SHARED_CACHE** 类似，但不共享动画及贴图数据，所以在内存方面没有优势，仅存在性能优势。若想利用缓存模式的高性能，但又存在换装需求，因此不能共享贴图数据时，那么 **PRIVATE_CACHE** 就适合你。
+| Animation Cache Mode  | 渲染模式，包括 **REALTIME**（默认）、**SHARED_CACHE** 和 **PRIVATE_CACHE** 三种。<br>1. **REALTIME** 模式，实时运算，支持 Spine 所有的功能。<br>2. **SHARED_CACHE** 模式，将骨骼动画及贴图数据进行缓存并共享，相当于预烘焙骨骼动画。拥有较高性能，但不支持动作融合和动作叠加，只支持动作开始和结束事件。至于内存方面，当创建 N（N>=3）个相同骨骼、相同动作的动画时，会呈现内存优势。N 值越大，优势越明显。综上 **SHARED_CACHE** 模式适用于场景动画、特效、副本怪物、NPC 等，能极大提高帧率和降低内存。<br>3. **PRIVATE_CACHE** 模式，与 **SHARED_CACHE** 类似，但不共享动画及贴图数据，所以在内存方面没有优势，仅存在性能优势。若想利用缓存模式的高性能，但又存在换装需求（不能共享贴图数据）时，那么 **PRIVATE_CACHE** 就适合你。
 | Loop                 | 是否循环播放当前动画
 | PremultipliedAlpha   | 图片是否启用贴图预乘，默认为 True。<br>当图片的透明区域出现色块时需要关闭该项，当图片的半透明区域颜色变黑时需要启用该项。
 | TimeScale            | 当前骨骼中所有动画的时间缩放率
@@ -32,7 +32,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 > **注意**：
 > 1. 当使用 Spine Skeleton 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
 > 2. Spine Skeleton 组件属于 UI 渲染组件，而 Canvas 节点是 UI 渲染的 **渲染根节点**，所以带有该组件的节点必须是 Canvas 节点（或者是带有 RenderRoot2D 组件的节点）的子节点才能在场景中正常显示。
-> 3. 当使用 Spine Skeleton 组件时，由于拥有 UseTint 属性，所以其自定义材质需要有两个颜色信息，可参考引擎内置的 [builtin-spine effect](https://github.com/cocos-creator/engine/blob/v3.0.0/editor/assets/effects/builtin-spine.effect) 实现，否则 Spine 的染色效果可能会出错。
+> 3. 当使用 Spine Skeleton 组件时，由于拥有 UseTint 属性，所以其自定义材质需要有两个颜色信息，可参考引擎内置的 [builtin-spine.effect](https://github.com/cocos-creator/engine/blob/v3.0.0/editor/assets/effects/builtin-spine.effect) 实现，否则 Spine 的染色效果可能会出错。
 
 ## Spine 换装
 
@@ -82,7 +82,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
     在 **层级管理器** 的 Canvas 节点下新建一个 Button 节点并命名为 `change_skin`，根据需要调整其位置、大小、文字显示等属性。
 
-    然后在 **属性检查器** 中设置 `change_skin` 节点的点击事件，将挂载了 `SpineSkin` 脚本组件的 Canvas 节点拖拽到 `ClickEvents` 属性的 `cc.Node` 属性框中，并设置回调为 `change`：
+    然后在 **属性检查器** 中设置 `change_skin` 节点的点击事件，将挂载了 `SpineSkin` 脚本组件的 Canvas 节点拖拽到 `ClickEvents` 属性的 `cc.Node` 属性框中，指定脚本组件为 `SpineSkin`，并设置回调为 `change`：
 
     ![spine-cloth](./spine/click_event.png)
 
