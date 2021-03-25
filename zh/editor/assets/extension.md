@@ -161,7 +161,7 @@
 
   `assetInfo` 参数说明：
 
-    - `uuid` String - 拖放到该资源上，该资源的 ID
+    - `uuid` String - 拖拽资源时，鼠标释放位置的资源 uuid
     - `type` String - 该资源的类型
     - `isDirectory` Boolean - 该资源是否是文件夹
 
