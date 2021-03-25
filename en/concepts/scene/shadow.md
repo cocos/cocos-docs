@@ -79,6 +79,6 @@ Cocos Creator currently supports 5x, 9x, and 25x sampling. The larger the magnif
 
 AutoAdapt adaptive shadow calculation will automatically calculate the range of shadows created under the lightView, as well as the distance of the shadow camera.
 
-## Support dynamic/static batching to improve performance
+## Support dynamic batching to improve performance
 
-For models with `instancing` enabled in the material, the planar shadow will automatically draw with `instancing` as well, see the [Dynamic/Static Batching](../../engine/renderable/model-component.md#model-group-rendering) documentation for details.
+For models with `instancing` enabled in the material, the planar shadow will automatically draw with `instancing` as well, see the [Dynamic Batching](../../engine/renderable/model-component.md#about-dynamic-batching) documentation for details.

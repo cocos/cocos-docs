@@ -79,6 +79,6 @@ ShadowMap 一般用于要求光影效果比较真实，且较为复杂的场景�
 
 AutoAdapt 自适应阴影计算会自动计算视口（lightView）下阴影产生的范围，以及阴影相机的远近。
 
-## 支持动态/静态合批提高性能
+## 支持动态合批提高性能
 
-对于材质中已经开启 instancing 的模型，平面阴影也会自动同步使用 instancing 绘制，详情请参考 [静态/动态合批](../../engine/renderable/model-component.md#%E9%9D%99%E6%80%81%E5%90%88%E6%89%B9)。
+对于材质中已经开启 instancing 的模型，平面阴影也会自动同步使用 instancing 绘制，详情请参考 [动态合批](../../engine/renderable/model-component.md#%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E5%90%88%E6%89%B9)。
