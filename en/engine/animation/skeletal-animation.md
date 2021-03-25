@@ -1,6 +1,6 @@
 # Skeletal animation
 
-__Skeletal Animation__ is a common but special type of animation. Two different systems are provided and each is optimized for different purposes. Seamless switching between these two systems can be as simple as toggle the `useBakedAnimation` switch on `SkeletalAnimation`, even at runtime. when enabled, the pre-baked system will be used, or the real-time calculated system if otherwise.
+__Skeletal Animation__ is a common but special type of animation. Two different systems are provided, **Pre-baked Skeletal Animation** and **Real-time calculated Skeletal Animation**, each is optimized for different purposes. Seamless switching between these two systems can be as simple as toggle the `useBakedAnimation` switch on `SkeletalAnimation`, even at runtime. when enabled, the pre-baked system will be used, or the real-time calculated system if otherwise.
 
 To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](__APIDOC__/en/classes/animation.skeletalanimation.html).
 
@@ -39,10 +39,10 @@ After importing all model assets, all prefabs use the pre-baked system by defaul
 
 We have two built-in common standard skinning algorithms, which have similar performance and only affect the rendering results:
 
-  1. __LBS (Linear Blend Skinning)__: joint information is stored in the form of a 3x4 matrix, and the matrix is ​​interpolated directly to achieve skinning, and there are well-known problems such as volume loss, etc.
-  2. __DQS (Dual Quaternion Skinning)__: The joint information is interpolated in the form of dual quaternions, which is more accurate and natural for the skeleton animation without scaling transformation, but for performance reasons, there are pragmatic approximation measures for scaling animations.
+1. __LBS (Linear Blend Skinning)__: joint information is stored in the form of a 3x4 matrix, and the matrix is ​​interpolated directly to achieve skinning, and there are well-known problems such as volume loss, etc.
+2. __DQS (Dual Quaternion Skinning)__: The joint information is interpolated in the form of dual quaternions, which is more accurate and natural for the skeleton animation without scaling transformation, but for performance reasons, there are pragmatic approximation measures for scaling animations.
 
-The engine uses LBS by default. You can switch the skinning algorithm by modifying the `updateJointData` function reference of the engine skeletal-animation-utils.ts and the header file reference in cc-skinning.chunk.
+The engine uses LBS by default. You can switch the skinning algorithm by modifying the `updateJointData` function reference of the engine `skeletal-animation-utils.ts` and the header file reference in `cc-skinning.chunk`.
 
 It is recommended that projects with higher pursuit of skin animation quality can try to enable DQS, but since there is no `fma` instruction before GLSL 400, operations such as `cross` cannot bypass floating-point cancellation on some GPUs, and the error is relatively high. This may introduce some visible defects.
 
@@ -66,9 +66,9 @@ The fundamental problem here is that the joint texture atlass used by each model
 
 The way to distribute all the animation data used at runtime to each joint texture atlases becomes a project-specific information, thus needs developer's input. See the [joint texture layout panel](../../editor/project/joints-texture-layout.md) documentation for more details on how to configure this.
 
-> **Note**: instancing is only supported under the pre-baked system. Although we do not strictly prohibit instancing under the real-time calculated system (will only trigger some warnings in the editor), there will be problems with the rendering results. Depending on the asset allocation situation at the time, all the instances could be playing the same clip at best, or more often, completely mad rendering results.
-
-> **Note**: for models with instancing turned on in the material, the planar shadow system will also automatically draw using instancing. In particular, the shadow of the skin model has a higher requirement for the layout of the joint texture atlas, because the pipeline state of the shadow is unified, all the animation of the skin model with the shadow turned on needs to be put into the same texture (Compared to when drawing the model itself, only the instances in the same drawcall need to be put into the same texture).
+> **Notes**:
+> 1. Instancing is only supported under the pre-baked system. Although we do not strictly prohibit instancing under the real-time calculated system (will only trigger some warnings in the editor), there will be problems with the rendering results. Depending on the asset allocation situation at the time, all the instances could be playing the same clip at best, or more often, completely mad rendering results.
+> 2. For models with instancing turned on in the material, the planar shadow system will also automatically draw using instancing. In particular, the shadow of the skin model has a higher requirement for the layout of the joint texture atlas, because the pipeline state of the shadow is unified, all the animation of the skin model with the shadow turned on needs to be put into the same texture (Compared to when drawing the model itself, only the instances in the same drawcall need to be put into the same texture).
 
 ## Batched Skinning Model Component
 
