@@ -1,4 +1,4 @@
-# Extending the Inspector Panel
+# Extending the Assets Panel
 
 ## Extending the Right-Click Menu
 
