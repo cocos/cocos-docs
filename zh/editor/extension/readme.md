@@ -15,6 +15,8 @@
     - [场景脚本](./scene-script.md)
     - [扩展主菜单](./contributions-menu.md)
     - [扩展资源管理器面板](../assets/extension.md)
+    - [扩展项目设置面板](./contributions-project.md)
+    - [扩展偏好设置面板](./contributions-preferences.md)
     - [扩展构建流程](../publish/custom-build-plugin.md)
 - [基础功能](./basic.md)
     - [插件系统](./package.md)

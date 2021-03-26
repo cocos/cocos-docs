@@ -32,6 +32,7 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
 - [Animation Assets](anim.md)
 - [Spine Skeletal Animation Assets](spine.md)
 - [DragonBones Skeletal Animation Assets](dragonbones.md)
+- [TiledMap Assets](tiledmap.md)
 
 ## Asset Management Of Runtime
 

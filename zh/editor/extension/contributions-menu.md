@@ -35,7 +35,7 @@
 
 顶部菜单的搜索路径，预设的有：
 
-- i18m:menu.project
+- i18n:menu.project
 - i18n:menu.node
 - i18n:menu.panel
 - i18n:menu.extension

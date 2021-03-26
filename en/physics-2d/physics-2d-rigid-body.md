@@ -1,4 +1,4 @@
-# Rigidbody
+# 2D Rigidbody
 
 __Rigidbody__ is the basic object that composite the physics world.
 

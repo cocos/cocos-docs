@@ -175,4 +175,4 @@ Used to configure the parameters of the physics environment. For details, please
 
 ## Bone map layout settings
 
-Explicitly specify the bone texture layout to assist the instancing of the skinning models. For details, please refer to the [Joints Texture Layout](joints-texture-layout.md) documentation.
+Explicitly specify the bone texture layout to assist the instancing of the skinning models. For details, please refer to the [Joints Texture Layout](joint-texture-layout.md) documentation.
