@@ -18,14 +18,23 @@ The following three steps are required to turn on the baking system:
 
     ![enable lightbake](./images/bakeable.png)
 
-    - **Bakeable**: When checked, enable bake lighting
-    - **CastShaow**: When checked, enable cast static shadow
-    - **EditorOnly**: When checked, only takes effect in the editor
+	  - **Bakeable**: When checked, enable bake static lighting
+	  - **CastShaow**: When checked, enable cast static shadow
+	  - **EditorOnly**: When checked, only takes effect in the editor
+	
+3. Set the lightmap properties of the `MeshRenderer` component
+	
+	  ![model lighting map settings](./images/model_bake_settings.png)
+	
+	  - **Bakeable**: When checked, enable bake lighting
+	  - **CastShaow**: When checked, enable cast static shadow
+	  - **RecieveShaow**: When checked, enable recieve static shadow
+	  - **LightMapSize**: lighting map size
 
-3. In the lightmap panel that pops up, after setting the corresponding parameters, click the `Lightmap Generate` button and select the corresponding storage folder to generate the lightmap
+4. In the lightmap panel that pops up, after setting the corresponding parameters, click the `Lightmap Generate` button and select the corresponding storage folder to generate the lightmap
 
     > **Note**: the storage folder must be under Effective Assets.
-    >
+    
     > ![create lightmap asset](./images/lightmap_generate.png)
 
 ## Using
@@ -48,12 +57,12 @@ The following table describes the specific meaning of each parameter:
 
 | Parameter | Description |
 | :--- | :--- |
-| MSAA | Multisampling. Has the following values: 1, 2, 4, 8 |
-| Resolution | Baking map size. Has the following values: 128, 256, 512, 1024, 2048 |
-| Gamma      | Gamma correction value |
-| GIScale    | Global illumination scaling factor |
-| GISamples  | Global illumination sampling coefficient |
-| AOLevel    | AO Level |
-| AOStrength | AO Strength |
-| AORadius   | AO Radius |
-| AOColor    | AO Color |
+| **MSAA** | Multisampling. Has the following values: 1, 2, 4, 8 |
+| **Resolution** | Baking map size. Has the following values: 128, 256, 512, 1024, 2048 |
+| **Gamma**      | Gamma correction value |
+| **GIScale**    | Global illumination scaling factor |
+| **GISamples**  | Global illumination sampling coefficient |
+| **AOLevel**    | AO Level |
+| **AOStrength** | AO Strength |
+| **AORadius**   | AO Radius |
+| **AOColor**    | AO Color |

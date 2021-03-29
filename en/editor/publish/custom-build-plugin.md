@@ -145,7 +145,7 @@ For the interface definition of `IOptionsBase` please refer to [ui-prop automati
 
 ## Custom build hook function code configuration
 
-In the script module defined by the hooks field in the entry configuration, hook functions can be written that build the life cycle. In different hook functions, the data received will be different. All hook functions run in the build process, and the engine method can be used directly in the build process. If you need to use `Editor`, adding the code `import * as Editor from 'editor';` to manually require.
+In the script module defined by the hooks field in the entry configuration, hook functions can be written that build the life cycle. In different hook functions, the data received will be different. All hook functions run in the build process, and the engine method can be used directly in the build process.
 
 The relationship between the public hook function and the life cycle of the build can be seen in the following figure:
 
@@ -163,13 +163,15 @@ declare interface IHook {
     onAfterBuild?: IBaseHooks;
 
     // Compile the generated hook function (only valid if the platform's build process has a "Make" step)
-    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void;
-    onAfterMake?: (root: string, options: IBuildTaskOptions) => void;
+    onBeforeMake?: (root: string, options: IBuildTaskOptions) => void | Promise<void>;
+    onAfterMake?: (root: string, options: IBuildTaskOptions) => void | Promise<void>;
 }
-type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void;
+type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void | Promise<void>;
 ```
 
-> **Note**: the `result` parameter can be accessed only at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is a copy of the `options` used in the actual build process, and only used as a reference for information acquisition, so directly modifying it does not really affect the build process, although it can be modified successfully. To modify the build parameters, please set in the `options` field of the entry configuration code. Due to the numerous interface definitions, you can refer to the `@types/packages/builder` folder in the build extension package for detailed interface definitions.
+> **Notes**:
+> 1. the `result` parameter can be accessed only at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is a copy of the `options` used in the actual build process, and only used as a reference for information acquisition, so directly modifying it does not really affect the build process, although it can be modified successfully. To modify the build parameters, please set in the `options` field of the entry configuration code. Due to the numerous interface definitions, you can refer to the `@types/packages/builder` folder in the build extension package for detailed interface definitions.
+> 2. The hook function is allowed to be an asynchronous function. the next process.
 
 A simple example:
 
@@ -177,7 +179,7 @@ A simple example:
 export function onBeforeBuild(options) {
     // Todo some thing...
 }
-export function onBeforeCompressSettings(options, result) {
+export async function onBeforeCompressSettings(options, result) {
     // Todo some thing...
 }
 ```

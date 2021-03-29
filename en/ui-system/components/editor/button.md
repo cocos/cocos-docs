@@ -88,7 +88,7 @@ There are two ways to add a callback through the script.
             const clickEventHandler = new EventHandler();
             // This node is the node to which your event handler code component belongs
             clickEventHandler.target = this.node;
-            // This is the code file name
+            // This is the script class name
             clickEventHandler.component = 'example';
             clickEventHandler.handler = 'callback';
             clickEventHandler.customEventData = 'foobar';

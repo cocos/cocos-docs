@@ -15,7 +15,3 @@ Cocos Creator 中包括以下功能组件：
 - [ParticleSystem](../../particle-system/main-module.md)
 - [物理组件](../../physics/physics-component.md)
 - [UI 组件](../../ui-system/components/editor/index.md)
-- [Spine（骨骼动画）Skeleton 组件参考](spine.md)
-- [DragonBones（龙骨）ArmatureDisplay 组件参考](dragonbones.md)
-- [TileMap 组件参考](tiledmap.md)
-- [TiledTile 组件参考](tiledtile.md)

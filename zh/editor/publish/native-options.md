@@ -23,7 +23,7 @@
 
 #### 选择源码模板（Template）
 
-目前 **模板 (Template)** 中可使用的引擎模板为 **Link**。
+从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
 
 Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
 
@@ -33,7 +33,7 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 > 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
 > 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
 
-目前 Cocos Creator 安装目录下的 `resources/3d/cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。
+目前 Cocos Creator 安装目录下的 `resources/3d/cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
 
 #### Polyfills
 
@@ -149,7 +149,7 @@ Mac 平台的构建选项包括 **Bundle Identifier** 和 **渲染后端**，设
 
 编译脚本和打包资源时会在 **构建任务** 窗口显示蓝色的进度条，构建成功的话进度条到达 100% 并显示为绿色：
 
-![build progress](publish-native/build-progress-android.png)
+![build progress](publish-native/build-progress-windows.png)
 
 构建结束后，我们得到的是一个标准的 Cocos2d-x 工程，和使用 Cocos Console 新建的工程有同样的结构。以 Windows 平台为例，导出的原生工程包 `windows` 的目录结构为：
 
@@ -183,7 +183,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 ### 通过 IDE
 
-点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程生成在发布路径的 `proj` 目录下。
+点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。
 
 接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
 

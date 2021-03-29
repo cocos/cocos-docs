@@ -193,3 +193,7 @@ interface ICompressPresetItem {
     }
 }
 ```
+
+## 扩展项目设置面板
+
+Creator 支持在 **项目设置** 右侧添加自定义功能页，详情请参考 [扩展项目设置](../../editor/extension/contributions-project.md)。

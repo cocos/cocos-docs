@@ -63,13 +63,13 @@ cc 属性的各种特性是通过 `property()` 的 cc 属性选项参数来指�
 
 为了方便，额外提供了以下装饰器以快速声明 cc 类型：
 
-|  装饰器	| 对应的 cc 类型 	|
+|  装饰器   | 对应的 cc 类型   |
 | :-------- | :---------------- |
-| @type(t) 	| @property(t) 	|
-| @integer 	| @property(CCInteger) 	|
-| @float 	| @property(CCFloat) 	|
-| @string 	| @property(CCString) 	|
-| @boolean 	| @property(CCBoolean) 	|
+| @type(t)  | @property(t)  |
+| @integer  | @property(CCInteger)  |
+| @float    | @property(CCFloat)    |
+| @string   | @property(CCString)   |
+| @boolean  | @property(CCBoolean)  |
 
 下列代码演示了不同 cc 类型的 cc 属性声明：
 
@@ -398,8 +398,8 @@ private get name() {
 在属性中定义 get 方法：
 
 ```typescript
-@property({ type: CCInteger })
 private _num = 0;
+@property({ type: CCInteger })
 private get num() {
     return this._num;
 }
@@ -456,8 +456,8 @@ class Sprite {
 在属性中定义 set 方法：
 
 ```typescript
-@property({ type: CCInteger })
 private _width = 0;
+@property({ type: CCInteger })
 set(value) {
     this._width = value
 }

@@ -73,7 +73,7 @@ export class example extends Component {
     onLoad(){
         const pageChangedEventHandler = new EventHandler();
         pageChangedEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        pageChangedEventHandler.component = 'example'; // 这个是代码文件名
+        pageChangedEventHandler.component = 'example'; // 这个是脚本类名
         pageChangedEventHandler.handler = 'callback';
         pageChangedEventHandler.customEventData = 'foobar';
 

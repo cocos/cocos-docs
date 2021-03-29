@@ -50,7 +50,7 @@ export class example extends Component {
     onLoad(){
         const sliderEventHandler = new EventHandler();
         sliderEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        sliderEventHandler.component = 'example';//这个是代码文件名
+        sliderEventHandler.component = 'example';//这个是脚本类名
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';
 

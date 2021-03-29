@@ -23,7 +23,8 @@
     - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
     - [获取帮助和支持](getting-started/support.md)
     - [注意事项](getting-started/attention/index.md)
-- [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
+- [升级指南](release-notes/index.md)
+    - [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
 
 ## 编辑器手册
 
@@ -118,7 +119,7 @@
     - [动画剪辑](engine/animation/animation-clip.md)
     - [动画状态](engine/animation/animation-state.md)
     - [骨骼动画](engine/animation/skeletal-animation.md)
-    - [骨骼贴图布局设置](editor/project/joints-texture-layout.md)
+    - [骨骼贴图布局设置](editor/project/joint-texture-layout.md)
 - [缓动](tween/index.md)
 
 - [物理](physics/physics.md)
@@ -278,6 +279,8 @@
         - [场景脚本](editor/extension/scene-script.md)
         - [扩展主菜单](editor/extension/contributions-menu.md)
         - [扩展资源管理器面板](editor/assets/extension.md)
+        - [扩展项目设置面板](editor/extension/contributions-project.md)
+        - [扩展偏好设置面板](editor/extension/contributions-preferences.md)
     - [基础功能](editor/extension/basic.md)
         - [插件系统](editor/extension/package.md)
         - [消息系统](editor/extension/messages.md)
