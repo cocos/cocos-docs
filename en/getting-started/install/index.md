@@ -25,7 +25,7 @@ The installer for Windows is an `.exe` executable file, usually named **CocosDas
 > 
 > 4. If the "Access Denied" pop-up window appears during installation, please make sure that the operating system installed on your machine is the official version of Microsoft, not a customized or streamlined third-party version.
 
-### Installation Instructions for MacOS Version
+### Installation Instructions for MacOS
 
 The installer for Cocos Dashboard for MacOS is a dmg image file. Double-click the dmg file, then drag and drop **CocosDashboard.app** into your **Applications** folder shortcut, or any other location. Then double-click the dragged **CocosDashboard.app** and you're ready to go.
 
