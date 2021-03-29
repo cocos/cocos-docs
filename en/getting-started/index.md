@@ -23,7 +23,7 @@ Once you have some familiarity and understanding with the editor, it is easy to 
 - [Hello world!](helloworld/index.md)
 - [Quick start: Making your first game](first-game/index.md)
 
-Cocos Creator also provides a lot of examples and tutorials, and supports other third-party tools and resources, etc. Developers can also give feedback to the Cocos Creator development team directly:
+Cocos Creator also provides a lot of examples and tutorials and supports other third-party tools and resources. Developers can also give feedback to the Cocos Creator development team directly:
 
 - [Getting Help and Support](support.md)
 - [Notes](attention/index.md)
