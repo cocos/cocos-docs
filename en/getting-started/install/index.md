@@ -4,7 +4,7 @@ Cocos Creator is equipped with a new Dashboard system, which allows developers t
 
 ![Dashboard](index/dashboard-editor.png)
 
-## Download Dashboard
+## Downloading Dashboard
 
 You can get the Dashboard installation package by visiting the download link on [Cocos Creator Product Page](https://www.cocos.com/en/creator).
 
