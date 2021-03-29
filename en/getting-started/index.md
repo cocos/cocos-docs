@@ -18,7 +18,7 @@ After installing the editor, you can familiarize yourself with it, including how
     - [Editor Layout](../editor/editor-layout/index.md)
     - [Preview & Debugging](../editor/preview/index.md)
 
-Once you have some familiarity and understanding of the editor, you can get familiar with the Cocos Creator development process with a simple example:
+Once you have some familiarity and understanding with the editor, it is easy to get familiar with the Cocos Creator development process with simple examples:
 
 - [Hello world!](helloworld/index.md)
 - [Quick start: Making your first game](first-game/index.md)
