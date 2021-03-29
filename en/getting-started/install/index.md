@@ -10,7 +10,7 @@ Download the Dashboard installation package by visiting the download link on the
 
 Double-click the installation package after downloading.
 
-### Installation Instructions for Windows Version
+### Installation Instructions for Windows
 
 The installer for Windows is an `.exe` executable file, usually named **CocosDashboard-vX.X.X-win32-20XXXXXX.exe**, where **vX.X.X** is the version number of Cocos Dashboard, such as v1.0.11. The string of numbers after it is the version date number.
 
