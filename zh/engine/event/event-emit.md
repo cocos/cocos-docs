@@ -103,14 +103,14 @@ export class Example extends Component {
 
 上文提到了 `dispatchEvent` 方法，通过该方法派发的事件，会进入事件派发阶段。在 Cocos Creator 的事件派发系统中，我们采用冒泡派发的方式。冒泡派发会将事件从事件发起节点，不断地向上传递给它的父级节点，直到到达根节点或者在某个节点的响应函数中做了中断处理 `event.propagationStopped = true`。
 
-在 v3.0 当中，我们移除了 `Event.EventCustom` 类，如果你需要派发自定义事件，需要实现一个自定义的事件类，该类继承自 `Event` 类，如：
+在 v3.0 中，我们移除了 `Event.EventCustom` 类，如果要派发自定义事件，需要先实现一个自定义的事件类，该类继承自 `Event` 类，例如：
 
 ```ts
-// 注：Event 由 cc 模块导入
+// Event 由 cc 模块导入
 import { Event } from 'cc';
 
 class MyEvent extends Event {
-    constructor(name: string, bubbles?: boolean, detail?: any){
+    constructor(name: string, bubbles?: boolean, detail?: any) {
         super(name, bubbles);
         this.detail = detail;
     }
@@ -120,7 +120,7 @@ class MyEvent extends Event {
 
 ![bubble-event](bubble-event.png)
 
-如上图所示，当我们从节点 c 发送事件 `“foobar”`，倘若节点 a，b 均做了 `“foobar”` 事件的监听，则事件会经由 c 依次传递给 b，a 节点。如：
+以上图为例，当我们从节点 c 发送事件 `“foobar”`，倘若节点 a，b 均做了 `“foobar”` 事件的监听，则事件会经由 c 依次传递给 b，a 节点。如：
 
 ```ts
 // 节点 c 的组件脚本中
@@ -136,7 +136,7 @@ this.node.on('foobar', (event: MyEvent) => {
 });
 ```
 
-**注意**：在发送用户自定义事件的时候，请不要直接创建 `cc` 内的 `Event` 对象，因为它是一个抽象类。
+> **注意**：在发送用户自定义事件的时候，请不要直接创建 `cc` 内的 `Event` 对象，因为它是一个抽象类。
 
 ## 事件对象
 

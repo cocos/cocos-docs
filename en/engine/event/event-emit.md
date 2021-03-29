@@ -103,11 +103,10 @@ export class Example extends Component {
 
 Events launched by the `dispatchEvent` method, mentioned above, would enter the event delivery stage. In __Cocos Creator__'s event delivery system, bubble delivery is used. Bubble delivery will pass the event from the initiating node continually on to its parent node,  until the root node is reached or an interrupt `event.propagationStopped = true` is made in the response function of a node.
 
-In v3.0, we removed the `Event.EventCustom` class. If you need to dispatch custom events, you need to implement a custom event class that inherits from the `Event` class. For example:
-
+In v3.0, we removed the `Event.EventCustom` class. To dispatch custom events, a custom event class that inherits from the `Event` class needs to be implemented first. For example:
 
 ```ts
-// NOTE: import Event from cc module
+// Import "Event" from 'cc' module
 import { Event } from 'cc';
 
 class MyEvent extends Event {
@@ -115,7 +114,7 @@ class MyEvent extends Event {
         super(name, bubbles);
         this.detail = detail;
     }
-    public detail: any = null;  // custom property
+    public detail: any = null;  // Custom property
 }
 ```
 

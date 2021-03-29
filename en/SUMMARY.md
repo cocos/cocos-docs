@@ -10,7 +10,8 @@
     - [Quick Start: First Game](getting-started/first-game/index.md)
     - [Support](getting-started/support.md)
     - [Caution!](getting-started/attention/index.md)
-- [Cocos Creator 3.0 Preview Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
+- [Upgrade Guide](release-notes/index.md)
+    - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
 
 ## Editor Manual
 
@@ -122,6 +123,7 @@
     - [Animation Clips](engine/animation/animation-clip.md)
     - [Animation State](engine/animation/animation-state.md)
     - [Skeletal Animation](engine/animation/skeletal-animation.md)
+    - [Joint Texture Layout Settings](editor/project/joint-texture-layout.md)
 - [Tween](tween/index.md)
 
 - [Physics](physics/physics.md)
@@ -261,6 +263,7 @@
     - [Animation Assets](asset/anim.md)
     - [Spine](asset/spine.md)
     - [DragonBones](asset/dragonbones.md)
+    - [TiledMap](asset/tiledmap.md)
 
 ## Advanced
 
@@ -274,7 +277,8 @@
     - [Contributions](editor/extension/contributions.md)
         - [Message](editor/extension/contributions-messages.md)
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
-        - [Menu](editor/extension/contributions-menu.md)
+        - [Extending the main menu](editor/extension/contributions-menu.md)
+        - [Extending the Assets Panel](editor/assets/extension.md)
     - [Basic](editor/extension/basic.md)
         - [Extension](editor/extension/package.md)
         - [Message](editor/extension/messages.md)

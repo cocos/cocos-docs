@@ -215,7 +215,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 4. 在 **层级管理器** 中选中 Ground 节点，在 **属性检查器** 中点击 **添加组件 -> Physics2D -> Colliders -> BoxCollider2D** 添加碰撞组件，然后设置好碰撞组件参数。
 
-5. 在 **资源管理器** 中新建一个 TypeScript 脚本并命名为 `SpineCollider`，然后将脚本挂载到地面节点 `Ground` 上。脚本代码如下:
+5. 在 **资源管理器** 中新建一个 TypeScript 脚本并命名为 `SpineCollider`，然后将脚本挂载到地面节点 `Ground` 上。脚本代码如下：
 
     ```ts
     import { _decorator, Component, Node, PhysicsSystem2D, Contact2DType, Collider2D, Color, Sprite, ParticleSystem2D, EPhysics2DDrawFlags } from 'cc';

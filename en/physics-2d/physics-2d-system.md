@@ -1,4 +1,4 @@
-# Physics Manager
+# 2D Physics Manager
 
 The physics system hides most of the implementation details of the physics modules (Box2D and Builtin modules) (e.g. creating rigid bodies, synchronizing rigid body information to nodes, etc.).
 
