@@ -57,7 +57,7 @@ For some Windows operating systems and graphics card models, an error message su
 This browser does not support WebGL...
 ```
 
-This is due to the editor relying on GPU rendering, which is not supported by the graphics card driver. If this happens, you can usually fix it by making sure that the official driver for your graphics card is successfully installed.
+This is due to the editor relying on GPU rendering, which is not supported by the graphics card driver. If this happens, it can usually be fixed by making sure that the official driver for your graphics card is successfully installed.
 
 ## Login with Cocos Developer Account
 
