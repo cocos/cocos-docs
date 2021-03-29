@@ -61,7 +61,7 @@ This is due to the editor relying on GPU rendering, which is not supported by th
 
 ## Login with Cocos Developer Account
 
-When Cocos Dashboard is launched, you will be taken to the Cocos Developer Account login screen. Once you are logged in, you can enjoy our online services, product update notifications, and developer benefits.
+When Cocos Dashboard is launched, the Cocos Developer Account login screen will appear. Once logged in, our online services, product update notifications, and developer benefits will be available to use.
 
 If you don't have a Cocos Developer account, you can sign up using the **Register** button on the login screen to go to the **Cocos Developer Center**. Or go directly to the following link to register.
 
