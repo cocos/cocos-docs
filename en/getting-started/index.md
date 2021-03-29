@@ -1,6 +1,6 @@
 # Beginner's Guide
 
-Welcome to Cocos Creator. Before learning how to use it, please refer to [installation and startup](install/index.md) to install Cocos Creator.
+Welcome to Cocos Creator. Before learning how to use it, please refer to the [installation and startup](install/index.md) documentation to install Cocos Creator.
 
 After installing the editor, you can familiarize yourself with it, including how to create a project, the project structure, and the editor panels, by going through the following contents:
 
