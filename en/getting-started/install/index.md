@@ -36,7 +36,7 @@ The installer for Cocos Dashboard for MacOS is a dmg image file. Double-click th
 
 ### Operating System Requirements
 
-The supported system environments for Cocos Dashboard are
+The supported system environments for Cocos Dashboard are:
 
 The minimum supported version of Mac OS X is OS X 10.9.
 The minimum supported version of Windows is Windows 7 64-bit.
