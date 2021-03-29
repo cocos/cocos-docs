@@ -17,7 +17,7 @@ The installer for Windows is an `.exe` executable file, usually named **CocosDas
 > **Note**.
 > 1. If the version number installed on the current PC is the same as the version number of the installation package, the installation package with the same version number cannot be overwritten automatically, and it will be necessary to uninstall the previous version before continuing the installation.
 >
->       The default installation path of the application is C:\CocosDashboard, you can change it during the installation.
+>       The default installation path of the application is C:\CocosDashboard and can be changed during the installation.
 >
 > 2. If there is an error about the digital signature of CAB file, please try to install with administrator privileges.
 > 
