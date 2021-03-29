@@ -1,4 +1,4 @@
-# Install and Launch
+# Installing and Launching
 
 Starting from v2.3.2, Cocos Creator is now equipped with a new Dashboard system, which allows you to upgrade and manage multiple versions of the engine and projects at the same time! It also integrates a unified project management and creation panel, so that you can use different versions of the engine to develop projects at the same time!
 
