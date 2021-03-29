@@ -51,7 +51,7 @@ You can set a Quick Launch, Dock, or shortcut to the **CocosDashboard** app as d
 
 ### Checking the Graphics Card Driver
 
-For some Windows operating systems and graphics card models, you may encounter error message like
+For some Windows operating systems and graphics card models, an error message such as the following may be encountered:
 
 ```
 This browser does not support WebGL...
