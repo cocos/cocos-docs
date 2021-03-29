@@ -63,7 +63,7 @@ This is due to the editor relying on GPU rendering, which is not supported by th
 
 When Cocos Dashboard is launched, the Cocos Developer Account login screen will appear. Once logged in, our online services, product update notifications, and developer benefits will be available to use.
 
-If you don't have a Cocos Developer account, you can sign up using the **Register** button on the login screen to go to the **Cocos Developer Center**. Or go directly to the following link to register.
+To create a Cocos Developer account, sign up using the **Register** button on the login screen to go to the **Cocos Developer Center** or go directly to [this link](<https://auth.cocos.com/#/sign_up/register?language=en>) to register.
 
 <https://auth.cocos.com/#/sign_up/register?language=en>
 
