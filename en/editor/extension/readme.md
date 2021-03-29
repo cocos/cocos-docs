@@ -13,7 +13,7 @@ This chapter focuses on extending the editor.
     - [Message](./contributions-messages.md)
     - [Shortcuts](./contributions-shortcuts.md)
     - [Extending the main menu](./contributions-menu.md)
-    - [Extending the Assets Panel](./assets/extension.md)
+    - [Extending the Assets Panel](../assets/extension.md)
 - [Basic](./basic.md)
     - [Extension](./package.md)
     - [Message](./messages.md)
