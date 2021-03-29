@@ -5,7 +5,7 @@ Welcome to Cocos Creator. Before learning how to use it, please refer to the [in
 After installing the editor, you can familiarize yourself with it, including how to create a project, the project structure, and the editor panels, by going through the following contents:
 
 - [Using Dashboard](dashboard/index.md)
-- [Project Structure](project-structure/index.md)
+<!--- [Project Structure](project-structure/index.md)-->
 - [Editor Panels](../editor/index.md)
     - [Scene](../editor/scene/index.md)
     - [Hierarchy](../editor/hierarchy/index.md)
@@ -15,7 +15,7 @@ After installing the editor, you can familiarize yourself with it, including how
     - [Animation](../editor/animation/index.md)
     - [Preferences](../editor/preferences/index.md)
     - [Project Settings](../editor/project/index.md)
-    - [Editor Layout](../editor/editor-layout/index.md)
+    <!--- [Editor Layout](../editor/editor-layout/index.md)-->
     - [Preview & Debugging](../editor/preview/index.md)
 
 Once you have some familiarity and understanding with the editor, it is easy to get familiar with the Cocos Creator development process with simple examples:
