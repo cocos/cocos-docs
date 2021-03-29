@@ -65,6 +65,4 @@ When Cocos Dashboard is launched, the Cocos Developer Account login screen will 
 
 To create a Cocos Developer account, sign up using the **Register** button on the login screen to go to the **Cocos Developer Center** or go directly to [this link](<https://auth.cocos.com/#/sign_up/register?language=en>) to register.
 
-<https://auth.cocos.com/#/sign_up/register?language=en>
-
 Once registered, return to the Cocos Dashboard login screen and complete your login! After verifying your identity, we'll be in the Dashboard interface. In all cases, except for manual log out or expired login information, future logins will automatically occur with the saved information in the local session.
