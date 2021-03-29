@@ -47,7 +47,7 @@ On Windows, double-click the **CocosDashboard.exe** file in the `CocosDashboard`
 
 On MacOS, double-click the dragged out **CocosDashboard.app** application icon to launch Cocos Dashboard.
 
-You can set a Quick Launch, Dock, or shortcut to the entry file as you like, so you can run it whenever you want.
+You can set a Quick Launch, Dock, or shortcut to the **CocosDashboard** app as desired.
 
 ### Checking the Graphics Card Driver
 
