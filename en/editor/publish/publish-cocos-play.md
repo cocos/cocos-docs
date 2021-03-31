@@ -18,39 +18,39 @@
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
-  - **tinyPacketMode**
+  1. **tinyPacketMode**
 
-    This item is optional. The in-package volume of the game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **tinyPacketMode** is to help developers keep the script files in the game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. Cocos Creator has already helped the developer with the download, cache, and version management of remote assets. The developer needs to do is the following steps:
+  This item is optional. The in-package volume of the game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **tinyPacketMode** is to help developers keep the script files in the game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. Cocos Creator has already helped the developer with the download, cache, and version management of remote assets. The developer needs to do is the following steps:
 
-    - When building, check the **tinyPacketMode** and fill in the **tinyPacketModeServer**.
+  1. When building, check the **tinyPacketMode** and fill in the **tinyPacketModeServer**.
 
-    - **First game asset package into the game package**, this item is optional.
+  2. **First game asset package into the game package**, this item is optional.
 
-      In the `tinyPacketMode`, due to too many assets on the launch scene, downloading and loading assets for a long time may result in a short black screen when entering the game for the first time. If **First game asset package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` asset does not support split asset downloading at this time, and the entire `import` directory is also packaged into the first package.
+      1. In the `tinyPacketMode`, due to too many assets on the launch scene, downloading and loading assets for a long time may result in a short black screen when entering the game for the first time. If **First game asset package into the game package** is checked, you can reduce the black screen time when you first enter the game. However, it should be noted that the `res/import` asset does not support split asset downloading at this time, and the entire `import` directory is also packaged into the first package.
 
-      Developers can choose whether to check this item according to their needs. Then click on **Build**.
+      2. Developers can choose whether to check this item according to their needs. Then click on **Build**.
 
-    - After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the server. For example, if the default release path is `build`, the Build Task Name is `cocos-play`, you need to upload the `/build/cocos-play/res` directory.
+      3. After the build is complete, click the **Open** button after the **Build Path** to upload the `res` directory under the release path to the server. For example, if the default release path is `build`, the Build Task Name is `cocos-play`, you need to upload the `/build/cocos-play/res` directory.
 
-    At this point, the `res` directory will no longer be included in the built-up cpk, and the assets in the `res` directory will be downloaded from the filled **tinyPacketMode Server Path** through the network request.
+  At this point, the `res` directory will no longer be included in the built-up cpk, and the assets in the `res` directory will be downloaded from the filled **tinyPacketMode Server Path** through the network request.
 
-    The build parameters when Publish from the command line:
+  The build parameters when Publish from the command line:
 
-    ```js
-    tinyPackageMode: false,
-    tinyPackageServer: '',
-    packFirstScreenRes: false,
-    ```
+  ```js
+  tinyPackageMode: false,
+  tinyPackageServer: '',
+  packFirstScreenRes: false,
+  ```
 
-2. After the build is completed, click the **folder icon** button below the cocos-play build task to open the `build` release path. If the **Build Task Name** is `cocos-play`, you can see that a `cocos-play` folder is generated in the `build` directory. This folder is the exported **Cocos Play** game project and **cpk**, the **cpk** package is in the `build/cocos-play` directory.
+After the build is completed, click the **folder icon** button below the cocos-play build task to open the `build` release path. If the **Build Task Name** is `cocos-play`, you can see that a `cocos-play` folder is generated in the `build` directory. This folder is the exported **Cocos Play** game project and **cpk**, the **cpk** package is in the `build/cocos-play` directory.
 
-    ![package](publish-cocos-play/package.png)
+![package](publish-cocos-play/package.png)
 
 ### Access testing
 
 Developers must use the Cocos Play **Self-test Tools** to test access without problems before submitting to the platform for review. The size of the package is not required for the self-test, but if it is to be submitted for review, the package size cannot exceed 10M.
 
-The **Self-test Tools** can launch the game and provide features such as game login, payment, etc. By reading the game configuration parameters, you can determine the type of game to start and how the game will start. 
+The **Self-test Tools** can launch the game and provide features such as game login, payment, etc. By reading the game configuration parameters, you can determine the type of game to start and how the game will start.
 
 For details, please refer to the [Self-test Tools](https://gamebox.gitbook.io/project/you-xi-jie-ru-wen-dang/ji-shu-dui-jie/zi-ce-gong-ju) documentation.
 
