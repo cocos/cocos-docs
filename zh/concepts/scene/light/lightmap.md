@@ -16,7 +16,7 @@
 	| Bakeable | 是否烘焙静态光照 |
 	| CastShadow | 是否投射静态阴影 |
 
-2. 设置 [MeshRenderer 组件](./../../engine/renderable/model-component.md) 的光照图属性。
+2. 设置 [MeshRenderer 组件](./../../engine/renderable/model-component.md) 的 **LightmapSettings** 光照图属性。
 	
 	![model lighting map settings](./lightmap/lightmap_model_settings.png)
 	
@@ -25,7 +25,7 @@
 	| Bakeable | 是否烘焙静态光照 |
 	| CastShadow | 是否投射静态阴影 |
 	| RecieveShadow | 是否接受静态阴影 |
-	| LightMapSize | 光照图大小 |
+	| LightMapSize | 光照图尺寸 |
 
 3. 点击编辑器上方菜单栏的 **项目 -> 光照贴图**，设置好对应参数后，可点击 **生成光照贴图** 按钮，并选择对应存储文件夹（需要设置在 `/assets` 目录下），即可 **烘焙** 生成光照贴图。
 
@@ -41,9 +41,9 @@
 
     **注意**：模型在开启 lightmap 前，需要包含两套 uv，第二套 uv 用来 access lightmap，同时材质也需要勾选 lightmap 选项才能应用模型烘焙后的阴影信息。
 
-### 参数说明
+## 参数说明
 
-烘焙生成光照贴图过程中，将根据面板设置的各参数，计算并生成结果：
+烘焙生成光照贴图过程中，将根据面板设置的各参数，计算并生成结果。
 
 ![bake result](./lightmap/lightmap_param.png)
 
