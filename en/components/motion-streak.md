@@ -6,7 +6,7 @@ MotionStreak, used realization trailing fade effect on the node trajectory.
 
 Click the `add component` at the bottom of **Properties** and select `MotionStreak` from `add other components` in order to add the **MotionStreak** component to the node.
 
-MotionStreak please refer to the scripting interface [MotionStreak API](../../../api/en/classes/MotionStreak.html)。
+MotionStreak please refer to the scripting interface [MotionStreak API](../../../api/en/classes/MotionStreak.html).
 
 ## MotionStreak attribute
 
@@ -17,6 +17,3 @@ MotionStreak please refer to the scripting interface [MotionStreak API](../../..
 | stroke   | The stroke's width. |
 | texture  | The texture of the MotionStreak. |
 | fastMode | The fast Mode. |
----
-
-Continue on to read about [ScrollView component reference](scrollview.md)。

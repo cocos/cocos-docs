@@ -2,9 +2,10 @@
 
 ![](./publish-wechatgame/preview.jpeg)
 
-**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
+> **Note**: there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
 
 ## __WeChat Mini Game__ Platform
+
 __WeChat Mini Game__ is a game product platform used inside the __WeChat Mini Program__ platform. It not only provides powerful game capabilities, but also provides a large number of native interfaces, such as *payment*, *social*, *file system*, *photo*, *NFC*, and many more. It is equivalent to combining the advantages of the web for easy dissemination and rich native features.
 
 The running environment of the __WeChat Mini Game__ is an extension of the mini program environment. The basic idea is to provide the necessary web interface to the user, and pursue the same development experience as the web. The __WeChat Mini Game__ provides a wrapper around the WebGL interface based on the mini program environment, which greatly improves the rendering capabilities and performance. However, since these interfaces are encapsulated by the __WeChat__ team they are not equivalent to the browser environment. Regarding the game aspect, the current __WeChat Mini Game__ environment provides the rendering interface of __Canvas__ and __WebGL__. The two rendering modes of the __Cocos Creator__ engine can be run, but for performance reasons, we use __WebGL__ to render the game content by default. Developers are strongly recommended to do the same. Also, developers should not modify the default configuration!
@@ -18,6 +19,7 @@ As an engine, in order to simplify the developer's workload as much as possible,
 In addition, the game submission, review and release process of the __WeChat Mini Game__ platform is no different from the __WeChat Mini Program__ platform. They all need to comply with the requirements and standard processes of the __WeChat__ team. For details, please refer to the link at the end of the article.
 
 ## Using Cocos Creator to publish WeChat Mini Games
+
 We started with __Cocos Creator__ v1.8 and support __WeChat Mini Games__  with just one-click to publish! Here are the detailed release steps:
 
 1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
@@ -41,6 +43,7 @@ According to this process, a release package of __WeChat Mini Games__ will be ge
 ![](./publish-wechatgame/package.jpeg)
 
 ## Resource Management for WeChat Mini Game Environment
+
 In a __WeChat Mini Game__ environment, resource management is the most special part. It differs from the browser in the following four points:
 
 1. The size of the __WeChat Mini Game's__ package cannot exceed __4mb__, including all the code and resources. Additional resources must be downloaded through the network.
@@ -70,6 +73,7 @@ Specifically, developers need to do:
     ![](./publish-wechatgame/detail.jpeg)
 
 ## Platform SDK Access
+
 In addition to pure game content, the __WeChat Mini Game__ environment also provides a very powerful native SDK interface, the most important of which is user, social, payment, etc. These interfaces are only found in the __WeChat Mini Game__ environment, equivalent to other Third-party SDK interface for the platform. The porting of such SDK interfaces still needs to be handled by developers at this stage. Here are some of the powerful SDK capabilities provided by the __WeChat Mini Games__ environment:
 
 1. User interface: login, authorization, user information, etc.
@@ -80,16 +84,19 @@ In addition to pure game content, the __WeChat Mini Game__ environment also prov
 6. Other: location, device information, scan code, NFC, etc.
 
 ## Access to the subdomain of WeChat Mini Games
+
 In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
 
 __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
 
 ## Reading
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
+
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
-- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
-- [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
-- [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
+- [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
+- [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/devtools.html)
+- [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/devtools.html)
 
 ## F.A.Q
+
 Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.org/t/faq/54828).

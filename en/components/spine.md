@@ -10,15 +10,13 @@ Click the `add component` at the bottom of **Properties** and select `Spine Skel
 
 | Attribute |   Function explanation
 | -------------- | ----------- |
-|Skeleton Data| Spine '.json' data format after export
+|Skeleton Data| Spine `.json` data format after export
 |Default Skin| The default skin texture
 |Animation| Current animation playback
 |Loop| Whether animation loop
-|Premultiplied Alpha| Whether to enable premultiplied alpha, default is True.<br>You should disable this option when image's transparent area appears to have opaque pixels,<br>or enable this option when image's half transparent area appears to be darken.
+|Premultiplied Alpha| Whether to enable premultiplied alpha, default is True.<br>You should disable this option when image's transparent area appears to have opaque pixels, or enable this option when image's half transparent area appears to be darken.
 |Time Scale| Playback speed
 |Debug Slots| Display picture frame
 |Debug Bones| Display bone
 
-> Note: When using Spine components on Node node `Anchor` and` Size` is invalid.
-
-Continue on to read about [Animation component reference](animation.md).
+> **Note**: when using Spine components on Node node `Anchor` and `Size` is invalid.

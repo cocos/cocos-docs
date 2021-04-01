@@ -6,8 +6,7 @@
 
 ## 多边形碰撞组件
 
-如果编辑的是 **多边形碰撞组件** 的话，则会出现类似下图所示的 **多边形编辑区域**   
-区域中的这些点都是可以拖动的，拖动的结果会反映到 **多边形碰撞组件** 的 **points** 属性中。
+如果编辑的是 **多边形碰撞组件** 的话，则会出现类似下图所示的 **多边形编辑区域**。区域中的这些点都是可以拖动的，拖动的结果会反映到 **多边形碰撞组件** 的 **points** 属性中。
 
 <a href="edit-collider-component/edit-polygon-collider.png"><img src="edit-collider-component/edit-polygon-collider.png"></a>
 
@@ -17,33 +16,34 @@
 
 <a href="edit-collider-component/delete-polygon-point.png"><img src="edit-collider-component/delete-polygon-point.png"></a>
 
-在 CocosCreator 1.5 中，多边形碰撞组件中添加了一个 **Regenerate Points** 的功能，这个功能可以根据组件依附的节点上的 **Sprite** 组件的贴图的像素点来自动生成相应轮廓的顶点。   
-**Threshold** 指明生成贴图轮廓顶点间的最小距离，值越大则生成的点越少，可根据需求进行调节。
+在 CocosCreator 1.5 中，多边形碰撞组件中添加了一个 **Regenerate Points** 的功能，这个功能可以根据组件依附的节点上的 **Sprite** 组件的贴图的像素点来自动生成相应轮廓的顶点。**Threshold** 指明生成贴图轮廓顶点间的最小距离，值越大则生成的点越少，可根据需求进行调节。
 
 <a href="edit-collider-component/regenerate-points.png"><img src="edit-collider-component/regenerate-points.png"></a>
 
 ## 圆形碰撞组件
 
-如果编辑的是 **圆形碰撞组件** 的话，则会出现类似下图所示的 **圆形编辑区域**   
+如果编辑的是 **圆形碰撞组件** 的话，则会出现类似下图所示的 **圆形编辑区域**：
+
 <a href="edit-collider-component/edit-circle-collider.png"><img src="edit-collider-component/edit-circle-collider.png"></a>
 
 当鼠标悬浮在 **圆形编辑区域** 的边缘线上时，边缘线会变亮，这时点击鼠标左键拖动将可以修改 **圆形碰撞组件** 的半径大小。
+
 <a href="edit-collider-component/hover-circle-edge.png"><img src="edit-collider-component/hover-circle-edge.png"></a>
 
 ## 矩形碰撞组件
 
-如果编辑的是 **矩形碰撞组件** 的话，则会出现类似下图所示的 **矩形编辑区域**
+如果编辑的是 **矩形碰撞组件** 的话，则会出现类似下图所示的 **矩形编辑区域**：
 
 <a href="edit-collider-component/edit-box-collider.png"><img src="edit-collider-component/edit-box-collider.png"></a>
 
-当鼠标悬浮在 **矩形碰撞区域** 的顶点上时，点击鼠标左键拖拽可以同时修改 **矩形碰撞组件** 的长宽；
-当鼠标悬浮在 **矩形碰撞区域** 的边缘线上时，点击鼠标左键拖拽将修改 **矩形碰撞组件** 的长或宽中的一个方向。
+- 当鼠标悬浮在 **矩形碰撞区域** 的顶点上时，点击鼠标左键拖拽可以同时修改 **矩形碰撞组件** 的长宽；
+- 当鼠标悬浮在 **矩形碰撞区域** 的边缘线上时，点击鼠标左键拖拽将修改 **矩形碰撞组件** 的长或宽中的一个方向。
 
-按住 **shift** 键拖拽时，在拖拽过程中将会保持按下鼠标那一刻的 **长宽比例**，
+按住 **shift** 键拖拽时，在拖拽过程中将会保持按下鼠标那一刻的 **长宽比例**<br>。
 按住 **alt** 建拖拽时，在拖拽过程中将会保持 **矩形中心点位置** 不变。
 
 ## 修改碰撞组件偏移量
 
-在所有的碰撞组件编辑中，都可以在各自的 **碰撞中心区域** 点击鼠标左键拖拽来快速编辑碰撞组件的 **偏移量**
+在所有的碰撞组件编辑中，都可以在各自的 **碰撞中心区域** 点击鼠标左键拖拽来快速编辑碰撞组件的 **偏移量**。
 
 <a href="edit-collider-component/drag-area.png"><img src="edit-collider-component/drag-area.png"></a>

@@ -19,7 +19,7 @@ Cocos Creator 的 UI 系统核心的设计原则就是能够自动适应各种�
 
 ![sliced](sliced-sprite/editing.png)
 
-而下图中描述了不同区域缩放时的示意（图片来自[Yannick Loriot的博客](http://yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）：
+而下图中描述了不同区域缩放时的示意（图片来自 [Yannick Loriot的博客](http://yannickloriot.com/2011/12/create-buttons-in-cocos2d-by-using-cccontrolbutton/)）：
 
 ![scaling](sliced-sprite/scaling.png)
 
@@ -34,4 +34,4 @@ Cocos Creator 的 UI 系统核心的设计原则就是能够自动适应各种�
 
 ## 注意事项
 
-在使用**矩形变换工具**或直接修改 Sliced Sprite 的`size`属性时，注意`size`属性值不能为负数，否则不能以 Sliced 模式正常显示。
+在使用 **矩形变换工具** 或直接修改 Sliced Sprite 的 `size` 属性时，注意 `size` 属性值不能为负数，否则不能以 Sliced 模式正常显示。

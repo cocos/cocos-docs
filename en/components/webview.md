@@ -7,14 +7,14 @@ WebView is a component for displaying web pages, you could use this component to
 Click `add component` at the bottom of **Properties** panel and select `WebView` from `add UI component` popup.
 Then you could add WebView component to the node.
 
-For more info about WebView API reference [WebView API](../../../api/en/classes/WebView.html)。
+For more info about WebView API reference [WebView API](../../../api/en/classes/WebView.html).
 
 ## WebView Attribute
 
 | Attribute | Function Explanation
 |-------- | ----------- |
 | Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
-| WebViewEvents | The webview's event callback , it will be triggered when certain webview event occurs.
+| WebViewEvents | The webview's event callback, it will be triggered when certain webview event occurs.
 
 ## WebView Event
 
@@ -194,5 +194,3 @@ Because of the limitations of Web platform, it can not be implemented by this me
 ```
 
 ##### Stressed once: Cross domain issues on Web platform need to be resolved by yourself
-
-<hr>

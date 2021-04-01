@@ -1,4 +1,4 @@
-# Animation Events.
+# Animation Events
 
 When using animations in your games, you may want things to during a frame or even
 at the end of a frame. We call these animation events.
@@ -12,6 +12,7 @@ the timeline representing the newly added event.
 ![button](animation-event/button.png)
 
 ## Deleting an event
+
 There are two ways to delete and event.
 
 * Double click the white rectangle that represents the event.
@@ -29,7 +30,3 @@ Double click the white rectangle of the event you want to modify and the event e
 will open. In the editor, you can manually input the function name that needs to be transmitted. When triggering, the corresponding method will be matched to each component according to this function name.
 
 If you want add imported parameters, you can click `+` or `-` near Params. Only three types of parameters supported: Boolean, String and Number.
-
----
-
-Continue on to read about [Scripting Animations](scripting-animation.md).

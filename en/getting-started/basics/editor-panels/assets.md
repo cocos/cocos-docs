@@ -14,13 +14,13 @@
 
 ## Asset list
 
-An asset list can include any folder structure. Folders in **assets** will be shown by the ![folder](assets/folder.png)icon. Click the arrow to the left of this icon to expand/collapse the contents of a folder.
+An asset list can include any folder structure. Folders in **assets** will be shown by the ![folder](assets/folder.png) icon. Click the arrow to the left of this icon to expand/collapse the contents of a folder.
 
 Except for the folders, everything else in the list is asset files. Files in the asset list will not show their extended names; instead icons will be used to indicate the type of file or asset. For example, the project created by the **HelloWorld** template includes three core assets:
 
 - **image assets**: currently includes image files like `jpg` and `png`, the icon will show as a thumbnail of the image.
-- ![javascript](assets/javascript.png)**script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
-- ![scene](assets/scene.png)**scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
+- ![javascript](assets/javascript.png) **script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
+- ![scene](assets/scene.png) **scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
 
 For more common asset types and asset workflows, please read the [asset workflow](../../../asset-workflow/index.md) chapter.
 
@@ -50,7 +50,9 @@ You can move, delete and use other operations on the selected assets.
 ### Move assets
 
 After selecting the asset (can select multiple assets at once), hold down the mouse and drag to move the asset(s) to another position. Drag the assets onto a folder and you will see the folder that the folder will be highlighted in orange.
+
 ![move asset](assets/move_asset.png)
+
 Release the mouse to move the assets into the highlighted folder.
 
 ### Delete assets
@@ -79,9 +81,4 @@ Also, by double clicking on the asset you can enter the editing status for speci
 
 Enter some text in the search box at the top right of **assets** to filter out filenames of all the assets that include the input text. You can also input filename extensions like `*.png` to list all the assets with this specific extension.
 
-
 ![search asset](https://cloud.githubusercontent.com/assets/344547/9376761/ffbc3312-4743-11e5-9b3e-d7f5abe64b95.png)
-
----
-
-Continue on to read about [Scene editor](scene.md).

@@ -2,8 +2,8 @@
 
 Cocos Creator 的引擎部分包括 JavaScript 和 C++ 两个部分。全部都在 GitHub 上开源。地址在：
 
-- Creator-JS 引擎：<https://github.com/cocos-creator/engine>
-- Cocos2d-x 引擎：<https://github.com/cocos-creator/engine-native>
+- **Creator-JS 引擎**：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)
+- **Cocos2d-x 引擎**：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)
 
 我们建议您通过 GitHub 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 GitHub 相关工作流程请参考 [GitHub help](https://help.github.com)。
 
@@ -83,7 +83,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-`gulp sign-simulator` 是 1.7.0 中的新增命令，只有 Mac 需要运行。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
+`gulp sign-simulator` 是 1.7.0 中的新增命令，只有 Mac 需要运行。详见 **Build simulator**（[GitHub](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native/blob/develop/README.md)）。
 
 ### JSB 绑定流程
 

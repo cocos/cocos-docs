@@ -36,10 +36,10 @@
 
 ### 浏览器兼容性
 
-Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox（火狐），IE11
+Cocos Creator 开发过程中测试的桌面浏览器包括：Chrome，Firefox（火狐）、IE11
 其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE6 兼容模式。
 
-移动设备上测试的浏览器包括：Safari (iOS)，Chrome，QQ 浏览器，UC 浏览器，百度浏览器，微信内置 Webview。
+移动设备上测试的浏览器包括：Safari (iOS)、Chrome、QQ 浏览器、UC 浏览器、百度浏览器、微信内置 Webview。
 
 #### 使用 VS Code 调试
 
@@ -49,12 +49,12 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 
 以谷歌浏览器为例，通过功能菜单的 `更多工具/开发者工具` 可以打开开发者工具界面，如上图所示。在开发者工具中，我们可以查看运行日志、打断点进行调试、在调用堆栈中查看每一步各个变量的值、甚至进行资源加载和性能分析。
 
-要学习使用开发者工具进行调试，请阅读[极客学院的 Chrome Dev Tools 使用指南](http://wiki.jikexueyuan.com/project/chrome-devtools/overview.html)，或其他浏览器的开发者工具帮助。
+要学习使用开发者工具进行调试，请阅读 [极客学院的 Chrome Dev Tools 使用指南](http://wiki.jikexueyuan.com/project/chrome-devtools/overview.html)，或其他浏览器的开发者工具帮助。
 
 ## 构建发布
 
 预览和调试之后，如果您对您的游戏比较满意了，就可以通过主菜单的 `项目/构建发布` 打开 **构建发布** 窗口，来将游戏打包发布到您希望的目标平台上，包括 iOS、Android、HTML5、Windows、Mac、Cocos Play。
 
-详细的构建发布流程，请查阅[跨平台发布游戏](../../publish/index.md)一章的内容。
+详细的构建发布流程，请查阅 [跨平台发布游戏](../../publish/index.md) 一章的内容。
 
 请注意，使用模拟器运行游戏的效果，和最终发布到原生平台可能会有一定差别，对于任何重要的游戏功能，都请以构建发布后的版本来做最终的测试。

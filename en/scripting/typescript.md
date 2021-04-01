@@ -32,7 +32,7 @@ As with creating a JavaScript script, you can create a new `.ts` file directly i
 
 ## Declare CCClass with TypeScript
 
-The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
+The [class declaration in TypeScript](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
 
 The following is an example of a basic TypeScript component declaration:
 
@@ -83,7 +83,7 @@ myNode: cc.Node = null;
 myOffset = new cc.Vec2(100, 100);
 ```
 
-Declare arrays
+Declare arrays:
 
 ```typescript
 @property([cc.Node])
@@ -93,7 +93,7 @@ public myNodes: cc.Node[] = [];
 public myColors: cc.Color[] = [];
 ```
 
-声明 getset
+Declare getset:
 
 ```typescript
 @property
@@ -111,7 +111,7 @@ set width (value) {
 }
 ```
 
-Note：The public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
+> **Note**: the public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
 
 ## Intellisense
 
@@ -119,7 +119,7 @@ In accordance with the setup described in previous section, open the project in 
 
 ### Component Member in the same file
 
-Just enter `this.` will automatically prompt the other members of the component itself. Enter `this.member.` will prompt the member's properties or methods.
+Just enter `this.` will automatically prompt the other members of the component itself. Enter `this.member` will prompt the member's properties or methods.
 
 ![intellisense](assets/intellisense.jpg)
 
@@ -166,7 +166,7 @@ When you enter `this.myModule.`, you will be prompt the properties declared in `
 
 ## Update engine interface declaration data
 
-Each new version of Creator will update the engine interface statement, so after upgrading the Creator, it is recommended to update existing project `creator.d.ts` file to the latest. Go through the main menu 'Developer -> VS Code Workflow -> Update VS Code API Source` to complete the update.
+Each new version of Creator will update the engine interface statement, so after upgrading the Creator, it is recommended to update existing project `creator.d.ts` file to the latest. Go through the main menu **Developer -> VS Code Workflow -> Update VS Code API Source** to complete the update.
 
 ---
 

@@ -1,15 +1,14 @@
 # ScrollView 组件参考
 
-ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有限的显示区域内浏览更多的内容。通常 ScrollView 会与
-`Mask`组件配合使用，同时也可以添加`ScrollBar`组件来显示浏览内容的位置。
+ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有限的显示区域内浏览更多的内容。通常 ScrollView 会与 `Mask` 组件配合使用，同时也可以添加 `ScrollBar` 组件来显示浏览内容的位置。
 
 ![scrollview-content](./scrollview/scrollview-content.png)
 
 ![scrollview-inspector](./scrollview/scrollview-inspector.png)
 
-点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`ScrollView`，即可添加 ScrollView 组件到节点上。
+点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加 UI 组件` 中选择 `ScrollView`，即可添加 ScrollView 组件到节点上。
 
-滚动视图的脚本接口请参考[ScrollView API](../../../api/zh/classes/ScrollView.html)。
+滚动视图的脚本接口请参考 [ScrollView API](../../../api/zh/classes/ScrollView.html)。
 
 ## ScrollView 属性
 
@@ -28,6 +27,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 | CancelInnerEvents    | 如果这个属性被设置为 true，那么滚动行为会取消子节点上注册的触摸事件，默认被设置为 true。                       |
 
 ## ScrollView 事件
+
 ![scrollview-event](./scrollview/scrollview-event.png)
 
 | 属性            | 功能说明                                                       |
@@ -41,7 +41,7 @@ Scrollview 的事件回调有两个参数，第一个参数是 ScrollView 本身
 
 ## 详细说明
 
-ScrollView 组件必须有指定的 content 节点才能起作用，通过指定滚动方向和 content 节点在此方向上的长度来计算滚动时的位置信息，Content 节点也可以通过`UIWidget`设置自动 resize。
+ScrollView 组件必须有指定的 content 节点才能起作用，通过指定滚动方向和 content 节点在此方向上的长度来计算滚动时的位置信息，Content 节点也可以通过 `UIWidget` 设置自动 resize。
 
 通常一个 ScrollView 的节点树如下图：
 
@@ -59,8 +59,7 @@ ScrollBar 是可选的，你可以选择只设置水平或者垂直 ScrollBar，
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
-你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加。需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target、component、handler 和 customEventData 参数。
 
 ```js
 
@@ -99,7 +98,7 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        scrollview: cc.ScrollView
     },

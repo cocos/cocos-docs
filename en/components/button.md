@@ -17,8 +17,8 @@ Click the `Add component` button at the bottom of the **Properties** panel and s
 |Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please check more detailed information in the chapter `Button Transition`.
 |Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please check more detailed information in the chapter `Button Event`.
 
-
 ### Button Transition
+
 Button Transition is used to indicate the status of the Button when clicked by the user. Currently the types available are NONE, COLOR, SPRITE and SCALE.
 
 ![transition](./button/transition.png)
@@ -26,7 +26,6 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ### Color Transition
 
 ![color-transition](./button/color-transition.png)
-
 
 | Property |   Function Explanation
 | -------------- | ----------- |
@@ -60,14 +59,12 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 ![button-event](./button/button-event.png)
 
-
 | Property       | Function Explanation                                                                             |
 | --------------  | -----------                                                                                      |
 | Target          | Node with the script component.                                                                  |
 | Component       | Script component name.                                                                           |
 | Handler         | Assign a callback function which will be triggered when the user clicks and releases the Button. |
 | customEventData | A user-defined string value passed as the last event argument of the event callback.             |
-  
 
 #### Detailed explanation
 
@@ -77,7 +74,7 @@ Button currently only supports the On Click event. This means only when users cl
 
 ##### Method one
 
-This method adds the same event callback as the event callback that is added using the editor，By adding code, you need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
+This method adds the same event callback as the event callback that is added using the editor. By adding code, you need to first construct a `cc.Component.EventHandler` object, and then set the corresponding target, component, handler and customEventData parameters.
 
 ```js
 //here is your component file, file name = MyComponent.js 
@@ -115,7 +112,7 @@ Gets the screen coordinate point of the current click button.
 
 cc.Class({
     extends: cc.Component,
-	
+
     properties: {
        button: cc.Button
     },
@@ -132,7 +129,3 @@ cc.Class({
     }
 });
 ```
-
----
-
-Continue on to read about [ProgressBar Component reference](progress.md).

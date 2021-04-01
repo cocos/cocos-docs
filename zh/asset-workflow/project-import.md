@@ -27,8 +27,7 @@
 	* 当导入完成时，会输出 `Import XXX project finished.` 的 log。（其中 XXX 为项目所用编辑器名称）
 	* 最后输出资源导入后所在的 url。
 
-**备注：**
-导入项目所需时间长短取决于项目大小。在导入过程中请勿在 Cocos Creator 中执行其他操作，耐心等待导入完成。
+> **注意**：导入项目所需时间长短取决于项目大小。在导入过程中请勿在 Cocos Creator 中执行其他操作，耐心等待导入完成。
 
 ## Cocos Studio 项目导入说明
 
@@ -50,6 +49,7 @@
 	* 列表容器
 	* 翻页容器
 * StudioComponent 组件数据如下图：
+
 	![studio-component.png](./project-import/studio-component.png)
 
 	其中 1 为组件的类型，对应于 Studio 中的控件；2 为控件数据，不同的类型显示相应的数据。
@@ -64,18 +64,17 @@
 ### 特别说明
 
 Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与测试的。如果要导入旧版本的项目，建议先使用 Cocos Studio 3.10 版本打开项目。这样可以将项目升级到对应版本，然后进行导入操作。
-    
+
 * 新支持动画帧事件：
 
     统一添加默认的 `triggerAnimationEvent` 事件，参数为下方设置的数据
-    
+
    ![animation-frame-event.png](./project-import/animation-frame-event.png)
-   
+
 * 导入嵌套的 csd：
 
     当 csd 包含嵌套时候，会自动创建一个挂有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代，该组件中的
-    `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行目前不支持编辑器中预览）  
-
+    `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（如果你需要对该节点进行操作必须是运行时才行目前不支持编辑器中预览） 
 
 ## Cocos Builder 项目导入说明
 

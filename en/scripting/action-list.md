@@ -2,22 +2,22 @@
 
 ## Basic action type
 
-- [Action](../../../api/en/classes/Action.html)：base class of all action types
-- [FiniteTimeAction](../../../api/en/classes/FiniteTimeAction.html)：finite time action which has the property of `duration` .
-- [ActionInstant](../../../api/en/classes/ActionInstant.html)：free action which will execute immediately, inherited from `FiniteTimeAction`.
-- [ActionInterval](../../../api/en/classes/ActionInterval.html)：interval action which will be completed within a predetermined time period, also inherited from `FiniteTimeAction`.
-- [ActionEase](../../../api/en/classes/ActionEase.html)：all slow motion base classes to modify `ActionInterval`.
-- [EaseRateAction](../../../api/en/classes/EaseRateAction.html)：slow motion base class with rate attribute.
-- [EaseElastic](../../../api/en/classes/EaseElastic.html)：elastic slow motion base class.
-- [EaseBounce](../../../api/en/classes/EaseBounce.html)：bounce slow motion base class.
+- [Action](../../../api/en/classes/Action.html): base class of all action types.
+- [FiniteTimeAction](../../../api/en/classes/FiniteTimeAction.html): finite time action which has the property of `duration`.
+- [ActionInstant](../../../api/en/classes/ActionInstant.html): free action which will execute immediately, inherited from `FiniteTimeAction`.
+- [ActionInterval](../../../api/en/classes/ActionInterval.html): interval action which will be completed within a predetermined time period, also inherited from `FiniteTimeAction`.
+- [ActionEase](../../../api/en/classes/ActionEase.html): all slow motion base classes to modify `ActionInterval`.
+- [EaseRateAction](../../../api/en/classes/EaseRateAction.html): slow motion base class with rate attribute.
+- [EaseElastic](../../../api/en/classes/EaseElastic.html): elastic slow motion base class.
+- [EaseBounce](../../../api/en/classes/EaseBounce.html): bounce slow motion base class.
 
 The developer can get to know the basic API for every action type in these action type files.
 
 ## Container action
 
 | Action name | Introduction | File link |
-|---------|:---:|:-------:|
-    | cc.sequence | sequential execution action | [API description](../../../api/en/modules/cc.html#sequence) |
+|:---------|:---|:-------|
+| cc.sequence | sequential execution action | [API description](../../../api/en/modules/cc.html#sequence) |
 | cc.spawn | synchronized execution action  | [API description](../../../api/en/modules/cc.html#spawn) |
 | cc.repeat | repetitive execution action | [API description](../../../api/en/modules/cc.html#repeat) |
 | cc.repeatForever | forever repetitive action | [API description](../../../api/en/modules/cc.html#repeatForever) |
@@ -26,7 +26,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Free action
 
 | Action name | Introduction | File link |
-|---------|:---:|:-------:|
+|:---------|:---|:-------|
 | cc.show | show immediately | [API description](../../../api/en/modules/cc.html#show) |
 | cc.hide | hide immediately | [API description](../../../api/en/modules/cc.html#hide) |
 | cc.toggleVisibility | show/hide status switch | [API description](../../../api/en/modules/cc.html#toggleVisibility) |
@@ -34,13 +34,13 @@ The developer can get to know the basic API for every action type in these actio
 | cc.flipX | X-axis flip | [API description](../../../api/en/modules/cc.html#flipX) |
 | cc.flipY | Y-axis flip | [API description](../../../api/en/modules/cc.html#flipY) |
 | cc.place | place at the target location | [API description](../../../api/en/modules/cc.html#place) |
-| cc.callFunc | execute callback fuction | [API description](../../../api/en/modules/cc.html#callFunc) |
+| cc.callFunc | execute callback function | [API description](../../../api/en/modules/cc.html#callFunc) |
 | cc.targetedAction | create action with existant action and a new target node | [API description](../../../api/en/modules/cc.html#targetedAction) |
 
 ## Interval action
 
 | Action name | Introduction | File link |
-|---------|:---:|:-------:|
+|:---------|:---|:-------|
 | cc.moveTo | move to the target location | [API description](../../../api/en/modules/cc.html#moveTo) |
 | cc.moveBy | move by assigned distance | [API description](../../../api/en/modules/cc.html#moveBy) |
 | cc.rotateTo | rotate to the target angle | [API description](../../../api/en/modules/cc.html#rotateTo) |
@@ -70,7 +70,7 @@ The developer can get to know the basic API for every action type in these actio
 ## Slow motion
 
 | Action name | File link |
-|---------|:-------:|
+|:---------|:-------|
 | cc.easeIn | [API description](../../../api/en/modules/cc.html#easeIn) |
 | cc.easeOut | [API description](../../../api/en/modules/cc.html#easeOut) |
 | cc.easeInOut | [API description](../../../api/en/modules/cc.html#easeInOut) |

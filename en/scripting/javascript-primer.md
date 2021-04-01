@@ -8,11 +8,11 @@ This text mainly introduces JavaScript. Beginners will have a general understand
 
 JavaScript is a programming language full of controversy: it is named after Java, but in fact, it has nothing to do with Java. The creation of JavaScript [only took 10 days](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript), but it managed to develop into the most popular Web development language in the world in 20 years. If you are looking for the reason behind the status and popularity of JavaScript nowadays, there's no doubt it is because of its easy-to-use language features. Of course, mastering JavaScript is a tough task, but learning knowledge enough to develop Web Apps and games is easy. If you have some basic programming skills, then it won't take you too long to get familiar with JavaScript's language features.
 
-In addition, you may use some exsiting patterns while using Cocos Creator to develop a game under most circumstances. According to the Pareto principle (also known as the 80/20 principle), mastering  20% of one language is enough for you to handle more than 80% of situations. Now, let's learn enough JavaScript knowledge in the shortest time so that we can begin to develop a game with Cocos Creator.
+In addition, you may use some existing patterns while using Cocos Creator to develop a game under most circumstances. According to the Pareto principle (also known as the 80/20 principle), mastering  20% of one language is enough for you to handle more than 80% of situations. Now, let's learn enough JavaScript knowledge in the shortest time so that we can begin to develop a game with Cocos Creator.
 
 ## Try when you're reading
 
-If you can see this article, then you already have a full-featured JavaScript development environment--I am talking about the browser you are using!
+If you can see this article, then you already have a full-featured JavaScript development environment -- I am talking about the browser you are using!
 
 All the examples on this page, you can type them into your browser's console and check their running results. If you don't know how to do this, you can read [Guidance of how to open the console in different browsers](http://webmasters.stackexchange.com/a/77337).
 
@@ -39,7 +39,6 @@ a = 12;
 ```
 
 If you try in the browser's console, you will find JavaScript won't report an error when the variable declaration omits `var`, but in the Cocos Creator project script, `var` of variable declaration can not be omitted, otherwise the compiler will report an error.
-
 
 ## Function
 
@@ -108,6 +107,7 @@ An If/Else conditional judgement can also be wrote into one line like this:
 ```js
 foo ? function1() : function2();
 ```
+
 When the value of `foo` is true, the expression will send back the execution result of `function1()`, otherwise it will send back the execution result of `function2()`. When we need to assign variables according to the condition, writing it like this is very convenient:
 
 ```js
@@ -157,7 +157,7 @@ myProfile = {
 }
 ```
 
-In the grammar for object declaration（`myProfile = {...}`）, there is one pair of key values separated by a comma. Each pair includes one key (character string type, sometimes quoted by double quotation marks) and a value (could be any type: including string, number, boolean, variable name, array, object, and even function). We call such pairs of key values a property of the object, key is the property name and value is the property value.
+In the grammar for object declaration (`myProfile = {...}`), there is one pair of key values separated by a comma. Each pair includes one key (character string type, sometimes quoted by double quotation marks) and a value (could be any type: including string, number, boolean, variable name, array, object, and even function). We call such pairs of key values a property of the object, key is the property name and value is the property value.
 
 You can nest other objects or arrays composed by a set of objects in the value
 
@@ -188,7 +188,7 @@ myProfile.name; // Jare Guo
 myProfile.friends[1].name; // Nantas
 ```
 
-Objects are being largely used in JavaScript, and so is it in the fuction parameter passing. For example, in Cocos Creator, we can define the FireClass object like this:
+Objects are being largely used in JavaScript, and so is it in the function parameter passing. For example, in Cocos Creator, we can define the FireClass object like this:
 
 ```js
 var MyComponent = cc.Class({
@@ -208,7 +208,7 @@ myFunction = function (myArgument) {
 }
 ```
 
-Now let's go over the method of introducing a function as a parameter into other fuctions:
+Now let's go over the method of introducing a function as a parameter into other functions:
 
 ```js
 square = function (a) {
@@ -247,7 +247,7 @@ var myString = "abcdef";
 myString.replace("a", "z"); // "zbcdef"
 ```
 
-The point symbol in the code above means "call `replace` a fuction of the `myString` character string object, and pass `a` and `z` as parameters, then get the returned value".
+The point symbol in the code above means "call `replace` a function of the `myString` character string object, and pass `a` and `z` as parameters, then get the returned value".
 
 The biggest advantage of using point symbol expression is that you can link multiple tasks into one expression, which of course is on the condition of each function being called having the proper returned value. We won't spend too much time on introducing how to define a linkable function, but it's pretty simple to use them as long as you use the following pattern: `something.function1().function2().function3()`
 
@@ -284,7 +284,7 @@ myFunction = function (a, b) {
 }
 ```
 
-At first sight, it may seem to have no effect, but it actually allows you to use the variable `myObject` to imply the initial execution function object safely without being concerned about `this` maybe turning into other stuff in the code after. 
+At first sight, it may seem to have no effect, but it actually allows you to use the variable `myObject` to imply the initial execution function object safely without being concerned about `this` maybe turning into other stuff in the code after.
 
 ## Operator
 
@@ -292,7 +292,7 @@ At first sight, it may seem to have no effect, but it actually allows you to use
 
 If you need to compare two values, you can use `==`, for example, `a == 12`.
 
-`===` is a unique operator in JavaScript, it can tell whether the value and type in both ends are all exactly the same (type refers to string, number and so on). 
+`===` is a unique operator in JavaScript, it can tell whether the value and type in both ends are all exactly the same (type refers to string, number and so on).
 
 ```js
 a = "12";
@@ -324,7 +324,7 @@ a = 12;
 !!a; // true
 ```
 
-Or：
+Or:
 
 ```js
 a = 0;
@@ -339,7 +339,6 @@ At last, the following rules on code style can help us write more specific code:
 - Use camel-case naming: define the variable name like `myRandomVariable`, but not `my_random_variable`
 - Type one `;` at each end of the line, although `;` in the end of a line can be ignored in JavaScript
 - Put spacing before and after each keyword, such as `a = b + 1` rather than `a=b+1`
-
 
 ## Combine the knowledge we have learnt
 
@@ -370,15 +369,15 @@ This piece of code defines a new component to the engine. This component has a `
 
 Let's go through the function of each sentence (I will highlight useful grammar patterns):
 
-`var Comp = cc.Class({`：Here we use the object `cc` , call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax **, the parameter passing during the call is an anonymous **JavaScript object** （`{}`）.
+`var Comp = cc.Class({`: Here we use the object `cc`, call object's `Class()` method (this method is one property of the `cc` object) by **dot syntax**, the parameter passing during the call is an anonymous **JavaScript object** (`{}`).
 
-`target: { default: null, type: cc.Entity }`：This pair of key values declare a property named `target` and its value is another JavaScript anonymous object which defines the default value and value type of the target.
+`target: { default: null, type: cc.Entity }`: This pair of key values declare a property named `target` and its value is another JavaScript anonymous object which defines the default value and value type of the target.
 
-`extends: cc.Component`：This pair of key values declare that the parent of this Class is cc.Component. cc.Component is Cocos Creator's built-in type.
+`extends: cc.Component`: This pair of key values declare that the parent of this Class is cc.Component. cc.Component is Cocos Creator's built-in type.
 
-`onStart: function () {`：This pair of key value defines a member method called `onStart` whose value is an anonymous function.
+`onStart: function () {`: This pair of key value defines a member method called `onStart` whose value is an anonymous function.
 
-`this.target = cc.Entity.find('`：In the context of this sentence, `this` stands for the component being created, here we access the `target` property by `this.target`.
+`this.target = cc.Entity.find('`: In the context of this sentence, `this` stands for the component being created, here we access the `target` property by `this.target`.
 
 ## Further study
 
@@ -392,8 +391,3 @@ Here are some JavaScript primers:
 
 - [JavaScript standard reference tutorial](http://javascript.ruanyifeng.com/)
 - [JavaScript secret garden](http://bonsaiden.github.io/JavaScript-Garden/zh/)
-
-
----
-
-Continue on to read about [Advanced CCClass](reference/class.md).

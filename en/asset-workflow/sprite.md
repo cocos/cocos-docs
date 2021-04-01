@@ -36,7 +36,3 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 ### Performance Attentions
 
 If you are using single Texture assets for Sprite. It can't use batch render at the runtime of the game. Now you can't batch change the SpriteFrame reference from single Texture to Atlas in Cocos Creator. So, please combine textures into atlas as early as possible.
-
-<hr>
-
-Continue on to read about [Atlas](atlas.md)

@@ -17,7 +17,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 如何做到抽象层开销最小而且暴露统一的 API 供上层使用？
 
-以注册 JS 函数的回调定义为例，JavaScriptCore，SpiderMonkey，V8，ChakraCore 的定义各不相同，具体如下：
+以注册 JS 函数的回调定义为例，JavaScriptCore、SpiderMonkey、V8、ChakraCore 的定义各不相同，具体如下：
 
 **JavaScriptCore:**
 
@@ -62,7 +62,7 @@ JsValueRef JSB_foo_func(
 	);
 ```
 
-我们评估了几种方案，最终确定使用`宏`来抹平不同 JS 引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了 lua 的回调函数定义方式，抽象层所有的 JS 到 CPP 的回调函数的定义为：
+我们评估了几种方案，最终确定使用 `宏` 来抹平不同 JS 引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了 lua 的回调函数定义方式，抽象层所有的 JS 到 CPP 的回调函数的定义为：
 
 ```c++
 bool foo(se::State& s)
@@ -141,89 +141,88 @@ se::Object 继承于 se::RefCounter 引用计数管理类。目前抽象层中�
 
 * 原因一：JS 对象控制 CPP 对象的生命周期的需要
 
-当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*` 。
+  当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 se::Object 并保留在一个全局的 map (NativePtrToObjectMap) 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*`。
 
-```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
+    ```c++
+    static bool js_cocos2d_Sprite_finalize(se::State& s)
+    {
+        CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
+        cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+        if (cobj->getReferenceCount() == 1)
+            cobj->autorelease();
+        else
+            cobj->release();
+        return true;
+    }
+    SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
-static bool js_cocos2dx_Sprite_constructor(se::State& s)
-{
-    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj 将在 finalize 函数中被释放
-    s.thisObject()->setPrivateData(cobj); // setPrivateData 内部会去保存 cobj 到 NativePtrToObjectMap 中
-    return true;
-}
-SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
-```
+    static bool js_cocos2dx_Sprite_constructor(se::State& s)
+    {
+        cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj 将在 finalize 函数中被释放
+        s.thisObject()->setPrivateData(cobj); // setPrivateData 内部会去保存 cobj 到 NativePtrToObjectMap 中
+        return true;
+    }
+    SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
+    ```
 
-设想如果强制要求 se::Object 为 JS 对象的强引用(strong reference)，即让 JS 对象不受 GC 控制，由于 se::Object 一直存在于 map 中，finalize 回调将永远无法被触发，从而导致内存泄露。
+    设想如果强制要求 se::Object 为 JS 对象的强引用(strong reference)，即让 JS 对象不受 GC 控制，由于 se::Object 一直存在于 map 中，finalize 回调将永远无法被触发，从而导致内存泄露。
 
-正是由于 se::Object 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `js_cocos2d_Sprite_finalize` 中释放对应的 c++ 对象即可，se::Object 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在`JS 对象控制 CPP 对象`模式中 se::Object 的释放，但是在 `CPP 对象控制 JS 对象` 模式中，开发者需要管理对 se::Object 的释放，具体下一节中会举例说明。
+    正是由于 se::Object 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `js_cocos2d_Sprite_finalize` 中释放对应的 c++ 对象即可，se::Object 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在`JS 对象控制 CPP 对象`模式中 se::Object 的释放，但是在 `CPP 对象控制 JS 对象` 模式中，开发者需要管理对 se::Object 的释放，具体下一节中会举例说明。
 
 * 原因二：更加灵活，手动调用 root 方法以支持强引用
 
-se::Object 中提供了 root/unroot 方法供开发者调用，root 会把 JS 对象放入到不受 GC 扫描到的区域，调用 root 后，se::Object 就强引用了 JS 对象，只有当 unroot 被调用，或者 se::Object 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
+    se::Object 中提供了 root/unroot 方法供开发者调用，root 会把 JS 对象放入到不受 GC 扫描到的区域，调用 root 后，se::Object 就强引用了 JS 对象，只有当 unroot 被调用，或者 se::Object 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
 
-一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 spine, dragonbones, box2d，anysdk 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 NativePtrToObjectMap 中查找对应的 se::Object，然后手动 unroot 和 decRef。以 spine 中 spTrackEntry 的绑定为例：
+    一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 spine、dragonbones、box2d、anysdk 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 NativePtrToObjectMap 中查找对应的 se::Object，然后手动 unroot 和 decRef。以 spine 中 spTrackEntry 的绑定为例：
 
-```c++
-spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
-        // spTrackEntry 的销毁回调
-        se::Object* seObj = nullptr;
+    ```c++
+    spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
+            // spTrackEntry 的销毁回调
+            se::Object* seObj = nullptr;
 
-        auto iter = se::NativePtrToObjectMap::find(entry);
-        if (iter != se::NativePtrToObjectMap::end())
-        {
-            // 保存 se::Object 指针，用于在下面的 cleanup 函数中释放其内存
-            seObj = iter->second;
-            // Native 对象 entry 的内存已经被释放，因此需要立马解除 Native 对象与 JS 对象的关联。
-            // 如果解除引用关系放在下面的 cleanup 函数中处理，有可能触发 se::Object::setPrivateData 中
-            // 的断言，因为新生成的 Native 对象的地址可能与当前对象相同，而 cleanup 可能被延迟到帧结束前执行。
-            se::NativePtrToObjectMap::erase(iter);
-        }
-        else
-        {
-            return;
-        }
-
-        auto cleanup = [seObj](){
-
-            auto se = se::ScriptEngine::getInstance();
-            if (!se->isValid() || se->isInCleanup())
+            auto iter = se::NativePtrToObjectMap::find(entry);
+            if (iter != se::NativePtrToObjectMap::end())
+            {
+                // 保存 se::Object 指针，用于在下面的 cleanup 函数中释放其内存
+                seObj = iter->second;
+                // Native 对象 entry 的内存已经被释放，因此需要立马解除 Native 对象与 JS 对象的关联。
+                // 如果解除引用关系放在下面的 cleanup 函数中处理，有可能触发 se::Object::setPrivateData 中
+                // 的断言，因为新生成的 Native 对象的地址可能与当前对象相同，而 cleanup 可能被延迟到帧结束前执行。
+                se::NativePtrToObjectMap::erase(iter);
+            }
+            else
+            {
                 return;
+            }
 
-            se::AutoHandleScope hs;
-            se->clearException();
-            
-            // 没必要调用 seObj->clearPrivateData ，因为 Native 对象与 JS 对象的引用关系已经在上面被解除。
-            // 如果调用，反而会导致把新生成的 Native 对象的引用关系错误解除掉。
-            // 设置 seObj 的 privateData 为 nullptr 也无意义，因为在执行 unroot 和 decRef 后，
-            // 当前 JS 对象即将被回收。
-            seObj->unroot(); // unroot，使 JS 对象受 GC 管理
-            seObj->decRef(); // 释放 se::Object
-        };
+            auto cleanup = [seObj](){
 
-        // 确保不再垃圾回收中去操作 JS 引擎的 API
-        if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
-        {
-            cleanup();
-        }
-        else
-        { // 如果在垃圾回收，把清理任务放在帧结束中进行
-            CleanupTask::pushTaskToAutoReleasePool(cleanup);
-        }
-    });
-```
+                auto se = se::ScriptEngine::getInstance();
+                if (!se->isValid() || se->isInCleanup())
+                    return;
 
+                se::AutoHandleScope hs;
+                se->clearException();
+                
+                // 没必要调用 seObj->clearPrivateData，因为 Native 对象与 JS 对象的引用关系已经在上面被解除。
+                // 如果调用，反而会导致把新生成的 Native 对象的引用关系错误解除掉。
+                // 设置 seObj 的 privateData 为 nullptr 也无意义，因为在执行 unroot 和 decRef 后，
+                // 当前 JS 对象即将被回收。
+                seObj->unroot(); // unroot，使 JS 对象受 GC 管理
+                seObj->decRef(); // 释放 se::Object
+            };
+
+            // 确保不再垃圾回收中去操作 JS 引擎的 API
+            if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
+            {
+                cleanup();
+            }
+            else
+            { // 如果在垃圾回收，把清理任务放在帧结束中进行
+                CleanupTask::pushTaskToAutoReleasePool(cleanup);
+            }
+        });
+    ```
 
 __对象类型__
 
@@ -247,61 +246,62 @@ se::Object* obj = se::Object::createPlainObject();
 obj->decRef(); // 释放引用，避免内存泄露
 ```
 
-#### se::HandleObject （推荐的管理手动创建对象的辅助类）
+#### se::HandleObject（推荐的管理手动创建对象的辅助类）
 
 * 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 decRef
 
-```c++
-bool foo()
-{
-	se::Object* obj = se::Object::createPlainObject();
-	if (var1)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	
-	if (var2)
-		return false; // 这里直接返回了，忘记做 decRef 释放操作
-	...
-	...
-	obj->decRef();
-	return true;
-}
-```
+    ```c++
+    bool foo()
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        if (var1)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        
+        if (var2)
+            return false; // 这里直接返回了，忘记做 decRef 释放操作
+        ...
+        ...
+        obj->decRef();
+        return true;
+    }
+    ```
 
-就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
+    就算在不同的返回条件分支中加上了 decRef 也会导致逻辑复杂，难以维护，如果后期加入另外一个返回分支，很容易忘记 decRef。
 
 * JS 引擎在 se::Object::createXXX 后，如果由于某种原因 JS 引擎做了 GC 操作，导致后续使用的 se::Object 内部引用了一个非法指针，引发程序崩溃
 
-为了解决上述两个问题，抽象层定义了一个辅助管理**手动创建对象**的类型，即 `se::HandleObject` 。
+为了解决上述两个问题，抽象层定义了一个辅助管理 **手动创建对象** 的类型，即 `se::HandleObject`。
 
 `se::HandleObject` 是一个辅助类，用于更加简单地管理手动创建的 se::Object 对象的释放、root 和 unroot 操作。
 以下两种代码写法是等价的，使用 se::HandleObject 的代码量明显少很多，而且更加安全。
 
 ```c++
-    {
-        se::HandleObject obj(se::Object::createPlainObject());
-        obj->setProperty(...);
-        otherObject->setProperty("foo", se::Value(obj));
-    }
- 
-	等价于：
-
-    {
-        se::Object* obj = se::Object::createPlainObject();
-        obj->root(); // 在手动创建完对象后立马 root，防止对象被 GC
-
-        obj->setProperty(...);
-        otherObject->setProperty("foo", se::Value(obj));
-        
-        obj->unroot(); // 当对象被使用完后，调用 unroot
-        obj->decRef(); // 引用计数减一，避免内存泄露
-    }
+{
+    se::HandleObject obj(se::Object::createPlainObject());
+    obj->setProperty(...);
+    otherObject->setProperty("foo", se::Value(obj));
+}
 ```
 
-注意：
+等价于：
 
-* 不要尝试使用 se::HandleObject 创建一个 native 与 JS 的绑定对象，在 JS 控制 CPP 的模式中，绑定对象的释放会被抽象层自动处理，在 CPP 控制 JS 的模式中，前一章节中已经有描述了。
-* se::HandleObject 对象只能够在栈上被分配，而且栈上构造的时候必须传入一个 se::Object 指针。
+```C++
+{
+    se::Object* obj = se::Object::createPlainObject();
+    obj->root(); // 在手动创建完对象后立马 root，防止对象被 GC
 
+    obj->setProperty(...);
+    otherObject->setProperty("foo", se::Value(obj));
+    
+    obj->unroot(); // 当对象被使用完后，调用 unroot
+    obj->decRef(); // 引用计数减一，避免内存泄露
+}
+```
+
+> **注意**：
+>
+> 1. 不要尝试使用 se::HandleObject 创建一个 native 与 JS 的绑定对象，在 JS 控制 CPP 的模式中，绑定对象的释放会被抽象层自动处理，在 CPP 控制 JS 的模式中，前一章节中已经有描述了。
+> 2. se::HandleObject 对象只能够在栈上被分配，而且栈上构造的时候必须传入一个 se::Object 指针。
 
 #### se::Class
 
@@ -319,15 +319,14 @@ se::Class 用于暴露 CPP 类到 JS 中，它会在 JS 中创建一个对应名
 * `Object* getProto()`: 获取注册到 JS 中的类（其实是 JS 的 constructor）的 prototype 对象，类似 function Foo(){}的 Foo.prototype
 * `const char* getName() const`: 获取当前 Class 的名称
 
-**注意：**
+> **注意**：Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。
 
-Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。
-
-更具体 API 说明可以翻看 API 文档或者代码注释
+更具体的 API 说明可以翻看 API 文档或者代码注释
 
 #### se::AutoHandleScope
 
 se::AutoHandleScope 对象类型完全是为了解决 V8 的兼容问题而引入的概念。
+
 V8 中，当有 CPP 函数中需要触发 JS 相关操作，比如调用 JS 函数，访问 JS 属性等任何调用 v8::Local<> 的操作，V8 强制要求在调用这些操作前必须存在一个 v8::HandleScope 作用域，否则会引发程序崩溃。
 
 因此抽象层中引入了 se::AutoHandleScope 的概念，其只在 V8 上有实现，其他 JS 引擎目前都只是空实现。
@@ -736,6 +735,7 @@ setCallback(nullptr)
 类型转换辅助函数位于`cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp`中，其包含：
 
 #### se::Value 转换为 C++ 类型
+
 ```
 bool seval_to_int32(const se::Value& v, int32_t* ret);
 bool seval_to_uint32(const se::Value& v, uint32_t* ret);
@@ -885,10 +885,10 @@ bool sptrackentry_to_seval(const spTrackEntry& v, se::Value* ret);
 bool b2Vec2_to_seval(const b2Vec2& v, se::Value* ret);
 bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
 bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
-
 ```
 
 辅助转换函数不属于`Script Engine Wrapper`抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。
+
 每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
 
 以上接口，直接根据接口名称即可知道具体的用法，接口中第一个参数为输入，第二个参数为输出参数。用法如下：
@@ -907,17 +907,16 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
-* `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval` 。
+* `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 se::Value 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 se::Value。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
 * `native_ptr_to_rooted_seval`用于`CPP 控制 JS 对象生命周期`的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 住的 se::Object，如果不存在，则创建一个 rooted 的 se::Object，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 se::Object 的 unroot 操作，具体可参照前面章节中描述的 spTrackEntry_setDisposeCallback 中的内容。
-
 
 ## 自动绑定
 
 ### 配置模块 ini 文件
 
-配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp` ，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 cocos2d::Ref 子类和非 cocos::Ref 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp` ，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
+配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 cocos2d::Ref 子类和非 cocos::Ref 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
-1.7 中另外加入的一个配置字段为 `persistent_classes` ， 用于表示哪些类是在游戏运行中一直存在的，比如：TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+1.7 中另外加入的一个配置字段为 `persistent_classes`， 用于表示哪些类是在游戏运行中一直存在的，比如：TextureCache SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
 
 其他字段与 1.6 一致。
 
@@ -1034,48 +1033,70 @@ classes_owned_by_cpp =
 * 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008)
 
 断点调试：
+
 ![](v8-win32-debug.jpg)
 
-抓取 JS Heap
+抓取 JS Heap：
+
 ![](v8-win32-memory.jpg)
 
-Profile
+Profile：
+
 ![](v8-win32-profile.jpg)
 
 #### Android
 
 * 保证 Android 设备与 PC 或者 Mac 在同一个局域网中
 * 编译，运行游戏
-* 用 Chrome 浏览器打开[chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008), 其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址
+* 用 Chrome 浏览器打开 [chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008](chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=xxx.xxx.xxx.xxx:5086/00010002-0003-4004-8005-000600070008)，其中 `xxx.xxx.xxx.xxx` 为局域网中 Android 设备的 IP 地址
 * 调试界面与 Windows 相同
-
 
 ### Safari 远程调试 JavaScriptCore
 
 #### macOS
 
 1. 打开 Mac 上的 Safari，偏好设置 -> 高级 -> 显示开发者选项
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。![](jsc-entitlements.png)，还需要确保 Build Setting 里面 Code Signing Entitlemenets 选项中包含 entitlements 文件。 ![](jsc-entitlements-check.png)
-3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES. ![](jsc-security-key.png)
-4. 签名 : General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书
+
+2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。
+
+    ![](jsc-entitlements.png)
+
+    还需要确保 Build Setting 里面 Code Signing Entitlements 选项中包含 entitlements 文件。
+
+    ![](jsc-entitlements-check.png)
+
+3. 打开 entitlements 文件，添加 `com.apple.security.get-task-allow`，值类型为 Boolean，值为 YES。
+
+    ![](jsc-security-key.png)
+
+4. 签名：General -> 选择你的 Mac 工程 -> Signing -> 选择你的开发者证书
+
 5. 编译、运行游戏
+
 6. 如果是直接在 Creator 的模拟器中运行，则可以跳过第 2，3，4，5 步骤
-7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。![](jsc-mac-debug.png) ![](jsc-breakpoint.png) ![](jsc-timeline.png)
 
-**注意**
+7. Safari 菜单中选择 Develop -> 你的 Mac 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。
 
-如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
+    ![](jsc-mac-debug.png)
 
-![](jsc-mac-simulator-sign.png)
+    ![](jsc-breakpoint.png)
 
-然后再调用 `gulp gen-simulator` 生成模拟器。
+    ![](jsc-timeline.png)
+
+> **注意**：
+>
+> 如果开发者有修改引擎源码或者自己合并了一些 Patch，需要重新编译模拟器，记得重新设置一下模拟器工程的证书。
+>
+> ![](jsc-mac-simulator-sign.png)
+>
+> 然后再调用 `gulp gen-simulator` 生成模拟器。
 
 #### iOS
 
 1. 先打开 iPhone 的设置 -> Safari -> 高级 -> Web 检查器
-2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。 （图示与 macOS 的第 2 步类似）
+2. 为 Xcode 工程添加 entitlements 文件，如果 entitlements 存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 App Sandbox，然后再关闭，这时 .entitlements 文件会自动被添加进工程。（图示与 macOS 的第 2 步类似）
 3. 打开 entitlements 文件，添加 com.apple.security.get-task-allow，值类型为 Boolean，值为 YES。（图示与 macOS 的第 3 步类似）
-4. 签名 : General -> 选择你的 iOS 工程 -> Signing -> 选择你的开发者证书
+4. 签名：General -> 选择你的 iOS 工程 -> Signing -> 选择你的开发者证书
 5. 编译、运行游戏
 6. Safari 菜单中选择 Develop -> 你的 iPhone 设备名称 -> Cocos2d-x JSB 会自动打开 Web Inspector 页面，然后即可进行设置断点、Timeline profile、console 等操作。（图示与 macOS 的第 6 步类似）
 
@@ -1104,12 +1125,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
 }
 ```
+
 ### se::Object::root/unroot 与 se::Object::incRef/decRef 的区别?
 
 root/unroot 用于控制 JS 对象是否受 GC 控制，root 表示不受 GC 控制，unroot 则相反，表示交由 GC 控制，对一个 se::Object 来说，root 和 unroot 可以被调用多次，se::Object 内部有_rootCount 变量用于表示 root 的次数。当 unroot 被调用，且_rootCount 为 0 时，se::Object 关联的 JS 对象将交由 GC 管理。还有一种情况，即如果 se::Object 的析构被触发了，如果_rootCount > 0，则强制把 JS 对象交由 GC 控制。
 
-incRef/decRef 用于控制 se::Object 这个 `cpp` 对象的生命周期，前面章节已经提及，建议用户使用 se::HandleObject 来控制`手动创建非绑定对象`的方式控制 se::Object 的生命周期。因此，一般情况下，开发者不需要接触到 incRef/decRef。
-
+incRef/decRef 用于控制 se::Object 这个 `cpp` 对象的生命周期，前面章节已经提及，建议用户使用 se::HandleObject 来控制 `手动创建非绑定对象` 的方式控制 se::Object 的生命周期。因此，一般情况下，开发者不需要接触到 incRef/decRef。
 
 ### 对象生命周期的关联与解除关联
 
@@ -1149,7 +1170,7 @@ SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
 ### 请不要在栈（Stack）上分配 cocos2d::Ref 的子类对象
 
-Ref 的子类必须在堆（Heap）上分配，即通过 `new` ，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release` ，其内部会调用 `delete` ，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 cocos2d::Ref 的绑定类中，标识析构函数为 `protected` 或者 `private` ，保证在编译阶段就能发现这个问题。
+Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 cocos2d::Ref 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
 
 例如：
 
@@ -1175,8 +1196,6 @@ dispatcher->dispatchEvent(event);
 event->release();
 ```
 
-
-
 ### 如何监听脚本错误
 
 在 AppDelegate.cpp 中通过 se::ScriptEngine::getInstance()->setExceptionCallback(...)设置 JS 层异常回调。
@@ -1199,9 +1218,4 @@ bool AppDelegate::applicationDidFinishLaunching()
     ...
     return true;
 }
-
 ```
-
-
-
-

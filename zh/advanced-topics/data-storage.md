@@ -1,10 +1,10 @@
 # 存储和读取用户数据
 
-我们在游戏中通常需要存储用户数据，如音乐开关、显示语言等，如果是单机游戏还需要存储玩家存档。 Cocos Creator 中我们使用 `cc.sys.localStorage` 接口来进行用户数据存储和读取的操作。
+我们在游戏中通常需要存储用户数据，如音乐开关、显示语言等，如果是单机游戏还需要存储玩家存档。Cocos Creator 中我们使用 `cc.sys.localStorage` 接口来进行用户数据存储和读取的操作。
 
 `cc.sys.localStorage` 接口是按照 [Web Storage API](http://devdocs.io/dom/storage) 来实现的，在 Web 平台运行时会直接调用 Web Storage API，在原生平台上会调用 sqlite 的方法来存储数据。一般用户不需要关心内部的实现。
 
-配合本篇文档可以参考 [数据存储范例](https://github.com/cocos-creator/tutorial-storage)。
+配合本篇文档可以参考 **数据存储范例**（[GitHub](https://github.com/cocos-creator/tutorial-storage) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-storage)）。
 
 ## 存储数据
 
@@ -44,7 +44,6 @@ var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 
 `cc.sys.localStorage.removeItem(key)`
 
-
 ## 数据加密
 
 对于单机游戏来说，对玩家存档进行加密可以延缓游戏被破解的时间。要加密存储数据，只要在将数据通过 `JSON.stringify` 转化为字符串后调用你选中的加密算法进行处理，再将加密结果传入 `setItem` 接口即可。
@@ -68,4 +67,4 @@ var cipherText = cc.sys.localStorage.getItem('userData');
 var userData=JSON.parse(encrypt.decrypt(cipherText,secretkey,256));
 ```
 
-**注意** 数据加密不能保证对用户档案的完全掌控，如果您需要确保游戏存档不被破解，请使用服务器进行数据存取。
+> **注意**：数据加密不能保证对用户档案的完全掌控，如果您需要确保游戏存档不被破解，请使用服务器进行数据存取。

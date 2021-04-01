@@ -2,7 +2,7 @@
 
 ![scene-panel](../index/scene.png)
 
-**Scene editor** is the core working area of content creation. You will use it to choose and place the scene image, character, special effet, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's attributes like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
+**Scene editor** is the core working area of content creation. You will use it to choose and place the scene image, character, special effect, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's attributes like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
 
 ## View Introduction
 
@@ -10,8 +10,8 @@
 
 You can move and locate the view in **scene editor** by the following operations:
 
-- <kbd>right click to drag</kbd>：horizontally remove the view.
-- <kbd>mouse wheel</kbd>：zoom in/out the view by taking the current mouse hovering position as the center.
+- <kbd>right click to drag</kbd>: horizontally remove the view.
+- <kbd>mouse wheel</kbd>: zoom in/out the view by taking the current mouse hovering position as the center.
 
 ### Coordinate system and grid
 
@@ -37,26 +37,25 @@ About the naming of nodes, please read the introduction in [Node Tree](node-tree
 
 ### The node constraint box
 
-You can see the constraint box(in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component(such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
+You can see the constraint box(in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component(such as **Sprite**), you can set `size` attribute for the node and the transparent region within the constraint box of node can be selected by clicking the mouse or hovered.
 
 ![bounding box](scene/boundingbox.png)
 
 Node's `size` attribute plays an important role in multiresolution adapt and layout strategy. For more information about usage of node size, please read [multiresolution adapt and elements aligning](../../../ui/multi-resolution.md).
 
-### Multiselect nodes
+### MultiSelect nodes
 
 Press the left mouse button and drag in **scene editor** and you can draw a blue marquee. Nodes overlap with the marquee will be selected all together when releasing the mouse. You can slide the mouse at your will to change the marquee area before releasing the mouse.
 
 After selecting multiple nodes, any transform operation will make effects on all the selected nodes.
 
-
 ## Use transform tool to arrange node
 
-The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrage the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar.
+The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrange the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar.
 
 ### Move transform tool
 
-**Move transform tool** is the tranform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar.
+**Move transform tool** is the transform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar.
 
 ![move button](scene/move_button.png)
 
@@ -72,7 +71,7 @@ When the move transform tool is activated:
 - Press green arrow and drag mouse, then the node will be moved on the y axis;
 - Press blue cube and drag mouse, then the node will be moved freely on both the axises.
 
-When the scene editor is activated, press keyboard shortcut <kbd>W</kbd> and you can switch to move tranform tool at any time.
+When the scene editor is activated, press keyboard shortcut <kbd>W</kbd> and you can switch to move transform tool at any time.
 
 ### Rotate transform tool
 
@@ -111,7 +110,3 @@ Drag any side on the gizmo so you can change the attributes of `width` and `heig
 ![rect](scene/rect_gizmo.png)
 
 In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
-
----
-
-Continue on to read about [Node Tree](node-tree.md).

@@ -8,7 +8,6 @@
 
 More details read [AnySDK Framework](anysdk/anysdk-framework.md).
 
+## Integrate AnySDK
 
-## Integrate AnySDK 
-
-More details read  [Integrate AnySDK](anysdk/integrate-anysdk.md) 一节。
+More details read [Integrate AnySDK](anysdk/integrate-anysdk.md).

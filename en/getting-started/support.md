@@ -1,19 +1,15 @@
 # Get Help and Support
 
-## Send problems and feedback
+## More tutorials
 
-Apart from the information provided in this guide, you can also obtain information from or send feedback to the Cocos Creator development group through the following channels at any time:
-
-- [Cocos2d-x](http://www.cocos2d-x.org/)
-- [Cocos Creator Forum](http://discuss.cocos2d-x.org/c/creator)
-<!-- - QQ group：738190852-->
+More engine dynamics, quality tutorials, and interviews can be viewed at [![twitter](support/twitter.png)](https://twitter.com/cocos2dx) or [![facebook](support/facebook.png)](https://www.facebook.com/cocos2dx/).
 
 ## Demo and example projects
 
-**Notice:** all demo projects on Github have different branches matching Cocos Creator version. Please use corresponding branch to prevent unmatching engine API. 
+> **Note**: all demo projects on GitHub have different branches matching Cocos Creator version. Please use corresponding branch to prevent mismatching engine API.
 
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
-- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game)，please read [Quick Start Tutorial](quick-start.md) to build it step by step!
+- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game), please read [Quick Start Tutorial](quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Duang Sheep](https://github.com/cocos-creator/tutorial-duang-sheep): A Flappy Bird clone featuring a sheep!
@@ -22,7 +18,7 @@ Apart from the information provided in this guide, you can also obtain informati
 - [Responsive UI Demo](https://github.com/cocos-creator/demo-responsive-ui): Responsive UI system that can fit any device screen size.
 - [Combat Animation Demo](https://github.com/cocos-creator/demo-combat-animation): Use flexible and powerful animation editor to create combat animation.
 - [Team Building UI Demo](https://github.com/cocos-creator/demo-team-build-ui): Showcase how to use prefab and json data to populate dynamic UI contents.
-- [Camera Demo](https://github.com/cocos-creator/demo-camera)：Contains examples of the usage of camera.
+- [Camera Demo](https://github.com/cocos-creator/demo-camera): Contains examples of the usage of camera.
 
 ## Native Development Library
 

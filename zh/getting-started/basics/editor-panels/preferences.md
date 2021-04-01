@@ -82,7 +82,7 @@
 
 ### JavaScript 引擎路径
 
-除了使用自带的 `engine`，您也可以前往 <https://github.com/cocos-creator/engine> 来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+除了使用自带的 `engine`，您也可以前往 [GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine) 来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 ### 使用内置 Cocos2d-x 引擎
 
@@ -90,7 +90,7 @@
 
 ### Cocos2d-x 路径
 
-取消上一项 **使用内置 Cocos2d-x 引擎** 的选择后，就可以手动指定 Cocos2d-x 路径了。注意这里使用的 Cocos2d-x 引擎必须从 <https://github.com/cocos-creator/engine-native> 或该仓库的 fork 下载。
+取消上一项 **使用内置 Cocos2d-x 引擎** 的选择后，就可以手动指定 Cocos2d-x 路径了。注意这里使用的 Cocos2d-x 引擎必须从 [GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native) 或该仓库的 fork 下载。
 
 ### NDK 路径
 

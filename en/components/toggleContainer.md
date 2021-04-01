@@ -9,7 +9,7 @@ Toggles that belong to the same group could only have one of them to be switched
 
 Click the `Add component` button at the bottom of the **Properties** panel and select `ToggleContainer` from `Add UI component`. You can then add the ToggleContainer component to the node.
 
-The API reference of ToggleContainer is here: [ToggleContainer API](../../../api/en/classes/ToggleContainer.html)。
+The API reference of ToggleContainer is here: [ToggleContainer API](../../../api/en/classes/ToggleContainer.html).
 
 ## ToggleContainer property
 
@@ -20,5 +20,3 @@ The API reference of ToggleContainer is here: [ToggleContainer API](../../../api
 ## Detailed explanation
 
 The ToggleContainer won't be used alone and it usually be used with `Toggle` to implement the RatioButton.
-
----

@@ -1,10 +1,8 @@
 # Preferences
 
-**Preferences** the panel provides a variety of personalized global editor settings,
-To Open **Preferences** Window, Please select the main menu `CocosCreator->Preferences`.
+**Preferences** the panel provides a variety of personalized global editor settings. To Open **Preferences** Window, Please select the main menu `CocosCreator->Preferences`.
 
-**Preferences** is composed of several different pages, all settings are divided into the following categories.
-Modify the Settings after click **Save and Close** button, settings will only take effect.
+**Preferences** is composed of several different pages, all settings are divided into the following categories. Modify the Settings after click **Save and Close** button, settings will only take effect.
 
 ## General
 
@@ -22,25 +20,20 @@ This will list all native IP, You can also choose **Auto** get an IP editor auto
 
 ### Displayed Build Console Log
 
-This item is selected, Build log will be displayed directly in the process of publishing original project **Console** panel.
-Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project,
+This item is selected, Build log will be displayed directly in the process of publishing original project **Console** panel. Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project,
 you can also use the **Console** Log button in the upper left corner of the panel **Cocos Console Log** option to open the document.
 
 ### Spin step
 
-In the **Properties**, all numeric property has a set of UP and DOWN arrows next to the input box,
-values that can be used to step Input:
+In the **Properties**, all numeric property has a set of UP and DOWN arrows next to the input box, values that can be used to step Input:
 
 ![step button](preferences/step-button.jpg)
 
 When hovering close to the value of the property name, The cursor will turn into ![mouse cursor](preferences/mouse-cursor.jpg) such a shape, then Drag the mouse, can also according to a continuous increase or decrease the value of step amplitude.
 
-The above two ways to modify the value，The default step size is `0.1`,
-**Spin step** says each time you click the step button or drag the mouse to change the step amplitude.
-For example, if you mainly use numbers to integers in the script, you can take the step size is set to `1`,
-can be adjusted more easily.
+The above two ways to modify the value. The default step size is `0.1`, **Spin step** says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to `1`, can be adjusted more easily.
 
-**Note**：After modifying the steps to refresh the Editor window (Ctrl/Cmd + R), set the Stride length will take effect
+> **Note**: after modifying the steps to refresh the Editor window (Ctrl/Cmd + R), set the Stride length will take effect
 
 ## Data Editor
 
@@ -55,21 +48,18 @@ a script file. Also available in the drop-down menu select **Internal**, or clic
 
 ### External Picture Editor
 
-Similar to the above option, used here to set when **Assets**,
-double-click the picture file, open the picture with the default application path.
+Similar to the above option, used here to set when **Assets**, double-click the picture file, open the picture with the default application path.
 
 ## Native Develop
 
 ![native develop](preferences/native-develop.png)
 
-This classification is used to set the build is released to the native platform ( iOS, Android, Mac, Windows ),
+This classification is used to set the build is released to the native platform (iOS, Android, Mac, Windows),
 the required development environment path.
 
 ### Use Builtin JavaScript Engine
 
-Whether to use Cocos Creator the built-in 'engine' path as JavaScript engine path.
-This engine is used for **Scene** to render the scene,
-declarations and other built-in components engine module in the Web environment.
+Whether to use Cocos Creator the built-in 'engine' path as JavaScript engine path. This engine is used for **Scene** to render the scene, declarations and other built-in components engine module in the Web environment.
 
 ### JavaScript Engine Path
 
@@ -105,20 +95,17 @@ When using **Play** button directly above the main window, you can set various o
 
 ### Should Auto-refresh Preview
 
-When browsers or simulator have when running your scene,
-After you save the scene or recompile the script is whether you should refresh the preview device.
+When browsers or simulator have when running your scene. After you save the scene or recompile the script is whether you should refresh the preview device.
 
 ### Preview Browser
 
-From the drop-down menu, select system default browser or click the **Browse** button to
-manually specify a path to the browser.
+From the drop-down menu, select system default browser or click the **Browse** button to manually specify a path to the browser.
 
 ### Simulator Path
 
 Starting with version v1.1.0, cocos simulator used in the Cocos Creator is placed on the cocos2d-x engine path.
-When using a customized version of the engine, you need to compile your own path simulator to the engine.
-Click **Open** button you can open the currently specified in the file system path of the simulator.
-Convenient debugging positioning.
+
+When using a customized version of the engine, you need to compile your own path simulator to the engine. Click **Open** button you can open the currently specified in the file system path of the simulator. Convenient debugging positioning.
 
 ### Simulator Device Orientation
 
@@ -130,6 +117,4 @@ Select a resolution from the default device as a simulator for resolution.
 
 ### Custom Resolution
 
-if the default resolution does not meet the requirements,
-you can manually enter the Height and Width of the screen to set the simulator resolution.
-
+If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.

@@ -2,7 +2,7 @@
 
 > The attribute is used to append metadata to a defined property, similar to the Decorator of the scripting language or the Attribute of C#.
 
-### Properties panel corresponding attributes
+## Properties panel corresponding attributes
 
 Parameter name  | Explanation | Type | Default | Remarks
 --- | --- |:---:|:---:|---
@@ -18,7 +18,7 @@ step | restrict the step value in **Properties** | number | undefined |
 range | one-time setup for min, max, step | [min, max, step] | undefined | step is optional
 slide | show a slider in the **Properties** | boolean | false |
 
-### Serialization associated attributes
+## Serialization associated attributes
 
 These attributes cannot be used for the get method.
 
@@ -28,7 +28,7 @@ serializable | serialize this property | boolean | true | See [serializable attr
 formerlySerializedAs | specify the name of the field used in formerly serialization | string | undefined | Use this attribute to rename a property without losing its serialized value.
 editorOnly | reject this property before exporting the project | boolean | false |
 
-### Other attributes
+## Other attributes
 
 Parameter name  | Explanation | Type | Default | Remark
 --- | --- |:---:|:---:|---
@@ -38,9 +38,4 @@ notify | trigger a specific method when assigning the property | `function (oldV
 override | when reloading the super class property, this parameter needs to be defined as true | boolean | false | See [override attribute](class.md#override)
 animatable | whether this property can be altered by animation | boolean | true |
 
-**Note 1:** The default value of `visible` is determined by the property name. When the property name starts with an underscore `_`, then the default is set to hide, otherwise it is by default set to show.
-
-
----
-
-Continue on to read about [Animation](../../animation/index.md) or back to [Scripting](../index.md).
+> **Note 1**: the default value of `visible` is determined by the property name. When the property name starts with an underscore `_`, then the default is set to hide, otherwise it is by default set to show.

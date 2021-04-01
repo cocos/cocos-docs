@@ -30,7 +30,7 @@
 ### MD5 Cache
 
 给构建后的所有资源文件名将加上 MD5 信息，解决热更新时的 CDN 资源缓存问题。
-启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
+启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url，转换后的路径就能正确加载。
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -100,11 +100,11 @@ Built to "/myProject/tutorial-blackjack/build/tutorial-blackjack" successfully
 
 点击发布路径旁边的 **打开** 按钮，就会在操作系统的文件管理器中打开构建发布路径。
 
-这个路径中的 `jsb-default` 或 `jsb-binary` （根据选择模板不同）里就包含了所有原生构建工程。
+这个路径中的 `jsb-default` 或 `jsb-binary`（根据选择模板不同）里就包含了所有原生构建工程。
 
 ![native projects](publish-native/native_projects.png)
 
-图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE （如 Xcode、Eclipse、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
+图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE（如 Xcode、Eclipse、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
 
 ---
 

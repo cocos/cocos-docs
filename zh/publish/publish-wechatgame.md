@@ -34,8 +34,9 @@
 
 我们从 Cocos Creator v1.8 开始，支持 Cocos Creator 游戏一键发布为微信小游戏，下面是详细的发布步骤：
 
-1. 在[微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)下载微信开发者工具
-2. 在 "Creator 偏好设置" > "原生开发环境" 中设置微信开发者工具路径
+1. 在 [微信公众平台](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具
+
+2. 在编辑器主菜单栏 **偏好设置 -> 原生开发环境** 中设置微信开发者工具路径
 
     ![](./publish-wechatgame/preference.jpeg)
 3. 登陆微信公众平台，找到 appid
@@ -50,7 +51,7 @@
     ![](./publish-wechatgame/tool.jpeg)
 7. 预览部署
 
-按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：game.json 和 project.config.json
+按照这样的流程，项目的 build 目录下就会生成一个微信小游戏的发布包，其中已经包含了微信小游戏环境的配置文件：`game.json` 和 `project.config.json`
 
 ![](./publish-wechatgame/package.jpeg)
 
@@ -103,12 +104,12 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到子域。详情请参考 [�
 
 ## 参考
 
-- [微信小游戏开发文档](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
+- [微信小游戏开发文档](https://developers.weixin.qq.com/minigame/dev/guide/)
 - [微信公众平台](https://mp.weixin.qq.com/)
-- [小程序 API 文档](https://mp.weixin.qq.com/debug/wxadoc/dev/api/)
-- [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
-- [微信开发者工具文档](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html)
+- [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
+- [微信开发者工具下载](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+- [微信开发者工具文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
 
 ## 常见问题
 
-小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总： https://forum.cocos.org/t/faq/54828
+小游戏开发过程中的常见问题，我们将在这个帖子中解答和汇总：<https://forum.cocos.org/t/faq/54828>
