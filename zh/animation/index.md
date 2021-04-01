@@ -15,7 +15,3 @@
 - [编辑时间曲线](time-curve.md)
 - [添加动画事件](animation-event.md)
 - [使用脚本控制动画](scripting-animation.md)
-
-<hr>
-
-从[关于 Animation](animation.md)开始了解。

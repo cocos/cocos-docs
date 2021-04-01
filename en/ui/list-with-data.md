@@ -2,7 +2,6 @@
 
 We can build and edit static UI interfaces with **Scene** panel easily, but in real world game project it's not enough. We'll need dynamically generated UI elements with data, such as character selection, inventory and level selection.
 
-
 ## Prepare data
 
 Let's take an inventory interface as example, we need following data structure to generate an item dynamically:
@@ -14,7 +13,6 @@ Let's take an inventory interface as example, we need following data structure t
 - ...
 
 We will introduce how to define a data class and generate those data in **Properties** panel. If you're not familiar with Cocos Creator's component system, please start with [Workflow of script development](../scripting/index.md) chapter.
-
 
 ### Custom data class
 
@@ -51,7 +49,6 @@ Now let's create an empty node and add `ItemList` component. We can find `Items`
 ![item list](list-with-data/itemlist.png)
 
 We have our data ready for now, you can also type in more data entries as you wish. If you're making a game with lots of data, please consider using more specialized data source like Excel and database. It's easy to convert such data sources to JSON for the engine.
-
 
 ## Make the view for data: Prefab as template
 
@@ -142,13 +139,8 @@ We have completed all the work. Now `itemList` node should look like this:
 
 ## Preview
 
-Running preview of the scene will get the result like this (the acutal look depends on how your template was setup and your data):
+Running preview of the scene will get the result like this (the actual look depends on how your template was setup and your data):
 
 ![result](list-with-data/result.png)
 
 The **Layout** component added in previous step is not necessary. We can use it to help putting multiple items in a container in order but you can also use your own logic to do that. You can also add a **ScrollView** setup to display large amount of content in a limited space. For details of those layout method please read [Auto Layout Container](auto-layout.md) and [ScrollView Component](ui-components.md#scrollview).
-
-
-<hr>
-
-Continue on to read about [Animation](../animation/index.md).

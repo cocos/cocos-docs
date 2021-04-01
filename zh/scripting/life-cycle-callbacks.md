@@ -93,8 +93,3 @@ cc.Class({
 ## onDestroy
 
 当组件或者所在节点调用了 `destroy()`，则会调用 `onDestroy` 回调，并在当帧结束时统一回收组件。
-
-
----
-
-继续前往 [创建和销毁节点](create-destroy.md)。

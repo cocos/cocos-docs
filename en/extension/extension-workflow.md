@@ -51,7 +51,7 @@ To open a panel, we can write:
 
 Here `myPackage` is the panel ID, in single panel extension, this ID is same as package name. User can define it by add `panel` field in `package.json`. We will introduce it in the next session [Extend Panel](extends-panel.md).
 
-After panel opened, we can send or recieve IPC via  `Editor.Ipc.sendToPanel`, `Editor.Ipc.sendToMain`.
+After panel opened, we can send or receive IPC via  `Editor.Ipc.sendToPanel`, `Editor.Ipc.sendToMain`.
 
 ## Resources and components extensions
 

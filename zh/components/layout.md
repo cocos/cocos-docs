@@ -4,29 +4,26 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 - 水平布局容器
 
-![horizontal-layout.png](./layout/horizontal-layout.png)
+  ![horizontal-layout.png](./layout/horizontal-layout.png)
 
 - 垂直布局容器
 
-![vertical-layout.png](./layout/vertical-layout.png)
-
+  ![vertical-layout.png](./layout/vertical-layout.png)
 
 - 网格布局容器
 
-![grid-layout.png](./layout/grid-layout.png)
+  ![grid-layout.png](./layout/grid-layout.png)
 
+点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加 UI 组件` 中选择 `Layout`，即可添加 Layout 组件到节点上。
 
-
-点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`Layout`，即可添加 Layout 组件到节点上。
-
-布局的脚本接口请参考[Layout API](../../../api/zh/classes/Layout.html)。
+布局的脚本接口请参考 [Layout API](../../../api/zh/classes/Layout.html)。
 
 ## Layout 属性
 
 | 属性                 | 功能说明                                                                                                                                           |
 | --------------       | -----------                                                                                                                                        |
-| Type                 | 布局类型，支持 NONE, HORIZONTAL，VERTICAL 和 GRID。                                                                                                |
-| ResizeMode           | 缩放模式，支持 NONE，CHIDREN 和 CONTAINER。                                                                                                        |
+| Type                 | 布局类型，支持 NONE、HORIZONTAL、VERTICAL 和 GRID。                                                                                                |
+| ResizeMode           | 缩放模式，支持 NONE、CHIDREN 和 CONTAINER。                                                                                                        |
 | PaddingLeft          | 排版时，子物体相对于容器左边框的距离。                                                                                                            |
 | PaddingRight         | 排版时，子物体相对于容器右边框的距离。                                                                                                            |
 | PaddingTop           | 排版时，子物体相对于容器上边框的距离。                                                                                                            |
@@ -42,7 +39,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 添加 Layout 组件之后，默认的布局类型是 NONE，它表示容器不会修改子物体的大小和位置，当用户手动摆放子物体时，容器会以能够容纳所有子物体的最小矩形区域作为自身的大小。
 
-通过修改 **属性检查器** 里面的`Type`可以切换布局容器的类型，可以切换成水平，垂直或者网格布局。
+通过修改 **属性检查器** 里面的 `Type` 可以切换布局容器的类型，可以切换成水平，垂直或者网格布局。
 
 另外，所有的容器均支持 ResizeMode（NONE 容器只支持 NONE 和 CONTAINER）。
 
@@ -52,6 +49,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 - 设置为 CONTAINER 则容器的大小会随着子物体的大小变化。
 
-注意：
- 1. Layout 不会考虑子节点的缩放和旋转。
- 2. Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 'updateLayout' API。
+> **注意**：
+>
+> 1. Layout 不会考虑子节点的缩放和旋转。
+> 2. Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。

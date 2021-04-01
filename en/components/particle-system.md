@@ -23,7 +23,7 @@ var particleSystem = node.adComponent(cc.ParticleSystem);
 // Next you can particleSystem this object for a series of operations
 ```
 
-Please refer to the script interface of the Particle System [Particle System API](../../../api/en/classes/ParticleSystem.html)。
+Please refer to the script interface of the Particle System [Particle System API](../../../api/en/classes/ParticleSystem.html).
 
 ## Particle System attribute
 
@@ -58,13 +58,13 @@ Please refer to the script interface of the Particle System [Particle System API
 | PosVar             | Variation of source position.
 | PositionType       | Particles movement type. [PositionType API](../../../api/en/enums/ParticleSystem.PositionType.html)
 | EmitterMode        | Particles emitter modes. [EmitterMode API](../../../api/en/enums/ParticleSystem.EmitterMode.html)
-| Gravity            | Gravity of the emitter. 
-| Speed              | Speed of the emitter. 
-| SpeedVar           | Variation of the speed. 
+| Gravity            | Gravity of the emitter.
+| Speed              | Speed of the emitter.
+| SpeedVar           | Variation of the speed.
 | TangentialAccel    | Tangential acceleration of each particle. Only available in 'Gravity' mode.
-| TangentialAccelVar | Variation of the tangential acceleration. 
+| TangentialAccelVar | Variation of the tangential acceleration.
 | RadialAccel        | Acceleration of each particle. Only available in 'Gravity' mode.
-| RadialAccelVar     | Variation of the radial acceleration. 
+| RadialAccelVar     | Variation of the radial acceleration.
 | RotationIsDir      | Indicate whether the rotation of each particle equals to its direction. Only available in 'Gravity' mode.
 | StartRadius        | Starting radius of the particles. Only available in 'Radius' mode.
 | StartRadiusVar     | Variation of the starting radius.
@@ -72,7 +72,7 @@ Please refer to the script interface of the Particle System [Particle System API
 | EndRadiusVar       | Variation of the ending radius.
 | RotatePerS         | Number of degress to rotate a particle around the source pos per second. Only available in 'Radius' mode.
 | RotatePerSVar      | Variation of the degress to rotate a particle around the source pos per second.
-| SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)   
+| SrcBlendFactor     | Specify the source Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)
 | DstBlendFactor     | Specify the destination Blend Factor. [BlendFactor API](../../../api/en/enums/BlendFactor.html)  
 
 ## Note

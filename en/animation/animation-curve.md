@@ -1,21 +1,16 @@
 # Editing an Animation curve
 
-Now, that you have mounted Animation clips to the Node, you can create Animation
-curves in your Animation clips.
+Now, that you have mounted Animation clips to the Node, you can create Animation curves in your Animation clips.
 
-First, you need to understand Animation properties. These include the existing properties of the Node, such as, position rotation, etc. and the user-defined properties of the component.
-Properties that are included in a component will add the name of the component to the beginning of their own name, such as: `cc.Sprite.spriteFrame`.
+First, you need to understand Animation properties. These include the existing properties of the Node, such as, position rotation, etc. and the user-defined properties of the component. Properties that are included in a component will add the name of the component to the beginning of their own name, such as: `cc.Sprite.spriteFrame`.
 
 ![Animation Curve](animation-curve/main.jpg)
 
-For example, in the image above, the position curve is the property path and the
-corresponding blue dots are keyframes.
+For example, in the image above, the position curve is the property path and the corresponding blue dots are keyframes.
 
 ## Adding a new property path
 
-The normal method for adding a new property path involves first choosing the Node
-and then clicking `+` in the property field. In the pop up menu, all
-of the addable properties will be listed. Choose the property that you want to add and a corresponding path will be added.
+The normal method for adding a new property path involves first choosing the Node and then clicking `+` in the property field. In the pop up menu, all of the addable properties will be listed. Choose the property that you want to add and a corresponding path will be added.
 
 ## Delete a property path
 
@@ -29,8 +24,7 @@ Click the ![](animation-curve/more.png) button to the right side of the correspo
 
 ![add](animation-curve/add.png)
 
-Or modify the corresponding properties path of the Node in the edit mode.
-It is important to note that if the changed property path does not exist, the operation will be ignored, so if you want to change the key frame automatically, you will need to create the property path in advance.
+Or modify the corresponding properties path of the Node in the edit mode. It is important to note that if the changed property path does not exist, the operation will be ignored, so if you want to change the key frame automatically, you will need to create the property path in advance.
 
 ## Choose an keyframe
 
@@ -41,8 +35,8 @@ Click the created sequence frame and it will be displayed in the selected state.
 ## Move an keyframe
 
 If you move the mouse over any selected keyframe, press the left mouse button, the mouse will transform into left and right arrows, this time you can drag all the selected keyframes.
-If you move the mouse to any randomly chosen Node, the mouse will display left and right arrows.
-You can drag all the chosen Nodes while holding down the left mouse button.
+
+If you move the mouse to any randomly chosen Node, the mouse will display left and right arrows. You can drag all the chosen Nodes while holding down the left mouse button.
 
 ## Modify an keyframe
 
@@ -58,8 +52,8 @@ After selecting the keyframe, click the ![](animation-curve/more.png) button of 
 
 > Support only v1.9.2 and above
 
-After we select the node, we can press <kbd>ctrl + c</kbd>（Windows）or <kbd>command + c</kbd> (Mac) on the keyboard to copy the selected frame.
-Then press <kbd>ctrl + v</kbd>（Windows）or <kbd>command + v</kbd> (Mac) in the new area to paste the newly copied frame to the specified position.
+After we select the node, we can press <kbd>ctrl + c</kbd> (Windows) or <kbd>command + c</kbd> (Mac) on the keyboard to copy the selected frame.
+Then press <kbd>ctrl + v</kbd> (Windows) or <kbd>command + v</kbd> (Mac) in the new area to paste the newly copied frame to the specified position.
 
 According to the number of selected nodes, there are two ways to index:
 

@@ -1,4 +1,4 @@
-# Quick Start：Make your first game
+# Quick Start: Make your first game
 
 This document is a systematic introductions of the editor panel and the functions and workflows of Cocos Creator. Completing this chapter will help you quickly learn the general flow and methods for developing games with Cocos Creator. After finishing this tutorial you have enough information to get started creating basic games. It is strongly recommended you continue reading this guide to understand the details of each functional block and the complete workflows. Now, let's begin!
 
@@ -6,7 +6,7 @@ Following the tutorial, we will create a deceiving game that is named **Pick Up 
 
 The completed form of this game can be played here:
 
-http://fbdemos.leanapp.cn/star-catcher/
+<http://fbdemos.leanapp.cn/star-catcher/>
 
 ## Prepare project and resources
 
@@ -17,7 +17,6 @@ We have prepared for you all the resources needed for creating this game. Downlo
 You can also download the completed project. If there is any confusion when following the tutorial to create the game, you can open the completed project for reference:
 
 [Download the completed project](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.2/complete_project.zip)
-
 
 ## Open the original project
 
@@ -47,7 +46,6 @@ Every resource is a document, which, after being imported into the project, will
 - ![bmfont](quick-start/bitmap-font.png) bitmap font, which is jointly formed by a fnt document and png document. Bitmap font is a commonly used font resource in game development. For detailed information, please read [Font](../asset-workflow/font.md)
 - There are various kinds of abbreviated icons, all of which are image resources, normally a png or jpg document. After being imported into the project, the image document will be crudely processed into the resource of **texture** type. Then these resources can be dragged into scenes or component properties for use.
 
-
 ## Creating a game scene
 
 In Cocos Creator, the game scene is the core of organizing the game contents when developing games, which is also the carrier for all the game contents presented to players. The game scene will normally include the following contents:
@@ -59,9 +57,13 @@ In Cocos Creator, the game scene is the core of organizing the game contents whe
 When players run the game, the game scene will be loaded. After that, the game scripts of included components will automatically run to realize various kinds of logic functions set up by developers. Therefore, apart from resources, the game scene is the foundation of all content creation. Now let's create a new scene.
 
 1. Click the **assets** directory in the **Assets** panel, making sure the scene will be created under this directory
+
 2. Click the plus sign on the top left corner of the **Assets** panel, and choose **Scene** in the pop up menu
-![create scene](quick-start/create_scene.png)
+
+    ![create scene](quick-start/create_scene.png)
+
 3. We created a scene document named as `New Scene`. Right click it and choose **Rename** to rename it as `game`.
+
 4. Double click `game` and the scene will be opened in the **scene editor** and the **Node Tree**.
 
 ### To understand Canvas
@@ -76,7 +78,6 @@ Being provided with the function of adjusting to different resolutions, we will 
 
 For more detailed information, please read [Canvas](../components/canvas.md). Currently, we only need to know that the scene images added next will all be put under the **Canvas** node.
 
-
 ## Setting up a scene image
 
 ### Adding a background
@@ -87,7 +88,7 @@ First, find the background image resource according to the path of `assets/textu
 
 Now you can release the mouse button, and you will see a node named `background` has been added under **Canvas**. When we use the way of dragging a resource to add a node, the node will be automatically named as the name of the image resource.
 
-When we edit and modify the scene, we can promptly save our modifications by main menu `document->save scene`. Or we can save by shortcut keys: <kbd>Ctrl+S</kbd>（Windows）or <kbd>Cmd + S</kbd>（Mac）.
+When we edit and modify the scene, we can promptly save our modifications by main menu `document->save scene`. Or we can save by shortcut keys: <kbd>Ctrl+S</kbd> (Windows) or <kbd>Cmd + S</kbd> (Mac).
 
 ### Modify background size
 
@@ -119,7 +120,11 @@ According to the method of modifying the background, we can also use **rectangle
 
 ![ground finish](quick-start/ground_finish.png)
 
-Apart from **rectangle tool**, we can also use **move tool** ![translate gizmo](quick-start/translate_gizmo.png) to change the positions of the nodes. Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
+Apart from **rectangle tool**, we can also use **move tool** to change the positions of the nodes.
+
+![translate gizmo](quick-start/translate_gizmo.png)
+
+Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
 
 When setting up the position and size of the background and ground, we don't need precise numeric values and can drag them by guessing. If you prefer whole numbers, you can directly input numeric values of `position` and `size` according to the screenshot.
 
@@ -137,7 +142,6 @@ Next, drag `Player` from **scene editor** and put it on the ground. The effect i
 
 In this way our scene's basic artistic content is set up. In the next section we will write code to vivify the contents of the game.
 
-
 ## Writing the main character's script
 
 One of the core ideas of developing games by Cocos Creator is to let the content creation and function development undergo parallel cooperation smoothly. In the last section we focused on artistic content. Next we will write script to develop the flow of functions, and we will see that the finished program script can be used by content creators easily.
@@ -146,16 +150,21 @@ Even if you have never written a program before, there's no need to worry. We wi
 
 ### Create script
 
-1. First, right click the `assets` folder in the **Assets** panel and choose `Create->folder` ![new folder](quick-start/new_folder.png)
+1. First, right click the `assets` folder in the **Assets** panel and choose `Create->folder`
+
+    ![new folder](quick-start/new_folder.png)
+
 2. Right click `New Folder`, choose `Rename` and rename it as `scripts`, under which all our scripts will be saved.
+
 3. Right click the `scripts` folder, choose `Create->JavaScript` and create a JavaScript script
+
 4. Rename the newly created script as `Player`. Double click this script and open the code editor.
 
 ### Writing component property
 
 The opened script already has some preset code blocks. These codes are the structure needed for writing a component script. Scripts of such a structure are the components in Cocos creator, which can be mounted on the nodes in the scene and provide various functions that manipulate nodes. First, we will set up some properties and see how to adjust them in the scene.
 
-Find the portion of `properties` in the `Player` script in **code editor**, change it to the following content and press <kbd>Ctrl + S</kbd>（Windows）or <kbd>Cmd + S</kbd>（Mac）to save it:
+Find the portion of `properties` in the `Player` script in **code editor**, change it to the following content and press <kbd>Ctrl + S</kbd> (Windows) or <kbd>Cmd + S</kbd> (Mac) to save it:
 
 ```js
 // Player.js
@@ -311,7 +320,7 @@ Finally, modify the content of the `update` method by adding settings for the ac
 
 `update` will be invoked once for each frame after loading the scene. We normally put the logic contents that need to be frequently calculated or timely updated here. In our game, after obtaining the acceleration direction by keyboard input, we need to calculate the speed and position of the main character in `update` for each frame.
 
-After saving the script, you can brew a cup of tea and click **preview** to check the latest outcome. After opening the preview in your browser, click the game scene with the mouse (due to the restrictions of browsers, keyboard input can only be accepted after clicking the game scene) , then you can press the <kbd>A</kbd> and <kbd>D</kbd> buttons to manipulate the main character to move to the left/right!
+After saving the script, you can brew a cup of tea and click **preview** to check the latest outcome. After opening the preview in your browser, click the game scene with the mouse (due to the restrictions of browsers, keyboard input can only be accepted after clicking the game scene), then you can press the <kbd>A</kbd> and <kbd>D</kbd> buttons to manipulate the main character to move to the left/right!
 
 Is the movement a little bit too slow? Does the main character not jump high enough? Hope to extend jump duration? No problem! All these can be adjusted at anytime. Just set up different property values for the `Player` component, then you can adjust the game at your will. Here is a set of settings for reference:
 
@@ -499,7 +508,7 @@ Save the script, then preview and test again. You will see that when the main ch
 
 The little monster makes a great effort to collect the stars. But how come it receives no reward? Now, let's add the logic and display of scoring when collecting stars.
 
-### Adding a score label（Label）
+### Adding a score label (Label)
 
 The score will start from 0 when the game is started. 1 point will be added for 1 star collected. To display the score, we should first create a **Label** node. Choose the `Canvas` node in the **Node Tree**, right click and choose `Create -> Create Renderer Nodes -> Node With Label`. A new Label node will be created under `Canvas`, and it will be located at the bottom. Next we will use the following steps to set up this Label node:
 
@@ -508,7 +517,7 @@ The score will start from 0 when the game is started. 1 point will be added for 
 <!-- 0. Set the X,Y of the `size` property to `(300, 80)`. -->
 3. Edit the `String` property of the **Label** component and input `Score: 0`.
 4. Set the `Font Size` property of the **Label** component to `50`.
-5. Drag the `assets/mikado_outline_shadow` bitmap font resource from the **Assets** panel（pay attention! the icon is ![bmfont](quick-start/bitmap-font.png)）into the `Font` property of the **Label** component, to change the font used to render the score.
+5. Drag the `assets/mikado_outline_shadow` bitmap font resource from the **Assets** panel (pay attention! the icon is ![bmfont](quick-start/bitmap-font.png)) into the `Font` property of the **Label** component, to change the font used to render the score.
 
 The completed effect is as illustrated below (don't worry about the `Size`):
 
@@ -751,9 +760,3 @@ For editions that have been improved in all the above aspects, you can download 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
 Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on Github](https://github.com/cocos-creator/tutorial-first-game).
-
----
-
-According to your experience of using the engine, you can continue to read:
-
-- [Cocos2d-x User Guide](cocos2d-x-guide.md)

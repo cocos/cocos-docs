@@ -6,7 +6,6 @@
 
 Click to choose node, and the selected node will be highlighted in blue. Current selected node will show with blue frame in **scene editor** and update contents in **Properties** panel.
 
-
 ## Create node
 
 There are two ways to create node in Hierarchy:
@@ -16,11 +15,11 @@ There are two ways to create node in Hierarchy:
 
 ## Delete node
 
-After select node, you can delete the selected node by the `delete` option in the right click menu or press the hot key <kbd>Delete</kbd>（Windows）or <kbd>Cmd + Backspace</kbd>. If the selected node contains child node, then the child node will be deleted along with it.
+After select node, you can delete the selected node by the `delete` option in the right click menu or press the hot key <kbd>Delete</kbd> (Windows) or <kbd>Cmd + Backspace</kbd>. If the selected node contains child node, then the child node will be deleted along with it.
 
 ## Create and edit node parenting relationship
 
-Dragging node A to node B makes node A the child node of node B. Similar with [explorer](assets.md), Hierarchy also show nodes' hierarchical relationship in tree view. Click the triangle icon on the left of node and you can unfold or fold the child node list.
+Dragging node A to node B makes node A the child node of node B. Similar with [Assets](assets.md) panel, **Node Tree** panel also show node's hierarchical relationship in tree view. Click the triangle icon on the left of node and you can unfold or fold the child node list.
 
 ## Change node's rendering order
 
@@ -34,11 +33,7 @@ The order of nodes in the list determines the rendering order of node in the sce
 
 Right click the node, the popup menu also includes the following operation:
 
-- **Copy/paste**：copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
-- **Copy node**：generate node replication exactly the same with the selected node and they are at the same level.
-- **Rename**：rename the node
-- **Show UUID and path of node**：In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the path of the currently selected node and its UUID in the **Console**.
-
----
-
-Continue on to read about [Properties](properties.md) panel.
+- **Copy/paste**: Copy the node to the clipboard and then paste it to other places or open another scene to paste the node just copied.
+- **Copy node**: Generate node replication exactly the same with the selected node and they are at the same level.
+- **Rename**: Rename the node
+- **Show UUID and path of node**: In complicated scenes, we sometimes need to get the complete path in the node tree to access it when running the script. Click this option so you can see the path of the currently selected node and its UUID in the **Console**.

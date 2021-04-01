@@ -75,11 +75,11 @@ Besides the **Anchor** we introduced above, the node also includes four other ma
 
 The default value of the position property is `(0, 0)` which means that the newly added node will always show up at the parent node's coordinate origin position. The default position of nodes in Cocos Creator is `(0, 0)` and the default anchor is set as `(0.5, 0.5)`. Nodes under this setting will be located at the center position of the parent node by default so that all the contents can be taken in when making UI or combining a player's character.
 
-In the scene editor, you can always use [move transform tools](../getting-started/basics/editor-panels/scene.md#--9) to change a node`s position.
+In the scene editor, you can always use [move transform tools](../getting-started/basics/editor-panels/scene.md#--9) to change a node's position.
 
 ### Rotation
 
-**Rotation** is another important property that will have an effect on a node`s local coordinates. The rotate property only has one value to indicate the current rotation angle of the node. When the angle value is positive, the node rotates clockwise; when the angle value is negative, the node rotates counter clockwise.
+**Rotation** is another important property that will have an effect on a node's local coordinates. The rotate property only has one value to indicate the current rotation angle of the node. When the angle value is positive, the node rotates clockwise; when the angle value is negative, the node rotates counter clockwise.
 
 ![rotation](transform/rotation.png)
 
@@ -95,7 +95,7 @@ The **Scale** property is a set of multiplication factors which are composed of 
 
 The scale property of `NodeA` in the above image is set as `(0.5, 1.0)`. This means the node is reduced by factor of 0.5 on the x axis and remains the same on the y axis. You can see the image of its child node `NodeC` is also reduced on the x axis, so the scale property will influence all the child nodes.
 
-The scale property set on the child node will have additive effects on the parent node. The child node of a child node will multiply all the scale properties on each hierarchy to get the scale percentage used in the world coordinate system. This is the same case with the position and rotation properties, it`s just that that position and rotation properties have additive effects, while the scale property makes the effects more obvious by multiplication.
+The scale property set on the child node will have additive effects on the parent node. The child node of a child node will multiply all the scale properties on each hierarchy to get the scale percentage used in the world coordinate system. This is the same case with the position and rotation properties, it's just that that position and rotation properties have additive effects, while the scale property makes the effects more obvious by multiplication.
 
 The scale property acts on the effects of the properties of position and size among others. When you change the scale property, the node's position and size won't change, but it will multiply the position, size and other properties by a scale before showing the node image; the values from the multiplication are the actual position and size of the node that will appear.
 

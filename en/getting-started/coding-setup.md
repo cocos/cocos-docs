@@ -4,7 +4,7 @@ In quick start tutorial we showed double clicking script file to edit them in bu
 
 ## Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) （refer to as VS Code）is a cross-platform light weight development environment. It has great support for JavaScript editing and debugging. We have created extensions for VS Code so we have API auto-complete and native debugging support.
+[Visual Studio Code](https://code.visualstudio.com/) (refer to as VS Code) is a cross-platform light weight development environment. It has great support for JavaScript editing and debugging. We have created extensions for VS Code so we have API auto-complete and native debugging support.
 
 ### Install VS Code
 
@@ -75,7 +75,7 @@ VS Code has excellent debug capability, we can debug the Web version of the game
 
 First we need to install:
 
-- [Chrome (Google Chrome)] (https://www.google.com/chrome/)
+- [Chrome (Google Chrome)](https://www.google.com/chrome/)
 - VS Code extension: Debugger for Chrome
 
 To install the VS Code extension, click on the 'Extensions' button in the left navigation bar of the VS Code to open the Extensions panel and enter `Debugger for Chrome` in the search box and click `Install` to continue. After installation, you may need to restart VS Code to take effect.

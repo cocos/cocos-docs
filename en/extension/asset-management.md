@@ -4,7 +4,7 @@
 
 ### Save the current scene
 
-In the previous section [Calling Engine APIs and Project Scripts] (scene-script.md), we introduced the method of accessing the engine API and the user project script through the scenario script. After modifying the scene data, you can use the following interface to save the current scene The
+In the previous section [Calling Engine APIs and Project Scripts](scene-script.md), we introduced the method of accessing the engine API and the user project script through the scenario script. After modifying the scene data, you can use the following interface to save the current scene The
 
 `_Scene.save ()`
 
@@ -22,12 +22,11 @@ _Scene.loadSceneByUuid (uuid, function (error) {
 
 The incoming parameter is the uuid of the scene asset, which can be obtained by the asset manager interface described below.
 
-
 ## Mapping of asset URL and UUID
 
 In the Cocos Creator editor and extension, the url of the asset is shaped
 
-`Db: // assets / path / to / scene.fire`
+`Db://assets/path/to/scene.fire`
 
 Such a form. Where `db` is an abbreviation for AssetDB. All assets under the `asset` path in the project are imported into Asset Library and can be referenced by uuid.
 
@@ -36,7 +35,7 @@ In the main process of the expansion package between the url and uuid can be tra
 - `Editor.assetdb.urlToUuid (url)`
 - `Editor.assetdb.uuidToUrl (uuid)`
 
-In addition, if you want to use the absolute path of the asset directly in the local file system, you can also use the `fspathToUuid` and` uuidToFspath` interfaces, where `fspath` represents the absolute path.
+In addition, if you want to use the absolute path of the asset directly in the local file system, you can also use the `fspathToUuid` and `uuidToFspath` interfaces, where `fspath` represents the absolute path.
 
 ## Manage assets
 
@@ -46,7 +45,7 @@ To import new assets into a project, you can use the following interfaces
 
 ```js
 // main process
-Editor.assetdb.import (['/ user / user / foo.js', '/User/user/bar.js'], 'db: // assets / foobar', function (err, results) {
+Editor.assetdb.import (['/user/user/foo.js', '/User/user/bar.js'], 'db://assets/foobar', function (err, results) {
     Results.forEach (function (result) {
     // result.uuid
     // result.parentUuid
@@ -62,16 +61,16 @@ Editor.assetdb.import ([
     '/file/to/import/01.png',
     '/file/to/import/02.png',
     '/file/to/import/03.png',
-], 'Db: // assets / foobar', callback);
+], 'Db://assets/foobar', callback);
 ```
 
 ### Create an asset
 
-A common misuse of using extended package management assets is to use the [fs module] of the Node.js (https://nodejs.org/dist/latest-v6.x/docs/api) when the extension package needs to create new assets /fs.html), so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
+A common misuse of using extended package management assets is to use the [fs module] of the Node.js <https://nodejs.org/dist/latest-v6.x/docs/api> when the extension package needs to create new assets /fs.html), so that even if the creation of the file to the `assets` directory, it can not be automatically imported by the Explorer. The correct workflow should use the `create` interface to create the asset.
 
 ```js
 // main process or renderer process
-Editor.assetdb.create ('db: //assets/foo/bar.js', data, function (err, results) {
+Editor.assetdb.create ('db://assets/foo/bar.js', data, function (err, results) {
     Results.forEach (function (result) {
     // result.uuid
     // result.parentUuid
@@ -90,7 +89,7 @@ To replace the original asset using the new data, you can use the following inte
 
 ```js
 // main process or renderer process
-Editor.assetdb.saveExists ('db: //assets/foo/bar.js', data, function (err, meta) {
+Editor.assetdb.saveExists ('db://assets/foo/bar.js', data, function (err, meta) {
     // do something
 });
 ```
@@ -106,16 +105,16 @@ In the rendering process, if given a target url, if the url points to the assets
 
 ```js
 // renderer process
-Editor.assetdb.createOrSave ('db: //assets/foo/bar/foobar.js', data, callback);
+Editor.assetdb.createOrSave ('db://assets/foo/bar/foobar.js', data, callback);
 ```
 
 ### Refresh the asset
 
-When the asset file has been modified in the `asset` and there is no reintroduction for some reason, the asset data in the` asset` and the asset data displayed in the database are inconsistent (if the `fs` module Direct operation of the contents of the file will appear), you can manually call the asset refresh interface to re-import assets
+When the asset file has been modified in the `asset` and there is no reintroduction for some reason, the asset data in the `asset` and the asset data displayed in the database are inconsistent (if the `fs` module Direct operation of the contents of the file will appear), you can manually call the asset refresh interface to re-import assets
 
 ```js
 // main process or renderer process
-Editor.assetdb.refresh ('db: // assets / foo / bar /', function (err, results) {});
+Editor.assetdb.refresh ('db://assets/foo/bar/', function (err, results) {});
 ```
 
 ### Move and delete assets
@@ -127,4 +126,4 @@ Editor.assetdb.move (srcUrl, destUrl);
 Editor.assetdb.delete ([url1, url2]);
 ```
 
-For more information on these interfaces, see [AssetDB API Main] (api / asset-db / asset-db-main.md) and [AssetDB API Renderer] (api / asset-db / asset-db-renderer.md).
+For more information on these interfaces, see [AssetDB API Main](api/asset-db/asset-db-main.md) and [AssetDB API Renderer](api/asset-db/asset-db-renderer.md).

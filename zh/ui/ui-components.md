@@ -19,7 +19,7 @@ ScrollView 是一个典型的组合型控件，通常由以下节点组成：
 
 这个节点上包含 ScrollView 组件，组件属性的详细说明可以查阅 [ScrollView 组件参考](../components/scrollview.md)
 
-### content （内容）节点
+### content（内容）节点
 
 content 节点用来承载将会在滚动视图中显示的内容，这个节点的约束框通常会远远大于 ScrollView 根节点的约束框，也只有在 content 节点比 ScrollView 节点大时，视图才能有效的滚动。
 
@@ -37,7 +37,7 @@ ScrollView 中的遮罩是可选的，但我们通常都希望能够隐藏 conte
 
 我们可以同时设置横向和纵向两个滚动条，每个滚动条节点都包含一个 **ScrollBar** 组件。滚动条节点也可以包括子节点，来同时显示滚动条的前景和背景。详细的属性设置请查阅 [ScrollBar 组件参考](../components/scrollbar.md)。
 
-另外值得注意的是，ScrollBar 的 **handle** 部分的尺寸是可变的，推荐使用 **Sliced** （九宫格）模式的 Sprite 作为 ScrollBar 的 handle。
+另外值得注意的是，ScrollBar 的 **handle** 部分的尺寸是可变的，推荐使用 **Sliced**（九宫格）模式的 Sprite 作为 ScrollBar 的 handle。
 
 ## Button（按钮）
 

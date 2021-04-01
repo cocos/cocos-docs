@@ -37,9 +37,10 @@ The icon above represents the currently selected prefab uses Manual Sync mode, c
 ![auto-syncable](prefab/auto-syncable.png)
 
 Pay attention, to keep the engine small and fast, there are limitations of auto-syncable prefab instance:
- - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
- - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
- - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
+
+  - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
+  - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
+  - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
 
 > These limitations only affects operations in editor, runtime will not be affected.
 
@@ -53,23 +54,25 @@ In **Assets** panel, select any of the prefab assets to edit the following optio
 
 ### 'Optimization Policy' option
 
-The v1.8.0 added an 'Optimization Policy' option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
- - **Auto adjust** (default)<br>
-   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.
+The v1.8.0 added an `Optimization Policy` option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
+
+ - **Auto adjust** (default)
+
+   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.<br>
    When you first create an instance, the behavior is the same as 'For single instance creation'. 'For multiple instance creation' will be automatically used after multiple creation.
- - **For single instance creation**<br>
+
+ - **For single instance creation**
+
    This option skips code generation for this prefab.
- - **For multiple instance creation**<br>
+
+ - **For multiple instance creation**
+
    This option enables code generation for this prefab.
 
-If this prefab requires repeated execution of `cc.instantiate`, select 'For multiple instance creation', otherwise leave as the default 'Auto adjust'.
+If this prefab requires repeated execution of `cc.instantiate`, select `For multiple instance creation`, otherwise leave as the default `Auto adjust`.
 
-> In the older version of the engine, the optimization was fixed to 'For multiple instance creation' and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The 'Auto adjust' in the new version is a good solution to this problem.
+> In the older version of the engine, the optimization was fixed to `For multiple instance creation` and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The `Auto adjust` in the new version is a good solution to this problem.
 
 ### 'Async Load Assets' option
 
 The default value is false. When selected, the use of **Properties** association, loadRes, etc., when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
-
-<hr>
-
-Continue on to read about [Spine](spine.md).

@@ -39,8 +39,8 @@ hello-world
 
 - `name` String - 定义了包的名字，包的名字是全局唯一的，他关系到你今后在官网服务器上登录时的名字。
 - `version` String - 版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
-- `description` String（可选） - 一句话描述你的包是做什么的。
-- `author` String（可选） - 扩展包的作者
+- `description` String（可选）- 一句话描述你的包是做什么的。
+- `author` String（可选）- 扩展包的作者
 - `main` String (可选) - 入口程序
 - `main-menu` Object (可选) - 主菜单定义
 

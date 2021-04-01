@@ -57,7 +57,3 @@ When running the preview again, we will see that the welcome message has been up
 ## Summary
 
 The content of this section lets us know how to get started with scenes in Cocos Creator. And by customizing the welcome message, it gives a brief introduction to the way data-driven works. Next, we will guide you through building a complete leisure game step by step. You will have a more comprehensive understanding on Cocos Creator's workflows after that.
-
----
-
-Continue on to read about [Quick Start](quick-start.md).

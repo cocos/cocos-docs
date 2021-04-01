@@ -1,6 +1,6 @@
 # Extends Inspector
 
-Inspector is a component control interface that is displayed in the Propertes panel. Sometimes we need to define an Inspector for the Component we write, and display it in a custom way.For example, the special form of Widget component is desgined through by the inspector extends
+Inspector is a component control interface that is displayed in the Properties panel. Sometimes we need to define an Inspector for the Component we write, and display it in a custom way.For example, the special form of Widget component is designed through by the inspector extends
 
 ![extend inspector](assets/extend-inspector.png)
 
@@ -28,9 +28,10 @@ cc.Class ({
 });
 ```
 
-** Note 1: ** Here we define a `editor` field and define the `inspector` entry file in this field. Basis your `inspector.js` editor will generate the correspondence frame.
-
-** Note 2: ** In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
+> **Notes**:
+>
+> 1. Here we define a `editor` field and define the `inspector` entry file in this field. Basis your `inspector.js` editor will generate the correspondence frame.
+> 2. In `inspector` we use the `packages://` protocol to define the path to the entry file. In Cocos Creator the `packages://` protocol plus the package name is mapped to extension package folder.
 
 ## Create a custom Inspector extension package
 
@@ -41,7 +42,7 @@ Note that after creating the extension package, you need to restart Cocos Creato
 
 ## Write a custom Inspector entry file in the extension package
 
-Next we can define `inspector.js` in the` foobar` package: 
+Next we can define `inspector.js` in the `foobar` package:
 
 ```javascript
 Vue.component ('foobar-inspector', {
@@ -59,8 +60,7 @@ Vue.component ('foobar-inspector', {
 });
 ```
 
-Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/) for UI. Here we define a vue component.
-and set `props` in the component so that it contains `target` data to complete the entire Inspector data definition.
+Cocos Creator's Inspector extension uses [vuejs](http://vuejs.org/) for UI. Here we define a vue component. And set `props` in the component so that it contains `target` data to complete the entire Inspector data definition.
 
 The `target` is an instance of our `Foobar` class in the Inspector.
 
@@ -68,8 +68,7 @@ The `target` is an instance of our `Foobar` class in the Inspector.
 
 The `target` instance mentioned in the previous section is the target that has been processed by Inspector. Its internal contains the processing of the properties.
 When using `target`, we can not simply think that `target.foo` on behalf of the value of foo. If you go on in Chrome DevTools and check `target.foo` you will
-find that it's an object rather than a 'Foo' string that we defined at the beginning. The object contains `attrs`,
-`type`, `value` and other information. Where `value` is the value we want to get.
+find that it's an object rather than a 'Foo' string that we defined at the beginning. The object contains `attrs`, `type`, `value` and other information. Where `value` is the value we want to get.
 
 The purpose of doing so is to make Inspector better access to all aspects of data visualization information. For example, when you define the properties of cc.Class:
 
@@ -83,8 +82,7 @@ properties: {
 }
 ```
 
-This time in the Inspector we can see `target.foo.value` is 'Foo', and `target.foo.attrs.readonly` is `true`.
-This information helps to help you create various interface combinations.
+This time in the Inspector we can see `target.foo.value` is 'Foo', and `target.foo.attrs.readonly` is `true`. This information helps to help you create various interface combinations.
 
 ## About attribute binding
 

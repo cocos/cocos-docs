@@ -8,7 +8,7 @@
 
 如果您没有发布到 Android 平台的计划，或您的操作系统上已经有完整的 Android 开发环境，可以跳过这个部分。
 
-### 下载 Java SDK （JDK）
+### 下载 Java SDK（JDK）
 
 编译 Android 工程需要本地电脑上有完整的 Java SDK 工具，请到以下地址下载：
 
@@ -41,7 +41,7 @@ java -version
 3. 在 `Android SDK Build-Tools` 里，选择 25 以上的 build tools 版本。
 4. 勾选 `Android SDK Platform-Tools`, `Android SDK Tools` 和 `Android Support Library`
 5. 勾选 `NDK`，请使用 r10c 以上的版本，推荐 r10e。<br>
-**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.1 以下的版本**不要**将 NDK 更新到 r18，否则会导致编译报错。
+**注意**：NDK-r18 已经移除了 GNU 编译器，请 Creator v2.1 以下的版本 **不要** 将 NDK 更新到 r18，否则会导致编译报错。
 6. 记住窗口上方所示的 Android SDK Location 指示的目录，稍后我们需要在 Cocos Creator 里填写这个 SDK 所在位置。
 7. 点击 `OK`，根据提示完成安装。
 
@@ -77,13 +77,13 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
 我们在这里需要配置以下三个路径：
 
-- **Android SDK Root**，选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
-- **NDK Root**，选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
-- **ANT Path**，请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。不需要编译 Android 平台的话这里可以跳过。
+- **Android SDK Root**：选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
+- **NDK Root**：选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
+- **ANT Path**：请选择下载并解压完成的 Apache Ant 路径，需要设置到 ant 安装目录内的 bin 目录下，选定的路径中应该包括一个名叫 `ant` 的可执行文件。不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
-**注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：COCOS_CONSOLE_ROOT, ANT_ROOT, NDK_ROOT, ANDROID_SDK_ROOT。
+> **注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：COCOS_CONSOLE_ROOT, ANT_ROOT, NDK_ROOT, ANDROID_SDK_ROOT。
 
 ## 注意事项
 
@@ -131,7 +131,7 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 
     请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
 
-最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.org/c/Creator) 反馈给我们。
+最后，如果依然打包失败，可以尝试创建一个标准的 Cocos2d-x 工程，并尝试编译，如果 Cocos2d-x 工程可以编译，而 Cocos Creator 无法打包，请将 bug 通过 [论坛](https://forum.cocos.org/c/27) 反馈给我们。
 
 ---
 

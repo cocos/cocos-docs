@@ -4,9 +4,9 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 ![editbox](./editbox/editbox.png)
 
-点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`EditBox`，即可添加 EditBox 组件到节点上。
+点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加 UI 组件` 中选择 `EditBox`，即可添加 EditBox 组件到节点上。
 
-EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.html)。
+EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.html)。
 
 ## EditBox 属性
 
@@ -32,6 +32,7 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 ![editbox-event](./editbox/editbox-event.png)
 
 ### Editing Did Began 事件
+
 | 属性            | 功能说明                                               |
 | --------------  | -----------                                            |
 | Target          | 带有脚本组件的节点。                                   |
@@ -41,8 +42,8 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 
  说明：该事件在用户点击输入框获取焦点的时候被触发。
 
-
 ### Text Changed 事件
+
 | 属性            | 功能说明                                               |
 | --------------  | -----------                                            |
 | Target          | 带有脚本组件的节点。                                   |
@@ -53,6 +54,7 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 说明：该事件在用户每一次输入文字变化的时候被触发。
 
 ### Editing Did Ended 事件
+
 | 属性            | 功能说明                                             |
 | --------------  | -----------                                          |
 | Target          | 带有脚本组件的节点。                                 |
@@ -60,10 +62,10 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 | Handler         | 指定一个回调函数，当用户输入文本结束时会调用该函数。 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
-说明：在单行模式下面，一般是在用户按下回车或者点击屏幕输入框以外的地方调用该函数。
-如果是多行输入，一般是在用户点击屏幕输入框以外的地方调用该函数。
+说明：在单行模式下面，一般是在用户按下回车或者点击屏幕输入框以外的地方调用该函数。如果是多行输入，一般是在用户点击屏幕输入框以外的地方调用该函数。
 
 ### Editing Return 事件
+
 | 属性            | 功能说明                                                   |
 | --------------  | -----------                                                |
 | Target          | 带有脚本组件的节点。                                       |
@@ -80,14 +82,13 @@ EditBox 的脚本接口请参考[EditBox API](../../../api/zh/classes/EditBox.ht
 - 如果要输入多行，可以把 Input Mode 设置为 Any。
 - 背景图片支持九宫格缩放
 
-注意：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true
+> **注意**：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true。
 
-#### 通过脚本代码添加回调
+### 通过脚本代码添加回调
 
-##### 方法一
+#### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
-你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加。需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
 
 ```js
 var editboxEventHandler = new cc.Component.EventHandler();
@@ -134,8 +135,7 @@ cc.Class({
 });
 ```
 
-
-##### 方法二
+#### 方法二
 
 通过 `editbox.node.on('editing-did-began', ...)` 的方式来添加
 
@@ -145,7 +145,7 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        editbox: cc.EditBox
     },
@@ -160,7 +160,6 @@ cc.Class({
        //do whatever you want with the editbox
     }
 });
-
-同样的，你也可以注册 'editing-did-ended', 'text-changed' 和 'editing-return' 事件，这些事件的回调函数的参数与 'editing-did-began' 的参数一致。
-
 ```
+
+同样的，你也可以注册 `editing-did-ended`、`text-changed` 和 `editing-return` 事件，这些事件的回调函数的参数与 `editing-did-began` 的参数一致。

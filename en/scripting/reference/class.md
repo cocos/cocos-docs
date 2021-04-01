@@ -353,7 +353,7 @@ It should be noted that the process of the deserialization of the property occur
 
 ### Attribute
 
-All attributes are optional, but at least one of the `default`,` get`, `set` attributes must be declared.
+All attributes are optional, but at least one of the `default`, `get`, `set` attributes must be declared.
 
 #### <a name="default"></a>`default` attribute
 
@@ -424,7 +424,7 @@ temp_url: {
 
 #### <a name="type"></a>`type` attribute
 
-When the `default` can not provide sufficient detailed type information, in order to be able to display the correct input control in **Properties** , it is necessary to use the `type` to declare the specific type explicitly:
+When the `default` can not provide sufficient detailed type information, in order to be able to display the correct input control in **Properties**, it is necessary to use the `type` to declare the specific type explicitly:
 
 - When the default value is null, the type is set to the specified type of constructor, so that the **Properties** can know that a Node control should be displayed.
 
@@ -720,7 +720,7 @@ cc.Class({
     // the engine will automatically add the dependency component to the same node to prevent script errors.
     // This option is also valid at run time.
     //
-    // Value type: Function （must be inherited from cc.Component constructor, such as cc.Sprite）
+    // Value type: Function (must be inherited from cc.Component constructor, such as cc.Sprite)
     // Default: null
     requireComponent: null,
 
@@ -730,10 +730,10 @@ cc.Class({
     // onDestroy will not be affected.
     //
     // Value type: Number
-    // Default：0
+    // Default: 0
     executionOrder: 0,
 
-    // When the component is added to the node，prevents Component of the same type (or subtype) to be
+    // When the component is added to the node, prevents Component of the same type (or subtype) to be
     // added more than once to a Node.
     // Prevent the logic from conflict.
     //
@@ -777,9 +777,3 @@ cc.Class({
   }
 });
 ```
-
-
-
----
-
-Continue on to read about [Attributes](attributes.md).

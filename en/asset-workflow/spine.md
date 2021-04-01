@@ -1,8 +1,8 @@
 # Spine
 
-# Import skeleton animation resources
+## Import skeleton animation resources
 
-Skeleton animation resource use three main resources：
+Skeleton animation resource use three main resources:
 
 - .json Skeletal animation data
 - .png  Atlas
@@ -10,20 +10,16 @@ Skeleton animation resource use three main resources：
 
 ![spine](spine/import.png)
 
-# Create a skeleton animation resources
+## Create a skeleton animation resources
 
-   1. drag Spine assets directly from **assets** to **Node Tree**:
+1. drag Spine assets directly from **assets** to **Node Tree**:
 
-![spine](spine/create_1.png)
+    ![spine](spine/create_1.png)
 
-   2. drag Spine assets directly from **assets** to **Scene**:
+2. drag Spine assets directly from **assets** to **Scene**:
 
-![spine](spine/create_2.png)
+    ![spine](spine/create_2.png)
 
-   3. add a **Spine Skeleton** component to the existing node and give Spine assets to the component `Skeleton Data` attribute in **assets**:
+3. add a **Spine Skeleton** component to the existing node and give Spine assets to the component `Skeleton Data` attribute in **assets**:
 
-![spine](spine/create_3.png)
-
-<hr>
-
-Continue on to read about [Content Creation Workflow](../content-workflow/index.md).
+    ![spine](spine/create_3.png)

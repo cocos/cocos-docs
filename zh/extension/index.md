@@ -8,7 +8,7 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 
 - [你的第一个扩展包](your-first-extension.md)
 - [安装与分享](install-and-share.md)
-- [IPC （进程间通讯）简介](introduction-to-ipc.md)
+- [IPC（进程间通讯）简介](introduction-to-ipc.md)
 - [入口程序](entry-point.md)
 - [扩展包工作流程模式](extension-workflow.md)
 - [扩展主菜单](extends-main-menu.md)
@@ -42,11 +42,9 @@ Cocos Creator 的扩展包沿用了 Node.js 社区的包设计方式，通过 `p
 - [自定义 Gizmo](custom-gizmo.md)
 - [自定义 Gizmo 进阶](custom-gizmo-advance.md)
 
-
 ## 其他
 
 - [测试你的扩展包](test-your-package.md)
-
 
 ## API
 

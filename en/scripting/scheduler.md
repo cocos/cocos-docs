@@ -8,7 +8,7 @@ Now, let's see its detailed using method:
 
 1. Start a timer
 
-    ```
+    ```js
     component.schedule(function() {
         // Here `this` is referring to the component
         this.doSomething();
@@ -19,7 +19,7 @@ Now, let's see its detailed using method:
 
 2. Quicker timer
 
-    ```
+    ```js
     // Time interval in units of seconds
     var interval = 5;
     // Time of repetition
@@ -36,7 +36,7 @@ Now, let's see its detailed using method:
 
 3. Timer only runs once (shortcut)
 
-    ```
+    ```js
     component.scheduleOnce(function() {
         // Here `this` is referring to the component
         this.doSomething();
@@ -49,7 +49,7 @@ Now, let's see its detailed using method:
 
     The developer can use the call-back function itself to cancel the timer:
 
-    ```
+    ```js
     this.count = 0;
     this.callback = function () {
         if (this.count === 5) {
@@ -64,10 +64,10 @@ Now, let's see its detailed using method:
 
 Below are all the functions of the timer in the component:
 
-- schedule：start a timer
-- scheduleOnce：start a timer that runs only once
-- unschedule：cancel a timer
-- unscheduleAllCallbacks：cancel all the timers of this component
+- schedule: start a timer
+- scheduleOnce: start a timer that runs only once
+- unschedule: cancel a timer
+- unscheduleAllCallbacks: cancel all the timers of this component
 
 These detailed descriptions about API can all be found in [Component API](http://docs.cocos2d-x.org/creator-api/en/classes/Component.html).
 

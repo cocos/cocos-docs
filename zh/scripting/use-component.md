@@ -43,8 +43,4 @@ Cocos Creator 内置一个轻量级的 Code Editor 供用户进行快速的脚�
 
 ![script-in-properties](assets/script-in-inspector.png)
 
-**注意**：用户也可以通过直接拖拽脚本资源到 **属性检查器** 的方式来添加脚本。
-
----
-
-继续前往 [使用 cc.Class 声明类型](class.md)。
+> **注意**：用户也可以通过直接拖拽脚本资源到 **属性检查器** 的方式来添加脚本。

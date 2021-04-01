@@ -32,7 +32,7 @@ You can also to compile the native project of the native platform separately by 
 ## Publish Parameters
 
  - `--path`: Project Path
- - `--build`: Pulibsh project Parameters
+ - `--build`: Publish project Parameters
  - `--compile`: Compile native project Parameters
 
 If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
@@ -42,7 +42,7 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
  - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, runtime]
  - `buildPath` - Publish path
  - `startScene` - Start scene uuid
- - `debug` - Whether or not debug mode 
+ - `debug` - Whether or not debug mode
  - `previewWidth` - Web desktop window width
  - `previewHeight` - Web desktop window height
  - `sourceMaps` - Whether or not need add source maps
@@ -57,20 +57,20 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
  - `optimizeHotUpdate` - Whether or not merge all the SpriteFrames in the same atlas
 
  - `packageName` - Package Name
- - `vsVersion` - Visual studio version，only used on windows. [auto, 2013, 2015, 2017]
+ - `vsVersion` - Visual studio version, only used on windows. [auto, 2013, 2015, 2017]
  - `useDebugKeystore` - Whether or not use debug keystore
  - `keystorePath` - Keystore path
  - `keystorePassword` - Keystore password
  - `keystoreAlias` - Keystore alias
  - `keystoreAliasPassword` - Keystore alias password
  - `orientation` - Orientation on native mobile [portrait, upsideDown, landscapeLeft, landscapeRight]  
-    examples:    
-  - orientation={'landscapeLeft': true} 
+    examples:
+  - orientation={'landscapeLeft': true}
   - orientation={'landscapeLeft': true, 'portrait': true}
  - `template` - Template on native platform [default, link, binary]
   
  - `apiLevel` - Android api level
- - `appABIs` - Which cpu types android need to support. You can choose more than one type from [armeabi, armeabi-v7a, arm64-v8a, x86]   
+ - `appABIs` - Which cpu types android need to support. You can choose more than one type from [armeabi, armeabi-v7a, arm64-v8a, x86]
    Because it's an array type, the option can define like this.
    - appABIs=['armeabi', 'armeabi-v7a']
  
@@ -97,11 +97,8 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 
  - `configPath` - Config file path. If define `configPath`, then creator will load this file as a `json` file, and combine with the build parameters.
 
+## Publish on Jenkins
 
+CocosCreator also need GUI environment when running in command line. If your Jenkins can not run CocosCreator in command line, a solution is running Jenkins on the agent mode, so it can visit the WindowServer.
 
-## Publish on Jenkins 
-
-CocosCreator also need GUI environment when running in command line.  
-If your Jenkins can not run CocosCreator in command line, a solution is running Jenkins on the agent mode, so it can visit the WindowServer.
-
-Details : https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed
+Details: <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>

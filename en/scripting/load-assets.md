@@ -111,12 +111,12 @@ The result is as follows:
 In this way you can get the set asset directly from the script:
 
 ```js
-    onLoad: function () {
-        var spriteFrame = this.spriteFrame;
-        var textureURL = this.textureURL;
+onLoad: function () {
+    var spriteFrame = this.spriteFrame;
+    var textureURL = this.textureURL;
 
-        spriteFrame.setTexture(textureURL);
-    }
+    spriteFrame.setTexture(textureURL);
+}
 ```
 
 Although it is very straight forward to set assets in the **Properties** panel, assets can only be pre-set in the scene without dynamic switching. If you need dynamic switching, you need to check the following contents out.
@@ -162,7 +162,7 @@ cc.loader.loadRes("test assets/sheep", cc.SpriteAtlas, function (err, atlas) {
 });
 ```
 
-#### Independent of load SpriteFrame
+### Independent of load SpriteFrame
 
 After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if
 `test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
@@ -177,7 +177,7 @@ cc.loader.loadRes("test assets/image", cc.SpriteFrame, function (err, spriteFram
 
 > If you specify a type parameter, you will find the specified resource type in the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both 'player.clip' and 'player.psd'), or the need to obtain a "sub asset" (for example, gets Texture2D SpriteFrame generated), should need to declare types.
 
-#### Resource Release
+### Resource Release
 
 `loadRes` loaded in a single resource if you need to release, You can call `cc.loader.releaseRes`, `releaseRes` incoming one with `loadRes` the same path and type parameter.
 
@@ -192,7 +192,7 @@ Also, You can also use `cc.loader.releaseAsset` to release the instance of a spe
 cc.loader.releaseAsset(spriteFrame);
 ```
 
-### How to dynamically load Raw Asset
+## How to dynamically load Raw Asset
 
 Raw Asset can be loaded directly from a remote server using a URL, you can also dynamically loaded from the item. In the case of remote loading, The original Cocos2d constant loading method, using cc.loader.load can be. Raw Asset to the project, load the same way as Asset:
 
@@ -203,7 +203,7 @@ cc.loader.loadRes("test assets/image", function (err, texture) {
 });
 ```
 
-#### cc.url.raw
+### cc.url.raw
 
 After the success of Raw Asset loading, if you need to pass some form of URL API, you still need to give the full path. You need to use `cc.url.raw` converted to a URL:
 
@@ -216,7 +216,7 @@ var realUrl = cc.url.raw("res/textures/star.png");
 var texture = cc.textureCache.addImage(realUrl);
 ```
 
-### Resource bulk loading
+## Resource bulk loading
 
 `cc.loader.loadResDir` can load multiple resources under the same path:
 
@@ -235,8 +235,7 @@ cc.loader.loadResDir("test assets/sheep", cc.SpriteFrame, function (err, assets)
 
 ## How to load remote assets or files in device
 
-Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `cc.loader.load`. At the same time you can use the same API to load resources on the local device storage. The `loadRes` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local
-device files:
+Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `cc.loader.load`. At the same time you can use the same API to load resources on the local device storage. The `loadRes` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local device files:
 
 ```javascript
 // Remote texture url with file extensions
@@ -303,7 +302,3 @@ cc.loader.release(deps);
 Imagine such scenario, you released the cache of a resource in cc.loader. After that due to some reason, you need it again. At this point garbage collection has not yet begun (you never know when garbage collection will be triggered), or you still hold a reference to this old resource somewhere in your game logic. This means that the resource still exist in memory, but cc.loader have no longer access to it, so it will reload it. This causes the resource to have two copies in the memory, which is wasting. If the same scenario happens to a lot of resources, or resources get loaded even more than once, the pressure on the memory is likely to be high. If you observe such memory usage curve in your game, please carefully check the game logic to see whether there is leaks. If not, the garbage collection mechanism will eventually recover the memory.
 
 The above is resource dependence management in cc.loader and how to release them, this part of the functionality and API design has not yet fully finalized, we are still trying to bring you an API set as easy to use as possible, we will update this document when we enhanced the loader's ability.
-
----
-
-Continue on to read about [Event/Event System](events.md).

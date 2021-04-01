@@ -13,13 +13,13 @@ The node is active by default. In addition to switching the activating state of 
 `this.node.active = true;`
 
 This operation will activate node, means:
-- Show current node and all child nodes in scene, unless child node is deactivated seperately.
+- Show current node and all child nodes in scene, unless child node is deactivated separately.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
 
 `this.node.active = false;`
 
-If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time. 
+If the any parent node of the node was previously deactivated, executing the line code would not trigger any behavior at this time.
 
 If all of the node's parent nodes were previously activated, executing the line code at this point means:
 - Hide current node and all child nodes in scene.
@@ -96,7 +96,7 @@ or
 
 If you pass only one parameter to `setScale`, both `scaleX` and `scaleY` will be changed.
 
-### Size（width and height）
+### Size (width and height)
 
 `this.node.setContentSize(100, 100);`<br>
 `this.node.setContentSize(cc.v2(100, 100));`
@@ -118,7 +118,6 @@ or
 
 All above transform changes will affect renderer component on the node, such as Sprite and Label.
 
-
 ## Color and Opacity
 
 When using basic renderer component like Sprite and Label, make sure you change the color or opacity on the node, since these API are taken out of components.
@@ -130,7 +129,6 @@ If we have a Sprite instance `mySprite`, to change its color:
 opacity:
 
 `mySprite.node.opacity = 128;`
-
 
 ## Useful common component API
 

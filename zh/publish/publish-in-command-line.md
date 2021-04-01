@@ -37,7 +37,7 @@
 
 在 `--build` 或者 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
- - `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
+ - `excludedModules` - engine 中需要排除的模块，模块可以从 [GitHub](https://github.com/holycanvas/engine/blob/76460006e5046475cb714c48f801af8ea6a4fac9/modules.json) 查找到
  - `title` - 项目名
  - `platform` - 构建的平台 [web-mobile, web-desktop, android, win32, ios, mac, qqplay, wechatgame, fb-instant-games]
  - `buildPath` - 构建目录
@@ -51,7 +51,7 @@
    - 0 - 由引擎自动选择.
    - 1 - 强制使用 Canvas 渲染模式
    - 2 - 强制使用 Webgl 渲染模式，但是在移动浏览器中这个选项会被忽略
- 
+
  - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
  - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
  - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
@@ -63,19 +63,18 @@
  - `keystorePassword` - keystore 密码
  - `keystoreAlias` - keystore 别名
  - `keystoreAliasPassword` - keystore 别名密码
- - `orientation` - native mobile 平台（不含微信小游戏）下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]
-   因为这是一个 object, 所以定义会特殊一些。
-   - orientation={'landscapeLeft': true} 或   
+ - `orientation` - native mobile 平台（不含微信小游戏）下的旋转选项 [portrait, upsideDown, landscapeLeft, landscapeRight]。因为这是一个 object，所以定义会特殊一些。
+   - orientation={'landscapeLeft': true}
    - orientation={'landscapeLeft': true, 'portrait': true}
  - `template` - native 平台下的模板选项 [default, link, binary]
- 
+
  - `apiLevel` - 设置编译 android 使用的 api 版本
- - `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi, armeabi-v7a, arm64-v8a, x86]   
+ - `appABIs` - 设置 android 需要支持的 cpu 类型，可以选择一个或多个选项 [armeabi, armeabi-v7a, arm64-v8a, x86]
    因为这是一个数组类型，数据类型需要像这样定义，注意选项需要用引号括起来
    - appABIs=['armeabi', 'armeabi-v7a']
- 
+
  - `androidStudio` - 是否使用 android studio 来编译 android 项目
- 
+
  - `includeAnySDK` - web 平台下是否加入 AnySDK 代码
  - `oauthLoginServer` - AnySDK 验证登陆服务器
  - `appKey` - AnySDK App Key
@@ -99,10 +98,6 @@
 
 ## 在 Jenkins 上部署
 
-CocosCreator 命令行运行的时候也是需要GUI环境的。   
-如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
+Cocos Creator 命令行运行的时候也是需要 GUI 环境的。如果你的 Jenkins 无法使用 Cocos Creator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
 
-详见 ：
-https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed
-
-
+详见：<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>

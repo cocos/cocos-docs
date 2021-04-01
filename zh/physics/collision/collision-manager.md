@@ -1,8 +1,6 @@
 # 碰撞系统脚本控制
 
-Cocos Creator 中内置了一个简单易用的碰撞检测系统，他会根据添加的碰撞组件进行碰撞检测。   
-当一个碰撞组件被启用时，这个碰撞组件会被自动添加到碰撞检测系统中，并搜索能够与他进行碰撞的其他已添加的碰撞组件来生成一个碰撞对。   
-需要注意的是，一个节点上的碰撞组件，无论如何都是不会相互进行碰撞检测的。   
+Cocos Creator 中内置了一个简单易用的碰撞检测系统，他会根据添加的碰撞组件进行碰撞检测。当一个碰撞组件被启用时，这个碰撞组件会被自动添加到碰撞检测系统中，并搜索能够与他进行碰撞的其他已添加的碰撞组件来生成一个碰撞对。需要注意的是，一个节点上的碰撞组件，无论如何都是不会相互进行碰撞检测的。
 
 ## 碰撞检测系统的使用
 
@@ -14,13 +12,11 @@ Cocos Creator 中内置了一个简单易用的碰撞检测系统，他会根据
 var manager = cc.director.getCollisionManager();
 ```
 
-
 默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
 
 ```javascript
 manager.enabled = true;
 ```
-
 
 默认碰撞检测系统的 debug 绘制是禁用的，如果需要使用则需要以下方法开启 debug 绘制
 
@@ -32,17 +28,15 @@ manager.enabledDebugDraw = true;
 
 <a href="collision-manager/draw-debug.png"><img src="collision-manager/draw-debug.png"></a>
 
-
 如果还希望显示碰撞组件的包围盒，那么可以通过以下接口来进行设置
 
 ```javascript
 manager.enabledDrawBoundingBox = true;
 ```
 
-结果如下图   
+结果如下图：
 
 <a href="collision-manager/draw-bounding-box.png"><img src="collision-manager/draw-bounding-box.png"></a>
-
 
 ### 碰撞系统回调
 
@@ -88,7 +82,7 @@ onCollisionStay: function (other, self) {
     console.log('on collision stay');
 },
 ```
-   
+
 ```javascript
 /**
  * 当碰撞结束后调用
@@ -99,7 +93,6 @@ onCollisionExit: function (other, self) {
     console.log('on collision exit');
 }
 ```
-
 
 ### 点击测试
 
@@ -127,5 +120,4 @@ onCollisionExit: function (other, self) {
     }
 ```
 
-
-更多的范例可以到 [github](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看
+更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。

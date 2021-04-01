@@ -46,11 +46,7 @@ This is similar to the last case, except the conflict come from the parent path 
 }
 ```
 
-Let's see the example, we first register a menu path "Example/Foobar", after that we try to register "Examples/Foobar/Bar". The second menu path indeed require the "Foobar" to be a sub-menu, but the first time registry already use "Foobar" as a menu-item, and this makes the second menu path register failed.    
-
-## i18n
-
-The menu path support i18n format. We can write the path as `i18n:examples/i18n:foobar`, Cocos Creator will help us search the i18n ID and replace the path item.
+Let's see the example, we first register a menu path "Example/Foobar", after that we try to register "Examples/Foobar/Bar". The second menu path indeed require the "Foobar" to be a sub-menu, but the first time registry already use "Foobar" as a menu-item, and this makes the second menu path register failed.
 
 ## Menu Options
 
