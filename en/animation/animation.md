@@ -104,9 +104,9 @@ Although the time of current frame changes with the frame rate, but the total fr
 
 ## Shortcut key
 
-- left: previous frame
+- left: Previous frame
 
-- right: next frame
+- right: Next frame
 
 - delete: Delete the selected keys
 

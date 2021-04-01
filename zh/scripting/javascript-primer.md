@@ -371,7 +371,7 @@ var Comp = cc.Class({
 
 让我们分别看下每一句的作用（我会高亮有用的语法模式）：
 
-`var Comp = cc.Class({`：这里我们使用 `cc` 这个对象，通过**点语法**来调用对象的`Class()`方法（该方法是`cc`对象的一个属性），调用时传递的参数是一个匿名的**JavaScript 对象**（`{}`）。
+`var Comp = cc.Class({`：这里我们使用 `cc` 这个对象，通过 **点语法** 来调用对象的`Class()`方法（该方法是`cc`对象的一个属性），调用时传递的参数是一个匿名的 **JavaScript 对象**（`{}`）。
 
 `target: { default: null, type: cc.Entity }`：这个键值对声明了一个名为 `target` 的属性，值是另一个 JavaScript 匿名对象。这个对象定义了 target 的默认值和值类型。
 

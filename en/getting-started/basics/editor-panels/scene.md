@@ -97,9 +97,9 @@ Click the third button on the tool bar located at main window's top left corner 
 
 All the child nodes will be zoomed in the same ratio with the node.
 
-### Rectangle tranform tool
+### Rectangle transform tool
 
-Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **rectangle tranform tool**.
+Click the fourth button on the tool bar located at the main window's top left corner or press the keyboard shortcut <kbd>T</kbd> in scene editor and you can activate **rectangle transform tool**.
 
 ![rect](scene/rect_button.png)
 

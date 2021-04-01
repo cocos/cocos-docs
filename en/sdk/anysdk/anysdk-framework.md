@@ -7,13 +7,13 @@ Cocos Creator built-in Cocos engine includes AnySDK Framework libraries. The pla
 
 ### Native
 
-- According to [AnySDK Official Documentation](http://docs.anysdk.com) integrates AnySDK`s relevant interface directly
+- According to [AnySDK Official Documentation](http://docs.anysdk.com) integrates AnySDK's relevant interface directly
 
 ### H5
 
 - Check the AnySDK option when you built web-mobile project
 
-- According to [AnySDK H5 Integrated Documentation](http://docs.anysdk.com/H5Tutorial) integrates AnySDK H5`s relevant interface directly
+- According to [AnySDK H5 Integrated Documentation](http://docs.anysdk.com/H5Tutorial) integrates AnySDK H5's relevant interface directly
 
 ## No need to use AnySDK
 

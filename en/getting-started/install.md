@@ -23,16 +23,16 @@ Cocos Creator will take up approximately 1.25 GB of space on your system disk, s
 > **Note**: if the installation fails, try executing the installer from the command line:
 
 ```
-CocosCreator_v1.2.0_2016080301_setup.exe / exelog "exe_log.txt" / L * V "msi_log.txt"
+CocosCreator_v1.2.0_2016080301_setup.exe/exelog "exe_log.txt"/L * V "msi_log.txt"
 ```
 
-Execute with the following command, or create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute. And then submit the resulting installation logs ( `exe_log.txt` and `msi_log.txt`) to the development team for help.
+Execute with the following command, or create a shortcut for the installer, and fill the shortcut with the command line argument in the `target` attribute. And then submit the resulting installation logs (`exe_log.txt` and `msi_log.txt`) to the development team for help.
 
 ### Mac installation instructions
 
 The installer for Cocos Creator for Mac is the DMG image file, double-click on the DMG file, and drag `CocosCreator.app` to your **Application** folder shortcut, or any other location. And then double-click the copy of the `CocosCreator.app` will get you started.
 
-> **Note**: if the downloaded application is corrupt during the first run, go to and set up `System Preferences -> Security & Privacy -> Allow any application from any source`.  Once Cocos Creator is launched, you can restore your security settings.
+> **Note**: if the downloaded application is corrupt during the first run, go to and set up `System Preferences -> Security & Privacy -> Allow any application from any source`. Once Cocos Creator is launched, you can restore your security settings.
 
 ### Operating system requirements
 
@@ -55,7 +55,7 @@ For some Windows operating systems and graphics card models, the following error
 This browser does not support WebGL ...
 ```
 
-If this happens, first check if you have latest graphic card driver installed. 
+If this happens, first check if you have latest graphic card driver installed.
 
 If the above doesn't work, please try running Cocos Creator with command line tool:
 
@@ -71,7 +71,7 @@ Cocos Creator starts, will enter the Cocos developer account login interface. Si
 
 If you do not have a Cocos developer account before, you can sign up for the Cocos Developer Center using the **Sign up** button in the sign-in interface. Or simply use the following links:
 
-https://passport.cocos.com/auth/signup
+<https://passport.cocos.com/auth/signup>
 
 After registration, you can return to the Cocos Creator login screen to complete the login! Once you verify your identity, you'll enter the Dashboard interface. Except manually log out or login information expired, in other circumstances the editor will preserve your login session information so you can automatically login later.
 
@@ -86,4 +86,4 @@ In addition to contacting the development team to find a solution, you can unins
 
 ## Setup native development environment
 
-If you only want to develop Web platform games, complete the above steps is sufficient. If you would like to publish the game to your native platform, please read the setup instructions for the development environment [Setup Native Development Environment] (../publish/setup-native-development.md)
+If you only want to develop Web platform games, complete the above steps is sufficient. If you would like to publish the game to your native platform, please read the setup instructions for the development environment [Setup Native Development Environment](../publish/setup-native-development.md)

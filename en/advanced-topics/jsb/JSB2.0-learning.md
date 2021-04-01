@@ -101,7 +101,7 @@ It is a singleton that could be accessed via `se::ScriptEngine::getInstance()`.
 
 #### se::Value
 
-`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`, `number`, `string`, `boolean`, `null`, `undefined`, so `se::Value` uses an `union` to include `object`, `number`,` string `, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
+`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`, `number`, `string`, `boolean`, `null`, `undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
 
 ```c++
 namespace se {
@@ -143,85 +143,85 @@ As we mentioned in the last section, `se::Object` is a weak reference to the JS 
 
 * Reason 1: The requirement of controlling the life cycle of CPP objects by JS objects
 
-After creating a Sprite in the script layer via `var sp = new cc.Sprite("a.png");`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `cocos2d::Sprite*` to get the corresponding JS object `se::Object*`.
+    After creating a Sprite in the script layer via `var sp = new cc.Sprite("a.png");`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `cocos2d::Sprite*` to get the corresponding JS object `se::Object*`.
 
-```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
-
-static bool js_cocos2dx_Sprite_constructor(se::State& s)
-{
-    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj will be released in the finalize callback
-    s.thisObject()->setPrivateData(cobj); // setPrivateData will make a mapping between se::Object* and cobj
-    return true;
-}
-SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
-```
-
-Imagine if you force `se::Object` to be a strong reference to a JS object that leaves JS objects out of GC control and the finalize callback will never be fired because `se::Object` is always present in map which will cause memory leak.
-
-It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
-
-* Reason 2: More flexible, supporting strong reference by calling the se::Object::root method manually
-
-`se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
-
-Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d, anysdk and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
-
-```c++
-spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
-        se::Object* seObj = nullptr;
-
-        auto iter = se::NativePtrToObjectMap::find(entry);
-        if (iter != se::NativePtrToObjectMap::end())
-        {
-            // Save se::Object pointer for being used in cleanup method.
-            seObj = iter->second;
-            // Unmap native and js object since native object was destroyed.
-            // Otherwise, it may trigger 'assertion' in se::Object::setPrivateData later
-            // since native obj is already released and the new native object may be assigned with
-            // the same address.
-            se::NativePtrToObjectMap::erase(iter);
-        }
+    ```c++
+    static bool js_cocos2d_Sprite_finalize(se::State& s)
+    {
+        CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
+        cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+        if (cobj->getReferenceCount() == 1)
+            cobj->autorelease();
         else
-        {
-            return;
-        }
+            cobj->release();
+        return true;
+    }
+    SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
-        auto cleanup = [seObj](){
+    static bool js_cocos2dx_Sprite_constructor(se::State& s)
+    {
+        cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj will be released in the finalize callback
+        s.thisObject()->setPrivateData(cobj); // setPrivateData will make a mapping between se::Object* and cobj
+        return true;
+    }
+    SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
+    ```
 
-            auto se = se::ScriptEngine::getInstance();
-            if (!se->isValid() || se->isInCleanup())
+    Imagine if you force `se::Object` to be a strong reference to a JS object that leaves JS objects out of GC control and the finalize callback will never be fired because `se::Object` is always present in map which will cause memory leak.
+
+    It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
+
+* Reason 2: More flexible, supporting strong reference by calling the `se::Object::root` method manually
+
+    `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
+
+    Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d, anysdk and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
+
+    ```c++
+    spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
+            se::Object* seObj = nullptr;
+
+            auto iter = se::NativePtrToObjectMap::find(entry);
+            if (iter != se::NativePtrToObjectMap::end())
+            {
+                // Save se::Object pointer for being used in cleanup method.
+                seObj = iter->second;
+                // Unmap native and js object since native object was destroyed.
+                // Otherwise, it may trigger 'assertion' in se::Object::setPrivateData later
+                // since native obj is already released and the new native object may be assigned with
+                // the same address.
+                se::NativePtrToObjectMap::erase(iter);
+            }
+            else
+            {
                 return;
+            }
 
-            se::AutoHandleScope hs;
-            se->clearException();
+            auto cleanup = [seObj](){
 
-            // The native <-> JS mapping was cleared in the callback above.
-            // seObj->clearPrivateData isn't needed since the JS object will be garbage collected after unroot and decRef.
-            seObj->unroot();
-            seObj->decRef();
-        };
+                auto se = se::ScriptEngine::getInstance();
+                if (!se->isValid() || se->isInCleanup())
+                    return;
 
-        if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
-        {
-            cleanup();
-        }
-        else
-        {
-            CleanupTask::pushTaskToAutoReleasePool(cleanup);
-        }
-    });
-```
+                se::AutoHandleScope hs;
+                se->clearException();
+
+                // The native <-> JS mapping was cleared in the callback above.
+                // seObj->clearPrivateData isn't needed since the JS object will be garbage collected after unroot and decRef.
+                seObj->unroot();
+                seObj->decRef();
+            };
+
+            if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
+            {
+                cleanup();
+            }
+            else
+            {
+                CleanupTask::pushTaskToAutoReleasePool(cleanup);
+            }
+        });
+    ```
 
 __se::Object Types__
 
@@ -253,23 +253,23 @@ obj->decRef(); // Decrease the reference count to avoid memory leak
 
 * If using manual creation of objects in complex logic, developers often forget to deal with `decRef` in different conditions
 
-```c++
-bool foo()
-{
-	se::Object* obj = se::Object::createPlainObject();
-	if (var1)
-		return false; // Return directly, forget to do 'decRef' operation
+    ```c++
+    bool foo()
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        if (var1)
+            return false; // Return directly, forget to do 'decRef' operation
 
-	if (var2)
-		return false; // Return directly, forget to do 'decRef' operation
-	...
-	...
-	obj->decRef();
-	return true;
-}
-```
+        if (var2)
+            return false; // Return directly, forget to do 'decRef' operation
+        ...
+        ...
+        obj->decRef();
+        return true;
+    }
+    ```
 
-Plus adding `decRef` to different return condition branches can result in logically complex and difficult to maintain, and it is easy to forget about `decRef` if you make another return branch later.
+    Plus adding `decRef` to different return condition branches can result in logically complex and difficult to maintain, and it is easy to forget about `decRef` if you make another return branch later.
 
 * If the JS engine did a GC operationJS engine right after `se::Object::createXXX`, which will result in the `se::Object` reference to an illegal pointer, the program may crash.
 
@@ -301,11 +301,10 @@ Is equal to:
 }
 ```
 
-**NOTE**
-
-* Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
-
-* The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
+> **Notes**:
+>
+> 1. Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
+> 2. The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
 
 #### se::Class
 
@@ -326,9 +325,7 @@ It has the following methods:
 * `Object* getProto()`: Get the prototype of JS constructor installed, similar to `function Foo(){}` `Foo.prototype` in JS.
 * `const char* getName() const`: Get the class name which is also the name of JS constructor.
 
-**NOTE**
-
-You do not need to release memory manually after `se::Class` type is created, it will be automatically encapsulated layer.
+> **Note**: you do not need to release memory manually after `se::Class` type is created, it will be automatically encapsulated layer.
 
 You could look through the API documentation or code comments for more specific API instructions.
 
@@ -379,7 +376,7 @@ SE_BIND_FUNC(foo)
 
 ## Does The Abstraction Layer Depend on Cocos2D-X?
 
-No.
+Does not depend.
 
 This abstraction layer was originally designed as a stand-alone module which is completely independent of Cocos2D-X engine. Developers can copy the abstraction layer code in `cocos/scripting/js-bindings/jswrapper` directory and paste them to other projects directly.
 
@@ -746,7 +743,7 @@ The helper functions for native<->JS type conversions are located in `cocos/scri
 
 #### Convert se::Value to CPP Type
 
-```
+```c++
 bool seval_to_int32(const se::Value& v, int32_t* ret);
 bool seval_to_uint32(const se::Value& v, uint32_t* ret);
 bool seval_to_int8(const se::Value& v, int8_t* ret);
@@ -803,7 +800,6 @@ bool seval_to_Vector(const se::Value& v, cocos2d::Vector<T>* ret);
 
 template<typename T>
 bool seval_to_Map_string_key(const se::Value& v, cocos2d::Map<std::string, T>* ret)
-
 ```
 
 #### Convert C++ Type to se::Value
@@ -898,7 +894,8 @@ bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
 
 ```
 
-Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2D-X binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
+Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2d-x binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
+
 Each conversion function returns the type `bool` indicating whether the conversion was successful or not. Developers need to check the return value after calling these interfaces.
 
 You can know the specific usage directly according to interface names. The first parameter in the interface is input, and the second parameter is the output parameter. The usage is as follows:
@@ -913,7 +910,7 @@ int32_t v;
 bool ok = seval_to_int32(args[0], &v); // The second parameter is the output parameter, passing in the address of the output parameter
 ```
 
-#### (IMPORTANT) Understand The Difference Between native\_ptr\_to\_seval and native\_ptr\_to\_rooted\_seval
+#### (IMPORTANT) Understand The Difference Between `native\_ptr\_to\_seval` and `native\_ptr\_to\_rooted\_seval`
 
 **Developers must understand the difference to make sure these conversion functions not being misused. In that case, JS memory leaks, which is really difficult to fix, could be avoided.**
 
@@ -1023,7 +1020,7 @@ The remote debugging and profile are valid in debug mode, if you need to enable 
 #endif
 ```
 
-Change to: 
+Change to:
 
 ```c++
 #if 1 // Change to 1 to force enable remote debugging

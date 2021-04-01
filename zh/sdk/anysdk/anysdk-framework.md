@@ -93,12 +93,12 @@ project-folder
 - 删除 res 文件夹下的：
 
     ```
-	mipmap/plugin_btn_close.png
-	mipmap/plugin_ui_ad.png
-	values-en/plugin_string.xml
-	values/plugin_string.xml
-	layout/plugin_ads.xml
-	layout/plugin_login.xml
+    mipmap/plugin_btn_close.png
+    mipmap/plugin_ui_ad.png
+    values-en/plugin_string.xml
+    values/plugin_string.xml
+    layout/plugin_ads.xml
+    layout/plugin_login.xml
     ```
 
 - 删除 jni 下的 Android.mk 文件中的 `LOCAL_WHOLE_STATIC_LIBRARIES := PluginProtocolStatic`

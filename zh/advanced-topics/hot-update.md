@@ -54,7 +54,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
-在范例工程中，我们提供了一个 **version_generator.js**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=v2.0.6/version_generator.js)），这是一个用于生成 Manifest 文件的 NodeJS 脚本。使用方式如下：
+在范例工程中，我们提供了一个 **version_generator.js**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3Dv2.0.6/version_generator.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=v2.0.6/version_generator.js)），这是一个用于生成 Manifest 文件的 NodeJS 脚本。使用方式如下：
 
 ```
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -69,7 +69,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 热更新组件
 
-在范例工程中，热更新组件的实现位于 `assets/scripts/module/HotUpdate.js`（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=v2.0.6/assets/scripts/module/HotUpdate.js)）中，开发者可以参考这种实现，也可以自由得按自己的需求修改。
+在范例工程中，热更新组件的实现位于 `assets/scripts/module/HotUpdate.js`（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3Dv2.0.6/assets/scripts/module/HotUpdate.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=v2.0.6/assets/scripts/module/HotUpdate.js)）中，开发者可以参考这种实现，也可以自由得按自己的需求修改。
 
 除此之外，范例工程中还搭配了一个 `Canvas/update` 节点用于提示更新和显示更新进度供参考。
 

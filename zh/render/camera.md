@@ -23,7 +23,7 @@
 
 在这里摄像机组件添加了三个节点到 targets 上，即我们需要摄像机拍摄这三个节点。并且我们还添加了一个 **camera-control** 组件，这个组件的作用主要是移动 camera 节点跟随 hero 节点。
 
-可参考 **物理系统示例**（[GitHub](https://github.com/cocos-creator/example-physics/tree/master/assets/cases/demo) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-physics/blob/master/assets/cases/demo/tiled.fire)）中的 tiled 范例。
+可参考 **物理系统示例**（[GitHub](https://github.com/cocos-creator/example-physics/tree/master/assets/cases/demo) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-physics/blob/master/assets/cases/demo)）中的 tiled 范例。
 
 也可以参考 **Camera Demo**（[GitHub](https://github.com/cocos-creator/demo-camera) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-camera)），包含了 camera 的使用示例。
 

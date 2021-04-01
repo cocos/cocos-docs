@@ -1,6 +1,6 @@
 # Preferences
 
-**Preferences** the panel provides a variety of personalized global editor settings. To Open **Preferences** Window, Please select the main menu `CocosCreator->Preferences`.
+**Preferences** the panel provides a variety of personalized global editor settings. To Open **Preferences** Window, Please select the main menu `CocosCreator -> Preferences`.
 
 **Preferences** is composed of several different pages, all settings are divided into the following categories. Modify the Settings after click **Save and Close** button, settings will only take effect.
 
@@ -14,18 +14,15 @@ Can choose `中文` or `English`, it will take effect after Cocos Creator editor
 
 ### IP Address
 
-Case the user may have multiple IP addresses on this computer,
-Manually select one and two-dimensional code as a default when previewing address address.
-This will list all native IP, You can also choose **Auto** get an IP editor automatically picked for you.
+Case the user may have multiple IP addresses on this computer. Manually select one and two-dimensional code as a default when previewing address address. This will list all native IP, You can also choose **Auto** get an IP editor automatically picked for you.
 
 ### Displayed Build Console Log
 
-This item is selected, Build log will be displayed directly in the process of publishing original project **Console** panel. Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project,
-you can also use the **Console** Log button in the upper left corner of the panel **Cocos Console Log** option to open the document.
+This item is selected, Build log will be displayed directly in the process of publishing original project **Console** panel. Non-selected, Building the release of primary logs are saved in the `%USER/.CocosCreator/logs/native.log` project, you can also use the **Console** Log button in the upper left corner of the panel **Cocos Console Log** option to open the document.
 
 ### Spin step
 
-In the **Properties**, all numeric property has a set of UP and DOWN arrows next to the input box, values that can be used to step Input:
+In the **Properties**, all numeric property has a set of UP and DOWN arrows next to the input box, values that can be used to step input:
 
 ![step button](preferences/step-button.jpg)
 
@@ -43,8 +40,7 @@ This category is used to set the default open mode for scripts and resources.
 
 ### <a name="script-editor"></a>External Script Editor
 
-You can use built-in Code Editor or any external text tool executable file, as in **Assets** opens when you double-click
-a script file. Also available in the drop-down menu select **Internal**, or click **Browse** button select the executable file of the preferred text editor.
+You can use built-in Code Editor or any external text tool executable file, as in **Assets** opens when you double-click a script file. Also available in the drop-down menu select **Internal**, or click **Browse** button select the executable file of the preferred text editor.
 
 ### External Picture Editor
 
@@ -105,7 +101,7 @@ From the drop-down menu, select system default browser or click the **Browse** b
 
 Starting with version v1.1.0, cocos simulator used in the Cocos Creator is placed on the cocos2d-x engine path.
 
-When using a customized version of the engine, you need to compile your own path simulator to the engine. Click **Open** button you can open the currently specified in the file system path of the simulator. Convenient debugging positioning.
+When using a customized engine, you need to compile the simulator to the engine path by yourself. Click the **Open** button to open the currently specified simulator path in the file system for easy location while debugging.
 
 ### Simulator Device Orientation
 

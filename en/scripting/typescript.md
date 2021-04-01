@@ -24,7 +24,7 @@ When editing the TypeScript script, we recommend using Microsoft's [VS Code](htt
 
 ### Add a TypeScript setting to an existing project
 
-If you want to add a TypeScript script to the original project and get the full support of the IDE such as VS Code, you need to execute the 'Developer -> VS Code Workflow -> Update VS Code API Source` and `Developer -> VS Code Workflow -> Add TypeScript Config` in the main menu. This will add `creator.d.ts` and `tsconfig.json` file to your project root directory. `creator.d.ts` declares all APIs for the engine and is used to support VS Code's intellisense and auto complete. `tsconfig.json` is used to set the TypeScript project configuration and can be further customized by referring to the official [tsconfig.json instructions](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+If you want to add a TypeScript script to the original project and get the full support of the IDE such as VS Code, you need to execute the `Developer -> VS Code Workflow -> Update VS Code API Source` and `Developer -> VS Code Workflow -> Add TypeScript Config` in the main menu. This will add `creator.d.ts` and `tsconfig.json` file to your project root directory. `creator.d.ts` declares all APIs for the engine and is used to support VS Code's intellisense and auto complete. `tsconfig.json` is used to set the TypeScript project configuration and can be further customized by referring to the official [tsconfig.json instructions](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 ### Create a TypeScript script in the project
 

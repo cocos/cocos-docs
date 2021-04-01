@@ -8,7 +8,7 @@ Cocos Creator inherits Electron's main and renderer process architecture. When C
 
 ## IPC
 
-Each process has its own javascript context, and the only way to communicate with each other is through IPC module. Electron provide us two modules [ipcMain ](https://github.com/atom/electron/blob/master/docs/api/ipc-main.md) and [ipcRenderer](https://github.com/atom/electron/blob/master/docs/api/ipc-renderer.md) to achieve this. Cocos Creator encapsulate the two module and provide a better methods for complex scenarios.
+Each process has its own javascript context, and the only way to communicate with each other is through IPC module. Electron provide us two modules [ipcMain](https://github.com/atom/electron/blob/master/docs/api/ipc-main.md) and [ipcRenderer](https://github.com/atom/electron/blob/master/docs/api/ipc-renderer.md) to achieve this. Cocos Creator encapsulate the two module and provide a better methods for complex scenarios.
 
 ## IPC Message Identifier
 

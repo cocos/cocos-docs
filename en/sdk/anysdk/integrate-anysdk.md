@@ -4,7 +4,7 @@ Cocos Creator built-in Cocos engine includes AnySDK Framework libraries since ve
 
 ## Create a game
 
-AnySDK for Cocos Creator plugin has not been released, you need to download AnySDK client from [AnySDK Website]( http://www.anysdk.com/downloads) to create a game and package.
+AnySDK for Cocos Creator plugin has not been released, you need to download AnySDK client from [AnySDK Website](http://www.anysdk.com/downloads) to create a game and package.
 
 1. Login AnySDK client.
 2. Create new game.

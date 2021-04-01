@@ -17,7 +17,7 @@
 > **注意**：所有 GitHub 上的演示和范例项目都会跟随版本进行更新，默认分支对应目前最新的 Cocos Creator 版本，老版本的项目会以 `v0.7` 这样的分支名区分，分支名会和相同版本的 Cocos Creator 对应，下载使用的时候请注意。
 
 - **范例集合**（[GitHub](https://github.com/cocos-creator/example-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）：从基本的组件到交互输入，这个项目里包括了 case by case 的功能点用法介绍。
-- **Star Catcher**（[GitHub](https://github.com/cocos-creator/tutorial-first-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game)）：也就是 [快速上手](getting-started/quick-start.md) 文档里分步讲解制作的游戏。
+- **Star Catcher**（[GitHub](https://github.com/cocos-creator/tutorial-first-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game)）：也就是 [快速上手](./quick-start.md) 文档里分步讲解制作的游戏。
 - **腾讯合作开发的 21 点游戏**（[GitHub](https://github.com/cocos-creator/tutorial-blackjack) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-blackjack))
 - **UI 展示 Demo**（[GitHub](https://github.com/cocos-creator/demo-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ui))
 - **Duang Sheep**（[GitHub](https://github.com/cocos-creator/tutorial-duang-sheep) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-duang-sheep)）：复制 FlappyBird 的简单游戏，不过主角换成了绵羊。

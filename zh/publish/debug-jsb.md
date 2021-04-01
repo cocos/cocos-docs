@@ -10,7 +10,7 @@
 
 ### Windows
 
-运行模拟器后，直接用 Chrome 浏览器打开地址：`chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008` 即可进行调试：
+运行模拟器后，直接用 Chrome 浏览器打开地址：<chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008> 即可进行调试：
 
 ![](debug-jsb/v8-win32-debug.png)
 
@@ -33,7 +33,7 @@
 
 - 确保 Android 设备与 Windows 或者 Mac 在同一个局域网中。注意在调试过程中请勿使用 VPN，否则可能导致无法正常调试。
 - 在 Creator 的构建发布面板选择 Android 平台、Debug 模式，构建编译运行工程。
-- 用 Chrome 浏览器打开地址：`chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={IP}:5086/00010002-0003-4004-8005-000600070008`，其中 `{IP}` 为 Android 设备的本地 IP，即可进行调试。
+- 用 Chrome 浏览器打开地址：<chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws={IP}:5086/00010002-0003-4004-8005-000600070008>，其中 `{IP}` 为 Android 设备的本地 IP，即可进行调试。
 
   ![](debug-jsb/v8-android-debug.png)
 
@@ -43,7 +43,7 @@
 - 打开 iPhone 的设置 -> Safari -> 高级 -> 打开  Web 检查器。
 - 在 Creator 的构建发布面板选择 iOS 平台、Debug 模式，构建工程。在 Xcode 中打开工程。
 
-![](debug-jsb/package.png)
+  ![](debug-jsb/package.png)
 
 - 在工程中添加签名：选择你的 iOS 工程 -> General -> Signing -> 选择你的开发者证书。
 - 为 Xcode 工程添加 entitlements 文件，如果 entitlements 文件存在则跳过此步骤。如果不存在，则到工程的 Capabilities 设置中打开 iCloud，然后再关闭。这时 .entitlements 文件会被自动添加到工程中。

@@ -903,7 +903,7 @@ int32_t v;
 bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传入输出参数的地址
 ```
 
-#### (IMPORTANT)理解 native\_ptr\_to\_seval 与 native\_ptr\_to\_rooted\_seval 的区别
+#### （IMPORTANT）理解 native\_ptr\_to\_seval 与 native\_ptr\_to\_rooted\_seval 的区别
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 

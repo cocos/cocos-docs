@@ -54,11 +54,11 @@ In **Assets** panel, select any of the prefab assets to edit the following optio
 
 ### 'Optimization Policy' option
 
-The v1.8.0 added an 'Optimization Policy' option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
+The v1.8.0 added an `Optimization Policy` option to optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
 
  - **Auto adjust** (default)
 
-   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.
+   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations.<br>
    When you first create an instance, the behavior is the same as 'For single instance creation'. 'For multiple instance creation' will be automatically used after multiple creation.
 
  - **For single instance creation**
@@ -69,9 +69,9 @@ The v1.8.0 added an 'Optimization Policy' option to optimizes the instantiation 
 
    This option enables code generation for this prefab.
 
-If this prefab requires repeated execution of `cc.instantiate`, select 'For multiple instance creation', otherwise leave as the default 'Auto adjust'.
+If this prefab requires repeated execution of `cc.instantiate`, select `For multiple instance creation`, otherwise leave as the default `Auto adjust`.
 
-> In the older version of the engine, the optimization was fixed to 'For multiple instance creation' and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The 'Auto adjust' in the new version is a good solution to this problem.
+> In the older version of the engine, the optimization was fixed to `For multiple instance creation` and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The `Auto adjust` in the new version is a good solution to this problem.
 
 ### 'Async Load Assets' option
 
