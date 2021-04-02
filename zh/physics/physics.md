@@ -1,33 +1,45 @@
-# 物理简介
+# 物理
 
-Cocos Creator 3.0 目前支持轻量的碰撞检测系统 __builtin__ 和具有物理模拟的物理引擎 __cannon.js__ ，以及功能完善强大的 __bullet__ 的 __asm.js__/__wasm__ 版本（__ammo.js__），并为开发者提供了高效统一的组件化工作流程和便捷的使用方法。
+Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效统一的组件化工作流程和便捷的使用方法，您可以 [选择项目适合的物理引擎](physics-item.md) 进行开发。
+
+- [ammo.js](https://github.com/cocos-creator/ammo.js)（默认）：功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
+- [cannon.js**](https://github.com/cocos-creator/cannon.js)：具有物理模拟的物理引擎。
+- **builtin**：轻量的碰撞检测系统。
 
 ## 物理世界和元素
 
-物理世界中的元素可以分为一个个的 **刚体**，在 Cocos Creator 中加入物理元素可以通过为游戏对象添加碰撞器（`Collider`）或者刚体（`RigidBody`）组件，物理系统将为这些元素进行物理计算，使其表现出真实世界下的行为。
+物理世界中的元素可以分为一个个的 **刚体**，在 Cocos Creator 中加入物理元素可以通过为游戏对象添加 **Collider 碰撞器** 或者 **RigidBody 刚体** 组件，物理系统将为这些元素进行物理计算，使其表现出真实世界下的行为。
 
 > **注**：此处的“刚体”不是指刚体组件，刚体组件用于控制刚体物理行为相关的属性。
 
 ### 添加物理元素
 
-在世界中添加一个物理元素可以分为以下步骤：
+1. 新建一个 3D 对象，以 **Cube 立方体** 为例，在 **资源管理器** 的文件夹中点击右键或者点击左上方的加号按钮，然后选择 **创建 -> 3D 对象 -> Cube 立方体**。
 
-1. 新建一个形状 __Cube__；
-2. 在右侧 __属性检查器__ 面板下方点击 __添加组件__ 按钮；
-3. 在 __Physics__ 目录下选择 __BoxCollider__，并调整参数；
-4. 为了使它具有物理行为，接着添加一个 __RigidBody__ 组件。
 
-这样，便有了一个 **既有碰撞器又有物理行为** 的一个物理元素。
+2. 选中新建的 3D 对象，在右侧的 **属性检查器** 面板下方点击 **添加组件** 按钮，添加一个 **Psycial -> RigidBody** 刚体组件，该对象既具有物理行为.
+
+
+
+3. 接着再添加一个碰撞器组件，以 **Cube 立方体** 为例，添加 **Psycial -> BoxCollider** 组件。
+
+
+
+这样，便生成了一个 **既有碰撞器又有物理行为** 的物理元素。
 
 ### 完善物理世界
 
-接着，完善物理世界，可以为世界添加一个地面，仿照 1，2，3 步骤，可以再添加一个 **只有碰撞器** 的 __Plane__；
+让我们继续完善物理世界，先添加一个 **Sphere 球体**，为其添加 **RigidBody** 刚体和 **SphereCollider** 球体碰撞器组件。
 
-然后，再调整摄像机的角度（选中摄像机，执行 __Ctrl + Shift + F__ 可以对齐到屏幕）；
+再添加一个 **Plane 平面**，只为其添加 **PlaneCollider** 平面碰撞器组件。
+
+然后调整各组件的 **Y** 值，使其处于不同高度，稍微调整下球体或者立方体的 **X/Z** 值，使其碰撞的时候可以相互弹开。
 
 最后，点击运行按钮，便可以看到物理元素在场景世界上的变化，最后的场景如下图所示：
 
-![物理世界](img/physics.jpg)
+![Physical World](img/physics.jpg)
+
+
 
 ### 物理元素的组成
 
@@ -37,13 +49,19 @@ Cocos Creator 3.0 目前支持轻量的碰撞检测系统 __builtin__ 和具有�
 - 一个或多个碰撞器组件
 - 一个刚体加一个或多个碰撞器组件
 
-## 更详细的模块
+## 文档目录
 
-Cocos Creator 的物理系统的更多内容将通过以下模块来进行更详细的介绍：
+Cocos Creator 的物理系统的更多内容，请参考以下文档：
 
-| 模块 | 描述 |
-| :--- | :-- |
-| [物理选项](physics-item.md) | 介绍了 Cocos Creator 中可选的底层物理引擎选项 |
-| [物理系统](physics-system.md) | 介绍了物理系统，以及物理系统的一系列属性和接口 |
-| [物理组件](physics-component.md) | 介绍了一些物理组件以及面板上的一系列属性 |
-| [物理使用](physics-use.md) | 进一步介绍了物理相关的使用、事件、分组掩码等 |
+- [物理引擎选择](physics-item.md)：介绍了 Cocos Creator 中可选的物理引擎选项
+- [物理系统](physics-system.md)：介绍了物理系统，以及物理系统的一系列属性和接口
+- [物理组件](physics-component.md)：介绍了一些物理组件以及面板上的一系列属性
+- [物理使用](physics-use.md)：进一步介绍了物理相关的使用、事件、分组掩码等
+    - [使用碰撞器](physics-collider.md)
+    - [物理配置](physics-configs.md)
+    - [物理材质](physics-material.md)
+    - [使用刚体](physics-rigidbody.md)
+    - [物理事件](physics-event.md)
+    - [分组和掩码](physics-group-mask.md)
+    - [射线检测](physics-raycast.md)
+
