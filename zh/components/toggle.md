@@ -14,8 +14,8 @@ Toggle 的脚本接口请参考 [Toggle API](../../../api/zh/classes/Toggle.html
 | -------------- | -----------   |
 | isChecked      | 布尔类型，如果这个设置为 true，则 check mark 组件会处于 enabled 状态，否则处于 disabled 状态。 |
 | checkMark      | cc.Sprite 类型，Toggle 处于选中状态时显示的图片  |
-| toggleGroup    | cc.ToggleGroup 类型， Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
-| Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见`Toggle 事件`章节  |
+| toggleGroup    | cc.ToggleGroup 类型，Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
+| Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见 `Toggle 事件` 章节  |
 
 注意：因为 Toggle 继承至 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 Button 组件对应的章节，这里就不再赘述了。
 
@@ -42,8 +42,7 @@ Toggle 组件的节点树一般为：
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，
-你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加。需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target、component、handler 和 customEventData 参数。
 
 ```js
 var checkEventHandler = new cc.Component.EventHandler();
@@ -79,7 +78,7 @@ cc.Class({
 cc.Class({
     extends: cc.Component,
 
-	
+
     properties: {
        toggle: cc.Toggle
     },

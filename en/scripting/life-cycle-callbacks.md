@@ -93,7 +93,3 @@ When the `enabled` property of the component turns from `true` to `false`, or th
 ## onDestroy
 
 When the component or node calls `destroy()`, it will call the `onDestroy` callback. Then they will be collected when this frame is done.
-
----
-
-Continue on to read about [Creating and Destroying Nodes](create-destroy.md).

@@ -4,7 +4,7 @@ The **Label** component is one of the key rendering components. You need to lear
 
 ## Alignment of labels in the bounding box
 
-Like other rendering components, the layout of the Label component is based on the `Size` of the node, i.e., the scale stipulated by the Bounding Box. Bounding Box please refer to the [Scene Editor](../getting-started/basics/editor-panels/scene.md#%E9%80%89%E5%8F%96%E8%8A%82%E7%82%B9).
+Like other rendering components, the layout of the Label component is based on the `Size` of the node, i.e., the scale stipulated by the Bounding Box. Bounding Box please refer to the [Scene Editor](../getting-started/basics/editor-panels/scene.md).
 
 ![](label-layout/label_in_boundingbox.png)
 
@@ -66,7 +66,7 @@ Resize height mode will make sure the bounding box of the labels fits the height
 
 ## Enable Wrap Text
 
-The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap acccording to the width of the bounding box without manual input of  `\r` or `\n` when inputting labels.
+The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap according to the width of the bounding box without manual input of  `\r` or `\n` when inputting labels.
 
 Attention! The `Enable Wrap Text` property is only available in the **Clamp** and **Shrink** modes of the label layout mode. In auto height adaptation mode, the 'Enable Wrap Text' property is compulsorily opened.
 
@@ -112,11 +112,6 @@ In the above picture, two Label subnodes are added to the background nodes. Afte
 
 And by setting margins on the aWidget, plus the layout type of labels, a flexible and beautiful layout for labels can be easily realized without concrete and minor adjustments to the bounding box.
 
-
 ## Reference for checking components
 
 For properties of the Label component, you can also check [Label Component](../components/label.md) document.
-
----
-
-Continue on to read about [UI Components](ui-components.md).

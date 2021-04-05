@@ -39,11 +39,11 @@ This can naturally support cross-version update, such as the local version is A,
 
 ## Hot update basic workflow
 
-After understand the basic design above, we can take a look at a typical hot update process. We use the manfiest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
+After understand the basic design above, we can take a look at a typical hot update process. We use the manifest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
 
 ![asset manager](hot-update/assets-manager.png)
 
-The figure is divided into three parts, the middle is the hot update process, the left is the process of updating the AssetsManager to send the message to the user, the right is the middle output of each step. The bold words indicates the location of the middle output, such as in memory / temporary folder / cache folder.
+The figure is divided into three parts, the middle is the hot update process, the left is the process of updating the AssetsManager to send the message to the user, the right is the middle output of each step. The bold words indicates the location of the middle output, such as in `memory/temporary folder/cache folder`.
 
 After reading this picture you may have a lot of questions. We will discuss details of the various steps that need to pay attention to or not easy to understand in the first place.
 
@@ -134,4 +134,4 @@ AssetsManager.setMaxConcurrentTask(10);
 
 A very important step in the hot update process is to compare the client and server versions, by default only when the primary version of the server is updated over the client major version. The engine implements a version of the comparison function, its initial version of the use of the most simple string comparison and criticized, for example, there will be 1.9> 1.10 situation. After Cocos Creator v1.4 and Cocos2d-x v3.15, we upgraded to support the xxxx four sequence versions of the comparison function (x is a pure number), do not conform to this version number mode will continue to use the string comparison function.
 
-In addition, we also allow users to use their own version of the contrast
+In addition, we also allow users to use their own version of the contrast.

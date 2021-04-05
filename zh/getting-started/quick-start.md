@@ -2,28 +2,28 @@
 
 您正在阅读的手册文档包括了系统化的介绍 Cocos Creator 的编辑器界面、功能和工作流程，但如果您想快速上手体验使用 Cocos Creator 开发游戏的大体流程和方法，这一章将满足您的好奇心。完成本章教程之后，您应该能获得足够上手制作游戏的信息，不过我们还是推荐您继续阅读本手册来了解各个功能模块的细节和完整的工作流程。
 
-接下来就让我们开始吧，跟随教程我们将会制作一款名叫**摘星星**的坑爹小游戏。这款游戏的玩家要操作一个反应**迟钝**却蹦跳不停的小怪物来碰触不断出现的星星，难以驾驭的加速度将给玩家带来很大挑战，和您的小伙伴比比谁能拿到更多星星吧！
+接下来就让我们开始吧，跟随教程我们将会制作一款名叫 **摘星星** 的坑爹小游戏。这款游戏的玩家要操作一个反应 **迟钝** 却蹦跳不停的小怪物来碰触不断出现的星星，难以驾驭的加速度将给玩家带来很大挑战，和您的小伙伴比比谁能拿到更多星星吧！
 
 可以在这里感受一下这款游戏的完成形态：
 
-http://fbdemos.leanapp.cn/star-catcher/
+<http://fbdemos.leanapp.cn/star-catcher/>
 
 ## 准备项目和资源
 
 我们已经为您准备好了制作这款游戏需要的全部资源，下载 **初始项目** 后，解压到您希望的位置，之后我们就可以开始了：
 
-[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/start_project.zip)
+**下载初始项目**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/start_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/start_project)
 
 您也可以下载最终完成的项目，跟随教程制作过程中有任何不明白的地方都可以打开完成版的项目作为参考：
 
-[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/complete_project.zip)
+**下载完成项目**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/complete_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/complete_project)
 
 ## 打开初始项目
 
 如果您还不了解如何获取和启动 Cocos Creator，请阅读 [安装和启动](install.md) 一节。
 
-1. 我们首先启动 Cocos Creator，然后选择**打开其他项目**
-2. 在弹出的文件夹选择对话框中，选中我们刚下载并解压完成的 `start_project`，点击**打开**按钮
+1. 我们首先启动 Cocos Creator，然后选择 **打开其他项目**
+2. 在弹出的文件夹选择对话框中，选中我们刚下载并解压完成的 `start_project`，点击 **打开** 按钮
 3. Cocos Creator 编辑器主窗口会打开，我们将看到如下的项目状态
 
 <a href="quick-start/init_start_project.png"><img src="quick-start/init_start_project.png" alt="start project"></a>
@@ -32,7 +32,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 我们的初始项目中已经包含了所有需要的游戏资源，因此您不需要再导入任何其他资源。如果希望了解导入资源的方法，可以阅读 [资源工作流程](../asset-workflow/index.md) 的相关内容。
 
-下面我们先来了解一下项目中都有哪些资源，请关注名为**资源管理器**的面板，这里显示的是项目中的所有资源树状结构。
+下面我们先来了解一下项目中都有哪些资源，请关注名为 **资源管理器** 的面板，这里显示的是项目中的所有资源树状结构。
 
 可以看到，项目资源的根目录名叫 **assets**，对应我们解压之后初始项目中的 `assets` 目录，只有这个目录下的资源才会被 Cocos Creator 导入项目并进行管理。
 
@@ -74,7 +74,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 由于提供了多分辨率适配的功能，我们一般会将场景中的所有负责图像显示的节点都放在 **Canvas** 下面。这样当 **Canvas** 的 `scale`（缩放）属性改变时，所有作为其子节点的图像也会跟着一起缩放以适应不同屏幕的大小。
 
-更详细的信息请阅读 [Canvas组件参考](../components/canvas.md)。目前我们只要知道接下来添加的场景图像都会放在 **Canvas** 节点下面就可以了。
+更详细的信息请阅读 [Canvas 组件参考](../components/canvas.md)。目前我们只要知道接下来添加的场景图像都会放在 **Canvas** 节点下面就可以了。
 
 ## 设置场景图像
 
@@ -86,7 +86,7 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 这时就可以松开鼠标按键，可以看到 **Canvas** 下面添加了一个名叫 `background` 的节点。当我们使用拖拽资源的方式添加节点时，节点会自动以贴图资源的文件名来命名。
 
-我们在对场景进行编辑修改时，可以通过主菜单 `文件->保存场景` 来及时保存我们的修改。也可以使用快捷键 <kbd>Ctrl+S</kbd>（Windows）或 <kbd>Cmd + S</kbd>（Mac）来保存。
+我们在对场景进行编辑修改时，可以通过主菜单 `文件 -> 保存场景` 来及时保存我们的修改。也可以使用快捷键 <kbd>Ctrl+S</kbd>（Windows）或 <kbd>Cmd + S</kbd>（Mac）来保存。
 
 ### 修改背景尺寸
 
@@ -118,13 +118,15 @@ http://fbdemos.leanapp.cn/star-catcher/
 
 <a href="quick-start/ground_finish.png"><img src="quick-start/ground_finish.png" alt="ground"></a>
 
-除了 **矩形变换工具** 之外，我们还可以使用 **移动工具** ![translate gizmo](quick-start/translate_gizmo.png) 来改变节点的位置。尝试按住 **移动工具** 显示在节点上的箭头并拖拽，就可以一次改变节点在单个坐标轴上的位置。
+除了 **矩形变换工具** 之外，我们还可以使用 **移动工具** 来改变节点的位置，尝试按住 **移动工具** 显示在节点上的箭头并拖拽，就可以一次改变节点在单个坐标轴上的位置。
+
+![translate gizmo](quick-start/translate_gizmo.png)
 
 我们在设置背景和地面的位置和尺寸时不需要很精确的数值，可以凭感觉拖拽。如果您偏好比较完整的数字，也可以按照截图直接输入 `position` 和 `size` 的数值。
 
 ### 添加主角
 
-接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。 注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
+接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
 
 为了让主角的光环在场景节点中非常醒目，我们右键点击刚刚添加的 `PurpleMonster` 节点，选择 `重命名` 之后将其改名为 `Player`。
 
@@ -144,18 +146,23 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
 
 ### 创建脚本
 
-1. 首先在 **资源管理器** 中右键点击 `assets` 文件夹，选择 `新建->文件夹`![new folder](quick-start/new_folder.png)
+1. 首先在 **资源管理器** 中右键点击 `assets` 文件夹，选择 `新建 -> 文件夹`
+
+    ![new folder](quick-start/new_folder.png)
+
 2. 右键点击 `New Folder`，选择 `重命名`，将其改名为 `scripts`，之后我们所有的脚本都会存放在这里。
-3. 右键点击 `scripts` 文件夹，选择 `新建->JavaScript`，创建一个 JavaScript 脚本
+
+3. 右键点击 `scripts` 文件夹，选择 `新建 -> JavaScript`，创建一个 JavaScript 脚本
+
 4. 将新建脚本的名字改为 `Player`。双击这个脚本，打开代码编辑器。
 
-**注意**：Cocos Creator 中脚本名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
+> **注意**：Cocos Creator 中脚本名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
 
 ### 编写组件属性
 
 打开的脚本里已经有了预先设置好的一些代码块，这些代码就是编写一个组件脚本所需的结构。具有这样结构的脚本就是 Cocos Creator 中的组件（Component），他们能够挂载到场景中的节点上，提供控制节点的各种功能。我们先来设置一些属性，然后看看怎样在场景中调整他们。
 
-在**代码编辑器**中找到 `Player` 脚本里 `properties` 部分，将其改为以下内容并按 <kbd>Ctrl + S</kbd>（Windows）或 <kbd>Cmd + S</kbd>（Mac）保存：
+在 **代码编辑器** 中找到 `Player` 脚本里 `properties` 部分，将其改为以下内容并按 <kbd>Ctrl + S</kbd>（Windows）或 <kbd>Cmd + S</kbd>（Mac）保存：
 
 ```js
 // Player.js
@@ -224,7 +231,11 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
 
 保存脚本，然后我们就可以开始第一次运行游戏了！
 
-点击 Cocos Creator 编辑器上方正中的**预览游戏**按钮 ![preview](quick-start/preview_game.png)，Cocos Creator 会自动打开您的默认浏览器并开始在里面运行游戏，现在应该可以看到我们的主角——紫色小怪兽在场景中间活泼的蹦个不停了。
+点击 Cocos Creator 编辑器上方正中的 **预览游戏** 按钮：
+
+![preview](quick-start/preview_game.png)
+
+Cocos Creator 会自动打开您的默认浏览器并开始在里面运行游戏，现在应该可以看到我们的主角——紫色小怪兽在场景中间活泼的蹦个不停了。
 
 ### 移动控制
 
@@ -336,7 +347,7 @@ Accel: 1000
 
 首先从 **资源管理器** 中拖拽 `assets/textures/star` 资源到场景中，位置随意，我们只是需要借助场景作为我们制作 Prefab 的工作台，制作完成后会我们把这个节点从场景中删除。
 
-我们不需要修改星星的位置或渲染属性，但要让星星能够被主角碰触后消失，我们需要为星星也添加一个专门的组件。按照和添加 `Player` 脚本相同的方法，添加名叫 `Star` 的JavaScript脚本到 `assets/scripts/` 中。
+我们不需要修改星星的位置或渲染属性，但要让星星能够被主角碰触后消失，我们需要为星星也添加一个专门的组件。按照和添加 `Player` 脚本相同的方法，添加名叫 `Star` 的 JavaScript 脚本到 `assets/scripts/` 中。
 
 ![star script](quick-start/star_script.png)
 
@@ -390,7 +401,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
     },
 ```
 
-保存脚本后将 `Game` 组件添加到 **层级编辑器** 中的 `Canvas` 节点上（选中 `Canvas` 节点后，拖拽脚本到 **属性检查器** 上，或点击 **属性检查器** 的 **添加组件** 按钮，并从 `用户自定义脚本` 中选择 `Game`，接下来从 **资源管理器** 中拖拽 `star`  Prefab 资源到 `Game` 组件的 `Star Prefab` 属性中。这是我们第一次为属性设置引用，只有在属性声明时规定 `type` 为引用类型时（比如我们这里写的 `cc.Prefab` 类型），才能够将资源或节点拖拽到该属性上。
+保存脚本后将 `Game` 组件添加到 **层级编辑器** 中的 `Canvas` 节点上（选中 `Canvas` 节点后，拖拽脚本到 **属性检查器** 上，或点击 **属性检查器** 的 **添加组件** 按钮，并从 `用户自定义脚本` 中选择 `Game`，接下来从 **资源管理器** 中拖拽 `star` Prefab 资源到 `Game` 组件的 `Star Prefab` 属性中。这是我们第一次为属性设置引用，只有在属性声明时规定 `type` 为引用类型时（比如我们这里写的 `cc.Prefab` 类型），才能够将资源或节点拖拽到该属性上。
 
 接下来从 **层级编辑器** 中拖拽 `ground` 和 `Player` 节点到组件中相同名字的属性上，完成节点引用。
 
@@ -494,7 +505,7 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
 
 ### 添加分数文字（Label）
 
-游戏开始时得分从0开始，每收集一个星星分数就会加1。要显示得分，首先要创建一个 **Label** 节点。在 **层级管理器** 中选中 `Canvas` 节点，右键点击并选择菜单中的 `创建新节点 -> 创建渲染节点 -> Label（文字）`，一个新的 Label 节点会被创建在 `Canvas` 下面，而且顺序在最下面。接下来我们要用如下的步骤配置这个 Label 节点：
+游戏开始时得分从 0 开始，每收集一个星星分数就会加 1。要显示得分，首先要创建一个 **Label** 节点。在 **层级管理器** 中选中 `Canvas` 节点，右键点击并选择菜单中的 `创建新节点 -> 创建渲染节点 -> Label（文字）`，一个新的 Label 节点会被创建在 `Canvas` 下面，而且顺序在最下面。接下来我们要用如下的步骤配置这个 Label 节点：
 
 1. 将该节点名字改为 `score`
 2. 将 `score` 节点的位置（`position` 属性）设为 `(0, 180)`。
@@ -716,9 +727,9 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
 
 这样就大功告成了！完成形态的场景层级和各个关键组件的属性如下：
 
-![node tree complete](quick-start/hierarchy_complete.png) 
+![node tree complete](quick-start/hierarchy_complete.png)
 
-![game complete](quick-start/game_complete.png) 
+![game complete](quick-start/game_complete.png)
 
 ![player complete](quick-start/player_complete.png)
 
@@ -738,8 +749,8 @@ Star Prefab 需要的设置就完成了，现在从 **层级管理器** 中将 `
 - 收集星星时加入更华丽的效果
 - 为触屏设备加入输入控制
 
-以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/polished_project.zip) 来参考和学习，这里就不再赘述了。
+以上这些方向都得到改善的游戏版本可以下载 **进化版项目**（[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v1.9/polished_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/polished_project)）来参考和学习，这里就不再赘述了。
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 
-今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [Github 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。
+今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [GitHub 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。

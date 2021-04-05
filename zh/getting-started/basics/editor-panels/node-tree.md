@@ -6,12 +6,12 @@
 
 ![node tree panel](hierarchy/node_tree.png)
 
-- 左上角的 ![](assets/add.png) 按钮是创建按钮，用来创建节点。
+- 左上角的 ![add](assets/add.png) 按钮是创建按钮，用来创建节点。
 - 上方的文本输入框可以用来搜索过滤节点
-- ![](hierarchy/search.png) 按钮用来过滤搜索的类型，分为 `Node` 和 `Component` 两种类型。
-- ![](hierarchy/switch.png) 按钮可以切换 **层级管理器** 节点的展开/折叠状态。
+- ![search](hierarchy/search.png) 按钮用来过滤搜索的类型，分为 `Node` 和 `Component` 两种类型。
+- ![switch](hierarchy/switch.png) 按钮可以切换 **层级管理器** 节点的展开/折叠状态。
 - 面板主体是节点列表，可以在这里用右键菜单或者拖拽操作对资源进行增删修改。
-- 节点前面的小三角 ![](assets/button.png) 用来切换节点树的展开/折叠状态。当用户按住 Alt/Option 的同时点击该按钮，除了执行这个节点自身的展开/折叠操作之外，还会同时展开/折叠该节点下的所有子节点。
+- 节点前面的小三角 ![button](assets/button.png) 用来切换节点树的展开/折叠状态。当用户按住 Alt/Option 的同时点击该按钮，除了执行这个节点自身的展开/折叠操作之外，还会同时展开/折叠该节点下的所有子节点。
 
 ## 创建节点
 
@@ -22,7 +22,7 @@
 
 ## 删除节点
 
-选中节点后，通过右键菜单里 `删除` 选项，或按下 <kbd>Delete</kbd>（Windows）或 <kbd>Cmd + Backspace</kbd> 热键即可删除选中的节点。如果选中节点包括子节点，子节点也会被一起删除。
+选中节点后，通过右键菜单里 `删除` 选项，或按下 <kbd>Delete</kbd>（Windows）或 <kbd>Cmd + Backspace</kbd>（Mac）热键即可删除选中的节点。如果选中节点包括子节点，子节点也会被一起删除。
 
 ## 建立和编辑节点层级关系
 

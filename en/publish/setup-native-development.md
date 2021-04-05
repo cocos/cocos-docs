@@ -77,13 +77,13 @@ Next, let's go back to Cocos Creator to configure the environmental path of the 
 
 We need to configure the following three paths here:
 
-- **Android SDK Root**, choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
-- **NDK Root**, choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
-- **ANT Path**, you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`. You can skip this if you don't need to compile on Android platform.
+- **Android SDK Root**: choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include documents like "build-tools", "platforms", etc.). You can skip this if you don't need to compile the Android platform.
+- **NDK Root**: choose the `ndk-bundle` folder in `Android SDK Location` path. You can skip this if you don't need to compile on Android platform.
+- **ANT Path**: you should choose the downloaded and unzipped Apache Ant folder, the path should be set under the bin directory in the ant installation directory. The chosen path should include an executable file named `ant`. You can skip this if you don't need to compile on Android platform.
 
 Close the window after configuration is completed.
 
-**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: COCOS_CONSOLE_ROOT, ANT_ROOT, NDK_ROOT, ANDROID_SDK_ROOT.
+> **Note**: the configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: COCOS_CONSOLE_ROOT, ANT_ROOT, NDK_ROOT, ANDROID_SDK_ROOT.
 
 ## Notes
 
@@ -102,7 +102,3 @@ We have received lots of feedback about original packing in the public beta, and
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
 In the end, if building still fails, you can try to create a standard Cocos2d-x project and compile it. If the Cocos2d-x project is compilable and Cocos Creator couldn't, please send the bug to us by [forum](http://discuss.cocos2d-x.org/c/creator).
-
----
-
-Continue on to read about [Publising -> Native](publish-native.md).

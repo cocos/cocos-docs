@@ -37,7 +37,3 @@ While writing the component script, you can map the variables needing adjustment
 - CCClass Reference
   - [CCClass Advanced Reference](reference/class.md)
   - [Attributes Reference](reference/attributes.md)
-
-<hr>
-
-Continue on to read about [Create and use component script](use-component.md).

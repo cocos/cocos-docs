@@ -4,15 +4,15 @@ WebView 是一种显示网页的组件，该组件让你可以在游戏里面集
 
 ![webview](./webview/webview.png)
 
-点击 **属性检查器** 下面的`添加组件`按钮，然后从`添加 UI 组件`中选择`WebView`，即可添加 WebView 组件到节点上。
+点击 **属性检查器** 下面的 `添加组件` 按钮，然后从 `添加 UI 组件` 中选择 `WebView`，即可添加 WebView 组件到节点上。
 
 WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.html)。
 
 ## WebView 属性
 
 | 属性          | 功能说明      |
-|---------------|-------------------------------------------------------------------------------------------------|
-| Url           | 指定一个 URL 地址，这个地址以 HTTP 或者 HTTPS 开头，请填写一个有效的 URL 地址 。                |
+|---------------|------------------------------------------------------------|
+| Url           | 指定一个 URL 地址，这个地址以 HTTP 或者 HTTPS 开头，请填写一个有效的 URL 地址。                |
 | WebViewEvents | WebView 的回调事件，当 webview 在加载网页过程中，加载网页结束后或者加载网页出错时会调用此函数。 |
 
 ## WebView 事件
@@ -23,7 +23,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | --------------  | -----------  |
 | Target          | 带有脚本组件的节点。   |
 | Component       | 脚本组件名称。      |
-| Handler         | 指定一个回调函数，当网页加载过程中、加载完成后或者加载出错时会被调用，该函数会传一个事件类型参数进来。详情见`WebView 事件回调参数` 章节 |
+| Handler         | 指定一个回调函数，当网页加载过程中、加载完成后或者加载出错时会被调用，该函数会传一个事件类型参数进来。详情见 `WebView 事件回调参数` 章节 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
 ### WebView 事件回调参数
@@ -36,7 +36,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 ## 详细说明
 
-目前此组件只支持Web（PC 和手机）、iOS 和 Android 平台，Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，那么在 PC 的模拟器里面预览的时候可能看不到效果。
+目前此组件只支持 Web（PC 和手机）、iOS 和 Android 平台，Mac 和 Windows 平台暂时还不支持。如果在场景中使用此组件，那么在 PC 的模拟器里面预览的时候可能看不到效果。
 
 此控件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
 
@@ -44,7 +44,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 
 #### 方法一
 
-这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target, component, handler 和 customEventData 参数。
+这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，通过代码添加，你需要首先构造一个 `cc.Component.EventHandler` 对象，然后设置好对应的 target、component、handler 和 customEventData 参数。
 
 ```js
 //here is your component file
@@ -65,7 +65,7 @@ cc.Class({
         this.webview.webviewEvents.push(webviewEventHandler);
     },
 
-	//注意参数的顺序和类型是固定的
+    //注意参数的顺序和类型是固定的
     callback: function(webview, eventType, customEventData) {
         //这里 webview 是一个 WebView 组件对象实例
         // 这里的 eventType === cc.WebView.EventType enum 里面的值
@@ -100,7 +100,7 @@ cc.Class({
 });
 ```
 
-同样的，你也可以注册 `loading`, `error` 事件，这些事件的回调函数的参数与 `loaded` 的参数一致。
+同样的，你也可以注册 `loading`、`error` 事件，这些事件的回调函数的参数与 `loaded` 的参数一致。
 
 ## 如何与 WebView 内部页面进行交互
 
@@ -192,5 +192,3 @@ cc.Class({
 ```
 
 #### 再强调一遍: Web 平台上的跨域问题需要自行解决
-
-<hr>

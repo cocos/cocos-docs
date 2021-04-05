@@ -36,7 +36,6 @@ cc.Class({
     onPostSolve: function (contact, selfCollider, otherCollider) {
     }
 });
-
 ```
 
 在上面的代码示例中，我们添加了所有的碰撞回调函数到这个脚本中，一共有四个类型的回调函数，每个回调函数都有三个参数。每种回调函数的作用如注释所示，你可以根据自己的需求来实现相应的回调函数。
@@ -65,7 +64,7 @@ cc.Class({
 </td>
 <td style="padding:4px;border:1px solid black">
     当两个碰撞体相互覆盖时，box2d 默认的行为是给每个碰撞体一个冲量去把他们分开，但是这个行为不一定能在一个时间步内完成。
-    像这里显示的一样，示例中的碰撞体会在三个时间步内相互覆盖直到“反弹”完成并且他们相互分离。 <br>
+    像这里显示的一样，示例中的碰撞体会在三个时间步内相互覆盖直到“反弹”完成并且他们相互分离。<br>
     在这个时间里我们可以定制我们想要的行为，<b>onPreSolve</b> 会在每次物理引擎处理碰撞前回调，我们
     可以在这个回调里修改碰撞信息，而 <b>onPostSolve</b> 会在处理完成这次碰撞后回调，我们可以在这个回调中获取到物理引擎计算出的碰撞的冲量信息。<br>
     下面给出的输出信息能使我们更清楚回调的顺序。
@@ -94,12 +93,11 @@ cc.Class({
 
 ## 回调的参数
 
-回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数: **contact**, **selfCollider**, **otherCollider**。
+回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数：**contact**、**selfCollider**、**otherCollider**。
 
-**selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**ohterCollider** 指的是发生碰撞的另一个碰撞体。
+**selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**otherCollider**  指的是发生碰撞的另一个碰撞体。
 
-最主要的信息都包含在 **contact** 中，这是一个 **cc.PhysicsContact** 类型的实例，可以在 api 文档中找到相关的 api 。
-contact 中比较常用的信息就是碰撞的位置和法向量，contact 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。
+最主要的信息都包含在 **contact** 中，这是一个 **cc.PhysicsContact** 类型的实例，可以在 api 文档中找到相关的 api。contact 中比较常用的信息就是碰撞的位置和法向量，contact 内部是按照刚体的本地坐标来存储信息的，而一般需要的是世界坐标系下的信息，可以通过 `contact.getWorldManifold` 来获取这些信息。
 
 ### worldManifold
 
@@ -117,14 +115,15 @@ var normal = worldManifold.normal;
 
 ![world-manifold-points](./image/world-manifold-points.png)
 
-**注意**：
-不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
+> **注意**：不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
+>
+> ![collision-points-1](./image/collision-points-1.png)
+>
+> ![collision-points-2](./image/collision-points-2.png)
+>
+> ![collision-points-3](./image/collision-points-3.png)
 
-![collision-points-1](./image/collision-points-1.png)
-![collision-points-2](./image/collision-points-2.png)
-![collision-points-3](./image/collision-points-3.png)
-
-- normal
+#### normal
 
 碰撞点上的法向量，由自身碰撞体指向对方碰撞体，指明解决碰撞最快的方向。
 
@@ -132,7 +131,7 @@ var normal = worldManifold.normal;
 
 在图中所示的线条即碰撞点上的法向量，在这个碰撞中，解决碰撞最快的途径是添加冲量将三角形往左上推，将方块往右下推。需要注意的是这里的法向量只是一个方向，并不带有位置属性，也不会连接到这些碰撞点中的任何一个。
 
-你还需要明白的是**碰撞法向量并不是碰撞体碰撞的角度**，他只会指明可以解决两个碰撞体相互覆盖这一问题最短的方向。比如上面的例子中如果三角形移动得更快一点，覆盖的情形像下图所示的话：
+你还需要明白的是 **碰撞法向量并不是碰撞体碰撞的角度**，它只会指明可以解决两个碰撞体相互覆盖这一问题最短的方向。比如上面的例子中如果三角形移动得更快一点，覆盖的情形像下图所示的话：
 
 ![world-manifold-normal-2](./image/world-manifold-normal-2.png)
 
@@ -154,7 +153,7 @@ contact.disabled = true;
 
 禁用掉 contact 会使物理引擎在计算碰撞时会忽略掉这次碰撞，禁用将会持续到碰撞完成，除非在其他回调中再将这个 contact 启用。
 
-或者如果你只想在本次物理处理步骤中禁用 contact ，可以使用 `disabledOnce`。
+或者如果你只想在本次物理处理步骤中禁用 contact，可以使用 `disabledOnce`。
 
 ```javascript
 contact.disabledOnce = true;

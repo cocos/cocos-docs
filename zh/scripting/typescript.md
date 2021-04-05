@@ -206,8 +206,11 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
 ### 命名空间工作流程
 
 1. 在项目的根目录下（assets 目录外），新建一个文件夹用于存放我们所有包含命名空间的 ts 脚本，比如 `namespaces`。
+
     ![namespace folder](assets/namespace-folder.jpg)
+
 2. 修改 `tsconfig.json` 文件，将刚创建的 `namespace` 文件夹加入到 `include` 字段中，表示我们将会通过 VSCode 编译这部分文件。
+
 3. 在 `tsconfig.json` 的 `compilerOptions` 字段中，加入 `outFile` 字段，并设置一个 `assets` 文件夹下的文件路径。通过这些设置，我们会将所有 `namespace` 目录下的 ts 文件编译到 `assets` 目录下的某个 js 文件中。
 
     ```json
@@ -226,11 +229,12 @@ Creator 中默认所有 assets 目录下的脚本都会进行编译，自动为�
     ```
 
 4. 按下 `Ctrl/Cmd + Shift + P`，在 Command Palette 里输入 `task`，并选择 `Tasks: Configure Task Runner`。在弹出的对话框里选择 `TypeScript - tsconfig`。这将在 `.vscode` 文件夹下新建一个 `tasks.json` 配置文件，并配置根据 `tsconfig.json` 来编译项目中指定的 ts 脚本的任务。
-    ![build task](assets/build-task.jpg)
-5. 现在你可以在 `namespace` 目录下书写包含命名空间的 ts 脚本了，编程完成后按下 `Ctrl/Cmd + Shift + B` 触发默认构建任务，就会将 `namespace` 里的脚本内容编译到 `assets` 目录下的指定文件里。每次修改 `namespace` 中的脚本后，都应该执行构建任务来更新编译后的文件。
-6. 回到 Creator 编辑器，在资源管理器里选中刚生成的 namespace 脚本 `namespace.js`，在属性检查里设置 「导入为插件」。避免编辑器对该脚本进行进一步的编译封装。
 
-这就是在 Creator 里使用 TypeScript 命名空间的完整工作流程。
+    ![build task](assets/build-task.jpg)
+
+5. 现在你可以在 `namespace` 目录下书写包含命名空间的 ts 脚本了，编程完成后按下 `Ctrl/Cmd + Shift + B` 触发默认构建任务，就会将 `namespace` 里的脚本内容编译到 `assets` 目录下的指定文件里。每次修改 `namespace` 中的脚本后，都应该执行构建任务来更新编译后的文件。
+
+6. 回到 Creator 编辑器，在资源管理器里选中刚生成的 namespace 脚本 `namespace.js`，在属性检查器中设置「导入为插件」。避免编辑器对该脚本进行进一步的编译封装。
 
 ## 更新引擎接口声明数据
 
@@ -239,4 +243,3 @@ Creator 每个新版本都会更新引擎接口声明，建议升级了 Creator 
 ---
 
 Cocos Creator 中对 TypeScript 的支持参考了很多 [Creator TypeScript Boilerplate](https://github.com/toddlxt/Creator-TypeScript-Boilerplate) 项目的设置和做法，在此特别感谢。另外这个项目中也包含了很多关于使用 TypeScript 项目的工作流程和高级功能，可供参考。
-

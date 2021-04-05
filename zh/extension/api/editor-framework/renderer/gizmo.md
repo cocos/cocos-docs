@@ -4,8 +4,7 @@
 
 ### Editor.Gizmo.prototype.registerMoveSvg(svg, args, opts)
 
-Register a moveable svg element.    
-When the svg element is moved, the callback created from `onCreateMoveCallbacks` will be called.
+Register a moveable svg element. When the svg element is moved, the callback created from `onCreateMoveCallbacks` will be called.
 
 - `svg` Svg Element - The svg element which can move.
 - `args` Object | Array - The args will parse to callback, you can check which svg element is moved with the args.
@@ -13,10 +12,10 @@ When the svg element is moved, the callback created from `onCreateMoveCallbacks`
   - `cursor` String - The move mouse cursor.
   - `ignoreWhenHoverOther` Boolean - Will ignore the mouse down event on this svg element if hover on other svg element.
 
-```javascript
-this.registerMoveSvg(moveRectSvg, 'move-rect');
-this.registerMoveSvg(moveAnchorSvg, 'move-anchor-rect');
-```
+    ```javascript
+    this.registerMoveSvg(moveRectSvg, 'move-rect');
+    this.registerMoveSvg(moveAnchorSvg, 'move-anchor-rect');
+    ```
 
 ### Editor.Gizmo.prototype.recordChanges()
 
@@ -30,9 +29,9 @@ Commit undo changes, generally gizmo will commit changes automatically
 
 Adjust value to avoid value's fractional part to be too long.
 
-- `targets` [Object] - The target wich should adjust.
+- `targets` [Object] - The target which should adjust.
 - `keys` String (optional) - If not specified, then will adjust all available properties on target.
-- `minDifference` Number(optionnal) - The decimal precision, default is ` Editor.Gizmo.prototype.defaultMinDifference()`
+- `minDifference` Number(optional) - The decimal precision, default is `Editor.Gizmo.prototype.defaultMinDifference()`
 
 ```javascript
 this.adjustValue(this.node, ['position']);
@@ -94,8 +93,7 @@ visible () {
 
 ### Editor.Gizmo.prototype.dirty()
 
-Whether the gizmo is dirty, the gizmo will only update when gizmo is dirty.
-If you want to update gizmo every frame then `return true`.
+Whether the gizmo is dirty, the gizmo will only update when gizmo is dirty. If you want to update gizmo every frame then `return true`.
 
 Default implement:
 
@@ -105,7 +103,7 @@ dirty () {
 }
 ```
 
-### Editor.Gzimo.prototype.onCreateRoot()
+### Editor.Gizmo.prototype.onCreateRoot()
 
 This function will call when create the root svg element for a gizmo.
 You can implement this function to custom your gizmo creation.
@@ -117,7 +115,7 @@ onCreateRoot () {
 }
 ```
 
-### Editor.Gzimo.prototype.onCreateMoveCallbacks()
+### Editor.Gizmo.prototype.onCreateMoveCallbacks()
 
 This callback return from the function will call when the moveable svg element is moved.
 
@@ -153,7 +151,6 @@ onCreateMoveCallbacks () {
     };
 }
 ```
-
 
 ### Editor.Gizmo.prototype.defaultMinDifference()
 
@@ -192,4 +189,3 @@ Whether the gizmo is editing.
 ### Editor.Gizmo.prototype.hovering
 
 Whether the gizmo is hovering.
-

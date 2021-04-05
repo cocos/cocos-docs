@@ -1,4 +1,5 @@
 # Editor interface overview
+
 This chapter will introduce the editor interface and get familiar with each of the panels, menus and functional buttons that make up the editor. The Cocos Creator editor is composed of multiple panels which can be moved and combined freely to meet the needs of different projects and developers. Here we will take the default editor layout as an example to quickly browse the name and function of each panel:
 
 ![Editor Overview](index/editor-overview.png)

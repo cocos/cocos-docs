@@ -248,4 +248,4 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 
 ### 如果需要对构建后的图片重新进行压缩
 
-从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。v1.10 处理起来会比较麻烦，建议直接升级到 v2.0，然后需要对构建流程做一些定制，请参考范例 <https://github.com/cocos-creator/demo-process-build-textures>。
+从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。v1.10 处理起来会比较麻烦，建议直接升级到 v2.0，然后需要对构建流程做一些定制，请参考范例（[GitHub](https://github.com/cocos-creator/demo-process-build-textures) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-process-build-textures)）。

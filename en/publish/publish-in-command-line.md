@@ -32,7 +32,7 @@ You can also to compile the native project of the native platform separately by 
 ## Publish Parameters
 
  - `--path`: Project Path
- - `--build`: Pulibsh project Parameters
+ - `--build`: Publish project parameters
  - `--compile`: Compile native project Parameters
 
 If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
@@ -92,4 +92,4 @@ If no parameters are specified after `--build` or `--compile`, then the paramete
 
 CocosCreator also need GUI environment when running in command line. If your Jenkins can not run CocosCreator in command line, a solution is running Jenkins on the agent mode, so it can visit the WindowServer.
 
-Details : <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
+Details: <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>

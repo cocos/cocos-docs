@@ -17,7 +17,7 @@ Suppose we are making a physics game: we have physics colliders and tiled map as
 
 ![Camera-1](./camera/camera-1.png)
 
-Here we need to create a new empty node and rename it to camera, use this node as a camera, using a single node as a camera node will be more flexible. Of course, we can also directly add the Camera component to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect. 
+Here we need to create a new empty node and rename it to camera, use this node as a camera, using a single node as a camera node will be more flexible. Of course, we can also directly add the Camera component to the hero node, but this camera can only at the exact position of hero, and can not implement any smooth follow effect.
 
 Select the camera node in the **Node Tree** and click on the `Add Component -> Add Other Component -> Camera` button below the **Properties** to add the Camera component to the camera node.
 
@@ -25,7 +25,7 @@ Select the camera node in the **Node Tree** and click on the `Add Component -> A
 
 Here the Camera component adds three nodes to the `targets` property, that is, we need the camera to shoot these three nodes. And we also added a `camera-control` custom components, the role of this component is mainly to move the camera node to follow the hero node.
 
-This example can be found in the `tiled` example in the [Physics example](https://github.com/2youyou2/physics-example) project.
+This example can be found in the `tiled` example in the [Physics example](https://github.com/cocos-creator/example-physics/tree/master/assets/cases/demo) project.
 
 You can also refer to the [Camera Demo](https://github.com/cocos-creator/demo-camera), contains examples of the usage of camera.
 

@@ -2,7 +2,7 @@
 
 The core workflow of Cocos Creator is focused on component-based development. The component-based framework is also known as the **component-entity system** (or [Entity-Component System](https://en.wikipedia.org/wiki/Entity_component_system)). Simply put, we create gameplay elements with component combination instead of class inheritance.
 
-In Cocos Creator, **Node** is the entity that can contain component. We will attach renderer and gameplay **Components** to node, to make the element has many presentation and gameplay functions. Let`s see how to create a node and add a component in the scene.
+In Cocos Creator, **Node** is the entity that can contain component. We will attach renderer and gameplay **Components** to node, to make the element has many presentation and gameplay functions. Let's see how to create a node and add a component in the scene.
 
 ## Create Node
 

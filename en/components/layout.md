@@ -2,20 +2,19 @@
 
 Layout is a container component. The container can unlock the auto-layout function to automatically arrange all the sub-objects according to the specifications so that the user can use it to make list, page turning and other functions conveniently.
 
+Click `Add component` button at the bottom of **Properties** panel and then select `Layout` from `add UI component`, then you add the Layout component to the node.
+
 - Horizontal Layout
 
-![horizontal-layout](./layout/horizontal-layout.png)
+    ![horizontal-layout](./layout/horizontal-layout.png)
 
 - Vertical Layout
 
-![vertical-layout](./layout/vertical-layout.png)
+    ![vertical-layout](./layout/vertical-layout.png)
 
 - Grid Layout
 
-![grid-layout](./layout/grid-layout.png)
-
-Click `Add component` button at the bottom of **Properties** panel and then select `Layout` from `add UI component`, then you add the Layout component to the node.
-
+    ![grid-layout](./layout/grid-layout.png)
 
 ## Layout property
 
@@ -47,13 +46,9 @@ types support `Resize Mode`.
 
 - When `Resize Mode` is *CONTAINER*, the container's size will change with sub-objects' size.
 
-When using Grid layout, the `Start Axis` is very important. When choosing Horizontal, it will fill an entire
-row before a new row is started. When choosing Vertical, it will fill an entire column before a new column is started.
+When using Grid layout, the `Start Axis` is very important. When choosing Horizontal, it will fill an entire row before a new row is started. When choosing Vertical, it will fill an entire column before a new column is started.
 
-Node:
-1. Scaling and rotation of child nodes are not considered.
-2. After setting the Layout, the results need to be updated until the next frame, unless you manually 'updateLayout' api.
-
----
-
-Continue on to read about [Script development workflow](../scripting/index.md).
+> **Notes**:
+>
+> 1. Scaling and rotation of child nodes are not considered.
+> 2. After setting the Layout, the results need to be updated until the next frame, unless you manually `updateLayout` api.

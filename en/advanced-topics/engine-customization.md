@@ -17,7 +17,7 @@ If you only need to make some adjustments based on the current version, Then you
 
 ![](engine-customization/open-engine.png)
 
-If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from github. You have to make sure the repo is at the corresponding branch. For example to customize engine for __Cocos Creator v1.6.2__ you'd need to checkout `v1.6` branch; for __Cocos Creator v1.7.1__ you'd need to checkout `v1.7` branch. Once cloning is completed, go to the repo's folder in command-line shell.
+If you want to get the latest version that is currently under development, you need to first fork or clone the original version of the JavaScript engine from GitHub. You have to make sure the repo is at the corresponding branch. For example to customize engine for __Cocos Creator v1.6.2__ you'd need to checkout `v1.6` branch; for __Cocos Creator v1.7.1__ you'd need to checkout `v1.7` branch. Once cloning is completed, go to the repo's folder in command-line shell.
 
 ![](engine-customization/download-repo-js.png)
 
@@ -61,7 +61,7 @@ If you need to change stuff of rendering or native API related function. Besides
 
 If you only need to make some adjustments based on the current version, Then you can modify it based on the builtin Cocos2d-x engine of Cocos Creator. Same as get JavaScript engine: click **Open App** in the upper right corner of the Creator Editor, and then copy the builtin **cocos2d-x** directory to another local paths.
 
-If you want to get the latest version that is currently under development, you need to download it from the github repo specified above. please make sure you get the cocos2d-x engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
+If you want to get the latest version that is currently under development, you need to download it from the GitHub repo specified above. please make sure you get the cocos2d-x engine repo from the link on top of this article. Same as JavaScript engine, you need to make sure cocos2d-x repo is on correct branch. For Cocos Creator v1.6.2 please checkout `v1.6` branch.
 
 ### 2.2 Initialize
 

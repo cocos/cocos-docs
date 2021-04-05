@@ -2,7 +2,7 @@
 
 ![](./publish-wechatgame/preview.jpeg)
 
-**Note:** there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
+> **Note**: there is also a [teaching video](https://v.qq.com/iframe/player.html?vid=c05255stri7&tiny=0&auto=0) that can be used alongside this document.
 
 ## __WeChat Mini Game__ Platform
 
@@ -84,16 +84,19 @@ In addition to pure game content, the __WeChat Mini Game__ environment also prov
 6. Other: location, device information, scan code, NFC, etc.
 
 ## Access to the subdomain of WeChat Mini Games
+
 In order to protect its social relationship chain data, __WeChat Mini Games__ has added the concept of subdomain, which is also called **Open Data Domain**, which is a separate game execution environment. The resources, engines, and programs in the subdomain are completely isolated from the main game. Developers can only access the __wx.getFriendCloudStorage()__ and __wx.getGroupCloudStorage()__ APIs provided by __WeChat__ in the subdomain to implement some rankings, for example.
 
 __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For details, please refer to [Access to the subdomain of WeChat Mini Game](../publish/publish-wechatgame-sub-domain.md).
 
 ## Reading
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
+
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
-- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
+- [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 - [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)
 
 ## F.A.Q
+
 Frequently asked questions during the development of __WeChat Mini Games__, are available in this [post](https://forum.cocos.org/t/faq/54828).

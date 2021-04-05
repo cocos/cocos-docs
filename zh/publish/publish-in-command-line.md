@@ -37,7 +37,7 @@
 
 在 `--build` 或者 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
-- `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
+- `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/holycanvas/engine/blob/76460006e5046475cb714c48f801af8ea6a4fac9/modules.json) 查找到
 - `title` - 项目名
 - `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、qqplay、wechatgame、fb-instant-games]
 - `buildPath` - 构建目录
@@ -51,7 +51,7 @@
   - 0 - 由引擎自动选择.
   - 1 - 强制使用 Canvas 渲染模式
   - 2 - 强制使用 Webgl 渲染模式，但是在移动浏览器中这个选项会被忽略
- 
+
 - `inlineSpriteFrames` - 是否内联所有 SpriteFrame
 - `mergeStartScene` - 是否合并初始场景依赖的所有 JSON
 - `optimizeHotUpdate` - 是否将图集中的全部 SpriteFrame 合并到同一个包中
@@ -99,8 +99,6 @@
 
 ## 在 Jenkins 上部署
 
-CocosCreator 命令行运行的时候也是需要 GUI 环境的。
-如果你的 Jenkins 无法使用 CocosCreator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
+Cocos Creator 命令行运行的时候也是需要 GUI 环境的。如果你的 Jenkins 无法使用 Cocos Creator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。
 
-详见 ：
-<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>
+详见：<https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>

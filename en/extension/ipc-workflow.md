@@ -1,4 +1,4 @@
-# IPC workdflow
+# IPC workflow
 
 Please read [Introduction To Ipc](introduction-to-ipc.md) to understand the basic concept of IPC.
 
@@ -8,7 +8,7 @@ All the API mentioned in this session can be found in [Editor.Ipc Main Process A
 
 ## Sending Messages
 
-### Sending message from main process to panel.
+### Sending message from main process to panel
 
 In main process, we mainly use `Editor.Ipc.sendToPanel('panelID', 'message' [, ...args, callback, timeout)` method to send message to panel, the parameters:
 
@@ -34,9 +34,9 @@ We also have the following methods to operate IPC:
 - any process to all windows: `Editor.Ipc.sendToWins`
 - any process to all: `Editor.Ipc.sendToAll`
 
-## Recieve Message
+## Receive Message
 
-To recieve ipc message in main or renderer process, the easist way is define the `messages` field:
+To receive ipc message in main or renderer process, the easiest way is define the `messages` field:
 
 ### Listening message in panel
 
@@ -86,7 +86,7 @@ In main process:
 require('electron').ipcMain.on('foobar:message', function(event, args) {});
 ```
 
-For more about Electron's IPC methods, read [Electron API: ipcMain](http://electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](http://electron.atom.io/docs/api/ipc-renderer/)。
+For more about Electron's IPC methods, read [Electron API: ipcMain](http://electron.atom.io/docs/api/ipc-main/) [Electron API: ipcRenderer](http://electron.atom.io/docs/api/ipc-renderer/).
 
 ## Add reply method
 
@@ -117,15 +117,15 @@ Editor.Panel.extends({
 });
 ```
 
-NOTE: the first argument of `event.reply` is an Error, if nothing happend, just send `null` here. Except that, we recommend you check if `event.reply` exists, this will help us remember sending the reply.
+NOTE: the first argument of `event.reply` is an Error, if nothing happened, just send `null` here. Except that, we recommend you check if `event.reply` exists, this will help us remember sending the reply.
 
 ### Handling Timeout
 
-The last argument for send IPC message methods is the `timeout`, calculated by miliseconds, default is 5000ms.
+The last argument for send IPC message methods is the `timeout`, calculated by milliseconds, default is 5000ms.
 
 If you don't want timeout to process, send `-1`. In this case, you must make sure the reply will be invoked, otherwise it will cause a memory leak.
 
-When timeout triggerred, a timeout error will reply:
+When timeout triggered, a timeout error will reply:
 
 ```js
 Editor.Ipc.sendToMain('foobar:greeting', function (error, answer) {
