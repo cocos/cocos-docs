@@ -2,13 +2,13 @@
 
 VideoPlayer is a component for playing videos, you could use this component for playing local video and remote videos.
 
-**Play local video**：
+**Play local video**:
 
-![videoplayer](./videoplayer/videoplayer.png)
+![video player](./videoplayer/videoplayer.png)
 
-**Play remote video**：
+**Play remote video**:
 
-![videoplayer-remote](./videoplayer/videoplayer-remote.png)
+![video player remote](./videoplayer/videoplayer-remote.png)
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the VideoPlayer component to the node.
 
@@ -16,10 +16,10 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 
 ## VideoPlayer Properties
 
-| Properties | Function Explanation
+| Property | Function Explanation
 |-------- | ----------- |
 | Resource Type| The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path.
-| Clip | Displayed when Resource Type is LOCAL，feed it with a local video path.
+| Clip | Displayed when Resource Type is LOCAL, feed it with a local video path.
 | Remote URL | Displayed when Resource Type is REMOTE, feed it with a remote video URL.
 | Current Time | The current time when video start to play.
 | Volume             | The volume of the video. (0.0 ~ 1.0) |
@@ -28,17 +28,17 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Is Fullscreen| Whether play video in fullscreen mode.
 | Video Player Event| the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
-**Note**：In **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+> **Note**: in **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
 ### VideoPlayerEvent Event
 
-| Properties |   Function Explanation
+| Property |   Function Explanation
 | -------------- | ----------- |
 | target| Node with the script component.
 | component| Script component name.
-| handler| Specify a callback，when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.
+| handler| Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.
 | customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
 
 For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
@@ -55,7 +55,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 | CLICKED        | Video is clicked by the user. |
 | READY_TO_PLAY  | Video is ready to play.       |
 
-**Note**: On iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
+> **Note**: on iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
 
 For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
@@ -80,7 +80,7 @@ videoPlayerEventHandler.customEventData = "foobar";
 
 videoPlayer.videoPlayerEvent.push(videoPlayerEventHandler);
 
-// here is your component file
+// Here is your component file
 cc.Class({
     name: 'cc.MyComponent'
     extends: cc.Component,
@@ -88,11 +88,11 @@ cc.Class({
     properties: {
     },
 
-	//the order of parameters should not change
+    // The order of parameters should not change
     callback: function(videoplayer, eventType, customEventData) {
-        //videoplayer is a VideoPlayer component instance
-        //eventType is typed as cc.VideoPlayer.EventType 
-        //customEventData is "foobar"
+        // The "videoplayer" is a VideoPlayer component instance
+        // The "eventType" is typed as cc.VideoPlayer.EventType 
+        // The "customEventData" is "foobar"
     }
 });
 ```
@@ -116,10 +116,10 @@ cc.Class({
     },
 
     callback: function (event) {
-       //event is EventCustom, you can use event.detail to get VideoPlayer component
+       // The "event" is EventCustom, use "event.detail" to get VideoPlayer component
        var videoplayer = event.detail;
-       //do whatever you want with videoplayer
-       //you can't pass customEventData in this way
+       // Do whatever you want with videoplayer
+       // You can't pass "customEventData" in this way
     }
 });
 ```
@@ -129,7 +129,3 @@ Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and 
 ## Support platform
 
 Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, and **Android** platforms are currently supported. If you need to use VideoPlayer on the WeChat Mini Game, you can refer to the [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/media/video/wx.createVideo.html).
-
-<hr>
-
-Continue reading [WebView Component](webview.md).

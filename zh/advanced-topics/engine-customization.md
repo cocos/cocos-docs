@@ -2,8 +2,8 @@
 
 Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x 和 adapter 三个部分。全部都在 GitHub 上开源。地址在：
 
-- JavaScript 引擎：<https://github.com/cocos-creator/engine>
-- Cocos2d-x 引擎：<https://github.com/cocos-creator/engine-native>
+- **JavaScript 引擎**：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)
+- **Cocos2d-x 引擎**：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)
 
 Adapter 地址分别在：
 
@@ -92,23 +92,23 @@ gulp init
 
 - 如果遇到类似下方这样的报错，请手动下载该 zip 文件。出错原因是您的 python 自带的一个库版本太低，但是不太好升级，比较简单一些的方法是下载该 zip 文件，手动放到 Cocos2d-x 引擎仓库下并重命名为 `v3-deps-54.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
-```bash
-> ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'v3-deps-54.zip' from
+    > 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
 
 - 若遇到类似下方这样的报错，请手动下载该 zip 文件。手动放到 Cocos2d-x 引擎仓库 `tools/cocos2d-console` 目录下并重命名为 `creator-console-2.zip`（不需要解压该 zip 文件），再重新运行 `gulp init`。
 
-```bash
-> ==> Ready to download 'creator-console-2.zip' from
-> 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
-> Traceback (most recent call last):
-> ...
-> URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
-```
+    ```bash
+    > ==> Ready to download 'creator-console-2.zip' from
+    > 'https://github.com/cocos2d/console-binary/archive/creator-console-2.zip'
+    > Traceback (most recent call last):
+    > ...
+    > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
+    ```
 
 ### 2.3 在 Cocos Creator 中配置定制版引擎
 
@@ -130,7 +130,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
+> **注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
 
 ![](engine-customization/sign.png)
 
@@ -158,7 +158,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 
 在 `jsb-adapter` 目录下，主要包括以下两个目录结构：
 
-- `builtin`：适配原生平台的 runtime<br>
+- `builtin`：适配原生平台的 runtime
 - `engine`：适配引擎层面的一些 api
 
 `builtin` 部分除了适配 BOM 和 DOM 运行环境，还包括了一些相关的 jsb 接口，如 openGL, audioEngine 等。
@@ -220,10 +220,10 @@ gulp
 
 ### 3.3 定制 weapp-adapter 和 qqplay-adapter
 
-**小游戏** 和 **玩一玩** 的适配层代码分别位于 `resources/builtin` 目录下的 `weapp-adapter` 和 `qqplay-adapter` 。  
+**小游戏** 和 **玩一玩** 的适配层代码分别位于 `resources/builtin` 目录下的 `weapp-adapter` 和 `qqplay-adapter` 。
 
-- 这部分代码的定制，不需要任何编译操作。  
-- 引擎层面的适配工作，请在相应的 engine 目录下完成。  
+- 这部分代码的定制，不需要任何编译操作。
+- 引擎层面的适配工作，请在相应的 engine 目录下完成。
 
 了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/tutorial/base/adapter.html)。
 

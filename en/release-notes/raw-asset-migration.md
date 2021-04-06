@@ -14,12 +14,12 @@ For **programmers**, resources originally represented in the code with a URL str
 
 ### Do I need to manually upgrade?
 
-You need to upgrade if you have the following：
- - You declare these types directly in your game code：`cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
+You need to upgrade if you have the following:
+ - You declare these types directly in your game code: `cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
  - You have extended the engine or editor. And defines a new class inherited from `cc.RawAsset`.
  - You have loaded the '.json' suffix file under the `resources` folder through `cc.loader.loadRes`.
 
-Maybe you need to upgrade if you have the following：
+Maybe you need to upgrade if you have the following:
  - You call `cc.audioEngine` or `cc.textureCache` directly in your game code.
  - You use `cc.loader` to load text and particle on remote server.
 

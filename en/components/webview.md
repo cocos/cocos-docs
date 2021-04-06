@@ -15,7 +15,7 @@ For more information about WebView API, please refer to [WebView API](../../../a
 | Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
 | Webview Events | The webview's event callback, it will be triggered when certain webview event occurs.
 
-**Note**：In **cc.Node** of the **Webview Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant WebView event according to the user's needs.
+> **Note**: in **cc.Node** of the **Webview Events** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant WebView event according to the user's needs.
 
 ## WebView Event
 
@@ -179,7 +179,7 @@ cc.Class({
 </html>
 ```
 
-Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other
+Because of the limitations of Web platform, it can not be implemented by this mechanism, but internal pages can interact with each other.
 
 ```js
 // WebView internal page code
@@ -202,5 +202,3 @@ Because of the limitations of Web platform, it can not be implemented by this me
 ```
 
 #### Stressed once: Cross domain issues on Web platform need to be resolved by yourself
-
-<hr>

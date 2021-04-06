@@ -16,10 +16,10 @@ In this tutorial, we will introduce how to
 Getting the node which the component belong is easy, just use `this.node` variable in component:
 
 ```js
-    start: function () {
-        var node = this.node;
-        node.x = 100;
-    }
+start: function () {
+    var node = this.node;
+    node.x = 100;
+}
 ```
 
 ## Get other component
@@ -27,41 +27,41 @@ Getting the node which the component belong is easy, just use `this.node` variab
 You will get other component in the same node frequently, that is where `getComponent` comes in, it help you to find the component you need.
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        var text = this.name + ' started';
+start: function () {
+    var label = this.getComponent(cc.Label);
+    var text = this.name + ' started';
 
-        // Change the text in Label Component
-        label.string = text;
-    }
+    // Change the text in Label Component
+    label.string = text;
+}
 ```
 
 You can also pass in a class name for the `getComponent`. For user defined components, the class name is simply the filename of the script, and **case sensitive**. For example, if a component declared in "SinRotate.js", its class name will be "SinRotate".
 
 ```js
-    var rotate = this.getComponent("SinRotate");
+var rotate = this.getComponent("SinRotate");
 ```
 
 There is also a `getComponent` method on node, they are the same thing.
 
 ```js
-    start: function () {
-        cc.log( this.node.getComponent(cc.Label) === this.getComponent(cc.Label) );  // true
-    }
+start: function () {
+    cc.log( this.node.getComponent(cc.Label) === this.getComponent(cc.Label) );  // true
+}
 ```
 
 If the component is not exists in the node, `getComponent` will return null. If you are trying to access a null value at runtime, the "TypeError" exception will be thrown. So always remember to check if you are not sure of it.
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        if (label) {
-            label.string = "Hello";
-        }
-        else {
-            cc.error("Something wrong?");
-        }
+start: function () {
+    var label = this.getComponent(cc.Label);
+    if (label) {
+        label.string = "Hello";
     }
+    else {
+        cc.error("Something wrong?");
+    }
+}
 ```
 
 ## Get other node and their component
@@ -87,7 +87,7 @@ cc.Class({
 });
 ```
 
-Above code declared a property named `player` in `properties`, its default value is null, its object type is `cc.Node`. It is the equivalent of the `public cc.Node player = null;` statement in other programe language. In **Properties** panel, the component will looks like this after the script compiled:
+Above code declared a property named `player` in `properties`, its default value is null, its object type is `cc.Node`. It is the equivalent of the `public cc.Node player = null;` statement in other program language. In **Properties** panel, the component will looks like this after the script compiled:
 
 ![player-in-inspector-null](access-node-component/player-in-inspector-null.png)
 
@@ -151,7 +151,7 @@ But if you need to dynamically get other objects in runtime, you need to search 
 
 ### Find child node
 
-Sometimes there will be many objects with the same type in game scene, such as turret, enemy and effects, they can be uniformly managed by a global script. If we use **Properties** panel to associate them with the script one by one, that will be a heavy workload. It is often better to manage these objects by making them all children of one parent node, then retreive all children via the parent node:
+Sometimes there will be many objects with the same type in game scene, such as turret, enemy and effects, they can be uniformly managed by a global script. If we use **Properties** panel to associate them with the script one by one, that will be a heavy workload. It is often better to manage these objects by making them all children of one parent node, then retrieve all children via the parent node:
 
 ```js
 // CannonManager.js
@@ -243,7 +243,7 @@ cc.Class({
 
 ### Access by using module
 
-If you don't want to use global variable, you can use `require` to perform operation cross-scirpts, let's look at an example:
+If you don't want to use global variable, you can use `require` to perform operation cross-scripts, let's look at an example:
 
 ```js
 // Global.js, now the filename matters
@@ -254,7 +254,7 @@ module.exports = {
 };
 ```
 
-You can use `require` + filename(without paths) everywhere to retreive the object exported by "exports" from other scripts.
+You can use `require` + filename(without paths) everywhere to retrieve the object exported by "exports" from other scripts.
 
 ```js
 // Back.js
@@ -289,9 +289,4 @@ cc.Class({
 });
 ```
 
-For details, please refer to [Modular script](modular-script.md).
-
-
----
-
-Continue on to read about [Basic node and component API](basic-node-api.md).
+For details, please refer to [Modularize Script](modular-script.md).

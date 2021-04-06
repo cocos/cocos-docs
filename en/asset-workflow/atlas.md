@@ -8,11 +8,10 @@ Atlas also named Sprite Sheet, it's a common asset in game developing. Atlas is 
 
 Advantages of Atlas:
 
-- In the combin process, blank spaces of images will be removed. And many optimization algorithm will be used. So this will reduce the size & memory of the game.
+- In the combine process, blank spaces of images will be removed. And many optimization algorithm will be used. So this will reduce the size & memory of the game.
 - When many Sprites using SpriteFrame from one Atlas asset, they can be rendered in one render command. This will reduce CPU consumption.
 
-
-Here is a video from CodeAndWeb, it will show you [What is a Sprite Sheet](https://www.codeandweb.com/what-is-a-sprite-sheet)。
+Here is a video from CodeAndWeb, it will show you [What is a Sprite Sheet](https://www.codeandweb.com/what-is-a-sprite-sheet).
 
 ## Create Atlas Asset
 
@@ -42,7 +41,3 @@ In the [Texture Document](sprite.md), we introduced the relationship between Tex
 ## Convert separated images to atlas
 
 In the project prototype stage or early production, art content and structure changes will be more frequent, we usually use the separated images to build the scene and make UI. In order to optimize performance and save the package, you need to merge the separated images into a atlas. Creator provides the Auto-atlas Asset to seamlessly merges separated images of a production stage into an atlas when it is released, and automatically updates the resource index. Please see [Auto-atlas Asset](./auto-atlas.md) for detailed usage.
-
-<hr>
-
-Continue on to read about [Trim](trim.md).

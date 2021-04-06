@@ -10,15 +10,14 @@ Once the Cocos Debug extension is loaded. Click the **Debug** tab on the left si
 
 ![launch config](debug-native/launch-configuration.png)
 
-If you have trouble loading VS Code extension, please check out the [Install Extension](https://code.visualstudio.com/docs/extensions/install-extension) doc on VS Code website。
+If you have trouble loading VS Code extension, please check out the [Install Extension](https://code.visualstudio.com/docs/extensions/install-extension) doc on VS Code website.
 
 ## Debug Simulator
 
 First run your game in Simulator, then find the project root under the simulator install location. This path differs according to your system:
 
-- Windows：`CocosCreator/resources/cocos2d-x/simulator/win32`
-- Mac：`CocosCreator.app/Contents/Resources/cocos2d-x/simulator/mac/Simulator.app/Contents/Resources`
-
+- Windows: `CocosCreator/resources/cocos2d-x/simulator/win32`
+- Mac: `CocosCreator.app/Contents/Resources/cocos2d-x/simulator/mac/Simulator.app/Contents/Resources`
 
 On Mac you can't choose folder inside an app package in VS Code's open folder dialog, you'll have to open VS Code with no active project, then drag the folder above from Finder to VS Code window.
 
@@ -40,9 +39,7 @@ Here's a possible solution: click the gear button in Debug view, and update `lau
 
 `"address": "::1"`
 
-Due to some unknown reason on Windows some debug connection will try to use IPv6 first. So we need to fillin the local machine IP address in IPv6 format.
-
-
+Due to some unknown reason on Windows some debug connection will try to use IPv6 first. So we need to fill in the local machine IP address in IPv6 format.
 
 ## Debug Built Native Project
 
@@ -62,7 +59,6 @@ If you want to debug on iOS devices, you should:
 
 ![ios launch](debug-native/launch-json-ios.png)
 
-
 ### Android Debugging
 
 If you want to debug on Android devices, you should:
@@ -71,8 +67,6 @@ If you want to debug on Android devices, you should:
 - Run cocos2d-x JSB program on Android devices
 - Use adb to forward tcp `adb forward tcp:5086 tcp:5086`
 
-
 ## Limitations
 
 Currently VSCode82 can only attach to cocos2d-x JSB program to debug. Which means it can not pause on entry. We will improve it in future.
-

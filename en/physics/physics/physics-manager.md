@@ -78,7 +78,7 @@ manager.POSITION_ITERATIONS = 8;
 
 ```
 
-**Attention**：Reducing the fixed timestep and the number of iterations for each property will reduce the physics detection frequency. Therefore, it is more likely to occur rigid body penetration, which needs to be taken into account when using.
+**Attention**: Reducing the fixed timestep and the number of iterations for each property will reduce the physics detection frequency. Therefore, it is more likely to occur rigid body penetration, which needs to be taken into account when using.
 
 ## Query physics object
 

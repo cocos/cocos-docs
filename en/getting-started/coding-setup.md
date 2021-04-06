@@ -125,7 +125,7 @@ VS Code has excellent debug capability, we can debug the Web version of the game
 
 First we need to install:
 
-- [Chrome (Google Chrome)] (https://www.google.com/chrome/)
+- [Chrome (Google Chrome)](https://www.google.com/chrome/)
 - VS Code extension: Debugger for Chrome
 
 To install the VS Code extension, click on the 'Extensions' button in the left navigation bar of the VS Code to open the Extensions panel and enter `Debugger for Chrome` in the search box and click `Install` to continue. After installation, you may need to restart VS Code to take effect.

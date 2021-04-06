@@ -35,7 +35,7 @@
 
 ## 热更新基本流程
 
-在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manfiest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
+在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manifest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
 
 ![](hot-update/assets-manager.png)
 
@@ -65,7 +65,7 @@ Manifest 格式是我们用来比较本地和远程资源差异的一种 json �
 }
 ```
 
-Manifest 文件可以通过 Cocos Creator 的热更新范例中的 [Version Generator 脚本](https://github.com/cocos-creator/tutorial-hot-update#使用-version-generator-来生成-manifest-文件)来自动生成。
+Manifest 文件可以通过 Cocos Creator 的热更新范例中的 **Version Generator 脚本**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update#使用-version-generator-来生成-manifest-文件) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update#%E4%BD%BF%E7%94%A8-version-generator-%E6%9D%A5%E7%94%9F%E6%88%90-manifest-%E6%96%87%E4%BB%B6)）来自动生成。
 
 这里需要注意的是，remote 信息（包括 packageUrl、remoteVersionUrl、remoteManifestUrl）是该 manifest 所指向远程包信息，也就是说，当这个 manifest 成为本地包或者缓存 manifest 之后，它们才有意义（偷偷透露个小秘密，更新版本时更改远程包地址也是一种玩法呢）。另外，md5 信息可以不是文件的 md5 码，也可以是某个版本号，这完全是由用户决定的，本地和远程 manifest 对比时，只要 md5 信息不同，我们就认为这个文件有改动。
 
@@ -167,7 +167,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 ### 错误处理和失败重试
 
-在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考范例中[热更新组件的实现](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js#L43)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
+在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考范例中 **热更新组件的实现**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3Dv2.0.6/assets/scripts/module/HotUpdate.js#L43) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=v2.0.6/assets/scripts/module/HotUpdate.js#L43)）。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
 
 最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 UPDATE_FAILED 事件，此时热更新管理器中记录了所有失败的资源列表，开发者可以通过很简单的方式进行失败资源的下载重试：
 

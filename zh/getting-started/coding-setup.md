@@ -4,7 +4,7 @@
 
 ## Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软新推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能。
+[Visual Studio Code](https://code.visualstudio.com/)（以下简称 VS Code）是微软新推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。通过下面介绍的设置方法，使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示等功能。
 
 ### 安装 VS Code
 

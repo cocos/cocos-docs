@@ -18,7 +18,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Inertia | Is there an accelerating velocity when scrolling
 | Brake | Floating point number, the deceleration coefficient after scrolling. The value range is 0-1 where if set to 1, then the scroll will stop immediately; if set to 0, then the scroll will continue until the content border.
 |Elastic | Boolean value, whether to bounce back or not.
-|Bounce Duration | Floating point number, the time duration for bounce back. The calue range is 0-10.
+|Bounce Duration | Floating point number, the time duration for bounce back. The value range is 0-10.
 |Horizontal ScrollBar| A reference node for creating a scroll bar showing the horizontal position of the contents.
 |Vertical ScrollBar| A reference node for creating a scroll bar showing vertical position of the contents.
 |ScrollView Events| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **ScrollView Event** section below for details.
@@ -75,7 +75,7 @@ cc.Class({
         scrollview.scrollEvents.push(scrollViewEventHandler);
     },
 
-	// Note that the order and type of parameters are fixed
+    // Note that the order and type of parameters are fixed
     callback: function (scrollview, eventType, customEventData) {
         // here scrollview is a Scrollview component object instance
         // here the eventType === value in the cc.ScrollView.EventType enum
@@ -112,7 +112,3 @@ cc.Class({
 Similarly, you can register events such as `scrolling`, `touch-up`, `scroll-began`, etc. The events of the callback function parameters and `scroll-to-top` parameters.
 
 For a full list of ScrollView events, refer to the [ScrollView API](../../../api/en/classes/ScrollView.html) for detail.
-
----
-
-Continue on to read about [ScrollBar component reference](scrollbar.md).

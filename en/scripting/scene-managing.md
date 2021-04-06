@@ -8,7 +8,7 @@ cc.director.loadScene("MyScene");
 
 ## Use persist node to managing multiple scenes and pass information among scenes
 
-There's only one scene running at the same time, when switching scenes the previous scene will be destroyed. To easily store and pass information among scenes we can mark a node as **persist node** to prevent it from being destroyed during scene switch. This way the node and all the component instances attached to it will remain in memory. 
+There's only one scene running at the same time, when switching scenes the previous scene will be destroyed. To easily store and pass information among scenes we can mark a node as **persist node** to prevent it from being destroyed during scene switch. This way the node and all the component instances attached to it will remain in memory.
 
 `cc.game.addPersistRootNode(myNode);`
 
@@ -20,11 +20,9 @@ To revert a persist node to normal node:
 
 Beware the above API will not destroy the node immediately, only mark it as 'destroyable' for next scene switch.
 
-
 ### Global variable
 
 We can also store and pass information using global variable. For details please read [Global Variable](access-node-component.md#global_variable).
-
 
 ## Scene loaded callback
 
@@ -35,7 +33,6 @@ When loading scene, you can pass a function as the callback when scene loaded:
 `onSceneLaunched` is the callback function declared in the same script.
 
 Since it can only be declared in the same script, it's better to call `loadScene` from a persist node so that the component instance will stay in memory for callback function to continue running.
-
 
 ## Preload scene
 
@@ -63,8 +60,3 @@ cc.loader.loadRes('MyScene.fire', function(err, res) {
     cc.director.runScene(res.scene);
 });
 ```
-
-
----
-
-Continue on to read about [Asset Loading](load-assets.md).

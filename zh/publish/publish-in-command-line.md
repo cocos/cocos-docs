@@ -37,7 +37,7 @@
 
 在 `--build` 或者 `--compile` 后如果没有指定参数，则会使用 Creator 中构建面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
-- `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/cocos-creator/engine/blob/master/modules.json) 查找到
+- `excludedModules` - engine 中需要排除的模块，模块可以从 [这里](https://github.com/holycanvas/engine/blob/76460006e5046475cb714c48f801af8ea6a4fac9/modules.json) 查找到
 - `title` - 项目名
 - `platform` - 构建的平台 [web-mobile、web-desktop、android、win32、ios、mac、qqplay、wechatgame、fb-instant-games]
 - `buildPath` - 构建目录

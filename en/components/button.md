@@ -17,7 +17,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 |Transition| Enumeration type, including NONE, COLOR and SPRITE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
 |Click Event| Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **Button Event** section below for details.
 
-**Note**: When `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
+> **Note**: when `Transition` is `SPRITE` and the `disabledSprite` property has a `spriteFrame` associated with it, the `Enable Auto Gray Effect` property is ignored at this time.
 
 ## Button Transition
 
@@ -61,7 +61,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
 
-### Add a callback through the Properties.
+### Add a callback through the Properties
 
 ![button-event](./button/button-event.png)
 
@@ -72,7 +72,7 @@ The Button can additionally add a Click event to respond to the player's click a
 |  3  | Handler  | Assign a callback function which will be triggered when the user clicks the Button. |
 |  4  | customEventData | A user-defined string value passed as the last event argument of the event callback.  |
 
-### Add a callback through the script.
+### Add a callback through the script
 
 There are two ways to add a callback through the script.
 
@@ -126,7 +126,3 @@ There are two ways to add a callback through the script.
         }
     });
     ```
-
----
-
-Continue on to read about [ProgressBar Component reference](progress.md).

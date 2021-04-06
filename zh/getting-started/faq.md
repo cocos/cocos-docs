@@ -21,17 +21,17 @@
 
 截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()` ，就可以获得 base64 格式的截屏。
 
-具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) 中 **07_capture_texture** 关于三种不同平台如何截屏并保存的测试例。
+具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）中 **07_capture_texture** 关于三种不同平台如何截屏并保存的范例。
 
-### 在安卓第三方 App 自带的 WebView 上触摸时，引擎报错。
+### 在安卓第三方 App 自带的 WebView 上触摸时，引擎报错
 
 找到 `main.js` 中调用 `cc.view.enableAutoFullScreen` 的地方，将传入参数改为 `false`。
 
-### 帧动画每帧的图片大小不一样的话，播放动画时会发生偏移。
+### 帧动画每帧的图片大小不一样的话，播放动画时会发生偏移
 
 请参考：[自带位置信息的序列帧动画](../asset-workflow/trim.md#%E8%87%AA%E5%B8%A6%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E7%9A%84%E5%BA%8F%E5%88%97%E5%B8%A7%E5%8A%A8%E7%94%BB)。
 
-### 图片放大后，边缘白边/黑边问题。
+### 图片放大后，边缘白边/黑边问题
 
 这是由于线性过滤时，颜色通道和背景色做了插值，比较简单的办法是使用预乘。预乘需要将 Sprite 组件的混合模式设置成 `SRC: ONE, DST: ONE_MINUS_SRC_ALPHA`，然后对原图做处理。
 
@@ -57,15 +57,15 @@ Editor.Ipc.sendToAll('scene:enter-prefab-edit-mode', assetUuid);
 Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 ```
 
-### 1.8.2 的版本可能出现 JSC 崩溃问题。
+### 1.8.2 的版本可能出现 JSC 崩溃问题
 
 请升级到 1.8.2 之后的版本。
 
-### 微信开放数据加载头像时提示 wx.request 找不到。
+### 微信开放数据加载头像时提示 wx.request 找不到
 
 加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
 
-具体内容可参考 [官方范例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) 中的 **dragonBones/DragonMesh** 测试例。
+具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/dragonbones)）中的 **dragonBones/DragonMesh** 范例。
 
 ### 如何从服务器远程加载 DragonBones ？
 

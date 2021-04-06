@@ -36,7 +36,7 @@ The installer for Windows is a `.exe` executable, usually named `CocosCreator_vX
 
 The installer for Cocos Creator for Mac is the DMG image file, double-click on the DMG file, and drag `CocosCreator.app` to your **Application** folder shortcut, or any other location. And then double-click the copy of the `CocosCreator.app` will get you started.
 
-**Note**: If the downloaded application is corrupt during the first run, go to and set up `System Preferences -> Security & Privacy -> Allow any application from any source`.  Once Cocos Creator is launched, you can restore your security settings.
+> **Note**: if the downloaded application is corrupt during the first run, go to and set up `System Preferences -> Security & Privacy -> Allow any application from any source`. Once Cocos Creator is launched, you can restore your security settings.
 
 ### Operating system requirements
 
@@ -69,7 +69,7 @@ Cocos Creator starts, will enter the Cocos developer account login interface. Si
 
 If you do not have a Cocos developer account before, you can sign up for the Cocos Developer Center using the **Sign up** button in the sign-in interface. Or simply use the following links:
 
-https://passport.cocos.com/auth/signup
+<https://passport.cocos.com/auth/signup>
 
 After registration, you can return to the Cocos Creator login screen to complete the login! Once you verify your identity, you'll enter the Dashboard interface. Except manually log out or login information expired, in other circumstances the editor will preserve your login session information so you can automatically login later.
 

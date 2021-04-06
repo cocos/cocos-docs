@@ -8,7 +8,7 @@ Click the **Add Component** at the bottom of **Properties** and select **MotionS
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-MotionStreak please refer to the scripting interface [MotionStreak API](../../../api/en/classes/MotionStreak.html)。
+MotionStreak please refer to the scripting interface [MotionStreak API](../../../api/en/classes/MotionStreak.html).
 
 ## MotionStreak Properties
 
@@ -19,7 +19,3 @@ MotionStreak please refer to the scripting interface [MotionStreak API](../../..
 | stroke   | The stroke's width. |
 | texture  | The texture of the MotionStreak. |
 | fastMode | The fast Mode. |
-
----
-
-Continue on to read about [ScrollView component reference](scrollview.md)。

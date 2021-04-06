@@ -22,7 +22,7 @@ The path will point to `packages/foobar/scene-walker.js`, then let's see how to 
 
 `Scene-walker.js` needs to be defined in such a way:
 
-```js
+```js 
 Module.exports = {
     'get-canvas-children': function (event) {
         Var canvas = cc.find ('Canvas');

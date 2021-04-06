@@ -24,9 +24,4 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 | Use Tint              | Indicates whether open tint, default is close. (New in v2.0.9)
 | Enable Batch          | Whether to enable animation batch, default is disabled. (New in v2.0.9)<br>When enable, drawcall will reduce, which is suitable for a large number of simple animations to play at the same time.<br>When disabled, drawcall will rise, but it can reduce the computational burden of the CPU. Suitable for complex animations.
 
-**Note**: When using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
-
-
----
-
-Continue on to read about [Animation component reference](animation.md).
+> **Note**: when using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.

@@ -29,7 +29,3 @@ If `Trim` property is set to `true`, it would fit animations that have no in tex
 We recommend users to use sprite sheet tools such as [TexturePacker](https://www.codeandweb.com/texturepacker) for generating sprite animation texture assets. In TexturePacker before you publish your sprite sheet, please make sure you choose `Trim` in **Trim Mode** setting of Sprites section. Please do not use `Crop, flush position`, or the trim information will be lost and you can't get back originial texture offset anymore.
 
 ![trim texturepacker](trim/trim-texturepacker.png)
-
-<hr>
-
-Continue on to read about [Font](font.md).

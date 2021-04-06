@@ -32,7 +32,7 @@ public class Test {
 }
 ```
 
-那么这个 Test 类的完整类名应该是 `org/cocos2dx/javascript/Test`，注意这里必须是斜线 `/` ，而不是在Java代码中我们习惯的点 `.`。
+那么这个 Test 类的完整类名应该是 `org/cocos2dx/javascript/Test`，注意这里必须是斜线 `/`，而不是在Java代码中我们习惯的点 `.`。
 
 ## 方法名
 

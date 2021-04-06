@@ -21,17 +21,23 @@ In addition, the game submission, review and release process of the __WeChat Min
 ## Using Cocos Creator to publish WeChat Mini Games
 
 1. Download WeChat Developer Tools on [WeChat Public Platform](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
+
 2. Set the WeChat Developer Tools path in **Settings -> [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop)**
 
     ![](./publish-wechatgame/preference.JPG)
+
 3. Log in to the WeChat public platform and find the appid
 
     ![](./publish-wechatgame/appid.jpeg)
+
 4. Select the **WeChat Mini Game** in the **Platform** of the **Build** panel, fill in the mini game appid, and then click **Build**
+
     ![](./publish-wechatgame/build.jpeg)
+
 5. Click **Play** to open the WeChat Developer Tools
 
     ![](./publish-wechatgame/tool.jpeg)
+
 6. Preview deployment
 
 According to this process, a release package of __WeChat Mini Games__ will be generated under the project's build directory, which already contains the configuration files of the __WeChat_Mini Game__ environment: __game.json__ and __project.config.json__
@@ -91,8 +97,8 @@ __Cocos Creator__ supports packaging to subdomains starting with __v1.9.1__. For
 
 ## Reading
 
-- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/miniprogram/en/dev/index.html)
+- [WeChat Mini Game development documentation](https://developers.weixin.qq.com/minigame/en/dev/guide/)
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
-- [Mini Program API Documentation](https://developers.weixin.qq.com/miniprogram/en/dev/api/index.html)
+- [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat Developer Tools Download](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 - [WeChat Developer Tools Documentation](https://developers.weixin.qq.com/minigame/en/dev/devtools/devtools.html)

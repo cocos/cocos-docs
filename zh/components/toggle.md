@@ -14,7 +14,7 @@ Toggle 的脚本接口请参考 [Toggle API](../../../api/zh/classes/Toggle.html
 | -------------- | -----------   |
 | isChecked      | 布尔类型，如果这个设置为 true，则 check mark 组件会处于 enabled 状态，否则处于 disabled 状态。
 | checkMark      | cc.Sprite 类型，Toggle 处于选中状态时显示的图片  |
-| toggleGroup    | cc.ToggleGroup 类型， Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
+| toggleGroup    | cc.ToggleGroup 类型，Toggle 所属的 ToggleGroup，这个属性是可选的。如果这个属性为 null，则 Toggle 是一个 CheckBox，否则，Toggle 是一个 RadioButton。 |
 | Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见下方的 **Toggle 事件** 部分  |
 
 **注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 [Button 组件](button.md)。

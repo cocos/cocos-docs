@@ -66,10 +66,10 @@ Now, let's see its detailed using method:
 
 Below are all the functions of the timer in the component:
 
-- schedule：start a timer
-- scheduleOnce：start a timer that runs only once
-- unschedule：cancel a timer
-- unscheduleAllCallbacks：cancel all the timers of this component
+- schedule: start a timer
+- scheduleOnce: start a timer that runs only once
+- unschedule: cancel a timer
+- unscheduleAllCallbacks: cancel all the timers of this component
 
 These detailed descriptions about API can all be found in [Component API](http://docs.cocos2d-x.org/creator-api/en/classes/Component.html).
 

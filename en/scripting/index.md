@@ -42,7 +42,3 @@ While writing the component script, you can map the variables needing adjustment
 ## More Reference
 
 - [Recommended coding standards](reference/coding-standards.md)
-
-<hr>
-
-Continue on to read about [Create and use component script](use-component.md).

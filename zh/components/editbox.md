@@ -40,7 +40,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 | Handler         | 指定一个回调函数，当用户开始输入文本的时候会调用该函数 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。   |
 
- **注意**：该事件在用户点击输入框获取焦点的时候被触发。
+> **注意**：该事件在用户点击输入框获取焦点的时候被触发。
 
 ### Text Changed 事件
 
@@ -51,7 +51,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 | Handler         | 指定一个回调函数，当用户正在输入文本的时候会调用该函数   |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。     |
 
-**注意**：该事件在用户每一次输入文字变化的时候被触发。
+> **注意**：该事件在用户每一次输入文字变化的时候被触发。
 
 ### Editing Did Ended 事件
 
@@ -62,7 +62,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 | Handler         | 指定一个回调函数，当用户输入文本结束时会调用该函数。  |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。  |
 
-**注意**：在单行模式下面，一般是在用户按下回车或者点击屏幕输入框以外的地方调用该函数。
+> **注意**：在单行模式下面，一般是在用户按下回车或者点击屏幕输入框以外的地方调用该函数。
 如果是多行输入，一般是在用户点击屏幕输入框以外的地方调用该函数。
 
 ### Editing Return 事件
@@ -74,7 +74,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 | Handler         | 指定一个回调函数，当用户输入文本按下回车键时会调用该函数。  |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。       |
 
-**注意**：在用户按下回车键或者在移动端上点击软键盘的完成按钮时，该事件会被触发。  
+> **注意**：在用户按下回车键或者在移动端上点击软键盘的完成按钮时，该事件会被触发。  
 如果是单行输入框，按回车键还会使输入框失去焦点。
 
 ## 详细说明
@@ -84,7 +84,7 @@ EditBox 的脚本接口请参考 [EditBox API](../../../api/zh/classes/EditBox.h
 - 如果要输入多行，可以把 Input Mode 设置为 Any。
 - 背景图片支持九宫格缩放
 
-注意：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true
+> **注意**：如果在 iframe 里面使用，最好把 `stayOnTop` 属性设置为 true。
 
 ## 通过脚本代码添加回调
 
@@ -162,4 +162,4 @@ cc.Class({
 });
 ```
 
-同样的，你也可以注册 `editing-did-ended`, `text-changed` 和 `editing-return` 事件，这些事件的回调函数的参数与 `editing-did-began` 的参数一致。
+同样的，你也可以注册 `editing-did-ended`、`text-changed` 和 `editing-return` 事件，这些事件的回调函数的参数与 `editing-did-began` 的参数一致。

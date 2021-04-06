@@ -11,9 +11,5 @@
 - [Publish to Google Play Instant](publish-android-instant.md)
 - [Publish to OPPO Mini Games](publish-oppo-instant-games.md)
 - [Publish to vivo Mini Games](publish-vivo-instant-games.md)
-- [Publish in command line.md](publish-in-command-line.md)
+- [Publish in command line](publish-in-command-line.md)
 - [Custom Project Build Template](custom-project-build-template.md)
-
-<hr>
-
-Continue on to read about [Publish to Web](publish-web.md).

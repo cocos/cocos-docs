@@ -82,7 +82,7 @@ Use the AnySDK client to open the game, add channel to the game and access the r
 
 - The Android platform compiles the generated APK package as the vendor-apk for the AnySDK client package.
 - The iOS platform builds the generated Xcode project directly as the vendor-apk for AnySDK client packaging.
-- Web: No need to package，only need to config channel parameters.
+- Web: No need to package, only need to config channel parameters.
 
 ![](anysdk/sdk-params.png)
 

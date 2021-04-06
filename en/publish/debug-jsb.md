@@ -23,11 +23,11 @@ After running the simulator, open the address directly with the Chrome browser: 
 - After running the simulator, in the Safari browser's **Preferences -> Advanced** tab, Check `Show Develop menu in menu bar`.
 - Safari menu select `Develop -> your Mac device -> Cocos2d-x JSB`.
 
-![](debug-jsb/jsc-mac-debug.png)
+  ![](debug-jsb/jsc-mac-debug.png)
 
 - To debug in a pop-up **Web inspector**:
 
-![](debug-jsb/jsc-mac-breakpoint.png)
+  ![](debug-jsb/jsc-mac-breakpoint.png)
 
 ### Method Two
 
@@ -51,32 +51,36 @@ If the game only run on the real machine, or the simulator can not reproduce the
 ### iOS Debugging
 
 - Connect a device to a computer via a USB cable.
+
 - Open IPhone Settings -> Safari -> Advanced -> Open Web Inspector.
+
 - Select the IOS platform, Debug mode, and build the project in Creator's Build publishing panel. Open the project in Xcode.
 
-![](debug-jsb/package.png)
+  ![](debug-jsb/package.png)
 
 - Add signature to Project: Select your iOS project -> General -> Signing -> Select your developer certificate.
+
 - Add a entitlements file for the Xcode project and skip this step if the entitlements file exists. If not, open iCloud in the capabilities setting of the project, and then close. The .entitlements file is automatically added to the project.
 
-![](debug-jsb/jsc-entitlements.png)
+  ![](debug-jsb/jsc-entitlements.png)
 
 - Make sure the Code Signing Entitlements option contains entitlements files in the Build Setting (**examplecases-mobile.entitlements** this part requires manual input).
 
-![](debug-jsb/jsc-entitlements-check.png)
+  ![](debug-jsb/jsc-entitlements-check.png)
 
 - Open the entitlements file, manually add the **get-task-allow**, the value type is **Boolean**, and the value is **YES**.
 
-![](debug-jsb/jsc-security-key.png)
+  ![](debug-jsb/jsc-security-key.png)
 
 - Compile the project in Xcode and publish the project to the device.
+
 - Safari menu select `develop -> your device -> Cocos2d-x JSB` (This step if you can't find your device, it's probably because Safari is too low and needs to be upgraded Safari).
 
-![](debug-jsb/jsc-ios-debug.png)
+  ![](debug-jsb/jsc-ios-debug.png)
 
 - To debug in a pop-up **Web Inspector**:
 
-![](debug-jsb/jsc-ios-breakpoint.png)
+  ![](debug-jsb/jsc-ios-breakpoint.png)
 
 ## Other Platform Debugging
 

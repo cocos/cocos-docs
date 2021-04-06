@@ -188,6 +188,6 @@ class BuildResults {
 
 #### 范例 - 遍历构建后的图片
 
-项目地址：<https://github.com/cocos-creator/demo-process-build-textures>
+项目地址：[GitHub](https://github.com/cocos-creator/demo-process-build-textures) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-process-build-textures)
 
 这个项目中包含了一个简单的构建插件，展示了如何在构建的过程中遍历项目中的各种类型的图片，并且输出它们构建后的路径，以便你对这些构建好的图片做进一步处理。
