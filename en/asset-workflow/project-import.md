@@ -15,7 +15,7 @@ You can import projects from other editors by the Main Menu __File->Import Proje
 3. When Cocos Creator is processing the import, logs will be output in **Console**. The log looks like this:
 
 	![import-process.png](./project-import/import-process.png)
-	
+
 	Details:
 	* The full path of the imported project.
 	* Log the file is now importing.
@@ -26,7 +26,7 @@ The time of importing depends on the size of the project. When it's importing, p
 
 ## Details of Importing Cocos Studio Projects
 
-* There are 3 kinds of `csd` files in Cocos Studio project：
+* There are 3 kinds of `csd` files in Cocos Studio project:
 	* Scene ---- Imported as a scene (`.fire`)
 	* Layer ---- Imported as a prefab
 	* Node ---- Imported as a prefab
@@ -62,9 +62,8 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 * New support for animation frame events:
 
     Unified add default `triggerAnimationEvent` event, The parameter is the data set below
-    
-   ![animation-frame-event.png](./project-import/animation-frame-event.png)
 
+   ![animation-frame-event.png](./project-import/animation-frame-event.png)
 
 * Import nested csd:
 
@@ -81,8 +80,3 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 * `CCControlButton` in Cocos Builder can set different color for different states, but Cocos Creator does not support this.
 * `LayerGradient`.
 * importing property `SkewX` & `SkewY` of the `Node`.
-
-<hr>
-
-Back to [Asset Workflow](index.md)<br>
-Continue on to read about [Script Assets](script.md)

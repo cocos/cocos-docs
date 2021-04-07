@@ -33,7 +33,7 @@ _Scene.loadSceneByUuid(uuid, function(error) {
 
 `db://assets/path/to/scene.fire`
 
-这样的形式表示。其中 `db` 是 AssetDB 的简称。 项目中 `assets` 路径下的全部资源都会被 AssetDB 导入到资源库（library）中，并可以通过 uuid 来引用。
+这样的形式表示。其中 `db` 是 AssetDB 的简称。项目中 `assets` 路径下的全部资源都会被 AssetDB 导入到资源库（library）中，并可以通过 uuid 来引用。
 
 在扩展包的主进程中 url 和 uuid 之间可以互相转化：
 
@@ -49,7 +49,7 @@ _Scene.loadSceneByUuid(uuid, function(error) {
 要将新资源导入到项目中，可以使用以下接口
 
 ```js
-//main process
+// main process
 Editor.assetdb.import(['/User/user/foo.js', '/User/user/bar.js'], 'db://assets/foobar', function ( err, results ) {
     results.forEach(function ( result ) {
     // result.uuid
@@ -61,7 +61,7 @@ Editor.assetdb.import(['/User/user/foo.js', '/User/user/bar.js'], 'db://assets/f
 });
 
 
-//renderer process
+// renderer process
 Editor.assetdb.import( [
     '/file/to/import/01.png',
     '/file/to/import/02.png',
@@ -74,7 +74,7 @@ Editor.assetdb.import( [
 使用扩展包管理资源的一个常见误区，就是当扩展包需要创建新资源时直接使用了 Node.js 的 [fs 模块](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html)，这样即使创建文件到了 `assets` 目录，也无法自动被资源管理器导入。正确的工作流程应该是使用 `create` 接口来创建资源。
 
 ```js
-//main process or renderer process
+// main process or renderer process
 Editor.assetdb.create( 'db://assets/foo/bar.js', data, function ( err, results ) {
     results.forEach(function ( result ) {
     // result.uuid
@@ -93,7 +93,7 @@ Editor.assetdb.create( 'db://assets/foo/bar.js', data, function ( err, results )
 要使用新的数据替换原有资源内容，可以使用以下接口
 
 ```js
-//main process or renderer process
+// main process or renderer process
 Editor.assetdb.saveExists( 'db://assets/foo/bar.js', data, function ( err, meta ) {
     // do something
 });
@@ -102,14 +102,14 @@ Editor.assetdb.saveExists( 'db://assets/foo/bar.js', data, function ( err, meta 
 如果要在保存前检查资源是否存在，可以使用
 
 ```js
-//main process
+// main process
 Editor.assetdb.exists(url); //return true or false
 ```
 
 在渲染进程，如果给定了一个目标 url，如果该 url 指向的资源不存在则创建，资源存在则保存新数据的话，可以使用
 
 ```js
-//renderer process
+// renderer process
 Editor.assetdb.createOrSave( 'db://assets/foo/bar/foobar.js', data, callback);
 ```
 
@@ -118,7 +118,7 @@ Editor.assetdb.createOrSave( 'db://assets/foo/bar/foobar.js', data, callback);
 当资源文件在 `assets` 中已经修改，而由于某种原因没有进行重新导入的情况下，会出现 `assets` 里的资源数据和数据库里展示的资源数据不一致的情况（如果使用 `fs` 模块直接操作文件内容就会出现），可以通过手动调用资源刷新接口来重新导入资源
 
 ```js
-//main process or renderer process
+// main process or renderer process
 Editor.assetdb.refresh('db://assets/foo/bar/', function (err, results) {});
 ```
 

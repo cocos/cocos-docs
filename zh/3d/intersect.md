@@ -1,6 +1,6 @@
 # 碰撞检测
 
-> 文： youyou
+> 文：youyou
 
 Cocos Creator 提供了一套用于检测 3D 物体碰撞的 API，用户可以使用这些 API 做射线检测之类的检测。
 

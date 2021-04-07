@@ -12,11 +12,11 @@
 
 我们已经为您准备好了制作这款游戏需要的全部资源，下载 **初始项目** 后，解压到您希望的位置，之后我们就可以开始了：
 
-[下载初始项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/start_project.zip)
+**下载初始项目**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/start_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/start_project)
 
 您也可以下载最终完成的项目，跟随教程制作过程中有任何不明白的地方都可以打开完成版的项目作为参考：
 
-[下载完成项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/complete_project.zip)
+**下载完成项目**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/complete_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/complete_project)
 
 ## 打开初始项目
 
@@ -57,16 +57,18 @@
 当玩家运行游戏时，就会载入游戏场景，游戏场景加载后就会自动运行所包含组件的游戏脚本，实现各种各样开发者设置的逻辑功能。所以除了资源以外，游戏场景是一切内容创作的基础。现在，让我们来新建一个场景。
 
 1. 在 **资源管理器** 中点击选中 **assets** 目录，确保我们的场景会被创建在这个目录下
+
 2. 点击 **资源管理器** 左上角的加号按钮，在弹出的菜单中选择 **Scene**
 
-  ![create scene](quick-start/create_scene.png)
+    ![create scene](quick-start/create_scene.png)
   
 3. 我们创建了一个名叫 `New Scene` 的场景文件，创建完成后场景文件 `New Scene` 的名称会处于编辑状态，将它重命名为 `game`。
+
 4. 双击 `game`，就会在 **场景编辑器** 和 **层级管理器** 中打开这个场景。
 
 ### 了解 Canvas
 
-打开场景后， **层级管理器** 中会显示当前场景中的所有节点和他们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点，`Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
+打开场景后，**层级管理器** 中会显示当前场景中的所有节点和他们的层级关系。我们刚刚新建的场景中只有一个名叫 `Canvas` 的节点，`Canvas` 可以被称为画布节点或渲染根节点，点击选中 `Canvas`，可以在 **属性检查器** 中看到他的属性。
 
 ![canvas](quick-start/canvas.png)
 
@@ -120,13 +122,15 @@
 
 ![ground_finish](quick-start/ground_finish.png)
 
-除了 **矩形变换工具** 之外，我们还可以使用 **移动工具** ![translate gizmo](quick-start/translate_gizmo.png) 来改变节点的位置。尝试按住 **移动工具** 显示在节点上的箭头并拖拽，就可以一次改变节点在单个坐标轴上的位置。
+除了 **矩形变换工具** 之外，我们还可以使用 **移动工具** 来改变节点的位置，尝试按住 **移动工具** 显示在节点上的箭头并拖拽，就可以一次改变节点在单个坐标轴上的位置。
+
+![translate gizmo](quick-start/translate_gizmo.png)
 
 我们在设置 `background` 和 `ground` 的位置和尺寸时不需要很精确的数值，可以凭感觉拖拽。如果您偏好比较完整的数字，也可以按照截图直接输入 `position` 和 `size` 的数值。
 
 ### 添加主角
 
-接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。 注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
+接下来我们的主角小怪兽要登场了，从 **资源管理器** 拖拽 `assets/texture/PurpleMonster` 到 **层级管理器** 中 `Canvas` 的下面，并确保他的排序在 `ground` 之下，这样我们的主角会显示在最前面。注意小怪兽节点应该是 `Canvas` 的子节点，和 `ground` 节点平行。
 
 为了让主角的光环在场景节点中非常醒目，我们右键点击刚刚添加的 `PurpleMonster` 节点，选择 `重命名` 之后将其改名为 `Player`。
 
@@ -151,11 +155,14 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
 1. 首先在 **资源管理器** 中右键点击 `assets` 文件夹，选择 `新建 -> 文件夹`
 
     ![new folder](quick-start/new_folder.png)
+
 2. 右键点击 `New Folder`，选择 `重命名` 将其重命名为 `scripts`，之后我们所有的脚本都会存放在这里
+
 3. 右键点击 `scripts` 文件夹，选择 `新建 -> JavaScript`，创建一个 `JavaScript` 脚本
+
 4. 将新建脚本的名字改为 `Player`，双击这个脚本，打开代码编辑器
 
-**注意：** Cocos Creator 中脚本名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
+> **注意**：Cocos Creator 中脚本名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
 
 ### 编写组件属性
 
@@ -195,12 +202,12 @@ cc.Class({
 
 我们来大概了解一下这些代码的作用。首先我们可以看到一个全局的 `cc.Class()` 方法，什么是 `cc` 呢？`cc` 是 Cocos 的简称，Cocos 引擎的主要命名空间，引擎代码中所有的类、函数、属性和常量都在这个命名空间中定义。而 `Class()` 就是 `cc` 模块下的一个方法，这个方法用于声明 Cocos Creator 中的类。为了方便区分，我们把使用 `cc.Class` 声明的类叫做 `CCClass`。`Class()` 方法的参数是一个原型对象，在原型对象中以键值对的形式设定所需的类型参数，就能创建出所需要的类。
 
-**例如：**
+**例如**：
 
 ```js
-    var Sprite = cc.Class({
-        name: "sprite"
-    });
+var Sprite = cc.Class({
+    name: "sprite"
+});
 ```
 
 以上代码用 `cc.Class()` 方法创建了一个类型，并且赋给了 `Sprite` 变量。同时还将类名设为 `sprite`。类名用于序列化，一般可以省略。
@@ -293,7 +300,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 了解了参数的含义之后，我们再来关注 `moveBy()` 方法的返回值，看官方说明可以知道，这个方法返回的是一个 `ActionInterval` 类型的对象，`ActionInterval` 在 Cocos 中是一个表示时间间隔动作的类，这种动作在一定时间内完成。<!-- 到这里我们就能理解代码 `new cc.EaseCubicActionOut( cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)) )` 中间那一部分的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 jumpDuration 的时间内，移动到相对于当前节点的（0，this.jumpHeight）的坐标位置，简单来说，就是一个向上跳跃的动作。 -->到这里我们就可以理解代码 `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **前一部分** 的意思了，它的意思就是构造一个 `ActionInterval` 类型的对象，这个对象表示在 `jumpDuration` 的时间内，移动到相对于当前节点的 `（0，this.jumpHeight）` 的坐标位置，简单来说，就是一个向上跳跃的动作。
 
-那么 **后半部分** `easing(cc.easeCubicActionOut())` 的作用是什么呢？`easing` 是 `ActionInterval` 类下的一个方法，这个方法可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个缓动对象，返回一个 `ActionInterval` 类型对象，这里传入的是使用 `easeCubicActionInOut` 方法构建的缓动对象，`EaseCubicInOut` 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： 
+那么 **后半部分** `easing(cc.easeCubicActionOut())` 的作用是什么呢？`easing` 是 `ActionInterval` 类下的一个方法，这个方法可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个缓动对象，返回一个 `ActionInterval` 类型对象，这里传入的是使用 `easeCubicActionInOut` 方法构建的缓动对象，`EaseCubicInOut` 是按三次函数缓动进入并退出的动作，具体曲线可参考下图：
 <!-- 那么前半部分 `new cc.EaseCubicActionOut` 的作用是什么呢？`EaseCubicActionOut` 这个 action 可以让时间间隔动作呈现为一种缓动运动，传入的参数是一个 `ActionInterval` 类型对象，ease cubic in / out 是按三次函数缓动进入并退出的动作，具体曲线可参考下图： -->
 
 ![](quick-start/easing.png)
@@ -313,7 +320,11 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 `onLoad` 方法会在场景加载后立刻执行，所以我们会把初始化相关的操作和逻辑都放在这里面。我们首先将循环跳跃的动作传给了 `jumpAction` 变量，之后调用这个组件挂载的节点下的 `runAction` 方法，传入循环跳跃的 Action 从而让节点（主角）一直跳跃。保存脚本，然后我们就可以开始第一次运行游戏了！
 
-点击 Cocos Creator 编辑器上方正中的 **预览游戏** 按钮 ![preview](quick-start/preview_game.png)，Cocos Creator 会自动打开您的默认浏览器并开始在里面运行游戏，现在应该可以看到我们的主角——紫色小怪兽在场景中间活泼的蹦个不停了。
+点击 Cocos Creator 编辑器上方正中的 **预览游戏** 按钮，Cocos Creator 会自动打开您的默认浏览器并开始在里面运行游戏：
+
+![preview](quick-start/preview_game.png)
+
+现在应该可以看到我们的主角 — 紫色小怪兽在场景中间活泼的蹦个不停了。
 
 ### 移动控制
 
@@ -501,7 +512,7 @@ properties: {
 `default`：设置属性的默认值，这个默认值仅在组件第一次添加到节点上时才会用到<br>
 `type`：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](../scripting/reference/class.md#type-%E5%8F%82%E6%95%B0)<br>
 `visible`：设为 false 则不在属性检查器面板中显示该属性<br>
-`serializable`： 设为 false 则不序列化（保存）该属性<br>
+`serializable`：设为 false 则不序列化（保存）该属性<br>
 `displayName`：在属性检查器面板中显示成指定名字<br>
 `tooltip`：在属性检查器面板中添加属性的 tooltip
 
@@ -878,7 +889,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
     },
 ```
 
-保存脚本，回到 **层级管理器** ，选中 Player 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 Player 组件的 `Jump Audio` 属性上。
+保存脚本，回到 **层级管理器**，选中 Player 节点，然后从 **资源管理器** 里拖拽 `assets/audio/jump` 资源到 Player 组件的 `Jump Audio` 属性上。
 
 然后选中 Canvas 节点，把 `assets/audio/score` 资源拖拽到 Game 组件的 `Score Audio` 属性上。
 
@@ -906,7 +917,7 @@ cc.callFunc = function (selector, selectorTarget, data) {
 - 收集星星时加入更华丽的效果
 - 为触屏设备加入输入控制
 
-以上这些方向都得到改善的游戏版本可以下载 [进化版项目](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/polished_project.zip) 来参考和学习，这里就不再赘述了。
+以上这些方向都得到改善的游戏版本可以下载 **进化版项目**（[GitHub](https://github.com/cocos-creator/tutorial-first-game/releases/download/v2.0/polished_project.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/master/polished_project)）来参考和学习，这里就不再赘述了。
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 

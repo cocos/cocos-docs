@@ -17,7 +17,7 @@ Cocos Creator 在设计之初就致力于解决一套资源适配多种分辨率
 
 那么当设计分辨率和屏幕分辨率出现差异时，Cocos Creator 会如何进行适配呢？
 
-假设我们的设计分辨率为 `800 x 480`， 美术制作了一个同样分辨率大小的背景图像。
+假设我们的设计分辨率为 `800 x 480`，美术制作了一个同样分辨率大小的背景图像。
 
 ![design resolution](multi-resolution/design_resolution.png)
 

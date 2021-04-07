@@ -12,7 +12,7 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 ## Texture Properties
 
-| Properties | Function explanation |
+| property | Function explanation |
 | --- | --- |
 | Type | Includes two modes: Raw and Sprite. **Raw** means that only texture are generated, and **Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
@@ -113,7 +113,3 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 If you are using single Texture assets for Sprite. It can't use batch render at the runtime of the game. Now you can't batch change the SpriteFrame reference from single Texture to Atlas in Cocos Creator. So, please combine textures into atlas as early as possible and use them through the SpriteFrame reference in Atlas.
 
 In addition, the `cc.macro.CLEANUP_IMAGE_CACHE` in the engine indicates whether to delete the DOM Image cache after uploading the texture to the GPU. Specifically, we free this memory by setting `image.src` to an empty string. Normally, you don't need to turn this option on because Image objects use very little memory on the web. But in the current version of WeChat Mini Game, the Image object caches the decoded Image data, which takes up a lot of memory. Therefore, we enable this option on WeChat Mini Game by default to release the memory of Image object immediately after uploading GL texture to avoid excessive memory consumption.
-
-<hr>
-
-Continue on to read about [Atlas](atlas.md)

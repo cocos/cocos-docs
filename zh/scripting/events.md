@@ -139,16 +139,16 @@ this.node.on('foobar', function (event) {
 
 | API 名 | 类型 | 意义 |
 | ------ |:---:|:---:|
-| `type` | `String` | 事件的类型（事件名） |
+| `type` | `String` | 事件的类型（事件名）|
 | `target` | `cc.Node` | 接收到事件的原始对象 |
 | `currentTarget` | `cc.Node` | 接收到事件的当前对象，事件在冒泡阶段当前对象可能与原始对象不同 |
 | `getType` | `Function` | 获取事件的类型 |
 | `stopPropagation` | `Function` | 停止冒泡阶段，事件将不会继续向父节点传递，当前节点的剩余监听器仍然会接收到事件 |
 | `stopPropagationImmediate` | `Function` | 立即停止事件的传递，事件将不会传给父节点以及当前节点的剩余监听器 |
 | `getCurrentTarget` | `Function` | 获取当前接收到事件的目标节点 |
-| `detail` | `Function` | 自定义事件的信息（属于 `cc.Event.EventCustom`） |
-| `setUserData` | `Function` | 设置自定义事件的信息（属于 `cc.Event.EventCustom`） |
-| `getUserData` | `Function` | 获取自定义事件的信息（属于 `cc.Event.EventCustom`） |
+| `detail` | `Function` | 自定义事件的信息（属于 `cc.Event.EventCustom`）|
+| `setUserData` | `Function` | 设置自定义事件的信息（属于 `cc.Event.EventCustom`）|
+| `getUserData` | `Function` | 获取自定义事件的信息（属于 `cc.Event.EventCustom`）|
 
 完整的 API 列表可以参考 `cc.Event` 及其子类的 API 文档。
 

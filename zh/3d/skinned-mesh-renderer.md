@@ -1,6 +1,6 @@
 # Skinned Mesh Renderer 组件参考
 
-> 文： youyou
+> 文：youyou
 
 Skinned Mesh Renderer 组件继承自 Mesh Renderer，所以 Skinned Mesh Renderer 组件也可以指定 `mesh` 和 `textures` 属性。
 

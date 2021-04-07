@@ -10,7 +10,7 @@ LabelOutline script interface, please refer to [LabelOutline API](../../../api/e
 
 ## LabelOutline Properties
 
-| Properties | Function Explanation
+| property | Function Explanation
 | ------ | ------ |
 | Color | The outline color
 | Width | The outline width

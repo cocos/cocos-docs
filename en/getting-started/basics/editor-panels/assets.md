@@ -22,7 +22,7 @@ Except for the folders, everything else in the list is asset files. Files in the
 
 - **image assets**: currently includes image files like `jpg` and `png`, the icon will show as a thumbnail of the image.
 - ![javascript](assets/javascript.png) **script assets**: the JavaScript file compiled by the programmer. It uses `js` as the filename extension. We edit these scripts to add functions and game logic.
-- ![](../../../asset-workflow/index/scene.png) **scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
+- ![scene](../../../asset-workflow/index/scene.png) **scene assets**: double click to open the scene file. Only when the scene file has been opened can we continue creating the contents.
 
 For more common asset types and asset workflows, please read the [asset workflow](../../../asset-workflow/index.md) chapter.
 

@@ -16,7 +16,7 @@ Before using **LabelAtlas asset**, you need some configurations. eg, configure a
 
 After selecting an **LabelAtlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **LabelAtlas asset**.
 
-| Properties       | Description
+| property       | Description
 | --------------   | -----------
 | Raw Texture File | Specify a pre-drawn picture that contains the font style you want
 | Item Width       | Specify the width of each character

@@ -1,6 +1,6 @@
 # 高级设置
 
-> 文： youyou
+> 文：youyou
 
 Box2D 提供了非常多的参数来改变物理运行状态，除了 `RigidBody`、`Collider`、`Joint`、`World` 之外，还有一些属于 Box2D 内部宏的参数。这些宏的参数可以在 **box2d.js（web 平台）** / **Box2D/Common/b2Settings.h（native 平台）** 文件开头找到。
 

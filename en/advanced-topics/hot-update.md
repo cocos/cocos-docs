@@ -4,7 +4,7 @@
 
 In current Cocos Creator version, assets hot update workflow has not been fully integrated into the editor. But the engine itself has complete support for hot update system, so with some of the external script and tool the workflow is complete.
 
-The sample project for this document is available from [Github Repo](https://github.com/cocos-creator/tutorial-hot-update).
+The sample project for this document is available from [GitHub Repo](https://github.com/cocos-creator/tutorial-hot-update).
 
 ![Hot update](./hot-update/title.jpg)
 
@@ -54,7 +54,7 @@ The example project used in the tutorial is based on the BlackJack example. To s
 
 ### Use the version generator to generate the manifest file
 
-In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) script file, which is a Nodejs script for generating manfiest file. Use as follows:
+In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3/version_generator.js) script file, which is a Nodejs script for generating manifest file. Use as follows:
 
 ```bash
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -69,7 +69,7 @@ The following is a description of the parameters:
 
 ### Hot update component script
 
-In the example project, the implementation of the hot update component is located at [assets/scripts/module/HotUpdate.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js), the developer can refer to this implementation, but also free to modify according to their own needs.
+In the example project, the implementation of the hot update component is located at [assets/scripts/module/HotUpdate.js](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3/assets/scripts/module/HotUpdate.js), the developer can refer to this implementation, but also free to modify according to their own needs.
 
 In addition, the sample project is also equipped with a `Canvas/update` node for prompting to update and display the progress of the update.
 

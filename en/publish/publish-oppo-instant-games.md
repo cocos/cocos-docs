@@ -132,7 +132,7 @@ Subpackage loading, that is, splitting the game content into several packages ac
 After the build is complete, the subpackage directory is in the `/build/quickgame/dist` directory. <br>
 In this case, you need to create a new **subPkg** directory in the **sdcard** directory of the Android device, and then copy the **.rpk** file in the `/build/quickgame/dist` directory to the **subPkg** directory.
 
-Then switch to the **Package Load** section of **Mini Game Debugger**, click Refresh at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk** .
+Then switch to the **Package Load** section of **Mini Game Debugger**, click Refresh at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk**.
 
 ![](./publish-oppo-instant-games/run_subpackage.jpg)
 

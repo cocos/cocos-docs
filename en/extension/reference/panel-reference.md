@@ -1,6 +1,6 @@
 # 面板定义参考
 
-> 一份简单的面板定义
+一份简单的面板定义如下：
 
 ```javascript
 Editor.Panel.extend({
@@ -28,15 +28,13 @@ Editor.Panel.extend({
 使用 CSS 定义你的样式。在 Panel 定义中，CSS 样式被定义在 [Shadow DOM](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/) 中，
 所以他遵循 Shadow DOM 的样式定义规范。
 
-使用 `:host` 来表示 Panel 本身的样式。而在 Panel 中的其他样式则遵循 CSS 选择器的书写规则。
-由于采用 Shadow DOM，我们定义在面板内的样式和其他面板样式以及全局样式是隔离开的，所以不必担心 CSS
-命名污染的问题。
+使用 `:host` 来表示 Panel 本身的样式。而在 Panel 中的其他样式则遵循 CSS 选择器的书写规则。由于采用 Shadow DOM，我们定义在面板内的样式和其他面板样式以及全局样式是隔离开的，所以不必担心 CSS 命名污染的问题。
 
 更多的 Shadow DOM 的介绍可以参考：
 
- - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/
- - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
- - http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/
+- <http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/>
+- <http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/>
+- <http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/>
 
 #### template
 
@@ -44,8 +42,7 @@ Editor.Panel.extend({
 
 #### listeners
 
-通过定义一个 Object 将 DOM 事件绑定到自定义函数上。这个 Object 的 Key 就是 DOM 事件名，Value
-则是函数本身。样例如下：
+通过定义一个 Object 将 DOM 事件绑定到自定义函数上。这个 Object 的 Key 就是 DOM 事件名，Value 则是函数本身。范例如下：
 
 ```javascript
 Editor.Panel.extend({
@@ -67,8 +64,7 @@ Editor.Panel.extend({
 
 #### messages
 
-通过定义一个 Object 将 IPC 消息绑定到自定义函数上。这个 Object 的 Key 就是 IPC 消息名，Value
-则是函数本身。样例如下：
+通过定义一个 Object 将 IPC 消息绑定到自定义函数上。这个 Object 的 Key 就是 IPC 消息名，Value 则是函数本身。样例如下：
 
 ```javascript
 Editor.Panel.extend({
@@ -84,8 +80,7 @@ Editor.Panel.extend({
 
 #### behaviors
 
-`behaviors` 为一个数组，behaviors 会将数组中的元素通过 `mixin` 的方式融合到 Panel 本身。这
-为 Panel 中实现行为共享提供了比较方便的途径。
+`behaviors` 为一个数组，behaviors 会将数组中的元素通过 `mixin` 的方式融合到 Panel 本身。这为 Panel 中实现行为共享提供了比较方便的途径。
 
 使用方法如下：
 
@@ -112,8 +107,7 @@ Editor.Panel.extend({
 
 #### dependencies
 
-`dependencies` 为一个数组，其内部元素为 url 或 文件路径。 有时候我们会需要用到一些第三方库，通过
-指定 dependencies 会在 Panel 初始化前，就先将第三方库读入。
+`dependencies` 为一个数组，其内部元素为 url 或文件路径。有时候我们会需要用到一些第三方库，通过指定 dependencies 会在 Panel 初始化前，就先将第三方库读入。
 
 使用方法如下：
 
@@ -127,8 +121,7 @@ Editor.Panel.extend({
 
 #### $
 
-`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设
-我们有以下代码：
+`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设我们有以下代码：
 
 ```javascript
 Editor.Panel.extend({
@@ -149,7 +142,7 @@ Editor.Panel.extend({
 });
 ```
 
-我们可以看到，通过选择器，我们得到 `$foo` 和 `$bar` 两个元素。方便了我们在初始化过程中对其进行进一步的操作。
+可以看到，通过选择器，我们得到 `$foo` 和 `$bar` 两个元素。方便了我们在初始化过程中对其进行进一步的操作。
 
 ### 函数
 
@@ -159,8 +152,7 @@ Editor.Panel.extend({
 
 #### run ( argv )
 
-当 Panel 第一次载入 ready 结束后，或者当 Panel 被 `Editor.Panel.open` 调用激活。 其中，通过
-`Editor.Panel.open` 的方式调用是可以传递参数 argv 给 `run` 函数。
+当 Panel 第一次载入 ready 结束后，或者当 Panel 被 `Editor.Panel.open` 调用激活。其中，通过 `Editor.Panel.open` 的方式调用是可以传递参数 argv 给 `run` 函数。
 
 #### close ()
 

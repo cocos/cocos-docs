@@ -1,6 +1,6 @@
 # Import Model
 
-> Authors：Xunyi, youyou
+> Authors: Xunyi, youyou
 
 Currently Cocos Creator supports importing 3D models using a very wide range of **.fbx** formats, and basically all 3D modeling software supports exporting this format.
 

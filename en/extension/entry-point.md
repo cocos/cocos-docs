@@ -50,7 +50,7 @@ module.exports = {
 
 ### Short Message
 
-Short message is the message name without a `:`. A short message will be expanded to `${your-package-name}:${message-name}` during package registration. Suppose our package name is "simple-demo", and the "foo-bar" in above example will be expanded to "simple-demo:foo-bar" in the end.    
+Short message is the message name without a `:`. A short message will be expanded to `${your-package-name}:${message-name}` during package registration. Suppose our package name is "simple-demo", and the "foo-bar" in above example will be expanded to "simple-demo:foo-bar" in the end.
 
 In practice, we can send IPC messages to the short registry through `Editor.Ipc.sendToPackage`:
 
@@ -62,4 +62,4 @@ Editor.Ipc.sendToPackage('simple-demo', 'foo-bar');
 
 Full message is the message with `:`. Usually we use full message to listen the IPC message broadcast by other packages or other modules. You can clearly understand which package or module sending the message since the colon divide the message string into `package` and `method`.
 
-For example the "scene:saved" is a message come from the builtin package --- "scene".   
+For example the "scene:saved" is a message come from the builtin package --- "scene".

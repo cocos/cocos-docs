@@ -37,9 +37,10 @@ The icon above represents the currently selected prefab uses Manual Sync mode, c
 ![auto-syncable](prefab/auto-syncable.png)
 
 Pay attention, to keep the engine small and fast, there are limitations of auto-syncable prefab instance:
- - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
- - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
- - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
+
+  - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
+  - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
+  - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
 
 > These limitations only affects operations in editor, runtime will not be affected.
 
@@ -74,7 +75,3 @@ If this prefab requires repeated execution of `cc.instantiate`, select **For mul
 ### Async Load Assets option
 
 The default value is false. When selected, the use of **Properties** association, loadRes, etc., when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
-
-<hr>
-
-Continue on to read about [Spine](spine.md).

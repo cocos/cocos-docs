@@ -22,7 +22,7 @@
         - [编辑器布局](getting-started/basics/layout.md)
         - [构建预览](getting-started/basics/preview-build.md)
     - [代码编辑环境配置](getting-started/coding-setup.md)
-    - [快速上手: 制作第一个游戏](getting-started/quick-start.md)
+    - [快速上手：制作第一个游戏](getting-started/quick-start.md)
     - [Cocos2d-x 用户上手指南](getting-started/cocos2d-x-guide.md)
     - [获取帮助和支持](getting-started/support.md)
     - [v1.10 资源升级指南](release-notes/raw-asset-migration.md)
