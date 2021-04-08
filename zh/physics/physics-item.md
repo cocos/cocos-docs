@@ -6,7 +6,9 @@
 
 ## ammo.js
 
-[ammo.js](https://github.com/cocos-creator/ammo.js) 为默认物理引擎，是 [Bullet 物理引擎](https://github.com/bulletphysics/bullet3) 的 **JavaScript** 移植版本。 **ammo.js** 具有完善的物理功能，以及更佳的性能，但模块较大（约 1.5MB），未来我们也将在此投入更多工作。
+[ammo.js](https://github.com/cocos-creator/ammo.js) 为默认物理引擎，是 [Bullet 物理引擎](https://github.com/bulletphysics/bullet3) 的 **JavaScript** 移植版本。
+
+**ammo.js** 具有完善的物理功能，以及更佳的性能，但模块较大（约 1.5MB），未来我们也将在此投入更多工作。
 
 ## builtin
 
@@ -14,8 +16,8 @@
 
 使用 **builtin** 进行开发时，请注意以下事项：
 
-- **builtin** 只有 **trigger** 类型的事件。
-- **Collider** 中的 **isTrigger** 选项，无论值为 **True/False**，都为运动学类型的触发器。
+- 只有 **trigger** 类型的事件。
+- 各种 **Collider** 碰撞器中的 **isTrigger** 选项，无论值为 `true/false`，都为运动学类型的触发器。
 
 ## cannon.js
 

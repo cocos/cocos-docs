@@ -108,7 +108,7 @@
 
 ### 定义分组
 
-方式一：定义在一个 __object__ 中
+方式一：定义在一个 **object** 中
 
 ```ts
 export const PHY_GROUP = {
@@ -117,7 +117,7 @@ export const PHY_GROUP = {
 };
 ```
 
-方式二：定义在一个 __enum__ 中 （`typescript only`）
+方式二：定义在一个 **enum** 中 （`typescript only`）
 
 ```ts
 enum PHY_GROUP {
@@ -126,16 +126,16 @@ enum PHY_GROUP {
 };
 ```
 
-为了能够在面板上设置分组，需要通过 __cc__ 模块导出的 __Enum__ 函数，将定义好的分组注册到编辑器中 `Enum(PHY_GROUP)`。
+为了能够在面板上设置分组，需要通过 **cc** 模块导出的 **Enum** 函数，将定义好的分组注册到编辑器中 `Enum(PHY_GROUP)`。
 
-> **注**：由于历史原因， __Enum__ 函数对 __-1__ 有特殊处理，如果不熟悉，请勿定义值为 __-1__ 的属性。
+> **注**：由于历史原因， **Enum** 函数对 **-1** 有特殊处理，如果不熟悉，请勿定义值为 **-1** 的属性。
 
 ### 使用掩码
 
 掩码可以根据分组进行定义，例如以下示例
 
-- 定义一个只检测 __Group1__ 的掩码 `const maskForGroup1 = PHY_GROUP.Group1;`
-- 定义一个可检测 __Group0__ 和 __Group1__ 的掩码 `const maskForGroup01 = PHY_GROUP.Group0 + PHY_GROUP.Group1;`
+- 定义一个只检测 **Group1** 的掩码 `const maskForGroup1 = PHY_GROUP.Group1;`
+- 定义一个可检测 **Group0** 和 **Group1** 的掩码 `const maskForGroup01 = PHY_GROUP.Group0 + PHY_GROUP.Group1;`
 - 定义一个所有组都不检测的掩码 `const maskForNone = 0;`
 - 定义一个所有组都检测的掩码 `const maskForAll = 0xffffffff;`
 

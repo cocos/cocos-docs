@@ -28,8 +28,8 @@
 | **sleepThreshold** | 进入休眠的默认速度临界值 |
 | **autoSimulation** | 是否开启自动模拟，默认为 `true` |
 | **defaultMaterial** | 获取默认物理材质（只读） |
-| **raycastResults** | 获取 __raycast__ 的检测结果（只读） |
-| **raycastClosestResult** | 获取 __raycastClosest__ 的检测结果（只读） |
+| **raycastResults** | 获取 **raycast** 的检测结果（只读） |
+| **raycastClosestResult** | 获取 **raycastClosest** 的检测结果（只读） |
 | **collisionMatrix** | 获取碰撞矩阵，仅用于初始化 |
 
 ## 部分接口

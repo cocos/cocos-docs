@@ -6,7 +6,7 @@
 
 ## 构造射线
 
-射线 __ray__ 处于 __cc__ 模块的 __geometry__ 命名空间下，因此访问 __ray__ 需要先导入 __geometry__ ：
+射线 **ray** 处于 **cc** 模块的 **geometry** 命名空间下，因此访问 **ray** 需要先导入 **geometry** ：
 
 ```ts
 import { geometry } from "cc";
@@ -14,9 +14,9 @@ import { geometry } from "cc";
 
 ![图解](img/import-geometry.jpg)
 
-射线 __ray__ 由 **起点** 和 **方向** 组成，构造一条射线有以下几种比较常见的方法：
+射线 **ray** 由 **起点** 和 **方向** 组成，构造一条射线有以下几种比较常见的方法：
 
-1. 通过 __起点__ + __方向__，__ray__ 的构造函数或静态接口 `create`：
+1. 通过 **起点** + **方向**，**ray** 的构造函数或静态接口 `create`：
 
     ```ts
     import { geometry } from "cc";
@@ -29,7 +29,7 @@ import { geometry } from "cc";
     const outRay2 = ray.create(0, -1, 0, 0, 1, 0);
     ```
 
-2. 通过 __起点__ + __射线上的另一点__，__ray__ 的静态接口 `fromPoints`:
+2. 通过 **起点** + **射线上的另一点**，**ray** 的静态接口 `fromPoints`:
 
     ```ts
     import { geometry, Vec3 } from "cc";
@@ -58,9 +58,9 @@ import { geometry } from "cc";
 
 Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 
-但需要注意的是，检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 __BoxCollider__。
+但需要注意的是，检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
 
-目前接口由 __PhysicsSystem__ 提供，有以下两类：
+目前接口由 **PhysicsSystem** 提供，有以下两类：
 
 - `raycast` : 检测所有的碰撞体，返回布尔值, 表示是否检测成功。
 - `raycastClosest` ：检测所有的碰撞体，同样返回布尔值。

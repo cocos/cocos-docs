@@ -1,6 +1,6 @@
 # 物理
 
-Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效统一的组件化工作流程和便捷的使用方法，您可以 [选择项目适合的物理引擎](physics-item.md) 进行开发。
+Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效统一的组件化工作流程和便捷的使用方法，您可以 [选择项目适合的物理引擎](physics-item.md) 进行开发，开发过程中也可随时切换。
 
 - [ammo.js](https://github.com/cocos-creator/ammo.js)（默认）：功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
 - [cannon.js**](https://github.com/cocos-creator/cannon.js)：具有物理模拟的物理引擎。
@@ -51,9 +51,9 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 ## 文档目录
 
-Cocos Creator 的物理系统的更多内容，请参考以下文档：
+Cocos Creator 的物理部分的更多内容，请参考以下文档：
 
-- [物理引擎选择](physics-item.md)：介绍了 Cocos Creator 中可选的物理引擎选项
+- [选择物理引擎](physics-item.md)：介绍了 Cocos Creator 中可选的各种物理引擎
 - [物理系统](physics-system.md)：介绍了物理系统，以及物理系统的一系列属性和接口
 - [物理组件](physics-component.md)：介绍了一些物理组件以及面板上的一系列属性
 - [物理使用](physics-use.md)：进一步介绍了物理相关的使用、事件、分组掩码等
@@ -64,4 +64,3 @@ Cocos Creator 的物理系统的更多内容，请参考以下文档：
     - [物理事件](physics-event.md)
     - [分组和掩码](physics-group-mask.md)
     - [射线检测](physics-raycast.md)
-

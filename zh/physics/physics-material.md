@@ -8,10 +8,10 @@
 
 ![物理材质](img/physic-material.jpg)
 
-属性 | 解释
----|---
-friction | 摩擦系数
-restitution | 回弹系数
+| 属性 | 解释 |
+| :-- | :-- |
+| friction | 摩擦系数 |
+| restitution | 回弹系数 |
 
 当与其它表面接触时，这些系数用于计算相应的摩擦力和弹力。
 
@@ -36,8 +36,8 @@ newPmtl.restitution = 0.1;
 
 ## 应用
 
-目前物理材质以碰撞体为单位进行设置，每个 __Collider__ 都具有一个 __material__ 的属性（不设置时， __Collider__ 将会引用物理系统中的默认物理材质）。
-应用到 __Collider__ 同样也分编辑器操作和代码操作两种方式。
+目前物理材质以碰撞体为单位进行设置，每个 **Collider** 都具有一个 **material** 的属性（不设置时， **Collider** 将会引用物理系统中的默认物理材质）。
+应用到 **Collider** 同样也分编辑器操作和代码操作两种方式。
 
 编辑器内操作，只需要将资源拖入到`cc.PhysicMaterial`属性框中即可，如下图所示：
 

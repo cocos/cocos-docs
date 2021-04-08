@@ -18,10 +18,11 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 | 属性 | 说明 |
 | :---|:--- |
-| **material** | 碰撞器引用的物理材质 （为空时引用物理系统的默认物理材质）|
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
 | **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
-| **center**  |  本地坐标系下形状的原点 |
-| **size**  |  盒的大小，即长、宽、高 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **size**  |  在本地坐标系中，盒的大小，即长、宽、高 |
 
 盒碰撞器组件接口请参考 [BoxCollider API](__APIDOC__/zh/classes/physics.boxcollider.html)。
 
@@ -29,9 +30,13 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![球碰撞器组件](img/collider-sphere.jpg)
 
-| 属性 | 说明（其它参考盒碰撞器）|
+| 属性 | 说明 |
 | :---|:--- |
-| **radius** | 球的半径 |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **radius** | 在本地坐标系中，球的半径 |
 
 球碰撞器组件接口请参考 [SphereCollider API](__APIDOC__/zh/classes/physics.spherecollider.html)。
 
@@ -39,11 +44,15 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![圆柱碰撞器组件](img/collider-cylinder.jpg)
 
-| 属性 | 说明（其它参考盒碰撞器）|
+| 属性 | 说明 |
 | :---|:--- |
-| **direction** | 圆柱延申方向的参考轴 |
-| **height** | 圆柱的总高度 |
-| **radius** | 圆柱两端圆面的半径 |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **radius** | 在本地坐标系中，圆柱体上圆面的半径 |
+| **height** | 在本地坐标系中，圆柱体在相应轴向的高度 |
+| **direction** | 在本地坐标系中，圆柱体的朝向 |
 
 圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/classes/physics.cylindercollider.html)。
 
@@ -51,23 +60,32 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![胶囊碰撞器组件](img/collider-capsule.jpg)
 
-| 属性 | 说明（其它参考圆柱和盒碰撞器） |
+| 属性 | 说明 |
 | :---|:--- |
-| **cylinderHeight** | 胶囊中圆柱的高度 |
-| **radius** | 胶囊中球体的半径 |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **radius** | 在本地坐标系中，胶囊体上的球的半径 |
+| **cylinderHeight** | 在本地坐标系中，胶囊体上圆柱体的高度 |
+| **direction** | 在本地坐标系中，胶囊体的朝向 |
 
 胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/classes/physics.capsulecollider.html)。
 
-> **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球和圆柱拼凑。
+> **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球体和圆柱拼凑。
 
 ### 圆锥碰撞器组件 ConeCollider
 
 ![圆锥碰撞器组件](img/collider-cone.jpg)
 
-| 属性 | 说明（其它参考圆柱和盒碰撞器）|
+| 属性 | 说明 |
 | :---|:--- |
-| **radius** | 圆锥中底面圆的半径 |
-| **height** | 圆锥的高度 |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **height** | 在本地坐标系中，圆锥体在相应轴向的高度 |
+| **direction** | 在本地坐标系中，圆锥体的朝向 |
 
 圆锥碰撞器组件接口请参考 [ConeCollider API](__APIDOC__/zh/classes/physics.conecollider.html)。
 
@@ -75,10 +93,14 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![平面碰撞器组件](img/collider-plane.jpg)
 
-| 属性 | 说明（其它参考盒碰撞器） ||
+| 属性 | 说明 |
 | :---|:--- |
-| **normal** | 平面的法向量 |
-| **constant** | 平面沿着法向量移动的距离 |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **normal** | 在本地坐标系中，平面的法线 |
+| **constant** | 在本地坐标系中，平面从原点开始沿着法线运动的距离 |
 
 平面碰撞器组件接口请参考 [PlaneCollider API](__APIDOC__/zh/classes/physics.planecollider.html)。
 
@@ -86,10 +108,14 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![网格碰撞器组件](img/collider-mesh.jpg)
 
-| 属性 | 说明（其它参考盒碰撞器） |
+| 属性 | 说明 |
 | :---|:--- |
-| **mesh** | 网格碰撞器引用的网格资源，用于初始化网格碰撞体 |
-| **convex** | 是否使用网格的凸包近似，网格顶点数应尽量小于**255**（通过它可以支持任意凸类碰撞体和动力学刚体） |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
+| **mesh** | 网格碰撞器所使用的网格资源，用于初始化网格碰撞体 |
+| **convex** | 是否使用网格的凸包近似代替，网格顶点数应小于 **255**，开启后可以支持动力学 |
 
 > **注意**：
 > 1. `cannon.js` 对网格碰撞器组件支持程度较差，只允许与少数碰撞器（球、平面）产生检测。
@@ -101,8 +127,12 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ![单纯形碰撞器组件](img/collider-simplex.jpg)
 
-| 属性 | 说明（其它参考盒碰撞器） |
+| 属性 | 说明 |
 | :---|:--- |
+| **attached** | 碰撞器所附加的刚体 |
+| **material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **isTrigger** | 是否为触发器，触发器不会产生物理反馈 |
+| **center**  | 在本地坐标系中，形状的中心位置 |
 | **shapeType** | 单纯形类型，包括四种：点、线、三角面、四面体 |
 | **vertex0** | 单纯形的顶点 0，点（由 0 组成） |
 | **vertex1** | 单纯形的顶点 1，线（由 0、1 组成） |
@@ -115,21 +145,28 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ## 刚体组件 RigidBody
 
+更详细的说明，可参考 [刚体组件](physics-rigidbody.md)。
+
 为了更便捷的模拟物理行为，Cocos Creator 为用户提供了刚体组件，预览图如下：
 
 ![刚体组件](img/rigid-body.jpg)
 
-| 属性 | 说明（上图的属性值都是默认值） |
+| 属性 | 说明 |
 | :---|:--- |
-| **group** |  分组 |
-| **type**  | 刚体类型（下方属性仅对 __DYNAMIC__ 类型的刚体有用） |
-| **mass** |  质量，该值应大于 __0__ |
-| **allowSleep** | 是否允许休眠 |
-| **linearDamping** | 线性阻尼，用于减小物体的线性速率 |
-| **angularDamping** | 角阻尼，用于减小物体的旋转速率 |
-| **useGravity** | 是否受重力影响 |
-| **linerFactor** | 线性因数，可影响每个轴向的线性速度的变化 |
-| **angularFactor** | 旋转因数，可影响每个轴向的旋转速度的变化 |
+| **group** | 刚体分组 |
+| **type**  | 刚体类型：**DYNAMIC** 为动力学（通过物理数值操控），**STATIC** 为静态，**KINEMATIC** 为运动学（通过变换信息操控） |
+
+以下属性仅在 **type** 设为 **DYNAMIC** 时生效：
+
+| 属性 | 说明 |
+| :---|:--- |
+| **mass** |  刚体质量，该值需大于 **0** |
+| **allowSleep** | 是否允许自动休眠 |
+| **linearDamping** | 线性阻尼，用于衰减线性速度，值越大，衰减越快 |
+| **angularDamping** | 角阻尼，用于衰减角速度，值越大，衰减越快 |
+| **useGravity** | 是否使用重力 |
+| **linerFactor** | 线性因子，用于缩放每个轴方向上的物理数值（速度和力） |
+| **angularFactor** | 角因子，用于缩放每个轴方向上的物理数值（速度和力） |
 
 刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/classes/physics.rigidbody.html)。
 
@@ -141,9 +178,9 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 | 属性 | 说明 |
 | :---|:--- |
-| **force** |  在世界坐标系中对刚体施加的力 |
-| **localForce** |  在本地坐标系中对刚体施加的力 |
-| **torque** |  在世界坐标系中对刚体施加的扭矩 |
-| **localTorque** |   在本地坐标系中对刚体施加的扭矩 |
+| **force** | 在世界坐标系中，对刚体施加的力 |
+| **localForce** | 在本地坐标系中，对刚体施加的力 |
+| **torque** | 在世界坐标系中，对刚体施加的扭转力 |
+| **localTorque** | 在本地坐标系中，对刚体施加的扭转力 |
 
 恒力组件接口请参考 [ConstantForce API](__APIDOC__/zh/classes/physics.constantforce.html)。
