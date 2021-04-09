@@ -15,7 +15,6 @@ The Cocos Dashboard interface mainly consists of the following tabs:
 - **Community**: Used to post official information or events of Cocos Creator, including **Announcement**, **News** and **Update**.
 - **Learn**: Help, a static page with information and documentation for beginners.
 
-
 ## Project
 
 Recently opened projects can be quickly accessed through the **Project** tab. The project will be opened when you click on the specific project entry.
