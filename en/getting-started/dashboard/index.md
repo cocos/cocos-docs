@@ -1,4 +1,4 @@
-# Using Dashboard
+# Using Cocos Dashboard
 
 Once you launch Cocos Dashboard and log in with your Cocos Developer account, the Dashboard interface opens. Here you can download the engine, create a new project, open an existing project, or get help information.
 
