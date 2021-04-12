@@ -67,7 +67,7 @@ Using `builtin-unlit.effect` as an example, the structure of the compiled output
       }
     }]
   }],
-  
+
   "shaders": [{
       "name": "builtin-unlit|unlit-vs:vert|unlit-fs:frag",
       "hash": 2093221684,
@@ -216,23 +216,20 @@ const mat2 = comp2.material; // copy constructor, now 'mat2' is an 'MaterialInst
 
 The biggest difference between `Material` asset and `MaterialInstance` is: `MaterialInstance` is definitively attached to one `RenderableComponent` at the beginning of its life cyle, while `Material` has no such limit.
 
-For an already initialized material, if you need to re-initialize it, just re-invoke the `initialize` function, to rebuild everything.
+For an existing material, you can easily modify the shader macros or pipeline states, with only the overrides you want to make:
 
 ```ts
-mat.initialize({
-  effectName: 'builtin-standard',
-  technique: 1
+mat2.recompileShaders({
+  USE_EMISSIVE: true // enable emissive on top of other macros
+});
+mat2.overridePipelineStates({
+  rasterizerState: {
+    cullMode: GFXCullMode.NONE // disable back face culling on top of other states
+  }
 });
 ```
 
-Specifically, if it is only the shader macros or pipeline states that you want to modify, there are more efficient ways:
-
-```ts
-mat2.recompileShaders({ USE_EMISSIVE: true });
-mat2.overridePipelineStates({ rasterizerState: { cullMode: GFXCullMode.NONE } });
-```
-
-But remember these can only be called on `MaterialInstance`s, not `Material` asset itself.
+**Note**: these functions can only be invoked on `MaterialInstance`s, not `Material` asset itself.
 
 Updating shader properties every frame is a common practice, under situations like this, where performance matters, use lower level APIs:
 
