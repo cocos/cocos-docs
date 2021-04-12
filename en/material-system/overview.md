@@ -229,7 +229,7 @@ mat2.overridePipelineStates({
 });
 ```
 
-**Note**: these functions can only be invoked on `MaterialInstance`s, not `Material` asset itself.
+> **Note**: these functions can only be invoked on `MaterialInstance`s, not a `Material` asset itself.
 
 Updating shader properties every frame is a common practice, under situations like this, where performance matters, use lower level APIs:
 
