@@ -216,7 +216,7 @@ const mat2 = comp2.material; // copy constructor, now 'mat2' is an 'MaterialInst
 
 The biggest difference between `Material` asset and `MaterialInstance` is: `MaterialInstance` is definitively attached to one `RenderableComponent` at the beginning of its life cyle, while `Material` has no such limit.
 
-For an existing material, you can easily modify the shader macros or pipeline states, with only the overrides you want to make:
+For an existing material, it is easy to modify the shader macros or pipeline states, with only the overrides necessary:
 
 ```ts
 mat2.recompileShaders({
