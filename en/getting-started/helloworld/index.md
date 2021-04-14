@@ -2,7 +2,7 @@
 
 Once you understand Cocos Dashboard, let's see how to create and open a Hello World project.
 
-## Create a new project
+## Creating a new project
 
 In the **Project** tab of Cocos Dashboard, click the **New** button in the bottom right corner to enter the **New Project** page. Select the **empty** project template, set the project name and project path
 
