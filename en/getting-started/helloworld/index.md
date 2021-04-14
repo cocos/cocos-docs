@@ -97,7 +97,7 @@ Using the **Browser** preview as an example, Cocos Creator will run the current 
 
 ![console](index/console.png)
 
-You can see the output "Hello World" in the log message in the developer tools of the browser.
+Notice the output "Hello World" in the log message in the developer tools of the browser.
 
 ## Modifying the Camera in the Scene
 
