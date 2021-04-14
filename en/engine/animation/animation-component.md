@@ -5,7 +5,7 @@ __Animation components__ control the playback of animations.
 __Animation components__ are added to nodes in exactly the same way as other components:
 
 ```ts
-import { Animation, Node } from "cc";
+import { Animation, Node } from 'cc';
 
 function (node: Node) {
     const animationComponent = node.addComponent(Animation);
@@ -85,7 +85,7 @@ The `events` of an `AnimationClip` contains all event descriptions for the anima
 `func` represents the method name that is called back when the event is triggered. When the event is triggered, a **search** for a method named `func` on all components of the current node, once found, it is called with `params` passed to it. Example:
 
 ```ts
-import { Animation, Component } from "cc";
+import { Animation, Component } from 'cc';
 class MyScript extends Component {
     constructor() {
 

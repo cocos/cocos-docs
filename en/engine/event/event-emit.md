@@ -9,7 +9,7 @@ Event processing is done in the `Node`. Components can register and monitor even
 xxx.on(type, func, target?);
 ```
 
-The `type` is the event registration string. `func` is the callback to listen to when the event is executed. And `target` is the event receive object. If `target` is not set，then `this` in the callback refers to the object that is currently executing the callback.
+The `type` is the event registration string. `func` is the callback to listen to when the event is executed. And `target` is the event receive object. If `target` is not set, then `this` in the callback refers to the object that is currently executing the callback.
 
 The event listener function `on` can pass to the third parameter target to bind the caller of the response function. The following two calling methods have the same effect:
 
@@ -45,7 +45,7 @@ One thing to note is that the parameter of `off` must be in one-to-one correspon
 Example:
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -78,7 +78,7 @@ xxx.emit(type, ...args);
 When emitting events, start passing the event parameters as the second argument of the emit function.
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")

@@ -2,12 +2,14 @@
 
 The UIStaticBatch component is used to improve UI rendering performance. The script will collect all the rendering data under the UI node tree (except Model, Mask, and Graphic) during the initialization of the current frame rendering and store it as a static input assembler(IA) rendering data. And rendering with fixed data in the subsequent rendering process, no longer traversing its node tree, after which the coordinate transformation will no longer take effect.
 
-To use `UIStaticBatch`, please refer to the [UIStaticBatch API](__APIDOC__/en/classes/ui.uistaticbatch.html) documentation and the [UIStaticBatch](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/19.static-ui) scene of the test-cases-3d project.
+To use `UIStaticBatch`, please refer to the [UIStaticBatch API](__APIDOC__/en/classes/ui.uistaticbatch.html) documentation and the [UIStaticBatch](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/19.static-ui) scene of the test-cases-3d project.
 
-## Enable static batching through script code. Example:
+## Enable static batching through script code
+
+Example:
 
 ```ts
-import { _decorator, Component } from "cc";
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

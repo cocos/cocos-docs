@@ -92,7 +92,7 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
 在打开的 PlayerController 脚本里已经有了预先设置好的一些代码块，如下所示：
 
 ```ts
-import { _decorator, Component } from "cc";
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -119,7 +119,7 @@ export class PlayerController extends Component {
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -287,7 +287,7 @@ Player 需要一个很长的跑道，理想的方法是能动态增加跑道的�
 将 `GameManager` 脚本中的代码替换成以下代码：
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from 'cc';
 const { ccclass, property } = _decorator;
 
 enum BlockType {
@@ -686,7 +686,7 @@ onStartButtonClicked() {
 
 ### 导入模型资源
 
-从原始资源导入模型、材质、动画等资源不是本篇基础教程的重点，所以这边直接使用已经导入工程的资源。将 [项目工程](https://github.com/cocos-creator/tutorial-mind-your-step-3d) 中 assets 目录下的 cocos 文件夹拷贝到你自己工程的 assets 目录下。
+从原始资源导入模型、材质、动画等资源不是本篇基础教程的重点，所以这边直接使用已经导入工程的资源。将 **项目工程**（[GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d)）中 assets 目录下的 cocos 文件夹拷贝到你自己工程的 assets 目录下。
 
 ### 添加到场景中
 
@@ -769,7 +769,7 @@ onOnceJumpEnd() {
 **PlayerController.ts**
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -877,7 +877,7 @@ export class PlayerController extends Component {
 **GameManager.ts**
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from 'cc';
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
@@ -1002,7 +1002,7 @@ export class GameManager extends Component {
 
 ## 总结
 
-恭喜您完成了用 Cocos Creator 制作的第一个游戏！在 [这里](https://github.com/cocos-creator/tutorial-mind-your-step-3d) 可以下载完整的工程，希望这篇快速入门教程能帮助您了解 Cocos Creator 游戏开发流程中的基本概念和工作流程。如果您对编写和学习脚本编程不感兴趣，也可以直接从完成版的项目工程中把写好的脚本复制过来使用。
+恭喜您完成了用 Cocos Creator 制作的第一个游戏！在 [GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d) 可以下载完整的工程，希望这篇快速入门教程能帮助您了解 Cocos Creator 游戏开发流程中的基本概念和工作流程。如果您对编写和学习脚本编程不感兴趣，也可以直接从完成版的项目工程中把写好的脚本复制过来使用。
 
 接下来您还可以继续完善游戏的各方各面，以下是一些推荐的改进方向：
 - 为游戏增加难度，当角色在原地停留1秒就算失败
