@@ -8,19 +8,19 @@
 
 ![project-file](index/project-file.png)
 
-- assets：资源目录
+- `assets`：资源目录
 
-- build：构建目录（在构建某平台后会生成该目录）
+- `build`：构建目录（在构建某平台后会生成该目录）
 
-- library：导入的资源目录
+- `library`：导入的资源目录
 
-- local：日志文件目录
+- `local`：日志文件目录
 
-- profiles：编辑器配置
+- `profiles`：编辑器配置
 
-- temp：临时文件目录
+- `temp`：临时文件目录
 
-- package.json：项目配置
+- `package.json`：项目配置
 
 ### 资源文件夹（assets）
 
