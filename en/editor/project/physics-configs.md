@@ -6,7 +6,7 @@ Physical configuration is used to configure various commonly used properties.
 
 ![Physics](./index/physics-index.png)
 
-- `gravity` Gravity direction vector, the sign means the positive or negative direction on the axis. **Default:** `{ x: 0, y: -10, z: 0 }`.
+- `gravity` Gravity direction vector, the sign means the positive or negative direction on the axis. **Default**: `{ x: 0, y: -10, z: 0 }`.
 - `allowSleep` Whether to allow rigid bodies to enter sleep state. **Default**: `true`.
 - `sleepThreshold` The maximum speed threshold for entering sleep. **Default**: `0.1`. **Min**: `0`.
 - `autoSimulation` Whether to enable automatic simulation.

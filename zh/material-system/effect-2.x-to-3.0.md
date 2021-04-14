@@ -1,10 +1,10 @@
 # Cocos Creator 3.0 材质升级指南
 
-> 本文将详细介绍 Cocos Creator 2.x 中的材质升级到 v3.0 的注意事项。
+> 本文将详细介绍 Cocos Creator 2.x 的材质升级到 v3.0 的注意事项。
 
 ## 1. 材质系统基础设计简介
 
-### 1.1 Creator 的材质系统框架
+### 1.1 Cocos Creator 的材质系统框架
 
 材质系统自上至下由四个核心类组成，分别是 Material、Effect、Technique 和 Pass，它们的关系可以通过下面的类图来理解：
 
@@ -50,13 +50,19 @@ Cocos Creator 2.x 的 Material 实例面板如下：
 
 ### 1.3 编辑器体验
 
-在材质系统的编辑器体验上，v2.x 与 v3.0 的区别在于：
+v2.x 与 v3.0 在材质系统的编辑器体验上也有一定的区别。
 
-v3.0 在 **层级管理器** 中选中包含模型和材质的节点后，在 **属性检查器** 面板会直接显示详细的 Material 配置面板。而 v2.x 则需要跳转到 **资源管理器** 面板选中 Material 资源才可以编辑。
+v3.0 在 **层级管理器** 中选中包含模型和材质的节点后，**属性检查器** 面板会显示各组件属性以及详细的 Material 配置面板：
 
-![effect](material6.jpg)
+![effect](material-v3.png)
 
-![effect](material7.jpg)
+而 v2.x 在 **层级管理器** 中选中包含模型和材质的节点后，**属性检查器** 面板只会显示各组件属性，并不会直接显示详细的 Material 配置面板：
+
+![effect](material-v2x.png)
+
+而是需要跳转到 **资源管理器** 面板选中 Material 资源才可以在 **属性检查器** 中编辑：
+
+![effect](material-panel-v2x.png)
 
 ## 2. Effect 资源
 
@@ -64,7 +70,7 @@ v3.0 在 **层级管理器** 中选中包含模型和材质的节点后，在 **
 
 ### 2.1 Effect 格式和内容
 
-Effect 资源方面，v2.x 和 v3.0 都是采用 YAML1.2 标准的语法和解析器，两个版本之间的差别不大。Effect 资源定义了一种材质类型，通过按照 [语法格式](https://docs.cocos.com/creator3d/manual/zh/material-system/yaml-101.html) 编写，可以定义以下信息：
+Effect 资源方面，v2.x 和 v3.0 都是采用 YAML1.2 标准的语法和解析器，两个版本之间的差别不大。Effect 资源定义了一种材质类型，通过按照 [语法格式](yaml-101.md) 编写，可以定义以下信息：
 
 - Technique 渲染技术列表
 - 每个 Technique 的 pass 列表
@@ -119,30 +125,30 @@ v3.0 新增了一些新的 Pass 选项：
 
 | v2.x Header & Name     | v3.0 Header & Name| Type | 用途 |版本差异性 |
 | :------ | :------ | :----- | :------ |:------ |
-| cc-local.chunk& cc_matWorld | cc-local.chunk& cc_matWorld | mat4 | 模型空间转世界空间矩阵。 |无差异 |
-| cc-local.chunk& cc_matWorldIT |cc-local.chunk& cc_matWorldIT | mat4 | 模型空间转世界空间逆转置矩阵 |无差异 |
-| cc-global.chunk& cc_time | cc-global.chunk& cc_time |vec4 | x：自开始以来的全球时间，以秒为单位，y：当前帧的增量时间，z：自开始以来的总帧数 |无差异 |
-| cc-global.chunk& cc_screenSize | cc-global.chunk& cc_screenSize | vec4 | xy：屏幕尺寸 zw：屏幕尺寸倒数 |无差异 |
-| cc-global.chunk& cc_screenScale | cc-global.chunk& cc_screenScale | vec4 | xy：屏幕比例，zw：逆屏幕比例 |无差异 |
-| 无 | cc-global.chunk& cc_nativeSizen | vec4 | xy：实际着色缓冲的尺寸 zw：实际着色缓冲的尺寸倒数 | v3.0 新功能，v2.x 没有 |
-| cc-global.chunk& cc_matView | cc-global.chunk& cc_matView | mat4 | 视图矩阵 |无差异 |
-| cc-global.chunk& cc_matViewInv | cc-global.chunk& cc_matViewInv | mat4 | 视图逆矩阵 |无差异 |
-| cc-global.chunk& cc_matProj | cc-global.chunk& cc_matProj | mat4 | 投影矩阵 |无差异 |
-| cc-global.chunk& cc_matProjInv | cc-global.chunk& cc_matProjInv | mat4 | 投影逆矩阵 |无差异 |
-| cc-global.chunk& cc_matViewProj | cc-global.chunk& cc_matViewProj | mat4 | 视图投影矩阵 |无差异 |
-| cc-global.chunk& cc_matViewProjInv | cc-global.chunk& cc_matViewProjInv | mat4 | 视图投影逆矩阵 |无差异 |
-| cc-global.chunk& cc_cameraPos | cc-global.chunk& cc_cameraPos | vec4 | xyz：相机位置 |无差异 |
-| 无 | cc-global.chunk& cc_exposure | vec4 | x：相机曝光 y：相机曝光倒数 z：是否启用 HDR w：HDR 转 LDR 缩放参数 |v3.0 新功能，v2.x 没有 |
+| `cc-local.chunk` & `cc_matWorld` | `cc-local.chunk` & `cc_matWorld` | mat4 | 模型空间转世界空间矩阵。 |无差异 |
+| `cc-local.chunk` & `cc_matWorldIT` |`cc-local.chunk` & `cc_matWorldIT` | mat4 | 模型空间转世界空间逆转置矩阵 |无差异 |
+| `cc-global.chunk` & `cc_time` | `cc-global.chunk` & `cc_time` |vec4 | x：自开始以来的全球时间，以秒为单位<br>y：当前帧的增量时间<br>z：自开始以来的总帧数 |无差异 |
+| `cc-global.chunk` & `cc_screenSize` | `cc-global.chunk` & `cc_screenSize` | vec4 | xy：屏幕尺寸<br>zw：屏幕尺寸倒数 |无差异 |
+| `cc-global.chunk` & `cc_screenScale` | `cc-global.chunk` & `cc_screenScale` | vec4 | xy：屏幕比例<br>zw：逆屏幕比例 |无差异 |
+| 无 | `cc-global.chunk` & `cc_nativeSize` | vec4 | xy：实际着色缓冲的尺寸<br>zw：实际着色缓冲的尺寸倒数 | v3.0 新功能，v2.x 没有 |
+| `cc-global.chunk` & `cc_matView` | `cc-global.chunk` & `cc_matView` | mat4 | 视图矩阵 |无差异 |
+| `cc-global.chunk` & `cc_matViewInv` | `cc-global.chunk` & `cc_matViewInv` | mat4 | 视图逆矩阵 |无差异 |
+| `cc-global.chunk` & `cc_matProj` | `cc-global.chunk` & `cc_matProj` | mat4 | 投影矩阵 |无差异 |
+| `cc-global.chunk` & `cc_matProjInv` | `cc-global.chunk` & `cc_matProjInv` | mat4 | 投影逆矩阵 |无差异 |
+| `cc-global.chunk` & `cc_matViewProj` | `cc-global.chunk` & `cc_matViewProj` | mat4 | 视图投影矩阵 |无差异 |
+| `cc-global.chunk` & `cc_matViewProjInv` | `cc-global.chunk` & `cc_matViewProjInv` | mat4 | 视图投影逆矩阵 |无差异 |
+| `cc-global.chunk` & `cc_cameraPos` | `cc-global.chunk` & `cc_cameraPos` | vec4 | xyz：相机位置 |无差异 |
+| 无 | `cc-global.chunk` & `cc_exposure` | vec4 | x：相机曝光<br>y：相机曝光倒数<br>z：是否启用 HDR<br>w：HDR 转 LDR 缩放参数 |v3.0 新功能，v2.x 没有 |
 
 **另外，v2.x 与 v3.0 在光源和阴影方面差异很大，v3.0 相比 v2.x 有了很大的提升。下表列出了一些常用的功能 uniform。**
 
 | v2.x Header & Name| v3.0 Header & Name| Type | 用途 | 版本差异性 |
 | :------ | :------ | :----- | :------ |:------ |
-| cc-lights.chunk& cc_lightDirection[CC_MAX_LIGHTS] | cc-global.chunk& cc_mainLitDir | vec4 | 得到光源方向 | v2.x：单个模型在 shader 中一次绘制受多少盏灯光影响，默认最大值为 1.0。如果要获取到位置信息就填写 0。例如 cc_lightDirection[0]<br>v3.0：xyz：主方向光源方向
-| cc-lights.chunk& cc_lightColor[CC_MAX_LIGHTS] | cc-global.chunk& cc_mainLitColor | vec4 | 控制光的颜色强度 | v2.x：光的 exp，就是光的 pow 强度。<br>v3.0：xyz — 主方向光颜色；w — 主方向光强度 |
-| cc-lights.chunk&CC_CALC_LIGHTS | cc-global.chunk& cc_ambientSky |v2.x：宏定义 & v3.0：vec4| 控制天空颜色强度 | v2.x：这是一个宏，通过穿进去的ambient参数来进行计算。而且还有函数重载，可以传入不同的参数。<br>v3.0：xyz — 天空颜色；w — 亮度 |
-| 无 | cc-global.chunk& cc_ambientGround |vec4| xyz：地面反射光颜色 | v3.0 新功能，v2.x 没有 |
-| 无 | cc-environment.chunk& cc_environment |samplerCube| xyz：IBL 环境贴图 | v3.0 新功能，v2.x 没有 |
+| `cc-lights.chunk` & `cc_lightDirection[CC_MAX_LIGHTS]` | `cc-global.chunk` & `cc_mainLitDir` | vec4 | 得到光源方向 | v2.x：单个模型在 shader 中执行一次绘制受多少盏灯光影响，默认最大值为 1.0。如果要获取位置信息，填写 0 即可。例如 `cc_lightDirection[0]`<br>v3.0：xyz：主方向光源方向
+| `cc-lights.chunk` & `cc_lightColor[CC_MAX_LIGHTS]` | `cc-global.chunk` & `cc_mainLitColor` | vec4 | 控制光的颜色强度 | v2.x：光的 exp，就是光的 pow 强度。<br>v3.0：xyz — 主方向光颜色；w — 主方向光强度 |
+| `cc-lights.chunk` & `CC_CALC_LIGHTS` | `cc-global.chunk` & `cc_ambientSky` |v2.x：宏定义<br>v3.0：vec4| 控制天空颜色强度 | v2.x：这是一个宏，通过穿进去的 ambient 参数进行计算。而且还有函数重载，可以传入不同的参数。<br>v3.0：xyz — 天空颜色；w — 亮度 |
+| 无 | `cc-global.chunk` & `cc_ambientGround` |vec4| xyz：地面反射光颜色 | v3.0 新功能，v2.x 没有 |
+| 无 | `cc-environment.chunk` & `cc_environment` | samplerCube | xyz：IBL 环境贴图 | v3.0 新功能，v2.x 没有 |
 
 ### 3.2 Shader 内建函数和变量
 
@@ -198,9 +204,9 @@ v2.x 中的 **点光源** 在 v3.0 调整为 **球面光**，有很多现成的�
 
 | Name  | Type | Info |
 |:------ | :------ | :----- |
-|cc_sphereLitPos[MAX_LIGHTS] | vec4|xyz：球面光位置|
-|cc_sphereLitSizeRange[MAX_LIGHTS] | vec4|x：球光尺寸<br>y：球光范围|
-|cc_sphereLitColor[MAX_LIGHTS]| vec4|xyz：球光颜色<br>w：球光强度|
+| `cc_sphereLitPos[MAX_LIGHTS]` | vec4 |xyz：球面光位置 |
+| `cc_sphereLitSizeRange[MAX_LIGHTS]` | vec4 | x：球光尺寸<br>y：球光范围 |
+| `cc_sphereLitColor[MAX_LIGHTS]` | vec4 | xyz：球光颜色<br>w：球光强度 |
 
 更多详细信息请参考 [常用 shader 内置 Uniform](builtin-shader-uniforms.md)。
 
@@ -210,10 +216,10 @@ v3.0 中的聚光灯有很多现成的功能，使用时需要加入头文件 `c
 
 | Name  | Type | Info |
 | :----- | :----- | :----- |
-|cc_spotLitPos[MAX_LIGHTS] | vec4|xyz：聚光灯位置|
-|cc_spotLitSizeRangeAngle[MAX_LIGHTS] | vec4|x：聚光灯尺寸<br>y：聚光灯范围<br>z：聚光灯角度|
-|cc_spotLitDir[MAX_LIGHTS]| vec4|xyz：聚光灯方向|
-|cc_spotLitColor[MAX_LIGHTS]| vec4|xyz：聚光灯颜色<br>w：聚光灯强度|
+| `cc_spotLitPos[MAX_LIGHTS]` | vec4 | xyz：聚光灯位置 |
+| `cc_spotLitSizeRangeAngle[MAX_LIGHTS]` | vec4 | x：聚光灯尺寸<br>y：聚光灯范围<br>z：聚光灯角度 |
+| `cc_spotLitDir[MAX_LIGHTS]` | vec4 | xyz：聚光灯方向 |
+| `cc_spotLitColor[MAX_LIGHTS]` | vec4 | xyz：聚光灯颜色<br>w：聚光灯强度 |
 
 更多详细信息请参考 [常用 shader 内置 Uniform](builtin-shader-uniforms.md)。
 
@@ -225,24 +231,24 @@ v2.x 与 v3.0 的阴影计算区别很大，v2.0 加入了头文件 `shadow.chun
 
 | Name | Type | Info |
 | :----- | :----- | :---- |
-|cc_shadow_lightViewProjMatrix[CC_MAX_SHADOW_LIGHTS] | mat4|在灯光坐标下绘制阴影贴图|
-|cc_shadow_info[CC_MAX_SHADOW_LIGHTS] | vec4|计算阴影偏移|
+| `cc_shadow_lightViewProjMatrix[CC_MAX_SHADOW_LIGHTS]` | mat4 | 在灯光坐标下绘制阴影贴图 |
+| `cc_shadow_info[CC_MAX_SHADOW_LIGHTS]` | vec4 | 计算阴影偏移 |
 
 | Name（函数） | Type | Info |
 | :------ | :----- | :----- |
-|getDepth | Float|返回深度值|
-|shadowSimple | float|阴影的硬采样会有锯齿问题|
+| `getDepth` | float | 返回深度值 |
+| `shadowSimple` | float | 阴影的硬采样会有锯齿问题 |
 
 **v3.0 头文件 `cc-shadow.chunk` 的常用功能 uniform 如下所示**：
 
 | Name    | Type | Info |
 | :------ | :----- | :----- |
-|cc_matLightPlaneProj | mat4|平面阴影的变换矩阵|
-|cc_shadowColor | vec4|阴影颜色|
+| `cc_matLightPlaneProj` | mat4|平面阴影的变换矩阵 |
+| `cc_shadowColor` | vec4 | 阴影颜色 |
 
 #### ShadowPCF 软阴影
 
 | 头文件   | 函数 |
 | :------ | :----- |
 | v2.x：`shadow.chunk`| `shadowPCF3X3`（**3 * 3** 采样）<br>`shadowPCF5X5`（**5 * 5** 采样)|
-| v3.0：`cc-shadow-map-fs.chunk` | `CC_DIR_SHADOW_FACTOR`：直接修改内存里的阴影颜色数值 |
+| v3.0：`cc-shadow-map-fs.chunk` | `CC_DIR_SHADOW_FACTOR`：直接修改内存中阴影颜色的数值 |

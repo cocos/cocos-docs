@@ -87,7 +87,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
             const displayName = this._rightDisplayNames[this._rightDisplayIndex];
             let factory = dragonBones.CCFactory.getInstance() as any;
             factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), replaceArmatureName , "weapon_r", displayName, slot);
-            
+
             let offset = this._rightDisplayOffset[this._rightDisplayIndex];
             slot!.parent.offset.x = offset.x;
             slot!.parent.offset.y = offset.y;

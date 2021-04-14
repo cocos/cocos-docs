@@ -87,7 +87,7 @@ The following is an example of how DragonBones replaces the texture. Replace the
             const displayName = this._rightDisplayNames[this._rightDisplayIndex];
             let factory = dragonBones.CCFactory.getInstance() as any;
             factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), replaceArmatureName , "weapon_r", displayName, slot);
-            
+
             let offset = this._rightDisplayOffset[this._rightDisplayIndex];
             slot!.parent.offset.x = offset.x;
             slot!.parent.offset.y = offset.y;
