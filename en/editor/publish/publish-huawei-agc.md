@@ -18,9 +18,9 @@ Use Cocos Creator to open the project that needs to be released. Open the **Buil
 
 For the settings of the general options, please refer to the [Build Options](build-options.md) document.
 
-- **agconnect-services Config**：Used to configure Huawei parameter file `agconnect-services.json`. Please refer to the [Configs HUAWEI Parameter File](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html#configs-huawei-config-file) for the specific configuration method.
+- **agconnect-services Config**: Used to configure Huawei parameter file `agconnect-services.json`. Please refer to the [Configs HUAWEI Parameter File](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html#configs-huawei-config-file) for the specific configuration method.
 
-- **Cocos SDKHub Config Set**: This option is used to help the game quickly intergrate the channel SDK. Please select the SDKHub service that you have previously enabled in the Cocos Services panel.
+- **Cocos SDKHub Config Set**: This option is used to help the game quickly integrate the channel SDK. Please select the SDKHub service that you have previously enabled in the Cocos Services panel.
 
 ![sdkhub](./publish-huawei-agc/sdkhub.png)
 

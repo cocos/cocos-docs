@@ -53,7 +53,7 @@ For event structure you can refer to the [Button](./button.md) documentation.
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, EditBoxComponent, EventHandler } from "cc";
+import { _decorator, Component, EditBoxComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -105,7 +105,7 @@ Added with **Node**'s event API `editbox.node.on('editing-did-began', ...)`.
 
 ```ts
 // Suppose we add an event handler callback inside a component's onLoad method and event handlers in the callback function.
-import { _decorator, Component, EditBoxComponent } from "cc";
+import { _decorator, Component, EditBoxComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

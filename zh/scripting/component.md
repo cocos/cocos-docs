@@ -5,7 +5,7 @@
 **组件类必须是 cc 类**。
 
 ```ts
-import { Component } from "cc";
+import { Component } from 'cc';
 
 @ccclass("MyComponent")
 class MyComponent extends Component {
@@ -30,7 +30,7 @@ const myComponent = node.addComponent(MyComponent);
 当组件不再被需要的时候，可以调用 `node.removeComponent(myComponent)` 移除指定的组件并将其销毁。
 
 ```ts
-import { Component } from "cc";
+import { Component } from 'cc';
 
 @ccclass("MyComponent")
 class MyComponent extends Component {
@@ -59,7 +59,7 @@ myComponent.printNodeName(); // 错误：组件已被该节点移除
 
 ```ts
 // Game.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 import { Configuration } from './Configuration';
@@ -113,7 +113,7 @@ export class Game extends Component {
 
 ```ts
 // CompA.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("CompA")
@@ -134,7 +134,7 @@ export class CompA extends Component {
 
 
 // CompB.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("CompB")
@@ -183,7 +183,7 @@ CompA update!
 
 ```ts
 //Configuration.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, executionOrder } = _decorator;
 
 @ccclass("Configuration")
@@ -198,7 +198,7 @@ export class Configuration extends Component {
 
 ```ts
 // Menu.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, executionOrder } = _decorator;
 
 @ccclass("Menu")

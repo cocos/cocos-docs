@@ -16,7 +16,7 @@ Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on
         "experimentalDecorators": true,
         "moduleResolution": /* Cocos Creator's specific module resolution algorithm */,
         "forceConsistentCasingInFileNames": true,
-    }，
+    },
   }
   ```
 
@@ -27,7 +27,7 @@ Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on
 
 - `export =` and `import =` are not supported.
 
--  Variables derived from namespace must be declared as `const`, not `var` or `let`.
+- Variables derived from namespace must be declared as `const`, not `var` or `let`.
 
 - Different declarations in the same namespace do not share scope and require explicit use of qualifiers.
 
@@ -68,7 +68,7 @@ Creator opens some compilation options that will be applied to the entire projec
 | Option | Name | Meaning |
 | :-- | :--- | :-- |
 | **useDefineForClassFields** | Conforming class fields | When enabled, class fields will be implemented using the `Define` semantics, otherwise they will be implemented using the `Set` semantics. Only works if the target does not support ES6 class fields.    |
-| **allowDeclareFields** |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to ` undefined`. |The
+| **allowDeclareFields** |Allows declaring class fields| When enabled, the `declare` keyword will be allowed in TypeScript scripts to declare class fields and, when the field is not declared with `declare` and no explicit initialization is specified, it will be initialized according to the specification to `undefined`. |The
 
 ### Runtime Environment
 

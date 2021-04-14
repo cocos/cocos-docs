@@ -40,7 +40,7 @@ Usually a __Slider__ node tree as shown below:
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -72,7 +72,7 @@ By `slider.node.on('slide', ...)` way to add.
 ```ts
 // Suppose we add event handling callbacks to the onLoad method of a component and perform event handling in the callback function:
 
-import { _decorator, Component, SliderComponent } from "cc";
+import { _decorator, Component, SliderComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

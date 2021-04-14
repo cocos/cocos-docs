@@ -32,7 +32,7 @@ The ToggleContainer won't be used alone and it usually be used with `Toggle` to 
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, ToggleContainerComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, ToggleContainerComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

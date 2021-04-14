@@ -59,7 +59,7 @@ The __PageView__ component must have the specified content node to work. Each ch
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, PageView, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, PageView, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -93,7 +93,7 @@ By `pageView.node.on('page-turning', ...)` way to add.
 ```ts
 // Suppose we add event handling callbacks to the onLoad method of a component and perform event handling in the callback function:
 
-import { _decorator, Component, Event, Node, PageView } from "cc";
+import { _decorator, Component, Event, Node, PageView } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

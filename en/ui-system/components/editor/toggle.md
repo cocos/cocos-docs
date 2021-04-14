@@ -39,7 +39,7 @@ The generic node hierarchy of Toggle is as below:
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -71,7 +71,7 @@ Added by the way of `toggle.node.on('toggle', ...)`.
 ```js
 // // Suppose we add an event handler callback inside a component's onLoad method and event handlers in the callback function:
 
-import { _decorator, Component, ToggleComponent } from "cc";
+import { _decorator, Component, ToggleComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

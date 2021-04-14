@@ -18,7 +18,7 @@ The life cycle callback functions currently provided to users mainly include (or
 In the initialization phase of the component script, the `onLoad()` callback function is available. The `onLoad()` callback will be triggered when the node is activated for the first time, such as when the scene is loaded or the node is activated. In the `onLoad()` stage, it is guaranteed that you can get other nodes in the scene and the resource data associated with the nodes. `onLoad()` will always be executed before any start method is called, which can be used to arrange the initialization sequence of the script. Usually, some initialization related operations are performed in the `onLoad()` stage. Example:
 
 ```ts
-import { _decorator, Component, Node, SpriteFrame, find } from "cc";
+import { _decorator, Component, Node, SpriteFrame, find } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -46,7 +46,7 @@ When the `enabled` attribute of the component changes from `false` to `true`, or
 The `start()` callback function will be triggered before the first activation of the component, that is, before the first execution of `update()`. `start()` is usually used to initialize some intermediate state data. These data may change during update and are frequently enabled and disabled. Example:
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("starttest")
@@ -73,7 +73,7 @@ export class starttest extends Component {
 A key point of game development is to update the behavior, state and orientation of objects before each frame of rendering. These update operations are usually placed in the `update()` callback. Example:
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("updatetest")
@@ -90,7 +90,7 @@ export class updatetest extends Component {
 `update()` will be executed before all animations are updated, but if developer's need to perform some additional operations after the animations (such as animation, particles, physics, etc.) are updated, or it is needed to execute the `update()` of all components after doing other operations, use the `lateUpdate()` callback. Example:
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("lateupdatetest")

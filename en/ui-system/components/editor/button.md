@@ -79,7 +79,7 @@ There are two ways to add a callback through the script.
 1. The event callback added by this method is the same as the event callback added by the editor, all added by the script. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
     ```ts
-    import { _decorator, Component, Event, Node, Button, EventHandler } from "cc";
+    import { _decorator, Component, Event, Node, Button, EventHandler } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass("example")
@@ -110,7 +110,7 @@ There are two ways to add a callback through the script.
 
     ```ts
     // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
-    import { _decorator, Component, Button } from "cc";
+    import { _decorator, Component, Button } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass("example")

@@ -59,7 +59,7 @@ The `view` here is used to define a scroll area that can be displayed. As a resu
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, ScrollView, EventHandler } from "cc";
+import { _decorator, Component, ScrollView, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -91,7 +91,7 @@ By `scrollview.node.on('scroll-to-top', ...)` way to add.
 
 ```js
 // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
-import { _decorator, Component, ScrollView } from "cc";
+import { _decorator, Component, ScrollView } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

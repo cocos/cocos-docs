@@ -19,7 +19,7 @@ Cocos Creator 3.0 采用与 Cocos Creator v2.x 统一的资源管理机制，在
 ```typescript
 //test.ts
 
-import { _decorator, Component, Node, SpriteFrame } from "cc";
+import { _decorator, Component, Node, SpriteFrame } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -36,7 +36,7 @@ export class test extends Component {
 
 ```typescript
 //test.ts
-import { _decorator, Component, Node, SpriteFrame, Texture2D } from "cc";
+import { _decorator, Component, Node, SpriteFrame, Texture2D } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")

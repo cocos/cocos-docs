@@ -9,7 +9,7 @@
 
 ## 背景
 
-对于用过 Cocos Creater（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScrpit 中按照如下的操作调用即可：
+对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
 ```javascript
 if (cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
@@ -89,7 +89,7 @@ Window 下直接参考上面需要安装的模块直接安装就好了，最后�
 
 ## 编写 c++ 层的实现
 
-C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，那第一步肯定是要先把 C++ 层的头文件和实现准备好，这里我们在 build⁩/jsb-defaul/frameworks⁩/cocos2d-x⁩/cocos⁩ 创建一个 test 文件夹用于存放相关文件：
+C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，那第一步肯定是要先把 C++ 层的头文件和实现准备好，这里我们在 build⁩/jsb-default/frameworks⁩/cocos2d-x⁩/cocos⁩ 创建一个 test 文件夹用于存放相关文件：
 
 ![](jsb/store-file.png)
 
@@ -433,7 +433,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 ## 自动绑定的限制条件
 
-自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 GitHub 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+自动绑定依赖于 Bindings Generator 工具，Cocos 官方还单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
 1. 只能够针对类生成绑定，不可以绑定结构体，独立函数等。
 2. 不能够生成 `Delegate` 类型的 API，因为脚本中的对象是无法继承 C++ 中的 `Delegate` 类并重写其中的 `Delegate` 函数的。
 3. 子类中重写了父类的 API 的同时，又重载了这个 API。

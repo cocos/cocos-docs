@@ -30,7 +30,7 @@ The properties of the physics system can only be set through the code for the ti
 | **defaultMaterial** | Get the default physics material (read only) |
 | **raycastResults** | Gets the __raycast__ test results (read only) |
 | **raycastClosestResult** | Gets the __raycastClosest__ test result (read only) |
-| **collisionMatrix** | Gets the collision matrix (It`s used only for initialization) |
+| **collisionMatrix** | Gets the collision matrix (It's used only for initialization) |
 
 ## Interfaces
 

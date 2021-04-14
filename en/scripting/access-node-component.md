@@ -26,7 +26,7 @@ It's easy to get the node where the component is. Just access the `this.node` va
 It will often be need to get other components on the same node. Use the `getComponent` API, which will help to find the component that is needed.
 
 ```ts
-import { _decorator, Component, LabelComponent } from "cc";
+import { _decorator, Component, LabelComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -59,7 +59,7 @@ There is also ther `getComponent` method on the node, and their functions are th
 If the component that is needed is not found on the node, `getComponent` will return `null`. If you try to access the value of `null`, a __TypeError__ error will be thrown at runtime. If you are not sure whether the component exists, please remember to check:
 
 ```ts
-import { _decorator, Component, LabelComponent } from "cc";
+import { _decorator, Component, LabelComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -88,7 +88,7 @@ The most straightforward way is to set the objects you need in the **Inspector**
 ```ts
 // Cannon.ts
 
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("Cannon")
@@ -112,7 +112,7 @@ The `Player` property will be set successfully, and can be accessed directly in 
 ```ts
 // Cannon.ts
 
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("Cannon")
@@ -134,7 +134,7 @@ In the above example, if the type of the attribute is declared as a `Player` com
 ```ts
 // Cannon.ts
 
-import { _decorator, Component } from "cc";
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 import { Player } from "Player";
 
@@ -158,7 +158,7 @@ Sometimes, there are many objects of the same type in the game scene, such as tu
 ```ts
 // CannonManager.ts
 
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("CannonManager")
@@ -202,7 +202,7 @@ Use `import` to implement script cross-file operations. Example:
 
 ```ts
 // Global.ts, now the filename matters
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("Global")
@@ -217,7 +217,7 @@ Each script can use `import{} from` + file name (without path) to get the object
 
 ```ts
 // Back.ts
-import { _decorator, Component, Node, LabelComponent } from "cc";
+import { _decorator, Component, Node, LabelComponent } from 'cc';
 const { ccclass, property } = _decorator;
 // this feels more safe since you know where the object comes from
 import{Global}from "./Global";
@@ -233,7 +233,7 @@ export class Back extends Component {
 
 ```ts
 // AnyScript.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 // this feels more safe since you know where the object comes from
 import{Global}from "./Global";

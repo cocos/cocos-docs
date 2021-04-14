@@ -7,7 +7,7 @@ To use `UIStaticBatch`, please refer to the [UIStaticBatch API](__APIDOC__/en/cl
 ## Enable static batching through script code. Example:
 
 ```ts
-import { _decorator, Component } from "cc";
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
