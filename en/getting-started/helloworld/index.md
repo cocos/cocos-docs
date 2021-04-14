@@ -1,6 +1,6 @@
 # Hello World Project
 
-Once you understand Cocos Dashboard, let's see how to create and open a Hello World project.
+It's time to create and open the **Hello World** project.
 
 ## Creating a new project
 
