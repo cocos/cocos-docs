@@ -68,7 +68,7 @@ It is also posible to read a CSS file directly. Example:
 ```javascript
 const {readFileSync} = require('fs');
 const {join} = require('path');
-exports.template = readFileSync(join(__dirname,'../static/default.css'),'utf8');
+exports.style = readFileSync(join(__dirname,'../static/default.css'),'utf8');
 ```
 
 ## $

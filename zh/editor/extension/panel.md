@@ -75,7 +75,7 @@ interface PanelSize {
 
 ```javascript
 // 监听面板事件
-exports.linsteners = {
+exports.listeners = {
     // 面板显示的时候触发的钩子
     show() {},
     // 面板隐藏的时候触发的钩子

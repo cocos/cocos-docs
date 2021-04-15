@@ -68,7 +68,7 @@ header { padding: 10px; }
 ```javascript
 const { readFileSync } = require('fs');
 const { join } = require('path');
-exports.template = readFileSync(join(__dirname, '../static/default.css'), 'utf8');
+exports.style = readFileSync(join(__dirname, '../static/default.css'), 'utf8');
 ```
 
 ## $
@@ -98,9 +98,10 @@ exports.ready = function() {
 这个对象里都是函数，请不要挂载其他类型的对象到这里。
 
 ```javascript
+const packageJSON = require('./package.json');
 exports.methods = {
     open() {
-        Editor.Panel.open('hello-world');
+        Editor.Panel.open(packageJSON.name);
     },
 };
 ```
