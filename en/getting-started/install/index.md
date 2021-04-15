@@ -14,7 +14,7 @@ Double-click the installation package after downloading.
 
 The installer for Windows is an `.exe` executable file, usually named **CocosDashboard-vX.X.X-win32-20XXXXXX.exe**, where **vX.X.X** is the version number of Cocos Dashboard, such as v1.0.11. The string of numbers after it is the version date number.
 
-> **Note**.
+> **Notes**:
 > 1. If the version number installed on the current PC is the same as the version number of the installation package, the installation package with the same version number cannot be overwritten automatically, and it will be necessary to uninstall the previous version before continuing the installation.
 >
 >       The default installation path of the application is C:\CocosDashboard and can be changed during the installation.
