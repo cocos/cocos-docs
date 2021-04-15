@@ -29,7 +29,7 @@ The installer for Windows is an `.exe` executable file, usually named **CocosDas
 
 The installer for Cocos Dashboard for MacOS is a dmg image file. Double-click the dmg file, then drag and drop **CocosDashboard.app** into your **Applications** folder shortcut, or any other location. Then double-click the dragged **CocosDashboard.app** and you're ready to go.
 
-> **Note**.
+> **Notes**:
 > 1. If you can't open it after downloading, it indicates that the dmg or app file is corrupted, from an unknown developer, or contains malware, etc. Please right-click the dmg or app file in the Finder and select **Open**, then click **Open** again in the pop-up dialog box. Then please go to **System Preferences -> Security & Privacy** and click **Open Anyway** so that it can be launched normally later.
 >
 > 2. If you get a "corrupted, can't open" message during the installation process, you need to check if there is any software like Xcode occupying the files in the Dashboard installation directory. If so, exit, then uninstall Dashboard and reinstall it.
