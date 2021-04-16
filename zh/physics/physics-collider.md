@@ -1,10 +1,10 @@
 # 碰撞组件
 
-各碰撞器组件说明，请参考 [碰撞器组件](physics-)
+各碰撞器组件说明，请参考 [碰撞器组件](physics-component.md#%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6)
 
 ## 通过代码获取碰撞器组件
 
-以获取 **BoxCollider** 盒碰撞器组件为例：
+以获取 **BoxCollider** 盒碰撞器组件为例，将脚本挂载在带有碰撞器组件的节点上，通过以下代码获取组件：
 
 ```ts
 import { BoxCollider } from 'cc'
@@ -54,7 +54,7 @@ this.getComponent(BoxCollider)
 代码示例：
 
 ```ts
-const collider = this.node.getComponent(Collider);
+const collider = this.node.getComponent(XXXCollider);
 let rigidbody = collider.attached;
 ```
 
@@ -73,7 +73,7 @@ let rigidbody = collider.attached;
 
 这些性质限制了切变、非均一缩放等变换，以球举例：
 
-假设绑定节点的缩放信息是 **(1,2,1)**(非均一缩放)，由于模型和碰撞体描述的结构不一样，球模型使用多个基础图元（如三角面）来表示，缩放后会形变成类似于鹅卵石的形状；但球碰撞体的使用半径大小来描述，缩放时会取数值最大的维度来缩放半径（这样是为了碰撞体尽可能的包围住模型），但缩放后还是一个球。
+假设绑定节点的缩放信息是 **(1,2,1)**（非均一缩放），由于模型和碰撞体描述的结构不一样，球模型使用多个基础图元（如三角面）来表示，缩放后会形变成类似于鹅卵石的形状；但球碰撞体的使用半径大小来描述，缩放时会取数值最大的维度来缩放半径（这样是为了碰撞体尽可能的包围住模型），但缩放后还是一个球。
 
 ![非均一缩放球](img/collider-non-uniform-scale.jpg)
 

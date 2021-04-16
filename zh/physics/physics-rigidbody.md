@@ -29,7 +29,7 @@
 
 刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/classes/physics.rigidbody.html)。
 
-### 获取刚体组件
+### 通过代码获取刚体组件
 
 示例：
 
@@ -66,15 +66,11 @@ const rigidBody = this.getComponent(RigidBody);
 
 ### 通过重力
 
-刚体组件提供了 `useGravity` 属性，将 `useGravity` 属性设置为 `true`。
+刚体组件提供了 **useGravity** 属性，需要使用重力时候，需将 **useGravity** 属性设置为 `true`。
 
 ### 通过施加力
 
-刚体组件提供了 `applyForce` 接口，签名为：
-
-`applyForce (force: Vec3, relativePoint?: Vec3)`
-
-根据牛顿第二定律，可对刚体某点上施加力来改变物体的原有状态。
+刚体组件提供了 `applyForce` 接口，根据牛顿第二定律，可对刚体某点上施加力来改变物体的原有状态。
 
 示例：
 
@@ -88,9 +84,15 @@ rigidBody.applyForce(new Vec3(200, 0, 0));
 
 刚体组件提供了 `applyTorque` 接口，通过此接口可以施加扭矩到刚体上，因为只影响旋转轴，所以不需要指定作用点。
 
+示例：
+
+```ts
+rigidBody.applyTorque(5);
+```
+
 ### 通过施加冲量
 
-刚体组件提供了 `applyImpulse` 接口，根据动量守恒，对刚体某点施加冲量，由于物体质量恒定，从而使刚体改变原有状态。
+刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量守恒，将立即改变刚体的线性速度。 如果冲量施加到的点不是刚体的质心，那么将产生一个扭矩并影响刚体的角速度。
 
 示例：
 
@@ -142,23 +144,37 @@ if (rigidBody.isSleeping) {
 
 ### 通过阻尼
 
-刚体组件提供了 **linearDamping** 和 **angularDamping** 属性：
-
-- `linearDamping` 属性用于设置线性阻尼。
-- `angularDamping` 属性用于设置旋转阻尼。
+刚体组件提供了 **linearDamping** 线性阻尼和 **angularDamping** 旋转阻尼属性，可以通过 `linearDamping` 和 `angularDamping` 方法对其获取或设置。
 
 阻尼参数的范围建议在 **0** 到 **1** 之间，**0** 意味着没有阻尼，**1** 意味着满阻尼。
+
+示例：
+
+```ts
+rigidBody.linearDamping(0.5);
+let linearDamping = rigidBody.linearDamping();
+
+rigidBody.angularDamping(0.5);
+let angularDamping = rigidBody.angularDamping();
+```
 
 > **注**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
 
 ### 通过因子
 
-刚体组件提供了 `linearFactor` 和 `angularFactor` 属性:
-
-- `linearFactor` 属性用于设置线性因子。
-- `angularFactor` 属性用于设置旋转因子。
+刚体组件提供了 **linearFactor** 线性速度因子和 **angularFactor** 旋转速度因子属性，可以通过 `linearFactor` 和 `angularFactor` 方法对其获取或设置。
 
 因子是 `Vec3` 的类型，相应分量的数值用于缩放相应轴向的速度变化，默认值都为 **1**，表示缩放为 **1** 倍，即无缩放。
+
+示例：
+
+```ts
+let linearFactor = rigidBody.linearFactor();
+rigidBody.linearFactor(new Vec3(5, 0, 0));
+
+let angularFactor = rigidBody.linearFactor();
+rigidBody.angularFactor(new Vec3(5, 0, 0));
+```
 
 **注意**：
 

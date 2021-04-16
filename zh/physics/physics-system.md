@@ -32,8 +32,4 @@
 | **raycastClosestResult** | 获取 **raycastClosest** 的检测结果（只读） |
 | **collisionMatrix** | 获取碰撞矩阵，仅用于初始化 |
 
-## 部分接口
-
-| 接口 | 签名 | 说明 |
-| :--- | :--- | :--- |
-| resetAccumulator | `(time = 0) => void` | 重置累计的时间总量（可以考虑在切换场景时进行重置） |
+物理系统接口请参考 [PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。

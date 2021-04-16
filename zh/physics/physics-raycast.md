@@ -50,20 +50,24 @@ import { geometry } from "cc";
     cameraCom.screenPointToRay(0, 0, outRay);
     ```
 
-    **注意**：
-    - 首先需要获取一个相机组件或者相机实例的引用。
-    - 相机组件和相机实例两者暴露的接口参数顺序不一样。
+    > **注意**：
+    > - 首先需要获取一个相机组件或者相机实例的引用。
+    > - 相机组件和相机实例两者暴露的接口参数顺序不一样。
 
 ## 接口介绍
 
 Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 
-但需要注意的是，检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
+目前接口由 [**PhysicsSystem**](__APIDOC__/zh/classes/physics.physicssystem.html) 提供，有以下两类：
 
-目前接口由 **PhysicsSystem** 提供，有以下两类：
+- `raycast` : 检测所有的碰撞体，并记录所有被检测到的结果，通过 `PhysicsSystem.instance.raycastResults` 获取。接口返回布尔值，表示是否检测成功。
+- `raycastClosest` ：检测所有的碰撞体，并记录与射线距离最短的检测结果，通过 `PhysicsSystem.instance.raycastClosestResult` 获取。同样返回布尔值，表示是否检测成功。
+  
+> **注意**：
+> 检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
+> 检测结果返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
 
-- `raycast` : 检测所有的碰撞体，返回布尔值, 表示是否检测成功。
-- `raycastClosest` ：检测所有的碰撞体，同样返回布尔值。
+//todo 范例
 
 参数说明：
 
@@ -72,18 +76,9 @@ Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 - `maxDistance`：最大检测距离，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
 - `queryTrigger`：是否检测触发器
 
-## 获取结果
+返回结果存储信息:
 
-获取以上接口的检测结果，需分别通过以下方式：
-
-- 获取 `raycastAll` 的检测结果：`PhysicsSystem.instance.raycastResults`
-- 获取 `raycastClosest` 的检测结果：`PhysicsSystem.instance.raycastClosestResult`
-
-**注意**：返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
-
-## 结果存储的信息
-
-信息由 `PhysicsRayResult` 进行存储，主要有以下信息：
+信息由 [PhysicsRayResult](__APIDOC__/zh/classes/physics.physicsrayresult.html) 进行存储，主要有以下信息：
 
 - `collider`：击中的碰撞器
 - `distance`：击中点与射线起点的距离

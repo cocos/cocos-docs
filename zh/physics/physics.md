@@ -2,13 +2,13 @@
 
 Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效统一的组件化工作流程和便捷的使用方法，您可以 [选择项目适合的物理引擎](physics-item.md) 进行开发，开发过程中也可随时切换。
 
-- [ammo.js](https://github.com/cocos-creator/ammo.js)（默认）：功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
-- [cannon.js**](https://github.com/cocos-creator/cannon.js)：具有物理模拟的物理引擎。
+- [**ammo.js**](https://github.com/cocos-creator/ammo.js)（默认）：功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
+- [**cannon.js**](https://github.com/cocos-creator/cannon.js)：具有物理模拟的物理引擎。
 - **builtin**：轻量的碰撞检测系统。
 
 ## 物理世界和元素
 
-物理世界中的元素可以分为一个个的 **刚体**，在 Cocos Creator 中加入物理元素可以通过为游戏对象添加 **Collider 碰撞器** 或者 **RigidBody 刚体** 组件，物理系统将为这些元素进行物理计算，使其表现出真实世界下的行为。
+物理世界中的元素可以分为一个个的 **刚体**，在 Cocos Creator 中加入物理元素可以通过为游戏对象添加 **Collider 碰撞器** 或者 **RigidBody 刚体** 组件，物理系统将为这些元素进行物理计算，使其表现出真实世界中的行为。
 
 > **注**：此处的“刚体”不是指刚体组件，刚体组件用于控制刚体物理行为相关的属性。
 
@@ -16,30 +16,29 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 1. 新建一个 3D 对象，以 **Cube 立方体** 为例，在 **资源管理器** 的文件夹中点击右键或者点击左上方的加号按钮，然后选择 **创建 -> 3D 对象 -> Cube 立方体**。
 
+    ![add-cube](img/physics-add-cube.png)
 
 2. 选中新建的 3D 对象，在右侧的 **属性检查器** 面板下方点击 **添加组件** 按钮，添加一个 **Psycial -> RigidBody** 刚体组件，该对象既具有物理行为.
 
+    ![add-rigidbody](img/physics-add-rigidbody.png)
 
+    ![with-rigidbody](img/physics-with-rigidbody.gif)
 
 3. 接着再添加一个碰撞器组件，以 **Cube 立方体** 为例，添加 **Psycial -> BoxCollider** 组件。
 
-
+    ![add-boxcollider](img/physics-add-boxcollider.png)
 
 这样，便生成了一个 **既有碰撞器又有物理行为** 的物理元素。
 
 ### 完善物理世界
 
-让我们继续完善物理世界，先添加一个 **Sphere 球体**，为其添加 **RigidBody** 刚体和 **SphereCollider** 球体碰撞器组件。
+让我们继续完善物理世界，添加一个 **Plane 平面**，只为其添加 **PlaneCollider** 平面碰撞器组件，然后调整原有立方体的 Y 轴高度。
 
-再添加一个 **Plane 平面**，只为其添加 **PlaneCollider** 平面碰撞器组件。
+    ![](img/physics-add-plane.png)
 
-然后调整各组件的 **Y** 值，使其处于不同高度，稍微调整下球体或者立方体的 **X/Z** 值，使其碰撞的时候可以相互弹开。
+点击运行按钮，便可以看到物理元素在场景世界上的变化，效果如下图所示：
 
-最后，点击运行按钮，便可以看到物理元素在场景世界上的变化，最后的场景如下图所示：
-
-![Physical World](img/physics.jpg)
-
-
+![scene-movement](img/physics-scene-movement.gif)
 
 ### 物理元素的组成
 
