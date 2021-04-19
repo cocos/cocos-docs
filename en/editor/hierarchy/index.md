@@ -33,11 +33,11 @@ When creating a node, an **Input box** will appear asking for the name of the no
 ![node-name](img/node-name.png)
 
 - If no node is selected in the tree list, the new node will be created under the current root node by default (`Scene`).
-- If there are multiple selected nodes, the new node will be created under the first selected node.
+- If there are multiple nodes selected, the new node will be created under the first selected node.
 
 ### UI nodes
 
-For a UI node to display properly, any of its parent nodes must have at least one **UITransform** component. So when creating a UI node, if it does not meet the rules, a **Canvas** node will be automatically created as the root of the UI node, as described in [UI Structure Description](../../2d-object/ui-system/index.md).
+For a UI node to display properly, any of its parent nodes must have at least one **UITransform** component. When creating a UI node, if it does not meet the rules, a **Canvas** node will be automatically created as the root of the UI node, as described in the [UI Structure Description](../../2d-object/ui-system/index.md) documentation.
 
 ### Prefab nodes
 
