@@ -13,7 +13,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
     - **Copy**: Ctrl/Cmd + C
     - **Paste**: Ctrl/Cmd + V
     - **Clone**: Ctrl/Cmd + D, Ctrl + drag nodes
-    - Delete: Delete
+    - **Delete**: Delete
     - Select up and down: Up and Down arrows
     - Collapse nodes: Left arrow
     - Expand nodes: Right arrow
