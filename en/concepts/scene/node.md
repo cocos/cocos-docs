@@ -6,7 +6,7 @@ __Nodes__ are the basic building blocks of a scene. __Nodes__ are organized in a
 
 __Nodes__ have the following characteristics:
 
-- __Nodes__ contain a set of basic information (*displacement*, *rotation*, *scaling*), and __Nodes__ are organized together through a set of relative transformation relationships. The previous transform information of a __Node__ is relative to it's parent node.
+- __Nodes__ contain a set of basic information (**displacement**, **rotation**, **scaling**), and __Nodes__ are organized together through a set of relative transformation relationships. The previous transform information of a __Node__ is relative to it's parent node.
 - The update order between __Nodes__ follows the __tree hierarchy order__. The update of __child nodes__ depends on the __parent node__, and the world transformation of __child nodes__ is the combination of their __local transformation__ and the __world transform__ of their __parent node__. The **parent/child** relationship is very important.
 - Components can be added to __Nodes__ to associate multiple components with __Nodes__.
 
