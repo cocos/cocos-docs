@@ -87,7 +87,7 @@ Different nodes can have the same name.
 
 ## Other Operations
 
-The menu that pops up when you right-click on a node also includes the following actions.
+The menu that pops up when right-clicking on a node also includes the following actions.
 
 - **Copy/Paste**: Copy the node to the clipboard, then you can paste it to another location, or open another scene to paste the node you just copied.
 - **Duplicate**: Generate a copy of the node that is exactly the same as the selected node, with the generated node and the selected node in the same hierarchy.
