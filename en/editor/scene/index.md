@@ -27,7 +27,7 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 
 ## Coordinate System and Grid
 
-The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read [Coordinate System and Node Transformation](../../concepts/scene/coord.md) section.
+The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
 
 ## Scene Gizmo
 
