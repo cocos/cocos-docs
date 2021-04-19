@@ -8,7 +8,7 @@ Prior to v2.4, [Subpackage Loading](https://github.com/cocos-creator/creator-doc
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, the `loader.downloader.loadSubpackage` needs to be changed to the `assetManager.loadBundle` from **Asset Manager**. The related content will be described in detail in this document.
 
-> **Note**: ff you used Subpackage Loading in your old project, that is, if you checked the **Subpackage** option in the **Properties** panel, then when the project is upgraded to the v3.0, it will automatically convert to an normal folder. You can configure the Asset Bundle as following reference.
+> **Note**: if you used Subpackage Loading in your old project, that is, if you checked the **Subpackage** option in the **Properties** panel, then when the project is upgraded to the v3.0, it will automatically convert to an normal folder. You can configure the Asset Bundle as following reference.
 
 [Configura Asset Bundle](bundle.md)
 
