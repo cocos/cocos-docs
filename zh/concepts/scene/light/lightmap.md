@@ -37,13 +37,13 @@
 
     ![enable lightbake](./img/lightmap_bakeable.png)
 
-	- **EditorOnly**：是否只在编辑器中生效
-	- **Bakeable**：是否烘焙静态光照
-	- **CastShadow**：是否投射静态阴影
+    - **EditorOnly**：是否只在编辑器中生效
+    - **Bakeable**：是否烘焙静态光照
+    - **CastShadow**：是否投射静态阴影
 
 2. 在 **层级管理器** 中选中要生成光照贴图的模型节点（带有 [MeshRenderer 组件](./../../../engine/renderable/model-component.md)），然后在 **属性检查器** 中设置 **LightmapSettings**，勾选 `Bakeable` 属性。
 	
-	![model lighting map settings](./img/lightmap_model_settings.png)
+    ![model lighting map settings](./img/lightmap_model_settings.png)
 	
     - **Bakeable**：是否烘焙静态光照
     - **CastShadow**：是否投射静态阴影
@@ -54,10 +54,10 @@
     > **注意**：要生成光照贴图的模型有以下两点要求：
     > 
     > 1. 美术人员在制作模型资源时，除了模型本身的 UV，还需要另外包含一套 UV，用于光照贴图。
+    >
+    > 2. 模型的 Materials 需要开启 **USE LIGHTMAP** 渲染选项，例如：
     > 
-	> 2. 模型的 Materials 需要开启 **USE LIGHTMAP** 渲染选项，例如：
-    > 
-    >     ![materials use lightmap](./img/lightmap_materials_use.png)
+    >    ![materials use lightmap](./img/lightmap_materials_use.png)
 
 3. 打开 **光照贴图** 面板，并设置好对应参数。然后点击 **生成光照贴图** 按钮，会弹出一个文件存储对话框，需要指定一个文件夹（必须在 `assets` 目录下）用于存放生成的光照贴图数据信息。
    
