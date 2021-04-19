@@ -38,7 +38,9 @@
     ![enable lightbake](./img/lightmap_bakeable.png)
 
     - **EditorOnly**：是否只在编辑器中生效
+
     - **Bakeable**：是否烘焙静态光照
+
     - **CastShadow**：是否投射静态阴影
 
 2. 在 **层级管理器** 中选中要生成光照贴图的模型节点（带有 [MeshRenderer 组件](./../../../engine/renderable/model-component.md)），然后在 **属性检查器** 中设置 **LightmapSettings**，勾选 `Bakeable` 属性。
@@ -46,10 +48,12 @@
     ![model lighting map settings](./img/lightmap_model_settings.png)
 	
     - **Bakeable**：是否烘焙静态光照
+  
     - **CastShadow**：是否投射静态阴影
+  
     - **RecieveShadow**：是否接受静态阴影
+  
     - **LightMapSize**：模型光照贴图尺寸
-
 
     > **注意**：要生成光照贴图的模型有以下两点要求：
     > 
