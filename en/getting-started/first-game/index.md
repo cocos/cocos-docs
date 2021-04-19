@@ -99,7 +99,7 @@ It is necessary for the main character to be affected when the mouse moves. To d
 There are already some pre-set code blocks in the `PlayerController` script. Example:
 
 ```ts
-import { _decorator, Component } from "cc";
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -126,7 +126,7 @@ This code is the structure needed to write a __component__. Scripts with this st
 Monitoring of mouse events needs to be added in the script to let the `Player` node move. Modify the code in `PlayerController` as follows:
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -295,7 +295,7 @@ It is necessary to make the basic element `cube` of the road into a __Prefab__, 
 A very long road is needed. The ideal method is to dynamically increase the length of the road, so that the `Player` can run forever. First, generate a fixed-length road with a length that is arbitrary. To do so, replace the code in the `GameManager` script with the following code:
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, CCInteger} from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, CCInteger} from 'cc';
 const { ccclass, property } = _decorator;
 
 enum BlockType{
@@ -776,7 +776,7 @@ When previewing, the results are as follows:
 The final code for `PlayerController.ts` should look like this:
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from "cc";
+import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -883,7 +883,7 @@ export class PlayerController extends Component {
 The final code for `GameManager.ts` should look like this:
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from "cc";
+import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from 'cc';
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 

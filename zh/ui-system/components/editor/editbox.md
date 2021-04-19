@@ -8,7 +8,7 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 EditBox 的脚本接口请参考 [EditBox API](__APIDOC__/zh/classes/ui.editbox.html)。
 
-关于使用可以参考 test-cases-3d 里的 [mask](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) 相关。
+关于使用可以参考范例 **EditBox**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox)）。
 
 ## EditBox 属性
 
@@ -54,7 +54,7 @@ EditBox 的脚本接口请参考 [EditBox API](__APIDOC__/zh/classes/ui.editbox.
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, EditBox, EventHandler } from "cc";
+import { _decorator, Component, EditBox, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -103,7 +103,7 @@ export class example extends Component {
 
 ```ts
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
-import { _decorator, Component, EditBox } from "cc";
+import { _decorator, Component, EditBox } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

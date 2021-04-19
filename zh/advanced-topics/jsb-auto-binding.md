@@ -9,7 +9,7 @@
 
 ## 背景
 
-对于用过 Cocos Creater（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScrpit 中按照如下的操作调用即可：
+对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
 ```javascript
 if (cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
@@ -89,7 +89,7 @@ Window 下直接参考上面需要安装的模块直接安装就好了，最后�
 
 ## 编写 c++ 层的实现
 
-C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，那第一步肯定是要先把 C++ 层的头文件和实现准备好，这里我们在 build⁩/jsb-defaul/frameworks⁩/cocos2d-x⁩/cocos⁩ 创建一个 test 文件夹用于存放相关文件：
+C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，那第一步肯定是要先把 C++ 层的头文件和实现准备好，这里我们在 build⁩/jsb-default/frameworks⁩/cocos2d-x⁩/cocos⁩ 创建一个 test 文件夹用于存放相关文件：
 
 ![](jsb/store-file.png)
 

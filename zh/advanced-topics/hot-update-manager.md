@@ -65,7 +65,7 @@ Manifest 格式是我们用来比较本地和远程资源差异的一种 json �
 }
 ```
 
-Manifest 文件可以通过 Cocos Creator 热更新范例中的 [Version Generator 脚本](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) 来自动生成。
+Manifest 文件可以通过 Cocos Creator 热更新范例中的 `version_generator.js`（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/master/version_generator.js)）来自动生成。
 
 这里需要注意的是，remote 信息（包括 `packageUrl`、`remoteVersionUrl`、`remoteManifestUrl`）是该 manifest 所指向远程包信息，也就是说，当这个 manifest 成为本地包或者缓存 manifest 之后，它们才有意义（偷偷透露个小秘密，更新版本时更改远程包地址也是一种玩法呢）。另外，md5 信息可以不是文件的 md5 码，也可以是某个版本号，这完全是由用户决定的，本地和远程 manifest 对比时，只要 md5 信息不同，我们就认为这个文件有改动。
 
@@ -170,7 +170,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 ### 错误处理和失败重试
 
-在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考 [范例](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
+在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考 **范例**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts)）。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
 
 最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 `UPDATE_FAILED` 事件。而所有下载失败的资源列表会被记录在热更新管理器中，可以通过以下方式下载重试：
 

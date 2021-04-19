@@ -1,6 +1,5 @@
 # Asset Manager Upgrade Guide
 
-> Author: Santy-Wang, Xunyi
 > This article details what to expect when upgrading from loader to assetManager.
 
 Before Creator v2.4, [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/load-assets.md) was implemented through the `loader` module (including the APIs `loader.load`, `loader.loadRes`, `loader.loadResDir`, etc.), which was primarily used to load resources. However, with the continuous development of Creator, developers' demands for resource management have been increasing. The original `loader` module has been unable to meet a large number of resource management needs, and a new resource management module is in the air.

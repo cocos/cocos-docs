@@ -4,7 +4,7 @@ Cocos Creator 3.0 支持内置的轻量 Builtin 物理系统和强大的 Box2D �
 
 你可以根据需要来选择适合自己的物理模块，通过编辑器主菜单中的 **项目 -> 项目设置 -> 功能裁剪** 切换物理模块的使用。
 
-![模块设置](./image/module.png)
+![feature crop](./image/module.png)
 
 ## 详细介绍
 
@@ -16,4 +16,4 @@ Cocos Creator 3.0 支持内置的轻量 Builtin 物理系统和强大的 Box2D �
 
 ## 2D 物理示例
 
-请参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.0/2d)。
+请参考范例 **physics-samples**（[GitHub](https://github.com/cocos-creator/physics-samples/tree/v3.0/2d) | [Gitee](https://gitee.com/mirrors_cocos-creator/physics-samples/tree/v3.0/2d)）。
