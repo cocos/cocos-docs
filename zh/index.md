@@ -19,7 +19,6 @@
     - [资源](asset/index.md)
 - [UI 系统](2d-object/ui-system/index.md)
 - [地形系统](editor/terrain/index.md)
-- [烘焙系统](editor/lightmap/index.md)
 - [缓动系统](tween/index.md)
 - [2D 物理](physics-2d/physics-2d.md)
 - [扩展编辑器](editor/extension/readme.md)

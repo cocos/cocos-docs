@@ -45,7 +45,6 @@
     - [编辑动画曲线](editor/animation/animation-curve.md)
     - [动画事件](editor/animation/animation-event.md)
 - [地形系统](editor/terrain/index.md)
-- [烘焙系统](editor/lightmap/index.md)
 - [发布跨平台游戏](editor/publish/index.md)
     - [熟悉构建发布面板](editor/publish/build-panel.md)
     - [通用构建选项介绍](editor/publish/build-options.md)
@@ -94,6 +93,7 @@
     - [球面光](concepts/scene/light/sphere-light.md)
     - [聚光灯](concepts/scene/light/spot-light.md)
     - [环境光](concepts/scene/ambient.md)
+    - [光照贴图](concepts/scene/light/lightmap.md)
 
 - [材质系统](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)
