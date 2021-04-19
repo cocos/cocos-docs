@@ -1,6 +1,6 @@
 # Assets Panel
 
-The **Assets** panel is an important work area for accessing and managing project assets. When starting a game, **Import Assets** is usually a mandatory step. You can use the **HelloWorld** template project when creating a new project, and you will see that the **Assets** panel already contains some basic asset types.
+The **Assets** panel is an important work area for accessing and managing project assets. When starting a game, **Import Assets** is usually a mandatory step. Use the **HelloWorld** template project when creating a new project, and notice that the **Assets** panel already contains some basic asset types.
 
 ![panel action preview](img/thumb.gif)
 
@@ -12,7 +12,7 @@ The **Assets** panel can be divided into two main sections: **Toolbar** and **As
 
 - The **Asset List** presents the contents of the project's asset folder in a tree structure, which by default includes the **assets** and **internal** base repositories (DBs for short).
 
-    - **assets** is similar to the file manager in the operating system, only assets placed in the `assets` directory of the project folder will be displayed here. For a description of the project folder structure, please refer to [Project Structure](../../getting-started/project-structure/index.md).
+    - **assets** is similar to the file manager in the operating system, only assets placed in the `assets` directory of the project folder will be displayed here. For a description of the project folder structure, please refer to the [Project Structure](../../getting-started/project-structure/index.md) documentation.
     - The **internal** contains the default built-in assets (read-only). Built-in assets can be copied, but cannot be added, deleted, or changed. It can be dragged and dropped into **assets** as an asset template, i.e. a new project asset is created.
 
 - The panel currently supports shortcuts for manipulating assets, including:
@@ -39,7 +39,7 @@ There are two ways to create an asset.
 
 > **NOTE**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
 
-When creating an asset, you can select the folder where you want to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If no folder is selected, the new asset will be created in the current root directory (`assets`) by default.
+When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
 ### Selecting assets
 
@@ -54,7 +54,7 @@ For selected assets, you can move, delete, etc.
 
 ### Moving assets
 
-After selecting an asset (multiple selections are possible), you can move the asset to another location by holding down the mouse and dragging. When dragging the asset to be moved to the target folder, you will see the folder where the mouse is hovering appears highlighted in yellow and has a blue box around it. Release the mouse at this point and the asset will be moved to the highlighted folder directory.
+After selecting an asset (multiple selections are possible), move the asset to another location by holding down the mouse and dragging it. When dragging the asset to be moved to the target folder, notice the folder where the mouse is hovering appears highlighted in yellow and has a blue box around it. Release the mouse at this point and the asset will be moved to the highlighted folder directory.
 
 ![drag](img/drag.png)
 
@@ -62,7 +62,7 @@ Asset movement also includes the following actions:
 
 - Drag and drop assets from **Assets** panel to the **Scene** panel or **Hierarchy** panel to generate nodes, currently supporting dragging and dropping `cc.Prefab`, `cc.Mesh`, `cc.SpriteFrame` assets.
 - Drag and drop files from the **system's file manager** to the **Assets** panel list to import assets.
-- Drag and drop a node from the **Hierarchy** panel to a folder in the **Assets** panel to save the node as a `cc.Prefab` asset, see [Prefab Assets](../../asset/prefab.md).
+- Drag and drop a node from the **Hierarchy** panel to a folder in the **Assets** panel to save the node as a `cc.Prefab` asset. Please review the [Prefab Assets](../../asset/prefab.md) documentation.
 
 ### Sorting assets
 
@@ -100,7 +100,7 @@ Selecting an asset in the search result list and double-clicking on it is equiva
 
 ### Assets preview
 
-Selecting an asset in the **Assets** panel displays a thumbnail image of the asset in the **Asset Preview** panel. If you select the folder where the asset is located, you can display thumbnails of all assets under the folder for easy viewing.
+Selecting an asset in the **Assets** panel displays a thumbnail image of the asset in the **Asset Preview** panel. Selecting the folder where the asset is located, displays thumbnails of all assets under the folder for easy viewing.
 
 ![preview](img/preview.png)
 
@@ -121,14 +121,14 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Preview this scene in the browser**: only available for scene assets.
 - **Show in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `. /library` folder of the project, with multiple selections for bulk import.
-- **Reveal in Library**: opens the asset in the `Library` folder of the project, please read [Project Structure](... /... /getting-started/project-structure/index.md).
+- **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](... /... /getting-started/project-structure/index.md) documentation.
 - **UUID/URL/PATH**: Copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
 
 Also for specific asset types, double-clicking on an asset allows you to enter the edit state of that asset, such as scene assets and script assets.
 
 ### Rename asset
 
-Select the asset you want to rename, then right click and select **Rename** to change the asset name, or you can use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
+Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
 
 In addition, the initial name of a TypeScript script asset is processed as its `className`, which cannot be repeated.
 
@@ -156,4 +156,4 @@ During the import process, the user will be asked to confirm the imported assets
 
 ## Extensions Explorer Panel
 
-Currently supported extensions include **right-click menu** and **drop-in recognition**, please refer to [Extending the Assets Panel](./extension.md).
+Currently supported extensions include **right-click menu** and **drop-in recognition**, please refer to the [Extending the Assets Panel](./extension.md) documentation.
