@@ -33,7 +33,7 @@
 
 ## 生成光照贴图
 
-1. 在 **层级管理器** 中选中光源节点（带有光源组件的节点），然后在 **属性检查器** 中设置光源组件的 **StaticSettings**，勾选 `Bakeable` 属性（目前不支持同时使用多个 [平行光/主方向光](./dir-light.md)）。
+1. 在 **层级管理器** 中选中光源节点（带有光源组件的节点），然后在 **属性检查器** 中设置光源组件的 **StaticSettings**，勾选 `Bakeable` 属性（目前不支持同时使用多个 [平行光](./dir-light.md)）。
 
     ![enable lightbake](./img/lightmap_bakeable.png)
 
