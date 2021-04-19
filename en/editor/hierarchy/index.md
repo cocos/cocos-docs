@@ -41,7 +41,7 @@ For a UI node to display properly, any of its parent nodes must have at least on
 
 ### Prefab nodes
 
-For a Prefab node, you can drag a **Prefab** asset from the **Assets** panel directly into the **Hierarchy** panel to generate a Prefab node. Of course, you can also drag a **Prefab** node from the **Hierarchy** panel into the **Assets** panel to generate a Prefab asset.
+For a Prefab node, drag a **Prefab** asset from the **Assets** panel directly into the **Hierarchy** panel to generate a Prefab node. Also, dragging a **Prefab** node from the **Hierarchy** panel into the **Assets** panel to generate a Prefab asset.
 
 ## Search Nodes
 
