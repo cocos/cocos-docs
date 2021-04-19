@@ -1,6 +1,6 @@
 # Hierarchy Panel
 
-The **Hierarchy** panel consists of two main sections, **Toolbar** and **Node List**, which are used to show the relationships between the nodes that are editable in the current scene. There are still some private nodes in the scene that are not visible and will not be displayed here.
+The **Hierarchy** panel consists of two main sections, the **Toolbar** and the **Node List**, which are used to show the relationships between the nodes that are editable in the current scene. There are still some private nodes in the scene that are not visible and will not be displayed here.
 
 You can single-select, multi-select, create, copy, move, delete and rename nodes, and any node can create a child node, whose coordinates are relative to the parent node and follow it.
 
