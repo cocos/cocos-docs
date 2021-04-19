@@ -29,7 +29,7 @@ Other important editor-based interfaces include:
 
     ![Settings](index/settings.png)
 
-    **Project Settings** provides various project-specific personalization settings, including group management, feature cropping, project preview, custom engine, etc. Please read the section [Project Settings](project/index.md) for more details.
+    **Project Settings** provides various project-specific personalization settings, including group management, feature cropping, project preview, custom engine, etc. For details, please review the [Project Settings](project/index.md) documentation.
 
 - **Service**
 
