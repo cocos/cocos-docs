@@ -17,7 +17,7 @@ Other important editor-based interfaces include:
 
     ![console](index/console.png)
 
-    The **Console** displays error reports, warnings, or other editor- and engine-generated log messages. Please read the section [console](console/index.md) for details.
+    The **Console** displays error reports, warnings, or other editor- and engine-generated log messages. For details, please review the [console](console/index.md) documentation.
 
 - **Preferences**
 
