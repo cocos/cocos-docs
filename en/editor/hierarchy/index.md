@@ -89,7 +89,7 @@ Different nodes can have the same name.
 
 The menu that pops up when right-clicking on a node also includes the following actions.
 
-- **Copy/Paste**: Copy the node to the clipboard, then you can paste it to another location, or open another scene to paste the node you just copied.
+- **Copy/Paste**: Copy the node to the clipboard, then you can paste it to another location, or open another scene to paste the node that was just copied.
 - **Duplicate**: Generate a copy of the node that is exactly the same as the selected node, with the generated node and the selected node in the same hierarchy.
 - **Select All**: Select all nodes in the same hierarchy.
 - **Copy and print UUID/PATH**: In complex scenarios, we sometimes need to get the UUID or full hierarchy path of a node in order to access it when the script is running. Click this option to see the UUID of the currently selected node and the node's hierarchical path in the **Console** panel.
