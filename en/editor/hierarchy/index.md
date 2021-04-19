@@ -11,7 +11,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
 - - The **Node list** mainly reflects the hierarchical relationship of nodes, the root node is **Scene**. When editing the Prefab file, its own node is used as the root node. Add or delete nodes is done here with the right-click menu or a drag-and-drop operation.
 - The panel supports the following keyboard shortcuts:
     - **Copy**: Ctrl/Cmd + C
-    - Paste: Ctrl/Cmd + V
+    - **Paste**: Ctrl/Cmd + V
     - Clone: Ctrl/Cmd + D, Ctrl + drag nodes
     - Delete: Delete
     - Select up and down: Up and Down arrows
