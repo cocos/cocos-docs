@@ -49,7 +49,7 @@ Search types include: **Search Name or UUID**, **Search UUID**, **Search Path**,
 
 ![search-type](img/search-type.png)
 
-where **Search Component Name** will search out all nodes in the node list containing the specified component, which can be viewed in the **Inspector** panel, such as **MeshRenderer**.
+**Search Component Name** will search out all nodes in the node list containing the specified component, which can be viewed in the **Inspector** panel, such as **MeshRenderer**.
 
 The **Search box** will update the search results instantly based on the input content. When a node is selected in the search results and the search is cleared, the selected node will still be located in the asset list.
 
