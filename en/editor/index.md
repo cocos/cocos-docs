@@ -5,7 +5,7 @@ This chapter will introduce the editor interface and familiarize you with the pa
 ![main](index/editor.png)
 
 - (**A**) [Hierarchy](./hierarchy/index.md): show all the nodes in the scene and their hierarchy in the form of a tree list, all the contents seen in the **Scene** panel can find the corresponding node entries in the **Hierarchy** panel, the contents of these two panels will be displayed simultaneously when editing the scene, and we usually use both panels to build scenes.
-- (**B**) [Assets](./assets/index.md): shows all assets in the project assets folder (`assets`). Here the folders are displayed in a tree structure and automatically synchronized with changes made to the project asset folder contents in the operating system. You can drag and drop files directly from outside the project, or import assets using the menu.
+- (**B**) [Assets](./assets/index.md): shows all assets in the project assets folder (`assets`). Here the folders are displayed in a tree structure and automatically synchronized with changes made to the project asset folder contents in the operating system. Drag and drop files directly from outside the project, or import assets using the menu.
 - (**C**) [Scene](./scene/index.md): workspace for displaying and editing the visual content of the scene. Building the scene in the **Scene** panel allows to get a WYSIWYG preview of the scene.
 - (**D**) [Animation](./animation/index.md): used to edit and store animation data.
 - (**E**) [Inspector](./inspector/index.md): used to view and edit the working area of the currently selected node and component properties. This panel displays the property data from the script definition in the most appropriate form and allows the user to edit them.
