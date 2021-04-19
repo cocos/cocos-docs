@@ -37,4 +37,4 @@ Other important editor-based interfaces include:
 
     Cocos Service is a **Service** panel integrated within Cocos Creator. We select high-quality technology solution providers to provide cost-effective service access, and are committed to giving users a one-click access experience and providing corresponding technical support. At the same time, we will also rely on the Cocos developer community to get a more favorable price for developers.
 
-    For details, please refer to [Cocos Service Introduction](https://service.cocos.com/document/en/).
+    For details, please refer to the [Cocos Service Introduction](https://service.cocos.com/document/en/) documentation.
