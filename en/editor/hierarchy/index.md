@@ -8,7 +8,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
 
 - When a node is selected, it is highlighted in yellow on a blue background and its detailed properties are displayed in the **Inspector** panel. Click on the blank area of the panel to **unselect** it.
 - Functions in the **Toolbar** include: **New Node(+)**, **Search Type**, **Search Box**, **All Collapse** and **Refresh**.
-- - The **Node list** mainly reflects the hierarchical relationship of nodes, the root node is **Scene**. When editing the Prefab file, its own node is used as the root node. You can add or delete nodes here with right-click menu or drag-and-drop operation.
+- - The **Node list** mainly reflects the hierarchical relationship of nodes, the root node is **Scene**. When editing the Prefab file, its own node is used as the root node. Add or delete nodes is done here with the right-click menu or a drag-and-drop operation.
 - The panel supports keyboard shortcuts.
     - Copy: Ctrl/Cmd + C
     - Paste: Ctrl/Cmd + V
