@@ -11,7 +11,7 @@ The **Assets** panel is the main panel. It has a **heads-up menu area**, **a cen
 - The functions of the **heads-up menu area** are: **New asset button**, **Sort by button**, **Search type button**, **Search box**, **Fold or expand all button**, and **Refresh list button**.
 
 - The **central tree list area** mainly reflects the hierarchical relationship of assets.
-    - The root node is the asset root folder corresponding to the file manager of the operating system. The editor calls an __asset database__ **(DB for short)**, and is located in the project folder. It belongs to the project asset;
+    - The root node is the asset root folder corresponding to the file manager of the operating system. The editor calls an __asset database__ **(DB for short)**, and is located in the project folder. It belongs to the project asset.
     - __Internal DB__ comes with the editor and provides some built-in necessary assets. It is a **read-only** asset. It cannot be **added**, **deleted**, **modified**, but **can** be **directly referenced** or **copied**.
 
 - The __right-click__ menu of the panel is also an important function. The contents of the __right-click__ menu in different locations are different, and the unavailable menus are grayed out.
