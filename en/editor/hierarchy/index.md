@@ -20,7 +20,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
     - **Multi-select**: Ctrl or Cmd + click
     - **Multi-select**: Shift + click
     - **Rename**: Enter/F2
-    - Cancel input: Esc
+    - **Cancel input**: Esc
 
 ## New Node
 
