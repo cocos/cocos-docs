@@ -145,4 +145,3 @@
 - [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 - [微信开发者工具文档](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
-- [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)

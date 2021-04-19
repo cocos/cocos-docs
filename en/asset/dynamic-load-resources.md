@@ -34,7 +34,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 After the image is set to a spriteframe, texture or other image types, an asset of the corresponding type will be generated in the **Assets Panel**. But if `test assets/image` is loaded directly, and the type will be `ImageAsset`. You must specify the full path of sub asset, then the generated SpriteFrame can be loaded.
 
 ```typescript
-// load a SpriteFrame，image is ImageAsset，spriteFrame is image/spriteFrame, texture is image/texture
+// load a SpriteFrame, image is ImageAsset, spriteFrame is image/spriteFrame, texture is image/texture
 resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });

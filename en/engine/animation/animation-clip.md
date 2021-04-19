@@ -11,7 +11,7 @@ When the animation system is operating, the __Animation Component__ calculates t
 The following code snippet demonstrates how to create __Animation Clips__ programmatically:
 
 ```ts
-import { AnimationClip, animation, js } from "cc";
+import { AnimationClip, animation, js } from 'cc';
 const animationClip = new AnimationClip();
 animationClip.duration = 1.0; // The cycle of the entire animation clip, no frame time should be greater than this attribute.
 animationClip.keys = [ [ 0.3, 0.6, 0.9 ] ]; // Frame time shared by all curves of this animation clip
@@ -221,7 +221,7 @@ When the `interpolate` property of the curve data is `true`, the curve will try 
 If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, there will be no interpolation operation. Always use the curve value of the previous frame as the result.
 
 ```ts
-import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from "cc";
+import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from 'cc';
 
 const animationClip = new AnimationClip();
 
@@ -266,7 +266,7 @@ const spriteCurve: IPropertyCurveData = {
 The following code shows how to customize the **interpolation** algorithm:
 
 ```ts
-import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from "cc";
+import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from 'cc';
 
 class MyCurveValue implements ILerpable {
     public position: Vec3;

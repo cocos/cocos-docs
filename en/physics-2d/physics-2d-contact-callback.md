@@ -168,7 +168,7 @@ contact.disabled = true;
 
 Disabling the contact will cause the physics engine to ignore the contact when calculating the collision. Disabling will continue until the collision is completely resolved unless the contact is enabled in other callbacks.
 
-To disable contact in the current time step, use `disabledOnce`。
+To disable contact in the current time step, use `disabledOnce`.
 
 ```ts
 contact.disabledOnce = true;

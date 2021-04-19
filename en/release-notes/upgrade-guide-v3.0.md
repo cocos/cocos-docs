@@ -90,17 +90,17 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 
 - **tween**:
 
-    - Change the interface: `cc.repeatForever` -> `Tween.repeatForever`、`cc.reverseTime` -> `Tween.reverseTime`、`cc.show` ->  `Tween.show`, etc.
+    - Change the interface: `cc.repeatForever` -> `Tween.repeatForever`, `cc.reverseTime` -> `Tween.reverseTime`, `cc.show` ->  `Tween.show`, etc.
 
 - **Animation**:
 
-    - Change the interface: `addClip`-> `createState`、`getClips`-> `clips`、`playAdditive`-> `crossFade`、`getAnimationState`-> `getState`, etc.
+    - Change the interface: `addClip`-> `createState`, `getClips`-> `clips`, `playAdditive`-> `crossFade`, `getAnimationState`-> `getState`, etc.
 
 - **Camera**:
 
-    - Remove the interfaces: `findCamera`、`alignWithScreen`、`main`、`cameras`、`zoomRatio` and `containsNode`.
+    - Remove the interfaces: `findCamera`, `alignWithScreen`, `main`, `cameras`, `zoomRatio` and `containsNode`.
 
-    - Change the interface: `backgroundColor` -> `clearColor`、`cullingMask` -。 > `visibility`、`depth`->`clearDepth`、`getScreenToWorldPoint`->`screenToWorld`、`getWorldToScreenPoint`->`worldToScreen`、`getRay`->`screenPointToRay`, etc.
+    - Change the interface: `backgroundColor` -> `clearColor`, `cullingMask` -> `visibility`, `depth`->`clearDepth`, `getScreenToWorldPoint`->`screenToWorld`, `getWorldToScreenPoint`->`worldToScreen`, `getRay`->`screenPointToRay`, etc.
 
 - **Audio**:
 
@@ -125,7 +125,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
 | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
 
-- The **global variables** are changed as follows：
+- The **global variables** are changed as follows:
 
 | Cocos Creator 2.x | Cocos Creator 3.0 |
 |:------------------|:------------------|

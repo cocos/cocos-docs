@@ -9,7 +9,7 @@ __Raycast detection__ is a very important function and is often used to judge va
 The `ray` is under the `geometry` namespace of the `cc` module, so in order to access to `ray`, we need to import `geometry`:
 
 ```ts
-import { geometry } from "cc";
+import { geometry } from 'cc';
 ```
 
 ![import geometry](img/import-geometry.jpg)
@@ -19,7 +19,7 @@ The `ray` is composed of **start point** and **direction**. There are the follow
 1. Via **start point** + **direction**, such as `ray` constructor or static interface `create`:
 
     ```ts
-    import { geometry } from "cc";
+    import { geometry } from 'cc';
     const { ray } = geometry;
     // Construct a ray starting from (0, -1, 0) and pointing to the Y axis
     // The first three parameters are the starting point, the last three parameters are the direction
@@ -32,7 +32,7 @@ The `ray` is composed of **start point** and **direction**. There are the follow
 2. Via **start point** + **another point on the ray**, for example the static interface `fromPoints` in the `ray`:
 
     ```ts
-    import { geometry, Vec3 } from "cc";
+    import { geometry, Vec3 } from 'cc';
     // Construct a ray starting from the origin and pointing to the Z axis
     const outRay = new geometry.ray();
     geometry.ray.fromPoints(outRay, Vec3.ZERO, Vec3.UNIT_Z);
@@ -41,7 +41,7 @@ The `ray` is composed of **start point** and **direction**. There are the follow
 3. Use the camera to construct a ray emitted from the origin of the camera to a point on the screen (or the near plane of the camera):
 
     ```ts
-    import { geometry, Camera } from "cc";
+    import { geometry, Camera } from 'cc';
     const { ray } = geometry;
     // It is assumed here that there is already a reference to cameraCom
     const cameraCom: Camera;
@@ -89,4 +89,4 @@ The information is stored by `PhysicsRayResult`, which mainly has the following 
 - `hitPoint`: Hit point (in world coordinate system)
 - `hitNormal`: The normal of the hit point's face (in the world coordinate system)
 
-Related test cases can be found in the [GitHub repo](https://github.com/cocos-creator/example-3d/blob/master/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).
+Related test cases can be found in the [GitHub repo](https://github.com/cocos-creator/example-3d/blob/v3.0/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).

@@ -15,7 +15,7 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.htm
 | Url            | 指定一个 URL 地址，这个地址以 http 或者 https 开头，请填写一个有效的 URL 地址。 |
 | WebView Events | WebView 的回调事件，当 webview 在加载网页过程中，加载网页结束后或者加载网页出错时会调用此函数。 |
 
-**注意：** 在 **WebView Events** 属性的 **Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 WebView 事件。
+> **注意**：在 **WebView Events** 属性的 **Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 WebView 事件。
 
 ## WebView 事件
 
@@ -38,16 +38,18 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.htm
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](__APIDOC__/zh/classes/webview.webview-1.html#webviewevents) 或者参考引擎自带的 test-cases-3d 测试例中的 [22.webview](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview)。
+详情可参考 API [WebView 事件](__APIDOC__/zh/classes/webview.webview-1.html#webviewevents)。
+
+使用方式可参考范例 **Webview**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview)）。
 
 ## 详细说明
 
 目前此组件只支持 Web（PC 和手机）、iOS 和 Android 平台（v2.0.0～2.0.6 版本不支持），Mac 和 Windows 平台暂时还不支持，如果在场景中使用此组件，那么在 PC 的模拟器里面预览的时候可能看不到效果。
 
-**注意：**
-
-- **WebView** 组件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
-- 如果开发者在项目中未使用到 **WebView** 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 **WebView** 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 **WebView**（或者添加的第三方 SDK 自带了 **WebView**），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
+> **注意**：
+>
+> 1. **WebView** 组件暂时不支持加载指定 HTML 文件或者执行 Javascript 脚本。
+> 2. 如果开发者在项目中未使用到 **WebView** 相关功能，请确保在 **项目 -> 项目设置 -> 功能裁剪** 中剔除 **WebView** 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 **WebView**（或者添加的第三方 SDK 自带了 **WebView**），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
 ### 通过脚本代码添加回调
 

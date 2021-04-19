@@ -155,7 +155,7 @@ For more information, please refer to the [21.video-player example](https://gith
 
 Because different platforms have different authorization, API and control methods for **VideoPlayer** component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.
 
-#### Questions about autoplay
+### Questions about autoplay
 
 Some mobile browsers or **WebView** do not allow auto-playing of videos and users need to play the video manually in a touch event.
 

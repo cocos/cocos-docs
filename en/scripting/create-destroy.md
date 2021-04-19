@@ -5,7 +5,7 @@
 In addition to creating nodes through the scene editor, it can also dynamically create nodes in scripts using `new Node()` and adding it to the scene. Example:
 
 ```typescript
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -23,7 +23,7 @@ export class test extends Component {
 Sometimes it is needed to dynamically clone the existing nodes in the scene, it can be done through the `instantiate` method. Example:
 
 ```typescript
-import { _decorator, Component, Node,instantiate, director } from "cc";
+import { _decorator, Component, Node,instantiate, director } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -47,7 +47,7 @@ export class test extends Component {
 Similar to cloning an existing node, you can set a prefab ([Prefab](..\asset\prefab.md)) and generate a node through `instantiate`. Example:
 
 ```typescript
-import { _decorator, Component, Prefab, instantiate, director } from "cc";
+import { _decorator, Component, Prefab, instantiate, director } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -71,7 +71,7 @@ export class test extends Component {
 Through the `node.destroy()` function, nodes can be destroyed. It is worth mentioning that the destroyed node will not be removed immediately, but will be executed uniformly after the logic update of the current frame is completed. When a node is destroyed, the node is in an invalid state. Use `isValid` to determine whether the current node has been destroyed. Example:
 
 ```typescript
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")

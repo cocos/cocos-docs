@@ -28,7 +28,7 @@ You can see that the rotation data is gone in __Cocos Creator 3.0__.
 
 ## Exporting glTF
 
-Please read ther following documents:
+Please read their following documents:
 - [glTF also uses a right-handed coordinate system](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#coordinate-system-and-units)
 - [Options for exporting glTF in Blender](https://docs.blender.org/manual/en/2.80/addons/io_scene_gltf2.html). It is relatively simple, as long as the __+y up__ option is checked, there is no rotation value in the exported data.
 

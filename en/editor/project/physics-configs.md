@@ -6,16 +6,16 @@ Physical configuration is used to configure various commonly used properties.
 
 ![Physics](./index/physics-index.png)
 
-- `gravity` Gravity direction vector, the sign means the positive or negative direction on the axis. **Default:** `{ x: 0, y: -10, z: 0 }`.
-- `allowSleep` Whether to allow rigid bodies to enter sleep state. **Default:** `true`.
-- `sleepThreshold` The maximum speed threshold for entering sleep. **Default:** `0.1`，**Min:** `0`.
+- `gravity` Gravity direction vector, the sign means the positive or negative direction on the axis. **Default**: `{ x: 0, y: -10, z: 0 }`.
+- `allowSleep` Whether to allow rigid bodies to enter sleep state. **Default**: `true`.
+- `sleepThreshold` The maximum speed threshold for entering sleep. **Default**: `0.1`. **Min**: `0`.
 - `autoSimulation` Whether to enable automatic simulation.
-- `fixedTimeStep` Fixed time step between each simulation. **Default:** `1/60`, **Min:** `0`.
-- `maxSubSteps` Maximum number of substeps per simulation step. **Default:** `1`, **Min:** `0`.
-- `friction` Coefficient of friction. **Default:** `0.5`.
-- `rollingFriction` Rolling friction coefficient. **Default:** `0.1`.
-- `spinningFriction` Spin friction coefficient. **Default:** `0.1`.
-- `restitution` Coefficient of elasticity. **Default:** `0.1`.
+- `fixedTimeStep` Fixed time step between each simulation. **Default**: `1/60`. **Min**: `0`.
+- `maxSubSteps` Maximum number of substeps per simulation step. **Default**: `1`. **Min**: `0`.
+- `friction` Coefficient of friction. **Default**: `0.5`.
+- `rollingFriction` Rolling friction coefficient. **Default**: `0.1`.
+- `spinningFriction` Spin friction coefficient. **Default**: `0.1`.
+- `restitution` Coefficient of elasticity. **Default**: `0.1`.
 - `collisionMatrix` The collision matrix, used only for initialization.
 <!-- - `useNodeChains` Whether to use a node chain to combine rigid bodies. **Default:** `true`. -->
 

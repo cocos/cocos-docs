@@ -8,7 +8,7 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 遮罩的组件接口请参考 [Mask API](__APIDOC__/zh/classes/ui.mask-1.html)。
 
-关于使用可以参考 test-cases-3d 里的 [mask](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/08.mask) 相关。
+关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask)）。
 
 ## Mask 属性
 
@@ -29,7 +29,7 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 ![mask](mask/mask-ellipse.png)
 
-可以在运行时通过代码设置
+可以在运行时通过代码设置：
 
 ``` ts
 const mask = this.getComponent(Mask);
@@ -41,7 +41,7 @@ mask.segments = 32;
 
 ![mask](mask/mask-graphics.png)
 
-可以在运行时通过代码设置
+可以在运行时通过代码设置：
 
 ``` ts
 const mask = this.getComponent(Mask);
@@ -62,7 +62,7 @@ g.fill();
 
 ![mask](mask/mask-image.png)
 
-可以在运行时通过代码设置
+可以在运行时通过代码设置：
 
 ``` ts
 const mask = this.getComponent(Mask);
