@@ -44,7 +44,7 @@ Click the left mouse button in the scene view to select the node where the objec
 
 ### Gizmo operation introduction
 
-The core function of **Scene** panel is to edit and arrange the visible elements in the scene in a WYSIWYG way. We mainly use **Gizmos** to assist in the visual editing of the scene.
+The core function of **Scene** panel is to edit and arrange the visible elements in the scene in a WYSIWYG way. **Gizmos** are mainly used to assist in the visual editing of the scene.
 
 - [Transform Gizmo](./transform-gizmo.md)
 - [Camera Gizmo](./camera-gizmo.md)
