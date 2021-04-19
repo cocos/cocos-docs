@@ -98,9 +98,10 @@ The method defined on the panel. The external functions of the panel need to be 
 This object is full of functions, do not attach other types of objects here. Example:
 
 ```javascript
+const packageJSON = require('./package.json');
 exports.methods = {
     open() {
-        Editor.Panel.open('hello-world');
+        Editor.Panel.open(packageJSON.name);
     },
 };
 ```
