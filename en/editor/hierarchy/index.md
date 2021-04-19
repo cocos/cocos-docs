@@ -12,7 +12,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
 - The panel supports the following keyboard shortcuts:
     - **Copy**: Ctrl/Cmd + C
     - **Paste**: Ctrl/Cmd + V
-    - Clone: Ctrl/Cmd + D, Ctrl + drag nodes
+    - **Clone**: Ctrl/Cmd + D, Ctrl + drag nodes
     - Delete: Delete
     - Select up and down: Up and Down arrows
     - Collapse nodes: Left arrow
