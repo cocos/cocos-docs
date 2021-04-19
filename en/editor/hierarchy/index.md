@@ -17,7 +17,7 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
     - **Select up and down**: Up and Down arrows
     - **Collapse nodes**: Left arrow
     - **Expand nodes**: Right arrow
-    - Multi-select: Ctrl or Cmd + click
+    - **Multi-select**: Ctrl or Cmd + click
     - Multi-select: Shift + click
     - Rename: Enter/F2
     - Cancel input: Esc
