@@ -1,6 +1,6 @@
 # Editor Interface Introduction
 
-This chapter will introduce the editor interface and familiarize you with the panels, menus and function buttons that make up the editor, which consists of multiple panels that can be freely moved and combined to suit the needs of different projects and developers. Here we will take the default editor layout as an example, and take a quick look at the names and roles of each panel:
+This chapter will introduce the editor interface and familiarize you with the panels, menus, and function buttons that make up the editor, which consists of multiple panels that can be freely moved and combined to suit the needs of different projects and developers. Taking the default editor layout as an example, notice the names and roles of each panel:
 
 ![main](index/editor.png)
 
