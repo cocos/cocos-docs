@@ -8,9 +8,9 @@ The game submission, review and release process of a mini-game needs to comply w
 
 ## Publish to ByteDance with Cocos Creator
 
-1. Download the **ByteDance DevTools** on [ByteDance Official Website [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download).
+1. Download the [ByteDance DevTools [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download).
 
-2. Log in to [Developer Platform [cn]](https://microapp.bytedance.com/)to find your `mini game appid`. For details, please refer to the official [Access Guide [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game) documentation.
+2. Log in to [Developer Platform [cn]](https://microapp.bytedance.com/)to find your `mini game appid`. For details, please refer to the official [Access Guide [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign) documentation.
 
     ![appid](./publish-bytedance-mini-game/appid.png)
 

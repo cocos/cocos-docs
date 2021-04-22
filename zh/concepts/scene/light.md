@@ -34,3 +34,9 @@ Cocos Creator 中采用光学度量单位来描述光源参数。基于光学度
 - [球面光](light/sphere-light.md)
 - [聚光灯](light/spot-light.md)
 - [环境光](./ambient.md)
+
+## 光照贴图
+
+在光源固定的场景中使用光照贴图代替实时的光照计算，可以减少资源消耗，从而提高场景运行效率。
+
+具体内容可参考 [光照贴图](light/lightmap.md)。

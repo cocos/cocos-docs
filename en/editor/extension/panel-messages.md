@@ -57,9 +57,10 @@ exports.unload = function() {};
 **Last**, define the main file of the panel:
 
 ```javascript
+const packageJSON = require('./package.json');
 exports.ready = async () => {
-    const tab = await Editor.Message.request('hello-world', 'query', 'tab');
-    const subTab = await Editor.Message.request('hello-world', 'query', 'subTab');
+    const tab = await Editor.Message.request(packageJSON.name, 'query', 'tab');
+    const subTab = await Editor.Message.request(packageJSON.name, 'query', 'subTab');
 
     // Print the queried data
     console.log(tab, subTab):
@@ -67,8 +68,8 @@ exports.ready = async () => {
 };
 exports.close() {
     // Upload the data to the extension process after receiving the data
-    Editor.Message.send('hello-world', 'upload', 'tab', 1);
-    Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+    Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
+    Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
 };
 ```
 
@@ -98,8 +99,8 @@ This is because the data has not yet been submitted. Now, close this panel and o
 Because when the panel is closed, two messages are sent:
 
 ```javascript
-Editor.Message.send('hello-world', 'upload', 'tab', 1);
-Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
+Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
 ```
 
 Through these two messages, the Message system first saves the data to the extension process according to the upload definition in messages `"methods": ["saveData"]`.
@@ -107,8 +108,8 @@ Through these two messages, the Message system first saves the data to the exten
 When opening the panel again, use the following code to query for the data you just saved, initialize the interface, and print to the console.
 
 ```javascript
-const tab = await Editor.Message.send('hello-world', 'query', 'tab');
-const subTab = await Editor.Message.send('hello-world', 'query', 'subTab');
+const tab = await Editor.Message.send(packageJSON.name, 'query', 'tab');
+const subTab = await Editor.Message.send(packageJSON.name, 'query', 'subTab');
 ```
 
 At this point, we have completed an interaction between the panel and the extension process.

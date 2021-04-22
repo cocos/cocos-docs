@@ -6,7 +6,7 @@
 
 > 注意：骨骼贴图布局设置面板提供的，本质上是运行时的“内存分配指导规则”。对于指定的骨骼和动画资源，会保证按照指定规则分配，但如果运行时用到了并未指定规则的资源，还是会回到全局复用的自动分配模式上去。
 
-下面我们以 [show-case](https://github.com/cocos-creator/example-3d/blob/v3.0/show-cases/assets/scenes/instanced-skinning.scene)工程的 **instanced-skinning** 场景为例，展示设置流程和实际作用。
+下面我们以 **show-case**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.0/show-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.0/show-cases)）工程中的 **instanced-skinning** 场景为例，展示设置流程和实际作用。
 
 下图中展示了一个示例场景，有多个来自同一模型的实例，同时各播放完全不同的动画。这些模型使用实时计算动画模式，并没有开启 instancing。可以看到，当前场景加上 UI，总 drawcall 为 60，instance 计数为 0。这个状态将作为后面改动的 baseline，作为对照。
 
@@ -67,5 +67,3 @@
 我们可以继续增加更多场景中的实例数量，可以看到 drawcall 数量并不会改变，只有 instance 数量的增加：
 
 ![Bulk](./index/instancing_bulk.gif)
-
-欢迎实际上手试试！这个测试场景是 [展示例仓库](https://github.com/cocos-creator/example-3d) 内 show-cases 项目的 instanced-skinning 场景。

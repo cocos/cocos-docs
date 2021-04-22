@@ -7,7 +7,7 @@
 以下是一个简单的例子:
 
 ```typescript
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -25,7 +25,7 @@ export class test extends Component {
 有时我们希望动态的克隆场景中的已有节点，我们可以通过 `instantiate` 方法完成。使用方法如下：
 
 ```typescript
-import { _decorator, Component, Node,instantiate, director } from "cc";
+import { _decorator, Component, Node,instantiate, director } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -49,7 +49,7 @@ export class test extends Component {
 和克隆已有节点相似，你可以设置一个预制（[Prefab](..\asset\prefab.md)）并通过 `instantiate` 生成节点。使用方法如下：
 
 ```typescript
-import { _decorator, Component, Prefab, instantiate, director } from "cc";
+import { _decorator, Component, Prefab, instantiate, director } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -75,7 +75,7 @@ export class test extends Component {
 使用方法如下：
 
 ```typescript
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")

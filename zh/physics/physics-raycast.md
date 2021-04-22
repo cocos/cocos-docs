@@ -9,7 +9,7 @@
 射线 __ray__ 处于 __cc__ 模块的 __geometry__ 命名空间下，因此访问 __ray__ 需要先导入 __geometry__ ：
 
 ```ts
-import { geometry } from "cc";
+import { geometry } from 'cc';
 ```
 
 ![图解](img/import-geometry.jpg)
@@ -19,7 +19,7 @@ import { geometry } from "cc";
 1. 通过 __起点__ + __方向__，__ray__ 的构造函数或静态接口 `create`：
 
     ```ts
-    import { geometry } from "cc";
+    import { geometry } from 'cc';
     const { ray } = geometry;
     // 构造一条从（0，-1，0）出发，指向 Y 轴的射线
     // 前三个参数是起点，后三个参数是方向
@@ -32,7 +32,7 @@ import { geometry } from "cc";
 2. 通过 __起点__ + __射线上的另一点__，__ray__ 的静态接口 `fromPoints`:
 
     ```ts
-    import { geometry, Vec3 } from "cc";
+    import { geometry, Vec3 } from 'cc';
     // 构造一条从原点出发，指向 Z 轴的射线
     const outRay = new geometry.ray();
     geometry.ray.fromPoints(outRay, Vec3.ZERO, Vec3.UNIT_Z);
@@ -41,7 +41,7 @@ import { geometry } from "cc";
 3. 用相机构造一条从相机原点到屏幕某点发射出的射线：
 
     ```ts
-    import { geometry, Camera } from "cc";
+    import { geometry, Camera } from 'cc';
     const { ray } = geometry;
     // 此处假设已经有 cameraCom 的引用了
     const cameraCom: Camera;

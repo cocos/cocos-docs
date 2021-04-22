@@ -25,6 +25,6 @@ interface contributions {
 }
 ```
 
-The name is the name of the function or extension, and the value is of any type, which is defined by the author of the name function (extension).
+The `name` is the name of the function or extension, and the `value` is of type `any`, which is defined by the author of the `name` function (extension).
 
-At this stage, only contributions to the internal functions of the editor are opened. In the future, we will provide the ability to use contributions between extensions.
+At this stage, only `contributions` to the internal functions of the editor is opened, in the future we will provide a more convenient way of using `contributions` between extensions.

@@ -45,7 +45,7 @@ xxx.off(type, func, target);
 我们推荐的书写方法如下：
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -78,7 +78,7 @@ xxx.emit(type, ...args);
 在触发事件时，我们可以在 `emit` 函数的第二个参数开始传递我们的事件参数。同时，在 `on` 注册的回调里，可以获取到对应的事件参数。
 
 ```ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")

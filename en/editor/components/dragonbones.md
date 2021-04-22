@@ -83,9 +83,10 @@ The following is an example of how DragonBones replaces the texture. Replace the
             this._rightDisplayIndex %= this._rightDisplayNames.length;
             let armature = this.armatureDisplay!.armature();
             let slot = armature!.getSlot("weapon_hand_r");
+            let replaceArmatureName = this.replaceArmatureDisplay!.armatureName;
             const displayName = this._rightDisplayNames[this._rightDisplayIndex];
             let factory = dragonBones.CCFactory.getInstance() as any;
-            factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), "weapon", "weapon_r", displayName, slot);
+            factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), replaceArmatureName , "weapon_r", displayName, slot);
 
             let offset = this._rightDisplayOffset[this._rightDisplayIndex];
             slot!.parent.offset.x = offset.x;
@@ -111,7 +112,9 @@ The following is an example of how DragonBones replaces the texture. Replace the
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
 
-    > **Note**: if the scene is not displayed when previewing, check that the `Layer` property of each node is consistent with that of the `Camera` node.
+    > **Notes**:
+    > 1. After the example is run, the weapon style replaced by the right hand is not consistent with the weapon style prepared in the Scene, which is caused by the resource problem, please refer to the specific code implementation.
+    > 2. If the scene is not displayed when previewing, check that the `Layer` property of each node is consistent with that of the `Camera` node.
     >
     > ![layer](./dragonbones/layer.png)
 

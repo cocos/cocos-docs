@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [GitHub 仓库](https://github.com/cocos-creator/tutorial-hot-update/tree/master) 获取（master 分支）。
+本篇文档的范例工程可以从 [GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/master) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/tree/master) 获取（master 分支）。
 
 ![hot update](./hot-update/title.jpg)
 
@@ -53,7 +53,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
-在范例工程中，我们提供了一个 [version_generator.js 文件](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js)，这是一个用于生成 Manfiest 文件的 NodeJS 脚本。使用方式如下：
+在范例工程中，我们提供了一个 **version_generator.js**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/master/version_generator.js)），这是一个用于生成 Manifest 文件的 NodeJS 脚本。使用方式如下：
 
 ```
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -68,7 +68,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 热更新组件
 
-在范例工程中，热更新组件的实现位于 [`assets/hotupdate/HotUpdate.ts`](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts) 中，开发者可以参考这种实现，也可以自由的按自己的需求修改。
+在范例工程中，热更新组件的实现位于 `assets/hotupdate/HotUpdate.ts`（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts)）中，开发者可以参考这种实现，也可以自由的按自己的需求修改。
 
 除此之外，范例工程中还搭配了一个 `Scene/Canvas/update` 节点用于提示更新和显示更新进度供参考。
 

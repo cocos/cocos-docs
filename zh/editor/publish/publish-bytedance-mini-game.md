@@ -6,9 +6,9 @@
 
 ## 使用 Cocos Creator 发布字节小游戏
 
-1. 在 [字节官方文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 下载字节开发者工具
+1. 下载 [字节开发者工具](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
 
-2. 登陆 [开发者平台](https://microapp.bytedance.com/)，找到 appid，详情可参考 [官方接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/set-up-mini-game)。
+2. 登陆 [开发者平台](https://microapp.bytedance.com/)，找到 appid，详情可参考 [官方接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign)。
 
     ![appid](./publish-bytedance-mini-game/appid.png)
 
