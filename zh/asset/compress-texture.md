@@ -67,7 +67,7 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | :---------------- | :------------------- |
 | Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Mini Game       | ETC1 / PVR           |
+| WeChat Mini Game  | ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
 | Baidu Mini Game   | ETC1 / PVR           |
 | OPPO Mini Game    | ETC1                 |
@@ -75,6 +75,6 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | Huawei Quick Game | ETC1                 |
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
-| iOS               | ASTC / PVR / WEBP    |
+| iOS               | ASTC / PVR / WEBP / ETC2  |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
 <!-- | Mac               | ASTC / PVR           | -->
