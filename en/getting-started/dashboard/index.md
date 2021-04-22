@@ -64,8 +64,8 @@ This page is used to post official announcements or events of Cocos Creator, inc
 
 ## Learn
 
-The **Learn** page provides access to the Cocos Creator user manual, API manual, and other help documentation, as well as tutorials, sample projects, and more.
+The **Learn** page provides access to the Cocos Creator user manual, API manual, other help documentation, as well as tutorials, sample projects, and more.
 
 ![learn](index/learn.png)
 
-Developers can also visit the official Cocos website for more tutorials and other information by clicking on the icons in the lower left corner of each website, which currently includes [Twitter](https://twitter.com/cocos2dx), [LinkedIn](https://www.linkedin.com/company/cocos-technologies/), [YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) and [GitHub](https://github.com/cocos-creator/engine).
+Developers can also visit the official Cocos website for tutorials and other information by clicking on the icons in the lower left corner of each website, which currently includes [Twitter](https://twitter.com/cocos2dx), [LinkedIn](https://www.linkedin.com/company/cocos-technologies/), [YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) and [GitHub](https://github.com/cocos-creator/engine).
