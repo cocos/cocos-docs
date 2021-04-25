@@ -32,7 +32,7 @@ When creating a node, an **Input box** will appear asking for the name of the no
 
 ![node-name](img/node-name.png)
 
-If there isn't a node selected in the tree list, the new node will be created under the current root node by default (`Scene`).
+- If there isn't a node selected in the tree list, the new node will be created under the current root node by default (`Scene`).
 - If there are multiple nodes selected, the new node will be created under the first selected node.
 
 ### UI nodes
