@@ -119,7 +119,7 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Search in Folder**: when using the search function, only search the assets in that folder.
 - **Find UUID Usages**: find which assets the asset is referenced by by the asset's uuid.
 - **Preview this scene in the browser**: only available for scene assets.
-- **Show in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
+- **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
 - **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](../../getting-started/project-structure/index.md) documentation.
 - **UUID/URL/PATH**: copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
