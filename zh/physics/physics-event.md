@@ -4,7 +4,9 @@ Cocos Creator 3.0 的物理事件，包括 **触发事件** 和 **碰撞事件**
 
 ## 触发器和碰撞器
 
-各种 **Collider** 碰撞器组件具有 **isTrigger** 是否为触发器属性，将 **isTrigger** 设置为 `true` 时，该组件为触发器，而默认 `false` 情况为碰撞器。当发生碰撞时，触发器不会产生碰撞效果，所以触发器只用于碰撞检测，而碰撞器会产生碰撞效果，所以碰撞器既可以进行碰撞检测，又可以产生物理效果。
+各种 **Collider** 碰撞器组件具有 **isTrigger** 是否为触发器属性，将 **isTrigger** 设置为 `true` 时，该组件为触发器，而默认设置 `false` 时，组件为碰撞器。
+
+当发生碰撞时，触发器不会产生碰撞效果，所以触发器只用于碰撞检测，而碰撞器会产生碰撞效果，所以碰撞器既可以进行碰撞检测，又可以产生物理效果。
 
 两者的区别如下：
 
@@ -46,14 +48,16 @@ Cocos Creator 3.0 的物理事件，包括 **触发事件** 和 **碰撞事件**
 1. 通过`this.getComponent(Collider)`获取到 **Collider**
 2. 通过 **Collider** 的 `on` 或者 `once` 方法注册相应事件的回调
 
-> **注**：**Collider** 是所有碰撞组件的父类。
+> **注意**：**Collider** 是所有碰撞组件的父类。
 
 代码示例：
 
 ```ts
+import { ITriggerEvent } from 'cc'
+
 public start () {
-    let Collider = this.getComponent(Collider);
-    Collider.on('onTriggerStay', this.onTrigger, this);
+    let collider = this.node.getComponent(Collider);
+    collider?.on('onTriggerStay', this.onTrigger, this);
 }
 
 private onTrigger (event: ITriggerEvent) {
@@ -93,9 +97,11 @@ private onTrigger (event: ITriggerEvent) {
 代码示例：
 
 ```ts
+import { ICollisionEvent } from 'cc'
+
 public start () {
-    let Collider = this.getComponent(Collider);
-    Collider.on('onCollisionStay', this.onCollision, this);
+    let Collider = this.node.getComponent(Collider);
+    Collider?.on('onCollisionStay', this.onCollision, this);
 }
 
 private onCollision (event: ICollisionEvent) {

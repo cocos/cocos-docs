@@ -2,7 +2,7 @@
 
 Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效统一的组件化工作流程和便捷的使用方法，您可以 [选择项目适合的物理引擎](physics-item.md) 进行开发，开发过程中也可随时切换。
 
-- [**ammo.js**](https://github.com/cocos-creator/ammo.js)（默认）：功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
+- [**ammo.js**](https://github.com/cocos-creator/ammo.js)：默认物理引擎，功能完善强大的 [Bullet 物理引擎](https://pybullet.org/wordpress/) 的 JavaScript 移植版本。
 - [**cannon.js**](https://github.com/cocos-creator/cannon.js)：具有物理模拟的物理引擎。
 - **builtin**：轻量的碰撞检测系统。
 
@@ -10,7 +10,7 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 物理世界中的元素可以分为一个个的 **刚体**，在 Cocos Creator 中加入物理元素可以通过为游戏对象添加 **Collider 碰撞器** 或者 **RigidBody 刚体** 组件，物理系统将为这些元素进行物理计算，使其表现出真实世界中的行为。
 
-> **注**：此处的“刚体”不是指刚体组件，刚体组件用于控制刚体物理行为相关的属性。
+> **注意**：此处的“刚体”不是指刚体组件，刚体组件用于控制刚体物理行为相关的属性。
 
 ### 添加物理元素
 
@@ -42,7 +42,7 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 ### 物理元素的组成
 
-在 Cocos Creator 中，一个物理元素可以由以下几种方式组成：
+在 Cocos Creator 中，一个物理元素可以由以下方式组成：
 
 - 一个刚体组件
 - 一个或多个碰撞器组件

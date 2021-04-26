@@ -139,7 +139,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 | **vertex2** | 单纯形的顶点 2，三角面（以此类推） |
 | **vertex3** | 单纯形的顶点 3，四面体 |
 
-> **注**：`cannon.js` 对线和三角面的支持目前还不完善。
+> **注意**：`cannon.js` 对线和三角面的支持目前还不完善。
 
 单纯形碰撞器组件接口请参考 [SimplexCollider API](__APIDOC__/zh/classes/physics.simplexcollider.html)。
 

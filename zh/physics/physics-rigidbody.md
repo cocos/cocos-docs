@@ -8,7 +8,7 @@
 
 刚体组件用于控制模拟相关的部分属性：
 
-![rigid-body](img/rigid-body.png)
+![rigid-body](img/rigid-body.jpg)
 
 | 属性 | 说明 |
 | :---|:--- |
@@ -31,12 +31,10 @@
 
 ### 通过代码获取刚体组件
 
-示例：
-
 ```ts
 import { RigidBody } from 'cc'
 
-const rigidBody = this.getComponent(RigidBody);
+let rigidBody = this.node.getComponent(RigidBody);
 ```
 
 ## 刚体类型
@@ -53,7 +51,7 @@ const rigidBody = this.getComponent(RigidBody);
 
 ![Centroid](img/center-of-mass.jpg)
 
-> **注**：为了使碰撞体更贴合模型，未来会增加改变质心的方法，以及动态计算质心的机制。
+> **注意**：为了使碰撞体更贴合模型，未来会增加改变质心的方法，以及动态计算质心的机制。
 
 ## 让刚体运动起来
 
@@ -72,10 +70,10 @@ const rigidBody = this.getComponent(RigidBody);
 
 刚体组件提供了 `applyForce` 接口，根据牛顿第二定律，可对刚体某点上施加力来改变物体的原有状态。
 
-示例：
-
 ```ts
-rigidBody.applyForce(new Vec3(200, 0, 0));
+import { math } from 'cc'
+
+rigidBody?.applyForce(new math.Vec3(200, 0, 0));
 ```
 
 ### 通过扭矩
@@ -84,38 +82,30 @@ rigidBody.applyForce(new Vec3(200, 0, 0));
 
 刚体组件提供了 `applyTorque` 接口，通过此接口可以施加扭矩到刚体上，因为只影响旋转轴，所以不需要指定作用点。
 
-示例：
-
 ```ts
-rigidBody.applyTorque(5);
+rigidBody?.applyTorque(new math.Vec3(200, 0, 0));
 ```
 
 ### 通过施加冲量
 
 刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量守恒，将立即改变刚体的线性速度。 如果冲量施加到的点不是刚体的质心，那么将产生一个扭矩并影响刚体的角速度。
 
-示例：
-
 ```ts
-rigidBody.applyImpulse(new Vec3(5, 0, 0));
+rigidBody?.applyImpulse(new math.Vec3(5, 0, 0));
 ```
 
 ### 通过改变速度
 
 刚体组件提供了 `setLinearVelocity` 接口，可用于改变线性速度。
 
-示例：
-
 ```ts
-rigidBody.setLinearVelocity(new Vec3(5, 0, 0));
+rigidBody?.setLinearVelocity(new math.Vec3(5, 0, 0));
 ```
 
 刚体组件提供了 `setAngularVelocity` 接口，可用于改变旋转速度。
 
-示例：
-
 ```ts
-rigidBody.setAngularVelocity(new Vec3(5, 0, 0));
+rigidBody?.setAngularVelocity(new math.Vec3(5, 0, 0));
 ```
 
 ## 限制刚体的运动
@@ -124,8 +114,6 @@ rigidBody.setAngularVelocity(new Vec3(5, 0, 0));
 
 休眠刚体时，会将刚体所有的力和速度清空，使刚体停下来。
 
-示例：
-
 ```ts
 if (rigidBody.isAwake) {
     rigidBody.sleep();
@@ -133,8 +121,6 @@ if (rigidBody.isAwake) {
 ```
 
 唤醒刚体时，刚体的力和速度将会恢复。
-
-示例：
 
 ```ts
 if (rigidBody.isSleeping) {
@@ -148,17 +134,17 @@ if (rigidBody.isSleeping) {
 
 阻尼参数的范围建议在 **0** 到 **1** 之间，**0** 意味着没有阻尼，**1** 意味着满阻尼。
 
-示例：
-
 ```ts
-rigidBody.linearDamping(0.5);
-let linearDamping = rigidBody.linearDamping();
+if (rigidBody) {
+    rigidBody.linearDamping = 0.5;
+    let linearDamping = rigidBody.linearDamping;
 
-rigidBody.angularDamping(0.5);
-let angularDamping = rigidBody.angularDamping();
+    rigidBody.angularDamping = 0.5;
+    let angularDamping = rigidBody.angularDamping;
+}
 ```
 
-> **注**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
+> **注意**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
 
 ### 通过因子
 
@@ -166,17 +152,17 @@ let angularDamping = rigidBody.angularDamping();
 
 因子是 `Vec3` 的类型，相应分量的数值用于缩放相应轴向的速度变化，默认值都为 **1**，表示缩放为 **1** 倍，即无缩放。
 
-示例：
-
 ```ts
-let linearFactor = rigidBody.linearFactor();
-rigidBody.linearFactor(new Vec3(5, 0, 0));
+if (rigidBody) {
+    rigidBody.linearFactor = new math.Vec3(0, 0.5, 0);
+    let linearFactor = rigidBody.linearFactor;
 
-let angularFactor = rigidBody.linearFactor();
-rigidBody.angularFactor(new Vec3(5, 0, 0));
+    rigidBody.angularFactor = new math.Vec3(0, 0.5, 0);
+    let angularFactor = rigidBody.angularFactor;
+}
 ```
 
 **注意**：
 
 1. 将因子某分量值设置为 **0**，可以固定某个轴向的移动或旋转。
-2. 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [ammo.js](physics-item.md#ammo.js) 情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。
+2. 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [ammo.js](physics-item.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。

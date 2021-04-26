@@ -23,31 +23,30 @@ import { geometry } from "cc";
     const { ray } = geometry;
     // 构造一条从（0，-1，0）出发，指向 Y 轴的射线
     // 前三个参数是起点，后三个参数是方向
-    const outRay = new ray(0, -1, 0, 0, 1, 0);
+    const outRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
 
     // 或者通过静态方法 create
-    const outRay2 = ray.create(0, -1, 0, 0, 1, 0);
+    const outRay2 = geometry.Ray.create(0, -1, 0, 0, 1, 0);
     ```
 
 2. 通过 **起点** + **射线上的另一点**，**ray** 的静态接口 `fromPoints`:
 
     ```ts
-    import { geometry, Vec3 } from "cc";
+    import { geometry, math } from "cc";
     // 构造一条从原点出发，指向 Z 轴的射线
-    const outRay = new geometry.ray();
-    geometry.ray.fromPoints(outRay, Vec3.ZERO, Vec3.UNIT_Z);
+    const outRay = new geometry.Ray();
+    geometry.Ray.fromPoints(outRay, math.Vec3.ZERO, math.Vec3.UNIT_Z);
     ```
 
 3. 用相机构造一条从相机原点到屏幕某点发射出的射线：
 
     ```ts
     import { geometry, Camera } from "cc";
-    const { ray } = geometry;
-    // 此处假设已经有 cameraCom 的引用了
-    const cameraCom: Camera;
+    // 以脚本挂载在 Camera 下为例
+    const camera = this.node.getComponent(Camera);
     // 获得一条途径屏幕坐标（0，0）发射出的一条射线
-    const outRay = new ray();
-    cameraCom.screenPointToRay(0, 0, outRay);
+    const outRay = new geometry.Ray();
+    camera?.screenPointToRay(0, 0, outRay);
     ```
 
     > **注意**：
@@ -67,13 +66,31 @@ Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 > 检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
 > 检测结果返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
 
-//todo 范例
+```ts
+const worldRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
+// 以下参数可选
+const mask = 0xffffffff;
+const maxDistance = 10000000;
+const queryTrigger = true;
+
+const bResult = PhysicsSystem.instance.raycast(worldRay, mask, maxDistance, queryTrigger);
+        
+const results = PhysicsSystem.instance.raycastResults;
+
+for (let i = 0; i < results.length; i++) {
+    const result = results[i];
+    const collider = result.collider;
+    const distance = result.distance;
+    const hitPoint = result.hitPoint;
+    const hitNormal = result.hitNormal;
+}
+```
 
 参数说明：
 
 - `worldRay`：世界空间下的射线
-- `mask`：用于过滤的掩码，可以传入需要检测的分组
-- `maxDistance`：最大检测距离，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
+- `mask`：用于过滤的 [掩码](physics-group-mask.md)，可以传入需要检测的分组，默认为 0xffffffff
+- `maxDistance`：最大检测距离，默认为 10000000，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
 - `queryTrigger`：是否检测触发器
 
 返回结果存储信息:
