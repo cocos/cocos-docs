@@ -8,7 +8,7 @@ The **Assets** panel is an important work area for accessing and managing projec
 
 The **Assets** panel can be divided into two main sections: **Toolbar** and **Asset List**.
 
-- The functions in **Toolbar** include **New Asset(+)**, **Sort by**, **Search Filter**, **Search Box**, **Collapse/Expand All** and **Refresh**. For details, please refer to the description below.
+- The functions in **Toolbar** include **New Asset (+)**, **Sort by**, **Search Filter**, **Search Box**, **Collapse/Expand All** and **Refresh**. For details, please refer to the description below.
 
 - The **Asset List** presents the contents of the project's asset folder in a tree structure, which by default includes the **assets** and **internal** base repositories (DBs for short).
 
@@ -24,7 +24,7 @@ The **Assets** panel can be divided into two main sections: **Toolbar** and **As
     - **Previous hierarchy**: Left arrow
     - **Next hierarchy**: Right arrow
     - **Multi-select**: Ctrl/Cmd + Click
-    - **Multi-select**: Shift + Click
+    - **Multi-select continuously**: Shift + Click
     - **Select All**: Ctrl/Cmd + A
     - **Rename**: Enter/F2
     - **Cancel input**: Esc
@@ -100,7 +100,7 @@ Selecting an asset in the search result list and double-clicking on it is equiva
 
 ### Assets preview
 
-Selecting an asset in the **Assets** panel displays a thumbnail image of the asset in the **Asset Preview** panel. Selecting the folder where the asset is located, displays thumbnails of all assets under the folder for easy viewing.
+Selecting an asset in the **Assets** panel displays a thumbnail image of the asset in the **Assets Preview** panel. Selecting the folder where the asset is located, displays thumbnails of all assets under the folder for easy viewing.
 
 ![preview](img/preview.png)
 
@@ -113,15 +113,15 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Create**: the same function as the **Create** button in the **Assets** panel, it will add the asset to the currently selected folder, if the currently selected is an asset file, it will add the new asset to the same folder as the currently selected asset.
 - **Copy**/**Cut**/**Paste**: copy/cut the selected asset (multiple options available) and paste it under that folder or another folder.
 - **Duplicate**: duplicate the selected asset (can be multi-selected), and the duplicated asset will be in the same hierarchy as the selected asset.
-- **Rename**: Modify the asset name, please check the description below for details.
-- **Delete**: Delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
+- **Rename**: modify the asset name, please check the description below for details.
+- **Delete**: delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
 - **Select All**: selects all assets in the same hierarchy.
-- **Search in Folder**: When using the search function, only search the assets in that folder.
-- **Find UUID usages**: Find which assets the asset is referenced by by the asset's uuid.
+- **Search in Folder**: when using the search function, only search the assets in that folder.
+- **Find UUID usages**: find which assets the asset is referenced by by the asset's uuid.
 - **Preview this scene in the browser**: only available for scene assets.
 - **Show in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
-- **Reimport Asset**: updates the asset to the project's `. /library` folder of the project, with multiple selections for bulk import.
-- **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](... /... /getting-started/project-structure/index.md) documentation.
+- **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
+- **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](../../getting-started/project-structure/index.md) documentation.
 - **UUID/URL/PATH**: Copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
 
 Also for specific asset types, double-clicking on an asset allows you to enter the edit state of that asset, such as scene assets and script assets.
@@ -132,28 +132,28 @@ Select the asset to rename, then right-click and select **Rename** to change the
 
 In addition, the initial name of a TypeScript script asset is processed as its `className`, which cannot be repeated.
 
-### Exporting an asset package
+### Exporting asset package
 
 Select the asset to be exported and right-click on it, then select **Export Asset Package**. The **Export Asset** panel will automatically list the currently selected asset with its dependencies. If you don't need to export related dependent assets, uncheck **Include Dependency** in the lower left corner of the **Export Assets** panel.
 
-After determining the assets to be exported, click the **Export** button, a file storage dialog will pop up, the user needs to specify a folder location and file name, click **Store**, and a **filename.zip** zip file will be generated, containing all the exported assets.
+After determining the assets to be exported, click the **Export** button, a file storage dialog will pop up, the user needs to specify a folder location and file name, click **Save**, and a **filename.zip** file will be generated, containing all the exported assets.
 
 > **Note**: The extension will automatically break the assets into a zip package, which is only available for use with the **Import Asset Package** extension.
 
 ![exporting](img/package-asset/exporting.png)
 
-### Importing an asset package
+### Importing asset package
 
-Select and right-click on the folder you want to import assets from, or right-click on the **blank space** in the **Assets** panel, then select **Import Package** and select the zip package exported by **Export Package** in the pop-up file browse dialog. The assets in the zip package will be automatically parsed to the pop-up **Import Assets Package** panel.
+Select and right-click on the folder you want to import assets from, or right-click on the **blank space** in the **Assets** panel, then select **Import Package** and select the zip package exported by **Export Package** in the pop-up file browse dialog. The assets in the zip package will be automatically parsed to the pop-up **Import Asset Package** panel.
 
 During the import process, the user will be asked to confirm the imported assets again, so you can uncheck some assets to remove the ones you don't want to import.
 
 ![importing](img/package-asset/importing.png)
 
-> **Note**.
+> **Notes**:
 > 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Exporting Asset Packages**.
 > 2. Importing scripts with the same class name is not supported.
 
-## Extensions Explorer Panel
+## Extending the Assets Panel
 
 Currently supported extensions include **right-click menu** and **drop-in recognition**, please refer to the [Extending the Assets Panel](./extension.md) documentation.
