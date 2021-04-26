@@ -57,18 +57,18 @@ exports.unload = function() {};
 然后定义面板的 main 文件：
 
 ```javascript
-exports.ready = async () => {
-    const tab = await Editor.Message.request('hello-world', 'query', 'tab');
-    const subTab = await Editor.Message.request('hello-world', 'query', 'subTab');
-
+const packageJSON = require('./package.json');
+exports.ready = async () => {  
+    const tab = await Editor.Message.request(packageJSON.name, 'query', 'tab');
+    const subTab = await Editor.Message.request(packageJSON.name, 'query', 'subTab');
     // 打印查询到的数据
     console.log(tab, subTab):
     // TODO 使用这两个数据初始化
 };
 exports.close() {
     // 收到数据后上传到扩展进程
-    Editor.Message.send('hello-world', 'upload', 'tab', 1);
-    Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+    Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
+    Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
 };
 ```
 
@@ -98,15 +98,15 @@ undefined, undefined
 这是因为面板在关闭的时候，发送了两条消息：
 
 ```javascript
-Editor.Message.send('hello-world', 'upload', 'tab', 1);
-Editor.Message.send('hello-world', 'upload', 'subTab', 0);
+Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
+Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
 ```
 
 通过这两条消息，Message 系统首先根据 messages 里的 upload 定义 `"methods": ["saveData"]`，将数据保存到扩展进程里。当再次打开面板时，通过以下代码查询到刚刚保存的数据，并初始化界面、打印到控制台：
 
 ```javascript
-const tab = await Editor.Message.send('hello-world', 'query', 'tab');
-const subTab = await Editor.Message.send('hello-world', 'query', 'subTab');
+const tab = await Editor.Message.send(packageJSON.name, 'query', 'tab');
+const subTab = await Editor.Message.send(packageJSON.name, 'query', 'subTab');
 ```
 
 至此，我们完成了一次面板与扩展进程的交互。
