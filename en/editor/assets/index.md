@@ -122,7 +122,7 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Show in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
 - **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](../../getting-started/project-structure/index.md) documentation.
-- **UUID/URL/PATH**: Copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
+- **UUID/URL/PATH**: copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
 
 Also for specific asset types, double-clicking on an asset allows you to enter the edit state of that asset, such as scene assets and script assets.
 
@@ -138,7 +138,7 @@ Select the asset to be exported and right-click on it, then select **Export Asse
 
 After determining the assets to be exported, click the **Export** button, a file storage dialog will pop up, the user needs to specify a folder location and file name, click **Save**, and a **filename.zip** file will be generated, containing all the exported assets.
 
-> **Note**: The extension will automatically break the assets into a zip package, which is only available for use with the **Import Asset Package** extension.
+> **Note**: the extension will automatically break the assets into a zip package, which is only available for use with the **Import Asset Package** extension.
 
 ![exporting](img/package-asset/exporting.png)
 
