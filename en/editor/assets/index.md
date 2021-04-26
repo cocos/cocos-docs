@@ -151,7 +151,7 @@ During the import process, the user will be asked to confirm the imported assets
 ![importing](img/package-asset/importing.png)
 
 > **Notes**:
-> 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Exporting Asset Packages**.
+> 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Export Asset Package**.
 > 2. Importing scripts with the same class name is not supported.
 
 ## Extending the Assets Panel
