@@ -26,7 +26,7 @@ Recently opened projects can be quickly accessed through the **Project** tab. Th
 - **2** - Other versions of the editor can be selected to open the project.
 - **3** - Sort projects by time in forward/reverse order (new in version 1.0.12).
 - **4** - Search projects directly by project name (new in version 1.0.12).
-- **Add** button - for importing other projects.
+- **Add** button - For importing other projects.
 - **New** button - Used to create a new project. Clicking this button will bring you to the **New Project** page, see below for details.
 
 ### New Project
