@@ -31,13 +31,13 @@ Recently opened projects can be quickly accessed through the **Project** tab. Th
 
 ### New Project
 
-On the New Project page, click **Editor Version** above to select Creator's editor version.
+On the **New Project** page, click **Editor Version** above to select Creator's editor version.
 
 Creator provides a number of project templates, including basic architectures for different types of games, as well as sample resources and scripts for learning to help developers get into creative work faster. As Cocos Creator becomes more complete, we will continue to add more project templates.
 
 ![Dashboard](index/add-project.png)
 
-Click on one of the project templates and you will see **Name** and **Psotion** at the bottom of the page.
+Click on one of the project templates and you will see **Name** and **Position** at the bottom of the page.
 - **Name**: The project name can only contain **a-z**, **A-Z**, **0-9** as well as **_** and **-**.
 - **Position**: Click the icon behind the project path input box to select the project storage path.
 
@@ -45,7 +45,7 @@ Once everything is set up, click the **Create and Open** button to finish creati
 
 ## Editor
 
-This page will list all the editor versions that have been downloaded and installed.
+This tab lists all the editor versions that have been downloaded and installed.
 
 ![Dashboard](index/dashboard-editor.png)
 
@@ -58,13 +58,13 @@ Note that when you first run Cocos Dashboard, this list is empty. You can click 
 
 ## Community
 
-This page is used to post official announcements or events of Cocos Creator, including the **Announcement**, **News** and **Update** modules.
+This tab is used to post official announcements or events of Cocos Creator, including the **Announcement**, **News** and **Update** modules.
 
 ![community](index/community.png)
 
 ## Learn
 
-The **Learn** page provides access to the Cocos Creator user manual, API manual, and other help documentation, as well as tutorials, sample projects, and more.
+The **Learn** tab provides access to the Cocos Creator user manual, API manual, and other help documentation, as well as tutorials, sample projects, and more.
 
 ![learn](index/learn.png)
 
