@@ -16,6 +16,4 @@
 
 For additional details, please refer to [AudioSource API](../../../api/en/classes/component_audio.audiosource.html).
 
-For more script interfaces for AudioSource, please refer to the [AudioSource API](__APIDOC__/en/classes/component_audio.audiosource.html) documentation.
-
 For specific playback controls, please refer to the [Audio System Overview](./overview.md) documentation.
