@@ -1,8 +1,8 @@
 # 碰撞组件
 
-## 通过代码获取碰撞器组件
+## 通过代码获取
 
-可通过以下代码获取组件，以获取 **BoxCollider** 盒碰撞器组件为例：
+以获取 **BoxCollider** 盒碰撞器组件为例：
 
 ```ts
 import { BoxCollider } from 'cc'

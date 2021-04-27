@@ -34,7 +34,7 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 让我们继续完善物理世界，添加一个 **Plane 平面**，只为其添加 **PlaneCollider** 平面碰撞器组件，然后调整原有立方体的 Y 轴高度。
 
-    ![](img/physics-add-plane.png)
+![](img/physics-add-plane.png)
 
 点击运行按钮，便可以看到物理元素在场景世界上的变化，效果如下图所示：
 

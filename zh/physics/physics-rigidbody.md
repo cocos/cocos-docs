@@ -164,4 +164,4 @@ if (rigidBody) {
 
 > **注意**：
 > - 将因子某分量值设置为 **0**，可以固定某个轴向的移动或旋转。
-> - 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [ammo.js](physics-item.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。
+> - 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [**ammo.js**](physics-item.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。

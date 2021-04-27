@@ -58,6 +58,8 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ### 胶囊碰撞器组件 CapsuleCollider
 
+> **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球体和圆柱拼凑。
+
 ![胶囊碰撞器组件](img/collider-capsule.jpg)
 
 | 属性 | 说明 |
@@ -71,8 +73,6 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 | **direction** | 在本地坐标系中，胶囊体的朝向 |
 
 胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/classes/physics.capsulecollider.html)。
-
-> **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球体和圆柱拼凑。
 
 ### 圆锥碰撞器组件 ConeCollider
 
@@ -106,6 +106,10 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 ### 网格碰撞器组件 MeshCollider
 
+> **注意**：
+> 1. `cannon.js` 对网格碰撞器组件支持程度较差，只允许与少数碰撞器（球、平面）产生检测。
+> 2. `convex` 功能目前仅 `ammo.js` 后端支持。
+
 ![网格碰撞器组件](img/collider-mesh.jpg)
 
 | 属性 | 说明 |
@@ -117,13 +121,11 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 | **mesh** | 网格碰撞器所使用的网格资源，用于初始化网格碰撞体 |
 | **convex** | 是否使用网格的凸包近似代替，网格顶点数应小于 **255**，开启后可以支持动力学 |
 
-> **注意**：
-> 1. `cannon.js` 对网格碰撞器组件支持程度较差，只允许与少数碰撞器（球、平面）产生检测。
-> 2. `convex` 功能目前仅 `ammo.js` 后端支持。
-
 网格碰撞器组件接口请参考 [MeshCollider API](__APIDOC__/zh/classes/physics.meshcollider.html)。
 
 ### 单纯形碰撞器组件 SimplexCollider
+
+> **注意**：`cannon.js` 对线和三角面的支持目前还不完善。
 
 ![单纯形碰撞器组件](img/collider-simplex.jpg)
 
@@ -138,8 +140,6 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 | **vertex1** | 单纯形的顶点 1，线（由 0、1 组成） |
 | **vertex2** | 单纯形的顶点 2，三角面（以此类推） |
 | **vertex3** | 单纯形的顶点 3，四面体 |
-
-> **注意**：`cannon.js` 对线和三角面的支持目前还不完善。
 
 单纯形碰撞器组件接口请参考 [SimplexCollider API](__APIDOC__/zh/classes/physics.simplexcollider.html)。
 
