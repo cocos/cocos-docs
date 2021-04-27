@@ -18,7 +18,7 @@ At the same time, we can also switch the __Effect__ of the current __Material__ 
 
 ![effects](material/effects.png)
 
-### Effect Creation
+## Effect Creation
 
 __Effects__ are created in a similar way to `Materials`.
 
