@@ -28,17 +28,6 @@ The **Assets** panel can be divided into two main sections: **Toolbar** and **As
     - **Select All**: Ctrl/Cmd + A
     - **Rename**: Enter/F2
     - **Cancel input**: Esc
-    - **Copy**: Ctrl or Cmd + C
-    - **Paste**: Ctrl or Cmd + V
-    - **Copy**: Ctrl or Cmd + D, Ctrl + drag asset
-    - **Delete**: Delete
-    - **Up and down selection**: up and down arrows
-    - **Folder folding**: left arrow or Backspace
-    - **Expand the folder**: right arrow or Enter
-    - **Multi-select**: Ctrl or Cmd + click
-    - **Multi-select**: Shift + click
-    - **Rename**: Enter/F2
-    - **Cancel Rename**: Esc
 
 ### Creating assets
 
@@ -48,7 +37,7 @@ There are two ways to create an asset.
 
 ![create](img/create.png)
 
-> **NOTE**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
+> **Note**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
