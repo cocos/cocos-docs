@@ -13,7 +13,7 @@
 | 属性 | 说明 |
 | :---|:--- |
 | **group** | 刚体分组 |
-| **type**  | 刚体类型：**DYNAMIC** 为动力学（通过物理数值操控），**STATIC** 为静态，**KINEMATIC** 为运动学（通过变换信息操控） |
+| **type**  | 刚体类型：<br>**DYNAMIC**：动力学（通过物理数值操控）<br>**STATIC**：静态<br>**KINEMATIC**：运动学（通过变换信息操控） |
 
 以下属性仅在 **type** 设为 **DYNAMIC** 时生效：
 
@@ -73,7 +73,7 @@ let rigidBody = this.node.getComponent(RigidBody);
 ```ts
 import { math } from 'cc'
 
-rigidBody?.applyForce(new math.Vec3(200, 0, 0));
+rigidBody.applyForce(new math.Vec3(200, 0, 0));
 ```
 
 ### 通过扭矩
@@ -83,7 +83,7 @@ rigidBody?.applyForce(new math.Vec3(200, 0, 0));
 刚体组件提供了 `applyTorque` 接口，通过此接口可以施加扭矩到刚体上，因为只影响旋转轴，所以不需要指定作用点。
 
 ```ts
-rigidBody?.applyTorque(new math.Vec3(200, 0, 0));
+rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 ```
 
 ### 通过施加冲量
@@ -91,7 +91,7 @@ rigidBody?.applyTorque(new math.Vec3(200, 0, 0));
 刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量守恒，将立即改变刚体的线性速度。 如果冲量施加到的点不是刚体的质心，那么将产生一个扭矩并影响刚体的角速度。
 
 ```ts
-rigidBody?.applyImpulse(new math.Vec3(5, 0, 0));
+rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
 ```
 
 ### 通过改变速度
@@ -99,13 +99,13 @@ rigidBody?.applyImpulse(new math.Vec3(5, 0, 0));
 刚体组件提供了 `setLinearVelocity` 接口，可用于改变线性速度。
 
 ```ts
-rigidBody?.setLinearVelocity(new math.Vec3(5, 0, 0));
+rigidBody.setLinearVelocity(new math.Vec3(5, 0, 0));
 ```
 
 刚体组件提供了 `setAngularVelocity` 接口，可用于改变旋转速度。
 
 ```ts
-rigidBody?.setAngularVelocity(new math.Vec3(5, 0, 0));
+rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
 ```
 
 ## 限制刚体的运动
@@ -162,7 +162,6 @@ if (rigidBody) {
 }
 ```
 
-**注意**：
-
-1. 将因子某分量值设置为 **0**，可以固定某个轴向的移动或旋转。
-2. 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [ammo.js](physics-item.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。
+> **注意**：
+> - 将因子某分量值设置为 **0**，可以固定某个轴向的移动或旋转。
+> - 在使用 [**cannon.js**](physics-item.md#cannon.js) 或 [ammo.js](physics-item.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。

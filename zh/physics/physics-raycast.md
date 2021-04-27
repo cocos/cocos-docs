@@ -6,21 +6,13 @@
 
 ## 构造射线
 
-射线 **ray** 处于 **cc** 模块的 **geometry** 命名空间下，因此访问 **ray** 需要先导入 **geometry** ：
-
-```ts
-import { geometry } from "cc";
-```
-
-![图解](img/import-geometry.jpg)
-
 射线 **ray** 由 **起点** 和 **方向** 组成，构造一条射线有以下几种比较常见的方法：
 
 1. 通过 **起点** + **方向**，**ray** 的构造函数或静态接口 `create`：
 
     ```ts
-    import { geometry } from "cc";
-    const { ray } = geometry;
+    import { geometry } from 'cc';
+    
     // 构造一条从（0，-1，0）出发，指向 Y 轴的射线
     // 前三个参数是起点，后三个参数是方向
     const outRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
@@ -63,8 +55,8 @@ Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 - `raycastClosest` ：检测所有的碰撞体，并记录与射线距离最短的检测结果，通过 `PhysicsSystem.instance.raycastClosestResult` 获取。同样返回布尔值，表示是否检测成功。
   
 > **注意**：
-> 检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
-> 检测结果返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
+> - 检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
+> - 检测结果返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
 
 ```ts
 const worldRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
@@ -100,4 +92,4 @@ for (let i = 0; i < results.length; i++) {
 - `collider`：击中的碰撞器
 - `distance`：击中点与射线起点的距离
 - `hitPoint`：击中点（世界坐标系中）
-- `hitNormal`：击中点所处面的法线（世界坐标系中)
+- `hitNormal`：击中点所处面的法线（世界坐标系中）

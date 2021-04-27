@@ -5,7 +5,7 @@ All classes inherited from [Component](__APIDOC__/en/classes/component.component
 The component class must inherit from a `cc` class. Example:
 
 ```ts
-import { Component } from "cc";
+import { Component } from 'cc';
 
 @ccclass("MyComponent")
 class MyComponent extends Component {
@@ -30,7 +30,7 @@ const myComponent = node.addComponent(MyComponent);
 When the component is no longer needed, call the `node.removeComponent(myComponent)` method to remove the specified component and destroy it. Example:
 
 ```ts
-import { Component } from "cc";
+import { Component } from 'cc';
 
 @ccclass("MyComponent")
 class MyComponent extends Component {
@@ -59,7 +59,7 @@ Generally, developers will have a `Game.ts` script as the overall control script
 
 ```ts
 // Game.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 import { Configuration } from './Configuration';
@@ -112,7 +112,7 @@ If there are two components: `CompA` and `CompB`, their contents may be similar 
 
 ```ts
 // CompA.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("CompA")
@@ -133,7 +133,7 @@ export class CompA extends Component {
 
 
 // CompB.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("CompB")
@@ -181,7 +181,7 @@ If the above method still cannot provide the required control granularity, devel
 
 ```ts
 // Configuration.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, executionOrder } = _decorator;
 
 @ccclass("Configuration")
@@ -196,7 +196,7 @@ export class Configuration extends Component {
 
 ```ts
 // Menu.ts
-import { _decorator, Component, Node } from "cc";
+import { _decorator, Component, Node } from 'cc';
 const { ccclass, executionOrder } = _decorator;
 
 @ccclass("Menu")

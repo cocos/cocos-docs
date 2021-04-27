@@ -24,7 +24,10 @@
     - [获取帮助和支持](getting-started/support.md)
     - [注意事项](getting-started/attention/index.md)
 - [升级指南](release-notes/index.md)
-    - [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
+    - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
+    - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
+    - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
+    - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
 
 ## 编辑器手册
 
@@ -123,15 +126,15 @@
 - [缓动](tween/index.md)
 
 - [物理](physics/physics.md)
-    - [物理选项](physics/physics-item.md)
+    - [物理引擎选择](physics/physics-item.md)
     - [物理系统](physics/physics-system.md)
     - [物理组件](physics/physics-component.md)
-    - [使用物理](physics/physics-use.md)
-        - [使用碰撞器](physics/physics-collider.md)
-        - [物理配置](editor/project/physics-configs.md)
-        - [物理材质](physics/physics-material.md)
-        - [使用刚体](physics/physics-rigidbody.md)
+    - [物理使用](physics/physics-use.md)
+        - [碰撞组件](physics/physics-collider.md)
+        - [刚体组件](physics/physics-rigidbody.md)
         - [物理事件](physics/physics-event.md)
+        - [物理配置](physics/physics-configs.md)
+        - [物理材质](physics/physics-material.md)
         - [分组和掩码](physics/physics-group-mask.md)
         - [射线检测](physics/physics-raycast.md)
 - [2D 物理](physics-2d/physics-2d.md)

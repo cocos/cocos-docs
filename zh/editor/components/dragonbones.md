@@ -6,7 +6,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
 在 **层级管理器** 中选中需要添加 ArmatureDisplay 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> DragonBones -> ArmatureDisplay** 按钮，即可添加 ArmatureDisplay 组件到节点上。
 
-- ArmatureDisplay 组件的使用方法可参考 [DragonBones 范例](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones)。
+- ArmatureDisplay 组件的使用方法可参考 **DragonBones**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones)）范例。
 - DragonBones 相关的脚本接口请参考 [DragonBones API](__APIDOC__/zh/classes/dragonbones.armaturedisplay-1.html)。
 
 ## DragonBones 属性
@@ -52,7 +52,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
     @ccclass('ReplaceSlotDisplay')
     export class ReplaceSlotDisplay extends Component {
-    
+
         @property({ type: dragonBones.ArmatureDisplay })
         armatureDisplay: dragonBones.ArmatureDisplay | null = null
         @property({ type: dragonBones.ArmatureDisplay })
@@ -83,9 +83,10 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
             this._rightDisplayIndex %= this._rightDisplayNames.length;
             let armature = this.armatureDisplay!.armature();
             let slot = armature!.getSlot("weapon_hand_r");
+            let replaceArmatureName = this.replaceArmatureDisplay!.armatureName;
             const displayName = this._rightDisplayNames[this._rightDisplayIndex];
             let factory = dragonBones.CCFactory.getInstance() as any;
-            factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), "weapon", "weapon_r", displayName, slot);
+            factory.replaceSlotDisplay(this.replaceArmatureDisplay!.getArmatureKey(), replaceArmatureName , "weapon_r", displayName, slot);
 
             let offset = this._rightDisplayOffset[this._rightDisplayIndex];
             slot!.parent.offset.x = offset.x;
@@ -107,13 +108,18 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
     ![spine-cloth](./dragonbones/click-events.png)
 
-6. 保存场景后，点击编辑器上方的预览按钮，然后点击 **Left**/**Right** 按钮即可看到机器人左/右手的刀已经被替换。详情可参考官方范例 [ReplaceSlotDisplay](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones)。
+6. 保存场景后，点击编辑器上方的预览按钮，然后点击 **Left**/**Right** 按钮即可看到机器人左/右手的武器已经被替换。
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
 
-    > **注意**：若预览时未显示场景，请检查各节点的 Layer 属性是否与 Camera 节点的保持一致。
+    详情可参考官方范例 **ReplaceSlotDisplay**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/dragonbones)）。
+
+    > **注意**：
     >
-    > ![layer](./dragonbones/layer.png)
+    > 1. 范例运行起来后右手替换的武器样式与场景中预备的武器样式不一致，这是资源问题导致的，开发者请参考具体的代码实现。
+    > 2. 若预览时未显示场景，请检查各节点的 Layer 属性是否与 Camera 节点的保持一致。
+    >
+    >     ![layer](./dragonbones/layer.png)
 
 ## DragonBones 挂点与碰撞检测
 

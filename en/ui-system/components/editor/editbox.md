@@ -6,7 +6,7 @@ __EditBox__ is a text input component, use this component to get user input easi
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/EditBox__ to add the __EditBox__ component to the node.
 
-To use `EditBox`, please refer to the [EditBox API](__APIDOC__/en/classes/ui.editbox.html) documentation and the [editBox](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/12.editbox) scene of the test-cases-3d project.
+To use `EditBox`, please refer to the [EditBox API](__APIDOC__/en/classes/ui.editbox.html) documentation and the [EditBox](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox) scene of the test-cases-3d project.
 
 ## EditBox Properties
 
@@ -53,7 +53,7 @@ For event structure you can refer to the [Button](./button.md) documentation.
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, EditBoxComponent, EventHandler } from "cc";
+import { _decorator, Component, EditBoxComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -105,7 +105,7 @@ Added with **Node**'s event API `editbox.node.on('editing-did-began', ...)`.
 
 ```ts
 // Suppose we add an event handler callback inside a component's onLoad method and event handlers in the callback function.
-import { _decorator, Component, EditBoxComponent } from "cc";
+import { _decorator, Component, EditBoxComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

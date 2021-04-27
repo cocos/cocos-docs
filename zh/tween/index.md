@@ -1,6 +1,7 @@
 # 缓动系统
 
 Cocos Creator 3.0 为了全面兼容和保持 Cocos Creator v2.x 缓动系统的使用体验，移植了所有的功能实现。需要注意的是：
+
 1. `action` 已经被废弃了，请使用 `tween`
 
 2. 不再依赖 `tween.js`，如果使用了 `tween.js` 的相关特性，请注意及时适配
@@ -15,7 +16,7 @@ Cocos Creator 3.0 为了全面兼容和保持 Cocos Creator v2.x 缓动系统的
 ## 简单示例
 
 ```typescript
-import { _decorator, Component, Vec3, tween } from "cc";
+import { _decorator, Component, Vec3, tween } from 'cc';
 
 @ccclass("tween-test")
 export class tweentest extends Component {
@@ -68,7 +69,7 @@ this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 
 在新的 `Tween` 模块中可以对具有 `getter` 和 `setter` 的属性进行缓动，例如简单示例中 `node` 的 `position` 属性。这样在缓动的过程中，会对相应的接口进行设置，从而保证 `dirty` 正常更新。
 
-**注意：切换场景时记得停止相应的缓动。**
+> **注意**：切换场景时记得停止相应的缓动。
 
 ## Tween 接口介绍
 
@@ -116,10 +117,10 @@ interface ITweenOption {
 以 `onUpdate` 为例，以下代码缓动一个位置，然后在 `onUpdate` 中将其设置到多个对象上，这样就像是缓动的合批。
 
 ```typescript
-import { Node, tween, Vec3 } from "cc";
+import { Node, tween, Vec3 } from 'cc';
 const nodeArray: Node[] = []; // 此处替换成你的节点数组
-const tweenTagertVec3 = new Vec3();
-tween(tweenTagertVec3)
+const tweenTargetVec3 = new Vec3();
+tween(tweenTargetVec3)
     .by(1, new Vec3(1, 1, 1), {
         'onUpdate': (target: Vec3, ratio: number) => {
             for (let i = 0; i < nodeArray.length; i++)
@@ -132,6 +133,6 @@ tween(tweenTagertVec3)
 
 当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
 
-相关测试例：[test-case-3d](https://github.com/cocos-creator/test-cases-3d)。
+具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween)）。
 
 更多详细介绍，请参考 [使用缓动系统](https://docs.cocos.com/creator/manual/zh/scripting/tween.html)。

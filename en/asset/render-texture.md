@@ -29,15 +29,15 @@ export class CaptureToWeb extends Component {
             borderRight: spriteframe.insetRight,
         });
 
-        const rendetTex = this._renderTex = new RenderTexture();
-        rendetTex.reset({
+        const renderTex = this._renderTex = new RenderTexture();
+        renderTex.reset({
             width: 256,
             height: 256,
             colorFormat: RenderTexture.PixelFormat.RGBA8888,
             depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8
         });
-        this.camera.targetTexture = rendetTex;
-        sp.texture = rendetTex;
+        this.camera.targetTexture = renderTex;
+        sp.texture = renderTex;
         this.sprite.spriteFrame = sp;
     }
 }
@@ -65,4 +65,4 @@ export class RenderCameraToModel extends Component {
 }
 ```
 
-For more __Render Texture__ examples, please see these [test casees](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/rendertexture).
+For more __Render Texture__ examples, please see these [test cases](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture).

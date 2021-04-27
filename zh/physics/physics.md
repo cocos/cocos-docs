@@ -52,14 +52,14 @@ Cocos Creator 3.0 目前支持以下物理引擎，为开发者提供了高效�
 
 Cocos Creator 的物理部分的更多内容，请参考以下文档：
 
-- [选择物理引擎](physics-item.md)：介绍了 Cocos Creator 中可选的各种物理引擎
+- [物理引擎选择](physics-item.md)：介绍了 Cocos Creator 中可选的各种物理引擎
 - [物理系统](physics-system.md)：介绍了物理系统，以及物理系统的一系列属性和接口
 - [物理组件](physics-component.md)：介绍了一些物理组件以及面板上的一系列属性
 - [物理使用](physics-use.md)：进一步介绍了物理相关的使用、事件、分组掩码等
-    - [使用碰撞器](physics-collider.md)
-    - [物理配置](physics-configs.md)
-    - [物理材质](physics-material.md)
-    - [使用刚体](physics-rigidbody.md)
-    - [物理事件](physics-event.md)
-    - [分组和掩码](physics-group-mask.md)
-    - [射线检测](physics-raycast.md)
+    - [碰撞组件](physics-collider.md)：介绍了 **Collider** 碰撞器组件的设计，以及与 **RigidBody** 刚体组件的关系
+    - [刚体组件](physics-rigidbody.md)：介绍了 **RigidBody** 刚体组件的一些代码使用示例
+    - [物理事件](physics-event.md)：介绍了 Cocos Creator 中的物理事件
+    - [物理配置](physics-configs.md)：物理配置用于配置各种常用属性，以及设置碰撞矩阵等
+    - [物理材质](physics-material.md)：介绍了 Cocos Creator 中的物理材质资源
+    - [分组和掩码](physics-group-mask.md)：介绍了物理过滤检测中分组掩码的使用
+    - [射线检测](physics-raycast.md)：介绍了对物理碰撞器的射线检测功能

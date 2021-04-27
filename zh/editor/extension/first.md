@@ -51,7 +51,7 @@ hello-world
 
 - `version` String - 版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
 - `main` String (可选) - 入口文件
-- `description` String（可选） - 一句话描述你的包是做什么的
+- `description` String（可选）- 一句话描述你的包是做什么的
 - `contributions` Object (可选) - 对编辑器已有功能进行扩展的配置对象
 
 现在需要在 contributions 内定义一个 `messages` 对象，这是编辑器消息注册的方法，这个消息可以绑定一个或多个的扩展内定义的方法。更多

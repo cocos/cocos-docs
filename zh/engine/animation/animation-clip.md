@@ -10,7 +10,7 @@
 以下代码片段演示了如何程序化地创建动画剪辑：
 
 ```ts
-import { AnimationClip, animation, js } from "cc";
+import { AnimationClip, animation, js } from 'cc';
 const animationClip = new AnimationClip();
 animationClip.duration = 1.0; // 整个动画剪辑的周期，任何帧时间都不应该大于此属性
 animationClip.keys = [ [ 0.3, 0.6, 0.9 ] ]; // 该动画剪辑所有曲线共享的帧时间
@@ -215,7 +215,7 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 若曲线值不满足上述任何条件，或当曲线数据的 `interpolate` 属性为 `false`时，将不会进行插值操作，而是永远使用前一帧的曲线值作为结果。
 
 ```ts
-import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from "cc";
+import { AnimationClip, color, IPropertyCurveData, SpriteFrame, Vec3 } from 'cc';
 
 const animationClip = new AnimationClip();
 
@@ -259,7 +259,7 @@ const spriteCurve: IPropertyCurveData = {
 以下代码展示了如何自定义插值算法：
 
 ```ts
-import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from "cc";
+import { ILerpable, IPropertyCurveData, Quat, quat, Vec3, vmath } from 'cc';
 
 class MyCurveValue implements ILerpable {
     public position: Vec3;

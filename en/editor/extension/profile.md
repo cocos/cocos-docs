@@ -94,16 +94,18 @@ Briefly describe this configuration. Where the configuration can be displayed, t
 Read editor configuration
 
 ```javascript
+const packageJSON = require('./package.json');
 // await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getConfig('hello-world','test.a'); // 0
-await Editor.Profile.getConfig('hello-world','test.a','local'); // undefined
-await Editor.Profile.getConfig('hello-world','test.a','global'); // undefined
+await Editor.Profile.getConfig(packageJSON.name,'test.a'); // 0
+await Editor.Profile.getConfig(packageJSON.name,'test.a','local'); // undefined
+await Editor.Profile.getConfig(packageJSON.name,'test.a','global'); // undefined
 ```
 
 Read project configuration
 
 ```javascript
+const packageJSON = require('./package.json');
 // await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getProject('hello-world','test.a'); // 1
-await Editor.Profile.getProject('hello-world','test.a','project'); // undefined
+await Editor.Profile.getProject(packageJSON.name,'test.a'); // 1
+await Editor.Profile.getProject(packageJSON.name,'test.a','project'); // undefined
 ```

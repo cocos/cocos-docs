@@ -10,7 +10,7 @@ import { BoxCollider } from 'cc'
 let boxCollider = this.node.getComponent(BoxCollider);
 ```
 
-各类型 **Collider** 碰撞器组件说明，请参考 [碰撞器组件](physics-component.md#%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6)
+各类型 **Collider** 碰撞器组件说明，请参考 [碰撞器组件](physics-component.md#%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6)。
 
 碰撞器组件接口请参考 [Collider API](__APIDOC__/zh/classes/physics.collider.html)。
 
@@ -79,9 +79,9 @@ let rigidbody = collider?.attachedRigidBody;
 
 ![非均一缩放球](img/collider-non-uniform-scale.jpg)
 
-### 实现鹅卵石
+### 非标准形状
 
-对于像鹅卵石形状这样的情况，可以用网格碰撞体来代替基础的碰撞体。
+对于像鹅卵石这样非标准形状，可以使用 [MeshCollider 网格碰撞体](physics-component.md#%E7%BD%91%E6%A0%BC%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6%20MeshCollider) 来代替基础的碰撞体。
 
 **注意**：若需要支持动力学刚体，则必须开启 **convex** 功能。
 

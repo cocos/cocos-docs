@@ -15,11 +15,11 @@ Cocos Creator 3.0 的物理事件，包括 **触发事件** 和 **碰撞事件**
 
 ## 触发事件和碰撞事件
 
-触发事件和碰撞事件两者的区别在于：
+触发事件和碰撞事件的区别在于：
 
-1. 触发事件由触发器生成，碰撞事件根据碰撞数据生成。
-2. 触发事件可以由触发器和另一个触发器/碰撞器产生。
-3. 碰撞事件需要由两个碰撞器产生，并且至少有一个是动力学刚体。
+- 触发事件由触发器生成，碰撞事件根据碰撞数据生成。
+- 触发事件可以由触发器和另一个触发器/碰撞器产生。
+- 碰撞事件需要由两个碰撞器产生，并且至少有一个是动力学刚体。
 
 ### 触发事件
 
@@ -45,12 +45,10 @@ Cocos Creator 3.0 的物理事件，包括 **触发事件** 和 **碰撞事件**
 
 需要通过注册事件来添加相应的回调：
 
-1. 通过`this.getComponent(Collider)`获取到 **Collider**
-2. 通过 **Collider** 的 `on` 或者 `once` 方法注册相应事件的回调
+1. 通过`this.getComponent(Collider)`获取到 **Collider**。
+2. 通过 **Collider** 的 `on` 或者 `once` 方法注册相应事件的回调。
 
 > **注意**：**Collider** 是所有碰撞组件的父类。
-
-代码示例：
 
 ```ts
 import { ITriggerEvent } from 'cc'
@@ -91,10 +89,8 @@ private onTrigger (event: ITriggerEvent) {
 
 监听碰撞事件需要通过注册事件来添加相应的回调：
 
-1. 通过 `this.getComponent(Collider)` 获取到 **Collider**
-2. 通过 **Collider** 的 `on` 或者 `once` 方法注册相应事件的回调
-
-代码示例：
+1. 通过 `this.getComponent(Collider)` 获取到 **Collider**。
+2. 通过 **Collider** 的 `on` 或者 `once` 方法注册相应事件的回调。
 
 ```ts
 import { ICollisionEvent } from 'cc'

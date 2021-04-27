@@ -6,7 +6,7 @@
 
 ## ammo.js
 
-[ammo.js](https://github.com/cocos-creator/ammo.js) 为默认物理引擎，是 [Bullet 物理引擎](https://github.com/bulletphysics/bullet3) 的 **JavaScript** 移植版本。
+[ammo.js](https://github.com/cocos-creator/ammo.js) 为 Cocos Creator 的默认物理引擎，是 [Bullet 物理引擎](https://github.com/bulletphysics/bullet3) 的 **JavaScript** 移植版本。
 
 **ammo.js** 具有完善的物理功能，以及更佳的性能，但模块较大（约 1.5MB），未来我们也将在此投入更多工作。
 

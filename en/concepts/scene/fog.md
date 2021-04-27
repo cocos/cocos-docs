@@ -33,7 +33,7 @@ To increase the density of Linear Fog when the distance between the camera and t
 1. fix the value of `FogStart` and decrease the value of `FogEnd`.
 2. Decrease the value of `FogStart` and fix the value of `FogEnd`.
 
-To adjust the fog effect to the right consistency, it is best to adjust both the `FogStart` and `FogEnd` properties appropriately. An example effect of Linear Fog is shown below：
+To adjust the fog effect to the right consistency, it is best to adjust both the `FogStart` and `FogEnd` properties appropriately. An example effect of Linear Fog is shown below:
 
 ![image](./fog/linear_fog.png)
 

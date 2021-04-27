@@ -51,7 +51,7 @@ Cocos Creator 支持三种模块说明符：
 
 - **绝对说明符** 指定了一个 URL 的说明符。例如：`foo:/bar`。
 
-- **裸说明符**（Bare specifier） 像 `foo`、`foo/bar` 这样既不是 URL 又不是相对说明符的说明符。
+- **裸说明符**（Bare specifier）像 `foo`、`foo/bar` 这样既不是 URL 又不是相对说明符的说明符。
 
 ### 相对说明符
 

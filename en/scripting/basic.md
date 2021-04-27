@@ -1,4 +1,4 @@
-## Operating environment
+# Operating environment
 
 The APIs for the __Cocos Creator__ engine all exist in the module `cc`. They can be imported it using standard ES6 module import syntax. Example:
 
@@ -6,8 +6,8 @@ The APIs for the __Cocos Creator__ engine all exist in the module `cc`. They can
 import {
     Component, // Import class Component
     _decorator, // mport namespace _decorator
-} from "cc";
-import * as cc from "cc"; // Import the entire Cocos Creator module as a namespace Cocos Creator
+} from 'cc';
+import * as modules from 'cc'; // Import the entire Cocos Creator module as a namespace Cocos Creator
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
@@ -22,7 +22,7 @@ Due to historical reasons, `cc` is an identifier reserved for __Cocos Creator__.
 ```ts
 /* const cc = {}; // Every Cocos Creator script is equivalent to an implicit definition here */
 
-import * as cc from "cc"; // Error: Namespace import name cc is reserved by Cocos Creator
+import * as modules from 'cc'; // Error: Namespace import name cc is reserved by Cocos Creator
 
 const cc = { x: 0 };
 console.log(cc.x); // Error: The global object name cc is reserved by Cocos Creator
