@@ -1,4 +1,4 @@
-# The Tutorial for JSB 2.0
+# Tutorial: JSB 2.0
 
 > This document is based on v2.x. It may change slightly on Cocos Creator 3.0 and will be updated as soon as possible.
 

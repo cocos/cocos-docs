@@ -37,7 +37,7 @@ There are two ways to create an asset.
 
 ![create](img/create.png)
 
-> **NOTE**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
+> **Note**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 

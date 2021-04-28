@@ -31,13 +31,13 @@ The relevant APIs are listed below:
 
 | Type | Support | Loading | Releasing | Preloading | Querying | Search |
 | :-- | :-- | :-- | :-- | :-- | :-- |:-- |
-| Single Asset | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
-| Directory    | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
-| Scene        | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
-| Single Asset | `resources` | load       | release      | preload      | get | getInfoWithPath |
-| Directory    | `resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
-| Script       | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
-| Remote Asset | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
+| **Single Asset** | Asset Bundle   | load       | release      | preload      | get | getInfoWithPath |
+| **Directory**    | Asset Bundle   | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| **Scene**        | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
+| **Single Asset** | `resources` | load       | release      | preload      | get | getInfoWithPath |
+| **Directory**    | `resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
+| **Script**       | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
+| **Remote Asset** | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
 
 References documentations:
 

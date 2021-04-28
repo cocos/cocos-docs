@@ -24,9 +24,9 @@ Make sure the content in the **Scene** panel is saved before you build. If it is
 
 ![build-task](build-panel/build-task.jpg)
 
-> **Note**: __Cocos Creator__ uses the **Platform** name as the name for the release package generated after the build, and overwrites the original package with each build.
-
-> **Note**: __Cocos Creator__ uses the **Build Task Name** as the name of the release package that is generated after the build, and a new release package is generated with each build. If you want to overwrite the original release package, you can manually modify the **Build Task Name** to match the original release package name.
+> **Notes**:
+> 1. __Cocos Creator__ uses the **Platform** name as the name for the release package generated after the build, and overwrites the original package with each build.
+> 2. __Cocos Creator__ uses the **Build Task Name** as the name of the release package that is generated after the build, and a new release package is generated with each build. If you want to overwrite the original release package, you can manually modify the **Build Task Name** to match the original release package name.
 
 ## Build Progress
 

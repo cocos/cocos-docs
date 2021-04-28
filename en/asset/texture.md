@@ -6,7 +6,7 @@ __Texture assets__ can be generated from __ImageAsset__. Some common image forma
 
 ## Texture2D
 
-__Texture2D__ is a type of __texture asset__ that is usually used for rendering of __3D models__, such as __reflection maps__, __ambient light mask maps__, etc. in model materials.
+__Texture2D__ is a type of __texture asset__ that is usually used for rendering of __3D models__, such as __reflection maps__, __ambient light mask maps__, etc... in model materials.
 
 __Texture2D__ in __Cocos Creator__:
 

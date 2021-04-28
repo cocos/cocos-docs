@@ -1,6 +1,6 @@
 # Animation Events
 
-In games, it is often necessary to execute some function at the end of an animation or at a specific moment in a certain frame. At this time, it can be achieved by adding __Animation Events__. After adding an event function on to a key frame, the animation system will match the corresponding function methods on the __animation root node__ and execute them when the animation reaches the key frame. 
+In games, it is often necessary to execute some function at the end of an animation or at a specific moment in a certain frame. At this time, it can be achieved by adding __Animation Events__. After adding an event function on to a key frame, the animation system will match the corresponding function methods on the __animation root node__ and execute them when the animation reaches the key frame.
 
 Please refer to the [frame events](./../../engine/animation/animation-component.md#frameevents) documentation before continuing.
 
@@ -18,7 +18,7 @@ At the added time frame position, __right-click__ and select __Delete__. Deletin
 
 ## Add an event frame function
 
-__Click__ the `+` button on the upper left of the __Event Function Editor__ to add a new event frame function
+__Click__ the `+` button on the upper left of the __Event Function Editor__ to add a new event frame function.
 
 ![add-function](animation-event/add-function.png)
 

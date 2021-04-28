@@ -57,8 +57,9 @@ If set, the main package is configured as a remote package, and along with its r
 ### Resource Server Address
 
 This option is optional and used to fill in the address of the remote server where the resources are stored.
-  - If this option is left blank, the `remote` folder in the release package directory will be packaged into the built game package.
-  - If this option is filled in, the `remote` folder will not be packaged into the built game package. You need to manually upload the `remote` folder to the filled in resource server address after build.
+
+- If this option is left blank, the `remote` folder in the release package directory will be packaged into the built game package.
+- If this option is filled in, the `remote` folder will not be packaged into the built game package. You need to manually upload the `remote` folder to the filled in resource server address after build.
 
 ### Debug
 
