@@ -52,13 +52,27 @@ Icon|Description
 
 ### Add New Node
 
-A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name., and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
+A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name, and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
 
 ![prefab mounted](prefab/prefab-mounted-children.png)
 
-## Some Current Restrictions
+### Add New Component
+A new component added under the __Prefab Instance__ will have a **+** sign in the end of the node name, and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
 
-- Add/remove components in the __Prefab Instance__
-- Delete the node created from the __Prefab Asset__ in the __Prefab Instance__
-- Change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__
+![](prefab/instance-add-component.png)
+
+### Remove Component
+A new component added under the __Prefab Instance__ will have a deleted data item show in the __Inspector__, its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
+
+![](prefab/instance-remove-component.png)
+
+It will show two buttons in the end of deleted data item:
+Icon|Description
+:---|:---
+![](prefab/revert-remove-component.png)|revert the removed component
+![](prefab/apply-remove-component.png)|apply the remove component operation to the associated __Prefab Asset__
+
+## Some Current Restrictions
+- It's not allow to delete the node created from the __Prefab Asset__ in the __Prefab Instance__
+- It's not allow to change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__
 - Do not allow prefabs to nest themselves
