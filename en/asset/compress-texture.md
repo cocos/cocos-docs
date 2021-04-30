@@ -68,6 +68,5 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | Huawei Quick Game | ETC1                 |
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
-| iOS               | ASTC / PVR / WEBP    |
+| iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
-| Mac               | ASTC / PVR           |
