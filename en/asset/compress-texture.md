@@ -57,17 +57,16 @@ The user can customize the supported image assets for a platform and the priorit
 Except for the `JPG` and `PNG` supported by all platforms, the details of other formats are as follows:
 
 | Platform          | TextureCompressTypes |
-| :----------------- | :-------------------- |
-| **Web Desktop**       | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| **Web Mobile**        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| **WeChat Game**       | ETC1 / PVR           |
-| **AliPay Mini Game**  | ETC1 / PVR           |
-| **Baidu Mini Game**   | ETC1 / PVR           |
-| **OPPO Mini Game**    | ETC1                 |
-| **vivo Mini Game**    | ETC1                 |
-| **Huawei Quick Game** | ETC1                 |
-| **Cocos Play**        | ETC1                 |
-| **Xiaomi Quick Game** | ETC1                 |
-| **iOS**               | ASTC / PVR / WEBP    |
-| **Android**           | ASTC / ETC2 / ETC1 / WEBP |
-| **Mac**               | ASTC / PVR           |
+| ----------------- | -------------------- |
+| Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
+| Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
+| WeChat Mini Game       | ETC1 / PVR           |
+| AliPay Mini Game  | ETC1 / PVR           |
+| Baidu Mini Game   | ETC1 / PVR           |
+| OPPO Mini Game    | ETC1                 |
+| vivo Mini Game    | ETC1                 |
+| Huawei Quick Game | ETC1                 |
+| Cocos Play        | ETC1                 |
+| Xiaomi Quick Game | ETC1                 |
+| iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
+| Android           | ASTC / ETC2 / ETC1 / WEBP |

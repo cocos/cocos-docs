@@ -233,9 +233,9 @@ Cocos Creator 3.0 拥有更加强大的插件系统，编辑器几乎所有功�
 
 ![image](extension-plugin.png)
 
-### 构建目录区别
+### 构建目录差异
 
-Cocos Creator 2.x 不同平台构建后生成的目录与 Cocos Creator 3.0 也有着一定程度上的不同。接下来我们以 v2.4.3 为例，和 v3.0 分别在 Web、原生和微信小游戏平台上进行对比。
+Cocos Creator 2.x 不同平台构建后生成的目录与 Cocos Creator 3.0 也有着一定程度上的差异。接下来我们以 v2.4.3 为例，和 v3.0 分别在 Web、原生和微信小游戏平台上进行对比。
 
 #### Web 平台
 

@@ -1,6 +1,6 @@
 # 发布到 Web 平台
 
-打开主菜单的 **项目 -> 构建发布**，打开构建发布面板。
+打开主菜单的 **项目 -> 构建发布**，打开 [构建发布](build-panel.md) 面板。
 
 ![](publish-web/web.png)
 
@@ -14,28 +14,35 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 ### Web Desktop
 
-| 构建选项 | 说明 | 字段名 |
+| 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :--- | :--- | :--- |
-| 资源服务器地址 | 用于下载远程资源的服务器地址，详情请参考 [通用构建参数 -- 资源服务器地址](build-options.md#%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80) | `remoteServerAddress` |
+| 资源服务器地址 | 用于下载远程资源的服务器地址，详情请参考下文 **资源服务器地址** 部分的内容。 | `remoteServerAddress` |
 | 预览分辨率 | 游戏视图分辨率，默认为 **(1280, 960)** | `resolution` |
 | Polyfills | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，开发者可以根据实际需求选择需要的 polyfills。暂时只支持 **异步函数**，后续将会开放更多功能。| `polyfills` |
 
 ### Web Mobile
 
-| 构建选项 | 说明 | 字段名 |
+| 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :--- | :--- | :--- |
-| 资源服务器地址 | 用于下载远程资源的服务器地址，详情请参考 [通用构建参数 -- 资源服务器地址](build-options.md#%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80) | `remoteServerAddress` |
-| 设备方向 | 设备方向，包括 **Auto**、**Landscape**、**Portrait** | `orientation` |
+| 资源服务器地址 | 用于下载远程资源的服务器地址，详情请参考下文 **资源服务器地址** 部分的内容。 | `remoteServerAddress` |
+| 设备方向 | 可选值包括 **Auto**、**Landscape**、**Portrait** | `orientation` |
 | Polyfills | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，目前包括 **async Functions** 和 **coreJs** 两种，开发者可以根据实际需求选择需要的 polyfills。 | `polyfills` |
 | vConsole | 插入 vConsole 调试插件，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | `embedWebDebugger` |
 | 预览二维码 | 用于扫描预览，详情可见下方介绍 | - |
 | 预览 URL | 用于预览的链接，详情可见下方介绍 | - |
 
+- **资源服务器地址**
+
+  该项为可选项，用于填写资源存放在服务器上的地址。
+
+    - 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的游戏包中。
+    - 若 **填写** 该项，则不会打包到游戏包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) 。
+
 - **预览 URL**
 
   构建支持同时预览多个 Web 项目，因而构建的预览 URL 不再是统一的而是每个构建任务都会有一个单独的预览 URL，互不干扰。点击 URL 即可自动打开浏览器进行预览，具体的预览 URL 拼接规则为 **${偏好设置中的预览 IP 地址}:${编辑器预览端口号}/${构建平台}/${构建任务名}/index.html**。
 
-  ![](publish-web/preview-url.png)
+  ![preview-url](publish-web/preview-url.png)
 
 ## 构建和预览
 
