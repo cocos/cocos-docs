@@ -60,11 +60,11 @@ In order to facilitate the location of files, nodes or resources, and provide a 
 - When `type` does not exist, the original data is output.
 
 - `types` has:
-   - `link`: external redirect link.
-   - `Image`: display picture.
-   - `Asset`: locates resources.
-   - `node`: locates the node.
-   - `I18n`: multilingual translation.
+    - `link`: external redirect link.
+    - `Image`: display picture.
+    - `Asset`: locates resources.
+    - `node`: locates the node.
+    - `I18n`: multilingual translation.
 
 ### Example
 

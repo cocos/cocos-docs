@@ -65,4 +65,3 @@ Press __CTRL (CMD) + Shift + I__ to open the console. Open the panel in the cons
 When the __Hello World__ plug-in receives a message, it passes it to the `methods.console` in `panel.js` for processing.
 
 The result is printing a string to the __log__ on the console.
-

@@ -7,7 +7,7 @@
 - [Getting Started](getting-started/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
-    <!--- [Project Structure](getting-started/project-structure/index.md)-->
+    - [Project Structure](getting-started/project-structure/index.md)
     - [Editor Panels](editor/index.md)
         - [Scene](editor/scene/index.md)
         - [Hierarchy](editor/hierarchy/index.md)

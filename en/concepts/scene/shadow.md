@@ -18,9 +18,9 @@ To enable the shadow effect for an object, proceed as follows:
 
     ![set-meshRenderer](shadow/set-meshrenderer.png)
 
-    If the shadow type is **ShadowMap**, you also need to set the **ReceiveShadow** property on the **MeshRenderer** component to **ON**.
+    If the shadow type is **ShadowMap**, set the **ReceiveShadow** property on the **MeshRenderer** component to **ON**.
 
-> **Note**: if the shadows are not displayed properly, you need to adjust the direction of the directional light.
+> **Note**: if the shadows are not displayed properly, adjust the direction of the directional light.
 
 ## Shadow Type
 

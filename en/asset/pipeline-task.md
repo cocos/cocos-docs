@@ -1,7 +1,7 @@
 # Pipeline and Task
 
 > Author: Santy-Wang, Xunyi
-
+>
 > This article is for advanced developers who have customization needs for their loading process.
 
 To make it easier to modify or extend the loading process of engine, the underlying layer of Asset Manager uses a mechanism called **Pipeline and Task**, **Download and Parser** to load resources. This article will focus on **Pipeline and Task**.

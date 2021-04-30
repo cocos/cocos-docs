@@ -7,7 +7,7 @@
 **Cocos Creator** supports importing images in multiple formats (see the table below for details), but in an actual running game, we do not recommend using the original images as assets to load. For example, on a mobile platform, only 80% or less of the original image quality may be required, or a `.png` without the transparent channel can be converted into a `.jpg`, which can reduce the storage space required.
 
 | Image format | Android | iOS | Mini Game | Web  |
-| ------- | -------- | ------ | ----- | ------ |
+| :------- | :-------- | :------ | :----- | :------ |
 | **PNG** | Supported | Supported   | Supported | Supported |
 | **JPG** | Supported | Supported | Supported | Supported |
 | **WEBP** | Native Supported for Android 4.0+<br>Other versions can use [this library](https://github.com/alexey-pelykh/webp-android-backport) | can use [this library](https://github.com/carsonmcdonald/WebP-iOS-example) | Supported | [Partially Supported](https://caniuse.com/#feat=webp) |
@@ -60,7 +60,7 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | ----------------- | -------------------- |
 | Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Game       | ETC1 / PVR           |
+| WeChat Mini Game       | ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
 | Baidu Mini Game   | ETC1 / PVR           |
 | OPPO Mini Game    | ETC1                 |
