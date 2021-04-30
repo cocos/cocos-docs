@@ -93,6 +93,7 @@
     - [球面光](concepts/scene/light/sphere-light.md)
     - [聚光灯](concepts/scene/light/spot-light.md)
     - [环境光](concepts/scene/ambient.md)
+    - [基于多 Pass 的多光源支持](concepts/scene/light/additive-per-pixel-lights.md)
     - [光照贴图](concepts/scene/light/lightmap.md)
 
 - [材质系统](material-system/overview.md)

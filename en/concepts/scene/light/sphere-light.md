@@ -2,7 +2,7 @@
 
 Cocos Creator 3.0 uses Spherical Lights instead of **Point Light** because Point Light ignores volume, but physical light in the real world have a light `size` property.
 
-![sphere light](sphere-light.jpg)
+![sphere light](spherelight/sphere-light.jpg)
 
 To add the spherical light to the scene, refer to the [Lighting](../light.md) for details.
 
@@ -10,7 +10,7 @@ For the related interface of the spherical light component, please refer to the 
 
 ## Spherical Lights Properties
 
-![image](sphere-light-prop.png)
+![image](spherelight/sphere-light-prop.png)
 
 | Property | Description |
 | :------- | :--- |
@@ -22,4 +22,4 @@ For the related interface of the spherical light component, please refer to the 
 | **Term** | Setup the light intensity unit type, including both **LUMINOUS_POWER** and **LUMINANCE**. |
 | **LuminousPower** | Luminous power in **lumens (lm)**. Takes effect when **Term** is set to **LUMINOUS_POWER**. |
 | **Luminance** | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**. Takes effect when **Term** is set to **LUMINANCE**. |
-| **StaticSettings** | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
+| **StaticSettings** | Set up static lighting, see [Lightmapping](lightmap.md) for details |

@@ -56,7 +56,6 @@
     - [Edit Animation Curve](editor/animation/animation-curve.md)
     - [Animation event](editor/animation/animation-event.md)
 - [Terrain System](editor/terrain/index.md)
-- [Lightmap](editor/lightmap/index.md)
 
 - [Build and Publish](editor/publish/index.md)
     - [About the Build Panel](editor/publish/build-panel.md)
@@ -106,6 +105,8 @@
     - [Spherical Lights](concepts/scene/light/sphere-light.md)
     - [Spotlights](concepts/scene/light/spot-light.md)
     - [Ambient Lights](concepts/scene/ambient.md)
+    - [Additive per-pixel lights](concepts/scene/light/additive-per-pixel-lights.md)
+    - [Lightmapping](concepts/scene/light/lightmap.md)
 
 - [Materials System](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)

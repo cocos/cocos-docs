@@ -19,7 +19,7 @@ Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed 
     - [Assets](asset/index.md)
 - [UI](ui-system/components/engine/index.md)
 - [Terrain](editor/terrain/index.md)
-- [Lightmap](editor/lightmap/index.md)
+- [Lightmapping](concepts/scene/light/lightmap.md)
 - [Tween](tween/index.md)
 - [2D Physics](physics-2d/physics-2d.md)
 - [Editor Extension](editor/extension/readme.md)

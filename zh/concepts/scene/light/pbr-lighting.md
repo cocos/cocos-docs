@@ -1,12 +1,12 @@
 # 基于物理的光照
 
-![pbr lighting](pbr-lighting.jpg)
+![pbr lighting](pbrlighting/pbr-lighting.jpg)
 
 ## 真实世界中的光源
 
 基于物理的光照符合真实世界中的光源描述，在真实环境中，我们所见到的光源产品都具有自身的工业参数，我们先来看一个宜家的灯泡💡
 
-![light bulb size](light-bulb.jpg)
+![light bulb size](pbrlighting/light-bulb.jpg)
 
 从产品包装上，我们可以了解到这个灯泡的几个重要工业参数：
 - **功率**
@@ -33,7 +33,7 @@
 
 在真实世界中，由于描述光源的重要物理参数不一样，我们通常用 **发光功率（Luminous Power）** 和 **亮度（Luminance）** 来描述生活中常见的带有照明面积的光源，用 **照度（Illuminance）** 来描述太阳光。
 
-![light power](light-power.jpg)
+![light power](pbrlighting/light-power.jpg)
 
 ## 色温（ColorTemperature）
 
@@ -43,14 +43,14 @@
 
 真实世界环境中，一天不同时段的环境色温也会动态发生变化：
 
-![color temp of day](color-temp-of-day.jpg)
+![color temp of day](pbrlighting/color-temp-of-day.jpg)
 
 可参考下表：
 
-![kelvin](kelvin.jpg)
+![kelvin](pbrlighting/kelvin.jpg)
 
 ## 光源大小
 
 真实世界中的光源都具有真实的物理尺寸，同时，光源大小也影响了光源强度。
 
-![light bulb size](light-bulb-size.png)
+![light bulb size](pbrlighting/light-bulb-size.png)
