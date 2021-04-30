@@ -75,7 +75,7 @@ Android 平台的构建选项如下：
 
 #### APP ABI
 
-设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，目前包括 **armeabi-v7a**、**arm64-v8a**、**x86** 三种类型。
+设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，目前包括 **armeabi-v7a**、**arm64-v8a**、**x86**、**x86_64** 四种类型。
 
 > **注意**：
 >
@@ -142,6 +142,8 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **�
 Mac 平台的构建选项包括 **Bundle Identifier** 和 **渲染后端**，设置方法与 iOS 平台一致。
 
 ![Mac build options](publish-native/mac-options.png)
+
+v3.1 新增了 **Support M1** 选项，主要用于标识用户打包出去的项目是否需要支持在 m1 上正常运行。目前主要用此标识来更好的对一些已知的引擎 m1 支持问题作提示。
 
 ## 构建
 
