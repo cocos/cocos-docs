@@ -12,13 +12,13 @@ As the engine developer, in order to simplify the workload of developers as much
 - Cocos Creator editor provides a quick packaging process to publish directly as a ByteDance 
 - Automatically loads emote assets, cached assets and the versioning of cached assets
 
-For details about ByteDance access, please refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration).
+For details about ByteDance access, please refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/).
 
 ## Preparation
 
 - Download the [ByteDance Developer Tools](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) and install it.
 
-- Refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration) to register, login and apply for mini games on the ByteDance Developer Platform.
+- Refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/) to register, login and apply for mini games on the ByteDance Developer Platform.
 
 - After the application is approved, you can find the appid in **Development Management -> Development Settings** of the developer platform.
 
@@ -114,7 +114,7 @@ In addition, the audio assets loaded through the network are played by streaming
 
 ## Reference Links
 
-- [ByteDance Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration)
+- [ByteDance Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)
 - [ByteDance Mini Game API Documentation](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
 - [ByteDance Developer Tools Download](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
 - [ByteDance Developer Tools Introduction](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)

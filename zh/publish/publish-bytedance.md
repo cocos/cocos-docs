@@ -10,13 +10,13 @@ Cocos Creator 从 v2.4.2 开始支持将游戏发布到 **字节跳动小游戏*
 - Cocos Creator 编辑器提供了快捷的打包流程，直接发布为字节跳动小游戏
 - 自动加载远程资源，缓存资源以及缓存资源版本控制
 
-关于字节跳动小游戏接入的细节，可参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration)。
+关于字节跳动小游戏接入的细节，可参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)。
 
 ## 准备工作
 
 - 下载 [字节跳动开发者工具](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 并安装。
 
-- 参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration) 文档，在字节跳动开发者平台完成账号注册、登录以及申请小游戏。
+- 参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/) 文档，在字节跳动开发者平台完成账号注册、登录以及申请小游戏。
 
 - 小游戏申请通过后，在开发者平台的 **开发管理 -> 开发设置** 中找到 appid。
 
@@ -112,7 +112,7 @@ Cocos Creator 从 **v2.4.4** 开始支持字节跳动小游戏的分包功能，
 
 ## 参考链接
 
-- [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration)
+- [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)
 - [字节跳动小游戏 API 文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
 - [字节跳动开发者工具下载](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
 - [字节跳动开发者工具介绍](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)
