@@ -201,4 +201,4 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 ## 案例
 
-具体可以参考 **范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/next/assets/cases/07_render_texture)），从编辑器创建范例集合项目可以看到实际运行效果。
+具体可以参考 **范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)），从编辑器创建范例集合项目可以看到实际运行效果。
