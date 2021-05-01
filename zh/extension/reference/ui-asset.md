@@ -12,7 +12,7 @@
 `value`| string | 接收资源的 uuid
 `droppable`| string | 支持接收的元素名称，多种元素用逗号隔开
 `type`| string | 显示的资源类型名称
-`empty`| boolean ，只读| 是否内部已有资源数据
+`empty`| boolean，只读| 是否内部已有资源数据
 > 带中划线的属性，使用键值对获取值时需改为驼峰式写法，例如 `element.multiValues`
 
 ## event 事件

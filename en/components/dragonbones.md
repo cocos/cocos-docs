@@ -11,7 +11,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 ## DragonBones Properties
 
-| Properties |   Function Explanation
+| property |   Function Explanation
 | --------------------- | ------------------ |
 | Dragon Asset          | The json data contains the DragonBones information (bind pose bones, slots, draw order,attachments, skins, etc) and animations, but does not hold any state.<br>Multiple ArmatureDisplay can share the same DragonBones data.<br>You can drag and drop the bone resources exported from DragonBones here.
 | Dragon Atlas Asset    | The json data contains the Texture information. You can drag and drop the Atlas resources exported from DragonBones here.

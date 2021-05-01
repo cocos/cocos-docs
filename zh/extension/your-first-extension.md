@@ -39,8 +39,8 @@ hello-world
 
 - `name` String - 定义了包的名字，包的名字是全局唯一的，他关系到你今后在官网服务器上登录时的名字。
 - `version` String - 版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
-- `description` String（可选） - 一句话描述你的包是做什么的。
-- `author` String（可选） - 扩展包的作者
+- `description` String（可选）- 一句话描述你的包是做什么的。
+- `author` String（可选）- 扩展包的作者
 - `main` String (可选) - 入口程序
 - `main-menu` Object (可选) - 主菜单定义
 
@@ -74,6 +74,6 @@ module.exports = {
 
 ## 运行扩展包程序
 
-现在你可以打开你的 Cocos Creator，你将会发现你的主菜单中多出了一份 `Packages` 的菜单，点击 `Packages` 菜单中的 `Hello World` 将会发送一个消息 “hello-world:say-hello” 给我们的扩展包的 `main.js`， 它会在 Creator 的控制台中打印出 “Hello World” 的日志信息。
+现在你可以打开你的 Cocos Creator，你将会发现你的主菜单中多出了一份 `Packages` 的菜单，点击 `Packages` 菜单中的 `Hello World` 将会发送一个消息 “hello-world:say-hello” 给我们的扩展包的 `main.js`，它会在 Creator 的控制台中打印出 “Hello World” 的日志信息。
 
 恭喜你完成了第一个简单的编辑器扩展工具。

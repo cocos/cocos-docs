@@ -6,15 +6,15 @@
 
 本文以介绍 JavaScript 为主，初学者掌握本文的内容后，将能够对 JavaScript 有大体了解，并且满足 Cocos Creator 的开发需求。
 
-JavaScript是一门充满争议的编程语言：它以 Java 命名，但实际上和 Java 毫无关系。JavaScript 的创造[只用了10天时间](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)，但在20年时间里却发展成世界上最流行的 Web 开发语言。如果为 JavaScript 今日的地位和流行程度找一个原因，那毫无疑问是容易上手的语言特性。当然，精通 JavaScript 是一项艰巨的任务，但学会足够开发 Web 应用和游戏的知识却很简单，如果你已经有了一定编程基础，熟悉 JavaScript 语言特性不会花费你多长时间。
+JavaScript是一门充满争议的编程语言，它以 Java 命名，但实际上和 Java 毫无关系。JavaScript 的创造 [只用了 10 天时间](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)，但在 20 年时间里却发展成世界上最流行的 Web 开发语言。如果为 JavaScript 今日的地位和流行程度找一个原因，那毫无疑问是容易上手的语言特性。当然，精通 JavaScript 是一项艰巨的任务，但学会足够开发 Web 应用和游戏的知识却很简单，如果你已经有了一定编程基础，熟悉 JavaScript 语言特性不会花费你多长时间。
 
-另外，在使用 Cocos Creator 开发游戏时你大多数情况下都会重复使用一些固有的模式。根据帕雷托法则（也叫二八定律），掌握一门语言的20%就足够你应付80%以上的情况了。现在就让我们来花最短的时间学习足够的 JavaScript 知识，以便我们开始使用 Cocos Creator 开发游戏。
+另外，在使用 Cocos Creator 开发游戏时你大多数情况下都会重复使用一些固有的模式。根据帕雷托法则（也叫二八定律），掌握一门语言的 20% 就足够你应付 80% 以上的情况了。现在就让我们来花最短的时间学习足够的 JavaScript 知识，以便我们开始使用 Cocos Creator 开发游戏。
 
 ## 边读边尝试
 
 如果你能看到这篇文章，那么你已经具备了全功能的 JavaScript 开发环境——我说的就是你正在使用的浏览器！
 
-在本页面中读到的所有例子，你都可以把他们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读[如何在不同浏览器中打开控制台的指南](http://webmasters.stackexchange.com/a/77337)。
+在本页面中读到的所有例子，你都可以把他们输入到浏览器的控制台里并查看运行结果，如果你不清楚怎么做，可以阅读 [如何在不同浏览器中打开控制台的指南](http://webmasters.stackexchange.com/a/77337)。
 
 准备好了吗？让我们开始学习 JavaScript 吧！
 
@@ -39,7 +39,6 @@ a = 12;
 ```
 
 如果你在浏览器控制台中尝试，会发现 JavaScript 在面对省略 `var` 时的变量声明并不会报错，但在 Cocos Creator 项目脚本中，声明变量时的 `var` 是不能省略的，否则编译器会报错。
-
 
 ## 函数
 
@@ -80,9 +79,9 @@ myFunction = function (a) {
 }
 ```
 
-## If
+## `if`
 
-JavaScript 中条件判断语句`if` 是这样用的：
+JavaScript 中条件判断语句 `if` 是这样用的：
 
 ```js
 if (foo) {
@@ -90,9 +89,9 @@ if (foo) {
 }
 ```
 
-## If/Else
+## `if`/`else`
 
-`if` 后的值如果为 false，会执行`else` 中的语句：
+`if` 后的值如果为 false，会执行 `else` 中的语句：
 
 ```js
 if (foo) {
@@ -108,13 +107,14 @@ If/Else 条件判断还可以像这样写成一行：
 ```js
 foo ? function1() : function2();
 ```
+
 当 `foo` 的值为 true 时，表达式会返回 `function1()` 的执行结果，反之会返回 `function2()` 的执行结果。当我们需要根据条件来为变量赋值时，这种写法就非常方便：
 
 ```js
 var n = foo ? 1 : 2;
 ```
 
-上面的语句可以表述为“当 `foo` 是 true 时，将 `n` 的值赋为1，否则赋为2”。
+上面的语句可以表述为“当 `foo` 是 true 时，将 `n` 的值赋为 1，否则赋为 2”。
 
 当然我们还可以使用 `else if` 来处理更多的判断类型：
 
@@ -264,9 +264,9 @@ n.double().square(); //100
 
 简单地说，`this` 关键字能让你访问正在处理的对象：就像变色龙一样，`this` 也会随着执行环境的变化而变化。
 
-解释`this` 的原理是很复杂的，不妨让我们使用两种工具来帮助我们在实践中理解 `this` 的值：
+解释 `this` 的原理是很复杂的，不妨让我们使用两种工具来帮助我们在实践中理解 `this` 的值：
 
-首先是最普通又最常用的`console.log()` ，它能够将对象的信息输出到浏览器的控制台里。在每个函数体开始的地方加入一个`console.log()` ，确保我们了解当时运行环境下正在处理的对象是什么。
+首先是最普通又最常用的 `console.log()`，它能够将对象的信息输出到浏览器的控制台里。在每个函数体开始的地方加入一个 `console.log()`，确保我们了解当时运行环境下正在处理的对象是什么。
 
 ```js
 myFunction = function (a, b) {
@@ -288,10 +288,9 @@ myFunction = function (a, b) {
 
 关于 JavaScript 里 `this` 的详细原理说明，请参考这篇文章 [this 的值到底是什么？一次说清楚](http://zhuanlan.zhihu.com/p/23804247)。
 
-
 ## 运算符
 
-`=` 是赋值运算符， `a = 12` 表示把 “12” 赋值给变量 `a`。
+`=` 是赋值运算符，`a = 12` 表示把 “12” 赋值给变量 `a`。
 
 如果你需要比较两个值，可以使用 `==`，例如 `a == 12`。
 
@@ -340,9 +339,8 @@ a = 0;
 最后，下面这些代码风格上的规则能帮助我们写出更清晰明确的代码：
 
 - 使用驼峰命名法：定义 `myRandomVariable` 这样的变量名，而不是 `my_random_variable`
-- 在每一行结束时写一个`;`，尽管在 JavaScript 里行尾的`;` 是可以忽略的
-- 在每个关键字前后都加上空格，如`a = b + 1`，而不是`a=b+1`
-
+- 在每一行结束时写一个 `;`，尽管在 JavaScript 里行尾的 `;` 是可以忽略的
+- 在每个关键字前后都加上空格，如 `a = b + 1`，而不是 `a=b+1`
 
 ## 组合我们学到的知识
 
@@ -373,7 +371,7 @@ var Comp = cc.Class({
 
 让我们分别看下每一句的作用（我会高亮有用的语法模式）：
 
-`var Comp = cc.Class({`：这里我们使用 `cc` 这个对象，通过**点语法**来调用对象的`Class()`方法（该方法是`cc`对象的一个属性），调用时传递的参数是一个匿名的**JavaScript 对象** （`{}`）。
+`var Comp = cc.Class({`：这里我们使用 `cc` 这个对象，通过 **点语法** 来调用对象的 `Class()` 方法（该方法是 `cc` 对象的一个属性），调用时传递的参数是一个匿名的 **JavaScript 对象**（`{}`）。
 
 `target: { default: null, type: cc.Entity }`：这个键值对声明了一个名为 `target` 的属性，值是另一个 JavaScript 匿名对象。这个对象定义了 target 的默认值和值类型。
 
@@ -381,7 +379,7 @@ var Comp = cc.Class({
 
 `onStart: function () {`：这一对键值定义了一个成员方法，叫做`onStart`，他的值是一个匿名函数。
 
-`this.target = cc.Entity.find('`：在这一句的上下文中，`this`表示正在被创建的 Component 组件，这里通过 `this.target` 来访问 `target` 属性。
+`this.target = cc.Entity.find('`：在这一句的上下文中，`this` 表示正在被创建的 Component 组件，这里通过 `this.target` 来访问 `target` 属性。
 
 ## 继续学习
 
@@ -393,10 +391,5 @@ var Comp = cc.Class({
 
 以下是 JavaScript 的一些入门教程:
 
-- [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
-- [JavaScript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
-
-
----
-
-继续前往 [CCClass 进阶参考](reference/class.md)。
+- [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
+- [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)

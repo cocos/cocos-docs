@@ -91,7 +91,7 @@ C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，�
 
 ![](jsb/store-file.png)
 
-这里先准备 `ABCJSBBridge.h`，里面主要是申明了一个 `abcLog` 的函数，此函数就是供 JS 层调用打 log 的，另外由于打 log 方法肯定在 js 层很多地方都会使用，所以这里采用了一个单例模式，提供了 `getInstance()` 来获取当前类的实例 。
+这里先准备 `ABCJSBBridge.h`，里面主要是申明了一个 `abcLog` 的函数，此函数就是供 JS 层调用打 log 的，另外由于打 log 方法肯定在 js 层很多地方都会使用，所以这里采用了一个单例模式，提供了 `getInstance()` 来获取当前类的实例。
 
 ```cpp
 #include <string>
@@ -432,7 +432,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 ## 自动绑定的限制条件
 
-自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 github 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 GitHub 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
 1. 只能够针对类生成绑定，不可以绑定结构体，独立函数等。
 2. 不能够生成 `Delegate` 类型的 API，因为脚本中的对象是无法继承 C++ 中的 `Delegate` 类并重写其中的 `Delegate` 函数的。
 3. 子类中重写了父类的 API 的同时，又重载了这个 API。

@@ -12,17 +12,18 @@ API reference: [TiledMap API](../../../api/en/classes/TiledMap.html).
 
 ## TiledMap Properties
 
-| Properties |   Details
+| Property |   Details
 | -------------- | ----------- |
 | Tmx Asset | Specify the asset of the TMX format map. |
 
 ## Details
 
 - When a TiledMap component is added, you can render a map by drag a TiledMap asset from **Assets** panel to the property **Tmx Asset** of the TiledMap component.
+
 - After you add the **Tmx Asset** property to the TiledMap component, the TiledMap component will add children node corresponding to the layers in the map. A TiledLayer component will be added for the children node. **Please DO NOT remove the TiledLayer component.**
 
   ![](./tiledmap/tiledlayer.png)
-- The Tiledmap component does not support `mapLoaded` callback, you can use TiledMap component in callback `start`.
+- The TiledMap component does not support `mapLoaded` callback, you can use TiledMap component in callback `start`.
 
 ## TiledLayer and Node Overlap
 

@@ -106,7 +106,7 @@ A common problem is that when the camera is moved, rotated, or scaled, the coord
 
 Because the click coordinates obtained at this time are the coordinates in the screen coordinate system, we need to transform this coordinate into the world coordinate system to continue the operation with the node's world coordinates.
 
-Here are some functions of coordinate transformation：
+Here are some functions of coordinate transformation:
 
 ```javascript
 // Transform a point from screen coordinates to world coordinates

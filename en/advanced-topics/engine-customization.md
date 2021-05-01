@@ -168,8 +168,8 @@ If you want to get the latest version of the official developing, you need to do
 
 In the `jsb-adapter` directory, the following two directory structures are included:
 
-- `builtin`：Adapt the runtime of the native platform
-- `engine`：Adapt some APIs of the engine level
+- `builtin`: Adapt the runtime of the native platform
+- `engine`: Adapt some APIs of the engine level
 
 The `builtin` section also includes a number of related JSB interfaces, such as openGL, audioEngine, in addition to adapting the BOM and DOM runtime environment.
 
@@ -213,14 +213,14 @@ npm install -g gulp
 npm install
 ```
 
-Next, you can customize the code in **jsb-adapter** . After the modification is complete, continue to execute it on the command line:
+Next, you can customize the code in **jsb-adapter**. After the modification is complete, continue to execute it on the command line:
 
 ```bash
 # in jsb-adapter folder
 gulp
 ```
 
-The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
+The `gulp` command will pack all the code in **builtin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
 
 After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
 

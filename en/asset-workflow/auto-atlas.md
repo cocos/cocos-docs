@@ -18,7 +18,7 @@ If there're settings for **SpriteFrame** assets (such as trim), they will be pre
 
 After selecting an **Auto Atlas asset** in the **Assets** panel, the **Properties** panel will display all configurable properties for the **Auto Atlas asset**.
 
-| Properties | Description
+| property | Description
 | -------------- | ----------- |
 | Max Width  |The maximum width of a single atlas
 | Max Height | The maximum height of a single atlas

@@ -69,11 +69,6 @@ Let's take a look at a real example. Take a child node that has been directly pu
 
 ![percentage](widget-align/percentage.png)
 
-When inputting the margin value when opening alignment direction, Widget can use the pixel unit together with percentage unit according to various needs. For example, input `50%` on the `Left` direction that needs to align with the center line of the screen and input `20px` on the `Right` direction that needs to align with the borders of the screen; when calculating the position and size of the child node at last, all the margins will be positioned after being converted to pixcel distance according to the size of the parent node.
+When inputting the margin value when opening alignment direction, Widget can use the pixel unit together with percentage unit according to various needs. For example, input `50%` on the `Left` direction that needs to align with the center line of the screen and input `20px` on the `Right` direction that needs to align with the borders of the screen; when calculating the position and size of the child node at last, all the margins will be positioned after being converted to pixel distance according to the size of the parent node.
 
 Making use of the percentage alignment distance, we can create UI elements that can zoom in/out infinitely according to the size of the screen. Exerting your imagination, fitting a thousand types of Android phones with one set of resources will be a piece of cake!
-
-
----
-
-Continue on to read about [Label Layout](label-layout.md).

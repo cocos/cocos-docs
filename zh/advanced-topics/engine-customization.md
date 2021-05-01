@@ -2,13 +2,13 @@
 
 Cocos Creator 的引擎部分包括 JavaScript、Cocos2d-x 和 adapter 三个部分。全部都在 GitHub 上开源。地址在：
 
-- JavaScript 引擎：<https://github.com/cocos-creator/engine>
-- Cocos2d-x 引擎：<https://github.com/cocos-creator/engine-native>
+- **JavaScript 引擎**：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)
+- **Cocos2d-x 引擎**：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)
 
 Adapter 地址分别在：
 
-- `jsb-adapter`：<https://github.com/cocos-creator-packages/jsb-adapter>
-- `Mini-game-adapters`：<https://github.com/cocos-creator-packages/adapters/>
+- `jsb-adapter`：[GitHub](https://github.com/cocos-creator-packages/jsb-adapter) | [Gitee](https://gitee.com/mirrors_cocos-creator/jsb-adapter)
+- `Mini-game-adapters`：[GitHub](https://github.com/cocos-creator-packages/adapters) | [Gitee](https://gitee.com/mirrors_cocos-creator/adapters)
 
 建议你通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 
@@ -141,7 +141,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-**注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
+> **注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
 
 ![](engine-customization/sign.png)
 
@@ -168,7 +168,7 @@ Cocos Creator 为了实现跨平台，在 JavaScript 层需要对不同平台做
 
 在 `jsb-adapter` 目录下，主要包括以下两个目录结构：
 
-- `builtin`：适配原生平台的 runtime<br>
+- `builtin`：适配原生平台的 runtime
 - `engine`：适配引擎层面的一些 api
 
 `builtin` 部分除了适配 BOM 和 DOM 运行环境，还包括了一些相关的 jsb 接口，如 openGL, audioEngine 等。
@@ -230,10 +230,10 @@ gulp
 
 ### 3.3 定制小游戏 adapter
 
-**小游戏** 的适配层代码位于 `resources/builtin` 目录下的 `adapters`。  
+**小游戏** 的适配层代码位于 `resources/builtin` 目录下的 `adapters`。
 
-- 这部分代码的定制，不需要任何编译操作。  
-- 引擎层面的适配工作，请在相应的 engine 目录下完成。  
+- 这部分代码的定制，不需要任何编译操作。
+- 引擎层面的适配工作，请在相应的 engine 目录下完成。
 
 如果开发者想要了解更多小游戏 adapter 相关内容，可阅读 [小游戏文档](https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html)。
 

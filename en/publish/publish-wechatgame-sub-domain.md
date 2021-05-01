@@ -82,7 +82,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-    **Note**: The **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
+    > **Note**: the **Title** in the **Build** panel must match the name of the **Open Data Context Root** set in the main context project.
 
     ![](./publish-wechatgame/open-data-project-build.png)
 
@@ -167,7 +167,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 3. The **Build path** set the same path in the **Open Data Context Root** filled in the main context, that is, assigned to the release package directory of the main context project. Then click on **Build**.
 
-    **Note**: The **Title** in the **Build** panel must match the **Open Data Context Root** name set in the main context project.
+    > **Note**: the **Title** in the **Build** panel must match the **Open Data Context Root** name set in the main context project.
 
     ![](./publish-wechatgame/open-data-project-build.png)
 

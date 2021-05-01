@@ -32,13 +32,13 @@ You can also to compile the native project of the native platform separately by 
 ## Publish Parameters
 
  - `--path`: Project Path
- - `--build`: Pulibsh project Parameters
+ - `--build`: Publish project parameters
  - `--compile`: Compile native project Parameters
  - `--force`: Skip version upgrade detection, no upgrade prompt box will pop up
 
 If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
-- `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
+- `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/holycanvas/engine/blob/76460006e5046475cb714c48f801af8ea6a4fac9/modules.json).
 - `title` - Project title
 - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, jkw-game, fb-instant-games, android-instant]
 - `buildPath` - Publish path

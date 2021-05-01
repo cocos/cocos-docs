@@ -18,7 +18,7 @@ Cocos Creator 提供了强大的集成式游戏开发环境，使用引擎插件
 
 一、下载 Cocos Creator 构建插件
 
-地址：https://github.com/cocos-creator/plugin-wechat-engine-separation/archive/master.zip
+下载地址：[GitHub](https://github.com/cocos-creator/plugin-wechat-engine-separation/archive/master.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/plugin-wechat-engine-separation)
 
 二、安装插件
 

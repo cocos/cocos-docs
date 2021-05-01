@@ -15,10 +15,10 @@
 [`focused`](#`focused,-disabled`-控制状态)| boolean | 控制 `focused` 状态 
 [`disabled`](#`focused,-disabled`-控制状态)| boolean | 控制 `disabled` 状态，设置此属性后不再响应事件
 `readonly`| boolean | 控制 `readonly` 状态，设置此属性后不再响应事件
-[`max`](#max)| number ，默认为 infinite| 限制允许输入的最大值
-[`min`](#min)| number ，默认为 -infinite| 限制允许输入的最小值
-[`step`](#step)| number ，默认为 1| 递增的步长
-[`precision`](#min)| number ，默认为 20| 保留的小数点位数
+[`max`](#max)| number，默认为 infinite| 限制允许输入的最大值
+[`min`](#min)| number，默认为 -infinite| 限制允许输入的最小值
+[`step`](#step)| number，默认为 1| 递增的步长
+[`precision`](#min)| number，默认为 20| 保留的小数点位数
 `unnavigable`| boolean | 控制是否可导航，组件默认可以通过 tab 键获取焦点，设置此属性后无法通过 tab 获取焦点，并且鼠标获取焦点后不会有 focus 样式
 `placeholder`| string | 组件不存在 `value` 值时显示的内容
 

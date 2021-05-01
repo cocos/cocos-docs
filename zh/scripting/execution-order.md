@@ -2,7 +2,7 @@
 
 ## 使用统一的控制脚本来初始化其他脚本
 
-一般我都会有一个 `Game.js` 的脚本作为总的控制脚本，假如我还有 `Player.js`, `Enemy.js`, `Menu.js` 三个组件，那么他们的初始化过程是这样的：
+一般会有一个 `Game.js` 的脚本作为总的控制脚本，假如还有 `Player.js`、`Enemy.js`、`Menu.js` 三个组件，那么它们的初始化过程是这样的：
 
 ```js
 // Game.js
@@ -27,7 +27,7 @@ cc.Class({
 });
 ```
 
-其中在 `Player.js`, `Enemy.js` 和 `Menu.js` 中需要实现 `init` 方法，并将初始化逻辑放进去。这样我们就可以保证 Player, Enemy 和 Menu 的初始化顺序。
+其中在 `Player.js`、`Enemy.js` 和 `Menu.js` 中需要实现 `init` 方法，并将初始化逻辑放进去。这样我们就可以保证 Player、Enemy 和 Menu 的初始化顺序。
 
 ## 在 Update 中用自定义方法控制更新顺序
 
@@ -150,8 +150,4 @@ cc.Class({
 ```
 
 executionOrder 越小，该组件相对其它组件就会越先执行。executionOrder 默认为 0，因此设置为负数的话，就会在其它默认的组件之前执行。
-executionOrder 只对 onLoad, onEnable, start, update 和 lateUpdate 有效，对 onDisable 和 onDestroy 无效。
-
----
-
-继续前往 [网络接口](network.md)。
+executionOrder 只对 onLoad、onEnable、start、update 和 lateUpdate 有效，对 onDisable 和 onDestroy 无效。

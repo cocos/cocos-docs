@@ -8,7 +8,7 @@ Create a new empty node, and then click the **Add Component** button below the *
 
 ## Graphic Properties
 
-| Properties |   Function Explanation
+| property |   Function Explanation
 | -------------- | ----------- |
 | [lineCap](../render/graphics/lineCap.md)         | lineCap determines how the end points of every line are drawn
 | [lineJoin](../render/graphics/lineJoin.md)       | lineJoin determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together

@@ -15,7 +15,7 @@ cc.director.getPhysicsManager().enabled = true;
 
 ### 绘制物理调试信息
 
-物理系统默认是不绘制任何调试信息的，如果需要绘制调试信息，请使用 **debugDrawFlags** 。
+物理系统默认是不绘制任何调试信息的，如果需要绘制调试信息，请使用 **debugDrawFlags**。
 物理系统提供了各种各样的调试信息，你可以通过组合这些信息来绘制相关的内容。
 
 ```javascript

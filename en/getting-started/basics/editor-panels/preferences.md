@@ -1,7 +1,6 @@
 # Settings
 
-**Settings** the panel provides a variety of personalized global editor settings,
-To Open **Settings** Window, Please select the main menu `CocosCreator -> Settings`.
+**Settings** the panel provides a variety of personalized global editor settings. To open **Settings** window, please select the main menu `CocosCreator -> Settings`.
 
 **Settings** is composed of several different pages, all settings are divided into the following categories.
 After modifying the settings, click the **Save** button.
@@ -24,9 +23,9 @@ After modifying the settings, click the **Save** button.
 
   When hovering close to the value of the property name, The cursor will turn into ![mouse cursor](preferences/mouse-cursor.jpg) such a shape, then Drag the mouse, can also according to a continuous increase or decrease the value of step amplitude.
 
-  The above two ways to modify the value，The default step size is `0.1`, Spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to `1`, can be adjusted more easily.
+  The above two ways to modify the value. The default step size is `0.1`, Spin step says each time you click the step button or drag the mouse to change the step amplitude. For example, if you mainly use numbers to integers in the script, you can take the step size is set to `1`, can be adjusted more easily.
 
-  > **Note**：after modifying the steps to refresh the Editor window (Ctrl/Cmd + R), set the Stride length will take effect
+  > **Note**: after modifying the steps to refresh the Editor window (Ctrl/Cmd + R), set the Stride length will take effect
 
 * **Show dialog when meta files backed up**: When the resource to which the meta file belongs is lost, whether a dialog pops up prompts you to back up or delete the meta file. If you choose to back up, you can manually restore the resources later, and manually copy the meta file back to the project assets directory to prevent loss of important resource-related settings (such as scenarios, prefabs).
 
@@ -46,7 +45,7 @@ This category is used to set the default open mode for scripts and resources. In
 
 ## Native Develop
 
-This classification is used to set the build is released to the native platform ( iOS, Android, Mac, Windows), the required development environment path.
+This classification is used to set the build is released to the native platform (iOS, Android, Mac, Windows), the required development environment path.
 
 ![native develop](preferences/native-develop.jpg)
 
@@ -54,11 +53,11 @@ This classification is used to set the build is released to the native platform 
 
 * **JavaScript Engine Path**: In addition to using `engine`, you can also customize to <https://github.com/cocos-creator/engine> to clone or fork a copy of the engine to the local anywhere, then uncheck **Use Builtin JavaScript Engine** and set the **Use Builtin JavaScript Engine** path to your custom engines. You can use the editor to customize your engine.
 
-* **Use Builtin Cocos2d-x Engine**: Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all Build native platform ( iOS, Android, Mac, Windows ) project to build and compile.
+* **Use Builtin Cocos2d-x Engine**: Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all Build native platform (iOS, Android, Mac, Windows) project to build and compile.
 
 * **Cocos2d-x Path**: **Use Builtin Cocos2d-x Engine** cancel previous selections, you can manually specify the path cocos2d-x. Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/engine-native> or the warehouse's fork.
 
-* **WechatGame App Path**: Set the WechatGame App Path, See [WeChat Mini Games](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F).
+* **WeChatGame App Path**: Set the WeChatGame App Path, See [WeChat Mini Games](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F).
 
 * **NDK Path**: Set the NDK Path, See [Setup Native Development Environment](../../../publish/setup-native-development.md).
 
@@ -80,7 +79,7 @@ When using **Play** button directly above the main window, you can set various o
 
 * **Simulator Resolution**: Select a resolution from the default device as a simulator for resolution.
 
-* **Simulato Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
+* **Simulator Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
 
 * **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**).
 

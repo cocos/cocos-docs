@@ -47,7 +47,3 @@ cc.loader.load('http://example.com/background.mp3?useDom=1', callback);
 ```
 
 It should be noted that if you use the DOM mode to load the audio, in the cc.loader cache, the cache will also have the url? UseDom = 1. It is not recommended to fill in the url of the resource directly, try to define an AudioClip in the script, and then define it in the editor.
-
-<hr>
-
-Continue on to read about [Prefabricate Asset](prefab.md).

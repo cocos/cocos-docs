@@ -1,9 +1,8 @@
 # ToggleGroup component reference
 
-**Node**: ToggleGroup is deprecated, please use [ToggleContainer](toggleContainer.md) instead.
+> **Node**: ToggleGroup is deprecated, please use [ToggleContainer](toggleContainer.md) instead.
 
-ToggleGroup is not a visiable UI component but a way to modify the behavior of a set of Toggles.
-Toggles that belong to the same group could only have one of them to be switched on at a time.
+ToggleGroup is not a visible UI component but a way to modify the behavior of a set of Toggles. Toggles that belong to the same group could only have one of them to be switched on at a time.
 
 ![toggle-group](./toggle/toggle-group.png)
 
@@ -20,5 +19,3 @@ The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/clas
 ## Detailed explanation
 
 The ToggleGroup won't be used alone and it usually be used with `Toggle` to implement the RatioButton.
-
----

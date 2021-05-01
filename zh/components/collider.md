@@ -15,7 +15,7 @@
 
 碰撞组件目前包括了 **Polygon（多边形）**，**Circle（圆形）**，**Box（矩形）** 这几种碰撞组件，这些组件都继承自 **Collider** 组件，所以 **Collider** 组件的属性他们也都享有。
 
-### Polygon（多边形） 碰撞组件属性
+### Polygon（多边形）碰撞组件属性
 
 ![](collider/polygon.png)
 
@@ -26,7 +26,7 @@
 | Offset    | 组件相对于节点的 **偏移量**。
 | Points    | 组件的 **顶点数组**。
 
-### Circle（圆形） 碰撞组件属性
+### Circle（圆形）碰撞组件属性
 
 ![](collider/circle.png)
 
@@ -35,7 +35,7 @@
 | Offset | 组件相对于节点的 **偏移量**。
 | Radius | 组件的 **半径**。
 
-### Box（矩形） 碰撞组件属性
+### Box（矩形）碰撞组件属性
 
 ![](collider/box.png)
 

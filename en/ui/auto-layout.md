@@ -28,18 +28,14 @@ The Layout arrays' subnodes are based on the display order of subnodes in **Node
 
 ### Horizontal Direction
 
-You can set up two directions:  `Left to Right` or `Right to Left`. The former will array the nodes from left to right according to their display order in **Node Tree**; the later will array the nodes from right to left according to their display order in **Node Tree**.
+You can set up two directions: `Left to Right` or `Right to Left`. The former will array the nodes from left to right according to their display order in **Node Tree**, the later will array the nodes from right to left according to their display order in **Node Tree**.
 
 ### Vertical Direction
 
-You can set up two directions:  `Top to Bottom` or `Bottom to Top`. The former will array the nodes from top to bottom according to their display order in **Node Tree**; the later will array the nodes from bottom to top according to their display order in **Node Tree**.
+You can set up two directions: `Top to Bottom` or `Bottom to Top`. The former will array the nodes from top to bottom according to their display order in **Node Tree**, the later will array the nodes from bottom to top according to their display order in **Node Tree**.
 
 ## Other layout types are coming soon
 
 We will update this part of the document in the next edition.
 
 For the properties of other Layout components, please check [Layout](../components/layout.md) document.
-
-<hr>
-
-Continue on to read about [List with Data](list-with-data.md).

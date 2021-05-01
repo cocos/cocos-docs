@@ -7,4 +7,4 @@
 - [关节组件](joint-component.md)
 - [高级设置](advanced-settings.md)
 
-更多使用方法请到 [物理系统示例](https://github.com/cocos-creator/example-physics) 查阅
+更多使用方法请到 **物理系统示例**（[GitHub](https://github.com/cocos-creator/example-physics) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-physics)）查阅。

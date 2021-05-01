@@ -54,7 +54,7 @@
 | cc.follow | 追踪目标节点的位置 | [API 描述](../../../api/zh/modules/cc.html#follow) |
 | cc.bezierTo | 按贝赛尔曲线轨迹移动到目标位置 | [API 描述](../../../api/zh/modules/cc.html#bezierTo) |
 | cc.bezierBy | 按贝赛尔曲线轨迹移动指定的距离 | [API 描述](../../../api/zh/modules/cc.html#bezierBy) |
-| cc.blink | 闪烁（基于透明度） | [API 描述](../../../api/zh/modules/cc.html#blink) |
+| cc.blink | 闪烁（基于透明度）| [API 描述](../../../api/zh/modules/cc.html#blink) |
 | cc.fadeTo | 修改透明度到指定值 | [API 描述](../../../api/zh/modules/cc.html#fadeTo) |
 | cc.fadeIn | 渐显 | [API 描述](../../../api/zh/modules/cc.html#fadeIn) |
 | cc.fadeOut | 渐隐 | [API 描述](../../../api/zh/modules/cc.html#fadeOut) |

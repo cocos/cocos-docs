@@ -10,7 +10,7 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 
 ## Spine Properties
 
-| Properties |   Function explanation
+| property |   Function explanation
 | --------------------- | ------------------ |
 | Skeleton Data         | The skeleton data contains the skeleton information, drag the bone resources exported from Spine into this property.
 | Default Skin          | Choose the default skin texture

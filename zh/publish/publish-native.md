@@ -14,7 +14,7 @@
 
 如果项目中图集较多，有可能会导致 `project.manifest` 文件过大，建议勾选该项来减小 `project.manifest` 的体积。
 
-**注意**：在热更新时，需要确保新旧项目中该功能的开启/关闭状态保持一致，否则会导致热更新之后出现资源引用错误的情况。
+> **注意**：在热更新时，需要确保新旧项目中该功能的开启/关闭状态保持一致，否则会导致热更新之后出现资源引用错误的情况。
 
 ### 内联所有 SpriteFrame
 
@@ -22,8 +22,8 @@
 
 ### MD5 Cache
 
-给构建后的所有资源文件名将加上 MD5 信息，解决热更新时的 CDN 资源缓存问题。
-启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
+给构建后的所有资源文件名将加上 MD5 信息，解决热更新时的 CDN 资源缓存问题。<br>
+启用后，如果出现资源加载不了的情况，说明找不到重命名后的新文件。这通常是因为有些 C++ 中用到的第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url，转换后的路径就能正确加载。
 
 ```cpp
 auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -38,7 +38,7 @@ jsval_to_string(cx, returnParam, &url);
 
 设置包名该项为 Android 平台特有的。选择 Android 平台后，构建发布窗口中会显示 **包名** 的输入框，在这里请输入您游戏的包名（也称作 Package Name 或 Bundle ID），通常以产品网站 url 倒序排列，如 `com.mycompany.myproduct`。
 
-**注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
 
 ![package name](publish-native/package_name.png)
 
@@ -85,7 +85,7 @@ Creator 在 **v2.0.9** 中新增了 **App Bundle (Google Play)** 选项。如果
 
 ### 源码引擎
 
-cocos2d-x 引擎中包括源码引擎。他们适用的范围是：
+Cocos2d-x 引擎中包括源码引擎。他们适用的范围是：
 
 - 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
 - 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
@@ -114,7 +114,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 `Compile native project successfully`
 
-**注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
+> **注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
 
 接下来就可以点击右下角的 **运行** 按钮，通过默认方式预览原生平台的游戏。
 
@@ -138,12 +138,12 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
 
 ![native projects](publish-native/native_projects.jpg)
 
-图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE （如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
+图中红框所示的就是不同原生平台的工程，接下来您只要使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进行进一步的编译、预览、发布操作了。关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。
 
-**注意**：
-
-- 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
-- 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
+> **注意**：
+>
+> - 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
+> - 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
 ---
 

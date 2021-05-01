@@ -22,8 +22,8 @@ node.on('mousedown', function (event) {
 
 The Mouse event will only be triggered on desktop platforms, the event types the system provides are as follows:
 
-| enumeration object definition | corresponding event name | event trigger timing |
-| ---------- |:----------:|:-----------:|
+| Enumeration object definition | Corresponding event name | Event trigger timing |
+| :---------- |:----------|:-----------|
 | `cc.Node.EventType.MOUSE_DOWN` | `mousedown` | trigger once when mouse down |
 | `cc.Node.EventType.MOUSE_ENTER` | `mouseenter` | when the mouse enters the target node region, regardless if it is down |
 | `cc.Node.EventType.MOUSE_MOVE` | `mousemove` | when the mouse moves in the target node region, regardless if it is down |
@@ -31,10 +31,10 @@ The Mouse event will only be triggered on desktop platforms, the event types the
 | `cc.Node.EventType.MOUSE_UP` | `mouseup` | trigger once when the mouse is released from the down state |
 | `cc.Node.EventType.MOUSE_WHEEL` | `mousewheel` | when the mouse wheel rolls |
 
-The important APIs of mouse events（`cc.Event.EventMouse`）are as follows（`cc.Event` standard events API excluded）：
+The important APIs of mouse events (`cc.Event.EventMouse`) are as follows (`cc.Event` standard events API excluded):
 
-| function name | returned value type | meaning |
-| ------ |:-------:|:----:|
+| Function name | Returned value type | Meaning |
+| :------ |:-------|:----|
 | `getScrollY` | `Number` | get the y axis distance wheel scrolled, effective only when scrolling  |
 | `getLocation` | `Object` | get mouse location object which includes x and y properties |
 | `getLocationX` | `Number` | get X axis location of the mouse |
@@ -46,25 +46,25 @@ The important APIs of mouse events（`cc.Event.EventMouse`）are as follows（`c
 
 Touch event can be triggered in both mobile platforms and desktop platforms. This is designed to serve developers to debug on desktop platforms better, all you need to do is listen to touch events, touch events from mobile platforms and mouse events from desktop can be responded to at the same time. Touch event types that the system provides are as follows:
 
-| enumeration object definition | corresponding event name | event trigger timing |
-| ---------- |:----------:|:-----------:|
-| `cc.Node.EventType.TOUCH_START` | `touchstart` | when the finger touches the screen |
-| `cc.Node.EventType.TOUCH_MOVE` | `touchmove` | when the finger moves in the target node region on screen |
-| `cc.Node.EventType.TOUCH_END` | `touchend` | when the finger leaves screen in the target node region |
-| `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel` | when the finger leaves screen outside the target node region |
+| Enumeration object definition | Corresponding event name | Event trigger timing |
+| :---------- |:----------|:-----------|
+| `cc.Node.EventType.TOUCH_START` | 'touchstart' | when the finger touches the screen |
+| `cc.Node.EventType.TOUCH_MOVE` | 'touchmove' | when the finger moves in the target node region on screen |
+| `cc.Node.EventType.TOUCH_END` | 'touchend' | when the finger leaves screen in the target node region |
+| `cc.Node.EventType.TOUCH_CANCEL` | 'touchcancel' | when the finger leaves screen outside the target node region |
 
-The important APIs of touch event（`cc.Event.EventTouch`）are as follows（`cc.Event` starndard event API excluded）:
+The important APIs of touch event (`cc.Event.EventTouch`) are as follows (`cc.Event` standard event API excluded):
 
-| API name | type | meaning |
-| ------ |:---:|:----:|
+| API name | Type | Meaning |
+| :------ |:---|:----|
 | `touch` | `cc.Touch` | contact object related to the current event |
 
 Note, touch events support multi-touch, each touch spot will send one event to the event listener. You can get all the information of touch spot from `cc.Touch` API:
 
-| function name | return value type | meaning |
-| ------ |:-------:|:----:|
+| Function name | Return value type | Meaning |
+| :------ |:-------|:----|
 | `getID` | `Number` | identification ID of the touch spot, can be used in multi-touch to track the touch spot |
-| `getLocation` | `Object` | get location object of the touch spot which includes x and y propertites |
+| `getLocation` | `Object` | get location object of the touch spot which includes x and y properties |
 | `getLocationX` | `Number` | get X axis location of the touch spot |
 | `getLocationY` | `Number` | get Y axis location of the touch spot |
 | `getDelta` | `Object` | get the distance object the touch spot moves since the last event, which includes x and y properties |
@@ -123,8 +123,8 @@ The specific hierarchical relationship should be like this:
 
 ## Other events of `cc.Node`
 
-| enumeration object definition | corresponding event name | event trigger timing |
-| ---------- |:----------:|:-----------:|
+| Enumeration object definition | Corresponding event name | Event trigger timing |
+| :---------- |:----------|:-----------|
 | null | `position-changed` | when the location property is changed |
 | null | `rotation-changed` | when the rotation property is changed |
 | null | `scale-changed` | when the scale property is changed |

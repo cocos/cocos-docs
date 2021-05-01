@@ -1,4 +1,4 @@
-# Quick Start：Make your first game
+# Quick Start: Make your first game
 
 This document is a systematic introductions of the editor panel and the functions and workflows of Cocos Creator. Completing this chapter will help you quickly learn the general flow and methods for developing games with Cocos Creator. After finishing this tutorial you have enough information to get started creating basic games. It is strongly recommended you continue reading this guide to understand the details of each functional block and the complete workflows. Now, let's begin!
 
@@ -57,11 +57,13 @@ In Cocos Creator, the game scene is the core of organizing the game contents whe
 When players run the game, the game scene will be loaded. After that, the game scripts of included components will automatically run to realize various kinds of logic functions set up by developers. Therefore, apart from resources, the game scene is the foundation of all content creation. Now let's create a new scene.
 
 1. Click the **assets** directory in the **Assets** panel, making sure the scene will be created under this directory
+
 2. Click the plus sign on the top left corner of the **Assets** panel, and choose **Scene** in the pop up menu
 
-  ![create scene](quick-start/create_scene.png)
+    ![create scene](quick-start/create_scene.png)
 
 3. We created a scene document named as `New Scene`. Right click it and choose **Rename** to rename it as `game`.
+
 4. Double click `game` and the scene will be opened in the **Scene** and the **Node Tree**.
 
 ### To understand Canvas
@@ -120,7 +122,11 @@ According to the method of modifying the `background` node, we can also use **re
 
 ![ground finish](quick-start/ground_finish.png)
 
-Apart from **rectangle tool**, we can also use **move tool** ![translate gizmo](quick-start/translate_gizmo.png) to change the positions of the nodes. Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
+Apart from **rectangle tool**, we can also use **move tool** to change the positions of the nodes.
+
+![translate gizmo](quick-start/translate_gizmo.png)
+
+Try to hold down the arrow of **move tool** shown on the node and drag it, then we can change the position of the node on a single coordinate axis at one time.
 
 When setting up the position and size of the `background` and `ground`, we don't need precise numeric values and can drag them by guessing. If you prefer whole numbers, you can directly input numeric values of `position` and `size` according to the screenshot.
 
@@ -149,8 +155,11 @@ Even if you have never written a program before, there's no need to worry. We wi
 1. First, right click the `assets` folder in the **Assets** panel and choose `Create -> Folder`
 
     ![new folder](quick-start/new_folder.png)
+
 2. Right click `New Folder`, choose `Rename` and rename it as `scripts`. And then all of our scripts will be stored here.
+
 3. Right click the `scripts` folder, choose `Create -> JavaScript` and create a `JavaScript` script.
+
 4. Rename the newly created script as `Player`. Double click this script and open the code editor.
 
 ### Writing component property
@@ -289,7 +298,7 @@ cc.moveBy = function (duration, deltaPos, deltaY) {
 
 As you can see, the method `moveBy` can be passed in three parameters, the first two parameters we already know, the third parameter is the `Y` coordinate of the `Number` type. We can find that the second parameter can be passed in two types, the first is `Number` type, the second is `Vec2` type, if we pass in here is `Number` type, then the default parameter is `X` coordinate, then fill in the third parameter `Y` coordinate. The second parameter in the above example `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight))` is a type of `cc.v2` object constructed using the `Vec2` method, which represents a coordinate, that is, `X` coordinates also have `Y` coordinates, because you don't need to pass in the third parameter. Also pay attention to the official passage `x and y are relative to the position of the object.`, which means that the incoming `X` and `Y` coordinates are relative to the current coordinate position of the node, rather than the absolute coordinates of the entire coordinate system.
 
-After understanding the meaning of the parameters, let's focus on the return value of the `moveBy()` method, and see the official instructions to know that this method returns an object of type `ActionInterval`, `ActionInterval` in Cocos is a class that represents a time interval action, which is done in a certain amount of time. Here we can understand the code `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **Former part** meaning, it means to construct an object of `ActionInterval` type, which represents the movement of the `(0，this.jumpHeight)` coordinates relative to the current node in the `jumpDuration` time. In short, it's a jump up action.
+After understanding the meaning of the parameters, let's focus on the return value of the `moveBy()` method, and see the official instructions to know that this method returns an object of type `ActionInterval`, `ActionInterval` in Cocos is a class that represents a time interval action, which is done in a certain amount of time. Here we can understand the code `cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut())` **Former part** meaning, it means to construct an object of `ActionInterval` type, which represents the movement of the `(0, this.jumpHeight)` coordinates relative to the current node in the `jumpDuration` time. In short, it's a jump up action.
 
 So what is the role of the `easing(cc.easeCubicActionOut())` in the second half? `easing` is a method under the `ActionInterval` class that allows the time interval action to appear as an easing motion, and the incoming parameter is an easing object that returns an object of `ActionInterval` type. Here the incoming is the easing object built with the `easeCubicActionInOut` method. `EaseCubicInOut` is the action of three times function easing to enter and exit, the specific curve can refer to the following figure:
 
@@ -400,7 +409,7 @@ Finally, modify the content of the `update` method by adding settings for the ac
 
 `update` will be invoked once for each frame after loading the scene. We normally put the logic contents that need to be frequently calculated or timely updated here. In our game, after obtaining the acceleration direction by keyboard input, we need to calculate the speed and position of the main character in `update` for each frame.
 
-After saving the script, you can click **preview** to check the latest outcome. After opening the preview in your browser, click the game scene with the mouse (due to the restrictions of browsers, keyboard input can only be accepted after clicking the game scene) , then you can press the <kbd>A</kbd> and <kbd>D</kbd> buttons to manipulate the main character to move to the left/right!
+After saving the script, you can click **preview** to check the latest outcome. After opening the preview in your browser, click the game scene with the mouse (due to the restrictions of browsers, keyboard input can only be accepted after clicking the game scene), then you can press the <kbd>A</kbd> and <kbd>D</kbd> buttons to manipulate the main character to move to the left/right!
 
 Is the movement a little bit too slow? Does the main character not jump high enough? Hope to extend jump duration? No problem! All these can be adjusted at anytime. Just set up different property values for the `Player` component, then you can adjust the game at your will. Here is a set of settings for reference:
 
@@ -495,12 +504,12 @@ The above code sets three parameters for the `score` property default, displayNa
 
 Here are the common parameters:
 
-`default`：Sets the default value for the property, which is only used when the component is first added to the node<br>
-`type`：To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.md#type-attribute)<br>
-`visible`：Set to false to not display this property in the **Properties**<br>
-`serializable`： Set to False to not serialize (save) this property<br>
-`displayName`：Display in the **Properties** as the specified name<br>
-`tooltip`：To add a property's tooltip to the **Properties**
+`default`: Sets the default value for the property, which is only used when the component is first added to the node<br>
+`type`: To qualify the data type of a property, see [CCClass Advanced Reference: type attribute](../scripting/reference/class.md#type-attribute)<br>
+`visible`: Set to false to not display this property in the **Properties**<br>
+`serializable`: Set to False to not serialize (save) this property<br>
+`displayName`: Display in the **Properties** as the specified name<br>
+`tooltip`: To add a property's tooltip to the **Properties**
 
 So the code above is easy to understand:
 
@@ -631,7 +640,7 @@ Save the script, by pressing <kbd>A</kbd> and <kbd>D</kbd> key to control the ma
 
 The little monster makes a great effort to collect the stars, does not have the reward how to line? Now, let's add the logic and display of scoring when collecting stars.
 
-### Adding a score label（Label）
+### Adding a score label (Label)
 
 The score will start from 0 when the game is started. 1 point will be added for 1 star collected. To display the score, we should first create a **Label** node. Choose the `Canvas` node in the **Node Tree**, right click and choose `Create -> Create Renderer Nodes -> Node With Label`. A new label node will be created under `Canvas` node, and it will be located at the bottom. Next we will use the following steps to set up this label node:
 
@@ -639,7 +648,7 @@ The score will start from 0 when the game is started. 1 point will be added for 
 2. Select the `score` node, and set the X,Y of the `position` property to `(0, 180)`.
 3. Edit the `String` property of the **Label** component and input `Score: 0`.
 4. Set the `Font Size` property of the **Label** component to `50`.
-5. Drag the `assets/mikado_outline_shadow` bitmap font resource from the **Assets** (pay attention! the icon is ![bmfont](quick-start/bitmap-font.png)) into the `Font` property of the **Label** component, replace the font of the text with the bitmap font in our project resource
+5. Drag the `assets/mikado_outline_shadow` bitmap font resource from the **Assets** panel (pay attention! the icon is ![bmfont](quick-start/bitmap-font.png)) into the `Font` property of the **Label** component, replace the font of the text with the bitmap font in our project resource
 
 `Score: 0`'s text suggests using an English colon, because the `String` property of the `Label` component will not recognize the Chinese colon after the bitmap font is added to it.
 
@@ -913,4 +922,4 @@ For editions that have been improved in all the above aspects, you can download 
 
 Moreover, if you want to release the completed game on a server to share with your friends, you can read the content of the [Preview Build](basics/preview-build.md) section.
 
-Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on Github](https://github.com/cocos-creator/tutorial-first-game).
+Today's tutorial ends here. You can immediately start creating your second Cocos Creator game or continue reading this guide. For any questions on this quick start tutorial, you can send feedback on [Warehouse of this tutorial on GitHub](https://github.com/cocos-creator/tutorial-first-game).
