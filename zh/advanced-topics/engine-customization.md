@@ -58,7 +58,7 @@ gulp build
 
 ![](engine-customization/bin.png)
 
-**注意**：如果在编译过程中出现 `JavaScript heap out of memory` 的报错，可执行以下命令解决：
+> **注意**：如果在编译过程中出现 `JavaScript heap out of memory` 的报错，可执行以下命令解决：
 
 ```js
 gulp build --max-old-space-size=8192

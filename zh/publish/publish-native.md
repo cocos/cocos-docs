@@ -80,8 +80,8 @@ Creator 在 **v2.0.9** 中新增了 **App Bundle (Google Play)** 选项。如果
 
 在 **模板** 下拉菜单中有两种可用的引擎模板，我们可以从中选择一种：
 
-- default，使用默认的 cocos2d-x 源码版引擎构建项目
-- link，与 default 模板不同的是，link 模板不会拷贝 cocos2d-x 源码到构建目录下，而是使用共享的 cocos2d-x 源码。这样可以有效减少构建目录占用空间，以及对 cocos2d-x 源码的修改可以得到共享。
+- Default，使用默认的 cocos2d-x 源码版引擎构建项目
+- Link，与 Default 模板不同的是，link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用空间，以及对 Cocos2d-x 源码的修改可以得到共享。
 
 ### 源码引擎
 
@@ -114,7 +114,7 @@ Built to "\myProject\example\build\jsb-default" successfully
 
 `Compile native project successfully`
 
-> **注意：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。**
+> **注意**：首次编译 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。
 
 接下来就可以点击右下角的 **运行** 按钮，通过默认方式预览原生平台的游戏。
 
@@ -142,8 +142,8 @@ iOS 平台建议通过 Xcode 连接真机进行编译运行。构建完成后使
 
 > **注意**：
 >
-> - 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
-> - 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
+> 1. 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
+> 2. 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 模块设置** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
 ---
 

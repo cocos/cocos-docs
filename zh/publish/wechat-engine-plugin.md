@@ -74,7 +74,7 @@ A：这是旧版本的 Cocos Creator 构建插件上的兼容性问题，重新�
 
 Q：提交审核时弹出 “使用的插件有新版本” 的提示框，能否更新？<br />
 A：不能更新，请点击 **确定**。
-    
+
   ![](./publish-wechatgame/new_plugin.png)
 
 ## 参考链接

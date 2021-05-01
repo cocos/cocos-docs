@@ -20,7 +20,7 @@ How to achieve the minimum overhead for the abstract layer and expose the unifie
 
 For example, to register a JS function in CPP, there are different definitions in JavaScriptCore, SpiderMonkey, V8, ChakraCore as follows:
 
-- JavaScriptCore
+* JavaScriptCore
 
     ```c++
     JSValueRef JSB_foo_func(
@@ -33,7 +33,7 @@ For example, to register a JS function in CPP, there are different definitions i
         );
     ```
 
-- SpiderMonkey
+* SpiderMonkey
 
     ```c++
     bool JSB_foo_func(
@@ -43,7 +43,7 @@ For example, to register a JS function in CPP, there are different definitions i
         );
     ```
 
-- V8
+* V8
 
     ```c++
     void JSB_foo_func(
@@ -51,7 +51,7 @@ For example, to register a JS function in CPP, there are different definitions i
         );
     ```
 
-- ChakraCore
+* ChakraCore
 
     ```c++
     JsValueRef JSB_foo_func(

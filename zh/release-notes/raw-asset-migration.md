@@ -14,13 +14,15 @@
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
- - 你在自己的游戏代码中直接声明了这些类型：`cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` 和 `cc.ParticleAsset`。
- - 你扩展了引擎或编辑器，定义了新的直接继承自 `cc.RawAsset` 的类型。
- - 你通过 `cc.loader.loadRes` 加载了 resources 文件夹下的 `.json` 后缀的文件。
+
+- 你在自己的游戏代码中直接声明了这些类型：`cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` 和 `cc.ParticleAsset`。
+- 你扩展了引擎或编辑器，定义了新的直接继承自 `cc.RawAsset` 的类型。
+- 你通过 `cc.loader.loadRes` 加载了 resources 文件夹下的 `.json` 后缀的文件。
 
 如果有下列情况，可能需要升级：
- - 你在自己的游戏代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
- - 你使用 `cc.loader` 加载了远程服务器上的文本、粒子。
+
+- 你在自己的游戏代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
+- 你使用 `cc.loader` 加载了远程服务器上的文本、粒子。
 
 ### 我其实并不确定要升级哪些东西？
 
@@ -30,26 +32,27 @@ Cocos Creator 是一个非常重视兼容性的引擎，代码中所有需要升
 
 RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转变成对象。只要保证跟引擎交互时，所使用的是对象即可，原先项目内部如果想要继续使用字符串也是可以的。你要做的无非就是，从引擎获取对象后先转换为字符串，传字符串给引擎前先转换为对象。
 
- - Asset 转字符串<br>
-对于 Texture2D, RawAsset, AudioClip 和 ParticleAsset 类型的资源来说，可以直接通过 `.nativeUrl` 获得原有的 URL。如果无法获取则说明这是其它类型的 Asset 对象，其它类型的对象本来就不用升级，所以不用修改。
+- Asset 转字符串
 
-```js
-    var url = this.file.nativeUrl || this.file;
-```
+  对于 Texture2D, RawAsset, AudioClip 和 ParticleAsset 类型的资源来说，可以直接通过 `.nativeUrl` 获得原有的 URL。如果无法获取则说明这是其它类型的 Asset 对象，其它类型的对象本来就不用升级，所以不用修改。
 
- - 字符串转 Asset
+  ```js
+  var url = this.file.nativeUrl || this.file;
+  ```
 
-```js
-    cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
-        cc.log(typeof audioClip);  // 'object'
-    });
-```
+- 字符串转 Asset
+
+  ```js
+  cc.loader.loadRes(musicURL, cc.AudioClip, function (err, audioClip) {
+      cc.log(typeof audioClip);  // 'object'
+  });
+  ```
 
 ## 升级步骤
 
- - 重命名旧版本 Cocos Creator 所在目录，然后安装新版本 Cocos Creator。这样新旧两个版本就能共存。
- - **备份好旧版本的工程后**，使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。
- - 工程打开后，可能会出现一堆黄色的警告，警告一般都不会影响游戏的预览发布，但是强烈建议都尽快解决。下面我将对常见的警告信息进行讲解。
+- 重命名旧版本 Cocos Creator 所在目录，然后安装新版本 Cocos Creator。这样新旧两个版本就能共存。
+- **备份好旧版本的工程后**，使用新版 Cocos Creator 打开原有工程，Creator 将对有影响的资源重新导入，第一次升级时会稍微多花一点时间，导入完毕后就会打开编辑器主窗口。
+- 工程打开后，可能会出现一堆黄色的警告，警告一般都不会影响游戏的预览发布，但是强烈建议都尽快解决。下面我将对常见的警告信息进行讲解。
 
 ![](raw-asset-migration/warning.png)
 
@@ -113,16 +116,16 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 除了前面提到的警告信息，你还有可能看这个警告。这句话的意思是，你在声明 `audio_bgMusic` 属性的时候，使用了将来有可能引起歧义的简便形式，这些简写暂时被废弃了，等到大部分项目都平滑升级上去后，才会重新支持。通过查找项目中的 `FOO.js`，你能找到原先类似这样的定义方式：
 
 ```js
-    audio_bgMusic: cc.AudioClip,
+audio_bgMusic: cc.AudioClip,
 ```
 
 你需要参照前面的修改方式，使用 type + default 进行完整声明：
 
 ```js
-    audio_bgMusic: {
-        default: null,
-        type: cc.AudioClip,
-    },
+audio_bgMusic: {
+    default: null,
+    type: cc.AudioClip,
+},
 ```
 
 这样一来，游戏场景加载后，`audio_bgMusic` 就会是一个 AudioClip 类型的对象，而不是原先的 audio 字符串。相关的注意事项都和前面一致，这里不再赘述。
@@ -132,20 +135,20 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 这个警告一般是如下代码引起的：
 
 ```js
-    // 按照上面的文档升级后的写法
-    tex: {
-        default: null,
-        type: cc.Texture2D,
-    },
+// 按照上面的文档升级后的写法
+tex: {
+    default: null,
+    type: cc.Texture2D,
+},
 
-    // 原先获取 texture 的代码
-    var texture = cc.textureCache.addImage(this.tex);
+// 原先获取 texture 的代码
+var texture = cc.textureCache.addImage(this.tex);
 ```
 
 这个警告的意思是，当你调用 `addImage` 时，你传入的已经是一个 Texture2D 对象了，所以直接使用这个对象就行，不需要再做加载。因为升级后的 `tex` 就已经是一个 Texture2D 了。也就是说你只要：
 
 ```js
-    var texture = this.tex;
+var texture = this.tex;
 ```
 
 ### "Since 1.10, `cc.audioEngine.play` accept cc.AudioClip instance directly, not a URL string..."
@@ -153,16 +156,16 @@ RawAsset 调整为 Asset，本质上无非就是从引擎层面把字符串转�
 这个警告一般是这种代码引起的：
 
 ```js
-    var url = cc.url.raw('resources/bg.mp3');
-    cc.audioEngine.play(url);
+var url = cc.url.raw('resources/bg.mp3');
+cc.audioEngine.play(url);
 ```
 
 请改成：
 
 ```js
-    cc.loader.loadRes('bg', cc.AudioClip, function (err, clip) {
-        cc.audioEngine.play(clip);
-    });
+cc.loader.loadRes('bg', cc.AudioClip, function (err, clip) {
+    cc.audioEngine.play(clip);
+});
 ```
 
 ## Protobuf 相关更新
@@ -200,14 +203,14 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 从 1.10 开始，常见的文本格式，如 `.txt, .plist, .xml, .json, .yaml, .ini, .csv, .md`，都会导入为 `cc.TextAsset`。可以这样访问 TextAsset：
 
 ```js
-    // 声明
-    file: {
-        default: null,
-        type: cc.TextAsset,
-    },
+// 声明
+file: {
+    default: null,
+    type: cc.TextAsset,
+},
 
-    // 读取
-    var text = this.file.text;
+// 读取
+var text = this.file.text;
 ```
 
 ### 新增了 `cc.JsonAsset` 用于加载 JSON 文件
@@ -215,31 +218,31 @@ ProtoBuf.loadProtoFile = function (filename, callback, builder) {
 从 1.10 开始，项目 assets 文件夹下的所有 `.json` 文件（不含发布后的 imports 目录），都会导入为 `cc.JsonAsset`。你必须调整 loader 相关代码，否则运行时会报错，例如原先是：
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, json) {
-        loadNpc(json);
-    });
+cc.loader.loadRes('configs/npc', function (err, json) {
+    loadNpc(json);
+});
 ```
 
 需要改成：
 
 ```js
-    cc.loader.loadRes('configs/npc', function (err, asset) {
-        loadNpc(asset.json);
-    });
+cc.loader.loadRes('configs/npc', function (err, asset) {
+    loadNpc(asset.json);
+});
 ```
 
 此外，还可以直接读取：
 
 ```js
-    // 声明
-    npcList: {
-        default: null,
-        type: cc.JsonAsset,
-    },
+// 声明
+npcList: {
+    default: null,
+    type: cc.JsonAsset,
+},
 
-    // 读取
-    var json = this.npcList.json;
-    loadNpc(json);
+// 读取
+var json = this.npcList.json;
+loadNpc(json);
 ```
 
 ### 其余未知类型默认也全都导入为 `cc.Asset`

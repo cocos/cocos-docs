@@ -1,7 +1,5 @@
 # 全局系统事件
 
-本篇教程，我们将介绍 Cocos Creator 的全局系统事件。
-
 全局系统事件是指与节点树不相关的各种全局事件，由 `cc.systemEvent` 来统一派发，目前支持以下几种事件：
 
 - 键盘事件
@@ -89,4 +87,4 @@ cc.Class({
 });
 ```
 
-完整范例可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）`cases03_gameplay/01_player_control` 目录（这里包含了键盘、重力感应、单点触摸、多点触摸的范例）。
+详情可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）`assets/cases/03_gameplay/01_player_control` 目录下的完整范例（包含了键盘、重力感应、单点触摸、多点触摸等范例）。

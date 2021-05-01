@@ -28,7 +28,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Is Fullscreen      | Whether play video in fullscreen mode.
 | Video Player Event | the video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details.
 
-> **Note**: in **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+> **Note**: in `cc.Node` of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 

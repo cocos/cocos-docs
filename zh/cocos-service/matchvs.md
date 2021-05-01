@@ -18,7 +18,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
     **计费**：Matchvs 游戏云服务使用 **预付费** 模式，当你的服务使用超过服务商的免费部分，且账户余额不足时，会停止服务。这时候你需要在 Cocos 开发者账户中心进行 **预充值**。具体内容可参考 [计费与充值](./billing-and-charge.md)。
 
     开通服务后，Cocos Service 将自动开通 Matchvs 服务、联通 Matchvs 账号，并集成 Matchvs SDK 到游戏工程中。
-    
+
 ### 验证 Matchvs 接入是否成功
 
 完成 Matchvs 服务接入步骤后，我们可以通过在脚本中添加简单的代码来验证 Matchvs 的接入是否成功。
@@ -50,7 +50,7 @@ Matchvs 游戏云为 Cocos Creator 提供联网与服务端能力，可以在 Co
 
 因为 Matchvs SDK 接口较多，建议直接参考 Matchvs Sample 工程，以及使用其封装方法。
 
-- 打开 Cocos Crerator，在 Dashboard 的 **新建项目** 中创建一个 Matchvs 的 **联网游戏范例**： 
+- 打开 Cocos Creator，在 Dashboard 的 **新建项目** 中创建一个 Matchvs 的 **联网游戏范例**：
 
   ![](matchvs/matchvs-sample-project.png)
 

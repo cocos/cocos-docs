@@ -8,7 +8,7 @@
 JavaScript 引擎：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)<br>
 Cocos2d-x 引擎：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)<br>
 jsb-adapter：[GitHub](https://github.com/cocos-creator-packages/jsb-adapter) | [Gitee](https://gitee.com/mirrors_cocos-creator/jsb-adapter)<br>
-Mini-game-adapters：[GitHub](https://github.com/cocos-creator-packages/adapters) | [Gitee](https://gitee.com/mirrors_cocos-creator/adapters)
+Mini-game-adapters：[GitHub](https://github.com/cocos-creator-packages/adapters/)
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
 

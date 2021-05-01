@@ -25,7 +25,7 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 | Use Tint              | Indicates whether open tint, default is close. (New in v2.0.9)
 | Enable Batch          | Whether to enable animation batch, default is disabled. (New in v2.0.9)<br>When enable, drawcall will reduce, which is suitable for a large number of simple animations to play at the same time.<br>When disabled, drawcall will rise, but it can reduce the computational burden of the CPU. Suitable for complex animations.
 
-**Note**: When using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
+> **Note**: when using the Spine component, the `Anchor` and `Size` properties on the Node component in the **Properties** panel are invalid.
 
 ## Spine ReplaceTexture
 
@@ -33,7 +33,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
 
 ![spine-cloth](./spine/cloth0.png)
 
-1. Create a new empty node in **Node Tree** and rename it as goblingirl, then add the Spine component in **Properties**. And drag the resources of spine into the Skeleton Data property box of the Spine component, set the skin in the red box to replace in the Default Skin property. You can change the Animation property of the Spine component to set the animation that you want to play.
+1. Create a new empty node in **Node Tree** and rename it as `goblingirl`, then add the Spine component in **Properties**. And drag the resources of spine into the Skeleton Data property box of the Spine component, set the skin in the red box to replace in the Default Skin property. You can change the Animation property of the Spine component to set the animation that you want to play.
 
     ![spine-cloth](./spine/cloth1.png)
 
@@ -70,7 +70,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
     });
     ```
 
-4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the Scene.
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the `goblingirl` node and goblin node in **Node Tree** to the corresponding property box of script component, and save the Scene.
 
     ![spine-cloth](./spine/spine-js.png)
 

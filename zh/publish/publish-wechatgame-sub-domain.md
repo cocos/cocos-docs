@@ -94,12 +94,12 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 ![](./publish-wechatgame/preview.png)
 
-**注意：**
+> **注意**：
+>
+> 1. 如果先构建开放数据域再构建主域，那么开放数据域的发布代码会被覆盖。我们已在 v2.0.7 版本中修复该问题
+> 2. 由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它
 
-- 如果先构建开放数据域再构建主域，那么开放数据域的发布代码会被覆盖。我们已在 v2.0.7 版本中修复该问题
-- 由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它
-
-## 参考链接
+### 参考链接
 
 - **Cocos Creator 微信小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-wechat-subdomain/tree/master/)）
 

@@ -160,7 +160,7 @@ cocosAnalytics.CACustomEvent.onFailed(eventID, eventValue, eventFailedReason);
 
 ## 各平台接入集成
 
-根据游戏需求，参考以下 Cocos Analytics 官方文档来进行各平台接入集成。  
+根据游戏需求，参考以下 Cocos Analytics 官方文档来进行各平台接入集成。
 
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/zh/android/init.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/zh/ios/init.html)
