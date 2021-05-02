@@ -9,8 +9,8 @@ Global system events are irrelevant with the node hierarchy, so they are dispatc
 
 If you are searching for any information about touch or mouse events, please refer to [Node System Events documentation](./internal-events.md).
 
-** ATTENTION: We strongly discourage any usage of `cc.eventManager` in Cocos Creator, all its functionality can be achieved via
-cc.systemEvent and cc.Node's event API. We no longer guarantee the API of cc.eventManager, it could be refactored any time in the future. **
+> **Note**: we strongly discourage any usage of `cc.eventManager` in Cocos Creator, all its functionality can be achieved via
+`cc.systemEvent` and `cc.Node`'s event API. We no longer guarantee the API of `cc.eventManager`, it could be refactored any time in the future.
 
 ## How to define the input events
 
@@ -24,11 +24,11 @@ Event types included:
 
 ### Keyboard Events
 
-- Type: `cc.SystemEvent.EventType.KEY_DOWN` 和 `cc.SystemEvent.EventType.KEY_UP`
-- Call Back: Custom Event: callback(event);
+- Type: `cc.SystemEvent.EventType.KEY_DOWN` and `cc.SystemEvent.EventType.KEY_UP`
+- Call Back: Custom Event: `callback(event);`
 - Call Back Parameter:
-    - KeyCode: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/enums/KEY.html)
-    - Event: [API Reference](http://docs.cocos2d-x.org/api-ref/creator/v1.5/classes/Event.html)
+  - KeyCode: [API Reference](../../../api/en/enums/KEY.html)
+  - Event: [API Reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({
@@ -67,7 +67,7 @@ cc.Class({
 - Type: `cc.SystemEvent.EventType.DEVICEMOTION`
 - Call Back: Custom Event: callback(event);
 - Call Back Parameter:
-    - Event: [API reference](../../../api/en/classes/Event.html)
+  - Event: [API reference](../../../api/en/classes/Event.html)
 
 ```js
 cc.Class({
@@ -88,5 +88,4 @@ cc.Class({
 });
 ```
 
-You can go to [example-cases](https://github.com/cocos-creator/example-cases) `cases03_gameplay/01_player_control`(This includes the keyboard, accelerometer, single point touch, multitouch examples
-).
+Please refer to the `cases03_gameplay/01_player_control` directory of [example-cases](https://github.com/cocos-creator/example-cases) for a complete list of examples (including keyboard, accelerometer, single touch, multi-touch, etc. examples).

@@ -94,14 +94,14 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 ![](./publish-wechatgame/preview.png)
 
-**注意：**
+> **注意**：
+>
+> 1. 如果先构建开放数据域再构建主域，那么开放数据域的发布代码会被覆盖。我们已在 v2.0.7 版本中修复该问题
+> 2. 由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它
 
-- 如果先构建开放数据域再构建主域，那么开放数据域的发布代码会被覆盖。我们已在 v2.0.7 版本中修复该问题
-- 由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 子域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它
+### 参考链接
 
-## 参考链接
-
-- [Cocos Creator 微信小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
+- **Cocos Creator 微信小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-wechat-subdomain/tree/master/)）
 
 - [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)
 
@@ -115,7 +115,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 - 创建开放数据域项目通过相关的 API 获取用户数据，根据自身需求制作 ui 的展示。开放数据域必须使用全屏窗口，与主域保持一样的设计分辨率和适配模式。
 
-- 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D ，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
+- 主域中通过获取全局对象 sharedCanvas（开放数据域的 Canvas），进行创建 Texture2D，然后再通过 Texture2D 创建 SpriteFrame，从而把 SpriteFrame 赋值到主域所需要显示到的 Sprite 上，如果开放数据域有操作性功能（例如：滑动，拖拽等之类的操作），那么主域就需要在 update 中实时获取 sharedCanvas 来刷新 Sprite。
 
 ### 模块选择
 
@@ -168,7 +168,7 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 三、**发布路径** 指定到主域项目工程的发布包目录即 **build** 目录下。然后点击 **构建**。
 
-**注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
+> **注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
 
 ![](./publish-wechatgame/open-data-project-build.png)
 
@@ -182,6 +182,6 @@ Cocos Creator 从 v1.9.1 版本开始支持打包到开放数据域，在 v2.0.1
 
 ### 参考链接
 
-- [Cocos Creator 微信小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip)
+Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-wechat-subdomain/tree/1.x/)）包含了微信开放数据域的使用示例。
 
 - [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)

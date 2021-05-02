@@ -1,6 +1,6 @@
 # circle
 
-`circle()` 方法用于创建椭圆。   
+`circle()` 方法用于创建椭圆。
 
 | 参数 |   描述
 | -------------- | ----------- |
@@ -16,7 +16,7 @@ ctx.circle(200, 200, 200);
 ctx.fill();
 ```
 
-<a href="graphics/circle.png"><img src="graphics/circle.png"></a>
+![circle](graphics/circle.png)
 
 <hr>
 

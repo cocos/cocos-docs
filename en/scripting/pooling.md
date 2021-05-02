@@ -60,7 +60,7 @@ createEnemy: function (parentNode) {
 }
 ```
 
-To use Node Pool safely, the key is to always use `size` method to check if there's a node in the pool. We can always create node instance during runtime if needed so there'll be no worry about game breaks. But to reduce node creation overhead you can track the nodes number created during runtime to better adjust your initial node count of the pool.
+To use Node Pool safely, the key is to always use `size` method to check if there's a node in the pool. We can always create node instance during runtime if needed so there will be no worry about game breaks. But to reduce node creation overhead you can track the nodes number created during runtime to better adjust your initial node count of the pool.
 
 You can also all `cc.NodePool.get()` directly, if no node available it will return `null`, you can check the return value as well.
 
@@ -73,11 +73,11 @@ When an enemy is killed, we'd want to return the instance to the Node Pool so we
 
 onEnemyKilled: function (enemy) {
     // enemy should be a cc.Node instance
-    this.enemyPool.put(enemy); // using the same put method as inistalizing node pool, this will also call removeFromParent for the node
+    this.enemyPool.put(enemy); // using the same put method as initializing node pool, this will also call removeFromParent for the node
 }
 ```
 
-Now we completes the full cycle, and there'll be infinite number of enemy supply without the need to instantiate them over and over. "Get node from" and "put node into" operation has very low cost of performance compare to instantiate and destroy. So it's definitely a must-have for most game types.
+Now we completes the full cycle, and there will be infinite number of enemy supply without the need to instantiate them over and over. "Get node from" and "put node into" operation has very low cost of performance compare to instantiate and destroy. So it's definitely a must-have for most game types.
 
 ## Register reuse and unuse callback
 
@@ -128,7 +128,7 @@ reuse (bulletManager) {
 
 hit () {
     // ...
-    this.bulletManager.put(this.node); // use the manager reference to recyle bullet
+    this.bulletManager.put(this.node); // use the manager reference to recycle bullet
 }
 ```
 
@@ -140,7 +140,7 @@ When we don't need the pool and its nodes anymore, we can clear the pool and des
 myPool.clear();
 ```
 
-When a Node Pool instance is not referenced anywere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not managable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to manually call the `clear` method to clear the caches before switching scenes or doing other types of reset.
+When a Node Pool instance is not referenced anywhere, the builtin garbage collection system will automatically destroy the Node Pool and its nodes. But auto garbage collection is not manageable, also note that if some nodes of the pool is referenced elsewhere it can cause memory leak. It's better to manually call the `clear` method to clear the caches before switching scenes or doing other types of reset.
 
 ## The advantage of cc.NodePool
 

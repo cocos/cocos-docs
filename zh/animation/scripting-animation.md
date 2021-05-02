@@ -22,7 +22,10 @@ anim.play('test', 1);
 anim.play('test2');
 ```
 
-Animation 对一个动画进行播放的时候会判断这个动画之前的播放状态来进行下一步操作。如果动画处于：
+Animation 对一个动画进行播放的时候会判断这个动画之前的播放状态来进行下一步操作。
+
+如果动画处于：
+
 - **停止** 状态，则 Animation 会直接重新播放这个动画
 - **暂停** 状态，则 Animation 会恢复动画的播放，并从当前时间继续播放下去
 - **播放** 状态，则 Animation 会先停止这个动画，再重新播放动画
@@ -183,6 +186,7 @@ animState.repeatCount = Infinity;
 
 **AnimationState** 允许动态设置循环模式，目前提供了多种循环模式，这些循环模式可以从 **cc.WrapMode** 中获取到。  
 如果动画的 **WrapMode** 为 **Loop** 的话，需要与 **repeatCount** 配合使用才能达到效果。默认在解析动画剪辑的时候，如果动画循环类型为：
+
 - **Loop** 类型，**repeatCount** 将被设置为 **Infinity**，即无限循环
 - **Normal** 类型，**repeatCount** 将被设置为 1
 
@@ -213,12 +217,13 @@ cc.Class({
 ## 注册动画回调
 
 除了动画编辑器中的帧事件提供了回调外，动画系统还提供了动态注册回调事件的方式。目前支持的回调事件包括：
- - play：开始播放时
- - stop：停止播放时
- - pause：暂停播放时
- - resume：恢复播放时
- - lastframe：假如动画循环次数大于 1，当动画播放到最后一帧时
- - finished：动画播放完成时
+
+- play：开始播放时
+- stop：停止播放时
+- pause：暂停播放时
+- resume：恢复播放时
+- lastframe：假如动画循环次数大于 1，当动画播放到最后一帧时
+- finished：动画播放完成时
 
 当在 `cc.Animation` 注册了一个回调函数后，它会在播放一个动画时，对相应的 `cc.AnimationState` 注册这个回调，在 `cc.AnimationState` 停止播放时，对 `cc.AnimationState` 取消注册这个回调。
 
@@ -247,7 +252,7 @@ animation.off('resume',    this.onResume,      this);
 
 // 对单个 cc.AnimationState 注册回调
 var anim1 = animation.getAnimationState('anim1');
-anim1.on('lastframe',    this.onLastFrame,      this);
+anim1.on('lastframe', this.onLastFrame, this);
 ```
 
 ## 动态创建 Animation Clip

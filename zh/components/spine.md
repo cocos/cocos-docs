@@ -25,7 +25,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 | Use Tint              | 是否开启染色效果，默认关闭。（v2.0.9 中新增）
 | Enable Batch          | 是否开启动画合批，默认关闭。（v2.0.9 中新增）<br>开启时，能减少 Drawcall，适用于大量且简单动画同时播放的情况。<br>关闭时，Drawcall 会上升，但能减少 CPU 的运算负担，适用于复杂的动画。
 
-**注意**：当使用 Spine 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
+> **注意**：当使用 Spine 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。
 
 ## Spine 换装
 
@@ -109,7 +109,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 3. 然后将脚本组件挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中的节点拖拽到脚本组件对应的属性框中，并保存场景。
 
-4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
+4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 **SpineMesh** 范例（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/spine)）。
 
 ## Spine 挂点
 
@@ -134,16 +134,16 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
     即可看到在 **场景编辑器** 中龙的尾巴上已经挂了一个 Sprite。
 
     ![](./spine/attach4.png)
-    
-4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考 example-case 中的 [SpineAttach](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
 
-**注意**：Spine 挂点完成后，即可删除 **层级管理器** 中无用的骨骼节点，以减少运行时的计算开销。注意目标骨骼节点的父节点都不可删。
+4. 最后将星星资源拖拽到 Sprite 组件的 Sprite Frame 属性上。保存场景，点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考 example-case 中的 **SpineAttach** 范例（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/spine)）。
+
+> **注意**：Spine 挂点完成后，即可删除 **层级管理器** 中无用的骨骼节点，以减少运行时的计算开销。注意目标骨骼节点的父节点都不可删。
 
 ### 通过脚本实现 Spine 挂点
 
 1. 跟通过编辑器实现的步骤类似，首先先创建一个挂有 Spine 组件的节点，并设置好 Spine 组件的属性。
 
-2. 创建要挂载到骨骼动画上的星星预制资源，预制资源相关可参考 [文档](../asset-workflow/prefab.md)。
+2. 创建要挂载到骨骼动画上的星星预制资源，预制资源相关可参考 [Prefab](../asset-workflow/prefab.md) 文档。
 
 3. 在 **资源管理器** 中新建一个 JavaScript 脚本，编写组件脚本。脚本代码如下：
 
@@ -227,7 +227,7 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 5. 在 **资源管理器** 中新建一个 JavaScript 脚本，然后将脚本挂载到地面节点上。脚本代码可参考：
 
-    ```js    
+    ```js
     cc.Class({
         extends: cc.Component,
 
@@ -261,11 +261,12 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 6. 设置碰撞组件所在节点的分组，添加分组的方法请参考文档 [碰撞分组管理](../physics/collision/collision-group.md)。
 
-    ![collider](./spine/collider_foot.png) ![collider](./spine/collider_ground.png)
+    ![collider](./spine/collider_foot.png)
+
+    ![collider](./spine/collider_ground.png)
 
     ![collider](./spine/group_setting.png)
 
-7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的 [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) 范例。
+7. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 example-case 中的 **SpineCollider** 范例（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine)  | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/spine)）。
 
-**注意**：由于挂点的实现机制导致基于挂点的碰撞检测，存在延迟一帧的问题。
-
+> **注意**：由于挂点的实现机制导致基于挂点的碰撞检测，存在延迟一帧的问题。

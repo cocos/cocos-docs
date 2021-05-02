@@ -14,7 +14,8 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 1. Download WeChat DevTools on [WeChat Official Document](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 
-2. Set the WeChat DevTools path in [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop) window.<br>
+2. Set the WeChat DevTools path in [Native Develop](../getting-started/basics/editor-panels/preferences.md#native-develop) window.
+
     > Mac: Cocos Creator -> Preferences -> Native Develop<br>
     > Windows: File -> Settings -> Native Develop
 
@@ -32,7 +33,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
     ![](./publish-wechatgame/tool.jpeg)
 
-    **Note**: The WeChat DevTools, if it has not been run on a Mac before, will show an error called `Please ensure that the IDE has been properly installed`. You need to manually open the WeChat DevTools once before you can click the **Run** call directly in the Creator.
+    > **Note**: the WeChat DevTools, if it has not been run on a Mac before, will show an error called `Please ensure that the IDE has been properly installed`. You need to manually open the WeChat DevTools once before you can click the **Run** call directly in the Creator.
 
 6. Preview deployment
 
@@ -61,7 +62,7 @@ In the **WeChat Mini Game** environment, we provide a `wxDownloader` object, and
 3. Download from a remote server if they do not exist in mini game pack
 4. After downloading to temporary directory, use it directly
 5. Save it to the game application cache slowly in backstage for re-access.
-6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process 
+6. Local cache storage has space limitation, if total space of cache exceeds the limit, there will be no more caching without disturbing game process
 
 It should be noted that once the cache space is full, all the resources that need to be downloaded cannot be saved, only the temporary files for save download resources can be used, and WeChat will automatically clean up all temporary files after the mini game is exited. So the next time you run the mini game again, those resources are downloaded again and the process keeps looping.  
 In addition, the problem of file saving failure due to cache space exceeding the limit does not occur on the WeChat DevTools, because the WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
@@ -78,13 +79,12 @@ Specifically, developers need to do:
 
     ![](./publish-wechatgame/detail.jpeg)
 
-**Note**: 
-
-- If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
-
-- When you upgrade the engine of your mini game, the assets already cached in the storage of phone or WeChat DevTools will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. The solution is check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded. Or you can clear these outdated assets by yourself. In mobile phone, you can call `remoteDownloader.cleanAllCaches()` to clear all caches. In WeChat DevTools, you can click this button to do same thing:
-
-  ![](./publish-wechatgame/clear-cache.png)
+> **Notes**:
+>
+> 1. If the cache resource exceeds the WeChat environment limit, you need to manually clear the resource. And you can use `remoteDownloader.cleanAllCaches()` and `remoteDownloader.cleanOldCaches()` to clear the cache in WeChat Mini Games. The former clears all the cache resources in the cache directory, please use it carefully. While the latter clears cache resources that are currently unused in the cache directory in the application.
+> 2. When you upgrade the engine of your mini game, the assets already cached in the storage of phone or WeChat DevTools will not be cleared automatically. And these cached assets don't match the version of engine. It may cause some issues about rendering or others. The solution is check the option `MD5 Cache` when you build your game. It ensures that the newest asset will be loaded. Or you can clear these outdated assets by yourself. In mobile phone, you can call `remoteDownloader.cleanAllCaches()` to clear all caches. In WeChat DevTools, you can click this button to do same thing:
+>
+>     ![clear cache](./publish-wechatgame/clear-cache.png)
 
 ## WeChat Mini Game Engine Plugin
 
@@ -125,5 +125,4 @@ If you need it, you can currently use it by calling the WeChat's API directly.
 - [WeChat Public Platform](https://mp.weixin.qq.com/?lang=en_US)
 - [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
-- [WeChat Mini Game Performance Optimization [zh]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
-- [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)
+- [WeChat Mini Game Performance Optimization [cn]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)

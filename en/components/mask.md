@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 ## Mask Properties
 
-| Properties |   Description
+| property |   Description
 | -------------- | ----------- |
 | Type           | Mask type. Including `RECT`, `ELLIPSE`, `IMAGE_STENCIL` three types, refer to [Type API](../../../api/en/enums/Mask.Type.html) for details.
 | Inverted       | The Reverse mask.
@@ -16,8 +16,4 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Sprite Frame   | The image required for the mask, which takes effect only when the Mask type is set to `IMAGE_STENCIL`.
 | Segements      | The segements for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.
 
-**Note**: After adding the Mask component to a node, all the child nodes of this node will be affected by Mask during rendering.
-
----
-
-Continue on to read about [ScrollView Component Reference](scrollview.md).
+> **Note**: after adding the Mask component to a node, all the child nodes of this node will be affected by Mask during rendering.

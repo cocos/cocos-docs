@@ -32,7 +32,7 @@ You can also to compile the native project of the native platform separately by 
 ## Publish Parameters
 
 - `--path`: Project Path
-- `--build`: Pulibsh project Parameters
+- `--build`: Publish project Parameters
 - `--compile`: Compile native project Parameters
 - `--force`: Skip version upgrade detection, no upgrade prompt box will pop up
 

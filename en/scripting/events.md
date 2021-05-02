@@ -83,8 +83,7 @@ cc.Class({
 
 ## Explanation for event arguments
 
-We've made some optimizations for passing event arguments since v2.0.  
-When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
+We've made some optimizations for passing event arguments since v2.0. When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
 
 ```js
 cc.Class({
@@ -135,7 +134,7 @@ Be noted, when you want to dispatch a custom event, please do not use `cc.Event`
 In the call-back of the event listener, the developer will receive an event object `event` of the `cc.Event` type. `stopPropagation` is the standard API of `cc.Event`, other important API include:
 
 | API name | type | meaning |
-| ------ |:---:|:---:|
+| :------ |:---|:---|
 | `type` | `String` | type of the event (event name) |
 | `target` | `cc.Node` | primary object received by the event |
 | `currentTarget` | `cc.Node` | current object receiving the event; current object of the event in the bubble stage may be different from the primary object |
@@ -143,9 +142,9 @@ In the call-back of the event listener, the developer will receive an event obje
 | `stopPropagation` | `Function` | stop the bubble stage, the event will no longer pass on to the parent node while the rest of the listeners of the current node will still receive the event |
 | `stopPropagationImmediate` | `Function` | stop delivering the event. The event will not pass on to the parent node and the rest of the listeners of the current node |
 | `getCurrentTarget` | `Function` | get the target node that is currently receiving the event |
-| `detail` | `Function` | custom event information（belongs to `cc.Event.EventCustom`） |
-| `setUserData` | `Function` | set custom event information（belongs to `cc.Event.EventCustom`） |
-| `getUserData` | `Function` | get custom event information（belongs to `cc.Event.EventCustom`） |
+| `detail` | `Function` | custom event information (belongs to `cc.Event.EventCustom`) |
+| `setUserData` | `Function` | set custom event information (belongs to `cc.Event.EventCustom`) |
+| `getUserData` | `Function` | get custom event information (belongs to `cc.Event.EventCustom`) |
 
 You can refer to the `cc.Event` and API files of its child category for a complete API list.
 

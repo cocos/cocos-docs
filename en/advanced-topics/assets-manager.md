@@ -39,11 +39,11 @@ This can naturally support cross-version update, such as the local version is A,
 
 ## Hot update basic workflow
 
-After understand the basic design above, we can take a look at a typical hot update process. We use the manfiest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
+After understand the basic design above, we can take a look at a typical hot update process. We use the manifest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
 
 ![asset manager](hot-update/assets-manager.png)
 
-The figure is divided into three parts, the middle is the hot update process, the left is the process of updating the AssetsManager to send the message to the user, the right is the middle output of each step. The bold words indicates the location of the middle output, such as in memory / temporary folder / cache folder.
+The figure is divided into three parts, the middle is the hot update process, the left is the process of updating the AssetsManager to send the message to the user, the right is the middle output of each step. The bold words indicates the location of the middle output, such as in `memory/temporary folder/cache folder`.
 
 After reading this picture you may have a lot of questions. We will discuss details of the various steps that need to pay attention to or not easy to understand in the first place.
 
@@ -167,7 +167,7 @@ The asset version in manifest is recommended to use md5. You can determine wheth
 2. compressed:      Whether it is compressed
 3. size:            File state
 4. downloadState:   Download size, includes `UNSTARTED`, `DOWNLOADING`, `SUCCESSED`, `UNMARKED`
- 
+
 ### Error message handling and download retry
 
 In the left side of the flowchart, you can see a number of user messages that can be notified through the event listener of the Assets Manager. For details, you can refer to the [example](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js). The flowchart identifies the trigger and cause of all error messages, and you can handle them according to your system design.
@@ -187,7 +187,7 @@ If you want to use hot updated assets, you need to restart the game.
 There are two reasons, the first is that the updated script requires a clean JS environment. The second is the assets configuration that used by `AssetsLibrary` needs to be updated to the latest to load the scene and assets properly.
 
 1. Refresh of JS script
-    
+
     Before the hot update, all the scripts in the game have been executed, and all the classes, components, objects have already been stored in JS context. So if you load the script directly after the hot update without restarting the game, the classes and objects of the same name will be overwritten, but the objects created by the old scripts will still exist. Further, as a result of the overwriting, their dynamic state is also reset, causing the two versions of the objects to mix together, which comes with an overhead of memory usage.
 
 2. Refresh of asset configuration
@@ -223,9 +223,9 @@ The above sections describe most of the implementation and usage of the Hot Upda
 Hot update is a frequent requirement for game developers, and multiple hot updates may be released during the upgrade from one major version to another. So the following two questions are of more concern to developers:
 
 1. What happens during a local cache coverage?
-    
+
     When a local cached version already exists in the user's environment, the Assets Manager compares the cached version and the in-app version, and then uses the newer version as the local version. If the remote version is updated at this time, the Assets Manager uses a temporary folder to download the remote version during the update process. When the remote version is successfully updated, the contents of the temporary folder are copied to the local cache folder. If there are files of the same name in the local cache folder, they are overridden. And the other files are retained, because these files may still be valid, they just have not been modified in this release. Finally delete the temporary folder.
-   
+
     So, in theory, there's no problem with continuous hot update for minor version.
 
 2. How to clean the local cache during a game's major release?

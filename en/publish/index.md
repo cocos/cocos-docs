@@ -3,7 +3,7 @@
 - [Publish to Web](publish-web.md)
 - [Setup Native Development](setup-native-development.md)
 - [Publish to native](publish-native.md)
-- [Debuging JavaScript on Native Platforms](debug-jsb.md)
+- [Debugging JavaScript on Native Platforms](debug-jsb.md)
 - [Publish to Alipay Mini Games](publish-alipay-mini-games.md)
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
 - [Publish to QTT Mini Games](publish-qutoutiao-mini-games.md)
@@ -21,7 +21,3 @@
     - [WeChat PC Mini Games](publish-pc-wechatgame.md)
 - [Publish from Command Line](publish-in-command-line.md)
 - [Custom Project Build Template](custom-project-build-template.md)
-
-<hr>
-
-Continue on to read about [Publish to Web](publish-web.md).

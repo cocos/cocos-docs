@@ -3,18 +3,21 @@
 Cocos Creator allows you to split the code into multiple script files and they can be called by each other. To implement this, you need to know how to define and use the module in Cocos Creator. This step is called **modularize** for short.
 
 If you are not sure what modularization can do, you can consider it as:
+
 - `import` in Java and Python
 - `using` in C#
 - `include` in C/C++
 - `<link>`in HTML
 
 Modularization enables you to reference other script files in Cocos Creator:
+
 - Access parameters exported from other files
 - Call method other files that have been exported
 - Use type other files that have been exported
 - Use or inherit other Components
 
 JavaScript in Cocos Creator uses the same Common JS standard as Node.js to implement modularization, in short:
+
 - Each individual script file forms a module
 - Each module is an individual action scope
 - Reference other modules in the **synchronized** `require` method
@@ -46,7 +49,7 @@ Now if you want to access it in another script, you can:
 var Rotate = require("Rotate");
 ```
 
-What `require` returned is the object exported by the module. Normally, we would save the result to a variable（`var Rotate`）immediately. The incoming `require` character string is the module's **file name**, the name contains neither path nor suffix and it is case sensitive.
+What `require` returned is the object exported by the module. Normally, we would save the result to a variable (`var Rotate`) immediately. The incoming `require` character string is the module's **file name**, the name contains neither path nor suffix and it is case sensitive.
 
 ### require complete example
 
@@ -70,6 +73,7 @@ Here, we define a new component named SinRotate, which is inherited from Rotate,
 > This component can also be accessed by other scripts as long as you use `require("SinRotate")`.
 
 Comments:
+
   - `require` could be called at any place in the script at any time.
   - All of the script will be automatically required when the game is started. At this time, the defined code in each module will be executed once, no matter how many times it is required, the same instance will be returned.
   - When debugging, any module in the project can be required in the **Console** of **Developer Tools**.
@@ -147,58 +151,56 @@ The reason for doing this is because as long as there is another script that req
 
 In this way, it can output correctly: "speed is 10".
 
-> The default value of `module.exports`:<br>
-  If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically.
+> The default value of `module.exports`: If a script does not declare `module.exports`, Creator will set `exports` as the Component declared in script automatically. And if a script does not declare any Component but declares other types of [CCClass](./class.md), it will set `exports` as declared CCClass automatically.
 
-Comments: 
-- The other variables added to `module` can not be exported, that is to say` exports` can not be replaced with other variable names, the system will only read the `exports` variable.
+Comments: The other variables added to `module` can not be exported, that is to say `exports` can not be replaced with other variable names, the system will only read the `exports` variable.
 
 ## More examples
 
 ### Export variable
 
-- `module.exports` is a empty object（`{}`）and can be added in a new field directly.
+- `module.exports` is a empty object (`{}`) and can be added in a new field directly.
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js:
 
-module.exports.foo = function () {
-    cc.log("foo");
-};
-module.exports.bar = function () {
-    cc.log("bar");
-};
-```
+    module.exports.foo = function () {
+        cc.log("foo");
+    };
+    module.exports.bar = function () {
+        cc.log("bar");
+    };
+    ```
 
-```js
-// test.js:
+    ```js
+    // test.js:
 
-var foobar = require("foobar");
-foobar.foo();    // "foo"
-foobar.bar();    // "bar"
-```
+    var foobar = require("foobar");
+    foobar.foo();    // "foo"
+    foobar.bar();    // "bar"
+    ```
 
 - `module.exports` value can be any JavaScript type.
 
-```js
-// foobar.js:
+    ```js
+    // foobar.js:
 
-module.exports = {
-    FOO: function () {
-        this.type = "foo";
-    },
-    bar: "bar"
-};
-```
+    module.exports = {
+        FOO: function () {
+            this.type = "foo";
+        },
+        bar: "bar"
+    };
+    ```
 
-```js
-// test.js:
+    ```js
+    // test.js:
 
-var foobar = require("foobar");
-var foo = new foobar.FOO();
-cc.log(foo.type);      // "foo"
-cc.log(foobar.bar);    // "bar"
-```
+    var foobar = require("foobar");
+    var foo = new foobar.FOO();
+    cc.log(foo.type);      // "foo"
+    cc.log(foobar.bar);    // "bar"
+    ```
 
 ### Packaging a private variable
 
@@ -236,8 +238,3 @@ cc.log(foo.isDirty());           // true
 ## Circular reference
 
 Please refer to [Property delay definition](reference/class.md#deferred-definition)
-
-
----
-
-Continue on to read about [Plugin Scripts](plugin-scripts.md).

@@ -2,11 +2,9 @@
 
 ## Environment Configuration
 
-- Download [OPPO Mini Game Debugger](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) and install it on your OPPO phone (Android 6.0 or above is recommended).
+- Download [OPPO Mini Game Debugger [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a) and install it on your OPPO phone (Android 6.0 or above is recommended).
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
-
-- Determine whether you need to install [Debugging Tools](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) according to your own development needs.
 
 ## Release Process
 
@@ -38,7 +36,7 @@ The specific filling rules for the relevant parameter configuration are as follo
 
 - **Supported Minimum Platform Version Number**
 
-  This item is required. According to the suggestions of OPPO Mini Game, this value is currently recommended for **1060**. Please refer to the [OPPO Mini Game Instructions](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) for details.
+  This item is required. According to the suggestions of OPPO Mini Game, this value is currently recommended for **1060**. Please refer to the [OPPO Mini Game Instructions](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) for details.
 
 - **Small Packet Mode**
 
@@ -123,7 +121,7 @@ After the relevant parameters of the **Build** panel are set, click **Build**. A
 
 Copy the generated mini-game **rpk** file (located in the dist directory of the OPPO minigame project's `quickgame` directory) to the `/sdcard/games` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the OPPO phone, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the "More -> Refresh" button in the upper right corner to refresh.
 
-**Note**: For Mini Game Debugger **v3.2** and above, you need to copy **rpk** to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone. If there is no **games** directory, you need to create a new one. Please refer to the [Official Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html) for details.
+**Note**: For Mini Game Debugger **v3.2** and above, you need to copy **rpk** to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone. If there is no **games** directory, you need to create a new one. Please refer to the [Official Documentation](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) for details.
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
@@ -144,6 +142,6 @@ Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of the OPPO 
 
 ## Related Reference Links
 
-- [OPPO Mini Game Tutorial](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO Mini Game API Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO Mini Game Tool Download](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
+- [OPPO Mini Game Tutorial [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO Mini Game API Documentation [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO Mini Game Tool Download [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_2-%e5%ae%89%e8%a3%85-runtimeapk-%e5%8c%85%e5%88%b0-oppo-%e6%89%8b%e6%9c%ba%e4%b8%8a)

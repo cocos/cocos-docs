@@ -119,7 +119,7 @@ cc.Class({
 在多数情况下，我们都可以使用简单声明。
 
 - 当声明的属性为基本 JavaScript 类型时，可以直接赋予默认值：
-     
+
     ```javascript
     properties: {
         height: 20,       // number
@@ -148,7 +148,7 @@ cc.Class({
     ```
 
 - 当声明属性是一个数组时，可以在声明处填写它们的类型或构造函数来完成声明，如：
-                
+
     ```javascript
     properties: {
         any: [],      // 不定义具体类型的数组
@@ -163,7 +163,7 @@ cc.Class({
     }
     ```
 
-**注意**：除了以上几种情况，其他类型我们都需要使用 **完整声明** 的方式来进行书写。
+> **注意**：除了以上几种情况，其他类型我们都需要使用 **完整声明** 的方式来进行书写。
 
 ### 完整声明
 
@@ -183,14 +183,14 @@ properties: {
 
 下面是常用参数：
 
-- **default**: 设置属性的默认值，这个默认值仅在组件 **第一次** 添加到节点上时才会用到
-- **type**: 限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](reference/class.md#type)
-- **visible**: 设为 false 则不在 **属性检查器** 面板中显示该属性
-- **serializable**: 设为 false 则不序列化（保存）该属性
-- **displayName**: 在 **属性检查器** 面板中显示成指定名字
-- **tooltip**: 在 **属性检查器** 面板中添加属性的 Tooltip
+- **default**：设置属性的默认值，这个默认值仅在组件 **第一次** 添加到节点上时才会用到
+- **type**：限定属性的数据类型，详见 [CCClass 进阶参考：type 参数](reference/class.md#type)
+- **visible**：设为 false 则不在 **属性检查器** 面板中显示该属性
+- **serializable**：设为 false 则不序列化（保存）该属性
+- **displayName**：在 **属性检查器** 面板中显示成指定名字
+- **tooltip**：在 **属性检查器** 面板中添加属性的 Tooltip
 
-更多的属性参数，可阅读 [属性参数](reference/attributes.md)。
+更多的属性参数，请参考 [属性参数](reference/attributes.md) 文档。
 
 #### 数组声明
 
@@ -227,8 +227,4 @@ properties: {
 }
 ```
 
-> 如果你只定义 get 方法，那相当于属性只读。<br>
-
----
-
-继续前往 [访问节点和其他组件](access-node-component.md) 或 [CCClass 进阶参考](reference/class.md)。
+> 如果你只定义 get 方法，那相当于属性只读。

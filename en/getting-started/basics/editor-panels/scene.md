@@ -2,7 +2,7 @@
 
 ![scene-panel](../index/scene.png)
 
-**Scene** is the core working area of content creation. You will use it to choose and place the scene image, character, special effet, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's properties like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
+**Scene** is the core working area of content creation. You will use it to choose and place the scene image, character, special effect, UI and other game elements. In this working area, you can select and use **transform tool** to change the node's properties like position, rotation, scale and size. Here you can also preview WYSIWYG scene effect.
 
 ## View Introduction
 
@@ -17,7 +17,7 @@ You can move and locate the view in **scene editor** by the following operations
 
 There will be a set of scaleplate and grids on the background of the scene view, which indicate the position information of each point in **world coordinate system**. Point reads `(0,0)` is the origin of the world coordinate system in the scene. When using the mouse wheel to zoom out the view display, each scale represents a distance of `100` pixel. Due to the differences in the zooming in/out scale of current view, the number representing the distance from this point to origin will display on different scales, the unit of which is pixel.
 
-Scale and grid in the scene are important reference information for us to place the scene elements. For informations on the relationship between coordinate system and node attributes like position, please read [Transform](../../../content-workflow/transform.md) section.
+Scale and grid in the scene are important reference information for us to place the scene elements. For information on the relationship between coordinate system and node attributes like position, please read [Transform](../../../content-workflow/transform.md) section.
 
 ### Indicator Frame of Design resolution
 
@@ -33,7 +33,7 @@ If you want to quickly focus a node in the **Scene** panel, there are two ways:
 
 ### The node constraint box
 
-You can see the constraint box (in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component (such as **Sprite**), you can set `size` attribute for the node and the tranparent region within the constraint box of node can be selected by clicking the mouse or hovered.
+You can see the constraint box (in grey or blue) when hovering on or selecting the node, and the rectangular region of the constraint box indicates the **size** attribute size of the node. Even though the node doesn't contain image rendering component (such as **Sprite**), you can set `size` attribute for the node and the transparent region within the constraint box of node can be selected by clicking the mouse or hovered.
 
 ![bounding box](scene/boundingbox.png)
 
@@ -45,7 +45,7 @@ When the mouse is hovering on the node, the node name will be displayed together
 
 About the naming of nodes, please read the introduction in [Node Tree](node-tree.md).
 
-### Multiselect nodes
+### MultiSelect nodes
 
 Press the left mouse button and drag in **scene editor** and you can draw a blue marquee. Nodes overlap with the marquee will be selected all together when releasing the mouse. You can slide the mouse at your will to change the marquee area before releasing the mouse.
 
@@ -53,11 +53,11 @@ After selecting multiple nodes, any transform operation will make effects on all
 
 ## Use transform tool to arrange node
 
-The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrage the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar. When you hover the mouse over the transform tool, the relevant prompts are displayed.
+The core function of **scene editor** is to edit and arrange the visible elements in the scene in the way of WYSIWYG. We mainly arrange the nodes in the way we hope them to be by series **transform tool** on the top left corner of the main window's tool bar. When you hover the mouse over the transform tool, the relevant prompts are displayed.
 
 ### Move transform tool
 
-**Move transform tool** is the tranform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar, or press the keyboard shortcut <kbd>W</kbd> in scene editor and you can activate **Move transform tool**.
+**Move transform tool** is the transform tool default in activated state when opening the editor. This tool can be activated by clicking the first button on top left corner of main window's tool bar, or press the keyboard shortcut <kbd>W</kbd> in scene editor and you can activate **Move transform tool**.
 
 ![move button](scene/move_button.png)
 

@@ -6,9 +6,9 @@
 
 ## 对象池的概念
 
-对象池就是一组可回收的节点对象，我们通过创建 `cc.NodePool` 的实例来初始化一种节点的对象池。通常当我们有多个 prefab 需要实例化时，应该为每个 prefab 创建一个 `cc.NodePool` 实例。 当我们需要创建节点时，向对象池申请一个节点，如果对象池里有空闲的可用节点，就会把节点返回给用户，用户通过 `node.addChild` 将这个新节点加入到场景节点树中。
+对象池就是一组可回收的节点对象，我们通过创建 `cc.NodePool` 的实例来初始化一种节点的对象池。通常当我们有多个 prefab 需要实例化时，应该为每个 prefab 创建一个 `cc.NodePool` 实例。当我们需要创建节点时，向对象池申请一个节点，如果对象池里有空闲的可用节点，就会把节点返回给用户，用户通过 `node.addChild` 将这个新节点加入到场景节点树中。
 
-当我们需要销毁节点时，调用对象池实例的 `put(node)` 方法，传入需要销毁的节点实例，对象池会自动完成把节点从场景节点树中移除的操作，然后返回给对象池。这样就实现了少数节点的循环利用。 假如玩家在一关中要杀死 100 个敌人，但同时出现的敌人不超过 5 个，那我们就只需要生成 5 个节点大小的对象池，然后循环使用就可以了。
+当我们需要销毁节点时，调用对象池实例的 `put(node)` 方法，传入需要销毁的节点实例，对象池会自动完成把节点从场景节点树中移除的操作，然后返回给对象池。这样就实现了少数节点的循环利用。假如玩家在一关中要杀死 100 个敌人，但同时出现的敌人不超过 5 个，那我们就只需要生成 5 个节点大小的对象池，然后循环使用就可以了。
 
 关于 `cc.NodePool` 的详细 API 说明，请参考 [cc.NodePool API 文档](../../../api/zh/classes/NodePool.html)。
 
@@ -144,7 +144,7 @@ myPool.clear(); // 调用这个方法就可以清空对象池
 
 而之前的 `cc.pool` 接口是一个单例，无法正确处理节点回收和复用时的事件注册。不再推荐使用。
 
-对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 [暗黑斩 Demo 中的 PoolMng 脚本](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) 来实现自己的对象池。
+对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 **暗黑斩 Demo 中的 PoolMng 脚本**（[GitHub](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js)）来实现自己的对象池。
 
 ## 使用 cc.NodePool 的注意事项
 

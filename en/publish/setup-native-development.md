@@ -70,7 +70,7 @@ We need to configure the following two paths here:
 
 Close the window after configuration is completed.
 
-**Note**: The configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
+> **Note**: the configure will work when build native project. If the configure not works(some Mac may occur this situation), please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
 ## Notes
 
@@ -84,8 +84,4 @@ We have received lots of feedback about original packing in the public beta, and
 
     Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
 
-In the end, if building still fails, please post the bug with detailed reproducible steps and error information to us in the [forum](https://discuss.cocos2d-x.org/c/creator).
-
----
-
-Continue on to read about [Publising -> Native](publish-native.md).
+In the end, if building still fails, please post the bug with detailed reproducible steps and error information to us in the [Forum](https://discuss.cocos2d-x.org/c/creator).

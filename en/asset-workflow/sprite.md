@@ -12,7 +12,7 @@ In the **Assets Panel**, the texture's icon is a thumbnail of itself. Once you s
 
 ## Texture Properties
 
-| Properties | Function explanation |
+| property | Function explanation |
 | --- | --- |
 | Type | Includes two modes: Raw and Sprite. **Raw** means that only texture are generated, and **Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | When checked, the RGB channel is multiplied by the alpha channel. |
@@ -71,11 +71,11 @@ it simply uses the color of the texel closest to the pixel center for the pixel 
 - Bilinear filtering: The four nearest texels to the pixel center are sampled (at the closest mipmap level), and their colors are combined by weighted average according to distance. This removes the `blockiness` seen during magnification, as there is now a smooth gradient of color change from one texel to the next, instead of an abrupt jump as the pixel center crosses the texel boundary. But the computation is also slightly larger than the Point filtering.
 - Trilinear filtering: Based on Bilinear filtering, Trilinear filtering performs texture lookup and bilinear filtering on the two closest mipmap levels (one higher and one lower quality), and then linearly interpolating. Compared with Point filtering and Bilinear filtering, the final sampling result is the best, but the computation is also the largest.
 
-**Note**: The Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
+> **Note**: the Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
 
 ## genMipmaps
 
-Intended to increase rendering speed and reduce aliasing artifacts, images are processed into sequences which consist of a series of precomputed and optimized textures, called mipmaps. 
+Intended to increase rendering speed and reduce aliasing artifacts, images are processed into sequences which consist of a series of precomputed and optimized textures, called mipmaps.
 
 Each bitmap image of the mipmap set is a downsized duplicate of the main texture, but at a certain reduced level of detail. A high-resolution mipmap image is used for high-density samples, such as for objects close to the camera. Lower-resolution images are used as the object appears farther away.
 
@@ -93,12 +93,12 @@ In **Assets Panel**, there is a triangle at the left side of texture. You can se
 
 SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
 
-Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for datails.
+Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for details.
 
 The API documents for Texture & SpriteFrame:
 
-- [Texture](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/Texture2D.html)
-- [SpriteFrame](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/SpriteFrame.html)
+- [Texture](../../../api/en/classes/Texture2D.html)
+- [SpriteFrame](../../../api/en/classes/SpriteFrame.html)
 
 ## SpriteFrame Usage
 
@@ -113,7 +113,3 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 If you are using single Texture assets for Sprite. It can't use batch render at the runtime of the game. Now you can't batch change the SpriteFrame reference from single Texture to Atlas in Cocos Creator. So, please combine textures into atlas as early as possible and use them through the SpriteFrame reference in Atlas.
 
 In addition, the `cc.macro.CLEANUP_IMAGE_CACHE` in the engine indicates whether to delete the DOM Image cache after uploading the texture to the GPU. Specifically, we free this memory by setting `image.src` to an empty string. Normally, you don't need to turn this option on because Image objects use very little memory on the web. But in the current version of WeChat Mini Game, the Image object caches the decoded Image data, which takes up a lot of memory. Therefore, we enable this option on WeChat Mini Game by default to release the memory of Image object immediately after uploading GL texture to avoid excessive memory consumption.
-
-<hr>
-
-Continue on to read about [Atlas](atlas.md)

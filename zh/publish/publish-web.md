@@ -24,7 +24,7 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 给构建后的所有资源加上 MD5 信息，解决 CDN 或者浏览器资源缓存问题。
 
-启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些第三方资源没通过 cc.loader 加载引起的。这时可以在加载前先用以下方法转换 url ，转换后的路径就能正确加载。
+启用后，如果出现资源加载不了的情况，说明找不到重名后的新文件。这通常是因为有些第三方资源没通过 `cc.loader` 加载引起的。这时可以在加载前先用以下方法转换 url，转换后的路径就能正确加载。
 
 ```js
 url = cc.loader.md5Pipe.transformURL(url);
@@ -50,10 +50,9 @@ url = cc.loader.md5Pipe.transformURL(url);
 
 ### 浏览器兼容性
 
-Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox（火狐），IE11
-其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE6 兼容模式。
+Cocos Creator 开发过程中测试的桌面浏览器包括：Chrome、Firefox（火狐）、IE11。其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE6 兼容模式。
 
-移动设备上测试的浏览器包括：Safari (iOS)，Chrome，QQ 浏览器，UC 浏览器，百度浏览器，微信内置 Webview。
+移动设备上测试的浏览器包括：Safari (iOS)、Chrome、QQ 浏览器、UC 浏览器、百度浏览器、微信内置 Webview。
 
 ## Retina 设置
 
@@ -64,7 +63,3 @@ Cocos Creator 开发过程中测试的桌面浏览器包括： Chrome，Firefox�
 要在互联网上发布或分享您的游戏，只要点击 **发布路径** 旁边的 **打开** 按钮，打开发布路径之后，将构建出的 `web-mobile` 或 `web-desktop` 文件夹里的内容整个复制到您的 Web 服务器上就可以通过相应的地址访问了。
 
 关于 Web 服务器的架设，可以自行搜索 Apache、Nginx、IIS、Express 等相关解决方案。
-
----
-
-要了解如何发布游戏到原生平台，请继续前往 [安装配置原生开发环境](setup-native-development.md) 说明文档。

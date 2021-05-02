@@ -87,7 +87,7 @@
     - [Publish to Web](publish/publish-web.md)
     - [Native Development Environment](publish/setup-native-development.md)
     - [Publish to Native Platforms](publish/publish-native.md)
-    - [Debuging JavaScript on Native Platforms](publish/debug-jsb.md)
+    - [Debugging JavaScript on Native Platforms](publish/debug-jsb.md)
     - [Publish to Alipay Mini Games](publish/publish-alipay-mini-games.md)
     - [Publish to Huawei Quick Games](publish/publish-huawei-quick-games.md)
     - [Publish to QTT Mini Games](publish/publish-qutoutiao-mini-games.md)

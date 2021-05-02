@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [GitHub 仓库](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3) 获取。
+本篇文档的范例工程可以从 [GitHub](https://github.com/cocos-creator/tutorial-hot-update) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update) 获取。（请注意分支）
 
 ![hot update](./hot-update/title.jpg)
 
@@ -50,11 +50,11 @@ Manifest 文件中包含以下几个重要信息：
 
 ![](./hot-update/table.png)
 
-**注意**，项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
+> **注意**：项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
-在范例工程中，我们提供了一个 [version_generator.js 文件](https://github.com/cocos-creator/tutorial-hot-update/blob/%3C%3D2.3.3/version_generator.js)，这是一个用于生成 Manfiest 文件的 NodeJS 脚本。使用方式如下：
+在范例工程中，我们提供了一个 **version_generator.js**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3/version_generator.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=2.3.3/version_generator.js)），这是一个用于生成 Manifest 文件的 NodeJS 脚本。使用方式如下：
 
 ```
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
@@ -69,7 +69,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ### 热更新组件
 
-在范例工程中，热更新组件的实现位于 [`assets/scripts/module/HotUpdate.js`](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js) 中，开发者可以参考这种实现，也可以自由得按自己的需求修改。
+在范例工程中，热更新组件的实现位于 `assets/scripts/module/HotUpdate.js`（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3/assets/scripts/module/HotUpdate.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=2.3.3/assets/scripts/module/HotUpdate.js)）中，开发者可以参考这种实现，也可以自由地按自己的需求修改。
 
 除此之外，范例工程中还搭配了一个 `Canvas/update` 节点用于提示更新和显示更新进度供参考。
 
@@ -87,9 +87,10 @@ Manifest 文件中包含以下几个重要信息：
 
 下载完成范例工程后，可以用 Cocos Creator 直接打开这个工程。打开 **构建发布** 面板，构建原生版本，建议使用 Windows / Mac 来测试。
 
-**注意**：
- - 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
- - 并且应该确保在工程目录的 packages 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
+> **注意**：
+>
+> 1. 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
+> 2. 并且应该确保在工程目录的 packages 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
 
 该编辑器插件会在每次构建结束后，自动给 `main.js` 附加上搜索路径设置的逻辑：
 
@@ -136,11 +137,11 @@ Manifest 文件中包含以下几个重要信息：
 
 如果一切正常，此时运行原生版本的范例工程，就会发现检测到新版本，提示更新，更新之后会自动重启游戏，此时可进入 table 场景。
 
-![](./hot-update/update.png)
+![update](./hot-update/update.png)
 
 ## 结语
 
-以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到 [论坛](https://forum.cocos.org/c/Creator)。
+以上介绍的是目前一种可能的热更新方案，Cocos Creator 在未来版本中提供更成熟的热更新方案，直接集成到编辑器中。当然，也会提供底层 Downloader API 来允许用户自由实现自己的热更新方案，并通过插件机制在编辑器中搭建完整可视化的工作流。这篇教程和范例工程提供给大家参考，也鼓励开发者针对自己的工作流进行定制。如果有问题和交流也欢迎反馈到 [论坛](https://forum.cocos.org/c/creator-v2/27) 中。
 
 ## Next Step
 

@@ -1,6 +1,6 @@
 # Release a Game on Web platform
 
-Open main menu's `Project -> Build...` open the build panel.
+Click the main menu's `Project -> Build...` to open the **Build** panel.
 
 Cocos Creator provides page templates for two kinds of Web platforms. From the pop up menu of **release platform**, you can choose `Web Mobile` or `Web Desktop`. The major difference is that in `Web Mobile`, the image will cover the whole browser window by default, while in `Web Desktop`, you are allowed to designate the resolution of image, which doesn't change when you zoom on the browser window.
 
@@ -63,7 +63,3 @@ You can use `cc.view.enableRetina(true)` to set the high resolution in the scrip
 If you want to release or share your games on the Internet, click the **Open** button next to **Build path**. After opening the release path, copy everything in the built `web-mobile` or `web-desktop` folders, and drop them into your Web server. Then you can see the game later there.
 
 For the construction of Web server, you can search for solutions such as Apache, Nginx, IIS and Express on your own.
-
----
-
-Continue on to read about [Setup Native Development](setup-native-development.md).

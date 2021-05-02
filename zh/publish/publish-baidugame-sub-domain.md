@@ -1,6 +1,6 @@
 # 接入百度小游戏的开放数据域
 
-类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域** ，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
+类似微信小游戏，百度小游戏为了保护其社交关系链数据，也实现了一个 **开放数据域**，可以获取到同玩且双向关注的好友信息。这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏完全隔离，开发者只有在开放数据域中才能访问百度小游戏提供的 `swan.getUserInfo()`、`swan.getUserCloudStorage()` 和 `swan.getFriendCloudStorage()`  三个 API，用于获取相应的用户数据。由于开放数据域只能在离屏画布 sharedCanvas 上渲染，因此需要我们把 sharedCanvas 绘制到主域上。
 
 由于开放数据域是一个封闭、独立的 JavaScript 作用域，所以开发者需要创建两个项目：
 
@@ -9,7 +9,7 @@
 
 在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的百度发布包中，就可以作为完整的百度小游戏工程在模拟器和真机上进行预览调试了。
 
-百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
+百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）。
 
 ## 主域项目工程
 
@@ -78,7 +78,7 @@
 
 三、**发布路径** 设置为主域中填入的 **开放数据域代码目录** 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
 
-**注意** ：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
+> **注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
 
 ![](./publish-baidugame/open-data-project-build.png)
 
@@ -92,5 +92,5 @@
 
 ## 参考链接
 
-- [Cocos Creator 百度小游戏开放数据域范例工程](https://github.com/cocos-creator/demo-baidu-subdomain)
+- **Cocos Creator 百度小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）
 - [百度官方文档：关系链数据使用指南](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)

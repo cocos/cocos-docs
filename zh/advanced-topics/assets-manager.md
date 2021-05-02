@@ -35,7 +35,7 @@
 
 ## 热更新基本流程
 
-在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manfiest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
+在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manifest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
 
 ![](hot-update/assets-manager.png)
 
@@ -65,13 +65,13 @@ Manifest 格式是我们用来比较本地和远程资源差异的一种 json �
 }
 ```
 
-Manifest 文件可以通过 Cocos Creator 热更新范例中的 [Version Generator 脚本](https://github.com/cocos-creator/tutorial-hot-update#%E4%BD%BF%E7%94%A8-version-generator-%E6%9D%A5%E7%94%9F%E6%88%90-manifest-%E6%96%87%E4%BB%B6) 来自动生成。
+Manifest 文件可以通过 Cocos Creator 的热更新范例中的 **Version Generator 脚本**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update##%E4%BD%BF%E7%94%A8-version-generator-%E6%9D%A5%E7%94%9F%E6%88%90-manifest-%E6%96%87%E4%BB%B6) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update#%E4%BD%BF%E7%94%A8-version-generator-%E6%9D%A5%E7%94%9F%E6%88%90-manifest-%E6%96%87%E4%BB%B6)）来自动生成。
 
 这里需要注意的是，remote 信息（包括 `packageUrl`、`remoteVersionUrl`、`remoteManifestUrl`）是该 manifest 所指向远程包信息，也就是说，当这个 manifest 成为本地包或者缓存 manifest 之后，它们才有意义（偷偷透露个小秘密，更新版本时更改远程包地址也是一种玩法呢）。另外，md5 信息可以不是文件的 md5 码，也可以是某个版本号，这完全是由用户决定的，本地和远程 manifest 对比时，只要 md5 信息不同，我们就认为这个文件有改动。
 
 ### 工程资源和游戏包内资源的区别
 
-大家在创建一个 Cocos Creator 工程的时候，可以看到它的目录下有 assets 目录，里面保存了你的场景、脚本、prefab 等，对应编辑器中的 assets 面板。但是这些工程资源并不等同于打包后的资源，在使用构建面板构建原生版本时，我们会在构建目录下找到 res 和 src 文件夹，这两个文件夹内保存的才是真正让游戏运行起来的游戏包内资源。其中 src 包含所有脚本， res 包含所有资源。
+大家在创建一个 Cocos Creator 工程的时候，可以看到它的目录下有 assets 目录，里面保存了你的场景、脚本、prefab 等，对应编辑器中的 assets 面板。但是这些工程资源并不等同于打包后的资源，在使用构建面板构建原生版本时，我们会在构建目录下找到 res 和 src 文件夹，这两个文件夹内保存的才是真正让游戏运行起来的游戏包内资源。其中 src 包含所有脚本，res 包含所有资源。
 
 所以我们的资源热更新自然应该更新构建出来的资源，而不是工程的 assets 目录。
 
@@ -166,7 +166,7 @@ assetsManager.setVerifyCallback(function (filePath, asset) {
 
 ### 错误处理和失败重试
 
-在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考 [范例](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/scripts/module/HotUpdate.js)。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
+在流程图的左侧，大家应该注意到了不少的用户消息，这些用户消息都是可以通过热更新的事件监听器来获得通知的，具体可以参考 **范例**（[GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/%3C%3D2.3.3/assets/scripts/module/HotUpdate.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/blob/%3C=2.3.3/assets/scripts/module/HotUpdate.js)）。流程图标识了所有错误信息的触发时机和原因，开发者可以根据自己的系统设计来做出相应的处理。
 
 最重要的就是当下载过程中出现异常，比如下载失败、解压失败、校验失败，最后都会触发 `UPDATE_FAILED` 事件。而所有下载失败的资源列表会被记录在热更新管理器中，可以通过以下方式下载重试：
 
@@ -181,7 +181,7 @@ assetsManager.downloadFailedAssets();
 如果要使用热更新之后的资源，需要重启游戏。有两个原因，第一是更新之后的脚本需要干净的 JS 环境才能正常运行。第二是场景配置，AssetsLibrary 中的配置都需要更新到最新才能够正常加载场景和资源。
 
 1. JS 脚本的刷新
-    
+
     在热更新之前，游戏中的所有脚本已经执行过了，所有的类、组件、对象已经存在 JS context 中。所以热更新之后如果不重启游戏就直接加载脚本，同名的类和对象虽然会被覆盖，但是之前旧的类创建的对象是一直存在的。而被直接覆盖的全局对象，原先的状态也被重置了，就会导致新版本和旧版本的对象混杂在一起。并且对内存也会造成额外开销。
 
 2. 资源配置的刷新

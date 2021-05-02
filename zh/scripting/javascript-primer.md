@@ -6,7 +6,7 @@
 
 本文以介绍 JavaScript 为主，初学者掌握本文的内容后，将能够对 JavaScript 有大体了解，并且满足 Cocos Creator 的开发需求。
 
-JavaScript是一门充满争议的编程语言：它以 Java 命名，但实际上和 Java 毫无关系。JavaScript 的创造 [只用了 10 天时间](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)，但在20年时间里却发展成世界上最流行的 Web 开发语言。如果为 JavaScript 今日的地位和流行程度找一个原因，那毫无疑问是容易上手的语言特性。当然，精通 JavaScript 是一项艰巨的任务，但学会足够开发 Web 应用和游戏的知识却很简单，如果你已经有了一定编程基础，熟悉 JavaScript 语言特性不会花费你多长时间。
+JavaScript是一门充满争议的编程语言，它以 Java 命名，但实际上和 Java 毫无关系。JavaScript 的创造 [只用了 10 天时间](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)，但在 20 年时间里却发展成世界上最流行的 Web 开发语言。如果为 JavaScript 今日的地位和流行程度找一个原因，那毫无疑问是容易上手的语言特性。当然，精通 JavaScript 是一项艰巨的任务，但学会足够开发 Web 应用和游戏的知识却很简单，如果你已经有了一定编程基础，熟悉 JavaScript 语言特性不会花费你多长时间。
 
 另外，在使用 Cocos Creator 开发游戏时你大多数情况下都会重复使用一些固有的模式。根据帕雷托法则（也叫二八定律），掌握一门语言的 20% 就足够你应付 80% 以上的情况了。现在就让我们来花最短的时间学习足够的 JavaScript 知识，以便我们开始使用 Cocos Creator 开发游戏。
 
@@ -79,7 +79,7 @@ myFunction = function (a) {
 }
 ```
 
-## If
+## `if`
 
 JavaScript 中条件判断语句 `if` 是这样用的：
 
@@ -89,7 +89,7 @@ if (foo) {
 }
 ```
 
-## If / Else
+## `if`/`else`
 
 `if` 后的值如果为 false，会执行 `else` 中的语句：
 
@@ -107,6 +107,7 @@ else {
 ```js
 foo ? function1() : function2();
 ```
+
 当 `foo` 的值为 true 时，表达式会返回 `function1()` 的执行结果，反之会返回 `function2()` 的执行结果。当我们需要根据条件来为变量赋值时，这种写法就非常方便：
 
 ```js
@@ -392,7 +393,3 @@ var Comp = cc.Class({
 
 - [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
 - [JavaScript 秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
-
----
-
-继续前往 [CCClass 进阶参考](reference/class.md)。

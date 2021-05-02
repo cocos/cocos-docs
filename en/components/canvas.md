@@ -7,7 +7,7 @@ The **Canvas** component can get the actual resolution of the device screen and 
 ## Property
 
 | Property          | Explanation |
-| --                | --          |
+| :--               | :--         |
 | Design Resolution | Design resolution (the resolution blueprint used while the content producer builds the scene) |
 | Fit Height        | Auto-fit height (the height of the design resolution will auto-fit to the screen height) |
 | Fit Width         | Auto-fit width (the width of the design resolution will auto-fit to the screen width) |
@@ -21,7 +21,3 @@ When Canvas adapts the screen, it only scales or stretches the entire game's scr
 If you want to use the size of the Canvas as the design resolution, you can manually remove or disable the Widget component. In addition, when the old project is upgraded to v2.3, the editor will add Widget components automatically.
 
 Please refer to the [Canvas API](../../../api/en/classes/Canvas.html) for the script interface.
-
-<hr>
-
-Continue on to read about the [Widget component reference](widget.md).

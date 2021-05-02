@@ -32,7 +32,7 @@ If you use Builtin for development, please note the following:
 
 - The `Is Trigger` property in [3D Collision](./physics-collider.md) is invalid. All Collision components can only be used as [Trigger](./physics-event.md).
 
-- The `attachedRigidbody` property in the 3D Collision is `null`. Please refer to the [Documentation](https://github.com/cocos-creator/engine/blob/master/cocos2d/core/3d/physics/framework/components/collider/collider-component.ts#L143) for details.
+- The `attachedRigidbody` property in the 3D Collision is `null`.
 
 - [3D RigidBody Component](./physics-rigidbody.md) is invalid.
 

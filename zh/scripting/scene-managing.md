@@ -54,9 +54,9 @@ cc.director.preloadScene("table", function () {
 cc.director.loadScene("table");
 ```
 
-就算预加载还没完成，你也可以直接调用 `cc.director.loadScene`，预加载完成后场景就会启动。实战例子可以参考 [21点演示项目](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)
+就算预加载还没完成，你也可以直接调用 `cc.director.loadScene`，预加载完成后场景就会启动。实战例子可以参考 **21 点演示项目**（[GitHub](https://github.com/cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-blackjack/blob/master/assets/scripts/Menu.js#L12-L14)）。
 
-**注意** 使用预加载场景资源配合 `runScene` 的方式进行预加载场景的方法已被废除：
+**注意**：使用预加载场景资源配合 `runScene` 的方式进行预加载场景的方法已被废除：
 
 ```js
 // 请不要再使用下面的方法预加载场景!
@@ -64,7 +64,3 @@ cc.loader.loadRes('MyScene.fire', function(err, res) {
     cc.director.runScene(res.scene); 
 });
 ```
-
----
-
-继续前往 [获取和加载资源](load-assets.md) 说明文档。

@@ -40,7 +40,7 @@ For the Layer script interface, please refer to [TiledLayer API](../../../api/en
 
 ## TiledTile Properties
 
-| Properties |   Function Explanation
+| property |   Function Explanation
 | ------| ----------- |
 | X     | Specify the TiledTile horizontal coordinate, use tile as the unit
 | Y     | Specify the TiledTile vertical coordinate, use tile as the unit
@@ -55,7 +55,7 @@ TiledTile can control the specified tile. It will apply the node rotation, scale
 
 ## Node properties that can be applied to TiledTile
 
-| Properties |   Function Explanation
+| property |   Function Explanation
 | ------| ----------- |
 | Position | `Pans` for the specified TiledTile
 | Rotation | `Rotates` for the specified TiledTile

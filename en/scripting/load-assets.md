@@ -71,12 +71,12 @@ The result is as follows:
 In this way you can get the set asset directly from the script:
 
 ```js
-    onLoad: function () {
-        var spriteFrame = this.spriteFrame;
-        var texture = this.texture;
+onLoad: function () {
+    var spriteFrame = this.spriteFrame;
+    var texture = this.texture;
 
-        spriteFrame.setTexture(texture);
-    }
+    spriteFrame.setTexture(texture);
+}
 ```
 
 Although it is very straight forward to set assets in the **Properties** panel, assets can only be pre-set in the scene without dynamic switching. If you need dynamic switching, you need to check the following contents out.
@@ -114,8 +114,7 @@ cc.loader.loadRes("test assets/anim", function (err, clip) {
 
 #### Load SpriteFrame
 
-After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if
-`test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
+After the image settings for the Sprite will be in the **Assets** to generate a corresponding SpriteFrame. But if `test assets/image` is loaded directly, and the type will be cc.Texture2D. You must specify the second parameter is the type of resource, then the generated SpriteFrame can be loaded.
 
 ```javascript
 // load SpriteFrame
@@ -174,8 +173,7 @@ cc.loader.loadResDir("test assets", cc.SpriteFrame, function (err, assets, urls)
 
 ## How to load remote assets or files in device
 
-Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `cc.loader.load`. At the same time you can use the same API to load resources on the local device storage. The `loadRes` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local
-device files:
+Currently in Cocos Creator, we support loading the remote image files, which is very useful to load user picture from social network websites. To load files from such urls, you should call `cc.loader.load`. At the same time you can use the same API to load resources on the local device storage. The `loadRes` APIs mentioned above only apply to the application package resources and hot update resources. Here is how to load remote assets and local device files:
 
 ```javascript
 // Remote texture url with file extensions
@@ -240,7 +238,3 @@ cc.loader.release(deps);
 Imagine such scenario, you released the cache of a resource in cc.loader. After that due to some reason, you need it again. At this point garbage collection has not yet begun (you never know when garbage collection will be triggered), or you still hold a reference to this old resource somewhere in your game logic. This means that the resource still exist in memory, but cc.loader have no longer access to it, so it will reload it. This causes the resource to have two copies in the memory, which is wasting. If the same scenario happens to a lot of resources, or resources get loaded even more than once, the pressure on the memory is likely to be high. If you observe such memory usage curve in your game, please carefully check the game logic to see whether there is leaks. If not, the garbage collection mechanism will eventually recover the memory.
 
 The above is resource dependence management in cc.loader and how to release them, this part of the functionality and API design has not yet fully finalized, we are still trying to bring you an API set as easy to use as possible, we will update this document when we enhanced the loader's ability.
-
----
-
-Continue on to read about [Event/Event System](events.md).

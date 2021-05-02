@@ -1,6 +1,6 @@
 # 使用 WebSocket 服务器
 
-开发者可以在游戏进程中启动一个 **WebSocket 服务器**，提供 **RPC 接口**。通过完善和调用这些 **RPC 接口**，开发者能够对游戏进程内部状态进行监控，增加对游戏进程状态的管理能力。 
+开发者可以在游戏进程中启动一个 **WebSocket 服务器**，提供 **RPC 接口**。通过完善和调用这些 **RPC 接口**，开发者能够对游戏进程内部状态进行监控，增加对游戏进程状态的管理能力。
 
 ## 如何启用
 
@@ -8,7 +8,7 @@
 
 ### 方式 1：全平台启用——修改默认值
 
-在 `ccConfig.h` 中， 设置 `USE_WEBSOCKET_SERVER` 的值为 `1`。
+在 `ccConfig.h` 中，设置 `USE_WEBSOCKET_SERVER` 的值为 `1`。
 
 ![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
@@ -18,9 +18,9 @@
 #if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
 #define USE_WEBSOCKET_SERVER 0
 #endif
-``` 
+```
 
-修改默认值会影响所有平台，如果不明确是否需要在所有平台启用，可以参考下面的方式 2，只针对特定平台开启。 
+修改默认值会影响所有平台，如果不明确是否需要在所有平台启用，可以参考下面的方式 2，只针对特定平台开启。
 
 ### 方式 2：特定平台启用
 

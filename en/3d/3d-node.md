@@ -28,6 +28,7 @@ position | KEEP `cc.Vec2` | GET `cc.Vec3` | GET `cc.Vec3`
 ## Open 3D node
 
 After Cocos Creator v2.1 adds 3D support, the nodes are divided into 2D nodes and 3D nodes.
+
 The difference between them is that 2D nodes are only considered in 2D space when doing matrix calculations or some property settings, which can save a lot of running overhead.
 
 The newly created node is a 2D node By default, and there are two ways to set the node to be a 3D node:
@@ -44,4 +45,4 @@ The newly created node is a 2D node By default, and there are two ways to set th
   node.is3DNode = true;
   ```
 
-**Note**: Color and Opacity properties of 3D nodes may not take effect on some renderer components.
+> **Note**: `Color` and `Opacity` properties of 3D nodes may not take effect on some renderer components.

@@ -10,12 +10,14 @@ For more information about BBCode, please refer to the **BBCode format** section
 
 ![richtext](./richtext/richtext.png)
 
-Click the **Add Component** button at the bottom of the **Properties** panel and select **richtext** from **Renderer Component** to add the richtext component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **RichText** from **Renderer Component** to add the RichText component to the node.
 
-## RichText property
+The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html).
+
+## RichText properties
 
 | Property           | Function Explanation                                                                  |
-| --------------     | -----------                                                                           |
+| :-------------     | :----------                                                                           |
 | String             | Text of the RichText, you could use BBcode in the string                              |
 | Horizontal Align   | Horizontal alignment                                                                  |
 | Font Size          | Font size, in points                                                                  |
@@ -41,10 +43,10 @@ Here is an example of the `size` and `color` tag:
 
 ### Supported tags
 
-**Note**: All tag names should be lower case and the property assignment should use `=` sign.
+> **Note**: all tag names should be lower case and the property assignment should use `=` sign.
 
 | Name | Description | Example | Note |
-| ------ | ------- | ----- | ------ |
+| :------ | :------- | :----- | :------ |
 | color  | Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html) |
 | size   | Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` | The size assignment should use `=` sign. |
 | outline | Specify the font outline, you could customize the outline color and width by using the `color` and `width` property. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color or width of outline, the default color value is `#ffffff` and the default width is `1`. |
@@ -63,15 +65,15 @@ For better typography we have provided additional optional attributes for the im
 When you change the height or width of the SpriteFrame, you may need to use the `align` attribute to adjust the alignment of the image in the line.
 
 | Attribute | Description | Example | Note   |
-| --------- | ----------- | ------- | ------ |
+| :-------- | :---------- | :------ | :----- |
 | height    | Specify the SpriteFrame height size, the size should be a integer.| `<img src='foo' height=50 />` | If you only assign height the SpriteFrame will auto keep aspect-ratio
 | width     | Specify the SpriteFrame width size, the size should be a integer.| `<img src='foo' width=50 />` | You can use both Height and Width `<img src='foo' width=20 height=30 />`
-| align     | Specify the SpriteFrame alignment in line, the value should be `bottom`, `top` or `center`.| `<img src='foo' align=center />` | Default SpriteFrame alignment will be bottom 
+| align     | Specify the SpriteFrame alignment in line, the value should be `bottom`, `top` or `center`.| `<img src='foo' align=center />` | Default SpriteFrame alignment will be bottom
 
 To support custom image layout, we also provide the `offset` attribute for fine-tune the position of the specified SpriteFrame in the RichText component. When setting the `offset` attribute, keep in mind that the value must be an integer, and it will cause the image to overlap the text if it is not set properly.
 
 | `offset` attribute | Example | Description | Note   |
-| --------- | ------- | ----------- | ------ |
+| :-------- | :------ | :---------- | :----- |
 | Y         | `<img src='foo' offset=5 />`    | Specify the SpriteFrame to offset y + 5           | If offset only set one Integer value it's will be offset Y
 | Y         | `<img src='foo' offset=-5 />`   | Specify the SpriteFrame to offset y - 5           | You can use minus to decrease Y position
 | X, Y      | `<img src='foo' offset=6,-5 />` | Specify the SpriteFrame to offset x + 6 and y - 5 | The offset values should only contains `0-9` , `-` and `,` characters
@@ -87,6 +89,7 @@ is equal to:
 `<color=green><size=30>I'm green</size></color>`
 
 There are two ways to set the color of RichText:
+
 1. Selected the node and set the overall color of RichText in **Node -> Color** of the **Properties**.
 2. Use BBCode to set colors on the inside of RichText separately.
 
@@ -97,12 +100,12 @@ There are two ways to set the color of RichText:
 Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, refer to [Cache Mode of the Label component](./label.md)
 
 | Attributes |   Description
-| -------------- | ----------- |
+| :------------- | :---------- |
 | NONE | By default, for each Label node created by RichText, set its CacheMode to NONE, that is, generate a bitmap of the entire text of each Label and render it separately.
 |BITMAP| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render.
 | CHAR | After selection, each Label node created by RichText has its CacheMode set to CHAR type, that is, the text of each Label is cached in a globally shared bitmap in "words". Each of the same font style and size is Characters will share a cache globally.
 
-**Note**: The **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
+> **Note**: the **RenderTexture** module in the **Project -> Project Settings -> Module Config** panel cannot be removed when using the cache mode.
 
 ## Detailed explanation
 

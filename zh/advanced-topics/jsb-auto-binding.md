@@ -91,7 +91,7 @@ C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，�
 
 ![](jsb/store-file.png)
 
-这里先准备 `ABCJSBBridge.h`，里面主要是申明了一个 `abcLog` 的函数，此函数就是供 JS 层调用打 log 的，另外由于打 log 方法肯定在 js 层很多地方都会使用，所以这里采用了一个单例模式，提供了 `getInstance()` 来获取当前类的实例 。
+这里先准备 `ABCJSBBridge.h`，里面主要是申明了一个 `abcLog` 的函数，此函数就是供 JS 层调用打 log 的，另外由于打 log 方法肯定在 js 层很多地方都会使用，所以这里采用了一个单例模式，提供了 `getInstance()` 来获取当前类的实例。
 
 ```cpp
 #include <string>
@@ -217,7 +217,9 @@ namespace abc
 ## JSB 配置脚本编写
 
 为了保持跟官方的一致，我们在 **build/jsb-default/frameworks/cocos2d-x/tools/tojs** 目录下创建 `genbindings_test.py`，里面的内容基本跟 `genbindings.py` 差不多，主要区别有如下几点：
+
 1. 去掉了 `cmd_args` 那段，里面主要是记录了 cocos 自带的一些需要生成 jsb 的文件，因为考虑到项目可能会对 Cocos 源码进行修改，如果这时候把这部分保留的话，当运行脚本后会把我们自带的修改就给覆盖掉了。
+
 2. 取消了定制的 `output_dir` 也就是最终生成的 js，c++ 等绑定文件的路径，而是保持跟 Cocos 一样，也即在 **cocos/scripting/js-bindings/auto**，主要为了方便下一步配置 mk 文件。
 
     ![](jsb/cancel-output_dir.png)
@@ -410,19 +412,19 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 1. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/Android.mk** 文件，在其中加上最开始实现的 cpp 文件：
 
-![](/images/cocos-creator-js-binding-auto/100.png)
+    ![](jsb/100.png)
 
 2. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/proj.android/Android.mk**，在其中加上上一步生成的 cpp 文件：
 
-![](/images/cocos-creator-js-binding-auto/110.png)
+    ![](jsb/110.png)
 
 3. 打开 **build/jsb-default/frameworks/runtime-src/Classes/jsb_module_register.cpp**，添加引擎启动时调用绑定文件的注册函数，从而将其添加到 js 环境中：
 
-![](/images/cocos-creator-js-binding-auto/111.png)
+    ![](jsb/111.png)
 
 4. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/script/jsb_boot.js**，在其中增加 js 对象的初始化：
 
-![](/images/cocos-creator-js-binding-auto/112.png)
+    ![](jsb/112.png)
 
 上面说到的 `jsb_module_register.cpp` 和 `jsb_boot.js` 其实都是在 Cocos 引擎初始化的时候就会去调用的，关于启动流程感兴趣的可以去看看这篇 [文章](https://gowa.club/Cocos-Creator/Cocos%20Creator%E7%94%9F%E6%88%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.html)。
 
@@ -432,7 +434,8 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 ## 自动绑定的限制条件
 
-自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 GitHub 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+自动绑定依赖于 Bindings Generator 工具，Cocos 官方还单独把这部分拎出来了：[GitHub](https://github.com/cocos-creator/bindings-generator) | [Gitee](https://gitee.com/mirrors_cocos-creator/bindings-generator)。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+
 1. 只能够针对类生成绑定，不可以绑定结构体，独立函数等。
 2. 不能够生成 `Delegate` 类型的 API，因为脚本中的对象是无法继承 C++ 中的 `Delegate` 类并重写其中的 `Delegate` 函数的。
 3. 子类中重写了父类的 API 的同时，又重载了这个 API。

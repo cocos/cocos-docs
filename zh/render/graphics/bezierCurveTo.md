@@ -1,8 +1,8 @@
 # bezierCurveTo
 
-`bezierCurveTo()` 方法通过使用表示三次贝塞尔曲线的指定控制点，向当前路径添加一个点。   
+`bezierCurveTo()` 方法通过使用表示三次贝塞尔曲线的指定控制点，向当前路径添加一个点。
 
-**注意**：三次贝塞尔曲线需要三个点。前两个点是用于三次贝塞尔计算中的控制点，第三个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。
+> **注意**：三次贝塞尔曲线需要三个点。前两个点是用于三次贝塞尔计算中的控制点，第三个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。
 
 | 参数 |   描述
 | -------------- | ----------- |
@@ -22,7 +22,7 @@ ctx.bezierCurveTo(20, 100, 200, 100, 200, 20);
 ctx.fill();
 ```
 
-<a href="graphics/bezierCurveTo.png"><img src="graphics/bezierCurveTo.png"></a>
+![bezierCurveTo](graphics/bezierCurveTo.png)
 
 <hr>
 

@@ -75,7 +75,7 @@ cc.Class({
 通过 `slider.node.on('slide', ...)` 的方式来添加
 
 ```js
-// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
 cc.Class({
     extends: cc.Component,

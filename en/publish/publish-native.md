@@ -2,7 +2,7 @@
 
 Open **Project -> Build...** in the main menu and open **Build** panel.
 
-Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. 
+Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer.
 
 ![native platform](publish-native/native_platform.png)
 
@@ -10,11 +10,11 @@ Currently, there are four native platforms, which include: **Android**, **iOS**,
 
 ### Merge SpriteFrames in Atlas
 
-Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
+Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extended.  
 
 If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of `project.manifest`.
 
-**Note**: For projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
+> **Note**: for projects using hot update, please ensure that the status of this option is consistent during version upgrades, otherwise it will cause resource error in updated version.
 
 ### Inline all SpriteFrames
 
@@ -105,7 +105,7 @@ After selecting the release platform and initial scene, the project can now be b
 
 ![build progress](publish-native/build_progress.png)
 
-When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
+When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait until the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
 
 ```bash
 Built to "\myProject\example\build\jsb-default" successfully
@@ -145,7 +145,7 @@ Click the **open** button near the release path, the building release path will 
 
 The red frames in the picture indicate projects of different native platforms. Next, only by using IDE(such as: Xcode, Visual Studio) that corresponds to the native platform to open these projects, can you make further operations like compilation, preview and release. For the usage instructions for native platform's IDE, please search related information on your own, which will not be discussed in detail here.
 
-**Note**: 
+**Note**:
 
 - Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
 - When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Module Config** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
@@ -161,4 +161,4 @@ The red frames in the picture indicate projects of different native platforms. N
 
 ---
 
-To know how to debug on a native platform, please refer to [Debuging JavaScript on Native Platforms](debug-jsb.md).
+To know how to debug on a native platform, please refer to [Debugging JavaScript on Native Platforms](debug-jsb.md).

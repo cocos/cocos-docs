@@ -36,7 +36,6 @@ cc.Class({
     onPostSolve: function (contact, selfCollider, otherCollider) {
     }
 });
-
 ```
 
 在上面的代码示例中，我们添加了所有的碰撞回调函数到这个脚本中，一共有四个类型的回调函数，每个回调函数都有三个参数。每种回调函数的作用如注释所示，你可以根据自己的需求来实现相应的回调函数。
@@ -96,7 +95,7 @@ cc.Class({
 
 回调的参数包含了所有的碰撞接触信息，每个回调函数都提供了三个参数：**contact**、**selfCollider**、**otherCollider**。
 
-**selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**ohterCollider** 指的是发生碰撞的另一个碰撞体。
+**selfCollider** 和 **otherCollider** 很容易理解，如名字所示，**selfCollider** 指的是回调脚本的节点上的碰撞体，**otherCollider** 指的是发生碰撞的另一个碰撞体。
 
 最主要的信息都包含在 **contact** 中，这是一个 `cc.PhysicsContact` 类型的实例，可以在 api 文档中找到相关的 API。contact 中比较常用的信息就是碰撞的位置和法向量，contact 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。
 
@@ -116,13 +115,13 @@ var normal = worldManifold.normal;
 
   ![world-manifold-points](./image/world-manifold-points.png)
 
-  **注意**：不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
-
-  ![collision-points-1](./image/collision-points-1.png)
-
-  ![collision-points-2](./image/collision-points-2.png)
-
-  ![collision-points-3](./image/collision-points-3.png)
+  > **注意**：不是每一个碰撞都会有两个碰撞点，在模拟的更多的情况下只会产生一个碰撞点，下面列举一些其他的碰撞示例。
+  >
+  > ![collision-points-1](./image/collision-points-1.png)
+  >
+  > ![collision-points-2](./image/collision-points-2.png)
+  >
+  > ![collision-points-3](./image/collision-points-3.png)
 
 - normal
 
@@ -172,4 +171,4 @@ contact.setFriction(friction);
 contact.setRestitution(restitution);
 ```
 
-注意这些修改只会在本次物理处理步骤中生效。
+> **注意**：这些修改只会在本次物理处理步骤中生效。

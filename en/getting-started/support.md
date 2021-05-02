@@ -2,14 +2,12 @@
 
 ## More tutorials
 
-More engine dynamics, quality tutorials, and interviews can be viewed at [![](introduction/twitter.png)](https://twitter.com/cocos2dx) or [![](introduction/facebook.png)](https://www.facebook.com/cocos2dx/).
+More engine dynamics, quality tutorials, and interviews can be viewed at [![twitter](introduction/twitter.png)](https://twitter.com/cocos2dx) or [![facebook](introduction/facebook.png)](https://www.facebook.com/cocos2dx/).
 
 ## Demo and example projects
 
-**Note**: All demo and example projects on GitHub will be updated with the version of Cocos Creator. The default branch corresponds to the latest Cocos Creator version. The old version of the project will be distinguished by the branch name like **v0.7**. The branch name will match the Cocos Creator version, please be careful to distinguish the version when downloading and using.
-
 - [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
-- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game), please read [Quick Start Tutorial](quick-start.md) to build it step by step!
+- [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game): Please read [Quick Start Tutorial](quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
@@ -18,11 +16,13 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![](in
 - [Team Building UI Demo](https://github.com/cocos-creator/demo-team-build-ui): Showcase how to use prefab and json data to populate dynamic UI contents.
 - [Camera Demo](https://github.com/cocos-creator/demo-camera): Contains examples of the usage of camera.
 
+> **Note**: all demo and example projects on GitHub will be updated with the version of Cocos Creator. The default branch corresponds to the latest Cocos Creator version. The old version of the project will be distinguished by the branch name like **v0.7**. The branch name will match the Cocos Creator version, please be careful to distinguish the version when downloading and using.
+
 ## Other third-party tools and resources
 
 ### Code IDE
 
-- [VS Code](https://code.visualstudio.com/) Recommended coding environment for Cocos Creator.
+- [VS Code](https://code.visualstudio.com/): Recommended coding environment for Cocos Creator.
 - [WebStorm](https://www.jetbrains.com/webstorm/)
 - [Sublime Text](http://www.sublimetext.com/)
 - [Atom](https://atom.io/)

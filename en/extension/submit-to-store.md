@@ -63,7 +63,7 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and log in, then g
 
   - **Package**: **Zip** format, up to **100MB**.
   - **Extension Name**: The name of the plugin extension package, defined in the `package.json` file of the extension package.
-  - **Version Number**: Plugin version number, defined in the `package.json` file of the extension package. Follow the [semver specification [zh]](http://semver.org/lang/zh-CN/) for writing conventions.
+  - **Version Number**: Plugin version number, defined in the `package.json` file of the extension package. Follow the [semver specification [cn]](http://semver.org/lang/zh-CN/) for writing conventions.
   - **Creator Version Requirements**: The plugin's requirements for the Creator version.
 
   Click **Next** to enter the **Submit for review** page after completing the filling.

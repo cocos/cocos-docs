@@ -37,7 +37,7 @@ If you want to display the bounding box of the Collider Component, please set `e
 manager.enabledDrawBoundingBox = true;
 ```
 
-Result :   
+Result:
 
 ![](collision-manager/draw-bounding-box.png)
 

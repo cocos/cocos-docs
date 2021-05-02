@@ -18,7 +18,7 @@ Cocos Creator 提供了强大的集成式游戏开发环境，使用引擎插件
 
 一、下载 Cocos Creator 构建插件
 
-地址：https://github.com/cocos-creator/plugin-wechat-engine-separation/archive/master.zip
+下载地址：[GitHub](https://github.com/cocos-creator/plugin-wechat-engine-separation/archive/master.zip) | [Gitee](https://gitee.com/mirrors_cocos-creator/plugin-wechat-engine-separation)
 
 二、安装插件
 
@@ -80,7 +80,7 @@ A：这是由于旧版本 Cocos Creator 构建插件的兼容性问题导致的�
 
 Q：提交审核时弹出 “使用的插件有新版本” 的提示框，能否更新？<br />
 A：不能更新，请点击 **确定**。
-    
+
   ![](./publish-wechatgame/new_plugin.png)
 
 ## 参考链接

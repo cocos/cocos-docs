@@ -59,7 +59,7 @@ As with creating a JavaScript script, you can create a new `.ts` file directly i
 
 ## Declare CCClass with TypeScript
 
-The [class declaration in TypeScirpt](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
+The [class declaration in TypeScript](https://www.typescriptlang.org/docs/handbook/classes.html) is similar to the [ES6 Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). But in order for the editor to correctly parse the various properties displayed in the **Properties** panel, we need to use the engine built-in decorator to declare the normal class as CCClass. This is similar to declaring the ES6 Classes in JavaScript as a CCClass currently. For more information on decorators, please refer to [TypeScript decorator](http://www.typescriptlang.org/docs/handbook/decorators.html).
 
 The following is an example of a basic TypeScript component declaration:
 
@@ -120,7 +120,7 @@ The decorator uses the `@` character as the marker, the decorator is mainly used
     public myColors: cc.Color[] = [];
     ```
 
-- Declare getset
+- Declare get/set
 
     ```typescript
     @property
@@ -137,7 +137,7 @@ The decorator uses the `@` character as the marker, the decorator is mainly used
     }
     ```
 
-**Note**: The public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
+> **Note**: the public, private modifiers of TypeScript does not affect the default visibility of the member in the **Properties** panel, and the default visibility still depends on whether the member variable name begins with an underscore.
 
 ## Intellisense
 
@@ -227,7 +227,7 @@ In TypeScript, a namespace is an ordinary, named Javascript object that is locat
 
 Creator defaults all scripts in the assets directory will be compiled, and a modular package is automatically generated for each script so that the scripts can reference each other via `import` or `require`. When we want to place a script's variables and methods in the global namespace rather than in a module, we need to select this script resource and set the script `import as plugin` in the **Properties**. Scripts that are set up as Plug-ins will not encapsulated in a modularly and are not automatically compiled.
 
-**Note**: In the WeChat, Baidu, Xiaomi, Alipay mini game environments, the global variables need to explicitly set properties of `window` to declare successfully, such as `window.data = {};`.
+> **Note**: in the WeChat, Baidu, Xiaomi, Alipay mini game environments, the global variables need to explicitly set properties of `window` to declare successfully, such as `window.data = {};`.
 
 So for TypeScript scripts that contain namespaces, we can neither compile and modularize the scripts nor set them as plugin scripts (which will cause TS files not to be compiled into JS). If you need to use namespaces, we need to work with a specific workflow.
 

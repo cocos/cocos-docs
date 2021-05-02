@@ -1,6 +1,6 @@
 # rect
 
-`rect()` 方法用于创建矩形。 
+`rect()` 方法用于创建矩形。
 
 | 参数 |   描述
 | -------------- | ----------- |
@@ -17,7 +17,7 @@ ctx.rect(20, 20, 150, 100);
 ctx.fill();
 ```
 
-<a href="graphics/rect.png"><img src="graphics/rect.png"></a>
+![rect](graphics/rect.png)
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
@@ -41,7 +41,7 @@ ctx.rect(50, 50, 150, 80);
 ctx.fill();
 ```
 
-<a href="graphics/rect2.png"><img src="graphics/rect2.png"></a>
+![rect](graphics/rect2.png)
 
 <hr>
 

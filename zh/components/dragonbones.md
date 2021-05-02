@@ -6,13 +6,13 @@ DragonBones 组件可以对骨骼动画（DragonBones）资源进行渲染和播
 
 在 **层级管理器** 中选中需要添加 DragonBones 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> DragonBones** 按钮，即可添加 DragonBones 组件到节点上。
 
-- DragonBones 组件在脚本中的操作请参考 [example-cases](https://github.com/cocos-creator/example-cases) 中的 [DragonBones 测试例](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones)。
+- DragonBones 组件在脚本中的操作请参考 example-cases 范例中的 **DragonBones**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/dragonbones)）。
 - DragonBones 相关的脚本接口请参考 [DragonBones API](../../../api/zh/modules/dragonBones.html)。
 
 ## DragonBones 属性
 
 | 属性 |   功能说明
-| --------------------- | ------------------ |
+| :-------------------- | :----------------- |
 | Dragon Asset          | 骨骼信息数据，包含了骨骼信息（绑定骨骼动作，slots，渲染顺序，attachments，皮肤等等）和动画，但不持有任何状态。<br>多个 ArmatureDisplay 可以共用相同的骨骼数据。<br/>可拖拽 DragonBones 导出的骨骼资源到这里
 | Dragon Atlas Asset    | 骨骼数据所需的 Atlas Texture 数据。可拖拽 DragonBones 导出的 Atlas 资源到这里
 | Armature              | 当前使用的 Armature 名称

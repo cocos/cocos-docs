@@ -16,10 +16,10 @@ Layout is a container component. The container can unlock the auto-layout functi
 
 Click the **Add Component** button at the bottom of **Properties** panel and then select **Layout** from the **UI Component** to add the Layout component to the node.
 
-## Layout property
+## Layout properties
 
 | Property            | Function Explanation                                                |
-| --------------       | -----------                                                        |
+| :--------------     | :----------                                                        |
 | Type                 | Layout type, currently has NONE, HORIZONTAL, VERTICAL and Grid.    |
 | Resize Mode          | Resize strategies, currently has NONE, CHILDREN and CONTAINER.     |
 | Padding Left         | The left padding between the sub-object and the container frame in the layout.   |
@@ -48,11 +48,7 @@ You can switch the layout container type by altering `Type` in **Properties** pa
 
 When using Grid layout, the **Start Axis** is very important. When choosing **HORIZONTAL**, it will fill an entire row before a new row is started. When choosing **VERTICAL**, it will fill an entire column before a new column is started.
 
-**Node**:
-
-1. Scaling and rotation of child nodes are not considered.
-2. After setting the Layout, the results need to be updated until the next frame, unless you manually call `updateLayout` API.
-
----
-
-Continue on to read about [Script development workflow](../scripting/index.md).
+> **Nodes**:
+>
+> 1. Scaling and rotation of child nodes are not considered.
+> 2. After setting the Layout, the results need to be updated until the next frame, unless you manually call `updateLayout` API.

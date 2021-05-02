@@ -27,7 +27,3 @@ You can create a spine node in three ways:
 3. Drag the Spine assets directly from **Assets** to the **Skeleton Data** property of the **Spine Skeleton** component in the **Properties** panel.
 
    ![spine](spine/create_3.png)
-
-<hr>
-
-Continue on to read about [Content Creation Workflow](../content-workflow/index.md).

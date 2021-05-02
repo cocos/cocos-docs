@@ -6,7 +6,7 @@ Besides the engine tells us when a collision happens, we also need a way to get 
 
 ## Notice
 
-1. We need to first `Enable contact listner` in the [rigidbody](rigid-body.md) component properties, so that a corresponding callback will be generated.
+1. We need to first `Enable contact listener` in the [rigidbody](rigid-body.md) component properties, so that a corresponding callback will be generated.
 
 2. The information in the argument of callback function is fetched from the cache of the physics engine, so the information is only accessible in the current callback. Do not store the reference to those parameters in your script, but you can copy the data to your own variable for later use.
 
@@ -94,7 +94,7 @@ The below output log shows the exact callback order of the example.
 
 The callback parameters contain all the collision contact information, and each callback function provides three parameters: `contact`, `selfCollider`, `otherCollider`.
 
-`selfCollider` and `otherCollider`: It is easy to understand. As the name suggests, `selfCollider` refers to the collider on the node of the callback script, `ohterCollider` refers to the other collider.
+`selfCollider` and `otherCollider`: It is easy to understand. As the name suggests, `selfCollider` refers to the collider on the node of the callback script, `otherCollider` refers to the other collider.
 
 The most important information is included in `contact`, which is an instance of the class `cc.PhysicsContact` that can be found in the API documentation.
 

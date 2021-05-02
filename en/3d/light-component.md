@@ -10,7 +10,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 ## Light Properties
 
-| Properties |   Description
+| property |   Description
 | -------------- | ----------- |
 | Type                | Light type. Including **DIRECTIONAL**, **POINT**, **SPOT**, **AMBIENT** four types. Please refer to [Lighting](lighting.md) for details.
 | Color               | Light color.

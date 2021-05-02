@@ -53,13 +53,13 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 | `cc.Node.EventType.TOUCH_END`    | `touchend`               | when the finger leaves screen in the target node region      |
 | `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel`            | when the finger leaves screen outside the target node region |
 
-The important APIs of touch event (`cc.Event.EventTouch`) are as follows(`cc.Event` starndard event API excluded):
+The important APIs of touch event (`cc.Event.EventTouch`) are as follows(`cc.Event` standard event API excluded):
 
 | API name              | Type       | Meaning |
 | --------------------- | ---------- | ------- |
 | `touch`               | `cc.Touch` | contact object related to the current event |
 | `getID`               | `Number`   | identification ID of the touch spot, can be used in multi-touch to track the touch spot              |
-| `getLocation`         | `Object`   | get location object of the touch spot which includes x and y propertites                             |
+| `getLocation`         | `Object`   | get location object of the touch spot which includes x and y properties                             |
 | `getLocationX`        | `Number`   | get X axis location of the touch spot       |
 | `getLocationY`        | `Number`   | get Y axis location of the touch spot       |
 | `getPreviousLocation` | `Object`   | get the location object of the touch spot at the last event which includes x and y properties        |
@@ -90,7 +90,7 @@ At the same time, if C has a parent node, it will also pass the touch event to i
 
 ### Register touch or mouse events in the capturing phase
 
-Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.   
+Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.  
 Now the event bubbling can't meet our demand, so that we need to register the parent node event listeners in the capturing phase.  
 To achieve this goal, we can pass the fourth parameter `true` when registering touch or mouse event on node, which means `useCapture`. For example:
 

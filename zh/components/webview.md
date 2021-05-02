@@ -15,7 +15,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | Url            | 指定一个 URL 地址，这个地址以 http 或者 https 开头，请填写一个有效的 URL 地址。 |
 | Webview Events | WebView 的回调事件，当 webview 在加载网页过程中，加载网页结束后或者加载网页出错时会调用此函数。 |
 
-**注意**：在 **Webview Events** 属性的 **cc.Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 WebView 事件。
+> **注意**：在 **Webview Events** 属性的 **cc.Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 WebView 事件。
 
 ## WebView 事件
 
@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 测试例中的 [10_webview](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)。
+详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **10_webview**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)）。
 
 ## 详细说明
 
@@ -74,7 +74,7 @@ cc.Class({
         this.webview.webviewEvents.push(webviewEventHandler);
     },
 
-	//注意参数的顺序和类型是固定的
+    //注意参数的顺序和类型是固定的
     callback: function(webview, eventType, customEventData) {
         //这里 webview 是一个 WebView 组件对象实例
         // 这里的 eventType === cc.WebView.EventType enum 里面的值
@@ -202,5 +202,3 @@ cc.Class({
 ```
 
 #### 再强调一遍: Web 平台上的跨域问题需要自行解决
-
-<hr>

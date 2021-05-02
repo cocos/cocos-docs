@@ -10,7 +10,7 @@ LabelShadow script interface, please refer to [LabelShadow API](../../../api/en/
 
 ## LabelShadow Properties
 
-| Properties | Function Explanation
+| property | Function Explanation
 | ---------- | ---------- |
 | Color  | The shadow color
 | Offset | Offset between font and shadow

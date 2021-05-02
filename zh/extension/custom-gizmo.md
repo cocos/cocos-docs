@@ -1,6 +1,6 @@
 # 自定义 Gizmo
 
-目前 Gizmo 使用 [svg.js](http://svgjs.com/) 作为操作工具, 具体 svg.js 的 api 可以参考 http://documentup.com/wout/svg.js
+目前 Gizmo 使用 [svg.js](http://svgjs.com/) 作为操作工具，具体 `svg.js` 的 API 可以参考 <http://documentup.com/wout/svg.js>
 
 ## 创建自定义 Gizmo
 
@@ -9,7 +9,7 @@
 1、首先在 **资源管理器** 中新建一个名为 **CustomComponent** 的 JavaScript 脚本，加入以下内容：
 
 ```javascript
-// 定义一个简单的 component, 并命名为 CustomComponent
+// 定义一个简单的 component，并命名为 CustomComponent
 cc.Class({
     extends: cc.Component,
 
@@ -36,11 +36,11 @@ class CustomGizmo extends Editor.Gizmo {
         // 实例：
 
         // 创建一个 svg 工具
-        // group 函数文档 : http://documentup.com/wout/svg.js#groups
+        // group 函数文档：<http://documentup.com/wout/svg.js#groups>
         this._tool = this._root.group();
 
         // 画一个的圆
-        // circle 函数文档 : http://documentup.com/wout/svg.js#circle
+        // circle 函数文档：<http://documentup.com/wout/svg.js#circle>
         let circle = this._tool.circle();
 
         // 为 tool 定义一个绘画函数，可以为其他名字
@@ -86,7 +86,7 @@ class CustomGizmo extends Editor.Gizmo {
 //        return this.selecting || this.editing;
 //    }
 
-// Gizmo 创建在哪个 Layer 中 : foreground, scene, background
+// Gizmo 创建在哪个 Layer 中：foreground, scene, background
 // 默认创建在 scene Layer
 //    layer () {
 //        return 'scene';
@@ -111,8 +111,8 @@ module.exports = CustomGizmo;
 }
 ```
 
-**CustomComponent** ：Component 名字
-**packages://custom-gizmo/custom-gizmo.js** ：CustomGizmo 路径
+- **CustomComponent**：Component 名字
+- **packages://custom-gizmo/custom-gizmo.js**：CustomGizmo 路径
 
 这样就将 CustomGizmo 注册到 CustomComponent 上了。
 
@@ -121,4 +121,5 @@ module.exports = CustomGizmo;
 请阅读下一篇 [自定义 Gizmo 进阶](custom-gizmo-advance.md)
 
 更多 Gizmo Api 请参考 [Gizmo Api](api/editor-framework/renderer/gizmo.md)
+
 更多 Gizmo 实例请参考 [Gizmo 实例](https://github.com/2youyou2/gizmo-example)

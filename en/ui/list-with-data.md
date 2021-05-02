@@ -139,7 +139,7 @@ We have completed all the work. Now `itemList` node should look like this:
 
 ## Preview
 
-Running preview of the scene will get the result like this (the acutal look depends on how your template was setup and your data):
+Running preview of the scene will get the result like this (the actual look depends on how your template was setup and your data):
 
 ![result](list-with-data/result.png)
 

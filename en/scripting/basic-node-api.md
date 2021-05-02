@@ -1,6 +1,6 @@
 # Basic Node and Component API
 
-We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Node.html) and [cc.Component](http://docs.cocos2d-x.org/api-ref/creator/v1.3/classes/Component.html) API reference.
+We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](../../../api/en/classes/Node.html) and [cc.Component](../../../api/en/classes/Component.html) API reference.
 
 ## Node active state and hierarchy
 
@@ -19,6 +19,7 @@ In other words, `active` is actually the activation state of the node **itself**
 `this.node.active = true;`
 
 If the node was previously in the state that **can be activated**, modifying `active` to true immediately triggers the activation action:
+
 - Reactivate the node in the scene, and all its child nodes that have the active property set to true.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
@@ -26,6 +27,7 @@ If the node was previously in the state that **can be activated**, modifying `ac
 `this.node.active = false;`
 
 If the node was previously activated, modifying `active` to false immediately triggers the deactivation action:
+
 - Hide current node and all child nodes in scene.
 - Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
 - If there's an `onDisable` method in these component, it will be called.
@@ -100,7 +102,7 @@ or
 
 If you pass only one parameter to `setScale`, both `scaleX` and `scaleY` will be changed.
 
-### Size（width and height）
+### Size (width and height)
 
 `this.node.setContentSize(100, 100);`<br>
 `this.node.setContentSize(cc.size(100, 100));`
@@ -109,7 +111,6 @@ or
 
 `this.node.width = 100;`<br>
 `this.node.height = 100;`
-
 
 ### Anchor Point
 
@@ -121,7 +122,6 @@ or
 `this.node.setAnchorPoint(1, 0);`
 
 All above transform changes will affect renderer component on the node, such as Sprite and Label.
-
 
 ## Color and Opacity
 
@@ -135,7 +135,6 @@ opacity:
 
 `mySprite.node.opacity = 128;`
 
-
 ## Useful common component API
 
 `cc.Component` is the base class for all components, so we can use all the following API (in the component script `this` is the instance of component):
@@ -145,7 +144,3 @@ opacity:
 - `update(dt)`: As a member method of component, will be called each frame when `enabled` property is set to `true`.
 - `onLoad()`: Will be called when the component is first loaded and initialized (when the node is inserted into the node tree)
 - `start()`: Will be called before the first `update` run, usually used to initialize some logic which need to be called after all components' `onload` methods called.
-
----
-
-More details about component member method please read [Life Cycle Callbacks](life-cycle-callbacks.md).
