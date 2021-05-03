@@ -8,7 +8,7 @@
 
 如果您没有发布到 Android 平台的计划，或您的操作系统上已经有完整的 Android 开发环境，可以跳过这个部分。
 
-### 下载 Java SDK （JDK）
+### 下载 Java SDK（JDK）
 
 编译 Android 工程需要本地电脑上有完整的 Java SDK 工具，请到以下地址下载：
 
@@ -59,7 +59,7 @@ java -version
 
 - 打包 Windows 版本需要安装 [Visual Studio 2017 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
 
-  **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
+  > **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选安装。
 
 - 打包 Mac 版本和 iOS 版本时，Mac 下需要安装 [Xcode](https://developer.apple.com/xcode/download/) 和命令行工具。
 
@@ -76,7 +76,7 @@ java -version
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。
 
-**注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
+> **注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
 
 ## 注意事项
 

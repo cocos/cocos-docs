@@ -8,11 +8,11 @@ This text mainly introduces JavaScript. Beginners will have a general understand
 
 JavaScript is a programming language full of controversy: it is named after Java, but in fact, it has nothing to do with Java. The creation of JavaScript [only took 10 days](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript), but it managed to develop into the most popular Web development language in the world in 20 years. If you are looking for the reason behind the status and popularity of JavaScript nowadays, there's no doubt it is because of its easy-to-use language features. Of course, mastering JavaScript is a tough task, but learning knowledge enough to develop Web Apps and games is easy. If you have some basic programming skills, then it won't take you too long to get familiar with JavaScript's language features.
 
-In addition, you may use some exsiting patterns while using Cocos Creator to develop a game under most circumstances. According to the Pareto principle (also known as the 80/20 principle), mastering  20% of one language is enough for you to handle more than 80% of situations. Now, let's learn enough JavaScript knowledge in the shortest time so that we can begin to develop a game with Cocos Creator.
+In addition, you may use some existing patterns while using Cocos Creator to develop a game under most circumstances. According to the Pareto principle (also known as the 80/20 principle), mastering  20% of one language is enough for you to handle more than 80% of situations. Now, let's learn enough JavaScript knowledge in the shortest time so that we can begin to develop a game with Cocos Creator.
 
 ## Try when you're reading
 
-If you can see this article, then you already have a full-featured JavaScript development environment--I am talking about the browser you are using!
+If you can see this article, then you already have a full-featured JavaScript development environment -- I am talking about the browser you are using!
 
 All the examples on this page, you can type them into your browser's console and check their running results. If you don't know how to do this, you can read [Guidance of how to open the console in different browsers](http://webmasters.stackexchange.com/a/77337).
 
@@ -284,7 +284,7 @@ myFunction = function (a, b) {
 }
 ```
 
-At first sight, it may seem to have no effect, but it actually allows you to use the variable `myObject` to imply the initial execution function object safely without being concerned about `this` maybe turning into other stuff in the code after. 
+At first sight, it may seem to have no effect, but it actually allows you to use the variable `myObject` to imply the initial execution function object safely without being concerned about `this` maybe turning into other stuff in the code after.
 
 ## Operator
 
@@ -292,7 +292,7 @@ At first sight, it may seem to have no effect, but it actually allows you to use
 
 If you need to compare two values, you can use `==`, for example, `a == 12`.
 
-`===` is a unique operator in JavaScript, it can tell whether the value and type in both ends are all exactly the same (type refers to string, number and so on). 
+`===` is a unique operator in JavaScript, it can tell whether the value and type in both ends are all exactly the same (type refers to string, number and so on).
 
 ```js
 a = "12";

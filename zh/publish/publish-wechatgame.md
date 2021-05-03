@@ -14,7 +14,8 @@
 
 - 下载 [微信开发者工具](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 并安装。
 
-- 在编辑器菜单栏的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中设置微信开发者工具路径。<br>
+- 在编辑器菜单栏的 [原生开发环境](../getting-started/basics/editor-panels/preferences.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中设置微信开发者工具路径。
+
     > Mac：Cocos Creator -> 偏好设置 -> 原生开发环境<br>
     > Windows：文件 -> 设置 -> 原生开发环境
 
@@ -102,17 +103,21 @@
 如果你需要将资源上传到远程服务器，请将资源所在的 Asset Bundle 配置为远程包。接下来，我们来看一下具体的操作步骤：
 
 1. 合理分配资源，将需要模块化管理的资源文件夹配置为 Asset Bundle，并勾选 **配置为远程包**，具体可参考文档 [配置 Asset Bundle](../scripting/asset-bundle.md)。
-    
+
     ![](./publish-wechatgame/bundle_is_remote.png)
 
 2. 如果主包需要配置为远程包，请在 **构建发布** 面板中勾选 **配置主包为远程包**。
+
 3. 勾选 **MD5 Cache**。
+
 4. 设置 **资源服务器地址**，然后点击 **构建**。
 
     ![](./publish-wechatgame/builder_config.png)
-    
+
 5. 构建完成后将发布包目录下的 remote 文件夹完整地上传到上一步填写的服务器上。
+
 6. 删除本地发布包目录下的 remote 文件夹。
+
 7. 在测试阶段，开发者可能无法将项目部署到正式服务器，那就需要在本地服务器测试，请在微信开发者工具的菜单栏中打开 **工具 -> 详情 -> 本地设置** 页面，勾选 **不检验安全域名、TLS 版本以及 HTTPS 证书** 选项。
 
     ![](./publish-wechatgame/details.png)
@@ -120,16 +125,17 @@
 #### 清除缓存资源
 
 如果缓存资源超出限制，开发者需要手动清除资源，可以使用 `cc.assetManager.cacheManager` 提供的方法 `clearCache()`、`clearLRU()` 和 `removeCache(cacheId: string)` 来清除缓存。
-  - `clearCache()` —— 清除缓存目录下的所有缓存资源，请慎重使用。
-  - `clearLRU()` —— 清除缓存目录下目前应用中最近最少使用的缓存。
-  - `removeCache(cacheId: string)` —— 精确移除某个资源在缓存中的记录。
+
+- `clearCache()` —— 清除缓存目录下的所有缓存资源，请慎重使用。
+- `clearLRU()` —— 清除缓存目录下目前应用中最近最少使用的缓存。
+- `removeCache(cacheId: string)` —— 精确移除某个资源在缓存中的记录。
 
 当开发者升级引擎版本后，留在本地的缓存资源还是之前旧版本引擎对应的资源，并不会自动清空。这可能会导致资源加载出错或渲染错误等问题。解决方案有以下两种：
 
-  - 构建时在 **构建发布** 面板勾选 **MD5 Cache** 选项，这将确保使用最新版本的资源。
-  - 手动清空之前缓存的资源。
-    - 在 **真机** 上通过 `cc.assetManager.cacheManager.clearCache()` 清空缓存。
-    - 在 **微信开发者工具** 中点击菜单栏的 **工具 -> 清除缓存 -> 全部清除** 来清空缓存。
+- 构建时在 **构建发布** 面板勾选 **MD5 Cache** 选项，这将确保使用最新版本的资源。
+- 手动清空之前缓存的资源。
+  - 在 **真机** 上通过 `cc.assetManager.cacheManager.clearCache()` 清空缓存。
+  - 在 **微信开发者工具** 中点击菜单栏的 **工具 -> 清除缓存 -> 全部清除** 来清空缓存。
 
 ### 初始场景的加载速度
 
@@ -170,4 +176,3 @@
 - [小游戏 API 文档](https://developers.weixin.qq.com/minigame/dev/api/)
 - [微信开发者工具下载](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html)
 - [微信小游戏性能优化](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
-- [微信缓存空间溢出测试案例](https://github.com/cocos-creator/WeChatMiniGameTest)

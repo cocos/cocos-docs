@@ -5,7 +5,7 @@
 ```html
 <ui-prop value="0.5"></ui-prop>
 ```
-    
+
 ![img](ui-kit/ui-prop.gif)
 
 ## 属性
@@ -14,8 +14,8 @@
 
 属性名  | 参数值类型 | 功能说明
 :------|:--------------|:-------------  
-`selected`| boolean | 当前是否为选中状态 
-`focused`| boolean | 控制 `focused` 状态 
+`selected`| boolean | 当前是否为选中状态
+`focused`| boolean | 控制 `focused` 状态
 `disabled`| boolean | 控制 `disabled` 状态, 设置此属性后不再响应事件
 `readonly`| boolean | 只读状态
 `name`| string | 指定内部生成的左边 label 名称
@@ -35,6 +35,7 @@
 `input-type`| string | `type` 为 number 时有效，设置为限制数据类型为整型的 num-input
 [`slide`](#slide)| boolean | `type` 为 number 时有效，设置生成的子组件为 ui-slider
 [`multiline`](#multiline)| boolean | `type` 为 string 时有效，设置生成的子组件为 ui-text-area
+
 > 带中划线的属性，使用键值对获取值时需改为驼峰式写法，例如 `element.autoHeight`
 
 ## event 事件
@@ -52,7 +53,7 @@
 type|value|示例
 :-------|:-------|:--------
 boolean|boolean，默认为 false|true / false，生成 ui-checkbox
-number|number 或 number string （可转为数字的字符串），默认为 0 |1 或 "1"，生成 ui-num-input / ui-slider
+number|number 或 number string（可转为数字的字符串），默认为 0 |1 或 "1"，生成 ui-num-input / ui-slider
 string|string|任意字符串，生成 ui-input / ui-text-area
 color|color，默认为黑色|任意颜色值，如“ #09f ”，生成 ui-color
 vec2|数组的 JSON 字符串，默认值均为 0 |如“[10, 20]”，生成对应 `value` 的子组件为 ui-num-input 的 ui-prop
@@ -69,6 +70,7 @@ enum|string，对应 option 的 `value` 值|如“0”，生成 ui-select（需�
 ```html
 <ui-prop name="Color Label" class="blue" type="number" value="20"></ui-prop>
 ```
+
 ![img](ui-kit/ui-prop-color.png)
 
 ## 使用效果示例
@@ -148,7 +150,7 @@ enum|string，对应 option 的 `value` 值|如“0”，生成 ui-select（需�
 </ui-prop>
 ```
 
-> 注意：嵌套子组件不能与 type 自动生成子组件共用，只能选择一种使用方式。
+> **注意**：嵌套子组件不能与 type 自动生成子组件共用，只能选择一种使用方式
 
 ![img](ui-kit/ui-prop-foldable.gif)
 

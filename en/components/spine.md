@@ -10,8 +10,8 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 
 ## Spine Properties
 
-| Properties |   Function explanation
-| --------------------- | ------------------ |
+| property |   Function explanation
+| :-------------------- | :----------------- |
 | Skeleton Data         | The skeleton data contains the skeleton information, drag the bone resources exported from Spine into this property.
 | Default Skin          | Choose the default skin texture
 | Animation             | The name of current playing animation
@@ -25,7 +25,7 @@ About the Spine's scripting interface please refer to [Skeleton API](../../../ap
 | Use Tint              | Indicates whether open tint, default is close. (New in v2.0.9)
 | Enable Batch          | Whether to enable animation batch, default is disabled. (New in v2.0.9)<br>When enable, drawcall will reduce, which is suitable for a large number of simple animations to play at the same time.<br>When disabled, drawcall will rise, but it can reduce the computational burden of the CPU. Suitable for complex animations.
 
-> **Note**: when using the Spine component, the `Anchor` and `Size` properties on the Node component in the **properties** panel are invalid.
+> **Note**: when using the Spine component, the `Anchor` and `Size` properties on the Node component in the **Properties** panel are invalid.
 
 ## Spine ReplaceTexture
 
@@ -33,7 +33,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
 
 ![spine-cloth](./spine/cloth0.png)
 
-1. Create a new empty node in **Node Tree** and rename it as goblingirl, then add the Spine component in **Properties**. And drag the resources of spine into the Skeleton Data property box of the Spine component, set the skin in the red box to replace in the Default Skin property. You can change the Animation property of the Spine component to set the animation that you want to play.
+1. Create a new empty node in **Node Tree** and rename it as `goblingirl`, then add the Spine component in **Properties**. And drag the resources of spine into the Skeleton Data property box of the Spine component, set the skin in the red box to replace in the Default Skin property. You can change the Animation property of the Spine component to set the animation that you want to play.
 
     ![spine-cloth](./spine/cloth1.png)
 
@@ -70,7 +70,7 @@ Here is an example of how Spine replace the textures. By change the attachment o
     });
     ```
 
-4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** panel of the node. Then drag the goblingirl node and goblin node in **Node Tree** to the corresponding property box of script component, and save the scene.
+4. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** panel of the node. Then drag the `goblingirl` node and `goblin` node in **Node Tree** to the corresponding property box of script component, and save the scene.
 
     ![spine-cloth](./spine/spine-js.png)
 
@@ -121,7 +121,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
 
 ### Implement in the editor
 
-1. Create a new empty node in **Node Tree** and rename, then add the Spine component in **Properties**. And drag the spine skeleton animation resources into the Skeleton Data property box of the Spine component, set the Spine component properties. And then click the **Generate Attached Node** button under the Spine component. 
+1. Create a new empty node in **Node Tree** and rename, then add the Spine component in **Properties**. And drag the spine skeleton animation resources into the Skeleton Data property box of the Spine component, set the Spine component properties. And then click the **Generate Attached Node** button under the Spine component.
 
     ![](./spine/attach1.png)
 
@@ -136,7 +136,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
     You can see that a Sprite is already attached to the dragon's tail in the **Scene** panel.
 
     ![](./spine/attach4.png)
-    
+
 4. Finally, drag the star resource to the `Sprite Frame` property of the Sprite component. Save the scene and click the **Preview** button above the editor, then you can see a star hanging on the dragon's tail and shaking with the dragon's tail. For details, please refer to the [SpineAttach](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/spine) in example-case.
 
 > **Note**: after finish the Spine Attachments, you can delete unused skeleton nodes in the **Node Tree** panel to reduce the computational overhead at runtime. Note that the parent node of the target bone node cannot be deleted.
@@ -211,7 +211,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
 
 ## Spine Collision Detection
 
-The Spine Attachments can be used to perform collision detection on a certain part of the skeleton animation. For how to achieve the Spine Attachments, please refer to the previous chapter. 
+The Spine Attachments can be used to perform collision detection on a certain part of the skeleton animation. For how to achieve the Spine Attachments, please refer to the previous chapter.
 
 Here is an example of Spine how to implement collision detection. And determines whether the character's foot is in contact with the ground to dynamically change the ground color while the character is running.
 
@@ -231,7 +231,7 @@ Here is an example of Spine how to implement collision detection. And determines
 
 5. Create a new JavaScript script in **Assets** and double-click to open to write. The sample script code is as follows:
 
-    ```js    
+    ```js
     cc.Class({
         extends: cc.Component,
 
@@ -265,7 +265,9 @@ Here is an example of Spine how to implement collision detection. And determines
 
 6. Set the group of the node where the collider component is located. For how to set the group, please refer to the document [Collision Group Management](../physics/collision/collision-group.md) for details.
 
-    ![collider](./spine/collider_foot.png) ![collider](./spine/collider_ground.png)
+    ![collider](./spine/collider_foot.png)
+
+    ![collider](./spine/collider_ground.png)
 
     ![collider](./spine/group_setting.png)
 

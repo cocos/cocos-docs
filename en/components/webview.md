@@ -10,8 +10,8 @@ For more information about WebView API, please refer to [WebView API](../../../a
 
 ## WebView Properties
 
-| Properties | Function Explanation
-|-------- | ----------- |
+| property | Function Explanation
+| :-------- | :----------- |
 | Url | A given URL to be loaded by the WebView, it should have a http or https prefix.
 | Webview Events | The webview's event callback, it will be triggered when certain webview event occurs.
 
@@ -21,8 +21,8 @@ For more information about WebView API, please refer to [WebView API](../../../a
 
 ### WebViewEvents Event
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
+| property |   Function Explanation
+| :-------------- | :----------- |
 |Target| Node with the script component.
 |Component| Script component name.
 |Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
@@ -33,7 +33,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 ### Parameter of WebViewEvents
 
 | Name |   Function Explanation
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | LOADING | WebView is loading.
 | LOADED| WebView is finished loading.
 | ERROR| Errors occurred when loading web pages.

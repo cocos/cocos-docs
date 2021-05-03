@@ -4,11 +4,11 @@ VideoPlayer is a component for playing videos, you could use this component for 
 
 **Play local video**:
 
-![videoplayer](./videoplayer/videoplayer.png)
+![video player](./videoplayer/videoplayer.png)
 
 **Play remote video**:
 
-![videoplayer-remote](./videoplayer/videoplayer-remote.png)
+![video player remote](./videoplayer/videoplayer-remote.png)
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the VideoPlayer component to the node.
 
@@ -17,7 +17,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 ## VideoPlayer Properties
 
 | Properties | Function Explanation |
-|-------- | ----------- |
+| :-------- | :----------- |
 | Resource Type      | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
 | Clip               | Displayed when Resource Type is LOCAL, feed it with a local video path. |
 | Remote URL         | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
@@ -29,14 +29,14 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Stay On Bottom     | Display video below the game view (Only available on web). |
 | Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
-> **Note**: in **cc.Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
+> **Note**: in `cc.Node` of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
 ## VideoPlayer Event
 
 ### VideoPlayerEvent Event
 
 | Properties      |   Function Explanation  |
-| --------------  | ----------- |
+| :-------------  | :---------- |
 | target          | Node with the script component.|
 | component       | Script component name.         |
 | handler         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
@@ -47,7 +47,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 ### Parameter of VideoPlayerEvent
 
 | Name           | Function Explanation          |
-| -------------- | -----------                   |
+| :------------- | :----------                   |
 | PLAYING        | Video is playing.             |
 | PAUSED         | Video is paused.              |
 | STOPPED        | Video is stopped.             |
@@ -79,7 +79,7 @@ videoPlayerEventHandler.customEventData = "foobar";
 
 videoPlayer.videoPlayerEvent.push(videoPlayerEventHandler);
 
-// here is your component file
+// Here is your component file
 cc.Class({
     name: 'cc.MyComponent'
     extends: cc.Component,
@@ -87,11 +87,11 @@ cc.Class({
     properties: {
     },
 
-	//the order of parameters should not change
+    // The order of parameters should not change
     callback: function(videoplayer, eventType, customEventData) {
-        //videoplayer is a VideoPlayer component instance
-        //eventType is typed as cc.VideoPlayer.EventType 
-        //customEventData is "foobar"
+        // The "videoplayer" is a VideoPlayer component instance
+        // The "eventType" is typed as cc.VideoPlayer.EventType 
+        // The "customEventData" is "foobar"
     }
 });
 ```
@@ -152,7 +152,7 @@ For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBott
 
 Because different platforms have different authorization, API and control methods for VideoPlayer component. And have not yet formed a unified standard, only **Web**, **iOS**, **Android**, **WeChat Mini Games**, **Facebook Instant Games** and **Google Play Instant** platforms are currently supported.
 
-#### Questions about autoplay
+### Questions about autoplay
 
 Some mobile browsers or **WebView** do not allow auto-playing of videos and users need to play the video manually in a touch event.
 

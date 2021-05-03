@@ -11,7 +11,7 @@ The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle
 ## Toggle properties
 
 | Properties     |   Function Explanation |
-| -------------- | ----------- |
+| :------------- | :---------- |
 | isChecked      | Boolean type. When this value is true, the check mark component will be enabled, otherwise the check mark component will be disabled. |
 | checkMark      | `cc.Sprite` type. The image displayed when Toggle is selected. |
 | toggleGroup    | `cc.ToggleGroup` type. The toggle group which the toggle belongs to, when it is null, the toggle is a CheckBox. Otherwise, the toggle is a RadioButton. |
@@ -22,7 +22,7 @@ The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle
 ## Toggle Event
 
 | Properties      | Function Explanation |
-| --------------  | -----------     |
+| :-------------  | :----------     |
 | Target          | Node with the script component.    |
 | Component       | Script component name.      |
 | Handler         | Assign a callback function which will be triggered when the user clicks and releases the Toggle. |

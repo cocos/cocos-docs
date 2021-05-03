@@ -7,11 +7,11 @@
 
 当然，在 Web 平台，浏览器原生就支持这两个接口，之所以说 Cocos Creator 支持，是因为在发布原生版本时，用户使用这两个网络接口的代码也是可以运行的。也就是遵循 Cocos 一直秉承的 “一套代码，多平台运行” 原则。
 
-**注意**：如果需要在原生平台使用 `WebSocket`，请确保有在 **项目 -> 项目设置 -> 模块设置** 中勾选了 **Native Socket** 模块。
+> **注意**：如果需要在原生平台使用 `WebSocket`，请确保有在 **项目 -> 项目设置 -> 模块设置** 中勾选了 **Native Socket** 模块。
 
 ## 使用方法
 
-1. XMLHttpRequest 
+1. XMLHttpRequest
 
     简单示例：
 
@@ -70,9 +70,11 @@
 
 在脚本中引用 SocketIO：
 
-1. 下载 SocketIO：[https://socket.io](https://socket.io)
-2. 将下载后的文件放入拖入资源管理器中你希望保存的路径
-3. 修改 SocketIO 脚本文件以避免在原生环境中被执行
+1. 下载 SocketIO：[https://socket.io](https://socket.io)。
+
+2. 将下载后的文件放入拖入资源管理器中你希望保存的路径。
+
+3. 修改 SocketIO 脚本文件以避免在原生环境中被执行。
 
     由于 Web 版本 SocketIO 不能够在 JSB 中被正确解析，因此 Cocos 在原生环境中自带了 SocketIO 实现。所以我们需要一点 hack 的手段让 Web 版本 SocketIO 的脚本在原生环境中不生效，方法就是在 SocketIO 脚本文件中做如下修改：
 
@@ -82,9 +84,10 @@
     }
     ```
 
-4. 将 SocketIO 脚本文件设为 [插件脚本](./plugin-scripts.html)，这样在组件中直接使用 window.io 就能访问到 SocketIO
-5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/)查询 API 和文档等
+4. 将 SocketIO 脚本文件设为 [插件脚本](./plugin-scripts.html)，这样在组件中直接使用 window.io 就能访问到 SocketIO。
 
+5. 在组件中使用 SocketIO，可以参考 [SocketIO 官方网站](http://socket.io/) 查询 API 和文档等。
 
-**注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
-[config](network/config.png)
+> **注意**：如果你需要在原生使用 `WebSocket` 或 `SocketIO` 请确保你勾选了 `Native Socket` 模块：
+>
+> ![config](network/config.png)

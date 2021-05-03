@@ -7,7 +7,7 @@
 
 ## 背景
 
-对于用过 Cocos Creater（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScrpit 中按照如下的操作调用即可：
+对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
 ```javascript
 if (cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
@@ -220,6 +220,7 @@ namespace abc
 为了保持跟官方的一致，我们在 `build/jsb-default/frameworks/cocos2d-x/tools/tojs` 目录下创建 `genbindings_test.py`，里面的内容基本跟 `genbindings.py` 差不多，主要区别有如下几点：
 
 1. 去掉了 `cmd_args` 那段，里面主要是记录了 cocos 自带的一些需要生成 jsb 的文件，因为考虑到项目可能会对 Cocos 源码进行修改，如果这时候把这部分保留的话，当运行脚本后会把我们自带的修改就给覆盖掉了。
+
 2. 取消了定制的 `output_dir` 也就是最终生成的 js，c++ 等绑定文件的路径，而是保持跟 Cocos 一样，也即在 `cocos/scripting/js-bindings/auto`，主要为了方便下一步配置 mk 文件。
 
     ![](jsb/cancel-output_dir.png)
@@ -435,7 +436,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 ## 自动绑定的限制条件
 
-自动绑定依赖于 Bindings Generator 工具，Cocos 官方还在 GitHub 上单独把这部分拎出来了：<https://github.com/cocos-creator/bindings-generator>。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
+自动绑定依赖于 Bindings Generator 工具，Cocos 官方还单独把这部分拎出来了：[GitHub](https://github.com/cocos-creator/bindings-generator) | [Gitee](https://gitee.com/mirrors_cocos-creator/bindings-generator)。Bindings Generator 工具它可以将 C++ 类的公共方法和公共属性绑定到脚本层。自动绑定工具尽管非常强大，但是还是会有一些限制：
 
 1. 只能够针对类生成绑定，不可以绑定结构体，独立函数等。
 2. 不能够生成 `Delegate` 类型的 API，因为脚本中的对象是无法继承 C++ 中的 `Delegate` 类并重写其中的 `Delegate` 函数的。

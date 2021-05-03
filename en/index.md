@@ -48,6 +48,5 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
 - [UI Demo](https://github.com/cocos-creator/demo-ui)
 - [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
-- [i18n Multi-language demo](https://github.com/nantas/demo-i18n)
 
 > **Note**: these projects are not always brought up to date with the most recent version of Cocos Creator. Their default branches on GitHub are `master`, which corresponds to the latest **Cocos Creator version**. If you are still using the old version of Cocos Creator, these projects may not be able to open, and you can try to switch to the same named branch as the old version.

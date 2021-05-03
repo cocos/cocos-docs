@@ -148,7 +148,7 @@ huawei.agc.rc.rcService.fetchAndApply();
 
 | 参数 | 说明 |  
 | :---------- | :------------- |  
-|  intervalSeconds  | 获取数据的间隔时间，单位为秒，默认值为 -1 ，更新周期为 12 小时 | 
+|  intervalSeconds  | 获取数据的间隔时间，单位为秒，默认值为 -1，更新周期为 12 小时 |
 
 **示例**：
 

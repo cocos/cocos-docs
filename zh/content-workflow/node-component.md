@@ -68,4 +68,4 @@ Cocos Creator 的工作流程是以组件式开发为核心的，组件式架构
 
 ## 参考阅读
 
-- [理解组件-实体系统 - i_dovelemon的博客](http://blog.csdn.net/i_dovelemon/article/details/25798677)
+- [理解组件 - 实体系统 - i_dovelemon的博客](http://blog.csdn.net/i_dovelemon/article/details/25798677)

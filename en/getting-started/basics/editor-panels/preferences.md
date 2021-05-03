@@ -1,7 +1,6 @@
 # Settings
 
-**Settings** the panel provides a variety of personalized global editor settings,
-To Open **Settings** Window, Please select the main menu `CocosCreator -> Settings`.
+**Settings** the panel provides a variety of personalized global editor settings. To open **Settings** window, please select the main menu `CocosCreator -> Settings`.
 
 **Settings** is composed of several different pages, all settings are divided into the following categories.
 After modifying the settings, click the **Save** button.
@@ -46,7 +45,7 @@ This category is used to set the default open mode for scripts and resources. In
 
 ## Native Develop
 
-This classification is used to set the build is released to the native platform ( iOS, Android, Mac, Windows), the required development environment path.
+This classification is used to set the build is released to the native platform (iOS, Android, Mac, Windows), the required development environment path.
 
 ![native develop](preferences/native-develop.jpg)
 
@@ -54,7 +53,7 @@ This classification is used to set the build is released to the native platform 
 
 * **JavaScript Engine Path**: In addition to using `engine`, you can also customize to <https://github.com/cocos-creator/engine> to clone or fork a copy of the engine to the local anywhere, then uncheck **Use Builtin JavaScript Engine** and set the **Use Builtin JavaScript Engine** path to your custom engines. You can use the editor to customize your engine.
 
-* **Use Builtin Cocos2d-x Engine**: Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all Build native platform ( iOS, Android, Mac, Windows ) project to build and compile.
+* **Use Builtin Cocos2d-x Engine**: Whether to use Cocos Creator the built-in `cocos2d-x` path as cocos2d-x c++ engine path. This engine is used for all Build native platform (iOS, Android, Mac, Windows) project to build and compile.
 
 * **Cocos2d-x Path**: **Use Builtin Cocos2d-x Engine** cancel previous selections, you can manually specify the path cocos2d-x. Note cocos2d-x engine used here must be downloaded from the <https://github.com/cocos-creator/engine-native> or the warehouse's fork.
 
@@ -80,7 +79,7 @@ When using **Play** button directly above the main window, you can set various o
 
 * **Simulator Resolution**: Select a resolution from the default device as a simulator for resolution.
 
-* **Simulato Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
+* **Simulator Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
 
 * **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**).
 

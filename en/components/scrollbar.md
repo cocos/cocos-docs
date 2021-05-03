@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 For the script interface of the ScrollBar, refer to [ScrollBar API](../../../api/en/classes/Scrollbar.html).
 
-## ScrollBar property
+## ScrollBar properties
 
 | Property |   Function Explanation
 | -------------- | ----------- |

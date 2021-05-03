@@ -17,7 +17,7 @@
 ----------------|-----------|-------------
 [direction](#direction-控制箭头方向)      | `class` 样式名，string，支持值"**top, bottom, left, right**" | 控制箭头指向，未指定时不显示箭头
 [color](#color-控制组件颜色)      | `class` 样式名，string，支持值"**red, blue, green**" | 控制组件颜色
-[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, samll, medium, large, big, huge, massive**" | 控制组件整体大小
+[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, small, medium, large, big, huge, massive**" | 控制组件整体大小
 [shadow](#shadow)      | `class` 样式名，string，支持值"**shadow**" | 带阴影版组件
 
 ## 使用效果示例

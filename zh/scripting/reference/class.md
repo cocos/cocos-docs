@@ -4,13 +4,13 @@
 
 ## 术语
 
- - CCClass：使用 `cc.Class` 声明的类。
- - 原型对象：调用 `cc.Class` 时传入的字面量参数。
- - 实例成员：包含 **成员变量** 和 **成员方法**。
- - 静态成员：包含 **静态变量** 和 **类方法**。
- - 运行时：项目脱离编辑器独立运行时，或者在模拟器和浏览器里预览的时候。
- - 序列化：解析内存中的对象，将它的信息编码为一个特殊的字符串，以便保存到硬盘上或传输到其它地方。
-   
+- CCClass：使用 `cc.Class` 声明的类。
+- 原型对象：调用 `cc.Class` 时传入的字面量参数。
+- 实例成员：包含 **成员变量** 和 **成员方法**。
+- 静态成员：包含 **静态变量** 和 **类方法**。
+- 运行时：项目脱离编辑器独立运行时，或者在模拟器和浏览器里预览的时候。
+- 序列化：解析内存中的对象，将它的信息编码为一个特殊的字符串，以便保存到硬盘上或传输到其它地方。
+
 ## 原型对象参数说明
 
 所有原型对象的参数都可以省略，用户只需要声明用得到的部分即可。
@@ -490,8 +490,8 @@ name: {
 
 如果两个类相互引用，脚本加载阶段就会出现循环引用，循环引用将导致脚本加载出错：
 
- - Game.js
- 
+- Game.js
+
     ```javascript
     var Item = require("Item");
     
@@ -507,7 +507,7 @@ name: {
     module.exports = Game;
     ```
 
- - Item.js
+- Item.js
 
     ```javascript
     var Game = require("Game");
@@ -524,11 +524,12 @@ name: {
     module.exports = Item;
     ```
 
-上面两个脚本加载时，由于它们在 require 的过程中形成了闭环，因此加载会出现循环引用的错误，循环引用时 type 就会变为 undefined。<br>
+上面两个脚本加载时，由于它们在 require 的过程中形成了闭环，因此加载会出现循环引用的错误，循环引用时 type 就会变为 undefined。
+
 因此我们提倡使用以下的属性定义方式：
 
- - Game.js
- 
+- Game.js
+
     ```javascript
     var Game = cc.Class({
         properties: () => ({
@@ -542,7 +543,7 @@ name: {
     module.exports = Game;
     ```
 
- - Item.js
+- Item.js
 
     ```javascript
     var Item = cc.Class({
@@ -724,7 +725,7 @@ cc.Class({
     // 当组件添加到节点上时，如果依赖的组件不存在，引擎将会自动将依赖组件添加到同一个节点，防止脚本出错。
     // 该选项在运行时同样有效。
     // 
-    // 值类型：Function （必须是继承自 cc.Component 的构造函数，如 cc.Sprite）
+    // 值类型：Function（必须是继承自 cc.Component 的构造函数，如 cc.Sprite）
     // 默认值：null
     requireComponent: null,
 
@@ -745,7 +746,7 @@ cc.Class({
     
     // menu 用来将当前组件添加到组件菜单中，方便用户查找。
     // 
-    // 值类型：String （如 "Rendering/Camera"）
+    // 值类型：String（如 "Rendering/Camera"）
     // 默认值：""
     menu: "",
     

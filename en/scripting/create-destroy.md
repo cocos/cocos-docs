@@ -27,9 +27,9 @@ cc.Class({
 });
 ```
 
-## Cloning exisiting node
+## Cloning existing node
 
-Sometimes we want to clone the exisiting node dynamically in the scene, it can be done by `cc.instantiate`. Here is how it is done:
+Sometimes we want to clone the existing node dynamically in the scene, it can be done by `cc.instantiate`. Here is how it is done:
 
 ```javascript
 cc.Class({
@@ -54,7 +54,7 @@ cc.Class({
 
 ## Creating preset node
 
-Like cloning the exisiting node, you can set a prefab and create node by `cc.instantiate`. Here is how it's done:
+Like cloning the existing node, you can set a prefab and create node by `cc.instantiate`. Here is how it's done:
 
 ```javascript
 cc.Class({

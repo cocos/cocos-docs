@@ -10,7 +10,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 Please refer to the script interface of the slider [Slider API](../../../api/en/classes/Slider.html)
 
-## Slider property
+## Slider properties
 
 | Property     | Function explanation |
 | -------------- | ----------- |

@@ -75,7 +75,7 @@ About the object used in `Editor.Panel.extend()` please read [Panel Reference](r
 
 ## Open panel in main menu
 
-Some time we would like to quickly access a panel, usually we do this by register a menu item in main menu. To do this, we can define menu item in `package.json` and wirte the action in main process:
+Some time we would like to quickly access a panel, usually we do this by register a menu item in main menu. To do this, we can define menu item in `package.json` and write the action in main process:
 
 ```json
 {

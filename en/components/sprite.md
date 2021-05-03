@@ -10,8 +10,8 @@ Please refer to [Sprite API](../../../api/en/classes/Sprite.html) for the script
 
 ## Sprite Properties
 
-| Properties | Description
-| -------------- | ----------- |
+| property | Description
+| :-------------- | :----------- |
 | Atlas | [Auto Atlas](../asset-workflow/atlas.md) which the Sprite display image resource belongs to. (**Select In Atlas** button after Atlas, this feature is temporarily unavailable and we will optimize it as soon as possible)
 | Sprite Frame | [SpriteFrame image resource](../asset-workflow/sprite.md) which is used to render the Sprite. (The **Edit** button behind Sprite Frame is used to edit the 9-sliced cutting of the image resource, please refer to [Use a Sliced Sprite to make an UI image](../ui/sliced-sprite.md) for details)
 | Type | Rendering mode, currently includes `Simple`, `Sliced`, `Tiled`, `Filled` and `Mesh` five rendering modes.
@@ -32,12 +32,12 @@ Currently, the Sprite component supports five rendering modes:
 
 - `Simple mode`: rendering the Sprite according to the original image resource. It is normally used along with `Use Original Size` to guarantee the image shown in the scene is in full accordance with the image designed by the graphic designer.
 
-- `Sliced mode`: the image is cut up into a 9-slicing and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [Use a Sliced Sprite to make an UI imagee](../ui/sliced-sprite.md) for details.
+- `Sliced mode`: the image is cut up into a 9-slicing and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality into images cut up into a grid to save game resource space. Please read [Use a Sliced Sprite to make an UI image](../ui/sliced-sprite.md) for details.
 
 - `Tiled mode`: The image will be repeated to fit the size of the Sprite. If the SpriteFrame is [9-sliced](../ui/sliced-sprite.md), when the image is tiled, the surrounding width will remain unchanged while the other sections will be repeated.
 
   ![tiled](sprite/tiled.png)
- 
+
 - `Filled mode`: draws a portion of the original picture in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
 
 - `Mesh mode`: Only support **.plist** file which is built by __TexturePacker__ (4.0 or higher version) with ploygon algorithm.
@@ -47,7 +47,7 @@ Currently, the Sprite component supports five rendering modes:
 When the `Type` property selects `FILLED`, a new set of properties appears to be configured. So let's explain their roles in turn.
 
 | Properties |   Function Explanation
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Fill Type | Fill type selection, including `HORIZONTAL`, `VERTICAL`, and `RADIAL`.
 | Fill Start | Normalized values for filling starting position (from 0 ~ 1, denoting the percentage of total population), when you select a horizontal fill, the `Fill Start` is set to 0, and it is populated from the leftmost edge of the image.
 | Fill Range | Normalized values for padding ranges (same from 0 ~ 1). When set to 1, it fills up the entire range of the original image.

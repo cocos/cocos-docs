@@ -102,17 +102,21 @@ When the building's md5Cache option is set, the URL of the file will change with
 If you need to upload the resource to the remote server, configure the Asset Bundle where the resource is located as a remote package. The operation steps are as follows:
 
 1. Rationalize the allocation of the resources, configure resource folders that need to be managed modularly as the Asset Bundles, and check **Is Remote Bundle** option. For details, see the [Configure the Asset Bundle](../scripting/asset-bundle.md#configuration) documentation.
-    
+
     ![](./publish-wechatgame/bundle_is_remote.png)
 
 2. If the main package needs to be configured as a remote package, check the **Main Bundle Is Remote** option in the **Build** panel.
+
 3. Check **MD5 Cache**.
+
 4. Set the **Resource Server Address**, and then click **Build**.
 
     ![](./publish-wechatgame/builder_config.png)
 
 5. After building, upload the complete **remote** folder from the release package directory to the remote server you filled in the previous step.
+
 6. Delete the **remote** folder in the local release package directory.
+
 7. During the testing phase, you may not be able to deploy your project to the official server, so you will need to test it on the local server, please open the **Tools -> Project Details -> Local Settings** page in the menu bar of the WeChat DevTools and check **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option.
 
     ![](./publish-wechatgame/details.png)
@@ -120,16 +124,17 @@ If you need to upload the resource to the remote server, configure the Asset Bun
 ### Clear Cache Resources
 
 If the cache resources exceed the WeChat Mini Game environment limits, you need to clear the resources manually, by using the methods `clearCache()`, `clearLRU()` and `removeCache(cacheId: string)` provided by `cc.assetManager.cacheManager` to clear the cache.
-  - `clearCache()` -- Clears all cache resources in the cache directory, please use with caution.
-  - `clearLRU()` -- Clears the least recently used cache in the cache directory for the application.
-  - `removeCache(cacheId: string)` -- Removes the record of a resource from the cache with precision.
+
+- `clearCache()` -- Clears all cache resources in the cache directory, please use with caution.
+- `clearLRU()` -- Clears the least recently used cache in the cache directory for the application.
+- `removeCache(cacheId: string)` -- Removes the record of a resource from the cache with precision.
 
 When you upgrade the engine version, the resources in the local cache are still the same from the previous old version of the engine and will not be emptied automatically. This may cause problems such as resource loading errors or rendering errors. There are two solutions:
 
-  - Check the **MD5 Cache** option in the **Build** panel when building, this will ensure that the correct resources will be loaded.
-  - Clear the previously cached resources manually.
-    - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the physical device.
-    - Click **Tools -> Clear Cache -> Clear All** option in the menu bar of the WeChat DevTools to clear the cache.
+- Check the **MD5 Cache** option in the **Build** panel when building, this will ensure that the correct resources will be loaded.
+- Clear the previously cached resources manually.
+  - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the physical device.
+  - Click **Tools -> Clear Cache -> Clear All** option in the menu bar of the WeChat DevTools to clear the cache.
 
 ### Speed up the loading of the start scene
 
@@ -170,4 +175,3 @@ The WeChat Mini Game does not support WebView.
 - [Mini Program API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
 - [WeChat Mini Game Performance Optimization [cn]](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-overview.html)
-- [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)

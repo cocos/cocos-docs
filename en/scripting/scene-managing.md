@@ -21,7 +21,7 @@ For more information about loading scenes in the Asset Bundle, you can refer to 
 
 ## Use persist node to managing multiple scenes and pass information among scenes
 
-There's only one scene running at the same time, when switching scenes the previous scene will be destroyed. To easily store and pass information among scenes we can mark a node as **persist node** to prevent it from being destroyed during scene switch. This way the node and all the component instances attached to it will remain in memory. 
+There's only one scene running at the same time, when switching scenes the previous scene will be destroyed. To easily store and pass information among scenes we can mark a node as **persist node** to prevent it from being destroyed during scene switch. This way the node and all the component instances attached to it will remain in memory.
 
 `cc.game.addPersistRootNode(myNode);`
 

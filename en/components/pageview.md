@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 Please refer to the script interface of the [PageView API](../../../api/en/classes/PageView.html)
 
-## PageView property
+## PageView properties
 
 | Property                    | Function description |
 | --------------------------- | --------------------------- |

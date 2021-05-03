@@ -2,7 +2,7 @@
 
 ## 资源属性的声明
 
-在 Creator 中，所有继承自 `cc.Asset` 的类型都统称资源，如 `cc.Texture2D`, `cc.SpriteFrame`, `cc.AnimationClip`, `cc.Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
+在 Creator 中，所有继承自 `cc.Asset` 的类型都统称资源，如 `cc.Texture2D`、`cc.SpriteFrame`、`cc.AnimationClip`、`cc.Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
 
 > 例如，当引擎在加载场景时，会先自动加载场景关联到的资源，这些资源如果再关联其它资源，其它也会被先被加载，等加载全部完成后，场景加载才会结束。
 

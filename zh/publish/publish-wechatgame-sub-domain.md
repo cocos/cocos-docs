@@ -89,7 +89,6 @@
   });
   ```
 
-
 ## 模块选择
 
 由于微信开放数据域的代码和资源都无法与主域共享，所以对包体很敏感，开发者需要对开放数据域工程专门设置 [项目模块剔除选项](../getting-started/basics/editor-panels/project-settings.md)。需要注意的是，从 v2.0.0 开始，开发者在开放数据域项目中不能够勾选 WebGL Renderer，必须勾选 Canvas Renderer，因为开放数据域仅支持 Canvas 渲染。同时，Canvas 渲染下所支持的渲染组件也是受限的（UI 组件不受限制），目前仅支持：
@@ -113,7 +112,7 @@
 
 三、**发布路径** 指定到主域项目工程的发布包目录即 **build** 目录下。然后点击 **构建**。
 
-**注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
+> **注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
 
 ![](./publish-wechatgame/open-data-project-build.png)
 
@@ -125,10 +124,9 @@
 
 ![](./publish-wechatgame/preview.png)
 
-**注意**：由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 开放数据域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它。
+> **注意**：由于微信小游戏会在后续版本中支持开放数据域的 WebGL 渲染模式，所以 Creator 提前在 v2.0.9 对其进行了适配。但是目前会导致项目在微信开发者工具中运行的时候出现 **[GameOpenDataContext] 开放数据域只支持使用 2D 渲染模式** 的报错信息。该错误信息是由于使用 `document.createElement("canvas").getContext("webgl")` 检测微信小游戏是否支持 WebGL 所产生的，不会影响到项目的正常使用，可以无视它。
 
 ## 参考链接
 
-- [Cocos Creator 小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
-
+- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
 - [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)

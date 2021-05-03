@@ -1,7 +1,8 @@
 # About Animation
 
 ## Animation components and Animation clips
-Cocos Creator is a componentized structure. Animation is no exception, it is a component in the Node. 
+
+Cocos Creator is a componentized structure. Animation is no exception, it is a component in the Node.
 
 ## Animation clips
 
@@ -27,9 +28,13 @@ path is animation component relative path. So, only one data copy of the same na
 
 Animation files can only be edited in animation editing mode. However, in edit mode, you cannot **add** / **delete** / **rename** nodes.
 
-- Open edit mode: Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
+- **Open edit mode**
 
-- Close edit mode: Click the Edit button in the upper left corner of the **Timeline**. Or click the close button on the top left corner of the **Scene** panel.
+  Select a node that contains the Animation, and contains more than one clip file. And then click on the button in the upper left corner of the animation editor.
+
+- **Close edit mode**
+
+  Click the Edit button in the upper left corner of the **Timeline**. Or click the close button on the top left corner of the **Scene** panel.
 
 ## Understanding animation editor
 
@@ -60,7 +65,7 @@ Because the frame rate can be adjusted at any time, the time represented by the 
 - When the frame rate is 30, `01-05` means 1 + 5/30 = 1.1667 seconds after the animation starts.
 - When the frame rate is 10, `01-05` means 1 + 5/10 = 1.5 seconds after the animation starts.
 
-Although the time of current frame changes with the frame rate, but the total frames an animation takes going into a key frame is always the same. If we have frame rate set to 30 and add a key frame to the `01-05` time, that key frame is  always the 35th frames from the beginningof the animation. Even if we change the frame rate to 10, the key frame is still the 35th of the whole animation, but the time of the key frame now reads as `03-05`. It is three times the value of the time before.
+Although the time of current frame changes with the frame rate, but the total frames an animation takes going into a key frame is always the same. If we have frame rate set to 30 and add a key frame to the `01-05` time, that key frame is  always the 35th frames from the beginning of the animation. Even if we change the frame rate to 10, the key frame is still the 35th of the whole animation, but the time of the key frame now reads as `03-05`. It is three times the value of the time before.
 
 ## Basic operation
 
@@ -100,16 +105,16 @@ What should I do if I feel that the range displayed by the **Timeline** is too s
 
 ## Shortcut key
 
-- **left**: previous frame
- 
-- **right**: next frame
- 
+- **left**: Previous frame
+
+- **right**: Next frame
+
 - **delete**: Delete the selected keys
- 
+
 - **k**: Forward the animation
- 
+
 - **j**: Backward animation
- 
+
 - **ctrl/cmd + left**: Jump to the first frame
 
 - **ctrl/cmd + right**: Jump to the last frame

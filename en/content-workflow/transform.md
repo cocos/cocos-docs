@@ -81,6 +81,7 @@ In the **Scene** panel, you can always use [move transform tools](../getting-sta
 ### Rotation
 
 **Rotation** is another important property that will have an effect on a node's local coordinates. The **Rotation** property only has one value to indicate the current rotation angle of the node.
+
 - When the angle value is **positive**, the node rotates counter **counterclockwise**.
 - When the angle value is **negative**, the node rotates **clockwise**.
 

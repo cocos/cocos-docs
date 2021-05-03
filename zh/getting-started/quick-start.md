@@ -12,11 +12,11 @@
 
 我们已经为您准备好了制作这款游戏需要的全部资源，下载 **初始项目** 后，解压到您希望的位置，之后我们就可以开始了：
 
-[下载初始项目 **start_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4)
+**下载初始项目 `start_project`**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/v2.4)
 
 您也可以下载最终完成的项目，跟随教程制作过程中有任何不明白的地方都可以打开完成版的项目作为参考：
 
-[下载完成项目 **complete_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4)
+**下载完成项目 `complete_project`**：[GitHub](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/v2.4)
 
 ## 打开初始项目
 
@@ -57,11 +57,13 @@
 当玩家运行游戏时，就会载入游戏场景，游戏场景加载后就会自动运行所包含组件的游戏脚本，实现各种各样开发者设置的逻辑功能。所以除了资源以外，游戏场景是一切内容创作的基础。现在，让我们来新建一个场景。
 
 1. 在 **资源管理器** 中点击选中 `assets` 文件夹，确保我们的场景会被创建在这个目录下
+
 2. 点击 **资源管理器** 左上角的加号按钮，在弹出的菜单中选择 **Scene**。或者也可以直接右键点击 `asset` 目录，选择 **新建 -> Scene**。
 
     ![create scene](quick-start/create_scene.png)
   
 3. 然后在 **资源管理器** 中就会生成一个名为 `New Scene` 的场景文件，并且名称会处于编辑状态，将它重命名为 `game`。
+
 4. 双击 `game`，就会在 **场景编辑器** 中打开这个场景。
 
 ### 了解 Canvas
@@ -166,7 +168,7 @@ Cocos Creator 开发游戏的一个核心理念就是让内容生产和功能开
 
 4. 将新建脚本的名字重命名为 `Player`，双击这个脚本，打开 [代码编辑器](./basics/editor-panels/preferences.md#%E6%95%B0%E6%8D%AE%E7%BC%96%E8%BE%91)
 
-    **注意：Cocos Creator 中脚本的名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！**
+    > **注意**：Cocos Creator 中脚本的名称就是组件的名称，这个命名是大小写敏感的！如果组件名称的大小写不正确，将无法正确通过名称使用组件！
 
 ### 编写组件属性
 
@@ -484,6 +486,7 @@ properties: {
 ```
 
 以上代码为 `score` 属性设置了三个参数：
+
 - `default` —— 指定了 `score` 的默认值（default）为 0。
 - `displayName` —— 指定了在 **属性检查器** 中，其属性名（`displayName`）将显示为 `Score (player)`。
 - `tooltip` —— 当鼠标在 **属性检查器** 中移到参数上时，显示对应的 `tooltip`。
@@ -895,8 +898,8 @@ Node 下的 `getPosition()` 方法返回的是节点在父节点坐标系中的�
 - 收集星星时加入更华丽的效果
 - 为触屏设备加入输入控制
 
-以上这些方向都得到改善的游戏版本可以下载 [进化版项目 **polished_project**](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4) 来参考和学习，这里就不再赘述了。
+以上这些方向都得到改善的游戏版本可以下载 **进化版项目 `polished_project`**（[GitHub](https://github.com/cocos-creator/tutorial-first-game/tree/v2.4) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game/tree/v2.4)）来参考和学习，这里就不再赘述了。
 
 此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [预览和构建](basics/preview-build.md) 一节的内容。
 
-今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [GitHub 上本教程的仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈或者直接点击文档右下角的 **提交反馈** 按钮。
+今天的教程就到这里了，您可以立刻开始制作您的第二款 Cocos Creator 游戏，或者继续阅读本手册。关于本快速开始教程的任何问题，都可以在 [GitHub 上的本教程仓库](https://github.com/cocos-creator/tutorial-first-game) 提交反馈。

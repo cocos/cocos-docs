@@ -1,8 +1,8 @@
 # Cocos2d-x 用户上手指南
 
-Cocos Creator 是一款以内容创作为导向的新型游戏开发工具，它完整集成了组件化的 Cocos2d-x WEB 版本，可发布游戏到 Web、iOS、Android、各类"小游戏"、PC 客户端等平台。更多关于 Cocos Creator 的介绍可参见 [介绍文档](./introduction.md)。
+Cocos Creator 是一款以内容创作为导向的新型游戏开发工具，它完整集成了组件化的 Cocos2d-x WEB 版本，可发布游戏到 Web、iOS、Android、各类"小游戏"、PC 客户端等平台。更多关于 Cocos Creator 的介绍可参考 [介绍文档](./introduction.md)。
 
-这篇文档旨在引导 Cocos2d-x 的用户开始使用 Cocos Creator 并尽量平滑得过渡到新编辑器的使用方式上来。文档中会讨论从 Cocos2d-x 到 Cocos Creator 开发中可能遇到的疑问并给出解答，不会深入到框架细节中去，而是以链接的方式给出不同部分的详细参考文档。
+这篇文档旨在引导 Cocos2d-x 的用户开始使用 Cocos Creator 并尽量平滑地过渡到新编辑器的使用方式。文档中会讨论从 Cocos2d-x 到 Cocos Creator 开发中可能遇到的疑问并给出解答，不会深入到框架细节，而是以链接的方式给出不同部分的详细参考文档。
 
 ## 1. 典型误区
 
@@ -158,4 +158,4 @@ Cocos Creator 的坐标系仍然为左下角坐标系，不过在锚点上我们
 
 ## 4. 下一步
 
-以上以非常概括的方式介绍了 Cocos Creator 的一些设计思路，以及从 Cocos2d-x 过渡过来的一些可能的障碍，无法覆盖到所有的知识点，本篇文档目标也不在于此，旨在让 Cocos2d-x 用户更轻松的上手 Cocos Creator。接下来，请继续阅读 Cocos Creator 用户手册，了解完整的工作流程和编程技巧。
+以上以非常概括的方式介绍了 Cocos Creator 的一些设计思路，以及从 Cocos2d-x 过渡过来的一些可能的障碍，无法覆盖到所有的知识点，本篇文档目标也不在于此，旨在让 Cocos2d-x 用户更轻松地上手 Cocos Creator。接下来，请继续阅读 Cocos Creator 用户手册，了解完整的工作流程和编程技巧。

@@ -8,7 +8,7 @@ Click the **Add Component** at the bottom of **Properties** and select **Animati
 
 ## Animation Properties
 
-| Properties |   Function explanation
+| Property |   Function explanation
 | -------------- | ----------- |
 | Default Clip | Default animation editing. If you set the value for this as one and **Play On Load** as true, then the animation will play the contents of **Default Clip** automatically after loading.
 | Clips        | Default list type is null. If you add an **AnimationClip** in here, then it will be mirrored in the **animation editor**; users can edit the contents of **Clips** in the **animation editor**

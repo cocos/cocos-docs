@@ -14,7 +14,7 @@
 ## 样式控制
 种类              | 参数值类型 | 功能说明
 ----------------|-----------|-------------
-[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, samll, medium, large, big, huge, massive**" | 控制组件整体大小，包括内部字体
+[size](#size-控制大小)      | `class` 样式名，string，支持值"**mini, tiny, small, medium, large, big, huge, massive**" | 控制组件整体大小，包括内部字体
 
 ## 使用效果示例
 

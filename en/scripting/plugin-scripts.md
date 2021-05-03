@@ -4,8 +4,8 @@
 
 In the **Assets**, select any of the script, you can see such a settings interface in the **Properties**, we can set whether the script is **Import As Plugin** here.
 
- - For Component script, data logic, the default is to cancel this option, such a script is referred to as **Normal Script**.
- - For third-party script, or the underlying plugin, it may be necessary to select the option, such a script is referred to as **Plugin Script**.
+- For Component script, data logic, the default is to cancel this option, such a script is referred to as **Normal Script**.
+- For third-party script, or the underlying plugin, it may be necessary to select the option, such a script is referred to as **Plugin Script**.
 
 This option is only related to the script, specific aspects of the impact, most people only need a simple understanding
 
@@ -130,7 +130,7 @@ else {
 
 In this case, the variables in `globals.js` has been used since scripts such as `network.js` and `network_debugger.js` are loaded. So if the `globals.js` is not a plugin script, each script that might use those global variables should declare `require("globals");` at the top, to ensure that `globals.js` is loaded first.
 
-But if a global variable itself is to be initialize in the component's onLoad, it is recommended to use `window.foo = bar` to declare the global variables directly in the onLoad of a Normal Scirpt, do not need to use the Plugin Scirpt, see [Access by using global variable](../scripting/access-node-component.md#global_variable).
+But if a global variable itself is to be initialize in the component's onLoad, it is recommended to use `window.foo = bar` to declare the global variables directly in the onLoad of a Normal Script, do not need to use the Plugin Script, see [Access by using global variable](../scripting/access-node-component.md#global_variable).
 
 Please note that when the game is running away from the editor, the plugin script will run directly on the global scope. Local variables within the script that are not in any function will be exposed as global variables. Be careful to cause global variables to pollute.
 

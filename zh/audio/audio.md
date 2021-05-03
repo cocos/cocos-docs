@@ -77,6 +77,6 @@ AudioEngine 播放的时候，需要注意这里传入的是一个完整的 Audi
 
 ![](audio/audioengine.png)
 
-**注意**：如果音频播放相关的设置都完成后，在部分浏览器上预览或者运行时仍听不到声音，那可能是由于浏览器兼容性导致的问题。例如： Chrome 禁用了 WebAudio 的自动播放，而音频默认是使用 Web Audio 的方式加载并播放的，此时用户就需要在 **资源管理器** 中选中音频资源，然后在 **属性检查器** 中将音频的加载模式修改为 DOM Audio 才能在浏览器上正常播放。详情可参考 [声音资源](../asset-workflow/audio-asset.md) 和 [兼容性说明](compatibility.md)。
+**注意**：如果音频播放相关的设置都完成后，在部分浏览器上预览或者运行时仍听不到声音，那可能是由于浏览器兼容性导致的问题。例如：Chrome 禁用了 WebAudio 的自动播放，而音频默认是使用 Web Audio 的方式加载并播放的，此时用户就需要在 **资源管理器** 中选中音频资源，然后在 **属性检查器** 中将音频的加载模式修改为 DOM Audio 才能在浏览器上正常播放。详情可参考 [声音资源](../asset-workflow/audio-asset.md) 和 [兼容性说明](compatibility.md)。
 
 ![](audio/mode.png)

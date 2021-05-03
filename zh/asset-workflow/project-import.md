@@ -24,14 +24,14 @@
 3. 导入过程中 Cocos Creator 的控制台窗口会持续输出 log 以显示当前的导入进度。如下图：
 
 	![import-process.png](./project-import/import-process.png)
-	
+
 	输出的 log 说明：
 	- 首先输出导入的工程文件全路径。
 	- 中间持续输出正在导入的文件。
 	- 当导入完成时，会输出 `Import XXX project finished.` 的 log。（其中 XXX 为项目所用编辑器名称）
 	- 最后输出资源导入后所在的 url。
 
-**注意**：导入项目所需的时间长短取决于项目大小。在导入过程中请勿在 Cocos Creator 中执行其他操作，耐心等待导入完成。
+> **注意**：导入项目所需的时间长短取决于项目大小。在导入过程中请勿在 Cocos Creator 中执行其他操作，耐心等待导入完成。
 
 ## Cocos Studio 项目导入说明
 
@@ -76,18 +76,18 @@
 ### 特别说明
 
 Cocos Studio 项目导入功能是基于 Cocos Studio 3.10 版本进行开发与测试的。如果要导入旧版本的项目，建议先使用 Cocos Studio 3.10 版本打开项目。这样可以将项目升级到对应版本，然后执行导入操作。
-    
+
 - 新支持动画帧事件
 
   统一添加默认的 `triggerAnimationEvent` 事件，参数为下方设置的数据：
-    
+
   ![animation-frame-event.png](./project-import/animation-frame-event.png)
-   
+
 - 导入嵌套的 csd
 
   当 csd 包含嵌套的时候，会自动创建一个带有 `cc.StudioComponent.PlaceHolder` 组件的节点来替代。该组件中的 `nestedPrefab` 属性会存储嵌套的 prefab 资源，并在项目运行后创建该 prefab 来替换当前节点。（必须是 **运行时** 才可以对该节点进行操作，且目前不支持在编辑器中预览）
 
-  **注意**：从 v2.4.3 开始不需要再执行该操作。
+  > **注意**：从 v2.4.3 开始不需要再执行该操作。
 
 ## Cocos Builder 项目导入说明
 

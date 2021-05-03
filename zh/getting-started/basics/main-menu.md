@@ -64,9 +64,9 @@
 
 运行、构建项目，以及项目专用个性化配置。
 
-- **运行预览 （<kbd>Ctrl/Command + P</kbd>）**：在浏览器或模拟器中运行项目。
-- **刷新已运行的预览 （<kbd>Shift + Ctrl/Command + P</kbd>）**：刷新已经打开的预览窗口。
-- **构建发布... （<kbd>Shift + Ctrl/Command + B</kbd>）**：打开 [构建发布](../../publish/index.md) 面板。
+- **运行预览（<kbd>Ctrl/Command + P</kbd>）**：在浏览器或模拟器中运行项目。
+- **刷新已运行的预览（<kbd>Shift + Ctrl/Command + P</kbd>）**：刷新已经打开的预览窗口。
+- **构建发布...（<kbd>Shift + Ctrl/Command + B</kbd>）**：打开 [构建发布](../../publish/index.md) 面板。
 - **项目设置...**：打开 [项目设置](editor-panels/project-settings.md) 面板。
 
 ## 面板

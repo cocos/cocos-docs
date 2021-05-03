@@ -5,6 +5,7 @@
 ![](publish-web/web.png)
 
 Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布平台** 的下拉菜单选择 `Web Mobile` 或 `Web Desktop`。它们的区别主要在于：
+
 - `Web Mobile` 默认将游戏视图撑满整个浏览器窗口。
 - `Web Desktop` 允许在发布时指定一个游戏视图的分辨率，并且之后游戏视图不会随着浏览器窗口大小的变化而变化。
 

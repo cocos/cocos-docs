@@ -48,7 +48,7 @@ A table contains all version info for app and sub-modules. By default it contain
    - `theme` string - The name of the theme we would like to search for in `theme://` protocol
    - `theme-search-path` array - Paths to search in `theme://` protocol
 
-Init and config the Editor module. For more details about `Editor.init` options, read [Editor Configuration](../manual/customization/editor-configuration.md)   
+Init and config the Editor module. For more details about `Editor.init` options, read [Editor Configuration](../manual/customization/editor-configuration.md)
 
 ### Editor.run(url, opts)
 

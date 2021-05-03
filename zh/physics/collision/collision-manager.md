@@ -34,7 +34,7 @@ manager.enabledDebugDraw = true;
 manager.enabledDrawBoundingBox = true;
 ```
 
-结果如下图所示：  
+结果如下图所示：
 
 ![](collision-manager/draw-bounding-box.png)
 
@@ -82,7 +82,7 @@ onCollisionStay: function (other, self) {
     console.log('on collision stay');
 },
 ```
-   
+
 ```javascript
 /**
  * 当碰撞结束后调用
@@ -120,4 +120,4 @@ start () {
 }
 ```
 
-更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) 上查看。
+更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) 上查看。

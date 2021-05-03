@@ -70,9 +70,11 @@ Beyond these, SocketIO provides packaging based on the WebSocket API which can b
 
 Reference SocketIO in script:
 
-1. Download SocketIO: [https://socket.io](https://socket.io)
-2. Drag the downloaded file into the route you would like to save in Explorer / Finder.
-3. Modify SocketIO script to avoid the execution on native environment
+1. Download SocketIO: [https://socket.io](https://socket.io).
+
+2. Drag the downloaded file into the route you would like to save in Explorer/Finder.
+
+3. Modify SocketIO script to avoid the execution on native environment.
 
     As web SocketIO can not parsed correctly in JSB, the Cocos provides native SocketIO on native environment. So we should hack to make the web SocketIO script not work on native environment, the way to achieve this is to modify the SocketIO script:
 
@@ -84,9 +86,10 @@ Reference SocketIO in script:
     }
     ```
 
-4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly
-5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files
+4. Make the SocketIO script [Import As Plugin](./plugin-scripts.html), so we can access the SocketIO in the component by using `window.io` directly.
+
+5. To use SocketIO in the component you can go to [SocketIO official website](http://socket.io/) for API and files.
 
 > **Note**: if you need to use `WebSocket` or `SocketIO` on native platform, make sure you check the `Native Socket` module.
-
-[config](network/config.png)
+>
+> ![config](network/config.png)

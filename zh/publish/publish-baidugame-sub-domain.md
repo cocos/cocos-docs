@@ -9,7 +9,7 @@
 
 在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的百度发布包中，就可以作为完整的百度小游戏工程在模拟器和真机上进行预览调试了。
 
-百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 [开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
+百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）。
 
 ## 主域项目工程
 
@@ -114,7 +114,7 @@
 
 三、**发布路径** 设置为主域中填入的 **开放数据域代码目录** 相同路径，即指定到主域项目工程的发布包目录下。然后点击 **构建**。
 
-**注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
+> **注意**：**游戏名称** 必须和主域项目中设置的 **开放数据域代码目录** 名称一致。
 
 ![](./publish-baidugame/open-data-project-build.png)
 
@@ -128,5 +128,5 @@
 
 ## 参考链接
 
-- [Cocos Creator 小游戏开放数据域范例工程](https://github.com/cocos-creator/OpenDataContext_TestCase)
+- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
 - [百度官方文档：关系链数据使用指南](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)

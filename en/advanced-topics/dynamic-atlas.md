@@ -10,7 +10,7 @@ Dynamic Atlas is according to the rendering order to determine whether the textu
 
 ## Enable, disable Dynamic Atlas
 
-During the initialization process of Cocos Creator, different [CLEANUP_IMAGE_CACHE](https://docs.cocos.com/creator/api/en/classes/macro.html#cleanupimagecache) value will be set according to different platforms. When `CLEANUP_IMAGE_CACHE` is disabled, Dynamic Atlas will be enabled by default.<br>
+During the initialization process of Cocos Creator, different [CLEANUP_IMAGE_CACHE](../../../api/en/classes/macro.html#cleanupimagecache) value will be set according to different platforms. When `CLEANUP_IMAGE_CACHE` is disabled, Dynamic Atlas will be enabled by default.<br>
 Enabling dynamic atlas takes up additional memory, while the actual used memory space depends on the running platform. Dynamic atlas is currently disabled by default on mini-games or native platforms, but is recommended to activate it if your project still has enough memory space.
 
 **If you need to force the Dynamic Atlas to be enabled**, execute the following code:

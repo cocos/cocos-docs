@@ -8,10 +8,10 @@ The button component responds to a click from the user. When the user clicks a B
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **Button** from **UI Component**. Then you can add the Button component to the node.
 
-## Button Property
+## Button Properties
 
 | Property |   Function explanation |
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Interactable            | Boolean type, if set to false then the Button component enters the forbidden state. |
 | Enable Auto Gray Effect | Boolean type, if set to true, the Button's target sprite will turn gray when interactable is false. |
 | Transition              | Enumeration type, including NONE, COLOR, SPRITE and SCALE. Each type corresponds to a different Transition setting. Please see the **Button Transition** section below for details. |
@@ -30,7 +30,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ![color-transition](./button/color-transition.png)
 
 | Property |   Function Explanation |
-| -------------- | ----------- |
+| :-------------- | :----------- |
 |Normal| Color of Button under Normal status. |
 |Pressed| Color of Button under Pressed status. |
 |Hover| Color of Button under Hover status. |
@@ -42,7 +42,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ![sprite-transition](./button/sprite-transition.png)
 
 | Property |   Function Explanation |
-| -------------- | ----------- |
+| :-------------- | :----------- |
 |Normal| SpriteFrame of Button under Normal status. |
 |Pressed| SpriteFrame of Button under Pressed status. |
 |Hover| SpriteFrame of Button under Hover status. |
@@ -53,7 +53,7 @@ Button Transition is used to indicate the status of the Button when clicked by t
 ![scaleTransition](./button/scale-transition.png)
 
 | Property |   Function Explanation |
-| -------------- | ----------- |
+| :-------------- | :----------- |
 |Duration| Time interval needed for Button status switching. |
 |ZoomScale| When user press the button, the button will zoom to a scale. The final scale of the button equals button original `scale * zoomScale`, zoomScale could be negative value. |
 
@@ -61,18 +61,18 @@ Button Transition is used to indicate the status of the Button when clicked by t
 
 The Button can additionally add a Click event to respond to the player's click action. There are two ways to do this.
 
-### Add a callback using the Properties.
+### Add a callback using the Properties
 
 ![button-event](./button/button-event.png)
 
 | No. | Property | Function Explanation              |
-| --- | -------- | -----------                       |
+| :--- | :-------- | :----------                       |
 |  1  | Target   | Node with the script component.   |
 |  2  | Component | Script component name.           |
 |  3  | Handler  | Assign a callback function which will be triggered when the user clicks the Button. |
 |  4  | customEventData | A user-defined string value passed as the last event argument of the event callback.  |
 
-### Add a callback using the script.
+### Add a callback using the script
 
 There are two ways to add a callback through the script.
 

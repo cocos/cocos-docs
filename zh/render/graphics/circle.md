@@ -16,7 +16,7 @@ ctx.circle(200, 200, 200);
 ctx.fill();
 ```
 
-<a href="graphics/circle.png"><img src="graphics/circle.png"></a>
+![circle](graphics/circle.png)
 
 <hr>
 

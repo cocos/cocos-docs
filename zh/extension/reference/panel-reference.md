@@ -1,6 +1,6 @@
 # 面板定义参考
 
-> 一份简单的面板定义
+一份简单的面板定义如下：
 
 ```javascript
 Editor.Panel.extend({
@@ -31,9 +31,9 @@ Editor.Panel.extend({
 
 更多的 Shadow DOM 的介绍可以参考：
 
- - <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom/>
- - <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-201/>
- - <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-301/>
+- <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom/>
+- <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-201/>
+- <http://www.html5rocks.com/zh/tutorials/webcomponents/shadowdom-301/>
 
 #### template
 

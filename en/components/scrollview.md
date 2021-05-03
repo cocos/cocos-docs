@@ -8,7 +8,7 @@ ScrollView is a container with a scroll function. It provides a way to browse mo
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **ScrollView** from **UI Component**. You can then add the ScrollView component to the node.
 
-## ScrollView property
+## ScrollView properties
 
 | Property |   Function Explanation
 | -------------- | ----------- |
@@ -18,11 +18,11 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Inertia    | Is there an accelerating velocity when scrolling
 | Brake      | Floating point number, the deceleration coefficient after scrolling. The value range is 0-1 where if set to 1, then the scroll will stop immediately; if set to 0, then the scroll will continue until the content border.
 | Elastic              | Boolean value, whether to bounce back or not.
-| Bounce Duration      | Floating point number, the time duration for bounce back. The calue range is 0-10.
+| Bounce Duration      | Floating point number, the time duration for bounce back. The value range is 0-10.
 | Horizontal ScrollBar | A reference node for creating a scroll bar showing the horizontal position of the contents.
 | Vertical ScrollBar   | A reference node for creating a scroll bar showing vertical position of the contents.
 | Scroll Events        | Default list type is null. Each event added by the user is composed of the node reference, component name and a response function. Please see the **ScrollView Event** section below for details.
-| CancelInnerEvents	   | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes.
+| CancelInnerEvents    | If cancelInnerEvents is set to true, the scroll behavior will cancel touch events on inner content nodes.
 
 ### ScrollView Event
 
@@ -77,7 +77,7 @@ cc.Class({
         scrollview.scrollEvents.push(scrollViewEventHandler);
     },
 
-	// Note that the order and type of parameters are fixed
+    // Note that the order and type of parameters are fixed
     callback: function (scrollview, eventType, customEventData) {
         // here scrollview is a Scrollview component object instance
         // here the eventType === value in the cc.ScrollView.EventType enum

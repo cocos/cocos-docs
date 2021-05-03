@@ -1,8 +1,8 @@
 # Collision Manager Scripting
 
-Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders. When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.   
+Cocos Creator provides a simple and easy way to use built-in Collision Detection System, it will do collision detect according to the added colliders. When a Collider Component is enabled, this Collider Component will be auto added to Collision Detection System, and Collision Manager will search other Collider Components which can generate a Collision Pair with it.
 
-**Note: The Collider Components in the same node, will not do collision detecsion with each other forever.**   
+> **Note**: the Collider Components in the same node, will not do collision detection with each other forever.
 
 ## Usage of the Collision Manager
 
@@ -36,7 +36,7 @@ If you want to display the bounding box of the Collider Component, please set `e
 manager.enabledDrawBoundingBox = true;
 ```
 
-Result:   
+Result:
 
 ![](collision-manager/draw-bounding-box.png)
 
@@ -84,7 +84,7 @@ onCollisionStay: function (other, self) {
     console.log('on collision stay');
 },
 ```
-   
+
 ```javascript
 /**
  * Call after end collision
@@ -96,7 +96,7 @@ onCollisionExit: function (other, self) {
 }
 ```
 
-### Hittest
+### HitTest
 
 ```javascript
 properties: {

@@ -28,11 +28,17 @@ The Layout arrays' child nodes are based on the display order of child nodes in 
 
 ### Horizontal Direction
 
-You can set up two directions: `Left to Right` or `Right to Left`. The former will array the nodes from left to right according to their display order in **Node Tree**; the later will array the nodes from right to left according to their display order in **Node Tree**.
+You can set up two directions: `Left to Right` or `Right to Left`.
+
+- The former will array the nodes from left to right according to their display order in **Node Tree**.
+- The later will array the nodes from right to left according to their display order in **Node Tree**.
 
 ### Vertical Direction
 
-You can set up two directions: `Top to Bottom` or `Bottom to Top`. The former will array the nodes from top to bottom according to their display order in **Node Tree**; the later will array the nodes from bottom to top according to their display order in **Node Tree**.
+You can set up two directions: `Top to Bottom` or `Bottom to Top`.
+
+- The former will array the nodes from top to bottom according to their display order in **Node Tree**.
+- The later will array the nodes from bottom to top according to their display order in **Node Tree**.
 
 ## Other layout types are coming soon
 

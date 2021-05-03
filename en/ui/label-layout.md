@@ -19,7 +19,7 @@ In the figure above, the horizontal alignment position is set to `Right`, and th
 
 ## Label Size and Line Height
 
-`Font Size` determines the display size of labels. Its unit is Point (it can also be called 'pound'), which is the size unit for fonts commonly used in most image editing softwares and font editing softwares. For dynamic fonts, `Font Size` can be zoomed in losslessly. But the display of bitmap fonts will be more and more vague when the set value of `Font Size` exceeds the font size stipulated by the font.
+`Font Size` determines the display size of labels. Its unit is Point (it can also be called 'pound'), which is the size unit for fonts commonly used in most image editing softwares and font editing softwares. For dynamic fonts, `Font Size` can be zoomed in lossless. But the display of bitmap fonts will be more and more vague when the set value of `Font Size` exceeds the font size stipulated by the font.
 
 `Line Height` determines the height occupied by each line when multiple lines of labels display, the unit of which is also Point. The displaying of multiple lines of labels can be carried out by using two methods:
 
@@ -66,7 +66,7 @@ Resize height mode will make sure the bounding box of the labels fits the height
 
 ## Enable Wrap Text
 
-The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap acccording to the width of the bounding box without manual input of `\r` or `\n` when inputting labels.
+The `Enable Wrap Text` property of the Label component can switch the auto wrap switch of labels. When `Enable Wrap Text` is opened, labels will automatically wrap according to the width of the bounding box without manual input of `\r` or `\n` when inputting labels.
 
 > **Note**: the `Enable Wrap Text` property is only available in the **Clamp** and **Shrink** modes of the label layout mode. In **RESIZE_HEIGHT** mode, the `Enable Wrap Text` property is compulsorily opened.
 

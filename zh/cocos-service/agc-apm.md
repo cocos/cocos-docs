@@ -337,7 +337,7 @@ huawei.agc.apms.apmsService.startNetworkMeasure(id);
 
 `stopNetworkMeasure(id: string): void`
 
-可参考 [设置请求结束时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#stop) 文档 ，并上报网络请求指标及自定义属性数据。
+可参考 [设置请求结束时间](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/networkmeasure#stop) 文档，并上报网络请求指标及自定义属性数据。
 
 **参数说明**：
 

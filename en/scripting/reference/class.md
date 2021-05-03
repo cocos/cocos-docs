@@ -361,7 +361,7 @@ It should be noted that the process of the deserialization of the property occur
 
 ### Attribute
 
-All attributes are optional, but at least one of the `default`,` get`, `set` attributes must be declared.
+All attributes are optional, but at least one of the `default`, `get`, `set` attributes must be declared.
 
 #### `default` attribute
 

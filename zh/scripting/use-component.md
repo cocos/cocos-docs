@@ -41,4 +41,4 @@ cc.Class({
 
 ![script-in-properties](assets/script-in-inspector.png)
 
-**注意**：开发者也可以通过直接拖拽脚本资源到 **属性检查器** 的方式来添加脚本。
+> **注意**：开发者也可以通过直接拖拽脚本资源到 **属性检查器** 的方式来添加脚本。

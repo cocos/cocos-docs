@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 ## Mask Properties
 
-| Properties |   Description
+| property |   Description
 | -------------- | ----------- |
 | Type           | Mask type. Including `RECT`, `ELLIPSE`, `IMAGE_STENCIL` three types, refer to [Type API](../../../api/en/enums/Mask.Type.html) for details.
 | Inverted       | The Reverse mask.

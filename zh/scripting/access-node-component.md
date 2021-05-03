@@ -53,15 +53,15 @@ start: function () {
 如果在节点上找不到你要的组件，`getComponent` 将返回 null，如果你尝试访问 null 的值，将会在运行时抛出 TypeError 这个错误。因此如果你不确定组件是否存在，请记得判断一下：
 
 ```js
-    start: function () {
-        var label = this.getComponent(cc.Label);
-        if (label) {
-            label.string = "Hello";
-        }
-        else {
-            cc.error("Something wrong?");
-        }
+start: function () {
+    var label = this.getComponent(cc.Label);
+    if (label) {
+        label.string = "Hello";
     }
+    else {
+        cc.error("Something wrong?");
+    }
+}
 ```
 
 ## 获得其它节点及其组件

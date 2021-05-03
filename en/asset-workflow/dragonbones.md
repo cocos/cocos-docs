@@ -6,9 +6,9 @@ DragonBones skeleton animation resources are data formats that exported by [Drag
 
 DragonBones skeleton animation resources are:
 
-- .json/.dbbin skeletal data
-- .json Atlas data
-- .png Atlas texture
+- `.json`/`.dbbin` skeletal data
+- `.json` Atlas data
+- `.png` Atlas texture
 
   ![DragonBones](dragonbones/import.png)
 

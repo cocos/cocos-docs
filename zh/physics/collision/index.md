@@ -4,7 +4,7 @@
 
 下面分成几个小节来介绍碰撞系统的细节内容：
 
-- [编辑碰撞组件](edit-collider-component.md) 
+- [编辑碰撞组件](edit-collider-component.md)
 - [碰撞分组管理](collision-group.md)
 - [碰撞系统脚本控制](collision-manager.md)
 - [Collider 组件参考](../../components/collider.md)

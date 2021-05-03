@@ -5,6 +5,7 @@ Let's see a concrete method for creating a frame animation.
 ## Add a new Sprite component to node
 
 First, we need to make the Node properly displays textures. To do this we need to add a Sprite component to the Node.
+
 After selecting the Node, choose __add render component->Sprite__ by clicking the **Add component** button in the Properties.
 
 ## Add a `cc.Sprite.spriteFrame` to property list

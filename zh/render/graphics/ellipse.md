@@ -17,7 +17,7 @@ ctx.ellipse(200, 100, 200, 100);
 ctx.fill();
 ```
 
-<a href="graphics/ellipse.png"><img src="graphics/ellipse.png"></a>
+![ellipse](graphics/ellipse.png)
 
 <hr>
 

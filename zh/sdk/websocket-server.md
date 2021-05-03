@@ -12,13 +12,13 @@
 
 ![edit-ccconfig](./websocket-server/edit-ccConfig-h2.png)
 
-**注意**：由于在 **Release** 模式下通常很少保留 **WebSocket 服务器**，修改中建议包含：
+> **注意**：由于在 **Release** 模式下通常很少保留 **WebSocket 服务器**，修改中建议包含：
 
 ```c++
 #if USE_WEBSOCKET_SERVER && !COCOS2D_DEBUG
 #define USE_WEBSOCKET_SERVER 0
 #endif
-``` 
+```
 
 修改默认值会影响所有平台，如果不明确是否需要在所有平台启用，可以参考下面的方式，只针对特定平台开启。
 

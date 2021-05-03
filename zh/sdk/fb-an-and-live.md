@@ -83,7 +83,7 @@ Cocos Creator 从 v2.0.6 开始支持一键集成 Facebook 服务，包括 **Fac
 - `fb.liveStream.pauseLive();`：暂停播放
 - `fb.liveStream.resumeLive();`：恢复播放
 
-具体的使用方式可参考 [范例工程](https://github.com/cocos-creator/facebook_demo) 中的 [/assets/script/live_scene.js](https://github.com/cocos-creator/facebook_demo/blob/master/assets/script/live_scene.js) 文件。
+具体的使用方式可参考 **范例工程**（[GitHub](https://github.com/cocos-creator/facebook_demo) | [Gitee](https://gitee.com/mirrors_cocos-creator/facebook_demo)）中的 `/assets/script/live_scene.js` 文件。
 
 ### Facebook Audience Network
 
@@ -122,11 +122,11 @@ banner_click(event){
 },
 ```
 
-`cc.Ads.RewardedVideo` 和 `cc.Ads.Interstitial` 的调用方式与 `cc.Ads.Banner` 类似，具体可以参考 [范例工程](https://github.com/cocos-creator/facebook_demo) 中的 [/assets/script/an_scene.js](https://github.com/cocos-creator/facebook_demo/blob/master/assets/script/an_scene.js) 文件。或者参考 Facebook 官方文档 [Audience Network](https://developers.facebook.com/docs/audience-network/)。
+`cc.Ads.RewardedVideo` 和 `cc.Ads.Interstitial` 的调用方式与 `cc.Ads.Banner` 类似，具体可以参考 **范例工程**（[GitHub](https://github.com/cocos-creator/facebook_demo) | [Gitee](https://gitee.com/mirrors_cocos-creator/facebook_demo)）中的 `/assets/script/an_scene.js` 文件。或者参考 Facebook 官方文档 [Audience Network](https://developers.facebook.com/docs/audience-network/)。
 
 ## 相关参考链接
 
-- Cocos Creator 提供的 [Facebook 服务集成范例工程](https://github.com/cocos-creator/facebook_demo)，包含了 **Facebook Live Video** 和 **Facebook Audience Network** 的使用示例。
+- Cocos Creator 提供的 **Facebook 服务集成范例工程**（[GitHub](https://github.com/cocos-creator/facebook_demo) | [Gitee](https://gitee.com/mirrors_cocos-creator/facebook_demo)），包含了 **Facebook Live Video** 和 **Facebook Audience Network** 的使用示例。
 - [Facebook 开发者后台](https://developers.facebook.com/)
 - [Facebook Live Video 参考文档](https://developers.facebook.com/docs/videos/live-video)
 - [Facebook Audience Network 参考文档](https://developers.facebook.com/docs/audience-network/)

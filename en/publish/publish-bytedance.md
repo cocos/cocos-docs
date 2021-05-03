@@ -9,16 +9,16 @@ The runtime environment of ByteDance Mini Game is an extension of ByteDance Mini
 As the engine developer, in order to simplify the workload of developers as much as possible, the main work we have done for developers includes:
 
 - The engine framework is adapted to the ByteDance API and is purely at the game logic level, so developers do not need any additional modifications
-- Cocos Creator editor provides a quick packaging process to publish directly as a ByteDance 
+- Cocos Creator editor provides a quick packaging process to publish directly as a ByteDance
 - Automatically loads emote assets, cached assets and the versioning of cached assets
 
-For details about ByteDance access, please refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration).
+For details about ByteDance access, please refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign).
 
 ## Preparation
 
 - Download the [ByteDance Developer Tools](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) and install it.
 
-- Refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration) to register, login and apply for mini games on the ByteDance Developer Platform.
+- Refer to the [ByteDance Mini Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign) to register, login and apply for mini games on the ByteDance Developer Platform.
 
 - After the application is approved, you can find the appid in **Development Management -> Development Settings** of the developer platform.
 
@@ -98,7 +98,7 @@ For details, please refer to the official [ByteDance Game Subpackage Loading](ht
 In addition to pure game content, the ByteDance mini game environment also provides very powerful native SDK interfaces, the most important of which are users, social, screen recording, etc. These interfaces only exist in the ByteDance environment and are equivalent to the third-party SDK interfaces of other platforms. The porting of such SDK interfaces needs to be handled by developers at this stage. The following are some powerful SDKs provided by ByteDance:
 
 1. User interface: login, authorization, user information, etc.
-2. In-game [recording and sharing](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/function-access-guide/record-share)
+2. In-game [recording and sharing](https://microapp.bytedance.com/docs/zh-CN/mini-game/operation/function/record-share/)
 3. Forwarding and getting forwarding information
 4. Media: pictures, recordings, camera, etc.
 5. Other: location, device information, code scanning, NFC, etc.
@@ -114,7 +114,7 @@ In addition, the audio assets loaded through the network are played by streaming
 
 ## Reference Links
 
-- [ByteDance Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/registration)
+- [ByteDance Game Access Guide](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign)
 - [ByteDance Mini Game API Documentation](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
 - [ByteDance Developer Tools Download](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
 - [ByteDance Developer Tools Introduction](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)

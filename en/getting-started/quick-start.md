@@ -57,11 +57,13 @@ In Cocos Creator, the game scene is the core of organizing the game contents whe
 When players run the game, the game scene will be loaded. After that, the game scripts of included components will automatically run to realize various kinds of logic functions set up by developers. Therefore, apart from resources, the game scene is the foundation of all content creation. Now let's create a new scene.
 
 1. Click the `assets` folder in the **Assets** panel, making sure the scene will be created under this folder.
+
 2. Click the plus sign on the top left corner of the **Assets** panel, and choose **Scene** in the pop up menu.
 
     ![create scene](quick-start/create_scene.png)
 
 3. We created a scene file named as `New Scene`. Right click it and choose **Rename** to rename it as `game`.
+
 4. Double click `game` and the scene will be opened in the **Scene**, and the scene's nodes will be displayed in the **Node Tree**.
 
 ### To understand Canvas
@@ -561,7 +563,7 @@ Here are a few things to watch out for.
 4. The `setPosition()` method under the node is to set the position of the node in the parent node's coordinate system, and you can set the coordinate points in two ways:
     - The first is to pass in two values `x` and `y`.
     - The second is Pass in `cc.v2(x, y)` or `cc.v3(x, y, z)` (An object of type `cc.Vec2` or `cc.Vec3`)
-5. The effact of the `getComponent` method under the node is to get the component references that are mounted on the node
+5. The effect of the `getComponent` method under the node is to get the component references that are mounted on the node
 
 After saving the script, go back to the editor and click the **Preview** button. Then in the browser you will see that a star is dynamically generated after the game is started! By the same method, you can dynamically generate any preset node with a `Prefab` template in the game.
 

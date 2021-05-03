@@ -1,4 +1,4 @@
-# Animation Events.
+# Animation Events
 
 When using animations in your games, you may want things to during a frame or even
 at the end of a frame. We call these animation events.

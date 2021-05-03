@@ -11,19 +11,15 @@
 
 ## File
 
-* **Open Project...**
-Close the Cocos Creator and open Dashboard.
-* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd>)**
-Create a new scene in the current project.
+* **Open Project...**: Close the Cocos Creator and open Dashboard.
+* **New Scene (Shortcut: <kbd>Ctrl/Command + N</kbd>)**: Create a new scene in the current project.<br>
 A game consists of one or more scenes. You'll need to create new scenes when you intend to make independent modules such as new stages, main menus, loading screens, setting screens, etc.
-* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd>)**
-Save the current editing scene.
-A save file dialog will pop up if the current scene has never been saved before, in which you can determine where to save your scene file (*.fire). If the scene has been saved before, Cocos Creator will update the save file directly.
+* **Save Scene (Shortcut: <kbd>Ctrl/Command + S</kbd>)**: Save the current editing scene.<br>
+A save file dialog will pop up if the current scene has never been saved before, in which you can determine where to save your scene file (`*.fire`). If the scene has been saved before, Cocos Creator will update the save file directly.
   > It is suggested to place all scene files in a particular directory for management, for example **assets/scenes**.
-* **Build Settings**
-Set the project build parameters.
+* **Build Settings**: Set the project build parameters.<br>
 Building is a critical step in the deployment process. Cocos Creator will pack and optimize your game files during the building process, in order for it to be deployed on various platforms quickly, safely and correctly. Through the Build Settings, you can fine tune the parameters for certain needs, as well as preview your game before deployment.
-You will find more information about Build Settings in the [Tool Windows](#tool-windows] section.
+You will find more information about Build Settings in the [Tool Windows](#tool-windows) section.
 
 ## Edit
 
@@ -33,6 +29,7 @@ You will find more information about Build Settings in the [Tool Windows](#tool-
 * **Copy (Shortcut: <kbd>C</kbd>)**: Copy the selected Entity into the clipboard.
 * **Paste (Shortcut: <kbd>V</kbd>)**: Paste the Entity from the clipboard into the current scene.
 * **Select All (Shortcut: <kbd>A</kbd>)**: The focus is selected in the scene editor for all nodes, and the focus is on the console with all log information selected.
+
 <!-- * **Play (Shortcut: <kbd>Ctrl/Command + P</kbd> )**
 Play the current scene in a browser.
 * **Reload Connected Device (Shortcut: <kbd>Shift + Ctrl/Command + P</kbd>)**

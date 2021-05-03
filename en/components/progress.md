@@ -8,10 +8,10 @@ Click the **Add component** button at the bottom of the **Properties** panel and
 
 For the script interface of the ProgressBar, please refer to [ProgressBar API](../../../api/en/classes/ProgressBar.html).
 
-## ProgressBar Property
+## ProgressBar properties
 
 | Property |   Function Explanation
-| -------------- | ----------- |
+| :-------------- | :----------- |
 | Bar Sprite   | The Sprite component needed for rendering ProgressBar. It can be linked by dragging a node with the **Sprite** component to this property.
 | Mode         | Currently supports the **HORIZONTAL**, **VERTICAL** and **FILLED** modes. The initial direction can be changed by cooperating with the **Reverse** property.
 | Total Length | The total length/total width of the Bar Sprite when the ProgressBar is at 100%. In **FILLED** mode, **Total Length** represents the percentage of the total display range for Bar Sprite, with values ranging from 0 to 1.

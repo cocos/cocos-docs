@@ -2,7 +2,7 @@
 
 Open **Project -> Build...** in the main menu and open **Build** panel.
 
-Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer. 
+Currently, there are four native platforms, which include: **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer.
 
 ![native platform](publish-native/native_platform.png)
 
@@ -18,7 +18,7 @@ When merging assets automatically, combine all SpriteFrame and the assets that a
 
 ### Merge SpriteFrames in Atlas
 
-Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extened.  
+Merge all the SpriteFrames in the same atlas into the same package. The option is disable by default. When enabled, it can reduce the number of SpriteFrame files that need to be downloaded when hot update. However if the number of SpriteFrame in the atlas is large, the startup time on the native platform may be extended.  
 
 If there are many atlases in the project, the `project.manifest` file may be too large. It is recommended to check this option to reduce the size of it.
 
@@ -40,13 +40,12 @@ Set up the API version used for compiling Android, with minimal support for andr
 
 To set up the CPU type that Android needs to support, you can select one or more options, and have a **armeabi-v7a**, **arm64-v8a**, **x86** three types.
 
-**Attention**:
-
-- After you select an ABI build, build another ABI without Clean, and the two ABI's so files will be packaged into apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after select an ABI build, then execute **Build -> Clean Project** and build another ABI. Only the latter ABI will be packaged into the apk.
-
-- After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build**. If you need to modify the ABI, you can directly modify the **PROP_APP_ABI** property in **gradle.properties**. As shown below:
-
-  ![modify abi](publish-native/modify_abi.png)
+> **Notes**:
+>
+> 1. After you select an ABI build, build another ABI without Clean, and the two ABI's so files will be packaged into apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after select an ABI build, then execute **Build -> Clean Project** and build another ABI. Only the latter ABI will be packaged into the apk.
+> 2. After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build**. If you need to modify the ABI, you can directly modify the **PROP_APP_ABI** property in **gradle.properties**. As shown below:
+>
+>     ![modify abi](publish-native/modify_abi.png)
 
 ### Keystore
 
@@ -109,7 +108,7 @@ After selecting the release platform and initial scene, the project can now be b
 
 ![build progress](publish-native/build_progress.png)
 
-When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait unitl the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
+When compiling scripts and zipping resources, a progress bar will display on the top of the window. After the progress bar has reached 100%, please continue to wait until the building of the project in **console** is finished. If it's successful, the diary as showed below will display:
 
 ```bash
 Built to "\myProject\example\build\jsb-default" successfully

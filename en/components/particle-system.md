@@ -12,33 +12,33 @@ ParticleSystem component can be created in the following two ways:
 
 ### 1. Create in the editor
 
-  Click the **Add Component** button at the bottom of the **Properties** panel and select **ParticleSystem** from **Renderer Component** to add the ParticleSystem component to the node.
+Click the **Add Component** button at the bottom of the **Properties** panel and select **ParticleSystem** from **Renderer Component** to add the ParticleSystem component to the node.
 
-  ![](pageviewindicator/add_particlesystem.png)
+![](pageviewindicator/add_particlesystem.png)
 
 ### 2. Create in code
 
-  ```js
-  // Create a node
-  var node = new cc.Node();
-  // And add nodes to the scene
-  cc.director.getScene().addChild(node);
-  // And add particle components to Node
-  var particleSystem = node.adComponent(cc.ParticleSystem);
-  // Next you can particleSystem this object for a series of operations
-  ```
+```js
+// Create a node
+var node = new cc.Node();
+// And add nodes to the scene
+cc.director.getScene().addChild(node);
+// And add particle components to Node
+var particleSystem = node.adComponent(cc.ParticleSystem);
+// Next you can particleSystem this object for a series of operations
+```
 
-  Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html).
+Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html).
 
 ## ParticleSystem Properties
 
-| Properties |   Function Explanation
-| -------------- | ----------- |
+| Property |   Function Explanation
+| :------------- | :---------- |
 | Preview               | Play particle in edit mode.
 | Play On Load          | If set to true, the particle system will automatically start playing on onLoad.
 | Auto Remove On Finish | Indicate whether the owner node will be auto-removed when it has no particles left.
 | File                  | The plist file.
-| Custom                | If set custom to true, then use custom properties insteadof read particle file. When this property is turned on, you can customize the following part of the particle properties
+| Custom                | If set custom to true, then use custom properties instead of read particle file. When this property is turned on, you can customize the following part of the particle properties
 | Sprite Frame          | SpriteFrame of Particle System.
 | Duration              | How many seconds the emitter wil run. -1 means `forever`.
 | Emission Rate         | Emission rate of the particles.

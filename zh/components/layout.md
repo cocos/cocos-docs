@@ -4,15 +4,15 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 - 水平布局容器
 
-![horizontal-layout.png](./layout/horizontal-layout.png)
+  ![horizontal-layout.png](./layout/horizontal-layout.png)
 
 - 垂直布局容器
 
-![vertical-layout.png](./layout/vertical-layout.png)
+  ![vertical-layout.png](./layout/vertical-layout.png)
 
 - 网格布局容器
 
-![grid-layout.png](./layout/grid-layout.png)
+  ![grid-layout.png](./layout/grid-layout.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **Layout**，即可添加 Layout 组件到节点上。
 
@@ -52,7 +52,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 在使用网格布局时，当 **Start Axis** 设置为 HORIZONTAL 时，将在新行开始之前填充整行。设置为 VERTICAL 时，它将在新列开始之前填充整个列。
 
-**注意**：
-
-1. Layout 不会考虑子节点的缩放和旋转。
-2. Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
+> **注意**：
+>
+> 1. Layout 不会考虑子节点的缩放和旋转。
+> 2. Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。

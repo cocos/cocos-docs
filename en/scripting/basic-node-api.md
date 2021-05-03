@@ -23,6 +23,7 @@ this.node.active = true;
 ```
 
 If the node was previously in the state that **can be activated**, modifying `active` to true immediately triggers the activation action:
+
 - Reactivate the node in the scene, and all its child nodes that have the active property set to true.
 - Enable all components on current node and all child nodes, meaning `update` method in these components will be called in every frame.
 - If there's an `onEnable` method in these component, it will be called.
@@ -32,6 +33,7 @@ this.node.active = false;
 ```
 
 If the node was previously activated, modifying `active` to false immediately triggers the deactivation action:
+
 - Hide current node and all child nodes in scene.
 - Disable all components on current node and all child nodes, meaning `update` method in these components will not be called.
 - If there's an `onDisable` method in these component, it will be called.

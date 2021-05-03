@@ -6,19 +6,21 @@
 
 为了带来平滑的升级体验，我们将在一段时间内保留对 RawAsset 的兼容。从 v1.10 开始，会先支持调整后新的 API，并且对已经废弃的用法提出警告，请用户根据警告和本文的说明对代码进行调整，升级到新的用法。等到 v2.1 以上的某个版本，才会全面移除对 RawAsset 的兼容。
 
-对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。<br>
-对 **程序** 而言，影响主要体现在原先在代码中用 URL 字符串表示的资源，需要都改为直接引用加载后的实际资源对象。Creator 中和资源操作有关的 API 也将由传入资源 URL 改为传入资源对象。本文将详细介绍有关内容。
+- 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。
+- 对 **程序** 而言，影响主要体现在原先在代码中用 URL 字符串表示的资源，需要都改为直接引用加载后的实际资源对象。Creator 中和资源操作有关的 API 也将由传入资源 URL 改为传入资源对象。本文将详细介绍有关内容。
 
 ## 常见问题
 
 ### 我需要手动升级吗？
 
 如果有下列情况，你需要升级：
+
 - 你在自己的代码中直接声明了这些类型：`cc.Texture2D`、`cc.RawAsset`、`cc.AudioClip` 和 `cc.ParticleAsset`。
 - 你扩展了引擎或编辑器，定义了新的直接继承自 `cc.RawAsset` 的类型。
 - 你通过 `cc.loader.loadRes` 加载了 resources 文件夹下的 `.json` 后缀的文件。
 
 如果有下列情况，可能需要升级：
+
 - 你在自己的代码中直接调用了 `cc.audioEngine` 或 `cc.textureCache`。
 - 你使用 `cc.loader` 加载了远程服务器上的文本、粒子。
 
@@ -249,4 +251,4 @@ loadNpc(json);
 
 ### 如果需要对构建后的图片重新进行压缩
 
-从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。这需要对你的构建流程做一些定制，请参考范例 <https://github.com/cocos-creator/demo-process-build-textures>。
+从 v1.10 开始，构建后的图片会以 uuid 进行命名，这样会导致你无法从文件名直接判断出图片原先在项目中的位置。这需要对你的构建流程做一些定制，请参考 **demo-process-build-textures** 范例（[GitHub](https://github.com/cocos-creator/demo-process-build-textures) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-process-build-textures)）。

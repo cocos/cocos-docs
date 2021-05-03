@@ -22,12 +22,13 @@ In the **Group Collide Map** section we can control whether collide is allowed f
 
 ![](collision-group/collision-group.png)
 
-Each column and row of this table has all the group listed. If you make modification to the **Group List** this table will be updated accordingly. Each checkbox in the table represent whether the group from the column will collide with the group from the row.<br>
-After the runtime modifies the node's group, it is necessary to invoke collider apply for the modification to take effect.
+Each column and row of this table has all the group listed. If you make modification to the **Group List** this table will be updated accordingly. Each checkbox in the table represent whether the group from the column will collide with the group from the row.
 
-So as the checkboxes stated, we have following groups that can collide with each other:   
+After the runtime modifies the node's group, it is necessary to invoke the `apply` of the Physics Component **Collider** for the modification to take effect.
 
-Platform - Bullet   
-Collider - Collider   
-Actor - Wall   
-Actor - Platform   
+So as the checkboxes stated, we have following groups that can collide with each other:
+
+Platform - Bullet
+Collider - Collider
+Actor - Wall
+Actor - Platform

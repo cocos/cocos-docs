@@ -87,7 +87,7 @@ cc.Class({
 });
 ```
 
-Above code declared a property named `player` in `properties`, its default value is null, its object type is `cc.Node`. It is the equivalent of the `public cc.Node player = null;` statement in other programe language. In **Properties** panel, the component will looks like this after the script compiled:
+Above code declared a property named `player` in `properties`, its default value is null, its object type is `cc.Node`. It is the equivalent of the `public cc.Node player = null;` statement in other program language. In **Properties** panel, the component will looks like this after the script compiled:
 
 ![player-in-inspector-null](access-node-component/player-in-inspector-null.png)
 
@@ -161,7 +161,7 @@ But if you need to dynamically get other objects in runtime, you need to search 
 
 ### Find child node
 
-Sometimes there will be many objects with the same type in game scene, such as turret, enemy and effects, they can be uniformly managed by a global script. If we use **Properties** panel to associate them with the script one by one, that will be a heavy workload. It is often better to manage these objects by making them all children of one parent node, then retreive all children via the parent node:
+Sometimes there will be many objects with the same type in game scene, such as turret, enemy and effects, they can be uniformly managed by a global script. If we use **Properties** panel to associate them with the script one by one, that will be a heavy workload. It is often better to manage these objects by making them all children of one parent node, then retrieve all children via the parent node:
 
 ```js
 // CannonManager.js
@@ -253,7 +253,7 @@ cc.Class({
 
 ### Access by using module
 
-If you don't want to use global variable, you can use `require` to perform operation cross-scirpts, let's look at an example:
+If you don't want to use global variable, you can use `require` to perform operation cross-scripts, let's look at an example:
 
 ```js
 // Global.js, now the filename matters
@@ -264,7 +264,7 @@ module.exports = {
 };
 ```
 
-You can use `require` + filename(without paths) everywhere to retreive the object exported by "exports" from other scripts.
+You can use `require` + filename(without paths) everywhere to retrieve the object exported by "exports" from other scripts.
 
 ```js
 // Back.js
@@ -299,4 +299,4 @@ cc.Class({
 });
 ```
 
-For details, please refer to [Modular script](modular-script.md).
+For details, please refer to [Modularize Script](modular-script.md).

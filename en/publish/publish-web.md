@@ -5,6 +5,7 @@ Click on **Project -> Build...** in the editor's main menu to open the **Build**
 ![](publish-web/web.png)
 
 Cocos Creator provides two page templates for the Web platform, and you can choose `Web Mobile` or `Web Desktop` from the drop-down menu of the **Platform** option. The main differences between them are:
+
 - `Web Mobile`: The game view will cover the whole browser window by default.
 - `Web Desktop`: Allows you to specify the resolution of a game view when publishing, and then the game view will not change when you zoom in and out of the browser window.
 

@@ -53,20 +53,20 @@ Touch event can be triggered in both mobile platforms and desktop platforms. Thi
 | `cc.Node.EventType.TOUCH_END`    | `touchend`               | when the finger leaves screen in the target node region      |
 | `cc.Node.EventType.TOUCH_CANCEL` | `touchcancel`            | when the finger leaves screen outside the target node region |
 
-The important APIs of touch event (`cc.Event.EventTouch`) are as follows(`cc.Event` starndard event API excluded):
+The important APIs of touch event (`cc.Event.EventTouch`) are as follows (`cc.Event` standard event API excluded):
 
 | API name              | Type       | Meaning |
 | :-------------------- | :--------- | :------ |
 | `touch`               | `cc.Touch` | contact object related to the current event |
 | `getID`               | `Number`   | identification ID of the touch spot, can be used in multi-touch to track the touch spot              |
-| `getLocation`         | `Object`   | get location object of the touch spot which includes x and y propertites                             |
+| `getLocation`         | `Object`   | get location object of the touch spot which includes x and y properties                             |
 | `getLocationX`        | `Number`   | get X axis location of the touch spot       |
 | `getLocationY`        | `Number`   | get Y axis location of the touch spot       |
 | `getPreviousLocation` | `Object`   | get the location object of the touch spot at the last event which includes x and y properties        |
 | `getStartLocation`    | `Object`   | get the location object the where touch spot gets down which includes x and y properties             |
 | `getDelta`            | `Object`   | get the distance object the touch spot moves since the last event, which includes x and y properties |
 
-Note, touch events support multi-touch, each touch spot will send one event to the event listener.
+> **Note**: touch events support multi-touch, each touch spot will send one event to the event listener.
 
 ## Touch event propagation
 
@@ -86,11 +86,11 @@ The bubbling phase of touch events is no different than the general events. So, 
 
 Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
 
-At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechainism.
+At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechanism.
 
 ### Register touch or mouse events in the capturing phase
 
-Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.   
+Sometimes we need to dispatch the touch or mouse events to parent node event listeners before dispatching to any child nodes beneath it in hierarchy, like the design of CCScrollView component.  
 Now the event bubbling can't meet our demand, so that we need to register the parent node event listeners in the capturing phase.  
 To achieve this goal, we can pass the fourth parameter `true` when registering touch or mouse event on node, which means `useCapture`. For example:
 

@@ -2,7 +2,7 @@
 
 **Properties** panel is the working area where we check and edit the current selected nodes, components and assets. Select a node in **Scene**, **Node Tree** panel or select an asset in **Assets** panel, their properties of this node, properties of all the components of this node and properties of assets will display in **Properties** panel for your inquiry and editing.
 
-![properites-panel](inspector/properites_panel.png)
+![properties-panel](inspector/properites_panel.png)
 
 ## node name and activating switch
 
@@ -38,14 +38,14 @@ Normally we can divide properties into **value type** and **reference type** acc
 
 **Value type** includes numbers, strings, enumerations and other simple variable types that occupy small RAM space:
 
-- Number: can be input directly by keyboard. Users can also press the upward/downward arrows near the input field to gradually increase/decrease attribut value.
+- Number: Can be input directly by keyboard. Users can also press the upward/downward arrows near the input field to gradually increase/decrease attribute value.
 - Vec2: the widget of Vec2 is the combination of two input values. And the input field will mark the corresponding child property name of each value with `x` and `y`.
-- String: directly use keyboard to input string into textbox. The input widget of string can be divided into two types: single line and multiple lines. Users can press Enter button to wrap in Multiple lines textbox.
+- String: Directly use keyboard to input string into textbox. The input widget of string can be divided into two types: single line and multiple lines. Users can press Enter button to wrap in Multiple lines textbox.
 - Boolean: It can be edited in the form of check box. The selected state indicates the property value is `true`; and the non-selected state indicates the property value is `false`.
-- Enum: It can be edited in the form of drop-down menu. Click enum menu and choose one option from the popp up menu list, then the modification of enum can be finished.
-- Color: click color property preview box and **color picker** window will popped out. You can click to choose the color you need in this window, or directly enter specified color in the RGBA color input box below. Click any position outside the **color picker** window will close the window and the color selected in the end will be took as the property color.
+- Enum: It can be edited in the form of drop-down menu. Click enum menu and choose one option from the pop up menu list, then the modification of enum can be finished.
+- Color: Click color property preview box and **color picker** window will popped out. You can click to choose the color you need in this window, or directly enter specified color in the RGBA color input box below. Click any position outside the **color picker** window will close the window and the color selected in the end will be took as the property color.
 
-![value types](inspector/value_type.png)
+  ![value types](inspector/value_type.png)
 
 ### Reference type properties
 
@@ -59,7 +59,7 @@ The property column that needs to be assigned value by dragging assets will show
 
 ![reference types](inspector/reference_type.png)
 
-  > **Note**: that script file is also a type of asset. Therefore the script asset reference property used by components shown on the top of the above picture is also represented by a blue label.
+> **Note**: the script file is also a type of asset. Therefore the script asset reference property used by components shown on the top of the above picture is also represented by a blue label.
 
 ## Editing several assets at once
 

@@ -58,7 +58,7 @@ Cocos Creator 会为 assets 目录下的每一个文件和目录生成一个同�
 
 png 图片的 meta 文件信息比较多，除了基本的 ver 和 uuid 外，还记录了图片的宽高、偏移、九宫格等数据。上面这么多信息，我们这里只关心一个：**uuid**。
 
-> uuid: 通用唯一标识符（Universally Unique Identifier）
+> uuid：通用唯一标识符（Universally Unique Identifier）
 
 uuid 是 Creator 用来管理游戏资源的。它会为每个文件分配一个唯一的 id，图集会生成多个。由此可以了解在 Creator 引擎中，识别一个文件不是简单地通过 `路径 + 文件名` 定位，而是通过 uuid 来引用文件。因此可以在编辑器资源管理中，随意删除、移动文件。
 
@@ -76,11 +76,11 @@ Creator 生成 meta 文件有以下几种情况：
 
 - 在 **资源管理器** 中可以对资源进行文件名修改、改变目录、删除文件，添加文件等操作，请参考 [资源管理器](../getting-started/basics/editor-panels/assets.md)。也可以直接从桌面或操作系统的文件管理器中将文件拖入到 **资源管理器** 中。
 
-![](meta/add.png)
+  ![](meta/add.png)
 
 - 还有一种情况是在操作系统的文件管理器中对 assets 目录中的文件进行增、删、改之后切换到编辑器界面，此时可以看到 **资源管理器** 刷新的过程。
 
-![](meta/refresh.png)
+  ![](meta/refresh.png)
 
 如果一个文件的 meta 文件不存在，上面两种情况都会触发引擎去生成 meta 文件。
 

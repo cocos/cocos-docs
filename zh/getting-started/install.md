@@ -2,6 +2,8 @@
 
 如果阅读此文档时您还没有下载和启动 Cocos Creator，请按照以下步骤开始。
 
+> **注意**：Cocos Creator 从 v2.3.2 开始接入了全新的 Dashboard 系统，将做为 Creator 各引擎统一的下载器和启动入口，支持同时对多版本 Creator 和项目进行统一升级和管理！具体的下载、安装及使用方法请参考 [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/zh/getting-started/install/)。
+
 ## 下载 Cocos Creator
 
 您可以通过访问 [Cocos Creator 产品首页](https://www.cocos.com/creator/) 上的下载链接获得 Cocos Creator 的安装包。
@@ -65,13 +67,13 @@ Cocos Creator 所支持的系统环境是：
 
 ### 检查显卡驱动
 
-对于部分 Windows 操作系统和显卡型号，可能会遇到
+对于部分 Windows 操作系统和显卡型号，可能会遇到以下报错信息：
 
 ```
 This browser does not support WebGL...
 ```
 
-的报错信息。这是由于编辑器依赖 GPU 渲染，而显卡驱动不支持导致的。如果出现这种情况，通常只要确保已成功安装显卡对应型号的官方驱动即可解决。
+这是由于编辑器依赖 GPU 渲染，而显卡驱动不支持导致的。如果出现这种情况，通常只要确保已成功安装显卡对应型号的官方驱动即可解决。
 
 ## 使用 Cocos 开发者帐号登录
 

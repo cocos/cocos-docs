@@ -12,7 +12,7 @@ MotionStreak please refer to the scripting interface [MotionStreak API](../../..
 
 ## MotionStreak Properties
 
-| Properties |   Function explanation
+| property |   Function explanation
 | -------------- | ----------- |
 | fadeTime | The fade time to fade. |
 | minSeg   | The minimum segment size. |

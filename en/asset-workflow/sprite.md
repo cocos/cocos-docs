@@ -12,7 +12,7 @@ In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you s
 
 ## Texture Properties
 
-| Properties | Function explanation |
+| property | Function explanation |
 | --- | --- |
 | Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. |
 | Premultiply Alpha | If set, the RGB channel is multiplied by the alpha channel. |
@@ -87,7 +87,7 @@ When the original size of Texture does not match the size of the texture image m
 
 ## genMipmaps
 
-Intended to increase rendering speed and reduce aliasing artifacts, images are processed into sequences which consist of a series of precomputed and optimized textures, called mipmaps. 
+Intended to increase rendering speed and reduce aliasing artifacts, images are processed into sequences which consist of a series of precomputed and optimized textures, called mipmaps.
 
 Each bitmap image of the mipmap set is a downsized duplicate of the main texture, but at a certain reduced level of detail. A high-resolution mipmap image is used for high-density samples, such as for objects close to the camera. Lower-resolution images are used as the object appears farther away.
 
@@ -105,7 +105,7 @@ In **Assets** panel, there is a triangle at the left side of texture. You can se
 
 SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
 
-Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for datails.
+Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for details.
 
 The API documents for Texture & SpriteFrame:
 
@@ -122,7 +122,7 @@ Also you can drag a SpriteFrame asset to an existing SpriteFrame animation in th
 
 ### The Black Edge Problem of Texture
 
-When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. Under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are upsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images:
+When importing image resources into the editor, the default filter mode used is **Bilinear**, while for the Sprite component, the default SrcBlendFactor is **SRC_ALPHA**. Under these conditions, for PNG images with translucent pixels, the translucent edges often have a black border problem in the editor and preview. The reason is that low-resolution images are unsampled when displayed on a higher-resolution display device, which is called image interpolating, and when pixel interpolation is done, translucent edges are interpolated with transparent pixels (0, 0, 0, 0) to produce black pixels with low transparency. There are usually several ways to avoid the problem of black edges in images:
 
 1. Filter Mode uses **Point** Mode. (Recommended, need to be able to accept the sawtooth problem)
 2. When the image is made in PS and other tools, add a background layer, set the color to the color of the translucent edge, and then set the transparency of the background layer to such as 1/100 of the low transparency. (Recommended)

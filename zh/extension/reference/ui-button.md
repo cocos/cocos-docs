@@ -17,7 +17,7 @@
 ## 样式控制
 种类  | 参数值类型 | 功能说明
 ------|-----------|-------------
-[size](#控制按钮-size-样式) |`class` 样式名，string，支持值 "**mini, tiny, samll, medium, large, big, huge, massive**" | 控制按钮大小  
+[size](#控制按钮-size-样式) |`class` 样式名，string，支持值 "**mini, tiny, small, medium, large, big, huge, massive**" | 控制按钮大小  
 [color](#控制按钮颜色) |`class` 样式名，string，支持值"**red, green, blue**" | 控制按钮颜色  
 [`transparent`](#透明按钮) |`class` 样式名，string，支持值"`transparent`" | 控制按钮种类是否为透明类型
 

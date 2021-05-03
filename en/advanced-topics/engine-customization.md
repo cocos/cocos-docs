@@ -222,7 +222,7 @@ Next, you can customize the code in **jsb-adapter**. After the modification is c
 gulp
 ```
 
-The `gulp` command will pack all the code in **bultin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
+The `gulp` command will pack all the code in **builtin** into file `jsb-builtin.js`, and translate code in engine from ES6 to ES5. All the target files are put into the **dist** folder.
 
 After customizing the `jsb-adapter`, the editor will copy files in **dist** folder to the **jsb-adapter** folder in the project when you **build** the native platform in the **Build** panel.
 

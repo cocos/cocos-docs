@@ -27,9 +27,7 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 
   相关参数配置具体的填写规则如下：
 
-  - **主包压缩类型**
-
-    设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+  **主包压缩类型**：设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
 
 - 构建完成后会在发布包目录 `build` 下生成一个 `fb-instant-games` 文件夹：
 
@@ -89,10 +87,10 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 
 详细的内容，可参考 [测试、发布和分享小游戏](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=zh_CN)。
 
-**注意**：Facebook 托管存在多项限制，其中最重要的是：
-
-- 不支持服务器端逻辑（例如：php）
-- 每次应用程序上传的文件数量不超过 500 个
+> **注意**：Facebook 托管存在多项限制，其中最重要的是：
+>
+> 1. 不支持服务器端逻辑（例如：php）
+> 2. 每次应用程序上传的文件数量不超过 500 个
 
 ## 自定义 Instant Games
 
@@ -110,6 +108,7 @@ Creator 已集成 Facebook 提供的 Instant Games SDK，并且在游戏加载�
 此外，Facebook 还提供了 Facebook SDK for JavaScript，用于访问 Facebook 的社交功能，可通过 `FB` 模块访问。不过该 SDK Creator 并没有集成，需要用户手动引入，详见 [官方文档](https://developers.facebook.com/docs/javascript)。
 
 ## 参考链接
-- Cocos Creator 提供的 [Instant Games 工程模板](https://github.com/cocos-creator/demo-instant-games)，包含了 Instant Games SDK 使用示例。
+
+- Cocos Creator 提供的 **Instant Games 工程模板**（[GitHub](https://github.com/cocos-creator/demo-instant-games) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-instant-games)），包含了 Instant Games SDK 使用示例。
 - [Facebook 后台](https://developers.facebook.com/)
 - [Facebook Instant Games 文档](https://developers.facebook.com/docs/games/instant-games?locale=zh_CN)

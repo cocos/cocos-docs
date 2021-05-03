@@ -46,7 +46,7 @@ In the process of setting up the scene and developing functions, you can click t
 
 Highlights of Cocos Creator's features include:
 
-- Data properties can be adjusted at any time in the editor and can be easily declared in scripts. Designers can even adjust parameters without interferring with code.
+- Data properties can be adjusted at any time in the editor and can be easily declared in scripts. Designers can even adjust parameters without interfering with code.
 - UI system that support smart canvas adaptation and programming-free element alignment are perfectly adapted to device screens of any resolution.
 - An animation system for 2D games that supports animated track preview and complex curve editing.
 - Scripting development using dynamic language support, you can use JavaScript to develop games, quickly preview and debug on physical machines and devices, and update your published games. TypeScript is also supported and can be mixed with your JavaScript code at the same time.
@@ -91,5 +91,3 @@ Content resources outside the scene can be imported from outside, such as images
 Supports both 2D and 3D game development with features that meet the specific needs of your various game types. Deep optimization of the editor experience and engine performance of pure 2D games and built-in support for middleware such as Spine, DragonBones, TiledMap, Box2D, and Texture Packer.
 
 Finally, the developed game can be published to each platform by one-click through a graphical tool, from design development to test release, Cocos Creator can handle everything for you.
-
-

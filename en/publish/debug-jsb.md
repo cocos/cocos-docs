@@ -1,4 +1,4 @@
-# Debuging JavaScript on Native Platforms
+# Debugging JavaScript on Native Platforms
 
 After a game is released on the native platform, because the runtime environment is different, there may be some bugs that cannot be reproduced in the browser preview. This means we must debug it directly on the native platform. Cocos Creator makes it easy to debug JavaScript remotely in the native platforms.
 
@@ -8,7 +8,7 @@ In general, most of the problems of the original platform can be reproduced in t
 
 ### Method One
 
-First choose to use the **simulator (debug)** as the preview platform on the top of the editor toolbar, and then click the **Run Preview** button in the editor to run the game in the simulator.
+First choose to use the **Simulator (debug)** as the preview platform on the top of the editor toolbar, and then click the **Run Preview** button in the editor to run the game in the simulator.
 
 ![](debug-jsb/simulator-run.png)
 

@@ -18,7 +18,7 @@ We can select various pre-set effects from the left-hand side of the curve edito
 
 Sometimes the pre-set curve cannot meet the needs of the animation, we can also modify the curve manually.
 
-In the preview image to the right of the time curve editor, there are two gray control points, By dragging these controll points, the path of the curve can be modified.<br>
-If the controll points need to be dragged outside of the visual field, you can use the mouse wheel or small plotting scale on the top right corner to zoom in/out of the preview image. The proportions supported range from 0.1 to 1.
+In the preview image to the right of the time curve editor, there are two gray control points, By dragging these control points, the path of the curve can be modified.<br>
+If the control points need to be dragged outside of the visual field, you can use the mouse wheel or small plotting scale on the top right corner to zoom in/out of the preview image. The proportions supported range from 0.1 to 1.
 
 ![time curve](time-curve/custom.png)

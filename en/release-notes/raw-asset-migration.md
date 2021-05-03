@@ -1,7 +1,6 @@
 # v1.10 Resource Upgrade Guide
 
-> This article describes the considerations for migrating the old version Creator project to v1.10 in detail.
-If you have never used an older version, you do not need to read this article.
+> This article describes the considerations for migrating the old version Creator project to v1.10 in detail. If you have never used an older version, you do not need to read this article.
 
 In the [Acquire and load asset](https://github.com/cocos-creator/creator-docs/blob/8271be5dee58e7281ba4b5c3e434f47418995dc1/en/scripting/load-assets.md) document before v1.10, we have mentioned that Creator resources are divided into `Asset` and `RawAsset`. At that time this division was mainly to try to reuse the existing Cocos2d-x base modules, and lowering the barriers for Cocos2d-x users. But we still want to replace all the `RawAsset` into the standard `Asset`, with the development of Creator these two years, it is time to do a round of refactoring. Refactoring simplifies the processing of resources by editors and engines, reduces the volume of `settings.js` files after publication, and improves the user's development experience.
 
@@ -15,11 +14,13 @@ For **programmers**, resources originally represented in the code with a URL str
 ### Do I need to manually upgrade?
 
 You need to upgrade if you have the following:
+
 - You declare these types directly in your game code: `cc.Texture2D`, `cc.RawAsset`, `cc.AudioClip` and `cc.ParticleAsset`.
 - You have extended the engine or editor. And defines a new class inherited from `cc.RawAsset`.
 - You have loaded the '.json' suffix file under the `resources` folder through `cc.loader.loadRes`.
 
-Maybe you need to upgrade if you have the following: 
+Maybe you need to upgrade if you have the following:
+
 - You call `cc.audioEngine` or `cc.textureCache` directly in your game code.
 - You use `cc.loader` to load text and particle on remote server.
 
@@ -33,7 +34,7 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 
 - Asset convert to String
 
-  For Texture2D, RawAsset, AudioClip and Particleasset types of resources, you can get the original URL directly through `.nativeUrl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
+  For Texture2D, RawAsset, AudioClip and Particle asset types of resources, you can get the original URL directly through `.nativeUrl`. If it cannot be obtained, it means that this is another type of Asset object, other types of objects do not need to be upgraded. Therefore, no modification is required.
 
   ```js
   var url = this.file.nativeUrl || this.file;
@@ -83,7 +84,8 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 
     In this way, after the game scene is loaded, audio_bgMusic will be an AudioClip type object instead of the original audio string. To ensure that the game logic does not go wrong, continue searching globally for audio_bgMusic in your project. Make sure that you do not make any string-related calls to this variable such as `substring`, `replace`, etc., otherwise please get the real URL through the `audio_bgMusic.nativeUrl` first.
 
-    Attention! If you originally defined the type as `cc.RawAsset`, In addition to modifying the url to type, the associated type should also be changed to `cc.Asset`.<br>
+    Attention! If you originally defined the type as `cc.RawAsset`, In addition to modifying the url to type, the associated type should also be changed to `cc.Asset`.
+
     If it turns out to be:
 
     ```js
@@ -127,7 +129,7 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
     },
     ```
 
-    In this way, after the game scene is loaded, `audio_bgMusic` will be the object of a AudioClip type, rather than the original audio string. The relevant attention is consistent with the previous, here no longer repeat.                                    
+    In this way, after the game scene is loaded, `audio_bgMusic` will be the object of a AudioClip type, rather than the original audio string. The relevant attention is consistent with the previous, here no longer repeat.
 
   - "textureCache.addImage(url) - The type of the url should be string, not Texture2D..."
 
@@ -169,9 +171,9 @@ RawAsset adjusts to Asset, essentially turning strings from the engine level int
 
 ## Protobuf related adjustments
 
-If you have adapted protobuf before, you may have trouble loading the .proto file after upgrading to 1.10. Just make the following adjustments. The code shown below may not be the same as the protobuf you are using, but the principle is the same.
+If you have adapted protobuf before, you may have trouble loading the `.proto` file after upgrading to 1.10. Just make the following adjustments. The code shown below may not be the same as the protobuf you are using, but the principle is the same.
 
-Assuming that the .proto was originally loaded with such code:
+Assuming that the `.proto` was originally loaded with such code:
 
 ```js
 ProtoBuf.loadProtoFile(cc.url.raw('resources/data.proto'), ...);
@@ -244,10 +246,10 @@ var json = this.npcList.json;
 loadNpc(json);
 ```
 
-### The other unknown types are also all imported as `cc.Asset` by default.
+### The other unknown types are also all imported as `cc.Asset` by default
 
 For an unknown type of file imported from the editor, originally imported as an untyped `cc.RawAsset`, it will now be imported as `cc.Asset`. The declaration method is the same as above, changing `url: cc.RawAsset` to `type: cc.Asset`. The original URL can also be accessed in the same manner as `asset.nativeUrl`. The original url can also be accessed in the same manner as `asset.nativeUrl`.
 
 ### If you need to compress the built textures
 
-Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the example <https://github.com/cocos-creator/demo-process-build-textures>.
+Starting with v1.10, built textures are named with their UUID, which causes you to not be able to directly determine the location of the asset in the project from the filename. This requires some customization of your build process, please refer to the example: <https://github.com/cocos-creator/demo-process-build-textures>.

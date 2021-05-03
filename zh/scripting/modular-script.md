@@ -3,18 +3,21 @@
 Cocos Creator 允许你将代码拆分成多个脚本文件，并且让它们相互调用。要实现这点，你需要了解如何在 Cocos Creator 中定义和使用模块，这个步骤简称为 **模块化**。
 
 如果你还不确定模块化究竟能做什么，模块化相当于：
+
 - Java 和 Python 中的 `import`
 - C# 中的 `using`
 - C/C++ 中的 `include`
 - HTML 中的 `<link>`
 
 模块化使你可以在 Cocos Creator 中引用其它脚本文件：
+
 - 访问其它文件导出的参数
 - 调用其它文件导出的方法
 - 使用其它文件导出的类型
 - 使用或继承其它 Component
 
 Cocos Creator 中的 JavaScript 使用和 Node.js 几乎相同的 CommonJS 标准来实现模块化，简单来说：
+
 - 每一个单独的脚本文件就构成一个模块
 - 每个模块都是一个单独的作用域
 - 以 **同步** 的 `require` 方法来引用其它模块
@@ -67,12 +70,13 @@ var SinRotate = cc.Class({
 
 这里我们定义了一个新的组件叫 SinRotate，它继承自 Rotate，并对 `update` 方法进行了重写。
 
-> 同样的这个组件也可以被其它脚本接着访问，只要用 `require("SinRotate")`。
+同样的这个组件也可以被其它脚本接着访问，只要用 `require("SinRotate")`。
 
-**注意**：
-  - `require` 可以在脚本的任何地方任意时刻进行调用。
-  - 游戏开始时会自动 require 所有脚本，这时每个模块内部定义的代码就会被执行一次，之后无论又被 require 几次，返回的始终是同一份实例。
-  - 调试时，可以随时在 **Developer Tools** 的 **Console** 中 require 项目里的任意模块。
+> **注意**：
+>
+> 1. `require` 可以在脚本的任何地方任意时刻进行调用。
+> 2. 游戏开始时会自动 require 所有脚本，这时每个模块内部定义的代码就会被执行一次，之后无论又被 require 几次，返回的始终是同一份实例。
+> 3. 调试时，可以随时在 **Developer Tools** 的 **Console** 中 require 项目里的任意模块。
 
 ## 定义模块
 
@@ -145,10 +149,9 @@ module.exports = cfg;
 
 这样 `player.js` 便能正确输出："speed is 10"。
 
-> `module.exports` 的默认值：<br>
-  当你的 `module.exports` 没有任何定义时，Creator 会自动优先将 `exports` 设置为脚本中定义的 Component。如果脚本没定义 Component 但是定义了别的类型的 [CCClass](./class.md)，则自动把 `exports` 设为定义的 CCClass。
-  
-**注意**：在 `module` 上增加的其它变量是不能导出的，也就是说 `exports` 不能替换成其它变量名，系统只会读取 `exports` 这个变量。
+`module.exports` 的默认值：当你的 `module.exports` 没有任何定义时，Creator 会自动优先将 `exports` 设置为脚本中定义的 Component。如果脚本没定义 Component 但是定义了别的类型的 [CCClass](./class.md)，则自动把 `exports` 设为定义的 CCClass。
+
+> **注意**：在 `module` 上增加的其它变量是不能导出的，也就是说 `exports` 不能替换成其它变量名，系统只会读取 `exports` 这个变量。
 
 ## 更多示例
 

@@ -1,13 +1,13 @@
 # Collider component reference
 
-Click **Add Componen** button at the bottom of **Properties** panel and then select **Collider** component from **Collider Component**, then you add the Collider component to the node.
+Click **Add Component** button at the bottom of **Properties** panel and then select **Collider** component from **Collider Component**, then you add the Collider component to the node.
 
 ## Collider component properties
 
 | property |   Function Explanation
 | -------------- | ----------- |
-| Tag | The collider tag. If there are several collider components in a node, you can use the tag to judge which collider component on the node is collided. 
-| Editing | Whether to edit this coliider component, only used in the editor.
+| Tag | The collider tag. If there are several collider components in a node, you can use the tag to judge which collider component on the node is collided.
+| Editing | Whether to edit this collider component, only used in the editor.
 
 ## Detailed Explanation
 

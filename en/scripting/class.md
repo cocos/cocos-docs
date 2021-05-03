@@ -131,7 +131,7 @@ In most cases, we can use simple declaration.
     }
     ```
 
-- When the property delared has type (such as `cc.Node`, `cc.Vec2` etc.), you can finish the declaration by writing its constructor in the delaration, such as:
+- When the property declared has type (such as `cc.Node`, `cc.Vec2` etc.), you can finish the declaration by writing its constructor in the declaration, such as:
 
     ```javascript
     properties: {
@@ -140,7 +140,7 @@ In most cases, we can use simple declaration.
     }
     ```
 
-- When the delared property type is inherited from `cc.ValueType` (such as `cc.Vec2`, `cc.Color`, `cc.Size` etc.), in addition to using constructor above, it can also be assigned with an instance, such as:
+- When the declared property type is inherited from `cc.ValueType` (such as `cc.Vec2`, `cc.Color`, `cc.Size` etc.), in addition to using constructor above, it can also be assigned with an instance, such as:
 
     ```javascript
     properties: {
@@ -149,7 +149,7 @@ In most cases, we can use simple declaration.
     }
     ```
 
-- When the property delared is an array, you can finish the declaration by writing its type or constructor in the delaration, such as:
+- When the property declared is an array, you can finish the declaration by writing its type or constructor in the declaration, such as:
 
     ```javascript
     properties: {
@@ -202,12 +202,12 @@ The default of array must be set to `[]`, if you are about to edit in **Properti
 properties: {
     names: {
         default: [],
-        type: [cc.String]   // use type to spectify that each element in array must be type string
+        type: [cc.String]   // use type to specify that each element in array must be type string
     },
 
     enemies: {
         default: [],
-        type: [cc.Node]     // type can also defined as an array to imporve readability
+        type: [cc.Node]     // type can also defined as an array to improve readability
     },
 }
 ```

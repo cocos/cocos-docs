@@ -29,7 +29,7 @@ Content can include any number of child nodes of the node, with [Layout componen
 
 ScrollView in the mask is optional, but we always want to be able to hide content that are beyond the scope of the ScrollView Constraint box in content.
 
-[Mask component](../components/mask.md) ability to hide itself outside the scope of the content of child nodes of the Constraint box. Note **Mask** a rendering component, other rendering component and therefore cannot(Sprite, Label..) coexist on the same node, we need an extra node is designed to place the Mask. Otherwise the ScrollView **Sprite** will not be able to set the background for the component.
+[Mask component](../components/mask.md) ability to hide itself outside the scope of the content of child nodes of the Constraint box. Note **Mask** is a rendering component, other rendering components (Sprite, Label..) and therefore cannot coexist on the same node, we need an extra node is designed to place the Mask. Otherwise the ScrollView **Sprite** will not be able to set the background for the component.
 
 ### ScrollBar Node
 
@@ -51,7 +51,7 @@ Detailed property descriptions available on **Button** components, please refer 
 
 `Transition` property of the Button used to set up when the button is in normal (Normal), down (Pressed), the hover (Hover), Disabled (Disabled) `Target` four state property to refer to the background. You can choose from three modes:
 
-- `NONE` (Nothing Transtion), the mode button does not respond to interactive event to automatically change their appearance. But you can add a custom script on the button to precisely control the behavior of interactive performance.
+- `NONE` (Nothing Transition), the mode button does not respond to interactive event to automatically change their appearance. But you can add a custom script on the button to precisely control the behavior of interactive performance.
 
 - `COLOR` (Color Change), after choosing this mode, you can see four states property and can set a color overlay for each state. When the button to switch to the corresponding state, sets the color for button and the status color of the background image multiplying as the color of the display. This mode also allows the length of time by `Duration` property sets the color changing process, realization of color gradient effect.
 

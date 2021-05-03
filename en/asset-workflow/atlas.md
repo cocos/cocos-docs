@@ -8,7 +8,7 @@ Atlas also named Sprite Sheet, it's a common asset in game developing. Atlas is 
 
 Advantages of Atlas:
 
-- In the combin process, blank spaces of images will be removed. And many optimization algorithm will be used. So this will reduce the size & memory of the game.
+- In the combine process, blank spaces of images will be removed. And many optimization algorithm will be used. So this will reduce the size & memory of the game.
 - When many Sprites using SpriteFrame from one Atlas asset, they can be rendered in one render command. This will reduce CPU consumption.
 
 Here is a video from CodeAndWeb, it will show you [What is a Sprite Sheet](https://www.codeandweb.com/what-is-a-sprite-sheet).

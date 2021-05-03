@@ -2,7 +2,7 @@
 
 > The attribute is used to append metadata to a defined property, similar to the Decorator of the scripting language or the Attribute of C#.
 
-### Properties panel corresponding attributes
+## Properties panel corresponding attributes
 
 | Parameter name  | Explanation | Type | Default | Remarks |
 | :--- | :--- | :--- | :--- | :--- |
@@ -18,7 +18,7 @@
 | range | One-time setup for min, max, step | [min, max, step] | undefined | step is optional |
 | slide | Show a slider in the **Properties** | boolean | false | - |
 
-### Serialization associated attributes
+## Serialization associated attributes
 
 These attributes cannot be used for the get method.
 
@@ -28,7 +28,7 @@ These attributes cannot be used for the get method.
 | formerlySerializedAs | Specify the name of the field used in formerly serialization | string | undefined | Use this attribute to rename a property without losing its serialized value. |
 | editorOnly | Reject this property before exporting the project | boolean | false | - |
 
-### Other attributes
+## Other attributes
 
 | Parameter name  | Explanation | Type | Default | Remark |
 | :--- | :--- | :--- | :--- | :--- |

@@ -83,8 +83,7 @@ cc.Class({
 
 ## Explanation for event arguments
 
-We've made some optimizations for passing event arguments since v2.0.  
-When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
+We've made some optimizations for passing event arguments since v2.0. When emitting event, you could pass five extra parameters from the second one to the sixth one in the `emit` function call, they will be transferred as final arguments to invoke the callback function registered in `on` function.
 
 ```js
 cc.Class({
@@ -135,7 +134,7 @@ Be noted, when you want to dispatch a custom event, please do not use `cc.Event`
 In the call-back of the event listener, the developer will receive an event object `event` of the `cc.Event` type. `stopPropagation` is the standard API of `cc.Event`, other important API include:
 
 | API name | type | meaning |
-| ------ |:---:|:---:|
+| :------ |:---|:---|
 | `type` | `String` | type of the event (event name) |
 | `target` | `cc.Node` | primary object received by the event |
 | `currentTarget` | `cc.Node` | current object receiving the event; current object of the event in the bubble stage may be different from the primary object |

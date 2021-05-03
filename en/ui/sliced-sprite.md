@@ -11,7 +11,7 @@ The right side of the picture above displays the texture of original size. The l
 To use a 9-sliced image effect that can be infinitely enlarged, we need to cut the image resource into a 9-slicing at first. There are two methods to open **Sprite Editor** to edit the image resource:
 
 - Choose image resource in **Assets**, then click the **Edit** button on the bottom of **Properties**. If the height of your window is not large enough, you might need to scroll **Properties** downward to see the button at the bottom.
-- Choose the image node that you want to cut into a 9-slicing in **Scene / Note Tree**. Then find and click the **Edit** button on the right side of the `Sprite Frame` property in the Sprite component of **Properties**.
+- Choose the image node that you want to cut into a 9-slicing in **Scene**/**Node Tree** panel. Then find and click the **Edit** button on the right side of the `Sprite Frame` property in the Sprite component of **Properties**.
 
 After opening **Sprite Editor**, you will see there is a green line around the image, which indicates the position of the current 9-sliced split line. Drag the mouse to the split line, you will see the shape of the cursor change, then you can press down and drag the mouse to modify the position of the split line.
 

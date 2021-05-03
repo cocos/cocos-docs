@@ -18,7 +18,7 @@ You can import projects from other editors by the Main Menu **File -> Import Pro
 3. When Cocos Creator is processing the import, logs will be output in **Console**. The log looks like this:
 
 	![import-process.png](./project-import/import-process.png)
-	
+
 	Details:
 
 	- 1 -- The full path of the imported project.
@@ -75,7 +75,7 @@ The feature of importing a Cocos Studio project is developed & tested on Cocos S
 - New support for animation frame events
 
   Unified add default `triggerAnimationEvent` event, The parameter is the data set below:
-    
+
   ![animation-frame-event.png](./project-import/animation-frame-event.png)
 
 - Import nested csd
