@@ -23,17 +23,13 @@
 
 ## 使用 `lldb` 查看当前的 JS 调用栈
 
-通过在 C++ 中断点我们能很便捷地看到 C++ 的调用栈，但并不能同时看到 JS 的调用栈，这个割裂的过程会常常打断调试的体验。
+通过在 C++ 中断点我们能很便捷地看到 C++ 的调用栈，但并不能同时看到 JS 的调用栈，这个割裂的过程常常会破坏调试的体验。而 `lldb` 提供的功能支持在调试过程中进行很多的操作，包括查看调用栈。
 
-我们可以使用 `lldb` 提供的功能，在调试过程中进行很多的操作，包括查看调用栈。
-
-**Xcode** 和 **Android Studio** 都默认使用 `lldb` 作为调试器。
-
-详情可参考文档 [lldb](https://lldb.llvm.org/use/tutorial.html)。
+**Xcode** 和 **Android Studio** 都默认使用 `lldb` 作为调试器。详情可参考文档 [LLDB 指南](https://lldb.llvm.org/use/tutorial.html)。
 
 ### `lldb` 的全局配置
 
-`lldb` 在启动的时候 会加载 `~/.lldbinit`。例如下面的配置：
+`lldb` 在启动的时候会加载 `~/.lldbinit`，例如下面的配置：
 
 `~ % cat ~/.lldbinit`
 
@@ -51,9 +47,11 @@ cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurren
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#examining-variables>
 
-但这种方法也存在着明显的缺陷：会对 **所有项目** 生效，而其他项目不存在相应符号，导致出现报错。
+但这种方法也存在着明显的缺陷：会对 **所有项目** 生效，若其他项目不存在相应符号，就会导致出现报错。
 
-### Xcode 在断点中编辑 action（只对具体的断点触发）
+### 在 Xcode 配置 `lldb`
+
+#### Xcode 在断点中编辑 action（只对具体的断点触发）
 
 ![](debug-jsb/xcode-brk-point-action.png)
 
@@ -65,9 +63,9 @@ expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#evaluating-expressions>
 
-### 增加回调
+#### 设置 stop hook
 
-断点触发后，需要在 lldb console 中增加回调。可以针对具体的断点，进行更多的调用：
+断点触发后，需要在 lldb console 中增加回调。可以针对具体的断点进行更多的调用：
 
 ![](debug-jsb/xcode-brk-point-lldb.png)
 

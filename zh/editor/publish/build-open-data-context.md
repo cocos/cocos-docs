@@ -10,7 +10,7 @@
 
 SubContextView 组件主要包含 **设计分辨率** 和 **FPS** 两个属性。
 
-![](./build-open-data-context/sub-context-view.png)
+![SubContextView](./build-open-data-context/sub-context-view.png)
 
 ### 设计分辨率
 
@@ -40,9 +40,9 @@ export default {
 
 在实际渲染过程中，引擎会采用 **SHOW ALL** 的适配策略将 sharedCanvas 渲染到 **SubContextView** 组件节点上，避免渲染时因拉伸导致的 UI 变形。例如在以下两张图片里，我们使用了不同尺寸的 **SubContextView** 组件节点，开放数据域的贴图都不会被拉伸：
 
-![](./build-open-data-context/adaption-1.png)
+![adaption](./build-open-data-context/adaption-1.png)
 
-![](./build-open-data-context/adaption-2.png)
+![adaption](./build-open-data-context/adaption-2.png)
 
 ### 设置 FPS
 
@@ -54,19 +54,19 @@ export default {
 
 2. 场景设置完成后保存场景，然后在 **菜单栏 -> 项目** 中打开 **构建发布** 面板，选择需要发布的 **微信** / **百度** / **字节跳动小游戏** 平台，勾选 **生成开放数据域工程模版**，然后点击 **构建**。
 
-    ![](./build-open-data-context/generate-template.png)
+    ![generate template](./build-open-data-context/generate-template.png)
 
-3. 构建完成后点击 **发布路径** 后面的 **文件夹图标** 按钮，可以看到在对应小游戏平台的发布包目录下生成了 **openDataContext** 文件夹（例如 `build/wechatgame/openDataContext`），该文件夹就是 Cocos Creator 3.0 内置的开放数据域工程模版。
+3. 构建完成后点击 **构建任务** 左下角的文件夹图标按钮，可以看到在对应小游戏平台的发布包目录下生成了 **openDataContext** 文件夹（例如 `build/wechatgame/openDataContext`），该文件夹就是 Cocos Creator 内置的开放数据域工程模版。
 
-    ![](./build-open-data-context/build-output.png)
+    ![build output](./build-open-data-context/build-output.png)
 
-    开发者可以基于这个模板定制所需的开放数据域内容，定制方法参考下文介绍。当再次构建时，如果发布包目录下存在 **openDataContext** 目录，则会直接跳过，开发者不用担心定制的开放数据域内容被覆盖掉。
+    开发者可以基于这个模板定制所需的开放数据域内容，定制方法参考下文 **定制开放数据域工程** 部分的内容。当再次构建时，如果发布包目录下存在 **openDataContext** 目录，则会直接跳过，开发者不用担心定制的开放数据域内容被覆盖掉。
 
 4. 使用对应平台方的开发者工具打开构建生成的发布包（例如 `build/wechatgame`），即可打开小游戏项目查看开放数据域内容，以及预览调试游戏。
 
-    ![](./build-open-data-context/show-in-devtool.png)
+    ![show in devtool](./build-open-data-context/show-in-devtool.png)
 
-    **注意**：由于百度小游戏的开放数据域只支持加载百度返回的玩家头像，所以构建后生成的开放数据域模版工程可能会无法正常加载本地的头像贴图。
+    > **注意**：由于百度小游戏的开放数据域只支持加载百度返回的玩家头像，所以构建后生成的开放数据域模版工程可能会因此无法正常加载本地的头像贴图。
 
 ## 定制开放数据域工程
 
@@ -76,7 +76,7 @@ export default {
 
 对这些基础信息有了大致的了解之后，我们来看一下构建后默认生成的开放数据域模版，目录结构如下：
 
-![](./build-open-data-context/folder-structure.png)
+![folder structure](./build-open-data-context/folder-structure.png)
 
 - **render/dataDemo.js**：模拟随机的排行榜数据，开发者可以在这里请求平台方的关系链数据，并传给 **doT 模版引擎** 生成相应的 XML 文本
 - **render/style.js**：记录 CSS 样式文本信息，可参考 [样式文档](https://wechat-miniprogram.github.io/minigame-canvas-engine/api/style.html#%E5%B8%83%E5%B1%80)
@@ -87,7 +87,7 @@ export default {
 
 ## 推荐做法
 
-1. 由于项目构建后生成的 build 目录默认会被 git 排除在版本控制外，所以如果开发者希望将定制后的开放数据域纳入版本控制，可以将 `openDataContext` 文件夹（例如 `build/wechatgame/openDataContext`）放入项目的 build-templates 目录中，具体可参考 [定制项目构建流程](./custom-project-build-template.md)
+1. 由于项目构建后生成的 build 目录默认会被 git 排除在版本控制外，所以如果开发者希望将定制后的开放数据域纳入版本控制，可以将 `openDataContext` 文件夹（例如 `build/wechatgame/openDataContext`）放入项目的 `build-templates` 目录中，具体可参考 [定制项目构建流程](./custom-project-build-template.md)
 
 2. 在开放数据域工程中，如果需要监听来自主域的消息，则需要先判断消息是否来自主域引擎，以微信接口为例：
 
@@ -98,7 +98,7 @@ export default {
         }
     });
     ```
-    
+
     当主域向开放数据域发送消息时，建议附带上 type 信息以避免处理错误的消息源。例如上述代码中的 `res.type === 'engine'` 表示消息来源于主域引擎。
 
 ## 参考链接
@@ -106,3 +106,4 @@ export default {
 - [微信官方文档 — 小游戏 Canvas 引擎](https://wechat-miniprogram.github.io/minigame-canvas-engine/)
 - [小游戏 Canvas 引擎源码](https://github.com/wechat-miniprogram/minigame-canvas-engine)
 - [doT 模版引擎](http://olado.github.io/doT/?spm=a2c6h.12873639.0.0.36f45227oKu0XO)
+- **Cocos Creator 小游戏开放数据域范例工程**：[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)

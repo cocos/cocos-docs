@@ -1,6 +1,6 @@
 # Creating a Custom Panel
 
-How a compose panel is defnined can be found by reading the [package.json](./panel.md) documentation. 
+How a compose panel is defnined can be found by reading the [package.json](./panel.md) documentation.
 
 Identify the main entry file in the panel definition and fill in its content. Example:
 

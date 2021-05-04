@@ -54,7 +54,7 @@ Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游�
     - 第一个节点位置（0，-1.5，0）
     - 第二个节点位置（1，-1.5，0）
     - 第三个节点位置（2，-1.5，0）
-    
+
     效果如下：
 
     ![create ground](./images/add-ground-base.png)
@@ -377,7 +377,7 @@ export class GameManager extends Component {
 
 2. 在 Canvas 底下创建一个名为 StartMenu 的空节点，将 PlayButton 拖到它底下。我们可以通过点击工具栏上的 2D/3D 按钮切换到 2D 编辑视图下进行 UI 编辑操作，详细的描述请查阅 [场景编辑](../../editor/scene/index.md)。
 
-    ![2d-view](./images/2d-view.png) 
+    ![2d-view](./images/2d-view.png)
 
 3. 在 StartMenu 下新建一个名为 `BG` 的 Sprite 节点作为背景框，调整它的位置到  PlayButton 的上方。
 
@@ -584,9 +584,9 @@ onStartButtonClicked() {
         this._curMoveIndex = 0;
     }
     ```
-  
+
     然后在 `GameManager` 脚本的 `init` 函数中调用 `reset` 来重置 `PlayerController.ts` 中的 `_curMoveIndex` 属性。
- 
+
     ```ts
     init() {
         // ...

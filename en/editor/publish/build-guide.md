@@ -170,7 +170,7 @@ Assets loading with a 404 usually occurs in the following situations:
 
     - **Solution**: Use the Code Editor to find out which assets the `uuid` is referenced by, and then modify the corresponding assets.
 
-### Script asset load error  
+### Script asset load error
 
 The scripting environment needs to be configured for the build. If the error message is related to the script, please refer to the error message to modify the script. If it is not clear which script is reporting the error, you can find the `uuid` of the corresponding script in the error message's call stack, and then look for the location in **Assets**.
 

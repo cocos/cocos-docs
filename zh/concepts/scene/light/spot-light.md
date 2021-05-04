@@ -2,7 +2,7 @@
 
 **聚光灯** 是由一个点向一个方向发射一束光线，接近于手电筒产生的光线。聚光灯比其他类型的光源多了 `SpotAngle` 属性，用于调整聚光灯的光照范围。
 
-![spotlight](spot-light.jpg)
+![spotlight](spotlight/spot-light.jpg)
 
 在场景中添加聚光灯的方式可参考 [光照](../light.md)。
 
@@ -10,7 +10,7 @@
 
 ## 聚光灯属性
 
-![image](spot-light-prop.png)
+![image](spotlight/spot-light-prop.png)
 
 | 属性 | 说明 |
 | :------ | :--- |

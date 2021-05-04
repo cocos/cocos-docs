@@ -20,7 +20,7 @@ First, add a `scene` field to the `contributions` property of `pacakge.json`, th
 }
 ```
 
-## Adding code to the scene script 
+## Adding code to the scene script
 
 Define `scene.js` as follows:
 

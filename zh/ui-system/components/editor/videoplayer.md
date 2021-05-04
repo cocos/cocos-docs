@@ -155,7 +155,7 @@ export class VideoPlayerCtrl extends Component {
 
 最终效果如下图所示：
 
-![videoplayer-stayOnButtom](videoplayer/videoplayer-stayonbuttom.png)
+![videoplayer-stayOnButton](videoplayer/videoplayer-stayonbuttom.png)
 
 ## 支持平台
 
