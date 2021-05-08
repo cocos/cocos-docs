@@ -30,10 +30,10 @@ Creator opens up four download priorities, and the downloader will download reso
 
 | Resource | Priority | Explanation |
 | :-- | :---- | :--- |
-| Script or Asset Bundle | 2  | Highest priority first |
-| Scene resource         | 1  | Include all resources in the scene, ensuring that the scene loads quickly |
-| Manually loaded resource   | 0  |  |
-| Preload resource           | -1 | The lowest priority, because preloading is more like loading resources in advance, and time requirements are relatively lenient |
+| **Script or Asset Bundle** | 2  | Highest priority first |
+| **Scene resource**         | 1  | Include all resources in the scene, ensuring that the scene loads quickly |
+| **Manually loaded resource**   | 0  |  |
+| **Preload resource**           | -1 | The lowest priority, because preloading is more like loading resources in advance, and time requirements are relatively lenient |
 
 You can also control the load order by passing a priority over the default setting with the optional parameter `priority`. For details, refer to the "Set by optional parameters" section below. 
 
@@ -153,6 +153,7 @@ assetManager.parser.register('.myformat', function (file, options, callback) {
 ```
 
 A custom handler needs to receive three arguments:
+
 - The first argument is the handler object, which is the URL in the downloader and the file in the parser.
 - The second argument is optional, and optional parameters can be specified when you call the load interface.
 - The third argument is to complete the callback, which needs to be called when you register the handler and pass in an error message or result.
@@ -163,4 +164,4 @@ After registered the handler, the corresponding handler will be used if the down
 assetManager.loadAny({'url': 'http://example.com/myAsset.myformat'}, callback);
 ```
 
-Note that the handler can receive incoming optional parameters, which can be used to implement custom extensions, see the [Optional Parameters](options.md#expand-engine) documentation for details.
+> **Note**: the handler can receive incoming optional parameters, which can be used to implement custom extensions, see the [Optional Parameters](options.md#expand-engine) documentation for details.

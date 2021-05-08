@@ -10,7 +10,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 滚动视图的脚本接口请参考 [ScrollView API](__APIDOC__/zh/classes/ui.scrollview.html)。
 
-关于使用可以参考 test-cases-3d 里的 [scrollView](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/06.scrollView) 相关。
+关于使用可以参考范例 **ScrollView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/06.scrollview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/06.scrollview)）。
 
 ## ScrollView 属性
 
@@ -57,7 +57,7 @@ ScrollView 组件必须有指定的 content 节点才能起作用，通过指定
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, ScrollView, EventHandler } from "cc";
+import { _decorator, Component, ScrollView, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -65,7 +65,7 @@ export class example extends Component {
     onLoad() {
         const scrollViewEventHandler = new EventHandler();
         scrollViewEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        scrollViewEventHandler.component = 'example';// 这个是代码文件名
+        scrollViewEventHandler.component = 'example';// 这个是脚本类名
         scrollViewEventHandler.handler = 'callback';
         scrollViewEventHandler.customEventData = 'foobar';
 
@@ -87,7 +87,7 @@ export class example extends Component {
 
 ```js
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
-import { _decorator, Component, ScrollView } from "cc";
+import { _decorator, Component, ScrollView } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

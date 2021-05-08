@@ -6,8 +6,8 @@ Cocos Creator 3.0 引擎的 API 都存在模块 `cc` 中，使用标准的 ES6 �
 import {
     Component, // 导入类 Component
     _decorator, // 导入命名空间 _decorator
-} from "cc";
-import * as cc from "cc"; // 将整个 Cocos Creator 模块导入为命名空间 Cocos Creator
+} from 'cc';
+import * as modules from 'cc'; // 将整个 Cocos Creator 模块导入为命名空间 Cocos Creator
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
@@ -22,7 +22,7 @@ export class MyComponent extends Component {
 ```ts
 /* const cc = {}; // 每个 Cocos Creator 脚本都等价于在此处含有隐式定义 */
 
-import * as cc from "cc"; // 错误：命名空间导入名称 cc 由 Cocos Creator 保留使用
+import * as modules from 'cc'; // 错误：命名空间导入名称 cc 由 Cocos Creator 保留使用
 
 const cc = {
     x: 0

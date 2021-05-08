@@ -37,7 +37,7 @@ Event types included:
     - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
@@ -79,7 +79,7 @@ export class Example extends Component {
   - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, log } from "cc";
+import { _decorator, Component, Node, systemEvent, SystemEventType, log } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")

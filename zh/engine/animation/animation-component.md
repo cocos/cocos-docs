@@ -5,7 +5,7 @@
 像其他组件一样为节点添加动画组件：
 
 ```ts
-import { Animation, Node } from "cc";
+import { Animation, Node } from 'cc';
 
 function (node: Node) {
     const animationComponent = node.addComponent(Animation);
@@ -87,7 +87,7 @@ animationComponent.getState('idle').speed = 2.0; // 以两倍速播放待机动�
 以下代码演示了这一过程：
 
 ```ts
-import { Animation, Component } from "cc";
+import { Animation, Component } from 'cc';
 class MyScript extends Component {
     constructor() {
 

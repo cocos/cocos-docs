@@ -1,6 +1,6 @@
 # Creating a Custom Panel
 
-How a compose panel is defnined can be found by reading the [package.json](./panel.md) documentation. 
+How a compose panel is defnined can be found by reading the [package.json](./panel.md) documentation.
 
 Identify the main entry file in the panel definition and fill in its content. Example:
 
@@ -68,7 +68,7 @@ It is also posible to read a CSS file directly. Example:
 ```javascript
 const {readFileSync} = require('fs');
 const {join} = require('path');
-exports.template = readFileSync(join(__dirname,'../static/default.css'),'utf8');
+exports.style = readFileSync(join(__dirname,'../static/default.css'),'utf8');
 ```
 
 ## $
@@ -98,9 +98,10 @@ The method defined on the panel. The external functions of the panel need to be 
 This object is full of functions, do not attach other types of objects here. Example:
 
 ```javascript
+const packageJSON = require('./package.json');
 exports.methods = {
     open() {
-        Editor.Panel.open('hello-world');
+        Editor.Panel.open(packageJSON.name);
     },
 };
 ```

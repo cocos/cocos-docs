@@ -8,7 +8,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 布局的组件接口请参考 [Layout API](__APIDOC__/zh/classes/ui.layout.html)。
 
-具体使用方法可参考 [官方范例](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout) 中的 **05.layout** 范例。
+具体使用方法可参考范例 **Layout**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/05.layout)）。
 
 ## Layout 属性
 
@@ -53,6 +53,6 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
     - 设置为 **FIXED_COL** 时，固定列数，搭配 `ConstraintNum` 使用。
 
-**注意**：Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
+> **注意**：Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
 
 更多布局案例，详情请参考 [自动布局](../engine/auto-layout.md)。

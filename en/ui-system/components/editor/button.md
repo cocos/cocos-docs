@@ -8,7 +8,7 @@ The __Button__ component responds to a click from the user. When the user clicks
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Button__ to add the __Button__ component to the node.
 
-To use `Button`, please refer to the [Button API](__APIDOC__/en/classes/ui.button.html) documentation and the [button](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/03.button) scene of the test-cases-3d project.
+To use `Button`, please refer to the [Button API](__APIDOC__/en/classes/ui.button.html) documentation and the [Button](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/03.button) scene of the test-cases-3d project.
 
 ## Button Properties
 
@@ -79,7 +79,7 @@ There are two ways to add a callback through the script.
 1. The event callback added by this method is the same as the event callback added by the editor, all added by the script. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
     ```ts
-    import { _decorator, Component, Event, Node, Button, EventHandler } from "cc";
+    import { _decorator, Component, Event, Node, Button, EventHandler } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass("example")
@@ -88,7 +88,7 @@ There are two ways to add a callback through the script.
             const clickEventHandler = new EventHandler();
             // This node is the node to which your event handler code component belongs
             clickEventHandler.target = this.node;
-            // This is the code file name
+            // This is the script class name
             clickEventHandler.component = 'example';
             clickEventHandler.handler = 'callback';
             clickEventHandler.customEventData = 'foobar';
@@ -110,7 +110,7 @@ There are two ways to add a callback through the script.
 
     ```ts
     // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
-    import { _decorator, Component, Button } from "cc";
+    import { _decorator, Component, Button } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass("example")

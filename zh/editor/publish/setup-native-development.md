@@ -1,6 +1,6 @@
 # 安装配置原生开发环境
 
-除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
+除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 Cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
 
 ## Android 平台相关依赖
 
@@ -32,11 +32,11 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 
 安装 Android Studio 完成后，参考官方文档，打开 SDK Manager：[SDK Manager 使用说明](https://developer.android.google.cn/studio/intro/update.html#sdk-manager)。
 
-1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择主流 API Level 23（6.0）、API Level 26（8.0）和 API Level 28（9.0）等。
+1. 在 SDK Platforms 分页栏，勾选你希望安装的 API Level，也就是支持安卓系统的版本，推荐选择主流 API Level 26（8.0）、API Level 28（9.0）等。
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
 4. 勾选 **Android SDK Platform-Tools** 和 **CMake**，如需安装 Android 支持库，请参考 [官方文档 — 支持库设置](https://developer.android.google.cn/topic/libraries/support-library/setup)。
-5. 勾选 **NDK**，最低使用版本为 **r20**。
+5. 勾选 **NDK**，推荐使用版本为 **r18~21**。需要注意的是目前暂时不支持 **NDK-r22**。
 6. 记住窗口上方所示的 **Android SDK Location** 指示的目录，稍后我们需要在 Cocos Creator 编辑器中填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
 
@@ -46,12 +46,13 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 
 请安装以下运行环境：
 
-- Python 2.7.5+，[下载页](https://www.python.org/downloads/)，注意不要下载 Python 3.x 版本。
 - Windows 下需要安装 [Visual Studio 2017/2019 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
 
-  **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选。
+  > **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选。
 
-- Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)
+- Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)。
+
+  > **注意**：从 v3.0.1 开始，要求使用的 Xcode 版本为 **11.5** 及以上。
 
 ## 配置原生发布环境路径
 
@@ -64,7 +65,7 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 
 配置完成后会自动保存。
 
-**注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
+> **注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
 
 ## 注意事项
 

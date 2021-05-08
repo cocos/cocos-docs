@@ -75,7 +75,7 @@ The panel entry file was defined above when we registered it. Example:
 
 ```javascript
 // Listen for panel events
-exports.linsteners = {
+exports.listeners = {
     // The hook triggered when the panel is displayed
     show() {},
     // The hook triggered when the panel is hidden

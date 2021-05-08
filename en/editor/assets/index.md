@@ -1,118 +1,159 @@
-# Assets
+# Assets Panel
 
-The **Assets** panel is an important tool used to access and manage project assets. When starting to make a game, **importing assets** is usually a necessary step. Use the __Hello World__ template project as a starting point when creating a new project. After you create and open a new project, various types of assets are visible in the **Assets** panel.
+The **Assets** panel is an important work area for accessing and managing project assets. When starting a game, **Import Assets** is usually a mandatory step. Use the **HelloWorld** template project when creating a new project, and notice that the **Assets** panel already contains some basic asset types.
 
-![Panel Overview](img/thumb.gif)
+![panel action preview](img/thumb.gif)
 
-## Assets Panel introduction
+## Panel introduction
 
-The **Assets** panel is the main panel. It has a **heads-up menu area**, **a central tree list area**, and a **bottom information display area**.
+The **Assets** panel can be divided into two main sections: **Toolbar** and **Asset List**.
 
-- The functions of the **heads-up menu area** are: **New asset button**, **Sort by button**, **Search type button**, **Search box**, **Fold or expand all button**, and **Refresh list button**.
+- The functions in **Toolbar** include **New Asset (+)**, **Sort by**, **Search Filter**, **Search Box**, **Collapse/Expand All** and **Refresh**. For details, please refer to the description below.
 
-- The **central tree list area** mainly reflects the hierarchical relationship of assets.
-  - The root node is the asset root folder corresponding to the file manager of the operating system. The editor calls an __asset database__ **(DB for short)**, and is located in the project folder. It belongs to the project asset;
-  - __Internal DB__ comes with the editor and provides some built-in necessary assets. It is a **read-only** asset. It cannot be **added**, **deleted**, **modified**, but **can** be **directly referenced** or **copied**.
+- The **Asset List** presents the contents of the project's asset folder in a tree structure, which by default includes the **assets** and **internal** base repositories (DBs for short).
 
-- The __right-click__ menu of the panel is also an important function. The contents of the __right-click__ menu in different locations are different, and the unavailable menus are grayed out.
+    - **assets** is similar to the file manager in the operating system, only assets placed in the `assets` directory of the project folder will be displayed here. For a description of the project folder structure, please refer to the [Project Structure](../../getting-started/project-structure/index.md) documentation.
+    - The **internal** contains the default built-in assets (read-only). Built-in assets can be copied, but cannot be added, deleted, or changed. It can be dragged and dropped into **assets** as an asset template, i.e. a new project asset is created.
 
-- The shortcut of the panel currently supports the operation of assets:
+- The panel currently supports shortcuts for manipulating assets, including:
+    - **Copy**: Ctrl/Cmd + C
+    - **Paste**: Ctrl/Cmd + V
+    - **Duplicate**: Ctrl/Cmd + D, Ctrl + drag assets
+    - **Delete**: Delete
+    - **Up and down selection**: Up arrow, Down arrow
+    - **Previous hierarchy**: Left arrow
+    - **Next hierarchy**: Right arrow
+    - **Multi-select**: Ctrl/Cmd + Click
+    - **Multi-select continuously**: Shift + Click
+    - **Select All**: Ctrl/Cmd + A
+    - **Rename**: Enter/F2
+    - **Cancel input**: Esc
 
-  - **Copy**: Ctrl or Cmd + C
-  - **Paste**: Ctrl or Cmd + V
-  - **Copy**: Ctrl or Cmd + D, Ctrl + drag asset
-  - **Delete**: Delete
-  - **Up and down selection**: up and down arrows
-  - **Folder folding**: left arrow or Backspace
-  - **Expand the folder**: right arrow or Enter
-  - **Multi-select**: Ctrl or Cmd + click
-  - **Multi-select**: Shift + click
-  - **Rename**: Enter/F2
-  - **Cancel Rename**: Esc
+### Creating assets
 
-### New Assets
+There are two ways to create an asset.
+1. Click the **+** button at the top left of the **Assets** panel.
+2. Right-click in the **Assets** panel and select **Create**.
 
-There are two ways to create a new asset, one is to click the **+** button at the top left of **Assets** panel. The other is to right-click in the **Assets** panel and select **Create**.
+![create](img/create.png)
 
-![New Resource](img/create.png)
+> **Note**: when creating an asset, an **INPUT BOX** will first appear asking for the name of the new asset, which cannot be empty.
 
-When adding a asset, an **input box** will appear. The name of the asset is required. If the input is empty, the asset will not be created. If there is no selected item in the tree list, it will be newly created on the root node of `Asset DB` by default; if there are multiple selected items, it will be newly created in the first selected item at this time.
+When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
-### Selecting Assets
+### Selecting assets
 
-Use the following operations to select assets in the list:
+The following asset selection actions can be used in the asset list:
 
-- **Click** to **single-select assets**.
-- The **up** and **down** arrows on the keyboard can be used to select.
-- Hold down **Ctrl/Cmd + click** to select multiple assets.
-- Hold down **Shift + click**to select multiple assets.
+- Click to select a single asset. The selected asset will be highlighted in **yellow on blue**.
+- Double-click to open an asset, e.g. scene, script, image; double-click on a folder to collapse/expand it
+- Hold Ctrl/Cmd and select an asset to select multiple assets at once
+- Hold Shift and select an asset to select multiple assets in a row
 
-### Dragging Resources
+For selected assets, you can move, delete, etc.
 
-Assets can also be added by dragging:
+### Moving assets
 
-- Move the asset, drag the asset from one folder in the tree list to another folder. At this time, the location box of a target folder will follow the change.
-- Drag out assets to the **Scene** panel or **Hierarchy** panel to generate nodes. Currently, `cc.Prefab`, `cc.Mesh`, `cc.SpriteFrame` assets are supported.
-- Drag files from **System File Manager** to the list to import assets.
-- Drag in the node and drag the node from the **Hierarchy** panel to a folder in the **Assets** panel to save the node as a `cc.Prefab` asset, see the [Prefab](../../asset/prefab.md) documentation.
+After selecting an asset (multiple selections are possible), move the asset to another location by holding down the mouse and dragging it. When dragging the asset to be moved to the target folder, notice the folder where the mouse is hovering appears highlighted in yellow and has a blue box around it. Release the mouse at this point and the asset will be moved to the highlighted folder directory.
 
- ![dragging Resources](img/drag.png)
+![drag](img/drag.png)
 
-### Deleting Assets
+Asset movement also includes the following actions:
 
-The **Delete** option is located in the right-click menu, or the shortcut key **Delete**, which supports batch deletion after multiple selections. After the asset is deleted, it is kept in the **system recycle bin**, and can be deleted if necessary reduction.
+- Drag and drop assets from **Assets** panel to the **Scene** panel or **Hierarchy** panel to generate nodes, currently supporting dragging and dropping `cc.Prefab`, `cc.Mesh`, `cc.SpriteFrame` assets.
+- Drag and drop files from the **system's file manager** to the **Assets** panel list to import assets.
+- Drag and drop a node from the **Hierarchy** panel to a folder in the **Assets** panel to save the node as a `cc.Prefab` asset. Please review the [Prefab Assets](../../asset/prefab.md) documentation.
 
-### Selecting All In The Folder
+### Sorting assets
 
-Right-click **Select All** in the menu to select all sub-assets in the folder.
-
-### Searching In Folders
-
-Right-click **Search in Folder** in the menu to narrow the search scope.
-
-### Displaying In The File Manager
-
-Right-click **Show in File Manager** in the menu to locate the system directory where the asset is located.
-
-### Re-importing Assets
-
-Right-click **Reimport Resources** in the menu to update the corresponding assets in `./library` in the project, and these generated data can be recognized by the editor and engine; support multiple selections and batch reimport.
-
-### Sorting Assets
-
-- The **Sort by button** in the top menu has **2** sorting methods: **Sort by name** and **Sort by type**.
-- The sorting method has a memory, and the next time you open the editor, the saved sorting method will be preserved.
-
-### Searching Assets
-
-The search function is a combined function that can limit the search type and specify the search field.
-
-- **Limited search type** is a major premise. **This point requires special attention**, which may cause the tree list to be empty. The button is highlighted to indicate that the function is enabled.<br>
-  Multiple selections are possible, select `All` in the type to return to the normal tree list.
-
-  ![Multi-select filter type](img/search-types.png)
-
-- There are 3 ways to specify the search field: **Search Name or UUID**, **Search UUID**, **Search UUID**. Among them, **UUID** and **UUID** can output data from the last item of the right-click menu.
-
-  ![Enable filtering](img/search-type.png)
-
-- **Search box** changes instantly.
-- Select the asset in the search results, clear the search, the window will relocate to the asset, to achieve the purpose of finding the asset through search; in addition, double-click the folder in the search result to quickly locate the folder in the tree.
+The **Sort by** in the toolbar includes **Sort by name** and **Sort by type**. The current sorting method is recorded and will be maintained the next time the editor is opened.
 
 ### Collapsing assets
 
-- `Head menu area` **All collapse or expand buttons** are global.
-- The triangle icon of the tree node, you can press the `alt` key to expand or collapse all sub-assets.
+Collapses are divided into single collapses or all collapses with subsets:
 
-### Renaming Assets
+- The **Collapse/Expand All** button in the **Toolbar** works globally
+- Click on the triangle icon of a parent asset (e.g. folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
 
-- Select an asset.
-- Shortcut key `F2`, shortcut key `Enter`, enter name modification
-- Shortcut key `Esc` to cancel rename
-- In addition, the initial name of the Typescript asset will be treated as its `className`, and the `className` cannot be repeated.
+The current collapsed state of the asset will be recorded and will be maintained the next time the editor is opened.
 
-### Big Picture Preview
+### Searching assets
 
-In addition, it can be used in conjunction with the Assets Preview panel to click on a folder to display the sub-assets of the big picture arranged by type, which is more intuitive for picture assets.
+The search function can limit the search type and specify the search field， both of which can be used to achieve a type filtering effect. Depending on the selected type/field, all the corresponding assets will be displayed in the panel.
 
-![Resource preview](img/preview.png)
+![search-types](img/search-types.png)
+
+- **Limit search types**: multiple selections are possible. The type is the asset type `assetType`, not the suffix name or importer name.
+
+- **Specify search fields**: the search name is not case sensitive and includes the following search types:
+
+    1. **search name or UUID**
+    2. **Search UUID**
+    3. **Search URL**
+    4. **Search for the use of UUID**, for example:
+
+        ![search-uuid](img/search-uuid.png)
+
+If you want to search only in a parent asset (e.g. folder), right-click and select **Find in Folder** to narrow the search.
+
+Selecting an asset in the search result list and double-clicking on it is equivalent to the operation in normal mode. After clearing the search content, it will redirect to the selected asset.
+
+### Assets preview
+
+Selecting an asset in the **Assets** panel displays a thumbnail image of the asset in the **Assets Preview** panel. Selecting the folder where the asset is located, displays thumbnails of all assets under the folder for easy viewing.
+
+![preview](img/preview.png)
+
+## Right-click menu for assets
+
+After selecting a specific asset/folder, right-click on it to perform a series of actions on the asset in the pop-up menu:
+
+![right-click](img/right-click.png)
+
+- **Create**: the same function as the **Create** button in the **Assets** panel, it will add the asset to the currently selected folder, if the currently selected is an asset file, it will add the new asset to the same folder as the currently selected asset.
+- **Copy**/**Cut**/**Paste**: copy/cut the selected asset (multiple options available) and paste it under that folder or another folder.
+- **Duplicate**: duplicate the selected asset (can be multi-selected), and the duplicated asset will be in the same hierarchy as the selected asset.
+- **Rename**: modify the asset name, please check the description below for details.
+- **Delete**: delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
+- **Select All**: selects all assets in the same hierarchy.
+- **Search in Folder**: when using the search function, only search the assets in that folder.
+- **Find UUID Usages**: find which assets the asset is referenced by by the asset's uuid.
+- **Preview this scene in the browser**: only available for scene assets.
+- **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
+- **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
+- **Reveal in Library**: opens the asset in the `Library` folder of the project, please read the [Project Structure](../../getting-started/project-structure/index.md) documentation.
+- **UUID/URL/PATH**: copies the UUID/URL/PATH of the asset and outputs it in the **Console** panel.
+
+Also for specific asset types, double-clicking on an asset allows you to enter the edit state of that asset, such as scene assets and script assets.
+
+### Rename asset
+
+Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
+
+In addition, the initial name of a TypeScript script asset is processed as its `className`, which cannot be repeated.
+
+### Exporting asset package
+
+Select the asset to be exported and right-click on it, then select **Export Asset Package**. The **Export Asset** panel will automatically list the currently selected asset with its dependencies. If you don't need to export related dependent assets, uncheck **Include Dependency** in the lower left corner of the **Export Assets** panel.
+
+After determining the assets to be exported, click the **Export** button, a file storage dialog will pop up, the user needs to specify a folder location and file name, click **Save**, and a **filename.zip** file will be generated, containing all the exported assets.
+
+> **Note**: the extension will automatically break the assets into a zip package, which is only available for use with the **Import Asset Package** extension.
+
+![exporting](img/package-asset/exporting.png)
+
+### Importing asset package
+
+Select and right-click on the folder you want to import assets from, or right-click on the **blank space** in the **Assets** panel, then select **Import Package** and select the zip package exported by **Export Package** in the pop-up file browse dialog. The assets in the zip package will be automatically parsed to the pop-up **Import Asset Package** panel.
+
+During the import process, the user will be asked to confirm the imported assets again, so you can uncheck some assets to remove the ones you don't want to import.
+
+![importing](img/package-asset/importing.png)
+
+> **Notes**:
+> 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Export Asset Package**.
+> 2. Importing scripts with the same class name is not supported.
+
+## Extending the Assets Panel
+
+Currently supported extensions include **right-click menu** and **drop-in recognition**, please refer to the [Extending the Assets Panel](./extension.md) documentation.

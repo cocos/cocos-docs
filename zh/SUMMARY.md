@@ -23,7 +23,11 @@
     - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
     - [获取帮助和支持](getting-started/support.md)
     - [注意事项](getting-started/attention/index.md)
-- [Cocos Creator 3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
+- [升级指南](release-notes/index.md)
+    - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
+    - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
+    - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
+    - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
 
 ## 编辑器手册
 
@@ -41,7 +45,6 @@
     - [编辑动画曲线](editor/animation/animation-curve.md)
     - [动画事件](editor/animation/animation-event.md)
 - [地形系统](editor/terrain/index.md)
-- [烘焙系统](editor/lightmap/index.md)
 - [发布跨平台游戏](editor/publish/index.md)
     - [熟悉构建发布面板](editor/publish/build-panel.md)
     - [通用构建选项介绍](editor/publish/build-options.md)
@@ -90,6 +93,8 @@
     - [球面光](concepts/scene/light/sphere-light.md)
     - [聚光灯](concepts/scene/light/spot-light.md)
     - [环境光](concepts/scene/ambient.md)
+    - [基于多 Pass 的多光源支持](concepts/scene/light/additive-per-pixel-lights.md)
+    - [光照贴图](concepts/scene/light/lightmap.md)
 
 - [材质系统](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)
@@ -118,7 +123,7 @@
     - [动画剪辑](engine/animation/animation-clip.md)
     - [动画状态](engine/animation/animation-state.md)
     - [骨骼动画](engine/animation/skeletal-animation.md)
-    - [骨骼贴图布局设置](editor/project/joints-texture-layout.md)
+    - [骨骼贴图布局设置](editor/project/joint-texture-layout.md)
 - [缓动](tween/index.md)
 
 - [物理](physics/physics.md)
@@ -278,6 +283,8 @@
         - [场景脚本](editor/extension/scene-script.md)
         - [扩展主菜单](editor/extension/contributions-menu.md)
         - [扩展资源管理器面板](editor/assets/extension.md)
+        - [扩展项目设置面板](editor/extension/contributions-project.md)
+        - [扩展偏好设置面板](editor/extension/contributions-preferences.md)
     - [基础功能](editor/extension/basic.md)
         - [插件系统](editor/extension/package.md)
         - [消息系统](editor/extension/messages.md)

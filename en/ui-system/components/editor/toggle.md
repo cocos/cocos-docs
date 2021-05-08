@@ -6,7 +6,7 @@ The Toggle component is a CheckBox, when it's used together with a ToggleGroup, 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Toggle__ to add the Toggle component to the node.
 
-To use `Toggle`, please refer to the [Toggle API](__APIDOC__/en/classes/ui.toggle.html) documentation and the [toggle](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
+To use `Toggle`, please refer to the [Toggle API](__APIDOC__/en/classes/ui.toggle.html) documentation and the [Toggle](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
 
 ## Toggle Properties
 
@@ -39,7 +39,7 @@ The generic node hierarchy of Toggle is as below:
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -48,7 +48,7 @@ export class example extends Component {
         const checkEventHandler = new EventHandler();
         // This Node is the node to which your event processing code component belongs
         checkEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         checkEventHandler.component = 'example';
         checkEventHandler.handler = 'callback';
         checkEventHandler.customEventData = 'foobar';
@@ -71,7 +71,7 @@ Added by the way of `toggle.node.on('toggle', ...)`.
 ```js
 // // Suppose we add an event handler callback inside a component's onLoad method and event handlers in the callback function:
 
-import { _decorator, Component, ToggleComponent } from "cc";
+import { _decorator, Component, ToggleComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

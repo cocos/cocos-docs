@@ -1,6 +1,6 @@
 # 压缩纹理
 
-Cocos Creator 3.0 可以直接在编辑器中设置纹理需要的压缩方式，然后在项目发布时自动对纹理进行压缩。针对 Web 平台，支持同时导出多种图片格式，引擎将根据不同的浏览器自动下载合适的格式。
+Cocos Creator 可以直接在编辑器中设置纹理需要的压缩方式，然后在项目发布时自动对纹理进行压缩。支持同一平台同时导出多种图片格式，引擎将根据不同的设备支持情况自动下载合适的格式。
 
 ## 配置压缩纹理
 
@@ -14,13 +14,22 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 | PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 |
 | ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 |
 | ETC2 | 部分支持，取决于手机硬件 | 不支持 | 不支持 | 支持部分 Android 设备 |
-| ASTC | 部分支持  | 部分支持 | 不支持 | 部分支持  |
+| ASTC | 部分支持  | 部分支持 | 不支持 | 部分支持 |
+<!-- | 图片格式 | Android | iOS | Mini Game | Web  | Mac & Windows |
+| :------ | :------ | :------ | :----- | :------ | :------ |
+| PNG | 支持 | 支持   | 支持 | 支持 | 支持 |
+| JPG | 支持 | 支持 | 支持 | 支持 | 支持 |
+| WEBP | Android 4.0 以上原生支持，其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 支持 | [部分支持](https://caniuse.com/#feat=webp) | 不支持 |
+| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 | Mac 支持 |
+| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 | 不支持 |
+| ETC2 | 部分支持，取决于手机硬件 | 不支持 | 不支持 | 支持部分 Android 设备 | 不支持 |
+| ASTC | 部分支持  | 部分支持 | 不支持 | 部分支持  | Mac 支持 | -->
 
-默认情况下 Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片或者自动图集进行压缩，可以在 **资源管理器** 中选中这张图片或图集，然后在 **属性管理器** 中勾选 `useCompressTexture`，再选择图片的纹理压缩格式预设即可。
+默认情况下 Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片或者自动图集进行压缩，可以在 **资源管理器** 中选中这张图片或图集，然后在 **属性检查器** 中勾选 `useCompressTexture`，再选择图片的纹理压缩格式预设即可。
 
-![compress-texture](compress-texture/compress-texture.jpg)
+![compress-texture](compress-texture/compress-texture.png)
 
-编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置 — 压缩纹理](../editor/project/index.md)。
+编辑器将会默认提供一个默认预设，如果需要添加更多预设可以点击旁边的 **编辑预设** 按钮打开 **项目设置 -> 压缩纹理** 来添加编辑预设，这里的压缩格式仅作为展示使用不可编辑。关于添加纹理压缩预设，请参考 [项目设置 - 压缩纹理](../editor/project/index.md)。
 
 ![meta](compress-texture/meta.png)
 
@@ -42,23 +51,23 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 
 ## 使用示例
 
-![1](compress-texture/compress-1.jpg)
+![1](compress-texture/compress-1.png)
 
-**示例 (一)**：如图所示的对于 MiniGame 平台的压缩纹理预设，假如构建的是华为快游戏这类，构建将不会打包出 PVR 的纹理格式。更多的平台剔除细则可以参考文末的 [构建平台的压缩纹理支持情况](##构建平台的压缩纹理支持情况)
+**示例 (一)**：如上图所示，对于 MiniGame 平台的压缩纹理预设，假如 **构建的是华为快游戏这类仅在安卓设备上运行的，构建将不会打包出 PVR 的纹理格式**。更多的平台剔除细则可以参考文末的 [构建平台的压缩纹理支持情况](##构建平台的压缩纹理支持情况)
 
-![2](compress-texture/compress-2.jpg)
+![2](compress-texture/compress-2.png)
 
-**示例 (二)**：在上面的示例图中，ETC1 和 PVR 类型都同时配置了 RGB 和 RGBA 两种类型的纹理格式，这种情况下构建将会根据当前图片的是否带有透明通道剔除同类型其中一种格式。示例图中的图片是带透明通道的，则此时构建将只会打包出带有 REGA 类型的压缩纹理格式。当然这种剔除只有同时存在时才会，假如配置里只有 RGB 的图片格式，即便当前图片是带透明通道的也会正常打包出来。
+**示例 (二)**：在上面的示例图中，ETC1 和 PVR 类型都 **同时配置了 RGB 和 RGBA 两种类型的纹理格式，这种情况下构建将会根据当前图片的是否带有透明通道来优先选择其中一种格式**。示例图中的图片是带透明通道的，则此时构建将只会打包出带有 REGA 类型的压缩纹理格式。当然这种剔除只有同时存在时才会，假如配置里只有 RGB 的图片格式，即便当前图片是带透明通道的也会正常打包出来。
 
 ## 构建平台的压缩纹理支持细节
 
-除全平台支持的 `JPG` 和 `PNG` 外，其他格式的支持情况如下：
+除全平台支持的 `JPG` 和 `PNG` 外，其他纹理压缩格式的支持情况如下：
 
-| Platform          | TextureCompressTypes |
+| 平台名称          | 支持的压缩格式 |
 | :---------------- | :------------------- |
 | Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Game       | ETC1 / PVR           |
+| WeChat Mini Game  | ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
 | Baidu Mini Game   | ETC1 / PVR           |
 | OPPO Mini Game    | ETC1                 |
@@ -66,6 +75,6 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | Huawei Quick Game | ETC1                 |
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
-| iOS               | ASTC / PVR / WEBP    |
+| iOS               | ASTC / PVR / WEBP / ETC1 / ETC2  |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
-| Mac               | ASTC / PVR           |
+<!-- | Mac               | ASTC / PVR           | -->

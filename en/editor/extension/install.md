@@ -37,7 +37,7 @@ hello-world.zip
     |--browser.js
 ```
 
-**Please be careful not to nest another layer of extension directory inside the zip package**
+> **Note**: please be careful not to nest another layer of extension directory inside the zip package
 
 ## Install Extension
 

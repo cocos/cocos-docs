@@ -12,13 +12,13 @@
 
 ### Build
 
-1. Use **Cocos Creator 3.0** to open a project. Select **Cocos Play** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
+Use **Cocos Creator 3.0** to open a project. Select **Cocos Play** in the **Platform** dropdown of the **Build** panel, and then click **Build**.
 
-    ![build](publish-cocos-play/build.png)
+![build](publish-cocos-play/build.png)
 
 The specific filling rules for the relevant parameter configuration are as follows:
 
-  - **tinyPacketMode**
+1. **tinyPacketMode**
 
     This item is optional. The in-package volume of the game contains code and assets that cannot exceed 10M, and assets can be loaded via network requests. **tinyPacketMode** is to help developers keep the script files in the game package, other assets are uploaded to the remote server, and downloaded from the remote server as needed. Cocos Creator has already helped the developer with the download, cache, and version management of remote assets. The developer needs to do is the following steps:
 

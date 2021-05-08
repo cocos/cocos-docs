@@ -8,7 +8,7 @@ PageView 是一种页面视图容器.
 
 页面视图的脚本接口请参考 [PageView API](__APIDOC__/zh/classes/ui.pageview.html)。
 
-关于使用可以参考 test-cases-3d 里的 [pageView](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/15.pageview) 相关。
+关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/15.pageview)）。
 
 ## PageView 属性
 
@@ -65,7 +65,7 @@ PageView 组件必须有指定的 content 节点才能起作用，content 中的
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, Event, Node, PageView, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, PageView, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -73,7 +73,7 @@ export class example extends Component {
     onLoad(){
         const pageChangedEventHandler = new EventHandler();
         pageChangedEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        pageChangedEventHandler.component = 'example'; // 这个是代码文件名
+        pageChangedEventHandler.component = 'example'; // 这个是脚本类名
         pageChangedEventHandler.handler = 'callback';
         pageChangedEventHandler.customEventData = 'foobar';
 
@@ -96,7 +96,7 @@ export class example extends Component {
 
 ```ts
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
-import { _decorator, Component, Event, Node, PageView } from "cc";
+import { _decorator, Component, Event, Node, PageView } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

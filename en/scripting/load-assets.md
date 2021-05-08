@@ -19,7 +19,7 @@ You can define an __Asset__ property in the script like this:
 ```typescript
 //test.ts
 
-import { _decorator, Component, Node, SpriteFrame } from "cc";
+import { _decorator, Component, Node, SpriteFrame } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")
@@ -36,7 +36,7 @@ As long as the type is defined in the script, you can easily set the __asset__ d
 
 ```typescript
 //test.ts
-import { _decorator, Component, Node, SpriteFrame, Texture2D } from "cc";
+import { _decorator, Component, Node, SpriteFrame, Texture2D } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("test")

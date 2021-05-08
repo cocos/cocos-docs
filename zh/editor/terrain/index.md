@@ -53,10 +53,10 @@
 
 | 参数 | 说明 |
 | :--- | :-- |
-| TileSize | 地形 Tile 的大小，目前一个地形块由 32 x 32 个 Tile 组成，所以一个地形块的边长是 **32 x TileSize** | 
-| BlockCount | 地形块在两个维度上的数量（**注意**：若该值设置过大会造成顶点数过多，导致卡顿） | 
-| WeightMapSize | 权重图大小 | 
-| LightMapSize | 光照贴图大小 | 
+| TileSize | 地形 Tile 的大小，目前一个地形块由 32 x 32 个 Tile 组成，所以一个地形块的边长是 **32 x TileSize** |
+| BlockCount | 地形块在两个维度上的数量（**注意**：若该值设置过大会造成顶点数过多，导致卡顿） |
+| WeightMapSize | 权重图大小 |
+| LightmapSize | 光照贴图大小 |
 
 ### 雕塑（Sculpt）
 

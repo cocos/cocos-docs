@@ -13,7 +13,7 @@
 
 具体实现步骤：
 
-- 在编辑器顶部的菜单栏中选择 **扩展** --> **创建扩展**，根据需要在 **全局/项目** 目录下新建一个插件。插件包就会生成在根目录/项目目录的 `extensions` 目录下。
+- 在编辑器顶部的菜单栏中选择 **扩展 -> 创建扩展**，根据需要在 **全局/项目** 目录下新建一个插件。插件包就会生成在根目录/项目目录的 `extensions` 目录下。
 - 打开插件包的 `package.json` 文件，然后配置 `contributions.assets.menu` 属性，其中 `methods` 引入 `assets-menu.js` 文件。其他属性如 `createMenu` 为上述 `where` 的显式声明，对应的 `onCreateMenu` 是 `assets-menu.js` export 出来的方法:
 
   ```json5
@@ -161,7 +161,7 @@
 
   `assetInfo` 参数说明：
 
-    - `uuid` String - 拖放到该资源上，该资源的 ID
+    - `uuid` String - 拖拽资源时，鼠标释放位置的资源 uuid
     - `type` String - 该资源的类型
     - `isDirectory` Boolean - 该资源是否是文件夹
 

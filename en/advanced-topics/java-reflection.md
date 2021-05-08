@@ -12,10 +12,10 @@ In `callStaticMethod` method, pass the Java class name, method name, method sign
 
 ## Class name
 
-The class name must contain Java package path. For example, if a class, `Test`, exists in the package `org.cocos2dx.javascript`:
+The class name must contain Java package path. For example, if a class, `Test`, exists in the package `com.cocos.game`:
 
 ```java
-package org.cocos2dx.javascript;
+// package "com.cocos.game";
 
 public class Test {
     
@@ -33,7 +33,7 @@ public class Test {
 }
 ```
 
-The correct class name of `Test` is `org/cocos2dx/javascript/Test`. Please note that using a slash `/` is required, **NOT** using a dot `.`.
+The correct class name of `Test` is `com/cocos/game/Test`. Please note that using a slash `/` is required, **NOT** using a dot `.`.
 
 ## Method name
 
@@ -53,10 +53,10 @@ Currently, Cocos Creator supports four Java types:
 
 | Java type | signature |
 | :-------- | :-------- |
-| int       | I         |
-| float     | F         |
-| boolean   | Z         |
-| String    | Ljava / lang / String; |
+| **int**       | I         |
+| **float**     | F         |
+| **boolean**   | Z         |
+| **String**    | Ljava / lang / String; |
 
 ## Parameters
 
@@ -68,14 +68,14 @@ Here is an example of invoking the static methods of `Test` class:
 
 ```js
 //call hello method
-jsb.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+jsb.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
 //call the first sum method
-var result = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(II)I", 3, 7);
+var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
 cc.log(result); //10
 
 //call the second sum method
-var result = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(I)I", 3);
+var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
 cc.log(result); //5
 ```
 
@@ -89,7 +89,7 @@ For example, calling a Java method which shows an Android AlertDialog:
 
 ```c++
 //make some modification in AppActivity class
-public class AppActivity extends Cocos2dxActivity {
+public class AppActivity extends CocosActivity {
     
     private static AppActivity app = null;
     @Override
@@ -115,10 +115,10 @@ public class AppActivity extends Cocos2dxActivity {
 }
 ```
 
-Next, calling `showAlertDialog` in JavaScript:
+Next, call `showAlertDialog` in JavaScript:
 
 ```js
-jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+jsb.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
 ```
 
 An Android native AlertDialog should show now.
@@ -136,7 +136,7 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
 
         // We must use runOnGLThread here
-        app.runOnGLThread(new Runnable() {
+        CocosHelper.runOnGameThread(new Runnable() {
             @Override
             public void run() {
                 CocosJavascriptJavaBridge.evalString("cc.log(\"JavaScript Java bridge!\")");

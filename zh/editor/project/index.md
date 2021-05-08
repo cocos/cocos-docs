@@ -1,12 +1,12 @@
 # 项目设置
 
-**项目设置** 面板通过点击编辑器主菜单栏中的 **项目 -> 项目设置** 即可打开，主要用于设置特定项目的相关配置项，这些设置会保存在项目的 `settings/packages` 文件夹中。如果需要在不同开发者之间同步项目设置，请将 `settings` 目录加入到版本控制。
+**项目设置** 面板通过点击编辑器主菜单栏中的 **项目 -> 项目设置** 即可打开，主要用于设置特定项目的相关配置项。这些设置会保存在项目的 `settings/packages` 文件夹中。如果需要在不同开发者之间同步项目设置，请将 `settings` 目录加入到版本控制。
 
 **项目设置** 由几个不同的分页组成，包括 **Macro Config**、**功能裁剪**、**项目数据**、**Layers**、**物理**、**脚本** 和 **纹理压缩**。修改设置之后 **项目设置** 面板会自动保存修改。
 
 ## Macro Config（引擎宏配置）
 
-关于引擎宏模块的具体信息与代码可以参考 [Engine macro](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)，这里提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+关于引擎宏模块的具体信息与代码可以参考 **Engine macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)），这里提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
 
 ![macro](./index/macro.png)
 
@@ -39,7 +39,7 @@
 - 后 12 个 Layers 是引擎内置的，不可修改。
 - 目前使用到 Layer 的位置包括：
 
-  1. Node 节点在 **属性检查器** 中的 Layer 属性。
+  1. Node 节点在 **属性检查器** 中的 [Layer 属性](../../concepts/scene/node-component.md)。
 
       ![Layers-node](./index/layers-node.png)
 
@@ -193,3 +193,7 @@ interface ICompressPresetItem {
     }
 }
 ```
+
+## 扩展项目设置面板
+
+Creator 支持在 **项目设置** 右侧添加自定义功能页，详情请参考 [扩展项目设置](../../editor/extension/contributions-project.md)。

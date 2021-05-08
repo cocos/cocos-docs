@@ -8,7 +8,7 @@ Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以
 
 Toggle 的组件接口请参考 [Toggle API](__APIDOC__/zh/classes/ui.toggle.html)。
 
-关于使用可以参考 test-cases-3d 里的 [toggle](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) 相关。
+关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle)）。
 
 ## Toggle 属性
 
@@ -18,7 +18,7 @@ Toggle 的组件接口请参考 [Toggle API](__APIDOC__/zh/classes/ui.toggle.htm
 | checkMark      | Sprite 类型，Toggle 处于选中状态时显示的图片  |
 | Check Events   | 列表类型，默认为空，用户添加的每一个事件由节点引用，组件名称和一个响应函数组成。详情见下方的 **Toggle 事件** 部分  |
 
-**注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 [Button 组件](button.md)。
+> **注意**：因为 Toggle 继承自 Button，所以关于 Toggle 的 Button 相关属性的详细说明和用法请参考 [Button 组件](button.md)。
 
 ## Toggle 事件
 
@@ -32,7 +32,7 @@ Toggle 组件的节点树一般为：
 
 ![toggle-node-tree](toggle/toggle-node-tree.png)
 
-这里需要注意的是，checkMark 组件所在的节点需要放在 background 节点的上面。
+> **注意**：checkMark 组件所在的节点需要放在 background 节点的上面。
 
 ## 通过脚本代码添加回调
 
@@ -41,7 +41,7 @@ Toggle 组件的节点树一般为：
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, ToggleComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -49,7 +49,7 @@ export class example extends Component {
     onLoad(){
         const checkEventHandler = new EventHandler();
         checkEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        checkEventHandler.component = 'example';//这个是代码文件名
+        checkEventHandler.component = 'example';//这个是脚本类名
         checkEventHandler.handler = 'callback';
         checkEventHandler.customEventData = 'foobar';
 
@@ -71,7 +71,7 @@ export class example extends Component {
 ```js
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
-import { _decorator, Component, ToggleComponent } from "cc";
+import { _decorator, Component, ToggleComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

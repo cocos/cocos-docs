@@ -17,13 +17,13 @@
 ### 原生平台通用构建选项
 
 由于目前构建机制上的调整，不同平台的处理均以插件的形式注入 **构建发布** 面板。<br>
-在 **构建发布** 面板的 **发布平台** 中选择要构建的原生平台后，将会看到除了具体原生平台的展开选项外还有一个 **native** 的展开选项。**native** 中的构建选项在各个原生平台上都是一致的。
+在 **构建发布** 面板的 **发布平台** 中选择要构建的原生平台后，将会看到除了具体原生平台的展开选项外还有一个 **Native** 的展开选项。**Native** 中的构建选项在各个原生平台上都是一致的。
 
 ![Native 选项](publish-native/native-options.png)
 
 #### 选择源码模板（Template）
 
-目前 **模板 (Template)** 中可使用的引擎模板为 **Link**。
+从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
 
 Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
 
@@ -33,7 +33,7 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 > 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
 > 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
 
-目前 Cocos Creator 安装目录下的 `resources/3d/cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。
+目前 Cocos Creator 安装目录下的 `resources\3d\cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
 
 #### Polyfills
 
@@ -45,7 +45,7 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 
 #### 加密脚本
 
-该项用于加密发布后的脚本。会在构建后的 `assets/` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `script-backup` 目录下以便调试，打包时不会进入 APP 中。
+该项用于加密发布后的脚本。会在构建后的 `assets` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `script-backup` 目录下以便调试，打包时不会进入 APP 中。
 
 **脚本加密密钥**：在 Native 平台上会使用这个值作为加密 js 文件的密钥。项目新建时会随机生成。
 
@@ -61,7 +61,7 @@ Android 平台的构建选项如下：
 
 #### 渲染后端
 
-目前支持 **VULKAN**、**GLES3** 和 **GLES3** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
 
 #### 应用 ID 名称
 
@@ -81,7 +81,7 @@ Android 平台的构建选项如下：
 >
 > 1. 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 **Build -> Clean Project** 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
 >
-> 2. 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建面板。如果需要修改 ABI，直接修改 **gradle.properties** 文件中的 **PROP_APP_ABI** 属性即可。
+> 2. 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建发布面板。如果需要修改 ABI，直接修改 **gradle.properties** 文件中的 **PROP_APP_ABI** 属性即可。
 >
 >     ![modify abi](publish-native/modify_abi.png)
 
@@ -93,9 +93,9 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 屏幕方向目前包括 **Portrait**、**Landscape Left**、**Landscape Right** 三种。
 
-- Portrait：屏幕直立，Home 键在下
-- Landscape Left：屏幕横置，Home 键在屏幕左侧
-- Landscape Right：屏幕横置，Home 键在屏幕右侧
+- **Portrait**：屏幕直立，Home 键在下
+- **Landscape Left**：屏幕横置，Home 键在屏幕左侧
+- **Landscape Right**：屏幕横置，Home 键在屏幕右侧
 
 #### Google Play Instant
 
@@ -117,7 +117,7 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 ### Windows 平台构建选项
 
-Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES3** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES2** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
 
 ![Windows build options](publish-native/windows-options.png)
 
@@ -147,25 +147,43 @@ Mac 平台的构建选项包括 **Bundle Identifier** 和 **渲染后端**，设
 
 构建选项设置完成后，就可以开始构建了，点击 **构建发布** 面板右下角的 **构建** 按钮，开始构建流程。
 
-编译脚本和打包资源时会在 **构建任务** 窗口显示蓝色的进度条，构建成功的话进度条到达 100% 并显示为绿色：
+编译脚本和打包资源时会在 **构建发布** 面板的 **构建任务** 页面显示蓝色的进度条，构建成功的话进度条到达 100% 并显示为绿色：
 
-![build progress](publish-native/build-progress-android.png)
+![build progress](publish-native/build-progress-windows.png)
+
+### 构建目录
 
 构建结束后，我们得到的是一个标准的 Cocos2d-x 工程，和使用 Cocos Console 新建的工程有同样的结构。以 Windows 平台为例，导出的原生工程包 `windows` 的目录结构为：
 
 ![native directory](publish-native/native-directory.png)
 
 - `assets`：存放项目资源
-- `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务。
-- `cocos.compile.config.json`：本次构建的编译选项 json
+- `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务，详情请参考下文介绍
+- `cocos.compile.config.json`：本次构建的编译选项配置
 
-更多详细的内容可参考 [构建目录 — 原生平台](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0)
+因为原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将底层 C++ 代码单独提取出来放在项目目录下共享的 `native/engine/common` 文件夹中。这样在构建原生平台时，如果检测到已经存在该文件夹，这部分内容便不会再进行处理，加快构建速度。
 
-接下来我们可以继续通过 Cocos Creator 编辑器生成，以及运行桌面预览，或者手动在相应平台的 IDE 中打开构建好的原生工程，进行进一步的预览、调试和发布。
+![native-common](publish-native/native-common.png)
+
+更多关于目录结构的说明，请参考 [构建目录差异 — 原生平台](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0)
+
+### 二次开发
+
+v3.0 做了代码和配置的分离，将一部分代码和配置放入源码管理，位于项目目录下的 `native\engine\当前构建的平台名称` 文件夹中（例如 `native\engine\win32`、`native\engine\android`）。
+
+![native-common](publish-native/native.png)
+
+开发者可以在这里集成 SDK 或者做二次开发，删除构建后生成的发布包目录（例如 `build\windows`）不会影响已经集成的 SDK，但前提是需要在目录中添加代码引用：
+
+- 若集成的是各原生平台通用的 SDK，需要在项目目录下的 `native\engine\common\CMakeLists.txt` 中添加引用。
+- 若是基于 iOS、Mac、Windows 平台做二次开发，需要在项目目录下的 `native\engine\当前构建的平台名称\CMakeLists.txt` 中添加引用（例如 `native\engine\ios\CMakeLists.txt`）
+- 若是基于 Android 平台做二次开发：
+    - C++：需要在项目目录下的 `native\engine\android\CMakeLists.txt` 中添加引用。
+    - Java：需要在项目发布包 `build\android\proj\build.gradle` 中添加引用。
 
 ## 生成和运行
 
-Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）进行 **生成** 和 **运行预览**。
+Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）执行进一步的预览、调试和发布。
 
 ### 通过编辑器
 
@@ -183,7 +201,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 ### 通过 IDE
 
-点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。除了 Android 平台，Android 平台的工程生成在发布路径的 `proj` 目录下。
+点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。
 
 接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
 
@@ -198,6 +216,8 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 - **iOS** 和 **Mac**
 
   ![ios xcode](publish-native/ios-xcode.png)
+
+> **注意**：请不要在这些原生平台工程中进行二次开发，否则重新构建时会被覆盖掉。
 
 关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。若要了解如何在原生平台上调试，请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
 

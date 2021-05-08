@@ -1,4 +1,4 @@
-# Contact Callback
+# 2D Contact Callback
 
 When a physics object moves in the scene and collides with other objects, __Box2D__ will handle most of the necessary collision detection and behavior. But the main point of making a physics game is what would happen when an object collides with something: such as a character encounters a monster should lead to damage taken, or when the ball hits the ground it should produce a sound.
 
@@ -36,19 +36,19 @@ export class TestContactCallBack extends Component {
             PhysicsSystem2D.instance.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
     }
-    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // will be called once when two colliders begin to contact
         console.log('onBeginContact');
     }
-    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // will be called once when the contact between two colliders just about to end.
         console.log('onEndContact');
     }
-    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // will be called every time collider contact should be resolved
         console.log('onPreSolve');
     }
-    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // will be called every time collider contact should be resolved
         console.log('onPostSolve');
     }
@@ -168,7 +168,7 @@ contact.disabled = true;
 
 Disabling the contact will cause the physics engine to ignore the contact when calculating the collision. Disabling will continue until the collision is completely resolved unless the contact is enabled in other callbacks.
 
-To disable contact in the current time step, use `disabledOnce`。
+To disable contact in the current time step, use `disabledOnce`.
 
 ```ts
 contact.disabledOnce = true;

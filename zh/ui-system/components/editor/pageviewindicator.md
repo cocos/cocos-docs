@@ -1,21 +1,21 @@
-# PageviewIndicator 组件参考
+# PageViewIndicator 组件参考
 
-PageviewIndicator 用于显示 PageView 当前的页面数量和标记当前所在的页面。
+PageViewIndicator 用于显示 PageView 当前的页面数量和标记当前所在的页面。
 
-![pageviewindicator.png](./pageviewindicator/pageviewindicator.png)
+![PageViewIndicator](./pageviewindicator/pageviewindicator.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/PageViewIndicator** 即可添加 PageViewIndicator 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI -> PageViewIndicator** 即可添加 PageViewIndicator 组件到节点上。
 
 PageViewIndicator 的脚本接口请参考 [PageViewIndicator API](__APIDOC__/zh/classes/ui.pageviewindicator.html)。
 
-关于使用可以参考 test-cases-3d 里的 [pageViewIndicator](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/15.pageview) 相关。
+关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/15.pageview)）。
 
-## PageviewIndicator 属性
+## PageViewIndicator 属性
 
 | 属性 |   功能说明 |
 | :-------------- | :----------- |
 | spriteFrame | 每个页面标记显示的图片 |
-| direction | 页面标记摆放方向，分别为 水平方向 和 垂直方向 |
+| direction | 页面标记摆放方向，分别为 **水平方向** 和 **垂直方向** |
 | cellSize | 每个页面标记的大小 |
 | spacing | 每个页面标记之间的边距 |
 

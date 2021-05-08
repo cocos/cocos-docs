@@ -64,6 +64,8 @@ The __index node__ in the __animation data__ is based on the relative path of th
 
 The nodes here and the nodes of the __Hierarchy__ panel are mapped one by one. Using this relationship, when the number of nodes in the node list is too large to be consulted, use the search function of the __Hierarchy__ panel to locate the nodes. Click on the node in the __Hierarchy__ panel, and it will also jump to the corresponding node position in the __Animation Editor__ to achieve a reasonable display effect.
 
+__Animation Editor__ also supports node search and filtering.
+
 #### Selected node icon
 
 ![Selected node icon](animation-editor/select_node.gif)
@@ -138,10 +140,10 @@ Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortc
 
 ![shortcuts-manager](./animation-editor/shortcuts-manager.png)
 
-### Shortcut key summary
+### Default Shortcut key summary
 
 Function | Shortcut key | Description
---- | ---- | ----
+:--- | :---- | :----
 *Enter/exit animation editor* | Ctrl/Cmd + E |-
 *Save animation data* | Ctrl/Cmd + S |-
 *Move forward one frame* | Left (←) | If it is already at frame 0, the current operation is ignored. When the key frame is not selected, the small red line moves, and after the node is selected, the key frame is moved;
@@ -160,4 +162,4 @@ Function | Shortcut key | Description
 *Paste the animation data of the last copy* | Ctrl/Cmd + V | Support pasting selected key frames, property tracks, node data
 *Unselected key frame or event frame or property track* | Esc |-
 
-> Most shortcut keys are invalid only when the animation editor is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.
+> **Note**: most shortcut keys are invalid only when the animation editor is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.

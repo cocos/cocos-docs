@@ -1,4 +1,4 @@
-# 碰撞回调
+# 2D 碰撞回调
 
 当物体在场景中移动并碰撞到其它物体时，物理引擎会处理大部分必要的碰撞检测，我们一般不需要关心这些情况。但是制作物理游戏最主要的点是有些情况下物体碰撞后应该发生些什么，比如角色碰到怪物后会死亡，或者球在地上弹动时应该产生声音等。
 
@@ -39,19 +39,19 @@ export class TestContactCallBack extends Component {
             PhysicsSystem2D.instance.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
     }
-    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体开始接触时被调用一次
         console.log('onBeginContact');
     }
-    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
         console.log('onEndContact');
     }
-    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 每次将要处理碰撞体接触逻辑时被调用
         console.log('onPreSolve');
     }
-    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: : IPhysics2DContact | null) {
+    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 每次处理完碰撞体接触逻辑时被调用
         console.log('onPostSolve');
     }

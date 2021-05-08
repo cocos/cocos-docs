@@ -8,7 +8,7 @@ ToggleContainer is not a visible UI component but it can be used to modify the b
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/ToggleContainer__ to add the ToggleContainer component to the node.
 
-To use `ToggleContainer`, please refer to the [ToggleContainer API](__APIDOC__/en/classes/ui.togglecontainer.html) documentation and the [toggleContainer](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
+To use `ToggleContainer`, please refer to the [ToggleContainer API](__APIDOC__/en/classes/ui.togglecontainer.html) documentation and the [Toggle](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle) scene of the test-cases-3d project.
 
 ## ToggleContainer Properties
 
@@ -32,7 +32,7 @@ The ToggleContainer won't be used alone and it usually be used with `Toggle` to 
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, ToggleContainerComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, ToggleContainerComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -41,7 +41,7 @@ export class example extends Component {
         const containerEventHandler = new EventHandler();
         // This Node is the node to which your event processing code component belongs
         containerEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         containerEventHandler.component = 'example';
         containerEventHandler.handler = 'callback';
         containerEventHandler.customEventData = 'foobar';

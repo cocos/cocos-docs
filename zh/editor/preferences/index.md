@@ -56,11 +56,11 @@
 
 - **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于场景编辑器里场景的渲染，内置组件的声明和其他 Web 环境下的引擎模块。
 
-- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 [engine 仓库](https://github.com/cocos-creator/engine/) 来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定到定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定到定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 - **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
-- **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 [engine-native](https://github.com/cocos-creator/engine-native/) 或该仓库的 fork 下载。
+- **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)）或该仓库的 fork 下载。
 
 关于自定义引擎，具体内容可参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)
 
@@ -121,7 +121,7 @@
 
 - **开启地形功能**：用于开启地形功能，详情可参考 [地形系统](../terrain/index.md)。
 - **使用弹窗方式添加组件**：具体内容请参考下文介绍。
-- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [烘焙系统](../lightmap/index.md)。
+- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [光照贴图](./../../concepts/scene/light/lightmap.md)。
 
 ### 使用弹窗方式添加组件
 
@@ -141,3 +141,7 @@
 在未来的版本中，**实验室** 中的这些功能可能被合并，但也有可能出现破坏兼容性的修改，甚至可能会被取消。如果想在开发环境中使用这些功能，请务必严格测试，并保持关注新版本的更新公告。
 
 我们欢迎用户开启试用这些功能，并且在 [论坛](https://forum.cocos.org/c/58) 提供宝贵的反馈意见，让这些功能更适合自己的使用场景，为项目提供更强大的助力。
+
+## 扩展偏好设置面板
+
+Creator 支持在 **偏好设置** 右侧添加自定义功能页，详情请参考 [扩展偏好设置](../../editor/extension/contributions-preferences.md)。

@@ -79,7 +79,7 @@ Button 目前只支持 Click 事件，即当用户点击并释放 Button 时才�
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, Event, Node, Button, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, Button, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -87,7 +87,7 @@ export class example extends Component {
     onLoad () {
         const clickEventHandler = new EventHandler();
         clickEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
-        clickEventHandler.component = 'example';// 这个是代码文件名
+        clickEventHandler.component = 'example';// 这个是脚本类名
         clickEventHandler.handler = 'callback';
         clickEventHandler.customEventData = 'foobar';
 
@@ -112,7 +112,7 @@ export class example extends Component {
 ```ts
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
-import { _decorator, Component, Button } from "cc";
+import { _decorator, Component, Button } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

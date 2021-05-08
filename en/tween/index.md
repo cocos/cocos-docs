@@ -16,7 +16,7 @@ The difference from the previous `tween.js` is mainly optional attributes, expla
 ## Example
 
 ```typescript
-import { _decorator, Component, Vec3, tween } from "cc";
+import { _decorator, Component, Vec3, tween } from 'cc';
 
 @ccclass("tween-test")
 export class tweentest extends Component {
@@ -117,7 +117,7 @@ In addition, an additional value of the current easing will be passed in when `o
 Taking `onUpdate` as an example, the following code eases a position, and then setting it to multiple objects in `onUpdate`, this demonstrates __batch easing__.
 
 ```typescript
-import { Node, tween, Vec3 } from "cc";
+import { Node, tween, Vec3 } from 'cc';
 const nodeArray: Node[] = []; // Replace here with your node array
 const tweenTargetVec3 = new Vec3();
 tween(tweenTargetVec3)

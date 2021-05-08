@@ -35,7 +35,7 @@ Type `{string}` Required
 
 Search path of the top menu:
 
-- i18m:menu.project
+- i18n:menu.project
 - i18n:menu.node
 - i18n:menu.panel
 - i18n:menu.extension

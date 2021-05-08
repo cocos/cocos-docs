@@ -8,7 +8,7 @@ Slider 是一个滑动器组件。
 
 滑动器的脚本接口请参考 [Slider API](__APIDOC__/zh/classes/ui.slider.html)。
 
-关于使用可以参考 test-cases-3d 里的 [slider](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/10.slider) 相关。
+关于使用可以参考范例 **Slider**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/10.slider) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/10.slider)）。
 
 ## Slider 属性
 
@@ -23,7 +23,7 @@ Slider 是一个滑动器组件。
 
 ![slider-event](slider/slider-event.png)
 
-事件结构参考：[组件事件结构](./button.md#组件事件结构)               |
+事件结构参考：[组件事件结构](./button.md#组件事件结构)
 
 Slider 的事件回调有两个参数，第一个参数是 Slider 本身，第二个参数是 CustomEventData
 
@@ -42,7 +42,7 @@ Slider 通常用于调节 UI 的数值（例如音量调节），它主要的部
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from "cc";
+import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -50,7 +50,7 @@ export class example extends Component {
     onLoad(){
         const sliderEventHandler = new EventHandler();
         sliderEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        sliderEventHandler.component = 'example';//这个是代码文件名
+        sliderEventHandler.component = 'example';//这个是脚本类名
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';
 
@@ -72,7 +72,7 @@ export class example extends Component {
 ```ts
 // 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
 
-import { _decorator, Component, SliderComponent } from "cc";
+import { _decorator, Component, SliderComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

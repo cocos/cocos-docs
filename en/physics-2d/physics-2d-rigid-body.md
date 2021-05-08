@@ -1,14 +1,14 @@
-# Rigidbody
+# 2D RigidBody
 
-__Rigidbody__ is the basic object that composite the physics world.
+__RigidBody__ is the basic object that composite the physics world.
 
 The built-in 2D physics system only has collision detection capabilities, the rigid body is not available to the built-in 2D physics system. This setting is available only for other 2D physics systems.
 
-## Rigidbody properties
+## RigidBody properties
 
 ### Mass
 
-The mass of a `Rigidbody` is automatically calculated by the `density` and `size` of the [PhysicsCollider Component](collider-component.md). This property may be needed when calculating how much force the object should be subjected to.
+The mass of a `RigidBody` is automatically calculated by the `density` and `size` of the [PhysicsCollider Component](collider-component.md). This property may be needed when calculating how much force the object should be subjected to.
 
 ```ts
 // Get the mass of the rigidbody
@@ -33,7 +33,7 @@ const damping = rigidbody.linearDamping;
 rigidbody.linearDamping = damping;
 ```
 
-To get the velocity of a point on a rigidbody, such as a box that rotates forward and touches the wall. It may be desirable to get the velocity of the box at the point of the collision. You can get it by  `getLinearVelocityFromWorldPoint`.
+To get the velocity of a point on a RigidBody, such as a box that rotates forward and touches the wall. It may be desirable to get the velocity of the box at the point of the collision. You can get it by  `getLinearVelocityFromWorldPoint`.
 
 ```ts
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
@@ -41,7 +41,7 @@ const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 
 Or, pass in a `cc.Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
 
-> __Note__: the `get` method of rigidbody provides an out parameter to receive the function return value.
+> __Note__: the `get` method of RigidBody provides an out parameter to receive the function return value.
 
 ```ts
 const velocity = cc.v2();
@@ -71,8 +71,8 @@ rigidbody.angularDamping = damping;
 Rotation, position and scaling are the most commonly used transform in game development, and almost every node has these properties set. In the physics system, the system will automatically synchronize these properties of the node to __Box2D__ corresponding properties.
 
 > __Notes__:
-> 1. There is only rotation and position in __Box2D__ and there is no scaling, so if you set the scale properties of the node, all the colliders of the __Rigidbody__ are reconstructed. One way to avoid this is to take the renderer node as a child node of the __Rigidbody__ node, and to scale only the renderer node, to avoid scaling the __Rigidbody__ nodes as much as possible.
-> 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __Rigidbody__ information is synchronized to the corresponding node. In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
+> 1. There is only rotation and position in __Box2D__ and there is no scaling, so if you set the scale properties of the node, all the colliders of the __RigidBody__ are reconstructed. One way to avoid this is to take the renderer node as a child node of the __RigidBody__ node, and to scale only the renderer node, to avoid scaling the __RigidBody__ nodes as much as possible.
+> 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __RigidBody__ information is synchronized to the corresponding node. In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
 
 ### Fixed rotation
 
@@ -84,37 +84,37 @@ rigidbody.fixedRotation = true;
 
 ### Enable Contact Listener
 
-Only when the Rigidbody's contact listener is enabled, it will send callback to component attach to the node when collision happens.
+Only when the RigidBody's contact listener is enabled, it will send callback to component attach to the node when collision happens.
 
 ```ts
 Rigidbody.enabledContactListener = true;
 ```
 
-## Rigidbody type
+## RigidBody type
 
-There are three types of Box2d's native __Rigidbody__: __Static__, __Dynamic__, __Kinematic__. We added a forth type in __Cocos Creator__'s physics system: __Animated__。
+There are three types of Box2d's native __RigidBody__: __Static__, __Dynamic__, __Kinematic__. We added a forth type in __Cocos Creator__'s physics system: __Animated__.
 
-`Animated` is derived from the `Kinematic` type, the general __Rigidbody__ type changes __rotate__ or __position__ by setting the properties directly, but `Animated` type will lerp the property values between current property and target property, and assign it to the corresponding property.
+`Animated` is derived from the `Kinematic` type, the general __RigidBody__ type changes __rotate__ or __position__ by setting the properties directly, but `Animated` type will lerp the property values between current property and target property, and assign it to the corresponding property.
 
-`Animated` type is invented mainly to prevent the weird behavior such as penetration when making movement animation on Rigidbody node.
+`Animated` type is invented mainly to prevent the weird behavior such as penetration when making movement animation on RigidBody node.
 
 - `cc.RigidBodyType.Static`
 
-  __Static Rigidbody__, zero mass, zero velocity, that is not affected by gravity or force, but can set its position to move.
+  __Static RigidBody__, zero mass, zero velocity, that is not affected by gravity or force, but can set its position to move.
 
 - `cc.RigidBodyType.Dynamic`
 
-  __Dynamic Rigidbody__, with mass, its velocity can be set, will be affected by gravity.
+  __Dynamic RigidBody__, with mass, its velocity can be set, will be affected by gravity.
 
 - `cc.RigidBodyType.Kinematic`
 
-  __Kinematic Rigidbody__, zero mass, its velocity can be set, will not be affected by gravity, but can move by setting the velocity.
+  __Kinematic RigidBody__, zero mass, its velocity can be set, will not be affected by gravity, but can move by setting the velocity.
 
 - `cc.RigidBodyType.Animated`
 
-  __Animated Rigidbody__, previously mentioned above, is derived from Kinematic type, mainly used for __Rigidbody__ and animation in combination.
+  __Animated RigidBody__, previously mentioned above, is derived from Kinematic type, mainly used for __RigidBody__ and animation in combination.
 
-## Rigidbody API
+## RigidBody API
 
 ### Get or convert the rotation and position property
 
@@ -153,9 +153,9 @@ localVector = cc.v2();
 rigidbody.getLocalVector(worldVector, localVector);
 ```
 
-### Get the rigidbody mass center
+### Get the RigidBody mass center
 
-When force is applied to a __Rigidbody__, the mass center of the __Rigidbody__ is generally chosen as the point of application of the force, which ensures that the force does not affect the rotation value.
+When force is applied to a RigidBody, the mass center of the RigidBody is generally chosen as the point of application of the force, which ensures that the force does not affect the rotation value.
 
 ```ts
 // Get the mass center in the local coordinate system
@@ -178,10 +178,10 @@ rigidbody.getWorldCenter(worldCenter);
 There are two ways to move an object:
 
 1. Apply a force or impulse to the object. The force will slowly change the velocity of the object over time, and the impulse will immediately modify the velocity of the object.
-2. It is possible to directly modify the location of the object, but this does not give you the real physics simulation, you should try to use force or impulse to move a __Rigidbody__ to make the physics world more consistent.
+2. It is possible to directly modify the location of the object, but this does not give you the real physics simulation, you should try to use force or impulse to move a RigidBody to make the physics world more consistent.
 
 ```ts
-// Apply a force to the point specified on the rigidbody, this point is a point in the world coordinate system
+// Apply a force to the point specified on the RigidBody, this point is a point in the world coordinate system
 rigidbody.applyForce(force, point);
 
 // or apply force directly to the mass of the rigid body
@@ -194,16 +194,16 @@ rigidbody.applyLinearImpulse(impulse, point);
 Force and impulse can also affect the rotation only, this kind of force is called torque.
 
 ```ts
-// Apply torque to rigidbody. because it only affects the rotation, so no longer need to specify a point
+// Apply torque to RigidBody. because it only affects the rotation, so no longer need to specify a point
 rigidbody.applyTorque(torque);
 
-// Apply the impulse on the rotating shaft to the rigidbody
+// Apply the impulse on the rotating shaft to the RigidBody
 rigidbody.applyAngularImpulse(impulse);
 ```
 
 ### Other Information
 
-Sometimes you need to get the velocity of a __Rigidbody__ at a certain point, you can get by `getLinearVelocityFromWorldPoint` API, such as when the object collides with a platform, we need to determine whether the object is colliding from top or bottom of the platform according to the velocity of the collision point relative to the platform.
+Sometimes you need to get the velocity of a RigidBody at a certain point, you can get by `getLinearVelocityFromWorldPoint` API, such as when the object collides with a platform, we need to determine whether the object is colliding from top or bottom of the platform according to the velocity of the collision point relative to the platform.
 
 ```ts
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);

@@ -1,6 +1,6 @@
 # Loading and Preloading
 
-> Author: Santy-Wang, Xunyi 
+> Author: Santy-Wang, Xunyi
 
 In order to minimize download times, most of the loading interfaces in Asset Manager, including `load`, `loadDir`, and `loadScene` have their own corresponding preloaded versions. The parameters used for the loading interfaces and the preloading interfaces are exactly the same, with the following differences:
 

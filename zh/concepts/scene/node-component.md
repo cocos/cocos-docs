@@ -73,6 +73,20 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 关于更多其他的组件详情，请参考 [组件](../../editor/components/index.md) 文档。
 
+## 设置节点的可见性
+
+引擎采用更加通用的节点，和相机相匹配。当节点设置的 Layer 属性包含在相机的 [Visibility 属性](../../editor/components/camera-component.md) 中时，节点便可以被相机看见，同时支持 3D 组件与 2D 组件的混合渲染。以便更灵活地控制节点组件的可见性，使分组显示多样化。
+
+### 设置节点的 Layer 属性
+
+![node layer gizmo](scene/node-layer-gizmo.png)
+
+节点的 Layer 属性是全局且唯一的，但是不同的节点可以设置相同的 Layer 属性，使其被同一个相机所观察。开发者可以使用引擎内置的 Layer 属性，也可以使用自定义的 Layer 属性，点击下图中的 **Edit** 按钮即可前往 **项目设置 -> Layers** 页面进行设置。详情请参考 [层级](layer.md) 文档。
+
+![layer edit](scene/node-layer-edit.png)
+
+其中 `User Layer 0` - `User Layer 19` 是提供给用户自定义设置的 layer 属性，用户只需要在 layer 后面填入自定义 layer name 就可以启用这个 layer 属性，并在节点上编辑。
+
 ## 小结
 
 上面的例子中，我们先是将 MeshRenderer 组件和节点组合，有了可以指定渲染材质的网格资源，接下来我们通过修改节点属性，能够对这个模型进行缩放和旋转等不同方式的显示。现在我们又为这个节点添加了 DirectionalLight 组件，让节点可以根据平行光源的不同状态展现不同的效果。这就是 Cocos Creator 3.0 组件式开发的工作流程，我们可以用这样的方式将不同的功能组合在一个节点上，实现更多复杂目标。

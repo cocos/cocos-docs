@@ -7,10 +7,23 @@
 - [Getting Started](getting-started/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
+    - [Project Structure](getting-started/project-structure/index.md)
+    - [Editor Panels](editor/index.md)
+        - [Scene](editor/scene/index.md)
+        - [Hierarchy](editor/hierarchy/index.md)
+        - [Assets](editor/assets/index.md)
+        - [Inspector](editor/inspector/index.md)
+        - [Console](editor/console/index.md)
+        - [Animation](editor/animation/index.md)
+        - [Preferences](editor/preferences/index.md)
+        - [Project Settings](editor/project/index.md)
+        <!--- [Editor Layout](editor/editor-layout/index.md)-->
+        - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)
     - [Support](getting-started/support.md)
     - [Caution!](getting-started/attention/index.md)
-- [Cocos Creator 3.0 Preview Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
+- [Upgrade Guide](release-notes/index.md)
+    - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
 
 ## Editor Manual
 
@@ -43,7 +56,6 @@
     - [Edit Animation Curve](editor/animation/animation-curve.md)
     - [Animation event](editor/animation/animation-event.md)
 - [Terrain System](editor/terrain/index.md)
-- [Lightmap](editor/lightmap/index.md)
 
 - [Build and Publish](editor/publish/index.md)
     - [About the Build Panel](editor/publish/build-panel.md)
@@ -93,6 +105,8 @@
     - [Spherical Lights](concepts/scene/light/sphere-light.md)
     - [Spotlights](concepts/scene/light/spot-light.md)
     - [Ambient Lights](concepts/scene/ambient.md)
+    - [Additive per-pixel lights](concepts/scene/light/additive-per-pixel-lights.md)
+    - [Lightmapping](concepts/scene/light/lightmap.md)
 
 - [Materials System](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)
@@ -122,6 +136,7 @@
     - [Animation Clips](engine/animation/animation-clip.md)
     - [Animation State](engine/animation/animation-state.md)
     - [Skeletal Animation](engine/animation/skeletal-animation.md)
+    - [Joint Texture Layout Settings](editor/project/joint-texture-layout.md)
 - [Tween](tween/index.md)
 
 - [Physics](physics/physics.md)
@@ -169,6 +184,10 @@
     - [BoxCollider](physics/physics-component.md#boxcollider)
     - [SphereCollider](physics/physics-component.md#spherecollider)
     - [RigidBody](physics/physics-component.md#rigidbody)
+    - [Spine Skeleton](editor/components/spine.md)
+    - [DragonBones ArmatureDisplay](editor/components/dragonbones.md)
+    - [TiledMap](editor/components/tiledmap.md)
+    - [TiledTile](editor/components/tiledtile.md)
     - [UI Component Reference](ui-system/components/editor/index.md)
         - [UI Renderer Component](ui-system/components/editor/render-component.md)
             - [Sprite Reference](ui-system/components/editor/sprite.md)
@@ -254,7 +273,10 @@
     - [Audio](asset/audio.md)
     - [Material](asset/material.md)
     - [Mesh](asset/mesh.md)
-    - [Animation assets](asset/anim.md)
+    - [Animation Assets](asset/anim.md)
+    - [Spine](asset/spine.md)
+    - [DragonBones](asset/dragonbones.md)
+    - [TiledMap](asset/tiledmap.md)
 
 ## Advanced
 
@@ -268,7 +290,8 @@
     - [Contributions](editor/extension/contributions.md)
         - [Message](editor/extension/contributions-messages.md)
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
-        - [Menu](editor/extension/contributions-menu.md)
+        - [Extending the main menu](editor/extension/contributions-menu.md)
+        - [Extending the Assets Panel](editor/assets/extension.md)
     - [Basic](editor/extension/basic.md)
         - [Extension](editor/extension/package.md)
         - [Message](editor/extension/messages.md)

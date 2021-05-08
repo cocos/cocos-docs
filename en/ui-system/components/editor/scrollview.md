@@ -8,11 +8,11 @@ __ScrollView__ is a container with a scroll function. It provides a way to brows
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/ScrollView__ to add the ScrollView component to the node.
 
-To use `ScrollView`, please refer to the [ScrollView API](__APIDOC__/en/classes/ui.scrollview.html) documentation and the [scrollView](https://github.com/cocos-creator/test-cases-3d/tree/master/assets/cases/ui/06.scrollView) scene of the test-cases-3d project.
+To use `ScrollView`, please refer to the [ScrollView API](__APIDOC__/en/classes/ui.scrollview.html) documentation and the [ScrollView](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/06.scrollview) scene of the test-cases-3d project.
 
 ## ScrollView Properties
 
-| Properties           | Function Explanation  |
+| Property           | Function Explanation  |
 | :-------------       | :----------           |
 | BounceDuration       | Floating point number, the time duration for bounce back. The value range is __0-10__ |
 | Brake                | Floating point number, the deceleration coefficient after scrolling. The value range is __0-1__. If set to 1, then the scrolling will stop immediately, if set to 0, then the scrolling will continue until the content border |
@@ -59,7 +59,7 @@ The `view` here is used to define a scroll area that can be displayed. As a resu
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, ScrollView, EventHandler } from "cc";
+import { _decorator, Component, ScrollView, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -68,7 +68,7 @@ export class example extends Component {
         const scrollViewEventHandler = new EventHandler();
         // This node is the node to which your event handler code component belongs
         scrollViewEventHandler.target = this.node;
-        // This is the code file name
+        // This is the script class name
         scrollViewEventHandler.component = 'example';
         scrollViewEventHandler.handler = 'callback';
         scrollViewEventHandler.customEventData = 'foobar';
@@ -78,7 +78,7 @@ export class example extends Component {
     }
 
     callback(scrollview, eventType, customEventData){
-        // here scrollview is a Scrollview component object instance
+        // here scrollview is a ScrollView component object instance
         // here the eventType === ScrollView.EventType enum
         // here the customEventData parameter is equal to the "foobar" you set before
     }
@@ -91,7 +91,7 @@ By `scrollview.node.on('scroll-to-top', ...)` way to add.
 
 ```js
 // Suppose we add an event handler callback to the onLoad method of a component and handle the event in the callback function:
-import { _decorator, Component, ScrollView } from "cc";
+import { _decorator, Component, ScrollView } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")

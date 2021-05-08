@@ -34,7 +34,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 After the image is set to a spriteframe, texture or other image types, an asset of the corresponding type will be generated in the **Assets Panel**. But if `test assets/image` is loaded directly, and the type will be `ImageAsset`. You must specify the full path of sub asset, then the generated SpriteFrame can be loaded.
 
 ```typescript
-// load a SpriteFrame，image is ImageAsset，spriteFrame is image/spriteFrame, texture is image/texture
+// load a SpriteFrame, image is ImageAsset, spriteFrame is image/spriteFrame, texture is image/texture
 resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
@@ -49,7 +49,7 @@ resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Textu
 });
 ```
 
-> **Note**: If a __type__ parameter is specified, an asset of the specified type will be found under the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both `player.clip` and `player.psd`), should need to declare types. When you need to get a "sub-asset" (such as getting the sub-asset __SpriteFrame__ of __ImageAsset__), you need to specify the path of the sub-asset.
+> **Note**: if a __type__ parameter is specified, an asset of the specified type will be found under the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both `player.clip` and `player.psd`), should need to declare types. When you need to get a "sub-asset" (such as getting the sub-asset __SpriteFrame__ of __ImageAsset__), you need to specify the path of the sub-asset.
 
 ### Load SpriteFrames from Atlas
 
@@ -132,20 +132,32 @@ device files:
 ```typescript
 // Remote texture url with file extensions
 let remoteUrl = "http://unknown.org/someres.png";
-assetManager.loadRemote(remoteUrl, function (err, texture) {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
+    // ...
 });
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-assetManager.loadRemote(remoteUrl, {type: 'png'}, function () {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
+    // ...
 });
 
 // Use absolute path to load files on device storage
 let absolutePath = "/dara/data/some/path/to/image.png"
-assetManager.loadRemote(absolutePath, function () {
-    // Use texture to create sprite frame
+assetManager.loadRemote<ImageAsset>(absolutePath, function (err, imageAsset) {
+    const spriteFrame = new SpriteFrame();
+    const texture = new Texture2D();
+    texture.image = imageAsset;
+    spriteFrame.texture = texture;
+    // ...
 });
 
 // Remote Audio
