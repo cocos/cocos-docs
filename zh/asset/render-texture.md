@@ -38,6 +38,8 @@ export class CaptureToWeb extends Component {
         this.camera.targetTexture = renderTex;
         sp.texture = renderTex;
         this.sprite.spriteFrame = sp;
+        // 需要手动调用下该函数，使RT能在各平台正确显示
+        this.sprite.updateMaterial();
     }
 }
 
@@ -58,8 +60,15 @@ export class RenderCameraToModel extends Component {
         const cameraComp = this.getComponent(Camera);
         cameraComp.targetTexture = renderTex;
         const pass = this.model.material.passes[0];
-        const binding = pass.getBinding('mainTexture');
-        pass.bindTextureView(binding, renderTex.getGFXTextureView());
+        // 设置SAMPLE_FROM_RT宏为true的目的是为了使RT在各个平台能正确显示
+        const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
+        const renderMat = new Material();
+        renderMat.initialize({
+            effectAsset: this.model.material.effectAsset,
+            defines,
+        });
+        this.model.setMaterial(renderMat, 0);
+        renderMat.setProperty('mainTexture', renderTex, 0);
     }
 }
 ```

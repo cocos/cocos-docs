@@ -39,6 +39,8 @@ export class CaptureToWeb extends Component {
         this.camera.targetTexture = renderTex;
         sp.texture = renderTex;
         this.sprite.spriteFrame = sp;
+        // Need to manually call this function to make RT display correctly on each platform
+        this.sprite.updateMaterial();
     }
 }
 
@@ -59,8 +61,15 @@ export class RenderCameraToModel extends Component {
         const cameraComp = this.getComponent(Camera);
         cameraComp.targetTexture = renderTex;
         const pass = this.model.material.passes[0];
-        const binding = pass.getBinding('mainTexture');
-        pass.bindTextureView(binding, renderTex.getGFXTextureView());
+        // Set the SAMPLE_FROM_RT macro to true so that RT can be displayed correctly on each platform
+        const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
+        const renderMat = new Material();
+        renderMat.initialize({
+            effectAsset: this.model.material.effectAsset,
+            defines,
+        });
+        this.model.setMaterial(renderMat, 0);
+        renderMat.setProperty('mainTexture', renderTex, 0);
     }
 }
 ```
