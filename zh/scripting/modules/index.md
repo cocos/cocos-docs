@@ -4,6 +4,8 @@
 
 - [引擎模块](./engine.md)
 
-- [示例：使用 npm 包 protobufjs](./example-protobufjs.md)
+- [如何获取 npm 包](./config.md)
+
+- [示例：外部模块使用案例](./example.md)
 
 最后，本章节较为详细地给出了在 Cocos Creator 编辑器中使用模块的 [规范](./spec.md)。
