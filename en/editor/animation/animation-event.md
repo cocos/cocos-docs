@@ -18,7 +18,7 @@ At the added time frame position, __right-click__ and select __Delete__. Deletin
 
 ## Add an event frame function
 
-__Click__ the `+` button on the upper left of the __Event Function Editor__ to add a new event frame function.
+__Enter__ the input on the upper of the __Event Function Editor__, then press __Enter__ or __Click__ the `+` button on the upper left of the __Event Function Editor__ to add a new event frame function.
 
 ![add-function](animation-event/add-function.png)
 
@@ -33,7 +33,5 @@ To delete a frame function at the corresponding time position separately, you ca
 __Double-click__ the __event frame__ just added to open the __Event Editor__. In the editor, we can manually enter the name of the function that needs to be triggered. When the event is triggered, animation system will execute all corresponding method with the same name in each component of the __animation root node__.
 
 If you need to add the incoming parameters, __click__ `+` or `-` next to __Params__. Currently, only __three__ types of parameters are supported: *Boolean*, *String*, and *Number*.
-
-After the modification occurs, a __red asterisk__ will appear next to the title of the __Event Function Editor__. The modification of the event function needs to be manually saved. After the modification, __click__ the __save button__ above to save. If not saved, there will be a pop-up box prompting to save when closing the __Event Editor__.
 
 ![edit-event](animation-event/edit-event.png)
