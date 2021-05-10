@@ -38,6 +38,8 @@ export class CaptureToWeb extends Component {
         this.camera.targetTexture = renderTex;
         sp.texture = renderTex;
         this.sprite.spriteFrame = sp;
+        // 需要手动调用下该函数，使RT能在各平台正确显示
+        this.sprite.updateMaterial();
     }
 }
 
@@ -58,10 +60,36 @@ export class RenderCameraToModel extends Component {
         const cameraComp = this.getComponent(Camera);
         cameraComp.targetTexture = renderTex;
         const pass = this.model.material.passes[0];
-        const binding = pass.getBinding('mainTexture');
-        pass.bindTextureView(binding, renderTex.getGFXTextureView());
+        // 设置SAMPLE_FROM_RT宏为true的目的是为了使RT在各个平台能正确显示
+        const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
+        const renderMat = new Material();
+        renderMat.initialize({
+            effectAsset: this.model.material.effectAsset,
+            defines,
+        });
+        this.model.setMaterial(renderMat, 0);
+        renderMat.setProperty('mainTexture', renderTex, 0);
     }
 }
 ```
 
-更多方法请参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture)）。
+## RenderTexture作为材质贴图
+
+### 1.在 effect 中处理 uv:
+
+判断 SAMPLE_FROM_RT,并调用 CC_HANDLE_RT_SAMPLE_FLIP 函数
+
+```
+#if USE_TEXTURE
+    v_uv = a_texCoord * tilingOffset.xy + tilingOffset.zw;
+    #if SAMPLE_FROM_RT
+        CC_HANDLE_RT_SAMPLE_FLIP(v_uv);
+    #endif
+#endif
+```
+
+### 2.在对应的材质中勾选 SAMPLE_FROM_RT 为 true:
+
+![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
+
+更多方法请参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture)）。
