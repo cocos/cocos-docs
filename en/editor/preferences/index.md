@@ -62,20 +62,8 @@ About Laboratory:
 
 3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/c/33), you can make those features more powerful and easier to use in your own projects.
 
-### Use The Search Pop To Add Components
+![laboratory](./index/laboratory.png)
 
-Many users feedback that components can not be searched when add components make they inconvenient. In the face of massive custom scripts component of many projects, find their own scripting components is very difficult.But use the search pop means multi-step operation. Of course, you can turn this option back to the original use.
+- **Turn on baking functions**: Used to turn on the baking functions, for details, please refer to the [Light Map](./../../concepts/scene/light/lightmap.md) documentation.
 
-![add components](./index/add-component.jpg)
-
-In order to make user more convenient, we also add some auxiliary editing design:
-
-- The focus will be in the search box when the pop-up window is opened, and you can directly search for related keywords without mouse click to expand;
-
-- When searching for related components, you can directly use the shortcut keys `↑ ↓` to quickly switch component options, and press the `enter` key to add the component;
-
-For this feature, if you have more awesome suggestions, welcome to tell us in the [forum](https://discuss.cocos2d-x.org/c/33).
-
-### Turn on terrain
-
-For more details can refer to [Terrain system](../terrain/index.md) documentation.
+- **Scene Instant Cache**: Used to turn on the scene instant cache function, which is enabled by default. After opening, the scene file will be cached to the `temp/scene/[SCENE_UUID]/[TIME].json` location in the project directory at intervals during the scene editing process. In case of emergencies such as scene crash, progress stuck, etc. Next time the editor is opened, a pop-up window will ask whether to apply the latest scene file in the cache. It should be noted that once the scene is opened normally, the cache files before opening will be cleaned up. For special needs and the need to browse the specified cached scene files manually, please operate with the corresponding scene closed.
