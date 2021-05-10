@@ -10,7 +10,7 @@ Cocos Creator 3.0 采用与 Cocos Creator v2.x 统一的资源管理机制，在
 
 ## 资源属性的声明
 
-在 Cocos Creator 3.0 中，所有继承自 `Asset` 的类型都统称资源，如 `Texture2D`、`SpriteFrame`、`AnimationClip`、`Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
+在 Cocos Creator 中，所有继承自 `Asset` 的类型都统称资源，如 `Texture2D`、`SpriteFrame`、`AnimationClip`、`Prefab` 等。它们的加载是统一并且自动化的，相互依赖的资源能够被自动预加载。
 
 > 例如，当引擎在加载场景时，会先自动加载场景关联到的资源，这些资源如果再关联其它资源，其它也会被先被加载，等加载全部完成后，场景加载才会结束。
 

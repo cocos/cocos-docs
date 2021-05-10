@@ -94,7 +94,7 @@ rigidbody.enabledContactListener = true;
 
 ## 刚体类型
 
-Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 3.0 里多添加了一个类型：**Animated**。
+Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 中多添加了一个类型：**Animated**。
 
 Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。

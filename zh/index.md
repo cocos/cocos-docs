@@ -1,6 +1,6 @@
-# Cocos Creator 3.0 用户手册
+# Cocos Creator 3.1 用户手册
 
-欢迎使用 Cocos Creator 3.0 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 3.0 开发跨平台游戏的方法。
+欢迎使用 Cocos Creator 3.1 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
 
 > **注意**：请在右上角根据您使用的 Cocos Creator 版本选择相应的手册版本。
 
@@ -35,7 +35,7 @@
 - **弹弹乐 3D**（[GitHub](https://github.com/cocos-creator/demo-ball) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ball)）：用户可通过此项目制作弹弹球游戏。
 - **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）：基于物理的游戏制作 demo，用户可通过此项目制作快上车游戏。
 
-> **注意**：这些项目会不定期跟随版本进行更新。它们在 GitHub 上的默认分支是 master，对应的一般是最新的 Cocos Creator 及版本。如果仍在使用旧版本的 Cocos Creator，这些项目有可能会打不开，可尝试切换到和旧版本相同命名的分支。
+> **注意**：这些项目会不定期跟随版本进行更新。它们在 GitHub 上的默认分支是 master，对应的一般是最新的 Cocos Creator 版本。如果仍在使用旧版本的 Cocos Creator，这些项目有可能会打不开，可尝试切换到和旧版本相同命名的分支。
 
 ## 视频教程
 

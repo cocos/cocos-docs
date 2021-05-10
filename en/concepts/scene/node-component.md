@@ -1,8 +1,8 @@
 # Nodes and Components
 
-The workflow of Cocos Creator 3.0 is centered on component-based development, also known as an **Entity-Component System**, which simply means that the various elements of the game are built in a combinatorial rather than an inherited manner.
+The workflow of Cocos Creator is centered on component-based development, also known as an **Entity-Component System**, which simply means that the various elements of the game are built in a combinatorial rather than an inherited manner.
 
-In Cocos Creator 3.0, a **Node** is an entity that hosts a component, and we mount **Component** with various functions on it to give it a variety of representations and functions. Let's see how to create nodes and add components to a scene.
+In Cocos Creator, a **Node** is an entity that hosts a component, and we mount **Component** with various functions on it to give it a variety of representations and functions. Let's see how to create nodes and add components to a scene.
 
 ## Nodes
 

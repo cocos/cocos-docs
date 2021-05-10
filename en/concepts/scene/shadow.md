@@ -2,7 +2,7 @@
 
 In the 3D world, light and shadow have always been extremely important components that enrich the entire environment. High quality shadows can make the game world look more realistic.
 
-Creator 3.0 currently supports both **Planar** and **ShadowMap** shadow types.
+Cocos Creator 3.0 currently supports both **Planar** and **ShadowMap** shadow types.
 
 ![shadow](shadow/shadowExample.png)
 
