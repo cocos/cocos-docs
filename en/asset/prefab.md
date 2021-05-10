@@ -52,13 +52,27 @@ Icon|Description
 
 ### Add New Node
 
-A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name., and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
+A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
 
 ![prefab mounted](prefab/prefab-mounted-children.png)
 
-## Some Current Restrictions
+### Add New Component
+A new component added under the __Prefab Instance__ will have a **+** sign at the end of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
 
-- Add/remove components in the __Prefab Instance__
-- Delete the node created from the __Prefab Asset__ in the __Prefab Instance__
-- Change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__
-- Do not allow prefabs to nest themselves
+![instance-add-component](prefab/instance-add-component.png)
+
+### Remove Component
+A new component added under the __Prefab Instance__ will have a deleted data item show in the __Inspector__, its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
+
+![instance-remove-component](prefab/instance-remove-component.png)
+
+It will show two buttons in the end of deleted data item:
+Icon|Description
+:---|:---
+![revert-remove-component](prefab/revert-remove-component.png)|revert the removed component
+![apply-remove-component](prefab/apply-remove-component.png)|apply the remove component operation to the associated __Prefab Asset__
+
+## Some Current Restrictions
+- It is not allowed to delete the node created from the __Prefab Asset__ in the __Prefab Instance__.
+- It is not allowed to change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__.
+- Do not allow prefabs to nest themselves.
