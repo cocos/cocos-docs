@@ -292,6 +292,7 @@
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
         - [Extending the main menu](editor/extension/contributions-menu.md)
         - [Extending the Assets Panel](editor/assets/extension.md)
+        - [Extending the Preferences Panel](editor/extension/contributions-preferences.md)
     - [Basic](editor/extension/basic.md)
         - [Extension](editor/extension/package.md)
         - [Message](editor/extension/messages.md)
