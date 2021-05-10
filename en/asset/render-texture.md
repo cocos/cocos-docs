@@ -73,5 +73,18 @@ export class RenderCameraToModel extends Component {
     }
 }
 ```
+## RenderTexture as a texture map
 
-For more __Render Texture__ examples, please see these [test cases](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture).
+### 1.Process uv in effect:
+Determine SAMPLE_FROM_RT and call CC_HANDLE_RT_SAMPLE_FLIP function
+```
+#if USE_TEXTURE
+    v_uv = a_texCoord * tilingOffset.xy + tilingOffset.zw;
+    #if SAMPLE_FROM_RT
+        CC_HANDLE_RT_SAMPLE_FLIP(v_uv);
+    #endif
+#endif
+```
+### 2.Check SAMPLE_FROM_RT as true in the corresponding material:
+![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
+For more __Render Texture__ examples, please review the [test cases](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture).

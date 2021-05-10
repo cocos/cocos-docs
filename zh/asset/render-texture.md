@@ -72,5 +72,19 @@ export class RenderCameraToModel extends Component {
     }
 }
 ```
+## RenderTexture作为材质贴图
+
+### 1. 在effect中处理uv:
+判断SAMPLE_FROM_RT,并调用CC_HANDLE_RT_SAMPLE_FLIP函数
+```
+#if USE_TEXTURE
+    v_uv = a_texCoord * tilingOffset.xy + tilingOffset.zw;
+    #if SAMPLE_FROM_RT
+        CC_HANDLE_RT_SAMPLE_FLIP(v_uv);
+    #endif
+#endif
+```
+### 2. 在对应的材质中勾选SAMPLE_FROM_RT为true:
+![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
 更多方法请参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture)）。
