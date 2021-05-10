@@ -22,7 +22,7 @@ The nodes displayed in the upper level are referred to as parent nodes and those
 
 ![in_hierarchy](node-tree/in_hierarchy.png)
 
-Creator 3.0 UI nodes require any parent node to have at least one **UITransform** component, if it does not comply with the rules, a Canvas node will be automatically added as its parent, the node tree in the above figure puts all UI nodes under the Canvas node. Next, parent nodes are created according to the category and put nodes of the same category under one parent node to build the node tree.
+In Cocos Creator 3.0, UI nodes require any parent node to have at least one **UITransform** component, if it does not comply with the rules, a Canvas node will be automatically added as its parent, the node tree in the above figure puts all UI nodes under the Canvas node. Next, parent nodes are created according to the category and put nodes of the same category under one parent node to build the node tree.
 
 In real game projects, other methods (such as game logic) can be used to organize the node tree as needed.
 

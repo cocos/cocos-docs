@@ -35,7 +35,7 @@ The option `type` specifies the `cctype` of the attribute. The type can be speci
   The type specified by the constructor is directly used as the `cctype` of the attribute.<br>
   > **Note**: when Javascript built-in constructors `Number`, `String`, `Boolean` A warning will be given when used as a `cctype`, and they are regarded as `cctype`'s `CCFloat`, `CCString`, and `CCBoolean` respectively.
 
-- Cocos Creator 3.0 built-in attribute type identification. 
+- Cocos Creator 3.0 built-in attribute type identification.
 
   `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in attribute type identifiers.
   - `CCInteger` declares the type as **integer**.

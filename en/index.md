@@ -1,6 +1,6 @@
-# Cocos Creator 3.0 User Manual
+# Cocos Creator 3.1 User Manual
 
-Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed instructions, a workflow for users, and a step-by-step tutorial for beginners. This manual can help you quickly learn how to develop cross-platform games with __Cocos Creator 3.0__.
+Welcome to the __Cocos Creator 3.1__ user manual! This manual includes detailed instructions, a workflow for users, and a step-by-step tutorial for beginners. This manual can help you quickly learn how to develop cross-platform games with __Cocos Creator__.
 
 > **Note**: please select the corresponding manual version in the upper right corner according to the __Cocos Creator 3.0__ version you are using.
 
@@ -36,4 +36,4 @@ Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed 
 - [Jump Ball 3D](https://github.com/cocos-creator/demo-ball): Users can make jump ball games through this project.
 - [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game): Physics-based game demo, users can make taxi games through this project.
 
-> **Note**: the above items will be updated from time to time. Their default branch on GitHub is `master`, which generally corresponds to the latest __Cocos Creator 3.0__ version. If you are still using an older version of __Cocos Creator 3.0__, these projects may not open, try to switch to the same named branch as the old version.
+> **Note**: the above items will be updated from time to time. Their default branch on GitHub is `master`, which generally corresponds to the latest __Cocos Creator__ version. If you are still using an older version of __Cocos Creator__, these projects may not open, try to switch to the same named branch as the old version.

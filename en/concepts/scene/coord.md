@@ -8,9 +8,9 @@ Position properties for nodes can be set, but where will a node with a specific 
 
 ### World Coordinate
 
-The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator 3.0 game development, and "world" is used to represent our game scene.
+The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator game development, and "world" is used to represent our game scene.
 
-The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
+The world coordinate system of Creator 3.0 uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
 
 ![right hand](coord/right_hand.png)
 
@@ -18,7 +18,7 @@ The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate
 
 The local coordinate system, also called the relative coordinate system, is the coordinate system associated with the node. Each node has a separate coordinate system, and when the node moves or changes direction, the coordinate system associated with that node will move or change direction with it.
 
-Creator 3.0 has a hierarchy of parent-child relationships between **Nodes**, and the position of a node set by modifying its `Position` property is the node's **local coordinate system** with respect to its parent, not the world coordinate system.
+Creator has a hierarchy of parent-child relationships between **Nodes**, and the position of a node set by modifying its `Position` property is the node's **local coordinate system** with respect to its parent, not the world coordinate system.
 
 Finally when drawing the whole scene, Creator will map the local coordinates of these nodes to world coordinate system coordinates. <br>
 Suppose there are three nodes in the scene: NodeA, NodeB, and NodeC. The structure of the nodes is shown in the following figure.

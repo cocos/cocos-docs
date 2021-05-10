@@ -2,7 +2,7 @@
 
 > 属性参数用来给已定义的属性附加元数据，类似于脚本语言的 Decorator 或者 C# 的 Attribute。
 
-### 属性检查器相关参数
+## 属性检查器相关参数
 
 | 参数名 | 说明 | 类型 | 默认值 | 备注 |
 | :--- | :--- | :-- | :--- | :--- |
@@ -18,7 +18,7 @@
 | range | 一次性设置 min、max、step | [min, max, step] | undefined | step 值可选 |
 | slide | 在 **属性检查器** 面板中显示为滑动条 | boolean | false | - |
 
-### 序列化相关参数
+## 序列化相关参数
 
 以下参数不能用于 get 方法：
 
@@ -28,7 +28,7 @@
 | formerlySerializedAs | 指定之前序列化所用的字段名 | string | undefined | 重命名属性时，声明这个参数来兼容之前序列化的数据 |
 | editorOnly | 在导出项目前剔除该属性 | boolean | false | - |
 
-### 其它参数
+## 其它参数
 
 | 参数名 | 说明 | 类型 | 默认值 | 备注 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -37,4 +37,4 @@
 | override | 当重写父类属性时需要定义该参数为 true | boolean | false | 详见 [override 参数](../ccclass.md#override参数) |
 | animatable | 该属性是否能被动画编辑器修改 | boolean | undefined | - |
 
-**注1**：visible 的默认值取决于属性名。当属性名以下划线 `_` 开头时，默认隐藏，否则默认显示。
+**注 1**：visible 的默认值取决于属性名。当属性名以下划线 `_` 开头时，默认隐藏，否则默认显示。

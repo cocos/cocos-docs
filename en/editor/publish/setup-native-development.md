@@ -54,7 +54,10 @@ Please install the following running environment:
 
 - In Mac, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
 
-  > **Note**: Starting with v3.0.1, Xcode v11.5 and above is required.
+  > **Notes**:
+  >
+  > 1. Starting with **v3.0.1**, Xcode **v11.5** and above is required.
+  > 2. Starting with **v3.1**, macOS **v10.14** and above is required.
 
 ## Configure Native Develop environments path
 

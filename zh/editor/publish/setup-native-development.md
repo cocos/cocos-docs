@@ -26,7 +26,7 @@ java -version
 
 ### 下载安装 Android Studio
 
-Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4.1 及以上版本** 作为安卓平台的构建工具，并在 Android Studio 中下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](https://developer.android.google.cn/studio#downloads)。
+Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4.1 及以上版本** 作为安卓平台的构建工具，并在 Android Studio 中下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](https://developer.android.google.cn/studio#downloads)。
 
 ### 下载发布 Android 平台所需的 SDK 和 NDK
 
@@ -52,7 +52,10 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 
 - Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)。
 
-  > **注意**：从 v3.0.1 开始，要求使用的 Xcode 版本为 **11.5** 及以上。
+  > **注意**：
+  >
+  > 1. 从 **v3.0.1** 开始，要求使用的 Xcode 版本为 **11.5** 及以上。
+  > 2. 从 **v3.1** 开始，要求使用的 macOS 版本为 **10.14** 及以上。
 
 ## 配置原生发布环境路径
 
