@@ -66,11 +66,13 @@ The information about the completed build task will be saved in the `profiles/pa
 
 ## Export/Import
 
+![export](build-panel/export.jpg)
+
 ### Export
 
 The **Export** option at the top right of the **Build** panel exports the current configuration of build options to a `JSON` file. This mainly facilitates building from the command-line and sharing the configuration of build options within the same project. The exported configuration of build options are platform-specific. For developers who use the command line to build, you can directly use the `JSON` configuration file as the `configPath` of the command-line build options.
 
-![export](build-panel/export.jpg)
+The exported configuration is differentiated by platform and comes with a version number. Please do not delete the version number to prevent failing to migrate the data when importing the configuration across versions.
 
 ### Import
 

@@ -1,6 +1,6 @@
 # Curve Editor
 
-The curve editor can set the curve of a certain property in the particle system with time. The abscissa represents the unitized life cycle of a particle. For example, the life cycle of a particle is 5s, then 0.5 represents 2.5s. The ordinate represents the attribute value, and the ordinate interval can be adjusted through the upper edit bar. The default interval is [-1,1].
+The curve editor can set the curve of a certain property in the particle system with time. The abscissa represents the unitized life cycle of a particle. For example, the life cycle of a particle is 5s, then 0.5 represents 2.5s. The ordinate represents the attribute value, and the ordinate interval can be adjusted through the upper edit bar. The default interval is **[0, 1]** or **[-1, 1]**.
 
 The interface of the curve editor is as follows:
 

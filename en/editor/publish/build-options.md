@@ -81,20 +81,6 @@ Mouse over this option and an **Edit icon** button will appear. Click this butto
 
 ![Replace Splash Screen](build-options/splash-setting.png)
 
-### Compress Texture
-
-Some compression options can be added to `spriteFrame` type image assets in the editor. Once enabled, the corresponding image assets are generated based on these compression options during build. If disabled, the compression texture will not take effect at build time even if configured.
-
-Please refer to the [Compress Texture](../../asset/compress-texture.md) documentation for details.
-
-### PackAutoAtlas
-
-The **Auto Atlas** is the editor's built-in texture merge. If this is disabled, even if you configure the **Auto Atlas**, it will not take effect at build time.
-
-When the **Auto Atlas** is configured in the `resources` folder, both the clarge and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
-
-Please refer to the [Auto Atlas](../../asset/auto-atlas.md) documentation for details.
-
 ### Earse module structure (experimental)
 
 If this option is checked, importing scripts will be faster, but you will not be able to use module characteristics, such as `import.meta`, `import()`, etc.
@@ -107,6 +93,14 @@ If this option is checked, importing scripts will be faster, but you will not be
 
 When merging assets automatically, all `JSON` files that the **Start Scene** depends on are merged into the package that contains the **Start Scene**. This option is disabled by default. When enabled, it will not increase the overall game size, but if these `JSON` is also used by other scenes, then CPU overhead may increase slightly when they are loaded again.
 -->
+
+### Cocos Service Config Set
+
+This option is used to display all the services integrated in the [Service](https://service.cocos.com/document/en/) panel for the current project.
+
+### Cocos Analytics
+
+If this option is checked, the [Cocos Analytics](https://n-analytics.cocos.com/docs/en/) service in the [Service](https://service.cocos.com/document/en/) panel can be enabled directly.
 
 ## Build options related to each platform
 

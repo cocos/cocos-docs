@@ -76,7 +76,7 @@ Set up the Target API Level required for compiling the Android platform. Click t
 
 #### APP ABI
 
-Set up the CPU types that Android needs to support, including **armeabi-v7a**、**arm64-v8a** and **x86**. You can choose one or more options.
+Set up the CPU types that Android needs to support, including **armeabi-v7a**, **arm64-v8a**, **x86** and **x86_64**. You can choose one or more options.
 
 > **Notes**:
 > 1. When you select an ABI to build and then build another ABI without `Clean`, both ABI's `so` will be packaged into the APK, which is the default behavior of Android Studio. If you import a project with Android Studio, after selecting an ABI to build, run **Build -> Clean Project**, then build another ABI, only the latter ABI will be packaged into the APK.
@@ -141,9 +141,11 @@ Currently, **METAL** and **GLES3** are supported, and **GLES3** is checked by de
 
 ### Build Options for the Mac Platform
 
-The build options for the Mac platform include **Bundle Identifier** and **Render BackEnd**, and the setup method is the same as the iOS platform.
+The build options for the Mac platform include **Bundle Identifier**, **Render BackEnd** and **Support M1**, and the setup method for the first two options is the same as the iOS platform.
 
 ![Mac build options](publish-native/mac-options.png)
+
+v3.1 adds a new **Support M1** option to better flag support issues for some known engine modules on Apple M1 (Silicon) architecture devices.
 
 ## Build a Native Project
 

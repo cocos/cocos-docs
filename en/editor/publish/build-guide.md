@@ -34,9 +34,9 @@ After performing the previous steps, then we need to generate the used assets in
 
     - The non-plugin script will package the source files into `project.js` (`project.dev.js` in debug mode) in the corresponding `src` directory. Checking the `sourceMap` option will generate a corresponding `map` file, and the `debug` option will determine whether the script is compressed or not.
 
-2. **Auto Atlas**: Query all **Auto Altas** assets in the project, and then pack **SpriteFrame** assets within **Auto Altas** into a big **Sprite Atlas** assets, serialize assets to `JSON` according to the configuration of **Auto Atlas** assets. This step will modify the JSON grouping information, asset asset grouping information and add texture compression task. If the **packAutoAtlas** option in the **Build** panel is not checked during the build, no processing is done.
+2. **Auto Atlas**: Query all **Auto Altas** assets in the project, and then pack **SpriteFrame** assets within **Auto Altas** into a big **Sprite Atlas** assets, serialize assets to `JSON` according to the configuration of **Auto Atlas** assets. This step will modify the JSON grouping information, asset asset grouping information and add texture compression task.
 
-3. **Compress Texture**: Compress the texture assets according to the organized texture compression tasks and write them to the folder generated after build. If the **Compress Texture** option in the **Build** panel is not checked during the build, no processing is done.
+3. **Compress Texture**: Compress the texture assets according to the organized texture compression tasks and write them to the folder generated after build.
 
 4. **Build engine**: Follow the settings in the menu bar **Project -> Project Setting -> Modules** to discard the unused engine modules, and package them into the `src/cocos3d.js` file. Checking the sourceMap option will generate a corresponding `map` file. Checking the **debug** option will determine whether the script is compressed or not.
 

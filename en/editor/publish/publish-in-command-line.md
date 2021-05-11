@@ -44,8 +44,8 @@ Currently, when using the command line to build, except for the required build o
     - `startScene`: The uuid of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
     - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
     - `debug`: Whether or not debug mode, the default is `false`.
-    - `packAutoAtlas`: Enabled or disabled the Auto Atlas, the default is `false`.
-    - `compressTexture`: Enabled or disabled the compress texture, the default is `false`.
+    <!-- - `packAutoAtlas`: Enabled or disabled the Auto Atlas, the default is `false`.
+    - `compressTexture`: Enabled or disabled the compress texture, the default is `false`. -->
     - `replaceSplashScreen`: Whether to replace the splash screen, the default is `false`.
     - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
     - `mainBundleCompressionType`: Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression-type).
