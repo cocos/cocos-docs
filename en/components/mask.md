@@ -4,7 +4,7 @@ Mask is used to specify the range where the child node can perform rendering. No
 
 ![add-mask](./mask/add-mask.png)
 
-Click the `add component` button at the bottom of the **Properties** panel and select `Task` from `add rendering component`. You can then add the Mask component to the node.
+Click the `add component` button at the bottom of the **Properties** panel and select `Mask` from `add rendering component`. You can then add the Mask component to the node.
 
 ![mask.png](./mask/mask.png)
 

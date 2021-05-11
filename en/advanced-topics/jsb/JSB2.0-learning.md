@@ -393,6 +393,7 @@ static bool Foo_balabala(se::State& s)
 	int argc = (int)args.size();
 	
 	if (argc >= 2) // Limit the number of parameters must be greater than or equal to 2, or throw an error to the JS layer and return false.
+    {
 		...
 		...
 		return true;
