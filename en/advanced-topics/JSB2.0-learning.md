@@ -179,50 +179,50 @@ As we mentioned in the last section, `se::Object` is a weak reference to the JS 
 
     ```c++
     spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
-            se::Object* seObj = nullptr;
+        se::Object* seObj = nullptr;
 
-            auto iter = se::NativePtrToObjectMap::find(entry);
-            if (iter != se::NativePtrToObjectMap::end())
-            {
-                // Save se::Object pointer for being used in cleanup method.
-                seObj = iter->second;
-                // Unmap native and js object since native object was destroyed.
-                // Otherwise, it may trigger 'assertion' in se::Object::setPrivateData later
-                // since native obj is already released and the new native object may be assigned with
-                // the same address.
-                se::NativePtrToObjectMap::erase(iter);
-            }
-            else
-            {
+        auto iter = se::NativePtrToObjectMap::find(entry);
+        if (iter != se::NativePtrToObjectMap::end())
+        {
+            // Save se::Object pointer for being used in cleanup method.
+            seObj = iter->second;
+            // Unmap native and js object since native object was destroyed.
+            // Otherwise, it may trigger 'assertion' in se::Object::setPrivateData later
+            // since native obj is already released and the new native object may be assigned with
+            // the same address.
+            se::NativePtrToObjectMap::erase(iter);
+        }
+        else
+        {
+            return;
+        }
+
+        auto cleanup = [seObj](){
+
+            auto se = se::ScriptEngine::getInstance();
+            if (!se->isValid() || se->isInCleanup())
                 return;
-            }
 
-            auto cleanup = [seObj](){
+            se::AutoHandleScope hs;
+            se->clearException();
 
-                auto se = se::ScriptEngine::getInstance();
-                if (!se->isValid() || se->isInCleanup())
-                    return;
+            // The mapping of native object & se::Object was cleared in above code.
+            // The private data (native object) may be a different object associated with other se::Object. 
+            // Therefore, don't clear the mapping again.
+            seObj->clearPrivateData(false);
+            seObj->unroot();
+            seObj->decRef();
+        };
 
-                se::AutoHandleScope hs;
-                se->clearException();
-
-                // The mapping of native object & se::Object was cleared in above code.
-                // The private data (native object) may be a different object associated with other se::Object. 
-                // Therefore, don't clear the mapping again.
-                seObj->clearPrivateData(false);
-                seObj->unroot();
-                seObj->decRef();
-            };
-
-            if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
-            {
-                cleanup();
-            }
-            else
-            {
-                CleanupTask::pushTaskToAutoReleasePool(cleanup);
-            }
-        });
+        if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
+        {
+            cleanup();
+        }
+        else
+        {
+            CleanupTask::pushTaskToAutoReleasePool(cleanup);
+        }
+    });
     ```
 
 __se::Object Types__

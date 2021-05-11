@@ -178,25 +178,50 @@ namespace se {
 
     ```c++
     spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
-            // spTrackEntry 的销毁回调
-            se::Object* seObj = nullptr;
+        // spTrackEntry 的销毁回调
+        se::Object* seObj = nullptr;
 
-            auto iter = se::NativePtrToObjectMap::find(entry);
-            if (iter != se::NativePtrToObjectMap::end())
-            {
-                // 保存 se::Object 指针，用于在下面的 cleanup 函数中释放其内存
-                seObj = iter->second;
-                // Native 对象 entry 的内存已经被释放，因此需要立马解除 Native 对象与 JS 对象的关联。
-                // 如果解除引用关系放在下面的 cleanup 函数中处理，有可能触发 se::Object::setPrivateData 中
-                // 的断言，因为新生成的 Native 对象的地址可能与当前对象相同，而 cleanup 可能被延迟到帧结束前执行。
-                se::NativePtrToObjectMap::erase(iter);
-            }
-            else
-            {
+        auto iter = se::NativePtrToObjectMap::find(entry);
+        if (iter != se::NativePtrToObjectMap::end())
+        {
+            // 保存 se::Object 指针，用于在下面的 cleanup 函数中释放其内存
+            seObj = iter->second;
+            // Native 对象 entry 的内存已经被释放，因此需要立马解除 Native 对象与 JS 对象的关联。
+            // 如果解除引用关系放在下面的 cleanup 函数中处理，有可能触发 se::Object::setPrivateData 中
+            // 的断言，因为新生成的 Native 对象的地址可能与当前对象相同，而 cleanup 可能被延迟到帧结束前执行。
+            se::NativePtrToObjectMap::erase(iter);
+        }
+        else
+        {
+            return;
+        }
+
+        auto cleanup = [seObj](){
+            auto se = se::ScriptEngine::getInstance();
+            if (!se->isValid() || se->isInCleanup())
                 return;
-            }
 
-            auto cleanup = [seObj](){
+            se::AutoHandleScope hs;
+            se->clearException();
+
+            // 由于上面逻辑已经把映射关系解除了，这里传入 false 表示不用再次解除映射关系,
+            // 因为当前 seObj 的 private data 可能已经是另外一个不同的对象
+            seObj->clearPrivateData(false);
+            seObj->unroot(); // unroot，使 JS 对象受 GC 管理
+            seObj->decRef(); // 释放 se::Object
+        };
+
+        // 确保不在垃圾回收中去操作 JS 引擎的 API
+        if (!se::ScriptEngine::getInstance()->isGarbageCollecting())
+        {
+            cleanup();
+        }
+        else
+        { // 如果在垃圾回收，把清理任务放在帧结束中进行
+            CleanupTask::pushTaskToAutoReleasePool(cleanup);
+        }
+    });
+    ```
 
 __对象类型__
 
