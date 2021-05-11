@@ -199,7 +199,7 @@ The Spine attachment function allows for the detection of a collision of a part 
 
 ![collider](./spine/collider0.png)
 
-1. First, set the **2D Physics System** to **Builtin 2D Physics System** in the **Project -> Project Settings -> Feature Crop** of the editor menu bar.
+1. First, set the **2D Physics System** to **Builtin 2D Physics System** in the **Project -> Project Settings -> Feature Cropping** of the editor menu bar.
 
     ![collider](./spine/collider1.png)
 

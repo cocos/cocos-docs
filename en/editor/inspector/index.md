@@ -1,103 +1,112 @@
-# Inspector panel
+# Inspector Panel
 
-The **Inspector** is important for viewing and editing the properties of nodes or assets. You can edit the location of a node, components, pictures, materials, models and other assets of a node.
+The **Inspector** panel is the work area for viewing and editing the currently selected nodes, node components, and assets. Properties can be displayed and edited in the **Inspector** panel by selecting a node in the **Scene** panel or **Hierarchy** panel, or by selecting a asset in the **Assets** panel.
 
-The **Inspector** features many details and can seem complicated. To get started, aselect the node in **Scene** panel, **Hierarchy** panel, or select the asset in **Assets** panel. Properties can now be displayed or edited.
+! [introduce](index/introduce.gif)
 
-![introduce](index/introduce.gif)
+## Panel Overview
 
-## Header area
+! [inspeactor](index/inspeactor-panel.png)
 
-The **two arrows** on the left are the historical records, click to switch the editing items. The **lock icon** on the right can lock the panel, fix the edited object, and prevent the panel from changing with the new selected item.
+The **Inspector** panel can be roughly divided into two parts: **Toolbar** and **Property Settings**.
 
-![header](index/header.png)
+## Toolbar
 
-## Editing a Node
+The **two arrows** in the top left corner are the edit history, click on them to advance/reverse the selected nodes/assets. <br>
+The **lock icon** button in the upper right corner locks the panel, fixing the currently edited object and preventing the panel from changing with new selections.
 
-Nodes correspond to the nodes in the tree structure in the **Hierarchy** panel and display the same name.
+! [header](index/header.png)
 
-![node-attrs](index/node-attrs.png)
+## Property settings
 
-1. The check box in the upper left corner indicates the activation state of the node. By default, the check box indicates that the node is in an inactive state. The node will be suspended from rendering, and the entire node, including child nodes, will be hidden when running.
-2. In the input box is the name of the node. The name can be empty.
-3. Next are several general properties of the node: **position**, **rotation**, **scale**, and **layer**.
-4. The node menu on the right, the menu inside can be copied, paste the value of the node attribute, or you can paste a new component.
+The **Property Settings** area allows you to set node properties, component properties, asset properties, etc.
 
-    ![node-menu](index/node-menu.png)
+### Node name and activation switch
 
-5. Use the **Add component** button, after clicking, a list of components will appear, including components provided by the system and custom script components.
+Node name, consistent with the node display name in the **Hierarchy** panel.
 
-    ![add-component](index/add-component.png)
+The Node Activation checkbox indicates the node's activation status. When unchecked, the node is inactive and rendering of the node is suspended, including the node's children being hidden (grayed out).
 
-The list of added components has a search box that supports the up and down arrows on the keyboard, or **Enter** can be used to confirm the selection.
+### Node properties
 
-## Editing Node Components
+Click `Node` below the node name to collapse or expand the node's properties. To the right of `Node` are the help file and node settings buttons.
+- The Help button jumps to the official documentation about the node
+- The Node Settings button allows you to reset the node properties, copy/paste the node values, and reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
 
-This panel can display node components and component properties.
-Like the general properties of nodes, each component has a foldable or expandable header.
+    ! [node-menu](index/node-menu.png)
 
-When multiple components are attached to a node, the scrolling range can be reduced by folding components that are not frequently modified, and improve editing efficiency.
+The transformation properties of nodes include **Position**, **Rotation** and **Scale**. Modifying the properties of a node will usually result in immediate changes in the appearance or position of the node in the **Scene** panel. For details, see [Coordinate Systems and Transformations](... /... /concepts/scene/coord.md#%E5%8F%98%E6%8D%A2%E5%B1%9E%E6%80%A7)
 
-To the right of the component name is a help document and a component menu button. The help document button can jump to the API document of the component. The component menu can be operated on: **removed**, **moved up**, **moved down**, **copied**, **pasted as a value**, or **pasted as a new component**.
+If you need to modify node properties in bulk, you can press Shift in **Hierarchy** panel to select multiple nodes and then set them in bulk in **Inspector**. The bulk setting of node properties is similar to that of assets, please refer to the Bulk Setting of Assets Multiple Selection section at the end of the article for details.
 
-![component-menu](index/component-menu.png)
+### Component property settings
 
-The component created by the user through a script, when editing a node, can be directly dragged into the **Inspector** panel to generate a component.
+The Component On checkbox indicates the on state of the component. When unchecked, the component is off and will not participate in rendering.
 
-The different properties in the script component are declared by the user in the script code. When the different types of properties are edited, the editor will automatically recognize the appropriate UI component.
+Below the node properties, all the components mounted on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components mounted on the node, you can collapse infrequently modified component properties to get a larger working area.
 
-The definition of properties is explained, in detail, in the [Declaring Properties](../../scripting/ccclass.md#property) documentation.
+To the right of the component name are buttons for **Help Documentation** and **Component Settings**.
+- The Help button jumps to the official documentation page for the component
+- The Component Settings button allows you to reset, delete, move up, move down, copy the component, paste the component's value, paste it as a new component, etc. for the component.
 
-## How to use UI components
+The properties and settings of each component are different, please refer to [Component](...) for details. /... /editor/components/index.md).
 
-Properties are divided into **value types** and **reference types**.
+## Adding components
 
-### Value type properties
+Clicking on the **Add Component** button will bring up a list of components, including system-supplied components and custom script components. The list of added components has a search box, supports toggling up and down arrows with the keyboard, and **Enter** to make sure it is selected, provided that the **Add component using popup** feature in **Preferences -> Labs** is enabled.
 
-**Value type** includes simple variable types that take up very little memory, such as **numbers**, **strings**, **booleans**, and **enumerations**:
+! [add-component](index/add-component.png)
 
-- **Number**: the keyboard is used to enter digits. The up and down arrows next to the input box can gradually increase or decrease the attributes value.
-- **Vector (Vec2)**: The vector control is a combination of two numeric inputs, and the input box will identify the sub-property name corresponding to each numeric value with *x* and *y*.
-- **String**: the keyboard is used to input strings directly in a text box. The string input control is divided into single line and multi-line. The multi-line text box can be changed by pressing **Enter**.
-- **Boolean**: edited in the form of a check box. The selected state indicates that the attribute value is true, and the non-selected state indicates false.
-- **Enum**: edited in the form of a pull-down menu. Click the enumeration menu, and then select an item from the pop-up menu list to complete the modification of the enumeration value.
-- **Color**: click the color attribute preview box, and a **color picker** window will pop up. In this window, you can directly click the desired color with the mouse, or directly enter the designation in the RGBA color input box below s color. Click **Color Picker** anywhere outside the window to close the window and use the last selected color as the attribute value. For example, the color picker component:
+Developer scripts in the **Assets** panel can be dragged and dropped directly into the **Inspector** panel to generate a script component, or added via **Add Component -> Custom Scripts**. The properties of a script component are declared by the script. Different types of properties have different control appearance and editing in the **Inspector**. We will add the properties in [Declare Properties](... /... /scripting/ccclass.md) section for details on how properties are defined.
 
-  ![ui-color](index/ui-color.png)
+## Attribute Types
+
+**Properties** are variables declared in component scripts that are public and can be serialized and stored in scene and animation data. The **property inspector** allows you to quickly modify property settings for the purpose of adjusting game data and gameplay without modifying the script.
+
+Properties can usually be divided into two main categories, **value types** and **reference types**, depending on where the variables use memory.
+
+### Value type attributes
+
+**Value types** include simple variable types that take up very little memory, such as numbers, strings, booleans, enumerations, etc.
+
+- `Numeric (Number)`: can be entered directly using the keyboard, or the property value can be incremented or decremented by pressing the up and down arrows next to the input box.
+- `Vector (Vec2)`: The control of a vector is a combination of two numeric inputs, and the input box is marked with x and y to identify the sub-property name corresponding to each value.
+- `String`: Enter a string directly into the text box using the keyboard.
+- `Boolean`: Edit in the form of a checkbox, the selected state means the property value is true, the non-selected state means false.
+- `Enum`: edit in the form of a drop-down menu, click the enumeration menu, and then select an item from the pop-up menu list to finish modifying the enumeration value.
+- Color: Click on the color property preview box, the **Color Picker** window will pop up, in this window you can use the mouse to directly click on the desired color, or directly enter the specified color in the RGBA color input box below. Clicking anywhere outside the **Color Picker** window will close the window and use the last selected color as the property value. For example, the color picker component.
+
+  ! [ui-color](index/ui-color.png)
 
 ### Reference type properties
 
-**Reference types** include objects, such as **nodes**, **components**, or **assets**. You can select and assign values ​​by **dragging** or **popping up the Assets panel**.
+**Reference types** include object objects, such as nodes, components, or assets. They can be selected and assigned by **dragging the node or asset into the properties bar** or by **popping up the asset panel**.
 
-![assets-panel](index/assets-panel.png)
+! [assets-panel](index/assets-panel.png)
 
-## Batch operationas
+## Batch operations
 
-1. Multi-selectable nodes, inconsistent properties cannot be modified, and `-` in the input component indicates that they cannot be modified.
+When you need to set **same type** asset properties in batch, you can press Shift in **Asset Explorer** and select multiple assets, **Inspector** will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
 
-    ![multiple-edit](index/multiple-edit.png)
+! [multiple-edit](index/multiple-edit1.png)
 
-2. Batch assign materials, pictures, animations and other assets, which can be dragged multiple times.
+Batch modification of node properties is the same. However, if an attribute in the **attribute inspector** displays one of the following states, it means that the attribute has inconsistent attribute values across the multiple assets selected, and you can choose whether to continue to batch modify the attribute as needed.
 
-    ![drag-assets](index/drag-assets.png)
+- The check box displays **Grey**
+- The input box displays **-**
+- The selection box displays **blank**
 
-## Editing Prefab Nodes
+> **Note**.
+> 1. Bulk setting operations are not currently supported for Material assets.
+> 2. **Assets of different types** can be selected at the same time, but they do not support setting properties in bulk.
 
-When editing a Prefab Node, the header area buttons are: **disassociate**, **associate**, **locate assets**, **restore from assets**, and **update to assets**.
+## Edit Prefab node properties
 
-![prefab-menu](index/prefab-menu.png)
+The Prefab node functions in the **Inspector** top toolbar include: unassociate, locate asset, restore from asset, and update to asset. For details, see [Prefab Assets (Prefab)](... /... /asset/prefab.md).
 
-1. **Disassociation** refers to disconnecting the prefab node from the asset and turning it into a normal node, the color is no longer green.
-2. **Association** means that a Prefab asset is selected first and then associated with the current Prefab node. The new association between common nodes and Prefab assets can be found in the top menu of the editor **Edit**:
+! [prefab-menu](index/prefab-menu.png)
 
-    ![prefab-edit-menu](index/prefab-edit-menu.png)
-
-3. **Locating assets** refers to locating the Prefab asset on the assets panel and making it flash.
-4. **Restore from asset** means to return an edited Prefab node, along with its child nodes, to the initial state.
-5. **Update to asset** refers to updating the Prefab node data that has been edited to the Prefab asset.
-
-## Editing Assets
-
-When editing assets, please pay attention to the last click to save, the **green tick icon** in the figure below is the save button.
-
-![edit-assets](index/edit-assets.png)
+> **Note**: When editing the asset please note that you must remember to save it by clicking the **green tick** button in the upper right corner.
+>
+> ! [edit-assets](index/edit-assets.png)
+ macos/deepLFree.translatedWithDeepL.text
