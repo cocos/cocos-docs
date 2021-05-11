@@ -197,7 +197,6 @@ namespace se {
         }
 
         auto cleanup = [seObj](){
-
             auto se = se::ScriptEngine::getInstance();
             if (!se->isValid() || se->isInCleanup())
                 return;
