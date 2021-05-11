@@ -119,7 +119,7 @@ In accordance with the setup described in previous section, open the project in 
 
 ### Component Member in the same file
 
-Just enter `this.` will automatically prompt the other members of the component itself. Enter `this.member` will prompt the member's properties or methods.
+Just enter `this.` will automatically prompt the other members of the component itself. Enter `this.member.` will prompt the member's properties or methods.
 
 ![intellisense](assets/intellisense.jpg)
 
