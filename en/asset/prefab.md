@@ -4,12 +4,12 @@ Prefab is used to store some scene objects that can be reused, it can contain no
 
 ## Basic Concepts
 
-Name|Description|Example
-:---|:---|:---
-Prefab Asset|The asset of prefab in **Assets** panel, which is the serialize file of Prefab.|![prefab asset](prefab/prefab-asset.png)
-Prefab Instance|When the __Prefab Asset__ is drag to the `Hierarchy` panel, it will generate a __Prefab Instance__. Its root node is currently marked in bright green, and its child nodes are dark green|![prefab instance](prefab/prefab-instance.png)
-Prefab Editing Mode|Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green|![prefab edit mode](prefab/prefab-edit-mode.png)
-Nested Prefab Instance|When a child node in a __Prefab Asset__ is an instance of another __Prefab Asset__, we call this child prefab a nested prefab instance|![nested-prefab](prefab/nested-prefab.png)
+Name | Description | Example
+:--- | :--- | :---
+Prefab Asset           | The asset of prefab in **Assets** panel, which is the serialize file of Prefab. | ![prefab asset](prefab/prefab-asset.png)
+Prefab Instance        | When the __Prefab Asset__ is drag to the **Hierarchy** panel, it will generate a __Prefab Instance__. Its root node is currently marked in bright green, and its child nodes are dark green. | ![prefab instance](prefab/prefab-instance.png)
+Prefab Editing Mode    | Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green | ![prefab edit mode](prefab/prefab-edit-mode.png)
+Nested Prefab Instance | When a child node in a __Prefab Asset__ is an instance of another __Prefab Asset__, we call this child prefab a nested prefab instance | ![nested-prefab](prefab/nested-prefab.png)
 
 ## Creating a Prefab
 
@@ -43,36 +43,40 @@ In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are sev
 
 ![edit prefab](prefab/edit-prefab.png)
 
-Icon|Description
-:---|:---
-![unlink prefab](prefab/unlink-prefab-button.png)|Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`.
-![locate prefab](prefab/locate-prefab-button.png)|Locating assets.Its convenient to quickly locate __Prefab Asset__ in the __Assets__ panel.
-![revert prefab](prefab/revert-prefab-button.png)|Restore from asset. Restore the data of the current __Prefab Instance__ to the data in the __Prefab Asset__, but the name, location, and rotation will not be restored.
-![apply prefab](prefab/apply-prefab-button.png)|Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__.
+Button Icon | Description
+:--- | :---
+![unlink prefab](prefab/unlink-prefab-button.png) | Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`.
+![locate prefab](prefab/locate-prefab-button.png) | Locating assets.Its convenient to quickly locate __Prefab Asset__ in the __Assets__ panel.
+![revert prefab](prefab/revert-prefab-button.png) | Restore from asset. Restore the data of the current __Prefab Instance__ to the data in the __Prefab Asset__, but the name, location, and rotation will not be restored.
+![apply prefab](prefab/apply-prefab-button.png)   | Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__.
 
 ### Add New Node
 
-A new node added under the __Prefab Instance__ will have a **+** sign in the lower right corner of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
+A new node added under the __Prefab Instance__ will have a **+** sign at the lower right corner of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
 
 ![prefab mounted](prefab/prefab-mounted-children.png)
 
 ### Add New Component
+
 A new component added under the __Prefab Instance__ will have a **+** sign at the end of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
 
 ![instance-add-component](prefab/instance-add-component.png)
 
 ### Remove Component
+
 A new component added under the __Prefab Instance__ will have a deleted data item show in the __Inspector__, its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
 
 ![instance-remove-component](prefab/instance-remove-component.png)
 
 It will show two buttons in the end of deleted data item:
-Icon|Description
-:---|:---
-![revert-remove-component](prefab/revert-remove-component.png)|revert the removed component
-![apply-remove-component](prefab/apply-remove-component.png)|apply the remove component operation to the associated __Prefab Asset__
+
+Button Icon | Description
+:--- | :---
+![revert-remove-component](prefab/revert-remove-component.png) | Revert the removed component.
+![apply-remove-component](prefab/apply-remove-component.png)   | Apply the operation of removing the component to the associated __Prefab Asset__.
 
 ## Some Current Restrictions
+
 - It is not allowed to delete the node created from the __Prefab Asset__ in the __Prefab Instance__.
 - It is not allowed to change the hierarchical relationship of nodes created from the __Prefab Asset__ in the __Prefab Instance__.
 - Do not allow prefabs to nest themselves.

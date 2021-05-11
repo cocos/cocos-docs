@@ -303,7 +303,7 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [RenderPipeline](render-pipeline/overview.md)
+    - [Render Pipeline](render-pipeline/overview.md)
         - [Builtin Rendering Pipeline](render-pipeline/builtin-pipeline.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)

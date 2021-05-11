@@ -26,7 +26,11 @@ After selecting an **Auto Atlas Resource** in the __Assets__ panel, the **Inspec
 | **Power of Two** | Whether to set the size of the atlas to a multiple of a square |
 | **Algorithm** | Atlas packaging strategy, currently only one option `MaxRects` |
 | **Padding Bleed** | Expand a pixel outer frame outside the border of the broken image, and copy the adjacent broken image pixels to the outer frame. This feature is also called **Extrude**. |
-| **Filter Unused** | If this option is checked, unreferenced assets will not be included when building. This option only takes effect after the build.
+| **Filter Unused Resources** | If this option is checked, unreferenced assets will not be included when building. This option only takes effect after the build. |
+| **Remove unused texture force in Bundle** | If this option is checked, the unused Texture2D resources in the Bundle will be excluded when building.
+| **Remove unused image force in Bundle** | If this option is checked, the unused image resources in the Bundle will be excluded when building.
+| **Remove unused sprite atlas in Bundle** | If this option is checked, the unused sprite atlas in the Bundle will be excluded when building.
+| **UseCompressTexture** | Whether to use the compress texture, please refer to the [Texture Compression](compress-texture.md) for details.
 
 The rest of the properties are the same as Texture, please refer to the [Texture](./texture.md#sub-asset-texture2d-properties-panel) documentation for details.
 
@@ -41,11 +45,11 @@ The results are divided into:
 
 ## Generating an Atlas
 
-When inside the editor or previewing the project __Cocos Creator__ is directly using the split **SpriteFrame** assets, only after you build the project with the option **AutoAtlas** enabled, the **Atlas** asset will be generated and be used instead of all split assets.
+When inside the editor or previewing the project, __Cocos Creator__ is directly using the split **SpriteFrame** assets, only after building, the **Atlas** asset will be generated and be used instead of all split assets.
 
 In general, after **Atlas** asset is generated, the **Texture2D** assets and **Image** assets related by the original split assets will be deleted in the package. The following two special cases will have special process:
 
-1. When **Atlas** asset is in a `resources` directory, the **Texture2D** assets and Image assets related by the original **SpriteFrame** assets in the **AutoAtlas** asset's directory will also be generated.
+1. When **Atlas** asset is in a `Bundle` directory, the **Texture2D** and **Image** assets related by the original **SpriteFrame** assets in the **AutoAtlas** asset's directory will also be generated. If you have a specific scope of use for the atlas, please check the corresponding exclusion option in the **Inspector** panel to avoid oversizing the package.
 
 2. When any **Texture2D** asset depended by **SpriteFrame** assets in the **Atlas** asset's folder is directly used by another asset, the dependent **Texture2D** asset and **Image** asset will also be generated.
 

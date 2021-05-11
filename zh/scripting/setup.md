@@ -51,16 +51,16 @@ export class SayHello extends Component {
 
 1. 直接将 **资源管理器** 中的脚本拖拽到 **属性检查器** 中。
 
-    ![add scriptcomponent](setup/add-script-component.png)
+    ![add script component](setup/add-script-component.png)
 
-2. 点击 **属性检查器** 最下方的 **添加组件** 按钮，然后选择 **自定义脚本 -> SayHello** 来添加我们刚刚编写的脚本组件。或者也可以直接搜索 **SayHello** 来添加，前提是需要开启 **偏好设置 -> 实验室** 中的 **使用弹窗方式添加组件** 功能。
+2. 点击 **属性检查器** 最下方的 **添加组件** 按钮，然后选择 **自定义脚本 -> SayHello** 来添加我们刚刚编写的脚本组件，或者也可以直接搜索 **SayHello** 来添加。
 
-    ![add scriptcomponent](setup/add-script-component2.png)
+    ![add script component](setup/add-script-component2.png)
 
 需要注意的是，脚本组件的组件名是以脚本中定义的类名为准的，而不是脚本文件名。脚本的类名会与创建脚本时的脚本文件名保持一致，但之后如果有修改了脚本文件名/脚本类名，这两者之间并不会自动同步，如果需要的话，可以手动同步。<br>
 以上面的 `say-hello.ts` 为例，若我们在 **资源管理器** 中将其重命名为 `hello`，可以看到 **属性检查器** 中的脚本组件名还是原来的 **SayHello**，只有脚本名称变成了 `hello`：
 
-![change-scriptname](setup/change-scriptname.png)
+![change-script name](setup/change-scriptname.png)
 
 若我们双击打开 `say-hello.ts`，将类名改为 **Hello**：
 
@@ -74,4 +74,4 @@ export class Hello extends Component {}
 
 保存脚本后返回编辑器，可以看到 **属性检查器** 中的脚本组件名变成了 **Hello**，但是脚本文件名还是原来的 `say-hello`：
 
-![change-classname](setup/change-classname.png)
+![change-class name](setup/change-classname.png)

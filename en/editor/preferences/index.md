@@ -60,10 +60,12 @@ About Laboratory:
 
 2. Non-backward compatible changes or removal may occur in any future release. Use of the feature in production environments should be well tested and pay attention to the publish notes of future versions.
 
-3. We welcome users to try out and give us your feed backs via our [forum](https://discuss.cocos2d-x.org/c/33), you can make those features more powerful and easier to use in your own projects.
+3. We welcome users to try out and give us your feed backs via our [Forum](https://discuss.cocos2d-x.org/c/33), you can make those features more powerful and easier to use in your own projects.
 
 ![laboratory](./index/laboratory.png)
 
-- **Turn on baking functions**: Used to turn on the baking functions, for details, please refer to the [Light Map](./../../concepts/scene/light/lightmap.md) documentation.
+- **Scene Real-time Cache**: This option is enabled by default and is mainly used to cache scene data to the `temp/scene/[SCENE_UUID]/[TIME].json` file in the project directory at regular intervals (currently 5s) during scene editing. In case of emergencies such as scene crash, process stuck, etc., a popup window will be displayed when the editor is opened again to indicate whether to apply the most recent scene file in the cache.
 
-- **Scene Instant Cache**: Used to turn on the scene instant cache function, which is enabled by default. After opening, the scene file will be cached to the `temp/scene/[SCENE_UUID]/[TIME].json` location in the project directory at intervals during the scene editing process. In case of emergencies such as scene crash, progress stuck, etc. Next time the editor is opened, a pop-up window will ask whether to apply the latest scene file in the cache. It should be noted that once the scene is opened normally, the cache files before opening will be cleaned up. For special needs and the need to browse the specified cached scene files manually, please operate with the corresponding scene closed.
+  > **Note**: in daily use, as long as the scene is opened normally, all the scene files cached before the current scene is opened will be cleared. If you have special needs to view the specified scene files in the cache, please close the corresponding scene in the editor first.
+
+- **Turn on baking feature**: Used to turn on the Lightmapping. For details, please refer to the [Lightmapping](./../../concepts/scene/light/lightmap.md) documentation.

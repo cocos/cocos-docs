@@ -4,93 +4,100 @@ A __rendered texture__ is a texture on the __GPU__. Usually, we set it to the ca
 
 ## Using RenderTexture
 
-```typescript
-// Method 1: Draw the content illuminated by the 3D camera
-// onto the UI sprite frame
-export class CaptureToWeb extends Component {
-    @property(Sprite)
-    sprite: Sprite = null;
-    @property(Camera)
-    camera: Camera = null;
+There are two ways to use RenderTexture:
 
-    protected _renderTex: RenderTexture = null;
+- **Method 1**: Draw the contents illuminated by the 3D camera to the sprite frame of the UI.
 
-    start () {
-        const spriteframe = this.sprite.spriteFrame;
-        const sp = new SpriteFrame();
-        sp.reset({
-            originalSize: spriteframe.getOriginalSize(),
-            rect: spriteframe.getRect(),
-            offset: spriteframe.getOffset(),
-            isRotate: spriteframe.isRotated(),
-            borderTop: spriteframe.insetTop,
-            borderLeft: spriteframe.insetLeft,
-            borderBottom: spriteframe.insetBottom,
-            borderRight: spriteframe.insetRight,
-        });
+    ```typescript
+    export class CaptureToWeb extends Component {
+        @property(Sprite)
+        sprite: Sprite = null;
+        @property(Camera)
+        camera: Camera = null;
 
-        const renderTex = this._renderTex = new RenderTexture();
-        renderTex.reset({
-            width: 256,
-            height: 256,
-            colorFormat: RenderTexture.PixelFormat.RGBA8888,
-            depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8
-        });
-        this.camera.targetTexture = renderTex;
-        sp.texture = renderTex;
-        this.sprite.spriteFrame = sp;
-        // Need to manually call this function to make RT display correctly on each platform
-        this.sprite.updateMaterial();
+        protected _renderTex: RenderTexture = null;
+
+        start () {
+            const spriteframe = this.sprite.spriteFrame;
+            const sp = new SpriteFrame();
+            sp.reset({
+                originalSize: spriteframe.getOriginalSize(),
+                rect: spriteframe.getRect(),
+                offset: spriteframe.getOffset(),
+                isRotate: spriteframe.isRotated(),
+                borderTop: spriteframe.insetTop,
+                borderLeft: spriteframe.insetLeft,
+                borderBottom: spriteframe.insetBottom,
+                borderRight: spriteframe.insetRight,
+            });
+
+            const renderTex = this._renderTex = new RenderTexture();
+            renderTex.reset({
+                width: 256,
+                height: 256,
+                colorFormat: RenderTexture.PixelFormat.RGBA8888,
+                depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8
+            });
+            this.camera.targetTexture = renderTex;
+            sp.texture = renderTex;
+            this.sprite.spriteFrame = sp;
+            // Need to manually call this function to make RenderTexture display correctly on each platform
+            this.sprite.updateMaterial();
+        }
     }
-}
+    ```
 
-// Method 2: Draw the content illuminated by the 3D camera onto the 3D model
-export class RenderCameraToModel extends Component {
-    @property(MeshRenderer)
-    model: MeshRenderer = null;
+- **Method 2**: Draw the contents illuminated by the 3D camera to the 3D model.
 
-    start () {
-        // Your initialization goes here.
-        const renderTex = new RenderTexture();
-        renderTex.reset({
-            width: 256,
-            height: 256,
-            colorFormat: RenderTexture.PixelFormat.RGBA8888,
-            depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8,
-        });
-        const cameraComp = this.getComponent(Camera);
-        cameraComp.targetTexture = renderTex;
-        const pass = this.model.material.passes[0];
-        // Set the SAMPLE_FROM_RT macro to true so that RT can be displayed correctly on each platform
-        const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
-        const renderMat = new Material();
-        renderMat.initialize({
-            effectAsset: this.model.material.effectAsset,
-            defines,
-        });
-        this.model.setMaterial(renderMat, 0);
-        renderMat.setProperty('mainTexture', renderTex, 0);
+    ```typescript
+    export class RenderCameraToModel extends Component {
+        @property(MeshRenderer)
+        model: MeshRenderer = null;
+
+        start () {
+            // Your initialization goes here.
+            const renderTex = new RenderTexture();
+            renderTex.reset({
+                width: 256,
+                height: 256,
+                colorFormat: RenderTexture.PixelFormat.RGBA8888,
+                depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8,
+            });
+            const cameraComp = this.getComponent(Camera);
+            cameraComp.targetTexture = renderTex;
+            const pass = this.model.material.passes[0];
+            // Set the 'SAMPLE_FROM_RT' macro to 'true' so that RenderTexture can be displayed correctly on each platform
+            const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
+            const renderMat = new Material();
+            renderMat.initialize({
+                effectAsset: this.model.material.effectAsset,
+                defines,
+            });
+            this.model.setMaterial(renderMat, 0);
+            renderMat.setProperty('mainTexture', renderTex, 0);
+        }
     }
-}
-```
+    ```
 
-## RenderTexture as a texture map
+## Set RenderTexture as a texture map
 
-### 1.Process uv in effect:
+Setting the RenderTexture to a texture map consists of the following two steps:
 
-Determine SAMPLE_FROM_RT and call CC_HANDLE_RT_SAMPLE_FLIP function
+1. Process `uv` in `effect`
 
-```
-#if USE_TEXTURE
-    v_uv = a_texCoord * tilingOffset.xy + tilingOffset.zw;
-    #if SAMPLE_FROM_RT
-        CC_HANDLE_RT_SAMPLE_FLIP(v_uv);
+    Determine `SAMPLE_FROM_RT` and call `CC_HANDLE_RT_SAMPLE_FLIP` function:
+
+    ```
+    #if USE_TEXTURE
+        v_uv = a_texCoord * tilingOffset.xy + tilingOffset.zw;
+        #if SAMPLE_FROM_RT
+            CC_HANDLE_RT_SAMPLE_FLIP(v_uv);
+        #endif
     #endif
-#endif
-```
+    ```
 
-### 2.Check SAMPLE_FROM_RT as true in the corresponding material:
+2. Select the corresponding material in the **Hierarchy** panel, and then check `SAMPLE FROM RT` in the **Inspector** panel.
 
-![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
+    ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
-For more __Render Texture__ examples, please review the [test cases](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture).
+For more information about the usage, please refer to the example [RenderTexture](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture).
