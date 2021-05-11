@@ -97,8 +97,8 @@ Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another 
 
 The API documents for Texture & SpriteFrame:
 
-- [Texture](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/Texture2D.html)
-- [SpriteFrame](http://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/SpriteFrame.html)
+- [Texture](../../../api/en/classes/Texture2D.html)
+- [SpriteFrame](../../../api/en/classes/SpriteFrame.html)
 
 ## SpriteFrame Usage
 
