@@ -410,19 +410,19 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 1. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/Android.mk** 文件，在其中加上最开始实现的 cpp 文件：
 
-![](/images/cocos-creator-js-binding-auto/100.png)
+    ![](./jsb/100.png)
 
 2. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/proj.android/Android.mk**，在其中加上上一步生成的 cpp 文件：
 
-![](/images/cocos-creator-js-binding-auto/110.png)
+    ![](./jsb/110.png)
 
 3. 打开 **build/jsb-default/frameworks/runtime-src/Classes/jsb_module_register.cpp**，添加引擎启动时调用绑定文件的注册函数，从而将其添加到 js 环境中：
 
-![](/images/cocos-creator-js-binding-auto/111.png)
+    ![](./jsb/111.png)
 
 4. 打开 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/script/jsb_boot.js**，在其中增加 js 对象的初始化：
 
-![](/images/cocos-creator-js-binding-auto/112.png)
+    ![](./jsb/112.png)
 
 上面说到的 `jsb_module_register.cpp` 和 `jsb_boot.js` 其实都是在 Cocos 引擎初始化的时候就会去调用的，关于启动流程感兴趣的可以去看看这篇 [文章](https://gowa.club/Cocos-Creator/Cocos%20Creator%E7%94%9F%E6%88%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.html)。
 
