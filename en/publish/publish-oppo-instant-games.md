@@ -4,11 +4,9 @@ Starting with __v2.0.5__, Cocos Creator officially supports the release of games
 
 ## Environment Configuration
 
-- Download [OPPO Mini Game Debugger](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//bbce19cecbf7c26c396762d61192a11e.zip) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download [OPPO Mini Game Debugger [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) or above, globally
-
-- Determine whether you need to install [Debugging Tools](http://cdofs.oppomobile.com/cdo-activity/static/quickgame/tools//6de9d1c3f06030ae7c52f5105f60383f.zip) according to your own development needs.
 
 ## Release Process
 
@@ -142,6 +140,6 @@ Then switch to the **Package Load** section of **Mini Game Debugger**, click Ref
 
 ## Related Reference Links
 
-- [OPPO Mini Game Tutorial](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/quickgame.html)
-- [OPPO Mini Game API Documentation](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/feature/account.html)
-- [OPPO Mini Game Tool Download](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/games/use.html)
+- [OPPO Mini Game Tutorial [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
+- [OPPO Mini Game API Documentation [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/feature/account)
+- [OPPO Mini Game Tool Download [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use)

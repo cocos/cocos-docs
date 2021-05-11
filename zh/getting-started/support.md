@@ -12,8 +12,6 @@
 
   不定期直播、以及官方教程等持续更新中。
 
-或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
-
 ## 演示和范例项目
 
 > **注意**：所有 GitHub 上的演示和范例项目都会跟随版本进行更新，默认分支对应目前最新的 Cocos Creator 版本，老版本的项目会以 `v0.7` 这样的分支名区分，分支名会和相同版本的 Cocos Creator 对应，下载使用的时候请注意。
@@ -73,3 +71,13 @@
 ### 其他游戏开发资源
 
 - [Cocos Store](http://store.cocos.com/)：各类游戏美术资源、扩展工具
+
+## 提交问题和反馈
+
+除了本手册里提供的信息，您还可以随时通过下面的渠道获取信息或反馈问题给 Cocos Creator 开发团队：
+
+<!-- QQ群：738190852，539131539，577848332（已满），548341746（已满），428196107（已满），246239860 (已满) -->
+- [Cocos 论坛社区](https://forum.cocos.org/c/27)
+- [Cocos 技术支持](https://www.cocos.com/support)
+
+或者参考 [如何在 GitHub 上向 Creator 提交代码](../submit-pr/submit-pr.md) 来提交你的修改。
