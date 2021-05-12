@@ -8,7 +8,7 @@ The **Inspector** panel is the work area for viewing and editing the currently s
 
 ![inspector](index/inspeactor-panel.png)
 
-The **Inspector** panel can be roughly divided into two parts: **Toolbar** and **Property Settings**.
+The **Inspector** panel can be divided into two parts: **Toolbar** and **Property Settings**.
 
 ## Toolbar
 
@@ -19,7 +19,7 @@ The **lock** button in the upper right corner can lock the panel, fixing the cur
 
 ## Property Settings
 
-The **Property Settings** area allows to set node properties, component properties, asset properties, etc.
+The **Property Settings** area allows setting node properties, component properties, asset properties, etc.
 
 ### Node name and activation switch
 
@@ -30,24 +30,24 @@ The Node checkbox indicates the node's enabled/disabled status. When unchecked, 
 ### Node properties
 
 Click `Node` below the node name to collapse or expand the node's properties. To the right of `Node` are the help file and node settings buttons.
-- The Help button jumps to the official documentation about the node
-- The Node Settings button allows to reset the node properties, copy/paste the node values, and reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
+- The Help button jumps to the official documentation about the node.
+- The Node Settings button allows resetting the node properties, copy/paste the node values, and reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
 
     ![node-menu](index/node-menu.png)
 
-The transformation properties of nodes include **Position**, **Rotation** and **Scale**. Modifying the properties of a node will usually result in immediate changes in the appearance or position of the node in the **Scene** panel. For details, see [Coordinate Systems and Transformations](../../concepts/scene/coord.md#transformation-properties)
+The transformation properties of nodes include **Position**, **Rotation** and **Scale**. Modifying the properties of a node will usually result in immediate changes in the appearance or position of the node in the **Scene** panel. For details, please review the [Coordinate Systems and Transformations](../../concepts/scene/coord.md#transformation-properties) documentation.
 
-If it is needed to modify node properties in a batch, press Shift in **Hierarchy** panel to select multiple nodes and then set them in batch in **Inspector** panel. The batch setting of node properties is similar to that of assets, please refer to the Batch Setting of Assets Multiple Selection section at the end of this article for details.
+To modify node properties in a batch, press Shift in the **Hierarchy** panel to select multiple nodes and then set them in batch in the **Inspector** panel. The batch setting of node properties is similar to that of assets, please refer to the Batch Setting of Assets Multiple Selection section at the end of this article for details.
 
 ### Component property settings
 
 The Component checkbox indicates the enabled/disabled state of the component. When unchecked, the component is disabled and will not participate in rendering.
 
-Below the node properties, all the components attached on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components attached on the node, infrequently modified component properties can be collapsed to get a larger working area.
+Below the node properties, all the components attached on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components attached on the node, collapese infrequently modified component properties to get a larger working area.
 
 To the right of the component name are buttons for **Help File** and **Component Settings**.
-- The Help button jumps to the official documentation page for the component
-- The Component Settings button allows to reset, delete, move up, move down, copy the component, paste the component's value, paste it as a new component, etc. for the component.
+- The Help button jumps to the official documentation page for the component.
+- The Component Settings button allows resetting, deleting, moving up, moving down, copying the component, paste the component's value, paste it as a new component, etc. for the component.
 
 The properties and settings of each component are different, please refer to the [Components](../../editor/components/index.md) documentation for details.
 
@@ -61,7 +61,7 @@ Developers' script in the **Assets** panel can be dragged and dropped directly i
 
 ## Property types
 
-**Properties** are variables declared in the component script that are public and can be serialized and stored in the scene and animation data. The **Inspector** panel allows to quickly modify property settings for the purpose of adjusting game data and gameplay without modifying the script.
+**Properties** are variables declared in the component script that are public and can be serialized and stored in the scene and animation data. The **Inspector** panel allows quickly modifying property settings for the purpose of adjusting game data and gameplay without modifying the script.
 
 Properties can usually be divided into two main categories, **value types** and **reference types**, depending on where the variables use memory.
 
@@ -86,15 +86,15 @@ Properties can usually be divided into two main categories, **value types** and 
 
 ## Batch operations
 
-When it is needed to set asset properties of the **same type** in a batch, press Shift in the **Asset** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
+When needing to set asset properties of the **same type** in a batch, press Shift in the **Asset** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
 
 ![multiple-edit](index/multiple-edit1.png)
 
 Batch modification of node properties is the same. However, if an property in the **Inspector** panel displays one of the following states, it means that the property has inconsistent property values across the multiple assets selected, and you can choose whether to continue to batch modify the property as needed:
 
-- The check box displays **Grey**
-- The input box displays **-**
-- The selection box displays **blank**
+- The check box displays **Grey**.
+- The input box displays **-**.
+- The selection box displays **blank**.
 
 > **Notes**:
 > 1. Batch setting operations are not currently supported for Material assets.
@@ -102,10 +102,10 @@ Batch modification of node properties is the same. However, if an property in th
 
 ## Edit Prefab node properties
 
-The Prefab node functions in the top toolbar of the **Inspector** panel include: unassociate, locate asset, restore from asset, and update to asset. For details, see [Prefab](../../asset/prefab.md).
+The Prefab node functions in the top toolbar of the **Inspector** panel include: disassociate, locate asset, restore from asset, and update to asset. For details, please refer to the [Prefab](../../asset/prefab.md) documentation.
 
 ![prefab-menu](index/prefab-menu.png)
 
-> **Note**: when editing the asset, remember to save it by clicking the **green tick** button in the upper right corner.
+> **Note**: when editing the asset, please remember to save it by clicking the **green tick** button in the upper right corner.
 >
 > ![edit-assets](index/edit-assets.png)
