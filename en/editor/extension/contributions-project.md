@@ -4,7 +4,7 @@
 
 For example, the configuration of built modules, the configuration of layers within the project. If this configuration is not synchronized, it may cause inconsistent results on different machines.
 
-For editor-related configurations, please go to [Extending the Preferences Panel](./contributions-preferences.md) documentation.
+For editor-related configurations, please refer to the [Extending the Preferences Panel](./contributions-preferences.md) documentation.
 
 ## Panel Introduction
 
@@ -17,7 +17,7 @@ The project settings allow a functional extension to register multiple tabs, and
 
 ## Registration Method
 
-First define the configuration in `contributions.profile.project`. Then the data to be displayed can be defined in the project settings in `contributions.project`.
+First define the configuration in `contributions.profile.project`. The data to be displayed can be defined in the project settings in `contributions.project`.
 
 > **Note**: the data configured in the project settings should be stored in the `project` location.
 
@@ -52,11 +52,11 @@ Define a simple extension:
 }
 ```
 
-Thus we have a new tab called **test** on the left side of the project settings.
-The **Projects->Projects Settings** menu from the main menu opens the **Projects Settings**,
-Once selected, we can modify our foo configuration in the right panel.
+A new tab called **test** on the left side of the project settings now exists.
+The **Project -> Project Settings** menu from the main menu opens the **Project Settings**.
+Once selected, modify the foo configuration in the right panel.
 
-For details on how to define a profile, see [Profile](./profile.md).
+For details on how to define a profile, please review the [Profile](./profile.md) documentation.
 
 ```typescript
 interface Package
@@ -105,4 +105,4 @@ interface UIInfo {
 }
 ```
 
-Click [here](./panel-boot.md) for panel definitions.
+As additional reading, please review the [Panel Boot](./panel-boot.md) documentation for panel definitions.
