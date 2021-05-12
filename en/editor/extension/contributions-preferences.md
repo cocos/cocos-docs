@@ -2,11 +2,11 @@
 
 The editor allows each extension to register its own configuration, and then displays some or all of the editor configuration within the Preferences panel. In this panel, the modifications are editor feature-related configurations.
 
-For project-related configurations, please move to [Project Settings](./contributions-project.md) description.
+For project-related configurations, please review the [Project Settings](./contributions-project.md) documentation.
 
 ## Description of the Preferences Panel
 
-Preferences panel can be opened via the top menu **Cocos Creator -> Preferences**.
+The Preferences panel can be opened via the top menu **Cocos Creator -> Preferences**.
 
 ![preferences](./image/preferences-tool.png)
 
@@ -17,15 +17,15 @@ The Preferences panel is divided into left and right sides.
 
 Changes made in the panel are immediately modified to the corresponding configuration items.
 
-Normally the configurations seen are stored at the global level. If there is some configuration that needs to be put into a project, then you can move the mouse over the configuration entry and select "Record to project" on the small icon that appears on the left side. Then this data will be saved to the project, and changes to it will not affect other projects.
+Normally, the configuration is stored at the global level. If the configuration needs to be put into a project, then move the mouse over the configuration entry and select **Record to project** on the small icon that appears on the left side. This data will be saved to the project, and changes to it will not affect other projects.
 
 > **Notes**:
-> 1. If the auto-rendered configuration is stored in the project, the icon on the left side will turn yellow to indicate it. If you want to reuse the global configuration, click the icon on the left side and select "Restore to Global Configuration", doing so will discard the project settings.
-> 2. Only auto-rendered configurations will automatically add icons. If properties are not defined, you need to implement the icon change function in the panel yourself.
+> 1. If the auto-rendered configuration is stored in the project, the icon on the left side will turn yellow to indicate it. To reuse the global configuration, click the icon on the left side and select **Restore to Global Configuration**, doing so will discard the project settings.
+> 2. Only auto-rendered configurations will automatically add icons. If properties are not defined, implement the icon change function in the panel as needed.
 
-Also there are some configurations that cannot switch between global and local storage location, such as preview scenes, which must be stored in the project. So this part of the configuration should use the custom panel.
+Also, there are some configurations that cannot switch between global and local storage location, such as preview scenes, which must be stored in the project. This part of the configuration should use the custom panel.
 
-For more information about **Preferences** panel, please refer to the [Preferences](../../editor/preferences/index.md) documentation.
+For more information about the **Preferences** panel, please refer to the [Preferences](../../editor/preferences/index.md) documentation.
 
 ## Registration Methods
 
@@ -39,9 +39,9 @@ General settings are displayed directly as tabs, while lab switches are displaye
 - When the functionality provided by the extension is more stable it is recommended to place the configuration data within the generic functionality.
 - When the functionality provided by the extension is in the development stage, it is recommended that the switch configuration data of the functionality be placed in the lab configuration.
 
-First define the configuration in `contributions.profile.editor`. Then the data to be displayed can be defined in the preferences in `contributions.preferences`.
+First define the configuration in `contributions.profile.editor`. The data to be displayed can be defined in the preferences in `contributions.preferences`.
 
-For details on how to define a profile, see the [Profile](./profile.md) documentation.
+For details on how to define a profile, please review the [Profile](./profile.md) documentation.
 
 ## Registering Preferences Data
 
@@ -75,10 +75,10 @@ For details on how to define a profile, see the [Profile](./profile.md) document
 }
 ```
 
-Thus we have defined two editor configurations, foo and bar, and added the configurations to the preferences.
+Two editor configurations, foo and bar, have been defined and added the configurations to the preferences.
 The foo is stored in the general profile and the bar is stored in the lab profile.
 
-The defined profile data will be automatically registered to default. Using Editor.Profile.getConfig will get the default values.
+The defined profile data will be automatically registered to default. Using `Editor.Profile.getConfig` will get the default values.
 
 The `contributions` of `package.json` need to be defined like the following:
 
@@ -134,5 +134,5 @@ interface UIInfo {
 }
 ```
 
-For more information about how to customize the panel please click to see [Panel Definition](./panel.md).
+For more information on how to customize the panel please review the [Panel Definition](./panel.md) documentation.
  
