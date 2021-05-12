@@ -4,7 +4,7 @@
 
 When writing an extension, it is possible to query whether the existing functions in the editor provide the ability of receiving `contributions` externally.
 
-If the function provides a contributions function, use these functions when writing extensions.
+If there are functions that provide the ability of receiving `contributions` externally, use these functions when writing extensions.
 
 ## Contribution data definition
 
