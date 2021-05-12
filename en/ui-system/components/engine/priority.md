@@ -2,15 +2,15 @@
 
 ## 1. UI node ordering
 
-The rendering order of the UI uses the **Breadth-First Sorting** scheme, and each UITransform component has a `priority` property. Adjust the order of nodes according to the value of priority.
-
-Sorting starts from the child nodes under the root node, and determines the overall rendering structure according to the priority of the child nodes, that is, the rendering order of the child nodes under the root node has determined the final rendering order. The `priority` property of all child nodes under each node is used to determine the rendering order under the current node.
+The rendering order of the UI uses the **Breadth-First Sorting** scheme,  and the node tree order is the final rendering data submission order. So the user can change the order of the nodes under their parents by setting the siblingIndex of the nodes and thus change the rendering order.
 
 For example:
 
 ![priority.png](priority/priority.png)
 
-Therefore, the overall rendering order in the figure above is __B -> b1 -> C -> A -> a1 -> a2__, and the rendering state on the screen is __a2 -> a1 -> A -> C -> b1 -> B__.
+Therefore, the overall rendering order in the figure above is __C -> B -> b1 -> A -> a1 -> a2__, and the rendering state on the screen is __C -> b1 -> B -> a2 -> a1 -> A__. i.e. __from bottom to top__.
+
+setSiblingIndex is used to change the position of the current node in the children array of the parent node. If set at runtime by script, the changed node tree data will not be serialized. If the parameter passed in is larger than the length of the children array, it will be set to the end of the array, and if it is within the range, it will be inserted into the corresponding position. So this operation is related to the state of the node tree in real time, and the user needs to know the current state of the node tree and perform the operation to get the expected result.
 
 ## 2. Mixed camera sorting
 
