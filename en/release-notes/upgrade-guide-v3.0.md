@@ -64,7 +64,9 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 
         - `group`: change to `layer`.
 
-        - `zIndex`: The interface has been removed. Please use the setSiblingIndex function to change the order of the node tree.
+        - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
+        
+            > **Note**: the `priority` property is deprecated as of v3.1, please use the `setSiblingIndex` function to adjust the order of the node tree.
 
 - `CCSpriteFrame`:
 
