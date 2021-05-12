@@ -44,7 +44,7 @@ export class Example extends Component {
 我们在 3.1 版本中弃用了 UITransform 组件的 priority 属性，用户可以通过使用 setSiblingIndex 来设置节点树的顺序来进行调整渲染顺序。
 
 关于 priority 属性的移除及推荐使用的 SiblingIndex 属性的说明：
-由于表意不明及于引擎中其他属性的命名冲突，我们移除了 UITransform 组件上的 priority 属性，这个属性的设计之初是为用户提供了节点树排序的快捷方式，本身并无其他用途，且和 priority 表达的优先级并不相关，其设置之后实际上还是通过更改节点树的顺序变更了渲染顺序。
+由于表意不明以及与引擎中其他属性的命名冲突，UITransform 组件上的 priority 属性在 v3.1 已被废弃。priority 属性的设计之初是为用户提供节点树排序的快捷方式，本身并无其他用途，和 priority 所表达的“优先级”也不相关，并且设置之后实际上还是通过更改节点树的顺序来调整渲染顺序。
 
 在移除了这个属性之后，用户还是可以使用 setSiblingIndex 方法来设置节点树顺序，不同的是， priority 存在默认值，而 node 的 siblingIndex 实际上就是这个节点在在父节点中的位置，所以在节点树发生变化之后，节点的 siblingIndex 数值会产生变化，这就要求用户在使用 setSiblingIndex 方法的时候，需要知道节点在父节点中的相对位置并作出控制，才能够获得预期的结果。这里修改的重点在与用户不能直接将 siblingIndex 属性等同于 priority（旧）属性来理解使用，他们的意义是不同的，使用 siblingIndex 需要理解并清楚其代表的是在父节点下的位置，且在节点树变化时会发生变化。
 
