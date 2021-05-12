@@ -1,8 +1,8 @@
 # Project Settings
 
-The **Project Settings** panel is opened by clicking on **Projects -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. If you need to synchronize project settings between developers, please add the `settings` directory to version control.
+The **Project Settings** panel is opened by clicking on **Projects -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Crop**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after you modify the settings.
+**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Crop**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 
@@ -61,9 +61,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 ## Texture Compression
 
-In Cocos Creator 3.0, the preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. After upgrading to v3.0, the editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified by developers.
+The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified by developers.
 
-You can change them yourself. [compress-texture](./texture-compress/compress-texture.png)
+These can be changed manually. [compress-texture](./texture-compress/compress-texture.png)
 
 This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
 
@@ -82,7 +82,7 @@ Enter a texture compression preset name in the upper input box and click Enter o
 
 ![add](./texture-compress/add.png)
 
-After adding a compressed texture, you can delete it by hovering over the preset name and clicking the delete button on the right.
+After adding a compressed texture, it can be deleted by hovering over the preset name and clicking the delete button on the right.
 
 ![delete](./texture-compress/delete.png)
 
@@ -94,7 +94,7 @@ Select the platform, then click the **Add Format** button, select the desired te
 
 ![add-format](./texture-compress/add-format.png)
 
-To delete, move your mouse over the texture format and click the red delete button on the right.
+To delete, move the mouse over the texture format and click the red delete button on the right.
 
 ![delete-format](./texture-compress/delete-format.png)
 
@@ -106,9 +106,9 @@ The name of the texture compression preset is for display purposes only. When a 
 
 ### Exporting/Importing Texture Compression Presets
 
-The texture compression configuration page allows importing/exporting texture compression presets for better cross-project reuse of the configuration, or you can edit the texture compression presets externally and import them to the editor.
+The texture compression configuration page allows importing/exporting texture compression presets for better cross-project reuse of the configuration, or edit the texture compression presets externally and import them to the editor.
 
-If you need to write your own texture compression configuration, please refer to the following interface definitions and examples:
+To write a custom texture compression configuration, please refer to the following interface definitions and examples:
 
 **Interface Definition**.
 
