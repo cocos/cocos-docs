@@ -2,7 +2,7 @@
 
 **Cocos Creator** supports contributions between extensions.
 
-When writing an extension, it is possible to query whether the existing functions in the editor provide the function of receiving external contributions.
+When writing an extension, it is possible to query whether the existing functions in the editor provide the ability of receiving `contributions` externally.
 
 If the function provides a contributions function, use these functions when writing extensions.
 
