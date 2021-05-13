@@ -39,7 +39,7 @@ General settings are displayed directly as tabs, while lab switches are displaye
 - When the functionality provided by the extension is more stable it is recommended to place the configuration data within the generic functionality.
 - When the functionality provided by the extension is in the development stage, it is recommended that the switch configuration data of the functionality be placed in the lab configuration.
 
-First define the configuration in `contributions.profile.editor`. The data to be displayed can be defined in the preferences in `contributions.preferences`.
+First define the configuration in `contributions.profile.editor`. The data to be displayed in the **Preferences** panel can then be defined in `contributions.preferences`.
 
 For details on how to define a profile, please review the [Profile](./profile.md) documentation.
 
