@@ -10,7 +10,7 @@ For example:
 
 Therefore, the overall rendering order in the figure above is __C -> B -> b1 -> A -> a1 -> a2__, and the rendering state on the screen is __C -> b1 -> B -> a2 -> a1 -> A__. i.e. __from bottom to top__.
 
-setSiblingIndex is used to change the position of the current node in the children array of the parent node. If set at runtime by script, the changed node tree data will not be serialized. If the parameter passed in is larger than the length of the children array, it will be set to the end of the array, and if it is within the range, it will be inserted into the corresponding position. So this operation is related to the state of the node tree in real time, and the user needs to know the current state of the node tree and perform the operation to get the expected result.
+`setSiblingIndex` is used to change the position of the current node in the children array of the parent node. If set at runtime by script, the changed node tree data will not be serialized. If the parameter passed in is larger than the length of the children array, it will be set to the end of the array, and if it is within the range, it will be inserted into the corresponding position. This operation is related to the state of the node tree in real time, and the user needs to know the current state of the node tree and perform the operation to get the expected result.
 
 ## 2. Mixed camera sorting
 
