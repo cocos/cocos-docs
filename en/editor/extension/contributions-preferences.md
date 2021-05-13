@@ -75,7 +75,7 @@ For details on how to define a `profile`, please review the [Profile](./profile.
 }
 ```
 
-Two editor configurations, foo and bar, have been defined and added the configurations to the preferences.
+Two editor configurations, `foo` and `bar`, have been defined and added the configurations to the `preferences`.
 The foo is stored in the general profile and the bar is stored in the lab profile.
 
 The defined profile data will be automatically registered to default. Using `Editor.Profile.getConfig` will get the default values.
