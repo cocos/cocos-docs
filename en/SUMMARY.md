@@ -280,18 +280,20 @@
 
 ## Advanced
 
-- [Extended Editor](editor/extension/readme.md)
+- [Extending the Editor](editor/extension/readme.md)
     - [The First Extension](editor/extension/first.md)
     - [Install And Share](editor/extension/install.md)
     - [Extension Description](editor/extension/define.md)
-    - [Extended Panel](editor/extension/panel.md)
+    - [Extension Panel](editor/extension/panel.md)
         - [Compose Panel](editor/extension/panel-boot.md)
         - [Panel Message](editor/extension/panel-messages.md)
     - [Contributions](editor/extension/contributions.md)
         - [Message](editor/extension/contributions-messages.md)
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
-        - [Extending the main menu](editor/extension/contributions-menu.md)
+        - [Extending the Main Menu](editor/extension/contributions-menu.md)
         - [Extending the Assets Panel](editor/assets/extension.md)
+        - [Extending the Project Settings Panel](editor/extension/contributions-project.md)
+        - [Extending the Preferences Panel](editor/extension/contributions-preferences.md)
     - [Basic](editor/extension/basic.md)
         - [Extension](editor/extension/package.md)
         - [Message](editor/extension/messages.md)

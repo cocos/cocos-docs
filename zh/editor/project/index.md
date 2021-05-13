@@ -6,7 +6,7 @@
 
 ## Macro Config（引擎宏配置）
 
-关于引擎宏模块的具体信息与代码可以参考 **Engine macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)），这里提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)），这里提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
 
 ![macro](./index/macro.png)
 
@@ -40,11 +40,11 @@
 - 后 12 个 Layers 是引擎内置的，不可修改。
 - 目前使用到 Layer 的位置包括：
 
-  1. Node 节点在 **属性检查器** 中的 [Layer 属性](../../concepts/scene/node-component.md)。
+  1. Node 节点在 **属性检查器** 中的 [Layer 属性](../../concepts/scene/node-component.md#%E8%AE%BE%E7%BD%AE%E8%8A%82%E7%82%B9%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7)。
 
       ![Layers-node](./index/layers-node.png)
 
-  2. Camera 节点在 **属性检查器** 中的 Visibility 属性，节点的 layer 属性匹配相机的 visibility 属性。只有当节点设置的 Layer 属性包含在相机的 visibility 中时，节点才可以被相机看见。更多说明可以参考 [Camera 组件](./../components/camera-component.md)。
+  2. Camera 节点在 **属性检查器** 中的 Visibility 属性，节点的 Layer 属性匹配相机的 Visibility 属性。只有当节点设置的 Layer 属性包含在相机的 Visibility 中时，节点才可以被相机看见。更多说明可以参考 [Camera 组件](./../components/camera-component.md)。
 
       ![Layers-camera](./index/layers-camera.png)
 
@@ -101,7 +101,7 @@
 
 ### 修改压缩纹理预设名称
 
-压缩纹理的名称仅仅是作为显示使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
+压缩纹理预设的名称仅仅是作为显示使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
 
 ![edit](./texture-compress/edit.png)
 

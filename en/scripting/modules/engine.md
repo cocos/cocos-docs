@@ -8,7 +8,7 @@ The engine and editor expose functional interfaces to developers via modules, wh
 
 ### Function
 
-The module `'cc'` provides access to all engine functions. The contents of module `'cc'` are dynamic and are related to the **Feature Crop** setting in **Project Setting**.
+The module `'cc'` provides access to all engine functions. The contents of module `'cc'` are dynamic and are related to the **Feature Cropping** setting in **Project Setting**.
 
 #### Engine Log Output
 

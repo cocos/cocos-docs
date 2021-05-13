@@ -19,7 +19,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 | DragonAtlasAsset    | 骨骼数据所需的 Atlas Texture 数据。可拖拽 DragonBones 导出的 Atlas 资源到这里
 | Armature              | 当前使用的 Armature 名称
 | Animation             | 当前播放的骨骼动画名称
-| Animation Cache Mode  | 渲染模式，包括 **REALTIME**（默认）、**SHARED_CACHE** 和 **PRIVATE_CACHE** 三种。<br>1. **REALTIME** 模式，实时运算，支持 DragonBones 所有的功能。<br>2. **SHARED_CACHE** 模式，将骨骼动画及贴图数据进行缓存并共享，相当于预烘焙骨骼动画。拥有较高性能，但不支持动作融合、动作叠加、骨骼嵌套，只支持动作开始和结束事件。至于内存方面，当创建 N（N>=3）个相同骨骼、相同动作的动画时，会呈现内存优势。N 值越大，优势越明显。综上 **SHARED_CACHE** 模式适用于场景动画、特效、副本怪物、NPC 等，能极大地提高帧率和降低内存。<br>3. **PRIVATE_CACHE** 模式，与 **SHARED_CACHE** 类似，但不共享动画及贴图数据，所以在内存方面没有优势，仅存在性能优势。若想利用缓存模式的高性能，但又存在换装的需求（不能共享贴图数据）时，那么 **PRIVATE_CACHE** 就适合你。
+| Animation Cache Mode  | 渲染模式，包括 **REALTIME**（默认）、**SHARED_CACHE** 和 **PRIVATE_CACHE** 三种。<br>1. **REALTIME** 模式，实时运算，支持 DragonBones 所有的功能。<br>2. **SHARED_CACHE** 模式，将骨骼动画及贴图数据进行缓存并共享，相当于预烘焙骨骼动画。拥有较高性能，但不支持动作融合、动作叠加、骨骼嵌套，只支持动作开始和结束事件。至于内存方面，当创建 N（N>=3）个相同骨骼、相同动作的动画时，会呈现内存优势。N 值越大，优势越明显。综上 **SHARED_CACHE** 模式适用于场景动画、特效、副本怪物、NPC 等，能极大地提高帧率和降低内存。<br>3. **PRIVATE_CACHE** 模式，与 **SHARED_CACHE** 类似，但不共享动画及贴图数据，且会占用额外的内存，仅存在性能优势，但如果大量使用该模式播放动画可能会造成卡顿。若想利用缓存模式的高性能，但又存在换装的需求（不能共享贴图数据）时，那么 **PRIVATE_CACHE** 就适合你。
 | TimeScale            | 当前骨骼中所有动画的时间缩放率，默认为 **1**，表示不缩放。
 | PlayTimes            | 播放默认动画的循环次数。<br>**-1** 表示使用 DragonBones 资源文件中的默认值<br>**0** 表示无限循环<br>**>0** 表示循环次数
 | PremultipliedAlpha    | 图片是否启用贴图预乘，默认为 True。<br>当图片的透明区域出现色块时需要关闭该项。<br>当图片的半透明区域颜色变黑时需要启用该项
