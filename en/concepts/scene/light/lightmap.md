@@ -63,7 +63,7 @@ During the process of generating baked maps, there will be a generated progress 
 
 ![bake result](./lightmap/lightmap-result.png)
 
-- `Baked result (baked result display panel)` shows the lightmap texture after baking
+- `Baked result (baked result display panel)` shows the lightmap texture after baking, format is RGBE8.
 - `Lightmap clear (clear button)` can delete the generated result of baking
 - `information output panel` shows the information of each baked image (file name, size, etc.).
 
