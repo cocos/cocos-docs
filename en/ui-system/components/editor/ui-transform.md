@@ -46,4 +46,4 @@ The priority property on the UITransform component has been removed due to uncle
 
 > 2. After removing this property, users can still use the `setSiblingIndex()` method to set the node tree order, but the difference is that there is a default value for priority and the `siblingIndex` of the node is actually the position of the node in the parent node, so after the node tree changes, the This requires the user to know the relative position of the node in the parent node and control it when using the `setSiblingIndex` method in order to get the expected result. The point of the modification here is that the user should not directly equate the `siblingIndex` property with the priority (old) property to understand the use of `siblingIndex`, as their meaning is different.
 
-Considering the need for quick sorting of nodes, we will provide a more convenient and quick interface for users to sort nodes in future versions.
+Considering the need for quick sorting of nodes, a more convenient and quick interface for users to sort nodes will be provided in future versions.
