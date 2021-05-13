@@ -41,7 +41,7 @@ General settings are displayed directly as tabs, while lab switches are displaye
 
 First define the configuration in `contributions.profile.editor`. The data to be displayed in the **Preferences** panel can then be defined in `contributions.preferences`.
 
-For details on how to define a profile, please review the [Profile](./profile.md) documentation.
+For details on how to define a `profile`, please review the [Profile](./profile.md) documentation.
 
 ## Registering Preferences Data
 
