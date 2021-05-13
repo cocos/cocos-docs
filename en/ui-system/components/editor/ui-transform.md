@@ -39,7 +39,7 @@ export class Example extends Component {
 
 ### Deprecation of the priority property
 
-We deprecated the priority property of the UITransform component in version 3.1, and users can adjust the rendering order by setting the order of the node tree using setSiblingIndex.
+The priority property of the UITransform component was deprecated in version 3.1, and users can adjust the rendering order by setting the order of the node tree using `setSiblingIndex()`.
 
 A note on the removal of the priority property and the recommended SiblingIndex property.
 The priority property on the UITransform component has been removed due to unclear ideation and naming conflicts with other properties in the engine, which was originally designed to provide a shortcut for the user to sort the node tree and has no other use in itself, and is not related to the priority expressed by priority.
