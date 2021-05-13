@@ -1,7 +1,5 @@
 # 如何在 iOS 平台上使用 Javascript 直接调用 Objective-C 方法
 
-> 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
-
 使用 Cocos Creator 打包的 iOS 或者 Mac 原生应用中，我们也提供了 JavaScript 通过原生语言的反射机制直接调用 Objective-C 函数的方法，示例代码如下：
 
 ```js

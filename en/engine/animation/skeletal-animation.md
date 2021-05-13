@@ -8,10 +8,10 @@ To use `SkeletalAnimation`, please refer to the [SkeletalAnimation API](__APIDOC
 
 The dominant purpose of this system is performance, and some sacrifices in expressiveness are also considered acceptable. __Cocos Creator__ has made many low-level optimizations in a targeted manner. The current runtime process is roughly as follows:
 
-  - All animation data will be pre-sampled in advance according to the specified frame rate and baked onto a global-managed joint texture atlas.
-  - Depending on whether the operating platform supports floating-point textures, the corresponding texture format will be RGBA32F, or automatically fallback to RGBA8 if not available (The rendering results should be identical, it is only the fail-safe approach for really low-end devices, and shouldn't be of any concern for game developers).
-  - Each __Skeletal Animation Component__ (`SkeletalAnimation`) is responsible for maintaining the current playback progress, stored in the form of UBO (a `vec4`).
-  - Each skinning model component (`SkinnedMeshRenderer`) holds a pre-baked skinning model class (`BakedSkinningModel`). Based on the bounding box information pre-baked in the same way to do frustum culling, update the UBO, and get the current data from the texture atlas on the GPU to complete the skinning.
+- All animation data will be pre-sampled in advance according to the specified frame rate and baked onto a global-managed joint texture atlas.
+- Depending on whether the operating platform supports floating-point textures, the corresponding texture format will be RGBA32F, or automatically fallback to RGBA8 if not available (The rendering results should be identical, it is only the fail-safe approach for really low-end devices, and shouldn't be of any concern for game developers).
+- Each __Skeletal Animation Component__ (`SkeletalAnimation`) is responsible for maintaining the current playback progress, stored in the form of UBO (a `vec4`).
+- Each skinning model component (`SkinnedMeshRenderer`) holds a pre-baked skinning model class (`BakedSkinningModel`). Based on the bounding box information pre-baked in the same way to do frustum culling, update the UBO, and get the current data from the texture atlas on the GPU to complete the skinning.
 
 ## Real-time calculated Skeletal Animation System
 
@@ -19,17 +19,17 @@ The dominant purpose of this system is expressiveness, ensuring the correct disp
 
 The current runtime process is roughly as follows:
 
-  - All animation data are calculated dynamically according to the current global time.
-  - Animation data will be output to the skeleton node tree of the scene.
-  - Users and any other system can affect the skin effect by manipulating this node tree.
-  - Each __Skinning Model Component__ (`SkinnedMeshRenderer`) holds a common __Skinning Model__ class (`SkinningModel`). Extract the transformation data from joint node tree, do frustum culling, upload the complete joint transformation information of the current frame to UBO, and complete the skinning in the GPU.
+- All animation data are calculated dynamically according to the current global time.
+- Animation data will be output to the skeleton node tree of the scene.
+- Users and any other system can affect the skin effect by manipulating this node tree.
+- Each __Skinning Model Component__ (`SkinnedMeshRenderer`) holds a common __Skinning Model__ class (`SkinningModel`). Extract the transformation data from joint node tree, do frustum culling, upload the complete joint transformation information of the current frame to UBO, and complete the skinning in the GPU.
 
 This provides the fundamental support for all the following functions:
 
-  - Blendshape support
-  - Mixing and masking of any number of __Animation Clips__
-  - Inverse kinematics, secondary physics
-  - Explicit procedural control over any joint tranformations
+- Blendshape support
+- Mixing and masking of any number of __Animation Clips__
+- Inverse kinematics, secondary physics
+- Explicit procedural control over any joint tranformations
 
 ## Selection and best practice of two systems
 
@@ -39,10 +39,10 @@ After importing all model assets, all prefabs use the pre-baked system by defaul
 
 We have two built-in common standard skinning algorithms, which have similar performance and only affect the rendering results:
 
-1. __LBS (Linear Blend Skinning)__: joint information is stored in the form of a 3x4 matrix, and the matrix is ​​interpolated directly to achieve skinning, and there are well-known problems such as volume loss, etc.
-2. __DQS (Dual Quaternion Skinning)__: The joint information is interpolated in the form of dual quaternions, which is more accurate and natural for the skeleton animation without scaling transformation, but for performance reasons, there are pragmatic approximation measures for scaling animations.
+  1. __LBS (Linear Blend Skinning)__: joint information is stored in the form of a 3x4 matrix, and the matrix is ​​interpolated directly to achieve skinning, and there are well-known problems such as volume loss, etc.
+  2. __DQS (Dual Quaternion Skinning)__: The joint information is interpolated in the form of dual quaternions, which is more accurate and natural for the skeleton animation without scaling transformation, but for performance reasons, there are pragmatic approximation measures for scaling animations.
 
-The engine uses LBS by default. You can switch the skinning algorithm by modifying the `updateJointData` function reference of the engine `skeletal-animation-utils.ts` and the header file reference in `cc-skinning.chunk`.
+The engine uses LBS by default. To switch the skinning algorithm by modifying the `updateJointData` function reference of the engine `skeletal-animation-utils.ts` and the header file reference in `cc-skinning.chunk`.
 
 It is recommended that projects with higher pursuit of skin animation quality can try to enable DQS, but since there is no `fma` instruction before GLSL 400, operations such as `cross` cannot bypass floating-point cancellation on some GPUs, and the error is relatively high. This may introduce some visible defects.
 
@@ -64,7 +64,7 @@ Based on the framework of the pre-baked skeletal animation system, the instancin
 
 The fundamental problem here is that the joint texture atlass used by each model in the same drawcall must be the same. If they are not the same, the display effect will be completely messy.
 
-The way to distribute all the animation data used at runtime to each joint texture atlases becomes a project-specific information, thus needs developer's input. See the [joint texture layout panel](../../editor/project/joint-texture-layout.md) documentation for more details on how to configure this.
+The way to distribute all the animation data used at runtime to each joint texture atlases becomes a project-specific information, thus needs developer's input. Please refer to the [joint texture layout panel](../../editor/project/joint-texture-layout.md) documentation for more details on how to configure this.
 
 > **Notes**:
 > 1. Instancing is only supported under the pre-baked system. Although we do not strictly prohibit instancing under the real-time calculated system (will only trigger some warnings in the editor), there will be problems with the rendering results. Depending on the asset allocation situation at the time, all the instances could be playing the same clip at best, or more often, completely mad rendering results.
