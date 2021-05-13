@@ -209,7 +209,7 @@ To learn how to debug on a native platform, please refer to [Debugging JavaScrip
 
 1. Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
 
-2. When building for iOS, if you don't use WebView related features in your project, please ensure that the WebView module is removed from the **Project -> Project Settings -> Feature Cropping** to help your game approval go as smoothly as possible on iOS App Store. If you really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, you can still try to appeal through email.
+2. When building for iOS, if WebView and related features are not needed, please ensure that the WebView module is removed from the **Project -> Project Settings -> Feature Cropping** to help the approval process go as smoothly as possible on iOS App Store. If WebView is needed (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, try to appeal through email.
 
 3. The result of compiling the Android through the editor and Android Studio has the following differences.
 

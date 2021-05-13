@@ -61,9 +61,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 ## Texture Compression
 
-The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified by developers.
+The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified here by developers.
 
-These can be changed manually. [compress-texture](./texture-compress/compress-texture.png)
+![compress-texture](./texture-compress/compress-texture.png)
 
 This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
 
@@ -76,7 +76,7 @@ The following platforms are currently supported for configuring texture compress
 
 Please refer to the [Texture Compression](../../asset/compress-texture.md) documentation for details of texture compression on each platform.
 
-### Add/Remove Texture Compression Presets
+### Adding/Removing Texture Compression Presets
 
 Enter a texture compression preset name in the upper input box and click Enter or the "+" button on the right to add a preset. The other two buttons are for importing/exporting texture compression presets, please refer to the description below for details.
 
@@ -110,7 +110,7 @@ The texture compression configuration page allows importing/exporting texture co
 
 To write a custom texture compression configuration, please refer to the following interface definitions and examples:
 
-**Interface Definition**.
+**The interface is defined as follows**:
 
 ```ts
 type IConfigGroups = Record<ITextureCompressPlatform, IConfigGroupsInfo>;
@@ -143,7 +143,7 @@ interface ICompressPresetItem {
 }
 ```
 
-**Examples:**.
+**Examples**:
 
 ```json
 {
