@@ -29,7 +29,7 @@ The Node checkbox indicates the node's enabled/disabled status. When unchecked, 
 
 ### Node properties
 
-Click `Node` below the node name to collapse or expand the node's properties. To the right of `Node` are the help file and node settings buttons.
+Click `Node` below the node name to collapse or expand the node's properties. To the right of `Node` are the **Help Documentations** and **Node Settings** buttons.
 - The Help button jumps to the official documentation about the node.
 - The Node Settings button allows resetting the node properties, copy/paste the node values, and reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
 
@@ -45,8 +45,8 @@ The Component checkbox indicates the enabled/disabled state of the component. Wh
 
 Below the node properties, all the components attached on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components attached on the node, collapese infrequently modified component properties to get a larger working area.
 
-To the right of the component name are buttons for **Help File** and **Component Settings**.
-- The Help button jumps to the official documentation page for the component.
+To the right of the component name are buttons for **Help Documentations** and **Component Settings**.
+- The Help Documentations button jumps to the official documentation page for the component.
 - The Component Settings button allows resetting, deleting, moving up, moving down, copying the component, paste the component's value, paste it as a new component, etc. for the component.
 
 The properties and settings of each component are different, please refer to the [Components](../../editor/components/index.md) documentation for details.
@@ -61,9 +61,9 @@ Developers' script in the **Assets** panel can be dragged and dropped directly i
 
 ## Property types
 
-**Properties** are variables declared in the component script that are public and can be serialized and stored in the scene and animation data. The **Inspector** panel allows quickly modifying property settings for the purpose of adjusting game data and gameplay without modifying the script.
+**Property** is a publicly available variable declared in the component script that can be serialized and stored in the scene and animation data. The **Inspector** panel allows quickly modifying property settings for the purpose of adjusting game data and gameplay without modifying the script.
 
-Properties can usually be divided into two main categories, **value types** and **reference types**, depending on where the variables use memory.
+**Property** can usually be divided into two categories, **value type** and **reference type**, depending on where the variable uses memory.
 
 ### Value type properties
 
@@ -74,7 +74,7 @@ Properties can usually be divided into two main categories, **value types** and 
 - `String`: entered directly into the text box using the keyboard.
 - `Boolean`: edited in the form of a checkbox, the selected state means the property value is true, the non-selected state means false.
 - `Enum`: edited in the form of a drop-down menu. Click the enumeration menu, and then select an item from the pop-up menu list to finish modifying the enumeration value.
-- `Color`: Click on the color property preview box, the **Color Picker** window will pop up, in this window use the mouse to directly click on the desired color, or directly enter the specified color in the RGBA color input box below. Clicking anywhere outside the **Color Picker** window will close the window and use the last selected color as the property value. For example, the color picker component.
+- `Color`: click on the color property preview box, the **Color Picker** window will pop up, in this window use the mouse to directly click on the desired color, or directly enter the specified color in the RGBA color input box below. Clicking anywhere outside the **Color Picker** window will close the window and use the last selected color as the property value. For example, the color picker component.
 
   ![ui-color](index/ui-color.png)
 
@@ -90,7 +90,7 @@ When needing to set asset properties of the **same type** in a batch, press Shif
 
 ![multiple-edit](index/multiple-edit1.png)
 
-Batch modification of node properties is the same. However, if an property in the **Inspector** panel displays one of the following states, it means that the property has inconsistent property values across the multiple assets selected, and you can choose whether to continue to batch modify the property as needed:
+Batch modification of node properties is the same. However, if an property in the **Inspector** panel displays one of the following states, it means that the property has inconsistent property values across the multiple assets selected, and choose whether to continue to batch modify the property as needed:
 
 - The check box displays **Grey**.
 - The input box displays **-**.
