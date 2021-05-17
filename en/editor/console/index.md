@@ -56,9 +56,8 @@ The data formats are described as follows:
 
 - Matches the characters in `{}` as a whole.
 - `[text]`: text of the jump link, optional
-- `type`: The type of information to be output, case-insensitive. If not filled in, the input is directly output without format.
+- `type`: The type of information to be output, including the following. The filling is case-insensitive, and if not fill in, the input is directly output without format.
 
-- `type` includes:
     - `link`: external jump link
     - `image`: display image
     - `asset`: locate to a asset
