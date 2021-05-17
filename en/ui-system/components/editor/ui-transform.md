@@ -39,11 +39,14 @@ export class Example extends Component {
 
 ### Deprecation of the priority property
 
-The priority property of the UITransform component was deprecated in version 3.1, and users can adjust the rendering order by setting the order of the node tree using `setSiblingIndex()`.
+The `priority` property of the **UITransform** component was deprecated in v3.1, and users can adjust the rendering order by setting the order of the node tree using `setSiblingIndex()`.
 
-> **Notes**:
-> 1. The priority property on the UITransform component has been removed due to unclear priority and naming conflicts with other properties in the engine, which was originally designed to provide a shortcut for the user to sort the node tree and has no other use in itself, and is not related to the priority expressed by priority.
+**Description of the deprecated `priority` property and the recommended `setSiblingIndex()` method**:
 
-> 2. After removing this property, users can still use the `setSiblingIndex()` method to set the node tree order, but the difference is that there is a default value for priority and the `siblingIndex` of the node is actually the position of the node in the parent node, so after the node tree changes, the This requires the user to know the relative position of the node in the parent node and control it when using the `setSiblingIndex` method in order to get the expected result. The point of the modification here is that the user should not directly equate the `siblingIndex` property with the priority (old) property to understand the use of `siblingIndex`, as their meaning is different.
+The `priority` property on the **UITransform** component was deprecated in v3.1 due to a lack of clarity and naming conflicts with other properties in the engine. The `priority` property was originally designed to provide a shortcut for the user to sort the node tree, but has no other use in itself and is not related to the meaning of "priority", and actually still adjusts the rendering order by changing the order of the node tree.
+
+After deprecating the `priority` property, users can replace it with the `setSiblingIndex()` method, which adjusts the order of the node tree by affecting the `siblingIndex` property of the node. The difference is that the `priority` property has a default value and the `siblingIndex` property of a node is actually the position of the node in its parent node, so the value of the node's `siblingIndex` property will change when the node tree changes. This requires that when using the `setSiblingIndex()` method, the relative position of the node in the parent node is known and controlled in order to obtain the desired result.
+
+> **Note**: the `siblingIndex` property should not be used in the same way as the `priority` (deprecated) property, as they have different meanings. To change the `siblingIndex` property, need to understand and know that it represents the position under the parent node and will change when the node tree changes, and can only be modified by the `setSiblingIndex()` method.
 
 Considering the need for quick sorting of nodes, a more convenient and quick interface for users to sort nodes will be provided in future versions.

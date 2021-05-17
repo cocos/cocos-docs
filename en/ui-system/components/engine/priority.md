@@ -2,7 +2,7 @@
 
 ## 1. UI node ordering
 
-The rendering order of the UI uses the **Breadth-First Sorting** scheme,  and the node tree order is the final rendering data submission order. So the user can change the order of the nodes under their parents by setting the siblingIndex of the nodes and thus change the rendering order.
+UI nodes refer to the UI nodes under the Canvas node, these nodes do not have depth testing enabled, so the mixing of nodes is strictly sorted according to the node tree. The rendering order of the UI uses a **Breadth-First Sorting** scheme, and the node tree order is the final rendering data submission order. So the user can change the order of the nodes under their parents by setting the `siblingIndex` of the nodes and thus change the rendering order.
 
 For example:
 
