@@ -18,7 +18,7 @@
 
 ## Panel operations
 
-The top toolbar functions, in order, are
+The top toolbar functions, in order, are:
 
 - Clear all logs in the current console
 - Enter text for fuzzy search
