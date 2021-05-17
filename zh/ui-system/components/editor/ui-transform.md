@@ -12,7 +12,6 @@ UITransform 脚本接口请参考 [Mask API](__APIDOC__/zh/classes/ui.uitransfor
 | :-------------- | :----------- |
 | ContentSize | UI 矩形内容尺寸
 | AnchorPoint | UI 矩形锚点位置
-| Priority | UI 节点优先级，在当前父节点下排序，Canvas 节点顺序不受此属性影响。
 
 ---
 
@@ -39,3 +38,16 @@ export class Example extends Component {
     }
 }
 ```
+
+### priority 属性的弃用说明
+
+我们在 3.1 版本中弃用了 UITransform 组件的 priority 属性，用户可以通过使用 setSiblingIndex 来设置节点树的顺序来进行调整渲染顺序。
+
+关于 priority 属性的移除及推荐使用的 SiblingIndex 属性的说明：
+由于表意不明以及与引擎中其他属性的命名冲突，UITransform 组件上的 priority 属性在 v3.1 已被废弃。priority 属性的设计之初是为用户提供节点树排序的快捷方式，本身并无其他用途，和 priority 所表达的“优先级”也不相关，并且设置之后实际上还是通过更改节点树的顺序来调整渲染顺序。
+
+在移除了 `priority` 属性之后，用户可以用 `setSiblingIndex` 方法来替换使用，`setSiblingIndex` 方法通过影响节点中的 `siblingIndex` 属性来调整节点树的顺序。不同之处在于，`priority` 属性存在默认值，而 node 的 `siblingIndex` 属性实际上就是这个节点在父节点中的位置，所以在节点树发生变化之后，节点的 `siblingIndex` 属性数值就会产生变化。这就要求在使用 `setSiblingIndex` 方法的时候，需要知道节点在父节点中的相对位置并做出控制，才能够获得预期的结果。
+
+需要注意的是，不能直接将 `siblingIndex` 属性等同于 `priority`（已废弃）属性来理解使用，它们的意义是不同的，改变 `siblingIndex` 属性需要理解并清楚其代表的是在父节点下的位置，且在节点树变化时会发生变化，并且只能通过 `setSiblingIndex` 方法来修改 `siblingIndex` 属性。
+
+考虑到节点快捷排序的需求，我们会在之后的版本中提供更方便快捷的接口供用户排列节点使用。

@@ -12,7 +12,6 @@ Please refer to the [UITransform API](__APIDOC__/en/classes/ui.uitransform.html)
 | :-------------- | :----------- |
 | **ContentSize** | The content size of UI rectangle.
 | **AnchorPoint** | The anchor position of UI rectangle.
-| **Priority** | The priority of UI nodes, sorted in the parent node. The order of the Canvas node is not affected by this property.
 
 ### change the size and anchor point in script. Example:
 
@@ -36,3 +35,18 @@ export class Example extends Component {
         uiTransform.anchorY = 0.5;
     }
 }
+```
+
+### Deprecation of the priority property
+
+The `priority` property of the **UITransform** component was deprecated in v3.1, and users can adjust the rendering order by setting the order of the node tree using `setSiblingIndex()`.
+
+**Description of the deprecated `priority` property and the recommended `setSiblingIndex()` method**:
+
+The `priority` property on the **UITransform** component was deprecated in v3.1 due to a lack of clarity and naming conflicts with other properties in the engine. The `priority` property was originally designed to provide a shortcut for the user to sort the node tree, but has no other use in itself and is not related to the meaning of "priority", and actually still adjusts the rendering order by changing the order of the node tree.
+
+After deprecating the `priority` property, users can replace it with the `setSiblingIndex()` method, which adjusts the order of the node tree by affecting the `siblingIndex` property of the node. The difference is that the `priority` property has a default value and the `siblingIndex` property of a node is actually the position of the node in its parent node, so the value of the node's `siblingIndex` property will change when the node tree changes. This requires that when using the `setSiblingIndex()` method, the relative position of the node in the parent node is known and controlled in order to obtain the desired result.
+
+> **Note**: the `siblingIndex` property should not be used in the same way as the `priority` (deprecated) property, as they have different meanings. To change the `siblingIndex` property, need to understand and know that it represents the position under the parent node and will change when the node tree changes, and can only be modified by the `setSiblingIndex()` method.
+
+Considering the need for quick sorting of nodes, a more convenient and quick interface for users to sort nodes will be provided in future versions.

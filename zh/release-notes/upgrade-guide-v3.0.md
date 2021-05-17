@@ -83,6 +83,8 @@ v2.x 项目中所有的资源便会自动呈现在弹出的 **导入 Cocos Creat
         - `group`：变更为 `layer`。
 
         - `zIndex`：变更为 `UITransform` 中的 [priority](__APIDOC__/zh/classes/ui.uitransform.html#priority)。
+        
+          > **注意**：从 v3.1 开始，`priority` 属性已弃用，若需要调整节点树的顺序请使用 `setSiblingIndex` 方法。
 
 - `CCSpriteFrame`：
 
