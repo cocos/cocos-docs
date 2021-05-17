@@ -213,7 +213,7 @@
     - [模块](scripting/modules/index.md)
         - [如何获取 npm 包](scripting/modules/config.md)
         - [示例：外部模块使用案例](scripting/modules/example.md)
-    - [装饰器](scripting/ccclass.md)
+    - [装饰器](scripting/decorator.md)
     - [属性参数参考](scripting/reference/attributes.md)
     - [访问节点和其他组件](scripting/access-node-component.md)
     - [常用节点和组件接口](scripting/basic-node-api.md)
