@@ -36,7 +36,7 @@
 
 ### Atlas 和 SpriteFrame
 
-在[图像资源文档](../ui-system/components/editor/sprite.md)中，我们介绍了 Texture 和 SpriteFrame 的关系。导入图集资源后，我们可以看到类型为 `Atlas` 的图集资源可以点击左边的三角图标展开，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都是可以单独使用和引用的图片。
+在[图像资源文档](../ui-system/components/sprite.md)中，我们介绍了 Texture 和 SpriteFrame 的关系。导入图集资源后，我们可以看到类型为 `Atlas` 的图集资源可以点击左边的三角图标展开，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都是可以单独使用和引用的图片。
 
 ![sprite frame](atlas/spriteframes.png)
 

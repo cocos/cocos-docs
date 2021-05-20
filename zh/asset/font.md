@@ -2,7 +2,7 @@
 
 使用 Cocos Creator 制作的游戏中可以使用三类字体资源：系统字体，动态字体和位图字体。
 
-其中系统字体是通过调用游戏运行平台自带的系统字体来渲染文字，不需要用户在项目中添加任何相关资源。要使用系统字体，请使用 [Label组件](../ui-system/components/editor/label.md) 中的 **Use System Font** 属性。
+其中系统字体是通过调用游戏运行平台自带的系统字体来渲染文字，不需要用户在项目中添加任何相关资源。要使用系统字体，请使用 [Label组件](../ui-system/components/label.md) 中的 **Use System Font** 属性。
 
 ## 导入字体资源
 

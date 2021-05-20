@@ -1,6 +1,6 @@
 # Widget 组件参考
 
-Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。对齐方案详细说明请参考 [对齐方案](../engine/widget-align.md)
+Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节点自动对齐到父物体的任意位置，或者约束尺寸，让你的游戏可以方便地适配不同的分辨率。对齐方案详细说明请参考 [对齐方案](../production-strategy/widget-align.md)
 
 ![default](widget/widget-default.png)
 

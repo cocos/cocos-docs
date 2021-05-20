@@ -14,7 +14,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 | 属性 | 功能说明
 | :-------------------- | :----------------- |
-| CustomMaterial | 自定义材质，可用于实现溶解、外发光等渲染效果。详情请参考 [自定义材质](../../ui-system/components/engine/ui-material.md)。
+| CustomMaterial | 自定义材质，可用于实现溶解、外发光等渲染效果。详情请参考 [自定义材质](../../ui-system/production-strategy/ui-material.md)。
 | Color                 | 设置骨骼动画颜色
 | SkeletonData          | 骨骼信息数据，拖拽 Spine 导出后的骨骼资源到该属性中
 | Default Skin          | 选择默认的皮肤

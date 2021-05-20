@@ -1,6 +1,6 @@
 # EffectAsset 资源
 
-材质资源（EffectAsset）是由用户书写的着色流程描述文件，详细结构及书写指南可以参考 [Effect 语法](effect-syntax.md)。<br>
+材质资源（EffectAsset）是由用户书写的着色流程描述文件，详细结构及书写指南可以参考 [Effect 语法](../material-system/effect-syntax.md)。<br>
 此处主要介绍引擎读取 EffectAsset 资源的流程：<br>
 在编辑器导入 EffectAsset 时，会对用户书写的内容做一次预处理，替换 GL 字符串为管线内常量，提取 shader 信息，转换 shader 版本等。
 

@@ -29,4 +29,4 @@
 
 ## 使用艺术数字资源
 
-使用艺术数字资源非常简单，你只需要新建一个 Label 组件，然后将新建好的艺术数字资源拖拽到节点的 Label 组件的 Font 属性上即可。可参考 [Label 组件](../ui-system/components/editor/label.md)。
+使用艺术数字资源非常简单，你只需要新建一个 Label 组件，然后将新建好的艺术数字资源拖拽到节点的 Label 组件的 Font 属性上即可。可参考 [Label 组件](../ui-system/components/label.md)。

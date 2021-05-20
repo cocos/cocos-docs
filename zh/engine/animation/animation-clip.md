@@ -7,13 +7,13 @@
 
 创建动画剪辑有以下两种方式：
 
-- 在资源管理器中点击左上方的 **+**，或者右键空白区域，选择 Animation Clip，这时候会在管理器中创建一个名为 'New AnimationClip' 的剪辑文件。<br>
+- 在 **资源管理器** 中点击左上方的 **+**，或者右键点击空白区域，选择 Animation Clip，便会在 **资源管理器** 中创建一个名为 'New AnimationClip' 的剪辑文件。<br>
   单单创建还是不够的，需要再次在层级管理器中点选刚刚的节点，在 **属性检查器** 中找到 Animation，这时候的 Clips 显示的是 0，将它改成 1。<br>
   然后将刚刚在资源管理器中创建的'New AnimationClip'，拖入刚刚出现的 **animation-clip 选择框** 内。
 - 在 **动画编辑器** 中直接点击 **新建 AnimationClip** 按钮，根据弹出的窗口创建一个新的动画剪辑文件，新建完的动画剪辑会自动添加到动画组件上。
   > **注意**：如果选择覆盖已有的剪辑文件，被覆盖的文件内容会被清空。
 
-  ![add-clip](animation-clip/add-clip.png)
+  ![add-clip](../../editor/animation/animation-clip/add-clip.png)
 
 ## 动画曲线
 

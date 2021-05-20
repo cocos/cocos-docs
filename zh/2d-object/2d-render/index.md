@@ -1,6 +1,6 @@
 # 2D 渲染对象
 
-所有具备渲染能力的 2D 对象是 2D 渲染对象。例如：Sprite、Label。 2D 渲染对象的渲染要求有两点：
+所有具备渲染能力的 2D 对象是 2D 渲染对象。例如：Sprite、Label。2D 渲染对象的渲染要求有两点：
 
 1. 自身带有 UITransform 组件
 2. 需要为带有 RenderRoot2D/Canvas 组件节点的子节点
@@ -25,12 +25,12 @@ RenderRoot2D 节点（带有 RenderRoot2D 组件）为 2D 对象数据收集的�
 
 本身拥有渲染能力的组件我们称为 2D 渲染组件，包括：
 
-- [Sprite 组件参考](../../ui-system/components/editor/sprite.md)
-- [Label 组件参考](../../ui-system/components/editor/label.md)
-- [Mask 组件参考](../../ui-system/components/editor/mask.md)
-- [Graphics 组件参考](../../ui-system/components/editor/graphics.md)
-- [RichText 组件参考](../../ui-system/components/editor/richtext.md)
-- [UIStaticBatch 组件参考](../../ui-system/components/editor/ui-static.md)
+- [Sprite 组件参考](../../ui-system/components/sprite.md)
+- [Label 组件参考](../../ui-system/components/label.md)
+- [Mask 组件参考](../../ui-system/components/mask.md)
+- [Graphics 组件参考](../../ui-system/components/graphics.md)
+- [RichText 组件参考](../../ui-system/components/richtext.md)
+- [UIStaticBatch 组件参考](../../ui-system/components/ui-static.md)
 - [TiledMap 组件参考](../../editor/components/tiledmap.md)
 - [TiledTile 组件参考](../../editor/components/tiledtile.md)
 - [Spine（骨骼动画）Skeleton 组件参考](../../editor/components/spine.md)
@@ -38,6 +38,6 @@ RenderRoot2D 节点（带有 RenderRoot2D 组件）为 2D 对象数据收集的�
 
 ## 2D 渲染组件规则介绍
 
-- [渲染排序规则](../../ui-system/components/engine/priority.md)
-- [UI 合批规则说明](../../ui-system/components/engine/ui-batch.md)
-- [UI 材质说明](../../ui-system/components/engine/ui-material.md)
+- [渲染排序规则](../../ui-system/production-strategy/priority.md)
+- [UI 合批规则说明](../../ui-system/production-strategy/ui-batch.md)
+- [UI 材质说明](../../ui-system/production-strategy/ui-material.md)

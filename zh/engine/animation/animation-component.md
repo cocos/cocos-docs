@@ -7,7 +7,7 @@
 1. 像其他节点添加组件一样。选中节点，在 **属性检查器** 面板点击添加组件，搜索 `Animation`，点击即可添加。
 2. 在 **动画编辑器** 面板开启的状态下，选中节点，点击 **动画编辑器** 面板上的 **添加 Animation 组件** 按钮即可添加。
 
-    ![](../../editor/animation/animation/add-component.jpg)
+    ![](../../editor/animation/animation/add-component.png)
 
 3. 通过代码方式添加：
 

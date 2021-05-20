@@ -20,7 +20,7 @@ Label 的组件接口请参考 [Label API](__APIDOC__/zh/classes/ui.label.html)�
 | Vertical Align | 文本的垂直对齐方式。可选值有 TOP，CENTER 和 BOTTOM。
 | Font Size | 文本字体大小。
 | Line Height | 文本的行高。
-| Overflow | 文本的排版方式，目前支持 CLAMP，SHRINK 和 RESIZE_HEIGHT。详情见下方的 [Label 排版](#label-%E6%8E%92%E7%89%88) 或者 [文字排版](../engine/label-layout.md)。
+| Overflow | 文本的排版方式，目前支持 CLAMP，SHRINK 和 RESIZE_HEIGHT。详情见下方的 [Label 排版](#label-%E6%8E%92%E7%89%88) 或者 [文字排版](../production-strategy/label-layout.md)。
 | Enable Wrap Text | 是否开启文本换行。（在排版方式设为 CLAMP、SHRINK 时生效）
 | Font | 指定文本渲染需要的字体文件，如果使用系统字体，则此属性可以为空。
 | Font Family | 文字字体名字。在使用系统字体时生效。

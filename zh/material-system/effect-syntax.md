@@ -32,6 +32,6 @@ mat.initialize({ effectName: 'builtin-standard' }); // now 'mat' is a valid stan
 
 关于 Effect 的书写规范请参考：
 
-- [YAML 书写格式](yaml-101.md)
+- [YAML 101](yaml-101.md)
 - [流程控制清单](rendering-procedure-manifest.md)
 - [shader 片段](pass-parameter-list.md)

@@ -13,7 +13,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
 | 属性 | 功能说明
 | :-------- | :---------- |
-| CustomMaterial        | 自定义材质，可用于实现溶解、外发光等渲染效果。详情请参考 [自定义材质](../../ui-system/components/engine/ui-material.md)。
+| CustomMaterial        | 自定义材质，可用于实现溶解、外发光等渲染效果。详情请参考 [自定义材质](../../ui-system/production-strategy/ui-material.md)。
 | Color                 | 设置骨骼动画颜色
 | DragonAsset          | 骨骼信息数据，包含了骨骼信息（绑定骨骼动作、slots、渲染顺序、attachments、皮肤等）和动画，但不持有任何状态。<br>多个 ArmatureDisplay 可以共用相同的骨骼数据。<br/>可拖拽 DragonBones 导出的骨骼资源到这里
 | DragonAtlasAsset    | 骨骼数据所需的 Atlas Texture 数据。可拖拽 DragonBones 导出的 Atlas 资源到这里

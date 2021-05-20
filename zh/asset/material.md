@@ -1,9 +1,5 @@
 # 材质资源
 
-材质系统控制着每个模型最终的着色流程与顺序，在引擎内相关类间结构如下：
-
-[![Assets](../material-system/material.png "Click to view diagram source")](material.dot)
-
 ## 材质创建
 
 材质创建方式如下：
@@ -14,11 +10,11 @@
 
 ![material-create-menu](material/material-create-menu.png)
 
-材质控制着每个模型最终的着色，材质由 [EffectAsset](./effect.md) 构成，由材质操控着色流程。材质本身也可以看作是 EffectAsset 资源的容器，材质可以任意切换当前要使用的 EffectAsset 资源。下图就是我们创建的材质默认选择的 EffectAsset 资源。
+材质控制着每个模型最终的着色。材质由 [EffectAsset](./effect.md) 构成，Effect 的着色流程由材质操控。材质本身也可以看作是 EffectAsset 资源的容器，材质可以任意切换当前使用的 EffectAsset 资源。下图就是在 **层级管理器** 中创建的材质默认使用的 EffectAsset 资源。
 
 ![default-effect](material/default-effect.png)
 
-同时，我们还可以通过点击 Effect 属性右边的框要切换当前材质的 EffectAsset。
+开发者可以直接点击 **Effect** 属性的下拉框来切换当前材质的 EffectAsset。
 
 ![effects](material/effects.png)
 
@@ -43,7 +39,7 @@ mat.initialize({
 });
 ```
 
-其中，`effectName` 则代表所使用的 EffectAsset 名，与上方的 **effect** 对应。有了这些信息后，Material 就可以被正确初始化，正确初始化的标志是生成渲染使用的 Pass 对象数组，可用于具体模型的渲染。
+上述代码中的 `effectName` 表示所使用的 EffectAsset 名称，与上方的 **effect** 对应。有了这些信息后，Material 就可以被正确初始化，正确初始化的标志是生成渲染使用的 Pass 对象数组，可用于具体模型的渲染。
 
 根据所使用 EffectAsset 的信息，可以进一步设置每个 Pass 的 uniform 等参数。
 
@@ -75,14 +71,16 @@ const comp2 = someNode2.getComponent(MeshRenderer);
 comp2.material = mat; // the same material above
 ```
 
-而当场景中某个模型的 Material 需要自定义一些属性时，会在从 RenderableComponent 获取 Material 时**自动做拷贝实例化**，创建对应的 MaterialInstance，从而实现独立的定制。
+而当场景中某个模型的 Material 需要自定义一些属性时，会在从 RenderableComponent 获取 Material 时 **自动做拷贝实例化**，创建对应的 MaterialInstance，从而实现独立的定制。
 
 ```ts
 const comp2 = someNode2.getComponent(MeshRenderer);
 const mat2 = comp2.material; // 拷贝实例化，mat2 是一个 MaterialInstance，接下来对 mat2 的修改只会影响 comp2 的模型
 ```
 
-Material 与 MaterialInstance 的最大区别在于，MaterialInstance 从一开始就永久地挂载在唯一的 RenderableComponent 上，且只会对这个模型生效，而 Material 则无此限制，所有使用到该材质的对象，都具有相同特性。所以，可以理解为，Material 是引用，MaterialInstance 是实例，改 Material，所有的 RenderableComponent 都会改变，而改 MaterialInstance 只有单独的 RenderableComponent 会改变。
+Material 与 MaterialInstance 的最大区别在于，MaterialInstance 从一开始就永久地挂载在唯一的 RenderableComponent 上，且只会对这个模型生效，而 Material 则无此限制，所有使用到该材质的对象，都具有相同特性。所以，可以理解为：
+- Material 是 **引用**，修改 Material，所有的 RenderableComponent 都会改变。
+- MaterialInstance 是 **实例**，修改 MaterialInstance，只有单独的 RenderableComponent 会改变。
 
 对于一个已初始化的材质，如果希望修改最初的基本信息，可以直接再次调用 initialize 函数，重新创建渲染资源。
 

@@ -55,4 +55,4 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 > **注意**：Layout 设置后的结果需要到下一帧才会更新，除非你设置完以后手动调用 `updateLayout` API。
 
-更多布局案例，详情请参考 [自动布局](../engine/auto-layout.md)。
+更多布局案例，详情请参考 [自动布局](../production-strategy/auto-layout.md)。
