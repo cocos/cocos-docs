@@ -158,3 +158,5 @@ v3.1 版本顶点着色器往片元着色器传输 `FOG` 参数，直接使用 `
     CC_TRANSFER_SHADOW(pos);
     
 ```
+
+[升级指南](../release-notes/index.md)。<br>
