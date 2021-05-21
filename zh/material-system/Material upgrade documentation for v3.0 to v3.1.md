@@ -26,9 +26,9 @@
         // fill in your data here
         void main () {
         
-        // fill in your data here
+            // fill in your data here
 
-        gl_Position = fill in your data result;
+            gl_Position = fill in your data result;
         }
     }%
     ```
@@ -49,7 +49,7 @@
         // fill in your data here
         void surf (out StandardSurface s) {
         
-        // fill in your data here
+            // fill in your data here
 
         }
     CC_STANDARD_SURFACE_ENTRY() // 标准着色器输出函数
@@ -96,10 +96,10 @@
         // fill in your data here
         void surf (out StandardSurface s) {
 
-        // fill in your data here
+            // fill in your data here
 
       }
-    CC_STANDARD_SURFACE_ENTRY() //标准着色器输出函数
+   CC_STANDARD_SURFACE_ENTRY() //标准着色器输出函数
 }%
 
 // fill in your data here
