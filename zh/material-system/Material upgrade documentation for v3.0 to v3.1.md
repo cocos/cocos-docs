@@ -52,7 +52,7 @@
             // fill in your data here
 
         }
-    CC_STANDARD_SURFACE_ENTRY() // 标准着色器输出函数
+        cCC_STANDARD_SURFACE_ENTRY() // 标准着色器输出函数
     }%
     ```
 
@@ -86,7 +86,7 @@
 
     // fill in your data here
 
-   CCProgram standard-fs %{
+    CCProgram standard-fs %{
         precision highp float;
         #include <cc-global>
         #include <shared-ubos>
@@ -98,9 +98,9 @@
 
             // fill in your data here
 
-      }
-   CC_STANDARD_SURFACE_ENTRY() //标准着色器输出函数
-}%
+        }
+        CC_STANDARD_SURFACE_ENTRY() //标准着色器输出函数
+    }%
 
 // fill in your data here
 
