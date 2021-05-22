@@ -3,6 +3,7 @@
 材质系统控制着每个模型最终的着色流程与顺序，在引擎内相关类间结构如下：
 
 [![Assets](material.png "Click to view diagram source")](material.dot)
+v3.0 to v3.1材质升级详情，请查看[v3.1 材质升级指南](../material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)。
 
 ## EffectAsset
 

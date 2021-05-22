@@ -26,6 +26,7 @@
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
     - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
+    - [v3.1 材质升级指南](Material-upgrade-documentation-for-v3.0-to-v3.1.md)
     - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
 
