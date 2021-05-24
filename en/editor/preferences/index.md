@@ -10,11 +10,11 @@ The **Preferences** panel provides personalized settings for the editor, which c
 
 The **General** tab is mainly for configuring some basic information related to the editor, including:
 
-- **Language**: you can choose Chinese or English, the editor will automatically switch the language after modifying the language setting, if some texts are not switched, you can refresh the editor.
+**Language**: choose Chinese or English, the editor will automatically switch the language after modifying the language setting, if some texts are not switched, refresh the editor.
 
 - **Preview IP**: users can manually select one of them as the default address and QR code address when previewing if there are multiple IP addresses on the local machine. All the local IPs will be listed here, and the editor will pick one IP automatically by default.
 
-- **Preview Server Port Number**: Modify the port number used by the editor when previewing the game, you need to restart the editor to take effect after the modification is finished.
+- **Preview Server Port Number**: Modify the port number used by the editor when previewing the game. Restart the editor to take effect after the modification is finished.
 
 - **Number Step**: Used to set the step size when adjusting the numeric properties by step button in the **Inspector** panel. The default step size is 0.001. The step buttons in the **Inspector** panel include the following two types:
 
@@ -32,15 +32,15 @@ The **External Program** tab is used to set up the development environment requi
 
 ![external-program](./index/external-program.png)
 
-- **WeChat DevTools**: used to configure WeChat mini-game developer tools, please refer to [Publishing to WeChat Mini-Game](../publish/publish-wechatgame.md).
+- **WeChat DevTools**: used to configure the Developer tools of WeChat Mini Game, please refer to the [Publishing to WeChat Mini Game](../publish/publish-wechatgame.md) documentation.
 
-- **Android NDK**: used to set up the Android NDK path, please refer to [Setup Native Development Environment](../publish/setup-native-development.md).
+- **Android NDK**: used to set up the Android NDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.
 
-- **Android SDK**: used to set the Android SDK path, please refer to [Setup Native Development Environment](../publish/setup-native-development.md).
+- **Android SDK**: used to set the Android SDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.
 
 - **Default Script Editor**: choose any executable file from an external text editing tool (e.g. VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
 
-- **Default Browser**: Used to select the browser to be used when previewing the editor. You can specify a browser path by clicking the **Search icon** button behind the input box.
+- **Default Browser**: Used to select the browser to be used when previewing the editor. A browser path can be specified by clicking the **Search icon** button behind the input box.
 
 ## Device Manager
 
@@ -56,17 +56,19 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Use built-in TypeScript engine**: whether to use the engine path that comes with the Cocos Creator installation path as the TypeScript engine path. This engine is used for scene rendering in the scene editor, declaration of built-in components and other engine modules in the web environment.
 
-- **Custom TypeScript engine path**: in addition to using your own engine, you can also go to **engine repository** ([GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)) to clone or fork a copy of the engine to any local location for customization, uncheck **Use built-in TS engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
+- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the **engine repository** on ([GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)) or forked to any local location for customization, uncheck **Use built-in TS engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
 - **Use built-in native engine**: whether to use the `cocos2d-x` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, macOS, Windows) when building.
 
-- **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually. Note that the native engine used here must be from **engine-native** ([GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_) cocos-creator/engine-native)) or the fork of that repository.
+- **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually. 
 
-For details on customizing the engine, see [Engine customization workflow](../../advanced-topics/engine-customization.md)
+> **Note**: that the native engine used here must be from **engine-native** ([GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_) cocos-creator/engine-native)) or the fork of that repository.
+
+For details on customizing the engine, please review the [Engine customization workflow](../../advanced-topics/engine-customization.md) documentation.
 
 ## Asset Database
 
-The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log lLevels** and **Ignore (regular)**.
+The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels** and **Ignore (regular)**.
 
 ![asset-db](./index/asset-db.png)
 
@@ -75,7 +77,7 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 
 ## Console
 
-The **Console** tab is used to set the [console](./console/index.md) panel output log, including **Display date** and **Font size**.
+The **Console** tab is used to set the [Console](./console/index.md) panel output log, including **Display date** and **Font size**.
 
 ![console](./index/console.png)
 
@@ -111,7 +113,7 @@ The **Build** tab is used to set up the execution of the [Build](../assets/index
 
     ![build](./index/json.png)
 
-    When a cached asset exists the build will take it directly, and this part of the cached asset will be re-updated after each asset import, so you basically don't need to care. This option is checked by default, but if you encounter some special requirements and want to build without storing this serialized build cache asset, just uncheck it.
+When a cached asset exists the build will take it directly, and this part of the cached asset will be re-updated after each asset import. This option is checked by default, but if some special requirements are encountered and want to build without storing this serialized build cache asset, just uncheck it.
 
 ## Laboratory
 
@@ -119,13 +121,13 @@ The **Laboratory** tab will occasionally provide some new technical solutions or
 
 ![laboratory](./index/laboratory.png)
 
-- **Enable terrain feature**: for enabling terrain feature, please refer to [terrain system](./terrain/index.md).
+- **Enable terrain feature**: for enabling terrain feature, please refer to the [terrain system](./terrain/index.md) documentation.
 
-    > **Note**: As of v3.0.1, this option is removed and has been turned on by default.
+> **Note**: as of v3.0.1, this option is removed and has been turned on by default.
 
 - **Add components using pop-ups**: please refer to the following description for details.
 
-- **Enable baking feature**: used to enable baking feature, please refer to [Light Mapping](./../../concepts/scene/light/lightmap.md).
+- **Enable baking feature**: used to enable the baking feature, please refer to the [Lightmapping](./../../concepts/scene/light/lightmap.md) documentation.
 
 ### Adding components using pop-ups
 
@@ -137,8 +139,8 @@ However, the search is one more step compared to the mouse-up menu, and due to s
 
 For ease of use, we also add some additional design aids.
 
-- the focus will be in the search box when opening the popup, so you can search directly for the relevant keyword without having to expand it with a mouse click.
-- When searching for a component, you can use the **↑** and **↓** keyboard shortcuts to quickly toggle through the component options, and press the **Enter** shortcut to add the component.
+- The focus will be in the search box when opening the popup. This allows searching directly for the relevant keyword without having to expand it with a mouse click.
+- When searching for a component, use the <kbd>**↑**</kbd> and <kbd>**↓**</kbd> keyboard shortcuts to quickly toggle through the component options, and press the **Enter** shortcut to add the component.
 
 ### Caution
 
@@ -148,4 +150,4 @@ We welcome users to turn on the trial of these features and provide valuable fee
 
 ## Extending the Preferences Panel
 
-Creator supports adding custom functional pages on the right side of **Preferences**, please refer to [Extended Preferences](../../editor/extension/contributions-preferences.md) for details.
+Creator supports adding custom functional pages on the right side of **Preferences**, please refer to the [Extended Preferences](../../editor/extension/contributions-preferences.md) documentation for details.

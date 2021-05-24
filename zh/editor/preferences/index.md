@@ -54,7 +54,7 @@
 
 ![engine-manager](./index/engine-manager.png)
 
-- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于编辑器里场景的渲染、内置组件的声明（即使用代码编辑器，如 VSCode 时的智能提示），以及场景在Web 环境下的预览。
+- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于编辑器里场景的渲染、内置组件的声明（也就是使用代码编辑器，如 VSCode 时的智能提示），以及场景在 Web 环境下的预览。
 
 - **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
