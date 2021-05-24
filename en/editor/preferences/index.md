@@ -14,9 +14,9 @@ The **General** tab is mainly for configuring some basic information related to 
 
 - **Preview IP**: users can manually select one of them as the default address and QR code address when previewing if there are multiple IP addresses on the local machine. All the local IPs will be listed here, and the editor will pick one IP automatically by default.
 
-- **Preview Server Port Number**: Modify the port number used by the editor when previewing the game. Restart the editor to take effect after the modification is finished.
+- **Preview Server Port Number**: modify the port number used by the editor when previewing the game. Restart the editor to take effect after the modification is finished.
 
-- **Number Step**: Used to set the step size when adjusting the numeric properties by step button in the **Inspector** panel. The default step size is 0.001. The step buttons in the **Inspector** panel include the following two types:
+- **Number Step**: used to set the step size when adjusting the numeric properties by step button in the **Inspector** panel. The default step size is 0.001. The step buttons in the **Inspector** panel include the following two types:
 
     - When the mouse is moved to the right of the numeric property input box, a set of up and down arrows will appear, which can continuously increase or decrease the value by a certain step magnitude.
 
@@ -121,7 +121,7 @@ The **Laboratory** tab will occasionally provide some new technical solutions or
 
 ![laboratory](./index/laboratory.png)
 
-- **Enable terrain feature**: for enabling terrain feature, please refer to the [terrain system](./terrain/index.md) documentation.
+- **Enable terrain feature**: for enabling terrain feature, please refer to the [terrain system](../terrain/index.md) documentation.
 
 > **Note**: as of v3.0.1, this option is removed and has been turned on by default.
 
