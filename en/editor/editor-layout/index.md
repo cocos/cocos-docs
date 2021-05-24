@@ -13,7 +13,7 @@ Hover the mouse over the boundary line between the two panels and see the mouse 
 
 ![resize](index/resize.png)
 
-> **Note**: some panels are set to the minimum size, when dragging to the minimum size limit, you can't continue to shrink the panel.
+> **Note**: some panels are set to the minimum size, when dragging to the minimum size limit, shrinking the panel cannot continue.
 
 ## Moving panel
 
