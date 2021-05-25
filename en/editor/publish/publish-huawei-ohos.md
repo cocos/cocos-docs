@@ -54,7 +54,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![sign configs](./publish-huawei-ohos/sign-configs.png)
 
-    > **Note**: To use a real device to debug HarmonyOS applications before release, configure the debugging signature information in the **Modules -> entry -> Signing Config** page of **File -> Project Structure** . For details, please refer to the [Debug HarmonyOS Application](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#EN-CN_TOPIC_0000001154985555__section10491183521520) documentation.
+    > **Note**: to use a real device to debug HarmonyOS applications before release, configure the debugging signature information in the **Modules -> entry -> Signing Config** page of **File -> Project Structure**. For details, please refer to the [Debug HarmonyOS Application](https://developer.harmonyos.com/en/docs/documentation/doc-guides/ide_debug_device-0000001053822404#EN-US_TOPIC_0000001154985555__section10491183521520) documentation.
     >
     > ![sign configs](./publish-huawei-ohos/sign-configs-debug.png)
 
