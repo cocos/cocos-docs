@@ -6,7 +6,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 ## Ready to work
 
-- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) to register for a [Huawei Developer Alliance Account](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148), and real-name certification.
+- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) to register for a [HUAWEI ID](https://developer.huawei.com/consumer/en/doc/start/registration-and-verification-0000001053628148), and real-name certification.
 
 - After logging in, select [Create Project](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-harmonyapp-createproject) and [Add HarmonyOS App](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-harmonyapp-createharmonyapp), **Select the platform** as **APP (HarmonyOS application)**.
 
