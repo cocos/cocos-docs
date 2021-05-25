@@ -80,7 +80,7 @@ HarmonyOS applications use digital certificates (`.cer` files) and HarmonyAppPro
 
 #### Generate key and certificate request file
 
-In **DevEco Studio**, click **Build -> Generate Key and CSR** in the upper menu bar to generate a key (`.p12` file), and then generate a certificate request file (`.csr`). For details, please refer to the [Generate Key and Certificate Request File](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/publish_app-0000001053223745#EN-CN_TOPIC_0000001154985553__section7209054153620) documentation.
+In **DevEco Studio**, click **Build -> Generate Key and CSR** in the upper menu bar to generate a key (`.p12` file), and then generate a certificate request file (`.csr`). For details, please refer to the [Generating a Key Store and CSR](https://developer.harmonyos.com/en/docs/documentation/doc-guides/publish_app-0000001053223745#EN-US_TOPIC_0000001154985553__section7209054153620) documentation.
 
 > **Note**: when specifying the file path, the file name needs to be added with the corresponding suffix, otherwise the submission will not be successful.
 
