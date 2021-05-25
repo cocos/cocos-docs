@@ -100,7 +100,7 @@ For more information, please refer to the [Apply for Digital Certificate](https:
 
 #### Generate and download HarmonyAppProvision Profile file (`.p7b` file)
 
-- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html), select **My Project**, select the HarmonyOS project and application created before .
+- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), select **My Project**, select the HarmonyOS project and application created before.
 
 - Click the **HarmonyOS Application -> HAP Provision Profile Management** item on the left, and then click the **Add** button at the top right of the page to create a `.p7b` file.
 
