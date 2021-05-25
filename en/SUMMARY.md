@@ -17,7 +17,7 @@
         - [Animation](editor/animation/index.md)
         - [Preferences](editor/preferences/index.md)
         - [Project Settings](editor/project/index.md)
-        <!--- [Editor Layout](editor/editor-layout/index.md)-->
+        - [Editor Layout](editor/editor-layout/index.md)
         - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)
     - [Support](getting-started/support.md)
