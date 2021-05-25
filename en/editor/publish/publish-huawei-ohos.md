@@ -72,7 +72,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![output](./publish-huawei-ohos/debug-output.png)
 
-6. Please refer to the official [Release HarmonyOS Application Guide](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-harmonyapp-releaseharmonyapp#h1-1598338018957) documentation for the specific process of publishing to the Huawei App Market.
+6. Please refer to the official [Release HarmonyOS Application Guide](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-releaseharmonyapp#h1-1598520904586) documentation for the specific process of publishing to the Huawei AppGallery Connect.
 
 ### Signature file
 
