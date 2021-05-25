@@ -2,7 +2,7 @@
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
-Starting with v3.2, Cocos Creator supports packaging games for the **Huawei HarmonyOS** (`.hap`).
+Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS** (`.hap`) applications.
 
 ## Ready to work
 
