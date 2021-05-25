@@ -52,7 +52,7 @@ This tab lists all the editor versions that have been downloaded and installed.
 
 > **Note**: when Cocos Dashboard is first run, this list is empty. Click the two buttons in the bottom right corner to import existing Creator editors locally or download and install them directly.
 
-- Allows you to drag and drop the local Creator Editor into the **Editor** version list (new in version 1.0.13).
+- Allows dragging and droping the local Creator Editor into the **Editor** version list (new in version 1.0.13).
 - **Locate**: Add a local editor to the **Editor** version list.
 - **Download**: Click this button to jump to the editor download page, which will list all installed and uninstalled editor versions, you can select the desired editor version to download.
 
