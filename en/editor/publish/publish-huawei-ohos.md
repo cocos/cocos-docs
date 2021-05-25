@@ -50,7 +50,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 2. Prepare the signature file. For the method of obtaining the signature file, please refer to the contents of the **Signature File** section below.
 
-3. Configure the signature file. Click **File -> Project Structure -> Project** in the DevEco Studio menu bar, select the **Signing Config** page, and configure the project release certificate and other files and related information. For details, please refer to the [Configure Signature Information](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/publish_app-0000001053223745#ZH-CN_TOPIC_0000001154985553__section280162182818) documentation.
+3. Configure the signature file. Click **File -> Project Structure -> Project** in the DevEco Studio menu bar, select the **Signing Configs** page, and configure the project release certificate and other files and related information. For details, please refer to the [Configure Signature Information](https://developer.harmonyos.com/en/docs/documentation/doc-guides/publish_app-0000001053223745#EN-US_TOPIC_0000001154985553__section280162182818) documentation.
 
     ![sign configs](./publish-huawei-ohos/sign-configs.png)
 
