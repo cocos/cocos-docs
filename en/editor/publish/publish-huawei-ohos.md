@@ -12,7 +12,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
   ![app info](./publish-huawei-ohos/app-info.png)
 
-- Download and install [HUAWEI DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download). After the installation is complete [Configure Development Environment](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/environment_config-0000001052902427), download the HarmonyOS SDK, please check the SDK package in SDK Platforms **Java** and **Native**.
+- Download and install [HUAWEI DevEco Studio](https://developer.harmonyos.com/en/develop/deveco-studio#download). After the installation is complete [Configure Development Environment](https://developer.harmonyos.com/en/docs/documentation/doc-guides/environment_config-0000001052902427), download the HarmonyOS SDK, please check **Java** and **Native** for the SDK packages in the **SDK Platforms** page.
 
     ![dev setting](./publish-huawei-ohos/dev-setting.png)
 
