@@ -44,7 +44,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![open-project](./publish-huawei-ohos/open-project.png)
 
-    After opening the project, select **Use DevEco Studio's Nodejs** in the pop-up window. There is no need to configure the directory where the Hongmeng OS node executable file is located in the **Preferences** panel of Cocos Creator.
+    After opening the project, select **Use DevEco Studio's Nodejs** in the pop-up window. There is no need to configure the **Harmony OS NodeJS** in the **Preferences** panel of Cocos Creator.
 
     ![nodejs](./publish-huawei-ohos/nodejs.png)
 
