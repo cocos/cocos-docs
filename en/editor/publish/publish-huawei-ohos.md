@@ -86,7 +86,7 @@ In **DevEco Studio**, click **Build -> Generate Key and CSR** in the upper menu 
 
 #### Generate and download a digital certificate (`.cer` file)
 
-- Visit the [AppGallery Connect website](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html), select **Users and Access -> Certificate Management**.
+- Visit the [AppGallery Connect website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html), select **Users and permissions -> Certificate Management**.
 
   > **Note**: Currently, only invited developers can access the **Certificate Management** menu. To apply, please send the developer's name, application background, supported device type, whether there is a request for app listing, and Developer ID to `agconnect@huawei.com`. Huawei operations staff will arrange a docking staff within 1-3 working days . <br />The developer ID query method is: log in to the AGC website, click **My Project**, select any project, and find the `Developer ID` in **Project Settings -> General**.
 
