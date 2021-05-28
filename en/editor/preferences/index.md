@@ -40,7 +40,7 @@ The **External Program** tab is used to set up the development environment requi
 
 - **Default Script Editor**: choose any executable file from an external text editing tool (e.g. VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
 
-- **Default Browser**: Used to select the browser to be used when previewing the editor. A browser path can be specified by clicking the **Search icon** button behind the input box.
+- **Default Browser**: used to select the browser to be used when previewing the editor. A browser path can be specified by clicking the **Search icon** button behind the input box.
 
 ## Device Manager
 
@@ -56,13 +56,13 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Use built-in TypeScript engine**: whether to use the engine path that comes with the Cocos Creator installation path as the TypeScript engine path. This engine is used for scene rendering in the scene editor, declaration of built-in components and other engine modules in the web environment.
 
-- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the **engine repository** on ([GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)) or forked to any local location for customization, uncheck **Use built-in TS engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
+- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the **engine repository** on ([GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
 - **Use built-in native engine**: whether to use the `cocos2d-x` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, macOS, Windows) when building.
 
 - **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually. 
 
-> **Note**: that the native engine used here must be from **engine-native** ([GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_) cocos-creator/engine-native)) or the fork of that repository.
+> **Note**: that the native engine used here must be from **engine-native** ([GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)) or the fork of that repository.
 
 For details on customizing the engine, please review the [Engine customization workflow](../../advanced-topics/engine-customization.md) documentation.
 
@@ -77,7 +77,7 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 
 ## Console
 
-The **Console** tab is used to set the [Console](./console/index.md) panel output log, including **Display date** and **Font size**.
+The **Console** tab is used to set the [Console](../console/index.md) panel output log, including **Display date** and **Font size**.
 
 ![console](./index/console.png)
 
@@ -86,7 +86,7 @@ The **Console** tab is used to set the [Console](./console/index.md) panel outpu
 
 ## Inspector
 
-The **Auto-save when leaving edit** option in the **Inspector** tab is used to set the [Inspector](./hierarchy/index.md) panel to automatically save changes after the property edit is complete.
+The **Auto-save when leaving edit** option in the **Inspector** tab is used to set the [Inspector](../inspector/index.md) panel to automatically save changes after the property edit is complete.
 
 ![inspector](./index/inspector.png)
 
@@ -104,7 +104,7 @@ The **Preview** tab is mainly used for the various options that can be set when 
 
 ## Build
 
-The **Build** tab is used to set up the execution of the [Build](../assets/index.md), including **Log Level** and **Cache Serialized JSON of Assets**.
+The **Build** tab is used to set up the execution of the [Build](../publish/build-panel.md), including **Log Level** and **Cache Serialized JSON of Assets**.
 
 ![build](./index/build.png)
 
@@ -146,7 +146,7 @@ For ease of use, we also add some additional design aids.
 
 In future releases, these features in **Laboratory** may be merged, but there is also a chance that compatibility-breaking changes may occur, or may even be removed. If needing to use these features in a development environment, please be sure to test them rigorously and keep an eye out for update announcements for new releases.
 
-We welcome users to turn on the trial of these features and provide valuable feedback in our [Forum](https://discuss.cocos2d-x.org/) to make these features more suitable for their own usage scenarios and provide more powerful help for projects.
+We welcome users to turn on the trial of these features and provide valuable feedback in our [Forum](https://discuss.cocos2d-x.org/c/33) to make these features more suitable for their own usage scenarios and provide more powerful help for projects.
 
 ## Extending the Preferences Panel
 
