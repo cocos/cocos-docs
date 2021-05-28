@@ -102,7 +102,7 @@ For more information, please refer to the [Apply for Digital Certificate](https:
 
   ![provision profile](./publish-huawei-ohos/provision-profile.png)
 
-- When filling in the information, **Type** can be selected as needed **Release**/**Debug** type, but it must be consistent with the certificate type in the previous step. **Choose Certificate** Select the `.cer` file generated in the previous step.
+- When filling in the information, **Type** can be selected as needed **Release**/**Debug** type, but it must be consistent with the certificate type in the previous step. **Certificate** selects the `.cer` file generated in the previous step.
 
   > **Note**: if the debugging type is configured, a device mist also be selected. For details, please refer to the [Registering Debugging Devices](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-debugharmonyapp#h1-1598520099105) documentation.
 
