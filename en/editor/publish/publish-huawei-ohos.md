@@ -1,4 +1,4 @@
-# Publish to Huawei HarmonyOS
+# Publish for the Huawei HarmonyOS
 
 Starting with v3.2, Cocos Creator supports packaging games for the **Huawei HarmonyOS** (`.hap`).
 
