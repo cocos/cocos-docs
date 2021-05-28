@@ -1,6 +1,6 @@
 # Publish for the Huawei HarmonyOS
 
-Starting with v3.2, Cocos Creator supports packaging games for the **Huawei HarmonyOS** (`.hap`).
+Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS** (`.hap`) applications.
 
 ## Preparations
 
@@ -38,7 +38,7 @@ Starting with v3.2, Cocos Creator supports packaging games for the **Huawei Harm
 
 ### Compile and run through HUAWEI DevEco Studio
 
-1. Open HUAWEI DevEco Studio and select **Open Project** to open the Harmony project generated after the build.
+1. Open HUAWEI DevEco Studio and select **Open Project** to open the HarmonyOS project generated after the build.
 
     ![open-project](./publish-huawei-ohos/open-project.png)
 
@@ -102,9 +102,9 @@ For more information, please refer to the [Apply for Digital Certificate](https:
 
   ![provision profile](./publish-huawei-ohos/provision-profile.png)
 
-- When filling in the information, **Type** can be selected as needed **Release**/**Debug** type, but it must be consistent with the certificate type in the previous step. **Choose Certificate** Select the `.cer` file generated in the previous step.
+- When filling in the information, **Type** can be selected as needed **Release**/**Debug** type, but it must be consistent with the certificate type in the previous step. **Certificate** selects the `.cer` file generated in the previous step.
 
-  > **Note**: ff the debugging type is configured, a device mist also be selected. For details, please refer to the [Registering Debugging Devices](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-debugharmonyapp#h1-1598520099105)documentation.
+  > **Note**: if the debugging type is configured, a device mist also be selected. For details, please refer to the [Registering Debugging Devices](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-debugharmonyapp#h1-1598520099105) documentation.
 
 - After setting, click **Submit** to download the generated `.p7b` file to the local.
 
