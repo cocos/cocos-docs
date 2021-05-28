@@ -38,7 +38,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 ### Compile and run through HUAWEI DevEco Studio
 
-1. Open HUAWEI DevEco Studio and select **Open Project** to open the Harmony project generated after the build.
+1. Open HUAWEI DevEco Studio and select **Open Project** to open the HarmonyOS project generated after the build.
 
     ![open-project](./publish-huawei-ohos/open-project.png)
 
