@@ -58,7 +58,7 @@
 
     设置完成并保存后，**Project -> Signing Config** 中配置的发布签名信息可以在项目目录下的 `native\engine\ohos\build.gradle` 文件中查看。**Modules -> entry -> Signing Config** 中配置的调试签名信息可以在项目目录下的 `native\engine\ohos\entry\build.gradle` 文件中查看。
 
-4. 配置完成后连接 Harmony OS 系统的华为设备，然后点击菜单栏中的 **Build -> Build APP(s)/Hap(s) -> Build APP(s)** 项，即可执行编译流程。或者直接点击 **DevEco Studio** 上方的运行按钮，即可执行编译运行流程。
+4. 配置完成后连接 Harmony OS 系统的华为设备，然后点击菜单栏中的 **Build -> Build APP(s)/Hap(s) -> Build Hap(s)** 项，即可执行编译流程。或者直接点击 **DevEco Studio** 上方的运行按钮，即可执行编译运行流程。
 
     ![run project](./publish-huawei-ohos/run-project.png)
 
@@ -86,8 +86,6 @@ HarmonyOS 应用是通过数字证书（`.cer` 文件）和 HarmonyAppProvision 
 
 - 进入 [AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择 **用户与访问 -> 证书管理**。
 
-  > **注意**：当前只有受邀请开发者才能访问 **证书管理** 菜单。若需要申请，请将开发者名称、申请背景、支持设备类型、是否有应用上架诉求及 Developer ID 发送至 `agconnect@huawei.com`，华为运营人员将在 1-3 个工作日内安排对接人员。<br>Developer ID 查询方法为：登录 AGC 网站，点击 **我的项目**，选择任意项目，在 **项目设置 -> 常规** 中即可找到 Developer ID。
-
   ![provision profile](./publish-huawei-ohos/cer-file.png)
 
 - 点击右上角的 **新增证书** 按钮填写信息。**证书类型** 根据需要选择 **发布证书**/**调试证书**，证书请求文件是上一个步骤在 **DevEco Studio** 中生成的 `.csr` 文件。
@@ -101,8 +99,6 @@ HarmonyOS 应用是通过数字证书（`.cer` 文件）和 HarmonyAppProvision 
 - 进入 [AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择 **我的项目**，选择之前创建的 HarmonyOS 项目和应用。
 
 - 点击左侧的 **HarmonyOS 应用 -> HAP Provision Profile 管理** 项，然后点击页面右上方的 **添加** 按钮来创建 `.p7b` 文件。
-
-  > **注意**：当前只有受邀请开发者才能访问 **HarmonyOS 应用** 菜单。若需要申请，请将开发者名称、申请背景、支持设备类型、是否有应用上架诉求及 Developer ID 发送至 `agconnect@huawei.com`，华为运营人员将在 1-3 个工作日内安排对接人员。
 
   ![provision profile](./publish-huawei-ohos/provision-profile.png)
 
