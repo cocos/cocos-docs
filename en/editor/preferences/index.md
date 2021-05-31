@@ -123,7 +123,7 @@ The **Laboratory** tab will occasionally provide some new technical solutions or
 
 - **Enable terrain feature**: for enabling terrain feature, please refer to the [terrain system](../terrain/index.md) documentation.
 
-> **Note**: as of v3.0.1, this option is removed and has been turned on by default.
+  > **Note**: as of v3.0.1, this option is removed and has been turned on by default.
 
 - **Add components using pop-ups**: please refer to the following description for details.
 
