@@ -8,9 +8,24 @@ For the general build options in the **Build** panel are as follows:
 
 ### Build Path
 
-You can designate a release path for the game by inputting a path in the **Build Path** input field or choosing one via the search icon button. The following cross-platform release will create assets or projects in child folders of this release path.
+The Build Path contains two input boxes:
 
-The default release path is in the `build` under the project folder. If you use version control systems like `git` and `svn`, you can ignore the `build` folder in version control.
+![build path](./build-options/build-path.png)
+
+- The first input box is used to specify the build path of the project. The path can be entered directly in the input box or selected via the magnifying glass button next to it. Starting from v3.1, support to switch the following two paths to use:
+
+    ![path](./build-options/path.png)
+
+    - **file**: The specified build path is an **absolute path**, which is the way used in previous versions.
+    - **project**: The specified build path is a **relative path**, and the selected path can only be in the project directory. When using this path, some path-related configurations (e.g. Icon) in the build options are recorded as relative paths, making it easier for team members to share configurations across devices.
+
+    The default build path is the `build` folder in the project directory. If a version control system such as Git or SVN is used, the `build` folder can be ignored in version control.
+
+    > **Note**: Spaces, illegal characters and Chinese are not allowed in the Build Path.
+
+- The second input box is used to specify the name of the build task when the project is built and the name of the release package generated after the build. The default is the name of the current build platform, and for each additional build of the same platform, the **-001** suffix will be added to the original one, and so on.
+
+After the build is completed, click the folder icon behind the input box to open the project release package directory.
 
 ### Included Scenes
 

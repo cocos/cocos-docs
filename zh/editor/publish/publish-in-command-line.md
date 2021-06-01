@@ -44,8 +44,6 @@
     - `startScene` - 主场景的 uuid 值（参与构建的场景将使用上一次的编辑器中的构建设置），未指定时将使用参与构建场景的第一个
     - `scenes` - 参与构建的场景信息，未指定时默认为全部场景，具体格式为：`{}`
     - `debug` - 是否为 debug 模式，默认关闭
-    <!-- - `packAutoAtlas` - 是否开启自动图集，默认关闭
-    - `compressTexture` - 是否开启压缩纹理，默认关闭 -->
     - `replaceSplashScreen` - 是否替换插屏，默认关闭
     - `md5Cache` - 是否开启 md5 缓存，默认关闭
     - `mainBundleCompressionType` - 主包压缩类型，具体选项值可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md#压缩类型)。
