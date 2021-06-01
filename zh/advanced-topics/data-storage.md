@@ -44,6 +44,12 @@ var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 
 `cc.sys.localStorage.removeItem(key)`
 
+## 清空数据
+
+当我们不再需要存储的用户数据时，可以通过下面的接口将其清空：
+
+`cc.sys.localStorage.clear()`
+
 ## 数据加密
 
 对于单机游戏来说，对玩家存档进行加密可以延缓游戏被破解的时间。要加密存储数据，只要在将数据通过 `JSON.stringify` 转化为字符串后调用你选中的加密算法进行处理，再将加密结果传入 `setItem` 接口即可。

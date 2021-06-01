@@ -40,6 +40,12 @@ cc.sys.localStorage.setItem('userData', JSON.stringify(userData));
 var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 ```
 
+## Clear data
+
+We can clear the data from the storage when we don't need it anymore:
+
+`cc.sys.localStorage.clear()`
+
 ## Remove key-value pair
 
 We can remove a key-value data from the storage when we don't need it anymore:
