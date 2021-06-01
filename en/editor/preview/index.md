@@ -1,6 +1,6 @@
 # Project Preview & Debugging
 
-After using the main editor panel to import assets, build acenes, configure components, and adjust properties, we can now preview and build to see how the game will look when running on the Web or native platform.
+After using the main editor panel to import assets, build scenes, configure components, and adjust properties, we can now preview and build to see how the game will look when running on the Web or Native platform.
 
 ## Selecting the preview platform in the editor
 
@@ -14,7 +14,7 @@ At any time during game development we can click the **Preview** button at the t
 
     ![select-scene](index/select-scene.png)
 
-- ![play](index/refresh.png): refresh button, click this button to refresh all opened preview pages. If you want to refresh the preview page automatically after the save scene operation, select **Cocos Creator -> Preferences -> Preview** in the editor main menu, and then check **Refresh preview page when saving scene**.
+- ![play](index/refresh.png): refresh button, click this button to refresh all opened preview pages. To refresh the preview page automatically after the save scene operation, select **Cocos Creator -> Preferences -> Preview** in the editor main menu, and then check **Refresh preview page when saving scene**.
 
 > **Note**: double-click is needed to open the scene to preview the game content. If there are not any scenes open, or if an empty scene is created, no content will show.
 
@@ -33,7 +33,7 @@ At the top of the browser preview screen there are a series of controls to contr
 
 ![browser](index/browser.png)
 
-Cocos Creator 3.0 supports the feature of web preview customization, please refer to [web preview customization workflow](browser.md) for details.
+Creator  supports the feature of web preview customization, please refer to [web preview customization workflow](browser.md) for details.
 
 #### Browser compatibility
 
@@ -43,7 +43,7 @@ Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)*
 
 #### Debugging with browser DevTools
 
-Take Google Chrome as an example, click **Developer -> Toggle DevTools** in the main menu of the editor to open the DevTools interface. In DevTools, we can view the runtime log, use breakpoints to debug, view the value of each variable at each step in the call stack, and even perform asset loading and performance analysis.
+Taking Google Chrome as an example, click **Developer -> Toggle DevTools** in the main menu of the editor to open the DevTools interface. DevTools, allow viewing the runtime log, using breakpoints to debug, viewing the value of each variable at each step in the call stack, and even performing asset loading and performance analysis.
 
 To learn how to use DevTools for debugging, read the [Chrome DevTools User Guide](https://developers.google.com/web/tools/chrome-devtools), or the DevTools help for other browsers.
 
@@ -56,7 +56,7 @@ Selecting to use the **GameView** preview opens a separate game preview window. 
 After opening the **GameView**, you can see that the toolbar at the top of the editor has additional buttons for **play/stop**, **pause** and **step**.
 
 - **Play/Stop**: used to toggle the running/stopping state of the game.
-- **Pause**: Used to pause the running game.
+- **Pause**: used to pause the running game.
 - **Step**: makes the game run in a stepwise manner for easy debugging.
 
 **GameView** The buttons in the top toolbar function similarly to the browser's, except that the scale size of the custom preview window is configured manually in the pop-up window by setting it to **Custom**.
@@ -77,7 +77,7 @@ There are the following ways to debug the preview effect on mobile phone:
 
 - Use **Mobile Preview mode of Browser DevTools**
 
-- **scan the preview QR code**
+- **Scan the preview QR code**
 
   Move the mouse over the IP preview address on the left side of the editor toolbar, a preview QR code will be displayed, just scan it with your phone.
 
@@ -89,7 +89,7 @@ There are the following ways to debug the preview effect on mobile phone:
 
 ## Build
 
-After previewing and debugging, if you are satisfied with your game, you can open the **Build** panel via **Project -> Build** in the main menu to package and publish the game to the target platforms, including Web, iOS, Android, various "mini-games", PC clients and other platforms. For the detailed build and publish process, please refer to [Cross-Platform Game Publishing](../publish/index.md) chapter.
+After previewing and debugging, if you are satisfied with your game, you can open the **Build** panel via **Project -> Build** in the main menu to package and publish the game to the target platforms, including Web, iOS, Android, various "mini-games", PC clients and other platforms. For the detailed build and publish process, please refer to the [Cross-Platform Game Publishing](../publish/index.md) documentation.
 
 > **Note**: the effect of running the game with **Simulator** and the final release to the native platform may be somewhat different, for any important game features, please do the final test with the version after build and release.
 
