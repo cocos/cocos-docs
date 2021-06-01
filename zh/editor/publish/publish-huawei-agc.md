@@ -6,7 +6,7 @@ Cocos Creator 支持将游戏发布到 **HUAWEI AppGallery Connect**，帮助开
 
 - 进入 [AppGallery Connect 后台](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html) 并登录，需要先完成 [开发者注册](https://developer.huawei.com/consumer/cn/doc/20300)，然后再 [创建应用](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-create_app)。创建应用时，**软件包类型** 选择 **APK**。
 
-  ![](./publish-huawei-agc/app-info.png)
+  ![app info](./publish-huawei-agc/app-info.png)
 
 - 通过 Cocos Service 面板接入所需的 HUAWEI AppGallery Connect 相关服务。目前 SDK 仅支持 **Android** 平台，具体的操作步骤可参考文档 [HUAWEI HMS Core](https://service.cocos.com/document/zh/sdkhub-plugins/sdkhub-hms.html)。
 

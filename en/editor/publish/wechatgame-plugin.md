@@ -10,7 +10,7 @@ For example, when a player has played an A game developed using __Cocos Creator_
 
 Simply check the **Separate Engine** option in the **Build** panel, and then build and release as normal, without additional manual operation. (This feature is only available when the built-in engine is used and the build is in non-debug mode.)
 
-![build-options](./wechatgame-plugin/build-options.jpg)
+![build-options](./wechatgame-plugin/build-options.png)
 
 ## FAQ
 
