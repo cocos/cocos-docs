@@ -42,7 +42,7 @@ var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 
 ## Clear data
 
-We can clear the data from the storage when we don't need it anymore:
+Data can be cleared from storage when it is no longer needed:
 
 `cc.sys.localStorage.clear()`
 
