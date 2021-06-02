@@ -4,7 +4,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 ## Preparations
 
-- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html) to register for a [HUAWEI ID](https://developer.huawei.com/consumer/en/doc/start/registration-and-verification-0000001053628148).
+- Enter [AppGallery Connect website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html#/) to register for a [HUAWEI ID](https://developer.huawei.com/consumer/en/doc/start/registration-and-verification-0000001053628148).
 
 - After logging in, select [Create Project](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-createproject) and [Add HarmonyOS App](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-createharmonyapp), select the **Platform** as **HarmonyOS**.
 
@@ -36,7 +36,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![package](./publish-huawei-ohos/package-ohos.png)
 
-    > **Note**: Currently, HarmonyOS does not support multi-directory builds, so the generated HarmonyOS project is in the `native\engine` directory, unlike other platforms that generate in the `build` directory of the project.
+    > **Note**: currently, HarmonyOS does not support multi-directory builds, so the generated HarmonyOS project is in the `native\engine` directory, unlike other platforms that generate in the `build` directory of the project.
 
     Next, open the `ohos` folder with HUAWEI DevEco Studio to perform further compilation, as described below.
 
@@ -48,7 +48,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 2. Prepare the signature file. For the method of obtaining the signature file, please refer to the contents of the **Signature File** section below.
 
-3. Configure the signature file. Click **File -> Project Structure** in the DevEco Studio menu bar, then select **Modules -> entry -> Signing Config** and configure the signature information. For details, please refer to the [Configure Signature Information](https://developer.harmonyos.com/en/docs/documentation/doc-guides/ide_debug_device-0000001053822404#EN-US_TOPIC_0000001154985555__section19238119191816) documentation.
+3. Configure the signature file. Click **File -> Project Structure** in the DevEco Studio menu bar, then select **Modules -> entry -> Signing Configs** and configure the signature information. For details, please refer to the [Configure Signature Information](https://developer.harmonyos.com/en/docs/documentation/doc-guides/ide_debug_device-0000001053822404#EN-US_TOPIC_0000001154985555__section19238119191816) documentation.
 
     ![sign configs](./publish-huawei-ohos/sign-configs-debug.png)
 
@@ -58,7 +58,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![build variants](./publish-huawei-ohos/build-variants.png)
 
-4. Then click on the **Build -> Build APP(s)/Hap(s) -> Build Hap(s)** in the menu bar to execute the compilation process and generate the `.hap` file.
+4. Then click on the **Build -> Build Hap(s)/APP(s) -> Build Hap(s)** in the menu bar to execute the compilation process and generate the `.hap` file.
 
     ![build hap](./publish-huawei-ohos/build-hap.png)
 
@@ -70,7 +70,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![output](./publish-huawei-ohos/debug-output.png)
 
-5. Connect Huawei devices with Harmony OS system using USB, then click **Run -> Run ‘entry’** in the menu bar or click the Run button above to run the HarmonyOS app to your device. Please refer to the [Running Your App](https://developer.harmonyos.com/en/docs/documentation/doc-guides/run_phone_tablat-0000001064774652) documentation for details.
+5. Connect Huawei devices with HarmonyOS system using USB, then click **Run -> Run ‘entry’** in the menu bar or click the Run button above to run the HarmonyOS app to your device. Please refer to the [Running Your App](https://developer.harmonyos.com/en/docs/documentation/doc-guides/run_phone_tablat-0000001064774652) documentation for details.
 
     ![run project](./publish-huawei-ohos/run-project.png)
 
@@ -132,7 +132,7 @@ For more information, please refer to the [Application Profile](https://develope
 
 ## Reference documentation
 
-- [AppGallery Connect Website](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)
+- [AppGallery Connect Website](https://developer.huawei.com/consumer/en/service/josp/agc/index.html#/)
 - [HUAWEI DevEco Studio User Guide](https://developer.harmonyos.com/en/docs/documentation/doc-guides/tools_overview-0000001053582387)
 - [Debugging the HarmonyOS App](https://developer.harmonyos.com/en/docs/documentation/doc-guides/ide_debug_device-0000001053822404)
 - [Releasing the HarmonyOS App](https://developer.harmonyos.com/en/docs/documentation/doc-guides/publish_app-0000001053223745)

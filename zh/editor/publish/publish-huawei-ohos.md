@@ -48,7 +48,7 @@
 
 2. 准备签名文件，签名文件的获取方式请参考下文 **签名文件** 部分的内容。
 
-3. 配置签名文件。点击 DevEco Studio 菜单栏中的 **File -> Project Structure**，然后选择 **Modules -> entry**，在 **Signing Config** 页面 [配置签名信息](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section19238119191816)。
+3. 配置签名文件。点击 DevEco Studio 菜单栏中的 **File -> Project Structure**，然后选择 **Modules -> entry**，在 **Signing Configs** 页面 [配置签名信息](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section19238119191816)。
 
     ![sign configs](./publish-huawei-ohos/sign-configs-debug.png)
 
@@ -58,7 +58,7 @@
 
     ![build variants](./publish-huawei-ohos/build-variants.png)
 
-4. 然后点击菜单栏中的 **Build -> Build APP(s)/Hap(s) -> Build Hap(s)** 项，即可执行编译流程，生成 `.hap` 文件。
+4. 然后点击菜单栏中的 **Build -> Build Hap(s)/APP(s) -> Build Hap(s)** 项，即可执行编译流程，生成 `.hap` 文件。
 
     ![build hap](./publish-huawei-ohos/build-hap.png)
 
@@ -70,7 +70,7 @@
 
     ![output](./publish-huawei-ohos/debug-output.png)
 
-5. 使用 USB 连接 Harmony OS 系统的华为设备，然后点击菜单栏中的 **Run -> Run ‘entry’**，或者点击上方的运行按钮，即可将 HarmonyOS 应用运行到设备上。详情可参考 [运行 HarmonyOS 应用](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/run_phone_tablat-0000001064774652)。
+5. 使用 USB 连接 HarmonyOS 系统的华为设备，然后点击菜单栏中的 **Run -> Run ‘entry’**，或者点击上方的运行按钮，即可将 HarmonyOS 应用运行到设备上。详情可参考 [运行 HarmonyOS 应用](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/run_phone_tablat-0000001064774652)。
 
     ![run project](./publish-huawei-ohos/run-project.png)
 
