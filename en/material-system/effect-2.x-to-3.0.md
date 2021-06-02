@@ -124,7 +124,7 @@ For more details on the pass parameters, please refer to the [parameter list](./
 If you want to use built-in variables in shader, you need to include the corresponding header file. The following table is a summary of commonly used functional uniforms, many of which are the same as v2.x and v3.0, and some of which are different.
 
 | v2.x Header & Name | v3.0 Header & Name| Type | Usage | Version Difference |
-| :------ | :------ | :----- | :------ | :------ |:------ |
+| :------ | :------ | :----- | :------ | :------ |
 | `cc-local.chunk` & `cc_matWorld` | `cc-local.chunk` & `cc_matWorld` | mat4 | Model space to world space matrix | no difference |
 | `cc-local.chunk` & `cc_matWorldIT` | `cc-local.chunk` & `cc_matWorldIT` | mat4 | Model space to world space inverse substitution matrix | no difference |
 | `cc-global.chunk` & `cc_time` | `cc-global.chunk` & `cc_time` |vec4 | x: global time in seconds since start<br>y: incremental time of current frame<br>z: total number of frames since start |no difference |
@@ -143,7 +143,7 @@ If you want to use built-in variables in shader, you need to include the corresp
 **Also, v2.x and v3.0 are very different in terms of light sources and shadows, and v3.0 is a big improvement over v2.x. The following table lists some common features of uniform.**
 
 | v2.x Header & Name| v3.0 Header & Name| Type | Usage | Version Differences |
-| :------ | :------ | :----- | :------ | :------ |:------ |
+| :------ | :------ | :----- | :------ | :------ |
 | `cc-lights.chunk` & `cc_lightDirection[CC_MAX_LIGHTS]` | `cc-global.chunk` & `cc_mainLitDir` | vec4 | Get light direction | v2.x: How many lights are affected by a single model drawing at a time in the shader The default maximum value is 1.0. To get the position information, fill in 0. For example, `cc_lightDirection[0]`<br>v3.0: xyz: main direction light direction
 | `cc-lights.chunk` & `cc_lightColor[CC_MAX_LIGHTS]` | `cc-global.chunk` & `cc_mainLitColor` | vec4 | Control the color intensity of the light | v2.x: exp of the light, which is the light's pow intensity. <br>v3.0: xyz - the main directional light color; w - the main directional light intensity |
 | `cc-lights.chunk` & `CC_CALC_LIGHTS` | `cc-global.chunk` & `cc_ambientSky` |v2.x: macro definition<br>v3.0: vec4| controls the sky color intensity | v2.x: this is a macro that is computed by threading in the ambient parameter for calculation. And there are function overloads that can be passed in with different parameters. <br>v3.0: xyz - sky color; w - brightness |
@@ -239,7 +239,7 @@ There is a big difference between v2.x and v3.0 in shading calculations. v2.0 ad
 | `getDepth` | float | Returns the depth value |
 | `shadowSimple` | float | Hard sampling of shadows can have jaggedness issues |
 
-**v3.0 header file `cc-shadow.chunk` has the following common functions uniformly **:
+**v3.0 header file `cc-shadow.chunk` has the following common functions uniformly**:
 
 | Name | Type | Info |
 | :------ | :----- | :----- |
