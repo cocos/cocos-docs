@@ -211,7 +211,9 @@
     - [脚本基础](scripting/basic.md)
     - [语言支持](scripting/language-support.md)
     - [模块](scripting/modules/index.md)
-    - [ccclass](scripting/ccclass.md)
+        - [如何获取 npm 包](scripting/modules/config.md)
+        - [示例：外部模块使用案例](scripting/modules/example.md)
+    - [装饰器](scripting/decorator.md)
     - [属性参数参考](scripting/reference/attributes.md)
     - [访问节点和其他组件](scripting/access-node-component.md)
     - [常用节点和组件接口](scripting/basic-node-api.md)
@@ -226,6 +228,7 @@
     - [全局系统事件](engine/event/event-input.md)
     - [事件 API](engine/event/event-api.md)
     - [插件脚本](scripting/external-scripts.md)
+    - [脚本进阶](scripting/reference-class.md)
     - [添加 Log](scripting/log.md)
     - [废弃 API](scripting/deprecated.md)
 

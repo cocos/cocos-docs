@@ -8,7 +8,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
 - [语言支持](./language-support.md)
 - [模块](./modules/index.md)
 - [脚本执行顺序](./execution-order-general.md)
-- [cc 类](./ccclass.md)
+- [装饰器](./decorator.md)
 - [访问节点和其他组件](./access-node-component.md)
 - [常用节点和组件接口](./basic-node-api.md)
 - [生命周期回调](./life-cycle-callbacks.md)
@@ -24,7 +24,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
   - [事件 API](../engine/event/event-api.md)
 - [属性参数参考](./reference/attributes.md)
 - [插件脚本](./external-scripts.md)
-- [CCClass 进阶参考](./ccclass.md)
+- [脚本进阶参考](./reference-class.md)
 - [添加 Log](./log.md)
 - [废弃API](./deprecated.md)
 
