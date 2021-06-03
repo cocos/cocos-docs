@@ -29,9 +29,13 @@ The game submission, review and release process of a mini-game needs to comply w
 Options | Optional or not | Default | Explanation
 - | - | - | -
 **appid** | Required | `testId` | The appid of the ByteDance Mini Games, it will be written to `project.config.json` file.
+**appSecret** | Currently only required when using PhysX | Empty | the AppSecret corresponding to the appid of the ByteDance Mini Games.
 **Remote server address** | Optional | Empty | The remote server address. Resources will then be obtained from this address.
 **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.
 **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.
+**physX.multiThread**| Optional | `false` | Only valid when using PhysX, whether to use multi-threaded mode.
+**physX.subThreadCount** | Optional | `1` | Only valid when using PhysX and use multi-threaded mode, the number of child threads.
+**physX.epsilon** | Optional | `0.001` | Only valid when using PhysX, the tolerance error.
 
 ## Asset Management for ByteDance Mini Game Environment
 
@@ -73,6 +77,12 @@ Currently, the size of the ByteDance Mini Game subpackage has following restrict
 - The size of a single subpackage/main package cannot exceed **4 M**
 
 For details, please refer to the [ByteDance Subpackage Loading Official Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+
+## Native Physics
+
+After the **v3.2** version, Cocos Creator has added the relevant parameters for configuring native physics in the build panel of the ByteDance platform (for details, please see the introduction of build options). The way to enable native physics is in While building the ByteDance Mini Game project, choose the **PhysX** physics module.
+
+But it should be noted that at present, ByteDance native physics only exists in the Android version of TikTok, and the version must be greater than or equal to **v16.3**, and the ByteDance DevTools does not support running native physics, so only Can preview and debug on real machine.
 
 ## Reference documentation
 
