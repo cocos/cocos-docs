@@ -46,7 +46,7 @@ var userData = JSON.parse(cc.sys.localStorage.getItem('userData'));
 
 ## 清空数据
 
-当我们不再需要存储的用户数据时，可以通过下面的接口将其清空：
+当我们不再需要已存储的用户数据时，可以通过下面的接口将其清空：
 
 `cc.sys.localStorage.clear()`
 
