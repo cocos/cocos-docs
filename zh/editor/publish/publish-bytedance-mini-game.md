@@ -40,8 +40,12 @@
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中 | `orientation` |
 | AppID | 必填项，字节跳动小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
+| AppSecret | 目前仅在使用 PhysX 物理时必填，字节跳动小游戏 AppID 对应的 AppSecret。 | `appSecret` |
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
+| PhysX - multiThread | 仅在使用 PhysX 物理时有效，是否使用多线程模式 | `physX.multiThread` |
+| PhysX - subThreadCount | 仅在使用 PhysX 物理且开启多线程模式时有效，子线程个数 | `physX.subThreadCount` |
+| PhysX - epsilon | 仅在使用 PhysX 物理时有效，容忍误差 | `physX.epsilon` |
 
 ## 分包加载
 
@@ -69,6 +73,12 @@
 字节跳动小游戏与微信小游戏类似，都存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。
 
 我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情可参考 [缓存管理器](../../asset/cache-manager.md)。
+
+## 字节原生物理
+
+在 **v3.2** 版本后，Cocos Creator 在字节平台的构建面板中增加了配置字节原生物理的相关参数（详细说明请看构建选项介绍），开启字节原生物理的方式是在构建字节小游戏项目的同时，选择 **PhysX** 物理模块。
+
+但需要注意的是，目前字节原生物理仅存在于安卓版本的抖音，且版本需大于等于 **v16.3** ，并且字节开发者工具还不支持运行字节原生物理，因此只能真机预览和调试。
 
 ## 参考链接
 
