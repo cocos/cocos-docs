@@ -16,11 +16,11 @@ The Material asset can be seen as an asset instance of the EffectAsset in the sc
 
 #### Effect
 
-An Effect asset represents a material type and is the most important core asset in the material system. If you want to implement a custom shading effect in the engine, you need to write a custom Effect.
+An Effect asset represents a material type and is the most important core asset in the material system. To implement a custom shading effect in the engine, it is necessary to write a custom Effect.
 
 #### Technique
 
-We refer to the solution to accomplish a final effect as a rendering technique, and a technique can be fused by one or more passes.
+The solution to accomplish a final effect is referred to as a rendering technique , and a technique can be fused by one or more passes.
 
 #### Pass
 
@@ -38,7 +38,7 @@ The Material instance panel of Cocos Creator 2.x looks like this
 
 ![effect](material10.jpg)
 
-As you can see from the above two figures, the instance panel in v3.0 is quite complex compared to v2.4, partly because of the increased complexity of the material configuration, and partly because of the enhanced functionality of the panel.
+Notice from the above two figures, the instance panel in v3.0 is quite complex compared to v2.4, partly because of the increased complexity of the material configuration, and partly because of the enhanced functionality of the panel.
 
 #### The configurable items of the material panel are divided into five main types
 
@@ -152,7 +152,7 @@ If you want to use built-in variables in shader, you need to include the corresp
 
 ### 3.2 Shader Built-In Functions and Variables
 
-In v3.0, if you need to interface with the engine dynamic batching and instancing process, you need to include the `cc-local-batch` header file and get the world matrix via the `CCGetWorldMatrix` utility function.
+In v3.0, if to interface with the engine's dynamic batching and instancing processes, include the `cc-local-batch` header file and get the world matrix via the `CCGetWorldMatrix` utility function.
 
 #### New shading functions in v3.0
 
@@ -173,7 +173,7 @@ In v3.0, if you need to interface with the engine dynamic batching and instancin
     }
     ```
 
-    It is easy to implement your own surface input, or other shading algorithms in this framework.
+It is easy to implement custom surface input, or other shading algorithms in this framework.
 
     > **Note**: the `CCFragOutput` function does not generally need to be implemented by itself, it only serves the purpose of interfacing with the rendering pipeline. And for outputs containing lighting calculations, the `output-standard` header should be included instead of `output` since the results are already in HDR range.
 
@@ -208,7 +208,7 @@ The **point light source** in v2.x is adjusted to **spherical light** in v3.0, a
 | `cc_sphereLitSizeRange[MAX_LIGHTS]` | vec4 | x: sphere light size<br>y: sphere light range |
 | `cc_sphereLitColor[MAX_LIGHTS]` | vec4 | xyz: sphere light color<br>w: sphere light intensity |
 
-For more details, please refer to [Common built-in shader Uniform](built-in-shader-uniforms.md).
+For additional details, please refer to the [Common built-in shader Uniform](builtin-shader-uniforms.md) documentation.
 
 #### Spotlights
 
@@ -221,7 +221,7 @@ The spotlight in v3.0 has a lot of ready-made features, which need to be added t
 | vec4 | xyz: Spotlight direction |
 | `cc_spotLitColor[MAX_LIGHTS]` | vec4 | xyz: spotlight color<br>w: spotlight intensity |
 
-Please refer to the [Common shader built-in Uniform](builtin-shader-uniforms.md) documentation for more details.
+Please refer to the [Common shader built-in Uniform](builtin-shader-uniforms.md) documentation for additional details.
 
 ### 3.4 Shadows
 
