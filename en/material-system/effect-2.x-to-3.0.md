@@ -200,7 +200,7 @@ v2.x is very different from v3.0 in terms of light and shadow calculation, mainl
 
 #### spherical light
 
-The **point light source** in v2.x is adjusted to **spherical light** in v3.0, and there are many ready-made functions, which need to be added to the header file `cc-forward-light.chunk` when using it.
+The **point light source** in v2.x is adjusted to **spherical light** in v3.0, and there are many ready-made functions, which need to be added to the header file `cc-forward-light.chunk` when using them.
 
 | Name | Type | Info |
 |:------ | :------ | :----- |
