@@ -19,15 +19,15 @@ The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into v
     CCProgram standard-vs %{
         precision highp float;  
 
-        // include your headfile
+        // Include your headfile
 
         #include <cc-fog-vs> // Note the change in the header file name here
     
-        // fill in your data here
+        // Fill in your data here
 
         void main () {
         
-            // fill in your data here
+            // Fill in your data here
 
             gl_Position = fill in your data result;
         }
@@ -38,21 +38,21 @@ The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into v
 
 - `CC_STANDARD_SURFACE_ENTRY()`
 
-    Load the standard shader header file `standard-surface-entry` and use the v3.1 standard shader output function `CC_STANDARD_SURFACE_ENTRY()` to replace the original v3.0 shader output function `frag ()`
+    Load the standard shader header file `standard-surface-entry` and use the v3.1 standard shader output function `CC_STANDARD_SURFACE_ENTRY()` to replace the original v3.0 shader output function `frag()`.
 
     ```c
     CCProgram standard-fs %{
   
-        // include your headfile
+        // Include your headfile
    
         #include <cc-fog-fs> // Note the change in the header file name here
         #include <standard-surface-entry> // Note the change in the name of the standard shader header file here
 
-        // fill in your data here
+        // Fill in your data here
 
         void surf (out StandardSurface s) {
  
-            // fill in your data here
+            // Fill in your data here
 
         }
         CC_STANDARD_SURFACE_ENTRY() // Standard shader output function
@@ -63,48 +63,48 @@ The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into v
 
 ### 2.1 Deferred Rendering Pipeline
 
-The biggest difference between v3.1 and v3.0 is that v3.1 supports the deferred render pipeline. The engine comes with a standard ``standard-surface-entry`` header file that supports both the forward render pipeline and the deferred render pipeline, which is used as follows.
+The biggest difference between v3.1 and v3.0 is that v3.1 supports the deferred render pipeline. The engine comes with a standard `standard-surface-entry` header file that supports both the forward render pipeline and the deferred render pipeline, which is used as follows:
 
 ```c
-    CCEffect %{
-        techniques:
+CCEffect %{
+    techniques:
 
-        // fill in your data here
+    // Fill in your data here
 
-          - &deferred
-            vert: // your Vertex shader
-            frag: // your Fragment shader
-            phase: deferred
-            propertyIndex: 0
-            blendState:
-              targets: // turn off blending
-              - blend: false
-              - blend: false
-              - blend: false
-              - blend: false
-              properties: // your properties name
-  
-        // fill in your data here
-                
-    }%
+        - &deferred
+        vert: // your Vertex shader
+        frag: // your Fragment shader
+        phase: deferred
+        propertyIndex: 0
+        blendState:
+            targets: // turn off blending
+            - blend: false
+            - blend: false
+            - blend: false
+            - blend: false
+            properties: // your properties name
 
-    // fill in your data here
+    // Fill in your data here
+            
+}%
 
-    CCProgram standard-fs %{
-        precision highp float;
-        #include <cc-global>
-        #include <shared-ubos>
-        #include <cc-fog-fs> // Note the change in the header file name here.
-        #include <standard-surface-entry> // Note the change in the name of the standard shader header file here
+// fill in your data here
 
-        // fill in your data here
-        void surf (out StandardSurface s) {
+CCProgram standard-fs %{
+    precision highp float;
+    #include <cc-global>
+    #include <shared-ubos>
+    #include <cc-fog-fs> // Note the change in the header file name here.
+    #include <standard-surface-entry> // Note the change in the name of the standard shader header file here
 
-            // fill in your data here
+    // Fill in your data here
+    void surf (out StandardSurface s) {
 
-        }
-        CC_STANDARD_SURFACE_ENTRY() // Standard shader output function
-    }%
+        // Fill in your data here
+
+    }
+    CC_STANDARD_SURFACE_ENTRY() // Standard shader output function
+}%
 
 // fill in your data here
 
@@ -117,22 +117,21 @@ The header file `standard-surface-entry` determines which render pipeline is sel
 If it is a deferred render pipeline, the `deferred-lighting` effect file is called first, followed by the light calculation file `shading-standard-additive`.
 
 ```c
-  #define CC_STANDARD_SURFACE_ENTRY()                                 
-  #if CC_FORWARD_ADD                                                 
-    #include <shading-standard-additive>
+#define CC_STANDARD_SURFACE_ENTRY()                                 
+#if CC_FORWARD_ADD                                                 
+  #include <shading-standard-additive>
 
-    // fill in your data here
+  // Fill in your data here
 
-  #elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD // Determine if it is the forward render pipeline
+#elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD  // Determine if it is the forward render pipeline
  
-    // fill in your data here
+  // Fill in your data here
    
-  #elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED // Determine if it is the deferred render pipeline
+#elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED  // Determine if it is the deferred render pipeline
        
-   // fill in your data here
+ // Fill in your data here
 
-  #endif
-
+#endif
 ```
 
 ## 3. Parameter transfer upgrade
@@ -148,7 +147,6 @@ Version comparison:
     ```c
     v_fog_factor = CC_TRANSFER_FOG(pos);
     CCPassShadowParams(pos);  
-    
     ```
 
 - v3.1
@@ -156,7 +154,4 @@ Version comparison:
     ```c
     CC_TRANSFER_FOG(pos);
     CC_TRANSFER_SHADOW(pos);
-    
     ```
-
-[Upgrade Guide](../release-notes/index.md).

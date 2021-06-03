@@ -38,7 +38,7 @@
 
 - `CC_STANDARD_SURFACE_ENTRY()`
 
-    加载标准着色器头文件 `standard-surface-entry`，使用 v3.1 版本的标准着色器输出函数 `CC_STANDARD_SURFACE_ENTRY()` 替换原有 v3.0 版本着色器输出函数 `frag ()`
+    加载标准着色器头文件 `standard-surface-entry`，使用 v3.1 版本的标准着色器输出函数 `CC_STANDARD_SURFACE_ENTRY()` 替换原有 v3.0 版本着色器输出函数 `frag()`。
 
     ```c
     CCProgram standard-fs %{
@@ -117,22 +117,21 @@ CCProgram standard-fs %{
 如果判断是 deferred 渲染管线，会先调用 `deferred-lighting` effect 文件，随后调用光照计算文件 `shading-standard-additive`
 
 ```c
-  #define CC_STANDARD_SURFACE_ENTRY()                                 
-  #if CC_FORWARD_ADD                                                 
-    #include <shading-standard-additive>
+#define CC_STANDARD_SURFACE_ENTRY()                                 
+#if CC_FORWARD_ADD                                                 
+  #include <shading-standard-additive>
 
-    // fill in your data here
+  // fill in your data here
 
-  #elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD  // 判断是否为前向渲染管线
+#elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD  // 判断是否为前向渲染管线
  
-    // fill in your data here
+  // fill in your data here
    
-  #elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED  // 判断是否为延迟渲染管线
+#elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED  // 判断是否为延迟渲染管线
        
-   // fill in your data here
+ // fill in your data here
 
-  #endif
-
+#endif
 ```
 
 ## 3. 参数传输升级
@@ -147,16 +146,12 @@ v3.1 版本顶点着色器往片元着色器传输 `FOG` 参数，直接使用 `
 
     ```c
     v_fog_factor = CC_TRANSFER_FOG(pos);
-    CCPassShadowParams(pos);  
-    
+    CCPassShadowParams(pos);   
     ```
 
 - v3.1
 
     ```c
     CC_TRANSFER_FOG(pos);
-    CC_TRANSFER_SHADOW(pos);
-    
+    CC_TRANSFER_SHADOW(pos); 
     ```
-
-[升级指南](../release-notes/index.md)。
