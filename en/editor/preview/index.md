@@ -33,7 +33,7 @@ At the top of the browser preview screen there are a series of controls to contr
 
 ![browser](index/browser.png)
 
-Creator supports the feature of web preview customization, please refer to [web preview customization workflow](browser.md) for details.
+Creator supports the feature of web preview customization, please refer to the [web preview customization workflow](browser.md) documentation for details.
 
 #### Browser compatibility
 
