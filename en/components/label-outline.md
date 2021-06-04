@@ -6,6 +6,8 @@ The LabelOutline component will add a outline effect to the Label component on t
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **LabelOutline** from **Renderer Component** to add the LabelOutline component to the node.
 
+The LabelOutline component does not take effect when the Cache Mode property of the Label component is set to CHAR, except for the native platform, but the native platform also takes effect only when using TTF fonts.
+
 LabelOutline script interface, please refer to [LabelOutline API](../../../api/en/classes/LabelOutline.html) for details.
 
 ## LabelOutline Properties

@@ -18,7 +18,7 @@ Crop the unused module here will significantly reduce the engine package size. I
 
 ## Project Preview
 
-**Project Preview** provides similar options as in the **Preview Run** page in [Settings](preferences.md), which are used to set the initial preview scene, resolution, etc., but only for the current project.
+**Project Preview** provides similar options as in the **Preview Run** page in [Settings](preferences.md), which are used to set the initial preview scene, web preview port, resolution, etc., but only for the current project.
 
 ![preview](project-settings/preview.png)
 

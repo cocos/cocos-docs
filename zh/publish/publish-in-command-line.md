@@ -67,7 +67,7 @@
   因为这是一个数组类型，数据类型需要像这样定义，注意选项需要用引号括起来：
     - appABIs=['armeabi-v7a','x86']
 
-  - `embedWebDebugger` - 是否在 web 平台下插入 vConsole 调试插件<br>
+  - `embedWebDebugger` - 是否在 Web 平台下插入 vConsole 调试插件<br>
   - `md5Cache` - 是否开启 md5 缓存
   - `encryptJs` - 是否在发布 native 平台时加密 js 文件
   - `xxteaKey` - 加密 js 文件时使用的密钥

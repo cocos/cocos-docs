@@ -14,14 +14,14 @@ In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you s
 
 | property | Function explanation |
 | --- | --- |
-| Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. |
+| Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. Please refer to section **Texture & SpriteFrame** below for details.|
 | Premultiply Alpha | If set, the RGB channel is multiplied by the alpha channel. |
 | Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
 | Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
 | genMipmaps | Whether to enable automatic generation of mipmap. |
 | packable | Whether this texture is allowed to be packed into Dynamic Atlas. |
 
-## Premultiply Alpha
+### Premultiply Alpha
 
 - **Premultiply Alpha**: Indicates that the Alpha channel is premultiplied with the RGB channel when RGB is stored. For example, a red color with transparency of 50%, RGB is (255, 0, 0), the stored color value after premultiplying is (127, 0, 0, 0.5).
 
@@ -55,7 +55,7 @@ The corresponding color values are expressed as:
 
 As can be seen from the figure above that the color after the interpolation using the color value of Non-Premultiply Alpha is greenish, the green with 10% transparency has more proportion, and the red with 100% transparency is less. And the interpolation result obtained with Premultiply Alpha is correct and as expected. Therefore, in actual projects, you can make appropriate selections based on the specific use of the texture.
 
-## Wrap Mode
+### Wrap Mode
 
 In general, texture coordinates UV's values range is [0, 1]. When the texture coordinates in the passed vertex data exceed the range of [0, 1], the texture coordinates of out of range can be processed through different wrap modes. There are two wrap modes:
 
@@ -67,7 +67,7 @@ In general, texture coordinates UV's values range is [0, 1]. When the texture co
 
   For texture coordinates beyond the [0, 1] range, will use the texture coordinates [0, 1] to repeat.
 
-## Filter Mode
+### Filter Mode
 
 When the original size of Texture does not match the size of the texture image mapped on the screen, the mapping of the texture unit to the pixel through different texture filtering methods produces a different effect. There are three filter modes:
 
@@ -85,7 +85,7 @@ When the original size of Texture does not match the size of the texture image m
 
   > **Note**: the Trilinear filtering in the current engine version is consistent with the Bilinear filtering effect.
 
-## genMipmaps
+### genMipmaps
 
 Intended to increase rendering speed and reduce aliasing artifacts, images are processed into sequences which consist of a series of precomputed and optimized textures, called mipmaps.
 
@@ -93,21 +93,30 @@ Each bitmap image of the mipmap set is a downsized duplicate of the main texture
 
 When texture filtering is set to Trilinear filtering, interpolation occurs between the two nearest levels. The rendering speed increases because the mipmap image is smaller than the original when rendering remote objects, which improves the cache hit ratio in the video card sampling process. At the same time, due to the low precision of the small image of mipmap, the Moire striation is reduced, which can anti-aliased on the picture. Also because some extra textures are generated, mipmap requires about one-third of the additional memory space.
 
-## packable
+### packable
 
 If the engine enable [Dynamic Atlas](../advanced-topics/dynamic-atlas.md), dynamic atlas automatically dynamically merge the appropriate textures in the beginning scene into a larger texture to reduce drawcall. However, merging the textures into the large texture will modify the UV coordinates of the original texture, if the UV coordinate of the texture is used in the custom effect, the UV calculation in effect will be incorrect, and the packable property of the texture needs to be set to **false** to prevent the texture from being packaged into the dynamic atlas.
 
 ## Texture & SpriteFrame
 
-In **Assets** panel, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will create a SpriteFrame asset for each Texture when it's imported.
+In **Assets** panel, there is a triangle at the left side of texture. You can see the sub-asset of the texture by click the triangle. Cocos Creator will automatically create a SpriteFrame asset with the same name below each imported Texture when the **Type** property is set to **Sprite**.
 
 ![texture spriteframe](sprite/texture_spriteframe.png)
+
+| Property | Description |
+| :--- | :--- |
+| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture.<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
+| Trim Threshold | Set the transparency threshold, trim the transparency pixels to below the set value. The default value is 1, and the range of values is 0~1. Only takes effect when **Trim Type** is set to **Auto**.  |
+| Trim X、Y、Width、Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
+| Border Top、Bottom、Left、Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
+| Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
+| Offset X、Y | Read-only property, cannot be changed. Used to view the offset (`OffsetX`, `OffsetY`) of the rectangle in Texture Packer asset. |
 
 SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
 
 Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for details.
 
-The API documents for Texture & SpriteFrame:
+The API documentations for Texture & SpriteFrame:
 
 - [Texture](../../../api/en/classes/Texture2D.html)
 - [SpriteFrame](../../../api/en/classes/SpriteFrame.html)
