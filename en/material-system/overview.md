@@ -2,7 +2,7 @@
 
 ## Material System Upgrade Guide
 
-Cocos Creator has supported the material system since v2.x. However, we are continuously improving the design of the material system and the built-in Shader API, so there may be some adjustments in the upgrade from v2.x to v3.0 and subsequent upgrades. The Effect asset does not currently support automatic upgrades, so please refer to the following documentation to upgrade:
+Cocos Creator has supported the material system since v2.x. In v3.0, we have continued to improve the design and built-in Shader API of the material system, so when upgrading from v2.x to v3.0 and later versions, some of the content may still need to be adjusted manually by the developer, please refer to the upgrade guide below:
 
 - [v2.x to v3.0 Material Upgrade Guide](./effect-2.x-to-3.0.md)
 

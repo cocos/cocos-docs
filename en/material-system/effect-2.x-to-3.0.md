@@ -6,7 +6,7 @@
 
 ### 1.1 The material system framework of Cocos Creator
 
-The material system consists of four core classes from top to bottom, Material, Effect, Technique and Pass, whose relationship can be understood by the following class diagram:
+The material system consists of four core classes from top to bottom: **Material**, **Effect**, **Technique** and **Pass**, whose relationship can be understood by the following class diagram:
 
 ![effect](material.png)
 
@@ -34,7 +34,7 @@ The Material instance panel in Cocos Creator 3.0 is as follows:
 
 ![effect](material3.png)
 
-The Material instance panel of Cocos Creator 2.x looks like this
+The Material instance panel of Cocos Creator 2.x looks like this:
 
 ![effect](material10.jpg)
 
@@ -74,8 +74,8 @@ For the Effect asset, both v2.x and v3.0 use the YAML1.2 standard syntax and par
 
 - Technique list of rendering techniques
 - A list of passes for each Technique
-- A list of editable properties exposed to the editor in each pass (including data type designation within the editor, component mapping relationships, etc.)
-- Shader programs for each pass, including vertex and slice shader programs
+- A list of editable properties exposed to the editor in each Pass (including data type designation within the editor, component mapping relationships, etc.)
+- Shader programs for each Pass, including vertex and slice shader programs
 
 In terms of syntax details, such as Property declarations and macro definitions, the approach is the same:
 
@@ -173,7 +173,7 @@ In v3.0, if to interface with the engine's dynamic batching and instancing proce
     }
     ```
 
-It is easy to implement custom surface input, or other shading algorithms in this framework.
+    It is easy to implement custom surface input, or other shading algorithms in this framework.
 
     > **Note**: the `CCFragOutput` function does not generally need to be implemented by itself, it only serves the purpose of interfacing with the rendering pipeline. And for outputs containing lighting calculations, the `output-standard` header should be included instead of `output` since the results are already in HDR range.
 
