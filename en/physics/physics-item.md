@@ -35,7 +35,7 @@ It should be noted that currently the __ammo.js__ module has a size of about __1
 
 Currently in the v3.1 version, previewing and publishing to the H5 environment are not yet supported. The preview needs to be supported by modifying the preview template. For specific modifications, please refer to the [sample project]((https://github.com/cocos-creator/example-3d/tree/v3.1/physics-3d)). The above functions are expected to be improved in the v3.2 version.
 
-When publishing to the native platform, it is strongly recommended to use this module, so that you can get good performance, especially the native application of the IOS system.
+When publishing to the native platform, it is strongly recommended to use this module, to get good performance, especially the native application of the IOS system.
 
 ## Do Not Use Physics
 
