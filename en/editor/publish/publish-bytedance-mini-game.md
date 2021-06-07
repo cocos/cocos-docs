@@ -82,7 +82,7 @@ For details, please refer to the [ByteDance Subpackage Loading Official Document
 
 After the **v3.2** version, Cocos Creator has added the relevant parameters for configuring native physics in the build panel of the ByteDance platform (for details, please see the introduction of build options). The way to enable native physics is in While building the ByteDance Mini Game project, choose the **PhysX** physics module.
 
-But it should be noted that at present, ByteDance native physics only exists in the Android version of TikTok, and the version must be greater than or equal to **v16.3**, and the ByteDance DevTools does not support running native physics, so only Can preview and debug on real machine.
+> **Note**: ByteDance native physics only exists in the Android version of TikTok, and the version must be greater than or equal to **v16.3**, and the ByteDance DevTools does not support running native physics, only previewing and debuging on a real machine.
 
 ## Reference documentation
 

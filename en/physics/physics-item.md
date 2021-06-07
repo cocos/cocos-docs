@@ -36,13 +36,13 @@ The **PhysX** currently supported in Cocos Creator is version 4.1 and is allowed
 - Various Mini Games platforms with package body restrictions (the reason is that the package body of the **PhysX** library is about 5 MB)
 - Android x86 device
 
-Some newer platforms, such as HarmonyOS and Apple M1 devices, will be supported in the future. Please pay attention to the update announcement. In addition, the ByteDance platform provides the underlying native physics, so this module can also be run in ByteDance Mini Games. For specific details, please refer to [publish ByteDance Mini Games](../editor/pulish/../publish/publish-bytedance-mini-game.md).
+Some newer platforms, such as HarmonyOS and Apple M1 devices, will be supported in the future. Please pay attention to the update announcement. In addition, the ByteDance platform provides the underlying native physics, so this module can also be run in ByteDance Mini Games. For specific details, please refer to [publish ByteDance Mini Games](../editor/publish/publish-bytedance-mini-game.md).
 
-When publishing to the native platform, it is strongly recommended to use this module, so that you can get good performance, especially the native application of the IOS system.
+When publishing to the native platform, it is strongly recommended to use this module, to get good performance, especially the native application of the IOS system.
 
-## Do Not Use Physics
+## Turning Off Physics
 
-If you don't need to use any physics related components and interfaces, you can uncheck the yellow box, so that you can get a smaller package when publishing.
+To turn off physics and related components and interfaces, uncheck the yellow box, which helps lessen the package size when publishing.
 
 > **Note**: if it is unchecked, the project will not be able to use physics related components and interfaces, otherwise an error will be reported during runtime.
 
@@ -67,7 +67,7 @@ Difference details and some solutions:
 
 1. `damping`
 The damping term is different because PhysX uses different damping algorithm models.
-However, this difference has been eliminated internally. If you need to synchronize the damping value previously set in PhysX, you can refer to the following code to convert:
+However, this difference has been eliminated internally. To synchronize the damping value previously set in PhysX, refer to the following code to convert:
 ```ts
 const dt = PhysicsSystem.instance.fixedTimeStep;
 const newDamping = 1 - (1 - oldDamping * dt) ** (1 / dt);
