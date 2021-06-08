@@ -7,7 +7,7 @@
 
 The standard shader header `shading-standard` from v3.0 has become `standard-surface-entry` from v3.1, making the effect compatible with both the forward render pipeline and the deferred render pipeline.
 
-The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into vertex shader and slice shader versions.
+The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into vertex shader and fragment shader versions.
 
 ### 1.2 Vertex shaders
 
@@ -34,7 +34,7 @@ The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into v
     }%
     ```
 
-### 1.3 Slice shaders
+### 1.3 Fragment shaders
 
 - `CC_STANDARD_SURFACE_ENTRY()`
 
@@ -136,9 +136,9 @@ If it is a deferred render pipeline, the `deferred-lighting` effect file is call
 
 ## 3. Parameter transfer upgrade
 
-The macro for passing shadow parameters from vertex shaders to slice shaders was originally `CCPassShadowParams` in v3.0, but was changed to `CC_TRANSFER_SHADOW` in v3.1.
+The macro for passing shadow parameters from vertex shaders to fragment shaders was originally `CCPassShadowParams` in v3.0, but was changed to `CC_TRANSFER_SHADOW` in v3.1.
 
-The v3.1 vertex shader transfers `FOG` parameters to the slice shader, using the `CC_TRANSFER_FOG` macro directly.
+The v3.1 vertex shader transfers `FOG` parameters to the fragment shader, using the `CC_TRANSFER_FOG` macro directly.
 
 Version comparison:
 
