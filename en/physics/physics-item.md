@@ -31,11 +31,11 @@ It should be noted that currently the __ammo.js__ module has a size of about __1
 
 **PhysX**（[GitHub](https://github.com/NVIDIAGameWorks/PhysX)）is an open source real-time commercial physics engine developed by Nvidia. It has perfect functional characteristics and extremely high stability, as well as excellent performance.
 
-**PhysX** currently supported in Cocos Creator is version 4.1, which is only allowed to be used on most native platforms. In addition, since PhysX does not support the Android x86 platform, it cannot run normally on this platform. At the same time, some newer platform devices, such as Apple M1 chip devices, will be supported in the future.
+**PhysX** currently supported in Cocos Creator is v4.1, which is only allowed to be used on most native platforms. In addition, since PhysX does not support the Android x86 platform, it cannot run normally on this platform. At the same time, some newer platform devices, such as Apple M1 chip devices, will be supported in the future.
 
-Currently in the v3.1 version, previewing and publishing to the H5 environment are not yet supported. The preview needs to be supported by modifying the preview template. For specific modifications, please refer to the [sample project]((https://github.com/cocos-creator/example-3d/tree/v3.1/physics-3d)). The above functions are expected to be improved in the v3.2 version.
+Currently in the v3.1, previewing and publishing to the H5 environment are not yet supported. The preview needs to be supported by modifying the preview template. For specific modifications, please refer to the [sample project](https://github.com/cocos-creator/example-3d/tree/v3.1/physics-3d). The above functions are expected to be improved in the v3.2.
 
-When publishing to the native platform, it is strongly recommended to use this module, to get good performance, especially the native application of the IOS system.
+When publishing to the native platform, it is strongly recommended to use this physics engine, to get good performance, especially the native application of the iOS system.
 
 ## Do Not Use Physics
 
