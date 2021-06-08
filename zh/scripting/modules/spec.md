@@ -102,7 +102,7 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 }
 ```
 
-`import /* */ from "foo"` 将解析为包中路径为 `dist/browser-main.mjs` 的模块。
+`import /* whatever */ from "foo"` 将解析为包中路径为 `dist/browser-main.mjs` 的模块。
 
 若将此选项设为空字符串，表示不指定额外条件，上例中的 `"foo"` 将解析为包中路径为 `dist/main.mjs` 的模块。
 
