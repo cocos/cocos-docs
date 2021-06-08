@@ -44,7 +44,7 @@ Notice from the above two figures, the instance panel in v3.0 is quite complex c
 
 1. Effect asset: the drop-down box will list all the Effect assets in the current project, and developers can select the Effect asset used by the current material. Other properties will be reset as default when the Effect is switched.
 2. Technique rendering technique selection: the drop-down box will list all the Technique in the Effect asset currently in use, and there may be multiple Technique in the Effect asset, each Technique is suitable for different situations. For example, the Technique with less effect but better performance is more suitable for mobile platform.
-3. Macro options defined in Effect: these macros control whether certain code can be enabled or not (corresponding to pass by pass).
+3. Macro options defined in Effect: these macros control whether code branches are enabled in shader programs.
 4. The list of properties defined in the Effect, dynamically chose according to the macro definition. They are shown in different input types as defined type in the effect, e.g. number, color. The editable properties are generally the mapping of uniforms used by the shader, from v3.0, it's possible to specify the mapping of a property to a component in vector uniform by using the target parameter in Effect.
 5. v3.0 also added the PipelineStates option, which is mainly used to define the pipeline states of one pass, such as DepthStencilState, BlendState, CullMode, etc.
 
@@ -73,7 +73,7 @@ This section describes the commonalities and differences between assets in v2.x 
 For the Effect asset, both v2.x and v3.0 use the YAML1.2 standard syntax and parser, and there are few differences between the two versions. The Effect asset defines a material type, and by following the [syntax format](yaml-101.md), the following information can be defined:
 
 - Technique list of rendering techniques
-- A list of passes for each Technique
+- A list of Pass for each Technique
 - A list of editable properties exposed to the editor in each Pass (including data type designation within the editor, component mapping relationships, etc.)
 - Shader programs for each Pass, including vertex and fragment shader programs
 
