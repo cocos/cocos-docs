@@ -24,7 +24,7 @@ The solution to accomplish a final effect is referred to as a rendering techniqu
 
 #### Pass
 
-A Pass is a single GPU draw, typically including a vertex shader and a slice shader, and there are many optional configuration parameters for Pass in Creator.
+A Pass is a single GPU draw, typically including a vertex shader and a fragment shader, and there are many optional configuration parameters for Pass in Creator.
 
 ### 1.2 Material Instance Panel
 
@@ -42,11 +42,11 @@ Notice from the above two figures, the instance panel in v3.0 is quite complex c
 
 #### The configurable items of the material panel are divided into five main types
 
-1. Effect asset: the drop-down box will list all the Effect assets in the current project, and developers can select the Effect asset used by the current material. Other properties will be updated when the Effect is switched.
+1. Effect asset: the drop-down box will list all the Effect assets in the current project, and developers can select the Effect asset used by the current material. Other properties will be reset as default when the Effect is switched.
 2. Technique rendering technique selection: the drop-down box will list all the Technique in the Effect asset currently in use, and there may be multiple Technique in the Effect asset, each Technique is suitable for different situations. For example, the Technique with less effect but better performance is more suitable for mobile platform.
 3. Macro options defined in Effect: these macros control whether certain code can be enabled or not (corresponding to pass by pass).
-4. the list of properties defined in Effect (dynamically opened according to the macro definition) and the use of different input boxes to accommodate different types of properties. The editable properties of the editor are generally the mapping of a uniform in the shader, and from v3.0 onwards it is also possible to specify the mapping of a component (using the target parameter in Effect).
-5. v3.0 also added the PipelineStates option, which is mainly used to define the pipeline states of material dependencies, such as DepthStencilState, BlendState, CullMode, etc.
+4. The list of properties defined in the Effect, dynamically chose according to the macro definition. They are shown in different input types as defined type in the effect, e.g. number, color. The editable properties are generally the mapping of uniforms used by the shader, from v3.0, it's possible to specify the mapping of a property to a component in vector uniform by using the target parameter in Effect.
+5. v3.0 also added the PipelineStates option, which is mainly used to define the pipeline states of one pass, such as DepthStencilState, BlendState, CullMode, etc.
 
 ### 1.3 Editor Experience
 
@@ -75,7 +75,7 @@ For the Effect asset, both v2.x and v3.0 use the YAML1.2 standard syntax and par
 - Technique list of rendering techniques
 - A list of passes for each Technique
 - A list of editable properties exposed to the editor in each Pass (including data type designation within the editor, component mapping relationships, etc.)
-- Shader programs for each Pass, including vertex and slice shader programs
+- Shader programs for each Pass, including vertex and fragment shader programs
 
 In terms of syntax details, such as Property declarations and macro definitions, the approach is the same:
 
@@ -91,9 +91,9 @@ There is a big difference between v2.x and v3.0 in terms of preset materials.
 
 - The preset materials in v2.x include 2D Sprite, classic `blinn-phong` lighting materials, `unlit` materials, default `toon` materials, particle materials, etc.
 
-- The preset materials in v3.0 are physics-based rendering system, including standard PBR materials based on physical lighting, Skybox, toon rendering materials, 3D particle materials (CPU & GPU), particle trailing materials, traditional 2D Sprite materials, etc.
+- The preset materials in v3.0 are based on physically based rendering, including standard PBR material, Skybox, cartoon style material, 3D particle materials (CPU & GPU), particle trailing materials, traditional 2D Sprite materials, etc.
 
-The v3.0 default standard material supports the standard Physically Based Rendering (PBR) process, which contains a lot of mapping information to enhance the quality and realism of the material, such as diffuse mapping, normal mapping, metallic, roughness, ambient light oclusion, and so on. The whole algorithm is based on the standard BRDF lighting model, which is not available in v2.x. The overall performance of v3.0 is a step up from v2.x.
+The v3.0 default standard material supports the standard Physically Based Rendering (PBR) process, which contains a lot of mapping information to enhance the quality and realism of the material, such as diffuse map, normal map, metallic texture, roughness texture, ambient light occlusion texture, and so on. The whole algorithm is based on the standard BRDF lighting model, which is not available in v2.x. The overall rendering quality of v3.0 is also much more realistic than v2.x.
 
 ### 2.3 Effect Writing Details Differences
 
@@ -105,7 +105,7 @@ Some default shader functions are unique to v3.0, such as `CCStandardShading`, `
 
 Regarding uniform declarations, v3.0 forces the use of UBO for organization, and the minimum unit for memory layout is vec4, which no longer supports separate declarations of float or vec3 types of uniform.
 
-In terms of header files, v3.0 has built-in editor header assets in the `assets/chunks` directory of **Internal DB**. They can be referenced directly without adding directories, mainly including some common **tool functions** and **standard lighting model**. The header files of v2.x are built into the editor, so you can't see what they are.
+In terms of header files, v3.0 has built-in editor header assets in the `assets/chunks` directory of **Internal DB**. They can be referenced directly with file name instead of file path, mainly for including some common **tool functions** and **standard shading functions**. The header files of v2.x are built into the editor, so you can't see what they are.
 
 ### 2.4 New Pass Options
 
@@ -152,7 +152,7 @@ If you want to use built-in variables in shader, you need to include the corresp
 
 ### 3.2 Shader Built-In Functions and Variables
 
-In v3.0, if to interface with the engine's dynamic batching and instancing processes, include the `cc-local-batch` header file and get the world matrix via the `CCGetWorldMatrix` utility function.
+In v3.0, to interface with the engine's dynamic batching and instancing processes, include the `cc-local-batch` header file and get the world matrix via the `CCGetWorldMatrix` utility function.
 
 #### New shading functions in v3.0
 
@@ -225,7 +225,7 @@ Please refer to the [Common shader built-in Uniform](builtin-shader-uniforms.md)
 
 ### 3.4 Shadows
 
-There is a big difference between v2.x and v3.0 in shading calculations. v2.0 adds the header file `shadow.chunk`, while v3.0 adds the header file `cc-shadow.chunk`.
+There is a difference between v2.x and v3.0 in shadow calculations. In v2.0 you need to add the header file `shadow.chunk`, while in v3.0 the header file `cc-shadow.chunk` should be used instead.
 
 **v2.0 header file `shadow.chunk` has the following common functional uniform and functions**:
 
