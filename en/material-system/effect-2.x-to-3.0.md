@@ -85,7 +85,7 @@ In terms of syntax details, such as Property declarations and macro definitions,
 
 ![effect](material5.jpg)
 
-### 2.2 Preset Material Types
+### 2.2 Built-in Effect Types
 
 There is a big difference between v2.x and v3.0 in terms of preset materials.
 
