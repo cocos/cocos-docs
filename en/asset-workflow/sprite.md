@@ -105,12 +105,12 @@ In **Assets** panel, there is a triangle at the left side of texture. You can se
 
 | Property | Description |
 | :--- | :--- |
-| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture.<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
-| Trim Threshold | Set the transparency threshold, trim the transparency pixels to below the set value. The default value is 1, and the range of values is 0~1. Only takes effect when **Trim Type** is set to **Auto**.  |
+| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
+| Trim Threshold | Set the transparency threshold, trim off the pixels whose transparency is below the set value.<br>The default value is 1, and the range of values is 0~1.<br>Only takes effect when **Trim Type** is set to **Auto**.  |
 | Trim X、Y、Width、Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
 | Border Top、Bottom、Left、Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
 | Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
-| Offset X、Y | Read-only property, cannot be changed. Used to view the offset (`OffsetX`, `OffsetY`) of the rectangle in Texture Packer asset. |
+| Offset X、Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
 
 SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
 

@@ -111,11 +111,11 @@ Texture 的 Premultiply Alpha 属性勾选与否表示是否开启 Alpha 预乘�
 | 属性 | 功能说明 |
 | :--- | :--- |
 | Trim Type | 裁剪类型，包括：<br>1. Auto — 自动裁剪<br>2. Custom — 自定义裁剪<br>3. None — 无裁剪，使用原图<br>详情请参考 [图像资源的自动剪裁](trim.md) |
-| Trim Threshold | 透明度阈值，默认为 1，取值范围为 0~ 1，会将透明度像素裁减到设置的数值以下。当 Trim Type 设置为 **Auto** 时生效 |
+| Trim Threshold | 透明度阈值，默认为 1，取值范围为 0~1，会将透明度在设定值以下的像素裁减掉。当 Trim Type 设置为 **Auto** 时生效 |
 | Trim X、Y、Width、Height | 设置裁剪矩形框，当 Trim Type 设置为 **Custom** 时生效 |
 | Border Top、Bottom、Left、Right | 设置九宫格图边距，可点击下方的 **编辑** 按钮进行可视化编辑  |
 | Rotated  | 只读属性，不可更改。用于查看 Texture Packer 资源中的子资源是否被旋转 |
-| Offset X、Y | 只读属性，不可更改。用于查看 Texture Packer 资源中矩形框的偏移量（`OffsetX`、`OffsetY`） |
+| Offset X、Y | 只读属性，不可更改。用于查看 Texture Packer 资源中矩形框的偏移量 |
 
 SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替换 **Sprite** 组件中的 `spriteFrame` 属性，就可以切换显示的图像。**Sprite** 组件的设置方式请参考 [Sprite 组件参考](../components/sprite.md)。
 
