@@ -24,7 +24,7 @@
     - [Caution!](getting-started/attention/index.md)
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
-    - [Material upgrade guide for v3.0 to v3.1](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+    - [Cocos Creator 3.1 Material Upgrade Guide](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
 
 ## Editor Manual
 

@@ -1,4 +1,4 @@
-# Material upgrade guide for v3.0 to v3.1
+# Cocos Creator 3.1 Material Upgrade Guide
 
 > This article will detail the considerations for upgrading Cocos Creator 3.0 materials to v3.1.
 
