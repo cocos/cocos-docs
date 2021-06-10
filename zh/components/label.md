@@ -24,10 +24,10 @@ Label 组件用来显示一段文字，文字可以是系统字体、TrueType �
 | Enable Italic    | 是否启用斜体。(使用系统字体或 TTF 字体时生效)                                                                  |
 | Enable Underline | 是否启用下划线。(使用系统字体或 TTF 字体时生效)                                                                |
 | Underline Height | 下划线的高度。                                                                                             |
-| Cache Mode       | 文本缓存类型包括 **NONE**、**BITMAP**、**CHAR** 三种。仅对系统字体或 TTF 字体有效，BMFont 字体无需进行这个优化。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。                                       |
+| Cache Mode       | 文本缓存类型包括 **NONE**、**BITMAP**、**CHAR** 三种。仅对系统字体或 TTF 字体有效，BMFont 字体无需进行这个优化。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。 |
 | Use System Font  | 是否使用系统字体。                                                                                          |
-| Src Blend Factor      | 混合文本图片时，源图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
-| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html) |
+| Src Blend Factor      | 混合文本图片时，源图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。|
+| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。 |
 | Materials        | 材质资源，详情请参考文档 [Material](../render/material.md)。                                                 |
 
 Label 的 API 接口请参考 [Label API](../../../api/zh/classes/Label.html)。
@@ -46,7 +46,7 @@ Label 的 API 接口请参考 [Label API](../../../api/zh/classes/Label.html)。
 | :----- | :----------- |
 | NONE   | 默认值，Label 中的整段文本将生成一张位图。  |
 | BITMAP | 选择后，Label 中的整段文本仍将生成一张位图，但是会尽量参与 [动态合图](../advanced-topics/dynamic-atlas.md)。只要满足动态合图的要求，就会和动态合图中的其它 Sprite 或者 Label 合并 Draw Call。由于动态合图会占用更多内存，**该模式只能用于文本不常更新的 Label**。<br>**补充**：和 NONE 模式一样，BITMAP 模式会强制给每个 Label 组件生成一张位图，不论文本内容是否等同。如果场景中有大量相同文本的 Label，建议使用 CHAR 模式以复用内存空间。|
-| CHAR   | 原理类似 BMFont，Label 将以“字”为单位将文本缓存到全局共享的位图中，相同字体样式和字号的每个字符将在全局共享一份缓存。能支持文本的频繁修改，对性能和内存最友好。不过目前该模式还存在如下限制，我们将在后续的版本中进行优化：<br>1、**该模式只能用于字体样式和字号固定（通过记录字体的 fontSize、fontFamily、color、outline 为关键信息，以此进行字符的重复使用，其他有使用特殊自定义文本格式的需要注意），并且不会频繁出现巨量未使用过的字符的 Label**。这是为了节约缓存，因为全局共享的位图尺寸为 2048*2048，只有场景切换时才会清除，一旦位图被占满后新出现的字符将无法渲染。<br>2、不能参与动态合图（同样启用 CHAR 模式的多个 Label 在渲染顺序不被打断的情况下仍然能合并 Draw Call）|
+| CHAR   | 原理类似 BMFont，Label 将以“字”为单位将文本缓存到全局共享的位图中，相同字体样式和字号的每个字符将在全局共享一份缓存。能支持文本的频繁修改，对性能和内存最友好。不过目前该模式还存在如下限制，我们将在后续的版本中进行优化：<br>1、**该模式只能用于字体样式和字号固定（通过记录字体的 fontSize、fontFamily、color、outline 为关键信息，以此进行字符的重复使用，其他有使用特殊自定义文本格式的需要注意），并且不会频繁出现巨量未使用过的字符的 Label**。这是为了节约缓存，因为全局共享的位图尺寸为 2048*2048，只有场景切换时才会清除，一旦位图被占满后新出现的字符将无法渲染。<br>2、不能参与动态合图（同样启用 CHAR 模式的多个 Label 在渲染顺序不被打断的情况下仍然能合并 Draw Call）<br>3. 该模式在 **原生平台** 上使用 FreeType 渲染。|
 
 > **注意**：
 >

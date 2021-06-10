@@ -73,7 +73,7 @@ When using **Play** button directly above the main window, you can set various o
 
 * **Preview Browser**: From the drop-down menu, select system default browser or click the **Browse** button to manually specify a path to the browser.
 
-* **Simulator Path**: Starting with version v1.1.0, cocos simulator used in the Cocos Creator is placed on the cocos2d-x engine path. When using a customized version of the engine, you need to compile your own path simulator to the engine. Click **Open** button you can open the currently specified in the file system path of the simulator. Convenient debugging positioning.
+* **Simulator Path**: Starting with v1.1.0, cocos simulator used in the Cocos Creator is placed on the cocos2d-x engine path. When using a customized version of the engine, you need to compile your own path simulator to the engine. Click **Open** button you can open the currently specified in the file system path of the simulator. Convenient debugging positioning.
 
 * **Simulator Device Orientation**: Specify the simulator runtime is a landscape or portrait.
 
@@ -81,6 +81,8 @@ When using **Play** button directly above the main window, you can set various o
 
 * **Simulator Custom Resolution**: If the default resolution does not meet the requirements, you can manually enter the Height and Width of the screen to set the simulator resolution.
 
-* **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator (New in **v2.0.7**).
+* **Open Simulator Debugger Panel**: Open simulator debugger panel when start simulator.
 
-* **Wait For Debugger Connect**: This option is turned on when **Open Simulator Debugger Panel** is checked, and the effect of this option is to pause simulator until debugger connected (New in **v2.0.7**).
+* **Wait For Debugger Connect**: This option is turned on when **Open Simulator Debugger Panel** is checked, and the effect of this option is to pause simulator until debugger connected.
+
+* **Auto Clear Simulate Cache**: Whether to clear the simulate cache automatically (New in **v2.4.3**).
