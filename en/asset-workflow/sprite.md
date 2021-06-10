@@ -93,9 +93,9 @@ Each bitmap image of the mipmap set is a downsized duplicate of the main texture
 
 When texture filtering is set to Trilinear filtering, interpolation occurs between the two nearest levels. The rendering speed increases because the mipmap image is smaller than the original when rendering remote objects, which improves the cache hit ratio in the video card sampling process. At the same time, due to the low precision of the small image of mipmap, the Moire striation is reduced, which can anti-aliased on the picture. Also because some extra textures are generated, mipmap requires about one-third of the additional memory space.
 
-### packable
+### Texture packing
 
-If the engine enable [Dynamic Atlas](../advanced-topics/dynamic-atlas.md), dynamic atlas automatically dynamically merge the appropriate textures in the beginning scene into a larger texture to reduce drawcall. However, merging the textures into the large texture will modify the UV coordinates of the original texture, if the UV coordinate of the texture is used in the custom effect, the UV calculation in effect will be incorrect, and the packable property of the texture needs to be set to **false** to prevent the texture from being packaged into the dynamic atlas.
+If the engine has [Dynamic Atlas](../advanced-topics/dynamic-atlas.md) enabled, appropriate textures are automatically and dynamically merged in the beginning scene into a larger texture to reduce drawcalls. However, merging the textures into the large texture will modify the UV coordinates of the original texture, if the UV coordinate of the texture is used in the custom effect, the UV calculation in effect will be incorrect, and the packable property of the texture needs to be set to **false** to prevent the texture from being packaged into the dynamic atlas.
 
 ## Texture & SpriteFrame
 
@@ -107,16 +107,16 @@ In **Assets** panel, there is a triangle at the left side of texture. You can se
 | :--- | :--- |
 | Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
 | Trim Threshold | Set the transparency threshold, trim off the pixels whose transparency is below the set value.<br>The default value is 1, and the range of values is 0~1.<br>Only takes effect when **Trim Type** is set to **Auto**.  |
-| Trim X、Y、Width、Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
-| Border Top、Bottom、Left、Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
+| Trim X, Y, Width, Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
+| Border Top, Bottom, Left, Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
 | Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
-| Offset X、Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
+| Offset X, Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
 
-SpriteFrame is asset used by the core component **Sprite**. **Sprite** component can show different images by set/change `spriteFrame`. You can take a look at [Sprite component reference](../components/sprite.md) for more details.
+SpriteFrame is an asset used by the core component **Sprite**. **Sprite** components can show different images by set/change `spriteFrame`. Please refer to the [Sprite component](../components/sprite.md) documentation for additional details.
 
-Why SpriteFrame is added? Besides a SpriteFrame from a Texture, we have another asset (Atlas) which contains many SpriteFrames. About atlas you can reference [Atlas](atlas.md) for details.
+Why SpriteFrame? Besides a SpriteFrame from a Texture, there is another asset, Atlas, which contains many SpriteFrames. Please refer to the [Atlas](atlas.md) documentation for details.
 
-The API documentations for Texture & SpriteFrame:
+The API documentation for Texture & SpriteFrame:
 
 - [Texture](../../../api/en/classes/Texture2D.html)
 - [SpriteFrame](../../../api/en/classes/SpriteFrame.html)

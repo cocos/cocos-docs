@@ -38,7 +38,7 @@ Set up the API version used for compiling Android, with minimal support for andr
 
 ### APP ABI
 
-To set up the CPU type that Android needs to support, you can select one or more options, and have **armeabi-v7a**, **arm64-v8a**, **x86**, **x86_64** (new in v2.4.3) four types.
+To set up the CPU type that Android needs to support, select one or more options, and have **armeabi-v7a**, **arm64-v8a**, **x86**, **x86_64** (new in v2.4.3) four types.
 
 > **Notes**:
 >

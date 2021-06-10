@@ -29,7 +29,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
 | Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
 
-For API interface of Label, please refer to [Label API](../../../api/en/classes/Label.html).
+For additional details, please refer to the [Label API](../../../api/en/classes/Label.html).
 
 ## Label Layout
 
