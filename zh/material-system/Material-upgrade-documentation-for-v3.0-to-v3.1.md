@@ -5,15 +5,15 @@
 
 ### 1.1 内置头文件变化
 
-原来 v3.0 的标准着色器头文件 `shading-standard` 变成了 v3.1 的 `standard-surface-entry`，可以使 effect 同时兼容 forward 渲染管线，和deferred 渲染管线。
+原来 v3.0 的标准着色器头文件 `shading-standard` 在 v3.1 改成了 `standard-surface-entry`，可以使 effect 同时兼容 forward 渲染管线和 deferred 渲染管线。
 
-原来 v3.0 的 `cc-fog` 头文件变成了 v3.1 的 `cc-fog-vs/fs`，被拆分成了顶点着色器与片元着色器两个版本。
+原来 v3.0 的 `cc-fog` 头文件在 v3.1 改成了 `cc-fog-vs/fs`，拆分成了顶点着色器与片元着色器两个部分。
 
 ### 1.2 顶点着色器
 
 - `gl_Position`
 
-    v3.1 的 `VS` 主函数名称从 `vert` 改为了 `main` ,并且新增了宏 `gl_Position`，用来给返回值赋值。
+    v3.0 的 `VS` 主函数名称 `vert` 在 v3.1 改成了 `main`，并且新增了宏 `gl_Position`，用于给返回值赋值。
 
     ```c
     CCProgram standard-vs %{
@@ -38,7 +38,7 @@
 
 - `CC_STANDARD_SURFACE_ENTRY()`
 
-    加载标准着色器头文件 `standard-surface-entry`，使用 v3.1 版本的标准着色器输出函数 `CC_STANDARD_SURFACE_ENTRY()` 替换原有 v3.0 版本着色器输出函数 `frag()`。
+    加载标准着色器头文件 `standard-surface-entry`，使用 v3.1 的标准着色器输出函数 `CC_STANDARD_SURFACE_ENTRY()` 替换原有 v3.0 着色器输出的函数 `frag()`。
 
     ```c
     CCProgram standard-fs %{
@@ -63,7 +63,7 @@
 
 ### 2.1  Deferred Rendering Pipeline
 
-v3.1 与 v3.0 版本材质系统最大的区别就是 v3.1 版本支持了 deferred 渲染管线，引擎自带标准的 `standard-surface-entry` 头文件可以同时支持 forward 渲染管线，和 deferred 渲染管线，用法如下：
+v3.1 的材质系统与 v3.0 最大的区别在于 v3.1 支持了 deferred 渲染管线，引擎自带标准的 `standard-surface-entry` 头文件，可以同时支持 forward 渲染管线和 deferred 渲染管线，用法如下：
 
 ```c
 CCEffect %{
@@ -136,9 +136,9 @@ CCProgram standard-fs %{
 
 ## 3. 参数传输升级
 
-顶点着色器往片元着色器传递shadow参数的宏，原本 v3.0 为 `CCPassShadowParams`,v3.1 版本修改为 `CC_TRANSFER_SHADOW`。
+v3.0 顶点着色器往片元着色器传递 shadow 参数的宏为 `CCPassShadowParams`，v3.1 则修改为 `CC_TRANSFER_SHADOW`。
 
-v3.1 版本顶点着色器往片元着色器传输 `FOG` 参数，直接使用 `CC_TRANSFER_FOG` 宏。
+v3.1 顶点着色器往片元着色器传输 `FOG` 参数时，直接使用 `CC_TRANSFER_FOG` 宏。
 
 版本对比：
 
