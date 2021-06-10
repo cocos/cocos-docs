@@ -2,7 +2,7 @@
 
 > Authors: Xunyi, youyou
 
-Mesh Renderer is used to draw mesh resource. If there are multiple submeshes in the mesh resource, then the corresponding number of textures are needed in the Mesh Renderer to correctly draw the mesh.
+Mesh Renderer is used to draw mesh resource. If there are multiple submeshes in the mesh resource, then the corresponding number of materials are needed in the Mesh Renderer to correctly draw the mesh.
 
 ## Mesh Renderer property
 
