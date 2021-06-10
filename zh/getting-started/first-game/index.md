@@ -152,7 +152,7 @@ export class PlayerController extends Component {
             this.jumpByStep(1);
         }
         else if (event.getButton() === 2) {
-            this.jumpByStep(2);
+            this.jumpByStep(-2);
         }
 
     }
