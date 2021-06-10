@@ -348,3 +348,4 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
 - [TypeScript - DefinitelyTyped](http://definitelytyped.org/)
 - [X 分钟速成 TypeScript](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
 - [TypeScript 源码](https://github.com/Microsoft/TypeScript)
+- [开发者回避使用 TypeScript 的三个借口 — 以及应当使用 TypeScript 的更有说服力的原因](https://mp.weixin.qq.com/s/7QQJxErt2-e4jLK2_4GUFA)
