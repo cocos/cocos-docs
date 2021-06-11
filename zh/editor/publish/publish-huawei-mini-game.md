@@ -2,7 +2,7 @@
 
 ## 环境配置
 
-- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-installtool)，并安装到华为手机上（建议 Android Phone 6.0 或以上版本）
+- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-installtool#h1-1575365259108)，并安装到华为手机上（建议 Android Phone 6.0 或以上版本）
 
 - PC 端全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 

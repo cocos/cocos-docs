@@ -33,3 +33,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
 作为引擎中极为常用的系统，我们提供了完整高效的事件系统给开发者使用，详情介绍请见：
 
 [事件机制](../engine/event/event-builtin.md)
+
+## 更多参考
+
+- [推荐编码规范](./reference/coding-standards.md)
