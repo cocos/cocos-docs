@@ -7,7 +7,7 @@
 - [Getting Started](getting-started/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
-    <!--- [Project Structure](getting-started/project-structure/index.md)-->
+    - [Project Structure](getting-started/project-structure/index.md)
     - [Editor Panels](editor/index.md)
         - [Scene](editor/scene/index.md)
         - [Hierarchy](editor/hierarchy/index.md)
@@ -17,13 +17,14 @@
         - [Animation](editor/animation/index.md)
         - [Preferences](editor/preferences/index.md)
         - [Project Settings](editor/project/index.md)
-        <!--- [Editor Layout](editor/editor-layout/index.md)-->
+        - [Editor Layout](editor/editor-layout/index.md)
         - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)
     - [Support](getting-started/support.md)
     - [Caution!](getting-started/attention/index.md)
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
+    - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
 
 ## Editor Manual
 
@@ -56,7 +57,6 @@
     - [Edit Animation Curve](editor/animation/animation-curve.md)
     - [Animation event](editor/animation/animation-event.md)
 - [Terrain System](editor/terrain/index.md)
-- [Lightmap](editor/lightmap/index.md)
 
 - [Build and Publish](editor/publish/index.md)
     - [About the Build Panel](editor/publish/build-panel.md)
@@ -106,6 +106,8 @@
     - [Spherical Lights](concepts/scene/light/sphere-light.md)
     - [Spotlights](concepts/scene/light/spot-light.md)
     - [Ambient Lights](concepts/scene/ambient.md)
+    - [Additive per-pixel lights](concepts/scene/light/additive-per-pixel-lights.md)
+    - [Lightmapping](concepts/scene/light/lightmap.md)
 
 - [Materials System](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)
@@ -279,18 +281,20 @@
 
 ## Advanced
 
-- [Extended Editor](editor/extension/readme.md)
+- [Extending the Editor](editor/extension/readme.md)
     - [The First Extension](editor/extension/first.md)
     - [Install And Share](editor/extension/install.md)
     - [Extension Description](editor/extension/define.md)
-    - [Extended Panel](editor/extension/panel.md)
+    - [Extension Panel](editor/extension/panel.md)
         - [Compose Panel](editor/extension/panel-boot.md)
         - [Panel Message](editor/extension/panel-messages.md)
     - [Contributions](editor/extension/contributions.md)
         - [Message](editor/extension/contributions-messages.md)
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
-        - [Extending the main menu](editor/extension/contributions-menu.md)
+        - [Extending the Main Menu](editor/extension/contributions-menu.md)
         - [Extending the Assets Panel](editor/assets/extension.md)
+        - [Extending the Project Settings Panel](editor/extension/contributions-project.md)
+        - [Extending the Preferences Panel](editor/extension/contributions-preferences.md)
     - [Basic](editor/extension/basic.md)
         - [Extension](editor/extension/package.md)
         - [Message](editor/extension/messages.md)
@@ -302,6 +306,10 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
+    - [Render Pipeline](render-pipeline/overview.md)
+        - [Built-in Pipeline](render-pipeline/builtin-pipeline.md)
+        - [Custom Pipeline](render-pipeline/user-pipeline.md)
+        - [Post-Processing](render-pipeline/post-process.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

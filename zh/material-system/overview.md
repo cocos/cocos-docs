@@ -1,5 +1,13 @@
 # 材质系统总览
 
+## 材质系统升级指南
+
+Cocos Creator 从 v2.x 开始就支持了材质系统，在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.0 及后续版本时，部分内容可能还需要开发者手动进行调整，具体请参考下方的升级指南：
+
+- [v2.x to v3.0 材质升级指南](./effect-2.x-to-3.0.md)
+
+## 材质系统类图
+
 材质系统控制着每个模型最终的着色流程与顺序，在引擎内相关类间结构如下：
 
 [![Assets](material.png "Click to view diagram source")](material.dot)

@@ -1,76 +1,116 @@
 # Project Settings
 
-The **Project Settings** windows are available from Cocos Creator’s main menu (**Project > Project Settings**) which includes all the settings related to your project. These settings will be saved in the project's `settings / packages` folder. If you need to synchronize project settings between different developers, this folder should be added in your source control system.
+The **Project Settings** panel is opened by clicking on **Projects -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-## General
-
-![general](./index/general.jpg)
-
-### Default Canvas settings
-
-The default Canvas settings include design resolution and adapted screen width/height, which are used to specify the default design resolution value in Canvas when creating a new scene or Canvas component, as well as the `Fit Height, Fit Width` options.
-
-For more information, please refer to the [Multi-resolution adaptation scheme](../ui-system/components/engine/multi-resolution.md) documentation.
-
-## Engine Modules
-
-![modules](./index/modules.jpg)
-
-The setting here is to crop the modules used in the engine to reduce the size of the released engine. Modules not selected in the panel will be cropped when they are packaged and previewed. It is recommended to perform a complete test after released to avoid using cropped modules in scenes and scripts.
+**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Crop**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 
-For more information and code of the engine macro module, please refer to the [Engine macro](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) documentation.
-
-This panel here provide the convenience to modify the macro configuration. The **Macro Config** will take effect during preview and build. At the same time, the default value of the current macro configuration will be updated with the configuration of the custom engine.
+For specific information and code about the engine macro module, you can refer to **Engine Macro** ([GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)), which provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
 ![macro](./index/macro.png)
 
-## Texture Compress
+## Feature Cropping
 
-> In Cocos Creator 3.0, the editor has modified the use of compressed texture configuration to configure presets in project settings and select presets for image asset's inspector. After the old version of the project is upgraded, the editor will automatically scan all the compressed texture configurations in the project and sort out as several presets.
+The **Feature Cropping** tab is mainly for modules used in the engine when releasing the game, to achieve the effect of reducing the package size of the released version of the engine. The unchecked modules in the list will be cropped out when packaging and previewing. It is recommended to do a complete test after packaging to avoid scenes and scripts that use modules that have been cropped out.
 
-Used to add compressed texture preset configuration, you can directly select the compressed texture preset to quickly add in the inspector of image asset. At the same time, after adding presets, you can also directly modify the presets to update batch texture compress configuration. Project settings allow users to add multiple compressed texture configurations, and each compressed texture configuration allows to add different format for different platform categories.
+![feature-core](./index/feature-crop.png)
 
-Platform is rough devised as following:
+## Project Data
 
-1. Web: refers to the two platforms Web-Mobile and Web-Desktop
-2. Mac & Windows
-3. iOS
-4. Mini Game: Refers to the mini-games of various manufacturers' platforms, such as WeChat Mini Games and Huawei Quick Game Waiting;
-5. Android
+The **Project Data** tab is mainly used to set the default Canvas, rendering pipeline, etc. and only works for the current project.
 
-For the detail of the texture compression support of the platforms, please refer to the [Compressed Texture Chapter](../../asset/compress-texture.md) documentation.
+![project-data](./index/project-data.png)
 
-### Add / remove texture compression presets
+### Default Canvas Settings
 
-Enter the name of the compressed texture preset in the input box and press **Enter** or the plus button on the left to add it.
+The default Canvas settings include **Design Resolution** and **Fit Screen Width/Height**, which specify the default design resolution values in Canvas when a new scene or Canvas component is created, as well as `Fit Height` and `Fit Width`. For more details, please refer to the [Multi-Resolution Adaptation Solution](../../ui-system/components/engine/multi-resolution.md) documentation.
 
-![Add texture compression preset](./texture-compress/add.jpg)
+### Render Pipeline
 
-After adding the compressed texture preset, if you need to delete it, you can directly move the mouse to the preset name and click the delete button on the right.
+The render pipeline is used to control the rendering process of the scene, currently only **builtin-forward** is supported, developers can also customize the render pipeline.
 
-![Delete texture compression preset](./texture-compress/delete.jpg)
+## Layers
 
-### Add / remove texture compression format
+![Layers](./index/layers.png)
 
-Click the `Add Format` button, select the desired texture format, and configure the corresponding quality level. Currently, only one image format of the same type can be added at the same time.
+- Layers allow the camera to render parts of the scene and lights to illuminate parts of the scene.
+- Layers can be customized from 0 to 19, and clearing the input box removes the original settings.
+- The last 12 Layers are built-in to the engine and cannot be modified.
+- The locations where Layers are currently used include:
 
-![Add texture compression format](./texture-compress/add-format.png)
+  1. The `Layer` property of the node `Node` in the **Inspector** panel, For more details, please refer to the [Node Component](../../concepts/scene/node-component.md#setting-the-visibility-of-nodes) documentation.
 
-To delete, move the mouse over the texture format and click the red delete button.
+      ![Layers-node](./index/layers-node.png)
 
-### Modify compressed texture preset name
+  2. The `Visibility` property of the Camera node in the **Inspector** panel, the `Layer` property of the node matches the `Visibility` property of the Camera. A node can only be seen by the Camera if the `Layer` property set by the node is checked in the `Visibility` of the Camera. For more details, please refer to the [Camera Component](./../components/camera-component.md#camera-component) documentation.
 
-The name of the compressed texture is only used for display. When adding a compressed texture preset, uuid will be randomly generated as the ID of the preset, so directly modifying the preset name will not affect the reference to the preset in the image asset.
+      ![Layers-camera](./index/layers-camera.png)
 
-![Modify the name of the texture compression preset](./texture-compress/edit.jpg)
+<!-- The native engine settings changes mainly affect the use of cocos2dx engine templates when building native projects, and the changes can take effect in real time. -->
 
-### Export / import compressed texture presets
+## Physics
 
-The compressed texture configuration page allows developers to import and export compressed texture presets for better cross-project reuse. It is also possible to edit the compressed texture presets externally and import them into the editor.
+![physics](./index/physics.png)
 
-In most cases, importing and exporting directly works well. If, however, the configuration needs to be customized, please refer to the following interface definitions and examples:
+Used to configure various parameters of physics, please refer to the [Physics Config](physics-configs.md) documentation for details.
+
+## Scripting
+
+![scripting](./index/scripting.png)
+
+## Texture Compression
+
+The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified here by developers.
+
+![compress-texture](./texture-compress/compress-texture.png)
+
+This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
+
+The following platforms are currently supported for configuring texture compressions:
+
+1. Web: both Web-Mobile and Web-Desktop platforms
+2. iOS
+3. Mini Game: including all mini game platforms currently supported by Creator, such as WeChat Mini Game, Huawei Quick Game, etc.
+4. Android
+
+Please refer to the [Texture Compression](../../asset/compress-texture.md) documentation for details of texture compression on each platform.
+
+### Adding/Removing Texture Compression Presets
+
+Enter a texture compression preset name in the upper input box and click Enter or the "+" button on the right to add a preset. The other two buttons are for importing/exporting texture compression presets, please refer to the description below for details.
+
+![add](./texture-compress/add.png)
+
+After adding a compressed texture, it can be deleted by hovering over the preset name and clicking the delete button on the right.
+
+![delete](./texture-compress/delete.png)
+
+> **Note**: the two presets **default** and **transparent** built into the panel cannot be modified/deleted.
+
+### Adding/Deleting Texture Compression Format
+
+Select the platform, then click the **Add Format** button, select the desired texture format, and then configure the corresponding quality level. Currently the same type of image format can only be added once.
+
+![add-format](./texture-compress/add-format.png)
+
+To delete, move the mouse over the texture format and click the red delete button on the right.
+
+![delete-format](./texture-compress/delete-format.png)
+
+### Modifying the Texture Compression Preset Name
+
+The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random uuid is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
+
+![edit](./texture-compress/edit.png)
+
+### Exporting/Importing Texture Compression Presets
+
+The texture compression configuration page allows importing/exporting texture compression presets for better cross-project reuse of the configuration, or edit the texture compression presets externally and import them to the editor.
+
+To write a custom texture compression configuration, please refer to the following interface definitions and examples:
+
+**The interface is defined as follows**:
 
 ```ts
 type IConfigGroups = Record<ITextureCompressPlatform, IConfigGroupsInfo>;
@@ -103,7 +143,7 @@ interface ICompressPresetItem {
 }
 ```
 
-Example:
+**Examples**:
 
 ```json
 {
@@ -152,27 +192,8 @@ Example:
         }
     }
 }
-```
+```         
 
-## Layers
+## Extending the Project Settings Panel
 
-![Layers](./index/layers.png)
-
-- Layers allows the camera to render part of the scene and let the light illuminate part of the scene.
-- You can customize 0 to 19 Layers, and the original settings will be deleted when you clear the input box.
-- The last 12 Layers are built-in in the engine and cannot be modified.
-- The layers of node matches the visibility option of the camera, the camera can only see nodes whose layer is included in the camera's visibility.
-
-    ![Layers-node](./index/layers-node.png)
-
-    ![Layers-camera](./index/layers-camera.png)
-
-For more instructions, please refer to [Camera Component introduction](./../components/camera-component.md);
-
-## Physics
-
-Used to configure the parameters of the physics environment. For details, please refer to the [Physics Configs](physics-configs.md) documentation.
-
-## Bone map layout settings
-
-Explicitly specify the bone texture layout to assist the instancing of the skinning models. For details, please refer to the [Joints Texture Layout](joint-texture-layout.md) documentation.
+Creator supports adding custom feature pages on the right side of **Project Settings**, please refer to the [Extending the Project Settings Panel](../../editor/extension/contributions-project.md) documentation.

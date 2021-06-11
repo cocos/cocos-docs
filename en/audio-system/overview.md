@@ -12,7 +12,7 @@ All audio assets are imported into the editor in the format of __audioClip__ ass
 
     ![audioclip](audio/audiocilp.gif)
 
-4. Then set the other parameter of the AudioSource component as needed, for the details of parameter can refer [Audiosource Component Reference](./audiosource.md).
+4. Next, set the other parameter of the AudioSource component as needed, for the details please refer to the [Audiosource Component](./audiosource.md) documentation.
 
 If you only need to play the audio automatically after the game is loaded, check the __PlayOnAwake__ of the AudioSource component. If you want more flexibility in controlling AudioSource playback, you can get the __AudioSource Component__ in the custom script and then call the appropriate API. As shown below:
 
@@ -34,13 +34,14 @@ export class AudioController extends Component {
 }
 ```
 
-Then add the corresponding custom component to the editor's __Properties__. Selecting the corresponding node and add the custom component by clicking __Add Component-> Custom script -> User Script__ at the bottom of the __Properties__. Then drag and drop the node with the AudioSource component onto __Audio Source__ in the custom component. As shown below:
+Next, add the corresponding custom component to the editor's __Properties__. Selecting the corresponding node and add the custom component by clicking __Add Component-> Custom script -> User Script__ at the bottom of the __Properties__. Then drag and drop the node with the AudioSource component onto __Audio Source__ in the custom component. As shown below:
 
 ![audiocontroller](audio/audiocontroller.png)
 
 ## Effect Playing
 
 Compared to long music playback, audio effects playback has the following characteristics:
+
 - Short playback time
 - A large number of simultaneous playback
 

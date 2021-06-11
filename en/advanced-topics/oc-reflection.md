@@ -1,7 +1,5 @@
 # How to call Objective-C functions using JavaScript on iOS/Mac
 
-> This document is based on v2.x. It may change slightly on Cocos Creator 3.0 and will be updated as soon as possible.
-
 With native iOS or Mac applications packaged with Cocos Creator, JavaScript calling Objective-C functions directly through the native language's reflection mechanism can be achieved with the following sample code:
 
 ```js

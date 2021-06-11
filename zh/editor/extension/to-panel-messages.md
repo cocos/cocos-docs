@@ -32,7 +32,7 @@
 ```
 
 messages.console 里的 methods 定义的方法名称是 default.console。表示发给 default 面板里的 console 方法。
-(发送到插件进程的话，是直接填写 methdName)
+(发送到插件进程的话，是直接填写 methodName)
 
 然后定义面板的 panel.js 文件：
 

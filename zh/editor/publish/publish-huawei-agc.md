@@ -16,7 +16,7 @@ Cocos Creator 支持将游戏发布到 **HUAWEI AppGallery Connect**，帮助开
 
 ![agc-build](./publish-huawei-agc/agc-builder.png)
 
-通用选项的设置请参考 [构建选项](build-options.md)。
+通用构建选项的设置请参考 [构建选项](build-options.md)，需要注意的是请确保 **包名** 与华为后台设置的包名一致。
 
 - **agconnect-services 配置**：用于配置华为参数文件 `agconnect-services.json`，具体的配置方法请参考 [配置华为参数文件](https://service.cocos.com/document/zh/sdkhub-plugins/sdkhub-hms.html#%E9%85%8D%E7%BD%AE%E5%8D%8E%E4%B8%BA%E5%8F%82%E6%95%B0%E6%96%87%E4%BB%B6)。
 

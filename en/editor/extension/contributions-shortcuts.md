@@ -45,7 +45,7 @@ The message bound to the shortcut key is sent when the shortcut key is triggered
 
 Type `{string}` Optional
 
-**Experimental feature, this functional syntax may be adjusted**
+> **Note**: this is an experimental feature, this functional syntax may be adjusted in the future.
 
 This shortcut will only be triggered under certain conditions.
 

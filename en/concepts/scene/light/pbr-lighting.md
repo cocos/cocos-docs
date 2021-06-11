@@ -1,12 +1,12 @@
 # Physically-based Lighting
 
-![pbr lighting](pbr-lighting.jpg)
+![pbr lighting](pbrlighting/pbr-lighting.jpg)
 
 ## Lights in the real world
 
 Physically-based lighting describes the light in the real world. In real environments, the lights we see have their own industrial parameters. First, let's look at a light bulb.💡
 
-![light bulb size](light-bulb.jpg)
+![light bulb size](pbrlighting/light-bulb.jpg)
 
 From the product packaging, we can understand several important industrial parameters of this bulb:
 
@@ -37,7 +37,7 @@ These three important parameters affect the performance of the light in the real
 
 In the real world, because the important physical parameters describing lights are different, we usually use **luminous power** and **luminance** to describe lights that illuminate areas commonly used in life.
 
-![light power](light-power.jpg)
+![light power](pbrlighting/light-power.jpg)
 
 ## Color Temperature
 
@@ -47,14 +47,14 @@ In the real world, because the important physical parameters describing lights a
 
 In a real world environment, the ambient color temperature at different times of the day also changes dynamically:
 
-![color temp of day](color-temp-of-day.jpg)
+![color temp of day](pbrlighting/color-temp-of-day.jpg)
 
 Please refer to the following table:
 
-![kelvin](kelvin.jpg)
+![kelvin](pbrlighting/kelvin.jpg)
 
 ## Light Size
 
 Lights in the real world have real physical dimensions. At the same time, the size of the light also affects the intensity of the light.
 
-![light bulb size](light-bulb-size.png)
+![light bulb size](pbrlighting/light-bulb-size.png)

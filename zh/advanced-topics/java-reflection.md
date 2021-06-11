@@ -1,7 +1,5 @@
 # 如何在 Android 平台上使用 JavaScript 直接调用 Java 方法
 
-> 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
-
 使用 Creator 打包的安卓原生应用中，我们可以通过反射机制直接在 JavaScript 中调用 Java 的静态方法。它的使用方法很简单：
 
 ```js

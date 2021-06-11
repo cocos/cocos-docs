@@ -9,11 +9,11 @@ The __terrain system__ displays the mountainous landscape of nature in an effici
 Two steps are required to create a terrain:
 
 1. Click the right mouse button in __Hierarchy__ panel and click __Create -> Terrain__ to create a terrain node. Terrain nodes can be moved, but rotation and zoom are not yet supported.
-   
+
     ![create terrain](./images/create-terrain.png)
 
 2. Click the right mouse button in the __Assets__ panel and click __Create -> Terrain__ in the pop-up menu to create the necessary terrain assets.
-   
+
     ![create terrain asset](./images/createTerrainAsset.png)
 
 ## Terrain component properties
@@ -53,10 +53,10 @@ Management is adjusting various parameters of a terrain. Tile is the smallest un
 
 | Parameter | Description |
 | :--- | :-- |
-| **TileSize** | The size of the terrain tile. Currently, a terrain block consists of 32 x 32 tiles, so the side length of a terrain block is **32 x TileSize**. | 
-| **BlockCount** | Number of terrain blocks in two dimensions | 
-| **WeightMapSize** | Weight map size | 
-| **LightMapSize** | Lightmap size | 
+| **TileSize** | The size of the terrain tile. Currently, a terrain block consists of 32 x 32 tiles, so the side length of a terrain block is **32 x TileSize**. |
+| **BlockCount** | Number of terrain blocks in two dimensions |
+| **WeightMapSize** | Weight map size |
+| **LightmapSize** | Lightmap size |
 
 ### Sculpting a terrain
 
