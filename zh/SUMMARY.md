@@ -126,8 +126,8 @@
 - [缓动](tween/index.md)
 
 - [物理](physics/physics.md)
-    - [物理引擎选择](physics/physics-item.md)
     - [物理系统](physics/physics-system.md)
+    - [设置物理引擎](physics/physics-item.md)
     - [物理组件](physics/physics-component.md)
     - [物理使用](physics/physics-use.md)
         - [碰撞组件](physics/physics-collider.md)

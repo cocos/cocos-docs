@@ -1,14 +1,14 @@
-# 物理引擎选择
+# 设置物理引擎
 
-点击编辑器上方菜单栏的 **项目 -> 项目设置 -> 功能裁剪**，您可以选择适合项目需求的物理引擎进行开发，开发过程中也可随时切换。
+点击编辑器上方菜单栏的 **项目 -> 项目设置 -> 功能裁剪**，在 **3D -> 物理系统** 中可以根据需要选择适合项目的物理引擎进行开发，也可以在开发过程中随时切换。目前 Creator 支持的物理引擎包括 **ammo.js**、**cannon.js** 和 **builtin**，默认使用 **ammo.js**。
 
 ![物理引擎选项](img/physics-module.jpg)
 
 ## ammo.js
 
-[ammo.js](https://github.com/cocos-creator/ammo.js) 为 Cocos Creator 的默认物理引擎，是 [Bullet 物理引擎](https://github.com/bulletphysics/bullet3) 的 **JavaScript** 移植版本。
+ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/ammo.js)）是 [bullet](https://github.com/bulletphysics/bullet3) 物理引擎的 asm.js/wasm 版本，由 [emscripten](https://github.com/emscripten-core/emscripten) 工具编译而来。
 
-**ammo.js** 具有完善的物理功能，以及更佳的性能，但模块较大（约 1.5MB），未来我们也将在此投入更多工作。
+**ammo.js** 模块较大（约 1.5MB），但它具有完善的物理功能，以及更佳的性能，未来我们也将在此投入更多工作。
 
 ## builtin
 
@@ -20,6 +20,18 @@
 - 各种 **Collider** 碰撞器中的 **isTrigger** 选项，无论值为 `true/false`，都为运动学类型的触发器。
 
 ## cannon.js
+
+**cannon.js**（[GitHub](https://github.com/cocos-creator/cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
+
+当选择的物理引擎为 **cannon.js** 时，需要在节点上添加 刚体组件 才能进行物理模拟。然后再根据需求添加 碰撞组件，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
+
+目前 cannon.js 支持情况如下：
+
+刚体
+Box \ Sphere 碰撞组件
+触发和碰撞事件
+物理材质
+射线检测
 
 [cannon.js](https://github.com/cocos-creator/cannon.js) 是一个开源的物理引擎，它使用 JavaScript 语言开发，并实现了比较全面的物理功能，建议在项目需要更多复杂的物理功能和较小的包体情况下使用。**cannon.js** 模块大小约为 **141KB**。
 

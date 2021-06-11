@@ -2,6 +2,8 @@
 
 物理系统（PhysicsSystem）用于管理所有物理相关的功能，目前它负责同步物理元素、触发物理事件和调度物理世界的迭代。
 
+物理系统接口请参考 [PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。
+
 ## 物理世界
 
 物理世界迭代时会对物理元素进行物理计算，比如计算各物体是否产生碰撞，以及物体的受力情况。当计算完成后，物理系统会将物理世界更新到场景世界中，从而使游戏对象产生相应的物理行为。
@@ -31,5 +33,3 @@
 | **raycastResults** | 获取 **raycast** 的检测结果（只读） |
 | **raycastClosestResult** | 获取 **raycastClosest** 的检测结果（只读） |
 | **collisionMatrix** | 获取碰撞矩阵，仅用于初始化 |
-
-物理系统接口请参考 [PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。
