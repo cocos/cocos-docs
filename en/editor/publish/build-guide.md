@@ -1,58 +1,81 @@
-# Build Process Introduction with FAQ
+# Introduction to the build process and FAQ guide
 
-The build process is mainly divided into two parts, the **General Build Process** and the **Platform Adaptation Process**. The adaptation processing logic for each platform will be embedded in the **Build** panel as a separate plugin. The build plugin system is then open and developers can dynamically embed some build parameters into the panel for use.
+## Introduction to Building Infrastructure
 
-## General build Process
+This step is mainly to initialize the **original options** passed to the build to the **internal options** of the build, do some parameter format conversion and initialize the asset data of the build asset database, load the latest asset information and sort it Developers can also dynamically inject some build parameters on the interface through the [Build Plugin](custom-build-plugin.md).
 
-The general build process for **Cocos Creator** consists of the following:
+## Introduction to the general construction process
 
-1. Initialization of build parameters
-2. Prepare build data
-3. Write the built asset to the file system
-4. Organizing the data of `settings`
-5. Compression and writing of `settings uuid`
+The general construction process of Cocos Creator mainly includes the following parts:
 
-### Initialization of build parameters
+1. [Build parameter initialization](#Build-parameter-initialization)
+2. [Build data sorting](#Build-data-sorting)
+3. [Resource construction write file system](#Resource-construction-write-file-system)
+4. [Organize settings data](#Organize-settings-data)
+5. [setting uuid compression and file writing](#settings-uuid-compression-and-file-writing)
 
-This step mainly initializes the initial `options` passed to the build to the internal `options` of the build, does some parameter formatting, initializes the asset data of the build asset database, loads the latest asset information, and classifies it.
+### Build parameter initialization
 
-### Prepare build data
+This step is mainly to initialize the `initial options` passed to the build to build the `internal options`, do some parameter format conversion and initialize the resource data of the resource database, load the latest resource information and classify.
 
-The editor will first summarize the scene currently involved in the build and all assets in the `resources` directory. Each asset is packaged through the engine's deserialization process to find the dependent asset and recursion to pack the assets. The entire project's scripting environment is configured before being deserialized, that is, all non-plugin project scripts are loaded. Because whether the script loads correctly or not directly affects the deserialization, failure to load because the script is not written legally will directly result in build failure. If the dependent asset is lost in the deserialization process, a warning is issued, but the build continues nonetheless. The warning here does not mean that the problem does not need to be resolved, and if the asset loss is not resolved, it is difficult to guarantee that the problem will not occur after the build.
+### Build data organization
 
-This step will also sort out the asset types based on the build's internal division, such as scenes, scripts, texture compression tasks, JSON grouping information, etc., and weed out asset information that is not used.
+The editor will first collect resources **currently participating in the construction of the scene and resources in all Bundles, find dependent resources through the deserialization of the engine, and then recursively find a list of all resources that need to be packaged**. Before deserialization, the script environment of the entire project will be configured, that is, all non-plug-in project scripts will be loaded. Because the script is loaded correctly or not will directly affect the deserialization process. **If the script is written illegally and fails to load, it will directly cause the build to fail. If a dependent resource is found to be lost during the deserialization process, a warning will be issued, but the construction will continue. The warning here does not mean that the problem does not need to be solved. If the resource is lost and cannot be solved, it is difficult to ensure that the built content will not be problematic**.
 
-> **Note**: all user scripts are loaded before this step is performed.
+After collecting the list of all resources participating in the construction, the resources will be classified according to the Bundle configuration, scripts, image compression tasks, and JSON grouping information will then be collected.
 
-### Write the built asset to the file system
+### Resource construction writes to the file system
 
-After performing the previous steps, then we need to generate the used assets into the file system. After building, the serialized JSON files of all assets are placed in the `res/import` directory. The original files of all assets are placed in the `res/raw-assets` directory. The build process can be broken down into the following phases:
+The built resources will be distributed in different locations according to the Bundle configuration. In each Bundle, there will be an `index.js` project script, as well as the corresponding resources and the similar to the `config.json` in the earliest version of the settings. Record the resource UUID information in the Bundle. Each Bundle will be packaged in `assets/[Bundle name]` after being built.
 
-1. **Build scripts**: The scripts in the editor are divided into **plugin scripts** and **non-plugin scripts**.
+#### Asset Bundle construction
 
-    - The plugin script will copy the source file to the `build/src` directory, which is generated after the build based on the original directory structure. The plugin script does not support any script that needs to be compiled, such as **TS** or **JS written in ES6**. The asset information of the plugin script is written to the `jsList` array in `settings`.
+The basic resource directory of each Bundle is as follows:
 
-    - The non-plugin script will package the source files into `project.js` (`project.dev.js` in debug mode) in the corresponding `src` directory. Checking the `sourceMap` option will generate a corresponding `map` file, and the `debug` option will determine whether the script is compressed or not.
+```bash
+- XXXBundle
+    - import （Serialize JSON ）
+        - 04
+            - 04630c...od.json
+        ...
+    - native （Original resources, such as .png .bin and other files)
+            - 04
+            - 04630c...od.png
+        ...
+    - config.json (Bundle resource configuration file)）
+    - index.js （Script in Bundle）
+```
 
-2. **Auto Atlas**: Query all **Auto Altas** assets in the project, and then pack **SpriteFrame** assets within **Auto Altas** into a big **Sprite Atlas** assets, serialize assets to `JSON` according to the configuration of **Auto Atlas** assets. This step will modify the JSON grouping information, asset asset grouping information and add texture compression task. If the **packAutoAtlas** option in the **Build** panel is not checked during the build, no processing is done.
+For more detailed Asset Bundle configuration and construction details, please refer to the [Asset Bundle Introduction](../../asset/bundle.md) documentation.
 
-3. **Compress Texture**: Compress the texture assets according to the organized texture compression tasks and write them to the folder generated after build. If the **Compress Texture** option in the **Build** panel is not checked during the build, no processing is done.
+After finishing the basic build tasks, the build will process other build processes according to each Bundle as the processing unit.
 
-4. **Build engine**: Follow the settings in the menu bar **Project -> Project Setting -> Modules** to discard the unused engine modules, and package them into the `src/cocos3d.js` file. Checking the sourceMap option will generate a corresponding `map` file. Checking the **debug** option will determine whether the script is compressed or not.
+It is divided into the following steps:
 
-    The main steps in building the engine are as follows:
+- **Script construction**: The script construction in the editor is divided into **plug-in scripts** and **non-plug-in scripts**.
 
-    - Get the engine module information in the menu bar **Project -> Project Setting -> Modules**.
+    - The plug-in script will directly copy the source files to the `src` directory of the built folder according to the original directory structure, the plug-in script does not support any script form that needs to be compiled, such as Typescript or Javascript written in ES6. The resource information of the plug-in script will be written into the jsList array in settings.
 
-    - Check if the engine version in the cache is the same as the engine version that needs to be compiled, and if it is, copy it without compiling.
+    - All non-plugin scripts will be packaged into `project.js` (`project.dev.js` in debug mode) and placed in the corresponding `src` directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
 
-    - If compilation is required, perform the task of packaging the engine according to the engine interface. Copy the compiled `js` file and save the engine's modification time.
+- **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the build option is not checked for texture compression, no processing will be performed.
 
-    When compiling the engine, you can view the output log information. Please refer to the [log information](./build-panel.md) documentation for the detail log viewing method.
+- **Engine construction**: According to the **function tailoring** in the project settings, remove the unused engine modules and pack them into the `cocos-js` directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
+
+    The main steps of engine packaging include:
+
+    - Get **engine module information in project settings**.
+
+    - **Check whether the engine version in the cache** is consistent with the engine currently to be compiled, and if the content is consistent, copy it directly without compiling.
+
+    - To compile, execute the task of packaging the engine according to the engine interface, then copy the compiled js file and save the modification time of the engine.
+
+    When compiling the engine, [output log information](./build-panel.md#%E6%9E%84%E5%BB%BA-log-%E4%BF%A1%E6%81%AF%E6%9F%A5%E7%9C%8B) can be viewed：
 
     ![build-engine](./build-guide/build-engine.jpg)
 
-    The packaged engine file will be placed in the editor's global temporary directory (use `Build.globalTempDir` to print during the build process).The cache file is stored as the name according to the hash value generated by the parameters that will affect the engine compilation.
+    Regarding the reuse rules of engine files, it is necessary to elaborate here:<br>
+    The packaged engine file will be placed in the editor's global temporary directory (use `Build.globalTempDir` to print during the build process). The cache file is stored as the name according to the hash value generated by the parameters that will affect the engine compilation.
 
     ```bash
     global-temp-folder
@@ -66,120 +89,162 @@ After performing the previous steps, then we need to generate the used assets in
                 ...
     ```
 
-    As soon as any of the engine's build options change, the engine will recompile. Specifically affecting the engine build are:
+    As long as any relevant engine build parameters are changed, the engine will be recompiled. The specific effects on the use of the build engine cache are:
 
-    - debug: Whether in debug mode
-    - includeModules: Setting engine modules
-    - sourceMaps: Whether or not to enable `sourceMap`
-    - platform: Build platform
-    - the modification times for the engine files.
-    - Whether to check the separation engine (WeChat platform only)
+    - debug: whether to open the debug mode
+    - includeModules: engine module settings
+    - sourceMaps: whether to enable sourceMap
+    - platform: build platform
+    - Engine modification time
+    - Whether to check the separation engine (only WeChat mini game platform)
+    - Use engine path
 
-5. **build JSON**: Serialized JSON is merged based on the JSON grouping and written to the file system (placed in the `res/import` directory). If in release mode, compression is also performed on the `uuid` in the serialized JSON.
+- **JSON build**: serialized JSON is merged and written into the file system (in the `assets/xxxBundle/import` folder) according to the JSON grouping and the bundle that belongs to. If it is in **release mode, the serialized JSON will be uuid performs compression processing**.
 
-6. **General assets copy**: Some of the original assets (rawAssets) in the `library` are copied directly into the `res/raw-assets` folder generated after the build.
+- **Common Asset Copy**: Some raw assets (rawAssets) are directly copied from the library to the built folder `assets/xxxBundle/native`.
 
-7. **MD5 Cache**: Add the MD5 suffix to all the assets in the `res` folder and organize the data to record in `settings`.
+- **md5 processing**: Add the md5 suffix to all resources in the res folder, and organize the data to be recorded in settings.
 
-8. **Generate `application.js` template file**: Configure project settings into the `application.js` folder according to the the developers specified options. Generate them in the build output directory.
+- **application.js template file generation**: According to user options, some project settings are injected into the `application.js` folder and generated under the build output directory.
 
-### Organizing the data of `settings`
+### Organize settings and config data
 
-The main thing is to prepare the necessary configuration information for the game start based on the data of previous asset collation.
+It is mainly based on the data compiled by previous resources to prepare the configuration information necessary for the game to start.
 
-About the structure of settings:
+General analysis on the settings structure:
 
 ```js
 {
-    debug: boolean; // Whether in debug mode
-    designResolution: { // Canvas resolution
-        width: number; // The width of canvas resolution
-        height: number; // The height of canvas resolution
-        policy: number; // Full screen aspect adapted mode
-    };
-    launchScene: string; // URL of the initial scene
-    platform: string; // Platform
-    rawAssets: { [index: string]: { [uuid: string]: string[] } };
-    // Store the asset URL and type loaded in assets
-    // Example: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
-    // "bba0...@6c48a": ["test/right/texture", 1, 1]
-    scenes: Array<{url: string, uuid: string}>; // The array of scenes information involved in the run
-    scriptPackages: Array<{moduleId: string, file: string}>; // Script message array
-    jsList: string[]; // Script plugin array
-    moduleIds: string[]; // Information on all user script components
-    packedAssets: Record<string, IUuid[] | number[]>; // json grouping information
-    md5AssetsMap: { [index: string]: Array<string | number> }; // It is not available until md5Cache is checked, and the array is stored in the format of [uuid_1, md5_1, uuid_2, md5_2, ...]. If uuid_1 is a simple number, it means that the uuid index in the uuids array is stored.
-    uuids: string[]; // Arrays of uuid, only takes effect in release mode
-    assetTypes?: string[]; // Arrays of asset types, only takes effect in release mode
-    subpackages?: Record<IUuid, IPackageInfo>; // Subpackage asset information
-    renderPipeline: string; // renderPipeline information
+    debug: boolean; // Whether it is debug mode, taken from the build configuration panel
+     designResolution: ISettingsDesignResolution; // canvas resolution setting, taken from the data in the project settings
+     jsList: string[];
+     launchScene: string; // initial scene url
+     moduleIds: string[]; // Information of all user script components
+     platform: string;
+     renderPipeline: string;// renderPipeline information, taken from the project settings
+     physics?: IPhysicsConfig;// Physics module settings (only generated when the physics engine module is checked)
+     BundleVers: Record<string, string>; // Bundle md5 file stamp
+     subpackages: string[]; // subpackage information
+     remoteBundles: string[]; // Record the collection of remote bundles
+     // server: string;
+     hasResourcesBundle: boolean; // Does it contain resources built-in Bundle
+     hasStartSceneBundle: boolean; // Whether to include the initial scene built-in Bundle
+     customJointTextureLayouts?: ICustomJointTextureLayout[];
+     macros?: Record<string, any>; // Engine Macro configuration value, taken from project settings
 }
 ```
 
-The structure here only lists the settings structure under the general build process, and actually adds configurations as needed when packaging for different platforms.
+`config.json`
 
-### Compression and writing of `settings uuid`
+```js
+{
+    importBase: string; // The name of the import directory in the Bundle, usually'import'
+    nativeBase: string; // The name of the native directory in native, usually'native'
+    name: string; // The name of the Bundle, which can be loaded by the Bundle name
+    deps: string[]; // other Bundle names that this Bundle depends on
+    scenes: Array<{url: string, uuid: string}>; // The array of scene information contained in the Bundle
+    rawAssets: {[index: string]: {[uuid: string]: string[]} };
+    // Store the url and type of the resource loaded under resources
+    // Example: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
+    // "bba0...@6c48a": ["test/right/texture", 1, 1]
+    packs: Record<string, IUuid[] | number[]>; // JSON grouping information
+    versions: {
+        import: Array<string | number>;
+        native: Array<string | number>;
+     }; // Only available after md5Cache is checked, the array part is stored in the format of [uuid_1, md5_1, uuid_2, md5_2, ...], where uuid_1 is a simple number indicating that the stored uuid index in the uuids array.
+    uuids: string[]; // uuid array, only in release mode
+    types?: string[]; // Resource type array, only in release mode
+    encrypted?: boolean; // Used natively to mark whether the script in the Bundle is encrypted
+    isZip?: boolean; // Is it in zip mode
+    zipVersion?: string;
+}
+```
 
-During the asset packaging process, the `uuid` of all assets involved in the build are continuously collected and then organized into `setting.js`. `setting.js` will be written to the `build/src` directory, which isgenerated after the build. The `uuid` in the file will be compressed or not, depending on whether it is in debug mode or not. Organize all used `uuid` and store the `uuid` that appear more than twice in the `uuids` array, and replaced with indexes. All `assetType` that appear more than twice are also stored in the `assetTypes` array, and replaced with indexes.
+The structure here only lists the settings/config structure under the general process. In fact, when packaging on different platforms, configurations will be added as needed.
 
-#### Build assets
+### uuid compression and file writing in config
 
-At this stage, the editor will arrage the **scenes assets that selected in Build panel and all assets in the assets directory. All assets will be deserialized by engine to find out the dependent assets in deep**. Before deserialization, editor will load all the scripts (expect plugin scripts) in the project, if the script is written illegally and fails to load, it will make this build task stop immediately. If any dependent asset is missing during the deserialization process, a warning info will be print, but editor will continue to build. When warning info is printed, we recommend you to read and try to resolve it, otherwise it may cause some unexpect errors after build. During the packaging process, the assets will be re-compressed and serialized after deserialization to reduce the package size. Also, all serialized files will be sorted into deferent `JSON` groups to reduce the size of game package.
+In the process of resource packaging, resource uuids involved in resource construction will also be collected continuously, and will eventually be sorted and written into the `config.json` of the corresponding Bundle. Before generation, it will be determined whether to compress the uuid in the file according to whether it is in the debug mode. All the uuids used will be sorted, and the ones that appear **more than twice** will be stored in the `uuids` array, which was used before The position of uuid is replaced with index. All `types` that appear twice will also be stored in the `types` array, and the used place is stored as an index.
 
-Assets that perform deserialization during the packing process will recompress the serialization to reduce the package size after packing. The serialized files of the texture assets are all packaged into a single `JSON` file, and the other serialized files are subpackaged according to the build options configuration.
+#### Build resources
 
-#### Build scripts
+The packaging of resources referred to in this step refers to resource files other than scripts, because scripts are packaged as special files. In the stage of packaging resources, the editor will first summarize **currently participating in the construction of the scene and all resources in the Bundle directory. The packaging of each resource will be deserialized by the engine, and the dependent resources will be found and then recursively packaged** . Before deserialization, the script environment of the entire project will be configured, that is, all non-plug-in project scripts will be loaded. Because the loading of the script will directly affect the deserialization, if the script is not legally loaded, it will directly cause the build to fail. If a dependent resource is found to be lost during the deserialization process, a warning will be issued, but the construction will continue. The warning here does not mean that the problem does not need to be resolved. **If the resource is lost and cannot be resolved, it is difficult to ensure that the content after the build is free of problems**.
 
-The scripts in the editor are divided into **plugin script** and **non-plugin script**.
+After the resource is deserialized during the packaging process, it will be recompressed and serialized to reduce the package body after packaging. The serialized files of the texture resource will all be packaged into a JSON file, and the other serialized files will be subpackaged according to the build configuration parameters.
 
-- The plugin script will copy the source file to the `build/src` directory generated after the build based on the original directory structure, so the plugin script does not support any script that needs to be compiled, such as **TS** or **JS written in ES6**. The asset information of the plugin script is written to the `jsList` array in `settings`.
+#### Build script
 
-- The non-plugin script will package the source files into `project.js` (`project.dev.js` in debug mode) in the corresponding `src` directory.
+The construction of scripts in the editor is divided into **plug-in scripts** and **non-plug-in scripts**.
 
-## Platform Adaptation Process
+- The plug-in script will directly copy the source files to the `build/src` directory generated after the build according to the original directory structure, so **plug-in scripts do not support any script forms that need to be compiled** such as Typescript or ES6 JavaScript. The resource information of the plug-in script will be written into the jsList array in settings.
 
-The build provides a partial lifecycle hook function that facilitates the developer's involvement in the build during the different processing periods of the build. The build also provides a way for developers to add build options directly, as well as to modify the UI interface of the build panel, data verification, etc. At the moment these features are not open to the public, only briefly described here, but the platform building plugins within the editor have been developed in this way.
+- All non-plugin scripts will be packaged into `project.js` (`project.dev.js` in debug mode) and placed in the corresponding src directory.
 
-## Frequently asked questions
+## Platform adaptation processing
 
-The entire build process is in a separate `worker`, so if you want to see the log information during the build, please refer to the [Build Log](./build-panel.md) documentation.
+The build provides part of the life cycle hook function, which is convenient for developers to participate in the construction during different processing periods of the construction and affect the construction result. At the same time, the build also provides a way for developers to directly add some build options, and can modify the UI interface, data verification, etc. of the build configuration page. At present, these functions are not yet open to the outside world, here is only a brief introduction, but the platform building plug-in inside the editor has been developed in this way. The build options injected by the build plugin will be stored in `options.packages`, the current command-line build option parameter writing method also needs to follow this rule.
 
-Please make sure that the scenes involved in the build can be previewed properly before the build, some of the scenes asset loss, script compilation failure problems can be exposed in the preview stage. Building on the premise of a normal preview allows for better troubleshooting and saves time.
+### Platform compilation / generation process
 
-### Assets loading with a 404
+All platform construction processes that require or support separate compilation and generation have been separated. Some developers may wonder why today's mini game platforms have added a new generation button. In fact, this part of the logic has always existed before, but it is directly in the construction process and cannot be controlled separately. The construction of the editor is actually similar to the function of exporting to the corresponding platform game package. Each platform usually has its own compilation process, such as the compilation and upload function of the developer tool that comes with the WeChat mini game platform. Compile, run and debug functions of platform-related tools. **The construction of the editor is to complete the compatibility of the engine's interface with each platform and the basic format of the game package for developers**, but it does not mean all the work. If the developer needs some customized packaging for the platform, just The editor needs to support the splitting of the process first in order to better access.
 
-In this case, please copy the `uuid` in the lost asset error message to **Assets** to find the corresponding asset, and then see if all the assets on which the asset depends are normal.
+## FAQ Guide
 
-Assets loading with a 404 usually occurs in the following situations:
+The entire build process is in a single worker. To view the log information of the build process or view the complete call stack when an error occurs, click **Developer -> Open Build Debug Tool** in the main menu turn on. In fact, a lot of log information will be output when building, but in order not to interfere with the user, only error information and important information will be printed to the editor console. The information in the debugging tool is the most complete. Of course, it is possible to set the output log in **Preferences -> Resource Database -> Log Level**. For details, please refer to [Build related](./build-panel.md) documentation.
 
-1. **Assets that are not in `resources` are dynamically loaded in the script**
+It is necessary to explain that before building **please make sure that the scene participating in the build can be previewed normally**. Loss of resources in some scenes or other scripting issues can be exposed during the preview stage. Building under the condition that the preview is normal can save time and troubleshoot better.
 
-    - **Reason**: Only the assets in the `resources` directory and those involved in building the scene will be packaged into the final release package. And only the asset `url` in the `resources` directory will be written to `settings.js`, if an asset is used in the script but not in the `resources` directory, then a 404 will appear when it is loaded.
+### Resource loading 404 errors
 
-    - **Solution**: Move the used assets to the `resources` directory.
+In this case, please copy the `uuid` in the reported resource loss information to find the corresponding resource in **Resource Manager**, and check whether the resources that the resource depends on are normal. Resource loading 404 uerrors sually fall into the following situations:
 
-2. **The loaded asset had a problem when it was imported, causing the data to not be generated properly into the `library`**
+1. **Resources that are not placed in the Bundle are dynamically loaded in the script**.
 
-    - **Reason**: All raw data during the build is obtained by reading the asset file in the `library`, and if the import fails, the correct corresponding asset information will not be obtained.
+    - **Reason**: Through the above introduction, we know that only the resources and their dependent resources in the Bundle directory and the resources and their dependent resources participating in the construction scenario will be packaged into the final build folder, and **only the resource URL directly put into the `Bundle` folder will be written to config.json**. So if a resource is used in the script but the resource is not placed in any Bundle directory, a 404 will appear after loading.
 
-    - **Solution**: Find the corresponding asset through **Assets** panel, right click it, and select **Reimport Asset** in the menu.
+    -**Solution**: Move the used resources to the Bundle folder.
 
-3. **Lost assets**
+2. **There is a problem with the loaded resource import, and the data cannot be generated normally in the library**
 
-    - **Reason**: asset builds look for dependencies through engine deserialization, and the most frequent problem is that the dependent asset is accidentally deleted during the project iteration, resulting in the loss of the asset. The loss of these assets may not normally be noticed, but will be exposed once the build is executed.
+    -**Reason**: All the original data is obtained by reading the resource files in the library during construction. If the import fails, the correct corresponding resource information will not be obtained.
 
-    - **Solution**: Use the Code Editor to find out which assets the `uuid` is referenced by, and then modify the corresponding assets.
+    -**Solution**: Find the corresponding resource through the Resource manager, right-click, and select **Reimport Resource** in the menu.
 
-### Script asset load error
+3. **Resource Loss**
 
-The scripting environment needs to be configured for the build. If the error message is related to the script, please refer to the error message to modify the script. If it is not clear which script is reporting the error, you can find the `uuid` of the corresponding script in the error message's call stack, and then look for the location in **Assets**.
+    -**Reason**: As mentioned in the previous build process, **resource construction will go through the reverse sequence to find dependencies**, and the most common problem is that the dependent resources are accidentally deleted during the project iteration process And cause the loss of resources. The loss of these resources may not be noticed at ordinary times, but it will be exposed once the build is executed.
 
-### Find the image merged from Auto Atlas
+    -**Solution**: Use the code editor to find out which resources the uuid is referenced, and modify the corresponding resources.
 
-The Auto Atlas prints the `uuid` information of the original small image and the merged large image during the build process, the `uuid` can be found in the Build devTools, then the large image can be found by searching in the `res/raw-assets` folder generated after the build using the `uuid` of the found large image. If there are too many images, you can search for `uuid` directly in the build log.
+### Script resource loading error
+
+As mentioned in the previous introduction of [Building Data Sorting](####Building-Data-Sorting), the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. To know which script reported the error, find the uuid of the corresponding script in the error message call stack, and then find the location in the resource manager.
+
+### How to find the big picture after the small picture is automatically combined
+
+The automatic atlas will print out the uuid information of the original small image and the synthesized large image during the construction process, which can be viewed directly in the build debugging tool. Use the large uuid found in the packaged folder `XXXBundle/native` Just check it out. If there are too many combined images, open the build log and search for uuid.
 
 ![build-atlas](./build-guide/build-atlas.jpg)
 
+### How to decompress uuid
+
+The resource JSON packaged in release mode and the uuid in `config.json` are compressed, and eed to be decompressed to find the resources in the corresponding original project. There are some built-in tools and methods in the build process on the global variable Build. After directly clicking on the menu **Developer -> Build Debugging Tools**, enter in the console:
+
+```js
+Build.Utils.decompressUuid('425o80X19KipOK7J1f5hsN');
+// 42e68f34-5f5f-4a8a-938a-ec9d5fe61b0d
+```
+
+<!-- ### How to find the position of the resource serialized JSON in the package body after construction
+
+After JSON is packaged, it will be stored in the `assets/XXXBundle/import` folder. If it is a common resource, just use uuid to search in the folder. -->
+
 ### Engine compilation failed
 
-If it's a custom engine compilation failure, check your modified code, or custom engine path.
+If the custom engine fails to compile, please check the modified code, or the custom engine path.
+
+If the engine fails to compile, please create a topic on [our forums](https://discuss.cocos2d-x.org/c/creator/33) to provide feedback, log files and a demo to reproduce the issue.
+
+### Other errors
+
+If other build errors are encountered, please create a topic on [our forums](https://discuss.cocos2d-x.org/c/creator/33) to provide feedback, log files and a demo to reproduce the issue.
