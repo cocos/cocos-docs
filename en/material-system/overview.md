@@ -1,5 +1,14 @@
 # Material System Overview
 
+## Material System Upgrade Guide
+
+Cocos Creator has supported the material system since v2.x. Since then, the design of the material system and the built-in Shader API are continually being improved, there may be some adjustments in the upgrade from v2.x to v3.0 and subsequent upgrades. The Effect asset does not currently support automatic upgrades, so please refer to the following documentation to upgrade:
+
+- [v2.x to v3.0 Material Upgrade Guide](./effect-2.x-to-3.0.md)
+- [v3.0 to v3.1 Material Upgrade Guide](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+
+## Material System Class Diagram
+
 The material system plays an essential role in any game engine infrastructure, it controls the way everything is drawn on screen and much more.
 
 The general structure of the system is as follows:
