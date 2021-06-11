@@ -63,7 +63,7 @@
 
 ## 2. Deferred渲染管线
 
-### 2.1  Deferred Rendering Pipeline
+### 2.1  Deferred Render Pipeline
 
 v3.1 的材质系统与 v3.0 最大的区别在于 v3.1 支持了 deferred 渲染管线，引擎自带标准的 `standard-surface-entry` 头文件，可以同时支持 forward 渲染管线和 deferred 渲染管线，用法如下：
 

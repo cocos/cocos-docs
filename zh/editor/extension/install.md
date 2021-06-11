@@ -5,7 +5,7 @@ Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项
 如果需要将扩展应用到所有的 Cocos Creator 项目，可以选择将扩展包放在 **全局** 扩展包路径中：
 
 - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
-- **Mac**：`$HOME/.CocosCreator/extensions`
+- **macOS**：`$HOME/.CocosCreator/extensions`
 
 如果只希望将扩展应用到指定的项目，可以选择将扩展包放在 **项目** 扩展包路径中：
 

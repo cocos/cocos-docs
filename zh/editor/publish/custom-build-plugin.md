@@ -10,7 +10,7 @@
 
         - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
 
-        - **Mac**：`$HOME/.CocosCreator/extensions`
+        - **macOS**：`$HOME/.CocosCreator/extensions`
 
     - 若选择 **项目**，则是将构建扩展包应用到指定的 Cocos Creator 项目，**项目** 路径为：
 

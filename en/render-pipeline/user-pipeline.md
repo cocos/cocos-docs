@@ -1,61 +1,61 @@
-# 自定义渲染管线
+# Custom Render Pipelines
 
-要创建一个自定义的渲染管线，首先要在 **资源管理器** 面板中新建一个 RenderPipeline 资源，再创建一个 RenderPipeline 脚本，然后在 Pipeline 资源中选择对应的 RenderPipeline 脚本，即可编辑对应的属性。
+To create a custom render pipeline, first create a new RenderPipeline asset in the **Assets** panel, then create a RenderPipeline script, and then select the corresponding RenderPipeline script in the Pipeline asset to edit the corresponding properties.
 
-RenderFlow 和 RenderStage 使用同样的方式进行创建和编辑。在创建出来的 Pipeline 脚本中，可以像其它用户脚本一样添加属性并使其可以在 **属性检查器** 面板中编辑，但需要注意的是不能拖放场景中的实体，因为 RenderPipeline 并不和某个具体的场景绑定。
+RenderFlow and RenderStage are created and edited in the same way. In the created Pipeline script, add properties and make them editable in the **Inspector** panel just like any other user script, but note that it is not an option to drag and drop entities in the scene, as the RenderPipeline is not bound to a specific scene.
 
-## RenderPipeline 中的属性和方法
+## Properties and methods in RenderPipeline
 
-- flows：RenderPipeline 中包含的 RenderFlow。
+- `flows`: The RenderFlow contained in the RenderPipeline.
 
-- renderTextures：在 RenderPipeline 启动时可创建的 RenderTexture。
+- `renderTextures`: the RenderTextures that can be created when the RenderPipeline is started.
 
-    - name：RenderTexture 的名字，创建后可通过 RenderPipeline 的 getRenderTexture 函数获取。
-    - type：RenderTexture 的类型。
-    - viewType：RenderTexture 对应的 TextureView 类型。
-    - usage：RenderTexture 的绑定类型，用于确定是 color 还是 depth_stencil。
-    - formate：RenderTexture 的通道格式。
-    - width：RenderTexture 的宽度，-1 表示窗口宽度。
-    - height：RenderTexture 高度，-1 表示窗口高度。
+    - `name`: the name of the RenderTexture, which can be obtained by the `getRenderTexture` function of the RenderPipeline after creation.
+    - `type`: the type of the RenderTexture.
+    - `viewType`: the corresponding TextureView type of the RenderTexture.
+    - `usage`: the binding type of the RenderTexture, used to determine whether it is `color` or `depth_stencil`.
+    - `formate`: the channel format of the RenderTexture.
+    - `width`: width of the RenderTexture, -1 means the width of the window.
+    - `height`: height of the RenderTexture, -1 means the height of the window.
 
-- framebuffers：在 RenderPipeline 启动时可创建的 FrameBuffer。
+- `framebuffers`: the FrameBuffer that can be created when RenderPipeline starts.
 
-    - name：FrameBuffer 的名字，创建后可通过 RenderPipeline 的 getFrameBuffer 函数获取。
-    - renderPass：RenderPass。RenderPipeline 中配置的 RenderPass 的 ID。
-    - colorViews：与 ColorAttachment 绑定的 TextureView。指定 RenderPipeline 中配置的 RenderTexture。
-    - depthStencilView：与 DepthStencilAttachment 绑定的 TextureView。指定 RenderPipeline 中配置的 RenderTexture。
-- renderPasses：在 RenderPipeline 启动时可创建的 RenderPass。
-    - index：RenderPass的ID，可通过 RenderPipeline 的 getRenderPass 函数获取。
-    - colorAttachments：ColorAttachment 描述，绘制 FrameBuffer 时对 ColorAttachment 的操作。
-    - depthStencilAttachment：DepthStencilAttachment 描述，绘制 FrameBuffer 时对 DepthStencilAttachment 的操作。
+    - `name`: the name of the FrameBuffer, it can be retrieved by the `getFrameBuffer` function of RenderPipeline after creation.
+    - `renderPass`: the ID of the RenderPass configured in the RenderPipeline.
+    - `colorViews`: TextureView bound to the ColorAttachment, specifying the RenderTexture configured in the RenderPipeline.
+    - `depthStencilView`: TextureView bound to DepthStencilAttachment. specifies the RenderTexture configured in the RenderPipeline.
+- `renderPasses`: the RenderPasses that can be created when the RenderPipeline is started.
+    - `index`: ID of the RenderPass, which can be obtained by the `getRenderPass` function of the RenderPipeline.
+    - `colorAttachments`: the description of the ColorAttachment, the operation of the ColorAttachment when drawing the FrameBuffer.
+    - `depthStencilAttachment`: the description of the DepthStencilAttachment, the operation of the DepthStencilAttachment when drawing the FrameBuffer.
 
-- getTextureView (name: string)，getRenderTexture (name: string)：用于获取在 renderTextures 配置的 RenderTexture。
-- getFrameBuffer (name: string)：用于获取在 framebuffers 配置的 FrameBuffer。
-- getRenderPass (stage: number)：用于获取在 renderPasses 配置的 RenderPass。
-- initialize (info: IRenderPipelineInfo)：用于通过脚本创建一个 RenderPipeline 时的初始化函数，RenderPipeline 必须初始化后才能使用。
-- activate (root: Root)：用于通过资源加载一个 RenderPipeline 时的初始化函数，RenderPipeline 必须初始化后才能使用。
-- render (view: RenderView)：渲染场景的逻辑。
-- updateUBOs (view: RenderView)：更新全局 UniformBuffer。
-- sceneCulling (view: RenderView)：场景剔除，剔除后可渲染物体保存在 _renderObjects 中。
+- `getTextureView` (name: string), `getRenderTexture` (name: string): get the RenderTexture configured in renderTextures.
+- `getFrameBuffer` (name: string): get the FrameBuffer configured in `framebuffers`.
+- `getRenderPass` (stage: number): get the RenderPass configured in renderPasses.
+- `initialize` (info: IRenderPipelineInfo): initialize function for creating a RenderPipeline by script, the RenderPipeline must be initialized before it can be used.
+- `activate` (root: Root): initialization function used when loading a RenderPipeline through an asset.
+- `render` (view: RenderView): logic for rendering the scene.
+- `updateUBOs` (view: RenderView): update the global UniformBuffer.
+- `sceneCulling` (view: RenderView): scene culling, renderable objects are saved in `_renderObjects` after culling.
 
-## RenderFlow 中的属性和方法
+## Properties and methods in RenderFlow
 
-- name：RenderFlow 的名字。
-- priority：RenderFlow 在 RenderPipeline 中的执行顺序。
-- type：RenderFlow 的类型。
-    - SCENE：用于绘制场景，该类型对于每个 camera 都会执行；
-    - POSTPROCESS：后期处理，该类型对每个 camera 都要单独指定；
-    - UI：用于绘制 UI。
-- stages：RenderFlow 包含的 RenderStage。
+- `name`: the name of the RenderFlow.
+- `priority`: the order of execution of the RenderFlow in the RenderPipeline.
+- `type`: the type of the RenderFlow.
+    - `SCENE`: used to draw the scene, this type will be executed for each camera.
+    - `POSTPROCESS`: post-processing, this type is specified separately for each camera.
+    - `UI`: used to draw the UI.
+- `stages`: RenderStage included in RenderFlow.
 
-## RenderStage 中的属性和方法
+## Properties and methods in RenderStage
 
-- name：RenderStage 的名字。
-- priority：RenderStage 在 RenderFlow 中的执行顺序。
-- frameBuffer：RenderStage 要绘制到的 FrameBuffer，应设置为 RenderPipeline 中配置的 FrameBuffer，或设置为 window，表示使用默认的 FrameBuffer。
-- renderQueues：渲染列队，用于控制物体渲染顺序。
-    - isTransparent：标记渲染列队是否为半透明；
-    - sortMode：<br>FRONT_TO_BACK：从前向后排序；<br>BACK_TO_FRONT：从后向前排序；
-    - stages：指定渲染列队渲染材质中的哪些 pass，应指定为 pass 中的 phase。
-    - sortRenderQueue ()：对渲染列队排序；
-    - executeCommandBuffer (view: RenderView)：执行渲染指令。
+- `name`: the name of the RenderStage.
+- `priority`: the order of execution of the RenderStage in the RenderFlow.
+- `frameBuffer`: the FrameBuffer that the RenderStage will draw to, should be set to the FrameBuffer configured in the RenderPipeline, or set to `window` to indicate that the default FrameBuffer is used.
+- `renderQueues`: render queue, used to control the rendering order of objects.
+    - `isTransparent`: marks whether the render queue is semi-transparent.
+    - `sortMode`: <br>`FRONT_TO_BACK`: sort from front to back; <br>`BACK_TO_FRONT`: sort from back to front.
+    - `stages`: specifies which passes in the render queue render material, should be specified as the `phase` in the `pass`.
+    - `sortRenderQueue()`: sort the render queue.
+    - `executeCommandBuffer` (view: RenderView): execute the render command.

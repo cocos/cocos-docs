@@ -17,13 +17,14 @@
         - [Animation](editor/animation/index.md)
         - [Preferences](editor/preferences/index.md)
         - [Project Settings](editor/project/index.md)
-        <!--- [Editor Layout](editor/editor-layout/index.md)-->
+        - [Editor Layout](editor/editor-layout/index.md)
         - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)
     - [Support](getting-started/support.md)
     - [Caution!](getting-started/attention/index.md)
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
+    - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
     - [Cocos Creator 3.1 Material Upgrade Guide](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
 
 ## Editor Manual
@@ -306,8 +307,10 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [Render Pipeline](render-pipeline/overview.md)
-        - [Builtin Rendering Pipeline](render-pipeline/builtin-pipeline.md)
+    - [Render Pipeline Overview](render-pipeline/overview.md)
+        - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
+        - [Custom Render Pipeline](render-pipeline/user-pipeline.md)
+        - [Post-Processing](render-pipeline/post-process.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

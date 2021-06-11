@@ -60,9 +60,9 @@ The `cc-fog` header file from v3.0 is now `cc-fog-vs/fs` from v3.1, split into v
     }%
     ```
 
-## 2. Deferred Rendering Pipeline
+## 2. Deferred Render Pipeline
 
-### 2.1 Deferred Rendering Pipeline
+### 2.1 Deferred Render Pipeline
 
 The biggest difference between v3.1 and v3.0 is that v3.1 supports the deferred render pipeline. The engine comes with a standard `standard-surface-entry` header file that supports both the forward render pipeline and the deferred render pipeline, which is used as follows:
 

@@ -1,6 +1,6 @@
 # tsconfig
 
-项目中 `tsconfig.json` 的 **绝大多数** 编译选项并不影响 Cocos Creator 对 Typescript 的编译。因此，你需要小心配置其中的某些选项，以使得 IDE 的检查功能和 Cocos Creator 的编译行为一致。
+项目中 `tsconfig.json` 的 **绝大多数** 编译选项并不影响 Cocos Creator 对 TypeScript 的编译。因此，你需要小心配置其中的某些选项，以使得 IDE 的检查功能和 Cocos Creator 的编译行为一致。
 
 ----
 
