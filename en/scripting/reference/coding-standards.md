@@ -4,7 +4,7 @@ The following are the coding standards that the Cocos Creator development team u
 
 ## Naming standards
 
-- When we name the variables, functions and living examples, we use camelCase nomenclature
+- When naming the variables, functions and instances, we use camelCase nomenclature:
 
     ```ts
     // bad
@@ -17,7 +17,7 @@ The following are the coding standards that the Cocos Creator development team u
     function fooBar () {}
     ```
 
-- When variable, function, and instance naming involves abbreviations, the abbreviations are all lowercase at the beginning, and all uppercase in subsequent words
+- When variable, function, and instance naming involves abbreviations, the abbreviations are all lowercase at the beginning, and all uppercase in subsequent words:
 
     ```ts
     // bad
@@ -32,7 +32,7 @@ The following are the coding standards that the Cocos Creator development team u
     class AssetUUID {}
     ```
 
-- When we name types or modules, we use PascalCase nomenclature
+- When naming types or modules, use PascalCase nomenclature:
 
     ```ts
     // bad
@@ -50,7 +50,7 @@ The following are the coding standards that the Cocos Creator development team u
     const FooBar = require('foo-bar');
     ```
 
-- It is recommended to use full uppercase underline to name “constant”.
+- It is recommended to use full uppercase underline to name “constants”:
 
     ```ts
     // bad
@@ -83,7 +83,7 @@ The following are the coding standards that the Cocos Creator development team u
     };
     ```
 
-- Use underscores `_` when naming private attributes
+- Use underscores `_` when naming private attributes:
 
     ```ts
     // bad
@@ -94,7 +94,7 @@ The following are the coding standards that the Cocos Creator development team u
     this._firstName = 'foobar';
     ```
 
-- We use dash nomenclature for files
+- Use dash nomenclature for files:
 
     ```bash
     // bad
@@ -143,7 +143,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- Use `Object.create(null)` to create an object
+- Use `Object.create(null)` to create an object:
 
     ```ts
     // bad
@@ -156,7 +156,7 @@ The following are the coding standards that the Cocos Creator development team u
     const obj = Object.create(null);
     ```
 
-- Use `[]` to create an array
+- Use `[]` to create an array:
 
     ```ts
     // bad
@@ -166,7 +166,7 @@ The following are the coding standards that the Cocos Creator development team u
     const array = [];
     ```
 
-- Try your best to use single quotation marks `''` to define a string in TypeScript code
+- Try your best to use single quotation marks `''` to define a string in TypeScript code:
 
     ```ts
     // bad
@@ -176,7 +176,7 @@ The following are the coding standards that the Cocos Creator development team u
     const str = 'Hello World';
     ```
 
-- When defining multi-lines string, try your best to use `+`
+- When defining multi-lines string, try your best to use `+`:
 
     ```ts
     // bad
@@ -198,7 +198,7 @@ The following are the coding standards that the Cocos Creator development team u
 
 ## Grammar standards
 
-- Choose quadruple spacing or double spacing for indentation according to your own habits and the primary code writer's format.
+- Choose quadruple spacing or double spacing for indentation according to your own habits and the primary code writer's format:
 
     ```js
     // bad
@@ -222,7 +222,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- Do not leave spaces at the end of the line. Leave an empty line at the bottom of the file
+- Do not leave spaces at the end of the line. Leave an empty line at the bottom of the file:
 
     ```js
     // bad
@@ -239,7 +239,7 @@ The following are the coding standards that the Cocos Creator development team u
     /* EOF */
     ```
 
-- Please add `;` at the end of the statement.
+- Please add `;` at the end of the statement:
 
     ```js
     // bad
@@ -277,7 +277,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- Try to put `{` and the expression in the same line
+- Try to put `{` and the expression in the same line:
 
     ```js
     // bad
@@ -312,7 +312,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- Put a space before `{`
+- Put a space before `{`:
 
     ```js
     // bad
@@ -343,7 +343,7 @@ The following are the coding standards that the Cocos Creator development team u
     });
     ```
 
-- Please put a space before `(` of the logic state expressions ( `if`, `else`, `while`, `switch`)
+- Please put a space before `(` of the logic state expressions ( `if`, `else`, `while`, `switch`):
 
     ```js
     // bad
@@ -362,7 +362,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- Leave one space between the binary ternary operators
+- Leave one space between the binary ternary operators:
 
     ```js
     // bad
@@ -382,7 +382,7 @@ The following are the coding standards that the Cocos Creator development team u
     }
     ```
 
-- The way some functions are declared
+- The way some functions are declared:
 
     ```js
     // bad
@@ -439,7 +439,7 @@ The following are the coding standards that the Cocos Creator development team u
     array.map(x => x + 1);
     ```
 
-- Put a space between Block definitions
+- Put a space between Block definitions:
 
     ```js
     // bad
@@ -481,7 +481,7 @@ The following are the coding standards that the Cocos Creator development team u
     return obj;
     ```
 
-- Do not use a comma to define
+- Do not use a comma to define:
 
     ```js
     // bad
@@ -515,14 +515,14 @@ The following are the coding standards that the Cocos Creator development team u
     };
     ```
 
-- Single line comments, please add a space after the slash
+- Single line comments, please add a space after the slash:
 
     ```js
     //bad
     // good
     ```
 
-- Multiline comments
+- Multiline comments:
 
     ```js
     /*
@@ -530,7 +530,7 @@ The following are the coding standards that the Cocos Creator development team u
      */
     ```
 
-- A multiline comments that needs to be exported to the API document
+- A multiline comments that needs to be exported to the API document:
 
     ```js
     /**
