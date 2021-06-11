@@ -25,7 +25,7 @@ RenderFlow 和 RenderStage 使用同样的方式进行创建和编辑。在创�
     - colorViews：与 ColorAttachment 绑定的 TextureView。指定 RenderPipeline 中配置的 RenderTexture。
     - depthStencilView：与 DepthStencilAttachment 绑定的 TextureView。指定 RenderPipeline 中配置的 RenderTexture。
 - renderPasses：在 RenderPipeline 启动时可创建的 RenderPass。
-    - index：RenderPass的ID，可通过 RenderPipeline 的 getRenderPass 函数获取。
+    - index：RenderPass 的 ID，可通过 RenderPipeline 的 getRenderPass 函数获取。
     - colorAttachments：ColorAttachment 描述，绘制 FrameBuffer 时对 ColorAttachment 的操作。
     - depthStencilAttachment：DepthStencilAttachment 描述，绘制 FrameBuffer 时对 DepthStencilAttachment 的操作。
 
@@ -36,13 +36,13 @@ RenderFlow 和 RenderStage 使用同样的方式进行创建和编辑。在创�
 - activate (root: Root)：用于通过资源加载一个 RenderPipeline 时的初始化函数，RenderPipeline 必须初始化后才能使用。
 - render (view: RenderView)：渲染场景的逻辑。
 - updateUBOs (view: RenderView)：更新全局 UniformBuffer。
-- sceneCulling (view: RenderView)：场景剔除，剔除后可渲染物体保存在 _renderObjects 中。
+- sceneCulling (view: RenderView)：场景剔除，剔除后可渲染物体保存在 `_renderObjects` 中。
 
 ## RenderFlow 中的属性和方法
 
 - name：RenderFlow 的名字。
 - priority：RenderFlow 在 RenderPipeline 中的执行顺序。
-- type：RenderFlow 的类型。
+- type：RenderFlow 的类型。包括以下三种：
     - SCENE：用于绘制场景，该类型对于每个 camera 都会执行；
     - POSTPROCESS：后期处理，该类型对每个 camera 都要单独指定；
     - UI：用于绘制 UI。
@@ -55,7 +55,7 @@ RenderFlow 和 RenderStage 使用同样的方式进行创建和编辑。在创�
 - frameBuffer：RenderStage 要绘制到的 FrameBuffer，应设置为 RenderPipeline 中配置的 FrameBuffer，或设置为 window，表示使用默认的 FrameBuffer。
 - renderQueues：渲染列队，用于控制物体渲染顺序。
     - isTransparent：标记渲染列队是否为半透明；
-    - sortMode：<br>FRONT_TO_BACK：从前向后排序；<br>BACK_TO_FRONT：从后向前排序；
+    - sortMode：包括以下两种：<br>FRONT_TO_BACK：从前向后排序；<br>BACK_TO_FRONT：从后向前排序。
     - stages：指定渲染列队渲染材质中的哪些 pass，应指定为 pass 中的 phase。
     - sortRenderQueue ()：对渲染列队排序；
     - executeCommandBuffer (view: RenderView)：执行渲染指令。

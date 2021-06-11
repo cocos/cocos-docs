@@ -2,7 +2,7 @@
 
 To create a custom render pipeline, first create a new RenderPipeline asset in the **Assets** panel, then create a RenderPipeline script, and then select the corresponding RenderPipeline script in the Pipeline asset to edit the corresponding properties.
 
-RenderFlow and RenderStage are created and edited in the same way. In the created Pipeline script, you can add properties and make them editable in the **Inspector** panel just like any other user script, but note that you cannot drag and drop entities in the scene, as the RenderPipeline is not bound to a specific scene.
+RenderFlow and RenderStage are created and edited in the same way. In the created Pipeline script, add properties and make them editable in the **Inspector** panel just like any other user script, but note that it is not an option to drag and drop entities in the scene, as the RenderPipeline is not bound to a specific scene.
 
 ## Properties and methods in RenderPipeline
 
