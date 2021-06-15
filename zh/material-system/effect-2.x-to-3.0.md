@@ -125,7 +125,7 @@ v3.0 新增了一些新的 Pass 选项：
 
 | v2.x Header & Name     | v3.0 Header & Name| Type | 用途 |版本差异性 |
 | :------ | :------ | :----- | :------ |:------ |
-| `cc-local.chunk` & `cc_matWorld` | `cc-local.chunk` & `cc_matWorld` | mat4 | 模型空间转世界空间矩阵。 |无差异 |
+| `cc-local.chunk` & `cc_matWorld` | `cc-local.chunk` & `cc_matWorld` | mat4 | 模型空间转世界空间矩阵 |无差异 |
 | `cc-local.chunk` & `cc_matWorldIT` |`cc-local.chunk` & `cc_matWorldIT` | mat4 | 模型空间转世界空间逆转置矩阵 |无差异 |
 | `cc-global.chunk` & `cc_time` | `cc-global.chunk` & `cc_time` |vec4 | x：自开始以来的全球时间，以秒为单位<br>y：当前帧的增量时间<br>z：自开始以来的总帧数 |无差异 |
 | `cc-global.chunk` & `cc_screenSize` | `cc-global.chunk` & `cc_screenSize` | vec4 | xy：屏幕尺寸<br>zw：屏幕尺寸倒数 |无差异 |
@@ -243,7 +243,7 @@ v2.x 与 v3.0 的阴影计算区别很大，v2.0 加入了头文件 `shadow.chun
 
 | Name    | Type | Info |
 | :------ | :----- | :----- |
-| `cc_matLightPlaneProj` | mat4|平面阴影的变换矩阵 |
+| `cc_matLightPlaneProj` | mat4| 平面阴影的变换矩阵 |
 | `cc_shadowColor` | vec4 | 阴影颜色 |
 
 #### ShadowPCF 软阴影

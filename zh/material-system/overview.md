@@ -2,10 +2,10 @@
 
 ## 材质系统升级指南
 
-Cocos Creator 从 2.x 开始就支持了材质系统，但我们在持续改进材质系统的设计和内置 Shader API，所以从 2.x 升级到 3.0 以及后续的版本升级中可能还存在一些调整。目前 Effect 资源还不支持自动升级，所以请大家参考下面的文档进行升级：
+Cocos Creator 从 v2.x 开始就支持了材质系统，在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.0 及后续版本时，部分内容可能还需要开发者手动进行调整，具体请参考下方的升级指南：
 
-- [v2.x to v3.0 材质升级指南](./effect-2.x-to-3.0.md)
-- [v3.0 to v3.1 材质升级指南](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+- [v3.0 材质升级指南](./effect-2.x-to-3.0.md)
+- [v3.1 材质升级指南](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
 
 ## 材质系统类图
 
@@ -251,7 +251,7 @@ pass.setUniform(hColor, color);
 
 除此之外的其他任何修改（effect 或 technique 的变化等）都需要重新创建 Material 并赋值给目标 RenderableComponent。
 
-## Builtins
+## 内置材质
 
 编辑器内置了几种常见类型的材质，包括无光照的 unlit、基于物理光照的 standard、skybox、粒子、sprite 等。
 

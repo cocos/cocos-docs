@@ -5,7 +5,7 @@ __Cocos Creator__ will search for and automatically load extensions in both __Gl
 If you want to apply the extension to all projects, you can put the extension package under the __Global__ path:
 
 - **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
-- **Mac**: `$HOME/.CocosCreator/extensions`
+- **macOS**: `$HOME/.CocosCreator/extensions`
 
 If you only want to apply the extension to the specified project, you can put the extension package under the __Project__ path:
 

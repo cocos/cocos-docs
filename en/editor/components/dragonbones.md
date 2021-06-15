@@ -58,7 +58,6 @@ The following is an example of how DragonBones replaces the texture. Replace the
         @property({ type: dragonBones.ArmatureDisplay })
         replaceArmatureDisplay: dragonBones.ArmatureDisplay | null = null;
 
-
         _leftWeaponIndex = 0;
         _rightDisplayIndex = 0;
         _rightDisplayNames:string[] = [];

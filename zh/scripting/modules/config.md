@@ -1,6 +1,4 @@
-# 示例：通过 npm 使用 protobuf.js
-
-本章节通过安装和使用 [protobufjs](https://www.npmjs.com/package/protobufjs) 来阐述如何在 Cocos Creator 项目中使用 npm 包。
+# 如何获取 npm 包
 
 ## 安装 Node.js
 
@@ -36,7 +34,7 @@ npm 包管理工具 `npm` 附带在 Node.js 发行版中。安装 Node.js 之后
 > npm install
 ```
 
-### 拓展：使用 npm 镜像
+## 拓展：使用 npm 镜像
 
 npm 默认从 [官方 npmjs 源](https://www.npmjs.com/) 读取和下载包。有些国家或地区可能因为网络问题导致安装失败或安装速度过慢，推荐通过切换镜像的方式来解决。
 
@@ -75,46 +73,3 @@ npm 默认从 [官方 npmjs 源](https://www.npmjs.com/) 读取和下载包。�
 ```bash
 > npx nrm use npm
 ```
-
-## TypeScript 配置
-
-protobufjs 包中自带了 TypeScript 类型声明文件。不过为了适配 Cocos Creator 模块系统，仍需少许配置。
-
-编辑项目目录中的 `tsconfig.json` 文件，确保 `"compilerOptions"` 字段中的 `"allowSyntheticDefaultImports"` 选项设置为 `true`：
-
-```json5
-{
-  /* Base configuration. Do not edit this field. */
-  "extends": "./temp/tsconfig.cocos.json",
-
-  "compilerOptions": {
-      "allowSyntheticDefaultImports": true, // 需要开启
-  }
-}
-```
-
-因为目前 `protobufjs` 仅提供了 CommonJS 模块，而 Cocos Creator 是通过 “默认导入” 来访问 CommonJS 模块的。
-
-## 使用 protobufjs
-
-```ts
-import protobuf from 'protobufjs';
-
-const root = protobuf.Root.fromJSON(/* ... */);
-```
-
-protobufjs 有 `light` 和 `minimal` 之分，当有需要时，可以导入包中的子路径：
-
-```ts
-// 使用 light 版本
-import protobuf from 'protobufjs/light.js';
-```
-
-或：
-
-```ts
-// 使用 minimal 版本
-import protobuf from 'protobufjs/minimal.js';
-```
-
-> **注意**：就 protobufjs 和许多经典的 npm 包而言，当导入包中的子路径时，后缀是需要的。详情请参考 [Cocos Creator 模块规范](./spec.md)。

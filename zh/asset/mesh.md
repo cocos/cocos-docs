@@ -32,13 +32,16 @@
 
 当在 **资源管理器** 中选中模型资源文件时（ `.fbx` 或 `.gltf`），在 **属性检查器** 中就可以直接设置模型资源的相关属性。
 
-### model 模块
+### Model 模块
 
 ![](mesh/mesh_model.jpg)
 
-- `Normals` — 法线信息，包括 Optional、Exclude、Require、Recalculate 四种选项
-- `Tangents` — 切空间信息，包括 Optional、Exclude、Require、Recalculate 四种选项
-- `SkipValidation` — 是否跳过标准检测
+| 属性 | 说明 |
+| :--- | :--- |
+| 法线（Normals） | 导入法线信息，包括以下四种选项：<br>1. 可选（Optional）：只导入模型文件中包含的法线，适用于非常清楚自己模型数据的情况。<br>2. 排除（Exclude）：不导入法线。<br>3. 仅在必要时重新计算（Required）：导入模型文件中的法线，若模型文件中不包含法线则重新计算，适用于大部分情况。模型数据本身没问题的话还是推荐使用该项，没有额外的处理。<br>4. 重新计算（Recalculate）：无论模型文件中是否包含法线，都直接重新计算并导入。选择该项会增加计算量，但是可以消除模型原始数据法线没有归一化带来的后续问题。 |
+| 切线（Tangents） | 导入切线信息，包括 Optional、Exclude、Require、Recalculate 四种选项，选项功能可参考 **法线** 的说明，二者相差不大。 |
+| 跳过验证（Skip Validation）| 是否跳过对模型文件的标准检测。 |
+| 是否禁用 Mesh 拆分（Disable mesh split） | 为了解决实时骨骼动画系统下 uniform vector 数量限制问题，目前在资源导入期会根据骨骼数量做拆分，这会对其他系统也产生影响。如果确定不会使用实时计算模式（对应 SkeletalAnimation 组件的 useBakedAnimation 选项未勾选时），可以勾选此项以提升性能。但注意改变此选项会影响生成的 prefab 内容，需要对应更新场景中的引用。后续重构会移除此流程。 |
 
 ### Animation 模块
 

@@ -54,9 +54,9 @@
 
 ![engine-manager](./index/engine-manager.png)
 
-- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于场景编辑器里场景的渲染，内置组件的声明和其他 Web 环境下的引擎模块。
+- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于编辑器里场景的渲染、内置组件的声明（也就是使用代码编辑器，如 VSCode 时的智能提示），以及场景在 Web 环境下的预览。
 
-- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定到定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 - **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
@@ -84,7 +84,7 @@
 
 ## 属性检查器
 
-**属性检查器** 分页中的 **离开编辑自动保存** 功能用于设置 [属性检查器](../hierarchy/index.md) 面板是否在属性编辑完成后自动保存修改。
+**属性检查器** 分页中的 **离开编辑自动保存** 功能用于设置 [属性检查器](../inspector/index.md) 面板是否在属性编辑完成后自动保存修改。
 
 ![inspector](./index/inspector.png)
 
@@ -101,12 +101,12 @@
 
 ## 构建发布
 
-**构建发布** 分页用于设置执行 [构建发布](../assets/index.md) 时相关的信息，包括 **日志等级** 和 **缓存构建 JSON**。
+**构建发布** 分页用于设置执行 [构建发布](../publish/build-panel.md) 时相关的信息，包括 **日志等级** 和 **缓存资源的序列化 JSON**。
 
 ![build](./index/build.png)
 
 - **日志等级**：用于设置在构建发布到某个平台时，输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
-- **缓存构建 JSON**：为了加快构建速度，减少重复反序列化未修改资源，在资源构建过程中将会缓存资源的序列化 JSON，这部分 JSON 会放置在项目的 `temp/asset-db/assets/uuid/build` 目录下，根据 **debug** 和 **release** 模式分为 `debug.json` 和 `release.json` 存放。
+- **缓存资源的序列化 JSON**：为了加快构建速度，减少重复反序列化未修改资源，在资源构建过程中将会缓存资源的序列化 JSON，这部分 JSON 会放置在项目的 `temp/asset-db/assets/uuid/build` 目录下，根据 **debug** 和 **release** 模式分为 `debug.json` 和 `release.json` 存放。
 
     ![build](./index/json.png)
 
@@ -118,11 +118,11 @@
 
 ![laboratory](./index/laboratory.png)
 
-- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [光照贴图](./../../concepts/scene/light/lightmap.md)。
-
 - **场景即时缓存**：该项默认开启，主要用于在场景编辑过程中每隔一段时间（目前时间间隔为 5s）便将场景文件缓存到项目目录下的 `temp/scene/[SCENE_UUID]/[TIME].json` 文件中。如遇突发情况比如场景崩溃、进程卡死等，再次打开编辑器时将会弹窗提示是否应用缓存内最近一次的场景文件。
 
   > **注意**：在日常使用中，只要场景正常打开了，那么当前场景在打开之前缓存的所有场景文件都会被清空。如有特殊需求需要查看指定场景的缓存文件，请先在编辑器中关闭对应场景。
+
+- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [光照贴图](./../../concepts/scene/light/lightmap.md)。
 
 ### 注意事项
 
