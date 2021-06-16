@@ -115,7 +115,7 @@ Starting with v2.4, in addition to scenes that can be preloaded, other resources
 ```typescript
 resources.preload('test assets/image', SpriteFrame);
  // wait for while
-resources.load('test assets/image', SpriteFrame, (err, spriteFrame) => {
+resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```

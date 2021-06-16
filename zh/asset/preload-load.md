@@ -17,7 +17,7 @@
 resources.preload('images/background', SpriteFrame);
 
 // wait for while 
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     spriteFrame.addRef();
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });

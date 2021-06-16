@@ -31,7 +31,7 @@
   // 修改后
   assetManager.loadBundle('sub1', (err, bundle) => {
     // 传入该资源相对 Asset Bundle 根目录的相对路径
-    bundle.load('sprite-frames/background', SpriteFrame);
+    bundle.load('sprite-frames/background/spriteFrame', SpriteFrame);
   });
   ```
 

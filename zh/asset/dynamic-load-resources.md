@@ -110,7 +110,7 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 `resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。
 
 ```typescript
-resources.preload('test assets/image/spriteFrame', SpriteFrame);
+resources.preload('test assets/image', SpriteFrame);
 
 // wait for while
 resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {

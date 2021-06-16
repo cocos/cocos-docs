@@ -17,7 +17,7 @@ Since the preload does not parse the resources, you need to parse and initialize
 resources.preload('images/background', SpriteFrame);
 
 // Wait for while 
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     spriteFrame.addRef();
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });

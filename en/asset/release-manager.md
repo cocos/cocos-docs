@@ -25,7 +25,7 @@ In addition, all `Asset` instances have member functions `Asset.addRef` and `Ass
 
 ```typescript
 start () {
-    resources.load('images/background', Texture2D, (err, texture) => {
+    resources.load('images/background/texture', Texture2D, (err, texture) => {
         this.texture = texture;
         // Add references to resources when you need to use them.
         texture.addRef();
@@ -111,7 +111,7 @@ When you do not make any settings for a resource in the editor, but instead dyna
 If you are using dynamically loaded resources in your project for dynamic referencing, for example:
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -119,7 +119,7 @@ resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
 At this point, the SpriteFrame resource is set to the Sprite component and the engine does not do anything special, the reference count of the SpriteFrame remains 0. If the dynamically loaded resources need to be referenced, held, or reused over time, it is recommended to use the `addRef` interface to manually increase the reference count. For example:
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
     spriteFrame.addRef();
 });

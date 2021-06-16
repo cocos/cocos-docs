@@ -24,7 +24,7 @@ Asset Manager 中提供了资源释放模块，用于管理资源的释放。
 
 ```typescript
 start () {
-    resources.load('images/background', Texture2D, (err, texture) => {
+    resources.load('images/background/texture', Texture2D, (err, texture) => {
         this.texture = texture;
         // 当需要使用资源时，增加其引用
         texture.addRef();

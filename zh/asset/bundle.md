@@ -210,7 +210,7 @@ bundle.load(`prefab`, Prefab, function (err, prefab) {
 });
 
 // 加载 Texture
-bundle.load(`image`, Texture2D, function (err, texture) {
+bundle.load(`image/texture`, Texture2D, function (err, texture) {
     console.log(texture)
 });
 ```
@@ -219,7 +219,7 @@ bundle.load(`image`, Texture2D, function (err, texture) {
 
 ```typescript
 // 加载 SpriteFrame
-bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
     console.log(spriteFrame);
 });
 ```

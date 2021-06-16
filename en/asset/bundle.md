@@ -209,7 +209,7 @@ bundle.load(`prefab`, Prefab, function (err, prefab) {
 });
 
 // Load Texture
-bundle.load(`image`, Texture2D, function (err, texture) {
+bundle.load(`image/texture`, Texture2D, function (err, texture) {
     console.log(texture)
 });
 ```
@@ -218,7 +218,7 @@ Like the `resources.load`, the `load` method also provides a type parameter, whi
 
 ```typescript
 // Load SpriteFrame
-bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
     console.log(spriteFrame);
 });
 ```
@@ -271,7 +271,7 @@ After loading the resources, all the resources are temporarily cached in `assetM
 1. Use the regular `assetManager.releaseAsset` method for release.
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         assetManager.releaseAsset(spriteFrame);
     });
     ```
@@ -279,7 +279,7 @@ After loading the resources, all the resources are temporarily cached in `assetM
 2. Use `release` method provided by the Asset Bundle, then pass in the path and type to release resources, but can only release the single resource in the Asset Bundle. The arguments can be the same as those used in the `load` method of the Asset Bundle.
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         bundle.release(`image`, SpriteFrame);
     });
     ```
@@ -287,7 +287,7 @@ After loading the resources, all the resources are temporarily cached in `assetM
 3. Use `releaseAll` method provided by the Asset Bundle, which is similar to the `assetManager.releaseAll`, but the `releaseAll` will release all resources that belong to the Asset Bundle (including resources in the Asset Bundle and the related dependent resources outside the Asset Bundle), so please use caution.
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         bundle.releaseAll();
     });
     ```
