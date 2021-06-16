@@ -52,7 +52,7 @@
 
 ```typescript
 start () {
-    resources.preload('images/background', SpriteFrame);
+    resources.preload('images/background/spriteFrame', SpriteFrame);
     setTimeOut(this.loadAsset.bind(this), 10000);
 }
 

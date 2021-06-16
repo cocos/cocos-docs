@@ -51,7 +51,7 @@ To reduce download latency, `assetManager` and Asset Bundle not only provides in
 
 ```typescript
 start () {
-    resources.preload('images/background', SpriteFrame);
+    resources.preload('images/background/spriteFrame', SpriteFrame);
     setTimeOut(this.loadAsset.bind(this), 10000);
 }
 
