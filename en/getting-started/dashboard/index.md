@@ -26,7 +26,7 @@ Recently opened projects can be quickly accessed through the **Project** tab. Th
 - **2** - Other versions of the editor can be selected to open the project.
 - **3** - Sort projects by time in forward/reverse order (new in version 1.0.12).
 - **4** - Search projects directly by project name (new in version 1.0.12).
-- **Add** button - For importing other projects.
+- **Add** button - For importing other projects. Since **v1.0.13**, allows dragging and droping project into the project list directly.
 - **New** button - Used to create a new project. Clicking this button will bring you to the **New Project** page, see below for details.
 
 ### New Project
@@ -49,9 +49,9 @@ This tab lists all the editor versions that have been downloaded and installed.
 
 ![Dashboard](index/dashboard-editor.png)
 
-Note that when you first run Cocos Dashboard, this list is empty. You can click the two buttons in the bottom right corner to import existing Creator editors locally or download and install them directly.
+> **Note**: when Cocos Dashboard is first run, this list is empty. Click the two buttons in the bottom right corner to import existing Creator editors locally or download and install them directly.
 
-- **Locate**: Add a local editor to the **Editor** version list.
+- **Locate**: Add a local editor to the **Editor** version list. Since **v1.0.13**, allows dragging and droping the local Creator Editor into the **Editor** version list directly.
 - **Download**: Click this button to jump to the editor download page, which will list all installed and uninstalled editor versions, you can select the desired editor version to download.
 
   ![Download](index/dashboard-download.png)

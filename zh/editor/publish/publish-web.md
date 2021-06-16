@@ -2,7 +2,7 @@
 
 打开主菜单的 **项目 -> 构建发布**，打开 [构建发布](build-panel.md) 面板。
 
-![](publish-web/web.png)
+![web](publish-web/web.png)
 
 Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布平台** 的下拉菜单选择 **Web Mobile** 或 **Web Desktop**，它们的区别主要在于：
 - **Web Mobile** 会默认将游戏视图撑满整个浏览器窗口。

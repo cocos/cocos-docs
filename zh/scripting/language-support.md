@@ -36,6 +36,17 @@ Cocos Creator 支持 TypeScript 4.1.0。在此基础上，做了以下限制：
 
 开发者仍然可以在项目中使用 `tsconfig.json` 以配合 IDE 实现类型检查等功能。为了让 IDE 的 TypeScript 检查功能和 Creator 行为兼容，开发者需要额外注意一些事项，详情可参考 [tsconfig](./tsconfig.md)。
 
+### TypeScript 参考教程
+
+- [Cocos Creator 3.0 TypeScript 问题答疑及经验分享](https://forum.cocos.org/t/topic/106995)
+- [TypeScript 官方网站](https://www.typescriptlang.org/)
+- [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
+- [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
+- [TypeScript - DefinitelyTyped](http://definitelytyped.org/)
+- [X 分钟速成 TypeScript](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
+- [TypeScript 源码](https://github.com/Microsoft/TypeScript)
+- [开发者回避使用 TypeScript 的三个借口 — 以及应当使用 TypeScript 的更有说服力的原因](https://mp.weixin.qq.com/s/7QQJxErt2-e4jLK2_4GUFA)
+
 ## JavaScript
 
 ### 语言特性
@@ -100,7 +111,7 @@ import blah from './blah-blah';
 export default blah;
 ```
 
-## 相关教程
+### JavaScript 参考教程
 
 - [JavaScript 标准参考教程](https://wangdoc.com/javascript/)
 - [JavaScript 秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/)

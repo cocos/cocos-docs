@@ -16,7 +16,7 @@ The game submission, review and release process of a mini-game needs to comply w
 
 3. Select the **ByteDance Mini Game** in the **Platform** in the **Build** panel, fill in the `mini game appid`, and then click **Build**
 
-    ![build](./publish-bytedance-mini-game/build.jpg)
+    ![build](./publish-bytedance-mini-game/build.png)
 
 4. Preview game
 

@@ -10,7 +10,7 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
         - **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
 
-        - **Mac**: `$HOME/.CocosCreator/extensions`
+        - **macOS**: `$HOME/.CocosCreator/extensions`
 
     - If selecting **Project**, this will apply the build extension to the specified Cocos Creator project. The path of **Project** is:
 

@@ -58,7 +58,6 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
         @property({ type: dragonBones.ArmatureDisplay })
         replaceArmatureDisplay: dragonBones.ArmatureDisplay | null = null;
 
-
         _leftWeaponIndex = 0;
         _rightDisplayIndex = 0;
         _rightDisplayNames:string[] = [];

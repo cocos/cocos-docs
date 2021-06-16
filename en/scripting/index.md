@@ -31,4 +31,8 @@ __Cocos Creator__ scripts are used to implement user-defined (game) behaviors.
 
 As a very commonly used system in the engine, we provide a complete and efficient event system for developers to use. For details, please see:
 
- [Event Mechanism](../engine/event/index.md)
+[Event Mechanism](../engine/event/index.md)
+
+## More Reference
+
+- [Recommended coding standards](./reference/coding-standards.md)
