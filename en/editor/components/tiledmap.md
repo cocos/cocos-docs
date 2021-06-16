@@ -14,7 +14,7 @@ For the script interface of TiledMap, please refer to the [TiledMap API](__APIDO
 
 | Property | Description
 | :---------------- | :----------------- |
-| **Tmx Asset** | Specifies a map asset in `.tmx` format |
+| **Tmx Asset** | Specifies a map asset in `.tmx` format (Please put `.tmx` and `.tsx` in the same folder)|
 | **EnableCulling** | Enables culling, which needs to be turned off if the map needs to be rotated or placed in the 3D camera. If the map is not very large, e.g., less than 5000 blocks, then turning off culling reduces the CPU computational load and the GPU renders directly using the cache.
 
 ## Detailed Description
