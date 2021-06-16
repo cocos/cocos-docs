@@ -90,4 +90,4 @@ The `Layer` property of a node is global and unique, but different nodes can set
 
 For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
 
-> **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
+> **Note**: only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.

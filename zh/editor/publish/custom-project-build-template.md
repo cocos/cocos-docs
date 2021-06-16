@@ -1,6 +1,6 @@
 # 自定义构建模版
 
-Cocos Creator 支持对每个项目分别定制构建模板，只需要在项目路径下添加一个 `build-templates` 目录，里面按照 **平台路径** 划分子目录。在构建结束后，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程中。
+Cocos Creator 支持对每个项目分别定制构建模板，只需要在项目路径下添加一个 `build-templates` 目录，里面按照 **平台插件名称** 划分子目录。在构建结束后，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程中。具体的 **平台插件名称** 请参考最下方的 **自定义构建模板平台支持表**。
 
 结构类似：
 
@@ -14,7 +14,7 @@ project-folder
          |--index.html
 ```
 
-这样如果当前构建的平台是 **Web Mobile** 的话，那么 `build-templates/web-mobile/index.html` 就会在构建后被拷贝到 `build/web-mobile（以构建任务名为准）/index.html`。
+这样如果当前构建的平台是 **Web Mobile** 的话，那么 `build-templates/web-mobile/index.html` 就会在构建后被拷贝到 `build/web-mobile（以平台插件名称为准）/index.html`。
 
 除此之外，目前构建模板支持的文件类型还包括 **ejs 类型** 和 **json 类型**。各平台的支持情况，详情请参考下文的 **平台支持表**。
 

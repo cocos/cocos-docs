@@ -6,7 +6,7 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 ## Macro Config
 
-For specific information and code about the engine macro module, you can refer to **Engine Macro** ([GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)), which provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
+For specific information and code about the engine macro module, you can refer to [Engine Macro](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824), which provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
 ![macro](./index/macro.png)
 
@@ -18,7 +18,7 @@ The **Feature Cropping** tab is mainly for modules used in the engine when relea
 
 ## Project Data
 
-The **Project Data** tab is mainly used to set the default Canvas, rendering pipeline, etc. and only works for the current project.
+The **Project Data** tab is mainly used to set the default Canvas, render pipeline, etc. and only works for the current project.
 
 ![project-data](./index/project-data.png)
 
@@ -28,7 +28,7 @@ The default Canvas settings include **Design Resolution** and **Fit Screen Width
 
 ### Render Pipeline
 
-The render pipeline is used to control the rendering process of the scene, currently supports **builtin-forward** (Forward Rendering Pipeline) and **builtin-deferred** (Deferred Rendering Pipeline), developers can also customize the render pipeline. Please refer to the [Render Pipeline Overview](../../render-pipeline/overview.md) documentations for details.
+The render pipeline is used to control the rendering process of the scene, currently supports **builtin-forward** (Forward Render Pipeline) and **builtin-deferred** (Deferred Render Pipeline), developers can also customize the render pipeline. Please refer to the [Render Pipeline Overview](../../render-pipeline/overview.md) documentations for details.
 
 ## Layers
 

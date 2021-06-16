@@ -94,3 +94,5 @@ The menu that pops up when right-clicking on a node also includes the following 
 - **Select All**: Select all nodes in the same hierarchy.
 - **Copy and print UUID/PATH**: In complex scenarios, we sometimes need to get the UUID or full hierarchy path of a node in order to access it when the script is running. Click this option to see the UUID of the currently selected node and the node's hierarchical path in the **Console** panel.
 - **Lock Node**: Mouse over the node and there will be a lock button on the left side, the node cannot be selected in the **Scene** panel once it is locked.
+
+  Starting from v3.1.1, batch locking of nodes and their children is supported. Select any node, hold down the <kbd>Alt</kbd> and click the lock button, and the node and its children will all be locked.
