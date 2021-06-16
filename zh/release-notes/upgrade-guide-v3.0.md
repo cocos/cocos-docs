@@ -233,9 +233,9 @@ Cocos Creator 3.0 拥有更加强大的插件系统，编辑器几乎所有功�
 
 ![image](extension-plugin.png)
 
-### 构建目录区别
+### 构建目录差异
 
-Cocos Creator 2.x 不同平台构建后生成的目录与 Cocos Creator 3.0 也有着一定程度上的不同。接下来我们以 v2.4.3 为例，和 v3.0 分别在 Web、原生和微信小游戏平台上进行对比。
+Cocos Creator 2.x 不同平台构建后生成的目录与 Cocos Creator 3.0 也有着一定程度上的差异。接下来我们以 v2.4.3 为例，和 v3.0 分别在 Web、原生和微信小游戏平台上进行对比。
 
 #### Web 平台
 
@@ -348,3 +348,4 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
 - [TypeScript - DefinitelyTyped](http://definitelytyped.org/)
 - [X 分钟速成 TypeScript](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
 - [TypeScript 源码](https://github.com/Microsoft/TypeScript)
+- [开发者回避使用 TypeScript 的三个借口 — 以及应当使用 TypeScript 的更有说服力的原因](https://mp.weixin.qq.com/s/7QQJxErt2-e4jLK2_4GUFA)

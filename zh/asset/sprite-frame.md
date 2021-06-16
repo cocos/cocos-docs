@@ -1,14 +1,30 @@
 # 精灵帧资源（SpriteFrame）
 
-Cocos Creator 3.0 的 SpriteFrame 是 UI 渲染基础图形的容器。其本身管理图像的裁剪和九宫格信息，默认持有一个与其同级的 Texture2D 资源引用。
+Cocos Creator 的 SpriteFrame 是 UI 渲染基础图形的容器。其本身管理图像的裁剪和九宫格信息，默认持有一个与其同级的 Texture2D 资源引用。
 
 ## 导入精灵帧资源
 
-使用默认的资源导入方式就可以将图像资源导入到项目中，将图像资源的类型选择为 **sprite-frame** 之后我们就可以在 **资源管理器** 中看到如下图所示的图像资源。
+使用默认的 [资源导入](asset-workflow.md) 方式将图像资源导入到项目中，然后在 **属性检查器** 中将图像资源的类型设置为 **sprite-frame**：
+
+![set sprite-frame](sprite-frame/set-spriteframe.png)
+
+Creator 便会自动在它下面创建一个如下所示的 spriteFrame 资源：
 
 ![imported texture](sprite-frame/imported_texture.png)
 
 图像资源在 **资源管理器** 中会以自身图片的缩略图作为图标。在 **资源管理器** 中选中图像子资源后，**属性检查器** 下方会显示该图片的缩略图。
+
+spriteFrame 的属性如下：
+
+| 属性 | 功能说明 |
+| :--- | :--- |
+| Packable    | 是否参与动态合图      |
+| Rotated  | 只读属性，不可更改。用于查看 Texture Packer 资源中的子资源是否被旋转 |
+| Offset X、Y | 只读属性，不可更改。用于查看 Texture Packer 资源中矩形框的偏移量 |
+| Trim Type | 裁剪类型，包括：<br>1. Auto — 自动裁剪<br>2. Custom — 自定义裁剪<br>3. None — 无裁剪，使用原图<br>详情请参考 [图像资源的自动剪裁](trim.md) |
+| Trim Threshold | 透明度阈值，默认为 1，取值范围为 0~1，会将透明度在设定值以下的像素裁减掉。当 Trim Type 设置为 **Auto** 时生效 |
+| Trim X、Y、Width、Height | 设置裁剪矩形框，当 Trim Type 设置为 **Custom** 时生效 |
+| Border Top、Bottom、Left、Right | 设置九宫格图边距，可点击下方的 **编辑** 按钮进行可视化编辑  |
 
 ## 使用 SpriteFrame
 

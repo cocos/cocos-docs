@@ -4,11 +4,27 @@ __Sprite Frame__ is a container for __UI rendering__ and basic graphics, which m
 
 ## Importing Sprite Frame Assets
 
-Use the __default asset import__ method to import image assets into the project, then set the type of image as __sprite-frame__ and can then be seen in the **Assets** panel.
+Use the default [asset import](asset-workflow.md) method to import image assets into the project, then set the type of image as __sprite-frame__ in the **Inspeactor** panel:
+
+![set sprite-frame](sprite-frame/set-spriteframe.png)
+
+Creator will then automatically create a spriteFrame resource under it as shown below:
 
 ![imported texture](sprite-frame/imported_texture.png)
 
 Image assets will use thumbnails of their own pictures as icons in the **Assets** panel. When the image sub-asset is selected in the **Assets** panel, a thumbnail of the image is displayed below the **Inspector** panel.
+
+The `spriteFrame` has the following properties:
+
+| Property | Description |
+| :--- | :--- |
+| Packable | Whether to be packed into Dynamic Atlas. |
+| Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
+| Offset X, Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
+| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
+| Trim Threshold | Set the transparency threshold, trim off the pixels whose transparency is below the set value.<br>The default value is 1, and the range of values is 0~1.<br>Only takes effect when **Trim Type** is set to **Auto**.  |
+| Trim X, Y, Width, Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
+| Border Top, Bottom, Left, Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
 
 ## Using a Sprite Frame
 
@@ -48,7 +64,7 @@ __Cocos Creator__ will provide a way to package an __Image Asset__ as a __Sprite
 
 ### The container contains objects that are used by RenderTexture
 
-__RenderTexture__ is a rendering texture that renders content from the camera directly to a texture instead of the screen. __SpriteFrame__ can easily display 3D camera content on the UI by managing __RenderTexture__. Use is as follows:
+__RenderTexture__ is a rendering texture that renders content from the camera directly to a texture instead of the screen. __SpriteFrame__ can easily display 3D camera content on the UI by managing __RenderTexture__. Example:
 
 ```typescript
 const cameraComp = this.getComponent(Camera);
@@ -68,4 +84,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API interface document: [SpriteFrame](__APIDOC__/en/classes/asset.spriteframe.html).
+For API information, please refer to the [SpriteFrame](__APIDOC__/en/classes/asset.spriteframe.html) documentation.

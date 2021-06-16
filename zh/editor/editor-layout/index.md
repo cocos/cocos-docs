@@ -5,7 +5,7 @@
 选择主菜单里的 **Cocos Creator -> 布局** 菜单，目前只支持 **默认布局**。在默认布局的基础上，也可以继续对各个面板的位置和大小进行调节。对布局的修改会自动保存在全局目录下：
 
 - **Windows**：`%USERPROFILE%\.CocosCreator\editor\window.json`
-- **Mac**：`$HOME/.CocosCreator/editor/window.json`
+- **macOS**：`$HOME/.CocosCreator/editor/window.json`
 
 ## 调整面板大小
 
@@ -33,7 +33,7 @@
 
 ![stack after](index/stack_after.png)
 
-层叠面板在桌面分辨率不足，或排布使用率较低的面板时非常实用。层叠中的面板可以随时拖拽出来，恢复永远在最上的显示。
+层叠面板在屏幕分辨率不足，或排布使用率较低的面板时非常实用。层叠中的面板可以随时拖拽出来，恢复永远在最上的显示。
 
 面板也支持弹出独立面板或者关闭面板操作，点击面板右上方的按钮即可。但需要注意的是 **场景编辑器** 面板不支持弹出/关闭。
 

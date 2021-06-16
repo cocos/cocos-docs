@@ -22,7 +22,7 @@ Uber Shader is still the dominant solution on some performance-constrained platf
 
 For a detailed introduction, please read:
 
-- [additive per-pixel lights](light/additive-per-pixel-lights.md)
+- [Additive per-pixel lights](light/additive-per-pixel-lights.md)
 
 ## Physically-based Lighting
 

@@ -1,6 +1,6 @@
 # 安装配置原生开发环境
 
-除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
+除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 Cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
 
 ## Android 平台相关依赖
 
@@ -36,7 +36,7 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
 4. 勾选 **Android SDK Platform-Tools** 和 **CMake**，如需安装 Android 支持库，请参考 [官方文档 — 支持库设置](https://developer.android.google.cn/topic/libraries/support-library/setup)。
-5. 勾选 **NDK**，推荐使用版本为 **r20~21**。需要注意的是目前暂时不支持 **NDK-r22**。
+5. 勾选 **NDK**，推荐使用版本为 **r18~21**。需要注意的是目前暂时不支持 **NDK-r22**。
 6. 记住窗口上方所示的 **Android SDK Location** 指示的目录，稍后我们需要在 Cocos Creator 编辑器中填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
 

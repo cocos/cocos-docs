@@ -1,10 +1,11 @@
-# Release Of Resources
+# Releasing Of Resources
 
 > Author: Santy-Wang, Xunyi
 
 A resource release module is provided in Asset Manager to manage the release of resources.
 
-When a resource is loaded, it is temporarily cached in `assetManager` for the next reuse. However, this also causes a constant growth in memory and video memory, so some resources can be released either by **Auto Release** or **Manual Release** if you don't need to use them.<br>
+When a resource is loaded, it is temporarily cached in `assetManager` for the next reuse. However, this also causes a constant growth in memory and video memory, so some resources can be released either by **Auto Release** or **Manual Release** if you don't need to use them.
+
 Releasing a resource will destroy all internal properties of the resource, such as data associated with the rendering layer, and move out of the cache, thus freeing up memory and video memory (for textures).
 
 **First and most important: Resources depends on each other.**

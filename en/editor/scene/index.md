@@ -1,55 +1,53 @@
 # Scene Panel
 
-<img src="images/scene-editor.png" width="100%" height="100%"/>
+![scene](images/scene.png)
 
-**Scene** panel is the core working area of content creation, You will use it to choose an place the scene image, character, effect, UI and other game elements. In this working area, you can select and use the **Transform Tool** to change the *position*, *rotation*, *scale*, *size* and *other attributes of node*, also you will preview the WYSIWYG scene.
+The **Scene** panel is the central work area for content creation, used for selecting and placing scene images, characters, effects, UI, and other game elements. This workspace allows to select and modify the position, rotation, and scaling of nodes with the **Transform Gizmos**, and get a WYSIWYG scene preview.
 
 ## View Introduction
 
-### Navigation
+The **Scene** panel includes two views, **3D** and **2D**. The 3D view is used for 3D scene editing, while the 2D view is mainly used for editing 2D elements such as UI nodes, etc. The scene view can be switched via the **3D/2D** button in the toolbar at the top left of the editor.
 
-There are some differences between 3D view and 2D view navigation. you can change between 3D view and 2D view by click the 3D/2D button on the toolbar. 3D view is used for 3D scene editing, 2D is used for UI and Sprite editing.
+### 3D view
 
-#### 3D View
+In the 3D view, you can move and position the view of the **Scene** panel by the following actions:
+- Left mouse button + Alt: rotates the view centered on its center point.
+- Middle mouse button: pans the view.
+- Mouse wheel: zoom the view centered on the view center point.
+- Right mouse button + WASD: camera roaming.
+- **F** Shortcut: focus the camera on the currently selected node.
 
-In 3D view, you can move and rotate the view of the **Scene** panel by the following operations:
-- **left mouse button + Alt**: rotate editor camera around view center.
-- **middle mouse button**: pan view.
-- **mouse scroll**: move editor camera back and forth.
-- **right mouse button + WASD**: wandering in scene editor.
-- **__F__ shortcut**: focus editor to the selected node.
+### 2D view
 
-#### 2D View
+In 2D view, the view of the **Scene** panel can be moved and positioned by the following actions:
+- Middle mouse button: pans the view.
+- Mouse wheel: zooms the view centered on the current mouse hover position.
+- Right mouse button: pans the view.
+- **F** Shortcut: focus the camera on the currently selected node.
 
-In 2D view, you can move and rotate the view of the **Scene** panel by the following operations:
-- **middle mouse button**: pan view.
-- **mouse scroll**: scale view based on the current mouse position.
-- **right mouse button**: pan view.
-- **__F__ shortcut**: focus editor to the selected node.
+## Coordinate System and Grid
 
-### Coordinate System And Grid
+The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
 
-The **Grid** in a scene is an important reference information for us to layout scene elements. For information on relationship between coordinate system and node attributes, like position, please read the [Transform](../../concepts/scene/coord.md) documentation.
+## Scene Gizmo
 
-### Scene Gizmo
-
-The **Scene Gizmo** is in the upper-right corner of the **Scene** view. It indicates the view direction of editor camera in **Scene** view. You can change view direction quickly by clicking on it.
+The Scene Gizmo is in the upper right corner of the scene view. It shows the current viewing direction of the scene camera and can be clicked to quickly switch between different viewing angles.
 
 ![Scene Gizmo](images/scene-gizmo.png)
 
-- Click on the six arrows, you can change to the *top*, *down*, *left*, *right*, *front*, *back* views separately.
-- Click on the cube in the center, you can switch between *ortho* camera mode and *perspective* camera mode.
+- Click on the 6 directional axes to quickly switch to the top, bottom, left, right, front, and back angles to view the scene.
+- Click the center cube to switch between orthogonal view and perspective view.
 
-## Selecting a node
+### Select node
 
-The node will be selected upon left-clicking the mouse on the node in the **Scene** panel. Use transform tools (like position, rotation) to do basic node operations when it is selected.
+Click the left mouse button in the scene view to select the node where the object is located. Selecting the node is a prerequisite for using transform gizmos to set the node position, rotation, scaling, etc.
 
-## Gizmo Operation Introduction
+### Gizmo operation introduction
 
-The main function of the **Scene** panel is to edit and arrange the visible elements in the scene and get a WYSIWYG scene immediately. Mainly **Gizmo** tools are used to assist in the visual editing of the scene. Please review the following documentation:
+The core function of **Scene** panel is to edit and arrange the visible elements in the scene in a WYSIWYG way. **Gizmos** are mainly used to assist in the visual editing of the scene.
 
 - [Transform Gizmo](./transform-gizmo.md)
 - [Camera Gizmo](./camera-gizmo.md)
 - [Light Gizmo](./light-gizmo.md)
 - [Collider Gizmo](./collider-gizmo.md)
-- [ParticleSystem Gizmo](./particle-system-gizmo.md)
+- [Particle System Gizmo](./particle-system-gizmo.md)

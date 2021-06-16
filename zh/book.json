@@ -51,6 +51,10 @@
                 "name": "3.0",
                 "links": [
                     {
+                        "name": "3.1",
+                        "link": "https://docs.cocos.com/creator/3.1/manual/zh"
+                    },
+                    {
                         "name": "3.0",
                         "link": "https://docs.cocos.com/creator/3.0/manual/zh"
                     },

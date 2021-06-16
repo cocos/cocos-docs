@@ -49,7 +49,7 @@ resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Textu
 });
 ```
 
-> **Note**: If a __type__ parameter is specified, an asset of the specified type will be found under the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both `player.clip` and `player.psd`), should need to declare types. When you need to get a "sub-asset" (such as getting the sub-asset __SpriteFrame__ of __ImageAsset__), you need to specify the path of the sub-asset.
+> **Note**: if a __type__ parameter is specified, an asset of the specified type will be found under the path. When you are in the same path includes multiple names simultaneously under a resource (for example, contains both `player.clip` and `player.psd`), should need to declare types. When you need to get a "sub-asset" (such as getting the sub-asset __SpriteFrame__ of __ImageAsset__), you need to specify the path of the sub-asset.
 
 ### Load SpriteFrames from Atlas
 
@@ -142,7 +142,7 @@ assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, imageAsset) {
+assetManager.loadRemote<ImageAsset>(remoteUrl, {ext: 'png'}, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
     const texture = new Texture2D();
     texture.image = imageAsset;

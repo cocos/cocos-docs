@@ -8,7 +8,7 @@
 
 Cocos Creator 只需在 **构建发布** 面板中，勾选 **分离引擎** 选项，然后正常构建发布即可，无需其它人工操作。（此功能仅在编辑器使用内置引擎并且构建时使用 **非调试模式** 时生效）
 
-![构建面板选项](./wechatgame-plugin/build-options.jpg)
+![构建面板选项](./wechatgame-plugin/build-options.png)
 
 ## Q&A
 

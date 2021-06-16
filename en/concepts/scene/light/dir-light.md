@@ -2,7 +2,7 @@
 
 Directional light is the most common type of lights, and can be understood as the dominant light in a scene. The lighting effect is not affected by the **light position** and **orientation**, and is suitable for achieving sunlight. However, **rotation** affects the direction of directional lights illumination, which in turn affects the range to which the model receives illumination and where the model produces shadows.
 
-![image](dir-light.jpg)
+![image](dirlights/dir-light.jpg)
 
 > **Note**: Cocos Creator currently supports only one main directional light. If more than one is added at the same time, the last one added will prevail.
 
@@ -12,12 +12,12 @@ For the related interface of the directional light component, please refer to th
 
 ## Main Directional Lights Properties
 
-![image](dir-light-prop.png)
+![image](dirlights/dir-light-prop.png)
 
 | Property | Description |
 | :------- | :--- |
 | **Color** | Set the light color |
 | **UseColorTemperature** | Whether to enable color temperature |
 | **ColorTemperature** | Adjust the color temperature |
-| **StaticSettings** | Set up static lighting, see [LightMap](../../../editor/lightmap/index.md) for details |
+| **StaticSettings** | Set up static lighting, see [Lightmapping](lightmap.md) for details |
 | **Illumination** | Illumination, unit **lux (lx)** |
