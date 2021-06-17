@@ -13,15 +13,13 @@ To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/classes/ui.sprit
 | Property | Function Explanation
 | :-------------- | :----------- |
 | **Type** | Rendering mode, currently includes `SIMPLE`, `SLICED`, `TILED`, `FILLED` four rendering modes.
-| **Materials** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
-| **Src Blend Factor** | The source image blend mode.
-| **Dst Blend Factor** | The destination image blend mode. Together with the above properties, you can mix the foreground Sprite and background in different ways to render, and you can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php) for an effect preview.
-| **Color** | Image color.
-| **Size Mode** | Specify the size of the Sprite.<br>`TRIMMED` automatically fit to the size of the sprite cropped<br>`RAW` automatic fit for sprite original size.<br>`CUSTOM` use the node preset size. When the developer manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
-| **Atlas** | [Auto Atlas](../../../asset/atlas.md) which the Sprite display image asset belongs to.
-| **Sprite Frame** | [Sprite Frame Assets](../../../asset/sprite-frame.md) which is used to render the Sprite. (The __Edit__ button behind Sprite Frame is used to edit the 9-sliced cutting of the image asset, please refer to the [Use a Sliced Sprite to make a UI image](../engine/sliced-sprite.md) documentation.
-| **Trim** | Whether the transparent pixel area is included in the node bounding box. Please refer to the [Auto Trim for SpriteFrame](../engine/trim.md) documentation.
+| **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
 | **Grayscale** | If enabled, Sprite will be rendered in gray scale mode.
+| **Color** | Image color.
+| **Sprite Atlas** | [Auto Atlas](../../../asset/atlas.md) which the Sprite display image asset belongs to.
+| **Sprite Frame** | [Sprite Frame Assets](../../../asset/sprite-frame.md) which is used to render the Sprite. (The __Edit__ button behind Sprite Frame is used to edit the 9-sliced cutting of the image asset, please refer to the [Use a Sliced Sprite to make a UI image](../engine/sliced-sprite.md) documentation.
+| **Size Mode** | Specify the size of the Sprite.<br>`TRIMMED` automatically fit to the size of the sprite cropped<br>`RAW` automatic fit for sprite original size.<br>`CUSTOM` use the node preset size. When the developer manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
+| **Trim** | Whether the transparent pixel area is included in the node bounding box. Please refer to the [Auto Trim for SpriteFrame](../engine/trim.md) documentation.
 
 After adding the Sprite component, drag the SpriteFrame type asset from the __Assets__ to the `Sprite Frame` property reference. Then, the asset image can be displayed through the Sprite component.
 
