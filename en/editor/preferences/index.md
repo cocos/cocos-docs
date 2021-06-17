@@ -68,12 +68,31 @@ For details on customizing the engine, please review the [Engine customization w
 
 ## Asset Database
 
-The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels** and **Ignore (regular)**.
+The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels** , **Ignore (regular)** and **Default Meta**.
 
-![asset-db](./index/asset-db.png)
+![asset-db](./index/asset-db.jpg)
 
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Regular)**: use a regular expression and fill in the path to a specific asset file, then that asset will be ignored.
+- **Default Meta**: This option is used to control the useData when importing resources within a project.
+
+### Default Meta
+
+For example, if we want to import images of the sprite-frame type by Default, we can go to the Default Meta option and click "Edit", which will open a JSON file. Fill in the following:
+
+```json
+{
+    "image": {
+        "type": "sprite-frame"
+    }
+}
+```
+
+Where "image" is the type of the resource, if we want to know, we can find the resource file, open the corresponding meta file, and mark the type of the resource in the field of importer.
+
+The resource type is key, and the value needs to be an object. This object is the default configuration to be handed to the importer. This configuration corresponds to the userData field in the Meta file that has just been opened. The "type" here is set to "sprite-frame". When importing, the default userData.type will be set to sprite-frame. This allows us to dynamically set the default import configuration for each resource, depending on the project.
+
+Finally, we need to click the "Apply" button to refresh the configuration information of the resource database. If the application is applied, it will not take effect until the next restart of the program.
 
 ## Console
 
