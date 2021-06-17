@@ -28,7 +28,7 @@ The logic of the engine downloading resources is as follows:
 The Cache Manager provides a `getCache` interface to query all cache resources, and you can query the cache path of a resource by passing in its original path, for example:
 
 ```typescript
-resources.load('images/background', Texture2D, function (err, texture) {
+resources.load('images/background/texture', Texture2D, function (err, texture) {
     const cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
     console.log(cachePath);
 });

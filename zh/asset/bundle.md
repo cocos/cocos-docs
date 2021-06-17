@@ -210,7 +210,7 @@ bundle.load(`prefab`, Prefab, function (err, prefab) {
 });
 
 // 加载 Texture
-bundle.load(`image`, Texture2D, function (err, texture) {
+bundle.load(`image/texture`, Texture2D, function (err, texture) {
     console.log(texture)
 });
 ```
@@ -219,7 +219,7 @@ bundle.load(`image`, Texture2D, function (err, texture) {
 
 ```typescript
 // 加载 SpriteFrame
-bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
     console.log(spriteFrame);
 });
 ```
@@ -272,7 +272,7 @@ Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 Asset
 1. 使用常规的 `assetManager.releaseAsset` 方法进行释放。
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         assetManager.releaseAsset(spriteFrame);
     });
     ```
@@ -280,7 +280,7 @@ Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 Asset
 2. 使用 Asset Bundle 提供的 `release` 方法，通过传入路径和类型进行释放，只能释放在 Asset Bundle 中的单个资源。参数可以与 Asset Bundle 的 `load` 方法中使用的参数一致。
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         bundle.release(`image`, SpriteFrame);
     });
     ```
@@ -288,7 +288,7 @@ Asset Bundle 中提供了 `preload` 和 `preloadDir` 接口用于预加载 Asset
 3. 使用 Asset Bundle 提供的 `releaseAll` 方法，此方法与 `assetManager.releaseAll` 相似，`releaseAll` 方法会释放所有属于该 bundle 的资源（包括在 Asset Bundle 中的资源以及其外部的相关依赖资源），请慎重使用。
 
     ```typescript
-    bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
+    bundle.load(`image/spriteFrame`, SpriteFrame, function (err, spriteFrame) {
         bundle.releaseAll();
     });
     ```

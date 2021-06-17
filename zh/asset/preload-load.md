@@ -14,10 +14,10 @@
 因为预加载没有去解析资源，所以需要在预加载完成后配合加载接口进行资源的解析和初始化，来完成资源加载。例如：
 
 ```typescript
-resources.preload('images/background', SpriteFrame);
+resources.preload('images/background/spriteFrame', SpriteFrame);
 
 // wait for while 
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     spriteFrame.addRef();
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });

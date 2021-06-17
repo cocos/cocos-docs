@@ -14,10 +14,10 @@ Compared to previous versions of Creator v2.4, these optimizations reduce the pr
 Since the preload does not parse the resources, you need to parse and initialize the resources with the loading interface to complete the resource loading after the preload is complete. For example:
 
 ```typescript
-resources.preload('images/background', SpriteFrame);
+resources.preload('images/background/spriteFrame', SpriteFrame);
 
 // Wait for while 
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     spriteFrame.addRef();
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });
