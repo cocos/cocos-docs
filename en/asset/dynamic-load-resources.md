@@ -142,7 +142,7 @@ assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-assetManager.loadRemote<ImageAsset>(remoteUrl, {ext: 'png'}, function (err, imageAsset) {
+assetManager.loadRemote<ImageAsset>(remoteUrl, {ext: '.png'}, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
     const texture = new Texture2D();
     texture.image = imageAsset;
