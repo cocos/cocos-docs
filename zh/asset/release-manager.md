@@ -110,7 +110,7 @@ assetManager.releaseAsset(texture);
 如果开发者在项目中使用动态加载资源来进行动态引用，例如：
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -118,7 +118,7 @@ resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
 此时会将 SpriteFrame 资源设置到 Sprite 组件上，引擎不会做特殊处理，SpriteFrame 的引用计数仍保持 0。如果动态加载出来的资源需要长期引用、持有，或者复用时，建议使用 `addRef` 接口手动增加引用计数。例如：
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
     spriteFrame.addRef();
 });

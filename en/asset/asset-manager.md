@@ -22,7 +22,7 @@ In addition to applying resources to the corresponding components while editing 
 2. developers can plan their own resource creation as Asset Bundle and load resources through the Asset Bundle's `load` family of APIs. For example:
 
     ```typescript
-    resources.load('images/background', SpriteFrame, (err, asset) => {
+    resources.load('images/background/spriteFrame', SpriteFrame, (err, asset) => {
       this.getComponent(Sprite).spriteFrame = asset;
     });
     ```
@@ -51,12 +51,12 @@ To reduce download latency, `assetManager` and Asset Bundle not only provides in
 
 ```typescript
 start () {
-    resources.preload('images/background', SpriteFrame);
+    resources.preload('images/background/spriteFrame', SpriteFrame);
     setTimeOut(this.loadAsset.bind(this), 10000);
 }
 
 loadAsset () {
-    resources.load('images/background', SpriteFrame, (err, asset) => {
+    resources.load('images/background/spriteFrame', SpriteFrame, (err, asset) => {
         this.getComponent(Sprite).spriteFrame = asset;
     });
 }
@@ -70,7 +70,7 @@ You can partition your scenes, resources, and code into multiple Asset Bundles a
 
 ```typescript
 assetManager.loadBundle('testBundle', function (err, bundle) {
-    bundle.load('textures/background', (err, asset) => {
+    bundle.load('textures/background/texture', (err, asset) => {
         // ...
     });
 });
@@ -93,7 +93,7 @@ Creator also provides a reference counting mechanism to help you control the ref
 - When you need to hold a resource, call `addRef` to add a reference to ensure that the resource is not automatically released by other references to it.
 
   ```typescript
-  resources.load('textures/armor', Texture2D, function (err, texture) {
+  resources.load('textures/armor/texture', Texture2D, function (err, texture) {
       texture.addRef();
       this.texture = texture;
   });
