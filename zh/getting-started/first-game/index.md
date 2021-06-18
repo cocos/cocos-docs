@@ -714,7 +714,7 @@ onStartButtonClicked() {
 public CocosAnim: SkeletalAnimation = null;
 ```
 
-同时，可以弃用为胶囊体制作的动画，并注释相关代码：
+同时，因为我们将主角从胶囊体换成了人物模型，可以弃用之前为胶囊体制作的动画，并注释相关代码：
 
 ```ts
 // @property({type: Animation})
