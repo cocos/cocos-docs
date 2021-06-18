@@ -48,9 +48,11 @@
 
 2. 准备签名文件，签名文件的获取方式请参考下文 **签名文件** 部分的内容。
 
-3. 配置签名文件。点击 DevEco Studio 菜单栏中的 **File -> Project Structure**，然后选择 **Modules -> entry**，在 **Signing Configs** 页面 [配置签名信息](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section19238119191816)。
+3. 配置签名文件。点击 DevEco Studio 菜单栏中的 **File -> Project Structure**，选择 **Modules -> entry**，在 **Signing Configs** 页面 [配置签名信息](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section19238119191816)。
 
     ![sign configs](./publish-huawei-ohos/sign-configs-debug.png)
+
+    然后继续在 **Project -> Signing Configs** 中配置签名信息。
 
     设置完成并保存后，配置的签名信息可以在项目目录下的 `native\engine\ohos\entry\build.gradle` 文件中查看。
 
@@ -73,6 +75,8 @@
 5. 使用 USB 连接 HarmonyOS 系统的华为设备，然后点击菜单栏中的 **Run -> Run ‘entry’**，或者点击上方的运行按钮，即可将 HarmonyOS 应用运行到设备上。详情可参考 [运行 HarmonyOS 应用](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/run_phone_tablat-0000001064774652)。
 
     ![run project](./publish-huawei-ohos/run-project.png)
+
+    > **注意**：若运行到设备上时发现找不到图标，可检查一下项目目录下的 `native\engine\ohos\entry\src\main\config.json` 中是否有 `installationFree` 字段并为 `true`，将其改为 `false` 即可。
 
 6. 若需要上传并发布 HarmonyOS 应用到华为应用市场，具体流程请参考官方文档 [发布 HarmonyOS 应用指南](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-harmonyapp-releaseharmonyapp)。
 

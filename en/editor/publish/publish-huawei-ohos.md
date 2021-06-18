@@ -52,6 +52,8 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![sign configs](./publish-huawei-ohos/sign-configs-debug.png)
 
+    Then proceed to configure the signature information in **Project -> Signing Configs**.
+
     After setting and saving, the configured signature information can be viewed in the project directory in the `native\engine\ohos\entry\build.gradle` file in the project directory.
 
     Depending on the build type (Debug/Release) and whether the generated `.hap` contains signature information, the developer can configure in combination as needed, please refer to the [Building and Creating HAPs](https://developer.harmonyos.com/en/docs/documentation/doc-guides/build_hap-0000001053342418) documentation for details.
@@ -73,6 +75,8 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 5. Connect Huawei devices with HarmonyOS system using USB, then click **Run -> Run ‘entry’** in the menu bar or click the Run button above to run the HarmonyOS app to your device. Please refer to the [Running Your App](https://developer.harmonyos.com/en/docs/documentation/doc-guides/run_phone_tablat-0000001064774652) documentation for details.
 
     ![run project](./publish-huawei-ohos/run-project.png)
+
+    > **Note**: if the app icon is not found when running on the device, check if there is an `installationFree` field with `true` in the `native\engine\ohos\entry\src\main\config.json` file in the project directory, change it to `false`.
 
 6. If need to upload and publish HarmonyOS apps to Huawei AppGallery Connect, please refer to the official [Release HarmonyOS Application Guide](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-harmonyapp-releaseharmonyapp) documentation for the specific process.
 
