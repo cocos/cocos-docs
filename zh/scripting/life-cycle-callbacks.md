@@ -32,7 +32,7 @@ export class test extends Component {
 
     onLoad(){
         this._bulletRect=this.bulletSprite.getRect();
-        this.gun = find('hand/weapon'),this.node;
+        this.gun = find('hand/weapon', this.node);
     }
 }
 ```

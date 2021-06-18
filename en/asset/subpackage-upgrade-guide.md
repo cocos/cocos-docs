@@ -30,7 +30,7 @@ Use the `loader.downloader.loadSubpackage` API to load the subpackage.
   // after
   assetManager.loadBundle('sub1', (err, bundle) => {
     // The relative path to the Asset Bundle root
-    bundle.load('sprite-frames/background', SpriteFrame);
+    bundle.load('sprite-frames/background/spriteFrame', SpriteFrame);
   });
   ```
 

@@ -26,7 +26,7 @@ In addition, all `Asset` instances have member functions `Asset.addRef` and `Ass
 
 ```typescript
 start () {
-    resources.load('images/background', Texture2D, (err, texture) => {
+    resources.load('images/background/texture', Texture2D, (err, texture) => {
         this.texture = texture;
         // Add references to resources when you need to use them.
         texture.addRef();
