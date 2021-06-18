@@ -68,12 +68,48 @@ For details on customizing the engine, please review the [Engine customization w
 
 ## Asset Database
 
-The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels** and **Ignore (regular)**.
+The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels**, **Ignore (regular)** and **Default Meta**.
 
-![asset-db](./index/asset-db.png)
+![asset-db](./index/asset-db.jpg)
 
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Regular)**: use a regular expression and fill in the path to a specific asset file, then that asset will be ignored.
+- **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
+
+### Default Meta
+
+This option is used to set the default configuration when importing assets into the project. For example, if want the imported image to be `sprite-frame` by default, then click on the **Edit** button to the right of this option and fill in the following in the `json` file that opens:
+
+```json5
+{
+    // 'image' indicates that the type of the asset is an image.
+    "image": {
+        "type": "sprite-frame"
+    }
+}
+```
+
+After editing and saving, return to the editor and click the **Apply** button to take effect.
+
+The asset type is `key`, and the key value `value` needs to be an **object**, which is the default configuration used when the asset is imported.<br>
+For example, in the above sample code, the `key` is `image`, the `value` is the content configured in `image`, and the configuration information of the asset database will be refreshed after clicking the **Apply** button, and the content in `image` will be configured into the `userData` field of the asset `meta` file one by one. For example, if `image.type` is set to `sprite-frame`, the default `userData.type` will be set to `sprite-frame` when importing image assets. So the default import configuration of various assets can be set dynamically according to project needs.
+
+If want to get the asset type, just right-click on the asset in **Assets** panel, select **Reveal in Explorer**, then find the meta file corresponding to the asset in the opened folder and open it, the asset type will be marked in the `importer` field.
+
+For example, the meta file for a material asset is as follows:
+
+```json
+{
+  "ver": "1.0.9",
+  "importer": "material",
+  "imported": true,
+  "uuid": "482a5162-dad9-446c-b548-8486c7598ee1",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {}
+}
 
 ## Console
 
