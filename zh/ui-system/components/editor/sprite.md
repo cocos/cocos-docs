@@ -14,7 +14,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
-| Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式
+| Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式，详情请参考下文 **渲染模式** 部分的内容
 | CustomMaterial | 自定义材质，使用方法参考 [自定义材质](../engine/ui-material.md)
 | Grayscale | 灰度模式，开启后 Sprite 会使用灰度模式渲染。
 | Color | 图片颜色

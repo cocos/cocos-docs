@@ -12,7 +12,7 @@ To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/classes/ui.sprit
 
 | Property | Function Explanation
 | :-------------- | :----------- |
-| **Type** | Rendering mode, currently includes four rendering modes: `SIMPLE`, `SLICED`, `TILED` and `FILLED`.
+| **Type** | Rendering mode, currently includes four rendering modes: `SIMPLE`, `SLICED`, `TILED` and `FILLED`. Please refer to the **Rendering mode** section below for details.
 | **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
 | **Grayscale** | If enabled, Sprite will be rendered in gray scale mode.
 | **Color** | Image color.
