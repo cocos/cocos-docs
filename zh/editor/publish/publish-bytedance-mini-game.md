@@ -22,7 +22,7 @@
 
     通用构建选项的设置请参考 [通用构建选项](build-options.md)，字节跳动小游戏特有的构建选项如下，具体说明请参考下文 **构建选项** 部分的内容。
 
-    ![bytedance-options](./publish-bytedance-mini-game/bytedance-build.png)
+    ![bytedance-options](./publish-bytedance-mini-game/build-options.png)
 
 2. **构建发布** 面板的构建选项设置完成后，点击 **构建**。<br>
     构建完成后点击 **构建任务** 左下角的文件夹图标按钮打开项目发布包，可以看到在默认发布路径 `build` 目录下生成了 `bytedance-mini-game`（以具体的构建任务名为准）文件夹，其中已经包含了字节跳动小游戏环境的配置文件 `game.json` 和 `project.config.json`。
@@ -33,15 +33,35 @@
 
     ![tool](./publish-bytedance-mini-game/tool.png)
 
-### 构建选项介绍
+### 构建选项
 
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :---- | :-- | :-- |
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中 | `orientation` |
 | AppID | 必填项，字节跳动小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
+| AppSecret | AppID 对应的 AppSecret，用于拉取 PhysX 支持库，仅在物理系统选择为 **PhysX 物理** 时必填 | `appSecret` |
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
+| PhysX - multiThread | 是否启用多线程模式，仅在使用 PhysX 物理时生效 | `physX.multiThread` |
+| PhysX - subThreadCount | 启用多线程模式时子线程的个数，仅在使用 PhysX 物理时生效 | `physX.subThreadCount` |
+| PhysX - epsilon | 容忍误差，仅在使用 PhysX 物理时生效。若启用该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
+
+## 原生物理
+
+字节跳动平台一直致力于为开发者提供更强大的性能和基础能力，抖音将在 v16.3 及之后的版本为小游戏提供 PhysX 原生物理接口。而 Creator 与字节跳动平台进行了深度合作，在 **v3.2** 中以实验性功能支持在字节跳动小游戏中使用平台提供的 PhysX 物理能力，优化物理运算性能，对比使用 Bullet 物理有近 100% 的性能提升：
+
+![compare performance](./publish-bytedance-mini-game/performance.png)
+
+使用原生物理的前提是需要在主菜单栏的 **项目 -> 项目设置 -> 功能裁剪** 中将 **物理系统** 设置为 **PhysX 物理**。然后打开 **构建发布** 面板，**发布平台** 选择 **字节跳动小游戏**，可以看到原生物理相关的配置选项如下：
+
+![PhysX options](./publish-bytedance-mini-game/physx-options.png)
+
+具体的选项说明请参考上文 **构建选项介绍** 部分的内容。
+
+> **注意**：
+> 1. 字节跳动平台的原生物理目前仅支持安卓版本的抖音，且版本需大于等于 **v16.3**。
+> 2. 字节跳动开发者工具目前还不支持运行原生物理，只能真机预览和调试。
 
 ## 分包加载
 

@@ -15,6 +15,7 @@ Cocos Creator 目前支持发布游戏到 Web、iOS、Android、Windows、Mac，
 
 - [发布到 Web 平台](publish-web.md)
 - [发布到原生平台](native-options.md)
+    - [发布 HUAWEI HarmonyOS 应用](publish-huawei-ohos.md)
     - [安装配置原生环境](setup-native-development.md)
     - [原生平台 JavaScript 调试](debug-jsb.md)
 - [发布到小游戏平台](publish-mini-game.md)

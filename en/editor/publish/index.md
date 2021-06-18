@@ -15,6 +15,7 @@ Currently, Cocos Creator supports publishing to the following platforms:
 
 - [Publish to Web Platforms](publish-web.md)
 - [Publish to Native Platforms](native-options.md)
+    - [Publish for the Huawei HarmonyOS](publish-huawei-ohos.md)
     - [Setup Native Development Environment](setup-native-development.md)
     - [Debugging JavaScript on Native Platforms](debug-jsb.md)
 - [Publish to Mini Game Platforms](publish-mini-game.md)

@@ -51,6 +51,7 @@
     - [通用构建选项介绍](editor/publish/build-options.md)
     - [发布到 Web 平台](editor/publish/publish-web.md)
     - [发布到原生平台](editor/publish/native-options.md)
+        - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
         - [安装配置原生环境](editor/publish/setup-native-development.md)
         - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)

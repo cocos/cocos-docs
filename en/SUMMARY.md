@@ -64,6 +64,7 @@
     - [General Build Options](editor/publish/build-options.md)
     - [Publish to Web Platforms](editor/publish/publish-web.md)
     - [Publish to Native Platforms](editor/publish/native-options.md)
+        - [Publish for the Huawei HarmonyOS](editor/publish/publish-huawei-ohos.md)
         - [Setup Native Development](editor/publish/setup-native-development.md)
         - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
