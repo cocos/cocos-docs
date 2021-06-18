@@ -78,7 +78,7 @@ var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I
 cc.log(result); //5
 ```
 
-z这样在 **控制台** 中就会有正确的输出。
+这样在 **控制台** 中就会有正确的输出。
 
 ## 注意
 
@@ -152,4 +152,4 @@ Application::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
 });
 ```
 
-这样在点击 OK 按钮后，你应该可以在控制台看到正确的输出。`evalString` 可以执行任何 JavaScript 代码，并且它可以访问到你在 JavaScript 代码中的对象。
+这样在点击 OK 按钮后，便可以在控制台看到正确的输出。`evalString` 可以执行任何 JavaScript 代码，并且它可以访问到在 JavaScript 代码中的对象。
