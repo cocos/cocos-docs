@@ -68,7 +68,7 @@ For details on customizing the engine, please review the [Engine customization w
 
 ## Asset Database
 
-The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels** , **Ignore (regular)** and **Default Meta**.
+The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels**, **Ignore (regular)** and **Default Meta**.
 
 ![asset-db](./index/asset-db.jpg)
 
