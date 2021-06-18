@@ -1,12 +1,10 @@
-# 扩展 UI Kit
+# Extend UI Kit
 
-如果发现 Cocos Creator 内置的界面元素仍然满足不了你的需求，也不必太担心，你可以通过自定义元素
-来对 UI Kit 进行扩展。
+If the built-in interface elements of Cocos Creator cannot meet the development needs, don’t worry too much. The elements can be customized by extending the UI Kit.
 
-UI Kit 的扩展是基于 HTML5 的 [Custom Elements](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/) 标准。
+The extension of UI Kit is based on HTML5's [Custom Elements](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/) standard.
 
-通过 `Editor.UI.registerElement(tagName, prototype)` 我们可以很轻松的注册自定义元素。这里
-有一个简单的范例。
+Through `Editor.UI.registerElement(tagName, prototype)` custom elements can easily be registered. The following is a simple example:
 
 ```javascript
 Editor.UI.registerElement('foobar-label', {
@@ -25,22 +23,21 @@ Editor.UI.registerElement('foobar-label', {
 });
 ```
 
-当你完成上面的代码，并在 Panel 中正确 require 后，你就可以在编辑器中使用 `<foobar-label>`
-这个元素。
+Using the above code the element `<foobar-label>` can be used in the editor.
 
-更多关于自定义元素定义的选项，请阅读 [自定义界面元素定义参考](reference/custom-element-reference.md)。
+For more information about custom element definition options, please review the [Custom Interface Element Definition Reference](reference/custom-element-reference.md) documentation.
 
-## 内容分布
+## Content Distribution
 
-有时候我们会在自定义元素内加入内容，为了能够让自定义元素正确处理内容，需要在模板中通过 `<content>` 标签加以说明。这个过程我们称作“内容分布”。
+Content can be added to custom elements. In order to allow the custom element to handle the content correctly, it needs to be described in the template through the `<content>` tag. This process is called "content distribution".
 
-拿上面的例子来说，假设我们希望 `<foobar-label>` 不只是显示 Foobar，而是根据我们加入的内容进行显示，例如：
+Taking the above example, suppose that `<foobar-label>` not only needs to display `Foobar`, but to display other content, use the following example:
 
 ```javascript
 <foobar-label>Hello World</foobar-label>
 ```
 
-这个时候就需要使用内容分发功能。我们可以对之前的范例做一个小小的更改：
+At this time, use the content distribution function. Here is a change to a small example:
 
 ```javascript
 template: `
@@ -50,11 +47,11 @@ template: `
 `
 ```
 
-通过使用 `<content>` 标签告诉样板，我们希望将用户内容放置在这个地方。
+By using the `<content>` tag to tell the boilerplate to place user content in this place.
 
-## 内容分布选择器
+## Content distribution selector
 
-有时候自定义元素的内容不止是文字，而是一些复合元素，我们在做内容分发的时候，希望有些元素在某些标签下，有些元素位于另外的标签中。这个时候就可以考虑使用内容分发选择器。考虑如下样例：
+Sometimes the content of custom elements is not just text, but some composite elements. When distributing content, the hope is that some elements are under certain tags and some elements are located in other tags. Consider using the content distribution selector. Consider the following example:
 
 ```javascript
 <foobar-label>
@@ -63,7 +60,7 @@ template: `
 </foobar-label>
 ```
 
-如果我们希望将 `.title` 和 `.body` 元素内容区分对待，我们可以做如下代码：
+To treat the contents of `.title` and `.body` elements differently, use the following code:
 
 ```javascript
 template: `
@@ -76,4 +73,4 @@ template: `
 `
 ```
 
-通过 `<content>` 标签中加入 `select` 属性，我们可以利用选择器来分布内容。
+By adding the `select` attribute to the `<content>` tag, use selectors to distribute content.
