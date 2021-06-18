@@ -1,6 +1,6 @@
 # 快速上手：制作第一个游戏
 
-Cocos Creator编辑器的强大之处就是可以让开发者快速的制作游戏原型。
+Cocos Creator 编辑器的强大之处就是可以让开发者快速的制作游戏原型。
 
 下面我们将跟随教程制作一款名叫 **一步两步** 的魔性小游戏。这款游戏考验玩家的反应能力，根据路况选择是要跳一步还是跳两步，“一步两步，一步两步，一步一步似爪牙似魔鬼的步伐”。
 
@@ -114,7 +114,7 @@ export class PlayerController extends Component {
 }
 ```
 
-这些代码就是编写一个组件（脚本）所需的结构。具有这样结构的脚本就是 Cocos Creator 中的 **组件（Component）**，它们能够挂载到场景中的节点上，提供控制节点的各种功能，更详细的脚本信息可以查看 [脚本](../../scripting/index.md)。
+这些代码就是编写一个组件（脚本）所需的结构。其中，继承自 `Component` 的脚本称之为 **组件（Component）**，它能够挂载到场景中的节点上，用于控制节点的行为，更详细的脚本信息可以查看 [脚本](../../scripting/index.md)。
 
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
@@ -132,15 +132,22 @@ export class PlayerController extends Component {
     // serializableDummy = 0;
 
     // for fake tween
+    // 是否接收到跳跃指令
     private _startJump: boolean = false;
+    // 跳跃步长
     private _jumpStep: number = 0;
+    // 当前跳跃时间
     private _curJumpTime: number = 0;
+    // 每次跳跃时常
     private _jumpTime: number = 0.1;
+    // 当前跳跃速度
     private _curJumpSpeed: number = 0;
+    // 当前角色位置
     private _curPos: Vec3 = new Vec3();
+    // 每次跳跃过程中，当前帧移动位置差
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    // 角色目标位置
     private _targetPos: Vec3 = new Vec3();
-    private _isMoving = false;
 
     start () {
         // Your initialization goes here.
@@ -158,7 +165,7 @@ export class PlayerController extends Component {
     }
 
     jumpByStep(step: number) {
-        if (this._isMoving) {
+        if (this._startJump) {
             return;
         }
         this._startJump = true;
@@ -167,12 +174,6 @@ export class PlayerController extends Component {
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
-
-        this._isMoving = true;
-    }
-
-    onOnceJumpEnd() {
-        this._isMoving = false;
     }
 
     update (deltaTime: number) {
@@ -182,7 +183,6 @@ export class PlayerController extends Component {
                 // end
                 this.node.setPosition(this._targetPos);
                 this._startJump = false;
-                this.onOnceJumpEnd();
             } else {
                 // tween
                 this.node.getPosition(this._curPos);
@@ -241,7 +241,7 @@ export class PlayerController extends Component {
 
     ```ts
     @property({type: Animation})
-    public BodyAnim: Animation|null = null;
+    public BodyAnim: Animation | null = null;
     ```
 
     然后在 **属性检查器** 中将 Body 身上的 `Animation` 拖到这个变量上。
@@ -290,6 +290,7 @@ Player 需要一个很长的跑道，理想的方法是能动态增加跑道的�
 import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from 'cc';
 const { ccclass, property } = _decorator;
 
+// 赛道格子类型，坑（BT_NONE）或者实路（BT_STONE）
 enum BlockType {
     BT_NONE,
     BT_STONE,
@@ -298,23 +299,29 @@ enum BlockType {
 @ccclass("GameManager")
 export class GameManager extends Component {
 
+    // 赛道预制
     @property({type: Prefab})
-    public cubePrfb: Prefab|null = null;
-    @property({type: CCInteger})
-    public roadLength: Number = 50;
-    private _road: number[] = [];
+    public cubePrfb: Prefab | null = null;
+    // 赛道长度
+    @property
+    public roadLength = 50;
+    private _road: BlockType[] = [];
 
     start () {
         this.generateRoad();
     }
 
     generateRoad() {
+        // 防止游戏重新开始时，赛道还是旧的赛道
+        // 因此，需要移除旧赛道，清除旧赛道数据
         this.node.removeAllChildren();
         this._road = [];
-        // startPos
+        // 确保游戏运行时，人物一定站在实路上
         this._road.push(BlockType.BT_STONE);
 
+        // 确定好每一格赛道类型
         for (let i = 1; i < this.roadLength; i++) {
+            // 如果上一格赛道是坑，那么这一格一定不能为坑
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
@@ -322,8 +329,10 @@ export class GameManager extends Component {
             }
         }
 
+        // 根据赛道类型生成赛道
         for (let j = 0; j < this._road.length; j++) {
             let block: Node = this.spawnBlockByType(this._road[j]);
+            // 判断是否生成了道路，因为 spawnBlockByType 有可能返回坑（值为 null）
             if (block) {
                 this.node.addChild(block);
                 block.setPosition(j, -1.5, 0);
@@ -336,7 +345,8 @@ export class GameManager extends Component {
             return null;
         }
 
-        let block: Node|null = null;
+        let block: Node | null = null;
+        // 赛道类型为实路才生成
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);
@@ -410,22 +420,11 @@ export class GameManager extends Component {
 使用一个枚举（enum）类型来表示这几个状态。
 
 ```ts
-enum BlockType{
-    BT_NONE,
-    BT_STONE,
-};
-
 enum GameState{
     GS_INIT,
     GS_PLAYING,
     GS_END,
 };
-```
-
-在 `GameManager` 脚本中加入表示当前状态的私有变量：
-
-```ts
-private _curState: GameState = GameState.GS_INIT;
 ```
 
 为了在游戏开始时不让用户操作角色，而在游戏进行时让用户操作角色，我们需要动态地开启和关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中做如下修改：
@@ -449,7 +448,7 @@ setInputActive(active: boolean) {
 
 ```ts
 @property({type: PlayerController})
-public playerCtrl: PlayerController = null;
+public playerCtrl: PlayerController | null = null;
 ```
 
 完成后保存脚本，回到编辑器，将 **层级管理器** 中挂载了 `PlayerController` 脚本的 Player 节点拖拽到 GameManager 节点的 `playerCtrl` 属性框中。
@@ -458,7 +457,7 @@ public playerCtrl: PlayerController = null;
 
 ```ts
 @property({type: Node})
-public startMenu: Node = null;
+public startMenu: Node | null = null;
 ```
 
 完成后保存脚本，回到编辑器，将 **层级管理器** 中的 StartMenu 节点拖拽到 GameManager 节点的 `startMenu` 属性框中。
@@ -475,13 +474,16 @@ start () {
 }
 
 init() {
+    // 激活主界面
     if (this.startMenu) {
         this.startMenu.active = true;
     }
-
+    // 生成赛道
     this.generateRoad();
-    if (this.playerCtrl) {
+    if(this.playerCtrl){
+        // 禁止接收用户操作人物移动指令
         this.playerCtrl.setInputActive(false);
+        // 重置人物位置
         this.playerCtrl.node.setPosition(Vec3.ZERO);
     }
 }
@@ -495,7 +497,10 @@ set curState (value: GameState) {
             if (this.startMenu) {
                 this.startMenu.active = false;
             }
-            setTimeout(() => {      // 直接设置 active 会直接开始监听鼠标事件，这里做了延迟处理
+            // 设置 active 为 true 时会直接开始监听鼠标事件，此时鼠标抬起事件还未派发
+            // 会出现的现象就是，游戏开始的瞬间人物已经开始移动
+            // 因此，这里需要做延迟处理
+            setTimeout(() => {
                 if (this.playerCtrl) {
                     this.playerCtrl.setInputActive(true);
                 }
@@ -504,7 +509,6 @@ set curState (value: GameState) {
         case GameState.GS_END:
             break;
     }
-    this._curState = value;
 }
 ```
 
@@ -544,7 +548,6 @@ onStartButtonClicked() {
 
     ```ts
     onOnceJumpEnd() {
-        this._isMoving = false;
         this.node.emit('JumpEnd', this._curMoveIndex);
     }
     ```
@@ -554,7 +557,8 @@ onStartButtonClicked() {
     ```ts
     checkResult(moveIndex: number) {
         if (moveIndex <= this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
+            // 跳到了坑上
+            if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
             }
         } else {    // 跳过了最大长度
@@ -606,7 +610,7 @@ onStartButtonClicked() {
 
     ```ts
     @property({type: Label})
-    public stepsLabel: Label|null = null;
+    public stepsLabel: Label | null = null;
     ```
 
     保存脚本后回到编辑器，将 Steps 节点拖拽到 GameManager 在属性检查器中的 stepsLabel 属性框中：
@@ -639,7 +643,6 @@ onStartButtonClicked() {
             case GameState.GS_END:
                 break;
         }
-        this._curState = value;
     }
     ```
 
@@ -711,6 +714,24 @@ onStartButtonClicked() {
 public CocosAnim: SkeletalAnimation = null;
 ```
 
+同时，因为我们将主角从胶囊体换成了人物模型，可以弃用之前为胶囊体制作的动画，并注释相关代码：
+
+```ts
+// @property({type: Animation})
+// public BodyAnim: Animation|null = null;
+
+jumpByStep(step: number) {
+    // ...
+    // if (this.BodyAnim) {
+    //     if (step === 1) {
+    //         this.BodyAnim.play('oneStep');
+    //     } else if (step === 2) {
+    //         this.BodyAnim.play('twoStep');
+    //     }
+    // }
+}
+```
+
 然后在 **层级管理器** 中将 Cocos 节点拖拽到 Player 节点的 `CocosAnim` 属性框中：
 
 ![assign cocos prefab](./images/assign-cocos-prefab.png)
@@ -719,7 +740,7 @@ public CocosAnim: SkeletalAnimation = null;
 
 ```ts
 jumpByStep(step: number) {
-    if (this._isMoving) {
+    if (this._startJump) {
         return;
     }
     this._startJump = true;
@@ -729,20 +750,18 @@ jumpByStep(step: number) {
     this.node.getPosition(this._curPos);
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
-    this._isMoving = true;
-
     if (this.CocosAnim) {
         this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; // 跳跃动画时间比较长，这里加速播放
         this.CocosAnim.play('cocos_anim_jump'); // 播放跳跃动画
     }
 
-    if (this.BodyAnim) {
-        if (step === 1) {
-            //this.BodyAnim.play('oneStep');
-        } else if (step === 2) {
-            this.BodyAnim.play('twoStep');
-        }
-    }
+    // if (this.BodyAnim) {
+    //     if (step === 1) {
+    //         this.BodyAnim.play('oneStep');
+    //     } else if (step === 2) {
+    //         this.BodyAnim.play('twoStep');
+    //     }
+    // }
 
     this._curMoveIndex += step;
 }
@@ -752,7 +771,6 @@ jumpByStep(step: number) {
 
 ```ts
 onOnceJumpEnd() {
-    this._isMoving = false;
     if (this.CocosAnim) {
         this.CocosAnim.play('cocos_anim_idle');
     }
@@ -789,7 +807,6 @@ export class PlayerController extends Component {
     private _curPos: Vec3 = new Vec3();
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
     private _targetPos: Vec3 = new Vec3();
-    private _isMoving = false;
     private _curMoveIndex = 0;
 
     start () {
@@ -817,7 +834,7 @@ export class PlayerController extends Component {
     }
 
     jumpByStep(step: number) {
-        if (this._isMoving) {
+        if (this._startJump) {
             return;
         }
         this._startJump = true;
@@ -827,26 +844,23 @@ export class PlayerController extends Component {
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
-        this._isMoving = true;
-
         if (this.CocosAnim) {
             this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; //跳跃动画时间比较长，这里加速播放
             this.CocosAnim.play('cocos_anim_jump'); //播放跳跃动画
         }
 
-        if (this.BodyAnim) {
-            if (step === 1) {
-                //this.BodyAnim.play('oneStep');
-            } else if (step === 2) {
-                this.BodyAnim.play('twoStep');
-            }
-        }
+        // if (this.BodyAnim) {
+        //     if (step === 1) {
+        //         this.BodyAnim.play('oneStep');
+        //     } else if (step === 2) {
+        //         this.BodyAnim.play('twoStep');
+        //     }
+        // }
 
         this._curMoveIndex += step;
     }
 
     onOnceJumpEnd() {
-        this._isMoving = false;
         if (this.CocosAnim) {
             this.CocosAnim.play('cocos_anim_idle');
         }
@@ -881,6 +895,7 @@ import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
+// 赛道格子类型，坑（BT_NONE）或者实路（BT_STONE）
 enum BlockType{
     BT_NONE,
     BT_STONE,
@@ -895,18 +910,22 @@ enum GameState{
 @ccclass("GameManager")
 export class GameManager extends Component {
 
+    // 赛道预制
     @property({type: Prefab})
-    public cubePrfb: Prefab = null;
-    @property({type: CCInteger})
-    public roadLength: Number = 50;
-    private _road: number[] = [];
+    public cubePrfb: Prefab | null = null;
+    // 赛道长度
+    @property
+    public roadLength = 50;
+    private _road: BlockType[] = [];
+    // 主界面根节点
     @property({type: Node})
-    public startMenu: Node = null;
+    public startMenu: Node | null = null;
+    // 关联 Player 节点身上 PlayerController 组件
     @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
-    private _curState: GameState = GameState.GS_INIT;
+    public playerCtrl: PlayerController | null = null;
+    // 关联步长文本组件
     @property({type: Label})
-    public stepsLabel: Label = null;
+    public stepsLabel: Label = null!;
 
     start () {
         this.curState = GameState.GS_INIT;
@@ -914,11 +933,20 @@ export class GameManager extends Component {
     }
 
     init() {
-        this.startMenu.active = true;
+        // 激活主界面
+        if (this.startMenu) {
+            this.startMenu.active = true;
+        }
+        // 生成赛道
         this.generateRoad();
-        this.playerCtrl.setInputActive(false);
-        this.playerCtrl.node.setPosition(Vec3.ZERO);
-        this.playerCtrl.reset();
+        if(this.playerCtrl){
+            // 禁止接收用户操作人物移动指令
+            this.playerCtrl.setInputActive(false);
+            // 重置人物位置
+            this.playerCtrl.node.setPosition(Vec3.ZERO);
+            // 重置已经移动的步长数据
+            this.playerCtrl.reset();
+        }
     }
 
     set curState (value: GameState) {
@@ -929,25 +957,29 @@ export class GameManager extends Component {
             case GameState.GS_PLAYING:
                 this.startMenu.active = false;
                 this.stepsLabel.string = '0';   // 将步数重置为0
-                setTimeout(() => {      // 直接设置 active 会直接开始监听鼠标事件，这里做了延迟处理
+            // 设置 active 为 true 时会直接开始监听鼠标事件，此时鼠标抬起事件还未派发
+            // 会出现的现象就是，游戏开始的瞬间人物已经开始移动
+            // 因此，这里需要做延迟处理
+                setTimeout(() => {
                     this.playerCtrl.setInputActive(true);
                 }, 0.1);
                 break;
             case GameState.GS_END:
                 break;
         }
-        this._curState = value;
     }
 
     generateRoad() {
-
+        // 防止游戏重新开始时，赛道还是旧的赛道
+        // 因此，需要移除旧赛道，清除旧赛道数据
         this.node.removeAllChildren();
-
         this._road = [];
-        // startPos
+        // 确保游戏运行时，人物一定站在实路上
         this._road.push(BlockType.BT_STONE);
 
+        // 确定好每一格赛道类型
         for (let i = 1; i < this.roadLength; i++) {
+            // 如果上一格赛道是坑，那么这一格一定不能为坑
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
@@ -955,8 +987,10 @@ export class GameManager extends Component {
             }
         }
 
+        // 根据赛道类型生成赛道
         for (let j = 0; j < this._road.length; j++) {
             let block: Node = this.spawnBlockByType(this._road[j]);
+            // 判断是否生成了道路，因为 spawnBlockByType 有可能返回坑（值为 null）
             if (block) {
                 this.node.addChild(block);
                 block.setPosition(j, -1.5, 0);
@@ -976,12 +1010,14 @@ export class GameManager extends Component {
     }
 
     onStartButtonClicked() {
+        // 点击主界面 play 按钮，开始游戏
         this.curState = GameState.GS_PLAYING;
     }
 
     checkResult(moveIndex: number) {
         if (moveIndex <= this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   // 跳到了空方块上
+            // 跳到了坑上
+            if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
             }
         } else {    // 跳过了最大长度
@@ -991,6 +1027,7 @@ export class GameManager extends Component {
 
     onPlayerJumpEnd(moveIndex: number) {
         this.stepsLabel.string = '' + moveIndex;
+        // 检查当前下落道路的类型，获取结果
         this.checkResult(moveIndex);
     }
 

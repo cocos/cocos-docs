@@ -23,7 +23,7 @@
 2. 开发者可以自己规划资源制作为 Asset Bundle，再通过 Asset Bundle 的 `load` 系列 API 进行资源的加载。例如：
 
     ```typescript
-    resources.load('images/background', SpriteFrame, (err, asset) => {
+    resources.load('images/background/spriteFrame', SpriteFrame, (err, asset) => {
       this.getComponent(Sprite).spriteFrame = asset;
     });
     ```
@@ -52,12 +52,12 @@
 
 ```typescript
 start () {
-    resources.preload('images/background', SpriteFrame);
+    resources.preload('images/background/spriteFrame', SpriteFrame);
     setTimeOut(this.loadAsset.bind(this), 10000);
 }
 
 loadAsset () {
-    resources.load('images/background', SpriteFrame, (err, asset) => {
+    resources.load('images/background/spriteFrame', SpriteFrame, (err, asset) => {
         this.getComponent(Sprite).spriteFrame = asset;
     });
 }
@@ -94,7 +94,7 @@ Creator 还提供了引用计数机制来帮助开发者控制资源的引用和
 - 当需要持有资源时，请调用 `addRef` 来增加引用，确保该资源不会被其他引用到的地方自动释放。
 
   ```typescript
-  resources.load('textures/armor', Texture2D, function (err, texture) {
+  resources.load('textures/armor/texture', Texture2D, function (err, texture) {
       texture.addRef();
       this.texture = texture;
   });
