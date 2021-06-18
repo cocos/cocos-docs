@@ -96,7 +96,7 @@ For example, in the above sample code, the `key` is `image`, the `value` is the 
 
 If want to get the asset type, just right-click on the asset in **Assets** panel, select **Reveal in Explorer**, then find the meta file corresponding to the asset in the opened folder and open it, the asset type will be marked in the `importer` field.
 
-For example, the meta file for a material asset is as follows:
+For example, the meta file for a material asset is as follows, and the `material` in the `importer` field is the asset type.
 
 ```json
 {
@@ -110,6 +110,7 @@ For example, the meta file for a material asset is as follows:
   "subMetas": {},
   "userData": {}
 }
+```
 
 ## Console
 
