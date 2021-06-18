@@ -4,7 +4,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 ![add sprite](sprite/sprite-component.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/Sprite** 即可添加 Sprite 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **2D/Sprite** 即可添加 Sprite 组件到节点上。
 
 图像的组件接口请参考 [Sprite API](__APIDOC__/zh/classes/ui.sprite.html)。
 
@@ -19,7 +19,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 | Grayscale | 灰度模式，开启后 Sprite 会使用灰度模式渲染。
 | Color | 图片颜色
 | Sprite Atlas | Sprite 显示图片资源所属的图集（参考 [Atlas](../../../asset/atlas.md)）。
-| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../../../asset/sprite-frame.md)。（Sprite Frame 后面的 **编辑** 按钮用于编辑图像资源的九宫格切分，详情请参考 [使用 Sprite 编辑器制作九宫格图像](../engine/sliced-sprite.md)）
+| Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../../../asset/sprite-frame.md)。
 | Size Mode | 指定 Sprite 的尺寸<br>**Trimmed** 表示会使用原始图片资源裁剪透明像素后的尺寸<br>**Raw** 表示会使用原始图片未经裁剪的尺寸<br> **Custom** 表示会使用自定义尺寸。当用户手动修改过 **Size** 属性后，**Size Mode** 会被自动设置为 **Custom**，除非再次指定为前两种尺寸。
 | Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../engine/trim.md)
 

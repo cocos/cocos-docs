@@ -4,7 +4,7 @@ Using Sprite is the most common way to display images in 2D/3D games. By adding 
 
 ![add sprite](sprite/sprite-component.png)
 
-Add a **Sprite** component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __UI -> Render -> Sprite__.
+Add a **Sprite** component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __2D -> Sprite__.
 
 To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/classes/ui.sprite.html) documentation and the [Sprite](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
 
@@ -12,12 +12,12 @@ To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/classes/ui.sprit
 
 | Property | Function Explanation
 | :-------------- | :----------- |
-| **Type** | Rendering mode, currently includes `SIMPLE`, `SLICED`, `TILED`, `FILLED` four rendering modes.
+| **Type** | Rendering mode, currently includes four rendering modes: `SIMPLE`, `SLICED`, `TILED` and `FILLED`.
 | **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
 | **Grayscale** | If enabled, Sprite will be rendered in gray scale mode.
 | **Color** | Image color.
-| **Sprite Atlas** | [Auto Atlas](../../../asset/atlas.md) which the Sprite display image asset belongs to.
-| **Sprite Frame** | [Sprite Frame Assets](../../../asset/sprite-frame.md) which is used to render the Sprite. (The __Edit__ button behind Sprite Frame is used to edit the 9-sliced cutting of the image asset, please refer to the [Use a Sliced Sprite to make a UI image](../engine/sliced-sprite.md) documentation.
+| **Sprite Atlas** | The [Atlas](../../../asset/atlas.md) to which the Sprite's image asset belongs.
+| **Sprite Frame** | [Sprite Frame Assets](../../../asset/sprite-frame.md) which is used to render the Sprite. 
 | **Size Mode** | Specify the size of the Sprite.<br>`TRIMMED` automatically fit to the size of the sprite cropped<br>`RAW` automatic fit for sprite original size.<br>`CUSTOM` use the node preset size. When the developer manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
 | **Trim** | Whether the transparent pixel area is included in the node bounding box. Please refer to the [Auto Trim for SpriteFrame](../engine/trim.md) documentation.
 
