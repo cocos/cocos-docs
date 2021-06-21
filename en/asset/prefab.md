@@ -13,7 +13,15 @@ Nested Prefab Instance | When a child node in a __Prefab Asset__ is an instance 
 
 ## Creating a Prefab
 
-After editing the __Node__ in the __Scene__, drag the __Nodes__ directly from the __Hierarchy__ panel to the __Assets__ panel to complete the creation of the __Prefab__. After the creation is complete, the original __Node__ will automatically become a __Prefab Instance__, its root node is currently marked in bright green, and its child nodes are dark green.
+There are two ways to create a prefab:
+
+1. After editing the __Node__ in the __Scene__, drag the __Nodes__ directly from the __Hierarchy__ panel to the __Assets__ panel to complete the creation of the __Prefab__.
+
+2. Click the **+** button at the top left of __Assets__, or click the blank space of the panel, and then select __Node Prefab__. (New in v3.1.1)
+
+    ![create](prefab/create.png)
+
+After the creation is complete, the original __Node__ will automatically become a __Prefab Instance__, its root node is currently marked in bright green, and its child nodes are dark green.
 
 ![create-prefab](prefab/create-prefab.gif)
 

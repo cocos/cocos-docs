@@ -113,9 +113,9 @@ Starting with v2.4, in addition to scenes that can be preloaded, other resources
 `resources` provides `preload` and `preloadDir` for preloading resources.
 
 ```typescript
-resources.preload('test assets/image', SpriteFrame);
+resources.preload('test assets/image/spriteFrame', SpriteFrame);
  // wait for while
-resources.load('test assets/image', SpriteFrame, (err, spriteFrame) => {
+resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -142,7 +142,7 @@ assetManager.loadRemote<ImageAsset>(remoteUrl, function (err, imageAsset) {
 
 // Remote texture url without file extensions, then you need to define the file type explicitly
 remoteUrl = "http://unknown.org/emoji?id=124982374";
-assetManager.loadRemote<ImageAsset>(remoteUrl, {type: 'png'}, function (err, imageAsset) {
+assetManager.loadRemote<ImageAsset>(remoteUrl, {ext: '.png'}, function (err, imageAsset) {
     const spriteFrame = new SpriteFrame();
     const texture = new Texture2D();
     texture.image = imageAsset;

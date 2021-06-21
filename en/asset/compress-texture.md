@@ -28,10 +28,6 @@ The compress-texture options on the image asset will be stored in the asset's me
 
 ## Detailed compression textures
 
-If you want to use compressed textures, you need to turn on the **compressed texture option** when you build the project:
-
-![compress-texture-build](compress-texture/compress-build.png)
-
 When **Cocos Creator 3.0** builds the image, it will find whether the current image has been already configured to use compressed textures. If not, it will output the original image.
 
 If the configuration of the compressed texture is founded, the image will be compressed according to the configuration.The compress texture configuration in the project settings is divided into different platforms, and the support of in the actual platform is also difference. **builder** will make certain elimination and priority selection of the configured texture format according to the **actual build platform**and the current **image texture transparency channel**. You can refer to the following example to understand this rule.

@@ -54,7 +54,7 @@
 缓存管理器提供了 `getCache` 接口以查询所有的缓存资源，开发者可以通过传入资源的原路径来查询缓存路径。
 
 ```typescript
-resources.load('images/background', Texture2D, function (err, texture) {
+resources.load('images/background/texture', Texture2D, function (err, texture) {
     const cachePath = assetManager.cacheManager.getCache(texture.nativeUrl);
     console.log(cachePath);
 });

@@ -38,6 +38,10 @@
 
 - **Android SDK**：设置 Android SDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。
 
+- **鸿蒙 OS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+
+- **鸿蒙 OS NDK 路径**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+
 - **默认脚本编辑器**：可以选用任意外部文本编辑工具（例如 VS Code）的可执行文件，作为在 **资源管理器** 中双击脚本文件时的打开方式。可以点击输入框后面的 **搜索图标** 按钮选择偏好的文本编辑器的可执行文件。文件夹图标则用于打开已设置完成的文本编辑器的所在路径。
 
 - **默认浏览器**：用于选择编辑器预览时使用的浏览器，可点击输入框后面的 **搜索图标** 按钮指定一个浏览器的路径。
@@ -54,9 +58,9 @@
 
 ![engine-manager](./index/engine-manager.png)
 
-- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于场景编辑器里场景的渲染，内置组件的声明和其他 Web 环境下的引擎模块。
+- **使用内置 TypeScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 engine 路径作为 TypeScript 引擎路径。这个引擎用于编辑器里场景的渲染、内置组件的声明（也就是使用代码编辑器，如 VSCode 时的智能提示），以及场景在 Web 环境下的预览。
 
-- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定到定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+- **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 - **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
@@ -66,12 +70,49 @@
 
 ## 资源数据库
 
-**资源数据库** 分页用于设置 [资源管理器](../assets/index.md) 面板中的资源数据库的相关信息，包括 **日志等级** 和 **忽略文件**。
+**资源数据库** 分页用于设置 [资源管理器](../assets/index.md) 面板中的资源数据库的相关信息，包括 **日志等级**、**忽略文件** 和 **默认 Meta**。
 
-![asset-db](./index/asset-db.png)
+![asset-db](./index/asset-db.jpg)
 
 - **日志等级**：用于设置 **资源管理器** 中的资源数据库输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
 - **忽略文件（正则）**：使用正则表达式，填入具体资源文件的路径，则该资源将会被忽略。
+- **默认 Meta**：用于设置项目内资源导入时的默认配置。详情参考下文介绍。
+
+### 默认 meta
+
+该项用于设置项目内资源导入时的默认配置。例如希望导入的图片默认为 sprite-frame 类型，那么便可以点击该项右侧的 **编辑** 按钮，然后在打开的 json 文件中填入以下内容：
+
+```json5
+{
+    // image 表示资源的类型为图片
+    "image": {
+        "type": "sprite-frame"
+    }
+}
+```
+
+编辑完成并保存后，返回编辑器，点击 **应用** 按钮即可生效。
+
+资源类型为 key，value 需要是一个 object，这个 object 就是最终导入资源时使用的默认配置。<br>
+例如上方示例代码中的 key 为 `image`，value 是 `image` 中配置的内容，点击 **应用** 后便会刷新资源数据库的配置信息，将 `image` 中的内容一一对应配置到资源 meta 文件的 `userData` 字段中。例如 `image.type` 设置为 `sprite-frame`，导入图片资源时，默认的 `userData.type` 就会被设置为 `sprite-frame`。便可以根据项目情况，动态地设置各种资源的默认导入配置。
+
+如果想要知道资源类型，可以在 **资源管理器** 中右键点击资源，选择 **在资源管理器中显示**，然后在打开的文件夹中找到资源对应的 meta 文件并打开，`importer` 字段标记的便是资源的类型。
+
+例如材质资源的 meta 文件如下，`importer` 字段中的 `material` 便是资源类型。
+
+```json
+{
+  "ver": "1.0.9",
+  "importer": "material",
+  "imported": true,
+  "uuid": "482a5162-dad9-446c-b548-8486c7598ee1",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {}
+}
+```
 
 ## 控制台
 
@@ -84,7 +125,7 @@
 
 ## 属性检查器
 
-**属性检查器** 分页中的 **离开编辑自动保存** 功能用于设置 [属性检查器](../hierarchy/index.md) 面板是否在属性编辑完成后自动保存修改。
+**属性检查器** 分页中的 **离开编辑自动保存** 功能用于设置 [属性检查器](../inspector/index.md) 面板是否在属性编辑完成后自动保存修改。
 
 ![inspector](./index/inspector.png)
 
@@ -98,16 +139,15 @@
 - **模拟器自动清除缓存**：若勾选该项，则使用模拟器预览时会自动清除缓存。
 - **模拟器是否开启调试面板**：若勾选该项，则使用模拟器预览项目时将自动打开调试窗口。
 - **模拟器是否等待调试面板开启**：该项会在勾选了 **模拟器是否开启调试面板** 后生效，作用是暂停模拟器启动过程直至调试器连接完成，用于调试加载过程。
-- **初始预览场景**：指定预览时打开项目中的哪个场景，会列出项目中所有的场景。如果设置为 **当前打开场景**，则会运行当前正在 **场景编辑器** 中编辑的场景，此外也可以设置成一个固定的场景（比如项目总是需要从登录场景开始游戏）。
 
 ## 构建发布
 
-**构建发布** 分页用于设置执行 [构建发布](../assets/index.md) 时相关的信息，包括 **日志等级** 和 **缓存构建 JSON**。
+**构建发布** 分页用于设置执行 [构建发布](../publish/build-panel.md) 时相关的信息，包括 **日志等级** 和 **缓存资源的序列化 JSON**。
 
 ![build](./index/build.png)
 
 - **日志等级**：用于设置在构建发布到某个平台时，输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
-- **缓存构建 JSON**：为了加快构建速度，减少重复反序列化未修改资源，在资源构建过程中将会缓存资源的序列化 JSON，这部分 JSON 会放置在项目的 `temp/asset-db/assets/uuid/build` 目录下，根据 **debug** 和 **release** 模式分为 `debug.json` 和 `release.json` 存放。
+- **缓存资源的序列化 JSON**：为了加快构建速度，减少重复反序列化未修改资源，在资源构建过程中将会缓存资源的序列化 JSON，这部分 JSON 会放置在项目的 `temp/asset-db/assets/uuid/build` 目录下，根据 **debug** 和 **release** 模式分为 `debug.json` 和 `release.json` 存放。
 
     ![build](./index/json.png)
 
@@ -119,11 +159,11 @@
 
 ![laboratory](./index/laboratory.png)
 
-- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [光照贴图](./../../concepts/scene/light/lightmap.md)。
-
 - **场景即时缓存**：该项默认开启，主要用于在场景编辑过程中每隔一段时间（目前时间间隔为 5s）便将场景文件缓存到项目目录下的 `temp/scene/[SCENE_UUID]/[TIME].json` 文件中。如遇突发情况比如场景崩溃、进程卡死等，再次打开编辑器时将会弹窗提示是否应用缓存内最近一次的场景文件。
 
   > **注意**：在日常使用中，只要场景正常打开了，那么当前场景在打开之前缓存的所有场景文件都会被清空。如有特殊需求需要查看指定场景的缓存文件，请先在编辑器中关闭对应场景。
+
+- **开启烘焙功能**：用于开启烘焙功能，详情可参考 [光照贴图](./../../concepts/scene/light/lightmap.md)。
 
 ### 注意事项
 

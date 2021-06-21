@@ -1,5 +1,14 @@
 # Material System Overview
 
+## Material System Upgrade Guide
+
+Cocos Creator has supported the material system since v2.x. In v3.0, the design and built-in Shader API of the material system continues to be improved. When upgrading from v2.x to v3.0 and later versions, some of the content may still need to be adjusted manually by the developer, please refer to the upgrade guide below:
+
+- [v3.0 Material Upgrade Guide](./effect-2.x-to-3.0.md)
+- [v3.1 Material Upgrade Guide](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+
+## Material System Class Diagram
+
 The material system plays an essential role in any game engine infrastructure, it controls the way everything is drawn on screen and much more.
 
 The general structure of the system is as follows:
@@ -67,7 +76,7 @@ Using `builtin-unlit.effect` as an example, the structure of the compiled output
       }
     }]
   }],
-  
+
   "shaders": [{
       "name": "builtin-unlit|unlit-vs:vert|unlit-fs:frag",
       "hash": 2093221684,
@@ -154,7 +163,7 @@ Using `builtin-unlit.effect` as an example, the structure of the compiled output
 }
 ```
 
-There is a lot to unpack here, but for the most part the details won't be of any concern to game deverlopers, and the key insight you need to remember is:
+There is a lot to unpack here, but for the most part the details won't be of any concern to game developers, and the key insight you need to remember is:
 - All the necessary info for runtime shading procedure setup on any target platform (and even editor support) is here in advance to guarantee portability and performance.
 - Redundant info will be trimmed at build-time to ensure minimum space consumption.
 
@@ -166,7 +175,7 @@ The available options for a `Material` depend on which `EffectAsset` it is using
 - **effectAsset** or **effectName**: Effect reference, specifying which `EffectAsset` will be used (must specify).
 - **technique**: Inside the `EffectAsset`, specifying which technique will be used, default to 0.
 - **defines**: The list of macros, specify what value the shader macros have (for shader variants), default all to 0 (disabled), or in-shader specified default value.
-- **states**: If any, specifying which pipeline state to override (defaul to nothing, keep everything the same as how they are specified in effect)
+- **states**: If any, specifying which pipeline state to override (default to nothing, keep everything the same as how they are specified in effect)
 
 ```ts
 const mat = new Material();
@@ -214,25 +223,14 @@ When one of the material-sharing models needs to customize some property, you ne
 const mat2 = comp2.material; // copy constructor, now 'mat2' is an 'MaterialInstance', and every change made to `mat2` only affect the 'comp2' instance
 ```
 
-The biggest difference between `Material` asset and `MaterialInstance` is: `MaterialInstance` is definitively attached to one `RenderableComponent` at the beginning of its life cyle, while `Material` has no such limit.
+The biggest difference between `Material` asset and `MaterialInstance` is: `MaterialInstance` is definitively attached to one `RenderableComponent` at the beginning of its life cycle, while `Material` has no such limit.
 
-For an already initialized material, if you need to re-initialize it, just re-invoke the `initialize` function, to rebuild everything.
-
-```ts
-mat.initialize({
-  effectName: 'builtin-standard',
-  technique: 1
-});
-```
-
-Specifically, if it is only the shader macros or pipeline states that you want to modify, there are more efficient ways:
+For `MaterialInstance`s it is possible to modify shader macros or pipeline states:
 
 ```ts
 mat2.recompileShaders({ USE_EMISSIVE: true });
 mat2.overridePipelineStates({ rasterizerState: { cullMode: GFXCullMode.NONE } });
 ```
-
-But remember these can only be called on `MaterialInstance`s, not `Material` asset itself.
 
 Updating shader properties every frame is a common practice, under situations like this, where performance matters, use lower level APIs:
 
@@ -247,7 +245,9 @@ color.a = Math.sin(director.getTotalFrames() * 0.01) * 127 + 127;
 pass.setUniform(hColor, color);
 ```
 
-## Builtins
+And for any other changes (different effect, technique, etc.) you have to create a new material from scratch and assign it to the target `RenderableComponent`.
+
+## Built-in materials
 
 Although the material system itself doesn't make any assumptions on the content, there are some built-in effects written on top of the system, provided for common usage: **unlit**, **physically-based** (standard), **skybox**, **particle**, **sprite**, etc.
 
