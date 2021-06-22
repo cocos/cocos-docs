@@ -18,6 +18,8 @@ Once configured, click the **Check** button on the top right and the folder will
 
 ## Build
 
+When building, the **Main Bundle Compression Type** in the **Build** panel should to be set to **Mini Game Subpackage**. For detailed instructions, please refer to the [Asset Bundle - Compression Type](../../asset/bundle.md#compression-type) documentation.
+
 After the project is built, this Asset Bundle folder is packaged into the `subpackages` folder in the release package directory of the mini game platform. Each folder contained in this folder is an Asset Bundle.
 
 **For example**, if the `assets/scene` folder in the Hello World project is configured as an Asset Bundle on the WeChat Mini Game, then after the project is built, a `scene` folder is generated in the `subpackages` folder in the release package directory, and the `scene` folder is an Asset Bundle.

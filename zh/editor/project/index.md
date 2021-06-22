@@ -6,9 +6,25 @@
 
 ## Macro Config（引擎宏配置）
 
-关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)），这里提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+**引擎宏设置**提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+
+- **ENABLE_TILEDMAP_CULLING**：是否开启瓦片地图的自动裁减功能。瓦片地图如果设置了 skew, rotation 的话，需要手动关闭，否则渲染会出错。
+
+- **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。你可以修改这个值来获得你需要的效果，默认值是 5000 毫秒。
+
+- **ENABLE_TRANSPARENT_CANVAS**：用于设置 Canvas 背景是否支持 alpha 通道，默认为 false，这样可以有更高的性能表现。
+
+- **ENABLE_WEBGL_ANTIALIAS**：用于设置在创建 WebGL Context 时是否开启抗锯齿选项，默认值是 false。
+
+- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](https://docs.cocos.com/creator/manual/zh/advanced-topics/dynamic-atlas.html)。
+
+- **ENABLE_MULTI_TOUCH**：是否开启多点触摸。
+
+- **MAX_LABLE_CANVAS_POOL_SIZE**：Label 使用的 canvas pool 的最大大小，请根据项目同场景的 label 数量进行调整。
 
 ![macro](./index/macro.png)
+
+关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)）。
 
 ## 功能裁剪
 
@@ -58,6 +74,12 @@
 ## 脚本
 
 ![scripting](./index/scripting.png)
+
+- **符合规范的类字段**：当开启时，将使用 Define 语义实现类字段，否则，将使用 Set 语义实现类字段。
+
+- **允许声明类字段**：当开启时，在 TypeScript 脚本中将允许使用 declare 关键字来声明类字段。当字段以 declare 声明且未指定显式的初始化式时，将依照规范初始化为 undefined。
+
+- **启用宽松模式**：启用宽松模式进行脚本编译。
 
 ## 压缩纹理
 
