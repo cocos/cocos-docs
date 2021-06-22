@@ -16,7 +16,7 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 - **ENABLE_WEBGL_ANTIALIAS**: boolean that indicates if the WebGL context is created with `antialias` option turned on, default value is false.
 
-- **CLEANUP_IMAGE_CACHE**: whether to clear the original image cache after uploaded a texture to GPU. If cleared, [Dynamic Atlas](https://docs.cocos.com/creator/manual/en/advanced-topics/dynamic-atlas.html) will not be supported.
+- **CLEANUP_IMAGE_CACHE**: whether to clear the original image cache after uploaded a texture to GPU. If cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported.
 
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
@@ -24,7 +24,7 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 ![macro](./index/macro.png)
 
-For specific information and code about the engine macro module, you can refer to **Engine Macro** ([GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)).
+For more specific information and code about the engine macro module, you can refer to **Engine Macro** ([GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
 ## Feature Cropping
 
@@ -75,9 +75,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 ![scripting](./index/scripting.png)
 
-- **Conforming class fields**: if true, class fields are implemented using `Define` semantics; otherwise, class fields are implemented using `Set` semantics.
+- **Conforming class fields**: if enabled, class fields are implemented using `Define` semantics; otherwise, class fields are implemented using `Set` semantics.
 
-- **Allows declaration of class fields**: if true, `declare` keyword may be used to declare class fields. In such case, class fields without explicit initializer would be initialized to undefined, according to the specification.
+- **Allows declaration of class fields**: if enabled, `declare` keyword may be used to declare class fields. In such case, class fields without explicit initializer would be initialized to undefined, according to the specification.
 
 - **Enable relaxed mode**: enable "loose" compilation mode.
 

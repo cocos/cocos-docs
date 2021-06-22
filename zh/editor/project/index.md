@@ -6,9 +6,9 @@
 
 ## Macro Config（引擎宏配置）
 
-**引擎宏设置**提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+**引擎宏设置** 提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
 
-- **ENABLE_TILEDMAP_CULLING**：是否开启瓦片地图的自动裁减功能。瓦片地图如果设置了 skew, rotation 的话，需要手动关闭，否则渲染会出错。
+- **ENABLE_TILEDMAP_CULLING**：是否开启瓦片地图的自动裁减功能。瓦片地图如果设置了 skew、rotation 的话，需要手动关闭，否则渲染会出错。
 
 - **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。你可以修改这个值来获得你需要的效果，默认值是 5000 毫秒。
 
@@ -16,7 +16,7 @@
 
 - **ENABLE_WEBGL_ANTIALIAS**：用于设置在创建 WebGL Context 时是否开启抗锯齿选项，默认值是 false。
 
-- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](https://docs.cocos.com/creator/manual/zh/advanced-topics/dynamic-atlas.html)。
+- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。
 
 - **ENABLE_MULTI_TOUCH**：是否开启多点触摸。
 
@@ -24,7 +24,7 @@
 
 ![macro](./index/macro.png)
 
-关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)）。
+更多关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)）。
 
 ## 功能裁剪
 
