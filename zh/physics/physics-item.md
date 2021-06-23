@@ -12,12 +12,17 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 ## builtin
 
-**builtin** 物理引擎仅有碰撞检测的功能。相对于其它的物理引擎，它没有复杂的物理模拟计算，如果您的项目不需要这一部分的物理模拟，那么建议使用 **builtin**，使游戏的包体更小。
+**builtin** 物理引擎 **仅有碰撞检测** 的功能。相对于其它的物理引擎，它没有复杂的物理模拟计算，如果您的项目不需要这一部分的物理模拟，那么建议使用 **builtin**，使游戏的包体更小。
 
 使用 **builtin** 进行开发时，请注意以下事项：
 
 - 只有 **trigger** 触发器类型的事件。
-- 各种 **Collider** 碰撞器中的 **isTrigger** 选项，无论值为 `true/false`，都为运动学类型的触发器。
+- 3D 碰撞组件中的 **IsTrigger** 属性无效，所有的碰撞组件都只能用作 [触发器](physics-event.md)。
+- 3D 碰撞组件中的 `Material` 属性无效.
+- 3D 碰撞组件中的 `Attached` 为 `null`。
+- 3D 物理[刚体组件](physics-rigidbody.md) 无效.
+- 3D 物理[恒力组件](physics-constantForce.md) 无效。
+- 3D 物理[约束组件](physics-constraint.md) 无效。
 
 ## cannon.js
 
@@ -27,11 +32,11 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 目前 cannon.js 支持情况如下：
 
-刚体
-Box \ Sphere 碰撞组件
-触发和碰撞事件
-物理材质
-射线检测
+- [刚体](physics-rigidbody.md)
+- [Box \ Sphere 碰撞组件](physics-collider.md)
+- 触发和碰撞事件
+- 物理材质
+- 射线检测
 
 [cannon.js](https://github.com/cocos-creator/cannon.js) 是一个开源的物理引擎，它使用 JavaScript 语言开发，并实现了比较全面的物理功能，建议在项目需要更多复杂的物理功能和较小的包体情况下使用。**cannon.js** 模块大小约为 **141KB**。
 
