@@ -12,7 +12,7 @@
 
     ```ts
     import { geometry } from 'cc';
-    
+
     // 构造一条从（0，-1，0）出发，指向 Y 轴的射线
     // 前三个参数是起点，后三个参数是方向
     const outRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
@@ -53,7 +53,7 @@ Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 
 - `raycast` : 检测所有的碰撞体，并记录所有被检测到的结果，通过 `PhysicsSystem.instance.raycastResults` 获取。接口返回布尔值，表示是否检测成功。
 - `raycastClosest` ：检测所有的碰撞体，并记录与射线距离最短的检测结果，通过 `PhysicsSystem.instance.raycastClosestResult` 获取。同样返回布尔值，表示是否检测成功。
-  
+
 > **注意**：
 > - 检测的对象是物理碰撞器，在场景面板上与之对应的是碰撞器组件，例如 **BoxCollider**。
 > - 检测结果返回对象是只读并且复用的，每次调用检测接口后会更新相应结果。
@@ -66,7 +66,7 @@ const maxDistance = 10000000;
 const queryTrigger = true;
 
 const bResult = PhysicsSystem.instance.raycast(worldRay, mask, maxDistance, queryTrigger);
-        
+
 const results = PhysicsSystem.instance.raycastResults;
 
 for (let i = 0; i < results.length; i++) {

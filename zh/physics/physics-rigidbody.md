@@ -1,41 +1,8 @@
 # 刚体组件
 
-刚体是组成物理世界的基本对象，可以让一个节点受到物理影响并产生反应。
+刚体是组成物理世界的基本对象，它可以使游戏对象的运动方式受物理控制。例如：刚体可以使游戏对象受重力影响做自由下落，也可以在力和扭矩的作用下，让游戏对象模拟真实世界的物理现象。
 
 点击 **属性检查器** 下方的 **添加组件 -> Physics -> RigidBody**，即可添加刚体组件到节点上。
-
-## 刚体属性
-
-刚体组件用于控制模拟相关的部分属性：
-
-![rigid-body](img/rigid-body.jpg)
-
-| 属性 | 说明 |
-| :---|:--- |
-| **group** | 刚体分组 |
-| **type**  | 刚体类型：<br>**DYNAMIC**：动力学（通过物理数值操控）<br>**STATIC**：静态<br>**KINEMATIC**：运动学（通过变换信息操控） |
-
-以下属性仅在 **type** 设为 **DYNAMIC** 时生效：
-
-| 属性 | 说明 |
-| :---|:--- |
-| **mass** |  刚体质量，该值需大于 **0** |
-| **allowSleep** | 是否允许自动休眠 |
-| **linearDamping** | 线性阻尼，用于衰减线性速度，值越大，衰减越快 |
-| **angularDamping** | 角阻尼，用于衰减角速度，值越大，衰减越快 |
-| **useGravity** | 是否使用重力 |
-| **linerFactor** | 线性因子，用于缩放每个轴方向上的物理数值（速度和力） |
-| **angularFactor** | 角因子，用于缩放每个轴方向上的物理数值（速度和力） |
-
-刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/classes/physics.rigidbody.html)。
-
-### 通过代码获取刚体组件
-
-```ts
-import { RigidBody } from 'cc'
-
-let rigidBody = this.node.getComponent(RigidBody);
-```
 
 ## 刚体类型
 
@@ -47,13 +14,44 @@ let rigidBody = this.node.getComponent(RigidBody);
 
 ## 刚体质心
 
-目前质心固定在刚体组件绑定的节点上，质心和碰撞体是相对关系。通过调整形状的偏移 **center**，可以使质心在形状上进行偏移。
+目前质心固定在刚体组件绑定的节点上，质心和碰撞体是相对关系。通过调整形状的偏移 **Center**，可以使质心在形状上进行偏移。
 
 ![Centroid](img/center-of-mass.jpg)
 
 > **注意**：为了使碰撞体更贴合模型，未来会增加改变质心的方法，以及动态计算质心的机制。
 
-## 让刚体运动起来
+## 刚体属性
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Group** | 刚体分组 |
+| **Type**  | [刚体类型](#刚体类型)：<br>**DYNAMIC**：动力学（通过物理数值操控）<br>**STATIC**：静态<br>**KINEMATIC**：运动学（通过变换信息操控） |
+
+以下属性仅在 **Type** 设为 **DYNAMIC** 时生效：
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Mass** |  刚体质量，该值需大于 **0** |
+| **AllowSleep** | 是否允许自动休眠 |
+| **LinearDamping** | 线性阻尼，用于衰减线性速度，值越大，衰减越快 |
+| **AngularDamping** | 角阻尼，用于衰减角速度，值越大，衰减越快 |
+| **UseGravity** | 是否使用重力 |
+| **LinerFactor** | 线性因子，用于缩放每个轴方向上的物理数值（速度和力） |
+| **AngularFactor** | 角因子，用于缩放每个轴方向上的物理数值（速度和力） |
+
+刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/classes/physics.rigidbody.html)。
+
+## 控制刚体
+
+### 通过代码获取刚体组件
+
+```ts
+import { RigidBody } from 'cc'
+
+let rigidBody = this.node.getComponent(RigidBody);
+```
+
+### 让刚体运动起来
 
 针对不同的类型，让刚体运动的方式不同：
 
@@ -62,11 +60,11 @@ let rigidBody = this.node.getComponent(RigidBody);
 
 对于动力学刚体，需要改变其速度，有以下几种方式：
 
-### 通过重力
+#### 通过重力
 
-刚体组件提供了 **useGravity** 属性，需要使用重力时候，需将 **useGravity** 属性设置为 `true`。
+刚体组件提供了 **UseGravity** 属性，需要使用重力时候，需将 **UseGravity** 属性设置为 `true`。
 
-### 通过施加力
+#### 通过施加力
 
 刚体组件提供了 `applyForce` 接口，根据牛顿第二定律，可对刚体某点上施加力来改变物体的原有状态。
 
@@ -76,7 +74,7 @@ import { math } from 'cc'
 rigidBody.applyForce(new math.Vec3(200, 0, 0));
 ```
 
-### 通过扭矩
+#### 通过扭矩
 
 力与冲量也可以只对旋转轴产生影响，使刚体发生转动，这样的力叫做扭矩。
 
@@ -86,7 +84,7 @@ rigidBody.applyForce(new math.Vec3(200, 0, 0));
 rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 ```
 
-### 通过施加冲量
+#### 通过施加冲量
 
 刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量守恒，将立即改变刚体的线性速度。 如果冲量施加到的点不是刚体的质心，那么将产生一个扭矩并影响刚体的角速度。
 
@@ -94,7 +92,7 @@ rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
 ```
 
-### 通过改变速度
+#### 通过改变速度
 
 刚体组件提供了 `setLinearVelocity` 接口，可用于改变线性速度。
 
@@ -108,9 +106,9 @@ rigidBody.setLinearVelocity(new math.Vec3(5, 0, 0));
 rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
 ```
 
-## 限制刚体的运动
+### 限制刚体的运动
 
-### 通过休眠
+#### 通过休眠
 
 休眠刚体时，会将刚体所有的力和速度清空，使刚体停下来。
 
@@ -128,7 +126,7 @@ if (rigidBody.isSleeping) {
 }
 ```
 
-### 通过阻尼
+#### 通过阻尼
 
 刚体组件提供了 **linearDamping** 线性阻尼和 **angularDamping** 旋转阻尼属性，可以通过 `linearDamping` 和 `angularDamping` 方法对其获取或设置。
 
@@ -146,7 +144,7 @@ if (rigidBody) {
 
 > **注意**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
 
-### 通过因子
+#### 通过因子
 
 刚体组件提供了 **linearFactor** 线性速度因子和 **angularFactor** 旋转速度因子属性，可以通过 `linearFactor` 和 `angularFactor` 方法对其获取或设置。
 

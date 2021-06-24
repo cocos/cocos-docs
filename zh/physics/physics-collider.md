@@ -1,106 +1,212 @@
-# 碰撞组件
+# 碰撞器组件
 
-## 通过代码获取
+当前，不同物理后端碰撞形状支持情况。
 
-以获取 **BoxCollider** 盒碰撞器组件为例：
+| 功能特性 | builtin | cannon.js | ammo.js |
+|:--------|:--------|:----------|:--------|
+| 质心     | ✔       | ✔         | ✔       |
+| 盒、球 | ✔ | ✔ ｜ ✔ ｜
+| 胶囊 | ✔ | 可以用基础形状拼凑 ｜ ✔ ｜
+| 凸包 |  |  ｜ ✔ ｜
+| 静态地形、静态平面 |  | ✔ ｜ ✔ ｜
+| 静态网格 |  | 极其有限的支持 ｜ ✔ ｜
+| 圆锥、圆柱 |  | ✔ ｜ ✔ ｜
+| 单纯形 |  | 有限的支持 ｜ ✔ ｜
+| 复合形状 | ✔ | ✔ ｜ ✔ ｜
+| 射线检测、掩码过滤 | ✔ | ✔ ｜ ✔ ｜
+| 多步模拟、碰撞矩阵 | ✔ | ✔ ｜ ✔ ｜
+| 触发事件 | ✔ | ✔ ｜ ✔ ｜
+| 自动休眠 |  | ✔ ｜ ✔ ｜
+| 碰撞事件、碰撞数据 |  | ✔ ｜ ✔ ｜
+| 物理材质 |  | ✔ | ✔ |
+| 静态、运动学 | ✔ | ✔ | ✔ |
+| 动力学 |  | ✔ | ✔ |
+| 点对点、铰链约束（实验） |  | ✔ | ✔ |
+| wasm |  |  | ✔ |
+
+## 碰撞器组件 Collider
+
+碰撞器组件用于表示刚体的碰撞体形状，不同的几何形状拥有不同的属性。碰撞器组件分为一下几种：
+1. [盒碰撞器组件 BoxCollider](#盒碰撞器组件-BoxCollider)。
+2. [球碰撞器组件 SphereCollider](#球碰撞器组件-SphereCollider)。
+3. [圆柱碰撞器组件 CylinderCollider](#圆柱碰撞器组件-CylinderCollider)。
+4. [胶囊碰撞器组件 CapsuleCollider](#胶囊碰撞器组件-CapsuleCollider)。
+5. [圆锥碰撞器组件 ConeCollider](#圆锥碰撞器组件-ConeCollider)。
+6. [平面碰撞器组件 PlaneCollider](#平面碰撞器组件-PlaneCollider)。
+7. [网格碰撞器组件 MeshCollider](#网格碰撞器组件-MeshCollider)。
+8. [单纯形碰撞器组件 SimplexCollider](#单纯形碰撞器组件-SimplexCollider)。
+9. [地形碰撞器组件 TerrainCollider](#地形碰撞器组件-TerrainCollider)。
+
+共有属性部分：
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Attached** | 碰撞器所绑定的刚体 |
+| **Material** | 碰撞器所使用的物理材质，未设置时为默认值 |
+| **IsTrigger** | 是否为 [触发器](physics-event.md)，触发器不会产生物理反馈 |
+
+> **注意**：
+> 1. 使用 [builtin](physics-item.md#builtin) 作为物理引擎时，碰撞体组件只支持盒、球、胶囊体。
+
+### 盒碰撞器组件 BoxCollider
+
+![盒碰撞器组件](img/collider-box.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Size**  |  在本地坐标系中，盒的大小，即长、宽、高 |
+
+盒碰撞器组件接口请参考 [BoxCollider API](__APIDOC__/zh/classes/physics.boxcollider.html)。
+
+### 球碰撞器组件 SphereCollider
+
+![球碰撞器组件](img/collider-sphere.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Radius** | 在本地坐标系中，球的半径 |
+
+球碰撞器组件接口请参考 [SphereCollider API](__APIDOC__/zh/classes/physics.spherecollider.html)。
+
+### 圆柱碰撞器组件 CylinderCollider
+
+![圆柱碰撞器组件](img/collider-cylinder.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Radius** | 在本地坐标系中，圆柱体上圆面的半径 |
+| **Height** | 在本地坐标系中，圆柱体在相应轴向的高度 |
+| **Direction** | 在本地坐标系中，圆柱体的朝向 |
+
+圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/classes/physics.cylindercollider.html)。
+
+### 胶囊碰撞器组件 CapsuleCollider
+
+> **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球体和圆柱拼凑。
+
+![胶囊碰撞器组件](img/collider-capsule.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Radius** | 在本地坐标系中，胶囊体上的球的半径 |
+| **CylinderHeight** | 在本地坐标系中，胶囊体上圆柱体高度 |
+| **Direction** | 在本地坐标系中，胶囊体的朝向 |
+
+胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/classes/physics.capsulecollider.html)。
+
+### 圆锥碰撞器组件 ConeCollider
+
+![圆锥碰撞器组件](img/collider-cone.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Height** | 在本地坐标系中，圆锥体在相应轴向的高度 |
+| **Direction** | 在本地坐标系中，圆锥体的朝向 |
+
+圆锥碰撞器组件接口请参考 [ConeCollider API](__APIDOC__/zh/classes/physics.conecollider.html)。
+
+### 平面碰撞器组件 PlaneCollider
+
+![平面碰撞器组件](img/collider-plane.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Normal** | 在本地坐标系中，平面的法线 |
+| **Constant** | 在本地坐标系中，平面从原点开始沿着法线运动的距离 |
+
+平面碰撞器组件接口请参考 [PlaneCollider API](__APIDOC__/zh/classes/physics.planecollider.html)。
+
+### 网格碰撞器组件 MeshCollider
+
+> **注意**：
+> 1. `cannon.js` 对网格碰撞器组件支持程度较差，只允许与少数碰撞器（球、平面）产生检测。
+> 2. `convex` 功能目前仅 `ammo.js` 后端支持。
+
+![网格碰撞器组件](img/collider-mesh.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Mesh** | 网格碰撞器所使用的网格资源，用于初始化网格碰撞体 |
+| **Convex** | 是否使用网格的凸包近似代替，网格顶点数应小于 **255**，开启后可以支持动力学 |
+
+网格碰撞器组件接口请参考 [MeshCollider API](__APIDOC__/zh/classes/physics.meshcollider.html)。
+
+### 单纯形碰撞器组件 SimplexCollider
+
+> **注意**：`cannon.js` 对线和三角面的支持目前还不完善。
+
+![单纯形碰撞器组件](img/collider-simplex.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **ShapeType** | 单纯形类型，包括四种：点、线、三角面、四面体 |
+| **Vertex0** | 单纯形的顶点 0，点（由 0 组成） |
+| **Vertex1** | 单纯形的顶点 1，线（由 0、1 组成） |
+| **Vertex2** | 单纯形的顶点 2，三角面（以此类推） |
+| **Vertex3** | 单纯形的顶点 3，四面体 |
+
+单纯形碰撞器组件接口请参考 [SimplexCollider API](__APIDOC__/zh/classes/physics.simplexcollider.html)。
+
+### 地形碰撞器组件 TerrainCollider
+
+![地形碰撞器组件](img/collider-terrain.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Terrain** | 获取或设置此碰撞体引用的网格资源 |
+
+地形碰撞器组件接口请参考 [TerrainCollider API](__APIDOC__/zh/classes/physics.terraincollider.html)。
+
+## 添加碰撞组件
+
+这里以获取 **BoxCollider** 盒碰撞器组件为例。
+
+### 通过编辑器添加
+
+1. 新建一个 3D 对象 Cube，在 **资源管理器** 中点击左上角的 **+** 创建按钮，然后选择 **创建 -> 3D 对象 -> Cube 立方体**。
+
+    ![add-cube](img/physics-add-cube.png)
+
+2. 选中新建的 Cube 立方体节点，在右侧的 **属性检查器** 面板下方点击 **添加组件** 按钮，选择 **Physics -> BoxCollider** 添加一个碰撞器组件.
+
+    ![add-boxcollider](img/physics-add-boxcollider.png)
+
+### 通过代码添加
 
 ```ts
 import { BoxCollider } from 'cc'
 
-let boxCollider = this.node.getComponent(BoxCollider);
+const boxCollider = this.node.getComponent(BoxCollider);
 ```
 
-各类型 **Collider** 碰撞器组件说明，请参考 [碰撞器组件](physics-component.md#%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6)。
+## 共有属性介绍
 
-碰撞器组件接口请参考 [Collider API](__APIDOC__/zh/classes/physics.collider.html)。
+### IsTrigger 是否为触发器
 
-## 碰撞器和触发器
+**IsTrigger** 属性决定该碰撞组件是触发器状态还是碰撞器状态，具体请参考：[触发与碰撞](physics-event.md)。
 
-各种 **Collider 碰撞器** 组件具有 **isTrigger 是否为触发器** 属性，将 **isTrigger** 设置为 `true` 时，该组件为触发器，而默认设置 `false` 时，组件为碰撞器。
+### Attached 关联刚体
 
-关于碰撞器和触发器的详细内容，可参考 [物理事件](physics-event.md)。
+**Attached** 属性决定该碰撞组件在碰撞器状态下所绑定的刚体，具体请参考：[刚体](physics-rigidbody.md)。
 
-## Collider 碰撞器和 RigidBody 刚体的关系
+刚体获取请注意以下几点：
 
-**Collider** 和 **RigidBody** 组件都是服务于物理元素，分别操控着物理元素上的一部分属性。了解它们之间的关系，需要先了解 Cocos Creator 中的物理元素是如何构成的。
-
-### 物理元素的组成
-
-在 [**物理元素的组成**](physics.md#%E7%89%A9%E7%90%86%E5%85%83%E7%B4%A0%E7%9A%84%E7%BB%84%E6%88%90)中，介绍了物理元素是由 **Collider** 和 **RigidBody** 组件相互组合而成的，其中单个物理元素只能有零个或一个 **RigidBody** 组件，但可以有零个或多个 **Collider** 组件。
-
-单个节点是很容易看出是否有物理元素的，但如果以节点链为单位，则很难看出物理元素是由哪些节点以及哪些组件组成的。
-
-对于节点树的情况，目前有两个使用方案：
-
-> **注意**：目前 Cocos Creator 使用的是方案 **1**，后续版本也有进行调整的可能，请留意版本更新公告。
-
-1. 每个节点只要有物理组件，就是一个元素，这样父子节点之间的组件没有依赖关系。若节点需要多个碰撞体形状，往该节点上添加相应的 **Collider** 组件即可。
-
-    **缺点**：
-
-    - 层级结构不够直观，多个形状只能往一个节点上加，而显示形状需要增加子节点模型，并且难以支持碰撞体的局部旋转。
-    - 对节点链调整参数时，需要同时调整两个地方，分别为子节点的位置信息和父节点上对应 **Collider** 组件的数据信息。
-
-2. 从自身节点开始往父链节点上搜索，如果找到了 **RigidBody** 组件，则将自身的 **Collider** 组件绑定到该节点上，否则整条链上的 **Collider** 组件将共享一个 **RigidBody** 组件，元素对应的节点是最顶层的 **Collider** 组件所对应的节点。
-
-    **缺点**：
-    
-    - 增加了节点耦合，节点更新时，需要更新相应的依赖节点。
-    - 在节点链被破坏时，需要维护内容更多，节点链在反复被破坏时需要处理复杂的逻辑。
-
-### 刚体组件属性 attachedRigidBody
-
-各种 **Collider** 碰撞器组件具有 **attachedRigidBody** 刚体组件属性，此属性可获得当前 **Collider** 组件所绑定的 **RigidBody** 刚体组件，但是请注意以下几点：
-
-- 在自身节点无 **RigidBody** 组件时，该属性返回为 **null**。
-- **attachedRigidBody** 是一个只读的属性。
+- 在自身节点无 `RigidBody` 组件时，该属性返回为 `null`。
+- Attached 对应的真实属性名为 attachedRigidBody，attachedRigidbody 是一个只读的属性，不可修改。
 
 ```ts
 let collider = this.node.getComponent(BoxCollider);
 let rigidbody = collider?.attachedRigidBody;
 ```
 
-## 自动缩放
+### Material 物理材质
 
-每个组件都会绑定在一个节点上，有些组件会根据绑定的节点动态更新数据。其中碰撞体组件会根据节点信息自动更新相应的形状数据，让碰撞体可以更贴合渲染模型。
-
-更新数据，以模型组件举例：
-
-模型组件会根据绑定节点自动更新模型的世界矩阵，从而实现改变节点的位置、缩放、旋转等信息，可以使渲染的模型有相应仿射变换。
-
-但碰撞体的有些性质导致缩放的处理不太一样：
-
-- 碰撞体一般用几何结构来描述
-- 碰撞体大部分都是凸包类型
-
-这些性质限制了切变、非均一缩放等变换，以球举例：
-
-假设绑定节点的缩放信息是 **(1,2,1)**（非均一缩放），由于模型和碰撞体描述的结构不一样，球模型使用多个基础图元（如三角面）来表示，缩放后会形变成类似于鹅卵石的形状；但球碰撞体的使用半径大小来描述，缩放时会取数值最大的维度来缩放半径（这样是为了碰撞体尽可能的包围住模型），但缩放后还是一个球。
-
-![非均一缩放球](img/collider-non-uniform-scale.jpg)
-
-### 非标准形状
-
-对于像鹅卵石这样非标准形状，可以使用 [MeshCollider 网格碰撞体](physics-component.md#%E7%BD%91%E6%A0%BC%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6%20MeshCollider) 来代替基础的碰撞体。
-
-**注意**：若需要支持动力学刚体，则必须开启 **convex** 功能。
-
-![鹅卵石](img/collider-cobblestone.jpg)
-
-## 物理材质
-
-碰撞体拥有物理材质属性，相关内容在[物理材质](physics-material.md)中有详细介绍，这里主要介绍共享和非共享的接口区别。
-
-目前 **Collider** 组件提供了两个属性去访问和设置，分别为 **material** 和 **sharedMaterial**，它们的主要区别如下：
-
-1. 设置 **sharedMaterial** 或者 **material** 是一样的效果，在没有调用这些接口之前是共享状态，当发现设置的与当前引用不是同一实例时，后面获取 **material** 将不会生成新的材质实例，此时是非共享状态。
-
-2. 在共享状态前提下，获取 **material** 将会生成新的材质实例，以确保只有当前碰撞体引用了该材质，这样修改时不会影响到其他的碰撞体，之后就是非共享状态了。
-
-3. 获取 **sharedMaterial** 不会生成新的，而是直接返回引用。
-
-```ts
-let collider = this.node.getComponent(BoxCollider);
-let material = collider?.material;
-let sharedMaterial = collider?.sharedMaterial;
-```
+**Material** 属性决定该碰撞组件在碰撞器状态下碰撞体所拥有物理材质属性，具体请参考：[物理材质](physics-material.md)。

@@ -8,12 +8,12 @@
 
 ![物理材质](img/material-panel.png)
 
-| 属性 | 解释 |
+| 属性 | 属性说明 |
 | :-- | :-- |
-| friction | 摩擦系数 |
-| rollingFriction | 滚动摩擦系数 |
-| spinningFriction | 自旋摩擦系数 |
-| restitution | 回弹系数 |
+| Friction | 摩擦系数 |
+| RollingFriction | 滚动摩擦系数 |
+| SpinningFriction | 自旋摩擦系数 |
+| Restitution | 回弹系数 |
 
 当与其它表面接触时，这些系数用于计算相应的摩擦力和弹力。
 
@@ -41,7 +41,7 @@ newPmtl.restitution = 0.5;
 
 ## 应用
 
-目前物理材质以碰撞体为单位进行设置，每个 **Collider** 都具有一个 **material** 的属性（不设置时， **Collider** 将会引用物理系统中的默认物理材质）。
+目前物理材质以碰撞体为单位进行设置，每个 **Collider** 都具有一个 **Material** 的属性（不设置时， **Collider** 将会引用物理系统中的默认物理材质）。
 
 应用到 **Collider** 同样也分编辑器操作和代码操作两种方式。
 
@@ -55,14 +55,6 @@ import { Collider } from 'cc';
 let collider = this.node.getComponent(Collider);
 if (collider) {
     collider.material = newPmtl;
-}
-```
-
-因为 [材质共享](physics-collider.md#%E7%89%A9%E7%90%86%E6%9D%90%E8%B4%A8) 的设计，实际在代码中，也可以直接修改物理材质的属性数值（因为在获取 `material` 时会创建一个实例）。
-
-```ts
-if (collider) {
     collider.material.rollingFriction = 0.1;
-    collider.material.restitution = 0.1;
 }
 ```
