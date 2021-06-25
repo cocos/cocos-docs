@@ -8,9 +8,9 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 **Macro Config** provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
-- **ENABLE_TILEDMAP_CULLING**: whether or not enabled tiled map auto culling. If you set the TiledMap skew or rotation, then need to manually disable this, otherwise, the rendering will be wrong.
+- **ENABLE_TILEDMAP_CULLING**: whether or not tiled map auto culling is enabled. If setting the TiledMap skew or rotation, then it is necessary to manually disable this setting, otherwise, the rendering will be wrong.
 
-- **TOUCH_TIMEOUT**: the timeout to determine whether a touch is no longer active and should be removed. You can modify this value to have a better behavior if you find it's not enough.
+- **TOUCH_TIMEOUT**: the timeout to determine whether a touch is no longer active and should be removed. This value can be modified to have a better behavior if necessary.
 
 - **ENABLE_TRANSPARENT_CANVAS**: boolean that indicates if the canvas contains an alpha channel, default sets to false for better performance.
 
@@ -24,7 +24,7 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 ![macro](./index/macro.png)
 
-For more specific information and code about the engine macro module, you can refer to **Engine Macro** ([GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
+For more specific information and code about the engine macro module, please refer to the [**Engine Macro** source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
 ## Feature Cropping
 
