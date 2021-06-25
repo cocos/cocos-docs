@@ -16,7 +16,7 @@ In the **Assets** panel, the texture's icon is a thumbnail of itself. Once you s
 | --- | --- |
 | Type | Includes two modes: **Raw** and **Sprite**.<br>**Raw** means that only texture are generated.<br>**Sprite** means that `cc.SpriteFrame` is generated. Please refer to section **Texture & SpriteFrame** below for details.|
 | Premultiply Alpha | If set, the RGB channel is multiplied by the alpha channel. |
-| Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. |
+| Wrap Mode | Wrap modes. Includes two modes: **Clamp** and **Repeat**. When the `Type` is set to `Sprite`, the wrap mode is meaningless because the UV of `Sprite` does not go beyond \[0, 1\]. |
 | Filter Mode | Filter modes. Includes three modes: **Point**, **Bilinear** and **Trilinear**. |
 | genMipmaps | Whether to enable automatic generation of mipmap. |
 | packable | Whether this texture is allowed to be packed into Dynamic Atlas. |
@@ -66,6 +66,8 @@ In general, texture coordinates UV's values range is [0, 1]. When the texture co
 - **Repeat mode**
 
   For texture coordinates beyond the [0, 1] range, will use the texture coordinates [0, 1] to repeat.
+
+> **Note**: the repeat mode is invalid when the width and height of the texture is not a power of two.
 
 ### Filter Mode
 

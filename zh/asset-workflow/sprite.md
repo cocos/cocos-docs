@@ -16,7 +16,7 @@
 | :--- | :--- |
 | Type | 包括 Raw 和 Sprite 两种模式。**Raw** 模式表示只会生成贴图资源，**Sprite** 模式表示还会生成 SpriteFrame 子资源，详情请参考下文 **Texture 和 SpriteFrame 资源类型** 部分的内容。 |
 | Premultiply Alpha | 是否开启 Alpha 预乘，勾选之后会将 RGB 通道预先乘以 Alpha 通道。 |
-| Wrap Mode | 寻址模式，包括 **Clamp（钳位）**、**Repeat（重复）** 两种寻址模式 |
+| Wrap Mode | 寻址模式，包括 **Clamp（钳位）**、**Repeat（重复）** 两种寻址模式。当 Type 设置为 Sprite 时，寻址模式是没有意义的，因为 Sprite 的 UV 不会超出 \[0, 1\]。 |
 | Filter Mode | 过滤方式，包括 **Point（邻近点采样）**、**Bilinear（双线性过滤）**、**Trilinear（三线性过滤）** 三种过滤方式。     |
 | genMipmaps  | 是否开启自动生成 mipmap  |
 | packable    | 是否允许贴图参与合图      |
@@ -73,6 +73,8 @@ Texture 的 Premultiply Alpha 属性勾选与否表示是否开启 Alpha 预乘�
 - **重复寻址模式（Repeat）**
 
   对于超出 \[0，1\] 范围的纹理坐标，使用 \[0，1\] 的纹理坐标内容进行不断重复。
+
+> **注意**：当贴图宽高不是二次幂的时候，寻址模式 repeat 是无效的。
 
 ### 过滤方式
 
