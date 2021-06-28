@@ -8,15 +8,15 @@ In addition to the data entry capability inherited from RenderRoot2D, the Canvas
 
 ![](canvas/design-resolution.png)
 
-The Canvas itself has nothing to do with the camera, its main role is to adapt the screen as described above, so the rendering of the Canvas only depends on the camera corresponding to its node layer, so you can control the properties of the camera to determine the rendering effect of the nodes under the Canvas. 
+The Canvas itself has nothing to do with the camera, its main role is to adapt the screen as described above, so the rendering of the Canvas only depends on the camera corresponding to its node layer, and it can control the properties of the camera to determine the rendering effect of the nodes under the Canvas.
 
 ## Canvas Properties
 
 | Property | Function Description |
 | :------------- | :---------- |
 | CameraComponent | The camera associated with the Canvas. This camera does not necessarily render the content under the Canvas, but can be used in conjunction with the `AlignCanvasWithScreen` property to automatically change some of the Camera's parameters to align with the Canvas.
-| AlignCanvasWithScreen | Whether the camera associated with the Canvas should be aligned with the Canvas, do not check this option if you want to control the camera position yourself (like side-scrolling games, etc.)
+| AlignCanvasWithScreen | Whether the camera associated with the Canvas should be aligned with the Canvas, do not check this option if it is necessary to control the camera position manually (like side-scrolling games, etc.)
 
 ## Caution
 
-If you encounter UI rendering errors, blurred screen, splash screen, etc., please refer to [Detailed Explanation](../engine/priority.md#detailed-explanation).
+If UI rendering errors, blurred screen, splash screen, etc are encountered, please refer to this [detailed explanation](../engine/priority.md#detailed-explanation).
