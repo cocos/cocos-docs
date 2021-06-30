@@ -2,11 +2,11 @@
 
 Cocos Creator provides a built-in [Extension Store](install-and-share.md) for users to browse, download and automatically install official or third-party plugins and resources.
 
-Users can also submit their own extensions, code, music, sound effects and other resources to the Extension Store for sharing or selling. Next, we will take a look at the submission process for the extension plugin as an example.
+Users can also submit their own extensions, code, music, sound effects and other resources to the Extension Store for sharing or selling. Next, it is important to review an example submission process for the extension plugin.
 
 ## Package your plugin extensions
 
-Suppose your completed plugin extension package directory structure is as follows:
+Suppose the completed plugin extension package directory structure is as follows:
 
 ```
 foobar
@@ -16,7 +16,7 @@ foobar
     |--main.js
 ```
 
-You need to package the `foobar` folder into the `foobar.zip` file and submit it to the Cocos Developer Center.
+The `foobar` folder needs to be packaged into the `foobar.zip` file and submitted to the Cocos Developer Center.
 
 For more information on the plugin extensions, please refer to the [Create Extension Packages](your-first-extension.md) documentation.
 
@@ -28,11 +28,11 @@ The current extension package installation system does not install workflows suc
 
 Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to the [Store](https://store-my.cocos.com/#/seller/resources/) and click on the **Create new resource** button in the top right.
 
-  ![](submit-to-store/create.png)
+  ![create](submit-to-store/create.png)
 
 - Then enter the **Category** page, fill in the **Name** and **Category**, and check "I have read and agreed to the Agreement".
 
-  ![](submit-to-store/category.png)
+  ![category](submit-to-store/category.png)
 
   - **Name**: The name of the plugin displayed in the Extension Store. Please note that the **Name** cannot be changed once it is confirmed, so please fill it in carefully.
   - **Category**: For the resource category to submit, we select **Creator Extension -> Plugins** here.
@@ -41,7 +41,7 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go
 
 - Fill in the relevant information on the **Introduction** page.
 
-  ![](submit-to-store/introduction.png)
+  ![introduction](submit-to-store/introduction.png)
 
   - **Keyword**: Easier for users to search for your plugin faster, supports multiple keywords.
   - **Support Platform**: Including Android, iOS, HTML5.
@@ -53,13 +53,13 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go
 
 - Set the sale price of the plugin on the **Pricing** page, including **CNY** and **USD**, and if it is free please fill in **0**.
 
-  ![](submit-to-store/pricing.png)
+  ![pricing](submit-to-store/pricing.png)
 
   Click **Next** to enter the **Upload** page after completing the filling.
 
 - On the **Upload** page, upload the plugin extension package and fill in the relevant information.
 
-  ![](submit-to-store/upload.png)
+  ![uploadf](submit-to-store/upload.png)
 
   - **Package**: **Zip** format, up to **100MB**.
   - **Extension Name**: The name of the plugin extension package, defined in the `package.json` file of the extension package.
@@ -68,9 +68,9 @@ Go to the [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go
 
   Click **Next** to enter the **Submit for review** page after completing the filling.
 
-- You can click the **Submit review** button on the **Submit for review** page, or click the **View** button to review/reedit the information for this plugin resource.
+- Click the **Submit review** button on the **Submit for review** page, or click the **View** button to review/reedit the information for this plugin resource.
 
-  ![](submit-to-store/submit-for-review.png)
+  ![submit-for-review](submit-to-store/submit-for-review.png)
   
 - After submitting for review, the Extension Store admin will review the plugin content and information within **3** business days.
 
