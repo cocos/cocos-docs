@@ -1,8 +1,12 @@
-# 动画组件
+# 使用脚本控制动画
 
-动画组件控制动画的播放。
+## 动画组件
 
-像其他组件一样为节点添加动画组件：
+动画组件管理了一组动画状态，用于控制各动画的播放、暂停、继续、停止、切换等。动画组件开始运作前，会为每一个动画剪辑都创建相应的 [动画状态](../../engine/animation/animation-state.md) 对象，动画状态用于控制需要在对象上使用的动画剪辑。
+
+在动画组件中，动画状态是通过名称来标识的，每个动画状态的默认名称就是其动画剪辑的名称。
+
+在脚本中为节点添加动画组件的方式如下：
 
 ```ts
 import { Animation, Node } from 'cc';
@@ -12,66 +16,62 @@ function (node: Node) {
 }
 ```
 
-动画组件管理了一组动画剪辑。
+### 动画的播放与切换
 
-动画组件开始运作前，它为每一个动画剪辑都创建了相应的 **动画状态** 对象。动画状态控制某个动画剪辑在节点的播放过程，一个动画剪辑可以同时为多个动画状态所用。
+#### 播放动画
 
-在动画组件中，动画状态是通过名称来标识的。每个动画状态的默认名称就是其动画剪辑的名称。
-
-## 动画的播放与切换
-
-`play()` 使得动画组件开始播放指定的动画：
+动画组件通过 [play()](__APIDOC__/zh/classes/animation.animation-1.html#play) 控制指定动画的播放，例如：
 
 ```ts
-animationComponent.play('idle'); // 播放动画状态 'idle'
+// 播放动画状态 'idle'
+animationComponent.play('idle');
+
+// 指定从 1s 开始播放 'idle' 动画
+animationComponent.play('idle', 1);
 ```
 
-在播放时，旧的动画将立即被停止，这种切换是非常突兀的。在某些情况下，我们希望这种切换是“淡入淡出”的效果，此时应该使用 `crossFade()` 方法。`crossFade()` 会在指定的周期内平滑地完成切换：
+动画组件对一个动画进行播放的时候会先判断这个动画之前的播放状态，再进行下一步操作。如果动画之前处于：
+
+- **停止** 状态，则动画组件会直接重新播放这个动画
+- **暂停** 状态，则动画组件会恢复动画的播放，并从当前时间继续播放下去
+- **播放** 状态，则动画组件会先停止这个动画，再重新播放动画
+
+使用 `play` 播放动画时若未指定具体动画，并且设置了 `defaultClip`，则会播放 defaultClip 动画。若动画组件的 `playOnLoad` 也设置为 `true`，则动画组件将在第一次运行时自动播放 `defaultClip` 的内容。
 
 ```ts
+// 未指定播放的动画，并且设置了 defaultClip 的话，则会播放 defaultClip 动画
+animationComponent.play();
+```
+
+#### 切换动画
+
+使用 `play` 接口播放一个动画时，如果此时还有其他的动画正在播放，则会立即停止其他动画的播放。这种切换是非常突兀的，在某些情况下，我们希望这种切换是“淡入淡出”的效果，那么便可以使用 [crossFade()](__APIDOC__/zh/classes/animation.animation-1.html#crossfade)，在指定的周期内平滑地完成切换。例如：
+
+```ts
+// 播放动画状态 ‘walk’
 animationComponent.play('walk');
 
 /* ... */
 
-// 当需要切换到跑的动画时
-animationComponent.crossFade('run', 0.3); // 在 0.3 秒内平滑地从走的动画切换为跑的动画
+// 在 0.3 秒内平滑地从走的动画切换为跑的动画
+animationComponent.crossFade('run', 0.3);
 ```
 
 `crossFade()` 的这种淡入淡出机制使得同一时刻可能有不止一个动画状态在播放。因此，动画组件没有 **当前动画** 的概念。
 
 即便如此，动画组件仍提供了 `pause()`、`resume()`、`stop()` 方法，这些方法在暂停、继续以及停止正在播放的所有动画状态的同时，也暂停、继续以及停止动画的切换。
 
+关于动画组件更多相关的控制接口，详情请参考 [类 `Animation`](__APIDOC__/zh/classes/animation.animation-1.html)。
+
 ## 动画状态
 
-有时候你可能需要对动画状态进行其他操作，例如设置速度。
-
-首先可以通过 `getState()` 获取动画状态：
-
-```ts
-const animationComponent = node.getComponent(Animation);
-animationComponent.clips = [ idleClip, runClip ];
-
-// 获取 `idleClip` 的状态
-const idleState = animationComponent.getState(idleClip.name);
-```
-
-然后设置动画播放的速度：
-
-```ts
-animationComponent.getState('idle').speed = 2.0; // 以两倍速播放待机动画
-```
-
-动画状态也提供了 `play()`、`pause()`、`resume()`、`stop()` 这些用于播放控制的方法。当动画组件本身的播放控制功能已经不能满足需求时，也可以按照自己的方式操纵动画状态的播放。
-
-## 默认动画
-
-当动画组件的 `playOnLoad` 为 `true` 时，动画组件将在第一次运行时自动播放默认动画剪辑 `defaultClip`。
+动画组件只提供了一些简单的控制函数，大部分情况下是足够和易于使用的，但若想要得到更多的动画信息以及动画控制接口，需要使用 [动画状态](../../engine/animation/animation-state.md) 。
 
 ## 帧事件
 
-你可以为动画的每一时间点添加事件。
+动画编辑器支持可视化编辑 [事件帧](../../editor/animation/animation-event.md)，也可以直接在脚本里添加帧事件。
 
-`AnimationClip` 的 `events` 包含了此动画所有的事件描述，每个事件描述都具有以下属性：
+`AnimationClip` 的 `events` 包含了此动画所有的帧事件，每个帧事件都具有以下属性：
 
 ```ts
 {
@@ -81,10 +81,26 @@ animationComponent.getState('idle').speed = 2.0; // 以两倍速播放待机动�
 }
 ```
 
-- `frame` 表示事件触发的时间点，单位为秒。例如 `0.618` 就表示当动画到达第 0.618 秒时将触发事件。
-- `func` 表示事件触发时回调的方法名称。事件触发时，会 **在当前节点的所有组件上搜索** 名为 `func` 的方法，一旦找到，将 `params` 传递给它并调用。
+- `frame`：表示事件触发的时间点，单位为秒。例如 `0.618` 就表示当动画到达第 0.618 秒时将触发事件。时间轴刻度单位之间的转换，详情请参考 [时间轴的刻度单位显示](../../editor/animation/animation-editor.md)。
+- `func`：表示事件触发时回调的函数名称。事件触发时，动画系统会搜索 **动画根节点中的所有组件**，若组件中有实现动画事件 `func` 中指定的函数，便会对其进行调用，并传入 `params` 中的参数。
 
-以下代码演示了这一过程：
+例如，在动画时间轴的第 0.5s 添加了一个事件帧：
+
+![keyframe](keyframe.png)
+
+那么在脚本中实现的代码如下：
+
+```ts
+{
+    frame: 0.5;
+    func: 'onTriggered';
+    params: [ 0 ];
+}
+```
+
+### 示例
+
+以下代码表示 `MyScript` 脚本组件所在节点的动画组件的默认动画剪辑在进行到第 0.5 秒时，将调用 `MyScript` 组件的 `onTriggered()` 方法并传递参数 `0`。
 
 ```ts
 import { Animation, Component } from 'cc';
@@ -112,4 +128,15 @@ class MyScript extends Component {
 }
 ```
 
-以上代码表示 `MyScript` 脚本组件所在节点的动画组件的默认动画剪辑在进行到第 0.5 秒时，将调用 `MyScript` 组件的 `test()` 方法并传递参数 `0`。
+## 动画事件
+
+除了 **动画编辑器** 中的帧事件提供了回调，动画系统还提供了动画事件回调方式。目前支持的回调事件包括：
+
+- `play`：开始播放时触发
+- `stop`：停止播放时触发
+- `pause`：暂停播放时触发
+- `resume`：恢复播放时触发
+- `lastframe`：假如动画循环次数大于 1，当动画播放到最后一帧时触发。
+- `finished`：动画播放完成时触发
+
+更多内容请参考 [Animation.EventType](__APIDOC__/zh/enums/animation.eventtype.html)。

@@ -1,8 +1,31 @@
 # 动画状态
 
-动画剪辑仅描述某一类对象的动画数据，但并未绑定具体要进行动画的对象。在对象上播放动画时，对象与动画剪辑绑定，动画播放的状态称为动画状态。动画状态就像播放机一样，允许对动画进行暂停、调速等。
+动画剪辑仅描述某一类对象的动画数据，例如角色的跑、走、跳等，但并未绑定具体要执行动画的对象。动画状态便是用于控制在某个对象上使用的动画剪辑，类似于播放机，除了提供动画组件也有的简单的控制函数外，还提供了更多的动画信息以及动画控制接口，允许对动画播放进行调速、设置循环模式等控制。一个动画剪辑可以同时被多个动画状态使用。
 
 动画状态由 [类 `AnimationState`](__APIDOC__/zh/classes/animation.animationstate-1.html) 管理。
+
+## 设置播放速度
+
+首先可以通过 [getState()](__APIDOC__/zh/classes/animation.animation-1.html#getstate) 获取动画状态：
+
+```ts
+// 获取动画组件
+const animationComponent = node.getComponent(Animation);
+// 获取动画组件上的动画剪辑
+animationComponent.clips = [ idleClip, runClip ];
+
+// 获取 `idleClip` 的动画状态
+const idleState = animationComponent.getState(idleClip.name);
+```
+
+然后设置动画播放的速度：
+
+```ts
+// 以二倍速播放 `idleClip` 动画
+animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快，值越小则速度越慢
+```
+
+动画状态也提供了 `play()`、`pause()`、`resume()`、`stop()` 等用于播放控制的方法，详情可参考下文 **播放状态** 部分的内容。
 
 ## 播放时间
 
@@ -10,13 +33,14 @@
 
 任意时刻动画所处的播放位置称为 **进度时间**，因此进度时间总是在 `[0, 动画周期]` 范围内。
 
-**累计播放时间** 和 **进度时间** 分别由 `AnimationState` 的 `time` 和 `current` 字段获取，但 **累计播放时间** 是可以显式设置的，**进度时间** 是 **只读** 的。
+- **累计播放时间** 由 `AnimationState` 的 [time](__APIDOC__/zh/classes/animation.animationstate.html#time) 字段获取，并且可以显式设置。
+- **进度时间** 由 `AnimationState` 的 [current](__APIDOC__/zh/classes/animation.animationstate.html#current) 字段获取，是 **只读** 的。
 
-动画播放的循环模式与循环次数决定了累计播放至某一时间时动画的进度位置，不管 **累计播放时间** 因为时间的推移而增加还是因为直接设置而更改，**进度时间** 都会相应发生改变。
+动画播放的循环模式与循环次数决定了累计播放至某一时间时动画的进度时间，不管 **累计播放时间** 因为时间的推移而增加还是因为直接设置而更改，**进度时间** 都会相应发生改变。
 
 ## 循环模式与循环次数
 
-动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/enums/animation.wrapmode.html) 表示：
+动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/enums/animation.wrapmode.html) 表示，包括以下几种：
 
 | 循环模式 | 说明 |
 | :--- | :--- |
@@ -34,11 +58,15 @@
 
 动画状态的初始循环模式将从动画剪辑中读取。需要改变动画状态的循环模式时，简单地设置动画状态的 `wrapMode` 字段即可。
 
-> **注意**：设置循环模式时会重置动画状态的累计播放时间。
+> **注意**：设置循环模式时会重置动画状态的 **累计播放时间**。
 
-除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），其余的循环模式都进行的是无限次循环，可以通过 `AnimationState` 的 `repeatCount` 字段来指定和获取循环的次数。
+除 `AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 外（它们可以理解为单次循环），其余的循环模式执行的都是无限次循环。无限次循环需要与 `AnimationState` 的 `repeatCount` 配合使用才能达到效果，并且可以通过 `repeatCount` 字段来设置和获取循环的次数。
 
-> **注意**：设置循环次数应该在设置循环模式后进行，因为重新设置循环模式时会重置循环次数。`AnimationClip.WrapMode.Normal` 和其对应的 `AnimationClip.WrapMode.Reverse` 会将循环次数重置为 1，其余的循环模式会将循环次数重置为 `Number.Infinity`（无限次）。
+当动画循环模式为：
+- 单次循环模式：`repeatCount` 将被设置为 **1**。
+- 无限次循环模式：`repeatCount` 将被设置为 `Number.Infinity`，即无限循环。
+
+> **注意**：设置循环次数应该在设置循环模式之后进行，因为重新设置循环模式时会重置循环次数。
 
 ## 播放控制
 
@@ -62,3 +90,5 @@
 播放控制与播放状态之间的关系如下图所示：
 
 ![Playback control](./playback-control.svg)
+
+通过动画状态可以获取到所有动画的信息，以便利用这些信息来判断需要做哪些事，更多接口请参考 [类 `AnimationState`](__APIDOC__/zh/classes/animation.animationstate-1.html)。
