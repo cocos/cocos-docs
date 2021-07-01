@@ -1,12 +1,12 @@
-# 编写面板界面
+# Write panel interface
 
-Cocos Creator 的面板界面使用 HTML5 标准编写。你可以为界面指定 HTML 模板和 CSS 样式，然后对界面元素绑定消息编写逻辑和交互代码。如果你之前有过前端页面编程经验，那么这些内容对你来说再熟悉不过。而没有前端编程经验的开发者也不必太担心，通过本节的学习，将可以让你在短时间内掌握 Creator 面板界面的编写技巧。
+The panel interface of Cocos Creator is written in HTML5 standard. HTML templates and CSS styles can be spedcified for the interface, and then write logic and interaction code for binding messages to interface elements. Developers without front-end programming experience don't have to worry too much. Through the learning in this section, developers will be able to master the writing skills of the Creator panel interface in a short time.
 
-## 定制你的模板
+## Customize your template
 
-通常在开始编写界面之前，我们总是希望能够在界面中看见点什么。我们可以通过面板定义函数的 `template` 和 `style` 选项来稍微在面板界面上绘制点东西。
+Usually before starting to write the interface, we always want to be able to see something in the interface. Something can be drawn on the panel interface through the `template` and `style` options of the panel definition function.
 
-一般我们会选择绘制一些区块用于规划界面布局，我们可以写以下代码：
+Generally, draw some blocks to plan the interface layout. Example:
 
 ```javascript
 Editor.Panel.extend({
@@ -50,17 +50,17 @@ Editor.Panel.extend({
 });
 ```
 
-通过以上代码，我们获得了一个如下的界面效果：
+Using the above code, the interface looks as follows:
 
 ![panel-01](./assets/panel-01.png)
 
-## 界面排版
+## Interface layout
 
-界面排版是通过在 `style` 中书写 CSS 来完成的。在上面的例子中，我们已经对界面做了简单的排版。如果对 CSS 不熟悉，推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
+The interface layout is done by writing CSS in `style`. In the above example, a simple layout of the interface was demonstrated. To become more familiar with CSS, please review the [W3 School's CSS Tutorial](http://www.w3school.com.cn/css/).
 
-在界面排版过程中，有时候我们希望更好的表达元素之间的布局关系，比如我们喜欢 Top 和 Bottom 元素的高度固定为 30px，而 Middle 元素的高度则撑满剩余空间。这个时候我们就可以使用 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局来制作。
+In the process of interface layout, sometimes it is necessary to better express the layout relationship between elements. For example, the height of `Top` and `Bottom` elements may be fixed at 30px, while the height of `Middle` element fills up the remaining space. Use [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout to make it.
 
-我们可以这么修改 `style` 部分：
+Try modifying the `style` part, as shown in this example:
 
 ```javascript
 Editor.Panel.extend({
@@ -95,15 +95,15 @@ Editor.Panel.extend({
 });
 ```
 
-由于 CSS Flex 布局语法有些复杂，为了方便大家使用，Cocos Creator 对这部分进行了重新包装，关于这部分的详细介绍，请阅读 [界面排版](layout-ui-element.md)。
+As the CSS Flex layout syntax is a bit complicated, Cocos Creator has repackaged this part for your convenience. For a detailed introduction to this part, please read the [Interface Typesetting](layout-ui-element.md) documentation.
 
-## 添加 UI 元素
+## Add UI elements
 
-规划好布局后，我们就可以考虑加入界面元素来完成界面功能。通常，熟悉前端编程的开发人员会想到一些常用的界面元素，如 `<button>`、`<input>` 等等。这些元素当然是可以直接被使用，但是我们强烈推荐大家使用 Cocos Creator 的内置 UI Kit 元素。这些内置元素都是以 `ui-` 开头，例如 `<ui-button>`，`<ui-input>`。
+After planning the layout, consider adding interface elements to complete the interface functions. Usually, developers who are familiar with front-end programming will think of some common interface elements, such as `<button>`, `<input>`, and so on. These elements can of course be used directly, but it is strongly recommend to use Cocos Creator's built-in UI Kit elements. These built-in elements all start with `ui-`, such as `<ui-button>`, `<ui-input>`.
 
-Cocos Creator 提供了非常丰富的内置元素，开发人员可以通过 [掌握 UI Kit](using-ui-kit.md) 章节获得更详细的了解。内置元素不但在样式上经过细致的调整，同时也统一了消息发送规则并且能够更好的处理 focus 等系统事件。
+Cocos Creator provides a very rich set of built-in elements. Developers can get a more detailed understanding through reviewing the [Mastering UI Kit](using-ui-kit.md) documentation. The built-in elements have not only been carefully adjusted in style, but also unified message sending rules and can better handle system events such as focus.
 
-让我们稍微丰富一下我们上面的面板：
+Let's enrich our panel above a bit:
 
 ```javascript
 Editor.Panel.extend({
@@ -145,13 +145,13 @@ Editor.Panel.extend({
 });
 ```
 
-如果一切正常，你将会看到如下界面：
+If everything is normal, the interface should look something like this example:
 
 ![panel-02](./assets/panel-02.png)
 
-## 为 UI 元素添加逻辑交互
+## Add logical interaction to UI elements
 
-最后让我们通过标准的事件处理代码来完成面板的逻辑部分。假设我们需要在每次点击预览按钮后，都会将 text-area 中输入的 Markdown 文档，渲染并显示在下方。我们可以做如下代码操作：
+Finally, complete the logic part of the panel through standard event handling code. Suppose one of the requirements needed is to render the Markdown document entered in the text-area and display it below each time we click the preview button. Consider the following code:
 
 ```javascript
 Editor.Panel.extend({
@@ -174,6 +174,6 @@ Editor.Panel.extend({
 });
 ```
 
-这里我们通过 `$` 选择器，预先索引了我们需要的 ui 元素。再利用 HTML 标准 API `addEventListener` 为元素添加事件。对于内置 UI Kit 元素，每个 UI 元素都拥有一组标准事件，分别是：`cancel`、`change` 和 `confirm`。同时，多数 UI 元素都会携带 `value` 属性，记录元素内相关的值信息。
+Here the `$` selector is used to pre-index the ui elements that are needed. Next, use the HTML standard API `addEventListener` to add events to the element. For the built-in UI Kit elements, each UI element has a set of standard events, namely: `cancel`, `change` and `confirm`. At the same time, most UI elements carry the `value` attribute, which records related value information within the element.
 
-希望通过本节的代码示例，能够启发你进行面板界面开发的工作。当然，要灵活运用面板界面，还是需要深入学习和掌握 HTML5 标准。
+The code in this section is meant to show examples and provide inspiration to develop custom panel interfaces. To use the panel interface flexibly, learning and mastering the HTML5 standard in depth is required.
