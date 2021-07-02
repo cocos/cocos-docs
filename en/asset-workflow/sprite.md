@@ -67,7 +67,7 @@ In general, texture coordinates UV's values range is [0, 1]. When the texture co
 
   For texture coordinates beyond the [0, 1] range, will use the texture coordinates [0, 1] to repeat.
 
-> **Note**: the repeat mode is invalid when the width and height of the texture is not a power of two.
+  > **Note**: the repeat mode is invalid when the width and height of the texture is not a power of two.
 
 ### Filter Mode
 
