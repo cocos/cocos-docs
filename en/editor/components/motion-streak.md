@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Inspector** panel and 
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-Please review the [MotionStreak API](../../../api/en/classes/particle2d.motionstreak.html).
+Please review the [MotionStreak API](__APIDOC__/en/classes/particle2d.motionstreak.html).
 
 ## MotionStreak Properties
 
