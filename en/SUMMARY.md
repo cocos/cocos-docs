@@ -181,6 +181,7 @@
     - [Animation](engine/animation/animation-component.md)
     - [Billboard](particle-system/billboard-component.md)
     - [Line](particle-system/line-component.md)
+    - [MotionStreak](editor/components/motion-streak.md)
     - [ParticleSystem](particle-system/main-module.md)
     - [BoxCollider](physics/physics-component.md#boxcollider)
     - [SphereCollider](physics/physics-component.md#spherecollider)

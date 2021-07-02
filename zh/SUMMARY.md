@@ -200,6 +200,7 @@
     - [SpotLight](concepts/scene/light/spot-light.md)
     - [Animation](engine/animation/animation-component.md)
     - [Billboard](particle-system/billboard-component.md)
+    - [MotionStreak](editor/components/motion-streak.md)
     - [Line](particle-system/line-component.md)
     - [ParticleSystem](particle-system/main-module.md)
     - [BoxCollider](physics/physics-component.md#盒碰撞器组件（boxcollidercomponent）)

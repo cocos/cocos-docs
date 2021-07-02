@@ -6,6 +6,8 @@ MotionStreak is used to implement a streak effect on the motion track of a game 
 
 Click the **Add Component** button at the bottom of the **Inspector** panel and select **MotionStreak** from **Effects** to add the MotionStreak component to the node.
 
+For details on how to use it, please refer to the **Motion Streak** ([Github](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/24.motion-streak)) example.
+
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
 Please review the [MotionStreak API](__APIDOC__/en/classes/particle2d.motionstreak.html).
