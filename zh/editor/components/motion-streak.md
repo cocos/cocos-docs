@@ -8,12 +8,17 @@ MotionStreak（拖尾）是运动轨迹，用于在游戏对象的运动轨迹�
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-拖尾的脚本接口请参考 [MotionStreak API](../../../api/zh/classes/particle2d.motionstreak.html)。
+拖尾的脚本接口请参考 [MotionStreak API](__APIDOC__/api/zh/classes/particle2d.motionstreak.html)。
 
 ## MotionStreak 属性
 
 | 属性 |   功能说明
 | -------------- | ----------- |
+| CustomMaterial | 自定义材质。 |
+| SrcBlendFactor | 源混合因子值。 |
+| DstBlendFactor | 目标混合因子值。 |
+| Color | 拖尾的颜色。 |
+| Preview | 是否启用预览。 |
 | FadeTime | 拖尾的渐隐时间，以秒为单位。|
 | MinSeg   | 拖尾之间的最小距离。|
 | Stroke   | 拖尾的宽度。|

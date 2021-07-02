@@ -14,6 +14,11 @@ Please review the [MotionStreak API](__APIDOC__/en/classes/particle2d.motionstre
 
 | Property | Description
 | -------------- | ----------- |
+| CustomMaterial | Custom Material. |
+| SrcBlendFactor | Source Blend Factor. |
+| DstBlendFactor | Destination Blend Factor. |
+| Color | The color of the streak. |
+| Preview | Whether to enable preview. |
 | FadeTime | The fade time in seconds of the streak. |
 | MinSeg | The minimum distance between the fades. |
 | Stroke | The width of the streak. |
