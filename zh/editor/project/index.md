@@ -8,7 +8,7 @@
 
 **引擎宏设置** 提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
 
-- **ENABLE_TILEDMAP_CULLING**：是否开启瓦片地图的自动裁减功能。瓦片地图如果设置了 skew、rotation 的话，需要手动关闭，否则渲染会出错。
+- **ENABLE_TILEDMAP_CULLING**：是否开启瓦片地图的自动裁减功能，默认开启。需要注意的是瓦片地图如果设置了 skew 和 rotation 的话，需要手动关闭该项，否则会导致渲染出错。
 
 - **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。你可以修改这个值来获得你需要的效果，默认值是 5000 毫秒。
 
@@ -16,11 +16,11 @@
 
 - **ENABLE_WEBGL_ANTIALIAS**：用于设置在创建 WebGL Context 时是否开启抗锯齿选项，默认值是 false。
 
-- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。
+- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
 
-- **ENABLE_MULTI_TOUCH**：是否开启多点触摸。
+- **ENABLE_MULTI_TOUCH**：是否开启多点触摸，默认开启。
 
-- **MAX_LABLE_CANVAS_POOL_SIZE**：Label 使用的 canvas pool 的最大大小，请根据项目同场景的 label 数量进行调整。
+- **MAX_LABLE_CANVAS_POOL_SIZE**：设置 Label 使用的 Canvas 对象池的最大数量，请根据项目同场景的 Label 数量进行调整。
 
 ![macro](./index/macro.png)
 
