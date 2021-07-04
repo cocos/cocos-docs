@@ -89,6 +89,6 @@ animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快�
 
 播放控制与播放状态之间的关系如下图所示：
 
-![Playback control](./playback-control.svg)
+![Playback control](./animation-state/playback-control.svg)
 
 通过动画状态可以获取到所有动画的信息，以便利用这些信息来判断需要做哪些事，更多接口请参考 [类 `AnimationState`](__APIDOC__/zh/classes/animation.animationstate-1.html)。

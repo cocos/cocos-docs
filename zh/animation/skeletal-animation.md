@@ -67,7 +67,7 @@
 
 基于 **预烘焙系统** 的框架设计，蒙皮模型的 instancing 也成为了触手可及的功能，但要保证正确性还需要收集一些比较底层的信息。
 
-这里的根本问题是，同一个 Drawcall 内的各个模型使用的骨骼贴图必须是同一张，如果不是同一张，显示效果会完全错乱。所以如何将动画数据分配到每张骨骼贴图上，就成为了一个需要用户自定义的信息，可以在编辑器菜单栏 **面板 -> 动画** 的 [骨骼贴图布局面板](../../editor/project/joint-texture-layout.md) 进行配置。
+这里的根本问题是，同一个 Drawcall 内的各个模型使用的骨骼贴图必须是同一张，如果不是同一张，显示效果会完全错乱。所以如何将动画数据分配到每张骨骼贴图上，就成为了一个需要用户自定义的信息，可以在编辑器菜单栏 **面板 -> 动画** 的 [骨骼贴图布局面板](joint-texture-layout.md) 进行配置。
 
 > **注意**：
 > 1. 只在 **预烘焙系统** 下支持 instancing。我们虽然没有严格禁止在 **实时计算框架** 下启用 instancing（只有编辑器内的警告），但动画效果一定会有问题，取决于模型实际的材质分配情况。最好的情况是不同 instance 间显示完全一致的动画，最坏情况下会导致模型完全错乱。
@@ -77,7 +77,7 @@
 
 目前底层上传 GPU 的骨骼纹理已做到全局自动合批复用，上层数据目前可以通过使用 **批量蒙皮模型组件**（BatchedSkinnedMeshRenderer）将同一个骨骼动画组件控制的所有子蒙皮模型合并：
 
-![batched-skinning-model](batched-skinning-model-component.png)
+![batched-skinning-model](./animation/batched-skinning-model-component.png)
 
 合批版 effect 书写相对复杂一点，但基本可以基于子材质使用的普通 effect，加入一些相对直接的预处理和接口改动即可。可参考在编辑器内置资源（`util/batched-unlit`）中提供的合批版 `builtin-unlit`。
 

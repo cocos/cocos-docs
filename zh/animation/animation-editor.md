@@ -47,7 +47,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 
 该区域会显示当前选中的动画节点及其子节点，并以与 **层级管理器** 中的节点树一一对应的方式排列。可点击上方的 ![hide](animation-editor/hide-node.png) 按钮来隐藏/显示无动画数据的节点，或者直接在输入框中输入节点名称来快速查找节点。
 
-目前支持右键点击节点来选择清空节点数据、迁移节点数据、复制粘贴节点数据。具体内容请参考 [节点数据常见操作](../../engine/animation/animation-clip.md)。
+目前支持右键点击节点来选择清空节点数据、迁移节点数据、复制粘贴节点数据。具体内容请参考 [节点数据常见操作](edit-animation-clip.md#%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C)。
 
 ![node operation](animation-editor/node-operation.png)
 
@@ -55,7 +55,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 
 ![animation timeline](animation-editor/animation-timeline.png)
 
-动画时间轴主要用于显示/设置当前节点添加的自定义 [事件帧](animation-event.md)、节点（及其子节点）添加的所有动画属性的 [关键帧](../../engine/animation/animation-clip.md)（蓝色菱形）并显示预览。
+动画时间轴主要用于显示/设置当前节点添加的自定义 [事件帧](animation-event.md)、节点（及其子节点）添加的所有动画属性的 [关键帧](edit-animation-clip.md)（蓝色菱形）并显示预览。
 
 时间控制线（红色竖线）表示当前动画所处的时间节点，可通过以下几种方式更改当前选中时间：
 
@@ -120,7 +120,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 
 该区域主要用于显示/添加/设置当前选中的节点在当前动画剪辑中的动画属性。点击右上角的 **+** 按钮即可添加动画属性，动画属性包括了节点自有的属性、组件属性（包含用户自定义脚本组件中的属性）。组件包含的属性前会加上组件的名字，比如 `cc.Sprite.spriteFrame`。
 
-右键点击动画属性或者单击动画属性右侧的 ![property](./animation-editor/set-pro.png) 按钮即可选择 **移除当前属性轨道**、**清空关键帧**，或者 **复制粘贴当前属性轨道**。具体内容请参考 [动画属性数据常见操作](../../engine/animation/animation-clip.md)。
+右键点击动画属性或者单击动画属性右侧的 ![property](./animation-editor/set-pro.png) 按钮即可选择 **移除当前属性轨道**、**清空关键帧**，或者 **复制粘贴当前属性轨道**。具体内容请参考 [动画属性数据常见操作](edit-animation-clip.md#%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7%E6%95%B0%E6%8D%AE%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C)。
 
 ![property operation](./animation-editor/pro-operation.png)
 
@@ -128,7 +128,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 
 ![animation property track](./animation-editor/animation-property-track.png)
 
-该区域主要用于显示当前选中节点在各个动画属性上具体的关键帧设置情况，也是关键帧编辑的主要区域。可以直接在右侧的动画属性轨道上点击右键来添加关键帧。同时在该区域也支持框选、点选关键帧来进行移动、复制、粘贴等操作。详情请参考 [关键帧常见操作](../../engine/animation/animation-clip.md)。
+该区域主要用于显示当前选中节点在各个动画属性上具体的关键帧设置情况，也是关键帧编辑的主要区域。可以直接在右侧的动画属性轨道上点击右键来添加关键帧。同时在该区域也支持框选、点选关键帧来进行移动、复制、粘贴等操作。详情请参考 [关键帧常见操作](edit-animation-clip.md#%E5%85%B3%E9%94%AE%E5%B8%A7%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C)。
 
 单击选中某一关键帧，关键帧会由蓝色变成白色并且该区域上方会显示当前关键帧的相关信息，若双击关键帧还会将时间控制线移动到当前关键帧所在位置。
 
@@ -136,7 +136,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 
 ### 6. 设置当前动画剪辑的相关属性
 
-当前动画剪辑在动画编辑器上可直接设置的属性包括：**WrapMode**、**Sample**、**Speed** 和 **Duration**。具体内容请参考 [动画剪辑属性设置](../../engine/animation/animation-clip.md)。
+当前动画剪辑在动画编辑器上可直接设置的属性包括：**WrapMode**、**Sample**、**Speed** 和 **Duration**。具体内容请参考 [动画剪辑属性设置](edit-animation-clip.md#%E5%8A%A8%E7%94%BB%E5%89%AA%E8%BE%91%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE)。
 
 ## 调整动画编辑器布局
 
