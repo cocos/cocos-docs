@@ -8,6 +8,8 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 
 **Macro Config** provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
+![macro](./index/macro.png)
+
 - **ENABLE_TILEDMAP_CULLING**: whether or not tiled map auto culling is enabled. If setting the TiledMap skew or rotation, then it is necessary to manually disable this setting, otherwise, the rendering will be wrong.
 
 - **TOUCH_TIMEOUT**: the timeout to determine whether a touch is no longer active and should be removed. This value can be modified to have a better behavior if necessary.
@@ -21,8 +23,6 @@ The **Project Settings** panel is opened by clicking on **Projects -> Project Se
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
 - **MAX_LABLE_CANVAS_POOL_SIZE**: the maximum size of the canvas pool used by Label, please adjust according to the number of label component in the same scene of the project.
-
-![macro](./index/macro.png)
 
 For more specific information and code about the engine macro module, please refer to the [**Engine Macro** source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
