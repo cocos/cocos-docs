@@ -11,17 +11,17 @@ Starting from v2.4, Creator provides a cache manager on all platforms with file 
 
 The logic of downloading resources by the engine is as follows:
 
-1. determine whether the resource is in the game package, and if so, use it directly.
+1. Determine whether the resource is in the game package, and if so, use it directly.
 
-2. if not, query whether the resource is in the local cache, and if so, use it directly.
+2. If not, query whether the resource is in the local cache, and if so, use it directly.
 
-3. if not, query if the resource is in the temporary directory, and if so, use it directly (the native platform does not have a temporary directory, skip this step).
+3. If not, query if the resource is in the temporary directory, and if so, use it directly (the native platform does not have a temporary directory, skip this step).
 
-4. if not, download the resource from the remote server and use it directly after it is downloaded to the temporary directory (the native platform downloads the resource to the cache directory).
+4. If not, download the resource from the remote server and use it directly after it is downloaded to the temporary directory (the native platform downloads the resource to the cache directory).
 
-5. the backend slowly saves the resources in the temporary directory to the local cache directory to be used when accessed again (the native platform skips this step)
+5. The backend slowly saves the resources in the temporary directory to the local cache directory to be used when accessed again (the native platform skips this step)
 
-6. the resources will fail to be saved when the cache space is full, at which point the older resources will be deleted using the LRU algorithm (the native platform has no size limit on the cache space, so skip this step, and developers can manually invoke cleanup).
+6. The resources will fail to be saved when the cache space is full, at which point the older resources will be deleted using the LRU algorithm (the native platform has no size limit on the cache space, so skip this step, and developers can manually invoke cleanup).
 
 For the mini-game platform, once the cache space is full, all the resources that need to be downloaded cannot be saved and can only be used to download the resources saved in the temporary directory. And when quitting the mini-game, all temporary directories will be cleaned up, and when running the game again, these resources will be downloaded again, and so on and so forth.
 
@@ -33,7 +33,7 @@ When the engine's **md5Cache** feature is enabled, the URL of the file will chan
 
 If you need to upload resources to a remote server, please configure the Asset Bundle where the resources are located as a remote bundle. Next, let's take the WeChat mini-game as an example and look at the specific steps.
 
-1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**, for details, please refer to the document [Configure Asset Bundle](./bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95).
+1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**, for details, please refer to the document [Configure Asset Bundle](./bundle.md#configuration).
 
     ![bundle_is_remote](./cache-manager/remote-bundle.png)
 
@@ -101,5 +101,5 @@ When the developer upgrades the engine version, the cache resources left locally
 
 1. Check the **MD5 Cache** option in the **Build** panel at build time, which will ensure that the latest version of resources is used.
 2. Manually flush the previously cache resources.
-    - Clear the cache on **real machine** with `cc.assetManager.cacheManager.clearCache()`.
-    - WeChat Little Tour in **WeChat Developer Tools** Click **Tools -> Clear Cache -> Clear All** in the menu bar to clear the cache.
+    - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on **real machine**.
+    - For WeChat Mini Game, clear the cache by clicking **Tools -> Clear Cache -> Clear All** in the menu bar in **WeChat DevTools**.

@@ -102,4 +102,4 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 1. 构建时在 **构建发布** 面板勾选 **MD5 Cache** 选项，这将确保使用最新版本的资源。
 2. 手动清空之前缓存的资源。
     - 在 **真机** 上通过 `cc.assetManager.cacheManager.clearCache()` 清空缓存。
-    - 微信小游在 **微信开发者工具** 中点击菜单栏的 **工具 -> 清除缓存 -> 全部清除** 来清空缓存。
+    - 微信小游戏在 **微信开发者工具** 中点击菜单栏的 **工具 -> 清除缓存 -> 全部清除** 来清空缓存。
