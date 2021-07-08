@@ -20,8 +20,6 @@ To start customizing the page preview, it should be noted that there are some pr
 
 ## Usage examples
 
-The following example can be found at [GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/preview-template).
-
 1. Click **Project -> Create Preview Template** in the editor main menu, the **Console** will output the message "Preview Template generated successfully" and show the path of the generated preview template.
 
 2. Add scripts like `test.js`, where `<%- include(cocosTemplate, {}) %>` contains the default start game logic, and the added scripts can be stored before/after the game logic is started as needed. The following `test.js` is loaded after the game is launched. 
@@ -46,3 +44,5 @@ The following example can be found at [GitHub](https://github.com/cocos-creator/
               |--index.ejs
               |--test.js
       ```
+
+For more details, please refer to the example [Preview Template](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/preview-template).
