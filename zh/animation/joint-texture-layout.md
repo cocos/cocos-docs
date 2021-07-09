@@ -2,7 +2,7 @@
 
 要确保 [骨骼动画](./skeletal-animation.md) 也能够完全正确地参与 [动态 Instancing](../engine/renderable/model-component.md#instancing-%E5%90%88%E6%89%B9)，需要用户手动指定每张骨骼贴图的数据分配方式。
 
-比如一个场景中要绘制大量相同的人物角色，每个角色可能在走、跳、攻击。如果希望一个 Drawcall 就能够正确完成所有角色的绘制，一个重要的前提条件是 **这三个动画（走、跳、攻击）的数据都储存在同一张骨骼贴图内**。
+比如一个场景中要绘制大量相同的人物角色，每个角色可能在走/跳/攻击。如果希望一个 Drawcall 就能够正确完成所有角色的绘制，一个重要的前提条件是 **这三个动画（走、跳、攻击）的数据都储存在同一张骨骼贴图内**。
 
 目前在默认的 [预烘焙骨骼动画模式](./skeletal-animation.md#%E9%A2%84%E7%83%98%E7%84%99%E9%AA%A8%E9%AA%BC%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F) 下，骨骼贴图已经做到全局自动复用，但每张贴图的大小和它们各储存哪些动画是不可预知的。如果不做任何处理直接开启蒙皮模型的 instancing 的话，最终的运行时效果可能会出现有的动画效果正确，有的动画效果完全错乱，并且完全无法预测。
 
@@ -14,9 +14,9 @@
 
 ## 骨骼贴图布局设置
 
-下面我们以范例工程中的 **instanced-skinning** 场景（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.0/show-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.0/show-cases)）为例，来看一下骨骼贴图布局具体的设置流程以及实际效果。
+下面我们以范例工程 **show-cases** 中的 **instanced-skinning** 场景（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.0/show-cases/assets/scenes) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.0/show-cases/assets/scenes)）为例，来看一下骨骼贴图布局具体的设置流程以及实际效果。
 
-下图中展示了一个示例场景，有多个来自同一模型的实例，同时播放完全不同的动画。这些模型使用实时计算动画模式，并没有开启 instancing。可以看到，当前场景加上 UI，总 Drawcall 为 60，instance 计数为 0。这个状态将作为后面改动的基础，对照使用。
+下图中展示了一个示例场景，有多个来自同一模型的实例，同时播放完全不同的动画。这些模型使用实时计算动画模式，并没有开启 instancing。可以看到，当前场景加上 UI，总 Drawcall 为 60，instance 计数为 0。这个状态将作为后面改动的基础，以对照使用。
 
 ![Baseline](./joint-texture-layout/instancing_baseline.gif)
 
@@ -26,7 +26,7 @@
 
     ![use baked animation](./joint-texture-layout/use-baked-animation.png)
 
-2. 对所有蒙皮模型 (SkinningModel) 使用的材质，勾选 `USE INSTANCING` 开关
+2. 对所有蒙皮模型 (SkinningModel) 使用的材质，勾选 `USE INSTANCING`
 
     ![Enabling](./joint-texture-layout/enabling_instancing.png)
 

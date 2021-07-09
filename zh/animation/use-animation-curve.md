@@ -12,9 +12,8 @@ const animationClip = new AnimationClip();
 animationClip.duration = 1.0; // 整个动画剪辑的周期，任何关键帧的帧时间都不应该大于此属性
 animationClip.keys = [ [ 0.3, 0.6, 0.9 ] ]; // 该动画剪辑所有曲线共享的帧时间
 animationClip.curves = [{ // 动画组件上的动画曲线
-    modifiers: [ // 动画曲线控制的目标对象为当前节点的
-        // 从当前节点对象寻址到目标对象。
-        // “Body” 子节点
+    modifiers: [ // 从当前节点对象寻址到目标对象。具体可查看下文“目标对象”部分的内容
+        // 目标对象为当前节点的 “Body” 子节点
         new animation.HierarchyPath('Body'),
         // “Body” 子节点上的 “MyComponent” 组件
         new animation.ComponentPath(js.getClassName(MyComponent)),
@@ -43,8 +42,8 @@ animationClip.curves = [{ // 动画组件上的动画曲线
 当目标路径是 `string` 或者 `number` 时，表示寻址到上一级对象的属性，其本身就指定了属性名。否则，目标路径必须是实现接口 `animation.TargetPath` 的对象。
 
 Cocos Creator 内置了以下几个实现自接口 `animation.TargetPath` 的类：
-- `animation.HierarchyPath` 将上一级的对象视为节点，并寻址到它的某个子节点；
-- `animation.ComponentPath` 将上一级的对象视为节点，并寻址到它的某个组件。
+- `animation.HierarchyPath` 将上一级的对象视为节点，并寻址到它的某个子节点
+- `animation.ComponentPath` 将上一级的对象视为节点，并寻址到它的某个组件
 
 目标路径可以任意组合，只要它们具有正确的含义：
 
@@ -191,6 +190,7 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 可以为每一帧指定渐变方式，也可以为所有帧指定统一的渐变方式。渐变方式可以是内置渐变方式的名称或贝塞尔控制点。
 
 以下列出了几种常用的渐变方式：
+
 - `linear`：保持原有比例，即线性渐变，当未指定渐变方式时默认使用该方式
 - `constant`：始终使用比例 0，即不进行渐变，与插值方式 `Step` 类似
 - `quadIn`：渐变由慢到快

@@ -1,6 +1,6 @@
 # 熟悉动画编辑器
 
-**动画编辑器** 面板用于编辑和预览当前所选节点的动画剪辑，编辑动画数据或者相关属性时，鼠标焦点离开后会立即生效。
+**动画编辑器** 面板用于编辑和预览当前所选节点的动画剪辑。编辑动画数据或者相关属性时，鼠标焦点离开后会立即生效。
 
 Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以通过点击编辑器上方主菜单的 **面板 -> 动画 -> 动画编辑器** 打开 **动画编辑器**。
 
@@ -34,7 +34,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 | ![stop](animation-editor/menu_stop.png) | 点击停止当前动画，停止后时间控制线将会移动到第一帧 | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
 | ![time](animation-editor/menu_time.png) | 时间轴的刻度单位显示方式，包括三种：<br>**时间：0-00**<br>**帧：0**<br>**时间（s）：0 s**<br>详情可参考下文 **时间轴的刻度单位显示** 部分的内容。 | - |
 | ![spacing](animation-editor/menu-spacing.png)| 用于设置同时生成多个关键帧时，关键帧之间的间隔大小。| - |
-| ![spacing](animation-editor/menu_spacing_btn.png) | 间隔排列同时选中的多个关键帧。选中的关键帧将会以第一个帧为基准，以 ![spacing](animation-editor/menu-spacing.png) 输入框中的数值作为间隔大小依次排列  | -  |
+| ![spacing](animation-editor/menu_spacing_btn.png) | 间隔排列同时选中的多个关键帧。选中的关键帧将会以第一个帧为基准，以 **Spacing** 输入框中的数值作为间隔大小依次排列  | -  |
 | ![add event](animation-editor/menu_event.png) | 添加事件帧，点击该按钮即可在当前时间线上方的位置添加事件帧  | - |
 | ![menu save](animation-editor/menu_save.png) | 保存当前编辑的动画数据。 | - |
 | ![menu doc](animation-editor/menu_doc.png) | 点击该按钮即可跳转到官方手册文档关于动画编辑器部分的内容 | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
@@ -62,6 +62,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 - 直接拖拽时间控制线
 - 双击关键帧
 - 在菜单工具栏中使用相关移动控制按钮
+- 使用快捷键，具体控制键可查询下文 **快捷键** 部分的内容
 - 在动画时间轴上方区域内点击任意位置
 
   ![about the timeline](animation-editor/above-timeline.png)
@@ -91,7 +92,7 @@ Cocos Creator 的默认布局中已经包含了 **动画编辑器**，也可以�
 我们一般用帧率（Sample）来表示一秒要划分为多少帧，可以在 **动画编辑器** 底部的 **Sample** 选项中进行调整。当时间轴的刻度单位显示方式不同时，受影响程度也不同。
 
 当刻度单位设置为 **帧** 时，以帧数为单位，不受帧率影响。<br>
-当设置为 **时间** 或者 **时间（s）** 时，同一个刻度表示的时间点会随着帧率的变化而有所不同，这两者之间的转换关系计算方式如下：
+当设置为 **时间** 或者 **时间（s）** 时，同一个刻度表示的时间点会随着帧率的变化而有所不同，这两者之间的转换计算方式如下：
 
 | 帧率（Sample）| 时间：00-00 | 时间（s）：0 s |
 | :-- | :--------- | :------------ |
