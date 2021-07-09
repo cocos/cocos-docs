@@ -51,6 +51,8 @@
 }
 ```
 
+hello-world:increasing 是指我们监听了一个 hello-world 上的 increasing 消息。"default.increasing" 指的是交给 default 面板的 "increasing" 方法处理。
+
 panel 字段含义可以参考 [编写面板](editor/extension/panel-boot.md)。
 
 ### 在 browser.js 里增加 increasing
