@@ -37,9 +37,6 @@
             "open-panel": {
                 "methods": ["openPanel"]
             },
-            "query-increasing": {
-                "methods": ["increasing"]
-            },
             "increasing": {
                 "methods": ["increasing"]
             },
