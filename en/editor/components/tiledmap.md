@@ -4,7 +4,7 @@ TiledMap is used to display a map in TMX format in the game.
 
 ![tiledmap-component](tiledmap/tiledmap-component.png)
 
-Click the **Add Component -> Components -> TileMap** button under the **Inspector** panel to add the TiledMap component to the node.
+Click the **Add Component -> Components -> TiledMap** button under the **Inspector** panel to add the TiledMap component to the node.
 
 ![](./tiledmap/add_tiledmap.png)
 
