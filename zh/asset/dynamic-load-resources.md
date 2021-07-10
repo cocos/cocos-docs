@@ -172,5 +172,5 @@ assetManager.loadRemote(remoteUrl, function (err, textAsset) {
 
 目前的此类手动资源加载还有一些限制，对开发者影响比较大的是：
 
-1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、Tilemap 等资源的直接加载和解析。（如需远程加载所有资源，可使用 [Asset Bundle](bundle.md))
+1. 这种加载方式只支持图片、声音、文本等原生资源类型，不支持 SpriteFrame、SpriteAtlas、TiledMap 等资源的直接加载和解析。（如需远程加载所有资源，可使用 [Asset Bundle](bundle.md))
 2. Web 端的远程加载受到浏览器的 [CORS 跨域策略限制](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，如果对方服务器禁止跨域访问，那么会加载失败，而且由于 WebGL 安全策略的限制，即便对方服务器允许 http 请求成功之后也无法渲染。
