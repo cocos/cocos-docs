@@ -16,7 +16,7 @@ project-folder
      // Other files can be added according to the preview effect you want to achieve
 ```
 
-To start customizing the page preview, it should be noted that there are some preview menu items and preview debugging tools in the preview template, so you should be careful when adding or deleting some template syntax. Random changes may cause the preview template to be unavailable. It is recommended to keep all the content injected with ejs and then add the required content on top of it. Also, if `index.html` and `index.ejs` are coexisting, **`index.html` will replace `index.ejs`** as the preview page content.
+To start customizing the page preview, it should be noted that there are some preview menu items and preview debugging tools in the preview template. Be careful when adding or deleting some template syntax. Random changes may cause the preview template to be unavailable. It is recommended to keep all the content injected with ejs and then add the required content on top of it. Also, if `index.html` and `index.ejs` are coexisting, **`index.html` will replace `index.ejs`** as the preview page content.
 
 ## Usage examples
 
