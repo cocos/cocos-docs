@@ -1,41 +1,12 @@
-# 碰撞器组件
+# 碰撞组件与基础属性
 
-当前，不同物理后端碰撞形状支持情况。
-
-| 功能特性 | builtin | cannon.js | ammo.js |
-|:--------|:--------|:----------|:--------|
-| 质心     | ✔       | ✔         | ✔       |
-| 盒、球 | ✔ | ✔ ｜ ✔ ｜
-| 胶囊 | ✔ | 可以用基础形状拼凑 ｜ ✔ ｜
-| 凸包 |  |  ｜ ✔ ｜
-| 静态地形、静态平面 |  | ✔ ｜ ✔ ｜
-| 静态网格 |  | 极其有限的支持 ｜ ✔ ｜
-| 圆锥、圆柱 |  | ✔ ｜ ✔ ｜
-| 单纯形 |  | 有限的支持 ｜ ✔ ｜
-| 复合形状 | ✔ | ✔ ｜ ✔ ｜
-| 射线检测、掩码过滤 | ✔ | ✔ ｜ ✔ ｜
-| 多步模拟、碰撞矩阵 | ✔ | ✔ ｜ ✔ ｜
-| 触发事件 | ✔ | ✔ ｜ ✔ ｜
-| 自动休眠 |  | ✔ ｜ ✔ ｜
-| 碰撞事件、碰撞数据 |  | ✔ ｜ ✔ ｜
-| 物理材质 |  | ✔ | ✔ |
-| 静态、运动学 | ✔ | ✔ | ✔ |
-| 动力学 |  | ✔ | ✔ |
-| 点对点、铰链约束（实验） |  | ✔ | ✔ |
-| wasm |  |  | ✔ |
-
-## 碰撞器组件 Collider
-
-碰撞器组件用于表示刚体的碰撞体形状，不同的几何形状拥有不同的属性。碰撞器组件分为一下几种：
-1. [盒碰撞器组件 BoxCollider](#盒碰撞器组件-BoxCollider)。
-2. [球碰撞器组件 SphereCollider](#球碰撞器组件-SphereCollider)。
-3. [圆柱碰撞器组件 CylinderCollider](#圆柱碰撞器组件-CylinderCollider)。
-4. [胶囊碰撞器组件 CapsuleCollider](#胶囊碰撞器组件-CapsuleCollider)。
-5. [圆锥碰撞器组件 ConeCollider](#圆锥碰撞器组件-ConeCollider)。
-6. [平面碰撞器组件 PlaneCollider](#平面碰撞器组件-PlaneCollider)。
-7. [网格碰撞器组件 MeshCollider](#网格碰撞器组件-MeshCollider)。
-8. [单纯形碰撞器组件 SimplexCollider](#单纯形碰撞器组件-SimplexCollider)。
-9. [地形碰撞器组件 TerrainCollider](#地形碰撞器组件-TerrainCollider)。
+碰撞器组件用于表示刚体的碰撞体形状，不同的几何形状拥有不同的属性。碰撞体通常分为以下几种：
+1. 常规碰撞体。常见的包含 [盒](#盒碰撞器组件-BoxCollider)、[球](#球碰撞器组件-SphereCollider)、[圆柱](#圆柱碰撞器组件-CylinderCollider)、[圆锥](#圆锥碰撞器组件-ConeCollider)、[胶囊](#胶囊碰撞器组件-CapsuleCollider) 碰撞体。
+2. 复合碰撞体。可以通过在一个节点身上添加多个碰撞组件简易模拟游戏对象形状，同时保持较低的性能开销。
+3. [网格碰撞体](#网格碰撞器组件-MeshCollider)。根据物体网格信息生成碰撞体，完全的贴合网格。
+4. [单纯形碰撞体](#单纯形碰撞器组件-SimplexCollider)。提供点、线、三角面、四面体碰撞。
+5. [平面碰撞体](#平面碰撞器组件-PlaneCollider)。可以代表无限平面或半空间。这个形状只能用于静态的、非移动的物体。
+6. [地形碰撞体](#地形碰撞器组件-TerrainCollider)。一种用于凹地形的特殊支持。
 
 共有属性部分：
 
@@ -45,8 +16,9 @@
 | **Material** | 碰撞器所使用的物理材质，未设置时为默认值 |
 | **IsTrigger** | 是否为 [触发器](physics-event.md)，触发器不会产生物理反馈 |
 
-> **注意**：
-> 1. 使用 [builtin](physics-item.md#builtin) 作为物理引擎时，碰撞体组件只支持盒、球、胶囊体。
+> **注意**：在使用碰撞体前请先查阅 [不同物理后端碰撞形状支持情况](physics-item.md#不同物理后端碰撞形状支持情况)，确保当前使用的物理引擎支持。
+
+## 碰撞组件
 
 ### 盒碰撞器组件 BoxCollider
 
@@ -70,19 +42,6 @@
 
 球碰撞器组件接口请参考 [SphereCollider API](__APIDOC__/zh/classes/physics.spherecollider.html)。
 
-### 圆柱碰撞器组件 CylinderCollider
-
-![圆柱碰撞器组件](img/collider-cylinder.jpg)
-
-| 属性 | 说明 |
-| :---|:--- |
-| **Center**  | 在本地坐标系中，形状的中心位置 |
-| **Radius** | 在本地坐标系中，圆柱体上圆面的半径 |
-| **Height** | 在本地坐标系中，圆柱体在相应轴向的高度 |
-| **Direction** | 在本地坐标系中，圆柱体的朝向 |
-
-圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/classes/physics.cylindercollider.html)。
-
 ### 胶囊碰撞器组件 CapsuleCollider
 
 > **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球体和圆柱拼凑。
@@ -98,7 +57,20 @@
 
 胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/classes/physics.capsulecollider.html)。
 
-### 圆锥碰撞器组件 ConeCollider
+## 圆柱碰撞器组件 CylinderCollider
+
+![圆柱碰撞器组件](img/collider-cylinder.jpg)
+
+| 属性 | 说明 |
+| :---|:--- |
+| **Center**  | 在本地坐标系中，形状的中心位置 |
+| **Radius** | 在本地坐标系中，圆柱体上圆面的半径 |
+| **Height** | 在本地坐标系中，圆柱体在相应轴向的高度 |
+| **Direction** | 在本地坐标系中，圆柱体的朝向 |
+
+圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/classes/physics.cylindercollider.html)。
+
+## 圆锥碰撞器组件 ConeCollider
 
 ![圆锥碰撞器组件](img/collider-cone.jpg)
 
@@ -187,7 +159,7 @@ import { BoxCollider } from 'cc'
 const boxCollider = this.node.getComponent(BoxCollider);
 ```
 
-## 共有属性介绍
+## 基础属性介绍
 
 ### IsTrigger 是否为触发器
 
