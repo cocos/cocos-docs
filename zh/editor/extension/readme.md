@@ -4,7 +4,7 @@
 
 - [第一个扩展包](./first.md)
 - [第一个面板](./first-panel.md)
-- [第一个次数据交互](./first-communication.md)
+- [第一次数据交互](./first-communication.md)
 - [安装与分享](./install.md)
 - [扩展包定义](./define.md)
 - [扩展面板](./panel.md)
